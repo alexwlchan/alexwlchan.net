@@ -5,7 +5,7 @@
   }
 }
 
-.post__meta {
+.post__meta, .page__meta {
   margin-top: -10px;
   &, a, a:visited {
     color: $accent-grey;
