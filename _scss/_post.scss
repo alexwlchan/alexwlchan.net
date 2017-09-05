@@ -1,0 +1,20 @@
+.continue_reading {
+  font-weight: bold;
+  &::after {
+    content: "\a0→";
+  }
+}
+
+.post__meta {
+  margin-top: -10px;
+  &, a, a:visited {
+    color: $accent-grey;
+  }
+  font-size: $meta-font-size;
+  .post__permalink a {
+    &, &:visited {
+      color: $primary-color;
+    }
+    text-decoration: none;
+  }
+}

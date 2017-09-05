@@ -1,0 +1,61 @@
+// Used for bits of CSS that are used as one-offs.  Thanks to CSS slimming,
+// this doesn't adversely affect the rest of the site! :D
+
+// Used in /2017/01/experiments-with-ao3-and-python/
+.ao3_error {
+  margin: .643em auto;
+  padding: .25em .375em;
+  border-radius: .25em;
+  background: #efd1d1;
+  box-shadow: 1px 1px 2px;
+  border: 1px solid $brand__ao3;
+  color: $brand__ao3;
+  font-size: .85em;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'GNU Unifont', Verdana, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+// Used in /2014/11/ranged-strings/
+.exampleurl { padding-left: 30px; }
+
+// Used in /2014/09/new-standing-desk
+#pricelist {
+  padding-left: 20px;
+}
+
+.price {
+  float: right;
+  font-weight: bold;
+  margin-left: 50px;
+  &:before {
+    content: "£";
+  }
+}
+
+// Used in /2015/09/effective-python/
+.book_review {
+  max-width: 180px;
+  float: right;
+  padding: $default-padding * 0.5;
+  padding-left: 15px;
+  margin-top: -100px;
+}
+
+// Used in /2015/09/spotlight-suggestions/
+.two_up {
+  max-width: 40%;
+  display: inline;
+}
+.two_up.left {
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .two_up {
+    max-width: 48%;
+  }
+
+  .caption {
+    max-width: 96%;
+  }
+}

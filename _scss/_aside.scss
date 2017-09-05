@@ -1,10 +1,3 @@
----
----
-
-@import "_settings.scss";
-@import "_functions.scss";
-@import "_mixins.scss";
-
 aside {
   background: url('/assets/specktre_#{colorToHexString($primary-color)}.png') $primary-color;
   background-size: auto 100%;

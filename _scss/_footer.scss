@@ -1,0 +1,44 @@
+footer {
+  border-top: 1px solid $light-grey;
+  padding-top:    15px;
+  padding-bottom: 15px;
+}
+
+#footer_inner {
+  @include central_element();
+
+  font-size: $meta-font-size;
+  &, a, a:visited {
+    color: $accent-grey;
+  }
+
+  #contact_links, ul.dot_list {
+    display: inline-block;
+  }
+
+  p:first-child {
+    margin-bottom: 0px;
+  }
+
+  // These definitions have to live in the #footer_inner block so they
+  // override the a:visited style defined above.
+  #footer__jekyll:hover {
+    color: $jekyll-red;
+  }
+
+  #footer__linode:hover {
+    color: $linode-green;
+  }
+
+  #footer__email:hover {
+    color: $primary-color;
+  }
+
+  #footer__github:hover {
+    color: $github-grey;
+  }
+
+  #footer__twitter:hover {
+    color: $twitter-blue;
+  }
+}

@@ -1,0 +1,42 @@
+code, pre {
+  background-color: $light-grey;
+  font-family: $mono-font;
+  font-size: 1em * $code-scaling-factor;
+  overflow-x: auto;
+}
+
+code {
+  margin: 2px;
+  padding: 1.5px 3px;
+}
+
+pre {
+  padding: $default-padding / 2;
+  line-height: $line-height * $code-scaling-factor * 1.05;
+  border-left: 5px solid $midtone-gray;
+
+  // This ensures that code blocks don't get blown up to big sizes
+  // on iPhone displays.
+  -webkit-text-size-adjust: 100%;
+}
+
+.codehilitetable {
+  border-collapse: collapse;
+  td {
+    padding: 0px;
+    pre {
+      margin-top:    0px;
+      margin-bottom: 0px;
+    }
+  }
+  .code {
+    width: 100%;
+    pre {
+      border: none;
+    }
+  }
+  .linenodiv pre {
+    color: $accent-grey;
+    @include disable_select();
+  }
+}

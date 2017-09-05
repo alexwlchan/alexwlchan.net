@@ -1,0 +1,93 @@
+/// This file contains basic styles for body text on the site.
+///
+/// It applies across both pages and posts.  This file should not contain
+/// styles about page layout or positioning.
+
+body {
+  font: 12pt $main-font-family;
+  line-height: $line-height;
+  color: $body-color;
+	hanging-punctuation: first;
+}
+
+a {
+  color: $primary-color;
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    color: $primary-dark;
+  }
+}
+
+h1 {
+  color: $primary-color;
+}
+
+h2 {
+  line-height: $line-height;
+  padding-top: $default-padding / 2;
+}
+
+blockquote {
+  border-left: 5px solid $midtone-gray;
+  background-color: $light-grey;
+  margin-left:  0px;
+  margin-right: 0px;
+  padding: 1px $default-padding * 0.75;
+  font-size: 0.95em;
+  code, pre {
+    background-color: #ddd;
+  }
+  pre {
+    border-color: #aaa;
+  }
+  line-height: $line-height * 0.95;
+}
+
+// These rules help with the positioning of footnote markers, although
+// I'm not entirely sure how they work.
+sup, sub {
+  vertical-align: 0ex;
+  position: relative;
+}
+
+sub {
+  top: 0.8ex;
+}
+
+sup {
+  bottom: 1ex;
+}
+
+.footnote {
+  font-size: 1em * $scaling-factor;
+  line-height: $line-height * $scaling-factor;
+}
+
+.title {
+  font-size: 1.8em;
+  line-height: 1.45em;
+  a {
+    text-decoration: none;
+  }
+  &.linkpost_title {
+    font-size: 1.17em;
+    line-height: 1.35em;
+    padding-top: 12px;
+    a {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &::after {
+      content: "\a0→";
+      color: $accent-grey;
+    }
+  }
+  a:visited {
+    color: $primary-color;
+  }
+  margin-bottom: -10px;
+}
