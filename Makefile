@@ -21,5 +21,9 @@ serve: .docker/build
 		--tty $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
+publish: specktre-assets build
 
-.PHONY: clean build watch serve
+
+.PHONY: clean build watch serve publish
+
+include _specktre/Makefile
