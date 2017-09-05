@@ -22,3 +22,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jekyll-paginate-v2'
+gem 'pygments.rb'
