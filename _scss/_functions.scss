@@ -1,0 +1,17 @@
+/// Convert a decimal number to a two-digit hex string.
+@function decToHex($dec) {
+  $hex: "0123456789ABCDEF";
+  $first: (($dec - $dec % 16)/16) + 1;
+  $second: ($dec % 16) + 1;
+  @return str-slice($hex, $first, $first) + str-slice($hex, $second, $second);
+}
+
+/// Convert a color to a hex string, omitting the leading hash.
+///
+/// For example, #d009dc would become 'd009dc'.
+@function colorToHexString($color) {
+  $red_hex: decToHex(red($color));
+  $green_hex: decToHex(green($color));
+  $blue_hex: decToHex(blue($color));
+  @return to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
+}

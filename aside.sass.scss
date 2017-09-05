@@ -2,11 +2,12 @@
 ---
 
 @import "_settings.scss";
+@import "_functions.scss";
 @import "_mixins.scss";
 
 aside {
-  background: red;
-  background-side: auto 100%;
+  background: url('/assets/specktre_#{colorToHexString($primary-color)}.png') $primary-color;
+  background-size: auto 100%;
 
   #aside_inner {
     @include central_element();
