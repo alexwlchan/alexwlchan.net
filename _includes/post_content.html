@@ -43,7 +43,7 @@
     {{ splitcontent.first }}
 
     {% if post.content contains '<!-- summary -->' %}
-    <p><a href="/{{ post.url | relative_url }}">Read more &rarr;</a></p>
+    <p><a href="{{ post.url | relative_url }}">Read more &rarr;</a></p>
     {% endif %}
 
   {% else %}
