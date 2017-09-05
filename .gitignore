@@ -1,2 +1,6 @@
 .sass-cache
 _site
+
+.docker
+
+.DS_Store
