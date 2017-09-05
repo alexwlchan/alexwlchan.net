@@ -24,6 +24,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+date_format: "%-d %B %Y"
+
 permalink: "/:year/:month/:title/"
 
 pagination:
@@ -37,6 +39,10 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
+
+# TODO: Is this doing what I expect?
+liquid:
+  error_mode: strict
 
 # Exclude from processing.
 exclude:

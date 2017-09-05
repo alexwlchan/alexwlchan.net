@@ -1,0 +1,52 @@
+<article class="post">
+  <h1 class="title post__title{% if post.link %} linkpost_title{% endif %}">
+    {% if post.link %}
+      <a href="{{ post.link }}">
+    {% else %}
+      <a href="{{ post.url | relative_url }}">
+    {% endif %}
+    {{ post.title | escape }}</a>
+  </h1>
+
+  <div class="post__meta">
+    <ul class="dot_list">
+      <li class="post__date">Posted on {{ post.date | date: site.date_format }}</li>
+
+      {% assign tag_count = post.tags.size %}
+
+      {% if tag_count > 0 %}
+      <li class="post__tags">Tagged with
+
+        {% assign sorted_tags = post.tags | sort %}
+
+        {% comment %}
+          Fill in a comma-separated list of tags, ensuring that the last
+          tag isn't followed by a comma.
+        {% endcomment %}
+
+        {% for tag in sorted_tags %}
+          <a href="/tag/{{ tag }}/" class="tag_{{ tag }}">{{ tag }}</a>{% if forloop.index != tag_count %}, {% endif %}
+        {% endfor %}</li>
+      {% endif %}
+
+      {% if post.link %}
+      <li class="post__permalink"><a href="{{ post.url | relative_url }}">&infin;</a></li>
+      {% endif %}
+
+    </ul>
+  </div>
+
+  {% assign is_index = is_index | default: false %}
+
+  {% if is_index %}
+    {% assign splitcontent = post.content | split: '<!-- summary -->' %}
+    {{ splitcontent.first }}
+
+    {% if post.content contains '<!-- summary -->' %}
+    <p><a href="/{{ post.url | relative_url }}">Read more &rarr;</a></p>
+    {% endif %}
+
+  {% else %}
+    {{ post.content }}
+  {% endif %}
+</article>
