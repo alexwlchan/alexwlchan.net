@@ -1,0 +1,24 @@
+$primary-color: #d01c11;
+$primary-dark:  darken($primary-color, 10%);
+
+$main-font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+$mono-font:        Menlo, Consolas, monospace;
+
+$body-color:   #202020;
+$accent-grey:  #999;
+$light-grey:   #eee;
+$midtone-gray: #ccc;
+
+$default-font-size: 1em;
+$line-height:       1.4em;
+
+$meta-size: 0.85;
+$meta-font-size:   $meta-size * $default-font-size;
+$meta-line-height: $meta-size * $line-height * 1.1;
+
+$max-width:       750px !default;
+$default-padding: 20px !default;
+$big-font-size:   2em !default;
+
+$scaling-factor: 0.9;
+$code-scaling-factor: $scaling-factor;

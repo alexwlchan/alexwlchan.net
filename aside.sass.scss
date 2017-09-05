@@ -1,0 +1,34 @@
+---
+---
+
+@import "_settings.scss";
+@import "_mixins.scss";
+
+aside {
+  background: red;
+  background-side: auto 100%;
+
+  #aside_inner {
+    @include central_element();
+
+    &, a, a:visited {
+      color: white;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+
+    #brand {
+      margin-bottom: -5px;
+      a {
+        text-decoration: none;
+      }
+    }
+
+    #aside_links ul {
+      padding-top:    0px;
+      padding-bottom: 0px;
+      margin-bottom:  10px;
+    }
+  }
+}
