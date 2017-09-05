@@ -1,0 +1,9 @@
+.update {
+  border-color: $primary-color;
+  background: none;
+  font-size: 1em;
+  line-height: $line-height;
+  code {
+    background-color: $light-grey;
+  }
+}

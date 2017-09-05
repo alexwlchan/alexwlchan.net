@@ -1,0 +1,135 @@
+// Copied directly from social_embeds
+
+.tweet {
+  display: block;
+  background: 0 0;
+  font: normal normal 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+  color: #1c2022;
+  white-space: normal;
+  white-space: initial;
+
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+  max-width: 460px;  /* 500px - 20px on either side */
+
+  padding: 20px;
+
+  a,
+  a:visited,
+  a:active {
+    color: #2b7bb9;
+    text-decoration: none;
+  }
+  a:focus,
+  a:hover {
+    color: #3b94d9;
+  }
+  a:focus {
+    text-decoration: underline;
+  }
+
+  .screen_name {
+    font-size: 14px;
+    color: #697882;
+  }
+  .screen_name:before {
+    white-space: pre;
+    content: "\A"; /*\200e";*/
+  }
+
+  .name {
+    font-weight: 700;
+  }
+
+  .text+.metadata {
+    margin-top: 3.2px;
+  }
+
+  .metadata {
+    font-size: 14px;
+    color: #697882;
+  }
+
+  .text {
+    white-space: normal;
+    cursor: text;
+  }
+
+  .body {
+    margin-top: 14px;
+  }
+
+  .author {
+    margin-top: 2px;
+    line-height: 0;
+    max-width: 100%;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    white-space: nowrap!important;
+    word-wrap: normal!important;
+    .link {
+      line-height: 1.2;
+    }
+    .avatar {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      overflow: hidden;
+      background-color: transparent;
+      border-radius: 4px;
+      img {
+        max-width:  100%;
+        max-height: 100%;
+      }
+    }
+  }
+
+  .header {
+    position: relative;
+    padding-left: 45px;
+    white-space: nowrap;
+  }
+
+  .link_blend:not(:focus):not(:hover):not(:active) {
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  blockquote,
+  p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+  }
+
+  img.media {
+    margin-left: -20px;
+    margin-top:  -20px;
+    margin-bottom: 20px;
+    width: calc(100% + 40px);
+    max-width: calc(100% + 40px);
+    border-bottom: 1px solid #e1e8ed;
+  }
+}
+
+.tweet:hover {
+  border-color: #ccd6dd;
+}
+
+// End copied content
+
+.tweet {
+  blockquote {
+    background: none;
+  }
+  margin-left:  auto;
+  margin-right: auto;
+}

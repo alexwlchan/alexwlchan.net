@@ -1,0 +1,12 @@
+figure {
+  @include centred(100%);
+}
+
+figcaption {
+  &, a, a:visited {
+    color: $accent-grey;
+  }
+  font-size: $meta-font-size;
+  margin-top: 8px;
+  line-height: $meta-line-height;
+}

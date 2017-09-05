@@ -1,0 +1,36 @@
+body {
+  margin:  0;
+  padding: 0;
+}
+
+article {
+  @include central_element();
+  padding-top:    3px;
+  padding-bottom: 15px;
+}
+
+.dot_list {
+  list-style-type: none;
+  padding-left: 0px !important;
+
+  // Ensure they all display in a line
+  li {
+    display: inline-block;
+    &:not(:first-child)::before {
+      content: " · ";
+    }
+  }
+}
+
+hr {
+  background-color: $light-grey;
+  height: 1px;
+  border: 0px;
+}
+
+// Images never expand beyond the article bounds, and are centred when
+// they're too small.
+img, video {
+  @include centred(100%);
+  display: block;
+}

@@ -1,46 +1,18 @@
-<footer class="site-footer">
+<footer>
+  <div id="footer_inner">
+    <p>
+      Copyright &copy; 2012&ndash;17 Alex Chan.
+      Built with <a href="https://jekyllrb.com/" id="footer__jekyll">Jekyll</a>.
+      Hosted on <a href="https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3" id="footer__linode">Linode</a>.
+    </p>
 
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>
-            {% if site.author %}
-              {{ site.author | escape }}
-            {% else %}
-              {{ site.title | escape }}
-            {% endif %}
-            </li>
-            {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
-      </div>
-    </div>
-
+    <p id="contact_links">
+      Get in touch:&nbsp;
+      <ul class="dot_list">
+        <li><a id="footer__email" href="&#x6D;&#97;&#105;&#x6C;&#x74;&#111;:&#x61;&#108;&#x65;&#x78;&#64;&#97;&#x6C;&#x65;&#x78;&#x77;&#108;&#x63;&#104;&#97;n&#x2E;&#110;&#101;&#x74;">email</a></li>
+        <li><a id="footer__github" href="https://github.com/alexwlchan">github</a></li>
+        <li><a id="footer__twitter" href="https://twitter.com/alexwlchan">twitter</a></li>
+      </ul>
+    </p>
   </div>
-
 </footer>
