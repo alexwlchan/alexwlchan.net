@@ -7,7 +7,7 @@ code, pre {
 
 code {
   margin: 2px;
-  padding: 1.5px 3px;
+  padding: 3px 3px;
 }
 
 pre {
@@ -18,6 +18,12 @@ pre {
   // This ensures that code blocks don't get blown up to big sizes
   // on iPhone displays.
   -webkit-text-size-adjust: 100%;
+
+  // This ensures the first line of <pre> blocks doesn't have a funny indent
+  code {
+    margin: 0px;
+    padding-left: 0px;
+  }
 }
 
 .codehilitetable {
