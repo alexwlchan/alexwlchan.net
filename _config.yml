@@ -24,11 +24,19 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+permalink: "/:year/:month/:title/"
+
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: "/page/:num/"
+
 # Build settings
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate-v2
 
 # Exclude from processing.
 exclude:
