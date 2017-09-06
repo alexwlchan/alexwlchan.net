@@ -1,6 +1,5 @@
 -  Tests for tag pagination
 -  Redirect `/:tag/1/` to `/:tag/`
--  Pagination links
 -  Numbered code blocks
 -  Tweets
 -  Link checking?
@@ -10,3 +9,8 @@
 -  social sharing
 -  year archives
 -  themes
+-  favicons
+-  syntax highlighting?
+-  link posts
+
+-  Pagination links

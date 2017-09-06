@@ -1,0 +1,17 @@
+{% if paginator.total_pages > 1 %}
+<hr/>
+<div id="pagination">
+  <ul>
+    <li id="pagination__newer">
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}">&larr; Newer posts</a>
+      {% endif %}
+    </li>
+
+    <li id="pagination__older">
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}">Older posts &rarr;</a>
+      {% endif %}
+    </li>
+</div>
+{% endif %}
