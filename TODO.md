@@ -6,3 +6,7 @@
 -  Link checking?
 -  a11y
 -  migrate pages
+-  rss feeds?
+-  social sharing
+-  year archives
+-  themes
