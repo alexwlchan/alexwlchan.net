@@ -35,7 +35,6 @@ pagination:
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate-v2
