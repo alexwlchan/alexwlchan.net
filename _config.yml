@@ -40,7 +40,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate-v2
 
-highlighter: pygments
+highlighter: rouge
 
 # TODO: Is this doing what I expect?
 liquid:
