@@ -8,3 +8,5 @@ layout: default
   {% include post_content.html %}
   {% if forloop.index != paginator.posts.size %}<hr/>{% endif %}
 {% endfor %}
+
+{% include pagination.html %}
