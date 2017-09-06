@@ -1,0 +1,8 @@
+-  Tests for tag pagination
+-  Redirect `/:tag/1/` to `/:tag/`
+-  Pagination links
+-  Numbered code blocks
+-  Tweets
+-  Link checking?
+-  a11y
+-  migrate pages
