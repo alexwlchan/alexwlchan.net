@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article class="index__title">
+  <h2>{{ page.title | escape }}</h2>
+</article>
+
+<hr/>
+
+{% assign is_index = true %}
+
+{% for post in paginator.posts %}
+  {% include post_content.html %}
+  {% if forloop.index != paginator.posts.size %}<hr/>{% endif %}
+{% endfor %}
