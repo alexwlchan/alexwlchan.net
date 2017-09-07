@@ -1,3 +1,19 @@
+# This is a plugin for embedding tweets that avoids using Twitter's native
+# embedding.  Rendering tweets as static HTML reduces page weight, load times,
+# and is resilient against tweets being deleted.
+#
+# Auth is with a set of Twitter API keys, in a file `_tweets/auth.yml` in
+# in the root of your Jekyll site.  The file should have four lines:
+#
+#     consumer_key: "<CONSUMER_KEY>"
+#     consumer_secret: "<CONSUMER_SECRET>"
+#     access_token: "<ACCESS_TOKEN>"
+#     token_secret: "<TOKEN_SECRET>"
+#
+# Don't check in this auth file!
+#
+# Tweet data will be cached in `_tweets` -- you can check in these files.
+
 require 'fileutils'
 require 'json'
 require 'open-uri'
