@@ -13,6 +13,12 @@
 # Don't check in this auth file!
 #
 # Tweet data will be cached in `_tweets` -- you can check in these files.
+#
+# To embed a tweet, place a Liquid tag of the following form anywhere in a
+# source file:
+#
+#     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
+#
 
 require 'fileutils'
 require 'json'
