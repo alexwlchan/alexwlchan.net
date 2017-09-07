@@ -11,19 +11,18 @@
 # Site settings
 title: alexwlchan
 email: alex@alexwlchan.net
+author: "Alex Chan"
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-url: "https://alexwlchan.net/"
+url: "https://alexwlchan.net"
 
 social:
   github: "alexwlchan"
   twitter: "alexwlchan"
   linode_referral: "ba2e6ce21e0c63952a7c74967ea0b96617bd44a3"
 
-feed:
-  path: feeds/all.atom.xml
 
 date_format: "%-d %B %Y"
 

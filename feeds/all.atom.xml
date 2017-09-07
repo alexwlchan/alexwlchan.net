@@ -1,0 +1,29 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <link href="{{ site.url }}/feeds/all.atom.xml" rel="alternate"/>
+  <id>{{ site.url }}/feeds/all.atom.xml</id>
+  <updated>{{ updated_date }}</updated>
+  <author>
+    <name>{{ site.author }}</name>
+    <email>{{ site.email }}</email>
+  </author>
+  {%- for post in site.posts %}
+  <entry>
+    <title><![CDATA[{{ post.title }}]]></title>
+    <link href="{{ site.url }}{{ post.url }}" rel="alternate"/>
+    <published>{{ post.date | date: "%a, %-d %b %Y %T %z" }}</published>
+    {%- if post.updated %}
+    <updated>{{ post.updated | date: "%a, %-d %b %Y %T %z" }}</updated>
+    {% endif -%}
+    <id>{{ post|atom_id }}</id>
+    {%- if post.summary %}
+    <summary type="html"><![CDATA[{{ post.summary  }}]]></summary>
+    {% endif -%}
+    <content type="html"><![CDATA[{{ post.content }}]]></content>
+  </entry>
+  {%- endfor %}
+</feed>
