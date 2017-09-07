@@ -36,7 +36,6 @@ pagination:
 # Build settings
 markdown: kramdown
 plugins:
-  - jekyll-feed
   - jekyll-paginate-v2
 
 highlighter: rouge
