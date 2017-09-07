@@ -37,6 +37,7 @@ pagination:
 markdown: kramdown
 plugins:
   - jekyll-paginate-v2
+  - octopress-minify-html
 
 highlighter: rouge
 
