@@ -12,6 +12,9 @@ apk update
 apk add build-base libffi-dev ruby ruby-dev ruby-irb ruby-rdoc
 gem install bundler jekyll
 
+# Other dependencies for gems
+apk add nodejs
+
 # Fixes an issue where bundler complains about running as root.
 # In Docker, that doesn't matter!
 # https://github.com/docker-library/rails/issues/10

@@ -16,7 +16,7 @@
   max-width: 460px;  /* 500px - 20px on either side */
 
   padding: 20px;
-  padding-bottom: 18px;
+  padding-bottom: 14px;
 
   a,
   a:visited,
@@ -79,11 +79,11 @@
       display: inline-block;
       top: 0;
       left: 0;
-      width: 36px;
+      width:  36px;
       height: 36px;
       overflow: hidden;
       background-color: transparent;
-      border-radius: 4px;
+      border-radius: 50%;
       img {
         max-width:  100%;
         max-height: 100%;
