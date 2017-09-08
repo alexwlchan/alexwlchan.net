@@ -18,19 +18,4 @@ cache:
   - "/home/travis/docker/"
 
 script:
-    - make $TASK
-
-matrix:
-    fast_finish: true
-
-notifications:
-  email:
-    recipients:
-      - david@drmaciver.com
-    on_success: never
-    on_failure: change
-
-addons:
-  apt:
-    packages:
-      - libgmp-dev
+  - .travis/run.sh
