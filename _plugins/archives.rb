@@ -22,27 +22,17 @@
 
 module Jekyll
 
-  module ArchiveUtil
-    def self.archive_base(site, variant)
-      key = "#{variant}_archive"
-      site.config[key] && site.config[key]['path'] || ''
-    end
-
-    def self.archive_layout(site, variant)
-      key = "#{variant}_archive"
-      site.config[key] && site.config[key]['layout'] || key
-    end
-  end
-
   class MonthlyArchiveGenerator < Generator
     def generate(site)
       posts_group_by_year_and_month(site).each do |ym, posts|
         year, month = ym
         site.pages << ArchivePage.new(
           site = site,
-          date = Date.new(year, month),
+          posts = posts,
           variant = "monthly",
-          posts = posts
+          archive_dir_name = "%04d/%02d" % [year, month],
+          title = "Posts from #{Date.new(year, month).strftime("%B %Y")}",
+          date = Date.new(year, month)
         )
       end
     end
@@ -57,15 +47,29 @@ module Jekyll
       posts_group_by_year(site).each do |y, posts|
         site.pages << ArchivePage.new(
           site = site,
-          date = Date.new(y),
+          posts = posts,
           variant = "yearly",
-          posts = posts
+          archive_dir_name = "%04d" % y,
+          title = "Posts from #{Date.new(y).strftime("%Y")}",
+          date = Date.new(y)
         )
       end
     end
 
     def posts_group_by_year(site)
       site.posts.docs.reverse_each.group_by { |post| post.date.year }
+    end
+  end
+
+  class GlobalArchiveGenerator < Generator
+    def generate(site)
+      site.pages << ArchivePage.new(
+        site = site,
+        posts = site.posts.docs,
+        variant = "global",
+        archive_dir_name = "archive",
+        title = "All posts"
+      )
     end
   end
 
@@ -77,33 +81,27 @@ module Jekyll
       date
     ]
 
-    def initialize(site, date, variant, posts)
+    def initialize(site, posts, variant, archive_dir_name, title, date = Date.today)
       @site = site
-      @dir = ArchiveUtil.archive_base(site, variant)
+      @dir = ""
+
+      @archive_dir_name = archive_dir_name
+      @date = date
       @year = date.year
       @month = date.month
 
-      @date = date
-      @layout = ArchiveUtil.archive_layout(site, variant)
       self.ext = '.html'
       self.basename = 'index'
 
-      if variant == "yearly"
-        @archive_dir_name = "%04d" % date.year
-        title = "Posts from #{@date.strftime("%Y")}"
-      elsif variant == "monthly"
-        @archive_dir_name = "%04d/%02d" % [date.year, date.month]
-        title = "Posts from #{@date.strftime("%B %Y")}"
-      end
-
       self.data = {
-          'layout' => @layout,
-          'type' => 'archive',
-          'title' => title,
-          'posts' => posts,
-          'year' => @year,
-          'month' => @month,
-          'url' => File.join('/', @dir, @archive_dir_name, 'index.html')
+        'layout' => "archive",
+        'type' => 'archive',
+        'title' => title,
+        'posts' => posts,
+        'year' => @year,
+        'month' => @month,
+        'archive_variant' => variant,
+        'url' => File.join('/', @dir, @archive_dir_name, 'index.html')
       }
     end
 
@@ -125,33 +123,6 @@ module Jekyll
 
     def destination(dest)
       File.join('/', dest, @dir, @archive_dir_name, 'index.html')
-    end
-  end
-
-  class MonthlyArchivePage < ArchivePage
-
-    def initialize(site, dir, year, month, posts)
-
-      @site = site
-      @dir = dir
-      @year = year
-      @month = month
-      @archive_dir_name = '%04d/%02d' % [year, month]
-      @date = Date.new(@year, @month)
-      @layout = ArchiveUtil.archive_layout(site, "monthly")
-      self.ext = '.html'
-      self.basename = 'index'
-
-      self.data = {
-          'layout' => @layout,
-          'type' => 'archive',
-          'title' => "Posts from #{@date.strftime("%B %Y")}",
-          'posts' => posts,
-          'year' => @year,
-          'url' => File.join('/',
-                     ArchiveUtil.archive_base(site, "monthly"),
-                     @archive_dir_name, 'index.html')
-      }
     end
   end
 end
