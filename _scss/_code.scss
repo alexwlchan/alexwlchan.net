@@ -26,23 +26,36 @@ pre {
   }
 }
 
-.codehilitetable {
-  border-collapse: collapse;
+figure.highlight > pre,
+figure.highlight > pre > code {
+  background: none;
+  border-left: none;
+  padding: 0px;
+}
+
+figure.highlight > pre {
+  font-size: 1em;
+}
+
+figure.highlight {
   td {
+    margin: 0px;
     padding: 0px;
     pre {
       margin-top:    0px;
       margin-bottom: 0px;
     }
   }
-  .code {
-    width: 100%;
-    pre {
-      border: none;
-    }
-  }
-  .linenodiv pre {
+
+  pre.lineno {
     color: $accent-grey;
     @include disable_select();
+  }
+
+  td.code {
+    pre {
+      border-left: none;
+    }
+    width: 100%;
   }
 }
