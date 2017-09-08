@@ -5,6 +5,7 @@ set -o nounset
 
 # Start serving the site in the background
 trap make stop exit
+echo "*** Starting the development server"
 make serve
 
 # Wait for the server to become available
@@ -31,5 +32,5 @@ set -o errexit
 
 sleep 40
 
-# Now run the link checker tests
+echo "*** Running the server tests"
 py.test _tests
