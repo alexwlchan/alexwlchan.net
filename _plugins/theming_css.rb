@@ -14,6 +14,5 @@ EOT
 ) }
       puts(mainfile)
     end
-    puts(post["theme"])
   end
 end
