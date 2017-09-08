@@ -65,7 +65,7 @@ module Jekyll
     def generate(site)
       site.pages << ArchivePage.new(
         site = site,
-        posts = site.posts.docs,
+        posts = site.posts.docs.reverse,
         variant = "global",
         archive_dir_name = "archive",
         title = "All posts"
