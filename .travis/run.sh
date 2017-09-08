@@ -3,8 +3,6 @@
 set -o errexit
 set -o nounset
 
-# Start serving the site in the background
-trap make stop exit
 echo "*** Starting the development server"
 make serve
 
@@ -34,3 +32,7 @@ sleep 40
 
 echo "*** Running the server tests"
 py.test _tests
+
+echo "*** Stopping the server, producing a release build"
+make stop
+make publish
