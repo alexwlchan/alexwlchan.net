@@ -1,0 +1,17 @@
+---
+date: 2015-11-13 07:40:00 +0000
+layout: post
+link: https://www.youtube.com/watch?v=wf-BqAjZb8M
+slug: beyond-pep8
+summary: null
+tags: python
+title: 'Beyond PEP 8: Best practices for beautiful intelligible code'
+---
+
+This is easily my favourite talk from PyCon 2015.  Raymond Hettinger is an excellent speaker, and this talk makes an important point:
+
+PEP 8 is the Python style guide, but like many style guides, it can be wrongly interpreted as an indicator of code quality.  There's more to good code than simply meeting the style guide.  If you just want PEP 8 adherence, there are automated tools like [flake8](https://pypi.python.org/pypi/flake8) and [pylint](https://pypi.python.org/pypi/pylint) that will do that checking for you.  When a human is doing code review, they need to look beyond the style guide.
+
+The focus of the talk is a code example that akes this point nicely.  I won't spoil the ending – but see if you can spot the elephant in the room.  (I didn't.)
+
+I would highly recommend this talk to all programmers, even if you've never written Python.

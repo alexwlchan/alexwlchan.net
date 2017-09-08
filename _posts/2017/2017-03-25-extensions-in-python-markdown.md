@@ -87,11 +87,11 @@ Python-Markdown also includes extensions for doing syntax-highlighting of code b
 One of the options on your code blocks is whether to include line numbers on your code blocks.
 Here's an example with and without:
 
-```python linenums
+{% highlight python linenos %}
 def hello_world(name):
     """Prints a friendly greeting."""
     print('Hello %s!' % name)
-```
+{% endhighlight %}
 
 ```python
 def hello_world(name):
