@@ -1,0 +1,144 @@
+{
+  "created_at": "Tue Aug 20 08:22:41 +0000 2013",
+  "id": 369736232546631680,
+  "id_str": "369736232546631680",
+  "text": "I hate the new Google Maps so much. Get that stupid search box off my map.",
+  "truncated": false,
+  "entities": {
+    "hashtags": [
+
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+
+    ]
+  },
+  "source": "<a href=\"http://tapbots.com/software/tweetbot/mac\" rel=\"nofollow\">Tweetbot for Mac</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 644603,
+    "id_str": "644603",
+    "name": "Fraser Speirs",
+    "screen_name": "fraserspeirs",
+    "location": "United Kingdom",
+    "description": "Head of Secondary at Cedars School of Excellence, the world's first 1:1 iPad school. Own opinions. Podcaster on: https://t.co/EjJ175bczk and @_canvasfm.",
+    "url": "https://t.co/c365CoI38E",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/c365CoI38E",
+            "expanded_url": "http://speirs.org",
+            "display_url": "speirs.org",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+          {
+            "url": "https://t.co/EjJ175bczk",
+            "expanded_url": "http://outofschool.net",
+            "display_url": "outofschool.net",
+            "indices": [
+              113,
+              136
+            ]
+          }
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 16466,
+    "friends_count": 243,
+    "listed_count": 1296,
+    "created_at": "Tue Jan 16 07:44:56 +0000 2007",
+    "favourites_count": 4348,
+    "utc_offset": 3600,
+    "time_zone": "London",
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 70130,
+    "lang": "en",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "002244",
+    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/438641966188748800/1sKmwVXP.png",
+    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/438641966188748800/1sKmwVXP.png",
+    "profile_background_tile": true,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/2514482031/Headshot-Square-Twitter_normal.jpeg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/2514482031/Headshot-Square-Twitter_normal.jpeg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/644603/1388942621",
+    "profile_link_color": "FB4F14",
+    "profile_sidebar_border_color": "F9C65B",
+    "profile_sidebar_fill_color": "F5945D",
+    "profile_text_color": "EF3453",
+    "profile_use_background_image": false,
+    "has_extended_profile": true,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": {
+    "id": "166f30016698a5d8",
+    "url": "https://api.twitter.com/1.1/geo/id/166f30016698a5d8.json",
+    "place_type": "city",
+    "name": "Inverclyde",
+    "full_name": "Inverclyde, Scotland",
+    "country_code": "GB",
+    "country": "United Kingdom",
+    "contained_within": [
+
+    ],
+    "bounding_box": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -4.90322,
+            55.837959
+          ],
+          [
+            -4.597298,
+            55.837959
+          ],
+          [
+            -4.597298,
+            55.964436
+          ],
+          [
+            -4.90322,
+            55.964436
+          ]
+        ]
+      ]
+    },
+    "attributes": {
+    }
+  },
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 3,
+  "favorite_count": 5,
+  "favorited": false,
+  "retweeted": false,
+  "lang": "en"
+}
