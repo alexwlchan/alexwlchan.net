@@ -103,7 +103,7 @@ module Jekyll
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
           <span class="avatar">
-            <img src="#{avatar_path(avatar_url, screen_name)}">
+            <img src="/#{avatar_path(avatar_url, screen_name)}">
           </span>
           <span class="name" title="#{name}">#{name}</span>
           <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
