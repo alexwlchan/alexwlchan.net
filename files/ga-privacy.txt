@@ -1,0 +1,43 @@
+# Privacy Policy
+
+> This is the privacy policy I used while I had Google Analytics on the site.  When I started using Piwik for analytics, this policy was archived.  I used GA from May 2014 to August 2015.
+
+Like many websites, I use [Google Analytics][ga] on `alexwlchan.net`.
+
+Google Analytics is a piece of software that records data about visitors to the site (you). It installs a cookie to record basic tracking data.
+
+### What does Google Analytics record?
+
+Google Analytics records a lot of information.
+I haven't found an exhaustive list of what it records (I'll post a link here if I find one), but here's the sort of information it tracks:
+
+* How you arrived at my website
+* How long you stay for
+* What pages you're looking at
+* Where you're accessing the site from (geographically)
+
+And a lot more besides.
+
+### What do I do with the data?
+
+The tracking information lets me understand who comes to my site, and what they're interested in.
+This is useful when I'm trying to decide what to write about next.
+
+Nobody (including my employer) has ever asked to see, or been shown, the data that I record about this site.
+I would expect to challenge such a request if I ever received one.
+
+Everything I do is within the bounds of the [Google Analytics Terms of Service][tos].
+
+Google may also use the data from Analytics. You can read [How Google uses data when you use our partners' sites or apps][goog] on Google's websites for an explanation of their policies.
+
+### Can I opt out of tracking?
+
+Google provides a [browser plugin to opt-out of all Google Analytics tracking][bp].
+If you choose to install this, then I don't receive any data about your browsing session.
+
+
+
+[ga]: http://www.google.com/analytics/
+[tos]: http://www.google.com/analytics/terms/us.html
+[bp]: https://tools.google.com/dlpage/gaoptout?hl=en
+[goog]: http://www.google.com/policies/privacy/partners/
