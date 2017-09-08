@@ -64,7 +64,7 @@ for line in sys.stdin:
 
 for page, count in page_tally.most_common(25):
     print('%5d\t%s' % (count, page))
-{% endhighlight }
+{% endhighlight %}
 
 I'm passing the Apache log in to stdin, and looping over the lines.
 Each line corresponds to a single hit.
