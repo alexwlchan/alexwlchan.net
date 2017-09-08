@@ -2,6 +2,14 @@
 layout: default
 ---
 
+{% if page.title != site.title %}
+<article class="index__title">
+  <h2>{{ page.title | escape }}</h2>
+</article>
+
+<hr/>
+{% endif %}
+
 {% assign is_index = true %}
 
 {% for post in paginator.posts %}
