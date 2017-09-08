@@ -53,21 +53,6 @@ module Jekyll
     end
   end
 
-  # class AtomPage < Page
-  #   def initialize(site, base, dir, type, val, posts)
-  #     @site = site
-  #     @base = base
-  #     @dir = dir
-  #     @name = 'atom.xml'
-  #
-  #     self.process(@name)
-  #     self.read_yaml(File.join(base, '_layouts'), "group_atom.xml")
-  #     self.data[type] = val
-  #     self.data["grouptype"] = type
-  #     self.data["posts"] = posts[0..9]
-  #   end
-  # end
-
   # Inlined from https://github.com/jekyll/jekyll-paginate/blob/master/lib/jekyll-paginate/pager.rb
   # The Pager class doesn't seem to be defined in the v2 plugin, maybe?
 
