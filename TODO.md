@@ -1,16 +1,16 @@
 -  Tests for tag pagination
 -  Redirect `/:tag/1/` to `/:tag/`
 -  Numbered code blocks
--  Tweets
 -  Link checking?
 -  a11y
 -  migrate pages
--  rss feeds?
 -  social sharing
--  year archives
 -  themes
 -  favicons
--  syntax highlighting?
--  link posts
 
+-  year archives
+-  link posts
 -  Pagination links
+-  syntax highlighting?
+-  rss feeds?
+-  Tweets
