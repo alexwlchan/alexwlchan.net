@@ -53,6 +53,7 @@ exclude:
   - Dockerfile
   - Gemfile
   - Gemfile.lock
+  - install_jekyll.sh
 
 sass:
   sass_dir: _scss
