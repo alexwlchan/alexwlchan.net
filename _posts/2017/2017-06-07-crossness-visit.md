@@ -2,9 +2,11 @@
 date: 2017-06-07 20:50:00 +0000
 layout: post
 slug: crossness-pumping-station
-summary: Pictures from my recent visit to Crossness, a Victorian pumping station for
-  London's sewers.
+summary: Pictures from my recent visit to Crossness, a Victorian pumping station for London's sewers.
 title: A visit to the Crossness pumping station
+theme:
+  card_type: summary_large_image
+  image: /images/2017/P5280917_2x.jpg
 ---
 
 In the early nineteenth century, the River Thames was heavily polluted.
@@ -23,7 +25,7 @@ The whole system was built on a gradient, so everything is carried entirely by g
 When it's sufficiently far east, the sewage is pumped back up to ground level, dumped in the Thames and washed out to sea.
 
 <figure>
-  <bigimg src="/images/2017/Hering_lon-sewer-det02_1882.jpg">
+  <img src="/images/2017/Hering_lon-sewer-det02_1882.jpg">
   <figcaption>A map of London&rsquo;s sewers, drawn in 1882.
     The main interceptor tunnels are highlighted in red.
     Image from <a href="https://en.wikipedia.org/wiki/File:Hering_lon-sewer-det02_1882.jpg">Wikipedia</a>.
@@ -35,7 +37,7 @@ There was a pumping station with four steam-driven pumps that pulled the waste u
 Both Crossness and the wider sewerage system were seen as major feats of Victorian engineering, and the opening of Crossness itself was a particularly prestiguous event.
 
 <figure style="max-width: 400px;">
-  <bigimg src="/images/2017/crossness_invitation.jpg" _width="400px">
+  <img src="/images/2017/crossness_invitation.jpg" _width="400px">
   <figcaption>An invitation to the opening of Crossness in 1865.
     Image from <a href="https://wellcomeimages.org/indexplus/result.html?_IXMAXHITS_=1&_IXACTION_=query&_IXFIRST_=1&_IXemailreal=true&_IXbox=301920&_IXSPFX_=templates%2ft&_IXFPFX_=templates%2ft">the Science Museum, Wellcome Images</a>.
   </figcaption>
@@ -61,7 +63,7 @@ Although tiring, this wasn't entirely without merit – the route takes you alon
 This was a first glimpse of the sheer scale of this project – you get some idea of the size of the tunnel beneath you.
 
 <figure>
-  <bigimg src="/images/2017/P5280695.jpg">
+  <img src="/images/2017/P5280695.jpg">
   <figcaption>
     Looking west along Ridgeway, away from Crossness.
     The banks are lined with trees and shrubbery &ndash; it's not obvious from the photo, but it's fairly high up.
@@ -73,7 +75,7 @@ Today, there's a sewage treatment plant at Crossness, with the Engines themselve
 I still had a little more walking to do!
 
 <figure>
-  <bigimg src="/images/2017/P5280718.jpg">
+  <img src="/images/2017/P5280718.jpg">
   <figcaption>
     Be glad my camera doesn't have the ability to capture smells.
   </figcaption>
@@ -83,7 +85,7 @@ Up the hill, and I finally got my first glimpse of the engine house.
 Although viewed from a different angle, you can see the resemblance to the building in the opening invitation.
 
 <figure>
-  <bigimg src="/images/2017/P5280723.jpg">
+  <img src="/images/2017/P5280723.jpg">
   <figcaption>
     Safety barriers and bicycles were a classic feature of Victorian architecture.
   </figcaption>
@@ -95,7 +97,7 @@ Because Crossness was relatively far out, a lot of the workers lived on-site, an
 But I turned left, and went into the main exhibition.
 
 <figure>
-  <bigimg src="/images/2017/P5280725.jpg">
+  <img src="/images/2017/P5280725.jpg">
 </figure>
 
 In the main engine house, there's an exhibition about the Great Stink.
@@ -104,7 +106,7 @@ It's remarkable to see how well the Victorian system lasted – as with many eng
 Although it's had to expand to cope with London's ever-increasing population, the original system was very robust.
 
 <figure style="max-width: 500px;">
-  <bigimg src="/images/2017/P5280734.jpg">
+  <img src="/images/2017/P5280734.jpg">
 </figure>
 
 Pumping London's sewage to ground level required a huge amount of power.
@@ -121,7 +123,7 @@ The other three engines are still in a partial or complete state of disrepair, b
 Here's a picture of the atrium, with one of the flywheels visible in the background – and you can just see a beam poking out behind the pillar.
 
 <figure>
-  <bigimg src="/images/2017/P5280873.jpg">
+  <img src="/images/2017/P5280873.jpg">
   <figcaption>
     Safety first!
     As you can just make out in the corner, we all had to wear helmets before entering the engine house.
@@ -133,7 +135,7 @@ These wheels were so masisve that when they were built, they had to be cast in e
 You can just make out two of the joins in this photograph:
 
 <figure style="max-width: 600px;">
-  <bigimg src="/images/2017/P5280751.jpg" _width="600px">
+  <img src="/images/2017/P5280751.jpg" _width="600px">
 </figure>
 
 But then I went through to the main attraction – the working *Prince Consort*.
@@ -141,14 +143,14 @@ Over nearly 28&nbsp;years, volunteers at the Crossness Engine Trust worked to re
 Here's the big wheel, in all its resplendent glory:
 
 <figure>
-  <bigimg src="/images/2017/P5280774.jpg">
+  <img src="/images/2017/P5280774.jpg">
 </figure>
 
 Even more impressive, the engine was actually steaming.
 I deliberately picked a day when the engines were running:
 
 <figure>
-  <video controls src="/videos/crossness_flywheel.mp4">
+  <video controls src="/videos/crossness_flywheel.mp4" />
 </figure>
 
 The engine has a graceful, almost hypnotic motion.
@@ -158,7 +160,7 @@ Mesmerising – I could have sat and watched it for hours.
 You can make out the connecting rod in the foreground, I got a second video of that moving:
 
 <figure>
-  <video controls src="/videos/crossness_beam.mp4">
+  <video controls src="/videos/crossness_beam.mp4" />
 </figure>
 
 (Unfortunately my phone was almost out of battery, so these are my only two videos.)
@@ -171,7 +173,7 @@ There are three cylinders: high, medium and low pressure, with exhaust steam fro
 Here's a picture of the cylinders joining the main rocking beam:
 
 <figure>
-  <bigimg src="/images/2017/P5280785.jpg">
+  <img src="/images/2017/P5280785.jpg">
   <figcaption>
     If I&rsquo;ve remembered correctly, the high pressure cylinder is on the left, medium on the right, and the low pressure cylinder is in the basement, directly below the high pressure cylinder.
   </figcaption>
@@ -182,7 +184,7 @@ The left-hand rocking beam was another late addition, added to upgrade the pumpi
 Here's another picture of the back of the cylinders:
 
 <figure style="max-width: 600px;">
-  <bigimg src="/images/2017/P5280799.jpg" _width="600px">
+  <img src="/images/2017/P5280799.jpg" _width="600px">
   <figcaption>
     Pipes!
   </figcaption>
@@ -192,22 +194,22 @@ Then I went upstairs for a better view of the rocking beam.
 Each one is over 50&prime; long:
 
 <figure>
-  <bigimg src="/images/2017/P5280917.jpg">
+  <img src="/images/2017/P5280917.jpg">
   <figcaption>
     Up...
   </figcaption>
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280912.jpg">
+  <img src="/images/2017/P5280912.jpg">
   <figcaption>
     ...and back down.
   </figcaption>
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280899.jpg" style="max-width:49%;float:left;">
-  <bigimg src="/images/2017/P5280900.jpg" style="max-width:49%;">
+  <img src="/images/2017/P5280899.jpg" style="max-width:49%;float:left;">
+  <img src="/images/2017/P5280900.jpg" style="max-width:49%;">
   <figcaption>
     These two images remind me of a crocodile's mouth.
   </figcaption>
@@ -220,16 +222,16 @@ Watching such a mighty machine move is a humbling experience – after seeing th
 Even the rusting beams of the other three engines are an impressive sight:
 
 <figure>
-  <bigimg src="/images/2017/P5280935.jpg">
+  <img src="/images/2017/P5280935.jpg">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;">
-  <bigimg src="/images/2017/P5280923.jpg" style="max-width:63%;">
+  <img src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;">
+  <img src="/images/2017/P5280923.jpg" style="max-width:63%;">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280887.jpg">
+  <img src="/images/2017/P5280887.jpg">
 </figure>
 
 The *Victoria* engine is under restoration, although it's nowhere near complete – getting the engines back to working order is a lengthy and expensive affair.
@@ -239,22 +241,22 @@ Covered in dust, rust and scaffolding &ndash; but this is right in the belly of 
 My camera struggled a bit with the low light, but I got a few pictures:
 
 <figure>
-  <bigimg src="/images/2017/P5280807.jpg">
+  <img src="/images/2017/P5280807.jpg">
   <figcaption>
     Hold on to your hard hats!
   </figcaption>
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280809.jpg">
+  <img src="/images/2017/P5280809.jpg">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280818.jpg">
+  <img src="/images/2017/P5280818.jpg">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280822.jpg">
+  <img src="/images/2017/P5280822.jpg">
   <figcaption>
     Incoming sewage was pumped through these tunnels into reservoir tanks when the tide was coming in.
     After the tide turned, it was released into the river.
@@ -267,24 +269,25 @@ This wasn't just an industrial site, it was a *spectacle* – every part of the 
 At the centre of the site is the Octagon, where light entered the building:
 
 <figure>
-  <bigimg src="/images/2017/P5280874.jpg">
+  <img src="/images/2017/P5280874.jpg">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280878.jpg">
+  <img src="/images/2017/P5280878.jpg">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280934.jpg">
+  <img src="/images/2017/P5280934.jpg">
   <figcaption>
     View from above!
     In the shadows on the right, you can see the rusted version: what it looked like before the building was restored.
+  </figcaption>
 </figure>
 
 The metalwork has been restored beautifully:
 
 <figure>
-  <bigimg src="/images/2017/P5280936.jpg">
+  <img src="/images/2017/P5280936.jpg">
   <figcaption>
     The &ldquo;MBW&rdquo; is the monogram of the Metropolitan Board of Works.
   </figcaption>
@@ -293,11 +296,11 @@ The metalwork has been restored beautifully:
 No part of the station – not even the floors, stairs or the handrails – escaped the ornate decoration.
 
 <figure>
-  <bigimg src="/images/2017/P5280794.jpg">
+  <img src="/images/2017/P5280794.jpg">
 </figure>
 
 <figure>
-  <bigimg src="/images/2017/P5280835.jpg">
+  <img src="/images/2017/P5280835.jpg">
 </figure>
 
 The whole site was a fascinating day out.
