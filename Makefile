@@ -23,10 +23,6 @@ serve: .docker/build
 		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
-stop:
-	docker stop alexwlchan.net_serve
-	docker rm alexwlchan.net_serve
-
 publish: specktre-assets build
 
 

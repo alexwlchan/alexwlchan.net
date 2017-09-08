@@ -34,5 +34,5 @@ echo "*** Running the server tests"
 py.test _tests
 
 echo "*** Stopping the server, producing a release build"
-make stop
+docker stop alexwlchan.net_serve
 make publish
