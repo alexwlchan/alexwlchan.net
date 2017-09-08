@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<article class="index__title">
+  <h2>{{ page.title | escape }}</h2>
+
+  <ul class="archive">
+  {% for post in page.posts %}
+    <li>
+      <div class="archive__date">{{ post.date | date: "%b %-d" }}</div>
+      <a href="{{ post.url }}"><span>{{ post.title }}</span></a>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <p>
+    You can also see <a href="/{{ year }}/">other posts from this year</a> or read <a href="/archive/">the complete archive</a>.
+  </p>
+</article>
