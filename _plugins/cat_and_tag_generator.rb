@@ -10,27 +10,20 @@ module Jekyll
 
     def generate(site)
       site.categories.each do |category|
-        build_subpages(site, "category", category)
+        build_subpages(site, "category", category, title = "In the category of “#{category[0]}”")
       end
 
       site.tags.each do |tag|
-        build_subpages(site, "tag", tag)
+        build_subpages(site, "tag", tag, title = "Tagged with “#{tag[0]}”")
       end
     end
 
-    def build_subpages(site, type, posts)
+    def build_subpages(site, type, posts, title)
       posts[1] = posts[1].sort_by { |p| -p.date.to_f }
-      # atomize(site, type, posts)
-      paginate(site, type, posts)
+      paginate(site, type, posts, title)
     end
 
-    # def atomize(site, type, posts)
-    #   path = "/#{type}/#{posts[0]}"
-    #   atom = AtomPage.new(site, site.source, path, type, posts[0], posts[1])
-    #   site.pages << atom
-    # end
-
-    def paginate(site, type, posts)
+    def paginate(site, type, posts, title)
       pages = Pager.calculate_pages(posts[1], site.config['pagination']['per_page'].to_i)
       (1..pages).each do |num_page|
         pager = Pager.new(site, num_page, posts[1], pages, format = "/#{type}/#{posts[0]}/:num/")
@@ -38,32 +31,25 @@ module Jekyll
         if num_page > 1
           path = path + "/#{num_page}"
         end
-        newpage = GroupSubPage.new(site, site.source, path, type, posts[0])
+        newpage = GroupSubPage.new(site, site.source, path, type, posts[0], title = title)
         newpage.pager = pager
         site.pages << newpage
-
       end
     end
   end
 
   class GroupSubPage < Page
-    def initialize(site, base, dir, type, val)
+    def initialize(site, base, dir, type, val, title)
       @site = site
       @base = base
       @dir = dir
       @name = 'index.html'
 
       self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), "group_index.html")
+      self.read_yaml(File.join(base, '_layouts'), "home.html")
       self.data["grouptype"] = type
       self.data[type] = val
-
-      if type == "tag"
-        self.data["title"] = "Tagged with “#{val}”"
-      else
-        self.data["title"] = "In the category of “#{val}”"
-      end
-
+      self.data["title"] = title
     end
   end
 
