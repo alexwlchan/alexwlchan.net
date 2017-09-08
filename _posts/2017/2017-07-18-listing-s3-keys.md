@@ -1,9 +1,10 @@
 ---
-layout:   post
-title:    "Listing keys in an S3 bucket with Python"
-date:     2017-07-18 08:30:00 +0000
-tags:     aws python
-summary:  "A short Python function for getting a list of keys in an S3 bucket."
+date: 2017-07-18 08:30:00 +0000
+layout: post
+slug: listing-s3-keys
+summary: A short Python function for getting a list of keys in an S3 bucket.
+tags: aws, python
+title: Listing keys in an S3 bucket with Python
 ---
 
 A lot of my recent work has involved batch processing on files stored in Amazon S3.

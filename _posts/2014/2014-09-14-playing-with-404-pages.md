@@ -1,0 +1,58 @@
+---
+date: 2014-09-14 00:13:00 +0000
+layout: post
+slug: 404-pages
+tags: pelican, python
+title: Playing with 404 pages
+---
+
+Until yesterday, mistyped or broken URLs would just show the [generic GitHub Pages 404 page](https://pages.github.com/404). It conveys the error, but it's not very useful.
+
+Brett Terpstra does something rather clever with his 404 pages: he reads the URL, and tries to guess where you were trying to go. Single-character typos or transpositions get redirected automatically, and if it's not obvious where you were trying to go, he gives a list of suggestions.
+
+He wrote about some of this in [Fun with intelligent 404 pages][ttscoff], and I decided to try to build a version of my own. My system isn't as sophisticated as Brett's, but it was still a fun problem to tackle.
+
+<!-- summary -->
+
+The site starts as a collection of Markdown files, which get processed by Pelican (my blogging engine) and turned into HTML. I have a few small scripts which tidy up the HTML, and then the directory of HTML outputs gets pushed to GitHub Pages, where it gets served to the web.
+
+I've added a new script which walks the output directory, and gets a list of every URL on the site. This list gets saved into a file called `search.json`[^1], and that file gets uploaded to GitHub.
+
+On the 404 page itself, I load `search.json`, and then I do fuzzy matching between the actual URL, and the list of valid URLs. I'm using Glen Chiacchieri's [fuzzyset.js][fuz] library to do the fuzzy matching. It was really easy to get the matching in pure JavaScript:
+
+```html
+<script type="text/javascript" src="/theme/js/fuzzyset.js"></script>
+<script type="text/javascript" src="/search.json"></script>
+
+<script>
+  a = FuzzySet(urls);
+  matching_urls = a.get(String(window.location.href));
+
+  // display the results on the page
+</script>
+```
+
+After that, it's just a matter of displaying the results on the page.
+
+The next step is adding those "smart" redirects, like Brett. Unfortunately I can't find a post explaining exactly what he's doing, but all of these URLs will redirect correctly:
+
+*   <http://brettterpstra.com/203/04/07/fun-with-intelligent-404-pages>
+
+    Missing a single character. In fact, I find I can drop two or three characters and still get to the correct page. How many can be fixed seems to depend on exactly where the missing characters appear in the original URL.
+
+*   <http://brettterpstra.com/2013/04/007/fung-with-intelligent-404-pages>
+
+    Conversely, the addition of a few extra characters is also fixed correctly.
+
+*   <http://brettterpstra.com/2013/40/07/fun-wiht-intelligent-404-pages/>
+
+    Transposition of adjacent characters is also redirected. However, transposition of non-adjacent characters seems to fail.
+
+I have yet to experiment with redirects on GitHub Pages, so that's an idea I'll put off for another day.
+
+You can see my simple URL matching version at [404.html](http://alexwlchan.net/404.html). I'll continue to tweak the parameters to improve the matching (and hide some of the more extreme results). If I ever implement the smart redirection feature, I'll write about it again here.
+
+[^1]: Technically this is a JavaScript file, not JSON, but I just copied it from Brett and can't think of a better name.
+
+[ttscoff]: http://brettterpstra.com/2013/04/07/fun-with-intelligent-404-pages/
+[fuz]: http://glench.github.io/fuzzyset.js/

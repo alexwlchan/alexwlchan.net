@@ -1,0 +1,179 @@
+{
+  "created_at": "Sat Apr 01 15:03:00 +0000 2017",
+  "id": 848188958567800832,
+  "id_str": "848188958567800832",
+  "text": "One of the many signs of a great conference. #inclusivity #alterconf https://t.co/cF7XPImBPg",
+  "truncated": false,
+  "entities": {
+    "hashtags": [
+      {
+        "text": "inclusivity",
+        "indices": [
+          45,
+          57
+        ]
+      },
+      {
+        "text": "alterconf",
+        "indices": [
+          58,
+          68
+        ]
+      }
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+
+    ],
+    "media": [
+      {
+        "id": 848188939018145794,
+        "id_str": "848188939018145794",
+        "indices": [
+          69,
+          92
+        ],
+        "media_url": "http://pbs.twimg.com/media/C8VfWJyXkAIWboG.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C8VfWJyXkAIWboG.jpg",
+        "url": "https://t.co/cF7XPImBPg",
+        "display_url": "pic.twitter.com/cF7XPImBPg",
+        "expanded_url": "https://twitter.com/iamkimiam/status/848188958567800832/photo/1",
+        "type": "photo",
+        "sizes": {
+          "small": {
+            "w": 680,
+            "h": 680,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 2048,
+            "h": 2048,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "id": 848188939018145794,
+        "id_str": "848188939018145794",
+        "indices": [
+          69,
+          92
+        ],
+        "media_url": "http://pbs.twimg.com/media/C8VfWJyXkAIWboG.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/C8VfWJyXkAIWboG.jpg",
+        "url": "https://t.co/cF7XPImBPg",
+        "display_url": "pic.twitter.com/cF7XPImBPg",
+        "expanded_url": "https://twitter.com/iamkimiam/status/848188958567800832/photo/1",
+        "type": "photo",
+        "sizes": {
+          "small": {
+            "w": 680,
+            "h": 680,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 2048,
+            "h": 2048,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 11846992,
+    "id_str": "11846992",
+    "name": "Kim Witten",
+    "screen_name": "iamkimiam",
+    "location": "Orig NorCal, now Manchester UK",
+    "description": "UX Researcher, graphic designer, MeFite, Sociolinguist, knitter, wannabe cat but will settle for cat servant.",
+    "url": null,
+    "entities": {
+      "description": {
+        "urls": [
+
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 1223,
+    "friends_count": 438,
+    "listed_count": 126,
+    "created_at": "Fri Jan 04 17:58:34 +0000 2008",
+    "favourites_count": 2218,
+    "utc_offset": 3600,
+    "time_zone": "London",
+    "geo_enabled": false,
+    "verified": false,
+    "statuses_count": 10910,
+    "lang": "en",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "C0DEED",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/830698808925368320/aEg-HY-3_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/830698808925368320/aEg-HY-3_normal.jpg",
+    "profile_link_color": "1DA1F2",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": true,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 12,
+  "favorite_count": 35,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
