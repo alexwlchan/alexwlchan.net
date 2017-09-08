@@ -8,7 +8,13 @@ layout: default
   <ul class="archive">
   {% for post in page.posts %}
     <li>
-      <div class="archive__date">{{ post.date | date: "%b %-d" }}</div>
+      <div class="archive__date">
+        {% if page.archive_variant == "global" %}
+          {{ post.date | date: "%-d %b %y" }}
+        {% else %}
+          {{ post.date | date: "%-d %b" }}
+        {% endif %}
+      </div>
       <a href="{{ post.url }}"><span>{{ post.title }}</span></a>
     </li>
   {% endfor %}
