@@ -6,7 +6,8 @@ DOCKER_IMAGE = alexwlchan/alexwlchan.net
 	touch .docker/build
 
 
-clean:
+clean: .docker/build
+	docker run --volume $$(pwd):/site $(DOCKER_IMAGE) clean
 	rm -rf .docker
 	docker rmi --force $(DOCKER_IMAGE)
 
