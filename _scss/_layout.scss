@@ -17,7 +17,7 @@ article {
   li {
     display: inline-block;
     &:not(:first-child)::before {
-      content: " · ";
+      content: "\0000a0· ";
     }
   }
 }
