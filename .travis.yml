@@ -1,0 +1,34 @@
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+install:
+  - ./.travis/install.sh
+
+cache:
+  - "/home/travis/docker/"
+
+script:
+    - make $TASK
+
+matrix:
+    fast_finish: true
+
+notifications:
+  email:
+    recipients:
+      - david@drmaciver.com
+    on_success: never
+    on_failure: change
+
+addons:
+  apt:
+    packages:
+      - libgmp-dev

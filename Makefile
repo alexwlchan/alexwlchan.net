@@ -9,6 +9,7 @@ DOCKER_IMAGE = alexwlchan/alexwlchan.net
 clean: .docker/build
 	docker run --volume $$(pwd):/site $(DOCKER_IMAGE) clean
 	rm -rf .docker
+	docker rm -f alexwlchan.net_serve
 	docker rmi --force $(DOCKER_IMAGE)
 
 build: .docker/build
@@ -19,12 +20,16 @@ serve: .docker/build
 		--publish 5757:5757 \
 		--volume $$(pwd):/site \
 		--name alexwlchan.net_serve \
-		--tty $(DOCKER_IMAGE) \
+		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
+
+stop:
+	docker stop alexwlchan.net_serve
+	docker rm alexwlchan.net_serve
 
 publish: specktre-assets build
 
 
-.PHONY: clean build watch serve publish
+.PHONY: clean build watch serve stop publish
 
 include _specktre/Makefile
