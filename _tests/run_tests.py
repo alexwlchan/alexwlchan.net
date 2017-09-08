@@ -16,8 +16,9 @@ def test_pages_appear_correctly(path):
 
 @pytest.mark.parametrize('path, text_in_page', [
     ('2017/', 'Posts from 2017'),
-    ('2017/09/', 'Posts from September 2017'),
-    ('', 'Older posts')
+    ('2017/07/', 'Posts from July 2017'),
+    ('', 'Older posts'),
+    ('', '<title>alexwlchan</title>'),
 ])
 def test_text_appears_in_pages(path, text_in_page):
     resp = requests.get(f'http://localhost:5757/{path}')
