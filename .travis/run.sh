@@ -38,4 +38,10 @@ docker stop alexwlchan.net_serve
 make publish
 
 echo "*** Uploading published site to Linode"
-rsync --archive --verbose --compress --delete _site "$RSYNC_USER"@"$RSYNC_HOST":"$RSYNC_DIR"
+rsync \
+  --archive \
+  --verbose \
+  --compress \
+  --delete \
+  --rsh="ssh -o StrictHostKeyChecking=no" \
+  _site "$RSYNC_USER"@"$RSYNC_HOST":"$RSYNC_DIR"
