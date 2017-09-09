@@ -3,12 +3,6 @@
 set -o errexit
 set -o nounset
 
-pip install -r _tests/requirements.txt
-
-pushd /tmp
-  wget https://github.com/rubys/feedvalidator/archive/master.zip
-  unzip master.zip
-  pip install -e feedvalidator-master/src
-popd
+pip3 install -r _tests/requirements.txt
 
 .travis/unfreeze_docker_images.sh
