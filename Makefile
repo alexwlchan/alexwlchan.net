@@ -35,7 +35,7 @@ deploy: publish
 		--verbose \
 		--compress \
 		--delete \
-		--rsh="ssh $(RSH)" \
+		--rsh="ssh$(SSHOPTS)" \
 		_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
 
