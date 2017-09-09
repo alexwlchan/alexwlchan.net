@@ -1,0 +1,30 @@
+language: python
+
+sudo: required
+
+python: 3.6
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+install:
+  - ./.travis/install.sh
+
+cache:
+  - _cache
+
+script:
+  - .travis/run.sh
+
+before_cache:
+  - ./.travis/freeze_docker_images.sh
+
+env:
+  global:
+    - RSYNC_HOST=139.162.244.147
+    - RSYNC_USER=alexwlchan
+    - RSYNC_DIR=/home/alexwlchan/sites/alexwlchan.net

@@ -11,4 +11,4 @@ RUN ./install_jekyll.sh
 
 WORKDIR /site
 
-ENTRYPOINT ["/usr/bin/jekyll"]
+ENTRYPOINT ["bundle", "exec", "jekyll"]
