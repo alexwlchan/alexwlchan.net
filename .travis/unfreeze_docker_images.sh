@@ -5,6 +5,6 @@ set -o nounset
 
 if [[ -f .cache/alexwlchan_build.tar ]]
 then
-  cat .cache/alexwlchan_build.tar | docker import - alexwlchan/alexwlchan.net
-  cat .cache/specktre.tar | docker import - alexwlchan/specktre
+  docker load .cache/alexwlchan_build.tar
+  docker load .cache/specktre.tar
 fi
