@@ -56,6 +56,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - install_jekyll.sh
+  - id_rsa_travis
 
 sass:
   sass_dir: _scss
