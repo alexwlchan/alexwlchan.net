@@ -2,7 +2,7 @@ language: python
 
 sudo: required
 
-python: 3.6
+python: 2.7
 
 services:
   - docker
