@@ -36,3 +36,6 @@ py.test _tests
 echo "*** Stopping the server, producing a release build"
 docker stop alexwlchan.net_serve
 make publish
+
+echo "*** Uploading published site to Linode"
+rsync --archive --verbose --compress --delete _site "$RSYNC_USER"@"$RSYNC_HOST":"$RSYNC_DIR"
