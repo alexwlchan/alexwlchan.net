@@ -3,13 +3,16 @@
 set -o errexit
 set -o nounset
 
-ls .cache
-
-if [[ -f .cache/alexwlchan_build.tar ]]
+if [[ -d _cache ]]
 then
-  echo "Cached Docker images exist; reloading from cache"
-  docker load < .cache/alexwlchan_build.tar
-  docker load < .cache/specktre.tar
+  ls _cache
+fi
+
+if [[ -f _cache/alexwlchan_build.tar ]]
+then
+  echo "*** Cached Docker images exist; reloading from cache"
+  docker load < _cache/alexwlchan_build.tar
+  docker load < _cache/specktre.tar
 else
-  echo "No cache of Docker images; rebuilding from scratch"
+  echo "*** No cache of Docker images; rebuilding from scratch"
 fi
