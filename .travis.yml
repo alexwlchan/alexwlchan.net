@@ -15,10 +15,13 @@ install:
   - ./.travis/install.sh
 
 cache:
-  - "/home/travis/docker/"
+  - .cache
 
 script:
   - .travis/run.sh
+
+before_cache:
+  - ./.travis/freeze_docker_images.sh
 
 env:
   global:
