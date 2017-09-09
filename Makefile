@@ -29,7 +29,7 @@ serve: .docker/build
 
 publish: specktre-assets build
 
-deploy:
+deploy: publish
 	rsync \
 		--archive \
 		--verbose \
