@@ -37,7 +37,7 @@ There was a pumping station with four steam-driven pumps that pulled the waste u
 Both Crossness and the wider sewerage system were seen as major feats of Victorian engineering, and the opening of Crossness itself was a particularly prestiguous event.
 
 <figure style="max-width: 400px;">
-  <img src="/images/2017/crossness_invitation.jpg" _width="400px">
+  <img src="/images/2017/crossness_invitation.jpg" style="max-width: 400px;">
   <figcaption>An invitation to the opening of Crossness in 1865.
     Image from <a href="https://wellcomeimages.org/indexplus/result.html?_IXMAXHITS_=1&_IXACTION_=query&_IXFIRST_=1&_IXemailreal=true&_IXbox=301920&_IXSPFX_=templates%2ft&_IXFPFX_=templates%2ft">the Science Museum, Wellcome Images</a>.
   </figcaption>
@@ -135,7 +135,7 @@ These wheels were so masisve that when they were built, they had to be cast in e
 You can just make out two of the joins in this photograph:
 
 <figure style="max-width: 600px;">
-  <img src="/images/2017/P5280751.jpg" _width="600px">
+  <img src="/images/2017/P5280751.jpg" style="max-width: 600px;">
 </figure>
 
 But then I went through to the main attraction – the working *Prince Consort*.
@@ -184,7 +184,7 @@ The left-hand rocking beam was another late addition, added to upgrade the pumpi
 Here's another picture of the back of the cylinders:
 
 <figure style="max-width: 600px;">
-  <img src="/images/2017/P5280799.jpg" _width="600px">
+  <img src="/images/2017/P5280799.jpg" style="max-width: 600px;">
   <figcaption>
     Pipes!
   </figcaption>

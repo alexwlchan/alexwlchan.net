@@ -25,8 +25,6 @@ Oh well, better late than never.)
 
 <!-- summary -->
 
-<theme color="#6c006c"/>
-
 ## What is asexuality?
 
 The OED defines the word *asexual* as follows:
