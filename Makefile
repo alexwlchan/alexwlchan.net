@@ -1,5 +1,9 @@
 DOCKER_IMAGE = alexwlchan/alexwlchan.net
 
+RSYNC_HOST = 139.162.244.147
+RSYNC_USER = alexwlchan
+RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
+
 .docker/build:
 	docker build --tag $(DOCKER_IMAGE) .
 	mkdir -p .docker
@@ -25,7 +29,16 @@ serve: .docker/build
 
 publish: specktre-assets build
 
+deploy:
+	rsync \
+		--archive \
+		--verbose \
+		--compress \
+		--delete \
+		--rsh="ssh $(RSH)" \
+		_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
-.PHONY: clean build watch serve stop publish
+
+.PHONY: clean build watch serve stop publish deploy
 
 include _specktre/Makefile
