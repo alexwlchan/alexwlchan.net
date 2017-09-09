@@ -28,8 +28,6 @@ do
 done
 set -o errexit
 
-sleep 40
-
 echo "*** Running the server tests"
 py.test _tests
 
