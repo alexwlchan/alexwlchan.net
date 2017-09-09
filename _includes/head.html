@@ -9,7 +9,7 @@
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  {% feed_meta %}
 
   {% if page.theme and page.theme.color %}
   <link rel="stylesheet" href="/theme/style_{{ page.theme.color }}.css">
