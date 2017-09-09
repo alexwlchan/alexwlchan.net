@@ -5,8 +5,8 @@ set -o nounset
 
 pip install -r _tests/requirements.txt
 
-wget https://github.com/rubys/feedvalidator/archive/master.zip
 pushd /tmp
+  wget https://github.com/rubys/feedvalidator/archive/master.zip
   unzip master.zip
   pip install -e feedvalidator-master/src
 popd
