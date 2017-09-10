@@ -20,7 +20,6 @@ social:
   twitter: "alexwlchan"
   linode_referral: "ba2e6ce21e0c63952a7c74967ea0b96617bd44a3"
 
-
 date_format: "%-d %B %Y"
 
 permalink: "/:year/:month/:title/"
@@ -37,12 +36,8 @@ pagination:
 # Build settings
 markdown: kramdown
 plugins:
-  - jekyll-feed
   - jekyll-paginate-v2
   - octopress-minify-html
-
-feed:
-  path: feeds/all.atom.xml
 
 highlighter: rouge
 
