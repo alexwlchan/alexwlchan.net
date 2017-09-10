@@ -24,7 +24,7 @@ serve: .docker/build
 		--publish 5757:5757 \
 		--volume $$(pwd):/site \
 		--name alexwlchan.net_serve \
-		--tty --detach $(DOCKER_IMAGE) \
+		--tty $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
 publish: specktre-assets build
