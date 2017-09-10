@@ -11,7 +11,10 @@
   <div class="post__meta">
     <ul class="dot_list">
       <li class="post__date">Posted on {{ post.date | date: site.date_format }}</li>
-      {% if post.tags.size > 0 %}
+
+      {% assign tag_count = post.tags.size %}
+
+      {% if tag_count > 0 %}
       <li class="post__tags">Tagged with
         {% assign sorted_tags = post.tags | sort %}
         {% for tag in sorted_tags %}
@@ -23,6 +26,7 @@
       {% if post.link %}
       <li class="post__permalink"><a href="{{ post.url | relative_url }}">&infin;</a></li>
       {% endif %}
+
     </ul>
   </div>
 
