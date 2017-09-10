@@ -12,10 +12,12 @@ branches:
     - master
 
 install:
+  - ./.travis/unfreeze_docker_images.sh
   - ./.travis/install.sh
 
 cache:
-  - _cache
+  directories:
+    - "/home/travis/docker"
 
 script:
   - .travis/run.sh
