@@ -9,7 +9,7 @@ set -o nounset
 #   - https://github.com/ffi/ffi/issues/485
 #
 apk update
-apk add build-base libffi-dev ruby ruby-dev ruby-irb
+apk add gcc libffi-dev musl-dev make ruby ruby-dev
 gem install --no-document bundler jekyll
 
 # Other dependencies for gems
