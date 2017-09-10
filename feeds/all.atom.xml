@@ -1,0 +1,41 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" {% if site.lang %}xml:lang="{{ site.lang }}"{% endif %}>
+  <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
+  <link href="{{ site.url }}/feeds/all/atom.xml" rel="self" type="application/atom+xml" />
+  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" {% if site.lang %}hreflang="{{ site.lang }}" {% endif %}/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ '/' | absolute_url | xml_escape }}</id>
+  <title type="html">{{ site.title | smartify | xml_escape }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+
+  <author>
+    <name>{{ site.author | xml_escape }}</name>
+    <email>{{ site.email | xml_escape }}</email>
+  </author>
+
+  {% assign posts = site.posts | where_exp: "post", "post.draft != true" %}
+  {% for post in posts limit: 10 %}
+    <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
+      <title type="html">{{ post.title | smartify | strip_html | normalize_whitespace | xml_escape }}</title>
+      <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post.title | xml_escape }}" />
+      <published>{{ post.date | date_to_xmlschema }}</published>
+      <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
+      <id>{{ post.id | absolute_url | xml_escape }}</id>
+      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
+
+      {% if post.category %}
+        <category term="{{ post.category | xml_escape }}" />
+      {% endif %}
+
+      {% for tag in post.tags %}
+        <category term="{{ tag | xml_escape }}" />
+      {% endfor %}
+
+      {% if post.summary %}
+        <summary type="html">{{ post.summary | strip_html | normalize_whitespace | xml_escape }}</summary>
+      {% endif %}
+    </entry>
+  {% endfor %}
+</feed>
