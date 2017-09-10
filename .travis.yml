@@ -11,6 +11,8 @@ branches:
   only:
     - master
 
+cache: pip
+
 install:
   - ./.travis/install.sh
 
