@@ -39,7 +39,7 @@ plugins:
   - jekyll-paginate-v2
   - octopress-minify-html
 
-highlighter: rouge
+highlighter: pygments
 
 # TODO: Is this doing what I expect?
 liquid:
