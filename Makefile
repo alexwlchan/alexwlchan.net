@@ -5,7 +5,7 @@ RSYNC_USER = alexwlchan
 RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
 .docker/build:
-	docker build --tag $(DOCKER_IMAGE) .
+	docker build --rm=false --tag $(DOCKER_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
 
