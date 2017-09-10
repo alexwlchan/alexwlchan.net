@@ -15,7 +15,8 @@ install:
   - ./.travis/install.sh
 
 cache:
-  - _cache
+  directories:
+    - "/home/travis/docker"
 
 script:
   - .travis/run.sh
