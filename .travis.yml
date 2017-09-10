@@ -15,7 +15,9 @@ install:
   - ./.travis/install.sh
 
 cache:
-  - _cache
+  directories:
+    - _cache
+    - _site
 
 script:
   - .travis/run.sh
