@@ -72,9 +72,6 @@ sup {
     text-decoration: none;
   }
   &.linkpost_title {
-    font-size: 1.17em;
-    line-height: 1.35em;
-    padding-top: 12px;
     a {
       text-decoration: underline;
       &:hover {
@@ -85,6 +82,12 @@ sup {
       content: "\a0→";
       color: $accent-grey;
     }
+  }
+  &.linkpost_title,
+  &.minipost_title {
+    font-size: 1.17em;
+    line-height: 1.35em;
+    padding-top: 12px;
   }
   a:visited {
     color: $primary-color;
