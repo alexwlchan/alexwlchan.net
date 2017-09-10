@@ -25,6 +25,8 @@ date_format: "%-d %B %Y"
 
 permalink: "/:year/:month/:title/"
 
+keep_files: ["images", "videos"]
+
 pagination:
   enabled: true
   per_page: 10
