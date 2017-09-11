@@ -18,7 +18,7 @@ ROOT = subprocess.check_output(
 
 # TODO: Determine the required colours in a less manual way
 BANNER_COLOURS = [
-    'd01c11',
+    'd01c11', '008000',
 ]
 
 for c in BANNER_COLOURS:
@@ -28,7 +28,7 @@ for c in BANNER_COLOURS:
     start_color = RGBColor(*[int(c * 0.9) for c in color])
     end_color = RGBColor(*[min(int(c * 1.05), 255) for c in color])
     filename = os.path.join(
-        ROOT, 'assets', 'specktre_%02x%02x%02x.png' % color
+        ROOT, 'theme', 'specktre_%02x%02x%02x.png' % color
     )
 
     if os.path.exists(filename):
