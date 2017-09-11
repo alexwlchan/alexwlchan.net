@@ -18,7 +18,7 @@ ROOT = subprocess.check_output(
 
 # TODO: Determine the required colours in a less manual way
 BANNER_COLOURS = [
-    'd01c11',
+    'd01c11', '008000',
 ]
 
 for c in BANNER_COLOURS:
