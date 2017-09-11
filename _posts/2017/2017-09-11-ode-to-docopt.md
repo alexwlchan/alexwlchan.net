@@ -1,6 +1,6 @@
 ---
 title: Ode to docopt
-summary: How to write better, cleaner command-line interfaces with the docopt library.
+summary: Why I love docopt as a tool for writing clean, simple command-line interfaces.
 tags: python, slides
 category: slides
 date: 2017-09-11 12:01:13 +0100
