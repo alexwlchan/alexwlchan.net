@@ -28,7 +28,7 @@ for c in BANNER_COLOURS:
     start_color = RGBColor(*[int(c * 0.9) for c in color])
     end_color = RGBColor(*[min(int(c * 1.05), 255) for c in color])
     filename = os.path.join(
-        ROOT, 'assets', 'specktre_%02x%02x%02x.png' % color
+        ROOT, 'theme', 'specktre_%02x%02x%02x.png' % color
     )
 
     if os.path.exists(filename):
