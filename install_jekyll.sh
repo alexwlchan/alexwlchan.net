@@ -15,6 +15,9 @@ gem install --no-document bundler jekyll
 # Other dependencies for gems
 apk add nodejs
 
+# Required for the static file generator
+apk add rsync
+
 # Fixes an issue where bundler complains about running as root.
 # In Docker, that doesn't matter!
 # https://github.com/docker-library/rails/issues/10
