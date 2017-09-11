@@ -8,7 +8,6 @@ title:      The A stands for Asexual
 theme:
   color: 6c006c
   touch_icon: asexual
-  image: /theme/apple-touch-icon_6c006c.png
 ---
 
 Today is a more personal post: I want to talk about asexuality.

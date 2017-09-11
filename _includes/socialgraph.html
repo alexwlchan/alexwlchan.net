@@ -10,6 +10,8 @@
 {% endif %}
 {% if page.theme and page.theme.image %}
 <meta name="twitter:image" content="{{ site.url }}{{ page.theme.image }}" />
+{% elsif page.theme and page.theme.touch_icon %}
+<meta name="twitter:image" content="{{ site.url }}/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png" />
 {% else %}
 <meta name="twitter:image" content="{{ site.url }}/theme/apple-touch-icon.png" />
 {% endif %}
@@ -19,6 +21,8 @@
 <meta property="og:title" content="{{ page.title }}">
 {% if page.theme and page.theme.image %}
 <meta property="og:image" content="{{ site.url }}{{ page.theme.image }}" />
+{% elsif page.theme and page.theme.touch_icon %}
+<meta property="og:image" content="{{ site.url }}/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png" />
 {% else %}
 <meta property="og:image" content="{{ site.url }}/theme/apple-touch-icon.png" />
 {% endif %}
