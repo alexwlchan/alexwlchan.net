@@ -1,11 +1,18 @@
-.archive {
-  .archive__date {
-    display: inline-block;
-    width: 85px;
-  }
-  margin-bottom: 1.2em;
-}
+$archive-left-column: 150px;
+$archive-gutter-column: 25px;
 
-.archive__article {
-  padding-bottom: 1.5em;
+.archive {
+  list-style-type: none;
+  padding-left: 0px !important;
+  margin-bottom: 1.2em;
+
+  .archive__date {
+    width: $archive-left-column;
+    float: left;
+    display: inline-block;
+    text-align: right;
+  }
+  .archive__url {
+    margin-left: $archive-left-column + $archive-gutter-column;
+  }
 }
