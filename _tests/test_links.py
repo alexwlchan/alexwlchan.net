@@ -19,8 +19,20 @@ def test_pages_appear_correctly(path):
     ('2017/07/', 'Posts from July 2017'),
     ('', 'Older posts'),
     ('', '<title>alexwlchan</title>'),
+    ('archive/', '<h3>2017</h3>'),
 ])
 def test_text_appears_in_pages(path, text_in_page):
     resp = requests.get(f'http://localhost:5757/{path}')
     assert resp.status_code == 200
     assert text_in_page in resp.text
+
+
+@pytest.mark.parametrize('path, text', [
+    # Year markers only appear in the global archives, not year or month pages
+    ('2017/', '<h3>2017</h3>'),
+    ('2017/07/', '<h3>2017</h3>'),
+])
+def test_text_does_not_appear_in_pages(path, text):
+    resp = requests.get(f'http://localhost:5757/{path}')
+    assert resp.status_code == 200
+    assert text not in resp.text

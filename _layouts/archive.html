@@ -5,17 +5,28 @@ layout: default
 <article class="archive__article">
   <h2>{{ page.title | escape }}</h2>
 
+  {% assign running_year = "" %}
+
   <ul class="archive">
   {% for post in page.posts %}
+    {% if page.archive_variant == "global" %}
+      {% assign post_year = post.date | date: "%Y" %}
+      {% if running_year != post_year %}
+      </ul>
+      <h3>{{ post_year }}</h3>
+      <ul class="archive">
+      {% endif %}
+      {% assign running_year = post_year %}
+    {% endif %}
     <li>
-      <div class="archive__date">
-        {% if page.archive_variant == "global" %}
-          {{ post.date | date: "%-d %b %y" }}
-        {% else %}
+      <div>
+        <div class="archive__date">
           {{ post.date | date: "%-d %b" }}
-        {% endif %}
+        </div>
+        <div class="archive__url">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </div>
       </div>
-      <a href="{{ post.url }}"><span>{{ post.title }}</span></a>
     </li>
   {% endfor %}
   </ul>

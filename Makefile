@@ -20,6 +20,10 @@ build: .docker/build
 	docker run --volume $$(pwd):/site $(DOCKER_IMAGE) build
 
 serve: .docker/build
+	# Clean up old running containers
+	@docker stop alexwlchan.net_serve >/dev/null || true
+	@docker rm alexwlchan.net_serve >/dev/null || true
+
 	docker run \
 		--publish 5757:5757 \
 		--volume $$(pwd):/site \
