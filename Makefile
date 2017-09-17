@@ -4,6 +4,8 @@ RSYNC_HOST = 139.162.244.147
 RSYNC_USER = alexwlchan
 RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
+ROOT = $(shell git rev-parse --show-toplevel)
+
 .docker/build:
 	docker build --tag $(DOCKER_IMAGE) .
 	mkdir -p .docker
@@ -26,7 +28,7 @@ serve: .docker/build
 
 	docker run \
 		--publish 5757:5757 \
-		--volume $$(pwd):/site \
+		--volume $(ROOT):/site \
 		--name alexwlchan.net_serve \
 		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
