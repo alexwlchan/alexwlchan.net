@@ -50,19 +50,6 @@ highlighter: pygments
 liquid:
   error_mode: strict
 
-# Exclude from processing.
-exclude:
-  - README.md
-  - TODO.md
-  - Makefile
-  - Dockerfile
-  - Gemfile
-  - Gemfile.lock
-  - install_jekyll.sh
-  - install_specktre.sh
-  - id_rsa_travis
-  - _tests
-
 sass:
   sass_dir: _scss
   style: compressed
