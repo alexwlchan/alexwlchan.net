@@ -35,6 +35,10 @@ pagination:
 
 # Build settings
 markdown: redcarpet
+
+redcarpet:
+  extensions: ["smart"]
+
 plugins:
   - jekyll-paginate-v2
   - octopress-minify-html
