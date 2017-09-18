@@ -5,7 +5,7 @@
 # To embed a slide, place a Liquid tag of the following form anywhere in a
 # source file:
 #
-#     {% tweet docopt 1 %}
+#     {% slide docopt 1 %}
 #
 
 
