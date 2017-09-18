@@ -5,6 +5,7 @@ RSYNC_USER = alexwlchan
 RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
 ROOT = $(shell git rev-parse --show-toplevel)
+SRC = $(ROOT)/src
 
 .docker/build:
 	docker build --tag $(DOCKER_IMAGE) .
@@ -13,13 +14,13 @@ ROOT = $(shell git rev-parse --show-toplevel)
 
 
 clean: .docker/build
-	docker run --volume $$(pwd):/site $(DOCKER_IMAGE) clean
+	docker run --volume $(SRC):/site $(DOCKER_IMAGE) clean
 	rm -rf .docker
 	docker rm -f alexwlchan.net_serve
 	docker rmi --force $(DOCKER_IMAGE)
 
 build: .docker/build
-	docker run --volume $$(pwd):/site $(DOCKER_IMAGE) build
+	docker run --volume $(SRC):/site $(DOCKER_IMAGE) build
 
 serve: .docker/build
 	# Clean up old running containers
@@ -28,7 +29,7 @@ serve: .docker/build
 
 	docker run \
 		--publish 5757:5757 \
-		--volume $(ROOT):/site \
+		--volume $(SRC):/site \
 		--name alexwlchan.net_serve \
 		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch

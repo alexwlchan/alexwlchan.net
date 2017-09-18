@@ -3,4 +3,4 @@
 set -o errexit
 set -o nounset
 
-pip3 install -r _tests/requirements.txt
+pip3 install -r tests/requirements.txt
