@@ -33,7 +33,7 @@ serve: .docker/build
 		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
-publish: specktre-assets build
+publish: build
 
 deploy: publish
 	rsync \
@@ -46,5 +46,3 @@ deploy: publish
 
 
 .PHONY: clean build watch serve stop publish deploy
-
-include _specktre/Makefile
