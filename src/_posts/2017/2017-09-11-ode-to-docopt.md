@@ -1,7 +1,7 @@
 ---
 title: Ode to docopt
 summary: Why I love docopt as a tool for writing clean, simple command-line interfaces.
-tags: python, slides
+tags: python slides
 category: slides
 date: 2017-09-11 12:01:13 +0100
 layout: post

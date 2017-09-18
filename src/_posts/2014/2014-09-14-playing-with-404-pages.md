@@ -2,7 +2,7 @@
 date: 2014-09-14 00:13:00 +0000
 layout: post
 slug: 404-pages
-tags: pelican, python
+tags: pelican python
 title: Playing with 404 pages
 ---
 

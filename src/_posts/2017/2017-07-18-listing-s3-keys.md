@@ -3,7 +3,7 @@ date: 2017-07-18 08:30:00 +0000
 layout: post
 slug: listing-s3-keys
 summary: A short Python function for getting a list of keys in an S3 bucket.
-tags: aws, python
+tags: aws python
 title: Listing keys in an S3 bucket with Python
 ---
 

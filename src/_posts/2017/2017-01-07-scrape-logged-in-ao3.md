@@ -4,7 +4,7 @@ layout: post
 minipost: true
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,
   it might not be necessary.
-tags: python, fandom
+tags: python fandom
 title: Experiments with AO3 and Python
 ---
 

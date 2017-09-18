@@ -4,7 +4,7 @@ layout: post
 slug: how-i-use-textexpander-to-curb-my-language
 summary: "I have some TextExpander snippets that I use to cut out words I don\u2019\
   t want to write."
-tags: textexpander, writethedocs
+tags: textexpander writethedocs
 title: How I use TextExpander to curb my language
 ---
 
