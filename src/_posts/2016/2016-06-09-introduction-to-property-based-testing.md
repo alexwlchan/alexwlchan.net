@@ -4,7 +4,7 @@ layout: post
 link: /talks/hypothesis-intro/
 slug: introduction-to-property-based-testing
 summary: Slides from my talk about property-based testing at CamPUG.
-tags: python, talks
+tags: python talks
 title: Introduction to property-based testing
 ---
 

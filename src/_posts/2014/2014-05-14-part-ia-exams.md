@@ -3,7 +3,7 @@ date: 2014-05-14 21:10:00 +0000
 layout: post
 slug: part-ia-exams
 summary: Some advice for IA Mathmos sitting Tripos
-tags: cambridge, maths
+tags: cambridge maths
 title: Some Part IA exam advice
 ---
 

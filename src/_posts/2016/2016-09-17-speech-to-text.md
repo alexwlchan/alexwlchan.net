@@ -4,7 +4,7 @@ layout: post
 slug: speech-to-text
 summary: Live captioning of conference talks was an unexpected bonus at this year's
   PyCon UK.
-tags: pycon, conferences
+tags: pycon conferences
 title: Live captioning at conferences
 ---
 

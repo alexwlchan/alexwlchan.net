@@ -4,7 +4,7 @@ layout: post
 slug: part-ii-advice
 summary: Some suggestions for second year Cambridge maths students looking for work
   over the summer.
-tags: maths, cambridge
+tags: maths cambridge
 title: Brief advice for Part II
 ---
 

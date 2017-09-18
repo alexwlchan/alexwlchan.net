@@ -2,7 +2,7 @@
 date: 2014-12-29 08:26:00 +0000
 layout: post
 slug: pelican-linkposts
-tags: pelican, python
+tags: pelican python
 title: RSS linkposts in Pelican
 ---
 

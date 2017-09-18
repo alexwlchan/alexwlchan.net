@@ -4,7 +4,7 @@ layout: post
 slug: itunes-images-with-alfred
 summary: Using Alfred and a Python script to retrieve artwork from the iTunes, App
   and Mac App Stores.
-tags: alfred, python
+tags: alfred python
 title: Get images from the iTunes/App/Mac App Stores with Alfred
 ---
 
