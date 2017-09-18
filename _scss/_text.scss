@@ -71,10 +71,13 @@ sup {
   a {
     text-decoration: none;
   }
-  &.linkpost_title {
+  &.linkpost_title,
+  &.minipost_title {
     font-size: 1.17em;
     line-height: 1.35em;
     padding-top: 12px;
+  }
+  &.linkpost_title {
     a {
       text-decoration: underline;
       &:hover {
