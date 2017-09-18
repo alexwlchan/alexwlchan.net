@@ -29,6 +29,9 @@ def test_pages_appear_correctly(path):
     ('2017/09/useful-git-commands/', '''<code class="language-console" data-lang="console"><span></span><span class="gp">$</span> git rev-parse --show-toplevel
 <span class="go">/Users/alexwlchan/repos/alexwlchan.net</span>
 </code>'''),
+
+    # We're not adding trailing commas to tags
+    ('2017/09/ode-to-docopt', 'python</a>, <a'),
 ])
 def test_text_appears_in_pages(path, text_in_page):
     resp = requests.get(f'http://localhost:5757/{path}')
