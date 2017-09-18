@@ -4,7 +4,7 @@ layout: post
 slug: clearing-disk-space-on-os-x
 summary: "A few tools and utilities I\u2019ve been using to help clear disk space\
   \ on my Mac."
-tags: os x
+tags: os-x
 title: Clearing disk space on OS X
 ---
 

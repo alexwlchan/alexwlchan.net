@@ -4,7 +4,7 @@ layout: post
 slug: reading-web-pages-on-my-kindle
 summary: A Python script I wrote that let me sends web pages from my Mac and my iPhone
   to my Kindle.
-tags: python,
+tags: python
 title: Reading web pages on my Kindle
 ---
 

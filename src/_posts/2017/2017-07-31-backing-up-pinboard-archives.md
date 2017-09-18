@@ -3,7 +3,7 @@ date: 2017-07-31 19:47:00 +0000
 layout: post
 slug: backing-up-pinboard-archives
 summary: A Rust utility for saving local copies of my full-page archives from Pinboard.
-tags: rust, pinboard
+tags: rust pinboard
 title: Backing up full-page archives from Pinboard
 ---
 

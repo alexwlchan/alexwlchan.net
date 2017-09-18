@@ -4,7 +4,7 @@ layout: post
 slug: persistent-ipython-notebooks
 summary: Configuring an IPython notebook server that is always running and easily
   accessible in Windows.
-tags: python, windows
+tags: python windows
 title: Persistent IPython notebooks in Windows
 ---
 

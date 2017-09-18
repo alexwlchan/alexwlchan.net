@@ -4,7 +4,7 @@ layout: post
 slug: finding-404s-in-apache-logs
 summary: A Python script for finding 404 errors in my Apache web logs - and by extension,
   broken pages.
-tags: python, apache
+tags: python apache
 title: Finding 404s and broken pages in my Apache logs
 ---
 

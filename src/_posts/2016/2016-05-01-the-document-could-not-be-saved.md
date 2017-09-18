@@ -4,7 +4,7 @@ layout: post
 slug: os-x-hates-textmate
 summary: "Debugging a strange interaction between TextMate and OS X\u2019s security\
   \ system."
-tags: os-x, textmate
+tags: os-x textmate
 title: "\u201CThe document could not be saved\u201D"
 ---
 

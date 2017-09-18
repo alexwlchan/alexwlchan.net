@@ -4,7 +4,7 @@ layout: post
 slug: strings-are-terrible
 summary: 'Pop quiz: if I lowercase a string, does it still have the same length as
   the original string?'
-tags: unicode, hypothesis, python
+tags: unicode hypothesis python
 title: Another example of why strings are terrible
 ---
 
