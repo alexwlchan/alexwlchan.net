@@ -14,7 +14,7 @@ branches:
 cache: pip
 
 install:
-  - ./.travis/install.sh
+  - .travis/install.sh
 
 script:
   - .travis/run.sh
