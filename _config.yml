@@ -34,7 +34,7 @@ pagination:
   sort_reverse: true
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 plugins:
   - jekyll-paginate-v2
   - octopress-minify-html
