@@ -59,6 +59,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - install_jekyll.sh
+  - install_specktre.sh
   - id_rsa_travis
   - _tests
 
