@@ -41,14 +41,12 @@ I've only recently gone back and read the reference page in full – and that's 
 
 One of the built-in extensions renders footnotes with the following syntax:
 
-```markdown
-Sometimes you are talking about something[^1] and you want to include a
-reference[^2].  You use a `[^1]` in the body, and `[^1]:` later for
-the footnote text.
+    Sometimes you are talking about something[^1] and you want to include a
+    reference[^2].  You use a `[^1]` in the body, and `[^1]:` later for
+    the footnote text.
 
-[^1]: What does something mean?
-[^2]: A pointer to the reference.
-```
+    [^1]: What does something mean?
+    [^2]: A pointer to the reference.
 
 This is what it looks like rendered:
 
@@ -101,19 +99,17 @@ def hello_world(name):
 
 Code blocks use four-space indents, and a shebang or triple-colon on the first line to indicate whether you want line numbers or not:
 
-```markdown
-Here's an example with and without:
+    Here's an example with and without:
 
-    #!python
-    def hello_world(name):
-        """Prints a friendly greeting."""
-        print('Hello %s!' % name)
+        #!python
+        def hello_world(name):
+            """Prints a friendly greeting."""
+            print('Hello %s!' % name)
 
-    :::python
-    def hello_world(name):
-        """Prints a friendly greeting."""
-        print('Hello %s!' % name)
-```
+        :::python
+        def hello_world(name):
+            """Prints a friendly greeting."""
+            print('Hello %s!' % name)
 
 But I don't like this syntax very much – I find it hard to remember which is which – and it's not compatible with [GitHub-Flavoured Markdown][gfm], which I use quite a lot elsewhere.
 GFM uses triple backquotes and a language name for code blocks, like so:
