@@ -2,7 +2,7 @@
 date: 2015-12-13 17:15:00 +0000
 layout: post
 slug: pretty-print
-tags: shell scripting
+tags: shell-scripting
 title: Pretty printing JSON and XML in the shell
 ---
 

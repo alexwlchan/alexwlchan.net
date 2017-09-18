@@ -4,7 +4,7 @@ layout: post
 slug: http2-by-stealth
 summary: Apple has quietly adopted HTTP/2 in iOS 9 and El Capitan, and (almost) nobody
   noticed.
-tags: os x, http/2
+tags: os-x http/2
 title: Apple quietly adopts HTTP/2
 ---
 

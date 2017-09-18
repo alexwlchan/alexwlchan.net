@@ -3,7 +3,7 @@ date:       2016-10-30 09:12:00 +0000
 layout:     post
 slug:       the-a-stands-for-asexual
 summary:    A brief introduction to asexuality, what it means, and why it matters.
-tags:       personal, asexuality
+tags:       personal asexuality
 title:      The A stands for Asexual
 theme:
   color: 6c006c

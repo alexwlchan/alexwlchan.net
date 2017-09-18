@@ -3,7 +3,7 @@ date: 2016-01-25 17:22:00 +0000
 layout: post
 link: http://www.512pixels.net/blog/2016/1/the-harry-potter-collectors-ipod
 slug: harry-potter-ipod
-tags: ipod, harry potter
+tags: ipod harry-potter
 title: The Harry Potter Collector's iPod
 ---
 

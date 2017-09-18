@@ -4,7 +4,7 @@ layout: post
 link: http://redsymbol.net/articles/bash-exit-traps/
 slug: exit-traps-in-bash
 summary: null
-tags: bash, shell scripting
+tags: bash shell-scripting
 title: 'Useful Bash features: exit traps'
 ---
 

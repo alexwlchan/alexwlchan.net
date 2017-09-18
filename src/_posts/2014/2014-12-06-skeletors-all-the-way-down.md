@@ -3,7 +3,7 @@ date: 2014-12-06 22:42:00 +0000
 layout: post
 link: http://gouwens.net/skeletors-all-the-way-down
 slug: skeletors-all-the-way-down
-tags: skeletor, podcasts
+tags: skeletor podcasts
 title: Skeletors All the Way Down
 ---
 
