@@ -43,7 +43,7 @@ deploy: publish
 		--compress \
 		--delete \
 		--rsh="ssh$(SSHOPTS)" \
-		_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
+		src/_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
 
 .PHONY: clean build watch serve stop publish deploy
