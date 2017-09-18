@@ -1,5 +1,5 @@
 <article class="post">
-  <h1 class="title post__title{% if post.link %} linkpost_title{% endif %}">
+  <h1 class="title post__title{% if post.link %} linkpost_title{% endif %}{% if post.theme and post.theme.minipost %} minipost_title{% endif %}">
     {% if post.link %}
       <a href="{{ post.link }}">
     {% else %}
