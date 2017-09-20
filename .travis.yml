@@ -11,7 +11,10 @@ branches:
   only:
     - master
 
-cache: pip
+cache:
+  directories:
+    - .tox
+    - $HOME/.cache/pip
 
 install:
   - .travis/install.sh
