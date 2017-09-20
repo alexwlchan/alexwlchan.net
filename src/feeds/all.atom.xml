@@ -23,7 +23,9 @@
       <published>{{ post.date | date_to_xmlschema }}</published>
       <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
       <id>{{ post.id | absolute_url | xml_escape }}</id>
-      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">{{ post.content | strip | xml_escape }}</content>
+      <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
+        {{ post.content | strip | strip_html_attrs | normalize_whitespace | xml_escape }}
+      </content>
 
       {% if post.category %}
         <category term="{{ post.category | xml_escape }}" />
