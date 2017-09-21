@@ -32,6 +32,12 @@ def test_pages_appear_correctly(path):
 
     # We're not adding trailing commas to tags
     ('2017/09/ode-to-docopt', 'python</a>, <a'),
+
+    # I don't really want to minify it twice (and minification might vary
+    # in subtle ways), but I can look for blocks which aren't minified in
+    # the template and *should* be minified in the output.
+    ('feeds/all.atom.xml', '<author><name>Alex Chan</name>'),
+    ('feeds/all.atom.xml', '</entry><entry>'),
 ])
 def test_text_appears_in_pages(path, text_in_page):
     resp = requests.get(f'http://localhost:5757/{path}')
