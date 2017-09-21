@@ -17,5 +17,6 @@ group :jekyll_plugins do
    gem "pygments.rb"
 end
 
+gem "nokogiri", "~> 1.8"
 gem "redcarpet"
 gem "twitter", "~> 6.1"

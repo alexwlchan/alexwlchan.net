@@ -35,7 +35,7 @@ done
 set -o errexit
 
 echo "*** Running the server tests"
-py.test tests
+tox
 
 if [[ "$TRAVIS_EVENT_TYPE" == "pull_request" ]]
 then
