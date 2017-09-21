@@ -34,6 +34,18 @@ serve: .docker/build
 		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
+serve-debug: .docker/build
+	# Clean up old running containers
+	@docker stop alexwlchan.net_serve >/dev/null || true
+	@docker rm alexwlchan.net_serve >/dev/null || true
+
+	docker run \
+		--publish 5757:5757 \
+		--volume $(SRC):/site \
+		--name alexwlchan.net_serve \
+		--tty $(DOCKER_IMAGE) \
+		serve --host 0.0.0.0 --port 5757 --watch
+
 publish: build
 
 deploy: publish
@@ -46,4 +58,4 @@ deploy: publish
 		src/_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
 
-.PHONY: clean build watch serve stop publish deploy
+.PHONY: clean build watch serve serve-debug publish deploy
