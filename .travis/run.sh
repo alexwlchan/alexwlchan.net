@@ -44,7 +44,7 @@ then
 fi
 
 echo "*** Uploading published site to Linode"
-openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in id_rsa_travis.enc -out id_rsa_travis -d
+openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa.enc -out id_rsa_travis -d
 chmod 400 id_rsa_travis
 export SSHOPTS=" -o StrictHostKeyChecking=no -i id_rsa_travis"
 make deploy
