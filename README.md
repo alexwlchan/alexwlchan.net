@@ -93,3 +93,11 @@ You can see an example [in my docopt slides][docopt_green].
 The heavy lifting is done in [`_plugins/theming.rb`](src/_plugins/theming.rb).
 
 [docopt_green]: https://alexwlchan.net/2017/09/ode-to-docopt/
+
+### Static file copying
+
+I have a plugin [`static_file_generator.rb`](src/_plugins/static_file_generator.rb) which copies static files (images, videos, slides) into the output directory using rsync.
+
+The idea is to speed up site generation times – it's an idea I got from [Wolf Rentzsch][rentzsch].
+
+[rentzsch]: http://rentzsch.tumblr.com/post/58936832594/speed-up-jekyll-using-one-weird-trick
