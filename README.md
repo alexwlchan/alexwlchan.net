@@ -36,7 +36,7 @@ $ make build
 
 ## Technical details
 
-#### Testing in Travis
+### Testing in Travis
 
 I run a small number of tests in Travis, which look for particular strings in the rendered HTML.
 I'm not trying to test Jekyll itself (that's best left to the Jekyll developers) – more test that I haven't broken something with a config change.
@@ -44,7 +44,7 @@ Stuff like footnotes, syntax highlighting, and so on – I have a bad habit of b
 
 Tests are a good way to document the fiddly details buried in the templates and the like.
 
-#### Atom feed generation
+### Atom feed generation
 
 For Atom feeds, I have [my own template][atom_template] and a few [custom filters][atom_filter].
 I don't use [jekyll-feed][feed] because I sometimes want an entry to link somewhere other than my site (Daring Fireball-style link posts), and that's not supported.
@@ -66,7 +66,7 @@ See [`tests/test_atom_feed.py`](tests/test_atom_feed.py).
 [feed]: https://github.com/jekyll/jekyll-feed
 [validator]: https://github.com/rubys/feedvalidator
 
-#### Stylesheets
+### Stylesheets
 
 I write all my stylesheets in SCSS.
 The component SCSS files are in [`_scss`](src/_scss), and they're pulled together in `_main.scss`.
