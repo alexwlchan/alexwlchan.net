@@ -16,26 +16,20 @@ When I push to master, Travis uploads a copy of the rendered HTML files to a [Li
 
 ## Getting started
 
-The site is built with Jekyll running inside a Docker container.
-You need Git, Make and Docker installed.
+You need Git, make and Docker installed.
 
-Clone the repository from GitHub:
+To run a local copy of the site:
 
 ```console
 $ git clone git@github.com:alexwlchan/alexwlchan.net.git
+$ make serve
 ```
 
-To build the HTML pages for the site:
+The site should be running on <http://localhost:5757>.
+If you make changes to the source files, it will automatically update.
+
+To build a one-off set of static HTML files:
 
 ```console
 $ make build
 ```
-
-For continuous testing, run:
-
-```console
-$ make serve
-```
-
-A local copy of the site will be served on <http://localhost:5757>.
-If you make changes to the source files, this version will automatically update.
