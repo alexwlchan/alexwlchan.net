@@ -1,4 +1,5 @@
 DOCKER_IMAGE = alexwlchan/alexwlchan.net
+DOCKER_SERVE_CONTAINER = awlc_server
 
 RSYNC_HOST = 139.162.244.147
 RSYNC_USER = alexwlchan
@@ -24,25 +25,25 @@ build: .docker/build
 
 serve: .docker/build
 	# Clean up old running containers
-	@docker stop alexwlchan.net_serve >/dev/null || true
-	@docker rm alexwlchan.net_serve >/dev/null || true
+	@docker stop $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
+	@docker rm $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
 
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
-		--name alexwlchan.net_serve \
+		--name $(DOCKER_SERVE_CONTAINER) \
 		--tty --detach $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
 serve-debug: .docker/build
 	# Clean up old running containers
-	@docker stop alexwlchan.net_serve >/dev/null || true
-	@docker rm alexwlchan.net_serve >/dev/null || true
+	@docker stop $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
+	@docker rm $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
 
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
-		--name alexwlchan.net_serve \
+		--name $(DOCKER_SERVE_CONTAINER) \
 		--tty $(DOCKER_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
