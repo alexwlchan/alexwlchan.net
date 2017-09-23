@@ -11,6 +11,10 @@ branches:
   only:
     - master
 
+cache:
+  directories:
+    - tests/.tox
+
 script:
   - .travis/run.sh
 
