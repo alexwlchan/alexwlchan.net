@@ -21,7 +21,7 @@ do
     sleep 2
 
     # If the container has died, give up
-    docker ps | grep alexwlchan.net_serve >/dev/null 2>&1
+    docker ps | grep "$docker_id" >/dev/null 2>&1
     if (( $? != 0 ))
     then
         echo "'make serve' task has unexpectedly failed; giving up"
