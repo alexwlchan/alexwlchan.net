@@ -30,7 +30,7 @@ build: .docker/build
 	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
 
 serve: .docker/build
-	# Clean up old running containers
+	@# Clean up old running containers
 	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
@@ -42,7 +42,7 @@ serve: .docker/build
 		serve --host 0.0.0.0 --port 5757 --watch
 
 serve-debug: .docker/build
-	# Clean up old running containers
+	@# Clean up old running containers
 	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
