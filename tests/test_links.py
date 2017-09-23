@@ -9,8 +9,8 @@ import requests
     # Check pagination is working correctly
     '/page/2/', '/page/3/',
 ])
-def test_pages_appear_correctly(path):
-    resp = requests.get(f'http://localhost:5757/{path}')
+def test_pages_appear_correctly(hostname, path):
+    resp = requests.get(f'http://{hostname}/{path}')
     assert resp.status_code == 200
 
 
@@ -42,8 +42,8 @@ def test_pages_appear_correctly(path):
     # Footnotes are rendered correctly
     ('2017/01/scrape-logged-in-ao3', '<a href="#fn1" rel="footnote">1</a>')
 ])
-def test_text_appears_in_pages(path, text_in_page):
-    resp = requests.get(f'http://localhost:5757/{path}')
+def test_text_appears_in_pages(hostname, path, text_in_page):
+    resp = requests.get(f'http://{hostname}/{path}')
     assert resp.status_code == 200
     assert text_in_page in resp.text
 
@@ -53,7 +53,7 @@ def test_text_appears_in_pages(path, text_in_page):
     ('2017/', '<h3>2017</h3>'),
     ('2017/07/', '<h3>2017</h3>'),
 ])
-def test_text_does_not_appear_in_pages(path, text):
-    resp = requests.get(f'http://localhost:5757/{path}')
+def test_text_does_not_appear_in_pages(hostname, path, text):
+    resp = requests.get(f'http://{hostname}/{path}')
     assert resp.status_code == 200
     assert text not in resp.text
