@@ -20,7 +20,7 @@ Rather than fiddling with argparse and the like, I just write a docopt help stri
 I've used it in multiple languages, and thought it might be handy for other devs at work.
 Ergo, this talk.
 
-You can [download my slides as a PDF](/docopt/docopt_slides.pdf), or read the notes below.
+You can [download my slides as a PDF](/slides/docopt/docopt_slides.pdf), or read the notes below.
 
 <!-- summary -->
 
