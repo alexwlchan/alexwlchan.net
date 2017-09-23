@@ -176,3 +176,10 @@ Because I render the tweets at compile time, I can change the appearance of old 
 That's part of why I keep the entire API response – in case I later need data I'd thrown away the first time.
 
 [drangtweet]: http://www.leancrew.com/all-this/2012/07/good-embedded-tweets/
+
+## Contributing
+
+I'm only interested in hearing about bugs or tyops – please don't open an issue because you think I'm a terrible writer! 😜
+
+If you want to use any of the components – plugins, layouts, stylesheets – feel free to do so.
+Everything is MIT licensed, unless otherwise noted.
