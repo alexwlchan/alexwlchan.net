@@ -8,6 +8,7 @@ RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
 ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
+TESTS = $(ROOT)/tests
 
 .docker/build:
 	docker build --tag $(BUILD_IMAGE) .
@@ -15,7 +16,7 @@ SRC = $(ROOT)/src
 	touch .docker/build
 
 .docker/tests:
-	docker build --tag $(TESTS_IMAGE) --file tests/Dockerfile tests
+	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
 	mkdir -p .docker
 	touch .docker/tests
 
@@ -25,6 +26,7 @@ clean: .docker/build
 	rm -rf .docker
 	docker rm -f alexwlchan.net_serve
 	docker rmi --force $(BUILD_IMAGE)
+	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
 	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
@@ -64,5 +66,12 @@ deploy: publish
 		--rsh="ssh$(SSHOPTS)" \
 		src/_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
+test: .docker/tests
+	docker run \
+		--volume $(TESTS):/tests \
+		--env HOSTNAME=$(SERVE_CONTAINER) \
+		--link $(SERVE_CONTAINER) \
+		$(TESTS_IMAGE)
 
-.PHONY: clean build watch serve serve-debug publish deploy
+
+.PHONY: clean build watch serve serve-debug publish deploy test

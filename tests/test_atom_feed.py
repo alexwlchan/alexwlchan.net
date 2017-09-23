@@ -8,10 +8,11 @@ from feedvalidator import compatibility
 from feedvalidator.formatter.text_plain import Formatter
 
 
-def test_feed_is_valid_atom():
+def test_feed_is_valid_atom(hostname):
+    atom_url = 'http://%s/feeds/all.atom.xml' % hostname
     try:
         events = feedvalidator.validateURL(
-            'http://0.0.0.0:5757/feeds/all.atom.xml', firstOccurrenceOnly=1
+            atom_url, firstOccurrenceOnly=1
         )['loggedEvents']
     except feedvalidator.logging.ValidationFailure as vf:
         events = [vf.event]
