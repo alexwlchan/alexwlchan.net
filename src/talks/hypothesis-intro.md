@@ -8,7 +8,6 @@ title: Introduction to property-based testing
 
 This is a presentation I gave for the Cambridge Python User Group in June&nbsp;2016.
 Notes and the slides are shown below.
-<!-- , or you can [view the presentation](/talks/hypothesis-intro-slides.html) in your browser (use the arrow keys to go back and forward). -->
 
 The notes aren't a transcript, just my rough notes of the major points I wanted to cover.
 
