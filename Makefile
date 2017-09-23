@@ -73,7 +73,7 @@ test: .docker/tests
 		--volume $(TESTS):/tests \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
-		$(TESTS_IMAGE)
+		--tty $(TESTS_IMAGE)
 
 
 .PHONY: clean build watch serve serve-debug publish deploy test
