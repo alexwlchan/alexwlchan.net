@@ -7,9 +7,9 @@ other pages on the site) are pointing at working pages.
 from http_crawler import crawl
 
 
-def test_no_links_are_broken():
+def test_no_links_are_broken(baseurl):
     responses = []
-    for rsp in crawl('http://0.0.0.0:5757/', follow_external_links=False):
+    for rsp in crawl(baseurl, follow_external_links=False):
         responses.append(rsp)
 
     failed_responses = [rsp for rsp in responses if rsp.status_code != 200]
