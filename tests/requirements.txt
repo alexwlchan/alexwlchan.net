@@ -6,15 +6,11 @@
 #
 certifi==2017.7.27.1      # via requests
 chardet==3.0.4            # via requests
-http-crawler==0.1.6
 idna==2.6                 # via requests
-lxml==4.0.0               # via http-crawler
 py==1.4.34                # via pytest
 pytest==3.2.2
 requests==2.18.4
-tinycss2==0.6.0           # via http-crawler
 urllib3==1.22             # via requests
-webencodings==0.5.1       # via tinycss2
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools                # via pytest
