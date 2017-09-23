@@ -1,5 +1,6 @@
-DOCKER_IMAGE = alexwlchan/alexwlchan.net
-DOCKER_SERVE_CONTAINER = awlc_server
+BUILD_IMAGE = alexwlchan/alexwlchan.net
+TESTS_IMAGE = alexwlchan/alexwlchan.net_tests
+SERVE_CONTAINER = server
 
 RSYNC_HOST = 139.162.244.147
 RSYNC_USER = alexwlchan
@@ -9,42 +10,47 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 
 .docker/build:
-	docker build --tag $(DOCKER_IMAGE) .
+	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
 
+.docker/tests:
+	docker build --tag $(TESTS_IMAGE) --file tests/Dockerfile tests
+	mkdir -p .docker
+	touch .docker/tests
+
 
 clean: .docker/build
-	docker run --volume $(SRC):/site $(DOCKER_IMAGE) clean
+	docker run --volume $(SRC):/site $(BUILD_IMAGE) clean
 	rm -rf .docker
 	docker rm -f alexwlchan.net_serve
-	docker rmi --force $(DOCKER_IMAGE)
+	docker rmi --force $(BUILD_IMAGE)
 
 build: .docker/build
-	docker run --volume $(SRC):/site $(DOCKER_IMAGE) build
+	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
 
 serve: .docker/build
 	# Clean up old running containers
-	@docker stop $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
-	@docker rm $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
+	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
+	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
-		--name $(DOCKER_SERVE_CONTAINER) \
-		--tty --detach $(DOCKER_IMAGE) \
+		--name $(SERVE_CONTAINER) \
+		--tty --detach $(BUILD_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
 serve-debug: .docker/build
 	# Clean up old running containers
-	@docker stop $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
-	@docker rm $(DOCKER_SERVE_CONTAINER) >/dev/null 2>&1 || true
+	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
+	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
-		--name $(DOCKER_SERVE_CONTAINER) \
-		--tty $(DOCKER_IMAGE) \
+		--name $(SERVE_CONTAINER) \
+		--tty $(BUILD_IMAGE) \
 		serve --host 0.0.0.0 --port 5757 --watch
 
 publish: build
