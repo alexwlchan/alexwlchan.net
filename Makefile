@@ -40,8 +40,9 @@ serve: .docker/build
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
 		--name $(SERVE_CONTAINER) \
+		--hostname $(SERVE_CONTAINER) \
 		--tty --detach $(BUILD_IMAGE) \
-		serve --host 0.0.0.0 --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch
 
 serve-debug: .docker/build
 	@# Clean up old running containers
@@ -52,8 +53,9 @@ serve-debug: .docker/build
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
 		--name $(SERVE_CONTAINER) \
+		--hostname $(SERVE_CONTAINER) \
 		--tty $(BUILD_IMAGE) \
-		serve --host 0.0.0.0 --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch
 
 publish: build
 
