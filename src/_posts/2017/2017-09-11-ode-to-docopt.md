@@ -20,7 +20,7 @@ Rather than fiddling with argparse and the like, I just write a docopt help stri
 I've used it in multiple languages, and thought it might be handy for other devs at work.
 Ergo, this talk.
 
-You can [download my slides as a PDF](/docopt/docopt_slides.pdf), or read the notes below.
+You can [download my slides as a PDF](/slides/docopt/docopt_slides.pdf), or read the notes below.
 
 <!-- summary -->
 
@@ -143,7 +143,7 @@ Again, most of the code is writing the help string, the parsing code is just a c
 More information about docopt, including links to the ports and more detailed instructions, is on the [docopt website][docopt].
 
 [argparse]: https://docs.python.org/3.5/library/argparse.html
-[wisdom]: ;https://github.com/kennethreitz/python-for-humans/blob/master/python-for-humans/1_content.md#the-litmus-test
+[wisdom]: https://github.com/kennethreitz/python-for-humans/blob/master/python-for-humans/1_content.md#the-litmus-test
 [module]: https://pypi.org/project/docopt/
 [posix]: https://en.wikipedia.org/wiki/POSIX
 [atwood]: https://blog.codinghorror.com/the-principle-of-least-power/

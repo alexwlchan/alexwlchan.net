@@ -43,7 +43,7 @@ slug: talks
 
 <div class="section">
   <div class="thumbnail">
-    <a href="/talks/colossus/"><img src="/talks/colossus_operators.jpg"></a>
+    <img src="/talks/colossus_operators.jpg">
   </div>
   <div class="description">
     <h3 class="talk_title">Colossus [slides and notes coming soon]</h3>
