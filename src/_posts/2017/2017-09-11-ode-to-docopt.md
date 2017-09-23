@@ -143,7 +143,7 @@ Again, most of the code is writing the help string, the parsing code is just a c
 More information about docopt, including links to the ports and more detailed instructions, is on the [docopt website][docopt].
 
 [argparse]: https://docs.python.org/3.5/library/argparse.html
-[wisdom]: ;https://github.com/kennethreitz/python-for-humans/blob/master/python-for-humans/1_content.md#the-litmus-test
+[wisdom]: https://github.com/kennethreitz/python-for-humans/blob/master/python-for-humans/1_content.md#the-litmus-test
 [module]: https://pypi.org/project/docopt/
 [posix]: https://en.wikipedia.org/wiki/POSIX
 [atwood]: https://blog.codinghorror.com/the-principle-of-least-power/
