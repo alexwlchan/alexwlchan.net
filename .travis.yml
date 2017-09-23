@@ -11,15 +11,6 @@ branches:
   only:
     - master
 
-cache:
-  directories:
-    - .tox
-    - $HOME/.cache/pip
-
-install:
-  - pip install --upgrade pip setuptools
-  - pip install --upgrade tox
-
 script:
   - .travis/run.sh
 
