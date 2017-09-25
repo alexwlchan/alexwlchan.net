@@ -1,5 +1,7 @@
 # alexwlchan.net
 
+[![Build Status](https://travis-ci.org/alexwlchan/alexwlchan.net.svg?branch=master)](https://travis-ci.org/alexwlchan/alexwlchan.net)
+
 This repo has the code for my personal site, [alexwlchan.net][root].
 It's a static site built with [Jekyll][jekyll], with a number of plugins written to suit my personal tastes.
 
