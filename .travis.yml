@@ -14,16 +14,16 @@ branches:
 cache:
   directories:
     - tests/.tox
-		- ~/docker
+    - ~/docker
 
 before_script:
-	- .travis/before_script.sh
+  - .travis/before_script.sh
 
 script:
   - .travis/run.sh
 
 before_cache:
-	- .travis/before_cache.sh
+  - .travis/before_cache.sh
 
 env:
   global:
