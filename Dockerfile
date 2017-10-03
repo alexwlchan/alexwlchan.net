@@ -1,4 +1,4 @@
-FROM alpine
+FROM alexwlchan/bundler-base
 
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"
