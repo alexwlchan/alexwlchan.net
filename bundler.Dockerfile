@@ -7,4 +7,4 @@ RUN apk update && \
     apk add ruby && \
     gem install --no-document bundler
 
-ENTRYPOINT ["bundler"]
+ENTRYPOINT ["bundle"]
