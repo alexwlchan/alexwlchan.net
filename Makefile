@@ -1,3 +1,4 @@
+BUNDLER_IMAGE = alexwlchan/bundler-base
 BUILD_IMAGE = alexwlchan/alexwlchan.net
 TESTS_IMAGE = alexwlchan/alexwlchan.net_tests
 SERVE_CONTAINER = server
@@ -10,7 +11,11 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/build:
+.docker/bundler:
+	docker build --tag $(BUNDLER_IMAGE) --file bundler.Dockerfile .
+	mkdir -p .docker && touch .docker/builder
+
+.docker/build: .docker/bundler
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
