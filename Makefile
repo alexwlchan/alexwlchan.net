@@ -15,7 +15,7 @@ TESTS = $(ROOT)/tests
 	docker build --tag $(BUNDLER_IMAGE) --file bundler.Dockerfile .
 	mkdir -p .docker && touch .docker/bundler
 
-.docker/build: .docker/bundler Dockerfile install_jekyll.sh install_specktre.sh
+.docker/build: Dockerfile install_jekyll.sh install_specktre.sh
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
