@@ -1,4 +1,4 @@
-FROM alexwlchan/bundler-base
+FROM ruby:2.4-alpine3.6
 
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"

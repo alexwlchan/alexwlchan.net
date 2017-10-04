@@ -23,11 +23,6 @@ apk add rsync
 apk add py2-pip
 pip install pygments
 
-# Fixes an issue where bundler complains about running as root.
-# In Docker, that doesn't matter!
-# https://github.com/docker-library/rails/issues/10
-bundle config --global silence_root_warning 1
-
 bundle install
 
 apk del --purge build-base
