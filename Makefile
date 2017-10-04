@@ -1,4 +1,3 @@
-BUNDLER_IMAGE = alexwlchan/bundler-base
 BUILD_IMAGE = alexwlchan/alexwlchan.net
 TESTS_IMAGE = alexwlchan/alexwlchan.net_tests
 SERVE_CONTAINER = server
@@ -11,16 +10,12 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/bundler:
-	docker build --tag $(BUNDLER_IMAGE) --file bundler.Dockerfile .
-	mkdir -p .docker && touch .docker/bundler
-
-.docker/build: .docker/bundler
+.docker/build: Dockerfile install_jekyll.sh install_specktre.sh
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
 
-.docker/tests:
+.docker/tests: tests/Dockerfile tests/*.py tests/requirements* tests/tox.ini
 	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
 	mkdir -p .docker
 	touch .docker/tests
@@ -80,12 +75,12 @@ test: .docker/tests
 		--link $(SERVE_CONTAINER) \
 		--tty $(TESTS_IMAGE)
 
-Gemfile.lock: .docker/bundler
+Gemfile.lock: Gemfile
 	docker run \
 		--volume $(ROOT):/site \
 		--workdir /site \
-		--tty $(BUNDLER_IMAGE) \
-		lock --update
+		--tty $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
+		bundle lock --update
 
 
 .PHONY: clean build watch serve serve-debug publish deploy test
