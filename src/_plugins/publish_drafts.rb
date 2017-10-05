@@ -11,6 +11,16 @@
 # installed as a gem, because installing local gems adds a whole extra layer
 # of complication that I don't want right now.
 
+def publish_all_drafts(drafts_dir: "_drafts")
+  if not Dir.exist? drafts_dir
+    return
+  end
+
+  Dir.glob("#{drafts_dir}/*.md") do |entry|
+    puts entry
+  end
+end
+
 module Jekyll
   module Commands
     class PublishDrafts < Command
@@ -18,7 +28,7 @@ module Jekyll
         def init_with_program(prog)
           prog.command(:"publish-drafts") do |c|
             c.action do |args, options|
-              Jekyll.logger.info "Hello!"
+              publish_all_drafts()
             end
           end
         end
