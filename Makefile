@@ -10,7 +10,7 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/build: Dockerfile install_jekyll.sh install_specktre.sh
+.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile Gemfile.lock
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
@@ -83,4 +83,4 @@ Gemfile.lock: Gemfile
 		bundle lock --update
 
 
-.PHONY: clean build watch serve serve-debug publish deploy test
+.PHONY: clean build serve serve-debug publish deploy test
