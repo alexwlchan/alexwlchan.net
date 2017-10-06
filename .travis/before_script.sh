@@ -28,7 +28,7 @@ git remote add origin git@github.com:alexwlchan/alexwlchan.net.git
 openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa_push_key.enc -out id_rsa_push_key -d
 md5sum id_rsa_push_key
 chmod 600 id_rsa_push_key
-ssh-agent sh -c "ssh-add id_rsa_push_key"
+ssh-add id_rsa_push_key
 ssh -v -T git@github.com
 
 # See https://github.com/travis-ci/travis-ci/issues/6652.  A no-op that sets
