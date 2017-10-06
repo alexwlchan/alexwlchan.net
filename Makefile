@@ -84,6 +84,7 @@ Gemfile.lock: Gemfile
 		--workdir /site \
 		--tty $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
+	touch Gemfile.lock
 
 
 .PHONY: clean build serve serve-debug publish-drafts publish deploy test
