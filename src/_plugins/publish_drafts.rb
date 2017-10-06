@@ -14,7 +14,7 @@ require 'shell/executer.rb'
 # installed as a gem, because installing local gems adds a whole extra layer
 # of complication that I don't want right now.
 
-def publish_all_drafts(source_dir, git_commit, git_push)
+def publish_all_drafts(source_dir, git_commit)
   Dir.chdir(source_dir) do
     drafts_dir = File.join(source_dir, "_drafts")
     if not Dir.exist? drafts_dir
@@ -22,7 +22,6 @@ def publish_all_drafts(source_dir, git_commit, git_push)
     end
 
     now = Time.now
-    has_changes = false
 
     Dir.glob("#{drafts_dir}/*.md") do |entry|
       puts "*** Publishing draft #{entry}"
@@ -36,13 +35,7 @@ def publish_all_drafts(source_dir, git_commit, git_push)
         Shell.execute!("git rm #{entry}")
         Shell.execute!("git add #{File.join(source_dir, new_file)}")
         Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
-        has_changes = true
       end
-    end
-
-    if git_push and has_changes
-      puts "*** Pushing new commits to GitHub"
-      Shell.execute!("ssh-agent sh -c 'git push origin'")
     end
   end
 end
@@ -55,13 +48,11 @@ module Jekyll
 
           c.option 'source', '-s', '--source SOURCE', 'Custom source directory'
           c.option 'commit', '--commit', 'Create corresponding Git commits'
-          c.option 'push', '--push', 'Push the commits to GitHub'
 
           c.action do |args, options|
             publish_all_drafts(
               source = options['source'],
-              git_commit = options['commit'],
-              git_push = options['push']
+              git_commit = options['commit']
             )
           end
         end
