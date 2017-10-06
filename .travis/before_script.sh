@@ -27,4 +27,4 @@ git remote add origin git@github.com:alexwlchan/alexwlchan.net.git
 # See https://github.com/travis-ci/travis-ci/issues/6652
 BRANCH="${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}"
 git checkout -b "$BRANCH"
-git branch --set-upstream "$BRANCH"
+git branch --set-upstream-to="$BRANCH"
