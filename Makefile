@@ -60,7 +60,7 @@ serve-debug: .docker/build
 publish-drafts: .docker/build
 	docker run --volume $(SRC):/site \
 		--tty $(BUILD_IMAGE) \
-		publish-drafts --source /site
+		publish-drafts --source /site --commit --push
 
 publish: publish-drafts build
 
