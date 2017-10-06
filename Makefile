@@ -29,7 +29,7 @@ clean: .docker/build
 	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
-	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
+	docker run --volume $(SRC):/site $(BUILD_IMAGE) build --source /site
 
 serve: .docker/build
 	@# Clean up old running containers
@@ -42,7 +42,7 @@ serve: .docker/build
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --detach $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch --source /site
 
 serve-debug: .docker/build
 	@# Clean up old running containers
@@ -55,10 +55,12 @@ serve-debug: .docker/build
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch --source /site
 
 publish-drafts: .docker/build
-	docker run --volume $(SRC):/site --tty $(BUILD_IMAGE) publish-drafts
+	docker run --volume $(SRC):/site \
+		--tty $(BUILD_IMAGE) \
+		publish-drafts --source /site
 
 publish: publish-drafts build
 

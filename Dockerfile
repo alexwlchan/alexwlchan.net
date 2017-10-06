@@ -14,4 +14,4 @@ RUN ./install_jekyll.sh
 
 COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.6.0/lib/jekyll/commands
 
-ENTRYPOINT ["bundle", "exec", "jekyll", "--source", "/site"]
+ENTRYPOINT ["bundle", "exec", "jekyll"]

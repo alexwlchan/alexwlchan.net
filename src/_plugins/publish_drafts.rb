@@ -27,6 +27,9 @@ module Jekyll
       class << self
         def init_with_program(prog)
           prog.command(:"publish-drafts") do |c|
+
+            c.option 'source', '-s', '--source SOURCE', 'Custom source directory'
+
             c.action do |args, options|
               publish_all_drafts()
             end
