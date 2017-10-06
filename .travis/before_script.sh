@@ -17,23 +17,3 @@ fi
 
 sudo bash -c "echo 'DOCKER_OPTS=\"-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -g /home/travis/docker\"' > /etc/default/docker"
 sudo service docker start
-
-# Set up Git config.  This is required for the 'publish-drafts' task.
-git config user.name "Travis CI on behalf of Alex Chan"
-git config user.email "travisci_git@alexwlchan.fastmail.co.uk"
-git remote rm origin
-git remote add origin git@github.com:alexwlchan/alexwlchan.net.git
-
-# Set up the SSH key that allows Travis to push to GitHub
-openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa_push_key.enc -out id_rsa_push_key -d
-md5sum id_rsa_push_key
-chmod 600 id_rsa_push_key
-ls ~/.ssh
-mv id_rsa_push_key ~/.ssh/id_rsa
-# ssh-agent sh -c "ssh-add id_rsa_push_key"
-
-# See https://github.com/travis-ci/travis-ci/issues/6652.  A no-op that sets
-# the current branch and establishes the upstream.
-BRANCH="${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}"
-git checkout -b "$BRANCH"
-git push --set-upstream origin "$BRANCH"

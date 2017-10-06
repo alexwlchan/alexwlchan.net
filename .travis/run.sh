@@ -48,3 +48,15 @@ openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_i
 chmod 400 id_rsa_travis
 export SSHOPTS=" -o StrictHostKeyChecking=no -i id_rsa_travis"
 make deploy
+
+# Set up Git config.
+git config user.name "Travis CI on behalf of Alex Chan"
+git config user.email "travisci_git@alexwlchan.fastmail.co.uk"
+git remote rm origin
+git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
+
+# Set up the SSH key that allows Travis to push to GitHub
+openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa_push_key.enc -out id_rsa_push_key -d
+md5sum id_rsa_push_key
+chmod 600 id_rsa_push_key
+ssh-agent sh -c "chmod 600 id_rsa_push_key && ssh-add id_rsa_push_key && git push ssh-origin HEAD:publish-drafts"
