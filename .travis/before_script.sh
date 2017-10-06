@@ -24,6 +24,8 @@ git config user.email "travisci_git@alexwlchan.fastmail.co.uk"
 git remote rm origin
 git remote add origin git@github.com:alexwlchan/alexwlchan.net.git
 
-# See https://github.com/travis-ci/travis-ci/issues/6652
+# See https://github.com/travis-ci/travis-ci/issues/6652.  A no-op that sets
+# the current branch and establishes the upstream.
 BRANCH="${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}"
 git checkout -b "$BRANCH"
+git push --set-upstream origin "$BRANCH"
