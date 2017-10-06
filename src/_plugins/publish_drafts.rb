@@ -42,7 +42,7 @@ def publish_all_drafts(source_dir, git_commit, git_push)
 
     if git_push and has_changes
       puts "*** Pushing new commits to GitHub"
-      Shell.execute!("git push origin")
+      Shell.execute!("ssh-agent sh -c 'git push origin'")
     end
   end
 end
