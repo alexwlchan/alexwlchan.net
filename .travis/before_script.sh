@@ -26,6 +26,7 @@ git remote add origin git@github.com:alexwlchan/alexwlchan.net.git
 
 # Set up the SSH key that allows Travis to push to GitHub
 openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa_push_key.enc -out id_rsa_push_key -d
+md5sum id_rsa_push_key
 chmod 600 id_rsa_push_key
 ssh-agent sh -c "ssh-add id_rsa_push_key"
 ssh -T git@github.com
