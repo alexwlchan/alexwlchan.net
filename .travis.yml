@@ -20,7 +20,8 @@ before_script:
   - .travis/before_script.sh
 
 script:
-  - .travis/run.sh
+  - make publish
+  # - .travis/run.sh
 
 before_cache:
   - .travis/before_cache.sh
