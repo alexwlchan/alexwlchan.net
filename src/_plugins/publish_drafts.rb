@@ -1,5 +1,5 @@
 require 'jekyll-compose'
-require 'shell-executer'
+require 'shell/executer.rb'
 
 # This command does some automation with the _drafts folder.  Specifically,
 # when run, it:
@@ -15,34 +15,35 @@ require 'shell-executer'
 # of complication that I don't want right now.
 
 def publish_all_drafts(source_dir, git_commit, git_push)
-  drafts_dir = File.join(source_dir, "_drafts")
-  if not Dir.exist? drafts_dir
-    return
-  end
-
-  now = Time.now
-
-  Dir.glob("#{drafts_dir}/*.md") do |entry|
-    puts "*** Publishing draft #{entry}"
-    new_file = Jekyll::Commands::NewPublish.process(
-      args = [entry],
-      options = {'source': source_dir, 'date': now}
-    )
-
-
-    if git_commit
-      puts "*** Creating Git commit for #{entry}"
-      Shell.execute!("git rm #{entry}")
-      Shell.execute!("git add #{File.join(source_dir, new_file)}")
-      Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
+  Dir.chdir(source_dir) do
+    drafts_dir = File.join(source_dir, "_drafts")
+    if not Dir.exist? drafts_dir
+      return
     end
 
-    puts new_file
-  end
+    now = Time.now
+    has_changes = false
 
-  if git_push
-    puts "*** Pushing new commits to GitHub"
-    Shell.execute!("git push origin")
+    Dir.glob("#{drafts_dir}/*.md") do |entry|
+      puts "*** Publishing draft #{entry}"
+      new_file = Jekyll::Commands::NewPublish.process(
+        args = [entry],
+        options = {'source': source_dir, 'date': now}
+      )
+
+      if git_commit
+        puts "*** Creating Git commit for #{entry}"
+        Shell.execute!("git rm #{entry}")
+        Shell.execute!("git add #{File.join(source_dir, new_file)}")
+        Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
+        has_changes = true
+      end
+    end
+
+    if git_push and has_changes
+      puts "*** Pushing new commits to GitHub"
+      Shell.execute!("git push origin")
+    end
   end
 end
 

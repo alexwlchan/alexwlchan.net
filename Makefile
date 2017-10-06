@@ -58,9 +58,12 @@ serve-debug: .docker/build
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --source /site
 
 publish-drafts: .docker/build
-	docker run --volume $(SRC):/site \
+	docker run \
+		--volume $(ROOT):/repo \
+		--volume ~/.gitconfig:/root/.gitconfig \
+		--volume ~/.ssh:/root/.ssh \
 		--tty $(BUILD_IMAGE) \
-		publish-drafts --source /site --commit --push
+		publish-drafts --source /repo/src --commit --push
 
 publish: publish-drafts build
 

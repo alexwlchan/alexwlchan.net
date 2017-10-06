@@ -17,6 +17,9 @@ apk add nodejs
 # Required for the static file generator
 apk add rsync
 
+# Required for the draft publisher to create and push Git commits
+apk add git openssh
+
 # Required for the pygments gem.  This has to be Python 2, not Python 3:
 # https://github.com/tmm1/pygments.rb/issues/45
 apk add py2-pip
