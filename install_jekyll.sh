@@ -10,7 +10,7 @@ set -o nounset
 #
 apk update
 apk add gcc g++ libffi-dev musl-dev make ruby ruby-dev
-gem install --no-document bundler jekyll
+gem install --no-document jekyll
 
 # Other dependencies for gems
 apk add nodejs
