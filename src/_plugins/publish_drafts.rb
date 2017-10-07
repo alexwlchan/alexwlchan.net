@@ -30,7 +30,7 @@ def publish_all_drafts(source_dir)
 
       name = File.basename(entry)
       new_name = File.join(source_dir, "_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
-      File.rename(name, new_name)
+      File.rename(entry, new_name)
 
       puts "*** Creating Git commit for #{entry}"
       Shell.execute!("git rm #{drafts_dir}/#{entry}")
