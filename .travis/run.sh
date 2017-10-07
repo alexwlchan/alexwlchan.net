@@ -55,8 +55,9 @@ echo "*** Pushing any extra commits to GitHub"
 # Set up Git config.
 git config user.name "Travis CI on behalf of Alex Chan"
 git config user.email "travisci_git@alexwlchan.fastmail.co.uk"
+git config core.sshCommand "ssh -i id_rsa"
 git remote rm origin
 git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
 # Set up the SSH key that allows Travis to push to GitHub
-ssh-agent sh -c "ssh-add id_rsa && git push ssh-origin HEAD:publish-drafts"
+git push ssh-origin HEAD:publish-drafts
