@@ -9,4 +9,3 @@ docker rm $(docker ps --quiet --all)
 
 sudo service docker stop
 sudo chown -R travis ~/docker
-sudo service docker start
