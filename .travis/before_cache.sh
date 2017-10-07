@@ -4,5 +4,9 @@
 set -o errexit
 set -o nounset
 
+docker stop $(docker ps --quiet)
+docker rm $(docker ps --quiet --all)
+
 sudo service docker stop
 sudo chown -R travis ~/docker
+sudo service docker start
