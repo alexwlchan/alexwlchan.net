@@ -11,4 +11,4 @@ __pycache__
 .cache
 .tox
 
-id_rsa_travis
+id_rsa
