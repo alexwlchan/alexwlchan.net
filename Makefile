@@ -57,7 +57,15 @@ serve-debug: .docker/build
 		--tty $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch
 
-publish: build
+publish-drafts: .docker/build
+	docker run \
+		--volume $(ROOT):/repo \
+		--volume ~/.gitconfig:/root/.gitconfig \
+		--volume ~/.ssh:/root/.ssh \
+		--tty $(BUILD_IMAGE) \
+		publish-drafts
+
+publish: publish-drafts build
 
 deploy: publish
 	rsync \
@@ -83,4 +91,4 @@ Gemfile.lock: Gemfile
 		bundle lock --update
 
 
-.PHONY: clean build serve serve-debug publish deploy test
+.PHONY: clean build serve serve-debug publish-drafts publish deploy test
