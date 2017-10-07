@@ -29,7 +29,7 @@ def publish_all_drafts()
       now = Time.now
 
       name = File.basename(entry)
-      new_name = "_posts/#{now.strftime('%Y')}/#{now.strftime('%Y-%m-%d')}-#{name}"
+      new_name = File.join(source_dir, "_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
       File.rename(name, new_name)
 
       puts "*** Creating Git commit for #{entry}"
@@ -49,8 +49,10 @@ module Jekyll
       def self.init_with_program(prog)
         prog.command(:"publish-drafts") do |c|
 
+          c.option 'source', '-s', '--source SOURCE', 'Custom source directory'
+
           c.action do |args, options|
-            publish_all_drafts()
+            publish_all_drafts(options['source'])
           end
         end
       end
