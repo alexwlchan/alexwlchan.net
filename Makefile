@@ -10,7 +10,7 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile Gemfile.lock
+.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
