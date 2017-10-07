@@ -59,4 +59,4 @@ git remote rm origin
 git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
 # Set up the SSH key that allows Travis to push to GitHub
-ssh-agent sh -c "chmod 600 id_rsa && ssh-add id_rsa_push_key && git push ssh-origin HEAD:publish-drafts"
+ssh-agent sh -c "ssh-add id_rsa && git push ssh-origin HEAD:publish-drafts"
