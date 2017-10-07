@@ -33,7 +33,7 @@ def publish_all_drafts(source_dir)
       File.rename(name, new_name)
 
       puts "*** Creating Git commit for #{entry}"
-      Shell.execute!("git rm #{entry}")
+      Shell.execute!("git rm #{drafts_dir}/#{entry}")
       Shell.execute!("git add #{new_name}")
       Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
     end
