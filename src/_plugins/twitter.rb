@@ -45,7 +45,7 @@ module Jekyll
     end
 
     def cache_file()
-      "_tweets/#{@tweet_id}.json"
+      File.join("/site", "_tweets", "#{@tweet_id}.json")
     end
 
     def avatar_path(avatar_url, screen_name)
@@ -68,7 +68,7 @@ module Jekyll
     end
 
     def setup_api_client()
-      auth = YAML.load(File.read('_tweets/auth.yml'), :safe => true)
+      auth = YAML.load(File.read('/site/_tweets/auth.yml'), :safe => true)
       Twitter::REST::Client.new do |config|
         config.consumer_key        = auth["consumer_key"]
         config.consumer_secret     = auth["consumer_secret"]
