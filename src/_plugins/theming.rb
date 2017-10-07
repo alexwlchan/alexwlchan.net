@@ -12,7 +12,7 @@ end
 # This will be picked up by the SCSS processor for the site, and cause
 # the creation of a CSS theme with this as the primary color.
 def create_scss_theme(color)
-  mainfile = "theme/style_#{color}.scss"
+  mainfile = "/site/theme/style_#{color}.scss"
   if ! File.file?(mainfile)
     File.open(mainfile, 'w') { |file| file.write(<<-EOT
 ---
@@ -33,7 +33,7 @@ end
 # This will be picked up by the rsync plugin, and used by the CSS theme
 # created above.
 def create_banner_image(color)
-  banner_file = "theme/specktre_#{color}.png"
+  banner_file = "/site/theme/specktre_#{color}.png"
   if ! File.file?(banner_file)
 
     puts("Building the banner file for #{color}")
