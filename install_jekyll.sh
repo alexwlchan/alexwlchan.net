@@ -9,8 +9,7 @@ set -o nounset
 #   - https://github.com/ffi/ffi/issues/485
 #
 apk update
-apk add gcc g++ libffi-dev musl-dev make ruby ruby-dev
-gem install --no-document bundler jekyll
+apk add g++ libffi-dev make musl-dev ruby ruby-dev
 
 # Other dependencies for gems
 apk add nodejs
@@ -25,5 +24,5 @@ pip install pygments
 
 bundle install
 
-apk del --purge build-base
+apk del --purge g++ make musl-dev ruby-dev
 rm -rf /var/cache/apk/*
