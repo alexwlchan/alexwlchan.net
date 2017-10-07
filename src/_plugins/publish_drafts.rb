@@ -35,7 +35,7 @@ def publish_all_drafts(source_dir)
       puts "*** Creating Git commit for #{entry}"
       Shell.execute!("git rm #{entry}")
       Shell.execute!("git add #{new_name}")
-      Shell.execute!("git commit -m \"[auto] Publish draft entry #{name}\"")
+      Shell.execute!("git commit -m \"Publish new post #{name}\"")
     end
 
     FileUtils.rm_rf(drafts_dir)
