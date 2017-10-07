@@ -22,13 +22,6 @@ before_script:
 script:
   - .travis/run.sh
 
-deploy:
-  provider: script
-  script: .travis/deploy.sh
-  skip_cleanup: true
-  on:
-    branch: master
-
 before_cache:
   - .travis/before_cache.sh
 
