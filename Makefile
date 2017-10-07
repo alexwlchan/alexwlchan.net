@@ -90,5 +90,12 @@ Gemfile.lock: Gemfile
 		--tty $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
 
+renew-certbot:
+	docker run \
+		--volume ~/sites/alexwlchan.net:/site \
+		--volume ~/.certbot/work:/var/lib/letsencrypt \
+		--volume ~/.certbot/logs:/var/logs/letsencrypt \
+		--volume ~/.certbot/config:/etc/letsencrypt \
+		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
 
-.PHONY: clean build serve serve-debug publish-drafts publish deploy test
+.PHONY: clean build serve serve-debug publish-drafts publish deploy test renew-certbot
