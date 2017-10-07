@@ -14,7 +14,7 @@ RUN ./install_jekyll.sh
 
 # This is copied directly into the file to save me the hassle of installing
 # it from a Gem.
-COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.6.0/lib/jekyll/commands
+COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.5.2/lib/jekyll/commands
 
 WORKDIR /site
 
