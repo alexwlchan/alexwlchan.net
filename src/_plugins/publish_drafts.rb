@@ -15,29 +15,31 @@ require 'shell/executer.rb'
 
 
 def publish_all_drafts()
-  drafts_dir = "_drafts"
-  if not Dir.exist? drafts_dir
-    return
-  end
-
-  now = Time.now
-
-  Dir.glob("#{drafts_dir}/*.md") do |entry|
-    puts "*** Publishing draft #{entry}"
+  Dir.chdir(source_dir) do
+    drafts_dir = File.join(source_dir, "_drafts")
+    if not Dir.exist? drafts_dir
+      return
+    end
 
     now = Time.now
 
-    name = File.basename(entry)
-    new_name = "_posts/#{now.strftime('%Y')}/#{now.strftime('%Y-%m-%d')}-#{name}"
-    File.rename(name, new_name)
+    Dir.glob("#{drafts_dir}/*.md") do |entry|
+      puts "*** Publishing draft #{entry}"
 
-    puts "*** Creating Git commit for #{entry}"
-    Shell.execute!("git rm #{entry}")
-    Shell.execute!("git add #{new_name}")
-    Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
+      now = Time.now
+
+      name = File.basename(entry)
+      new_name = "_posts/#{now.strftime('%Y')}/#{now.strftime('%Y-%m-%d')}-#{name}"
+      File.rename(name, new_name)
+
+      puts "*** Creating Git commit for #{entry}"
+      Shell.execute!("git rm #{entry}")
+      Shell.execute!("git add #{new_name}")
+      Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
+    end
+
+    FileUtils.rm_rf(drafts_dir)
   end
-
-  FileUtils.rm_rf(drafts_dir)
 end
 
 
