@@ -10,7 +10,7 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile Gemfile.lock
+.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
@@ -29,7 +29,7 @@ clean: .docker/build
 	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
-	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
+	docker run --volume $(SRC):/site $(BUILD_IMAGE) build --source /site --destination /site/_site
 
 serve: .docker/build
 	@# Clean up old running containers
@@ -42,7 +42,7 @@ serve: .docker/build
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --detach $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch --source /site --destination /site/_site
 
 serve-debug: .docker/build
 	@# Clean up old running containers
@@ -55,9 +55,17 @@ serve-debug: .docker/build
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch --source /site --destination /site/_site
 
-publish: build
+publish-drafts: .docker/build
+	docker run \
+		--volume $(ROOT):/repo \
+		--volume ~/.gitconfig:/root/.gitconfig \
+		--volume ~/.ssh:/root/.ssh \
+		--tty $(BUILD_IMAGE) \
+		publish-drafts --source /repo/src --commit
+
+publish: publish-drafts build
 
 deploy: publish
 	rsync \
@@ -81,6 +89,7 @@ Gemfile.lock: Gemfile
 		--workdir /site \
 		--tty $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
+	touch Gemfile.lock
 
 
-.PHONY: clean build serve serve-debug publish deploy test
+.PHONY: clean build serve serve-debug publish-drafts publish deploy test
