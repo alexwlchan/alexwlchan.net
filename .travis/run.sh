@@ -43,9 +43,11 @@ set -o errexit
 #   exit 0
 # fi
 
+echo "*** Loading Travis SSH key"
+openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa.enc -out id_rsa -d
+
 echo "*** Uploading published site to Linode"
-openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa.enc -out id_rsa_travis -d
-chmod 400 id_rsa_travis
+chmod 400 id_rsa
 export SSHOPTS=" -o StrictHostKeyChecking=no -i id_rsa_travis"
 make publish
 
@@ -57,7 +59,4 @@ git remote rm origin
 git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
 # Set up the SSH key that allows Travis to push to GitHub
-openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in .travis/id_rsa_push_key.enc -out id_rsa_push_key -d
-md5sum id_rsa_push_key
-chmod 600 id_rsa_push_key
-ssh-agent sh -c "chmod 600 id_rsa_push_key && ssh-add id_rsa_push_key && git push ssh-origin HEAD:publish-drafts"
+ssh-agent sh -c "chmod 600 id_rsa && ssh-add id_rsa_push_key && git push ssh-origin HEAD:publish-drafts"
