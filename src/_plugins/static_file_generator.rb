@@ -1,3 +1,5 @@
+require 'fileutils'
+
 require 'shell/executer.rb'
 
 module Jekyll
@@ -7,6 +9,7 @@ module Jekyll
       site.keep_files.each { |dir|
         src = File.join(site.source, "_#{dir}")
         dst = File.join(site.source, "_site", dir)
+        FileUtils::mkdir_p dst
         Shell.execute!("rsync --archive --delete #{src} #{dst}")
       }
     end
