@@ -1,4 +1,5 @@
 .git
 .travis
 src
+!src/_plugins
 tests
