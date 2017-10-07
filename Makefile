@@ -63,7 +63,7 @@ publish-drafts: .docker/build
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		--tty $(BUILD_IMAGE) \
-		publish-drafts
+		publish-drafts --source=/repo/src
 
 publish: publish-drafts build
 
