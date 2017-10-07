@@ -14,7 +14,7 @@ require 'fileutils'
 require 'shell/executer.rb'
 
 
-def publish_all_drafts()
+def publish_all_drafts(source_dir)
   Dir.chdir(source_dir) do
     drafts_dir = File.join(source_dir, "_drafts")
     if not Dir.exist? drafts_dir
