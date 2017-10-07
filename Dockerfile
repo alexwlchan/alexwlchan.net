@@ -12,6 +12,6 @@ COPY Gemfile.lock .
 COPY install_jekyll.sh .
 RUN ./install_jekyll.sh
 
-WORKDIR /site
+COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.6.0/lib/jekyll/commands
 
 ENTRYPOINT ["bundle", "exec", "jekyll"]
