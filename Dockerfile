@@ -12,6 +12,9 @@ COPY Gemfile.lock .
 COPY install_jekyll.sh .
 RUN ./install_jekyll.sh
 
+RUN git config --global user.name "Travis CI on behalf of Alex Chan"
+RUN git config --global user.email "travisci_git@alexwlchan.fastmail.co.uk"
+
 # This is copied directly into the file to save me the hassle of installing
 # it from a Gem.
 COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.5.2/lib/jekyll/commands
