@@ -3,6 +3,8 @@
 set -o errexit
 set -o nounset
 
+sudo service docker start
+
 echo "*** Loading Travis RSA key"
 openssl aes-256-cbc \
   -K $encrypted_83630750896a_key \
