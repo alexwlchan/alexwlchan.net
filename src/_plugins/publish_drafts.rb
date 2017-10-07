@@ -10,6 +10,7 @@
 # installed as a gem, because installing local gems adds a whole extra layer
 # of complication that I don't want right now.
 
+require 'fileutils'
 require 'shell/executer.rb'
 
 
@@ -36,6 +37,8 @@ def publish_all_drafts()
       Shell.execute!("git add #{new_name}")
       Shell.execute!("git commit -m \"[auto] Publish draft entry #{entry}\"")
     end
+
+    FileUtils.rm_rf(drafts_dir)
   end
 end
 
