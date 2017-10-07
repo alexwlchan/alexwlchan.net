@@ -10,7 +10,7 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile Gemfile.lock
+.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
@@ -57,7 +57,15 @@ serve-debug: .docker/build
 		--tty $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch
 
-publish: build
+publish-drafts: .docker/build
+	docker run \
+		--volume $(ROOT):/repo \
+		--volume ~/.gitconfig:/root/.gitconfig \
+		--volume ~/.ssh:/root/.ssh \
+		--tty $(BUILD_IMAGE) \
+		publish-drafts
+
+publish: publish-drafts build
 
 deploy: publish
 	rsync \
@@ -83,4 +91,4 @@ Gemfile.lock: Gemfile
 		bundle lock --update
 
 
-.PHONY: clean build serve serve-debug publish deploy test
+.PHONY: clean build serve serve-debug publish-drafts publish deploy test
