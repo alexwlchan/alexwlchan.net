@@ -27,5 +27,6 @@ pip install pygments
 
 bundle install
 
-apk del --purge g++ make musl-dev ruby-dev
+# These packages are only required for installation, not for running Jekyll
+apk del --purge g++ make musl-dev py2-pip ruby-dev
 rm -rf /var/cache/apk/*
