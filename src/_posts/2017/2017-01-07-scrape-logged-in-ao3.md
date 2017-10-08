@@ -1,11 +1,12 @@
 ---
 date: 2017-01-07 23:10:00 +0000
 layout: post
-minipost: true
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,
   it might not be necessary.
 tags: python fandom
 title: Experiments with AO3 and Python
+theme:
+  minipost: true
 ---
 
 Recently, I've been writing some scripts that need to get data from [AO3][ao3][^1].
