@@ -10,5 +10,5 @@ pip install specktre==0.2.0
 
 # These dependencies are only required to install Pillow, not to actually
 # run it.
-apk del --purge build-base python-dev
+apk del --purge build-base python-dev py2-pip
 rm -rf /var/cache/apk/*
