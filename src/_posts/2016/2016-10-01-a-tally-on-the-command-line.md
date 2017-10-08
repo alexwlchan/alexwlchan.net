@@ -1,10 +1,11 @@
 ---
 date: 2016-10-01 21:23:00 +0000
 layout: post
-minipost: true
 slug: a-shell-alias-for-tallying
 tags: shell-scripting
 title: A shell alias for tallying data
+theme:
+  minipost: true
 ---
 
 Here's a tiny shell alias that I find useful when going through data on the command line.

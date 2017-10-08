@@ -1,10 +1,11 @@
 ---
 date: 2016-08-31 20:05:00 +0000
 layout: post
-minipost: true
 slug: dealing-with-query-strings
 tags: python
 title: 'Python snippet: dealing with query strings in URLs'
+theme:
+  minipost: true
 ---
 
 I spend a lot of time dealing with URLs: in particular, with URL [query strings][wiki_qs].
