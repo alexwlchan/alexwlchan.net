@@ -1,0 +1,103 @@
+---
+layout: post
+title: Using pip-tools to manage my Python dependencies
+tags: python docker make
+---
+
+At last year's PyCon UK, one of my favourite talks was Aaron Bassett's session on [Python dependency management][bassett].
+He showed us a package called [pip-tools][pip-tools], and I've been using it ever since.
+
+pip-tools is used to manage your pip dependencies.
+It allows you to write a top-level summary of the packages you need, for example:
+
+```console
+$ cat requirements.in
+pytest >= 1.4
+requests
+```
+
+Here I want a version of pytest that's at least 1.4, and any version of requests.
+
+Then I run `pip-compile`, which turns that into a full `requirements.txt`:
+
+```console
+$ pip-compile
+$ cat requirements.txt
+certifi==2017.7.27.1      # via requests
+chardet==3.0.4            # via requests
+idna==2.6                 # via requests
+py==1.4.34                # via pytest
+pytest==3.2.2
+requests==2.18.4
+urllib3==1.22             # via requests
+```
+
+I can install these dependencies with `pip install -r requirements.txt`.
+
+The generated file is *pinned*: every package has a fixed version.
+This means that I get the same versions whenever I run `pip install`, no matter what the new version is.
+If you don't pin your dependencies, your package manager may silently install a new version when it's released -- and that's an easy way for bugs to sneak in.
+
+Instead, check in both files into version control, so you can see exactly when a dependency version was changed.
+This makes it easier to see if a version bump introduced a bump.
+
+There are also comments to explain why you need a particular package: for example, I'm installing *certifi* because it's required by *requests*.
+
+I've been using pip-tools since Aaron's recommendation, and it's been really nice.
+It's not had an earth-shattering impact on my workflow, but it shaves off a bunch of rough edges.
+If you do any work with Python, I recommend giving it a look.
+
+For more about pip-tools itself, I recommend [Better Package Management][pkgmgmt] by Vincent Driessen, one of the pip-tools authors.
+This human-readable/pinned-package distinction is coming to vanilla pip in the form of [Pipfile][pipfile], but that was in its infancy last September.
+pip-tools has been stable for over two years.
+
+---
+
+Recently, I've been trying to push more of my tools inside Docker.
+Every tool I run in Docker is one less tool I have to install locally, so I can get up-and-running that much faster.
+Handily, there's already [a Docker image][docker] for running pip-tools.
+
+You run it as follows:
+
+```console
+$ docker run --volume /path/to/repo:/src --rm micktwomey/pip-tools
+```
+
+It looks for a `requirements.in` in `/src`, so we mount the repo in that directory --- this gives the container the ability to read the file, and write a `requirements.txt` back into a file on the host system.
+I also add the `--rm` flag, which cleans up the countainer after it's finished running.
+
+If you already have Docker, this is a nice way to use pip-tools without installing it locally.
+
+---
+
+Alongside Docker, I've been defining more of my build processes in Makefiles.
+Having Docker commands is useful, but I don't want to have to remember all the flags every time I use them.
+Writing a Makefile gives me shortcuts for common tasks.
+
+This is the Make task I have for updating a `requirements.txt`:
+
+```make
+requirements.txt: requirements.in
+	docker run --volume $(CURDIR):/src --rm micktwomey/pip-tools
+	touch requirements.txt
+```
+
+To use it, run `make requirements.txt`.
+
+The first line specifies the Make target (`requirements.txt`), and tells Make that it depends on `requirements.in`.
+So when the Make task is invoked, it checks that the `.in` file exists, and then whether the `.in` file was updated more recently than `.txt`.
+If yes --- the `.txt` file needs rebuilding.
+If no --- we're up-to-date, there's nothing to do.
+
+The second line runs the Docker command explained above, using the Make variable `$(CURDIR)` to get the current directory.
+
+Finally, `touch` ensures that the last modified time of `requirements.txt` is always updated.
+pip-tools will only change the modification time if there are changes to the dependency pins --- I change it manually so that make knows the task has run, and the "should I run this task" logic explained above doesn't spin endlessly.
+
+Once I have this Make task, I can invoke it from other tasks --- for example, build tasks that install from `requirements.txt` --- and so it gets run when required, but without an explicit action from me.
+It's just another step that happens transparently when I run `make build`.
+
+[bassett]: http://2016.pyconuk.org/talks/avoiding-the-left-pad-problem-how-to-secure-your-pip-install-process/
+[pip-tools]: https://pypi.org/project/pip-tools/
+[pkgmgmt]: http://nvie.com/posts/better-package-management/
+[pipfile]: https://github.com/pypa/pipfile
