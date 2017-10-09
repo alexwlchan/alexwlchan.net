@@ -101,3 +101,4 @@ It's just another step that happens transparently when I run `make build`.
 [pip-tools]: https://pypi.org/project/pip-tools/
 [pkgmgmt]: http://nvie.com/posts/better-package-management/
 [pipfile]: https://github.com/pypa/pipfile
+[docker]: https://hub.docker.com/r/micktwomey/pip-tools/
