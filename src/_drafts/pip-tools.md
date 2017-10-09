@@ -97,8 +97,11 @@ pip-tools will only change the modification time if there are changes to the dep
 Once I have this Make task, I can invoke it from other tasks --- for example, build tasks that install from `requirements.txt` --- and so it gets run when required, but without an explicit action from me.
 It's just another step that happens transparently when I run `make build`.
 
+If you'd like to see an example of this in use, check out the Makefile changes [in the same patch][patch] as this post.
+
 [bassett]: http://2016.pyconuk.org/talks/avoiding-the-left-pad-problem-how-to-secure-your-pip-install-process/
 [pip-tools]: https://pypi.org/project/pip-tools/
 [pkgmgmt]: http://nvie.com/posts/better-package-management/
 [pipfile]: https://github.com/pypa/pipfile
 [docker]: https://hub.docker.com/r/micktwomey/pip-tools/
+[patch]: https://github.com/alexwlchan/alexwlchan.net/pull/58/files
