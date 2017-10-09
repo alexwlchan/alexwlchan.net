@@ -15,10 +15,19 @@ TESTS = $(ROOT)/tests
 	mkdir -p .docker
 	touch .docker/build
 
-.docker/tests: tests/Dockerfile tests/*.py tests/requirements* tests/tox.ini
+.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt tests/requirements_extra.txt tests/tox.ini
 	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
 	mkdir -p .docker
 	touch .docker/tests
+
+
+tests/requirements.txt: tests/requirements.in
+	docker run --volume $(TESTS):/src --rm micktwomey/pip-tools requirements.in
+	touch $(TESTS)/requirements.txt
+
+tests/requirements_extra.txt: tests/requirements_extra.in
+	docker run --volume $(TESTS):/src --rm micktwomey/pip-tools requirements_extra.in
+	touch $(TESTS)/requirements_extra.txt
 
 
 clean: .docker/build
