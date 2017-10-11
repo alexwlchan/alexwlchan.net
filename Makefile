@@ -55,7 +55,7 @@ serve-debug: .docker/build
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts
 
 publish-drafts: .docker/build
 	docker run \
