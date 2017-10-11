@@ -40,31 +40,22 @@ clean: .docker/build
 build: .docker/build
 	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
 
-serve: .docker/build
+stop:
 	@# Clean up old running containers
 	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
+serve: .docker/build stop
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --detach $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
-
-serve-debug: .docker/build
-	@# Clean up old running containers
-	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
-	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
-
-	docker run \
-		--publish 5757:5757 \
-		--volume $(SRC):/site \
-		--name $(SERVE_CONTAINER) \
-		--hostname $(SERVE_CONTAINER) \
-		--tty $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts
+
+serve-debug: serve
+	docker attach $(SERVE_CONTAINER)
 
 publish-drafts: .docker/build
 	docker run \
@@ -107,4 +98,4 @@ renew-certbot:
 		--volume ~/.certbot/config:/etc/letsencrypt \
 		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
 
-.PHONY: clean build serve serve-debug publish-drafts publish deploy test renew-certbot
+.PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
