@@ -18,6 +18,7 @@ footer {
 
   #contact_links, ul.dot_list {
     display: inline-block;
+    margin-top: 0px;
   }
 
   p:first-child {
@@ -31,4 +32,6 @@ footer {
   #footer__email:hover    { color: $primary-color;  }
   #footer__github:hover   { color: $github-grey;    }
   #footer__twitter:hover  { color: $twitter-blue;   }
+  #footer__cc:hover       { color: black;           }
+  #footer__mit:hover      { color: black;           }
 }
