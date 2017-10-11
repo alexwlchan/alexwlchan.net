@@ -11,7 +11,7 @@ do
   echo "*** Processing $f"
   name="$(basename $f)"
   pdflatex -output-directory="$OUTDIR" "$f"
-  pdftoppm "$OUTDIR/${name/tex/pdf}" -png -f 1 -singlefile -rx 600 -ry 600 "$OUTDIR/${name/.tex/}"
+  pdftoppm "$OUTDIR/${name/tex/pdf}" -png -f 1 -singlefile -rx 900 -ry 900 "$OUTDIR/${name/.tex/}"
   optipng "$OUTDIR/${name/tex/png}"
 done
 
