@@ -52,7 +52,7 @@ serve: .docker/build stop
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --detach $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch
+		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts
 
 serve-debug: .docker/build stop
 	docker run \
