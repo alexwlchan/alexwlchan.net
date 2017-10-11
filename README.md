@@ -184,4 +184,14 @@ That's part of why I keep the entire API response – in case I later need data 
 I'm only interested in hearing about bugs or typos – please don't open an issue because you think I'm a terrible writer! 😜
 
 If you want to use any of the components – plugins, layouts, stylesheets – feel free to do so.
-Everything is MIT licensed, unless otherwise noted.
+
+## License
+
+The footer of the website says:
+
+> Prose is CC-BY licensed, code is MIT.
+
+That's because this is a mixture of prose content (blog posts) and code (both the repo itself, and code I write about).
+I like CC-BY for the prose content, but Creative Commons licenses [aren't suitable for code][cc_code], so for that I use the same MIT license I do for my other open-source code.
+
+[cc_code]: https://wiki.creativecommons.org/index.php/Frequently_Asked_Questions#Can_I_apply_a_Creative_Commons_license_to_software.3F
