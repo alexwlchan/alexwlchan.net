@@ -1,19 +1,12 @@
 \documentclass{standalone}
 
 \usepackage{contour}
-\usepackage{ulem}
 
-\newcommand{\myunderline}[4]{%
-  \begingroup%
-    \renewcommand{\ULdepth}{#1}%
-    \renewcommand{\ULthickness}{#2}%
-    \contourlength{#3}%
-    \uline{\phantom{#4}}\llap{\contour{white}{#4}}%
-  \endgroup
+\newcommand{\mycontour}[1]{%
+  \contourlength{1pt}%
+  \contour{red}{#1}%
 }
 
-\newcommand{\myul}[1]{\myunderline{2pt}{0.5pt}{1pt}{#1}}
-
 \begin{document}
-  I visited \myul{Berlin} in \myul{Germany}.
+  I visited \mycontour{Berlin} in \mycontour{Germany}.
 \end{document}
