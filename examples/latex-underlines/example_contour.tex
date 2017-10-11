@@ -1,0 +1,12 @@
+\documentclass{standalone}
+
+\usepackage{contour}
+
+\newcommand{\mycontour}[1]{%
+  \contourlength{1pt}%
+  \contour{red}{#1}%
+}
+
+\begin{document}
+  I visited \mycontour{Berlin} in \mycontour{Germany}.
+\end{document}
