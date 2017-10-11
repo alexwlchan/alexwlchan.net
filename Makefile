@@ -54,14 +54,8 @@ serve: .docker/build stop
 		--tty --detach $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts
 
-serve-debug: .docker/build stop
-	docker run \
-		--publish 5757:5757 \
-		--volume $(SRC):/site \
-		--name $(SERVE_CONTAINER) \
-		--hostname $(SERVE_CONTAINER) \
-		--tty $(BUILD_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts
+serve-debug: serve
+	docker attach $(SERVE_CONTAINER)
 
 publish-drafts: .docker/build
 	docker run \
