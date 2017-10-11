@@ -40,11 +40,12 @@ clean: .docker/build
 build: .docker/build
 	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
 
-serve: .docker/build
+stop:
 	@# Clean up old running containers
 	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
+serve: .docker/build stop
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
@@ -53,11 +54,7 @@ serve: .docker/build
 		--tty --detach $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch
 
-serve-debug: .docker/build
-	@# Clean up old running containers
-	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
-	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
-
+serve-debug: .docker/build stop
 	docker run \
 		--publish 5757:5757 \
 		--volume $(SRC):/site \
@@ -107,4 +104,4 @@ renew-certbot:
 		--volume ~/.certbot/config:/etc/letsencrypt \
 		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
 
-.PHONY: clean build serve serve-debug publish-drafts publish deploy test renew-certbot
+.PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
