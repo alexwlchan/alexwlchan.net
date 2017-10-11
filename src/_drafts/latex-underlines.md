@@ -10,6 +10,8 @@ In general, I'm glad that underlines as a form of emphasis have gone away (boldf
 Sometimes I have to write printed documents that contain hyperlinks, which begs the question: how do you write underlines in LaTeX?
 Finding an underline I like has proven surprisingly hard --- in this post, I'll show you the different ways I've tried to underline text.
 
+<!-- summary -->
+
 ## Using the \underline command
 
 Without installing any packages, you can just use the `\underline` command.
@@ -129,7 +131,7 @@ I got inspiration for my approach from the [TeX.SX Stack Exchange][texsx]: use t
 
 Here's how you use contour to trace around a letter (in red so the effect is visible):
 
-```latex
+<!-- ```latex
 \usepackage{contour}
 
 \contourlength{1pt}
@@ -139,7 +141,18 @@ Here's how you use contour to trace around a letter (in red so the effect is vis
 }
 
 I visited \mycontour{Berlin} in \mycontour{Germany}.
-```
+``` -->
+
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span></span><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
+
+<span class="k">\contourlength</span><span class="nb">{</span>1pt<span class="nb">}</span>
+
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\mycontour</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
+  <span class="k">\contour</span><span class="nb">{</span>red<span class="nb">}{</span>#1<span class="nb">}</span><span class="c">%</span>
+<span class="nb">}</span>
+
+I visited <span class="k">\mycontour</span><span class="nb">{</span>Berlin<span class="nb">}</span> in <span class="k">\mycontour</span><span class="nb">{</span>Germany<span class="nb">}</span>.
+</code></pre></div>
 
 <figure>
   <img src="/images/2017/example_contour.png" class="latex__example"/>
@@ -151,7 +164,7 @@ Then the `\contour` macro draws the supplied text, with a red contour around the
 
 Then I swap the red for white, and add the underline:
 
-```latex
+<!-- ```latex
 \renewcommand{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
 
@@ -161,7 +174,18 @@ Then I swap the red for white, and add the underline:
 }
 
 I visited \myuline{Berlin} in \myuline{Germany}.
-```
+``` -->
+
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span></span><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\ULdepth</span><span class="nb">}{</span>1.8pt<span class="nb">}</span>
+<span class="k">\contourlength</span><span class="nb">{</span>0.8pt<span class="nb">}</span>
+
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\myuline</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
+  <span class="k">\uline</span><span class="nb">{</span><span class="k">\phantom</span><span class="nb">{</span>#1<span class="nb">}}</span><span class="c">%</span>
+  <span class="k">\llap</span><span class="nb">{</span><span class="k">\contour</span><span class="nb">{</span>white<span class="nb">}{</span>#1<span class="nb">}}</span><span class="c">%</span>
+<span class="nb">}</span>
+
+I visited <span class="k">\myuline</span><span class="nb">{</span>Berlin<span class="nb">}</span> in <span class="k">\myuline</span><span class="nb">{</span>Germany<span class="nb">}</span>.
+</code></pre></div>
 
 <figure>
   <img src="/images/2017/example_final.png" class="latex__example"/>
