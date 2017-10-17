@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Four ways to underline text in LaTeX
-tags: latex typography
+tags: latex typesetting
 ---
 
 Because I'm old-fashioned, I still write printed documents in LaTeX, and I still think hyperlinks should be underlined.
