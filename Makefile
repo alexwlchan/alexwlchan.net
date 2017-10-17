@@ -15,7 +15,7 @@ TESTS = $(ROOT)/tests
 	mkdir -p .docker
 	touch .docker/build
 
-.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt tests/tox.ini
+.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt
 	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
 	mkdir -p .docker
 	touch .docker/tests
