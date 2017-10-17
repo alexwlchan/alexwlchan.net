@@ -10,7 +10,7 @@ import requests
     '/page/2/', '/page/3/',
 ])
 def test_pages_appear_correctly(hostname, path):
-    resp = requests.get(f'http://{hostname}/{path}')
+    resp = requests.get('http://%s/%s' % (hostname, path))
     assert resp.status_code == 200
 
 
@@ -22,8 +22,8 @@ def test_pages_appear_correctly(hostname, path):
     ('archive/', '<h3>2017</h3>'),
 
     # Smartypants is working
-    ('2017/09/lazy-reading-in-python', 'kept in Amazon S3 – XML exports'),
-    ('2017/09/ode-to-docopt', 'I’ve used it in multiple languages'),
+    ('2017/09/lazy-reading-in-python', u'kept in Amazon S3 – XML exports'),
+    ('2017/09/ode-to-docopt', u'I’ve used it in multiple languages'),
 
     # Syntax highlighting is being applied correctly
     ('2017/09/useful-git-commands/', '''<code class="language-console" data-lang="console"><span></span><span class="gp">$</span> git rev-parse --show-toplevel
@@ -43,7 +43,7 @@ def test_pages_appear_correctly(hostname, path):
     ('2017/01/scrape-logged-in-ao3', '<a href="#fn1" rel="footnote">1</a>')
 ])
 def test_text_appears_in_pages(hostname, path, text_in_page):
-    resp = requests.get(f'http://{hostname}/{path}')
+    resp = requests.get('http://%s/%s' % (hostname, path))
     assert resp.status_code == 200
     assert text_in_page in resp.text
 
@@ -54,6 +54,6 @@ def test_text_appears_in_pages(hostname, path, text_in_page):
     ('2017/07/', '<h3>2017</h3>'),
 ])
 def test_text_does_not_appear_in_pages(hostname, path, text):
-    resp = requests.get(f'http://{hostname}/{path}')
+    resp = requests.get('http://%s/%s' % (hostname, path))
     assert resp.status_code == 200
     assert text not in resp.text
