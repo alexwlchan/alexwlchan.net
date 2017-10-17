@@ -3,13 +3,15 @@ FROM alpine
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Image for running tests of the alexwlchan.net build"
 
-RUN apk update
-RUN apk add git python python3
-RUN pip3 install tox
+RUN apk update && apk add git python py-pip py2-lxml
 
-# lxml dependencies
-RUN apk add build-base libxml2-dev libxslt-dev python3-dev
+# TODO: It's frustrating that this is supplied here, rather than in the
+# requirements.txt; it's a bug in the version of pip-tools I use.
+RUN pip install -e git+https://github.com/rubys/feedvalidator#egg=src&subdirectory=src
+
+COPY requirements.txt /
+RUN pip install -r requirements.txt
 
 WORKDIR /tests
 
-ENTRYPOINT ["tox"]
+CMD ["py.test"]
