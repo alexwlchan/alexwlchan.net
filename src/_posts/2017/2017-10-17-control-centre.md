@@ -57,7 +57,7 @@ The button presents a binary switch, so you expect it to toggle distinct states.
 It could work if this was a three-way switch with "Off" as another state --- but that's not what we have.
 
 <figure>
-  <img class="img__control_centre" src="/images/2017/control_centre_base.png">
+  <img class="img__control_centre" src="/images/2017/control_centre_no_radios.png">
   <figcaption>
     What it looks like when WiFi and Bluetooth are actually turned off.
     There's a line through the WiFi and Bluetooth icons &ndash; but you can only get to this state through the Settings app.
