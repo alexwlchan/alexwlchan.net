@@ -8,7 +8,7 @@ certifi==2017.7.27.1      # via requests
 chardet==3.0.4            # via requests
 http-crawler==0.2.0
 idna==2.6                 # via requests
-lxml==4.1.0               # via http-crawler
+lxml==3.7.2
 py==1.4.34                # via pytest
 pytest==3.2.3
 requests==2.18.4
