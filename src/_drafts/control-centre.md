@@ -24,6 +24,8 @@ Customisation has been really useful --- I've done away with the unused calculat
 Most of the buttons look good and are easy to hit, and I'm having much more success with the chunky brightness and volume sliders.
 But as it advances in one area, so it slips in another.
 
+<!-- summary -->
+
 My first issue is one that's already been [widely reported][guardian].
 Below is a screenshot of my Control Centre.
 Pop quiz: are Wi-Fi and Bluetooth turned on or off?
@@ -54,10 +56,44 @@ The button presents a binary switch.
 "On"/"On but with an asterisk" are a much more subtle distinction.
 It could work if this was a three-way switch with "Off" as a third state --- but as it stands, it's really not obvious how this button works.
 
+<figure>
+  <img class="img__control_centre" src="/images/2017/control_centre_base.png">
+  <figcaption>
+    What it looks like when WiFi and Bluetooth are actually turned off.
+    There's a line through the WiFi and Bluetooth icons &ndash; but you can only get to this state through the Settings app.
+  </figcaption>
+</figure>
+
 I routinely turn on power saving features to conserve battery life.
 In iOS 10, I'd go to the Settings app to enable Low Power Mode, and turn off my WiFi and Bluetooth radios from Control Centre.
 In iOS 11, it's the other way round.
+I thought Apple had recognised the need for easier power management by making Low Power Mode available in Control Centre, but the WiFi/Bluetooth changes take it in the other direction.
 One step forward, one step back.
+
+My second issue is with the media controls.
+Previously, Control Centre was split into two screens --- media controls on one, everything else on the other.
+It was very common to open to the wrong screen, and need a swipe to get to what you wanted.
+Because iOS 11 puts everything on one page, it's easier to get to, right?
+
+But the new design only gives the controls half the screen width, and the controls are too small for me to hit accurately.
+If I want to pause playback, I have to tap the corner for the expanded controls.
+But first, I'm taken to a screen where I can select my audio output:
+
+<figure>
+  <img class="img__control_centre" src="/images/2017/control_centre_sources.png">
+</figure>
+
+It's another tap before I can get to the media controls, which are then rendered at a comically small size:
+
+<figure>
+  <img class="img__control_centre" src="/images/2017/control_centre_mediacontrols.png">
+</figure>
+
+Additionally frustrating is that Control Centre never remembers which pane I was on.
+I never change my audio output, I always want the playback controls, and I have to tap through to them each time.
+
+In both cases, it feels like Apple has identified a problem with the old Control Centre, and tried to fix it --- but in doing so, made it worse in a different way.
+Unfortunately, this feels like the new norm with a lot of Apple's consumer software.
 
 [guardian]: https://www.theguardian.com/technology/2017/sep/21/ios-11-apple-toggling-wifi-bluetooth-control-centre-doesnt-turn-them-off
 [support]: https://support.apple.com/en-us/HT208086
