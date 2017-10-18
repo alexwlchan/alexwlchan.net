@@ -20,3 +20,8 @@ def baseurl(hostname):
 @pytest.fixture
 def repo():
     return '/repo'
+
+
+@pytest.fixture
+def src(repo):
+    return os.path.join(repo, 'src')
