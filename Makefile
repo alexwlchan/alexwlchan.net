@@ -74,7 +74,7 @@ deploy: publish
 
 test: .docker/tests
 	docker run \
-		--volume $(TESTS):/tests \
+		--volume $(ROOT):/repo \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
 		--tty $(TESTS_IMAGE)

@@ -14,6 +14,6 @@ RUN git clone https://github.com/rubys/feedvalidator && \
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
 
-WORKDIR /tests
+WORKDIR /repo/tests
 
 CMD ["py.test"]
