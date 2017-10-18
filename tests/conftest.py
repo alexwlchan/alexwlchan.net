@@ -1,6 +1,7 @@
 # -*- encoding: utf-8
 
 import os
+
 import pytest
 
 
@@ -14,3 +15,13 @@ def hostname():
 @pytest.fixture
 def baseurl(hostname):
     return 'http://%s/' % hostname
+
+
+@pytest.fixture
+def repo():
+    return '/repo'
+
+
+@pytest.fixture
+def src(repo):
+    return os.path.join(repo, 'src')
