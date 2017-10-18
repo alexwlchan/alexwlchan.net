@@ -12,6 +12,6 @@ RUN pip install -e git+https://github.com/rubys/feedvalidator#egg=src&subdirecto
 COPY requirements.txt /
 RUN pip install -r requirements.txt
 
-WORKDIR /tests
+WORKDIR /repo/tests
 
 CMD ["py.test"]
