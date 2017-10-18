@@ -1,11 +1,8 @@
 # -*- encoding: utf-8
 
-import pytest
-
-feedvalidator = pytest.importorskip('feedvalidator')
-
 from feedvalidator import compatibility
 from feedvalidator.formatter.text_plain import Formatter
+import pytest
 
 
 def test_feed_is_valid_atom(hostname):
