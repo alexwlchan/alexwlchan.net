@@ -25,7 +25,7 @@ def responses(src, baseurl):
             if not entry.endswith('.md'):
                 continue
 
-            url = baseurl + '/%s' % entry.replace('.md', '')
+            url = baseurl + entry.replace('.md', '') + '/'
             for rsp in crawl(url, follow_external_links=False):
                 _responses.append(rsp)
 
