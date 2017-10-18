@@ -1,5 +1,6 @@
 # -*- encoding: utf-8
 
+import feedvalidator
 from feedvalidator import compatibility
 from feedvalidator.formatter.text_plain import Formatter
 import pytest
