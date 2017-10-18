@@ -1,13 +1,12 @@
 # -*- encoding: utf-8
-"""
-This test checks that all the internal links in the site (links that point to
-other pages on the site) are pointing at working pages.
-"""
 
 from http_crawler import crawl
 
 
 def test_no_links_are_broken(baseurl):
+    """
+    Check that all internal links point to working pages.
+    """
     responses = []
     for rsp in crawl(baseurl, follow_external_links=False):
         responses.append(rsp)
