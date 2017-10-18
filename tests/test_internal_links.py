@@ -30,7 +30,7 @@ def test_no_links_are_broken(responses):
         '%s (%d)' % (rsp.url, rsp.status_code)
         for rsp in failed_responses
     ]
-    print('\n'.join(failures))
+    print('\n'.join(sorted(failures)))
     assert len(failures) == 0
 
 
