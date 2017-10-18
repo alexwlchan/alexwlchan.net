@@ -9,6 +9,5 @@ _site
 __pycache__
 .venv
 .cache
-.tox
 
 id_rsa
