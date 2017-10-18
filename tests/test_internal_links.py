@@ -10,7 +10,7 @@ _responses = []
 
 
 @pytest.fixture
-def responses(baseurl):
+def responses(src, baseurl):
     """
     Uses http-crawler to index every internal page, and return a list
     of associated responses.
@@ -18,6 +18,17 @@ def responses(baseurl):
     if not _responses:
         for rsp in crawl(baseurl, follow_external_links=False):
             _responses.append(rsp)
+
+        # This is an attempt to pick up pages that I know exist, but which
+        # aren't linked from anywhere else on the site.
+        for entry in os.listdir(src):
+            if not entry.endswith('.md'):
+                continue
+
+            url = baseurl + '/%s' % entry.replace('.md', '')
+            for rsp in crawl(url, follow_external_links=False):
+                _responses.append(rsp)
+
     return _responses
 
 
