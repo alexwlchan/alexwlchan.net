@@ -59,5 +59,5 @@ def test_all_images_are_linked_somewhere(repo, responses):
         local_paths.add(local_path)
 
     unlinked_paths = local_paths - img_paths
-    print('\n'.join(unlinked_paths))
+    print('\n'.join(sorted(unlinked_paths)))
     assert len(unlinked_paths) == 0
