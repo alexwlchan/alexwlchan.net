@@ -27,9 +27,9 @@ tests/requirements.txt: tests/requirements.in
 
 
 clean: .docker/build
-	docker run --volume $(SRC):/site $(BUILD_IMAGE) clean
+	docker run --volume $(SRC):/site --rm $(BUILD_IMAGE) clean
 	rm -rf .docker
-	docker rm -f alexwlchan.net_serve
+	docker rm --force $(SERVE_CONTAINER)
 	docker rmi --force $(BUILD_IMAGE)
 	docker rmi --force $(TESTS_IMAGE)
 
@@ -47,7 +47,7 @@ serve: .docker/build stop
 		--volume $(SRC):/site \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
-		--tty --detach $(BUILD_IMAGE) \
+		--tty --rm --detach $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts
 
 serve-debug: serve
@@ -58,7 +58,7 @@ publish-drafts: .docker/build
 		--volume $(ROOT):/repo \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
-		--tty $(BUILD_IMAGE) \
+		--tty --rm $(BUILD_IMAGE) \
 		publish-drafts --source=/repo/src
 
 publish: publish-drafts build
@@ -77,17 +77,17 @@ test: .docker/tests
 		--volume $(ROOT):/repo \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
-		--tty $(TESTS_IMAGE)
+		--tty --rm $(TESTS_IMAGE)
 
 Gemfile.lock: Gemfile
 	docker run \
 		--volume $(ROOT):/site \
 		--workdir /site \
-		--tty $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
+		--tty --rm $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
 
 renew-certbot:
-	docker run \
+	docker run --rm \
 		--volume ~/sites/alexwlchan.net:/site \
 		--volume ~/.certbot/work:/var/lib/letsencrypt \
 		--volume ~/.certbot/logs:/var/logs/letsencrypt \
