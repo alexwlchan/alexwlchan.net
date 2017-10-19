@@ -4,11 +4,10 @@ set -o errexit
 set -o nounset
 
 apk update
-apk add build-base jpeg-dev optipng python python-dev py2-pip zlib-dev
+apk add python py2-pillow py2-pip
 
-pip install specktre==0.2.0
+pip install Pillow==4.1.0 specktre==0.2.0
 
-# These dependencies are only required to install Pillow, not to actually
-# run it.
-apk del --purge build-base python-dev py2-pip
+# pip is only required to install specktre, not to run it
+apk del --purge py2-pip
 rm -rf /var/cache/apk/*
