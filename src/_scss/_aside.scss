@@ -1,13 +1,21 @@
 aside {
   background: url('/theme/specktre_#{colorToHexString($primary-color)}.png') $primary-color;
   background-size: auto 100%;
+  @media print {
+    background: none;
+    border-bottom: 2px solid $primary-color;
+  }
 
   #aside_inner {
     @include central_element();
 
     &, a, a:visited {
       color: white;
+      @media print {
+        color: $primary-color;
+      }
     }
+
     a:hover {
       text-decoration: none;
     }
