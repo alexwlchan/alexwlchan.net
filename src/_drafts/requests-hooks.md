@@ -33,8 +33,9 @@ else:
 ```
 
 And depending on the API, I may want even more checks or logging.
-(For example, APIs that always return an HTTP 200 OK, but embedded the real response code in a JSON response.
-Or maybe I want to log the URL I requested.)
+For example, APIs that always return an HTTP 200 OK, but embedded the real response code in a JSON response.
+Or maybe I want to log the URL I requested.
+
 If I'm making lots of calls to the same API, repeating this code gets quite tedious.
 Previously I would have wrapped `requests.get` in a helper function, but that relies on me remembering to use the wrapper.
 
@@ -90,7 +91,7 @@ So far we've only used requests's functional API, but another way to use request
 Using a Session allows you to share cookies, connections and configuration between multiple requests --- so it's already useful if you're calling the same API repeatedly --- and also hooks!
 
 Using the Session API is very similar to the functional API --- you create a `Session` object, then call methods on the object.
-(In fact, the functional API uses Session [under the hood][hood].)
+(In fact, the functional API uses sessions [under the hood][hood].)
 For example:
 
 ```python
@@ -110,7 +111,7 @@ print(sess.hooks)
 # {'response': []}
 ```
 
-So instead, we add them when we create the `Session` object:
+So instead, we add them after we've created the `Session` object:
 
 ```python
 sess = requests.Session()
@@ -130,7 +131,7 @@ Win!
 
 ## Simple examples of hooks
 
-I've already shown you two examples of hooks I use: one to check for errors, another to log the responses.
+I've already shown you two examples of hooks I've written: one to check for errors, another to log the responses.
 
 ```python
 def check_for_error(resp, *args, **kwargs):
@@ -141,14 +142,22 @@ def log_response_text(resp, *args, **kwargs):
     logger.info('Got response %r from %s', resp.text, resp.url)
 ```
 
-Right now, these feel like the two most natural use cases for hooks.
+Because a hook can modify the response object (if it returns a non-`None` value), you could also use it to edit responses for a more consistent downstream API.
+Maybe an API that usually returns XML could return JSON instead --- but I haven't experimented with that yet.
+
+Right now, these feel like the most natural use cases for hooks.
 I wouldn't want to put business logic in a hook --- suddenly hiding the hook implementation makes the code harder to follow --- but for simple bookkeeping and error handling, I can see this being really useful.
 
 Now I know that hooks exist, I imagine I'll find more uses for them.
+If you want to learn more about hooks, there's a bit more detail [in the requests documentation][docs].
+I also did a bit of reading of the [source code for requests.sessions][src], but otherwise a bit of experimenting was enough to get me going.
 
-## Other hook points?
+[docs]: http://docs.python-requests.org/en/master/user/advanced/#event-hooks
+[src]: http://docs.python-requests.org/en/master/_modules/requests/sessions/?highlight=hooks
+
+<!-- ## Other hook points?
 
 In early versions of requests, you could also fire hooks before the Request object was sent --- `pre_request` and `pre_send` hooks, for example.
 These all got removed [in version 1.0][v1], and haven't come back.
 
-[v1]: http://docs.python-requests.org/en/latest/community/updates/#id71
+[v1]: http://docs.python-requests.org/en/latest/community/updates/#id71 -->
