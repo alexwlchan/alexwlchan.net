@@ -7,7 +7,7 @@ tags: ios frustrations
 
 <style>
   img.img__control_centre {
-    max-width: 400px;
+    width: 400px;
     padding-bottom: 5px;
   }
 </style>
