@@ -2,6 +2,7 @@
 layout: post
 title: Using hooks for custom behaviour in requests
 tags: python
+summary: I often have code I want to run against every HTTP response (logging, error checking) --- event hooks give me a nice way to do that without repetition.
 ---
 
 Recently I've been writing a lot of scripts with [python-requests][requests] to interact with a new API.
