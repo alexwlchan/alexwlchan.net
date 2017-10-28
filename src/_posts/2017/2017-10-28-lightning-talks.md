@@ -2,6 +2,7 @@
 layout: post
 title: Lightning talks
 tags: conferences
+summary: Why I like the lottery system used to select lightning talks at PyCon UK this year.
 theme:
   card_type: summary_large_image
   image: /images/2017/lightning_bukkit.jpg
