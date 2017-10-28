@@ -11,7 +11,9 @@ I'll update it as I post new resources/links.
 
 Slides can be downloaded as a PDF:
 
-![<img src="/slides/privilege_inclusion/privilege_inclusion.001.png" style="max-width: 500px; margin-left: auto; margin-right: auto;">](/slides/privilege_inclusion/privilege_inclusion_slides.pdf)
+<a href="/slides/privilege_inclusion/privilege_inclusion_slides.pdf">
+    <img src="/slides/privilege_inclusion/privilege_inclusion.001.png" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+</a>
 
 Proper notes will be posted later in the conference.
 
@@ -24,7 +26,8 @@ A PDF with the workshop exercises will appear shortly.
 This was an impromptu lightning talk I gave on Thursday evening.
 I only had one slide:
 
-![](/slides/pyconuk_asexuality.png)
+<img src="/slides/pyconuk_asexuality.png" style="max-width: 500px; margin-left: auto; margin-right: auto;">
 
+The image is taken from [this AVEN thread](http://fr.asexuality.org/forum/viewtopic.php?t=7994).
 The talk itself was based on a blog post I wrote at work.
 I'll try to tidy it up and post a link here when that's done.
