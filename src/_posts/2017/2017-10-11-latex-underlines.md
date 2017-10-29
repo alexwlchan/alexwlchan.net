@@ -11,8 +11,6 @@ In general, I'm glad that underlines as a form of emphasis have gone away (boldf
 Sometimes I have to write printed documents that contain hyperlinks, which begs the question: how do you write underlines in LaTeX?
 Finding an underline I like has proven surprisingly hard --- in this post, I'll show you the different ways I've tried to underline text.
 
-<!-- summary -->
-
 ## Using the \underline command
 
 Without installing any packages, you can just use the `\underline` command.
@@ -49,6 +47,8 @@ The inconsistency is what I don't like about this approach.
 It's fine for one-off underlines, but in a larger document, the inconsistency gets very obvious, and I don't like how it looks.
 
 [descender]: https://en.wikipedia.org/wiki/Descender
+
+<!-- summary -->
 
 ## The soul package
 
