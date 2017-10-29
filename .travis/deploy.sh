@@ -12,7 +12,8 @@ openssl aes-256-cbc \
 
 echo "*** Uploading published site to Linode"
 chmod 400 id_rsa
-export SSHOPTS=" -o StrictHostKeyChecking=no -i id_rsa"
+mv id_rsa ~/.ssh/id_rsa
+export SSHOPTS=" -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa"
 make deploy
 
 echo "*** Configuring Git"
