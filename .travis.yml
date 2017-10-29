@@ -16,18 +16,19 @@ cache:
 before_script:
   - .travis/before_script.sh
 
-script:
-  - .travis/run.sh
+jobs:
+  include:
+    - script: .travis/run.sh
+    - stage: deploy
+      script: .travis/deploy.sh
+
+stages:
+  - test
+  - name: deploy
+    if: branch = master
 
 before_cache:
   - .travis/before_cache.sh
-
-deploy:
-  provider: script
-  script: .travis/deploy.sh
-  skip_cleanup: true
-  on:
-    branch: master
 
 env:
   global:
