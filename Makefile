@@ -64,13 +64,17 @@ publish-drafts: .docker/build
 publish: publish-drafts build
 
 deploy: publish
-	rsync \
+	docker run --rm --tty \
+		--volume ~/.ssh:/root/.ssh \
+		--volume $(ROOT)/src/_site:/data \
+		instrumentisto/rsync-ssh \
+		rsync \
 		--archive \
 		--verbose \
 		--compress \
 		--delete \
 		--rsh="ssh$(SSHOPTS)" \
-		src/_site/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
+		/data "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
 test: .docker/tests
 	docker run \
