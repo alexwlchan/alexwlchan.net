@@ -22,6 +22,12 @@ script:
 before_cache:
   - .travis/before_cache.sh
 
+deploy:
+  provider: script
+  script: .travis/deploy.sh
+  on:
+    branch: master
+
 env:
   global:
     - RSYNC_HOST=139.162.244.147
