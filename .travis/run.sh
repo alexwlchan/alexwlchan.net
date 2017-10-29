@@ -36,11 +36,3 @@ set -o errexit
 
 echo "*** Running the server tests"
 make test
-
-if [[ "$TRAVIS_EVENT_TYPE" == "pull_request" ]]
-then
-  echo "*** Pull request, skipping deploy to prod"
-  exit 0
-fi
-
-.travis/deploy.sh
