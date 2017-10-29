@@ -65,7 +65,7 @@ publish: publish-drafts build
 
 deploy: publish
 	docker run --rm --tty \
-		--volume ~/.ssh:/root/.ssh \
+		--volume ~/.ssh/id_rsa:/root/.ssh/id_rsa \
 		--volume $(ROOT)/src/_site:/data \
 		instrumentisto/rsync-ssh \
 		rsync \
