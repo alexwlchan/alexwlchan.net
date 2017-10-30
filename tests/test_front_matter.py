@@ -1,8 +1,10 @@
 # -*- encoding: utf-8
 
+import datetime as dt
 import os
 
 import attr
+import dateutil.parser as dp
 import frontmatter
 import pytest
 
@@ -13,6 +15,25 @@ _front_matters = []
 class SourceFile(object):
     path = attr.ib()
     metadata = attr.ib()
+
+    @property
+    def date(self):
+        try:
+            return dp.parse(self.metadata['date']).date()
+        except KeyError:
+            if self.metadata['layout'] == 'post':
+                parts = os.path.basename(self.path).split('-')
+                return dt.date(
+                    year=int(parts[0]),
+                    month=int(parts[1]),
+                    day=int(parts[2])
+                )
+            elif self.metadata['layout'] in ('home', 'page'):
+                return dt.datetime.now().date()
+            else:
+                raise RuntimeError(
+                    "Unrecognised layout: %s" % self.metadata['layout']
+                )
 
 
 @pytest.fixture
@@ -36,8 +57,28 @@ def front_matters(src):
     return _front_matters
 
 
+@pytest.fixture
+def new_front_matters(front_matters):
+    """
+    Front matters that were created after a certain date -- older posts are
+    not (yet) subject to these tests.
+    """
+    return [f for f in _front_matters if f.date >= dt.date(2017, 10, 1)]
+
+
 def test_every_front_matter_has_layout(front_matters):
     missing_layout = [f for f in front_matters if 'layout' not in f.metadata]
     bad_paths = [f.path for f in missing_layout]
     print('\n'.join(bad_paths))
     assert len(bad_paths) == 0
+
+
+def test_every_post_has_summary(new_front_matters):
+    missing_summary = [
+        f for f in new_front_matters
+        if ('summary' not in f.metadata) and (f.metadata['layout'] == 'post')
+    ]
+    bad_paths = [f.path for f in missing_summary]
+    print('\n'.join(bad_paths))
+    assert len(bad_paths) == 0
+
