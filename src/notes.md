@@ -9,7 +9,6 @@ Usually stuff that doesn't fit into a blog post, but I want to keep *somewhere*.
 Programming and software:
 
 * [Custom CSS and ResophNotes](/notes/custom-css-resophnotes)
-* [Some pins for Python&nbsp;2.6](/notes/python-2.6-pins)
 
 Household information:
 

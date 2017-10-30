@@ -1,10 +1,11 @@
 ---
+layout: post
 title: What happens when you overengineer a static site?
 slug: overengineering
 link: https://github.com/alexwlchan/alexwlchan.net
 tags: jekyll
 date: 2017-10-03 22:23:38 +0100
-layout: post
+summary: I switched back to Jekyll, and posted all the source code for my blog on GitHub.
 ---
 
 When I started this site, I was using Jekyll (well, Octopress).
