@@ -12,10 +12,11 @@ idna==2.6                 # via requests
 lxml==3.7.2
 py==1.4.34                # via pytest
 pytest==3.2.3
+python-dateutil==2.6.1
 python-frontmatter==0.4.2
 pyyaml==3.12              # via python-frontmatter
 requests==2.18.4
-six==1.11.0               # via python-frontmatter
+six==1.11.0               # via python-dateutil, python-frontmatter
 tinycss2==0.6.1           # via http-crawler
 urllib3==1.22             # via requests
 webencodings==0.5.1       # via tinycss2
