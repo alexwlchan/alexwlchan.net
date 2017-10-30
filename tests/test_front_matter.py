@@ -76,9 +76,26 @@ def test_every_front_matter_has_layout(front_matters):
 def test_every_post_has_summary(new_front_matters):
     missing_summary = [
         f for f in new_front_matters
-        if ('summary' not in f.metadata) and (f.metadata['layout'] == 'post')
+        if (f.metadata['layout'] == 'post') and (
+            ('summary' not in f.metadata) or
+            (f.metadata['summary'] is None)
+        )
     ]
     bad_paths = [f.path for f in missing_summary]
     print('\n'.join(bad_paths))
     assert len(bad_paths) == 0
 
+
+def test_summarys_arent_too_long(front_matters):
+    # See https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
+    has_summary = [
+        f for f in front_matters if 'summary' in f.metadata
+    ]
+    bad_summary = [
+        f for f in has_summary if len(f.metadata['summary']) > 200
+    ]
+    bad_paths = [
+        '%s (%s)' % (f.path, f.metadata['summary']) for f in bad_summary
+    ]
+    print('\n'.join(bad_paths))
+    assert len(bad_paths) == 0
