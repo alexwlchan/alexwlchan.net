@@ -15,9 +15,6 @@
   border-radius: 4px;
   max-width: 460px;  /* 500px - 20px on either side */
 
-  padding: 20px;
-  padding-bottom: 14px;
-
   a,
   a:visited,
   a:active {
@@ -59,8 +56,25 @@
     cursor: text;
   }
 
+  .header, .body {
+    padding: 20px;
+  }
+
+  .header {
+    position: relative;
+    padding-left: 65px;
+    padding-bottom: 0px;
+    white-space: nowrap;
+  }
+
   .body {
     margin-top: 14px;
+    padding-top: 0px;
+    padding-bottom: 14px;
+  }
+
+  .media {
+    border-bottom: 1px solid #e1e8ed;
   }
 
   .author {
@@ -77,8 +91,8 @@
     .avatar {
       position: absolute;
       display: inline-block;
-      top: 0;
-      left: 0;
+      top:  20px;
+      left: 20px;
       width:  36px;
       height: 36px;
       overflow: hidden;
@@ -89,12 +103,6 @@
         max-height: 100%;
       }
     }
-  }
-
-  .header {
-    position: relative;
-    padding-left: 45px;
-    white-space: nowrap;
   }
 
   .link_blend:not(:focus):not(:hover):not(:active) {
@@ -123,6 +131,9 @@
 
 .tweet:hover {
   border-color: #ccd6dd;
+  .media {
+    border-color: #ccd6dd;
+  }
 }
 
 // End copied content
