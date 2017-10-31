@@ -39,9 +39,9 @@ module Jekyll
         client = setup_api_client()
         tweet = client.status(@tweet_url)
         json_string = JSON.pretty_generate(tweet.attrs)
-        File.open(cache_file(), 'w') { |f| f.write(json_string) }
         download_avatar(tweet)
         download_media(tweet)
+        File.open(cache_file(), 'w') { |f| f.write(json_string) }
       end
     end
 
