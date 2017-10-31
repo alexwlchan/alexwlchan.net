@@ -25,7 +25,7 @@ jobs:
 stages:
   - test
   - name: deploy
-    if: branch = master
+    if: type IN (push)
 
 before_cache:
   - .travis/before_cache.sh
