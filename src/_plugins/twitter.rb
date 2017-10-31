@@ -121,6 +121,15 @@ module Jekyll
         )
       }
 
+      if tweet_data["entities"]["hashtags"] != nil
+        tweet_data["entities"]["hashtags"].each { |h|
+          text = text.sub(
+            "##{h["text"]}",
+            "<a href=\"https://twitter.com/hashtag/#{h["text"]}\">##{h["text"]}</a>"
+          )
+        }
+      end
+
       media_div = ""
       if tweet_data["entities"]["media"] != nil
         tweet_data["entities"]["media"].each { |m|
