@@ -47,7 +47,7 @@ I think this system has been a resounding success, and I'd love to see it spread
   There were a handful of comments --- both on Twitter and at the conference --- about the wording on the buckets.
   If you've done one or two talks (maybe a lightning talk at another conference!), but you wouldn't describe yourself as "experienced", where do you put your card?
 
-  We tweaked the wording a little: now, rather than saying "experienced speakers", we just say "everyone else".
+  We changed the wording to be clearer: now, rather than saying "experienced speakers", we just have a bucket labelled "everyone else".
 
   {% tweet https://twitter.com/alexwlchan/status/924569032170397696 %}
 {% endupdate %}
