@@ -69,9 +69,18 @@ module Jekyll
     end
 
     def download_media(tweet)
+      # TODO: Add support for rendering tweets that contain more than
+      # one media entity.
+      raise "Too many media entities" unless tweet.media.count == 1
+
       tweet.media.each { |m|
+
+        # TODO: Add support for rendering tweets that contain different
+        # types of media entities.  And check that this is supported!
+        # raise "Unsupported media type" unless m.type == "photo"
+
         media_url = m.media_url_https
-        FileUtils::mkdir_p '_images/twitter'
+        FileUtils::mkdir_p "_images/twitter"
 
         # TODO: Use a proper url-parsing library
         name = media_url.path.split("/").last
@@ -112,14 +121,36 @@ module Jekyll
         )
       }
 
+      media_div = ""
+      if tweet_data["entities"]["media"] != nil
+        tweet_data["entities"]["media"].each { |m|
+          filename = m["media_url_https"].split("/").last
+          text = text.sub(
+            m["url"],
+            "<a href=\"#{m["expanded_url"]}\">#{m["display_url"]}</a>"
+          )
+          media_div = <<-EOD
+<div class=\"media\">
+  <a href="#{m["expanded_url"]}">
+    <img src=\"/images/twitter/#{filename}\">
+  </a>
+</div>
+EOD
+          media_div = media_div.strip
+        }
+      end
+
+      text = text.strip
+
 <<-EOT
 <div class="tweet">
   <blockquote>
+    #{media_div}
     <div class="header">
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
           <span class="avatar">
-            <img src="/#{avatar_path(avatar_url, screen_name)}">
+            <img src="/#{avatar_path(avatar_url, screen_name).sub("_", "")}">
           </span>
           <span class="name" title="#{name}">#{name}</span>
           <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
