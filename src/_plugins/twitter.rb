@@ -41,6 +41,7 @@ module Jekyll
         json_string = JSON.pretty_generate(tweet.attrs)
         File.open(cache_file(), 'w') { |f| f.write(json_string) }
         download_avatar(tweet)
+        download_media(tweet)
       end
     end
 
@@ -50,7 +51,7 @@ module Jekyll
 
     def avatar_path(avatar_url, screen_name)
       extension = avatar_url.split(".").last  # ick
-      "images/twitter/#{screen_name}_#{@tweet_id}.#{extension}"
+      "_images/twitter/#{screen_name}_#{@tweet_id}.#{extension}"
     end
 
     def download_avatar(tweet)
@@ -58,13 +59,28 @@ module Jekyll
       # it kept breaking when I tried to use it.
       avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
 
-      FileUtils::mkdir_p 'images/twitter'
+      FileUtils::mkdir_p "_images/twitter"
       File.open(avatar_path(avatar_url, tweet.user.screen_name), "wb") do |saved_file|
         # the following "open" is provided by open-uri
         open(avatar_url, "rb") do |read_file|
           saved_file.write(read_file.read)
         end
       end
+    end
+
+    def download_media(tweet)
+      tweet.media.each { |m|
+        media_url = m.media_url_https
+        FileUtils::mkdir_p '_images/twitter'
+
+        # TODO: Use a proper url-parsing library
+        name = media_url.path.split("/").last
+        File.open("_images/twitter/#{name}", "wb") do |saved_file|
+          open(media_url, "rb") do |read_file|
+            saved_file.write(read_file.read)
+          end
+        end
+      }
     end
 
     def setup_api_client()
