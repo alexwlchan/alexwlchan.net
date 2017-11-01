@@ -31,42 +31,7 @@
 
     ],
     "media": [
-      {
-        "id": 848188939018145794,
-        "id_str": "848188939018145794",
-        "indices": [
-          69,
-          92
-        ],
-        "media_url": "http://pbs.twimg.com/media/C8VfWJyXkAIWboG.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/C8VfWJyXkAIWboG.jpg",
-        "url": "https://t.co/cF7XPImBPg",
-        "display_url": "pic.twitter.com/cF7XPImBPg",
-        "expanded_url": "https://twitter.com/iamkimiam/status/848188958567800832/photo/1",
-        "type": "photo",
-        "sizes": {
-          "small": {
-            "w": 680,
-            "h": 680,
-            "resize": "fit"
-          },
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 1200,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 2048,
-            "h": 2048,
-            "resize": "fit"
-          }
-        }
-      }
+
     ]
   },
   "extended_entities": {
