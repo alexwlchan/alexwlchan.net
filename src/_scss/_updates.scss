@@ -1,6 +1,6 @@
 .update {
   border-color: $primary-color;
-  background: none;
+  background: lighten($primary-color, 47);
   font-size: 1em;
   line-height: $line-height;
   code {

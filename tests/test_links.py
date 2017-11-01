@@ -40,7 +40,16 @@ def test_pages_appear_correctly(hostname, path):
     ('feeds/all.atom.xml', '</entry><entry>'),
 
     # Footnotes are rendered correctly
-    ('2017/01/scrape-logged-in-ao3', '<a href="#fn1" rel="footnote">1</a>')
+    ('2017/01/scrape-logged-in-ao3', '<a href="#fn1" rel="footnote">1</a>'),
+
+    # Tweets are being rendered correctly
+    ('2014/07/overcast/', '<div class="tweet"><blockquote>'),
+    ('2014/07/overcast/', '</blockquote></div>'),
+    ('2014/07/overcast/',
+     '<a href="https://twitter.com/alexwlchan">@alexwlchan</a>'),
+    ('2014/07/overcast', 'so:<br/> Episode 1'),
+    ('2017/10/lightning-talks/',
+     '<a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a>'),
 ])
 def test_text_appears_in_pages(hostname, path, text_in_page):
     resp = requests.get('http://%s/%s' % (hostname, path))
