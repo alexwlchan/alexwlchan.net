@@ -26,6 +26,16 @@ require 'open-uri'
 require 'twitter'
 
 
+def local_path(name)
+  return "_images/twitter/#{name}"
+end
+
+
+def display_path(name)
+  return "/images/twitter/#{name}"
+end
+
+
 module Jekyll
   class TwitterTag < Liquid::Tag
 
@@ -33,6 +43,9 @@ module Jekyll
       super
       @tweet_url = text
       @tweet_id = @tweet_url.split("/").last.strip
+
+      FileUtils::mkdir_p "_tweets"
+      FileUtils::mkdir_p local_path("")
 
       if not File.exists? cache_file()
         puts("Caching #{@tweet_url}")
@@ -51,7 +64,12 @@ module Jekyll
 
     def avatar_path(avatar_url, screen_name)
       extension = avatar_url.split(".").last  # ick
-      "_images/twitter/#{screen_name}_#{@tweet_id}.#{extension}"
+      local_path("#{screen_name}_#{@tweet_id}.#{extension}")
+    end
+
+    def display_avatar_path(avatar_url, screen_name)
+      extension = avatar_url.split(".").last  # ick
+      display_path("#{screen_name}_#{@tweet_id}.#{extension}")
     end
 
     def download_avatar(tweet)
@@ -59,7 +77,6 @@ module Jekyll
       # it kept breaking when I tried to use it.
       avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
 
-      FileUtils::mkdir_p "_images/twitter"
       File.open(avatar_path(avatar_url, tweet.user.screen_name), "wb") do |saved_file|
         # the following "open" is provided by open-uri
         open(avatar_url, "rb") do |read_file|
@@ -80,11 +97,10 @@ module Jekyll
         # raise "Unsupported media type" unless m.type == "photo"
 
         media_url = m.media_url_https
-        FileUtils::mkdir_p "_images/twitter"
 
         # TODO: Use a proper url-parsing library
         name = media_url.path.split("/").last
-        File.open("_images/twitter/#{name}", "wb") do |saved_file|
+        File.open(local_path(name), "wb") do |saved_file|
           open(media_url, "rb") do |read_file|
             saved_file.write(read_file.read)
           end
@@ -141,7 +157,7 @@ module Jekyll
           media_div = <<-EOD
 <div class=\"media\">
   <a href="#{m["expanded_url"]}">
-    <img src=\"/images/twitter/#{filename}\">
+    <img src=\"#{display_path(filename)}\">
   </a>
 </div>
 EOD
@@ -159,7 +175,7 @@ EOD
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
           <span class="avatar">
-            <img src="/#{avatar_path(avatar_url, screen_name).sub("_", "")}">
+            <img src="#{display_avatar_path(avatar_url, screen_name)}">
           </span>
           <span class="name" title="#{name}">#{name}</span>
           <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
