@@ -73,7 +73,7 @@ deploy: publish
 		--verbose \
 		--compress \
 		--delete \
-		--rsh="ssh -o StrictHostKeyChecking=no$(SSHOPTS)" \
+		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
 test: .docker/tests
