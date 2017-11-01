@@ -137,6 +137,21 @@ module Jekyll
         )
       }
 
+      # Because newlines aren't significant in HTML, we convert them to
+      # <br> tags so they render correctly.
+      text = text.sub("\n", "<br/>")
+
+      # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
+      # are correctly rendered as links to the user page.
+      if tweet_data["entities"]["user_mentions"] != nil
+        tweet_data["entities"]["user_mentions"].each { |m|
+          text = text.sub(
+            "@#{m["screen_name"]}",
+            "<a href=\"https://twitter.com/#{m["screen_name"]}\">@#{m["screen_name"]}</a>"
+          )
+        }
+      end
+
       if tweet_data["entities"]["hashtags"] != nil
         tweet_data["entities"]["hashtags"].each { |h|
           text = text.sub(
@@ -169,8 +184,7 @@ EOD
 
 <<-EOT
 <div class="tweet">
-  <blockquote>
-    #{media_div}
+  <blockquote>#{media_div}
     <div class="header">
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
