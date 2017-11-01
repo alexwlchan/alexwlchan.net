@@ -26,6 +26,16 @@ require 'open-uri'
 require 'twitter'
 
 
+def local_path(name)
+  return "_images/twitter/#{name}"
+end
+
+
+def display_path(name)
+  return "/images/twitter/#{name}"
+end
+
+
 module Jekyll
   class TwitterTag < Liquid::Tag
 
@@ -34,13 +44,17 @@ module Jekyll
       @tweet_url = text
       @tweet_id = @tweet_url.split("/").last.strip
 
+      FileUtils::mkdir_p "_tweets"
+      FileUtils::mkdir_p local_path("")
+
       if not File.exists? cache_file()
         puts("Caching #{@tweet_url}")
         client = setup_api_client()
         tweet = client.status(@tweet_url)
         json_string = JSON.pretty_generate(tweet.attrs)
-        File.open(cache_file(), 'w') { |f| f.write(json_string) }
         download_avatar(tweet)
+        download_media(tweet)
+        File.open(cache_file(), 'w') { |f| f.write(json_string) }
       end
     end
 
@@ -50,7 +64,12 @@ module Jekyll
 
     def avatar_path(avatar_url, screen_name)
       extension = avatar_url.split(".").last  # ick
-      "images/twitter/#{screen_name}_#{@tweet_id}.#{extension}"
+      local_path("#{screen_name}_#{@tweet_id}.#{extension}")
+    end
+
+    def display_avatar_path(avatar_url, screen_name)
+      extension = avatar_url.split(".").last  # ick
+      display_path("#{screen_name}_#{@tweet_id}.#{extension}")
     end
 
     def download_avatar(tweet)
@@ -58,13 +77,35 @@ module Jekyll
       # it kept breaking when I tried to use it.
       avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
 
-      FileUtils::mkdir_p 'images/twitter'
       File.open(avatar_path(avatar_url, tweet.user.screen_name), "wb") do |saved_file|
         # the following "open" is provided by open-uri
         open(avatar_url, "rb") do |read_file|
           saved_file.write(read_file.read)
         end
       end
+    end
+
+    def download_media(tweet)
+      # TODO: Add support for rendering tweets that contain more than
+      # one media entity.
+      raise "Too many media entities" unless tweet.media.count == 1
+
+      tweet.media.each { |m|
+
+        # TODO: Add support for rendering tweets that contain different
+        # types of media entities.  And check that this is supported!
+        # raise "Unsupported media type" unless m.type == "photo"
+
+        media_url = m.media_url_https
+
+        # TODO: Use a proper url-parsing library
+        name = media_url.path.split("/").last
+        File.open(local_path(name), "wb") do |saved_file|
+          open(media_url, "rb") do |read_file|
+            saved_file.write(read_file.read)
+          end
+        end
+      }
     end
 
     def setup_api_client()
@@ -96,14 +137,59 @@ module Jekyll
         )
       }
 
+      # Because newlines aren't significant in HTML, we convert them to
+      # <br> tags so they render correctly.
+      text = text.sub("\n", "<br/>")
+
+      # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
+      # are correctly rendered as links to the user page.
+      if tweet_data["entities"]["user_mentions"] != nil
+        tweet_data["entities"]["user_mentions"].each { |m|
+          text = text.sub(
+            "@#{m["screen_name"]}",
+            "<a href=\"https://twitter.com/#{m["screen_name"]}\">@#{m["screen_name"]}</a>"
+          )
+        }
+      end
+
+      if tweet_data["entities"]["hashtags"] != nil
+        tweet_data["entities"]["hashtags"].each { |h|
+          text = text.sub(
+            "##{h["text"]}",
+            "<a href=\"https://twitter.com/hashtag/#{h["text"]}\">##{h["text"]}</a>"
+          )
+        }
+      end
+
+      media_div = ""
+      if tweet_data["entities"]["media"] != nil
+        tweet_data["entities"]["media"].each { |m|
+          filename = m["media_url_https"].split("/").last
+          text = text.sub(
+            m["url"],
+            "<a href=\"#{m["expanded_url"]}\">#{m["display_url"]}</a>"
+          )
+          media_div = <<-EOD
+<div class=\"media\">
+  <a href="#{m["expanded_url"]}">
+    <img src=\"#{display_path(filename)}\">
+  </a>
+</div>
+EOD
+          media_div = media_div.strip
+        }
+      end
+
+      text = text.strip
+
 <<-EOT
 <div class="tweet">
-  <blockquote>
+  <blockquote>#{media_div}
     <div class="header">
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
           <span class="avatar">
-            <img src="/#{avatar_path(avatar_url, screen_name)}">
+            <img src="#{display_avatar_path(avatar_url, screen_name)}">
           </span>
           <span class="name" title="#{name}">#{name}</span>
           <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>

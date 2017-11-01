@@ -3,6 +3,7 @@ layout: post
 title: Lightning talks
 tags: conferences
 summary: Why I like the lottery system used to select lightning talks at PyCon UK this year.
+last_modified_at: 2017-10-31 23:09:00 +0100
 theme:
   card_type: summary_large_image
   image: /images/2017/lightning_bukkit.jpg
@@ -24,9 +25,15 @@ And if you hemmed and hawed over whether you wanted to speak, all the slots woul
 I'm a big fan of the way the talk selection has been balanced out this year.
 Thanks to the efforts of [Owen][owen], [Tim][tim] and [Vince][vince], the conference now has a lottery system instead.
 
-![](/images/2017/lightning_bukkit.jpg)
+<figure>
+    <img src="/images/2017/lightning_bukkit.jpg">
+    <figcaption>
+        Two buckets: one green (left), labelled "New speakers", another yellow (right), labelled "Experienced speakers".
+        Below the buckets is a handwritten label "Sign up for lightning talks here".
+    </figcaption>
+</figure>
 
-At the start of each day, there are two empty buckets: one for new speakers (green, left), and one for everybody who's spoken at a conference before (yellow, right).
+At the start of each day, there are two empty buckets: one for new speakers, and one for everybody who's spoken at a conference before.
 There's a pile of index cards, and to sign up for that evening's session, you write a name and title on a card, and drop it in the bucket.
 Very high tech!
 
@@ -35,6 +42,15 @@ There's no penalty for hesitation --- you have the same chance of being drawn, n
 
 So far, we've used the buckets for two days, and they're already filling up for day three.
 I think this system has been a resounding success, and I'd love to see it spread to other conferences.
+
+{% update 2017-10-31 %}
+  There were a handful of comments --- both on Twitter and at the conference --- about the wording on the buckets.
+  If you've done one or two talks (maybe a lightning talk at another conference!), but you wouldn't describe yourself as "experienced", where do you put your card?
+
+  On Sunday, we changed the wording to be clearer: now, rather than saying "experienced speakers", we just have a bucket labelled "everyone else".
+
+  {% tweet https://twitter.com/alexwlchan/status/924569032170397696 %}
+{% endupdate %}
 
 [youtube]: https://www.youtube.com/results?search_query=pycon%20uk%20lightning%20talks
 [wiki]: https://en.wikipedia.org/wiki/Lightning_talk
