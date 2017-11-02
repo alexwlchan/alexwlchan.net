@@ -45,11 +45,14 @@ def create_banner_image(color)
     start_color = (
       red * 0.9 * 65536 +
       green * 0.9 * 256 +
-      blue * 0.9).to_i().to_s(16)
+      blue * 0.9).to_i()
     end_color = (
       [red * 1.05, 255].min.to_i() * 65536 +
       [green * 1.05, 255].min.to_i() * 256 +
-      [blue * 1.05, 255].min.to_i()).to_s(16)
+      [blue * 1.05, 255].min.to_i())
+
+    start_color = "%06x" % start_color
+    end_color = "%06x" % end_color
 
     if !system("specktre new --size=3000x250 --start=#{start_color} --end=#{end_color} --squares --name=#{banner_file}")
       raise RuntimeError, "Error running the Specktre process for #{color}!"
