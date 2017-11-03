@@ -50,6 +50,8 @@ def test_pages_appear_correctly(hostname, path):
     ('2014/07/overcast', 'so:<br/> Episode 1'),
     ('2017/10/lightning-talks/',
      '<a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a>'),
+    ('2017/10/lightning-talks/', '<div class="media">'),
+    ('2017/04/lessons-from-alterconf/', '<div class="media">'),
 ])
 def test_text_appears_in_pages(hostname, path, text_in_page):
     resp = requests.get('http://%s/%s' % (hostname, path))
