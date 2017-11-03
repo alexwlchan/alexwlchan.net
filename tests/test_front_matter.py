@@ -47,6 +47,8 @@ def front_matters(src):
             for entry in filenames:
                 if not entry.endswith('.md'):
                     continue
+                if root.endswith('_drafts'):
+                    continue
 
                 path = os.path.join(root, entry)
                 display_path = path.replace('/repo/', '')
