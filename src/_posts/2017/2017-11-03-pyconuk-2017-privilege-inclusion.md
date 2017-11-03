@@ -351,7 +351,7 @@ Use it!
 
 {% slide privilege_inclusion 35 %}
 
-And finally: perserve!
+And finally: persevere!
 
 This isn't a silver bullet.
 You won't go to work on Monday, "BAM! Privilege awareness!", and fix all the problems you have.
