@@ -182,7 +182,7 @@ EOD
 
       text = text.strip
 
-<<-EOT
+      tweet_html = <<-EOT
 <div class="tweet">
   <blockquote>#{media_div}
     <div class="header">
@@ -205,6 +205,7 @@ EOD
   </blockquote>
 </div>
 EOT
+      tweet_html.lines.map { |line| line.strip }.join("")
     end
   end
 end
