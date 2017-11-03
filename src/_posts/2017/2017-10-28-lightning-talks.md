@@ -25,6 +25,8 @@ And if you hemmed and hawed over whether you wanted to speak, all the slots woul
 I'm a big fan of the way the talk selection has been balanced out this year.
 Thanks to the efforts of [Owen][owen], [Tim][tim] and [Vince][vince], the conference now has a lottery system instead.
 
+<!-- summary -->
+
 <figure>
     <img src="/images/2017/lightning_bukkit.jpg">
     <figcaption>
