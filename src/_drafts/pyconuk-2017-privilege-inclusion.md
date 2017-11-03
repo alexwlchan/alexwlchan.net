@@ -5,6 +5,7 @@ summary: Slides, notes and references for my PyCon UK 2017 talk.
 tags: pyconuk slides
 theme:
   color: 0a9f9f
+  touch_icon: 0a9f9f
 ---
 
 When I go to tech conferences, I'm often drawn to the non-technical talks.
