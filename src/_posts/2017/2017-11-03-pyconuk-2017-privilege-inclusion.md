@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using privilege to improve inclusion
-summary: Slides, notes and references for my PyCon UK 2017 talk.
+summary: In the tech industry, how can we be more aware of our privilege, and use that to build inclusive cultures?
 tags: pyconuk slides
 theme:
   color: 0a9f9f
