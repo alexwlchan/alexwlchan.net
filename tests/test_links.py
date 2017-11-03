@@ -47,7 +47,7 @@ def test_pages_appear_correctly(hostname, path):
     ('2014/07/overcast/', '</blockquote></div>'),
     ('2014/07/overcast/',
      '<a href="https://twitter.com/alexwlchan">@alexwlchan</a>'),
-    ('2014/07/overcast', 'so:<br/> Episode 1'),
+    ('2014/07/overcast', 'so:<br/>Episode 1'),
     ('2017/10/lightning-talks/',
      '<a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a>'),
     ('2017/10/lightning-talks/', '<div class="media">'),
