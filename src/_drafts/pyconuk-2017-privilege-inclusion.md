@@ -16,30 +16,52 @@ It's easy to be well-intentioned, but end up saying something that's harmful or 
 But it's an important topic --- the tech industry has systemic problems with inclusion, and recent news shows us how far we still have to go.
 I chose it for both those reasons --- in part because it's an important topic, and in part to challenge myself by speaking about a topic I hadn't tackled before.
 
-This is a talk about privilege
+This is a talk about privilege.
+It's about how we, as people of privilege in the tech industry, can do more to build cultures that are genuinely inclusive.
 
-I first gave this talk at PyCon UK 2017.
+I first gave this talk [at PyCon UK 2017][pycon].
 You can read the slides and notes on this page, or download the slides [as a PDF](/slides/privilege_inclusion/privilege_inclusion_slides.pdf).
 The notes are a rough approximation of what I planned to say, written after the conference finished.
 My spoken and written voice are quite different, but it gets the general gist across.
 
 The official video isn't up yet, but I'll post a link here when it's done.
 
+[pycon]: http://2017.pyconuk.org/sessions/talks/using-privilege-to-help-not-hurt-diversity/
+
 <!-- summary -->
 
 ---
 
-### Acknowledgements
+### A note of thanks
 
-When I was hemming and hawing on the proposal, I got some much-needed encouragement
+When I was hemming and hawing on the proposal, I got some much-needed encouragement from [Samathy][samathy], [Rae][rae] and [Chad][chad].
+Particular thanks to Samathy, who reviewed the initial abstract.
+Thanks for getting the ball rolling!
+
+I also did a dry run with some friends at work --- Alasdair, Alice, David, Gareth, Gemma and Tunde --- who all gave me some valuable suggestions, and convinced me the presentation was on the right track.
+
+Thanks to Wellcome for letting me take the time off work, and paying my expenses to I could organise and attend the conference.
+
+And finally, thanks to everyone who came to the talk!
+Even with the friendly PyCon UK audience, I was quite nervous, but I got a pretty positive reception after I was done.
+
+[samathy]: https://twitter.com/samathy_barratt
+[rae]: https://twitter.com/raeknowler
+[chad]: https://twitter.com/kitation
 
 ---
 
 {% slide privilege_inclusion 1 %}
 
-TODO
+(Introductory slide)
 
-{% slide privilege_inclusion 3 %}
+<figure class="slide">
+  <a href="/slides/privilege_inclusion/privilege_inclusion.003.png"><img src="/slides/privilege_inclusion/privilege_inclusion.003.png"></a>
+  <figcaption>
+    Image: <a href="https://wellcomecollection.org/what-we-do/tools-trade"><em>Tools of the Trade</em></a>, by Stuart Haygarth.
+    A light installation in the windows of the Wellcome Trust building.
+  </figcaption>
+</figure>
 
 My name is Alex.
 I'm a software developer at the [Wellcome Trust][wellcome] in London, who generously paid for me to attend the conference.
@@ -107,7 +129,13 @@ Most of us don't have this sort of luxury, so we couldn't be privileged, right?
 
 That's not what privilege is about.
 
-{% slide privilege_inclusion 10 %}
+<figure class="slide">
+  <a href="/slides/privilege_inclusion/privilege_inclusion.010.png"><img src="/slides/privilege_inclusion/privilege_inclusion.010.png"></a>
+  <figcaption>
+    Link to original tweet:
+    <a href="https://twitter.com/jaythenerdkid/status/763451754138701824">https://twitter.com/jaythenerdkid/status/763451754138701824</a>.
+  </figcaption>
+</figure>
 
 This is one of the hardest things about dealing with privilege: this false idea of what it means, so people assume they don't have it.
 
@@ -200,7 +228,13 @@ One big change I've noticed in the last couple of years is the way I've become m
 If you don't have these people in your day-to-day life, social media is great.
 Find these people, follow them, hear what they have to say.
 
-{% slide privilege_inclusion 22 %}
+<figure class="slide">
+  <a href="/slides/privilege_inclusion/privilege_inclusion.022.png"><img src="/slides/privilege_inclusion/privilege_inclusion.022.png"></a>
+  <figcaption>
+    Link to original tweet:
+    <a href="https://twitter.com/austin_walker/status/782360503582650368">https://twitter.com/austin_walker/status/782360503582650368</a>.
+  </figcaption>
+</figure>
 
 Before I move on, let's emphasise the "listen" part.
 When they're getting started, people feel the need to jump in and "correct" people.
@@ -241,10 +275,15 @@ Explain to them why that language could be harmful, and they should use an alter
 Language is bad, so are stereotypes.
 If somebody paints with a broad brush, or uses "conventional wisdom", check to see if it's really true.
 
-{% slide privilege_inclusion 28 %}
+<figure class="slide">
+  <a href="/slides/privilege_inclusion/privilege_inclusion.028.png"><img src="/slides/privilege_inclusion/privilege_inclusion.028.png"></a>
+  <figcaption>
+    Image: <a href="https://www.xkcd.com/385/">XKCD 385 <em>How It Works</em></a>, by Randall Munroe.
+  </figcaption>
+</figure>
 
 This XKCD is a particularly famous example.
-The left-hand character, with no identifying features (who, by the way, we usually assume is male) makes a mistake, and is judged badly for it.
+The left-hand character, with no identifying features (who, by the way, we usually assume is male, what does that say about us?) makes a mistake, and is judged badly for it.
 But when the feminine-coded character on the right-hand side makes the same mistake, it's seen as an indictment on all women.
 
 This is an unfortunate pattern: people from marginalised groups are treated as representative of the entire group.
@@ -256,7 +295,13 @@ I've found a good way to push back on stereotypes is to ask "why".
 Do you have evidence, or is it just a hunch?
 Is there information behind this feeling, or is it just a hunch?
 
-{% slide privilege_inclusion 29 %}
+<figure class="slide">
+  <a href="/slides/privilege_inclusion/privilege_inclusion.029.png"><img src="/slides/privilege_inclusion/privilege_inclusion.029.png"></a>
+  <figcaption>
+    Link to original tweet:
+    <a href="https://twitter.com/andrhia/status/921184523693543424">https://twitter.com/andrhia/status/921184523693543424</a>.
+  </figcaption>
+</figure>
 
 And even when a stereotype seems like it's positive, it may still be doing harm to the group.
 
