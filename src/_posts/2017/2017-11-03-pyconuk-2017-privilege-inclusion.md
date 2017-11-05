@@ -25,7 +25,9 @@ You can read the slides and notes on this page, or download the slides [as a PDF
 The notes are a rough approximation of what I planned to say, written after the conference finished.
 My spoken and written voice are quite different, but it gets the general gist across.
 
-The official video isn't up yet, but I'll post a link here when it's done.
+If you'd prefer, you can watch the conference video on YouTube:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ej2EJVMkTKw" frameborder="0" allowfullscreen></iframe>
 
 [pycon]: http://2017.pyconuk.org/sessions/talks/using-privilege-to-help-not-hurt-diversity/
 
