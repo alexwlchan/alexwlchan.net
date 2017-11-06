@@ -8,6 +8,27 @@
 require 'cgi'
 require 'uri'
 
+module Jekyll
+  module YouTubeAtomFeedFilters
+
+    # According to https://github.com/rubys/feedvalidator, embedding
+    # <iframe> in an RSS feed can be a security risk, so instead we replace
+    # such YouTube iframes with a flat link to the page.
+    #
+    # TODO: Regex matching is crappy, use Nokogiri to do it properly.
+    #
+    # Params:
+    # +html+:: HTML string to clean.
+    #
+    def fix_youtube_iframes(html)
+      doc = Nokogiri::HTML.fragment(html)
+      doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls').remove
+      doc.to_s
+    end
+
+  end
+end
+
 
 module Jekyll
   class YouTubeTag < Liquid::Tag
@@ -28,4 +49,6 @@ EOT
   end
 end
 
+
+Liquid::Template::register_filter(Jekyll::YouTubeAtomFeedFilters)
 Liquid::Template.register_tag('youtube', Jekyll::YouTubeTag)
