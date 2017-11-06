@@ -8,6 +8,9 @@
 require 'cgi'
 require 'uri'
 
+require 'nokogiri'
+
+
 module Jekyll
   module YouTubeAtomFeedFilters
 
@@ -21,13 +24,20 @@ module Jekyll
     # +html+:: HTML string to clean.
     #
     def fix_youtube_iframes(html)
-      doc = Nokogiri::HTML.fragment(html)
-      doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls').remove
+      doc = Nokogiri::HTML(html)
+      doc.search('//iframe').each do |f_node|
+        video_id = f_node.attributes["id"].to_s.split("_").last
+        url = "https://youtube.com/watch?v=#{video_id}"
+        new_node = Nokogiri::HTML.fragment("<p><a href=\"#{url}\">#{url}</a></p>")
+        f_node.replace(new_node)
+      end
       doc.to_s
     end
 
   end
 end
+
+Liquid::Template::register_filter(Jekyll::YouTubeAtomFeedFilters)
 
 
 module Jekyll
@@ -41,14 +51,15 @@ module Jekyll
     end
 
     def render(context)
-      path = "/slides/#{@deck}/#{@deck}.#{@number.to_s.rjust(3, '0')}.png"
-<<-EOT
-<iframe width="560" height="315" src="https://www.youtube.com/embed/#{@video_id}" frameborder="0" allowfullscreen></iframe>
+      <<-EOT
+<iframe class="youtube"
+        id="youtube_#{@video_id}"
+        width="560" height="315"
+        src="https://www.youtube.com/embed/#{@video_id}"
+        frameborder="0" allowfullscreen></iframe>
 EOT
     end
   end
 end
 
-
-Liquid::Template::register_filter(Jekyll::YouTubeAtomFeedFilters)
 Liquid::Template.register_tag('youtube', Jekyll::YouTubeTag)
