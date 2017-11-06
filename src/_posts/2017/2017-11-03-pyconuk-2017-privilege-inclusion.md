@@ -27,7 +27,7 @@ My spoken and written voice are quite different, but it gets the general gist ac
 
 If you'd prefer, you can watch the conference video on YouTube:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ej2EJVMkTKw" frameborder="0" allowfullscreen></iframe>
+{% youtube https://www.youtube.com/watch?v=Ej2EJVMkTKw %}
 
 [pycon]: http://2017.pyconuk.org/sessions/talks/using-privilege-to-help-not-hurt-diversity/
 
