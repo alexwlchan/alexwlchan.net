@@ -1,17 +1,19 @@
-# from gevent import monkey; monkey.patch_all()
-from base64 import b64decode
+import base64
 import datetime
 import json
 import os
-from urlparse import parse_qsl, urlparse
+from urllib.parse import parse_qsl, urlparse
 
 from flask import Flask, Response, abort, request
-from peewee import *
-from playhouse.berkeleydb import BerkeleyDatabase  # Optional.
+from peewee import (
+    CharField, DateTimeField, Model, SqliteDatabase, TextField
+)
 
 
 # 1 pixel GIF, base64-encoded.
-BEACON = b64decode('R0lGODlhAQABAIAAANvf7wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==')
+BEACON = base64.b64decode(
+    'R0lGODlhAQABAIAAANvf7wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+)
 
 # Store the database file in the app directory.
 APP_DIR = os.path.dirname(__file__)
@@ -31,7 +33,8 @@ SECRET_KEY = 'secret - change me'  # TODO: change me.
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-database = BerkeleyDatabase(DATABASE_NAME)  # or SqliteDatabase(DATABASE_NAME)
+database = SqliteDatabase(DATABASE_NAME)
+
 
 class JSONField(TextField):
     """Store JSON data in a TextField."""
@@ -42,6 +45,7 @@ class JSONField(TextField):
     def db_value(self, value):
         if value is not None:
             return json.dumps(value)
+
 
 class PageView(Model):
     domain = CharField()
@@ -70,6 +74,7 @@ class PageView(Model):
             headers=dict(request.headers),
             params=params)
 
+
 @app.route('/a.gif')
 def analyze():
     if not request.args.get('url'):
@@ -82,15 +87,18 @@ def analyze():
     response.headers['Cache-Control'] = 'private, no-cache'
     return response
 
+
 @app.route('/a.js')
 def script():
     return Response(
         app.config['JAVASCRIPT'] % (app.config['DOMAIN']),
         mimetype='text/javascript')
 
+
 @app.errorhandler(404)
 def not_found(e):
     return Response('Not found.')
+
 
 if __name__ == '__main__':
     database.create_tables([PageView], safe=True)
