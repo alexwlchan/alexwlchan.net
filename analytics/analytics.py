@@ -21,9 +21,8 @@ BEACON = base64.b64decode(
     'R0lGODlhAQABAIAAANvf7wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
 )
 
-# Store the database file in the app directory.
-APP_DIR = os.path.dirname(__file__)
-DATABASE_NAME = os.path.join(APP_DIR, 'analytics.db')
+# Store the database file in the working directory.
+DATABASE_NAME = os.path.join(os.curdir, 'analytics.db')
 DOMAIN = 'https://alexwlchan.net/analytics'
 
 # Simple JavaScript which will be included and executed on the client-side.
