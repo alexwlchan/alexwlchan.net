@@ -49,10 +49,12 @@ def top_traffic_times(query):
                   .tuples())
     total = sum(result.values())
     return [
-        ('%s - %s' % (i * chunks, (i + 1) * chunks),
-         result[i],
-         (100. * result[i]) / total)
-        for i in range(24 / chunks)]
+        (
+            '%s - %s' % (i * chunks, (i + 1) * chunks),
+            result.get(i, 0),
+            (100. * result.get(i, 0)) / total
+        )
+        for i in range(int(24 / chunks))]
 
 def user_agents(query, limit):
     c = Counter(pv.headers.get('User-Agent') for pv in query)
@@ -106,7 +108,7 @@ def run_report(start, end, limit, skip_paths=False):
 
     print_banner('Traffic by Hour')
     for hour, count, percent in top_traffic_times(query):
-        print(f'{hour:#9d} : {count} ({round(percent, 1)}%%)')
+        print('%9s : %s (%s%%)' % (hour, count, round(percent, 1)))
 
     if not skip_paths:
         print_banner('Paths')
