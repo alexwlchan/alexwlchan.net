@@ -1,7 +1,13 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8
+
+from gevent import monkey; monkey.patch_all()
+
 import base64
 import datetime
 import json
 import os
+import textwrap
 from urllib.parse import parse_qsl, urlparse
 
 from flask import Flask, Response, abort, request
@@ -21,10 +27,10 @@ DATABASE_NAME = os.path.join(APP_DIR, 'analytics.db')
 DOMAIN = 'http://127.0.0.1:5000'  # TODO: change me.
 
 # Simple JavaScript which will be included and executed on the client-side.
-JAVASCRIPT = """(function(){
+JAVASCRIPT = textwrap.dedent("""(function(){
     var d=document,i=new Image,e=encodeURIComponent;
     i.src='%s/a.gif?url='+e(d.location.href)+'&ref='+e(d.referrer)+'&t='+e(d.title);
-    })()""".replace('\n', '')
+    })()""".replace('\n', ''))
 
 # Flask application settings.
 DEBUG = bool(os.environ.get('DEBUG'))
@@ -102,8 +108,6 @@ def not_found(e):
 
 if __name__ == '__main__':
     database.create_tables([PageView], safe=True)
-    app.run()  # Use Flask's builtin WSGI server.
-    # Or for gevent,
-    # from gevent.wsgi import WSGIServer
-    # WSGIServer(('', 5000), app).serve_forever()
+    from gevent.wsgi import WSGIServer
+    WSGIServer(('', 5000), app).serve_forever()
     database.close()
