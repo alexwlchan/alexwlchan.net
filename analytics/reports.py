@@ -5,7 +5,7 @@ from collections import Counter
 import datetime
 import optparse
 
-from peewee import *
+from peewee import fn
 
 from analytics import database
 from analytics import PageView
@@ -21,14 +21,17 @@ def get_query(start, end):
         query = query.where(PageView.timestamp <= end)
     return query
 
+
 def page_views(query):
     return query.count()
+
 
 def unique_ips(query):
     return (query
             .select(PageView.ip)
             .group_by(PageView.ip)
             .count())
+
 
 def top_pages(query, limit):
     return (query
@@ -37,6 +40,7 @@ def top_pages(query, limit):
             .order_by(fn.COUNT(PageView.id).desc())
             .tuples()
             .limit(limit))
+
 
 def top_traffic_times(query):
     chunks = 3
@@ -56,13 +60,16 @@ def top_traffic_times(query):
         )
         for i in range(int(24 / chunks))]
 
+
 def user_agents(query, limit):
     c = Counter(pv.headers.get('User-Agent') for pv in query)
     return c.most_common(limit)
 
+
 def languages(query, limit):
     c = Counter(pv.headers.get('Accept-Language') for pv in query)
     return c.most_common(limit)
+
 
 def get_paths(query, limit):
     inner = (query
@@ -79,20 +86,25 @@ def get_paths(query, limit):
              .limit(limit))
     return [(ip, urls.split(',')) for ip, urls in paths]
 
+
 def get_low_high(query):
     base = query.select(PageView.timestamp)
+
     def conv(s):
         return datetime.datetime.strptime(
             s, '%Y-%m-%d %H:%M:%S.%f').strftime('%Y-%m-%d %H:%M')
+
     low = base.order_by(PageView.id.asc()).scalar()
     high = base.order_by(PageView.id.desc()).scalar()
     return conv(low), conv(high)
+
 
 def print_banner(s):
     print('')
     print('-' * len(s))
     print(s)
     print('-' * len(s))
+
 
 def run_report(start, end, limit, skip_paths=False):
     query = get_query(start, end)
@@ -117,6 +129,7 @@ def run_report(start, end, limit, skip_paths=False):
             for url in path:
                 print(f' * {url}')
 
+
 def get_parser():
     parser = optparse.OptionParser()
     ao = parser.add_option
@@ -133,6 +146,7 @@ def get_parser():
     ao('-x', '--no-paths', dest='no_paths', action='store_true',
        help='Do not print paths')
     return parser
+
 
 if __name__ == '__main__':
     parser = get_parser()
