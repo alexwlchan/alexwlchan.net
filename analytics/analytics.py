@@ -24,7 +24,7 @@ BEACON = base64.b64decode(
 # Store the database file in the app directory.
 APP_DIR = os.path.dirname(__file__)
 DATABASE_NAME = os.path.join(APP_DIR, 'analytics.db')
-DOMAIN = 'http://127.0.0.1:5000'  # TODO: change me.
+DOMAIN = 'https://alexwlchan.net/analytics'
 
 # Simple JavaScript which will be included and executed on the client-side.
 JAVASCRIPT = textwrap.dedent("""(function(){
@@ -34,7 +34,7 @@ JAVASCRIPT = textwrap.dedent("""(function(){
 
 # Flask application settings.
 DEBUG = bool(os.environ.get('DEBUG'))
-SECRET_KEY = 'secret - change me'  # TODO: change me.
+SECRET_KEY = os.environ['SECRET_KEY']
 
 app = Flask(__name__)
 app.config.from_object(__name__)
