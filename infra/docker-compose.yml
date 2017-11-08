@@ -1,0 +1,29 @@
+version: "2"
+services:
+  proxy:
+    image: "nginx:alpine"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+      - "~/.certbot:/certbot"
+  bijou:
+    image: "nginx:alpine"
+    volumes:
+      - "~/repos/bijouopera.co.uk/_output:/usr/share/nginx/html"
+  pygmentizr:
+    image: "alexwlchan/pygmentizr"
+    environment:
+      - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
+    volumes:
+      - "~/repos/pygmentizr/config.py:/config.py"
+  specktre:
+    image: "alexwlchan/specktre"
+    environment:
+      - SECRET_KEY=$SPECKTRE_SECRET_KEY
+  alexwlchan:
+    image: "nginx:alpine"
+    volumes:
+      - "~/sites/alexwlchan.net:/usr/share/nginx/html"
+      - "~/repos/alexwlchan.net/nginx.conf:/etc/nginx/conf.d/default.conf"
