@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8
+
 from collections import Counter
 import datetime
 import optparse
@@ -84,33 +87,33 @@ def get_low_high(query):
     return conv(low), conv(high)
 
 def print_banner(s):
-    print
-    print '-' * len(s)
-    print s
-    print '-' * len(s)
+    print('')
+    print('-' * len(s))
+    print(s)
+    print('-' * len(s))
 
 def run_report(start, end, limit, skip_paths=False):
     query = get_query(start, end)
     low, high = get_low_high(query)
 
-    print_banner('Overview from %s to %s' % (low, high))
-    print '%4d page views' % page_views(query)
-    print '%4d unique IPs' % unique_ips(query)
+    print_banner(f'Overview from {low} to {high}')
+    print(f'{page_views(query):#4d} page views')
+    print(f'{unique_ips(query):#4d} unique IPs')
 
     print_banner('Top Pages')
     for title, count in top_pages(query, limit):
-        print '%4d : %s' % (count, title)
+        print(f'{count:#4d} : {title}')
 
     print_banner('Traffic by Hour')
     for hour, count, percent in top_traffic_times(query):
-        print '%9s : %s (%s%%)' % (hour, count, round(percent, 1))
+        print(f'{hour:#9d} : {count} ({round(percent, 1)}%%)')
 
     if not skip_paths:
         print_banner('Paths')
         for ip, path in get_paths(query, limit):
-            print ip
+            print(ip)
             for url in path:
-                print ' * %s' % url
+                print(f' * {url}')
 
 def get_parser():
     parser = optparse.OptionParser()
