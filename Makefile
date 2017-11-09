@@ -1,5 +1,4 @@
 BUILD_IMAGE = alexwlchan/alexwlchan.net
-TESTS_IMAGE = alexwlchan/alexwlchan.net_tests
 SERVE_CONTAINER = server
 
 RSYNC_HOST = 139.162.244.147
@@ -8,26 +7,15 @@ RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
 ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
-TESTS = $(ROOT)/tests
 
 $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
 
-$(ROOT)/.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt
-	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
-	mkdir -p .docker
-	touch .docker/tests
-
 .docker/build: $(ROOT)/.docker/build
 
 .docker/tests: $(ROOT)/.docker/tests
-
-
-tests/requirements.txt: tests/requirements.in
-	docker run --volume $(TESTS):/src --rm micktwomey/pip-tools
-	touch $(TESTS)/requirements.txt
 
 
 clean: .docker/build
@@ -81,13 +69,6 @@ deploy: publish
 		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
-test: .docker/tests
-	docker run \
-		--volume $(ROOT):/repo \
-		--env HOSTNAME=$(SERVE_CONTAINER) \
-		--link $(SERVE_CONTAINER) \
-		--tty --rm $(TESTS_IMAGE)
-
 Gemfile.lock: Gemfile
 	docker run \
 		--volume $(ROOT):/site \
@@ -105,6 +86,7 @@ renew-certbot:
 
 
 include analytics/Makefile
+include tests/Makefile
 
 
 .PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
