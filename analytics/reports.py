@@ -85,15 +85,25 @@ def _normalise_referrer(referrer):
     if parts.netloc == 'alexwlchan.net':
         return None
 
-    return referrer
+    tco_urls = {
+        'https://t.co/6R9gyKJfqu': 'https://twitter.com/alexwlchan/status/928389714998104065',
+    }
+
+    if parts.netloc == 't.co':
+        for u, v in tco_urls.items():
+            if referrer.startswith(u):
+                return v
+
+    aliases = {
+        'https://www.bing.com/': 'Bing',
+        'https://duckduckgo.com/': 'DuckDuckGo',
+    }
+
+    return aliases.get(referrer, referrer)
 
 
 def get_referrers(query, limit):
-    c = Counter(
-        _normalise_referrer(pv.referrer)
-        for pv in query
-        if _normalise_referrer(pv.referrer)
-    )
+    c = Counter(_normalise_referrer(pv.referrer) or None for pv in query)
     return c.most_common(limit)
 
 
