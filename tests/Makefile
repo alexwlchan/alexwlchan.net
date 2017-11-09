@@ -18,7 +18,7 @@ $(ROOT)/.docker/flake8: $(TESTS)/flake8.Dockerfile
 
 
 check-format: $(ROOT)/.docker/flake8
-	docker run --volume $(ROOT):/src --rm $(FLAKE8_IMAGE)
+	docker run --volume $(ROOT):/src --rm $(FLAKE8_IMAGE) --exclude=/src
 
 tests/requirements.txt: tests/requirements.in
 	docker run --volume $(TESTS):/src --rm micktwomey/pip-tools
