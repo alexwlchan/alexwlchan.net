@@ -3,17 +3,32 @@
 set -o errexit
 set -o nounset
 
-echo "*** Starting the development server"
+banner() {
+  echo "*********************************************************************"
+  echo "$1"
+  echo "*********************************************************************"
+}
+
+
+# Start the site build in the background.  This usually takes 20-30 seconds,
+# so while it's running we can get on with some other tasks.
+banner "Starting the development server"
 make serve
 
+# At this point, the server is the only containing running.
 docker_id=$(docker ps -q)
 
-# Run the formatting tasks while we wait for the server to come up
+
+# We run this while we wait for the server to be ready.
+banner "Running check-format task"
 make check-format
 
+# We also prepare the test container at this point.
+banner "Building test container"
 make .docker/tests
 
-# Wait for the server to become available
+
+banner "Finished other tasks, waiting for server to become available..."
 set +o errexit
 while true
 do
@@ -22,13 +37,14 @@ do
     then
         break
     fi
-    echo "Waiting for server to become available..."
+    echo "Still waiting for server to become available..."
     sleep 2
 
     # If the container has died, give up
     docker ps | grep "$docker_id" >/dev/null 2>&1
     if (( $? != 0 ))
     then
+        banner "Unexpected failure!"
         echo "'make serve' task has unexpectedly failed; giving up"
         echo "Container logs:"
         echo "==="
@@ -39,12 +55,12 @@ do
 done
 set -o errexit
 
-echo "*** Running the server tests"
+banner "Running the server tests"
 make test
 
 if [[ "$TRAVIS_EVENT_TYPE" == "pull_request" ]]
 then
-  echo "*** Pull request, skipping deploy to prod"
+  banner "Pull request, skipping deploy to prod"
   exit 0
 fi
 
