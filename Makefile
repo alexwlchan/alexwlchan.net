@@ -17,6 +17,8 @@ $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.
 
 .docker/tests: $(ROOT)/.docker/tests
 
+.docker/flake8: $(ROOT)/.docker/flake8
+
 
 clean: .docker/build
 	docker run --volume $(SRC):/site --rm $(BUILD_IMAGE) clean

@@ -8,6 +8,11 @@ make serve
 
 docker_id=$(docker ps -q)
 
+# Run the formatting tasks while we wait for the server to come up
+make check-format
+
+make .docker/tests
+
 # Wait for the server to become available
 set +o errexit
 while true
