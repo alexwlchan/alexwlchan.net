@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How I ask about gender
-summary: If you're asking for someone's gender, a simple "Female/Male" isn't good enough. Here's what I use instead.
+summary: "If you're asking for someone's gender, a simple 'Female/Male' isn't good enough. Here's what I use instead."
 tags: gender
 ---
 
