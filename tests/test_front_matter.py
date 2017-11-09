@@ -89,7 +89,7 @@ def test_every_post_has_summary(new_front_matters):
 
 
 def test_summarys_arent_too_long(front_matters):
-    # See https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
+    # See https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup  # noqa
     has_summary = [
         f for f in front_matters if 'summary' in f.metadata
     ]
