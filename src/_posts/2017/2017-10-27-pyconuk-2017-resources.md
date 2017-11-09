@@ -7,16 +7,16 @@ summary: Slides and links for my PyCon UK 2017 talks/workshops.
 This post is a signpost to useful resources for my PyCon UK talks/workshops.
 I'll update it as I post new resources/links.
 
-*   [**Using privilege to improve inclusion**](/2017/11/pyconuk-2017-privilege-inclusion/), Friday at 10:30
+*   Talk: [**Using privilege to improve inclusion**](/2017/11/pyconuk-2017-privilege-inclusion/), Friday at 10:30
 
     I've posted my slides and notes.
     The official video isn't available yet, but I'll post a link on that page when it's up.
 
-*   [**A plumber's guide to Git**](http://2017.pyconuk.org/sessions/workshops/a-plumber-s-guide-to-git/), Friday at 14:30
+*   Workshop: [**A plumber's guide to Git**](/2017/11/a-plumbers-guide-to-git/), Friday at 14:30
 
-    A PDF with the workshop exercises will appear shortly.
+    I've posted my exercises and cheat sheet, and the Git Book is a good reference if you want to work through the exercises at home.
 
-*   **Let's talk about (a)sex(uals)**, Thursday lightning talks
+*   Lightning talk: **Let's talk about (a)sex(uals)**, Thursday lightning talks
 
     This was an impromptu lightning talk I gave on Thursday evening.
     I only had one slide:
