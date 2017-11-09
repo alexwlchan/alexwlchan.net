@@ -18,7 +18,6 @@ before_script:
 
 install:
   - make .docker/build
-  - make .docker/tests
 
 script:
   - .travis/run.sh

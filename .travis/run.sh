@@ -8,6 +8,10 @@ make serve
 
 docker_id=$(docker ps -q)
 
+# Build the test container while we wait for the server to become
+# available
+make .docker/tests
+
 # Wait for the server to become available
 set +o errexit
 while true
