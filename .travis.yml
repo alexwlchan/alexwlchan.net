@@ -10,8 +10,8 @@ branches:
     - master
 
 install:
-  - make $(pwd)/.docker/build
-  - make $(pwd)/.docker/test
+  - make .docker/build
+  - make .docker/test
 
 script:
   - .travis/run.sh
