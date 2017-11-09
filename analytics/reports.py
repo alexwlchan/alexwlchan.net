@@ -4,6 +4,7 @@
 from collections import Counter
 import datetime
 import optparse
+from urllib.parse import parse_qs, urlparse
 
 from peewee import fn
 
@@ -71,6 +72,31 @@ def languages(query, limit):
     return c.most_common(limit)
 
 
+def _normalise_referrer(referrer):
+    parts = urlparse(referrer)
+
+    if parts.netloc.startswith(('www.google.', 'encrypted.google.')):
+        qs = parse_qs(parts.query)
+        try:
+            return f'Google ({qs["q"][0]})'
+        except KeyError:
+            return 'Google'
+
+    if parts.netloc == 'alexwlchan.net':
+        return None
+
+    return referrer
+
+
+def get_referrers(query, limit):
+    c = Counter(
+        _normalise_referrer(pv.referrer)
+        for pv in query
+        if _normalise_referrer(pv.referrer)
+    )
+    return c.most_common(limit)
+
+
 def get_paths(query, limit):
     inner = (query
              .select(PageView.ip, PageView.url)
@@ -128,6 +154,10 @@ def run_report(start, end, limit, skip_paths=False):
             print(ip)
             for url in path:
                 print(f' * {url}')
+
+    print_banner('Referrers')
+    for referrer, count in get_referrers(query, limit):
+        print(f'{count:#4d} : {referrer}')
 
 
 def get_parser():
