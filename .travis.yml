@@ -9,12 +9,22 @@ branches:
   only:
     - master
 
+ache:
+  directories:
+    - ~/docker
+
+before_script:
+  - .travis/before_script.sh
+
 install:
   - make .docker/build
   - make .docker/tests
 
 script:
   - .travis/run.sh
+
+before_cache:
+  - .travis/before_cache.sh
 
 env:
   global:
