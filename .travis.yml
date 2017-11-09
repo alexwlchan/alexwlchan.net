@@ -9,9 +9,12 @@ branches:
   only:
     - master
 
-jobs:
-  include:
-    - script: .travis/run.sh
+install:
+  - make $(pwd)/.docker/build
+  - make $(pwd)/.docker/test
+
+script:
+  - .travis/run.sh
 
 env:
   global:
