@@ -10,15 +10,19 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
-.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
+$(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
 	docker build --tag $(BUILD_IMAGE) .
 	mkdir -p .docker
 	touch .docker/build
 
-.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt
+$(ROOT)/.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt
 	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
 	mkdir -p .docker
 	touch .docker/tests
+
+.docker/build: $(ROOT)/.docker/build
+
+.docker/tests: $(ROOT)/.docker/tests
 
 
 tests/requirements.txt: tests/requirements.in
