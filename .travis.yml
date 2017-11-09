@@ -12,13 +12,6 @@ branches:
 jobs:
   include:
     - script: .travis/run.sh
-    - stage: deploy
-      script: .travis/deploy.sh
-
-stages:
-  - test
-  - name: deploy
-    if: type IN (push)
 
 env:
   global:
