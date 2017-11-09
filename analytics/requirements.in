@@ -1,3 +1,4 @@
+docopt
 flask
 gevent
 peewee
