@@ -22,8 +22,8 @@ def test_pages_appear_correctly(hostname, path):
     ('archive/', '<h3>2017</h3>'),
 
     # Smartypants is working
-    ('2017/09/lazy-reading-in-python', u'kept in Amazon S3 – XML exports'),
-    ('2017/09/ode-to-docopt', u'I’ve used it in multiple languages'),
+    ('2017/09/lazy-reading-in-python', u'kept in Amazon S3 &ndash; XML exports'),
+    ('2017/09/ode-to-docopt', u'I&rsquo;ve used it in multiple languages'),
 
     # Syntax highlighting is being applied correctly
     ('2017/09/useful-git-commands/', '''<code class="language-console" data-lang="console"><span></span><span class="gp">$</span> git rev-parse --show-toplevel
@@ -47,7 +47,7 @@ def test_pages_appear_correctly(hostname, path):
     ('2014/07/overcast/', '</blockquote></div>'),
     ('2014/07/overcast/',
      '<a href="https://twitter.com/alexwlchan">@alexwlchan</a>'),
-    ('2014/07/overcast', 'so:<br/>Episode 1'),
+    ('2014/07/overcast', 'so:<br /><br />Episode 1: A<br />'),
     ('2017/10/lightning-talks/',
      '<a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a>'),
     ('2017/10/lightning-talks/', '<div class="media">'),
