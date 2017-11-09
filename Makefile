@@ -11,7 +11,7 @@ SRC = $(ROOT)/src
 TESTS = $(ROOT)/tests
 
 $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
-	docker build --tag $(BUILD_IMAGE) .
+	docker build --tag $(BUILD_IMAGE) --build-arg CI=$$CI .
 	mkdir -p .docker
 	touch .docker/build
 

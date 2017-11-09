@@ -22,7 +22,7 @@ apk add git
 
 # Required for the pygments gem.  This has to be Python 2, not Python 3:
 # https://github.com/tmm1/pygments.rb/issues/45
-apk add py2-pip
+apk add python py2-pip
 pip install pygments
 
 bundle install
