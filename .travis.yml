@@ -11,7 +11,7 @@ branches:
 
 install:
   - make .docker/build
-  - make .docker/test
+  - make .docker/tests
 
 script:
   - .travis/run.sh
