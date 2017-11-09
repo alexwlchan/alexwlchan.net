@@ -41,12 +41,10 @@ redcarpet:
 
 plugins:
   - jekyll-paginate-v2
-  - octopress-minify-html
   - pygments.rb
 
 highlighter: pygments
 
-# TODO: Is this doing what I expect?
 liquid:
   error_mode: strict
 

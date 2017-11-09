@@ -139,7 +139,7 @@ module Jekyll
 
       # Because newlines aren't significant in HTML, we convert them to
       # <br> tags so they render correctly.
-      text = text.sub("\n", "<br/>")
+      text = text.gsub("\n", "<br>")
 
       # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
       # are correctly rendered as links to the user page.
