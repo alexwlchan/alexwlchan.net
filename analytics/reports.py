@@ -1,15 +1,28 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8
+"""
+Print a summary of analytics from my website.
+
+Usage: reports.py [options]
+
+Options:
+  --days=<COUNT>        Number of days of records to analyse.
+  --day=<DAY>           Day to analyse.
+  --month=<MONTH>       Month to analyse.
+  --year=<YEAR>         Year to analyse.
+  --limit=<LIMIT>       Max number of records to show.
+  --no-paths            Don't print a complete record of paths by IP.
+
+"""
 
 from collections import Counter
 import datetime
-import optparse
 from urllib.parse import parse_qs, urlparse
 
+import docopt
 from peewee import fn
 
-from analytics import database
-from analytics import PageView
+from analytics import database, PageView
 
 
 def get_query(start, end):
@@ -170,49 +183,30 @@ def run_report(start, end, limit, skip_paths=False):
         print(f'{count:#4d} : {referrer}')
 
 
-def get_parser():
-    parser = optparse.OptionParser()
-    ao = parser.add_option
-    ao('-n', '--days', dest='count', type='int',
-       help='Number of days worth of records to analyze.')
-    ao('-d', '--day', dest='day', type='int',
-       help='Day to analyze.')
-    ao('-m', '--month', dest='month', type='int',
-       help='Month to analyze.')
-    ao('-y', '--year', dest='year', type='int',
-       help='Year to analyze.')
-    ao('-r', '--records', dest='records', type='int', default=20,
-       help='Number of records to show')
-    ao('-x', '--no-paths', dest='no_paths', action='store_true',
-       help='Do not print paths')
-    return parser
-
-
 if __name__ == '__main__':
-    parser = get_parser()
-    options, args = parser.parse_args()
+    args = docopt.docopt(__doc__)
 
     database.connect()
 
     today = datetime.date.today()
-    if options.year or options.month or options.day:
+    if args['--year'] or args['--month'] or args['--day']:
         start_date = datetime.date(today.year, 1, 1)
-        if options.year:
-            start_date = start_date.replace(year=options.year)
-        if options.month:
-            start_date = start_date.replace(month=options.month)
-        if options.day:
-            start_date = start_date.replace(day=options.day)
+        if args['--year']:
+            start_date = start_date.replace(year=args['--year'])
+        if args['--month']:
+            start_date = start_date.replace(month=args['--month'])
+        if args['--day']:
+            start_date = start_date.replace(day=args['--day'])
     else:
         start_date = None
 
     end_date = None
-    if options.count:
-        delta = datetime.timedelta(days=options.count)
+    if args['--limit']:
+        delta = datetime.timedelta(days=args['--limit'])
         if start_date:
             end_date = start_date + delta
         else:
             start_date = today - delta
 
-    run_report(start_date, end_date, options.records, options.no_paths)
+    run_report(start_date, end_date, args['--limit'], args['--no-paths'])
     database.close()
