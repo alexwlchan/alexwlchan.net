@@ -9,7 +9,7 @@ branches:
   only:
     - master
 
-ache:
+cache:
   directories:
     - ~/docker
 
