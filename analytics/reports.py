@@ -202,11 +202,11 @@ if __name__ == '__main__':
 
     end_date = None
     if args['--limit']:
-        delta = datetime.timedelta(days=args['--limit'])
+        delta = datetime.timedelta(days=int(args['--limit']))
         if start_date:
             end_date = start_date + delta
         else:
             start_date = today - delta
 
-    run_report(start_date, end_date, args['--limit'], args['--no-paths'])
+    run_report(start_date, end_date, int(args['--limit']), args['--no-paths'])
     database.close()
