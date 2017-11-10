@@ -3,12 +3,14 @@ FROM alpine
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Image for running tests of the alexwlchan.net build"
 
-RUN apk update && apk add git python py-pip py2-lxml
+RUN apk update && \
+    apk add ca-certificates python py-pip py2-lxml wget unzip
 
 # TODO: It's frustrating that this is supplied here, rather than in the
 # requirements.txt; it's a bug in the version of pip-tools/pip I use.
-RUN git clone https://github.com/rubys/feedvalidator && \
-    cd feedvalidator/src && \
+RUN wget https://github.com/rubys/feedvalidator/archive/master.zip && \
+    unzip master.zip && \
+    cd feedvalidator-master/src && \
     python setup.py install
 
 COPY requirements.txt /
