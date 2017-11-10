@@ -11,9 +11,6 @@ set -o nounset
 apk update
 apk add g++ libffi-dev make musl-dev ruby ruby-dev
 
-# Other dependencies for gems
-apk add nodejs
-
 # Required for the static file generator
 apk add rsync
 
