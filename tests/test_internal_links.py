@@ -32,7 +32,7 @@ def responses(src, baseurl):
     # There's an analytics path which is linked from every page, but only
     # filled in on the production instance -- this avoids recording analytics
     # data in local testing!
-    for resp in _responses:
+    for rsp in _responses:
         if (
             urlparse(rsp.url).path == '/analytics/a.js' and
             rsp.status_code == 404
