@@ -33,7 +33,10 @@ def responses(src, baseurl):
     # filled in on the production instance -- this avoids recording analytics
     # data in local testing!
     for resp in _responses:
-        if urlparse(rsp.url).path == '/analytics/a.js':
+        if (
+            urlparse(rsp.url).path == '/analytics/a.js' and
+            rsp.status_code == 404
+        ):
             _responses.remove(rsp)
 
     return _responses
