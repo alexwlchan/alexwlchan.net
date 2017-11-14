@@ -29,6 +29,16 @@ def responses(src, baseurl):
             for rsp in crawl(url, follow_external_links=False):
                 _responses.append(rsp)
 
+    # There's an analytics path which is linked from every page, but only
+    # filled in on the production instance -- this avoids recording analytics
+    # data in local testing!
+    for rsp in _responses:
+        if (
+            urlparse(rsp.url).path == '/analytics/a.js' and
+            rsp.status_code == 404
+        ):
+            _responses.remove(rsp)
+
     return _responses
 
 
