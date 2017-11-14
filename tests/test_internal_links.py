@@ -32,11 +32,9 @@ def responses(src, baseurl):
     # There's an analytics path which is linked from every page, but only
     # filled in on the production instance -- this avoids recording analytics
     # data in local testing!
-    analytics = [
-        rsp for rsp in _responses
-        if urlparse(rsp.url).path == '/analytics/a.js'
-    ][0]
-    _responses.remove(analytics)
+    for resp in _responses:
+        if urlparse(rsp.url).path == '/analytics/a.js':
+            _responses.remove(rsp)
 
     return _responses
 
