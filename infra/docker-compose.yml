@@ -11,7 +11,7 @@ services:
   bijou:
     image: "nginx:alpine"
     volumes:
-      - "~/repos/bijouopera.co.uk/_output:/usr/share/nginx/html"
+      - ~/sites/bijouopera.co.uk:/usr/share/nginx/html
   pygmentizr:
     image: "alexwlchan/pygmentizr"
     environment:
