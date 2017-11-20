@@ -71,3 +71,8 @@ def test_text_does_not_appear_in_pages(hostname, path, text):
     resp = requests.get('http://%s/%s' % (hostname, path))
     assert resp.status_code == 200
     assert text not in resp.text
+
+
+def test_footnote_markers_render_as_text(hostname):
+    resp = requests.get('http://%s/2017/11/dont-tap-the-mic/' % hostname)
+    assert resp.text.count('&#8617;') == resp.text.count('&#8617;&#xFE0E;')
