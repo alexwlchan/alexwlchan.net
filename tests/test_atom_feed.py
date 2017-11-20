@@ -4,6 +4,7 @@ import feedvalidator
 from feedvalidator import compatibility
 from feedvalidator.formatter.text_plain import Formatter
 import pytest
+import requests
 
 
 def test_feed_is_valid_atom(hostname):
@@ -19,3 +20,9 @@ def test_feed_is_valid_atom(hostname):
     output = Formatter(events)
     print('\n'.join(output))
     assert len(events) == 0
+
+
+def test_footnote_markers_render_as_text(hostname):
+    resp = requests.get('http://%s/feeds/all.atom.xml' % hostname)
+    xml = resp.text
+    assert xml.count('&amp;#8617;') == xml.count('&amp;#8617;&amp;#xFE0E;')
