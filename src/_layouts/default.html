@@ -10,7 +10,7 @@ layout: compress
   <body>
     {% include header.html %}
 
-    {{ content }}
+    {{ content | fix_footnote }}
 
     {% include footer.html %}
   </body>
