@@ -6,6 +6,7 @@ summary: As the WITCH computer celebrates five years since its reboot at TNMoC, 
 theme:
   card_type: summary_large_image
   image: /images/2017/witch.jpg
+date: 2017-11-20 15:00
 ---
 
 Today, the [National Museum of Computing][tnmoc] (TNMoC) is celebrating the five-year anniversary of their reboot of the Harwell-Dekatron computer, also known as WITCH.
