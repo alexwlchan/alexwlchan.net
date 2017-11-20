@@ -5,7 +5,7 @@
 module Jekyll
   module FootnoteFilter
     def fix_footnote(input)
-      input.gsub("&#8617;", "&#8618;&#xFE0E;")
+      input.gsub("&#8617;", "&#8617;&#xFE0E;").gsub("↩", "&#8617;&#xFE0E;")
     end
   end
 end
