@@ -63,6 +63,9 @@ def test_text_appears_in_pages(hostname, path, text_in_page):
     # Year markers only appear in the global archives, not year or month pages
     ('2017/', '<h3>2017</h3>'),
     ('2017/07/', '<h3>2017</h3>'),
+
+    # There's isn't a stray '&lt;' in the RSS feed
+    ('feeds/all.atom.xml', '&lt;</content>'),
 ])
 def test_text_does_not_appear_in_pages(hostname, path, text):
     resp = requests.get('http://%s/%s' % (hostname, path))
