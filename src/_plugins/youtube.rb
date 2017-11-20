@@ -31,7 +31,7 @@ module Jekyll
         new_node = Nokogiri::HTML.fragment("<p><a href=\"#{url}\">#{url}</a></p>")
         f_node.replace(new_node)
       end
-      doc.at_xpath("//body").to_s["<body>".length..-"</body>".length]
+      doc.at_xpath("//body").to_s["<body>".length..-("</body>".length + 1)]
     end
 
   end
