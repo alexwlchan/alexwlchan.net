@@ -77,6 +77,7 @@ deploy: publish
 		--verbose \
 		--compress \
 		--delete \
+		--exclude=".well-known" \
 		--exclude=".DS_Store" \
 		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
