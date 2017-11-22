@@ -33,7 +33,7 @@ JAVASCRIPT = textwrap.dedent("""(function(){
 
 # Flask application settings.
 DEBUG = bool(os.environ.get('DEBUG'))
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 app = Flask(__name__)
 app.config.from_object(__name__)
