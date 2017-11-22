@@ -17,6 +17,7 @@ Options:
 
 from collections import Counter
 import datetime
+import json
 from urllib.parse import parse_qs, urlparse
 
 import docopt
@@ -25,14 +26,30 @@ from peewee import fn
 from analytics import database, PageView
 
 
+# This JSON file has some data that I don't want to check into Git, but
+# which is useful for analytics.  For example: my home IP address.
+try:
+    LOCAL = json.load(open('local.json'))
+except FileNotFoundError:
+    LOCAL = {}
+
+
 def get_query(start, end):
     query = PageView.select()
+
+    # If date limits were provided, ensure they're applied to the query.
     if start and end:
         query = query.where(PageView.timestamp.between(start, end))
     elif start:
         query = query.where(PageView.timestamp >= start)
     elif end:
         query = query.where(PageView.timestamp <= end)
+
+    # Exclude any traffic that comes from my house/devices
+    personal_ips = LOCAL.get('personal_ips', [])
+    for ip_addr in personal_ips:
+        query = query.where(PageView.ip != ip_addr)
+
     return query
 
 
@@ -88,6 +105,8 @@ def languages(query, limit):
 def _normalise_referrer(referrer):
     parts = urlparse(referrer)
 
+    # All international flavours of Google get collapsed into a single
+    # set of results, split out only if a query string is visible.
     if parts.netloc.startswith(('www.google.', 'encrypted.google.')):
         qs = parse_qs(parts.query)
         try:
@@ -95,17 +114,27 @@ def _normalise_referrer(referrer):
         except KeyError:
             return 'Google'
 
+    # If the referrer was somewhere else on the site, it's not interesting.
     if parts.netloc == 'alexwlchan.net':
         return None
 
+    # t.co URLs are unhelpful because they don't tell you which tweet
+    # something came from; unpick them.  Note that some have ?amp=1 on the
+    # end, which is extra annoying.
     tco_urls = {
         'https://t.co/6R9gyKJfqu': 'https://twitter.com/alexwlchan/status/928389714998104065',
+        'https://t.co/qOIaNK1Rmd': 'https://twitter.com/alexwlchan',
+        'https://t.co/EY119V2Ga8': 'https://twitter.com/alexwlchan/status/928748092039487490',
+        'https://t.co/L5qP7Gsavd': 'https://twitter.com/alexwlchan/status/932634229309100034',
     }
 
     if parts.netloc == 't.co':
         for u, v in tco_urls.items():
             if referrer.startswith(u):
                 return v
+
+    if 'facebook.com' in parts.netloc:
+        return 'https://www.facebook.com/'
 
     aliases = {
         'https://www.bing.com/': 'Bing',
@@ -201,8 +230,8 @@ if __name__ == '__main__':
         start_date = None
 
     end_date = None
-    if args['--limit']:
-        delta = datetime.timedelta(days=int(args['--limit']))
+    if args['--days']:
+        delta = datetime.timedelta(days=int(args['--days']))
         if start_date:
             end_date = start_date + delta
         else:
