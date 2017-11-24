@@ -18,10 +18,6 @@ services:
       - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
     volumes:
       - "~/repos/pygmentizr/config.py:/config.py"
-  specktre:
-    image: "alexwlchan/specktre"
-    environment:
-      - SECRET_KEY=$SPECKTRE_SECRET_KEY
   alexwlchan:
     image: "nginx:alpine"
     volumes:
