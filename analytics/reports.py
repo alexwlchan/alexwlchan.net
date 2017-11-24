@@ -33,7 +33,6 @@ try:
 except FileNotFoundError:
     LOCAL = {}
 
-
 def get_query(start, end):
     query = PageView.select()
 
@@ -49,6 +48,9 @@ def get_query(start, end):
     personal_ips = LOCAL.get('personal_ips', [])
     for ip_addr in personal_ips:
         query = query.where(PageView.ip != ip_addr)
+
+    # Exclude bits of referral spam
+    query = query.where(PageView.referrer != 'https://yellowstonevisitortours.com')
 
     return query
 
@@ -114,6 +116,20 @@ def _normalise_referrer(referrer):
         except KeyError:
             return 'Google'
 
+    if parts.netloc.endswith('bing.com'):
+        qs = parse_qs(parts.query)
+        try:
+            return f'Bing ({qs["q"][0]})'
+        except KeyError:
+            return 'Bing'
+
+    if parts.netloc == 'duckduckgo.com':
+        qs = parse_qs(parts.query)
+        try:
+            return f'DuckDuckGo ({qs["q"][0]})'
+        except KeyError:
+            return 'DuckDuckGo'
+
     # If the referrer was somewhere else on the site, it's not interesting.
     if parts.netloc == 'alexwlchan.net':
         return None
@@ -126,6 +142,7 @@ def _normalise_referrer(referrer):
         'https://t.co/qOIaNK1Rmd': 'https://twitter.com/alexwlchan',
         'https://t.co/EY119V2Ga8': 'https://twitter.com/alexwlchan/status/928748092039487490',
         'https://t.co/L5qP7Gsavd': 'https://twitter.com/alexwlchan/status/932634229309100034',
+        'https://t.co/E0hBiiizkD': 'https://twitter.com/alexwlchan/status/933416262675451904',
     }
 
     if parts.netloc == 't.co':
@@ -136,9 +153,15 @@ def _normalise_referrer(referrer):
     if 'facebook.com' in parts.netloc:
         return 'https://www.facebook.com/'
 
+    if parts.netloc == 'yandex.ru':
+        return 'http://yandex.ru/'
+
+    if parts.netloc == 'r.search.yahoo.com':
+        return 'https://r.search.yahoo.com/'
+
     aliases = {
-        'https://www.bing.com/': 'Bing',
-        'https://duckduckgo.com/': 'DuckDuckGo',
+        'http://t.umblr.com/': 'https://tumblr.com/',
+        'https://t.umblr.com/': 'https://tumblr.com/',
     }
 
     return aliases.get(referrer, referrer)
