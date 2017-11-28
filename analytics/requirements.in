@@ -1,4 +1,5 @@
 docopt
 flask
 gevent
+jsmin
 peewee
