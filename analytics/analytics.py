@@ -7,10 +7,10 @@ import base64
 import datetime
 import json
 import os
-import textwrap
 from urllib.parse import parse_qsl, urlparse
 
 from flask import Flask, Response, abort, request
+import jsmin
 from peewee import (
     CharField, DateTimeField, Model, SqliteDatabase, TextField
 )
@@ -26,10 +26,10 @@ DATABASE_NAME = os.path.join(os.curdir, 'analytics.db')
 DOMAIN = 'https://alexwlchan.net/analytics'
 
 # Simple JavaScript which will be included and executed on the client-side.
-JAVASCRIPT = textwrap.dedent("""(function(){
-    var d=document,i=new Image,e=encodeURIComponent;
-    i.src='%s/a.gif?url='+e(d.location.href)+'&ref='+e(d.referrer)+'&t='+e(d.title);
-    })()""".replace('\n', ''))
+JAVASCRIPT = jsmin.jsmin(open('analytics.js').read())
+
+# For debugging purposes
+open('analytics.min.js', 'w').write(JAVASCRIPT)
 
 # Flask application settings.
 DEBUG = bool(os.environ.get('DEBUG'))
