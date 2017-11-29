@@ -18,6 +18,7 @@ Options:
 from collections import Counter
 import datetime
 import json
+import subprocess
 from urllib.parse import parse_qs, urlparse
 
 import docopt
@@ -258,7 +259,14 @@ def fetch_log_file(username, host):
         'scp', f'{username}@{host}:logs/{log_file}', log_file
     ])
 
-    return log_file
+    tracking_file = log_file.replace('.log', '_tracking.log')
+    with open(log_file) as infile, open(tracking_file, 'w') as outfile:
+        for line in infile:
+            if 'GET /analytics/a.gif' not in line:
+                continue
+            outfile.write(line)
+
+    return tracking_file
 
 
 if __name__ == '__main__':
