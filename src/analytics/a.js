@@ -3,6 +3,6 @@
     console.log("Do Not Track is enabled; don't run analytics 🙈");
   } else {
     var doc = document, enc = encodeURIComponent, img = new Image;
-    img.src = "%s/a.gif?url=" + enc(doc.location.href) + "&ref=" + enc(doc.referrer) + "&t=" + enc(doc.title);
+    img.src = "/analytics/a.gif?url=" + enc(doc.location.href) + "&ref=" + enc(doc.referrer) + "&t=" + enc(doc.title);
   }
 })()
