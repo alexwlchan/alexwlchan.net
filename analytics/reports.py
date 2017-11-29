@@ -247,7 +247,7 @@ def int_or_none(value):
         return None
 
 
-def fetch_log_file(username, host):
+def get_log_lines(username, host):
     """
     Creates an up-to-date log file, then scp's a copy to the local disk.
     """
@@ -259,46 +259,50 @@ def fetch_log_file(username, host):
         'scp', f'{username}@{host}:logs/{log_file}', log_file
     ])
 
-    tracking_file = log_file.replace('.log', '_tracking.log')
-    with open(log_file) as infile, open(tracking_file, 'w') as outfile:
+    log_lines = []
+
+    with open(log_file) as infile:
         for line in infile:
             if 'GET /analytics/a.gif' not in line:
                 continue
-            outfile.write(line)
+            match = NGINX_LOG_REGEX.match(line)
+            assert match is not None, line
+            log_line = LogLine(**match.groupdict())
+            log_lines.append(log_line)
 
-    return tracking_file
+    return log_lines
 
 
 if __name__ == '__main__':
-    args = docopt.docopt(__doc__)
+    # args = docopt.docopt(__doc__)
+    #
+    # year = int_or_none(args['--year'])
+    # month = int_or_none(args['--month'])
+    # day = int_or_none(args['--day'])
+    #
+    # limit = int_or_none(args['--limit'])
+    #
+    # today = datetime.date.today()
+    #
+    # if year or month or day:
+    #     start_date = datetime.date(today.year, 1, 1)
+    #     if year:
+    #         start_date = start_date.replace(year=year)
+    #     if month:
+    #         start_date = start_date.replace(month=month)
+    #     if day:
+    #         start_date = start_date.replace(day=day)
+    # else:
+    #     start_date = None
+    #
+    # end_date = None
+    # if day:
+    #     delta = datetime.timedelta(days=day)
+    #     if start_date:
+    #         end_date = start_date + delta
+    #     else:
+    #         start_date = today - delta
 
-    year = int_or_none(args['--year'])
-    month = int_or_none(args['--month'])
-    day = int_or_none(args['--day'])
-
-    limit = int_or_none(args['--limit'])
-
-    today = datetime.date.today()
-
-    if year or month or day:
-        start_date = datetime.date(today.year, 1, 1)
-        if year:
-            start_date = start_date.replace(year=year)
-        if month:
-            start_date = start_date.replace(month=month)
-        if day:
-            start_date = start_date.replace(day=day)
-    else:
-        start_date = None
-
-    end_date = None
-    if day:
-        delta = datetime.timedelta(days=day)
-        if start_date:
-            end_date = start_date + delta
-        else:
-            start_date = today - delta
-
-    log_file = fetch_log_file('alexwlchan', 'helene.linode')
+    log_lines = get_log_lines('alexwlchan', 'helene.linode')
 
     # run_report(start_date, end_date, limit, args['--no-paths'])
