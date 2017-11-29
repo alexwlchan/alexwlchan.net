@@ -270,39 +270,35 @@ def fetch_log_file(username, host):
 
 
 if __name__ == '__main__':
-    log_file = fetch_log_file('alexwlchan', 'helene.linode')
-    print(log_file)
+    args = docopt.docopt(__doc__)
 
-    # args = docopt.docopt(__doc__)
-    #
-    # year = int_or_none(args['--year'])
-    # month = int_or_none(args['--month'])
-    # day = int_or_none(args['--day'])
-    #
-    # limit = int_or_none(args['--limit'])
-    #
-    # database.connect()
-    #
-    # today = datetime.date.today()
-    #
-    # if year or month or day:
-    #     start_date = datetime.date(today.year, 1, 1)
-    #     if year:
-    #         start_date = start_date.replace(year=year)
-    #     if month:
-    #         start_date = start_date.replace(month=month)
-    #     if day:
-    #         start_date = start_date.replace(day=day)
-    # else:
-    #     start_date = None
-    #
-    # end_date = None
-    # if day:
-    #     delta = datetime.timedelta(days=day)
-    #     if start_date:
-    #         end_date = start_date + delta
-    #     else:
-    #         start_date = today - delta
-    #
+    year = int_or_none(args['--year'])
+    month = int_or_none(args['--month'])
+    day = int_or_none(args['--day'])
+
+    limit = int_or_none(args['--limit'])
+
+    today = datetime.date.today()
+
+    if year or month or day:
+        start_date = datetime.date(today.year, 1, 1)
+        if year:
+            start_date = start_date.replace(year=year)
+        if month:
+            start_date = start_date.replace(month=month)
+        if day:
+            start_date = start_date.replace(day=day)
+    else:
+        start_date = None
+
+    end_date = None
+    if day:
+        delta = datetime.timedelta(days=day)
+        if start_date:
+            end_date = start_date + delta
+        else:
+            start_date = today - delta
+
+    log_file = fetch_log_file('alexwlchan', 'helene.linode')
+
     # run_report(start_date, end_date, limit, args['--no-paths'])
-    # database.close()
