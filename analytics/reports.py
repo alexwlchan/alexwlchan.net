@@ -236,6 +236,9 @@ def run_report(start, end, limit, skip_paths=False):
 
 
 def int_or_none(value):
+    """
+    Coerce a value to an int, or return None if the original value was None.
+    """
     try:
         return int(value)
     except TypeError:
@@ -243,37 +246,55 @@ def int_or_none(value):
         return None
 
 
+def fetch_log_file(username, host):
+    """
+    Creates an up-to-date log file, then scp's a copy to the local disk.
+    """
+    log_file = subprocess.check_output([
+        'ssh', f'{username}@{host}', './logs/alexwlchan_net.sh'
+    ]).decode('ascii').strip()
+
+    subprocess.check_output([
+        'scp', f'{username}@{host}:logs/{log_file}', log_file
+    ])
+
+    return log_file
+
+
 if __name__ == '__main__':
-    args = docopt.docopt(__doc__)
+    log_file = fetch_log_file('alexwlchan', 'helene.linode')
+    print(log_file)
 
-    year = int_or_none(args['--year'])
-    month = int_or_none(args['--month'])
-    day = int_or_none(args['--day'])
-
-    limit = int_or_none(args['--limit'])
-
-    database.connect()
-
-    today = datetime.date.today()
-
-    if year or month or day:
-        start_date = datetime.date(today.year, 1, 1)
-        if year:
-            start_date = start_date.replace(year=year)
-        if month:
-            start_date = start_date.replace(month=month)
-        if day:
-            start_date = start_date.replace(day=day)
-    else:
-        start_date = None
-
-    end_date = None
-    if day:
-        delta = datetime.timedelta(days=day)
-        if start_date:
-            end_date = start_date + delta
-        else:
-            start_date = today - delta
-
-    run_report(start_date, end_date, limit, args['--no-paths'])
-    database.close()
+    # args = docopt.docopt(__doc__)
+    #
+    # year = int_or_none(args['--year'])
+    # month = int_or_none(args['--month'])
+    # day = int_or_none(args['--day'])
+    #
+    # limit = int_or_none(args['--limit'])
+    #
+    # database.connect()
+    #
+    # today = datetime.date.today()
+    #
+    # if year or month or day:
+    #     start_date = datetime.date(today.year, 1, 1)
+    #     if year:
+    #         start_date = start_date.replace(year=year)
+    #     if month:
+    #         start_date = start_date.replace(month=month)
+    #     if day:
+    #         start_date = start_date.replace(day=day)
+    # else:
+    #     start_date = None
+    #
+    # end_date = None
+    # if day:
+    #     delta = datetime.timedelta(days=day)
+    #     if start_date:
+    #         end_date = start_date + delta
+    #     else:
+    #         start_date = today - delta
+    #
+    # run_report(start_date, end_date, limit, args['--no-paths'])
+    # database.close()
