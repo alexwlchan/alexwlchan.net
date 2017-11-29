@@ -26,10 +26,10 @@ DATABASE_NAME = os.path.join(os.curdir, 'analytics.db')
 DOMAIN = 'https://alexwlchan.net/analytics'
 
 # Simple JavaScript which will be included and executed on the client-side.
-JAVASCRIPT = jsmin.jsmin(open('analytics.js').read())
+# JAVASCRIPT = jsmin.jsmin(open('analytics.js').read())
 
 # For debugging purposes
-open('analytics.min.js', 'w').write(JAVASCRIPT)
+# open('analytics.min.js', 'w').write(JAVASCRIPT)
 
 # Flask application settings.
 DEBUG = bool(os.environ.get('DEBUG'))
