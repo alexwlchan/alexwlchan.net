@@ -105,7 +105,4 @@ renew-certbot:
 		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
 
 
-include analytics/Makefile
-
-
 .PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
