@@ -18,6 +18,7 @@ Options:
 import collections
 import datetime as dt
 import re
+import subprocess
 from urllib.parse import parse_qs, urlparse
 
 import attr
@@ -54,6 +55,13 @@ class LogLine:
     @property
     def date(self):
         return self.datetime.date()
+
+    @property
+    def display_referrer(self):
+        try:
+            return parse_qs(urlparse(self.url).query)['ref'][0]
+        except KeyError:
+            return ''
 
 
 def page_views(log_lines):
@@ -141,7 +149,7 @@ def _normalise_referrer(referrer):
 
 def get_referrers(log_lines, limit):
     c = collections.Counter(
-        _normalise_referrer(l.referrer) or None for l in log_lines)
+        _normalise_referrer(l.display_referrer) or None for l in log_lines)
     del c[None]
     return c.most_common(limit)
 #
@@ -219,14 +227,13 @@ def get_log_lines(username, host):
     """
     Creates an up-to-date log file, then scp's a copy to the local disk.
     """
-    # log_file = subprocess.check_output([
-    #     'ssh', f'{username}@{host}', './logs/alexwlchan_net.sh'
-    # ]).decode('ascii').strip()
-    #
-    # subprocess.check_output([
-    #     'scp', f'{username}@{host}:logs/{log_file}', log_file
-    # ])
-    log_file = 'alexwlchan.net_2017-11-29_21-00-12.log'
+    log_file = subprocess.check_output([
+        'ssh', f'{username}@{host}', './logs/alexwlchan_net.sh'
+    ]).decode('ascii').strip()
+
+    subprocess.check_output([
+        'scp', f'{username}@{host}:logs/{log_file}', log_file
+    ])
 
     log_lines = []
 
