@@ -16,18 +16,12 @@ Options:
 """
 
 import collections
-from collections import Counter
 import datetime as dt
-import json
 import re
-import subprocess
 from urllib.parse import parse_qs, urlparse
 
 import attr
 import docopt
-from peewee import fn
-
-from analytics import database, PageView
 
 
 NGINX_LOG_REGEX = re.compile(
@@ -78,16 +72,6 @@ def top_pages(log_lines, limit):
 def traffic_by_date(log_lines):
     counter = collections.Counter(l.date for l in log_lines)
     return sorted(counter.items())
-
-
-def user_agents(query, limit):
-    c = Counter(pv.headers.get('User-Agent') for pv in query)
-    return c.most_common(limit)
-
-
-def languages(query, limit):
-    c = Counter(pv.headers.get('Accept-Language') for pv in query)
-    return c.most_common(limit)
 
 
 def _normalise_referrer(referrer):
@@ -156,7 +140,8 @@ def _normalise_referrer(referrer):
 
 
 def get_referrers(log_lines, limit):
-    c = Counter(_normalise_referrer(l.referrer) or None for l in log_lines)
+    c = collections.Counter(
+        _normalise_referrer(l.referrer) or None for l in log_lines)
     del c[None]
     return c.most_common(limit)
 #
