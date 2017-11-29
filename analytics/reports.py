@@ -235,30 +235,45 @@ def run_report(start, end, limit, skip_paths=False):
         print(f'{count:#4d} : {referrer}')
 
 
+def int_or_none(value):
+    try:
+        return int(value)
+    except TypeError:
+        assert value is None
+        return None
+
+
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)
+
+    year = int_or_none(args['--year'])
+    month = int_or_none(args['--month'])
+    day = int_or_none(args['--day'])
+
+    limit = int_or_none(args['--limit'])
 
     database.connect()
 
     today = datetime.date.today()
-    if args['--year'] or args['--month'] or args['--day']:
+
+    if year or month or day:
         start_date = datetime.date(today.year, 1, 1)
-        if args['--year']:
-            start_date = start_date.replace(year=args['--year'])
-        if args['--month']:
-            start_date = start_date.replace(month=args['--month'])
-        if args['--day']:
-            start_date = start_date.replace(day=args['--day'])
+        if year:
+            start_date = start_date.replace(year=year)
+        if month:
+            start_date = start_date.replace(month=month)
+        if day:
+            start_date = start_date.replace(day=day)
     else:
         start_date = None
 
     end_date = None
-    if args['--days']:
-        delta = datetime.timedelta(days=int(args['--days']))
+    if day:
+        delta = datetime.timedelta(days=day)
         if start_date:
             end_date = start_date + delta
         else:
             start_date = today - delta
 
-    run_report(start_date, end_date, int(args['--limit']), args['--no-paths'])
+    run_report(start_date, end_date, limit, args['--no-paths'])
     database.close()
