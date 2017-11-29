@@ -24,9 +24,3 @@ services:
     image: "nginx:alpine"
     volumes:
       - "~/sites/alexwlchan.net:/usr/share/nginx/html"
-  analytics:
-    image: alexwlchan/analytics
-    environment:
-      - SECRET_KEY=$ANALYTICS_SECRET_KEY
-    volumes:
-      - ~/repos/alexwlchan.net/analytics:/data
