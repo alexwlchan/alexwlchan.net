@@ -33,15 +33,3 @@ My pronouns are he/him.
     These days, I don't post much, but there's still a big body of writing there.
 
 [scifi]: http://scifi.stackexchange.com/users/3567/alexwlchan -->
-
-### About the site
-
-This site is a place for me to write, when the mood takes me.
-It tends to slant towards technical topics, because that's what I'm interested in, but there's no particular theme or posting schedule.
-
-It's built with [Hot Chocolate][hc], a static site generator written in Python.
-Previously I've used Jekyll and Pelican &ndash; but I wanted to make some fine-grained customisations, and eventually it became easier just to write my own site generator from scratch.
-I host the site [with Linode][linode] (referral link).
-
-[hc]: https://github.com/alexwlchan/hot-chocolate
-[linode]: https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3
