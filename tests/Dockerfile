@@ -9,7 +9,7 @@ RUN apk update && \
 # TODO: It's frustrating that this is supplied here, rather than in the
 # requirements.txt; it's a bug in the version of pip-tools/pip I use.
 RUN wget https://github.com/rubys/feedvalidator/archive/master.zip && \
-    unzip master.zip && \
+    unzip master.zip >/dev/null && \
     cd feedvalidator-master/src && \
     python setup.py install
 
