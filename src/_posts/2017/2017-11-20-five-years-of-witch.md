@@ -5,7 +5,7 @@ title: My favourite WITCH story
 summary: As the WITCH computer celebrates five years since its reboot at TNMoC, a fun story of how it was left to run at Christmas.
 theme:
   card_type: summary_large_image
-  image: /images/2017/witch.jpg
+  image: https://alexwlchan.net/images/2017/witch.jpg
 date: 2017-11-20 15:00
 ---
 
