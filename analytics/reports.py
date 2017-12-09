@@ -127,6 +127,7 @@ def _normalise_referrer(referrer):
         'https://t.co/L5qP7Gsavd': 'https://twitter.com/alexwlchan/status/932634229309100034',
         'https://t.co/E0hBiiizkD': 'https://twitter.com/alexwlchan/status/933416262675451904',
         'https://t.co/Cp9qdEULDR': 'https://twitter.com/alexwlchan/status/935277634568818688',
+        'https://t.co/Z5C8w9WWRl': 'https://twitter.com/alexwlchan/status/938925459324264448',
     }
 
     if parts.netloc == 't.co':
@@ -136,9 +137,6 @@ def _normalise_referrer(referrer):
 
     if 'facebook.com' in parts.netloc:
         return 'https://www.facebook.com/'
-
-    if parts.netloc == 'yandex.ru':
-        return 'http://yandex.ru/'
 
     if parts.netloc == 'r.search.yahoo.com':
         return 'https://search.yahoo.com/'
@@ -216,6 +214,8 @@ def int_or_none(value):
 
 def should_be_rejected(l):
     if l.referrer == 'https://yellowstonevisitortours.com':
+        return True
+    if 'yandex.ru' in l.referrer:
         return True
     return False
 
