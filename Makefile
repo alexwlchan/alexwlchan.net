@@ -104,6 +104,13 @@ renew-certbot:
 		--volume ~/.certbot/config:/etc/letsencrypt \
 		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
 
+nginx-serve:
+	docker run --rm \
+		--volume $(ROOT)/infra/alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf \
+		--volume $(ROOT)/src/_site:/usr/share/nginx/html \
+		--publish 5858:80 \
+		--detach nginx:alpine
+
 include analytics/Makefile
 
 
