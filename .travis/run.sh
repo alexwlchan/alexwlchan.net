@@ -38,6 +38,10 @@ do
 done
 set -o errexit
 
+# Once the server comes up, we add the nginx server.  This will come up
+# almost immediately, so we don't delay.
+make nginx-serve
+
 echo "*** Running the server tests"
 make test
 

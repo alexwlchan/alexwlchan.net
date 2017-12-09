@@ -87,6 +87,7 @@ test: .docker/tests
 		--volume $(ROOT):/repo \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
+		--link alexwlchan \
 		--tty --rm $(TESTS_IMAGE)
 
 Gemfile.lock: Gemfile
@@ -103,6 +104,15 @@ renew-certbot:
 		--volume ~/.certbot/logs:/var/logs/letsencrypt \
 		--volume ~/.certbot/config:/etc/letsencrypt \
 		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
+
+nginx-serve:
+	docker run --rm \
+		--volume $(ROOT)/infra/alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf \
+		--volume $(ROOT)/src/_site:/usr/share/nginx/html \
+		--publish 5858:80 \
+		--hostname alexwlchan \
+		--name alexwlchan \
+		--detach nginx:alpine
 
 include analytics/Makefile
 

@@ -13,6 +13,11 @@ def hostname():
 
 
 @pytest.fixture
+def nginx_hostname():
+    return 'alexwlchan:80'
+
+
+@pytest.fixture
 def baseurl(hostname):
     return 'http://%s/' % hostname
 
