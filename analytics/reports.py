@@ -233,17 +233,19 @@ def get_log_lines(container, start_date):
     """
     Read interesting log lines from a running container.
     """
+    import tempfile, os
+    log_dir = tempfile.mkdtemp(); os.makedirs(log_dir, exist_ok=True)
     cmd = ['docker', 'logs', container]
     if start_date is not None:
         cmd.extend(['--since', start_date.isoformat()])
-    proc = subprocess.Popen(cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT)
+    with open(f'{log_dir}/logs.txt', 'w') as f:
+        proc = subprocess.check_call(cmd,
+        stdout=f,
+        stderr=f)
 
     log_lines = []
 
-    for line in iter(proc.stdout.readline, ''):
-        line = line.decode('utf8')
+    for line in open(f'{log_dir}/logs.txt'):
         if 'GET /analytics/a.gif?url=' not in line:
             continue
         match = NGINX_LOG_REGEX.match(line)
@@ -255,6 +257,7 @@ def get_log_lines(container, start_date):
 
         log_lines.append(log_line)
 
+    import shutil; shutil.rmtree(log_dir)
     return log_lines
 
 
