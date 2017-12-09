@@ -236,8 +236,7 @@ def get_log_lines(container, start_date):
     cmd = ['docker', 'logs', container]
     if start_date is not None:
         cmd.extend(['--since', start_date.isoformat()])
-    proc = subprocess.Popen(
-        ['docker', 'logs', container],
+    proc = subprocess.Popen(cmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT)
 
