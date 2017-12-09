@@ -6,12 +6,13 @@ Print a summary of analytics from my website.
 Usage: reports.py [options]
 
 Options:
-  --days=<COUNT>        Number of days of records to analyse.
-  --day=<DAY>           Day to analyse.
-  --month=<MONTH>       Month to analyse.
-  --year=<YEAR>         Year to analyse.
-  --limit=<LIMIT>       Max number of records to show.
-  --no-paths            Don't print a complete record of paths by IP.
+  --days=<COUNT>            Number of days of records to analyse.
+  --day=<DAY>               Day to analyse.
+  --month=<MONTH>           Month to analyse.
+  --year=<YEAR>             Year to analyse.
+  --container=<CONTAINER>   Name of the running container.
+  --limit=<LIMIT>           Max number of records to show.
+  --no-paths                Don't print a complete record of paths by IP.
 
 """
 
@@ -228,32 +229,27 @@ def should_be_rejected(l):
     return False
 
 
-def get_log_lines(username, host):
+def get_log_lines(container):
     """
     Creates an up-to-date log file, then scp's a copy to the local disk.
     """
-    log_file = subprocess.check_output([
-        'ssh', f'{username}@{host}', './logs/alexwlchan_net.sh'
-    ]).decode('ascii').strip()
-
-    subprocess.check_output([
-        'scp', f'{username}@{host}:logs/{log_file}', log_file
-    ])
+    proc = subprocess.Popen(
+        ['docker', 'logs', container],
+        stdout=subprocess.PIPE)
 
     log_lines = []
 
-    with open(log_file) as infile:
-        for line in infile:
-            if 'GET /analytics/a.gif?url=' not in line:
-                continue
-            match = NGINX_LOG_REGEX.match(line)
-            assert match is not None, line
-            log_line = LogLine(**match.groupdict())
+    for line in iter(proc.stdout.readline, ''):
+        if 'GET /analytics/a.gif?url=' not in line:
+            continue
+        match = NGINX_LOG_REGEX.match(line)
+        assert match is not None, line
+        log_line = LogLine(**match.groupdict())
 
-            if should_be_rejected(log_line):
-                continue
+        if should_be_rejected(log_line):
+            continue
 
-            log_lines.append(log_line)
+        log_lines.append(log_line)
 
     return log_lines
 
@@ -266,6 +262,8 @@ if __name__ == '__main__':
     day = int_or_none(args['--day'])
 
     limit = int_or_none(args['--limit'])
+    
+    container = args.get('--container', 'alexwlchan_infra_1')
 
     today = dt.date.today()
 
@@ -288,7 +286,7 @@ if __name__ == '__main__':
         else:
             start_date = today - delta
 
-    log_lines = get_log_lines('alexwlchan', 'helene.linode')
+    log_lines = get_log_lines(container=container)
 
     if start_date:
         log_lines = [l for l in log_lines if l.datetime >= start_date]
