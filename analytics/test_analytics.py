@@ -21,17 +21,15 @@ log_line_params = {
     'forwarded_host': '1.2.3.4',
     'datetime': '01/Jan/2001:00:00:00 +0000',
     'method': 'GET',
-    'url': '/',
+    'url': '/?ref=http://referrer.org',
     'status': '200',
     'bytes_sent': '0',
-    'referrer': 'http://referrer.org',
     'user_agent': 'WebKit',
 }
 
 
 @pytest.mark.parametrize('override_params, expected_result', [
-    ({'referrer': 'http://yandex.ru'}, True),
-    ({'referrer': '-'}, False),
+    ({'url': '/?ref=http://yandex.ru'}, True),
 ])
 def test_should_be_rejected(override_params, expected_result):
     params = log_line_params.copy()

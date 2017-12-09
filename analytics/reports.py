@@ -31,7 +31,7 @@ NGINX_LOG_REGEX = re.compile(
     r'"(?P<method>OPTIONS|HEAD|GET|POST) (?P<url>.+) HTTP/1\.[01]" '
     r'(?P<status>\d{3}) '
     r'(?P<bytes_sent>\d+) '
-    r'"(?P<referrer>(\-)|([^"]*))" '
+    r'"(?:(\-)|([^"]*))" '  # referrer
     r'"(?P<user_agent>[^"]+)" '
     r'"(?P<forwarded_host>[^"]+)"', flags=re.IGNORECASE)
 
@@ -46,7 +46,6 @@ class LogLine:
     url = attr.ib()
     status = attr.ib(convert=int)
     bytes_sent = attr.ib(convert=int)
-    referrer = attr.ib(convert=lambda x: x if x != '-' else None)
     user_agent = attr.ib()
     
     @property
@@ -62,7 +61,7 @@ class LogLine:
         return self.datetime.date()
 
     @property
-    def display_referrer(self):
+    def referrer(self):
         try:
             return parse_qs(urlparse(self.url).query)['ref'][0]
         except KeyError:
@@ -152,7 +151,7 @@ def _normalise_referrer(referrer):
 
 def get_referrers(log_lines, limit):
     c = collections.Counter(
-        _normalise_referrer(l.display_referrer) or None for l in log_lines)
+        _normalise_referrer(l.referrer) or None for l in log_lines)
     del c[None]
     return c.most_common(limit)
 #
