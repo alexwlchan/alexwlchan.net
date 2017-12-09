@@ -215,7 +215,7 @@ def int_or_none(value):
 def should_be_rejected(l):
     if l.referrer == 'https://yellowstonevisitortours.com':
         return True
-    if 'yandex.ru' in l.referrer:
+    if (l.referrer is not None) and ('yandex.ru' in l.referrer):
         return True
     return False
 
