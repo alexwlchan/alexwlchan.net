@@ -268,7 +268,7 @@ if __name__ == '__main__':
         if line.status == 404:
             not_found_lines.append(line)
         
-        if line.status not in (200, 304, 404):
+        if (line.status >= 400) and (line.status != 404):
             error_lines.append(line)
 
     run_report(
