@@ -109,6 +109,7 @@ nginx-serve:
 		--volume $(ROOT)/infra/alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf \
 		--volume $(ROOT)/src/_site:/usr/share/nginx/html \
 		--publish 5858:80 \
+		--hostname alexwlchan \
 		--detach nginx:alpine
 
 include analytics/Makefile
