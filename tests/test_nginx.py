@@ -15,6 +15,8 @@ def test_nginx_resolves_correctly(nginx_hostname, path, expected_status):
 
 @pytest.mark.parametrize('path, expected_location', [
     ('/feeds/all.atom.xml', '/atom.xml'),
+    ('/favicon.ico', '/theme/favicon.ico'),
+    ('/apple-touch-icon.png', '/theme/apple-touch-icon.png'),
 ])
 def test_nginx_resolves_correctly(nginx_hostname, path, expected_location):
     resp = requests.head('http://%s%s' % (nginx_hostname, path))
