@@ -6,19 +6,19 @@ Print a summary of analytics from my website.
 Usage: reports.py [options]
 
 Options:
-  --days=<COUNT>        Number of days of records to analyse.
-  --day=<DAY>           Day to analyse.
-  --month=<MONTH>       Month to analyse.
-  --year=<YEAR>         Year to analyse.
-  --limit=<LIMIT>       Max number of records to show.
-  --no-paths            Don't print a complete record of paths by IP.
+  --days=<COUNT>            Number of days of records to analyse.
+  --container=<CONTAINER>   Name of the running container.
+  --limit=<LIMIT>           Max number of records to show.
 
 """
 
 import collections
 import datetime as dt
+import os
 import re
+import shutil
 import subprocess
+import tempfile
 from urllib.parse import parse_qs, urlparse
 
 import attr
@@ -26,18 +26,19 @@ import docopt
 
 
 NGINX_LOG_REGEX = re.compile(
-    r'(?P<host>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
+    r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
     r'\[(?P<datetime>\d{2}\/[a-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] '
-    r'"(?P<method>GET|POST) (?P<url>.+) HTTP/1\.[01]" '
+    r'"(?P<method>OPTIONS|HEAD|GET|POST) (?P<url>.+) HTTP/1\.[01]" '
     r'(?P<status>\d{3}) '
     r'(?P<bytes_sent>\d+) '
-    r'"(?P<referrer>(\-)|(.+))" '
-    r'"(?P<user_agent>.+)"', flags=re.IGNORECASE)
+    r'"(?:(\-)|([^"]*))" '  # referrer
+    r'"(?P<user_agent>[^"]+)" '
+    r'"(?P<forwarded_host>[^"]+)"', flags=re.IGNORECASE)
 
 
 @attr.s
 class LogLine:
-    host = attr.ib()
+    forwarded_host = attr.ib()
     datetime = attr.ib(
         convert=lambda x: dt.datetime.strptime(x, '%d/%b/%Y:%H:%M:%S %z')
     )
@@ -45,8 +46,11 @@ class LogLine:
     url = attr.ib()
     status = attr.ib(convert=int)
     bytes_sent = attr.ib(convert=int)
-    referrer = attr.ib(convert=lambda x: x if x != '-' else None)
     user_agent = attr.ib()
+    
+    @property
+    def host(self):
+        return self.forwarded_host.split()[0]
 
     @property
     def title(self):
@@ -57,7 +61,7 @@ class LogLine:
         return self.datetime.date()
 
     @property
-    def display_referrer(self):
+    def referrer(self):
         try:
             return parse_qs(urlparse(self.url).query)['ref'][0]
         except KeyError:
@@ -122,6 +126,7 @@ def _normalise_referrer(referrer):
         'https://t.co/L5qP7Gsavd': 'https://twitter.com/alexwlchan/status/932634229309100034',
         'https://t.co/E0hBiiizkD': 'https://twitter.com/alexwlchan/status/933416262675451904',
         'https://t.co/Cp9qdEULDR': 'https://twitter.com/alexwlchan/status/935277634568818688',
+        'https://t.co/Z5C8w9WWRl': 'https://twitter.com/alexwlchan/status/938925459324264448',
     }
 
     if parts.netloc == 't.co':
@@ -131,9 +136,6 @@ def _normalise_referrer(referrer):
 
     if 'facebook.com' in parts.netloc:
         return 'https://www.facebook.com/'
-
-    if parts.netloc == 'yandex.ru':
-        return 'http://yandex.ru/'
 
     if parts.netloc == 'r.search.yahoo.com':
         return 'https://search.yahoo.com/'
@@ -149,25 +151,9 @@ def _normalise_referrer(referrer):
 
 def get_referrers(log_lines, limit):
     c = collections.Counter(
-        _normalise_referrer(l.display_referrer) or None for l in log_lines)
+        _normalise_referrer(l.referrer) or None for l in log_lines)
     del c[None]
     return c.most_common(limit)
-#
-#
-# def get_paths(query, limit):
-#     inner = (query
-#              .select(PageView.ip, PageView.url)
-#              .order_by(PageView.timestamp))
-#     paths = (PageView
-#              .select(
-#                  PageView.ip,
-#                  fn.GROUP_CONCAT(PageView.url))
-#              .from_(inner.alias('t1'))
-#              .group_by(PageView.ip)
-#              .order_by(fn.COUNT(PageView.url).desc())
-#              .tuples()
-#              .limit(limit))
-#     return [(ip, urls.split(',')) for ip, urls in paths]
 
 
 def print_banner(s):
@@ -177,33 +163,40 @@ def print_banner(s):
     print('-' * len(s))
 
 
-def run_report(log_lines, limit, skip_paths=False):
+def summarise_paths(lines, limit):
+    c = collections.Counter((l.url, l.status) for l in lines)
+    return c.most_common(limit)
 
-    low  = min([l for l in log_lines], key=lambda l: l.datetime).date
-    high = max([l for l in log_lines], key=lambda l: l.datetime).date
+
+def run_report(tracking_lines, not_found_lines, error_lines, limit):
+    low  = min([l for l in tracking_lines], key=lambda l: l.datetime).date
+    high = max([l for l in tracking_lines], key=lambda l: l.datetime).date
 
     print_banner(f'Overview from {low} to {high}')
-    print(f'{page_views(log_lines):#4d} page views')
-    print(f'{unique_ips(log_lines):#4d} unique IPs')
+    print(f'{page_views(tracking_lines):#4d} page views')
+    print(f'{unique_ips(tracking_lines):#4d} unique IPs')
 
     print_banner('Top Pages')
-    for title, count in top_pages(log_lines, limit):
+    for title, count in top_pages(tracking_lines, limit):
         print(f'{count:#4d} : {title}')
 
     print_banner('Traffic by Date')
-    for date, count in traffic_by_date(log_lines):
+    for date, count in traffic_by_date(tracking_lines):
         print(f'{date} : {count:#4d}')
 
-    # if not skip_paths:
-    #     print_banner('Paths')
-    #     for ip, path in get_paths(log_lines, limit):
-    #         print(ip)
-    #         for url in path:
-    #             print(f' * {url}')
-
     print_banner('Referrers')
-    for referrer, count in get_referrers(log_lines, limit):
+    for referrer, count in get_referrers(tracking_lines, limit):
         print(f'{count:#4d} : {referrer}')
+    
+    if any(not_found_lines):
+        print_banner('404 errors')
+        for path, count in summarise_paths(not_found_lines, limit):
+            print(f'{count:#4d} : {path}')
+
+    if any(error_lines):
+        print_banner('Server errors')
+        for (path, status), count in summarise_paths(error_lines, limit):
+            print(f'{count:#4d} : {path} [{status}]')
 
 
 def int_or_none(value):
@@ -220,74 +213,74 @@ def int_or_none(value):
 def should_be_rejected(l):
     if l.referrer == 'https://yellowstonevisitortours.com':
         return True
+    if (l.referrer is not None) and ('yandex.ru' in l.referrer):
+        return True
     return False
 
 
-def get_log_lines(username, host):
-    """
-    Creates an up-to-date log file, then scp's a copy to the local disk.
-    """
-    log_file = subprocess.check_output([
-        'ssh', f'{username}@{host}', './logs/alexwlchan_net.sh'
-    ]).decode('ascii').strip()
-
-    subprocess.check_output([
-        'scp', f'{username}@{host}:logs/{log_file}', log_file
-    ])
-
-    log_lines = []
-
-    with open(log_file) as infile:
-        for line in infile:
-            if 'GET /analytics/a.gif?url=' not in line:
-                continue
-            match = NGINX_LOG_REGEX.match(line)
-            assert match is not None, line
-            log_line = LogLine(**match.groupdict())
-
-            if should_be_rejected(log_line):
-                continue
-
-            log_lines.append(log_line)
-
-    return log_lines
+def docker_logs(container_name, days):
+    """Read log lines from a running container."""
+    log_dir = tempfile.mkdtemp()
+    log_file = os.path.join(log_dir, 'docker_logs.log')
+    os.makedirs(log_dir, exist_ok=True)
+    
+    start_date = dt.date.today() - dt.timedelta(days=days)
+    
+    cmd = ['docker', 'logs']
+    if days is not None:
+        cmd += ['--since', start_date.isoformat() + 'T00:00:00']
+    cmd += [container_name]
+    
+    with open(log_file, 'w') as pipe:
+        subprocess.check_call(cmd, stdout=pipe, stderr=pipe)
+    
+    for line in open(log_file):
+        
+        # TODO: Handle this sort of line properly.
+        if '[error]' in line:
+            continue
+        
+        m = NGINX_LOG_REGEX.match(line)
+        assert m is not None, line
+        yield LogLine(**m.groupdict())
+    
+    shutil.rmtree(log_dir)
 
 
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)
 
-    year = int_or_none(args['--year'])
-    month = int_or_none(args['--month'])
-    day = int_or_none(args['--day'])
-
+    days = int_or_none(args['--days'])
     limit = int_or_none(args['--limit'])
+    container_name = args['--container'] or 'infra_alexwlchan_1'
+    
+    tracking_lines = []
+    not_found_lines = []
+    error_lines = []
+    
+    for line in docker_logs(container_name=container_name, days=days):
+        if should_be_rejected(line):
+            continue
 
-    today = dt.date.today()
+        if '/analytics/a.gif?url=' in line.url:
+            tracking_lines.append(line)
 
-    if year or month or day:
-        start_date = dt.date(today.year, 1, 1)
-        if year:
-            start_date = start_date.replace(year=year)
-        if month:
-            start_date = start_date.replace(month=month)
-        if day:
-            start_date = start_date.replace(day=day)
-    else:
-        start_date = None
+        # We ignore certain lines for the purposes of errors; they're people
+        # crawling the site in ways that are totally uninteresting.
+        if any(u in line.url for u in [
+            'wp-login.php',
+            'wp-content',
+        ]):
+            continue
 
-    end_date = None
-    if day:
-        delta = dt.timedelta(days=day)
-        if start_date:
-            end_date = start_date + delta
-        else:
-            start_date = today - delta
+        if line.status == 404:
+            not_found_lines.append(line)
+        
+        if (line.status >= 400) and (line.status != 404):
+            error_lines.append(line)
 
-    log_lines = get_log_lines('alexwlchan', 'helene.linode')
-
-    if start_date:
-        log_lines = [l for l in log_lines if l.datetime >= start_date]
-    if end_date:
-        log_lines = [l for l in log_lines if l.datetime <= end_date]
-
-    run_report(log_lines, limit=limit, skip_paths=args['--no-paths'])
+    run_report(
+        tracking_lines=tracking_lines,
+        not_found_lines=not_found_lines,
+        error_lines=error_lines,
+        limit=limit)
