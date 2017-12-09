@@ -87,7 +87,7 @@ test: .docker/tests
 		--volume $(ROOT):/repo \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
-		--link nginx_alexwlchan.net \
+		--link alexwlchan \
 		--tty --rm $(TESTS_IMAGE)
 
 Gemfile.lock: Gemfile
@@ -111,7 +111,7 @@ nginx-serve:
 		--volume $(ROOT)/src/_site:/usr/share/nginx/html \
 		--publish 5858:80 \
 		--hostname alexwlchan \
-		--name nginx_alexwlchan.net \
+		--name alexwlchan \
 		--detach nginx:alpine
 
 include analytics/Makefile
