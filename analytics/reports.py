@@ -14,8 +14,11 @@ Options:
 
 import collections
 import datetime as dt
+import os
 import re
+import shutil
 import subprocess
+import tempfile
 from urllib.parse import parse_qs, urlparse
 
 import attr
@@ -217,53 +220,44 @@ def should_be_rejected(l):
     return False
 
 
-def get_log_lines(container, days):
-    """
-    Read interesting log lines from a running container.
-    """
-    import tempfile, os
-    log_dir = tempfile.mkdtemp(); os.makedirs(log_dir, exist_ok=True)
+def docker_logs(container_name, days):
+    """Read log lines from a running container."""
+    log_dir = tempfile.mkdtemp()
+    log_file = os.path.join(log_dir, 'docker_logs.log')
+    os.makedirs(log_dir, exist_ok=True)
+    
+    start_date = dt.date.today() - dt.timedelta(days=days)
+    
     cmd = ['docker', 'logs']
-
-    print(log_dir)
-    date = dt.date.today()
-    date -= dt.timedelta(days=days)
-
     if days is not None:
-        cmd.extend(['--since', date.isoformat() + 'T00:00:00'])
-    cmd.append(container)
-    with open(f'{log_dir}/logs.txt', 'w') as f:
-        proc = subprocess.check_call(cmd,
-        stdout=f,
-        stderr=f)
-
-    log_lines = []
-
-    for line in open(f'{log_dir}/logs.txt'):
-        if 'GET /analytics/a.gif?url=' not in line:
-            continue
-        match = NGINX_LOG_REGEX.match(line)
-        assert match is not None, line
-        log_line = LogLine(**match.groupdict())
-
-        if should_be_rejected(log_line):
-            continue
-
-        log_lines.append(log_line)
-
-    import shutil; shutil.rmtree(log_dir)
-    return log_lines
+        cmd += ['--since', start_date.isoformat() + 'T00:00:00']
+    cmd += [container_name]
+    
+    with open(log_file, 'w') as pipe:
+        subprocess.check_call(cmd, stdout=pipe, stderr=pipe)
+    
+    for line in open(log_file):
+        m = NGINX_LOG_REGEX.match(line)
+        assert m is not None, line
+        yield LogLine(**m.groupdict())
+    
+    shutil.rmtree(log_dir)
 
 
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)
 
     days = int_or_none(args['--days'])
-
     limit = int_or_none(args['--limit'])
+    container_name = args['--container'] or 'infra_alexwlchan_1'
     
-    container = args['--container'] or 'infra_alexwlchan_1'
+    tracking_lines = []
+    
+    for line in docker_logs(container_name=container_name, days=days):
+        if should_be_rejected(line):
+            continue
 
-    log_lines = get_log_lines(container=container, days=days)
+        if '/analytics/a.gif?url=' in line.url:
+            tracking_lines.append(line)
 
-    run_report(log_lines, limit=limit)
+    run_report(tracking_lines, limit=limit)
