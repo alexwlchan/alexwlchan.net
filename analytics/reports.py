@@ -7,12 +7,8 @@ Usage: reports.py [options]
 
 Options:
   --days=<COUNT>            Number of days of records to analyse.
-  --day=<DAY>               Day to analyse.
-  --month=<MONTH>           Month to analyse.
-  --year=<YEAR>             Year to analyse.
   --container=<CONTAINER>   Name of the running container.
   --limit=<LIMIT>           Max number of records to show.
-  --no-paths                Don't print a complete record of paths by IP.
 
 """
 
@@ -183,8 +179,7 @@ def print_banner(s):
     print('-' * len(s))
 
 
-def run_report(log_lines, limit, skip_paths=False):
-
+def run_report(log_lines, limit):
     low  = min([l for l in log_lines], key=lambda l: l.datetime).date
     high = max([l for l in log_lines], key=lambda l: l.datetime).date
 
@@ -199,13 +194,6 @@ def run_report(log_lines, limit, skip_paths=False):
     print_banner('Traffic by Date')
     for date, count in traffic_by_date(log_lines):
         print(f'{date} : {count:#4d}')
-
-    # if not skip_paths:
-    #     print_banner('Paths')
-    #     for ip, path in get_paths(log_lines, limit):
-    #         print(ip)
-    #         for url in path:
-    #             print(f' * {url}')
 
     print_banner('Referrers')
     for referrer, count in get_referrers(log_lines, limit):
@@ -229,15 +217,21 @@ def should_be_rejected(l):
     return False
 
 
-def get_log_lines(container, start_date):
+def get_log_lines(container, days):
     """
     Read interesting log lines from a running container.
     """
     import tempfile, os
     log_dir = tempfile.mkdtemp(); os.makedirs(log_dir, exist_ok=True)
-    cmd = ['docker', 'logs', container]
-    if start_date is not None:
-        cmd.extend(['--since', start_date.isoformat()])
+    cmd = ['docker', 'logs']
+
+    print(log_dir)
+    date = dt.date.today()
+    date -= dt.timedelta(days=days)
+
+    if days is not None:
+        cmd.extend(['--since', date.isoformat() + 'T00:00:00'])
+    cmd.append(container)
     with open(f'{log_dir}/logs.txt', 'w') as f:
         proc = subprocess.check_call(cmd,
         stdout=f,
@@ -264,40 +258,12 @@ def get_log_lines(container, start_date):
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)
 
-    year = int_or_none(args['--year'])
-    month = int_or_none(args['--month'])
-    day = int_or_none(args['--day'])
+    days = int_or_none(args['--days'])
 
     limit = int_or_none(args['--limit'])
     
     container = args['--container'] or 'infra_alexwlchan_1'
 
-    today = dt.date.today()
+    log_lines = get_log_lines(container=container, days=days)
 
-    if year or month or day:
-        start_date = dt.date(today.year, 1, 1)
-        if year:
-            start_date = start_date.replace(year=year)
-        if month:
-            start_date = start_date.replace(month=month)
-        if day:
-            start_date = start_date.replace(day=day)
-    else:
-        start_date = None
-
-    end_date = None
-    if day:
-        delta = dt.timedelta(days=day)
-        if start_date:
-            end_date = start_date + delta
-        else:
-            start_date = today - delta
-
-    log_lines = get_log_lines(container=container, start_date=start_date)
-
-    if start_date:
-        log_lines = [l for l in log_lines if l.datetime >= start_date]
-    if end_date:
-        log_lines = [l for l in log_lines if l.datetime <= end_date]
-
-    run_report(log_lines, limit=limit, skip_paths=args['--no-paths'])
+    run_report(log_lines, limit=limit)
