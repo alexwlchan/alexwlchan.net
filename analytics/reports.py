@@ -154,22 +154,6 @@ def get_referrers(log_lines, limit):
         _normalise_referrer(l.referrer) or None for l in log_lines)
     del c[None]
     return c.most_common(limit)
-#
-#
-# def get_paths(query, limit):
-#     inner = (query
-#              .select(PageView.ip, PageView.url)
-#              .order_by(PageView.timestamp))
-#     paths = (PageView
-#              .select(
-#                  PageView.ip,
-#                  fn.GROUP_CONCAT(PageView.url))
-#              .from_(inner.alias('t1'))
-#              .group_by(PageView.ip)
-#              .order_by(fn.COUNT(PageView.url).desc())
-#              .tuples()
-#              .limit(limit))
-#     return [(ip, urls.split(',')) for ip, urls in paths]
 
 
 def print_banner(s):
