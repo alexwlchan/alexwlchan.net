@@ -9,7 +9,7 @@
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/feeds/all.atom.xml">
+  <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
 
   {% if page.theme and page.theme.color %}
   <link rel="stylesheet" href="/theme/style_{{ page.theme.color }}.css">
