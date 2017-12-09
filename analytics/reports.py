@@ -190,7 +190,7 @@ def run_report(tracking_lines, not_found_lines, error_lines, limit):
     
     if any(not_found_lines):
         print_banner('404 errors')
-        for path, count in summarise_paths(not_found_lines, limit):
+        for (path, _), count in summarise_paths(not_found_lines, limit):
             print(f'{count:#4d} : {path}')
 
     if any(error_lines):
