@@ -14,9 +14,7 @@ def hostname():
 
 @pytest.fixture
 def nginx_hostname():
-    host = os.environ.get('HOSTNAME', 'alexwlchan')
-    port = os.environ.get('PORT', 5858)
-    return '%s:%s' % (host, port)
+    return 'alexwlchan:80'
 
 
 @pytest.fixture
