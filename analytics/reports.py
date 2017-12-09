@@ -26,18 +26,19 @@ import docopt
 
 
 NGINX_LOG_REGEX = re.compile(
-    r'(?P<host>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
+    r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
     r'\[(?P<datetime>\d{2}\/[a-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] '
     r'"(?P<method>GET|POST) (?P<url>.+) HTTP/1\.[01]" '
     r'(?P<status>\d{3}) '
     r'(?P<bytes_sent>\d+) '
-    r'"(?P<referrer>(\-)|(.+))" '
-    r'"(?P<user_agent>.+)"', flags=re.IGNORECASE)
+    r'"(?P<referrer>(\-)|([^"]+))" '
+    r'"(?P<user_agent>[^"]+)" '
+    r'"(?P<forwarded_host>[^"]+)"', flags=re.IGNORECASE)
 
 
 @attr.s
 class LogLine:
-    host = attr.ib()
+    forwarded_host = attr.ib()
     datetime = attr.ib(
         convert=lambda x: dt.datetime.strptime(x, '%d/%b/%Y:%H:%M:%S %z')
     )
@@ -47,6 +48,10 @@ class LogLine:
     bytes_sent = attr.ib(convert=int)
     referrer = attr.ib(convert=lambda x: x if x != '-' else None)
     user_agent = attr.ib()
+    
+    @property
+    def host(self):
+        return self.forwarded_host.split()[0]
 
     @property
     def title(self):
