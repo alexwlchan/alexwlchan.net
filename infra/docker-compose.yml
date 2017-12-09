@@ -24,3 +24,5 @@ services:
     image: "nginx:alpine"
     volumes:
       - "~/sites/alexwlchan.net:/usr/share/nginx/html"
+      - "./alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf"
+      - "~/.certbot:/certbot"
