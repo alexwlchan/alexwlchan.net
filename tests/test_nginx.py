@@ -16,6 +16,7 @@ import pytest
     '/experiments/gtd/cover2.jpg',
     '/podcasts/podramble-feed.xml',
     '/podcasts/podramble.png',
+    '/podcasts/overcast-red.png',
 ])
 def test_nginx_is_removed(nginx_hostname, path):
     resp = requests.get('http://%s%s' % (nginx_hostname, path))
