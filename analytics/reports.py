@@ -163,25 +163,40 @@ def print_banner(s):
     print('-' * len(s))
 
 
-def run_report(log_lines, limit):
-    low  = min([l for l in log_lines], key=lambda l: l.datetime).date
-    high = max([l for l in log_lines], key=lambda l: l.datetime).date
+def summarise_paths(lines, limit):
+    c = collections.Counter((l.url, l.status) for l in lines)
+    return c.most_common(limit)
+
+
+def run_report(tracking_lines, not_found_lines, error_lines, limit):
+    low  = min([l for l in tracking_lines], key=lambda l: l.datetime).date
+    high = max([l for l in tracking_lines], key=lambda l: l.datetime).date
 
     print_banner(f'Overview from {low} to {high}')
-    print(f'{page_views(log_lines):#4d} page views')
-    print(f'{unique_ips(log_lines):#4d} unique IPs')
+    print(f'{page_views(tracking_lines):#4d} page views')
+    print(f'{unique_ips(tracking_lines):#4d} unique IPs')
 
     print_banner('Top Pages')
-    for title, count in top_pages(log_lines, limit):
+    for title, count in top_pages(tracking_lines, limit):
         print(f'{count:#4d} : {title}')
 
     print_banner('Traffic by Date')
-    for date, count in traffic_by_date(log_lines):
+    for date, count in traffic_by_date(tracking_lines):
         print(f'{date} : {count:#4d}')
 
     print_banner('Referrers')
-    for referrer, count in get_referrers(log_lines, limit):
+    for referrer, count in get_referrers(tracking_lines, limit):
         print(f'{count:#4d} : {referrer}')
+    
+    if any(not_found_lines):
+        print_banner('404 errors')
+        for path, count in summarise_paths(not_found_lines, limit):
+            print(f'{count:#4d} : {path}')
+
+    if any(error_lines):
+        print_banner('Server errors')
+        for (path, status), count in summarise_paths(error_lines, limit):
+            print(f'{count:#4d} : {path} [{status}]')
 
 
 def int_or_none(value):
@@ -240,6 +255,8 @@ if __name__ == '__main__':
     container_name = args['--container'] or 'infra_alexwlchan_1'
     
     tracking_lines = []
+    not_found_lines = []
+    error_lines = []
     
     for line in docker_logs(container_name=container_name, days=days):
         if should_be_rejected(line):
@@ -247,5 +264,15 @@ if __name__ == '__main__':
 
         if '/analytics/a.gif?url=' in line.url:
             tracking_lines.append(line)
+        
+        if line.status == 404:
+            not_found_lines.append(line)
+        
+        if line.status not in (200, 404):
+            error_lines.append(line)
 
-    run_report(tracking_lines, limit=limit)
+    run_report(
+        tracking_lines=tracking_lines,
+        not_found_lines=not_found_lines,
+        error_lines=error_lines,
+        limit=limit)
