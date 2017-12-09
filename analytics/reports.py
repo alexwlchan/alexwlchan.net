@@ -237,6 +237,11 @@ def docker_logs(container_name, days):
         subprocess.check_call(cmd, stdout=pipe, stderr=pipe)
     
     for line in open(log_file):
+        
+        # TODO: Handle this sort of line properly.
+        if '[error]' in line:
+            continue
+        
         m = NGINX_LOG_REGEX.match(line)
         assert m is not None, line
         yield LogLine(**m.groupdict())
