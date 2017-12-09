@@ -36,8 +36,8 @@ def test_pages_appear_correctly(hostname, path):
     # I don't really want to minify it twice (and minification might vary
     # in subtle ways), but I can look for blocks which aren't minified in
     # the template and *should* be minified in the output.
-    ('feeds/all.atom.xml', '<author><name>Alex Chan</name>'),
-    ('feeds/all.atom.xml', '</entry><entry>'),
+    ('atom.xml', '<author><name>Alex Chan</name>'),
+    ('atom.xml', '</entry><entry>'),
 
     # Footnotes are rendered correctly
     ('2017/01/scrape-logged-in-ao3', '<a href="#fn1" rel="footnote">1</a>'),
