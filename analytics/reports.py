@@ -28,10 +28,10 @@ import docopt
 NGINX_LOG_REGEX = re.compile(
     r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
     r'\[(?P<datetime>\d{2}\/[a-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] '
-    r'"(?P<method>GET|POST) (?P<url>.+) HTTP/1\.[01]" '
+    r'"(?P<method>OPTIONS|HEAD|GET|POST) (?P<url>.+) HTTP/1\.[01]" '
     r'(?P<status>\d{3}) '
     r'(?P<bytes_sent>\d+) '
-    r'"(?P<referrer>(\-)|([^"]+))" '
+    r'"(?P<referrer>(\-)|([^"]*))" '
     r'"(?P<user_agent>[^"]+)" '
     r'"(?P<forwarded_host>[^"]+)"', flags=re.IGNORECASE)
 
