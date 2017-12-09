@@ -264,7 +264,15 @@ if __name__ == '__main__':
 
         if '/analytics/a.gif?url=' in line.url:
             tracking_lines.append(line)
-        
+
+        # We ignore certain lines for the purposes of errors; they're people
+        # crawling the site in ways that are totally uninteresting.
+        if any(u in line.url for u in [
+            'wp-login.php',
+            'wp-content',
+        ]):
+            continue
+
         if line.status == 404:
             not_found_lines.append(line)
         
