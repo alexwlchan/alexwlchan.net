@@ -270,6 +270,7 @@ if __name__ == '__main__':
         if any(u in line.url for u in [
             'wp-login.php',
             'wp-content',
+            'license.php',
         ]):
             continue
 
