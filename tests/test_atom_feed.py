@@ -8,7 +8,7 @@ import requests
 
 
 def test_feed_is_valid_atom(hostname):
-    atom_url = 'http://%s/feeds/all.atom.xml' % hostname
+    atom_url = 'http://%s/atom.xml' % hostname
     try:
         events = feedvalidator.validateURL(
             atom_url, firstOccurrenceOnly=1
