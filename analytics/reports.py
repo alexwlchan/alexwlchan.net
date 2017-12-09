@@ -229,17 +229,22 @@ def should_be_rejected(l):
     return False
 
 
-def get_log_lines(container):
+def get_log_lines(container, start_date):
     """
-    Creates an up-to-date log file, then scp's a copy to the local disk.
+    Read interesting log lines from a running container.
     """
+    cmd = ['docker', 'logs', container]
+    if start_date is not None:
+        cmd.extend(['--since', start_date.isoformat()])
     proc = subprocess.Popen(
         ['docker', 'logs', container],
-        stdout=subprocess.PIPE)
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT)
 
     log_lines = []
 
     for line in iter(proc.stdout.readline, ''):
+        line = line.decode('utf8')
         if 'GET /analytics/a.gif?url=' not in line:
             continue
         match = NGINX_LOG_REGEX.match(line)
@@ -263,7 +268,7 @@ if __name__ == '__main__':
 
     limit = int_or_none(args['--limit'])
     
-    container = args.get('--container', 'alexwlchan_infra_1')
+    container = args['--container'] or 'infra_alexwlchan_1'
 
     today = dt.date.today()
 
@@ -286,7 +291,7 @@ if __name__ == '__main__':
         else:
             start_date = today - delta
 
-    log_lines = get_log_lines(container=container)
+    log_lines = get_log_lines(container=container, start_date=start_date)
 
     if start_date:
         log_lines = [l for l in log_lines if l.datetime >= start_date]
