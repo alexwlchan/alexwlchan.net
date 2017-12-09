@@ -13,6 +13,13 @@ def hostname():
 
 
 @pytest.fixture
+def nginx_hostname():
+    host = os.environ.get('HOSTNAME', 'localhost')
+    port = os.environ.get('PORT', 5858)
+    return '%s:%s' % (host, port)
+
+
+@pytest.fixture
 def baseurl(hostname):
     return 'http://%s/' % hostname
 
