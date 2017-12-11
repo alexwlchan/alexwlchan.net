@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Armed police officers don't make me feel safer
+content_warning: discussion of guns, police violence, and images of armed police.
 ---
-
-*Content warning for discussion of guns, police violence, and images of armed police.*
 
 I live in the UK.
 We have fairly strict laws around owning guns, and you're unlikely to encounter a gun except on an army base or in a work of fiction.
