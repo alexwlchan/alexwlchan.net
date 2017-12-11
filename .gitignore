@@ -13,3 +13,5 @@ __pycache__
 id_rsa
 
 analytics.db
+
+auth.yml

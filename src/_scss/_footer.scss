@@ -2,6 +2,10 @@ footer {
   border-top: 1px solid $light-grey;
   padding-top:    15px;
   padding-bottom: 15px;
+
+  @media print {
+    display: none;
+  }
 }
 
 #footer_inner {

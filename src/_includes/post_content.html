@@ -32,6 +32,10 @@
 
   {% assign is_index = is_index | default: false %}
 
+  {% if post.content_warning %}
+  <p class="content_warning">Content warning: {{ post.content_warning }}</p>
+  {% endif %}
+
   {% if is_index and post.content contains '<!-- summary -->' %}
     {% assign splitcontent = post.content | split: '<!-- summary -->' %}
     {{ splitcontent.first | smartify }}
