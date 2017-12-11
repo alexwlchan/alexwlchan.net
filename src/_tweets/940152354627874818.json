@@ -1,0 +1,156 @@
+{
+  "created_at": "Mon Dec 11 09:32:43 +0000 2017",
+  "id": 940152354627874818,
+  "id_str": "940152354627874818",
+  "text": "From this week our armed officers will be carrying out more visible and proactive patrols at key sites across the county. This is not as a result of any specific intelligence or threats, but is designed to help keep you as safe as possible. Read more here https://t.co/ASERsnKY7y",
+  "truncated": true,
+  "entities": {
+    "hashtags": [
+
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+      {
+        "url": "https://t.co/ASERsnKY7y",
+        "expanded_url": "https://www.cambs.police.uk/news-and-appeals/Christmas-Action-Counters-Terrorism-Campaign",
+        "display_url": "cambs.police.uk/news-and-appea…",
+        "indices": [
+          117,
+          140
+        ]
+      }
+    ],
+    "media": [
+      {
+        "id": 848188939018145794,
+        "id_str": "848188939018145794",
+        "indices": [
+          69,
+          92
+        ],
+        "media_url": "https://pbs.twimg.com/media/DQwXlPKVAAAhdNN.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/DQwXlPKVAAAhdNN.jpg",
+        "url": "https://t.co/cF7XPImBPg",
+        "display_url": "pic.twitter.com/cF7XPImBPg",
+        "expanded_url": "https://twitter.com/CambsCops/status/940152354627874818",
+        "type": "photo",
+        "sizes": {
+          "small": {
+            "w": 680,
+            "h": 680,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 1200,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 2048,
+            "h": 2048,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "source": "<a href=\"http://www.hootsuite.com\" rel=\"nofollow\">Hootsuite</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 203004911,
+    "id_str": "203004911",
+    "name": "Cambs police",
+    "screen_name": "CambsCops",
+    "location": "Cambridgeshire",
+    "description": "Cambridgeshire Constabulary’s official Twitter account. Not monitored 24/7. To contact us or report crime visit https://t.co/g8fmMqT3Jd",
+    "url": "https://t.co/g8fmMqT3Jd",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/g8fmMqT3Jd",
+            "expanded_url": "http://www.cambs.police.uk",
+            "display_url": "cambs.police.uk",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+          {
+            "url": "https://t.co/g8fmMqT3Jd",
+            "expanded_url": "http://www.cambs.police.uk",
+            "display_url": "cambs.police.uk",
+            "indices": [
+              112,
+              135
+            ]
+          }
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 76974,
+    "friends_count": 285,
+    "listed_count": 478,
+    "created_at": "Fri Oct 15 09:32:06 +0000 2010",
+    "favourites_count": 446,
+    "utc_offset": 0,
+    "time_zone": "London",
+    "geo_enabled": false,
+    "verified": true,
+    "statuses_count": 12384,
+    "lang": "en",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": true,
+    "profile_background_color": "C0DEED",
+    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/323542696/Background-graphic.jpg",
+    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/323542696/Background-graphic.jpg",
+    "profile_background_tile": true,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/931513680545681409/CxFDlfZg_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/931513680545681409/CxFDlfZg_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/203004911/1487153943",
+    "profile_link_color": "11175E",
+    "profile_sidebar_border_color": "C7EAFB",
+    "profile_sidebar_fill_color": "E6E7E8",
+    "profile_text_color": "11175E",
+    "profile_use_background_image": true,
+    "has_extended_profile": false,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 6,
+  "favorite_count": 12,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
