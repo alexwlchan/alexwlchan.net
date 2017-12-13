@@ -1,7 +1,6 @@
 ---
 date: 2015-11-30 22:39:00 +0000
 layout: post
-slug: backups-and-docker
 summary: The Docker folder on your computer can quickly fill up space. Don't forget
   to exclude it from backups.
 tags: docker

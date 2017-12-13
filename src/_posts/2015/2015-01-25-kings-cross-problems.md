@@ -2,7 +2,6 @@
 date: 2015-01-25 16:26:00 +0000
 layout: post
 link: http://www.londonreconnections.com/2015/know-run-story-behind-xmas-kings-cross-problems/
-slug: kings-cross-problems
 title: What went wrong at King's Cross over Christmas?
 ---
 

@@ -1,7 +1,6 @@
 ---
 date: 2016-09-23 07:40:00 +0000
 layout: post
-slug: please-use-aspell
 tags: writethedocs
 title: aspell, a command-line spell checker
 ---

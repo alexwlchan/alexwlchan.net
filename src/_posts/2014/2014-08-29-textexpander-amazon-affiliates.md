@@ -1,7 +1,6 @@
 ---
 date: 2014-08-29 22:06:00 +0000
 layout: post
-slug: textexpander-amazon-affiliates
 tags: textexpander
 title: A TextExpander snippet for Amazon affiliate links
 ---

@@ -1,7 +1,6 @@
 ---
 date: 2014-06-23 13:04:00 +0000
 layout: post
-slug: instapaper-urls
 tags: instapaper applescript
 title: Catching instapaper:// URLs from ReadKit
 ---

@@ -1,7 +1,6 @@
 ---
 date: 2016-08-07 22:46:00 +0000
 layout: post
-slug: clean-up-directories
 summary: A pair of Python scripts I've been using to clean up my mess of directories.
 tags: python
 title: 'Python snippets: Cleaning up empty/nearly empty directories'

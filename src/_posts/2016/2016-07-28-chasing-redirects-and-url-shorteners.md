@@ -1,7 +1,6 @@
 ---
 date: 2016-07-28 21:03:00 +0000
 layout: post
-slug: chasing-redirects-and-url-shorteners
 summary: A quick Python function to follow a redirect to its eventual conclusion.
 tags: python
 title: 'Python snippets: Chasing redirects and URL shorteners'

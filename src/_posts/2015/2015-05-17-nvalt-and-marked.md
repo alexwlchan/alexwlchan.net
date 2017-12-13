@@ -1,7 +1,6 @@
 ---
 date: 2015-05-17 20:16:00 +0000
 layout: post
-slug: nvalt-and-marked
 summary: A Python script that takes a note from nvALT and opens it in Marked.
 tags: python
 title: Previewing notes from nvALT in Marked

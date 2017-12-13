@@ -1,7 +1,6 @@
 ---
 date: 2013-05-11 12:26:00 +0000
 layout: post
-slug: rss-podcasts-tumblr
 summary: A barely advertised feature of Tumblr that lets you get an RSS feed of external
   audio posts.
 tags: podcasts tumblr

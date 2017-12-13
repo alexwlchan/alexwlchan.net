@@ -2,7 +2,6 @@
 date: 2015-10-12 08:23:00 +0000
 layout: post
 link: https://www.youtube.com/watch?v=FxSsnHeWQBY
-slug: getting-started-testing
 tags: python
 title: Getting Started Testing, by Ned Batchelder
 ---
