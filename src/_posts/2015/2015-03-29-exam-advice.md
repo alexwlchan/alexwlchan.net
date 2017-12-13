@@ -2,7 +2,6 @@
 date: 2015-03-29 13:30:00 +0000
 layout: post
 link: http://alexwlchan.net/exams
-slug: exam-advice
 summary: Some advice for students sitting technical exams
 tags: maths
 title: Some exam advice

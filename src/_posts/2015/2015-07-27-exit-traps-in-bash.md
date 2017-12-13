@@ -2,7 +2,6 @@
 date: 2015-07-27 20:36:00 +0000
 layout: post
 link: http://redsymbol.net/articles/bash-exit-traps/
-slug: exit-traps-in-bash
 tags: bash shell-scripting
 title: 'Useful Bash features: exit traps'
 ---

@@ -2,7 +2,6 @@
 date: 2014-12-28 13:00:00 +0000
 layout: post
 link: https://github.com/alexwlchan/imessage-archive
-slug: imessage-export
 tags: os-x python
 title: A script for exporting from iMessage
 ---
