@@ -1,6 +1,6 @@
 ---
-date: 2016-12-01 07:43:00 +0000
 layout: post
+date: 2016-12-01 07:43:00 +0000
 summary: 'Pop quiz: if I lowercase a string, does it still have the same length as
   the original string?'
 tags: unicode hypothesis python

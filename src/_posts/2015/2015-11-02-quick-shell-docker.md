@@ -1,6 +1,6 @@
 ---
-date: 2015-11-02 22:07:00 +0000
 layout: post
+date: 2015-11-02 22:07:00 +0000
 summary: A Bash function for quickly getting shell access to Docker containers.
 tags: docker bash shell-scripting
 title: Quick shell access for Docker containers

@@ -1,6 +1,6 @@
 ---
-date: 2015-11-14 22:02:00 +0000
 layout: post
+date: 2015-11-14 22:02:00 +0000
 title: Email with a purpose
 ---
 

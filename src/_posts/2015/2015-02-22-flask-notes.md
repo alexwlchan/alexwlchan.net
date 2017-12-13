@@ -1,6 +1,6 @@
 ---
-date: 2015-02-22 08:00:00 +0000
 layout: post
+date: 2015-02-22 08:00:00 +0000
 link: https://charlesleifer.com/blog/saturday-morning-hack-a-little-note-taking-app-with-flask/
 tags: python
 title: A Flask app for taking notes

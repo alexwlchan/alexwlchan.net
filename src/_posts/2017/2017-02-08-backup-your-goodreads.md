@@ -1,6 +1,6 @@
 ---
-date: 2017-02-08 20:41:00 +0000
 layout: post
+date: 2017-02-08 20:41:00 +0000
 link: https://github.com/alexwlchan/backup-goodreads
 tags: python goodreads
 title: A script for backing up your Goodreads reviews

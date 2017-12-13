@@ -1,6 +1,6 @@
 ---
-date: 2015-06-29 17:55:00 +0000
 layout: post
+date: 2015-06-29 17:55:00 +0000
 summary: Configuring an IPython notebook server that is always running and easily
   accessible in Windows.
 tags: python windows

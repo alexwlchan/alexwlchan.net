@@ -1,6 +1,6 @@
 ---
-date: 2016-03-27 10:33:00 +0000
 layout: post
+date: 2016-03-27 10:33:00 +0000
 summary: If you want to create a file, but only if it doesn't already exist, Python
   3 has a helpful new file mode `x`.
 tags: python

@@ -1,6 +1,6 @@
 ---
-date: 2014-12-13 07:37:00 +0000
 layout: post
+date: 2014-12-13 07:37:00 +0000
 title: Kitchen sink security
 ---
 

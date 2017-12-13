@@ -1,6 +1,6 @@
 ---
-date: 2016-08-31 20:05:00 +0000
 layout: post
+date: 2016-08-31 20:05:00 +0000
 tags: python
 title: 'Python snippet: dealing with query strings in URLs'
 theme:
