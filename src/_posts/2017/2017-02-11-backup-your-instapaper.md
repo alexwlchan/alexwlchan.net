@@ -2,7 +2,6 @@
 date: 2017-02-11 12:00:00 +0000
 layout: post
 link: https://github.com/alexwlchan/backup-instapaper
-slug: backup-your-instapaper
 tags: python instapaper
 title: A script for backing up your Instapaper bookmarks
 ---

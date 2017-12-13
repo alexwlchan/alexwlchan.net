@@ -1,7 +1,6 @@
 ---
 date: 2016-10-21 12:18:00 +0000
 layout: post
-slug: tiling-the-plane-with-pillow
 summary: Using the Python Imaging Library to draw regular tilings of squares, triangles
   and hexagons.
 tags: python maths

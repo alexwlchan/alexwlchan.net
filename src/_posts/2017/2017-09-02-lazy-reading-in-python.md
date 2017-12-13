@@ -2,7 +2,6 @@
 date: 2017-09-02 17:34:00 +0000
 layout: post
 link: https://github.com/alexwlchan/lazyreader
-slug: lazy-reading-in-python
 summary: I wrote a small Python module for lazy file reading, ideal for efficient
   batch processing.
 tags: python

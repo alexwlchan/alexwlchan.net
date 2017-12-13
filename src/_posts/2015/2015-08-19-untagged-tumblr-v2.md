@@ -2,7 +2,6 @@
 date: 2015-08-19 22:55:00 +0000
 layout: post
 link: http://finduntaggedtumblrposts.com
-slug: untagged-tumblr-v2
 summary: A new version of my site for finding untagged Tumblr posts.
 tags: tumblr
 title: Finding even more untagged posts on Tumblr

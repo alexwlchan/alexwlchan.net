@@ -1,7 +1,6 @@
 ---
 date: 2016-05-10 12:41:00 +0000
 layout: post
-slug: python-smtplib-and-fastmail
 summary: A quick python-smtplib wrapper for sending emails through FastMail.
 tags: python
 title: A Python smtplib wrapper for FastMail

@@ -1,7 +1,6 @@
 ---
 date: 2014-12-13 07:37:00 +0000
 layout: post
-slug: kitchen-sink-security
 title: Kitchen sink security
 ---
 

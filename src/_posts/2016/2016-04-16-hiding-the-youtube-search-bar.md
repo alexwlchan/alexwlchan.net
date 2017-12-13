@@ -1,7 +1,6 @@
 ---
 date: 2016-04-16 14:32:00 +0000
 layout: post
-slug: hiding-the-youtube-search-bar
 summary: "I\u2019ve adapted my bookmarklet for tidying up Google Maps to hide the\
   \ YouTube search bar."
 tags: javascript

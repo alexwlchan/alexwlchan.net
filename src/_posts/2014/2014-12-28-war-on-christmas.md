@@ -2,7 +2,6 @@
 date: 2014-12-28 12:00:00 +0000
 layout: post
 link: http://www.motherjones.com/media/2013/12/war-on-christmas-north-pole-invasion
-slug: war-on-christmas
 title: What would happen if we really went to war against Christmas?
 ---
 

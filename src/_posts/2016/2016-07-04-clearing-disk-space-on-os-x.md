@@ -1,7 +1,6 @@
 ---
 date: 2016-07-04 07:42:00 +0000
 layout: post
-slug: clearing-disk-space-on-os-x
 summary: "A few tools and utilities I\u2019ve been using to help clear disk space\
   \ on my Mac."
 tags: os-x

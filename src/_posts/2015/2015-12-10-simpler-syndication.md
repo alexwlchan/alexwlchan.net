@@ -2,7 +2,6 @@
 date: 2015-12-10 08:15:00 +0000
 layout: post
 link: http://leancrew.com/all-this/2015/11/simpler-syndication/
-slug: simpler-syndication
 tags: python
 title: Simpler syndication, by Dr. Drang
 ---

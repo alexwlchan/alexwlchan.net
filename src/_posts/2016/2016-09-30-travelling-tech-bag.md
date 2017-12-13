@@ -1,7 +1,6 @@
 ---
 date: 2016-09-30 08:04:00 +0000
 layout: post
-slug: travelling-tech-bag
 title: My travelling tech bag
 ---
 

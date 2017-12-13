@@ -1,7 +1,6 @@
 ---
 date: 2014-11-02 16:19:00 +0000
 layout: post
-slug: ranged-strings
 tags: python
 title: Unpacking sets and ranges from a single string
 ---
