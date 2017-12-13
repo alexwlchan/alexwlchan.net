@@ -1,6 +1,6 @@
 ---
-date: 2013-05-11 12:26:00 +0000
 layout: post
+date: 2013-05-11 12:26:00 +0000
 summary: A barely advertised feature of Tumblr that lets you get an RSS feed of external
   audio posts.
 tags: podcasts tumblr

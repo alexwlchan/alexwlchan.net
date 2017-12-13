@@ -1,6 +1,6 @@
 ---
-date: 2014-07-11 07:43:00 +0000
 layout: post
+date: 2014-07-11 07:43:00 +0000
 tags: latex wolfram-alpha
 title: Getting plaintext <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> from
   Wolfram Alpha

@@ -1,6 +1,6 @@
 ---
-date: 2013-03-31 11:13:00 +0000
 layout: post
+date: 2013-03-31 11:13:00 +0000
 summary: A script for automatically backing up bookmarks from Pinboard
 tags: pinboard python
 title: Automatic Pinboard backups

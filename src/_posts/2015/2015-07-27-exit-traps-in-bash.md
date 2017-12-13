@@ -1,6 +1,6 @@
 ---
-date: 2015-07-27 20:36:00 +0000
 layout: post
+date: 2015-07-27 20:36:00 +0000
 link: http://redsymbol.net/articles/bash-exit-traps/
 tags: bash shell-scripting
 title: 'Useful Bash features: exit traps'

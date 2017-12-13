@@ -1,6 +1,6 @@
 ---
-date: 2017-01-07 23:10:00 +0000
 layout: post
+date: 2017-01-07 23:10:00 +0000
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,
   it might not be necessary.
 tags: python fandom

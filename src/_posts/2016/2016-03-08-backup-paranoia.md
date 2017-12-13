@@ -1,6 +1,6 @@
 ---
-date: 2016-03-08 08:52:00 +0000
 layout: post
+date: 2016-03-08 08:52:00 +0000
 summary: Running a backup is good protection against data loss, but it's not perfect.  I
   take extra measures to ensure I have really safe backups.
 tags: backups

@@ -1,6 +1,6 @@
 ---
-date: 2015-12-13 17:15:00 +0000
 layout: post
+date: 2015-12-13 17:15:00 +0000
 tags: shell-scripting
 title: Pretty printing JSON and XML in the shell
 ---

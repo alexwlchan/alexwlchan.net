@@ -1,6 +1,6 @@
 ---
-date: 2016-10-01 21:23:00 +0000
 layout: post
+date: 2016-10-01 21:23:00 +0000
 tags: shell-scripting
 title: A shell alias for tallying data
 theme:

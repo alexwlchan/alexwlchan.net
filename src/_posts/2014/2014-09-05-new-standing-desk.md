@@ -1,6 +1,6 @@
 ---
-date: 2014-09-05 19:14:00 +0000
 layout: post
+date: 2014-09-05 19:14:00 +0000
 summary: A standing desk that I built solely from IKEA parts.
 tags: personal
 title: My new standing desk

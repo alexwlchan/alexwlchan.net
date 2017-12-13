@@ -1,4 +1,5 @@
 ---
+layout: post
 date:       2016-10-30 09:12:00 +0000
 layout:     post
 slug:       the-a-stands-for-asexual

@@ -1,6 +1,6 @@
 ---
-date: 2014-08-31 12:12:00 +0000
 layout: post
+date: 2014-08-31 12:12:00 +0000
 tags: tumblr
 title: Updates to my site for finding untagged Tumblr posts
 ---

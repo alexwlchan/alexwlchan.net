@@ -1,6 +1,6 @@
 ---
-date: 2015-11-03 22:12:00 +0000
 layout: post
+date: 2015-11-03 22:12:00 +0000
 link: http://www.bbc.co.uk/programmes/articles/4hVG2Br1W1LKCmw8nSm9WnQ/introducing-the-bbc-micro-bit
 tags: python
 title: Python and the BBC micro:bit

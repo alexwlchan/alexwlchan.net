@@ -1,6 +1,6 @@
 ---
-date: 2016-10-21 12:18:00 +0000
 layout: post
+date: 2016-10-21 12:18:00 +0000
 summary: Using the Python Imaging Library to draw regular tilings of squares, triangles
   and hexagons.
 tags: python maths

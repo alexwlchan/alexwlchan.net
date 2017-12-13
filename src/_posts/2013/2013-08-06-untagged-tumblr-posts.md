@@ -1,6 +1,6 @@
 ---
-date: 2013-08-06 09:52:00 +0000
 layout: post
+date: 2013-08-06 09:52:00 +0000
 tags: tumblr python
 title: Finding untagged posts on Tumblr
 ---
