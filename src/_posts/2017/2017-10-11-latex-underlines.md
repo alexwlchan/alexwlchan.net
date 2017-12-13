@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2017-10-11 22:09:25 +0000
 title: Four ways to underline text in LaTeX
 tags: latex typesetting
 summary: I'm very picky about the way underlines look, and have spent a lot of time trying to get the perfect underline in LaTeX.

@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2017-10-27 08:25:34 +0000
 title: PyCon UK 2017 resources
 summary: Slides and links for my PyCon UK 2017 talks/workshops.
 ---

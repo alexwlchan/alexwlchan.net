@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2017-10-28 10:20:29 +0000
 title: Lightning talks
 tags: conferences
 summary: Why I like the lottery system used to select lightning talks at PyCon UK this year.
