@@ -37,6 +37,10 @@ In the last year, I've spent a lot of time simplifying my build systems, both in
 Most of my current repos now have a single-step build process.
 It's not perfect, but I'm very pleased with the results.
 
+In this post, I'll explain my typical setup, and how I use Make and Docker to get fast and simple builds.
+
+<!-- summary -->
+
 {% tweet https://twitter.com/alexwlchan/status/938694360681590791 %}
 
 I really felt the benefits on Monday.
@@ -66,8 +70,6 @@ Tweaking compiler flags, laying out submodules, getting my network settings ~jus
 If I had to go through something like that, I'd have wasted the whole day.
 Instead, I was back up-and-running in less than half an hour.
 
-In the rest of this post, I’ll explain my typical setup.
-
 [github]: https://github.com/wellcometrust/platform
 [docker]: https://en.wikipedia.org/wiki/Docker_(software)
 [make]: https://en.wikipedia.org/wiki/Make_(software)
@@ -84,7 +86,6 @@ $ sbt "project api" ";dockerComposeUp;test;dockerComposeStop"
 
 Did I mention you need to install docker-compose as well?
 We use some mock AWS services in our tests, which are Docker containers orchestrated by docker-compose.
-
 
 ### My first Makefile
 
