@@ -1,7 +1,6 @@
 ---
-date: 2016-09-17 22:08:00 +0000
 layout: post
-slug: speech-to-text
+date: 2016-09-17 22:08:00 +0000
 summary: Live captioning of conference talks was an unexpected bonus at this year's
   PyCon UK.
 tags: pycon conferences

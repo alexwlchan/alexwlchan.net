@@ -1,7 +1,6 @@
 ---
-date: 2017-06-07 20:50:00 +0000
 layout: post
-slug: crossness-pumping-station
+date: 2017-06-07 20:50:00 +0000
 summary: Pictures from my recent visit to Crossness, a Victorian pumping station for London's sewers.
 title: A visit to the Crossness pumping station
 theme:

@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2017-11-27 22:41:36 +0000
 title: Pruning old Git branches
 theme:
   minipost: true

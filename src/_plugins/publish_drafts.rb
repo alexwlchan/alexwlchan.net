@@ -32,6 +32,15 @@ def publish_all_drafts(source_dir)
       new_name = File.join(source_dir, "_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
       File.rename(entry, new_name)
 
+      # Now we write the exact date and time into the top of the file.
+      # This means that if I publish more than one post on the same day,
+      # they have an unambiguous ordering.
+      doc = File.read(new_name)
+      doc = doc.gsub(
+        /layout:\s+post\s*\n/,
+        "layout: post\ndate: #{now}")
+      File.open(new_name, 'w') { |f| f.write(doc) }
+
       puts "*** Creating Git commit for #{entry}"
       Shell.execute!("git rm #{entry}")
       Shell.execute!("git add #{new_name}")

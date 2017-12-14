@@ -1,7 +1,6 @@
 ---
-date: 2016-02-24 08:16:00 +0000
 layout: post
-slug: how-i-use-textexpander-to-curb-my-language
+date: 2016-02-24 08:16:00 +0000
 summary: "I have some TextExpander snippets that I use to cut out words I don\u2019\
   t want to write."
 tags: textexpander writethedocs

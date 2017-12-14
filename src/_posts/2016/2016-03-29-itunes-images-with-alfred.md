@@ -1,7 +1,6 @@
 ---
-date: 2016-03-29 07:56:00 +0000
 layout: post
-slug: itunes-images-with-alfred
+date: 2016-03-29 07:56:00 +0000
 summary: Using Alfred and a Python script to retrieve artwork from the iTunes, App
   and Mac App Stores.
 tags: alfred python

@@ -1,7 +1,6 @@
 ---
-date: 2015-06-02 18:09:00 +0000
 layout: post
-slug: git-info-exclude
+date: 2015-06-02 18:09:00 +0000
 summary: Another way to ignore untracked files in Git.
 tags: git
 title: 'Useful Git features: a per-clone exclude file'
