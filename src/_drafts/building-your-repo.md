@@ -38,7 +38,7 @@ Once you get it building and running, you can now start making simple changes in
 
 ---
 
-https://twitter.com/alexwlchan/status/938694360681590791
+{% tweet https://twitter.com/alexwlchan/status/938694360681590791 %}
 
 I really felt this on Monday.
 There was an unusual amount of snow and ice at the weekend, and I found myself working from home.
