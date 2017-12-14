@@ -1,7 +1,6 @@
 ---
-date: 2016-05-01 19:55:00 +0000
 layout: post
-slug: os-x-hates-textmate
+date: 2016-05-01 19:55:00 +0000
 summary: "Debugging a strange interaction between TextMate and OS X\u2019s security\
   \ system."
 tags: os-x textmate

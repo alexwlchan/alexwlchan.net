@@ -1,7 +1,6 @@
 ---
-date: 2014-12-29 08:26:00 +0000
 layout: post
-slug: pelican-linkposts
+date: 2014-12-29 08:26:00 +0000
 tags: pelican python
 title: RSS linkposts in Pelican
 ---

@@ -1,7 +1,6 @@
 ---
-date: 2014-05-12 15:53:00 +0000
 layout: post
-slug: part-ii-advice
+date: 2014-05-12 15:53:00 +0000
 summary: Some suggestions for second year Cambridge maths students looking for work
   over the summer.
 tags: maths cambridge

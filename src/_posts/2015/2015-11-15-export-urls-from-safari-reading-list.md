@@ -1,7 +1,6 @@
 ---
-date: 2015-11-15 21:50:00 +0000
 layout: post
-slug: export-urls-from-safari-reading-list
+date: 2015-11-15 21:50:00 +0000
 summary: A Python script for getting a list of URLs from Safari Reading List.
 tags: os-x python
 title: Export a list of URLs from Safari Reading List

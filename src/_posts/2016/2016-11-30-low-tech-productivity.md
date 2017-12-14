@@ -1,7 +1,6 @@
 ---
-date: 2016-11-30 19:07:00 +0000
 layout: post
-slug: low-tech-productivity
+date: 2016-11-30 19:07:00 +0000
 summary: A few suggestions for "low tech devices" that aid in the process of generating
   ideas.
 tags: productivity

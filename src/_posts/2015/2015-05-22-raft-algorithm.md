@@ -1,8 +1,7 @@
 ---
-date: 2015-05-22 17:40:00 +0000
 layout: post
+date: 2015-05-22 17:40:00 +0000
 link: http://thesecretlivesofdata.com/raft/
-slug: raft-algorithm
 summary: A visualisation of the Raft consensus algorithm.
 title: <em>The Secret Lives of Data</em>, a visualisation of the Raft algorithm
 ---

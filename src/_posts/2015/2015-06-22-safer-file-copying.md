@@ -1,7 +1,6 @@
 ---
-date: 2015-06-22 23:20:00 +0000
 layout: post
-slug: safer-file-copying
+date: 2015-06-22 23:20:00 +0000
 summary: A Python script for non-destructive file copying/moving.
 tags: python
 title: Safer file copying in Python

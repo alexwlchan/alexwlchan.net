@@ -1,7 +1,6 @@
 ---
-date: 2016-01-03 16:53:00 +0000
 layout: post
-slug: incomparable-best-of
+date: 2016-01-03 16:53:00 +0000
 tags: podcasts
 title: The Incomparable's "Best Of" 2015
 ---

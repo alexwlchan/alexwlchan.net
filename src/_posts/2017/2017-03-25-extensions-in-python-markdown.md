@@ -1,7 +1,6 @@
 ---
-date: 2017-03-25 11:27:00 +0000
 layout: post
-slug: extensions-in-python-markdown
+date: 2017-03-25 11:27:00 +0000
 summary: I use Python-Markdown to render posts for my site. Here are a few examples
   of the extensions I'm using.
 tags: python markdown
