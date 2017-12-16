@@ -134,6 +134,7 @@ def _normalise_referrer(referrer):
         'https://t.co/Cp9qdEULDR': 'https://twitter.com/alexwlchan/status/935277634568818688',
         'https://t.co/Z5C8w9WWRl': 'https://twitter.com/alexwlchan/status/938925459324264448',
         'https://t.co/ZHOBF3nyGf': 'https://twitter.com/alexwlchan/status/940194916835254272',
+        'https://t.co/jrMPDhM7A1': 'https://twitter.com/TheDataLeek/status/940644325553086464',
     }
 
     if parts.netloc == 't.co':
@@ -147,6 +148,12 @@ def _normalise_referrer(referrer):
     if parts.netloc == 'r.search.yahoo.com':
         return 'https://search.yahoo.com/'
 
+    if any(p in referrer for p in [
+        'translate.googleusercontent.com',
+        'openlinkprofiler.org',
+    ]):
+        return None
+
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
         'http://t.umblr.com/': 'https://tumblr.com/',
@@ -156,10 +163,26 @@ def _normalise_referrer(referrer):
     return aliases.get(referrer, referrer)
 
 
+def _is_organic(referrer):
+    if referrer in [
+        'Google',
+        'https://search.yahoo.com/',
+        'DuckDuckGo',
+        'https://results.searchlock.com/',
+        'Bing',
+    ]:
+        return True
+
+    return False
+
+
 def get_referrers(log_lines, limit):
-    c = collections.Counter(
-        _normalise_referrer(l.referrer) or None for l in log_lines)
-    del c[None]
+    c = collections.Counter()
+    for l in log_lines:
+        r = _normalise_referrer(l.referrer)
+        if r:
+            display_r = '[Search traffic]' if _is_organic(r) else r
+            c[display_r] += 1
     return c.most_common(limit)
 
 
