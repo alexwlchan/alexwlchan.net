@@ -54,7 +54,10 @@ class LogLine:
 
     @property
     def title(self):
-        return parse_qs(urlparse(self.url).query)['t'][0]
+        try:
+            return parse_qs(urlparse(self.url).query)['t'][0]
+        except KeyError:
+            return None
 
     @property
     def date(self):
@@ -98,6 +101,9 @@ def _normalise_referrer(referrer):
         except KeyError:
             return 'Google'
 
+    if referrer == 'android-app://com.google.android.googlequicksearchbox':
+        return 'Google'
+
     if parts.netloc.endswith('bing.com'):
         qs = parse_qs(parts.query)
         try:
@@ -127,6 +133,7 @@ def _normalise_referrer(referrer):
         'https://t.co/E0hBiiizkD': 'https://twitter.com/alexwlchan/status/933416262675451904',
         'https://t.co/Cp9qdEULDR': 'https://twitter.com/alexwlchan/status/935277634568818688',
         'https://t.co/Z5C8w9WWRl': 'https://twitter.com/alexwlchan/status/938925459324264448',
+        'https://t.co/ZHOBF3nyGf': 'https://twitter.com/alexwlchan/status/940194916835254272',
     }
 
     if parts.netloc == 't.co':
