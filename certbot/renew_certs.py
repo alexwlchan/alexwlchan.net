@@ -31,7 +31,7 @@ def _update_docker_compose(domain):
     assert len(matching) > 0
     latest_certs_dir = os.path.basename(sorted(matching)[-1])
 
-    docker_compose = yaml.safe_load(open('/infra/docker-compose.yml'))
+    docker_compose = yaml.safe_load(open('/repo/infra/docker-compose.yml'))
     volumes = docker_compose['services']['proxy']['volumes']
 
     # First remove the existing certbot volume
@@ -43,13 +43,18 @@ def _update_docker_compose(domain):
     )
 
     out_yaml = yaml.dump(docker_compose, default_flow_style=False)
-    open('/infra/docker-compose.yml', 'w').write(out_yaml)
+    open('/repo/infra/docker-compose.yml', 'w').write(out_yaml)
 
 
 def renew_certs(domain):
     print(f'*** Renewing certs for {domain}')
     _get_new_certs(domain)
     _update_docker_compose(domain)
+
+    print(f'*** Restarting the proxy container with new certificates')
+    subprocess.check_call(
+        ['docker-compose', 'restart', 'proxy'], cwd='/repo/infra'
+    )
 
 
 if __name__ == '__main__':
