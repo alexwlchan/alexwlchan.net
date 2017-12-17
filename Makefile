@@ -117,6 +117,7 @@ nginx-serve:
 		--detach nginx:alpine
 
 include analytics/Makefile
+include certbot/Makefile
 
 
 .PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
