@@ -85,6 +85,7 @@ deploy: publish
 test: .docker/tests
 	docker run \
 		--volume $(ROOT):/repo \
+		--env DOCKER=true \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
 		--link alexwlchan \
