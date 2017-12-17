@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Your repo should be easy to build, and how
-tags: make docker, software-development
+tags: make docker software-development
 ---
 
 Whenever I look at a new repository, I have a simple smell test: *how long does it take me to clone, build and get the code running?*
