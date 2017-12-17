@@ -7,7 +7,8 @@ services:
       - "443:443"
     volumes:
       - "./nginx.conf:/etc/nginx/nginx.conf"
-      - "~/.certbot:/certbot"
+      - "~/.certbot/config/live/alexwlchan.net:/certbot/alexwlchan.net"
+      - "~/.certbot/config/live/bijouopera.co.uk:/certbot/bijouopera.co.uk"
   bijou:
     image: "nginx:alpine"
     volumes:
