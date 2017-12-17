@@ -10,7 +10,7 @@ import requests
     '/page/2/', '/page/3/',
 ])
 def test_pages_appear_correctly(hostname, path):
-    resp = requests.get('http://%s/%s' % (hostname, path))
+    resp = requests.get('http://%s%s' % (hostname, path))
     assert resp.status_code == 200
 
 
