@@ -2,7 +2,7 @@
 layout: post
 date: 2015-03-05 08:24:00 +0000
 link: http://stackoverflow.com/q/19688841/1558022
-tags: python, os x
+tags: python os-x
 title: Adding Python to the OS X firewall
 ---
 
