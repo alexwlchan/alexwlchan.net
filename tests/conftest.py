@@ -24,7 +24,12 @@ def baseurl(hostname):
 
 @pytest.fixture
 def repo():
-    return '/repo'
+    if os.environ.get('DOCKER') == 'true':
+        return '/repo'
+    else:
+        import subprocess
+        return subprocess.check_output(
+            ['git', 'rev-parse', '--show-toplevel']).decode('ascii').strip()
 
 
 @pytest.fixture
