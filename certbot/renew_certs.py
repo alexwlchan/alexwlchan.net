@@ -39,7 +39,7 @@ def _update_docker_compose(domain):
         v for v in volumes if not v.endswith(f':/certbot/{domain}')
     ]
     docker_compose['services']['proxy']['volumes'].append(
-        f'~/.certbot/config/live/{latest_certs_dir}:/certbot/{domain}'
+        f'~/.certbot/config/archive/{latest_certs_dir}:/certbot/{domain}'
     )
 
     out_yaml = yaml.dump(docker_compose, default_flow_style=False)
