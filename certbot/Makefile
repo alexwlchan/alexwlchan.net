@@ -13,8 +13,8 @@ $(ROOT)/.docker/certbot: $(deps)
 	touch $(ROOT)/.docker/certbot
 
 renew-certs: $(ROOT)/.docker/certbot
-	docker run --rm \
-		--volume $(ROOT)/infra:/infra \
+	docker run --rm --tty \
+		--volume $(ROOT):/repo \
 		--volume ~/sites:/site \
 		--volume ~/.certbot/work:/var/lib/letsencrypt \
 		--volume ~/.certbot/logs:/var/logs/letsencrypt \
