@@ -1,7 +1,7 @@
 FROM alpine
 
 RUN apk update && \
-    apk add certbot python3
+    apk add certbot docker python3
 
 COPY requirements.txt /
 RUN pip3 install -r /requirements.txt
