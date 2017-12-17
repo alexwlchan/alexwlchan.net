@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- encoding: utf-8
 
 import glob
@@ -27,7 +27,7 @@ def _update_docker_compose(domain):
     #
     # So for a given domain, we want to find the latest matching name.
     #
-    matching = glob.glob(f'/etc/letsencrypt/{domain}*')
+    matching = glob.glob(f'/etc/letsencrypt/live/{domain}*')
     assert len(matching) > 0
     latest_certs_dir = os.path.basename(sorted(matching)[-1])
 
