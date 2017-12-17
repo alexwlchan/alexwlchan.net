@@ -31,7 +31,7 @@ def _update_docker_compose(domain):
     assert len(matching) > 0
     latest_certs_dir = os.path.basename(sorted(matching)[-1])
 
-    docker_compose = yaml.safe_load(open('infra/docker-compose.yml'))
+    docker_compose = yaml.safe_load(open('/infra/docker-compose.yml'))
     volumes = docker_compose['services']['proxy']['volumes']
 
     # First remove the existing certbot volume
@@ -43,7 +43,7 @@ def _update_docker_compose(domain):
     )
 
     out_yaml = yaml.dump(docker_compose, default_flow_style=False)
-    open('infra/docker-compose.yml', 'w').write(out_yaml)
+    open('/infra/docker-compose.yml', 'w').write(out_yaml)
 
 
 def renew_certs(domain):
