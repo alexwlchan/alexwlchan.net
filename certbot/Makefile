@@ -21,6 +21,7 @@ renew-certs: $(ROOT)/.docker/certbot
 		--volume ~/.certbot/work:/var/lib/letsencrypt \
 		--volume ~/.certbot/logs:/var/logs/letsencrypt \
 		--volume ~/.certbot/config:/etc/letsencrypt \
+		--volume /var/run/docker.sock:/var/run/docker.sock \
 		alexwlchan/certbot
 	git add $(ROOT)/infra/docker-compose.yml
 	git commit -m "Auto-update docker-compose.yml with new cert config [skip ci]"
