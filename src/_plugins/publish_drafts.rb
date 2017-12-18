@@ -38,7 +38,7 @@ def publish_all_drafts(source_dir)
       doc = File.read(new_name)
       doc = doc.gsub(
         /layout:\s+post\s*\n/,
-        "layout: post\ndate: #{now}")
+        "layout: post\ndate: #{now}\n")
       File.open(new_name, 'w') { |f| f.write(doc) }
 
       puts "*** Creating Git commit for #{entry}"
