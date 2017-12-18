@@ -2,6 +2,7 @@
 layout: post
 title: Your repo should be easy to build, and how
 tags: make docker software-development
+summary: Making your repo easy to clone and build is very important. This post explains why, and how I'm using Make and Docker to achieve that goal.
 ---
 
 Whenever I look at a new repository, I have a simple smell test: *how long does it take me to clone, build and get the code running?*
@@ -61,7 +62,7 @@ So after I'd cloned the repo, I could run my tests with just one command:
 $ make api-test
 ```
 
-followed by fifteen minutes of dependencies compiling in the background, which I could spend catching up on email.
+followed by ten minutes of dependencies compiling in the background, which I could spend catching up on email.
 When I came back, the code had compiled, the tests run, and I was ready to start work.
 
 Other projects I’ve worked on took much longer to get set up.
