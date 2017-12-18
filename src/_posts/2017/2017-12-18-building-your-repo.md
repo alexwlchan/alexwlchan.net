@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Your repo should be easy to build, and how
+date: 2017-12-18 08:40:30 +0000title: Your repo should be easy to build, and how
 tags: make docker software-development
 summary: Making your repo easy to clone and build is very important. This post explains why, and how I'm using Make and Docker to achieve that goal.
 ---
