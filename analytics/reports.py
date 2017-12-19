@@ -308,6 +308,8 @@ if __name__ == '__main__':
             'piwik.php',
             'up.php',
             '404.html',
+            'download.php',
+            'mytag_js.php',
         ]):
             continue
 
