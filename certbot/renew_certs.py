@@ -11,7 +11,7 @@ import yaml
 def _get_new_certs(domain):
     subprocess.check_call([
         'certbot', 'certonly', '--webroot', '--webroot-path',
-        f'/site/{domain}', '-d', f'{domain},www.{domain}'
+        '/site/%s' % domain, '-d', '%s,www.%s' % (domain, domain)
     ])
 
 
@@ -27,7 +27,7 @@ def _update_docker_compose(domain):
     #
     # So for a given domain, we want to find the latest matching name.
     #
-    matching = glob.glob(f'/etc/letsencrypt/live/{domain}*')
+    matching = glob.glob('/etc/letsencrypt/live/%s*' % domain)
     assert len(matching) > 0
     latest_certs_dir = os.path.basename(sorted(matching)[-1])
 
@@ -36,10 +36,10 @@ def _update_docker_compose(domain):
 
     # First remove the existing certbot volume
     docker_compose['services']['proxy']['volumes'] = [
-        v for v in volumes if not v.endswith(f':/certbot/{domain}')
+        v for v in volumes if not v.endswith(':/certbot/%s' % domain)
     ]
     docker_compose['services']['proxy']['volumes'].append(
-        f'~/.certbot/config/archive/{latest_certs_dir}:/certbot/{domain}'
+        '~/.certbot/config/archive/%s:/certbot/%s' % (latest_certs_dir, domain)
     )
 
     out_yaml = yaml.dump(docker_compose, default_flow_style=False)
@@ -47,11 +47,11 @@ def _update_docker_compose(domain):
 
 
 def renew_certs(domain):
-    print(f'*** Renewing certs for {domain}')
+    print('*** Renewing certs for %s' % domain)
     _get_new_certs(domain)
     _update_docker_compose(domain)
 
-    print(f'*** Restarting the proxy container with new certificates')
+    print('*** Restarting the proxy container with new certificates')
     subprocess.check_call(['docker-compose', 'restart', 'proxy'], cwd='/infra')
 
 
