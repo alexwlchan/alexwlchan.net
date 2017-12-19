@@ -135,6 +135,8 @@ def _normalise_referrer(referrer):
         'https://t.co/Z5C8w9WWRl': 'https://twitter.com/alexwlchan/status/938925459324264448',
         'https://t.co/ZHOBF3nyGf': 'https://twitter.com/alexwlchan/status/940194916835254272',
         'https://t.co/jrMPDhM7A1': 'https://twitter.com/TheDataLeek/status/940644325553086464',
+        'https://t.co/tQhrqJx1Ze': 'https://twitter.com/DRMacIver/status/942685827926241280',
+        'https://t.co/lBmTfF24A8': 'https://twitter.com/alexwlchan/status/942680331852877825',
     }
 
     if parts.netloc == 't.co':
@@ -170,6 +172,7 @@ def _is_organic(referrer):
         'DuckDuckGo',
         'https://results.searchlock.com/',
         'Bing',
+        'https://qwant.com/',
     ]:
         return True
 
@@ -301,6 +304,10 @@ if __name__ == '__main__':
             'wp-login.php',
             'wp-content',
             'license.php',
+            'ajax.php',
+            'piwik.php',
+            'up.php',
+            '404.html',
         ]):
             continue
 
