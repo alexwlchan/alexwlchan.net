@@ -31,7 +31,6 @@ def test_nginx_is_removed(nginx_hostname, path):
     ('/apple-touch-icon-precomposed.png', '/theme/apple-touch-icon.png'),
     ('/tag/os/', '/tag/os-x/'),
     ('/tag/x/', '/tag/os-x/'),
-    ('/tag/http/2/', '/tag/http-2/'),
     ('/tag/pycon/', '/tag/pyconuk/'),
 ])
 def test_nginx_resolves_correctly(nginx_hostname, path, expected_location):
