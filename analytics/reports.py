@@ -118,6 +118,20 @@ def _normalise_referrer(referrer):
         except KeyError:
             return 'DuckDuckGo'
 
+    if parts.netloc == 'nortonsafe.search.ask.com':
+        qs = parse_qs(parts.query)
+        try:
+            return f'Norton Safe Search ({qs["q"][0]})'
+        except KeyError:
+            return 'Norton Safe Search'
+
+    if referrer.startswith('https://getpocket.com/redirect'):
+        qs = parse_qs(parts.query)
+        try:
+            return _normalise_referrer(qs["url"][0])
+        except KeyError:
+            pass
+
     # If the referrer was somewhere else on the site, it's not interesting.
     if parts.netloc == 'alexwlchan.net':
         return None
@@ -137,6 +151,8 @@ def _normalise_referrer(referrer):
         'https://t.co/jrMPDhM7A1': 'https://twitter.com/TheDataLeek/status/940644325553086464',
         'https://t.co/tQhrqJx1Ze': 'https://twitter.com/DRMacIver/status/942685827926241280',
         'https://t.co/lBmTfF24A8': 'https://twitter.com/alexwlchan/status/942680331852877825',
+        'https://t.co/lgbeHfos1i': 'https://twitter.com/alexwlchan/status/942918614570676224',
+        'https://t.co/86xD9zoYMT': 'https://twitter.com/alexwlchan/status/926418492559065088',
     }
 
     if parts.netloc == 't.co':
@@ -173,6 +189,9 @@ def _is_organic(referrer):
         'https://results.searchlock.com/',
         'Bing',
         'https://qwant.com/',
+        'https://www.qwant.com/',
+        'https://www.startpage.com/',
+        'Norton Safe Search'
     ]:
         return True
 
