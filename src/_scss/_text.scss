@@ -4,7 +4,7 @@
 /// styles about page layout or positioning.
 
 body {
-  font: 13pt $main-font-family;
+  font: 12pt $main-font-family;
   line-height: $line-height;
   color: $body-color;
 	hanging-punctuation: first;
@@ -66,16 +66,16 @@ sup {
 }
 
 .title {
-  line-height: 1.5em;
+  font-size: 1.8em;
+  line-height: 1.45em;
   a {
     text-decoration: none;
   }
   &.linkpost_title,
   &.minipost_title {
-    font-size: 1.1em;
+    font-size: 1.17em;
     line-height: 1.35em;
     padding-top: 12px;
-    margin-bottom: 10px;
   }
   &.linkpost_title {
     a {
@@ -92,6 +92,7 @@ sup {
   a:visited {
     color: $primary-color;
   }
+  margin-bottom: -10px;
 }
 
 .content_warning {

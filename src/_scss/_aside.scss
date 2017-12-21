@@ -1,7 +1,6 @@
 aside {
   background: url('/theme/specktre_#{colorToHexString($primary-color)}.png') $primary-color;
   background-size: auto 100%;
-  line-height: $line-height * 0.9;
   @media print {
     background: none;
     border-bottom: 2px solid $primary-color;

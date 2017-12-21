@@ -15,9 +15,9 @@ article {
 
   // Ensure they all display in a line
   li {
-    display: inline;
+    display: inline-block;
     &:not(:first-child)::before {
-      content: " · ";
+      content: "\0000a0· ";
     }
   }
 }
