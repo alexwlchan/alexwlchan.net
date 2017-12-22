@@ -32,7 +32,7 @@ NGINX_LOG_REGEX = re.compile(
     r'(?P<status>\d{3}) '
     r'(?P<bytes_sent>\d+) '
     r'"(?:(\-)|([^"]*))" '  # referrer
-    r'"(?P<user_agent>[^"]+)" '
+    r'"(?P<user_agent>[^"]*)" '
     r'"(?P<forwarded_host>[^"]+)"', flags=re.IGNORECASE)
 
 
