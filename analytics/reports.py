@@ -329,6 +329,7 @@ if __name__ == '__main__':
             '404.html',
             'download.php',
             'mytag_js.php',
+            '/wp-admin/',
         ]):
             continue
 
