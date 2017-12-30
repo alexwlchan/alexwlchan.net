@@ -47,7 +47,7 @@ class LogLine:
     status = attr.ib(convert=int)
     bytes_sent = attr.ib(convert=int)
     user_agent = attr.ib()
-    
+
     @property
     def host(self):
         return self.forwarded_host.split()[0]
@@ -153,6 +153,7 @@ def _normalise_referrer(referrer):
         'https://t.co/lBmTfF24A8': 'https://twitter.com/alexwlchan/status/942680331852877825',
         'https://t.co/lgbeHfos1i': 'https://twitter.com/alexwlchan/status/942918614570676224',
         'https://t.co/86xD9zoYMT': 'https://twitter.com/alexwlchan/status/926418492559065088',
+        'https://t.co/8zefP9tssh': 'https://twitter.com/alexwlchan/status/946115070416818177',
     }
 
     if parts.netloc == 't.co':
@@ -239,7 +240,7 @@ def run_report(tracking_lines, not_found_lines, error_lines, limit):
     print_banner('Referrers')
     for referrer, count in get_referrers(tracking_lines, limit):
         print(f'{count:#4d} : {referrer}')
-    
+
     if any(not_found_lines):
         print_banner('404 errors')
         for (path, _), count in summarise_paths(not_found_lines, limit):
@@ -263,7 +264,11 @@ def int_or_none(value):
 
 
 def should_be_rejected(l):
-    if l.referrer == 'https://yellowstonevisitortours.com':
+    if l.referrer in [
+        'https://yellowstonevisitortours.com',
+        'https://www.cloudsendchef.com',
+        'https://www.timer4web.com/',
+    ]:
         return True
     if (l.referrer is not None) and ('yandex.ru' in l.referrer):
         return True
@@ -275,27 +280,27 @@ def docker_logs(container_name, days):
     log_dir = tempfile.mkdtemp()
     log_file = os.path.join(log_dir, 'docker_logs.log')
     os.makedirs(log_dir, exist_ok=True)
-    
+
     start_date = dt.date.today() - dt.timedelta(days=days)
-    
+
     cmd = ['docker', 'logs']
     if days is not None:
         cmd += ['--since', start_date.isoformat() + 'T00:00:00']
     cmd += [container_name]
-    
+
     with open(log_file, 'w') as pipe:
         subprocess.check_call(cmd, stdout=pipe, stderr=pipe)
-    
+
     for line in open(log_file):
-        
+
         # TODO: Handle this sort of line properly.
         if '[error]' in line:
             continue
-        
+
         m = NGINX_LOG_REGEX.match(line)
         assert m is not None, line
         yield LogLine(**m.groupdict())
-    
+
     shutil.rmtree(log_dir)
 
 
@@ -305,11 +310,11 @@ if __name__ == '__main__':
     days = int_or_none(args['--days'])
     limit = int_or_none(args['--limit'])
     container_name = args['--container'] or 'infra_alexwlchan_1'
-    
+
     tracking_lines = []
     not_found_lines = []
     error_lines = []
-    
+
     for line in docker_logs(container_name=container_name, days=days):
         if should_be_rejected(line):
             continue
@@ -335,7 +340,7 @@ if __name__ == '__main__':
 
         if line.status == 404:
             not_found_lines.append(line)
-        
+
         if (
             line.status >= 400 and
             line.status != 404 and
