@@ -268,6 +268,7 @@ def should_be_rejected(l):
         'https://yellowstonevisitortours.com',
         'https://www.cloudsendchef.com',
         'https://www.timer4web.com/',
+        'https://www.theautoprofit.ml',
     ]:
         return True
     if (l.referrer is not None) and ('yandex.ru' in l.referrer):
@@ -335,6 +336,8 @@ if __name__ == '__main__':
             'download.php',
             'mytag_js.php',
             '/wp-admin/',
+            '/phpmyadmin',
+            '/ogShow.aspx',
         ]):
             continue
 
