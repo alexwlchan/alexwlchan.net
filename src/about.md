@@ -1,35 +1,37 @@
 ---
 layout: page
 slug: about
-title: About me
+title: About
 ---
 
-<img src="/images/profile.jpg" style="float: right; width: 200px; max-width: 50%; margin-top: 0.4em; margin-left: 1em; margin-bottom: 1em;">
+<img src="/images/profile.jpg" style="float: right; width: 250px; max-width: 50%; margin-top: 0.4em; margin-left: 1em; margin-bottom: 1em;">
 
 ## Hi, I'm Alex.
 
-I'm a software developer living in Cambridge.
+I'm a software developer at [the Wellcome Trust][wellcome] and an open-source Python developer.
+At Wellcome, I'm helping build a new platform for searching and storing our digital collections.
+It's taking Wellcome's assets -- books, archives, images, and more -- and presenting them through consistent, well-designed APIs.
 
-I used to study maths and spend my free time programming &ndash; now I program for work and spend my free time doing maths.
-Currently I work for [the Wellcome Trust](https://wellcome.ac.uk/), building the backend and search system for the new library platform.
-Previously I worked for [Metaswitch Networks](http://www.metaswitch.com/), writing software for the telecoms industry.
+I contribute to open source Python in my free time, including the [Hypothesis testing library][hypothesis] and the [hyper-h2 HTTP/2 stack][hyper].
+I'm one of the organisers for the [PyCon&nbsp;UK][pycon] conference, and I've given a number of talks about Python (among other topics).
+I'm also a volunteer room steward at [The National Museum of Computing][tnmoc], as I have a personal interest in historic computing and World War II espionage.
 
-Outside work, I enjoy reading about World War II cryptography, learning new languages, and walks in the countryside.
+This blog focuses on programming, but that's not the only topic -- I write about anything I find interesting or worth sharing.
+It also serves as a way to sharpen my skills in writing, and improve my ability to explain my ideas.
+The site name is a handle I use everywhere -- my name and my initials.
 
-My pronouns are he/him.
+I hope you enjoy the site.
 
-[meta]: http://www.metaswitch.com
-[perimeta]: http://www.metaswitch.com/perimeta-session-border-controller-sbc
+[hypothesis]: https://github.com/HypothesisWorks/hypothesis-python
+[wellcome]: https://en.wikipedia.org/wiki/Wellcome_Trust
+[hyper]: https://github.com/python-hyper/
+[pycon]: http://2017.pyconuk.org/
+[tnmoc]: http://www.tnmoc.org/
 
-### How to get in touch
+<h3 id="contact">Contact</h3>
 
-*   I tweet at [alexwlchan](https://twitter.com/alexwlchan).
+You can email me at [{{ site.email | encode_mail }}]({{ site.email | encode_mailto }}), or I'm [@alexwlchan](https://twitter.com/alexwlchan) on Twitter.
 
-*   You can email me at <a href="&#x6D;&#97;&#105;&#x6C;&#x74;&#111;:&#x61;&#108;&#x65;&#x78;&#64;&#97;&#x6C;&#x65;&#x78;&#x77;&#108;&#x63;&#104;&#97;n&#x2E;&#110;&#101;&#x74;">&#x61;&#108;&#x65;&#x78;&#64;&#97;&#x6C;&#x65;&#x78;&#x77;&#108;&#x63;&#104;&#97;n&#x2E;&#110;&#101;&#x74;</a>.
+### Open source projects
 
-*   Some of my code is [hosted on GitHub](https://github.com/alexwlchan).
-
-<!-- *   I used to post answers on the [Sci-Fi & Fantasy Stack Exchange][scifi] on a fairly regular basis, particularly on questions about Harry Potter and the Marvel Cinematic Universe.
-    These days, I don't post much, but there's still a big body of writing there.
-
-[scifi]: http://scifi.stackexchange.com/users/3567/alexwlchan -->
+See my [GitHub account](https://github.com/alexwlchan/) for some of the open source projects I work on.
