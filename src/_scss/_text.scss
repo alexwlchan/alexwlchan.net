@@ -62,11 +62,11 @@ sup {
 
 .footnotes {
   font-size: 1em * $scaling-factor;
-  line-height: $line-height * $scaling-factor;
 }
 
 .title {
-  font-size: 1.8em;
+  font-size: 1.9em;
+  font-weight: normal;
   line-height: 1.45em;
   a {
     text-decoration: none;
