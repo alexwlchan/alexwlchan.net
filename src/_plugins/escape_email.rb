@@ -10,6 +10,10 @@ module Jekyll
       "mailto:#{input}".chars.map { |ch| _encode_char(ch) }.join("")
     end
 
+    def encode_mail(input)
+      "#{input}".chars.map { |ch| _encode_char(ch) }.join("")
+    end
+
     def _encode_char(char)
       if char == ":"
         char
