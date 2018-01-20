@@ -217,6 +217,11 @@ for key in get_matching_s3_keys(bucket='bukkit', suffix=('.jpg', '.JPG')):
 This function absorbs all the messiness of dealing with the S3 API, and I can focus on actually using the keys.
 Although S3 isn't actually a traditional filesystem, it behaves in very similar ways -- and this function helps close the gap.
 
+{% update 2018-01-20 %}
+  I've been running this code in production for a while now, and uncovered a few problems.
+  If you want to use it, I'd recommend using the [updated version](/2018/01/listing-s3-keys-redux/).
+{% endupdate %}
+
 [boto3]: https://github.com/boto/boto3
 [list_objects]: https://boto3.readthedocs.io/en/stable/reference/services/s3.html#S3.Client.list_objects_v2
 [kwargs]: https://stackoverflow.com/q/36901/1558022
