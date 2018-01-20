@@ -13,4 +13,4 @@ $(ROOT)/.docker/analytics: $(deps)
 	touch $(ROOT)/.docker/analytics
 
 analytics-report: $(ROOT)/.docker/analytics
-	docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock alexwlchan/analytics --days=7 --limit=25
+	docker run --rm --volume /var/run/docker.sock:/var/run/docker.sock alexwlchan/analytics --days=7 --limit=15
