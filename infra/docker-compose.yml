@@ -17,10 +17,14 @@ services:
     - ./nginx.conf:/etc/nginx/nginx.conf
     - ~/.certbot/config/archive/alexwlchan.net-0003:/certbot/alexwlchan.net
     - ~/.certbot/config/archive/bijouopera.co.uk-0001:/certbot/bijouopera.co.uk
+    - ~/.certbot/config/archive/pincushion.alexwlchan.net/:/certbot/pincushion.alexwlchan.net/
   pygmentizr:
     environment:
     - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
     image: alexwlchan/pygmentizr
     volumes:
     - ~/repos/pygmentizr/config.py:/config.py
+  pincushion:
+    image: pincushion
+    command: /app/run_viewer.py --host 'http://elasticsearch:9200/'
 version: '2'
