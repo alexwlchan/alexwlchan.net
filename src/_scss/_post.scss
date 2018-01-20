@@ -5,6 +5,14 @@
   }
 }
 
+.post__separator {
+  color: $light-grey;
+  text-align: center;
+  font-size: 2em;
+  margin-top:    1em;
+  margin-bottom: 1em;
+}
+
 .post__meta, .page__meta {
   margin-top: -10px;
   &, a, a:visited {
