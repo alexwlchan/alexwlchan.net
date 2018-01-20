@@ -22,6 +22,8 @@ The site name is a handle I use everywhere -- my name and my initials.
 
 I hope you enjoy the site.
 
+He/him.
+
 [hypothesis]: https://github.com/HypothesisWorks/hypothesis-python
 [wellcome]: https://en.wikipedia.org/wiki/Wellcome_Trust
 [hyper]: https://github.com/python-hyper/
