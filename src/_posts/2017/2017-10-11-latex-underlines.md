@@ -224,4 +224,4 @@ So it might be old-fashioned to care about LaTeX and underlined links, but it mi
 
 *The code used to create the images in this post is [on GitHub][github].*
 
-[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/examples/latex-underlines
+[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/code/latex-underlines
