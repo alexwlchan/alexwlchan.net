@@ -132,6 +132,20 @@ def _normalise_referrer(referrer):
         except KeyError:
             pass
 
+    if 'ask.com' in parts.netloc:
+        qs = parse_qs(parts.query)
+        try:
+            return f'Ask.com ({qs["searchfor"][0]})'
+        except KeyError:
+            pass
+
+    if 'izito.co.uk' in parts.netloc:
+        qs = parse_qs(parts.query)
+        try:
+            return f'Izito ({qs["q"][0]})'
+        except KeyError:
+            pass
+
     # If the referrer was somewhere else on the site, it's not interesting.
     if parts.netloc == 'alexwlchan.net':
         return None
@@ -338,7 +352,7 @@ if __name__ == '__main__':
             '/wp-admin/',
             '/phpmyadmin',
             '/ogShow.aspx',
-        ]):
+        ]) or re.match(r'^/[a-z]+\.php~?', line.url):
             continue
 
         if line.status == 404:
