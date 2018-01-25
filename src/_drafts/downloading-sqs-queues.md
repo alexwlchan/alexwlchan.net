@@ -12,12 +12,12 @@ This is a classic microservices pattern.
 ![Three applications, communicating via two message queues.](/images/2018/sqs_queues.png)
 
 Sometimes an application fails to process a message correctly, in which case SQS can send the message to a separate [dead-letter queue (DLQ)][dlq].
-(Our [Terraform module for SQS queues][tf] automatically creates and configures a DLQ for every queue we create.)
+(Our [Terraform module for SQS queues][tf] automatically creates and configures a DLQ for all our queues.)
 Sending faulty messages to a DLQ allows you to see them all in one go, rather than trying to spot the failures in your logs.
 
 Unfortunately, the AWS Console doesn't make it very easy to go through the contents of a queue.
 You can see one message at a time, but this makes it hard to spot patterns or debug a large number of failures.
-It would be nicer to have the entire queue in a local file, so we can analyse it or process every message at once.
+It would be easier to have the entire queue in a local file, so we can analyse it or process every message at once.
 I've written a Python function to do just that, and in this post, I'll walk through how it works.
 
 <!-- summary -->
@@ -27,7 +27,7 @@ I've written a Python function to do just that, and in this post, I'll walk thro
   <figcaption>
     Viewing queue messages in the AWS Console.
     Our messages are large JSON objects, so most of the detail isn't even visible!
-    You can click "More Details" to see the entire message, but that's only one at a time.
+    You can click "More Details" to see the entire message, but you can only view one at a time.
   </figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ We ask for 10&nbsp;messages because that's the most we can fetch in a single API
 
 The docs tell us the response is a dict with a single key, "Messages", which contains the messages.
 If the queue is empty, so is the response.
-So we can extract the individual messages like so:
+So we can extract the individual messages like this:
 
 ```python
 try:
@@ -68,11 +68,11 @@ We could call `receive_message()` again, and we'd probably get new messages, but
 Just receiving a message isn't enough to remove it from an SQS queue.
 Suppose it were: if a consumer received a message from a queue, then crashed before it could finish processing the message, the original message would be lost.
 
-To prevent losing messages, consumers have to explicitly tell SQS that they're finished with the message, so it can mark it as "done" -- and only then does it delete the message from the queue.
+To prevent losing messages, consumers have to explicitly tell SQS that they're finished with the message -- and only then does it delete the message from the queue.
 If SQS doesn't hear back within a certain time (the *visibility timeout*, default 30&nbsp;seconds), it assumes the message needs to be re-sent.
 Only when SQS has re-sent a message several times, and never heard back from a consumer, does it assume the message is faulty, and then the message is sent to the DLQ.
 
-So we need to mark our messages as "done".
+So we need to mark our messages as "done", or we might get duplicate messages from `receive_message()`.
 Each message includes a `ReceiptHandle` that we send back to SQS via the [`delete_message_batch()` API][delete].
 We need to pass it a list of dicts, each containing an ID (that we generate) and a receipt handle.
 
@@ -86,8 +86,8 @@ resp = sqs_client.delete_message_batch(QueueUrl=queue_url, Entries=entries)
 ```
 
 The response tells us whether it successfully deleted all the messages, and if not, which failed to delete.
-That's what the IDs are for -- they tell us which deletes failed, if any.
-We could use the IDs to retry any failed deletes, but in practice, I've never had an issue with message deletions, so I just raise an error if that ever occurs:
+That's what the IDs are for -- we can work out which deletes failed, if any.
+We could use the IDs to retry any failed deletes, but in practice, I've never had an issue with message deletions, so I'll just raise an error if that ever occurs:
 
 ```python
 if len(resp['Successful']) != len(entries):
@@ -101,7 +101,7 @@ if len(resp['Successful']) != len(entries):
 Putting this together, we have enough code to fetch ten messages from a queue.
 Then we can run this repeatedly until the queue runs out of messages.
 Rather than printing when we get the KeyError, we break out of the loop.
-And while we're here, let's wrap the code in a function:
+And then let's wrap the code in a function:
 
 ```python
 import boto3
@@ -122,7 +122,7 @@ def get_messages_from_queue(queue_url):
         try:
             messages.extend(resp['Messages'])
         except KeyError:
-            return messages
+            break
 
         entries = [
             {'Id': msg['MessageId'], 'ReceiptHandle': msg['ReceiptHandle']}
@@ -137,11 +137,13 @@ def get_messages_from_queue(queue_url):
             raise RuntimeError(
                 f"Failed to delete messages: entries={entries!r} resp={resp!r}"
             )
+
+    return messages
 ```
 
 This isn't ideal, because we're accumulating all the messages in a list -- if our queue is large, this spends a lot of memory.
 We might run out of memory entirely, and lose all the messages!
-Better would be to rewrite this as a generator.
+Better would be to rewrite this as a generator, yielding the messages as we receive them.
 If we do that, the code becomes cleaner and more efficient.
 
 Add a docstring, and we have the final version of the function:
@@ -188,7 +190,7 @@ def get_messages_from_queue(queue_url):
             )
 ```
 
-If you want to use this code, just copy-and-paste it into your project, with a link back to this post.
+If you want to use this code, just copy-and-paste it into your project, ideally with a link back to this post.
 
 ## Saving the messages to a file
 
@@ -224,7 +226,7 @@ if __name__ == '__main__':
         print(json.dumps(message))
 ```
 
-I can then run the script as follows:
+I run the script as follows:
 
 ```console
 $ python get_sqs_messages.py 'https://sqs.amazonaws.com/1234567890/example_q' > q.txt
