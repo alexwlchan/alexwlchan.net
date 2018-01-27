@@ -99,14 +99,6 @@ Gemfile.lock: Gemfile
 		--tty --rm $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
 
-renew-certbot:
-	docker run --rm \
-		--volume ~/sites/alexwlchan.net:/site \
-		--volume ~/.certbot/work:/var/lib/letsencrypt \
-		--volume ~/.certbot/logs:/var/logs/letsencrypt \
-		--volume ~/.certbot/config:/etc/letsencrypt \
-		certbot/certbot certonly --webroot --webroot-path /site -d alexwlchan.net,www.alexwlchan.net
-
 nginx-serve:
 	docker run --rm \
 		--volume $(ROOT)/infra/alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf \
@@ -117,6 +109,7 @@ nginx-serve:
 		--detach nginx:alpine
 
 include analytics/Makefile
+include certbot/Makefile
 
 
 .PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
