@@ -168,6 +168,7 @@ def _normalise_referrer(referrer):
         'https://t.co/lgbeHfos1i': 'https://twitter.com/alexwlchan/status/942918614570676224',
         'https://t.co/86xD9zoYMT': 'https://twitter.com/alexwlchan/status/926418492559065088',
         'https://t.co/8zefP9tssh': 'https://twitter.com/alexwlchan/status/946115070416818177',
+        'https://t.co/pIeLZl5gau': 'https://twitter.com/alexwlchan/status/956658216485695491',
     }
 
     if parts.netloc == 't.co':
