@@ -27,4 +27,6 @@ services:
   pincushion:
     image: pincushion
     command: /app/run_viewer.py --host 'http://elasticsearch:9200/'
+    volumes:
+    - ~/.aws:/root/.aws
 version: '2'
