@@ -1,25 +1,30 @@
-version: "2"
 services:
-  proxy:
-    image: "nginx:alpine"
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - "./nginx.conf:/etc/nginx/nginx.conf"
-      - "~/.certbot:/certbot"
-  bijou:
-    image: "nginx:alpine"
-    volumes:
-      - ~/sites/bijouopera.co.uk:/usr/share/nginx/html
-  pygmentizr:
-    image: "alexwlchan/pygmentizr"
-    environment:
-      - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
-    volumes:
-      - "~/repos/pygmentizr/config.py:/config.py"
   alexwlchan:
-    image: "nginx:alpine"
+    image: nginx:alpine
     volumes:
-      - "~/sites/alexwlchan.net:/usr/share/nginx/html"
-      - "./alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf"
+    - ~/sites/alexwlchan.net:/usr/share/nginx/html
+    - ./alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf
+  bijou:
+    image: nginx:alpine
+    volumes:
+    - ~/sites/bijouopera.co.uk:/usr/share/nginx/html
+  proxy:
+    image: nginx:alpine
+    ports:
+    - 80:80
+    - 443:443
+    volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+    - ~/.certbot/config/archive/alexwlchan.net-0003:/certbot/alexwlchan.net
+    - ~/.certbot/config/archive/bijouopera.co.uk-0001:/certbot/bijouopera.co.uk
+    - ~/.certbot/config/archive/pincushion.alexwlchan.net/:/certbot/pincushion.alexwlchan.net/
+  pygmentizr:
+    environment:
+    - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
+    image: alexwlchan/pygmentizr
+    volumes:
+    - ~/repos/pygmentizr/config.py:/config.py
+  pincushion:
+    image: pincushion
+    command: /app/run_viewer.py --host 'http://elasticsearch:9200/'
+version: '2'
