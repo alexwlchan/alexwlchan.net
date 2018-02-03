@@ -353,6 +353,7 @@ if __name__ == '__main__':
             '/wp-admin/',
             '/phpmyadmin',
             '/ogShow.aspx',
+            'ogPipe.aspx',
         ]) or re.match(r'^/[a-z]+\.php~?', line.url):
             continue
 
