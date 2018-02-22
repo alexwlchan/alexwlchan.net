@@ -1,43 +1,41 @@
 ---
-layout: default
+layout: page
 ---
 
-<article class="archive__article">
-  <h2>{{ page.title | escape }}</h2>
+{% if page.archive_variant == "yearly" %}
+<p>
+  You can also read <a href="/archive/">the complete archive</a>.
+</p>
+{% elsif page.archive_variant == "monthly" %}
+<p>
+  You can also see <a href="/{{ page.year }}/">other posts from this year</a> or read <a href="/archive/">the complete archive</a>.
+</p>
+{% elsif page.archive_variant == "global" %}
+<p>You can also browse my posts <a href="/tags/">by tag</a>.</p>
+{% endif %}
 
-  {% assign running_year = "" %}
+{% assign running_year = "" %}
 
-  <ul class="archive">
-  {% for post in page.posts %}
-    {% if page.archive_variant == "global" %}
-      {% assign post_year = post.date | date: "%Y" %}
-      {% if running_year != post_year %}
-      </ul>
-      <h3>{{ post_year }}</h3>
-      <ul class="archive">
-      {% endif %}
-      {% assign running_year = post_year %}
-    {% endif %}
-    <li>
-      <div>
-        <div class="archive__date">
-          {{ post.date | date: "%-d %b" }}
-        </div>
-        <div class="archive__url">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
+<ul class="archive">
+{% for post in page.posts %}
+{% if page.archive_variant == "global" %}
+  {% assign post_year = post.date | date: "%Y" %}
+  {% if running_year != post_year %}
   </ul>
-
-  {% if page.archive_variant == "yearly" %}
-    <p>
-      You can also read <a href="/archive/">the complete archive</a>.
-    </p>
-  {% elsif page.archive_variant == "monthly" %}
-    <p>
-      You can also see <a href="/{{ page.year }}/">other posts from this year</a> or read <a href="/archive/">the complete archive</a>.
-    </p>
+  <h2>{{ post_year }}</h2>
+  <ul class="archive">
   {% endif %}
-</article>
+  {% assign running_year = post_year %}
+{% endif %}
+<li>
+  <div>
+    <div class="archive__date">
+      {{ post.date | date: "%-d %b" }}
+    </div>
+    <div class="archive__url">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+  </div>
+</li>
+{% endfor %}
+</ul>

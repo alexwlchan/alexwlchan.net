@@ -1,0 +1,9 @@
+// Styles for the /tags page
+
+.tags__cloud {
+  text-align: justify;
+
+  a:not(:last-child) {
+    margin-right: 0.15em;
+  }
+}
