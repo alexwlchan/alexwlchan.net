@@ -19,7 +19,7 @@ def test_pages_appear_correctly(hostname, path):
     ('2017/07/', 'Posts from July 2017'),
     ('', 'Older posts'),
     ('', '<title>alexwlchan</title>'),
-    ('archive/', '<h3>2017</h3>'),
+    ('archive/', '<h2>2017</h2>'),
 
     # Smartypants is working
     ('2017/09/lazy-reading-in-python', u'kept in Amazon S3 &ndash; XML exports'),
