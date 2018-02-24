@@ -91,11 +91,11 @@ def traffic_by_date(log_lines):
 
 def _normalise_referrer(referrer):
     parts = urlparse(referrer)
+    qs = parse_qs(parts.query)
 
     # All international flavours of Google get collapsed into a single
     # set of results, split out only if a query string is visible.
     if parts.netloc.startswith(('www.google.', 'encrypted.google.')):
-        qs = parse_qs(parts.query)
         try:
             return f'Google ({qs["q"][0]})'
         except KeyError:
@@ -105,44 +105,50 @@ def _normalise_referrer(referrer):
         return 'Google'
 
     if parts.netloc.endswith('bing.com'):
-        qs = parse_qs(parts.query)
         try:
             return f'Bing ({qs["q"][0]})'
         except KeyError:
             return 'Bing'
 
     if parts.netloc == 'duckduckgo.com':
-        qs = parse_qs(parts.query)
         try:
             return f'DuckDuckGo ({qs["q"][0]})'
         except KeyError:
             return 'DuckDuckGo'
 
     if parts.netloc == 'nortonsafe.search.ask.com':
-        qs = parse_qs(parts.query)
         try:
             return f'Norton Safe Search ({qs["q"][0]})'
         except KeyError:
             return 'Norton Safe Search'
 
     if referrer.startswith('https://getpocket.com/redirect'):
-        qs = parse_qs(parts.query)
         try:
             return _normalise_referrer(qs["url"][0])
         except KeyError:
             pass
 
-    if 'ask.com' in parts.netloc:
-        qs = parse_qs(parts.query)
+    if ('ask.com' in parts.netloc) or ('search.myway.com' in parts.netloc):
         try:
             return f'Ask.com ({qs["searchfor"][0]})'
         except KeyError:
             pass
 
     if 'izito.co.uk' in parts.netloc:
-        qs = parse_qs(parts.query)
         try:
             return f'Izito ({qs["q"][0]})'
+        except KeyError:
+            pass
+
+    if 'search.yahoo.com' in parts.netloc:
+        try:
+            return f'Yahoo Search ({qs["p"][0]})'
+        except KeyError:
+            pass
+
+    if 'zapmeta.co.uk' in parts.netloc:
+        try:
+            return f'ZapMeta ({qs["q"][0]})'
         except KeyError:
             pass
 
@@ -207,7 +213,10 @@ def _is_organic(referrer):
         'https://qwant.com/',
         'https://www.qwant.com/',
         'https://www.startpage.com/',
-        'Norton Safe Search'
+        'Norton Safe Search',
+        'https://www.discretesearch.com/',
+        'https://www.startpage.com/do/search',
+        'https://google.90h6.cn:1668/',
     ]:
         return True
 
@@ -314,7 +323,9 @@ def docker_logs(container_name, days):
             continue
 
         m = NGINX_LOG_REGEX.match(line)
-        assert m is not None, line
+        if m is None:
+            print('???', line)
+            continue
         yield LogLine(**m.groupdict())
 
     shutil.rmtree(log_dir)
@@ -354,7 +365,11 @@ if __name__ == '__main__':
             '/phpmyadmin',
             '/ogShow.aspx',
             'ogPipe.aspx',
-        ]) or re.match(r'^/[a-z]+\.php~?', line.url):
+        ]):
+            continue
+
+        parts = urlparse(line.url)
+        if parts.path.endswith(('.php', '.aspx', '.asp')):
             continue
 
         if line.status == 404:
