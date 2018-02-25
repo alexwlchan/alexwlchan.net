@@ -2,8 +2,7 @@
 layout: post
 date: 2014-07-11 07:43:00 +0000
 tags: latex wolfram-alpha
-title: Getting plaintext <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span> from
-  Wolfram Alpha
+title: Getting plaintext LaTeX from Wolfram Alpha
 ---
 
 Although I don't write numerical equations very often, I couldn't help but smile at [this post by Dr. Drang][drang].

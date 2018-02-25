@@ -5,7 +5,7 @@
     {% else %}
       <a href="{{ post.url | relative_url }}">
     {% endif %}
-    {{ post.title | smartify | escape }}</a>
+    {{ post.title | cleanup_text | smartify }}</a>
   </h1>
 
   <div class="post__meta">
@@ -38,9 +38,9 @@
 
   {% if is_index and post.content contains '<!-- summary -->' %}
     {% assign splitcontent = post.content | split: '<!-- summary -->' %}
-    {{ splitcontent.first | smartify }}
+    {{ splitcontent.first | cleanup_text | smartify }}
     <p><a href="{{ post.url | relative_url }}">Read more &rarr;</a></p>
   {% else %}
-    {{ post.content | smartify }}
+    {{ post.content | cleanup_text | smartify }}
   {% endif %}
 </article>
