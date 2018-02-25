@@ -14,5 +14,5 @@ layout: default
   </div>
   {% endif %}
 
-  {{ content | smartify }}
+  {{ content | cleanup_text | smartify }}
 </article>
