@@ -31,10 +31,10 @@ def test_nginx_is_removed(nginx_hostname, path):
     ('/apple-touch-icon-precomposed.png', '/theme/apple-touch-icon.png'),
 
     # Redirects work with and without the slash
-    ('/tag/os', '/tag/os-x/'),
-    ('/tag/os/', '/tag/os-x/'),
-    ('/tag/x/', '/tag/os-x/'),
-    ('/tag/pycon/', '/tag/pyconuk/'),
+    ('/tag/os', '/tags/#tag__os-x/'),
+    ('/tag/os/', '/tags/#tag__os-x/'),
+    ('/tag/x/', '/tags/#tag__os-x/'),
+    ('/tag/pycon/', '/tags/#tag__pyconuk/'),
 
     # The tag redirects for February 2018 work correctly
     ('/tag', '/tags/'),
