@@ -29,6 +29,9 @@ def test_nginx_is_removed(nginx_hostname, path):
     ('/view/img/favicon.ico', '/theme/favicon.ico'),
     ('/apple-touch-icon.png', '/theme/apple-touch-icon.png'),
     ('/apple-touch-icon-precomposed.png', '/theme/apple-touch-icon.png'),
+
+    # Redirects work with and without the slash
+    ('/tag/os', '/tag/os-x/'),
     ('/tag/os/', '/tag/os-x/'),
     ('/tag/x/', '/tag/os-x/'),
     ('/tag/pycon/', '/tag/pyconuk/'),
