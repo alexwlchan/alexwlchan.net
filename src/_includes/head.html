@@ -1,5 +1,3 @@
-<!-- TODO: Put in the metadata for Twitter cards and OpenGraph metadata -->
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +9,15 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
 
-  {% if page.theme and page.theme.color %}
-  <link rel="stylesheet" href="/theme/style_{{ page.theme.color }}.css">
+{% if page.theme and page.theme.color %}
+  <link rel="stylesheet" href="/theme/style_{{ page.theme.color }}.css?{{ site.time | date:'%Y%m%d%U%H%N%S' }}">
   <link rel="shortcut icon" type="image/png" href="/theme/favicon_{{ page.theme.color }}.png">
   <link rel="shortcut icon" type="image/x-icon" href="/theme/favicon_{{ page.theme.color }}.ico">
-  {% else %}
-  <link rel="stylesheet" href="/theme/style.css">
+{% else %}
+  <link rel="stylesheet" href="/theme/style.css?{{ site.time | date:'%Y%m%d%U%H%N%S' }}">
   <link rel="shortcut icon" type="image/png" href="/theme/favicon.png">
   <link rel="shortcut icon" type="image/x-icon" href="/theme/favicon.ico">
-  {% endif %}
+{% endif %}
 
   {% if page.theme and page.theme.touch_icon %}
   <link rel="apple-touch-icon" href="/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png">

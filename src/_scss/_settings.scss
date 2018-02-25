@@ -12,7 +12,7 @@ $midtone-gray: #ccc;
 $default-font-size: 1em;
 $line-height:       1.45em;
 
-$meta-size: 0.85;
+$meta-size: 0.95;
 $meta-font-size:   $meta-size * $default-font-size;
 $meta-line-height: $meta-size * $line-height * 1.15;
 
@@ -20,7 +20,7 @@ $max-width:       750px !default;
 $default-padding: 20px !default;
 $big-font-size:   2em !default;
 
-$scaling-factor: 0.9;
+$scaling-factor: 0.95;
 $code-scaling-factor: $scaling-factor;
 
 $jekyll-red:    #d50000;
