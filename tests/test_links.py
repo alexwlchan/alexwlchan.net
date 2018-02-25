@@ -52,9 +52,13 @@ def test_pages_appear_correctly(hostname, path):
      '<a href="https://twitter.com/hashtag/PyConUK">#PyConUK</a>'),
     ('2017/10/lightning-talks/', '<div class="media">'),
     ('2017/04/lessons-from-alterconf/', '<div class="media">'),
+
+    # Text cleanups are being applied correctly
+    ('/2018/01/ips-for-documentation/', 'RFC&nbsp;5737'),
+    ('/2018/01/ips-for-documentation/', 'RFC&nbsp;2606'),
 ])
 def test_text_appears_in_pages(hostname, path, text_in_page):
-    resp = requests.get('http://%s/%s' % (hostname, path))
+    resp = requests.get('http://%s/%s' % (hostname, path.lstrip('/')))
     assert resp.status_code == 200
     assert text_in_page in resp.text
 
