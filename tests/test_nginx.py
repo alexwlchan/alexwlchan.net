@@ -35,6 +35,10 @@ def test_nginx_is_removed(nginx_hostname, path):
     ('/tag/os/', '/tag/os-x/'),
     ('/tag/x/', '/tag/os-x/'),
     ('/tag/pycon/', '/tag/pyconuk/'),
+
+    # The tag redirects for February 2018 work correctly
+    ('/tag', '/tags/'),
+    ('/tag/', '/tags/'),
 ])
 def test_nginx_resolves_correctly(nginx_hostname, path, expected_location):
     resp = requests.head('http://%s%s' % (nginx_hostname, path))
