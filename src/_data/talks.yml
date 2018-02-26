@@ -1,0 +1,16 @@
+2017:
+  - title: Using privilege to improve inclusion
+    date: 27 Oct
+    description: |+
+      A talk about the tech industry, and how we, as people of privilege, can
+      do more to build environments that are genuinely inclusive.  You can
+      watch the video [on YouTube](https://www.youtube.com/watch?v=Ej2EJVMkTKw),
+      or read the [slides and transcript](/2017/11/pyconuk-2017-privilege-inclusion/).
+
+  - title:  A Plumber’s Guide to Git
+    date: 27 Oct
+    description: |+
+      How does Git really work under the hood?  A workshop that uses low-level
+      Git "plumbing" commands to reconstruct a Git workflow from scratch.
+      Along the way, we see exactly how Git stores data.  There isn't a video,
+      but you can read [my notes](/2017/11/a-plumbers-guide-to-git/).

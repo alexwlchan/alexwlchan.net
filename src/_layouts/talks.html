@@ -1,0 +1,14 @@
+---
+layout: page
+---
+
+{% for talk_year in site.data["talks"] %}
+  {% assign year = talk_year[0] %}
+  {% assign talks = talk_year[1] %}
+  <h2>{{ year }}</h2>
+  {{ talks }}
+{% endfor %}
+
+<hr/>
+
+{{ content }}
