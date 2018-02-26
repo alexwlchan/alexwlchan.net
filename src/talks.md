@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: talks
 title: Talks and workshops
 ---
 
