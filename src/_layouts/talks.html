@@ -6,7 +6,20 @@ layout: page
   {% assign year = talk_year[0] %}
   {% assign talks = talk_year[1] %}
   <h2>{{ year }}</h2>
-  {{ talks }}
+
+  <ul class="talks">
+  {% for t in talks %}
+    <li>
+      <div class="talk__date">{{ t.date }}</div>
+      <div class="talk__description">
+        <p class="talk__title">
+          {{ t.conference }}: <em>{{ t.title }}</em>.
+        </p>
+        {{ t.description | smartify | render_markdown}}
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
 {% endfor %}
 
 <hr/>
