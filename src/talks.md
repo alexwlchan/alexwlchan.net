@@ -1,8 +1,38 @@
 ---
 layout: page
-title: Talks
-slug: talks
+title: Talks and workshops
 ---
+
+These is an incomplete list of the talks and workshops I have given or am scheduled to give.
+
+## 2017
+
+<ul class="talks">
+  <li>
+    <div class="talk__date">27 Oct</div>
+    <div class="talk__description">
+      <p class="talk__title">
+        PyCon UK: <em>Using privilege to improve inclusion</em>.
+      </p>
+      A talk about the tech industry, and how we, as people of privilege, can do more to build environments that are genuinely inclusive.
+      You can watch the video <a href="https://www.youtube.com/watch?v=Ej2EJVMkTKw">on YouTube</a>, or read the <a href="/2017/11/pyconuk-2017-privilege-inclusion/">slides and transcript</a>.
+    </div>
+  </li>
+
+  <li>
+    <div class="talk__date">27 Oct</div>
+    <div class="talk__description">
+      PyCon UK workshop: <em>A Plumber&rsquo;s Guide to Git</em>. <br/>
+      There isn't a video, but you can read <a href="/2017/11/a-plumbers-guide-to-git/">my notes</a>.
+    </div>
+  </li>
+</ul>
+
+*   Oct 27th -- [*Using privilege to improve inclusion*](http://2017.pyconuk.org/sessions/talks/using-privilege-to-help-not-hurt-diversity/) -- talk at PyCon UK
+
+    You can watch the video [on YouTube](), or read the [slides and transcript]().
+
+*   Oct 27th -- [**](http://2017.pyconuk.org/sessions/workshops/a-plumber-s-guide-to-git/) -- workshop at PyCon UK
 
 <style>.section{margin-bottom:20px;}.section{display:inline-block;margin-top:10px}.description,.thumbnail{display:table-cell;vertical-align:top}.thumbnail{margin:auto auto 20px;padding-right:20px;width:240px}@media screen and (max-width:500px){.description,.thumbnail{display:inline-block}.thumbnail{width:100%;margin-bottom:10px}.thumbnail img{width:60%;margin:auto}}.description{margin-top:-10px;padding-top:0}.talk_title{margin-bottom:5px;margin-top:7px}{% if page.accent1 %}a,.article_title a:visited{color:{{page.accent1}};}aside{background-color:{{ page.accent1 }};}{% endif %}{% if page.accent2 %}a:visited{color:{{page.accent2}};}{% endif %}@media screen and (min-width:500px){.caption{max-width: 100%;} .description p:first-child{margin-top:0px;}}img{border:1px solid #ccc;}.caption{margin-bottom:0px;}</style>
 
