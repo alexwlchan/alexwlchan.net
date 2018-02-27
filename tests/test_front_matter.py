@@ -30,7 +30,7 @@ class SourceFile(object):
                     month=int(parts[1]),
                     day=int(parts[2])
                 )
-            elif self.metadata['layout'] in ('home', 'page'):
+            elif self.metadata['layout'] in ('home', 'page', 'talks'):
                 return dt.datetime.now().date()
             else:
                 raise RuntimeError(
