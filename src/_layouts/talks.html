@@ -2,6 +2,8 @@
 layout: page
 ---
 
+{{ content }}
+
 {% for talk_year in site.data["talks"] %}
   {% assign year = talk_year[0] %}
   {% assign talks = talk_year[1] %}
@@ -13,7 +15,7 @@ layout: page
       <div class="talk__date">{{ t.date }}</div>
       <div class="talk__description">
         <p class="talk__title">
-          {{ t.conference }}: <em>{{ t.title }}</em>.
+          {{ t.conference | smartify }}: <em>{{ t.title | smartify }}</em>.
         </p>
         {{ t.description | smartify | render_markdown}}
       </div>
@@ -23,5 +25,3 @@ layout: page
 {% endfor %}
 
 <hr/>
-
-{{ content }}
