@@ -1,3 +1,11 @@
+2018:
+
+  - title: A Plumber's Guide to Git
+    conference: CamPUG
+    date: 6 Mar
+    description: |+
+      A repeat of my PyCon UK workshop.  You can sign up [on Meetup.com](https://www.meetup.com/CamPUG/events/246459416/).
+
 2017:
 
   - title: An ode to docopt
@@ -36,6 +44,8 @@
   - title: Property-Based Testing In Practice
     conference: QCon London
     date: 8 Mar
+    description: |+
+      You can read [slides and links](/talks/qcon2017/).
 
 2016:
 
