@@ -1,0 +1,25 @@
+$talk-left-column: 55px;
+$talk-gutter-column: 15px;
+
+.talks {
+  list-style-type: none;
+  padding-left: 0px !important;
+  margin-bottom: 1.2em;
+
+  li {
+    margin-bottom: 1em;
+  }
+
+  .talk__title {
+    font-weight: bold;
+  }
+  .talk__date {
+    width: $talk-left-column;
+    float: left;
+    display: inline-block;
+    text-align: right;
+  }
+  .talk__description {
+    margin-left: $talk-left-column + $talk-gutter-column;
+  }
+}

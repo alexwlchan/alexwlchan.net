@@ -1,0 +1,62 @@
+2018:
+
+  - title: A Plumber's Guide to Git
+    conference: CamPUG
+    date: 6 Mar
+    description: |+
+      A repeat of my PyCon UK workshop.  You can sign up [on Meetup.com](https://www.meetup.com/CamPUG/events/246459416/).
+
+2017:
+
+  - title: An ode to docopt
+    conference: CamPUG
+    date: 5 Dec
+    description: |+
+      A lightning talk about the docopt library.  You can read
+      my [slides and transcript](/2017/09/ode-to-docopt/).
+
+  - title: Using privilege to improve inclusion
+    conference: PyCon UK
+    date: 27 Oct
+    description: |+
+      A talk about the tech industry, and how we, as people of privilege, can
+      do more to build environments that are genuinely inclusive.  You can
+      watch the video [on YouTube](https://www.youtube.com/watch?v=Ej2EJVMkTKw),
+      or read the [slides and transcript](/2017/11/pyconuk-2017-privilege-inclusion/).
+
+  - title:  A Plumber’s Guide to Git
+    conference: PyCon UK
+    date: 27 Oct
+    description: |+
+      How does Git work under the hood?  A workshop that uses low-level
+      Git "plumbing" commands to reconstruct a Git workflow from scratch, and
+      see how Git stores data internally.  There isn't a video, but you can
+      read [my notes](/2017/11/a-plumbers-guide-to-git/).
+
+  - title: Let's talk about (a)sex(uals)
+    conference: PyCon UK
+    date: 26 Oct
+    description: |+
+      A lightning talk about asexuality, as the conference happened to coincide
+      with [Asexual Awareness Week](http://www.asexualawarenessweek.com).
+      You can watch the video [on YouTube](https://www.youtube.com/watch?v=LlqxmQxoAhQ&t=45m06s).
+
+  - title: Property-Based Testing In Practice
+    conference: QCon London
+    date: 8 Mar
+    description: |+
+      You can read [slides and links](/talks/qcon2017/).
+
+2016:
+
+  - title: An introduction to property-based testing and Hypothesis
+    conference: PyCon UK
+    date: 18 Sept
+
+  - title: Introduction to property-based testing
+    conference: CamPUG
+    date: 7 June
+
+  - title: Colossus
+    conference: Queens' College Maths Society
+    date: 17 Feb
