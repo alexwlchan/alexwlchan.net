@@ -12,4 +12,4 @@ With no manual intervention.
 This sort of change permanently ruins you.
 I'm now so used to continuous deployment, I get annoyed when I work on projects that don't have it (and have thus copied it to several other repos).
 
-I wrote about the process on the Hypothesis blog -- how it works, why we do it, and why we find it so useful.
+If you're interested, I wrote about the process on the Hypothesis blog -- how it works, why we do it, and why we find it so useful.
