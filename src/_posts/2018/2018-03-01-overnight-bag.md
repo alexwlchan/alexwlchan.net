@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-03-01 19:05:00 +0000
 title: Keep an overnight bag in the office
 tags: work
 summary: Although hopefully never needed, I think it's worth keeping an overnight bag in your workplace.
