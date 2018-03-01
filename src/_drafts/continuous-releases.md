@@ -3,6 +3,7 @@ layout: post
 link: https://hypothesis.works/articles/continuous-releases/
 title: The Hypothesis continuous release process
 tags: hypothesis software-development
+summary: How we do continuous releases of hypothesis-python, and why.
 ---
 
 About a year ago, David built a powerful continuous release system for the hypothesis-python repo.
