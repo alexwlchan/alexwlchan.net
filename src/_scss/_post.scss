@@ -1,7 +1,7 @@
 .continue_reading {
   font-weight: bold;
   &::after {
-    content: "\a0→";
+    content: "→";
   }
 }
 
