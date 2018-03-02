@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-03-02 08:04:05 +0000
 link: https://hypothesis.works/articles/continuous-releases/
 title: The Hypothesis continuous release process
 tags: hypothesis software-development
