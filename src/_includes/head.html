@@ -3,7 +3,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title and page.title != site.title %}{{ page.title | smartlify | escape }} &ndash; {% endif %}{{ site.title | smartlify | escape }}</title>
+
+  <title>{% if page.title and page.title != site.title %}{{ page.title | smartify }} &ndash; {% endif %}{{ site.title | smartify }}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
