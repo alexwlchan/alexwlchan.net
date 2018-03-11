@@ -53,6 +53,10 @@ The whole workshop can be done within two hours.
 If you want to follow along, you'll need a computer with Git and a text editor installed.
 Everything is done with Git in the command line, not in a GUI.
 
-Part 1 introduces [the Git object store][part1], and explains how to store individual files in Git.
+Part 1 introduces [the Git object store][part 1], and explains how to store individual files in Git.
+Part 2 adds [the idea of trees][part 2], which allow us to take the snapshot of an entire repo.
+In part 3, we add some context to our snapshots by [creating commits][part 3].
 
-[part1]: /plumbers-guide-to-git/1-the-git-object-store/
+[part 1]: /plumbers-guide-to-git/1-the-git-object-store/
+[part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
+[part 3]: /plumbers-guide-to-git/3-context-from-commits/
