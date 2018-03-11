@@ -30,6 +30,10 @@ h2 {
   margin-top: 2em;
 }
 
+.post__separator + h2 {
+  margin-top: 0em;
+}
+
 blockquote {
   border-left: 5px solid $midtone-gray;
   background-color: $light-grey;
