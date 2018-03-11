@@ -11,7 +11,7 @@ We'll start by storing the contents of a single file in Git.
 Read the theory, make sure you understand the examples, then try the exercises.
 At the end of part 1, you should be able to store and retrieve individual files from Git.
 
-<div class="post__separator" aria-hidden="true">&#9675; &#8592; &#9675; &#8592; &#9675;</div>
+<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675; &#8592;&#9675;</div>
 
 ## Initialising a new Git repo
 
@@ -62,45 +62,15 @@ Here's what we have:
 
 -   The `refs` directory is also empty -- we'll see it again in [part 4][part4].
 
+So now we have an empty repository, and we've had a look inside the `.git` directory -- let's try to store something!
+
 [init]: https://git-scm.com/docs/git-init
 [part4]: /plumbers-guide-to-git/4-refs-and-branches/
 [hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 
+## Storing individual files with "hash-object"
 
----
----
----
-
-Let's start by creating a new directory, then initialising a Git repository:
-
-```console
-$ mkdir workshop-repo
-$ cd workshop-repo
-$ git init
-Initialized empty Git repository in ~/workshop-repo/.git/
-```
-
-The `git init` command creates the `.git` directory, which is where Git stores information.
-
-create a few empty directories for us, just a convenient werapper
-
-If you've never looked inside the `.git` directory, let's do it now:
-
-
-
-We have three files (`HEAD`, `config` and `description`) and four directories.
-
-The `HEAD` file tells Git which branch we're working on -- we'll come back to it in [part 4][part4].
-what are config, description?
-hooks -- useful but not today
-info -- link to previous
-objects -- look at next (check is empty)
-refs -- see part 4
-
-so we know where git will store info
-let's try it!
-
-create out first file, and save it
+Let's create our first file, then save it to the Git object store:
 
 ```console
 $ echo "An awesome aardvark admires the Alps" > animals.txt
@@ -108,28 +78,28 @@ $ git hash-object -w animals.txt
 a37f3f668f09c61b7c12e857328f587c311e5d1d
 ```
 
-this is our first *plumbing* command
-hash-object saves an object to the git db
-SHA1 hash
+This is our first example of a plumbing command.
+The [hash-object command][hashobj] takes a path to a file, reads its contents, and saves the contents of the file to the Git object store.
+It's returned a hex string -- the ID of the object it's just created.
 
-if we look in .git/objects, we see it's created:
+If we look in `.git/objects`, we can see something with the same name:
 
 ```console
 $ find .git/objects -type f
 .git/objects/a3/7f3f668f09c61b7c12e857328f587c311e5d1d
 ```
 
-look -- it's the hash we just got back!
+We've created our first object!
 
-(two char prefix to avoid too many files in same dir)
+This object is a binary file that holds the text we just saved.
+(You'll see the first two characters create a directory.
+A typical repo has thousands of objects, so Git breaks up `objects` into subdirectories to avoid any one directory becoming too large.)
 
-this is a binary file that holds the text we just saved
+The object ID is chosen based on the contents of the object -- specifically, prepend a short header to our file, and take the SHA1 hash.
+This is how Git stores all of its objects -- the content of an object determines its ID.
+The technical term for this is a *content-addressable filesystem*.
 
-"content-addressable filesystem"
-imagine it like a python dictionary
-git has chosen the name of that binary file based on the contents of our original text file
-
-if we save the file a second time, because the contents haven't changed, nothing happens:
+This means that if we try to write the file a second time, because the contents haven't changed, nothing changes:
 
 ```console
 $ git hash-object -w animals.txt
@@ -139,14 +109,23 @@ $ find .git/objects -type f
 .git/objects/a3/7f3f668f09c61b7c12e857328f587c311e5d1d
 ```
 
-we can retrieve it like so:
+We have the same set of objects as before.
 
-```
+[hashobj]: https://git-scm.com/docs/git-hash-object
+
+## Retrieving objects with "cat-file"
+
+So now we've saved an object, we can use a second plumbing command to retrieve it:
+
+```console
 $ git cat-file -p a37f3f668f09c61b7c12e857328f587c311e5d1d
 An awesome aardvark admires the Alps
 ```
 
-and if we delete our file, we can use this to restore it:
+The [cat-file command][catfile] is used to inspect objects stored in Git.
+The "-p" flag means "pretty" -- it pretty-prints the contents of the object.
+
+With this command, we can restore our file even if we delete it -- because the object is kept safe in the `.git` directory:
 
 ```console
 $ rm animals.txt
@@ -155,70 +134,77 @@ $ cat animals.txt
 An awesome aardvark admires the Alps
 ```
 
+[catfile]: https://git-scm.com/docs/git-cat-file
 
-
----
+<div class="post__separator" aria-hidden="true">&#9675;&#8594; &#9675;&#8594; &#9675;</div>
 
 ## Exercises
 
+These are some exercises to get you used to the idea of storing and retrieving files from the Git object store:
+
 1.  Create a new directory, and initialise Git.
-
 2.  Look inside the `.git` folder.
-    Make sure you understand what's in there.
-
+    Make sure you understand what it contains.
 3.  Using a text editor, create a file and write some text.
-
 4.  Use a Git plumbing command to save the contents of your file to the Git object store.
     Check you can see the new object in `.git/objects`.
-
 5.  Use a Git plumbing command to inspect the object in the database.
 
-Repeat steps 3--5 a couple of times, so that you're comfortable saving files to the Git object store.
+Repeat steps 3--5 a couple of times.
 
-6.  Make an edit to your file, then save the new version to the Git object store.
-    What do you see in `.git/objects`?
+<ol start="6">
+  <li>
+    Make an edit to your file, then save the new version to the Git object store.
+    What do you see in <code>.git/objects</code>?
+    <em>Before you look: what do you expect to see?</em>
+  </li>
+  <li>
+    Delete a file, then recreate it from the Git object store.
+  </li>
+  <li>
+    What if you save two files with the same contents, but different filenames?
+    What do you see in <code>.git/objects</code>?
+    <em>What do you expect to see?</em>
+  </li>
+</ol>
 
-    *Before you look: what do you expect to see?*
+<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
 
-7.  Delete the file, then recreate it from the Git object store.
+## Notes
 
-8.  What if you save two files with the same contents, but different filenames?
-    What do you see in `.git/objects`?
+Hopefully now you're comfortable saving individual files.
 
-    *What do you expect to see?*
+You might have noticed that Git doesn't store any information about *filenames*.
 
-## Useful commands
+When you edit a file, then save the edited file in Git, you get an entirely new object.
 
-Don't peek!
-Try the exercises on your own machine, then scroll past the picture of the folders to get the commentary
+```console
+$ echo "Big blue basilisks bawl in the basement" > animals.txt
 
-https://www.pexels.com/photo/multi-colored-folders-piled-up-159519/
-
----
-
-## Commentary
-
-hopefully now you're comfortable saving individual files
-
-you might have noticed git doesn't store any info about *filenames*
-
-so if you want to recreate a file, you could get it back under a different name:
-
-```
-$ git cat-file -p a37f3f668f09c61b7c12e857328f587c311e5d1d > alliteration.txt
-```
-
-If you create two files with the same contents, they get the same hash:
-
-```
-$ echo "Big blue basilisks bawl in the basement" > basilisks.txt
-$ echo "Big blue basilisks bawl in the basement" > basement.txt
-$ git hash-object -w basilisks.txt
+$ git hash-object -w animals.txt
 b13311e04762c322493e8562e6ce145a899ce570
-$ git hash-object -w basement.txt
-b13311e04762c322493e8562e6ce145a899ce570
+
+$ find .git/objects -type f
+.git/objects/a3/7f3f668f09c61b7c12e857328f587c311e5d1d
+.git/objects/b1/3311e04762c322493e8562e6ce145a899ce570
 ```
 
-so we're not keeping enough information to get filenames, just snapshots of an individual file's contents
+Whereas if you save two files with the same contents, they both get the same hash:
 
-for filenames, we need to introduce the concept of *trees*
+```console
+$ echo "Clueless cuttlefish crowd the curious crab" > c_creatures.txt
+$ cp c_creatures.txt sea_creatures.txt
+
+$ git hash-object -w c_creatures.txt
+ce289881a996b911f167be82c87cbfa5c6560653
+
+$ git hash-object -w sea_creatures.txt
+ce289881a996b911f167be82c87cbfa5c6560653
+```
+
+That's because we're only saving the *contents* of a file, and object IDs are determined entirely by their contents.
+We haven't saved anything about the filenames or the directory structure of our repository.
+For that, we need to learn about *trees*.
+Onwards to [part 2][part2]!
+
+[part2]: /plumbers-guide-to-git/2-blobs-and-trees/
