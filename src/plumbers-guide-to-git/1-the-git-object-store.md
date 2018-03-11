@@ -1,7 +1,7 @@
 ---
 layout: page
 last_updated: 2018-03-11 14:27:32 +0000
-title: Part 1: The Git object store
+title: "Part 1: The Git object store"
 ---
 
 introductory waffle
