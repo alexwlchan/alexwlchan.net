@@ -2,153 +2,150 @@
 layout: page
 last_updated: 2018-03-11 14:27:32 +0000
 title: "Part 3: Context from commits"
+meta:
+  - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
-introductory waffle
+In part 2, we saw how to use trees to take a snapshot of an entire repository -- but we don't know why particular trees are significant.
+We want to add context to our trees -- enter *commits*.
 
-in part 2, we saw how to take snapshots of a repo with trees
-but how do we know why snapshots are signifcant?
-we need context
-we need commits!
+<div class="post__separator" aria-hidden="true">&#9675; &#8594;&#9675; &#8594;&#9675;</div>
 
-## Introduction
+## Giving context to a single tree
 
-let's take a tree, and attach some context
+We can create a commit from a tree with the [commit-tree command][git-commit-tree]:
 
-```
-$ echo "My first commit" | git commit-tree c249dcb600ddbd958736177ba784798a6143a01e
-418816bdefa8889cf5e02e27b8f37157ff506bd1
+```console
+$ echo "initial commit" | git commit-tree 11e2f923d36175b185cfa9dcc34ea068dc2a363c
+65b080f1fe43e6e39b72dd79bda4953f7213658b
 ```
 
-another plumbing command!
-this takes a tree, creates a commit object
-returns a hash
+We pass a message and the ID of a tree, and we get back another object ID -- like everything else, commits are objects!
 
-we can see it in .git/objects:
+We can inspect its type:
 
-```
-$ find .git/objects -type f
-.git/objects/05/443337f802bfec039ec4121570d6c24ccb9eab
-.git/objects/41/8816bdefa8889cf5e02e27b8f37157ff506bd1
-.git/objects/a3/7f3f668f09c61b7c12e857328f587c311e5d1d
-.git/objects/b1/3311e04762c322493e8562e6ce145a899ce570
-.git/objects/c2/49dcb600ddbd958736177ba784798a6143a01e
-.git/objects/cf/401e115bf7a440ef02216953803271580848dd
-```
-
-we can inspect its type:
-
-```
-$ git cat-file -t 418816bdefa8889cf5e02e27b8f37157ff506bd1
+```console
+$ git cat-file -t 65b080f1fe43e6e39b72dd79bda4953f7213658b
 commit
 ```
 
-and contents:
+and we can pretty-print its contents:
 
+```console
+$ git cat-file -p 65b080f1fe43e6e39b72dd79bda4953f7213658b
+tree 11e2f923d36175b185cfa9dcc34ea068dc2a363c
+author Alex Chan <alex@alexwlchan.net> 1520806168 +0000
+committer Alex Chan <alex@alexwlchan.net> 1520806168 +0000
+
+initial commit
 ```
-$ git cat-file -p 418816bdefa8889cf5e02e27b8f37157ff506bd1
-tree c249dcb600ddbd958736177ba784798a6143a01e
-author Alex Chan <alex@alexwlchan.net> 1520779732 +0000
-committer Alex Chan <alex@alexwlchan.net> 1520779732 +0000
 
-My first commit
-```
+The first line is a pointer to the tree.
 
-what do we have here?
+The second and third lines give some information about the author and committer -- their name, email address, and a [Unix timestamp][timestamp].
+The *author* is the person who wrote a patch, while the *committer* is the person who checks that patch into the codebase.
+Usually they're the same person, but they can differ (especially on large projects like the Linux kernel) -- so there are separate fields.
 
-pointer to tree I used -- snapshot of files and contents
+Finally, the rest of the commit is the contents of our message -- usually called the *commit message*.
+This is free text that allows us to include any other details that might explain the significance of this snapshot.
 
-author name/email (from my global gitconfig),
-a timestamp -- epoch time
-then commit message
-difference between author/committer?
+This commit has far more context than our original tree: it tells us when it was created, who by, and the free text message lets us include any other relevant details.
 
-so we have standaloen snapshots with context, and even better -- we can combine snapshots into a linear history
-add -p flag to supply "parent" commit
+[git-commit-tree]: https://www.git-scm.com/docs/git-commit-tree
+[timestamp]: https://en.wikipedia.org/wiki/Unix_time
 
-```
-$ git update-index --add alliteration.txt
+## Building a linear history
+
+Once we have a single commit, the next thing to do is build a sequence of commits.
+A series of snapshots at different times, which track the history of our code.
+We can add a "-p" flag to commit-tree, which points to a *parent* commit.
+
+Let's go ahead and make some changes, then create a second commit.
+
+```console
+$ git update-index --add c_creatures.txt
+
 $ git write-tree
-4215a014f4613f4ef4e2d6deb107b330e753aace
-$ echo "Adding alliteration.txt" | git commit-tree 4215a014f4613f4ef4e2d6deb107b330e753aace -p 418816bdefa8889cf5e02e27b8f37157ff506bd1
-b440a10affe724badb4cf7cece898738ee2e3c18
+f999222f82d1ffe7233a8d86d72f27d5b92478ac
+
+$ echo "Adding c_creatures.txt" | git commit-tree f999222f82d1ffe7233a8d86d72f27d5b92478ac -p 65b080f1fe43e6e39b72dd79bda4953f7213658b
+fd9274dbef2276ba8dc501be85a48fbfe6fc3e31
 ```
 
-inspect:
+Let's inspect this new commit:
 
+```console
+$ git cat-file -p fd9274dbef2276ba8dc501be85a48fbfe6fc3e31
+tree f999222f82d1ffe7233a8d86d72f27d5b92478ac
+parent 65b080f1fe43e6e39b72dd79bda4953f7213658b
+author Alex Chan <alex@alexwlchan.net> 1520806875 +0000
+committer Alex Chan <alex@alexwlchan.net> 1520806875 +0000
+
+Adding c_creatures.txt
 ```
-$ git cat-file -p b440a10affe724badb4cf7cece898738ee2e3c18
-tree 4215a014f4613f4ef4e2d6deb107b330e753aace
-parent 418816bdefa8889cf5e02e27b8f37157ff506bd1
-author Alex Chan <alex@alexwlchan.net> 1520779952 +0000
-committer Alex Chan <alex@alexwlchan.net> 1520779952 +0000
 
-Adding alliteration.txt
-```
+This is similar to before, but we have a new line: "parent", which refers to the ID of the previous commit.
 
-and now we have a parent!
+Starting from here, we can work backwards to build a history of the repository.
+The porcelain command [log][git-log] lets us see that history:
 
-can use porcelain `git log` to see my history:
-
-```
-$ git log b440a10affe724badb4cf7cece898738ee2e3c18
-commit b440a10affe724badb4cf7cece898738ee2e3c18
+```console
+$ git log fd9274dbef2276ba8dc501be85a48fbfe6fc3e31
+commit fd9274dbef2276ba8dc501be85a48fbfe6fc3e31
 Author: Alex Chan <alex@alexwlchan.net>
-Date:   Sun Mar 11 14:52:32 2018 +0000
+Date:   Sun Mar 11 22:21:15 2018 +0000
 
-    Adding alliteration.txt
+    Adding c_creatures.txt
 
-commit 418816bdefa8889cf5e02e27b8f37157ff506bd1
+commit 65b080f1fe43e6e39b72dd79bda4953f7213658b
 Author: Alex Chan <alex@alexwlchan.net>
-Date:   Sun Mar 11 14:48:52 2018 +0000
+Date:   Sun Mar 11 22:09:28 2018 +0000
 
-    My first commit
+    initial commit
 
 ```
 
----
+Let's briefly recap: we started with *blobs*, which contained the contents of a file.
+Then *trees* let us hold filenames and directory structure, by referring to blobs and other trees -- and thus take snapshots of the state of a repo.
+Now we have *commits*, which refer to trees and give them context.
+Commits can refer to parent commits, which allows us to construct a history.
+
+![](/plumbers-guide-to-git/blob_tree_commit.png)
+
+This is looking pretty close to a typical Git workflow!
+Let's try some exercises.
+
+[git-log]: https://www.git-scm.com/docs/git-log
+
+<div class="post__separator" aria-hidden="true">&#9675;&#8594; &#9675;&#8594; &#9675;</div>
 
 ## Exercises
 
 1.  Take one of the trees you created in part 2, and create a commit object.
-
 2.  List all the files in `.git/objects`, and check you can see your new commit.
     Inspect the object you've just created.
-
 3.  Make an edit to one of your files, create a new tree, then create another commit from that tree, using the original commit as its parent.
 
 Repeat step 3 a couple of itmes.
 Create several commits that form a linear history -- each has the previous commit as its parent.
 
-4.  Use a porcelain `git log` to see the history you've just created.
+<ol start="4">
+  <li>
+    Use a porcelain <code>git log</code> to see the history you've just created.
+  </li>
+  <li>
+    You can create a commit with more than one parent, by supplying the <code>-p</code> flag more than once.
+    Try creating a few commits with multiple parents.
+    This is called a <em>merge commit</em>.
+  </li>
+</ol>
 
-5.  you can create a commit with more than one parent, by supplying the `-p` flag more than once
-    try creating a few commits like this
-    this is a *merge commit*
+<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
 
-## Useful commands
+## Notes
 
-Don't peek!
-Try the exercises on your own machine, then scroll past the picture of the folders to get the commentary
+So now we can reconstruct the state of repo at any point in history, and we have the context to know why those points are significant.
+But we still need to pass around SHA1 hashes, which are quite icky.
+In the [final part of this workshop][part 4], we'll look at creating *references* for a more human-friendly way to talk about our commits.
 
-https://www.pexels.com/photo/depth-of-field-photography-of-brown-tree-logs-923167/
-
----
-
-## Commentary
-
-hopefully you're comfortbale creating commits
-
-commits are also recursive, ish
-point to trees and other commits
-trees point to ohter ocmmits
-
-<< diagram >>
-
-merge commits give us non-linear history -- so we can consturct history in any order
-always refer backwards
-
-so now we can reconstruct the state of repo at any point in history, and we have the context to know why those points are significant
-
-but we need to pass around SHA1 hashes, ick
-for a more human-friendly interface, we'll need to look at creating *references*
+[part 4]: /plumbers-guide-to-git/4-refs-and-branches/
