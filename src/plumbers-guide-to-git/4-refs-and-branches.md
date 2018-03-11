@@ -1,7 +1,7 @@
 ---
 layout: page
 last_updated: 2018-03-11 14:27:32 +0000
-title: Part 4: Refs and branches
+title: "Part 4: Refs and branches"
 ---
 
 introductory waffle
