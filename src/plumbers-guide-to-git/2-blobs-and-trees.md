@@ -121,7 +121,7 @@ Those are what we created in part 1.
 Now we're creating *tree* objects, which know what files are called.
 A tree can point to a blob to describe the file contents.
 
-[[ diagram ]]
+![](/plumbers-guide-to-git/blob_tree_single.png)
 
 [git-write-tree]: https://www.git-scm.com/docs/git-write-tree
 
@@ -211,19 +211,20 @@ Make sure you're comfortable creating trees.
 
 ## Notes
 
-will notice update-index creates object for you
-don't need to use hash-object -w
+At this point, we have enough to take a complete snapshot of a repository.
 
-trees are recursive -- tree in b-words folder doesn't know anything about fiels above it
-recursive diagram -- trees point to blobs or other trees, and so on down
+If we only had the objects in `.git`, and knew the object ID of the top-level tree, we could use that to construct the top-level directory and all its files.
+We could recurse into other trees, and use that to construct the subdirectories -- and so on, until we have the entire layout.
+A tree, and the objects it refers to, give us the entire repository state.
 
-a tree has enough info to completely reconstruct state of repo
-we know filenames, and pointer to blob tells us what the contents of that file should be
+Notice that trees only point downwards -- they know what they contain, but not what they're contained by.
+So if we take two snapshots, and the contents of a directory hasn't changed, we can reuse the same tree object (and all the other blobs and trees it refers to).
+This is quite an efficient storage mechanism.
 
-<< diagram >>
+Now we have snapshots, but we don't have any context.
+What makes a particular tree special?
+Why is this an interesting point in the history of the repository?
+For that, we need to look at *commits*.
+Let's move on to [part 3][part 3].
 
-by creating trees, we can take snapshots of a repo
-but we have no context.
-why is a partiuclar tree special?
-
-to gove them context, we need to work with *commits*
+[part 3]: /plumbers-guide-to-git/3-context-from-commits/
