@@ -145,6 +145,9 @@ trees point to ohter ocmmits
 
 << diagram >>
 
+merge commits give us non-linear history -- so we can consturct history in any order
+always refer backwards
+
 so now we can reconstruct the state of repo at any point in history, and we have the context to know why those points are significant
 
 but we need to pass around SHA1 hashes, ick
