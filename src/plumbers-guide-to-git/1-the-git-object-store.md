@@ -176,6 +176,12 @@ Hopefully now you're comfortable saving individual files.
 
 You might have noticed that Git doesn't store any information about *filenames*.
 
+You can restore an object to a file with a different name to the original:
+
+```console
+$ git cat-file -p a37f3f668f09c61b7c12e857328f587c311e5d1d > alliteration.txt
+```
+
 When you edit a file, then save the edited file in Git, you get an entirely new object.
 
 ```console
