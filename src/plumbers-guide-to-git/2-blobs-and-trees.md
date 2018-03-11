@@ -178,93 +178,38 @@ Here's a diagram to show what it looks like:
 
 Now let's put these new concepts into practice!
 
----
-
-let's create a more complex structure
-
-```
-$ mkdir b-words
-$ mv basilisks.txt b-words/
-$ mv basement.txt b-words/
-```
-
-then add those to the index:
-
-```
-$ git update-index --add b-words/basilisks.txt
-$ git update-index --add b-words/basement.txt
-```
-
-write a tree:
-
-```
-$ git write-tree
-c249dcb600ddbd958736177ba784798a6143a01e
-```
-
-and inspect it:
-
-```
-$ git cat-file -p c249dcb600ddbd958736177ba784798a6143a01e
-100644 blob a37f3f668f09c61b7c12e857328f587c311e5d1d	animals.txt
-040000 tree cf401e115bf7a440ef02216953803271580848dd	b-words
-```
-
-ooh, now we have two lines!
-one is the blob we'd already saved
-second is another tree object
-let's look at that:
-
-```
-$ git cat-file -p cf401e115bf7a440ef02216953803271580848dd
-100644 blob b13311e04762c322493e8562e6ce145a899ce570	basement.txt
-100644 blob b13311e04762c322493e8562e6ce145a899ce570	basilisks.txt
-```
-
-so a tree can refer to blobs or to trees
-
-let's put these new concepts into practice!
-
----
+<div class="post__separator" aria-hidden="true">&#9675;&#8594; &#9675;&#8594; &#9675;</div>
 
 ## Exercises
 
 1.  Take a file you created in part 1, and add it to the index.
-
 2.  Check that you can see an `index` file in your `.git` directory.
-
 3.  Use a plumbing command to check that you've added it to the index.
     Then use a porcelain `git status` to double-check the result.
-
 4.  Create a tree from the current index.
-
 5.  Look in `.git/objects`.
     Can you see the tree you just created?
-
 6.  Use a Git plumbing command to inspect the tree.
     Make sure you understand what it means.
 
 Create some new files, and add them to your tree as well, repeating steps 1--6.
 Make sure you're comfortable creating trees.
 
-7.  Now make an edit to an existing file, and add the new version of that file to a tree.
+<ol start="7">
+  <li>
+    Now make an edit to an existing file, and add the new version of that file to a tree.
     Use a plumbing command to inspect the tree.
-
-    *What do you expect to see?*
-
-8.  Create a subdirectory of your main directory, and create some files inside that folder.
+  </li>
+  <li>
+    Create a subdirectory of your main directory, and create some files inside that folder.
     Add those files to a tree, and inspect the contents of that tree as well.
+    Make sure you understand the trees you've created.
+  </li>
+</ol>
 
-## Useful commands
+<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
 
-Don't peek!
-Try the exercises on your own machine, then scroll past the picture of the folders to get the comment
-
-https://www.pexels.com/photo/nature-red-forest-leaves-33109/
-
----
-
-## Commentary
+## Notes
 
 will notice update-index creates object for you
 don't need to use hash-object -w
