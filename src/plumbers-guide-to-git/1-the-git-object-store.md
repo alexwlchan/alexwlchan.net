@@ -2,14 +2,74 @@
 layout: page
 last_updated: 2018-03-11 14:27:32 +0000
 title: "Part 1: The Git object store"
+meta:
+  - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
-introductory waffle
+We'll start by storing the contents of a single file in Git.
 
-we're going to store an individual file's contents
-read through the introduction, follow the examples, then try the exercises
+Read the theory, make sure you understand the examples, then try the exercises.
+At the end of part 1, you should be able to store and retrieve individual files from Git.
 
-## Introduction
+<div class="post__separator" aria-hidden="true">&#9675; &#8592; &#9675; &#8592; &#9675;</div>
+
+## Initialising a new Git repo
+
+Let's start by creating a new directory:
+
+```console
+$ mkdir plumbing-repo
+$ cd plumbing-repo
+```
+
+Then we can create a new Git repository with the [git-init command][init]:
+
+```console
+$ git init
+Initialized empty Git repository in ~/plumbing-repo/.git/
+```
+
+This command creates the `.git` directory, which is where Git stores all of its information.
+If you delete everything except this directory, you can still rebuild your entire repository -- as we'll see in the rest of the workshop.
+
+The command also creates a few other empty directories for us.
+If you've never looked inside the `.git` directory before, let's start now:
+
+```console
+$ ls .git
+HEAD        description info        refs
+config      hooks       objects
+```
+
+Here's what we have:
+
+-   The `HEAD` file tells Git which branch we're working on -- we'll skip it for now, and come back to it in [part 4 "refs and branches"][part4].
+
+-   The `config` file contains repo-specific configuration.
+    We're not using it in this workshop.
+
+-   The `description` file is only used by the GitWeb program -- it can be ignored.
+
+-   The `hooks` directory is used to store scripts that fire on certain events -- for example, running a linter before you commit.
+    We don't cover it in this workshop, but it can be very useful!
+    See the [Git docs][hooks] for more information.
+
+-   The `info` directory has a single file, `exclude`, which contains a list of per-repo ignores.
+    Like a gitignore file, but it doesn't need to be checked in.
+    We won't use it in this workshop.
+
+-   The `objects` directory should be empty (aside from two more empty directories) -- but we're about to see what it holds.
+
+-   The `refs` directory is also empty -- we'll see it again in [part 4][part4].
+
+[init]: https://git-scm.com/docs/git-init
+[part4]: /plumbers-guide-to-git/4-refs-and-branches/
+[hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+
+
+---
+---
+---
 
 Let's start by creating a new directory, then initialising a Git repository:
 
@@ -26,11 +86,7 @@ create a few empty directories for us, just a convenient werapper
 
 If you've never looked inside the `.git` directory, let's do it now:
 
-```console
-$ ls .git
-HEAD        description info        refs
-config      hooks       objects
-```
+
 
 We have three files (`HEAD`, `config` and `description`) and four directories.
 
