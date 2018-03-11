@@ -52,3 +52,7 @@ The whole workshop can be done within two hours.
 
 If you want to follow along, you'll need a computer with Git and a text editor installed.
 Everything is done with Git in the command line, not in a GUI.
+
+Part 1 introduces [the Git object store][part1], and explains how to store individual files in Git.
+
+[part1]: /plumbers-guide-to-git/1-the-git-object-store/
