@@ -175,6 +175,8 @@ def _normalise_referrer(referrer):
         'https://t.co/86xD9zoYMT': 'https://twitter.com/alexwlchan/status/926418492559065088',
         'https://t.co/8zefP9tssh': 'https://twitter.com/alexwlchan/status/946115070416818177',
         'https://t.co/pIeLZl5gau': 'https://twitter.com/alexwlchan/status/956658216485695491',
+        'https://t.co/qM4AMkfML6': 'https://twitter.com/alexwlchan/status/967296057070800897',
+        'https://t.co/7xx0yY4vuq': 'https://twitter.com/Ramblin_Dave/status/971171990152384512',
     }
 
     if parts.netloc == 't.co':
@@ -193,6 +195,13 @@ def _normalise_referrer(referrer):
         'openlinkprofiler.org',
     ]):
         return None
+
+    meetup_urls = [
+        'https://www.meetup.com/CamPUG/events/246459416/',
+    ]
+    for m in meetup_urls:
+        if referrer.startswith(m):
+            return m
 
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
@@ -295,7 +304,12 @@ def should_be_rejected(l):
         'https://www.theautoprofit.ml',
     ]:
         return True
-    if (l.referrer is not None) and ('yandex.ru' in l.referrer):
+    if (
+        l.referrer is not None and (
+            'yandex.ru' in l.referrer or
+            'blog1989.com' in l.referrer
+        )
+    ):
         return True
     return False
 
@@ -365,6 +379,7 @@ if __name__ == '__main__':
             '/phpmyadmin',
             '/ogShow.aspx',
             'ogPipe.aspx',
+            '/sso/login',
         ]):
             continue
 
