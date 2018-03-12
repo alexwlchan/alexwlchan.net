@@ -6,8 +6,13 @@ meta:
   - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
-In part 1, we saw how to store the contents of a single file -- but we haven't saved anything about filenames.
+I'm assuming you've already read and completed [part 1][part 1], which explains how to store and retrieve single files.
+If not, go back and do that first.
+
+At the end of part 1, we saw that Git could store the contents of a single file -- but it didn't save anything about filenames.
 In this part, we'll see how to save filenames and directory layout.
+
+[part 1]: /plumbers-guide-to-git/1-the-git-object-store/
 
 <div class="post__separator" aria-hidden="true">&#9675; &#8594;&#9675; &#8594;&#9675;</div>
 
@@ -18,7 +23,7 @@ It's a collection of files that have been modified, but not yet saved to the per
 In a porcelain Git workflow, you add files to the index with `git add`, then take a snapshot of the index with `git commit`.
 With plumbing, there are several extra steps.
 
-We can save a file to the index with the [update-index command][updateidx]:
+We can save a file to the index with the [update-index command][git-update-index]:
 
 ```console
 $ git update-index --add animals.txt
@@ -63,14 +68,17 @@ Untracked files:
 
 ```
 
-[updateidx]: https://www.git-scm.com/docs/git-update-index
+But the index is only temporary.
+We can add or delete files, and when the index changes, the previous state is lost.
+How can we save this snapshot permanently?
+
+[git-update-index]: https://www.git-scm.com/docs/git-update-index
 [git-ls-files]: https://www.git-scm.com/docs/git-ls-files
 [git-status]: https://www.git-scm.com/docs/git-status
 
 ## Taking a permanent copy of the index
 
-The index is temporary -- you can add or delete files, and when it changes the previous state is lost.
-We can take a permanent copy of the index with [write-tree][git-write-tree]:
+To take permanent copies of the snapshot, we need another plumbing command: [write-tree][git-write-tree]:
 
 ```console
 $ git write-tree
@@ -95,18 +103,19 @@ $ git cat-file -p dc6b8ea09fb7573a335c5fb953b49b85bb6ca985
 ```
 
 This looks quite different to the other objects we've seen so far.
-There are four parts here:
+A tree is a list of pointers to other objects -- one object per row.
+There are four parts to the row:
 
 *   `100644` is the file permissions.
     Git only distinguishes between 644 (non-executable) and 755 (executable).
-*   `blob` tells us that this is a `blob` object (more on that below).
+*   `blob` is the type of the object (more on that below).
 *   `b13...570` is the ID of the file contents we saved in part 1.
 *   `animals.txt` is the name of that file.
 
 This is enough to completely reconstruct this file: we know what it should be called, what the contents should be, and whether to make it executable.
 
-But what sort of object is this?
-We can call cat-file with "-t" for "type", like so:
+And what sort of object is this?
+We can call cat-file with "-t" for "type" to find out, like so:
 
 ```console
 $ git cat-file -t a37f3f668f09c61b7c12e857328f587c311e5d1d
@@ -121,7 +130,7 @@ Those are what we created in part 1.
 Now we're creating *tree* objects, which know what files are called.
 A tree can point to a blob to describe the file contents.
 
-![](/plumbers-guide-to-git/blob_tree_single.png)
+<img src="/plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;">
 
 [git-write-tree]: https://www.git-scm.com/docs/git-write-tree
 
@@ -158,7 +167,7 @@ $ git cat-file -p 11e2f923d36175b185cfa9dcc34ea068dc2a363c
 040000 tree 8972388aa2e995eb4fa0247ccc4e69144f7175b9	underwater
 ```
 
-Now our tree has two lines: the first is the blob we'd already saved, and the second line is a reference to a different tree object.
+Now our tree has two lines: the first is the blob we'd already saved, and the second line is a reference to another tree object.
 It follows the same format as the first: the type of the object, a pointer to another Git object, and its name in the filesystem.
 Here, it's telling us there's a tree `897...5b9` which represents the directory `underwater`.
 
@@ -172,7 +181,8 @@ $ git cat-file -p 8972388aa2e995eb4fa0247ccc4e69144f7175b9
 
 Trees and blobs are analogous to the structure of the filesystem -- blobs are like files, trees are like directories.
 A tree can point to blobs or other trees, which correspond to subdirectories.
-Here's a diagram to show what it looks like:
+
+Here's a diagram to show our current repo:
 
 ![](/plumbers-guide-to-git/blob_tree.png)
 
@@ -207,23 +217,87 @@ Make sure you're comfortable creating trees.
   </li>
 </ol>
 
+## Useful commands
+
+<div id="useful">
+
+<style>
+  .command {
+    margin-bottom: 1em;
+  }
+
+  .command__description {
+    margin-top: 3px;
+    margin-left: 2.5em;
+  }
+</style>
+
+<div class="command">
+  <div class="command__code">
+    <code>find .git/objects -type f</code>
+  </div>
+  <div class="command__description">
+    list the files in <code>.git/objects</code>
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git cat-file -p <strong>&lt;object_id&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    pretty-print the contents of an object in the Git object store
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git update-index --add <strong>&lt;path&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    add a file to the Git index
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git ls-files</code>
+  </div>
+  <div class="command__description">
+    list the files that are in the current index
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git write-tree</code>
+  </div>
+  <div class="command__description">
+    write the current index to a new tree
+  </div>
+</div>
+
 <div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
 
 ## Notes
 
+Let's recap: *blobs* are objects that point to the contents of a file.
+*Trees* are objects that point to blobs or other trees, and give names to the objects they point to.
+
+Here's a diagram:
+
+![](/plumbers-guide-to-git/blob_tree_text.png)
+
 At this point, we have enough to take a complete snapshot of a repository.
 
-If we only had the objects in `.git`, and knew the object ID of the top-level tree, we could use that to construct the top-level directory and all its files.
-We could recurse into other trees, and use that to construct the subdirectories -- and so on, until we have the entire layout.
-A tree, and the objects it refers to, give us the entire repository state.
+If we start at a tree, we can rebuild everything it points to.
+For every blob it points to, we can unpack the contents of the blob into a named file.
+For every tree it points to, we can create a subdirectory and repeat the process inside the subdirectory.
+If we do this repeatedly, we'll eventually get a copy of everything saved in the original tree.
 
-Notice that trees only point downwards -- they know what they contain, but not what they're contained by.
-So if we take two snapshots, and the contents of a directory hasn't changed, we can reuse the same tree object (and all the other blobs and trees it refers to).
-This is quite an efficient storage mechanism.
-
-Now we have snapshots, but we don't have any context.
+So now we have snapshots, but we don't have any context.
 What makes a particular tree special?
-Why is this an interesting point in the history of the repository?
+Why is this tree an interesting point in the history of the repository?
 For that, we need to look at *commits*.
 Let's move on to [part 3][part 3].
 
