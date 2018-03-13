@@ -6,8 +6,14 @@ meta:
   - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
-In part 2, we saw how to use trees to take a snapshot of an entire repository -- but we don't know why particular trees are significant.
+If you've got this far, you should have finished [part 1][part 1] and [part 2] -- if not, revise those first.
+
+In the first two parts, we saw how to use trees to take a snapshot of an entire repository -- but we don't know why particular trees are significant.
+Why was this an interesting snapshot of the repo?
 We want to add context to our trees -- enter *commits*.
+
+[part 1]: /plumbers-guide-to-git/1-the-git-object-store/
+[part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
 
 <div class="post__separator" aria-hidden="true">&#9675; &#8594;&#9675; &#8594;&#9675;</div>
 
@@ -110,7 +116,7 @@ Then *trees* let us hold filenames and directory structure, by referring to blob
 Now we have *commits*, which refer to trees and give them context.
 Commits can refer to parent commits, which allows us to construct a history.
 
-![](/plumbers-guide-to-git/blob_tree_commit.png)
+![](/plumbers-guide-to-git/blob_tree_commit_example.png)
 
 This is looking pretty close to a typical Git workflow!
 Let's try some exercises.
@@ -140,12 +146,64 @@ Create several commits that form a linear history -- each has the previous commi
   </li>
 </ol>
 
+## Useful commands
+
+<style>
+  .command {
+    margin-bottom: 1em;
+  }
+
+  .command__description {
+    margin-top: 3px;
+    margin-left: 2.5em;
+  }
+</style>
+
+<div class="command">
+  <div class="command__code">
+    <code>echo <strong>"&lt;commit message&gt;"</strong> | git commit-tree <strong>&lt;tree ID&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    create a Git commit from a tree
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>echo <strong>"&lt;commit message&gt;"</strong> | git commit-tree <strong>&lt;tree ID&gt;</strong> -p <strong>&lt;commit ID&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    create a Git commit from a tree, with another commit as its parent (-p)
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git log <strong>&lt;commit ID&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    show all the commits leading up to this one
+  </div>
+</div>
+
 <div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
 
 ## Notes
 
+Now we've seen the three main types of object in Git:
+
+-   *Blobs*, which store the contents of a file
+-   *Trees*, which point to blobs and trees, and record the filenames and layout of our directories
+-   *Commits*, which give point to trees and commits -- to give context to an individual tree, and to construct a sequential history
+
+We can update our diagram:
+
+![](/plumbers-guide-to-git/blob_tree_commit.png)
+
 So now we can reconstruct the state of repo at any point in history, and we have the context to know why those points are significant.
-But we still need to pass around SHA1 hashes, which are quite icky.
+But if we want to talk about commits, we need to pass around commit IDs -- which are SHA1 hashes.
+These are quite unwieldy!
+
 In the [final part of this workshop][part 4], we'll look at creating *references* for a more human-friendly way to talk about our commits.
 
 [part 4]: /plumbers-guide-to-git/4-refs-and-branches/
