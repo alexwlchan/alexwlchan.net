@@ -1,18 +1,18 @@
 code, pre {
   background-color: $light-grey;
   font-family: $mono-font;
-  font-size: 1em * $code-scaling-factor;
   overflow-x: auto;
 }
 
 code {
   margin: 2px;
   padding: 3px 3px;
+  font-size: 1em * $code-scaling-factor;
 }
 
 pre {
   padding: $default-padding / 2;
-  line-height: $line-height * $code-scaling-factor * 1.05;
+  line-height: $line-height * $code-scaling-factor * 1.08;
   border-left: 5px solid $midtone-gray;
 
   // This ensures that code blocks don't get blown up to big sizes

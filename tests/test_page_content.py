@@ -58,6 +58,10 @@ def test_pages_appear_correctly(hostname, path):
     ('/2018/01/ips-for-documentation/', 'RFC&nbsp;2606'),
     ('/2014/07/latex-alpha/',
      '<title>Getting plaintext LaTeX from Wolfram Alpha'),
+
+    # We don't include HTML tags in titles
+    ('/2015/05/raft-algorithm/', '<title>The Secret Lives of Data'),
+    ('/2018/03/a-plumbers-guide-to-git/', '<title>Notes on A Plumber'),
 ])
 def test_text_appears_in_pages(hostname, path, text_in_page):
     resp = requests.get('http://%s/%s' % (hostname, path.lstrip('/')))

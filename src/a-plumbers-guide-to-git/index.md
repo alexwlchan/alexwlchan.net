@@ -1,15 +1,12 @@
 ---
-layout: post
-date: 2018-03-09 16:56:37 +0000
-title: "A Plumber's Guide to Git: Introduction"
-tags: git
-summary: Git is a fundamental part of many modern developer workflows -- but how does it really work under the hood?  In this series, we'll learn about the fundamentals of Git internals.
+layout: page
+last_updated: 2018-03-13 08:20:58 GMT
+title: A Plumber's Guide to Git
+summary: Git is a fundamental part of many modern developer workflows -- but how does it really work under the hood?  In this workshop, we'll learn about the fundamentals of Git internals.
 ---
 
-On Tuesday, I ran my workshop *A Plumber's Guide to Git* for [the Cambridge Python User Group][meetup].
+This is the write-up of a workshop I've run several times, first [at PyCon UK][pyconuk], and more recently at [the Cambridge Python User Group][meetup].
 I've also run it [at PyCon UK][pyconuk] and in my workplace.
-On all three occasions, it's been very popular and I've heard people find it useful -- on Tuesday, we actually ran out of space in the room!
-In an attempt to make it more accessible, I'm going to write it up as a series of blog posts.
 
 [meetup]: https://www.meetup.com/CamPUG/events/246459416/
 [pyconuk]: http://2017.pyconuk.org/sessions/workshops/a-plumber-s-guide-to-git/
@@ -19,7 +16,7 @@ Here's the premise:
 Git is a key part of many modern development workflows, but its complexity and idiosyncratic user interface means it has a reputation as a magic black box.
 How does it actually work?
 
-<figure style="max-width: 330px;">
+<figure style="max-width: 331px;">
   <img src="/images/2018/xkcd_git.png">
   <figcaption>
     <em>Git</em>, by Randall Munroe.
@@ -33,7 +30,10 @@ The aim of this workshop is to get an understanding of the underlying concepts o
 During the workshop, we learn exactly what happens in a typical Git workflow (`add`, `branch`, `commit`, and so on).
 We look inside the `.git` directory, and by the end of the workshop you should be able to describe the internal workings of Git.
 
-<!-- summary -->
+I very much enjoy giving this workshop in person (and I think it works best that way) -- but I can't be everywhere!
+For people I can't actually meet, I've written up my notes and exercises, so you can work through it at home.
+
+**If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](mailto:alex@alexwlchan.net).**
 
 ## What's in the name?
 
@@ -51,13 +51,19 @@ The workshop is divided into four sections.
 
 Usually I do a short demo and explain the new ideas, then I give out some exercises and everybody works through them on their own computer.
 When they're done, we discuss what we learnt, then move on to the next section.
-The whole workshop can be done within two hours.
+It typically takes aboutt wo hours.
 
 If you want to follow along, you'll need a computer with Git and a text editor installed.
 Everything is done with Git in the command line, not in a GUI.
 
-Here I'll be writing a blog post for each section, and I'll link them all here when I'm done.
-The blog post will include my demo and commentary, my exercises, and some hints/answers.
-I'll also share the handout I use.
+Part 1 introduces [the Git object store][part 1], and explains how to store individual files in Git.
+Part 2 adds [the idea of trees][part 2], which allow us to take the snapshot of an entire repo.
+In part 3, we add some context to our snapshots by [creating commits][part 3].
+The [final part][part 4] gives human-readable labels to commits.
+Finally, there's a short [conclusion][conclusion] that recaps the entire workshop.
 
-I expect to post part 1 soon -- so watch this space!
+[part 1]: /a-plumbers-guide-to-git/1-the-git-object-store/
+[part 2]: /a-plumbers-guide-to-git/2-blobs-and-trees/
+[part 3]: /a-plumbers-guide-to-git/3-context-from-commits/
+[part 4]: /a-plumbers-guide-to-git/4-refs-and-branches/
+[conclusion]: /a-plumbers-guide-to-git/conclusion/
