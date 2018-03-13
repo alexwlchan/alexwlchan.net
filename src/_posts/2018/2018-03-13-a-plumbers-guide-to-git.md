@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-03-13 10:08:04 +0000
 title: Notes on <em>A Plumber's Guide to Git</em>
 link: https://alexwlchan.net/a-plumbers-guide-to-git/
 tags: git
