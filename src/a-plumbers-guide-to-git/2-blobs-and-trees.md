@@ -3,7 +3,7 @@ layout: page
 last_updated: 2018-03-13 08:20:49 GMT
 title: "Part 2: Blobs and trees"
 meta:
-  - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
+  - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
 I'm assuming you've already read and completed [part 1][part 1], which explains how to store and retrieve single files.
@@ -12,7 +12,7 @@ If not, go back and do that first.
 At the end of part 1, we saw that Git could store the contents of a single file -- but it didn't save anything about filenames.
 In this part, we'll see how to save filenames and directory layout.
 
-[part 1]: /plumbers-guide-to-git/1-the-git-object-store/
+[part 1]: /a-plumbers-guide-to-git/1-the-git-object-store/
 
 <div class="post__separator" aria-hidden="true">&#9675; &#8594;&#9675; &#8594;&#9675;</div>
 
@@ -130,7 +130,7 @@ Those are what we created in part 1.
 Now we're creating *tree* objects, which know what files are called.
 A tree can point to a blob to describe the file contents.
 
-<img src="/plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;">
+<img src="/a-plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;">
 
 [git-write-tree]: https://www.git-scm.com/docs/git-write-tree
 
@@ -184,7 +184,7 @@ A tree can point to blobs or other trees, which correspond to subdirectories.
 
 Here's a diagram to show our current repo:
 
-![](/plumbers-guide-to-git/blob_tree.png)
+![](/a-plumbers-guide-to-git/blob_tree.png)
 
 Now let's put these new concepts into practice!
 
@@ -293,7 +293,7 @@ Let's recap: *blobs* are objects that point to the contents of a file.
 
 Here's a diagram:
 
-![](/plumbers-guide-to-git/blob_tree_text.png)
+![](/a-plumbers-guide-to-git/blob_tree_text.png)
 
 At this point, we have enough to take a complete snapshot of a repository.
 
@@ -308,4 +308,4 @@ Why is this tree an interesting point in the history of the repository?
 For that, we need to look at *commits*.
 Let's move on to [part 3][part 3].
 
-[part 3]: /plumbers-guide-to-git/3-context-from-commits/
+[part 3]: /a-plumbers-guide-to-git/3-context-from-commits/

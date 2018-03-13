@@ -3,7 +3,7 @@ layout: page
 last_updated: 2018-03-13 08:20:41 GMT
 title: "Part 1: The Git object store"
 meta:
-  - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
+  - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
 We'll start by working with single files.
@@ -72,7 +72,7 @@ Here's what we have:
 So now we have an empty repository, and we've had a look inside the `.git` directory -- let's write our first files!
 
 [init]: https://git-scm.com/docs/git-init
-[part4]: /plumbers-guide-to-git/4-refs-and-branches/
+[part4]: /a-plumbers-guide-to-git/4-refs-and-branches/
 [hooks]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
 
 ## Storing individual files with "hash-object"
@@ -293,9 +293,9 @@ Hopefully you see is that Git is only saving the *contents* of our files -- it i
 Each object ID is a pointer to some text, but that text isn't associated with a filename.
 Here's a diagram showing the three objects we have so far:
 
-![](/plumbers-guide-to-git/individual_objects.png)
+![](/a-plumbers-guide-to-git/individual_objects.png)
 
 If we want to use Git to save more than a single file, we need to know what our files are called!
 In [part 2][part 2], we'll see how we can use *trees* to save the filenames and directory structure of our repository.
 
-[part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
+[part 2]: /a-plumbers-guide-to-git/2-blobs-and-trees/

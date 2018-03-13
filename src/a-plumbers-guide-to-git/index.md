@@ -62,8 +62,8 @@ In part 3, we add some context to our snapshots by [creating commits][part 3].
 The [final part][part 4] gives human-readable labels to commits.
 Finally, there's a short [conclusion][conclusion] that recaps the entire workshop.
 
-[part 1]: /plumbers-guide-to-git/1-the-git-object-store/
-[part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
-[part 3]: /plumbers-guide-to-git/3-context-from-commits/
-[part 4]: /plumbers-guide-to-git/4-refs-and-branches/
-[conclusion]: /plumbers-guide-to-git/conclusion/
+[part 1]: /a-plumbers-guide-to-git/1-the-git-object-store/
+[part 2]: /a-plumbers-guide-to-git/2-blobs-and-trees/
+[part 3]: /a-plumbers-guide-to-git/3-context-from-commits/
+[part 4]: /a-plumbers-guide-to-git/4-refs-and-branches/
+[conclusion]: /a-plumbers-guide-to-git/conclusion/
