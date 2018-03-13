@@ -30,7 +30,7 @@ The aim of this workshop is to get an understanding of the underlying concepts o
 During the workshop, we learn exactly what happens in a typical Git workflow (`add`, `branch`, `commit`, and so on).
 We look inside the `.git` directory, and by the end of the workshop you should be able to describe the internal workings of Git.
 
-<!-- summary -->
+**If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](mailto:alex@alexwlchan.net).**
 
 ## What's in the name?
 
@@ -58,8 +58,6 @@ Part 2 adds [the idea of trees][part 2], which allow us to take the snapshot of 
 In part 3, we add some context to our snapshots by [creating commits][part 3].
 The [final part][part 4] gives human-readable labels to commits.
 Finally, there's a short [conclusion][conclusion] that recaps the entire workshop.
-
-**If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](mailto:alex@alexwlchan.net).**
 
 [part 1]: /plumbers-guide-to-git/1-the-git-object-store/
 [part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
