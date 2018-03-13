@@ -2,7 +2,7 @@
 layout: page
 last_updated: 2018-03-13 08:20:58 GMT
 title: A Plumber's Guide to Git
-summary: Git is a fundamental part of many modern developer workflows -- but how does it really work under the hood?  In this workshop, we'll learn about the fundamentals of Git internals.
+summary: Git is a fundamental part of many modern developer workflows -- but how does it really work under the hood?  In this workshop, we'll learn about the internals of Git.
 ---
 
 This is the write-up of a workshop I've run several times, first [at PyCon UK][pyconuk], and more recently at [the Cambridge Python User Group][meetup].
