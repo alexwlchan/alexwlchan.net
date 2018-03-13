@@ -3,7 +3,7 @@ layout: page
 last_updated: 2018-03-13 08:20:53 GMT
 title: "Part 4: Refs and branches"
 meta:
-  - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
+  - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
 At the end of part 3, we've seen how to take snapshots of the repo with trees, attach context with commits, and construct commits into a sequence -- but passing around commit hashes is unwieldy.
@@ -46,7 +46,7 @@ The reference `master` is a pointer to the commit `fd9...e31`.
 Anywhere we might use the commit ID, we can use `master` as a more convenient shortcut.
 This is what it looks like:
 
-[![](/plumbers-guide-to-git/git_ref_example.png)](/plumbers-guide-to-git/git_ref_example.png)
+[![](/a-plumbers-guide-to-git/git_ref_example.png)](/a-plumbers-guide-to-git/git_ref_example.png)
 
 Let's use the ref in an example:
 
@@ -179,7 +179,7 @@ initial commit
 Here's a quick diagram that summarises what we've learnt: refs point to commits (and you could create two refs that point to the same commit).
 HEAD is a special reference that points to another ref.
 
-![](/plumbers-guide-to-git/git_ref_head.png)
+![](/a-plumbers-guide-to-git/git_ref_head.png)
 
 Let's wrap up with a final set of exercises.
 
@@ -316,4 +316,4 @@ This is the final part of the workshop.
 There's a [short recap and conclusion][conclusion] which reviews everything you've learnt.
 
 [tags]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
-[conclusion]: /plumbers-guide-to-git/conclusion/
+[conclusion]: /a-plumbers-guide-to-git/conclusion/
