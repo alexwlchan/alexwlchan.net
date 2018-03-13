@@ -178,8 +178,6 @@ Repeat exercises 3--5 a couple of times.
 
 ## Useful commands
 
-<div id="useful">
-
 <style>
   .command {
     margin-bottom: 1em;
@@ -238,7 +236,7 @@ Repeat exercises 3--5 a couple of times.
 
 <div class="command">
   <div class="command__code">
-    <code>git cat-file -p <strong>&lt;object_id&gt;</strong></code>
+    <code>git cat-file -p <strong>&lt;object ID&gt;</strong></code>
   </div>
   <div class="command__description">
     pretty-print the contents of an object in the Git object store
