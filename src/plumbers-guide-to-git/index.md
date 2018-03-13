@@ -1,6 +1,6 @@
 ---
 layout: page
-last_updated: 2018-03-11 13:58:22 +0000
+last_updated: 2018-18-13 08:18:45
 title: A Plumber's Guide to Git
 summary: Git is a fundamental part of many modern developer workflows -- but how does it really work under the hood?  In this series, we'll learn about the fundamentals of Git internals.
 ---
@@ -29,6 +29,9 @@ The aim of this workshop is to get an understanding of the underlying concepts o
 
 During the workshop, we learn exactly what happens in a typical Git workflow (`add`, `branch`, `commit`, and so on).
 We look inside the `.git` directory, and by the end of the workshop you should be able to describe the internal workings of Git.
+
+I very much enjoy giving this workshop in person (and I think it works best that way) -- but I can't be everywhere!
+For people I can't actually meet, I've written up my notes and exercises, so you can work through it at home.
 
 **If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](mailto:alex@alexwlchan.net).**
 

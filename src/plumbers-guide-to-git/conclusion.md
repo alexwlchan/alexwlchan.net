@@ -1,6 +1,6 @@
 ---
 layout: page
-last_updated: 2018-03-11 14:27:32 +0000
+last_updated: 2018-18-13 08:18:49
 title: "A Plumber's Guide to Git: Conclusion"
 meta:
   - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
