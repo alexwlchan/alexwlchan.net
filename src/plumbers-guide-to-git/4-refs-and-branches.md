@@ -42,9 +42,13 @@ $ cat .git/refs/heads/master
 fd9274dbef2276ba8dc501be85a48fbfe6fc3e31
 ```
 
-So now `master` can be used as another name for the commit `fd9...e31`.
-Anywhere I might use the commit ID, I can use `master` as a more convenient shortcut.
-For example:
+The reference `master` is a pointer to the commit `fd9...e31`.
+Anywhere we might use the commit ID, we can use `master` as a more convenient shortcut.
+This is what it looks like:
+
+[![](/plumbers-guide-to-git/git_ref_example.png)](/plumbers-guide-to-git/git_ref_example.png)
+
+Let's use the ref in an example:
 
 ```console
 $ git cat-file -p master
@@ -172,10 +176,10 @@ committer Alex Chan <alex@alexwlchan.net> 1520806168 +0000
 initial commit
 ```
 
-Here's a quick diagram that summarises what we've learnt: refs point to commits (and it's possible to create two refs that point at the same commit).
+Here's a quick diagram that summarises what we've learnt: refs point to commits (and you could create two refs that point to the same commit).
 HEAD is a special reference that points to another ref.
 
-![](/plumbers-guide-to-git/blob_tree_commit_ref_head.png)
+![](/plumbers-guide-to-git/git_ref_head.png)
 
 Let's wrap up with a final set of exercises.
 
@@ -215,6 +219,64 @@ To finish off, here are a couple of bonus exercises:
   </li>
 </ol>
 
+## Useful commands
+
+<style>
+  .command {
+    margin-bottom: 1em;
+  }
+
+  .command__description {
+    margin-top: 3px;
+    margin-left: 2.5em;
+  }
+</style>
+
+<div class="command">
+  <div class="command__code">
+    <code>git update-ref refs/heads/<strong>&lt;branch&gt;</strong> <strong>&lt;commit ID&gt;></strong></code>
+  </div>
+  <div class="command__description">
+    create a named reference (branch) which points at the given commit
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git rev-parse <strong>&lt;branch&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    show the commit ID that this branch points to
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git log <strong>&lt;branch&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    show all the commits in this branch
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git branch</code>
+  </div>
+  <div class="command__description">
+    list all the branches in the repository
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git symbolic-ref HEAD refs/heads/<strong>&lt;branch&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    set HEAD to point at a particular branch
+  </div>
+</div>
+
 <div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
 
 ## Notes
@@ -248,34 +310,10 @@ $ git rev-parse tags/v0.1
 65b080f1fe43e6e39b72dd79bda4953f7213658b
 ```
 
-This is why people sometimes say "branches are cheap" in Git -- they're just tiny pointers to commits.
+This is why people sometimes say "branches are cheap" in Git -- they're just tiny pointers to commits, which take up almost no disk space.
+
+This is the final part of the workshop.
+There's a [short recap and conclusion][conclusion] which reviews everything you've learnt.
 
 [tags]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
-
-<div class="post__separator" aria-hidden="true">&#9675;&#8594; &#9675; &#8592;&#9675;</div>
-
-## Conclusions
-
-Let's recap what we've learnt throughout this workshop:
-
-*   *Blobs* store the contents of files
-*   *Trees* point to blobs and other trees, and store our directory hierarchy and filenames
-*   *Commits* point to trees and other commits, and give us context for the history of our repo
-*   *Refs* and *branches* point to commits, and give us human-friendly names for important commits
-
-Here's the final version of the diagram we've been building as we go along:
-
-![](/plumbers-guide-to-git/blob_tree_commit_ref_head.png)
-
-So now you've seen everything that happens in a typical Git workflow:
-
-*   `git add` is a combination of hash-object and update-index.
-*   `git commit` comes from write-tree, commit-tree, and if you're on a branch, update-ref
-*   `git checkout` uses update-ref or update-symbolic-ref
-
-I hope you now have a better understanding of How Git works under the hood, and it makes you a more confident and effective user when you return to the world of porcelain.
-
-If you have any comments or feedback, please [get in touch](/contact/).
-I'd love to make the workshop even better for future readers.
-
-Thanks for following along!
+[conclusion]: /plumbers-guide-to-git/conclusion/

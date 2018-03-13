@@ -35,7 +35,22 @@ $ git cat-file -t 65b080f1fe43e6e39b72dd79bda4953f7213658b
 commit
 ```
 
-and we can pretty-print its contents:
+We can see it in the Git object store:
+
+```console
+$ find .git/objects -type f
+.git/objects/11/e2f923d36175b185cfa9dcc34ea068dc2a363c
+.git/objects/65/b080f1fe43e6e39b72dd79bda4953f7213658b
+.git/objects/89/72388aa2e995eb4fa0247ccc4e69144f7175b9
+.git/objects/99/68b7362a7c97e237c74276d65b68ca20e03c47
+.git/objects/a3/7f3f668f09c61b7c12e857328f587c311e5d1d
+.git/objects/b1/3311e04762c322493e8562e6ce145a899ce570
+.git/objects/cb/68066907dd99eb75642bdbd449e1647cc78928
+.git/objects/ce/289881a996b911f167be82c87cbfa5c6560653
+.git/objects/dc/6b8ea09fb7573a335c5fb953b49b85bb6ca985
+```
+
+And we can pretty-print its contents:
 
 ```console
 $ git cat-file -p 65b080f1fe43e6e39b72dd79bda4953f7213658b
@@ -52,8 +67,8 @@ The second and third lines give some information about the author and committer 
 The *author* is the person who wrote a patch, while the *committer* is the person who checks that patch into the codebase.
 Usually they're the same person, but they can differ (especially on large projects like the Linux kernel) -- so there are separate fields.
 
-Finally, the rest of the commit is the contents of our message -- usually called the *commit message*.
-This is free text that allows us to include any other details that might explain the significance of this snapshot.
+Finally, the rest of the commit is the fre text message -- usually called a *commit message*.
+This allows us to include any other details that might explain the significance of this snapshot.
 
 This commit has far more context than our original tree: it tells us when it was created, who by, and the free text message lets us include any other relevant details.
 

@@ -219,8 +219,6 @@ Make sure you're comfortable creating trees.
 
 ## Useful commands
 
-<div id="useful">
-
 <style>
   .command {
     margin-bottom: 1em;
@@ -243,10 +241,19 @@ Make sure you're comfortable creating trees.
 
 <div class="command">
   <div class="command__code">
-    <code>git cat-file -p <strong>&lt;object_id&gt;</strong></code>
+    <code>git cat-file -p <strong>&lt;object ID&gt;</strong></code>
   </div>
   <div class="command__description">
     pretty-print the contents of an object in the Git object store
+  </div>
+</div>
+
+<div class="command">
+  <div class="command__code">
+    <code>git cat-file -t <strong>&lt;object ID&gt;</strong></code>
+  </div>
+  <div class="command__description">
+    show the type of an object in the Git object store
   </div>
 </div>
 

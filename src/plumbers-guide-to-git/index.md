@@ -16,7 +16,7 @@ Here's the premise:
 Git is a key part of many modern development workflows, but its complexity and idiosyncratic user interface means it has a reputation as a magic black box.
 How does it actually work?
 
-<figure style="max-width: 330px;">
+<figure style="max-width: 331px;">
   <img src="/images/2018/xkcd_git.png">
   <figcaption>
     <em>Git</em>, by Randall Munroe.
@@ -56,7 +56,11 @@ Everything is done with Git in the command line, not in a GUI.
 Part 1 introduces [the Git object store][part 1], and explains how to store individual files in Git.
 Part 2 adds [the idea of trees][part 2], which allow us to take the snapshot of an entire repo.
 In part 3, we add some context to our snapshots by [creating commits][part 3].
+The [final part][part 4] gives human-readable labels to commits.
+Finally, there's a short [conclusion][conclusion] that recaps the entire workshop.
 
 [part 1]: /plumbers-guide-to-git/1-the-git-object-store/
 [part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
 [part 3]: /plumbers-guide-to-git/3-context-from-commits/
+[part 4]: /plumbers-guide-to-git/4-refs-and-branches/
+[conclusion]: /plumbers-guide-to-git/conclusion/
