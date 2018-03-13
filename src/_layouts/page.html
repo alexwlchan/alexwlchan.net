@@ -6,10 +6,15 @@ layout: default
     <a href="{{ page.url | relative_url }}">{{ page.title | smartify | escape }}</a>
   </h1>
 
-  {% if page.last_updated %}
+  {% if page.last_updated or page.meta %}
   <div class="page__meta">
     <ul class="dot_list">
+      {% if page.last_updated %}
       <li class="page__date">Last updated {{ page.last_updated | date: site.date_format }}</li>
+      {% endif %}
+      {% for m in page.meta %}
+      <li>{{ m }}</li>
+      {% endfor %}
     </ul>
   </div>
   {% endif %}
