@@ -59,7 +59,7 @@ In part 3, we add some context to our snapshots by [creating commits][part 3].
 The [final part][part 4] gives human-readable labels to commits.
 Finally, there's a short [conclusion][conclusion] that recaps the entire workshop.
 
-**If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](/about/#contact).**
+**If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](mailto:alex@alexwlchan.net).**
 
 [part 1]: /plumbers-guide-to-git/1-the-git-object-store/
 [part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
