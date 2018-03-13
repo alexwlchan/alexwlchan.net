@@ -48,7 +48,7 @@ The workshop is divided into four sections.
 
 Usually I do a short demo and explain the new ideas, then I give out some exercises and everybody works through them on their own computer.
 When they're done, we discuss what we learnt, then move on to the next section.
-The whole workshop can be done within two hours.
+It typically takes aboutt wo hours.
 
 If you want to follow along, you'll need a computer with Git and a text editor installed.
 Everything is done with Git in the command line, not in a GUI.
@@ -58,6 +58,8 @@ Part 2 adds [the idea of trees][part 2], which allow us to take the snapshot of 
 In part 3, we add some context to our snapshots by [creating commits][part 3].
 The [final part][part 4] gives human-readable labels to commits.
 Finally, there's a short [conclusion][conclusion] that recaps the entire workshop.
+
+**If you'd like me to run this workshop at your meetup, conference or workplace, [send me an email](/about/#contact).**
 
 [part 1]: /plumbers-guide-to-git/1-the-git-object-store/
 [part 2]: /plumbers-guide-to-git/2-blobs-and-trees/
