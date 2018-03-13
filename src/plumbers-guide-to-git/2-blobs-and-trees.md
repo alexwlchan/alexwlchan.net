@@ -1,6 +1,6 @@
 ---
 layout: page
-last_updated: 2018-18-13 08:18:59
+last_updated: 2018-03-13 08:20:49 GMT
 title: "Part 2: Blobs and trees"
 meta:
   - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>

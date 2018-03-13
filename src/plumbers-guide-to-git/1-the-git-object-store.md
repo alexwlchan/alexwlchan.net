@@ -1,6 +1,6 @@
 ---
 layout: page
-last_updated: 2018-19-13 08:19:2
+last_updated: 2018-03-13 08:20:41 GMT
 title: "Part 1: The Git object store"
 meta:
   - Part of <a href="/plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
