@@ -51,7 +51,7 @@ The workshop is divided into four sections.
 
 Usually I do a short demo and explain the new ideas, then I give out some exercises and everybody works through them on their own computer.
 When they're done, we discuss what we learnt, then move on to the next section.
-It typically takes aboutt wo hours.
+It typically takes about two hours.
 
 If you want to follow along, you'll need a computer with Git and a text editor installed.
 Everything is done with Git in the command line, not in a GUI.
