@@ -31,7 +31,7 @@ This is everything that happens in a typical Git workflow:
 
 I hope you now have a better understanding of How Git works under the hood, and it makes you a more confident and effective user when you return to the world of porcelain.
 
-If you have any comments or feedback, please [get in touch](/contact/).
+If you have any comments or feedback, please [get in touch](mailto:alex@alexwlchan.net).
 I'd love to make the workshop even better for future readers.
 
 Thanks for following along!
