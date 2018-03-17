@@ -177,6 +177,8 @@ def _normalise_referrer(referrer):
         'https://t.co/pIeLZl5gau': 'https://twitter.com/alexwlchan/status/956658216485695491',
         'https://t.co/qM4AMkfML6': 'https://twitter.com/alexwlchan/status/967296057070800897',
         'https://t.co/7xx0yY4vuq': 'https://twitter.com/Ramblin_Dave/status/971171990152384512',
+        'https://t.co/brwETm5fGC': 'https://twitter.com/alexwlchan/status/973511842805972993',
+        'https://t.co/TCdCkkCQtU': 'https://twitter.com/woodybrood/status/974027386869239810',
     }
 
     if parts.netloc == 't.co':
@@ -226,6 +228,7 @@ def _is_organic(referrer):
         'https://www.discretesearch.com/',
         'https://www.startpage.com/do/search',
         'https://google.90h6.cn:1668/',
+        'https://www.ixquick.com/',
     ]:
         return True
 
