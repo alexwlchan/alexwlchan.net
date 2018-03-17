@@ -22,10 +22,7 @@ services:
     - 443:443
     volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf
-    - ~/.certbot/config/archive/pincushion.alexwlchan.net/:/certbot/pincushion.alexwlchan.net/
-    - ~/.certbot/config/archive/pinteresting.alexwlchan.net/:/certbot/pinteresting.alexwlchan.net/
-    - ~/.certbot/config/archive/alexwlchan.net-0003:/certbot/alexwlchan.net
-    - ~/.certbot/config/archive/bijouopera.co.uk-0001:/certbot/bijouopera.co.uk
+    - ~/.certbot:/etc/certbot
   pygmentizr:
     environment:
     - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
