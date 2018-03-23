@@ -379,6 +379,8 @@ if __name__ == '__main__':
             'download.php',
             'mytag_js.php',
             '/wp-admin/',
+            '/wp-includes/',
+            '/op69okl',
             '/phpmyadmin',
             '/ogShow.aspx',
             'ogPipe.aspx',
