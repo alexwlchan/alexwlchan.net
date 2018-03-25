@@ -23,6 +23,7 @@ services:
     volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf
     - ~/.certbot:/etc/certbot
+    - ~/letsencrypt:/etc/letsencrypt
   pygmentizr:
     environment:
     - SECRET_KEY=$PYGMENTIZR_SECRET_KEY
