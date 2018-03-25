@@ -405,11 +405,22 @@ if __name__ == '__main__':
             # File types I don't have anywhere, so any requests for them
             # are people trying to do something unsupported!
             '.php', '.aspx', '.asp',
-
-            # I have no idea, but URLs keep showing up with them in the logs
-            # as 404s, so ignore them.
-            '/m&', '/&wd=test',
         )):
+            continue
+
+        # Any sort of bot/crawler is uninteresting for analytics purposes.
+        # Anything on this list was polluting 404 reports with URLs that
+        # wouldn't be expected to work -- but it's not a human, so I don't
+        # care that it got an error.
+        if any(u in line.user_agent for u in [
+            'OpenLinkProfiler.org/bot',
+            'http://megaindex.com/crawler',
+            'http://ahrefs.com/robot/',
+            'http://mj12bot.com/',
+            'http://napoveda.seznam.cz/en/seznambot-intro/',
+            'http://www.baidu.com/search/spider.html',
+            'http://www.similartech.com/smtbot',
+        ]):
             continue
 
         if line.status == 404:
