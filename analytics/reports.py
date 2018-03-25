@@ -385,7 +385,17 @@ if __name__ == '__main__':
             '/ogShow.aspx',
             'ogPipe.aspx',
             '/sso/login',
+            '/com_b2jcontact/',
         ]):
+            continue
+
+        if line.url in [
+            # These paths don't resolve, nor is there any sensible
+            # reason to expect they might do so!
+            '/2/favicon.ico',
+            '/3/favicon.ico',
+            '/home/favicon.ico',
+        ]:
             continue
 
         parts = urlparse(line.url)
