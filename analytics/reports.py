@@ -386,6 +386,8 @@ if __name__ == '__main__':
             'ogPipe.aspx',
             '/sso/login',
             '/com_b2jcontact/',
+            '/jm-ajax/',
+            '/jquery-file-upload/',
         ]):
             continue
 
@@ -399,7 +401,15 @@ if __name__ == '__main__':
             continue
 
         parts = urlparse(line.url)
-        if parts.path.endswith(('.php', '.aspx', '.asp')):
+        if parts.path.endswith((
+            # File types I don't have anywhere, so any requests for them
+            # are people trying to do something unsupported!
+            '.php', '.aspx', '.asp',
+
+            # I have no idea, but URLs keep showing up with them in the logs
+            # as 404s, so ignore them.
+            '/m&', '/&wd=test',
+        )):
             continue
 
         if line.status == 404:
