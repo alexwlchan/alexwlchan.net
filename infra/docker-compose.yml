@@ -8,6 +8,10 @@ services:
     image: nginx:alpine
     volumes:
     - ~/sites/bijouopera.co.uk:/usr/share/nginx/html
+  untagged:
+    image: "nginx:alpine"
+    volumes:
+    - ~/sites/finduntaggedtumblrposts.com:/usr/share/nginx/html
   pincushion:
     command: /app/run_viewer.py --host 'http://elasticsearch:9200/'
     image: pincushion
