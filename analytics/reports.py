@@ -36,12 +36,17 @@ NGINX_LOG_REGEX = re.compile(
     r'"(?P<forwarded_host>[^"]+)"', flags=re.IGNORECASE)
 
 
+def _convert_to_dt(d):
+    if isinstance(d, str):
+        return dt.datetime.strptime(d, '%d/%b/%Y:%H:%M:%S %z')
+    else:
+        return d
+
+
 @attr.s
 class LogLine:
     forwarded_host = attr.ib()
-    datetime = attr.ib(
-        convert=lambda x: dt.datetime.strptime(x, '%d/%b/%Y:%H:%M:%S %z')
-    )
+    datetime = attr.ib(convert=_convert_to_dt)
     method = attr.ib()
     url = attr.ib()
     status = attr.ib(convert=int)
@@ -70,6 +75,10 @@ class LogLine:
         except KeyError:
             return ''
 
+    @property
+    def target_url(self):
+        return parse_qs(urlparse(self.url).query)['url'][0].replace('https://alexwlchan.net', '')
+
 
 def page_views(log_lines):
     return len(log_lines)
@@ -89,7 +98,8 @@ def traffic_by_date(log_lines):
     return sorted(counter.items())
 
 
-def _normalise_referrer(referrer):
+def _normalise_referrer(log_line):
+    referrer = log_line.referrer
     parts = urlparse(referrer)
     qs = parse_qs(parts.query)
 
@@ -124,7 +134,8 @@ def _normalise_referrer(referrer):
 
     if referrer.startswith('https://getpocket.com/redirect'):
         try:
-            return _normalise_referrer(qs["url"][0])
+            new_log_line = attr.evolve(log_line, url=qs['url'][0])
+            return _normalise_referrer(new_log_line)
         except KeyError:
             pass
 
@@ -208,6 +219,23 @@ def _normalise_referrer(referrer):
         if referrer.startswith(m):
             return m
 
+    lobster_urls = {
+        'iesjwi': {
+             'canonical': 'https://lobste.rs/s/iesjwi/plumber_s_guide_git',
+             'url': '/a-plumbers-guide-to-git/',
+             'date': dt.datetime(2018, 3, 31).date(),
+        },
+    }
+    if referrer.startswith('https://lobste.rs/'):
+        for short_id, data in lobster_urls.items():
+            if referrer.startswith(f'https://lobste.rs/s/{short_id}'):
+                return data['canonical']
+            if (
+                log_line.target_url == data['url'] and
+                log_line.datetime.date() - data['date'] <= dt.timedelta(days=7)
+            ):
+                return data['canonical']
+
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
         'http://t.umblr.com/': 'https://tumblr.com/',
@@ -241,7 +269,7 @@ def _is_organic(referrer):
 def get_referrers(log_lines, limit):
     c = collections.Counter()
     for l in log_lines:
-        r = _normalise_referrer(l.referrer)
+        r = _normalise_referrer(log_line=l)
         if r:
             display_r = '[Search traffic]' if _is_organic(r) else r
             c[display_r] += 1
@@ -340,6 +368,9 @@ def docker_logs(container_name, days):
 
         # TODO: Handle this sort of line properly.
         if '[error]' in line:
+            continue
+
+        if 'conflicting parameter "/archives/"' in line:
             continue
 
         m = NGINX_LOG_REGEX.match(line)
