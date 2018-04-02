@@ -179,6 +179,9 @@ def _normalise_referrer(referrer):
         'https://t.co/7xx0yY4vuq': 'https://twitter.com/Ramblin_Dave/status/971171990152384512',
         'https://t.co/brwETm5fGC': 'https://twitter.com/alexwlchan/status/973511842805972993',
         'https://t.co/TCdCkkCQtU': 'https://twitter.com/woodybrood/status/974027386869239810',
+        'https://t.co/Vi4b0Xz5dI': 'https://twitter.com/lobsters/status/980237109993730048',
+        'https://t.co/ygOyrLcGzr': 'https://twitter.com/foxyjackfox/status/980487168022818816',
+        'https://t.co/qOkzmDrlAo': 'https://twitter.com/tabatkins/status/979097435443097601',
     }
 
     if parts.netloc == 't.co':
