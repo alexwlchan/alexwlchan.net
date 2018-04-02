@@ -226,7 +226,10 @@ def _normalise_referrer(log_line):
              'date': dt.datetime(2018, 3, 31).date(),
         },
     }
-    if referrer.startswith('https://lobste.rs/'):
+    if (
+        referrer.startswith('https://lobste.rs/') or
+        referrer == 'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Flobste.rs%2Frss'
+    ):
         for short_id, data in lobster_urls.items():
             if referrer.startswith(f'https://lobste.rs/s/{short_id}'):
                 return data['canonical']
@@ -245,8 +248,8 @@ def _normalise_referrer(log_line):
     return aliases.get(referrer, referrer)
 
 
-def _is_organic(referrer):
-    if referrer in [
+def _is_search_traffic(referrer):
+    return referrer in [
         'Google',
         'https://search.yahoo.com/',
         'DuckDuckGo',
@@ -260,10 +263,14 @@ def _is_organic(referrer):
         'https://www.startpage.com/do/search',
         'https://google.90h6.cn:1668/',
         'https://www.ixquick.com/',
-    ]:
-        return True
+    ]
 
-    return False
+
+def _is_rss_subscriber(referrer):
+    return referrer in [
+        'https://usepanda.com/',
+        'https://www.inoreader.com/',
+    ]
 
 
 def get_referrers(log_lines, limit):
@@ -271,8 +278,12 @@ def get_referrers(log_lines, limit):
     for l in log_lines:
         r = _normalise_referrer(log_line=l)
         if r:
-            display_r = '[Search traffic]' if _is_organic(r) else r
-            c[display_r] += 1
+            if _is_search_traffic(r):
+                c['[Search traffic]'] += 1
+            elif _is_rss_subscriber(r):
+                c['[RSS subscription]'] += 1
+            else:
+                c[r] += 1
     return c.most_common(limit)
 
 
