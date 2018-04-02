@@ -228,7 +228,8 @@ def _normalise_referrer(log_line):
     }
     if (
         referrer.startswith('https://lobste.rs/') or
-        referrer == 'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Flobste.rs%2Frss'
+        referrer == 'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Flobste.rs%2Frss' or
+        referrer == 'https://newsblur.com/site/1328462/lobsters'
     ):
         for short_id, data in lobster_urls.items():
             if referrer.startswith(f'https://lobste.rs/s/{short_id}'):
