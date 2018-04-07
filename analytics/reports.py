@@ -240,10 +240,14 @@ def _normalise_referrer(log_line):
             ):
                 return data['canonical']
 
+    if referrer.startswith('https://stackshare.io/news/article/343615/'):
+        return 'https://stackshare.io/news/article/343615/a-plumber-s-guide-to-git'
+
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
         'http://t.umblr.com/': 'https://tumblr.com/',
         'https://t.umblr.com/': 'https://tumblr.com/',
+        'http://usepanda.com/app/': 'https://usepanda.com/app/',
     }
 
     return aliases.get(referrer, referrer)
@@ -424,8 +428,8 @@ if __name__ == '__main__':
             '404.html',
             'download.php',
             'mytag_js.php',
-            '/wp-admin/',
-            '/wp-includes/',
+            '/wp-admin',
+            '/wp-includes',
             '/op69okl',
             '/phpmyadmin',
             '/ogShow.aspx',
@@ -434,7 +438,11 @@ if __name__ == '__main__':
             '/com_b2jcontact/',
             '/jm-ajax/',
             '/jquery-file-upload/',
-        ]):
+            '/joomla.xml',
+            '/umbraco',
+            '/adminer',
+            '/admin.js'
+        ]) or line.url.endswith('/ws'):
             continue
 
         if line.url in [
@@ -443,6 +451,11 @@ if __name__ == '__main__':
             '/2/favicon.ico',
             '/3/favicon.ico',
             '/home/favicon.ico',
+            '/.ftpconfig',
+            '/.remote-sync.json',
+            '/.vscode/ftp-sync.json',
+            '/sftp-config.json',
+            '/deployment-config.json',
         ]:
             continue
 
@@ -466,6 +479,7 @@ if __name__ == '__main__':
             'http://napoveda.seznam.cz/en/seznambot-intro/',
             'http://www.baidu.com/search/spider.html',
             'http://www.similartech.com/smtbot',
+            'Newsify Feed Fetcher',
         ]):
             continue
 
