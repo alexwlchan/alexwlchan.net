@@ -101,7 +101,7 @@ The keyboard is a [Das Keyboard Model S Ultimate][das]. It's a mechanical keyboa
 
 When I bought the keyboard, my schoolwork meant that I was routinely using at least four different keyboard layouts: UK English, German, Greek and Chinese. If I had printed keycaps, then I'd often be pressing a key whose label bore no resemblance to what appeared on the screen. That always felt a little odd to me, so I deliberately bought a keyboard that avoids this problem.
 
-There are some more photos of the desk on [my Flickr page][flickr]. As I tweak the setup, I'll add new pictures there.
+<!-- There are some more photos of the desk on [my Flickr page][flickr]. As I tweak the setup, I'll add new pictures there. -->
 
 Thanks to Colin for the original design, and giving me the idea!
 
