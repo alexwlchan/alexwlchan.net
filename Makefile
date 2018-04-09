@@ -8,6 +8,7 @@ RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
 ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
+DST = $(ROOT)/_site
 TESTS = $(ROOT)/tests
 
 $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
@@ -70,7 +71,7 @@ publish: publish-drafts build
 deploy: publish
 	docker run --rm --tty \
 		--volume ~/.ssh/id_rsa:/root/.ssh/id_rsa \
-		--volume $(ROOT)/src/_site:/data \
+		--volume $(DST):/data \
 		instrumentisto/rsync-ssh \
 		rsync \
 		--archive \
@@ -102,7 +103,7 @@ Gemfile.lock: Gemfile
 nginx-serve:
 	docker run --rm \
 		--volume $(ROOT)/infra/alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf \
-		--volume $(ROOT)/src/_site:/usr/share/nginx/html \
+		--volume $(DST):/usr/share/nginx/html \
 		--publish 5858:80 \
 		--hostname alexwlchan \
 		--name alexwlchan \
