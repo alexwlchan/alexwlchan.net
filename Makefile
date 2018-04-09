@@ -38,7 +38,7 @@ clean: .docker/build
 	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
-	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
+	docker run --volume $(ROOT):/site $(BUILD_IMAGE) build
 
 stop:
 	@# Clean up old running containers
