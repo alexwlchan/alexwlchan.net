@@ -8,6 +8,7 @@ RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 
 ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
+DST = $(ROOT)/_site
 TESTS = $(ROOT)/tests
 
 $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
@@ -38,7 +39,7 @@ clean: .docker/build
 	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
-	docker run --volume $(SRC):/site $(BUILD_IMAGE) build
+	docker run --volume $(ROOT):/site $(BUILD_IMAGE) build
 
 stop:
 	@# Clean up old running containers
@@ -48,7 +49,7 @@ stop:
 serve: .docker/build stop
 	docker run \
 		--publish 5757:5757 \
-		--volume $(SRC):/site \
+		--volume $(ROOT):/site \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --rm --detach $(BUILD_IMAGE) \
@@ -59,18 +60,18 @@ serve-debug: serve
 
 publish-drafts: .docker/build
 	docker run \
-		--volume $(ROOT):/repo \
+		--volume $(ROOT):/site \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		--tty --rm $(BUILD_IMAGE) \
-		publish-drafts --source=/repo/src
+		publish-drafts
 
 publish: publish-drafts build
 
 deploy: publish
 	docker run --rm --tty \
 		--volume ~/.ssh/id_rsa:/root/.ssh/id_rsa \
-		--volume $(ROOT)/src/_site:/data \
+		--volume $(DST):/data \
 		instrumentisto/rsync-ssh \
 		rsync \
 		--archive \
@@ -102,7 +103,7 @@ Gemfile.lock: Gemfile
 nginx-serve:
 	docker run --rm \
 		--volume $(ROOT)/infra/alexwlchan.net.nginx.conf:/etc/nginx/nginx.conf \
-		--volume $(ROOT)/src/_site:/usr/share/nginx/html \
+		--volume $(DST):/usr/share/nginx/html \
 		--publish 5858:80 \
 		--hostname alexwlchan \
 		--name alexwlchan \

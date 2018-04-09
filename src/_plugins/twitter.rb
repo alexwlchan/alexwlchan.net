@@ -26,16 +26,6 @@ require 'open-uri'
 require 'twitter'
 
 
-def local_path(name)
-  return "_images/twitter/#{name}"
-end
-
-
-def display_path(name)
-  return "/images/twitter/#{name}"
-end
-
-
 module Jekyll
   class TwitterTag < Liquid::Tag
 
@@ -43,23 +33,18 @@ module Jekyll
       super
       @tweet_url = text
       @tweet_id = @tweet_url.split("/").last.strip
+    end
 
-      FileUtils::mkdir_p "_tweets"
-      FileUtils::mkdir_p local_path("")
+    def local_path(name)
+      return "#{@src}/_images/twitter/#{name}"
+    end
 
-      if not File.exists? cache_file()
-        puts("Caching #{@tweet_url}")
-        client = setup_api_client()
-        tweet = client.status(@tweet_url)
-        json_string = JSON.pretty_generate(tweet.attrs)
-        download_avatar(tweet)
-        download_media(tweet)
-        File.open(cache_file(), 'w') { |f| f.write(json_string) }
-      end
+    def display_path(name)
+      return "/images/twitter/#{name}"
     end
 
     def cache_file()
-      "_tweets/#{@tweet_id}.json"
+      "#{@src}/_tweets/#{@tweet_id}.json"
     end
 
     def avatar_path(avatar_url, screen_name)
@@ -109,7 +94,7 @@ module Jekyll
     end
 
     def setup_api_client()
-      auth = YAML.load(File.read('_tweets/auth.yml'), :safe => true)
+      auth = YAML.load(File.read("#{@src}/_tweets/auth.yml"), :safe => true)
       Twitter::REST::Client.new do |config|
         config.consumer_key        = auth["consumer_key"]
         config.consumer_secret     = auth["consumer_secret"]
@@ -119,6 +104,22 @@ module Jekyll
     end
 
     def render(context)
+      site = context.registers[:site]
+      @src = site.config["source"]
+
+      FileUtils::mkdir_p "#{@src}/_tweets"
+      FileUtils::mkdir_p local_path("")
+
+      if not File.exists? cache_file()
+        puts("Caching #{@tweet_url}")
+        client = setup_api_client()
+        tweet = client.status(@tweet_url)
+        json_string = JSON.pretty_generate(tweet.attrs)
+        download_avatar(tweet)
+        download_media(tweet)
+        File.open(cache_file(), 'w') { |f| f.write(json_string) }
+      end
+
       tweet_data = JSON.parse(File.read(cache_file()))
 
       name = tweet_data["user"]["name"]

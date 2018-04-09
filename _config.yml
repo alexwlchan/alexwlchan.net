@@ -15,6 +15,9 @@ author: "Alex Chan"
 description: "Alex Chan's personal blog"
 url: "https://alexwlchan.net"
 
+source: src
+destination: _site
+
 social:
   github: "alexwlchan"
   twitter: "alexwlchan"
