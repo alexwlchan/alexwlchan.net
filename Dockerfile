@@ -19,6 +19,7 @@ RUN ./install_jekyll.sh
 # it from a Gem.
 COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.5.2/lib/jekyll/commands
 
+VOLUME ["/site"]
 WORKDIR /site
 
 ENTRYPOINT ["bundle", "exec", "jekyll"]
