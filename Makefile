@@ -60,11 +60,11 @@ serve-debug: serve
 
 publish-drafts: .docker/build
 	docker run \
-		--volume $(ROOT):/repo \
+		--volume $(ROOT):/site \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		--tty --rm $(BUILD_IMAGE) \
-		publish-drafts --source=/repo/src
+		publish-drafts
 
 publish: publish-drafts build
 
