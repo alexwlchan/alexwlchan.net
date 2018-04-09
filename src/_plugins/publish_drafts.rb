@@ -57,11 +57,12 @@ module Jekyll
     class PublishDrafts < Command
       def self.init_with_program(prog)
         prog.command(:"publish-drafts") do |c|
-
-          c.option 'source', '-s', '--source SOURCE', 'Custom source directory'
-
           c.action do |args, options|
-            publish_all_drafts(options['source'])
+            # Hard-coding the source directory here isn't ideal, but I
+            # haven't found a way to access the "site" variable inside
+            # a Command plugin.
+            # TODO: Don't hard-code this bit of configuration!
+            publish_all_drafts("src")
           end
         end
       end
