@@ -1,9 +1,12 @@
-Jekyll::Hooks.register :posts, :post_render do |post|
-  if post["theme"] && post["theme"]["color"]
-    color = post["theme"]["color"]
-    create_scss_theme(color)
-    create_banner_image(color)
-  end
+Jekyll::Hooks.register :site, :post_read do |site|
+  src = site.config["source"]
+  site.posts.docs.each { |post|
+    if post["theme"] && post["theme"]["color"]
+      color = post["theme"]["color"]
+      create_scss_theme(src, color)
+      create_banner_image(src, color)
+    end
+  }
 end
 
 
@@ -11,8 +14,8 @@ end
 #
 # This will be picked up by the SCSS processor for the site, and cause
 # the creation of a CSS theme with this as the primary color.
-def create_scss_theme(color)
-  mainfile = "theme/style_#{color}.scss"
+def create_scss_theme(src, color)
+  mainfile = "#{src}/theme/style_#{color}.scss"
   if ! File.file?(mainfile)
     File.open(mainfile, 'w') { |file| file.write(<<-EOT
 ---
@@ -32,8 +35,8 @@ end
 #
 # This will be picked up by the rsync plugin, and used by the CSS theme
 # created above.
-def create_banner_image(color)
-  banner_file = "theme/specktre_#{color}.png"
+def create_banner_image(src, color)
+  banner_file = "#{src}/theme/specktre_#{color}.png"
   if ! File.file?(banner_file)
 
     puts("Building the banner file for #{color}")
