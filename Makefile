@@ -48,7 +48,7 @@ stop:
 serve: .docker/build stop
 	docker run \
 		--publish 5757:5757 \
-		--volume $(SRC):/site \
+		--volume $(ROOT):/site \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --rm --detach $(BUILD_IMAGE) \
