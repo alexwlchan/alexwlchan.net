@@ -1,10 +1,31 @@
 2018:
 
   - title: A Plumber's Guide to Git
+    conference: Oxford Python
+    date: 18 May
+    description: |+
+      Another repeat of my PyCon UK workshop.  I'll post a link to the Meetup
+      page when it's available.
+
+  - title: (Anti-)Social Media
+    conference: Bournemouth University
+    # Cyber Security Management Students
+    date: 18 April
+    description: |+
+      A lecture for students on the [Cyber Security Management course](https://www1.bournemouth.ac.uk/study/courses/bsc-hons-cyber-security-management)
+      about online harassment -- identifying some of the ways services are
+      often used for harassment, thinking about common threat models, and some
+      good practices for building safer services.
+
+      I'm hoping to post slides and notes shortly after the lecture.
+
+  - title: A Plumber's Guide to Git
     conference: CamPUG
     date: 6 Mar
     description: |+
-      A repeat of my PyCon UK workshop.  You can sign up [on Meetup.com](https://www.meetup.com/CamPUG/events/246459416/).
+      A repeat of my PyCon UK workshop.  Since this workshop was unexpectedly
+      over-booked, I wrote up [my notes and diagrams](/a-plumbers-guide-to-git/)
+      so everybody an use them.
 
 2017:
 
