@@ -3,7 +3,7 @@ layout: post
 date: 2016-06-09 08:29:00 +0000
 link: /talks/hypothesis-intro/
 summary: Slides from my talk about property-based testing at CamPUG.
-tags: python talks
+tags: python slides
 title: Introduction to property-based testing
 ---
 
