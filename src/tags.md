@@ -20,6 +20,12 @@ title: Tags
 {% for tag in sorted_tags %}
 {% assign tag_name = tag[0] %}
 {% assign posts = tag[1] %}
+
+{% assign aliases = site.data["tag_aliases"][tag_name] %}
+{% for a in aliases %}
+<a id="tag__{{ a }}"></a>
+{% endfor %}
+
 <h3 id="tag__{{ tag_name }}">{{ tag_name }}</h3>
 <ul>
   {% for p in posts %}
