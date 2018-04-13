@@ -62,6 +62,9 @@ def test_pages_appear_correctly(hostname, path):
     # We don't include HTML tags in titles
     ('/2015/05/raft-algorithm/', '<title>The Secret Lives of Data'),
     ('/2018/03/a-plumbers-guide-to-git/', '<title>Notes on A Plumber'),
+
+    # Tag aliases are created correctly
+    ('/tags/', '<a id="tag__talks"></a>'),
 ])
 def test_text_appears_in_pages(hostname, path, text_in_page):
     resp = requests.get('http://%s/%s' % (hostname, path.lstrip('/')))
