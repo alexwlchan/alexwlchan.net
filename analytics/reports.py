@@ -193,6 +193,7 @@ def _normalise_referrer(log_line):
         'https://t.co/Vi4b0Xz5dI': 'https://twitter.com/lobsters/status/980237109993730048',
         'https://t.co/ygOyrLcGzr': 'https://twitter.com/foxyjackfox/status/980487168022818816',
         'https://t.co/qOkzmDrlAo': 'https://twitter.com/tabatkins/status/979097435443097601',
+        'https://t.co/dYOQOLziei': 'https://twitter.com/alexwlchan',
     }
 
     if parts.netloc == 't.co':
@@ -236,18 +237,26 @@ def _normalise_referrer(log_line):
                 return data['canonical']
             if (
                 log_line.target_url == data['url'] and
-                log_line.datetime.date() - data['date'] <= dt.timedelta(days=7)
+                log_line.datetime.date() - data['date'] <= dt.timedelta(days=14)
             ):
                 return data['canonical']
 
     if referrer.startswith('https://stackshare.io/news/article/343615/'):
         return 'https://stackshare.io/news/article/343615/a-plumber-s-guide-to-git'
 
+    if (
+        referrer == 'https://afreshcup.com/' or
+        referrer == 'https://feedly.com/i/subscription/feed%2Fhttp%3A%2F%2Fafreshcup.com%2Fhome%2Frss.xml' or
+        referrer == 'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fafreshcup.com%2Ffeed.xml'
+    ) and (log_line.datetime.date() - dt.datetime(2018, 4, 9).date() <= dt.timedelta(days=25)):
+        return 'https://afreshcup.com/home/2018/04/09/double-shot-2071'
+
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
         'http://t.umblr.com/': 'https://tumblr.com/',
         'https://t.umblr.com/': 'https://tumblr.com/',
         'http://usepanda.com/app/': 'https://usepanda.com/app/',
+        'https://finduntaggedtumblrposts.com/about/': 'https://finduntaggedtumblrposts.com/',
     }
 
     return aliases.get(referrer, referrer)
@@ -357,7 +366,8 @@ def should_be_rejected(l):
     if (
         l.referrer is not None and (
             'yandex.ru' in l.referrer or
-            'blog1989.com' in l.referrer
+            'blog1989.com' in l.referrer or
+            'incomekey.net' in l.referrer
         )
     ):
         return True
@@ -441,7 +451,8 @@ if __name__ == '__main__':
             '/joomla.xml',
             '/umbraco',
             '/adminer',
-            '/admin.js'
+            '/admin.js',
+            '/CFIDE/',
         ]) or line.url.endswith('/ws'):
             continue
 
@@ -457,6 +468,13 @@ if __name__ == '__main__':
             '/sftp-config.json',
             '/deployment-config.json',
         ]:
+            continue
+
+        # I have no idea why this is a pattern of requests, but it is.
+        if (
+            line.url.startswith(('/alexwlchan', '/www', '/web', '/\\xEF')) and
+            line.url.endswith(('.rar', '.zip', '.tar.gz'))
+        ):
             continue
 
         parts = urlparse(line.url)
@@ -480,6 +498,9 @@ if __name__ == '__main__':
             'http://www.baidu.com/search/spider.html',
             'http://www.similartech.com/smtbot',
             'Newsify Feed Fetcher',
+            'python-requests',
+            'DatabaseDriverMysqli',
+            'Googlebot',
         ]):
             continue
 
