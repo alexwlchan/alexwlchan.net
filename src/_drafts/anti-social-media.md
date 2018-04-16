@@ -125,3 +125,120 @@ Who protects users from other users on our service?
 
 The sad truth is, if you allow any sort of user-to-user interaction on a service, it will probably be exploited for harassment.
 People will find ways to hurt other people, because people are terrible.
+
+
+{% slide anti_social_media 10 %}
+
+So what does this sort of harassment look like?
+
+
+{% slide anti_social_media 11 %}
+
+In its simplest form, it means nasty messages.
+Give people a free text box to send to each other, and some people will use it to write something unpleasant.
+
+Two forms most of us are familiar with are [spam][spam] and [phishing][phishing].
+We've all had emails from Nigerian princes or suspicious medical companies, and phishing attacks happen a-plenty.
+
+[spam]: https://en.wikipedia.org/wiki/Spamming
+[phishing]: https://en.wikipedia.org/wiki/Phishing
+
+
+{% slide anti_social_media 12 %}
+
+Here's an example of a recent attempt that nearly fooled me.
+
+I'd been complaining about Virgin Media on Twitter, and somebody slipped into my DMs to talk about the problem.
+I was taken in, and it wasn't until they asked for credit card details that I realised something was up -- but not before I'd explained my problem, and given them my account number.
+
+Notice the extra "a1" in the handle?
+I totally missed that.
+
+So spam and phishing are common annoyances.
+They're a problem in volume, but otherwise not too bad.
+Let's think about messages that cause more direct harm.
+
+
+{% slide anti_social_media 13 %}
+
+Let's talk about more direct nasty messages.
+Specific, harmful language designed to upset or distress somebody.
+This is particularly common among kids, who consistently use the Internet to be terrible to each other (aka [cyberbullying][cyberbullying]).
+
+[cyberbullying]: https://en.wikipedia.org/wiki/Cyberbullying
+
+
+{% slide anti_social_media 14 %}
+
+This isn't limited to a few bad eggs -- it happens a lot.
+In 2016, 37% of children survey said they "often" experienced some form of online bullying.
+
+Like all bullying, this has a documented, detrimental effect on mental health.
+It can lead to anxiety, depression, self-harm, and so on -- it's not just something to "shrug off".
+It can take years to recover from this stuff -- for children and adults.
+
+[Source: Ditch the Label's [Annual Bullying Survey 2016][survey].
+On p14, there's a graph *"How frequently did you experience cyberbullying?"*, and I summed the responses between *"often"* and *"constantly"*.
+Retrieved 16 April 2018.]
+
+[survey]: https://www.ditchthelabel.org/annual-bullying-survey-2016/
+
+TODO ANOTHER SLIDE ABOUT CONSEQUENCES
+
+
+{% slide anti_social_media 15 %}
+
+And unfortunately, some people don't get a chance to recover.
+It's not unheard of for cyberbullying to lead to suicide among young people.
+
+Examples:
+
+-   [*Ryan Halligan loses his life to Taunts, Rumors and Cyber Bullying*][halligan], NoBullying.com (retrieved 16 April 2018)
+-   [*Candlelight vigil held in honor of Megan Meier*][meier], sccworlds.com (retrieved 16 April 2018)
+-   [*Holly Grogan, 15, leapt to her death ‘after abuse from Facebook bullies’*][grogan], The Times (retrieved 16 April 2018)
+
+That last one hits particularly hard for me, because Holly was in the year below me at school.
+
+Harassment isn't something everyone can (or should) brush off.
+This slide isn't for shock value -- it's to emphasise that harassment can have real, lasting consequences for the people involved.
+
+[halligan]: https://nobullying.com/ryan-halligan/
+[meier]: https://web.archive.org/web/20081222014832/http://www.sccworlds.com/worlds/index_files/dardenne_prairie/meierwalk.htm
+[grogan]: https://www.thetimes.co.uk/article/holly-grogan-15-leapt-to-her-death-after-abuse-from-facebook-bullies-gl22hgwwzps
+
+
+{% slide anti_social_media 16 %}
+
+Some more examples of the sort of deliberately harmful messages people send:
+
+Hate speech, which targets an entire group instead of an individual.
+
+If a service allows sending images as well as text, people try to build distressing images to send to people.
+This could be something violent, threatening, or unsolicited pornographic content.
+None of which are pleasant to get in your inbox.
+
+
+{% slide anti_social_media 17 %}
+
+An example of what that imagery might look like: your head photoshopped into images or mutilation or sexual violence.
+This is the sort of horrible, brutal stuff that people do to each other.
+
+[Source: [*The Cops Don't Care About Violent Online Threats. What Do We Do Now?*][jezebel], by Anna Merlan.
+Retrieved 16 April 2018.]
+
+[jezebel]: https://jezebel.com/the-cops-dont-care-about-violent-online-threats-what-d-1682577343
+
+
+{% slide anti_social_media 18 %}
+
+It can go all the way up to rape and death threats.
+And if you get one of these, you have to decide: is this credible?
+Do I report it?
+Do I need to take evasive action?
+Even if the threat never comes to pass, that's incredibly draining for the target.
+
+So that's just some of the nasty messages people might send each other.
+
+[An early edition of this talk included some screenshots from Anita Sarkeesian's post [*One Week of Harassment on Twitter*][oneweek], but when I did a test run of the talk, the mood was already so sombre I decided to skip the slide.]
+
+[oneweek]: https://femfreq.tumblr.com/post/109319269825/one-week-of-harassment-on-twitter
