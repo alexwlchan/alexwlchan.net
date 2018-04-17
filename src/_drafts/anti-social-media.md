@@ -353,22 +353,49 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 
 {% slide anti_social_media 27 %}
 
+(Recap slide of forms of online harassment.)
+
+In many areas, law enforcement are struggling to keep up -- things like cyberbullying or revenge porn didn't really exist a few years back, and laws are still being updated to reflect that these things are very, very bad.
+And often, police don't really have the tools or bandwidth to investigate these crimes -- there's just too much for them to manage.
+
 
 {% slide anti_social_media 28 %}
 
 
 {% slide anti_social_media 31 %}
 
+Okay, so nasty stuff happens on the Internet.
+
+But who is it happening to?
+
 
 {% slide anti_social_media 32 %}
 
+Who is at risk?
+
+In theory, anybody can be the target for online harassment -- and we've probably all had the mild stuff, like spam or phishing.
+But this probably isn't a very useful question, so let's instead ask a different question.
+
 
 {% slide anti_social_media 33 %}
+
+Who is at *increased* risk?
+
+Minority groups tend to come in for disproportionate levels of abuse and harassment in the physical world, and it's perhaps not surprising that the same patterns play out online.
 
 
 {% slide anti_social_media 34 %}
 
 TODO ADD A PHOTO CREDIT
+
+When these factors overlap, it gets even worse.
+
+This is Diane Abbott, who was the first black woman MP in the UK.
+She's one of 177 women MPs (at time of speaking TODO check this), but she receives more online abuse than most of them, and it's not hard to guess why.
+
+Source: https://www.amnesty.org.uk/online-violence-women-mps
+
+TODO proper credit
 
 
 {% slide anti_social_media 36 %}
@@ -545,3 +572,5 @@ For somebody who wants to do harm, how can I make their life as difficult and fr
 {% slide anti_social_media 89 %}
 
 (Link to slides, thank everybody who helped.)
+
+TODO Add Gail to thanks slide
