@@ -2,6 +2,7 @@
 title: 24 hours or bust
 layout: post
 tags: productivity personal
+summary: I've started deleting all my Instapaper items if they're more than a day old, and I'm much happier for it.
 ---
 
 A few months back, I tried making a change to the way I handle Instapaper: I added a 24-hour limit to my queue.
