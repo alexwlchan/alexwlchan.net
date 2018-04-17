@@ -193,9 +193,15 @@ It's not unheard of for cyberbullying to lead to suicide among young people.
 
 Examples:
 
--   [*Ryan Halligan loses his life to Taunts, Rumors and Cyber Bullying*][halligan], NoBullying.com (retrieved 16 April 2018)
--   [*Candlelight vigil held in honor of Megan Meier*][meier], sccworlds.com (retrieved 16 April 2018)
--   [*Holly Grogan, 15, leapt to her death ‘after abuse from Facebook bullies’*][grogan], The Times (retrieved 16 April 2018)
+-   [*Ryan Halligan loses his life to Taunts, Rumors and Cyber Bullying*][halligan], NoBullying.com.
+    Retrieved 16 April 2018.
+
+-   [*Candlelight vigil held in honor of Megan Meier*][meier], sccworlds.com.
+    Retrieved 16 April 2018.
+
+-   [*Holly Grogan, 15, leapt to her death ‘after abuse from Facebook bullies’*][grogan], by Steve Bird.
+    The Times.
+    Retrieved 16 April 2018.
 
 That last one hits particularly hard for me, because Holly was in the year below me at school.
 
@@ -224,6 +230,7 @@ An example of what that imagery might look like: your head photoshopped into ima
 This is the sort of horrible, brutal stuff that people do to each other.
 
 [Source: [*The Cops Don't Care About Violent Online Threats. What Do We Do Now?*][jezebel], by Anna Merlan.
+Jezebel.
 Retrieved 16 April 2018.]
 
 [jezebel]: https://jezebel.com/the-cops-dont-care-about-violent-online-threats-what-d-1682577343
@@ -242,3 +249,77 @@ So that's just some of the nasty messages people might send each other.
 [An early edition of this talk included some screenshots from Anita Sarkeesian's post [*One Week of Harassment on Twitter*][oneweek], but when I did a test run of the talk, the mood was already so sombre I decided to skip the slide.]
 
 [oneweek]: https://femfreq.tumblr.com/post/109319269825/one-week-of-harassment-on-twitter
+
+
+{% slide anti_social_media 19 %}
+
+So what else?
+
+Posting personal information is another common form of harassment.
+
+
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.020.png"><img src="/slides/anti_social_media/anti_social_media.020.png"></a>
+  <figcaption>
+    TODO PUT AN IMAGE CREDIT HERE
+    https://en.wikipedia.org/wiki/Rainbow_flag_(LGBT_movement)#/media/File:Rainbow_flag_and_blue_skies.jpg
+  </figcaption>
+</figure>
+
+For example, outing somebody who's LGBTQ+ without their consent.
+
+If a gay person is outed in a conservative community, or a trans person is exposed to their bigoted coworkers, that puts them at very direct risk of harm.
+
+
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.021.png"><img src="/slides/anti_social_media/anti_social_media.021.png"></a>
+  <figcaption>
+    TODO PUT AN IMAGE CREDIT HERE
+    https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/
+  </figcaption>
+</figure>
+
+Another is a practice called [doxing][doxing], which is posting somebody's personally identifiable information -- their address, phone number, place of work.
+Or if somebody is quite guarded, going after their friends and family -- who might be less careful about what they share.
+
+Again, you can see how this puts somebody at risk.
+
+[doxing]: https://en.wikipedia.org/wiki/Doxing
+
+
+
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.022.png"><img src="/slides/anti_social_media/anti_social_media.022.png"></a>
+  <figcaption>
+    TODO PUT AN IMAGE CREDIT HERE
+    https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg
+  </figcaption>
+</figure>
+
+And a final odious technique is [SWATing][swating].
+After somebody's address has been leaked online, another person makes a phone call to the police and calls in a fake threat -- bomb hoax, hostage situation, home shooting -- which gets armed police send to their house.
+Unaware of what's happened, you wake up at 2am to police with guns at your front door.
+
+This is more common in the US.
+
+[swating]: https://en.wikipedia.org/wiki/Swatting
+
+
+{% slide anti_social_media 23 %}
+
+This is extremely distressing for the victims, and wastes time and money for the police.
+In a few unfortunate cases, it also leads to injury or death when the police get a bit too trigger-happy.
+
+Examples:
+
+-   [*Destiny developer startled awake by police, sheriff's helicopter after faked 911 call*](https://www.polygon.com/2014/11/7/7172827/destiny-swatting), by Brian Crecent.
+    Polygon.
+    Retrieved 17 April 2018.
+
+-   [*Prank call sends close to 20 police officers to Southwest Portland home*](http://www.oregonlive.com/portland/index.ssf/2015/01/prank_call_sends_several_polic.html), by Casey Parks.
+    The Oregonian.
+    Retrieved 17 April 2018.
+
+-   [*Gamer who made "swatting" call over video game dispute now facing manslaughter charges*](https://www.vox.com/policy-and-politics/2018/1/13/16888710/barris-swatting-death-charges), by Emily Stewart.
+    Vox.
+    Retrieved 17 April 2018.
