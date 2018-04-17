@@ -457,6 +457,15 @@ TODO ADD A PHOTO CREDIT
 
 {% slide anti_social_media 73 %}
 
+Here's an example of the granular controls [exposed by Facebook](https://www.facebook.com/settings?tab=privacy).
+
+More than just "who can see my posts", they have tools like:
+
+*   Editing privacy settings on past posts,
+
+*   Who can find me, and how?
+    Which affects the chance of drive-by bullying.
+
 
 {% slide anti_social_media 75 %}
 
@@ -475,11 +484,21 @@ TODO ADD A PHOTO CREDIT
 
 {% slide anti_social_media 82 %}
 
+TODO PHOTO CREDIT
+
+Here's an example where it's impossible to infer context: somebody's sent me a text saying *"Thinking of you!"*.
+
+This could be from my partner: they know I have a big talk today, they're sending me luck, that's really sweet.
+Or it could be that creep who won't stop texting me, and rang my hotel room four times last night.
+But most services don't have enough information to tell that difference.
+
 
 {% slide anti_social_media 84 %}
 
 
 {% slide anti_social_media 85 %}
+
+(Recap slide of good practices.)
 
 
 {% slide anti_social_media 86 %}
