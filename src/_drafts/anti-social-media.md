@@ -436,8 +436,7 @@ TODO ADD A PHOTO CREDIT
 
 {% slide anti_social_media 64 %}
 
-
-{% slide anti_social_media 65 %}
+TODO: IMAGE CREDIT
 
 
 {% slide anti_social_media 66 %}
@@ -445,8 +444,17 @@ TODO ADD A PHOTO CREDIT
 
 {% slide anti_social_media 67 %}
 
+This is what it looks like if you're blocked on Twitter.
+You can't send the person a message, or see any of their tweets.
+
 
 {% slide anti_social_media 68 %}
+
+But notice -- the page is very explicit about this.
+*"You are blocked."*
+
+In some scenarios, just the act of blocking might put somebody at risk -- suppose somebody blocks their abusive partner just before an escape.
+That itself could be a trigger for retaliation.
 
 
 {% slide anti_social_media 70 %}
@@ -461,9 +469,10 @@ Here's an example of the granular controls [exposed by Facebook](https://www.fac
 
 More than just "who can see my posts", they have tools like:
 
-*   Editing privacy settings on past posts,
-
-*   Who can find me, and how?
+-   Editing privacy settings on past posts.
+-   How visible on my friends list?
+    This is useful if I have friends who keep changing their handles to evade detection.
+-   Who can find me, and how?
     Which affects the chance of drive-by bullying.
 
 
