@@ -4,7 +4,7 @@ title: (Anti) Social Media
 tags: slides
 ---
 
-This is a talk I gave for students on Bournemouth University's Cyber Security Management course.
+This is a talk I gave today for students on Bournemouth University's Cyber Security Management course.
 It's loosely inspired by a talk about [privilege and inclusion][pycon] I gave at PyCon UK last year, focusing on a specific area -- online harassment.
 
 The idea is to discuss harassment, and how the design of online services can increase (or decrease) the risk to users.
@@ -334,9 +334,12 @@ Examples:
 </figure>
 
 I particularly dislike this next one -- sharing intimate photos without consent, or so-called "revenge porn".
-
 This is relatively new.
 In the past, taking a photograph was a complicated process that required specialist equipment, but now it's easy to take and share a photo.
+
+So, couples take intimate photos and send them to each other.
+All well and good, until they break up, and somebody decides to post those photos on the Internet.
+It's an intrusion of privacy for their ex, and incredibly distressing to have those images leaked.
 
 
 <figure class="slide">
@@ -459,8 +462,20 @@ That itself could be a trigger for retaliation.
 
 {% slide anti_social_media 70 %}
 
+Another useful technique is [shadow banning](https://en.wikipedia.org/wiki/Shadow_banning).
+You block or ban a user, but hide that fact from them.
+They keep screaming into the void, but nobody else has to see what they're saying.
+
+The idea is that eventually, they'll leave on their own because nobody's talking to them -- but without instigating any direct retaliation.
+
 
 {% slide anti_social_media 72 %}
+
+And really, banning and blocking are just parts of a much larger puzzle.
+
+TODO private/public is easy
+
+what about more granular
 
 
 {% slide anti_social_media 73 %}
@@ -503,6 +518,14 @@ But most services don't have enough information to tell that difference.
 
 
 {% slide anti_social_media 84 %}
+
+And finally -- design with abusive personas in mind.
+Repeating what we've said already: you should think about how an abusive ex will use your service.
+
+We spend a lot of time thinking about design personas for our ideal user.
+How can we make the service as elegant as easy as possible?
+Let's take a negative slant as well.
+For somebody who wants to do harm, how can I make their life as difficult and frustrating as possible?
 
 
 {% slide anti_social_media 85 %}
