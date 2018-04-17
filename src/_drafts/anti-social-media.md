@@ -296,7 +296,7 @@ Again, you can see how this puts somebody at risk.
   </figcaption>
 </figure>
 
-And a final odious technique is [SWATing][swating].
+And a final odious form of this technique is [SWATing][swating].
 After somebody's address has been leaked online, another person makes a phone call to the police and calls in a fake threat -- bomb hoax, hostage situation, home shooting -- which gets armed police send to their house.
 Unaware of what's happened, you wake up at 2am to police with guns at your front door.
 
@@ -323,3 +323,174 @@ Examples:
 -   [*Gamer who made "swatting" call over video game dispute now facing manslaughter charges*](https://www.vox.com/policy-and-politics/2018/1/13/16888710/barris-swatting-death-charges), by Emily Stewart.
     Vox.
     Retrieved 17 April 2018.
+
+
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.025.png"><img src="/slides/anti_social_media/anti_social_media.025.png"></a>
+  <figcaption>
+    TODO PUT AN IMAGE CREDIT HERE
+    https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/
+  </figcaption>
+</figure>
+
+I particularly dislike this next one -- sharing intimate photos without consent, or so-called "revenge porn".
+
+This is relatively new.
+In the past, taking a photograph was a complicated process that required specialist equipment, but now it's easy to take and share a photo.
+
+
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.026.png"><img src="/slides/anti_social_media/anti_social_media.026.png"></a>
+  <figcaption>
+    TODO PUT AN IMAGE CREDIT HERE
+    https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/2001_Audi_RS4_B5_Avant_-_Flickr_-_The_Car_Spy_%283%29.jpg/1280px-2001_Audi_RS4_B5_Avant_-_Flickr_-_The_Car_Spy_%283%29.jpg
+  </figcaption>
+</figure>
+
+
+{% slide anti_social_media 27 %}
+
+
+{% slide anti_social_media 28 %}
+
+
+{% slide anti_social_media 31 %}
+
+
+{% slide anti_social_media 32 %}
+
+
+{% slide anti_social_media 33 %}
+
+
+{% slide anti_social_media 34 %}
+
+TODO ADD A PHOTO CREDIT
+
+
+{% slide anti_social_media 36 %}
+
+
+{% slide anti_social_media 37 %}
+
+
+{% slide anti_social_media 38 %}
+
+
+{% slide anti_social_media 39 %}
+
+
+{% slide anti_social_media 42 %}
+
+
+{% slide anti_social_media 43 %}
+
+
+{% slide anti_social_media 44 %}
+
+
+{% slide anti_social_media 45 %}
+
+
+{% slide anti_social_media 46 %}
+
+
+{% slide anti_social_media 47 %}
+
+
+{% slide anti_social_media 48 %}
+
+
+{% slide anti_social_media 49 %}
+
+
+{% slide anti_social_media 51 %}
+
+
+{% slide anti_social_media 52 %}
+
+
+{% slide anti_social_media 54 %}
+
+
+{% slide anti_social_media 55 %}
+
+
+{% slide anti_social_media 56 %}
+
+
+{% slide anti_social_media 57 %}
+
+
+{% slide anti_social_media 59 %}
+
+
+{% slide anti_social_media 61 %}
+
+
+{% slide anti_social_media 62 %}
+
+
+{% slide anti_social_media 63 %}
+
+
+{% slide anti_social_media 64 %}
+
+
+{% slide anti_social_media 65 %}
+
+
+{% slide anti_social_media 66 %}
+
+
+{% slide anti_social_media 67 %}
+
+
+{% slide anti_social_media 68 %}
+
+
+{% slide anti_social_media 70 %}
+
+
+{% slide anti_social_media 72 %}
+
+
+{% slide anti_social_media 73 %}
+
+
+{% slide anti_social_media 75 %}
+
+
+{% slide anti_social_media 76 %}
+
+
+{% slide anti_social_media 79 %}
+
+
+{% slide anti_social_media 80 %}
+
+
+{% slide anti_social_media 81 %}
+
+
+{% slide anti_social_media 82 %}
+
+
+{% slide anti_social_media 84 %}
+
+
+{% slide anti_social_media 85 %}
+
+
+{% slide anti_social_media 86 %}
+
+
+{% slide anti_social_media 87 %}
+
+
+{% slide anti_social_media 88 %}
+
+
+{% slide anti_social_media 89 %}
+
+(Link to slides, thank everybody who helped.)
