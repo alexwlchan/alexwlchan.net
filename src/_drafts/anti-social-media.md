@@ -397,17 +397,28 @@ Source: https://www.amnesty.org.uk/online-violence-women-mps
 
 TODO proper credit
 
+So that's who might be at risk.
+But who's doing all this harassment?
+Who might our hypothetical user be worried about?
+
 
 {% slide anti_social_media 36 %}
 
+Let's talk about threat models.
+
 
 {% slide anti_social_media 37 %}
+
+These are the sort of people you might be worried about -- an abusive partner or ex, your friends, a weirdo you went on one date with and never saw again.
+These are the sort of people who commonly feature in reports of online harassment.
 
 
 {% slide anti_social_media 38 %}
 
 
 {% slide anti_social_media 39 %}
+
+TOOD Are these state sup to date?
 
 
 {% slide anti_social_media 42 %}
@@ -456,6 +467,15 @@ TODO proper credit
 
 
 {% slide anti_social_media 61 %}
+
+Not everyone is tech savvy.
+
+For users, this means they shouldn't need to be technical experts to be safe/comfortable online.
+PGP, VPNs, Tor -- these are all useful tools, but they shouldn't be required knowledge to get by online.
+
+For attackers, this means it's worth providing *some* protection, even if it isn't perfect.
+Maybe you can't implement end-to-end encryption or protect against nation state actors, but you can probably stop somebody's nosy relative.
+It's often said that [perfect is the enemy of good](https://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good), and that applies here.
 
 
 {% slide anti_social_media 62 %}
