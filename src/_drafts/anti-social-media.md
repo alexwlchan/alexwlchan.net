@@ -35,7 +35,7 @@ The PDF slides are the most up-to-date, and I'll try to go back and update the i
 
 <em><strong>Content warning:</strong> this talk includes discussion of online harassment, misogyny, racism, suicide, domestic abuse, police violence, sexual violence and assault, rape threats and death threats.</em>
 
-[pycon]: /2017/11/privilege-inclusion/
+[pycon]: /2017/11/pyconuk-2017-privilege-inclusion/
 
 <!-- summary -->
 
