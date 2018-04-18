@@ -1,7 +1,8 @@
 ---
 layout: post
 title: (Anti) Social Media
-tags: slides
+tags: slides community-management
+summary: Slides and notes for a talk about online harassment, and why you should always design with an abusive ex in mind.
 ---
 
 This is a talk I gave today for students on Bournemouth University's Cyber Security Management course.
