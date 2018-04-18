@@ -26,7 +26,8 @@ Here's a brief outline:
 The aim isn't to be a comprehensive resource, but to get students thinking about these risks.
 Harassment is a constantly moving target, and it's better to anticipate them before they happen.
 
-You can read the slides and (lightly edited) notes on this page, or download the slides [as a PDF](/slides/anti_social_media/anti_social_media_slides.pdf).
+You can read the slides and notes on this page, or download the slides [as a PDF](/slides/anti_social_media/anti_social_media_slides.pdf).
+The notes are my lightly edited thoughts about what I was going to say with each slide -- but they may not be exactly what I said on the day!
 
 <em><strong>Content warning:</strong> this talk includes discussion of online harassment, misogyny, racism, suicide, domestic abuse, police violence, sexual violence and assault, rape threats and death threats.</em>
 
@@ -34,9 +35,13 @@ You can read the slides and (lightly edited) notes on this page, or download the
 
 <!-- summary -->
 
----
+<!-----
 
 ### A note of thanks
+
+Thanks to [Gail Ollis](https://staffprofiles.bournemouth.ac.uk/display/gollis), who invited me to Bournemouth to give the talk.
+
+The ideas in this talk are influenced by a number of people -->
 
 ---
 
@@ -67,7 +72,8 @@ Please look after yourselves!
 <figure class="slide">
   <a href="/slides/anti_social_media/anti_social_media.004.png"><img src="/slides/anti_social_media/anti_social_media.004.png" alt="An illustration of a blank cheque book"></a>
   <figcaption>
-    TODO PUT AN IMAGE CREDIT HERE
+    Image credit: A cheque book.
+    Made by <a href="https://www.flickr.com/photos/easy-pics/8138517266/">The Clear Communication People</a>, used under CC BY-NC-ND.
   </figcaption>
 </figure>
 
@@ -89,9 +95,13 @@ This is much better, right?
 [square]: https://en.wikipedia.org/wiki/Square_Cash
 
 
-{% slide anti_social_media 6 %}
-
-TODO INSERT LINK TO TWEET
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.006.png"><img src="/slides/anti_social_media/anti_social_media.006.png" alt="An illustration of a blank cheque book"></a>
+  <figcaption>
+    Tweet by <a href="https://twitter.com/TweetAnnaMarie/status/789957313649967104">Anna Marie Clifton</a>.
+    Retrieved 18 April 2018.
+  </figcaption>
+</figure>
 
 Well... yes and no.
 
@@ -99,7 +109,8 @@ In its original form, the Square Cash developers never thought to add a block fe
 After all, who'd want to turn down money?
 But that left the messaging feature open for abuse -- for example, as this tweet explains, you could send anybody a message by sending them small amounts.
 
-TODO DID SQUARE FIX IT?
+(Shortly after this tweet, Square Cash [did add a way](https://twitter.com/rsa/status/790592489799331841) to block users.
+Instructions are [on their help site](https://squareup.com/help/us/en/article/5144-cash-app-security).)
 
 
 {% slide anti_social_media 7 %}
@@ -108,7 +119,7 @@ The Square Cash developers aren't evil.
 They set out to build a better payment platform, not a tool of harassment -- but somebody twisted what they'd built.
 
 I think this is true of most people: they mean well, and don't want to build services to enable harassment.
-Unfortunately, there are bad people in the world, and they exploit services for malicious ends.
+Unfortunately, there are bad people in the world, and they exploit services to do nasty things.
 
 
 {% slide anti_social_media 8 %}
@@ -182,8 +193,6 @@ On p14, there's a graph *"How frequently did you experience cyberbullying?"*, an
 Retrieved 16 April 2018.]
 
 [survey]: https://www.ditchthelabel.org/annual-bullying-survey-2016/
-
-TODO ANOTHER SLIDE ABOUT CONSEQUENCES
 
 
 {% slide anti_social_media 15 %}
@@ -261,8 +270,8 @@ Posting personal information is another common form of harassment.
 <figure class="slide">
   <a href="/slides/anti_social_media/anti_social_media.020.png"><img src="/slides/anti_social_media/anti_social_media.020.png"></a>
   <figcaption>
-    TODO PUT AN IMAGE CREDIT HERE
-    https://en.wikipedia.org/wiki/Rainbow_flag_(LGBT_movement)#/media/File:Rainbow_flag_and_blue_skies.jpg
+    Image: Rainbow flag and blue skies, by <a href="https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg">Ludovic Berton</a>.
+    Used under CC BY.
   </figcaption>
 </figure>
 
@@ -274,8 +283,8 @@ If a gay person is outed in a conservative community, or a trans person is expos
 <figure class="slide">
   <a href="/slides/anti_social_media/anti_social_media.021.png"><img src="/slides/anti_social_media/anti_social_media.021.png"></a>
   <figcaption>
-    TODO PUT AN IMAGE CREDIT HERE
-    https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/
+    Image: Grey house with fireplace, by <a href="https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/">Sebastian Soerensen</a>.
+    Used under CC0.
   </figcaption>
 </figure>
 
@@ -291,8 +300,8 @@ Again, you can see how this puts somebody at risk.
 <figure class="slide">
   <a href="/slides/anti_social_media/anti_social_media.022.png"><img src="/slides/anti_social_media/anti_social_media.022.png"></a>
   <figcaption>
-    TODO PUT AN IMAGE CREDIT HERE
-    https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg
+    Image: US & Romanian forces conduct bilateral training, by <a href="https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg">Sgt. Esdras Ruano</a>.
+    Public domain.
   </figcaption>
 </figure>
 
@@ -328,8 +337,8 @@ Examples:
 <figure class="slide">
   <a href="/slides/anti_social_media/anti_social_media.025.png"><img src="/slides/anti_social_media/anti_social_media.025.png"></a>
   <figcaption>
-    TODO PUT AN IMAGE CREDIT HERE
-    https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/
+    Image: bedroom in blue and brown, by <a href="https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/">Digital Buggu</a>.
+    Used under CC0.
   </figcaption>
 </figure>
 
@@ -345,11 +354,16 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 <figure class="slide">
   <a href="/slides/anti_social_media/anti_social_media.026.png"><img src="/slides/anti_social_media/anti_social_media.026.png"></a>
   <figcaption>
-    TODO PUT AN IMAGE CREDIT HERE
-    https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/2001_Audi_RS4_B5_Avant_-_Flickr_-_The_Car_Spy_%283%29.jpg/1280px-2001_Audi_RS4_B5_Avant_-_Flickr_-_The_Car_Spy_%283%29.jpg
+    Image: rear seats of an Audi RS4, by <a href="https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_(6).jpg">The Car Spy</a>.
+    Used under CC BY.
   </figcaption>
 </figure>
 
+We need to be worried about child grooming.
+
+When I was younger, we were all warned "stranger danger!  Don't get into the back of strange cars."
+Now, children can be groomed or targeted from hundreds of miles away
+Services need to think about how they protect children.
 
 {% slide anti_social_media 27 %}
 
@@ -358,8 +372,17 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 In many areas, law enforcement are struggling to keep up -- things like cyberbullying or revenge porn didn't really exist a few years back, and laws are still being updated to reflect that these things are very, very bad.
 And often, police don't really have the tools or bandwidth to investigate these crimes -- there's just too much for them to manage.
 
+And this stuff changes all the time -- people are constantly finding new ways to harass, intimidate, hurt people.
+If we're going to protect people, we need to anticipate new attacks before they happen.
+
+One way to do that is threat modelling -- who's doing this, and why?
+Getting inside their head can help us imagine what they might do next.
+We'll cover that in the next section.
+
 
 {% slide anti_social_media 28 %}
+
+Notes on why harassment is bad -- it can escalate, we've seen examples of how it has consequences in the physical world, and it's just unpleasant to watch.
 
 
 {% slide anti_social_media 31 %}
@@ -384,18 +407,20 @@ Who is at *increased* risk?
 Minority groups tend to come in for disproportionate levels of abuse and harassment in the physical world, and it's perhaps not surprising that the same patterns play out online.
 
 
-{% slide anti_social_media 34 %}
-
-TODO ADD A PHOTO CREDIT
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.034.png"><img src="/slides/anti_social_media/anti_social_media.034.png"></a>
+  <figcaption>
+    Image: Official portrait of Diane Abbott MP, from the <a href="https://beta.parliament.uk/media/S3bGSTqn">UK Parliament website</a>.
+    Used under CC BY.
+  </figcaption>
+</figure>
 
 When these factors overlap, it gets even worse.
 
 This is Diane Abbott, who was the first black woman MP in the UK.
-She's one of 177 women MPs (at time of speaking TODO check this), but she receives more online abuse than most of them, and it's not hard to guess why.
+She's one of 195 women MPs (at time of speaking), but she receives more online abuse than most of them, and it's not hard to guess why.
 
-Source: https://www.amnesty.org.uk/online-violence-women-mps
-
-TODO proper credit
+[Source: [*Black and Asian women MPs abused more online*](https://www.amnesty.org.uk/online-violence-women-mps). Amnesty International. Retrieved 18 April 2018.]
 
 So that's who might be at risk.
 But who's doing all this harassment?
@@ -415,55 +440,128 @@ These are the sort of people who commonly feature in reports of online harassmen
 
 {% slide anti_social_media 38 %}
 
+You'll notice that almost all of them are people that our user *knows*.
+They're not the anonymous "trolls" we often talk about -- these are people we think we know.
+Sadly, people are very likely to be hurt by people they know, but we often overlook them as a threat model because nobody needs to worry about their friends, right?
+
 
 {% slide anti_social_media 39 %}
 
 TOOD Are these state sup to date?
 
+So let's break these examples down into different groups.
+
 
 {% slide anti_social_media 42 %}
+
+The first, most potent threat model: an abusive, current close contact.
+Somebody who knows you very well.
 
 
 {% slide anti_social_media 43 %}
 
+I start with this model because it's the most important one.
+These are the really scary people -- they have physical access to their user, and maybe their devices.
+This puts the user at immediate risk.
+And all the encryption and security in the world won't help someone if their abusive partner knows their phone password.
+
 
 {% slide anti_social_media 44 %}
+
+You also need to think about estranged contacts, who can be almost as scary.
+They might not have physical access any more, but they still know most of your secrets -- mother's maiden name, first pet, town you grew up in -- so a lot of security questions are bunk.
+
+And for somebody jaded, no form of revenge is too petty.
+
+<!-- TODO msising a slide here -->
 
 
 {% slide anti_social_media 45 %}
 
+You need to consider not just individuals, but groups of people.
+Herd mentality is a problem too!
+
 
 {% slide anti_social_media 46 %}
+
+And somebody who's indiscriminately targeted by bullies -- they've not done anything specifically wrong, but they were in the wrong time or place.
+
+This raises questions of discoverability -- how easy is it to find other users on your service?
+How easy is it for somebody to hide themselves from view?
 
 
 {% slide anti_social_media 47 %}
 
+And suppose one of your sysadmins or moderators takes a dislike to one of your users.
+They have plenty of tools at their disposal -- they could steal personal information, go after friends, make a user's life very unpleasant.
+How do you limit their destructive power?
+
 
 {% slide anti_social_media 48 %}
+
+(Recap slide of major threat models.)
 
 
 {% slide anti_social_media 49 %}
 
+<!-- TODO FINISH -->
+
 
 {% slide anti_social_media 51 %}
+
+<!-- TODO FINISH -->
 
 
 {% slide anti_social_media 52 %}
 
+Let's end on a more positive note: how can we build a service that minimises the risks of harassment?
+
 
 {% slide anti_social_media 54 %}
+
+So let's suppose we have a high-risk user.
+Why do they want to use your service?
+
+Mostly the same reasons as everybody else.
+They *might* have additional reasons, but in general you can treat them as normal users.
 
 
 {% slide anti_social_media 55 %}
 
+A rising tide lifts all boats.
+
+Make your service safer for high-risk users helps everybody -- all your users can benefit from improved safety/privacy/security.
+
 
 {% slide anti_social_media 56 %}
+
+So how might we make a service better?
+
+Let's examine some approaches that are often suggested.
 
 
 {% slide anti_social_media 57 %}
 
+People sometimes say "if you don't like it, don't be on the Internet".
+
+In 2018, this isn't practical advice -- many of us need the Internet for things like work, social life, finding a job.
+It's impractical for people to stay offline, and severely disadvantages them if they do.
+
 
 {% slide anti_social_media 59 %}
+
+Some people/services take the attitude that users should just ignore harassment.
+
+I think this is a morally dubious position ("I won't take steps to protect users on my service"), but okay.
+We've already seen how harassment is more than just nasty comments, and can have physical-world consequences, but okay.
+
+Consider also: what about the friends they have on your service?
+They're not just giving up your service -- they're no longer able to talk to friends who they only talk to there.
+(This is why leaving Facebook is so tricky for some people.)
+
+And suppose they take your advice, and do leave.
+If enough people do that, their friends might take note, and follow suit -- even if they're not being directly harassed themselves.
+Suddenly you have a stampeding herd heading for the door.
 
 
 {% slide anti_social_media 61 %}
@@ -480,16 +578,44 @@ It's often said that [perfect is the enemy of good](https://en.wikipedia.org/wik
 
 {% slide anti_social_media 62 %}
 
+You should think about what data you need to collect.
+
+Any data you collect could be stolen, leaked, or inadvertently exposed -- but you can't lose data you don't have!
+What's the minimal set of information you need to ask for, and then just ask for that.
+Not every service needs a full set of personal details, contact info, and credit card numbers.
+
+(GDPR makes this even more necessary.)
+
 
 {% slide anti_social_media 63 %}
 
+When you're building new features, think about ways they might be abused.
+How could it be used in ways you don't expect?
+And can you build it with safety in mind?
 
-{% slide anti_social_media 64 %}
 
-TODO: IMAGE CREDIT
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.064.png"><img src="/slides/anti_social_media/anti_social_media.064.png"></a>
+  <figcaption>
+    Image: a marketing screenshot from <em>Journey</em>, by <a href="http://thatgamecompany.com/journey/">thatgamecompany</a>.
+  </figcaption>
+</figure>
+
+An example: many multiplayer games have peer-to-peer interactions.
+Everyone plays in a shared world, and they can talk to their fellow players.
+
+But in *Journey*, players can't just send arbitrary text to other people
 
 
 {% slide anti_social_media 66 %}
+
+Have a way to ban or block malicious users -- this is the example from the opening.
+
+You should have rules for what's acceptable on the platform, and be ready to enforce those, booting people out if they don't play nice.
+And for individual users, give them a way to block other users -- they're under no obligation to talk to everybody.
+
+I consider individual and platform-level blocking to be table stakes for online services.
+Unfortunately not everybody does this (hi Slack), which can lead to uncomfortable experiences for their users.
 
 
 {% slide anti_social_media 67 %}
@@ -520,9 +646,12 @@ The idea is that eventually, they'll leave on their own because nobody's talking
 
 And really, banning and blocking are just parts of a much larger puzzle.
 
-TODO private/public is easy
+Give your users sophisticated privacy controls.
+These are harder to implement, but add a lot of value.
 
-what about more granular
+<!-- TODO private/public is easy
+
+what about more granular -->
 
 
 {% slide anti_social_media 73 %}
@@ -540,22 +669,78 @@ More than just "who can see my posts", they have tools like:
 
 {% slide anti_social_media 75 %}
 
+Let's change tack and talk about a different tactic some people suggest.
+
+Anonymity is the source of all problems on the web, right?
+Because you're not posting under your real name, people feel like they can say anything they like.
+
+This isn't entirely true -- it's possible to have discussions where everybody involved is entirely anonymous, but it needs a lot of moderation and care.
+
+And what is a real name, exactly?
+Is it my driving license (which not everybody has)?
+My passport (ditto)?
+My birth certificate (even though lots of people change their name after birth)?
+And how do you enforce that -- do people upload photos of their passports (see previous slide about limiting what you collect)?
+And so on.
+
+[The topic of "what is a name" could be a talk unto itself.
+Patrick McKenzie's post [*Falsehoods programmers believe about names*](https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/) is a good starting point, although a lot of the useful information from the comments is missing in the current version of the post.]
+
+Let's suppose we have some real names -- we could be creating more risk.
+On some sites, connecting a user to their physical world name could put them at risk -- dating sites, or kink communities.
+So you may be inviting more harassment, or just driving users away.
+
 
 {% slide anti_social_media 76 %}
+
+An example from a thread with thousands of anonymous comments, but mostly civil discourse -- this one about coffee, typically a topic of much contention online!
+
+Source: [*Skills For Someone Else*](https://fail-fandomanon.dreamwidth.org/187889.html?thread=1023582705#cmt1023582705), fail_fandomanon.
+Retrieved 18 April 2018.
 
 
 {% slide anti_social_media 79 %}
 
+If you don't want to put in the moderation for true anonymity, pseudonyms are a good middle ground.
+You get the accountability and reputation of a persistent name, but without trying to define what somebody's "real" name actually is.
+
 
 {% slide anti_social_media 80 %}
+
+Believe users if they save they have a problem.
+All of our lived experiences is incomplete -- we don't know what it's like to be somebody of a different gender, or race, or sexual orientation.
+So if they say there's a problem, be ready to believe them!
+
+Your service may be big and large, and there are corners of it you don't see.
+Even people with the same life experience as you may use your site differently.
+
+And remember that it can be hard to report something, so don't penalise somebody who reports in good faith -- for example, don't sue somebody who reports a security bug.
 
 
 {% slide anti_social_media 81 %}
 
+Humans talking to other humans is a human problem, and automated systems will really struggle to solve it -- use humans instead!
+For resolving a dispute between people, the best solution is to hire (and look after) human moderators.
+This is expensive, but necessary.
 
-{% slide anti_social_media 82 %}
+It helps if your moderation team speak the same language as your users, ideally natively or at least fluently.
+Language has subtle context that's hard to infer if you're not a fluent speaker, or using automated translation software.
 
-TODO PHOTO CREDIT
+Further reading:
+
+*   [*Is queer a slur? Twitter seems to think so*](https://www.pinknews.co.uk/2018/03/19/is-queer-a-slur-twitter-thinks-so/), by Jess Glass.
+    Pink News.
+    Retrieved 18 April 2018.
+*   [*The Scunthorpe Problem*](https://en.wikipedia.org/wiki/Scunthorpe_problem), Wikipedia.
+
+
+<figure class="slide">
+  <a href="/slides/anti_social_media/anti_social_media.082.png"><img src="/slides/anti_social_media/anti_social_media.082.png"></a>
+  <figcaption>
+    Image: a yellow rose, by <a href="https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/">Anthony</a>.
+    Used under CC0.
+  </figcaption>
+</figure>
 
 Here's an example where it's impossible to infer context: somebody's sent me a text saying *"Thinking of you!"*.
 
@@ -588,9 +773,14 @@ For somebody who wants to do harm, how can I make their life as difficult and fr
 
 {% slide anti_social_media 88 %}
 
+Closing thoughts.
+
+When you build something, you have to ask: *How could this be used to hurt someone?*
+For a more specific version: *How could an abusive ex use this?*
+
+If you don't answer this question, it will be answered for you -- and somebody else will be hurt in the process.
+
 
 {% slide anti_social_media 89 %}
 
 (Link to slides, thank everybody who helped.)
-
-TODO Add Gail to thanks slide
