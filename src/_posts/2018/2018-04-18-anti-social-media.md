@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-04-18 12:00:33 +0000
 title: (Anti) Social Media
 tags: slides community-management
 summary: Slides and notes for a talk about online harassment, and why you should always design with an abusive ex in mind.
