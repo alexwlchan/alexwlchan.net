@@ -58,3 +58,4 @@ def renew_certs(domain):
 if __name__ == '__main__':
     renew_certs('alexwlchan.net')
     renew_certs('bijouopera.co.uk')
+    renew_certs('finduntaggedtumblrposts.com')

@@ -194,6 +194,8 @@ def _normalise_referrer(log_line):
         'https://t.co/ygOyrLcGzr': 'https://twitter.com/foxyjackfox/status/980487168022818816',
         'https://t.co/qOkzmDrlAo': 'https://twitter.com/tabatkins/status/979097435443097601',
         'https://t.co/dYOQOLziei': 'https://twitter.com/alexwlchan',
+        'https://t.co/5mHQbayZlz': 'https://twitter.com/alexwlchan/status/986694596402073600',
+        'https://t.co/pKCsANyfBW': 'https://twitter.com/larsr_h/status/986936075909238785',
     }
 
     if parts.netloc == 't.co':
@@ -250,6 +252,9 @@ def _normalise_referrer(log_line):
         referrer == 'https://feedly.com/i/subscription/feed%2Fhttps%3A%2F%2Fafreshcup.com%2Ffeed.xml'
     ) and (log_line.datetime.date() - dt.datetime(2018, 4, 9).date() <= dt.timedelta(days=25)):
         return 'https://afreshcup.com/home/2018/04/09/double-shot-2071'
+
+    if referrer.startswith('https://finduntaggedtumblrposts.com/'):
+        return 'https://finduntaggedtumblrposts.com/'
 
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
@@ -453,6 +458,11 @@ if __name__ == '__main__':
             '/adminer',
             '/admin.js',
             '/CFIDE/',
+            '/ArticleBookmark@2x.png',
+            '/ArticleDetail',
+            '/.git/HEAD'
+            'wrapper_format=drupal_ajax',
+            '/gen204?invalidResponse',
         ]) or line.url.endswith('/ws'):
             continue
 
