@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Two shortcuts for using S3 in the shell
 summary: Two shell functions for editing and inspecting S3 objects as if they were local files.
 tags: aws
