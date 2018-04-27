@@ -9,7 +9,7 @@ I often find myself needing to edit or inspect the contents of a text file store
 For example, at work we have a [Terraform variables file][tfvars] kept in a private S3 bucket.
 This contains configuration that we don’t want to put in a public repository – passwords, API credentials, usernames, and so on.
 If I want to add a new secret to this file, I need to download the existing file, make an edit, then re-upload the file under the same key.
-It isn’t hard, but it’s moderately tedious to do these steps manually. 
+It isn’t hard, but it’s moderately tedious to do these steps manually.
  
 [tfvars]: https://www.terraform.io/docs/configuration/variables.html#variable-files
 
@@ -85,3 +85,6 @@ The name is to match [cat(1)][cat].
 
 I’ve had both of these in my shell config for a while now, and they’ve been quite useful.
 Neither is a massive time saver, but they save me a few seconds each time I use them.
+
+S3 isn't actually a local filesystem, and it's risky to treat it as such.
+But for quick file edits, these functions help paper over the difference.
