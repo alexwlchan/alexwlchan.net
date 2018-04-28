@@ -18,13 +18,23 @@ BAD_PATHS = [
     '/mysqlmanager/',
     '/sqlmanager/',
     '/sqlweb/',
+    '/webadmin/',
     '/webdb/',
     '/websql/',
 ]
 
+BAD_EXTENSIONS = [
+    '.php',
+]
+
 
 def should_be_rejected(log_line):
-    if urlparse(log_line.url).path in BAD_PATHS:
+    parts = urlparse(log_line.url)
+
+    if parts.path in BAD_PATHS:
+        return True
+
+    if parts.path.endswith(tuple(BAD_EXTENSIONS)):
         return True
 
     return False

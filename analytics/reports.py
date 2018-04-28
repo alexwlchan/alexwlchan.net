@@ -416,22 +416,19 @@ if __name__ == '__main__':
 
         # We ignore certain lines for the purposes of errors; they're people
         # crawling the site in ways that are totally uninteresting.
-        if any(u in line.url for u in [
-            'wp-login.php',
+        if any(u.lower() in line.url.lower() for u in [
             'wp-content',
-            'license.php',
-            'ajax.php',
-            'piwik.php',
-            'up.php',
             '404.html',
-            'download.php',
-            'mytag_js.php',
             '/wp-admin',
             '/wp-includes',
             '/op69okl',
             '/phpmyadmin',
-            '/ogShow.aspx',
-            'ogPipe.aspx',
+            '/php-my-admin',
+            '/phpmy-admin',
+            '/php-myadmin',
+            '/pma2005/',
+            '/pma/',
+            '/phpmanager',
             '/sso/login',
             '/com_b2jcontact/',
             '/jm-ajax/',
@@ -470,15 +467,6 @@ if __name__ == '__main__':
         ):
             continue
 
-        parts = urlparse(line.url)
-        if parts.path.endswith((
-            # File types I don't have anywhere, so any requests for them
-            # are people trying to do something unsupported!
-            '.php', '.aspx', '.asp',
-        )):
-            continue
-
-        # Any sort of bot/crawler is uninteresting for analytics purposes.
         # Anything on this list was polluting 404 reports with URLs that
         # wouldn't be expected to work -- but it's not a human, so I don't
         # care that it got an error.
