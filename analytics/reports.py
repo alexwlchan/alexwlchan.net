@@ -264,6 +264,8 @@ def _normalise_referrer(log_line):
         'https://t.umblr.com/': 'https://tumblr.com/',
         'http://usepanda.com/app/': 'https://usepanda.com/app/',
         'https://finduntaggedtumblrposts.com/about/': 'https://finduntaggedtumblrposts.com/',
+        'http://forums.xkcd.com/viewtopic.php?f=12&t=124608': 'http://forums.xkcd.com/viewtopic.php?p=4340242',
+        'http://forums.xkcd.com/viewtopic.php?f=12&t=124608&p=4340573': 'http://forums.xkcd.com/viewtopic.php?p=4340242',
     }
 
     return aliases.get(referrer, referrer)
@@ -284,6 +286,7 @@ def _is_search_traffic(referrer):
         'https://www.startpage.com/do/search',
         'https://google.90h6.cn:1668/',
         'https://www.ixquick.com/',
+        'https://www.ecosia.org/',
     ]
 
 
