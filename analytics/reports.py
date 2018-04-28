@@ -24,6 +24,8 @@ from urllib.parse import parse_qs, urlparse
 import attr
 import docopt
 
+from rejections import should_be_rejected
+
 
 NGINX_LOG_REGEX = re.compile(
     r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
@@ -358,25 +360,6 @@ def int_or_none(value):
     except TypeError:
         assert value is None
         return None
-
-
-def should_be_rejected(l):
-    if l.referrer in [
-        'https://yellowstonevisitortours.com',
-        'https://www.cloudsendchef.com',
-        'https://www.timer4web.com/',
-        'https://www.theautoprofit.ml',
-    ]:
-        return True
-    if (
-        l.referrer is not None and (
-            'yandex.ru' in l.referrer or
-            'blog1989.com' in l.referrer or
-            'incomekey.net' in l.referrer
-        )
-    ):
-        return True
-    return False
 
 
 def docker_logs(container_name, days):
