@@ -12,6 +12,14 @@ from urllib.parse import urlparse
 BAD_PATHS = [
     '/admin/',
     '/dbadmin/',
+    '/myadmin/',
+    '/mysqladmin/',
+    '/mysql-admin/',
+    '/mysqlmanager/',
+    '/sqlmanager/',
+    '/sqlweb/',
+    '/webdb/',
+    '/websql/',
 ]
 
 
