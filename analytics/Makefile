@@ -5,7 +5,7 @@ $(ANALYTICS)/requirements.txt: $(ANALYTICS)/requirements.in
 	docker run --rm --volume $(ANALYTICS):/src micktwomey/pip-tools
 	touch $(ANALYTICS)/requirements.txt
 
-deps = $(ANALYTICS)/requirements.txt $(ANALYTICS)/Dockerfile $(ANALYTICS)/reports.py
+deps = $(ANALYTICS)/requirements.txt $(ANALYTICS)/Dockerfile $(wildcard $(ANALYTICS)/*.py)
 
 $(ROOT)/.docker/analytics: $(deps)
 	docker build --tag alexwlchan/analytics $(ANALYTICS)

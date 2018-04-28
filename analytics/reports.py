@@ -24,6 +24,8 @@ from urllib.parse import parse_qs, urlparse
 import attr
 import docopt
 
+from rejections import should_be_rejected
+
 
 NGINX_LOG_REGEX = re.compile(
     r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
@@ -262,6 +264,8 @@ def _normalise_referrer(log_line):
         'https://t.umblr.com/': 'https://tumblr.com/',
         'http://usepanda.com/app/': 'https://usepanda.com/app/',
         'https://finduntaggedtumblrposts.com/about/': 'https://finduntaggedtumblrposts.com/',
+        'http://forums.xkcd.com/viewtopic.php?f=12&t=124608': 'http://forums.xkcd.com/viewtopic.php?p=4340242',
+        'http://forums.xkcd.com/viewtopic.php?f=12&t=124608&p=4340573': 'http://forums.xkcd.com/viewtopic.php?p=4340242',
     }
 
     return aliases.get(referrer, referrer)
@@ -282,6 +286,7 @@ def _is_search_traffic(referrer):
         'https://www.startpage.com/do/search',
         'https://google.90h6.cn:1668/',
         'https://www.ixquick.com/',
+        'https://www.ecosia.org/',
     ]
 
 
@@ -360,25 +365,6 @@ def int_or_none(value):
         return None
 
 
-def should_be_rejected(l):
-    if l.referrer in [
-        'https://yellowstonevisitortours.com',
-        'https://www.cloudsendchef.com',
-        'https://www.timer4web.com/',
-        'https://www.theautoprofit.ml',
-    ]:
-        return True
-    if (
-        l.referrer is not None and (
-            'yandex.ru' in l.referrer or
-            'blog1989.com' in l.referrer or
-            'incomekey.net' in l.referrer
-        )
-    ):
-        return True
-    return False
-
-
 def docker_logs(container_name, days):
     """Read log lines from a running container."""
     log_dir = tempfile.mkdtemp()
@@ -433,22 +419,13 @@ if __name__ == '__main__':
 
         # We ignore certain lines for the purposes of errors; they're people
         # crawling the site in ways that are totally uninteresting.
-        if any(u in line.url for u in [
-            'wp-login.php',
+        if any(u.lower() in line.url.lower() for u in [
             'wp-content',
-            'license.php',
-            'ajax.php',
-            'piwik.php',
-            'up.php',
             '404.html',
-            'download.php',
-            'mytag_js.php',
             '/wp-admin',
             '/wp-includes',
             '/op69okl',
-            '/phpmyadmin',
-            '/ogShow.aspx',
-            'ogPipe.aspx',
+            '/phpmanager',
             '/sso/login',
             '/com_b2jcontact/',
             '/jm-ajax/',
@@ -463,21 +440,14 @@ if __name__ == '__main__':
             '/.git/HEAD'
             'wrapper_format=drupal_ajax',
             '/gen204?invalidResponse',
+            '/ws_ftp.ini',
+            '/winscp.ini',
+            '/filezilla.xml',
+            '/sitemanager.xml',
+            '/config/databases.yml',
+            '/config/database.yml',
+            '/mysql/',
         ]) or line.url.endswith('/ws'):
-            continue
-
-        if line.url in [
-            # These paths don't resolve, nor is there any sensible
-            # reason to expect they might do so!
-            '/2/favicon.ico',
-            '/3/favicon.ico',
-            '/home/favicon.ico',
-            '/.ftpconfig',
-            '/.remote-sync.json',
-            '/.vscode/ftp-sync.json',
-            '/sftp-config.json',
-            '/deployment-config.json',
-        ]:
             continue
 
         # I have no idea why this is a pattern of requests, but it is.
@@ -487,31 +457,8 @@ if __name__ == '__main__':
         ):
             continue
 
-        parts = urlparse(line.url)
-        if parts.path.endswith((
-            # File types I don't have anywhere, so any requests for them
-            # are people trying to do something unsupported!
-            '.php', '.aspx', '.asp',
-        )):
-            continue
-
-        # Any sort of bot/crawler is uninteresting for analytics purposes.
-        # Anything on this list was polluting 404 reports with URLs that
-        # wouldn't be expected to work -- but it's not a human, so I don't
-        # care that it got an error.
-        if any(u in line.user_agent for u in [
-            'OpenLinkProfiler.org/bot',
-            'http://megaindex.com/crawler',
-            'http://ahrefs.com/robot/',
-            'http://mj12bot.com/',
-            'http://napoveda.seznam.cz/en/seznambot-intro/',
-            'http://www.baidu.com/search/spider.html',
-            'http://www.similartech.com/smtbot',
-            'Newsify Feed Fetcher',
-            'python-requests',
-            'DatabaseDriverMysqli',
-            'Googlebot',
-        ]):
+        # This is a private part of the site!
+        if line.url.startswith('/attic/'):
             continue
 
         if line.status == 404:
