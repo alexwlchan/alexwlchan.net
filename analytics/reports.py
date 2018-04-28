@@ -422,12 +422,6 @@ if __name__ == '__main__':
             '/wp-admin',
             '/wp-includes',
             '/op69okl',
-            '/phpmyadmin',
-            '/php-my-admin',
-            '/phpmy-admin',
-            '/php-myadmin',
-            '/pma2005/',
-            '/pma/',
             '/phpmanager',
             '/sso/login',
             '/com_b2jcontact/',
@@ -443,21 +437,14 @@ if __name__ == '__main__':
             '/.git/HEAD'
             'wrapper_format=drupal_ajax',
             '/gen204?invalidResponse',
+            '/ws_ftp.ini',
+            '/winscp.ini',
+            '/filezilla.xml',
+            '/sitemanager.xml',
+            '/config/databases.yml',
+            '/config/database.yml',
+            '/mysql/',
         ]) or line.url.endswith('/ws'):
-            continue
-
-        if line.url in [
-            # These paths don't resolve, nor is there any sensible
-            # reason to expect they might do so!
-            '/2/favicon.ico',
-            '/3/favicon.ico',
-            '/home/favicon.ico',
-            '/.ftpconfig',
-            '/.remote-sync.json',
-            '/.vscode/ftp-sync.json',
-            '/sftp-config.json',
-            '/deployment-config.json',
-        ]:
             continue
 
         # I have no idea why this is a pattern of requests, but it is.
@@ -467,22 +454,8 @@ if __name__ == '__main__':
         ):
             continue
 
-        # Anything on this list was polluting 404 reports with URLs that
-        # wouldn't be expected to work -- but it's not a human, so I don't
-        # care that it got an error.
-        if any(u in line.user_agent for u in [
-            'OpenLinkProfiler.org/bot',
-            'http://megaindex.com/crawler',
-            'http://ahrefs.com/robot/',
-            'http://mj12bot.com/',
-            'http://napoveda.seznam.cz/en/seznambot-intro/',
-            'http://www.baidu.com/search/spider.html',
-            'http://www.similartech.com/smtbot',
-            'Newsify Feed Fetcher',
-            'python-requests',
-            'DatabaseDriverMysqli',
-            'Googlebot',
-        ]):
+        # This is a private part of the site!
+        if line.url.startswith('/attic/'):
             continue
 
         if line.status == 404:
