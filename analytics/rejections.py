@@ -13,6 +13,7 @@ BAD_PATHS = [
     '/admin/',
     '/dbadmin/',
     '/myadmin/',
+    '/mysql/',
     '/mysqladmin/',
     '/mysql-admin/',
     '/mysqlmanager/',
@@ -30,6 +31,11 @@ BAD_PATHS = [
     '/php-my-admin/',
     '/php-myadmin/',
     '/phpmy-admin/',
+
+    '/hnap1/',
+
+    '/hudson/script',
+    '/script',
 
     # These paths don't resolve, nor is there any sensible reason to
     # expect they might resolving soon.
@@ -49,6 +55,7 @@ BAD_PATH_PREFIXES = [
 
 BAD_PATH_SUFFIXES = [
     '/uploadify/uploadify.css',
+    '/fix-ie.css',
 
     '/phpmyadmin/',
     '/phpmyadmin',
@@ -77,6 +84,19 @@ BAD_USER_AGENTS = [
     'python-requests',
 ]
 
+BAD_REFERRERS = [
+    'https://yellowstonevisitortours.com',
+    'https://www.cloudsendchef.com',
+    'https://www.timer4web.com/',
+    'https://www.theautoprofit.ml',
+]
+
+BAD_REFERRER_COMPONENTS = [
+    'blog1989.com',
+    'incomekey.net',
+    'yandex.ru',
+]
+
 
 def should_be_rejected(log_line):
     parts = urlparse(log_line.url.lower())
@@ -91,6 +111,15 @@ def should_be_rejected(log_line):
         return True
 
     if any(u in log_line.user_agent for u in BAD_USER_AGENTS):
+        return True
+
+    if log_line.referrer in BAD_REFERRERS:
+        return True
+
+    if (
+        log_line.referrer is not None and
+        any(r in log_line.referrer.lower() for r in BAD_REFERRER_COMPONENTS)
+    ):
         return True
 
     return False
