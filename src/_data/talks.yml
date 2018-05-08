@@ -4,8 +4,8 @@
     conference: Oxford Python
     date: 18 May
     description: |+
-      Another repeat of my PyCon UK workshop.  I'll post a link to the Meetup
-      page when it's available.
+      Another repeat of my PyCon UK workshop.  You can sign up for the
+      workshop [on Meetup](https://www.meetup.com/oxfordpython/events/250405376/).
 
   - title: (Anti-)Social Media
     conference: Bournemouth University
@@ -17,7 +17,7 @@
       often used for harassment, thinking about common threat models, and some
       good practices for building safer services.
 
-      I'm hoping to post slides and notes shortly after the lecture.
+      You can read [my slides and rough notes](/2018/04/anti-social-media/).
 
   - title: A Plumber's Guide to Git
     conference: CamPUG
