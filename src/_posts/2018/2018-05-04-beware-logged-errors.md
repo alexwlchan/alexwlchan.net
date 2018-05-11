@@ -13,6 +13,8 @@ Yesterday, Twitter [wrote a blog post][twitter] about a recent security bug:
 Quite by chance, I spent yesterday fixing a similar bug.
 I was a bit careless when using the [subprocess module][subprocess], and leaked some AWS credentials into a public CI log.
 
+<!-- summary -->
+
 ## The faulty code
 
 Here's a snippet from one of our CI scripts:
