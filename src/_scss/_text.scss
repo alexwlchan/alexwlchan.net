@@ -35,19 +35,29 @@ h2 {
 }
 
 blockquote {
-  border-left: 5px solid $midtone-gray;
-  background-color: $light-grey;
-  margin-left:  0px;
+  border-left: $sidebar-border-width solid $midtone-gray;
+  margin-left:  -$default-padding;
   margin-right: 0px;
-  padding: 1px $default-padding * 0.75;
-  font-size: 0.95em;
-  code, pre {
-    background-color: #ddd;
+  padding: 0px ($default-padding - $sidebar-border-width);
+  font-style: italic;
+
+  color: #6f6f6f;
+
+  @media print {
+    color: $body-color;
   }
+
   pre {
     border-color: #aaa;
   }
-  line-height: $line-height * 0.95;
+
+  em {
+    font-style: normal;
+  }
+
+  @media screen and (max-width: $max-width + $default-padding * 3) {
+    margin-left: 0px;
+  }
 }
 
 // These rules help with the positioning of footnote markers, although
