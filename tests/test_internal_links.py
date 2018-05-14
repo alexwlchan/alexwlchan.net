@@ -29,6 +29,9 @@ def responses(src, baseurl):
             for rsp in crawl(url, follow_external_links=False):
                 _responses.append(rsp)
 
+        for rsp in crawl(baseurl + '/theme/style-sample/', follow_external_links=False):
+            _responses.append(rsp)
+
     # There's an analytics path which is linked from every page, but only
     # filled in on the production instance -- this avoids recording analytics
     # data in local testing!
