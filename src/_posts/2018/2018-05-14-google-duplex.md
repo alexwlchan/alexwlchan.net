@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-05-14 06:15:08 +0000
 title: A brief thought on Google Duplex
 summary: I think Duplex could be a great tool for accessibility, even if that's not what it was pitched as.
 tags: accessibility ableism
