@@ -1,0 +1,97 @@
+{
+  "created_at": "Thu Apr 05 03:21:30 +0000 2018",
+  "id": 981733542118993920,
+  "id_str": "981733542118993920",
+  "text": "everybody knows that the reason we use capslock is because capslock is cruise control for cool\n\nMillennials destroy… https://t.co/gxc2VStMlT",
+  "truncated": true,
+  "entities": {
+    "hashtags": [
+
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+      {
+        "url": "https://t.co/gxc2VStMlT",
+        "expanded_url": "https://twitter.com/i/web/status/981733542118993920",
+        "display_url": "twitter.com/i/web/status/9…",
+        "indices": [
+          117,
+          140
+        ]
+      }
+    ]
+  },
+  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 117874595,
+    "id_str": "117874595",
+    "name": "*knits defiantly*",
+    "screen_name": "beamish_girl",
+    "location": "Charlottesville, VA",
+    "description": "Hannibal, #ToastieTwitter, sundry musings. Social Justice Bard. Queer-centric, librarian-adjacent.",
+    "url": null,
+    "entities": {
+      "description": {
+        "urls": [
+
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 478,
+    "friends_count": 322,
+    "listed_count": 7,
+    "created_at": "Fri Feb 26 22:25:00 +0000 2010",
+    "favourites_count": 8063,
+    "utc_offset": -14400,
+    "time_zone": "Eastern Time (US & Canada)",
+    "geo_enabled": false,
+    "verified": false,
+    "statuses_count": 11988,
+    "lang": "en",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "C0DEED",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/724307676/elffin_hwaet_ye_phoque_normal.gif",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/724307676/elffin_hwaet_ye_phoque_normal.gif",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/117874595/1493233179",
+    "profile_link_color": "1DA1F2",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": false,
+    "default_profile": true,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 44,
+  "favorite_count": 112,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
