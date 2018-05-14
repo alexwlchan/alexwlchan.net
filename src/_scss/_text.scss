@@ -39,9 +39,11 @@ blockquote {
   margin-left:  -$default-padding;
   margin-right: 0px;
   padding: 0px ($default-padding - $sidebar-border-width);
-  font-style: italic;
 
-  color: #6f6f6f;
+  & > p {
+    font-style: italic;
+    color: #6f6f6f;
+  }
 
   @media print {
     color: $body-color;
