@@ -45,3 +45,26 @@ def git(*args):
 Usually I'll explain what's going on in the `<pre>` tag.
 
 I might break it down over multiple paragraphs, linking to documentation or other resources as appropriate.
+
+---
+
+I spend a lot of time on Twitter, so I have a way to embed tweets in my posts.
+This is an example of an embedded tweet:
+
+{% tweet https://twitter.com/nex3/status/991582200616271872 %}
+
+They're rendered with a custom Jekyll plugin -- I don't use the native Twitter embeds, because they require loading a bunch of JavaScript.
+Tweets are static content, so I render them with HTML and CSS.
+
+Hashtags, mentions and links are rendered correctly:
+
+{% tweet https://twitter.com/beamish_girl/status/981733542118993920 %}
+
+I can also embed tweets with a single image:
+
+{% tweet https://twitter.com/CHilton_BB/status/994150733921611777 %}
+
+My plugin doesn't support multiple images, quote tweets, videos, or anything else -- just text and a single image.
+I've never wanted to embed a more complicated tweet, so I've never extended the plugin to do that.
+
+That's one of the perks of writing something that's just for me, not a general purpose tool -- I can be lazy, and only build features when *I* need them.
