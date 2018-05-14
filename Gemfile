@@ -10,4 +10,4 @@ end
 gem "nokogiri", "~> 1.8"
 gem "redcarpet"
 gem "shell-executer", "~> 1.0"
-gem "twitter", "~> 6.1"
+gem "twitter", "~> 5.16"
