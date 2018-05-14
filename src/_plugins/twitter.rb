@@ -113,7 +113,7 @@ module Jekyll
       if not File.exists? cache_file()
         puts("Caching #{@tweet_url}")
         client = setup_api_client()
-        tweet = client.status(@tweet_url)
+        tweet = client.status(@tweet_url, tweet_mode: 'extended')
         json_string = JSON.pretty_generate(tweet.attrs)
         download_avatar(tweet)
         download_media(tweet)
@@ -130,7 +130,11 @@ module Jekyll
         .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
         .strftime("%-I:%M&nbsp;%p - %-d %b %Y")
 
-      text = tweet_data["text"]
+      text = tweet_data["text"] or tweet_data["full_text"]
+      if text == nil
+        text = tweet_data["full_text"]
+      end
+
       tweet_data["entities"]["urls"].each { |u|
         text = text.sub(
           u["url"],
