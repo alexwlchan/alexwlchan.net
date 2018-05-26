@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-05-26 18:57:07 +0000
 title: Drawing ASCII bar charts
 summary: A Python snippets for drawing bar charts in command-line applications.
 tags: data-viz python
