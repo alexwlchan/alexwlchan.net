@@ -198,6 +198,8 @@ def _normalise_referrer(log_line):
         'https://t.co/dYOQOLziei': 'https://twitter.com/alexwlchan',
         'https://t.co/5mHQbayZlz': 'https://twitter.com/alexwlchan/status/986694596402073600',
         'https://t.co/pKCsANyfBW': 'https://twitter.com/larsr_h/status/986936075909238785',
+        'https://t.co/Es1aqnxxsl': 'https://twitter.com/alexwlchan/status/992415563266879488',
+        'https://t.co/N8dOThXq0I': 'https://twitter.com/alexwlchan/status/996272399531302912',
     }
 
     if parts.netloc == 't.co':
@@ -258,6 +260,9 @@ def _normalise_referrer(log_line):
     if referrer.startswith('https://finduntaggedtumblrposts.com/'):
         return 'https://finduntaggedtumblrposts.com/'
 
+    referrer = referrer.replace('blogspot.co.uk', 'blogspot.com')
+    referrer = referrer.replace('blogspot.ca', 'blogspot.com')
+
     aliases = {
         'https://uk.search.yahoo.com/': 'https://search.yahoo.com/',
         'http://t.umblr.com/': 'https://tumblr.com/',
@@ -266,6 +271,7 @@ def _normalise_referrer(log_line):
         'https://finduntaggedtumblrposts.com/about/': 'https://finduntaggedtumblrposts.com/',
         'http://forums.xkcd.com/viewtopic.php?f=12&t=124608': 'http://forums.xkcd.com/viewtopic.php?p=4340242',
         'http://forums.xkcd.com/viewtopic.php?f=12&t=124608&p=4340573': 'http://forums.xkcd.com/viewtopic.php?p=4340242',
+        'https://github.com/PunkUnicorn/The-Return-of-Tom-Thumb/tree/master': 'https://github.com/PunkUnicorn/The-Return-of-Tom-Thumb',
     }
 
     return aliases.get(referrer, referrer)
@@ -287,7 +293,11 @@ def _is_search_traffic(referrer):
         'https://google.90h6.cn:1668/',
         'https://www.ixquick.com/',
         'https://www.ecosia.org/',
-    ]
+        'https://in.search.yahoo.com/',
+        'http://adguard.com/referrer.html',
+    ] or referrer.startswith((
+        'http://alert.scansafe.net/alert/',
+    ))
 
 
 def _is_rss_subscriber(referrer):
@@ -336,8 +346,11 @@ def run_report(tracking_lines, not_found_lines, error_lines, limit):
         print(f'{count:#4d} : {title}')
 
     print_banner('Traffic by Date')
+    most_traffic = max(count for _, count in traffic_by_date(tracking_lines))
+    increment = most_traffic / 25
     for date, count in traffic_by_date(tracking_lines):
-        print(f'{date} : {count:#4d}')
+        bar = '█' * int(count / increment) or '▏'
+        print(f'{date}: {count:#4d} {bar}')
 
     print_banner('Referrers')
     for referrer, count in get_referrers(tracking_lines, limit):

@@ -37,6 +37,25 @@ BAD_PATHS = [
     '/hudson/script',
     '/script',
 
+    '/https:/alexwlchan.net/',
+
+    '/.git/HEAD',
+
+    '/themes/default/js/showdown.js',
+
+    '/filezilla.xml',
+    '/sitemanager.xml',
+    '/winscp.ini',
+    '/ws_ftp.ini',
+
+    '/simpla/',
+    '/umbraco',
+
+    '/admin/content/sitetree/',
+    '/manager/',
+
+    '/core/themes/bartik/color/preview.html',
+
     # These paths don't resolve, nor is there any sensible reason to
     # expect they might resolving soon.
     '/2/favicon.ico',
@@ -51,6 +70,11 @@ BAD_PATHS = [
 
 BAD_PATH_PREFIXES = [
     '/phpmyadmin-',
+
+    '/wp-admin',
+    '/wp-content',
+
+    '/.git',
 ]
 
 BAD_PATH_SUFFIXES = [
@@ -59,6 +83,18 @@ BAD_PATH_SUFFIXES = [
 
     '/phpmyadmin/',
     '/phpmyadmin',
+
+    '/cookies.js',
+
+    '/joomla.xml',
+
+    '/backgroundStripe-new.jpg',
+    '/footerBackground.jpg',
+    '/spacer.png',
+
+    '/ArticleBookmark@2x.png',
+
+    '/null',
 
     # File formats I don't have anywhere on the site, because I don't
     # use these technologies!
@@ -107,7 +143,7 @@ def should_be_rejected(log_line):
     if parts.path.startswith(tuple(BAD_PATH_PREFIXES)):
         return True
 
-    if parts.path.endswith(tuple(BAD_PATH_SUFFIXES)):
+    if parts.path.endswith(tuple([s.lower() for s in BAD_PATH_SUFFIXES])):
         return True
 
     if any(u in log_line.user_agent for u in BAD_USER_AGENTS):
