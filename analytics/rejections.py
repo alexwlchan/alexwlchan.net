@@ -73,6 +73,7 @@ BAD_PATH_PREFIXES = [
 
     '/wp-admin',
     '/wp-content',
+    '/wp-includes',
 
     '/.git',
 ]
@@ -121,6 +122,7 @@ BAD_USER_AGENTS = [
 ]
 
 BAD_REFERRERS = [
+    'http://test-iphone-x.com/',
     'https://yellowstonevisitortours.com',
     'https://www.cloudsendchef.com',
     'https://www.timer4web.com/',
