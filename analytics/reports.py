@@ -200,6 +200,7 @@ def _normalise_referrer(log_line):
         'https://t.co/pKCsANyfBW': 'https://twitter.com/larsr_h/status/986936075909238785',
         'https://t.co/Es1aqnxxsl': 'https://twitter.com/alexwlchan/status/992415563266879488',
         'https://t.co/N8dOThXq0I': 'https://twitter.com/alexwlchan/status/996272399531302912',
+        'https://t.co/ldUqd16jmK': 'https://twitter.com/alexwlchan/status/1000484772626477056',
     }
 
     if parts.netloc == 't.co':
