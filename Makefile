@@ -109,8 +109,16 @@ nginx-serve:
 		--name alexwlchan \
 		--detach nginx:alpine
 
+renew-certs:
+	docker run --rm --tty \
+		--volume $(HOME):$(HOME) \
+		certbot/certbot renew \
+			--config-dir ~/.certbot/config \
+			--work-dir ~/.certbot/work \
+			--logs-dir ~/.certbot/logs
+
+
 include analytics/Makefile
-include certbot/Makefile
 
 
 .PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
