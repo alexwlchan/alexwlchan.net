@@ -27,6 +27,7 @@ What you see today is powered by:
 *   [Docker][docker], which wraps the local build process and nginx on my server
 *   [Travis CI][travis], which builds and publishes the site
 *   [Linode][linode], who provide the Linux server where I run nginx (referral link)
+*   [Let's Encrypt][letsencrypt] for SSL/TLS certificates
 
 and all the site source code is on [GitHub][github].
 
@@ -41,6 +42,7 @@ Feast your eyes on my evolving skills in mediocre web design.
 [travis]: https://travis-ci.org/alexwlchan/alexwlchan.net
 [linode]: https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3
 [github]: https://github.com/alexwlchan/alexwlchan.net/
+[letsencrypt]: https://letsencrypt.org
 
 <style>
   img {
