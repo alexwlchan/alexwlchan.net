@@ -12,13 +12,13 @@ services:
     image: "nginx:alpine"
     volumes:
     - ~/sites/finduntaggedtumblrposts.com:/usr/share/nginx/html
-  pincushion:
-    command: /app/run_viewer.py --host 'http://elasticsearch:9200/'
-    image: pincushion
-    volumes:
-    - ~/.aws:/root/.aws
   pinteresting:
     image: pinteresting
+  pinboard:
+    image: pinboard
+    command: python3 /app/examples/pinboard/viewer.py --pin_username=$PIN_USERNAME --pin_password=$PIN_PASSWORD --app_password=$PIN_APP_PASSWORD --es_host=tiny_elastic:9200
+    volumes:
+    - ~/pinboard:/tmp/pinboard
   proxy:
     image: nginx:alpine
     ports:
@@ -34,4 +34,6 @@ services:
     image: alexwlchan/pygmentizr
     volumes:
     - ~/repos/pygmentizr/config.py:/config.py
+  tiny_elastic:
+    image: tiny_elastic
 version: '2'
