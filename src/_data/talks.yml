@@ -4,8 +4,12 @@
     conference: Oxford Python
     date: 18 May
     description: |+
-      Another repeat of my PyCon UK workshop.  You can sign up for the
-      workshop [on Meetup](https://www.meetup.com/oxfordpython/events/250405376/).
+      Another repeat of my PyCon UK workshop, held in the [Oxford Centre for Innovation](https://www.meetup.com/oxfordpython/events/250405376/).
+
+      <figure>
+      <img src="/images/talks/oxford_git.jpg" alt="A picture of the Radcliffe Camera, Oxford, with the phrase 'A Plumber's Guide to Git' in blue.">
+      <figcaption>Image: Radcliffe Camera, Oxford. <a href="https://wellcomecollection.org/works/sf2sqsg5">Wellcome Collection</a>.</figcaption>
+      </figure>
 
   - title: (Anti-)Social Media
     conference: Bournemouth University

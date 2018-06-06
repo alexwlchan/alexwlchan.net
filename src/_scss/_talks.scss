@@ -21,5 +21,10 @@ $talk-gutter-column: 15px;
   }
   .talk__description {
     margin-left: $talk-left-column + $talk-gutter-column;
+
+    figure {
+      width: 512px;
+      margin-left: 0;
+    }
   }
 }
