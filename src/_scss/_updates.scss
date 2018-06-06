@@ -1,9 +1,13 @@
 .update {
   border-color: $primary-color;
-  background: lighten($primary-color, 47);
-  font-size: 1em;
-  line-height: $line-height;
-  code {
-    background-color: $light-grey;
+
+  // Cancel out the styles added by standard blockquotes
+  p {
+    color: $body-color;
+    font-style: normal;
+
+    em {
+      font-style: italic;
+    }
   }
 }

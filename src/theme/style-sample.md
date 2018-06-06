@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Style sample
+last_updated: 2018-06-06 07:05:43 +0100
 ---
 
 This is a page that has examples of different elements on the site.
@@ -68,3 +69,14 @@ My plugin doesn't support multiple images, quote tweets, videos, or anything els
 I've never wanted to embed a more complicated tweet, so I've never extended the plugin to do that.
 
 That's one of the perks of writing something that's just for me, not a general purpose tool -- I can be lazy, and only build features when *I* need them.
+
+---
+
+Sometimes I made an addition to a post after it was originally published.
+For that, I have a Jekyll plugin that renders "update" blocks, which look a bit like this:
+
+{% update 2018-05-06 %}
+This is an update to my style sample to illustrate `update` blocks.
+
+I can write the contents of these blocks in Markdown, [include links](https://en.wikipedia.org/wiki/Patch_(computing)), and use *formatting styles*.
+{% endupdate %}
