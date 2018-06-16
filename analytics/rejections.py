@@ -56,6 +56,13 @@ BAD_PATHS = [
 
     '/core/themes/bartik/color/preview.html',
 
+    '/id_dsa',
+    '/id_rsa',
+    '/.ssh/id_rsa',
+    '/.ssh/id_dsa',
+    '/.ssh/id_ecdsa',
+    '/.ssh/id_ed25519',
+
     # These paths don't resolve, nor is there any sensible reason to
     # expect they might resolving soon.
     '/2/favicon.ico',
@@ -133,6 +140,7 @@ BAD_REFERRER_COMPONENTS = [
     'blog1989.com',
     'incomekey.net',
     'yandex.ru',
+    '/www.blog100.org/',
 ]
 
 
