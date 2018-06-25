@@ -1,5 +1,5 @@
 ROOT = $(shell git rev-parse --show-toplevel)
-CERTS = $(ROOT)/certs
+export CERTS = $(ROOT)/certs
 
 CERTS_IMAGE = alexwlchan/certbot
 
@@ -10,7 +10,7 @@ $(ROOT)/.docker/certs: $(CERTS)/requirements.txt
 	touch .docker/certs
 
 renew-certs: $(ROOT)/.docker/certs
-	$(CERTS)/run.sh
+	$(CERTS)/run.sh alexwlchan.net
 
 
 .PHONY: renew-certs
