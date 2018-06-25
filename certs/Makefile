@@ -11,3 +11,6 @@ $(ROOT)/.docker/certs: $(CERTS)/requirements.txt
 
 renew-certs: $(ROOT)/.docker/certs
 	$(CERTS)/run.sh
+
+
+.PHONY: renew-certs
