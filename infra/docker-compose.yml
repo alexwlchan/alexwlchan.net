@@ -33,7 +33,6 @@ services:
     - 443:443
     volumes:
     - ./nginx.conf:/etc/nginx/nginx.conf
-    - ~/.certbot:/etc/certbot
     - ~/letsencrypt/config:/etc/letsencrypt
   pygmentizr:
     environment:
