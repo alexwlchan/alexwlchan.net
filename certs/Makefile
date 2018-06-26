@@ -11,6 +11,8 @@ $(ROOT)/.docker/certs: $(CERTS)/requirements.txt
 
 renew-certs: $(ROOT)/.docker/certs
 	$(CERTS)/run.sh alexwlchan.net
+	$(CERTS)/run.sh bijouopera.co.uk
+	$(CERTS)/run.sh finduntaggedtumblrposts.com
 
 
 .PHONY: renew-certs
