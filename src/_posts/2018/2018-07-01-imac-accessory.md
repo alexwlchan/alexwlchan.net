@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-07-01 20:12:48 +0000
 title: My favourite iMac accessory
 tags: imac hardware
 summary: Adding a USB extension cable to my iMac makes a world of difference.
