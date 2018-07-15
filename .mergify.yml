@@ -4,5 +4,8 @@ rules:
       required_status_checks:
         contexts:
           - continuous-integration/travis-ci
-      required_pull_request_reviews:
-        required_approving_review_count: 0
+
+      # Because I'm not the only user of this repo, I don't care about
+      # reviews.  This undocumented option allows merging with no reviews.
+      # See https://github.com/Mergifyio/mergify-engine/issues/88
+      required_pull_request_reviews: null
