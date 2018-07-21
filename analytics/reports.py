@@ -201,6 +201,8 @@ def _normalise_referrer(log_line):
         'https://t.co/Es1aqnxxsl': 'https://twitter.com/alexwlchan/status/992415563266879488',
         'https://t.co/N8dOThXq0I': 'https://twitter.com/alexwlchan/status/996272399531302912',
         'https://t.co/ldUqd16jmK': 'https://twitter.com/alexwlchan/status/1000484772626477056',
+        'https://t.co/pum5nJMQ9y': 'https://twitter.com/Thalesdisciple/status/1019264400526532609',
+        'https://t.co/BtNEG9hBv1': 'https://twitter.com/alexwlchan/status/1019851016026640384',
     }
 
     if parts.netloc == 't.co':
