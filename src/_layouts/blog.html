@@ -3,11 +3,14 @@ layout: default
 ---
 
 {% if page.title != site.title %}
+{% if page.title contains site.title %}
+{% else %}
 <article class="index__title">
   <h2>{{ page.title | escape }}</h2>
 </article>
 
 <hr/>
+{% endif %}
 {% endif %}
 
 {% assign is_index = true %}
