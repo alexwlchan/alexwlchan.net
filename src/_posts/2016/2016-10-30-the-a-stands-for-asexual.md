@@ -200,7 +200,7 @@ A few from my most recent bookmarks:
 Asexuality is routinely overlooked and forgotten.
 If you take nothing else from this post, please just remember that it exists, and it’s a real sexual orientation.
 
-If you have questions or corrections, please [get in touch](/about).
+If you have questions or corrections, please [get in touch](/contact).
 
 Happy Ace Week, everyone!
 

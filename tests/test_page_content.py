@@ -7,7 +7,7 @@ import requests
 
 @pytest.mark.parametrize('path', [
     # Check pagination is working correctly
-    '/page/2/', '/page/3/',
+    '/blog/page/2/', '/blog/page/3/',
 ])
 def test_pages_appear_correctly(hostname, path):
     resp = requests.get('http://%s%s' % (hostname, path))
@@ -17,7 +17,6 @@ def test_pages_appear_correctly(hostname, path):
 @pytest.mark.parametrize('path, text_in_page', [
     ('2017/', 'Posts from 2017'),
     ('2017/07/', 'Posts from July 2017'),
-    ('', 'Older posts'),
     ('', '<title>alexwlchan</title>'),
     ('archive/', '<h2>2017</h2>'),
 
