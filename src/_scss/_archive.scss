@@ -15,4 +15,10 @@ $archive-gutter-column: 15px;
   .archive__url {
     margin-left: $archive-left-column + $archive-gutter-column;
   }
+
+  &.home {
+    li:not(:last-child) {
+      margin-bottom: 0.75em;
+    }
+  }
 }
