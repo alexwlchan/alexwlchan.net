@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-07-28 10:04:42 +0000
 title: Moving my calendars from iCloud to FastMail
 summary: I recently discovered that iCloud was deleting my old calendar entries, so I switched to FastMail.
 tags: icloud misc
