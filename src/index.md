@@ -25,3 +25,21 @@ He/him.
 [wellcome]: https://en.wikipedia.org/wiki/Wellcome_Trust
 [hyper]: https://github.com/python-hyper/
 [pycon]: http://2018.pyconuk.org/
+
+## Recent posts
+
+<ul class="archive home">
+{% for post in site.posts limit: 5 %}
+<li>
+  <div>
+    <div class="archive__date">
+      {{ post.date | date: "%-d %b" }}
+    </div>
+    <div class="archive__url">
+      <a href="{{ post.url }}">{{ post.title | smartify }}</a> <br/>
+      {{ post.summary | smartify }}
+    </div>
+  </div>
+</li>
+{% endfor %}
+</ul>
