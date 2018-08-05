@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-08-05 22:15:55 +0000
 title: Do Not Distract while driving
 summary: I've been using Apple Maps for a lot of navigation recently, and run into screens which seem dangerously distracting.
 tags: ui-design ios
