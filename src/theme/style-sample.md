@@ -45,7 +45,17 @@ def git(*args):
 
 Usually I'll explain what's going on in the `<pre>` tag.
 
+Sometimes I have tabular data that would be affected by the [hanging-punctuation][hangpunct] CSS property, so I disable that in code blocks:
+
+```
+('a', 'apple')
+('b', 'banana')
+('c', 'coconut')
+```
+
 I might break it down over multiple paragraphs, linking to documentation or other resources as appropriate.
+
+[hangpunct]: https://css-tricks.com/almanac/properties/h/hanging-punctuation/
 
 ---
 
