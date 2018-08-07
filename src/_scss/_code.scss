@@ -33,6 +33,10 @@ pre {
   }
 }
 
+.highlight {
+  hanging-punctuation: none;
+}
+
 figure.highlight > pre,
 figure.highlight > pre > code {
   background: none;
