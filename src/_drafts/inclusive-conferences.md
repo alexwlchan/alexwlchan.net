@@ -126,6 +126,94 @@ If you have the space, a room dedicated for prayer would be a nice accommodation
 (I'm sure I knew a conference offering this, but I can't find a reference now.)
 If you don't have that many rooms, pointers to local places of worship would also be useful.
 
+
+
+## Look after your speakers
+
+### Pay and expense your speakers
+
+Preparing a conference talk is a lot of work.
+If you don't pay your speakers, you're restricting yourself to people who can afford to do that preparation without being paid.
+That excludes a lot of potential speakers.
+
+Ideally, you should be compensating speakers for their preparation time, travel, accommodation, and time away from home.
+You probably want to throw in a free ticket as well, so they can hang around after their session is over.
+
+(Python conferences are especially bad at this, and it's something I feel acutely guilty about.)
+
+### Offer a mentoring programme
+
+Speaking at a conference can be really intimidating, especially if you're not used to public speaking.
+You might be nervous, or uncertain, or even attending a conference that isn't held in your first language!
+
+Offering a speaker mentoring programme can give those people a confidence boost.
+If somebody is new or nervous, pair them with an experienced speaker who can help them practice and prepare.
+It's a great way to get more speakers from different backgrounds, and to ensure you have speakers for many years to come!
+
+I really like the page [on speaker mentoring for PyCon UK 2016][mentoring].
+I particularly like that it's not just practice, but you're encouraged to ask for other types of help as well:
+
+> It could be any kind of help, for any kind of reason: anything from someone who can advise on whether your idea for a talk is a good one to someone who'll be happy to hear you practise it; even someone who'll agree to be the session chair for your talk at the event. You tell us what kind of help you'd like.
+
+[mentoring]: https://2016.pyconuk.org/speaker-mentors/
+
+### Run lightning talks/open mic sessions
+
+Not everyone can or wants to prepare a full session -- but that doesn't mean they can't have a chance to speak.
+
+[Lightning talks][lightning] are short, quickfire talks -- typically five minutes or less.
+They're fun to watch because you get a variety of topics in a short space of time, and it's long enough to say something interesting, without needing lots of preparation.
+And at least at conferences I've been to, the audience is very supportive and friendly.
+It's a great venue for somebody to try speaking for the first time.
+
+It's important to make these talks a dedicated part of the schedule -- for example, [at PyCon US][pycon], there was a slot for lightning talks at the beginning and end of the day.
+I've seen a few events run them in the lunch break, when most people would rather have food and talk to people.
+Making it a timetabled event gets better attendance.
+
+Last year, at PyCon UK, we experimented with the signup process.
+We had a [lottery system][lottery] with some dedicated slots for new speakers.
+I expect we'll run the same process this year.
+
+[lightning]: https://en.wikipedia.org/wiki/Lightning_talk
+[pycon]: https://us.pycon.org/2018/schedule/talks/
+[lottery]: /2017/10/lightning-talks/
+
+### Be thoughtful with your speaker gifts
+
+If you buy gifts for your speakers, it's easy to buy something which is inadvertently insensitive:
+
+*   A bottle of wine?
+    Not everybody drinks alcohol.
+*   Chocolates?
+    Make sure you've checked for dairy and nut allergies, and your speaker doesn't have an eating disorder.
+*   Neckties?  [Yes, this actually happens.][gail]
+
+It's a nice gesture, and well-intentioned, it just doens't always hit the mark.
+
+Two possible alternatives:
+
+*   Socks.
+    We had Python-coloured socks for PyCon UK 2017, because socks are an item of clothing that most people are likely to wear.
+
+*   Branded water bottles.
+    I think this was another PyCon, but I'm not sure.
+    It's another accessory that most people use, and may be grateful of before going on stage!
+
+I'm sure you can think of other ideas that have universal appeal.
+And whenever a conference does this, I see a flurry of goodwill and nice tweets about it.
+
+[gail]: https://www.youtube.com/watch?t=10m11s&v=XsKUP23WPxY
+
+### Ask somebody's name and pronouns before introducing them
+
+If you're chairing a session and need to introduce somebody, ask how to pronounce their name.
+Don't try to guess and misgender somebody, or mangle their name.
+It's rude, and an annoyance for the speaker as they're about to go on stage.
+
+Double demerit if you're English and make a joke about the unpronouncability of a name.
+
+
+
 ---
 
 ## Code
@@ -403,25 +491,6 @@ make it clear can leave midway through
 
 ## pacman rule + meet one new person every day
 
-## For speakers
-
-### Mentoring of first-time speakers
-
-Speaking at a conference can be intimidating.
-
-# for speakers
-
-## mentor program
-
-## lightning talks
-
-random lottery
-
-## speaker gifts
-
-# tl;dr
-
-### pay your speakers!!
 
 
 https://www.ashedryden.com/blog/codes-of-conduct-101-faq
