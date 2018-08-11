@@ -4,6 +4,10 @@ title: Ideas for inclusive conferences and events
 tags: conferences
 ---
 
+<style>
+  h2 { color: #d01c11; }
+</style>
+
 I semi-regularly do a braindump of my ideas for running inclusive conferences, and I finally realised it would be useful to have it all written up in one place.
 Last week, I had a meeting with [Lauren Couch][lauren], the head of Diversity and Inclusion at Wellcome, and she was kind enough to lend me the notes she wrote -- this is the tidied-up summary.
 
@@ -57,6 +61,67 @@ It also serves as a counterpoint to people who say "this sort of behaviour doesn
 
 [report]: https://2016.pyconuk.org/news/20160919-coc/
 [dryden]: https://www.ashedryden.com/blog/codes-of-conduct-101-faq
+
+
+
+## Venue spaces
+
+### Offer gender-neutral bathrooms
+
+At tech conferences I've been to, there are lots of trans and non-binary people, who are often excluded or marginalised by gendered toilets.
+Modifying your venue to have some gender-neutral bathrooms is a nice way to make them feel included.
+
+When AlterConf was still running, it was a staple of the conference tweets to see somebody take a photo of the gender-neutral bathroom signs (this is in Berlin):
+
+{% tweet https://twitter.com/iamkimiam/status/848188958567800832 %}
+
+If it's not possible (for example, you're sharing your conference space), remind your attendees not to challenge somebody else's choice of bathroom.
+For example, here's a sign from one of the Write The Docs conferences:
+
+> If you're using this restroom and you think a person's gender doesn't match the sign on the door, follow these steps:
+>
+> Don't worry about it, they know better than you.
+
+Personally, I feel the ideal is a mixture of gender-neutral and gendered bathrooms.
+I know enough women who are concerned about the loss of women-only bathrooms that I think it's valuable to offer alongside gender-neutral bathrooms, if possible -- but that depends on the size of your venue.
+
+(I've done a bunch of thinking around gender-neutral and accessible bathrooms for a work project recently; I may write another post about it later.)
+
+### Provide baskets of free toiletries
+
+I first heard of this idea [from Write The Docs][wtd_bathroom], who were inspired by DjangoCon Europe.
+Here's an excerpt from [DjangoCon's sponsor brochure][sponsor]:
+
+> **Bathroom basket sponsor** <br/>
+> We'll provide baskets with basic medical, sanitary and similar supplies for free at the conference bathrooms.
+
+This ensures that if somebody is caught out in the middle of the day, they don't need to go far for help -- or miss much of the conference.
+
+If you're doing this, remember to put the same products in all your bathrooms -- although the majority of people who get periods will probably use the women's bathrooms, there may be people who get periods using the men's and accessible bathrooms as well.
+
+IANAL, but I wonder if there may be rules about providing medication at events, and in particular making it self-service.
+Free sanitary products and spray-on deodorant are probably fine; you may want to check local rules about painkillers and the like.
+
+[wtd_bathroom]: https://twitter.com/yo_bj/status/993175805646835712
+[sponsor]: https://2018.djangocon.eu/assets/sponsor-brochure.pdf
+
+---
+
+
+### Quiet room
+
+Give people a space to unwind and rest away from the business of the conference.
+
+For people who get worn out from socialising and networking, this gives them a place to unwind and rest.
+I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016.
+
+### Prayer room
+
+Similar to the above, but specifically dedicated for prayer.
+
+### clear signage
+
+
 
 ---
 
@@ -131,47 +196,7 @@ REF???
 
 ## Venue spaces
 
-### Have gender-neutral bathrooms
 
-If possible.
-Make sure they're clearly signposted.
-
-If you can't have gender-neutral bathrooms (for example, you're sharing your conference space), give a reminder to attendees not to question people who they think are in the "wrong" bathroom.
-The other person almost certainly knows better!
-
-### Provide bathroom baskets
-
-Provide baskets of free toiletries in the bathrooms.
-
-These might include:
-
-*   Sanitary products (in all the bathrooms, not just women's!)
-*   Deodorant
-*   Toothbrushes and toothpaste
-
-Enough that if somebody gets caught out during the day, they don't need to go far for help.
-
-For guests in my home, I also keep medication to hand:
-
-*   Basic painkillers (paracetamol, aspirin, ibuprofen)
-*   Hayfever tablets (citrizine + what??)
-
-There may be different rules for providing medication at events compared to in a home, so I'd double check the rules on this first.
-(IANAL.)
-This may be something to have available upon request, but not left unattended i the bathrooms.
-
-REF WriteTheDocs / DjangoCon
-
-### Quiet room
-
-Give people a space to unwind and rest away from the business of the conference.
-
-For people who get worn out from socialising and networking, this gives them a place to unwind and rest.
-I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016.
-
-### Prayer room
-
-Similar to the above, but specifically dedicated for prayer.
 
 
 
@@ -392,3 +417,13 @@ random lottery
 ## speaker gifts
 
 # tl;dr
+
+### pay your speakers!!
+
+
+https://www.ashedryden.com/blog/codes-of-conduct-101-faq
+https://circleci.com/blog/write-the-docs-2016-recap/
+https://alterconf.com/news/building-something-beautiful-alterconf-dublin
+https://alterconf.com/news/introducing-color-communication-badges
+https://medium.com/@angelsk/alterconf-ed68688c4742
+https://saphmb.github.io/alterconf-london-all-about-that-access/
