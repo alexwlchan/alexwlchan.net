@@ -64,7 +64,7 @@ It also serves as a counterpoint to people who say "this sort of behaviour doesn
 
 
 
-## Venue spaces
+## Inside the venue
 
 ### Offer gender-neutral bathrooms
 
@@ -105,23 +105,26 @@ Free sanitary products and spray-on deodorant are probably fine; you may want to
 [wtd_bathroom]: https://twitter.com/yo_bj/status/993175805646835712
 [sponsor]: https://2018.djangocon.eu/assets/sponsor-brochure.pdf
 
----
+### Have a quiet room
 
+Give people a space to take a break from the bustle of the conference.
 
-### Quiet room
+Networking and socialising is a really important part of conferences, but it tires a lot of people out.
+Have a clearly-marked, designated space where people can sit quietly, not talk to anybody, and recover some of their energy.
+I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of conferences.
 
-Give people a space to unwind and rest away from the business of the conference.
+### Clear internal signage
 
-For people who get worn out from socialising and networking, this gives them a place to unwind and rest.
-I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016.
+Dedicated, branded signage is easy to spot.
+Print it nice and large, so people can find their way around an unfamiliar venue.
 
-### Prayer room
+### Offer a prayer room
 
-Similar to the above, but specifically dedicated for prayer.
+Most events in the tech industry are secular, but that doesn't mean they shouldn't welcome delegates from different faith backgrounds.
 
-### clear signage
-
-
+If you have the space, a room dedicated for prayer would be a nice accommodation.
+(I'm sure I knew a conference offering this, but I can't find a reference now.)
+If you don't have that many rooms, pointers to local places of worship would also be useful.
 
 ---
 
