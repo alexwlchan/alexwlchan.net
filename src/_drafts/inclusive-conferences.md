@@ -1,0 +1,358 @@
+---
+layout: post
+title: Ideas for inclusive conferences and events
+tags: conferences
+---
+
+I semi-regularly do a braindump of my ideas for running inclusive conferences.
+Last week, I had a meeting with [Lauren Couch][lauren], the head of Diversity and Inclusion at Wellcome, and she was kind enough to lend me the notes she wrote -- this is the tidied-up summary.
+
+This is mostly based on my experience with small, community conferences in the tech industry.
+multi-day conferences
+
+WHY DO THIS?  SEE PYCON UK PAGE
+
+Disclaimer: I've helped to run [PyCon UK][pyconuk] for the last two years, and there's heavy reference to it below -- but most of these ideas predate my involvement.
+
+[lauren]: https://twitter.com/like_the_sofa
+[pyconuk]: https://2018.pyconuk.org/
+
+<!-- summary -->
+
+Contents:
+
+-   Food and drink
+    -    Be explicit about dietary requirements
+    -    Provide non-alcoholic and low-sugar drinks
+-   Venue spaces
+    -    Have gender-neutral bathrooms
+    -    Provide bathroom baskets
+    -    Quiet room
+    -    Prayer room
+-   Parents/guardians with young children
+    -    Free crèche
+    -    Nursing/baby care room
+-   Support for disabilities
+    -   Live captioning in talks
+    -   Sign language interpreters
+    -   Audio induction loop
+    -   Fresh water, treats, and relief areas for service animals
+    -   Preferred seating for people with vision problems
+    -   Provide detail about "wheelchair accessibility"
+    -   Encourage speakers to think about accessibility in their slides
+    -   Remind able-bodied attendees not to interfere
+-   Venue information
+    -   Travel instructions
+    -   Advice on good accommodation
+    -   Local information: shops, restaurants, pharmacies
+-   Badges, lanyards and privacy
+    -   Be clear about how names are used
+    -   Use coloured lanyards to let people opt-out of photographs
+
+
+
+## Food and drink
+
+### Be explicit about dietary requirements
+
+If you're running a large event, you can anticipate common dietary requirements in advance:
+
+*   Vegetarian
+*   Vegan
+*   Dairy-free
+*   Gluten-free
+*   Nut-free
+
+If you know you'll be providing suitable food, say so in advance.
+You should also ask about other requirements (ideally when somebody buys their ticket), and accommodate them if possible.
+
+Make sure food is clearly labelled, both by category and ingredients.
+
+For allergies like nut- and gluten-free, it's helpful to have details about the kitchen, if available.
+(For example, *"This was prepared in a nut-free kitchen"* vs *"This wasn't prepared in a nut-free kitchen, but separate utensils and surfaces were used"*.
+For some people, that difference matters.)
+
+You may need to remind non-vegetarians not to eat all the vegetarian food, so the vegetarians don't go hungry!
+Separate queues, or taking food orders in advance, can both help with this.
+
+### Provide non-alcoholic and low-sugar drinks
+
+If you're providing drinks, offer some non-alcoholic soft drinks.
+Soft drinks are often high sugar (juices and sodas).
+Low-sugar drinks (e.g. flavoured waters) are also helpful.
+
+REF???
+
+
+## Venue spaces
+
+### Have gender-neutral bathrooms
+
+If possible.
+Make sure they're clearly signposted.
+
+If you can't have gender-neutral bathrooms (for example, you're sharing your conference space), give a reminder to attendees not to question people who they think are in the "wrong" bathroom.
+The other person almost certainly knows better!
+
+### Provide bathroom baskets
+
+Provide baskets of free toiletries in the bathrooms.
+
+These might include:
+
+*   Sanitary products (in all the bathrooms, not just women's!)
+*   Deodorant
+*   Toothbrushes and toothpaste
+
+Enough that if somebody gets caught out during the day, they don't need to go far for help.
+
+For guests in my home, I also keep medication to hand:
+
+*   Basic painkillers (paracetamol, aspirin, ibuprofen)
+*   Hayfever tablets (citrizine + what??)
+
+There may be different rules for providing medication at events compared to in a home, so I'd double check the rules on this first.
+(IANAL.)
+This may be something to have available upon request, but not left unattended i the bathrooms.
+
+REF WriteTheDocs / DjangoCon
+
+### Quiet room
+
+Give people a space to unwind and rest away from the business of the conference.
+
+For people who get worn out from socialising and networking, this gives them a place to unwind and rest.
+I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016.
+
+### Prayer room
+
+Similar to the above, but specifically dedicated for prayer.
+
+
+
+## Parents/guardians with young children
+
+Having young children can make conferences very difficult -- they require full-time care, which means you're either taking them around the conference (which means you may have to leave talks or conversations in a hurry), or you need somebody else to provide childcare.
+Neither are easy or convenient.
+
+### Run a crèche
+
+At PyCon UK, we've run a free crèche for several years -- we hire a couple of people to look after young children, and parents just have to tell us with a bit of notice before the conference starts.
+The crèche has a dedicated room, away from the main conference.
+
+You can still take your kids to session, or see them between talks -- but if you need some time to focus on the conference, you've got that to.
+
+### Nursing/baby care room
+
+If you can't run a crèche, have a private space for nursing and breastfeeding.
+In general, breastfeeding should be destigmatised and acceptable in all your conferences spaces -- but some people will prefer to do it in private.
+
+
+## Support for disabilities
+
+### Live captioning in talks
+
+[[ picture ]]
+
+Hire a stenographer to provide real-time captioning on talks, which can be displayed on screens alongside the speaker.
+It helps people who are hard-of-hearing, and it's also a useful tool for your able-bodied attendees -- if their focus drifts, it's a way to catch up.
+
+To support the captioners, ask speakers for specialist/technical terms in advance.
+They can be programmed into the stenographer's keyboards, so you get more accurate transcriptions.
+
+I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf and Coed:Ethics, and heard of it at other conferences.
+
+[sttr]: /2016/09/speech-to-text/
+
+### Sign language interpreters
+
+Similar to closed captioning -- sign language interpreters can help attendees who are hard-of-hearing.
+
+This is less useful to a general audience, as most people aren't fluent in sign language.
+At PyCon UK, we only provide BSL interpreters upon request (for free), whereas we always provide live captioning.
+
+### Audio induction loop
+
+??? HOW DOES THIS WORK
+
+A lot of venues will have this (it's required by law in the UK), but it's good to check.
+
+And remind your speakers to use the microphone, if available -- just because they can speak loudly, doesn't mean everyone can hear them.
+
+### Fresh water, treats, and relief areas for service animals
+
+This is a recent addition to the list -- I heard about it [from GitHub Universe][universe].
+
+[universe]: https://blog.github.com/2018-08-02-github-universe-scholarship-program/
+
+### Preferred seating for people with vision problems
+
+I think I heard of this at AlterConf -- if you had vision problems and would struggle to see the slides from the back, there was reserved seating near the front where you'd have a good view of the screen.
+
+### Provide detail about "wheelchair accessibility"
+
+It's not enough to say a venue is "wheelchair accessible", because wheelchairs come in different shapes and sizes.
+Provide detail such as:
+
+*   Is there step-free access within the venue?
+    Is it ramps, wheelchair lifts, or lifts?
+    How big are the lifts?
+
+*   How wide are the doorways?
+    If the main venue is some way inside a building, what's the narrowest doorway you need to get to the main conference area?
+
+*   Are there wheelchair spaces inside the auditorium?
+    How wide are the aisles between the seats?
+
+    Something I liked at AlterConf London was that there were dedicated wheelchair spaces embedded within the main seating.
+    Often those spaces are near the back, away from the main audience, so you can't sit with your friends.
+    Not here!
+    Several aisle chairs had been replaced with gaps, cordoned off with blue tape, so wheelchair users could sit in the main audience with their friends.
+
+### Encourage speakers to think about accessibility in their slides
+
+Some simple rules can make slides much easier for everyone to read:
+
+*   Large text
+*   High-contrast colours
+*   Preferably no animated GIFs on an infinite loop (as a distraction), definitely nothing bright and flashing (as an epilepsy risk)
+
+### Remind able-bodied attendees not to interfere
+
+If you have a code of conduct or house rules, it can be useful to remind people of basic etiquette such as:
+
+*   Don't touch somebody's mobility or assistive devices
+*   Don't pet service animals
+*   If somebody is using an interpreter, talk to the person, not their interpreter
+
+
+## Venue information
+
+### Travel instructions
+
+For anything but the smallest events, you'll have attendees who aren't local.
+
+Provide instructions about how to get to the venue, especially if it's non-obvious (for example, does Google Maps take you to the wrong street?).
+
+Bonus points if you provide information about wheelchair friendly routes to the venue -- your attendees don't magically appear at your front door.
+
+### Advice on good accommodation
+
+If you run a conference in the same place for several years, you'll get an idea of where the good accommodation is -- which hostels are friendly, which hotel is above a noisy bar, and so on.
+Tell people in advance -- they'll have a better night's sleep, and enjoy your conference more!
+
+Last year at PyCon UK, we had a block booking at a local hostel (Mrs. Potts).
+Lots of people had a good stay there, we were able to solve several sudden accommodation snafus with minimal stress, and we're recommending it to our attendees again this year.
+
+### Local information: shops, restaurants, pharmacies
+
+There's a good chance at least one of your organisers knows the local area, and your attendees don't.
+So tell them what's available -- what's good near the venue?
+
+This could be shops, places to eat, where to get emergency medication, that sort of thing.
+Help them not be stranded in a strange city when the conference is finished for the day.
+
+
+## Badges, lanyards and privacy
+
+### Be clear about how names are used
+
+At one of the AlterConfs (I think Berlin?), you needed legal ID to get past security at the venue, so they had to know your wallet name in advance -- but that might not be what you want on your conference badge.
+
+If you need to ask somebody's name, be clear where it will be used.
+For example: *"This is needed for security on the door"* or *"This will appear on your conference badge"*.
+
+### Use coloured lanyards to let people opt-out of photographs
+
+Not everybody likes having their photograph taken, and you should make it easy for people to opt-out.
+
+Approaches like "talk to an organiser" or "put a sticker for your badge" don't really work -- they scale badly, and if you take a picture of a crowd, it's hard to see if anybody has a badge sticker.
+
+At last year's PyCon UK, we had coloured lanyards based on whether you wanted to appear in photographs -- blue if you were okay with it, bright yellow if you didn't want to.
+(I think we got the idea from a DjangoCon, but I'm not sure.)
+This is much easier to pick out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
+
+[[ photo ]]
+
+---
+
+
+
+
+
+
+
+---
+
+
+## badges with traffic lights
+
+## pronouns on badges -- stickers or printing
+
+# pricing
+
+## ticket rates
+
+unwaged/individual/corporate
+
++ let me buy extras
+
+## diversity tickets @ monki gras
+
+## financial assistance
+
+rgant for accomodation, travel costs
+
+prioritise first timers
+
+# code of conduct
+
+don't attend event without one
+
+only as good as enforcement
+- tweet as soon as it happens
+- talk about it following day
+- after-action report, when we had to enforce CoC
+
+people makign fun of programming languages
+
+## comment, not a question
+
+encourage chairs to call it out
+
+encourage non-confrontational questions
+
+## content warnings on talks
+
+trigger warnings
+
+make it clear can leave midway through
+
+# welcoming new people
+
+## welcome wagon
+
+- first time coming
+- special session
+- meet everyone who's new
+- tour, info about what sessions to attend
+
+## pacman rule + meet one new person every day
+
+## For speakers
+
+### Mentoring of first-time speakers
+
+Speaking at a conference can be intimidating.
+
+# for speakers
+
+## mentor program
+
+## lightning talks
+
+random lottery
+
+## speaker gifts
+
+# tl;dr
