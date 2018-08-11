@@ -4,20 +4,65 @@ title: Ideas for inclusive conferences and events
 tags: conferences
 ---
 
-I semi-regularly do a braindump of my ideas for running inclusive conferences.
+I semi-regularly do a braindump of my ideas for running inclusive conferences, and I finally realised it would be useful to have it all written up in one place.
 Last week, I had a meeting with [Lauren Couch][lauren], the head of Diversity and Inclusion at Wellcome, and she was kind enough to lend me the notes she wrote -- this is the tidied-up summary.
 
-This is mostly based on my experience with small, community conferences in the tech industry.
-multi-day conferences
+For better or for worse, conferences can be really important for career development.
+Sharing ideas, having conversations, meeting new people -- if you can't attend conferences, you miss out on a lot of these ooportunities.
+It's important to open these events to as wide a range as people as possible.
+It addresses a serious unfairness, and everyone benefits from having a wider diversity of people and ideas.
 
-WHY DO THIS?  SEE PYCON UK PAGE
+This is mostly based on my experience with small, community conferences in the UK tech industry.
+Underrepresented groups in tech include women, people with disabilities, people on low income, people who don't have European or US citizenship -- and the suggestions reflect that.
 
-Disclaimer: I've helped to run [PyCon UK][pyconuk] for the last two years, and there's heavy reference to it below -- but most of these ideas predate my involvement.
+None of these are original ideas -- this is a collection of ideas I've seen at conferences I've attended or followed online.
+
+If you're an event organiser, you can take these ideas to make your events more inclusive and accessible.
+
+If you attend, speak at, or sponsor an event, you have power -- you can demand these accommodations where they don't already exist.
+Be picky about where you choose to participate, and walk away from events that don't meet your standards.
 
 [lauren]: https://twitter.com/like_the_sofa
-[pyconuk]: https://2018.pyconuk.org/
 
 <!-- summary -->
+
+*Disclaimer:* I've helped organise [PyCon UK][pyconuk] for the last two years, and there's heavy reference to it below -- but most of these ideas predate my involvement.
+
+[pyconuk]: https://2018.pyconuk.org/
+
+## Have a code of conduct
+
+A code of conduct sets the expectation and rules for your event.
+It tells people what sort of behaviour is acceptable, and how violations will be dealt with.
+This shows potential attendees that they should feel safe at your event, and if harassment or bullying does occur, it gives them a recourse.
+
+A code of conduct is only as good as its enforcement -- so you have to follow through with it.
+
+Don't be shy about calling out problems if they occur.
+At PyCon UK in 2016, if a CoC violation occurred, three things would happen:
+
+*   Somebody would tweet about it from the conference Twitter account
+*   The problem would be mentioned in the opening remarks the following day, with an explanation of what happened and how it was resolved
+*   After the conference, there was a [code of conduct report][report] that explained the two issues
+
+This helps people see that you're enforcing the CoC (and hopefully makes them feel more comfortable making a report, if they need to).
+It also serves as a counterpoint to people who say "this sort of behaviour doesn't happen in our community" -- unfortunately, it almost certainly does.
+
+*See also:*
+
+*   Ashe Dryden has written a [very thorough Codes of Conduct 101 and FAQ][dryden], which I highly recommend.
+    It has much more detail about what makes a good CoC, and answers common questions and objections.
+
+<!-- people making fun of programming languages -->
+
+[report]: https://2016.pyconuk.org/news/20160919-coc/
+[dryden]: https://www.ashedryden.com/blog/codes-of-conduct-101-faq
+
+---
+
+## Code
+
+
 
 Contents:
 
@@ -305,16 +350,7 @@ rgant for accomodation, travel costs
 
 prioritise first timers
 
-# code of conduct
 
-don't attend event without one
-
-only as good as enforcement
-- tweet as soon as it happens
-- talk about it following day
-- after-action report, when we had to enforce CoC
-
-people makign fun of programming languages
 
 ## comment, not a question
 
