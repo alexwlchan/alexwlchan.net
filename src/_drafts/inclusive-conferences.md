@@ -70,6 +70,44 @@ It also serves as a counterpoint to people who say "this sort of behaviour doesn
 
 
 
+## Pricing and financial assistance
+
+Conferences tickets can be expensive, and that's before you factor in any travel and accommodation costs.
+You can do things to make your conference more affordable to attend.
+
+### Tiered ticket rates
+
+Lots of conferences have attendees who are being sponsored for work, and companies tend to have deeper pockets -- so you can charge higher prices.
+But you don't want to exclude people who are trying to break into the industry, and don't have corporate backing.
+
+I quite like PyCon UK's ticket tiers this year:
+
+> If your tickets are being paid for by your employer, please select the Corporate rate.
+>
+> If you are paying for your ticket out of your own pocket, please select the Individual rate.
+>
+> If you are unwaged (for example in full-time education), please select the Unwaged rate.
+
+I prefer these tiers to "early bird rates" because somebody can get the help any time.
+Early bird tickets disproportionately help people who already know about the conference -- which is likely to be people who are repeat attendees.
+
+### Offer free tickets and financial assistance
+
+Tickets aren't the only cost of a conference -- you also need to pay for travel, accommodation, food, and time away from work/home.
+Have a budget for financial assistance grants, so you expand the pool of people who can attend.
+Include discounted or free tickets.
+
+Allocating those funds can be a tricky question.
+Personally I'd prioritise contributors (speakers and volunteers), then first-time attendees, and I'd want it to help as many people as possible -- but different events will have their own priorities.
+
+### Let me buy extra tickets
+
+Here's a screenshot from the AlterConf London ticketing page:
+
+You could buy a single ticket (or claim one of the free tickets), or if you were feeling generous, you could buy extra tickets, which went into the free ticket pool.
+
+
+
 ## Inside the venue
 
 ### Offer gender-neutral bathrooms
@@ -456,29 +494,7 @@ This is much easier to pick out in a crowd, and makes it clear if you've acciden
 
 ## pronouns on badges -- stickers or printing
 
-# pricing
 
-## ticket rates
-
-unwaged/individual/corporate
-
-+ let me buy extras
-
-## diversity tickets @ monki gras
-
-## financial assistance
-
-rgant for accomodation, travel costs
-
-prioritise first timers
-
-
-
-## comment, not a question
-
-encourage chairs to call it out
-
-encourage non-confrontational questions
 
 ## content warnings on talks
 
