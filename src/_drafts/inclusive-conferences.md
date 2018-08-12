@@ -276,38 +276,27 @@ Similarly, not everybody wants to drink caffeinated or sugary drinks, so you sho
 [durbin]: https://ernest.ly/blog/conference-beverages.html
 
 
-
-
-
-## ---
-
-
-
----
-
-
-## Venue spaces
-
-
-
-
-
 ## Parents/guardians with young children
 
-Having young children can make conferences very difficult -- they require full-time care, which means you're either taking them around the conference (which means you may have to leave talks or conversations in a hurry), or you need somebody else to provide childcare.
+Having young children can make conferences very difficult -- they require full-time care, which means you're either taking them around the conference (so you may have to leave talks or conversations in a hurry), or you need somebody else to provide childcare.
 Neither are easy or convenient.
 
-### Run a crèche
+### Run a free crèche
 
-At PyCon UK, we've run a free crèche for several years -- we hire a couple of people to look after young children, and parents just have to tell us with a bit of notice before the conference starts.
-The crèche has a dedicated room, away from the main conference.
+I've seen lots of conferences (AlterConf, XOXO, PyCon UK) that run a free crèche for attendees.
+You sign up in advance of the event, and then the conference hires registered and qualified childminders to look after children during conference hours.
 
-You can still take your kids to session, or see them between talks -- but if you need some time to focus on the conference, you've got that to.
+You can still take your kids to sessions, or see them between talks-- but if you need some time to focus on the conference, you've got that as well.
+
+[[ picture from pycon uk ]]
 
 ### Nursing/baby care room
 
-If you can't run a crèche, have a private space for nursing and breastfeeding.
-In general, breastfeeding should be destigmatised and acceptable in all your conferences spaces -- but some people will prefer to do it in private.
+Breastfeeding should be destigmatised, and acceptable in all conference spaces -- including in talks and at mealtimes.
+
+Some people will prefer to breastfeed in private, so you should have a quiet room for them.
+(Which should be different to the quiet room mentioned above.)
+
 
 
 ## Support for disabilities
@@ -333,23 +322,33 @@ Similar to closed captioning -- sign language interpreters can help attendees wh
 This is less useful to a general audience, as most people aren't fluent in sign language.
 At PyCon UK, we only provide BSL interpreters upon request (for free), whereas we always provide live captioning.
 
-### Audio induction loop
+### Use microphones
 
-??? HOW DOES THIS WORK
+A lot of venues will have audio induction loops (it's required by law in the UK) -- provide microphones for anybody speaking, and connect it to the hearing loop.
 
-A lot of venues will have this (it's required by law in the UK), but it's good to check.
+Remind your speakers to use the microphone, even if they can project their voice -- it makes it much easier for people using the hearing loop.
+If you have a Q&A, use a roving microphone or repeat questions into the microphone as well.
 
-And remind your speakers to use the microphone, if available -- just because they can speak loudly, doesn't mean everyone can hear them.
+Don't tap or blow into the microphone -- the sudden noise can be painful to anybody using a hearing aid, as the sound goes straight to their ears.
 
-### Fresh water, treats, and relief areas for service animals
+### Look after service animals in your venue
 
-This is a recent addition to the list -- I heard about it [from GitHub Universe][universe].
+You should allow service animals throughout your conference.
+
+And here's a new one on me, [from GitHub Universe][universe]:
+
+> Fresh water, treats, and an onsite relief area for service or therapy dogs
 
 [universe]: https://blog.github.com/2018-08-02-github-universe-scholarship-program/
 
-### Preferred seating for people with vision problems
+### Preferred seating for people with vision/mobility issues
 
-I think I heard of this at AlterConf -- if you had vision problems and would struggle to see the slides from the back, there was reserved seating near the front where you'd have a good view of the screen.
+Have reserved seating near the front of the auditorium for people who have vision problems, so they'll have a clear view of the screen.
+(I think I saw these at AlterConf, but I can't find a reference.)
+
+Have reserved areas for people with wheelchairs.
+At AlterConf, there were aisle spaces marked out in blue tape for wheelchair users, so they could sit in the audience with their friends.
+Often wheelchair spaces are near the back, away from everybody else -- having them inline is better.
 
 ### Provide detail about "wheelchair accessibility"
 
@@ -366,26 +365,32 @@ Provide detail such as:
 *   Are there wheelchair spaces inside the auditorium?
     How wide are the aisles between the seats?
 
-    Something I liked at AlterConf London was that there were dedicated wheelchair spaces embedded within the main seating.
-    Often those spaces are near the back, away from the main audience, so you can't sit with your friends.
-    Not here!
-    Several aisle chairs had been replaced with gaps, cordoned off with blue tape, so wheelchair users could sit in the main audience with their friends.
-
 ### Encourage speakers to think about accessibility in their slides
 
 Some simple rules can make slides much easier for everyone to read:
 
 *   Large text
 *   High-contrast colours
-*   Preferably no animated GIFs on an infinite loop (as a distraction), definitely nothing bright and flashing (as an epilepsy risk)
+*   No animated GIFs on an infinite loop (which are distracting), definitely nothing bright and flashing (an epilepsy risk)
 
 ### Remind able-bodied attendees not to interfere
 
-If you have a code of conduct or house rules, it can be useful to remind people of basic etiquette such as:
+It can be useful to remind people of basic etiquette such as:
 
 *   Don't touch somebody's mobility or assistive devices
+*   Don't push somebody's wheelchair without explicit consent
 *   Don't pet service animals
 *   If somebody is using an interpreter, talk to the person, not their interpreter
+
+
+
+
+## ---
+
+
+
+---
+
 
 
 ## Venue information
@@ -517,6 +522,13 @@ https://2018.xoxofest.com/inclusion
 
 
 
+alterconf
+write the docs
+nine worlds
+djangocon
+pycon
+xoxo
+
 
 
 welcome wagon
@@ -536,3 +548,7 @@ https://nineworlds.co.uk/news/2016/08/05/speaker-guidelines
 
 https://twitter.com/wickglyph/status/935935750104743936
 > 2. They distinguish between the attendee name that will be printed on your badge and your legal name, which will only be checked at security. They make it clear that your legal name will not be printed anywhere on your badge. 3/8
+
+http://www.mtpt.org.uk/family-friendly-schools/a-conference-creche-how-to/
+
+nine worlds
