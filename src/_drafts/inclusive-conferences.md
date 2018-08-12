@@ -422,16 +422,7 @@ It can be useful to remind people of basic etiquette such as:
 
 
 
-
-## ---
-
-
-
----
-
-
-
-## Venue information
+## Getting to the venue
 
 ### Travel instructions
 
@@ -458,42 +449,85 @@ This could be shops, places to eat, where to get emergency medication, that sort
 Help them not be stranded in a strange city when the conference is finished for the day.
 
 
-## Badges, lanyards and privacy
+
+## Badges, lanyards and photography
 
 ### Be clear about how names are used
 
-At one of the AlterConfs (I think Berlin?), you needed legal ID to get past security at the venue, so they had to know your wallet name in advance -- but that might not be what you want on your conference badge.
+Names are complicated, and you can't be sure what name somebody wants to put on their badge -- so ask!
 
-If you need to ask somebody's name, be clear where it will be used.
-For example: *"This is needed for security on the door"* or *"This will appear on your conference badge"*.
+I've seen people put all sorts of names on their badges -- nicknames, wallet names, maiden names, or even the online handle -- whatever will help people recognise them.
+And when you ask them, be very clear about it: *"This is the name that will appear on your conference badge"*.
 
-### Use coloured lanyards to let people opt-out of photographs
+You may need wallet names for other purposes -- for example, at AlterConf Berlin, you needed legal ID to get through reception.
+I don't have the exact wording, but I saw tweets from people: the signup was very explicit that this name was only used for checking ID, and wouldn't appear on badges.
+
+### Let people opt out from the attendee list (or don't provide one)
+
+I went to an academic conference last year, and was surprised when my welcome pack included a list of attendees -- names, email addresses, and affiliated institution.
+
+I don't mind giving out my email address, but I was never asked about it.
+Other people are less comfortable about handing out details, so make it easy to opt out from this list if you provide it -- or as many conferences do, don't have one.
+
+### Use coloured lanyards to let people opt out of photographs
 
 Not everybody likes having their photograph taken, and you should make it easy for people to opt-out.
 
 Approaches like "talk to an organiser" or "put a sticker for your badge" don't really work -- they scale badly, and if you take a picture of a crowd, it's hard to see if anybody has a badge sticker.
 
-At last year's PyCon UK, we had coloured lanyards based on whether you wanted to appear in photographs -- blue if you were okay with it, bright yellow if you didn't want to.
-(I think we got the idea from a DjangoCon, but I'm not sure.)
-This is much easier to pick out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
+I've seen conferences that use coloured lanyards based on whether you want to appear in photographs.
+A couple of policies I like:
+
+* PyCon UK 2017:
+
+	> If you would rather not be in people's photographs, please pick up a yellow lanyard when you register.
+
+	The default lanyards were blue.
+
+* DjangoCon Europe 2018:
+
+	> White lanyard: Please do not take any photos of this person.
+	>
+	> Black lanyard: Photos are okay.
+	> Please ask before publishing individual photos.
+
+* XOXO 2018:
+
+	> A red lanyard designates strictly no photos or video, a yellow lanyard designates that photos and video are allowed with explicit consent, and a blue lanyard designates that photos and video are allowed without permission.
+
+The key is having a bright colour that means "no photos please".
+It stands out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
+
+https://twitter.com/attacus_au/status/999251828536692737?lang=en
+https://2018.xoxofest.com/inclusion
 
 [[ photo ]]
 
+### Allow people to put pronouns on their badges
+
+I know people who like to write pronouns on their badges, to avoid being misgendered.
+(This is mostly, but not exclusively, trans and non-binary friends -- whose appearance doesn't match common expectations for their gender.)
+
+This can happen in a number of ways:
+
+* Coloured sharpies on the registration desk
+* Pronoun stickers
+* Offer to print it on the badge (I saw this at an AVEN conference in July, and we're doing it for PyCon UK 2018 as well)
+
+You shouldn't force people to write pronouns on their badges (that has different problems) -- but give people the option if they want to.
+
+
+## ---
+
+
+
 ---
-
-
-
-
-
 
 
 ---
 
 
 ## badges with traffic lights
-
-## pronouns on badges -- stickers or printing
-
 
 
 ## content warnings on talks
