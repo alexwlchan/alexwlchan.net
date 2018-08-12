@@ -356,11 +356,15 @@ They've also got links to other articles with more discussion of food and drink 
 
 [durbin]: https://ernest.ly/blog/conference-beverages.html
 
-
 ## Parents/guardians with young children
 
 Having young children can make conferences very difficult -- they require full-time care, which means you're either taking them around the conference (so you may have to leave talks or conversations in a hurry), or you need somebody else to provide childcare.
 Neither are easy or convenient.
+
+<figure>
+  <img src="/images/2018/pyconuk-creche.jpg">
+  <figcaption>Two of the youngest attendees at PyCon UK 2017 &ndash; taking advantage of the free crèche. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37919454202/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
+</figure>
 
 ### Run a free crèche
 
@@ -369,8 +373,6 @@ You sign up in advance of the event, and then the conference hires registered an
 Parents have time to focus on the conference, and know their kids are being looked after.
 
 Be clear about which parts of the conference you can bring kids to (talks, dinner, after-party, etc.).
-
-[[ picture from pycon uk ]]
 
 ### Nursing/baby care room
 
@@ -386,8 +388,6 @@ If you can do it, electricity and a fridge are useful as well.
 
 ### Live captioning in talks
 
-[[ picture ]]
-
 Hire a stenographer to provide real-time captioning on talks, which can be displayed on screens alongside the speaker.
 It helps people who are hard-of-hearing or non-native speakers, and it's also a useful tool for your other attendees -- if their focus drifts, it's a way to catch up.
 
@@ -397,6 +397,11 @@ They can be programmed into the stenographer's keyboards, so you get more accura
 I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf and Coed:Ethics, and heard of it at other conferences.
 
 [sttr]: /2016/09/speech-to-text/
+
+<figure>
+<img src="/images/2018/pyconuk-stenographers.jpg">
+<figcaption>One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&ndash;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.
+</figure>
 
 ### Sign language interpreters
 
