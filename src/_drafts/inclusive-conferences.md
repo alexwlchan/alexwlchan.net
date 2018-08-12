@@ -6,6 +6,11 @@ tags: conferences
 
 <style>
   h2 { color: #d01c11; }
+  .post__separator { 
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 1.5em;
+  }
 </style>
 
 I semi-regularly do a braindump of my ideas for running inclusive conferences, and I realised it would be useful to have it all written up in one place.
@@ -44,6 +49,8 @@ This is aspirational, not a checklist.
 
 [pyconuk]: https://2018.pyconuk.org/
 
+<div class="post__separator" aria-hidden="true">&#9672;</div>
+
 ## Have a code of conduct
 
 A code of conduct sets the expectation and rules for your event.
@@ -74,7 +81,7 @@ It has much more detail about what makes a good CoC, and answers common question
 [report]: https://2016.pyconuk.org/news/20160919-coc/
 [dryden]: https://www.ashedryden.com/blog/codes-of-conduct-101-faq
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Pricing and financial assistance
 
@@ -126,7 +133,7 @@ Similarly, at PyCon UK, we sell conference swag (t-shirts, hoodies, etc) through
 
 [shop]: https://shop.spreadshirt.co.uk/pyconuk/2018
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Inside the venue
 
@@ -181,14 +188,12 @@ Networking and socialising is a really important part of conferences, but it tir
 Have a clearly-marked, designated space where people can sit quietly, not talk to anybody, and recover some of their energy.
 I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
 
-### Clear internal signage
-
-Have dedicated, branded signage, with large and clear text.
-Help your attendees find their way around unfamiliar venues.
-
-branding == I know it's for your event
-
-save volunteers asking questions, save attendees who feel awkward asking for help the trouble
+<figure>
+<img src="/images/2018/pyconuk-quiet-room.jpg">
+<figcaption>
+The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a lovely space for sitting quietly. It's also a good place to work and prepare slides. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37957275512/in/album-72157666242950547/">Mark Hawkins</a>.
+</figcaption>
+</figure>
 
 ### Offer a prayer room
 
@@ -198,11 +203,24 @@ If you have the space, a room dedicated for prayer would be a nice accommodation
 (I'm sure I knew a conference offering this, but I can't find a reference now.)
 If you don't have enough rooms, pointers to local places of worship would also be useful.
 
+### Clear internal signage
+
+Have dedicated, branded signage, with large and clear text.
+Help your attendees find their way around unfamiliar venues.
+
+The branding makes it clear that the signs are for your event, and not the standard venue signage, or part of another event.
+
+Good signage will save your volunteers from answering the same question repeatedly, and helps attendees who can't find a volunteer, or who might feel awkward asking.
+
 ### Make it easy to spot your volunteers
 
-TODO TODO TODO
+If somebody has a question, or a concern, or a code of conduct violation to report, they need to find a volunteer, so make the volunteers easy to spot.
+Possible approaches include branded (and brightly coloured t-shirts), or different lanyards from everyone else.
 
+If you have places that are continuously staffed during conference hours (for example, the registration desked), make sure you tell people.
+It may not be the most convenient, but it's good to know that fallback exists.
 
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Look after your speakers
 
@@ -258,6 +276,14 @@ I expect we'll run the same process this year.
 [pycon]: https://us.pycon.org/2018/schedule/talks/
 [lottery]: /2017/10/lightning-talks/
 
+<figure>
+<img src="/images/2018/pyconuk-lightning.jpg">
+<figcaption>
+Owen Campbell explaining lightning talks at PyCon UK 2017.
+Owen ran the lightning talks last year, and helped come up with the lottery system. You can see the two buckets for submitting talks in the picture. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37913336882/in/album-72157666242746367/">Mark Hawkins</a>.
+</figcaption>
+</figure>
+
 ### Be thoughtful with your speaker gifts
 
 If you buy gifts for your speakers, it's easy to buy something which is inadvertently insensitive:
@@ -309,7 +335,7 @@ People have mixed feelings about the Q&A.
 Some speakers find them very helpful; others prefer to answer questions in the hallway after the session.
 I've started to see CfPs that let speakers choose if they want a Q&A, and I think that's a good compromise.
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Food and drink
 
@@ -356,6 +382,8 @@ They've also got links to other articles with more discussion of food and drink 
 
 [durbin]: https://ernest.ly/blog/conference-beverages.html
 
+<div class="post__separator" aria-hidden="true">&#9672;</div>
+
 ## Parents/guardians with young children
 
 Having young children can make conferences very difficult -- they require full-time care, which means you're either taking them around the conference (so you may have to leave talks or conversations in a hurry), or you need somebody else to provide childcare.
@@ -382,7 +410,7 @@ Some people will prefer to breastfeed in private, so you should have a clean, qu
 If you can do it, electricity and a fridge are useful as well.
 (This should be different to the quiet room mentioned above.)
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Support for disabilities
 
@@ -400,7 +428,7 @@ I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf an
 
 <figure>
 <img src="/images/2018/pyconuk-stenographers.jpg">
-<figcaption>One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&ndash;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.
+<figcaption>One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&ndash;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
 </figure>
 
 ### Sign language interpreters
@@ -479,7 +507,7 @@ Maybe you have a wheelchair, or a child, or a foot injury, or you're just talkin
 Make sure you plan sufficient breaks between session.
 People won't be rushing around the building to get to talks, and your speakers will be less distracted by late arrivals.
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Getting to the venue
 
@@ -517,7 +545,7 @@ Be upfront that this is something you can offer, and tell people how to ask for 
 
 [egypt]: https://www.museumsassociation.org/museums-journal/news/10082018-egyptian-curators-denied-visas
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Badges, lanyards and photography
 
@@ -535,7 +563,7 @@ I don't have the exact wording, but I saw tweets from people: the signup was ver
 
 [names]: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
 
-### Don't put people's de
+### Don't put people's details in an attendee list without permission
 
 I went to an academic conference last year, and was surprised when my welcome pack included a list of attendees -- names, email addresses, and affiliated institution.
 
@@ -552,30 +580,30 @@ Approaches like "talk to an organiser" or "put a sticker on your badge" don't re
 I've seen conferences that use coloured lanyards based on whether you want to appear in photographs.
 A couple of policies I like:
 
-* PyCon UK 2017:
+* [PyCon UK 2017](https://2017.pyconuk.org/):
 
 	> If you would rather not be in people's photographs, please pick up a yellow lanyard when you register.
 
 	The default lanyards were blue.
 
-* DjangoCon Europe 2018:
+* [DjangoCon Europe 2018](https://twitter.com/attacus_au/status/999251828536692737):
 
 	> White lanyard: Please do not take any photos of this person.
 	>
 	> Black lanyard: Photos are okay.
 	> Please ask before publishing individual photos.
 
-* XOXO 2018:
+* [XOXO 2018](https://2018.xoxofest.com/inclusion):
 
 	> A red lanyard designates strictly no photos or video, a yellow lanyard designates that photos and video are allowed with explicit consent, and a blue lanyard designates that photos and video are allowed without permission.
 
 The key is having a bright colour that means "no photos please".
 It stands out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
 
-https://twitter.com/attacus_au/status/999251828536692737?lang=en
-https://2018.xoxofest.com/inclusion
-
-[[ photo ]]
+<figure>
+<img src="/images/2018/pyconuk-lanyards.jpg">
+<figcaption>The three colours of lanyard at PyCon UK 2017. Yellow if you didn't want to appear in photographs, blue if you were happy to appear in photographs, red if you were an organiser or volunteer. Photo by me.</figcaption>
+</figure>
 
 ### Allow people to put pronouns on their badges
 
@@ -609,7 +637,7 @@ I haven't seen it at many conferences, but I think it's a nice idea.
 [badges]: https://alterconf.com/news/introducing-color-communication-badges
 [asan]: https://autisticadvocacy.org/2014/02/color-communication-badges/
 
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Newcomers
 
@@ -646,7 +674,10 @@ Here are two approaches I like:
 
 	> When standing as a group of people, always leave room for 1 person to join your group.
 
+And at PyCon UK last year, there was a #social channel in the conference Slack.
+If a group of people were going out for the evening, and had room for a few more, they'd post it in this channel -- and people would often take up that invitation.
 
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Putting it into practice
 
@@ -654,12 +685,11 @@ I hope these ideas are useful, and you can use them to make your events more inc
 
 As I said at the start -- **don't feel bad if there are suggestions here that you can't do**.
 I've never seen a conference that implements all of these, or even most of them.
+Some of this is expensive (either in time or money), and you can't do it all.
 Consider it a list of suggestions for better events, not a list of absolute requirements.
 
-do your best
-try is better than not trying at all
-some stuff is expensive, you can't do it all
-any improvements are better than no improvements
+Just do your best -- **some improvements are better than no improvements**.
+Anything you can do to make your event more inclusive is a worthwhile thing to do.
 
 This list is almost certainly incomplete, and reflects the conferences I'm most interested in.
 You'll have other ideas I haven't thought of -- I'd love [to hear about them](https://twitter.com/alexwlchan).
@@ -672,8 +702,7 @@ Even saying you can't provide an accommodation is more useful than an empty page
 
 Now go plan an awesome conference!
 
-
-
+<div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Further reading
 
