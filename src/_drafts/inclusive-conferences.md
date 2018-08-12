@@ -19,8 +19,6 @@ It addresses a serious unfairness, and everyone benefits from having a wider div
 This is mostly based on my experience with small, community conferences in the UK tech industry.
 Underrepresented groups in tech include women, people with disabilities, people on low income, people who don't have European or US citizenship -- and the suggestions reflect that.
 
-None of these are original ideas -- this is a collection of ideas I've seen at conferences I've attended or followed online.
-
 If you're an event organiser, you can take these ideas to make your events more inclusive and accessible.
 
 If you attend, speak at, or sponsor an event, you have power -- you can demand these accommodations where they don't already exist.
@@ -30,7 +28,15 @@ Be picky about where you choose to participate, and walk away from events that d
 
 <!-- summary -->
 
-*Disclaimer:* I've helped organise [PyCon UK][pyconuk] for the last two years, and there's heavy reference to it below -- but most of these ideas predate my involvement.
+### A few disclaimers
+
+None of these are original ideas -- this is a collection of other people's ideas I've seen at conferences I've attended or followed online.
+
+This post is just an outline of these ideas, not a detailed implementation guide.
+Every item on this list could be an entire post on its own -- and if somebody else has already written that, I've tried to link to it.
+There's also a list of all the links I used at the end.
+
+I've helped organise [PyCon UK][pyconuk] for the last two years, and there's heavy reference to it below -- but most of these ideas predate my involvement.
 
 [pyconuk]: https://2018.pyconuk.org/
 
@@ -212,77 +218,72 @@ It's rude, and an annoyance for the speaker as they're about to go on stage.
 
 Double demerit if you're English and make a joke about the unpronouncability of a name.
 
+### Questions, not comments
 
+The Q&A session can be a stressful part of any talk.
 
----
+Make sure you have a chair on hand to ensure things go smoothly.
+If somebody starts "This isn't a question, but a comment", you can shut them down -- either after they've finished, or even interrupt them.
+Move straight on to the next question.
 
-## Code
-
-
-
-Contents:
-
--   Food and drink
-    -    Be explicit about dietary requirements
-    -    Provide non-alcoholic and low-sugar drinks
--   Venue spaces
-    -    Have gender-neutral bathrooms
-    -    Provide bathroom baskets
-    -    Quiet room
-    -    Prayer room
--   Parents/guardians with young children
-    -    Free crèche
-    -    Nursing/baby care room
--   Support for disabilities
-    -   Live captioning in talks
-    -   Sign language interpreters
-    -   Audio induction loop
-    -   Fresh water, treats, and relief areas for service animals
-    -   Preferred seating for people with vision problems
-    -   Provide detail about "wheelchair accessibility"
-    -   Encourage speakers to think about accessibility in their slides
-    -   Remind able-bodied attendees not to interfere
--   Venue information
-    -   Travel instructions
-    -   Advice on good accommodation
-    -   Local information: shops, restaurants, pharmacies
--   Badges, lanyards and privacy
-    -   Be clear about how names are used
-    -   Use coloured lanyards to let people opt-out of photographs
-
-
+People have mixed feelings on the Q&A.
+Some speakers find them very helpful; others prefer to answer questions in the hallway after the session.
+I've started to see CfPs that let speakers choose if they want a Q&A.
+I think that's a good compromise.
 
 ## Food and drink
 
 ### Be explicit about dietary requirements
 
-If you're running a large event, you can anticipate common dietary requirements in advance:
+You should aim to accommodate all dietary requirements.
+
+You can anticipate some common dietary requirements in advance.
+Here are some examples:
 
 *   Vegetarian
 *   Vegan
 *   Dairy-free
 *   Gluten-free
 *   Nut-free
+*   [Halal](https://en.wikipedia.org/wiki/Halal)
+*   [Kosher](https://en.wikipedia.org/wiki/Kosher)
 
-If you know you'll be providing suitable food, say so in advance.
-You should also ask about other requirements (ideally when somebody buys their ticket), and accommodate them if possible.
+If you know you'll be providing food for these requirements, say so upfront.
+Ask about other requirements you haven't thought of yet (a good time is when somebody buys a ticket).
 
 Make sure food is clearly labelled, both by category and ingredients.
 
-For allergies like nut- and gluten-free, it's helpful to have details about the kitchen, if available.
+For allergies like nut- and gluten-free, it's helpful to have details about the kitchen, if possible.
 (For example, *"This was prepared in a nut-free kitchen"* vs *"This wasn't prepared in a nut-free kitchen, but separate utensils and surfaces were used"*.
 For some people, that difference matters.)
 
 You may need to remind non-vegetarians not to eat all the vegetarian food, so the vegetarians don't go hungry!
-Separate queues, or taking food orders in advance, can both help with this.
+Separate queues for different types of food, or taking people's food orders in advance, can both help with this.
 
-### Provide non-alcoholic and low-sugar drinks
+### Provide non-alcoholic, low-caffeine and low-sugar drinks
 
-If you're providing drinks, offer some non-alcoholic soft drinks.
-Soft drinks are often high sugar (juices and sodas).
-Low-sugar drinks (e.g. flavoured waters) are also helpful.
+The tech industry in particular has a problem with alcohol.
+Lots of events assume that everybody attending drinks alcohol, and will be comfortable drinking alcohol at the event.
+That excludes people (like me!) who don't want to drink.
 
-REF???
+Similarly, not everybody wants to drink caffeinated or sugary drinks, so you should find alternatives for them as well.
+
+*See also:*
+
+*   Ernest W. Durbin III did [a Twitter survey][durbin] about drinks at conferences, and their article includes suggestions for good alternatives.
+    They've also got links to other articles with more discussion of food and drink at conferences.
+
+[durbin]: https://ernest.ly/blog/conference-beverages.html
+
+
+
+
+
+## ---
+
+
+
+---
 
 
 ## Venue spaces
@@ -499,3 +500,39 @@ https://alterconf.com/news/building-something-beautiful-alterconf-dublin
 https://alterconf.com/news/introducing-color-communication-badges
 https://medium.com/@angelsk/alterconf-ed68688c4742
 https://saphmb.github.io/alterconf-london-all-about-that-access/
+
+
+### speak into the microphone
+
+
+> XOXO uses venues which are accessible and ADA compliant. Venues have clearly marked aisles (at least 3.5ft wide), service elevators, ramps, and venue wayfinding that highlights accessible routes. We also provide reserved seating for attendees with mobility issues and/or mobility devices.
+
+https://2018.xoxofest.com/inclusion
+
+
+### ban smoking
+
+
+> XOXO enforces a strict photo consent policy for our attendees, designated by colored lanyards available at registration. A red lanyard designates strictly no photos or video, a yellow lanyard designates that photos and video are allowed with explicit consent, and a blue lanyard designates that photos and video are allowed without permission.
+
+
+
+
+
+welcome wagon
+http://www.writethedocs.org/conf/na/2016/welcome-wagon/
+
+http://ashleynh.me/live-captioning/
+
+http://ericholscher.com/blog/2016/nov/12/questions-at-conferences/
+
+ask if you need the elevator by default
+
+pacman rule
+http://ericholscher.com/blog/2017/aug/2/pacman-rule-conferences/
+
+nine worlds
+https://nineworlds.co.uk/news/2016/08/05/speaker-guidelines
+
+https://twitter.com/wickglyph/status/935935750104743936
+> 2. They distinguish between the attendee name that will be printed on your badge and your legal name, which will only be checked at security. They make it clear that your legal name will not be printed anywhere on your badge. 3/8
