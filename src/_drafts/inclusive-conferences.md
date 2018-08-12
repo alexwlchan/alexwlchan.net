@@ -462,12 +462,14 @@ And when you ask them, be very clear about it: *"This is the name that will appe
 You may need wallet names for other purposes -- for example, at AlterConf Berlin, you needed legal ID to get through reception.
 I don't have the exact wording, but I saw tweets from people: the signup was very explicit that this name was only used for checking ID, and wouldn't appear on badges.
 
-### Let people opt out from the attendee list (or don't provide one)
+### Don't put people's de
 
 I went to an academic conference last year, and was surprised when my welcome pack included a list of attendees -- names, email addresses, and affiliated institution.
 
 I don't mind giving out my email address, but I was never asked about it.
-Other people are less comfortable about handing out details, so make it easy to opt out from this list if you provide it -- or as many conferences do, don't have one.
+Other people are less comfortable about handing out details, so this list should really be opt in
+
+ so make it easy to opt out from this list if you provide it -- or as many conferences do, don't have one.
 
 ### Use coloured lanyards to let people opt out of photographs
 
@@ -516,37 +518,70 @@ This can happen in a number of ways:
 
 You shouldn't force people to write pronouns on their badges (that has different problems) -- but give people the option if they want to.
 
+### Colour communication badges
+
+This is a way for somebody to show how comfortable they are socialising.
+Not everybody is comfortable talking to strangers, and this gives a way to opt out without feeling awkward.
+
+This is how the system was described [at AlterConf Berlin][badges]:
+
+> Each attendee receives three cards included with their name badge and holder. […] The colored cards can be slipped behind the name badge in the holder so they’re visible to other attendees.
+>
+> A green card with a triangle means that the wearer wants people to come up and talk to them. Yellow, with a circle, means they want only people they know to approach them, and red, with a square, means that they want to be left alone. In each case, the person wearing the badge may still approach people they want to talk to, but if someone is wearing a yellow or red badge, they generally want to keep being approached to a minimum.
+
+Note the use of shapes, so this works for colourblind attendees as well.
+
+The system was developed [by the Autistic Self Advocacy Network][asan].
+I haven't seen it at many conferences, but I think it's a nice idea.
+
+[badges]: https://alterconf.com/news/introducing-color-communication-badges
+[asan]: https://autisticadvocacy.org/2014/02/color-communication-badges/
+
+
+
+## Newcomers
+
+One of the great parts of regular conferences is having a chance to see people you don't see anywhere else -- for example, I have friends I only see when I'm at PyCon UK.
+But there's a risk a conference can get a clique-y feel -- everybody who's been before knows each other, and you feel left out if you don't know anybody.
+If you want your conference to grow, it's important to make newcomers feel as welcome as the old timers.
+
+### Run specific sessions for welcoming first timers
+
+For several years, Write The Docs conferences have run a "Welcome Wagon" -- there's a dedicated session for meeting other first-time attendees, tours of the venue, and a bunch of information about how the conference works.
+The [Welcome Wagon for this year's Prague conference][wagon] has lots of advice and suggestions about how to get the most from the conference.
+
+[wagon]: http://www.writethedocs.org/conf/prague/2018/welcome-wagon/
+
+### Publish a glossary of terms
+
+If they run for a long time, conferences develop fun traditions and in-jokes.
+Consider publishing a glossary of these terms, so somebody who's new doesn't feel confused or left out (here's [an example from DjangoCon Europe 2016][django]).
+
+[django]: https://2016.djangocon.eu/glossary/
+
+### Encourage repeat attendees to meet new people
+
+Here are some rules I've seen for getting new people to socialise:
+
+* Ned Batchelder, PyCon 2018 (https://nedbatchelder.com/blog/201805/pycon_2018.html)
+
+	> if this is your Nth PyCon, then you have to meet N new people every day. My strategy was at breakfast and lunch, when wandering around looking for a table to sit at, choose one with no one I know, and with people that don’t look like me.
+
+* Eric Holscher: The Pac-Man rule (http://ericholscher.com/blog/2017/aug/2/pacman-rule-conferences/#pac-man-rule)
+
+	> When standing as a group of people, always leave room for 1 person to join your group.
+
+
+
+http://ericholscher.com/blog/2017/dec/2/breaking-cliques-at-events/
+
+
 
 ## ---
 
 
 
 ---
-
-
----
-
-
-## badges with traffic lights
-
-
-## content warnings on talks
-
-trigger warnings
-
-make it clear can leave midway through
-
-# welcoming new people
-
-## welcome wagon
-
-- first time coming
-- special session
-- meet everyone who's new
-- tour, info about what sessions to attend
-
-## pacman rule + meet one new person every day
-
 
 
 https://www.ashedryden.com/blog/codes-of-conduct-101-faq
@@ -566,10 +601,6 @@ https://2018.xoxofest.com/inclusion
 
 
 ### ban smoking
-
-
-> XOXO enforces a strict photo consent policy for our attendees, designated by colored lanyards available at registration. A red lanyard designates strictly no photos or video, a yellow lanyard designates that photos and video are allowed with explicit consent, and a blue lanyard designates that photos and video are allowed without permission.
-
 
 
 alterconf
@@ -602,3 +633,5 @@ https://twitter.com/wickglyph/status/935935750104743936
 http://www.mtpt.org.uk/family-friendly-schools/a-conference-creche-how-to/
 
 nine worlds
+
+https://github.com/mxsasha/lessobviouschecklist
