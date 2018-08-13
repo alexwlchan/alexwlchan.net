@@ -746,7 +746,7 @@ This list is based on the work of a number of conferences, including:
 Each of them publish pages with accessibility and inclusion information.
 They're all worth reading, and I'd hold up any of them as a good example of conferences trying to be more inclusive.
 
-Here's a list of some of the other articles I read while preparing this piece, which contain much more detail than I could include above:
+Here's a list of some of the other articles I read while preparing this piece:
 
 *   [*A Conference Creche How To*](http://www.mtpt.org.uk/family-friendly-schools/a-conference-creche-how-to/), by Tom Bennett.
 
