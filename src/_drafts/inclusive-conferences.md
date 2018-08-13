@@ -6,7 +6,7 @@ tags: conferences
 
 <style>
   h2 { color: #d01c11; }
-  .post__separator { 
+  .post__separator {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     font-size: 1.5em;
@@ -124,10 +124,10 @@ Financial assistance usually comes from sponsorship, but don't discount the gene
 Here's a screenshot from the AlterConf London ticketing page:
 
 <figure>
-<img src="/images/2018/alterconf-tickets.png">
-<figcaption>
-There are seven tiers: Scholarship (free), Basic (£25), Friend, Supporter, Advocate, Patron and Super Friend. The tiers above Basic allow you to buy extra tickets, and the Super Friend tier is a freeform box.
-</figcaption>
+  <img src="/images/2018/alterconf-tickets.png">
+  <figcaption>
+    There are seven tiers: Scholarship (free), Basic (£25), Friend, Supporter, Advocate, Patron and Super Friend. The tiers above Basic allow you to buy extra tickets, and the Super Friend tier is a freeform box.
+  </figcaption>
 </figure>
 
 You could buy a single ticket (or claim one of the free tickets), or if you were feeling generous, you could buy extra tickets, which went into the free ticket pool.
@@ -192,10 +192,10 @@ Have a clearly-marked, designated space where people can sit quietly, not talk t
 I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
 
 <figure>
-<img src="/images/2018/pyconuk-quiet-room.jpg">
-<figcaption>
-The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a lovely space for sitting quietly. It's also a good place to work and prepare slides. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37957275512/in/album-72157666242950547/">Mark Hawkins</a>.
-</figcaption>
+  <img src="/images/2018/pyconuk-quiet-room.jpg">
+  <figcaption>
+    The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a lovely space for sitting quietly. It's also a good place to work and prepare slides. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37957275512/in/album-72157666242950547/">Mark Hawkins</a>.
+  </figcaption>
 </figure>
 
 ### Offer a prayer room
@@ -282,11 +282,11 @@ I expect we'll run the same process this year.
 [lottery]: /2017/10/lightning-talks/
 
 <figure>
-<img src="/images/2018/pyconuk-lightning.jpg">
-<figcaption>
-Owen Campbell explaining lightning talks at PyCon UK 2017.
-Owen ran the lightning talks last year, and helped come up with the lottery system. You can see the two buckets for submitting talks in the picture. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37913336882/in/album-72157666242746367/">Mark Hawkins</a>.
-</figcaption>
+  <img src="/images/2018/pyconuk-lightning.jpg">
+  <figcaption>
+    Owen Campbell explaining lightning talks at PyCon UK 2017.
+    Owen ran the lightning talks last year, and helped come up with the lottery system. You can see the two buckets for submitting talks in the picture. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37913336882/in/album-72157666242746367/">Mark Hawkins</a>.
+  </figcaption>
 </figure>
 
 ### Be thoughtful with your speaker gifts
@@ -318,9 +318,9 @@ And whenever a conference does this, I see a flurry of goodwill and nice tweets 
 
 If you're chairing a session and need to introduce somebody, ask them:
 
-* What they prefer to be called
-* How to pronounce it (even if it seems obvious)
-* What pronouns they'd like you to use
+*   What they prefer to be called
+*   How to pronounce it (even if it seems obvious)
+*   What pronouns they'd like you to use
 
 Don't try to guess and misgender somebody, or mangle their name.
 It's rude, and jarring for the speaker as they're about to go on stage.
@@ -433,8 +433,10 @@ I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf an
 [sttr]: /2016/09/speech-to-text/
 
 <figure>
-<img src="/images/2018/pyconuk-stenographers.jpg">
-<figcaption>One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&nbsp;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
+  <img src="/images/2018/pyconuk-stenographers.jpg">
+  <figcaption>
+    One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&nbsp;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.
+  </figcaption>
 </figure>
 
 ### Sign language interpreters
@@ -493,7 +495,7 @@ Some simple rules can make slides much easier for everyone to read:
 *   Large text
 *   High-contrast colours
 *   No animated GIFs on an infinite loop (which are distracting)
-* Nothing bright and flashing (an epilepsy risk)
+*   Nothing bright and flashing (an epilepsy risk)
 
 Posting slides online, or having printed copies, can also be useful for people who struggle to read from a projector.
 
@@ -596,29 +598,31 @@ Approaches like "talk to an organiser" or "put a sticker on your badge" don't re
 I've seen conferences that use coloured lanyards to show whether you want to appear in photographs.
 A couple of policies I like:
 
-* [PyCon UK 2017](https://2017.pyconuk.org/):
+*   [PyCon UK 2017](https://2017.pyconuk.org/):
 
-	> If you would rather not be in people's photographs, please pick up a yellow lanyard when you register.
+	  > If you would rather not be in people's photographs, please pick up a yellow lanyard when you register.
 
-	The default lanyards were blue.
+	  The default lanyards were blue.
 
-* [DjangoCon Europe 2018](https://twitter.com/attacus_au/status/999251828536692737):
+*   [DjangoCon Europe 2018](https://twitter.com/attacus_au/status/999251828536692737):
 
-	> White lanyard: Please do not take any photos of this person.
-	>
-	> Black lanyard: Photos are okay.
-	> Please ask before publishing individual photos.
+	  > White lanyard: Please do not take any photos of this person.
+	  >
+	  > Black lanyard: Photos are okay.
+	  > Please ask before publishing individual photos.
 
-* [XOXO 2018](https://2018.xoxofest.com/inclusion):
+*   [XOXO 2018](https://2018.xoxofest.com/inclusion):
 
-	> A red lanyard designates strictly no photos or video, a yellow lanyard designates that photos and video are allowed with explicit consent, and a blue lanyard designates that photos and video are allowed without permission.
+	  > A red lanyard designates strictly no photos or video, a yellow lanyard designates that photos and video are allowed with explicit consent, and a blue lanyard designates that photos and video are allowed without permission.
 
 The key is having a bright colour that means "no photos please".
 It stands out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
 
 <figure>
-<img src="/images/2018/pyconuk-lanyards.jpg">
-<figcaption>The three colours of lanyard at PyCon UK 2017. Yellow if you didn't want to appear in photographs, blue if you were happy to appear in photographs, red if you were an organiser or volunteer. Photo by me.</figcaption>
+  <img src="/images/2018/pyconuk-lanyards.jpg">
+  <figcaption>
+    The three colours of lanyard at PyCon UK 2017. Yellow if you didn't want to appear in photographs, blue if you were happy to appear in photographs, red if you were an organiser or volunteer. Photo by me.
+  </figcaption>
 </figure>
 
 ### Allow people to put pronouns on their badges
@@ -682,13 +686,14 @@ That's okay, but consider publishing a glossary of these terms, so somebody who'
 If you're the person who's attends the same conference regularly, take some time to break out of your bubble and meet newcomers.
 Here are two approaches I like:
 
-* Ned Batchelder, [PyCon 2018](https://nedbatchelder.com/blog/201805/pycon_2018.html):
+*   Ned Batchelder, [PyCon 2018](https://nedbatchelder.com/blog/201805/pycon_2018.html):
 
-	> if this is your Nth PyCon, then you have to meet N new people every day. My strategy was at breakfast and lunch, when wandering around looking for a table to sit at, choose one with no one I know, and with people that don’t look like me.
+	  > if this is your Nth PyCon, then you have to meet N new people every day.
+    > My strategy was at breakfast and lunch, when wandering around looking for a table to sit at, choose one with no one I know, and with people that don’t look like me.
 
-* Eric Holscher: [The Pac-Man rule](http://ericholscher.com/blog/2017/aug/2/pacman-rule-conferences/#pac-man-rule):
+*   Eric Holscher: [The Pac-Man rule](http://ericholscher.com/blog/2017/aug/2/pacman-rule-conferences/#pac-man-rule):
 
-	> When standing as a group of people, always leave room for 1 person to join your group.
+	  > When standing as a group of people, always leave room for 1 person to join your group.
 
 At PyCon UK last year, there was a #social channel in the conference Slack.
 If a group of people were going out for the evening, and had room for a few more, they'd post it in this channel -- and people would take up that invitation.
@@ -743,48 +748,48 @@ They're all worth reading, and I'd hold up any of them as a good example of conf
 
 Here's a list of some of the other articles I read while preparing this piece, which contain much more detail than I could include above:
 
-* [*A Conference Creche How To*](http://www.mtpt.org.uk/family-friendly-schools/a-conference-creche-how-to/), by Tom Bennett.
+*   [*A Conference Creche How To*](http://www.mtpt.org.uk/family-friendly-schools/a-conference-creche-how-to/), by Tom Bennett.
 
-* [*AlterConf London - all about that access*](https://saphmb.github.io/alterconf-london-all-about-that-access/), by Sapphire Mason-Brown.
+*   [*AlterConf London - all about that access*](https://saphmb.github.io/alterconf-london-all-about-that-access/), by Sapphire Mason-Brown.
 
-* [*Breaking Cliques at Events*](http://ericholscher.com/blog/2017/dec/2/breaking-cliques-at-events/), by Eric Holscher.
+*   [*Breaking Cliques at Events*](http://ericholscher.com/blog/2017/dec/2/breaking-cliques-at-events/), by Eric Holscher.
 
-* [*Building Something Beautiful at AlterConf Dublin*](https://alterconf.com/news/building-something-beautiful-alterconf-dublin), by Jay Castello.
+*   [*Building Something Beautiful at AlterConf Dublin*](https://alterconf.com/news/building-something-beautiful-alterconf-dublin), by Jay Castello.
 
-	The notes from Jenny Wong's talk *Building an Accessible Community* were helpful, and the video of that talk [is available on YouTube](https://www.youtube.com/watch?v=s-4eUBI0JtM).
-	Their talk contains lots of good advice.
+	  The notes from Jenny Wong's talk *Building an Accessible Community* were helpful, and the video of that talk [is available on YouTube](https://www.youtube.com/watch?v=s-4eUBI0JtM).
+	  Their talk contains lots of good advice.
 
-* [*Codes of Conduct 101 + FAQ*](https://www.ashedryden.com/blog/codes-of-conduct-101-faq), by Ashe Dryden.
+*   [*Codes of Conduct 101 + FAQ*](https://www.ashedryden.com/blog/codes-of-conduct-101-faq), by Ashe Dryden.
 
-* [*Conference Beverages*](https://ernest.ly/blog/conference-beverages.html), by Ernest W. Durbin III.
+*   [*Conference Beverages*](https://ernest.ly/blog/conference-beverages.html), by Ernest W. Durbin III.
 
-* [*Excluded from Confoo speaker dinner -- what happened and how it made me feel*](https://incl.ca/excluded-confoo-speaker-dinner-happened-made-feel/), by Nicolas Steenhout.
+*   [*Excluded from Confoo speaker dinner -- what happened and how it made me feel*](https://incl.ca/excluded-confoo-speaker-dinner-happened-made-feel/), by Nicolas Steenhout.
 
-* [*Introducing Color Communication Badges*](https://alterconf.com/news/introducing-color-communication-badges), by W. L. Bolm.
-	Discusses the introduction and virtues of these badges at AlterConf Dublin.
+*   [*Introducing Color Communication Badges*](https://alterconf.com/news/introducing-color-communication-badges), by W. L. Bolm.
+	  Discusses the introduction and virtues of these badges at AlterConf Dublin.
 
-* [*The Less Obvious Conference Checklist*](https://github.com/mxsasha/lessobviouschecklist), by Sasha Romijn.
+*   [*The Less Obvious Conference Checklist*](https://github.com/mxsasha/lessobviouschecklist), by Sasha Romijn.
 
-* [*Live Captioning*](http://ashleynh.me/live-captioning/), Ashley Nelson-Hornstein, talking about the live captioning at UIKonf.
+*   [*Live Captioning*](http://ashleynh.me/live-captioning/), Ashley Nelson-Hornstein, talking about the live captioning at UIKonf.
 
-* [*The Pac-Man Rule at Conferences*](http://ericholscher.com/blog/2017/aug/2/pacman-rule-conferences/), by Eric Holscher.
+*   [*The Pac-Man Rule at Conferences*](http://ericholscher.com/blog/2017/aug/2/pacman-rule-conferences/), by Eric Holscher.
 
-* [*Questions after talks at conferences*](http://ericholscher.com/blog/2016/nov/12/questions-at-conferences/), by Eric Holscher.
+*   [*Questions after talks at conferences*](http://ericholscher.com/blog/2016/nov/12/questions-at-conferences/), by Eric Holscher.
 
-* [Nine Worlds 2016 speaker guidelines](https://nineworlds.co.uk/news/2016/08/05/speaker-guidelines).
+*   [Nine Worlds 2016 speaker guidelines](https://nineworlds.co.uk/news/2016/08/05/speaker-guidelines).
 
-* [Sebastian Morr's Twitter thread of first impressions of AlterConf](https://twitter.com/blinry/status/863310340557352960).
+*   [Sebastian Morr's Twitter thread of first impressions of AlterConf](https://twitter.com/blinry/status/863310340557352960).
 
-* [Wick's Twitter thread about buying tickets for AlterConf](https://twitter.com/wickglyph/status/935935750104743936).
+*   [Wick's Twitter thread about buying tickets for AlterConf](https://twitter.com/wickglyph/status/935935750104743936).
 
-* [*Write The Docs 2016 Recap*](https://circleci.com/blog/write-the-docs-2016-recap/), by Ricardo N Feliciano on the CircleCI blog.
-	Note the comments about the "friendly demeanor" and the bathroom signs.
+*   [*Write The Docs 2016 Recap*](https://circleci.com/blog/write-the-docs-2016-recap/), by Ricardo N Feliciano on the CircleCI blog.
+	  Note the comments about the "friendly demeanor" and the bathroom signs.
 
-* [Write The Docs Prague 2018 Welcome Wagon](http://www.writethedocs.org/conf/prague/2018/welcome-wagon/).
+*   [Write The Docs Prague 2018 Welcome Wagon](http://www.writethedocs.org/conf/prague/2018/welcome-wagon/).
 
-* [*Your next conference should have real-time captioning*](http://composition.al/blog/2014/05/31/your-next-conference-should-have-real-time-captioning/), by Lindsey Kuper, one of the !!Con organisers.
+*   [*Your next conference should have real-time captioning*](http://composition.al/blog/2014/05/31/your-next-conference-should-have-real-time-captioning/), by Lindsey Kuper, one of the !!Con organisers.
 
-* [*The Zen of PyCon UK*](https://2017.pyconuk.org/zen-of-pycon-uk/).
+*   [*The Zen of PyCon UK*](https://2017.pyconuk.org/zen-of-pycon-uk/).
 
-* [\#AlterConf](https://medium.com/@angelsk/alterconf-ed68688c4742), by Jo Carter.
-	Notes on the sessions and venue at AlterConf London.
+*   [\#AlterConf](https://medium.com/@angelsk/alterconf-ed68688c4742), by Jo Carter.
+	  Notes on the sessions and venue at AlterConf London.
