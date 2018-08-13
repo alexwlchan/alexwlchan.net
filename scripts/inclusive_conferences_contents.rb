@@ -12,13 +12,13 @@ File.open("src/_drafts/inclusive-conferences-contents.md", "w") do |outfile|
     infile.each_line do |line|
       if line.start_with?("## ")
         title = line[3..line.size].strip
-        puts "*   [**#{title}**](#{slugify(title)})"
-        outfile.write("<h2 id=\"#{slugify(title)}\">#{title}</h2>\n")
+        puts "*   [**#{title}**](##{slugify(title)})"
+        outfile.write("<h2 id=\"#{slugify(title)}\">#{title} <a class=\"anchor\" href=\"##{slugify(title)}\"></a></h2>\n")
 
       elsif line.start_with?("### ")
         title = line[3..line.size].strip
         puts "    *   [#{title}](#{slugify(title)})"
-        outfile.write("<h3 id=\"#{slugify(title)}\">#{title}</h3>\n")
+        outfile.write("<h3 id=\"#{slugify(title)}\">#{title} <a class=\"anchor\" href=\"##{slugify(title)}\"></a></h3>\n")
 
       else
         outfile.write(line)
