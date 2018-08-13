@@ -20,3 +20,9 @@ env:
     - RSYNC_HOST=139.162.244.147
     - RSYNC_USER=alexwlchan
     - RSYNC_DIR=/home/alexwlchan/sites/alexwlchan.net
+
+notifications:
+  email:
+    - travis_alexwlchan_net@alexwlchan.fastmail.co.uk
+  on_success: always
+  on_failure: always
