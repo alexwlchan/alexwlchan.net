@@ -34,7 +34,7 @@ Be picky about where you choose to participate, and walk away from events that d
 
 <!-- summary -->
 
-### A few disclaimers
+<h3 id="a-few-disclaimers">A few disclaimers</h3>
 
 None of these are original ideas -- this is a collection of other people's ideas I've seen at conferences I've attended or followed online.
 
@@ -53,7 +53,7 @@ If you implement even one, that's an improvement.
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Have a code of conduct
+<h2 id="have-a-code-of-conduct">Have a code of conduct</h2>
 
 A code of conduct sets the expectation and rules for your event.
 It tells people what sort of behaviour is acceptable, and how violations will be dealt with.
@@ -85,12 +85,12 @@ It has lots of detail about what makes a good CoC, and answers common questions 
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Pricing and financial assistance
+<h2 id="pricing-and-financial-assistance">Pricing and financial assistance</h2>
 
 Conferences tickets can be expensive, and that's before you factor in travel or accommodation costs.
 You can do things to make your conference more affordable to attend.
 
-### Tiered ticket rates
+<h3 id="tiered-ticket-rates">Tiered ticket rates</h3>
 
 Lots of conferences have attendees who are being sent by an employer, and companies tend to have deeper pockets -- so you can charge higher prices for them.
 
@@ -107,7 +107,7 @@ I like PyCon UK's ticket tiers this year:
 I prefer these tiers to "early bird rates" because somebody can get the affordable prices at any time.
 Early bird tickets disproportionately help people who already know about the conference, and know when tickets go on sale -- which is likely to be people who are repeat attendees.
 
-### Offer financial assistance and free tickets
+<h3 id="offer-financial-assistance-and-free-tickets">Offer financial assistance and free tickets</h3>
 
 Tickets aren't the only cost of a conference -- you also need to pay for travel, accommodation, food, and time away from work/home.
 Have a budget for financial assistance grants, so you can give people money towards those costs.
@@ -117,7 +117,7 @@ Include discounted or free tickets.
 Allocating those funds can be a tricky question.
 Personally I'd prioritise contributors (speakers and volunteers), then first-time attendees, and I'd want it to help as many people as possible -- but different events will have their own priorities.
 
-### Give people a way to contribute to free tickets
+<h3 id="give-people-a-way-to-contribute-to-free-tickets">Give people a way to contribute to free tickets</h3>
 
 Financial assistance usually comes from sponsorship, but don't discount the generosity of your other attendees.
 
@@ -138,9 +138,9 @@ Similarly, at PyCon UK, we sell conference swag (t-shirts, hoodies, etc) through
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Inside the venue
+<h2 id="inside-the-venue">Inside the venue</h2>
 
-### Offer gender-neutral bathrooms
+<h3 id="offer-gender-neutral-bathrooms">Offer gender-neutral bathrooms</h3>
 
 At tech conferences I've been to, there are lots of trans and non-binary people, who are often excluded or marginalised by gendered toilets.
 Modifying your venue to have some gender-neutral bathrooms is a nice way to make them feel included.
@@ -160,7 +160,7 @@ If your venue is large enough, the ideal is a mixture of gender-neutral and gend
 
 (I've done a bunch of thinking around gender-neutral and accessible bathrooms for a work project recently; I may write another post about it later.)
 
-### Provide baskets of free toiletries
+<h3 id="provide-baskets-of-free-toiletries">Provide baskets of free toiletries</h3>
 
 Finding basic toiletries in a strange city or country can be difficult.
 Providing them directly in your bathrooms relieves a bit of that stress.
@@ -183,7 +183,7 @@ Keep some on the registration desk, and people can ask for them if they need the
 [wtd_bathroom]: https://twitter.com/yo_bj/status/993175805646835712
 [sponsor]: https://2018.djangocon.eu/assets/sponsor-brochure.pdf
 
-### Have a quiet room
+<h3 id="have-a-quiet-room">Have a quiet room</h3>
 
 Give people a space to take a break away from the bustle of the conference.
 
@@ -198,7 +198,7 @@ I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016,
   </figcaption>
 </figure>
 
-### Offer a prayer room
+<h3 id="offer-a-prayer-room">Offer a prayer room</h3>
 
 Most events in the tech industry are secular, but that doesn't mean they shouldn't welcome delegates from different faith backgrounds.
 
@@ -207,7 +207,7 @@ Specify what equipment you provide, if any.
 (I'm sure I knew a conference offering this, but I can't find a reference now.)
 If you don't have enough rooms, pointers to local places of worship would also be useful.
 
-### Clear internal signage
+<h3 id="clear-internal-signage">Clear internal signage</h3>
 
 Have dedicated, branded signage, with large and clear text.
 Help your attendees find their way around unfamiliar venues.
@@ -216,7 +216,7 @@ The branding makes it clear that the signs are for your event, and not the stand
 
 Good signage will save your volunteers from answering the same question repeatedly, and helps attendees who can't find a volunteer, or who might feel awkward asking.
 
-### Make it easy to spot your volunteers
+<h3 id="make-it-easy-to-spot-your-volunteers">Make it easy to spot your volunteers</h3>
 
 If somebody has a question, a concern, or a code of conduct violation to report, they need to find a volunteer, so make the volunteers easy to spot.
 Possible approaches include brightly coloured, branded t-shirts, or different lanyards from everyone else.
@@ -226,9 +226,9 @@ It may not always be the most convenient, but it's good to know that fallback ex
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Look after your speakers
+<h2 id="look-after-your-speakers">Look after your speakers</h2>
 
-### Compensate and pay expenses for your speakers
+<h3 id="compensate-and-pay-expenses-for-your-speakers">Compensate and pay expenses for your speakers</h3>
 
 Preparing a conference talk is a lot of work.
 If you don't pay your speakers, you're restricting yourself to people who can afford to do that preparation without being paid.
@@ -243,7 +243,7 @@ Don't waste time getting proposals that have to be withdrawn later.
 
 (Python conferences are especially bad at this, and it's something I feel acutely guilty about.)
 
-### Offer a mentoring programme
+<h3 id="offer-a-mentoring-programme">Offer a mentoring programme</h3>
 
 Speaking at a conference can be really intimidating, especially if you're not used to public speaking.
 You might be nervous, or uncertain, or even attending a conference that isn't held in your first language!
@@ -259,7 +259,7 @@ I particularly like that it's not just practice, but you're encouraged to ask fo
 
 [mentoring]: https://2016.pyconuk.org/speaker-mentors/
 
-### Run lightning talks/open mic sessions
+<h3 id="run-lightning-talks-open-mic-sessions">Run lightning talks/open mic sessions</h3>
 
 Not everyone can or wants to prepare a full session -- but that doesn't mean they can't have a chance to speak.
 
@@ -289,7 +289,7 @@ I expect we'll run the same process this year.
   </figcaption>
 </figure>
 
-### Be thoughtful with your speaker gifts
+<h3 id="be-thoughtful-with-your-speaker-gifts">Be thoughtful with your speaker gifts</h3>
 
 Buying gifts for your speakers is a nice gesture, and well-intentioned.
 Avoid common gifts that can be inadvertently insensitive:
@@ -314,7 +314,7 @@ And whenever a conference does this, I see a flurry of goodwill and nice tweets 
 
 [gail]: https://www.youtube.com/watch?t=10m11s&v=XsKUP23WPxY
 
-### Ask somebody's name and pronouns before introducing them
+<h3 id="ask-somebody-s-name-and-pronouns-before-introducing-them">Ask somebody's name and pronouns before introducing them</h3>
 
 If you're chairing a session and need to introduce somebody, ask them:
 
@@ -327,7 +327,7 @@ It's rude, and jarring for the speaker as they're about to go on stage.
 
 Double demerit if your first language is English and you make a joke about the unpronouncability of a name.
 
-### Questions, not comments
+<h3 id="questions-not-comments">Questions, not comments</h3>
 
 The Q&A session can be a stressful part of any talk.
 
@@ -341,9 +341,9 @@ I've started to see CfPs that let speakers choose if they want a Q&A, and I thin
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Food and drink
+<h2 id="food-and-drink">Food and drink</h2>
 
-### Be explicit about dietary requirements
+<h3 id="be-explicit-about-dietary-requirements">Be explicit about dietary requirements</h3>
 
 You should aim to accommodate all dietary requirements.
 
@@ -370,7 +370,7 @@ For some people, that difference matters.
 You may need to remind non-vegetarians not to eat all the vegetarian food, so the vegetarians don't go hungry!
 Separate queues for different types of food, or taking people's food orders in advance, can both help with this.
 
-### Provide non-alcoholic, low-caffeine and low-sugar drinks
+<h3 id="provide-non-alcoholic-low-caffeine-and-low-sugar-drinks">Provide non-alcoholic, low-caffeine and low-sugar drinks</h3>
 
 The tech industry has a problem with alcohol.
 There's a bit fo a drinking culture.
@@ -389,7 +389,7 @@ They've also got links to other articles with more discussion of food and drink 
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Parents/guardians with young children
+<h2 id="parents-guardians-with-young-children">Parents/guardians with young children</h2>
 
 Having young children can make conferences very difficult -- they require full-time care, which means you're either taking them around the conference (so you may have to leave talks or conversations in a hurry), or you need somebody else to provide childcare.
 Neither are easy or convenient.
@@ -399,7 +399,7 @@ Neither are easy or convenient.
   <figcaption>Two of the youngest attendees at PyCon UK 2017 &ndash; taking advantage of the free crèche. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37919454202/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
 </figure>
 
-### Run a free crèche
+<h3 id="run-a-free-cr-che">Run a free crèche</h3>
 
 I've seen conferences (AlterConf, XOXO, PyCon UK) that run a free crèche for attendees.
 You sign up in advance of the event, and then the conference hires registered and qualified childminders to look after children during conference hours.
@@ -407,7 +407,7 @@ Parents have time to focus on the conference, and they know their kids are being
 
 Be clear about which parts of the conference you can bring kids to (talks, dinner, after-party, etc.).
 
-### Nursing/baby care room
+<h3 id="nursing-baby-care-room">Nursing/baby care room</h3>
 
 Breastfeeding should be destigmatised, and acceptable in all conference spaces -- including in talks and at mealtimes.
 
@@ -417,9 +417,9 @@ The room needs a table and a chair, and electricity and a fridge are nice to hav
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Support for disabilities
+<h2 id="support-for-disabilities">Support for disabilities</h2>
 
-### Live captioning in talks
+<h3 id="live-captioning-in-talks">Live captioning in talks</h3>
 
 Hire a [stenographer][sttr] to provide real-time captioning on talks, which can be displayed on screens alongside the speaker.
 It helps people who are hard-of-hearing or non-native speakers, and it's a useful tool for your other attendees too -- if their focus drifts, it's a way to catch up.
@@ -439,14 +439,14 @@ I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf an
   </figcaption>
 </figure>
 
-### Sign language interpreters
+<h3 id="sign-language-interpreters">Sign language interpreters</h3>
 
 Similar to closed captioning -- sign language interpreters can help attendees who are hard-of-hearing.
 
 This is less useful to a general audience, as most people aren't fluent in sign language.
 At PyCon UK, we only provide BSL interpreters upon request (for free), whereas we always provide live captioning.
 
-### Use microphones and hearing loops
+<h3 id="use-microphones-and-hearing-loops">Use microphones and hearing loops</h3>
 
 A lot of venues will have audio induction loops (it's required by law in the UK) -- provide microphones for anybody speaking, and connect them to the hearing loop.
 
@@ -455,7 +455,7 @@ If you have a Q&A, use a roving microphone or repeat questions into the micropho
 
 Don't tap or blow into the microphone -- the sudden noise can be painful to anybody using a hearing aid, as the sound goes straight to their ears.
 
-### Look after service animals in your venue
+<h3 id="look-after-service-animals-in-your-venue">Look after service animals in your venue</h3>
 
 Allow service animals throughout your venues.
 And here's a new idea to me, from [this year's GitHub Universe][universe]:
@@ -464,7 +464,7 @@ And here's a new idea to me, from [this year's GitHub Universe][universe]:
 
 [universe]: https://blog.github.com/2018-08-02-github-universe-scholarship-program/
 
-### Preferred seating for people with vision/mobility issues
+<h3 id="preferred-seating-for-people-with-vision-mobility-issues">Preferred seating for people with vision/mobility issues</h3>
 
 Have reserved seating near the front of the audience for people who have vision problems, so they'll have a clear view of the screen.
 (I think I saw these at AlterConf, but I can't find a reference.)
@@ -473,7 +473,7 @@ Have reserved areas for people with wheelchairs.
 At AlterConf, there were aisle spaces marked out in blue tape for wheelchair users, so they could sit in the audience with their friends.
 Often wheelchair spaces are near the back, away from everybody else -- having them inline is better.
 
-### Provide detail about "wheelchair accessibility"
+<h3 id="provide-detail-about-wheelchair-accessibility-">Provide detail about "wheelchair accessibility"</h3>
 
 It's not enough to say a venue is "wheelchair accessible", because wheelchairs come in different shapes and sizes.
 Provide detail such as:
@@ -488,7 +488,7 @@ Provide detail such as:
 *   Are there wheelchair spaces inside the auditorium?
     How wide are the aisles between the seats?
 
-### Encourage speakers to think about accessibility in their slides
+<h3 id="encourage-speakers-to-think-about-accessibility-in-their-slides">Encourage speakers to think about accessibility in their slides</h3>
 
 Some simple rules can make slides much easier for everyone to read:
 
@@ -499,7 +499,7 @@ Some simple rules can make slides much easier for everyone to read:
 
 Posting slides online, or having printed copies, can also be useful for people who struggle to read from a projector.
 
-### Remind able-bodied attendees not to interfere
+<h3 id="remind-able-bodied-attendees-not-to-interfere">Remind able-bodied attendees not to interfere</h3>
 
 Basic etiquette includes:
 
@@ -510,7 +510,7 @@ Basic etiquette includes:
 
 If your attendees aren't familiar with these rules, a reminder might be helpful.
 
-### Have sufficient breaks between sessions
+<h3 id="have-sufficient-breaks-between-sessions">Have sufficient breaks between sessions</h3>
 
 Particularly in a large venue, it can be difficult for people to get around quickly.
 Maybe you have a wheelchair, or a child, or a foot injury, or you're just talking to somebody about the session that just finished.
@@ -520,9 +520,9 @@ People won't be rushing around the building to get to talks, and your speakers w
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Getting to the venue
+<h2 id="getting-to-the-venue">Getting to the venue</h2>
 
-### Travel instructions
+<h3 id="travel-instructions">Travel instructions</h3>
 
 For anything but the smallest events, you'll have attendees who aren't local.
 
@@ -531,7 +531,7 @@ Where are the nearest public transport links?
 
 Bonus points if you provide information about wheelchair friendly routes to the venue -- your attendees don't magically appear at your front door.
 
-### Advice on good accommodation
+<h3 id="advice-on-good-accommodation">Advice on good accommodation</h3>
 
 If you run a conference in the same place for several years, you'll get an idea of where the good accommodation is -- which hostels are friendly, which hotel is above a noisy bar, and so on.
 Tell people in advance -- they'll have a better night's sleep, and enjoy your conference more!
@@ -540,7 +540,7 @@ You may also be able to negotiate preferential rates for your attendees.
 Last year at PyCon UK, we had a block booking at a local hostel ([Mrs. Potts](http://www.mrspottsbackpackers.co.uk/)).
 Lots of people had a good stay there, we were able to solve several sudden accommodation snafus with minimal stress, and we're recommending it to our attendees again this year.
 
-### Local information: shops, restaurants, pharmacies
+<h3 id="local-information-shops-restaurants-pharmacies">Local information: shops, restaurants, pharmacies</h3>
 
 There's a good chance at least one of your organisers knows the local area, and your attendees don't.
 So tell them what's available -- what's good near the venue?
@@ -548,7 +548,7 @@ So tell them what's available -- what's good near the venue?
 This could be shops, places to eat, local attractions, where to get emergency medication, that sort of thing.
 Help them not be stranded in a strange city when the conference finishes for the day.
 
-### Offer visa invitation letters for people coming from overseas
+<h3 id="offer-visa-invitation-letters-for-people-coming-from-overseas">Offer visa invitation letters for people coming from overseas</h3>
 
 If you have international attendees, you may have somebody who needs a visa to come to the conference.
 
@@ -564,9 +564,9 @@ I've been doing the visa invitation letters for PyCon UK -- email me if you'd li
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Badges, lanyards and photography
+<h2 id="badges-lanyards-and-photography">Badges, lanyards and photography</h2>
 
-### Be clear about how names are used
+<h3 id="be-clear-about-how-names-are-used">Be clear about how names are used</h3>
 
 Names are complicated, and you can't be sure what name somebody wants to put on their badge -- so ask!
 
@@ -580,7 +580,7 @@ I don't have the exact wording, but I saw tweets from people: the signup was ver
 
 [names]: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
 
-### Don't put people's details in an attendee list without permission
+<h3 id="don-t-put-people-s-details-in-an-attendee-list-without-permission">Don't put people's details in an attendee list without permission</h3>
 
 I went to an academic conference last year, and was surprised when my welcome pack included a list of attendees -- names, email addresses, and affiliated institutions.
 
@@ -589,7 +589,7 @@ Other people are less comfortable handing out details, so this list should reall
 Ask people if they want to be on the attendee list; don't assume.
 (Or even better, don't have one at all!)
 
-### Use coloured lanyards to let people opt out of photographs
+<h3 id="use-coloured-lanyards-to-let-people-opt-out-of-photographs">Use coloured lanyards to let people opt out of photographs</h3>
 
 Not everybody likes having their photograph taken, and you should make it easy for people to opt out.
 
@@ -625,7 +625,7 @@ It stands out in a crowd, and makes it clear if you've accidentally snapped some
   </figcaption>
 </figure>
 
-### Allow people to put pronouns on their badges
+<h3 id="allow-people-to-put-pronouns-on-their-badges">Allow people to put pronouns on their badges</h3>
 
 I know people who like to write pronouns on their badges, to avoid being misgendered.
 (This is mostly, but not exclusively, trans and non-binary friends, whose appearance doesn't match common expectations for their gender.)
@@ -638,7 +638,7 @@ You can do this in a number of ways:
 
 You shouldn't force people to write pronouns on their badges (that has different problems) -- but give them the option if they want to.
 
-### Colour communication badges
+<h3 id="colour-communication-badges">Colour communication badges</h3>
 
 This is a way for somebody to show how comfortable they are socialising.
 Not everybody enjoys talking to strangers, and this gives them a way to opt out without feeling awkward.
@@ -659,13 +659,13 @@ I haven't seen it at many conferences yet, but I think it's a nice idea.
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Newcomers
+<h2 id="newcomers">Newcomers</h2>
 
 One of the great parts of regular conferences is having a chance to see people you don't see anywhere else -- for example, I have friends I only see when I'm at PyCon UK.
 But there's a risk a conference can get a clique-y feel -- everybody who's been before knows each other, and you feel left out if you're new and don't know anybody.
 If you want your conference to grow, it's important to make newcomers feel as welcome as the old timers.
 
-### Run specific sessions for first timers
+<h3 id="run-specific-sessions-for-first-timers">Run specific sessions for first timers</h3>
 
 For several years, Write The Docs conferences have run a "Welcome Wagon" -- there's a dedicated session for meeting other first-time attendees, tours of the venue, and a bunch of information about how the conference works.
 The [Welcome Wagon for this year's Prague conference][wagon] has lots of advice and suggestions about how to get the most from the conference.
@@ -674,14 +674,14 @@ Although a lot of that page is Prague or Write The Docs-specific, the questions 
 
 [wagon]: http://www.writethedocs.org/conf/prague/2018/welcome-wagon/
 
-### Publish a glossary of terms
+<h3 id="publish-a-glossary-of-terms">Publish a glossary of terms</h3>
 
 If they run for a long time, conferences develop fun traditions and in-jokes.
 That's okay, but consider publishing a glossary of these terms, so somebody who's new doesn't feel confused or left out (here's [an example from DjangoCon Europe 2016][django]).
 
 [django]: https://2016.djangocon.eu/glossary/
 
-### If you're a regular attendee, meet new people
+<h3 id="if-you-re-a-regular-attendee-meet-new-people">If you're a regular attendee, meet new people</h3>
 
 If you're the person who's attends the same conference regularly, take some time to break out of your bubble and meet newcomers.
 Here are two approaches I like:
@@ -700,7 +700,7 @@ If a group of people were going out for the evening, and had room for a few more
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Putting it into practice
+<h2 id="putting-it-into-practice">Putting it into practice</h2>
 
 I hope these ideas are useful, and you can use them to make your events more inclusive.
 
@@ -725,7 +725,7 @@ Now go plan an awesome conference!
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
-## Further reading
+<h2 id="further-reading">Further reading</h2>
 
 This list is based on the work of a number of conferences, including:
 
