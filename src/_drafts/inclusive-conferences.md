@@ -18,11 +18,12 @@ Last week, I had a meeting with [Lauren Couch][lauren], the head of Diversity an
 
 For better or for worse, conferences can be really important for career development.
 Sharing ideas, having conversations, meeting new people -- if you can't attend conferences, you miss out on a lot of these ooportunities.
-It's important to open these events to as wide a range as people as possible, and make them feel welcome when they attend.
+It's important to open these events to as wide a range of people as possible, and make them feel welcome when they attend.
 It addresses a serious unfairness, and everyone benefits from having a wider diversity of people and ideas.
 
 This is mostly based on my experience with small, community conferences in the European tech industry.
 Underrepresented groups in tech include women, people with disabilities, people on low income, people who don't have European or US citizenship -- and the suggestions reflect that.
+It definitely isn't a complete list.
 
 If you're an event organiser, you can take these ideas to make your events more inclusive and accessible.
 
@@ -37,15 +38,16 @@ Be picky about where you choose to participate, and walk away from events that d
 
 None of these are original ideas -- this is a collection of other people's ideas I've seen at conferences I've attended or followed online.
 
-This post is just an outline of these ideas, not a detailed implementation guide.
+This post is just an outline, not a detailed implementation guide.
 Every item on this list could be an entire post on its own -- and if somebody else has already written that, I've tried to link to it.
-There's also a list of all the links I used at the end.
+There's also a list of further reading links at the end.
 
 I've helped organise [PyCon UK][pyconuk] for the last two years, and there's heavy reference to it below -- but most of these ideas predate my involvement.
 
 Finally, don't feel bad if you can't do many of the suggestions on this list.
 I don't know of a single conference that does everything here -- even the ones I organise.
 This is aspirational, not a checklist.
+If you implement even one, that's an improvement.
 
 [pyconuk]: https://2018.pyconuk.org/
 
@@ -57,24 +59,24 @@ A code of conduct sets the expectation and rules for your event.
 It tells people what sort of behaviour is acceptable, and how violations will be dealt with.
 This shows potential attendees that they should feel safe at your event, and if harassment or bullying does occur, it gives them a recourse.
 
-Ensure you advertise it prominently -- on your website, when buying tickets, in your introductory remarks.
+Advertise it prominently -- on your website, when buying tickets, in your introductory remarks.
 Make sure people know about it.
 
 A code of conduct is only as good as its enforcement -- so you have to follow through with it.
-Have a documented procedure for dealing with harassment, and follow it.
+Have a documented procedure for dealing with harassment, and stick to it.
 
 Don't be shy about calling out problems if they occur.
 At PyCon UK in 2016, if a CoC violation occurred, three things would happen:
 
 *   Somebody would tweet about it from the conference Twitter account
-*   The problem would be mentioned in the opening remarks the following day, with an explanation of what happened and how it was resolved
+*   The problem was mentioned in the opening remarks the following day, with an explanation of what happened and how it was resolved
 *   After the conference, there was a [code of conduct report][report] that summarised the two issues
 
 This helps people see that you're enforcing the CoC (and hopefully makes them feel more comfortable making a report, if they need to).
 It also serves as a counterpoint to people who say "this sort of behaviour doesn't happen in our community" -- unfortunately, it almost certainly does.
 
-Ashe Dryden has written a [very thorough Codes of Conduct 101 and FAQ][dryden], which I highly recommend.
-It has much more detail about what makes a good CoC, and answers common questions and objections.
+Ashe Dryden has written a [very thorough Codes of Conduct 101 and FAQ][dryden], which I recommend reading.
+It has lots of detail about what makes a good CoC, and answers common questions and objections.
 
 <!-- people making fun of programming languages -->
 
@@ -85,14 +87,14 @@ It has much more detail about what makes a good CoC, and answers common question
 
 ## Pricing and financial assistance
 
-Conferences tickets can be expensive, and that's before you factor in any travel and accommodation costs.
+Conferences tickets can be expensive, and that's before you factor in travel or accommodation costs.
 You can do things to make your conference more affordable to attend.
 
 ### Tiered ticket rates
 
-Lots of conferences have attendees who are being sponsored for work, and companies tend to have deeper pockets -- so you can charge higher prices for them.
+Lots of conferences have attendees who are being sent by an employer, and companies tend to have deeper pockets -- so you can charge higher prices for them.
 
-At the other end, you'll have people who are just starting in the industry, and don't have corporate backing -- or even a salary.
+At the other end, you'll have people who are just starting in the industry, and don't have corporate backing -- or maybe even a salary.
 
 I like PyCon UK's ticket tiers this year:
 
@@ -103,12 +105,13 @@ I like PyCon UK's ticket tiers this year:
 > If you are unwaged (for example in full-time education), please select the Unwaged rate.
 
 I prefer these tiers to "early bird rates" because somebody can get the affordable prices at any time.
-Early bird tickets disproportionately help people who already know about the conference -- which is likely to be people who are repeat attendees.
+Early bird tickets disproportionately help people who already know about the conference, and know when tickets go on sale -- which is likely to be people who are repeat attendees.
 
-### Offer free tickets and financial assistance
+### Offer financial assistance and free tickets
 
 Tickets aren't the only cost of a conference -- you also need to pay for travel, accommodation, food, and time away from work/home.
-Have a budget for financial assistance grants, so you expand the pool of people who can attend.
+Have a budget for financial assistance grants, so you can give people money towards those costs.
+This expands the pool of potential attendees.
 Include discounted or free tickets.
 
 Allocating those funds can be a tricky question.
@@ -147,9 +150,9 @@ When AlterConf was still running, it was a staple of the conference tweets to se
 {% tweet https://twitter.com/iamkimiam/status/848188958567800832 %}
 
 If it's not possible (for example, you're sharing your conference space), remind your attendees not to challenge somebody else's choice of bathroom.
-For example, here's a sign from one of the Write The Docs conferences:
+For example, here's [a sign from one of the Write The Docs conferences](https://twitter.com/carolstran/status/906888286370660352):
 
-> If you're using this restroom and you think a person's gender doesn't match the sign on the door, follow these steps:
+> If you're using this toilet and you think a person's gender doesn't match the sign on the door, follow these steps:
 >
 > Don't worry about it, they know better than you.
 
@@ -172,9 +175,9 @@ This ensures that if somebody is caught out in the middle of the day, they don't
 
 Examples of what you might include: sanitary products, spray-on deodorant, sunscreen, toothbrushes.
 
-If you're doing this, remember to put the same products in all your bathrooms -- although the majority of people who get periods will probably use the women's bathrooms, there may be people who get periods using the men's and accessible bathrooms as well.
+Put the same products in all your bathrooms, including sanitary products -- although the majority of people who get periods will probably use the women's bathrooms, there may be people who get periods using the men's and accessible bathrooms as well.
 
-For medication: you probably can't leave painkillers and the like in the bathrooms (where children can get them).
+You probably can't leave painkillers and medication in the bathrooms (where children can get them).
 Keep some on the registration desk, and people can ask for them if they need them.
 
 [wtd_bathroom]: https://twitter.com/yo_bj/status/993175805646835712
@@ -182,9 +185,9 @@ Keep some on the registration desk, and people can ask for them if they need the
 
 ### Have a quiet room
 
-Give people a space to take a break from the bustle of the conference.
+Give people a space to take a break away from the bustle of the conference.
 
-Networking and socialising is a really important part of conferences, but it tires a lot of people out.
+Networking and socialising is an important part of conferences, but it tires a lot of people out.
 Have a clearly-marked, designated space where people can sit quietly, not talk to anybody, and recover some of their energy.
 I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
 
@@ -200,6 +203,7 @@ The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a 
 Most events in the tech industry are secular, but that doesn't mean they shouldn't welcome delegates from different faith backgrounds.
 
 If you have the space, a room dedicated for prayer would be a nice accommodation.
+Specify what equipment you provide, if any.
 (I'm sure I knew a conference offering this, but I can't find a reference now.)
 If you don't have enough rooms, pointers to local places of worship would also be useful.
 
@@ -214,17 +218,17 @@ Good signage will save your volunteers from answering the same question repeated
 
 ### Make it easy to spot your volunteers
 
-If somebody has a question, or a concern, or a code of conduct violation to report, they need to find a volunteer, so make the volunteers easy to spot.
-Possible approaches include branded (and brightly coloured t-shirts), or different lanyards from everyone else.
+If somebody has a question, a concern, or a code of conduct violation to report, they need to find a volunteer, so make the volunteers easy to spot.
+Possible approaches include brightly coloured, branded t-shirts, or different lanyards from everyone else.
 
-If you have places that are continuously staffed during conference hours (for example, the registration desked), make sure you tell people.
-It may not be the most convenient, but it's good to know that fallback exists.
+If you have places that are continuously staffed during conference hours (for example, the registration desk), make sure you tell people.
+It may not always be the most convenient, but it's good to know that fallback exists.
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
 ## Look after your speakers
 
-### Pay and expense your speakers
+### Compensate and pay expenses for your speakers
 
 Preparing a conference talk is a lot of work.
 If you don't pay your speakers, you're restricting yourself to people who can afford to do that preparation without being paid.
@@ -235,7 +239,7 @@ You probably want to throw in a free ticket as well, so they can hang around aft
 
 Whatever your speaker package is (even if you can't pay anything), be upfront about it in your call for proposals.
 If somebody can't or won't speak at your conference without compensation, it's better to know that before they submit.
-Don't waste time getting proposals that have to be withdrawn.
+Don't waste time getting proposals that have to be withdrawn later.
 
 (Python conferences are especially bad at this, and it's something I feel acutely guilty about.)
 
@@ -248,7 +252,7 @@ Offering a speaker mentoring programme can give those people a confidence boost.
 If somebody is new or nervous, pair them with an experienced speaker who can help them practice and prepare.
 It's a great way to get more speakers from different backgrounds, and ensure you have speakers for many years to come!
 
-I really like the page [on speaker mentoring for PyCon UK 2016][mentoring].
+I like the page [on speaker mentoring for PyCon UK 2016][mentoring].
 I particularly like that it's not just practice, but you're encouraged to ask for other types of help as well:
 
 > It could be any kind of help, for any kind of reason: anything from someone who can advise on whether your idea for a talk is a good one to someone who'll be happy to hear you practise it; even someone who'll agree to be the session chair for your talk at the event. You tell us what kind of help you'd like.
@@ -260,7 +264,8 @@ I particularly like that it's not just practice, but you're encouraged to ask fo
 Not everyone can or wants to prepare a full session -- but that doesn't mean they can't have a chance to speak.
 
 [Lightning talks][lightning] are short, quickfire talks -- typically five minutes or less.
-They're fun to watch because you get a variety of topics in a short space of time, and it's long enough to say something interesting, without needing lots of preparation.
+Ususally you run a series of them back-to-back.
+They're fun to watch because you get a variety of topics in a short space of time, and five minutes is long enough to say something interesting, without needing lots of preparation.
 And at least at conferences I've been to, the audience is very supportive and friendly.
 It's a great venue for somebody to try speaking for the first time.
 
@@ -286,15 +291,14 @@ Owen ran the lightning talks last year, and helped come up with the lottery syst
 
 ### Be thoughtful with your speaker gifts
 
-If you buy gifts for your speakers, it's easy to buy something which is inadvertently insensitive:
+Buying gifts for your speakers is a nice gesture, and well-intentioned.
+Avoid common gifts that can be inadvertently insensitive:
 
 *   A bottle of wine?
     Not everybody drinks alcohol.
 *   Chocolates?
     Make sure you've checked for dairy and nut allergies, and your speaker doesn't have an eating disorder.
 *   Neckties?  [Yes, this actually happens.][gail]
-
-Speaker gifts are a nice gesture, and well-intentioned, they just don't always hit the mark.
 
 Two possible alternatives:
 
@@ -321,7 +325,7 @@ If you're chairing a session and need to introduce somebody, ask them:
 Don't try to guess and misgender somebody, or mangle their name.
 It's rude, and jarring for the speaker as they're about to go on stage.
 
-Double demerit if you're English and make a joke about the unpronouncability of a name.
+Double demerit if your first language is English and you make a joke about the unpronouncability of a name.
 
 ### Questions, not comments
 
@@ -355,20 +359,21 @@ Here's a set that probably covers 90%+ of attendees:
 *   [Kosher](https://en.wikipedia.org/wiki/Kosher)
 
 If you know you'll be providing food for these requirements, say so upfront.
-Ask about other requirements you haven't thought of yet (a good time is when somebody buys a ticket).
+Ask for dietary requirements when people buy their ticket, so you you can make the right amount, or know if you've forgotten something.
 
 Make sure food is clearly labelled, both by category and ingredients.
 
 For allergies like nut- and gluten-free, it's helpful to have details about the kitchen, if possible.
-(For example, *"This was prepared in a nut-free kitchen"* vs *"This wasn't prepared in a nut-free kitchen, but separate utensils and surfaces were used"*.
-For some people, that difference matters.)
+For example, *"This was prepared in a nut-free kitchen"* vs *"This wasn't prepared in a nut-free kitchen, but separate utensils and surfaces were used"*.
+For some people, that difference matters.
 
 You may need to remind non-vegetarians not to eat all the vegetarian food, so the vegetarians don't go hungry!
 Separate queues for different types of food, or taking people's food orders in advance, can both help with this.
 
 ### Provide non-alcoholic, low-caffeine and low-sugar drinks
 
-The tech industry in particular has a problem with alcohol.
+The tech industry has a problem with alcohol.
+There's a bit fo a drinking culture.
 Lots of events assume that everybody attending drinks alcohol, and will be comfortable drinking alcohol at the event.
 That excludes people (like me!) who don't want to drink.
 
@@ -398,7 +403,7 @@ Neither are easy or convenient.
 
 I've seen conferences (AlterConf, XOXO, PyCon UK) that run a free crèche for attendees.
 You sign up in advance of the event, and then the conference hires registered and qualified childminders to look after children during conference hours.
-Parents have time to focus on the conference, and know their kids are being looked after.
+Parents have time to focus on the conference, and they know their kids are being looked after safely.
 
 Be clear about which parts of the conference you can bring kids to (talks, dinner, after-party, etc.).
 
@@ -407,7 +412,7 @@ Be clear about which parts of the conference you can bring kids to (talks, dinne
 Breastfeeding should be destigmatised, and acceptable in all conference spaces -- including in talks and at mealtimes.
 
 Some people will prefer to breastfeed in private, so you should have a clean, quiet, private room for them.
-If you can do it, electricity and a fridge are useful as well.
+The room needs a table and a chair, and electricity and a fridge are nice to have as well.
 (This should be different to the quiet room mentioned above.)
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
@@ -416,19 +421,20 @@ If you can do it, electricity and a fridge are useful as well.
 
 ### Live captioning in talks
 
-Hire a stenographer to provide real-time captioning on talks, which can be displayed on screens alongside the speaker.
-It helps people who are hard-of-hearing or non-native speakers, and it's also a useful tool for your other attendees -- if their focus drifts, it's a way to catch up.
+Hire a [stenographer][sttr] to provide real-time captioning on talks, which can be displayed on screens alongside the speaker.
+It helps people who are hard-of-hearing or non-native speakers, and it's a useful tool for your other attendees too -- if their focus drifts, it's a way to catch up.
 
 To support the captioners, ask speakers for specialist/technical terms in advance.
 They can be programmed into the stenographer's keyboards, so you get more accurate transcriptions.
 
 I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf and Coed:Ethics, and heard of it at other conferences.
 
+[sttr]: https://en.wikipedia.org/wiki/Speech-to-text_reporter
 [sttr]: /2016/09/speech-to-text/
 
 <figure>
 <img src="/images/2018/pyconuk-stenographers.jpg">
-<figcaption>One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&ndash;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
+<figcaption>One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&nbsp;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
 </figure>
 
 ### Sign language interpreters
@@ -438,7 +444,7 @@ Similar to closed captioning -- sign language interpreters can help attendees wh
 This is less useful to a general audience, as most people aren't fluent in sign language.
 At PyCon UK, we only provide BSL interpreters upon request (for free), whereas we always provide live captioning.
 
-### Use microphones
+### Use microphones and hearing loops
 
 A lot of venues will have audio induction loops (it's required by law in the UK) -- provide microphones for anybody speaking, and connect them to the hearing loop.
 
@@ -449,8 +455,7 @@ Don't tap or blow into the microphone -- the sudden noise can be painful to anyb
 
 ### Look after service animals in your venue
 
-You should allow service animals throughout your conference.
-
+Allow service animals throughout your venues.
 And here's a new idea to me, from [this year's GitHub Universe][universe]:
 
 > Fresh water, treats, and an onsite relief area for service or therapy dogs
@@ -459,7 +464,7 @@ And here's a new idea to me, from [this year's GitHub Universe][universe]:
 
 ### Preferred seating for people with vision/mobility issues
 
-Have reserved seating near the front of the auditorium for people who have vision problems, so they'll have a clear view of the screen.
+Have reserved seating near the front of the audience for people who have vision problems, so they'll have a clear view of the screen.
 (I think I saw these at AlterConf, but I can't find a reference.)
 
 Have reserved areas for people with wheelchairs.
@@ -490,19 +495,23 @@ Some simple rules can make slides much easier for everyone to read:
 *   No animated GIFs on an infinite loop (which are distracting)
 * Nothing bright and flashing (an epilepsy risk)
 
+Posting slides online, or having printed copies, can also be useful for people who struggle to read from a projector.
+
 ### Remind able-bodied attendees not to interfere
 
-It can be useful to remind people of basic etiquette such as:
+Basic etiquette includes:
 
 *   Don't touch somebody's mobility or assistive devices
 *   Don't push somebody's wheelchair without explicit consent
 *   Don't pet service animals
 *   If somebody is using an interpreter, talk to the person, not their interpreter
 
+If your attendees aren't familiar with these rules, a reminder might be helpful.
+
 ### Have sufficient breaks between sessions
 
 Particularly in a large venue, it can be difficult for people to get around quickly.
-Maybe you have a wheelchair, or a child, or a foot injury, or you're just talking to somebody about the talk you've just seen.
+Maybe you have a wheelchair, or a child, or a foot injury, or you're just talking to somebody about the session that just finished.
 
 Make sure you plan sufficient breaks between session.
 People won't be rushing around the building to get to talks, and your speakers will be less distracted by late arrivals.
@@ -516,6 +525,7 @@ People won't be rushing around the building to get to talks, and your speakers w
 For anything but the smallest events, you'll have attendees who aren't local.
 
 Provide instructions about how to get to the venue, especially if it's non-obvious (for example, does Google Maps take you to the wrong street?).
+Where are the nearest public transport links?
 
 Bonus points if you provide information about wheelchair friendly routes to the venue -- your attendees don't magically appear at your front door.
 
@@ -523,8 +533,9 @@ Bonus points if you provide information about wheelchair friendly routes to the 
 
 If you run a conference in the same place for several years, you'll get an idea of where the good accommodation is -- which hostels are friendly, which hotel is above a noisy bar, and so on.
 Tell people in advance -- they'll have a better night's sleep, and enjoy your conference more!
+You may also be able to negotiate preferential rates for your attendees.
 
-Last year at PyCon UK, we had a block booking at a local hostel (Mrs. Potts).
+Last year at PyCon UK, we had a block booking at a local hostel ([Mrs. Potts](http://www.mrspottsbackpackers.co.uk/)).
 Lots of people had a good stay there, we were able to solve several sudden accommodation snafus with minimal stress, and we're recommending it to our attendees again this year.
 
 ### Local information: shops, restaurants, pharmacies
@@ -532,16 +543,20 @@ Lots of people had a good stay there, we were able to solve several sudden accom
 There's a good chance at least one of your organisers knows the local area, and your attendees don't.
 So tell them what's available -- what's good near the venue?
 
-This could be shops, places to eat, where to get emergency medication, that sort of thing.
-Help them not be stranded in a strange city when the conference is finished for the day.
+This could be shops, places to eat, local attractions, where to get emergency medication, that sort of thing.
+Help them not be stranded in a strange city when the conference finishes for the day.
 
 ### Offer visa invitation letters for people coming from overseas
 
-If you have international attendees, you may well have somebody who needs a visa to come to the conference.
+If you have international attendees, you may have somebody who needs a visa to come to the conference.
 
 Writing a letter to say somebody is attending or speaking at your conference is a useful service, and may help their visa application.
 (Sadly, it's [not guaranteed][egypt].)
 Be upfront that this is something you can offer, and tell people how to ask for an invitation letter.
+
+Respond to requests promptly -- bureaucracy and visa applications move slowly.
+
+I've been doing the visa invitation letters for PyCon UK -- email me if you'd like our letter template.
 
 [egypt]: https://www.museumsassociation.org/museums-journal/news/10082018-egyptian-curators-denied-visas
 
@@ -556,7 +571,7 @@ Names are complicated, and you can't be sure what name somebody wants to put on 
 The name field should be a single, free text field -- no "first name, last name", or other [assumptions about the structure of names][names].
 
 I've seen people put all sorts of names on their badges -- nicknames, wallet names, maiden names, or even the online handle -- whatever will help people recognise them.
-And when you ask them, be very clear about it: *"This is the name that will appear on your conference badge"*.
+When you ask for the name, be very clear about how you'll use it: *"This is the name that will appear on your conference badge"*.
 
 You may need wallet names for other purposes -- for example, at AlterConf Berlin, you needed legal ID to get through reception.
 I don't have the exact wording, but I saw tweets from people: the signup was very explicit that this name was only used for checking ID, and wouldn't appear on badges.
@@ -565,19 +580,20 @@ I don't have the exact wording, but I saw tweets from people: the signup was ver
 
 ### Don't put people's details in an attendee list without permission
 
-I went to an academic conference last year, and was surprised when my welcome pack included a list of attendees -- names, email addresses, and affiliated institution.
+I went to an academic conference last year, and was surprised when my welcome pack included a list of attendees -- names, email addresses, and affiliated institutions.
 
 I don't mind giving out my email address, but I was never asked about it.
-Other people are less comfortable about handing out details, so this list should really be opt in.
+Other people are less comfortable handing out details, so this list should really be opt in.
 Ask people if they want to be on the attendee list; don't assume.
+(Or even better, don't have one at all!)
 
 ### Use coloured lanyards to let people opt out of photographs
 
-Not everybody likes having their photograph taken, and you should make it easy for people to opt-out.
+Not everybody likes having their photograph taken, and you should make it easy for people to opt out.
 
 Approaches like "talk to an organiser" or "put a sticker on your badge" don't really work -- they scale badly, and if you take a picture of a crowd, it's hard to see if anybody has the badge sticker.
 
-I've seen conferences that use coloured lanyards based on whether you want to appear in photographs.
+I've seen conferences that use coloured lanyards to show whether you want to appear in photographs.
 A couple of policies I like:
 
 * [PyCon UK 2017](https://2017.pyconuk.org/):
@@ -616,12 +632,12 @@ You can do this in a number of ways:
 * Pronoun stickers
 * Offer to print it on the badge (I saw this at an AVEN conference in July, and we're doing it for PyCon UK 2018 as well)
 
-You shouldn't force people to write pronouns on their badges (that has different problems) -- but give people the option if they want to.
+You shouldn't force people to write pronouns on their badges (that has different problems) -- but give them the option if they want to.
 
 ### Colour communication badges
 
 This is a way for somebody to show how comfortable they are socialising.
-Not everybody is comfortable talking to strangers, and this gives a way to opt out without feeling awkward.
+Not everybody enjoys talking to strangers, and this gives them a way to opt out without feeling awkward.
 
 Here's an implementation of the system [at AlterConf Berlin][badges]:
 
@@ -632,7 +648,7 @@ Here's an implementation of the system [at AlterConf Berlin][badges]:
 Note the use of shapes, so this works for colourblind attendees as well.
 
 The system was developed [by the Autistic Self Advocacy Network][asan].
-I haven't seen it at many conferences, but I think it's a nice idea.
+I haven't seen it at many conferences yet, but I think it's a nice idea.
 
 [badges]: https://alterconf.com/news/introducing-color-communication-badges
 [asan]: https://autisticadvocacy.org/2014/02/color-communication-badges/
@@ -642,7 +658,7 @@ I haven't seen it at many conferences, but I think it's a nice idea.
 ## Newcomers
 
 One of the great parts of regular conferences is having a chance to see people you don't see anywhere else -- for example, I have friends I only see when I'm at PyCon UK.
-But there's a risk a conference can get a clique-y feel -- everybody who's been before knows each other, and you feel left out if you don't know anybody.
+But there's a risk a conference can get a clique-y feel -- everybody who's been before knows each other, and you feel left out if you're new and don't know anybody.
 If you want your conference to grow, it's important to make newcomers feel as welcome as the old timers.
 
 ### Run specific sessions for first timers
@@ -650,20 +666,20 @@ If you want your conference to grow, it's important to make newcomers feel as we
 For several years, Write The Docs conferences have run a "Welcome Wagon" -- there's a dedicated session for meeting other first-time attendees, tours of the venue, and a bunch of information about how the conference works.
 The [Welcome Wagon for this year's Prague conference][wagon] has lots of advice and suggestions about how to get the most from the conference.
 
-Although a lot of that page is Prague or Write The Docs-specific, the questions it answered would apply to any conference.
+Although a lot of that page is Prague or Write The Docs-specific, the questions apply to any conference -- you could write answers for your event.
 
 [wagon]: http://www.writethedocs.org/conf/prague/2018/welcome-wagon/
 
 ### Publish a glossary of terms
 
 If they run for a long time, conferences develop fun traditions and in-jokes.
-Consider publishing a glossary of these terms, so somebody who's new doesn't feel confused or left out (here's [an example from DjangoCon Europe 2016][django]).
+That's okay, but consider publishing a glossary of these terms, so somebody who's new doesn't feel confused or left out (here's [an example from DjangoCon Europe 2016][django]).
 
 [django]: https://2016.djangocon.eu/glossary/
 
 ### If you're a regular attendee, meet new people
 
-If you're the person who's attending a conference for the fifth time in a row, take some time to break out of your bubble and meet newcomers.
+If you're the person who's attends the same conference regularly, take some time to break out of your bubble and meet newcomers.
 Here are two approaches I like:
 
 * Ned Batchelder, [PyCon 2018](https://nedbatchelder.com/blog/201805/pycon_2018.html):
@@ -674,8 +690,8 @@ Here are two approaches I like:
 
 	> When standing as a group of people, always leave room for 1 person to join your group.
 
-And at PyCon UK last year, there was a #social channel in the conference Slack.
-If a group of people were going out for the evening, and had room for a few more, they'd post it in this channel -- and people would often take up that invitation.
+At PyCon UK last year, there was a #social channel in the conference Slack.
+If a group of people were going out for the evening, and had room for a few more, they'd post it in this channel -- and people would take up that invitation.
 
 <div class="post__separator" aria-hidden="true">&#9672;</div>
 
@@ -686,7 +702,7 @@ I hope these ideas are useful, and you can use them to make your events more inc
 As I said at the start -- **don't feel bad if there are suggestions here that you can't do**.
 I've never seen a conference that implements all of these, or even most of them.
 Some of this is expensive (either in time or money), and you can't do it all.
-Consider it a list of suggestions for better events, not a list of absolute requirements.
+Consider it a list of suggestions, not absolute requirements.
 
 Just do your best -- **some improvements are better than no improvements**.
 Anything you can do to make your event more inclusive is a worthwhile thing to do.
@@ -695,7 +711,7 @@ This list is almost certainly incomplete, and reflects the conferences I'm most 
 You'll have other ideas I haven't thought of -- I'd love [to hear about them](https://twitter.com/alexwlchan).
 Maybe they'll appear in a future version!
 
-My guiding principle for inclusivity is: **explicit is better than implicit**.
+Here's a useful rule of thumb: **explicit is better than implicit**.
 The more you think about this, and the more detail you provide, the easier it is for somebody to decide if they'll feel welcome at your event.
 And if you've clearly thought about it already, it's easier for somebody to ask for an accommodation you haven't thought of -- because they're more likely to get a positive response.
 Even saying you can't provide an accommodation is more useful than an empty page.
@@ -714,7 +730,7 @@ This list is based on the work of a number of conferences, including:
 
 *   [**Nine Worlds**](https://nineworlds.co.uk/), a multi-genre geek convention held in London.
 
-*   [**PyCon UK**](https://2018.pyconuk.org/), a UK conference for users and enthusiasts of the Python programming language.
+*   [**PyCon UK**](https://2018.pyconuk.org/), a conference for users and enthusiasts of the Python programming language.
 
 *   [**WriteTheDocs**](https://www.writethedocs.org/conf/), a series of conferences for technical writers and documentarians.
 
