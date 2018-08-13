@@ -11,7 +11,7 @@ module Jekyll
     #
     def strip_html_attrs(html)
       doc = Nokogiri::HTML.fragment(html)
-      doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls').remove
+      doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls|@aria-hidden|.//@aria-hidden').remove
       doc.to_s
     end
 
