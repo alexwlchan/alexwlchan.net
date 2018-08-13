@@ -2,6 +2,7 @@
 layout: post
 title: Ideas for inclusive conferences and events
 tags: conferences
+summary: A collection of ideas and suggestions for running conferences which are more inclusive and accessible. Based on my experiences at AlterConf, PyCon UK, and similar events.
 ---
 
 <style>
