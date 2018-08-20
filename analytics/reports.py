@@ -23,9 +23,10 @@ from urllib.parse import parse_qs, urlparse
 
 import attr
 import docopt
+import toml
 
-from rejections import should_be_rejected
 
+REJECTIONS_CONFIG = toml.loads(open('rejections.toml').read())
 
 NGINX_LOG_REGEX = re.compile(
     r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
@@ -203,6 +204,9 @@ def _normalise_referrer(log_line):
         'https://t.co/ldUqd16jmK': 'https://twitter.com/alexwlchan/status/1000484772626477056',
         'https://t.co/pum5nJMQ9y': 'https://twitter.com/Thalesdisciple/status/1019264400526532609',
         'https://t.co/BtNEG9hBv1': 'https://twitter.com/alexwlchan/status/1019851016026640384',
+        'https://t.co/e5UQ5kaDwU': 'https://twitter.com/alexwlchan/status/1028964273127604224',
+        'https://t.co/2prNa7fyB3': 'https://twitter.com/pwaring/status/1029644989666652160',
+        'https://t.co/LmZHVvnQ2C': 'https://twitter.com/alexwlchan/status/1028971222288293890',
     }
 
     if parts.netloc == 't.co':
@@ -298,6 +302,7 @@ def _is_search_traffic(referrer):
         'https://www.ecosia.org/',
         'https://in.search.yahoo.com/',
         'http://adguard.com/referrer.html',
+        'android-app://com.google.android.gm',
     ] or referrer.startswith((
         'http://alert.scansafe.net/alert/',
     ))
@@ -307,6 +312,8 @@ def _is_rss_subscriber(referrer):
     return referrer in [
         'https://usepanda.com/',
         'https://www.inoreader.com/',
+        'https://feedly.com/i/latest',
+        'https://www.newsblur.com/site/6592571/alexwlchan',
     ]
 
 
@@ -415,6 +422,33 @@ def docker_logs(container_name, days):
     shutil.rmtree(log_dir)
 
 
+def should_be_rejected(log_line):
+    parts = urlparse(log_line.url.lower())
+
+    if parts.path in REJECTIONS_CONFIG['bad_paths']:
+        return True
+
+    if parts.path.startswith(tuple(REJECTIONS_CONFIG['bad_path_prefixes'])):
+        return True
+
+    if parts.path.endswith(tuple([s.lower() for s in REJECTIONS_CONFIG['bad_path_suffixes']])):
+        return True
+
+    if any(u in log_line.user_agent for u in REJECTIONS_CONFIG['bad_user_agents']):
+        return True
+
+    if log_line.referrer in REJECTIONS_CONFIG['bad_referrers']:
+        return True
+
+    if (
+        log_line.referrer is not None and
+        any(r in log_line.referrer.lower() for r in REJECTIONS_CONFIG['bad_referrer_components'])
+    ):
+        return True
+
+    return False
+
+
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)
 
@@ -436,10 +470,7 @@ if __name__ == '__main__':
         # We ignore certain lines for the purposes of errors; they're people
         # crawling the site in ways that are totally uninteresting.
         if any(u.lower() in line.url.lower() for u in [
-            'wp-content',
             '404.html',
-            '/wp-admin',
-            '/wp-includes',
             '/op69okl',
             '/phpmanager',
             '/sso/login',
@@ -453,11 +484,8 @@ if __name__ == '__main__':
             '/CFIDE/',
             '/ArticleBookmark@2x.png',
             '/ArticleDetail',
-            '/.git/HEAD'
             'wrapper_format=drupal_ajax',
             '/gen204?invalidResponse',
-            '/ws_ftp.ini',
-            '/winscp.ini',
             '/filezilla.xml',
             '/sitemanager.xml',
             '/config/databases.yml',
