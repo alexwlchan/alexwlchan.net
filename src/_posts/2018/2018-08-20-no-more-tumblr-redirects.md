@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-08-20 07:17:19 +0000
 title: Avoiding the automatic redirect on Tumblr posts
 tags: tumblr
 summary: I see an intermittent 303 Redirect when trying to navigate to a Tumblr 'permalink'; changing the User-Agent seems to fix it.
