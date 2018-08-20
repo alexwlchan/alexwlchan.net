@@ -23,9 +23,10 @@ from urllib.parse import parse_qs, urlparse
 
 import attr
 import docopt
+import toml
 
-from rejections import should_be_rejected
 
+REJECTIONS_CONFIG = toml.loads(open('rejections.toml').read())
 
 NGINX_LOG_REGEX = re.compile(
     r'(?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - '
@@ -419,6 +420,33 @@ def docker_logs(container_name, days):
         yield LogLine(**m.groupdict())
 
     shutil.rmtree(log_dir)
+
+
+def should_be_rejected(log_line):
+    parts = urlparse(log_line.url.lower())
+
+    if parts.path in REJECTIONS_CONFIG['bad_paths']:
+        return True
+
+    if parts.path.startswith(tuple(REJECTIONS_CONFIG['bad_path_prefixes'])):
+        return True
+
+    if parts.path.endswith(tuple([s.lower() for s in REJECTIONS_CONFIG['bad_path_suffixes']])):
+        return True
+
+    if any(u in log_line.user_agent for u in REJECTIONS_CONFIG['bad_user_agents']):
+        return True
+
+    if log_line.referrer in REJECTIONS_CONFIG['bad_referrers']:
+        return True
+
+    if (
+        log_line.referrer is not None and
+        any(r in log_line.referrer.lower() for r in REJECTIONS_CONFIG['bad_referrer_components'])
+    ):
+        return True
+
+    return False
 
 
 if __name__ == '__main__':
