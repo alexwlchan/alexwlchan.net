@@ -28,8 +28,10 @@ He/him.
 
 ## Recent posts
 
+{% assign posts_to_display = site.posts | homepage_posts %}
+
 <ul class="archive home">
-{% for post in site.posts limit: 5 %}
+{% for post in posts_to_display %}
 <li>
   <div>
     <div class="archive__date">
