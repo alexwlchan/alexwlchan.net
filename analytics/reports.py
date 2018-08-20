@@ -436,10 +436,7 @@ if __name__ == '__main__':
         # We ignore certain lines for the purposes of errors; they're people
         # crawling the site in ways that are totally uninteresting.
         if any(u.lower() in line.url.lower() for u in [
-            'wp-content',
             '404.html',
-            '/wp-admin',
-            '/wp-includes',
             '/op69okl',
             '/phpmanager',
             '/sso/login',
@@ -453,11 +450,8 @@ if __name__ == '__main__':
             '/CFIDE/',
             '/ArticleBookmark@2x.png',
             '/ArticleDetail',
-            '/.git/HEAD'
             'wrapper_format=drupal_ajax',
             '/gen204?invalidResponse',
-            '/ws_ftp.ini',
-            '/winscp.ini',
             '/filezilla.xml',
             '/sitemanager.xml',
             '/config/databases.yml',
