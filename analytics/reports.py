@@ -203,6 +203,9 @@ def _normalise_referrer(log_line):
         'https://t.co/ldUqd16jmK': 'https://twitter.com/alexwlchan/status/1000484772626477056',
         'https://t.co/pum5nJMQ9y': 'https://twitter.com/Thalesdisciple/status/1019264400526532609',
         'https://t.co/BtNEG9hBv1': 'https://twitter.com/alexwlchan/status/1019851016026640384',
+        'https://t.co/e5UQ5kaDwU': 'https://twitter.com/alexwlchan/status/1028964273127604224',
+        'https://t.co/2prNa7fyB3': 'https://twitter.com/pwaring/status/1029644989666652160',
+        'https://t.co/LmZHVvnQ2C': 'https://twitter.com/alexwlchan/status/1028971222288293890',
     }
 
     if parts.netloc == 't.co':
@@ -298,6 +301,7 @@ def _is_search_traffic(referrer):
         'https://www.ecosia.org/',
         'https://in.search.yahoo.com/',
         'http://adguard.com/referrer.html',
+        'android-app://com.google.android.gm',
     ] or referrer.startswith((
         'http://alert.scansafe.net/alert/',
     ))
@@ -307,6 +311,8 @@ def _is_rss_subscriber(referrer):
     return referrer in [
         'https://usepanda.com/',
         'https://www.inoreader.com/',
+        'https://feedly.com/i/latest',
+        'https://www.newsblur.com/site/6592571/alexwlchan',
     ]
 
 
