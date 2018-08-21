@@ -48,3 +48,36 @@
   "http://forums.xkcd.com/viewtopic.php?f=12&t=124608&p=4340573" = "http://forums.xkcd.com/viewtopic.php?p=4340242"
 
   "https://github.com/PunkUnicorn/The-Return-of-Tom-Thumb/tree/master" = "https://github.com/PunkUnicorn/The-Return-of-Tom-Thumb"
+
+[search]
+  urls = [
+    "Google",
+    "https://search.yahoo.com/",
+    "DuckDuckGo",
+    "https://results.searchlock.com/",
+    "Bing",
+    "https://qwant.com/",
+    "https://www.qwant.com/",
+    "https://www.startpage.com/",
+    "Norton Safe Search",
+    "https://www.discretesearch.com/",
+    "https://www.startpage.com/do/search",
+    "https://google.90h6.cn:1668/",
+    "https://www.ixquick.com/",
+    "https://www.ecosia.org/",
+    "https://in.search.yahoo.com/",
+    "http://adguard.com/referrer.html",
+    "android-app://com.google.android.gm",
+  ]
+
+  prefixes = [
+    "http://alert.scansafe.net/alert/",
+  ]
+
+[rss]
+  urls = [
+    "https://usepanda.com/",
+    "https://www.inoreader.com/",
+    "https://feedly.com/i/latest",
+    "https://www.newsblur.com/site/6592571/alexwlchan",
+  ]

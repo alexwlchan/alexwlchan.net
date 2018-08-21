@@ -239,36 +239,14 @@ def _normalise_referrer(log_line):
 
 
 def _is_search_traffic(referrer):
-    return referrer in [
-        'Google',
-        'https://search.yahoo.com/',
-        'DuckDuckGo',
-        'https://results.searchlock.com/',
-        'Bing',
-        'https://qwant.com/',
-        'https://www.qwant.com/',
-        'https://www.startpage.com/',
-        'Norton Safe Search',
-        'https://www.discretesearch.com/',
-        'https://www.startpage.com/do/search',
-        'https://google.90h6.cn:1668/',
-        'https://www.ixquick.com/',
-        'https://www.ecosia.org/',
-        'https://in.search.yahoo.com/',
-        'http://adguard.com/referrer.html',
-        'android-app://com.google.android.gm',
-    ] or referrer.startswith((
-        'http://alert.scansafe.net/alert/',
-    ))
+    return (
+        referrer in REFERRER_CONFIG['search']['urls'] or
+        referrer.startswith(tuple(REFERRER_CONFIG['search']['prefixes']))
+    )
 
 
 def _is_rss_subscriber(referrer):
-    return referrer in [
-        'https://usepanda.com/',
-        'https://www.inoreader.com/',
-        'https://feedly.com/i/latest',
-        'https://www.newsblur.com/site/6592571/alexwlchan',
-    ]
+    return referrer in REFERRER_CONFIG['rss']['urls']
 
 
 def get_referrers(log_lines, limit):
