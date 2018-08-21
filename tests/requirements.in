@@ -1,8 +1,5 @@
 http-crawler >= 0.2.0   # First release with Python 2.7 support
 lxml==4.2.2             # Required by http-crawler, pinned to match apk version
 
-attrs
 pytest
-python-dateutil
-python-frontmatter
 requests
