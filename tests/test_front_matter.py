@@ -75,13 +75,6 @@ def new_front_matters(front_matters):
     return [f for f in _front_matters if f.date >= dt.date(2017, 10, 1)]
 
 
-def test_every_front_matter_has_layout(front_matters):
-    missing_layout = [f for f in front_matters if 'layout' not in f.metadata]
-    bad_paths = [f.path for f in missing_layout]
-    print('\n'.join(bad_paths))
-    assert len(bad_paths) == 0
-
-
 def test_every_post_has_summary(new_front_matters):
     missing_summary = [
         f for f in new_front_matters
