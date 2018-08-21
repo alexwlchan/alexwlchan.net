@@ -14,6 +14,9 @@ module Jekyll
         "LaTeX",
         "<span class=\"latex\">L<sup>a</sup>T<sub>e</sub>X</span>")
 
+      # Replace any mention of "PyCon" with the appropriate non-breaking space
+      text = text.gsub("PyCon ", "PyCon&nbsp;")
+
       text
     end
   end
