@@ -86,11 +86,3 @@ def test_every_post_has_summary(new_front_matters):
     bad_paths = [f.path for f in missing_summary]
     print('\n'.join(bad_paths))
     assert len(bad_paths) == 0
-
-
-def test_tags_dont_contain_slashes(front_matters):
-    has_tags = [f for f in front_matters if f.tags]
-    bad_tags = [f for f in front_matters if any('/' in t for t in f.tags)]
-    bad_paths = ['%s (%s)' % (f.path, f.tags) for f in bad_tags]
-    print('\n'.join(bad_paths))
-    assert len(bad_paths) == 0
