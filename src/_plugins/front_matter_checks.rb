@@ -58,7 +58,7 @@ end
 
 
 def assert_new_posts_have_summary(entry)
-  if entry.data["date"].to_date >= Date.new(2017, 10, 1)
+  if entry.data["date"].to_date >= Date.new(2017, 7, 19)
     if !entry.data.include? "summary"
       raise "Post doesn't contain a summary: #{entry.path.inspect}"
     end
