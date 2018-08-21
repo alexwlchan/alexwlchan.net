@@ -8,6 +8,10 @@ module FrontMatterChecks
         assert_tags_dont_contain_slashes(entry)
         assert_tags_dont_have_trailing_commas(entry)
       end
+
+      site.posts.docs.each do |post|
+        assert_new_posts_have_summary(post)
+      end
     end
   end
 end
@@ -48,6 +52,15 @@ def assert_tags_dont_have_trailing_commas(entry)
   if entry.data.include? "tags"
     if entry.data["tags"].any? { |t| t.end_with? "," }
       raise "Tag ends with trailing comma in #{entry.path.inspect}: #{entry.data["tags"].inspect}"
+    end
+  end
+end
+
+
+def assert_new_posts_have_summary(entry)
+  if entry.data["date"].to_date >= Date.new(2017, 10, 1)
+    if !entry.data.include? "summary"
+      raise "Post doesn't contain a summary: #{entry.path.inspect}"
     end
   end
 end
