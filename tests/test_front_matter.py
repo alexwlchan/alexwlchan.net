@@ -88,21 +88,6 @@ def test_every_post_has_summary(new_front_matters):
     assert len(bad_paths) == 0
 
 
-def test_summarys_arent_too_long(front_matters):
-    # See https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
-    has_summary = [
-        f for f in front_matters if 'summary' in f.metadata
-    ]
-    bad_summary = [
-        f for f in has_summary if len(f.metadata['summary']) > 200
-    ]
-    bad_paths = [
-        '%s (%s)' % (f.path, f.metadata['summary']) for f in bad_summary
-    ]
-    print('\n'.join(bad_paths))
-    assert len(bad_paths) == 0
-
-
 def test_tags_dont_have_trailing_commas(front_matters):
     has_tags = [f for f in front_matters if f.tags]
     bad_tags = [
