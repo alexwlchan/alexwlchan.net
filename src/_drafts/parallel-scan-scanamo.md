@@ -7,35 +7,35 @@ summary: Prototype code for running a parallel scan against a DynamoDB table, an
 
 At work, we use DynamoDB for storing large collections of records -- these get processed by the [catalogue pipeline][pipeline] that feeds our API, which ultimately powers search on the new Wellcome Collection website.
 
-All of our models are defined as [Scala case classes][case_class], and we use the [Scanamo library][scanamo] to interact with DynamoDB.
-Scanamo is a wrapper around the DynamoDB SDK which hides the work of serialising and deserialising case classes into the DynamoDB format.
+All of our models are defined as [Scala case classes][case_class], and we use [Scanamo][scanamo] to interact with DynamoDB.
+Scanamo is a wrapper around the DynamoDB SDK which hides the work of serialising and deserialising case classes into the DynamoDB internal format.
 
 When we change the pipeline, we want to reprocess all the existing records in DynamoDB (we call this "reindexing").
 If you want to iterate over the records in DynamoDB, you have to do a [Scan operation][scan].
-Running a Scan returns the records in sequence, so you can only run one worker at a time -- this is pretty slow.
-We want to process the table in parallel, so we have a bodged mechanism for dividing the table into "shards", and then processing each shard separately.
+A Scan returns the records in sequence, so you can only run one worker at a time -- this is pretty slow.
+We want to process the table in parallel, so we have a DIY mechanism for dividing the table into "shards", and then we process each shard separately.
 
 <img src="/images/2018/dynamodb_lambda.png" style="max-width: 600px;">
 
 DynamoDB tables can produce [an event stream][stream] of updates to the table.
-We connect this stream to a Lambda function, which picked a "reindex shard" for a row, and write that shard back to the table.
-The shard ID is copied to a [global secondary index (GSI)][gsi], which allows us to efficiently work out which rows are in which reindex shard.
+We connect this stream to a Lambda function, which picks a "reindex shard" for a row, and writes that shard back to the table.
+The shard ID is copied to a [global secondary index (GSI)][gsi], which allows us to efficiently work out which rows are in a particular reindex shard.
 
 When we want to reindex the table, we run one worker per reindex shard -- every row is in exactly one reindex shard, and the GSI lets us look up the contents of each shard.
 It runs significantly faster than processing the table in sequence.
 
 It's also pretty brittle.
 It relies on the DynamoDB stream and the Lambda working correctly (both of which can be flaky), it's extra infrastructure for us to maintain, and we're stuck with a fixed shard size.
-If we later decide to change the shard size, we need to go back and reshard the entire table.
+If we decide to change the shard size later, we need to go back and reshard the entire table.
 
 This has a whiff of [Not Invented Here syndrome][nih].
 We can't be the only people who want to process a DynamoDB table in parallel!
 
-Yesterday, I stumbled across a blog post [announcing parallel scans][blog] in DynamoDB.
-This is exactly what we need -- it's a supported API, doesn't require extra infrastructure from us, and it lets us pick a different shard size for different reindexes.
+Yesterday, I stumbled across an old blog post [announcing parallel scans][blog] in DynamoDB.
+This is exactly what we need -- it's a supported API, doesn't require extra infrastructure from us, and it lets us pick a different shard size on each scan.
 It's worth a look.
 
-I couldn't find an implementation of parallel scan that also uses Scanamo and case class serialisation, so I decided to write my own.
+I couldn't find an implementation of parallel scan that also uses Scanamo and case classes, so I decided to write my own.
 (I did Google it before diving in!)
 It's a useful standalone component, so I thought I'd write up what I found.
 
@@ -148,7 +148,7 @@ You create a collection of workers, each of which makes its own Scan request wit
 *   `Segment` is the index of the segment being scanned by this particular worker -- note that this value is 0-indexed.
     Every worker passes a different value.
 
-These parameters are passed as an instance of [ScanSpec][scanspec], so let's construct that:
+These parameters can be passed as an instance of [ScanSpec][scanspec], so let's construct that:
 
 ```scala
 import com.amazonaws.services.dynamodbv2.document.spec.ScanSpec
@@ -166,8 +166,6 @@ import com.amazonaws.services.dynamodbv2.document.{
   ItemCollection,
   ScanOutcome
 }
-
-// can I skip the Document API?
 
 val documentApiClient = new DynamoDB(dynamoDbClient)
 val table = documentApiClient.getTable(tableName)   // tableName: String
@@ -191,7 +189,7 @@ val items: List[Item] = itemCollection.asScala.toList
 This is an "Item" in the sense of a generic collection of key-value pairs, but it's not a proper Scala type, which is what I really want.
 It's an internal DynamoDB representation of a row.
 
-I went poking around in Scanamo, to see how they serialise an Item as a case class.
+I went poking around in Scanamo to see how they serialise an Item as a case class.
 I didn't quite find that, but looking [in ScanamoFree.scala][scanamofree], I stumbled across clues in two methods:
 
 ```scala
@@ -211,10 +209,10 @@ object ScanamoFree {
 }
 ```
 
-In the `get()` method, it looks like the body of the for comprehension is calling the DynamoDB SDK (GetItemRequest is a dead giveaway), and then it passes it to a `read()` method that unpacks it as a case class.
+In the `get()` method, it looks like the body of the for comprehension is calling the DynamoDB Java SDK (GetItemRequest is a dead giveaway), and then it passes it to a `read()` method that unpacks it as a case class.
 The `read()` method doesn't quite take an Item, but if I can get the String/AttributeValue map out of an Item, then I'm in business.
 
-I stumbled across the method I need [in a Stack Overflow post][stack_overflow], which lets me get what I need.
+I stumbled across the method I need [in a Stack Overflow post][stack_overflow]:
 
 ```scala
 import com.amazonaws.services.dynamodbv2.document.internal.InternalUtils
@@ -230,7 +228,9 @@ val caseClasses: List[Either[DynamoReadError, T]] = items.map { item =>
 ```
 
 Scanamo will throw a DynamoReadError if it can't parse the row as a case class -- for example, if a field is missing or the wrong type.
-That aside, this is what I wanted when I started -- a list of instances of a case class, fetched using a parallel scan.
+You can extract the instance either using `.right.get`, or doing a pattern match on the result.
+
+This is what I wanted when I started -- a list of instances of a case class, fetched using a parallel scan.
 
 ## Possible changes
 
@@ -315,3 +315,4 @@ I've wrapped the DynamoDB API calls in a Future for a non-blocking API, which fe
 
 Don't forget -- this is only some prototype code, not a final solution.
 If I end up using this properly, I'll get it reviewed and tested first.
+Even so, I hope it was instructive -- I expect to use bits of this again, even if not for this exact problem.
