@@ -6,7 +6,7 @@ summary: A quick braindump of my thoughts from drawing some venue maps for PyCon
 tags: pyconuk graphic-design
 theme:
   card_type: summary_large_image
-  image: /images/2018/map_first.png
+  image: /images/2018/venue-map_first.png
 ---
 
 We've just published [the venue information][venue] for this year's PyCon UK.
