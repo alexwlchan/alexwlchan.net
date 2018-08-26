@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-08-26 07:10:28 +0000
 title: Making the venue maps for PyCon UK
 summary: A quick braindump of my thoughts from drawing some venue maps for PyCon UK.
 tags: pyconuk graphic-design
