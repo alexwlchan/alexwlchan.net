@@ -5,7 +5,7 @@
 
 
   <title>{% if page.title and page.title != site.title %}{{ page.title | strip_html | smartify }} &ndash; {% endif %}{{ site.title | smartify }}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <meta name="description" content="{{ page.summary | default: site.description }}">
 
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
