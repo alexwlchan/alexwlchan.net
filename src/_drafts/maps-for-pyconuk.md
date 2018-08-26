@@ -5,8 +5,8 @@ summary: A quick braindump of my thoughts from drawing some venue maps for PyCon
 tags: pyconuk graphic-design
 ---
 
-I've just published [the venue information][venue] for this year's PyCon UK.
-The page includes a couple of maps of Cardiff City Hall (where the conference is hosted), which were a lot of fun to make.
+We've just published [the venue information][venue] for this year's PyCon UK.
+The page includes maps of Cardiff City Hall (where the conference is hosted), which were a suggestion from Kirk, and a lot of fun to make.
 
 This is what the maps look like:
 
@@ -39,7 +39,7 @@ Since a few people were asking, this is how I made the maps:
     <img src="/images/2018/marble_hall.png" style="border: 1px solid #D3D3D3;">
 
     <p>
-      I saved a floorplan for both floors, and used <a href="https://flyingmeat.com/acorn/">Acorn</a> to crop out the text at the top and the background image of City Hall.
+      I saved a floorplan for both floors, and used <a href="https://flyingmeat.com/acorn/">Acorn</a> to remove the text at the top and the background image of City Hall.
       This gave me a pair of blank floor plans.
     </p>
 
@@ -90,7 +90,7 @@ Since a few people were asking, this is how I made the maps:
   </li>
   <li>
     <p>
-      I lightly shaded the stairs, hallways, and bits of corridor I expect people to use.
+      I lightly shaded the stairs, hallways, and bits of corridor I expect people to use or get to the rooms.
       I&rsquo;m trying to say &ldquo;you shouldn&rsquo;t need to go outside these areas&rdquo;.
     </p>
   </li>
