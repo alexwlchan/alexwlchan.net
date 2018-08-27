@@ -90,7 +90,6 @@ test: .docker/tests
 	docker run \
 		--volume $(ROOT):/$(ROOT) \
 		--workdir $(ROOT) \
-		--env DOCKER=true \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
 		--link alexwlchan \
