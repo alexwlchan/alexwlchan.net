@@ -39,7 +39,7 @@ clean: .docker/build
 	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
-	docker run --volume $(ROOT):/site $(BUILD_IMAGE) build
+	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(BUILD_IMAGE) build
 
 stop:
 	@# Clean up old running containers
@@ -49,7 +49,8 @@ stop:
 serve: .docker/build stop
 	docker run \
 		--publish 5757:5757 \
-		--volume $(ROOT):/site \
+		--volume $(ROOT):/$(ROOT) \
+		--workdir $(ROOT) \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
 		--tty --rm --detach $(BUILD_IMAGE) \
@@ -60,7 +61,8 @@ serve-debug: serve
 
 publish-drafts: .docker/build
 	docker run \
-		--volume $(ROOT):/site \
+		--volume $(ROOT):/$(ROOT) \
+		--workdir $(ROOT) \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		--tty --rm $(BUILD_IMAGE) \
@@ -86,7 +88,8 @@ deploy: publish
 
 test: .docker/tests
 	docker run \
-		--volume $(ROOT):/repo \
+		--volume $(ROOT):/$(ROOT) \
+		--workdir $(ROOT) \
 		--env DOCKER=true \
 		--env HOSTNAME=$(SERVE_CONTAINER) \
 		--link $(SERVE_CONTAINER) \
@@ -95,7 +98,8 @@ test: .docker/tests
 
 Gemfile.lock: Gemfile
 	docker run \
-		--volume $(ROOT):/site \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
 		--workdir /site \
 		--tty --rm $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
