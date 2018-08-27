@@ -1,6 +1,7 @@
 # -*- encoding: utf-8
 
 import os
+import subprocess
 
 import pytest
 
@@ -24,12 +25,8 @@ def baseurl(hostname):
 
 @pytest.fixture
 def repo():
-    if os.environ.get('DOCKER') == 'true':
-        return '/repo'
-    else:
-        import subprocess
-        return subprocess.check_output(
-            ['git', 'rev-parse', '--show-toplevel']).decode('ascii').strip()
+    return subprocess.check_output(
+        ['git', 'rev-parse', '--show-toplevel']).decode('ascii').strip()
 
 
 @pytest.fixture
