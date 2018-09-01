@@ -365,6 +365,9 @@ def docker_logs(container_name, days):
 def should_be_rejected(log_line):
     parts = urlparse(log_line.url.lower())
 
+    if parts.path.startswith(('/misc', '/core/misc')) and parts.path.endswith('.js'):
+        return True
+
     if parts.path in REJECTIONS_CONFIG['bad_paths']:
         return True
 
