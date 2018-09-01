@@ -5,7 +5,7 @@ RUN apk update && apk add docker
 COPY requirements.txt /
 RUN pip3 install -r /requirements.txt
 
-COPY . /app
+VOLUME ["/app"]
 WORKDIR /app
 
-ENTRYPOINT ["python3", "reports.py"]
+ENTRYPOINT ["python3", "/app/reports.py"]
