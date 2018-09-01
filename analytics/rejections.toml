@@ -73,6 +73,8 @@ bad_path_prefixes = [
     '/wp-includes',
 
     '/.git',
+
+    "/.vscode/",
 ]
 
 bad_path_suffixes = [
@@ -101,9 +103,10 @@ bad_path_suffixes = [
 
     # File formats I don't have anywhere on the site, because I don't
     # use these technologies!
-    '.asp',
-    '.aspx',
-    '.php',
+    ".asp",
+    ".aspx",
+    ".php",
+    ".php.bak",
 ]
 
 # Anything on this list was polluting 404 reports with URLs that
