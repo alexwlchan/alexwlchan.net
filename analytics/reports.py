@@ -290,8 +290,16 @@ def run_report(tracking_lines, not_found_lines, error_lines, limit):
     print_banner('Traffic by Date')
     most_traffic = max(count for _, count in traffic_by_date(tracking_lines))
     increment = most_traffic / 25
+
+    traffic = list(traffic_by_date(tracking_lines))
+
     for date, count in traffic_by_date(tracking_lines):
-        bar = '█' * int(count / increment) or '▏'
+        bar_chunks, remainder = divmod(int(count * 8 / increment), 8)
+        bar = '█' * bar_chunks
+        if remainder > 0:
+            bar += chr(ord('█') + (8 - remainder))
+        bar = bar or  '▏'
+        # bar = '█' * int(count / increment) or '▏'
         print(f'{date}: {count:#4d} {bar}')
 
     print_banner('Referrers')
