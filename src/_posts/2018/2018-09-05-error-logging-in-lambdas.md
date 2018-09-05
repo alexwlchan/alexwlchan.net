@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-09-05 20:11:59 +0000
 title: A basic error logger for Python Lambdas
 tags: aws python snippets
 summary: A snippet to make it a bit easier to debug errors in AWS Lambda functions written in Python.
