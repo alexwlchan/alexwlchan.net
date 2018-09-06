@@ -266,7 +266,7 @@ def get_messages_from_queue(queue_url):
 if __name__ == '__main__':
     args = docopt.docopt(__doc__)
     src_queue_url = args['--src']
-    dst_queue_url = args['--src']
+    dst_queue_url = args['--dst']
 
     sqs_client = boto3.client('sqs')
 
