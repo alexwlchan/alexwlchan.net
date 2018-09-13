@@ -1,0 +1,38 @@
+---
+layout: post
+title: PyCon UK 2018
+tags: pyconuk
+summary: "It's almost time for this year's PyCon UK. What I'm doing, where to find me, how to have fun."
+---
+
+I'm sitting in Gorsedd Gardens, a stone's throw from Cardiff City Hall.
+In my hand I have a fresh cup of Brodies coffee.
+In front of me is a bed of pink flowers, and an over-excitable squirrel.
+There's a water fountain and a seagull behind me.
+Everything is quiet.
+
+For now.
+
+I'm back in Cardiff for [PyCon UK 2018](https://2018.pyconuk.org).
+This is my third year helping to organise the conference.
+Tomorrow is the set-up and A/V installation, and the conference itself starts on Saturday -- the most hectic weekend of my year.
+It's also one of the most fun -- I've only been in Cardiff for an hour, and I'm already grinning at the thought of the long days ahead.
+The UK Python community is a lovely bunch of people, and it's great to have so many of them in one place.
+
+I'm doing three sessions this year:
+
+*   Saturday @ 9:30, Assembly Room (keynote) -- [*Building Trust in an Age of Suspicious Minds*](https://2018.hq.pyconuk.org/schedule/item/794C/).
+
+*   Sunday @ 11:30, Assembly Room (talk) -- [*Assume Worst Intent: Designing Against the Abusive Ex*](https://2018.hq.pyconuk.org/schedule/item/54DC/).
+
+*   Monday @ 11:30, Room L (workshop) -- [*A Plumber's Guide to Git*](https://2018.hq.pyconuk.org/schedule/item/E725/).
+
+I'll update that list with links to slides and notes soon after the conference.
+
+If you're around, please do come and say hi, even if I look busy or shy!
+I'm never too busy for a chat, especially if you're a first timer.
+And I'm sure all the other organisers would agree -- it makes all the difference when somebody comes up to us and makes feel like our work was worthwhile.
+
+Whether or not we run into each other, I hope you have a lovely conference.
+
+~ Alex x
