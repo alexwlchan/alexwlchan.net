@@ -24,7 +24,18 @@ module Jekyll
     end
 
     def render(context)
-      path = "/slides/#{@deck}/#{@deck}.#{@number.to_s.rjust(3, '0')}.png"
+      src = context.registers[:site].config["source"]
+
+      name = "#{@deck}/#{@deck}.#{@number.to_s.rjust(3, '0')}"
+
+      path = if File.file?("#{src}/_slides/#{name}.png")
+        "/slides/#{name}.png"
+      elsif File.file?("#{src}/_slides/#{name}.jpg")
+        "/slides/#{name}.jpg"
+      else
+        raise RuntimeError, "Unable to find slide for #{name}"
+      end
+
 <<-EOT
 <figure class="slide">
   <a href="#{path}"><img src="#{path}"></a>
