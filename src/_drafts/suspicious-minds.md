@@ -20,10 +20,11 @@ This is my abstract:
 >
 > In this talk, I’ll explain how the design of certain systems have been exploited for abuse, and this has corroded our trust – and conversely, how we can build environments that encourage and sustain good behaviour.
 
-The talk was recorded, and I'll post a link here when it's posted on YouTube.
+The talk was recorded, and thanks to the wizardry of Tim&nbsp;V-G, it's already been posted on YouTube:
 
-In the meantime, you can download my slides [as a PDF](/talks/suspicious-minds.pdf).
-Later I'll post the slides and some rough notes.
+{% youtube https://www.youtube.com/watch?v=B3XxPnbehqQ %}
+
+You can read the slides and notes on this page, or download the slides [as a PDF](/talks/suspicious-minds.pdf).
 
 <!--
 Note: these are the notes of what I intended to say, but there was a lot of ad libbing.
