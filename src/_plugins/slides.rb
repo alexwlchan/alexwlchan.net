@@ -21,16 +21,31 @@ module Jekyll
       super
       @deck = text.split(" ").first
       @number = text.split(" ").last.to_i
+
+      # Slides can be rendered as either PNG or JPEG (depending on whether
+      # they're text heavy or image heavy) -- this helps keep the file size
+      # of the page down.
+      #
+      # Rather than requiring the user to specify the file format in the
+      # page, we look to see which file exists.  To save doing lots of
+      # OS calls to check for file existence, we grab every image file
+      # in the slides directory upfront.
+      #
+      # NOTE: we don't have access to the 'site' context here, so I'm
+      # hard-coding the source directory.
+      src = "src"
+
+      @files = Dir["#{src}/_slides/**/*"].map {
+        |f| f.sub("#{src}/_slides/", "")
+      }
     end
 
     def render(context)
-      src = context.registers[:site].config["source"]
-
       name = "#{@deck}/#{@deck}.#{@number.to_s.rjust(3, '0')}"
 
-      path = if File.file?("#{src}/_slides/#{name}.png")
+      path = if @files.include? "#{name}.png"
         "/slides/#{name}.png"
-      elsif File.file?("#{src}/_slides/#{name}.jpg")
+      elsif @files.include? "#{name}.jpg"
         "/slides/#{name}.jpg"
       else
         raise RuntimeError, "Unable to find slide for #{name}"
