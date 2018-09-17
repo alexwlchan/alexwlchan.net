@@ -31,7 +31,7 @@ module Jekyll
 
     def initialize(tag_name, text, tokens)
       super
-      @tweet_url = text
+      @tweet_url = text.tr("\"", "")
       @tweet_id = @tweet_url.split("/").last.strip
     end
 
