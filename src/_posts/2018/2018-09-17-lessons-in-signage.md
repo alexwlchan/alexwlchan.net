@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-09-17 17:21:17 +0000
 title: Signs of the time
 summary: A few lessons I learned while doing the signage for this year's PyCon UK.
 tags: pyconuk conferences graphic-design
