@@ -45,6 +45,8 @@ module Jekyll
 
       path = if @files.include? "#{name}.png"
         "/slides/#{name}.png"
+      elsif @files.include? "#{name}.jpeg"
+        "/slides/#{name}.jpeg"
       elsif @files.include? "#{name}.jpg"
         "/slides/#{name}.jpg"
       else
