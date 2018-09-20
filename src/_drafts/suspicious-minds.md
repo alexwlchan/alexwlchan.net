@@ -3,12 +3,9 @@ layout: post
 title: Building trust in an age of suspicious minds
 summary: Notes and slides from my PyCon UK 2018 keynote. In a world where people are less and less trusting, hwo can we take steps to make ourselves more trustable?
 tags: pyconuk slides
-theme:
-  color: 109A19
-  touch_icon: 109A19
 ---
 
-This is a talk I gave this morning as the opening keynote of [PyCon UK 2018][pyconuk].
+This is a talk I gave on Saturday as the opening keynote of [PyCon UK 2018][pyconuk].
 
 I was already planning to do a talk about online harassment, and Daniele (the conference director) encouraged me to expand the idea, and turn it into a talk about positive behaviour.
 This is my abstract:
@@ -48,8 +45,8 @@ If I end up doing this talk again, I'd love to go back and get some more practic
   <a href="/slides/suspicious-minds/suspicious-minds.001.jpg"><img src="/slides/suspicious-minds/suspicious-minds.001.jpg"></a>
   <figcaption>
     Based on the cover art <a href="https://en.wikipedia.org/wiki/Suspicious_Minds#/media/File:Elvis_presley_suspiciousminds.jpg">of the Elvis single</a>.
-    I was introduced to the song in the 2002 Disney film <a href="https://en.wikipedia.org/wiki/Lilo_%26_Stitch"><em>Lilo & Stitch</em></a>, which is the best Disney film by far.
-    Don't @ me.
+    I was originally introduced to this song by the 2002 Disney film <a href="https://en.wikipedia.org/wiki/Lilo_%26_Stitch"><em>Lilo & Stitch</em></a>, which is the greatest Disney film by far.
+    Don't at me.
   </figcaption>
 </figure>
 
@@ -420,3 +417,109 @@ Take honesty.
 This is definitely a positive trait -- we'd all like to be thought of as honest, and work with honest people -- but would we trust somebody who was honest but unreliable?
 We'd believe what they'll say, but not that they'll kepe their commitments.
 The classic example: would you trust an honest but incompetent surgeon to perform surgery on you?
+
+
+
+{% slide suspicious-minds 23 %}
+
+So we know what the ingredients for trust are, and we all agree these are good traits.
+
+We can't just "try harder" -- that's a recipe to make very little change.
+When we're programming, and we want to write better software, we don't just try to write fewer bugs -- that only leads to marginal gains.
+To write better software, we use new tools and processes, and building trust is just the same.
+
+
+
+<figure class="slide">
+  <a href="/slides/suspicious-minds/suspicious-minds.024.jpg"><img src="/slides/suspicious-minds/suspicious-minds.024.jpg"></a>
+  <figcaption>
+    Image: <a href="https://pixabay.com/en/animals-waterfowl-ducks-young-737407/">waterfowl ducks</a>, by user 422737 on Pixabay.
+    CC0.
+  </figcaption>
+</figure>
+
+We can start with ourselves.
+Humans are natural mimics, so if you demonstrate the trustworthy behaviours you want to see in other people, you'll build trust in yourself *and* encourage others to act in a more trustworthy way.
+
+
+
+<figure class="slide">
+  <a href="/slides/suspicious-minds/suspicious-minds.025.jpg"><img src="/slides/suspicious-minds/suspicious-minds.025.jpg"></a>
+  <figcaption>
+    Image: <a href="https://www.pexels.com/photo/space-grey-ipad-air-with-graph-on-brown-wooden-table-187041/">iPad Air on a brown wooden table</a>, by Burak&nbsp;K on Pexels.
+    CC0.
+  </figcaption>
+</figure>
+
+We can monitor our levels of trust.
+
+Although we can't give it a metric or plot a graph, we do have an innate sense of whether somebody trusts us.
+When I asked you earlier to think of somebody you didn't trust, and then somebody you did, you thought of somebody almost instantly [nodding in the room]
+
+
+
+{% slide suspicious-minds 19 %}
+
+{% slide suspicious-minds 26 %}
+
+{% slide suspicious-minds 27 %}
+
+{% slide suspicious-minds 28 %}
+
+{% slide suspicious-minds 29 %}
+
+{% slide suspicious-minds 30 %}
+
+*[Ed. Uber had [a big rebranding](https://www.fastcompany.com/90235065/uber-has-a-new-brand-again) a day or so before the conference. I'd already spent enough time photoshopping this slide, so I left the screenshot as-is.]*
+
+{% slide suspicious-minds 31 %}
+
+{% slide suspicious-minds 32 %}
+
+{% slide suspicious-minds 33 %}
+
+{% slide suspicious-minds 34 %}
+
+{% slide suspicious-minds 35 %}
+
+{% slide suspicious-minds 36 %}
+
+{% slide suspicious-minds 26 %}
+
+{% slide suspicious-minds 37 %}
+
+{% slide suspicious-minds 38 %}
+
+{% slide suspicious-minds 39 %}
+
+{% slide suspicious-minds 40 %}
+
+{% slide suspicious-minds 41 %}
+
+{% slide suspicious-minds 42 %}
+
+{% slide suspicious-minds 43 %}
+
+{% slide suspicious-minds 44 %}
+
+{% slide suspicious-minds 45 %}
+
+{% slide suspicious-minds 46 %}
+
+{% slide suspicious-minds 41 %}
+
+{% slide suspicious-minds 38 %}
+
+{% slide suspicious-minds 19 %}
+
+{% slide suspicious-minds 47 %}
+
+If I want you to take a single thing away from this keynote, it's this: *trust is something you can actively build*.
+Trust doesn't have to be something that "just happens" to you; you can and should take explicit steps to build it, and I hope I've given you some ideas how.
+
+And on that note, I'll finish.
+Thank you.
+
+{% slide suspicious-minds 1 %}
+
+(Closing slide)
