@@ -32,9 +32,7 @@ This doesn't include everything I said, but I hope it's a useful starting point.
 
 <!-- summary -->
 
-These are the notes of what I intended to say, but there was a lot of ad libbing.
-I've tried to update them as best I can for what I actually said, but inevitably it's not a word-for-word transcription.
-It's intended to be heard, not read.
+The transcript is based on the YouTube video, with editorial notes and fix-ups as appropriate.
 
 I prepped this talk at fairly short notice, and it wasn't as polished as I'd like.
 There's a lot of um'ing and ah'ing.
@@ -42,54 +40,134 @@ If I end up doing this talk again, I'd love to go back and get some more practic
 
 ---
 
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.001.jpg"><img src="/slides/suspicious-minds/suspicious-minds.001.jpg"></a>
-  <figcaption>
-    Based on the cover art <a href="https://en.wikipedia.org/wiki/Suspicious_Minds#/media/File:Elvis_presley_suspiciousminds.jpg">of the Elvis single</a>.
-    I was originally introduced to this song by the 2002 Disney film <a href="https://en.wikipedia.org/wiki/Lilo_%26_Stitch"><em>Lilo & Stitch</em></a>, which is the greatest Disney film by far.
-    Don't at me.
-  </figcaption>
-</figure>
+*[Ed. I was introduced by Daniele Procida, the conference director.]*
 
-(Introductory slide)
+{% slide_captioned suspicious-minds 1 %}
+  Based on the cover art [of the Elvis single](https://en.wikipedia.org/wiki/Suspicious_Minds#/media/File:Elvis_presley_suspiciousminds.jpg).
+{% endslide_captioned %}
 
-Hi, I'm Alex.
+Thanks for that introduction.
+As Daniele said, my name is Alex, I'm a software developer at [the Wellcome Trust](https://wellcome.ac.uk/) in London, and I help organise this conference.
+It's a pleasure to be opening this year's conference, and I really hope you all have a great time.
 
-I'm a software developer at [the Wellcome Trust][wellcome] and one of the conference organisers.
-It's a privilege to open this year's conference, and I hope you all have a great few days.
+The reason I was asked to do this talk is that I spent my time thinking about a lot of ways that systems can be exploited for harassment, abuse, and to do nasty things.
+(Which is a polite way of saying I'm good at breaking stuff, so the fact we've made the projector work on the first try is a huge achievement.
+If nothing else goes well this morning, I'll take that.)
 
-I spend my time thinking about how to exploit systems -- find bugs, loopholes, opportunities for harassment and bad behaviour.
-(This is a polite way of saying I break things.)
-And in turn, I think about how to design systems defensively, to prevent bad behaviour.
+By thinking about how things can be exploited and broken, you often come to them with a very defensive mindset.
+You're thinking about damage control -- how do I limit the potential of harm?
 
-The defensive mindset leads to one of damage control, of "least bad" solutions -- for this talk, Daniele [the conference director] challenged me to flip this on its head.
-Could I design a system to encourage *good* behaviour?
-And I started thinking about good behaviour, and specifically about *trust*.
-
-[wellcome]: https://wellcome.ac.uk/
+Daniele challenged me to flip that on its head.
+Could you go the other way, and not just design a system that prevents bad behaviour, but actually *encourages* good behaviour?
+I started thinking about good behavior, how you build that, how you encourage that, and what I started thinking about was *trust*.
 
 
 
 {% slide suspicious-minds 2 %}
 
 Trust is really important.
+It underpins all of our working relationships -- whether that's with other people, with our tools, with our users (the people we're building systems for).
 
-It underpins all effective working relationships -- with people, with tools, with systems.
+If we feel like we trust somebody, we feel like we can rely on them, we can cooperate with them, we can believe they will actually do what they say they will.
+It gives us a sense of security.
+It means we're not looking over our shoulder, looking for the next mistake or betrayal, trying to work out what's going to go wrong.
 
-If we have trust, we feel like we can rely on somebody, we can cooperate with them, we can believe them.
-It permeates every aspect of our work and our lives -- our friends, our co-workers, our tools.
-It gives us a sense of security, and means we're not looking over our shoulder for mistakes.
+So we're going to talk about trust today, because it's a foundation of good working relationships, and the other positive behaviours that they foster.
 
 
 
 {% slide suspicious-minds 3 %}
 
+But trust is kind of a nebulous thing, isn't it?
+
+We sort of know when we trust somebody, we know when we don't -- I think it's helpful to start by having a definition of trust.
+
+Charles Feltman has written a book called [*The Thin Book of Trust*](https://www.thinbook.com/the-thin-book-of-trust/) that has a definition I really like:
+
+> Trust is choosing to risk making something you value vulnerable to another person's actions.
+
+So let's break down that definition.
+
+
+
+{% slide suspicious-minds 4 %}
+
+Trust is **choosing to risk** -- it's a risk assessment.
+We look at our past experiences with somebody, and we decide if we want to take the risk.
+If we trust somebody, we probably do want to take that risk; and if we don't trust them, then we don't.
+
+
+
+{% slide suspicious-minds 5 %}
+
+And it's taking **something you value** -- and we value all sorts of things.
+Money, happiness, fulfillment, not being fired from our jobs, not being booed off a stage in front of 400 people.
+
+
+
+{% slide suspicious-minds 6 %}
+
+And finally, we're **making it vulnerable**.
+We're giving up some control over the thing we care about.
+
+In the software industry, we often think about vulnerability as a really bad thing, because we think about it in the context of security vulnerabilities.
+It's a hack, it's got to be patched and closed off immediately, and that's right -- but vulnerability is also really important.
+
+If you have vulnerability, you have the opportunity to progress, opportunity for growth.
+You need vulnerability to be able to grow, and it's a really important part of trust.
+
+
+
+{% slide suspicious-minds 3 %}
+
+So that's the definition of trust we're going to use today.
+
+
+
+{% slide suspicious-minds 7 %}
+
+We're usually pretty good at articulating when we **don't** trust somebody.
+
+Hands up in the audience: who has ever thought "I just don't trust them"?
+
+I think that's pretty much the entire audience *[Ed. I was looking at a room full of raised hands]*
+
+If I asked you all, you all had a good reason, right?
+Maybe there was a lie, there was an incident, they were mean, you had some
+gossip...
+
+
+
+{% slide suspicious-minds 8 %}
+
+But what if I asked you to go in the other direction?
+Think of somebody you really trust.
+
+If I asked you "why do you trust them", it feels like a harder question, doesn't it?
+We're often aware that we trust somebody, but it can be hard to pinpoint the moment when that happened.
+How do we go from the state of "somebody we just know" to "somebody we actually trust"?
+
+
+
+
+
+---
+---
+---
+---
+---
+
+
+
+
+
+
+
 But trust is a nebulous concept.
 What is it?
 
-In [*The Thin Book of Trust*][thin_book], Charles Feltman has a definition I really like:
+In , Charles Feltman has a definition I really like:
 
-> Trust is choosing to risk making something you value vulnerable to another person's actions.
 
 Let's break down that definition:
 
@@ -111,7 +189,7 @@ And I might trust Carol to look after my cat, but not to borrow a book.
 
 That's the definition of trust we'll be using today.
 
-[thin_book]: https://www.thinbook.com/the-thin-book-of-trust/
+[thin_book]:
 
 
 
@@ -538,6 +616,9 @@ Lots of sites use this mechanism, not just Uber -- TripAdvisor, Amazon, iTunes, 
 
 {% slide suspicious-minds 31 %}
 
+Reviews tell us that we're already being reliable -- but how do we become *more* reliable?
+How to we earn/deserve those positive reviews?
+
 As programmers, we're used to dealing with unreliable systems -- they're called "computers".
 Software is inherently tricksy and unpredictable, and we have lots of tools to help us write more reliably software, some of which we'll talk about this weekend.
 
@@ -565,6 +646,12 @@ Pushing it out to an external system means we're less likely to forget things, a
 
 In larger teams, I think there's something to be taken from the world of [agile](https://en.wikipedia.org/wiki/Agile_software_development).
 I know that's a dirty word in some quarters, but there are valuable parts for tracking reliability -- regular standup meetings, project boards, task tracking -- that let us see how much a team is committed to, and whether promises are starting to slip.
+
+
+
+{% slide suspicious-minds 29 %}
+
+So those are examples for reliability -- external systems that hold us to account.
 
 
 
