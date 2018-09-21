@@ -59,13 +59,10 @@ Even with the friendly PyCon UK audience, I was quite nervous, but I got a prett
 
 (Introductory slide)
 
-<figure class="slide">
-  <a href="/slides/privilege_inclusion/privilege_inclusion.003.png"><img src="/slides/privilege_inclusion/privilege_inclusion.003.png"></a>
-  <figcaption>
-    Image: <a href="https://wellcomecollection.org/what-we-do/tools-trade"><em>Tools of the Trade</em></a>, by Stuart Haygarth.
-    A light installation in the windows of the Wellcome Trust building.
-  </figcaption>
-</figure>
+{% slide_captioned privilege_inclusion 3 %}
+  Image: [*Tools of the Trade*](https://wellcomecollection.org/what-we-do/tools-trade), by Stuart Haygarth.
+  A light installation in the windows of the Wellcome Trust building.
+{% endslide_captioned %}
 
 My name is Alex.
 I'm a software developer at the [Wellcome Trust][wellcome] in London, who generously paid for me to attend the conference.
@@ -133,13 +130,9 @@ Most of us don't have this sort of luxury, so we couldn't be privileged, right?
 
 That's not what privilege is about.
 
-<figure class="slide">
-  <a href="/slides/privilege_inclusion/privilege_inclusion.010.png"><img src="/slides/privilege_inclusion/privilege_inclusion.010.png"></a>
-  <figcaption>
-    Link to original tweet:
-    <a href="https://twitter.com/jaythenerdkid/status/763451754138701824">https://twitter.com/jaythenerdkid/status/763451754138701824</a>.
-  </figcaption>
-</figure>
+{% slide_captioned privilege_inclusion 10 %}
+  Link to original tweet: <https://twitter.com/jaythenerdkid/status/763451754138701824>
+{% endslide_captioned %}
 
 This is one of the hardest things about dealing with privilege: this false idea of what it means, so people assume they don't have it.
 
@@ -232,13 +225,9 @@ One big change I've noticed in the last couple of years is the way I've become m
 If you don't have these people in your day-to-day life, social media is great.
 Find these people, follow them, hear what they have to say.
 
-<figure class="slide">
-  <a href="/slides/privilege_inclusion/privilege_inclusion.022.png"><img src="/slides/privilege_inclusion/privilege_inclusion.022.png"></a>
-  <figcaption>
-    Link to original tweet:
-    <a href="https://twitter.com/austin_walker/status/782360503582650368">https://twitter.com/austin_walker/status/782360503582650368</a>.
-  </figcaption>
-</figure>
+{% slide_captioned privilege_inclusion 22 %}
+  Link to original tweet: <https://twitter.com/austin_walker/status/782360503582650368>.
+{% endslide_captioned %}
 
 Before I move on, let's emphasise the "listen" part.
 When they're getting started, people feel the need to jump in and "correct" people.
@@ -279,12 +268,9 @@ Explain to them why that language could be harmful, and they should use an alter
 Language is bad, so are stereotypes.
 If somebody paints with a broad brush, or uses "conventional wisdom", check to see if it's really true.
 
-<figure class="slide">
-  <a href="/slides/privilege_inclusion/privilege_inclusion.028.png"><img src="/slides/privilege_inclusion/privilege_inclusion.028.png"></a>
-  <figcaption>
-    Image: <a href="https://www.xkcd.com/385/">XKCD 385 <em>How It Works</em></a>, by Randall Munroe.
-  </figcaption>
-</figure>
+{% slide_captioned privilege_inclusion 28 %}
+  Image: [XKCD 385 *How It Work*](https://www.xkcd.com/385/), by Randall Munroe.
+{% endslide_captioned %}
 
 This XKCD is a particularly famous example.
 The left-hand character, with no identifying features (who, by the way, we usually assume is male, what does that say about us?) makes a mistake, and is judged badly for it.
@@ -299,13 +285,9 @@ I've found a good way to push back on stereotypes is to ask "why".
 Do you have evidence, or is it just a hunch?
 Is there information behind this feeling, or is it just a hunch?
 
-<figure class="slide">
-  <a href="/slides/privilege_inclusion/privilege_inclusion.029.png"><img src="/slides/privilege_inclusion/privilege_inclusion.029.png"></a>
-  <figcaption>
-    Link to original tweet:
-    <a href="https://twitter.com/andrhia/status/921184523693543424">https://twitter.com/andrhia/status/921184523693543424</a>.
-  </figcaption>
-</figure>
+{% slide_captioned privilege_inclusion 29 %}
+  Link to original tweet: <https://twitter.com/andrhia/status/921184523693543424>.
+{% endslide_captioned %}
 
 And even when a stereotype seems like it's positive, it may still be doing harm to the group.
 
