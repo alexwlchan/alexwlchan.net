@@ -7,7 +7,7 @@ tags: pyconuk slides
 
 This is a talk I gave on Saturday as the opening keynote of [PyCon UK 2018][pyconuk].
 
-I was already planning to do a talk about online harassment, and Daniele (the conference director) encouraged me to expand the idea, and turn it into a talk about positive behaviour.
+I was already planning to do a talk about online harassment, and Daniele *[Ed. Procida, the conference director]* encouraged me to expand the idea, and turn it into a talk about positive behaviour.
 This is my abstract:
 
 > In 2018, trust is at a low.
@@ -375,11 +375,8 @@ Let's go through them in turn.
 Honesty is about things like:
 
 *   truthfulness -- if you lie to me, I don't believe what you say, and I won't believe what you say next time
-
 *   sincerity -- do you care about what you're saying?
-
 *   transparency -- do you say bad things as well as good things?
-
     If you only ever talk about good things, that's not so useful.
     Imagine a friend who always tells you that you look nice, no matter what you're wearing.
     If you've got a new outfit that you're a bit unsure of, you ask their opinion, and they say "you look great!", how much do you believe them?
@@ -561,8 +558,13 @@ Pushing it out to an external system means we're less likely to forget things, a
 
 
 
-{% slide suspicious-minds 33 %}
+{% slide_captioned suspicious-minds 33 %}
+  Image: [Woman holding yellow sticky note](https://www.pexels.com/photo/woman-holding-yellow-sticky-note-1391405/), by rawpixels.com on Pexels.
+  CC0.
+{% endslide_captioned %}
 
+In larger teams, I think there's something to be taken from the world of [agile](https://en.wikipedia.org/wiki/Agile_software_development).
+I know that's a dirty word in some quarters, but there are valuable parts for tracking reliability -- regular standup meetings, project boards, task tracking -- that let us see how much a team is committed to, and whether promises are starting to slip.
 
 
 
