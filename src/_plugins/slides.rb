@@ -22,36 +22,11 @@ module Jekyll
       @deck = text.split(" ").first
       @number = text.split(" ").last.to_i
 
-      # Slides can be rendered as either PNG or JPEG (depending on whether
-      # they're text heavy or image heavy) -- this helps keep the file size
-      # of the page down.
-      #
-      # Rather than requiring the user to specify the file format in the
-      # page, we look to see which file exists.  To save doing lots of
-      # OS calls to check for file existence, we grab every image file
-      # in the slides directory upfront.
-      #
-      # NOTE: we don't have access to the 'site' context here, so I'm
-      # hard-coding the source directory.
-      src = "src"
 
-      @files = Dir["#{src}/_slides/**/*"].map {
-        |f| f.sub("#{src}/_slides/", "")
-      }
     end
 
     def render(context)
-      name = "#{@deck}/#{@deck}.#{@number.to_s.rjust(3, '0')}"
-
-      path = if @files.include? "#{name}.png"
-        "/slides/#{name}.png"
-      elsif @files.include? "#{name}.jpeg"
-        "/slides/#{name}.jpeg"
-      elsif @files.include? "#{name}.jpg"
-        "/slides/#{name}.jpg"
-      else
-        raise RuntimeError, "Unable to find slide for #{name}"
-      end
+      path = get_slide_path(@deck, @number)
 
 <<-EOT
 <figure class="slide">
@@ -75,7 +50,7 @@ EOT
       md_content = super.strip
       html_content = converter.convert(md_content)
 
-      path = "/slides/#{@deck}/#{@deck}.#{@number.to_s.rjust(3, '0')}.png"
+      path = get_slide_path(@deck, @number)
 
 <<-EOT
 <figure class="slide">
@@ -89,3 +64,35 @@ end
 
 Liquid::Template.register_tag('slide', Jekyll::SlideTag)
 Liquid::Template.register_tag("slide_captioned", Jekyll::CaptionedSlideBlock)
+
+
+# Slides can be rendered as either PNG or JPEG (depending on whether
+# they're text heavy or image heavy) -- this helps keep the file size
+# of the page down.
+#
+# Rather than requiring the user to specify the file format in the
+# page, we look to see which file exists.  To save doing lots of
+# OS calls to check for file existence, we grab every image file
+# in the slides directory upfront.
+#
+# NOTE: we don't have access to the 'site' context here, so I'm
+# hard-coding the source directory.
+$src = "src"
+
+$slide_files = Dir["#{$src}/_slides/**/*"].map {
+  |f| f.sub("#{$src}/_slides/", "")
+}
+
+def get_slide_path(deck_name, slide_number)
+  name = "#{deck_name}/#{deck_name}.#{slide_number.to_s.rjust(3, '0')}"
+
+  path = if $slide_files.include? "#{name}.png"
+    "/slides/#{name}.png"
+  elsif $slide_files.include? "#{name}.jpeg"
+    "/slides/#{name}.jpeg"
+  elsif $slide_files.include? "#{name}.jpg"
+    "/slides/#{name}.jpg"
+  else
+    raise RuntimeError, "Unable to find slide for #{name}"
+  end
+end
