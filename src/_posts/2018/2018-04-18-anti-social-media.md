@@ -74,13 +74,11 @@ If somebody wants to step out for a few minutes (or you want to stop reading), I
 Please look after yourselves!
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.004.png"><img src="/slides/anti_social_media/anti_social_media.004.png" alt="An illustration of a blank cheque book"></a>
-  <figcaption>
-    Image credit: A cheque book.
-    Made by <a href="https://www.flickr.com/photos/easy-pics/8138517266/">The Clear Communication People</a>, used under CC BY-NC-ND.
-  </figcaption>
-</figure>
+
+{% slide_captioned anti_social_media 4 %}
+  Image credit: A cheque book.
+  Made by [The Clear Communication People](https://www.flickr.com/photos/easy-pics/8138517266/), used under CC BY-NC-ND.
+{% endslide_captioned %}
 
 A [tweet from a friend][drmaciver] got me thinking about cheques recently, and ways to pay.
 The Internet has changed finance -- today, we have all sorts of ways to send money to each other.
