@@ -74,13 +74,11 @@ If somebody wants to step out for a few minutes (or you want to stop reading), I
 Please look after yourselves!
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.004.png"><img src="/slides/anti_social_media/anti_social_media.004.png" alt="An illustration of a blank cheque book"></a>
-  <figcaption>
-    Image credit: A cheque book.
-    Made by <a href="https://www.flickr.com/photos/easy-pics/8138517266/">The Clear Communication People</a>, used under CC BY-NC-ND.
-  </figcaption>
-</figure>
+
+{% slide_captioned anti_social_media 4 %}
+  Image credit: A cheque book.
+  Made by [The Clear Communication People](https://www.flickr.com/photos/easy-pics/8138517266/), used under CC BY-NC-ND.
+{% endslide_captioned %}
 
 A [tweet from a friend][drmaciver] got me thinking about cheques recently, and ways to pay.
 The Internet has changed finance -- today, we have all sorts of ways to send money to each other.
@@ -100,13 +98,10 @@ This is much better, right?
 [square]: https://en.wikipedia.org/wiki/Square_Cash
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.006.png"><img src="/slides/anti_social_media/anti_social_media.006.png" alt="An illustration of a blank cheque book"></a>
-  <figcaption>
-    Tweet by <a href="https://twitter.com/TweetAnnaMarie/status/789957313649967104">Anna Marie Clifton</a>.
-    Retrieved 18 April 2018.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 6 %}
+  Tweet by [Anna Marie Clifton](https://twitter.com/TweetAnnaMarie/status/789957313649967104).
+  Retrieved 18 April 2018.
+{% endslide_captioned %}
 
 Well... yes and no.
 
@@ -272,26 +267,20 @@ So what else?
 Posting personal information is another common form of harassment.
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.020.png"><img src="/slides/anti_social_media/anti_social_media.020.png"></a>
-  <figcaption>
-    Image: Rainbow flag and blue skies, by <a href="https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg">Ludovic Berton</a>.
-    Used under CC BY.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 20 %}
+  Image: Rainbow flag and blue skies, by [Ludovic Berton](https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg).
+  Used under CC BY.
+{% endslide_captioned %}
 
 For example, outing somebody who's LGBTQ+ without their consent.
 
 If a gay person is outed in a conservative community, or a trans person is exposed to their bigoted coworkers, that puts them at very direct risk of harm.
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.021.png"><img src="/slides/anti_social_media/anti_social_media.021.png"></a>
-  <figcaption>
-    Image: Grey house with fireplace, by <a href="https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/">Sebastian Soerensen</a>.
-    Used under CC0.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 21 %}
+  Image: Grey house with fireplace, by [Sebastian Soerensen](https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/).
+  Used under CC0.
+{% endslide_captioned %}
 
 Another is a practice called [doxing][doxing], which is posting somebody's personally identifiable information -- their address, phone number, place of work.
 Or if somebody is quite guarded, going after their friends and family -- who might be less careful about what they share.
@@ -302,13 +291,10 @@ Again, you can see how this puts somebody at risk.
 
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.022.png"><img src="/slides/anti_social_media/anti_social_media.022.png"></a>
-  <figcaption>
-    Image: US & Romanian forces conduct bilateral training, by <a href="https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg">Sgt. Esdras Ruano</a>.
-    Public domain.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 22 %}
+  Image: US & Romanian forces conduct bilateral training, by [Sgt. Esdras Ruano](https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg).
+  Public domain.
+{% endslide_captioned %}
 
 And a final odious form of this technique is [SWATing][swating].
 After somebody's address has been leaked online, another person makes a phone call to the police and calls in a fake threat -- bomb hoax, hostage situation, home shooting -- which gets armed police send to their house.
@@ -339,13 +325,10 @@ Examples:
     Retrieved 17 April 2018.
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.025.png"><img src="/slides/anti_social_media/anti_social_media.025.png"></a>
-  <figcaption>
-    Image: bedroom in blue and brown, by <a href="https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/">Digital Buggu</a>.
-    Used under CC0.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 25 %}
+  Image: bedroom in blue and brown, by [Digital Buggu](https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/).
+  Used under CC0.
+{% endslide_captioned %}
 
 I particularly dislike this next one -- sharing intimate photos without consent, or so-called "revenge porn".
 This is relatively new.
@@ -356,13 +339,10 @@ All well and good, until they break up, and somebody decides to post those photo
 It's an intrusion of privacy for their ex, and incredibly distressing to have those images leaked.
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.026.png"><img src="/slides/anti_social_media/anti_social_media.026.png"></a>
-  <figcaption>
-    Image: rear seats of an Audi RS4, by <a href="https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_(6).jpg">The Car Spy</a>.
-    Used under CC BY.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 26 %}
+  Image: rear seats of an Audi RS4, by [The Car Spy](https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_%286%29.jpg).
+  Used under CC BY.
+{% endslide_captioned %}
 
 We need to be worried about child grooming.
 
@@ -412,13 +392,10 @@ Who is at *increased* risk?
 Minority groups tend to come in for disproportionate levels of abuse and harassment in the physical world, and it's perhaps not surprising that the same patterns play out online.
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.034.png"><img src="/slides/anti_social_media/anti_social_media.034.png"></a>
-  <figcaption>
-    Image: Official portrait of Diane Abbott MP, from the <a href="https://beta.parliament.uk/media/S3bGSTqn">UK Parliament website</a>.
-    Used under CC BY.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 34 %}
+  Image: Official portrait of Diane Abbott MP, from the [UK Parliament website](https://beta.parliament.uk/media/S3bGSTqn).
+  Used under CC BY.
+{% endslide_captioned %}
 
 When these factors overlap, it gets even worse.
 
@@ -599,12 +576,9 @@ How could it be used in ways you don't expect?
 And can you build it with safety in mind?
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.064.png"><img src="/slides/anti_social_media/anti_social_media.064.png"></a>
-  <figcaption>
-    Image: a marketing screenshot from <em>Journey</em>, by <a href="http://thatgamecompany.com/journey/">thatgamecompany</a>.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 64 %}
+  Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/).
+{% endslide_captioned %}
 
 An example: many multiplayer games have peer-to-peer interactions.
 Everyone plays in a shared world, and they can talk to their fellow players.
@@ -739,13 +713,10 @@ Further reading:
 *   [*The Scunthorpe Problem*](https://en.wikipedia.org/wiki/Scunthorpe_problem), Wikipedia.
 
 
-<figure class="slide">
-  <a href="/slides/anti_social_media/anti_social_media.082.png"><img src="/slides/anti_social_media/anti_social_media.082.png"></a>
-  <figcaption>
-    Image: a yellow rose, by <a href="https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/">Anthony</a>.
-    Used under CC0.
-  </figcaption>
-</figure>
+{% slide_captioned anti_social_media 82 %}
+  Image: a yellow rose, by [Anthony](https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/) on Pexels.
+  Used under CC0.
+{% endslide_captioned %}
 
 Here's an example where it's impossible to infer context: somebody's sent me a text saying *"Thinking of you!"*.
 
