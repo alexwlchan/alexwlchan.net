@@ -34,6 +34,7 @@ This doesn't include everything I said, but I hope it's a useful starting point.
 
 These are the notes of what I intended to say, but there was a lot of ad libbing.
 I've tried to update them as best I can for what I actually said, but inevitably it's not a word-for-word transcription.
+It's intended to be heard, not read.
 
 I prepped this talk at fairly short notice, and it wasn't as polished as I'd like.
 There's a lot of um'ing and ah'ing.
@@ -243,7 +244,7 @@ The media is no longer a good indicator of what's true.
 I think this serves as a sort of [denial-of-service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack) on our ability to make judgements.
 We're so overwhelmed with news and stories to evaluate, it's hard to make any judgements at all.
 
-[The phrase I had in mind, but which I didn't say on stage, was [decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue).]
+*[Ed. The phrase I had in mind, but which I didn't say on stage, was [decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue).]*
 
 
 
@@ -454,29 +455,116 @@ Humans are natural mimics, so if you demonstrate the trustworthy behaviours you 
 We can monitor our levels of trust.
 
 Although we can't give it a metric or plot a graph, we do have an innate sense of whether somebody trusts us.
-When I asked you earlier to think of somebody you didn't trust, and then somebody you did, you thought of somebody almost instantly [nodding in the room]
+When I asked you earlier to think of somebody you didn't trust, and then somebody you did, you thought of somebody almost instantly [nodding in the room] -- and you can track that.
+
+Ask yourself -- do I trust this person?
+Do I think they trust me?
+You can even ask them explicitly: "do you trust me?"
+And you can track the trend, and that can show you where you need to make changes, and if they're working.
+
+In the last year, I've got into the habit of asking friends this.
+"Are we good?"
+"Is everything okay between us?"
+"Have I done anything to upset you?"
+Little check-ins that establish things are okay, and I'm not inadvertently upsetting them.
+It feels awkward at first, but can be really helpful.
 
 
 
 {% slide suspicious-minds 19 %}
 
+Now let's look at examples of new tools and processes, applied to different parts of the trust triangle.
+
+
+
 {% slide suspicious-minds 26 %}
+
+Start with honesty.
+
+
 
 {% slide suspicious-minds 27 %}
 
+Take Airbnb as an example.
+If you're a host, and somebody who wants to stay in your home says they're not a bloodthirsty axe murderer, how do you believe them?
+
+With identity checks -- a way to verify truthfulness.
+Airbnb sometimes asks for legal ID, and compares it to lists of known ne'er-do-wells -- terrorists, no-fly lists, Interpol notices, that sort of thing.
+
+*[Ed. Legal ID isn't a system without problems.  Some people have harder time getting ID than others, which disenfranchises them from services that rely on ID like this.  It's a motivating example, not a perfect solution.]*
+
 {% slide suspicious-minds 28 %}
+
+Let's think about transparency.
+We often have managers who "want transparency" and want to be told about possible problems -- but if we're worried about pushback or retribution, we may not be as transparent as they'd like.
+It can be hard to tell somebody they've made a mistake if they control your salary, your work, your job progression.
+
+So how do we fix that?
+We have to change the incentives.
+
+Here's a screenshot of our API just before I left for the conference.
+The day before a big trip is always the best time to deploy.
+Ahem.
+(It's not supposed to do that.)
+
+Now I could have come to the conference and pretended nothing was wrong -- but what my team really wants is for me to be transparent, and tell them about my mistake, so we can fix it.
+And so they change the incentives -- they'll be upset with me if I try to conceal the mistake, and later find it out later (the stick), and if I fess up, I'm praised for my honesty and we get to fix the mistake (the carrot).
+
+Transparency can't just be lip service -- the incentives have to match.
+
+
+
+{% slide suspicious-minds 26 %}
+
+(End of examples for honesty)
+
+
 
 {% slide suspicious-minds 29 %}
 
+Now examples for reliability.
+
+
+
 {% slide suspicious-minds 30 %}
+
+Let's pick another example from earlier: Uber.
+Here's a screenshot from my trip to the venue this morning.
+
+After the trip, I'm invited to review my driver -- and review systems like this are a great way to improve trust.
+Positive reviews tell us that other people had a good experience; so we're more likely to have a good experience ourselves.
+Lots of sites use this mechanism, not just Uber -- TripAdvisor, Amazon, iTunes, to name but a few.
 
 *[Ed. Uber had [a big rebranding](https://www.fastcompany.com/90235065/uber-has-a-new-brand-again) a day or so before the conference. I'd already spent enough time photoshopping this slide, so I left the screenshot as-is.]*
 
+
+
 {% slide suspicious-minds 31 %}
 
-{% slide suspicious-minds 32 %}
+As programmers, we're used to dealing with unreliable systems -- they're called "computers".
+Software is inherently tricksy and unpredictable, and we have lots of tools to help us write more reliably software, some of which we'll talk about this weekend.
+
+Notice that these are all external tools -- none of them are about me -- and the same principle applies to tools for improving our reliability in other areas.
+
+
+
+<figure class="slide">
+  <a href="/slides/suspicious-minds/suspicious-minds.032.jpg"><img src="/slides/suspicious-minds/suspicious-minds.032.jpg"></a>
+  <figcaption>
+    Image: <a href="https://www.pexels.com/photo/white-and-black-weekly-planner-on-gray-surface-1059383/">Black and white planner on a grey table</a>, by Bich&nbsp;Tran on Pexels.
+    CC0.
+  </figcaption>
+</figure>
+
+On a personal level, that means something like a personal diary or a todo list -- something to help us keep track of our promises and commitments.
+Pushing it out to an external system means we're less likely to forget things, and less likely to over-commit to a promise it turns out we're unable to keep.
+
+
 
 {% slide suspicious-minds 33 %}
+
+
+
 
 {% slide suspicious-minds 34 %}
 
@@ -492,15 +580,59 @@ When I asked you earlier to think of somebody you didn't trust, and then somebod
 
 {% slide suspicious-minds 39 %}
 
-{% slide suspicious-minds 40 %}
+<figure class="slide">
+  <a href="/slides/suspicious-minds/suspicious-minds.040.jpeg"><img src="/slides/suspicious-minds/suspicious-minds.040.jpeg"></a>
+  <figcaption>
+    Image: <a href="https://pxhere.com/en/photo/493486">Volkswagen grille</a>, from Pxhere.
+    CC0.
+  </figcaption>
+</figure>
 
 {% slide suspicious-minds 41 %}
 
-{% slide suspicious-minds 42 %}
 
-{% slide suspicious-minds 43 %}
+
+<figure class="slide">
+  <a href="/slides/suspicious-minds/suspicious-minds.042.jpeg"><img src="/slides/suspicious-minds/suspicious-minds.042.jpeg"></a>
+  <figcaption>
+    Image: <a href="https://pxhere.com/en/photo/751319">British Airways plane against a blue sky</a>, downloaded from Pxhere.
+    CC0.
+  </figcaption>
+</figure>
+
+Let's look at an industry that really cares about its mistakes: aviation.
+
+Planes are weird, right?
+We all know how gravity works -- things go down.
+This plane isn't going down.
+What's up with that?
+
+Despite seeming counterintuitive, planes are one of the safest ways to travel.
+Last year, there were [no deaths in commercial aviation accidents](https://www.reuters.com/article/us-aviation-safety/2017-safest-year-on-record-for-commercial-passenger-air-travel-groups-idUSKBN1EQ17L).
+How did they do it?
+
+
+
+<figure class="slide">
+  <a href="/slides/suspicious-minds/suspicious-minds.043.jpeg"><img src="/slides/suspicious-minds/suspicious-minds.043.jpeg"></a>
+  <figcaption>
+    Image: <a href="https://pxhere.com/en/photo/775521">Black and white image of a crashed plane</a>, downloaded from Pxhere.
+    CC0.
+  </figcaption>
+</figure>
+
+Because it's not like planes *never* crash -- they do have issues.
+
+Here, the plane has broken an implicit promise of reliability -- it's meant to stay in the air, and it's clearly not done that.
+So why do we trust planes?
+
+
 
 {% slide suspicious-minds 44 %}
+
+One tool
+
+
 
 {% slide suspicious-minds 45 %}
 
@@ -508,9 +640,31 @@ When I asked you earlier to think of somebody you didn't trust, and then somebod
 
 {% slide suspicious-minds 41 %}
 
+(Repeat the process for rebuilding trust.)
+
 {% slide suspicious-minds 38 %}
 
+So that's how you recover from a mistake, and rebuild trust.
+
+And if done well, that works in your favour!
+There are studies that show if buy something from a shop, and have to return a faulty item, you're actually more likely to shop there -- even compared to somebody who never had a problem!
+
+Remember that trust is built by small interactions -- this is another interaction that proves your reliability.
+It's another data point in the risk assessment.
+
+So think carefully about mistakes, and how you'll recover when (not if!) they happen.
+
 {% slide suspicious-minds 19 %}
+
+So let's recap what we've talked about today.
+
+We've discussed the value of trust, and why it's such a critical part of effective working relationships.
+It's something that permeates every aspect of our work and lives.
+
+And we've seen the *trust triangle* – honesty, reliability, and shared values – a framework for behaviour that encourages and builds trust.
+I've shown you a few examples of tools and processes to build trust; I'm sure you can think of others.
+
+All this serves to build environments where trust can grow and thrive, which is the foundation for lots of other good things.
 
 {% slide suspicious-minds 47 %}
 
