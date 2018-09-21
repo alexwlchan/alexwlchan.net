@@ -130,7 +130,7 @@ We're usually pretty good at articulating when we **don't** trust somebody.
 
 Hands up in the audience: who has ever thought "I just don't trust them"?
 
-I think that's pretty much the entire audience *[Ed. I was looking at a room full of raised hands]*
+I think that's pretty much the entire audience. *[Ed. I was looking at a room full of raised hands.]*
 
 If I asked you all, you all had a good reason, right?
 Maybe there was a lie, there was an incident, they were mean, you had some
@@ -149,620 +149,196 @@ How do we go from the state of "somebody we just know" to "somebody we actually 
 
 
 
-
-
----
----
----
----
----
-
-
-
-
-
-
-
-But trust is a nebulous concept.
-What is it?
-
-In , Charles Feltman has a definition I really like:
-
-
-Let's break down that definition:
-
-*   **Choosing to risk.**
-    Trust is a risk assement.
-    We think about our past experience and decide if we want to take a particular risk.
-
-*   **Something we value.**
-    There are lots of things we might care about -- happiness, fulfilment, quality of work, not being booed off a stage in front of 300 people.
-
-*   **Making it vulnerable.**
-    We're giving up some control -- letting somebody else have responsibility.
-    In tech, we usually think of vulnerabilities in the context of security, where they're bad and should be eliminated -- but vulnerability can also lead to growth, to progress.
-
-And trust is multi-dimensional -- we trust different people with different things.
-I might trust Alice to borrow a book, but not a loan.
-I might trust Bob to borrow a loan, but not look after my cat.
-And I might trust Carol to look after my cat, but not to borrow a book.
-
-That's the definition of trust we'll be using today.
-
-[thin_book]:
-
-
-
-{% slide suspicious-minds 4 %}
-
-We're usually pretty good at articulating why we *don't* trust somebody.
-
-Have you ever said *"I just don't trust that person"*?
-Raise your hand.
-[Nearly everybody in the room had their hand up.]
-
-And if I asked, you'd probably have a good reason -- maybe there was some dishonesty, there were mean, made a mistake.
-Maybe you heard some gossip.
-There was some incident that made you distrust them.
-
-
-
-{% slide suspicious-minds 5 %}
-
-But what if I asked you in the other direction.
-Think of somebody you really trust, and ask yourself: why do you trust them?
-
-That feels like a harder question.
-
-*   It isn't something you can tell somebody to do
-*   You can't just ask for it
-*   For all the Facebook marketing team would love, you can't buy it
-
-We're vaguely aware that we trust certain people, but we're not sure why.
-It's hard to say when we crossed a line from "acquaintance" to "person I trust" -- and that's not great.
-If trust is so important, why aren't we better at articulating it, and knowing why it occurs?
-
-That's what this talk is about -- how to stop being a passive participant in trust.
-
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.006.jpg"><img src="/slides/suspicious-minds/suspicious-minds.006.jpg"></a>
-  <figcaption>
-    Image: <a href="https://pixabay.com/en/easter-fire-brand-heat-firelight-1439323/">Easter Fire</a>, by claus-heinrichcarstens on Pixabay.
-    CC0.
-  </figcaption>
-</figure>
-
-So what's the state of trust in 2018?
-
-It often seems like there isn't any!
-If you look at the news or on Twitter, it seems like the world is on fire -- sometimes literally.
-
-Studies show declining levels of trust -- we trust each other less and less.
-And that includes big institutions -- business, governments, the media, non-profits -- places we used to look to for trust and guidance.
-
-
-
-{% slide suspicious-minds 7 %}
-
-How did we get here?
-Why is trust in tatters?
-
-I think it's caused by three major trends:
-
-1.  Major events since the turn of the century
-2.  The downsides of globalisation
-3.  The advent of social media
-
-Let's go through those in turn:
-
-
-
-{% slide suspicious-minds 8 %}
-
-**Major world events.**
-There are several events that have shaken our trust in institutions:
-
-<ul>
-  <li>
-    The <a href="https://en.wikipedia.org/wiki/September_11_attacks">9/11 attacks</a>, and the responses from governments around the world
-  </li>
-  <li>
-    The wars in Iraq and Afghanistan, and the <a href="https://en.wikipedia.org/wiki/September_Dossier">questionable rationale</a> for doing so
-  </li>
-  <li>
-    The 2008 <a href="https://en.wikipedia.org/wiki/Global_financial_crisis_in_September_2008">financial collapse</a>, and the ongoing fallout
-  </li>
-  <li>
-    Closer to home, the <a href="https://en.wikipedia.org/wiki/Brexit">Brexit referendum</a> and subsequent “negotiations” [yes, I used air quotes]
-  </li>
-</ul>
-
-All these things leave people feeling angry, bitter, divided, suspicious -- all a poor environment for building trust.
-
-And I wonder if we're in the middle of another seismic trust event.
-For years there's been a trickle of new stories about bad behaviour at tech companies -- privacy violations at Facebook, location tracking at Google, safety violations at Uber -- and it feels like maybe the trickle is becoming a flood.
-I'm not sure yet, but I wonder if trust in the tech industry is faltering.
-(Maybe one day the tech industry could aspire to be as trusted as bankers!)
-
-
-
 {% slide suspicious-minds 9 %}
 
-**The downsides of globalisation.**
-Globalisation has undoubtedly advanced the human condition.
-The world is smaller and more interconnected than ever before -- PyCon UK attends a wide range of attendees, the laptop I'm using has components from a dozen different countries.
+Because trust isn't something you can tell somebody to do, you can't ask for it, and as much as Facebook's marketing marketing team would love, you can't buy
+it!
 
-But it's not without its downsides -- and the benefits aren't evenly distributing.
-Too many people/workers/families feel they're bearing the brunt of globalisation, and not reaping the rewards.
-It could be automation and job losses.
-Or open borders, the mass movement of people, the changing of cultures.
-People are worried about their economic security, scared for their job prospects.
-
-This leads people to lash out, and to turn to xenophobia and nationalism -- which were once considered fringe movements.
+That's not great, is it?
+If trust is such an important thing, we shouldn't just be passive participants.
+That's what I want to look at today.
+I want to look at how we take an active role in the formation of trust.
+How do we actively build trust for ourselves?
 
 
 
 {% slide suspicious-minds 10 %}
 
-**The advent of social media** has taken these movements mainstream.
-We're seeing the effects of having a firehose of unfiltered information and outrage, piped directly into our pockets.
-It stirs up anger, it provokes hate, it spreads lies.
-
-My grandfather had a phrase he liked when he was younger -- "a lie can be halfway round the world before the truth has its boots on" -- and social media has only made it faster.
-(And even that quote is corrupted!
-When trying to find the original author, Google suggested at least 15 different people.)
-
-We all joke about fake news being anything that Trump doesn't like, but it's a legitimate concern.
-[I tried to say "legitimate fake news", which feels like an oxymoron.]
-You can go online and look at what seems like a genuine news website, with sentences which you think contain facts, which is entirely false.
-The media is no longer a good indicator of what's true.
-
-I think this serves as a sort of [denial-of-service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack) on our ability to make judgements.
-We're so overwhelmed with news and stories to evaluate, it's hard to make any judgements at all.
-
-*[Ed. The phrase I had in mind, but which I didn't say on stage, was [decision fatigue](https://en.wikipedia.org/wiki/Decision_fatigue).]*
+So what's the state of trust in 2018, a year of only happiness and rainbows?
+How much do we trust in each?
 
 
 
-{% slide suspicious-minds 7 %}
+{% slide_captioned suspicious-minds 11 %}
+  Image: [Easter Fire](https://pixabay.com/en/easter-fire-brand-heat-firelight-1439323/), by claus-heinrichcarstens on Pixabay.
+  CC0.
+{% endslide_captioned %}
 
-All these three things build on each other, and accelerate each other.
-It leads to an erosion of trust -- and it starts to make sense why people don't trust each other any more.
+If we go on Twitter, in the six minutes that I've been speaking, there have probably been about six years worth of news.
+It feels like the world is on fire (sometimes literally), and the unfortunate thing is it seems like that often isn't any trust.
 
-But in other ways, we're more trusting than ever -- let's look at some examples.
+Studies consistently show that trust in each other -- trust in individuals -- is declining.
+And trust in big institutions -- businesses, governments, nonprofits, the media -- we're not trusting those institutions as much either.
+Those are places that we might have once looked to for trust and guidance.
 
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.011.png"><img src="/slides/suspicious-minds/suspicious-minds.011.png"></a>
-  <figcaption>
-    A screenshot of the PyCon UK payments screen.
-  </figcaption>
-</figure>
-
-If you paid for your own ticket, you went through this payment screen.
-(Or at least, I hope you did, as you're all here!)
-And you put in your credit card details, and you just trusted that was okay.
-You could put them into a website, and they'd be sent to our credit card provider, and not a shady Russian server or my personal Gmail.
-
-This is a really recent phenomenon -- online payments are brand new, relatively speaking.
-And now we take them for granted, and forget they're a thing we had to get used to.
+You wouldn't inspect the credentials of every journalist in a newspaper; you'd trust the newspaper would do that for you.
+You trust they'd so some fact checking.
+And we now longer trust that they will do that.
 
 
 
 {% slide suspicious-minds 12 %}
 
-Another example: ridesharing.
-When I was younger, I was taught ["stranger danger"](https://en.wikipedia.org/wiki/Stranger_danger).
-Don't give out your details to strangers, don't give out your location, don't get into other people's cars.
+So how did we get here?
 
-Today, it's considered routine to give out your details to a stranger, invite them to your location, and get into their car.
+I think it was caused by three major trends in the last 10--15 years:
 
-And pay them for it.
+1. Major world events
+2. The downsides of globalisation
+3. Social media
 
-This is a really weird inversion.
-And not only to people trust it, some people trust services like Uber and Lyft *more* than traditional taxi services or public transport.
+So let's go through them in turn.
 
 
 
 {% slide suspicious-minds 13 %}
 
-Or take Airbnb.
+**Some significant events.**
 
-How many people aren't sleeping tonight in a hotel chain, or a licensed B&B, or Mrs&nbsp;Potts [the recommended conference hostel], but in a stranger's home?
-You picked a stranger off the Internet, decided you'd sleep in their home, and you think it's unlikely you'll be murdered, have your belongings stolen, or be harassed while you sleep.
+If you look at the last twenty years, there have been several major turning points where we stopped trusting people.
 
-And in turn, your hosts have invited you -- a stranger to them -- to sleep in their home, and are trusting that you're not a terrorist or a murderer.
-(Even worse: a programmer!)
+*   The first was the [September 11th attacks in 2001](https://en.wikipedia.org/wiki/September_11_attacks) and the subsequent response by the governments of the world.
+*   Then the [faulty rationale](https://en.wikipedia.org/wiki/September_Dossier) for the war in Iraq.
+    "45 minutes to deployment of weapons of mass destruction."
+*   The [2008 financial collapse](https://en.wikipedia.org/wiki/Financial_crisis_of_2007%E2%80%932008), which we're still seeing the fallout of ten years later.
+*   In this country (and I'm very jealous of our overseas attendees) is the [Brexit referendum](https://en.wikipedia.org/wiki/United_Kingdom_European_Union_membership_referendum,_2016) and all the following "negotiations". *[Ed. Yes, I used finger quotes.]*
+
+All of these things these events leave people feeling angry, feeling bitter, feeling divided, suspicious, sceptical.
+Those are a really poor recipe for trust.
+When we have all these heated emotions, it's not surprising that we
+don't trust some of these big institutions as much.
+
+One thing that's interesting as well -- I think we might be in the middle of another seismic trust event.
+For years, there have been a trickle of stories about bad things happening at tech companies -- probably companies that some of us work at.
+Privacy violations at Facebook, location tracking at Google, safety violations at Uber -- and it feels to me like that trickle is starting to become a flood.
+Every week I look at the headlines, and I see some other bad thing that's happening another tech company
+
+I do wonder if we'll look back in a couple of years, and see 2018 as the point where trust in tech started to falter.
+Maybe one day we could be aspire to be as trusted as bankers.
+*[Ed. The audience laughed, but I'm serious.]*
+
+Those are some of the major world events that have already happened, and that we need to be worrying about.
 
 
 
 {% slide suspicious-minds 14 %}
 
-What do these examples have in common?
+Second let's talk about **the downsides of globalisation**.
 
-None of them happened by accident.
-Declining trust in politicians doesn't mean we magically trust strangers more.
-People deliberately built these systems to be trusted -- things like the green padlock, ratings in Uber, verification in Uber -- and we can do the same.
+On the one hand, globalisation is wonderful.
+It's made the world a smaller, more interconnected place.
+It's the reason we have such a diverse group of attendees here today.
 
-That's what we'll talk about to today -- how to build systems that build trust.
+But it's not without its downsides, and a lot of the time those benefits aren't evenly distributed.
+Too many people, too many workers, too many families feel like they're bearing all the brunt of globalisation, and they're not feeling any of the benefits.
+
+That could be in things like automation and job losses (which again, the tech industry is sort of responsible for).
+Or things like open borders, mass movement of people, the changing of cultures.
+People are afraid -- they're worried about their economic security, their job prospects -- and they lash out.
+This manifests itself in things like nationalism and xenophobia, and older audience members might remember a time when those were considered fringe political movements.
+Happier days.
 
 
 
 {% slide suspicious-minds 15 %}
 
-So how do we build trust?
+With the advent of **social media**, a lot of those fringe movements have become mainstream.
+
+We're seeing now the true effect of having a firehose of unfiltered information and outrage piped directly to a screen in our pockets.
+Social media stirs up anger, it provokes hate, it spreads lies.
+
+When I was younger, there was a quote my grandfather loved: *"A lie can get halfway around the world before the truth has got its boots on.*
+Not only has the Internet made the lie go a lot faster, it's also completely mangled that quote.
+If you type that quote into Google, you will find at least 15 different people who it's attributed to, and that cannot possibly be right!
+
+One aspect of this is "fake news".
+It's become a bit of a catch phrase the last year or so as a catch-all term for "everything that Donald Trump doesn't like" but there is---
+
+(I started saying "legitimate fake news", which is surely an oxymoron.
+Let's try that again.)
+
+There is "news" that is really fake.
+You can go on the Internet now, you can find a website that looks like a legitimate news source with not sentences that contain words that you think are facts -- and it's entirely wrong.
+
+This makes it much harder now to determine true from false when we're reading the news.
+Not only that, social media has eroded our ability to do so, by presenting us with a firehose.
+It's a denial-of-service attack on our ability to make trust decisions, because there's just so much stuff we have to deal with.
+
+
+
+{% slide suspicious-minds 12 %}
+
+So these are the three things that have led to an erosion of trust:
+
+1.  Major world events
+2.  The downsides of globalisation
+3.  The advent and spread of social media
+
+These three trends all build on each other.
+They accelerate each other, and perhaps it's not so surprising that we don't trust each other as much as we used to.
+
+But it's not like trust is gone entirely.
+We can still be very trusting people -- let's look at a few examples.
 
 
 
 {% slide suspicious-minds 16 %}
 
-How many of us have been on a "team-building" day [air quotes] and done the [trust fall](https://en.wikipedia.org/wiki/Trust_fall) exercise?
-One partner closes their eyes and falls backwards, and the other partner will catch them before they hit the floor.
-This supposedly builds trust.
+First: **online banking**.
 
-(I gave a preview of this talk to some work colleagues earlier in the week, and one person had done this exercise and been dropped!
-Err…)
+If you paid for your own ticket for the conference, you'll have seen a screen that looked a bit like this, and you all happily put in your credit card details and clicked the pay button.
+(At least, it seems like you did, because you're all here.)
+And we gave you a ticket.
+
+You put in your credit card details, and you trusted that we were going to send that to a credit card provider and use it to pay for your ticket -- and we weren't going to use it to buy Bitcoins, we weren't going to send it to a server in Russia, it wouldn't be sent to my personal Gmail.
+
+We trust that we can put our banking details into website into the Internet, and it's going to work.
+If you think about it, that's a really recent thing.
+Not so many years ago, that would have been a very unusual thing to do, and yet today we just take it granted.
 
 
 
-{% slide suspicious-minds 17 %}
+{% slide_captioned suspicious-minds 17 %}
+  I'm sure this driver is just making sure she's crossing the road safely.
+  What an upstanding fine citizen!
+{% endslide_captioned %}
 
-But lasting trust isn't a one-shot deal.
-It's built over a series of interactions, and it's important not to mistake one-off events as trust builders.
+Another example: **ride-sharing**.
+
+When I was younger, I was taught ["stranger danger"](https://en.wikipedia.org/wiki/Stranger_danger).
+You don't give out your personal details on the Internet; you don't get into other people's cars; you don't give out your location.
+And now it's routine for people to give out their personal
+details on the Internet… to a stranger… to
+invite them to their location… so that we can get in their car.
+
+And then we pay them for it.
+
+And many people even trust this more than they trust traditional black cabs or public transport.
+This book isn't that old -- this is another weird inversion of trust.
 
 
 
 {% slide suspicious-minds 18 %}
 
-Trust is built incrementally.
+The final one: **Airbnb**.
 
-As we interact with people, we get a sense of whether we trust them -- it all feeds into our risk assessment.
+How many of you are staying tonight not in a licensed hotel chain, not a registered B&B, not in Mrs. Potts but you've gone to a stranger's home?
+*[Ed. [Mrs. Potts](http://www.mrspottsbackpackers.co.uk/) is a Cardiff hostel that's fairly popular among PyCon UK attendees. I saw a few hands in the audience.]*
 
-And we use this to judge groups/collectives, not just individual.
-If our interactions with a group are good, we're more likely to trust another member of the group that we've never met.
+You've picked a random stranger on the Internet, and said, "Yes, I will stay in your home, and I trust that you will not steal my things or turn out to be a bloodthirsty axe murderer or kidnap me so that I never seen again."
 
-For example, I've met lots of PyCon UK attendees, and they're all lovely.
-If I meet a new person later, I expect that they'll probably be nice -- even though I've never met them before.
-Whereas if I said to you all "I have a printer in the back room, and it just works, trust me!" -- nobody would believe me.
+And likewise, your hosts -- they've invited you, a suspicious programmer type
+going to "PyCon".
+They trust that you're going to come into their home and sleep there and you won't steal their things, you won't ransack their home, and that it's safe to invite an (almost literally) revolving door of strangers into their home.
 
-
-
-{% slide suspicious-minds 19 %}
-
-To understand how we build it, let's think about how trust works.
-
-Some of you might be familiar with [the fire triangle](https://en.wikipedia.org/wiki/Fire_triangle).
-Oxygen, Fuel, Heat.
-You need all three to make fire, and you put out fire by taking one of them away.
-
-In the same way, trust is made of a series of interconnected factors, including
-
-*   honesty
-*   reliability
-*   shared values
-
-Let's go through them in turn.
-
-
-
-{% slide suspicious-minds 20 %}
-
-Honesty is about things like:
-
-*   truthfulness -- if you lie to me, I don't believe what you say, and I won't believe what you say next time
-*   sincerity -- do you care about what you're saying?
-*   transparency -- do you say bad things as well as good things?
-    If you only ever talk about good things, that's not so useful.
-    Imagine a friend who always tells you that you look nice, no matter what you're wearing.
-    If you've got a new outfit that you're a bit unsure of, you ask their opinion, and they say "you look great!", how much do you believe them?
-
-
-
-{% slide suspicious-minds 21 %}
-
-Reliability is about whether you keep your promises -- do you do what you say you'll do?
-
-And it's about consistency.
-As developers, we know this from our test suites -- a test that's flaky or intermittent is worse than no test at all, because even when it's passing we doubt its results.
-
-
-
-{% slide suspicious-minds 22 %}
-
-Shared values is about having:
-
-*   common goals -- so we're all aiming for the same thing, rather than pulling in different directions
-
-*   common values and beliefs -- do we all care about the same things?
-
-*   common understanding -- how often have we been in a meeting, and everybody's agreed what the outcomes and actions are, and they've all agreed something different?
-
-
-
-{% slide suspicious-minds 19 %}
-
-So that's the trust triangle.
-
-When you have an environment that encourages those three things -- honesty, reliability, shared values -- you have an environment where trust can form.
-
-And again, you need all three of them -- you can't isolate one and still have trust.
-Take honesty.
-This is definitely a positive trait -- we'd all like to be thought of as honest, and work with honest people -- but would we trust somebody who was honest but unreliable?
-We'd believe what they'll say, but not that they'll kepe their commitments.
-The classic example: would you trust an honest but incompetent surgeon to perform surgery on you?
-
-
-
-{% slide suspicious-minds 23 %}
-
-So we know what the ingredients for trust are, and we all agree these are good traits.
-
-We can't just "try harder" -- that's a recipe to make very little change.
-When we're programming, and we want to write better software, we don't just try to write fewer bugs -- that only leads to marginal gains.
-To write better software, we use new tools and processes, and building trust is just the same.
-
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.024.jpg"><img src="/slides/suspicious-minds/suspicious-minds.024.jpg"></a>
-  <figcaption>
-    Image: <a href="https://pixabay.com/en/animals-waterfowl-ducks-young-737407/">waterfowl ducks</a>, by user 422737 on Pixabay.
-    CC0.
-  </figcaption>
-</figure>
-
-We can start with ourselves.
-Humans are natural mimics, so if you demonstrate the trustworthy behaviours you want to see in other people, you'll build trust in yourself *and* encourage others to act in a more trustworthy way.
-
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.025.jpg"><img src="/slides/suspicious-minds/suspicious-minds.025.jpg"></a>
-  <figcaption>
-    Image: <a href="https://www.pexels.com/photo/space-grey-ipad-air-with-graph-on-brown-wooden-table-187041/">iPad Air on a brown wooden table</a>, by Burak&nbsp;K on Pexels.
-    CC0.
-  </figcaption>
-</figure>
-
-We can monitor our levels of trust.
-
-Although we can't give it a metric or plot a graph, we do have an innate sense of whether somebody trusts us.
-When I asked you earlier to think of somebody you didn't trust, and then somebody you did, you thought of somebody almost instantly [nodding in the room] -- and you can track that.
-
-Ask yourself -- do I trust this person?
-Do I think they trust me?
-You can even ask them explicitly: "do you trust me?"
-And you can track the trend, and that can show you where you need to make changes, and if they're working.
-
-In the last year, I've got into the habit of asking friends this.
-"Are we good?"
-"Is everything okay between us?"
-"Have I done anything to upset you?"
-Little check-ins that establish things are okay, and I'm not inadvertently upsetting them.
-It feels awkward at first, but can be really helpful.
-
-
-
-{% slide suspicious-minds 19 %}
-
-Now let's look at examples of new tools and processes, applied to different parts of the trust triangle.
-
-
-
-{% slide suspicious-minds 26 %}
-
-Start with honesty.
-
-
-
-{% slide suspicious-minds 27 %}
-
-Take Airbnb as an example.
-If you're a host, and somebody who wants to stay in your home says they're not a bloodthirsty axe murderer, how do you believe them?
-
-With identity checks -- a way to verify truthfulness.
-Airbnb sometimes asks for legal ID, and compares it to lists of known ne'er-do-wells -- terrorists, no-fly lists, Interpol notices, that sort of thing.
-
-*[Ed. Legal ID isn't a system without problems.  Some people have harder time getting ID than others, which disenfranchises them from services that rely on ID like this.  It's a motivating example, not a perfect solution.]*
-
-{% slide suspicious-minds 28 %}
-
-Let's think about transparency.
-We often have managers who "want transparency" and want to be told about possible problems -- but if we're worried about pushback or retribution, we may not be as transparent as they'd like.
-It can be hard to tell somebody they've made a mistake if they control your salary, your work, your job progression.
-
-So how do we fix that?
-We have to change the incentives.
-
-Here's a screenshot of our API just before I left for the conference.
-The day before a big trip is always the best time to deploy.
-Ahem.
-(It's not supposed to do that.)
-
-Now I could have come to the conference and pretended nothing was wrong -- but what my team really wants is for me to be transparent, and tell them about my mistake, so we can fix it.
-And so they change the incentives -- they'll be upset with me if I try to conceal the mistake, and later find it out later (the stick), and if I fess up, I'm praised for my honesty and we get to fix the mistake (the carrot).
-
-Transparency can't just be lip service -- the incentives have to match.
-
-
-
-{% slide suspicious-minds 26 %}
-
-(End of examples for honesty)
-
-
-
-{% slide suspicious-minds 29 %}
-
-Now examples for reliability.
-
-
-
-{% slide suspicious-minds 30 %}
-
-Let's pick another example from earlier: Uber.
-Here's a screenshot from my trip to the venue this morning.
-
-After the trip, I'm invited to review my driver -- and review systems like this are a great way to improve trust.
-Positive reviews tell us that other people had a good experience; so we're more likely to have a good experience ourselves.
-Lots of sites use this mechanism, not just Uber -- TripAdvisor, Amazon, iTunes, to name but a few.
-
-*[Ed. Uber had [a big rebranding](https://www.fastcompany.com/90235065/uber-has-a-new-brand-again) a day or so before the conference. I'd already spent enough time photoshopping this slide, so I left the screenshot as-is.]*
-
-
-
-{% slide suspicious-minds 31 %}
-
-Reviews tell us that we're already being reliable -- but how do we become *more* reliable?
-How to we earn/deserve those positive reviews?
-
-As programmers, we're used to dealing with unreliable systems -- they're called "computers".
-Software is inherently tricksy and unpredictable, and we have lots of tools to help us write more reliably software, some of which we'll talk about this weekend.
-
-Notice that these are all external tools -- none of them are about me -- and the same principle applies to tools for improving our reliability in other areas.
-
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.032.jpg"><img src="/slides/suspicious-minds/suspicious-minds.032.jpg"></a>
-  <figcaption>
-    Image: <a href="https://www.pexels.com/photo/white-and-black-weekly-planner-on-gray-surface-1059383/">Black and white planner on a grey table</a>, by Bich&nbsp;Tran on Pexels.
-    CC0.
-  </figcaption>
-</figure>
-
-On a personal level, that means something like a personal diary or a todo list -- something to help us keep track of our promises and commitments.
-Pushing it out to an external system means we're less likely to forget things, and less likely to over-commit to a promise it turns out we're unable to keep.
-
-
-
-{% slide_captioned suspicious-minds 33 %}
-  Image: [Woman holding yellow sticky note](https://www.pexels.com/photo/woman-holding-yellow-sticky-note-1391405/), by rawpixels.com on Pexels.
-  CC0.
-{% endslide_captioned %}
-
-In larger teams, I think there's something to be taken from the world of [agile](https://en.wikipedia.org/wiki/Agile_software_development).
-I know that's a dirty word in some quarters, but there are valuable parts for tracking reliability -- regular standup meetings, project boards, task tracking -- that let us see how much a team is committed to, and whether promises are starting to slip.
-
-
-
-{% slide suspicious-minds 29 %}
-
-So those are examples for reliability -- external systems that hold us to account.
-
-
-
-{% slide suspicious-minds 34 %}
-
-{% slide suspicious-minds 35 %}
-
-{% slide suspicious-minds 36 %}
-
-{% slide suspicious-minds 26 %}
-
-{% slide suspicious-minds 37 %}
-
-{% slide suspicious-minds 38 %}
-
-{% slide suspicious-minds 39 %}
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.040.jpeg"><img src="/slides/suspicious-minds/suspicious-minds.040.jpeg"></a>
-  <figcaption>
-    Image: <a href="https://pxhere.com/en/photo/493486">Volkswagen grille</a>, from Pxhere.
-    CC0.
-  </figcaption>
-</figure>
-
-{% slide suspicious-minds 41 %}
-
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.042.jpeg"><img src="/slides/suspicious-minds/suspicious-minds.042.jpeg"></a>
-  <figcaption>
-    Image: <a href="https://pxhere.com/en/photo/751319">British Airways plane against a blue sky</a>, downloaded from Pxhere.
-    CC0.
-  </figcaption>
-</figure>
-
-Let's look at an industry that really cares about its mistakes: aviation.
-
-Planes are weird, right?
-We all know how gravity works -- things go down.
-This plane isn't going down.
-What's up with that?
-
-Despite seeming counterintuitive, planes are one of the safest ways to travel.
-Last year, there were [no deaths in commercial aviation accidents](https://www.reuters.com/article/us-aviation-safety/2017-safest-year-on-record-for-commercial-passenger-air-travel-groups-idUSKBN1EQ17L).
-How did they do it?
-
-
-
-<figure class="slide">
-  <a href="/slides/suspicious-minds/suspicious-minds.043.jpeg"><img src="/slides/suspicious-minds/suspicious-minds.043.jpeg"></a>
-  <figcaption>
-    Image: <a href="https://pxhere.com/en/photo/775521">Black and white image of a crashed plane</a>, downloaded from Pxhere.
-    CC0.
-  </figcaption>
-</figure>
-
-Because it's not like planes *never* crash -- they do have issues.
-
-Here, the plane has broken an implicit promise of reliability -- it's meant to stay in the air, and it's clearly not done that.
-So why do we trust planes?
-
-
-
-{% slide suspicious-minds 44 %}
-
-One tool
-
-
-
-{% slide suspicious-minds 45 %}
-
-{% slide suspicious-minds 46 %}
-
-{% slide suspicious-minds 41 %}
-
-(Repeat the process for rebuilding trust.)
-
-{% slide suspicious-minds 38 %}
-
-So that's how you recover from a mistake, and rebuild trust.
-
-And if done well, that works in your favour!
-There are studies that show if buy something from a shop, and have to return a faulty item, you're actually more likely to shop there -- even compared to somebody who never had a problem!
-
-Remember that trust is built by small interactions -- this is another interaction that proves your reliability.
-It's another data point in the risk assessment.
-
-So think carefully about mistakes, and how you'll recover when (not if!) they happen.
-
-{% slide suspicious-minds 19 %}
-
-So let's recap what we've talked about today.
-
-We've discussed the value of trust, and why it's such a critical part of effective working relationships.
-It's something that permeates every aspect of our work and lives.
-
-And we've seen the *trust triangle* – honesty, reliability, and shared values – a framework for behaviour that encourages and builds trust.
-I've shown you a few examples of tools and processes to build trust; I'm sure you can think of others.
-
-All this serves to build environments where trust can grow and thrive, which is the foundation for lots of other good things.
-
-{% slide suspicious-minds 47 %}
-
-If I want you to take a single thing away from this keynote, it's this: *trust is something you can actively build*.
-Trust doesn't have to be something that "just happens" to you; you can and should take explicit steps to build it, and I hope I've given you some ideas how.
-
-And on that note, I'll finish.
-Thank you.
-
-{% slide suspicious-minds 1 %}
-
-(Closing slide)
+Again, something that we would have thought was quite odd a few years ago.
