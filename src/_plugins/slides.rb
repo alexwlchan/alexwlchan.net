@@ -7,7 +7,13 @@
 #
 #     {% slide docopt 1 %}
 #
-
+# You can also use slide_captioned if you want a <figcaption> on the slide
+# (e.g. to add image attribution):
+#
+#     {% slide_captioned docopt 2 %}
+#       This slide uses an image from https://example.org/
+#     {% endslide_captioned %}
+#
 
 module Jekyll
   class SlideTag < Liquid::Tag
