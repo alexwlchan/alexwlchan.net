@@ -384,174 +384,148 @@ Clearly a very effective exercise for them!)
 Trust is not built in one shot interactions.
 It's also not built knowing exactly what's going to happen, and knowing that they'll catch you because if not they'll be in trouble for breaking the exercise.
 
+
+
+{% slide suspicious-minds 23 %}
+
+**Trust is built incrementally.**
+It's built over a series of interactions and small steps.
+
+Remember I said earlier that trust is a risk assessment?
+When you do a risk assessment, you're looking at your past interactions, and you make a decision.
+When we interact with people, we get a sense of whether we can trust them, and that all feeds into the risk assessment.
+
+Those interactions can apply to individual people and collective groups.
+
+For example, I've been coming to PyCon UK for several years.
+Everybody I've met has always been lovely, charming and nice, so if I come out and meet some of you some first-timers later, I trust I'll probably have the same experience.
+I'm judging the group based on interactions with members of the group.
+*[Ed. When Daniele asked "How many people are here for the first time?" in their opening remarks, a lot of hands went up.]*
+
+On the other hand, if I said I had a printer in the other room and the printer "just works", how many of you trust me?
+(It doesn't!)
+
+Trust is built incrementally.
+We have a series of interactions, and as we see trustworthy behavior in a group/person/system, that's how we know that we'll be able to trust it in the future.
+
+
+
+{% slide suspicious-minds 24 %}
+
+We understand how we build it, so let's think about how trust works.
+
+Some of you might be familiar with the [fire triangle](https://en.wikipedia.org/wiki/Fire_triangle) -- fuel, heat and oxygen.
+Wou need all three to make a fire, and if you take one of those things away, you put the fire out.
+
+Trust is very similar.
+There are three components that you need and you need all three of them.
+Those components are **honesty**, **reliability** and **shared values**.
+
+Let's break those down a little.
+
+
+
+{% slide suspicious-minds 25 %}
+
+Let's start with **honesty**.
+
+For me, honesty encompasses things like:
+
+*   **Truthfulness**.
+    Do you always say things that are true, or that you believe to be true?
+    Because if you lie to me how can I believe you next time?
+    I won't believe that you're telling me the truth.
+
+*   It's about **sincerity** -- believing that we care about something, that we believe what we're saying.
+
+*   And finally, **transparency**.
+    It's really important to say bad things as well as good things.
+    That doesn't mean being being mean, but it does mean giving what we'd call an honest opinion.
+
+    Imagine, for example, you've got a friend who always tells you that you look lovely, no matter what you're wearing.
+    And then you're trying out an outfit, maybe because you're about to go on stage for a big presentation.
+    You ask them, "Do I look okay today?", and they reply, "Yeah, you look great!".
+    But they would say that!
+
+    So it's important to be transparent, to say the bad things as well as the good things.
+
+So that's honesty.
+
+
+
+{% slide suspicious-minds 26 %}
+
+Then we've got **reliability**.
+
+Reliability is about **keeping your promises** -- if you promise you'll do something, you actually stick to that.
+You don't break a promise.
+You don't promise more than you can deliver.
+
+It's also about **consistency**, and I think in this room we might appreciate that no more than in our test suites.
+I'm sure many of us have had to debug a flaky test -- a test that sometimes passes and then it fails, but you rerun the test and it passes this time.
+That's less useful than a test that's permanently broken, because then you don't know if you can believe it when it passes again.
+
+
+
+{% slide suspicious-minds 27 %}
+
+Finally, **shared values**.
+
+This is about things like **having common goals**.
+If you're a team, you're all going in the same direction.
+You're all aiming for the same thing.
+You're not heading off in different directions.
+
+It's having **common values and beliefs**.
+You all believe the same thing.
+
+And finally, a **common understanding**.
+Raise your hand if you've been in a meeting where everybody "agreed" what they were going to do, and everybody had a different idea in their head.
+*[Ed. Quite a few hands went up.]*
+It's about us all being on the same page.
+
+
+
+{% slide suspicious-minds 24 %}
+
+So those are the things you need for trust -- honest, reliability and shared values.
+
+Note that you couldn't take one of these in isolation and still have trust.
+
+Take honesty, for example.
+We'd all agree that honesty is a very positive trait.
+We'd all like to be considered honest people, we'd like to work with honest people, but just because somebody is honest doesn't mean that you trust them.
+Imagine somebody who is honest and unreliable -- then we believe that they'll
+tell the truth, but not that they'll keep their commitments.
+The classic example of this is a surgeon who was honest but incompetent -- would you trust them to do a major operation on you?
+(I really hope for your sake that the answer is "no".)
+
+Those are the ingredients of trust -- honesty, reliability and shared values. If you have an environment that encourages and promotes those things, then you have an environment where trust can start to build.
+
+
+
+{% slide suspicious-minds 28 %}
+
+But how do you actually do that?
+
+It's all very nice to say, "Hey, I want to be a more trustworthy person, so I'm just going to try harder" -- but that's a recipe to get very little done.
+
+We see this when we're building software.
+If I want to write less buggy software, I don't just try harder and magically write better software.
+I might make small gains, and that's not nothing, but if we want a step change, we look to external processes -- things like tests and code review and documentation.
+When we want to write better software, we put in place new tools and processes that change the way we work.
+That enable us to write better software.
+
+Trust is exactly the same -- we need new tools and processes -- so let's think about some ways we can do that.
+
 ---
 
 
 
 
- Trust is built
-incrementally it's built over a series
-of interactions small steps and remember
-I said earlier that Trust is a risk
-assessment when you do a risk assessment
-you're looking at your past interactions
-and we make a decision as to you know as
-we interact with people we get a sense
-of whether we can trust them and that
-all fit into the risk assessment and
-it's important to note as well we can
-use that both those interactions are
-both ways the individual person involved
-so maybe and and groups as a whole so
-for example I've been coming to pike on
-UK for many years everybody I've met has
-always been lovely charming and nice so
-if I come out and meet some in you some
-of you first-timers later I trust I'll
-probably have the same experience I'm
-John I'm judging the group I've had
-interactions with the group and that
-causes me to trust it now on the other
-hand if I said I had a printer in the
-other room and the printer just works
-how many of you trust me
-it doesn't so Trust is built
-incrementally we have a series of
-interactions and as we see trustworthy
-behavior in a group in a person in a
-system that's how we know that we will
-be able to trust it in the future so
-understand how we build it let's think
-about how Trust works now some of you
-might be familiar with the fire triangle
-fuel heat and oxygen you need all three
-to make a fire
-well though please don't please don't
-try that at home and if you take one of
-those things away you put the fire out
-and I think Trust is trust is very
-similar there are three components that
-you need and you need all three of them
-for trust and those components are
-honesty reliability and shared values so
-let's break those down a little
-start with honesty honestly for me
-encompasses things like truthfulness do
-you always say things that are true or
-at least that you believe to be true
-because if you lie to me how can I be
-sure I won't believe you next time I
-won't believe that you're telling me the
-truth it's about sincerity believing
-that we care about something that we
-believe what we're saying and how many
-of us have read a blog post from a
-startup or from Google to Google Reader
-team even saying we're delighted to say
-that we've been acquired and therefore
-the product you'll all love is going
-away and we're really excited for that
-as well to screw you all over
-so sincerity is important as well and
-finally transparency it's really
-important to say bad things as well as
-good things and that doesn't necessarily
-mean being being mean but it does mean
-giving on it you know what we would call
-an honest opinion imagine for example
-you've got a friend who always tells you
-that you look lovely no matter what
-you're wearing and then you're trying
-out and trying on an outfit maybe
-because you're about to go onstage for a
-big presentation and you ask them how do
-I look okay today and they say yeah you
-look great yeah but you would say that
-so it's important to be transparent
-important say the bad things as well as
-the good things so that's what honesty
-is then we've got reliability so
-reliability is about keeping your
-promises if you promise you'll do
-something you actually stick to that you
-don't break a promise you don't promise
-more than you can deliver
-and it's about consistency and I think
-perhaps this in this room we might
-appreciate that no more than in for
-example a test suite I'm sure many of us
-have had to debug a flaky test a test
-that sometimes passes and then it fails
-but you've rerun the test and it passes
-this time so it's all okay and that's
-almost less useful than a test that's
-just broken because then you don't know
-if you could believe it when it passes
-again next time and it's all similar to
-a transparency thing you want it to be
-consistent and finally shared values and
-this is about things like having common
-goals so you're a team that is all going
-if you're a team you're all going in the
-same direction you're all aiming for the
-same thing you're not heading off in
-different directions about having common
-values and beliefs you all believe the
-same thing and I think as well a common
-understanding raise your hand if you
-have been into a meeting where everybody
-agreed what they were going to do and
-everybody agreed a difference idea in
-their head quite a few of us so it's
-about that as well it's about us all
-being on the same page so those are the
-things you need for trust I believe
-honesty reliability and shared values
-and I think it's important to note that
-you couldn't take one of these in
-isolation take honesty for example I'm
-sure you would all agree that honesty is
-a very positive trait we would all like
-to be considered honest people we would
-all like to work with honest people but
-just because somebody is honest doesn't
-necessarily mean that you trust them
-imagine somebody who is honest and
-unreliable then we believe that they'll
-tell the truth but we might not believe
-them to keep their commitments and the
-classic example of this is if you had a
-surgeon who was honest it was honest but
-incompetent
-would you trust him to do a major
-operation on you and I really hope for
-your sake that the answer is no so
-that's what we need those are the
-ingredients of trust our honesty
-reliability and shared values and if you
-haven't or if you encourage those things
-if you promote those things then you
-have an environment where trust and
-start to build but how do you actually
-do that because it's all very once say
-hey I want to be more trustworthy person
-so I'm just going to try harder and
-that's a recipe to get very little done
-we see this I think when we're building
-software if I want to write less buggy
-software it's not just a case of I'm
-going to try harder and magically write
-better software I'm gonna make a small
-game and that's not nothing but if I
-want a step change we look to external
-processes things like tests and code
-review and documentation when we want to
-write better software we put in place
-new tools new processes that will change
-the way we work that enable us to in to
-write better software and Trust is
-exactly the same so let's think about
-some ways we can do that first although
+
+
+first although
 something we can do with trust all
 myself is being a role model being
 something other people can follow humans
