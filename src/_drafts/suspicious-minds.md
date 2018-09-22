@@ -716,64 +716,42 @@ By making that explicit and getting it out of the way early, we save ourselves t
 
 {% slide suspicious-minds 42 %}
 
-just to give the slightly more explicit
-example this is a snippet from it PyCon
-UK will not tolerate harassment if you
-are somebody who shares our value of not
-being harassed at calm
-you can read this and know this is an
-environment where we don't want that to
-happen either and so hoping that gives
-you some crust in us that well that
-happened we would take steps enforce it
-and indeed if you go and read the code
-of conduct it does line steps of how we
-would enforce these fair values so it's
-not just lip service we are you know we
-actually follow through on them
+This is a snippet from the code of conduct: **PyCon UK will not tolerate harassment**.
+
+If you our value of not being harassed at conferences, you can read this and know this is an environment where we don't want that to
+happen either.
+Hopefully that gives you some trust in us that if that happened, we'd take steps to enforce the policy and sanction the harasser.
+
+And indeed if you read the code of conduct, it outlines steps of how we'd enforce these values.
+It's not just lip service -- we actually follow through on them.
 
 
 
 {% slide suspicious-minds 28 %}
 
- so those
-are some examples of how you might build
-external systems external tools new
-processes to build trust and I'm sure
-you can all think of other ways you
-might do that in your own life in your
-own work in your own systems so that's
-all great
+Those are some examples of how you might build external systems and tools, new processes to build trust.
+
+I'm sure you can all think of other ways you might do that in your own life/work/systems.
 
 
 
 {% slide suspicious-minds 43 %}
 
-it's what happened was ero we've built
-some trust and how do you rebuild trust
+So we've seen how to build trust from scratch -- how do you **rebuild** trust?
 
 
 
 {% slide suspicious-minds 44 %}
 
-so what about when it all goes wrong but
-if you build that system honesty
-reliability shared values that's all
-great but it's often very fragile and
-it's easy to make a mistake it all goes
-wrong and suddenly you've got that loss
-of trust and I'm sure we can all imagine
-a time where we thought we trusted
-somebody and then it turns out we didn't
-and that's not that's a that's a real
-gut punch because while Trust is built
-in small moments it's built
-incrementally Overseers interactions
-it's really easy to do one thing make
-one mistake and Trust evaporates
-instantly anybody think of an instant
-like that I think quite a few nodding
-heads
+What about when it all goes wrong?
+If you build a trusted system -- from honesty, reliability, and shared values -- that's all great, but it's often very fragile.
+It's easy to make a mistake, it all goes wrong, and suddenly you've got that loss of trust.
+
+I'm sure we can all imagine a time where we thought we trusted somebody, and it turns out our trust was misplaced.
+That's a real gut punch, because while trust is built
+in small moments, it's really easy to make one mistake, and trust evaporates instantly.
+Anybody think of something like that?
+*[Ed. I saw a lot of nodding heads.]*
 
 
 
@@ -792,35 +770,22 @@ If you discover you misplaced your trust is something, you never trust it again,
   CC0.
 {% endslide_captioned %}
 
- taken as an example VW
-I'm sure many of you in this room may be
-familiar with the VW emission scandal
-about two years ago they were caught
-they were caught falsifying their
-emissions tests
-so that they would have peered past the
-EU regulations and then when they sent
-their cars out on the road they would
-just be spewing filthy humans and
-destroying the planet and this came out
-there was big fine I think several of
-their engineers went to prison but it
-was a huge loss of trust in VW why it
-was a loss of honesty because they were
-lying about what they would do
-and it was a lost of the share of the
-shared value of obeying the law and
-looking after the planet but it's not
-like VW have now vanished off the face
-of the earth people still buy Volkswagen
-cars they still own them they are still
-allowed to operate as a business because
-there was a huge amount of trust
-inherent in the brand even before they
-did this this bad thing so when you lose
-crust it is still possible to to come
-back to have some in reserve if you're
-careful about it
+Take Volkswagen as an example.
+
+I'm sure many of you may be familiar with the [Volkswagen emissions scandal](https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal).
+About two years ago they were caught falsifying their emissions tests.
+Their engines would pass the EU regulations when tested, then when they sent
+their cars out on the road, they'd be spewing filthy pollution.
+This came out, there was big fine, several of their engineers went to prison.
+
+It was a huge loss of trust in VW -- a loss of honesty (because they were lying about their tests), and a loss of shared values (in obeying the law and looking after the planet).
+
+But it's not like VW have now vanished off the face of the earth.
+People still buy Volkswagen cars.
+They still own them.
+They're still allowed to operate as a business, because there was a huge amount of trust inherent in the brand before they did this this bad thing.
+
+When you lose trust, it's possible to come back if you have some in reserve and you're careful about it.
 
 
 
