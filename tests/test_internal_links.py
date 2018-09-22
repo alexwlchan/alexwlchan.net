@@ -21,9 +21,7 @@ def responses(src, baseurl):
             yield path
         try:
             for path in os.listdir(os.path.join(src, '_drafts')):
-                yield path.replace(
-                    '_drafts',
-                    dt.datetime.now().strftime('%Y/%m'))
+                yield dt.datetime.now().strftime('%Y/%m/') + path
         except FileNotFoundError:
             pass
 
