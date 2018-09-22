@@ -79,9 +79,16 @@ Liquid::Template.register_tag("slide_captioned", Jekyll::CaptionedSlideBlock)
 # hard-coding the source directory.
 $src = "src"
 
-$slide_files = Dir["#{$src}/_slides/**/*"].map {
-  |f| f.sub("#{$src}/_slides/", "")
-}
+
+def rebuild_slide_files
+  $slide_files = Dir["#{$src}/_slides/**/*"].map {
+    |f| f.sub("#{$src}/_slides/", "")
+  }
+end
+
+
+rebuild_slide_files()
+
 
 def get_slide_path(deck_name, slide_number)
   name = "#{deck_name}/#{deck_name}.#{slide_number.to_s.rjust(3, '0')}"
@@ -93,6 +100,7 @@ def get_slide_path(deck_name, slide_number)
   elsif $slide_files.include? "#{name}.jpg"
     "/slides/#{name}.jpg"
   else
+    rebuild_slide_files()
     raise RuntimeError, "Unable to find slide for #{name}"
   end
 end
