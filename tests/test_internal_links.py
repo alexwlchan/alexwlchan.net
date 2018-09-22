@@ -22,7 +22,7 @@ def responses(src, baseurl):
         try:
             for path in os.listdir(os.path.join(src, '_drafts')):
                 yield dt.datetime.now().strftime('%Y/%m/') + path
-        except FileNotFoundError:
+        except OSError:
             pass
 
     if not _responses:
