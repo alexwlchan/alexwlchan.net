@@ -17,10 +17,11 @@ def responses(src, baseurl):
     of associated responses.
     """
     def _all_src_paths():
-        yield from os.listdir(src)
+        for path in os.listdir(src):
+            yield path
         try:
-            for post in os.listdir(os.path.join(src, '_drafts')):
-                yield post.replace(
+            for path in os.listdir(os.path.join(src, '_drafts')):
+                yield path.replace(
                     '_drafts',
                     dt.datetime.now().strftime('%Y/%m'))
         except FileNotFoundError:
