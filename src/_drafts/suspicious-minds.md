@@ -885,75 +885,51 @@ That's something I think we would often benefit from in the software industry.
 
 {% slide suspicious-minds 52 %}
 
- one other thing the
-aviation is redundant I think we should
-steal for the software industry is
-checklists so when planes first set off
-you had to be really clever you had a
-really good memory and remember you've
-done all the things to make your plane
-fly have I attached the propeller have I
-put in petrol and I taken off the
-parking brake because if you forget any
-of those things you will not go very far
-and eventually but as planes became more
-and more complex systems it became
-harder and harder to remember all those
-things so they created an external
-system a checklist and now you look at
-the checklist to tell you everything you
-need to do to fly plane taking off
-checklist landing checklist seatbelt
-sign checklist
-engine failure checklist and they're
-constantly adding new checklists for new
-scenarios but it gives them a really
-reliable external system for dealing
-with this complex really reliable
-external tool for dealing with this
-complex system I want to notice well
-that and I think they'll be really
-useful tool for us to have I want to
-notice well a lot of syndrome would like
-to think that were really intelligent
-and we are and that we wouldn't forget
-anything which we would and therefore we
-don't need checklists and this is a
-common fallacy it's better people I'll
-just remember a thing and another
-industry that is started looking at
-checklists is doctors health care and
-doctors are also really really clever
-people you wouldn't expect me to forget
-things
-and yet every time checklist are
-introduced there is a meaningful and
-noticeable drop in the rate of accidents
-and faults in surgery and that's
-probably a good thing
-so checklist a great you should consider
-using some
+One other thing that aviation does which we should steal for the software industry is **checklists**.
+
+When planes first set off, you had to have a really good memory and remember you'd done all the things to make your plane fly.
+Have I attached the propeller?
+Have I put in petrol?
+Have I taken off the parking brake?
+Because if you forget any of those things, you won't go very far.
+
+Eventually, as planes became more and more complex systems it became harder and harder to remember all those things, so they created an external system: a checklist.
+Now you look at the checklist to tell you everything you need to do to fly a plane.
+
+Taking off? Checklist.
+Landing? Checklist.
+Engine failure? Checklist.
+
+And they're constantly adding new checklists for new scenarios.
+It gives them a reliable external system for dealing with this complex system.
+
+I think they'd be a useful tool for us to have.
+Note as well: we'd like to think that as software developers, we're all really intelligent (and we are!) and that we wouldn't forget anything (we would!), and so we don't need checklists.
+This is a common fallacy.
+
+Another industry that started looking at checklists is healthcare.
+Now doctors are also really clever people, who you wouldn't expect to forget
+things -- but every time checklists are introduced, there's a meaningful and noticeable drop in the rate of accidents and faults in surgery.
+That's probably a good thing!
+
+tl;dr: Checklists are great, you should consider using some.
 
 
 
 {% slide suspicious-minds 50 %}
 
- so Swiss cheese model
-accident causation again identifying all
-the for all the layers in a fault all
-the reasons why a system went wrong and
-again
+So again: the Swiss cheese model of accident causation.
+Identifying all layers in a fault, all the reasons why a system went wrong.
 
 
 
 {% slide suspicious-minds 47 %}
 
- that's my check that's my steps
-for fixing a loss of trust identify what
-the issue was articulate how it was a
-failure of trust use the framework use
-the trust triangle and come up with
-explicit actionable steps to resolve
+Repeat my list of steps for fixing a loss of trust:
+
+1.  Identify what the issue was
+2.  Articulate how it was a failure of trust; use the framework, use the trust triangle
+3.  Come up with explicit actionable steps to resolve
 
 
 
