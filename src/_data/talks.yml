@@ -1,5 +1,50 @@
 2018:
 
+  - title: "A Plumber's Guide to Git"
+    conference: "PyCon UK 2018"
+    date: "17 Sept"
+    description: "A repeat of my PyCon UK workshop from 2017, but for a fresh audience. This uses [the same notes](/a-plumbers-guide-to-git/) as previous versions of the workshop."
+
+  - title: "Assume Worst Intent (Designing against the abusive ex)"
+    conference: "PyCon UK 2018"
+    date: "16 Sept"
+    description: |+
+      A reworked and improved version of my talk about online harassment from April.
+      Notes and slides will be available shortly afterwards.
+
+      <figure>
+        <img src="/images/talks/worst_intent.png">
+      </figure>
+
+  - title: "Building Trust in an Age of Suspicious Minds"
+    conference: "PyCon UK 2018"
+    date: "15 Sept"
+    description: |+
+      I was invited to give the opening keynote at [this year's PyCon UK](https://2018.pyconuk.org/).
+
+      This is the abstract I wrote:
+
+      <blockquote>
+        <p>
+          In 2018, trust is at a low.
+          Over the past several decades, trust has declined &ndash; fewer and fewer people trust each other, and the reputation of big institutions (government, media, politicians, even non-profits) is in tatters.
+        </p>
+
+        <p>
+          What happened?
+        </p>
+
+        <p>
+          In this talk, I&rsquo;ll explain how the design of certain systems have been exploited for abuse, and this has corroded our trust &ndash; and conversely, how we can build environments that encourage and sustain good behaviour.
+        </p>
+      </blockquote>
+
+      You can read [my slides and rough notes](/2018/09/suspicious-minds).
+
+      <figure>
+        <img src="/images/talks/suspicious_minds.jpg">
+      </figure>
+
   - title: A Plumber's Guide to Git
     conference: Oxford Python
     date: 18 May
