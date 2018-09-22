@@ -791,42 +791,22 @@ When you lose trust, it's possible to come back if you have some in reserve and 
 
 {% slide suspicious-minds 47 %}
 
- because again when you
-have a loss of trust I said earlier the
-builds trust you can't just try harder
-in the same way if you want to rebuild
-trust or fix a mistake
-you can't just try hard to be more
-trustworthy in future it's important to
-look to actually taking explicit steps
-for that so the way to do that first of
-all is find the cause what what went
-wrong the first step of making any
-apology is knowing what you're
-apologizing for second is to articulate
-the issue I've given you a framework
-today to identify how Trust works again
-honesty reliability share values so what
-was it a failure of was it a failure of
-honesty was it a failure of shared
-values was it an unreliable system maybe
-it was all three but only when you know
-which bit component failed do you know
-what you've got to go and fix and
-finally come up with explicit actionable
-steps to resolve it don't just say I
-told you no we were caught faking all
-these emission scans tests but we'll
-just you know try harder next time and
-hopefully people will believe us they
-actually put in place a stranger program
-of Oak Hill we're going to do extra
-tests we're going to focus more on clean
-energy we're going to cancel our cars
-that aren't the most emissions polluting
-that sort of thing come up with explicit
-steps for resolving a problem don't just
-trust it's gonna work out
+I said earlier that to build trust, you can't just try harder.
+In the same way, if you want to rebuild trust or fix a mistake, you can't just try harder to be more trustworthy in future.
+It's important to take explicit steps towards that.
+
+First: **find the cause what what went wrong**.
+The first step of making any apology is knowing what you're apologizing for.
+
+The second is to **articulate the issue**.
+I've given you a framework today to identify how trust works -- again: honesty, reliability, shared values -- so what was it?
+Was it a failure of honesty?
+Was it a loss of shared values?
+Was it an unreliable system?
+Maybe it was all three -- but only when you know which component failed do you know what you've got to go and fix.
+
+Finally, come up with **explicit actionable steps** to resolve it.
+Don't just try harder next time and hope people will believe you; actually put in place stronger tools and processes to avoid the problem happening again.
 
 
 
