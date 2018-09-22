@@ -34,8 +34,16 @@
   "https://t.co/LmZHVvnQ2C" = "https://twitter.com/alexwlchan/status/1028971222288293890"
   "https://t.co/rhSjAyQyiR" = "https://twitter.com/KelvZhan/status/1031251174320746497"
   "https://t.co/ZcJBPERnM5" = "https://twitter.com/alexwlchan/status/1033619621956464640"
+  "https://t.co/gIJ4SA03AK" = "https://twitter.com/alexwlchan/status/1041749402027732992"
+  "https://t.co/e5hWyHSq5z" = "https://twitter.com/alexwlchan"
+  "https://t.co/MP3bbjCwpj" = "https://twitter.com/narnolddd/status/1042520516232466432"
+  "https://t.co/vkSl0BkiLV" = "https://twitter.com/alexwlchan/status/1040285326915317760"
+  "https://t.co/PGTKHkitrb" = "https://twitter.com/alexwlchan/status/1043037975456534530"
+  "https://t.co/d27MUryuQl" = "https://twitter.com/alexwlchan/status/1043549204000518144"
 
 [aliases]
+  "https://twitter.com/i/cards/tfw/v1/1028964273127604224?cardname=summary&autoplay_disabled=true&forward=true&earned=true&edge=true&lang=en-gb&card_height=130&scribe_context=%7B%22client%22%3A%22web%22%2C%22page%22%3A%22profile%22%2C%22section%22%3A%22profile%22%2C%22component%22%3A%22tweet%22%7D&bearer_token=AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%252F40K4moUkGsoc%253DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw" = "https://twitter.com/alexwlchan/status/1028964273127604224"
+
   "https://uk.search.yahoo.com/" = "https://search.yahoo.com/"
 
   "http://t.umblr.com/"  = "https://tumblr.com/"
@@ -49,6 +57,9 @@
   "http://forums.xkcd.com/viewtopic.php?f=12&t=124608&p=4340573" = "http://forums.xkcd.com/viewtopic.php?p=4340242"
 
   "https://github.com/PunkUnicorn/The-Return-of-Tom-Thumb/tree/master" = "https://github.com/PunkUnicorn/The-Return-of-Tom-Thumb"
+
+  "https://www.trueachievements.com/gamerblog.aspx?gamerblogid=76495"        = "https://www.trueachievements.com/gamerblogcomment.aspx?gamerblogid=76495"
+  "https://www.trueachievements.com/gamerblog.aspx?gamerblogpreviewid=31564" = "https://www.trueachievements.com/gamerblogcomment.aspx?gamerblogid=76495"
 
 [search]
   urls = [
@@ -69,6 +80,7 @@
     "https://in.search.yahoo.com/",
     "http://adguard.com/referrer.html",
     "android-app://com.google.android.gm",
+    "android-app://com.google.android.googlequicksearchbox/https/www.google.com",
   ]
 
   prefixes = [

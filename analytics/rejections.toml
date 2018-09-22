@@ -75,6 +75,11 @@ bad_path_prefixes = [
     '/.git',
 
     "/.vscode/",
+
+    "/_backup.",
+    "/db/",
+    "/db_backup",
+    "/sql/",
 ]
 
 bad_path_suffixes = [
@@ -106,7 +111,13 @@ bad_path_suffixes = [
     ".asp",
     ".aspx",
     ".php",
+    ".php~",
     ".php.bak",
+    ".php.old",
+    ".sql",
+    ".sql.gz",
+    ".sql.tgz",
+    ".sql.zip",
 ]
 
 # Anything on this list was polluting 404 reports with URLs that
@@ -132,6 +143,7 @@ bad_referrers = [
     'https://www.cloudsendchef.com',
     'https://www.timer4web.com/',
     'https://www.theautoprofit.ml',
+    "http://holistickenko.com/",
 ]
 
 bad_referrer_components = [
