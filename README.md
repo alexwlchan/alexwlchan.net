@@ -130,14 +130,6 @@ theme:
 These settings are used in the template logic.
 The assets get saved in the [`theme`](src/theme) directory, and have to be created manually.
 
-### Static file copying
-
-I have a plugin [`static_file_generator.rb`](src/_plugins/static_file_generator.rb) which copies static files (images, videos, slides) into the output directory using rsync.
-
-This is to speed up site generation times – it's an idea I got from [Wolf Rentzsch][rentzsch].
-
-[rentzsch]: http://rentzsch.tumblr.com/post/58936832594/speed-up-jekyll-using-one-weird-trick
-
 ### Month and year archives
 
 The format of my post URLs is:
