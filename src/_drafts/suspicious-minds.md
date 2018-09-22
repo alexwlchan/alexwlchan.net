@@ -17,7 +17,7 @@ This is my abstract:
 >
 > In this talk, I’ll explain how the design of certain systems have been exploited for abuse, and this has corroded our trust – and conversely, how we can build environments that encourage and sustain good behaviour.
 
-The talk was recorded, and thanks to the wizardry of Tim&nbsp;Williams, it's already been posted on YouTube:
+The talk was recorded, and thanks to the wizardry of Tim&nbsp;Williams, it was on YouTube within a day:
 
 {% youtube https://www.youtube.com/watch?v=B3XxPnbehqQ %}
 
@@ -341,7 +341,7 @@ And likewise, your hosts -- they've invited you, a suspicious programmer type
 going to "PyCon".
 They trust that you're going to come into their home and sleep there and you won't steal their things, you won't ransack their home, and that it's safe to invite an (almost literally) revolving door of strangers into their home.
 
-Again, something that we would have thought was quite odd a few years ago
+Again, something that we would have thought was quite odd a few years ago.
 
 
 
@@ -518,75 +518,53 @@ That enable us to write better software.
 
 Trust is exactly the same -- we need new tools and processes -- so let's think about some ways we can do that.
 
----
+
+
+{% slide_captioned suspicious-minds 29 %}
+  Image: [waterfowl ducks](https://pixabay.com/en/animals-waterfowl-ducks-young-737407/), by user 422737 on Pixabay.
+{% endslide_captioned %}
+
+Something we can do with trust all by ourselves is being a role model -- being something other people can follow.
+Humans are naturally mimics.
+We imitate the behavior of the people around us; we see this all the time.
+
+An example: if you're a company which has one person fudging the financial numbers not, and then management don't do anything about -- other people learn, "Oh, that's that", and start to copy them.
+Eventually it becomes the company culture that it's fine to cook the books.
+
+So being a role model by showing the behaviors that you want to promote in the world -- by being honest, by being reliable, by promoting shared values -- that helps other people to do the same.
 
 
 
+{% slide_captioned suspicious-minds 30 %}
+  Image: [iPad Air on a brown wooden table](https://www.pexels.com/photo/space-grey-ipad-air-with-graph-on-brown-wooden-table-187041/), by Burak&nbsp;K on Pexels.
+  CC0.
+{% endslide_captioned %}
+
+Another thing you can do that at a high level is having monitoring and check-ins.
+
+There's no metric for trust -- we can't get a KPI or put it on a dashboard -- but it is a thing we have a spidey sense for.
+When I asked you earlier to think of somebody you didn't trust, and then somebody you did trust, I think pretty much everyone got it almost immediately -- because we do have a sense of how much we trust somebody, and if that trust is declining or increasing.
+
+We can ask if ourselves if we trust somebody -- and we can ask them if they trust us.
+That seems awkward at first, saying suddenly, "Hey, do you trust me?" -- but I've started doing this a lot in my personal relationships that in the last year -- if I'm with a friend and we've been seeing each other for a while, I have a quick check in.
+"Hey, are we good?
+Is everything okay?
+Am I being overbearing, is it too much?"
+That sort of thing.
+
+Actively tracking it helps you see how you're doing -- and when you need to change (and what's going okay!).
+Without the monitoring and those check-ins, it's hard to know what change you need to make, and if it's having an effect.
 
 
 
-first although
-something we can do with trust all
-myself is being a role model being
-something other people can follow humans
-are naturally mimics okay we will
-imitate the behavior of the people
-around us we see this all the time
-an example this is if you're a company
-that is functioning right where one
-person fudges the financial numbers not
-that we could all imagine a company like
-that and obviously I won't stress that
-this company's entirely hypothetical and
-fictional somebody fudges the financial
-times and then management don't do
-anything about it then just say oh yeah
-that's fine we'll send that out the door
-then other people learn oh that's that
-you know other people start to copy them
-and eventually it becomes the company
-culture that hey it's fine to cook the
-books it's trying to break the financial
-numbers to the point you do that we copy
-each other so for being a role model by
-amulet by showing the behaviors that you
-want to promote in the world by being
-honest by being reliable by being having
-those shared values and seeking there's
-an that is a way to build trust another
-thing you can do that I think is really
-important at high level is having
-monitoring have check-ins now Trust is
-not a metric we can't get a KPI or put
-it on a dashboard but it is a thing we
-sort of have some spidey sense of when I
-asked you earlier to think of somebody
-you didn't trust and then somebody you
-did trust I think pretty much everyone
-got it almost immediately because we do
-have a sense of how much we trust
-somebody and is that trust declining or
-is increasing and we can actually you
-can ask somebody right do you trust me
-and that seems it could seem awkward at
-first right same suddenly hey do you
-trust me do I trust and ask me ask me
-yourself do you trust them but I've
-started doing this a lot in my personal
-relationships that in the last and thus
-your so actually know if I'm
-if I might with a friend and we've been
-seeing each other for a while hey are we
-good is everything okay am I being
-overbearing is it too much that sort of
-thing actually being aware of it
-actively tracking it can be weights not
-seeing are you doing what you need and
-if not do you need to change but without
-having the monitoring without having
-those track ins it's hard to know that
-you need to be making a change so
-what'll that change look like it's not
+{% slide suspicious-minds 24 %}
+
+So now let's look at some more specific examples.
+
+
+
+{% slide suspicious-minds 32 %}
+
 with some examples of honesty so I
 talked about Airbnb earlier but people
 in your hosts invite strangers into
@@ -609,7 +587,13 @@ actually did that's an example assistant
 actively verifies honesty that doesn't
 just trust the P doesn't just trust on
 blind faith that people are going to do
-do what they say they will another thing
+do what they say they will
+
+
+
+{% slide suspicious-minds 33 %}
+
+another thing
 you can think about is incentivizing
 transparency I'm sure a lot of us have
 managers who tell us that they would
@@ -679,9 +663,20 @@ they'd say Alex you idiot fix it again
 so by changing the incentives of
 transparency if I'm making but you need
 to think about that if you want to
-promote transparency so there's some
-examples of honesty let's talk next
-about reliability so going going back to
+promote transparency
+
+
+
+{% slide suspicious-minds 34 %}
+
+ let's talk next
+about reliability
+
+
+
+{% slide suspicious-minds 35 %}
+
+ so going going back to
 one of the examples from earlier you
 perhaps wouldn't trust riding in a
 stranger's car but if you had lots of
@@ -699,6 +694,11 @@ and that says that's some measure of
 reliability we can decide well other
 people trusted this person that was okay
 before we decide to commit
+
+
+
+{% slide suspicious-minds 36 %}
+
 but how do we actually if we are the
 person who's being righted how do we
 drive up that reliability how do we
@@ -734,7 +734,16 @@ tools we have all these external systems
 that help that help us improve our
 reliability and we can do the same for
 the promises we make outside the outside
-the text editor so on a personal level
+the text editor
+
+
+
+{% slide_captioned suspicious-minds 37 %}
+  Image: [Black and white planner on a grey table](https://www.pexels.com/photo/white-and-black-weekly-planner-on-gray-surface-1059383/), by Bich&nbsp;Tran on Pexels.
+  CC0.
+{% endslide_captioned %}
+
+ so on a personal level
 that might be something as simple as
 keeping a diary or keeping a task list
 so you can see what promises you'll make
@@ -743,7 +752,16 @@ something or you don't over promise and
 under deliver you don't promise you can
 do something and not realize that you've
 already promised to do three things this
-week another thing I think we can look
+week
+
+
+
+{% slide_captioned suspicious-minds 38 %}
+  Image: [Woman holding yellow sticky note](https://www.pexels.com/photo/woman-holding-yellow-sticky-note-1391405/), by rawpixels.com on Pexels.
+  CC0.
+{% endslide_captioned %}
+
+another thing I think we can look
 to if we're looking at a larger group is
 things like agile and I noticed some
 people that's a bit of a dirty word and
@@ -763,6 +781,11 @@ meetings like that I think there's a lot
 of value in some of some of the
 practices from agile in maintaining
 reliability in teams
+
+
+
+{% slide suspicious-minds 39 %}
+
 and finally let's think about some
 shared values because I think shared
 values we most often notice when they
@@ -777,7 +800,13 @@ we work for really isn't as nice as that
 maybe they hold it maybe they hold view
 we object to maybe they didn't
 understand something maybe they had
-different different belief and so the
+different different belief
+
+
+
+{% slide suspicious-minds 40 %}
+
+ and so the
 way to get this out is to stop being
 implicit about eyeshadows can actually
 be explicit about them one of my
@@ -800,7 +829,13 @@ that or this is different from my
 recollection but then it gets it out at
 the open rather than coming back to the
 next meeting and realize you all thought
-something different and one example of a
+something different
+
+
+
+{% slide suspicious-minds 41 %}
+
+ and one example of a
 statement of shared values that we've
 already talked about once this morning
 is the code of conduct this is a really
@@ -824,6 +859,11 @@ making that explicit and getting it out
 of the way early we save ourselves the
 houseless time to deal with somebody who
 turns up who wasn't expecting it and
+
+
+
+{% slide suspicious-minds 42 %}
+
 just to give the slightly more explicit
 example this is a snippet from it PyCon
 UK will not tolerate harassment if you
@@ -838,7 +878,13 @@ and indeed if you go and read the code
 of conduct it does line steps of how we
 would enforce these fair values so it's
 not just lip service we are you know we
-actually follow through on them so those
+actually follow through on them
+
+
+
+{% slide suspicious-minds 28 %}
+
+ so those
 are some examples of how you might build
 external systems external tools new
 processes to build trust and I'm sure
@@ -846,8 +892,18 @@ you can all think of other ways you
 might do that in your own life in your
 own work in your own systems so that's
 all great
+
+
+
+{% slide suspicious-minds 43 %}
+
 it's what happened was ero we've built
 some trust and how do you rebuild trust
+
+
+
+{% slide suspicious-minds 44 %}
+
 so what about when it all goes wrong but
 if you build that system honesty
 reliability shared values that's all
@@ -865,12 +921,26 @@ it's really easy to do one thing make
 one mistake and Trust evaporates
 instantly anybody think of an instant
 like that I think quite a few nodding
-heads so when Trust is destroyed it goes
+heads
+
+
+
+{% slide suspicious-minds 45 %}
+
+ so when Trust is destroyed it goes
 very quickly it is important to note
 though a lot of people see this and then
 they will add a third line and so they
 will say it's gone forever that once
 somebody betrays you
+
+
+
+{% slide_captioned suspicious-minds 46 %}
+  Image: [Volkswagen grille](https://pxhere.com/en/photo/493486), from Pxhere.
+  CC0.
+{% endslide_captioned %}
+
 they've misplace your you discover your
 trust in this place you never trust
 somebody again and I don't necessarily
@@ -902,7 +972,13 @@ inherent in the brand even before they
 did this this bad thing so when you lose
 crust it is still possible to to come
 back to have some in reserve if you're
-careful about it because again when you
+careful about it
+
+
+
+{% slide suspicious-minds 47 %}
+
+ because again when you
 have a loss of trust I said earlier the
 builds trust you can't just try harder
 in the same way if you want to rebuild
@@ -937,7 +1013,16 @@ energy we're going to cancel our cars
 that aren't the most emissions polluting
 that sort of thing come up with explicit
 steps for resolving a problem don't just
-trust it's gonna work out and one
+trust it's gonna work out
+
+
+
+{% slide_captioned suspicious-minds 48 %}
+  Image: [British Airways plane against a blue sky](https://pxhere.com/en/photo/751319), downloaded from Pxhere.
+  CC0.
+{% endslide_captioned %}
+
+ and one
 industry that does this really well I
 think is the aviation industry because
 flying inherently feels a bit weird we
@@ -953,7 +1038,16 @@ have flown on occur on any commercial
 plane that year and you would have not
 and you would be at no risk of dying it
 was
-it's an incredibly safe industry so how
+it's an incredibly safe industry
+
+
+
+{% slide_captioned suspicious-minds 49 %}
+  Image: [Black and white image of a crashed plane](https://pxhere.com/en/photo/775521), downloaded from Pxhere.
+  CC0.
+{% endslide_captioned %}
+
+ so how
 did they get there because it's not like
 planes don't occasionally break but the
 reason the aviation industry I think is
@@ -963,7 +1057,13 @@ there are accidents or even near
 accidents and they work through to find
 out where was the failure of reliability
 where was the failure of trust and how
-do we rebuild that and one thing I think
+do we rebuild that
+
+
+
+{% slide suspicious-minds 50 %}
+
+ and one thing I think
 they do that's really nice is called the
 Swiss cheese model of accident causation
 some of you may be familiar with this so
@@ -983,7 +1083,16 @@ fix them all at once
 don't just fits to fix the last one
 don't fix the surface problem fix it fix
 the reason fix all the problems in the
-system and to give one example of that
+system
+
+
+
+{% slide_captioned suspicious-minds 51 %}
+  Image: [Tenerife North Airport](https://en.wikipedia.org/wiki/Tenerife_North_Airport#/media/File:Norda_flughaveno_de_Tenerifo,_turo,_2.jpeg), downloaded from Pxhere.
+  CC-BY SA.
+{% endslide_captioned %}
+
+ and to give one example of that
 um this is Tenerife Airport which in
 1977 was the site of the deadliest
 aviation crash in history I'm sorry I
@@ -1027,7 +1136,13 @@ somebody says cleared for takeoff
 there's no room for ambiguity and that's
 something and you know that's something
 I think perhaps you know often we would
-benefit from one other thing the
+benefit from
+
+
+
+{% slide suspicious-minds 52 %}
+
+ one other thing the
 aviation is redundant I think we should
 steal for the software industry is
 checklists so when planes first set off
@@ -1074,16 +1189,34 @@ noticeable drop in the rate of accidents
 and faults in surgery and that's
 probably a good thing
 so checklist a great you should consider
-using some so Swiss cheese model
+using some
+
+
+
+{% slide suspicious-minds 50 %}
+
+ so Swiss cheese model
 accident causation again identifying all
 the for all the layers in a fault all
 the reasons why a system went wrong and
-again that's my check that's my steps
+again
+
+
+
+{% slide suspicious-minds 47 %}
+
+ that's my check that's my steps
 for fixing a loss of trust identify what
 the issue was articulate how it was a
 failure of trust use the framework use
 the trust triangle and come up with
-explicit actionable steps to resolve it
+explicit actionable steps to resolve
+
+
+
+{% slide suspicious-minds 43 %}
+
+ it
 to rebuild trust because the funny thing
 is actually when we lose trust if we
 rebuild it correctly we can often end up
@@ -1110,6 +1243,11 @@ feed into somebody's impression of you
 that feed into that layer of trust so a
 mistake doesn't have to be the end of
 the world as long as you don't let it be
+
+
+
+{% slide suspicious-minds 24 %}
+
 so let's wrap up what I've shown you
 today we've talked about trust I've
 shown you my framework for thinking
@@ -1127,8 +1265,15 @@ be more honest but actually come up with
 systems of verifying and validating that
 but if I want to take you to take one
 thing away from the rest of it from
-today the final thing I would leave you
+today
+
+
+
+{% slide suspicious-minds 53 %}
+
+the final thing I would leave you
 with is this
+
 is something you can actively build it
 is not just a passive thing happens it
 does just have to be something that
