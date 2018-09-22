@@ -3,6 +3,9 @@ layout: post
 title: Building trust in an age of suspicious minds
 summary: Notes and slides from my PyCon UK 2018 keynote. In a world where people are less and less trusting, hwo can we take steps to make ourselves more trustable?
 tags: pyconuk slides
+theme:
+  card_type: summary_large_image
+  image: /images/2018/suspicious-minds.jpg
 ---
 
 This is a talk I gave on Saturday as the opening keynote of [PyCon UK 2018][pyconuk].
@@ -21,7 +24,8 @@ The talk was recorded, and thanks to the wizardry of Tim&nbsp;Williams, it was o
 
 {% youtube https://www.youtube.com/watch?v=B3XxPnbehqQ %}
 
-You can read the slides and notes on this page, or download the slides [as a PDF](/talks/suspicious-minds.pdf).
+You can read the slides and transcript on this page, or download the slides [as a PDF](/talks/suspicious-minds.pdf).
+The transcript is based on the captions on the YouTube video, with some light editing and editorial notes where required.
 
 <!--
 Note:
@@ -32,7 +36,7 @@ This doesn't include everything I said, but I hope it's a useful starting point.
 
 <!-- summary -->
 
-The transcript is based on the YouTube video, with editorial notes and fix-ups as appropriate.
+
 
 I prepped this talk at fairly short notice, and it wasn't as polished as I'd like.
 There's a lot of um'ing and ah'ing.
