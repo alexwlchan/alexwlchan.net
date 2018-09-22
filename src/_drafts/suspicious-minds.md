@@ -689,59 +689,28 @@ Maybe they hold views we object to, maybe they didn't undrstand something, maybe
 
 {% slide suspicious-minds 40 %}
 
- and so the
-way to get this out is to stop being
-implicit about eyeshadows can actually
-be explicit about them one of my
-favorite lines from the zone of Python
-which is a statement of explicit shared
-values for Python programmers explicit
-is better than implicit if we talk about
-our values and we talk about the things
-we care about that can be really
-valuable and that's how you close those
-disagreements I asked earlier if any of
-you had been in meetings where everyone
-agreed to do something and they had
-different agreements and one what we
-often do that is have meeting minutes
-have a list of agreed actions that is
-sent out to everyone that they can then
-look at and say hey I didn't agree to do
-that or this is different from my
-recollection but then it gets it out at
-the open rather than coming back to the
-next meeting and realize you all thought
-something different
+The way to get this out is to stop being implicit about shared values -- be explicit about them.
+
+One of my favourite lines from the [Zen of Python](https://www.python.org/dev/peps/pep-0020/) (itself an explicit statement of shared values for Python programmers): **explicit is better than implicit**.
+
+If we talk about our values and we talk about the things we care about, that can be really valuable.
+That's how you close those disagreements.
+
+I asked earlier if any of you had been in meetings where everyone agreed to do something, and they had different ideas of what they'd agreed.
+So what we often do is have **meeting minutes**, a list of agreed actions that is sent out to everyone.
+Something they can look at and say, "Hey I didn't agree to do that" or "This is different from my memory" but then it comes out in the open -- rather than coming back to the next meeting and realising you all thought something different.
 
 
 
 {% slide suspicious-minds 41 %}
 
- and one example of a
-statement of shared values that we've
-already talked about once this morning
-is the code of conduct this is a really
-explicit statement of shared of our
-values as organizers and beliefs about
-this event and what happens is if you're
-somebody who's thinking coming to the
-conference you can read this and you can
-see what our values are and if you
-thinks this sounds like a friendly
-conference as all of you find people
-clearly do then you might come to this
-conference and I think this is a going
-to be a good place for me to come to and
-if you read this and it doesn't align
-with your worldview it doesn't feel like
-an event where you'd be safe you might
-not you don't think you'd trust yourself
-to be okay there you don't come but by
-making that explicit and getting it out
-of the way early we save ourselves the
-houseless time to deal with somebody who
-turns up who wasn't expecting it and
+One example of a statement of shared values that we've already talked about once this morning is the [**code of conduct**](https://2018.pyconuk.org/code-conduct/).
+This is an explicit statement of our shared values as organizers, and our beliefs about this event.
+
+If you're somebody who's thinking of coming to the conference, you can read this, you can see what our values are and if you thinks this sounds like a friendly conference, then you might come along.
+And if you read this and it doesn't align with your worldview; it doesn't feel like an event where you'd be safe; you might not trust yourself to be okay there -- so you don't come.
+
+By making that explicit and getting it out of the way early, we save ourselves the hassle and time to deal with somebody who turns up with the wrong expectations.
 
 
 
