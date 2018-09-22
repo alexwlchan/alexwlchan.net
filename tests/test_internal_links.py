@@ -1,5 +1,6 @@
 # -*- encoding: utf-8
 
+import datetime as dt
 import os
 from urlparse import urlparse
 
@@ -15,13 +16,22 @@ def responses(src, baseurl):
     Uses http-crawler to index every internal page, and return a list
     of associated responses.
     """
+    def _all_src_paths():
+        for path in os.listdir(src):
+            yield path
+        try:
+            for path in os.listdir(os.path.join(src, '_drafts')):
+                yield dt.datetime.now().strftime('%Y/%m/') + path
+        except FileNotFoundError:
+            pass
+
     if not _responses:
         for rsp in crawl(baseurl, follow_external_links=False):
             _responses.append(rsp)
 
         # This is an attempt to pick up pages that I know exist, but which
         # aren't linked from anywhere else on the site.
-        for entry in os.listdir(src):
+        for entry in _all_src_paths():
             if not entry.endswith('.md'):
                 continue
 
@@ -56,32 +66,3 @@ def test_no_links_are_broken(responses):
     ])
     print('\n'.join(sorted(failures)))
     assert len(failures) == 0
-
-
-def images_in_repo(src):
-    """
-    Generates paths to all the image files in the ``src`` directory.
-    """
-    images_dir = os.path.join(src, '_images')
-    for root, _, filenames in os.walk(images_dir):
-        for f in filenames:
-            if f.startswith('.'):
-                continue
-            yield os.path.join(root, f)
-
-
-def test_all_images_are_linked_somewhere(src, responses):
-    """
-    Check that every image in ``src/_images`` is linked somewhere on the site.
-    """
-    paths = [urlparse(rsp.url).path for rsp in responses]
-    img_paths = {p for p in paths if p.startswith('/images/')}
-
-    local_paths = set()
-    for path in images_in_repo(src):
-        local_path = path.replace(src, '').replace('_images', 'images')
-        local_paths.add(local_path)
-
-    unlinked_paths = local_paths - img_paths
-    print('\n'.join(sorted(unlinked_paths)))
-    assert len(unlinked_paths) == 0
