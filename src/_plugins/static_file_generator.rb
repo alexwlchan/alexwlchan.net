@@ -1,3 +1,12 @@
+# This plugin copies static files from the "source" to the
+# "destination" directory.  This speeds up site generation times -- it's
+# an idea I got from this blog post:
+# http://rentzsch.tumblr.com/post/58936832594/
+#
+# The directories which are copied are set with the `keep_files` setting
+# in `_config.yml`.
+#
+
 module Jekyll
   class StaticFileGenerator < Generator
     def generate(site)
