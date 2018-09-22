@@ -832,43 +832,27 @@ It's an incredibly safe industry.
   CC0.
 {% endslide_captioned %}
 
- so how
-did they get there because it's not like
-planes don't occasionally break but the
-reason the aviation industry I think is
-so trusted and so reliable is because
-they take a really strong view when
-there are accidents or even near
-accidents and they work through to find
-out where was the failure of reliability
-where was the failure of trust and how
-do we rebuild that
+How did they get there?
+It's not like planes never break.
+
+The reason the aviation industry is so trusted and so reliable is because they take a really strong view when there are accidents (or even near misses).
+
+They work through to find out where was the failure of reliability, where was the failure of trust, and how do we rebuild that?
 
 
 
 {% slide suspicious-minds 50 %}
 
- and one thing I think
-they do that's really nice is called the
-Swiss cheese model of accident causation
-some of you may be familiar with this so
-if you imagine every layer of tree is an
-overlapping component in your complex
-system you know maybe it's an aircraft
-component and where there's a hole in
-the cheese that's what a problem can
-occur and when they learn up in just the
-right way and there's a hole all the way
-through something drops through that's
-when a problem occurs and what they will
-do is they will try to analyze every
-layer of the system every component that
-could have failed find all the bugs and
-fix them all at once
-don't just fits to fix the last one
-don't fix the surface problem fix it fix
-the reason fix all the problems in the
-system
+One thing they do that's really nice is the [Swiss cheese model of accident causation](https://en.wikipedia.org/wiki/Swiss_cheese_model).
+
+Some of you may be familiar with this.
+Imagine every layer of cheese is an overlapping component in your complex system -- maybe it's an aircraft component -- and where there's a hole in the cheese, that's where a problem can occur.
+When they line up in just the right way, and there's a hole all the way through, something can drop through -- and that's when a problem occurs.
+
+When that happens, they try to analyze every layer of the system, every component that
+could have failed.
+Find all the bugs and fix them all at once -- don't just fix the last one, don't just fix the surface problem, fix the reason.
+Fix all the problems in the system.
 
 
 
@@ -877,51 +861,25 @@ system
   CC-BY SA.
 {% endslide_captioned %}
 
- and to give one example of that
-um this is Tenerife Airport which in
-1977 was the site of the deadliest
-aviation crash in history I'm sorry I
-just said Aviation is really safe and
-none telling about a crash but this was
-years before many of you were born so
-it's obviously fine what some of you so
-in 1977 there were two planes one of
-them was taking off one of them was look
-trying to land they hit each other had
-side on and that was it that was a very
-horrible crack that was very nasty crash
-and the reason for it was that the pilot
-who was taking off thought he'd been
-given clearance to take off it turns out
-the tower thought he hadn't so this was
-a failure of reliability on the pilot
-spot the pilot promising not to cause
-air accidents but also failure a shared
-communication of shared values and
-shared understanding the pilot and the
-tower both thought they knew what go for
-take off main and it turns out they both
-understood completely different things
-now would have been easy for the
-industry at this point to say ah what a
-silly pilot they made a mistake now lots
-of people are dead we would fire them
-for making that mistake but actually
-they were killed in the accident so I
-guess we're good now not only would that
-be an incredibly insensitive thing to
-say it would also not have I solved the
-underlying problem which is that there
-were discrepancies in radio
-communication and so now as a whole the
-aviation industry uses really standard
-phraseology really standard terminology
-so they know exactly what it means when
-somebody says cleared for takeoff
-there's no room for ambiguity and that's
-something and you know that's something
-I think perhaps you know often we would
-benefit from
+One example of that is Tenerife Airport, which in 1977 was the site of [the deadliest aviation crash in history](https://en.wikipedia.org/wiki/Tenerife_airport_disaster).
+(I'm sorry, I just said aviation is really safe and now I'm telling about a crash!)
+There were two planes -- one of them was taking off, one of them was trying to land.
+They hit each other side-on, and had a very nasty crash.
+
+How did this happen?
+The pilot who was taking off thought he'd been given clearance to take off.
+It turns out the tower thought he hadn't -- so this was a failure of reliability on the pilot promising not to cause accidents, but also a failure shared communication, values, and understanding.
+The pilot and the tower both thought they knew what "Go for takeoff" meant, and it turns out they both understood completely different things.
+
+It would have been easy for the investigators to say, "Ah, what a silly pilot.
+They made a mistake and now lots of people are dead.
+We'd fire them for that mistake, but actually they were killed in the accident, so I guess we're good now."
+
+Not only would that be an incredibly insensitive thing to say, it would also not have solved the underlying problem.
+There were discrepancies in radio communication -- and to avoid it happening again, the whole aviation industry now uses really standard phraseology and terminology.
+They know exactly what it means when somebody says "Cleared for takeoff".
+There's no room for ambiguity.
+That's something I think we would often benefit from in the software industry.
 
 
 
