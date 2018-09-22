@@ -565,176 +565,87 @@ So now let's look at some more specific examples.
 
 {% slide suspicious-minds 32 %}
 
-with some examples of honesty so I
-talked about Airbnb earlier but people
-in your hosts invite strangers into
-their home and one of the things you
-probably say to them on the forum is you
-were given a tick boxes I am NOT an
-ax-murderer
-I do not steal other people's things and
-that's fine but anybody can check box on
-the internet so one of the things they
-do to do identity verification of this
-stuff to do verification of your honesty
-is they ask you for some ID you upload
-your government ID they run that against
-various databases say are you wanted by
-the FBI Interpol are you a known
-terrorist because if not maybe people
-don't want you in their home so if I
-actually did that's an example assistant
-actively verifies honesty that doesn't
-just trust the P doesn't just trust on
-blind faith that people are going to do
-do what they say they will
+I talked about Airbnb earlier.
+People -- your hosts -- invite strangers into their home, and one of the things you'd like to ask them on the form is a tickbox "I am not an axe murderer."
+"I don't steal other people's things."
+
+But anybody can tick a box on the Internet, so one of the things they do to verify your honesty is ask you for some ID.
+You upload your government ID, they run that against various databases -- are you wanted by the FBI or Interpol, are you a known terrorist? -- because if so, maybe people don't want you in their home.
+
+So that's an example of a system that actively verifies honesty, and doesn't just assume on blind faith that people are completely truthful.
 
 
 
 {% slide suspicious-minds 33 %}
 
-another thing
-you can think about is incentivizing
-transparency I'm sure a lot of us have
-managers who tell us that they would
-love us to be transparent and tell them
-when they're doing something wrong and
-tell them about their mistakes and
-that's a really nice thing to hear but
-often it's difficult to put that into
-practice because if you want to make a
-complaint about it maybe someone at work
-and that person is the person who also
-controls your salary and benefits and
-job prosper and career prospects maybe
-you're going to feel uncomfortable
-telling them hey actually you did this
-thing that's screwed up because you're
-worried about the retribution for you so
-it's already was saying we want
-transparency we have to actually do
-think about how we're going to do it and
-one way to do is change the carrot and
-stick so this is an example I said
-earlier that I break things this is an
-example of the API at work just before I
-left for the conference I heard I'd done
-a production deploy about ten minutes
-before getting on a train which is
-always the best time to do production
-deploy
-and you'll see it's this is not supposed
-to have here I'd made it but I'd made a
-bug in what I deployed and what I could
-have done would be to run out the door
-and Satan I don't know I don't know I
-didn't touch it it must have just broken
-and I think pretty quickly somebody
-would have figured out they'd have
-looked at the logs and said Alex as a
-production deployed from here and then
-30 seconds later it went down we think
-those things are connected my coworkers
-are smart but instead and I could have
-done that and instead and I we've had
-done that I would have got in trouble
-but instead I fest up I said I sort of
-broke this thing accidentally let's roll
-it back and then that was the
-opportunity for us to have an a
-discussion about well why did this
-happen why did it break had we how do we
-stop Alex furring up next time because
-let's be honest it's mostly me
-and that was a benefit to me right and
-it was a benefit for both the team to
-make how their Enco morosely and its
-benefits for me because I feel like my
-co-workers trust me and that I know I'm
-not going to make the same mistake again
-so there's a benefit to me being
-transparent and there's a penalty for me
-not being transparent which is often the
-wages of the inverse of what the what
-the default system would be right if we
-weren't thinking about it I'd say I've
-broken the API and said Alex then and
-they'd say Alex you idiot fix it again
-so by changing the incentives of
-transparency if I'm making but you need
-to think about that if you want to
-promote transparency
+Another thing you can think about is incentivizing transparency.
+
+I'm sure we all have managers who tell us they'd love us to be transparent, to tell them when they're doing something wrong and tell them about their mistakes.
+That's a really nice thing to hear, but it's often difficult to put into
+practice.
+If you want to make a complaint at work, and the person at fault is the person who also controls your salary and benefits and career progression, maybe you'll feel uncomfortable telling them how they screwed up.
+You're worried about possible retribution.
+
+It's one thing saying we want transparency; but to actually do it we have to change the carrot and the stick.
+
+This is an example -- I said earlier that I break things.
+This is a screenshot of our API at work, just before I left for the conference.
+(I did a production deploy ten minutes before getting on a train, which is always the best time to do production deploys.)
+It's not supposed to look like this.
+Oops.
+
+There was a bug in what I deployed.
+I could have run out the door and said "I don't know, didn't touch it, it must have just broken" -- and pretty quickly somebody would have figured it out.
+They'd look at the logs, see my prod deploy, and 30 seconds later it all goes down, and I'd have been in trouble.
+
+But instead, I fessed up -- I said "I broke it", let's roll it back, and that was an opportunity for us to have an a discussion about why it broke.
+How do we stop it breaking next them?
+There's a benefit for both the team -- to make the API more stable -- and there's benefits for me -- because I feel like my coworkers trust me and I know I'm not going to make the same mistake again.
+
+So there's a benefit to me being transparent, and there's a penalty for not being transparent.
+That's the inverse of the common default.
+
+We changed the incentives of transparency.
 
 
 
 {% slide suspicious-minds 34 %}
 
- let's talk next
-about reliability
+Next, let's talk about reliability.
 
 
 
 {% slide suspicious-minds 35 %}
 
- so going going back to
-one of the examples from earlier you
-perhaps wouldn't trust riding in a
-stranger's car but if you had lots of
-people who told you know this person is
-really good at letting strangers ride in
-that car you might be more inclined to
-do so and that's what system rating
-systems do and we're almost drowning the
-rating systems these days so this is an
-example this is screenshot from uber I
-came over this morning but also Amazon
-TripAdvisor Yelp Google Maps there are
-lots of ways that we crowdsource ratings
-and that says that's some measure of
-reliability we can decide well other
-people trusted this person that was okay
-before we decide to commit
+Going going back to another of the examples from earlier.
+
+Perhaps you wouldn't feel safe riding in a stranger's car, but what if you had lots of people who told you "this person is really good at letting strangers ride in that car"?
+You might be more inclined to do so, and that's what rating systems do.
+This is a screenshot from Uber when I came over this morning -- but also Amazon, TripAdvisor, Yelp, Google Maps -- there are lots of ways we crowdsource ratings.
+
+And those are a measure of reliability.
+Other people trusted this person, and it worked out okay for them -- that's useful information before we decide to commit.
 
 
 
 {% slide suspicious-minds 36 %}
 
-but how do we actually if we are the
-person who's being righted how do we
-drive up that reliability how do we
-write you two down so this is great if
-you're already reliable how do you get
-there and I think actually this is
-something we as software developers are
-pretty good at because we are used to
-working with unreliable systems they're
-called computers and we've built you
-know all these different ways to to
-improve the reliability of our software
-to improve the reliability of the
-computers we build things like testing
-and code review and documentation
-you all right documentation right and
-other such things we've got a huge
-number systems for improving the quality
-of the code we write something you will
-notice about these though is that none
-of these come from me in from me these
-are all external systems right there's a
-Travis server that runs and checks micro
-Biff checks moto passes test before I
-check your den we require pull request
-through the github user interface the
-Scarlett compiler will not let me write
-something doesn't fit the type system
-which is why python is inherently a
-better language but don't tell them I
-said that we have all these external
-tools we have all these external systems
-that help that help us improve our
-reliability and we can do the same for
-the promises we make outside the outside
-the text editor
+But what if we're the person who's being rated?
+How do we increase our reliability?
+A rating is great if you're already reliable, but how do you get there?
+
+As software developers, we're pretty good at this, because we're used to working with unreliable systems -- they're called "computers".
+
+We build all these different ways to improve the reliability of our software, to improve the reliability of the things we build.
+Tools like testing and code review and documentation (you all write documentation, right?) and other such things.
+
+We've got a huge number systems for improving the quality of the code we write -- and something you'll notice about these is that none of these come from me. These are all external systems.
+
+There's a Travis server that runs and checks my pull requests pass tests before I merge them.
+We enforce code reviews through the GitHub UI.
+The Scala compiler won't let me write something that doesn't fit the type system.
+
+We have all these external tools/systems that help us improve our reliability, and we can do the same for the promises we make outside the text editor.
 
 
 
@@ -743,16 +654,8 @@ the text editor
   CC0.
 {% endslide_captioned %}
 
- so on a personal level
-that might be something as simple as
-keeping a diary or keeping a task list
-so you can see what promises you'll make
-you're making so you don't forget
-something or you don't over promise and
-under deliver you don't promise you can
-do something and not realize that you've
-already promised to do three things this
-week
+On a personal level, that might be something as simple as keeping a diary or a task list.
+You can see what promises you're making so you don't forget something -- so you don't overpromise and underdeliver -- you don't promise you can do something and not realise that you've already promised to do three things this week.
 
 
 
@@ -761,46 +664,26 @@ week
   CC0.
 {% endslide_captioned %}
 
-another thing I think we can look
-to if we're looking at a larger group is
-things like agile and I noticed some
-people that's a bit of a dirty word and
-you'd but you don't necessarily need to
-go all in on our channel to get some of
-the benefits Robert things like stand-up
-meetings retrospect here's planning
-meetings just so you all know what
-you're doing and you all know if you've
-promised to do you know a few promises
-who promised to do something for
-somebody else if something is slipping
-if a promise isn't going to be delivered
-again being really explicit about the
-tracking keeping and keeping on top of
-meetings like that I think there's a lot
-of value in some of some of the
-practices from agile in maintaining
-reliability in teams
+Another thing we can look to -- if we're looking at a larger group -- is things like [agile](https://en.wikipedia.org/wiki/Agile_software_development).
+
+I know to some people that's a dirty word, but you don't need to go all in on agile to get some of the benefits.
+Things like regular stand-up meetings, retrospectives, planning boards -- just enough that you all know what you're doing
+You all know if you've promised to do something, if something is slipping, if a promise isn't going to be delivered.
+Again -- being really explicit about the tracking and keeping on top of
+meetings.
+
+There's a lot of value in some of some of the practices from agile in maintaining reliability in teams.
 
 
 
 {% slide suspicious-minds 39 %}
 
-and finally let's think about some
-shared values because I think shared
-values we most often notice when they
-diverge because shared values are often
-implicit we trust that we trust that
-people we believe that the people around
-us are inherently reasonable people they
-hold the same world rounded correct
-views as we do and then one day we
-discover that actually one of the people
-we work for really isn't as nice as that
-maybe they hold it maybe they hold view
-we object to maybe they didn't
-understand something maybe they had
-different different belief
+Finally, let's think about some shared values.
+
+We most often notice them when they diverge -- because shared values are often implicit.
+We believe that the people around us are inherently reasonable.
+People hold the same world views as we do, and one day we discover that actually one of the people we work for really isn't as nice as that.
+Maybe they hold views we object to, maybe they didn't undrstand something, maybe they had different beliefs.
 
 
 
@@ -927,12 +810,11 @@ heads
 
 {% slide suspicious-minds 45 %}
 
- so when Trust is destroyed it goes
-very quickly it is important to note
-though a lot of people see this and then
-they will add a third line and so they
-will say it's gone forever that once
-somebody betrays you
+Trust is built incremenentally but **destroyed incidentally**.
+
+When trust is destroyed, it goes very quickly.
+A lot of people see this, and then they add a third line, "it's gone forever".
+If you discover you misplaced your trust is something, you never trust it again, I don't think that's always true.
 
 
 
@@ -941,10 +823,7 @@ somebody betrays you
   CC0.
 {% endslide_captioned %}
 
-they've misplace your you discover your
-trust in this place you never trust
-somebody again and I don't necessarily
-think that's true taken as an example VW
+ taken as an example VW
 I'm sure many of you in this room may be
 familiar with the VW emission scandal
 about two years ago they were caught
@@ -1022,23 +901,15 @@ trust it's gonna work out
   CC0.
 {% endslide_captioned %}
 
- and one
-industry that does this really well I
-think is the aviation industry because
-flying inherently feels a bit weird we
-all know how gravity works we all know
-that things go down and that's not going
-down flying should be this inherently
-untrustworthy thing and
-it's one of the safest means of
-transport in fact I think it was last
-year or the year before there were no
-deaths in commercial aviation you could
-have flown on occur on any commercial
-plane that year and you would have not
-and you would be at no risk of dying it
-was
-it's an incredibly safe industry
+One industry that does this really well is the aviation industry.
+
+Flying inherently feels a bit weird.
+We all know how gravity works.
+We all know that things go down, and planes aren't going down.
+Flying should be this incredibly untrustworthy thing, but it's one of the safest means of transport.
+
+Last year before there were [no deaths in commercial aviation](https://www.reuters.com/article/us-aviation-safety/2017-safest-year-on-record-for-commercial-passenger-air-travel-groups-idUSKBN1EQ17L).
+It's an incredibly safe industry.
 
 
 
@@ -1289,10 +1160,3 @@ is Trust is not just something that
 happens to you it is something you can
 do and on that note I think I'll finish
 thank you all very much
-
-[Music]
-[Applause]
-so just briefly because Daniele asked my
-won't take questions now but I am around
-all week and if I'm don't look too busy
-I will be happy to answer questions
