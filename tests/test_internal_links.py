@@ -1,5 +1,6 @@
 # -*- encoding: utf-8
 
+import datetime as dt
 import os
 from urlparse import urlparse
 
@@ -15,13 +16,23 @@ def responses(src, baseurl):
     Uses http-crawler to index every internal page, and return a list
     of associated responses.
     """
+    def _all_src_paths():
+        yield from os.listdir(src)
+        try:
+            for post in os.listdir(os.path.join(src, '_drafts')):
+                yield post.replace(
+                    '_drafts',
+                    dt.datetime.now().strftime('%Y/%m'))
+        except FileNotFoundError:
+            pass
+
     if not _responses:
         for rsp in crawl(baseurl, follow_external_links=False):
             _responses.append(rsp)
 
         # This is an attempt to pick up pages that I know exist, but which
         # aren't linked from anywhere else on the site.
-        for entry in os.listdir(src):
+        for entry in _all_src_paths():
             if not entry.endswith('.md'):
                 continue
 
