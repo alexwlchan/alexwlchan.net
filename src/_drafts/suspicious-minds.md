@@ -935,76 +935,45 @@ Repeat my list of steps for fixing a loss of trust:
 
 {% slide suspicious-minds 43 %}
 
- it
-to rebuild trust because the funny thing
-is actually when we lose trust if we
-rebuild it correctly we can often end up
-with more trust than we started with
-it's a well-studied phenomenon for
-example if you go into a shop you buy a
-piece of clothing the closer you get
-home the clothes have got a hole in it
-the shop has failed in its promise to in
-its promise of consistency and its
-reliability but then you go back and
-they replace it free of charge so you're
-a problem they resolve it you are more
-likely to shop there again even compared
-to somebody who didn't have a problem in
-the first place because remember again
-Trust is built as small interactions
-they all build up incrementally and
-that's what gives us the basis to trust
-somebody and sometimes when a mistake
-happens and you fix it and you fix it
-well those are other interactions that
-feed into somebody's impression of you
-that feed into that layer of trust so a
-mistake doesn't have to be the end of
-the world as long as you don't let it be
+The funny thing is, when we lose trust, if we rebuild it correctly, we can often end up with more trust than we started with.
+
+Here's a well-studied phenomenon:
+If you go into a shop, you buy a piece of clothing, and when you get home the clothes have got a hole in it, the shop has failed in its promise of consistency and reliability.
+But then you go back and they replace it free of charge -- you had a problem, they resolved it.
+You are more likely to shop there again -- *even compared to somebody who didn't have a problem in the first place*!
+
+Remember again: trust is built as small interactions.
+They all build up incrementally, and that's what gives us the basis to trust somebody.
+When a mistake happens and you fix it and you fix it well, those are new interactions that feed into somebody's impression of you; that feed into that layer of trust.
+A mistake doesn't have to be the end of the world as long as you don't let it be.
 
 
 
 {% slide suspicious-minds 24 %}
 
-so let's wrap up what I've shown you
-today we've talked about trust I've
-shown you my framework for thinking
-about trust and how Trust is built
-honesty reliability and shared values
-have all three of those things encourage
-all three of those things you have a
-system where trust can merge if you lose
-one of those things your problem and
-I've shown you some examples of how you
-can build external tools external pretty
-new processes new systems to encourage
-those things not just to try harder to
-be more honest but actually come up with
-systems of verifying and validating that
-but if I want to take you to take one
-thing away from the rest of it from
-today
+So let's recap what I've shown you today.
+
+We've talked about trust.
+I've shown you my framework for thinking about trust, and how trust is built --
+honesty, reliability, and shared values.
+If you encourage all three of those things, you have a system where trust can emerge.
+If you lose one of them, you have a problem.
+
+I've shown you some examples of how you can build new tools, processes and systems to encourage those things -- not just to try harder, but come up with
+ways to verify and validate them.
 
 
 
 {% slide suspicious-minds 53 %}
 
-the final thing I would leave you
-with is this
+But if I want to take you to take one thing away from today, it's this: **trust is something you can actively build**.
 
-is something you can actively build it
-is not just a passive thing happens it
-does just have to be something that
-occurs to you that you have no control
-over you can take actions to affect them
-that trust you have in yourself that
-other people have in you and that you
-have in other people and I've shown you
-my framework for dealing with using that
-you might find another system that works
-better for you but the important thing
-is Trust is not just something that
-happens to you it is something you can
-do and on that note I think I'll finish
-thank you all very much
+It's not just a passive thing that happens.
+It doesn't have to be something that occurs to you, that you have no control over.
+You can take actions to affect the trust that other people have in you, and that you have in other people.
+I've shown you my framework for dealing with trust; you might find another system that works better for you.
+Either way, the important thing is that trust is not just something that happens to you.
+It is something you can *do*.
+
+And on that note I'll finish.
+Thank you all very much!
