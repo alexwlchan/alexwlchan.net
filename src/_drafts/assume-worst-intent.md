@@ -778,16 +778,16 @@ people like to say
 
 {% slide assume_worst_intent 37 %}
 
-number four rushing
-on don't belong technology to solve
-human problems so you need human
-moderation
+Moving along, number 4: don't rely on technology to solve human problems.
+If humans are being mean to each other, you need human moderation.
+
+
 
 {% slide assume_worst_intent 38 %}
 
-because you don't have
-context you don't know everything
-happens on or off your service
+Because you don't have context -- you don't know everything that happens on (or off) your service.
+
+
 
 {% slide assume_worst_intent 39 %}
 
@@ -809,75 +809,81 @@ that goes with it
 
 {% slide assume_worst_intent 40 %}
 
-so context is important give people a
-way to report problems and believe them
-treat problems in good faith and
+So context is important.
+Give people a way to report problems, believe them, treat their reports in good faith.
+Act upon them.
+
+*[Ed. I ran out of time to mention this, but I'd point to the [Code of Conduct reporting procedure](https://2018.pyconuk.org/code-conduct/) as an example of how to collect reports of harassment.]*
+
+Finally, look after your moderators.
+Today, we've only talked about online harassment, personal harassment (it's only a 25 minute slot!).
+There are lots of other awful things on the Internet: child pornography, sexual abuse, rape imagery, animal harm, torture imagery.
+
+
 
 {% slide assume_worst_intent 41 %}
 
-finally
-look after your moderators and this is
-an important one as well
-we've talked mostly today about I'm
-talking mostly stay back from online
-harassment personal harassment there are
-lots of other awful things on the
-Internet child pornography sexual abuse
-rape imagery to an animal harm torture
-imagery and these are really awful
-horrific things that your moderators
-will have to look at every time somebody
-reports it and says hey maybe this is a
-bad thing that you don't want to be
-allowing allowing on your platform look
-after them make sure let's ported
-canceled hat breaks and so on because
-looking at this stuff really hurts
-people
+These are really awful horrific things that your moderators will have to look at and make a judgement on every time somebody reports it.
+Look after them -- make sure they're supported.
+Appropriate counselling, enough breaks, and so on, because even just looking at this stuff really hurts people.
+
+
 
 {% slide assume_worst_intent 42 %}
 
-and briefly this is a tweet from
-rah who was the LiveJournal trust and
-safety 40% of people burnt out within
-three months of having to go through the
-cesspit of human interaction seeking
-moderation is best
+This is a [tweet from rahaeli](https://twitter.com/rahaeli/status/1036304125418504192), who did a lot of work on the LiveJournal trust and safety team.
+It's part of a larger thread -- 40% of people burnt out within three months of having to go through the cesspit of human interaction.
+
+*[Ed. I don't remember rah's exact role at LiveJournal, but I think they might have been head of the team?  If you care about online safety and building good communities, they're a very good follow [on Twitter](https://twitter.com/rahaeli).]*
+
+
+
+{% slide assume_worst_intent 37 %}
+
+So human moderation is best, but look after your moderators.
+
+
 
 {% slide assume_worst_intent 45 %}
 
-and finally design with abusive personas
-in mind we're used to designing with
-persona with personas where we think
-about trying to help people how can I
-make this flow easier for them make my
-service better for them think in the
-opposite direction imagine somebody
-really awful wants to use my service how
-are they going to use it to cause harm
-and how can I make their life as
-difficult as possible
+Finally, **design with abusive personas in mind**.
+
+We're used to designing with persona where we think about trying to help people.
+How can we make this flow easier?
+How can we make our service better?
+How can we make this process smoother?
+
+Think in the opposite direction: imagine somebody really awful wants to use your service.
+How are they going to use it to cause harm?
+How can you make their life as difficult as possible?
+
+
 
 {% slide assume_worst_intent 46 %}
 
-so there's a summary slide some ways you
-can protect now users make you better
-diversify your team think about your
-name policies robust privacy controls
-human moderation design with abusive
-personas in mind like I said these
-things will not catch everything but
-they will catch a lot and they'll make
-up an and they will make your service
-better
+Here's a summary slide: some ways you can protect yours users better:
+
+1.  Diversify your team
+2.  Think about your name policies
+3.  Robust privacy controls
+4.  Human moderation
+5.  Design with abusive personas in mind
+
+These things won't catch everything, but they will catch a lot, and they will make your service better.
+
+
 
 {% slide assume_worst_intent 47 %}
 
-and I'll leave you with this
-always when you're building something
-ask how could this be used to hurt
-someone how could an abusive ex misuse
-this because if you don't answer those
-questions somebody else will answer them
-for you and your users will get hurt in
-the process thank you all very much
+I'll leave you with this: whenever you're building something, always ask: **How could this be used to hurt someone?**
+**How could an abusive ex misuse this?**
+
+Because if you don't answer those questions, somebody else will answer them for you, and your users will get hurt in the process.
+
+Thank you all very much.
+
+---
+
+##
+
+https://twitter.com/hannahintech
