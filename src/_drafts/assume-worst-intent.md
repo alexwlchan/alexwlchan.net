@@ -21,223 +21,148 @@ The transcript is based on the captions on the YouTube video, with some light tw
 
 {% slide assume_worst_intent 1 %}
 
-again since you've already heard from me
-before I'll skip the introduction and
-gets right into the talk we're talking
-this morning about online harassment and
-specifically how do we build systems to
-prevent it the reduce it that reduce the
-risk of it I'm gonna show you some
-mechanisms and practical tips some ways
-that I found that are most successful in
-reducing online harassment
+Since you've [already heard from me before](/2018/09/suspicious-minds/), I'll skip the introduction and gets right into the talk.
+
+This morning we're talking about online harassment, and specifically, how do we build systems to prevent it, reduce it, and reduce the risk of it.
+I'm going to show you some mechanisms and practical tips that I've found are most successful in reducing online harassment.
+
+
 
 {% slide assume_worst_intent 2 %}
 
-but before we
-start some content warnings this is a
-talk about online harassment so I'm
-going to talk about online harassment
-I'm also gonna talk about abuse there
-are mentions of things like racism
-misogyny sexism suicide rape and death
-threats and there are very brief
-mentions of some of the other horrible
-things that people do to each other on
-the internet I'm a word that these are
-uncomfortable subjects for some people
-people in this room may have experience
-and may have traumatic experiences with
-these things and so while it is usually
-considered poor as it get to leave a
-talk midway through if anybody does feel
-uncomfortable and wants to step out for
-a few minutes I will absolutely not be
-offended
+Before we start, some content warnings.
+
+This is a talk about online harassment, so I'm going to talk about online harassment.
+I'm also going to talk about abuse.
+
+There are mentions of things like racism, misogyny, sexism, suicide, rape and death threats.
+There are very brief mentions of some of the other horrible things that people do to each other on the Internet.
+
+I'm aware that these are uncomfortable subjects for some people.
+People in this room may have traumatic experiences with these topics, and so while it's usually considered poor etiquette to leave a talk midway through, if anybody does feel uncomfortable and wants to step out for a few minutes, I will absolutely not be offended.
+
+*[Ed. And if you're reading the written version, you should only read on if you're comfortable doing so!]*
+
+
 
 {% slide assume_worst_intent 3 %}
 
-so let's start off with an
-example this is an app called square
-cache it's a nice little mobile payments
-platform it's designed to be fast easy
-much more convenient than using a
-banking system than using the online
-banking system and you'll see what they
-have is a chat feature so you can tell
-somebody why you would like why you
-would like money from them what are they
-paying for it allows to give some
-context to their transactions rather
-than the 13 or so uppercase count you
-get if you do it through your online
-bank
+Let's start off with an example.
+This is an app called [Square Cash](https://en.wikipedia.org/wiki/Cash_App).
+It's a nice little mobile payments platform.
+It's designed to be fast, easy, more convenient than using online banking.
+
+And as you can see in the screenshot, they have a chat feature.
+You can tell somebody why you would like money from them, and what they're paying for.
+It gives you context for transactions -- this seems like a really useful feature, right?
+
 
 {% slide assume_worst_intent 4 %}
 
-so this all seems fine this seems
-like a really useful feature this is a
-thing we would like to exist in the
-world except they didn't realize that
-having a messaging platform opens
-effective harassment and we can see here
-somebody's abusive acts used that
-messaging platform to send them abusive
-messages for months and Square cash
-never thought maybe people we should
-allow people to block each other because
-why would you want to block somebody
-sending you money I like receiving money
-you will like receiving money money
-money money and to their credit when
-this was posted and when this tweet went
-viral they very quickly closed a
-loophole but this doesn't change the
-fact that four months somebody had to
-put up with harassment that wasn't that
-was available through their platform
+Except they didn't realize that having a messaging platform opens the door to harassment.
+We can see here that somebody's abusive ex used that messaging platform to send them abusive messages for months.
+Square Cash never thought to add a blocking feature, because why would you want to block somebody from sending you money?
+I like receiving money, you will like receiving money, money money money!
+
+To their credit, when this tweet went viral, they very quickly closed a loophole -- but it doesn't change the fact that for months, somebody had to put up with harassment that was made possible through the design of their platform.
+
+*[Ed. Anna Marie's [original tweet](https://twitter.com/TweetAnnaMarie/status/789957313649967104) is still up, and the topmost reply is from Robert Anderson -- a founding designer at Square Cash.]*
+
+
 
 {% slide assume_worst_intent 5 %}
 
-and
-this is one of the big problems with
-thinking about user safety we're
-thinking about harass
-is that if we let it be an afterthought
-it becomes expensive it's harder to
-retrofit later and it often means that
-our users have to learn the hard way all
-of the rough edges of our platform
+This is one of the big problems with thinking about user safety and harassment.
+If we let it be an afterthought, it becomes more expensive.
+It's harder to retrofit later, and it often means that our users will learn the rough edges of our platform the hard way.
+**User safety can't be an afterthought.**
+
+
 
 {% slide assume_worst_intent 6 %}
 
-and
-this is a shame because I fundamentally
-believe that most developers mean well
-the squash developers wants to make a
-better way to send money to each other
-they didn't want to build a tool for
-harassment and I assume most people at
-PyCon UK are pretty nice I'm assuming
-you're all the same way
+This is a shame, because I fundamentally believe that most developers mean well.
+The Square Cash developers wanted to make a better way to send money to each other -- they didn't want to build a tool for harassment.
+I assume that most people at PyCon UK are pretty nice too.
+
+
 
 {% slide assume_worst_intent 7 %}
 
-so how do we do
-this how do we think about this because
-it's a possibility truth is if you allow
-user to user interactions you have the
-possibility of harassment on your
-platform ever since ever since we've had
-the means of communication whether it's
-talking writing sending images to each
-other people have been using it to send
-nasty messages to other people most
-people are fundamentally nice but there
-are some bad people out there and we do
-have to think about them
+How do we do this?
+How do we think about this?
+
+Because a fundamental truth is this: **if you allow user-to-user interactions, you have the possibility of harassment.**
+
+Ever since ever since we've had the means of communication -- whether it's talking, writing, sending images to each other -- people have been using it to send nasty messages to other people.
+Most people are very nice, but there are some bad people out there and we do have to think about them.
+
+
 
 {% slide assume_worst_intent 8 %}
 
-so what is
-unlike harassment looked like these are
-some examples there's a lot of it you'll
-see things like sending nasty messages
-and this goes all the way from spam and
-phishing through to rake threats and
-death threats posting of personal
-information identity theft revenge porn
-and many many more things that I'm sure
-you can think of that didn't fit on this
-slide and now on the one hand personal
-harassment isn't a new thing right it
-didn't suddenly spring up in the 1980s
-when we invented the internet people
-being harassed long before that what
-online harassment changes I think is the
-scale and the scope of it because the
-Internet allows me to talk to people
-much further away halfway around the
-world and that's a fantastic thing but
-it means that I can be harassed by
-somebody from a Ralph's way around the
-world somebody who I've never met in
-person Y might never meet in person can
-still send them horrible messages
-through the internet and of course the
-expansion of technology the rapid
-expansion of technology has enabled new
-vectors of for harassment
-take for example sharing intimate photos
-without permission sometimes called
-revenge porn so here two people and a
-consensual loving relationship take
-intimate photographs of each other and
-share them with each other and this is
-if this is a no fine thing to do between
-consenting adults thirty years ago you
-wouldn't have been able to do that
-because
-making a photograph was relatively
-expensive you probably needed a large
-camera you would need to go to a kept to
-a specialist to a store to get the film
-developed and sending photographs
-required putting a stamp on an envelope
-today we all have cameras in our pockets
-in fact I think I have at least three
-cameras standing at this podium and in
-the room we probably have at least two
-or 300 cameras it's much much easier to
-take these photographs and it's much
-much easier to share them that's
-something that didn't exist that
-couldn't have existed 30 years ago and
-now is commonplace and as technology
-continues to expand new VEX harassment
-crop up so really going to any more
-detail that's because I'm assuming most
-of you are familiar with it
+So what does online harassment look like?
+
+These are some examples.
+There's a lot of it.
+
+*   You'll see things like **sending nasty messages**, and this goes all the way from spam and phishing, through to rape threats and death threats.
+*   Posting of personal information
+*   Identity theft
+*   Revenge porn
+
+And many many more things that I'm sure you can think of that didn't fit on this slide.
+
+On the one hand, personal harassment isn't a new thing.
+It didn't suddenly spring up in the 1980s when we invented the Internet -- people being harassed long before that.
+What online harassment changesis the scale and the scope.
+
+The Internet allows me to talk to people halfway around the world -- and that's a fantastic thing, but it means that I can be harassed by somebody who I've never met in person, who I might never meet in person.
+They can still send me horrible messages.
+
+And the rapid expansion of technology has enabled new vectors of for harassment.
+Take, for example, sharing intimate photos without permission, sometimes called [revenge porn](https://en.wikipedia.org/wiki/Revenge_porn).
+Here, two people in a consensual, loving relationship take intimate photographs, and share them with each other.
+This is a fine thing to do between consenting adults, but thirty years ago you wouldn't have been able to do that -- making a photograph was relatively expensive.
+You needed a large camera, you'd go to a store to get the film developed, and sending photographs meant putting a stamp on an envelope.
+
+Today we all have cameras in our pockets.
+I have at least three cameras standing at this podium, and we probably have at least 300 cameras in the room.
+It's much much easier to take photographs, and it's much, much easier to share them.
+That's something that couldn't have existed 30 years ago, and now is commonplace.
+
+As technology continues to expand, new vectors of harassment crop up.
+We don't have time to go into detail, but I'm assuming most of you are at least somewhat familiar with these things.
+
+
 
 {% slide assume_worst_intent 9 %}
 
-but one
-thing I do want to stress is that this
-is a thing that has an impact on people
-when I was younger a lot of people used
-to say about you know online bullying
-and so on it's just words on the
-Internet
-it doesn't really matter it doesn't
-affect people anybody heard that I'm
-seeing yeah a few hands in the audience
-and I think when I was younger a few of
-us used to believe that and then one day
-we came into school and we were told
-that one of our friends wasn't coming
-back
-she'd been bullied on Facebook I was 16
-she'd been bullied on Facebook and she
-jumped off a bridge people stopped
-saying that words on the internet didn't
-matter after that but I think it was a
-bit late for her so what a stress very
-importantly what people say on the
-Internet what have said through online
-platforms that has an effect on people
-it is a nasty thing it is not just words
-on the Internet's not just words on a
-screen
+One thing I do want to stress is that this harassment has an impact on people.
+When I was younger, a lot of people used to say, *"Online bullying and so on, it's just words on the Internet. It doesn't really matter. It doesn't affect people."*
+Anybody heard that?
+
+I'm seeing a few hands in the audience.
+
+When I was younger, we all heard that, and I think a few of us believed it.
+And then one day we came into school and we were told that one of our friends wasn't coming back.
+She'd been bullied on Facebook, and she'd jumped off a bridge.
+I was 16.
+
+People stopped saying that words on the internet didn't matter after that, but I think it was a bit late for her.
+
+What people say on the Internet, what gets said through online platforms -- that has an effect on people.
+It is a nasty thing.
+It's not just words on the Internet.
+It's not just words on a screen.
+
+
 
 {% slide assume_worst_intent 10 %}
 
-and I think if you're building a
-platform where people interact where you
-have user to user interaction it is to a
-certain degree your responsibility to
-think about what people are doing on
-there and to think about the effects
-that might have beyond your platform
+If you're building a platform where people interact, where you have user-to-user interaction, I think you have a certain responsibility to consider what people there, and to think about the effects that might have beyond your platform.
+
+
 
 {% slide assume_worst_intent 11 %}
 
@@ -292,7 +217,7 @@ What you'll notice about these is that none of these people are anonymous hacker
 
 {% slide assume_worst_intent 14 %}
 
-The pattern  we see with online harassment is the same as the pattern we see with personal harassment: **people are more likely to be hurt by people they know**.
+The pattern we see with online harassment is the same as the pattern we see with personal harassment: **people are more likely to be hurt by people they know**.
 
 This is very scary because a lot of the people we know are inherently more dangerous individuals, compared to anonymous faces on the Internet.
 
@@ -369,6 +294,8 @@ They absolutely *need* it.
 
 But then we -- people who don't really need that -- we get the benefits of that.
 In the same way, there are lots of ways these techniques can make a service better for everyone.
+
+*[Ed. David's [prolific live-tweeting](https://twitter.com/DRMacIver/status/1041276369819324416) informs me that this is called the "curb-cut effect".]*
 
 
 
