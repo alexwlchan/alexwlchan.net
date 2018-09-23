@@ -11,7 +11,7 @@ theme:
 
 This is a talk I gave on Saturday as the opening keynote of [PyCon UK 2018][pyconuk].
 
-I was already planning to do a talk about online harassment, and Daniele *[Ed. Procida, the conference director]* encouraged me to expand the idea, and turn it into a talk about positive behaviour.
+I was already planning to do a talk about online harassment, and [Daniele](https://twitter.com/evildmp), the conference director, encouraged me to expand the idea, and turn it into a talk about positive behaviour.
 This is my abstract:
 
 > In 2018, trust is at a low.
