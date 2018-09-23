@@ -19,6 +19,8 @@ The transcript is based on the captions on the YouTube video, with some light tw
 
 ---
 
+{% slide assume_worst_intent 1 %}
+
 again since you've already heard from me
 before I'll skip the introduction and
 gets right into the talk we're talking
@@ -28,7 +30,11 @@ prevent it the reduce it that reduce the
 risk of it I'm gonna show you some
 mechanisms and practical tips some ways
 that I found that are most successful in
-reducing online harassment but before we
+reducing online harassment
+
+{% slide assume_worst_intent 2 %}
+
+but before we
 start some content warnings this is a
 talk about online harassment so I'm
 going to talk about online harassment
@@ -47,7 +53,11 @@ considered poor as it get to leave a
 talk midway through if anybody does feel
 uncomfortable and wants to step out for
 a few minutes I will absolutely not be
-offended so let's start off with an
+offended
+
+{% slide assume_worst_intent 3 %}
+
+so let's start off with an
 example this is an app called square
 cache it's a nice little mobile payments
 platform it's designed to be fast easy
@@ -61,7 +71,11 @@ paying for it allows to give some
 context to their transactions rather
 than the 13 or so uppercase count you
 get if you do it through your online
-bank so this all seems fine this seems
+bank
+
+{% slide assume_worst_intent 4 %}
+
+so this all seems fine this seems
 like a really useful feature this is a
 thing we would like to exist in the
 world except they didn't realize that
@@ -81,7 +95,11 @@ viral they very quickly closed a
 loophole but this doesn't change the
 fact that four months somebody had to
 put up with harassment that wasn't that
-was available through their platform and
+was available through their platform
+
+{% slide assume_worst_intent 5 %}
+
+and
 this is one of the big problems with
 thinking about user safety we're
 thinking about harass
@@ -89,7 +107,11 @@ is that if we let it be an afterthought
 it becomes expensive it's harder to
 retrofit later and it often means that
 our users have to learn the hard way all
-of the rough edges of our platform and
+of the rough edges of our platform
+
+{% slide assume_worst_intent 6 %}
+
+and
 this is a shame because I fundamentally
 believe that most developers mean well
 the squash developers wants to make a
@@ -97,7 +119,11 @@ better way to send money to each other
 they didn't want to build a tool for
 harassment and I assume most people at
 PyCon UK are pretty nice I'm assuming
-you're all the same way so how do we do
+you're all the same way
+
+{% slide assume_worst_intent 7 %}
+
+so how do we do
 this how do we think about this because
 it's a possibility truth is if you allow
 user to user interactions you have the
@@ -109,7 +135,11 @@ other people have been using it to send
 nasty messages to other people most
 people are fundamentally nice but there
 are some bad people out there and we do
-have to think about them so what is
+have to think about them
+
+{% slide assume_worst_intent 8 %}
+
+so what is
 unlike harassment looked like these are
 some examples there's a lot of it you'll
 see things like sending nasty messages
@@ -167,7 +197,11 @@ now is commonplace and as technology
 continues to expand new VEX harassment
 crop up so really going to any more
 detail that's because I'm assuming most
-of you are familiar with it but one
+of you are familiar with it
+
+{% slide assume_worst_intent 9 %}
+
+but one
 thing I do want to stress is that this
 is a thing that has an impact on people
 when I was younger a lot of people used
@@ -193,15 +227,27 @@ Internet what have said through online
 platforms that has an effect on people
 it is a nasty thing it is not just words
 on the Internet's not just words on a
-screen and I think if you're building a
+screen
+
+{% slide assume_worst_intent 10 %}
+
+and I think if you're building a
 platform where people interact where you
 have user to user interaction it is to a
 certain degree your responsibility to
 think about what people are doing on
 there and to think about the effects
-that might have beyond your platform so
+that might have beyond your platform
+
+{% slide assume_worst_intent 11 %}
+
+so
 this is all pretty nasty stuff who's
-doing it I think we often have this as
+doing it I think
+
+{% slide assume_worst_intent 12 %}
+
+we often have this as
 the popular image of a hacker a
 malicious person on the Internet and we
 can see they tick all the hacker
@@ -215,7 +261,11 @@ about somebody stealing passwords from
 our database or gaining root access to
 our servers or to doing Mallick doing
 malicious anonymous things again against
-us as a service but what I'm really
+us as a service
+
+{% slide assume_worst_intent 13 %}
+
+but what I'm really
 talking about with harassment is much
 more targeted it's directed against a
 particular person and the sort of people
@@ -262,6 +312,8 @@ live in a basement in Russia and wear
 hoodies and drink bad coffee Russia are
 not lucky enough to have Brodie's
 
+{% slide assume_worst_intent 14 %}
+
 the pattern we see with online
 harassment is the same as the pattern we
 see with personal harassment people are
@@ -305,7 +357,11 @@ harm somebody who lives 600 miles away
 from me is going to struggle to
 physically hurt me but somebody who
 lives in the same house as me is gonna
-have very little trouble doing that so
+have very little trouble doing that
+
+{% slide assume_worst_intent 15 %}
+
+so
 this is all very upsetting there are
 horrible people in the world they do
 horrible things they might be living in
@@ -313,7 +369,11 @@ the same house as you so maybe we should
 all go and hide under a tin foil black
 under a tin foil blanket and never leave
 our room this would not be particularly
-productive the good news is that it
+productive
+
+{% slide assume_worst_intent 17 %}
+
+the good news is that it
 doesn't have to be this way there are
 tools and techniques we can use to build
 services to reduce the risk of
@@ -323,9 +383,17 @@ better there are ways that we are always
 kept platforms that are not just open to
 facilitate all forms of abuse we can do
 better than to
-komm so how can we protect our users and
+komm
+
+{% slide assume_worst_intent 18 %}
+
+so how can we protect our users and
 restrict walkthroughs and best practice
-for the rest of presentation the first
+for the rest of presentation
+
+{% slide assume_worst_intent 19 %}
+
+the first
 thing I want to stress is that a lot of
 users who aren't risk of harassment are
 essentially normal users they want to
@@ -367,7 +435,11 @@ benefit from it we get the side benefits
 of that and then same way there are lots
 of ways people will use these time use
 these techniques to make it better for
-everyone so what's the first thing you
+everyone
+
+{% slide assume_worst_intent 20 %}
+
+so what's the first thing you
 can do first of all diversify the team
 now I talked about this a lot last year
 there's a video go watch it but I won't
@@ -397,6 +469,9 @@ who would instantly spawn this is
 something you're doing that might be
 able that might make them might make
 something might be dangerous to somebody
+
+{% slide assume_worst_intent 22 %}
+
 let's look at an example which I imagine
 many of you may have you may have used
 before many who might be familiar with
@@ -454,10 +529,22 @@ of fun we're having a diverse team who
 can look at something like this and tell
 you about it before you ship it to
 millions of users and only spot it 15
-years later when it's a bit late so
-think about diversifying the team what
+years later when it's a bit late
+
+{% slide assume_worst_intent 20 %}
+
+so
+think about diversifying the team
+
+{% slide assume_worst_intent 24 %}
+
+what
 we're talking about names let's talk
-about name policies because there is a
+about name policies
+
+{% slide assume_worst_intent 25 %}
+
+because there is a
 commonly held belief that if we ask
 everyone on the Internet to use their
 real name they will that will magically
@@ -468,7 +555,11 @@ without impunity and they people can
 write anything within people with it
 with impunity and not worry about the
 reputational cost and this is wrong in
-both directions first of all it's
+both directions
+
+{% slide assume_worst_intent 26 %}
+
+first of all it's
 perfectly possible to have very friendly
 anonymous discussion this is just one
 example of the thread and people are
@@ -486,6 +577,9 @@ strong and active set of moderators
 people who were looking at the content
 stamping down on bad behavior stamping
 down on people making abusive comments
+
+{% slide assume_worst_intent 27 %}
+
 you can do anonymous discussion it's
 just expensive for many people it's too
 expensive but don't buy into the lie the
@@ -559,10 +653,20 @@ their online identity running itself
 potentially opens to the altar
 harassment so the way I prefer is to go
 for pseudonyms which are a good middle
-ground used by a number of services just
+ground used by a number of services
+
+{% slide assume_worst_intent 24 %}
+
+just
 think carefully about your name policies
+
+{% slide assume_worst_intent 29 %}
+
 third thing moving on robust privacy
 controls
+
+{% slide assume_worst_intent 30 %}
+
 so as a minimum you should have a quite
 a ban and block malicious users both at
 a platform and an individual level I
@@ -578,11 +682,19 @@ bastion of free speech which you
 probably don't there will at some point
 come somebody writing something you
 probably don't want on your platform so
-think about that this is one of the
+think about that
+
+{% slide assume_worst_intent 31 %}
+
+this is one of the
 things that Twitter actually gets right
 they have a blocking feature this is
 what it looks like
-so I blocked somebody here what you'll
+so I blocked somebody here
+
+{% slide assume_worst_intent 32 %}
+
+what you'll
 notice though is that they tell you that
 so it says you are blocked from
 following Alex WL Chan and viewing Alex
@@ -594,7 +706,11 @@ somebody that I liked
 hopefully not um you'll probably feel
 you'll probably feel quite annoyed quite
 upset at me and you might decide to take
-that out on me right imagine that we
+that out on me right
+
+{% slide assume_worst_intent 33 %}
+
+imagine that we
 were living in the same house and you
 discover that I block to you that might
 be its own trigger for retaliation so
@@ -612,7 +728,11 @@ the Twitter model I can only post it I
 can post things that only pre-approve
 followers can see maybe only Mutual's
 only down to the level of individual
-users so you look at sites like Facebook
+users
+
+{% slide assume_worst_intent 34 %}
+
+so you look at sites like Facebook
 LiveJournal dream with they offer really
 granular permissions for who can see
 every post and you can decide that on a
@@ -641,19 +761,37 @@ don't make it immutable if somebody
 posts something and then realizes maybe
 I don't want that for a wide audience
 allow them to go back in might change it
-later and again often granular access
+later and again
+
+{% slide assume_worst_intent 35 %}
+
+often granular access
 controls it makes it if you make it
 easier to change people are more
 comfortable because they don't have to
 publish something with the entire world
 see and that's going to make them more
 likely to interact up more engagement as
-people like to say number four rushing
+people like to say
+
+{% slide assume_worst_intent 29 %}
+
+{% slide assume_worst_intent 37 %}
+
+number four rushing
 on don't belong technology to solve
 human problems so you need human
-moderation because you don't have
+moderation
+
+{% slide assume_worst_intent 38 %}
+
+because you don't have
 context you don't know everything
-happens on or off your service here's an
+happens on or off your service
+
+{% slide assume_worst_intent 39 %}
+
+here's an
 example of a text I got this morning
 someone sent me a picture of a flower
 they're thinking of me as a friend from
@@ -668,9 +806,16 @@ machine can see it doesn't know how to
 make decision based on that you need
 that you need the additional context
 that goes with it
+
+{% slide assume_worst_intent 40 %}
+
 so context is important give people a
 way to report problems and believe them
-treat problems in good faith and finally
+treat problems in good faith and
+
+{% slide assume_worst_intent 41 %}
+
+finally
 look after your moderators and this is
 an important one as well
 we've talked mostly today about I'm
@@ -688,12 +833,19 @@ allowing allowing on your platform look
 after them make sure let's ported
 canceled hat breaks and so on because
 looking at this stuff really hurts
-people and briefly this is a tweet from
+people
+
+{% slide assume_worst_intent 42 %}
+
+and briefly this is a tweet from
 rah who was the LiveJournal trust and
 safety 40% of people burnt out within
 three months of having to go through the
 cesspit of human interaction seeking
 moderation is best
+
+{% slide assume_worst_intent 45 %}
+
 and finally design with abusive personas
 in mind we're used to designing with
 persona with personas where we think
@@ -705,6 +857,9 @@ really awful wants to use my service how
 are they going to use it to cause harm
 and how can I make their life as
 difficult as possible
+
+{% slide assume_worst_intent 46 %}
+
 so there's a summary slide some ways you
 can protect now users make you better
 diversify your team think about your
@@ -714,7 +869,11 @@ personas in mind like I said these
 things will not catch everything but
 they will catch a lot and they'll make
 up an and they will make your service
-better and I'll leave you with this
+better
+
+{% slide assume_worst_intent 47 %}
+
+and I'll leave you with this
 always when you're building something
 ask how could this be used to hurt
 someone how could an abusive ex misuse
@@ -722,10 +881,3 @@ this because if you don't answer those
 questions somebody else will answer them
 for you and your users will get hurt in
 the process thank you all very much
-
-[Applause]
-thank you Alex I'm sure and we more than
-welcome to talk about it afterwards as
-well we don't have any time for
-questions I'm afraid we'll see you in
-five minutes
