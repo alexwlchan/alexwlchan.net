@@ -1,14 +1,26 @@
 ---
 layout: post
 title: Assume worst intent (designing against the abusive ex)
-tags: pyconuk slides
-summary: TBC
+tags: pyconuk slides community-management
+summary: Notes and slides from a talk at PyCon UK about online harassment. How do we design services and platforms to reduce the risk of harassment and abuse from other users?
 theme:
   card_type: summary_large_image
   image: /images/2018/worst-intent.png
 ---
 
-The talk was recorded, and thanks to the magic of Tim&nbsp;Williams, you can watch it on YouTube:
+This is a talk I gave last Sunday [at PyCon UK 2018](https://2018.hq.pyconuk.org/schedule/item/54DC/).
+
+Gail Ollis invited me to give a talk about [online harassment](/2018/04/anti-social-media/) in April, based on my talk about [privilege and inclusion](/2017/11/pyconuk-2017-privilege-inclusion/) at the previous year's conference.
+We were chatting afterwards, and I realised with a bit of tidying, I could reuse it.
+This is a refined and shortened (and hopefully better!) version of the April talk.
+
+Here's the abstract:
+
+> Apps and services often build features with good intent, trying to improve interactivity or connections between our users. But what if one of your users has a stalker, or an abusive ex? You may have given them another way to hurt or harass your user.
+>
+> This session will help you identify common threat models – who is at most at-risk, and who is a threat to your most vulnerable users. Then we’ll look at some good practices that improve the safety of your users, and how to design with these risks in mind. There’s no silver bullet that totally eliminates risk, but you can make design decisions that give more control and safety to your users.
+
+The talk was recorded, and you can watch it on YouTube:
 
 {% youtube https://www.youtube.com/watch?v=XyGVRlRyT-E %}
 
@@ -618,9 +630,18 @@ Fin.
 
 ---
 
-## Q&A
+## Whose number is that?
 
 I didn't take audience Q&A in this session, partly for time and partly because it's a topic that gets derailed easily.
-My preference is always to have conversations in the hallway track.
+I always prefer having conversations in the hallway track.
 
-https://twitter.com/hannahintech
+[Hannah Tucker McLellan](https://twitter.com/hannahintech) asked a very good question about my slides -- one you might have wondered if you looked closely.
+*In the slide with a picture of a flower, is that a real person's phone number? And if so, should I really be sharing it?*
+
+Spoiler: I did not accidentally (or deliberately!) leak a real person’s number while talking about other people maliciously leaking personal details online.
+
+Ofcom (the UK telecoms regulator) has [reserved blocks of phone numbers](https://www.ofcom.org.uk/phones-telecoms-and-internet/information-for-industry/numbering/numbers-for-drama) for fictional use.
+I used one of those -- from the Cardiff block, because that's where the conference was being held -- not a real person's number.
+It's an Easter egg I put in when I made the slides, and had entirely forgotten about.
+
+Props to Hannah for asking.
