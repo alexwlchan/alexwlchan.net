@@ -332,69 +332,45 @@ This would not be particularly productive.
 
 {% slide assume_worst_intent 17 %}
 
-the good news is that it
-doesn't have to be this way there are
-tools and techniques we can use to build
-services to reduce the risk of
-harassment we can never stop all the
-nasty people in the world but we can do
-better there are ways that we are always
-kept platforms that are not just open to
-facilitate all forms of abuse we can do
-better than to
-komm
+The good news is that **it doesn't have to be this way**.
+There are tools and techniques we can use to build services in a way that reduces the risk of harassment.
+
+We can never stop all the nasty people in the world, but we can do better.
+There are ways to build platforms that aren't just open to all forms of abuse.
+We can do better than twitter.com.
+
+
 
 {% slide assume_worst_intent 18 %}
 
-so how can we protect our users and
-restrict walkthroughs and best practice
-for the rest of presentation
+So how can we protect our users?
+
+In the rest of this presentation, we'll look at some ideas and best practices.
+
+
 
 {% slide assume_worst_intent 19 %}
 
-the first
-thing I want to stress is that a lot of
-users who aren't risk of harassment are
-essentially normal users they want to
-use your service for the same reason as
-everyone else and that might be fun it
-might be work it might be because
-they're doing creative projects all
-sorts of reasons same reasons it has
-anybody else with you something now they
-might also be using it for reasons of
-looking for an escape looking to improve
-their morale looking for support but a
-lot of the reasons we'll along with the
-rest of your users as this means that
-making your service better for better
-for vulnerable users users who are at
-high risk of harassment can make it
-better for everyone as an example of
-this sorry did I hear something in the
-audience right sorry I misheard
-something there so um go back to this
-take email spam we all probably get a
-small most of us I imagines from get a
-small number of emails we get a trickle
-of spam if we were to turn off all a
-spam filtering and just take all of the
-messages that come to our inbox it would
-not be overwhelming for us we could cope
-with it it would be annoying but we
-could deal with it
-but a lot of spam filtering technology
-was designed originally for people who
-were just overwhelmed in spam drowning
-in it thousands of messages a day they
-couldn't keep up those services have
-will for them but then we people who
-don't really need that but would still
-benefit from it we get the side benefits
-of that and then same way there are lots
-of ways people will use these time use
-these techniques to make it better for
-everyone
+The first thing I want to stress is that a lot of users who get harassed are essentially normal users.
+They want to use your service for the same reasons as everyone else -- that might be fun, work, creative projects -- all sorts of reasons.
+The same reasons as anybody else.
+
+Now, they might also be using it to look for an escape, to improve morale or find support -- but a lot of the reasons will align with the rest of your users.
+This means that making your service better for users who are at high risk of harassment can make it better for everyone else.
+
+As an example of this, conside email spam.
+Most of us probably get a small amount of emails, and a trickle of spam.
+If we were turned off our spam filtering, and let them all into our inbox, it would be annoying but not overwhelming.
+We could deal with it.
+
+Spam filtering technology is essential for people who get overwhelmed in spam, drowning in thousands of messages a day.
+They couldn't keep up with email if they didn't have spam filtering.
+They absolutely *need* it.
+
+But then we -- people who don't really need that -- we get the benefits of that.
+In the same way, there are lots of ways these techniques can make a service better for everyone.
+
+
 
 {% slide assume_worst_intent 20 %}
 
