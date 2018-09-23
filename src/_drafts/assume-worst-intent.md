@@ -241,135 +241,94 @@ that might have beyond your platform
 
 {% slide assume_worst_intent 11 %}
 
-so
-this is all pretty nasty stuff who's
-doing it I think
+This is all pretty nasty stuff -- who's doing it?
+
+
 
 {% slide assume_worst_intent 12 %}
 
-we often have this as
-the popular image of a hacker a
-malicious person on the Internet and we
-can see they tick all the hacker
-stereotypes they're wearing a hoodie
-there are a darkened basement they have
-green tacks projected on their face
+We have this popular image of a "hacker" -- a malicious person on the Internet.
+This person ticks all the hacker stereotypes -- they're wearing a hoodie, they're in a darkened basement, they have green text projected on their face.
 
-and maybe this is the sort of person we
-need to worry about when we're thinking
-about somebody stealing passwords from
-our database or gaining root access to
-our servers or to doing Mallick doing
-malicious anonymous things again against
-us as a service
+This is the sort of person we need to worry about when we're thinking about somebody stealing passwords from our database, or gaining root access to
+our servers, or doing malicious things against us as a service.
+
+But I'm talking about with harassment is much more targeted -- it's directed against a particular person.
+The sort of people who do online harassment are the same as the people who do personal harassment in the physical world.
+
+
 
 {% slide assume_worst_intent 13 %}
 
-but what I'm really
-talking about with harassment is much
-more targeted it's directed against a
-particular person and the sort of people
-who tend to do online harassment it's
-the same as the people who do personal
-harassment in the real world so let's
-think about who those people might be it
-could be an abusive partner or an ex
-could be family members it could be
-classmates kids often don't have the
-best social skills and we'll say pretty
-mean things co-workers and ex co-workers
-friends and ex friends that one date
-weirdo another thing that the Internet
-has opened up for us
-you know today today you can go online
-there are many online dating sites and
-in many ways this is a wonderful thing
-but now before you ever meet somebody
-they can download your entire Facebook
-profile your Twitter feed your Instagram
-photos they know a huge amount about you
-and if you decide that they didn't go so
-well and they want to they they disagree
-they now have many one wins of finding
-you and tracking you later
-rogue sis admins so what are your sister
-admins doing with your data
-do you trust some of the people who set
-up the early Facebook servers and
-oppressive regimes again well that's
-something we are lucky enough not to
-have to deal with in this country mostly
-but you might if you are building a
-global service you may have users in
-environments like that who would like to
-come after your users who would like to
-come after their data and you need to be
-thinking about that when you build your
-service what you will notice about these
-is that none of these people are
-anonymous hackers who live in it who
-live in a basement in Russia and wear
-hoodies and drink bad coffee Russia are
-not lucky enough to have Brodie's
+So let's think about who those people might be.
+
+*   It could be an **abusive partner or an ex**.
+
+*   It could be **family members**.
+
+*   It could be **classmates**.
+    Kids often don't have the best social skills, and will say pretty mean things.
+
+*   **Co-workers and ex co-workers**.
+
+*   **Friends and ex friends**.
+
+*   **That one-date weirdo**.
+    Another thing that the Internet has opened up for us -- today there are many online dating sites, and in many ways this is a wonderful thing.
+    But now before you ever meet somebody, they can download your entire Facebook profile, your Twitter feed, your Instagram photos.
+    They know a huge amount about you -- and if you decide that the data didn't go so well, and they disagree, they now have many more wins of finding and tracking you later.
+
+*   **Rogue sysadmins**.
+    Do you know what your sysadmins are doing with your customer data?
+
+*   **Oppressive regimes**.
+    Something we're lucky enough not to have to deal with in this country (mostly), but if you're building a global service, you may have users in environments like that.
+    And there are people who'd like to come after your users, who'd like to come after their data.
+    You need to be thinking about that when you build your service too.
+
+What you'll notice about these is that none of these people are anonymous hackers who live in a basement in Russia and wear hoodies and drink bad coffee (Russia aren't lucky enough to have Brodies).
+
+
 
 {% slide assume_worst_intent 14 %}
 
-the pattern we see with online
-harassment is the same as the pattern we
-see with personal harassment people are
-more likely to be caught by people they
-know and this is very scary because a
-lot of the people a lot of people we
-know are inherently more dangerous
-individuals that Anonymous faces people
-on the Internet
-people like our family members or our
-friends they have physical access to us
-they probably know our intimate secrets
-they probably know the answer to your
-security questions
-in fact just out of curiosity put your
-hands up in the room if you know
-somebody else's phone passcode I'm just
-a curious they would say maybe that's
-two-thirds of the room right and you're
-all nice people right right I'm not
-seeing the entire audience nodding which
-is a little bit concerning but imagine
-if you were imagine if you were a nasty
-person imagine if you wanted to go
-through somebody else's mess just go
-through their Facebook feed go through
-their private texts you could do that
-please don't don't try this at home but
-you could do that you have access to do
-that and you know that makes these
-people quite scary and a lot of the ways
-we might otherwise protect ourselves all
-the security all the to factor in the
-world doesn't help if you have physical
-access to a person and their device and
-of course again physical access can go
-beyond just the tools that we think
-about beyond digital tools it can also
-come down to simple acts of physical
-harm somebody who lives 600 miles away
-from me is going to struggle to
-physically hurt me but somebody who
-lives in the same house as me is gonna
-have very little trouble doing that
+The pattern  we see with online harassment is the same as the pattern we see with personal harassment: **people are more likely to be hurt by people they know**.
+
+This is very scary because a lot of the people we know are inherently more dangerous individuals, compared to anonymous faces on the Internet.
+
+People like our family members or our friends.
+They have physical access to us.
+They probably know our intimate secrets
+They probably know the answer to your security questions.
+
+Just out of curiosity, put your hands up in the room if you know somebody else's phone passcode.
+*[Ed. A bunch of hands went up.]*
+Maybe that's two-thirds of the room?
+And you're all nice people, right?
+Right?
+(I'm not seeing the entire audience nodding, which is a little bit concerning.)
+Imagine if you were a nasty person.
+If you wanted to go through somebody else's messages, go through their Facebook feed, go through their private texts -- you could do that!
+You have access to do that.
+
+Physical access makes these people quite scary, and nullifies a lot of the ways we might otherwise protect ourselves.
+All the security in the world doesn't help if you have physical access to a person and their device.
+
+And physical access can go beyond just our digital tools -- it can also come down to simple acts of physical harm.
+Somebody who lives 600 miles away is going to struggle to physically hurt me, but somebody who lives in the same house as me will have very little trouble doing that.
+
+
 
 {% slide assume_worst_intent 15 %}
 
-so
-this is all very upsetting there are
-horrible people in the world they do
-horrible things they might be living in
-the same house as you so maybe we should
-all go and hide under a tin foil black
-under a tin foil blanket and never leave
-our room this would not be particularly
-productive
+This is all very upsetting.
+
+There are horrible people in the world, they do horrible things, they might be living in the same house as you.
+Maybe we should all go and hide under a tin foil blanket and never leave our room.
+
+This would not be particularly productive.
+
+
 
 {% slide assume_worst_intent 17 %}
 
@@ -686,49 +645,42 @@ think about that
 
 {% slide assume_worst_intent 31 %}
 
-this is one of the
-things that Twitter actually gets right
-they have a blocking feature this is
-what it looks like
-so I blocked somebody here
+This is one of the things that Twitter actually gets right.
+They have a blocking feature.
+This is what it looks like if I've blocked you.
+
+
 
 {% slide assume_worst_intent 32 %}
 
-what you'll
-notice though is that they tell you that
-so it says you are blocked from
-following Alex WL Chan and viewing Alex
-WL trans tweets and imagine you went to
-my Twitter profile of this after this
-talking you saw that would that make you
-feel happy respected like I you were
-somebody that I liked
-hopefully not um you'll probably feel
-you'll probably feel quite annoyed quite
-upset at me and you might decide to take
-that out on me right
+What you'll notice though is that *they tell you*.
+
+It says "You are blocked from following alexwlchan and viewing alexwlchan's tweets".
+Imagine you went to my Twitter profile after this talk and that's what you saw. Would that make you feel happy?
+Respected?
+Like you were somebody that I liked?
+
+No.
+You'd probably feel quite annoyed.
+Quite upset at me.
+You might decide to take that out on me, right?
+
+
 
 {% slide assume_worst_intent 33 %}
 
-imagine that we
-were living in the same house and you
-discover that I block to you that might
-be its own trigger for retaliation so
-another thing you can look at things
-like shadow blocking muting allow people
-to block somebody without ever being
-visible to the other person their block
-avoiding that regular voice that that
-possibility of retribution offer
-granular access controls so the default
-is public private but you can go much
-more you can go more granular than that
-you could have followers only so that's
-the Twitter model I can only post it I
-can post things that only pre-approve
-followers can see maybe only Mutual's
-only down to the level of individual
-users
+Imagine that we were living in the same house, and you discover that I'd blocked you.
+That might be its own trigger for retaliation -- so another thing you can look at things like **shadow blocking** and muting.
+Allow people to block somebody without it being visible to the other person that they're blocked.
+You can avoid that trigger for retaliation.
+
+Offer granular access controls.
+The default is public/private, but you can go much more you can go more granular than that.
+Twitter's model is to allow posting things only to pre-approved followers, or maybe mutuals only, or down to the level of individual users.
+
+*[Ed. Mutuals only is a feature being offered [by Pillowfort](https://twitter.com/pillowfort_io/status/1025070021993799681). I haven't tried it yet, but I like the idea.]*
+
+
 
 {% slide assume_worst_intent 34 %}
 
@@ -765,14 +717,8 @@ later and again
 
 {% slide assume_worst_intent 35 %}
 
-often granular access
-controls it makes it if you make it
-easier to change people are more
-comfortable because they don't have to
-publish something with the entire world
-see and that's going to make them more
-likely to interact up more engagement as
-people like to say
+If you make it easier to change posting visibility, people are more comfortable.
+They don't have to publish something to the entire world -- and that makes them more comfortable, and more likely to use your service.
 
 {% slide assume_worst_intent 29 %}
 
@@ -791,21 +737,17 @@ Because you don't have context -- you don't know everything that happens on (or 
 
 {% slide assume_worst_intent 39 %}
 
-here's an
-example of a text I got this morning
-someone sent me a picture of a flower
-they're thinking of me as a friend from
-home and they now I've got this big talk
-today that's really nice if it's the if
-it's the stalker who rang my hotel room
-six times last night and left me a bunch
-of flowers at reception that's perhaps
-not so nice but if that's the only two
-things your moderators can see your
-machine can see it doesn't know how to
-make decision based on that you need
-that you need the additional context
-that goes with it
+Here's an example of a text I got this morning.
+Someone sent me a picture of a flower -- they're thinking of me.
+
+If it's a friend from home, and they now I've got this big talk today, that's really nice.
+If it's the stalker who rang my hotel room six times last night, and left a bunch of flowers at reception, that's not so nice.
+The message has a very different meaning depending on who sent it,
+
+If that's the only two things your system can see, you don't have enough information to make a decision.
+You need the additional context that goes with it; you need to know my relationship with the sender.
+
+
 
 {% slide assume_worst_intent 40 %}
 
@@ -882,8 +824,13 @@ Because if you don't answer those questions, somebody else will answer them for 
 
 Thank you all very much.
 
+Fin.
+
 ---
 
-##
+## Q&A
+
+I didn't take audience Q&A in this session, partly for time and partly because it's a topic that gets derailed easily.
+My preference is always to have conversations in the hallway track.
 
 https://twitter.com/hannahintech
