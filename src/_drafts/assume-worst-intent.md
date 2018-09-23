@@ -301,250 +301,150 @@ In the same way, there are lots of ways these techniques can make a service bett
 
 {% slide assume_worst_intent 20 %}
 
-so what's the first thing you
-can do first of all diversify the team
-now I talked about this a lot last year
-there's a video go watch it but I won't
-talk about into much detail again here
-the important thing to note is that we
-are all individuals we all have a single
-light lived experience and there are
-people who are different from us who
-have to worry about different things who
-have to worry about different forms of
-harassment
-for example I'm male I do not generally
-have to worry about being harassed at a
-tech conference I don't have to worry
-about being harassed on the bus I don't
-have to worry about what might happen if
-I'm sitting on the train and
-slightly skeevy older dude sits down
-next to me they have some basic
-understanding of those things but they
-don't really permeate my sphere of
-consciousness in the same way they might
-if I was a woman so if I'm designing
-service I want to have a woman on the
-team who has that lived experience and
-who would instantly spawn this is
-something you're doing that might be
-able that might make them might make
-something might be dangerous to somebody
+What's the first thing you can do?
+
+First of all, **diversify the team**.
+I [talked about this a lot last year](/2017/11/pyconuk-2017-privilege-inclusion/), so I won't go into much detail -- the important thing to note is that we are all individuals.
+We all have a single lived experience, and there are people who are different from us, who have to worry about different things, who have to worry about different forms of harassment.
+
+For example, I'm male.
+I don't generally have to worry about being harassed at a tech conference.
+I don't have to worry about being harassed on the bus.
+I don't have to worry about what might happen if I'm sitting on the train and a slightly skeevy older dude sits down next to me.
+
+I have some basic understanding of those things, but they don't really permeate my sphere of consciousness in the same way they might if I was a woman.
+So if I'm designing a service, I want to have a woman on the team who has that lived experience, and who would instantly spot if I'm doing something that might be create a dangerous situation.
+
+
 
 {% slide assume_worst_intent 22 %}
 
-let's look at an example which I imagine
-many of you may have you may have used
-before many who might be familiar with
-git now git is a fantastic version
-control tool hands up in the rooms if
-you use git keep your hands up if you
-have used git today but still quite a
-few hands fantastic tool isn't it it was
-the original blockchain sorry I meant I
-said it but I said I was trying to say
-nice things about it and one of the
-fantastic features of git is that the
-history is immutable
-right so we do one-eye commits and then
-that history is immutable nobody can
-ever change it without fundamentally
-broken it upon story and it being very
-obvious this is a good thing that's a
-feature yes see nothing good one of the
-things get bakes into that chemistry
-that is immutable that you can never
-change is your name your name is
-irrevocably part of the commit history
-it is available forever and is publicly
-browsable in the history of a git
-repository can we ever think of
-scenarios where somebody would change
-their name if you've not read the blog
-post assumptions programs make about
-names really is recommended and this is
-a big one there are lots of reasons
-somebody might change their name they
-might get married which you may notice
-is something that it predominantly
-happens to one gender over another
-they might get divorced and they might
-want to might want to get away from the
-fact that they were once me that they
-were once in a difficult marriage they
-might be trans and want to get away from
-their dead name there are lots of
-reasons why somebody might want to
-change their name and not have it fun
-and he baked into the history of a
-repository not had it permanently
-available when get was originally put
-together in the early 2000s I don't
-think the Linux kernel team was
-particularly diverse
-I don't think they had many trans people
-on the team because I think if they did
-somebody might have looked at this and
-said hey is this a problem there's a lot
-of fun we're having a diverse team who
-can look at something like this and tell
-you about it before you ship it to
-millions of users and only spot it 15
-years later when it's a bit late
+Let's look at an example which I imagine many of you may have used.
+How many of you are familiar with Git?
+
+Hands up in the room if you used Git.
+*[Most of the hands are up.]*
+Hands up if you've used Git today.
+*[Most of the hands stay up.]*
+
+Git is a fantastic version control tool, and one of its features is that history is immutable.
+We do one-by-one commits, and then that history is immutable.
+Nobody can ever change it without fundamentally breaking history and it being very obvious.
+This is a good thing, that's a feature, yes?
+
+But one of the things that gets baked into the Git history, that you can never change, is **your name**.
+Your name is irrevocably part of the commit history.
+It's available forever, and it's publicly browsable in the history of a Git
+repository.
+
+Can we ever think of scenarios where somebody would change their name?
+If you've not read the blog post ["Falsehoods programmers believe about names"](https://web.archive.org/web/20150323092909/https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/), I really recommend it, and this is a big one.
+There are lots of reasons somebody might change their name.
+They might get married and change their name (which predominantly happens to one gender), they might get divorced.
+They might want to hide the fact that they were once in a difficult marriage.
+They might be trans and want to get away from their deadname.
+
+There are lots of reasons why somebody might want to change their name, and not have it baked into the history of a repository.
+Not have it permanently available.
+
+When Git was originally put together in the early 2000s, I don't think the Linux kernel team was particularly diverse.
+I don't think they had many trans people on the team, because if they did, somebody might have looked at this and said, "Hey, is it a problem?"
+
+There's a lot of value in having a diverse team who can look at something like this, and tell you about it before you ship it to millions of users and only spot it 15 years... later when it's a bit late.
+
+*[Ed. This slide is based on a blog post [*How Git shows the patriarchal nature of the software industry*](https://web.archive.org/web/20141230195605/http://blog.megan.geek.nz/how-git-shows-the-patriarchal-nature-of-the-software-industry/) which unfortunately now 404s.]*
+
+
 
 {% slide assume_worst_intent 20 %}
 
-so
-think about diversifying the team
+So think about diversifying the team.
+
+
 
 {% slide assume_worst_intent 24 %}
 
-what
-we're talking about names let's talk
-about name policies
+While we're talking about names, let's talk about name policies.
+
+
 
 {% slide assume_worst_intent 25 %}
 
-because there is a
-commonly held belief that if we ask
-everyone on the Internet to use their
-real name they will that will magically
-make them behave because when we have
-anonymous discussion that calls all the
-problems right people can write anything
-without impunity and they people can
-write anything within people with it
-with impunity and not worry about the
-reputational cost and this is wrong in
-both directions
+There's a commonly held belief that if we ask everyone on the Internet to use their "real" name, that will magically make them behave.
+Anonymity causes all our problems, right?
+People can write anything without impunity, and not worry about the reputational cost.
+This is wrong in both directions.
+
+
 
 {% slide assume_worst_intent 26 %}
 
-first of all it's
-perfectly possible to have very friendly
-anonymous discussion this is just one
-example of the thread and people are
-having a very civil discussion about
-making tea and coffee perfectly
-reasonable six thousand comments and
-they are all civil polite and
-well-mannered so how did this happen is
-this just an internet jam that was
-hidden away protected from the world
-hidden from the Sun like that I've now
-expose operating that you are on a big
-screen no it's because they had a really
-strong and active set of moderators
-people who were looking at the content
-stamping down on bad behavior stamping
-down on people making abusive comments
+First of all, it's perfectly possible to have very friendly, anonymous discussion.
+This is just [one example from a thread](https://fail-fandomanon.dreamwidth.org/187889.html?thread=1023582705#cmt1023582705) where people are having a very civil discussion about making tea and coffee.
+Six thousand comments, and all of them civil, polite and well-mannered.
+
+How did this happen?
+It it just a nice corner of the Internet that was hidden away, protected from the world, that I've now exposed by putting its URL on a big screen?
+No, it's because they had a really strong and active set of moderators people who were looking at the content, stamping down on bad behavior, stamping down on people making abusive comments.
+
+
 
 {% slide assume_worst_intent 27 %}
 
-you can do anonymous discussion it's
-just expensive for many people it's too
-expensive but don't buy into the lie the
-minimize the civil anonymous discussion
-is possible the other side of this
-though is the idea that people care
-about the reputation associated with
-their real name and I don't think that's
-true
-I think we can all think of people on a
-certain website whose name might sound a
-bit like a bird who write all four awful
-things some of whom may be presidents of
-major countries
-and somehow get away with this impunity
-and feel no blowback for the fact that
-they are utterly utterly awful
-reprehensible human beings I should make
-a note that this is my personal opinion
-and not the opinion of Pike on UK or my
-employer there's also the problem though
-that defining a real name is actually
-really hard another assumption
-programmers make about names because
-some people have multiple names so I
-have a Chinese name in my British name
-that you will know me by some people
+So you can do anonymous discussion, it's just **expensive**.
 
-some people then have passports I don't
-have an they don't have an official name
-attached to it there's no name you can
-prove what about organizations
-corporations what exactly you calling
-your real name this is a really hard
-thing to define and probably not a
-problem you are actually interested in
-solving whatever platform you're trying
-to build this is probably not in the
-other thing to consider is that
-connecting wallet names two identities
-itself can actually be a source of
-harassment we are all here because we
-are in the tech industry and generally
-speaking we associate our wallet name
-with the name we go by online in
-professional circles at these
-conferences and that's because there's a
-lot of benefit for us to us doing so
-we're here to get job jobs potentially
-do speaking opportunities it's really
-useful to have your wallet name attached
-to it but we can imagine communities and
-discussion spaces where that might not
-be the case maybe you've got a support
-group for young trans people who aren't
-sure about their identity are bad their
-identity and are trying to talk to other
-people and connect with like minds maybe
-you've got a group for young LGBT folks
-or people who are in abusive homes maybe
-you've got a community about sex and
-kink which again all perfectly
-reasonable things to have on the
-internet but if you start connecting
-those people back to their wallet names
-the names they might be known under a
-law known under in the physical world
-and in turn allowing people in the
-physical world to connect back to them
-their online identity running itself
-potentially opens to the altar
-harassment so the way I prefer is to go
-for pseudonyms which are a good middle
-ground used by a number of services
+For many people, it's too expensive -- but don't buy into the lie that civilised and anonymous discussion is impossible.
+
+On the other side of this though is the idea that people care about the reputation associated with their real name, and I don't think that's true.
+
+I think we can all think of people on a certain website who write all sorts of awful things, some of whom may be presidents of major countries, and somehow do this with impunity.
+They feel no blowback for the fact that they are utterly awful, reprehensible human beings .
+
+There's also the problem that **defining a real name is actually really hard**.
+Another assumption programmers make about names: some people have multiple names.
+What your "real" name is can be a really hard thing to define, and it's probably not a problem you're actually interested in solving.
+Whatever platform you're trying to build, this is probably not it.
+
+The other thing to consider is that connecting wallet names to identities can itself be a source of harassment.
+We're all here because we're in the tech industry.
+Generally speaking, we associate our wallet names with the name we go by online, in professional circles, at these conferences.
+That's because there's a lot of benefit for us to us doing so -- we're potentially here to get jobs, speaking changes, opportunities -- it's really
+useful to have our wallet name attached to our online identities.
+
+But we can imagine communities and discussion spaces where that might not be the case.
+Maybe you've got a support group for young trans people who aren't sure about their identity, and they want to talk to other people and connect with like minds.
+Maybe you've got a group for young LGBT folks or people who are in abusive homes.
+Maybe you've got a community about sex and kink.
+All perfectly reasonable things to have on the Internet, but if you start connecting those users back to their wallet names -- the names they might be known by in the physical world -- and in turn allowing people in the physical world to find their online identity, you open the door to other harassment.
+
+The way I prefer is persistent pseudonyms, which are a good middle ground used by a number of services.
+
+
 
 {% slide assume_worst_intent 24 %}
 
-just
-think carefully about your name policies
+So think carefully about your name policies.
+
+
 
 {% slide assume_worst_intent 29 %}
 
-third thing moving on robust privacy
-controls
+The third thing: robust privacy controls.
+
+
 
 {% slide assume_worst_intent 30 %}
 
-so as a minimum you should have a quite
-a ban and block malicious users both at
-a platform and an individual level I
-consider this table stakes for most
-services we look we saw certainly a
-Square crash didn't didn't do it I'm
-still amazed that slack doesn't do it
-and forces all that onto H H overworked
-HR teams and you of course would have a
-way to kick abusive users off your
-platform even if you really want to be a
-bastion of free speech which you
-probably don't there will at some point
-come somebody writing something you
-probably don't want on your platform so
-think about that
+At a minimum, you should have a way to ban and block malicious users.
+Both at a platform and an individual level.
+I consider this table stakes for most services -- but Square cash didn't do it.
+I'm still amazed that Slack doesn't do it.
+You want a way to kick abusive users off your platform.
+Even if you really want to be a bastion of free speech (which you probably don't), there will at some point come somebody writing something you probably don't want on your platform.
+
+*[Ed. I meant to talk more about the value of peer-to-peer blocks, and why they can stop problems at the early stages -- but apparently I forgot!]*
+
+
 
 {% slide assume_worst_intent 31 %}
 
@@ -581,42 +481,29 @@ Offer granular access controls.
 The default is public/private, but you can go much more you can go more granular than that.
 Twitter's model is to allow posting things only to pre-approved followers, or maybe mutuals only, or down to the level of individual users.
 
+Look at sites like Facebook, LiveJournal, Dreamwidth.
+They offer really granular permissions for who can see every post.
+You can decide that on a per-post, per-person basis.
+This is one of those things people use for really interesting and creative purposes.
+Aside from just not letting people they don't like see their content, this is one of those features that people have used in interesting ways.
+
 *[Ed. Mutuals only is a feature being offered [by Pillowfort](https://twitter.com/pillowfort_io/status/1025070021993799681). I haven't tried it yet, but I like the idea.]*
 
 
 
 {% slide assume_worst_intent 34 %}
 
-so you look at sites like Facebook
-LiveJournal dream with they offer really
-granular permissions for who can see
-every post and you can decide that on a
-per post per person basis and this is
-one of those things actually people use
-for really interesting and creative
-purposes aside from just not letting um
-people they don't like to see their
-content this is why those features that
-people
-that people have used in interesting
-ways and this time an example of
-Facebook getting it right they have some
-pretty granular privacy settings they
-have some pretty granular controls and
-not just of what I'm writing I can
-choose who can see them send me friend
-requests you can see my friends lists I
-changed that setting after taking this
-screenshot and you should all go and
-check it yourselves
-who can see my future posts you also go
-back and review your past posts that's
-really important as well
-don't make it immutable if somebody
-posts something and then realizes maybe
-I don't want that for a wide audience
-allow them to go back in might change it
-later and again
+An example of Facebook getting it right: they have some pretty granular privacy settings.
+Not just what I'm writing, I can choose who can see them, who can send me friend
+requests, who can see my friends lists (I changed that setting after taking this
+screenshot!).
+Who can see my future posts.
+
+You can also go back and review your past posts.
+That's really important as well -- don't make it immutable.
+If somebody posts something, and then realises maybe they don't want that for a wide audience, allow them to go back and change it later.
+
+
 
 {% slide assume_worst_intent 35 %}
 
