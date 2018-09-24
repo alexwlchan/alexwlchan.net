@@ -1,6 +1,7 @@
 .git
 .travis
 src
+_site
 !src/_plugins
 tests
 analytics/analytics.db
