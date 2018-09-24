@@ -1,6 +1,7 @@
 # -*- encoding: utf-8
 
 import datetime as dt
+import logging
 import os
 from urlparse import urlparse
 
@@ -55,10 +56,18 @@ def responses(src, baseurl):
     return _responses
 
 
-def test_no_links_are_broken(responses):
+def test_no_links_are_broken(caplog, responses):
     """
     Check that all internal links point to working pages.
     """
+    # The DEBUG level logs from inside requests/urllib3 utterly spam
+    # the Travis output if this test fails.  This reduces the amount
+    # of logging captured by pytest.
+    #
+    # See https://docs.pytest.org/en/latest/logging.html#caplog-fixture
+    #
+    caplog.set_level(logging.INFO)
+
     failed_responses = [rsp for rsp in responses if rsp.status_code != 200]
     failures = set([
         '%s (%d)' % (rsp.url, rsp.status_code)
