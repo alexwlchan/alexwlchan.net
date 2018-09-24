@@ -18,7 +18,7 @@ end
 
 
 def assert_has_layout(entry)
-  if entry.path =~ /^theme\/style(_[0-9a-f]{6})?\.scss/
+  if entry.path =~ /^theme\/style(_[0-9a-fA-F]{6})?\.scss/
     return
   end
 
