@@ -5,7 +5,7 @@ title: Assume worst intent (designing against the abusive ex)
 tags: pyconuk slides community-management
 summary: Notes and slides from a talk at PyCon UK about online harassment. How do we design services and platforms to reduce the risk of harassment and abuse from other users?
 theme:
-  color: 531B93
+  color: 531b93
   card_type: summary_large_image
   image: /images/2018/worst-intent.png
 ---
