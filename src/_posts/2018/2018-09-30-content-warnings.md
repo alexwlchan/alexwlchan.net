@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-09-30 07:12:51 +0000
 title: Content warnings
 summary: Brief musings on the value of content warnings to label upsetting/triggering information.
 ---
