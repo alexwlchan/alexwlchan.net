@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-10-11 07:32:20 +0000
 title: Open consultation on the Gender Recognition Act
 tags: gender uk-politics
 summary: The Government has launched a consultation on the Gender Recognition Act 2004, and it's an opportunity to improve rights and legal recognition for trans/non-binary people.
