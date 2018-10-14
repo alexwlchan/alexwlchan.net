@@ -368,6 +368,12 @@ def should_be_rejected(log_line):
     if parts.path.startswith(('/misc', '/core/misc')) and parts.path.endswith('.js'):
         return True
 
+    if (
+       parts.path.startswith(('/1.', '/backup.', '/dump.', '/home.', '/htdocs.', '/public_html.', '/site.')) and
+       parts.path.endswith(('.bz2', '.gz', '.rar', '.tar', '.tar.gz', '.tgz', '.gzip'))
+    ):
+        return True
+
     if parts.path in REJECTIONS_CONFIG['bad_paths']:
         return True
 
