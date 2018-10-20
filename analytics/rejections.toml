@@ -41,6 +41,11 @@ bad_paths = [
     "/umbraco",
 
     "/admin/content/sitetree/",
+
+    "/cms/",
+    "/netcat/",
+
+    "/manager",
     "/manager/",
 
     "/core/themes/bartik/color/preview.html",
@@ -65,6 +70,8 @@ bad_paths = [
     "/deployment-config.json",
     "/sftp-config.json",
 
+    "/console/css/dashboard-min.css",
+    "/bea_wls_deployment_internal",
 ]
 
 bad_path_prefixes = [
@@ -124,6 +131,8 @@ bad_path_suffixes = [
     ".sql.gz",
     ".sql.tgz",
     ".sql.zip",
+
+    "/indy.css",
 ]
 
 # Anything on this list was polluting 404 reports with URLs that
