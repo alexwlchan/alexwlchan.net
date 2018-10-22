@@ -4,14 +4,13 @@ import com.twitter.finatra.http.routing.HttpRouter
 
 
 class CustomController() extends Controller {
-  get("/healthcheck") { request: Request =>
-    response.ok.json(Map("status" -> "ok"))
+  get("/greeting") { request: Request =>
+    response.ok.json(Map("hello" -> "world"))
   }
 
   get("/:*") { request: Request =>
     response.notFound.json(Map(
-      "status" -> 404,
-      "description" -> s"Page not found for URL ${request.uri}"
+      "error" -> s"page not found: ${request.uri}"
     ))
   }
 }
