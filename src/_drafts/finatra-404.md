@@ -1,0 +1,196 @@
+---
+layout: post
+title: Custom 404 responses in Finatra
+summary: A snippet for returning a custom 404 response in a Finatra app when somebody requests a missing page.
+tags: finatra scala
+---
+
+This post is a quick writeup of a problem I had to solve at work today.
+I'm writing it so I can find the information later, but if you don't use Finatra, it's unlikely to be of much interest.
+
+
+## Context
+
+The [Catalogue API][catalogue] we've built at Wellcome is a [Finatra app][finatra].
+It usually returns JSON responses, including for errors -- we have a [custom error model][error].
+A few simplified examples:
+
+```console
+$ curl "https://api.wellcomecollection.org/catalogue/v2/works?query=fish"
+{
+  "type": "ResultList",
+  "results": [
+    {
+      "id":  "bqzs9649",
+      "title":  "A discourse of fish and fish-ponds, by the Hon. Roger North."
+    },
+    ...
+  ]
+}
+
+$ curl "https://api.wellcomecollection.org/catalogue/v2/works/bqzs9649"
+{
+  "id":  "bqzs9649",
+  "title":  "A discourse of fish and fish-ponds, by the Hon. Roger North."
+}
+
+$ curl "https://api.wellcomecollection.org/catalogue/v2/works/doesnotexist"
+{
+  "errorType": "http",
+  "httpStatus": 404,
+  "label": "Not Found",
+  "description": "Work not found for identifier doesnotexist",
+  "type": "Error"
+}
+```
+
+The Finatra app is listening for the endpoint `/catalogue/v2/works/:id`.
+We've written a function that handles all requests to that endpoint, and inside that function, we can return our custom error model if the ID doesn't exist.
+
+What if you look at a different endpoint?
+
+Over the weekend, I was poking around, and discovered that requests to unhandled endpoints would return an empty 404.
+For example:
+
+```console
+$ curl "https://api.wellcomecollection.org/catalogue/"
+<404 response with an empty body>
+```
+
+We'd rather this endpoint returned instances of our custom error model.
+It took me a while to figure out how to do this -- the Finatra docs weren't so helpful -- so I'm going to write down how I got it working.
+
+You can see [the pull request and tests][pr] on our public repo, but I'll use an example app in this post to make it easier to follow.
+
+[catalogue]: https://developers.wellcomecollection.org/catalogue
+[finatra]: https://twitter.github.io/finatra/
+[error]: https://developers.wellcomecollection.org/catalogue/v2/models/error
+[pr]: https://github.com/wellcometrust/platform/pull/2881
+
+<!-- summary -->
+
+## Problem statement
+
+Here's a minimal Finatra app:
+
+```scala
+import com.twitter.finagle.http.{Request, Response}
+import com.twitter.finatra.http.{Controller, HttpServer}
+import com.twitter.finatra.http.routing.HttpRouter
+
+
+class CustomController() extends Controller {
+  get("/greeting") { request: Request =>
+    response.ok.json(Map("hello" -> "world"))
+  }
+}
+
+
+class Server extends HttpServer {
+  override def configureHttp(router: HttpRouter) {
+    router.add[CustomController]
+  }
+}
+
+
+object ServerMain extends Server
+```
+
+This app has a single endpoint that returns a fixed response:
+
+```
+GET /greeting
+200 OK
+b'{"hello": "world"}'
+```
+
+If you request any other endpoint, you get a 404 with an empty body:
+
+```
+GET /foo/bar
+404 Not Found
+b''
+```
+
+We want it to return a JSON response `{"error": "page not found"}`.
+
+
+
+## What I tried first
+
+I tried a couple of different approaches before I struck on something that worked:
+
+*   The Finatra docs for [HTTP responses][responses] explain how to throw exceptions and return different HTTP error codes, but only if you're inside the handler for a known endpoint.
+    It's unclear how to do it if you're not inside one of those handler functions.
+
+*   Elsewhere in the Catalogue API, we use Finatra's [HTTP exception mappers][exception].
+
+    Exception mappers allow you to catch certain classes of exception, and return your own response.
+    For example, we have a mapper that catches instances of base `Exception`, and gives a response in our error model -- so all internal errors are returned in the same format.
+
+    I tried catching lots of different exceptions, but nothing ever hit my mapper.
+    Whatever was responding to the unhandled endpoint, it wasn't throwing an exception first.
+
+*   When I'm struggling to work out how to do something, searching GitHub for other people who've done the same thing is often fruitful.
+    Code from a random GitHub repo is rarely usable as-is, but it can give me a pointer to something useful to look up.
+    It can be a hint, not a full solution.
+
+    I found a [code snippet][snippet] that suggested setting a `notFound` attribute on a subclass of Controller:
+
+    ```scala
+    class ExampleApp extends Controller {
+      ...
+
+      notFound { request =>
+        render.status(404).plain("not found yo").toFuture
+      }
+    }
+    ```
+
+    But I couldn't get that to work for the controllers in the catalogue API.
+    That code is over five years old, and it's probably out-of-date.
+
+*   I had a brief poke around in the Finatra codebase to see if there was something I could usefully subclass or override, but no joy.
+
+[responses]: https://twitter.github.io/finatra/user-guide/http/responses.html
+[snippet]: https://github.com/mcortesi/test/blob/805663756dd274ee8d7fc8facb7a091a02bff47d/src/main/scala/App.scala#L126-L133
+[exception]: https://twitter.github.io/finatra/user-guide/http/exceptions.html
+
+
+## What actually worked
+
+All the Finatra docs suggested that if I wanted to return a custom error response, I had to do so from within a route handler.
+If only I could write a "catch-all" route handler...
+
+While reading the docs about [defining HTTP controllers][controllers] for the third time, something caught my eye halfway down the page:
+
+> **Wildcard Parameter**
+>
+> Routes can also contain the wildcard pattern as a named parameter, `:*`. The wildcard can only appear once at the end of a pattern and it will capture *all text in its place*.
+
+This was a lightbulb moment.
+By adding a route with a wildcard, I'd get a route handler where I could throw a custom error.
+Here's what that looks like in the example app:
+
+```scala
+class CustomController() extends Controller {
+  get("/greeting") { request: Request =>
+    response.ok.json(Map("hello" -> "world"))
+  }
+
+  get("/:*") { request: Request =>
+    response.notFound.json(Map(
+      "error" -> s"page not found: ${request.uri}"
+    ))
+  }
+}
+```
+
+That passes my tests, and seems to get the behaviour I want -- the same 404 response on all requests, whether or not it's an endpoint used elsewhere.
+
+Because Finatra resolves routes in the order they're added (so earlier routes have priority), this has to be the last route that's declared -- it masks everything that comes after it.
+
+I've put a runnable example [on GitHub][github].
+
+[controllers]: https://twitter.github.io/finatra/user-guide/http/controllers.html
+[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/misc/finatra_404_app
