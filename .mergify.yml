@@ -1,11 +1,12 @@
-rules:
-  default:
-    protection:
-      required_status_checks:
-        contexts:
-          - continuous-integration/travis-ci
+pull_request_rules:
+  - name: "Automatically merge pull requests that are green in Travis"
+  - conditions:
+      - "status-success=continuous-integration/travis-ci"
 
-      # Because I'm not the only user of this repo, I don't care about
-      # reviews.  This undocumented option allows merging with no reviews.
-      # See https://github.com/Mergifyio/mergify-engine/issues/88
-      required_pull_request_reviews: null
+      # Because I'm not the only user of this repo, I don't care about reviews.
+      - "#approved-reviews-by>=0"
+
+  - actions:
+      merge:
+        method: "merge"
+      delete_head_branch: true
