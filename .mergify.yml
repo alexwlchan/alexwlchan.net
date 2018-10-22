@@ -1,12 +1,12 @@
 pull_request_rules:
   - name: "Automatically merge pull requests that are green in Travis"
-  - conditions:
+    conditions:
       - "status-success=continuous-integration/travis-ci"
 
       # Because I'm not the only user of this repo, I don't care about reviews.
       - "#approved-reviews-by>=0"
 
-  - actions:
+    actions:
       merge:
         method: "merge"
       delete_head_branch: true
