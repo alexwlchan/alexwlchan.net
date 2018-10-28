@@ -26,7 +26,7 @@ module Jekyll
     end
 
     def render(context)
-      get_image_tag(@photo_id)
+      get_image_embed(@photo_id)
     end
   end
 
@@ -43,9 +43,20 @@ module Jekyll
       md_content = super.strip
       html_content = converter.convert(md_content)
 
+      flickr_data = get_flickr_data(@photo_id)
+      sizes = Hash[
+        flickr_data.map { |size| [size["label"], size] }
+      ]
+
+      figure_tag = if sizes["Original"]["width"].to_i < 750
+        "<figure style=\"max-width: #{sizes["Original"]["width"].to_i}px\">"
+      else
+        "<figure>"
+      end
+
 <<-EOT
-<figure>
-  #{get_image_tag(@photo_id)}
+#{figure_tag}
+  #{get_image_embed(@photo_id, sizes)}
   <figcaption>#{html_content}</figcaption>
 </figure>
 EOT
@@ -53,19 +64,37 @@ EOT
   end
 end
 
-def get_image_tag(photo_id)
-  flickr_data = get_flickr_data(photo_id)
-  sizes = Hash[
-    flickr_data.map { |size| [size["label"], size["source"]] }
-  ]
-
+def get_image_embed(photo_id, sizes)
 <<-EOT
 <a href="https://www.flickr.com/photos/#{USER_ID}@N03/#{photo_id}/">
-<img
-  src="#{sizes["Large"]}"
-  srcset="#{sizes["Large"]} 1x, #{sizes["Large 2048"]} 2x, #{sizes["Original"]} 4x">
+  #{get_image_tag(photo_id, sizes)}
 </a>
 EOT
+end
+
+def get_image_tag(photo_id, sizes)
+  img_tag = if sizes.key?("Large 2048")
+<<-EOT
+<img
+  src="#{sizes["Large"]["source"]}"
+  srcset="
+    #{sizes["Large"]["source"]} 1x,
+    #{sizes["Large 2048"]["source"]} 2x,
+    #{sizes["Original"]["source"]} 4x">
+EOT
+  elsif sizes.key?("Large")
+<<-EOT
+<img
+  src="#{sizes["Large"]["source"]}"
+  srcset="
+    #{sizes["Large"]["source"]} 1x,
+    #{sizes["Original"]["source"]} 2x">
+EOT
+  else
+<<-EOT
+<img src="#{sizes["Original"]["source"]}">
+EOT
+  end
 end
 
 def get_flickr_data(photo_id)
