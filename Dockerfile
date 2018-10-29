@@ -17,7 +17,8 @@ RUN ./install_jekyll.sh
 
 # This is copied directly into the file to save me the hassle of installing
 # it from a Gem.
-COPY src/_plugins/publish_drafts.rb /usr/local/bundle/gems/jekyll-3.5.2/lib/jekyll/commands
+COPY src/_plugins/publish_drafts.rb /publish_drafts.rb
+RUN mv /publish_drafts.rb /usr/local/bundle/gems/jekyll-$(grep 'jekyll ' Gemfile.lock | grep -v '~>' | awk '{print $2}' | tr -d '()')/lib/jekyll/commands
 
 VOLUME ["/site"]
 WORKDIR /site
