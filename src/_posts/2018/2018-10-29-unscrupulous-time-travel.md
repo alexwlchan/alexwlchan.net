@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-10-29 07:48:12 +0000
 title: How do you hide a coin for 400 years?
 tags: misc time-travel
 summary: Late night musings on an unscrupulous time traveller who wants to cheat at archeology.
