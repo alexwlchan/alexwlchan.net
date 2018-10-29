@@ -49,7 +49,9 @@ plugins:
 highlighter: pygments
 
 liquid:
-  error_mode: strict
+  error_mode: "strict"
+  strict_variables: true
+  strict_filters: true
 
 sass:
   sass_dir: _scss
