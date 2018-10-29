@@ -99,7 +99,6 @@ Gemfile.lock: Gemfile
 	docker run \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--workdir /site \
 		--tty --rm $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
 
