@@ -44,9 +44,8 @@ redcarpet:
 
 plugins:
   - jekyll-paginate-v2
-  - pygments.rb
 
-highlighter: pygments
+highlighter: "rouge"
 
 liquid:
   error_mode: "strict"
