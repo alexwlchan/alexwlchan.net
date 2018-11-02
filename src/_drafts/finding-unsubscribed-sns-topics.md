@@ -94,7 +94,7 @@ subscriptionCountsByTopicArn := make(map[string]int)
 And this is the code for populating the map:
 
 ```go
-import os
+import "os"
 
 func main {
     ...
@@ -150,14 +150,109 @@ map[
   ... ]
 ```
 
-[session_docs]: https://docs.aws.amazon.com/sdk-for-go/api/aws/session/#hdr-Creating_Sessions
+Next, let's iterate over all the subscriptions, and tally the subscriptions associated with each topic:
 
+```go
+listSubscriptionParams := sns.ListSubscriptionsInput{}
+listSubscriptionsErr := snsClient.ListSubscriptionsPages(
+    &listSubscriptionParams,
+    func(page *sns.ListSubscriptionsOutput, _ bool) bool {
+        for _, subscription := range page.Subscriptions {
+            subscriptionCountsByTopicArn[*subscription.TopicArn] += 1
+        }
+        return true
+    })
+
+if listSubscriptionsErr != nil {
+    fmt.Println("Error describing subscriptions: %v", listSubscriptionsErr)
+    os.Exit(1)
+}
+```
+
+This is quite similar to the first loop -- but here the key method is ListSubscriptionsPages, which is a wrapper for the ListSubscriptions API.
+
+As before I'm passing a pointer to some options that use all the defaults, then a handler that processes each page of the response.
+This time, I'm incrementing the value in the map rather than setting it to 0.
+
+You'll notice I don't check if the topic ARN is already in the map before I try to increment it.
+Occasionally a subscription doesn't get deleted when the topic is deleted, and you have subscriptions pointing at a non-existent topic.
+In most languages, accessing a key in a map that doesn't exist is an error -- but not so in Go.
+
+If you try to look up a key in a map that doesn't exist, Go returns the nil value (which is 0 for an int).
+And because `+= 1` is really syntactic sugar for:
+
+```go
+existingValue := subscriptionCountsByTopicArn[*subscription.TopicArn]
+subscriptionCountsByTopicArn[*subscription.TopicArn] = existingValue + 1
+```
+
+When the program looks up the key for a topic that wasn't found by ListTopics, it gets the nil value (0), then it adds 1 and stores that back in the map.
+In this case that's fine, because I'm only interested in topics with zero subscriptions, so an extra non-zero entry in this map is irrelevant.
+In other cases, I'll need to remember that Go handles maps in an unusual way.
+
+The error handling is then very similar to when I listed the topics, just with a different error message.
+
+Finally, let's iterate over the map and print any of the topics with no subscriptions.
+My first attempt was to write a standard Go `range` loop:
+
+```go
+def main {
+    ...
+    for topicArn, subscriptionCount := range subscriptionCountsByTopicArn {
+        if subscriptionCount == 0 {
+            fmt.Println(topicArn)
+        }
+    }
+}
+```
+
+What I discovered is that iterating over a map gives a random iteration order -- [deliberately so][maps_in_action].
+This is slightly annoying, because it becomes harder to see if the output has changed over different calls of the script.
+To get around this, we build a list of the keys, sort it ourselves, then iterate over that:
+
+```go
+import "sort"
+
+def main {
+    ...
+
+    var allTopicArns []string
+    for topicArn := range subscriptionCountsByTopicArn {
+        allTopicArns = append(allTopicArns, topicArn)
+    }
+
+    sort.Strings(allTopicArns)
+
+    for _, topicArn := range allTopicArns {
+        if subscriptionCountsByTopicArn[topicArn] == 0 {
+            fmt.Println(topicArn)
+        }
+    }
+}
+```
+
+I could have built this list while I was paging through ListTopics, but I prefer having it all in one place.
+It makes it clearer *why* I'm building a list of topic ARNs as well as the map.
+
+And that completes the script.
+To recap, this script:
+
+1.  Lists all the topics in SNS
+2.  Lists all the subscriptions that SNS knows about
+3.  Creates a map that tallies the number of subscriptions associated with each topic
+4.  Prints the ARN of every topic that has no subscriptions
+
+When I ran this script, I did indeed find several topics that didn't have any subscriptions, and I fixed them before we lost any more messages.
+Success!
+
+[session_docs]: https://docs.aws.amazon.com/sdk-for-go/api/aws/session/#hdr-Creating_Sessions
 [sdk]: https://aws.amazon.com/sdk-for-go/
 [sns_service]: https://docs.aws.amazon.com/sdk-for-go/api/service/sns/#hdr-Using_the_Client
 [session_package]: https://docs.aws.amazon.com/sdk-for-go/api/aws/session/
 [ListTopicPages]: https://docs.aws.amazon.com/sdk-for-go/api/service/sns/#SNS.ListTopicsPages
 [pass_by_ref]: https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_reference
 [arn]: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html
+[maps_in_action]: https://blog.golang.org/go-maps-in-action#TOC_7.
 
 
 ## Putting it all together
@@ -172,6 +267,7 @@ import (
     "github.com/aws/aws-sdk-go/aws/session"
     "github.com/aws/aws-sdk-go/service/sns"
     "os"
+    "sort"
 )
 
 func main() {
@@ -183,7 +279,7 @@ func main() {
     listTopicsParams := sns.ListTopicsInput{}
     listTopicsErr := snsClient.ListTopicsPages(
         &listTopicsParams,
-        func(page *sns.ListTopicsOutput, lastPage bool) bool {
+        func(page *sns.ListTopicsOutput, _ bool) bool {
             for _, topic := range page.Topics {
                 subscriptionCountsByTopicArn[*topic.TopicArn] = 0
             }
@@ -198,7 +294,7 @@ func main() {
     listSubscriptionParams := &sns.ListSubscriptionsInput{}
     listSubscriptionsErr := snsClient.ListSubscriptionsPages(
         listSubscriptionParams,
-        func(page *sns.ListSubscriptionsOutput, lastPage bool) bool {
+        func(page *sns.ListSubscriptionsOutput, _ bool) bool {
             for _, subscription := range page.Subscriptions {
                 subscriptionCountsByTopicArn[*subscription.TopicArn] += 1
             }
@@ -210,13 +306,38 @@ func main() {
         os.Exit(1)
     }
 
-    for topicArn, subscriptionCount := range subscriptionCountsByTopicArn {
-        if subscriptionCount == 0 {
+    // Print the topic ARNs and subscriptions.  Note that Go randomises map iteration
+    // order by default, so we have to sort the keys ourselves:
+    // https://blog.golang.org/go-maps-in-action#TOC_7.
+    var allTopicArns []string
+    for topicArn := range subscriptionCountsByTopicArn {
+        allTopicArns = append(allTopicArns, topicArn)
+    }
+
+    sort.Strings(allTopicArns)
+
+    for _, topicArn := range allTopicArns {
+        if subscriptionCountsByTopicArn[topicArn] == 0 {
             fmt.Println(topicArn)
         }
     }
 }
 ```
 
-I might cringe at it in six months, but for now it does the job, and I know how it works.
-For an early attempt at the language, I'll take it.
+Writing this post was a useful exercise for me.
+It forced me to really understand what I was doing, and not just handwave an example I'd copied from somewhere else.
+And I made several improvements from the original code while writing the post.
+
+I tried using an underscore for an unused variable in the handler functions (previously it was still called `lastPage`, because that's what the example in the docs used), and that's something I'll use again.
+
+I learnt about the iteration order of maps, which is something I take for granted elsewhere.
+
+And I had to think about the way Go handles map keys that don't exist (when iterating over the subscriptions).
+In this case, you could ignore it and it's fine, but that won't always be the case.
+Making me think about that early is bound to save me a headache later.
+
+(It occurred to me that if all you care about is whether a topic has any subscriptions, you could simplify the map further and just record a boolean "does this topic have any subscriptions".
+But then I'd lose the lesson about non-existent keys, so I decided to leave it as-is.)
+
+Overall, I'm pretty pleased with this code.
+It does the job I wanted, fixed a few bugs in our AWS estate, and I've learnt a bunch about Go by writing it.
