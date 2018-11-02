@@ -25,9 +25,9 @@ def test_pages_appear_correctly(hostname, path):
     ('2017/09/ode-to-docopt', u'I&rsquo;ve used it in multiple languages'),
 
     # Syntax highlighting is being applied correctly
-    ('2017/09/useful-git-commands/', '''<code class="language-console" data-lang="console"><span class="gp">$</span>git rev-parse --show-toplevel
-<span class="go">/Users/alexwlchan/repos/alexwlchan.net</span>
-</code>'''),
+    ('2017/09/useful-git-commands/', '''<code class="language-console" data-lang="console"><span class="gp">$</span>git rev-parse <span class="nt">--show-toplevel</span>
+<span class="go">/Users/alexwlchan/repos/alexwlchan.net
+</span></code>'''),
 
     # We're not adding trailing commas to tags
     ('2017/09/ode-to-docopt', 'python</a>, <a'),
