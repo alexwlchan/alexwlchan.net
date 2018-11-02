@@ -17,13 +17,8 @@ apk add rsync
 # Required for the publish-drafts gem
 apk add git
 
-# Required for the pygments gem.  This has to be Python 2, not Python 3:
-# https://github.com/tmm1/pygments.rb/issues/45
-apk add python py2-pip
-pip install pygments
-
 bundle install
 
 # These packages are only required for installation, not for running Jekyll
-apk del --purge g++ make musl-dev py2-pip ruby-dev
+apk del --purge g++ make musl-dev ruby-dev
 rm -rf /var/cache/apk/*
