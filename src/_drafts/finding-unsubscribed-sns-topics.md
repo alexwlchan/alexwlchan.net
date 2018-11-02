@@ -14,13 +14,13 @@ Sending a single notification can go to multiple places.
 
 <img src="/images/2018/sns-notifications.png" style="max-width: 600px;">
 
+A common use case is something like push notifications on your phone.
+For example, when a game sends you a notification to tell you about new content -- that could be powered by SNS.
+
 We use SNS as an intermediary for SQS at work.
 Rather than sending a message directly to a queue, we send messages to an SNS topic, and the queue subscribes to the topic.
 Usually there's a 1-to-1 relationship between topics and queues, but SNS is useful if we ever want to do some debugging or monitoring.
 We can create a second subscription to the topic, get a copy of the messages, and inspect them without breaking the original queue.
-
-A more common use case is something like push notifications on your phone.
-For example, when a game sends you a notification to tell you about new content -- that could be powered by SNS.
 
 We've had a few bugs recently where the subscription between the SNS topic and SQS queue gets broken.
 When nothing subscribes to a topic, any notifications it receives are silently discarded -- because there's nowhere for them to be sent.
@@ -30,11 +30,10 @@ I wanted a way to detect if this had happened – do we have any topics without 
 You can see this information in the console, but it's a little cumbersome.
 Anything more than a handful of topics becomes unwieldy, so I wrote a script.
 Normally I'd reach for Python, but I'm trying to learn some new languages, so I decided to write it in Go.
-I've only dabbled in Go, so this was a chance to write a useful program and test my Go skills.
+I've only dabbled in Go, and this was a chance to write a useful program and test my Go skills.
 
 In this post, I'll explain how I wrote the script.
-Even if the Go isn't very idiomatic, I hope it's a useful insight into how I write this sort of thing.
-And it's helpful for me to write it, because it forces me to understand exactly how this code works.
+Even if the Go isn't very idiomatic, I hope it's a useful insight into how I write this sort of thing, and what I'm learning as a Go novice.
 
 [sns]: https://en.wikipedia.org/wiki/Amazon_Simple_Notification_Service
 
@@ -79,13 +78,14 @@ func main() {
 ```
 
 I was a bit surprised that it only reads from ~/.aws/credentials by default -- you have to set the region by environment variable, specify it explicitly, or tell the SDK to look in ~/.aws/config.
-I worked it out, but the Python SDK reads from both files by default, and it took me a moment to spot the difference.
+I worked it out, but the Python SDK reads from both files by default, and it took me a moment to realise the difference.
 
 I'm sharing ~/.aws/credentials into my Docker container, and setting the region by environment variable.
 
 Next, let's get all the topics in this AWS region.
 Because I want to find the topics with zero subscriptions, I really want to track how many subscriptions each topic has.
-Let's store the topics in a map from their ARN to subscription count:
+Let's store the topics in a map from their ARN to subscription count.
+(An ARN is the [Amazon Resource Name][arn], a unique ID for anything created in AWS.)
 
 ```go
 subscriptionCountsByTopicArn := make(map[string]int)
@@ -101,7 +101,7 @@ func main {
     listTopicsParams := sns.ListTopicsInput{}
     listTopicsErr := snsClient.ListTopicsPages(
         &listTopicsParams,
-        func(page *sns.ListTopicsOutput, lastPage bool) bool {
+        func(page *sns.ListTopicsOutput, _lastPage_ bool) bool {
             for _, topic := range page.Topics {
                 subscriptionCountsByTopicArn[*topic.TopicArn] = 0
             }
@@ -123,23 +123,22 @@ It takes two parameters -- a pointer to an instance of ListTopicsInput, and a fu
 Within the function, you do any processing you want to on that page, and then the ListTopicPages fetches the next page for you.
 It's a useful wrapper around the pagination APIs.
 
-For the parameters, I'm using the defaults -- the ListTopicsInput struct doesn't have any interesting options.
+For ListTopicsInput, I'm using the defaults -- there aren't any interesting options.
 The ampersand gives me the *address* of the object, so I'm passing a *pointer* into the function.
 This looks similar to [pass by reference][pass_by_ref] in C, but I'm sure there are subtleties in Go that I haven't learnt yet.
 
 The handler function gets a *pointer* to an instance of ListTopicsOutput, and a boolean.
-In the example in the docs, this is called `LastPage`, so I'm guessing this tells you whether you're on the last page of the response?
+In the example in the docs, this is called `lastPage`, so I'm guessing this tells you whether you're on the last page of the response?
 The docs aren't clear on this point.
 I don't use that parameter, so I tried using an underscore for the name.
 I'm pleased to learn that works fine in Go!
 
 Within the handler, I'm iterating over the list of topics, and initialising the subscription count map to 0 for each topic ARN.
-(An ARN is the [Amazon Resource Name][arn], a unique ID for anything created in AWS.)
 
 Finally, I have to check if ListTopicsPages returned an error.
-Like C, Go doesn't have exceptions, it has error returns -- you have to explicitly check for errors yourself.
+Like C, Go doesn't throw exceptions, it has error returns -- you have to explicitly check for errors yourself.
 This is different from what I'm used to; it'll take a while to adjust.
-If I do find an error, I exit immediately -- this script is too short to merit more sophisticated error handling.
+If I do find an error, I exit immediately -- this script is too short to need more sophisticated error handling.
 
 At the end of this code, I have a map with all of the topic ARNs as keys, and the value of each is 0:
 
@@ -169,7 +168,7 @@ if listSubscriptionsErr != nil {
 }
 ```
 
-This is quite similar to the first loop -- but here the key method is ListSubscriptionsPages, which is a wrapper for the ListSubscriptions API.
+This is quite similar to the first loop -- here the key method is ListSubscriptionsPages, which is a wrapper for the ListSubscriptions API.
 
 As before I'm passing a pointer to some options that use all the defaults, then a handler that processes each page of the response.
 This time, I'm incrementing the value in the map rather than setting it to 0.
@@ -207,7 +206,7 @@ def main {
 ```
 
 What I discovered is that iterating over a map gives a random iteration order -- [deliberately so][maps_in_action].
-This is slightly annoying, because it becomes harder to see if the output has changed over different calls of the script.
+This is slightly annoying, because it's difficult to see if the output has changed over different calls of the script.
 To get around this, we build a list of the keys, sort it ourselves, then iterate over that:
 
 ```go
@@ -232,17 +231,17 @@ def main {
 ```
 
 I could have built this list while I was paging through ListTopics, but I prefer having it all in one place.
-It makes it clearer *why* I'm building a list of topic ARNs as well as the map.
+It makes it clearer why I'm building a list of topic ARNs as well as the map.
 
 And that completes the script.
-To recap, this script:
+To recap, we've:
 
-1.  Lists all the topics in SNS
-2.  Lists all the subscriptions that SNS knows about
-3.  Creates a map that tallies the number of subscriptions associated with each topic
-4.  Prints the ARN of every topic that has no subscriptions
+1.  Listed all the topics in SNS
+2.  Listed all the subscriptions that SNS knows about
+3.  Created a map that tallies the number of subscriptions associated with each topic
+4.  Printed the ARN of every topic that has no subscriptions
 
-When I ran this script, I did indeed find several topics that didn't have any subscriptions, and I fixed them before we lost any more messages.
+When I ran this script, I did indeed find several topics that didn't have any subscriptions, and I fixed them before we lost any more notifications.
 Success!
 
 [session_docs]: https://docs.aws.amazon.com/sdk-for-go/api/aws/session/#hdr-Creating_Sessions
@@ -326,7 +325,7 @@ func main() {
 
 Writing this post was a useful exercise for me.
 It forced me to really understand what I was doing, and not just handwave an example I'd copied from somewhere else.
-And I made several improvements from the original code while writing the post.
+Plus, I made several improvements to the original code while writing the post.
 
 I tried using an underscore for an unused variable in the handler functions (previously it was still called `lastPage`, because that's what the example in the docs used), and that's something I'll use again.
 
@@ -334,10 +333,11 @@ I learnt about the iteration order of maps, which is something I take for grante
 
 And I had to think about the way Go handles map keys that don't exist (when iterating over the subscriptions).
 In this case, you could ignore it and it's fine, but that won't always be the case.
-Making me think about that early is bound to save me a headache later.
+Learning about that now is bound to save me a headache later.
 
 (It occurred to me that if all you care about is whether a topic has any subscriptions, you could simplify the map further and just record a boolean "does this topic have any subscriptions".
 But then I'd lose the lesson about non-existent keys, so I decided to leave it as-is.)
 
 Overall, I'm pretty pleased with this code.
-It does the job I wanted, fixed a few bugs in our AWS estate, and I've learnt a bunch about Go by writing it.
+It does the job I wanted, fixed a few bugs in our AWS estate, and I've learnt a lot about Go by writing it.
+Not bad for a Thursday evening.
