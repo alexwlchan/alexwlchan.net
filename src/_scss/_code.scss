@@ -8,6 +8,15 @@ code {
   margin: 2px;
   padding: 3px 3px;
   font-size: 1em * $code-scaling-factor;
+
+  // Disable selecting the $ or the following space in ``console`` code
+  // blocks.  The original space is removed in the `cleanup_text.rb` plugin.
+  &.language-console > span.gp {
+    @include disable_select();
+    &::after {
+      content: " ";
+    }
+  }
 }
 
 pre {
