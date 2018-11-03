@@ -50,13 +50,32 @@ def get_interesting_hits
 end
 
 
+def normalise_referrers(hits)
+  hits
+    .each { |hit| normalise_referrer(hit) }
+    .select { |hit|
+      # Discard spam
+      hit["referrer"] == nil || !hit["referrer"].start_with?("https://www.ecblog.xyz") }
+end
+
+
 def is_generic_search_referrer(ref)
-  /^https:\/\/www\.google\.[a-z]+(?:\.[a-z]+)?\/?$/.match(ref) != nil ||
+  /^https?:\/\/www\.google\.[a-z]+(?:\.[a-z]+)?\/?$/.match(ref) != nil ||
   Set[
     "android-app://com.google.android.googlequicksearchbox/https/www.google.com",
+    "android-app://com.google.android.googlequicksearchbox",
     "https://duckduckgo.com/",
-  ].include?(ref) ||
-  ref.start_with?("https://www.google.com", "https://www.bing.com/", "http://www.bing.com/")
+    "https://q.search-fr.com/",
+    "https://www.bing.com/",
+    "https://search.yahoo.co.jp/",
+    "https://yandex.com.tr/",
+    "https://www.ecosia.org/",
+  ].include?(ref) || ref.start_with?(
+    "https://yandex.ru/",
+    "https://r.search.yahoo.com/",
+    "https://search.myway.com/search",
+    "https://r.search.aol.com/",
+  )
 end
 
 
@@ -70,54 +89,109 @@ def extract_query_param(url, query_key)
 end
 
 
-def extract_search_referrer(ref)
-  if is_generic_search_referrer(ref)
-    "[Generic search]"
-  elsif ref.start_with?("https://www.google.com", "https://www.bing.com/", "http://www.bing.com/")
-    puts extract_query_param(ref, "q")
-    extract_query_param(ref, "q")
+def normalise_referrer(hit)
+  ref = hit["referrer"]
+  is_search = false
+
+  hit["referrer"] = if ref == "" || ref.start_with?("https://alexwlchan.net")
+    nil
+  elsif is_generic_search_referrer(ref)
+    is_search = true
+    "[Unknown search]"
+  elsif ref.start_with?(
+    "https://www.google.",
+    "http://www.google.",
+    "https://www.bing.com/search",
+    "https://www4.bing.com/search",
+    "http://www.bing.com/search",
+    "https://cse.google.com/cse",
+    "https://www.ecosia.org/search",
+  )
+    is_search = true
+    result = extract_query_param(ref, "q")
+    if result == ""
+      "[Unknown search]"
+    else
+      result
+    end
+  elsif ref.start_with?("https://finduntaggedtumblrposts.com/results/")
+    "https://finduntaggedtumblrposts.com/"
   else
-    ref
+    {
+      "https://t.co/6PUzS8Tb6k" => "https://twitter.com/alexwlchan/status/1056818201319878657",
+      "https://t.co/e5UQ5kaDwU" => "https://twitter.com/alexwlchan/",
+      "http://m.facebook.com/" => "https://facebook.com/",
+    }.fetch(ref.gsub(/\?amp=1$/, ""), ref)
   end
+
+  hit["referrer_is_search"] = is_search
 end
 
 
-def summarise_referrers(refs)
-  referrers = Hash.new(0)
-  refs
-    .each { |ref|
-      if !is_search_traffic(ref)
-        referrers[ref] += 1
-      end
-    }
-  
-  referrers
-end
+def _tally_referrers(hits)
+  result = Hash.new
 
-
-def summarise_search_referrers(refs)
-  searches = Hash.new(0)
-  refs
-    .each { |ref|
-      if is_search_traffic(ref)
-        searches[extract_search_referrer(ref)] += 1
-      end
-    }
-
-  searches
-end
-
-hits = get_interesting_hits()
-
-
-def get_referrers(hits)
   hits
-    .map { |h| h["referrer"] }
-    .select { |ref| ref != "" }
-    .select { |ref| ! ref.start_with?("https://alexwlchan.net/") }
+    .each { |hit|
+      if result[hit["referrer"]] == nil
+        result[hit["referrer"]] = {
+          "count" => 0,
+          "latest" => nil
+        }
+      end
+
+      result[hit["referrer"]]["count"] += 1
+
+      if result[hit["referrer"]]["latest"] == nil
+        result[hit["referrer"]]["latest"] = hit["date"]
+      else
+        new_date = [
+          hit["date"], result[hit["referrer"]]["latest"]
+        ].max
+        result[hit["referrer"]]["latest"] = new_date
+      end
+    }
+
+  result
 end
 
-refs = get_referrers(hits)
-puts summarise_referrers(refs)
-searches = summarise_search_referrers(refs)
-puts searches
+
+def summarise_referrers(hits)
+  _tally_referrers(
+    hits
+      .select { |hit| !hit["referrer_is_search"] && hit["referrer"] != nil }
+  )
+end
+
+
+def summarise_search_referrers(hits)
+  _tally_referrers(
+    hits
+      .select { |hit| hit["referrer_is_search"] }
+  )
+end
+
+
+def print_tally(tally, limit)
+  result = tally
+    .sort_by { |k, v| [v["count"], v["latest"]] }
+    .reverse
+    .map { |k, v| [k, v["count"]] }[0..(limit - 1)]
+    .to_h
+    .each { |k, v| puts "#{v.to_s.rjust(5)} #{k}" }
+end
+
+
+hits = normalise_referrers(get_interesting_hits())
+
+puts "=============="
+puts " Search terms "
+puts "=============="
+print_tally(summarise_search_referrers(hits), 50)
+
+puts ""
+
+puts "==============="
+puts " Referrer URLs "
+puts "==============="
+print_tally(summarise_referrers(hits), 50)
