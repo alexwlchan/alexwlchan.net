@@ -241,6 +241,6 @@ unique_hosts = hits.map { |hit| hit["forwarded_host"] }.to_set
 puts "#{hits.length.to_s.rjust(5)} hits"
 puts "#{unique_hosts.length.to_s.rjust(5)} unique IP addresses"
 
-print_tally("Search terms", summarise_search_referrers(hits), 15)
+print_tally("Search terms", summarise_search_referrers(hits), 10)
 print_tally("Referrer URLs", summarise_referrers(hits), 50)
 print_tally("Popular pages", summarise_pages(hits), 10)
