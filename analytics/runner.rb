@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require "cgi"
 require "date"
 require "open3"
@@ -48,7 +50,7 @@ end
 
 
 def get_interesting_hits
-  lines = get_docker_logs("infra_alexwlchan_1", 1)
+  lines = get_docker_logs("infra_alexwlchan_1", 7)
   parsed_lines = parse_lines(lines)
   get_tracking_data(parsed_lines)
 end
@@ -75,6 +77,7 @@ def is_generic_search_referrer(ref)
     "https://yandex.com.tr/",
     "https://www.ecosia.org/",
     "https://www.startpage.com/",
+    "https://search.yahoo.com/",
   ].include?(ref) || ref.start_with?(
     "https://yandex.ru/",
     "https://r.search.yahoo.com/",
@@ -111,7 +114,6 @@ def normalise_referrer(hit)
     "http://www.bing.com/search",
     "https://cse.google.com/cse",
     "https://www.ecosia.org/search",
-    "https://search.yahoo.com/",
   )
     is_search = true
     result = extract_query_param(ref, "q")
