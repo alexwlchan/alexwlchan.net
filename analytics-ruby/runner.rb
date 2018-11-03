@@ -16,7 +16,11 @@ NGINX_LOG_REGEX = %r{
     ^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s-\s-\s
     \[(?<date>\d{2}\/[A-Z][a-z]{2}\/\d{4}:\d{2}:\d{2}:\d{2}\s(\+|\-)\d{4})\]\s
     "(?:OPTIONS|HEAD|GET|POST)\s(?<url>.+)\sHTTP\/1\.[01]"\s
-    (?<status>\d{3})
+    (?<status>\d{3})\s
+    (?<bytes_sent>\d+)\s
+    "(?:\-|[^"]*)"\s
+    "(?<user_agent>[^"]*)"\s
+    "(?<forwarded_host>[^"]+)"
 }x
 
 
@@ -70,6 +74,7 @@ def is_generic_search_referrer(ref)
     "https://search.yahoo.co.jp/",
     "https://yandex.com.tr/",
     "https://www.ecosia.org/",
+    "https://www.startpage.com/",
   ].include?(ref) || ref.start_with?(
     "https://yandex.ru/",
     "https://r.search.yahoo.com/",
@@ -97,7 +102,7 @@ def normalise_referrer(hit)
     nil
   elsif is_generic_search_referrer(ref)
     is_search = true
-    "[Unknown search]"
+    "[Unknown search term]"
   elsif ref.start_with?(
     "https://www.google.",
     "http://www.google.",
@@ -110,7 +115,7 @@ def normalise_referrer(hit)
     is_search = true
     result = extract_query_param(ref, "q")
     if result == ""
-      "[Unknown search]"
+      "[Unknown search term]"
     else
       result
     end
@@ -130,27 +135,27 @@ def normalise_referrer(hit)
 end
 
 
-def _tally_referrers(hits)
+def _tally_results(hits, key)
   result = Hash.new
 
   hits
     .each { |hit|
-      if result[hit["referrer"]] == nil
-        result[hit["referrer"]] = {
+      if result[hit[key]] == nil
+        result[hit[key]] = {
           "count" => 0,
           "latest" => nil
         }
       end
 
-      result[hit["referrer"]]["count"] += 1
+      result[hit[key]]["count"] += 1
 
-      if result[hit["referrer"]]["latest"] == nil
-        result[hit["referrer"]]["latest"] = hit["date"]
+      if result[hit[key]]["latest"] == nil
+        result[hit[key]]["latest"] = hit["date"]
       else
         new_date = [
-          hit["date"], result[hit["referrer"]]["latest"]
+          hit["date"], result[hit[key]]["latest"]
         ].max
-        result[hit["referrer"]]["latest"] = new_date
+        result[hit[key]]["latest"] = new_date
       end
     }
 
@@ -159,25 +164,40 @@ end
 
 
 def summarise_referrers(hits)
-  _tally_referrers(
+  _tally_results(
     hits
-      .select { |hit| !hit["referrer_is_search"] && hit["referrer"] != nil }
+      .select { |hit| !hit["referrer_is_search"] && hit["referrer"] != nil },
+    "referrer"
   )
 end
 
 
 def summarise_search_referrers(hits)
-  _tally_referrers(
-    hits
-      .select { |hit| hit["referrer_is_search"] }
+  _tally_results(
+    hits.select { |hit| hit["referrer_is_search"] },
+    "referrer"
   )
 end
 
 
-def print_tally(title, tally, limit)
+def summarise_pages(hits)
+  _tally_results(
+    hits.each { |hit| hit["title"] = hit["title"].gsub(/ – alexwlchan$/, "")},
+    "title"
+  )
+end
+
+
+def print_title(title)
+  puts ""
   puts "=" * (title.length + 2)
   puts " #{title} "
   puts "=" * (title.length + 2)
+end
+
+
+def print_tally(title, tally, limit)
+  print_title(title)
 
   result = tally
     .sort_by { |k, v| [v["count"], v["latest"]] }
@@ -209,15 +229,18 @@ def print_tally(title, tally, limit)
         bar = '▏'
       end
 
-      puts "#{total.to_s.rjust(4)} #{bar.ljust(bar_width + 1)} #{k}"
+      puts "#{total.to_s.rjust(5)} #{bar.ljust(bar_width + 1)} #{k}"
     }
 end
 
 
 hits = normalise_referrers(get_interesting_hits())
 
+print_title("Headline numbers")
+unique_hosts = hits.map { |hit| hit["forwarded_host"] }.to_set
+puts "#{hits.length.to_s.rjust(5)} hits"
+puts "#{unique_hosts.length.to_s.rjust(5)} unique IP addresses"
+
 print_tally("Search terms", summarise_search_referrers(hits), 15)
-
-puts ""
-
 print_tally("Referrer URLs", summarise_referrers(hits), 50)
+print_tally("Popular pages", summarise_pages(hits), 10)
