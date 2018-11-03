@@ -178,7 +178,33 @@ def print_tally(tally, limit)
     .reverse
     .map { |k, v| [k, v["count"]] }[0..(limit - 1)]
     .to_h
-    .each { |k, v| puts "#{v.to_s.rjust(5)} #{k}" }
+
+  bar_width = 4
+  max_value = result.values.max
+  increment = max_value / bar_width
+
+  result
+    .each { |k, total|
+      # The ASCII block elements come in chunks of 8, so we work out how
+      # many fractions of 8 we need.
+      # https://en.wikipedia.org/wiki/Block_Elements
+      bar_chunks, remainder = (total * 8 / increment).divmod(8)
+
+      bar = "█" * bar_chunks
+
+      # Then add the fractional part.  The Unicode code points for
+      # block elements are (8/8), (7/8), (6/8), ... , so we need to
+      # work backwards.
+      if remainder > 0
+        bar += ("█".ord + (8 - remainder)).chr(Encoding::UTF_8)
+      end
+
+      if bar == ""
+        bar = '▏'
+      end
+
+      puts "#{total.to_s.rjust(4)} #{bar.ljust(bar_width + 1)} #{k}"
+    }
 end
 
 
