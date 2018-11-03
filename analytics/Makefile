@@ -1,18 +1,12 @@
 ROOT = $(shell git rev-parse --show-toplevel)
 ANALYTICS = $(ROOT)/analytics
 
-$(ANALYTICS)/requirements.txt: $(ANALYTICS)/requirements.in
-	docker run --rm --volume $(ANALYTICS):/src micktwomey/pip-tools
-	touch $(ANALYTICS)/requirements.txt
-
-deps = $(ANALYTICS)/requirements.txt $(ANALYTICS)/Dockerfile
-
-$(ROOT)/.docker/analytics: $(deps)
+$(ROOT)/.docker/analytics: $(ANALYTICS)/Dockerfile
 	docker build --tag alexwlchan/analytics $(ANALYTICS)
 	mkdir -p $(ROOT)/.docker
 	touch $(ROOT)/.docker/analytics
 
 analytics-report: $(ROOT)/.docker/analytics
 	docker run --rm \
-		--volume $(ANALYTICS):/app \
-		--volume /var/run/docker.sock:/var/run/docker.sock alexwlchan/analytics --days=7 --limit=35
+		--volume $(ANALYTICS):/analytics \
+		--volume /var/run/docker.sock:/var/run/docker.sock alexwlchan/analytics
