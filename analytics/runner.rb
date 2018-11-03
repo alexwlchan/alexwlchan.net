@@ -28,6 +28,7 @@ NGINX_LOG_REGEX = %r{
 
 def parse_lines(lines)
   lines
+    .select { |line| NGINX_LOG_REGEX.match(line) != nil }
     .map { |line| NGINX_LOG_REGEX.match(line).named_captures.to_h }
     .each { |h|
       h["status"] = h["status"].to_i
@@ -38,13 +39,14 @@ end
 
 def get_tracking_data(parsed_lines)
   parsed_lines
-    .select { |line| line["url"].start_with?("/analytics/a.gif") }
     .each { |line|
-      query_str = line["url"][17..-1]
-      parsed_qs = CGI::parse(query_str)
-      line["title"] = parsed_qs["t"][0]
-      line["referrer"] = parsed_qs["ref"][0]
-      line["url"] = parsed_qs["url"][0]
+      if line.fetch("url", "").start_with?("/analytics/a.gif")
+        query_str = line["url"][17..-1]
+        parsed_qs = CGI::parse(query_str)
+        line["title"] = parsed_qs["t"][0]
+        line["referrer"] = parsed_qs["ref"][0]
+        line["url"] = parsed_qs["url"][0]
+      end
     }
 end
 
@@ -58,10 +60,14 @@ end
 
 def normalise_referrers(hits)
   hits
-    .each { |hit| normalise_referrer(hit) }
+    .each { |hit|
+      if hit["referrer"] != nil
+        normalise_referrer(hit)
+      end
+    }
     .select { |hit|
       # Discard spam
-      hit["referrer"] == nil || !hit["referrer"].start_with?("https://www.ecblog.xyz") }
+      hit["referrer"] == nil || !hit.fetch("referrer", "").start_with?("https://www.ecblog.xyz") }
 end
 
 
@@ -93,7 +99,11 @@ end
 
 
 def extract_query_param(url, query_key)
-  CGI::parse(URI.parse(url).query)[query_key][0]
+  if URI.parse(url).query == nil
+    ""
+  else
+    CGI::parse(URI.parse(url).query)[query_key][0]
+  end
 end
 
 
@@ -101,7 +111,7 @@ def normalise_referrer(hit)
   ref = hit["referrer"]
   is_search = false
 
-  hit["referrer"] = if ref == "" || ref.start_with?("https://alexwlchan.net")
+  hit["referrer"] = if ref == "" || ref == nil || ref.start_with?("https://alexwlchan.net")
     nil
   elsif is_generic_search_referrer(ref)
     is_search = true
@@ -185,8 +195,24 @@ end
 
 def summarise_pages(hits)
   _tally_results(
-    hits.each { |hit| hit["title"] = hit["title"].gsub(/ – alexwlchan$/, "")},
+    hits
+      .select { |hit| hit["title"] != nil }
+      .each { |hit| hit["title"] = hit["title"].gsub(/ – alexwlchan$/, "")},
     "title"
+  )
+end
+
+
+def summarise_errors(hits)
+  _tally_results(
+    hits
+      .select { |hit| hit["status"] >= 400 && hit["status"] != 410 }
+      .select { |hit|
+        !hit["url"].end_with?(".php", "%20%20t") &&
+        !hit["url"].start_with?("/experiments")
+      }
+      .each { |hit| hit["error_description"] = "#{hit["url"]} (#{hit["status"]})" },
+    "error_description"
   )
 end
 
@@ -247,3 +273,4 @@ puts "#{unique_hosts.length.to_s.rjust(5)} unique IP addresses"
 print_tally("Search terms", summarise_search_referrers(hits), 10)
 print_tally("Referrer URLs", summarise_referrers(hits), 50)
 print_tally("Popular pages", summarise_pages(hits), 10)
+print_tally("Errors", summarise_errors(hits), 10)
