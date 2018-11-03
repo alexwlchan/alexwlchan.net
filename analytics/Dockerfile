@@ -1,11 +1,8 @@
-FROM python:3-alpine
+FROM alpine
 
-RUN apk update && apk add docker
+RUN apk add --update docker ruby
 
-COPY requirements.txt /
-RUN pip3 install -r /requirements.txt
+VOLUME ["/analytics"]
+WORKDIR /analytics
 
-VOLUME ["/app"]
-WORKDIR /app
-
-ENTRYPOINT ["python3", "/app/reports.py"]
+CMD ["/analytics/runner.rb"]
