@@ -21,11 +21,6 @@ services:
     command: python3 /app/examples/images/viewer.py --app_password=$PIN_APP_PASSWORD --es_host=tiny_elastic:9200 --loris_host=loris.alexwlchan.net
     volumes:
     - ~/scrapbook:/tmp/images
-  pinboard:
-    image: pinboard
-    command: python3 /app/examples/pinboard/viewer.py --pin_username=$PIN_USERNAME --pin_password=$PIN_PASSWORD --app_password=$PIN_APP_PASSWORD --es_host=tiny_elastic:9200
-    volumes:
-    - ~/pinboard:/tmp/pinboard
   proxy:
     image: nginx:alpine
     ports:
