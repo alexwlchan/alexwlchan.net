@@ -116,6 +116,8 @@ def normalise_referrer(hit)
     end
   elsif ref.start_with?("https://finduntaggedtumblrposts.com/results/")
     "https://finduntaggedtumblrposts.com/"
+  elsif ref.start_with?("https://getpocket.com/redirect")
+    ref.split("&h=")[0]
   else
     {
       "https://t.co/6PUzS8Tb6k" => "https://twitter.com/alexwlchan/status/1056818201319878657",
