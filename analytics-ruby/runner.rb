@@ -172,7 +172,11 @@ def summarise_search_referrers(hits)
 end
 
 
-def print_tally(tally, limit)
+def print_tally(title, tally, limit)
+  puts "=" * (title.length + 2)
+  puts " #{title} "
+  puts "=" * (title.length + 2)
+
   result = tally
     .sort_by { |k, v| [v["count"], v["latest"]] }
     .reverse
@@ -210,14 +214,8 @@ end
 
 hits = normalise_referrers(get_interesting_hits())
 
-puts "=============="
-puts " Search terms "
-puts "=============="
-print_tally(summarise_search_referrers(hits), 50)
+print_tally("Search terms", summarise_search_referrers(hits), 15)
 
 puts ""
 
-puts "==============="
-puts " Referrer URLs "
-puts "==============="
-print_tally(summarise_referrers(hits), 50)
+print_tally("Referrer URLs", summarise_referrers(hits), 50)
