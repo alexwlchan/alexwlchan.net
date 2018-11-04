@@ -43,7 +43,8 @@ redcarpet:
   extensions: ["footnotes", "smart"]
 
 plugins:
-  - jekyll-paginate-v2
+  - "jekyll-paginate-v2"
+  - "jekyll-sitemap"
 
 highlighter: "rouge"
 
