@@ -114,6 +114,7 @@ nginx-serve:
 
 include analytics/Makefile
 include certs/Makefile
+include infra/Makefile
 
 
 .PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
