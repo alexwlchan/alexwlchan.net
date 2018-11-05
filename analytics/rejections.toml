@@ -83,6 +83,7 @@ bad_path_prefixes = [
 
     '/.git',
 
+    "/.idea/",
     "/.vscode/",
 
     "/_backup.",
