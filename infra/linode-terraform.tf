@@ -5,7 +5,7 @@ provider "linode" {
 }
 
 resource "linode_instance" "helene" {
-  type  = "g6-standard-1"
+  type  = "g6-nanode-1"
   region = "eu-west"
 
   config {
@@ -15,7 +15,7 @@ resource "linode_instance" "helene" {
 
   disk {
     label = "Ubuntu 16.04 LTS Disk"
-    size  = 50944
+    size  = 24000
   }
 
   disk {
