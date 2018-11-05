@@ -6,12 +6,19 @@ require "open3"
 require "set"
 require "uri"
 
+require "toml-rb"
+
 
 def get_docker_logs(container_name, days)
   stdout, _, _ = Open3.capture3(
     "docker", "logs", "--since", "#{days * 24 * 60}m", container_name)
   stdout.split(/\n/)
 end
+
+
+REJECTIONS = TomlRB.load_file("rejections.toml")
+  .map { |k, v| [k, Set.new(v)] }
+  .to_h
 
 
 NGINX_LOG_REGEX = %r{
@@ -26,10 +33,21 @@ NGINX_LOG_REGEX = %r{
 }x
 
 
+def should_be_rejected(hit)
+  path = hit["url"].downcase
+  (
+    REJECTIONS["bad_paths"].include? path or
+    REJECTIONS["bad_path_prefixes"].any? { |prefix| path.start_with? prefix } or
+    REJECTIONS["bad_path_suffixes"].any? { |suffix| path.end_with? suffix }
+  )
+end
+
+
 def parse_lines(lines)
   lines
     .select { |line| NGINX_LOG_REGEX.match(line) != nil }
     .map { |line| NGINX_LOG_REGEX.match(line).named_captures.to_h }
+    .select { |h| ! should_be_rejected(h) }
     .each { |h|
       h["status"] = h["status"].to_i
       h["date"] = DateTime.strptime(h["date"], "%d/%b/%Y:%H:%M:%S %z")
