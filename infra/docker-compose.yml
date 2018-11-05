@@ -16,11 +16,6 @@ services:
     image: loris
     volumes:
     - ~/scrapbook:/mnt/loris
-  scrapbook:
-    image: pinboard
-    command: python3 /app/examples/images/viewer.py --app_password=$PIN_APP_PASSWORD --es_host=tiny_elastic:9200 --loris_host=loris.alexwlchan.net
-    volumes:
-    - ~/scrapbook:/tmp/images
   proxy:
     image: nginx:alpine
     ports:
@@ -35,6 +30,4 @@ services:
     image: alexwlchan/pygmentizr
     volumes:
     - ~/repos/pygmentizr/config.py:/config.py
-  tiny_elastic:
-    image: tiny_elastic
 version: '2'
