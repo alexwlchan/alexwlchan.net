@@ -39,3 +39,26 @@ Based on dates, I think it would have been her sixth batch of coins, such as thi
 [aber_name]: https://en.wikipedia.org/wiki/Aber_and_Inver_(placename_elements)
 [lecture]: https://archive.org/details/coppersmeltingi00swangoog/page/n21
 [six_pound]: https://www.baldwin.co.uk/coins/great-britain/pounds/elizabeth-i-sixth-issue-pound-lm63618.html
+
+
+https://en.wikipedia.org/wiki/Aberdulais#Industrial_history
+https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-aberdulais-tinplate-story
+https://www.tripadvisor.co.uk/ShowUserReviews-g1474527-d188687-r380770401-Aberdulais_Tin_Works_Waterfall-Aberdulais_Neath_Port_Talbot_South_Wales_Wales.html
+https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall
+https://www.britainexpress.com/wales/swansea/aberdulais.htm
+https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/aberdulais-an-industrial-revolution-since-1584
+
+https://www.britainexpress.com/wales/swansea/aberdulais.htm
+https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-waterwheel-at-aberdulais
+https://www.walesonline.co.uk/news/wales-news/storm-ali-first-named-storm-15167538
+https://en.wikipedia.org/wiki/Storm_Ali
+https://wellcomecollection.org/works?query=copper%20smelting&page=1
+http://www.welshcopper.org.uk/en/copper-guides_exhibition_wales.htm
+
+https://www.stayinwales.co.uk/wales_picture.cfm?p=2757
+https://www.erih.net/about-erih/erih-membership/erih-members/?tx_erihsites_erihmap[sites]=163&tx_erihsites_erihmap[action]=show&tx_erihsites_erihmap[controller]=Members
+https://books.google.co.uk/books?ots=5fV0KZci6P&hl=en&id=pxKkBAAAQBAJ&dq=Ulrich%20Frosse&source=bl&sig=5JPFCwR2jGgtXQ_zw0Zn1WgxoJ8&pg=PA82&lpg=PA82&sa=X&ved=2ahUKEwjIvsGVmqreAhUoKcAKHeKSBbQQ6AEwDHoECAYQAQ#v=onepage&q=Ulrich%20Frosse&f=false
+https://books.google.co.uk/books?ots=wwQJUb2rdA&lpg=PA456&sa=X&source=bl&pg=PA456&dq=Ulrich%20Frosse%20copper&sig=7jdpM3PN8WQl1VGTmIITCj5HVVE&hl=en&id=EevCB9br6F4C&ved=2ahUKEwjX9ZWemqreAhXBasAKHXTsBfAQ6AEwB3oECAkQAQ#v=onepage&q=Ulrich%20Frosse%20copper&f=false
+https://en.wikipedia.org/wiki/Smelting#Copper_and_bronze
+https://archive.org/stream/coppersmeltingi00swangoog/coppersmeltingi00swangoog_djvu.txt
+https://archive.org/details/coppersmeltingi00swangoog/page/n21
