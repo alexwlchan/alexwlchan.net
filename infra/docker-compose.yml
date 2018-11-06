@@ -8,6 +8,10 @@ services:
     image: nginx:alpine
     volumes:
     - ~/sites/bijouopera.co.uk:/usr/share/nginx/html
+  notebook:
+    image: "nginx:alpine"
+    volumes:
+    - "~/sites/notebook.alexwlchan.net:/usr/share/nginx/html"
   untagged:
     image: "nginx:alpine"
     volumes:
