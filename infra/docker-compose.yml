@@ -12,10 +12,6 @@ services:
     image: "nginx:alpine"
     volumes:
     - ~/sites/finduntaggedtumblrposts.com:/usr/share/nginx/html
-  loris:
-    image: loris
-    volumes:
-    - ~/scrapbook:/mnt/loris
   proxy:
     image: nginx:alpine
     ports:
