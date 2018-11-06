@@ -158,6 +158,7 @@ def normalise_referrer(hit)
     {
       "https://t.co/6PUzS8Tb6k" => "https://twitter.com/alexwlchan/status/1056818201319878657",
       "https://t.co/e5UQ5kaDwU" => "https://twitter.com/alexwlchan/",
+      "https://t.co/m6GfJvOSYt" => "https://twitter.com/alexwlchan/status/1044122143473184769",
       "http://m.facebook.com/" => "https://facebook.com/",
     }.fetch(ref.gsub(/\?amp=1$/, ""), ref)
   end
@@ -252,7 +253,7 @@ def print_tally(title, tally, limit)
     .map { |k, v| [k, v["count"]] }[0..(limit - 1)]
     .to_h
 
-  bar_width = 4
+  bar_width = 4.0
   max_value = result.values.max
   increment = max_value / bar_width
 
@@ -268,8 +269,8 @@ def print_tally(title, tally, limit)
       # Then add the fractional part.  The Unicode code points for
       # block elements are (8/8), (7/8), (6/8), ... , so we need to
       # work backwards.
-      if remainder > 0
-        bar += ("█".ord + (8 - remainder)).chr(Encoding::UTF_8)
+      if remainder.floor > 0
+        bar += ("█".ord + (8 - remainder.floor)).chr(Encoding::UTF_8)
       end
 
       if bar == ""
