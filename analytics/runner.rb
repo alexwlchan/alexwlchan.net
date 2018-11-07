@@ -20,6 +20,7 @@ REJECTIONS = TomlRB.load_file("rejections.toml")
   .map { |k, v| [k, Set.new(v)] }
   .to_h
 
+REFERRERS = TomlRB.load_file("referrers.toml")
 
 NGINX_LOG_REGEX = %r{
     ^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s-\s-\s
@@ -154,11 +155,17 @@ def normalise_referrer(hit)
     "https://finduntaggedtumblrposts.com/"
   elsif ref.start_with?("https://getpocket.com/redirect")
     ref.split("&h=")[0]
+  elsif ref.start_with?("https://t.co")
+    matching_referrers = REFERRERS["twitter"]
+      .select { |k, v| ref.start_with?(k) }
+      .values
+    if matching_referrers.length == 1
+      matching_referrers[0]
+    else
+      ref
+    end
   else
     {
-      "https://t.co/6PUzS8Tb6k" => "https://twitter.com/alexwlchan/status/1056818201319878657",
-      "https://t.co/e5UQ5kaDwU" => "https://twitter.com/alexwlchan/",
-      "https://t.co/m6GfJvOSYt" => "https://twitter.com/alexwlchan/status/1044122143473184769",
       "http://m.facebook.com/" => "https://facebook.com/",
     }.fetch(ref.gsub(/\?amp=1$/, ""), ref)
   end
