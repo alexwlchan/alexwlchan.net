@@ -87,6 +87,18 @@ It had just started to rain, so I was glad of an excuse to duck inside and start
   {% wide_image_4x P9210111 %}
 </figure>
 
+Once the weather had dried up, I ventured back outside, and I started wandering around the site.
+You see remains of the buildings, all part of the old tin works.
+There's so little left, it's quite hard to imagine what the buildings would have looked like -- but you get an idea of the space they occupied.
+
+<figure class="wide_img">
+  {% wide_image_4x P9210125 %}
+  <figcaption>
+    The last remaining corner of what was presumably once an entire room.
+    You can see the edge of the river running in the background.
+  </figcaption>
+</figure>
+
 
 
 [pyconuk]: https://2018.pyconuk.org/
