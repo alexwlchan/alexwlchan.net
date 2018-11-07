@@ -16,6 +16,8 @@ resource "linode_instance" "helene" {
       sda = { disk_label = "Ubuntu 16.04 LTS Disk" }
       sdb = { disk_label = "256MB Swap Image" }
     }
+
+    root_device = "/dev/sda"
   }
 
   disk {
