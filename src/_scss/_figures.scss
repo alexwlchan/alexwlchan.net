@@ -16,6 +16,11 @@ figcaption {
     max-width: calc(100% + 200px);
     margin-left:  -100px;
     margin-right: -100px;
+
+    figcaption {
+      padding-left:  100px;
+      padding-right: 100px;
+    }
   }
 }
 
@@ -24,5 +29,10 @@ figcaption {
     max-width: calc(100% + 100px);
     margin-left:  -50px;
     margin-right: -50px;
+
+    figcaption {
+      padding-left:  50px;
+      padding-right: 50px;
+    }
   }
 }
