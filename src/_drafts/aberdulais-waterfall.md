@@ -223,18 +223,64 @@ The rainbow is just as intense, but it's a noticeably different arc.
 Both these rainbow pictures come straight from my camera, with just a bit of cropping.
 I didn't do anything to boost the colour or brightness -- the rainbows really are that visible!
 
-abc
+Here's another picture from the top of the falls, a sheer curtain of water coming over the top.
+I stood up there for a good fifteen, twenty minutes, watching the water flow, with spray hitting me in the face.
 
+<figure class="wide_img">
+  {% wide_image 2018/P9210201 %}
+</figure>
 
+These are a few more of my favourite pictures of the falls.
+They're a breathtaking, powerful sight, and the pictures really don't do them justice:
 
----
+<figure class="wide_img">
+  <table>
+    <tr>
+      <td style="padding-right: 1em; padding-bottom: 0.5em; width: 52%;">{% wide_image 2018/P9210258 %}</td>
+      <td rowspan="2" style="background-image: url('/images/2018/P9210223_2x.jpg'); background-size: auto 100%; overflow: hidden;"><a href="/images/2018/P9210223_4x.jpg" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a></td>
+    </tr>
+    <tr>
+      <td style="padding-right: 1em; padding-top: 0.5em;">{% wide_image 2018/P9210223 %}</td>
+    </tr>
+  </table>
+</figure>
 
+Coming back down from the falls, I looked at the waterwheel that sits at the centre of the site.
+(I'd not gone near it on my first walk round.)
+Here's a picture from above:
 
+<figure class="wide_img">
+  {% wide_image 2018/P9210446 %}
+</figure>
 
+As I walked around, I assumed it was historical.
+It wasn't moving, so presumably it was a left over from when the days of industry?
 
+Nothing could be further from the truth -- it's [a relatively modern waterwheel](https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-waterwheel-at-aberdulais), installed in 1991, and it's the largest electricity-generating wheel in Europe.
+The wheel, along with some turbines that I didn't see, power the entire site (including the visitor centre and tea rooms), and even sends surplus power back to the National Grid!
 
+I wish I'd been able to see it spin, but maybe that's a treat for another time.
 
+Here's another picture from on the ground:
 
+<figure class="wide_img">
+  {% wide_image 2018/P9210386 %}
+  <figcaption>
+    In hindsight, that red emergency point on the nearside railing should have been a giveaway.
+  </figcaption>
+</figure>
+
+It's nice to know that just because it's become a heritage site, the power of the falls isn't being neglected.
+
+Here's one last picture to finish the post.
+The water wheel, the remains of the buildings, and just a glimpse of another rainbow in the background.
+
+<figure class="wide_img">
+  {% wide_image 2018/P9210471 %}
+</figure>
+
+If you want to see a bit of Welsh industrial history, and an amazing waterfall, I recommend a visit.
+Just don't forget your raincoat!
 
 [pyconuk]: https://2018.pyconuk.org/
 [bronagh]: https://www.metoffice.gov.uk/news/releases/2018/storm-bronagh
@@ -245,26 +291,3 @@ abc
 [tinning]: https://en.wikipedia.org/wiki/Tinning
 [tariffs]: https://en.wikipedia.org/wiki/McKinley_tariff#Tin-plates
 [annealing]: https://en.wikipedia.org/wiki/Annealing_(metallurgy)
-
-
-<!--https://en.wikipedia.org/wiki/Aberdulais#Industrial_history
-https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-aberdulais-tinplate-story
-https://www.tripadvisor.co.uk/ShowUserReviews-g1474527-d188687-r380770401-Aberdulais_Tin_Works_Waterfall-Aberdulais_Neath_Port_Talbot_South_Wales_Wales.html
-https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall
-https://www.britainexpress.com/wales/swansea/aberdulais.htm
-https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/aberdulais-an-industrial-revolution-since-1584
-
-https://www.britainexpress.com/wales/swansea/aberdulais.htm
-https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-waterwheel-at-aberdulais
-https://www.walesonline.co.uk/news/wales-news/storm-ali-first-named-storm-15167538
-https://en.wikipedia.org/wiki/Storm_Ali
-https://wellcomecollection.org/works?query=copper%20smelting&page=1
-http://www.welshcopper.org.uk/en/copper-guides_exhibition_wales.htm
-
-https://www.stayinwales.co.uk/wales_picture.cfm?p=2757
-https://www.erih.net/about-erih/erih-membership/erih-members/?tx_erihsites_erihmap[sites]=163&tx_erihsites_erihmap[action]=show&tx_erihsites_erihmap[controller]=Members
-https://books.google.co.uk/books?ots=5fV0KZci6P&hl=en&id=pxKkBAAAQBAJ&dq=Ulrich%20Frosse&source=bl&sig=5JPFCwR2jGgtXQ_zw0Zn1WgxoJ8&pg=PA82&lpg=PA82&sa=X&ved=2ahUKEwjIvsGVmqreAhUoKcAKHeKSBbQQ6AEwDHoECAYQAQ#v=onepage&q=Ulrich%20Frosse&f=false
-https://books.google.co.uk/books?ots=wwQJUb2rdA&lpg=PA456&sa=X&source=bl&pg=PA456&dq=Ulrich%20Frosse%20copper&sig=7jdpM3PN8WQl1VGTmIITCj5HVVE&hl=en&id=EevCB9br6F4C&ved=2ahUKEwjX9ZWemqreAhXBasAKHXTsBfAQ6AEwB3oECAkQAQ#v=onepage&q=Ulrich%20Frosse%20copper&f=false
-https://en.wikipedia.org/wiki/Smelting#Copper_and_bronze
-https://archive.org/stream/coppersmeltingi00swangoog/coppersmeltingi00swangoog_djvu.txt
-https://archive.org/details/coppersmeltingi00swangoog/page/n21 -->
