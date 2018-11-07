@@ -143,6 +143,7 @@ def normalise_referrer(hit)
     "http://www.bing.com/search",
     "https://cse.google.com/cse",
     "https://www.ecosia.org/search",
+    "https://bitmotion-tab.com/search",
   )
     is_search = true
     result = extract_query_param(ref, "q")
@@ -165,9 +166,7 @@ def normalise_referrer(hit)
       ref
     end
   else
-    {
-      "http://m.facebook.com/" => "https://facebook.com/",
-    }.fetch(ref.gsub(/\?amp=1$/, ""), ref)
+    REFERRERS["aliases"].fetch(ref, ref)
   end
 
   hit["referrer_is_search"] = is_search

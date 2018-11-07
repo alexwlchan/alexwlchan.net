@@ -80,6 +80,7 @@ bad_path_prefixes = [
     '/wp-admin',
     '/wp-content',
     '/wp-includes',
+    "/wp-json",
 
     '/.git',
 
