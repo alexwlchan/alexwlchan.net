@@ -11,6 +11,11 @@ resource "linode_instance" "helene" {
   config {
     label  = "My Ubuntu 16.04 LTS Profile"
     kernel = "linode/latest-64bit"
+
+    devices {
+      sda = { disk_label = "Ubuntu 16.04 LTS Disk" }
+      sdb = { disk_label = "256MB Swap Image" }
+    }
   }
 
   disk {
