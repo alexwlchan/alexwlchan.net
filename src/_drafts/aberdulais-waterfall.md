@@ -35,8 +35,8 @@ The copper ore was mined in Cornwall, the coal and charcoal supplied from nearby
 </figure>
 
 The [National Trust site](https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/aberdulais-an-industrial-revolution-since-1584) says the copper was used in coins minted for Queen Elizabeth I.
-I tried to find some pictures of the coins in question, but there's not enough detail to know which coins those are.
-Based on dates, I think it would have been her sixth issue of coins, such as this [gold pound][six_pound], but that's a total guess.
+I tried to find some pictures of the coins in question, but I couldn't find not enough detail to pick them out.
+Based on dates, I think it would have been something like this [gold pound][six_pound], but that's only a guess.
 
 Over time, Aberdulais became a site of different industries -- textile milling, cloth production, even a flour mill -- then in 1831, it became the site of a tinplate works.
 [Tin plating][tinning] is the process of coating thin sheets of iron or steel with tin, so they don't rust.
@@ -63,6 +63,9 @@ It's on the smaller side, and you can easily do a visit in a couple of hours:
 
 <figure class="wide_img">
   {% wide_image 2018/PB081192 %}
+  <figcaption>
+    I&rsquo;ve read this leaflet quite a few times while writing this post, and it wasn&rsquo;t until I had my hand on the publish button that I realised the information along the left-hand side is a waterwheel!
+  </figcaption>
 </figure>
 
 On the other side of the entrance, I could get a closer look at the bridge I'd seen from the road.
@@ -172,7 +175,7 @@ This process was done entirely by hand, was one of the more senior roles at the 
   {% wide_image 2018/P9210349 %}
   <figcaption>
     ...and looking back through the other corner.
-    That overhang in the corner became a place to hide from another brief shower of rain!
+    That overhang in the corner became a place to hide during some more rain!
   </figcaption>
 </figure>
 
@@ -208,7 +211,7 @@ Looking past the buildings, if you follow the river, and climb to the top of the
 This is the reason so much industry happened at Aberdulais.
 It's a cheap, abundant source of energy, and even just standing near it you see the power of the water.
 
-This was my first view of the falls: a split level, with the upper half a yellow sheet of water coming over the top, the lower covered in spray and mist.
+This was my first view of the falls: the upper half a browny-yellow sheet of water coming over the top, the lower covered in spray and mist.
 Even at a distance, the roar of the tumbling water really makes itself heard.
 
 <figure class="wide_img">
@@ -216,7 +219,7 @@ Even at a distance, the roar of the tumbling water really makes itself heard.
 </figure>
 
 The sun came out as I wandered up, and I could see miniature rainbows in the spray coming off the water.
-Here's a picture of one:
+So pretty!
 
 <figure class="wide_img">
   {% wide_image 2018/P9210413 %}
