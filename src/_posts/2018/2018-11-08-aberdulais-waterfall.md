@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-11-08 12:37:19 +0000
 title: My visit to the Aberdulais Falls
 tags: personal
 summary: Pictures from my trip to the waterfalls and former tin plating works at Aberdulais.
