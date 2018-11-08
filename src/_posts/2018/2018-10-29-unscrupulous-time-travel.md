@@ -11,10 +11,13 @@ Mostly for curiosity, as I know very little about old coins.
 Something I've learnt: historical coins are *valuable*.
 Five-figure prices aren't unheard of, and I found one coin selling [for nearly £100k](https://www.baldwin.co.uk/coins/great-britain/charles-i-triple-unite-1642.html):
 
-{% flickr_captioned 31734706768 displaywidth=400 %}
-  A [Triple Unite](https://en.wikipedia.org/wiki/Triple_Unite_(English_coin)) from the Oxford mint, a gold coin produced for Charles&nbsp;I in 1642.
-  It was worth sixty shillings.
-{% endflickr_captioned %}
+<figure style="width: 400px">
+  <img src="/images/2018/baldwin_charles_i_coin.jpg">
+  <figcaption>
+    A <a href="https://en.wikipedia.org/wiki/Triple_Unite_(English_coin)">Triple Unite</a> from the Oxford mint, a gold coin produced for Charles&nbsp;I in 1642.
+    It was worth sixty shillings.
+  </figcaption>
+</figure>
 
 Which got me thinking: suppose you were an unscrupulous time traveller, and you wanted to make some extra cash.
 Going back in time, getting some coins, and then "discovering" them in the present day could be quite lucrative.
@@ -38,4 +41,3 @@ Most plans involve putting it in a bunker, and sealing the bunker for at least 1
 How do you ensure [nobody opens your radioactive death bunker](https://www.damninteresting.com/this-place-is-not-a-place-of-honor/)?
 
 Suggestions on the back of a postcard.
-

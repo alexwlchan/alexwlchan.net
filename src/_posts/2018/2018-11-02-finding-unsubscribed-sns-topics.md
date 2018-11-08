@@ -13,7 +13,7 @@ A user can send a notification to a *topic*.
 Each topic can have multiple *subscribers*, which receive a copy of every message sent to the topic -- something like an HTTP endpoint, an email address, or an Amazon SQS queue.
 Sending a single notification can go to multiple places.
 
-<img src="/images/2018/sns-notifications.png" style="max-width: 600px;">
+<img src="/images/2018/sns-notifications.png" style="width: 600px;">
 
 A common use case is something like push notifications on your phone.
 For example, when a game sends you a notification to tell you about new content -- that could be powered by SNS.
