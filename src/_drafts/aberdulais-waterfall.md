@@ -2,7 +2,10 @@
 layout: post
 title: My visit to the Aberdulais Falls
 tags: personal
-summary: tbc
+summary: Pictures from my trip to the waterfalls and former tin plating works at Aberdulais.
+theme:
+  card_type: summary_large_image
+  image: /images/2018/aberdulais-cover.jpg
 ---
 
 In September, I was in Cardiff to help organise [PyCon UK][pyconuk].
@@ -11,12 +14,12 @@ This year I took a few days of extra holiday, so I could unwind before returning
 Unfortunately [heavy storms][bronagh] kept me inside for several days, but I did venture out at the end of the week to the [Aberdulais Falls][nattrust].
 
 Aberdulais is a village in south Wales, about 45 minutes drive from Cardiff, and a place with a long industrial history.
-It has easy supplies of coal and wood, and it sits atop a powerful river -- the River Dulais.
-Today the former industrial works are owned and looked after by the National Trust, and I decided to go have a look.
+It had easy supplies of coal and wood, and it sits atop a powerful river -- the River Dulais.
+Today the former tin plate works are owned and managed by the National Trust, and I decided to go have a look.
 
-<!-- (Etymology note: the word _Aberdulais_ is Welsh for _mouth of the river Dulais_.
+Etymology note: the word _Aberdulais_ is Welsh for _mouth of the river Dulais_.
 _Aber_ is a Celtic prefix that appears in [lots of place names][aber_name].
-More well-known examples are places like Aberdeen and Aberystwyth.) -->
+Well-known examples are places like Aberdeen and Aberystwyth.
 
 In 1584, German engineer Ulrich Frosse had developed a new way to smelt copper, but he wanted to keep his process safe from "pryinge eyes".
 The Welsh countryside is nice and quiet, so he set up a smelting works in Aberdulais -- the first of its kind in Wales.
@@ -33,14 +36,14 @@ The copper ore was mined in Cornwall, the coal and charcoal supplied from nearby
 
 The [National Trust site](https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/aberdulais-an-industrial-revolution-since-1584) says the copper was used in coins minted for Queen Elizabeth I.
 I tried to find some pictures of the coins in question, but there's not enough detail to know which coins those are.
-Based on dates, I think it would have been her sixth batch of coins, such as this [sixth issue pound][six_pound], but that's a total guess.
+Based on dates, I think it would have been her sixth issue of coins, such as this [gold pound][six_pound], but that's a total guess.
 
 Over time, Aberdulais became a site of different industries -- textile milling, cloth production, even a flour mill -- then in 1831, it became the site of a tinplate works.
 [Tin plating][tinning] is the process of coating thin sheets of iron or steel with tin, so they don't rust.
 Tin plate is used for things like cooking utensils and canned food, and versions of it are still in use today.
-The National Trust site is based in the remains of one of the old tin plating works.
-
 Wales had an incredibly successful tin plating industry -- so much so that the US slapped [massive tariffs][tariffs] on it, and shut the whole thing down.
+
+The National Trust site is based in the remains of one of the old tin plating works.
 
 So what's it like to visit?
 
@@ -55,6 +58,12 @@ I could hear it before I saw it.
 </figure>
 
 I went in, picked up a leaflet and a map from the visitor centre, and started wandering around.
+Here's a photo of the leaflet, to give you an idea of the layout of the site.
+It's on the smaller side, and you can easily do a visit in a couple of hours:
+
+<figure class="wide_img">
+  {% wide_image 2018/PB081192 %}
+</figure>
 
 On the other side of the entrance, I could get a closer look at the bridge I'd seen from the road.
 You can see it's partially broken off, but you can walk along it, and there's a fence to stop people falling off the end.
@@ -67,7 +76,7 @@ This was originally a bridge meant for horses.
 It carried a tramway that led directly into the site, giving a way to cart materials in and out of the site.
 The horse-drawn carts would bring in the raw materials for the tinplate process, and later take out the finished product.
 
-Like much of the site, the tramway, village and port are long since gone.
+Like much of the site, the tramway and port are long since gone.
 The opposite side of the tramway is completely overgrown, and even if the bridge was rebuilt it wouldn't go anywhere.
 Only a few remnants remain, such as the carts and the tracks they'd have run on:
 
@@ -121,13 +130,13 @@ But as you wander round, you start to get an idea of the space the old tin works
   <figcaption>
     A slightly wider view.
     Some walls have survived better than others, and in a few places look almost complete.
-    You can also see a glimpse of the waterfall in the background &ndash; more on that in a moment.
+    You can also see a glimpse of the waterfall in the background &ndash; more on that in a bit.
   </figcaption>
 </figure>
 
 Unfortunately there aren't many details of what the buildings were used for -- when the site was abandoned, the buildings were left to decay.
-Anything useful was taken away to the other tin plating works in Aberdulais (the "Lower Works", while the National Trust site was the "Upper Works").
-There are signs suggesting what some of the buildings were for, but they're incomplete.
+Anything useful was taken away to the other tin plating works in Aberdulais, which didn't close until many years later.
+There are information boards suggesting what some of the buildings were for, but they're incomplete.
 
 One thing that clearly stands out is the chimney, one of the few complete structures, which towers above the site.
 
@@ -135,11 +144,11 @@ One thing that clearly stands out is the chimney, one of the few complete struct
   {% wide_image 2018/P9210142 %}
 </figure>
 
-Based on the signs, I think this was the chimney for the [annealing furnace][annealing].
+This was the chimney for the [annealing furnace][annealing].
 Annealing is the process of heating iron and steel to very high temperatures, allowing the internal structure to rearrange, and then cooling it back down.
 This makes the plates less brittle and more malleable, so the tinplates can be shaped without breaking.
 
-At the base of the chimney, you can see what looks like the remains of a furnace:
+At the base of the chimney, you can see the remains of some furnaces:
 
 <figure class="wide_img">
   {% wide_image 2018/P9210147 %}
@@ -147,11 +156,10 @@ At the base of the chimney, you can see what looks like the remains of a furnace
 
 Another large structure was the "tin house".
 
-After the iron plates had been flattened and rolled into thin sheets, they'd be brought here to be dipped in molten tin.
-Dipping would coat them in tin, then they'd be plunged into hot oil, which gave the plates a smooth and even finish.
+After the iron plates had been flattened and rolled into thin sheets, they'd be dipped in molten tin.
+After that, they'd be plunged into hot oil, which gave the plates a smooth and even finish.
 Once left to cool, you had the finished product -- the prized tinplate.
-This process was done entirely by hand, and one of the more senior roles at the tin plate works.
-It all happened here, in the tin house.
+This process was done entirely by hand, was one of the more senior roles at the tin plate works, and it all happened in the tin house.
 
 <figure class="wide_img">
   {% wide_image 2018/P9210348 %}
@@ -180,8 +188,7 @@ Here's an example:
 </figure>
 
 Other artefacts included a hook for retrieving [slag][slag] from the iron furnace, and a metal plate that sat on the floor off the tin house.
-
-Since we're in Wales, the signs were all written in Welsh as well as in English:
+And since we're in Wales, the signs were all written in Welsh as well as in English:
 
 <figure class="wide_img">
   {% wide_image 2018/P9210363 %}
@@ -201,22 +208,22 @@ Looking past the buildings, if you follow the river, and climb to the top of the
 This is the reason so much industry happened at Aberdulais.
 It's a cheap, abundant source of energy, and even just standing near it you see the power of the water.
 
-This is my first view of the falls: a split level, with the upper half a yellow sheet of water coming over the top, the lower covered in spray and mist.
-Even at a distance, the roar of the tumbling water really makes itself felt.
+This was my first view of the falls: a split level, with the upper half a yellow sheet of water coming over the top, the lower covered in spray and mist.
+Even at a distance, the roar of the tumbling water really makes itself heard.
 
 <figure class="wide_img">
   {% wide_image 2018/P9210408 %}
 </figure>
 
-The sun came out as I wandered around, and I could see miniature rainbows in the spray coming off the falls.
-Here's a picture of one in the spray of the lower waterfall:
+The sun came out as I wandered up, and I could see miniature rainbows in the spray coming off the water.
+Here's a picture of one:
 
 <figure class="wide_img">
   {% wide_image 2018/P9210413 %}
 </figure>
 
-Because I was standing so close, I could change the shape of the rainbow with very little movement.
-Here's a second picture, taken standing just a few feet to the right.
+Because I was standing so close, I could even change the shape of the rainbow by moving around.
+Here's a second picture, taken when I was standing just a few feet to the right.
 Even a small movement affects the optics.
 The rainbow is just as intense, but it's a noticeably different arc.
 
@@ -260,13 +267,14 @@ Here's a picture from above:
 When I was there, I assumed it was historical.
 It wasn't moving, so presumably it was a left over from when the days of industry?
 
-Nothing could be further from the truth -- it's [actually a working wheel](https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-waterwheel-at-aberdulais).
+Nothing could be further from the truth -- it's [actually a working wheel](https://www.nationaltrust.org.uk/aberdulais-tin-works-and-waterfall/features/the-waterwheel-at-aberdulais)!
 It was installed in 1991, and it's the largest electricity-generating wheel in Europe.
 The wheel, along with some turbines that I didn't see, power the entire site (including the visitor centre and tea rooms), and even sends surplus power back to the National Grid!
 
 I wish I'd been able to see it spin, but maybe that's a treat for another time.
 
-Here's another picture from on the ground:
+Here's another picture from on the ground, which gives you an idea of the size.
+It's nearly 27&prime; in diameter, and it's twice as tall as me even when half of it's in the ground!
 
 <figure class="wide_img">
   {% wide_image 2018/P9210386 %}
