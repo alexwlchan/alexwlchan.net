@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-11-13 10:44:40 +0000
 title: Keeping track of my book recommendations
 summary: The three lists I use to manage my book recommendations.
 tags: reading
