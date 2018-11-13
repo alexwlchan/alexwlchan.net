@@ -1,6 +1,7 @@
 ---
 layout: post
 date: 2017-10-11 22:09:25 +0000
+last_updated: 2018-11-13 20:54:44 +0000
 title: Four ways to underline text in LaTeX
 tags: latex typesetting
 summary: I'm very picky about the way underlines look, and have spent a lot of time trying to get the perfect underline in LaTeX.
@@ -145,7 +146,7 @@ Here's how you use contour to trace around a letter (in red so the effect is vis
 I visited \mycontour{Berlin} in \mycontour{Germany}.
 ``` -->
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span></span><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
 
 <span class="k">\contourlength</span><span class="nb">{</span>1pt<span class="nb">}</span>
 
@@ -178,7 +179,7 @@ Then I swap the red for white, and add the underline:
 I visited \myuline{Berlin} in \myuline{Germany}.
 ``` -->
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span></span><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\ULdepth</span><span class="nb">}{</span>1.8pt<span class="nb">}</span>
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\ULdepth</span><span class="nb">}{</span>1.8pt<span class="nb">}</span>
 <span class="k">\contourlength</span><span class="nb">{</span>0.8pt<span class="nb">}</span>
 
 <span class="k">\newcommand</span><span class="nb">{</span><span class="k">\myuline</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
@@ -202,9 +203,26 @@ Because this comes second, it overrides the underline --- drawing white gaps for
 I use ulem rather than soul so I can tweak the depth very precisely, mostly a case of trying different values until I find something that fits the font.
 Same with the contour length, I just try it until it looks nice.
 
-Put all together, this gives me a really nice underline.
+## Putting it all together
+
+Here's the code I ultimately settled on:
+
+<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>ulem<span class="nb">}</span>
+
+<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\ULdepth</span><span class="nb">}{</span>1.8pt<span class="nb">}</span>
+<span class="k">\contourlength</span><span class="nb">{</span>0.8pt<span class="nb">}</span>
+
+<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\myuline</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
+  <span class="k">\uline</span><span class="nb">{</span><span class="k">\phantom</span><span class="nb">{</span>#1<span class="nb">}}</span><span class="c">%</span>
+  <span class="k">\llap</span><span class="nb">{</span><span class="k">\contour</span><span class="nb">{</span>white<span class="nb">}{</span>#1<span class="nb">}}</span><span class="c">%</span>
+<span class="nb">}</span>
+</code></pre></div>
+
+
+This gives me a really nice underline.
 It's drawn on a consistent level, flush against the bottom of the text, with gaps as appropriate for descenders.
-If I want to tweak it further --- maybe adjust the underline thickness, or give it a different colour --- the settings in the ulem package give me plenty of scope for further refinement.
+If I want to tweak it further -- maybe adjust the underline thickness, or give it a different colour -- the settings in the ulem package give me plenty of scope for further refinement.
 
 Here's one final example, a hyperlink from my CV:
 
@@ -224,4 +242,4 @@ So it might be old-fashioned to care about LaTeX and underlined links, but it mi
 
 *The code used to create the images in this post is [on GitHub][github].*
 
-[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/code/latex-underlines
+[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/misc/latex-underlines
