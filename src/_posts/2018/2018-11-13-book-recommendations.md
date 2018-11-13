@@ -21,7 +21,7 @@ It has three lists:
     Recommendations from retweets, strangers at parties, people I don't know very well, stuff I saw while browsing in Waterstones, and so on.
     These are mostly valuable in the aggregate -- a single recommendation for a book isn't very useful, but knowing that six different people recommended it might be.
 
-I've tried slicing in other ways -- fiction and non-fiction, by author, genre, date, and so on -- but
+I've tried slicing in other ways -- fiction and non-fiction, by author, genre, date, and so on -- but sorting by quality of recommendation is the one that I keep going back to.
 
 A lot of what I read comes from these lists.
 (I have similar lists for films and TV shows.)
