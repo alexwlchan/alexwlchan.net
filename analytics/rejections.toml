@@ -72,6 +72,8 @@ bad_paths = [
 
     "/console/css/dashboard-min.css",
     "/bea_wls_deployment_internal",
+
+    "/sso/login",
 ]
 
 bad_path_prefixes = [
@@ -81,6 +83,7 @@ bad_path_prefixes = [
     '/wp-content',
     '/wp-includes',
     "/wp-json",
+    "/wp-login",
 
     '/.git',
 
@@ -91,6 +94,12 @@ bad_path_prefixes = [
     "/db/",
     "/db_backup",
     "/sql/",
+
+    "/index.php",
+
+    "/plus/ad_js.php",
+    "/plus/download.php",
+    "/plus/mytag_js.php",
 ]
 
 bad_path_suffixes = [
@@ -135,6 +144,13 @@ bad_path_suffixes = [
     ".sql.zip",
 
     "/indy.css",
+
+    "/alexwlchan.net.rar",
+    "/alexwlchan.net.tar.gz",
+    "/alexwlchan.net.tgz",
+    "/alexwlchan.net.zip",
+
+    "/wlwmanifest.xml",
 ]
 
 # Anything on this list was polluting 404 reports with URLs that
@@ -152,6 +168,22 @@ bad_user_agents = [
     'Newsify Feed Fetcher',
     'OpenLinkProfiler.org/bot',
     'python-requests',
+
+    "Feedbin",
+    "Feedly",
+    "Feed Wrangler",
+    "inoreader.com",
+    "NewsBlur",
+    "Overcast/1.0 Podcast Sync",
+    "NetNewsWire/4.1.0",
+    "theoldreader.com",
+
+    "Bot",
+    "bot",
+    "Daum/4.1",
+    "Qwantify/2",
+    "Reeder/3",
+    "YahooWebServiceClient",
 ]
 
 bad_referrers = [
