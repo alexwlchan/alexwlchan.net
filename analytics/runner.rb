@@ -36,10 +36,16 @@ NGINX_LOG_REGEX = %r{
 
 def should_be_rejected(hit)
   path = hit["url"].downcase
+  user_agent = hit["user_agent"]
   (
     REJECTIONS["bad_paths"].include? path or
     REJECTIONS["bad_path_prefixes"].any? { |prefix| path.start_with? prefix } or
-    REJECTIONS["bad_path_suffixes"].any? { |suffix| path.end_with? suffix }
+    REJECTIONS["bad_path_suffixes"].any? { |suffix| path.end_with? suffix } or
+    REJECTIONS["bad_user_agents"].any? { |ua| user_agent.include? ua } or
+    (
+        path.include? "/alexwlchan" and
+        [".rar", ".tar", ".tar.gz", ".tgz", ".zip"].any? { |s| path.end_with? s }
+    )
   )
 end
 
@@ -90,23 +96,15 @@ def normalise_referrers(hits)
 end
 
 
+GENERIC_SEARCHES = REFERRERS["search"]["urls"].to_set
+
 def is_generic_search_referrer(ref)
   /^https?:\/\/www\.google\.[a-z]+(?:\.[a-z]+)?\/?$/.match(ref) != nil ||
-  Set[
-    "android-app://com.google.android.googlequicksearchbox/https/www.google.com",
-    "android-app://com.google.android.googlequicksearchbox",
-    "https://duckduckgo.com/",
-    "https://q.search-fr.com/",
-    "https://www.bing.com/",
-    "https://search.yahoo.co.jp/",
-    "https://yandex.com.tr/",
-    "https://www.ecosia.org/",
-    "https://www.startpage.com/",
-    "https://search.yahoo.com/",
-  ].include?(ref) || ref.start_with?(
+  GENERIC_SEARCHES.include?(ref) || ref.start_with?(
     "https://yandex.ru/",
     "https://r.search.yahoo.com/",
     "https://search.myway.com/search",
+    "http://int.search.myway.com/search",
     "https://r.search.aol.com/",
   )
 end
@@ -130,7 +128,7 @@ def normalise_referrer(hit)
   ref = hit["referrer"]
   is_search = false
 
-  hit["referrer"] = if ref == "" || ref == nil || ref.start_with?("https://alexwlchan.net")
+  hit["referrer"] = if ref == "" || ref == nil || ref.start_with?("https://alexwlchan.net") || ref == "https://www.vpnbook.com/webproxy" || ref == "https://inbrowserapp.com/redirect"
     nil
   elsif is_generic_search_referrer(ref)
     is_search = true
@@ -141,9 +139,11 @@ def normalise_referrer(hit)
     "https://www.bing.com/search",
     "https://www4.bing.com/search",
     "http://www.bing.com/search",
+    "https://cn.bing.com/search",
     "https://cse.google.com/cse",
     "https://www.ecosia.org/search",
     "https://bitmotion-tab.com/search",
+    "https://search.lilo.org/",
   )
     is_search = true
     result = extract_query_param(ref, "q")
@@ -165,6 +165,12 @@ def normalise_referrer(hit)
     else
       ref
     end
+
+  # This is some sort of captcha/intermediary page that somebody sees,
+  # but doesn't tell me where they originally came from.  Ditch it
+  # from the logs.
+  elsif ref.start_with?("https://captcha.gecirtnotification.com/pitc/")
+    nil
   else
     REFERRERS["aliases"].fetch(ref, ref)
   end
