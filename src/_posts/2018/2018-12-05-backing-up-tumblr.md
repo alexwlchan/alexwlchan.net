@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-12-05 21:17:14 +0000
 title: A script for backing up Tumblr posts and likes
 summary: Since Tumblr users are going on a mass deletion spree (helped by the Tumblr staff), some scripts to save content before it's too late.
 tags: tumblr
