@@ -6,14 +6,14 @@ tags: python aws
 ---
 
 In AWS, everybody has a user account, and you can give each user very granular permissions.
-For example, you might allow some users complete access to your S3 buckets, databases and EC2 instances.
-Other users just have read-only permissions.
+For example, you might allow some users complete access to your S3 buckets, databases and EC2 instances, while other users just have read-only permissions.
 Maybe you have another user who can only see billing information.
 These permissions are all managed by [AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html).
 
 Sometimes you want to give somebody temporary permissions that aren't part of their usual IAM profile -- maybe for an unusual operation, or to let them access resources in a different AWS account.
 The mechanism for managing this is an [*IAM role*](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 An IAM role is an identity with certain permissions and privileges that can be *assumed* by a user.
+When you assume a role, you get the associated permissions.
 
 For example, at work, the DNS entries for wellcomecollection.org are managed in a different AWS account to the one I usually work in -- but I can assume a role that lets me edit the DNS config.
 
@@ -36,7 +36,7 @@ source_profile = user1
 ```
 
 When I use this profile, the CLI automatically creates temporary credentials for the `dns_editor` role, and uses those during my session.
-When the credentials expire, it automatically renews them.
+When the credentials expire, it renews them.
 Seamless!
 
 This config is also supported in [the Python SDK](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html#assume-role-provider), and I'd guess it works with SDKs in other languages as well -- but when I tried it with Terraform, it was struggling to find credentials.
@@ -44,6 +44,16 @@ I don't know if this is a gap in the Go SDK, or in Terraform's use of it -- eith
 So rather than configuring credentials implicitly, I wrote a script to create them explicitly.
 
 ## Creating temporary AWS credentials for a role
+
+There are a couple of ways to pass AWS credentials to the SDK: as environment variables, with SDK-specific arguments, or with the shared credentials profile file in `~/.aws/credentials`.
+I store the credentials in the shared profile file because all the SDKs can use it, so my script has two steps:
+
+1.  Create a set of temporary credentials
+2.  Store them in `~/.aws/credentials`
+
+By keeping those as separate steps, it's easier to change the storage later if, for example, I want to use environment variables.
+
+### Create a set of temporary credentials
 
 AWS credentials are managed by AWS Security Token Service (STS).
 You get a set of temporary credentials by calling [the `assume_role()` API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sts.html?highlight=sts#STS.Client.assume_role).
@@ -55,7 +65,7 @@ We can get some temporary credentials like so:
 import boto3
 
 
-def get_credentials(account_id, role_name):
+def get_credentials(*, account_id, role_name):
     sts_client = boto3.client("sts")
 
     role_arn = f"arn:aws:iam::{account_id}:role/{role_name}"
@@ -84,20 +94,30 @@ I use my IAM username and the details of the role I'm assuming, so it's easy to 
 We could also set the `DurationSeconds` parameter, which configures how long the credentials are valid for.
 It defaults to an hour, which is fine for my purposes -- but you might want to change it if you have longer sessions, and don't want to keep re-issuing credentials.
 
-Once I've got some credentials, I need to write them to `~/.aws/credentials`.
-The format is something like this:
+Note that I'm using two Python 3 features here: [f-strings for interpolation](https://www.python.org/dev/peps/pep-0498/), which I find much cleaner, and the `*` in the argument list creates [keyword-only arguments](https://www.python.org/dev/peps/pep-3102/), to enforce clarity when this function is called.
+
+### Store the credentials in ~/.aws/credentials
+
+The format of the credentials file is something like this:
 
 ```
 [profile_name]
 aws_access_key_id=ABCDEFGHIJKLM1234567890
 aws_secret_access_key=ABCDEFGHIJKLM1234567890
+
+[another_profile]
+aws_access_key_id=ABCDEFGHIJKLM1234567890
+aws_secret_access_key=ABCDEFGHIJKLM1234567890
 aws_session_token=ABCDEFGHIJKLM1234567890
 ```
 
-We could try to edit this file by hand -- or we could use the [configparser module](https://docs.python.org/3/library/configparser.html) in the Python standard library, which is meant for working with this type of file.
+Each section is a new AWS profile, and contains an access key, a secret key, and optionally a session token.
+That session token is tied to the `RoleSessionName` we gave when assuming the role.
+
+We could try to edit this file by hand -- or easier, we could use the [configparser module](https://docs.python.org/3/library/configparser.html) in the Python standard library, which is meant for working with this type of file.
 
 First we have to load the existing credentials, then look for a profile with this name.
-If it's present, we replace it; if not, we create it first.
+If it's present, we replace it; if not, we create it.
 Then we store the new credentials, and rewrite the file.
 Like so:
 
@@ -106,7 +126,7 @@ import configparser
 import os
 
 
-def update_credentials_file(profile_name, credentials):
+def update_credentials_file(*, profile_name, credentials):
     aws_dir = os.path.join(os.environ["HOME"], ".aws")
 
     credentials_path = os.path.join(aws_dir, "credentials")
@@ -128,9 +148,11 @@ def update_credentials_file(profile_name, credentials):
 Most of this is fairly standard use of the configparser library.
 The one item of note: I remove the spaces around delimiters, because when I tried leaving them in, boto3 got upset -- I think it read the extra space as part of the credentials.
 
+### Read command-line parameters
+
 Finally, we need to get some command-line parameters to tell us what the account ID and role name are, and optionally a profile name to store in `~/.aws/credentials`.
 Recently I've been trying [click](https://palletsprojects.com/p/click/) for command-line parameters, and I quite like it.
-Here's how we set up the script, and call our two helper methods:
+Here's the code:
 
 ```python
 import click
@@ -140,7 +162,7 @@ import click
 @click.option("--account_id", required=True)
 @click.option("--role_name", required=True)
 @click.option("--profile_name")
-def assume_role(account_id, role_name, profile_name):
+def save_assumed_role_credentials(account_id, role_name, profile_name):
     if profile_name is None:
         profile_name = account_id
 
@@ -153,8 +175,12 @@ def assume_role(account_id, role_name, profile_name):
 
 
 if __name__ == "__main__":
-    assume_role()
+    save_assumed_role_credentials()
 ```
+
+This defines a command-line interface with `@click.command()`, then sets up two required command-line parameters -- account ID and role name.
+The profile name is a third, optional parameter, and defaults to the account ID if you don't supply one.
+These parameters are passed into the `save_assumed_role_credentials()` method, which calls the two helpers methods.
 
 Now I can call the script like so:
 
@@ -170,7 +196,7 @@ To use this profile, I set the `AWS_PROFILE` variable:
 $ AWS_PROFILE=dns_editor_profile aws s3 ls
 ```
 
-and this command now runs with those credentials.
+and this command now runs with the credentials for that profile.
 
 ## tl;dr
 
@@ -204,7 +230,7 @@ def get_credentials(*, account_id, role_name):
     return resp["Credentials"]
 
 
-def update_credentials_file(profile_name, credentials):
+def update_credentials_file(*, profile_name, credentials):
     aws_dir = os.path.join(os.environ["HOME"], ".aws")
 
     credentials_path = os.path.join(aws_dir, "credentials")
@@ -227,7 +253,7 @@ def update_credentials_file(profile_name, credentials):
 @click.option("--account_id", required=True)
 @click.option("--role_name", required=True)
 @click.option("--profile_name")
-def assume_role(account_id, role_name, profile_name):
+def save_assumed_role_credentials(account_id, role_name, profile_name):
     if profile_name is None:
         profile_name = account_id
 
@@ -240,5 +266,5 @@ def assume_role(account_id, role_name, profile_name):
 
 
 if __name__ == "__main__":
-    assume_role()
+    save_assumed_role_credentials()
 ```
