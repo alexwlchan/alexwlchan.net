@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2018-12-23 22:39:38 +0000
 title: Iterating in fixed-size chunks in Python
 summary: A snippet for iterating over an arbitrary iterable in chunks, and returning a smaller chunk if the boundaries don't line up.
 tags: python
