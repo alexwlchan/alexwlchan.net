@@ -138,7 +138,7 @@ def get_matching_s3_objects(bucket, prefix='', suffix=''):
 
     # If the prefix is a single string (not a tuple of strings), we can
     # do the filtering directly in the S3 API.
-    if isinstance(prefix, basestring):  # robustness; basestring is a common superclass of str, unicode and potentially some more string classes
+    if isinstance(prefix, str):
         kwargs['Prefix'] = prefix
 
     while True:
@@ -181,4 +181,4 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 If you've used the original code, I'd recommend switching to use this updated version.
 You can find the code, along with a couple of tests, [on GitHub][github].
 
-[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/code/matching_s3_objects [this is a dead link]
+[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/code/matching_s3_objects
