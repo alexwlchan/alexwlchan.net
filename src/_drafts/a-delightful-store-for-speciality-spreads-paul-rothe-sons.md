@@ -10,7 +10,7 @@ Late last year, I wanted to find a jar of loganberry jelly as a Christmas presen
 This turned out to be surprisingly difficult to find -- it's a rare flavour that isn't in any of the supermarkets, and even Fortnum & Mason and Harrods both came up short.
 I did find it on Amazon, but something about buying jam on Amazon just feels wrong.
 
-Googling turned up this article, about a place called *Paul Rothe & Sons*, a small family-run deli in Marylebone.
+Googling turned up an article about a place called *Paul Rothe & Sons*, a small family-run deli in Marylebone.
 I walked over on my lunch break, and found a cosy little shop – tables for eating sandwiches and drinks, and walls stacked with a huge variety of jams and spreads.
 I had a little trouble finding what I wanted, but one of the owners (Stephen Rothe) helped me find exactly what I wanted.
 
