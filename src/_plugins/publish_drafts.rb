@@ -31,6 +31,7 @@ def publish_all_drafts(source_dir)
 
       name = File.basename(entry)
       new_name = File.join("_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
+      FileUtils.mkdir_p File.dirname(new_name)
       File.rename(entry, new_name)
 
       # Now we write the exact date and time into the top of the file.
