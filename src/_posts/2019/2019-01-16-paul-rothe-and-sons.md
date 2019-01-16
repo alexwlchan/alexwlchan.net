@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-01-16 08:54:08 +0000
 title: "A delightful store for speciality spreads: Paul Rothe & Sons"
 summary: Tucked away on Marylebone Lane, just before Christmas I found a lovely deli with an amazing selection of jams.
 tags: london
