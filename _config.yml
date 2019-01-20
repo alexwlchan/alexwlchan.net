@@ -43,7 +43,7 @@ pagination:
 markdown: redcarpet
 
 redcarpet:
-  extensions: ["footnotes", "smart"]
+  extensions: ["footnotes", "smart", "with_toc_data"]
 
 plugins:
   - "jekyll-paginate-v2"
