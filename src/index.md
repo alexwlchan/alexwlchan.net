@@ -19,7 +19,7 @@ If that sounds interesting, I have an [infrequently updated blog](/blog/).
 
 I hope you enjoy the site.
 
-He/him.
+<!-- He/him. -->
 
 [hypothesis]: https://github.com/HypothesisWorks/hypothesis-python
 [wellcome]: https://en.wikipedia.org/wiki/Wellcome_Trust
