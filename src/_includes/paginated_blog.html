@@ -1,0 +1,8 @@
+{% assign is_index = true %}
+
+{% for post in paginator.posts %}
+  {% include post_content.html %}
+  {% if forloop.index != paginator.posts.size %}<div class="post__separator" aria-hidden="true">&#9671;</div>{% endif %}
+{% endfor %}
+
+{% include pagination.html %}
