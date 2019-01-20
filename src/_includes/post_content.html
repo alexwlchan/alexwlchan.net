@@ -1,4 +1,5 @@
 <article class="post">
+  {% if post.title %}
   <h1 class="title post__title{% if post.link %} linkpost_title{% endif %}{% if post.theme and post.theme.minipost %} minipost_title{% endif %}">
     {% if post.link %}
       <a href="{{ post.link }}">
@@ -7,6 +8,7 @@
     {% endif %}
     {{ post.title | cleanup_text | smartify }}</a>
   </h1>
+  {% endif %}
 
   <div class="post__meta">
     <ul class="dot_list">
