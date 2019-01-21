@@ -13,6 +13,10 @@
   margin-bottom: 1em;
 }
 
+.micropost .post__meta:first-child {
+  margin-top: 2.5em;
+}
+
 .post__meta, .page__meta {
   line-height: 1.45em;
   &, a, a:visited {

@@ -40,7 +40,9 @@ pagination:
   sort_reverse: true
 
 collections:
-  - "microposts"
+  microposts:
+    output: true
+    permalink: "/:year/:month/:title/"
 
 markdown: "redcarpet"
 
