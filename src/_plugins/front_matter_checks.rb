@@ -29,7 +29,7 @@ end
 
 
 def assert_summary_is_right_length(entry)
-  if !entry.data.is_micropost
+  if !entry.data["is_micropost"]
     if entry.data.include? "summary"
       if entry.data["summary"] == nil
         raise "Empty summary in #{entry.path.inspect}"
