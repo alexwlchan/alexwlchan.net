@@ -13,7 +13,7 @@ layout: default_xml
 
   <author>
     <name>{{ site.author | xml_escape }}</name>
-    <email>{{ site.email | xml_escape }}</email>
+    <email>{{ site.emails.personal | xml_escape }}</email>
   </author>
 
   {% assign all_posts = site.posts | concat: site.microposts %}
