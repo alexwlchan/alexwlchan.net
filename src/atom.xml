@@ -13,13 +13,20 @@ layout: default_xml
 
   <author>
     <name>{{ site.author | xml_escape }}</name>
-    <email>{{ site.email | xml_escape }}</email>
+    <email>{{ site.emails.personal | xml_escape }}</email>
   </author>
 
-  {% assign posts = site.posts | where_exp: "post", "post.draft != true" %}
-  {% for post in posts limit: 10 %}
+  {% assign all_posts = site.posts | concat: site.microposts %}
+  {% assign published_posts = all_posts | where_exp: "post", "post.draft != true" %}
+  {% assign sorted_posts = published_posts | sort: "date" | reverse %}
+
+  {% for post in sorted_posts limit: 25 %}
     <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
-      <title type="html">{{ post.title | smartify | strip_html | normalize_whitespace | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
+      {% if post.title %}
+        <title type="html">{{ post.title | smartify | strip_html | normalize_whitespace | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
+      {% elsif post.is_micropost %}
+        <title type="html">(micropost &hash;{{ post.micropost_number }})</title>
+      {% endif %}
       <link href="{% if post.link %}{{ post.link }}{% else %}{{ post.url | absolute_url }}{% endif %}" rel="alternate" type="text/html" title="{{ post.title | strip_html | xml_escape }}" />
       <published>{{ post.date | date_to_xmlschema }}</published>
       <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
