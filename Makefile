@@ -70,7 +70,7 @@ publish-drafts: .docker/build
 
 publish: publish-drafts build
 
-deploy: publish
+rsync:
 	docker run --rm --tty \
 		--volume ~/.ssh/id_rsa:/root/.ssh/id_rsa \
 		--volume $(DST):/data \
@@ -85,6 +85,8 @@ deploy: publish
 		--exclude="attic/" \
 		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
+
+deploy: publish rsync
 
 test: .docker/tests
 	docker run \
@@ -117,4 +119,4 @@ include certs/Makefile
 include infra/Makefile
 
 
-.PHONY: clean build stop serve serve-debug publish-drafts publish deploy test renew-certbot
+.PHONY: clean build stop serve serve-debug publish-drafts publish rsync deploy test renew-certbot

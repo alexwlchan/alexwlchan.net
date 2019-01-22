@@ -39,11 +39,15 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
 
-# Build settings
-markdown: redcarpet
+collections:
+  microposts:
+    output: true
+    permalink: "/:year/:month/:title/"
+
+markdown: "redcarpet"
 
 redcarpet:
-  extensions: ["footnotes", "smart"]
+  extensions: ["footnotes", "smart", "with_toc_data"]
 
 plugins:
   - "jekyll-paginate-v2"
