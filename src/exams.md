@@ -89,4 +89,4 @@ Your health is far more important than any exam revision. It's easy to just focu
 
 I wish you the best of luck in whatever exam you're taking.
 
-Comments and feedback [are welcome](/contact/).
+Comments and feedback [are welcome](/#contact).

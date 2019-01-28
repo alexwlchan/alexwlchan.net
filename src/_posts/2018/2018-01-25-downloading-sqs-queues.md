@@ -301,4 +301,4 @@ If you find it useful, or think of another way to use it, please [let me know][c
 [jq]: https://stedolan.github.io/jq/
 [grep]: https://en.wikipedia.org/wiki/Grep
 [sendmsg]: http://boto3.readthedocs.io/en/stable/reference/services/sqs.html#SQS.Client.send_message
-[contact]: /contact
+[contact]: /#contact
