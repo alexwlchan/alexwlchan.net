@@ -7,9 +7,8 @@ tags: conferences
 
 <!-- "in the taylor series of philosophy, it's a very good first term" -->
 
-On Saturday, I was at [*You Got This* 2019](https://2019.yougotthis.io/), a conference that bills itself as an event for "juniors on skills needed for a happy, healthy work life".
+About a week ago, I was at [*You Got This* 2019](https://2019.yougotthis.io/), a conference that bills itself as an event for "juniors on skills needed for a happy, healthy work life".
 I'd seen [the schedule](https://2019.yougotthis.io/schedule) on Twitter, thought it looked interesting, and decided to attend on a whim.
-
 All the topics had a strong focus on wellbeing, not technical content.
 
 This post has my lightly edited notes from the conference and the sessions.
@@ -58,17 +57,16 @@ And here's some stuff that felt a little odd:
 
     The badge design itself was quite good -- rather than pre-printed with wallet names or companies, they were blank with a large space for "name" and "preferred pronouns".
 
--   I'm told the venue was wheelchair accessible.
-    The food and breakout spaces were downstairs
+-   I'm told the venue was wheelchair accessible, but I didn't see anybody using a wheelchair.
+    The food and breakout spaces were downstairs, and I assume there was a lift, but I didn't see it.
+    (Better signposting!)
 
-downstairs spaces a bit small
+    I also felt the spaces were a bit small, and felt crowded during the lunch break.
 
-No conference gets inclusivity perfect, and the gold standard for me is still [AlterConf London](/2017/04/lessons-from-alterconf/) -- but this is pretty good, overall.
+No conference gets inclusivity perfect, and the gold standard for me is still [AlterConf London](/2017/04/lessons-from-alterconf/) -- but this was pretty good, overall.
+I'd happily attend again.
 
-wheelchair, lift
-lanyards + badges
-
-if you read the post and think sounds interesting, back in 18 Jan 2020
+If you read the post and think sounds interesting, there's a sequel planned for January 2020, with a [mailing list](https://yougotthis.io/) on the website.
 
 ## The talks
 
