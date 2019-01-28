@@ -5,6 +5,8 @@ summary: Notes from the inaugural 'You Got This' conference, a conference about 
 tags: conferences
 ---
 
+<!-- "in the taylor series of philosophy, it's a very good first term" -->
+
 On Saturday, I was at [*You Got This* 2019](https://2019.yougotthis.io/), a conference that bills itself as an event for "juniors on skills needed for a happy, healthy work life".
 I'd seen [the schedule](https://2019.yougotthis.io/schedule) on Twitter, thought it looked interesting, and decided to attend on a whim.
 
@@ -152,289 +154,309 @@ Then at the end of the talk, another slide "Hi, I'm still Sascha", which had a s
 ### Where did all my money go? by [Paula Muldoon](https://twitter.com/FiddlersCode)
 
 Notable for starting and ending with a violin recital.
+(Although not the first time I've heard music on stage at a tech conference!)
 
-* budgeting
-* spreadsheet of main expenses
-* You Need a Budget
-* You can say no to something (like a dyed yellow lab coat)
+Some general advice:
 
+*   Budgeting is useful
+*   Have a spreadsheet of your main expenses
+*   [You Need A Budget](https://www.youneedabudget.com/) is great
+*   You can say no to something (like a dyed yellow lab coat, or candles)
 
-1) understand beliefts
-2) understanding practical steps
+If you want to get your spending under control, there are two key steps:
 
-#1) beliefs
+1.  **Understand your beliefs about money.**
 
-e.g. never have enough money
-always have enough money
-money is evil
+    For example: "I'll never have enough money", "I'll always have enough money" or "money is evil".
+    You might believe all, some or none of these -- whatever, knowing your beliefs is useful.
 
-* The Seven Stages of Money Management
-* Profit Boss podcast (women identified)
+    Some useful resources:
+    <p><ul>
+      <li>
+        <a href="https://www.amazon.co.uk/Seven-Stages-Money-Maturity-Understanding/dp/0440508339">The Seven Stages of Money Management</a>
+      </li>
+      <li>
+        <a href="https://www.hilaryhendershott.com/profit-boss-radio/">The Profit Boss podcast</a> (especially for women)
+      </li>
+    </ul></p>
+    Talk about money!
+    It's often a taboo topic.
 
-talk about money, often taboo
+2.  **Take some practical steps.**
 
-understand current money habits
--> exercise self-compassion
+    You want to understand your current money habits -- but exercise self-compassion.
+    Don't beat yourself up over everything you think you're doing wrong.
 
-#2) practical steps
+    Suggestions:
 
-- spreadsheet, calculate numbers
-- automate everything
+    <ul>
+      <li>
+        Have a spreadsheet.
+        Calculate all the numbers: exactly how much you're earning each month, and your regular bills (rent, utilities, tax, etc.).
+        What's left is your budget.
+      </li>
+      <li>
+        Automate everything.
+        If you have to remember to pay bills, there's a risk you'll forget and take a hit to your credit rating.
+      </li>
+      <li>
+        Max out your workplace pension.
+        (Note: I scribbled down "needs research" next to this, because I'm not sure how I'd do this, what it means, and suspect the best thing to do with pension stuff is probably more complicated than simple.)
+      </li>
+      <li>
+        Use bank accounts that help you track your spending, like <a href="https://monzo.com/">Monzo</a> or <a href="https://www.starlingbank.com/">Starling</a>.
+      </li>
+      <li>
+        Get free credit reports from Experian and Equifax.
+      </li>
+      <li>
+        If you have a credit card, keep your credit limit at an affordable level.
+        (I've heard conflicting advice on this one.
+        My credit limit is several times my monthly salary, and I rarely max it out -- but by paying it off regularly it's slowly inched up, and might be useful in an emergency.
+        Hasn't bitten me so far.)
+      </li>
+      <li>
+        Advanced moneying: have side gigs, negotiate a pay rise.
+      </li>
+    </ul>
 
-automate bills
-
-- max out workplace pension
-
-advanced moneying
-- side gigs
-- pay rise
-
-candles
-
-bank accounts -- monzo and starling
-
-credit card -- keep at affordable amount
-(note: depends on self-control)
-
-- free credit reports from experian and equifax
-
-
-
-### Junior.next(), by Tara Ojo
-
-"career crushes"
-
-everyone has to start as a junior
-how do you progress?
-
-juniors:
-
-- state the obvious
-- collect evidence
-- make a change
-- teach people, stretch yourself
-- share your opinions
-- it's okay not to know
-- celebrate your achievements
-- perfect your craft
-
-venn diagram:
-
-( !!PANIC!! ( stretch ( comfort ) ) )
-
-you want to be in "stretch", sweet spot
-PANIC is bad, a source of stress
-
-base knowledge skills
-        d
-        e
-        p
-        t
-        h
-
-supporters:
-
-- mentor
-- create opportunities
-- regular feedback (specific + achievable) (do more/less, start/stop doing, keep doing)
-- good pairing
-- ask open questions
-- invest time
-
-"in the taylor series of philosophy, it's a very good first term"
+Paula also wrote [a blog post](https://medium.com/fiddlerscode/where-did-all-my-money-go-resources-c0152e67fc84) with a summary and some resources.
 
 
+<br/>
 
 
-# Self-care beyond the hashtags, by Taylor Elyse-(illegible)
+## Junior.next(), by [Tara Ojo](https://twitter.com/tara_ojo)
 
-#selfcare hashtag
+Slides: <https://speakerdeck.com/tyeraqii/junior-dot-next-yougotthisconf>
 
-"ritual builder" -- helpign people build rituals
+I love the phrase "career crushes".
 
-in order to care for yourself, you need to listen to your body
-- stillness
-- observation
-- reflection
+Everyone has to start as a junior, so how do you progress?
 
-be consciously aware of your body
+If you're a junior looking to progress:
 
-reflection:
+-   State the obvious (both as a way to affirm what you already know, and spot subtle mistakes in understanding)
+-   Collect evidence of your progress, celebrate your achivements
+-   Teach other people, stretch yourself
+-   Share your opinions
+-   It's okay not to know (and to ask for help)
 
-1. pick an interval
-2. ask "when did I experience tension"
-3. ask "when did I feel supported?"
+There's a sweet spot of "stretch" between comfort (easy, minimal learning) and panic (bad, a source of stress) -- that's where you want to be.
 
-rituals:
+You want a mixture of base knowledge skills and depth in specific areas.
 
-have an emergency toolkit for when you're in a bad moment
+If you're a supporter trying to help a junior:
 
-- breathing
-call a loved one
-nature
-dance
-craft
-writing/journalling
-give tanks
+-   Mentor your junior
+-   Create opportunities for them
+-   Give regular feedback.
+    Good feedback is specific and achievable, e.g. do more/less of X, start/stop/keep doing Y
+-   Pairing sessions
+-   Ask open questions that let them show their understanding, and give the opportunity for further discussion
+-   Invest time in them
 
-self-care == listening to your body and responding in the most loving way possible
 
-our self-care needs change, keep listening + responding
+<br/>
 
-# ethics, sam warner
 
-ethical technology
+## Self-care beyond the hashtags, by [Taylor Elyse-Morrison](https://twitter.com/taylorelysemo)
 
-- doesn't make the world a worse place
-- benefits the largest number of people in the largest possible way
+Looking at the #selfcare hashtag.
+What is it?
 
-good/bad is fuzzy
+Taylor is a "ritual builder" -- helping people build rituals.
 
-effective altruism
-qcon london, yanqing
+In order to care for yourself, you need to listen to your body.
+You want stillness, observation, reflection.
+Be consciously aware of your body.
 
-"we shouldn't be ashamed of being immature if we mature well"
+When you reflect:
 
-~80% SO survey think would be ethical, but not their responsibility
+1.  Pick an interval
+2.  Ask "When did I experience tension?"
+3.  Ask "When did I feel supported?"
 
-three principles:
+For building rituals, you want an emergency toolkit for when you're in a bad moment.
+This might include:
 
-1. people come first
-2. create accessible and useful services for everyone
-3. more diverse teams => ethical factors
+-   Breathing exercises
+-   Calling a loved one
+-   Get outside and experience nature
+-   Dance
+-   Craft
+-   Writing or journalling
+-   Giving thanks
 
-we all make mistkaes
--> what matters is how we get better
-facebook example
+*Self-care means listening to your body and responding in the most loving way possible.*
 
-ethical os toolkit
-(do we need one for harassment)
+Our self-care needs will change with time, so keep listening and responding.
+
+
+<br/>
+
+## Morality and ethics, by [Sam Warner](https://twitter.com/sjwarner_)
+
+What's the definition of ethical technology?
+
+-   At a minimum, it doesn't make the world a worse place
+-   But better, it should benefit the largest number of people in the largest possible way
+
+Notions of good/bad are fuzzy; one possible alternative is [effective altruism](https://en.wikipedia.org/wiki/Effective_altruism).
+
+Tech is a relatively young and immature industry, but "we shouldn't be ashamed of being immature if we mature well".
+
+A Stack Overflow survey (admittedly not representative, with "some demographic challenges") -- a majority of developers think they should think about the ethics of the software they build, but only a minority think the ultimate responsibility lies with them.
+We should be empowering developers to feel like they have that responsibility (and power).
+
+Three principles of ethical software:
+
+1. People come first
+2. Create accessible and useful services for everyone
+3. More diverse teams give better visibility ethical factors
+
+We all make mistakes; what matters is how we get better.
+(The speaker used an example of Facebook -- Mark Zuckerberg didn't realise he'd create the monster he did -- but some of the early iterations of Facebook were pretty sketchy, so I'm reluctant to give Zuckerberg a pass.)
+
+A useful resource: the [Ethical OS toolkit](https://ethicalos.org/).
+A checklist of useful things to think about when building ethical software.
+(I wondered: does it cover online harassment and abuse?)
 
 Things to think about:
-1. unethical software isn't more profitable
-2. don't hide behind contracts
-3. you can make a difference (project maven)
+
+1. Unethical software isn't more profitable
+2. Don't hide behind contracts
+3. You can make a difference (e.g. [Project Maven](https://en.wikipedia.org/wiki/Artificial_intelligence_arms_race#Disassociation), in which Google's engineers successfully protested a contract with the US DoD)
+
+<br/>
 
 
+## Understanding and building independence, by [Violet Peña](https://violet.is/)
 
-# violet peña, I didn't write down a title
+Slides and notes: <https://violet.is/files/you-got-this.pdf>
 
-we are problem solvers
+We are problem solvers.
 
-reframe independence: bring ability to understand + construct solutions
-!= working alone
+Independence is the ability to understand and construct solutions.
+It's not about working alone.
 
-problem-solving framework:
+Here's a framework for solving problems:
 
-1. have a plan
+1.  **Have a plan**.
 
-  check you understand the problem
-  - data
-  - unknown
-  - conditions
+    Check you understand the problem: the data, the conditions, the unknowns.
 
-  planning:
-  - break down into steps
-  - how long will each step take?
-  - how can you track progress?
+    Break your plan down into steps.
+    How long will each step take?
+    How can you track progress?
 
-  be honest with yourself + your team
-  - are you progressing?
+    Be honest with yourself and your team.
+    Are you progressing?
 
-  be aware of how you are performing
-  - "I need more time/help/to do something differently"
+    Be aware of how you're performing.
+    It's okay to say "I need more time", "I need more help", "I need to do something differently".
+    (And she had us all say them out loud to get used to saying the words!)
 
-2.  use your tools
+2.  **Use your tools.**
 
-  - change modalities
-  - try new tools / debugging technologies
+    Use the tools you have, but don't be afraid to change modalities; to try new tools or technologies if needed.
 
-  - find a related problem (by data/condition/unknowns), and solve in a similar way
+    Find a related problem (similar data, conditions, unknowns), and try to solve your problem in a similar way.
 
-3.  asking for help
+3.  **Ask for help.**
 
-  is a great thing to do!
-  - self-knowledge
-  - respect for colleagues
-  - no self-ego
+    It's a great thing to do: it builds your knowledge, shows your respect for your colleagues, shows you don't have a massive ego.
 
-  "build a voltron" -- a group of people who can help with particular topics
+    You want to "build a Voltron" -- a group opf people who can help with particular topics.
 
-  when?
-  - stuck
-  - can't get past + stuck
-  - need a rethink
+    You should ask for help when you're stuck, can't get past a particular problem, or need a rethink.
 
-  the more certain you are somebody has seen this before, the earlier you can ask for help
+    *The more certain you are somebody has seen this before, the earlier you can ask for help.*
 
-  how?
-  - give context
-  - ask a specific question
-  - what have you already tried?
-  - thanks
+    How do you ask for help?
 
-# sam morgan
+    <ul>
+      <li>Give context</li>
+      <li>Ask a specific question</li>
+      <li>Tell them what you've already tried</li>
+      <li>Thank them for their time/help</li>
+    </ul>
 
-1. suspicious of the term "junior"
-2. advice for supporters
+<br/>
 
-if you say junior, what are you suggesting?
-- learning isn't for everyone
-- old school
-- undervalue skills
+## The power of junior developers, by [Sam Morgan](http://sjmog.github.io/)
 
-in company, you have permission to learn if:
-- young
-- early-caree
-- not expected to deliver
+Two topics:
 
-(false dichotomy)
+1.  Be suspicious of the word "junior"
+2.  Advice for people who want to support junior developers
 
-how to build learning structures:
+If you say "junior", what are you suggesting?
+You're saying that:
 
-1.  context
-    - whiteboarding + diagramm9″ sessions
-    - link to domain (every ticket should link to an end-user case)
-    - everything is a learning exercise
-    - time / mind unblocking / keywords / engagement
+-   Learning isn't for everyone
+-   You're old school (there are some industries where being conservative about change is good, e.g. healthcare or aviation safety; this is not true in most companies)
+-   You undervalue skills
 
-2.  goals
+You only have permission to learn if you're:
 
-  - locke "a theory of goal setting and task performance"
-  - what can I say about myself
-  - specific/aspirational/expected/believed
+-   Young
+-   Early career
+-   Not expected to deliver
 
-3.  tasks
+This is a false dichotomy.
 
-4.  reources
+Here's how to build a structure for learning:
 
-    summary of reading/you/prepared exercises
-    be socratic, i.e. ask questions
+Provide context for problems:
 
-    answering Qs -> robs somebody the chance to ever learn the answer
-    increase their power to ask questions
+-   Run whiteboarding and diagramming sessions.
+-   Link to the domain -- every ticket should link to an end-user case.
+-   Treat everything as a learning exercise
+-   Provide your time and expertise to help people
 
-    socratic -- build a link library
-    keep focussed
+Set goals:
 
-5.    assessment
+-   Mentioned: *A theory of goal setting and task performance*, by Edwin Locke
+-   What can I say about myself?
+-   A good goal is specific, aspirational, expected and believed.
+    (i.e., somebody else should believe you can achieve it, and then say so!)
 
-    concrete -- if the internet can answer, ignore ("what is js syntax for a function")
-    concepts -- interesting conversations/discussion ("what is a function")
-    skills -- process / pairing + observe ("writing a. good function")
-    + behaviours
+Provide resources and help:
 
-6.  feedback
+-   Provide a summary of reading, what you've learnt, prepared exercises.
+    If a junior asks a question and you point them at a 400-page book, they won't read it and they're no better off -- give distilled knowledge.
 
-    have a structure for feedback
+-   Be socratic, i.e., ask questions.
+    Don't just answer somebody's question straight up: it robs them the chance to ever learn the answer.
+    Instead, increase their power to ask questions, and lead themselves to the answer.
 
-    1.  require intentionality
-        what do you want feedback on?
+-   Build a link library of useful advice, tips, technical info.
 
-    2.  keep it tight
+There are several types of question somebody might ask/opportunities for learning, and they need to be treated differently:
 
-    3.  demand iteration
+-   Concrete.
+    If the internet can answer it, ignore it -- or help them find the answer themselves (e.g. "what is the JavaScript syntax for a function")
 
-        - implement feedback + come back for me feedback (cf exams)
+-   Concepts.
+    These can lead to interesting conversations and discussion (e.g. "what is a function?").
 
-how r u going to transform the businesses you work in?
+-   Skills, processes, behaviours.
+    These are learnt by pairing, observing, feedback (e.g. "what is a good amount of code for a single function?")
+
+Have a structure for feedback:
+
+1.  Require intentionality.
+    Ask: *What do you want feedback on?*
+
+    This allows you to get feedback early, rather than waiting for perfect or completed specimens, and early feedback is better.
+
+2.  Keep it tight.
+    Don't overwhelm somebody with information, or provide comments on irrelevant areas.
+
+3.  Demand iteration.
+
+    When they've addressed your feedback, they should come back for more.
+    The model of "get feedback once, then finish" is an odd one, and not so helpful (exams are weird).
+
+A question for the junior devs in the room: how are you going to transform the businesses you work in?
