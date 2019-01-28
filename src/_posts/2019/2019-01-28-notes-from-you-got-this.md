@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-01-28 13:42:06 +0000
 title: Notes from <em>You Got This</em> 2019
 summary: Notes from the inaugural 'You Got This' conference, a conference about creating a healthy and sustainable work life.
 tags: conferences
