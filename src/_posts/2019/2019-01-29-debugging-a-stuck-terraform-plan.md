@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-01-29 16:07:28 +0000
 title: Debugging a stuck Terraform plan
 summary: If a 'terraform plan' hangs, adding 'max_retries = 1' can sometimes expose the issue.
 tags: terraform aws
