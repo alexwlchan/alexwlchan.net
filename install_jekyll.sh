@@ -9,7 +9,7 @@ set -o nounset
 #   - https://github.com/ffi/ffi/issues/485
 #
 apk update
-apk add g++ libffi-dev make musl-dev ruby ruby-dev build-base
+apk add g++ libffi-dev make musl-dev ruby ruby-dev build-base libxslt-dev
 
 # Required for the static file generator
 apk add rsync
