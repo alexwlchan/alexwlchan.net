@@ -1,20 +1,25 @@
 ---
 layout: post
 date: 2019-01-31 10:03:33 +0000
-last_modified_at:
+last_modified_at: 2019-01-31 20:57:01 +0000
 title: "Monki Gras 2019: The Curb Cut Effect"
 summary: Slides, notes and references for my Monki Gras 2019 talk 'The Curb Cut Effect'.
 tags: slides accessibility
 theme:
   color: 531b93
+  card_type: summary_large_image
+  image: /slides/curbcut_monkigras/curbcut_monkigras.023.jpg
 ---
 
 Earlier today I did a talk at [Monki Gras 2019](https://monkigras.com/).
 The theme of the conference is "Accessible Craft: Creating great experiences for everyone", so I did a talk about inclusive design -- and in particular, something called the Curb Cut Effect.
-It went really well -- everybody was very nice afterwards, and I'm enjoying the rest of talks too.
-(Notes on those will be a separate post.)
 
-PUT MORE INFO ON BACKGROUND
+I originally pitched a talk based on [Assume Worst Intent](/2018/09/assume-worst-intent/), because if you're thinking about inclusion you might think about ways to avoid exclusion (specifically, exclusion of harassment and abuse victims).
+That talk was definitely too narrow for this conference, but James isolated a key idea -- making a service better for vulnerable uses makes it better for everyone -- and I wrote an entirely new talk around it.
+
+The talk went really well -- everybody was very nice afterwards, and I'm enjoying the rest of talks too.
+(Notes on those will be a separate post.)
+It was a lot of fun to write and present.
 
 You can read the slides and my notes on this page, or download the slides [as a PDF](/files/curbcut-monkigras.pdf).
 The talks was recorded, and I'll update this post with a link to the video when it's posted.
@@ -25,13 +30,17 @@ The talks was recorded, and I'll update this post with a link to the video when 
   }
 </style>
 
----
-
 ## Links/recommended reading
 
 *   [*Mismatch*](https://mitpress.mit.edu/books/mismatch), by Kat Holmes, was a useful book.
     It's a short but detailed book that I'd recommend for anybody wanting to learn more about inclusive design.
     The penultimate chapter was especially helpful for finding a good framing.
+
+*   Some general articles about the Curb Cut Effect that I found useful:
+
+    -   [*The Curb Cut Effect: How Making Public Spaces Accessible to People With Disabilities Helps Everyone*](https://medium.com/@mosaicofminds/the-curb-cut-effect-how-making-public-spaces-accessible-to-people-with-disabilities-helps-everyone-d69f24c58785), which goes into additional detail about how designs go from "assistive technology" to "ubiquitous".
+    -   [*The Curb-Cut Effect*](https://ssir.org/articles/entry/the_curb_cut_effect), by Angela Glover Blackwell.
+    -   [*The Curb Cut Effect, or Why It Is Basically Impossible To Appropriate From Disabled People*](https://thingofthings.wordpress.com/2014/11/15/the-curb-cut-effect-or-why-it-is-basically-impossible-to-appropriate-from-disabled-people/)
 
 *   If you want to read more detail about Jack Fisher's work to install curb cuts in Kalamazoo, MI:
 
@@ -42,9 +51,7 @@ The talks was recorded, and I'll update this post with a link to the video when 
 *   [*Electronic Curb Cuts*](http://www.accessiblesociety.org/topics/technology/eleccurbcut.htm), by Steve Jacobs, is a long list of other examples of the curb cut effect.
     I drew a couple of examples from here (the typewriter and OCR), and there are plenty of others I didn't have time to mention.
 
-TODO: MARIE CURIE BOOK LINK< RADIOACTIVE LINK>
-
----
+## Slides and notes
 
 {% slide curbcut_monkigras 1 %}
 
@@ -284,19 +291,19 @@ This is one of our "data centres"...
 Like many institutions, we're scanning our archives to make them more easily available, and then we use OCR to make them searchable.
 
 {% slide_captioned curbcut_monkigras 19 %}
-  A page from the notebooks of Marie Curie, with a search highlighting instances of the word "radioaktiv".
+  A page from [the notebooks of Marie Curie](https://wellcomelibrary.org/item/b28120991#?c=0&m=0&s=0&cv=6&z=-1.0491%2C0%2C3.0982%2C1.5908), with a search highlighting instances of the word "radioaktiv".
   Image credit: Wellcome Collection.
 {% endslide_captioned %}
 
 Here's one example of our books: a notebook from Marie Curie, freely available to browse online.
-(Which is preferable to the original, which is slightly radioactive!)
+(Which is preferable to the original, which is [slightly radioactive](https://blog.bir.org.uk/2015/09/02/the-radioactive-legacy-of-marie-curie/)!)
 And using OCR, we can see that the word "radioaktiv" appears 730 times.
 
 This so cool, but it wouldn't exist without the pioneering work done into OCR to help blind people.
 
 {% slide_captioned curbcut_monkigras 20 %}
   A silver door handle set against a purple door, with raindrops on the door's surface.
-  TODO: attribution
+  Image credit: [MabelAmber on Pixabay](https://pixabay.com/en/door-handle-doorknob-lock-door-3633943/), and recoloured by me.
 {% endslide_captioned %}
 
 One final example, less high technology and more small convenience: door handles.
