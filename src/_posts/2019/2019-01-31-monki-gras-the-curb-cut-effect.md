@@ -79,7 +79,7 @@ Our current exhibition, [Living with Buildings][buildings], is all about the eff
 I'm talking about those areas where the kerb dips to form a ramp -- giving a level, step-free path from the road to the pavement.
 In the UK, these are usually accompanied by a textured yellow surface (pictured).
 
-They go by several names -- in the UK we call them [*dropped kerbs*][kerbs], in the US they're called *dropped kerbs* (one of the few American spellings that adds the letter U), and they have other names around the world.
+They go by several names -- in the UK we call them [*dropped kerbs*][kerbs], in the US they're called *curb cuts* (one of the few American spellings that adds the letter U), and they have other names around the world.
 The American spelling is mostly common, and that's what I'll use for the rest of the talk, but you can mentally substitute "curb cut" for your preferred term.
 
 [kerbs]: https://en.wikipedia.org/wiki/Curb_cut
