@@ -83,6 +83,7 @@ rsync:
 		--exclude=".well-known" \
 		--exclude=".DS_Store" \
 		--exclude="attic/" \
+		--exclude="ideas-for-inclusive-events/" \
 		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
