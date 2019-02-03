@@ -3,8 +3,7 @@ FROM alpine
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Image for running tests of the alexwlchan.net build"
 
-RUN apk update && \
-    apk add ca-certificates git python py-pip py2-lxml wget unzip
+RUN apk add --update build-base ca-certificates git libxslt-dev python python-dev py-pip py2-lxml wget unzip
 
 # TODO: It's frustrating that this is supplied here, rather than in the
 # requirements.txt; it's a bug in the version of pip-tools/pip I use.
