@@ -2,9 +2,20 @@
 layout: post
 date: 2018-08-13 08:16:20 +0000
 title: Ideas for inclusive conferences and events
-tags: conferences
+tags: conferences inclusion
+last_updated: 2019-02-05 08:25:14 +0000
 summary: A collection of ideas and suggestions for running conferences which are more inclusive and accessible. Based on my experiences at AlterConf, PyCon UK, and similar events.
+excerpt_separator: "-------"
 ---
+
+{% update "2019-02-05" %}
+Thank you to everyone who's read, shared, or given feedback on this post.
+I've been thrilled by the number of people who've said they found it useful.
+
+I got a lot of suggestions for new ideas to add to the list, and I had some thoughts on how to make it more readable.
+So if you're interested, there's a new version at <https://alexwlchan.net/ideas-for-inclusive-events/>, and I'll be trying to keep that updated more frequently.
+Enjoy!
+{% endupdate %}
 
 <style>
   h2 { color: #d01c11; }
