@@ -1,5 +1,8 @@
 .update {
   border-color: $primary-color;
+  background: #ffeeee;
+  padding-top:    1px;
+  padding-bottom: 1px;
 
   // Cancel out the styles added by standard blockquotes
   p {
