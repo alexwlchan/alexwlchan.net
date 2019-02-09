@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Working with really large objects in S3
-summary: Some code that allows you to process or selectively read large objects in S3 without downloading the entire object first.
+summary: Creating a file-like object in Python that lets us process large objects in S3 without downloading the whole thing first.
 tags: python aws
 ---
 
