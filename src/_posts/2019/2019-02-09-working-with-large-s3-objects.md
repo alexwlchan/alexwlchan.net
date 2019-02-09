@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-02-09 18:09:32 +0000
 title: Working with really large objects in S3
 summary: Creating a file-like object in Python that lets us process large objects in S3 without downloading the whole thing first.
 tags: python aws
