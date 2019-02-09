@@ -14,7 +14,7 @@ slug = if ARGV.length == 2
 else
   title
     .downcase
-    .gsub(/[^a-z]/, "-")
+    .gsub(/[^a-z0-9]/, "-")
     .gsub(/\-{2,}/, "-")
     .chomp("-")
 end
