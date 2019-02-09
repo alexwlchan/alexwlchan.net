@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Streaming large files from S3 with boto3
-summary: Some code that allows you to process large files in S3 without downloading the entire file first.
+title: Working with really large objects in S3
+summary: Some code that allows you to process or selectively read large objects in S3 without downloading the entire object first.
 tags: python aws
 ---
 
 One of our current work projects involves working with large ZIP files stored in S3.
-These are files in the [BagIt format][bagit], which contain a collection of files we want to put in long-term digital storage.
-Part of this process involves unpacking the ZIP file, and examining every individual entry.
+These are files in the [BagIt format][bagit], which contain files we want to put in long-term digital storage.
+Part of this process involves unpacking the ZIP, and examining and verifying every file.
 So far, so easy -- the AWS SDK allows us to read objects from S3, and there are plenty of libraries for dealing with ZIP files.
 
 In Python, you can do something like:
@@ -24,18 +24,19 @@ with zipfile.ZipFile("bagit.zip") as zf:
     print(zf.namelist())
 ```
 
-This is what most examples of working with S3 look like -- download the entire file first (whether to disk or in-memory), then work with the complete copy.
+This is what most code examples for working with S3 look like -- download the entire file first (whether to disk or in-memory), then work with the complete copy.
 
-Where this breaks down is if you have an exceptionally large file, or you're working in a storage-constrained environment.
+Where this breaks down is if you have an exceptionally large file, or you're working in a constrained environment.
 Some of our BagIt files are tens of gigabytes, and the largest might be over half a terabyte (even if the individual files are small).
 And if you've gone serverless and you're running in AWS Lambda, you only get [500 MB of disk space][lambda_faq].
 What are we to do?
 
-Like many formats, you don't need to read the entire file at once to parse a ZIP file -- if you can read from particular sections of the file, you can parse the structure without loading the whole thing.
-The ZIP contains a lookup table that says "I contain these individual files, and here is where to find them in the ZIP" -- where to start reading if you want to extract a single zipped file.
-And S3 allows you to read a specific section of a file if you pass a [Range header][range_hdr] in your GetObject request.
+To process a ZIP file (like many formats), you don't need to load the entire file at once -- it has a well-defined internal structure, and you can read it a bit at a time.
+In a ZIP, there's a table of contents that tells you what files it contains, and where they are in the overall ZIP.
+If you want to extract a single file, you can read the table of contents, then jump straight to that file -- ignoring everything else.
+This is easy if you're working with a file on disk, and S3 allows you to read a specific section of a object if you pass [an HTTP Range header][range_hdr] in your GetObject request.
 
-So if we construct a wrapper for S3 objects that passes the correct Range headers, we can stream (and parse) a large file in S3.
+So if we construct a wrapper for S3 objects that passes the correct Range headers, we can process a large object in S3 without downloading the whole thing.
 
 I couldn't find any public examples of somebody doing this, so I decided to try it myself.
 In this post, I'll walk you through how I was able to stream a large ZIP file from S3.
@@ -48,10 +49,9 @@ You're welcome to use it, but you might want to test it first.
 
 ## Getting a file-like object
 
-In Python, there's a notion of a *"file-like object"* -- a wrapper around some I/O that behaves like a file, even if it isn't a file on disk.
-It responds to calls like `read()` and `write()`, and you can use it where you'd ordinarily use a file on disk.
-The docs for the [io library][io_lib] explain the different methods that a file-like object can support.
-Not every file-like object supports every method -- for example, a read-only file will error if you call `write()`.
+In Python, there's a notion of a *"file-like object"* -- a wrapper around some I/O that behaves like a file, even if it isn't actually a file on disk.
+It responds to calls like `read()` and `write()`, and you can use it in places where you'd ordinarily use a file.
+The docs for the [io library][io_lib] explain the different methods that a file-like object can support, although not every file-like object supports every method -- for example, you can't `write()` to an HTTP response body.
 
 Many libraries that work with local files can also work with file-like objects, including the [zipfile module][zipfile] in the Python standard library.
 If we can get a file-like object from S3, we can pass that around and most libraries won't know the difference!
@@ -63,13 +63,13 @@ Like so:
 import boto3
 
 s3 = boto3.client("s3")
-s3_obj = s3.get_object(Bucket="bukkit", Key="bagit.zip")
+s3_object = s3.get_object(Bucket="bukkit", Key="bagit.zip")
 
-print(s3_obj["Body"])
+print(s3_object["Body"])
 # <botocore.response.StreamingBody object at 0x10c46f438>
 ```
 
-That StreamingBody object responds to `read()`, which allows you to download the entire file into memory.
+That StreamingBody is a file-like object responds to `read()`, which allows you to download the entire file into memory.
 So let's try passing that into ZipFile:
 
 ```python
@@ -78,9 +78,10 @@ import zipfile
 import boto3
 
 s3 = boto3.client("s3")
-s3_obj = s3.get_object(Bucket="bukkit", Key="bagit.zip")
+s3_object = s3.get_object(Bucket="bukkit", Key="bagit.zip")
+streaming_body = s3_object["Body"]
 
-with zipfile.ZipFile(s3_obj["Body"]) as zf:
+with zipfile.ZipFile(streaming_body) as zf:
     print(zf.namelist())
 ```
 
@@ -89,7 +90,7 @@ Unfortunately, that throws an error:
 ```
 Traceback (most recent call last):
   File "example.py", line 11, in <module>
-    with zipfile.ZipFile(s3_obj["Body"]) as zf:
+    with zipfile.ZipFile(s3_object["Body"]) as zf:
   File "/usr/local/Cellar/python/3.6.4_4/Frameworks/Python.framework/Versions/3.6/lib/python3.6/zipfile.py", line 1108, in __init__
     self._RealGetContents()
   File "/usr/local/Cellar/python/3.6.4_4/Frameworks/Python.framework/Versions/3.6/lib/python3.6/zipfile.py", line 1171, in _RealGetContents
@@ -115,8 +116,8 @@ import io
 
 
 class S3File(io.RawIOBase):
-    def __init__(self, s3_obj):
-        self.s3_obj = s3_obj
+    def __init__(self, s3_object):
+        self.s3_object = s3_object
 ```
 
 Note: the constructor expects an instance of [boto3.S3.Object][boto3_obj], which you might create directly or via a boto3 resource.
@@ -139,8 +140,8 @@ The io docs explain [how seek() works][io_seek]:
 >
 > Return the new absolute position.
 
-This hints at the key part of doing streaming I/O: we need to know how far through the stream we are.
-What part of the stream are we currently looking at?
+This hints at the key part of doing selective reads: we need to know how far through we are.
+What part of the object are we currently looking at?
 When we open a file on disk, the OS handles that for us -- but in this case, we'll need to track it ourselves.
 
 This is what a seek() method might look like:
@@ -150,8 +151,8 @@ import io
 
 
 class S3File(io.RawIOBase):
-    def __init__(self, s3_obj):
-        self.s3_obj = s3_obj
+    def __init__(self, s3_object):
+        self.s3_object = s3_object
         self.position = 0
 
     def seek(self, offset, whence=io.SEEK_SET):
@@ -160,7 +161,7 @@ class S3File(io.RawIOBase):
         elif whence == io.SEEK_CUR:
             self.position += offset
         elif whence == io.SEEK_END:
-            self.position = self.s3_obj.content_length + offset
+            self.position = self.s3_object.content_length + offset
         else:
             raise ValueError("invalid whence (%r, should be %d, %d, %d)" % (
                 whence, io.SEEK_SET, io.SEEK_CUR, io.SEEK_END
@@ -172,26 +173,26 @@ class S3File(io.RawIOBase):
         return True
 ```
 
-We've added the `position` attribute to track where we are in the stream, and that's where we apply the `offset`.
+We've added the `position` attribute to track where we are in the stream, and that's what we update when we call `seek()`.
 
 The `content_length` attribute on the S3 object tells us its length in bytes, which corresponds to the end of the stream.
 
 For the ValueError, I copied the error you get if you pass an unexpected whence to a regular open() call:
 
-```python
-open("example.py").seek(5, 5)
-# Traceback (most recent call last):
-#   File "<stdin>", line 1, in <module>
-# ValueError: invalid whence (5, should be 0, 1 or 2)
+```pycon
+>>> open("example.py").seek(5, 5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid whence (5, should be 0, 1 or 2)
 ```
 
-Now let's try using this new version:
+Now let's try using this updated version:
 
 ```python
 s3 = boto3.resource("s3")
-s3_obj = s3.Object(bucket_name="bukkit", key="bag.zip")
+s3_object = s3.Object(bucket_name="bukkit", key="bag.zip")
 
-s3_file = S3File(s3_obj)
+s3_file = S3File(s3_object)
 
 with zipfile.ZipFile(s3_file) as zf:
     print(zf.namelist())
@@ -228,8 +229,9 @@ The io docs explain [how read() works][io_read]:
 >
 > If 0 bytes are returned, and `size` was not 0, this indicates end of file. If the object is in non-blocking mode and no bytes are available, None is returned.
 
-To implement this method, we have to remember that we don't necessarily read from the start of the stream, but from the position set by seek().
-And when we've read some bytes, we need to advance the position because we've moved through the stream.
+To implement this method, we have to remember that we read from the position set by `seek()` -- not necessarily the start of object.
+And when we've read some bytes, we need to advance the position.
+
 To read a specific section of an S3 object, we pass an HTTP Range header into the get() call, which defines what part of the object we want to read.
 
 So let's add a read() method:
@@ -240,7 +242,7 @@ class S3File(io.RawIOBase):
 
     @property
     def size(self):
-        return self.s3_obj.content_length
+        return self.s3_object.content_length
 
     def read(self, size=-1):
         if size == -1:
@@ -258,7 +260,7 @@ class S3File(io.RawIOBase):
             range_header = "bytes=%d-%d" % (self.position, new_position - 1)
             self.seek(offset=size, whence=io.SEEK_CUR)
 
-        return self.s3_obj.get(Range=range_header)["Body"].read()
+        return self.s3_object.get(Range=range_header)["Body"].read()
 
     def readable(self):
         return True
@@ -266,15 +268,15 @@ class S3File(io.RawIOBase):
 
 This is a little more complicated than seek().
 
-I've added a size property that exposes the length of the stream, and wraps the content_length attribute.
-This is just for convenience.
+I've added a `size` property that exposes the length of the stream, and wraps the `content_length` attribute.
+This is for convenience.
 
-If the size is unspecified, we create an open-ended Range header and seek to the end of the file.
-Note that I'm calling seek() rather than updating the position manually -- it saves me writing a second copy of the logic for tracking the position.
+If the user doesn't specify a size for `read()`, we create an open-ended Range header and seek to the end of the file.
+Note that I'm calling `seek()` rather than updating the position manually -- it saves me writing a second copy of the logic for tracking the position.
 
-If the caller passes a size, we need to work out if this size goes beyond the end of the object -- in which case we should truncate it!
-If it is too big, we fall back to reading the entire file, and we can just make a second call to read() -- we don't need to duplicate that logic.
-If it's not, we create a Range header (and note that byte ranges are inclusive, hence the -1), and seek to the appropriate position.
+If the caller passes a size to `read()`, we need to work out if this size goes beyond the end of the object -- in which case we should truncate it!
+If it is too big, we fall back to reading the entire object, by making a second call to `read()` -- we don't need to duplicate that logic.
+If it's not, we create a Range header (and note that byte ranges include the upper value, hence the -1), and seek to the appropriate position.
 
 Then we call the get() method on the object, pass the Range header, and read all the bytes that come back.
 
@@ -282,29 +284,34 @@ If you use this version of the code, we can load the list of files in the ZIP co
 
 ```python
 s3 = boto3.resource("s3")
-s3_obj = s3.Object(bucket_name="bukkit", key="bag.zip")
+s3_object = s3.Object(bucket_name="bukkit", key="bag.zip")
 
-s3_file = S3File(s3_obj)
+s3_file = S3File(s3_object)
 
 with zipfile.ZipFile(s3_file) as zf:
     print(zf.namelist())
 ```
+
+And that's all you need to do selective reads from S3.
 
 [io_read]: https://docs.python.org/3/library/io.html?highlight=io#io.RawIOBase.read
 
 
 ## Is it worth it?
 
-There's a (small) cost to making GetObject calls in S3, and this streaming method will make more GetObject calls.
+There's a small cost to making GetObject calls in S3 -- both in money and performance.
+
+This wrapper class uses more GetObject calls than downloading the object once.
 In my brief experiments, it took 3 calls to load the table of contents, and another 3 calls to load an individual file.
-Run over many files, that will be more expensive (and probably slower) than a single GetObject call to download the entire file, and then doing your processing locally -- but only if you have the disk space to do so!
+If you can, it's cheaper and faster to download the entire object to disk, and do all the processing locally -- but only if you have the resources to do so!
+This wrapper is useful when you can't do that.
 
-You could try a hybrid approach: download the file by default, and only stream the file if it's above a certain size.
-You'd trade a bit of performance and cost for some extra code complexity.
+In practice, I'd probably use a hybrid approach: download the entire object if it's small enough, or use this wrapper if not.
+I'd trade some extra performance and lower costs for a bit more code complexity.
 
-At work, we write everything in Scala, so I don't think we'll ever use this code.
+At work, we write everything in Scala, so I don't think we'll ever use this code directly.
 (At best, we'll use the ideas it contains.)
-But this post proves the general idea: you can stream a large file out of S3, you can do selective reads, and you don't have to download the entire file to do it.
+But this post proves the general idea: you can process a large object in S3 without having to download the whole thing first.
 
 
 
@@ -317,16 +324,16 @@ import io
 
 
 class S3File(io.RawIOBase):
-    def __init__(self, s3_obj):
-        self.s3_obj = s3_obj
+    def __init__(self, s3_object):
+        self.s3_object = s3_object
         self.position = 0
 
     def __repr__(self):
-        return "<%s s3_obj=%r>" % (type(self).__name__, self.s3_obj)
+        return "<%s s3_object=%r>" % (type(self).__name__, self.s3_object)
 
     @property
     def size(self):
-        return self.s3_obj.content_length
+        return self.s3_object.content_length
 
     def tell(self):
         return self.position
@@ -364,7 +371,7 @@ class S3File(io.RawIOBase):
             range_header = "bytes=%d-%d" % (self.position, new_position - 1)
             self.seek(offset=size, whence=io.SEEK_CUR)
 
-        return self.s3_obj.get(Range=range_header)["Body"].read()
+        return self.s3_object.get(Range=range_header)["Body"].read()
 
     def readable(self):
         return True
@@ -376,9 +383,9 @@ if __name__ == "__main__":
     import boto3
 
     s3 = boto3.resource("s3")
-    s3_obj = s3.Object(bucket_name="bukkit", key="bagit.zip")
+    s3_object = s3.Object(bucket_name="bukkit", key="bagit.zip")
 
-    s3_file = S3File(s3_obj)
+    s3_file = S3File(s3_object)
 
     with zipfile.ZipFile(s3_file) as zf:
         print(zf.namelist())
