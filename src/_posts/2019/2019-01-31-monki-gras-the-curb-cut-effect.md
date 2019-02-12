@@ -21,8 +21,11 @@ The talk went really well -- everybody was very nice afterwards, and I'm enjoyin
 (Notes on those will be a separate post.)
 It was a lot of fun to write and present.
 
+The talk was recorded, and you can watch it on YouTube:
+
+{% youtube https://www.youtube.com/watch?v=6Yf3iukx3tQ %}
+
 You can read the slides and my notes on this page, or download the slides [as a PDF](/files/curbcut-monkigras.pdf).
-The talks was recorded, and I'll update this post with a link to the video when it's posted.
 
 <style>
   .slide img {
