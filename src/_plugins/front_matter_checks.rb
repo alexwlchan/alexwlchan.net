@@ -29,14 +29,12 @@ end
 
 
 def assert_summary_is_right_length(entry)
-  if !entry.data["is_micropost"]
-    if entry.data.include? "summary"
-      if entry.data["summary"] == nil
-        raise "Empty summary in #{entry.path.inspect}"
-      elsif entry.data["summary"].length > 200
-        # https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
-        raise "Summary too long in #{entry.path.inspect} (#{entry.data["summary"].length} > 200):\n#{entry.data["summary"].inspect}"
-      end
+  if entry.data.include? "summary"
+    if entry.data["summary"] == nil
+      raise "Empty summary in #{entry.path.inspect}"
+    elsif entry.data["summary"].length > 200
+      # https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
+      raise "Summary too long in #{entry.path.inspect} (#{entry.data["summary"].length} > 200):\n#{entry.data["summary"].inspect}"
     end
   end
 end
