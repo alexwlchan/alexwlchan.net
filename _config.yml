@@ -39,11 +39,6 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
 
-collections:
-  microposts:
-    output: true
-    permalink: "/:year/:month/:title/"
-
 markdown: "redcarpet"
 
 redcarpet:
