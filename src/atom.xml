@@ -16,7 +16,7 @@ layout: default_xml
     <email>{{ site.emails.personal | xml_escape }}</email>
   </author>
 
-  {% assign all_posts = site.posts | concat: site.microposts %}
+  {% assign all_posts = site.posts %}
   {% assign published_posts = all_posts | where_exp: "post", "post.draft != true" %}
   {% assign sorted_posts = published_posts | sort: "date" | reverse %}
 
@@ -24,8 +24,6 @@ layout: default_xml
     <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
       {% if post.title %}
         <title type="html">{{ post.title | smartify | strip_html | normalize_whitespace | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
-      {% elsif post.is_micropost %}
-        <title type="html">(micropost &hash;{{ post.micropost_number }})</title>
       {% endif %}
       <link href="{% if post.link %}{{ post.link }}{% else %}{{ post.url | absolute_url }}{% endif %}" rel="alternate" type="text/html" title="{{ post.title | strip_html | xml_escape }}" />
       <published>{{ post.date | date_to_xmlschema }}</published>
