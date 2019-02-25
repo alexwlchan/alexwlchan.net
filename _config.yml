@@ -30,7 +30,7 @@ date_format: "%-d %B %Y"
 
 permalink: "/:year/:month/:title/"
 
-keep_files: ["files", "images", "slides", "videos"]
+keep_files: ["files", "images", "slides"]
 
 pagination:
   enabled: true
