@@ -194,7 +194,7 @@ EOD
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
           <span class="avatar">
-            <img src="#{display_avatar_path(avatar_url, screen_name)}">
+            <img src="#{display_avatar_path(avatar_url, screen_name)}" alt="Profile picture for @#{screen_name}">
           </span>
           <span class="name" title="#{name}">#{name}</span>
           <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
