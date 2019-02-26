@@ -1,5 +1,4 @@
 BUILD_IMAGE = alexwlchan/alexwlchan.net
-TESTS_IMAGE = alexwlchan/alexwlchan.net_tests
 SERVE_CONTAINER = server
 
 RSYNC_HOST = 139.162.244.147
@@ -9,7 +8,6 @@ RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
 ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 DST = $(ROOT)/_site
-TESTS = $(ROOT)/tests
 
 $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
 	docker build --tag $(BUILD_IMAGE) --build-arg CI=$$CI .
@@ -18,18 +16,11 @@ $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.
 
 .docker/build: $(ROOT)/.docker/build
 
-
-tests/requirements.txt: tests/requirements.in
-	docker run --volume $(TESTS):/src --rm micktwomey/pip-tools
-	touch $(TESTS)/requirements.txt
-
-
 clean: .docker/build
 	docker run --volume $(SRC):/site --rm $(BUILD_IMAGE) clean
 	rm -rf .docker
 	docker rm --force $(SERVE_CONTAINER)
 	docker rmi --force $(BUILD_IMAGE)
-	docker rmi --force $(TESTS_IMAGE)
 
 build: .docker/build
 	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(BUILD_IMAGE) build
@@ -46,11 +37,8 @@ serve: .docker/build stop
 		--workdir $(ROOT) \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
-		--tty --rm --detach $(BUILD_IMAGE) \
+		--tty --rm $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts --incremental
-
-serve-debug: serve
-	docker attach $(SERVE_CONTAINER)
 
 publish-drafts: .docker/build
 	docker run \
@@ -104,4 +92,4 @@ include certs/Makefile
 include infra/Makefile
 
 
-.PHONY: clean build stop serve serve-debug publish-drafts publish rsync deploy test renew-certbot
+.PHONY: clean build stop serve publish-drafts publish rsync deploy renew-certbot
