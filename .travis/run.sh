@@ -8,6 +8,10 @@ make serve
 
 docker_id=$(docker ps -q)
 
+# While we're waiting for the server to be ready, prepare the Docker
+# image used in the tests
+make $(git rev-parse --show-toplevel)/.docker/tests
+
 # Wait for the server to become available
 set +o errexit
 while true
