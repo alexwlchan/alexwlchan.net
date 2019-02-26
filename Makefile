@@ -53,7 +53,7 @@ serve: .docker/build stop
 		--workdir $(ROOT) \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
-		--tty --rm --detach $(BUILD_IMAGE) \
+		--tty --rm $(BUILD_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts --incremental
 
 serve-debug: serve
