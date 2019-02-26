@@ -11,8 +11,6 @@ branches:
 
 install:
   - make .docker/build
-  - make .docker/tests
-  - docker pull nginx:alpine
 
 script:
   - .travis/run.sh

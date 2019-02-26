@@ -16,14 +16,7 @@ $(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.
 	mkdir -p .docker
 	touch .docker/build
 
-$(ROOT)/.docker/tests: tests/Dockerfile tests/*.py tests/requirements.txt
-	docker build --tag $(TESTS_IMAGE) --file $(TESTS)/Dockerfile $(TESTS)
-	mkdir -p .docker
-	touch .docker/tests
-
 .docker/build: $(ROOT)/.docker/build
-
-.docker/tests: $(ROOT)/.docker/tests
 
 
 tests/requirements.txt: tests/requirements.in
@@ -88,15 +81,6 @@ rsync:
 		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
 
 deploy: publish rsync
-
-test: .docker/tests
-	docker run \
-		--volume $(ROOT):/$(ROOT) \
-		--workdir $(ROOT) \
-		--env HOSTNAME=$(SERVE_CONTAINER) \
-		--link $(SERVE_CONTAINER) \
-		--link alexwlchan \
-		--tty --rm $(TESTS_IMAGE)
 
 Gemfile.lock: Gemfile
 	docker run \
