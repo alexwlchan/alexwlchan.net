@@ -30,7 +30,7 @@ date_format: "%-d %B %Y"
 
 permalink: "/:year/:month/:title/"
 
-keep_files: ["files", "images", "slides", "videos"]
+keep_files: ["files", "images", "slides"]
 
 pagination:
   enabled: true
@@ -38,11 +38,6 @@ pagination:
   permalink: "/page/:num/"
   sort_field: 'date'
   sort_reverse: true
-
-collections:
-  microposts:
-    output: true
-    permalink: "/:year/:month/:title/"
 
 markdown: "redcarpet"
 

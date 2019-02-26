@@ -61,6 +61,6 @@ I didn't go into remote refs, but the Git book has information on those topics.
 
 The aim of the workshop isn't necessarily to learn the plumbing commands by heart --- you'd never use them in practice --- but by interacting with Git at a low-level, you can build a better mental model of Git under the hood.
 
-[notes]: /slides/git_plumbers_guide.pdf
+[notes]: /files/git_plumbers_guide.pdf
 [pycon]: http://2017.pyconuk.org/sessions/workshops/a-plumber-s-guide-to-git/
 [book]: https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
