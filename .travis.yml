@@ -10,10 +10,12 @@ branches:
     - master
 
 install:
-  - make .docker/build
+  - echo "true"
+  # - make .docker/build
 
 script:
-  - .travis/run.sh
+  - echo "false"
+  # - .travis/run.sh
 
 env:
   global:
