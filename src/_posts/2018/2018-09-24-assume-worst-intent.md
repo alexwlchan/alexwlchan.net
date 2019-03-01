@@ -33,7 +33,11 @@ The transcript is based on the captions on the YouTube video, with some light tw
 
 ---
 
-{% slide assume_worst_intent 1 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent", :slide => 1,
+  :alt => "Title slide."
+%}
 
 Since you've [already heard from me before](/2018/09/suspicious-minds/), I'll skip the introduction and gets right into the talk.
 
@@ -42,7 +46,12 @@ I'm going to show you some mechanisms and practical tips that I've found are mos
 
 
 
-{% slide assume_worst_intent 2 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 2,
+  :alt => "Text slide, listing content warnings. “Online harassment and abuse; mentions of racism, misogyny, sexism, suicide, rape and death threats; brief mentions of other horrible things on the Internet.”"
+%}
 
 Before we start, some content warnings.
 
@@ -59,7 +68,12 @@ People in this room may have traumatic experiences with these topics, and so whi
 
 
 
-{% slide assume_worst_intent 3 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 3,
+  :alt => "A screenshot of a chat app with green and grey chat bubbles, with two buttons at the bottom: “Request” and “Pay”."
+%}
 
 Let's start off with an example.
 This is an app called [Square Cash](https://en.wikipedia.org/wiki/Cash_App).
@@ -71,7 +85,12 @@ You can tell somebody why you would like money from them, and what they're payin
 It gives you context for transactions -- this seems like a really useful feature, right?
 
 
-{% slide assume_worst_intent 4 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 4,
+  :alt => "A screenshot of a tweet: “A friend’s abusive ex has been sending her $1 on @SquareCash regularly for months, cause he can add a message & she can’t block that.”"
+%}
 
 Except they didn't realize that having a messaging platform opens the door to harassment.
 We can see here that somebody's abusive ex used that messaging platform to send them abusive messages for months.
@@ -84,7 +103,12 @@ To their credit, when this tweet went viral, they very quickly closed a loophole
 
 
 
-{% slide assume_worst_intent 5 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 5,
+  :alt => "Text slide. “User safety can’t be an afterthought.”"
+%}
 
 This is one of the big problems with thinking about user safety and harassment.
 If we let it be an afterthought, it becomes more expensive.
@@ -93,7 +117,12 @@ It's harder to retrofit later, and it often means that our users will learn the 
 
 
 
-{% slide assume_worst_intent 6 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 6,
+  :alt => "Text slide. “Most developers mean well. They don’t build services to enable harassment.”"
+%}
 
 This is a shame, because I fundamentally believe that most developers mean well.
 The Square Cash developers wanted to make a better way to send money to each other -- they didn't want to build a tool for harassment.
@@ -101,7 +130,12 @@ I assume that most people at PyCon UK are pretty nice too.
 
 
 
-{% slide assume_worst_intent 7 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 7,
+  :alt => "Text slide. “If you allow user-to-user interactions, you have the possibility of harassment.”"
+%}
 
 How do we do this?
 How do we think about this?
@@ -113,7 +147,12 @@ Most people are very nice, but there are some bad people out there and we do hav
 
 
 
-{% slide assume_worst_intent 8 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 8,
+  :alt => "Text slide. “What does online harassment look like?”"
+%}
 
 So what does online harassment look like?
 
@@ -150,7 +189,12 @@ We don't have time to go into detail, but I'm assuming most of you are at least 
 
 
 
-{% slide assume_worst_intent 9 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 9,
+  :alt => "A headline from the Telegraph: “Bridge fall girl, 15, felt ‘pressure’ from social networking websites.”"
+%}
 
 One thing I do want to stress is that this harassment has an impact on people.
 When I was younger, a lot of people used to say, *"Online bullying and so on, it's just words on the Internet. It doesn't really matter. It doesn't affect people."*
@@ -172,19 +216,34 @@ It's not just words on a screen.
 
 
 
-{% slide assume_worst_intent 10 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 10,
+  :alt => "Text slide. “What does online harassment look like?”"
+%}
 
 If you're building a platform where people interact, where you have user-to-user interaction, I think you have a certain responsibility to consider what people there, and to think about the effects that might have beyond your platform.
 
 
 
-{% slide assume_worst_intent 11 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 11,
+  :alt => "Text slide. “Who’s doing the harassment?”"
+%}
 
 This is all pretty nasty stuff -- who's doing it?
 
 
 
-{% slide assume_worst_intent 12 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 12,
+  :alt => "A photo of a man in a green hoodie, working at a computer with green text projected on their face."
+%}
 
 We have this popular image of a "hacker" -- a malicious person on the Internet.
 This person ticks all the hacker stereotypes -- they're wearing a hoodie, they're in a darkened basement, they have green text projected on their face.
@@ -197,7 +256,12 @@ The sort of people who do online harassment are the same as the people who do pe
 
 
 
-{% slide assume_worst_intent 13 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 13,
+  :alt => "Text slide. “Who is an at-risk user potentially worried about?”"
+%}
 
 So let's think about who those people might be.
 
@@ -229,7 +293,12 @@ What you'll notice about these is that none of these people are anonymous hacker
 
 
 
-{% slide assume_worst_intent 14 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 14,
+  :alt => "Text slide. “People are more likely to be hurt by people they know.”"
+%}
 
 The pattern we see with online harassment is the same as the pattern we see with personal harassment: **people are more likely to be hurt by people they know**.
 
@@ -258,7 +327,12 @@ Somebody who lives 600 miles away is going to struggle to physically hurt me, bu
 
 
 
-{% slide assume_worst_intent 15 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 15,
+  :alt => "Text slide. “This is all very upsetting.”"
+%}
 
 This is all very upsetting.
 
@@ -269,7 +343,12 @@ This would not be particularly productive.
 
 
 
-{% slide assume_worst_intent 17 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 17,
+  :alt => "Text slide. “It doesn’t have to be this way.”"
+%}
 
 The good news is that **it doesn't have to be this way**.
 There are tools and techniques we can use to build services in a way that reduces the risk of harassment.
@@ -280,7 +359,12 @@ We can do better than twitter.com.
 
 
 
-{% slide assume_worst_intent 18 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 18,
+  :alt => "Text slide. “How can we protect our users? Some best practices.”"
+%}
 
 So how can we protect our users?
 
@@ -288,7 +372,12 @@ In the rest of this presentation, we'll look at some ideas and best practices.
 
 
 
-{% slide assume_worst_intent 19 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 19,
+  :alt => "Text slide. “Making your service better for vulnerable users can make it better for everyone.”"
+%}
 
 The first thing I want to stress is that a lot of users who get harassed are essentially normal users.
 They want to use your service for the same reasons as everyone else -- that might be fun, work, creative projects -- all sorts of reasons.
@@ -313,7 +402,12 @@ In the same way, there are lots of ways these techniques can make a service bett
 
 
 
-{% slide assume_worst_intent 20 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 20,
+  :alt => "Text slide. “Diversify the team.”"
+%}
 
 What's the first thing you can do?
 
@@ -330,8 +424,12 @@ I have some basic understanding of those things, but they don't really permeate 
 So if I'm designing a service, I want to have a woman on the team who has that lived experience, and who would instantly spot if I'm doing something that might be create a dangerous situation.
 
 
-
-{% slide assume_worst_intent 22 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 22,
+  :alt => "Information about a Git commit, with the author line highlighted."
+%}
 
 Let's look at an example which I imagine many of you may have used.
 How many of you are familiar with Git?
@@ -370,19 +468,34 @@ There's a lot of value in having a diverse team who can look at something like t
 
 
 
-{% slide assume_worst_intent 20 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 20,
+  :alt => "Text slide. “Diversify the team.”"
+%}
 
 So think about diversifying the team.
 
 
 
-{% slide assume_worst_intent 24 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 24,
+  :alt => "Text slide. “Think carefully about name policies.”"
+%}
 
 While we're talking about names, let's talk about name policies.
 
 
 
-{% slide assume_worst_intent 25 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 25,
+  :alt => "Text slide. “‘Real name’ policies. Anonymity causes problems, right?”"
+%}
 
 There's a commonly held belief that if we ask everyone on the Internet to use their "real" name, that will magically make them behave.
 Anonymity causes all our problems, right?
@@ -391,7 +504,12 @@ This is wrong in both directions.
 
 
 
-{% slide assume_worst_intent 26 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 26,
+  :alt => "A screenshot of a discussion thread with 6063 comments, with the topic “Skills for Someone Else”."
+%}
 
 First of all, it's perfectly possible to have very friendly, anonymous discussion.
 This is just [one example from a thread](https://fail-fandomanon.dreamwidth.org/187889.html?thread=1023582705#cmt1023582705) where people are having a very civil discussion about making tea and coffee.
@@ -403,7 +521,12 @@ No, it's because they had a really strong and active set of moderators people wh
 
 
 
-{% slide assume_worst_intent 27 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 27,
+  :alt => "A slide with a bulleted list. “‘Real name’ policies.”"
+%}
 
 So you can do anonymous discussion, it's just **expensive**.
 
@@ -435,19 +558,34 @@ The way I prefer is persistent pseudonyms, which are a good middle ground used b
 
 
 
-{% slide assume_worst_intent 24 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 24,
+  :alt => "Text slide. “Think carefully about name policies.”"
+%}
 
 So think carefully about your name policies.
 
 
 
-{% slide assume_worst_intent 29 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 29,
+  :alt => "Text slide. “Implement robust privacy controls.”"
+%}
 
 The third thing: robust privacy controls.
 
 
 
-{% slide assume_worst_intent 30 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 30,
+  :alt => "A slide with a bulleted list. “Robust privacy controls”."
+%}
 
 At a minimum, you should have a way to ban and block malicious users.
 Both at a platform and an individual level.
@@ -460,7 +598,12 @@ Even if you really want to be a bastion of free speech (which you probably don't
 
 
 
-{% slide assume_worst_intent 31 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 31,
+  :alt => "A screenshot of my Twitter bio."
+%}
 
 This is one of the things that Twitter actually gets right.
 They have a blocking feature.
@@ -468,7 +611,12 @@ This is what it looks like if I've blocked you.
 
 
 
-{% slide assume_worst_intent 32 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 32,
+  :alt => "A screenshot of my Twitter bio, with the text “You are blocked from following @alexwlchan and viewing @alexwlchan’s Tweets” highlighted."
+%}
 
 What you'll notice though is that *they tell you*.
 
@@ -484,7 +632,12 @@ You might decide to take that out on me, right?
 
 
 
-{% slide assume_worst_intent 33 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 33,
+  :alt => "A slide with a bulleted list. “Robust privacy controls”."
+%}
 
 Imagine that we were living in the same house, and you discover that I'd blocked you.
 That might be its own trigger for retaliation -- so another thing you can look at things like **shadow blocking** and muting.
@@ -505,7 +658,12 @@ Aside from just not letting people they don't like see their content, this is on
 
 
 
-{% slide assume_worst_intent 34 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 34,
+  :alt => "A screenshot of Facebook’s “Privacy Settings and Tools” page."
+%}
 
 An example of Facebook getting it right: they have some pretty granular privacy settings.
 Not just what I'm writing, I can choose who can see them, who can send me friend
@@ -519,27 +677,54 @@ If somebody posts something, and then realises maybe they don't want that for a 
 
 
 
-{% slide assume_worst_intent 35 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 35,
+  :alt => "A slide with a bulleted list. “Robust privacy controls”."
+%}
 
 If you make it easier to change posting visibility, people are more comfortable.
 They don't have to publish something to the entire world -- and that makes them more comfortable, and more likely to use your service.
 
-{% slide assume_worst_intent 29 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 29,
+  :alt => "Text slide. “Implement robust privacy controls.”"
+%}
 
-{% slide assume_worst_intent 37 %}
+
+
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 37,
+  :alt => "Text slide. “Don’t rely on technology to solve human problems.”"
+%}
 
 Moving along, number 4: don't rely on technology to solve human problems.
 If humans are being mean to each other, you need human moderation.
 
 
 
-{% slide assume_worst_intent 38 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 38,
+  :alt => "A slide with a bulleted list. “Human moderation is best.”"
+%}
 
 Because you don't have context -- you don't know everything that happens on (or off) your service.
 
 
 
-{% slide assume_worst_intent 39 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 39,
+  :alt => "A screenshot of a messaging app with a picture of a yellow flower and a message “Thinking of you!”."
+%}
 
 Here's an example of a text I got this morning.
 Someone sent me a picture of a flower -- they're thinking of me.
@@ -553,7 +738,12 @@ You need the additional context that goes with it; you need to know my relations
 
 
 
-{% slide assume_worst_intent 40 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 40,
+  :alt => "A slide with a bulleted list. “Human moderation is best.”"
+%}
 
 So context is important.
 Give people a way to report problems, believe them, treat their reports in good faith.
@@ -567,7 +757,12 @@ There are lots of other awful things on the Internet: child pornography, sexual 
 
 
 
-{% slide assume_worst_intent 41 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 41,
+  :alt => "A black slide with white text: “(This slide intentionally left blank)”."
+%}
 
 These are really awful horrific things that your moderators will have to look at and make a judgement on every time somebody reports it.
 Look after them -- make sure they're supported.
@@ -575,7 +770,12 @@ Appropriate counselling, enough breaks, and so on, because even just looking at 
 
 
 
-{% slide assume_worst_intent 42 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 42,
+  :alt => "A slide with a tweet: “I screened volunteers for the LJ ToS team heavily, gave multiple layers of warning about what they'd see including actual examples during vetting, mandated breaks for people doing more than a few hours a week, and we still lost 40% of new volunteers within 3 months.”"
+%}
 
 This is a [tweet from rahaeli](https://twitter.com/rahaeli/status/1036304125418504192), who did a lot of work on the LiveJournal trust and safety team.
 It's part of a larger thread -- 40% of people burnt out within three months of having to go through the cesspit of human interaction.
@@ -584,13 +784,23 @@ It's part of a larger thread -- 40% of people burnt out within three months of h
 
 
 
-{% slide assume_worst_intent 37 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 37,
+  :alt => "Text slide. “Don’t rely on technology to solve human problems.”"
+%}
 
 So human moderation is best, but look after your moderators.
 
 
 
-{% slide assume_worst_intent 45 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 45,
+  :alt => "Text slide. “Design with abusive personas in mind.”"
+%}
 
 Finally, **design with abusive personas in mind**.
 
@@ -605,7 +815,12 @@ How can you make their life as difficult as possible?
 
 
 
-{% slide assume_worst_intent 46 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 46,
+  :alt => "Slide with a numbered list. “How can we protect our users?”"
+%}
 
 Here's a summary slide: some ways you can protect yours users better:
 
@@ -619,7 +834,12 @@ These things won't catch everything, but they will catch a lot, and they will ma
 
 
 
-{% slide assume_worst_intent 47 %}
+{%
+  slide_image
+  :deck => "assume_worst_intent",
+  :slide => 47,
+  :alt => "Text slide: “You should always ask: How could this be used to hurt someone? How could an abusive ex misuse this?”"
+%}
 
 I'll leave you with this: whenever you're building something, always ask: **How could this be used to hurt someone?**
 **How could an abusive ex misuse this?**
