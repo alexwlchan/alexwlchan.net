@@ -156,6 +156,6 @@ def get_slide_path(deck_name, slide_number)
     "/slides/#{name}.jpg"
   else
     rebuild_slide_files()
-    raise RuntimeError, "Unable to find slide for #{name}"
+    raise RuntimeError, "Unable to find slide for #{name} / #{slide_number}"
   end
 end
