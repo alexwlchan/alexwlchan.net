@@ -1,3 +1,58 @@
+require_relative "alexwlchan_base"
+
+
+def render_slide(deck, slide, alt_text, caption_text)
+  path = get_slide_path(deck, slide)
+
+  md_content = caption_text.strip
+  caption = if md_content
+     "<figcaption>#{markdown_converter.convert(md_content)}</figcaption>"
+  else
+    ""
+  end
+
+<<-EOT
+<figure class="slide">
+<a href="#{path}"><img src="#{path}" alt="#{alt_text}" title="#{alt_text}"></a>
+#{caption}
+</figure>
+EOT
+end
+
+
+module Jekyll
+
+  module SlideBase
+    def bind_params(params)
+      @deck = params[:deck] or raise SyntaxError, "Error in tag 'better_slide', :deck parameter is required"
+      @slide = params[:slide] or raise SyntaxError, "Error in tag 'better_slide', :slide parameter is required"
+      @alt = params[:alt] or raise SyntaxError, "Error in tag 'better_slide', :alt parameter is required"
+    end
+  end
+
+  class BetterSlideBlock < Alexwlchan::Block
+    include SlideBase
+
+    def internal_render
+      render_slide(@deck, @slide, @alt, @text)
+    end
+  end
+
+  class BetterSlideTag < Alexwlchan::Tag
+    include SlideBase
+
+    def internal_render
+      render_slide(@deck, @slide, @alt, "")
+    end
+  end
+end
+
+
+Liquid::Template.register_tag("better_slide", Jekyll::BetterSlideBlock)
+Liquid::Template.register_tag("slide_image", Jekyll::BetterSlideTag)
+
+
+
 # This is a plugin for embedding slide images.
 #
 # Each image needs to be both an image, and a link to the fullsized image.
