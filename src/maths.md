@@ -17,12 +17,12 @@ I write all of my lecture notes in [LaTeX][latex].
 I have a small number of them posted here for other people to read and use.
 I include the compiled PDF, and a link to the source code on Github.
 
-* **IB Geometry**: <a href="geometry.pdf">PDF</a> [LaTeX][geo]
-* **IB Linear Algebra**: <a href="linear-algebra.pdf">PDF</a> [LaTeX][linalg]
+* **IB Geometry**: <a href="/files/geometry.pdf">PDF</a> [LaTeX][geo]
+* **IB Linear Algebra**: <a href="/files/linear-algebra.pdf">PDF</a> [LaTeX][linalg]
 
     Particular thanks to [Prof.&nbsp;Grojnowski][groj], who lectured the course, proofread these notes and allowed me to post them.
 
-* **IB Metric & Topological Spaces**: <a href="met-top-spaces.pdf">PDF</a> [LaTeX][mettop]
+* **IB Metric & Topological Spaces**: <a href="/files/met-top-spaces.pdf">PDF</a> [LaTeX][mettop]
 
 <!-- ## CATAM -->
 
@@ -32,7 +32,7 @@ I include the compiled PDF, and a link to the source code on Github.
 
 I've written a handful of essays on maths at different levels. They're not all online yet.
 
-* <a href="http://alexwlchan.net/2013/01/zero/"><strong>Zero</strong></a>: an essay for a Sixth Form discussion group about the historical and mathematical significance of the number zero, and why it took so long to be accepted as a "real" number.
+* <a href="/2013/01/zero/"><strong>Zero</strong></a>: an essay for a Sixth Form discussion group about the historical and mathematical significance of the number zero, and why it took so long to be accepted as a "real" number.
 
 [latex]: http://www.latex-project.org/
 [groj]: https://www.dpmms.cam.ac.uk/~groj/
