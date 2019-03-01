@@ -47,9 +47,14 @@ If I end up doing this talk again, I'd love to go back and get some more practic
 
 *[Ed. I was introduced by Daniele Procida, the conference director.]*
 
-{% slide_captioned suspicious-minds 1 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 1,
+  :alt => "Title slide. “Building trust in an age of suspicious minds”."
+%}
   Based on the cover art [of the Elvis single](https://en.wikipedia.org/wiki/Suspicious_Minds#/media/File:Elvis_presley_suspiciousminds.jpg).
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Thanks for that introduction.
 As Daniele said, my name is Alex, I'm a software developer at [the Wellcome Trust](https://wellcome.ac.uk/) in London, and I help organise this conference.
@@ -68,7 +73,12 @@ I started thinking about good behavior, how you build that, how you encourage th
 
 
 
-{% slide suspicious-minds 2 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 2,
+  :alt => "A cartoon man winking and saying “Trust me!”."
+%}
 
 Trust is really important.
 It underpins all of our working relationships -- whether that's with other people, with our tools, with our users (the people we're building systems for).
@@ -81,7 +91,12 @@ So we're going to talk about trust today, because it's a foundation of good work
 
 
 
-{% slide suspicious-minds 3 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 3,
+  :alt => "A quote by Charles Feltman: “Trust is choosing to risk making something you value vulnerable to another person's actions.”"
+%}
 
 But trust is kind of a nebulous thing, isn't it?
 
@@ -95,7 +110,12 @@ So let's break down that definition.
 
 
 
-{% slide suspicious-minds 4 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 4,
+  :alt => "The previous slide with “choosing to risk” highlighted."
+%}
 
 Trust is **choosing to risk** -- it's a risk assessment.
 We look at our past experiences with somebody, and we decide if we want to take the risk.
@@ -103,14 +123,24 @@ If we trust somebody, we probably do want to take that risk; and if we don't tru
 
 
 
-{% slide suspicious-minds 5 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 5,
+  :alt => "The previous slide with “something you value” highlighted."
+%}
 
 And it's taking **something you value** -- and we value all sorts of things.
 Money, happiness, fulfillment, not being fired from our jobs, not being booed off a stage in front of 400 people.
 
 
 
-{% slide suspicious-minds 6 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 6,
+  :alt => "The previous slide with “vulnerable to another person’s actions” highlighted."
+%}
 
 And finally, we're **making it vulnerable**.
 We're giving up some control over the thing we care about.
@@ -123,13 +153,23 @@ You need vulnerability to be able to grow, and it's a really important part of t
 
 
 
-{% slide suspicious-minds 3 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 3,
+  :alt => "A quote by Charles Feltman: “Trust is choosing to risk making something you value vulnerable to another person's actions.”"
+%}
 
 So that's the definition of trust we're going to use today.
 
 
 
-{% slide suspicious-minds 7 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 7,
+  :alt => "A quote on a red background: “I just don’t trust them”."
+%}
 
 We're usually pretty good at articulating when we **don't** trust somebody.
 
@@ -143,7 +183,12 @@ gossip...
 
 
 
-{% slide suspicious-minds 8 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 8,
+  :alt => "A quote on a green background: “I really trust them”."
+%}
 
 But what if I asked you to go in the other direction?
 Think of somebody you really trust.
@@ -154,7 +199,12 @@ How do we go from the state of "somebody we just know" to "somebody we actually 
 
 
 
-{% slide suspicious-minds 9 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 9,
+  :alt => "A blank slide."
+%}
 
 Because trust isn't something you can tell somebody to do, you can't ask for it, and as much as Facebook's marketing marketing team would love, you can't buy
 it!
@@ -167,17 +217,27 @@ How do we actively build trust for ourselves?
 
 
 
-{% slide suspicious-minds 10 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 10,
+  :alt => "White text on a green background: “What is the state of trust?”."
+%}
 
 So what's the state of trust in 2018, a year of only happiness and rainbows?
 How much do we trust in each?
 
 
 
-{% slide_captioned suspicious-minds 11 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 11,
+  :alt => "Photo of orange and yellow flames, with people and a forest in silhouette against the fire."
+%}
   Image: [Easter Fire](https://pixabay.com/en/easter-fire-brand-heat-firelight-1439323/), by claus-heinrichcarstens on Pixabay.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 If we go on Twitter, in the six minutes that I've been speaking, there have probably been about six years worth of news.
 It feels like the world is on fire (sometimes literally), and the unfortunate thing is it seems like that often isn't any trust.
@@ -192,7 +252,12 @@ And we now longer trust that they will do that.
 
 
 
-{% slide suspicious-minds 12 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 12,
+  :alt => "The phrase “causes of lost trust”, with three red arrows in a circle around it."
+%}
 
 So how did we get here?
 
@@ -206,7 +271,12 @@ So let's go through them in turn.
 
 
 
-{% slide suspicious-minds 13 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 13,
+  :alt => "The circular arrows, with “major world events” highlighted."
+%}
 
 **Some significant events.**
 
@@ -236,7 +306,12 @@ Those are some of the major world events that have already happened, and that we
 
 
 
-{% slide suspicious-minds 14 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 14,
+  :alt => "The circular arrows, with the word “globalisation” highlighted."
+%}
 
 Second let's talk about **the downsides of globalisation**.
 
@@ -255,7 +330,12 @@ Happier days.
 
 
 
-{% slide suspicious-minds 15 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 15,
+  :alt => "The circular arrows, with the phrase “social media” highlighted."
+%}
 
 With the advent of **social media**, a lot of those fringe movements have become mainstream.
 
@@ -281,7 +361,12 @@ It's a denial-of-service attack on our ability to make trust decisions, because 
 
 
 
-{% slide suspicious-minds 12 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 12,
+  :alt => "The phrase “causes of lost trust”, with three red arrows in a circle around it."
+%}
 
 So these are the three things that have led to an erosion of trust:
 
@@ -297,7 +382,12 @@ We can still be very trusting people -- let's look at a few examples.
 
 
 
-{% slide suspicious-minds 16 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 16,
+  :alt => "A screenshot from the PyCon UK ticketing screen."
+%}
 
 First: **online banking**.
 
@@ -313,10 +403,15 @@ Not so many years ago, that would have been a very unusual thing to do, and yet 
 
 
 
-{% slide_captioned suspicious-minds 17 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 17,
+  :alt => "A book cover titled “Who is a stranger and what should I do?”. A girl in the foreground is walking away from a man in a red car."
+%}
   I'm sure this driver is just making sure she's crossing the road safely.
   What an upstanding fine citizen!
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Another example: **ride-sharing**.
 
@@ -333,7 +428,12 @@ This book isn't that old -- this is another weird inversion of trust.
 
 
 
-{% slide suspicious-minds 18 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 18,
+  :alt => "A photograph of a bedroom."
+%}
 
 The final one: **Airbnb**.
 
@@ -350,7 +450,12 @@ Again, something that we would have thought was quite odd a few years ago.
 
 
 
-{% slide suspicious-minds 19 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 19,
+  :alt => "Text slide. “This isn’t an accident.”"
+%}
 
 **This isn't an accident.**
 Just because you don't trust politicians less doesn't mean that you now randomly trust strangers on the Internet.
@@ -363,14 +468,24 @@ There's still a lot of trust in these things, but also in the way society functi
 
 
 
-{% slide suspicious-minds 20 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 20,
+  :alt => "White text on green. “How do you build trust?”"
+%}
 
 So let's talk about that now.
 How do you build trust?
 
 
 
-{% slide suspicious-minds 21 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 21,
+  :alt => "Two stick figures, one falling backwards into the arms of the other."
+%}
 
 One exercise that is often used to build trust is this one.
 Some of you might be familiar with it if you've been on a "team-building" day *[Ed. Again, finger quotes]*.
@@ -384,14 +499,24 @@ Clearly a very effective exercise for them!)
 
 
 
-{% slide suspicious-minds 22 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 22,
+  :alt => "The stick figures from the previous slide, with a large red X over the slide."
+%}
 
 Trust is not built in one shot interactions.
 It's also not built knowing exactly what's going to happen, and knowing that they'll catch you because if not they'll be in trouble for breaking the exercise.
 
 
 
-{% slide suspicious-minds 23 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 23,
+  :alt => "Text slide. “Trust is built incrementally.”"
+%}
 
 **Trust is built incrementally.**
 It's built over a series of interactions and small steps.
@@ -415,7 +540,12 @@ We have a series of interactions, and as we see trustworthy behavior in a group/
 
 
 
-{% slide suspicious-minds 24 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 24,
+  :alt => "A slide with a green triangle, with the text “the trust triangle” in the centre."
+%}
 
 We understand how we build it, so let's think about how trust works.
 
@@ -430,7 +560,12 @@ Let's break those down a little.
 
 
 
-{% slide suspicious-minds 25 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 25,
+  :alt => "One side of the triangle highlighted, “honesty”.  Three words next to it: “truthfulness, sincerity, transparency”."
+%}
 
 Let's start with **honesty**.
 
@@ -458,7 +593,12 @@ So that's honesty.
 
 
 
-{% slide suspicious-minds 26 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 26,
+  :alt => "A second side of the triangle highlighted, “reliability”.  Two phrases next to it: “keeping your promises, consistency”."
+%}
 
 Then we've got **reliability**.
 
@@ -472,7 +612,12 @@ That's less useful than a test that's permanently broken, because then you don't
 
 
 
-{% slide suspicious-minds 27 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 27,
+  :alt => "The third side of the triangle highlighted, “shared values”.  Above it are the phrases “common goals, values, beliefs, understanding”."
+%}
 
 Finally, **shared values**.
 
@@ -491,7 +636,12 @@ It's about us all being on the same page.
 
 
 
-{% slide suspicious-minds 24 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 24,
+  :alt => "A slide with a green triangle, with the text “the trust triangle” in the centre."
+%}
 
 So those are the things you need for trust -- honest, reliability and shared values.
 
@@ -509,7 +659,12 @@ Those are the ingredients of trust -- honesty, reliability and shared values. If
 
 
 
-{% slide suspicious-minds 28 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 28,
+  :alt => "White text on a green background. “How can you build trust?”"
+%}
 
 But how do you actually do that?
 
@@ -525,9 +680,14 @@ Trust is exactly the same -- we need new tools and processes -- so let's think a
 
 
 
-{% slide_captioned suspicious-minds 29 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 29,
+  :alt => "Five ducks in a row, with the overlaid text “Be a role model for others to follow”."
+%}
   Image: [waterfowl ducks](https://pixabay.com/en/animals-waterfowl-ducks-young-737407/), by user 422737 on Pixabay.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Something we can do with trust all by ourselves is being a role model -- being something other people can follow.
 Humans are naturally mimics.
@@ -540,10 +700,15 @@ So being a role model by showing the behaviors that you want to promote in the w
 
 
 
-{% slide_captioned suspicious-minds 30 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 30,
+  :alt => "An iPad with a green graph on the screen, with the overlaid text “Monitoring and check-ins”."
+%}
   Image: [iPad Air on a brown wooden table](https://www.pexels.com/photo/space-grey-ipad-air-with-graph-on-brown-wooden-table-187041/), by Burak&nbsp;K on Pexels.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Another thing you can do that at a high level is having monitoring and check-ins.
 
@@ -562,13 +727,23 @@ Without the monitoring and those check-ins, it's hard to know what change you ne
 
 
 
-{% slide suspicious-minds 24 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 24,
+  :alt => "A slide with the green trust triangle."
+%}
 
 So now let's look at some more specific examples.
 
 
 
-{% slide suspicious-minds 32 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 32,
+  :alt => "A screenshot from an Airbnb setup. “Let’s add your ID.”"
+%}
 
 I talked about Airbnb earlier.
 People -- your hosts -- invite strangers into their home, and one of the things you'd like to ask them on the form is a tickbox "I am not an axe murderer."
@@ -581,7 +756,13 @@ So that's an example of a system that actively verifies honesty, and doesn't jus
 
 
 
-{% slide suspicious-minds 33 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 33,
+  :alt => "A screenshot of an error page in a web browser, with the overlaid text “Incentivise transparency”."
+%}
+
 
 Another thing you can think about is incentivizing transparency.
 
@@ -614,13 +795,23 @@ We changed the incentives of transparency.
 
 
 
-{% slide suspicious-minds 34 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 34,
+  :alt => "The trust triangle, with the “reliability” side of the triangle highlighted."
+%}
 
 Next, let's talk about reliability.
 
 
 
-{% slide suspicious-minds 35 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 35,
+  :alt => "A screenshot of a ratings screen in the Uber app."
+%}
 
 Going going back to another of the examples from earlier.
 
@@ -633,7 +824,12 @@ Other people trusted this person, and it worked out okay for them -- that's usef
 
 
 
-{% slide suspicious-minds 36 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 36,
+  :alt => "A green terminal-like icon, with a list of tools for checking software reliability."
+%}
 
 But what if we're the person who's being rated?
 How do we increase our reliability?
@@ -654,20 +850,30 @@ We have all these external tools/systems that help us improve our reliability, a
 
 
 
-{% slide_captioned suspicious-minds 37 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 37,
+  :alt => "A black-and-white planner on a grey table."
+%}
   Image: [Black and white planner on a grey table](https://www.pexels.com/photo/white-and-black-weekly-planner-on-gray-surface-1059383/), by Bich&nbsp;Tran on Pexels.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 On a personal level, that might be something as simple as keeping a diary or a task list.
 You can see what promises you're making so you don't forget something -- so you don't overpromise and underdeliver -- you don't promise you can do something and not realise that you've already promised to do three things this week.
 
 
 
-{% slide_captioned suspicious-minds 38 %}
-  Image: [Woman holding yellow sticky note](https://www.pexels.com/photo/woman-holding-yellow-sticky-note-1391405/), by rawpixels.com on Pexels.
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 38,
+  :alt => "A woman holding a post-it note in front of a wall with lots of post-it notes on it."
+%}
+  Image: [Woman holding yellow post-it note](https://www.pexels.com/photo/woman-holding-yellow-sticky-note-1391405/), by rawpixels.com on Pexels.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Another thing we can look to -- if we're looking at a larger group -- is things like [agile](https://en.wikipedia.org/wiki/Agile_software_development).
 
@@ -681,7 +887,12 @@ There's a lot of value in some of some of the practices from agile in maintainin
 
 
 
-{% slide suspicious-minds 39 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 39,
+  :alt => "The trust triangle, with the “shared values” side highlighted."
+%}
 
 Finally, let's think about some shared values.
 
@@ -692,7 +903,12 @@ Maybe they hold views we object to, maybe they didn't undrstand something, maybe
 
 
 
-{% slide suspicious-minds 40 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 40,
+  :alt => "A quote from the Zen of Python: “Explicit is better than implicit”."
+%}
 
 The way to get this out is to stop being implicit about shared values -- be explicit about them.
 
@@ -707,7 +923,12 @@ Something they can look at and say, "Hey I didn't agree to do that" or "This is 
 
 
 
-{% slide suspicious-minds 41 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 41,
+  :alt => "A screenshot from the PyCon UK Code of Conduct."
+%}
 
 One example of a statement of shared values that we've already talked about once this morning is the [**code of conduct**](https://2018.pyconuk.org/code-conduct/).
 This is an explicit statement of our shared values as organizers, and our beliefs about this event.
@@ -719,7 +940,12 @@ By making that explicit and getting it out of the way early, we save ourselves t
 
 
 
-{% slide suspicious-minds 42 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 42,
+  :alt => "A screenshot from the Code of Conduct, with the text “PyCon UK will not tolerate harassment in any form” highlighted."
+%}
 
 This is a snippet from the code of conduct: **PyCon UK will not tolerate harassment**.
 
@@ -732,7 +958,12 @@ It's not just lip service -- we actually follow through on them.
 
 
 
-{% slide suspicious-minds 28 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 28,
+  :alt => "White text on a green background: “How can you build trust?”"
+%}
 
 Those are some examples of how you might build external systems and tools, new processes to build trust.
 
@@ -740,13 +971,23 @@ I'm sure you can all think of other ways you might do that in your own life/work
 
 
 
-{% slide suspicious-minds 43 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 43,
+  :alt => "White text on a red background: “How can you (re)build trust?”"
+%}
 
 So we've seen how to build trust from scratch -- how do you **rebuild** trust?
 
 
 
-{% slide suspicious-minds 44 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 44,
+  :alt => "White text on a red background: “What if it all goes wrong?”"
+%}
 
 What about when it all goes wrong?
 If you build a trusted system -- from honesty, reliability, and shared values -- that's all great, but it's often very fragile.
@@ -760,7 +1001,12 @@ Anybody think of something like that?
 
 
 
-{% slide suspicious-minds 45 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 45,
+  :alt => "Text slide: “Trust is built incrementally but destroyed incidentally”."
+%}
 
 Trust is built incremenentally but **destroyed incidentally**.
 
@@ -770,10 +1016,15 @@ If you discover you misplaced your trust is something, you never trust it again,
 
 
 
-{% slide_captioned suspicious-minds 46 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 46,
+  :alt => "A close-up badge of a Volkswagen badge on a car’s radiator grille."
+%}
   Image: [Volkswagen grille](https://pxhere.com/en/photo/493486), from Pxhere.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Take Volkswagen as an example.
 
@@ -794,7 +1045,12 @@ When you lose trust, it's possible to come back if you have some in reserve and 
 
 
 
-{% slide suspicious-minds 47 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 47,
+  :alt => "Slide with a numbered list: “how to fix a loss of trust”."
+%}
 
 I said earlier that to build trust, you can't just try harder.
 In the same way, if you want to rebuild trust or fix a mistake, you can't just try harder to be more trustworthy in future.
@@ -815,10 +1071,15 @@ Don't just try harder next time and hope people will believe you; actually put i
 
 
 
-{% slide_captioned suspicious-minds 48 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 48,
+  :alt => "A British Airways plane set against a blue sky."
+%}
   Image: [British Airways plane against a blue sky](https://pxhere.com/en/photo/751319), downloaded from Pxhere.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 One industry that does this really well is the aviation industry.
 
@@ -832,10 +1093,15 @@ It's an incredibly safe industry.
 
 
 
-{% slide_captioned suspicious-minds 49 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 49,
+  :alt => "A black and white photo of a crashed plane, upside down."
+%}
   Image: [Black and white image of a crashed plane](https://pxhere.com/en/photo/775521), downloaded from Pxhere.
   CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 How did they get there?
 It's not like planes never break.
@@ -846,7 +1112,12 @@ They work through to find out where was the failure of reliability, where was th
 
 
 
-{% slide suspicious-minds 50 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 50,
+  :alt => "Layers of cheese with holes in them, and a red arrow that goes through each of them. The “Swiss cheese” model of accident of causation."
+%}
 
 One thing they do that's really nice is the [Swiss cheese model of accident causation](https://en.wikipedia.org/wiki/Swiss_cheese_model).
 
@@ -861,10 +1132,15 @@ Fix all the problems in the system.
 
 
 
-{% slide_captioned suspicious-minds 51 %}
+{%
+  better_slide
+  :deck => "suspicious-minds",
+  :slide => 51,
+  :alt => "A picture of a yellow air traffic control tower, with white clouds in the background."
+%}
   Image: [Tenerife North Airport](https://en.wikipedia.org/wiki/Tenerife_North_Airport#/media/File:Norda_flughaveno_de_Tenerifo,_turo,_2.jpeg), downloaded from Pxhere.
   CC-BY SA.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 One example of that is Tenerife Airport, which in 1977 was the site of [the deadliest aviation crash in history](https://en.wikipedia.org/wiki/Tenerife_airport_disaster).
 (I'm sorry, I just said aviation is really safe and now I'm telling about a crash!)
@@ -888,7 +1164,12 @@ That's something I think we would often benefit from in the software industry.
 
 
 
-{% slide suspicious-minds 52 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 52,
+  :alt => "A pilot inspecting a checklist in the cockpit of a plane."
+%}
 
 One other thing that aviation does which we should steal for the software industry is **checklists**.
 
@@ -921,14 +1202,24 @@ tl;dr: Checklists are great, you should consider using some.
 
 
 
-{% slide suspicious-minds 50 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 50,
+  :alt => "Layers of cheese with holes in them, and a red arrow that goes through each of them. The “Swiss cheese” model of accident of causation."
+%}
 
 So again: the Swiss cheese model of accident causation.
 Identifying all layers in a fault, all the reasons why a system went wrong.
 
 
 
-{% slide suspicious-minds 47 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 47,
+  :alt => "Text slide with a numbered list: “How to fix a loss of trust”."
+%}
 
 Repeat my list of steps for fixing a loss of trust:
 
@@ -938,7 +1229,12 @@ Repeat my list of steps for fixing a loss of trust:
 
 
 
-{% slide suspicious-minds 43 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 43,
+  :alt => "White text on a red background: “How can you (re)build trust?”"
+%}
 
 The funny thing is, when we lose trust, if we rebuild it correctly, we can often end up with more trust than we started with.
 
@@ -954,7 +1250,12 @@ A mistake doesn't have to be the end of the world as long as you don't let it be
 
 
 
-{% slide suspicious-minds 24 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 24,
+  :alt => "The trust triangle."
+%}
 
 So let's recap what I've shown you today.
 
@@ -969,7 +1270,12 @@ ways to verify and validate them.
 
 
 
-{% slide suspicious-minds 53 %}
+{%
+  slide_image
+  :deck => "suspicious-minds",
+  :slide => 53,
+  :alt => "White text on green: “Trust is something you can actively build”."
+%}
 
 But if I want to take you to take one thing away from today, it's this: **trust is something you can actively build**.
 
