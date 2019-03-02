@@ -8,8 +8,8 @@ pool:
   vmImage: "Ubuntu-16.04"
 
 steps:
-- script: "make build"
-  displayName: "Run 'jekyll build'"
+# - script: "make build"
+#   displayName: "Run 'jekyll build'"
 - script: |
     mkdir -p ~/.ssh
     echo "-----BEGIN OPENSSH PRIVATE KEY-----"  > ~/.ssh/id_rsa
@@ -21,7 +21,7 @@ steps:
     git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
     git config core.sshCommand "ssh -i ~/.ssh/id_rsa"
 
-    make deploy
+    # make deploy
 
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
     git push --verbose ssh-origin HEAD:master
