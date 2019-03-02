@@ -1,5 +1,6 @@
 export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
 export DOCKER_IMAGE_VERSION = 4
+DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 SERVE_CONTAINER = server
 
@@ -15,7 +16,7 @@ publish-docker:
 	python3 publish_docker_image.py
 
 build:
-	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE_NAME) build
+	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
 
 stop:
 	@# Clean up old running containers
@@ -29,7 +30,7 @@ serve: stop
 		--workdir $(ROOT) \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
-		--tty --rm $(DOCKER_IMAGE_NAME) \
+		--tty --rm $(DOCKER_IMAGE) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts --incremental
 
 publish-drafts:
@@ -38,7 +39,7 @@ publish-drafts:
 		--workdir $(ROOT) \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
-		--tty --rm $(DOCKER_IMAGE_NAME) \
+		--tty --rm $(DOCKER_IMAGE) \
 		publish-drafts
 
 publish: publish-drafts build
