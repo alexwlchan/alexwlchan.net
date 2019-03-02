@@ -1,6 +1,6 @@
 # alexwlchan.net
 
-[![Build Status](https://travis-ci.org/alexwlchan/alexwlchan.net.svg?branch=master)](https://travis-ci.org/alexwlchan/alexwlchan.net/branches)
+[![Build Status](https://img.shields.io/azure-devops/build/:organization/:projectId/:definitionId.svg)](https://dev.azure.com/alexwlchan/alexwlchan/_build?_a=summary&definitionId=1)
 
 This repo has the code for my personal site, [alexwlchan.net][root].
 It's a static site built with [Jekyll][jekyll], with a number of plugins written to suit my personal tastes.
