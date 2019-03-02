@@ -7,9 +7,6 @@ pr:
 pool:
   vmImage: "Ubuntu-16.04"
 
-jobs:
-- job: "Build"
-
 steps:
 - script: "make build"
 - displayName: "make deploy"
