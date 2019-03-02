@@ -20,6 +20,8 @@ steps:
 
     cat ~/.ssh/known_hosts
 
+    ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
     git config user.name "Azure Pipelines on behalf of Alex Chan"
     git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
     # git config core.sshCommand "ssh -i ~/.ssh/id_rsa"
