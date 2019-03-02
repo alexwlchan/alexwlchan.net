@@ -11,22 +11,20 @@ steps:
 - script: "make build"
   displayName: "Run 'jekyll build'"
 - script: |
-    touch ~/.gitconfig
-
     mkdir -p ~/.ssh
     echo "-----BEGIN OPENSSH PRIVATE KEY-----"  > ~/.ssh/id_rsa
     echo -e "${SSH_KEY// /'\n'}"               >> ~/.ssh/id_rsa
     echo "-----END OPENSSH PRIVATE KEY-----"   >> ~/.ssh/id_rsa
     chmod 600 ~/.ssh/id_rsa
 
-    git config --global user.name "Azure Pipelines on behalf of Alex Chan"
-    git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
+    git config user.name "Azure Pipelines on behalf of Alex Chan"
+    git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
     git config core.sshCommand "ssh -i ~/.ssh/id_rsa"
 
     make deploy
 
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
-    git push ssh-origin HEAD:master
+    git push --verbose ssh-origin HEAD:master
 
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
   displayName: "Deploy to Linode and push new commits to GitHub"
