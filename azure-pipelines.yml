@@ -20,8 +20,8 @@ steps:
 
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-    git config user.name "Azure Pipelines on behalf of Alex Chan"
-    git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
+    git config --global user.name "Azure Pipelines on behalf of Alex Chan"
+    git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
 
     make deploy
 
