@@ -14,7 +14,7 @@ steps:
     touch ~/.gitconfig
 
     mkdir -p ~/.ssh
-    echo "$SSH_KEY" > ~/.ssh/id_rsa
+    echo -e "${SSH_KEY// /'\n'}" > ~/.ssh/id_rsa
 
     python -c "print(repr(open('/home/vsts/.ssh/id_rsa', 'rb').read()[:-3]))"
 
