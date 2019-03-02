@@ -17,7 +17,7 @@ steps:
 
     git config --global user.name "Azure Pipelines on behalf of Alex Chan"
     git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
-    echo "$SSH_KEY" > id_rsa; chmod 600 id_rsa
+    echo "$SSH_KEY" > ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa
     git config core.sshCommand "ssh -i id_rsa"
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
