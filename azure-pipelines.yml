@@ -13,7 +13,9 @@ steps:
 - script: |
     touch ~/.gitconfig
 
-    echo "$SSH_KEY" > ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa
+    mkdir -p ~/.ssh
+    echo "$SSH_KEY" > ~/.ssh/id_rsa
+    chmod 600 ~/.ssh/id_rsa
     git config core.sshCommand "ssh -i id_rsa"
 
     make deploy
