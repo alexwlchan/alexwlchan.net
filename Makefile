@@ -1,4 +1,6 @@
-BUILD_IMAGE = alexwlchan/alexwlchan.net
+export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
+export DOCKER_IMAGE_VERSION = 3
+
 SERVE_CONTAINER = server
 
 RSYNC_HOST = 139.162.244.147
@@ -9,44 +11,34 @@ ROOT = $(shell git rev-parse --show-toplevel)
 SRC = $(ROOT)/src
 DST = $(ROOT)/_site
 
-$(ROOT)/.docker/build: Dockerfile install_jekyll.sh install_specktre.sh Gemfile.lock src/_plugins/publish_drafts.rb
-	docker build --tag $(BUILD_IMAGE) --build-arg CI=$$CI .
-	mkdir -p .docker
-	touch .docker/build
+publish-docker:
+	python3 publish_docker_image.py
 
-.docker/build: $(ROOT)/.docker/build
-
-clean: .docker/build
-	docker run --volume $(SRC):/site --rm $(BUILD_IMAGE) clean
-	rm -rf .docker
-	docker rm --force $(SERVE_CONTAINER)
-	docker rmi --force $(BUILD_IMAGE)
-
-build: .docker/build
-	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(BUILD_IMAGE) build
+build:
+	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE_NAME) build
 
 stop:
 	@# Clean up old running containers
 	@docker stop $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 	@docker rm $(SERVE_CONTAINER) >/dev/null 2>&1 || true
 
-serve: .docker/build stop
+serve: stop
 	docker run \
 		--publish 5757:5757 \
 		--volume $(ROOT):/$(ROOT) \
 		--workdir $(ROOT) \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
-		--tty --rm $(BUILD_IMAGE) \
+		--tty --rm $(DOCKER_IMAGE_NAME) \
 		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts --incremental
 
-publish-drafts: .docker/build
+publish-drafts:
 	docker run \
 		--volume $(ROOT):/$(ROOT) \
 		--workdir $(ROOT) \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
-		--tty --rm $(BUILD_IMAGE) \
+		--tty --rm $(DOCKER_IMAGE_NAME) \
 		publish-drafts
 
 publish: publish-drafts build
@@ -92,4 +84,4 @@ include certs/Makefile
 include infra/Makefile
 
 
-.PHONY: clean build stop serve publish-drafts publish rsync deploy renew-certbot
+.PHONY: publish-docker build stop serve publish-drafts publish rsync deploy renew-certbot
