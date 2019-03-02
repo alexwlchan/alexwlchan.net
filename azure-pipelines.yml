@@ -9,9 +9,7 @@ pool:
 
 steps:
 - script: "make build"
-- displayName: "make deploy"
-  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
-  script: |
+- script: |
     make deploy
 
     git config --global user.name "Azure Pipelines on behalf of Alex Chan"
@@ -20,3 +18,5 @@ steps:
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
     git push ssh-origin HEAD:master
+
+  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
