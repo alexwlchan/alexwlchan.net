@@ -10,22 +10,16 @@ pool:
 jobs:
 - job: "Build"
 
-  steps:
-  - script: "make build"
-
-- job: "Deploy"
-  dependsOn: "Build"
+steps:
+- script: "make build"
+- displayName: "make deploy"
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
+  script: |
+    make deploy
 
-  steps:
-  - displayName: "Deploy files to Linode"
-    script: "make deploy"
+    git config --global user.name "Azure Pipelines on behalf of Alex Chan"
+    git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
+    # git config core.sshCommand "ssh -i id_rsa"
+    git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
-  - displayName: "Push any new commits to GitHub"
-    script: |
-      git config --global user.name "Azure Pipelines on behalf of Alex Chan"
-      git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
-      # git config core.sshCommand "ssh -i id_rsa"
-      git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
-
-      git push ssh-origin HEAD:master
+    git push ssh-origin HEAD:master
