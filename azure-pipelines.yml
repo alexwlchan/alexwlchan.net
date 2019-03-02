@@ -16,8 +16,6 @@ steps:
     mkdir -p ~/.ssh
     echo -e "${SSH_KEY// /'\n'}" > ~/.ssh/id_rsa
 
-    python -c "print(repr(open('/home/vsts/.ssh/id_rsa', 'rb').read()[:-3]))"
-
     chmod 600 ~/.ssh/id_rsa
     git config core.sshCommand "ssh -i id_rsa"
 
