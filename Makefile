@@ -1,5 +1,5 @@
 export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 3
+export DOCKER_IMAGE_VERSION = 4
 
 SERVE_CONTAINER = server
 

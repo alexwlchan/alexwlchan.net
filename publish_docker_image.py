@@ -8,7 +8,7 @@ import subprocess
 if __name__ == "__main__":
     image_name = os.environ["DOCKER_IMAGE_NAME"]
     old_version = int(os.environ["DOCKER_IMAGE_VERSION"])
-    new_version = image_version + 1
+    new_version = old_version + 1
 
     existing_makefile = open("Makefile").read()
 
