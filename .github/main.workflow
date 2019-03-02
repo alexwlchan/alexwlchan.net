@@ -10,7 +10,7 @@ action "branch cleanup" {
 
 workflow "on pull request pass, merge the branch" {
   resolves = ["Auto-merge pull requests"]
-  on = "check_suite"
+  on = "check_run"
 }
 
 action "Auto-merge pull requests" {
