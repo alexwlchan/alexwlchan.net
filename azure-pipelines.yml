@@ -9,6 +9,7 @@ pool:
 
 steps:
 - script: "make build"
+  displayName: "Run 'jekyll build'"
 - script: |
     make deploy
 
