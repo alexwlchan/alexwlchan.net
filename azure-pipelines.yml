@@ -8,27 +8,20 @@ pool:
   vmImage: "Ubuntu-16.04"
 
 steps:
-# - script: "make build"
-#   displayName: "Run 'jekyll build'"
+- script: "make build"
+  displayName: "Run 'jekyll build'"
 - script: |
-    ls ~/.ssh
-    mkdir -p ~/.ssh
     echo "-----BEGIN OPENSSH PRIVATE KEY-----"  > ~/.ssh/id_rsa
     echo -e "${SSH_KEY// /'\n'}"               >> ~/.ssh/id_rsa
     echo "-----END OPENSSH PRIVATE KEY-----"   >> ~/.ssh/id_rsa
     chmod 600 ~/.ssh/id_rsa
 
-    cat ~/.ssh/known_hosts
-
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
     git config user.name "Azure Pipelines on behalf of Alex Chan"
     git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
-    # git config core.sshCommand "ssh -i ~/.ssh/id_rsa"
 
-    shasum ~/.ssh/id_rsa
-
-    # make deploy
+    make deploy
 
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
     git push --verbose ssh-origin HEAD:master
