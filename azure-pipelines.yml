@@ -18,10 +18,13 @@ steps:
 
     git config --global user.name "Azure Pipelines on behalf of Alex Chan"
     git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
-    # git config core.sshCommand "ssh -i id_rsa"
+    echo "$SSH_KEY" > id_rsa; chmod 600 id_rsa
+    git config core.sshCommand "ssh -i id_rsa"
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
     git push ssh-origin HEAD:master
 
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
   displayName: "Deploy to Linode and push new commits to GitHub"
+  env:
+    SSH_KEY: $(alex.sshKey)
