@@ -11,6 +11,9 @@ steps:
 - script: "make build"
   displayName: "Run 'jekyll build'"
 - script: |
+    ls /home/vsts/.gitconfig
+    mv /home/vsts/.gitconfig /home/vsts/.gitconfig.dir
+
     make deploy
 
     git config --global user.name "Azure Pipelines on behalf of Alex Chan"
