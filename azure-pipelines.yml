@@ -8,8 +8,8 @@ pool:
   vmImage: "Ubuntu-16.04"
 
 steps:
-# - script: "make build"
-#   displayName: "Run 'jekyll build'"
+- script: "make build"
+  displayName: "Run 'jekyll build'"
 - script: |
     touch ~/.gitconfig
 
