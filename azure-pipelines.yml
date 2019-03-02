@@ -13,12 +13,13 @@ steps:
 - script: |
     touch ~/.gitconfig
 
+    echo "$SSH_KEY" > ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa
+    git config core.sshCommand "ssh -i id_rsa"
+
     make deploy
 
     git config --global user.name "Azure Pipelines on behalf of Alex Chan"
     git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
-    echo "$SSH_KEY" > ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa
-    git config core.sshCommand "ssh -i id_rsa"
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 
     git push ssh-origin HEAD:master
