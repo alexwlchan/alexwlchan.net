@@ -838,13 +838,13 @@ And can you build it with safety in mind?
 
 
 {%
-  slide_image
+  better_slide
   :deck => "anti_social_media",
   :slide => 64,
   :alt => "A screenshot from the game Journey; orange characters in a desert with a green sky."
 %}
   Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/).
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 An example: many multiplayer games have peer-to-peer interactions.
 Everyone plays in a shared world, and they can talk to their fellow players.
@@ -868,13 +868,24 @@ I consider individual and platform-level blocking to be table stakes for online 
 Unfortunately not everybody does this (hi Slack), which can lead to uncomfortable experiences for their users.
 
 
-{% slide anti_social_media 67 %}
+
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 67,
+  :alt => "A screenshot of my Twitter page."
+%}
 
 This is what it looks like if you're blocked on Twitter.
 You can't send the person a message, or see any of their tweets.
 
 
-{% slide anti_social_media 68 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 68,
+  :alt => "A screenshot of my Twitter bio, with the text “You are blocked from following @alexwlchan and viewing @alexwlchan’s Tweets” highlighted."
+%}
 
 But notice -- the page is very explicit about this.
 *"You are blocked."*
@@ -883,7 +894,12 @@ In some scenarios, just the act of blocking might put somebody at risk -- suppos
 That itself could be a trigger for retaliation.
 
 
-{% slide anti_social_media 70 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 70,
+  :alt => "Allow “shadow blocking” dangerous users."
+%}
 
 Another useful technique is [shadow banning](https://en.wikipedia.org/wiki/Shadow_banning).
 You block or ban a user, but hide that fact from them.
@@ -892,7 +908,12 @@ They keep screaming into the void, but nobody else has to see what they're sayin
 The idea is that eventually, they'll leave on their own because nobody's talking to them -- but without instigating any direct retaliation.
 
 
-{% slide anti_social_media 72 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 72,
+  :alt => "Give your users advanced security/privacy controls."
+%}
 
 And really, banning and blocking are just parts of a much larger puzzle.
 
@@ -904,7 +925,12 @@ These are harder to implement, but add a lot of value.
 what about more granular -->
 
 
-{% slide anti_social_media 73 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 73,
+  :alt => "A screenshot of Facebook’s “Privacy Settings and Tools” page."
+%}
 
 Here's an example of the granular controls [exposed by Facebook](https://www.facebook.com/settings?tab=privacy).
 
@@ -917,7 +943,12 @@ More than just "who can see my posts", they have tools like:
     Which affects the chance of drive-by bullying.
 
 
-{% slide anti_social_media 75 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 75,
+  :alt => "Require wallet names?"
+%}
 
 Let's change tack and talk about a different tactic some people suggest.
 
@@ -941,7 +972,12 @@ On some sites, connecting a user to their physical world name could put them at 
 So you may be inviting more harassment, or just driving users away.
 
 
-{% slide anti_social_media 76 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 76,
+  :alt => "A screenshot of a discussion thread with 6063 comments, with the topic “Skills for Someone Else”."
+%}
 
 An example from a thread with thousands of anonymous comments, but mostly civil discourse -- this one about coffee, typically a topic of much contention online!
 
@@ -949,13 +985,23 @@ Source: [*Skills For Someone Else*](https://fail-fandomanon.dreamwidth.org/18788
 Retrieved 18 April 2018.
 
 
-{% slide anti_social_media 79 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 79,
+  :alt => "Require persistent names."
+%}
 
 If you don't want to put in the moderation for true anonymity, pseudonyms are a good middle ground.
 You get the accountability and reputation of a persistent name, but without trying to define what somebody's "real" name actually is.
 
 
-{% slide anti_social_media 80 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 80,
+  :alt => "Believe users when they say they have a problem."
+%}
 
 Believe users if they save they have a problem.
 All of our lived experiences is incomplete -- we don't know what it's like to be somebody of a different gender, or race, or sexual orientation.
@@ -967,7 +1013,12 @@ Even people with the same life experience as you may use your site differently.
 And remember that it can be hard to report something, so don't penalise somebody who reports in good faith -- for example, don't sue somebody who reports a security bug.
 
 
-{% slide anti_social_media 81 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 81,
+  :alt => "Don't rely on technology to solve human problems."
+%}
 
 Humans talking to other humans is a human problem, and automated systems will really struggle to solve it -- use humans instead!
 For resolving a dispute between people, the best solution is to hire (and look after) human moderators.
@@ -984,10 +1035,15 @@ Further reading:
 *   [*The Scunthorpe Problem*](https://en.wikipedia.org/wiki/Scunthorpe_problem), Wikipedia.
 
 
-{% slide_captioned anti_social_media 82 %}
+{%
+  better_slide
+  :deck => "anti_social_media",
+  :slide => 82,
+  :alt => "A screenshot of a messaging app with a picture of a yellow flower and a message “Thinking of you!”."
+%}
   Image: a yellow rose, by [Anthony](https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/) on Pexels.
   Used under CC0.
-{% endslide_captioned %}
+{% endbetter_slide %}
 
 Here's an example where it's impossible to infer context: somebody's sent me a text saying *"Thinking of you!"*.
 
@@ -996,7 +1052,12 @@ Or it could be that creep who won't stop texting me, and rang my hotel room four
 But most services don't have enough information to tell that difference.
 
 
-{% slide anti_social_media 84 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 84,
+  :alt => "Design with abusive personas in mind."
+%}
 
 And finally -- design with abusive personas in mind.
 Repeating what we've said already: you should think about how an abusive ex will use your service.
@@ -1007,18 +1068,38 @@ Let's take a negative slant as well.
 For somebody who wants to do harm, how can I make their life as difficult and frustrating as possible?
 
 
-{% slide anti_social_media 85 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 85,
+  :alt => "Recap slide with best practices."
+%}
 
 (Recap slide of good practices.)
 
 
-{% slide anti_social_media 86 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 86,
+  :alt => "White text on purple. “This isn’t easy.”"
+%}
 
 
-{% slide anti_social_media 87 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 87,
+  :alt => "White text on purple. “You will have your own ideas.”"
+%}
 
 
-{% slide anti_social_media 88 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 88,
+  :alt => "White text on purple. “You should always ask: How could this be used to hurt someone? How could the abusive ex use this?”"
+%}
 
 Closing thoughts.
 
@@ -1028,6 +1109,11 @@ For a more specific version: *How could an abusive ex use this?*
 If you don't answer this question, it will be answered for you -- and somebody else will be hurt in the process.
 
 
-{% slide anti_social_media 89 %}
+{%
+  slide_image
+  :deck => "anti_social_media",
+  :slide => 89,
+  :alt => "Closing slide, thanks and link to notes."
+%}
 
 (Link to slides, thank everybody who helped.)
