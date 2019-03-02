@@ -21,6 +21,8 @@ steps:
     git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
     # git config core.sshCommand "ssh -i ~/.ssh/id_rsa"
 
+    shasum ~/.ssh/id_rsa
+
     # make deploy
 
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
