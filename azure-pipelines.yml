@@ -14,7 +14,9 @@ steps:
     touch ~/.gitconfig
 
     mkdir -p ~/.ssh
-    echo -e "${SSH_KEY// /'\n'}" > ~/.ssh/id_rsa
+    echo "-----BEGIN OPENSSH PRIVATE KEY-----"  > ~/.ssh/id_rsa
+    echo -e "${SSH_KEY// /'\n'}"               >> ~/.ssh/id_rsa
+    echo "-----END OPENSSH PRIVATE KEY-----"   >> ~/.ssh/id_rsa
 
     chmod 600 ~/.ssh/id_rsa
     git config core.sshCommand "ssh -i id_rsa"
