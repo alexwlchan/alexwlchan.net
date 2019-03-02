@@ -11,6 +11,8 @@ steps:
 - script: "make build"
   displayName: "Run 'jekyll build'"
 - script: |
+    mkdir -p ~/.ssh
+
     echo "-----BEGIN OPENSSH PRIVATE KEY-----"  > ~/.ssh/id_rsa
     echo -e "${SSH_KEY// /'\n'}"               >> ~/.ssh/id_rsa
     echo "-----END OPENSSH PRIVATE KEY-----"   >> ~/.ssh/id_rsa
