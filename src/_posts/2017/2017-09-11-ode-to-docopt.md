@@ -26,11 +26,21 @@ You can [download my slides as a PDF](/slides/docopt/docopt_slides.pdf), or read
 
 ---
 
-{% slide docopt 1 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 1,
+  :alt => "Title slide."
+%}
 
 This is a talk about docopt, a family of libraries for writing command-line interfaces.
 
-{% slide docopt 2 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 2,
+  :alt => "An example help string for a command-line program."
+%}
 
 As developers, we often have to write command-line interfaces.
 Here's an example usage string from a static site generator.
@@ -45,7 +55,12 @@ If you've seen other CLI tools, you might be able to work out how to use it:
 
 So how would we implement this in code?
 
-{% slide docopt 3 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 3,
+  :alt => "A slide full of code using argparse to parse a command-line interface."
+%}
 
 If we're using Python, we might use [argparse][argparse] from the standard library.
 But this code is pretty mucky: we have to set up parsers, subparsers, all that… yuck!
@@ -57,14 +72,24 @@ If you hae to edit code like this, it can be tricky to know exactly where to mak
 
 And argparse is complicated -- I never get it right first time.
 
-{% slide docopt 4 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 4,
+  :alt => "A quote from Kenneth Reitz: “If you have to refer to the documentation every time you use a module, find (or build) a new module.”."
+%}
 
 Let's reflect on [this wisdom][wisdom] from Kenneth Reitz.
 We don't want to define our interfaces by hand -- there must be a better way!
 
 Luckily for us, such a module already exists!
 
-{% slide docopt 5 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 5,
+  :alt => "Code using docopt to implement a command-line interface."
+%}
 
 This is what the same code looks like with [the docopt module][module].
 I write a help string and call the single `docopt` function.
@@ -74,7 +99,12 @@ This is much nicer than our previous example.
 It's much easier to see how the code works or add new options, and we write less parsing code (and so less bugs!).
 And because the interface is auto-generated from the help string, it always stays up-to-date.
 
-{% slide docopt 6 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 6,
+  :alt => "The output of the docopt.docopt function."
+%}
 
 In Python, docopt returns a dictionary with the different arguments.
 
@@ -98,7 +128,12 @@ pub struct Args {
 }
 ```
 
-{% slide docopt 8 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 8,
+  :alt => "The short help string for another command-line program."
+%}
 
 So how does docopt work its magic?
 
@@ -108,20 +143,40 @@ Remember how we were able to read this help string, because it looked like help 
 There's a standard for writing these help strings, as part of [POSIX][posix].
 By sticking to these rules, docopt can work out how our program is meant to be used, and build an appropriate parser.
 
-{% slide docopt 9 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 9,
+  :alt => "The longer help string, with descriptions of the different options."
+%}
 
 Typically the help string passed to docopt also includes some front matter (a human-readable description) and explanation of the different options and commands -- but the usage string is the interesting part.
 
-{% slide docopt 10 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 10,
+  :alt => "Common conventions and patterns used in command-line programs."
+%}
 
 Heere's a brief illustration of the sort of things you can define with docopt.
 There's a full description of the rules on the docopt website.
 
-{% slide docopt 11 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 11,
+  :alt => "A screenshot of docopt on PyPI, the Python Package Index."
+%}
 
 docopt started life as a Python library, nearly five years ago -- and is still available for Python, if that's what you use.
 
-{% slide docopt 12 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 12,
+  :alt => "A screenshot of docopt on GitHub, and a list of other languages it's been ported to."
+%}
 
 But what if you use something else?
 Because docopt is such a nice idea, it's been ported to lots of other languages.
@@ -131,14 +186,24 @@ This includes lots of the languages we use at Wellcome, including PHP and Scala.
 
 *[CoffeeScript is the closest to a JavaScript port in the GitHub organisation. I thought this meant docopt was an exception to [Atwood's Law][atwood], but I've since found a [Node.js port][nodejs].]*
 
-{% slide docopt 13 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 13,
+  :alt => "An example program using docopt written in PHP."
+%}
 
 As an example, here's our program ported to PHP.
 Again, most of the code is writing the help string, the parsing code is just a call into a function provided by docopt.
 
 (Another nice thing: docopt is often delivered as a single file, so you can add it to a project even if you don't/can't use a package manager.)
 
-{% slide docopt 14 %}
+{%
+  slide_image
+  :deck => "docopt",
+  :slide => 14,
+  :alt => "Silver text on green: a link to the docopt website."
+%}
 
 More information about docopt, including links to the ports and more detailed instructions, is on the [docopt website][docopt].
 
