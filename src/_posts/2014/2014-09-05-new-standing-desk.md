@@ -12,7 +12,10 @@ I've made a few changes to his design, based partly on personal preference, and 
 
 Here's a picture of the new desk, from the front on:
 
-![](/images/2014/standing_desk.jpg)
+{%
+  image :filename => "standing_desk.jpg",
+  :alt => "A desk with a black top, red keyboard shelf, black keyboard and an iMac."
+%}
 
 <!-- summary -->
 
@@ -77,7 +80,10 @@ Overall, you could replicate this setup for just under £100, although the Galan
 
 The Galant forms the base of the desk. There's a metal bar that runs directly under the centre of the desk top, so it feels nice and solid. One feature I particularly appreciated was that the legs extensions have measurements on them. (They're quite hard to make out, but this photo shows a 10, a 20 and a 30 mark.)
 
-![](/images/2014/galant_leg.jpg)
+{%
+  image :filename => "galant_leg.jpg",
+  :alt => "A grey cylindrical table leg, with markings 10/20/30."
+%}
 
 When I was trying to adjust the height, these markings made it easy to get a consistent extension on each of the legs.
 
@@ -93,7 +99,10 @@ Overall it took less than an hour to put together (including adjusting the heigh
 
 All I did was assemble the Galant and the Lack, put the Lack on top, and cable tie the two Valter brackets to the front legs of the Lack. Everything else is loose and adjustable.
 
-![](/images/2014/standing_desk_side.jpg)
+{%
+  image :filename => "standing_desk_side.jpg",
+  :alt => "A sideways-on view of the desk."
+%}
 
 The computer is a 27″ iMac that I bought for myself last Christmas. I'm using a Magic Trackpad in place of my usual Magic Mouse. I'll probably just get a mousemat and go back to a mouse when I have the chance.
 

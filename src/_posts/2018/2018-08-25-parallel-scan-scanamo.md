@@ -16,7 +16,11 @@ If you want to iterate over the records in DynamoDB, you have to do a [Scan oper
 A Scan returns the records in sequence, so you can only run one worker at a time -- this is pretty slow.
 We want to process the table in parallel, so we have a DIY mechanism for dividing the table into "shards", and then we process each shard separately.
 
-<img src="/images/2018/dynamodb_lambda.png" style="max-width: 600px;">
+{%
+  image :filename => "dynamodb_lambda.png",
+  :alt => "A two-way arrow between a blue rectangle (a DynamoDB table) and an orange circle (a Lambda). The arrows are labelled “DynamoDB stream” and “Add ‘reindex shard’”.",
+  :style => "max-width: 600px;"
+%}
 
 DynamoDB tables can produce [an event stream][stream] of updates to the table.
 We connect this stream to a Lambda function, which picks a "reindex shard" for a row, and writes that shard back to the table.
