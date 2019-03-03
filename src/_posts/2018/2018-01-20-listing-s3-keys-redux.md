@@ -181,4 +181,4 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 If you've used the original code, I'd recommend switching to use this updated version.
 You can find the code, along with a couple of tests, [on GitHub][github].
 
-[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/code/matching_s3_objects
+[github]: https://github.com/alexwlchan/alexwlchan.net/tree/d5d7201189c64f45e97ed2a4c6ff39164f50c843/misc/matching_s3_objects
