@@ -86,14 +86,14 @@ Please look after yourselves!
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 4,
   :alt => "A cheque book."
 %}
   Image credit: A cheque book.
   Made by [The Clear Communication People](https://www.flickr.com/photos/easy-pics/8138517266/), used under CC BY-NC-ND.
-{% endbetter_slide %}
+{% endslide %}
 
 A [tweet from a friend][drmaciver] got me thinking about cheques recently, and ways to pay.
 The Internet has changed finance -- today, we have all sorts of ways to send money to each other.
@@ -120,14 +120,14 @@ This is much better, right?
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 6,
   :alt => "A screenshot of a tweet: “A friend’s abusive ex has been sending her $1 on @SquareCash regularly for months, cause he can add a message & she can’t block that.”"
 %}
   Tweet by [Anna Marie Clifton](https://twitter.com/TweetAnnaMarie/status/789957313649967104).
   Retrieved 18 April 2018.
-{% endbetter_slide %}
+{% endslide %}
 
 Well... yes and no.
 
@@ -359,14 +359,14 @@ Posting personal information is another common form of harassment.
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 20,
   :alt => "A photo of a rainbow flag with the text “Posting personal info: outing” overlaid."
 %}
   Image: Rainbow flag and blue skies, by [Ludovic Berton](https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg).
   Used under CC BY.
-{% endbetter_slide %}
+{% endslide %}
 
 For example, outing somebody who's LGBTQ+ without their consent.
 
@@ -374,14 +374,14 @@ If a gay person is outed in a conservative community, or a trans person is expos
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 21,
   :alt => "A photo of a house against a dark sky with the text “Posting personal info: doxing” overlaid."
 %}
   Image: Grey house with fireplace, by [Sebastian Soerensen](https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/).
   Used under CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 Another is a practice called [doxing][doxing], which is posting somebody's personally identifiable information -- their address, phone number, place of work.
 Or if somebody is quite guarded, going after their friends and family -- who might be less careful about what they share.
@@ -393,14 +393,14 @@ Again, you can see how this puts somebody at risk.
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 22,
   :alt => "A photo of a soldiers in back clothing standing outside a door, with the text “Posting personal info: SWATing” overlaid."
 %}
   Image: US & Romanian forces conduct bilateral training, by [Sgt. Esdras Ruano](https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg).
   Public domain.
-{% endbetter_slide %}
+{% endslide %}
 
 And a final odious form of this technique is [SWATing][swating].
 After somebody's address has been leaked online, another person makes a phone call to the police and calls in a fake threat -- bomb hoax, hostage situation, home shooting -- which gets armed police send to their house.
@@ -437,14 +437,14 @@ Examples:
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 25,
   :alt => "An image of a bedroom with the overlaid text “Sharing intimate photos without permission”."
 %}
   Image: bedroom in blue and brown, by [Digital Buggu](https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/).
   Used under CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 I particularly dislike this next one -- sharing intimate photos without consent, or so-called "revenge porn".
 This is relatively new.
@@ -456,14 +456,14 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 26,
   :alt => "A photo of the back seat of a car with the overlaid text “Grooming young children”."
 %}
   Image: rear seats of an Audi RS4, by [The Car Spy](https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_%286%29.jpg).
   Used under CC BY.
-{% endbetter_slide %}
+{% endslide %}
 
 We need to be worried about child grooming.
 
@@ -539,14 +539,14 @@ Minority groups tend to come in for disproportionate levels of abuse and harassm
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 34,
   :alt => "A picture of Diane Abbott, with a quote about how she received almost a third of abusive tweets in one study."
 %}
   Image: Official portrait of Diane Abbott MP, from the [UK Parliament website](https://beta.parliament.uk/media/S3bGSTqn).
   Used under CC BY.
-{% endbetter_slide %}
+{% endslide %}
 
 When these factors overlap, it gets even worse.
 
@@ -838,13 +838,13 @@ And can you build it with safety in mind?
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 64,
   :alt => "A screenshot from the game Journey; orange characters in a desert with a green sky."
 %}
   Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/).
-{% endbetter_slide %}
+{% endslide %}
 
 An example: many multiplayer games have peer-to-peer interactions.
 Everyone plays in a shared world, and they can talk to their fellow players.
@@ -1036,14 +1036,14 @@ Further reading:
 
 
 {%
-  better_slide
+  slide
   :deck => "anti_social_media",
   :slide => 82,
   :alt => "A screenshot of a messaging app with a picture of a yellow flower and a message “Thinking of you!”."
 %}
   Image: a yellow rose, by [Anthony](https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/) on Pexels.
   Used under CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 Here's an example where it's impossible to infer context: somebody's sent me a text saying *"Thinking of you!"*.
 

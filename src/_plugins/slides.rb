@@ -22,12 +22,11 @@ end
 
 
 module Jekyll
-
   module SlideBase
     def bind_params(params)
-      @deck = params[:deck] or raise SyntaxError, "Error in tag 'better_slide', :deck parameter is required"
-      @slide = params[:slide] or raise SyntaxError, "Error in tag 'better_slide', :slide parameter is required"
-      @alt = params[:alt] or raise SyntaxError, "Error in tag 'better_slide', :alt parameter is required"
+      @deck = params[:deck] or raise SyntaxError, "Error in tag 'slide', :deck parameter is required"
+      @slide = params[:slide] or raise SyntaxError, "Error in tag 'slide', :slide parameter is required"
+      @alt = params[:alt] or raise SyntaxError, "Error in tag 'slide', :alt parameter is required"
     end
   end
 
@@ -49,7 +48,7 @@ module Jekyll
 end
 
 
-Liquid::Template.register_tag("better_slide", Jekyll::BetterSlideBlock)
+Liquid::Template.register_tag("slide", Jekyll::BetterSlideBlock)
 Liquid::Template.register_tag("slide_image", Jekyll::BetterSlideTag)
 
 
