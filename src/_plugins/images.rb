@@ -1,3 +1,6 @@
+require_relative "alexwlchan_base"
+
+
 def render_image(src:, alt_text:, title:, style: "")
   <<-EOT
 <a href="#{src}"><img src="#{src}" alt="#{alt_text}" title="#{title}" style="#{style}"></a>
