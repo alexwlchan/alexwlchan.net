@@ -65,14 +65,14 @@ Even with the friendly PyCon UK audience, I was quite nervous, but I got a prett
 (Introductory slide)
 
 {%
-  better_slide
+  slide
   :deck => "privilege_inclusion",
   :slide => 3,
   :alt => "A photo of a red, blue and orange light installation in the windows of an office building."
 %}
   Image: [*Tools of the Trade*](https://wellcomecollection.org/what-we-do/tools-trade), by Stuart Haygarth.
   A light installation in the windows of the Wellcome Trust building.
-{% endbetter_slide %}
+{% endslide %}
 
 My name is Alex.
 I'm a software developer at the [Wellcome Trust][wellcome] in London, who generously paid for me to attend the conference.
@@ -171,13 +171,13 @@ Most of us don't have this sort of luxury, so we couldn't be privileged, right?
 That's not what privilege is about.
 
 {%
-  better_slide
+  slide
   :deck => "privilege_inclusion",
   :slide => 10,
   :alt => "A tweet from jaythenerdkid: “one thing that makes privilege so hard to dismantle is that the privileged don’t realise they have it”."
 %}
   Link to original tweet: <https://twitter.com/jaythenerdkid/status/763451754138701824>
-{% endbetter_slide %}
+{% endslide %}
 
 This is one of the hardest things about dealing with privilege: this false idea of what it means, so people assume they don't have it.
 
@@ -311,13 +311,13 @@ If you don't have these people in your day-to-day life, social media is great.
 Find these people, follow them, hear what they have to say.
 
 {%
-  better_slide
+  slide
   :deck => "privilege_inclusion",
   :slide => 22,
   :alt => "A tweet from @austin_walker."
 %}
   Link to original tweet: <https://twitter.com/austin_walker/status/782360503582650368>.
-{% endbetter_slide %}
+{% endslide %}
 
 Before I move on, let's emphasise the "listen" part.
 When they're getting started, people feel the need to jump in and "correct" people.
@@ -379,13 +379,13 @@ Language is bad, so are stereotypes.
 If somebody paints with a broad brush, or uses "conventional wisdom", check to see if it's really true.
 
 {%
-  better_slide
+  slide
   :deck => "privilege_inclusion",
   :slide => 28,
   :alt => "The XKCD comic “How It Works”. A man makes a mistake: “Wow, you suck at math”. A woman makes the same mistake: “Wow, girls suck at math”."
 %}
   Image: [XKCD 385 *How It Work*](https://www.xkcd.com/385/), by Randall Munroe.
-{% endbetter_slide %}
+{% endslide %}
 
 This XKCD is a particularly famous example.
 The left-hand character, with no identifying features (who, by the way, we usually assume is male, what does that say about us?) makes a mistake, and is judged badly for it.
@@ -401,13 +401,13 @@ Do you have evidence, or is it just a hunch?
 Is there information behind this feeling, or is it just a hunch?
 
 {%
-  better_slide
+  slide
   :deck => "privilege_inclusion",
   :slide => 29,
   :alt => "Even “positive” stereotypes can be harmful."
 %}
   Link to original tweet: <https://twitter.com/andrhia/status/921184523693543424>.
-{% endbetter_slide %}
+{% endslide %}
 
 And even when a stereotype seems like it's positive, it may still be doing harm to the group.
 

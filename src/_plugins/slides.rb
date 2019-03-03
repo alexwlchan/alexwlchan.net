@@ -1,8 +1,9 @@
 require_relative "alexwlchan_base"
+require_relative "images"
 
 
 def render_slide(deck, slide, alt_text, caption_text)
-  path = get_slide_path(deck, slide)
+  img_src = get_slide_path(deck, slide)
 
   md_content = caption_text.strip
   caption = if md_content
@@ -13,20 +14,19 @@ def render_slide(deck, slide, alt_text, caption_text)
 
 <<-EOT
 <figure class="slide">
-  <a href="#{path}"><img src="#{path}" alt="#{alt_text}" title="#{alt_text}"></a>
-#{caption}
+  #{render_image(src: img_src, alt_text: alt_text, title: alt_text)}
+  #{caption}
 </figure>
 EOT
 end
 
 
 module Jekyll
-
   module SlideBase
     def bind_params(params)
-      @deck = params[:deck] or raise SyntaxError, "Error in tag 'better_slide', :deck parameter is required"
-      @slide = params[:slide] or raise SyntaxError, "Error in tag 'better_slide', :slide parameter is required"
-      @alt = params[:alt] or raise SyntaxError, "Error in tag 'better_slide', :alt parameter is required"
+      @deck = params[:deck] or raise SyntaxError, "Error in tag 'slide', :deck parameter is required"
+      @slide = params[:slide] or raise SyntaxError, "Error in tag 'slide', :slide parameter is required"
+      @alt = params[:alt] or raise SyntaxError, "Error in tag 'slide', :alt parameter is required"
     end
   end
 
@@ -48,7 +48,7 @@ module Jekyll
 end
 
 
-Liquid::Template.register_tag("better_slide", Jekyll::BetterSlideBlock)
+Liquid::Template.register_tag("slide", Jekyll::BetterSlideBlock)
 Liquid::Template.register_tag("slide_image", Jekyll::BetterSlideTag)
 
 

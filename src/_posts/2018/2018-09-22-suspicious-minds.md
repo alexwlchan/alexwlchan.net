@@ -48,13 +48,13 @@ If I end up doing this talk again, I'd love to go back and get some more practic
 *[Ed. I was introduced by Daniele Procida, the conference director.]*
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 1,
   :alt => "Title slide. “Building trust in an age of suspicious minds”."
 %}
   Based on the cover art [of the Elvis single](https://en.wikipedia.org/wiki/Suspicious_Minds#/media/File:Elvis_presley_suspiciousminds.jpg).
-{% endbetter_slide %}
+{% endslide %}
 
 Thanks for that introduction.
 As Daniele said, my name is Alex, I'm a software developer at [the Wellcome Trust](https://wellcome.ac.uk/) in London, and I help organise this conference.
@@ -230,14 +230,14 @@ How much do we trust in each?
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 11,
   :alt => "Photo of orange and yellow flames, with people and a forest in silhouette against the fire."
 %}
   Image: [Easter Fire](https://pixabay.com/en/easter-fire-brand-heat-firelight-1439323/), by claus-heinrichcarstens on Pixabay.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 If we go on Twitter, in the six minutes that I've been speaking, there have probably been about six years worth of news.
 It feels like the world is on fire (sometimes literally), and the unfortunate thing is it seems like that often isn't any trust.
@@ -404,14 +404,14 @@ Not so many years ago, that would have been a very unusual thing to do, and yet 
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 17,
   :alt => "A book cover titled “Who is a stranger and what should I do?”. A girl in the foreground is walking away from a man in a red car."
 %}
   I'm sure this driver is just making sure she's crossing the road safely.
   What an upstanding fine citizen!
-{% endbetter_slide %}
+{% endslide %}
 
 Another example: **ride-sharing**.
 
@@ -681,13 +681,13 @@ Trust is exactly the same -- we need new tools and processes -- so let's think a
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 29,
   :alt => "Five ducks in a row, with the overlaid text “Be a role model for others to follow”."
 %}
   Image: [waterfowl ducks](https://pixabay.com/en/animals-waterfowl-ducks-young-737407/), by user 422737 on Pixabay.
-{% endbetter_slide %}
+{% endslide %}
 
 Something we can do with trust all by ourselves is being a role model -- being something other people can follow.
 Humans are naturally mimics.
@@ -701,14 +701,14 @@ So being a role model by showing the behaviors that you want to promote in the w
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 30,
   :alt => "An iPad with a green graph on the screen, with the overlaid text “Monitoring and check-ins”."
 %}
   Image: [iPad Air on a brown wooden table](https://www.pexels.com/photo/space-grey-ipad-air-with-graph-on-brown-wooden-table-187041/), by Burak&nbsp;K on Pexels.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 Another thing you can do that at a high level is having monitoring and check-ins.
 
@@ -851,14 +851,14 @@ We have all these external tools/systems that help us improve our reliability, a
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 37,
   :alt => "A black-and-white planner on a grey table."
 %}
   Image: [Black and white planner on a grey table](https://www.pexels.com/photo/white-and-black-weekly-planner-on-gray-surface-1059383/), by Bich&nbsp;Tran on Pexels.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 On a personal level, that might be something as simple as keeping a diary or a task list.
 You can see what promises you're making so you don't forget something -- so you don't overpromise and underdeliver -- you don't promise you can do something and not realise that you've already promised to do three things this week.
@@ -866,14 +866,14 @@ You can see what promises you're making so you don't forget something -- so you 
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 38,
   :alt => "A woman holding a post-it note in front of a wall with lots of post-it notes on it."
 %}
   Image: [Woman holding yellow post-it note](https://www.pexels.com/photo/woman-holding-yellow-sticky-note-1391405/), by rawpixels.com on Pexels.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 Another thing we can look to -- if we're looking at a larger group -- is things like [agile](https://en.wikipedia.org/wiki/Agile_software_development).
 
@@ -1017,14 +1017,14 @@ If you discover you misplaced your trust is something, you never trust it again,
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 46,
   :alt => "A close-up badge of a Volkswagen badge on a car’s radiator grille."
 %}
   Image: [Volkswagen grille](https://pxhere.com/en/photo/493486), from Pxhere.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 Take Volkswagen as an example.
 
@@ -1072,14 +1072,14 @@ Don't just try harder next time and hope people will believe you; actually put i
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 48,
   :alt => "A British Airways plane set against a blue sky."
 %}
   Image: [British Airways plane against a blue sky](https://pxhere.com/en/photo/751319), downloaded from Pxhere.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 One industry that does this really well is the aviation industry.
 
@@ -1094,14 +1094,14 @@ It's an incredibly safe industry.
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 49,
   :alt => "A black and white photo of a crashed plane, upside down."
 %}
   Image: [Black and white image of a crashed plane](https://pxhere.com/en/photo/775521), downloaded from Pxhere.
   CC0.
-{% endbetter_slide %}
+{% endslide %}
 
 How did they get there?
 It's not like planes never break.
@@ -1133,14 +1133,14 @@ Fix all the problems in the system.
 
 
 {%
-  better_slide
+  slide
   :deck => "suspicious-minds",
   :slide => 51,
   :alt => "A picture of a yellow air traffic control tower, with white clouds in the background."
 %}
   Image: [Tenerife North Airport](https://en.wikipedia.org/wiki/Tenerife_North_Airport#/media/File:Norda_flughaveno_de_Tenerifo,_turo,_2.jpeg), downloaded from Pxhere.
   CC-BY SA.
-{% endbetter_slide %}
+{% endslide %}
 
 One example of that is Tenerife Airport, which in 1977 was the site of [the deadliest aviation crash in history](https://en.wikipedia.org/wiki/Tenerife_airport_disaster).
 (I'm sorry, I just said aviation is really safe and now I'm telling about a crash!)
