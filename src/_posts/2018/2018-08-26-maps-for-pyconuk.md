@@ -15,8 +15,18 @@ The page includes maps of Cardiff City Hall (where the conference is hosted), wh
 This is what the maps look like:
 
 <figure>
-  <img style="max-width: 48%; display: inline-block;" src="/images/2018/venue-map_ground.png">
-  <img style="max-width: 48%; display: inline-block;" src="/images/2018/venue-map_first.png">
+  <div style="max-width: 48%; display: inline-block;">
+  {%
+    image :filename => "venue-map_ground.png",
+    :alt => "A map of the ground floor of City Hall."
+  %}
+  </div>
+  <div style="max-width: 48%; display: inline-block;">
+  {%
+    image :filename => "venue-map_first.png",
+    :alt => "A map of the first floor of City Hall."
+  %}
+  </div>
   <figcaption>
     Internal maps of Cardiff City Hall.
     Left: ground floor.
@@ -40,7 +50,11 @@ Since a few people were asking, this is how I made the maps:
       For example, here&rsquo;s their floorplan showing the Marble Hall:
     </p>
 
-    <img src="/images/2018/marble_hall.png" style="border: 1px solid #D3D3D3;">
+    {%
+      image :filename => "marble_hall.png",
+      :alt => "A map of Cardiff City Hall, with the Marble Hall highlighted in red.",
+      :style => "border: 1px solid #D3D3D3;"
+    %}
 
     <p>
       I saved a floorplan for both floors, and used <a href="https://flyingmeat.com/acorn/">Acorn</a> to remove the text at the top and the background image of City Hall.
@@ -51,7 +65,11 @@ Since a few people were asking, this is how I made the maps:
       Here's the blank map I had for the first floor:
     </p>
 
-    <img src="/images/2018/first_floor_blank.png" style="border: 1px solid #D3D3D3;">
+    {%
+      image :filename => "first_floor_blank.png",
+      :alt => "Another map of City Hall, with one room highlighted in red, and all teh text removed.",
+      :style => "border: 1px solid #D3D3D3;"
+    %}
   </li>
   <li>
     <p>
