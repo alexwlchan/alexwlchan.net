@@ -1,4 +1,5 @@
 require_relative "alexwlchan_base"
+require_relative "images"
 
 
 def render_slide(deck, slide, alt_text, caption_text)
@@ -13,8 +14,8 @@ def render_slide(deck, slide, alt_text, caption_text)
 
 <<-EOT
 <figure class="slide">
-  <a href="#{path}"><img src="#{path}" alt="#{alt_text}" title="#{alt_text}"></a>
-#{caption}
+  #{render_image(path: path, alt_text: alt_text, title: alt_text)}
+  #{caption}
 </figure>
 EOT
 end
