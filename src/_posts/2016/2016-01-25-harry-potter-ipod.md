@@ -21,15 +21,23 @@ This tells us when the promotion was discontinued, at least in Europe:
 
 And I found three sets of photographs:
 
-* A Polish website called "Museum iPod&oacute;w", in a post titled [The most mysterious iPod](http://www.ipod.info.pl/index.php/najbardziej-tajemniczy-ipod/). There's a pretty good photo of the crest engraving.
+*   A Polish website called "Museum iPod&oacute;w", in a post titled [The most mysterious iPod](http://www.ipod.info.pl/index.php/najbardziej-tajemniczy-ipod/). There's a pretty good photo of the crest engraving.
 
-    <img src="/images/2016/hp-ipod-1.jpg" style="max-width: 80%">
+    {%
+      image :filename => "hp-ipod-1.jpg",
+      :alt => "The silver back of an iPod, with a Hogwarts crest engraved near the top.",
+      :style => "max-width: 550px;"
+    %}
 
-* On "Say Hello to iPod", a post about [all the editions of the fourth generation iPod](http://ipod.se/2014/02/22/ipod-fourth-generation/), with another photo of a slightly beaten-up version.
+*   On "Say Hello to iPod", a post about [all the editions of the fourth generation iPod](http://ipod.se/2014/02/22/ipod-fourth-generation/), with another photo of a slightly beaten-up version.
 
-    <img src="/images/2016/hp-ipod-2.jpg" style="max-width: 80%; max-height: 500px;">
+    {%
+      image :filename => "hp-ipod-2.jpg",
+      :alt => "The silver back of an iPod, with some scuffs and a Hogwarts crest engraved near the top.",
+      :style => "max-width: 380px;"
+    %}
 
-* A [YouTube video](https://www.youtube.com/watch?v=viMyicEoyOY) from user "Bart" showing off a version of the device. You can see the back of the iPod towards the end of the video, although the engraving is barely visible.
+*   A [YouTube video](https://www.youtube.com/watch?v=viMyicEoyOY) from user "Bart" showing off a version of the device. You can see the back of the iPod towards the end of the video, although the engraving is barely visible.
 
 I also found an [Ebay auction](http://www.ebay.ca/itm/Rarest-collection-of-special-edition-iPods-Harry-Potter-U2-Tony-Hawk-2002-/221308897361) with two of the devices for sale. It claims the devices were only for sale for a few months in 2005, but unfortunately all the picture links are broken.
 

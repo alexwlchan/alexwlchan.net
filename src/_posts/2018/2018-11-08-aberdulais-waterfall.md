@@ -28,10 +28,12 @@ The copper ore was mined in Cornwall, the coal and charcoal supplied from nearby
 (If you're interested, I found [an 1880 lecture][lecture] that gives more detail about the history of smelting in Wales.)
 
 <figure style="width: 485px;">
-  <img src="/images/2018/smelting-woodcut.jpg">
+  {%
+    image :filename => "smelting-woodcut.jpg",
+    :alt => "A sixteenth-century woodcut of three people smelting copper."
+  %}
   <figcaption>
-    A sixteenth-century woodcut of copper smelting.
-    Taken from <a href="https://commons.wikimedia.org/wiki/File:Fotothek_df_tg_0000544_Bergwerk_^_Bergbau_^_Verh%C3%BCttung_^_H%C3%BCttenwesen_^_Metallurgie_^_Silberscheidung.jpg">Wikimedia Commons</a>; public domain.
+    Image from <a href="https://commons.wikimedia.org/wiki/File:Fotothek_df_tg_0000544_Bergwerk_^_Bergbau_^_Verh%C3%BCttung_^_H%C3%BCttenwesen_^_Metallurgie_^_Silberscheidung.jpg">Wikimedia Commons</a>; public domain.
   </figcaption>
 </figure>
 
