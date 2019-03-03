@@ -7,12 +7,12 @@ tags:
 - python
 ---
 
-If you want to move a file around in Python, the standard library gives you two options: [os.rename()](https://docs.python.org/3/library/os.html#os.rename) or [shutil.move()](https://docs.python.org/3/library/shutil.html#shutil.move).
+If you want to move a file around in Python, the standard library gives you at least two options: [os.rename()](https://docs.python.org/3/library/os.html#os.rename) or [shutil.move()](https://docs.python.org/3/library/shutil.html#shutil.move).
 Both of them work in certain circumstances, but they make different tradeoffs:
 
 *   With os.rename(), you get [atomicity](https://en.wikipedia.org/wiki/Atomicity_(database_systems)) but you can't copy across filesystems.
 
-    On some Unix systems, you get an OSError if you try to move a file to a different filesystem than the original -- for example, if you're moving a file from an external disk to your local drive.
+    On some Unix systems, you get an error if you try to move a file to a different filesystem than the original -- for example, if you're moving a file from an external disk to your local drive.
 
 *   With shutil.move(), you can copy across file systems, but there's no guarantee of atomicity.
 
@@ -20,11 +20,11 @@ Both of them work in certain circumstances, but they make different tradeoffs:
 
 Sometimes you want both of those properties: you want to move across a filesystem boundary *and* have an atomic move.
 
-For example: I help maintain [Loris](https://github.com/loris-imageserver/loris), an image server.
+For example: [Loris](https://github.com/loris-imageserver/loris), an image server.
 When a user requests an image, we start by downloading it from the source to a temporary folder.
-If the download succeeds, we move the saved image into an image cache, and that known-good cache is used to serve the image to the user.
-We want that move to be atomic -- so we can't serve a partial image to the user -- and in some setups, the temporary download folder and the image cache are on different filesystems.
-We need a move function that can be atomic and work across filesystems.
+If the download succeeds, we move the saved image into another cache, and that known-good cache is used to serve the image to the user.
+We want that move to be atomic -- so we won't serve a partial image from the cache -- and in some setups, the temporary download folder and the image cache are on different filesystems.
+We need a move function that can be both atomic and work across filesystems.
 
 I've had to write code for this a couple of times now, so I'm writing it up here both as a reminder to myself, and an instruction for other people in case it's useful.
 
@@ -44,7 +44,7 @@ def safe_move(src, dst):
         # do something else...
 ```
 
-This code is quite broad -- it catches and retries *any* error thrown by os.rename().
+This except clause is quite broad -- it catches and retries *any* error thrown by os.rename().
 There are lots of errors that have nothing to do with a cross-filesystem move -- for example, if the source file just doesn't exist!
 We should only catch and retry the specific error that comes from copying across a filesystem boundary.
 
@@ -58,8 +58,8 @@ Traceback (most recent call last):
 OSError: [Errno 18] Cross-device link: '/mnt/semele/hello.txt' -> '/mnt/dionysus/hello.txt'
 ```
 
-Error code 18 is what we want to retry -- this is a standard error number meaning "invalid cross-device link".
-We can use the [errno library](https://docs.python.org/3/library/errno.html) to get a named variable that's a little more explicit, like so:
+Error code 18 is what we want to retry -- this is a standard Linux error number meaning "invalid cross-device link".
+We can use the [errno library](https://docs.python.org/3/library/errno.html) to get 18 as a named variable that's a little less of a magic number, like so:
 
 ```python
 import errno
@@ -78,7 +78,7 @@ def safe_move(src, dst):
 So now we need to decide what "something else" looks like.
 
 To get the file onto the same filesystem, we can use shutil.move() to put it in the same directory as the intended destination, but with a different filename.
-Initially we might try something like:
+As a first pass, we might try something like:
 
 ```python
 import shutil
