@@ -73,9 +73,18 @@ if __name__ == '__main__':
     print(f"*** Checking pull request #{pr_number}: {pr_src} ~> {pr_dst}")
     pr_data = sess.get(pull_request["url"]).json()
 
-    print(json.dumps(pr_data, indent=2, sort_keys=True))
-    #
-    #
-    #
-    # from pprint import pprint
-    # pprint(event_data)
+    pr_title = pr_data["title"]
+    print(f"*** Title of PR is {pr_title!r}")
+    if pr_title.startswith("[WIP] "):
+        print("*** This is a WIP PR, will not merge")
+        sys.exit(78)
+
+    pr_user = pr_data["user"]["login"]
+    print(f"*** This PR was opened by {pr_user}")
+    if pr_user != "alexwlchan":
+        print("*** This PR was opened by somebody who isn't me; requires manual merge")
+        sys.exit(78)
+
+    print("*** This PR is ready to be merged.")
+    merge_url = pull_request["url"] + "/merge"
+    sess.get(merge_url)
