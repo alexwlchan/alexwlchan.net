@@ -87,4 +87,4 @@ if __name__ == '__main__':
 
     print("*** This PR is ready to be merged.")
     merge_url = pull_request["url"] + "/merge"
-    sess.get(merge_url)
+    sess.put(merge_url)
