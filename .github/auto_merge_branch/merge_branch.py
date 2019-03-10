@@ -91,5 +91,6 @@ if __name__ == '__main__':
 
     print("*** Cleaning up PR branch")
     pr_ref = pr_data["head"]["ref"]
-    ref_url = f"{pr_data['base']['url']}/git/refs/heads/{pr_ref}"
+    api_base_url = pr_data["base"]["repo"]["url"]
+    ref_url = f"{api_base_url}/git/refs/heads/{pr_ref}"
     sess.delete(ref_url)
