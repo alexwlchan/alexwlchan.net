@@ -4,6 +4,6 @@ workflow "merge_and_cleanup" {
 }
 
 action "When tests pass, merge and cleanup" {
-  uses = "./.github/auto_merge_branch"
+  uses = "alexwlchan/auto_merge_my_pull_requests@development"
   secrets = ["GITHUB_TOKEN"]
 }
