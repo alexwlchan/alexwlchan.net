@@ -88,3 +88,8 @@ if __name__ == '__main__':
     print("*** This PR is ready to be merged.")
     merge_url = pull_request["url"] + "/merge"
     sess.put(merge_url)
+
+    print("*** Cleaning up PR branch")
+    pr_ref = pr_data["head"]["ref"]
+    ref_url = f"{pr_data['base']['url']}/git/refs/heads/{pr_ref}"
+    sess.delete(ref_url)
