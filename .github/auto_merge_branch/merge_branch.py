@@ -40,6 +40,8 @@ if __name__ == '__main__':
     check_run = event_data["check_run"]
     name = check_run["name"]
 
+    sess = get_session(github_token)
+
     # We should only merge pull requests that have the conclusion "succeeded".
     #
     # We get a check_run event in GitHub Actions when the underlying run is
@@ -49,14 +51,31 @@ if __name__ == '__main__':
     #
     # See https://developer.github.com/v3/activity/events/types/#CheckRunEvent
     #
-    if check_run["conclusion"] is None:
+    conclusion = check_run["conclusion"]
+    print(f"*** Conclusion of {name} is {conclusion}")
+
+    if conclusion is None:
         print(f"*** Check run {name} has not completed, skipping")
-        sys.exit(0)
+        sys.exit(78)
 
-    sess = get_session(github_token)
+    if conclusion != "succeeded":
+        print(f"*** Check run {name} has failed, will not merge PR")
+        sys.exit(1)
 
-    # Validate the GitHub token
-    sess.get(f"https://api.github.com/repos/{github_repository}")
+    # If the check_run has completed, we want to check the pull request data
+    # before we declare this PR safe to merge.
+    assert len(check_run["pull_requests"]) == 1
+    pull_request = check_run["pull_requests"][0]
+    pr_number = pull_request["number"]
+    pr_src = pull_request["head"]["ref"]
+    pr_dst = pull_request["base"]["ref"]
 
-    from pprint import pprint
-    pprint(event_data)
+    print(f"*** Checking pull request #{pr_number}: {pr_src} ~> {pr_dst}")
+    pr_data = sess.get(pull_request["url"]).json()
+
+    print(json.dumps(pr_data, indent=2, sort_keys=True))
+    #
+    #
+    #
+    # from pprint import pprint
+    # pprint(event_data)
