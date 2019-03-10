@@ -58,7 +58,7 @@ if __name__ == '__main__':
         print(f"*** Check run {name} has not completed, skipping")
         sys.exit(78)
 
-    if conclusion != "succeeded":
+    if conclusion != "success":
         print(f"*** Check run {name} has failed, will not merge PR")
         sys.exit(1)
 
