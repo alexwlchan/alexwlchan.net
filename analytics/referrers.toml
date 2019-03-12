@@ -57,6 +57,7 @@
   "https://t.co/YR1iCHUotp" = "https://twitter.com/alexwlchan/status/1092190222924869632"
   "https://t.co/FACNrWdMu4" = "https://twitter.com/kirstie_j/status/1092687132177694720"
   "https://t.co/l35MI6Uilk" = "https://twitter.com/alexwlchan/status/1089927034623672325"
+  "https://t.co/rXR8U1nwmu" = "https://twitter.com/serahrono/status/1093191929775484928"
 
 [aliases]
   "https://twitter.com/i/cards/tfw/v1/1028964273127604224?cardname=summary&autoplay_disabled=true&forward=true&earned=true&edge=true&lang=en-gb&card_height=130&scribe_context=%7B%22client%22%3A%22web%22%2C%22page%22%3A%22profile%22%2C%22section%22%3A%22profile%22%2C%22component%22%3A%22tweet%22%7D&bearer_token=AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%252F40K4moUkGsoc%253DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw" = "https://twitter.com/alexwlchan/status/1028964273127604224"
@@ -82,6 +83,8 @@
 
   "https://padlet.com/QMATH/4biqnc10iid?utm_campaign=added_post&utm_medium=desktop&utm_source=notifications" = "https://padlet.com/QMATH/4biqnc10iid"
   "https://issue.ebgroup.elektrobit.com/browse/BUSTOOLS-7555?jql=project%20%3D%20BUSTOOLS%20AND%20text%20~%20docker" = "https://issue.ebgroup.elektrobit.com/browse/BUSTOOLS-7555"
+
+  "http://m.facebook.com/" = "https://facebook.com/"
 
 [search]
   urls = [
