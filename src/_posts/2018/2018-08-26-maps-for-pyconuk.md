@@ -67,7 +67,7 @@ Since a few people were asking, this is how I made the maps:
 
     {%
       image :filename => "first_floor_blank.png",
-      :alt => "Another map of City Hall, with one room highlighted in red, and all teh text removed.",
+      :alt => "Another map of City Hall, with one room highlighted in red, and all the text removed.",
       :style => "border: 1px solid #D3D3D3;"
     %}
   </li>
