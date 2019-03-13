@@ -1,25 +1,31 @@
 require_relative "alexwlchan_base"
+require_relative "html_tag_builder"
+
+include ::HtmlTagBuilder::Helper
 
 
-def render_image(src:, alt_text:, title:, style: "")
-  <<-EOT
-<a href="#{src}"><img src="#{src}" alt="#{alt_text}" title="#{title}" style="#{style}"></a>
-EOT
+def render_image(title:, **attrs)
+  tag.a(href: attrs[:src]) do |inner|
+    inner.tag("img", **attrs)
+  end
 end
 
 
 module Jekyll
   class PostImageTag < Alexwlchan::Tag
     def bind_params(params)
-      @filename = params[:filename] or raise SyntaxError, "Error in tag 'image', :filename parameter is required"
-      @alt_text = params[:alt] or raise SyntaxError, "Error in tag 'image', :alt_text parameter is required"
-      @title = params.fetch(:title, @alt_text)
-      @style = params.fetch(:style, "")
+      @params = params
+      params[:filename] or raise SyntaxError, "Error in tag 'image', :filename parameter is required"
+      params[:alt] or raise SyntaxError, "Error in tag 'image', :alt parameter is required"
     end
 
     def internal_render
-      src = "/images/#{@context.registers[:page]["date"].year}/#{@filename}"
-      render_image(src: src, alt_text: @alt_text, title: @title, style: @style)
+      attrs = @params
+      attrs[:title] = @params.fetch(:title, @alt_text)
+
+      filename = attrs.delete(:filename)
+      attrs[:src] = "/images/#{@context.registers[:page]["date"].year}/#{filename}"
+      render_image(**attrs)
     end
   end
 end
