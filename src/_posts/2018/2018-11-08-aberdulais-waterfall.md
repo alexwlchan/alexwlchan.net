@@ -7,6 +7,8 @@ summary: Pictures from my trip to the waterfalls and former tin plating works at
 theme:
   card_type: summary_large_image
   image: /images/2018/aberdulais-cover.jpg
+categories:
+  - Photography
 ---
 
 In September, I was in Cardiff to help organise [PyCon UK][pyconuk].
@@ -212,14 +214,22 @@ Once left to cool, you had the finished product -- the prized tinplate.
 This process was done entirely by hand, was one of the more senior roles at the tin plate works, and it all happened in the tin house.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210348 %}
+  {%
+    image
+    :filename => "P9210348.jpg",
+    :alt => "Looking into a room, with some stone-plated areas on the floor."
+  %}
   <figcaption>
     Looking into the remains of the tin house from one corner...
   </figcaption>
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210349 %}
+  {%
+    image
+    :filename => "P9210349.jpg",
+    :alt => "Another view of the room, partially set into the side of the hill."
+  %}
   <figcaption>
     ...and looking back through the other corner.
     That overhang in the corner became a place to hide during some more rain!
@@ -231,7 +241,11 @@ Each of them has a small, handwritten sign explaining its significance:
 Here's an example:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210390 %}
+  {%
+    image
+    :filename => "P9210390.jpg",
+    :alt => "A partially rusted door mechanism next to a black sign with handwritten text."
+  %}
   <figcaption>
     The sign reads <em>&ldquo;A door from one of the furnaces which were used to reheat the iron for working into sheet [sic] in the rolling mill&rdquo;</em>.
   </figcaption>
@@ -241,7 +255,11 @@ Other artefacts included a hook for retrieving [slag][slag] from the iron furnac
 And since we're in Wales, the signs were all written in Welsh as well as in English:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210363 %}
+  {%
+    image
+    :filename => "P9210363.jpg",
+    :alt => "A small, rusted circular bearing next to a black sign with handwritten Welsh text."
+  %}
   <figcaption>
     The sign reads <em>&ldquo;Dyma siglur: Defynyddiwyd i drosglwyddor symudiad troi cynhyrehiwyd gan yr olwyn Ddwr rhwng y felin rholio&rdquo;</em>.
     In English, that means <em>&ldquo;This is a wobbler. These were used to transmit the rotary movement produced by the waterwheel between the rolling mill&rdquo;</em>.
@@ -251,7 +269,11 @@ And since we're in Wales, the signs were all written in Welsh as well as in Engl
 Near the tin house, there are parts of a drive shaft from one of the machines that used to work there, although I have no idea what machine it might have been a part of.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210353 %}
+  {%
+    image
+    :filename => "P9210353.jpg",
+    :alt => "Rusted pieces of a machine laid at the foot of a brick wall."
+  %}
 </figure>
 
 Looking past the buildings, if you follow the river, and climb to the top of the site, you get to the really impressive bit -- the waterfall.
@@ -262,14 +284,22 @@ This was my first view of the falls: the upper half a browny-yellow sheet of wat
 Even at a distance, the roar of the tumbling water really makes itself heard.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210408 %}
+  {%
+    image
+    :filename => "P9210408.jpg",
+    :alt => "A waterfall visible between rocks."
+  %}
 </figure>
 
 The sun came out as I wandered up, and I could see miniature rainbows in the spray coming off the water.
 So pretty!
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210413 %}
+  {%
+    image
+    :filename => "P9210413.jpg",
+    :alt => "White spray among rocks in the waterfall, with a rainbow between the rocks."
+  %}
 </figure>
 
 Because I was standing so close, I could even change the shape of the rainbow by moving around.
@@ -278,7 +308,11 @@ Even a small movement affects the optics.
 The rainbow is just as intense, but it's a noticeably different arc.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210415 %}
+  {%
+    image
+    :filename => "P9210415.jpg",
+    :alt => "White spray from the waterfall, with a rainbow between the rocks."
+  %}
 </figure>
 
 Both these rainbow pictures come straight from my camera, with just a bit of cropping.
@@ -288,7 +322,11 @@ Here's another picture from the top of the falls, a sheer curtain of water comin
 I stood up there for a good fifteen, twenty minutes, watching the water flow, with spray hitting me in the face.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210201 %}
+  {%
+    image
+    :filename => "P9210201.jpg",
+    :alt => "Brown water flowing over a waterfall into a pool of white spray."
+  %}
 </figure>
 
 These are a few more of my favourite pictures of the falls.
@@ -297,11 +335,23 @@ They're a breathtaking, powerful sight, and the pictures really don't do them ju
 <figure class="wide_img">
   <table>
     <tr>
-      <td style="padding-right: 1em; padding-bottom: 0.5em; width: 52%;">{% wide_image 2018/P9210258 %}</td>
+      <td style="padding-right: 1em; padding-bottom: 0.5em; width: 52%;">
+        {%
+          image
+          :filename => "P9210258.jpg",
+          :alt => "White spray splashing over a dark brown rock."
+        %}
+      </td>
       <td rowspan="2" style="background-image: url('/images/2018/P9210223_2x.jpg'); background-size: auto 100%; overflow: hidden;"><a href="/images/2018/P9210223_4x.jpg" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a></td>
     </tr>
     <tr>
-      <td style="padding-right: 1em; padding-top: 0.5em;">{% wide_image 2018/P9210223 %}</td>
+      <td style="padding-right: 1em; padding-top: 0.5em;">
+        {%
+          image
+          :filename => "P9210223.jpg",
+          :alt => "The spray of the waterfall, and a longer view towards the rest of the river."
+        %}
+      </td>
     </tr>
   </table>
 </figure>
@@ -311,7 +361,11 @@ Coming back down from the falls, I looked at the waterwheel that sits at the cen
 Here's a picture from above:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210446 %}
+  {%
+    image
+    :filename => "P9210446.jpg",
+    :alt => "Looking down towards a waterwheel, with metal spokes and a box coming off the axle."
+  %}
 </figure>
 
 When I was there, I assumed it was historical.
