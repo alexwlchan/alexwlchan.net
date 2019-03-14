@@ -16,7 +16,7 @@ publish-docker:
 	python3 publish_docker_image.py
 
 build:
-	docker run --volume $(ROOT):/$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
+	docker run --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
 
 stop:
 	@# Clean up old running containers
@@ -26,7 +26,7 @@ stop:
 serve: stop
 	docker run \
 		--publish 5757:5757 \
-		--volume $(ROOT):/$(ROOT) \
+		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		--name $(SERVE_CONTAINER) \
 		--hostname $(SERVE_CONTAINER) \
@@ -35,7 +35,7 @@ serve: stop
 
 publish-drafts:
 	docker run \
-		--volume $(ROOT):/$(ROOT) \
+		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \

@@ -14,7 +14,7 @@ def render_slide(deck, slide, alt_text, caption_text)
 
 <<-EOT
 <figure class="slide">
-  #{render_image(src: img_src, alt_text: alt_text, title: alt_text)}
+  #{render_image(href: img_src, src: img_src, alt: alt_text, title: alt_text)}
   #{caption}
 </figure>
 EOT
