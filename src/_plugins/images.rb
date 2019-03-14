@@ -4,9 +4,7 @@ require_relative "html_tag_builder"
 include ::HtmlTagBuilder::Helper
 
 
-def render_image(title:, **attrs)
-  href = attrs.fetch(:href, attrs[:src])
-  attrs.delete(:href)
+def render_image(href:, **attrs)
   tag.a(href: href) do |inner|
     inner.tag("img", **attrs)
   end
@@ -41,14 +39,19 @@ module Jekyll
 
     def internal_render
       attrs = @params
-      attrs[:title] = @params.fetch(:title, @alt_text)
+      attrs[:title] = @params.fetch(:title, @params[:alt])
       filename = attrs.delete(:filename)
 
       files = find_matching_images(@context.registers[:page]["date"].year, filename)
+
+      # This block decides what we use as the src and srcset.  If there's only
+      # image, that's what we use.  If there are multiple sizes (_1x, _2x, _3x),
+      # we set a `srcset` attribute to allow high-res screens to get better images.
       if files.size == 0
         raise SyntaxError, "Cannot find file for #{filename}"
       elsif files.size == 1
         attrs[:src] = build_url(files[0])
+        href = attrs[:src]
       else
         srcset = []
         files.each { |f|
@@ -59,12 +62,13 @@ module Jekyll
         }
         srcset = srcset.sort
 
+        # Display the smallest image by default, but link to the biggest one.
         attrs[:src] = build_url(srcset[0].split(" ")[0])
-        attrs[:href] = build_url(srcset[-1].split(" ")[0])
+        href = build_url(srcset[-1].split(" ")[0])
         attrs[:srcset] = srcset.map { |f| build_url(f) }.join(", ")
       end
 
-      render_image(**attrs)
+      render_image(href: href, **attrs)
     end
   end
 end
