@@ -5,7 +5,9 @@ include ::HtmlTagBuilder::Helper
 
 
 def render_image(title:, **attrs)
-  tag.a(href: attrs[:src]) do |inner|
+  href = attrs.fetch(:href, attrs[:src])
+  attrs.delete(:href)
+  tag.a(href: href) do |inner|
     inner.tag("img", **attrs)
   end
 end
@@ -48,8 +50,18 @@ module Jekyll
       elsif files.size == 1
         attrs[:src] = build_url(files[0])
       else
-        puts files
-        raise SyntaxError, "Too many files for #{filename}"
+        srcset = []
+        files.each { |f|
+          scaling = f.split("_")[-1].split(".")[0]
+          if scaling =~ /^\dx$/
+            srcset << "#{f} #{scaling}"
+          end
+        }
+        srcset = srcset.sort
+
+        attrs[:src] = build_url(srcset[0].split(" ")[0])
+        attrs[:href] = build_url(srcset[-1].split(" ")[0])
+        attrs[:srcset] = srcset.map { |f| build_url(f) }.join(", ")
       end
 
       render_image(**attrs)
