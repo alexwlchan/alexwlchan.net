@@ -69,7 +69,11 @@ Here's a photo of the leaflet, to give you an idea of the layout of the site.
 It's on the smaller side, and you can easily do a visit in a couple of hours:
 
 <figure class="wide_img">
-  {% wide_image 2018/PB081192 %}
+  {%
+    image
+    :filename => "PB081192.jpg",
+    :alt => "A leaflet titled “Things to see and do”, unfolded and laid out on a wooden table."
+  %}
   <figcaption>
     I&rsquo;ve read this leaflet quite a few times while writing this post, and it wasn&rsquo;t until I had my hand on the publish button that I realised the information along the left-hand side is a waterwheel!
   </figcaption>
@@ -79,7 +83,11 @@ On the other side of the entrance, I could get a closer look at the bridge I'd s
 You can see it's partially broken off, but you can walk along it, and there's a fence to stop people falling off the end.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210069 %}
+  {%
+    image
+    :filename => "PB081192.jpg",
+    :alt => "A stone bridge partially jutting out into a river."
+  %}
 </figure>
 
 This was originally a bridge meant for horses.
@@ -91,7 +99,11 @@ The opposite side of the tramway is completely overgrown, and even if the bridge
 Only a few remnants remain, such as the carts and the tracks they'd have run on:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210080 %}
+  {%
+    image
+    :filename => "P9210080.jpg",
+    :alt => "A pair of wooden carts on rusted railway tracks."
+  %}
 </figure>
 
 Between pulling the carts, the horses needed a place to stop, rest, be fed and be re-shoed.
@@ -104,7 +116,11 @@ It includes a variety of pictures and illustrations showing what it was like to 
 It had just started to rain, so I was glad of an excuse to duck inside and start reading!
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210111 %}
+  {%
+    image
+    :filename => "P9210111.jpg",
+    :alt => "A white building with two windows, black doors, and a small sign reading “Tin Works exhibition”."
+  %}
 </figure>
 
 Once the weather had dried up, I ventured back outside, and I started wandering around the site.
@@ -112,7 +128,11 @@ Although it was once a large industrial site, most of the buildings are long sin
 But as you wander round, you start to get an idea of the space the old tin works occupied.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210125 %}
+  {%
+    image
+    :filename => "P9210125.jpg",
+    :alt => "Incomplete brick structures and walls."
+  %}
   <figcaption>
     The last remaining corner of what was presumably once an entire room.
     You can see the edge of the river running in the background.
@@ -120,7 +140,11 @@ But as you wander round, you start to get an idea of the space the old tin works
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210124 %}
+  {%
+    image
+    :filename => "P9210124.jpg",
+    :alt => "Partially collapsed brick walls that outline a room."
+  %}
   <figcaption>
     A view into a partially surviving room.
     I wonder what the slats in the far wall were for?
@@ -128,7 +152,11 @@ But as you wander round, you start to get an idea of the space the old tin works
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210392 %}
+  {%
+    image
+    :filename => "P9210392.jpg",
+    :alt => "Another set of partially collapsed brick walls that form three walls of a room."
+  %}
   <figcaption>
     In some places the outline is all that's left.
     And again those slats on the far wall.
@@ -136,7 +164,11 @@ But as you wander round, you start to get an idea of the space the old tin works
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210403 %}
+  {%
+    image
+    :filename => "P9210403.jpg",
+    :alt => "More partially collapsed brick walls."
+  %}
   <figcaption>
     A slightly wider view.
     Some walls have survived better than others, and in a few places look almost complete.
@@ -151,7 +183,11 @@ There are information boards suggesting what some of the buildings were for, but
 One thing that clearly stands out is the chimney, one of the few complete structures, which towers above the site.
 
 <figure style="width: 600px;">
-  {% wide_image 2018/P9210142 %}
+  {%
+    image
+    :filename => "P9210142.jpg",
+    :alt => "Looking up towards a yellowish, square, brick chimney set against a grey sky."
+  %}
 </figure>
 
 This was the chimney for the [annealing furnace][annealing].
@@ -161,7 +197,11 @@ This makes the plates less brittle and more malleable, so the tinplates can be s
 At the base of the chimney, you can see the remains of some furnaces:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210147 %}
+  {%
+    image
+    :filename => "P9210147.jpg",
+    :alt => "Brick walls defining pits in the ground, overgrown with grass."
+  %}
 </figure>
 
 Another large structure was the "tin house".
@@ -287,7 +327,11 @@ Here's another picture from on the ground, which gives you an idea of the size.
 It's nearly 27&prime; in diameter, and it's twice as tall as me even when half of it's in the ground!
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210386 %}
+  {%
+    image
+    :filename => "P9210386.jpg",
+    :alt => "A metal waterwheel surrounded by black safety barriers."
+  %}
   <figcaption>
     In hindsight, that red emergency point on the nearside railing should have been a giveaway.
   </figcaption>
@@ -299,7 +343,11 @@ Here's one last picture I took as I was on my way out -- a last glimpse of the s
 The water wheel, the remains of the buildings, and one more rainbow in the background.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210471 %}
+  {%
+    image
+    :filename => "P9210471.jpg",
+    :alt => "A picture with a waterwheel to the right, a few partially collapsed brick structures, and a rainbow on the waterfall in the background."
+  %}
 </figure>
 
 If you want to see a bit of Welsh industrial history, and an incredibly scenic waterfall, I recommend a visit.
