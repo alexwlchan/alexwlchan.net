@@ -7,6 +7,8 @@ summary: Pictures from my trip to the waterfalls and former tin plating works at
 theme:
   card_type: summary_large_image
   image: /images/2018/aberdulais-cover.jpg
+categories:
+  - Photography
 ---
 
 In September, I was in Cardiff to help organise [PyCon UK][pyconuk].
@@ -57,7 +59,11 @@ But as I approached, I could see a broken bridge, and hear and feel the power of
 I could hear it before I saw it.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210017 %}
+  {%
+    image
+    :filename => "P9210017.jpg",
+    :alt => "Green trees on the left overhang a muddy-brown river, with a half-collapsed bridge and structure on the right."
+  %}
 </figure>
 
 I went in, picked up a leaflet and a map from the visitor centre, and started wandering around.
@@ -65,7 +71,11 @@ Here's a photo of the leaflet, to give you an idea of the layout of the site.
 It's on the smaller side, and you can easily do a visit in a couple of hours:
 
 <figure class="wide_img">
-  {% wide_image 2018/PB081192 %}
+  {%
+    image
+    :filename => "PB081192.jpg",
+    :alt => "A leaflet titled “Things to see and do”, unfolded and laid out on a wooden table."
+  %}
   <figcaption>
     I&rsquo;ve read this leaflet quite a few times while writing this post, and it wasn&rsquo;t until I had my hand on the publish button that I realised the information along the left-hand side is a waterwheel!
   </figcaption>
@@ -75,7 +85,11 @@ On the other side of the entrance, I could get a closer look at the bridge I'd s
 You can see it's partially broken off, but you can walk along it, and there's a fence to stop people falling off the end.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210069 %}
+  {%
+    image
+    :filename => "PB081192.jpg",
+    :alt => "A stone bridge partially jutting out into a river."
+  %}
 </figure>
 
 This was originally a bridge meant for horses.
@@ -87,7 +101,11 @@ The opposite side of the tramway is completely overgrown, and even if the bridge
 Only a few remnants remain, such as the carts and the tracks they'd have run on:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210080 %}
+  {%
+    image
+    :filename => "P9210080.jpg",
+    :alt => "A pair of wooden carts on rusted railway tracks."
+  %}
 </figure>
 
 Between pulling the carts, the horses needed a place to stop, rest, be fed and be re-shoed.
@@ -100,7 +118,11 @@ It includes a variety of pictures and illustrations showing what it was like to 
 It had just started to rain, so I was glad of an excuse to duck inside and start reading!
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210111 %}
+  {%
+    image
+    :filename => "P9210111.jpg",
+    :alt => "A white building with two windows, black doors, and a small sign reading “Tin Works exhibition”."
+  %}
 </figure>
 
 Once the weather had dried up, I ventured back outside, and I started wandering around the site.
@@ -108,7 +130,11 @@ Although it was once a large industrial site, most of the buildings are long sin
 But as you wander round, you start to get an idea of the space the old tin works occupied.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210125 %}
+  {%
+    image
+    :filename => "P9210125.jpg",
+    :alt => "Incomplete brick structures and walls."
+  %}
   <figcaption>
     The last remaining corner of what was presumably once an entire room.
     You can see the edge of the river running in the background.
@@ -116,7 +142,11 @@ But as you wander round, you start to get an idea of the space the old tin works
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210124 %}
+  {%
+    image
+    :filename => "P9210124.jpg",
+    :alt => "Partially collapsed brick walls that outline a room."
+  %}
   <figcaption>
     A view into a partially surviving room.
     I wonder what the slats in the far wall were for?
@@ -124,7 +154,11 @@ But as you wander round, you start to get an idea of the space the old tin works
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210392 %}
+  {%
+    image
+    :filename => "P9210392.jpg",
+    :alt => "Another set of partially collapsed brick walls that form three walls of a room."
+  %}
   <figcaption>
     In some places the outline is all that's left.
     And again those slats on the far wall.
@@ -132,7 +166,11 @@ But as you wander round, you start to get an idea of the space the old tin works
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210403 %}
+  {%
+    image
+    :filename => "P9210403.jpg",
+    :alt => "More partially collapsed brick walls."
+  %}
   <figcaption>
     A slightly wider view.
     Some walls have survived better than others, and in a few places look almost complete.
@@ -147,7 +185,11 @@ There are information boards suggesting what some of the buildings were for, but
 One thing that clearly stands out is the chimney, one of the few complete structures, which towers above the site.
 
 <figure style="width: 600px;">
-  {% wide_image 2018/P9210142 %}
+  {%
+    image
+    :filename => "P9210142.jpg",
+    :alt => "Looking up towards a yellowish, square, brick chimney set against a grey sky."
+  %}
 </figure>
 
 This was the chimney for the [annealing furnace][annealing].
@@ -157,7 +199,11 @@ This makes the plates less brittle and more malleable, so the tinplates can be s
 At the base of the chimney, you can see the remains of some furnaces:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210147 %}
+  {%
+    image
+    :filename => "P9210147.jpg",
+    :alt => "Brick walls defining pits in the ground, overgrown with grass."
+  %}
 </figure>
 
 Another large structure was the "tin house".
@@ -168,14 +214,22 @@ Once left to cool, you had the finished product -- the prized tinplate.
 This process was done entirely by hand, was one of the more senior roles at the tin plate works, and it all happened in the tin house.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210348 %}
+  {%
+    image
+    :filename => "P9210348.jpg",
+    :alt => "Looking into a room, with some stone-plated areas on the floor."
+  %}
   <figcaption>
     Looking into the remains of the tin house from one corner...
   </figcaption>
 </figure>
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210349 %}
+  {%
+    image
+    :filename => "P9210349.jpg",
+    :alt => "Another view of the room, partially set into the side of the hill."
+  %}
   <figcaption>
     ...and looking back through the other corner.
     That overhang in the corner became a place to hide during some more rain!
@@ -187,7 +241,11 @@ Each of them has a small, handwritten sign explaining its significance:
 Here's an example:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210390 %}
+  {%
+    image
+    :filename => "P9210390.jpg",
+    :alt => "A partially rusted door mechanism next to a black sign with handwritten text."
+  %}
   <figcaption>
     The sign reads <em>&ldquo;A door from one of the furnaces which were used to reheat the iron for working into sheet [sic] in the rolling mill&rdquo;</em>.
   </figcaption>
@@ -197,7 +255,11 @@ Other artefacts included a hook for retrieving [slag][slag] from the iron furnac
 And since we're in Wales, the signs were all written in Welsh as well as in English:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210363 %}
+  {%
+    image
+    :filename => "P9210363.jpg",
+    :alt => "A small, rusted circular bearing next to a black sign with handwritten Welsh text."
+  %}
   <figcaption>
     The sign reads <em>&ldquo;Dyma siglur: Defynyddiwyd i drosglwyddor symudiad troi cynhyrehiwyd gan yr olwyn Ddwr rhwng y felin rholio&rdquo;</em>.
     In English, that means <em>&ldquo;This is a wobbler. These were used to transmit the rotary movement produced by the waterwheel between the rolling mill&rdquo;</em>.
@@ -207,7 +269,11 @@ And since we're in Wales, the signs were all written in Welsh as well as in Engl
 Near the tin house, there are parts of a drive shaft from one of the machines that used to work there, although I have no idea what machine it might have been a part of.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210353 %}
+  {%
+    image
+    :filename => "P9210353.jpg",
+    :alt => "Rusted pieces of a machine laid at the foot of a brick wall."
+  %}
 </figure>
 
 Looking past the buildings, if you follow the river, and climb to the top of the site, you get to the really impressive bit -- the waterfall.
@@ -218,14 +284,22 @@ This was my first view of the falls: the upper half a browny-yellow sheet of wat
 Even at a distance, the roar of the tumbling water really makes itself heard.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210408 %}
+  {%
+    image
+    :filename => "P9210408.jpg",
+    :alt => "A waterfall visible between rocks."
+  %}
 </figure>
 
 The sun came out as I wandered up, and I could see miniature rainbows in the spray coming off the water.
 So pretty!
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210413 %}
+  {%
+    image
+    :filename => "P9210413.jpg",
+    :alt => "White spray among rocks in the waterfall, with a rainbow between the rocks."
+  %}
 </figure>
 
 Because I was standing so close, I could even change the shape of the rainbow by moving around.
@@ -234,7 +308,11 @@ Even a small movement affects the optics.
 The rainbow is just as intense, but it's a noticeably different arc.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210415 %}
+  {%
+    image
+    :filename => "P9210415.jpg",
+    :alt => "White spray from the waterfall, with a rainbow between the rocks."
+  %}
 </figure>
 
 Both these rainbow pictures come straight from my camera, with just a bit of cropping.
@@ -244,7 +322,11 @@ Here's another picture from the top of the falls, a sheer curtain of water comin
 I stood up there for a good fifteen, twenty minutes, watching the water flow, with spray hitting me in the face.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210201 %}
+  {%
+    image
+    :filename => "P9210201.jpg",
+    :alt => "Brown water flowing over a waterfall into a pool of white spray."
+  %}
 </figure>
 
 These are a few more of my favourite pictures of the falls.
@@ -253,11 +335,23 @@ They're a breathtaking, powerful sight, and the pictures really don't do them ju
 <figure class="wide_img">
   <table>
     <tr>
-      <td style="padding-right: 1em; padding-bottom: 0.5em; width: 52%;">{% wide_image 2018/P9210258 %}</td>
+      <td style="padding-right: 1em; padding-bottom: 0.5em; width: 52%;">
+        {%
+          image
+          :filename => "P9210258.jpg",
+          :alt => "White spray splashing over a dark brown rock."
+        %}
+      </td>
       <td rowspan="2" style="background-image: url('/images/2018/P9210223_2x.jpg'); background-size: auto 100%; overflow: hidden;"><a href="/images/2018/P9210223_4x.jpg" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a></td>
     </tr>
     <tr>
-      <td style="padding-right: 1em; padding-top: 0.5em;">{% wide_image 2018/P9210223 %}</td>
+      <td style="padding-right: 1em; padding-top: 0.5em;">
+        {%
+          image
+          :filename => "P9210223.jpg",
+          :alt => "The spray of the waterfall, and a longer view towards the rest of the river."
+        %}
+      </td>
     </tr>
   </table>
 </figure>
@@ -267,7 +361,11 @@ Coming back down from the falls, I looked at the waterwheel that sits at the cen
 Here's a picture from above:
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210446 %}
+  {%
+    image
+    :filename => "P9210446.jpg",
+    :alt => "Looking down towards a waterwheel, with metal spokes and a box coming off the axle."
+  %}
 </figure>
 
 When I was there, I assumed it was historical.
@@ -283,7 +381,11 @@ Here's another picture from on the ground, which gives you an idea of the size.
 It's nearly 27&prime; in diameter, and it's twice as tall as me even when half of it's in the ground!
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210386 %}
+  {%
+    image
+    :filename => "P9210386.jpg",
+    :alt => "A metal waterwheel surrounded by black safety barriers."
+  %}
   <figcaption>
     In hindsight, that red emergency point on the nearside railing should have been a giveaway.
   </figcaption>
@@ -295,7 +397,11 @@ Here's one last picture I took as I was on my way out -- a last glimpse of the s
 The water wheel, the remains of the buildings, and one more rainbow in the background.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210471 %}
+  {%
+    image
+    :filename => "P9210471.jpg",
+    :alt => "A picture with a waterwheel to the right, a few partially collapsed brick structures, and a rainbow on the waterfall in the background."
+  %}
 </figure>
 
 If you want to see a bit of Welsh industrial history, and an incredibly scenic waterfall, I recommend a visit.
