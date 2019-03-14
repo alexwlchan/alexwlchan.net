@@ -57,7 +57,11 @@ But as I approached, I could see a broken bridge, and hear and feel the power of
 I could hear it before I saw it.
 
 <figure class="wide_img">
-  {% wide_image 2018/P9210017 %}
+  {%
+    image
+    :filename => "P9210017.jpg",
+    :alt => "Green trees on the left overhang a muddy-brown river, with a half-collapsed bridge and structure on the right."
+  %}
 </figure>
 
 I went in, picked up a leaflet and a map from the visitor centre, and started wandering around.
