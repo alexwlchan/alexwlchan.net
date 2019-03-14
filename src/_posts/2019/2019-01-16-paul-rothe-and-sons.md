@@ -22,7 +22,11 @@ Perfect for a cold December day!
 If you're ever in London and need an unusual jam or a delicious sandwich, give it a look.
 
 <figure>
-  {% wide_image 2019/jams %}
+  {%
+    image
+    :filename => "jams.jpg",
+    :alt => "Two shelves, each stacked with two rows of jam in glass jars."
+  %}
   <figcaption>
     A very small sample of the jams on offer.
     The gaps in the shelves are from the jars I'd just picked up -- a pair of loganberries, and one of gooseberry.
