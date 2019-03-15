@@ -3,9 +3,6 @@ FROM ruby:2.4-alpine3.6
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"
 
-ARG CI=false
-ENV CI ${CI}
-
 COPY install_specktre.sh .
 RUN ./install_specktre.sh
 
