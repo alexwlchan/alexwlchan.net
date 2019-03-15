@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A trip to the Forth Bridge"
-summary:
+summary: Photographs from a holiday trip to North Queensferry to see the Forth Bridge, Forth Road Bridge, and an unexpected light tower.
 tags: personal
 categories:
   - Photography
@@ -48,7 +48,7 @@ I wasn't really aware from the bridge as we went across -- not until I got out a
   %}
 </figure>
 
-The name of the village hints at its former life.
+The name of North Queensferry hints at its former life.
 It's on the north side of the narrowest point of the Firth of Forth, which makes it a natural choice if you want to cross the water by boat.
 
 It's said that in 1068, [Saint Margaret of Scotland][margaret]
@@ -56,7 +56,7 @@ It's said that in 1068, [Saint Margaret of Scotland][margaret]
 Whether or not she actually created the village, she was a regular user of the ferry service to travel between Dunfurmline (the then-capital of Scotland) and Edinburgh Castle.
 
 For centuries, there were regular crossings of boats and ferries.
-You can still see a handful of small boats in the harbour, but it's not obvious that it used to be a busy ferry terminus.
+You can still see a handful of small boats in the harbour, but I'm sure it used to be a lot busier.
 
 [margaret]: https://en.wikipedia.org/wiki/Saint_Margaret_of_Scotland
 
@@ -68,7 +68,7 @@ You can still see a handful of small boats in the harbour, but it's not obvious 
   %}
 </figure>
 
-But one part of the ferry service survives -- the lighthouse!
+Although most of the boats are gone, one part of the ferry service survives -- the lighthouse!
 This tiny hexagonal tower is the smallest working light tower in the world.
 It was built in 1817 by [Robert Stevenson][stevenson], a Scottish civil engineer who was famous for building lighthouses.
 (It was a name I recognised; I loved the story of [the Bell Rock Lighthouse][bell_rock] when I was younger.)
@@ -106,8 +106,14 @@ I wish I'd got a few more photos of the inside of the lighthouse, but it was a p
 Either way, the lighthouse was an unexpected treat -- not something I was expecting at all!
 
 But these days, North Queensferry isn't known for its ferry service -- it's known for the famous bridge.
-The rail bridge was opened in 1890, and is still standing today.
+
+In the 1850s, the Edinburgh, Leith and Granton Railway ran a "train ferry" -- a boat that carried railway carriages between Granton and Burntisland.
+After a failed attempt to build a suspension bridge in the 1870s (axed after the [Tay Bridge disaster][tay_bridge]), there was a second attempt in the 1880s.
+It was opened in 1980, and it's still standing today.
+
 Here's a photo of its original construction, taken from the North Queensferry hills:
+
+[tay_bridge]: https://en.wikipedia.org/wiki/Tay_Bridge_disaster
 
 <figure class="wide_img">
   {%
@@ -120,10 +126,33 @@ Here's a photo of its original construction, taken from the North Queensferry hi
   </figcaption>
 </figure>
 
-The photo shows the three supports ("cantilevers") that hold up the bridge, spaced across the river.
-There's also part of the line on the north side, stretching towards the as-then unopened station.
+The Forth Bridge is a [cantilever bridge][cantilever].
+Each structure in the photo above is one of the cantilevers, and in the finished bridge the load is spread between them.
+Spreading the load between multiple cantilevers allows you to build longer bridges, and the Forth Bridge uses this to great effect.
 
-The lighthouse has some great views of the bridge:
+One of the advantages of cantilever bridges is that they don't require any temporary support while they're being built -- once the initial structures are built, you can expand outwards and they'll take the weight.
+Here's another photo from the construction which shows off this idea:
+
+<figure>
+  {%
+    image
+    :filename => "forth_washington_wilson.jpg",
+    :alt => "Black-and-white photo from the construction of the Forth Bridge."
+  %}
+  <figcaption>
+    Another photo of the bridge under construction, <a href="https://commons.wikimedia.org/wiki/File:George_Washington_Wilson.jpg">George Washington Wilson</a>.
+  </figcaption>
+</figure>
+
+You can see the shape of the bridge starting to expand out from the initial structure.
+
+The Forth Bridge is famous for a couple of reasons.
+When it was built, it was the longest cantilever span in the world (not bested for another [twenty-nine years](https://en.wikipedia.org/wiki/Quebec_Bridge), and still the second longest).
+It was also one of the first major structures in Britain to use steel -- 55,000 tonnes in the girders, along with a mixture of granite and other materials in the masonry.
+
+You get a great view of the finished bridge from inside the lighthouse:
+
+[cantilever]: https://en.wikipedia.org/wiki/Cantilever_bridge
 
 <figure class="wide_img">
   {%
@@ -133,7 +162,7 @@ The lighthouse has some great views of the bridge:
   %}
 </figure>
 
-As I wandered around the village, I got lots of other pictures.
+As I wandered around the village, I got lots of other pictures of the rail bridge.
 These are a few of my favourites:
 
 <figure class="wide_img">
@@ -168,11 +197,11 @@ These are a few of my favourites:
   %}
 </figure>
 
-The last one was my favourite photo of the trip, and I have a print of it on my wall.
+The last one was my favourite photo of the entire holiday, and I have a print of it on my wall.
 Blue skies galore, which made for a lovely day and some wonderful photos -- even if it's not what you expect from a Scottish winter!
 
-What's great about wandering around the village is that you don't just see the wide, tourist shots -- you can also get up and personal.
-You can get underneath the bridge, and see it towering over the houses as it approaches the village:
+What's great about wandering around the village is that you can see it from all sorts of angles, not just from afar -- you can also get up and personal.
+You can see the approach viaduct towering over the houses as it approaches the village:
 
 <figure class="wide_img">
   {%
@@ -182,17 +211,18 @@ You can get underneath the bridge, and see it towering over the houses as it app
   %}
 </figure>
 
-Here's what the stone pillars holding up the bridge look like:
+And you can get even closer, and walk right underneath the bridge itself.
+Here's what part of the viaduct holding up the bridge looks like:
 
 <figure style="width: 500px;">
   {%
     image
     :filename => "PC010186.jpg",
-    :alt => "A yellowish-coloured stone bridge support, with the red girders of the bridge atop it."
+    :alt => "A yellowish-coloured stone viaduct, with the red girders of the bridge atop it."
   %}
 </figure>
 
-Each of those pillars are enormous -- judging by the stairs, it's quite a climb up!
+They're enormous -- judging by the stairs, it's quite a climb up!
 
 <figure class="wide_img">
   {%
@@ -212,7 +242,7 @@ And you can look up through the girders, and see the thousands of beams that hol
   %}
 </figure>
 
-It's been standing for over a century, so I'm sure it's quite safe -- but it was still a bit disconcerting to hear it rattle as trains pass overhead!
+It's been standing for over a century, so I'm sure it's quite safe -- but it was still a bit disconcerting to hear it rattle as trains passed overhead!
 
 I spent quite a while just wandering around under the bridge, looking up in awe at the structure.
 As you wander around the village, you never really get away from it -- it always stands tall in the background.
@@ -220,15 +250,15 @@ As you wander around the village, you never really get away from it -- it always
 
 After the rail bridge was built, the ferry crossings continued for many years -- in part buoyed by the rise of personal cars, which couldn't use the railway tracks.
 But it didn't last -- in 1964, a second bridge was built, the [Forth Road Bridge][road_bridge] -- and it replaced the ferries.
-The day the bridge opened, the ferry service closed.
+The day the bridge opened, the ferry service closed after eight centuries of continuous crossings.
 
-When I visited in 2016, it was still open to cars.
-At the time, there was a second bridge under construction, but not yet open to the public -- the [Queensferry Crossing][crossing] opened half a year later after my visit, and carries private cars.
-Today, the Road Bridge is a "public transport link" -- it's used for buses, cyclists, taxis and pedestrians.
+When I visited in 2016, the Road Bridge was still open to cars.
+At the time, there was a second bridge under construction, but not yet open to the public -- the [Queensferry Crossing][crossing] opened half a year later after my visit.
+The original Road Bridge is a public transport link (buses, cyclists, taxis and pedestrians), and the new bridge carries everything else.
 
 Three bridges in a single day!
-It's on the other side of the bay, so I had to walk along the water's edge to see it.
-Here's a photo from midway along, with the old and the new both visible:
+The other bridges were on the other side of the bay, so I had to walk along the water's edge to see them.
+Here's a photo from midway along, with old and new both visible:
 
 [road_bridge]: https://en.wikipedia.org/wiki/Forth_Road_Bridge
 [crossing]: https://en.wikipedia.org/wiki/Queensferry_Crossing
@@ -254,7 +284,8 @@ Here's an attempt at an "artsy" shot of the bridge receding into the distance, w
   %}
 </figure>
 
-And another "artsy" shot with more lens flare, and both the road bridges in the shot:
+And another "artsy" shot with more lens flare, and both the road bridges in the shot.
+I love the detail of the underside on the nearer bridge.
 
 <figure class="wide_img">
   {%
@@ -306,9 +337,11 @@ As you climb up to the bridge, I got some wonderful views back over the village,
   %}
 </figure>
 
-I didn't take many photos on the bridge itself, although it's a stunning view!
-It was very cold and windy, and I didn't want to risk losing my camera while trying to take a photo.
-But here's one last photo of the rail bridge, which I rather like against the sky, and which I'd forgotten until I came to write this post:
+I didn't take many photos from the bridge itself, although it's a stunning view!
+It was extremely cold and windy, and I didn't want to risk losing my camera while trying to take a photo.
+Here's one of the few photos I did take, which I rather like.
+I took it near the midpoint, with the rail bridge set against a cloudy sky.
+(I'd forgotten about it until I came to write this post!)
 
 <figure class="wide_img">
   {%
@@ -318,5 +351,8 @@ But here's one last photo of the rail bridge, which I rather like against the sk
   %}
 </figure>
 
-A trip to North Queensferry wasn't planned when I made the trip, but over two years later, I still have fond memories of the day out.
-If you're ever nearby, it's worth a trip.
+Safely across the bridge, I weaved my way through South Queensferry, found the station, and caught a train back to Edinburgh.
+
+I didn't plan this trip when I decided to visit Scotland, but over two years later, I still have fond memories of the day out.
+If you're ever nearby and you like looking at impressive structures, it's worth a trip.
+I'm glad I have pictures, but it's hard to capture the sheer size and scale of a bridge this large -- so if you have a chance, do visit in person.
