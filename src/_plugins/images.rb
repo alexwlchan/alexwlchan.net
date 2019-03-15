@@ -39,7 +39,6 @@ module Jekyll
 
     def internal_render
       attrs = @params
-      attrs[:title] = @params.fetch(:title, @params[:alt])
       filename = attrs.delete(:filename)
 
       files = find_matching_images(@context.registers[:page]["date"].year, filename)

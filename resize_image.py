@@ -42,5 +42,9 @@ if __name__ == '__main__':
         im2.save(out_path)
         subprocess.check_call(["git", "add", out_path], cwd=ROOT)
 
-    print(os.path.basename(os.path.splitext(path)[0]))
-    print("Up to %dx" % (i - 1))
+    print(f"""
+{{%
+  image
+  :filename => "{os.path.basename(path)}",
+  :alt => "alt text here"
+%}}""".strip())
