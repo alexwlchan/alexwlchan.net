@@ -2,6 +2,7 @@
 
 set -o errexit
 set -o nounset
+set -o verbose
 
 apk update
 apk add py2-pillow py2-pip py-setuptools
