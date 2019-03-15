@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "A trip to the Forth Bridge"
-summary: "Photographs from a holiday trip to North Queensferry to see the Forth Bridge, Forth Road Bridge, and an unexpected light tower."
+title: "A day out to the Forth Bridge"
+summary: "Photographs from a trip to North Queensferry to see the Forth Bridge, the Forth Road Bridge, and an unexpected light tower."
 tags: personal
 categories:
   - Photography
@@ -106,8 +106,9 @@ Either way, the lighthouse was an unexpected treat -- not something I was expect
 But these days, North Queensferry isn't known for its ferry service -- it's known for the famous bridge.
 
 In the 1850s, the Edinburgh, Leith and Granton Railway ran a "train ferry" -- a boat that carried railway carriages between Granton and Burntisland.
+There was a desire to build a continuous railway service, and the natural next step was a bridge.
 After a failed attempt to build a suspension bridge in the 1870s (axed after the [Tay Bridge disaster][tay_bridge]), there was a second attempt in the 1880s.
-It was opened in 1980, and it's still standing today.
+It was opened in March 1890, and it's still standing today.
 
 Here's a photo of its original construction, taken from the North Queensferry hills:
 
@@ -125,13 +126,13 @@ Here's a photo of its original construction, taken from the North Queensferry hi
 </figure>
 
 The Forth Bridge is a [cantilever bridge][cantilever].
-Each structure in the photo above is one of the cantilevers, and in the finished bridge the load is spread between them.
+Each structure in the photo above is one of the cantilevers -- a support structure fixed at one end -- and in the finished bridge the load is spread between them.
 Spreading the load between multiple cantilevers allows you to build longer bridges, and the Forth Bridge uses this to great effect.
 
 One of the advantages of cantilever bridges is that they don't require any temporary support while they're being built -- once the initial structures are built, you can expand outwards and they'll take the weight.
 Here's another photo from the construction which shows off this idea:
 
-<figure>
+<figure style="width: 483px;">
   {%
     image
     :filename => "forth_washington_wilson.jpg",
@@ -195,10 +196,10 @@ These are a few of my favourites:
   %}
 </figure>
 
-The last one was my favourite photo of the entire holiday, and I have a print of it on my wall.
-Blue skies galore, which made for a lovely day and some wonderful photos -- even if it's not what you expect from a Scottish winter!
+The last one was my favourite photo of the entire holiday, and I have a print of it on the wall of my flat.
+Blue skies galore, which made for a lovely day and some wonderful pictures -- even if it's not what you expect from a Scottish winter!
 
-What's great about wandering around the village is that you can see it from all sorts of angles, not just from afar -- you can also get up and personal.
+What's great about wandering around the village is that you can see the bridge from all sorts of angles, not just from afar -- you can get up and personal.
 You can see the approach viaduct towering over the houses as it approaches the village:
 
 <figure class="wide_img">
@@ -240,7 +241,7 @@ And you can look up through the girders, and see the thousands of beams that hol
   %}
 </figure>
 
-It's been standing for over a century, so I'm sure it's quite safe -- but it was still a bit disconcerting to hear it rattle as trains passed overhead!
+It's been standing for over a century, so I'm sure it's quite safe -- but it was still a bit disconcerting to hear a rattle as trains passed overhead!
 
 I spent quite a while just wandering around under the bridge, looking up in awe at the structure.
 As you wander around the village, you never really get away from it -- it always stands tall in the background.
