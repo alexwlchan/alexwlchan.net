@@ -1,16 +1,14 @@
 ---
 layout: post
 title: "A trip to the Forth Bridge"
-summary: Photographs from a holiday trip to North Queensferry to see the Forth Bridge, Forth Road Bridge, and an unexpected light tower.
+summary: "Photographs from a holiday trip to North Queensferry to see the Forth Bridge, Forth Road Bridge, and an unexpected light tower."
 tags: personal
 categories:
   - Photography
+theme:
+  card_type: summary_large_image
+  image: /images/2019/PC010292_1x.jpg
 ---
-
-TODO:
-
-- Proofread
-- Set social media card
 
 While clearing out some boxes recently, I found a leaflet from an old holiday.
 It was a fun day out, and I'd always meant to share the pictures -- so here's the story a day trip from 2016.
