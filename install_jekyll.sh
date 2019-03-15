@@ -2,6 +2,7 @@
 
 set -o errexit
 set -o nounset
+set -o verbose
 
 # Some links that were useful in getting 'gem install' to work:
 #
