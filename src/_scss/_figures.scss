@@ -11,28 +11,40 @@ figcaption {
   line-height: $meta-line-height;
 }
 
-@media screen and (min-width: $max-width + 200px) {
+// These styles allow images to "overflow" outside the boundary of the
+// standard text block.  This is useful on pages where I'm showing off photos,
+// and want to display in high-resolution.
+
+$max-width-image-overflow: 200px;
+
+$full-width-breakpoint: $max-width + $max-width-image-overflow + $default-padding * 2;
+$gradual-width-breakpoint: $max-width + $default-padding * 2;
+
+@media screen and (min-width: $full-width-breakpoint) {
   .wide_img {
-    max-width: calc(100% + 200px);
-    margin-left:  -100px;
-    margin-right: -100px;
+    max-width: calc(100% + #{$max-width-image-overflow});
+    margin-left:  -$max-width-image-overflow / 2;
+    margin-right: -$max-width-image-overflow / 2;
 
     figcaption {
-      padding-left:  100px;
-      padding-right: 100px;
+      padding-left:  $max-width-image-overflow / 2;
+      padding-right: $max-width-image-overflow / 2;
     }
   }
 }
 
-@media screen and (min-width: $max-width + 100px) {
+@media screen and (min-width: $gradual-width-breakpoint) and (max-width: $full-width-breakpoint) {
   .wide_img {
-    max-width: calc(100% + 100px);
-    margin-left:  -50px;
-    margin-right: -50px;
+    // Screen size less padding on either side
+    max-width: calc(100vw - #{2 * $default-padding});
+
+    // 50% of the screen width, less the width of the text, less the padding
+    margin-left:  calc(#{$default-padding} + #{$max-width / 2} - 50vw);
+    margin-right: calc(#{$default-padding} + #{$max-width / 2} - 50vw);
 
     figcaption {
-      padding-left:  50px;
-      padding-right: 50px;
+      padding-left:  calc(50vw - #{$default-padding} - #{$max-width / 2});
+      padding-right: calc(50vw - #{$default-padding} - #{$max-width / 2});
     }
   }
 }
