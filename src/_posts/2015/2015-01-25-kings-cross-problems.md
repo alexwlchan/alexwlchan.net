@@ -3,6 +3,7 @@ layout: post
 date: 2015-01-25 16:26:00 +0000
 link: http://www.londonreconnections.com/2015/know-run-story-behind-xmas-kings-cross-problems/
 title: What went wrong at King's Cross over Christmas?
+category: Link posts
 ---
 
 There were highly publicised problems and delays at King's Cross Station over the Christmas period, for the nebulous reasons of "engineering works". But to their credit, about a fortnight ago, Network Rail [published a full report][1] about the disruption, explaining how the carefully planned works overran so badly.

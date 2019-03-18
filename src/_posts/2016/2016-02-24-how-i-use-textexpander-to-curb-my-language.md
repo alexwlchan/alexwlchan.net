@@ -5,6 +5,7 @@ summary: "I have some TextExpander snippets that I use to cut out words I don\u2
   t want to write."
 tags: textexpander writethedocs
 title: How I use TextExpander to curb my language
+category: Diversity, inclusion and accessibility
 ---
 
 I saw a tweet yesterday that I really liked:
