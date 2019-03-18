@@ -5,6 +5,7 @@ summary: I use Python-Markdown to render posts for my site. Here are a few examp
   of the extensions I'm using.
 tags: python markdown
 title: A few examples of extensions in Python-Markdown
+category: Programming walkthroughs
 ---
 
 I write a lot of content in Markdown (including all the posts on this site), and I use [Python-Markdown][pypi] to render it as HTML.

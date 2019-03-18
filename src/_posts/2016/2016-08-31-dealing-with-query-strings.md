@@ -5,6 +5,7 @@ tags: python
 title: 'Python snippet: dealing with query strings in URLs'
 theme:
   minipost: true
+category: Programming walkthroughs
 ---
 
 I spend a lot of time dealing with URLs: in particular, with URL [query strings][wiki_qs].

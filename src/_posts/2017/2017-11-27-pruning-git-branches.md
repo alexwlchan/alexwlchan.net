@@ -4,6 +4,7 @@ date: 2017-11-27 22:41:36 +0000
 title: Pruning old Git branches
 tags: git
 summary: "Two commands for managing Git branches: one for deleting branches which have already been merged, one for deleting branches which were deleted on a remote."
+category: "Working with Git"
 ---
 
 Here's a quick tip for Git users: if you want to delete every local branch that's already been merged into master, you can run this command:

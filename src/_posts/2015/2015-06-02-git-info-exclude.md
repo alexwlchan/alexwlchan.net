@@ -4,6 +4,7 @@ date: 2015-06-02 18:09:00 +0000
 summary: Another way to ignore untracked files in Git.
 tags: git
 title: 'Useful Git features: a per-clone exclude file'
+category: "Working with Git"
 ---
 
 With Git, you can define a list of rules to tell it which files should never be checked in as part of a commit. These "ignore rules" could include files which auto-generated, compiled from source or temporary &ndash; anything you don't need to keep around.
