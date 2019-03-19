@@ -15,16 +15,14 @@
       <li class="post__updated_date">Updated {{ post.last_updated | date: site.date_format }}</li>
       {% endif %}
 
-      {% assign tag_count = post.tags.size %}
-
-      {% if tag_count > 0 %}
-      <li class="post__tags">Tagged with
-        {% assign sorted_tags = post.tags | sort %}
-        {% for tag in sorted_tags %}
-          <a href="/tags#tag__{{ tag }}" class="tag_{{ tag }}">#{{ tag }}</a>{% if forloop.index != tag_count %}, {% endif %}
-        {% endfor %}
-      </li>
+      {% if post.category == nil %}
+        {% assign category = "Everything else" %}
+      {% else %}
+        {% assign category = post.category %}
       {% endif %}
+      <li class="post__category">
+        Posted in <a href="/archive#{{ category | slugify }}">{{ category }}</a>
+      </li>
 
       {% if post.link %}
       <li class="post__permalink"><a href="{{ post.url | relative_url }}">&infin;</a></li>

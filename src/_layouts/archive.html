@@ -15,7 +15,7 @@ layout: page
 {% for group in page.grouped_posts %}
 {% assign grp_category = group[0] %}
 {% assign grp_posts = group[1] %}
-  <h3>{{ grp_category }}</h3>
+  <h3 id="{{ grp_category | slugify }}">{{ grp_category }}</h3>
 
   <ul class="archive">
   {% for post in grp_posts %}
