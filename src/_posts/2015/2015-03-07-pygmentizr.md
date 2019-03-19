@@ -4,6 +4,7 @@ date: 2015-03-07 10:44:00 +0000
 summary: A web app for applying syntax highlighting to code using the Pygments library.
 tags: python
 title: Pygmentizr
+category: Programming and code
 ---
 
 I really like [Pygments][pyg]. It's a Python module for applying syntax highlighting to code in printed documents. I use it on this blog, and when I had to include code listings in my university coursework, I used it with the [Minted package][mint] in LaTeX.

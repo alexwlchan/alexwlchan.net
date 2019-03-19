@@ -1,4 +1,4 @@
-$archive-left-column: 60px;
+$archive-left-column: 68px;
 $archive-gutter-column: 15px;
 
 .archive {
@@ -8,6 +8,8 @@ $archive-gutter-column: 15px;
 
   .archive__date {
     width: $archive-left-column;
+    font-size: 0.85em;
+    color: $accent-grey;
     float: left;
     display: inline-block;
     text-align: right;

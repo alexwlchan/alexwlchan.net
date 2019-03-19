@@ -5,6 +5,7 @@ summary: A Python script for finding 404 errors in my Apache web logs - and by e
   broken pages.
 tags: python apache
 title: Finding 404s and broken pages in my Apache logs
+category: Blogging about blogging
 ---
 
 Sometime earlier this year, I broke the Piwik server-side analytics that I'd been using to count hits to the site.

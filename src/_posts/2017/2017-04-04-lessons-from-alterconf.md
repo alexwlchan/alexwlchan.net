@@ -4,6 +4,7 @@ date: 2017-04-04 17:46:00 +0000
 summary: For accessibility and inclusion, AlterConf sets a high bar to beat.
 tags: alterconf conferences
 title: Accessibility at AlterConf
+category: Diversity, inclusion and accessibility
 ---
 
 On Saturday, I was at [AlterConf London][ldn], a conference about diversity in the tech and gaming industries. If you follow me on Twitter, you'll have seen that I was tweeting pretty effusively about it throughout the day. It was one of the friendliest, nicest conferences I've ever been to, with a cracking set of speakers to boot.

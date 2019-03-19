@@ -5,6 +5,7 @@ tags: shell-scripting
 title: A shell alias for tallying data
 theme:
   minipost: true
+category: Programming and code
 ---
 
 Here's a tiny shell alias that I find useful when going through data on the command line.

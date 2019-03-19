@@ -6,6 +6,7 @@ summary: AO3 doesn't have an official API for scraping data - but with a bit of 
   it might not be necessary.
 tags: python fandom
 title: A Python interface to AO3
+category: Programming and code
 ---
 
 In [my last post][previous], I talked about some work I'd been doing to scrape data from AO3 using Python.

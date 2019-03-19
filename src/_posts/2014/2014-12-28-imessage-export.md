@@ -4,6 +4,7 @@ date: 2014-12-28 13:00:00 +0000
 link: https://github.com/alexwlchan/imessage-archive
 tags: os-x python
 title: A script for exporting from iMessage
+category: Programming and code
 ---
 
 I have a bit of a love-hate relationship with iMessage. It's the main way I talk to my long-distance girlfriend (along with Skype and FaceTime), but it's also pretty buggy. Messages arrive multiple times, out-of-order, or not at all. But it's convenient, so I keep using it.

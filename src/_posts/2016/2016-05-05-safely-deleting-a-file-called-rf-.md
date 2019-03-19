@@ -5,6 +5,7 @@ desc: "If for some reason you create a file called `-rf *`, it\u2019s possible t
   \ delete it safely. But really, don\u2019t create it in the first place."
 tags: linux shell-scripting
 title: "Safely deleting a file called \u2018-rf *\u2019"
+category: Programming and code
 ---
 
 Odd thing that happened at work today: we accidentally created a file called `-rf *` on one of our dev boxes.

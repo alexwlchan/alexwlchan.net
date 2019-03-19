@@ -5,6 +5,7 @@ summary: If you want to create a file, but only if it doesn't already exist, Pyt
   3 has a helpful new file mode `x`.
 tags: python
 title: Exclusively create a file in Python 3
+category: Programming and code
 ---
 
 I've been tidying up a lot of old Python code recently, and I keep running into this pattern:
