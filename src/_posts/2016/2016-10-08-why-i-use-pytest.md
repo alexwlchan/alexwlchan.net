@@ -4,6 +4,7 @@ date: 2016-10-08 18:31:00 +0000
 summary: Why py.test is my unit test framework of choice in Python.
 tags: python
 title: Why I use py.test
+category: Programming and code
 ---
 
 A question came up in Slack at work recently: _"What's your favorite/recommended unit test framework [for Python]?"_

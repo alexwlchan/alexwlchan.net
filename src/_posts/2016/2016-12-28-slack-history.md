@@ -4,6 +4,7 @@ date: 2016-12-28 10:29:00 +0000
 link: https://pypi.org/project/slack-history/
 tags: python slack
 title: A tool for backing up your message history from Slack
+category: Programming and code
 ---
 
 I've just pushed a small tool to PyPI for backing up message history from Slack.

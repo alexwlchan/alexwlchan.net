@@ -3,6 +3,7 @@ layout: post
 date: 2014-08-28 00:32:00 +0000
 tags: alfred applescript
 title: A quick Alfred workflow for opening recent screenshots
+category: Programming and code
 ---
 
 I'm a big fan of the productivity app [Alfred][alf]. It's one of the

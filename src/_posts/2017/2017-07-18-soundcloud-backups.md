@@ -2,6 +2,7 @@
 layout: post
 date: 2017-07-18 09:30:00 +0000
 title: Backing up content from SoundCloud
+category: Programming and code
 ---
 
 In the last week or so, SoundCloud have been [looking pretty fragile][layoffs].
