@@ -6,10 +6,12 @@ layout: page
 <p>
   You can also read <a href="/archive/">the complete archive</a>.
 </p>
+<br/>
 {% elsif page.archive_variant == "monthly" %}
 <p>
   You can also see <a href="/{{ page.year }}/">other posts from this year</a> or read <a href="/archive/">the complete archive</a>.
 </p>
+<br/>
 {% endif %}
 
 {% for group in page.grouped_posts %}
@@ -21,7 +23,11 @@ layout: page
   {% for post in grp_posts %}
   <li>
     <div>
-      <div class="archive__date">{{ post.date | date: "%b %Y" }}</div>
+      {% if page.archive_variant == "yearly" or page.archive__variant == "monthly" %}
+        <div class="archive__date">{{ post.date | date: "%-d %b" }}</div>
+      {% else %}
+        <div class="archive__date">{{ post.date | date: "%b %Y" }}</div>
+      {% endif %}
       <div class="archive__url"><a href="{{ post.url }}">{{ post.title | smartify }}</a></div>
     </div>
   </li>
