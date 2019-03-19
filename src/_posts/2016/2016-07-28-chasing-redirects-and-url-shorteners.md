@@ -6,7 +6,7 @@ tags: python
 title: 'Python snippets: Chasing redirects and URL shorteners'
 theme:
   minipost: true
-category: Programming walkthroughs
+category: Programming and code
 ---
 
 Quick post today.

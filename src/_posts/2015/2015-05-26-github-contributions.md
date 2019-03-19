@@ -3,6 +3,7 @@ layout: post
 date: 2015-05-26 19:13:00 +0000
 summary: I made a clone of GitHub's Contributions graph to use as a motivational tool.
 title: Cloning GitHub's Contributions chart
+category: Programming and code
 ---
 
 I'm a total sucker for gamification[^1]. If you put a pretty chart in front of me to measure my progress, I fall for it every time. One place I've noticed this recently is with the Contributions graph on my user page on GitHub. This is a year-long calendar that shows a heatmap of all your activity. Here's what mine looks like:
