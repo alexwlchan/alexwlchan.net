@@ -5,6 +5,7 @@ link: http://finduntaggedtumblrposts.com
 summary: A new version of my site for finding untagged Tumblr posts.
 tags: tumblr
 title: Finding even more untagged posts on Tumblr
+category: Programming and code
 ---
 
 When I wrote [my original script](/2013/08/untagged-tumblr-posts/) for finding untagged Tumblr posts, I expected it to be a one-off. I never expected to write [a dedicated site](/2014/06/untagged-tumblr-posts-redux/), or for that site to become the most popular thing I've ever made. I've been flattered by some of the emails and tweets I've received about the site.

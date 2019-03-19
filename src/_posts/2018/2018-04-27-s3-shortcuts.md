@@ -4,6 +4,7 @@ date: 2018-04-27 06:43:25 +0000
 title: Two shortcuts for using S3 in the shell
 summary: Two shell functions for editing and inspecting S3 objects as if they were local files.
 tags: aws
+category: Working with AWS
 ---
 
 I often find myself needing to edit or inspect the contents of a text file stored in S3.
@@ -12,7 +13,7 @@ For example, at work we have a [Terraform variables file][tfvars] kept in a priv
 This contains configuration that we don’t want to put in a public repository – passwords, API credentials, usernames, and so on.
 If I want to add a new secret to this file, I need to download the existing file, make an edit, then re-upload the file under the same key.
 It isn’t hard, but it’s moderately tedious to do these steps manually.
- 
+
 [tfvars]: https://www.terraform.io/docs/configuration/variables.html#variable-files
 
 Any time you have a repetitive and tedious task, it’s worth trying to find a way to automate it.
@@ -30,7 +31,7 @@ function s3mate
     # directory, give it a nice name for the sake of the editor.
     aws s3 cp "$s3key" "$localname"
     cp "$localname" "$localname.copy"
-    
+
     # Open the file in an editor.  The '-w' flag to 'mate' means
     # "wait until the file has closed before continuing".
     mate -w "$localname"

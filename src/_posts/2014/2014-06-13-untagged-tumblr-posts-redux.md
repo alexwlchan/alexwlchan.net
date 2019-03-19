@@ -3,6 +3,7 @@ layout: post
 date: 2014-06-13 07:50:00 +0000
 tags: tumblr
 title: Finding untagged posts on Tumblr, redux
+category: Programming and code
 ---
 
 One of the most popular posts on this site is <a href="http://alexwlchan.net/2013/08/untagged-tumblr-posts/">Finding untagged posts on Tumblr</a>, but it's not exactly... friendly.

@@ -4,6 +4,7 @@ date: 2018-01-20 20:25:33 +0000
 summary: Python functions for getting a list of keys and objects in an S3 bucket.
 tags: aws python
 title: Listing keys in an S3 bucket with Python, redux
+category: Working with AWS
 ---
 
 A few months ago, I wrote about some code for [listing keys in an S3 bucket](/2017/07/listing-s3-keys/).

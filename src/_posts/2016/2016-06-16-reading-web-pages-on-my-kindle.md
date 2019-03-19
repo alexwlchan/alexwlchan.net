@@ -5,6 +5,7 @@ summary: A Python script I wrote that let me sends web pages from my Mac and my 
   to my Kindle.
 tags: python
 title: Reading web pages on my Kindle
+category: Programming and code
 ---
 
 Of everything I've tried, my favourite device for reading is still my e-ink Kindle.

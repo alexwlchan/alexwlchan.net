@@ -4,6 +4,7 @@ date: 2017-07-18 08:30:00 +0000
 summary: A short Python function for getting a list of keys in an S3 bucket.
 tags: aws python
 title: Listing keys in an S3 bucket with Python
+category: Programming and code
 ---
 
 A lot of my recent work has involved batch processing on files stored in Amazon S3.

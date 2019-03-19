@@ -6,6 +6,8 @@
 # Amended by Alex Chan to support yearly and complete archives in the same
 # format.  Modifications also MIT.
 #
+# Modified further in 2019 to group posts by category.
+#
 
 #
 # This code is based on the following works:
@@ -93,11 +95,28 @@ module Jekyll
       self.ext = '.html'
       self.basename = 'index'
 
+      raw_grouped_posts = posts
+        .group_by { |post| post.data.fetch("category", "Everything else") }
+
+      grouped_posts = []
+      raw_grouped_posts
+        .sort
+        .map { |category, posts|
+          if category != "Everything else"
+            grouped_posts << [category, posts]
+          end
+        }
+
+      if !raw_grouped_posts["Everything else"].nil?
+        grouped_posts << ["Everything else", raw_grouped_posts["Everything else"]]
+      end
+
       self.data = {
         'layout' => "archive",
         'type' => 'archive',
         'title' => title,
         'posts' => posts,
+        "grouped_posts" => grouped_posts,
         'year' => @year,
         'month' => @month,
         'archive_variant' => variant,

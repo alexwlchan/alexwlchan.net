@@ -4,6 +4,7 @@ date: 2018-08-07 15:48:53 +0000
 title: Finding slow builds in Travis
 summary: A Python snippet for using the Travis CI API to track build times.
 tags: travis python
+category: Programming and code
 ---
 
 For a while, I've been whinging on Twitter about Scala compile times -- mostly driven by the ever-increasing length of the Travis builds at work.

@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.2)
+    activesupport (5.2.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -11,7 +11,7 @@ GEM
     buftok (0.2.0)
     colorator (1.1.0)
     colorize (0.8.1)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     em-websocket (0.5.1)
@@ -70,7 +70,7 @@ GEM
       listen (~> 3.0)
     json (1.8.6)
     kramdown (1.17.0)
-    liquid (4.0.1)
+    liquid (4.0.3)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -108,6 +108,7 @@ GEM
       expectations
       open4
     simple_oauth (0.3.1)
+    stringex (2.8.5)
     thread_safe (0.3.6)
     twitter (5.17.0)
       addressable (~> 2.3)
@@ -127,7 +128,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
-    yell (2.0.7)
+    yell (2.1.0)
 
 PLATFORMS
   ruby
@@ -140,6 +141,7 @@ DEPENDENCIES
   nokogiri (~> 1.8)
   redcarpet
   shell-executer (~> 1.0)
+  stringex (~> 2.8.5)
   twitter (~> 5.16)
 
 BUNDLED WITH

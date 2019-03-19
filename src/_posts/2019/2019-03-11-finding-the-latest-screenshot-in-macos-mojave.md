@@ -6,6 +6,7 @@ summary:
 tags: os-x shell-scripting
 categories:
   - Programming
+category: Programming and code
 ---
 
 One of the things that changed in macOS Mojave was the format of screenshot filenames.

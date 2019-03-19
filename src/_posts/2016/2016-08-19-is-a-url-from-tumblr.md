@@ -5,6 +5,7 @@ tags: tumblr python
 title: 'Python snippets: Is a URL from a Tumblr post?'
 theme:
   minipost: true
+category: Programming and code
 ---
 
 I've been writing some code recently that takes a URL, and performs some special actions if that URL is a Tumblr post.

@@ -5,6 +5,7 @@ summary: Regexes have a reputation for being unreadable monsters, but it doesn't
   to be that way.
 tags: regex
 title: Treat regular expressions as code, not magic
+category: Programming and code
 ---
 
 Regular expressions (or *regexes*) have a reputation for being unreadable.

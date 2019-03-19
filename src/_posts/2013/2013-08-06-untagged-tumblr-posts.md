@@ -3,6 +3,7 @@ layout: post
 date: 2013-08-06 09:52:00 +0000
 tags: tumblr python
 title: Finding untagged posts on Tumblr
+category: Programming and code
 ---
 
 Yesterday one of my friends was going through her old Tumblr posts, trying to add tags to every post. If you have any more than a handful of posts, then this becomes tedious and difficult, and you've no guarantee that you tagged them all when you're done. Tumblr doesn't have a built-in way to list all of your untagged posts, so I wrote a script to poll the [Tumblr API][api], and get a list of post URLs which didn't have tags.

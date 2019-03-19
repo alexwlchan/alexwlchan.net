@@ -5,6 +5,7 @@ summary: PyCon had a dedicated quiet room for people to get some downtime, and I
   it's a great idea.
 tags: pyconuk conferences
 title: Silence is golden
+category: PyCon UK
 ---
 
 As I write this, it's the last day of [PyCon UK](http://2016.pyconuk.org/).
