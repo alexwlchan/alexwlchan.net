@@ -3,6 +3,7 @@ layout: post
 date: 2014-10-01 18:34:00 +0000
 tags: tumblr
 title: Notes on Tumblr
+category: Programming and code
 ---
 
 The most popular thing I've ever written is my site for [finding untagged Tumblr posts][futp]. I have a few small changes, a new way to filter posts, and some other thoughts on using Tumblr.

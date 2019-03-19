@@ -6,6 +6,7 @@ summary: If a 'terraform plan' hangs, adding 'max_retries = 1' can sometimes exp
 tags: terraform aws
 theme:
   minipost: true
+category: Programming and code
 ---
 
 While working on some Terraform today, I had a problem that it would hang in the `plan` stage.

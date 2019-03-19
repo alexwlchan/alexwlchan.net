@@ -7,6 +7,7 @@ tags: python fandom
 title: Experiments with AO3 and Python
 theme:
   minipost: true
+category: Programming and code
 ---
 
 Recently, I've been writing some scripts that need to get data from [AO3][ao3][^1].

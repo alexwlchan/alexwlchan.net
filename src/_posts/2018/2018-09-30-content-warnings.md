@@ -3,6 +3,7 @@ layout: post
 date: 2018-09-30 07:12:51 +0000
 title: Content warnings
 summary: Brief musings on the value of content warnings to label upsetting/triggering information.
+category: Diversity, inclusion and accessibility
 ---
 
 Content warning in the first section for sexual assault and rape -- description of a graphic image, and discussion of recent US politics.

@@ -5,6 +5,7 @@ summary: Using Alfred and a Python script to retrieve artwork from the iTunes, A
   and Mac App Stores.
 tags: alfred python
 title: Get images from the iTunes/App/Mac App Stores with Alfred
+category: Programming and code
 ---
 
 Several weeks ago, Dr. Drang posted a [Python script](http://leancrew.com/all-this/2016/03/images-from-the-itunes-app-mac-app-stores/) for getting artwork from the iTunes Store.

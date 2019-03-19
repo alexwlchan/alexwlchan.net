@@ -3,7 +3,7 @@ layout: post
 date: 2014-12-29 08:26:00 +0000
 tags: pelican python
 title: RSS linkposts in Pelican
-category: Programming and code
+category: Blogging about blogging
 ---
 
 You may have noticed that linkposts have started appearing on the blog. This is, of course, [not an original idea][df].

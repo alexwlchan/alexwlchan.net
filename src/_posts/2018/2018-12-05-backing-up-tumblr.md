@@ -5,6 +5,7 @@ title: A script for backing up Tumblr posts and likes
 summary: Since Tumblr users are going on a mass deletion spree (helped by the Tumblr staff), some scripts to save content before it's too late.
 tags: tumblr
 link: https://github.com/alexwlchan/backup_tumblr
+category: Programming and code
 ---
 
 A few days ago, Tumblr announced some new content moderation policies that include the mass deletion of any posts deemed to contain "adult content".
