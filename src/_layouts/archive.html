@@ -12,14 +12,13 @@ layout: page
 </p>
 {% endif %}
 
-{% assign grouped_posts = page.posts | group_by: "category" %}
-{% assign sorted_groups = grouped_posts | sort: "name" %}
-
-{% for group in sorted_groups %}
-  <h3>{% if group["name"] == "" %}Everything else{% else %}{{ group["name"] }}{% endif %}</h3>
+{% for group in page.grouped_posts %}
+{% assign grp_category = group[0] %}
+{% assign grp_posts = group[1] %}
+  <h3>{{ grp_category }}</h3>
 
   <ul class="archive">
-  {% for post in group["items"] %}
+  {% for post in grp_posts %}
   <li>
     <div>
       <div class="archive__date">{{ post.date | date: "%b %Y" }}</div>
