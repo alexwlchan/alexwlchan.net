@@ -6,6 +6,7 @@ tags: python
 title: 'Python snippets: Cleaning up empty/nearly empty directories'
 theme:
   minipost: true
+category: Programming and code
 ---
 
 Last month, I wrote about [some tools](/2016/07/clearing-disk-space-on-os-x/) I'd been using to clear disk space on my Mac.

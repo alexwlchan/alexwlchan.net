@@ -3,6 +3,7 @@ layout: post
 date: 2014-08-29 22:06:00 +0000
 tags: textexpander
 title: A TextExpander snippet for Amazon affiliate links
+category: Programming and code
 ---
 
 Earlier this evening, Casey Liss [tweeted a link][tweet] to a post by

@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-02-26 20:27:45 +0000
-category: "Creating a blog with Jekyll"
+category: "Blogging with Jekyll"
 title: "Checking Jekyll sites with HTMLProofer"
 summary:
 tags:

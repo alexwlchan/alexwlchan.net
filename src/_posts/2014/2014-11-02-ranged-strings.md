@@ -3,6 +3,7 @@ layout: post
 date: 2014-11-02 16:19:00 +0000
 tags: python
 title: Unpacking sets and ranges from a single string
+category: Programming and code
 ---
 
 I was reading the [cURL man page][curl] on Thursday. Although I didn't find what I was looking for, I did come across some rather neat syntax for specifying multiple URLs in a single string. Here's an example:
