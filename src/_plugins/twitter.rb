@@ -70,32 +70,26 @@ module Jekyll
 
       # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
       # are correctly rendered as links to the user page.
-      if tweet_data["entities"]["user_mentions"] != nil
-        tweet_data["entities"]["user_mentions"].each { |m|
-          text = text.sub(
-            "@#{m["screen_name"]}",
-            "<a href=\"https://twitter.com/#{m["screen_name"]}\">@#{m["screen_name"]}</a>"
-          )
-        }
-      end
+      tweet_data["entities"].fetch("user_mentions", []).each { |m|
+        text = text.sub(
+          "@#{m["screen_name"]}",
+          "<a href=\"https://twitter.com/#{m["screen_name"]}\">@#{m["screen_name"]}</a>"
+        )
+      }
 
-      if tweet_data["entities"]["hashtags"] != nil
-        tweet_data["entities"]["hashtags"].each { |h|
-          text = text.sub(
-            "##{h["text"]}",
-            "<a href=\"https://twitter.com/hashtag/#{h["text"]}\">##{h["text"]}</a>"
-          )
-        }
-      end
+      tweet_data["entities"].fetch("hashtags", []).each { |h|
+        text = text.sub(
+          "##{h["text"]}",
+          "<a href=\"https://twitter.com/hashtag/#{h["text"]}\">##{h["text"]}</a>"
+        )
+      }
 
-      if tweet_data["entities"]["media"] != nil
-        tweet_data["entities"]["media"].each { |m|
-          text = text.sub(
-            m["url"],
-            "<a href=\"#{m["expanded_url"]}\">#{m["display_url"]}</a>"
-          )
-        }
-      end
+      tweet_data["entities"].fetch("media", []).each { |m|
+        text = text.sub(
+          m["url"],
+          "<a href=\"#{m["expanded_url"]}\">#{m["display_url"]}</a>"
+        )
+      }
 
       text.strip
     end
