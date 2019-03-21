@@ -27,109 +27,31 @@ require 'twitter'
 
 
 module Jekyll
-  class TwitterTag < Liquid::Tag
-
-    def initialize(tag_name, text, tokens)
-      super
-      @tweet_url = text.tr("\"", "")
-      @tweet_id = @tweet_url.split("/").last.strip
-    end
-
-    def local_path(name)
-      return "#{@src}/_images/twitter/#{name}"
-    end
-
-    def display_path(name)
-      return "/images/twitter/#{name}"
-    end
-
-    def cache_file()
-      "#{@src}/_tweets/#{@tweet_id}.json"
-    end
-
-    def avatar_path(avatar_url, screen_name)
-      extension = avatar_url.split(".").last  # ick
-      local_path("#{screen_name}_#{@tweet_id}.#{extension}")
-    end
-
-    def display_avatar_path(avatar_url, screen_name)
-      extension = avatar_url.split(".").last  # ick
-      display_path("#{screen_name}_#{@tweet_id}.#{extension}")
-    end
-
-    def download_avatar(tweet)
-      # I should really get the original using the lookup method, but
-      # it kept breaking when I tried to use it.
-      avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
-
-      File.open(avatar_path(avatar_url, tweet.user.screen_name), "wb") do |saved_file|
-        # the following "open" is provided by open-uri
-        open(avatar_url, "rb") do |read_file|
-          saved_file.write(read_file.read)
-        end
-      end
-    end
-
-    def download_media(tweet)
-      # TODO: Add support for rendering tweets that contain more than
-      # one media entity.
-      raise "Too many media entities" unless tweet.media.count == 1 || tweet.media.count == 3
-
-      tweet.media.each { |m|
-
-        # TODO: Add support for rendering tweets that contain different
-        # types of media entities.  And check that this is supported!
-        # raise "Unsupported media type" unless m.type == "photo"
-
-        media_url = m.media_url_https
-
-        # TODO: Use a proper url-parsing library
-        name = media_url.path.split("/").last
-        File.open(local_path(name), "wb") do |saved_file|
-          open(media_url, "rb") do |read_file|
-            saved_file.write(read_file.read)
-          end
-        end
-      }
-    end
-
-    def setup_api_client()
-      auth = YAML.load(File.read("#{@src}/_tweets/auth.yml"), :safe => true)
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = auth["consumer_key"]
-        config.consumer_secret     = auth["consumer_secret"]
-        config.access_token        = auth["access_token"]
-        config.access_token_secret = auth["access_secret"]
-      end
-    end
-
-    def render(context)
-      site = context.registers[:site]
-      @src = site.config["source"]
-
-      FileUtils::mkdir_p "#{@src}/_tweets"
-      FileUtils::mkdir_p local_path("")
-
-      if not File.exists? cache_file()
-        puts("Caching #{@tweet_url}")
-        client = setup_api_client()
-        tweet = client.status(@tweet_url, tweet_mode: 'extended')
-        json_string = JSON.pretty_generate(tweet.attrs)
-        download_avatar(tweet)
-        download_media(tweet)
-        File.open(cache_file(), 'w') { |f| f.write(json_string) }
-      end
-
-      tweet_data = JSON.parse(File.read(cache_file()))
-
-      name = tweet_data["user"]["name"]
-      screen_name = tweet_data["user"]["screen_name"]
-      avatar_url = tweet_data["user"]["profile_image_url_https"]
-
-      timestamp = DateTime
+  module TwitterFilters
+    def render_date_created(tweet_data)
+      DateTime
         .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
         .strftime("%-I:%M&nbsp;%p - %-d %b %Y")
+    end
 
+    def _display_path(filename)
+      return "/images/twitter/#{filename}"
+    end
+
+    def tweet_img_entity_url(entity)
+      filename = entity["media_url_https"].split("/").last
+      _display_path(filename)
+    end
+
+    def tweet_avatar_url(tweet_data)
+      screen_name = tweet_data["user"]["screen_name"]
+      tweet_id = tweet_data["id_str"]
+      avatar_url = tweet_data["user"]["profile_image_url_https"]
+      extension = avatar_url.split(".").last  # ick
+      _display_path("#{screen_name}_#{tweet_id}.#{extension}")
+    end
+
+    def render_tweet_text(tweet_data)
       text = tweet_data["text"] or tweet_data["full_text"]
       if text == nil
         text = tweet_data["full_text"]
@@ -175,7 +97,101 @@ module Jekyll
         }
       end
 
-      text = text.strip
+      text.strip
+    end
+  end
+
+  class TwitterTag < Liquid::Tag
+
+    def initialize(tag_name, text, tokens)
+      super
+      @tweet_url = text.tr("\"", "")
+      @tweet_id = @tweet_url.split("/").last.strip
+    end
+
+    def local_path(name)
+      return "#{@src}/_images/twitter/#{name}"
+    end
+
+    def cache_file()
+      "#{@src}/_tweets/#{@tweet_id}.json"
+    end
+
+    def avatar_path(avatar_url, screen_name)
+      extension = avatar_url.split(".").last  # ick
+      local_path("#{screen_name}_#{@tweet_id}.#{extension}")
+    end
+
+    def download_avatar(tweet)
+      # I should really get the original using the lookup method, but
+      # it kept breaking when I tried to use it.
+      avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
+
+      File.open(avatar_path(avatar_url, tweet.user.screen_name), "wb") do |saved_file|
+        # the following "open" is provided by open-uri
+        open(avatar_url, "rb") do |read_file|
+          saved_file.write(read_file.read)
+        end
+      end
+    end
+
+    def download_media(tweet)
+      # TODO: Add support for rendering tweets that contain more than
+      # one media entity.
+      raise "Too many media entities" unless tweet.media.count == 1
+
+      tweet.media.each { |m|
+
+        # TODO: Add support for rendering tweets that contain different
+        # types of media entities.  And check that this is supported!
+        # raise "Unsupported media type" unless m.type == "photo"
+
+        media_url = m.media_url_https
+
+        # TODO: Use a proper url-parsing library
+        name = media_url.path.split("/").last
+        FileUtils::mkdir_p local_path("")
+        File.open(local_path(name), "wb") do |saved_file|
+          open(media_url, "rb") do |read_file|
+            saved_file.write(read_file.read)
+          end
+        end
+      }
+    end
+
+    def setup_api_client()
+      auth = YAML.load(File.read("#{@src}/_tweets/auth.yml"), :safe => true)
+      Twitter::REST::Client.new do |config|
+        config.consumer_key        = auth["consumer_key"]
+        config.consumer_secret     = auth["consumer_secret"]
+        config.access_token        = auth["access_token"]
+        config.access_token_secret = auth["access_secret"]
+      end
+    end
+
+    def _created_at(tweet_data)
+      DateTime
+        .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
+        .strftime("%-I:%M&nbsp;%p - %-d %b %Y")
+    end
+
+    def render(context)
+      site = context.registers[:site]
+      @src = site.config["source"]
+
+      if not File.exists? cache_file()
+        puts("Caching #{@tweet_url}")
+        client = setup_api_client()
+        tweet = client.status(@tweet_url, tweet_mode: 'extended')
+        json_string = JSON.pretty_generate(tweet.attrs)
+        download_avatar(tweet)
+        download_media(tweet)
+
+        FileUtils::mkdir_p "#{@src}/_tweets"
+        File.open(cache_file(), 'w') { |f| f.write(json_string) }
+      end
+
+      tweet_data = JSON.parse(File.read(cache_file()))
 
       markdown_converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
@@ -184,4 +200,5 @@ module Jekyll
   end
 end
 
+Liquid::Template::register_filter(Jekyll::TwitterFilters)
 Liquid::Template.register_tag('tweet', Jekyll::TwitterTag)
