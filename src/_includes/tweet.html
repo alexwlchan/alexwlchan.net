@@ -4,6 +4,7 @@
 
 <div class="tweet">
   <blockquote>
+
   {% if tweet_data["extended_entities"]["media"].size == 1 %}
 
     {% assign media = tweet_data["extended_entities"]["media"][0] %}
@@ -15,6 +16,7 @@
       </a>
     </div>
   {% endif %}
+
     <div class="header">
       <div class="author">
         <a class="link link_blend" href="https://twitter.com/{{ screen_name }}">
