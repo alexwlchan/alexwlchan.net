@@ -52,7 +52,7 @@ module Jekyll
     end
 
     def render_tweet_text(tweet_data)
-      text = tweet_data["text"] or tweet_data["full_text"]
+      text = tweet_data["text"]
       if text == nil
         text = tweet_data["full_text"]
       end
