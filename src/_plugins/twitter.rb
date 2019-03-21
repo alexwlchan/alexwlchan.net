@@ -193,7 +193,6 @@ module Jekyll
 
       tweet_data = JSON.parse(File.read(cache_file()))
 
-      markdown_converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
       tpl.render!("tweet_data" => tweet_data)
     end
