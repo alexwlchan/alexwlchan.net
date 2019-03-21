@@ -73,7 +73,7 @@ module Jekyll
     def download_media(tweet)
       # TODO: Add support for rendering tweets that contain more than
       # one media entity.
-      raise "Too many media entities" unless tweet.media.count <= 1
+      raise "Too many media entities" unless tweet.media.count == 1 || tweet.media.count == 3
 
       tweet.media.each { |m|
 
@@ -187,30 +187,36 @@ EOD
 
       text = text.strip
 
-      tweet_html = <<-EOT
-<div class="tweet">
-  <blockquote>#{media_div}
-    <div class="header">
-      <div class="author">
-        <a class="link link_blend" href="https://twitter.com/#{screen_name}">
-          <span class="avatar">
-            <img src="#{display_avatar_path(avatar_url, screen_name)}" alt="Profile picture for @#{screen_name}">
-          </span>
-          <span class="name" title="#{name}">#{name}</span>
-          <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
-        </a>
-      </div>
-    </div>
-    <div class="body">
-      <p class="text">#{text}</p>
-      <div class="metadata">
-        <a class="link_blend" href="https://twitter.com/#{screen_name}/status/#{@tweet_id}">#{timestamp}</a>
-      </div>
-    </div>
-  </blockquote>
-</div>
-EOT
-      tweet_html.lines.map { |line| line.strip }.join("")
+      markdown_converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
+      tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
+      tpl.render!("tweet_data" => tweet_data)
+      # markdown_converter.convert("{% include tweet.html %}")
+#
+#       tweet_html = <<-EOT
+# {% include tweet.html %}
+# <div class="tweet">
+#   <blockquote>#{media_div}
+#     <div class="header">
+#       <div class="author">
+#         <a class="link link_blend" href="https://twitter.com/#{screen_name}">
+#           <span class="avatar">
+#             <img src="#{display_avatar_path(avatar_url, screen_name)}" alt="Profile picture for @#{screen_name}">
+#           </span>
+#           <span class="name" title="#{name}">#{name}</span>
+#           <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
+#         </a>
+#       </div>
+#     </div>
+#     <div class="body">
+#       <p class="text">#{text}</p>
+#       <div class="metadata">
+#         <a class="link_blend" href="https://twitter.com/#{screen_name}/status/#{@tweet_id}">#{timestamp}</a>
+#       </div>
+#     </div>
+#   </blockquote>
+# </div>
+# EOT
+      # tweet_html.lines.map { |line| line.strip }.join("")
     end
   end
 end
