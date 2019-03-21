@@ -27,6 +27,74 @@ require 'twitter'
 
 
 module Jekyll
+  module TwitterFilters
+    def render_date_created(tweet_data)
+      DateTime
+        .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
+        .strftime("%-I:%M&nbsp;%p - %-d %b %Y")
+    end
+
+    def _display_path(filename)
+      return "/images/twitter/#{filename}"
+    end
+
+    def tweet_img_entity_url(entity)
+      filename = entity["media_url_https"].split("/").last
+      _display_path(filename)
+    end
+
+    def tweet_avatar_url(tweet_data)
+      screen_name = tweet_data["user"]["screen_name"]
+      tweet_id = tweet_data["id_str"]
+      avatar_url = tweet_data["user"]["profile_image_url_https"]
+      extension = avatar_url.split(".").last  # ick
+      _display_path("#{screen_name}_#{tweet_id}.#{extension}")
+    end
+
+    def render_tweet_text(tweet_data)
+      text = tweet_data["text"]
+      if text == nil
+        text = tweet_data["full_text"]
+      end
+
+      tweet_data["entities"]["urls"].each { |u|
+        text = text.sub(
+          u["url"],
+          "<a href=\"#{u["expanded_url"]}\">#{u["display_url"]}</a>"
+        )
+      }
+
+      # Because newlines aren't significant in HTML, we convert them to
+      # <br> tags so they render correctly.
+      text = text.gsub("\n", "<br>")
+
+      # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
+      # are correctly rendered as links to the user page.
+      tweet_data["entities"].fetch("user_mentions", []).each { |m|
+        text = text.sub(
+          "@#{m["screen_name"]}",
+          "<a href=\"https://twitter.com/#{m["screen_name"]}\">@#{m["screen_name"]}</a>"
+        )
+      }
+
+      tweet_data["entities"].fetch("hashtags", []).each { |h|
+        text = text.sub(
+          "##{h["text"]}",
+          "<a href=\"https://twitter.com/hashtag/#{h["text"]}\">##{h["text"]}</a>"
+        )
+      }
+
+      tweet_data["entities"].fetch("media", []).each { |m|
+        text = text.sub(
+          m["url"],
+          "<a href=\"#{m["expanded_url"]}\">#{m["display_url"]}</a>"
+        )
+      }
+
+      text.strip
+    end
+  end
+
   class TwitterTag < Liquid::Tag
 
     def initialize(tag_name, text, tokens)
@@ -39,10 +107,6 @@ module Jekyll
       return "#{@src}/_images/twitter/#{name}"
     end
 
-    def display_path(name)
-      return "/images/twitter/#{name}"
-    end
-
     def cache_file()
       "#{@src}/_tweets/#{@tweet_id}.json"
     end
@@ -50,11 +114,6 @@ module Jekyll
     def avatar_path(avatar_url, screen_name)
       extension = avatar_url.split(".").last  # ick
       local_path("#{screen_name}_#{@tweet_id}.#{extension}")
-    end
-
-    def display_avatar_path(avatar_url, screen_name)
-      extension = avatar_url.split(".").last  # ick
-      display_path("#{screen_name}_#{@tweet_id}.#{extension}")
     end
 
     def download_avatar(tweet)
@@ -73,7 +132,7 @@ module Jekyll
     def download_media(tweet)
       # TODO: Add support for rendering tweets that contain more than
       # one media entity.
-      raise "Too many media entities" unless tweet.media.count <= 1
+      raise "Too many media entities" unless tweet.media.count == 1
 
       tweet.media.each { |m|
 
@@ -85,6 +144,7 @@ module Jekyll
 
         # TODO: Use a proper url-parsing library
         name = media_url.path.split("/").last
+        FileUtils::mkdir_p local_path("")
         File.open(local_path(name), "wb") do |saved_file|
           open(media_url, "rb") do |read_file|
             saved_file.write(read_file.read)
@@ -103,12 +163,15 @@ module Jekyll
       end
     end
 
+    def _created_at(tweet_data)
+      DateTime
+        .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
+        .strftime("%-I:%M&nbsp;%p - %-d %b %Y")
+    end
+
     def render(context)
       site = context.registers[:site]
       @src = site.config["source"]
-
-      FileUtils::mkdir_p "#{@src}/_tweets"
-      FileUtils::mkdir_p local_path("")
 
       if not File.exists? cache_file()
         puts("Caching #{@tweet_url}")
@@ -117,102 +180,18 @@ module Jekyll
         json_string = JSON.pretty_generate(tweet.attrs)
         download_avatar(tweet)
         download_media(tweet)
+
+        FileUtils::mkdir_p "#{@src}/_tweets"
         File.open(cache_file(), 'w') { |f| f.write(json_string) }
       end
 
       tweet_data = JSON.parse(File.read(cache_file()))
 
-      name = tweet_data["user"]["name"]
-      screen_name = tweet_data["user"]["screen_name"]
-      avatar_url = tweet_data["user"]["profile_image_url_https"]
-
-      timestamp = DateTime
-        .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
-        .strftime("%-I:%M&nbsp;%p - %-d %b %Y")
-
-      text = tweet_data["text"] or tweet_data["full_text"]
-      if text == nil
-        text = tweet_data["full_text"]
-      end
-
-      tweet_data["entities"]["urls"].each { |u|
-        text = text.sub(
-          u["url"],
-          "<a href=\"#{u["expanded_url"]}\">#{u["display_url"]}</a>"
-        )
-      }
-
-      # Because newlines aren't significant in HTML, we convert them to
-      # <br> tags so they render correctly.
-      text = text.gsub("\n", "<br>")
-
-      # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
-      # are correctly rendered as links to the user page.
-      if tweet_data["entities"]["user_mentions"] != nil
-        tweet_data["entities"]["user_mentions"].each { |m|
-          text = text.sub(
-            "@#{m["screen_name"]}",
-            "<a href=\"https://twitter.com/#{m["screen_name"]}\">@#{m["screen_name"]}</a>"
-          )
-        }
-      end
-
-      if tweet_data["entities"]["hashtags"] != nil
-        tweet_data["entities"]["hashtags"].each { |h|
-          text = text.sub(
-            "##{h["text"]}",
-            "<a href=\"https://twitter.com/hashtag/#{h["text"]}\">##{h["text"]}</a>"
-          )
-        }
-      end
-
-      media_div = ""
-      if tweet_data["entities"]["media"] != nil
-        tweet_data["entities"]["media"].each { |m|
-          filename = m["media_url_https"].split("/").last
-          text = text.sub(
-            m["url"],
-            "<a href=\"#{m["expanded_url"]}\">#{m["display_url"]}</a>"
-          )
-          media_div = <<-EOD
-<div class=\"media\">
-  <a href="#{m["expanded_url"]}">
-    <img src=\"#{display_path(filename)}\">
-  </a>
-</div>
-EOD
-          media_div = media_div.strip
-        }
-      end
-
-      text = text.strip
-
-      tweet_html = <<-EOT
-<div class="tweet">
-  <blockquote>#{media_div}
-    <div class="header">
-      <div class="author">
-        <a class="link link_blend" href="https://twitter.com/#{screen_name}">
-          <span class="avatar">
-            <img src="#{display_avatar_path(avatar_url, screen_name)}" alt="Profile picture for @#{screen_name}">
-          </span>
-          <span class="name" title="#{name}">#{name}</span>
-          <span class="screen_name" title="@#{screen_name}">@#{screen_name}</span>
-        </a>
-      </div>
-    </div>
-    <div class="body">
-      <p class="text">#{text}</p>
-      <div class="metadata">
-        <a class="link_blend" href="https://twitter.com/#{screen_name}/status/#{@tweet_id}">#{timestamp}</a>
-      </div>
-    </div>
-  </blockquote>
-</div>
-EOT
-      tweet_html.lines.map { |line| line.strip }.join("")
+      tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
+      tpl.render!("tweet_data" => tweet_data)
     end
   end
 end
 
+Liquid::Template::register_filter(Jekyll::TwitterFilters)
 Liquid::Template.register_tag('tweet', Jekyll::TwitterTag)
