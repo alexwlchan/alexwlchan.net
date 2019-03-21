@@ -1,0 +1,38 @@
+{% assign tweet_id = tweet_data["id_str"] %}
+{% assign name = tweet_data["user"]["name"] %}
+{% assign screen_name = tweet_data["user"]["screen_name"] %}
+
+<div class="tweet">
+  <blockquote>
+
+  {% if tweet_data["extended_entities"]["media"].size == 1 %}
+
+    {% assign media = tweet_data["extended_entities"]["media"][0] %}
+    {% assign expanded_url = media["expanded_url"] %}
+
+    <div class="media">
+      <a href="{{ expanded_url }}">
+        <img src="{{ media | tweet_img_entity_url }}">
+      </a>
+    </div>
+  {% endif %}
+
+    <div class="header">
+      <div class="author">
+        <a class="link link_blend" href="https://twitter.com/{{ screen_name }}">
+          <span class="avatar">
+            <img src="{{ tweet_data | tweet_avatar_url }}" alt="Profile picture for @{{ screen_name }}">
+          </span>
+          <span class="name" title="{{ name }}">{{ name }}</span>
+          <span class="screen_name" title="@{{ screen_name }}">@{{ screen_name }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="body">
+      <p class="text">{{ tweet_data | render_tweet_text }}</p>
+      <div class="metadata">
+        <a class="link_blend" href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">{{ tweet_data | render_date_created }}</a>
+      </div>
+    </div>
+  </blockquote>
+</div>
