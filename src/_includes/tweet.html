@@ -5,16 +5,40 @@
 <div class="tweet">
   <blockquote>
 
-  {% if tweet_data["extended_entities"]["media"].size == 1 %}
-
-    {% assign media = tweet_data["extended_entities"]["media"][0] %}
-    {% assign expanded_url = media["expanded_url"] %}
-
-    <div class="media">
+  {% if tweet_data["extended_entities"]["media"].size > 0 %}
+  <div class="media">
+    {% if tweet_data["extended_entities"]["media"].size == 1 %}
+      {% assign media = tweet_data["extended_entities"]["media"][0] %}
+      {% assign expanded_url = media["expanded_url"] %}
       <a href="{{ expanded_url }}">
         <img src="{{ media | tweet_img_entity_url }}">
       </a>
-    </div>
+    {% elsif tweet_data["extended_entities"]["media"].size == 3 %}
+      <table style="border-spacing: 0; width: 100%;">
+        <tr>
+          {% assign media = tweet_data["extended_entities"]["media"][0] %}
+          {% assign expanded_url = media["expanded_url"] %}
+          <td rowspan="2" style="background-image: url('{{ media | tweet_img_entity_url }}'); background-size: auto 100%; overflow: hidden; background-position: center center; width: 50%; border-right: 1px solid #e1e8ed;">
+            <a href="{{ expanded_url }}" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a>
+          </td>
+
+          {% assign media = tweet_data["extended_entities"]["media"][1] %}
+          {% assign expanded_url = media["expanded_url"] %}
+          <td style="background-image: url('{{ media | tweet_img_entity_url }}'); background-size: auto 100%; overflow: hidden; padding-top: 20%; border-bottom: 1px solid #e1e8ed;">
+            <a href="{{ expanded_url }}" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a>
+          </td>
+        </tr>
+        <tr>
+          {% assign media = tweet_data["extended_entities"]["media"][2] %}
+          {% assign expanded_url = media["expanded_url"] %}
+          <td style="background-image: url('{{ media | tweet_img_entity_url }}'); background-size: auto 100%; overflow: hidden; padding-top: 20%;">
+            <a href="{{ expanded_url }}" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a>
+          </td>
+        </tr>
+      </table>
+    {% endif %}
+
+  </div>
   {% endif %}
 
     <div class="header">

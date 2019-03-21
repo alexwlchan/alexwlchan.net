@@ -44,7 +44,7 @@ blockquote {
   margin-right: 0px;
   padding: 0px ($default-padding - $sidebar-border-width);
 
-  p:not(.text), li {
+  &:not(.update) p:not(.text), li {
     font-style: italic;
     color: #6f6f6f;
   }
