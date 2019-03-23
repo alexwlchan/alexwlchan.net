@@ -144,6 +144,7 @@ def normalise_referrer(hit)
     "https://www.ecosia.org/search",
     "https://bitmotion-tab.com/search",
     "https://search.lilo.org/",
+    "https://www.searchpage.com/do/search",
   )
     is_search = true
     result = extract_query_param(ref, "q")

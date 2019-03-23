@@ -96,10 +96,17 @@ bad_path_prefixes = [
     "/sql/",
 
     "/index.php",
+    "/user.php",
+    "/xmlrpc.php",
 
     "/plus/ad_js.php",
     "/plus/download.php",
     "/plus/mytag_js.php",
+
+    "/FCK/editor/",
+    "/fckeditor/",
+    "/admin/FCKeditor/",
+    "/administrator/fckeditor/",
 ]
 
 bad_path_suffixes = [
