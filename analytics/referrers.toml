@@ -86,9 +86,10 @@
   "https://padlet.com/QMATH/4biqnc10iid?utm_campaign=added_post&utm_medium=desktop&utm_source=notifications" = "https://padlet.com/QMATH/4biqnc10iid"
   "https://issue.ebgroup.elektrobit.com/browse/BUSTOOLS-7555?jql=project%20%3D%20BUSTOOLS%20AND%20text%20~%20docker" = "https://issue.ebgroup.elektrobit.com/browse/BUSTOOLS-7555"
 
-  "http://m.facebook.com"   = "https://facebook.com/"
-  "http://m.facebook.com/"  = "https://facebook.com/"
-  "https://m.facebook.com/" = "https://facebook.com/"
+  "http://m.facebook.com"     = "https://facebook.com/"
+  "http://m.facebook.com/"    = "https://facebook.com/"
+  "https://m.facebook.com/"   = "https://facebook.com/"
+  "https://www.facebook.com/" = "https://facebook.com/"
 
 [search]
   urls = [
