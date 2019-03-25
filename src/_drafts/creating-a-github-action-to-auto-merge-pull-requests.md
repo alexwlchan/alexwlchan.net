@@ -15,24 +15,28 @@ I tweeted in frustration:
 
 {% tweet https://twitter.com/alexwlchan/status/1101601909310439429 %}
 
-Tweeted in frustration about GA
-Got a call with PM + engineer
+A few days later, I got a DM from [Angie Rivera][angie], the Product Manager for GitHub Actions.
+She arranged a three-way call with [Phani Rajuyn][phani], one of GitHub's software engineers, and we spent an hour talking about Actions.
+I was able to show them the rough edges I'd been hitting, and they were able to fill in the gaps in my understanding.
+
+After our call, I got my Action working, and I've had it running successfully for the last couple of weeks.
+
+In this post, I'll show how I'm using it to auto-merge pull requests.
 
 [actions]: https://github.com/features/actions
+[angie]: https://twitter.com/AngieRvra
+[phani]: https://twitter.com/PhaniRajuyn
 
-[https://twitter.com/alexwlchan/status/1101601909310439429](https://twitter.com/alexwlchan/status/1101601909310439429)
 
-dearth of anything about `check_run` API
-this post is an example of how I’m using it to auto-merge pro and clean up the branch
 
 ## The problem
 
 I have lots of “single-author” repos on GitHub, where I’m the only person who ever writes code.
-The source code for this blog is one example; my junk drawer repo is another.
+The source code [for this blog][alexwlchan.net] is one example; my [junk drawer repo][junkdrawer] is another.
 
 I have CI set up on those repos to run tests and linting (usually with Travis CI or Azure Pipelines).
 I open pull requests when I’m making big changes, but I’m not waiting for code review or approval from anybody else.
-I’d rather those PRs were automatically merged if/when they pass tests.
+What used to happen is that I'd go back later and merge those PRs -- but I'd rather they were automatically merged if/when they pass tests.
 
 Here’s what I want to happen:
 
@@ -45,10 +49,15 @@ This means my code is merged immediately, and I don’t have lingering pull requ
 I’ve experimented with a couple of tools for this (most recently [Mergify](https://mergify.io/)), but I wasn’t happy with any of them.
 It felt like GitHub Actions would be a better fit, and give me lots of flexibility in the rules.
 
+[alexwlchan.net]: https://github.com/alexwlchan/alexwlchan.net
+[junkdrawer]: https://github.com/alexwlchan/junkdrawer
+
+
+
 ## Creating a “Hello World” Action
 
 Let’s start by creating a tiny action that just prints “hello world”.
-Using the [GitHub Actions docs][getting_started], let's create three files:
+Working from the example in the [GitHub Actions docs][getting_started], let's create three files:
 
 ```hcl
 # .github/main.workflow
