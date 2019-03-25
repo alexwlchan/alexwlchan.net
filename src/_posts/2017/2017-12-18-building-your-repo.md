@@ -4,7 +4,7 @@ date: 2017-12-18 08:40:30 +0000
 title: Your repo should be easy to build, and how
 tags: make docker software-development
 summary: Making your repo easy to clone and build is very important. This post explains why, and how I'm using Make and Docker to achieve that goal.
-category: Programming and code
+category: Build automation and build systems
 ---
 
 Whenever I look at a new repository, I have a simple smell test: *how long does it take me to clone, build and get the code running?*

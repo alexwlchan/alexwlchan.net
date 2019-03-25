@@ -132,7 +132,7 @@ module Jekyll
     def download_media(tweet)
       # TODO: Add support for rendering tweets that contain more than
       # one media entity.
-      raise "Too many media entities" unless tweet.media.count == 1 || tweet.media.count == 3
+      raise "Too many media entities" unless tweet.media.count <= 1 || tweet.media.count == 3
 
       tweet.media.each { |m|
 
