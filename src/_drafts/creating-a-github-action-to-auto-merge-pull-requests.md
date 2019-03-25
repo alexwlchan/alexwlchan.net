@@ -6,16 +6,19 @@ tags:
 category: Build automation and build systems
 ---
 
-GitHub Actions is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers, so there’s a lot of flexibility in what you can do.
+[GitHub Actions][actions] is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers inside GitHub's infrastructure, so there’s a lot of flexibility in what you can do.
 
 If you’ve not looked at Actions yet, the [awesome-actions repo](https://github.com/sdras/awesome-actions) will give you an idea of the sort of things it can do.
 
-I love playing with build systems
+I love playing with build systems, so I wanted to try it out -- but I had a lot of problems getting started.
+I tweeted in frustration:
 
-% tweet https://twitter.com/alexwlchan/status/1101601909310439429 %
+{% tweet https://twitter.com/alexwlchan/status/1101601909310439429 %}
 
 Tweeted in frustration about GA
 Got a call with PM + engineer
+
+[actions]: https://github.com/features/actions
 
 [https://twitter.com/alexwlchan/status/1101601909310439429](https://twitter.com/alexwlchan/status/1101601909310439429)
 
