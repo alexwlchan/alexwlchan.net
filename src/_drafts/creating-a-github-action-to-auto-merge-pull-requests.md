@@ -8,21 +8,21 @@ category: Build automation and build systems
 
 [GitHub Actions][actions] is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers inside GitHub's infrastructure, so there’s a lot of flexibility in what you can do.
 
-If you’ve not looked at Actions yet, the [awesome-actions repo](https://github.com/sdras/awesome-actions) will give you an idea of the sort of things it can do.
+If you’ve not looked at Actions yet, the [awesome-actions repo](https://github.com/sdras/awesome-actions) can give you an idea of the sort of things it can do.
 
 I love playing with build systems, so I wanted to try it out -- but I had a lot of problems getting started.
-I tweeted in frustration:
+At the start of March, I tweeted in frustration:
 
 {% tweet https://twitter.com/alexwlchan/status/1101601909310439429 %}
 
 A few days later, I got a DM from [Angie Rivera][angie], the Product Manager for GitHub Actions.
-She arranged a three-way call with [Phani Rajuyn][phani], one of GitHub's software engineers, and we spent an hour talking about Actions.
+We arranged a three-way call with [Phani Rajuyn][phani], one of GitHub's software engineers, and together we spent an hour talking about Actions.
 I was able to show them the rough edges I'd been hitting, and they were able to fill in the gaps in my understanding.
 
-After our call, I got my Action working, and I've had it running successfully for the last couple of weeks.
+After our call, I got an Action working, and I've had it running successfully for the last couple of weeks.
 
 In this post, I'll explain how I wrote an Action to auto-merge my pull requests.
-When a pull request passes tests, GitHub Actions merges the PR and then deletes the branch:
+When a pull request passes tests, GitHub Actions automatically merges the PR and then deletes the branch:
 
 {%
   image
@@ -45,20 +45,20 @@ If you just want the code, [skip to the end](#putting-it-all-together) or check 
 I have lots of “single-author” repos on GitHub, where I’m the only person who ever writes code.
 The source code [for this blog][alexwlchan.net] is one example; my [junk drawer repo][junkdrawer] is another.
 
-I have CI set up on those repos to run tests and linting (usually with Travis CI or Azure Pipelines).
-I open pull requests when I’m making big changes, but I’m not waiting for code review or approval from anybody else.
-What used to happen is that I'd go back later and merge those PRs -- but I'd rather they were automatically merged if/when they pass tests.
+I have CI set up on some of those repos to run tests and linting (usually with Travis CI or Azure Pipelines).
+I open pull requests when I’m making big changes, so I get the benefit of the tests -- but I’m not waiting for code review or approval from anybody else.
+What used to happen is that I'd go back later and merge those PRs manually -- but I'd rather they were automatically merged if/when they pass tests.
 
 Here’s what I want to happen:
 
 * I open a pull request
 * A CI service starts running tests, and they pass
-* The pull request is merged
+* The pull request is merged and the branch deleted
 
 This means my code is merged immediately, and I don’t have lingering pull requests I’ve forgotten to merge.
 
 I’ve experimented with a couple of tools for this (most recently [Mergify](https://mergify.io/)), but I wasn’t happy with any of them.
-It felt like GitHub Actions would be a better fit, and give me lots of flexibility in the rules.
+It felt like GitHub Actions could be a good fit, and give me lots of flexibility in deciding whether a particular pull request should be merged.
 
 [alexwlchan.net]: https://github.com/alexwlchan/alexwlchan.net
 [junkdrawer]: https://github.com/alexwlchan/junkdrawer
@@ -68,7 +68,7 @@ It felt like GitHub Actions would be a better fit, and give me lots of flexibili
 ## Creating a “Hello World” Action
 
 Let’s start by creating a tiny action that just prints “hello world”.
-Working from the example in the [GitHub Actions docs][getting_started], let's create three files:
+Working from the example in the [GitHub Actions docs][getting_started], create three files:
 
 ```hcl
 # .github/main.workflow
@@ -113,7 +113,7 @@ I'm using Python instead of a shell script because I find it easier to write saf
 Then the `main.workflow` file defines the following series of steps:
 
 *   When the `check_run` event fires, run the `Auto-merge pull requests` action
-*   When the Action runs, build and run the Docker image defined in `./auto_merge_pull_requests`
+*   When the action runs, build and run the Docker image defined in `./auto_merge_pull_requests`
 *   When the Docker image runs, print `"Hello world!"`
 
 I had a lot of difficulty understanding how the `check_run` event works, and Phani and I spent a lot of time discussing it on our call.
@@ -122,9 +122,9 @@ A *check run* is a third-party CI integration, like Travis or Circle CI.
 A [*check run event*][cr_event] is fired whenever the state of a check changes.
 That includes:
 
-*   When the check is *scheduled* (when GitHub tells Travis "please run these tests")
+*   When the check is *scheduled* (GitHub tells Travis "please run these tests")
 *   When a check *starts* (Travis tells GitHub "I have started running these tests")
-*   When a check *completes* (Travis tells GitHub "These tests are finished")
+*   When a check *completes* (Travis tells GitHub "These tests are finished, here is the result")
 
 That last event is what's interesting to me -- if the tests completed and they've passed, I want to take further action.
 
@@ -140,7 +140,8 @@ Until I moved to the Checks integration, it looked as if GitHub was just ignorin
 
 We start by loading the event data.
 When GitHub Actions runs a container, it includes a JSON file with data from the event that triggered it.
-You get the path to this file in the `GITHUB_EVENT_PATH`, so let's open that first:
+It passes the path to this file as the `GITHUB_EVENT_PATH` environment variable.
+So let's open and load that file:
 
 ```python
 import json
@@ -153,7 +154,7 @@ if __name__ == "__main__":
 ```
 
 We only want to do something if the check run is completed, otherwise we don't have enough information to determine if we're ready to merge.
-The GitHub developer docs explain what [the fields on a check_run event look like][event].
+The GitHub developer docs explain what [the fields on a check_run event look like][event], and the "status" field tells us the current state of the check:
 
 ```python
 import sys
@@ -169,7 +170,8 @@ if __name__ == "__main__":
         sys.exit(78)
 ```
 
-Exit code 78 is a [*neutral* status][exit_code] for a GitHub Action.
+Calling `sys.exit` means we bail out of the script, and don't do anything else.
+In a GitHub Action, exit code 78 is a [*neutral* status][exit_code].
 It's a way to say "we didn't do any work".
 This is what it looks like in the UI, compared to a successful run:
 
@@ -180,11 +182,11 @@ This is what it looks like in the UI, compared to a successful run:
   :style => "width: 411px;"
 %}
 
-[event]: https://developer.github.com/v3/activity/events/types/#CheckRunEvent
+[event]: https://developer.github.com/v3/activity/events/types/#checkrunevent
 [exit_code]: https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#exit-codes-and-statuses
 
 If we know the check has completed, we can look at how it completed.
-Anything except a success means something has gone wrong, and we shouldn't merge the PR -- it needs further action.
+Anything except a success means something has gone wrong, and we shouldn't merge the PR -- it needs manual inspection.
 
 ```python
     if check_run["conclusion"] != "success":
@@ -196,7 +198,7 @@ Here I'm dropping an explicit failure.
 The difference between a failure and a neutral status is that a failure blocks any further steps in the workflow, whereas a neutral result lets them carry on.
 Here, something has definitely gone wrong -- the tests haven't passed -- so we shouldn't continue to subsequent steps.
 
-If we got this far into the script, we know the tests have passed, so let's put in the conditions for merging the pull request.
+If the script is still running, then we know the tests have passed, so let's put in the conditions for merging the pull request.
 For me, that means:
 
 *   It's not a work-in-progress, marked by "[WIP]" in the title
@@ -219,7 +221,7 @@ I use this for a bit of logging:
 ```
 
 But for the detailed information like title and pull request author, I need to query the [pull requests API][pr_api].
-Let's start with creating an HTTP session for working with the GitHub API:
+Let's start by creating an HTTP session for working with the GitHub API:
 
 ```python
 import requests
@@ -269,7 +271,10 @@ action "Auto-merge pull requests" {
 }
 ```
 
-and we can read this environment variable to create a session:
+This is one of the convenient parts of GitHub Actions -- it creates this API token for us at runtime, and passes it into the container.
+We don't need to much around creating and rotating API tokens by hand.
+
+We can read this environment variable to create a session:
 
 ```python
     github_token = os.environ["GITHUB_TOKEN"]
@@ -315,7 +320,7 @@ Then to keep things tidy, I delete the PR branch when I’m done:
     sess.delete(ref_url)
 ```
 
-This last step partially inspired by Jessie Frazelle's [branch cleanup action][cleanup], which is one of the first actions I used and was a useful example when writing my first action.
+This last step partially inspired by Jessie Frazelle's [branch cleanup action][cleanup], which is one of the first actions I used, and was a useful example when writing this code.
 
 [cleanup]: https://github.com/jessfraz/branch-cleanup-action
 
@@ -439,7 +444,7 @@ if __name__ == "__main__":
 ```
 
 I keep this in [a separate repo][auto_merge] (which doesn't have auto-merging enabled), so nobody can maliciously modify the workflow rules and get their own code merged.
-I'm not entirely sure what safety checks are in place to prevent workflows modifying themselves, and that extra layer of separation makes me feel more comfortable.
+I'm not entirely sure what safety checks are in place to prevent workflows modifying themselves, and having an extra layer of separation makes me feel more comfortable.
 
 [auto_merge]: https://github.com/alexwlchan/auto_merge_my_pull_requests
 
@@ -454,7 +459,6 @@ You could request reviews if you get a pull request from an external contributor
 You could measure how long it took to run the check, to see if it's slowed down your build times.
 And so on.
 
-GitHub Actions feels like it could be really flexible and useful, and I'm glad to have created something useful with it.
-I've had this code running in the repo for this blog for nearly a month, and it's worked fine.
-It's quite neat, and saves me a bit of work every time.
+GitHub Actions feels like it could be really flexible and powerful, and I'm glad to have created something useful with it.
+I've had this code running in the repo for this blog for nearly a month, and it's working fine -- saving me a bit of work every time.
 It'll even merge the pull request where I've written this blog post.
