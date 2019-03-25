@@ -21,11 +21,22 @@ I was able to show them the rough edges I'd been hitting, and they were able to 
 
 After our call, I got my Action working, and I've had it running successfully for the last couple of weeks.
 
-In this post, I'll show how I'm using it to auto-merge pull requests.
+In this post, I'll explain how I wrote an Action to auto-merge my pull requests.
+When a pull request passes tests, GitHub Actions merges the PR and then deletes the branch:
+
+{%
+  image
+  :filename => "github_actions_merge.png",
+  :alt => "A screenshot of the GitHub pull request UI, showing the github-actions bot merging and deleting a branch.",
+  :style => "width: 700px;"
+%}
+
+If you just want the code, [skip to the end](#putting-it-all-together) or check out [the GitHub repo][repo].
 
 [actions]: https://github.com/features/actions
 [angie]: https://twitter.com/AngieRvra
 [phani]: https://twitter.com/PhaniRajuyn
+[repo]: https://github.com/alexwlchan/auto_merge_my_pull_requests
 
 
 
@@ -97,6 +108,7 @@ if __name__ == "__main__":
 
 The Dockerfile and Python script define a fairly standard Docker image, which prints `"Hello world!"` when you run it.
 This is where we'll be adding the interesting logic.
+I'm using Python instead of a shell script because I find it easier to write safe, complex programs in Python than in shell.
 
 Then the `main.workflow` file defines the following series of steps:
 
@@ -104,9 +116,9 @@ Then the `main.workflow` file defines the following series of steps:
 *   When the Action runs, build and run the Docker image defined in `./auto_merge_pull_requests`
 *   When the Docker image runs, print `"Hello world!"`
 
-I had a lot of difficulty with the `check_run` event, and this is one of the things I discussed with Phani on our call.
+I had a lot of difficulty understanding how the `check_run` event works, and Phani and I spent a lot of time discussing it on our call.
 
-A *check* is a third-party CI integration, like Travis or Circle CI.
+A *check run* is a third-party CI integration, like Travis or Circle CI.
 A [*check run event*][cr_event] is fired whenever the state of a check changes.
 That includes:
 
@@ -118,7 +130,7 @@ That last event is what's interesting to me -- if the tests completed and they'v
 
 What confused me is that not all CI integrations use the Checks API -- in particular, a lot of my Travis setups were using a legacy integration that doesn't involve checks.
 Travis [started using the Checks API][travis_checks] nine months ago, but I missed the memo, and hadn't migrated my repos.
-Until I moved to the Checks integration, it looked like GitHub was just ignoring my builds.
+Until I moved to the Checks integration, it looked as if GitHub was just ignoring my builds.
 
 [getting_started]: https://developer.github.com/actions/creating-github-actions/creating-a-new-action/
 [cr_event]: https://developer.github.com/v3/activity/events/types/#checkrunevent
@@ -126,10 +138,8 @@ Until I moved to the Checks integration, it looked like GitHub was just ignoring
 
 ## Adding the logic
 
-Let's start doing something more interesting in the script.
-
-We can start by loading the event data.
-When GitHub Actions runs a container, it include a JSON file with data from the event that triggered it.
+We start by loading the event data.
+When GitHub Actions runs a container, it includes a JSON file with data from the event that triggered it.
 You get the path to this file in the `GITHUB_EVENT_PATH`, so let's open that first:
 
 ```python
@@ -177,9 +187,9 @@ If we know the check has completed, we can look at how it completed.
 Anything except a success means something has gone wrong, and we shouldn't merge the PR -- it needs further action.
 
 ```python
-if check_run["conclusion"] != "success":
-    print(f"*** Check run {name} has not succeeded")
-    sys.exit(1)
+    if check_run["conclusion"] != "success":
+        print(f"*** Check run {name} has not succeeded")
+        sys.exit(1)
 ```
 
 Here I'm dropping an explicit failure.
@@ -199,16 +209,16 @@ The check_run event includes a bit of data about the pull request, including the
 I use this for a bit of logging:
 
 ```python
-assert len(check_run["pull_requests"]) == 1
-pull_request = check_run["pull_requests"][0]
-pr_number = pull_request["number"]
-pr_src = pull_request["head"]["ref"]
-pr_dst = pull_request["base"]["ref"]
+    assert len(check_run["pull_requests"]) == 1
+    pull_request = check_run["pull_requests"][0]
+    pr_number = pull_request["number"]
+    pr_src = pull_request["head"]["ref"]
+    pr_dst = pull_request["base"]["ref"]
 
-print(f"*** Checking pull request #{pr_number}: {pr_src} ~> {pr_dst}")
+    print(f"*** Checking pull request #{pr_number}: {pr_src} ~> {pr_dst}")
 ```
 
-But for the detailed information I want, I need to query the [pull requests API][pr_api].
+But for the detailed information like title and pull request author, I need to query the [pull requests API][pr_api].
 Let's start with creating an HTTP session for working with the GitHub API:
 
 ```python
@@ -237,10 +247,9 @@ def create_session(github_token):
     return sess
 ```
 
-I have to add `pip3 install requests` to the `Dockerfile` so I can use the requests library.
-This creates an HTTP session that, on every request:
+This helper method creates an HTTP session that, on every request:
 
-*   Adds the Accept headers that the GitHub API wants (these seem to change frequently)
+*   Adds the Accept headers that the GitHub API wants (these seem to change frequently, so may not match the current docs)
 *   Adds an authorization header with my API token
 *   Adds a User-Agent string
 *   Checks if the API returned a 200 OK response, and throws an exception if not.
@@ -248,6 +257,8 @@ This creates an HTTP session that, on every request:
 
 [pr_api]: https://developer.github.com/v3/pulls/
 [hooks]: /2017/10/requests-hooks/
+
+I have to add `pip3 install requests` to the `Dockerfile` so I can use the requests library.
 
 Then I modify the action in my `main.workflow` to expose an API token to my running code:
 
@@ -261,54 +272,54 @@ action "Auto-merge pull requests" {
 and we can read this environment variable to create a session:
 
 ```python
-github_token = os.environ["GITHUB_TOKEN"]
+    github_token = os.environ["GITHUB_TOKEN"]
 
-sess = create_session(github_token)
+    sess = create_session(github_token)
 ```
 
 Now let's read some data from the pull requests API, and run the checks:
 
 ```python
-pr_data = sess.get(pull_request["url"]).json()
+    pr_data = sess.get(pull_request["url"]).json()
 
-pr_title = pr_data["title"]
-print(f"*** Title of PR is {pr_title!r}")
-if pr_title.startswith("[WIP] "):
-    print("*** This is a WIP PR, will not merge")
-    sys.exit(78)
+    pr_title = pr_data["title"]
+    print(f"*** Title of PR is {pr_title!r}")
+    if pr_title.startswith("[WIP] "):
+        print("*** This is a WIP pull request, will not merge")
+        sys.exit(78)
 
-pr_user = pr_data["user"]["login"]
-print(f"*** This PR was opened by {pr_user}")
-if pr_user != "alexwlchan":
-    print("*** This PR was opened by somebody who isn't me; requires manual merge")
-    sys.exit(78)
+    pr_user = pr_data["user"]["login"]
+    print(f"*** This PR was opened by {pr_user}")
+    if pr_user != "alexwlchan":
+        print("*** This pull request was opened by somebody who isn't me")
+        sys.exit(78)
 ```
 
 If the PR isn't ready to be merged, I use another neutral status -- a failing build and a red X would look more severe than it really is.
 
-If it's ready and we haven't bailed out yet, we can merge PR!
+If it's ready and we haven't bailed out yet, we can merge the pull request!
 
 ```python
-print("*** This PR is ready to be merged.")
-merge_url = pull_request["url"] + "/merge"
-sess.put(merge_url)
+    print("*** This pull request is ready to be merged.")
+    merge_url = pull_request["url"] + "/merge"
+    sess.put(merge_url)
 ```
 
-Then to keep things tidy, I clean up the PR branch when I’m done:
+Then to keep things tidy, I delete the PR branch when I’m done:
 
 ```python
-print("*** Cleaning up PR branch")
-pr_ref = pr_data["head"]["ref"]
-api_base_url = pr_data["base"]["repo"]["url"]
-ref_url = f"{api_base_url}/git/refs/heads/{pr_ref}"
-sess.delete(ref_url)
+    print("*** Cleaning up pull request branch")
+    pr_ref = pr_data["head"]["ref"]
+    api_base_url = pr_data["base"]["repo"]["url"]
+    ref_url = f"{api_base_url}/git/refs/heads/{pr_ref}"
+    sess.delete(ref_url)
 ```
 
 This last step partially inspired by Jessie Frazelle's [branch cleanup action][cleanup], which is one of the first actions I used and was a useful example when writing my first action.
 
 [cleanup]: https://github.com/jessfraz/branch-cleanup-action
 
-# Putting it all together
+## Putting it all together
 
 Here's the final version of the code:
 
@@ -411,16 +422,16 @@ if __name__ == "__main__":
         sys.exit(78)
 
     pr_user = pr_data["user"]["login"]
-    print(f"*** This PR was opened by {pr_user}")
+    print(f"*** This pull request was opened by {pr_user}")
     if pr_user != "alexwlchan":
-        print("*** This PR was opened by somebody who isn't me; requires manual merge")
+        print("*** This pull request was opened by somebody who isn't me")
         sys.exit(78)
 
-    print("*** This PR is ready to be merged.")
+    print("*** This pull request is ready to be merged.")
     merge_url = pull_request["url"] + "/merge"
     sess.put(merge_url)
 
-    print("*** Cleaning up PR branch")
+    print("*** Cleaning up pull request branch")
     pr_ref = pr_data["head"]["ref"]
     api_base_url = pr_data["base"]["repo"]["url"]
     ref_url = f"{api_base_url}/git/refs/heads/{pr_ref}"
@@ -428,7 +439,6 @@ if __name__ == "__main__":
 ```
 
 I keep this in [a separate repo][auto_merge] (which doesn't have auto-merging enabled), so nobody can maliciously modify the workflow rules and get their own code merged.
-
 I'm not entirely sure what safety checks are in place to prevent workflows modifying themselves, and that extra layer of separation makes me feel more comfortable.
 
 [auto_merge]: https://github.com/alexwlchan/auto_merge_my_pull_requests
