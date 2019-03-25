@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-03-25 21:15:36 +0000
 title: Creating a GitHub Action to auto-merge pull requests
 summary:
 tags:
