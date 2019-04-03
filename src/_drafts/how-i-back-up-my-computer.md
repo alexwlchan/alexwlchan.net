@@ -12,7 +12,7 @@ A lot of my work and documents only exist on a computer.
 That includes most of my personal photographs, all my code and prose, and many of the letters I receive (physical copies of which get scanned and shredded).
 It's scary to imagine losing any of that data, so I have a number of systems to keep it backed up and secure.
 
-In this post, I'm going to outline my current backup process.
+These are the notes I made on my backup system.
 
 [myspace]: https://arstechnica.com/information-technology/2019/03/myspace-apparently-lost-12-years-worth-of-music-and-almost-no-one-noticed/
 
@@ -34,7 +34,7 @@ These are the things I think make a good backup system:
 
 *   *Fast recovery.*
     My day job involves using a computer.
-    If I have to wait hours or days to recover from a disk failure, that affects my ability to do my job.
+    If I have to wait hours or days to recover key data from a disk failure, that affects my ability to do my job.
 
 *   *Automated backups.*
     If I have to remember to do something, it won't happen very often.
@@ -80,9 +80,9 @@ On my iPhone, I'm using the encryption provided by iOS.
 
 Any photos I take on my iPhone are automatically uploaded to iCloud Photo Stream, and I have an iCloud backup of the entire phone.
 My iMac downloads the original, full-resolution file for every photo I store in Photo Stream, so I'm not relying on Apple's servers.
-Because the iMac is always running, I get an extra copy very quickly.
+Because the iMac is always running, it usually downloads an extra copy very quickly.
 
-When I'm using a camera with an SD card, I transfer photos off the SD card to my phone, and upload those to iCloud Photo Stream as well.
+When I'm using a camera with an SD card, I transfer photos off the SD card to my phone at the end of the day, and I upload those to iCloud Photo Stream as well.
 
 I'm paying for a 200GB iCloud storage plan (£2.49/month), which is easily enough for my needs.
 
@@ -96,7 +96,7 @@ That's a useful short-term copy of all those files, and keeps them in sync betwe
 I have a pair of Western Digital hard drives plugged into my iMac, and I use [SuperDuper][superduper] to create bootable clones of its internal drive every 24 hours.
 One backup runs in the early morning before I start work, one in the late evening when I'm in bed.
 
-I space out the backups to reduce the average time since the last backup, and to give me more time to spot if SuperDuper is having issues before it affects both drives.
+I space out the clones to reduce the average time since the last backup, and to give me more time to spot if SuperDuper is having issues before it affects both drives.
 
 The drives are permanently mounted; ideally I'd only mount them when SuperDuper is creating a clone.
 
@@ -122,9 +122,9 @@ Conventional wisdom is that hard drives are reliable for about 3–4 years; the 
 I run [Backblaze][backblaze] to continuously make backups of both my iMac and my MacBook.
 
 This is a last resort.
-Restoring my entire disk from Backblaze would be slow or expensive, but it means that even if all my physical drives are destroyed, I have an offsite copy of my data.
+Restoring my entire disk from Backblaze would be slow and expensive, but it means that even if all my physical drives are destroyed, I have an extra copy of my data.
 
-But it's handy at other times -- if I'm on my laptop and I realise I need a file that's only on my iMac, I can restore a single file from Backblaze.
+But it's handy at other times, even if I'm not doing a complete restore -- if I'm on my laptop and I realise I need a file that's only on my iMac, I can restore a single file from Backblaze.
 It's a good way to shuffle files around in a pinch.
 
 [backblaze]: https://secure.backblaze.com/r/01h8yj
@@ -135,21 +135,22 @@ It's a good way to shuffle files around in a pinch.
 
 The most recent addition to this setup is the portable iMac clone.
 
-When I was moving house last year, I was moving my iMac and all my backup drives in the same car.
+When I was moving house last year, I had my iMac and all my backup drives in the same car.
 If I'd had an accident, all my backups would disappear at once, and I'd be stuck downloading 600GB of files from Backblaze.
-The extra drive was a small cost, but makes it much easier to restore if that worst-case scenario ever happens.
+The extra drive was a small cost, but should make it much easier to restore if that worst-case scenario ever happens.
 
-At some point I'll replace the other drives plugged into my iMac -- they're both three years old, and approaching the end of their reliable lives.
+Soon I need to replace the other drives plugged into my iMac -- they're both three years old, and approaching the end of their reliable lives.
 The current pair are both desktop hard drives, with dedicated power supplies.
 I'll probably replace them with bus-powered, portable drives, to tidy up my desk.
 
 I don't have any local backups of my laptop, and I'm not planning to change that.
-The only files I keep on there are things I'm actively working on, which also go in Dropbox and GitHub.
+The only files I keep on the laptop are things I'm actively working on, which also go in Dropbox and GitHub.
 
 So that's my backup system.
+
 It's not perfect, but I'm happy with it.
 My last drive failure was three years ago, and I didn't lose a single file.
-I don't lose sleep wondering if a hard drive is about to fail and lose all my data.
+I don't lose sleep wondering if a disk is about to fail and lose all my data.
 
 If you already have a backup system in place, use the Myspace disaster as a prompt to review it.
 Are there gaps?
@@ -157,4 +158,4 @@ Single points of failure?
 Could it be improved or made more resilient?
 
 And if you don't have a backup system, please get one!
-Data loss is miserable, and your hard drive is going to fail -- it's a matter of when, not if.
+Data loss is miserable, and your disk is going to fail -- it's only a matter of when, not if.
