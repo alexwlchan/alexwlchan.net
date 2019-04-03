@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-04-03 07:03:28 +0000
 title: How I back up my computing devices, 2019 edition
 summary: Some notes on how I back up my computers, and the tools I'm using.
 tags:
