@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How I back up my computing devices, 2019 edition
-summary:
+summary: Some notes on how I back up my computers, and the tools I'm using.
 tags:
 ---
 
