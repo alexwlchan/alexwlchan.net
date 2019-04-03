@@ -39,7 +39,6 @@ I hope you enjoy the site.
     </div>
     <div class="archive__url">
       <a href="{{ post.url }}">{{ post.title | smartify }}</a> <br/>
-      {{ post.summary | smartify }}
     </div>
   </div>
 </li>
