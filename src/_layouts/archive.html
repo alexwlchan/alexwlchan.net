@@ -22,7 +22,11 @@ layout: page
   {% else %}
     <td class="archive__date">{{ post.date | date: "%b %Y" }}</td>
   {% endif %}
-  <td class="archive__bestof"><img src="/theme/best-of.png"></td>
+  {% if post.best_of %}
+    <td class="archive__bestof"><img src="/theme/best-of.png"></td>
+  {% else %}
+    <td></td>
+  {% endif %}
   <td class="archive__url"><a href="{{ post.url }}">{{ post.title | smartify }}</a></td>
 </tr>
 {% endfor %}

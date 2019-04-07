@@ -5,6 +5,7 @@ title: Working with really large objects in S3
 summary: Code for processing large objects in S3 without downloading the whole thing first, using file-like objects in Python.
 tags: python aws
 category: Working with AWS
+best_of: true
 ---
 
 One of our current work projects involves working with large ZIP files stored in S3.

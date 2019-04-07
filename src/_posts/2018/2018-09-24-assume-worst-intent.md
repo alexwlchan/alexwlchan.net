@@ -9,6 +9,7 @@ theme:
   color: 531b93
   card_type: summary_large_image
   image: /images/2018/worst-intent.png
+best_of: true
 ---
 
 This is a talk I gave last Sunday [at PyCon UK 2018](https://2018.hq.pyconuk.org/schedule/item/54DC/).
