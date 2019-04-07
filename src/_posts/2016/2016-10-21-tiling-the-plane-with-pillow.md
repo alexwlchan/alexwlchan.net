@@ -6,6 +6,7 @@ summary: Using the Python Imaging Library to draw regular tilings of squares, tr
 tags: python maths
 title: Tiling the plane with Pillow
 category: Programming and code
+best_of: true
 ---
 
 On a recent yak-shaving exercise, I've been playing with [Pillow][pillow], an imaging library for Python.

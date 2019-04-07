@@ -5,6 +5,7 @@ title: Getting every message in an SQS queue
 tags: aws python
 summary: Code for saving every message from an SQS queue, and then saving the messages to a file, or resending them to another queue.
 category: Working with AWS
+best_of: true
 ---
 
 At work, we make heavy use of [Amazon SQS][sqs] message queues.
