@@ -2,25 +2,22 @@ $archive-left-column: 68px;
 $archive-gutter-column: 15px;
 
 .archive {
-  list-style-type: none;
-  padding-left: 0px !important;
-  margin-bottom: 1.2em;
+  margin-top: 1.2em;
 
   .archive__date {
     width: $archive-left-column;
     font-size: 0.85em;
     color: $accent-grey;
-    float: left;
-    display: inline-block;
     text-align: right;
   }
-  .archive__url {
-    margin-left: $archive-left-column + $archive-gutter-column;
-  }
 
-  &.home {
-    li:not(:last-child) {
-      margin-bottom: 0.75em;
+  .archive__bestof {
+    padding-left:  5px;
+    padding-right: 5px;
+
+    img {
+      width: 12px;
+      display: inline-block;
     }
   }
 }
