@@ -4,7 +4,9 @@ date: 2016-06-07 12:00:00 +0000
 tags: python
 title: Introduction to property-based testing
 category: Talks
-best_of: true
+
+index:
+  best_of: true
 ---
 
 This is a presentation I gave for the Cambridge Python User Group in June&nbsp;2016.

@@ -8,7 +8,9 @@ theme:
   card_type: summary_large_image
   image: /images/2018/aberdulais-cover.jpg
 category: Photography
-best_of: true
+
+index:
+  best_of: true
 ---
 
 In September, I was in Cardiff to help organise [PyCon UK][pyconuk].
