@@ -9,6 +9,9 @@ title:      The A stands for Asexual
 theme:
   color: 6c006c
   touch_icon: asexual
+
+index:
+  best_of: true
 ---
 
 Today is a more personal post: I want to talk about asexuality.

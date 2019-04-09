@@ -1,5 +1,6 @@
 ---
 layout: page
+archive_variant: index
 ---
 
 <img src="/images/profile.jpg" style="float: right; width: 250px; max-width: 50%; margin-top: 0.4em; margin-left: 1em; margin-bottom: 1em;">
@@ -28,22 +29,8 @@ I hope you enjoy the site.
 
 ## Recent posts
 
-{% assign posts_to_display = site.posts | homepage_posts %}
-
-<ul class="archive home">
-{% for post in posts_to_display %}
-<li>
-  <div>
-    <div class="archive__date">
-      {{ post.date | date: "%-d %b" }}
-    </div>
-    <div class="archive__url">
-      <a href="{{ post.url }}">{{ post.title | smartify }}</a> <br/>
-    </div>
-  </div>
-</li>
-{% endfor %}
-</ul>
+{% assign posts = site.posts | homepage_posts %}
+{% include archive_list.html %}
 
 ## Contact
 
