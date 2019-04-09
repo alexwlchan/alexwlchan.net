@@ -5,6 +5,9 @@ link: https://www.youtube.com/watch?v=FxSsnHeWQBY
 tags: python
 title: Getting Started Testing, by Ned Batchelder
 category: Programming and code
+
+index:
+  exclude: true
 ---
 
 This PyCon talk is a great introduction to unit tests and mocking.
