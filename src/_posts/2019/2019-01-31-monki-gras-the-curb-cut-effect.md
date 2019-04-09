@@ -10,6 +10,9 @@ theme:
   color: 531b93
   card_type: summary_large_image
   image: /slides/curbcut_monkigras/curbcut_monkigras.023.jpg
+
+index:
+  best_of: true
 ---
 
 Earlier today I did a talk at [Monki Gras 2019](https://monkigras.com/).

@@ -6,6 +6,9 @@ summary: Regexes have a reputation for being unreadable monsters, but it doesn't
 tags: regex
 title: Treat regular expressions as code, not magic
 category: Programming and code
+
+index:
+  best_of: true
 ---
 
 Regular expressions (or *regexes*) have a reputation for being unreadable.

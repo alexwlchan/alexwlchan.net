@@ -8,6 +8,9 @@ category: Photography
 theme:
   card_type: summary_large_image
   image: /images/2019/PC010292_1x.jpg
+
+index:
+  best_of: true
 ---
 
 While clearing out some boxes recently, I found a leaflet from an old holiday.
