@@ -5,7 +5,9 @@ title: Downloading logs from Amazon CloudWatch
 tags: aws python
 summary: A detailed breakdown of how I wrote a Python script to download logs from CloudWatch.
 category: Working with AWS
-best_of: true
+
+index:
+  best_of: true
 ---
 
 At work, we use [Amazon CloudWatch][cloudwatch] for logging in our applications.

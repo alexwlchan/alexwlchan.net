@@ -6,11 +6,13 @@ title: "Monki Gras 2019: The Curb Cut Effect"
 summary: Slides and notes for my talk 'The Curb Cut Effect'. Making something better for disabled people can make it better for everybody.
 tags: slides accessibility
 category: Talks
-best_of: true
 theme:
   color: 531b93
   card_type: summary_large_image
   image: /slides/curbcut_monkigras/curbcut_monkigras.023.jpg
+
+index:
+  best_of: true
 ---
 
 Earlier today I did a talk at [Monki Gras 2019](https://monkigras.com/).
