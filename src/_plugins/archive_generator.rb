@@ -65,9 +65,16 @@ module Jekyll
 
   class GlobalArchiveGenerator < Generator
     def generate(site)
+      posts =
+        site.posts.docs
+          .select { |post|
+            post.data.fetch("index", {}).fetch("exclude", false) != true
+          }
+          .reverse
+
       site.pages << ArchivePage.new(
         site = site,
-        posts = site.posts.docs.reverse,
+        posts = posts,
         variant = "global",
         archive_dir_name = "archive",
         title = "All posts"
