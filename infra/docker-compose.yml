@@ -22,6 +22,7 @@ services:
     - 80:80
     - 443:443
     volumes:
+    - ./htpasswd:/etc/nginx/.htpasswd
     - ./nginx.conf:/etc/nginx/nginx.conf
     - ~/letsencrypt/config:/etc/letsencrypt
   pygmentizr:
@@ -30,4 +31,11 @@ services:
     image: alexwlchan/pygmentizr
     volumes:
     - ~/repos/pygmentizr/config.py:/config.py
+
+  docstore_talks:
+    image: docstore
+    volumes:
+    - /mnt/docstore/talks:/documents
+    command: ["--title", "talks"]
+
 version: '2'
