@@ -6,14 +6,6 @@ summary:
 tags:
 ---
 
----
-layout: post
-date: 2019-04-23 09:27:31 +0000
-title: Some tips for conferences
-summary:
-tags:
----
-
 My first tech conference was PyCon UK, back in September 2016.
 Since then, I've been to a dozen or so tech conferences -- most recently ACCU 2019 -- and I'm enjoying them more now than when I started.
 This post is a list of some of the things I've learnt that make conferences more enjoyable.
