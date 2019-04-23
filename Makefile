@@ -81,8 +81,6 @@ nginx-serve:
 
 
 include analytics/Makefile
-include certs/Makefile
-include infra/Makefile
 
 
-.PHONY: publish-docker build stop serve publish-drafts publish rsync deploy renew-certbot
+.PHONY: publish-docker build stop serve publish-drafts publish rsync deploy
