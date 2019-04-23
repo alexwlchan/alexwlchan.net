@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-04-23 09:27:31 +0000
 title: Some tips for conferences
 summary:
 tags:
@@ -7,6 +8,7 @@ tags:
 
 ---
 layout: post
+date: 2019-04-23 09:27:31 +0000
 title: Some tips for conferences
 summary:
 tags:
