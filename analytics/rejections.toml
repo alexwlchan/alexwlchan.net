@@ -158,6 +158,8 @@ bad_path_suffixes = [
     "/alexwlchan.net.zip",
 
     "/wlwmanifest.xml",
+
+    "/.env",
 ]
 
 # Anything on this list was polluting 404 reports with URLs that
