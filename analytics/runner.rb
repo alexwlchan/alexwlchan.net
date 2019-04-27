@@ -77,7 +77,7 @@ end
 
 
 def get_interesting_hits
-  lines = get_docker_logs("infra_alexwlchan_1", 7)
+  lines = get_docker_logs("linodeinfra_alexwlchan_1", 7)
   parsed_lines = parse_lines(lines)
   get_tracking_data(parsed_lines)
 end
@@ -145,6 +145,10 @@ def normalise_referrer(hit)
     "https://bitmotion-tab.com/search",
     "https://search.lilo.org/",
     "https://www.searchpage.com/do/search",
+    "https://m.baidu.com/",
+    "https://www.baidu.com/",
+
+    "https://int.search.myway.com/",
   )
     is_search = true
     result = extract_query_param(ref, "q")

@@ -61,6 +61,8 @@
 "https://t.co/IdSbFaf7Oq" = "https://twitter.com/claracloggins/status/1105889490621685761"
 "https://t.co/LWZkpc3PgI" = "https://twitter.com/alexwlchan/status/1106677389344600065"
 "https://t.co/ThPsiGQjN2" = "https://twitter.com/alexwlchan/status/1120373294132334592"
+"https://t.co/4Cq2sdmLTp" = "https://twitter.com/timur_audio/status/1120719936505221125"
+"https://t.co/kvbWtEiRCz" = "https://twitter.com/alexwlchan/status/1120628214781698059"
 
 [aliases]
 "https://twitter.com/i/cards/tfw/v1/1028964273127604224?cardname=summary&autoplay_disabled=true&forward=true&earned=true&edge=true&lang=en-gb&card_height=130&scribe_context=%7B%22client%22%3A%22web%22%2C%22page%22%3A%22profile%22%2C%22section%22%3A%22profile%22%2C%22component%22%3A%22tweet%22%7D&bearer_token=AAAAAAAAAAAAAAAAAAAAAPYXBAAAAAAACLXUNDekMxqa8h%252F40K4moUkGsoc%253DTYfbDKbT3jJPCEVnMYqilB28NHfOPqkca3qaAxGfsyKCs0wRbw" = "https://twitter.com/alexwlchan/status/1028964273127604224"
@@ -81,6 +83,7 @@
 "http://m.facebook.com/" = "https://facebook.com/"
 "https://m.facebook.com/" = "https://facebook.com/"
 "https://www.facebook.com/" = "https://facebook.com/"
+"https://l.facebook.com/" = "https://facebook.com/"
 
 [search]
 urls = [ "Google", "https://search.yahoo.com/", "DuckDuckGo", "https://results.searchlock.com/", "Bing", "https://qwant.com/", "https://www.qwant.com/", "https://www.startpage.com/", "Norton Safe Search", "https://www.discretesearch.com/", "https://www.startpage.com/do/search", "https://google.90h6.cn:1668/", "https://www.ixquick.com/", "https://www.ecosia.org/", "https://www.bing.com/", "https://cn.bing.com/", "https://duckduckgo.com/", "https://start.duckduckgo.com/", "android-app://com.google.android.googlequicksearchbox", "https://search.yahoo.com/", "https://id.search.yahoo.com/", "https://in.search.yahoo.com/", "https://www.yandex.ru/", "http://adguard.com/referrer.html", "android-app://com.google.android.gm", "android-app://com.google.android.googlequicksearchbox/https/www.google.com", "https://search.mysearch.com/web", "https://search.yahoo.com/", "http://search.yahoo.co.jp/", "https://search.yahoo.co.jp/", "https://search.myway.com/search/GGmain.jhtml", "https://q.search-fr.com/", "https://google.uulucky.com/",]
