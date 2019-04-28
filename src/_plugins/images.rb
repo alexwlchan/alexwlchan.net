@@ -4,6 +4,11 @@ require_relative "html_tag_builder"
 include ::HtmlTagBuilder::Helper
 
 
+def render_image_no_link(**attrs)
+  tag.img(**attrs)
+end
+
+
 def render_image(href:, **attrs)
   tag.a(href: href) do |inner|
     inner.tag("img", **attrs)
@@ -67,7 +72,14 @@ module Jekyll
         attrs[:srcset] = srcset.map { |f| build_url(f) }.join(", ")
       end
 
-      render_image(href: href, **attrs)
+      use_href = attrs.delete(:use_href) { |_| true }
+
+      if use_href
+        override_href = attrs.delete(:href) { |_| href }
+        render_image(href: override_href, **attrs)
+      else
+        render_image_no_link(**attrs)
+      end
     end
   end
 end
