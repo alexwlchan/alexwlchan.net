@@ -16,7 +16,7 @@ The link in the tweet text is replaced with a t.co URL, and that URL redirects t
   :style => "width: 719px;"
 %}
 
-If you're just reading Twitter, the presence of t.co is mostly transparent -- it's not shown in the interface, and if you click on a URL you get to the original destination.
+If you're just reading Twitter, the presence of t.co is mostly invisible -- it's not shown in the interface, and if you click on a URL you get to the original destination.
 
 A t.co URL is an [HTTP 301 Redirect][http_301] to the destination, which any browser or HTTP client can follow (as long as Twitter keeps running the service).
 For example:
@@ -30,7 +30,7 @@ For example:
 'https://www.bbc.co.uk/news/blogs-trending-47975564'
 ```
 
-But what if you have the t.co URL, and you want to find the original tweet?
+But what if you only have the t.co URL, and you want to find the original tweet?
 For example, I see t.co URLs in my referrer logs -- people linking to my blog -- and I want to know what they're saying about me!
 
 Twitter don't provide a public API for doing this, so there's no perfect way to reverse a t.co URL back to its source.
@@ -55,7 +55,7 @@ If the twet is recent and visible to you, it shows up in the results:
 %}
 
 Sometimes you might find multiple tweets that include the same URL.
-I've seen this happen when somebody posts the same link several times, usually in (fairly) quick succession:
+I've seen this happen when somebody posts the same link several times:
 
 {%
   image
@@ -71,14 +71,14 @@ If you only need to search for a couple of URLs, this is probably fine.
 
 ## The Python approach
 
-Because I need to do this a lot, I wanted to automate the process, so I wrote a Python script to do it for me.
+Because I need to do this a lot, I wanted to automate the process
 Twitter have a [search API] which provides similar data to the Twitter website, so by calling this API we can mimic the search interface.
-Let's walk through the code together.
+I wrote a Python script to do it for me, which I'll walk through below
 
 First we need to authenticate with the Twitter API.
 You'll need some Twitter API credentials, which you can get through [Twitter's developer site].
 
-In the past I used [tweepy] to connect to the Twitter APIs, but these days I find it easier to use the [requests-oauthlib library] and make direct requests.
+In the past I used [tweepy] to connect to the Twitter APIs, but these days I prefer to use the [requests-oauthlib library] and make direct requests.
 We create an OAuth session:
 
 ```python
@@ -113,7 +113,7 @@ We extract the tweets like so:
 statuses = resp.json()["statuses"]
 ```
 
-The API represents every retweet as an individual status, so a tweet with three retweets would have four entries in this result -- one for the original tweet, and three more for each of the retweets.
+The API represents every retweet as an individual status, so a tweet with three retweets would have four entries in this response -- one for the original tweet, and three more for each of the retweets.
 The Twitter web UI handles that for us, and consolidates them into a single result.
 We have to do that manually.
 
@@ -208,7 +208,7 @@ def find_tweets_using_tco(tco_url):
 ```
 
 I've been using this code to reverse t.co URLs that appear in my web analytics for a while now.
-It works about as well as the website but I find it a bit quicker to use.
+It works about as well as the website but I find it quicker to use.
 
 [search API]: https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html
 [Twitter's developer site]: https://developer.twitter.com/en/apps
