@@ -22,11 +22,16 @@ footer {
 
   #contact_links, ul.dot_list {
     display: inline-block;
-    margin-top: 0px;
+    margin-top:    0px;
+    margin-bottom: 0px;
   }
 
-  p:first-child {
+  p:not(:last-child) {
     margin-bottom: 0px;
+  }
+
+  p:not(:first-child) {
+    margin-top: 0px;
   }
 
   // These definitions have to live in the #footer_inner block so they
@@ -37,4 +42,5 @@ footer {
   #footer__about:hover    { color: $primary-color;  }
   #footer__cc:hover       { color: black;           }
   #footer__mit:hover      { color: black;           }
+  #footer__kofi:hover     { color: $brand__kofi;    }
 }
