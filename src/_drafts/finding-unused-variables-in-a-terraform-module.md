@@ -10,6 +10,7 @@ We use [modules] to reduce repetition in our Terraform definitions, and we publi
 A while back, I wrote a script that scans our modules and looks for unused variables, so that I could clean them all up.
 
 In this post, I'm going to walk through the script and explain how it works.
+If you just want the script, you can [skip to the end](#putting-it-all-together).
 
 [Terraform]: https://www.terraform.io/
 [modules]: https://www.terraform.io/docs/configuration/modules.html
@@ -31,7 +32,7 @@ def get_variables_in_file(path):
         with open(path) as tf:
             tf_definitions = hcl.load(tf)
     except ValueError as err:
-        raise ValueError(f"Error loading Terraform from {path}: {err}")
+        raise ValueError(f"Error loading Terraform from {path}: {err}") from None
 
     try:
         return set(tf_definitions["variable"].keys())
@@ -78,7 +79,8 @@ gets a dictionary a bit like this:
 
 Getting the list of keys in the `variable` block (if it's present) tells us the variables defined in this file.
 
-Sometimes you'll discover the Terraform inside a file is just malformed (or the file is empty!)
+Sometimes you'll discover the Terraform inside a file is just malformed (or the file is empty!) -- so we wrap the exception we receive to include the file path.
+The `from None` disables exception chaining in Python 3, and makes the traceback a little cleaner.
 
 [pyhcl]: https://pypi.org/project/pyhcl/
 
@@ -86,7 +88,7 @@ Sometimes you'll discover the Terraform inside a file is just malformed (or the 
 
 ## What variables are defined by a Terraform module?
 
-Once we can get the variables defined by a single file, we can get the variables defined in a module.
+Once we can get the variables defined by a single file, we can get all the variables defined in a module.
 
 A module is a collection of Terraform files in the same directory, so we can find them by using `os.listdir`, like so:
 
@@ -146,7 +148,7 @@ Otherwise, we open the file, read the Terraform source, and look for instances o
 If we see a variable in use, we delete it from the dict.
 
 We have to iterate over `list(unused_variables)` rather than `unused_variables` itself, because we're deleting elements from that dict as we go along.
-If you don't make it a list first, you'll get an error: *"dictionary changed size during iteration"*.
+If you don't make it a list first, you'll get an error when you delete the first element: *"dictionary changed size during iteration"*.
 
 If the module uses all of its variables, we get back an empty dict.
 If there are unused variables, we get a dict that tells us which variables aren't being used, and which file they're defined in.
@@ -156,7 +158,7 @@ If there are unused variables, we get a dict that tells us which variables aren'
 
 Our [terraform-modules repo][tfmods] defines dozens of modules, and I wouldn't want to check them all by hand.
 Instead, it's easier (and faster!) to use [os.walk] to look through every directory in the repo.
-For a quick speedup, we can look for filenames ending with `.tf` to tell if a particular directory is a module.
+For a quick speedup, we can look for filenames ending with `.tf` to decide if a particular directory is a module.
 
 Here's some code:
 
@@ -187,10 +189,10 @@ if __name__ == "__main__":
     except IndexError:
         root = "."
 
-    find_unused_variables_in_module(root)
+    find_unused_variables_in_tree(root)
 ```
 
-This means I can pass a directory to the script, and it looks for unused modules under that directory -- or if not, it looks in the current directory.
+This means I can pass a directory to the script, and it looks for unused modules under that directory -- or if I don't pass an argument, it looks in the current directory.
 
 [tfmods]: https://github.com/wellcometrust/terraform-modules
 [os.walk]: https://docs.python.org/3/library/os.html#os.walk
@@ -271,15 +273,16 @@ if __name__ == "__main__":
     except IndexError:
         root = "."
 
-    find_unused_variables_in_module(root)
+    find_unused_variables_in_tree(root)
 ```
 
 When I originally ran this script, it turned up a lot of unused variables, and I cleaned up the entire repo in one go.
 I don't use it very often, because the modules don't change as much as they used to, but it's useful to have it.
 I run it once in a blue moon, and clean up anything it tells me about.
 
-It even exposed a few bugs on the first run -- it flagged a variable as being unused, even though it was one we expected the module to be using.
+It even exposed a few bugs!
+It flagged a variable as being unused, even though it was one we expected the module to be using.
 When I went to look, I found a configuration error or a typo.
-Fix that, the variable is in use, and the script is happy.
+Fix that, the variable is now in use, and the script is happy.
 
 I've also used this code to look for unused `local`s -- but I'll leave that as an exercise for the reader.
