@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-05-01 20:59:07 +0000
 title: Finding unused variables in a Terraform module
 summary:
 tags:
