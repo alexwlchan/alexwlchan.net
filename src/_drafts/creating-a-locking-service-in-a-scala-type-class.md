@@ -74,29 +74,50 @@ trait LockDao[Ident] {
 }
 ```
 
-This is a generic trait for acquiring and releasing a single lock.
-We can create implementations with different backends that all inherit this trait -- for example, a DynamoDB dao for use in production, and an in-memory dao for use in tests.
+This is a generic trait, which manages acquiring and releasing a single lock.
+It has to decide if/when we can perform each of those operations.
+
+We can create implementations with different backends that all inherit this trait, and which have different rules for managing locks.
+A few ideas:
+
+*   A DynamoDB-backed lock dao for use in production applications
+*   An in-memory dao for use in tests
+*   A dao that expires locks after a certain period if not explicitly unlocked
 
 The type of the lock identifier is a type parameter, `Ident`.
 An identifier might be a string, or a number, or a UUID, or something else -- we don't have to decide here.
 
 [dao]: https://en.wikipedia.org/wiki/Data_access_object
 
+Sometimes we need to acquire more than one lock at once, which needs multiple calls to `lock()` -- and then the caller has to remember which locks they've acquired to release them.
+To make it simpler for the caller, we've added a second parameter -- a context ID -- to track which process owns a given lock.
+A single call to `unlock()` releases all the locks owned by a process.
+
+Here's what the new trait looks like:
+
+```scala
+trait LockDao[Ident, ContextId] {
+  def lock(id: Ident, contextId: ContextId)
+  def unlock(contextId: ContextId)
+}
+```
+
+As before, the context ID could be any type, so we've made it a type parameter, `ContextId`.
+
+Now let's think about what these methods should return.
+We need to tell the caller whether the lock/unlock succeeded.
+
+We probably want some context, especially if something goes wrong -- so more than a simple boolean.
+We could use a `Try` or a `Future`, but that doesn't feel quite right -- we expect lock failures sometimes, and it'd be nice to type the errors.
+
+Eventually we settled upon using an `Either`, with case classes for lock/unlock failures that include some context for the operation in question, and a Throwable that explains why the operation failed:
+
 ```scala
 trait LockDao[Ident, ContextId] {
   type LockResult = Either[LockFailure[Ident], Lock[Ident, ContextId]]
   type UnlockResult = Either[UnlockFailure[ContextId], Unit]
 
-  /** Lock a single ID.
-    *
-    * The context ID is used to identify the process that wants the lock.
-    * Locking an ID twice with the same context ID should be allowed;
-    * locking with a different context ID should be an error.
-    *
-    */
   def lock(id: Ident, contextId: ContextId): LockResult
-
-  /** Release the lock on every ID that was part of this context. */
   def unlock(contextId: ContextId): UnlockResult
 }
 
@@ -109,6 +130,30 @@ case class LockFailure[Ident](id: Ident, e: Throwable)
 
 case class UnlockFailure[ContextId](contextId: ContextId, e: Throwable)
 ```
+
+There's also a generic `Lock` trait, which holds an Ident and a ContextId.
+Implementations can return just those two values, or extra data if it's appropriate.
+(For example, we have an expiring lock that tells you when the lock is due to expire.)
+
+Now we need to create implementations of this trait!
+
+
+
+
+
+
+## Putting it all together
+
+All the code this post was based on is in a public GitHub repository, [wellcometrust/scala-storage], which is a collection of our shared storage utilities (mainly for working with DynamoDB and S3).
+These are the versions I worked from:
+
+-   Managing individual locks
+
+    *   [LockDao.scala @ 4000d97](https://github.com/wellcometrust/scala-storage/blob/4000d97bbacbed479e1b4302d1bae6d5cd0e5c33/storage/src/main/scala/uk/ac/wellcome/storage/LockDao.scala)
+
+All the code linked above (and in this post) is available under the MIT licence.
+
+[wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
 
 ---
 
