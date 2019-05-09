@@ -5,11 +5,85 @@ summary:
 tags: scala
 ---
 
-```
-trait LockDao[LockDaoIdent, LockDaoContextId] {
-  type Ident = LockDaoIdent
-  type ContextId = LockDaoContextId
+Last week, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
+I'm quite pleased with the code we wrote, and the way we used type classes to do all the tricky logic in memory.
+In this post, I'm going to walk through the code we wrote.
 
+[locking]: https://en.wikipedia.org/wiki/Lock_(computer_science)
+
+
+
+## The problem
+
+Robert and I are part of a team building a [storage service] for Wellcome's digital collections, which will eventually be the long-term, permanent storage for digital records.
+That includes archives, images, photographs, and much more.
+
+We're saving the files to an Amazon S3 bucket[^1], but Amazon doesn't have a way to lock around writes to S3.
+If two processes try to write to the same location at the same time, there's no guarantee which will win!
+
+<img src="/images/2019/locking.png" style="width: 327px;">
+
+Our pipeline features lots of parallel processes -- lots of Docker containers running in parallel, and each container running multiple threads.
+We want to lock around writes to S3, so that only a single process can write to S3 at a time.
+We verify files after they've been written, and we don't overwrite a file if it exists already -- so locking gives an extra guarantee that a rogue process can't corrupt the archive.
+
+Because S3 doesn't provide those locks for us, we have to manage them ourselves.
+
+This is one example -- there are several other places where we need our own locking.
+We wanted to build one locking implementation that we could use in lots of places.
+
+[storage service]: https://github.com/wellcometrust/storage-service
+
+[^1]: Eventually every file will be stored in multiple S3 buckets, all with versioning and [Object Locks](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) enabled. We'll also be saving a copy in another geographic region and with another cloud provider, probably Azure.
+
+
+
+## The idea
+
+We already had a locking service that used DynamoDB as a backend.
+DynamoDB supports locking in the form of conditional updates: "only store X if not Y".
+You create a lock by writing a row with your lock ID, and the condition "only store this row if there isn't already a row with this lock ID".
+If the condition is false, the write fails and you know you haven't acquired the lock.
+
+This was fine, but being closely tied to DynamoDB can cause issues.
+
+Testing it can be slow and fiddly (you need to set up a dummy DynamoDB table), it's closely tied to a specific service (we couldn't reuse this code with a SQL backend, for example), and the implementation was mixing bits of the DynamoDB API with locking logic.
+
+callers
+
+We wanted to have a go at creating a new locking service that didn't have a DynamoDB dependency.
+We'd separate out the backend,
+
+```scala
+lockingService.withLocks(Set("1", "2", "3")) {
+  // do some stuff
+}
+```
+
+https://sans-io.readthedocs.io/how-to-sans-io.html#why-write-i-o-free-protocol-implementations
+
+## Managing individual locks
+
+First we need to be able to manage a lock around an individual resource.
+We might write something like this (here, a dao is a [data access object][dao]):
+
+```scala
+trait LockDao[Ident] {
+  def lock(id: Ident)
+  def unlock(id: Ident)
+}
+```
+
+This is a generic trait for acquiring and releasing a single lock.
+We can create implementations with different backends that all inherit this trait -- for example, a DynamoDB dao for use in production, and an in-memory dao for use in tests.
+
+The type of the lock identifier is a type parameter, `Ident`.
+An identifier might be a string, or a number, or a UUID, or something else -- we don't have to decide here.
+
+[dao]: https://en.wikipedia.org/wiki/Data_access_object
+
+```scala
+trait LockDao[Ident, ContextId] {
   type LockResult = Either[LockFailure[Ident], Lock[Ident, ContextId]]
   type UnlockResult = Either[UnlockFailure[ContextId], Unit]
 
@@ -26,13 +100,19 @@ trait LockDao[LockDaoIdent, LockDaoContextId] {
   def unlock(contextId: ContextId): UnlockResult
 }
 
-sealed trait FailedLockDaoOp
+trait Lock[Ident, ContextId] {
+  val id: Ident
+  val contextId: ContextId
+}
 
-case class LockFailure[Ident](id: Ident, e: Throwable) extends FailedLockDaoOp
+case class LockFailure[Ident](id: Ident, e: Throwable)
 
 case class UnlockFailure[ContextId](contextId: ContextId, e: Throwable)
-    extends FailedLockDaoOp
 ```
+
+---
+
+
 
 ```
 class InMemoryLockDao extends LockDao[String, UUID] with Logging {
