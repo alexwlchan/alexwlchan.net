@@ -241,6 +241,18 @@ We also have a small number of tests that go with it, and check it behaves corre
 Because there's no I/O involved, those tests take a fraction of a second to run.
 
 
+## Creating a concrete implementation of LockDao
+
+Because we work primarily in AWS, we've created a LockDao implementation that uses DynamoDB as a backend.
+This is what we use when running in production.
+
+It fulfills the same basic contract, but it has to be more complicated.
+It calls the DynamoDB APIs, makes conditional updates, and it expires a lock after a fixed period.
+If a worker crashes before it can release its locks, we want the system to recover eventually -- we don't want to have to clean up those locks manually.
+
+I'm not going to walk through that code here, but you can see it in our GitHub repo (link at the bottom of the post).
+
+
 
 
 ## Putting it all together
@@ -257,9 +269,16 @@ These are the versions I worked from:
     *   [InMemoryLockDao.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/InMemoryLockDao.scala)
     *   [InMemoryLockDaoTest.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/locking/InMemoryLockDaoTest.scala)
 
+-   Creating a concrete implementation of LockDao
+
+    *   [DynamoLockDao.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDao.scala)
+    *   [DynamoLockDaoConfig.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoConfig.scala)
+    *   [DynamoLockDaoTest.scala @ aaba0fe](https://github.com/wellcometrust/scala-storage/blob/aaba0feea0f7ff01daa198461afd26c0160c4164/storage/src/test/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoTest.scala)
+
 All the code linked above (and in this post) is available under the MIT licence.
 
 [wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
+
 
 ---
 
