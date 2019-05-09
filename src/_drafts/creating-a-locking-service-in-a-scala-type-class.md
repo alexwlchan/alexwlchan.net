@@ -139,6 +139,107 @@ Now we need to create implementations of this trait!
 
 
 
+## Creating an in-memory LockDao for testing
+
+Somebody who uses the LockDao can ask for an instance of that trait, and it doesn't matter whether it's backed by a real database or it's just in-memory.
+So when we're testing code that uses the LockDao -- but not testing a LockDao implementation specifically -- we can use a simpler, in-memory implementation.
+This makes our tests faster and easier to manage!
+
+Let's create an in-memory implementation.
+Here's a skeleton to start with:
+
+```scala
+class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
+  def lock(id: Ident, contextId: ContextId): LockResult = ???
+  def unlock(contextId: ContextId): UnlockResult = ???
+}
+```
+
+Because this is just for testing, we can store the locks as a map.
+When somebody acquires a new lock, we store the context ID in the map.
+Here's what that looks like:
+
+```scala
+case class PermanentLock[Ident, ContextId](
+  id: Ident,
+  contextId: ContextId
+) extends Lock[Ident, ContextId]
+
+class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
+  private var currentLocks: Map[Ident, ContextId] = Map.empty
+
+  def lock(id: Ident, contextId: ContextId): LockResult =
+    currentLocks.get(id) match {
+      case Some(existingContextId) if contextId == existingContextId =>
+        Right(
+          PermanentLock(id = id, contextId = contextId)
+        )
+      case Some(existingContextId) =>
+        Left(
+          LockFailure(
+            id,
+            new Throwable(s"Failed to lock <$id> in context <$contextId>; already locked as <$existingContextId>")
+          )
+        )
+      case None =>
+        val newLock = PermanentLock(id = id, contextId = contextId)
+        currentLocks = currentLocks ++ Map(id -> contextId)
+        Right(newLock)
+    }
+
+  def unlock(contextId: ContextId): UnlockResult = ???
+}
+```
+
+We have to remember to look for an existing lock, and compare it to the lock the caller is requesting.
+It's fine to call `lock()` if you already have the lock, but you can't lock an ID if somebody else has already locked it.
+
+Because this is only for testing, it doesn't need to be thread-safe or especially robust.
+This code is quite simple, so we're more likely to get it right.
+When a caller uses this in tests, they can trust the LockDao is behaving correctly and focus on how they use it, and not worry about bugs in the locking code.
+
+Unlocking is much simpler: we just remove the entry from the map.
+
+```scala
+class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
+  def lock(id: Ident, contextId: ContextId): LockResult = ...
+
+  def unlock(contextId: ContextId): UnlockResult = {
+    currentLocks = currentLocks.filter { case (_, lockContextId) =>
+      contextId != lockContextId
+    }
+
+    Right(Unit)
+  }
+}
+```
+
+This gives us a LockDao implementation that's pretty simple, and we can use whenever we need a LockDao in tests.
+Here's what it looks like in practice:
+
+```scala
+import java.util.UUID
+
+val dao = new InMemoryLockDao[String, UUID]()
+
+val u1 = UUID.randomUUID
+println(dao.lock(id = "1", contextId = u1))               // succeeds
+println(dao.lock(id = "1", contextId = UUID.randomUUID))  // succeeds
+println(dao.lock(id = "2", contextId = UUID.randomUUID))  // fails
+println(dao.unlock(contextId = u1))
+println(dao.lock(id = "1", contextId = UUID.randomUUID))  // succeeds
+```
+
+We also have a small number of tests that go with it, and check it behaves correctly:
+
+*   It locks an ID/context pair
+*   You can't lock the same ID under different contexts
+*   You can lock different IDs under the same context
+*   You can unlock all the IDs under the same context
+*   When an ID is unlocked, it can be relocked in a new context
+
+Because there's no I/O involved, those tests take a fraction of a second to run.
+
 
 
 
@@ -151,6 +252,11 @@ These are the versions I worked from:
 
     *   [LockDao.scala @ 4000d97](https://github.com/wellcometrust/scala-storage/blob/4000d97bbacbed479e1b4302d1bae6d5cd0e5c33/storage/src/main/scala/uk/ac/wellcome/storage/LockDao.scala)
 
+-   Creating an in-memory LockDao for testing
+
+    *   [InMemoryLockDao.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/InMemoryLockDao.scala)
+    *   [InMemoryLockDaoTest.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/locking/InMemoryLockDaoTest.scala)
+
 All the code linked above (and in this post) is available under the MIT licence.
 
 [wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
@@ -158,58 +264,6 @@ All the code linked above (and in this post) is available under the MIT licence.
 ---
 
 
-
-```
-class InMemoryLockDao extends LockDao[String, UUID] with Logging {
-  private var locks: Map[String, PermanentLock] = Map.empty
-
-  var history: List[PermanentLock] = List.empty
-
-  override def lock(id: String, contextId: UUID): LockResult = {
-    info(s"Locking ID <$id> in context <$contextId>")
-
-    locks.get(id) match {
-      case Some(r @ PermanentLock(_, existingContextId)) if contextId == existingContextId => Right(r)
-      case Some(PermanentLock(_, existingContextId)) if contextId != existingContextId => Left(
-        LockFailure[String](
-          id,
-          new Throwable(s"Failed to lock <$id> in context <$contextId>; already locked as <$existingContextId>")
-        )
-      )
-      case _ =>
-        val rowLock = PermanentLock(
-          id = id,
-          contextId = contextId
-        )
-        locks = locks ++ Map(id -> rowLock)
-        history = history :+ rowLock
-        Right(rowLock)
-    }
-  }
-
-  override def unlock(contextId: UUID): UnlockResult = {
-    info(s"Unlocking for context <$contextId>")
-    locks = locks.filter { case (id, PermanentLock(_, lockContextId)) =>
-      debug(s"Inspecting $id")
-      contextId != lockContextId
-    }
-
-    Right(())
-  }
-
-  def getCurrentLocks: Set[String] =
-    locks.keys.toSet
-}
-
-case class PermanentLock(id: String, contextId: UUID) extends Lock[String, UUID]
-```
-
-* can lock an ID/context pair
-* can't lock an ID under a different context
-* can lock multiple IDs under a single context
-* can unlock all the IDs in a context
-* can relock an unlocked ID in a new context
-* original locks in a different context are preserved
 
 create a concrete implementation, see dynamolockdao
 
