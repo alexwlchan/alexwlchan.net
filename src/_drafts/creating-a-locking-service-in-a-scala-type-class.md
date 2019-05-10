@@ -248,7 +248,7 @@ This is what we use when running in production.
 
 It fulfills the same basic contract, but it has to be more complicated.
 It calls the DynamoDB APIs, makes conditional updates, and it expires a lock after a fixed period.
-If a worker crashes before it can release its locks, we want the system to recover eventually -- we don't want to have to clean up those locks manually.
+If a worker crashes before it can release its locks, we want the system to recover automatically -- we don't want to have to clean up those locks manually.
 
 I'm not going to walk through that code here, but you can see it in our GitHub repo (link at the bottom of the post).
 
