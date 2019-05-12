@@ -21,25 +21,3 @@
 </tr>
 {% endfor %}
 </table>
-
-
-<!--{% for group in page.grouped_posts %}
-{% assign grp_category = group[0] %}
-{% assign grp_posts = group[1] %}
-  <h3 id="{{ grp_category | slugify }}">{{ grp_category }}</h3>
-
-  <ul class="archive">
-  {% for post in grp_posts %}
-  <li>
-    <div>
-      {% if page.archive_variant == "yearly" or page.archive__variant == "monthly" %}
-        <div class="archive__date">{{ post.date | date: "%-d %b" }}</div>
-      {% else %}
-        <div class="archive__date">{{ post.date | date: "%b %Y" }}</div>
-      {% endif %}
-      <div class="archive__url"><a href="{{ post.url }}">{{ post.title | smartify }}</a></div>
-    </div>
-  </li>
-  {% endfor %}
-  </ul>
-{% endfor %} -->

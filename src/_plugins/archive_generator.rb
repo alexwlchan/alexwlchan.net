@@ -76,8 +76,10 @@ module Jekyll
         site = site,
         posts = posts,
         variant = "global",
-        archive_dir_name = "archive",
-        title = "All posts"
+        archive_dir_name = "all-posts",
+        title = "All posts",
+        date = Date.today,
+        layout = "all_posts"
       )
     end
   end
@@ -90,7 +92,7 @@ module Jekyll
       date
     ]
 
-    def initialize(site, posts, variant, archive_dir_name, title, date = Date.today)
+    def initialize(site, posts, variant, archive_dir_name, title, date = Date.today, layout = "archive")
       @site = site
       @dir = ""
 
@@ -103,23 +105,23 @@ module Jekyll
       self.basename = 'index'
 
       raw_grouped_posts = posts
-        .group_by { |post| post.data.fetch("category", "Everything else") }
+        .group_by { |post| post.data.fetch("category", "Uncategorised") }
 
       grouped_posts = []
       raw_grouped_posts
         .sort
         .map { |category, posts|
-          if category != "Everything else"
+          if category != "Uncategorised"
             grouped_posts << [category, posts]
           end
         }
 
-      if !raw_grouped_posts["Everything else"].nil?
-        grouped_posts << ["Everything else", raw_grouped_posts["Everything else"]]
+      if !raw_grouped_posts["Uncategorised"].nil?
+        grouped_posts << ["Uncategorised", raw_grouped_posts["Uncategorised"]]
       end
 
       self.data = {
-        'layout' => "archive",
+        'layout' => layout,
         'type' => 'archive',
         'title' => title,
         'posts' => posts,

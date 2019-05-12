@@ -5,6 +5,8 @@ link: http://thesecretlivesofdata.com/raft/
 summary: A visualisation of the Raft consensus algorithm.
 title: <em>The Secret Lives of Data</em>, a visualisation of the Raft algorithm
 category: Link posts
+index:
+  exclude: true
 ---
 
 One of the big problems in computer science is [distributed consensus](https://en.wikipedia.org/wiki/Consensus_(computer_science)). This is the problem of getting a set of nodes in a network (or distributed system) to agree on something: perhaps a value, an action, or a record of history. Some of the nodes in this system will be faulty, and drop messages, so you need to be able to work around that as well. This turns out to be very difficult to solve.
