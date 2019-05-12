@@ -591,6 +591,9 @@ These are the versions I worked from:
     *   [LockingServiceFixtures.scala @ 06f19e4](https://github.com/wellcometrust/scala-storage/blob/06f19e4de93701cf1c8e4c99ee794e7ca4d9cc5d/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/LockingServiceFixtures.scala)
     *   [LockingServiceTest.scala @ 3122ffb](https://github.com/wellcometrust/scala-storage/blob/3122ffbcbe8678f3f515e9e7488429f8fe20e194/storage/src/test/scala/uk/ac/wellcome/storage/locking/LockingServiceTest.scala)
 
+I've also put together [a mini-project on GitHub](https://github.com/alexwlchan/alexwlchan.net/blob/99ad3c9cc8315590661c30d3a563485d45672f30/misc/locking_service) with the code from this blog post alone.
+It has both the type classes, the in-memory LockDao implementation, and a small example that exercises both classes.
+
 All the code linked above (and in this post) is available under the MIT licence.
 
 [wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
