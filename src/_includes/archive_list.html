@@ -1,12 +1,12 @@
 <table class="archive">
 {% for post in posts %}
 <tr class="archive__entry">
-  {% if page.archive_variant == "yearly" or page.archive_variant == "monthly" or page.archive_variant == "index" %}
+  {% if page.archive_variant == "yearly" or page.archive_variant == "monthly" %}
     <td class="archive__date">{{ post.date | date: "%-d %b" }}</td>
   {% else %}
     <td class="archive__date">{{ post.date | date: "%b %Y" }}</td>
   {% endif %}
-  {% if post.index and post.index.best_of and page.archive_variant != "index" %}
+  {% if post.index and post.index.best_of %}
     <td class="archive__bestof">
       {% if page.url == "/best-of/" %}
       <img src="/theme/best-of.png">
@@ -14,6 +14,8 @@
       <a href="/best-of/"><img src="/theme/best-of.png"></a>
       {% endif %}
     </td>
+  {% elsif page.archive_variant == "global" %}
+    <td class="archive__bestof"></td>
   {% else %}
     <td></td>
   {% endif %}
