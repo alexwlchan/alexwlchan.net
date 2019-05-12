@@ -8,12 +8,12 @@ index:
   best_of: true
 ---
 
-Last week, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
-I'm quite pleased with the code we wrote, and the way we do all the tricky logic in memory.
-It's involves quite a bit of functional programming, type parameters, and the [Cats library][cats].
+A few weeks ago, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
+I'm quite pleased with the code we wrote, and the way we do all the tricky logic in a type class.
+It involves quite a bit of functional programming, type parameters, and the [Cats library][cats].
 
 I'm going to walk through the code in the post, but please don't be intimidated if it seems complicated.
-It took us both a week to write, and longer to get right!
+It took us both a week to write, and even longer to get right!
 
 [cats]: https://typelevel.org/cats/
 [locking]: https://en.wikipedia.org/wiki/Lock_(computer_science)
@@ -26,12 +26,12 @@ Robert and I are part of a team building a [storage service] for Wellcome's digi
 That includes archives, images, photographs, and much more.
 
 We're saving the files to an Amazon S3 bucket[^1], but Amazon doesn't have a way to lock around writes to S3.
-If two processes try to write to the same location at the same time, there's no guarantee which will win!
+If multiple processes write to the same location at the same time, there's no guarantee which will win!
 
 <img src="/images/2019/locking.png" style="width: 327px;">
 
-Our pipeline features lots of parallel processes -- lots of Docker containers running in parallel, and each container running multiple threads.
-We want to lock around writes to S3, so that only a single process can write to S3 at a time.
+Our pipeline features lots of parallel workers -- Docker containers running in ECS, and each container running multiple threads.
+We want to lock around writes to S3, so that only a single process can write to a given S3 location at a time.
 We verify files after they've been written, and we don't overwrite a file if it exists already -- so locking gives an extra guarantee that a rogue process can't corrupt the archive.
 
 Because S3 doesn't provide those locks for us, we have to manage them ourselves.
@@ -47,19 +47,19 @@ We wanted to build one locking implementation that we could use in lots of place
 
 ## The idea
 
-We already had a locking service that used DynamoDB as a backend.
-DynamoDB supports locking in the form of conditional updates: "only store X if not Y".
-You create a lock by writing a row with your lock ID, and the condition "only store this row if there isn't already a row with this lock ID".
-If the condition is false, the write fails and you know you haven't acquired the lock.
+We already had an existing locking service that used DynamoDB as a backend.
+It creates locks by writing a row for each lock, and doing a conditional update "only store this row if there isn't already a row with this lock ID".
+If the conditional updated failed, we'd know somebody else was holding the lock.
 
-This was fine, but being closely tied to DynamoDB can cause issues.
+This code worked fine, but it was closely tied to DynamoDB, and that caused issues.
 
-Testing it can be slow and fiddly (you need to set up a dummy DynamoDB table), it's closely tied to a specific service (we couldn't reuse this code with a SQL backend, for example), and the implementation was mixing bits of the DynamoDB API with locking logic.
+It was slow and fiddly to test -- you needed to set up a dummy DynamoDB instance -- and if you were calling the locking service, you needed that test setup as well.
+It was also closely tied to the DynamoDB APIs, so we couldn't easily extend or modify it to work with a different backend (for example, MySQL).
 
-callers
+We wanted to try writing a new locking service that wasn't tied to DynamoDB.
+We'd separate out the locking logic and the database backend, and write something that was easy to extend or modify.
 
-We wanted to have a go at creating a new locking service that didn't have a DynamoDB dependency.
-We'd separate out the backend,
+This is the API in the original service which were were trying to replicate:
 
 ```scala
 lockingService.withLocks(Set("1", "2", "3")) {
@@ -67,11 +67,19 @@ lockingService.withLocks(Set("1", "2", "3")) {
 }
 ```
 
-https://sans-io.readthedocs.io/how-to-sans-io.html#why-write-i-o-free-protocol-implementations
+The idea of doing it in a type class (so it wasn't tied to a particular database implementation) isn't new.
+
+I first came across this idea when working on [hyper-h2](https://github.com/python-hyper/hyper-h2), an HTTP/2 protocol stack for Python that's purely in-memory.
+It only operates on bytes, and doesn't have opinions about I/O or networking, so it can be reused in a variety of contexts.
+hyper-h2 is part of a wider pattern of [sans-IO network protocol libraries](https://sans-io.readthedocs.io/how-to-sans-io.html), and many of the same benefits apply here.
+
+
 
 ## Managing individual locks
 
-First we need to be able to manage a lock around an individual resource.
+First we need to be able to manage a lock around a single resource.
+We assume the resource has some sort of identifier, which we can use to distinguish locks.
+
 We might write something like this (here, a dao is a [data access object][dao]):
 
 ```scala
@@ -87,9 +95,9 @@ It has to decide if/when we can perform each of those operations.
 We can create implementations with different backends that all inherit this trait, and which have different rules for managing locks.
 A few ideas:
 
-*   A DynamoDB-backed lock dao for use in production applications
-*   An in-memory dao for use in tests
-*   A dao that expires locks after a certain period if not explicitly unlocked
+*   A DynamoDB-backed LockDao for use in production applications
+*   An in-memory LockDao for use in tests
+*   A LockDao that expires locks after a certain period if not explicitly unlocked
 
 The type of the lock identifier is a type parameter, `Ident`.
 An identifier might be a string, or a number, or a UUID, or something else -- we don't have to decide here.
@@ -100,7 +108,7 @@ Sometimes we need to acquire more than one lock at once, which needs multiple ca
 To make it simpler for the caller, we've added a second parameter -- a context ID -- to track which process owns a given lock.
 A single call to `unlock()` releases all the locks owned by a process.
 
-Here's what the new trait looks like:
+Here's what that trait looks like:
 
 ```scala
 trait LockDao[Ident, ContextId] {
@@ -115,7 +123,7 @@ Now let's think about what these methods should return.
 We need to tell the caller whether the lock/unlock succeeded.
 
 We probably want some context, especially if something goes wrong -- so more than a simple boolean.
-We could use a `Try` or a `Future`, but that doesn't feel quite right -- we expect lock failures sometimes, and it'd be nice to type the errors.
+We could use a `Try` or a `Future`, but that doesn't feel quite right -- we expect lock failures sometimes, and it'd be nice to type the errors beyond just `Throwable`.
 
 Eventually we settled upon using an `Either`, with case classes for lock/unlock failures that include some context for the operation in question, and a Throwable that explains why the operation failed:
 
@@ -149,10 +157,10 @@ Now we need to create implementations of this trait!
 ## Creating an in-memory LockDao for testing
 
 Somebody who uses the LockDao can ask for an instance of that trait, and it doesn't matter whether it's backed by a real database or it's just in-memory.
-So when we're testing code that uses the LockDao -- but not testing a LockDao implementation specifically -- we can use a simpler, in-memory implementation.
+So when we're testing code that uses the LockDao -- but not testing a LockDao implementation specifically -- we can use a simple, in-memory implementation.
 This makes our tests faster and easier to manage!
 
-Let's create an in-memory implementation.
+Let's create one now.
 Here's a skeleton to start with:
 
 ```scala
@@ -198,12 +206,8 @@ class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
 }
 ```
 
-We have to remember to look for an existing lock, and compare it to the lock the caller is requesting.
-It's fine to call `lock()` if you already have the lock, but you can't lock an ID if somebody else has already locked it.
-
-Because this is only for testing, it doesn't need to be thread-safe or especially robust.
-This code is quite simple, so we're more likely to get it right.
-When a caller uses this in tests, they can trust the LockDao is behaving correctly and focus on how they use it, and not worry about bugs in the locking code.
+We have to remember to look for an existing lock, and compare it to the lock that's requested.
+It's fine to call `lock()` if you already have the lock, but you can't lock an ID that somebody else owns.
 
 Unlocking is much simpler: we just remove the entry from the map.
 
@@ -222,6 +226,11 @@ class InMemoryLockDao[Ident, ContextId] extends LockDao[Ident, ContextId] {
 ```
 
 This gives us a LockDao implementation that's pretty simple, and we can use whenever we need a LockDao in tests.
+
+Because it's only for testing, it doesn't need to be thread-safe or especially robust.
+This code is quite simple, so we're more likely to get it right.
+When a caller uses this in tests, they can trust the LockDao is behaving correctly and focus on how they use it, and not worry about bugs in the locking code.
+
 Here's what it looks like in practice:
 
 ```scala
@@ -237,7 +246,7 @@ println(dao.unlock(contextId = u1))
 println(dao.lock(id = "1", contextId = UUID.randomUUID))  // succeeds
 ```
 
-We also have a small number of tests that go with it, and check it behaves correctly:
+We also have a small number of tests to check it behaves correctly:
 
 *   It locks an ID/context pair
 *   You can't lock the same ID under different contexts
@@ -262,8 +271,8 @@ I'm not going to walk through it, but you can see this code in our GitHub repo (
 
 ## Creating the locking service
 
-Now for the interesting bit: the locking service.
-A quick recap: this service receives a set of identifiers and a callback.
+Now let's build a locking service.
+You pass it a set of identifiers and a callback.
 It has to acquire a lock on each of those identifiers, get the result of the callback, then release the locks and return the result.
 
 Here's a stub to start us off:
@@ -287,7 +296,7 @@ trait LockingService[LockDaoImpl <: LockDao[_, _]] {
 }
 ```
 
-We're asking implementations to tell us how to create a context ID -- the type of context ID will vary, as will the rules for creation.
+We're asking implementations to tell us how to create a context ID, because the type of context ID will vary, as will the rules for creation.
 Maybe it's a worker ID, or a thread ID, or a random ID used once and discarded immediately after.
 
 Then we need to acquire the locks on all the identifiers we've received.
@@ -342,15 +351,16 @@ trait LockingService[LockDaoImpl <: LockDao[_, _]] extends Logging {
 ```
 
 The main entry point is `getLocks()`, which gets both the IDs and the context ID we've created.
-As before, this returns an `Either[…]`, so we get nice context about the locking failures, if there are any.
+As in the InMemoryLockDao, this returns an `Either[…]`, so we get nice context about any locking failures.
 
 First we call `lockDao.lock(…)` on every ID, which gives us a list of `LockResult`s.
 We look for any failures with `getFailedLocks()` -- if there are any, we try to release the locks we've already taken, and return a Left.
 If all the locks succeed, we get a Right.
 
 The unlocking happens in `unlock()`.
-It attempts to unlocking everything, but an unlock failure just gets a warning in the logs, not a full-blown error.
+It attempts to unlock everything, but an unlock failure just gets a warning in the logs, not a full-blown error.
 We're already bubbling up an error for the locking failure, and we didn't think it worth exposing those extra errors.
+And if the callback succeeds but the unlocking fails, the operation as a whole is still a success and worth returning to the caller.
 
 Then we have to actually invoke the callback, and this bit gets interesting.
 We want this service to be very generic, and handle different types of function.
@@ -372,7 +382,7 @@ trait LockingService[Out, OutMonad[_], ...] {
 ```
 
 We're starting to get into code that uses more advanced functional programming, and in particular the Cats library.
-Robert and I were using the book [*Scala with Cats*](https://underscore.io/books/scala-with-cats/) as we wrote this bit of the code.
+Robert and I were reading the book [*Scala with Cats*](https://underscore.io/books/scala-with-cats/) as we wrote this code.
 It's a free ebook, and I'd recommend it if you want more detail.
 
 Let's go through this code carefully.
@@ -394,8 +404,8 @@ Some examples of monads in Scala include `List[_]`, `Option[_]` and `Future[_]`.
 They all take a single type parameter, have a monadic unit, and you can compose them with `flatMap`.
 
 So we expect our callback to return a monad wrapping another type.
-We'll get an Either which contains the result of the callback or the locking service error, and then we'll wrap that Either in the monad type.
-We're preserving the monad type of the callback.
+Inside the service, we'll get an Either which contains the result of the callback or the locking service error, and then we'll wrap that Either in the monad type.
+We're preserving the monad return type of the callback.
 
 For example, if our callback returns `Future[Int]`, then `OutMonad` would be `Future` and `Out` would be `Int`.
 The `withLocks(…)` method then returns `Future[Either[FailedLockingServiceOp, Int]]`.
@@ -405,7 +415,7 @@ What if it returns a type like `Int` or `String`?
 Here we'll use a bit of Cats: we can imagine these types as being wrapped in the *identity monad*, `Id[_]`.
 This is the monad that maps any value to itself, i.e. `id(a: A) = a`.
 
-So even if the callback code isn't wrapped in an explicit monad, the compiler can still assign the type parameter `OutMonad`.
+So even if the callback code isn't wrapped in an explicit monad, the compiler can still assign the type parameter `OutMonad`, by imagining it as `Id[_]`.
 
 So now we know what type our callback returns, let's actually call it inside the locking service.
 For now, assume we've already successfully acquired the locks, and we want to run the callback.
@@ -448,7 +458,7 @@ The type we've just imported, `MonadError`, gives us a way to handle errors that
 
 We call the callback, and wait for it to return (for example, a Future doesn't return immediately).
 If it returns successfully, we map over the result, unlock the context ID, and wrap the result in a Right.
-You can always map over a monad type, so this is already wrapped in the right monad for us.
+We've imported `cats.implicits._` so we can map over `OutMonad` and preserve its type.
 This the happy path.
 
 If something goes wrong, we use the `MonadError` to handle the error, unlock the context ID, and then wrap the result in a Left.
@@ -457,7 +467,7 @@ This is the sad path.
 
 Either way, we're waiting for the callback to return and then releasing the locks.
 
-This is where a generic monad type makes things fiddly -- if we had a concrete type like `Future` or `Try`, we'd know how to wait for the result.
+If we had a concrete type like `Future` or `Try`, we'd know how to wait for the result.
 Instead, we're handing that off to Cats.
 
 Now we have all the pieces we need to actually write out `withLocks` method, and here it is:
@@ -495,7 +505,7 @@ trait LockingService[Out, OutMonad[_], ...] {
 Hopefully you recognise all the arguments to the function -- the IDs to lock over, the callback, and the implicit MonadError (which will be created by Cats).
 
 That `EitherT` in the for comprehension is [another Cats helper][eithert].
-It's an Either transformer -- if you have a monad `F[_]` and types `A` and `B`, then `EitherT[F[_], A, B]` is a thin wrapper for `F[Either[A, B]]`.
+It's an Either transformer -- if you have a monad type `F[_]` and types `A` and `B`, then `EitherT[F[_], A, B]` is a thin wrapper for `F[Either[A, B]]`.
 It lets us easily swap the `Either` and the `F[_]`.
 
 In the first case, it takes the result of `getLocks()` and wraps it in `OutMonad`.
@@ -512,7 +522,8 @@ In barely a hundred lines of Scala, we've implemented all the logic for a lockin
 
 ## Putting the locking service to use
 
-We can combine the generic locking service with the in-memory lock dao, and get an in-memory locking service:
+We can combine the generic locking service with the in-memory lock dao, and get an in-memory locking service.
+Because all the logic is in the type class, this is really short:
 
 ```scala
 import java.util.UUID
@@ -520,6 +531,7 @@ import java.util.UUID
 val lockingService = new LockingService[String, Try, LockDao[String, UUID]] {
   override implicit val lockDao: LockDao[String, UUID] =
     new InMemoryLockDao[String, UUID]()
+
   override def createContextId: UUID =
     UUID.randomUUID()
 }
@@ -532,7 +544,7 @@ Our tests cases include checking that it:
 *   Returns the result of a successful callback
 *   Returns a failure if you try to re-lock an already locked identifier, and preserves the original locks
 *   Allows you to nest locks
-*   Releases the lock when the callback completes (success or failure), and allows you to re-lock
+*   Releases the lock when the callback completes (both success and failure), and allows you to re-lock
 *   Releases all of its locks if it fails to lock a complete set of IDs
 *   Succeeds even if unlocking fails
 
@@ -542,8 +554,8 @@ Because everything happens in memory, it's incredibly fast.
 And when we have code that uses the locking service, we can drop in the in-memory version for testing that, as well.
 It makes tests simpler and cleaner elsewhere in the codebase.
 
-When we want an implementation to write in production, we can combine it with a LockDao implementation and get a locking service implementation -- and it's incredibly simple.
-This is the entirety of our Dynamo locking service:
+When we want an implementation to write in production, we can combine it with a LockDao implementation and get a new locking service implementation.
+This is the entirety of our DynamoDB locking service:
 
 ```scala
 class DynamoLockingService[Out, OutMonad[_]](
@@ -555,7 +567,7 @@ class DynamoLockingService[Out, OutMonad[_]](
 }
 ```
 
-This is the beauty of doing it in a type class -- we can swap out the implementation and not have to rewrite the tricky lock/unlock logic.
+This is the beauty of doing it in a type class -- we can swap out the implementation and not have to rewrite any of the tricky lock/unlock logic.
 It's a really generic and reusable implementation.
 
 
@@ -596,7 +608,16 @@ These are the versions I worked from:
 
 I've also put together [a mini-project on GitHub](https://github.com/alexwlchan/alexwlchan.net/blob/99ad3c9cc8315590661c30d3a563485d45672f30/misc/locking_service) with the code from this blog post alone.
 It has both the type classes, the in-memory LockDao implementation, and a small example that exercises both classes.
-
 All the code linked above (and in this post) is available under the MIT licence.
+
+Writing this blog post was a useful exercise for me.
+If I want to explain this code, I have to really understand it.
+There's no room to handwave something and say "this works, but I'm not sure why".
+
+And it makes the code better too!
+As I was writing this post, I spotted several places where the original code was unclear or inefficient.
+I'll push those fixes back to the codebase -- so not only is this blog post an explanation for future maintainers, but the code itself is clearer as well.
+
+I can't do this sort of breakdown for all the code I write, but I recommend it if you're every writing especially complex or tricky code.
 
 [wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
