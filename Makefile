@@ -91,7 +91,4 @@ nginx-serve:
 		--detach nginx:alpine
 
 
-include analytics/Makefile
-
-
 .PHONY: publish-docker build stop serve publish-drafts publish rsync deploy
