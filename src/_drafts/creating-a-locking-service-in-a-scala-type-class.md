@@ -6,9 +6,13 @@ tags: scala
 ---
 
 Last week, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
-I'm quite pleased with the code we wrote, and the way we used type classes to do all the tricky logic in memory.
-In this post, I'm going to walk through the code we wrote.
+I'm quite pleased with the code we wrote, and the way we do all the tricky logic in memory.
+It's involves quite a bit of functional programming, type parameters, and the [Cats library][cats].
 
+I'm going to walk through the code in the post, but please don't be intimidated if it seems complicated.
+It took us both a week to write, and longer to get right!
+
+[cats]: https://typelevel.org/cats/
 [locking]: https://en.wikipedia.org/wiki/Lock_(computer_science)
 
 
@@ -247,114 +251,64 @@ Because we work primarily in AWS, we've created a LockDao implementation that us
 This is what we use when running in production.
 
 It fulfills the same basic contract, but it has to be more complicated.
-It calls the DynamoDB APIs, makes conditional updates, and it expires a lock after a fixed period.
-If a worker crashes before it can release its locks, we want the system to recover automatically -- we don't want to have to clean up those locks manually.
+It calls the DynamoDB APIs, makes conditional updates, and it expires a lock after a fixed period if it hasn't been released.
+If a worker crashes before it can release its locks, we want the system to recover automatically -- we don't want to have to clean up those locks by hand.
 
-I'm not going to walk through that code here, but you can see it in our GitHub repo (link at the bottom of the post).
-
-
+I'm not going to walk through it, but you can see this code in our GitHub repo (link at the end of the post).
 
 
-## Putting it all together
+## Creating the locking service
 
-All the code this post was based on is in a public GitHub repository, [wellcometrust/scala-storage], which is a collection of our shared storage utilities (mainly for working with DynamoDB and S3).
-These are the versions I worked from:
+Now for the interesting bit: the locking service.
+A quick recap: this service receives a set of identifiers and a callback.
+It has to acquire a lock on each of those identifiers, get the result of the callback, then release the locks and return the result.
 
--   Managing individual locks
+Here's a stub to start us off:
 
-    *   [LockDao.scala @ 4000d97](https://github.com/wellcometrust/scala-storage/blob/4000d97bbacbed479e1b4302d1bae6d5cd0e5c33/storage/src/main/scala/uk/ac/wellcome/storage/LockDao.scala)
-
--   Creating an in-memory LockDao for testing
-
-    *   [InMemoryLockDao.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/InMemoryLockDao.scala)
-    *   [InMemoryLockDaoTest.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/locking/InMemoryLockDaoTest.scala)
-
--   Creating a concrete implementation of LockDao
-
-    *   [DynamoLockDao.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDao.scala)
-    *   [DynamoLockDaoConfig.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoConfig.scala)
-    *   [DynamoLockDaoTest.scala @ aaba0fe](https://github.com/wellcometrust/scala-storage/blob/aaba0feea0f7ff01daa198461afd26c0160c4164/storage/src/test/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoTest.scala)
-
-All the code linked above (and in this post) is available under the MIT licence.
-
-[wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
-
-
----
-
-
-
-create a concrete implementation, see dynamolockdao
-
----
-
-so now the locking service!
-
+```scala
+trait LockingService[Ident] {
+  def withLocks(ids: Set[Ident])(callback: => ???) = ???
+}
 ```
-package uk.ac.wellcome.storage
 
-import cats._
-import cats.data._
-import grizzled.slf4j.Logging
+For now, let's put aside the return type of the `callback`, and acquire a lock.
+We'll need a lock dao (which can be entirely generic), and a way to create context IDs:
 
-import scala.language.higherKinds
-
-trait LockingService[Out, OutMonad[_], LockDaoImpl <: LockDao[_, _]]
-    extends Logging {
-
-  import cats.implicits._
-
+```scala
+trait LockingService[LockDaoImpl <: LockDao[_, _]] {
   implicit val lockDao: LockDaoImpl
 
+  def withLocks(ids: Set[lockDao.Ident])(callback: => ???) = ???
+
+  def createContextId: lockDao.ContextId
+}
+```
+
+We're asking implementations to tell us how to create a context ID -- the type of context ID will vary, as will the rules for creation.
+Maybe it's a worker ID, or a thread ID, or a random ID used once and discarded immediately after.
+
+Then we need to acquire the locks on all the identifiers we've received.
+If we get them all, we can call the callback -- but if any of the locks fail, we should release anything we've already locked and return without invoking the callback.
+
+Let's write a method for acquiring the locks:
+
+```scala
+import grizzled.slf4j.Logging
+
+trait FailedLockingServiceOp
+
+case class FailedLock[ContextId, Ident](
+  contextId: ContextId,
+  lockFailures: Set[LockFailure[Ident]]) extends FailedLockingServiceOp
+
+trait LockingService[LockDaoImpl <: LockDao[_, _]] extends Logging {
+  ...
+
   type LockingServiceResult = Either[FailedLockingServiceOp, lockDao.ContextId]
-  type Process = Either[FailedLockingServiceOp, Out]
 
-  type OutMonadError = MonadError[OutMonad, Throwable]
-
-  def withLocks(ids: Set[lockDao.Ident])(
-    f: => OutMonad[Out]
-  )(implicit m: OutMonadError): OutMonad[Process] = {
-    val contextId: lockDao.ContextId = createContextId()
-
-    val eitherT = for {
-      contextId <- EitherT.fromEither[OutMonad](
-        getLocks(ids = ids, contextId = contextId))
-
-      out <- EitherT(safeF(contextId)(f))
-    } yield out
-
-    eitherT.value
-  }
-
-  protected def createContextId(): lockDao.ContextId
-
-  def withLock(id: lockDao.Ident)(f: => OutMonad[Out])(
-    implicit m: OutMonadError): OutMonad[Process] =
-    withLocks(Set(id)) { f }
-
-  private def safeF(contextId: lockDao.ContextId)(
-    f: => OutMonad[Out]
-  )(implicit monadError: OutMonadError): OutMonad[Process] = {
-    val partialF = f.map(o => {
-      debug(s"Processing $contextId (got $o)")
-      unlock(contextId)
-      Either.right[FailedLockingServiceOp, Out](o)
-    })
-
-    monadError.handleError(partialF) { e =>
-      unlock(contextId)
-      Either.left[FailedLockingServiceOp, Out](
-        FailedProcess[lockDao.ContextId](contextId, e)
-      )
-    }
-  }
-
-  /** Lock the entire set of identifiers we were given.  If any of them fail,
-    * unlock the entire context and report a failure.
-    *
-    */
-  private def getLocks(ids: Set[lockDao.Ident],
-                       contextId: lockDao.ContextId): LockingServiceResult = {
+  def getLocks(
+    ids: Set[lockDao.Ident],
+    contextId: lockDao.ContextId): LockingServiceResult = {
     val lockResults = ids.map { lockDao.lock(_, contextId) }
     val failedLocks = getFailedLocks(lockResults)
 
@@ -382,170 +336,258 @@ trait LockingService[Out, OutMonad[_], LockDaoImpl <: LockDao[_, _]]
         warn(s"Unable to unlock context $contextId fully: $error")
       }
 }
+```
 
-sealed trait FailedLockingServiceOp
+The main entry point is `getLocks()`, which gets both the IDs and the context ID we've created.
+As before, this returns an `Either[…]`, so we get nice context about the locking failures, if there are any.
 
-case class FailedLock[ContextId, Ident](contextId: ContextId,
-                                        lockFailures: Set[LockFailure[Ident]])
-    extends FailedLockingServiceOp
+First we call `lockDao.lock(…)` on every ID, which gives us a list of `LockResult`s.
+We look for any failures with `getFailedLocks()` -- if there are any, we try to release the locks we've already taken, and return a Left.
+If all the locks succeed, we get a Right.
 
-case class FailedUnlock[ContextId, Ident](contextId: ContextId,
-                                          ids: List[Ident],
-                                          e: Throwable)
-    extends FailedLockingServiceOp
+The unlocking happens in `unlock()`.
+It attempts to unlocking everything, but an unlock failure just gets a warning in the logs, not a full-blown error.
+We're already bubbling up an error for the locking failure, and we didn't think it worth exposing those extra errors.
+
+Then we have to actually invoke the callback, and this bit gets interesting.
+We want this service to be very generic, and handle different types of function.
+The callback might return a Future, or a Try, or an Either, or something else.
+We want to preserve that return type, and combine it with possible locking errors.
+
+So we added another pair of type parameters:
+
+```scala
+trait LockingService[Out, OutMonad[_], ...] {
+  ...
+
+  type Process = Either[FailedLockingServiceOp, Out]
+
+  def withLocks(
+    ids: Set[lockDao.Ident])(
+    callback: => OutMonad[Out]): OutMonad[Process] = ???
+}
+```
+
+We're starting to get into code that uses more advanced functional programming, and in particular the Cats library.
+Robert and I were using the book [*Scala with Cats*](https://underscore.io/books/scala-with-cats/) as we wrote this bit of the code.
+It's a free ebook, and I'd recommend it if you want more detail.
+
+Let's go through this code carefully.
+
+We've added two new type parameters: `Out` and `OutMonad[_]`, so the return type of our callback is `OutMonad[Out]`.
+What's a monad?
+
+This is the definition that works for me: a type `F` is a *monad* if:
+
+*   It has a type constructor `F[_]` that takes exactly one type parameter.
+
+*   There's a function that takes a value of any type `A` and produces a value of type `F[A]`.
+    This is called a *monadic unit*.
+
+*   If you have a function `A => F[B]`, and a function `B => F[C]`, you can combine these functions to get a single function `A => F[C]`.
+    This is called *monadic composition*.
+
+Some examples of monads in Scala include `List[_]`, `Option[_]` and `Future[_]`.
+They all take a single type parameter, have a monadic unit, and you can compose them with `flatMap`.
+
+So we expect our callback to return a monad wrapping another type.
+We'll get an Either which contains the result of the callback or the locking service error, and then we'll wrap that Either in the monad type.
+We're preserving the monad type of the callback.
+
+For example, if our callback returns `Future[Int]`, then `OutMonad` would be `Future` and `Out` would be `Int`.
+The `withLocks(…)` method then returns `Future[Either[FailedLockingServiceOp, Int]]`.
+
+But what if our callback doesn't return a monad?
+What if it returns a type like `Int` or `String`?
+Here we'll use a bit of Cats: we can imagine these types as being wrapped in the *identity monad*, `Id[_]`.
+This is the monad that maps any value to itself, i.e. `id(a: A) = a`.
+
+So even if the callback code isn't wrapped in an explicit monad, the compiler can still assign the type parameter `OutMonad`.
+
+So now we know what type our callback returns, let's actually call it inside the locking service.
+For now, assume we've already successfully acquired the locks, and we want to run the callback.
+
+```scala
+import cats.MonadError
 
 case class FailedProcess[ContextId](contextId: ContextId, e: Throwable)
-    extends FailedLockingServiceOp
+  extends FailedLockingServiceOp
+
+trait LockingService[Out, OutMonad[_], ...] {
+  ...
+
+  type Process = Either[FailedLockingServiceOp, Out]
+
+  def unlock(contextId: ContextId): UnlockResult = ...
+
+  type OutMonadError = MonadError[OutMonad, Throwable]
+
+  def safeCallback(contextId: lockDao.ContextId)(
+    callback: => OutMonad[Out]
+  )(implicit monadError: OutMonadError): OutMonad[Process]} = {
+    val partialResult: OutMonad[Process] = callback.map { out =>
+      unlock(contextId)
+      Either.right[FailedLockingServiceOp, Out].right(out)
+    }
+
+    monadError.handleError(partialResult) { err =>
+      unlock(contextId)
+      Either.right[FailedLockingServiceOp, Out].left(FailedProcess(contextId, err))
+    }
+  }
+}
 ```
 
-can test extensively with in-memory, super fast!
+We're bringing in more stuff from Cats here.
+The type we've just imported, `MonadError`, gives us a way to handle errors that happen inside monads -- for example, an exception thrown inside a Future.
 
-```
-  it("acquires a lock successfully, and returns the result") {
-    val lockDao = new InMemoryLockDao()
+We call the callback, and wait for it to return (for example, a Future doesn't return immediately).
+If it returns successfully, we map over the result, unlock the context ID, and wrap the result in a Right.
+You can always map over a monad type, so this is already wrapped in the right monad for us.
+This the happy path.
 
-    withLockingService(lockDao) { service =>
-      assertLockSuccess(service.withLocks(lockIds) {
-        lockDao.getCurrentLocks shouldBe lockIds
-        f
-      })
-    }
-  }
+If something goes wrong, we use the `MonadError` to handle the error, unlock the context ID, and then wrap the result in a Left.
+Using this Cats helper ensures we handle the error correctly, and it gets wrapped in the appropriate monad type at te end.
+This is the sad path.
 
-  it("allows locking a single identifier") {
-    val lockDao = new InMemoryLockDao()
+Either way, we're waiting for the callback to return and then releasing the locks.
 
-    withLockingService(lockDao) { service =>
-      assertLockSuccess(service.withLock("a") {
-        lockDao.getCurrentLocks shouldBe Set("a")
-        f
-      })
-    }
-  }
+This is where a generic monad type makes things fiddly -- if we had a concrete type like `Future` or `Try`, we'd know how to wait for the result.
+Instead, we're handing that off to Cats.
 
-  it("fails if you try to re-lock the same identifiers twice") {
-    val lockDao = new InMemoryLockDao()
+Now we have all the pieces we need to actually write out `withLocks` method, and here it is:
 
-    withLockingService(lockDao) { service =>
-      assertLockSuccess(service.withLocks(lockIds) {
-        assertFailedLock(service.withLocks(lockIds)(f), lockIds)
+```scala
+import cats.EitherT
 
-        // Check the original locks were preserved
-        lockDao.getCurrentLocks shouldBe lockIds
+trait LockingService[Out, OutMonad[_], ...] {
+  ...
 
-        f
-      })
-    }
-  }
+  type LockingServiceResult = Either[FailedLockingServiceOp, lockDao.ContextId]
 
-  it("fails if you try to re-lock an already locked identifier") {
-    val lockDao = new InMemoryLockDao()
+  def getLocks(
+    ids: Set[lockDao.Ident],
+    contextId: lockDao.ContextId): LockingServiceResult = ...
 
-    withLockingService(lockDao) { service =>
-      assertLockSuccess(service.withLocks(lockIds) {
-        assertFailedLock(
-          service.withLocks(overlappingLockIds)(f),
-          commonLockIds)
+  def withLocks(ids: Set[lockDao.Ident])(
+    callback: => OutMonad[Out]
+  )(implicit m: OutMonadError): OutMonad[Process] = {
+    val contextId: lockDao.ContextId = createContextId()
 
-        // Check the original locks were preserved
-        lockDao.getCurrentLocks shouldBe lockIds
-
-        f
-      })
-    }
-  }
-
-  it("allows multiple, nested locks on different identifiers") {
-    withLockingService { service =>
-      assertLockSuccess(service.withLocks(lockIds) {
-        assertLockSuccess(service.withLocks(differentLockIds)(f))
-
-        f
-      })
-    }
-  }
-
-  it("unlocks a context set when done, and allows you to re-lock them") {
-    withLockingService { service =>
-      assertLockSuccess(service.withLocks(lockIds)(f))
-      assertLockSuccess(service.withLocks(lockIds)(f))
-    }
-  }
-
-  it("unlocks a context set when a result throws a Throwable") {
-    withLockingService { service =>
-      assertFailedProcess(
-        service.withLocks(lockIds)(fError), expectedError)
-      assertLockSuccess(
-        service.withLocks(lockIds)(f))
-    }
-  }
-
-  it("unlocks a context set when a partial lock is acquired") {
-    withLockingService { service =>
-      assertLockSuccess(service.withLocks(lockIds) {
-
-        assertFailedLock(
-          service.withLocks(overlappingLockIds)(f),
-          commonLockIds
-        )
-
-        assertLockSuccess(
-          service.withLocks(nonOverlappingLockIds)(f)
-        )
-
-        f
-      })
-    }
-  }
-
-  it("calls the callback if asked to lock an empty set") {
-    withLockingService { service =>
-      assertLockSuccess(
-        service.withLocks(Set.empty)(f)
+    val eitherT = for {
+      contextId <- EitherT.fromEither[OutMonad](
+        getLocks(ids = ids, contextId = contextId)
       )
-    }
+
+      out <- EitherT(safeCallback(contextId)(callback))
+    } yield out
+
+    eitherT.value
   }
-
-  it("returns a success even if unlocking fails") {
-    val brokenUnlockDao = new LockDao[String, UUID] {
-      override def lock(id: String, contextId: UUID): LockResult =
-        Right(PermanentLock(id = id, contextId = contextId))
-
-      override def unlock(contextId: ContextId): UnlockResult =
-        Left(UnlockFailure(contextId, new Throwable("BOOM!")))
-    }
-
-    withLockingService(brokenUnlockDao) { service =>
-      assertLockSuccess(
-        service.withLocks(lockIds)(f)
-      )
-    }
-  }
-
-  it("releases locks if the callback fails") {
-    val lockDao = new InMemoryLockDao()
-
-    withLockingService(lockDao) { service =>
-      val result = service.withLocks(lockIds) {
-        Try {
-          throw new Throwable("BOOM!")
-        }
-      }
-
-      result.get.left.value shouldBe a[FailedProcess[_]]
-      lockDao.getCurrentLocks shouldBe Set.empty
-    }
-  }
+}
 ```
 
-beauty is that with lockign service:
+Hopefully you recognise all the arguments to the function -- the IDs to lock over, the callback, and the implicit MonadError (which will be created by Cats).
 
+That `EitherT` in the for comprehension is [another Cats helper][eithert].
+It's an Either transformer -- if you have a monad `F[_]` and types `A` and `B`, then `EitherT[F[_], A, B]` is a thin wrapper for `F[Either[A, B]]`.
+It lets us easily swap the `Either` and the `F[_]`.
+
+In the first case, it takes the result of `getLocks()` and wraps it in `OutMonad`.
+
+If getting the locks succeeds, then it calls `safeCallback()` and wraps that in an `EitherT` as well.
+Once that returns, it extracts the value of the underlying `OutMonad[Either[_, _]]` and returns that result.
+
+[eithert]: https://typelevel.org/cats/datatypes/eithert.html
+
+And that's the end of the locking service!
+In barely a hundred lines of Scala, we've implemented all the logic for a locking service -- and it's completely independent of the underlying database implementation.
+
+
+
+## Putting the locking service to use
+
+We can combine the generic locking service with the in-memory lock dao, and get an in-memory locking service:
+
+```scala
+import java.util.UUID
+
+val lockingService = new LockingService[String, Try, LockDao[String, UUID]] {
+  override implicit val lockDao: LockDaoStub = new InMemoryLockDao[String, UUID]()
+  override protected def createContextId(): UUID =
+    UUID.randomUUID()
+}
 ```
+
+This is perfect for testing the locking service logic -- because it's in-memory, it runs really quickly, and we can write lots of tests to check it behaves correctly.
+Our tests cases include checking that it:
+
+*   Acquires the locks in the underlying dao
+*   Returns the result of a successful callback
+*   Returns a failure if you try to re-lock an already locked identifier, and preserves the original locks
+*   Allows you to nest locks
+*   Releases the lock when the callback completes (success or failure), and allows you to re-lock
+*   Releases all of its locks if it fails to lock a complete set of IDs
+*   Succeeds even if unlocking fails
+
+And those tests run in a fraction of a second!
+Because everything happens in memory, it's incredibly fast.
+
+And when we have code that uses the locking service, we can drop in the in-memory version for testing that, as well.
+It makes tests simpler and cleaner elsewhere in the codebase.
+
+When we want an implementation to write in production, we can combine it with a LockDao implementation and get a locking service implementation -- and it's incredibly simple.
+This is the entirety of our Dynamo locking service:
+
+```scala
 class DynamoLockingService[Out, OutMonad[_]](
   implicit val lockDao: DynamoLockDao)
     extends LockingService[Out, OutMonad, LockDao[String, UUID]] {
+
   override protected def createContextId(): lockDao.ContextId =
     UUID.randomUUID()
 }
 ```
+
+This is the beauty of doing it in a type class -- we can swap out the implementation and not have to rewrite the tricky lock/unlock logic.
+It's a really generic and reusable implementation.
+
+
+
+
+
+
+## Putting it all together
+
+All the code this post was based on is in a public GitHub repository, [wellcometrust/scala-storage], which is a collection of our shared storage utilities (mainly for working with DynamoDB and S3).
+These are the versions I worked from:
+
+-   Managing individual locks
+
+    *   [LockDao.scala @ 4000d97](https://github.com/wellcometrust/scala-storage/blob/4000d97bbacbed479e1b4302d1bae6d5cd0e5c33/storage/src/main/scala/uk/ac/wellcome/storage/LockDao.scala)
+
+-   Creating an in-memory LockDao for testing
+
+    *   [InMemoryLockDao.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/InMemoryLockDao.scala)
+    *   [InMemoryLockDaoTest.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/locking/InMemoryLockDaoTest.scala)
+
+-   Creating a concrete implementation of LockDao
+
+    *   [DynamoLockDao.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDao.scala)
+    *   [DynamoLockDaoConfig.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoConfig.scala)
+    *   [DynamoLockDaoTest.scala @ aaba0fe](https://github.com/wellcometrust/scala-storage/blob/aaba0feea0f7ff01daa198461afd26c0160c4164/storage/src/test/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoTest.scala)
+    *   [ExpiringLock.scala @ 17e4525](https://github.com/wellcometrust/scala-storage/blob/17e4525173a9f121de911affca1c95efefad3424/storage/src/main/scala/uk/ac/wellcome/storage/locking/ExpiringLock.scala)
+
+-   Creating the locking service
+
+    *   [LockingService.scala @ 9f4433a](https://github.com/wellcometrust/scala-storage/blob/9f4433adc3173908127798746050fe3ba219db4a/storage/src/main/scala/uk/ac/wellcome/storage/LockingService.scala)
+
+-   Putting the locking service to use
+
+    *   [DynamoLockingService.scala @ 34d89d8](https://github.com/wellcometrust/scala-storage/blob/34d89d8400f5e7ec853e581b07b255455efbc051/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockingService.scala)
+    *   [LockingServiceFixtures.scala @ 06f19e4](https://github.com/wellcometrust/scala-storage/blob/06f19e4de93701cf1c8e4c99ee794e7ca4d9cc5d/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/LockingServiceFixtures.scala)
+    *   [LockingServiceTest.scala @ 3122ffb](https://github.com/wellcometrust/scala-storage/blob/3122ffbcbe8678f3f515e9e7488429f8fe20e194/storage/src/test/scala/uk/ac/wellcome/storage/locking/LockingServiceTest.scala)
+
+All the code linked above (and in this post) is available under the MIT licence.
+
+[wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
