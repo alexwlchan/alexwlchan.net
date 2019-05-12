@@ -3,6 +3,9 @@ layout: post
 title: Creating a locking service in a Scala type class
 summary:
 tags: scala
+
+index:
+  best_of: true
 ---
 
 Last week, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
