@@ -422,17 +422,19 @@ trait LockingService[Out, OutMonad[_], ...] {
 
   type OutMonadError = MonadError[OutMonad, Throwable]
 
+  import cats.implicits._
+
   def safeCallback(contextId: lockDao.ContextId)(
     callback: => OutMonad[Out]
-  )(implicit monadError: OutMonadError): OutMonad[Process]} = {
+  )(implicit monadError: OutMonadError): OutMonad[Process] = {
     val partialResult: OutMonad[Process] = callback.map { out =>
       unlock(contextId)
-      Either.right[FailedLockingServiceOp, Out].right(out)
+      Either.right[FailedLockingServiceOp, Out](out)
     }
 
     monadError.handleError(partialResult) { err =>
       unlock(contextId)
-      Either.right[FailedLockingServiceOp, Out].left(FailedProcess(contextId, err))
+      Either.left[FailedLockingServiceOp, Out](FailedProcess(contextId, err))
     }
   }
 }
@@ -458,7 +460,7 @@ Instead, we're handing that off to Cats.
 Now we have all the pieces we need to actually write out `withLocks` method, and here it is:
 
 ```scala
-import cats.EitherT
+import cats.data.EitherT
 
 trait LockingService[Out, OutMonad[_], ...] {
   ...
@@ -472,7 +474,7 @@ trait LockingService[Out, OutMonad[_], ...] {
   def withLocks(ids: Set[lockDao.Ident])(
     callback: => OutMonad[Out]
   )(implicit m: OutMonadError): OutMonad[Process] = {
-    val contextId: lockDao.ContextId = createContextId()
+    val contextId: lockDao.ContextId = createContextId
 
     val eitherT = for {
       contextId <- EitherT.fromEither[OutMonad](
