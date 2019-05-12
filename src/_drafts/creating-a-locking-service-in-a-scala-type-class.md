@@ -515,8 +515,9 @@ We can combine the generic locking service with the in-memory lock dao, and get 
 import java.util.UUID
 
 val lockingService = new LockingService[String, Try, LockDao[String, UUID]] {
-  override implicit val lockDao: LockDaoStub = new InMemoryLockDao[String, UUID]()
-  override protected def createContextId(): UUID =
+  override implicit val lockDao: LockDao[String, UUID] =
+    new InMemoryLockDao[String, UUID]()
+  override def createContextId: UUID =
     UUID.randomUUID()
 }
 ```
