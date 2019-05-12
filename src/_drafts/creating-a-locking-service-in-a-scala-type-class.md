@@ -10,7 +10,7 @@ index:
 
 A few weeks ago, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
 I'm quite pleased with the code we wrote, and the way we do all the tricky logic in a type class.
-It involves quite a bit of functional programming, type parameters, and the [Cats library][cats].
+It uses functional programming, type classes, and the [Cats library][cats].
 
 I'm going to walk through the code in the post, but please don't be intimidated if it seems complicated.
 It took us both a week to write, and even longer to get right!
@@ -22,21 +22,20 @@ It took us both a week to write, and even longer to get right!
 
 ## The problem
 
-Robert and I are part of a team building a [storage service] for Wellcome's digital collections, which will eventually be the long-term, permanent storage for digital records.
+Robert and I are part of a team building a [storage service], which will eventually be Wellcome’s permanent storage for digital records.
 That includes archives, images, photographs, and much more.
 
-We're saving the files to an Amazon S3 bucket[^1], but Amazon doesn't have a way to lock around writes to S3.
-If multiple processes write to the same location at the same time, there's no guarantee which will win!
+We're saving files to an Amazon S3 bucket[^1], but Amazon doesn't have a way to lock around writes to S3.
+If more than one process writes to the same location at the same time, there's no guarantee which will win!
 
 <img src="/images/2019/locking.png" style="width: 327px;">
 
 Our pipeline features lots of parallel workers -- Docker containers running in ECS, and each container running multiple threads.
 We want to lock around writes to S3, so that only a single process can write to a given S3 location at a time.
-We verify files after they've been written, and we don't overwrite a file if it exists already -- so locking gives an extra guarantee that a rogue process can't corrupt the archive.
-
+We already verify files after they've been written, and locking gives an extra guarantee that a rogue process can't corrupt the archive.
 Because S3 doesn't provide those locks for us, we have to manage them ourselves.
 
-This is one example -- there are several other places where we need our own locking.
+This is one use case -- there are several other places where we need our own locking.
 We wanted to build one locking implementation that we could use in lots of places.
 
 [storage service]: https://github.com/wellcometrust/storage-service
