@@ -15,8 +15,13 @@ It uses functional programming, type classes, and the [Cats library][cats].
 I'm going to walk through the code in the post, but please don't be intimidated if it seems complicated.
 It took us both a week to write, and even longer to get right!
 
+I'm not expecting many people to use this directly.
+You can copy/paste it into your project, but unless you have a similar use case to us, it won't be useful to you.
+Instead, I hope you get a better understanding of how type classes work, how they can be useful, and the value of [sans-IO implementations].
+
 [cats]: https://typelevel.org/cats/
 [locking]: https://en.wikipedia.org/wiki/Lock_(computer_science)
+[sans-IO implementations]: https://sans-io.readthedocs.io/how-to-sans-io.html
 
 
 
