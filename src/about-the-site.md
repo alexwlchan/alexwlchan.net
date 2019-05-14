@@ -17,15 +17,14 @@ In 2016, I experimented with writing my own site generator (called [Hot Chocolat
 [agpl]: https://github.com/getpelican/pelican/issues/1397
 [cocoa]: https://pypi.org/project/hotchocolate/
 
-The current version is back to Ruby and [Jekyll][jekyll], but wrapped in Docker to simplify the day-to-day build process.
+The current version is back to Ruby and [Jekyll][jekyll], wrapped in Docker to simplify the build process.
 What you see today is powered by:
 
 *   [Jekyll][jekyll], for building the HTML
 *   [Sass][sass], for building the CSS and stylesheets
 *   [nginx][nginx], an HTTP server
-*   [Cloudflare][cloudflare], a CDN/caching layer
 *   [Docker][docker], which wraps the local build process and nginx on my server
-*   [Travis CI][travis], which builds and publishes the site
+*   [Azure Pipelines][azure], which builds and publishes the site
 *   [Linode][linode], who provide the Linux server where I run nginx (referral link)
 *   [Let's Encrypt][letsencrypt] for SSL/TLS certificates
 
@@ -37,9 +36,8 @@ Feast your eyes on my evolving skills in mediocre web design.
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
 [nginx]: https://nginx.org/
-[cloudflare]: https://www.cloudflare.com/
 [docker]: https://www.docker.com/
-[travis]: https://travis-ci.org/alexwlchan/alexwlchan.net
+[azure]: https://azure.microsoft.com/en-us/services/devops/pipelines/
 [linode]: https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3
 [github]: https://github.com/alexwlchan/alexwlchan.net/
 [letsencrypt]: https://letsencrypt.org
@@ -50,18 +48,35 @@ Feast your eyes on my evolving skills in mediocre web design.
   }
 </style>
 
-## Current
+## 2018–current: A bio on the homepage
 
-This is what the current homepage looks like:
+I continue to tweak the styles, but the major themes are the same: Georgia for the font, red accents, that speckled border across the top of the page.
 
-![](/images/site_current.png)
+I finally ditched the blog list from the homepage, because it was difficult to get a sense of the site -- what you saw would vary based on what I'd written most recently, and if it was a really long post you might never see anything else!
+I replaced the homepage with a bio and a profile picture, with links out to blog posts but not jumping straight into the content.
+
+![](/images/site_bio_homepage.png)
+
+I also added new code to tweak the accent colour and the stripe, so I can theme individual pages if it suits the content.
+Here's a purple page:
+
+![](/images/site_purplestripe.png)
+
+## 2016: A speckled red header
+
+I kept cutting the vertical height of the header -- on small phone screens, you'd pretty much only have a header when you loaded the page, and you wouldn't see anything else!
+
+I also added the speckled background, which I've really liked as a bit of lightweight visual flare (barely 2KB).
+It falls back to a solid red stripe if the image doesn't load.
+
+![](/images/site_bloglist.png)
 
 ## Late 2014: The first red stripe
 
 Unsatisfied with the bubbly menu in the previous design, I did another version of the site that added a red stripe across the top.
 I've tweaked this design quite a bit since the first version --- the stripe became a less orangey red, I kept reducing the vertical height, and switched to a serif font --- but the basic idea has remained the same.
 
-At some point I added the speckled background to the header, which I've really liked, but it falls back to a solid red stripe if the image doesn't load.
+Sometime in 2015, I swapped out the sans serif font (this screenshot is Avenir) for a serif font (Georgia), which is the current font.
 
 ![](/images/site_redstripe.png)
 
