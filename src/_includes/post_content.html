@@ -15,14 +15,14 @@
       <li class="post__updated_date">Updated {{ post.last_updated | date: site.date_format }}</li>
       {% endif %}
 
-      <!-- {% if post.category == nil %}
-        {% assign category = "Everything else" %}
+      {% if post.category == nil %}
+        {% assign category = "Uncategorised" %}
       {% else %}
         {% assign category = post.category %}
       {% endif %}
       <li class="post__category">
-        Posted in <a href="/archive#{{ category | slugify }}">{{ category }}</a>
-      </li> -->
+        Posted in <a href="/all-posts#{{ category | slugify }}">{{ category }}</a>
+      </li>
 
       {% if post.link %}
       <li class="post__permalink"><a href="{{ post.url | relative_url }}">&infin;</a></li>
