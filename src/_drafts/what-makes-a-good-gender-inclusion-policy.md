@@ -14,56 +14,98 @@ No easy answers
 
 --
 
-# What does a good gender inclusion policy look like?
+At Wellcome, we have an LGBTQ+ staff network, which aims to support and celebrate our LGBTQ+ employees.
+This year, the network is focusing on making the organisation more supportive and inclusive for trans people.
+Lack of trans inclusion was one of the criticisms in last year's Stonewall [Workplace Equality Index], and some of us at Wellcome could be doing more to support our trans colleagues.
 
-Every year Stonewall report about LGBTQ+ inclusion in workplace
-Wellcome was dinged by Stonewall for trans inclusion – or lack, thereof
-several people have expressed surprise that we don’t have a policy
-LGBTQ+ Network + D&I team is taking steps to remedy!
-A week ago, I put up a tweet asking:
+One aspect of that is having a gender inclusion policy, that affirms our commitment to supporting and respecting our trans staff.
+Right now, Wellcome doesn't have any policies about this, and several people have expressed surprise that one doesn't exist yet!
+Together with the dedicated [Diversity and Inclusion team], we're trying to fix that.
 
-(( tweet ))
+I know some trans people, and I thought they might have some ideas, so I put up this tweet a week ago:
 
-I have a few trans friends, thought they might have some suggestions
-I got an overwhelming response – dozens of people reached out to suggest policies, offer help
-incredibly grateful
-in this post, going to explain the common themes/trends
+[Workplace Equality Index]: https://www.stonewall.org.uk/uk-workplace-equality-index
+[Diversity and Inclusion team]: https://wellcome.ac.uk/what-we-do/our-work/diversity-and-inclusion
 
-note: written from a uk focus
-my impression is that the US is a bit further along in this regard, but don’t know detail
+{% tweet https://twitter.com/alexwlchan/status/1126802445517099008 %}
 
-## Why have a policy?
+I expected a handful of replies -- I was pleasantly surprised.
 
-Table stakes for this post:
-* Trans people exist, everyone has a right to self-identity as chosen gender, to be treated with respect and dignity
+Dozens of people reached out with suggestions, pointing me to policies at their own companies or others, and giving me lots of material to read.
+I'm incredibly grateful to everybody who sent me a message.
+In this post, I'm going to go through some of the common themes I spotted.
 
-SO not about value of inclusion, but about having a policy specifically? Why write one proactively? Why not wait until you have a trans employee? (Or at least one who’s visibly trans)
 
-These questions all apply to any sort of inclusion policy, not just gender — also race, religion, disability, and so on.
 
-* Establish consistent, best practices
-* Set expectations for how somebody will eb treated
-* Feel safer at work
+reading a variety of orgs was v useful
+e.g. public-facing roles
 
-## Why have your own policy?
 
-Policy is a statement of an org’s values
-If you just copy somebody else’s, may not fit – values may be different
+<!--
+## Why have a policy at all?
 
-also different orgs have different policy styles
+A policy is a statement that defines an organisation's values.
+It establishes a clear, consistent baseline for acceptable behaviour, with no grey areas.
+It sets expectations for how you should be treated at work.
 
-e.g. one big corp (10k+) had a very detailed policy
-lists and tables and every eventuality covered
+If you're part of a minority group that often comes in for harassment or abuse -- whether that's for gender, race, disability, or something else -- a policy tells you how you can expect to be treated.
+You're not relying on the individual interpretations of your team or manager, which might be unclear or unfriendly.
 
-wellcome policies tend to be more light touch – lay out broad principles, and specific details only written as they’re decided
+If there's a trans person in your workplace who isn't out yet, a good policy means they know the organisation will look after them.
+And if they do face harassment or abuse after coming out, they have a way to deal with it.
 
-(think statutory law vs case law)
+A policy is also a visible commitment to treating people with dignity and respect.
 
-Provide appropriate support + respect
-Privacy and confidentiality
-gender diverse working environment
 
-## What questions do you need to ask?
+
+## Why write your own policy?
+
+A policy is a statement of an organisation's values.
+If you just copy somebody else's policy, it may not fit -- their values may be different to yours.
+
+And every organisation is different.
+You'll have scenarios to consider that aren't relevant in other organisations, and only you can decide what to do.
+
+
+
+## How do you write a policy?
+
+You can't just copy somebody else's policy -- their values may be different to yours, and the decisions won't fit.
+
+A friend of mine, Gemma, says, "The policy is less important than the questions you ask to get there". -->
+
+
+
+
+## How do you write a policy?
+
+Writing a good policy is about asking questions.
+What scenarios might somebody face?
+How do we handle those as an organisation?
+How do we respond?
+Every organisation will have different scenarios, and different answers -- you can't just copy somebody else's work wholesale.
+
+Most of the policies I read
+
+
+---
+
+But while specific scenarios may differ, there is a lot of overlap.
+These are some of the common themes, listed as questions you'll need to answer:
+
+*   What's the goal of the policy?
+
+    I saw lots of overlap in the policies I
+
+---
+
+Every policy I read had pretty similar goals:
+
+*   Provide appropriate support to trans employees
+*   Guarantee privacy and confidentiality
+*   Encourage a gender diverse working environment
+
+---
 
 * statement of high-level values
 	* assume open and respectful discussion
