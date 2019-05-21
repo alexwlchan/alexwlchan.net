@@ -44,9 +44,6 @@ e.g. public-facing roles
 <!--
 ## Why have a policy at all?
 
-A policy is a statement that defines an organisation's values.
-It establishes a clear, consistent baseline for acceptable behaviour, with no grey areas.
-It sets expectations for how you should be treated at work.
 
 If you're part of a minority group that often comes in for harassment or abuse -- whether that's for gender, race, disability, or something else -- a policy tells you how you can expect to be treated.
 You're not relying on the individual interpretations of your team or manager, which might be unclear or unfriendly.
@@ -79,39 +76,93 @@ A friend of mine, Gemma, says, "The policy is less important than the questions 
 
 ## How do you write a policy?
 
-Writing a good policy is about asking questions.
+Writing good policy is about asking questions.
 What scenarios might somebody face?
 How do we handle those as an organisation?
 How do we respond?
 Every organisation will have different scenarios, and different answers -- you can't just copy somebody else's work wholesale.
 
-Most of the policies I read
+But a lot of organisations will ask similar questions -- below I've collected some of the most common ones.
+We'll need to answer these when we write our policy at Wellcome, and you could use them as a starting point too.
 
+*   **What's the point of the policy?**
+
+    A policy is a statement that defines an organisation's values.
+    It establishes a clear, consistent baseline for acceptable behaviour, with no grey areas.
+    It sets expectations for how you should be treated at work.
+
+    These were some common goals of a trans inclusion policy:
+
+    *   To provide appropriate support to trans employees
+    *   To guarantee privacy and confidentiality
+    *   To encourage a gender diverse working environment
+
+    And some basic assumptions:
+
+    *   Trans people exist, they have the right to self-identify as their chosen gender, and to be treated with respect and dignity
+    *   Transition is an individual, multi-step process.
+        For some people, that might mean medical, legal, or social transition -- or some combination of the three.
+        In particular, transition isn't just about medical intervention (which isn't always desired or possible), and if somebody doesn't get medical intervention it doesn't mean they're not trans.
+    *   Gender isn't a binary.
+
+    The wording differs, but the same ideas kept repeating themselves.
+
+*   **Who is the policy for?**
+
+    A trans inclusion policy affects multiple groups, and it affects each of them in different ways.
+    Some commonly listed groups:
+
+    *   Somebody trans or transitioning
+    *   Other people in the company who work with them -- for example, managers or coworkers
+    *   The organisational systems -- HR, administration, and so on
+
+    A lot of policies had separate sections for each group.
+    A person who's transitioning will have different questions and concerns to their manager or somebody in HR.
+
+    In particular, a lot of the policies acknowledged that when somebody comes out as trans at work, it's probably their manager's first time managing somebody who's trans.
+    As well as supporting the trans employee, the organisation also needs to support their manager and coworkers.
+
+<!-- The third group in particular is one I might have forgotten if I hadn't read other policies, because my own job isn't external facing. -->
+
+<!-- You can drill down further into each of these groups.
+For example, when dealing with external people, you have to distinguish between one-off interactions and continued relationships.
+A stray comment in a one-off interaction (e.g. a customer to a shop assistant) is different to a pattern of abuse in a sustained relationship (e.g. a supplier you email regularly). -->
+
+*   **Does everybody know the appropriate terminology?**
+
+    Phrases like "cis", "trans", "non-binary" and "gender identity" -- trans people may know these terms, but plenty of people will never have come across them before.
+
+    Lots of policies had a glossary section, which explained the new words and terms.
+
+*   **What laws are applicable?**
+
+    Some policies referred to specific laws that affect inclusion, including:
+
+    *   The Gender Recognition Act 2004
+    *   The Equality Act 2010
+    *   The Data Protection Act 1998
+
+    The DPA 1998 was mentioned in the context of allowing trans people to update their details in company systems -- for example, changing their name in the company directory.
+    I didn't see anybody mention GDPR, but it covers similar ground and I'd expect newer policies to mention it.
+
+*   **How do you transition at work?**
+
+    Every person's transition is different
+
+*   **What other workplace policies are affected?**
+
+    *   Do you have a dress code for staff?
+        If it's gendered
+
+
+    *   External people who work with them -- for example, clients, customers or supplies
+
+    For example, at Wellcome that "external" group comes in many flavours.
+    The visitor experience team interacts with members of the public in Wellcome Collection, and the majority of those are probably short, one-off conversations.
+    Meanwhile, people in the grants team are talking to the people we fund, and they might talk to the same person many times over the course of a grant.
 
 ---
 
-But while specific scenarios may differ, there is a lot of overlap.
-These are some of the common themes, listed as questions you'll need to answer:
-
-*   What's the goal of the policy?
-
-    I saw lots of overlap in the policies I
-
----
-
-Every policy I read had pretty similar goals:
-
-*   Provide appropriate support to trans employees
-*   Guarantee privacy and confidentiality
-*   Encourage a gender diverse working environment
-
----
-
-* statement of high-level values
-	* assume open and respectful discussion
-	* acknowledge that trans is a multi-step process, different definitions – not necessarily medical intervention, not always possible, doesn’t invalidate; social/medical/legal transition
-	* individual process
-	* not just binary
 
 * recognise that a policy is for different people
 	* somebody who is trans or transitioning
