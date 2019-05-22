@@ -1,76 +1,38 @@
 ---
 layout: post
-title: What makes a good gender inclusion policy?
+title: Questions to ask when writing a gender inclusion policy
 summary:
 tags:
 category: Diversity, inclusion and accessibility
 ---
 
-Policies vary for externals, e.g. grant holders
-
-The policy is less important than the questions you ask to get there
-Writing the policy is the important bit!@
-No easy answers
-
---
-
-At Wellcome, we have an LGBTQ+ staff network, which aims to support and celebrate our LGBTQ+ employees.
-This year, the network is focusing on making the organisation more supportive and inclusive for trans people.
-Lack of trans inclusion was one of the criticisms in last year's Stonewall [Workplace Equality Index], and some of us at Wellcome could be doing more to support our trans colleagues.
-
-One aspect of that is having a gender inclusion policy, that affirms our commitment to supporting and respecting our trans staff.
-Right now, Wellcome doesn't have any policies about this, and several people have expressed surprise that one doesn't exist yet!
-Together with the dedicated [Diversity and Inclusion team], we're trying to fix that.
-
-I know some trans people, and I thought they might have some ideas, so I put up this tweet a week ago:
-
-[Workplace Equality Index]: https://www.stonewall.org.uk/uk-workplace-equality-index
-[Diversity and Inclusion team]: https://wellcome.ac.uk/what-we-do/our-work/diversity-and-inclusion
+A week or so ago, I tweeted a question to my followers:
 
 {% tweet https://twitter.com/alexwlchan/status/1126802445517099008 %}
 
-I expected a handful of replies -- I was pleasantly surprised.
+Better trans inclusion is one of the focuses for the LGBTQ+ Staff network this year, and I know I have a lot of trans followers on Twitter.
+I was hoping I'd get a few replies that might guide our work -- and I was pleasantly surprised by the response.
 
-Dozens of people reached out with suggestions, pointing me to policies at their own companies or others, and giving me lots of material to read.
+Dozens of people reached out with suggestions, pointing me to policies and good practices at their own organisation or others, and giving me lots of material to read.
 I'm incredibly grateful to everybody who sent me a message.
+It was useful to read policies from a variety of places, and think about the challenges people face in different roles.
+
 In this post, I'm going to go through some of the common themes I spotted.
 
 
 
-reading a variety of orgs was v useful
-e.g. public-facing roles
+## Why have a policy?
 
+For me, an inclusion policy is about setting expectations.
 
-<!--
-## Why have a policy at all?
+If you're part of a minority group that often comes in for harassment or abuse -- whether that's by gender, race, disability, or something else -- a policy sets the tone for how you should be treated at work.
 
+If there isn't a policy, you're relying on the individual interpretations of your team or manager, which might be unclear or unfriendly.
+If you're trans but not out at work, it's scary to come out if you're not sure how the organisation will react.
+(Coming out is almost always scary, but knowing you're supported should hopefully make it easier!)
+A policy establishes what is and isn't acceptable behaviour, and gives you a way to push back if you face undue hostility.
 
-If you're part of a minority group that often comes in for harassment or abuse -- whether that's for gender, race, disability, or something else -- a policy tells you how you can expect to be treated.
-You're not relying on the individual interpretations of your team or manager, which might be unclear or unfriendly.
-
-If there's a trans person in your workplace who isn't out yet, a good policy means they know the organisation will look after them.
-And if they do face harassment or abuse after coming out, they have a way to deal with it.
-
-A policy is also a visible commitment to treating people with dignity and respect.
-
-
-
-## Why write your own policy?
-
-A policy is a statement of an organisation's values.
-If you just copy somebody else's policy, it may not fit -- their values may be different to yours.
-
-And every organisation is different.
-You'll have scenarios to consider that aren't relevant in other organisations, and only you can decide what to do.
-
-
-
-## How do you write a policy?
-
-You can't just copy somebody else's policy -- their values may be different to yours, and the decisions won't fit.
-
-A friend of mine, Gemma, says, "The policy is less important than the questions you ask to get there". -->
-
+It's a visible commitment to treating people with dignity and respect.
 
 
 
@@ -80,59 +42,82 @@ Writing good policy is about asking questions.
 What scenarios might somebody face?
 How do we handle those as an organisation?
 How do we respond?
-Every organisation will have different scenarios, and different answers -- you can't just copy somebody else's work wholesale.
+Every organisation will have different scenarios, and different answers -- you can't just copy somebody else's policy wholesale.
 
-But a lot of organisations will ask similar questions -- below I've collected some of the most common ones.
+This means thinking about your entire organisation -- everybody in it, everybody they interact with.
+
+And it means making hard decisions -- there isn't always an easy, correct answer.
+Often the most valuable part of writing policy isn't the policy itself, but the conversations you have as you're writing it.
+
+
+## What goes into a policy?
+
+If policy is about asking questions, which questions do we need to ask?
+
+Every organisation will have slightly different questions -- but there are lots of similarities.
+Below I've collected some of the most common ones.
 We'll need to answer these when we write our policy at Wellcome, and you could use them as a starting point too.
 
 *   **What's the point of the policy?**
 
-    A policy is a statement that defines an organisation's values.
-    It establishes a clear, consistent baseline for acceptable behaviour, with no grey areas.
-    It sets expectations for how you should be treated at work.
-
-    These were some common goals of a trans inclusion policy:
+    I've discussed why I think you need a policy above.
+    Most policies I read had a similar statement as the first section.
+    Common goals included:
 
     *   To provide appropriate support to trans employees
     *   To guarantee privacy and confidentiality
     *   To encourage a gender diverse working environment
 
-    And some basic assumptions:
+    Alongside that, most of the policies had a section about the organisation's key values.
+    Common ones:
 
-    *   Trans people exist, they have the right to self-identify as their chosen gender, and to be treated with respect and dignity
-    *   Transition is an individual, multi-step process.
-        For some people, that might mean medical, legal, or social transition -- or some combination of the three.
-        In particular, transition isn't just about medical intervention (which isn't always desired or possible), and if somebody doesn't get medical intervention it doesn't mean they're not trans.
-    *   Gender isn't a binary.
-
-    The wording differs, but the same ideas kept repeating themselves.
+    <ul>
+      <li>
+        Trans people exist.
+        They have the right to self-identify as their chosen gender, and to be treated with respect and dignity.
+      </li>
+      <li>
+        <p>Transition is an individual process.
+        That can include medical, legal, or social transition -- or some combination of the three.</p>
+        <p>A common assumption is that transition is just about medical intervention (which isn't always desired or possible).
+        You don't have to transition medically to be trans.</p>
+      </li>
+      <li>
+        <p>Gender isn't a binary.
+        There's a spectrum of people who are neither male nor female.
+        </p>
+      </li>
+    </ul>
 
 *   **Who is the policy for?**
 
-    A trans inclusion policy affects multiple groups, and it affects each of them in different ways.
-    Some commonly listed groups:
+    Most of the policies had separate sections for each of these groups:
 
-    *   Somebody trans or transitioning
-    *   Other people in the company who work with them -- for example, managers or coworkers
-    *   The organisational systems -- HR, administration, and so on
+    *   An individual who is trans or transitioning
+    *   Other people in the organisation who work with them -- for example, managers or coworkers
+    *   People outside the organisation who they interact with -- customers, supplies, clients, and so on
+    *   The administrative systems -- HR, company directory, email addresses, and so on
 
-    A lot of policies had separate sections for each group.
-    A person who's transitioning will have different questions and concerns to their manager or somebody in HR.
+    Each of these groups will have need to be handled differently.
+    For example, a person who's transitioning will have different questions and concerns to their manager or somebody in HR.
 
-    In particular, a lot of the policies acknowledged that when somebody comes out as trans at work, it's probably their manager's first time managing somebody who's trans.
-    As well as supporting the trans employee, the organisation also needs to support their manager and coworkers.
+    A lot of the policies acknowledged that when somebody comes out as trans at work, it's probably their manager's first time managing somebody who's trans.
+    You need to provide support for the managers and coworkers, not just the trans employee.
 
-<!-- The third group in particular is one I might have forgotten if I hadn't read other policies, because my own job isn't external facing. -->
+    The best policies drilled down into more detail in each group.
+    For example, the university policies distinguished between staff and students.
+    Or they'd differentiate between "immediate team members" and "the rest of the organisation".
 
-<!-- You can drill down further into each of these groups.
-For example, when dealing with external people, you have to distinguish between one-off interactions and continued relationships.
-A stray comment in a one-off interaction (e.g. a customer to a shop assistant) is different to a pattern of abuse in a sustained relationship (e.g. a supplier you email regularly). -->
+    At Wellcome, we'll need to pick apart that "people outside the organisation" group.
+    It's quite large and diverse -- members of the public in Wellcome Collection, people whose grants we fund, policymakers at external organisations, and lots of others.
+    In most cases, I expect we already have a policy, and it's a case of joining the dots.
+    (I expect there's a line in our grant conditions about treating Wellcome staff with respect; we'd have to make sure that covers transphobic harassment.)
 
 *   **Does everybody know the appropriate terminology?**
 
-    Phrases like "cis", "trans", "non-binary" and "gender identity" -- trans people may know these terms, but plenty of people will never have come across them before.
+    Phrases like "cis", "trans", "non-binary" and "gender identity" -- if you're close to trans people, you probably know these terms, but plenty of people will never have come across them before.
 
-    Lots of policies had a glossary section, which explained the new words and terms.
+    Lots of policies had a glossary to explain the key words and terms.
 
 *   **What laws are applicable?**
 
@@ -147,42 +132,12 @@ A stray comment in a one-off interaction (e.g. a customer to a shop assistant) i
 
 *   **How do you transition at work?**
 
-    Every person's transition is different
-
-*   **What other workplace policies are affected?**
-
-    *   Do you have a dress code for staff?
-        If it's gendered
-
-
-    *   External people who work with them -- for example, clients, customers or supplies
-
-    For example, at Wellcome that "external" group comes in many flavours.
-    The visitor experience team interacts with members of the public in Wellcome Collection, and the majority of those are probably short, one-off conversations.
-    Meanwhile, people in the grants team are talking to the people we fund, and they might talk to the same person many times over the course of a grant.
+    Every person's transition is different, and you can't prescribe a course of action -- but you can signpost
 
 ---
 
 
-* recognise that a policy is for different people
-	* somebody who is trans or transitioning
-	* people who work with them – managers, coworkers
-	* external people – clients, customers, members of the public
-	* organisational systems – HR, administration
 
-* does everybody know the appropriate terminology?
-	* terms like “cis”, “trans” and “non-binary”, “gender identity”
-	* a lot of trans people will know these terms, but there will be people who’ve never had to think about trans issues before
-
-* how should colleagues react?
-	* trans-inclusion training
-	* how to be an ally
-
-* what laws are applicable?
-	* some policies referred to laws – EQ 2010, GRA 2004, Data Protection Act
-	* GDPR not mentioned yet, but assume is a time issue
-	* anti-discrimination laws
-	* laws are a minimum. Do better!
 
 * how do you transition at work?
 	* timeline? Plan? Who collaborates on that?
@@ -196,6 +151,47 @@ A stray comment in a one-off interaction (e.g. a customer to a shop assistant) i
 	* indicate preferred name / identifiers
 	* sample scripts + questions – see AAMVERS
 	* build a support system
+
+
+
+
+template
+
+*   Goals and values
+*   If you're trans or transitioning
+*   If you manage somebody who's trans or transitioning
+*   If you work with somebody who's trans or transitioning
+*   Administrative matters and benefits
+*   Glossary
+*   Links to other orgs
+
+
+
+
+
+
+*   **How do you transition at work?**
+
+    Every person's transition is different
+
+*   **What other workplace policies are affected?**
+
+    *   Do you have a dress code for staff?
+        If it's gendered
+
+
+---
+
+
+* how should colleagues react?
+	* trans-inclusion training
+	* how to be an ally
+
+* what laws are applicable?
+	* some policies referred to laws – EQ 2010, GRA 2004, Data Protection Act
+	* GDPR not mentioned yet, but assume is a time issue
+	* anti-discrimination laws
+	* laws are a minimum. Do better!
 
 * how does a manager support a transitioning managee?
 	* what’s best behaviour? Affirmation, input, develop a plan
