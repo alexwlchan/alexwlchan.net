@@ -10,8 +10,11 @@ A week or so ago, I tweeted a question to my followers:
 
 {% tweet https://twitter.com/alexwlchan/status/1126802445517099008 %}
 
-Better trans inclusion is one of the focuses for the LGBTQ+ Staff network this year, and I know I have a lot of trans followers on Twitter.
-I was hoping I'd get a few replies that might guide our work -- and I was pleasantly surprised by the response.
+Better trans inclusion is one of the focuses for the LGBTQ+ Staff network and the [Diversity & Inclusion team][d&i] this year.
+
+Because I've never been at an organisation that has a gender inclusion policy, I don't know what "good" looks like.
+I can guess at what might be useful, but that's not the same as seeing some real policies.
+I know I have a lot of trans followers on Twitter, so I was hoping I'd get a few replies to guide my thinking -- and I was pleasantly surprised by the response!
 
 Dozens of people reached out with suggestions, pointing me to policies and good practices at their own organisation or others, and giving me lots of material to read.
 I'm incredibly grateful to everybody who sent me a message.
@@ -19,6 +22,8 @@ It was useful to read policies from a variety of places, and think about the cha
 
 In this post, I'm going to go through some of the common themes I spotted.
 These are just my initial notes: as we actually write the policy and have more conversations, I expect I'll have more thoughts.
+
+[d&i]: https://wellcome.ac.uk/what-we-do/our-work/diversity-and-inclusion
 
 
 
@@ -102,8 +107,8 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
     Each of these groups will have need to be handled differently.
     For example, a person who's transitioning will have different questions and concerns to their manager or somebody in HR.
 
-    A lot of the policies acknowledged that when somebody comes out as trans at work, it's probably their manager's first time managing somebody who's trans.
-    You need to provide support for the managers and coworkers, not just the trans employee.
+    <!-- A lot of the policies acknowledged that when somebody comes out as trans at work, it's probably their manager's first time managing somebody who's trans.
+    You need to provide support for the managers and coworkers, not just the trans employee. -->
 
     The best policies drilled down into more detail in each group.
     For example, the university policies distinguished between staff and students.
@@ -136,25 +141,47 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
     Every person's transition is different, and you can't prescribe a course of action -- but you can signpost ways the organisation can help.
 
     Several policies talked about creating a timeline, by talking to managers and/or HR.
-    Key milestones included telling your immediate team, telling the wider organisation, changing your preferred name/identifiers, building a support system at work.
+    Key milestones in a timeline include:
+
+    *   Are you going to change your name?
+        (Not everybody does.)
+        If so, when?
+    *   When are you going to start presenting at work as your chosen gender?
+    *   When do you want to start being address with your new name and/or new pronouns
+    *   How and when do you want to tell your immediate team?
+        The wider organisation?
+        Clients and customers?
+        (As appropriate.)
 
     There were also pointers to related workplace rules or policies, such as:
 
-    *   When can you start using the bathrooms of your chosen gender?
-    *   What do you do if you get harassed or misgendered, or if somebody outs you without your consent?
+    <ul>
+      <li>
+        When can you start using the bathrooms of your chosen gender?
+      </li>
+      <li>
+        What do you do if you get harassed or misgendered, or if somebody outs you without your consent?
         What's the organisation's grievance policy?
-    *   Does the organisation have a dress code?
+      </li>
+      <li>
+        Does the organisation have a dress code?
         If it's gendered, when can you start wearing the clothes of your chosen gender?
-    *   Do you want to tell people who were hired after you transitioned?
+      </li>
+      <li>
+        Do you want to tell people who were hired after you transitioned?
         If so, when?
+      </li>
+    </ul>
 
 *   **How can colleagues/managers support somebody who's transitioning?**
 
     Policies talking about ways the colleague/manager could support the individual, for example:
 
-    *   Offer affirmation of their chosen gender
+    *   Let them drive the process -- transition is an individual process, and they should decide if, how and when they want to do things
+    *   Offer assurance and affirmation of their chosen gender
     *   Help them develop a plan for announcing the change to the rest of the organisation
-    *   Don't out them without consent
+    *   Ensure confidentiality: don't out them without consent
+    *   Help to address the concerns of colleagues and clients -- don't put it all on the individual
 
 *   **How can the organisation support the colleagues/managers of somebody who's trans?**
 
@@ -171,68 +198,64 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
 
     Many trans people choose a new name, title and pronouns that are more congruent with their chosen gender.
     You probably have lots of systems that use their existing name: payroll, company directory, business cards, email addresses.
-    It's useful to have a list of all the places where you might need to update somebody's name or gender markers, and include those in the transition plan.
+    It's useful to have a list of all the places where you might need to update somebody's name or gender markers, and include those in the transition guidelines.
 
     You probably have part of this list already.
     People often change their name when they get married, and somebody in HR will know where their name needs updating -- you can reuse that list.
 
-*   **What costs of transitioning do you cover?**
+*   **Do you cover the costs of medical transition?**
 
-    If somebody chooses to undergo medical transition and wants to pay for private medical treatment, this can get expensive.
-    It might include therapy, hormone treatments, surgery, to name a few.
-    Transition-related healthcare is available on the NHS, but there are long waiting lists -- typically years or more.
+    If somebody is undergoing medical transition in the UK, they have two choices:
+
+    *   Wait for the NHS (less expensive, waiting time of years)
+    *   Seek private treatment (faster, but more expensive)
+
+    Treatments might include things like therapy, hormones, and surgery
 
     If your organisation provides private health insurance, consider whether it covers the costs associated with transitioning.
     This is still quite unusual in the UK (I think it's more common in the US), but that's changing.
     Several of the organisations I looked at (including Accenture, Herbert Smith Freehills, Starbucks) explicitly cover the costs of medical transition in their healthcare plans.
 
-    The Accenture policy is very thorough in this regard -- not only do they cover the medical costs, but there's an exact breakdown of which treatments are and aren't covered, and who they're covered for.
-    (Not just the employee, but also dependent family members and partners.)
+    The best policies I read were extremely thorough and detailed.
+    They stated exactly which treatments are and aren't covered, and who they're covered for.
+    (For example, Accenture covers dependent family members and partners as well as their employees.)
 
     If you can't cover the medical costs, do you have a policy for medical leave?
     Most policies had a statement to the effect "it is okay to take medical leave for transition-related appointments".
 
-    (grs recovery time)
-    (	* absence management related to gender transition)
+*   **How do you handle absences related to transition?**
+
+    Transitioning can involve lots of extra appoointments: therapy sessions, doctor's appointments, surgery.
+    Some forms of surgery have long recovery times: typically measured in months, not weeks.
+
+    What are the rules around taking medical leave?
+    Is it okay for somebody to take medical leave for transition-related appointments?
 
 *   **Which external organisations are worth talking to?**
 
-    The same names kept coming up: Mermaids, GIRES, Gendered Intelligence, Trans*Formation.
+    The same names kept coming up: [Mermaids](https://www.mermaidsuk.org.uk/), [GIRES](https://www.gires.org.uk/), [Gendered Intelligence](http://genderedintelligence.co.uk/), [Trans*Formation](http://www.interbanklgbtforum.co.uk/transformation-network/).
 
-    ( several provide paid consulting services )
-
----
-
-
-
-
-* how do you transition at work?
-	* timeline? Plan? Who collaborates on that?
-	* are there specific members of HR to talk to?
-	* how do you tell people? / communicate
-	* new hires?
-	* facilities, bathrooms, dress code
-	* complaint procedures e.g. harassment/misgendering
-	* lack of support? Confidentiality? Sensitivity?
-	* how do you want to be treated?
-	* indicate preferred name / identifiers
-	* sample scripts + questions – see AAMVERS
-	* build a support system
-
-
+    At least two of them (GIRES and Gendered Intelligence) offer paid training and consulting services, which might be useful for non-trans employees.
 
 
 ## A possible outline
 
-With all that in mind, this is the outline I'll probably start with for our policy discussions at Wellcome:
+With all that in mind, here's a brief outline I've written as a starting point for discussions at Wellcome:
 
 *   Goals and values
 *   Definitions/glossary
+
 *   What to do if:
     -   You're trans or transitioning
     -   You manage somebody who's trans or transitioning
     -   You work with somebody who's trans or transitioning
+
 *   Administrative matters and benefits
+    -   Use of facilities
+    -   Identity management, updating compnay directory, and so on
+    -   Medical leave
+    -   Healthcare benefits
+
 *   Links to other organisations
 
 And as we write the policy, we'll expand each of those sections in more detail, guided by some of the questions above.
@@ -240,6 +263,45 @@ And as we write the policy, we'll expand each of those sections in more detail, 
 
 
 ## Acknowledgements
+
+I'm grateful to everybody who reached out to offer suggestions, links or help.
+I read it all, and it gave me a lot to think about (and I think I've replied to everything -- ping me if you think I've missed something).
+You can see many of those people in the replies to that tweet.
+I also had several people reach out privately, some of whom are trans but not out in public/their workplace.
+
+Thank you everybody for your help!
+
+
+
+## Links
+
+These are the public policies I read while preparing this article:
+
+*   American Alliance of Museums: [LGBTQ Alliance](https://www.aam-us.org/professional-networks/lgbtq-alliance/).
+    The Institution's Guide seems especially relevant to our work at Wellcome.
+
+*   Berkley Lab: [Workplace Gender Transition Guidelines](https://diversity.lbl.gov/gender-transition-guidelines/)
+
+*   De Montfort University: [Policy on Support and Procedures for Trans, Gender Fluid and Non-Binary Staff and Students](https://www.dmu.ac.uk/about-dmu/professional-services/equality-and-diversity/guidance-documents-and-policies.aspx)
+
+*   Mozilla: [workplace transition policy guidelines](https://blog.mozilla.org/inclusion/mozilla-workplace-transition-policy-guidelines/)
+
+*   National Education Union: [Trans educators toolkit](https://neu.org.uk/advice/trans-educators-toolkit)
+
+*   University of Oxford: [Transgender policy](https://www.admin.ox.ac.uk/eop/transgender/transgenderpolicy/)
+
+<!-- News articles:
+
+*   [Herbert Smith Freehills becomes first law firm to pay for lawyers’ gender reassignment surgery](https://www.legalcheek.com/2018/02/herbert-smith-freehills-becomes-first-law-firm-to-pay-for-lawyers-gender-reassignment-surgery/) (Feb 2018)
+*   [Hogan Lovells launches first of its kind transgender policy to help support lawyers and staff](https://www.legalcheek.com/2016/11/hogan-lovells-launches-first-of-its-kind-transgender-policy-to-help-support-lawyers-and-staff/) (Nov 2016)
+*   [Starbucks offers expanded benefits for trans people](https://stories.starbucks.com/stories/2018/they-are-lifesaving-starbucks-offers-expanded-benefits-for-trans-people/) (June 2018) -->
+
+I was also given some documents from Stonewall, GSK and Accenture which aren't public.
+
+If you have time, do read the policies I've linked above -- they'll give you more idea of the sort of detail they go into.
+And if you know of other good ones, please let me know.
+
+
 
 ## Closing thoughts
 
