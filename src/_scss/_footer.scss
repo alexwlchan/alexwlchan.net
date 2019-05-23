@@ -17,7 +17,7 @@ footer {
   }
 
   a:hover {
-    text-decoration: underline;
+    background: rgba($accent-grey, 0.2);
   }
 
   #contact_links, ul.dot_list {

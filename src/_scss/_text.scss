@@ -13,10 +13,13 @@ body {
 a {
   color: $primary-color;
   &:hover {
-    text-decoration: none;
+    background: rgba($primary-color, 0.2);
   }
   &:visited {
     color: $primary-dark;
+    &:hover {
+      background: rgba($primary-dark, 0.2);
+    }
   }
 }
 
