@@ -184,6 +184,7 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
 
     If your organisation provides private health insurance, consider whether it covers the costs associated with transitioning.
     This is still quite unusual in the UK (I think it's more common in the US), but that's changing.
+    Several of the organisations I looked at (including Accenture, Herbert Smith Freehills, Starbucks) explicitly cover the costs of medical transition in their healthcare plans.
 
     The Accenture policy is very thorough in this regard -- not only do they cover the medical costs, but there's an exact breakdown of which treatments are and aren't covered, and who they're covered for.
     (Not just the employee, but also dependent family members and partners.)
@@ -221,41 +222,28 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
 
 
 
-template
+## A possible outline
+
+With all that in mind, this is the outline I'll probably start with for our policy discussions at Wellcome:
 
 *   Goals and values
-*   If you're trans or transitioning
-*   If you manage somebody who's trans or transitioning
-*   If you work with somebody who's trans or transitioning
+*   Definitions/glossary
+*   What to do if:
+    -   You're trans or transitioning
+    -   You manage somebody who's trans or transitioning
+    -   You work with somebody who's trans or transitioning
 *   Administrative matters and benefits
-*   Glossary
-*   Links to other orgs
+*   Links to other organisations
+
+And as we write the policy, we'll expand each of those sections in more detail, guided by some of the questions above.
 
 
-
-
-
-
-*   **How do you transition at work?**
-
-    Every person's transition is different
-
-*   **What other workplace policies are affected?**
-
-    *   Do you have a dress code for staff?
-        If it's gendered
-
-
----
-
-These are the topics that were discussed consistently, which you might want to consider putting in your policies:
 
 ## Acknowledgements
 
 ## Closing thoughts
 
 This is just part of a bigger conversation at Wellcome about how we do a better job of trans inclusion.
+A policy is part of that, but there's more we can do -- I'll be thinking about it more over the next few months, and hopefully I'll write about some of it here.
 
-Expect to see me think about this more
-
-get in contact – twitter or email
+If you're interested in what we're doing, please get in touch -- by [Twitter] or <a href="{{ site.emails.personal | encode_mailto }}">email</a>.
