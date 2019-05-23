@@ -247,3 +247,5 @@ This is just part of a bigger conversation at Wellcome about how we do a better 
 A policy is part of that, but there's more we can do -- I'll be thinking about it more over the next few months, and hopefully I'll write about some of it here.
 
 If you're interested in what we're doing, please get in touch -- by [Twitter] or <a href="{{ site.emails.personal | encode_mailto }}">email</a>.
+
+[Twitter]: https://twitter.com/alexwlchan
