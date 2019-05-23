@@ -18,6 +18,7 @@ I'm incredibly grateful to everybody who sent me a message.
 It was useful to read policies from a variety of places, and think about the challenges people face in different roles.
 
 In this post, I'm going to go through some of the common themes I spotted.
+These are just my initial notes: as we actually write the policy and have more conversations, I expect I'll have more thoughts.
 
 
 
@@ -95,7 +96,7 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
 
     *   An individual who is trans or transitioning
     *   Other people in the organisation who work with them -- for example, managers or coworkers
-    *   People outside the organisation who they interact with -- customers, supplies, clients, and so on
+    *   People outside the organisation who they interact with -- customers, supplies, clients, etc.
     *   The administrative systems -- HR, company directory, email addresses, and so on
 
     Each of these groups will have need to be handled differently.
@@ -132,7 +133,72 @@ We'll need to answer these when we write our policy at Wellcome, and you could u
 
 *   **How do you transition at work?**
 
-    Every person's transition is different, and you can't prescribe a course of action -- but you can signpost
+    Every person's transition is different, and you can't prescribe a course of action -- but you can signpost ways the organisation can help.
+
+    Several policies talked about creating a timeline, by talking to managers and/or HR.
+    Key milestones included telling your immediate team, telling the wider organisation, changing your preferred name/identifiers, building a support system at work.
+
+    There were also pointers to related workplace rules or policies, such as:
+
+    *   When can you start using the bathrooms of your chosen gender?
+    *   What do you do if you get harassed or misgendered, or if somebody outs you without your consent?
+        What's the organisation's grievance policy?
+    *   Does the organisation have a dress code?
+        If it's gendered, when can you start wearing the clothes of your chosen gender?
+    *   Do you want to tell people who were hired after you transitioned?
+        If so, when?
+
+*   **How can colleagues/managers support somebody who's transitioning?**
+
+    Policies talking about ways the colleague/manager could support the individual, for example:
+
+    *   Offer affirmation of their chosen gender
+    *   Help them develop a plan for announcing the change to the rest of the organisation
+    *   Don't out them without consent
+
+*   **How can the organisation support the colleagues/managers of somebody who's trans?**
+
+    I liked the policies that acknowledged that trans people in the workplace are still relatively rare -- for many colleagues and managers, if a trans person comes out, it's the first time they've been working with/managing a visibly trans person.
+    They may feel under pressure to not make mistakes, in a topic where they don't have any experience.
+
+    Some organisations offered to help these people:
+
+    *   Providing explicit guidelines in the policy itself (see above)
+    *   Running training about trans inclusion and being a good trans ally
+    *   Pointers to external organisations with trans expertise (see below)
+
+*   **What HR systems need updating?**
+
+    Many trans people choose a new name, title and pronouns that are more congruent with their chosen gender.
+    You probably have lots of systems that use their existing name: payroll, company directory, business cards, email addresses.
+    It's useful to have a list of all the places where you might need to update somebody's name or gender markers, and include those in the transition plan.
+
+    You probably have part of this list already.
+    People often change their name when they get married, and somebody in HR will know where their name needs updating -- you can reuse that list.
+
+*   **What costs of transitioning do you cover?**
+
+    If somebody chooses to undergo medical transition and wants to pay for private medical treatment, this can get expensive.
+    It might include therapy, hormone treatments, surgery, to name a few.
+    Transition-related healthcare is available on the NHS, but there are long waiting lists -- typically years or more.
+
+    If your organisation provides private health insurance, consider whether it covers the costs associated with transitioning.
+    This is still quite unusual in the UK (I think it's more common in the US), but that's changing.
+
+    The Accenture policy is very thorough in this regard -- not only do they cover the medical costs, but there's an exact breakdown of which treatments are and aren't covered, and who they're covered for.
+    (Not just the employee, but also dependent family members and partners.)
+
+    If you can't cover the medical costs, do you have a policy for medical leave?
+    Most policies had a statement to the effect "it is okay to take medical leave for transition-related appointments".
+
+    (grs recovery time)
+    (	* absence management related to gender transition)
+
+*   **Which external organisations are worth talking to?**
+
+    The same names kept coming up: Mermaids, GIRES, Gendered Intelligence, Trans*Formation.
+
+    ( several provide paid consulting services )
 
 ---
 
@@ -181,41 +247,6 @@ template
 
 
 ---
-
-
-* how should colleagues react?
-	* trans-inclusion training
-	* how to be an ally
-
-* what laws are applicable?
-	* some policies referred to laws – EQ 2010, GRA 2004, Data Protection Act
-	* GDPR not mentioned yet, but assume is a time issue
-	* anti-discrimination laws
-	* laws are a minimum. Do better!
-
-* how does a manager support a transitioning managee?
-	* what’s best behaviour? Affirmation, input, develop a plan
-	* what support does the organisation offer?
-	* don’t “out” without consent
-
-* what HR systems need updating?
-	* e.g. payroll, company directory, business cards
-	* each org has different stuff, name badges
-	* IT systems, records
-
-* what costs of transitioning do you cover?
-	* e.g. surgery, therapy, doctor visits
-	* be specific about what you cover
-	* time off for medical leave?
-	* time off for appointments
-	* family members?
-	* absence management related to gender transition
-
-* what external orgs?
-	* Mermaids, GIRES, Gender Intelligence
-	* NHS
-	* Employee Assistance Programme
-	* Trans*Formation
 
 These are the topics that were discussed consistently, which you might want to consider putting in your policies:
 
