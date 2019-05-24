@@ -18,6 +18,11 @@
   &, a, a:visited {
     color: $accent-grey;
   }
+
+  a:hover {
+    background: rgba($accent-grey, 0.2);
+  }
+
   font-size: $meta-font-size;
   .post__permalink a {
     &, &:visited {
