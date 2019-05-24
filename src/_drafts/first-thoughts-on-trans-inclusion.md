@@ -13,16 +13,16 @@ A fortnight ago, I tweeted a question:
 Doing more to help our trans colleagues is a big focus for the LGBTQ+ Staff network and the [Diversity & Inclusion team][d&i] this year.
 Part of that is a proper policy that affirms our support for them, and setting some expectations for how trans people should be treated as Wellcome.
 
-I was vaguely aware that other organisations were doing good work around trans inclusion, but I didn't have details.
+I was vaguely aware that other organisations were doing good work around trans inclusion, but I didn't have many details.
 I can guess at what might be useful, but that's not the same as seeing some real examples.
 I have a lot of trans followers on Twitter, so I was hoping I'd get a few replies to guide my thinking -- and I was pleasantly surprised!
 
 Dozens of people reached out with suggestions, pointing me to policies and good practices, and giving me lots of material to read.
-I'm incredibly grateful.
+I'm incredibly grateful to everybody who sent me a message.
 It was useful to read policies from a variety of places, and think about the challenges people face in different roles.
 
 This post has some of my initial notes, with some common themes and ideas I spotted.
-As we actually write the policy and have more conversations, I expect I'll have more thoughts.
+As we actually write the policy and have more conversations, I expect I'll have more to say.
 
 [d&i]: https://wellcome.ac.uk/what-we-do/our-work/diversity-and-inclusion
 
@@ -46,24 +46,12 @@ Writing good policy is about asking questions.
 What scenarios might somebody face?
 How do we handle those as an organisation?
 How do we respond?
-Every organisation will have different scenarios, and different answers -- you can't just copy somebody else's policy unmodified.
+You want to anticipate common questions in advance, not answer them as you go along.
+Every organisation will have different questions, and different answers -- you can't just copy somebody else's policy unmodified.
 
 It means thinking about your entire organisation -- everybody in it, everybody they interact with.
-And it means making hard decisions -- there isn't always an easy, correct answer.
-
+It means making hard decisions -- there isn't always an easy, correct answer.
 Often the most valuable part of writing policy isn't the policy itself, but the conversations you have while writing it.
-
-
-
-
----
-
-
-
-
-
-
-
 
 
 
@@ -84,8 +72,8 @@ These are some of the common ones I spotted.
     *   To guarantee privacy and confidentiality
     *   To encourage a diverse working environment
 
-    Alongside that, most of the policies had a section about the organisation's key values.
-    Nothing too unexpected:
+    Alongside that, most of the policies had a section about the organisation's key values and beliefs.
+    Nothing too surprising:
 
     <ul>
       <li>
@@ -104,7 +92,7 @@ These are some of the common ones I spotted.
       </li>
     </ul>
 
-    Even if this stuff seems "obvious" (and to many in the trans community, these are just table stakes), it's worth stating them explicitly.
+    Even if this stuff seems "obvious" to you, it's worth stating them explicitly.
     That's something I saw in a lot of the policies, and was a useful reminder for me -- just because I know something doesn't mean everybody does.
     A policy has to make sense to everybody, not just people who are already in-the-know.
 
@@ -120,22 +108,19 @@ These are some of the common ones I spotted.
     Each of these groups will have need to be handled differently.
     A person who's transitioning will have different questions and concerns to their manager or somebody in HR, and so on.
 
-    <!-- A lot of the policies acknowledged that when somebody comes out as trans at work, it's probably their manager's first time managing somebody who's trans.
-    You need to provide support for the managers and coworkers, not just the trans employee. -->
-
     The best policies drilled down into more detail in each group.
     For example, university policies distinguished between staff and students.
 
-    At Wellcome, we'll need to pick apart that "people outside the organisation" group.
+    At Wellcome, we'll need to really pick apart that "people outside the organisation" group.
     It's quite large and diverse -- members of the public who visit Wellcome Collection, researchers whose grants we fund, policymakers at external organisations, and lots of others.
     (In most cases, I expect we already have a policy, and it's a case of joining the dots.
     For example, there's probably a line in our grant conditions about treating Wellcome staff with respect; we just have to make sure that covers transphobic harassment.)
 
 *   **Does everybody know the words?**
 
-    Phrases like "cis", "trans", "non-binary" and "gender identity" -- if you're trans or close to trans people, you probably know these terms, but plenty of people will never have come across them before.
+    Phrases like "cis", "trans", "non-binary" and "gender identity" -- if you're trans or close to trans people, you probably already know these terms, but plenty of people will never have come across them before.
 
-    Lots of policies had a glossary to explain the key words and terms.
+    All the policies I read had a glossary to explain the key words and terms.
 
 *   **What laws are applicable?**
 
@@ -170,6 +155,7 @@ These are some of the common ones I spotted.
     <ul>
       <li>
         When can you start using the bathrooms of your chosen gender?
+        Are there gender-neutral bathrooms you could use?
       </li>
       <li>
         What do you do if you get harassed or misgendered, or if somebody outs you without your consent?
@@ -187,7 +173,7 @@ These are some of the common ones I spotted.
 
 *   **How can colleagues/managers support somebody who's transitioning?**
 
-    Policies listed ways a colleague/manager could support somebody who's transitioning, such as:
+    Policies listed ways a colleague/manager could support somebody who's transitioning:
 
     *   Let the trans person drive the process.
         Transition is something very individual, and they should decide if, how and when they want to do things
@@ -300,16 +286,19 @@ These are some of the policies I read while preparing this article:
 
 *   University of Oxford: [Transgender policy](https://www.admin.ox.ac.uk/eop/transgender/transgenderpolicy/)
 
-<!-- News articles:
+I also heard about a number of other organisations that are doing good work here, but they don't have public policies:
 
-*   [Herbert Smith Freehills becomes first law firm to pay for lawyers’ gender reassignment surgery](https://www.legalcheek.com/2018/02/herbert-smith-freehills-becomes-first-law-firm-to-pay-for-lawyers-gender-reassignment-surgery/) (Feb 2018)
-*   [Hogan Lovells launches first of its kind transgender policy to help support lawyers and staff](https://www.legalcheek.com/2016/11/hogan-lovells-launches-first-of-its-kind-transgender-policy-to-help-support-lawyers-and-staff/) (Nov 2016)
-*   [Starbucks offers expanded benefits for trans people](https://stories.starbucks.com/stories/2018/they-are-lifesaving-starbucks-offers-expanded-benefits-for-trans-people/) (June 2018) -->
-
-I was also given some documents from Stonewall, GSK and Accenture which aren't public.
+*   Accenture have a very detailed policy, including a breakdown of exactly what treatments are covered by private health insurance
+*   GSK's policy seems pretty good
+*   Herbert Smith Freehills [pays for gender reassignment surgery](https://www.legalcheek.com/2018/02/herbert-smith-freehills-becomes-first-law-firm-to-pay-for-lawyers-gender-reassignment-surgery)
+*   Hogan Lovells has a [trans inclusion policy](https://www.legalcheek.com/2016/11/hogan-lovells-launches-first-of-its-kind-transgender-policy-to-help-support-lawyers-and-staff) and provides training to staff
+*   Lloyds Bank pays for [private trans surgery](https://www.dailystar.co.uk/news/latest-news/513517/Lloyds-Banking-Group-transgender-surgery-staff-health-insurance-dysphoria)
+*   Starbucks covers a lot of the [costs of medical transition](https://stories.starbucks.com/stories/2018/they-are-lifesaving-starbucks-offers-expanded-benefits-for-trans-people/) (I assume this is also covered in the UK, but I haven't checked)
+*   Stonewall have guides to trans inclusion in the workplace
+*   I've heard good noises about M&S and Monzo, but I don't have details
 
 If you have time, do read the policies I've linked above -- they'll give you more idea of the sort of detail they go into.
-And if you know of other good ones, please let me know.
+And if you know of other good ones, please let me know!
 
 
 
