@@ -11,15 +11,10 @@ body {
 }
 
 a {
-  color: $primary-color;
-  &:hover {
-    background: rgba($primary-color, 0.2);
-  }
+  @include link_styles($primary-color, 0.2);
+
   &:visited {
-    color: $primary-dark;
-    &:hover {
-      background: rgba($primary-dark, 0.2);
-    }
+    @include link_styles($primary-dark, 0.2);
   }
 }
 
@@ -105,9 +100,6 @@ sup {
   &.linkpost_title {
     a {
       text-decoration: underline;
-      &:hover {
-        text-decoration: none;
-      }
     }
     &::after {
       content: "\a0→";
