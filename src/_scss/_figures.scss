@@ -3,9 +3,12 @@ figure {
 }
 
 figcaption {
-  &, a, a:visited {
-    color: $accent-grey;
+  color: $accent-grey;
+
+  a, a:visited {
+    @include link_styles($accent-grey, 0.2);
   }
+
   font-size: $meta-font-size;
   margin-top: 8px;
   line-height: $meta-line-height;

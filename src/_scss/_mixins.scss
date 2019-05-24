@@ -20,3 +20,10 @@
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+@mixin link_styles($color, $opacity) {
+  color: $color;
+  &:hover {
+    background: rgba($color, $opacity);
+  }
+}

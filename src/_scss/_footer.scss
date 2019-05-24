@@ -12,12 +12,11 @@ footer {
   @include central_element();
 
   font-size: $meta-font-size;
-  &, a, a:visited {
-    color: $accent-grey;
-  }
 
-  a:hover {
-    background: rgba($accent-grey, 0.2);
+  color: $accent-grey;
+
+  a, a:visited {
+    @include link_styles($accent-grey, 0.2);
   }
 
   #contact_links, ul.dot_list {
