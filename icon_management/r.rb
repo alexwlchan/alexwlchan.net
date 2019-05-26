@@ -35,12 +35,18 @@ def draw_image(args)
 
   dimensions = get_dimensions(dimension, cell_size)
 
-  colors = [
-    darken(ChunkyPNG::Color.from_hex("#d01c11")),
-    ChunkyPNG::Color.from_hex("#d01c11"),
-    ChunkyPNG::Color.from_hex("#d01c11"),
-    darken(ChunkyPNG::Color.from_hex("#d01c11")),
-  ]
+  if cell_size * 2 == dimension
+    colors = [
+      darken(ChunkyPNG::Color.from_hex("#d01c11")),
+      ChunkyPNG::Color.from_hex("#d01c11"),
+      ChunkyPNG::Color.from_hex("#d01c11"),
+      darken(ChunkyPNG::Color.from_hex("#d01c11")),
+    ]
+  else
+    colors = dimensions.map { |_|
+      get_random_color_from(ChunkyPNG::Color.from_hex("#d01c11"))
+    }
+  end
 
   create_speckle(png, dimensions, colors)
 
@@ -60,15 +66,15 @@ def darken(color)
 end
 
 
-def get_random_color_from(original, max_distance: 0)
-  red_min = [ChunkyPNG::Color.r(original) * 0.9, 0].max.to_i
-  red_max = [ChunkyPNG::Color.r(original) * 1.05, 255].min.to_i
+def get_random_color_from(original, max_distance: 1000)
+  red_min = [ChunkyPNG::Color.r(original) * 0.85, 0].max.to_i
+  red_max = [ChunkyPNG::Color.r(original) * 1.1, 255].min.to_i
 
-  green_min = [ChunkyPNG::Color.g(original) * 0.9, 0].max.to_i
-  green_max = [ChunkyPNG::Color.g(original) * 1.05, 255].min.to_i
+  green_min = [ChunkyPNG::Color.g(original) * 0.85, 0].max.to_i
+  green_max = [ChunkyPNG::Color.g(original) * 1.1, 255].min.to_i
 
-  blue_min = [ChunkyPNG::Color.b(original) * 0.9, 0].max.to_i
-  blue_max = [ChunkyPNG::Color.b(original) * 1.05, 255].min.to_i
+  blue_min = [ChunkyPNG::Color.b(original) * 0.85, 0].max.to_i
+  blue_max = [ChunkyPNG::Color.b(original) * 1.1, 255].min.to_i
 
   while true
     new_color = ChunkyPNG::Color.rgb(
@@ -83,9 +89,9 @@ def get_random_color_from(original, max_distance: 0)
   end
 end
 
-draw_image(dimension: 512, cell_size: 256).save("android-chrome-512x512.png")
-draw_image(dimension: 192, cell_size: 96).save("android-chrome-192x192.png")
-draw_image(dimension: 180, cell_size: 90).save("apple-touch-icon.png")
-draw_image(dimension: 150, cell_size: 75).save("mstile-150x150.png")
+draw_image(dimension: 512, cell_size: 64).save("android-chrome-512x512.png")
+draw_image(dimension: 192, cell_size: 32).save("android-chrome-192x192.png")
+draw_image(dimension: 180, cell_size: 45).save("apple-touch-icon.png")
+draw_image(dimension: 150, cell_size: 25).save("mstile-150x150.png")
 draw_image(dimension: 32, cell_size: 16).save("favicon-32x32.png")
 draw_image(dimension: 16, cell_size: 8).save("favicon-16x16.png")
