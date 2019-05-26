@@ -3,7 +3,28 @@
 require "chunky_png"
 
 
+def create_speckle(png, dimensions, colors)
+  dimensions.zip(colors) { |dim, color|
+    dim.map { |x, y|
+      png[x, y] = color
+    }
+  }
+end
 
+
+def get_dimensions(dimension, cell_size)
+  cell_boundaries = (0..dimension-1).each_slice(cell_size).to_a
+
+  dimensions = []
+
+  for x_cell in cell_boundaries
+    for y_cell in cell_boundaries
+      dimensions << x_cell.product(y_cell)
+    end
+  end
+
+  dimensions
+end
 
 
 def draw_image(args)
@@ -12,29 +33,16 @@ def draw_image(args)
 
   png = ChunkyPNG::Image.new(dimension, dimension)
 
-  cell_boundaries = (0..dimension-1).each_slice(cell_size).to_a
+  dimensions = get_dimensions(dimension, cell_size)
 
-  for x_cell in cell_boundaries
-    for y_cell in cell_boundaries
-      if x_cell[0] * y_cell[0] == 0 and (x_cell[0] != 0 or y_cell[0] != 0)
-        color = ChunkyPNG::Color.from_hex("#d01c11")
-      else
-        color = darken(ChunkyPNG::Color.from_hex("#d01c11"))
-      end
+  colors = [
+    darken(ChunkyPNG::Color.from_hex("#d01c11")),
+    ChunkyPNG::Color.from_hex("#d01c11"),
+    ChunkyPNG::Color.from_hex("#d01c11"),
+    darken(ChunkyPNG::Color.from_hex("#d01c11")),
+  ]
 
-
-      # color = get_random_color_from(
-      #   ChunkyPNG::Color.from_hex("#d01c11"),
-      #   max_distance: 72
-      # )
-
-      for x in x_cell
-        for y in y_cell
-          png[x, y] = color
-        end
-      end
-    end
-  end
+  create_speckle(png, dimensions, colors)
 
   overlay = ChunkyPNG::Image.from_file("overlay_#{dimension}x#{dimension}.png")
   png.compose!(overlay, 0, 0)
@@ -45,9 +53,9 @@ end
 
 def darken(color)
   ChunkyPNG::Color.rgb(
-    (ChunkyPNG::Color.r(color) * 0.).to_i,
-    (ChunkyPNG::Color.g(color) * 0.).to_i,
-    (ChunkyPNG::Color.b(color) * 0.).to_i,
+    (ChunkyPNG::Color.r(color) * 0.8).to_i,
+    (ChunkyPNG::Color.g(color) * 0.8).to_i,
+    (ChunkyPNG::Color.b(color) * 0.8).to_i,
   )
 end
 
@@ -77,10 +85,8 @@ end
 
 
 
-draw_image(
-  dimension: 32,
-  cell_size: 16
-)
+draw_image(dimension: 32, cell_size: 16)
+draw_image(dimension: 16, cell_size: 8)
 
 
 def color_from_hex(hex_str)
