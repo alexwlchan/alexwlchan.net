@@ -47,15 +47,15 @@ def draw_image(args)
   overlay = ChunkyPNG::Image.from_file("overlay_#{dimension}x#{dimension}.png")
   png.compose!(overlay, 0, 0)
 
-  png.save("favicon_#{dimension}.png")
+  png
 end
 
 
 def darken(color)
   ChunkyPNG::Color.rgb(
-    (ChunkyPNG::Color.r(color) * 0.8).to_i,
-    (ChunkyPNG::Color.g(color) * 0.8).to_i,
-    (ChunkyPNG::Color.b(color) * 0.8).to_i,
+    (ChunkyPNG::Color.r(color) * 0.85).to_i,
+    (ChunkyPNG::Color.g(color) * 0.85).to_i,
+    (ChunkyPNG::Color.b(color) * 0.85).to_i,
   )
 end
 
@@ -83,45 +83,9 @@ def get_random_color_from(original, max_distance: 0)
   end
 end
 
-
-
-draw_image(dimension: 32, cell_size: 16)
-draw_image(dimension: 16, cell_size: 8)
-
-
-def color_from_hex(hex_str)
-  value = ChunkyPNG::Color.from_hex("#d01c11")
-  get_random_color_from(value, max_distance: 16)
-end
-
-puts color_from_hex("#d01c11")
-
-
-
-
-
-
-# for x in 0..15
-#   for y in 0..15
-#     png[x, y] = ChunkyPNG::Color.rgb(255, 0, 0)
-#   end
-#
-#   for y in 16..31
-#     png[x, y] = ChunkyPNG::Color.rgb(255, 128, 0)
-#   end
-# end
-#
-# for x in 16..31
-#   for y in 16..31
-#     png[x, y] = ChunkyPNG::Color.rgb(255, 0, 0)
-#   end
-#
-#   for y in 0..15
-#     png[x, y] = ChunkyPNG::Color.rgb(255, 128, 0)
-#   end
-# end
-#
-#
-# png.compose!(overlay, 0, 0)
-#
-# png.save("favicon.png")
+draw_image(dimension: 512, cell_size: 256).save("android-chrome-512x512.png")
+draw_image(dimension: 192, cell_size: 96).save("android-chrome-192x192.png")
+draw_image(dimension: 180, cell_size: 90).save("apple-touch-icon.png")
+draw_image(dimension: 150, cell_size: 75).save("mstile-150x150.png")
+draw_image(dimension: 32, cell_size: 16).save("favicon-32x32.png")
+draw_image(dimension: 16, cell_size: 8).save("favicon-16x16.png")
