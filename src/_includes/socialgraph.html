@@ -8,24 +8,14 @@
 {% if page.summary %}
 <meta name="twitter:description" content="{{ page.summary }}">
 {% endif %}
-{% if page.theme and page.theme.image %}
-<meta name="twitter:image" content="{{ site.url }}{{ page.theme.image }}" />
-{% elsif page.theme and page.theme.touch_icon %}
-<meta name="twitter:image" content="{{ site.url }}/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png" />
-{% else %}
-<meta name="twitter:image" content="{{ site.url }}/theme/apple-touch-icon.png" />
+<meta name="twitter:image" content="{{ site.url }}/images/profile.jpg" />
+
 {% endif %}
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ page.title }}">
-{% if page.theme and page.theme.image %}
-<meta property="og:image" content="{{ site.url }}{{ page.theme.image }}" />
-{% elsif page.theme and page.theme.touch_icon %}
-<meta property="og:image" content="{{ site.url }}/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png" />
-{% else %}
-<meta property="og:image" content="{{ site.url }}/theme/apple-touch-icon.png" />
-{% endif %}
+<meta property="og:image" content="{{ site.url }}/images/profile.jpg" />
 {% if page.summary %}
 <meta property="og:description" content="{{ page.summary }}" />
 {% endif %}
