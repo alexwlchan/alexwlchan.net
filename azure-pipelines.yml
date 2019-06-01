@@ -15,7 +15,7 @@ steps:
     secureFile: id_rsa
 - script: |
     mkdir -p ~/.ssh
-    cp "$SSH_KEY_PATH" ~/.ssh/id_rsa
+    cp $(env:DOWNLOADSECUREFILE_SECUREFILEPATH) ~/.ssh/id_rsa
     chmod 600 ~/.ssh/id_rsa
 
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
@@ -35,5 +35,3 @@ steps:
 
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Linode and push new commits to GitHub"
-  env:
-    SSH_KEY_PATH: $(env:DOWNLOADSECUREFILE_SECUREFILEPATH)
