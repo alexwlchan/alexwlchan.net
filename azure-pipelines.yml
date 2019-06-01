@@ -15,7 +15,7 @@ steps:
     secureFile: id_rsa
 - script: |
     mkdir -p ~/.ssh
-    cp $env:DOWNLOADSECUREFILE_SECUREFILEPATH ~/.ssh/id_rsa
+    cp $DOWNLOADSECUREFILE_SECUREFILEPATH ~/.ssh/id_rsa
     chmod 600 ~/.ssh/id_rsa
 
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
