@@ -19,6 +19,11 @@ steps:
 
     mkdir -p ~/.ssh
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+    
+    # Even though Azure doesn't set anything in this file, it gets
+    # mounted as a container volume by "make deploy".  If it doesn't
+    # exist, Docker creates an empty directory and Git is unhappy.
+    touch ~/.gitconfig
 
     git config user.name "Azure Pipelines on behalf of Alex Chan"
     git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
