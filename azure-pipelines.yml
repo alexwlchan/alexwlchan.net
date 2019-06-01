@@ -27,7 +27,7 @@ steps:
     make deploy
 
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
-    git push --verbose ssh-origin HEAD:master
+    git push --verbose ssh-origin HEAD:live
 
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Linode and push new commits to GitHub"
