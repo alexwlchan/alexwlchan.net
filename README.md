@@ -6,7 +6,7 @@ This repo has the code for my personal site, [alexwlchan.net][root].
 It's a static site built with [Jekyll][jekyll], with a number of plugins written to suit my personal tastes.
 
 The site is built and tested by [Azure Pipelines][azure].
-When I push to master, Travis uploads a copy of the rendered HTML files to a [Linode VPS][linode], where they're served by [nginx][nginx].
+When I push to master, Azure uploads a copy of the rendered HTML files to a [Linode server][linode], where they're served by [nginx][nginx].
 
 ![](screenshot.png)
 

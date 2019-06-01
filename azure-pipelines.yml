@@ -1,8 +1,8 @@
 trigger:
-- "master"
+- "live"
 
 pr:
-- "master"
+- "live"
 
 pool:
   vmImage: "Ubuntu-16.04"
@@ -29,7 +29,7 @@ steps:
     git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
     git push --verbose ssh-origin HEAD:master
 
-  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/master')"
+  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Linode and push new commits to GitHub"
   env:
     SSH_KEY: $(alex.sshKey)
