@@ -10,19 +10,18 @@ pool:
 steps:
 - script: "make build"
   displayName: "Run 'jekyll build'"
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: id_rsa
 - script: |
+    chmod 600 "$SSH_KEY_PATH"
+    git config core.sshCommand "ssh -i $SSH_KEY_PATH"
+
     mkdir -p ~/.ssh
-
-    echo "-----BEGIN OPENSSH PRIVATE KEY-----"  > ~/.ssh/id_rsa
-    echo -e "${SSH_KEY// /'\n'}"               >> ~/.ssh/id_rsa
-    echo "-----END OPENSSH PRIVATE KEY-----"   >> ~/.ssh/id_rsa
-    chmod 600 ~/.ssh/id_rsa
-
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-    touch ~/.gitconfig
-    git config --global user.name "Azure Pipelines on behalf of Alex Chan"
-    git config --global user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
+    git config user.name "Azure Pipelines on behalf of Alex Chan"
+    git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
 
     make deploy
 
@@ -32,4 +31,4 @@ steps:
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Linode and push new commits to GitHub"
   env:
-    SSH_KEY: $(alex.sshKey)
+    SSH_KEY_PATH: $(DOWNLOADSECUREFILE_SECUREFILEPATH)
