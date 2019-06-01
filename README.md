@@ -1,6 +1,6 @@
 # alexwlchan.net
 
-[![Build Status](https://dev.azure.com/alexwlchan/alexwlchan/_apis/build/status/alexwlchan.alexwlchan.net?branchName=live)](https://dev.azure.com/alexwlchan/alexwlchan/_build/latest?definitionId=1&branchName=live)
+[![Build Status](https://dev.azure.com/alexwlchan/alexwlchan/_apis/build/status/alexwlchan.alexwlchan.net?branchName=live)](https://dev.azure.com/alexwlchan/alexwlchan/_build?definitionId=1&_a=summary)
 
 This repo has the code for my personal site, [alexwlchan.net][root].
 It's a static site built with [Jekyll][jekyll], with a number of plugins written to suit my personal tastes.
