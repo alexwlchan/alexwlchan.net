@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-06-04 19:43:14 +0000
 title: A script for getting cover images from mobi ebooks
 summary:
 category: Programming and code
