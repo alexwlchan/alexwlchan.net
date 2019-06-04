@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-06-04 22:51:19 +0000
 title: Hey Apple, cycle tracking isn't just for women
 summary: At WWDC, I was disappointed to see Apple pitch period tracking exclusively towards women, and not in a more gender-inclusive way.
 category: Diversity, inclusion and accessibility
