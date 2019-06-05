@@ -24,11 +24,12 @@ pre {
   line-height: $line-height * $code-scaling-factor * 1.08;
 
   border-left: $sidebar-border-width solid $midtone-gray;
-  margin-left:  -$default-padding;
-  margin-right: 0px;
+  margin-left:  $default-padding;
+  margin-right: $default-padding;
 
   @media screen and (max-width: $max-width + $default-padding * 3) {
-    margin-left: 0px;
+    margin-left:  0px;
+    margin-right: 0px;
   }
 
   // This ensures that code blocks don't get blown up to big sizes
