@@ -43,7 +43,7 @@ This is how they described the feature [on stage](https://www.apple.com/apple-ev
 I really do like this feature, but I wish they hadn't made such a focus on women.
 
 Because here's the thing: **menstruation is neither universal nor exclusive to women.**
-There are trans women who've never had periods.
+There are women who don't get periods (whether for age, health, because they're trans, or perhaps for other reasons).
 There are trans men and non-binary people who have periods, but it would be wrong to describe them as women.
 
 A more inclusive phrasing is *"people who menstruate"* or *"people who get periods"*, and I wish they'd used that instead.
