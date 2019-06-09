@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-06-09 10:36:43 +0000
 title: Converting Acorn images on the command-line
 summary: I wrote some AppleScript to help me do batch conversion of Acorn images into formats like PNG and JPEG.
 tags: applescript acorn
