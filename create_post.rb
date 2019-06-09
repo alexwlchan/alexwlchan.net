@@ -34,7 +34,7 @@ if File.exist? path
   finish(path)
 end
 
-doc = "---\nlayout: post\ntitle: #{title}\nsummary: \ntags: \n---\n\n"
+doc = "---\nlayout: post\ntitle: #{title}\nsummary: \ncategory: \n---\n\n"
 File.open(path, 'w') { |f| f.write(doc) }
 
 finish(path)
