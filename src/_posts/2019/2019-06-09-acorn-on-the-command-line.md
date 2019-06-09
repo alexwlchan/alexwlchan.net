@@ -244,8 +244,12 @@ This turns out to be a little tricky -- as far as I know, there's no built-in wa
 
 The code has to handle two cases:
 
-*   You pass in a relative path (e.g. `chui.acorn`), or
-*   You pass in an absolute path (e.g. `/Users/alexwlchan/Desktop/chui.acorn`).
+*   You pass in a relative path, for example `chui.acorn`, or
+*   You pass in an absolute path, such as
+
+    ```
+    /Users/alexwlchan/Desktop/chui.acorn
+    ```
 
 This code is definitely fragile, but it works well enough for me in my limited testing, so I'll leave it for now.
 
