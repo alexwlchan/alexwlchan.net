@@ -5,7 +5,7 @@ summary: "Debugging a strange interaction between TextMate and OS X\u2019s secur
   \ system."
 tags: os-x textmate
 title: "\u201CThe document could not be saved\u201D"
-category: Programming and code
+category: Working with macOS
 ---
 
 I try not to make unreasonable complaints about the quality of software.
