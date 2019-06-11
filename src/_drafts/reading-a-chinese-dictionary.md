@@ -96,8 +96,8 @@ A radical doesn't always have to appear on the left; it can appear anywhere in t
 Here are two more examples - the grass radical on top of the character, and the knife radical on the right.
 
 <figure>
-  <img src="/images/2019/mouth-chi.png" alt="The character 吃 or chī, meaning 'eat'. The mouth radical is highlighted in green on the left.">
-  <img src="/images/2019/mouth-he.png" alt="The character 喝 or hē, meaning 'drink'.">
+  <img src="/images/2019/flower-hua.png" alt="The character 花 or huā, meaning 'flower'. The grass radical is highlighted in green on the top of the character.">
+  <img src="/images/2019/knife-li.png" alt="The character 利 or lì, meaning 'sharp'. The knife radical is highlighted in purple on the right-hand side of the character.">
   <figcaption>
       The grass radical looks like blades of grass poking through the ground , while the knife radical looks a bit like a metal blade .
   </figcaption>
