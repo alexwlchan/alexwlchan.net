@@ -6,13 +6,24 @@ category: Languages
 ---
 
 <style>
-img {
-  width: 50%;
-  display: inline-block;
+@media screen and (min-width: 600px) {
+  img {
+    width: 50%;
+    max-width: 300px;
+  }
+
+  figure img {
+    display: inline;
+  }
+}
+
+figure {
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {
   img {
+    width: 400px;
     display: block;
   }
 }
@@ -23,15 +34,15 @@ I also speak a smattering of Chinese – I learnt bits of Mandarin and Cantonese
 
 In this post, I'm going to explain an aspect of Chinese writing that's stuck with me since I first learned it – how to use a dictionary.
 
-<img src="/images/2019/english-to-chinese.png" alt="The word 'snake' and an arrow pointing from 'snake' to three question marks.">
-
 If I gave you a Chinese–English dictionary, and I asked you to look up the Chinese translation for an English word, you'd probably be okay.
 The English words are sorted alphabetically, so you know how to find a given word.
 
-<img src="/images/2019/chinese-to-english.png" alt="An unlabelled Chinese character and an arrow pointing from the character to three question marks.">
+<img src="/images/2019/english-to-chinese.png" alt="The word 'snake' and an arrow pointing from 'snake' to three question marks.">
 
 But what about the other direction?
 If I gave you a Chinese word and asked for the English, what would you do?
+
+<img src="/images/2019/chinese-to-english.png" alt="An unlabelled Chinese character and an arrow pointing from the character to three question marks.">
 
 To understand how to use a Chinese dictionary, we need to understand [*radicals*](https://en.wikipedia.org/wiki/Radical_(Chinese_characters)).
 A radical is a component of a written Chinese character that often gives you a hint as to its subject or meaning.
@@ -54,7 +65,7 @@ These are a few characters that use the water radical:
   <img src="/images/2019/water-soup.png" alt="The character 沕 or tāng, meaning 'soup'.">
   
   <figcaption>
-    I always remember the water radical because it looks like a splash of water! 
+    I always remember the water radical because it looks like a splash of water! 💦
   </figcaption>
 </figure>
 
@@ -68,7 +79,7 @@ This becomes the *fire radical*, which usually signifies characters related to h
   <img src="/images/2019/fire-yan.png" alt="The character 烟 or yān, meaning 'smoke'.">
   
   <figcaption>
-    The strokes remind me of a small flame. 
+    The strokes remind me of a small flame. 🔥
   </figcaption>
 </figure>
 
@@ -81,7 +92,7 @@ Here's one more radical that usually appears on the left, the *mouth radical*:
   <img src="/images/2019/mouth-miao.png" alt="The character 喵 or miāo, meaning 'meow'.">
   
   <figcaption>
-    A box is used for a couple of characters – not always a mouth – but it's often a good guess. 
+    A box is used for a couple of characters – not always a mouth – but it's often a good guess. 😮
   </figcaption>
 </figure>
 
@@ -96,7 +107,7 @@ Here are two more examples - the grass radical on top of the character, and the 
   <img src="/images/2019/flower-hua.png" alt="The character 花 or huā, meaning 'flower'. The grass radical is highlighted in green on the top of the character.">
   <img src="/images/2019/knife-li.png" alt="The character 利 or lì, meaning 'sharp'. The knife radical is highlighted in purple on the right-hand side of the character.">
   <figcaption>
-      The grass radical looks like blades of grass poking through the ground , while the knife radical looks a bit like a metal blade .
+      The grass radical looks like blades of grass poking through the ground 🌱, while the knife radical looks a bit like a metal blade 🔪.
   </figcaption>
 </figure>
 
@@ -108,7 +119,7 @@ So how do you use that to navigate a dictionary?
 Chinese dictionaries are organised by radical – all the characters with the water radical in one section, the fire radical another, the mouth radical another, and so on.
 Once you've identified the radical, you find the corresponding section of the dictionary, and look up the character there.
 Within a section, characters are ordered by *stroke count* – characters with more strokes appear later in the list.
-(The radical sections are usually ordered by stroke count in thr radical, too.)
+(The radical sections are usually ordered by stroke count in the radical, too.)
 
 So to look up a character in a dictionary, you:
 
