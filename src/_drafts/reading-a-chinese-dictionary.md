@@ -47,46 +47,43 @@ This becomes the *water radical* 氵.
 If you see it on the left-hand side of a character, you know the character something to do with water or liquid.
 These are a few characters that use the water radical:
 
-<div>
+<figure>
   <img src="/images/2019/water-he.png" alt="The character 河 or hé, meaning 'river'. The three dashes for the water radical are highlighted in blue on the left.">
   <img src="/images/2019/water-ke.png" alt="The character 渴 or kě, meaning 'thirsty'.">
-</div>
-
-<div>
   <img src="/images/2019/water-lang.png" alt="The character 浪 or làng, meaning 'wave'.">
   <img src="/images/2019/water-soup.png" alt="The character 沕 or tāng, meaning 'soup'.">
-</div>
-
-I always remember the water radical because it looks like a splash of water! 
+  
+  <figcaption>
+    I always remember the water radical because it looks like a splash of water! 
+  </figcaption>
+</figure>
 
 Here's another example: the character for fire is 火.
 This becomes the *fire radical*, which usually signifies characters related to heat or burning.
 
-<div>
+<figure>
   <img src="/images/2019/fire-deng.png" alt="The character 灯 or dēng, meaning 'lamp'. The fire radical is highlighted in red on the left.">
   <img src="/images/2019/fire-chui.png" alt="The character 炊 or chuī, meaning 'cook'.">
-</div>
-
-<div>
   <img src="/images/2019/fire-chao.png" alt="The character 炒 or chǎo, meaning 'fry'.">
   <img src="/images/2019/fire-yan.png" alt="The character 烟 or yān, meaning 'smoke'.">
-</div>
-
-The strokes remind me of a small flame. 
+  
+  <figcaption>
+    The strokes remind me of a small flame. 
+  </figcaption>
+</figure>
 
 Here's one more radical that usually appears on the left, the *mouth radical*:
 
-<div>
+<figure>
   <img src="/images/2019/mouth-chi.png" alt="The character 吃 or chī, meaning 'eat'. The mouth radical is highlighted in green on the left.">
   <img src="/images/2019/mouth-he.png" alt="The character 喝 or hē, meaning 'drink'.">
-</div>
-
-<div>
   <img src="/images/2019/mouth-yao.png" alt="The character 咬 or yǎo, meaning 'bite'.">
   <img src="/images/2019/mouth-miao.png" alt="The character 喵 or miāo, meaning 'meow'.">
-</div>
-
-A box is used for a couple of characters – not always a mouth – but it's often a good guess. 
+  
+  <figcaption>
+    A box is used for a couple of characters – not always a mouth – but it's often a good guess. 
+  </figcaption>
+</figure>
 
 Notice as well how the right-hand side of 渴 (thirsty) and 喝 (drink) are the same, even though they have different radicals.
 Chinese characters aren't drawn arbitrarily – there is a pattern to their strokes and lines.
@@ -99,7 +96,7 @@ Here are two more examples - the grass radical on top of the character, and the 
   <img src="/images/2019/flower-hua.png" alt="The character 花 or huā, meaning 'flower'. The grass radical is highlighted in green on the top of the character.">
   <img src="/images/2019/knife-li.png" alt="The character 利 or lì, meaning 'sharp'. The knife radical is highlighted in purple on the right-hand side of the character.">
   <figcaption>
-      The grass radical looks like blades of grass poking through the ground , while the knife radical looks a bit like a metal blade .
+      The grass radical looks like blades of grass poking through the ground , while the knife radical looks a bit like a metal blade .
   </figcaption>
 </figure>
 
