@@ -51,11 +51,11 @@ For example, if you see an unfamiliar word that starts with “aqua”, you migh
 
 <img src="/images/2019/aquatic.png" alt="The words 'aquamarine', 'aquanaut' and 'aquatics', with the 'aqua' prefix underlined and highlighted in blue.">
 
-Chinese has much the same – but instead of a sequence of common letters, it's a sequence of common strokes.
+Chinese has much the same – but instead of a sequence of common letters, a radical is a sequence of common *strokes*.
 
 For example, the character for water is 水.
 This becomes the *water radical* 氵.
-If you see it on the left-hand side of a character, you know the character something to do with water or liquid.
+If you see it on the left-hand side of a character, you know the character is something to do with water or liquid.
 These are a few characters that use the water radical:
 
 <figure>
@@ -97,9 +97,10 @@ Here's one more radical that usually appears on the left, the *mouth radical*:
 </figure>
 
 Notice as well how the right-hand side of 渴 (thirsty) and 喝 (drink) are the same, even though they have different radicals.
+If you didn't know what they meant, you could still spot they were related.
 Chinese characters aren't drawn arbitrarily – there is a pattern to their strokes and lines.
 
-Unfortunately spotting a radical isn’t as simple as “look at the strokes on the left”.
+Unfortunately spotting a radical isn’t as simple as just “look at the strokes on the left”.
 A radical doesn't always have to appear on the left; it can appear anywhere in the character.
 Here are two more examples - the grass radical on top of the character, and the knife radical on the right.
 
@@ -107,16 +108,16 @@ Here are two more examples - the grass radical on top of the character, and the 
   <img src="/images/2019/flower-hua.png" alt="The character 花 or huā, meaning 'flower'. The grass radical is highlighted in green on the top of the character.">
   <img src="/images/2019/knife-li.png" alt="The character 利 or lì, meaning 'sharp'. The knife radical is highlighted in purple on the right-hand side of the character.">
   <figcaption>
-      The grass radical looks like blades of grass poking through the ground 🌱, while the knife radical looks a bit like a metal blade 🔪.
+      The grass radical looks like blades of grass poking through the ground 🌱, while the knife radical looks a bit like a hooked metal blade 🔪.
   </figcaption>
 </figure>
 
-Hopefully now you've got the idea of radicals - subcomponents of a character that often give a hint about the concept or theme.
+Hopefully now you've got the idea of radicals -- subcomponents of a character that often give a hint about the concept or theme.
 Chinese has just over 200 radicals, and if you learn Chinese you'll quickly encounter all the common ones.
 After a while, you can identify the radicals in a given character.
 So how do you use that to navigate a dictionary?
 
-Chinese dictionaries are organised by radical – all the characters with the water radical in one section, the fire radical another, the mouth radical another, and so on.
+Chinese dictionaries are organised by radical –- all the characters with the water radical in one section, the fire radical another, the mouth radical another, and so on.
 Once you've identified the radical, you find the corresponding section of the dictionary, and look up the character there.
 Within a section, characters are ordered by *stroke count* – characters with more strokes appear later in the list.
 (The radical sections are usually ordered by stroke count in the radical, too.)
@@ -128,12 +129,15 @@ So to look up a character in a dictionary, you:
 3. Look up the characters with that radical and stroke count
 
 For example, let’s take another look at 花.
-First we see the grass radical (艹).
-Then the remaining strokes are 化, which takes 4 strokes to draw, so we’d find the translation in the 艹 section, in the list of characters with 4 strokes.
+To find it in the dictionary:
+
+1. We see the grass radical (艹).
+2. The remaining strokes are 化, which takes 4 strokes to draw
+3. We look in the dictionary at the 艹 section, in the list of characters with 4 strokes
 
 Sometimes the radical isn't obvious, and you need to make a few guesses to get it right – but it usually resolves pretty quickly.
 (You also need to know how to count strokes; sometimes Chinese elides what look like two strokes into one.
-For example, 口 is three strokes, not four, because the top and right lines are drawn together.
+For example, 口 is three strokes, not four, because the top and right lines are drawn as a single stroke.
 Again, this comes with practice.)
 
 So that's how you look up an unknown character in a Chinese dictionary.
