@@ -4,6 +4,8 @@ date: 2019-06-12 07:45:43 +0000
 title: 读一本中文字典 / Reading a Chinese dictionary
 summary: Although paper dictionaries are mostly a thing of the past, knowing to use a Chinese dictionary helps me learn the rest of the language.
 category: Languages
+index:
+  best_of: true
 ---
 
 <style>
