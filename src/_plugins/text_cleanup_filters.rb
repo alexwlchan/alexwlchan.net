@@ -1,5 +1,3 @@
-# Various text cleanups.
-
 module Jekyll
   module CleanupsFilter
     def cleanup_text(input)
