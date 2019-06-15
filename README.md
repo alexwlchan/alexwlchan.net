@@ -50,14 +50,6 @@ When I want to build the site on a new machine, I don't need to worry about inst
 [octopress]: http://octopress.org/
 [platform]: https://github.com/wellcometrust/platform
 
-### Testing in Travis
-
-I run a small number of tests in Travis, which look for particular strings in the rendered HTML.
-I'm not trying to test Jekyll itself (that's best left to the Jekyll developers) – more test that I haven't broken something with a config change.
-Stuff like footnotes, syntax highlighting, and so on – I have a bad habit of breaking them and not noticing in.
-
-Tests are a good way to document the fiddly details buried in the templates and the like.
-
 ### Atom feed generation
 
 For Atom feeds, I have [my own template][atom_template] and a few [custom filters][atom_filter].
@@ -164,7 +156,7 @@ When the site is built, I have [a personal plugin](src/_plugins/twitter.rb) that
 *   Uses the cached API response and a template to render an HTML snippet
 
 Polling the Twitter API requires a set of API tokens, but I check in the cached responses (see `_tweets`).
-This means that I can fetch the tweet data on a local machine, but when I push to Travis, it doesn't need my credentials to render the tweet.
+This means that I can fetch the tweet data on a local machine, but when I push to CI, it doesn't need my credentials to render the tweet.
 
 Because I render the tweets at compile time, I can change the appearance of old tweets by updating the template, without having to edit old posts.
 That's part of why I keep the entire API response – in case I later need data I'd thrown away the first time.
