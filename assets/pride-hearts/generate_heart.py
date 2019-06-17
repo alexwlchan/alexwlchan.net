@@ -9,8 +9,8 @@ from colors import RGBColor, random_colors_near
 from heart_coords import get_heart_rows, scale, HEART_10, HEART_12
 
 
-def create_heart(stripes, threshold=100, scale_factor=10):
-    if len(stripes) in {1, 2, 3}:
+def create_heart(stripes, threshold=100, scale_factor=25):
+    if len(stripes) in {1, 2, 3, 4, 6}:
         heart_defn = HEART_12
 
         dimensions = (12, 12)
@@ -21,6 +21,26 @@ def create_heart(stripes, threshold=100, scale_factor=10):
             row_colors = [stripes[0]] * 6 + [stripes[1]] * 6
         elif len(stripes) == 3:
             row_colors = [stripes[0]] * 4 + [stripes[1]] * 4 + [stripes[2]] * 4
+        elif len(stripes) == 4:
+            row_colors = (
+                [stripes[0]] * 3 + [stripes[1]] * 3 + [stripes[2]] * 3 +
+                [stripes[3]] * 3
+            )
+        elif len(stripes) == 6:
+            row_colors = (
+                [stripes[0]] * 2 + [stripes[1]] * 2 + [stripes[2]] * 2 +
+                [stripes[3]] * 2 + [stripes[4]] * 2 + [stripes[5]] * 2
+            )
+
+    elif len(stripes) == 5:
+        heart_defn = HEART_10
+
+        dimensions = (10, 10)
+
+        row_colors = (
+            [stripes[0]] * 2 + [stripes[1]] * 2 + [stripes[2]] * 2 +
+            [stripes[3]] * 2 + [stripes[4]] * 2
+        )
 
     else:
         raise ValueError(f"Unsupported stripe count: {stripes!r} ({len(stripes)})")
@@ -54,3 +74,33 @@ if __name__ == "__main__":
 
     im = create_heart(stripes=["#b57edc", "#efefef", "#4A8123"], threshold=20)
     im.save(out_dir / "genderqueer.png")
+
+    im = create_heart(
+        stripes=["#5bcefa", "#f5a9b8", "#ffffff", "#f5a9b8", "#5bcefa"], threshold=20
+    )
+    im.save(out_dir / "trans.png")
+
+    im = create_heart(
+        stripes=["#000000", "#a3a3a3", "#ffffff", "#810082"], threshold=20
+    )
+    im.save(out_dir / "asexual.png")
+
+    im = create_heart(
+        stripes=["#ff0080", "#ff0080", "#a349a4", "#0000ff", "#0000ff"], threshold=35
+    )
+    im.save(out_dir / "bisexual.png")
+
+    im = create_heart(
+        stripes=["#e70000", "#ff8c00", "#ffef00", "#00811f", "#0044ff", "#760089"], threshold=35
+    )
+    im.save(out_dir / "rainbow.png")
+
+    im = create_heart(
+        stripes=["#ff218e", "#fcd800", "#0194fc"], threshold=35
+    )
+    im.save(out_dir / "pansexual.png")
+
+    im = create_heart(
+        stripes=["#fff433", "#ffffff", "#9b59d0", "#000000"], threshold=35
+    )
+    im.save(out_dir / "nonbinary.png")
