@@ -16,6 +16,9 @@ class RGBColor(object):
     green = attr.ib()
     blue = attr.ib()
 
+    def __str__(self):
+        return "#%0.2X%0.2X%0.2X" % (self.red, self.green, self.blue)
+
     @classmethod
     def from_hex_string(cls, hex_str):
         m = HEX_COLOR_RE.match(hex_str)
@@ -44,11 +47,21 @@ def euclidean_distance(c1, c2):
 
 
 def random_colors_near(c, threshold=100):
+    random_red = lambda: random.randint(
+        max(0, c.red - threshold), min(255, c.red + threshold)
+    )
+    random_green = lambda: random.randint(
+        max(0, c.green - threshold), min(255, c.green + threshold)
+    )
+    random_blue = lambda: random.randint(
+        max(0, c.blue - threshold), min(255, c.blue + threshold)
+    )
+
     while True:
         new_c = RGBColor(
-            red=random.randint(0, 255),
-            green=random.randint(0, 255),
-            blue=random.randint(0, 255),
+            red=random_red(),
+            green=random_green(),
+            blue=random_blue(),
         )
 
         if euclidean_distance(c, new_c) < threshold:
