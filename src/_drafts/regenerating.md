@@ -5,19 +5,95 @@ summary:
 category: Diversity, inclusion and accessibility
 ---
 
-If you follow me on Twitter, you might have noticed I seem to care a lot about trans stuff – sharing articles about gender, writing about things that affect trans people, retweeting nice stories from trans friends, and so on.
-And you might have asked yourself “hey, why does Alex care so much?”
-Why is he such an enthusiastic cis ally?
-(One person has literally asked me this.)
+If you listen to some of my friends, they'll tell you that I'm a spy.
+They'll tell you that I know a lot about espionage and spying.
+I know all the spy in-jokes and terminology.
+I read spy books, and I hang out in [Bletchley Park].
+My parents live near [GCHQ], so I must know lots of other spies.
+And so on.
 
-I’d been trying to ignore this question for a long time, because thinking about it seemed big and scary, but last year the stars aligned, and I decided to pull on that thread.
-My maths teachers always told me to show my working, so here goes.
+I've always fervently denied this.
+*"I'm not a spy"*, I'd say, to which they inevitably reply, *"That's just what a spy would say"*.
+For a long time, I thought this was true.
 
-~
+But now, in 2019, it's time for me to face the truth.
+I am a spy.
 
-Experienced members of the trans community know exactly where this is going.
-A lot of trans people start out as dedicated cis allies, but
+You might wonder how I came to this conclusion.
+If I was already ignoring so much evidence, what changed my mind?
+The answer: *[Goldfinger]*.
+Even if you haven't seen the film, you're probably familiar with one famous scene: Bond is lain on a table as Goldfinger gives a classic villain monologue, then leaves the room as a laser slices its way towards our spy hero.
 
+Lying on a table as a laser is fired at you is a pretty niche activity -- surely something that only happens to spies, right?
+And it's happened to me four times now, so I must be a spy, right?
+Once I could ignore, but four seems pretty conclusive.
+
+[Bletchley Park]: https://en.wikipedia.org/wiki/Bletchley_Park
+[GCHQ]: https://en.wikipedia.org/wiki/Government_Communications_Headquarters
+[Goldfinger]: https://en.wikipedia.org/wiki/Goldfinger_(film)
+
+<figure>
+  <img src="/images/2019/goldfinger.jpg" alt="A man in all black (James Bond) is strapped to a table as another man in a golden suit (Goldfinger) overlooks. A large red laser is cutting through the table.">
+  <figcaption>
+    You can tell this film was made in 1964 because of the lax health and safety procedures.
+    Only one person is wearing their laser protection goggles!
+  </figcaption>
+</figure>
+
+I'm not a spy.
+(Or if I was, I'm not now -- admitting that you're a spy on a public blog tends to curtail any career in espionage.)
+
+So why do I keep having lasers fired at me while I'm lying on a table?
+Why else would I be in that scenario?
+
+<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+
+If you follow me on Twitter, you might wonder if I'm trans.
+You might notice that I know a lot about gender and transition.
+I know all the trans in-jokes and terminology.
+I read books by and about trans people, and I hang out with them at conferences.
+I live in trans Twitter, so I must know lots of other trans people.
+And so on.
+
+I've always fervently denied this.
+*"I'm not trans"*, I'd tell myself, to which the voice in my head would inevitably ask, *"Then why are you such an enthusiastic cis ally?"*.
+I tried to pretend I couldn't hear it.
+For a long time, I thought this was true.
+
+But now, in 2019, it's time for me to face the truth.
+I'm trans.
+
+You might wonder how I came to this conclusion.
+If I was already ignoring so much evidence, what changed my mind?
+
+Thinking about gender seems big and scary.
+If you're trans, you face a world of hostility and aggression, and it opens a box of uncertainty and big decisions.
+If I pretended not to be trans (to myself as much as anybody else), I wouldn't have to go through that.
+I knew there might be something up with my gender, but I was trying to ignore it.
+
+Last year, I unintentionally discovered that a lot of my work colleagues are trans-friendly, and were willing to stand up to transphobia at work.
+More specifically, they'd stand up to transphobia aimed at *me*.
+The facade had already been slipping, and this was the final straw.
+Transitioning is hard, and knowing you have supportive people around you makes all the difference.
+
+I knew that if I wanted to transition, I'd never get a better opportunity -- so now was the time to ask myself some tough questions.
+
+<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+
+If you start wondering about your gender beyond *"the parts I was born with tell me what I am"*, you ask yourself *"how do I know what I am?"*.
+One answer is as simple and common as it is unhelpful:
+
+*"You just know."*
+
+But I wasn't sure -- I thought that I might be trans, and maybe my assigned-at-birth gender wasn't right for me, but how could I tell?
+
+Here's what I do know about: maths!
+I was a maths student for years, and my teachers embedded key two lessons: I should always show my working, and an incomplete answer is better than an empty page.
+So in that spirit, here's what I've worked out about my gender identity so far.
+
+<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+
+---
 
 
 common Q: how do you know what your gender is?
@@ -70,6 +146,8 @@ I've been experimenting with appearance -- makeup and clothing and wigs.
 I've been experimenting with identifiers -- using "she/her" pronouns, and trying the name "Lexie", which is a feminine version of my name I've always liked.
 I've been burning off the wretched facial hair with a laser.
 I spent most of a recent conference ([ACCU 2019](https://conference.accu.org/)) in girlmode, and was surrounded by people who gave me the confidence and courage to do that.
+
+family several months ago
 
 Elements of that feel good, but "trans woman" doesn't quite feel right to me.
 There are aspects of femininity I like, and I've been much more femme in the last six months.
