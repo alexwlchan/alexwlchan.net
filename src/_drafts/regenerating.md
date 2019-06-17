@@ -144,62 +144,87 @@ A lot of the binary trans women I know talk about their old male identity with d
 They shed that identity years ago, and they aren't looking back.
 I don't get that feeling at all.
 
----
+So if I'm not a cis guy and I'm not a trans woman, what am I?
 
+At this point, a lot of you are probably mouthing the words *"non-binary"*.
+That's sort of where I am right now, except I hate that particular term for describing myself.
+(I happily repeat somebody else's choice to use it for themselves, of course.)
+It's defining myself in terms of a negative -- the "none of the above" box on the list of genders.
+I would rather have a positive, affirmative way to describe my gender -- but I'm still working out what that is.
 
+I'm experimenting with the labels *genderfluid* and *genderqueer*, and maybe one of those will stick -- but that's a question for another day.
 
-That doesn't feel right, although elements of it lien up?
-Aspects of femininity I like, and been much more femme in six months
-had many feminine days!
-That feels good!
-But other aspects don't match — eg no dysphoria about maleness, no desire to deconstruct male identity right now
-a lot of trans women i know talk about their old male identity with disgust, and hate the body they were born with
-i don’t get that?
-Laser hair removal yay
-Hormones NAY?
-Lots of people very sure that assigned gender is wrong, other binary is right!
-Not me
+<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
 
-~
+This has been a pretty positive change so far.
 
-right now figuring
-I'm some flavour of genderqueer (not nom binary, why do I dislike that label)
+My work colleagues have been pretty supportive (as expected), as have the friends I've told.
 
-Overall very successful so far
-Family have been kind, friends supportive, work colleagues have been nice
-Definitely more to think about, but has been exhausting start of year and need to slow down for a bit
-This is a good milestone
+I came out to my close family several months ago, and they've been very kind about it too.
+(One of the hardest things to explain was why I'd been so nervous about telling them.)
 
-Practical effects: I'm a lot happier!
-Getting eco experiment with this is good, makes me happy, makes em feel more like myself
-Those are all good things
-Otherwise very little changes
+I have more to think about, but thinking about this continuously is exhausting, and I need to slow down for a bit.
+This is a good milestone.
+I know that I'm trans, and I'm comfortable saying that, and that's enough for now.
+I don't have to solve it all at once.
 
-I'm keeping my name
-I have nice feelings about Alex, and no desire to change
-Tho trying a Lexie in private, expect to see that more
-Pronouns haven't found set I like, vary between them
-Gender neutral please?
+Practically speaking, I'm a lot happier!
+Getting to experiment with my gender identity and expression is fun, it makes me happy, and there's more variety and colour in my life.
+Those are all good things.
 
-~
+I'm not changing my name -- I have warm fuzzy feelings about "Alex", and it's a nice gender-neutral name too.
+I've been trying *"Lexie"* in private, so expect to see that occasionally.
 
-So why am I talking about it?
-Could retreat, be quiet about it, make it a private thing
+I haven't found a set of pronouns I like, and I vary between them on a regular basis -- if I haven't said otherwise, please use *"they/them"* for me?
 
-When I wa staring to work out if I was trans, it was really helpful to see and read experiences of other trans people who were willing to be visible
-so grateful for that, especially because i know it’s something that wasn’t available to any of them
-I can afford to be visible,e so I am
-This is my pebble
+This is a long post, but the context is important.
+It took a lot of experimenting, learning and listening to get to where I am.
+There's more to do, but I'm pleased with how far I've already come.
 
-And I want to be able to talk about trans stuff!
-Not subtle if you look at Twitter
- Y writing this post, can get a consumer to message
+<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
 
-advice:
+So why am I writing about this?
+I could retreat, be quiet about it, and keep these thoughts private.
 
-* educate yourself, know what’s out there. talk to other trans people! they’re friendly
-* experiment. in private or in public, see how it feels. trying it once doesn’t mean you’re committing forever. you don’t have to know the destination – just pick bits that fit. “explore the territory, not the map”
-* reflect, we suck at it. i find journalling helps (i’ve been writing posts like this and it really helps my thinking)
-* get help. there’s a great community of trans people on twitter, in private forums, or if you’re lucky you know a few in person. i find therapy really helpful as well, if that’s practical
+When I was staring to work out if I was trans, it was really helpful to see and read experiences of other trans people who were willing to be visible.
+I'm so grateful for that, especially because I know it's something that wasn't available to many of them -- even just five or ten years ago, trans people were much less visible.
 
-So hi, I'm Lexie,I'm genderfluid, and I feel fabulous.
+I can afford to be visible and share my story, so here I am.
+This is my pebble.
+If I can make it easier for even just one other trans person, that's worthwhile.
+
+So if you're reading this and you're wondering if you're trans, here's some advice:
+
+*   *Educate yourself.*
+    Know what's out there.
+    Listen to other trans people, and their experiences -- see what resonates.
+
+*   *Reflect on your own feelings.*
+    Take some time to dwell on your own thoughts.
+    Only you get to decide what your gender looks like -- so you need to be able to unpick your own brain.
+    For me, that comes from journalling, therapy, and talking to friends/family, but it might be something else for you.
+
+*   *Experiment.*
+    In private or in public.
+    See how different things feel -- clothing, identifiers, names.
+    Trying something once doesn't mean you're committing forever.
+
+*   *You don't have to answer it all at once.*
+    Don't feel you have to be sure of what your gender identity is before trying stuff that makes you happy.
+    If you are sure, great!
+    But if not, you can try it one step at a time.
+
+    As somebody wise once said to me: "explore the territory, not the map".
+    You don't need to know who you are before you make a change.
+
+*   *Don't go alone.*
+    There's a community of trans people out there who love you and want you to be happy.
+    Whether that's online or in person, we can support you if you aren't getting it elsewhere.
+    My emails and Twitter DMs are always open.
+
+<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+
+So hi, I'm Lexie, I'm trans, and I feel fabulous.
+Thanks for reading to the end!
+
+<img src="/images/2019/lexie.jpeg" style="width: 400px;" alt="A person with long brown hair in a green turtleneck jumper. Me!">
