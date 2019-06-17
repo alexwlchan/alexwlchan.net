@@ -4,7 +4,5 @@
 #
 #    pip-compile
 #
-attrs==19.1.0             # via specktre
-docopt==0.6.2             # via specktre
-pillow==6.0.0             # via specktre
-specktre==0.3.0
+attrs==19.1.0
+pillow==6.0.0
