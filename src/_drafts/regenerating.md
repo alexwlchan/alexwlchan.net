@@ -89,80 +89,64 @@ But I wasn't sure -- I thought that I might be trans, and maybe my assigned-at-b
 
 Here's what I do know about: maths!
 I was a maths student for years, and my teachers embedded key two lessons: I should always show my working, and an incomplete answer is better than an empty page.
-So in that spirit, here's what I've worked out about my gender identity so far.
+So in that spirit, I'm going to share what I've learnt about my gender identity so far.
 
 <div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
 
----
-
-
-common Q: how do you know what your gender is?
-“you just know”
-
-this is pretty unhelpful if you’re not sure
-uncertainty is fine and normal
-
-this is till a WIP, my maths teachers always told me to show my working, so here goes
-
----
-
 I was born a boy, and for twenty-odd years, I didn’t have any strong feelings about my gender.
-I had vague notions that it might be nice to be a girl when I was a teenager, but I always kept them to myself.
+When I was a teenager, I had vague thoughts that it might be nice to be a girl instead, but I always kept them to myself.
 It felt like an aberrant thought; something to be ashamed of and to be repressed.
 
-I didn’t have much exposure to trans people (except as the occasional punchline of jokes in sitcoms), and “transgender” wasn’t a word in my vocabulary.
+When I was younger, I didn’t have much exposure to trans people (except as the occasional punchline of jokes in sitcoms), and “transgender” wasn’t a word in my vocabulary.
 I didn't wonder if I was trans because I didn't know being trans was a thing you could be.
 
 After university, I started spending a lot more time in LGBTQ+ communities, and I started meeting people who were visibly trans.
-I met a couple in person at [PyCon UK 2016](https://2016.pyconuk.org/), and through them I started meeting more trans people on Twitter -- it's a small and tight-knit community -- and now I consider many of them to be good friends.
+I met a couple in person at [PyCon UK](https://2016.pyconuk.org/), and through them I started meeting more trans people on Twitter -- it's a small and tight-knit community -- and now I consider many of them to be good friends.
 I took an interest in the issues that affected them, I started learning about transition, the community in-jokes, and so on.
 
 Alongside all this, I was becoming a lot more comfortable in my own skin.
 As a teenager I'd never really liked my appearance, but now I was starting to take pictures of myself I didn't hate!
-I was becoming less disgusted by my body, and I was developing a fashion sense I actually liked.
-This is one of the ways my trans friends really rubbed off on me -- there's a strong vibe of body positivity in the trans community.
+I was learning to like my body, and developing a fashion sense I actually enjoyed.
+This is one of the early ways my trans friends really rubbed off on me -- there's a strong vibe of body positivity in the trans community.
 
-But deep down, I knew I still had these unresolved feelings about gender from since I was a teenager, and I pushed those down and tried not to think about them.
-I knew, deep down, I was putting it off, but if I didn't think about it then I could ignore it, right?
-It seems obvious in hindsight, but I was in deep denial.
-If you think it looks obvious in retrospect, you’re probably right -- but don't beat yourself up about it, that's a very common feeling.
+Deep down, I knew I still had these unresolved feelings about gender from since I was a teenager, and I pushed those down and tried not to think about them.
+Hanging out with trans people was bringing them to the surface, but I wasn't ready to think about them yet.
+It's clear in hindsight, but I was in deep denial.
 
-As I kept listening to my trans friends, I kept hearing parts of their story that resonated.
+If you realise you're trans, and think it looks obvious in retrospect, you’re probably right -- but don't beat yourself up about it, that's a very common feeling.
+
+As I spent time with my trans friends, I kept hearing parts of their stories that resonated.
+
 I learnt more about dysphoria, and how it isn't all or nothing.
 (I'd largely become comfortable with my body, but facial hair in particular was still a massive source of discomfort.)
 I started to acknowledge the things that had made me feel uncomfortable, like being lumped in with "the guys".
-How the majority of my friends were women.
-How I enjoyed spending time with trans friends.
-How, secretly, there was a part of me that wished I looked as good and happy as my trans friends.
+I realised the majority of my friends were women.
+I enjoyed spending time with trans friends.
+There was a secret part of me that wished I looked as good and happy as my trans friends.
 And so on.
 
 Six months ago, I finally confided in a couple of close friends, who've helped talk me through those feelings.
 They listened to me as I explained my confusion, and gently pointed to resources and other people who've had similar feelings (sometimes themselves!).
-I've written a lot of journal entries, and spent a lot of time looking at those feelings directly.
-I've also spent a lot of time talking about this in therapy.
+I've written a lot of journal entries about my gender, because writing is how I unpack my thoughts.
+I've also spent a lot of time talking about it in therapy.
 
 I've spent a lot of time wondering if I'm a trans woman.
 I've been experimenting with appearance -- makeup and clothing and wigs.
 I've been experimenting with identifiers -- using "she/her" pronouns, and trying the name "Lexie", which is a feminine version of my name I've always liked.
 I've been burning off the wretched facial hair with a laser.
-I spent most of a recent conference ([ACCU 2019](https://conference.accu.org/)) in girlmode, and was surrounded by people who gave me the confidence and courage to do that.
+I spent most of a recent conference ([ACCU 2019](https://conference.accu.org/)) in girlmode.
 
-family several months ago
-
-Elements of that feel good, but "trans woman" doesn't quite feel right to me.
-There are aspects of femininity I like, and I've been much more femme in the last six months.
-I've had many feminine days, and those feel good, but there are other aspects that don't seem to fit.
+There are aspects of femininity I like, and I've been much more femme in the last six months, but "trans woman" doesn't feel quite right to me.
+I've had feminine days, and those feel good, but that identity doesn't fit.
 
 I don't have much dysphoria about my maleness, or any real desire to deconstruct my male identity (at least, not right now).
-A lot of the trans women I know talk about their old male identity with disgust, and hate the body they were born with.
+A lot of the binary trans women I know talk about their old male identity with disgust, and hate the body they were born with.
 They shed that identity years ago, and they aren't looking back.
-I don't get that feeling.
-
-One major component of many people's transition is hormone therapies
+I don't get that feeling at all.
 
 ---
 
-HANNAH BODY?
+
 
 That doesn't feel right, although elements of it lien up?
 Aspects of femininity I like, and been much more femme in six months
