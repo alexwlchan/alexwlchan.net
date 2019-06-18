@@ -17,17 +17,13 @@ require 'shell/executer.rb'
 def publish_all_drafts(source_dir)
   Dir.chdir(source_dir) do
     drafts_dir = "_drafts"
-    if not Dir.exist? drafts_dir
-      puts "*** No drafts directory #{drafts_dir}, so nothing to do"
-      return
-    end
+
+    tracked_drafts = `git ls-tree --name-only HEAD #{drafts_dir}/`.split("\n")
 
     now = Time.now
 
-    Dir.glob("#{drafts_dir}/*.md") do |entry|
+    tracked_drafts.each do |entry|
       puts "*** Publishing draft #{entry}"
-
-      now = Time.now
 
       name = File.basename(entry)
       new_name = File.join("_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
