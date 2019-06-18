@@ -45,7 +45,9 @@ def publish_all_drafts(source_dir)
       Shell.execute!("git commit -m \"Publish new post #{name}\"")
     end
 
-    FileUtils.rm_rf(drafts_dir)
+    if Dir.empty?(drafts_dir)
+      FileUtils.rm_rf(drafts_dir)
+    end
   end
 end
 
