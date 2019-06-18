@@ -141,8 +141,10 @@ I was anything but sure -- it's taken a lot of thinking and self-reflection to r
 I spent a lot of time wondering if I'm a trans woman.
 I've been experimenting with appearance -- makeup and clothing and wigs.
 I've been experimenting with identifiers -- using *"she/her"* pronouns, and trying the name *"Lexie"*, which is a feminine slant of my name I've always liked.
-I've been burning off the wretched facial hair with a laser.
 I spent most of a recent conference in girlmode, and I've spent days where I think of myself as a woman.
+
+And I've been having lasers fired at me while lying on a table to burn off my wretched facial hair.
+(Although I'm paying for the treatment with a credit card, not gold.)
 
 There are aspects of femininity I like, and I've been much more femme in the last six months, but "trans woman" doesn't feel quite right to me.
 I've had feminine days, and those feel good, but that identity doesn't fit.
@@ -168,8 +170,9 @@ I'd rather have a positive, affirmative way to describe my gender -- but I'm sti
 
 I spent a lot of time ignoring any sort of non-binary identities precisely because I had a hangup about the specific term *"non-binary"*.
 There's a huge variety under that umbrella, and I want to spend more time exploring those, but it took me a while to even consider it.
+That's what I'm thinking about right now, and it feels better than "trans woman" ever did.
 
-I'm experimenting with the labels *genderfluid* and *genderqueer*, and maybe one of those will stick -- but that's a question I'm still considering.
+Right now, I'm experimenting with the labels *genderfluid* and *genderqueer*, and maybe one of those will stick -- but that's a question I'm still considering.
 
 <figure style="width: 400px;">
   <img src="/images/2019/trans_planet.jpg" alt="A pink embroidery hoop with a Jupiter-like planet with blue, pink and white stripes.">
@@ -226,7 +229,7 @@ I'm so grateful for that, especially because I know it's something that wasn't a
 
 I can afford to be visible and share my story, so here I am.
 If I can make it easier the next trans person who comes along, that's worthwhile.
-I'm paying it forward.
+I want to pay it forward.
 
 And I want to talk about it!
 This is something that makes me happy, and it's giving me a lot to think about, and I want to share that.
