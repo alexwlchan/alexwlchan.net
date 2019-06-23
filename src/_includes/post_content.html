@@ -21,7 +21,11 @@
         {% assign category = post.category %}
       {% endif %}
       <li class="post__category">
+        {% if post.index.exclude %}
+        Posted in {{ category }}
+        {% else %}
         Posted in <a href="/all-posts#{{ category | slugify }}">{{ category }}</a>
+        {% endif %}
       </li>
 
       {% if post.link %}
