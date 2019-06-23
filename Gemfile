@@ -3,8 +3,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.8"
 
 group :jekyll_plugins do
-   gem "jekyll-paginate-v2", "~> 1.8"
-   gem "jekyll-sitemap", "~> 1.2"
+  gem "jekyll-sitemap", "~> 1.2"
 end
 
 gem "html-proofer", "~> 3.2"
