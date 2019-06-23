@@ -28,7 +28,7 @@ The whole system was built on a gradient, so everything is carried entirely by g
 When it's sufficiently far east, the sewage is pumped back up to ground level, dumped in the Thames and washed out to sea.
 
 <figure>
-  <img src="/images/2017/Hering_lon-sewer-det02_1882.jpg">
+  <img src="/images/2017/Hering_lon-sewer-det02_1882.jpg" alt="Browning showing a map of London, with the river highlighted in grey and sewer lines drawn in red.">
   <figcaption>A map of London&rsquo;s sewers, drawn in 1882.
     The main interceptor tunnels are highlighted in red.
     Image from <a href="https://en.wikipedia.org/wiki/File:Hering_lon-sewer-det02_1882.jpg">Wikipedia</a>.
@@ -40,9 +40,10 @@ There was a pumping station with four steam-driven pumps that pulled the waste u
 Both Crossness and the wider sewerage system were seen as major feats of Victorian engineering, and the opening of Crossness itself was a particularly prestiguous event.
 
 <figure style="max-width: 400px;">
-  <img src="/images/2017/crossness_invitation.jpg" style="max-width: 400px;">
-  <figcaption>An invitation to the opening of Crossness in 1865.
-    Image from <a href="https://wellcomeimages.org/indexplus/result.html?_IXMAXHITS_=1&_IXACTION_=query&_IXFIRST_=1&_IXemailreal=true&_IXbox=301920&_IXSPFX_=templates%2ft&_IXFPFX_=templates%2ft">the Science Museum, Wellcome Images</a>.
+  <img src="/images/2017/crossness_invitation.jpg" alt="An invitation from the Metropolitan Board of Works to the opening of Crossness, with an illustration of the pumping station and some text with the time and sender of the invitation.">
+  <figcaption>
+    An invitation to the opening of Crossness in 1865.
+    Image from <a href="https://wellcomecollection.org/works/fshmy342">the Science Museum, Wellcome Collection</a>.
   </figcaption>
 </figure>
 
@@ -66,7 +67,7 @@ Although tiring, this wasn't entirely without merit – the route takes you alon
 This was a first glimpse of the sheer scale of this project – you get some idea of the size of the tunnel beneath you.
 
 <figure>
-  <img src="/images/2017/P5280695.jpg">
+  <img src="/images/2017/P5280695.jpg" alt="A dirt path heading forward with grass and trees on either side, and some yellow industrial machinery off to the right.">
   <figcaption>
     Looking west along Ridgeway, away from Crossness.
     The banks are lined with trees and shrubbery &ndash; it's not obvious from the photo, but it's fairly high up.
@@ -78,7 +79,7 @@ Today, there's a sewage treatment plant at Crossness, with the Engines themselve
 I still had a little more walking to do!
 
 <figure>
-  <img src="/images/2017/P5280718.jpg">
+  <img src="/images/2017/P5280718.jpg" alt="A square building labelled “Crossness STW”, with fences and a road barrier.">
   <figcaption>
     Be glad my camera doesn't have the ability to capture smells.
   </figcaption>
@@ -88,7 +89,7 @@ Up the hill, and I finally got my first glimpse of the engine house.
 Although viewed from a different angle, you can see the resemblance to the building in the opening invitation.
 
 <figure>
-  <img src="/images/2017/P5280723.jpg">
+  <img src="/images/2017/P5280723.jpg" alt="A dark brown building with rounded arches along the doors and windows, an orange safety barrier and a few bicycles.">
   <figcaption>
     Safety barriers and bicycles were a classic feature of Victorian architecture.
   </figcaption>
