@@ -29,7 +29,7 @@ I've written a Python function to do just that, and in this post, I'll walk thro
 <!-- summary -->
 
 <figure>
-  <img src="/images/2018/sqs_console.png">
+  <img src="/images/2018/sqs_console.png" alt="A list of rows in the SQS Console, showing a fragment of the body, the size and the sent date.">
   <figcaption>
     Viewing queue messages in the AWS Console.
     Our messages are large JSON objects, so most of the detail isn't even visible!

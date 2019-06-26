@@ -17,7 +17,7 @@ Having to paste twice is mildly annoying, but it's easy to fix. I have a Keyboar
 
 The macro itself is very simple:
 
-![](/images/2015/simulator.png)
+![A Keyboard Maestro macro. "Triggered by any of the following: The Hot Key ⌘V is pressed. Will execute the following actions: Insert Text By Typing '%CurrentClipboard%".](/images/2015/simulator.png)
 
 It's just a tweaked version of Gabe Weatherhead's [Paste as Typed Text macro][paste], which is useful for pasting passwords into fields where pasting is disabled. I have it inside a macro group, which is configured to only be enabled in the iOS Simulator.
 
