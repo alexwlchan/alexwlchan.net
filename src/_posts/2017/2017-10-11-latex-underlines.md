@@ -40,9 +40,7 @@ I visited \underline{Berlin} in \underline{Germany}.
 
 and the rendered output:
 
-<figure>
-  <img src="/images/2017/example_underline.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/example_underline.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
 
 The underline on "Berlin" is nice and tight --- but notice how the underline on "Germany" is lower than "Berlin".
 That's to accommodate the descender on the "y".
@@ -70,9 +68,7 @@ I visited \ul{Berlin} in \ul{Germany}.
 
 is rendered as:
 
-<figure>
-  <img src="/images/2017/example_soul.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/example_soul.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
 
 Now, the two underlines are on the same level.
 They're far down enough to avoid any descenders in the font.
@@ -89,9 +85,7 @@ I visited \ul{Berlin} in \ul{Germany}.
 
 which appears like so:
 
-<figure>
-  <img src="/images/2017/example_soul_uldepth.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/example_soul_uldepth.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
 
 Now "Berlin" is looking nicer, but the underline intersects the "y" of "Germany".
 That's not great either.
@@ -111,9 +105,7 @@ First, an example with the default height.
 I visited \uline{Berlin} in \uline{Germany}.
 ```
 
-<figure>
-  <img src="/images/2017/example_ulem.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/example_ulem.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
 
 Second, an example with the depth manually adjusted.
 
@@ -123,9 +115,7 @@ Second, an example with the depth manually adjusted.
 I visited \uline{Berlin} in \uline{Germany}.
 ```
 
-<figure>
-  <img src="/images/2017/example_ulem_uldepth.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/example_ulem_uldepth.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
 
 But it suffers from the same problem as soul --- if you adjust the depth of the underline, it intersects with the descenders.
 
@@ -194,9 +184,7 @@ I visited \myuline{Berlin} in \myuline{Germany}.
 I visited <span class="k">\myuline</span><span class="nb">{</span>Berlin<span class="nb">}</span> in <span class="k">\myuline</span><span class="nb">{</span>Germany<span class="nb">}</span>.
 </code></pre></div>
 
-<figure>
-  <img src="/images/2017/example_final.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/example_final.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
 
 There are two parts here: first, the `\phantom` takes up the same horizontal space as the underlined text, but doesn't actually print anything.
 Putting this inside the `\uline` gives you an underline of exactly the right width for the text.
@@ -230,9 +218,7 @@ If I want to tweak it further -- maybe adjust the underline thickness, or give i
 
 Here's one final example, a hyperlink from my CV:
 
-<figure>
-  <img src="/images/2017/underline_final.png" class="latex__example"/>
-</figure>
+<img src="/images/2017/underline_final.png" class="latex__example" alt="A blue link to “github.com/python-hyper/hyper-h2”, with the entire link underlined."/>
 
 I particularly like the "py" and "yp" in this link, which show off the effect really nicely, as well as the lower bowl on the leading "g".
 

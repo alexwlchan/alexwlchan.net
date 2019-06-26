@@ -120,7 +120,7 @@ def main():
 
 To invoke this script, I have a Keyboard Maestro macro that gets the URL of the frontmost tab in Safari, and passes that to the script:
 
-![](/images/2016/send-to-kindle.png)
+![Keyboard Maestro macro. When hot key ⇧⌘K is pressed, execute an AppleScript to get the front Safari tab and run the Python script.](/images/2016/send-to-kindle.png)
 
 On my iPhone, the natural choice is [Pythonista][pythonista].
 It provides the [appex module][appex], which gives you input from the system share sheet.
