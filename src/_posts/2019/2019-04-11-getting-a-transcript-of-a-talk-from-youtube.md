@@ -11,7 +11,7 @@ When I give conference talks, my talks are often videoed and shared on YouTube.
 Along with the video, I like to post the slides afterwards, and include an inline transcript.
 A written transcript is easier to skim, to search, and for Google to index.
 Plus, it makes the talk more accessible for people with hearing difficulties.
-Here's an example from PyCon UK last year: [Assume Worst Intent](/assume-worst-intent/).
+Here's an example from PyCon UK last year: [Assume Worst Intent](/2018/09/assume-worst-intent/).
 
 I share a transcript rather than pre-prepared notes because I often ad lib the content of my talks.
 I might add or remove something at the last minute, make subtle changes based on the mood of the audience, or make a reference to a previous session that wasn't in my original notes.

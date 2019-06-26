@@ -29,13 +29,7 @@ Thanks to the efforts of [Owen][owen], [Tim][tim] and [Vince][vince], the confer
 
 <!-- summary -->
 
-<figure>
-    <img src="/images/2017/lightning_bukkit.jpg">
-    <figcaption>
-        Two buckets: one green (left), labelled "New speakers", another yellow (right), labelled "Experienced speakers".
-        Below the buckets is a handwritten label "Sign up for lightning talks here".
-    </figcaption>
-</figure>
+![Two buckets: one green (left), labelled "New speakers", another yellow (right), labelled "Experienced speakers". Below the buckets is a handwritten label "Sign up for lightning talks here".](/images/2017/lightning_bukkit.jpg)
 
 At the start of each day, there are two empty buckets: one for new speakers, and one for everybody who's spoken at a conference before.
 There's a pile of index cards, and to sign up for that evening's session, you write a name and title on a card, and drop it in the bucket.

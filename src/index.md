@@ -16,7 +16,7 @@ I'm one of the organisers for the [PyCon&nbsp;UK][pycon] conference, and I've gi
 
 The site focuses on programming, with the occasional venture into accessibility, maths, bits of travel advice and Victorian engineering.
 It's as a way to sharpen my skills in writing, and improve my ability to explain my ideas.
-If that sounds interesting, I have an [infrequently updated blog](/blog/).
+If that sounds interesting, I have an [infrequently updated blog](/all-posts/).
 
 I hope you enjoy the site.
 

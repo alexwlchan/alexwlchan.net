@@ -11,7 +11,7 @@ I really like [Pygments][pyg]. It's a Python module for applying syntax highligh
 
 But recently I've needed to generate standalone code listings that aren't part of a larger document. I was using the command-line each time, but to make it a little easier, I've written a small web app instead. Here's a screenshot:
 
-![](/images/2015/pygmentizr.png)
+![A web app titled "Pygmentizr", with a text area for entering code, another text area with some HTML code, and a rendered code block.](/images/2015/pygmentizr.png)
 
 I enter the code in the first box, select the language, and click the button. The HTML and rendered preview appear at the bottom of the page. Really simple.
 

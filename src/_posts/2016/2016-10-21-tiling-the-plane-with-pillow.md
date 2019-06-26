@@ -27,9 +27,9 @@ Here's what they look like, courtesy [of Wikipedia][wikipedia]:
 
 <table>
   <tr>
-    <td><img src="/images/2016/wiki-squares.png"></td>
-    <td><img src="/images/2016/wiki-triangles.png"></td>
-    <td><img src="/images/2016/wiki-hexagons.png"></td>
+    <td><img src="/images/2016/wiki-squares.png" alt="A grid of red squares with black edges"></td>
+    <td><img src="/images/2016/wiki-triangles.png" alt="A pattern of yellow equilateral triangles with black edges"></td>
+    <td><img src="/images/2016/wiki-hexagons.png" alt="A pattern of green regular hexagons with black edges"></td>
   </tr>
 </table>
 
@@ -96,7 +96,7 @@ So now we need to write some code that provides us with these coordinates.
 Because a square corresponds so neatly to the coordinate system, it's a good place to start.
 Let's start by thinking about a single point (*x*, *y*): suppose this is the top left-hand corner of a unit square, and then we can write down the other three vertices of the square:
 
-<img src="/images/2016/pillow-square.png" style="width: 384px;">
+<img src="/images/2016/pillow-square.png" style="width: 384px;" alt="A square with red vertices and dotted edges. The vertices are labelled from top-right, clockwise: (x, y), (x+1, y), (x+1, y+1), (x, y+1)">
 
 We can get these points (*x*, *y*) by iterating over the integer coordinates of the canvas, like so:
 
@@ -135,7 +135,7 @@ Onwards!
 Unlike squares or hexagons, you can't tile the plane with triangles without varying the orientation: half your triangles have to be flipped vertically to fill in the gaps.
 So to simplify the problem, let's start by gluing two triangles together, to give us a rhombus shape:
 
-<img src="/images/2016/pillow-triangle.png" style="width: 450px;">
+<img src="/images/2016/pillow-triangle.png" style="width: 450px;" alt="Two triangles next to each other, in a v^ configuration. Red vertices, dashed edges. The first triangle is labelled (x, y), (x+1, y), (x+1/2, y+h). The second is labelled (x+1, y), (x+3/2, y+h), (x+1/2, y+h).">
 
 If we can tile the plane with these rhombuses (which all have the same orientation), then we'll have the coordinates of our triangles.
 
@@ -231,7 +231,9 @@ Only one left to go.
 Let's repeat the same approach as we used for the square and the triangle: pick a point (*x*, *y*), and write down the coordinates of the other points.
 This is what it looks like for a unit hexagon:
 
-<img src="/images/2016/pillow-hexagon.png" style="max-width: 502px;">
+<!-- TODO: The final vertex should be labelled (x-1, y+h) -->
+
+<img src="/images/2016/pillow-hexagon.png" style="max-width: 502px;" alt="A hexagon with red vertices and dashed edges. The vertices are labelled (x, y), (x+1, y), (x+3/2, y+h), (x+1, y+2h), (x, y+2h), (x-h, y+h).">
 
 Note that *h* has the same value as in the previous section &ndash; sin(60&deg;) &ndash; so the whole hexagon's height is 2*h*.
 
@@ -240,7 +242,7 @@ Now we need to think about where to put the (*x*, *y*).
 If you look at each row, the individual hexagons are offset by **3**&nbsp;horizontal units: that's to leave a gap for the hexagon on the next row.
 Here are two hexagons from the same row, with one hexagon from the next row:
 
-<img src="/images/2016/pillow-hexrow.png" style="max-width: 444px;">
+<img src="/images/2016/pillow-hexrow.png" style="max-width: 444px;" alt="A grid of three hexagons draw in black with red hexagons. The middle hexagon has thicker edges.">
 
 So in the horizontal direction, we need to be incrementing by 3&nbsp;units, and vertically we're incrementing by *h*.
 Note also that we need to have that half-width offset on alternate rows, as we did with triangles.
