@@ -63,7 +63,7 @@ Given no other context, either scenario is horrifying, and hardly seems like an 
 If you wanted a better image of armed police, it's not hard to find one.
 I found this photo on Paul Townsend's Flickr account, accompanied by an [excellent history of armed police in the UK][flickr]:
 
-![](/images/2017/armed_police.jpg)
+![Five police officers walking down a street, all holding large guns which are pointed towards the ground.](/images/2017/armed_police.jpg)
 
 We see good practice all round: guns pointed down, fingers covering but not on the trigger.
 (And I always feel better when I see they're a little apprehensive with the guns too!)
