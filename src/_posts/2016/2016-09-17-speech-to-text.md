@@ -16,7 +16,7 @@ Their transcription is shown as live, scrolling text on several large screens th
 
 Here's what one of those screens looks like:
 
-[![](/images/2016/speech-to-text.jpg)](https://twitter.com/drvinceknight/status/777058766747500544)
+[![A television screen with yellow text on a black background, showing a transcript of somebody speaking.](/images/2016/speech-to-text.jpg)](https://twitter.com/drvinceknight/status/777058766747500544)
 
 <!-- https://twitter.com/drvinceknight/status/777344870499356672 -->
 

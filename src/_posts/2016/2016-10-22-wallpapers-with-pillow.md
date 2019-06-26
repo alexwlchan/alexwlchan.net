@@ -17,7 +17,7 @@ What I was actually trying to do was get some new desktop wallpapers, and gettin
 
 A while back, the [Code Review Stack Exchange](http://codereview.stackexchange.com) got a fresh design that featured, among other things, a low-contrast background of coloured squares:
 
-![](/images/2016/code_review.png)
+![The name "Code Review" in dark grey text, a grey magnifying glass, and a background of light-grey squares.](/images/2016/code_review.png)
 
 I was quite keen on the effect, and wanted to use it as my desktop wallpaper, albeit in different colours.
 I like using low contrast wallpapers, and this was a nice pattern to try to mimic.
@@ -26,9 +26,9 @@ And a few hours of Python later, I could generate these patterns in arbitrary co
 
 <table>
   <tr>
-    <td style="padding: 5px;"><img src="/images/2016/specktre_demo_sq.png"></td>
-    <td style="padding: 5px;"><img src="/images/2016/specktre_demo_tr.png"></td>
-    <td style="padding: 5px;"><img src="/images/2016/specktre_demo_hex.png"></td>
+    <td style="padding: 5px;"><img src="/images/2016/specktre_demo_sq.png" alt="A grid of squares in varying shades of red."></td>
+    <td style="padding: 5px;"><img src="/images/2016/specktre_demo_tr.png" alt="A pattern of triangles in varying shades of yellow."></td>
+    <td style="padding: 5px;"><img src="/images/2016/specktre_demo_hex.png" alt="A pattern of hexagons in varying shades of blue."></td>
   </tr>
 </table>
 
