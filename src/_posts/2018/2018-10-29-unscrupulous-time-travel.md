@@ -12,7 +12,7 @@ Something I've learnt: historical coins are *valuable*.
 Five-figure prices aren't unheard of, and I found one coin selling [for nearly £100k](https://www.baldwin.co.uk/coins/great-britain/charles-i-triple-unite-1642.html):
 
 <figure style="width: 400px">
-  <img src="/images/2018/baldwin_charles_i_coin.jpg">
+  <img src="/images/2018/baldwin_charles_i_coin.jpg" alt="The front and back of two gold coins. The left coin (front) shows a man holding a sword, the right (back) has some text in Latin.">
   <figcaption>
     A <a href="https://en.wikipedia.org/wiki/Triple_Unite_(English_coin)">Triple Unite</a> from the Oxford mint, a gold coin produced for Charles&nbsp;I in 1642.
     It was worth sixty shillings.

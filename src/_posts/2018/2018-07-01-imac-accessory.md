@@ -19,7 +19,7 @@ If you're an iMac owner who ever uses the USB ports, I really recommend it.
 They're fairly cheap on Amazon ([example, affiliate link][usb_extender]).
 
 <figure>
-  <img src="/images/2018/usb_extender.jpg">
+  <img src="/images/2018/usb_extender.jpg" alt="A grey cable with a USB plug at one end, and a socket at the other.">
   <figcaption>
     A USB extender cable.
     Image credit: <a href="https://commons.wikimedia.org/wiki/File:USB_extender_cable.jpg">Jojalozzo on Wikimedia Commons</a>.

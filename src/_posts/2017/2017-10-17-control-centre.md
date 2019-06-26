@@ -32,7 +32,7 @@ My first issue is one that's already been [widely reported][guardian].
 Pop quiz: in the screenshot below, are Wi-Fi and Bluetooth turned on or off?
 
 <figure>
-  <img class="img__control_centre" src="/images/2017/control_centre_base.png">
+  <img class="img__control_centre" src="/images/2017/control_centre_base.png" alt="A screenshot of Control Centre.">
   <figcaption>
     There's a cluster of four circular icons in the top-left hand corner.
     First row: an airplane icon and a wireless tower icon.
@@ -58,7 +58,7 @@ The button presents a binary switch, so you expect it to toggle distinct states.
 It could work if this was a three-way switch with "Off" as another state --- but that's not what we have.
 
 <figure>
-  <img class="img__control_centre" src="/images/2017/control_centre_no_radios.png">
+  <img class="img__control_centre" src="/images/2017/control_centre_no_radios.png" alt="A screenshot from Control Centre when Wi-Fi and Bluetooth are turned off.">
   <figcaption>
     What it looks like when WiFi and Bluetooth are actually turned off.
     There's a line through the WiFi and Bluetooth icons &ndash; but you can only get to this state through the Settings app.
@@ -81,13 +81,13 @@ So if I want to pause playback, I have to tap the corner for the expanded contro
 But first, I'm taken to a screen where I can select my audio output:
 
 <figure>
-  <img class="img__control_centre" src="/images/2017/control_centre_sources.png">
+  <img class="img__control_centre" src="/images/2017/control_centre_sources.png" alt="A media player with a list of output sources: iPhone and Apple TV.">
 </figure>
 
 It's another tap before I can get to the media controls, which are then rendered at a comically small size:
 
 <figure>
-  <img class="img__control_centre" src="/images/2017/control_centre_mediacontrols.png">
+  <img class="img__control_centre" src="/images/2017/control_centre_mediacontrols.png" alt="Media player controls: a scrubber to select play position, play/forward/back buttons, and a volume control.">
 </figure>
 
 The separate panes of Control Centre have been replaced with separate panes of the media control.

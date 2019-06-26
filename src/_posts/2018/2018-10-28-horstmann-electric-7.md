@@ -18,7 +18,7 @@ It turns out it selected the correct winter/summer setting itself, but it's drif
 This is the timer on my boiler:
 
 <figure>
-  <img src="/images/2018/boiler_front_plate.jpg">
+  <img src="/images/2018/boiler_front_plate.jpg" alt="A control panel with some white, green and blue buttons and a small, poorly-illuminated segment display reading “10:10”.">
   <figcaption>
     My boiler is in a utility cupboard next to my front door.
     When I turn on the hot water boost, I put the post-it note on the cupboard door, so I don&rsquo;t leave it on when I go out.
@@ -34,7 +34,7 @@ Unless you have this exact appliance, you can stop reading.
 
 This is a diagram showing the front of the timer:
 
-![](/images/2018/boiler_controls.png)
+![A control panel with white, green and blue buttons and a small segment display reading “03:04”.](/images/2018/boiler_controls.png)
 
 To set the clock:
 

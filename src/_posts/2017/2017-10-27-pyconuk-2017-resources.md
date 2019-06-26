@@ -22,7 +22,7 @@ I'll update it as I post new resources/links.
     This was an impromptu lightning talk I gave on Thursday evening.
     I only had one slide:
 
-    <img src="/images/2017/pyconuk_asexuality.png" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+    <img src="/images/2017/pyconuk_asexuality.png" style="max-width: 500px; margin-left: auto; margin-right: auto;" alt="A slide titled “Let's talk about (a)sex(uals)” with an asexual pride flag.">
 
     The image is taken from [this AVEN thread](http://fr.asexuality.org/forum/viewtopic.php?t=7994).
     The talk itself was based on a blog post I wrote at work.
