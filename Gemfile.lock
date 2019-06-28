@@ -90,6 +90,7 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (3.1.0)
     rainbow (3.0.0)
+    rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -136,6 +137,7 @@ DEPENDENCIES
   jekyll (~> 3.8)
   jekyll-sitemap (~> 1.2)
   nokogiri (~> 1.8)
+  rake (~> 12.3)
   redcarpet
   shell-executer (~> 1.0)
   stringex (~> 2.8.5)
