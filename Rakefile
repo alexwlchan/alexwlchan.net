@@ -5,9 +5,14 @@ task :build do
 end
 
 task :serve do |args, options|
-  Jekyll::Commands::Serve.process({
-    :host => "0.0.0.0",
-    :port => 5757,
+  Jekyll::Commands::Serve.start({
+    "host" => "0.0.0.0",
+    "port" => 5757,
+    "watch" => true,
+    "show_drafts" => true,
+    "incremental" => true,
+    "livereload_port" => 35729,
+    "serving" => true,
   })
 end
 
