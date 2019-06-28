@@ -22,3 +22,10 @@ task :'publish-drafts' do
 
   Jekyll::Commands::PublishDrafts.process()
 end
+
+task :lint do
+  $LOAD_PATH.unshift File.expand_path("src/_plugins", __dir__)
+  require "html_proofer"
+
+  run_linting("_site")
+end
