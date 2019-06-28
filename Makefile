@@ -26,9 +26,8 @@ serve:
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		--publish 5757:5757 \
-		--hostname $(SERVE_CONTAINER) \
 		$(DOCKER_IMAGE) \
-		serve --host $(SERVE_CONTAINER) --port 5757 --watch --drafts --incremental
+		serve
 
 publish-drafts:
 	docker run --tty --rm \
