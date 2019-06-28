@@ -100,9 +100,7 @@ Out of shot to the right was the village green around which the workers' houses 
 Because Crossness was relatively far out, a lot of the workers lived on-site, and in a somewhat forward-thinking move, housing was built at the same time as the main station.
 But I turned left, and went into the main exhibition.
 
-<figure>
-  <img src="/images/2017/P5280725.jpg">
-</figure>
+![Looking onto a courtyard area with three buildings to the left, some grassy patches and another arched building in the distance.](/images/2017/P5280725.jpg)
 
 In the main engine house, there's an exhibition about the Great Stink.
 Lots of information about London's sewer system, their construction, and what's happening with London's sewage today.
@@ -110,7 +108,7 @@ It's remarkable to see how well the Victorian system lasted – as with many eng
 Although it's had to expand to cope with London's ever-increasing population, the original system was very robust.
 
 <figure style="max-width: 500px;">
-  <img src="/images/2017/P5280734.jpg">
+  <img src="/images/2017/P5280734.jpg" alt="A sign titled “The Great Stink Exhibition”.">
 </figure>
 
 Pumping London's sewage to ground level required a huge amount of power.
@@ -127,7 +125,7 @@ The other three engines are still in a partial or complete state of disrepair, b
 Here's a picture of the atrium, with one of the flywheels visible in the background – and you can just see a beam poking out behind the pillar.
 
 <figure>
-  <img src="/images/2017/P5280873.jpg">
+  <img src="/images/2017/P5280873.jpg" alt="Looking down into a room with rusting metal pillars and a large metal wheel in the background.">
   <figcaption>
     Safety first!
     As you can just make out in the corner, we all had to wear helmets before entering the engine house.
@@ -139,16 +137,14 @@ These wheels were so masisve that when they were built, they had to be cast in e
 You can just make out two of the joins in this photograph:
 
 <figure style="max-width: 600px;">
-  <img src="/images/2017/P5280751.jpg" style="max-width: 600px;">
+  <img src="/images/2017/P5280751.jpg" style="max-width: 600px;" alt="A rusted wheel with three large spokes visible, with the remainder of the wheel below the floor.">
 </figure>
 
 But then I went through to the main attraction – the working *Prince Consort*.
 Over nearly 28&nbsp;years, volunteers at the Crossness Engine Trust worked to restore this engine to its original working condition (as of 1899 – more below).
 Here's the big wheel, in all its resplendent glory:
 
-<figure>
-  <img src="/images/2017/P5280774.jpg">
-</figure>
+![A large green wheel, with the top half visible, set against a brown brick wall and a window.](/images/2017/P5280774.jpg)
 
 Even more impressive, the engine was actually steaming.
 I deliberately picked a day when the engines were running:
