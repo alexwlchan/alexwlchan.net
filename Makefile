@@ -16,10 +16,10 @@ publish-docker:
 	python3 publish_docker_image.py
 
 build:
-	docker run --tty --rm \
-		--volume $(ROOT):$(ROOT) \
-		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) build
+	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
+
+lint:
+	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) lint
 
 serve:
 	docker run --tty --rm \
