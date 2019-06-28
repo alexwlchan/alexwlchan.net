@@ -54,13 +54,17 @@ module Jekyll
       def self.init_with_program(prog)
         prog.command(:"publish-drafts") do |c|
           c.action do |args, options|
-            # Hard-coding the source directory here isn't ideal, but I
-            # haven't found a way to access the "site" variable inside
-            # a Command plugin.
-            # TODO: Don't hard-code this bit of configuration!
-            publish_all_drafts("src")
+            process()
           end
         end
+      end
+
+      def self.process()
+        # Hard-coding the source directory here isn't ideal, but I
+        # haven't found a way to access the "site" variable inside
+        # a Command plugin.
+        # TODO: Don't hard-code this bit of configuration!
+        publish_all_drafts("src")
       end
     end
   end
