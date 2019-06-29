@@ -354,7 +354,7 @@ I expect we'll run the same process this year.
 [lottery]: /2017/10/lightning-talks/
 
 <figure>
-  <img src="/images/2018/pyconuk-lightning.jpg">
+  <img src="/images/2018/pyconuk-lightning.jpg" alt="A person at a lectern with a slide behind them saying “Lightning talks” and two buckets on the table.">
   <figcaption>
     Owen Campbell explaining lightning talks at PyCon UK 2017.
     Owen ran the lightning talks last year, and helped come up with the lottery system. You can see the two buckets for submitting talks in the picture. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37913336882/in/album-72157666242746367/">Mark Hawkins</a>.
