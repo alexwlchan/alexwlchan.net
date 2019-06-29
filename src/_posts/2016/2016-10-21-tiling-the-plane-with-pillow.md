@@ -50,7 +50,7 @@ There's an origin at (0, 0), and values increase as you move bottom-to-top, left
 In Pillow, this is flipped vertically: an increase in the vertical axis means moving down, not up.
 The origin is the top left-hand corner of an image, and the image canvas sits below and to the right.
 
-<img src="/images/2016/pillow-coordinates.png" style="width: 381px;">
+<img src="/images/2016/pillow-coordinates.png" style="width: 381px;" alt="A set of x-y axes with points (0, 0), (3, 0) on the x-axis, (0, 0) and (0, 2) on the y-axis, and (4,3) off the axis. The origin (0, 0) is top-left, x-axis goes left to right, y-axis goes top to bottom.">
 
 Practically speaking, this doesn't change much &ndash; but it's worth noting the difference, or drawings can behave in a confusing manner.
 
