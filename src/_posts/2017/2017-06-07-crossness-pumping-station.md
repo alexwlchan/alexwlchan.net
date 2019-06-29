@@ -184,7 +184,7 @@ The left-hand rocking beam was another late addition, added to upgrade the pumpi
 Here's another picture of the back of the cylinders:
 
 <figure style="max-width: 600px;">
-  <img src="/images/2017/P5280799.jpg" style="max-width: 600px;">
+  <img src="/images/2017/P5280799.jpg" style="max-width: 600px;" alt="A series of pipes and tubes surrounding cylindrical boilers. Some of the metalwork has red and gold decorations.">
   <figcaption>
     Pipes!
   </figcaption>
@@ -194,22 +194,22 @@ Then I went upstairs for a better view of the rocking beam.
 Each one is over 50&prime; long:
 
 <figure>
-  <img src="/images/2017/P5280917.jpg">
+  <img src="/images/2017/P5280917.jpg" alt="A decorated green beam, with the near end raised in the air.">
   <figcaption>
     Up...
   </figcaption>
 </figure>
 
 <figure>
-  <img src="/images/2017/P5280912.jpg">
+  <img src="/images/2017/P5280912.jpg" alt="A decorated green beam, with the far end raised up in the air.">
   <figcaption>
     ...and back down.
   </figcaption>
 </figure>
 
 <figure>
-  <img src="/images/2017/P5280899.jpg" style="max-width:49%;float:left;">
-  <img src="/images/2017/P5280900.jpg" style="max-width:49%;">
+  <img src="/images/2017/P5280899.jpg" style="max-width:49%;float:left;" alt="Looking down on a three-part green beam sinking into the floor.">
+  <img src="/images/2017/P5280900.jpg" style="max-width:49%;" alt="Gold-coloured linkages between two large green beams.">
   <figcaption>
     These two images remind me of a crocodile's mouth.
   </figcaption>
@@ -221,9 +221,7 @@ Watching such a mighty machine move is a humbling experience – after seeing th
 
 Even the rusting beams of the other three engines are an impressive sight:
 
-<figure>
-  <img src="/images/2017/P5280935.jpg">
-</figure>
+![A large, rusting metal pumping beam. It's against a wall, rising in the background, with windows in the walls.](/images/2017/P5280935.jpg)
 
 <figure>
   <img src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;">
