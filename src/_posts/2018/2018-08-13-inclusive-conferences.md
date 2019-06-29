@@ -467,7 +467,7 @@ Having young children can make conferences very difficult -- they require full-t
 Neither are easy or convenient.
 
 <figure>
-  <img src="/images/2018/pyconuk-creche.jpg">
+  <img src="/images/2018/pyconuk-creche.jpg" alt="Two babies sitting on the floor with some chairs and toys.">
   <figcaption>Two of the youngest attendees at PyCon UK 2017 &ndash; taking advantage of the free crèche. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37919454202/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
 </figure>
 
@@ -505,7 +505,7 @@ I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf an
 [sttr]: /2016/09/speech-to-text/
 
 <figure>
-  <img src="/images/2018/pyconuk-stenographers.jpg">
+  <img src="/images/2018/pyconuk-stenographers.jpg" alt="A person with headphones and a special stenographic keyboard, sitting in front of a desk with several papers and laptops.">
   <figcaption>
     One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&nbsp;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.
   </figcaption>
@@ -691,7 +691,7 @@ The key is having a bright colour that means "no photos please".
 It stands out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
 
 <figure>
-  <img src="/images/2018/pyconuk-lanyards.jpg">
+  <img src="/images/2018/pyconuk-lanyards.jpg" alt="The red, blue and yellow lanyards attached to a partially in-shot badge.">
   <figcaption>
     The three colours of lanyard at PyCon UK 2017. Yellow if you didn't want to appear in photographs, blue if you were happy to appear in photographs, red if you were an organiser or volunteer. Photo by me.
   </figcaption>
