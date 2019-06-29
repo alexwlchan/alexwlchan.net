@@ -230,9 +230,7 @@ Even the rusting beams of the other three engines are an impressive sight:
   <img src="/images/2017/P5280923.jpg" style="max-width:63%;">
 </figure>
 
-<figure>
-  <img src="/images/2017/P5280887.jpg">
-</figure>
+![Looking from one end of a large, rusted metal beam.](/images/2017/P5280887.jpg)
 
 The *Victoria* engine is under restoration, although it's nowhere near complete – getting the engines back to working order is a lengthy and expensive affair.
 
@@ -241,22 +239,18 @@ Covered in dust, rust and scaffolding &ndash; but this is right in the belly of 
 My camera struggled a bit with the low light, but I got a few pictures:
 
 <figure>
-  <img src="/images/2017/P5280807.jpg">
+  <img src="/images/2017/P5280807.jpg" alt="Looking down on some metal steps. The edge of the steps are painted red.">
   <figcaption>
     Hold on to your hard hats!
   </figcaption>
 </figure>
 
-<figure>
-  <img src="/images/2017/P5280809.jpg">
-</figure>
+![A piston-like machine, with the top painted in red and green.](/images/2017/P5280809.jpg)
+
+![Looking down on some circular machinery, covered in dirt and rust. The top of the machinery has some red and green paint.](/images/2017/P5280818.jpg)
 
 <figure>
-  <img src="/images/2017/P5280818.jpg">
-</figure>
-
-<figure>
-  <img src="/images/2017/P5280822.jpg">
+  <img src="/images/2017/P5280822.jpg" alt="The top of a large pipe embedded in the ground. The image has a strong yellow tinge.">
   <figcaption>
     Incoming sewage was pumped through these tunnels into reservoir tanks when the tide was coming in.
     After the tide turned, it was released into the river.
@@ -268,13 +262,9 @@ Finally, I'd be remiss if I didn't mention the decorated ironwork – something 
 This wasn't just an industrial site, it was a *spectacle* – every part of the interior had intricate delication and paintwork.
 At the centre of the site is the Octagon, where light entered the building:
 
-<figure>
-  <img src="/images/2017/P5280874.jpg">
-</figure>
+![Looking down on gold, red and green metalwork adorning the top of an octagonal area. Red columns mark the octagon.](/images/2017/P5280874.jpg)
 
-<figure>
-  <img src="/images/2017/P5280878.jpg">
-</figure>
+![Dark arch, an octagonal gap in the ceiling looking up to the next level. The gap is decorated in gold, red and green metalwork.](/images/2017/P5280878.jpg)
 
 <figure>
   <img src="/images/2017/P5280934.jpg">
