@@ -55,12 +55,12 @@ I continue to tweak the styles, but the major themes are the same: Georgia for t
 I finally ditched the blog list from the homepage, because it was difficult to get a sense of the site -- what you saw would vary based on what I'd written most recently, and if it was a really long post you might never see anything else!
 I replaced the homepage with a bio and a profile picture, with links out to blog posts but not jumping straight into the content.
 
-![](/images/site_bio_homepage.png)
+![A red stripe along the top of the site, with a large picture of a face on the right and a bio in the body of the page.](/images/site_bio_homepage.png)
 
 I also added new code to tweak the accent colour and the stripe, so I can theme individual pages if it suits the content.
 Here's a purple page:
 
-![](/images/site_purplestripe.png)
+![An article with a purple stripe across the top, and purple text in the title.](/images/site_purplestripe.png)
 
 ## 2016: A speckled red header
 
