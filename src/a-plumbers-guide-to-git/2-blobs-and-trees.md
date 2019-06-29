@@ -130,7 +130,7 @@ Those are what we created in part 1.
 Now we're creating *tree* objects, which know what files are called.
 A tree can point to a blob to describe the file contents.
 
-<img src="/a-plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;">
+<img src="/a-plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;" alt="A tree (blue) pointing to a blob (grey).">
 
 [git-write-tree]: https://www.git-scm.com/docs/git-write-tree
 
