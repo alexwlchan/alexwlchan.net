@@ -43,8 +43,8 @@ Below I've included a few screenshots to show the difference caused by this togg
 <br>
 
 <center>
-  <a href="/images/2015/cortex-enabled.PNG"><img src="/images/2015/cortex-enabled.PNG" class="two_up left"></a>
-  <a href="/images/2015/cortex-disabled.PNG"><img src="/images/2015/cortex-disabled.PNG" class="two_up"></a>
+  <a href="/images/2015/cortex-enabled.PNG"><img src="/images/2015/cortex-enabled.PNG" class="two_up left" alt="Siri search for “cortex podcast”, with a podcast and YouTube link."></a>
+  <a href="/images/2015/cortex-disabled.PNG"><img src="/images/2015/cortex-disabled.PNG" class="two_up" alt="Siri search for “cortex podcast”, with no results found."></a>
 </center>
 
 **Cortex.** With Spotlight Suggestions enabled, I see the podcast in the iTunes Store, and a YouTube video.
@@ -54,8 +54,8 @@ I don't get anything when they're disabled.
 <br>
 
 <center>
-  <a href="/images/2015/vexelology-enabled.PNG"><img src="/images/2015/vexelology-enabled.PNG" class="two_up left"></a>
-  <a href="/images/2015/vexelology-disabled.PNG"><img src="/images/2015/vexelology-disabled.PNG" class="two_up"></a>
+  <a href="/images/2015/vexelology-enabled.PNG"><img src="/images/2015/vexelology-enabled.PNG" class="two_up left" alt="Siri search for “vexelology”, with a link to the Wikipedia page."></a>
+  <a href="/images/2015/vexelology-disabled.PNG"><img src="/images/2015/vexelology-disabled.PNG" class="two_up" alt="Siri search for “vexelology”, with no results found."></a>
 </center>
 
 **Flags are cool.** With Spotlight Suggestions enabled, I get a link to the Wikipedia page. Disabled, I just see some fallback suggestions.
@@ -63,8 +63,8 @@ I don't get anything when they're disabled.
 <br>
 
 <center>
-  <a href="/images/2015/pizzaexpress-enabled.PNG"><img src="/images/2015/pizzaexpress-enabled.PNG" class="two_up left"></a>
-  <a href="/images/2015/pizzaexpress-disabled.PNG"><img src="/images/2015/pizzaexpress-disabled.PNG" class="two_up"></a>
+  <a href="/images/2015/pizzaexpress-enabled.PNG"><img src="/images/2015/pizzaexpress-enabled.PNG" class="two_up left" alt="Siri search for “pizza express”, with some maps and App Store results."></a>
+  <a href="/images/2015/pizzaexpress-disabled.PNG"><img src="/images/2015/pizzaexpress-disabled.PNG" class="two_up" alt="Siri search for “pizza express”, with a single maps result."></a>
 </center>
 
 **Feeling peckish?** This shows the biggest disparity in results: with suggestions disabled, all I see is a count of Maps results.

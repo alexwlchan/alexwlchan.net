@@ -19,10 +19,10 @@ I also made some cosmetic tweaks, mostly reusing the templates and CSS from this
 
 This is what the revised version looks like on my Mac:
 
-![](/images/2015/drangreader.png)
+![A browser window with two RSS articles, and a purple title “drangReader”.](/images/2015/drangreader.png)
 
 and on my iPhone:
 
-![](/images/2015/drangreader-iphone.png)
+![An iPhone browser screenshot with a single article, and purple stripe “drangReader” at the top of the window.](/images/2015/drangreader-iphone.png)
 
 My updated code is [in a Gist](https://gist.github.com/alexwlchan/01cec115a6f51d35ab26).

@@ -10,7 +10,7 @@ The BBC micro:bit is a tiny computer, intended for Year&nbsp;7 students to use t
 It's the spiritual successor to the [BBC Micro](https://en.wikipedia.org/wiki/BBC_Micro).
 Here's a picture from the BBC's website; it's about half the size of a credit card:
 
-![](/images/2015/microbit.jpg)
+![A small black circuit board with a yellow and green stripe.](/images/2015/microbit.jpg)
 
 One of the main programming languages on the micro:bit is Python, or rather [MicroPython](https://micropython.org), a version of Python 3 that's optimised for microcontrollers.
 (The micro:bit has just 16K of RAM, so full Python is out of the question.)
