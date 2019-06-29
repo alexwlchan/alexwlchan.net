@@ -23,7 +23,7 @@ But it's unsatisfying to say "this is false" without explaining *why*, so I'll e
 If you'd like to think about it first and make your own guess, don't scroll past the picture of the clock!
 
 <figure>
-  <img src="/images/2019/L0072180.jpg">
+  <img src="/images/2019/L0072180.jpg" alt="A clock face with Roman numerals and gold decoration.">
   <figcaption>
     A bracket clock.
     Construction and assembly by John Leroux.
@@ -68,7 +68,7 @@ And so our falsehoods go as follows:
     The final Unix second of the shorter day never gets allocated to a UTC timestamp.
     Here's what that would look like, in quarter-second increments:
 
-    <img src="/images/2019/unix_time_skips_forwards.png" style="width: 612px;">
+    <img src="/images/2019/unix_time_skips_forwards.png" style="width: 612px;" alt="A graph showing Unix time and UTC when a leap second gets removed.">
 
     If you start at 23:59:58:00 UTC and wait one second, the Unix time advances by *two* seconds, and the Unix timestamp 101 never gets assigned.
 
@@ -79,7 +79,7 @@ And so our falsehoods go as follows:
     Each Unix day has the same number of seconds, so it can't just add an extra second -- instead, it repeats the Unix timestamps for the last second of the day.
     Here's what that would look like, in quarter-second increments:
 
-    <img src="/images/2019/unix_time_goes_backwards.png" style="width: 612px;">
+    <img src="/images/2019/unix_time_goes_backwards.png" style="width: 612px;" alt="A graph showing Unix time and UTC when a leap second has been added.">
 
     If you start at 23:59:60.50 and wait half a second, the Unix time goes *back* by half a second, and the Unix timestamp 101 matches two UTC seconds.
 

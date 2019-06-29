@@ -10,7 +10,7 @@ category: Programming and code
 
 This morning, I got an email from Sam, asking if I had a way to cover up the persistent YouTube search bar:
 
-<img src="/images/2016/youtube-search.png" style="border: 1px solid #ddd;">
+<img src="/images/2016/youtube-search.png" style="border: 1px solid #ddd;" alt="The search bar at the top of YouTube.">
 
 Three years ago, I wrote a bookmarklet [for cleaning up the worst of the Google Maps interface](/2013/08/google-maps/), and we can adapt this to clean up YouTube as well.
 Unlike that post, this is one I'm likely to use myself.

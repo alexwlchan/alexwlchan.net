@@ -131,7 +131,7 @@ Then *trees* let us hold filenames and directory structure, by referring to blob
 Now we have *commits*, which refer to trees and give them context.
 Commits can refer to parent commits, which allows us to construct a history.
 
-![](/a-plumbers-guide-to-git/blob_tree_commit_example.png)
+![A commit object (green), pointing to trees (blue) and another commit, then some blobs (grey).](/a-plumbers-guide-to-git/blob_tree_commit_example.png)
 
 This is looking pretty close to a typical Git workflow!
 Let's try some exercises.
@@ -213,7 +213,7 @@ Now we've seen the three main types of object in Git:
 
 We can update our diagram:
 
-![](/a-plumbers-guide-to-git/blob_tree_commit.png)
+![A chain of three commits, each one pointing to more trees and blobs.](/a-plumbers-guide-to-git/blob_tree_commit.png)
 
 So now we can reconstruct the state of repo at any point in history, and we have the context to know why those points are significant.
 But if we want to talk about commits, we need to pass around commit IDs -- which are SHA1 hashes.

@@ -130,7 +130,7 @@ Those are what we created in part 1.
 Now we're creating *tree* objects, which know what files are called.
 A tree can point to a blob to describe the file contents.
 
-<img src="/a-plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;">
+<img src="/a-plumbers-guide-to-git/blob_tree_single.png" style="max-width: 500px;" alt="A tree (blue) pointing to a blob (grey).">
 
 [git-write-tree]: https://www.git-scm.com/docs/git-write-tree
 
@@ -184,7 +184,7 @@ A tree can point to blobs or other trees, which correspond to subdirectories.
 
 Here's a diagram to show our current repo:
 
-![](/a-plumbers-guide-to-git/blob_tree.png)
+![A tree pointing to a tree and a blob. The second tree points to two more blobs.](/a-plumbers-guide-to-git/blob_tree.png)
 
 Now let's put these new concepts into practice!
 
@@ -293,7 +293,7 @@ Let's recap: *blobs* are objects that point to the contents of a file.
 
 Here's a diagram:
 
-![](/a-plumbers-guide-to-git/blob_tree_text.png)
+![Left-to-right: a tree, pointing to a tree and a blob, then two more blobs on the tree. Each blob points to some text.](/a-plumbers-guide-to-git/blob_tree_text.png)
 
 At this point, we have enough to take a complete snapshot of a repository.
 
