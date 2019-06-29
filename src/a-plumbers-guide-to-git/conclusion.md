@@ -20,7 +20,7 @@ Let's recap what we've learnt throughout the workshop:
 
 Here's a whiteboard sketch that shows how it all fits together:
 
-[![](/a-plumbers-guide-to-git/git_conclusion.png)](/a-plumbers-guide-to-git/git_conclusion.png)
+[![HEAD (purple) points to refs (red), whcih point to commits (green). Commits can point to other commits or to trees (blue). Trees can point to other trees or blobs (grey).](/a-plumbers-guide-to-git/git_conclusion.png)](/a-plumbers-guide-to-git/git_conclusion.png)
 
 Along the way, you've learnt the plumbing operations that manipulate these objects and pointers.
 This is everything that happens in a typical Git workflow:
