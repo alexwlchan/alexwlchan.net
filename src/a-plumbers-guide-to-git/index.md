@@ -17,7 +17,7 @@ Git is a key part of many modern development workflows, but its complexity and i
 How does it actually work?
 
 <figure style="max-width: 331px;">
-  <img src="/images/2018/xkcd_git.png">
+  <img src="/images/2018/xkcd_git.png" alt="A comic: somebody explains Git in technical terms, then says that to use it you just memorise a few commands.">
   <figcaption>
     <em>Git</em>, by Randall Munroe.
     <a href="https://xkcd.com/1597/">XKCD #1597</a>.
