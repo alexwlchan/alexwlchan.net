@@ -15,15 +15,20 @@ require 'shell/executer.rb'
 
 
 def publish_all_drafts(source_dir)
+  puts "*** Publishing drafts"
   Dir.chdir(source_dir) do
     drafts_dir = "_drafts"
 
     tracked_drafts = `git ls-tree --name-only HEAD #{drafts_dir}/`.split("\n")
 
+    if tracked_drafts.empty?
+      puts "*** No drafts to publish!"
+    end
+
     now = Time.now
 
     tracked_drafts.each do |entry|
-      puts "*** Publishing draft #{entry}"
+      puts "*** Publishing draft post #{entry}"
 
       name = File.basename(entry)
       new_name = File.join("_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
@@ -43,29 +48,6 @@ def publish_all_drafts(source_dir)
       Shell.execute!("git rm #{entry}")
       Shell.execute!("git add #{new_name}")
       Shell.execute!("git commit -m \"Publish new post #{name}\"")
-    end
-  end
-end
-
-
-module Jekyll
-  module Commands
-    class PublishDrafts < Command
-      def self.init_with_program(prog)
-        prog.command(:"publish-drafts") do |c|
-          c.action do |args, options|
-            process()
-          end
-        end
-      end
-
-      def self.process()
-        # Hard-coding the source directory here isn't ideal, but I
-        # haven't found a way to access the "site" variable inside
-        # a Command plugin.
-        # TODO: Don't hard-code this bit of configuration!
-        publish_all_drafts("src")
-      end
     end
   end
 end
