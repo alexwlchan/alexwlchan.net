@@ -139,7 +139,7 @@ It exits with code 0 for yes, code 1 for no.
 The example is based on the following branch structure:
 
 <figure style="max-width: 80%" >
-  <img src="/images/2017/git-ancestry.png" alt="">
+  <img src="/images/2017/git-ancestry.png" alt="A chain of five commits on my-branch (red), with a new branch (other-branch, green) forking at the third commit (master, blue).">
   <figcaption>
     There are three commits up to <em>master</em> (marked in blue).
     There are then additional two commits atop master to <em>my-branch</em> (red), and three commits in a different branch from master, named <em>other-branch</em> (green).
@@ -152,7 +152,7 @@ Checking that shared master is an ancestor of my current branch is a good way to
 Let's look at an example.
 
 <figure style="max-width: 80%">
-  <img src="/images/2017/git-ancestry-bad.png" alt="">
+  <img src="/images/2017/git-ancestry-bad.png" alt="The same chain of five commits, but now master (blue) is ahead of the point of divergence.">
   <figcaption>
     Now <em>master</em> has advanced another two commits (blue), while <em>other-branch</em> (green) hasn't moved.
   </figcaption>

@@ -69,7 +69,7 @@ I kept cutting the vertical height of the header -- on small phone screens, you'
 I also added the speckled background, which I've really liked as a bit of lightweight visual flare (barely 2KB).
 It falls back to a solid red stripe if the image doesn't load.
 
-![](/images/site_bloglist.png)
+![A red stripe with speckled squares at the top of the page, with an article below it.](/images/site_bloglist.png)
 
 ## Late 2014: The first red stripe
 
@@ -78,7 +78,7 @@ I've tweaked this design quite a bit since the first version --- the stripe beca
 
 Sometime in 2015, I swapped out the sans serif font (this screenshot is Avenir) for a serif font (Georgia), which is the current font.
 
-![](/images/site_redstripe.png)
+![A tall reddish-orange strip with the name “alexwlchan” and a bio line, with an article below it.](/images/site_redstripe.png)
 
 ## Early 2014: What is that sidebar?
 
