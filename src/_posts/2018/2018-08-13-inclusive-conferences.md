@@ -196,7 +196,7 @@ Financial assistance usually comes from sponsorship, but don't discount the gene
 Here's a screenshot from the AlterConf London ticketing page:
 
 <figure>
-  <img src="/images/2018/alterconf-tickets.png">
+  <img src="/images/2018/alterconf-tickets.png" alt="A screenshot from the AlterConf ticket page. A basic ticket is £25, a friend ticket (helps 1 person) is £50, supporter (helps 2 people) is £50, and so on up to super friend (helps 5+ people) for £150 and up.">
   <figcaption>
     There are seven tiers: Scholarship (free), Basic (£25), Friend, Supporter, Advocate, Patron and Super Friend. The tiers above Basic allow you to buy extra tickets, and the Super Friend tier is a freeform box.
   </figcaption>
@@ -264,7 +264,7 @@ Have a clearly-marked, designated space where people can sit quietly, not talk t
 I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
 
 <figure>
-  <img src="/images/2018/pyconuk-quiet-room.jpg">
+  <img src="/images/2018/pyconuk-quiet-room.jpg" alt="A person working on a laptop in the middle of a council chamber. Most of the room is in shadow.">
   <figcaption>
     The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a lovely space for sitting quietly. It's also a good place to work and prepare slides. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37957275512/in/album-72157666242950547/">Mark Hawkins</a>.
   </figcaption>
@@ -354,7 +354,7 @@ I expect we'll run the same process this year.
 [lottery]: /2017/10/lightning-talks/
 
 <figure>
-  <img src="/images/2018/pyconuk-lightning.jpg">
+  <img src="/images/2018/pyconuk-lightning.jpg" alt="A person at a lectern with a slide behind them saying “Lightning talks” and two buckets on the table.">
   <figcaption>
     Owen Campbell explaining lightning talks at PyCon UK 2017.
     Owen ran the lightning talks last year, and helped come up with the lottery system. You can see the two buckets for submitting talks in the picture. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37913336882/in/album-72157666242746367/">Mark Hawkins</a>.
@@ -467,7 +467,7 @@ Having young children can make conferences very difficult -- they require full-t
 Neither are easy or convenient.
 
 <figure>
-  <img src="/images/2018/pyconuk-creche.jpg">
+  <img src="/images/2018/pyconuk-creche.jpg" alt="Two babies sitting on the floor with some chairs and toys.">
   <figcaption>Two of the youngest attendees at PyCon UK 2017 &ndash; taking advantage of the free crèche. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37919454202/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
 </figure>
 
@@ -505,7 +505,7 @@ I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf an
 [sttr]: /2016/09/speech-to-text/
 
 <figure>
-  <img src="/images/2018/pyconuk-stenographers.jpg">
+  <img src="/images/2018/pyconuk-stenographers.jpg" alt="A person with headphones and a special stenographic keyboard, sitting in front of a desk with several papers and laptops.">
   <figcaption>
     One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&nbsp;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.
   </figcaption>
@@ -691,7 +691,7 @@ The key is having a bright colour that means "no photos please".
 It stands out in a crowd, and makes it clear if you've accidentally snapped somebody who ddin't want their picture taken.
 
 <figure>
-  <img src="/images/2018/pyconuk-lanyards.jpg">
+  <img src="/images/2018/pyconuk-lanyards.jpg" alt="The red, blue and yellow lanyards attached to a partially in-shot badge.">
   <figcaption>
     The three colours of lanyard at PyCon UK 2017. Yellow if you didn't want to appear in photographs, blue if you were happy to appear in photographs, red if you were an organiser or volunteer. Photo by me.
   </figcaption>

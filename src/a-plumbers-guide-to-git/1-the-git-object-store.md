@@ -293,7 +293,7 @@ Hopefully you see is that Git is only saving the *contents* of our files -- it i
 Each object ID is a pointer to some text, but that text isn't associated with a filename.
 Here's a diagram showing the three objects we have so far:
 
-![](/a-plumbers-guide-to-git/individual_objects.png)
+![Three objects. “a37f...” ~> “An awesome aardvark…”, “b133” ~> “Big blue basilisks…”, “ce28…” ~> “Clueless cuttlefish”](/a-plumbers-guide-to-git/individual_objects.png)
 
 If we want to use Git to save more than a single file, we need to know what our files are called!
 In [part 2][part 2], we'll see how we can use *trees* to save the filenames and directory structure of our repository.

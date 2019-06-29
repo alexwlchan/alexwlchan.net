@@ -22,7 +22,7 @@ Far better to draw it using your app's drawing tools as a static image, which is
 Then the text is directly embedded (more accessible), and text always looks nice and crisp.
 This is what the effect looks like, with a single tweet per slide (more than one gets distracting):
 
-![](/images/2017/tweets_4up.png)
+![Screenshot of four slides, each with a tweet with a different number of lines.](/images/2017/tweets_4up.png)
 
 It's on the small side for text on a slide, but I've found it to work well if deployed sparingly.
 

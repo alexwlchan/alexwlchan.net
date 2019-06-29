@@ -35,7 +35,7 @@ That includes archives, images, photographs, and much more.
 We're saving files to an Amazon S3 bucket[^1], but Amazon doesn't have a way to lock around writes to S3.
 If more than one process writes to the same location at the same time, there's no guarantee which will win!
 
-<img src="/images/2019/locking.png" style="width: 327px;">
+<img src="/images/2019/locking.png" style="width: 327px;" alt="Three workers (orange blobs) trying to write to a single S3 bucket.">
 
 Our pipeline features lots of parallel workers -- Docker containers running in ECS, and each container running multiple threads.
 We want to lock around writes to S3, so that only a single process can write to a given S3 location at a time.

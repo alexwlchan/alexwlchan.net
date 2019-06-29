@@ -46,7 +46,7 @@ The reference `master` is a pointer to the commit `fd9...e31`.
 Anywhere we might use the commit ID, we can use `master` as a more convenient shortcut.
 This is what it looks like:
 
-[![](/a-plumbers-guide-to-git/git_ref_example.png)](/a-plumbers-guide-to-git/git_ref_example.png)
+[![A ref (red) pointing to a commit (green), which in turn points to trees (blue) and blobs (grey).](/a-plumbers-guide-to-git/git_ref_example.png)](/a-plumbers-guide-to-git/git_ref_example.png)
 
 Let's use the ref in an example:
 
@@ -179,7 +179,7 @@ initial commit
 Here's a quick diagram that summarises what we've learnt: refs point to commits (and you could create two refs that point to the same commit).
 HEAD is a special reference that points to another ref.
 
-![](/a-plumbers-guide-to-git/git_ref_head.png)
+![HEAD (purple) pointing to a ref (red).](/a-plumbers-guide-to-git/git_ref_head.png)
 
 Let's wrap up with a final set of exercises.
 

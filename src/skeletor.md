@@ -10,7 +10,7 @@ Here's a high-resolution PNG:
 
 <center>
     <a href="/skeletor/skeletor_jan2016.png">
-        <img src="/skeletor/skeletor_jan2016.png" style="border-style: solid; border-color: #242b6f;">
+        <img src="/skeletor/skeletor_jan2016.png" style="border-style: solid; border-color: #242b6f;" alt="An image chart with dark blue dots and arrows between them.">
     </a>
     <p class="caption">Last updated 20 January 2016.</p>
 </center>

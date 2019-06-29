@@ -100,9 +100,7 @@ Out of shot to the right was the village green around which the workers' houses 
 Because Crossness was relatively far out, a lot of the workers lived on-site, and in a somewhat forward-thinking move, housing was built at the same time as the main station.
 But I turned left, and went into the main exhibition.
 
-<figure>
-  <img src="/images/2017/P5280725.jpg">
-</figure>
+![Looking onto a courtyard area with three buildings to the left, some grassy patches and another arched building in the distance.](/images/2017/P5280725.jpg)
 
 In the main engine house, there's an exhibition about the Great Stink.
 Lots of information about London's sewer system, their construction, and what's happening with London's sewage today.
@@ -110,7 +108,7 @@ It's remarkable to see how well the Victorian system lasted – as with many eng
 Although it's had to expand to cope with London's ever-increasing population, the original system was very robust.
 
 <figure style="max-width: 500px;">
-  <img src="/images/2017/P5280734.jpg">
+  <img src="/images/2017/P5280734.jpg" alt="A sign titled “The Great Stink Exhibition”.">
 </figure>
 
 Pumping London's sewage to ground level required a huge amount of power.
@@ -127,7 +125,7 @@ The other three engines are still in a partial or complete state of disrepair, b
 Here's a picture of the atrium, with one of the flywheels visible in the background – and you can just see a beam poking out behind the pillar.
 
 <figure>
-  <img src="/images/2017/P5280873.jpg">
+  <img src="/images/2017/P5280873.jpg" alt="Looking down into a room with rusting metal pillars and a large metal wheel in the background.">
   <figcaption>
     Safety first!
     As you can just make out in the corner, we all had to wear helmets before entering the engine house.
@@ -139,16 +137,14 @@ These wheels were so masisve that when they were built, they had to be cast in e
 You can just make out two of the joins in this photograph:
 
 <figure style="max-width: 600px;">
-  <img src="/images/2017/P5280751.jpg" style="max-width: 600px;">
+  <img src="/images/2017/P5280751.jpg" style="max-width: 600px;" alt="A rusted wheel with three large spokes visible, with the remainder of the wheel below the floor.">
 </figure>
 
 But then I went through to the main attraction – the working *Prince Consort*.
 Over nearly 28&nbsp;years, volunteers at the Crossness Engine Trust worked to restore this engine to its original working condition (as of 1899 – more below).
 Here's the big wheel, in all its resplendent glory:
 
-<figure>
-  <img src="/images/2017/P5280774.jpg">
-</figure>
+![A large green wheel, with the top half visible, set against a brown brick wall and a window.](/images/2017/P5280774.jpg)
 
 Even more impressive, the engine was actually steaming.
 I deliberately picked a day when the engines were running:
@@ -177,7 +173,7 @@ There are three cylinders: high, medium and low pressure, with exhaust steam fro
 Here's a picture of the cylinders joining the main rocking beam:
 
 <figure>
-  <img src="/images/2017/P5280785.jpg">
+  <img src="/images/2017/P5280785.jpg" alt="A pair of metal cylinders with two green beams rising out of them.">
   <figcaption>
     If I&rsquo;ve remembered correctly, the high pressure cylinder is on the left, medium on the right, and the low pressure cylinder is in the basement, directly below the high pressure cylinder.
   </figcaption>
@@ -188,7 +184,7 @@ The left-hand rocking beam was another late addition, added to upgrade the pumpi
 Here's another picture of the back of the cylinders:
 
 <figure style="max-width: 600px;">
-  <img src="/images/2017/P5280799.jpg" style="max-width: 600px;">
+  <img src="/images/2017/P5280799.jpg" style="max-width: 600px;" alt="A series of pipes and tubes surrounding cylindrical boilers. Some of the metalwork has red and gold decorations.">
   <figcaption>
     Pipes!
   </figcaption>
@@ -198,22 +194,22 @@ Then I went upstairs for a better view of the rocking beam.
 Each one is over 50&prime; long:
 
 <figure>
-  <img src="/images/2017/P5280917.jpg">
+  <img src="/images/2017/P5280917.jpg" alt="A decorated green beam, with the near end raised in the air.">
   <figcaption>
     Up...
   </figcaption>
 </figure>
 
 <figure>
-  <img src="/images/2017/P5280912.jpg">
+  <img src="/images/2017/P5280912.jpg" alt="A decorated green beam, with the far end raised up in the air.">
   <figcaption>
     ...and back down.
   </figcaption>
 </figure>
 
 <figure>
-  <img src="/images/2017/P5280899.jpg" style="max-width:49%;float:left;">
-  <img src="/images/2017/P5280900.jpg" style="max-width:49%;">
+  <img src="/images/2017/P5280899.jpg" style="max-width:49%;float:left;" alt="Looking down on a three-part green beam sinking into the floor.">
+  <img src="/images/2017/P5280900.jpg" style="max-width:49%;" alt="Gold-coloured linkages between two large green beams.">
   <figcaption>
     These two images remind me of a crocodile's mouth.
   </figcaption>
@@ -225,18 +221,14 @@ Watching such a mighty machine move is a humbling experience – after seeing th
 
 Even the rusting beams of the other three engines are an impressive sight:
 
-<figure>
-  <img src="/images/2017/P5280935.jpg">
-</figure>
+![A large, rusting metal pumping beam. It's against a wall, rising in the background, with windows in the walls.](/images/2017/P5280935.jpg)
 
 <figure>
-  <img src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;">
-  <img src="/images/2017/P5280923.jpg" style="max-width:63%;">
+  <img src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;" alt="The rusted end of a pumping beam.">
+  <img src="/images/2017/P5280923.jpg" style="max-width:63%;" alt="Some rusted metal linkages and beams.">
 </figure>
 
-<figure>
-  <img src="/images/2017/P5280887.jpg">
-</figure>
+![Looking from one end of a large, rusted metal beam.](/images/2017/P5280887.jpg)
 
 The *Victoria* engine is under restoration, although it's nowhere near complete – getting the engines back to working order is a lengthy and expensive affair.
 
@@ -245,22 +237,18 @@ Covered in dust, rust and scaffolding &ndash; but this is right in the belly of 
 My camera struggled a bit with the low light, but I got a few pictures:
 
 <figure>
-  <img src="/images/2017/P5280807.jpg">
+  <img src="/images/2017/P5280807.jpg" alt="Looking down on some metal steps. The edge of the steps are painted red.">
   <figcaption>
     Hold on to your hard hats!
   </figcaption>
 </figure>
 
-<figure>
-  <img src="/images/2017/P5280809.jpg">
-</figure>
+![A piston-like machine, with the top painted in red and green.](/images/2017/P5280809.jpg)
+
+![Looking down on some circular machinery, covered in dirt and rust. The top of the machinery has some red and green paint.](/images/2017/P5280818.jpg)
 
 <figure>
-  <img src="/images/2017/P5280818.jpg">
-</figure>
-
-<figure>
-  <img src="/images/2017/P5280822.jpg">
+  <img src="/images/2017/P5280822.jpg" alt="The top of a large pipe embedded in the ground. The image has a strong yellow tinge.">
   <figcaption>
     Incoming sewage was pumped through these tunnels into reservoir tanks when the tide was coming in.
     After the tide turned, it was released into the river.
@@ -272,16 +260,12 @@ Finally, I'd be remiss if I didn't mention the decorated ironwork – something 
 This wasn't just an industrial site, it was a *spectacle* – every part of the interior had intricate delication and paintwork.
 At the centre of the site is the Octagon, where light entered the building:
 
-<figure>
-  <img src="/images/2017/P5280874.jpg">
-</figure>
+![Looking down on gold, red and green metalwork adorning the top of an octagonal area. Red columns mark the octagon.](/images/2017/P5280874.jpg)
+
+![Dark arch, an octagonal gap in the ceiling looking up to the next level. The gap is decorated in gold, red and green metalwork.](/images/2017/P5280878.jpg)
 
 <figure>
-  <img src="/images/2017/P5280878.jpg">
-</figure>
-
-<figure>
-  <img src="/images/2017/P5280934.jpg">
+  <img src="/images/2017/P5280934.jpg" alt="Looking down through the octagon.">
   <figcaption>
     View from above!
     In the shadows on the right, you can see the rusted version: what it looked like before the building was restored.
@@ -291,7 +275,7 @@ At the centre of the site is the Octagon, where light entered the building:
 The metalwork has been restored beautifully:
 
 <figure>
-  <img src="/images/2017/P5280936.jpg">
+  <img src="/images/2017/P5280936.jpg" alt="Metalwork with a red-and-gold logo in the middle of the frame.">
   <figcaption>
     The &ldquo;MBW&rdquo; is the monogram of the Metropolitan Board of Works.
   </figcaption>
@@ -300,11 +284,11 @@ The metalwork has been restored beautifully:
 No part of the station – not even the floors, stairs or the handrails – escaped the ornate decoration.
 
 <figure>
-  <img src="/images/2017/P5280794.jpg">
+  <img src="/images/2017/P5280794.jpg" alt="Some steps up to another level, with blue, red and cream decoration.">
 </figure>
 
 <figure>
-  <img src="/images/2017/P5280835.jpg">
+  <img src="/images/2017/P5280835.jpg" alt="A floor with a tiny half-circle pattern adorned in red and cream.">
 </figure>
 
 The whole site was a fascinating day out.

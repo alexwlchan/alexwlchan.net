@@ -11,7 +11,7 @@
       {% assign media = tweet_data["extended_entities"]["media"][0] %}
       {% assign expanded_url = media["expanded_url"] %}
       <a href="{{ expanded_url }}">
-        <img src="{{ media | tweet_img_entity_url }}">
+        <img src="{{ media | tweet_img_entity_url }}" alt="{{ alt_text }}">
       </a>
     {% elsif tweet_data["extended_entities"]["media"].size == 3 %}
       <table style="border-spacing: 0; width: 100%;">

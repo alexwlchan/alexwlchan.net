@@ -62,7 +62,7 @@ $ aspell check <path_to_file.txt>
 
 This reads the file, and for any words it thinks might be misspelt, it offers you an interface for fixing the word:
 
-![](/images/2016/aspell-screenshot.png)
+![A passage of text with the word "Bennet" highlighted, and a list of alternative suggestions.](/images/2016/aspell-screenshot.png)
 
 The interface highlights the problem word, and gives you several options:
 

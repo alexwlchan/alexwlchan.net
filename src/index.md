@@ -3,7 +3,7 @@ layout: page
 archive_variant: index
 ---
 
-<img src="/images/profile.jpg" style="float: right; width: 250px; max-width: 50%; margin-top: 0.4em; margin-left: 1em; margin-bottom: 1em;">
+<img src="/images/profile.jpg" style="float: right; width: 250px; max-width: 50%; margin-top: 0.4em; margin-left: 1em; margin-bottom: 1em;" alt="A picture of a person set against the sky.">
 
 ## Hi, I'm Alex.
 

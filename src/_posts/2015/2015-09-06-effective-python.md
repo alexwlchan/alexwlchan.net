@@ -6,7 +6,7 @@ tags: python books
 title: 'Review: Effective Python'
 ---
 
-<img src="/images/2015/effective-python.jpg" class="book_review">
+<img src="/images/2015/effective-python.jpg" class="book_review" alt="The cover of “Effective Python”.">
 
 I received a copy of Brett Slatkin's [*Effective Python*](http://www.effectivepython.com) for my birthday.
 
