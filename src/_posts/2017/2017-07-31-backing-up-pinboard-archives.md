@@ -23,7 +23,7 @@ Around 15% of my bookmarks no longer go anywhere useful.
 Once a page is archived, it appears with a small grey checkmark next to the link -- so you easily view the archived page if the original goes away.
 
 <figure style="max-width: 388px;">
-  <img src="/images/2017/pinboard_archive.png">
+  <img src="/images/2017/pinboard_archive.png" alt="A Pinboard link with a small grey checkmark next to the link.">
 </figure>
 
 I've paid for the extra archiving for years, and having these complete backups of my bookmarks is great -- but they only live on Pinboard.
@@ -35,7 +35,7 @@ I really want a local backup of all these full-page copies.
 In the archival account of your Pinboard settings, you can ask for a backup download:
 
 <figure style="max-width: 628px;">
-  <img src="/images/2017/archive_backup.png">
+  <img src="/images/2017/archive_backup.png" alt="Screenshot of the Pinboard archive backup screen. Titled “Archive Backup” and a “Request a download” button.">
 </figure>
 
 But in practice, when it says "an hour", I've found it takes days or weeks to materialise, if at all.

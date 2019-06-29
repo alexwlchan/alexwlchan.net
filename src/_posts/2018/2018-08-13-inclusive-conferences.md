@@ -196,7 +196,7 @@ Financial assistance usually comes from sponsorship, but don't discount the gene
 Here's a screenshot from the AlterConf London ticketing page:
 
 <figure>
-  <img src="/images/2018/alterconf-tickets.png">
+  <img src="/images/2018/alterconf-tickets.png" alt="">
   <figcaption>
     There are seven tiers: Scholarship (free), Basic (£25), Friend, Supporter, Advocate, Patron and Super Friend. The tiers above Basic allow you to buy extra tickets, and the Super Friend tier is a freeform box.
   </figcaption>
@@ -264,7 +264,7 @@ Have a clearly-marked, designated space where people can sit quietly, not talk t
 I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
 
 <figure>
-  <img src="/images/2018/pyconuk-quiet-room.jpg">
+  <img src="/images/2018/pyconuk-quiet-room.jpg" alt="A person working on a laptop in the middle of a council chamber. Most of the room is in shadow.">
   <figcaption>
     The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a lovely space for sitting quietly. It's also a good place to work and prepare slides. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37957275512/in/album-72157666242950547/">Mark Hawkins</a>.
   </figcaption>
