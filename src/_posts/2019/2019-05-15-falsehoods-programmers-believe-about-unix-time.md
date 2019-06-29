@@ -23,7 +23,7 @@ But it's unsatisfying to say "this is false" without explaining *why*, so I'll e
 If you'd like to think about it first and make your own guess, don't scroll past the picture of the clock!
 
 <figure>
-  <img src="/images/2019/L0072180.jpg">
+  <img src="/images/2019/L0072180.jpg" alt="A clock face with Roman numerals and gold decoration.">
   <figcaption>
     A bracket clock.
     Construction and assembly by John Leroux.

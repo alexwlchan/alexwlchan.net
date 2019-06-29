@@ -88,7 +88,7 @@ Cavan-Monaghan ▏   55 ██████████████████�
 
 Or if it isn't displaying correctly in your web browser, here's a screenshot:
 
-<img src="/images/2018/barchart.png">
+![Screenshot of a Terminal window with the ASCII bar chart](/images/2018/barchart.png)
 
 It won't win any prizes for data visualisation, but I do find it a useful way to get a quick glance at some data without leaving my terminal.
 
