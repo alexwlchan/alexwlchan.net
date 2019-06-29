@@ -20,7 +20,7 @@ task :'publish-drafts' do
   $LOAD_PATH.unshift File.expand_path("src/_plugins", __dir__)
   require "publish_drafts"
 
-  Jekyll::Commands::PublishDrafts.process()
+  publish_all_drafts("src")
 end
 
 task :lint do
