@@ -196,7 +196,7 @@ Financial assistance usually comes from sponsorship, but don't discount the gene
 Here's a screenshot from the AlterConf London ticketing page:
 
 <figure>
-  <img src="/images/2018/alterconf-tickets.png" alt="">
+  <img src="/images/2018/alterconf-tickets.png" alt="A screenshot from the AlterConf ticket page. A basic ticket is £25, a friend ticket (helps 1 person) is £50, supporter (helps 2 people) is £50, and so on up to super friend (helps 5+ people) for £150 and up.">
   <figcaption>
     There are seven tiers: Scholarship (free), Basic (£25), Friend, Supporter, Advocate, Patron and Super Friend. The tiers above Basic allow you to buy extra tickets, and the Super Friend tier is a freeform box.
   </figcaption>
