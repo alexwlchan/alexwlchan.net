@@ -86,22 +86,22 @@ The site went through another redesign and two font changes in 2014, as well as 
 If I'd put anything more useful there it might have worked, but it just had the links that had been in the header.
 This only lasted a few months before I moved the sidebar back into the header, and then redesigned the site again.
 
-![](/images/site_redwhite2a.png)
+![A white background site with a sidebar on the left and an article in the main area.](/images/site_redwhite2a.png)
 
-![](/images/site_redwhite2b.png)
+![The same design, but with a slightly different font.](/images/site_redwhite2b.png)
 
 ## 2013: A big name design
 
 The first major redesign introduced the red-and-white that's been a common theme ever since, along with a name in the header that seems ridiculously large to me today.
 
-![](/images/site_redwhite1.png)
+![The name “Alex Chan” in big red letters at the top, then an article below it.](/images/site_redwhite1.png)
 
 ## Late 2012: Octopress
 
 The original site was a lightly modified version of the default Octopress theme, with a blue tint that didn't last.
 I'm pretty sure I had a red version of this theme, but neither the Wayback Machine nor my screenshots provide any evidence that it existed.
 
-![](/images/site_octopress.png)
+![The name “Alex Chan” at the top, set against a dark blue background, then an article below it.](/images/site_octopress.png)
 
 [heroku]: https://www.heroku.com/
 [ghp]: https://pages.github.com/
