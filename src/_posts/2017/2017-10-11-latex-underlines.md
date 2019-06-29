@@ -152,7 +152,7 @@ I visited <span class="k">\mycontour</span><span class="nb">{</span>Berlin<span 
 </code></pre></div>
 
 <figure>
-  <img src="/images/2017/example_contour.png" class="latex__example"/>
+  <img src="/images/2017/example_contour.png" class="latex__example" alt="The phrase “I visited Berlin in Germany”, with a heavy red outline around “Berlin” and “Germany”."/>
 </figure>
 
 The `\contourlength` setting defines the width of the curve --- how much extra space is added.
