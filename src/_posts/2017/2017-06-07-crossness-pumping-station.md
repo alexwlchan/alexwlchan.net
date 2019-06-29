@@ -173,7 +173,7 @@ There are three cylinders: high, medium and low pressure, with exhaust steam fro
 Here's a picture of the cylinders joining the main rocking beam:
 
 <figure>
-  <img src="/images/2017/P5280785.jpg">
+  <img src="/images/2017/P5280785.jpg" alt="A pair of metal cylinders with two green beams rising out of them.">
   <figcaption>
     If I&rsquo;ve remembered correctly, the high pressure cylinder is on the left, medium on the right, and the low pressure cylinder is in the basement, directly below the high pressure cylinder.
   </figcaption>
@@ -224,8 +224,8 @@ Even the rusting beams of the other three engines are an impressive sight:
 ![A large, rusting metal pumping beam. It's against a wall, rising in the background, with windows in the walls.](/images/2017/P5280935.jpg)
 
 <figure>
-  <img src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;">
-  <img src="/images/2017/P5280923.jpg" style="max-width:63%;">
+  <img src="/images/2017/P5280925.jpg" style="max-width:35.5%;float:left;" alt="The rusted end of a pumping beam.">
+  <img src="/images/2017/P5280923.jpg" style="max-width:63%;" alt="Some rusted metal linkages and beams.">
 </figure>
 
 ![Looking from one end of a large, rusted metal beam.](/images/2017/P5280887.jpg)
@@ -265,7 +265,7 @@ At the centre of the site is the Octagon, where light entered the building:
 ![Dark arch, an octagonal gap in the ceiling looking up to the next level. The gap is decorated in gold, red and green metalwork.](/images/2017/P5280878.jpg)
 
 <figure>
-  <img src="/images/2017/P5280934.jpg">
+  <img src="/images/2017/P5280934.jpg" alt="Looking down through the octagon.">
   <figcaption>
     View from above!
     In the shadows on the right, you can see the rusted version: what it looked like before the building was restored.
@@ -275,7 +275,7 @@ At the centre of the site is the Octagon, where light entered the building:
 The metalwork has been restored beautifully:
 
 <figure>
-  <img src="/images/2017/P5280936.jpg">
+  <img src="/images/2017/P5280936.jpg" alt="Metalwork with a red-and-gold logo in the middle of the frame.">
   <figcaption>
     The &ldquo;MBW&rdquo; is the monogram of the Metropolitan Board of Works.
   </figcaption>
@@ -284,11 +284,11 @@ The metalwork has been restored beautifully:
 No part of the station – not even the floors, stairs or the handrails – escaped the ornate decoration.
 
 <figure>
-  <img src="/images/2017/P5280794.jpg">
+  <img src="/images/2017/P5280794.jpg" alt="Some steps up to another level, with blue, red and cream decoration.">
 </figure>
 
 <figure>
-  <img src="/images/2017/P5280835.jpg">
+  <img src="/images/2017/P5280835.jpg" alt="A floor with a tiny half-circle pattern adorned in red and cream.">
 </figure>
 
 The whole site was a fascinating day out.
