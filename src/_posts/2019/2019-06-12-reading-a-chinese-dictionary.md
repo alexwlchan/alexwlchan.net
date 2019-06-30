@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2019-06-12 07:45:43 +0000
-title: 读一本中文字典 / Reading a Chinese dictionary
+title: Reading a Chinese dictionary / 读一本中文字典
 summary: Although paper dictionaries are mostly a thing of the past, knowing to use a Chinese dictionary helps me learn the rest of the language.
 category: Languages
 index:
@@ -66,7 +66,7 @@ These are a few characters that use the water radical:
   <img src="/images/2019/water-ke.png" alt="The character 渴 or kě, meaning 'thirsty'.">
   <img src="/images/2019/water-lang.png" alt="The character 浪 or làng, meaning 'wave'.">
   <img src="/images/2019/water-soup.png" alt="The character 沕 or tāng, meaning 'soup'.">
-  
+
   <figcaption>
     I always remember the water radical because it looks like a splash of water! 💦
   </figcaption>
@@ -80,7 +80,7 @@ This becomes the *fire radical*, which usually signifies characters related to h
   <img src="/images/2019/fire-chui.png" alt="The character 炊 or chuī, meaning 'cook'.">
   <img src="/images/2019/fire-chao.png" alt="The character 炒 or chǎo, meaning 'fry'.">
   <img src="/images/2019/fire-yan.png" alt="The character 烟 or yān, meaning 'smoke'.">
-  
+
   <figcaption>
     The strokes remind me of a small flame. 🔥
   </figcaption>
@@ -93,7 +93,7 @@ Here's one more radical that usually appears on the left, the *mouth radical*:
   <img src="/images/2019/mouth-he.png" alt="The character 喝 or hē, meaning 'drink'.">
   <img src="/images/2019/mouth-yao.png" alt="The character 咬 or yǎo, meaning 'bite'.">
   <img src="/images/2019/mouth-miao.png" alt="The character 喵 or miāo, meaning 'meow'.">
-  
+
   <figcaption>
     A box is used for a couple of characters – not always a mouth – but it's often a good guess. 😮
   </figcaption>
