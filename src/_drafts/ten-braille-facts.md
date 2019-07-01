@@ -6,11 +6,11 @@ category: Languages
 ---
 
 One of the fun things about working at Wellcome is that there are all manner of unusual things in the collection.
-A while back, one of the archivists was asking if anybody knew any braille -- they'd been given some Braille documents to catalogue, but they didn't know what they were about!
+A while back, one of the archivists was asking if anybody knew any braille -- they'd been given some braille documents to catalogue, but they didn't know what they were about!
 
 In a strange coincidence, I went down a rabbit hole learning about braille when I was much younger, but I'd never expected it to have a practical use -- barring a sudden loss of eyesight.
 I was able to read enough to get an idea of what the documents were about (a women's health centre in London), so it got catalogued correctly -- and I mentioned it in a journal entry.
-[Rae](https://twitter.com/RaeKnowler) was interested and asked me to write more about Braille, so somewhat belatedly, here are ten facts about braille:
+[Rae](https://twitter.com/RaeKnowler) was interested and asked me to write more about braille, so somewhat belatedly, here are ten facts about braille:
 
 <style>
   figure {
@@ -27,7 +27,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
     Braille is usually printed on embossed paper, with the dots raised from the surface of the page.
 
     <figure>
-      <img src="/images/2019/braille.jpg" alt="A finger feeling raised dots on a printed page of Braille.">
+      <img src="/images/2019/braille.jpg" alt="A finger feeling raised dots on a printed page of braille.">
       <figcaption>
         Image by <a href="https://www.flickr.com/photos/malmesjo/4959534304/">Stefan Malmesjö</a>, used under CC&nbsp;BY.
       </figcaption>
@@ -39,7 +39,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     The precursors to braille used embossed type -- the imprint of the letters were raised off the page.
     Louis Braille (who invented braille writing) learnt to read with embossed type system created by [Valentin Haüy](https://en.wikipedia.org/wiki/Valentin_Ha%C3%BCy), because he studied at Haüy's school (one of the first schools for blind children).
-    But Haüy's system was expensive to produce, and although children could read, there was no hope of writing.
+    But Haüy's system was expensive to produce, and although children could read, there was no hope of writing something themselves.
 
     <figure>
       <img src="/images/2019/embossed_type.jpg" alt="Six rows, each showing an alphabet in a different writing style.">
@@ -77,21 +77,21 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     <ul>
       <li>Abbreviations or contractions (indicated by ⠸)</li>
-      <li>Single Braille characters for common words, like <em>and</em> (⠯) and <em>the</em> (⠮)</li>
+      <li>Single braille characters for common words, like <em>and</em> (⠯) and <em>the</em> (⠮)</li>
       <li>Ligatures like <em>sh</em> (⠩) and <em>th</em> (⠹)</li>
     </ul>
 
-    I used another special Braille character in the title of this post -- ⠼ is a *number sign*.
+    I used another special braille character in the title of this post -- ⠼ is a *number sign*.
     This is a [formatting mark](https://en.wikipedia.org/wiki/English_Braille#Formatting_marks) that tells a reader that the next characters are numbers, not letters.
     There are similar characters to mark capitalisation and emphasis.
 
     Formatting marks aren't required in printed English, because printing allows you to print the characters in different typefaces.
-    Because a six-dot Braille cell can only ever have 64 different patterns, it has to find other ways to represent formatting and emphasis.
+    Because a six-dot braille cell can only ever have 64 different patterns, it has to find other ways to represent formatting and emphasis.
 
     Braille is a unique system in its own right -- it's not just another way to write English characters.
 
     <figure>
-      <img src="/images/2019/lift_buttons.jpg" alt="Buttons in a lift with printed numbers and Braille inscriptions.">
+      <img src="/images/2019/lift_buttons.jpg" alt="Buttons in a lift with printed numbers and braille inscriptions.">
       <figcaption>
         Buttons in a lift: notice how the Braile for each button starts with <strong>⠼</strong> to tell you it's a number.
         Photograph by <a href="https://www.flickr.com/photos/paulhagon/3622729819/">Paul Hagon</a>, used under CC&nbsp;BY-NC.
@@ -104,9 +104,9 @@ I was able to read enough to get an idea of what the documents were about (a wom
     It ranges for things quite similar to English/French -- such as [Dutch Braille](https://en.wikipedia.org/wiki/Dutch_Braille), which has similar letter assignments, but replaces *y* with the vowel *ij* -- to non-Latin scripts like [Chinese](https://en.wikipedia.org/wiki/Mainland_Chinese_Braille), [Greek](https://en.wikipedia.org/wiki/Greek_Braille) and [Cyrillic](https://en.wikipedia.org/wiki/Russian_Braille).
 
     <figure>
-      <img src="/images/2019/finnish_braille.jpg" alt="A page printed with Finnish words and embossed with Braille.">
+      <img src="/images/2019/finnish_braille.jpg" alt="A page printed with Finnish words and embossed with braille.">
       <figcaption>
-        Finnish Braille.
+        Finnish braille.
         Photograph by <a href="https://www.flickr.com/photos/nosmoking/114175554/">Ms L</a>, used under CC&nbsp;BY-NC-ND.
       </figcaption>
     </figure>
@@ -160,19 +160,19 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
 9.  **Braille takes up a lot of space.**
 
-    Compared to a printed alphabet, Braille takes up much more space on the page -- a single pattern is bigger than a single character, there are extra formatting and punctuation marks, and the spacing is a lot looser.
+    Compared to a printed alphabet, braille takes up much more space on the page -- a single pattern is bigger than a single character, there are extra formatting and punctuation marks, and the spacing is a lot looser.
 
     You think your copy of *Harry Potter and the Order of the Phoenix* is big?
-    It's nothing compared to the Braille editions, ["each of which amounts to a 13-volume stack of paper more than a foot high"](https://www.csmonitor.com/2003/0701/p12s01-lecl.html).
+    It's nothing compared to the braille editions, ["each of which amounts to a 13-volume stack of paper more than a foot high"](https://www.csmonitor.com/2003/0701/p12s01-lecl.html).
 
     {% tweet https://twitter.com/BrookeCottrell_/status/876825684202663937 %}
 
 <ol start="10">
   <li>
-    <p><strong>You can read Braille electronically.</strong></p>
+    <p><strong>You can read braille electronically.</strong></p>
 
     <p>
-      If you want to read something using braille but you don't want (or can't) print it on embossed paper, you can use a <a href="https://en.wikipedia.org/wiki/Refreshable_braille_display">Braille display</a>.
+      If you want to read something using braille but you don't want (or can't) print it on embossed paper, you can use a <a href="https://en.wikipedia.org/wiki/Refreshable_braille_display">braille display</a>.
       This is an electro-mechanical device that displays braille patterns.
       It can create a sequence of patterns by raising round-tipped pins for the text you want to read.
     </p>
@@ -183,10 +183,14 @@ I was able to read enough to get an idea of what the documents were about (a wom
     </p>
 
     <figure>
-      <img src="/images/2019/braille-reader.jpg" alt="A purple machine with a sequence of Braille characters in raised pins along the front row.">
+      <img src="/images/2019/braille-reader.jpg" alt="A purple machine with a sequence of braille characters in raised pins along the front row.">
       <figcaption>
         A refreshable braille display, photographed by <a href="https://commons.wikimedia.org/wiki/File:Plage-braille.jpg">Sebastien.delorme</a>, CC&nbsp;BY-SA.
       </figcaption>
     </figure>
   </li>
 </ol>
+
+And finally, a copy-editing fact: when I originally wrote this post, I capitalised the name of the system as "Braille".
+As I was doing the reading, I learnt that [lowercase "braille" is much more common](http://www.brailleauthority.org/capitalization/capitalization.pdf), with a capital letter only if you're talking about Louis Braille.
+I think I've fixed all the text above, but please let me know if I've missed one -- or if you think I've made any other mistake.
