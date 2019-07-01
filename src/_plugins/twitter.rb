@@ -99,8 +99,8 @@ module Jekyll
 
     def initialize(tag_name, text, tokens)
       super
-      @tweet_url = text.tr("\"", "")
-      @tweet_id = @tweet_url.split("/").last.strip
+      @tweet_url = text.tr("\"", "").strip
+      @tweet_id = @tweet_url.split("/").last
     end
 
     def local_path(name)
@@ -191,7 +191,7 @@ module Jekyll
       per_tweet_alt_text = alt_text[@tweet_url]
 
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
-      tpl.render!("tweet_data" => tweet_data, "alt_text" => alt_text)
+      tpl.render!("tweet_data" => tweet_data, "alt_text" => per_tweet_alt_text)
     end
   end
 end
