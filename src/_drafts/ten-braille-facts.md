@@ -1,8 +1,11 @@
 ---
 layout: post
 title: Ten braille facts / ⠼⠁⠚⠀⠃⠗⠁⠊⠇⠇⠑⠀⠋⠁⠉⠞⠎
-summary:
+summary: Where does Braille come from? How was Braille originally written? What can you write in Braille today? And more.
 category: Languages
+theme:
+  card_type: summary_large_image
+  image: /images/2019/braille.jpg
 ---
 
 One of the fun things about working at Wellcome is that there are lots of unusual things in the collection.
@@ -22,7 +25,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     It's designed to be used by people who are visually impaired.
     Rather than seeing a printed character with your eye, you gently run your finger over the page, and feel the indents of a braille pattern.
-    Each pattern is a six-dot "cell", arranged two wide by three high, and different dots are raised in each pattern.
+    Each pattern is a six-dot "cell", arranged two wide by three high, and different dots are raised to create each pattern.
     Braille is usually printed on embossed paper, with the dots raised from the surface of the page.
 
     <figure>
