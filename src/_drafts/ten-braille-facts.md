@@ -5,11 +5,11 @@ summary:
 category: Languages
 ---
 
-One of the fun things about working at Wellcome is that there are all manner of unusual things in the collection.
+One of the fun things about working at Wellcome is that there are lots of unusual things in the collection.
 A while back, one of the archivists was asking if anybody knew any braille -- they'd been given some braille documents to catalogue, but they didn't know what they were about!
 
 In a strange coincidence, I went down a rabbit hole learning about braille when I was much younger, but I'd never expected it to have a practical use -- barring a sudden loss of eyesight.
-I was able to read enough to get an idea of what the documents were about (a women's health centre in London), so it got catalogued correctly -- and I mentioned it in a journal entry.
+I was able to read enough to get an idea of what the documents were about (a women's health centre in London), so it got catalogued correctly -- and I mentioned it in a Dreamwidth entry.
 [Rae](https://twitter.com/RaeKnowler) was interested and asked me to write more about braille, so somewhat belatedly, here are ten facts about braille:
 
 <style>
@@ -22,8 +22,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     It's designed to be used by people who are visually impaired.
     Rather than seeing a printed character with your eye, you gently run your finger over the page, and feel the indents of a braille pattern.
-
-    Each pattern is a six-dot "cell", arranged two wide by three high, and the dots which are raised tell you what the character is.
+    Each pattern is a six-dot "cell", arranged two wide by three high, and different dots are raised in each pattern.
     Braille is usually printed on embossed paper, with the dots raised from the surface of the page.
 
     <figure>
@@ -37,8 +36,8 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     Although braille is the most common and popular system in use today, there were other systems that predate it -- and the inventor of braille was aware of at least some of them.
 
-    The precursors to braille used embossed type -- the imprint of the letters were raised off the page.
-    Louis Braille (who invented braille writing) learnt to read with embossed type system created by [Valentin Haüy](https://en.wikipedia.org/wiki/Valentin_Ha%C3%BCy), because he studied at Haüy's school (one of the first schools for blind children).
+    The precursors to braille also used embossed type -- the imprint of the letters were raised off the page.
+    Louis Braille (who invented braille) learnt to read with an embossed type system created by [Valentin Haüy](https://en.wikipedia.org/wiki/Valentin_Ha%C3%BCy), because he studied at Haüy's school (one of the first schools for blind children).
     But Haüy's system was expensive to produce, and although children could read, there was no hope of writing something themselves.
 
     <figure>
@@ -50,11 +49,11 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     Another system that Braille was aware of was [night writing](https://en.wikipedia.org/wiki/Night_writing), developed for use in the French military.
     It used a dot pattern similar to braille, but with twelve instead of six dots.
-    This turned out to be its flaw -- an individual characters was too big to feel with a single finger.
+    This turned out to be a flaw -- an individual character was too big to feel with a single finger.
 
-    Louis Braille created braille, aged 15, as an alternative to these systems that would be easier to read and would allow blind students to write.
+    Aged 15, Louis Braille created braille as an alternative to these systems that would be easier to read and would allow blind students to write.
 
-3.  **Braille was originally written with the same tool that blinded its author.**
+3.  **Braille was originally written with the same tool that blinded its inventor.**
 
     Louis Braille's father was a leatherer, and a young Louis would play in his father's workshop.
     Aged three, he was trying to make holes in leather with an awl, but it slipped and struck him in the eye.
@@ -72,7 +71,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
 4.  **Braille isn't a one-to-one mapping to printed characters.**
 
-    The most common form of English braille adds many symbols and markers that don't map to a printed English character.
+    The most common form of English Braille adds many symbols and markers that don't map to a printed English character.
     These include:
 
     <ul>
@@ -88,12 +87,12 @@ I was able to read enough to get an idea of what the documents were about (a wom
     Formatting marks aren't required in printed English, because printing allows you to print the characters in different typefaces.
     Because a six-dot braille cell can only ever have 64 different patterns, it has to find other ways to represent formatting and emphasis.
 
-    Braille is a unique system in its own right -- it's not just another way to write English characters.
+    Braille is a unique system in its own right -- it's not just another a one-to-one mapping of English orthography.
 
     <figure>
       <img src="/images/2019/lift_buttons.jpg" alt="Buttons in a lift with printed numbers and braille inscriptions.">
       <figcaption>
-        Buttons in a lift: notice how the Braile for each button starts with <strong>⠼</strong> to tell you it's a number.
+        Buttons in a lift: notice how the braille for each button starts with <strong>⠼</strong> to tell you it's a number.
         Photograph by <a href="https://www.flickr.com/photos/paulhagon/3622729819/">Paul Hagon</a>, used under CC&nbsp;BY-NC.
       </figcaption>
     </figure>
@@ -113,7 +112,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
 6.  **Braille characters are assigned in order -- not randomly.**
 
-    The patterns have a defined order, and characters are assigned to a pattern based on their order.
+    The patterns have a defined order, and characters/marks are assigned to a pattern based on their order.
     For example, the first pattern is *A*, the second pattern is *B*, the third is *C*, and so on.
 
     The patterns are grouped into *decades*.
@@ -126,7 +125,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
     This helps you remember the meaning of the patterns (or me, at least).
     For example, consider ⠗.
     The bottom row tells us that this character is in the second decade, and the top two rows tell us it's the eighth character in the decade.
-    The eighteenth letter of the alphabet is *R*, so that's what this pattern means.
+    The eighteenth letter of the alphabet is *R*, so this pattern is *R*.
 
     For more, [see Wikipedia](https://en.wikipedia.org/wiki/English_Braille#System).
 
@@ -134,7 +133,7 @@ I was able to read enough to get an idea of what the documents were about (a wom
 
     Louis Braille was an avid musician, and an accomplished cellist and organist, so he wanted a system that could be used to write music.
     There have been several systems for writing music with Braille, with some minor differences, but today the Braille music code is mostly standardised.
-    You can use it to express almost anything you write with standard musical notation.
+    You can use it to express almost anything you can write with standard musical notation.
 
     Unlike printed music, a Braille musician usually has to read and memorise the score -- if they read the score with Braille while playing, they'd only have one hand left for the instrument!
 
