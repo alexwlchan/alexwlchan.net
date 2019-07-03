@@ -16,6 +16,10 @@ task :serve do |args, options|
   })
 end
 
+task :'build-drafts' do
+  Jekyll::Commands::Build.process({:lint => true, :show_drafts => true})
+end
+
 task :'publish-drafts' do
   $LOAD_PATH.unshift File.expand_path("src/_plugins", __dir__)
   require "publish_drafts"

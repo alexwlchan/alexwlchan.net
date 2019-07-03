@@ -8,18 +8,23 @@ pool:
   vmImage: "Ubuntu-16.04"
 
 steps:
-- script: "make build"
-  displayName: "Run 'jekyll build'"
+
+- script: "make build-drafts"
+  displayName: "Build the site"
+
 - task: DownloadSecureFile@1
   inputs:
     secureFile: id_rsa
+  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
+  displayName: "Download SSH key"
+
 - script: |
     mkdir -p ~/.ssh
     cp $DOWNLOADSECUREFILE_SECUREFILEPATH ~/.ssh/id_rsa
     chmod 600 ~/.ssh/id_rsa
 
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-    
+
     # Even though Azure doesn't set anything in this file, it gets
     # mounted as a container volume by "make deploy".  If it doesn't
     # exist, Docker creates an empty directory and Git is unhappy.

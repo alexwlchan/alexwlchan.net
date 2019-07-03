@@ -18,6 +18,9 @@ publish-docker:
 build:
 	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
 
+build-drafts:
+	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build-drafts
+
 lint:
 	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) lint
 
