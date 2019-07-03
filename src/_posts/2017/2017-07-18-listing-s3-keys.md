@@ -7,6 +7,11 @@ title: Listing keys in an S3 bucket with Python
 category: Working with AWS
 ---
 
+{% update 2019-07-03 %}
+  In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
+  If you want to use it, I'd recommend using the [updated version](/2019/07/listing-s3-keys/).
+{% endupdate %}
+
 A lot of my recent work has involved batch processing on files stored in Amazon S3.
 It's been very useful to have a list of files (or rather, keys) in the S3 bucket – for example, to get an idea of how many files there are to process, or whether they follow a particular naming scheme.
 
@@ -218,9 +223,9 @@ for key in get_matching_s3_keys(bucket='bukkit', suffix=('.jpg', '.JPG')):
 This function absorbs all the messiness of dealing with the S3 API, and I can focus on actually using the keys.
 Although S3 isn't actually a traditional filesystem, it behaves in very similar ways -- and this function helps close the gap.
 
-{% update 2018-01-20 %}
-  I've been running this code in production for a while now, and uncovered a few problems.
-  If you want to use it, I'd recommend using the [updated version](/2018/01/listing-s3-keys-redux/).
+{% update 2019-07-03 %}
+  In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
+  If you want to use it, I'd recommend using the [updated version](/2019/07/listing-s3-keys/).
 {% endupdate %}
 
 [boto3]: https://github.com/boto/boto3
