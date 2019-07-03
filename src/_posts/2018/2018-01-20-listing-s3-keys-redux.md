@@ -7,6 +7,11 @@ title: Listing keys in an S3 bucket with Python, redux
 category: Working with AWS
 ---
 
+{% update 2019-07-03 %}
+  In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
+  If you want to use it, I'd recommend using the [updated version](/2019/07/listing-s3-keys/).
+{% endupdate %}
+
 A few months ago, I wrote about some code for [listing keys in an S3 bucket](/2017/07/listing-s3-keys/).
 I've been running variants of that code in production since then, and found a pair of mistakes in the original version.
 
@@ -181,5 +186,10 @@ def get_matching_s3_keys(bucket, prefix='', suffix=''):
 
 If you've used the original code, I'd recommend switching to use this updated version.
 You can find the code, along with a couple of tests, [on GitHub][github].
+
+{% update 2019-07-03 %}
+  In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
+  If you want to use it, I'd recommend using the [updated version](/2019/07/listing-s3-keys/).
+{% endupdate %}
 
 [github]: https://github.com/alexwlchan/alexwlchan.net/tree/d5d7201189c64f45e97ed2a4c6ff39164f50c843/misc/matching_s3_objects
