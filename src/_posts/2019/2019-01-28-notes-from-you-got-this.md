@@ -170,15 +170,15 @@ If you want to get your spending under control, there are two key steps:
     You might believe all, some or none of these -- whatever, knowing your beliefs is useful.
 
     Some useful resources:
-    <p><ul>
+    <ul>
       <li>
         <a href="https://www.amazon.co.uk/Seven-Stages-Money-Maturity-Understanding/dp/0440508339">The Seven Stages of Money Management</a>
       </li>
       <li>
         <a href="https://www.hilaryhendershott.com/profit-boss-radio/">The Profit Boss podcast</a> (especially for women)
       </li>
-    </ul></p>
-    Talk about money!
+    </ul>
+    <p>Talk about money!
     It's often a taboo topic.
 
 2.  **Take some practical steps.**
