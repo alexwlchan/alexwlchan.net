@@ -8,12 +8,12 @@ This is a page to track the latest version of my [recursive clip loop chart](/20
 
 Here's a high-resolution PNG:
 
-<center>
-    <a href="/skeletor/skeletor_jan2016.png">
-        <img src="/skeletor/skeletor_jan2016.png" style="border-style: solid; border-color: #242b6f;" alt="An image chart with dark blue dots and arrows between them.">
-    </a>
-    <p class="caption">Last updated 20 January 2016.</p>
-</center>
+<figure>
+  <a href="/skeletor/skeletor_jan2016.png">
+    <img src="/skeletor/skeletor_jan2016.png" style="border-style: solid; border-color: #242b6f;" alt="An image chart with dark blue dots and arrows between them.">
+  </a>
+  <figcaption>Last updated 20 January 2016.</figcaption>
+</figure>
 
 You can also download a [PDF version](/skeletor/skeletor_jan2016.pdf) or the [LaTeX source code](/skeletor/skeletor_jan2016.tex).
 
