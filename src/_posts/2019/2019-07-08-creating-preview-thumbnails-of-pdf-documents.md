@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-07-08 21:44:29 +0000
 title: Creating preview thumbnails of PDF documents
 summary:
 category: Programming and code
