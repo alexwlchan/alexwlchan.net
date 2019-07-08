@@ -5,6 +5,9 @@ title: An inescapable conclusion
 summary: After months of introspection and soul-searching, I've had some big realisations about my identity.
 category: Diversity, inclusion and accessibility
 
+index:
+  best_of: true
+
 theme:
   card_type: summary_large_image
   image: /images/2019/goldfinger.jpg
