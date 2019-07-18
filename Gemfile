@@ -9,6 +9,7 @@ group :jekyll_plugins do
 end
 
 gem "html-proofer", "~> 3.2"
+gem "mini_magick", "~> 4.7"
 gem "nokogiri", "~> 1.8"
 gem "redcarpet"
 gem "shell-executer", "~> 1.0"

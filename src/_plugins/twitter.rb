@@ -24,6 +24,9 @@ require 'fileutils'
 require 'json'
 require 'open-uri'
 require 'twitter'
+require "uri"
+
+require "mini_magick"
 
 
 module Jekyll
@@ -48,7 +51,7 @@ module Jekyll
       tweet_id = tweet_data["id_str"]
       avatar_url = tweet_data["user"]["profile_image_url_https"]
       extension = avatar_url.split(".").last  # ick
-      _display_path("#{screen_name}_#{tweet_id}.#{extension}")
+      _display_path("avatars/#{screen_name}_#{tweet_id}.#{extension}")
     end
 
     def render_tweet_text(tweet_data)
@@ -100,20 +103,46 @@ module Jekyll
     def initialize(tag_name, text, tokens)
       super
       @tweet_url = text.tr("\"", "").strip
-      @tweet_id = @tweet_url.split("/").last
+      _, @screen_name, _, @tweet_id = URI.parse(@tweet_url).path.split("/")
     end
 
-    def local_path(name)
-      return "#{@src}/_images/twitter/#{name}"
+    def images_path(name)
+      return "#{@src}/_images/twitter"
     end
 
     def cache_file()
-      "#{@src}/_tweets/#{@tweet_id}.json"
+      "#{@src}/_tweets/#{@screen_name}_#{@tweet_id}.json"
     end
 
-    def avatar_path(avatar_url, screen_name)
+    def avatar_path(avatar_url)
       extension = avatar_url.split(".").last  # ick
-      local_path("#{screen_name}_#{@tweet_id}.#{extension}")
+      "#{@src}/_tweets/#{@screen_name}_#{@tweet_id}.#{extension}"
+    end
+
+    def create_avatar_thumbnail(avatar_url)
+      path = avatar_path(avatar_url)
+
+      FileUtils::mkdir_p "#{@dst}/images/twitter/avatars"
+
+      # Avatars are routinely quite large (e.g. 512x512), but they're
+      # only displayed in a 36x36 square (see _tweets.scss).
+      #
+      # Cutting a smaller thumbnail should reduce the page weight.
+      thumbnail_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
+      if not File.exists? thumbnail_path
+        image = MiniMagick::Image.open(path)
+        image.resize "108x"
+        image.write thumbnail_path
+      end
+
+      # At least one of the thumbnails (a GIF) actually gets *bigger* when
+      # resized by ImageMagick.
+      #
+      # The whole point is to reduce the size of served files, so if that
+      # happens, just use the original file.
+      if File.size(thumbnail_path) > File.size(path)
+        FileUtils.cp(path, thumbnail_path)
+      end
     end
 
     def download_avatar(tweet)
@@ -121,7 +150,7 @@ module Jekyll
       # it kept breaking when I tried to use it.
       avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
 
-      File.open(avatar_path(avatar_url, tweet.user.screen_name), "wb") do |saved_file|
+      File.open(avatar_path(avatar_url), "wb") do |saved_file|
         # the following "open" is provided by open-uri
         open(avatar_url, "rb") do |read_file|
           saved_file.write(read_file.read)
@@ -144,8 +173,8 @@ module Jekyll
 
         # TODO: Use a proper url-parsing library
         name = media_url.path.split("/").last
-        FileUtils::mkdir_p local_path("")
-        File.open(local_path(name), "wb") do |saved_file|
+        FileUtils::mkdir_p images_path("")
+        File.open(images_path(name), "wb") do |saved_file|
           open(media_url, "rb") do |read_file|
             saved_file.write(read_file.read)
           end
@@ -172,6 +201,7 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       @src = site.config["source"]
+      @dst = site.config["destination"]
 
       if not File.exists? cache_file()
         puts("Caching #{@tweet_url}")
@@ -186,6 +216,9 @@ module Jekyll
       end
 
       tweet_data = JSON.parse(File.read(cache_file()))
+
+      avatar_url = tweet_data["user"]["profile_image_url_https"]
+      create_avatar_thumbnail(avatar_url)
 
       alt_text = YAML.load(File.read("#{@src}/_tweets/alt_text.yml"), :safe => true)
       per_tweet_alt_text = alt_text[@tweet_url]
