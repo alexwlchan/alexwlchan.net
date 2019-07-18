@@ -104,8 +104,8 @@ module Jekyll
       _, @screen_name, _, @tweet_id = URI.parse(@tweet_url).path.split("/")
     end
 
-    def local_path(name)
-      return "#{@src}/_images/twitter/#{name}"
+    def images_path(name)
+      return "#{@src}/_images/twitter"
     end
 
     def cache_file()
@@ -114,7 +114,7 @@ module Jekyll
 
     def avatar_path(avatar_url, screen_name)
       extension = avatar_url.split(".").last  # ick
-      local_path("#{screen_name}_#{@tweet_id}.#{extension}")
+      "#{@src}/_tweets/#{screen_name}_#{@tweet_id}.#{extension}"
     end
 
     def download_avatar(tweet)
@@ -145,8 +145,8 @@ module Jekyll
 
         # TODO: Use a proper url-parsing library
         name = media_url.path.split("/").last
-        FileUtils::mkdir_p local_path("")
-        File.open(local_path(name), "wb") do |saved_file|
+        FileUtils::mkdir_p images_path("")
+        File.open(images_path(name), "wb") do |saved_file|
           open(media_url, "rb") do |read_file|
             saved_file.write(read_file.read)
           end
