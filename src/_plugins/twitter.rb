@@ -51,7 +51,7 @@ module Jekyll
       tweet_id = tweet_data["id_str"]
       avatar_url = tweet_data["user"]["profile_image_url_https"]
       extension = avatar_url.split(".").last  # ick
-      _display_path("#{screen_name}_#{tweet_id}.#{extension}")
+      _display_path("avatars/#{screen_name}_#{tweet_id}.#{extension}")
     end
 
     def render_tweet_text(tweet_data)
@@ -122,9 +122,9 @@ module Jekyll
     def create_avatar_thumbnail(avatar_url)
       path = avatar_path(avatar_url)
 
-      FileUtils::mkdir_p "#{@src}/_images/twitter/avatars"
+      FileUtils::mkdir_p "#{@dst}/images/twitter/avatars"
 
-      resized_path = "#{@src}/_images/twitter/avatars/#{File.basename(path)}"
+      resized_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
       if not File.exists? resized_path
         image = MiniMagick::Image.open(path)
         image.resize "108x"
@@ -188,6 +188,7 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       @src = site.config["source"]
+      @dst = site.config["destination"]
 
       if not File.exists? cache_file()
         puts("Caching #{@tweet_url}")
