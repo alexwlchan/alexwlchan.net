@@ -94,7 +94,7 @@ Writing this post is my small contribution to that goal; yours is reading it.
 A week ago, I wasn't sure what, if anything, I wanted to write for Awareness Week.
 Then this tweet crossed my feed on Tuesday, and that's what got me started:
 
-{% tweet https://twitter.com/asexualandproud/status/790853542466564096 %}
+{% tweet https://twitter.com/AsexualAndProud/status/790853542466564096 %}
 
 As I read the responses to this tweet, I felt a rush of ace positivity.
 It’s always nice to be reminded that there are other people like you!
