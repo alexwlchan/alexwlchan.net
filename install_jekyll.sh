@@ -18,6 +18,9 @@ apk add rsync
 # Required for the publish-drafts gem
 apk add git
 
+# Required for the twitter gem
+apk add imagemagick
+
 bundle install
 
 # These packages are only required for installation, not for running Jekyll
