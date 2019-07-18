@@ -24,6 +24,7 @@ require 'fileutils'
 require 'json'
 require 'open-uri'
 require 'twitter'
+require "uri"
 
 
 module Jekyll
@@ -100,7 +101,7 @@ module Jekyll
     def initialize(tag_name, text, tokens)
       super
       @tweet_url = text.tr("\"", "").strip
-      @tweet_id = @tweet_url.split("/").last
+      _, @screen_name, _, @tweet_id = URI.parse(@tweet_url).path.split("/")
     end
 
     def local_path(name)
@@ -108,7 +109,7 @@ module Jekyll
     end
 
     def cache_file()
-      "#{@src}/_tweets/#{@tweet_id}.json"
+      "#{@src}/_tweets/#{@screen_name}_#{@tweet_id}.json"
     end
 
     def avatar_path(avatar_url, screen_name)
