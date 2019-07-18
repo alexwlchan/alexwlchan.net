@@ -124,11 +124,24 @@ module Jekyll
 
       FileUtils::mkdir_p "#{@dst}/images/twitter/avatars"
 
-      resized_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
-      if not File.exists? resized_path
+      # Avatars are routinely quite large (e.g. 512x512), but they're
+      # only displayed in a 36x36 square (see _tweets.scss).
+      #
+      # Cutting a smaller thumbnail should reduce the page weight.
+      thumbnail_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
+      if not File.exists? thumbnail_path
         image = MiniMagick::Image.open(path)
         image.resize "108x"
-        image.write resized_path
+        image.write thumbnail_path
+      end
+
+      # At least one of the thumbnails (a GIF) actually gets *bigger* when
+      # resized by ImageMagick.
+      #
+      # The whole point is to reduce the size of served files, so if that
+      # happens, just use the original file.
+      if File.size(thumbnail_path) > File.size(path)
+        FileUtils.cp(path, thumbnail_path)
       end
     end
 
