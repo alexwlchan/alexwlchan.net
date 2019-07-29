@@ -1,23 +1,23 @@
 ---
 layout: post
 title: Finding divisors of a number with Python
-summary: Some code for using Python's itertools module to efficiently find the divisors of a number.
+summary: Using unique prime factorisations and itertools to find all the divisors of a number.
 category: Programming and code
 ---
 
 Here's a problem I was trying to solve recently: given an integer *n*, what are all the divisors of *n*?
 
-A *factor*, also known as a [*divisor*][divisor], is an integer *m* which evenly divides of *n*.
-For example, the factors of 12 are 1, 2, 3, 4, 6 and 12.
+A *divisor*, also known as a [*factor*][divisor], is an integer *m* which evenly divides *n*.
+For example, the divisors of 12 are 1, 2, 3, 4, 6 and 12.
 
 I ended up writing something with itertools, and the code uses a couple of neat bits of number theory.
-I don't do that much maths these days, so the code probably won't go anywhere useful, but I'm writing it up in case it's useful to somebody else.
+I don't know if I'll use it again, but I'm writing it up because it was a fun exercise.
 
 [divisor]: https://en.wikipedia.org/wiki/Divisor
 
 ## The simplest approach
 
-If we want to find all the numbers that evenly divide *n*, we could just try them all:
+If we want to find all the numbers that evenly divide *n*, we could just try every number up to *n*:
 
 ```python
 def get_divisors(n):
@@ -27,13 +27,15 @@ def get_divisors(n):
     yield n
 ```
 
+We only need to go up to *n*/2 because anything larger than that can't be a divisor of *n* -- if you divide *n* by something greater than *n*/2, the result won't be an integer.
+
 This code is very simple, and for small values of *n* this is good enough -- but it's quite inefficient and slow.
 As *n* gets bigger, the runtime increases linearly.
 Can we do better?
 
 ## Prime factorisations
 
-For my particular project, I was mostly working with [factorials][factorials], which have lots of small prime factors.
+For my particular project, I was mostly working with [factorials][factorials].
 The factorial of *n*, denoted *n*! is the product of all the integers up to and including *n*.
 For example:
 
@@ -41,7 +43,7 @@ For example:
   9! = 9 &times; 8 &times; 7 &times; 6 &times; 5 &times; 4 &times; 3 &times; 2 &times; 1
 </div>
 
-Because factorials have lots of small factors, I decided to try getting the divisor list by getting smaller factors.
+Because factorials have lots of small factors, I decided to try getting the divisor list by getting smaller factors first.
 Specifically, I was looking for *prime factors* -- factors which are also [prime numbers][primes].
 (A prime is a number whose only factors are itself and 1.
 For example, 2, 3 and 5 are prime, but 4 and 6 are not.)
@@ -62,8 +64,9 @@ def prime_factors(n):
         yield n
 ```
 
-This is another approach using trial division -- we keep trying factors, and if we find one, we divide it away and keep going.
-This is a fairly standard approach to finding primes.
+This is similar to the function above, using trial division -- we keep trying factors, and if we find one, we divide it away and keep going.
+Otherwise, we try a higher number.
+This is a fairly standard approach to finding prime factors.
 
 Once we have it, we can use it to write the *prime factorisation* of a number -- that is, writing the number as a product of primes.
 For example, the prime factorisation of 9! is:
@@ -72,13 +75,13 @@ For example, the prime factorisation of 9! is:
   9! = 2<sup>7</sup> &times; 3<sup>4</sup> &times; 5 &times; 7
 </div>
 
-And computing this factorisation is relatively efficient, especially for factorials -- because the prime factors are all very small, it doesn't take many divisions to get this prime factorisation.
+Computing this factorisation is relatively efficient, especially for factorials -- because the prime factors are all very small, you don't need many divisions to be done.
 
 There's a result in number theory called the [*fundamental theorem of arithmetic*][fta] which states that prime factorisations are unique -- for any number *n*, there's only one way to write it as a product of primes.
 (I won't write a proof here, but you can find one [on Wikipedia][proof].)
 
-This gives us a way to find divisors -- by finding all the combinations of primes.
-The prime factors of any factor of *n* must be a subset of the prime factors of *n*, or it wouldn't divide *n*.
+This gives us a way to find divisors -- by finding all the combinations of prime factors.
+The prime factors of any divisor of *n* must be a subset of the prime factors of *n*, or it wouldn't divide *n*.
 
 [factorials]: https://en.wikipedia.org/wiki/Factorial
 [primes]: https://en.wikipedia.org/wiki/Prime_number
@@ -88,7 +91,7 @@ The prime factors of any factor of *n* must be a subset of the prime factors of 
 
 ## Going from a prime factorisation to divisors
 
-First, let's get the factors "with multiplicity" (the prime factors, and how many times each factor appears in the prime factorisation):
+First, let's get the prime factors "with multiplicity" (the prime factors, and how many times each factor appears in the prime factorisation):
 
 ```python
 import collections
@@ -101,7 +104,7 @@ def get_divisors(n):
     ...
 ```
 
-Then, let's go ahead and construct all the powers of each prime that might appear in a possible factor of *n*.
+Then, let's go ahead and construct all the powers of each prime that might appear in a possible divisor of *n*.
 
 ```python
 def get_divisors(n):
@@ -123,7 +126,7 @@ For example, for 9! this would give us
 ]
 ```
 
-Then to combine these into factors, we can use the rather nifty [itertools.product][product], which takes a series of iterables, and spits out all the ordered combinations of the different iterables it receives.
+Then to combine these into divisors, we can use the rather nifty [itertools.product][product], which takes a series of iterables, and spits out all the ordered combinations of the different iterables it receives.
 It selects one entry from each list of prime powers, and then by multiplying them together we get a divisor of *n*.
 
 ```python
