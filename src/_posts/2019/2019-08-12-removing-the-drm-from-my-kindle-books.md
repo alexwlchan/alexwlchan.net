@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-08-12 16:22:30 +0000
 title: Removing the DRM from my Kindle books
 summary: Links to a couple of projects that I found helpful when trying to strip the DRM from my Kindle books.
 category: Programming and code
