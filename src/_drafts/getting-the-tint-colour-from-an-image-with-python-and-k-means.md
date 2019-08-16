@@ -87,10 +87,10 @@ If you already know how k-means works, you can skip the next two sections -- if 
 ## What is k-means clustering?
 
 Suppose we have a collection of data points.
-*Clustering* means dividing the data points into different groups, so all of the points in the same group are similar in some way.
+[*Clustering*][clustering] means dividing the data points into different groups, so all of the points in each group are similar in some way.
 (And conversely, points in different groups should be different.)
 
-Let's suppose our data points are positions on a 2D plane.
+For example, let's suppose our data points are positions on a 2D plane.
 If we group them into three clusters by saying "points that are close together are similar", we might end up with this clustering:
 
 <figure style="width: 400px;">
@@ -101,4 +101,270 @@ If we group them into three clusters by saying "points that are close together a
   </figcaption>
 </figure>
 
+There are lots of ways to find clusters; k-means is just one of them.
+It lets you group your data into *k* clusters, where *k* is a number you can choose.
 
+Visual examples often help me understand something like this, and the Wikipedia article has some [good illustrations][illustrations].
+Let's suppose we have some points in 2D space, and we want to divide them into 3&nbsp;clusters:
+
+<figure style="width: 400px;">
+  <img src="/images/2019/K_Means_Example_Step_0.svg">
+</figure>
+
+Step 1: we start by picking 3&nbsp;points at random.
+These are the initial "means":
+
+<figure style="width: 400px;">
+  <img src="/images/2019/K_Means_Example_Step_1.svg">
+</figure>
+
+Step 2: go through all the points, and measure the distance from the point to the mean.
+Put each point in a cluster with the closest mean, which divides the points into 3&nbsp;clusters:
+
+<figure style="width: 400px;">
+  <img src="/images/2019/K_Means_Example_Step_2.svg">
+</figure>
+
+Step 3: within each cluster, calculate the centre, and use that as the new mean.
+
+<figure style="width: 400px;">
+  <img src="/images/2019/K_Means_Example_Step_3.svg">
+</figure>
+
+Because the means have moved, some of the points are now in the wrong cluster.
+They're closer to the mean of a different cluster than the cluster they're currently in.
+Re-run step 2 and step 3 until the clusters stop changing.
+This gives you the final 3&nbsp;clusters:
+
+<figure style="width: 400px;">
+  <img src="/images/2019/K_Means_Example_Step_4.svg">
+</figure>
+
+To recap:
+
+1.  Pick *k* points at random as the initial "means".
+2.  Put each point in a cluster with its closest mean.
+3.  Calculate the centre of each cluster, and use that as the new mean.
+4.  Repeat steps 2 and 3 until the clusters stop changing.
+
+So how can we use this to find dominant colours in an image?
+
+One way to represent colours is to treat them as a combination of red, green and blue components (RGB).
+We can treat these as positions in 3D space, and then use this algorithm -- although the example above is in 2D, it extends readily to multiple dimensions.
+By grouping colours with this algorithm, we'll end up with clusters that represent similar colours in an image.
+
+[clustering]: https://en.wikipedia.org/wiki/Cluster_analysis
+[illustrations]: https://en.wikipedia.org/wiki/K-means_clustering#Initialization_methods
+
+
+
+## Implementing k-means clustering for colours
+
+As I said above, you can get a prebuilt implementation of k-means [from scikit-learn][sklearn].
+I'm going to write one as a learning exercise, and to make sure I really understand the algorithm, but you shouldn't use this code for anything serious.
+
+Let's start by creating a class to represent a colour in RGB space (I'm using the [attrs library][attrs] here):
+
+```python
+import attr
+
+
+@attr.s(cmp=True, frozen=True)
+class RGBColor:
+    red = attr.ib()
+    green = attr.ib()
+    blue = attr.ib()
+```
+
+Step 1: pick *k* points at random as the initial means:
+
+```python
+import random
+
+
+def kmeans(colors, *, k):
+    means = random.sample(colors, k)
+    ...
+```
+
+Step 2: For each point, find the closest mean, and put that point in a cluster with that mean.
+For simplicity, we can use the [Euclidean metric][euclidean] to measure the distance between two points.
+(If you remember [Pythagoras' theorem][pythagoras] from school, it's the same idea in a more general form.)
+
+```python
+import math
+
+
+def euclidean_distance(color1, color2):
+    return math.sqrt(
+        (color1.red - color2.red) ** 2 +
+        (color1.green - color2.green) ** 2 +
+        (color1.blue - color2.blue) ** 2
+    )
+
+
+def kmeans(colors, *, k):
+    ...
+    clusters = {m: set() for m in means}
+
+    for col in colors:
+        closest_mean = min(
+            means,
+            key=lambda m: euclidean_distance(m, col)
+        )
+
+        clusters[closest_mean].add(col)
+
+    ...
+```
+
+Step 3: Calculate the centre of each cluster, and use that as the new mean.
+
+For simplicity, I'm using the arithmetic mean of all the points in the cluster as the centre.
+I'm also tracking how much the means change -- by looking at this, we can tell when the clusters stop changing and when we can stop the process.
+This does a single pass:
+
+```python
+def calculate_new_centre(colors):
+    return RGBColor(
+        red=int(sum(c.red for c in colors) / len(colors)),
+        green=int(sum(c.green for c in colors) / len(colors)),
+        blue=int(sum(c.blue for c in colors) / len(colors)),
+    )
+
+
+def kmeans(colors, *, k):
+    ...
+
+    new_means_distance = 0
+
+    means = []
+
+    for mean, colours_in_cluster in clusters.items():
+        new_mean = calculate_new_centre(colours_in_cluster)
+        means.append(new_mean)
+
+        new_means_distance += euclidean_distance(mean, new_mean)
+```
+
+Now we repeat the process multiple times, until the means stop moving:
+
+```python
+def kmeans(colors, *, k):
+    means = random.sample(colors, k)
+
+    while True:
+        clusters = {m: set() for m in means}
+
+        for col in colors:
+            closest_mean = min(
+                means,
+                key=lambda m: euclidean_distance(m, col)
+            )
+
+            clusters[closest_mean].add(col)
+
+        new_means_distance = 0
+
+        means = []
+
+        for mean, colours_in_cluster in clusters.items():
+            new_mean = calculate_new_centre(colours_in_cluster)
+            means.append(new_mean)
+
+            new_means_distance += euclidean_distance(mean, new_mean)
+
+        if new_means_distance == 0:
+            return means
+```
+
+It hands back the means -- the centres of each cluster -- as a representative of all the colours in that cluster.
+This is what I'll be using for a tint colour later.
+
+This code assumes that the clusters eventually stop moving -- if not, it'll spin forever in an infinite loop.
+When I tried this on some of my images, the colour clusters converged pretty quickly with *k*&nbsp;=&nbsp;3 and *k*&nbsp;=&nbsp;5, but that may not be true in the general case.
+
+Putting all that code together, here's the final version:
+
+```python
+import math
+
+import attr
+
+
+@attr.s(cmp=True, frozen=True)
+class RGBColor:
+    red = attr.ib()
+    green = attr.ib()
+    blue = attr.ib()
+
+
+def euclidean_distance(color1, color2):
+    return math.sqrt(
+        (color1.red - color2.red) ** 2 +
+        (color1.green - color2.green) ** 2 +
+        (color1.blue - color2.blue) ** 2
+    )
+
+
+def calculate_new_centre(colors):
+    return RGBColor(
+        red=int(sum(c.red for c in colors) / len(colors)),
+        green=int(sum(c.green for c in colors) / len(colors)),
+        blue=int(sum(c.blue for c in colors) / len(colors)),
+    )
+
+
+def kmeans(colors, *, k):
+    """
+    Find the result of a k-means clustering over ``colors``.
+
+    :param k: The number of clusters to create.
+
+    """
+    # Choose k points at random as the initial means.
+    means = random.sample(colors, k)
+
+    while True:
+        # For each point, find the closest mean, and put that point in
+        # a cluster with that mean.
+        clusters = {m: set() for m in means}
+
+        for col in colors:
+            closest_mean = min(
+                means,
+                key=lambda m: euclidean_distance(m, col)
+            )
+
+            clusters[closest_mean].add(col)
+
+        # Calculate the centre of each cluster, and use that as the
+        # new mean.
+        new_means_distance = 0
+        means = []
+
+        for mean, colours_in_cluster in clusters.items():
+            new_mean = calculate_new_centre(colours_in_cluster)
+            means.append(new_mean)
+
+            new_means_distance += euclidean_distance(mean, new_mean)
+
+        # If the means have stopped changing, then the clusters have
+        # converged, and we can terminate.
+        if new_means_distance == 0:
+            return means
+```
+
+If you want to do something similar with scikit-learn, you can do:
+
+```python
+from sklearn.cluster import KMeans
+
+
+def kmeans(colors, *, k):
+    return KMeans(n_clusters=k).fit(colors).cluster_centers_
+```
+
+[attrs]: https://www.attrs.org/en/stable/
+[euclidean]: https://en.wikipedia.org/wiki/Euclidean_distance
+[pythagoras]: https://en.wikipedia.org/wiki/Pythagorean_theorem
