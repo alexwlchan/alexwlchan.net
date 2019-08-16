@@ -21,6 +21,9 @@ module Jekyll
         "<span class=\"gp\">$</span> ",
         "<span class=\"gp\">$</span>")
 
+      # Replace k-means with an italicised k
+      text = text.gsub("k-means", "<em>k</em>&#x2011;means")
+
       text
     end
   end

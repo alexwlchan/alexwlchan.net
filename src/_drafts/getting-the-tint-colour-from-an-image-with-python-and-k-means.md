@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting a tint colour from an image with Python and <em>k</em>&#x2011;means
+title: Getting a tint colour from an image with Python and k-means
 summary:
 category: Programming and code
 ---
@@ -22,7 +22,7 @@ I wanted to see if I could pick a tint colour from the thumbnail, and use that f
 
 <img src="/images/2019/docstore_card_view_red.jpg" style="width: 600px;" alt="The same card view above, but now the blue links are in red.">
 
-I've come up with an approach that seems to work fairly well, which uses [*k*-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
+I've come up with an approach that seems to work fairly well, which uses [k-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
 I've tried my code with a few thousand images, and it picks reasonable colours each time -- not always optimal, but scanning the list I didn't see anything wildly inappropriate or unusable.
 
 Reader beware: I'm not a data scientist, and this isn't my speciality.
@@ -70,4 +70,35 @@ Although there are more green pixels than any other colour, there are only a few
 
 If we want to extract the main colours, we need to be able to group similar-looking colours together.
 
+I played with a couple of simple ideas, but I didn't get anywhere useful, so I searched for other people tackling this problem.
+I found [a post by Charles Leifer][leifer] addressing a similar problem that suggested using [k-means clustering][k_means], so I decided to try that.
+
+I've never used k-means before, so I wanted to take time to understand it.
+There's an implementation of k-means [in scikit-learn][sklearn], but I wanted to write my own to be sure I really knew what was going on.
+If you already know how k-means works, you can skip the next two sections -- if not, read on, and I'll do my best to explain.
+
 [get_colors]: https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=getcolors#PIL.Image.Image.getcolors
+[k_means]: https://en.wikipedia.org/wiki/K-means_clustering
+[leifer]: http://charlesleifer.com/blog/using-python-and-k-means-to-find-the-dominant-colors-in-images/
+[sklearn]: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
+
+
+
+## What is k-means clustering?
+
+Suppose we have a collection of data points.
+*Clustering* means dividing the data points into different groups, so all of the points in the same group are similar in some way.
+(And conversely, points in different groups should be different.)
+
+Let's suppose our data points are positions on a 2D plane.
+If we group them into three clusters by saying "points that are close together are similar", we might end up with this clustering:
+
+<figure style="width: 400px;">
+  <img src="/images/2019/cluster_analysis.svg">
+  <figcaption>
+    The squares are coloured differently to show which cluster they're in.
+    Illustration from <a href="https://en.wikipedia.org/wiki/File:Cluster-2.svg">Wikimedia Commons</a>.
+  </figcaption>
+</figure>
+
+
