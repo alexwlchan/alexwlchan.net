@@ -60,7 +60,14 @@ if __name__ == "__main__":
     print(colors.most_common(1))
 ```
 
-But if you actually try this, you quickly discover the problem
+But if you actually try this, you quickly discover that it usually returns something close to black or close to white -- it's not very representative!
+Here's an example:
 
-[pillow]: https://pillow.readthedocs.io/en/stable/index.html
+<img src="/images/2019/green_chair.jpg" style="width: 600px;">
+
+A human looking at that photo would probably pick green as the main colour -- but there are lots of different shades of green.
+Although there are more green pixels than any other colour, there are only a few pixels of each shade, so they're low down on the colour tally.
+
+If we want to extract the main colours, we need to be able to group similar-looking colours together.
+
 [get_colors]: https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=getcolors#PIL.Image.Image.getcolors
