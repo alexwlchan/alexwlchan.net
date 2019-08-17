@@ -39,7 +39,7 @@ This code works for my personal project, but you might want to double-check it b
 
 My first thought was to try a very simple approach: tally all the colours used in the image, and pick the colour that appears most often.
 
-The Pillow library has [get_colors() method][get_colors] that lets you get a list of all the colours in an image, along with their frequency.
+The Pillow library has [getdata() method][get_colors] that lets you get a list of all the colours in an image, along with their frequency.
 So we can find the most common colour like so:
 
 ```python
@@ -49,9 +49,7 @@ from PIL import Image
 
 
 def get_colors_by_frequency(im):
-    maxcolors = im.width * im.height
-    colors = im.getcolors(maxcolors=maxcolors)
-    return collections.Counter({color: count for count, color in colors})
+    return collections.Counter(im.getdata())
 
 
 if __name__ == "__main__":
@@ -77,7 +75,7 @@ I've never used k-means before, so I wanted to take time to understand it.
 There's an implementation of k-means [in scikit-learn][sklearn], but I wanted to write my own to be sure I really knew what was going on.
 If you already know how k-means works, you can skip the next two sections -- if not, read on, and I'll do my best to explain.
 
-[get_colors]: https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=getcolors#PIL.Image.Image.getcolors
+[get_colors]: https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=getcolors#PIL.Image.Image.getdata
 [k_means]: https://en.wikipedia.org/wiki/K-means_clustering
 [leifer]: http://charlesleifer.com/blog/using-python-and-k-means-to-find-the-dominant-colors-in-images/
 [sklearn]: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
@@ -365,6 +363,36 @@ def kmeans(colors, *, k):
     return KMeans(n_clusters=k).fit(colors).cluster_centers_
 ```
 
+Now we have a way to extract dominant colours from an image, let's return to the problem of finding tint colours.
+
 [attrs]: https://www.attrs.org/en/stable/
 [euclidean]: https://en.wikipedia.org/wiki/Euclidean_distance
 [pythagoras]: https://en.wikipedia.org/wiki/Pythagorean_theorem
+
+
+## Picking a tint colour from the dominant colours
+
+Now we have a k-means clustering algorithm, we can use it to extract dominant colours from an image.
+Combining it with the code to extract all the pixels with Pillow:
+
+```python
+from PIL import Image
+from sklearn.cluster import KMeans
+
+
+def common_colours(path, *, count):
+    im = Image.open(path)
+    im = im.resize((100, 100))
+    colors = im.getdata()
+
+    return KMeans(n_clusters=count).fit(colors).cluster_centers_
+```
+
+The k-means clustering gives us a way to extract some dominant colours from an image; here's the example of the green chair above with 3 means and 5 means:
+
+<img src="/images/2019/kmeans_3.jpg" style="width: 600px;">
+
+<img src="/images/2019/kmeans_5.jpg" style="width: 600px;">
+
+Those colours are much more representative than a bright white or dark black.
+Now we need to pick which of those to use as a tint colour to use with this image -- and this is the bit I've always struggled to get past before.
