@@ -380,7 +380,7 @@ from PIL import Image
 from sklearn.cluster import KMeans
 
 
-def common_colours(path, *, count):
+def get_dominant_colours(path, *, count):
     im = Image.open(path)
     im = im.resize((100, 100))
     colors = im.getdata()
@@ -395,4 +395,64 @@ The k-means clustering gives us a way to extract some dominant colours from an i
 <img src="/images/2019/kmeans_5.jpg" style="width: 600px;">
 
 Those colours are much more representative than a bright white or dark black.
-Now we need to pick which of those to use as a tint colour to use with this image -- and this is the bit I've always struggled to get past before.
+
+Now we need to pick which of those to use as a tint colour for the text to accompany this image.
+A good choice will vary based on the context -- a dark tint colour works well on a white background, but you'd want the opposite for a black background.
+
+Computing the dominant colours is (relatively) slow -- it took several minutes to run the *k*-means clustering for 1000 images on my six-year-old iMac.
+I picked *k*&nbsp;=&nbsp;5 mostly arbitrarily, and cached the results in a JSON file.
+Then I experimented with different tint colour pickers on the cached data, and created a script that would show me what colours it had picked:
+
+<img src="/images/2019/tint_sampler.png" style="width: 500px;">
+
+I played with various approaches: picking the colour with the biggest cluster size, trying to maximise or minimise distance from white in the RGB space, filtering by lightness in [the HSL colour space][hsl].
+Nothing quite looked right -- some approaches would always pick the really dark colours (which is less visually interesting), or sometimes pick an inappropriately light colour (which is hard to read).
+
+Eventually I struck upon the idea of using [WCAG contrast ratios][wcag].
+The WCAG recommends a minimum contrast ratio of 4.5:1 for displaying text on a web page, so the first step is to throw away all colours that don't have sufficient contrast with the background.
+There's a [Python library][py_wcag] that computes these ratios for you, so let's use that:
+
+```python
+import wcag_contrast_ratio as contrast
+
+
+def choose_tint_color(dominant_colors, background_color):
+    sufficient_contrast = [
+        contrast.rgb(col, background_color) >= 4.5
+        for col in dominant_colors
+    ]
+```
+
+Two of the images in my test set don't have any dominant colours that pass WCAG with a white background -- as a quick workaround, add black and white to the mix and try again (every colour has a contrast ratio of 4.5:1 with at least one of black or white; [see proof](/files/wcag-black-and-white.pdf)):
+
+```python
+def choose_tint_color(dominant_colors, background_color):
+    ...
+
+    if not sufficient_contrast:
+        return choose_tint_color(
+            dominant_colors=dominant_colors + [(0, 0, 0), (1, 1, 1)],
+            background_color=background_color
+        )
+```
+
+You could do something more interesting here, but it didn't seem worth the effort.
+I considered changing the lightness of the dominant colours until the contrast was sufficient for one of them, but that adds a lot of complexity for something that affects a tiny fraction of my images.
+
+[hsl]: https://en.wikipedia.org/wiki/HSL_and_HSV
+[wcag]: https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast
+[py_wcag]: https://pypi.org/project/wcag-contrast-ratio/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
