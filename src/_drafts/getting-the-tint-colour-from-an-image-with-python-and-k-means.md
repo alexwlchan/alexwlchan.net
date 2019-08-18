@@ -35,7 +35,7 @@ This code works for my personal project, but you might want to double-check it b
 
 
 
-## Idea 1: Find the most common colour in an image
+## Find the most common colour in an image?
 
 My first thought was to try a very simple approach: tally all the colours used in the image, and pick the colour that appears most often.
 
@@ -382,7 +382,6 @@ from sklearn.cluster import KMeans
 
 def get_dominant_colours(path, *, count):
     im = Image.open(path)
-    im = im.resize((100, 100))
     colors = im.getdata()
 
     return KMeans(n_clusters=count).fit(colors).cluster_centers_
@@ -417,9 +416,10 @@ import wcag_contrast_ratio as contrast
 
 
 def choose_tint_color(dominant_colors, background_color):
-    sufficient_contrast = [
-        contrast.rgb(col, background_color) >= 4.5
+    sufficient_contrast_colors = [
+        col
         for col in dominant_colors
+        if contrast.rgb(col, background_color) >= 4.5
     ]
 ```
 
@@ -429,7 +429,7 @@ Two of the images in my test set don't have any dominant colours that pass WCAG 
 def choose_tint_color(dominant_colors, background_color):
     ...
 
-    if not sufficient_contrast:
+    if not sufficient_contrast_colors:
         return choose_tint_color(
             dominant_colors=dominant_colors + [(0, 0, 0), (1, 1, 1)],
             background_color=background_color
@@ -439,20 +439,168 @@ def choose_tint_color(dominant_colors, background_color):
 You could do something more interesting here, but it didn't seem worth the effort.
 I considered changing the lightness of the dominant colours until the contrast was sufficient for one of them, but that adds a lot of complexity for something that affects a tiny fraction of my images.
 
+So now we have some colours we could use and meet contrast requirements, but which would be the *best* to use?
+This is mostly down to aesthetic preference -- what looks best to you?
+
+If you max out the contrast ratio, the tints tend towards the very dark or very light colours.
+I'd prefer something a bit brighter, more colourful, so I tried converting the colours to the [HSL (hue, saturation, lightness)][hsl] space, and picking the colour with the closest lightness to the background.
+That means I get something with sufficient contrast but that isn't too dark or too light.
+
+Handily, Python includes the [colorsys module][colorsys], which lets you convert between the RGB and HSL colour spaces (although the module calls it HSV).
+Like so:
+
+```python
+import colorsys
+
+
+def choose_tint_color(dominant_colors, background_color):
+    ...
+
+    hsv_background = colorsys.rgb_to_hsv(*background_color)
+    hsv_candidates = {
+        rgb_col: colorsys.rgb_to_hsv(*rgb_col)
+        for rgb_col in sufficient_contrast_colors
+    }
+
+    candidates_by_brightness_diff = {
+        rgb_col: abs(hsv_col[2] - hsv_background[2])
+        for rgb_col, hsv_col in hsv_candidates.items()
+    }
+
+    rgb_choice, _ = min(
+        candidates_by_brightness_diff.items(),
+        key=lambda t: t[1]
+    )
+
+    assert rgb_choice in dominant_colors
+    return rgb_choice
+```
+
+I've run this over about 1000 images from my photo library, and checked the tints with my viewer script:
+
+<img src="/images/2019/tint_sampler_with_wcag.png" style="width: 691px;">
+
+For those images, it usually picks a sensible tint -- enough contrast, a colour that comes from the original image, and somewhat visually interesting.
+It doesn't always pick the "best" colour (or at least, what I'd have picked), but the combination of WCAG contrast ratio and minimising the lightness difference means it never picks something bad.
+The colours it selects are never visually jarring.
+
 [hsl]: https://en.wikipedia.org/wiki/HSL_and_HSV
 [wcag]: https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast
 [py_wcag]: https://pypi.org/project/wcag-contrast-ratio/
+[colorsys]: https://docs.python.org/3/library/colorsys.html
 
 
 
+## Putting it all together
+
+This is the complete code, wrapped in a script that lets you run it standalone against an image:
+
+```python
+#!/usr/bin/env python
+# -*- encoding: utf-8
+
+import colorsys
+
+from PIL import Image
+from sklearn.cluster import KMeans
+import wcag_contrast_ratio as contrast
 
 
+def get_dominant_colours(path, *, count):
+    """
+    Return a list of the dominant RGB colours in the image at ``path``.
+
+    :param path: Path to the image file.
+    :param count: Number of dominant colours to find.
+
+    """
+    im = Image.open(path)
+
+    # Resizing means less pixels to handle, so the k-means clustering converges
+    # faster.  Small details are lost, but the main details will be preserved.
+    im = im.resize((100, 100))
+
+    # Ensure the image is RGB, and use RGB values in [0, 1] for consistency
+    # with operations elsewhere.
+    im = im.convert("RGB")
+    colors = [(r / 255, g / 255, b / 255) for (r, g, b) in im.getdata()]
+
+    return KMeans(n_clusters=count).fit(colors).cluster_centers_
 
 
+def choose_tint_color(dominant_colors, background_color):
+    # The minimum contrast ratio for text and background to meet WCAG AA
+    # is 4.5:1, so discard any dominant colours with a lower contrast.
+    sufficient_contrast_colors = [
+        col
+        for col in dominant_colors
+        if contrast.rgb(col, background_color) >= 4.5
+    ]
+
+    # If none of the dominant colours meet WCAG AA with the background,
+    # try again with black and white -- every colour in the RGB space
+    # has a contrast ratio of 4.5:1 with at least one of these, so we'll
+    # get a tint colour, even if it's not a good one.
+    #
+    # Note: you could modify the dominant colours until one of them
+    # has sufficient contrast, but that's omitted here because it adds
+    # a lot of complexity for a relatively unusual case.
+    if not sufficient_contrast_colors:
+        return choose_tint_color(
+            dominant_colors=dominant_colors + [(0, 0, 0), (1, 1, 1)],
+            background_color=background_color
+        )
+
+    # Of the colours with sufficient contrast, pick the one with the
+    # closest brightness (in the HSV colour space) to the background
+    # colour.  This means we don't get very dark or very light colours,
+    # but more bright, vibrant colours.
+    hsv_background = colorsys.rgb_to_hsv(*background_color)
+    hsv_candidates = {
+        tuple(rgb_col): colorsys.rgb_to_hsv(*rgb_col)
+        for rgb_col in sufficient_contrast_colors
+    }
+
+    candidates_by_brightness_diff = {
+        rgb_col: abs(hsv_col[2] - hsv_background[2])
+        for rgb_col, hsv_col in hsv_candidates.items()
+    }
+
+    rgb_choice, _ = min(
+        candidates_by_brightness_diff.items(),
+        key=lambda t: t[1]
+    )
+
+    assert rgb_choice in dominant_colors
+    return rgb_choice
 
 
+if __name__ == "__main__":
+    import sys
 
+    try:
+        path = sys.argv[1]
+    except ImportError:
+        sys.exit(f"Usage: {__file__} <PATH>")
 
+    dominant_colors = get_dominant_colours(path, count=5)
+    tint_color = choose_tint_color(dominant_colors, background_color=(0, 0, 0))
 
+    print(tint_color)
+    print("#%02x%02x%02x" % tuple(int(v * 255) for v in tint_color))
+```
 
+I haven't integrated it into docstore yet, but that should be the easy bit -- finding a good way to pick tint colours was the bit I was struggling to get right.
 
+When I do use this code, I'll cache the k-means results and compute the tint colours on the fly.
+The k-means results take a while to create and they don't change.
+Caching the data will give me more flexibility to keep tweaking the tint colours if I get more ideas.
+
+When I wrote the original version of this code on Thursday night, it was right at the limit of my understanding.
+It worked, but it was spaghetti code with a lot of unrelated pieces that I couldn't really follow.
+Writing it out in detail has helped me understand why it works, the key ideas, and why it's better than other attempts I've made in the past.
+The new code is also a lot clearer to read.
+
+I hope you found this post interesting, and maybe it gave you some ideas for your own code.
+But the main value for me is better understanding of this tricky code, and that'll make it easier for me to maintain and update it in the future.
+If you're ever struggling with a bit of code, I really can recommend writing it out in detail as a way to understand it better.
