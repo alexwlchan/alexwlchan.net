@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.9in, a4paper]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+\newtheorem*{claim}{Claim}
+
+\thispagestyle{empty}
+
+\begin{document}
+  \section*{Finding a colour with AA contrast ratio} % (fold)
+  \label{sec:the_problem}
+
+  The \href{https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast}{WCAG AA contrast requirement} for text requires a contrast ratio between the text and the background of at least 4.5:1.
+  Given a background colour, suppose we want to find a colour that satisfies this contrast ratio as quickly as possible.
+
+  The two most opposite colours are white (\texttt{\#ffffff}) and black (\texttt{\#000000}), so it makes sense to try those first.
+
+  \begin{claim}
+    Every colour has a contrast ratio of at least 4.5:1 with at least one of white  or black.
+  \end{claim}
+
+  \begin{proof}
+    The WCAG defines the \emph{contrast ratio} of two colours to be
+    \begin{equation*}
+      \frac{L_1 + 0.05}{L_2 + 0.05},
+    \end{equation*}
+    where $L_1$ is the relative luminance of the lighter colour, and $L_2$ is the relative luminance of the darker colour.
+    (See \href{https://www.w3.org/TR/WCAG20-TECHS/G17.html}{WCAG technique G17}.)
+
+    The relative luminance of white is $L_\text{white} = 1$, and the relative luminance of black is $L_\text{black} = 0$.
+
+    Suppose there were a colour with relative luminance $L$, which has insufficient contrast with both white and black.
+    It must satisfy both:
+    \begin{equation*}
+      \frac{L_\text{white} + 0.05}{L + 0.05} < 4.5
+      \hspace{1cm} \text{and} \hspace{1cm}
+      \frac{L + 0.05}{L_\text{black} + 0.05} < 4.5
+    \end{equation*}
+    The luminance of a colour always satisfies $0 \leq L \leq 1$, so we can simplify these to:
+    \begin{equation*}
+      L > \frac{11}{60} = 0.18333\ldots
+      \hspace{1cm} \text{and} \hspace{1cm}
+      L < \frac{7}{40} = 0.175.
+    \end{equation*}
+    This is a contradiction, which means there is no colour which has insufficient contrast with both white and black.
+
+    This means we can always find a colour with sufficient contrast in at most two lookups: first we try white, then we try black.
+  \end{proof}
+
+  % section the_problem (end)
+
+  \section*{Finding a colour with AAA contrast ratio} % (fold)
+  \label{sec:finding_a_colour_with_aaa_contrast_ratio}
+
+  The enhanced contrast requirement requires a contrast ratio between the text and the background of at least 7.
+  Can we use white and black to find a guaranteed colour with this contrast ratio?
+
+  It turns out not: if you try to repeat the proof above with a contrast ratio of 7, not 4.5, you don't get a contradiction.
+  Instead, yopu learn that a colour has insufficient contrast with both white and black if and only if
+  \begin{equation*}
+    0.1 < L < 0.3
+  \end{equation*}
+  and there are colours with this luminance.
+
+  If you work through the greys, you find \texttt{\#5a5a5a}, which has a relative luminance of 0.102, a contrast ratio 6.897:1 with white and 3.045:1 with black.
+  If you go right to the middle, \texttt{\#7f7f7f} has a contrast ratio 4.004:1 with white and 5.245:1 with black.
+
+  Indeed, there are no colours that have a contrast ratio of 7:1 with \texttt{\#7f7f7f}.
+  (For proof, imagine such a colour with luminance $L$, and consider the cases $L<L_\text{\texttt{\#7f7f7f}}$ and $L>L_\text{\texttt{\#7f7f7f}}$.
+  In both cases you discover the contrast is less than 7.)
+  As you keep increasing your contrast requirement, some colours become unusable.
+  Eventually you reach the maximum contrast ratio of 21:1, when the only colours you can use are black and white.
+
+  % section finding_a_colour_with_aaa_contrast_ratio (end)
+
+\end{document}
