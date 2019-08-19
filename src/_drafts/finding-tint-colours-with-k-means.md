@@ -1,8 +1,15 @@
 ---
 layout: post
 title: Getting a tint colour from an image with Python and <em>k</em>-means
-summary:
+summary: I want to display text next to an image that looks visually similar to the image, so I need to extract a tint colour.
 category: Programming and code
+
+index:
+  best_of: true
+
+theme:
+  card_type: summary_large_image
+  image: /images/2019/twitter_cover_image.jpg
 ---
 
 As [part of my app][docstore] for storing my electronic documents, there's a grid view that displays big thumbnails of all my files.
