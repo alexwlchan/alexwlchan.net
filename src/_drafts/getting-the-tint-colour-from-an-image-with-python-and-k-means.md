@@ -5,28 +5,25 @@ summary:
 category: Programming and code
 ---
 
-As [part of my app][docstore] for managing my electronic documents, there's a grid view that displays big thumbnails of all my files.
+As [part of my app][docstore] for storing my electronic documents, there's a grid view that displays big thumbnails of all my files.
 If I'm looking for something with a distinctive thumbnail (say, an ebook cover), I can easily skim a grid of thumbnails to find it.
 (I talked about how I create the PDF thumbnails in [a separate post][thumbnails].)
 
-When you hover over a card, it shows a little panel with some details about the file: when I saved it, what tags I've assigned, and the source URL.
+When you hover over a card, it shows a little panel with some details about the file: when I saved it, how I've tagged it, and where I downloaded it from.
 Here's a screenshot:
 
 <img src="/images/2019/docstore_card_view.jpg" style="width: 600px;" alt="Left: a red and yellow book cover with the words “Bled in Slovenian folk tales, by Dusica Kunaver”. Right: the same cover, with a portion of white and some metadata covering the bottom half of the book. A black arrow from the left to right image.">
 
 The source URL and tags are both clickable links.
-I can go back to the page where I downloaded a file from, or find other files with similar tags.
+I can go back to the original page, or see other files with the same tags.
 
 It's a bit visually jarring to see the [Bootstrap blue][bootstrap] next to the large thumbnail.
-I wanted to see if I could pick a tint colour from the thumbnail, and use that for the link colour -- for example, taking the bright red sash from the book cover above.
+I wanted to see if I could pick a colour from the thumbnail, and use that for the link colour -- for example, taking the bright red sash from the book cover above:
 
 <img src="/images/2019/docstore_card_view_red.jpg" style="width: 600px;" alt="The same card view above, but now the blue links are in red.">
 
 I've come up with an approach that seems to work fairly well, which uses [k-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
 I've tried my code with a few thousand images, and it picks reasonable colours each time -- not always optimal, but scanning the list I didn't see anything wildly inappropriate or unusable.
-
-Reader beware: I'm not a data scientist, and this isn't my speciality.
-This code works for my personal project, but you might want to double-check it before using it for anything bigger.
 
 [docstore]: https://github.com/alexwlchan/docstore
 [thumbnails]: /2019/07/creating-preview-thumbnails-of-pdf-documents/
@@ -39,7 +36,7 @@ This code works for my personal project, but you might want to double-check it b
 
 My first thought was to try a very simple approach: tally all the colours used in the image, and pick the colour that appears most often.
 
-The Pillow library has [getdata() method][get_colors] that lets you get a list of all the colours in an image, along with their frequency.
+The Pillow library has a [getdata() method][get_colors] that lets you get a list of all the colours in an image, along with their frequency.
 So we can find the most common colour like so:
 
 ```python
@@ -59,26 +56,29 @@ if __name__ == "__main__":
 ```
 
 But if you actually try this, you quickly discover that it usually returns something close to black or close to white -- it's not very representative!
+(For scanned documents it's almost always white.)
 Here's an example:
 
 <img src="/images/2019/green_chair.jpg" style="width: 600px;">
 
 A human looking at that photo would probably pick green as the main colour -- but there are lots of different shades of green.
-Although there are more green pixels than any other colour, there are only a few pixels of each shade, so they're low down on the colour tally.
+Although there are more green-ish pixels than any other colour, there are only a few of each exact shade, so they're low down on the colour tally.
 
 If we want to extract the main colours, we need to be able to group similar-looking colours together.
+We want to count all the different shades of green together.
 
 I played with a couple of simple ideas, but I didn't get anywhere useful, so I searched for other people tackling this problem.
 I found [a post by Charles Leifer][leifer] addressing a similar problem that suggested using [k-means clustering][k_means], so I decided to try that.
 
 I've never used k-means before, so I wanted to take time to understand it.
 There's an implementation of k-means [in scikit-learn][sklearn], but I wanted to write my own to be sure I really knew what was going on.
-If you already know how k-means works, you can skip the next two sections -- if not, read on, and I'll do my best to explain.
+If you already know how k-means works, you can [skip the next two sections][skip] -- if not, read on, and I'll do my best to explain.
 
 [get_colors]: https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=getcolors#PIL.Image.Image.getdata
 [k_means]: https://en.wikipedia.org/wiki/K-means_clustering
 [leifer]: http://charlesleifer.com/blog/using-python-and-k-means-to-find-the-dominant-colors-in-images/
 [sklearn]: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
+[skip]: #picking-a-tint-colour-from-the-dominant-colours
 
 
 
@@ -103,7 +103,8 @@ There are lots of ways to find clusters; k-means is just one of them.
 It lets you group your data into *k* clusters, where *k* is a number you can choose.
 
 Visual examples often help me understand something like this, and the Wikipedia article has some [good illustrations][illustrations].
-Let's suppose we have some points in 2D space, and we want to divide them into 3&nbsp;clusters:
+Let's walk through them.
+Suppose we have some points in 2D space, and we want to divide them into 3&nbsp;clusters:
 
 <figure style="width: 400px;">
   <img src="/images/2019/K_Means_Example_Step_0.svg">
@@ -116,7 +117,7 @@ These are the initial "means":
   <img src="/images/2019/K_Means_Example_Step_1.svg">
 </figure>
 
-Step 2: go through all the points, and measure the distance from the point to the mean.
+Step 2: go through all the points, and measure the distance from the point to each of the means.
 Put each point in a cluster with the closest mean, which divides the points into 3&nbsp;clusters:
 
 <figure style="width: 400px;">
@@ -147,19 +148,20 @@ To recap:
 
 So how can we use this to find dominant colours in an image?
 
-One way to represent colours is to treat them as a combination of red, green and blue components (RGB).
+One way to represent colours is to treat them as a combination of[ red, green and blue components (RGB)][rgb].
 We can treat these as positions in 3D space, and then use this algorithm -- although the example above is in 2D, it extends readily to multiple dimensions.
-By grouping colours with this algorithm, we'll end up with clusters that represent similar colours in an image.
+By grouping colours with this algorithm, we'll end up with clusters of visually similar colours.
 
 [clustering]: https://en.wikipedia.org/wiki/Cluster_analysis
 [illustrations]: https://en.wikipedia.org/wiki/K-means_clustering#Initialization_methods
+[rgb]: https://en.wikipedia.org/wiki/RGB_color_model
 
 
 
 ## Implementing k-means clustering for colours
 
 As I said above, you can get a prebuilt implementation of k-means [from scikit-learn][sklearn].
-I'm going to write one as a learning exercise, and to make sure I really understand the algorithm, but you shouldn't use this code for anything serious.
+I'm going to write one here as a learning exercise, and to make sure I really understand the algorithm, but you shouldn't use this code for anything serious.
 
 Let's start by creating a class to represent a colour in RGB space (I'm using the [attrs library][attrs] here):
 
@@ -186,8 +188,9 @@ def kmeans(colors, *, k):
 ```
 
 Step 2: For each point, find the closest mean, and put that point in a cluster with that mean.
-For simplicity, we can use the [Euclidean metric][euclidean] to measure the distance between two points.
-(If you remember [Pythagoras' theorem][pythagoras] from school, it's the same idea in a more general form.)
+We can use the [Euclidean metric][euclidean] to measure the distance between two points.
+If you remember [Pythagoras' theorem][pythagoras] from school, it's the same idea in a more general form.
+(There are other ways to measure [colour distance][colour_distance], but the distinction isn't important for this exercise.)
 
 ```python
 import math
@@ -218,7 +221,7 @@ def kmeans(colors, *, k):
 
 Step 3: Calculate the centre of each cluster, and use that as the new mean.
 
-For simplicity, I'm using the arithmetic mean of all the points in the cluster as the centre.
+We use the arithmetic mean of all the points in the cluster as the centre.
 I'm also tracking how much the means change -- by looking at this, we can tell when the clusters stop changing and when we can stop the process.
 This does a single pass:
 
@@ -368,11 +371,12 @@ Now we have a way to extract dominant colours from an image, let's return to the
 [attrs]: https://www.attrs.org/en/stable/
 [euclidean]: https://en.wikipedia.org/wiki/Euclidean_distance
 [pythagoras]: https://en.wikipedia.org/wiki/Pythagorean_theorem
+[colour_distance]: https://en.wikipedia.org/wiki/Color_difference
 
 
 ## Picking a tint colour from the dominant colours
 
-Now we have a k-means clustering algorithm, we can use it to extract dominant colours from an image.
+We can use our k-means clustering algorithm to extract dominant colours from an image.
 Combining it with the code to extract all the pixels with Pillow:
 
 ```python
@@ -437,10 +441,10 @@ def choose_tint_color(dominant_colors, background_color):
 ```
 
 You could do something more interesting here, but it didn't seem worth the effort.
-I considered changing the lightness of the dominant colours until the contrast was sufficient for one of them, but that adds a lot of complexity for something that affects a tiny fraction of my images.
+I considered fuzzing the dominant colours until the contrast was sufficient for one of them, but that adds a lot of complexity for something that affects a tiny fraction of my images.
 
 So now we have some colours we could use and meet contrast requirements, but which would be the *best* to use?
-This is mostly down to aesthetic preference -- what looks best to you?
+This is mostly down to aesthetic preference -- what looks good to you?
 
 If you max out the contrast ratio, the tints tend towards the very dark or very light colours.
 I'd prefer something a bit brighter, more colourful, so I tried converting the colours to the [HSL (hue, saturation, lightness)][hsl] space, and picking the colour with the closest lightness to the background.
@@ -480,7 +484,7 @@ I've run this over about 1000 images from my photo library, and checked the tint
 
 <img src="/images/2019/tint_sampler_with_wcag.png" style="width: 691px;">
 
-For those images, it usually picks a sensible tint -- enough contrast, a colour that comes from the original image, and somewhat visually interesting.
+It usually picks a sensible tint -- enough contrast, a colour that comes from the original image, and somewhat visually interesting.
 It doesn't always pick the "best" colour (or at least, what I'd have picked), but the combination of WCAG contrast ratio and minimising the lightness difference means it never picks something bad.
 The colours it selects are never visually jarring.
 
@@ -590,17 +594,17 @@ if __name__ == "__main__":
     print("#%02x%02x%02x" % tuple(int(v * 255) for v in tint_color))
 ```
 
-I haven't integrated it into docstore yet, but that should be the easy bit -- finding a good way to pick tint colours was the bit I was struggling to get right.
+I haven't integrated it into docstore yet, but that should be the easy bit -- finding a good way to pick tint colours was where I struggled before.
 
 When I do use this code, I'll cache the k-means results and compute the tint colours on the fly.
-The k-means results take a while to create and they don't change.
-Caching the data will give me more flexibility to keep tweaking the tint colours if I get more ideas.
+The k-means results take a while to create and they shouldn't change.
+Caching those results will make it easier for me to keep tweaking the function that picks the tint colour, if/when I get more ideas.
 
 When I wrote the original version of this code on Thursday night, it was right at the limit of my understanding.
-It worked, but it was spaghetti code with a lot of unrelated pieces that I couldn't really follow.
-Writing it out in detail has helped me understand why it works, the key ideas, and why it's better than other attempts I've made in the past.
+It worked, but it was spaghetti code with a lot of unnecessary pieces that I could barely follow.
+Writing it out in detail has helped me understand why it works, the key ideas, and why it works better than my other attempts.
 The new code is also a lot clearer to read.
 
 I hope you found this post interesting, and maybe it gave you some ideas for your own code.
-But the main value for me is better understanding of this tricky code, and that'll make it easier for me to maintain and update it in the future.
+But the main value for me is better understanding of this tricky code, which will make it easier for me to maintain and update it in the future.
 If you're ever struggling with a bit of code, I really can recommend writing it out in detail as a way to understand it better.
