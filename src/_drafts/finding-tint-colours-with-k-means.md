@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting a tint colour from an image with Python and k-means
+title: Getting a tint colour from an image with Python and <em>k</em>-means
 summary:
 category: Programming and code
 ---
@@ -12,7 +12,7 @@ If I'm looking for something with a distinctive thumbnail (say, an ebook cover),
 When you hover over a card, it shows a little panel with some details about the file: when I saved it, how I've tagged it, and where I downloaded it from.
 Here's a screenshot:
 
-<img src="/images/2019/docstore_card_view.jpg" style="width: 600px;" alt="Left: a red and yellow book cover with the words “Bled in Slovenian folk tales, by Dusica Kunaver”. Right: the same cover, with a portion of white and some metadata covering the bottom half of the book. A black arrow from the left to right image.">
+<img src="/images/2019/docstore_card_view.jpg" style="width: 500px;" alt="Left: a red and yellow book cover with the words “Bled in Slovenian folk tales, by Dusica Kunaver”. Right: the same cover, with a portion of white and some metadata covering the bottom half of the book. A black arrow from the left to right image.">
 
 The source URL and tags are both clickable links.
 I can go back to the original page, or see other files with the same tags.
@@ -20,9 +20,9 @@ I can go back to the original page, or see other files with the same tags.
 It's a bit visually jarring to see the [Bootstrap blue][bootstrap] next to the large thumbnail.
 I wanted to see if I could pick a colour from the thumbnail, and use that for the link colour -- for example, taking the bright red sash from the book cover above:
 
-<img src="/images/2019/docstore_card_view_red.jpg" style="width: 600px;" alt="The same card view above, but now the blue links are in red.">
+<img src="/images/2019/docstore_card_view_red.jpg" style="width: 500px;" alt="The same card view above, but now the blue links are in red.">
 
-I've come up with an approach that seems to work fairly well, which uses [k-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
+I've come up with an approach that seems to work fairly well, which uses [*k*-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
 I've tried my code with a few thousand images, and it picks reasonable colours each time -- not always optimal, but scanning the list I didn't see anything wildly inappropriate or unusable.
 
 [docstore]: https://github.com/alexwlchan/docstore
@@ -59,7 +59,7 @@ But if you actually try this, you quickly discover that it usually returns somet
 (For scanned documents it's almost always white.)
 Here's an example:
 
-<img src="/images/2019/green_chair.jpg" style="width: 600px;">
+<img src="/images/2019/green_chair.jpg" style="width: 600px;" alt="An image of a green chair pointing to a rectangle with colour light white #fbfbfb.">
 
 A human looking at that photo would probably pick green as the main colour -- but there are lots of different shades of green.
 Although there are more green-ish pixels than any other colour, there are only a few of each exact shade, so they're low down on the colour tally.
@@ -68,11 +68,11 @@ If we want to extract the main colours, we need to be able to group similar-look
 We want to count all the different shades of green together.
 
 I played with a couple of simple ideas, but I didn't get anywhere useful, so I searched for other people tackling this problem.
-I found [a post by Charles Leifer][leifer] addressing a similar problem that suggested using [k-means clustering][k_means], so I decided to try that.
+I found [a post by Charles Leifer][leifer] addressing a similar problem that suggested using [*k*-means clustering][k_means], so I decided to try that.
 
-I've never used k-means before, so I wanted to take time to understand it.
-There's an implementation of k-means [in scikit-learn][sklearn], but I wanted to write my own to be sure I really knew what was going on.
-If you already know how k-means works, you can [skip the next two sections][skip] -- if not, read on, and I'll do my best to explain.
+I've never used *k*-means before, so I wanted to take time to understand it.
+There's an implementation of *k*-means [in scikit-learn][sklearn], but I wanted to write my own to be sure I really knew what was going on.
+If you already know how *k*-means works, you can [skip the next two sections][skip] -- if not, read on, and I'll do my best to explain.
 
 [get_colors]: https://pillow.readthedocs.io/en/stable/reference/Image.html?highlight=getcolors#PIL.Image.Image.getdata
 [k_means]: https://en.wikipedia.org/wiki/K-means_clustering
@@ -82,7 +82,7 @@ If you already know how k-means works, you can [skip the next two sections][skip
 
 
 
-## What is k-means clustering?
+## What is *k*-means clustering?
 
 Suppose we have a collection of data points.
 [*Clustering*][clustering] means dividing the data points into different groups, so all of the points in each group are similar in some way.
@@ -92,14 +92,14 @@ For example, let's suppose our data points are positions on a 2D plane.
 If we group them into three clusters by saying "points that are close together are similar", we might end up with this clustering:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/cluster_analysis.svg">
+  <img src="/images/2019/cluster_analysis.svg" alt="A collection of small squares, split into three groups (red, green, blue).">
   <figcaption>
     The squares are coloured differently to show which cluster they're in.
     Illustration from <a href="https://en.wikipedia.org/wiki/File:Cluster-2.svg">Wikimedia Commons</a>.
   </figcaption>
 </figure>
 
-There are lots of ways to find clusters; k-means is just one of them.
+There are lots of ways to find clusters; *k*-means is just one of them.
 It lets you group your data into *k* clusters, where *k* is a number you can choose.
 
 Visual examples often help me understand something like this, and the Wikipedia article has some [good illustrations][illustrations].
@@ -107,27 +107,27 @@ Let's walk through them.
 Suppose we have some points in 2D space, and we want to divide them into 3&nbsp;clusters:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_0.svg">
+  <img src="/images/2019/K_Means_Example_Step_0.svg" alt="Ten grey squares shown in a U shape.">
 </figure>
 
 Step 1: we start by picking 3&nbsp;points at random.
 These are the initial "means":
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_1.svg">
+  <img src="/images/2019/K_Means_Example_Step_1.svg" alt="The grey squares, but with three squares replaced with red/green/blue circles.">
 </figure>
 
 Step 2: go through all the points, and measure the distance from the point to each of the means.
 Put each point in a cluster with the closest mean, which divides the points into 3&nbsp;clusters:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_2.svg">
+  <img src="/images/2019/K_Means_Example_Step_2.svg" alt="The squares coloured red/green/blue, and with the background split into lighter shades of red/green/blue to show which point is in which cluster.">
 </figure>
 
 Step 3: within each cluster, calculate the centre, and use that as the new mean.
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_3.svg">
+  <img src="/images/2019/K_Means_Example_Step_3.svg" alt="The circles with an arrow pointing to a new circle, showing the movement of the mean.">
 </figure>
 
 Because the means have moved, some of the points are now in the wrong cluster.
@@ -136,7 +136,7 @@ Re-run step 2 and step 3 until the clusters stop changing.
 This gives you the final 3&nbsp;clusters:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_4.svg">
+  <img src="/images/2019/K_Means_Example_Step_4.svg" alt="The squares shaded red/green/blue with background shading, but different clusters to above.">
 </figure>
 
 To recap:
@@ -158,9 +158,9 @@ By grouping colours with this algorithm, we'll end up with clusters of visually 
 
 
 
-## Implementing k-means clustering for colours
+## Implementing *k*-means clustering for colours
 
-As I said above, you can get a prebuilt implementation of k-means [from scikit-learn][sklearn].
+As I said above, you can get a prebuilt implementation of *k*-means [from scikit-learn][sklearn].
 I'm going to write one here as a learning exercise, and to make sure I really understand the algorithm, but you shouldn't use this code for anything serious.
 
 Let's start by creating a class to represent a colour in RGB space (I'm using the [attrs library][attrs] here):
@@ -376,7 +376,7 @@ Now we have a way to extract dominant colours from an image, let's return to the
 
 ## Picking a tint colour from the dominant colours
 
-We can use our k-means clustering algorithm to extract dominant colours from an image.
+We can use our *k*-means clustering algorithm to extract dominant colours from an image.
 Combining it with the code to extract all the pixels with Pillow:
 
 ```python
@@ -391,11 +391,11 @@ def get_dominant_colours(path, *, count):
     return KMeans(n_clusters=count).fit(colors).cluster_centers_
 ```
 
-The k-means clustering gives us a way to extract some dominant colours from an image; here's the example of the green chair above with 3 means and 5 means:
+The *k*-means clustering gives us a way to extract some dominant colours from an image; here's the example of the green chair above with 3 means and 5 means:
 
-<img src="/images/2019/kmeans_3.jpg" style="width: 600px;">
+<img src="/images/2019/kmeans_3.jpg" style="width: 600px;" alt="The photo of the green chairs, with an arrow pointing to a swatch with a very large green, a dark green, and a mid green.">
 
-<img src="/images/2019/kmeans_5.jpg" style="width: 600px;">
+<img src="/images/2019/kmeans_5.jpg" style="width: 600px;" alt="The photo of the green chairs, with an arrow pointing to a swatch of five shades of green.">
 
 Those colours are much more representative than a bright white or dark black.
 
@@ -406,7 +406,7 @@ Computing the dominant colours is (relatively) slow -- it took several minutes t
 I picked *k*&nbsp;=&nbsp;5 mostly arbitrarily, and cached the results in a JSON file.
 Then I experimented with different tint colour pickers on the cached data, and created a script that would show me what colours it had picked:
 
-<img src="/images/2019/tint_sampler.png" style="width: 500px;">
+<img src="/images/2019/tint_sampler.png" style="width: 427px;" alt="A table with three headers: image, 5-means and tint colour. There's a small thumbnail of each image, a little palette of five colours, and one colour displayed in big with some text set in that colour.">
 
 I played with various approaches: picking the colour with the biggest cluster size, trying to maximise or minimise distance from white in the RGB space, filtering by lightness in [the HSL colour space][hsl].
 Nothing quite looked right -- some approaches would always pick the really dark colours (which is less visually interesting), or sometimes pick an inappropriately light colour (which is hard to read).
@@ -482,7 +482,7 @@ def choose_tint_color(dominant_colors, background_color):
 
 I've run this over about 1000 images from my photo library, and checked the tints with my viewer script:
 
-<img src="/images/2019/tint_sampler_with_wcag.png" style="width: 691px;">
+<img src="/images/2019/tint_sampler_with_wcag.png" style="width: 647px;" alt="The same table above, with new columns for “WCAG contrast” and “brightness”. Contrast values greater than 4.5 are shaded green.">
 
 It usually picks a sensible tint -- enough contrast, a colour that comes from the original image, and somewhat visually interesting.
 It doesn't always pick the "best" colour (or at least, what I'd have picked), but the combination of WCAG contrast ratio and minimising the lightness difference means it never picks something bad.
@@ -520,7 +520,7 @@ def get_dominant_colours(path, *, count):
     """
     im = Image.open(path)
 
-    # Resizing means less pixels to handle, so the k-means clustering converges
+    # Resizing means less pixels to handle, so the *k*-means clustering converges
     # faster.  Small details are lost, but the main details will be preserved.
     im = im.resize((100, 100))
 
@@ -596,8 +596,8 @@ if __name__ == "__main__":
 
 I haven't integrated it into docstore yet, but that should be the easy bit -- finding a good way to pick tint colours was where I struggled before.
 
-When I do use this code, I'll cache the k-means results and compute the tint colours on the fly.
-The k-means results take a while to create and they shouldn't change.
+When I do use this code, I'll cache the *k*-means results and compute the tint colours on the fly.
+The *k*-means results take a while to create and they shouldn't change.
 Caching those results will make it easier for me to keep tweaking the function that picks the tint colour, if/when I get more ideas.
 
 When I wrote the original version of this code on Thursday night, it was right at the limit of my understanding.

@@ -21,12 +21,6 @@ module Jekyll
         "<span class=\"gp\">$</span> ",
         "<span class=\"gp\">$</span>")
 
-      # TODO: This is breaking several links, consider using:
-      # https://stackoverflow.com/q/2793624/1558022
-
-      # Replace k-means with an italicised k
-      text = text.gsub("k-means", "<em>k</em>&#x2011;means")
-
       text
     end
   end
