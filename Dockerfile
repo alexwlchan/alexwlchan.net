@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine3.6
+FROM ruby:2.6-alpine
 
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"
@@ -11,5 +11,7 @@ COPY Gemfile.lock .
 
 COPY install_jekyll.sh .
 RUN ./install_jekyll.sh
+
+RUN apk add gcompat
 
 ENTRYPOINT ["bundle", "exec", "rake"]

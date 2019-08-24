@@ -21,6 +21,15 @@ apk add git
 # Required for the twitter gem
 apk add imagemagick
 
+# Required for libsass.  If this is missing, you get the error:
+#
+#   LoadError: Could not open library
+#   '/usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so':
+#   Error loading shared library ld-linux-x86-64.so.2: No such file or directory
+#   (needed by /usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so)
+#
+apk add --update gcompat
+
 bundle install
 
 # These packages are only required for installation, not for running Jekyll
