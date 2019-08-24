@@ -27,10 +27,6 @@ kramdown:
   auto_ids: true
   smart_quotes: "lsquo,rsquo,ldquo,rdquo"
 
-
-# redcarpet:
-#   extensions: ["footnotes", "smart", "with_toc_data"]
-
 plugins:
   - "jekyll-sitemap"
 
