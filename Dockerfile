@@ -9,6 +9,10 @@ RUN ./install_specktre.sh
 COPY Gemfile .
 COPY Gemfile.lock .
 
+# This is needed to avoid a segfault/shared library issue when running
+# sassc-ruby inside Alpine.  See https://github.com/sass/sassc-ruby/issues/141
+ENV BUNDLE_FORCE_RUBY_PLATFORM true
+
 COPY install_jekyll.sh .
 RUN ./install_jekyll.sh
 
