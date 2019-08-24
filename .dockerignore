@@ -2,6 +2,7 @@
 .travis
 src
 _site
+_site-3.8
 !src/_plugins
 tests
 analytics/analytics.db
