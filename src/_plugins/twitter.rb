@@ -183,7 +183,7 @@ module Jekyll
     end
 
     def setup_api_client()
-      auth = YAML.load(File.read("#{@src}/_tweets/auth.yml"), :safe => true)
+      auth = YAML.load(File.read("#{@src}/_tweets/auth.yml"))
       Twitter::REST::Client.new do |config|
         config.consumer_key        = auth["consumer_key"]
         config.consumer_secret     = auth["consumer_secret"]
@@ -220,7 +220,7 @@ module Jekyll
       avatar_url = tweet_data["user"]["profile_image_url_https"]
       create_avatar_thumbnail(avatar_url)
 
-      alt_text = YAML.load(File.read("#{@src}/_tweets/alt_text.yml"), :safe => true)
+      alt_text = YAML.load(File.read("#{@src}/_tweets/alt_text.yml"))
       per_tweet_alt_text = alt_text[@tweet_url]
 
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
