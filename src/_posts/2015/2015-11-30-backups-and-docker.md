@@ -36,26 +36,18 @@ But these files are portable across computers, and take up far less space in bac
 *   The [`docker save`](http://docs.docker.com/engine/reference/commandline/save/) command can export an image to a tarfile.
     You can load the image on a new system with the `docker load` command:
 
-    <!-- ```console
+    ```console
     $ docker save busybox > busybox.tar
     $ docker load < busybox.tar
-    ``` -->
-
-    <div class="codehilite"><pre><span></span><span class="gp">$</span> docker save busybox &gt; busybox.tar
-    <span class="gp">$</span> docker load &lt; busybox.tar
-    </pre></div>
+    ```
 
 *   The [`docker export`](http://docs.docker.com/engine/reference/commandline/export/) command saves the filesystem of a running container to a tarfile.
     You can restore it with `docker import`, which creates an empty container filesystem and then loads the contents of the export.
 
-    <!-- ```console
+    ```console
     $ docker export awlc/red_mcclean > mycontainer.tar
     $ cat mycontainer.tar | docker import - awlc/red_mcclean:new
-    ``` -->
-
-    <div class="codehilite"><pre><span></span><span class="gp">$</span> docker <span class="nb">export</span> awlc/red_mcclean &gt; mycontainer.tar
-    <span class="gp">$</span> cat mycontainer.tar <span class="p">|</span> docker import - awlc/red_mcclean:new
-    </pre></div>
+    ```
 
 In practice, I rarely use these commands.
 I usually have the Dockerfiles and/or Docker Hub to restore any images, and containers are supposed to be ephemeral.
