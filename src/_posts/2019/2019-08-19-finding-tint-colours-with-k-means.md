@@ -297,6 +297,7 @@ Putting all that code together, here's the final version:
 
 ```python
 import math
+import random
 
 import attr
 
