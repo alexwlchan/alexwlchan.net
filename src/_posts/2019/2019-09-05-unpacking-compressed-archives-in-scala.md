@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-09-05 23:16:04 +0000
 title: Streaming files from a compressed archive (tar.gz) in Scala
 summary: Code to turn an InputStream into an Iterator of entries from a tar.gz file or similar compressed archive in Java/Scala.
 category: Programming and code
