@@ -10,8 +10,8 @@ def run_linting(dst)
     }).run
 end
 
-Jekyll::Hooks.register :site, :post_write do |site|
-  if site.config["lint"]
+if $ARGV.include?("build")
+  Jekyll::Hooks.register :site, :post_write do |site|
     run_linting(site.config["destination"])
   end
 end

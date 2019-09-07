@@ -30,7 +30,7 @@ serve:
 		--workdir $(ROOT) \
 		--publish 5757:5757 \
 		$(DOCKER_IMAGE) \
-		serve
+		serve --drafts --incremental --host "0.0.0.0" --port 5757 --skip-initial-build --trace
 
 publish-drafts:
 	docker run --tty --rm \
