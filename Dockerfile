@@ -18,4 +18,4 @@ RUN ./install_jekyll.sh
 
 RUN apk add gcompat
 
-ENTRYPOINT ["bundle", "exec", "rake"]
+ENTRYPOINT ["bundle", "exec", "jekyll"]
