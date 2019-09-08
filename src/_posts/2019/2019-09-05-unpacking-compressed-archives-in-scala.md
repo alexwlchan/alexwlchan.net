@@ -244,7 +244,7 @@ You can see the code this post is based on [in our public repo][ghurl], along wi
 It uses Either rather than Try to handle errors, which is a design pattern it inherits from the rest of our codebase -- for this standalone example, Try is simpler and easier to follow.
 
 If you want to use this code in your project, all of Wellcome's code is available under [an MIT license][license] -- just the copyright notice and a link back to our repo.
-If you found my walkthrough helpful, perhaps [say thanks on Twitter][thanks] or [buy me a coffee][kofi]?
+If you found my walkthrough helpful, perhaps [say thanks on Twitter][thanks]?
 
 [s3_python]: /2019/02/working-with-large-s3-objects/
 [commons]: https://en.wikipedia.org/wiki/Apache_Commons
