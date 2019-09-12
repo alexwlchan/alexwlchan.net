@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Reading large objects from S3 as a Java InputStream
+title: Streaming large objects from S3 with a ranged GET request
 summary:
 category: Code from Wellcome
 ---
 
-In [yesterday's post](/2019/09/unpacking-compressed-archives-in-scala/), I talked about how to take a Java `InputStream` for a tar.gz file, and get an iterator of `(ArchiveEntry, InputStream)`.
+In [my last post](/2019/09/unpacking-compressed-archives-in-scala/), I talked about how to take a Java `InputStream` for a tar.gz file, and get an iterator of `(ArchiveEntry, InputStream)`.
 Next we need to get an InputStream for our tar.gz file -- which in our case, is stored in S3.
 Some of our archives are very big (the biggest is half a terabyte), so we need to get a little inventive.
 
@@ -40,48 +40,215 @@ It took us a while to work out why it was happening!
 
 I haven't tried it myself, but I think the [TransferManager][transfer_manager] in the AWS SDK helps with this -- you can download large files, and it manages the threads and connections to keep the download going.
 If you have the disk space to download your files, that might be worth a look.
-Unfortunately TransferManager doesn't support [downloading to streams][issue_893] (yet), so we found a way to do it manually.
+Unfortunately TransferManager doesn't support [downloading to streams][issue_893] (yet), so we had to find a way to do it manually.
 
 [transfer_manager]: https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/transfer/TransferManager.html
 [issue_893]: https://github.com/aws/aws-sdk-java/issues/893
 
-I had the idea to try breaking up the object into chunks, downloading each chunk individually, then stitching them back together into a single stream.
+When you want to upload a large file to S3, you can do a *multipart upload*.
+You break the file into smaller pieces, upload each piece individually, then they get stitched back together into a single object.
+What if you run that process in reverse?
+
+Break the object into smaller pieces, download each piece individually, then stitch them back together into a single stream.
 We'd only be holding open a connection for as long as it takes to download a chunk, so it's much less likely to timeout or drop.
 Let's break it down in a couple of pieces:
 
-## How big is an object in S3?
+## How big is a single object?
 
-To know how many chunks we'll need (and when we're run out of object to stream), we need to know how big the object is.
+To know how many chunks we'll need (and when we're finished reading the object), we need to know how big the object is.
 One way to do this is to use the `getObjectMetadata` method (aka the HeadObject API):
 
 ```scala
-def getSize(bucketName: String, key: String): Try[Long] = Try {
+def getSize(bucketName: String, key: String): Long =
   s3Client
     .getObjectMetadata(bucketName, key)
     .getContentLength
-}
 ```
 
-Compared to the GetObject API, I find the error messages from this API a little terse.
-For example, if you try to look up a non-existent object, the HeadObject API just returns *NotFound*.
-The GetObject API gives a bit more detail: *The specified bucket does not exist*.
+## How do we get a single chunk of an object?
 
-Here's another version of this function, which uses GetObject -- the result is the same, but we get slightly better error messages:
+Let's suppose we want to read the first 1000 bytes of an object -- we can use a ranged GET request to get just that part of the file:
 
 ```scala
-def getSize(bucketName: String, key: String): Try[Long] = Try {
-  val s3Object = s3Client.getObject(bucketName, key)
+import com.amazonaws.services.s3.model.GetObjectRequest
 
-  // Remember to close the InputStream, or eventually we'll run out
-  // of HTTP connections
-  s3Object.getObjectContent.close()
+val getRequest = new GetObjectRequest(bucketName, key)
+  .withRange(0, 999)
 
-  s3Object.getObjectMetadata.getContentLength
+val is: InputStream =
+  s3Client
+    .getObject(getRequest)
+    .getObjectContent
+```
+
+Note that the Range header is an inclusive boundary -- in this example, it reads everything up to and including the 999th byte.
+
+## How do we stitch the pieces back together?
+
+So now we know how big the object is, and how to read an individual piece.
+Reading any one piece gives us an `InputStream`, so we have a series of InputStreams -- but ideally we'd present a single InputStream back to the caller.
+How can we do that?
+
+Java has a `SequenceInputStream` type that's just what we need -- we give it an Enumeration of InputStream instances, and it reads bytes from each one in turn.
+It we create the streams as they're needed by the Enumeration, this will join them together for us.
+
+<img src="sequence_stream.svg">
+
+We can create the Enumeration like so:
+
+```scala
+import java.util
+import com.amazonaws.services.s3.model.S3ObjectInputStream
+
+val pieceSize: Long
+
+val enumeration = new util.Enumeration[S3ObjectInputStream] {
+  var currentPosition = 0L
+  val totalSize: Long
+
+  override def hasMoreElements: Boolean =
+    currentPosition < totalSize
+
+  override def nextElement(): InputStream = {
+    val getRequest =
+      new GetObjectRequest(bucketName, key)
+        .withRange(currentPosition, currentPosition + pieceSize - 1)
+
+    currentPosition += pieceSize
+
+    s3Client.getObject(getRequest).getObjectContent
+  }
 }
 ```
 
-Unfortunately the cost of the better error reporting is a spurious warning:
+On each step of the enumeration, we read the next chunk from S3, and track how far we've read with `currentPosition`.
+On the last step, we might ask for more bytes than are available (if the remaining bytes are less than the buffer size), but that seems to work okay.
+The S3 SDK returns all the remaining bytes, but no more.
 
-> WARNING: Not all bytes were read from the S3ObjectInputStream, aborting HTTP connection. This is likely an error and may result in sub-optimal behavior. Request only the bytes you need via a ranged GET or drain the input stream after use.
+And then we put that enumeration into a SequenceInputStream:
 
-When we close the stream,
+```scala
+import java.io.SequenceInputStream
+
+val combinedStream: InputStream = new SequenceInputStream(enumeration)
+```
+
+When the Enumeration reaches the end of one of the individual streams, it closes that stream and calls `nextElement()` to create the next one.
+
+This can be more expensive than doing a single GetObject call -- Amazon charge for each use of the GetObject API, and while the individual cost is small, the cost of multiple calls can add up quickly.
+You can play with the chunk size to get a mixture of reliability and cost.
+
+In our testing, we found that this alone still wasn't wholly reliable.
+The SequenceInputStream won't close the stream for a single piece until it's read all the bytes for that piece, and started reading the next one -- and it holds the stream open.
+If it takes a long time to process a single piece, that connection can still get dropped.
+We could turn down the buffer size to make it more reliable, but that gets expensive.
+
+What we're trying instead is reading the entire contents of a single piece into memory as soon as we do the GetObject call, then closing the connection.
+We're trading memory for increased reliability.
+Here's what that Enumeration looks like:
+
+```scala
+import java.io.ByteArrayInputStream
+
+val underlying: util.Enumeration[InputStream]
+
+val bufferedEnumeration = new util.Enumeration[ByteArrayInputStream] {
+  override def hasMoreElements: Boolean = underlying.hasMoreElements
+
+  override def nextElement(): ByteArrayInputStream = {
+    val nextStream = underlying.nextElement()
+    val byteArray = IOUtils.toByteArray(nextStream)
+    nextStream.close()
+    new ByteArrayInputStream(byteArray)
+  }
+}
+```
+
+We can drop this enumeration into another SequenceInputStream, and get a single InputStream again – but this time the S3ObjectInputStream is read and closed almost immediately.
+
+## Putting it all together
+
+If we take all those pieces, we can combine them into a single Scala class like so:
+
+```scala
+import java.io.{ByteArrayInputStream, InputStream, SequenceInputStream}
+import java.util
+
+import com.amazonaws.services.s3.model.{GetObjectRequest, S3ObjectInputStream}
+import com.amazonaws.services.s3.AmazonS3
+import org.apache.commons.io.IOUtils
+
+import scala.util.Try
+
+/** Read objects from S3, buffering up to `bufferSize` bytes of an object
+  * in-memory at a time, minimising the time needed to hold open
+  * an HTTP connection to S3.
+  *
+  * This is useful for reading very large objects to an InputStream,
+  * especially where a single GetObject call would time out before
+  * reading the entire object.
+  *
+  */
+class S3StreamReader(s3Client: AmazonS3, bufferSize: Long) {
+  def get(bucketName: String, key: String): Try[InputStream] = Try {
+    val totalSize = getSize(bucketName, key)
+
+    val s3Enumeration = getEnumeration(bucketName, key, totalSize)
+    val bufferedEnumeration = getBufferedEnumeration(s3Enumeration)
+
+    new SequenceInputStream(bufferedEnumeration)
+  }
+
+  private def getSize(bucketName: String, key: String): Long =
+    s3Client
+      .getObjectMetadata(bucketName, key)
+      .getContentLength
+
+  private def getEnumeration(
+    bucketName: String,
+    key: String,
+    totalSize: Long): util.Enumeration[S3ObjectInputStream] =
+    new util.Enumeration[S3ObjectInputStream] {
+      var currentPosition = 0L
+
+      override def hasMoreElements: Boolean =
+        currentPosition < totalSize
+
+      override def nextElement(): InputStream = {
+        val getRequest =
+          new GetObjectRequest(bucketName, key)
+            .withRange(currentPosition, currentPosition + bufferSize - 1)
+
+        currentPosition += bufferSize
+
+        s3Client.getObject(getRequest).getObjectContent
+      }
+    }
+
+  private def getBufferedEnumeration[IS <: InputStream](
+    underlying: util.Enumeration[IS]): util.Enumeration[ByteArrayInputStream] =
+    new util.Enumeration[ByteArrayInputStream] {
+      override def hasMoreElements: Boolean = underlying.hasMoreElements
+
+      override def nextElement(): ByteArrayInputStream = {
+        val nextStream = underlying.nextElement()
+        val byteArray = IOUtils.toByteArray(nextStream)
+        nextStream.close()
+        new ByteArrayInputStream(byteArray)
+      }
+    }
+}
+```
+
+That's a standalone snippet you can drop into your project if it's useful (remembering to include the platform [MIT licence][MIT]).
+
+We've been running this code in our pipeline for several weeks, and in that time it's read tens of thousands of objects, ranging from a few kilobytes to half a terabyte.
+Our apps have a 128MB buffer, with up to ten threads at once and 2GB of memory.
+It's fixed a persistent source of flakiness when ranging from S3, and the cost of the extra GetObject calls has been negligible.
+
+All of the heavy lifting is done by Java classes, so if your project uses Java rather than Scala, you should be able to port this for your needs.
+And the general idea -- using a ranged GET request to fetch an object a piece at a time, then stitching them together -- is language agnostic, so you can use this technique even if you're not using a JVM language.
+
+[MIT]:
+
+
