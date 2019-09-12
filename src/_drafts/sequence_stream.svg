@@ -1,0 +1,35 @@
+<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="0.5" fill="white">
+
+  <svg x="0" y="0">
+    <rect width="300" height="20"/>
+    <text x="150" y="10" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">SequenceInputStream(…)</text>
+  </svg>
+
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+    <polygon fill="#000" points="0 0, 10 3.5, 0 7"/>
+  </marker>
+
+  <svg x="0">
+    <rect y="70" width="75" height="20"/>
+    <text x="37.5" y="80" fill="black" font-size="6px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">0–999</text>
+    <line x1="37.5" y1="70" x2="37.5" y2="30" marker-end="url(#arrowhead)" />
+  </svg>
+
+  <svg x="75" y="-6">
+    <rect y="70" width="75" height="20"/>
+    <text x="37.5" y="80" fill="black" font-size="6px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">1000–1999</text>
+    <line x1="37.5" y1="70" x2="37.5" y2="36" marker-end="url(#arrowhead)" />
+  </svg>
+
+  <svg x="150" y="-12">
+    <rect y="70" width="75" height="20"/>
+    <text x="37.5" y="80" fill="black" font-size="6px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">2000–2999</text>
+    <line x1="37.5" y1="70" x2="37.5" y2="42" marker-end="url(#arrowhead)" />
+  </svg>
+
+  <svg x="225" y="-18">
+    <rect y="70" width="75" height="20"/>
+    <text x="37.5" y="80" fill="black" font-size="6px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">…</text>
+    <line x1="37.5" y1="70" x2="37.5" y2="48" marker-end="url(#arrowhead)" />
+  </svg>
+</svg>
