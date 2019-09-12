@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-09-12 19:53:53 +0000
 title: Streaming large objects from S3 with ranged GET requests
 summary: Walking through some Java/Scala code that lets you read very large objects from S3 as a single InputStream.
 category: Code from Wellcome
