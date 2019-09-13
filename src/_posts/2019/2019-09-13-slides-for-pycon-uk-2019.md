@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-09-13 21:18:04 +0000
 title: "Slides for PyCon UK 2019 \"Sans I/O programming\""
 summary:
 category: Talks
