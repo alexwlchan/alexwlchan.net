@@ -8,15 +8,16 @@ archive_variant: index
 ## Hi, I'm Alex.
 
 I'm a software developer at [the Wellcome Trust][wellcome] and an open-source Python developer.
-At Wellcome, I'm helping build a new platform for searching and storing our digital collections.
+At Wellcome, I'm helping build a platform for searching and storing our digital collections.
 It's taking Wellcome's assets -- books, archives, images, and more -- and presenting them through consistent, well-designed APIs.
 
 I contribute to open source Python in my free time, including the [Hypothesis testing library][hypothesis] and the [hyper-h2 HTTP/2 stack][hyper].
-I'm one of the organisers for the [PyCon&nbsp;UK][pycon] conference, and I've given a number of talks about Python (among other topics).
+I'm one of the organisers for the [PyCon&nbsp;UK][pycon] conference, and I've given talks at a number of conferences.
 
 The site focuses on programming, with the occasional venture into accessibility, maths, bits of travel advice and Victorian engineering.
 It's as a way to sharpen my skills in writing, and improve my ability to explain my ideas.
-If that sounds interesting, I have an [infrequently updated blog](/all-posts/).
+If that sounds interesting, I have an [irregularly updated blog](/all-posts/).
+I've also written about my [ideas for running inclusive and accessible events](https://alexwlchan.net/ideas-for-inclusive-events/).
 
 I hope you enjoy the site.
 
