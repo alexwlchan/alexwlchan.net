@@ -8,7 +8,7 @@ It's a static site built with [Jekyll][jekyll], with a number of plugins written
 The site is built and tested by [Azure Pipelines][azure].
 When I push to master, Azure uploads a copy of the rendered HTML files to a [Linode server][linode], where they're served by [nginx][nginx].
 
-![](screenshot.png)
+![](screenshot_2019-09-19.png)
 
 [root]: https://alexwlchan.net
 [jekyll]: https://jekyllrb.com/
