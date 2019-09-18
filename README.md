@@ -58,10 +58,10 @@ I don't use [jekyll-feed][feed] because I sometimes want an entry to link somewh
 If I want a post to link elsewhere, I add `link` to the post frontmatter:
 
 ```yaml
-title:  A validator for RSS and Atom feeds
-layout: post
-date:   2017-09-22 08:19:42 +0100
-link:   https://github.com/rubys/feedvalidator
+title:  "A validator for RSS and Atom feeds"
+layout: "post"
+date:   "2017-09-22 08:19:42 +0100"
+link:   "https://github.com/rubys/feedvalidator"
 ```
 
 Because I'm rolling my own feeds, I use [rubys/feedvalidator][validator] to test I'm really producing valid Atom markup.
