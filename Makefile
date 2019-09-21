@@ -1,5 +1,5 @@
 export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 12
+export DOCKER_IMAGE_VERSION = 13
 DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 SERVE_CONTAINER = server
@@ -16,10 +16,16 @@ publish-docker:
 	python3 publish_docker_image.py
 
 build:
-	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		$(DOCKER_IMAGE) build
 
 build-drafts:
-	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build-drafts
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		$(DOCKER_IMAGE) build --drafts --trace
 
 lint:
 	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) lint
@@ -30,16 +36,16 @@ serve:
 		--workdir $(ROOT) \
 		--publish 5757:5757 \
 		$(DOCKER_IMAGE) \
-		serve
+		serve --drafts --incremental --host "0.0.0.0" --port 5757 --skip-initial-build --trace
 
 publish-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
+		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/publish_drafts.rb \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
-		$(DOCKER_IMAGE) \
-		publish-drafts
+		$(DOCKER_IMAGE) publish_drafts
 
 publish: publish-drafts build
 
