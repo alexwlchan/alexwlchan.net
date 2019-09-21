@@ -16,13 +16,16 @@ publish-docker:
 	python3 publish_docker_image.py
 
 build:
-	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		$(DOCKER_IMAGE) build
 
 build-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) build-drafts
+		$(DOCKER_IMAGE) build --drafts --trace
 
 lint:
 	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) lint
