@@ -19,7 +19,10 @@ build:
 	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build
 
 build-drafts:
-	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) build-drafts
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		$(DOCKER_IMAGE) build-drafts
 
 lint:
 	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) lint
@@ -36,10 +39,10 @@ publish-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
+		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/publish_drafts.rb \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
-		$(DOCKER_IMAGE) \
-		publish-drafts
+		$(DOCKER_IMAGE) publish_drafts
 
 publish: publish-drafts build
 
