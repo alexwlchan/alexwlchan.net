@@ -21,7 +21,9 @@ MathJax = {
   loader: {load: ['[tex]/ams']},
   tex: {
     inlineMath: [['$', '$']],
-    displayMath: [['\\[', '\\]']],
+    displayMath: [
+      ['$$', '$$']
+    ],
     packages: {'[+]': ['ams']}
   },
   svg: {
@@ -30,9 +32,9 @@ MathJax = {
 };
 </script>
 
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 
 
@@ -119,7 +121,7 @@ The SVG coordinate system is fixed -- we still need to do the translation from t
 Let's tackle that next.
 
 
-## Translating between coordinate systems
+## Mapping between coordinate systems
 
 We want a function that takes a point $\langle a, b \rangle$ in triangular coordinates and returns $(x,y)$ in Cartesian coordinates.
 If we can work out what $\langle 1, 0 \rangle$ and $\langle 0, 1 \rangle$ in triangular coordinates become in Cartesian coordinates, that's enough -- we can then add those together to get the coordinates for $(a, b)$.
@@ -150,7 +152,7 @@ Let's draw a diagram of this point:
     <text x="10" y="27" font-size="4px" font-family="serif">1</text>
 
     <circle cx="25" cy="39.641016151" r="1.5" fill="#d01c11" />
-    <text x="28" y="39.641016151" fill="#d01c11" font-size="4px" font-family="serif" dominant-baseline="middle">&#12296;1, 0&#12297;</text>
+    <text x="28" y="39.641016151" fill="#d01c11" font-size="4px" font-family="serif" dominant-baseline="middle">&#12296;0, 1&#12297;</text>
   </svg>
 </figure>
 
@@ -159,10 +161,178 @@ We can use trig identities to work out the value of $x$ and $y$.
 
 If we remember [some trigonometric functions][trig], we get:
 
-AAA BBB CCC ddd eee fff ggg hhh iii jjj kkk lll
-
-
 [trig]: https://en.wikipedia.org/wiki/Trigonometric_functions#Right-angled_triangle_definitions
 
-## Why not just use SVG transforms?
+$$
+  \begin{align*}
+    \cos(60^\circ) &= \frac{\text{adjacent}}{\text{hypotenuse}} = \frac{x}{1} = x \\[6pt]
+    \sin(60^\circ) &= \frac{\text{opposite}}{\text{hypotenuse}} = \frac{y}{1} = y
+  \end{align*}
+$$
 
+This gives us a mapping between triangular and Cartesian coordinates:
+
+$$
+  \begin{align*}
+    \langle 1, 0 \rangle &\mapsto (1, 0) \\[6pt]
+    \langle 0, 1 \rangle &\mapsto (\cos(60^\circ), \sin(60^\circ))
+  \end{align*}
+$$
+
+which combines to give:
+
+$$
+  \langle a, b \rangle \mapsto (a + b\cos(60^\circ), b \sin(60^\circ))
+$$
+
+Now let's use this mapping to turn our nice human-friendly triangular coordinates into Cartesian coordinates.
+
+
+
+## Could we use an SVG transformation?
+
+It turns out that SVG already has some support for transformations.
+You can do rotations and translations -- or you can use a [matrix transformation](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#Matrix) to translate between coordinate systems, which is exactly what we're doing here.
+We can express our coordinate mapping as a matrix:
+
+$$
+  \begin{pmatrix}
+    x_\text{Cartesian} \\
+    y_\text{Cartesian} \\
+    1
+  \end{pmatrix} =
+  \begin{pmatrix}
+    1 & \cos(60^\circ) & 0 \\
+    0 & \sin(60^\circ) & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_\text{triangular} \\
+    y_\text{triangular} \\
+    1
+  \end{pmatrix}
+$$
+
+If you wanted to use this function to draw a hexagon, the SVG matrix function is as follows:
+
+```xml
+<svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1 0 0.5 .866025404 0 0)">
+    <polygon points="1,0 2,0 2,1 1,2 0,2 0,1" fill="black" />
+    <text x="2.2" y="1" fill="black" font-size="1px">a regular hexagon</text>
+  </g>
+</svg>
+```
+
+Unfortunately, this also skews any text on the image, as shown below:
+
+<figure style="width: 350px;">
+  <svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
+    <g transform="matrix(1 0 0.5 .866025404 0 0)">
+      <polygon points="1,0 2,0 2,1 1,2 0,2 0,1" fill="black" />
+      <text x="2.2" y="1" fill="black" font-size="1px" dominant-baseline="middle">a regular hexagon</text>
+    </g>
+  </svg>
+</figure>
+
+If your diagram doesn't feature text or you're okay with this degree of slanting, go ahead and use this transform function -- it's pretty simple and doesn't require anything extra.
+Unfortunately I do have triangular diagrams where I want to put text, so I had to come up with an alternative approach.
+
+
+
+## Transforming the coordinates with a template
+
+Rather than transforming the entire canvas, let's create the necessary $(x,y)$-coordinates individually inside the SVG.
+We'll define everything in terms of triangular coordinates, then use a string substitution to replace them with $(x,y)$ values.
+
+There are lots of ways to do string substitution (or string templating).
+For this simple example I'm going to use [Python f-strings][f_strings], but the same idea can be adapted to other languages/libraries.
+
+[f_strings]: https://www.python.org/dev/peps/pep-0498/
+
+Let's start by defining a function that gives us the $x$- and $y$-components for a set of triangular coordinates in an SVG-compatible format:
+
+```python
+import math
+
+
+def x_component(triangular_x, triangular_y):
+    result = triangular_x + triangular_y * math.cos(math.radians(60))
+    return "%.6f" % result
+
+
+def y_component(triangular_x, triangular_y):
+    result = triangular_y * math.sin(math.radians(60))
+    return "%.6f" % result
+
+
+def xy_position(triangular_x, triangular_y):
+    return "%s,%s" % (
+        x_component(triangular_x, triangular_y),
+        y_component(triangular_x, triangular_y)
+    )
+```
+
+I'm casting to a string with up to 6 decimal places, rather than relying on Python's string formatting -- sometimes the `str()` of a float is non-numeric.
+This often occurs with very small numbers, e.g. `1.2e-15`.
+I want to keep my numbers nice and simple for the SVG!
+
+Then to create the SVG itself, I drop those values into an XML template in an f-string:
+
+```python
+print(f'''
+<svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="{xy_position(1, 0)}
+                   {xy_position(2, 0)}
+                   {xy_position(2, 1)}
+                   {xy_position(1, 2)}
+                   {xy_position(0, 2)}
+                   {xy_position(0, 1)}" fill="black" />
+  <text x="{x_component(2.2, 1)}"
+        y="{y_component(2.2, 1)}"
+        fill="black" font-size="1px">
+    a regular hexagon
+  </text>
+</svg>
+''')
+```
+
+Because SVG isn't fussy about whitespace, I can indent to maximise clarity -- for example, it's clear that the $x$- and $y$-components of the `<text>` tag are both from the same underlying triangular coordinates.
+
+You can do the same thing in a more sophisticated templating engine, like [Jinja2][jinja] or [Mako][mako].
+Using a templating language means you have to do less busywork when writing the SVG -- you get things like loops, variables, and functions.
+It reduces the amount of XML you have to write by hand, and the likelihood of a typo or a silly mistake.
+I created most of the illustrations in this post with Jinja2.
+
+[jinja]: https://jinja.palletsprojects.com/
+[mako]: https://www.makotemplates.org/
+
+The SVG this code creates draws the triangular coordinates correctly, but this time the text is displayed upright:
+
+<figure style="width: 350px;">
+  <svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="1.000000,0.000000
+                     2.000000,0.000000
+                     2.500000,0.866025
+                     2.000000,1.732051
+                     1.000000,1.732051
+                     0.500000,0.866025" fill="black" />
+    <text x="2.700000"
+          y="0.866025" fill="black" font-size="1px" dominant-baseline="middle">
+      a regular hexagon
+    </text>
+  </svg>
+</figure>
+
+And voila: I started from a hexagon defined in triangular coordinates, and I was able to create an SVG that reflects that image.
+What's especially nice is that the template contains the original triangular coordinates, so if I want to change something I still have those available -- I don't have to unpick the Cartesian coordinates that get dropped into the SVG.
+
+
+
+## Next steps
+
+I want to keep playing with SVG, and use it for more diagrams (both here and elsewhere).
+Doing the research for this post was good practice, and it exposed me to several new ideas -- matrix transformations, scaling, and the arc used to display the angle in the right-angled triangle.
+
+The triangular coordinate code is a stepping stone to something else, and as I was working on it I realised it was a useful standalone idea.
+I'll probably write up the original idea soon; in the meantime, I hope this was an interesting walkthrough one way to do alternative coordinate systems in SVG.
