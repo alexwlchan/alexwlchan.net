@@ -1,0 +1,144 @@
+<svg viewBox="0 0 500 550" xmlns="http://www.w3.org/2000/svg">
+  {% set x_lower = 75 %}
+  {% set x_upper = 450 %}
+  {% set x_incr = 75 %}
+
+  {% set y_lower = 50 %}
+  {% set y_upper = 450 %}
+  {% set y_incr = 75 %}
+
+  {% set grid_line_width = "0.75" %}
+  {% set grid_line_color = "#bbb" %}
+
+  {% set axis_line_width = "3" %}
+  {% set axis_line_color = "black" %}
+  {% set axis_label_font_size = "28px" %}
+  {% set axis_label_font_family = "serif" %}
+
+  {% set arrowhead_length = 8 %}
+  {% set arrowhead_width = 2.8 %}
+
+  {% set red_color   = "#d01c11" %}
+  {% set green_color = "#11a01c" %}
+  {% set blue_color  = "#0C34D4" %}
+
+  <marker id="arrowhead" markerWidth="{{ arrowhead_length }}" markerHeight="{{ arrowhead_width * 2 }}" refX="0" refY="{{ arrowhead_width }}" orient="auto">
+    <polygon fill="#000" points="0 0, {{ arrowhead_length}} {{ arrowhead_width }}, 0 {{ arrowhead_width * 2}}"/>
+  </marker>
+
+  {% for i in range(1, 5) %}
+    <!-- horizontal grid line -->
+    <line x1="{{ x_lower }}"
+          x2="{{ x_upper }}"
+          y1="{{ y_lower + 75 * i }}"
+          y2="{{ y_lower + 75 * i }}"
+          stroke-width="{{ grid_line_width }}"
+          stroke="{{ grid_line_color }}" />
+
+    <!-- vertical grid line -->
+    <line y1="{{ y_lower }}"
+          y2="{{ y_upper }}"
+          x1="{{ x_lower + 75 * i }}"
+          x2="{{ x_lower + 75 * i }}"
+          stroke-width="{{ grid_line_width }}"
+          stroke="{{ grid_line_color }}" />
+
+    <!-- x-axis tick mark -->
+    <line y1="{{ y_lower - 10}}"
+          y2="{{ y_lower + 10}}"
+          x1="{{ x_lower + 75 * i}}"
+          x2="{{ x_lower + 75 * i}}"
+          stroke-width="{{ axis_line_width }}"
+          stroke="{{ axis_line_color }}" />
+    <text x="{{ x_lower + 75 * i }}"
+          y="{{ y_lower - 27 }}"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          font-size="24px">{{ i }}</text>
+
+    <!-- y-axis tick mark -->
+    <line x1="{{ x_lower - 10 }}"
+          x2="{{ x_lower + 10 }}"
+          y1="{{ y_lower + 75 * i }}"
+          y2="{{ y_lower + 75 * i }}"
+          stroke-width="{{ axis_line_width }}"
+          stroke="{{ axis_line_color }}" />
+    <text y="{{ y_lower + 75 * i }}"
+          x="{{ x_lower - 27 }}"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          font-size="24px">{{ i }}</text>
+  {% endfor %}
+
+  <!-- x-axis -->
+  <line x1="{{ x_lower }}"
+        x2="{{ x_upper }}"
+        y1="{{ y_lower }}"
+        y2="{{ y_lower }}"
+        stroke-width="{{ axis_line_width }}"
+        stroke="{{ axis_line_color }}"
+        marker-end="url(#arrowhead)" />
+
+  <text x="{{ x_upper + 40 }}"
+        y="{{ y_lower }}"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-size="{{ axis_label_font_size }}"
+        font-family="{{ axis_label_font_family }}"
+        font-style="italic">x</text>
+
+  <!-- y-axis -->
+  <line x1="{{ x_lower }}"
+        x2="{{ x_lower }}"
+        y1="{{ y_lower }}"
+        y2="{{ y_upper }}"
+        stroke-width="{{ axis_line_width }}"
+        stroke="{{ axis_line_color }}"
+        marker-end="url(#arrowhead)" />
+
+  <text x="{{ x_lower }}"
+        y="{{ y_upper + 40 }}"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-size="{{ axis_label_font_size }}"
+        font-family="{{ axis_label_font_family }}"
+        font-style="italic">y</text>
+
+  <!-- point (0, 0) -->
+  <circle cx="{{ x_lower }}" cy="{{ y_lower }}" r="10" fill="{{ green_color }}" />
+  <text x="{{ x_lower - 11 }}" y="{{ y_lower - 11 }}" text-anchor="end" dominant-baseline="baseline" font-size="28px" font-family="{{ axis_label_font_family }}" fill="{{ green_color }}">(0, 0)</text>
+
+  <!-- point (2, 3) -->
+  <circle cx="{{ x_lower + x_incr * 2 }}" cy="{{ y_lower + y_incr * 3 }}" r="10" fill="{{ blue_color }}" />
+  <line stroke="{{ blue_color }}" stroke-dasharray="5,5" stroke-width="5px"
+        x1="{{ x_lower + 15 }}"
+        y1="{{ y_lower + y_incr * 3 }}"
+        x2="{{ x_lower + x_incr * 2 }}"
+        y2="{{ y_lower + y_incr * 3 }}" />
+  <line stroke="{{ blue_color }}" stroke-dasharray="5,5" stroke-width="5px"
+        x1="{{ x_lower + x_incr * 2 }}"
+        y1="{{ y_lower + 15 }}"
+        x2="{{ x_lower + x_incr * 2 }}"
+        y2="{{ y_lower + y_incr * 3 }}" />
+  <text x="{{ x_lower + x_incr * 2 + 7 }}"
+        y="{{ y_lower + y_incr * 3 + 14 }}"
+        text-anchor="start" dominant-baseline="hanging"
+        font-size="28px" font-family="{{ axis_label_font_family }}" fill="{{ blue_color }}">(2, 3)</text>
+
+  <!-- point (3.4, 1.2) -->
+  <circle cx="{{ x_lower + x_incr * 3.4 }}" cy="{{ y_lower + y_incr * 1.2 }}" r="10" fill="{{ red_color }}" />
+  <line stroke="{{ red_color }}" stroke-dasharray="3,4" stroke-width="5px"
+        x1="{{ x_lower }}"
+        y1="{{ y_lower + y_incr * 1.2 }}"
+        x2="{{ x_lower + x_incr * 3.4 }}"
+        y2="{{ y_lower + y_incr * 1.2 }}" />
+  <line stroke="{{ red_color }}" stroke-dasharray="3,4" stroke-width="5px"
+        x1="{{ x_lower + x_incr * 3.4 }}"
+        y1="{{ y_lower }}"
+        x2="{{ x_lower + x_incr * 3.4 }}"
+        y2="{{ y_lower + y_incr * 1.2 }}" />
+  <text x="{{ x_lower + x_incr * 3.4 + 7 }}"
+        y="{{ y_lower + y_incr * 1.2 + 14 }}"
+        text-anchor="start" dominant-baseline="hanging"
+        font-size="28px" font-family="{{ axis_label_font_family }}" fill="{{ red_color }}">(3.4, 1.2)</text>
+</svg>

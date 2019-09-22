@@ -1,0 +1,164 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  {% set grid_line_width = "0.75" %}
+  {% set grid_line_color = "#bbb" %}
+
+  {% set axis_line_width = "3" %}
+  {% set axis_line_color = "black" %}
+  {% set axis_label_font_size = "28px" %}
+  {% set axis_label_font_family = "serif" %}
+
+  {% set arrowhead_length = 8 %}
+  {% set arrowhead_width = 2.8 %}
+
+  {% set red_color   = "#d01c11" %}
+  {% set green_color = "#11a01c" %}
+  {% set blue_color  = "#0C34D4" %}
+
+  <marker id="arrowhead" markerWidth="{{ arrowhead_length }}" markerHeight="{{ arrowhead_width * 2 }}" refX="0" refY="{{ arrowhead_width }}" orient="auto">
+    <polygon fill="#000" points="0 0, {{ arrowhead_length}} {{ arrowhead_width }}, 0 {{ arrowhead_width * 2}}"/>
+  </marker>
+
+  {% set lower = 0 %}
+  {% set upper = 5 %}
+  {% set incr = 75 %}
+
+  {% set x_baseline = 100 %}
+  {% set y_baseline = 50 %}
+
+  {% for i in range(1, 5) %}
+    {% if i == 3 %}
+      {% set upper_value = 4 %}
+    {% elif i == 4 %}
+      {% set upper_value = 3 %}
+    {% else %}
+      {% set upper_value = upper %}
+    {% endif %}
+
+    <!-- horizontal axis grid line -->
+    <line x1="{{ x_baseline + (0,            incr * i) | triangular_x }}"
+          y1="{{ y_baseline + (0,            incr * i) | triangular_y }}"
+          x2="{{ x_baseline + ((upper_value + 0.3) * incr, incr * i) | triangular_x }}"
+          y2="{{ y_baseline + ((upper_value + 0.3) * incr, incr * i) | triangular_y }}"
+          stroke-width="{{ grid_line_width }}"
+          stroke="{{ grid_line_color }}" />
+
+    <!-- slanted axis grid line -->
+    <line x1="{{ x_baseline + (incr * i, 0) | triangular_x }}"
+          y1="{{ y_baseline + (incr * i, 0) | triangular_y }}"
+          x2="{{ x_baseline + (incr * i, (upper_value + 0.3) * incr) | triangular_x }}"
+          y2="{{ y_baseline + (incr * i, (upper_value + 0.3) * incr) | triangular_y }}"
+          stroke-width="{{ grid_line_width }}"
+          stroke="{{ grid_line_color }}" />
+
+    <!-- across angle grid line -->
+    <line x1="{{ x_baseline + (incr * i, 0) | triangular_x }}"
+          y1="{{ y_baseline + (incr * i, 0) | triangular_y }}"
+          x2="{{ x_baseline + (0, incr * i) | triangular_x }}"
+          y2="{{ y_baseline + (0, incr * i) | triangular_y }}"
+          stroke-width="{{ grid_line_width }}"
+          stroke="{{ grid_line_color }}" />
+
+    <!-- horizontal-axis tick mark -->
+    <line x1="{{ x_baseline + (incr * i, 15) | triangular_x }}"
+          y1="{{ y_baseline + (incr * i, 15) | triangular_y }}"
+          x2="{{ x_baseline + (incr * i, -15) | triangular_x }}"
+          y2="{{ y_baseline + (incr * i, -15) | triangular_y }}"
+          stroke-width="{{ axis_line_width }}"
+          stroke="{{ axis_line_color }}" />
+    <text x="{{ x_baseline + (incr * i, -37) | triangular_x }}"
+          y="{{ y_baseline + (incr * i, -37) | triangular_y }}"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          font-size="24px">{{ i }}</text>
+
+    <!-- slanted-axis tick mark -->
+    <line x1="{{ x_baseline + ( 15, incr * i) | triangular_x }}"
+          y1="{{ y_baseline + ( 15, incr * i) | triangular_y }}"
+          x2="{{ x_baseline + (-15, incr * i) | triangular_x }}"
+          y2="{{ y_baseline + (-15, incr * i) | triangular_y }}"
+          stroke-width="{{ axis_line_width }}"
+          stroke="{{ axis_line_color }}" />
+    <text x="{{ x_baseline + (-37, incr * i) | triangular_x }}"
+          y="{{ y_baseline + (-37, incr * i) | triangular_y }}"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          font-size="24px">{{ i }}</text>
+  {% endfor %}
+
+  {% for i in range(5, 8) %}
+    <!-- across angle grid line -->
+    {% if i == 5 %}
+      {% set offset = 0 %}
+    {% else %}
+      {% set offset = i - 5 - 0.3 %}
+    {% endif %}
+    <line x1="{{ x_baseline + (incr * (i - offset), incr * offset) | triangular_x }}"
+          y1="{{ y_baseline + (incr * (i - offset), incr * offset) | triangular_y }}"
+          x2="{{ x_baseline + (incr * offset, incr * (i - offset)) | triangular_x }}"
+          y2="{{ y_baseline + (incr * offset, incr * (i - offset)) | triangular_y }}"
+          stroke-width="{{ grid_line_width }}"
+          stroke="{{ grid_line_color }}" />
+  {% endfor %}
+
+  <!-- horizontal axis -->
+  <line x1="{{ x_baseline }}"
+        y1="{{ y_baseline }}"
+        x2="{{ x_baseline + (upper * incr, 0) | triangular_x }}"
+        y2="{{ y_baseline + (upper * incr, 0) | triangular_y }}"
+        stroke-width="{{ axis_line_width }}"
+        stroke="{{ axis_line_color }}"
+        marker-end="url(#arrowhead)" />
+
+  <!-- slanted axis -->
+  <line x1="{{ x_baseline }}"
+        y1="{{ y_baseline }}"
+        x2="{{ x_baseline + (0, upper * incr) | triangular_x }}"
+        y2="{{ y_baseline + (0, upper * incr) | triangular_y }}"
+        stroke-width="{{ axis_line_width }}"
+        stroke="{{ axis_line_color }}"
+        marker-end="url(#arrowhead)" />
+
+  <!-- point (0, 0) -->
+  <circle cx="{{ x_baseline }}" cy="{{ y_baseline }}" r="10" fill="{{ green_color }}" />
+  <text x="{{ x_baseline - 14 }}" y="{{ y_baseline - 21 }}" text-anchor="end" dominant-baseline="hanging" font-size="28px" font-family="{{ axis_label_font_family }}" fill="{{ green_color }}">&#12296;0, 0&#12297;</text>
+
+  <!-- point (2, 3) -->
+  <circle
+    cx="{{ x_baseline + (2 * incr, 3 * incr) | triangular_x }}"
+    cy="{{ y_baseline + (2 * incr, 3 * incr) | triangular_y }}"
+    r="10" fill="{{ blue_color }}" />
+  <line stroke="{{ blue_color }}" stroke-dasharray="5,5" stroke-width="5px"
+        x1="{{ x_baseline + (20, 3 * incr) | triangular_x }}"
+        y1="{{ y_baseline + (20, 3 * incr) | triangular_y }}"
+        x2="{{ x_baseline + (2 * incr, 3 * incr) | triangular_x }}"
+        y2="{{ y_baseline + (2 * incr, 3 * incr) | triangular_y }}" />
+  <line stroke="{{ blue_color }}" stroke-dasharray="5,5" stroke-width="5px"
+        x1="{{ x_baseline + (2 * incr, 20) | triangular_x }}"
+        y1="{{ y_baseline + (2 * incr, 20) | triangular_y }}"
+        x2="{{ x_baseline + (2 * incr, 3 * incr) | triangular_x }}"
+        y2="{{ y_baseline + (2 * incr, 3 * incr) | triangular_y }}" />
+  <text x="{{ x_baseline + (2 * incr + 15, 3 * incr + 7) | triangular_x }}"
+        y="{{ y_baseline + (2 * incr + 15, 3 * incr + 7) | triangular_y }}"
+        text-anchor="start" dominant-baseline="hanging"
+        font-size="28px" font-family="{{ axis_label_font_family }}" fill="{{ blue_color }}">&#12296;2, 3&#12297;</text>
+
+  <!-- point (3.4, 1.2) -->
+  <circle
+    cx="{{ x_baseline + (3.4 * incr, 1.2 * incr) | triangular_x }}"
+    cy="{{ y_baseline + (3.4 * incr, 1.2 * incr) | triangular_y }}"
+    r="10" fill="{{ red_color }}" />
+  <line stroke="{{ red_color }}" stroke-dasharray="5,5" stroke-width="5px"
+        x1="{{ x_baseline + (0, 1.2 * incr) | triangular_x }}"
+        y1="{{ y_baseline + (0, 1.2 * incr) | triangular_y }}"
+        x2="{{ x_baseline + (3.4 * incr, 1.2 * incr) | triangular_x }}"
+        y2="{{ y_baseline + (3.4 * incr, 1.2 * incr) | triangular_y }}" />
+  <line stroke="{{ red_color }}" stroke-dasharray="5,5" stroke-width="5px"
+        x1="{{ x_baseline + (3.4 * incr, 0) | triangular_x }}"
+        y1="{{ y_baseline + (3.4 * incr, 0) | triangular_y }}"
+        x2="{{ x_baseline + (3.4 * incr, 1.2 * incr) | triangular_x }}"
+        y2="{{ y_baseline + (3.4 * incr, 1.2 * incr) | triangular_y }}" />
+  <text x="{{ x_baseline + (3.4 * incr + 15, 1.2 * incr + 7) | triangular_x }}"
+        y="{{ y_baseline + (3.4 * incr + 15, 1.2 * incr + 7) | triangular_y }}"
+        text-anchor="start" dominant-baseline="hanging"
+        font-size="28px" font-family="{{ axis_label_font_family }}" fill="{{ red_color }}">&#12296;3.4, 1.2&#12297;</text>
+</svg>
