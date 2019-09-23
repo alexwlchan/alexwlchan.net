@@ -6,13 +6,13 @@ category: Programming and code
 ---
 
 If you've been paying close attention to my recent posts, you might have noticed that I've started to use [SVG images][svg] for some of my diagrams.
-I like SVGs because they tend to be sharper than bitmap images, and I can generate them programatically (rather than with a GUI app).
+I like SVGs because they tend to be sharper and smaller than bitmap images, and I can generate them programatically (rather than drawing them in a GUI app).
 
 [svg]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
 
 One of the things I've been playing with is alternative coordinate systems -- in particular, drawing images that fit on a triangular grid.
-This feels like it might have other applications, so in this post I'm going to walk through how it works.
-It's helpful if you remember some trigonometry from school, but if not I'll explain it was we go along.
+This feels like it might be useful in lots of places, so in this post I'm going to walk through how it works.
+It's easier if you remember some trigonometry from school, but if not I'll explain it was we go along.
 
 
 
@@ -41,8 +41,20 @@ MathJax = {
 
 ## Choosing a coordinate system
 
-A quick primer: a *coordinate system* is a way to represent points in 2D space -- for example, the corners of a shape.
+A *coordinate system* is a way to represent the location of points -- for example, places on a map, or the corners of a shape.
 We can define a shape by its coordinates, and use those to tell an SVG renderer what to draw.
+
+The coordinate system most people are familiar with is [Cartesian coordinates][cartesian], or $(x,y)$-coordinates.
+There's a vertical and a horizontal axis, and the $(x,y)$-coordinates of a point are measured by how far you have to move along the axis to get to the point.
+
+[cartesian]: https://en.wikipedia.org/wiki/Cartesian_coordinate_system
+
+SVG flips this on its head (literally), because the $y$-axis moves down rather than up, but otherwise the principle is the same.
+Here's what it looks like:
+
+<figure style="width: 350px;">
+  <img src="/images/2019/cartesian_coordinates.svg" alt="A pair of x-y axes, with x running from left-to-right, and y running from top-to-bottom. There are light grey grid lines running parallel to the axes. The points (0, 0), (2, 3) and (3.4, 1.2) are labelled with coloured circles (green, blue, red, respectively).">
+</figure>
 
 For example, the coordinates in this SVG define a black square:
 
@@ -56,56 +68,28 @@ For example, the coordinates in this SVG define a black square:
 Here's what that image looks like (the grey dashed line marks the edge of the SVG):
 
 <figure style="width: 350px;">
-  <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="1,1 1,29 29,29 29,1" stroke="#ccc" fill="none" stroke-width="0.25" stroke-dasharray="0.25,0.25" />
-
-    <polygon points="10,10 20,10 20,20 10,20" fill="black" />
-
-    <circle cx="10" cy="10" r="0.75" fill="#d01c11" />
-    <text x="9" y="9" fill="#d01c11" font-size="1.8px" text-anchor="end" font-family="serif">(10, 10)</text>
-
-    <circle cx="20" cy="10" r="0.75" fill="#d01c11" />
-    <text x="21" y="9" fill="#d01c11" font-size="1.8px" text-anchor="start" font-family="serif">(20, 10)</text>
-
-    <circle cx="20" cy="20" r="0.75" fill="#d01c11" />
-    <text x="21" y="22" fill="#d01c11" font-size="1.8px" text-anchor="start" font-family="serif">(20, 20)</text>
-
-    <circle cx="10" cy="20" r="0.75" fill="#d01c11" />
-    <text x="9" y="22" fill="#d01c11" font-size="1.8px" text-anchor="end" font-family="serif">(10, 20)</text>
-  </svg>
-</figure>
-
-The coordinate system most people are familiar with is [Cartesian coordinates][cartesian], or $(x,y)$-coordinates.
-There's a vertical and a horizontal axis, and the $(x,y)$-coordinates of a point are measured by how far you have to move along the axis to get to the point.
-
-[cartesian]: https://en.wikipedia.org/wiki/Cartesian_coordinate_system
-
-SVG flips this on its head (literally), because the $y$-axis moves down rather than up, but otherwise the principle is the same.
-Here's what it looks like:
-
-<figure style="width: 350px;">
-  <img src="/images/2019/cartesian_coordinates.svg">
+  <img src="/images/2019/black_square.svg" alt="A black square in the middle of a white square with a dashed grey edge. The four corners of the square are marked with red dots and coordinates.">
 </figure>
 
 This sort of coordinate system is great if you're drawing rectangular shapes, but for other types of diagram it's not so easy.
 Let's suppose, for example, that we wanted to draw this hexagonal grid as an SVG:
 
 <figure style="width: 450px;">
-  <img src="/images/2019/hex_board.png">
+  <img src="/images/2019/hex_board.png" alt="A set of tiling hexagons with thick black borders. The hexagons are coloured one of red, green, or blue.">
 </figure>
 
 We could try to define it with Cartesian coordinates, and do a bunch of moderately fiddly trigonometry for each of the points.
 But it's much easier to define if you're working on a triangular grid -- every point neatly snaps to one of the points on the grid.
 
-Here's a set of triangular coordinates: we define $\langle 1, 0 \rangle$ to be a step of 1 unit to the right, and $\langle 0, 1 \rangle$ to be a step of 1 unit at a $60^\circ$ angle.
+Here's a definition for triangular coordinates: we define $\langle 1, 0 \rangle$ to be a step of $1$ unit to the right, and $\langle 0, 1 \rangle$ to be a step of $1$ unit at a $60^\circ$ angle.
 I'm using the $\langle \cdots \rangle$ brackets to distinguish between triangular and $(x,y)$-coordinates.
 
 <figure style="width: 480px;">
-  <img src="/images/2019/triangular_coordinates.svg">
+  <img src="/images/2019/triangular_coordinates.svg" alt="A pair fo axes at a 60 degree angle, with one running left-to-right, another running on a left-to-right, top-to-bottom slant. The points <0, 0>, <2, 3> and <3.4, 1.2> are labelled with coloured circles (green, blue, red, respectively).">
 </figure>
 
 The choice of a $60^\circ$ angle means the grid divides into [equilateral triangles][equilateral] (equal sides, equal angles).
-This is a convenient choice for lots of diagrams, but the process below will work for any choice of angle.
+This is a convenient choice for lots of diagrams, but the process below would work for any choice of angle.
 
 [equilateral]: https://en.wikipedia.org/wiki/Equilateral_triangle
 
@@ -113,7 +97,7 @@ Writing out the points of a regular hexagon in this coordinate system is much si
 Rather than mucking around with any trig, we get neat integer points:
 
 <figure style="width: 350px;">
-  <img src="/images/2019/hex_diagram.svg">
+  <img src="/images/2019/hex_diagram.svg" alt="A black hexagon with the six points marked with red dots and coordinates. Working from the top-left, clockwise: <1,0>, <2,0>, <2,1>, <1,2>, <0,2>, <0,1>.">
 </figure>
 
 So now we have a coordinate system that lets us define triangular shapes -- but we can't use it in an SVG image.
@@ -123,8 +107,8 @@ Let's tackle that next.
 
 ## Mapping between coordinate systems
 
-We want a function that takes a point $\langle a, b \rangle$ in triangular coordinates and returns $(x,y)$ in Cartesian coordinates.
-If we can work out what $\langle 1, 0 \rangle$ and $\langle 0, 1 \rangle$ in triangular coordinates become in Cartesian coordinates, that's enough -- we can then add those together to get the coordinates for $(a, b)$.
+We want a function that takes a point $\langle a, b \rangle$ in triangular coordinates and returns the corresponding $(x,y)$ in Cartesian coordinates.
+If we can work out what $\langle 1, 0 \rangle$ and $\langle 0, 1 \rangle$ in triangular coordinates become in Cartesian coordinates, that's enough -- we can then add those together to get the coordinates for $\langle a, b \rangle$.
 
 The first is simple: $\langle 1, 0 \rangle$ is the same in both triangular and Cartesian coordinates.
 
@@ -132,28 +116,7 @@ What about $\langle 0, 1 \rangle$?
 Let's draw a diagram of this point:
 
 <figure style="width: 200px;">
-  <svg viewBox="0 0 40 45" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="5,5 25,5 25,39.641016151" stroke="#ccc" fill="none" stroke-width="0.5" stroke-dasharray="0.25,0.25" />
-
-    <polygon points="25,5 22,5 22,8 25,8" stroke="#aaa" fill="none" stroke-width="0.25" />
-
-    <path d="M 8 10.196152423
-             A 6 6 0 0 0 11 5" stroke="#aaa" fill="none" stroke-width="0.25" />
-
-    <line stroke-width="0.5"
-          x1="5" y1="5"
-          x2="25" y2="39.641016151" stroke="black" />
-
-    <text x="15" y="3.5" font-size="4px" fill="#888" font-family="serif" font-style="italic" dominant-baseline="baseline">x</text>
-    <text x="27" y="22.5" font-size="4px" fill="#888" font-family="serif" font-style="italic" dominant-baseline="baseline">y</text>
-
-    <text x="11" y="10.5" font-size="4px" fill="#888" font-family="serif">60&#176;</text>
-
-    <text x="10" y="27" font-size="4px" font-family="serif">1</text>
-
-    <circle cx="25" cy="39.641016151" r="1.5" fill="#d01c11" />
-    <text x="28" y="39.641016151" fill="#d01c11" font-size="4px" font-family="serif" dominant-baseline="middle">&#12296;0, 1&#12297;</text>
-  </svg>
+  <img src="/images/triangle_60_degree.svg" alt="A right-angled triangle with sides labelled 1 (diagonal, black), x (horizontal, grey) and y (vertical, grey). The right angle is marked, as is a 60 degree angle in the top left-hand corner. The bottom right-hand point is marked <0,1> and labelled in red.">
 </figure>
 
 This is a right-angled triangle where the longest side has length $1$, and the other two sides have lengths $x$ and $y$.
@@ -186,6 +149,9 @@ $$
 $$
 
 Now let's use this mapping to turn our nice human-friendly triangular coordinates into Cartesian coordinates.
+
+(You could work out the decimal value of $\cos(60^\circ)$ and $\sin(60^\circ)$ now, but I prefer to keep them in this "original" form for as long as possible.
+It makes it clearer where the values come from, and it means we don't get any loss of precision when we convert to decimal.)
 
 
 
@@ -227,12 +193,7 @@ If you wanted to use this function to draw a hexagon, the SVG matrix function is
 Unfortunately, this also skews any text on the image, as shown below:
 
 <figure style="width: 350px;">
-  <svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
-    <g transform="matrix(1 0 0.5 .866025404 0 0)">
-      <polygon points="1,0 2,0 2,1 1,2 0,2 0,1" fill="black" />
-      <text x="2.2" y="1" fill="black" font-size="1px" dominant-baseline="middle">a regular hexagon</text>
-    </g>
-  </svg>
+  <img src="/images/2019/hexagon_bad.svg" alt="A black hexagon with the text 'A regular hexagon' to its right. The top of the text has been skewed to the left.">
 </figure>
 
 If your diagram doesn't feature text or you're okay with this degree of slanting, go ahead and use this transform function -- it's pretty simple and doesn't require anything extra.
@@ -310,18 +271,7 @@ I created most of the illustrations in this post with Jinja2.
 The SVG this code creates draws the triangular coordinates correctly, but this time the text is displayed upright:
 
 <figure style="width: 350px;">
-  <svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="1.000000,0.000000
-                     2.000000,0.000000
-                     2.500000,0.866025
-                     2.000000,1.732051
-                     1.000000,1.732051
-                     0.500000,0.866025" fill="black" />
-    <text x="2.700000"
-          y="0.866025" fill="black" font-size="1px" dominant-baseline="middle">
-      a regular hexagon
-    </text>
-  </svg>
+  <img src="/images/2019/hexagon_good.svg" alt="A black hexagon with the text 'A regular hexagon' to its right. The text is not slanted or skewed.">
 </figure>
 
 And voila: I started from a hexagon defined in triangular coordinates, and I was able to create an SVG that reflects that image.
