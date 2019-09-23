@@ -1,120 +1,196 @@
+2019:
+  - title: "Building a robot that stole my job"
+    event: "QueerJS London"
+    date: "20 Sept"
+
+    links:
+      video: "https://www.youtube.com/watch?t=47m10s&v=hGI95LWVeuk"
+
+  - title: "The Curb Cut Effect"
+    event: "PyCon UK"
+    date: "14 Sept"
+
+    links:
+      video: "https://www.youtube.com/watch?v=-9tqCtf3T9k"
+      notes: "/2019/01/monki-gras-the-curb-cut-effect/"
+
+  - title: "Sans I/O programming patterns: what, why, and how"
+    event: "PyCon UK"
+    date: "13 Sept"
+
+    description: |+
+      Programmers have access to plenty of powerful, flexible libraries -- and yet we often end up reinventing the wheel.
+      Why?
+      Because our libraries aren't reusable -- code gets trapped by its I/O model.
+      If we program in a "sans I/O" pattern, we get code that's simpler, more flexible, and easier to test and reuse.
+
+    is_new: true
+
+    links:
+      video: "https://www.youtube.com/watch?v=qwTWqy0uPbY"
+      slides: "/files/pyconuk_2019_sans_io.pdf"
+
+  - title: "A robot stole my job!"
+    event: "PyCon UK"
+    date: "13 Sept"
+
+    variant: "lightning talk"
+
+    links:
+      video: "https://www.youtube.com/watch?v=-uakKQQuw6k&t=21m41s"
+
+  - title: "A robot stole my job prospects"
+    event: "ACCU"
+    date: "10 Apr"
+
+    variant: "lightning talk"
+    is_new: true
+
+    description: |+
+      Build automation is great, right?
+      We can save time, automate releases, script tedious tasks… but what happens when these build robots turn against us?
+
+  - title: "The Curb Cut Effect"
+    event: "Monki Gras"
+    date: "31 Jan"
+
+    is_new: true
+
+    description: |+
+      When we imagine inclusive design, we think about helping people from minoritised or excluded groups.
+      People who are disabled, or BAME, or LGBTQ+.
+      We should consider them in our designs -- but if we design for them, are they the only ones who benefit?
+      The Curb Cut Effect suggests otherwise: designing for people who are excluded or marginalised can often result in a better design for everyone.
+
+    links:
+      video: "https://www.youtube.com/watch?v=6Yf3iukx3tQ"
+      slides: "/files/curbcut-monkigras.pdf"
+      notes: "/2019/01/monki-gras-the-curb-cut-effect/"
+
 2018:
 
   - title: "A Plumber's Guide to Git"
-    conference: "PyCon UK 2018"
+    event: "PyCon UK"
     date: "17 Sept"
-    description: |+
-      A repeat of my PyCon UK workshop from 2017, but for a fresh audience.
-      This uses [the same notes](/a-plumbers-guide-to-git/) as previous versions of the workshop."
 
-  - title: "Assume Worst Intent (Designing against the abusive ex)"
-    conference: "PyCon UK 2018"
+    variant: "workshop"
+
+  - title: "Assume Worst Intent (designing against the abusive ex)"
+    event: "PyCon UK"
     date: "16 Sept"
+
+    is_new: true
+
     description: |+
-      A refined version of my talk about online harassment from April (*Anti-Social Media*).
+      We build services with good intent, trying to improve interactivity and connections between our users.
+      But what if one of our users has a stalker, a harasser, or an abusive ex?
       How do we design services and platforms to reduce the risk of harassment and abuse from other users?
 
-      You can read [my slides and a transcript](/2018/09/assume-worst-intent/), or you can watch [the video](https://www.youtube.com/watch?v=XyGVRlRyT-E).
-
-      <figure>
-        <img src="/images/2018/worst-intent.png" alt="A cover slide for “Assume Worst Intent” with a large picture of Dick Dastardly.">
-      </figure>
+    links:
+      video: "https://www.youtube.com/watch?v=XyGVRlRyT-E"
+      slides: "/files/assume_worst_intent.pdf"
+      notes: "/2018/09/assume-worst-intent/"
 
   - title: "Building Trust in an Age of Suspicious Minds"
-    conference: "PyCon UK 2018"
+    event: "PyCon UK"
     date: "15 Sept"
+
+    is_new: true
+    variant: "keynote"
+
     description: |+
-      I was invited to give the opening keynote at [this year's PyCon UK](https://2018.pyconuk.org/).
       In a world where people are less and less trusting, how can we take steps to make ourselves more trustable?
 
-      I've posted [the slides and a transcript](/2018/09/suspicious-minds), or there's [a recording on YouTube](https://www.youtube.com/watch?v=B3XxPnbehqQ).
+    links:
+      video: "https://www.youtube.com/watch?v=B3XxPnbehqQ"
+      slides: "/talks/suspicious-minds.pdf"
+      notes: "/2018/09/suspicious-minds"
 
-      <figure>
-        <img src="/images/talks/suspicious_minds.jpg" alt="An Elvis LP cover retitled “Building Trust in an Age of Suspicious Minds”.">
-      </figure>
+  - title: "A Plumber's Guide to Git"
+    event: "Oxford Python"
+    date: "18 May"
 
-  - title: A Plumber's Guide to Git
-    conference: Oxford Python
-    date: 18 May
-    description: |+
-      Another repeat of my PyCon UK workshop, held in the [Oxford Centre for Innovation](https://www.meetup.com/oxfordpython/events/250405376/).
+    variant: "workshop"
 
-      <figure>
-      <img src="/images/talks/oxford_git.jpg" alt="A picture of the Radcliffe Camera, Oxford, with the phrase 'A Plumber's Guide to Git' in blue.">
-      <figcaption>Image: Radcliffe Camera, Oxford. <a href="https://wellcomecollection.org/works/sf2sqsg5">Wellcome Collection</a>.</figcaption>
-      </figure>
+    links:
+      event: "https://www.meetup.com/oxfordpython/events/250405376/"
 
-  - title: (Anti-)Social Media
-    conference: Bournemouth University
-    # Cyber Security Management Students
-    date: 18 April
+  - title: "(Anti-)Social Media"
+    event: "Bournemouth University"
+    date: "18 April"
+
+    is_new: true
+
     description: |+
       A lecture for students on the [Cyber Security Management course](https://www1.bournemouth.ac.uk/study/courses/bsc-hons-cyber-security-management)
       about online harassment -- identifying some of the ways services are
       often used for harassment, thinking about common threat models, and some
       good practices for building safer services.
 
-      You can read [my slides and rough notes](/2018/04/anti-social-media/).
+    links:
+      slides: "/slides/anti_social_media/anti_social_media_slides.pdf"
+      notes: "/2018/04/anti-social-media/"
 
-  - title: A Plumber's Guide to Git
-    conference: CamPUG
-    date: 6 Mar
-    description: |+
-      A repeat of my PyCon UK workshop.  Since this workshop was unexpectedly
-      over-booked, I wrote up [my notes and diagrams](/a-plumbers-guide-to-git/)
-      so everybody can use them.
+  - title: "A Plumber's Guide to Git"
+    event: "Cambridge Python User Group (CamPUG)"
+    date: "6 Mar"
 
-2017:
+    variant: "workshop"
 
-  - title: An ode to docopt
-    conference: CamPUG
-    date: 5 Dec
-    description: |+
-      A lightning talk about the docopt library.  You can read
-      my [slides and transcript](/2017/09/ode-to-docopt/).
+    links:
+      notes: "/a-plumbers-guide-to-git/"
 
-  - title: Using privilege to improve inclusion
-    conference: PyCon UK
-    date: 27 Oct
-    description: |+
-      A talk about the tech industry, and how we, as people of privilege, can
-      do more to build environments that are genuinely inclusive.  You can
-      watch the video [on YouTube](https://www.youtube.com/watch?v=Ej2EJVMkTKw),
-      or read the [slides and transcript](/2017/11/pyconuk-2017-privilege-inclusion/).
-
-  - title:  A Plumber’s Guide to Git
-    conference: PyCon UK
-    date: 27 Oct
-    description: |+
-      How does Git work under the hood?  A workshop that uses low-level
-      Git "plumbing" commands to reconstruct a Git workflow from scratch, and
-      see how Git stores data internally.  There isn't a video, but you can
-      read [my notes](/2017/11/a-plumbers-guide-to-git/).
-
-  - title: Let's talk about (a)sex(uals)
-    conference: PyCon UK
-    date: 26 Oct
-    description: |+
-      A lightning talk about asexuality, as the conference happened to coincide
-      with [Asexual Awareness Week](http://www.asexualawarenessweek.com).
-      You can watch the video [on YouTube](https://www.youtube.com/watch?v=LlqxmQxoAhQ&t=45m06s).
-
-  - title: Property-Based Testing In Practice
-    conference: QCon London
-    date: 8 Mar
-    description: |+
-      You can read [slides and links](/talks/qcon2017/).
-
-2016:
-
-  - title: An introduction to property-based testing and Hypothesis
-    conference: PyCon UK
-    date: 18 Sept
-
-  - title: Introduction to property-based testing
-    conference: CamPUG
-    date: 7 June
-
-  - title: Colossus
-    conference: Queens' College Maths Society
-    date: 17 Feb
+# 2017:
+#
+#   - title: An ode to docopt
+#     conference: CamPUG
+#     date: 5 Dec
+#     description: |+
+#       A lightning talk about the docopt library.  You can read
+#       my [slides and transcript](/2017/09/ode-to-docopt/).
+#
+#   - title: Using privilege to improve inclusion
+#     conference: PyCon UK
+#     date: 27 Oct
+#     description: |+
+#       A talk about the tech industry, and how we, as people of privilege, can
+#       do more to build environments that are genuinely inclusive.  You can
+#       watch the video [on YouTube](https://www.youtube.com/watch?v=Ej2EJVMkTKw),
+#       or read the [slides and transcript](/2017/11/pyconuk-2017-privilege-inclusion/).
+#
+#   - title:  A Plumber’s Guide to Git
+#     conference: PyCon UK
+#     date: 27 Oct
+#     description: |+
+#       How does Git work under the hood?  A workshop that uses low-level
+#       Git "plumbing" commands to reconstruct a Git workflow from scratch, and
+#       see how Git stores data internally.  There isn't a video, but you can
+#       read [my notes](/2017/11/a-plumbers-guide-to-git/).
+#
+#   - title: Let's talk about (a)sex(uals)
+#     conference: PyCon UK
+#     date: 26 Oct
+#     description: |+
+#       A lightning talk about asexuality, as the conference happened to coincide
+#       with [Asexual Awareness Week](http://www.asexualawarenessweek.com).
+#       You can watch the video [on YouTube](https://www.youtube.com/watch?v=LlqxmQxoAhQ&t=45m06s).
+#
+#   - title: Property-Based Testing In Practice
+#     conference: QCon London
+#     date: 8 Mar
+#     description: |+
+#       You can read [slides and links](/talks/qcon2017/).
+#
+# 2016:
+#
+#   - title: An introduction to property-based testing and Hypothesis
+#     conference: PyCon UK
+#     date: 18 Sept
+#
+#   - title: Introduction to property-based testing
+#     conference: CamPUG
+#     date: 7 June
+#
+#   - title: Colossus
+#     conference: Queens' College Maths Society
+#     date: 17 Feb
