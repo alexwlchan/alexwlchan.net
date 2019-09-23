@@ -20,7 +20,6 @@ class PublishDrafts < Jekyll::Command
       prog.command(:publish_drafts) do |cmd|
         cmd.action do |_, options|
           options = configuration_from_options(options)
-          source_dir = options["source"]
           publish_drafts(options["source"])
         end
       end
