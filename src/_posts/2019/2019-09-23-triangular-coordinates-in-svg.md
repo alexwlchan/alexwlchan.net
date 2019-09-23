@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-09-23 08:20:18 +0000
 title: Drawing with triangular coordinates in SVG
 summary: Some code and trigonometry for drawing shapes that don't fit neatly into a rectangular grid.
 category: Programming and code
