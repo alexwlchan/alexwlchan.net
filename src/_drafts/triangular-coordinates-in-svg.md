@@ -1,8 +1,12 @@
 ---
 layout: post
 title: Drawing with triangular coordinates in SVG
-summary:
+summary: Some code and trigonometry for drawing shapes that don't fit neatly into a rectangular grid.
 category: Programming and code
+
+theme:
+  card_type: summary_large_image
+  image: /images/2019/triangular_coordinates.png
 ---
 
 If you've been paying close attention to my recent posts, you might have noticed that I've started to use [SVG images][svg] for some of my diagrams.
