@@ -10,9 +10,10 @@ $talk-gutter-column: 15px;
     margin-bottom: 1em;
   }
 
-  .talk__title {
+  .talk__title .talk__new {
     font-weight: bold;
   }
+
   .talk__date {
     width: $talk-left-column;
     float: left;
