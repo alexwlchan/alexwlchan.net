@@ -41,8 +41,8 @@ MathJax = {
 
 ## Choosing a coordinate system
 
-A *coordinate system* is a way to represent the location of points -- for example, places on a map, or the corners of a shape.
-We can define a shape by its coordinates, and use those to tell an SVG renderer what to draw.
+A *coordinate system* is a way to represent the location of some points -- for example, places on a map, or the corners of a shape.
+We can define a shape by its coordinates, and then an SVG renderer can use those coordinates to draw the shape.
 
 The coordinate system most people are familiar with is [Cartesian coordinates][cartesian], or $(x,y)$-coordinates.
 There's a vertical and a horizontal axis, and the $(x,y)$-coordinates of a point are measured by how far you have to move along the axis to get to the point.
@@ -101,7 +101,7 @@ Rather than mucking around with any trig, we get neat integer points:
 </figure>
 
 So now we have a coordinate system that lets us define triangular shapes -- but we can't use it in an SVG image.
-The SVG coordinate system is fixed -- we still need to do the translation from triangular to Cartesian coordinates.
+SVG renderers only know how to draw shapes in Cartesian coordinates, so we need to map our triangular coordinates to Cartesian ones.
 Let's tackle that next.
 
 
@@ -116,7 +116,7 @@ What about $\langle 0, 1 \rangle$?
 Let's draw a diagram of this point:
 
 <figure style="width: 200px;">
-  <img src="/images/triangle_60_degree.svg" alt="A right-angled triangle with sides labelled 1 (diagonal, black), x (horizontal, grey) and y (vertical, grey). The right angle is marked, as is a 60 degree angle in the top left-hand corner. The bottom right-hand point is marked <0,1> and labelled in red.">
+  <img src="/images/2019/triangle_60_degree.svg" alt="A right-angled triangle with sides labelled 1 (diagonal, black), x (horizontal, grey) and y (vertical, grey). The right angle is marked, as is a 60 degree angle in the top left-hand corner. The bottom right-hand point is marked <0,1> and labelled in red.">
 </figure>
 
 This is a right-angled triangle where the longest side has length $1$, and the other two sides have lengths $x$ and $y$.
@@ -151,7 +151,7 @@ $$
 Now let's use this mapping to turn our nice human-friendly triangular coordinates into Cartesian coordinates.
 
 (You could work out the decimal value of $\cos(60^\circ)$ and $\sin(60^\circ)$ now, but I prefer to keep them in this "original" form for as long as possible.
-It makes it clearer where the values come from, and it means we don't get any loss of precision when we convert to decimal.)
+It makes it clearer where the values come from, and it means we don't get any loss of precision from the conversion to decimal.)
 
 
 
@@ -179,7 +179,7 @@ $$
   \end{pmatrix}
 $$
 
-If you wanted to use this function to draw a hexagon, the SVG matrix function is as follows:
+If you wanted to use this function to draw a hexagon from the coordinates we wrote out above, you can use the following SVG transformation:
 
 ```xml
 <svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
@@ -190,13 +190,13 @@ If you wanted to use this function to draw a hexagon, the SVG matrix function is
 </svg>
 ```
 
-Unfortunately, this also skews any text on the image, as shown below:
+Unfortunately, this also skews any text on the image:
 
 <figure style="width: 350px;">
   <img src="/images/2019/hexagon_bad.svg" alt="A black hexagon with the text 'A regular hexagon' to its right. The top of the text has been skewed to the left.">
 </figure>
 
-If your diagram doesn't feature text or you're okay with this degree of slanting, go ahead and use this transform function -- it's pretty simple and doesn't require anything extra.
+If your diagram doesn't feature text or you're okay with this degree of slanting, go ahead and use this transform function -- it's pretty simple and doesn't require anything outside the raw SVG.
 Unfortunately I do have triangular diagrams where I want to put text, so I had to come up with an alternative approach.
 
 
