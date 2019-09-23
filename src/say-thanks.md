@@ -39,7 +39,7 @@ That list includes:
 {% for charity in charities %}
 <tr>
   <td style="width: 100px; padding: 10px; padding-right: 1.5em; padding-bottom: 20px; height: 70px;">
-    <a href="{{ charity.donate_link }}"><img src="/images/charities/{{ charity.image }}"></a>
+    <a href="{{ charity.donate_link }}"><img alt="Logo for {{ charity.name }}" src="/images/charities/{{ charity.image }}"></a>
   </td>
   <td>{{ charity.description | smartify | render_markdown }}</td>
 </tr>
