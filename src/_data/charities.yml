@@ -1,0 +1,24 @@
+- name: "Refuge"
+  image: "refuge.jpg"
+  donate_link: "https://www.refuge.org.uk/donate/"
+
+  description: |+
+    [Refuge](https://www.refuge.org.uk/) is a UK charity that provides support for women and children who have experienced domestic violence.
+    That includes telephone helplines, child support workers, and safe houses for people who are at risk in their own homes.
+
+- name: "Gendered Intelligence"
+  image: "gendered-intelligence.jpg"
+  donate_link: "http://genderedintelligence.co.uk/support-us/donate"
+
+  description: |+
+    [Gendered Intelligence](http://genderedintelligence.co.uk/) is a charity that helps trans people, especially young trans people and their families.
+    Among other things, they run youth groups, mentoring sessions, and provide training for organisations that work with or employ trans people.
+    (Disclosure: I occasionally volunteer with GI.)
+
+- name: "Cool Earth"
+  image: "coolearth.svg"
+  donate_link: "https://www.coolearth.org/get-involved/donate-cool-earth/"
+
+  description: |+
+    [Cool Earth](https://www.coolearth.org/) help preserve rainforests by buying land in areas at risk of deforestation, and entrusting it to local, indigenous communities.
+    The charity is UK based, but they help rainforests across the world, including the Amazon.
