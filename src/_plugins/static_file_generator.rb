@@ -7,6 +7,11 @@
 # in `_config.yml`.
 #
 
+require "pathname"
+
+require "nokogiri"
+
+
 module Jekyll
   class StaticFileGenerator < Generator
     def generate(site)
@@ -17,8 +22,30 @@ module Jekyll
       system("mkdir -p #{dst}");
 
       site.keep_files.each { |dir|
-        if !system("rsync --archive --delete #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars")
+        if !system("rsync --archive --delete #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=*.svg")
           raise RuntimeError, "Error running the static file rsync for #{dir}!"
+        end
+      }
+
+      # Copy across all the SVG files, minifying them as we go.  We do this
+      # because minifying XML is (relatively) fast
+      Dir["#{src}/_images/**/*.svg"].each { |svg_path|
+        src_path = Pathname.new(svg_path)
+        relative_path = src_path.relative_path_from("#{src}/_images")
+        dst_path = Pathname.new("#{dst}/images") + relative_path
+
+        if !dst_path.file? || dst_path.mtime <= src_path.mtime
+          puts "Minifying SVG #{src_path}"
+
+          # Minify the XML by removing the comments
+          # See https://stackoverflow.com/a/45129390/1558022
+          doc = File.open(src_path) { |f| Nokogiri::XML(f) }
+          doc.xpath('//comment()').remove
+          doc.xpath('//text()').each do |node|
+            node.content = '' if node.text =~ /\A\s+\z/m
+          end
+
+          dst_path.write(doc.to_xml(indent: 0))
         end
       }
     end
