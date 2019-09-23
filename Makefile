@@ -19,14 +19,14 @@ build:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) build
+		$(DOCKER_IMAGE) build --trace
 	make lint
 
 build-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) build --drafts --trace
+		$(DOCKER_IMAGE) build --trace --drafts
 	make lint
 
 lint:
