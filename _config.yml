@@ -27,6 +27,9 @@ kramdown:
   auto_ids: true
   smart_quotes: "lsquo,rsquo,ldquo,rdquo"
 
+  # Disabled so it doesn't interfere with MathJax.
+  math_engine: null
+
 plugins:
   - "jekyll-sitemap"
 
