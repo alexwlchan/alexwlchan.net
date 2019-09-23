@@ -20,15 +20,21 @@ build:
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) build
+	make lint
 
 build-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) build --drafts --trace
+	make lint
 
 lint:
-	docker run --tty --rm --volume $(ROOT):$(ROOT) --workdir $(ROOT) $(DOCKER_IMAGE) lint
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/linter.rb \
+		$(DOCKER_IMAGE) lint
 
 serve:
 	docker run --tty --rm \
