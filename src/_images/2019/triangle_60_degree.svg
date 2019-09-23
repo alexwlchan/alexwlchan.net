@@ -1,0 +1,22 @@
+<svg viewBox="0 0 40 45" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="5,5 25,5 25,39.641016151" stroke="#ccc" fill="none" stroke-width="0.5" stroke-dasharray="0.25,0.25" />
+
+  <polygon points="25,5 22,5 22,8 25,8" stroke="#aaa" fill="none" stroke-width="0.25" />
+
+  <path d="M 8 10.196152423
+           A 6 6 0 0 0 11 5" stroke="#aaa" fill="none" stroke-width="0.25" />
+
+  <line stroke-width="0.5"
+        x1="5" y1="5"
+        x2="25" y2="39.641016151" stroke="black" />
+
+  <text x="15" y="3.5" font-size="4px" fill="#888" font-family="serif" font-style="italic" dominant-baseline="baseline">x</text>
+  <text x="27" y="22.5" font-size="4px" fill="#888" font-family="serif" font-style="italic" dominant-baseline="baseline">y</text>
+
+  <text x="11" y="10.5" font-size="4px" fill="#888" font-family="serif">60&#176;</text>
+
+  <text x="10" y="27" font-size="4px" font-family="serif">1</text>
+
+  <circle cx="25" cy="39.641016151" r="1.5" fill="#d01c11" />
+  <text x="28" y="39.641016151" fill="#d01c11" font-size="4px" font-family="serif" dominant-baseline="middle">&#12296;0, 1&#12297;</text>
+</svg>

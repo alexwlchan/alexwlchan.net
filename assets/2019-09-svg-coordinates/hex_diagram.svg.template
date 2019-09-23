@@ -1,0 +1,54 @@
+<svg viewBox="0 0 34 25" xmlns="http://www.w3.org/2000/svg">
+  {% set red_color  = "#d01c11" %}
+
+  {% set incr = 10 %}
+
+  <polygon points="{{ (1 * incr, 0 * incr) | polygon_xy }}
+                   {{ (2 * incr, 0 * incr) | polygon_xy }}
+                   {{ (2 * incr, 1 * incr) | polygon_xy }}
+                   {{ (1 * incr, 2 * incr) | polygon_xy }}
+                   {{ (0 * incr, 2 * incr) | polygon_xy }}
+                   {{ (0 * incr, 1 * incr) | polygon_xy }}" fill="black" />
+
+  <circle cx="{{ (1 * incr, 0 * incr ) | triangular_x }}"
+          cy="{{ (1 * incr, 0 * incr ) | triangular_y }}" r="0.75" fill="{{ red_color }}" />
+  <text x="{{ (0.95 * incr, -0.1 * incr ) | triangular_x }}"
+        y="{{ (0.95 * incr, -0.1 * incr ) | triangular_y }}"
+        fill="{{ red_color }}" font-size="1.8px" font-family="serif"
+        text-anchor="end">&#12296;1, 0&#12297;</text>
+
+  <circle cx="{{ (2 * incr, 0 * incr ) | triangular_x }}"
+          cy="{{ (2 * incr, 0 * incr ) | triangular_y }}" r="0.75" fill="{{ red_color }}" />
+  <text x="{{ (2.15 * incr, -0.1 * incr ) | triangular_x }}"
+        y="{{ (2.15 * incr, -0.1 * incr ) | triangular_y }}"
+        fill="{{ red_color }}" font-size="1.8px" font-family="serif"
+        text-anchor="start">&#12296;2, 0&#12297;</text>
+
+  <circle cx="{{ (2 * incr, 1 * incr ) | triangular_x }}"
+          cy="{{ (2 * incr, 1 * incr ) | triangular_y }}" r="0.75" fill="{{ red_color }}" />
+  <text x="{{ (2.15 * incr, 1 * incr ) | triangular_x }}"
+        y="{{ (2.15 * incr, 1 * incr ) | triangular_y }}"
+        fill="{{ red_color }}" font-size="1.8px" font-family="serif"
+        text-anchor="start" dominant-baseline="middle">&#12296;2, 1&#12297;</text>
+
+  <circle cx="{{ (1 * incr, 2 * incr ) | triangular_x }}"
+          cy="{{ (1 * incr, 2 * incr ) | triangular_y }}" r="0.75" fill="{{ red_color }}" />
+  <text x="{{ (1.05 * incr, 2.1 * incr ) | triangular_x }}"
+        y="{{ (1.05 * incr, 2.1 * incr ) | triangular_y }}"
+        fill="{{ red_color }}" font-size="1.8px" font-family="serif"
+        text-anchor="start" dominant-baseline="hanging">&#12296;1, 2&#12297;</text>
+
+  <circle cx="{{ (0 * incr, 2 * incr ) | triangular_x }}"
+          cy="{{ (0 * incr, 2 * incr ) | triangular_y }}" r="0.75" fill="{{ red_color }}" />
+  <text x="{{ (-0.1 * incr, 2.1 * incr ) | triangular_x }}"
+        y="{{ (-0.1 * incr, 2.1 * incr ) | triangular_y }}"
+        fill="{{ red_color }}" font-size="1.8px" font-family="serif"
+        text-anchor="end" dominant-baseline="hanging">&#12296;0, 2&#12297;</text>
+
+  <circle cx="{{ (0 * incr, 1 * incr ) | triangular_x }}"
+          cy="{{ (0 * incr, 1 * incr ) | triangular_y }}" r="0.75" fill="{{ red_color }}" />
+  <text x="{{ (-0.1 * incr, 1 * incr ) | triangular_x }}"
+        y="{{ (-0.1 * incr, 1 * incr ) | triangular_y }}"
+        fill="{{ red_color }}" font-size="1.8px" font-family="serif"
+        text-anchor="end" dominant-baseline="middle">&#12296;0, 1&#12297;</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg viewBox="0 0 15 2" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1 0 0.5 .866025404 0 0)">
+    <polygon points="1,0 2,0 2,1 1,2 0,2 0,1" fill="black" />
+    <text x="2.2" y="1" fill="black" font-size="1px" dominant-baseline="middle">a regular hexagon</text>
+  </g>
+</svg>
