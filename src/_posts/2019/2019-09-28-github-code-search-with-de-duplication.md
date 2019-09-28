@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-09-28 19:26:39 +0000
 title: "Experiment: GitHub code search with de-duplication"
 summary:
 category: Programming and code
