@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-10-11 20:34:14 +0000
 title: Adding religious holidays to my calendar
 summary:
 category: Diversity, inclusion and accessibility
