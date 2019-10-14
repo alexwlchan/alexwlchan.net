@@ -121,7 +121,7 @@ This means we can't use these libraries.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 7, :alt => "Text slide. “We can’t use these libraries because they mix I/O and parsing logic”." %}
 
 Because the libraries are mixing this I/O logic and BagIt parsing, we ended up having to write our own BagIt parsing library.
 That's a bit of shame -- it's work we would rather not have done.
@@ -132,7 +132,7 @@ Nope.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 8, :alt => "A slide with the blue HTTP logo." %}
 
 Let's think about a much more popular protocol: HTTP.
 
@@ -156,7 +156,7 @@ A couple of reasons.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 9, :alt => "A sad yellow emoji face, below the text “Wasted time and effort”." %}
 
 It means we have wasted time and effort.
 
@@ -169,7 +169,7 @@ That's that time and effort that we could be spending on something better.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 10, :alt => "A slide covered in green bugs and the text “Duplicate bugs”." %}
 
 Another problem: if we have duplicate code hanging around, we have duplicate bugs.
 Parsing stuff, doing business logic, is a tricky problem.
@@ -182,7 +182,7 @@ If I find a bug in Gunicorn and fix it there, that same bug might exist in other
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 11, :alt => "A sad yellow emoji face, below the text “Harder to experiment”." %}
 
 Another problem of not being able to share code is that it makes it harder to experiment.
 We have some libraries with pretty good HTTP APIs.
@@ -193,7 +193,7 @@ But if you want to play with APIs like that, you'd have to write your own HTTP p
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 12, :alt => "A brown emoji snail, below the text “Harder to optimise your code”." %}
 
 Finally, tying your I/O and business logic together makes it harder to optimise because the two things are inextricably linked.
 Isolating, trying to work out where the slow bits and hot paths are and make things go faster is really hard.
@@ -208,7 +208,7 @@ It's their job to squeeze an extra three socket calls or five file handles out o
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 13, :alt => "Summary slide, with a list of the problems of mixing I/O and business logic." %}
 
 So mixing I/O and business logic -- parsing, file format management, data analysis -- it causes some problems.
 
@@ -222,7 +222,7 @@ We can get by without it.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 14, :alt => "Text slide. “How do we fix this problem? Never do I/O.”" %}
 
 But we know there is a problem here, there's an inefficiency in the way we write code.
 Let's try and fix it.
@@ -235,7 +235,7 @@ That is not the message of this talk.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 15, :alt => "Text slide. “How do we fix this problem? Never mix your I/O and business logic.”" %}
 
 We live in the real world and we do need to do I/O sometimes.
 We do need to read things from files.
@@ -250,7 +250,7 @@ Push all the I/O out to the edges.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 16, :alt => "Slide titled “Build an I/O sandwich”. Below the text is a three segment diagram. From left-to-right, the segments are “Inbound I/O”, “business logic” and “outbound I/O”." %}
 
 I like to think about creating an I/O sandwich.
 We have an inbound I/O layer talking to a network or socket or file; it gets some bytes in from wherever, then passes those to our business logic layer.
@@ -259,14 +259,14 @@ It doesn't care whether you are going to send them to a file, or a socket, or by
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 17, :alt => "A red toolbox, below the text “Build a toolbox of I/O implementations”." %}
 
 When you've done this, you can build a toolbox on top of it, so you have the business logic in the middle and it deals with nice in-memory objects or byte strings or whatever, and then you can change the I/O layer around it really easily.
 It's just a thin wrapper around that core logic.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 18, :alt => "Text slide. “This isn’t everything, but it’s a good start”." %}
 
 This isn't everything.
 There are some times when the parsing logic does need to inform our I/O, but it's a good start.
@@ -274,13 +274,13 @@ When you write your programs this way and build this I/O sandwich, you do see so
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 19, :alt => "Text slide. “What are the benefits?”" %}
 
 So what are those benefits?
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 20, :alt => "Emoji sparkles, below the text “You get much simpler code”." %}
 
 You get much simpler code, because I/O is complicated.
 
@@ -290,7 +290,7 @@ If there are bits of your codebase where you don't have to worry about I/O, thos
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 21, :alt => "Green tick mark, below the text “Your code is easier to test”." %}
 
 When your code is much simpler, it's much easier to test.
 
@@ -302,7 +302,7 @@ It's really easy to test code that's not doing any I/O, because you don't have t
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 22, :alt => "A red 100 emoji, below the text “and test at 100% coverage”." %}
 
 Better than that, if your function isn't doing any I/O and is just dealing with in-memory objects, then you can easily test your code to 100% coverage.
 for every branch and statement in your function, there should be some in-memory object, sequence of bytes, whatever, that hits that line of code.
@@ -313,7 +313,7 @@ When you are just testing functions that deal in pure in-memory objects, it gets
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 23, :alt => "Output from a test suite, showing 100% line and branch coverage for every file." %}
 
 One example: this is the test suite for hyper-h2, an HTTP/2 parsing library in Python.
 This ran 1500 tests in barely half a minute.
@@ -325,7 +325,7 @@ This is a level of coverage that's difficult to achieve if you mix I/O and logic
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 24, :alt => "An upside-down green bug with a red X through it, below the text “You have less bugs”." %}
 
 By just testing in-memory objects, we write dramatically simpler tests, and if you have better tests you have less bugs.
 Because it's just function calls, it's really easy to explore all those weird corners of the program and make sure it is behaving correctly.
@@ -333,14 +333,14 @@ When you have less bugs, you have to deal with less bug reports, so that's anoth
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 25, :alt => "Emoji sparkles, below the text “Your code is easier to reuse”." %}
 
 Finally, coming back to where I started -- when your code is sans I/O and you build these thin wrappers around the edge, your code gets much easier to re-use.
 It's much simpler to take off one I/O layer and plug something else in -- everything in the middle doesn't care about the I/O layer and completely ignores it.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 26, :alt => "The illustration of the storage service, with a blue bucket as a second output. The bucket is labelled “Azure Blob Storage”." %}
 
 So let's go back to this storage service I was talking about earlier.
 We reading these bags, parse them and upload them to S3.
@@ -355,7 +355,7 @@ The BagIt parse doesn't know, it just hands out bytes and says: hey, put this so
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 27, :alt => "Summary slide. “The benefits of separating I/O and business logic”." %}
 
 So those are some of the benefits you get from separating your I/O and your business logic, your I/O and your data analysis or your parsing layer.
 You get simpler code, code that's easier to test, that's more robust and easier to re-use.
@@ -363,7 +363,7 @@ Again, these aren't ground breaking things, it's not a revolutionary thing that 
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 16, :alt => "Slide titled “Build an I/O sandwich”. Below the text is a three segment diagram. From left-to-right, the segments are “Inbound I/O”, “business logic” and “outbound I/O”." %}
 
 Create that I/O sandwich.
 Push the I/O out to the boundaries, and keep the core of your program I/O free and pure.
@@ -371,13 +371,13 @@ Push the I/O out to the boundaries, and keep the core of your program I/O free a
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 28, :alt => "Text slide. “Examples!”" %}
 
 I want to show you a few examples, so you can see how other people have done this.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 29, :alt => "Example code for creating an HTTP/2 server with hyper-h2." %}
 
 First, let's create an HTTP/2 server with a hyper-h2.
 
@@ -390,7 +390,7 @@ I imagine most of you aren't working with low-level HTTP interactions, so let's 
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 30, :alt => "Example code for using slack-sansio with requests." %}
 
 Second example is calling the Slack API with a slack-sansio Slack library
 
@@ -404,7 +404,7 @@ That's another nice example to look at.
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 31, :alt => "Code for a function called load_tag_file() in the bagit-python library." %}
 
 One final example, looking at refactoring a function in the bagit-python library I mentioned at the start.
 
@@ -416,7 +416,7 @@ It takes the name of that file, then opens that file on that disk, that yucky I/
 It's treating open the file as a list of strings.
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 32, :alt => "The previous function, with the logic parsing bits split out into a second function named load_tag_file_from_lines()." %}
 
 Let's pull all this complex parsing logic out into a separate function.
 This function is now a little bit simpler, deals entirely with an iterable of strings, so it's easy for us to test and we can re-use this function in a lot of other contexts.
@@ -428,7 +428,7 @@ If you are getting your lines rather than from a file, say from S3, or Azure Blo
 
 
 
-{% slide_image :deck => "sans_io", :slide => 1, :alt => "Placeholder" %}
+{% slide_image :deck => "sans_io", :slide => 16, :alt => "Slide titled “Build an I/O sandwich”. Below the text is a three segment diagram. From left-to-right, the segments are “Inbound I/O”, “business logic” and “outbound I/O”." %}
 
 So create that I/O sandwich, push the I/O out to the boundaries of your programme.
 
