@@ -12,12 +12,12 @@ index:
 
 Last month I gave a talk about PyCon UK about "sans I/O programming".
 This is a style of programming I've been trying to use for a while, and I've found it quite helpful.
-It's not something revolutionary, but a slightly nicer way to write code.
-The result is code that's simpler, cleaner, and easier to reuse and test.
+It's not revolutionary, but it's a nicer way to write code.
+The result is code that's simpler, cleaner, easier to reuse and easier to test.
 
 This isn't an original idea or term: I first encountered it a couple of years ago while working on the [hyper HTTP/2 library](https://github.com/python-hyper/hyper-h2), and I'm sure the idea is older than that.
 
-The talk was recorded, and you can watch it [on YouTube](https://www.youtube.com/watch?v=qwTWqy0uPbY)
+The talk was recorded, and you can watch it [on YouTube](https://www.youtube.com/watch?v=qwTWqy0uPbY):
 
 {% youtube https://www.youtube.com/watch?v=qwTWqy0uPbY %}
 
@@ -30,14 +30,13 @@ The two STTRs that day were Wendy Osmond and Hilary Maclean; I'm not sure who wa
 
 ## Links/recommended reading
 
-Writing I/O-Free (Sans-I/O) Protocol Implementations
-https://sans-io.readthedocs.io/how-to-sans-io.html
-Building Protocol Libraries the Right Way
-https://www.youtube.com/watch?v=7cC3_jGwl_U
-Designing an async API, from sans-I/O on up
-https://snarky.ca/designing-an-async-api-from-sans-i-o-on-up/
-SansIO – Migrating microservices to async
-https://smarketshq.com/sansio-migrating-microservices-to-asyncio-b97c69e391b2
+*   [Writing I/O-Free (Sans-I/O) Protocol Implementations](https://sans-io.readthedocs.io/how-to-sans-io.html)
+
+*   [Building Protocol Libraries the Right Way](https://www.youtube.com/watch?v=7cC3_jGwl_U), Cory Benfield's talk at PyCon 2016
+
+*   [Designing an async API, from sans-I/O on up](https://snarky.ca/designing-an-async-api-from-sans-i-o-on-up/), by Brett Cannon
+
+*   [SansIO – Migrating microservices to async](https://smarketshq.com/sansio-migrating-microservices-to-asyncio-b97c69e391b2), by João Alves
 
 
 
@@ -147,8 +146,9 @@ HTTP libraries end up being written to suit the I/O or the async primitive, and 
 If you look at it, httplib does exactly what those BagIt libraries were doing, except with sockets instead of files.
 To handle a HTTP request, it reads data from a socket, does some parsing, reads some data from a socket, does some parsing, but if you're not doing HTTP over a socket, or you want to control that socket yourself, that doesn't work for you.
 Because the HTTP state machine logic in httplib is so closely tied to that logic, it's really hard to disentangle the two.
+
 Every time somebody wants to create a new HTTP library, they have to build their own interpretation of the parser and state machine.
-They're getting good code reuse, and that's kind of sad.
+They're getting no code reuse, and that's kind of sad.
 We're all told that code reuse is a good thing, we should strive to have more code reuse, so in something as fundamental as HTTP, maybe it's an anti-pattern that we don't seem to have as much code reuse as we would like.
 
 I want to unpack the problems of not having so much code reuse.
@@ -176,9 +176,9 @@ Parsing stuff, doing business logic, is a tricky problem.
 It's hard to get right.
 There are subtle errors.
 
-I imagine lots of people in this room think they can write an RFC compliant HTTP/1.1 or BagIt parser -- I'm one of them -- and we are probably all wrong because parsing is really hard!
+I imagine lots of people in this room think they can write an RFC compliant HTTP/1.1 or BagIt parser -- I'm one of them -- and we're probably all wrong because parsing is really hard!
 So when we have multiple copies of the parser, and they're all independent and not showing any code, that means they're not sharing information about bugs.
-If I find a bug in Gunicorn and fix it there, that same bug might exist in other HTTP stacks, but it's unlikely it will get to them.
+If I find a bug in gunicorn and fix it there, that same bug might exist in other HTTP stacks, but it's unlikely it will get to them.
 
 
 
@@ -315,12 +315,12 @@ When you are just testing functions that deal in pure in-memory objects, it gets
 
 {% slide_image :deck => "sans_io", :slide => 23, :alt => "Output from a test suite, showing 100% line and branch coverage for every file." %}
 
-One example: this is the test suite for hyper-h2, an HTTP/2 parsing library in Python.
+One example: this is the test suite for [hyper-h2](https://github.com/python-hyper/hyper-h2), an HTTP/2 parsing library in Python.
 This ran 1500 tests in barely half a minute.
 
 That gives us a very high degree of confidence in this code.
-It's been tested very thoroughly, and several of these tests are tests using Hypothesis (a property-based testing library which runs hundreds of examples for each test), so realistically you're getting closer to two or three thousand test cases here, all checking that this code is behaving correctly.
-This is a level of coverage that's difficult to achieve if you mix I/O and logic.
+It's been tested very thoroughly, and several of these tests are tests using [Hypothesis](https://github.com/HypothesisWorks/hypothesis) (a property-based testing library which runs hundreds of examples for each test), so realistically you're getting closer to two or three thousand test cases here, all checking that this code is behaving correctly.
+This is a level of coverage that's hard to achieve if you mix I/O and logic.
 
 
 
@@ -379,7 +379,7 @@ I want to show you a few examples, so you can see how other people have done thi
 
 {% slide_image :deck => "sans_io", :slide => 29, :alt => "Example code for creating an HTTP/2 server with hyper-h2." %}
 
-First, let's create an HTTP/2 server with a hyper-h2.
+First, let's create an HTTP/2 server with [hyper-h2](https://github.com/python-hyper/hyper-h2).
 
 We create this Python object.
 We call this `initiate_connection()` method, and this starts building a buffer of bytes internally that we can send on the wire -- but it doesn't send those bytes anymore, just stores them in-memory.
@@ -392,12 +392,12 @@ I imagine most of you aren't working with low-level HTTP interactions, so let's 
 
 {% slide_image :deck => "sans_io", :slide => 30, :alt => "Example code for using slack-sansio with requests." %}
 
-Second example is calling the Slack API with a slack-sansio Slack library
+My second example is calling the Slack API with [the slack-sansio library](https://pypi.org/project/slack-sansio/).
 
-We will create a `CHAT_POST_MESSAGE` object and a dict that contains our payload data.
-This library has an abstract class, and it asks you to fill in this `_request` method, which processes a simple HTTP request.
+We create a `CHAT_POST_MESSAGE` object and a dict that contains our payload data.
+This library has an abstract class `abc.SlackAPI`, and it asks you to fill in this `_request` method, which processes a simple HTTP request.
 The class does all the work to turn your query object into an HTTP request, and then calls this `_request` method.
-It provides an implementation in Requests, or in curio, or in asyncio or whatever, and it's easy to build new HTTP implementations on top of that if you need them.
+It provides an implementation in Rrquests, or in curio, or in asyncio or whatever, and it's easy to build new HTTP implementations on top of that if you need them.
 
 The core of the library doesn't change.
 That's another nice example to look at.
@@ -406,9 +406,9 @@ That's another nice example to look at.
 
 {% slide_image :deck => "sans_io", :slide => 31, :alt => "Code for a function called load_tag_file() in the bagit-python library." %}
 
-One final example, looking at refactoring a function in the bagit-python library I mentioned at the start.
+One final example, looking at refactoring a function in [the bagit-python library](https://pypi.org/project/bagit/) I mentioned at the start.
 
-Sans I/O doesn't need to be a big, all-in-one change.
+The nice thing about sans I/O is that it doesn't need to be a big, all-in-one change.
 You can't take six weeks out of your sprint to re-factor all your code to be nice and sans I/O because someone at PyCon told you about it; you can make small, incremental improvements.
 
 We've got a function here that's going to load something called a *tag file*.
@@ -433,4 +433,4 @@ If you are getting your lines rather than from a file, say from S3, or Azure Blo
 So create that I/O sandwich, push the I/O out to the boundaries of your programme.
 
 This isn't going to completely change the way you do programming and it won't turn the world upside-down, but it will just give you code that's a little bit simpler, a little bit cleaner, a little bit easier to work with.
-I hope I've persuaded you that there is some virtue in writing your programs this way, given you some idea of how it's done and when you go back to your day jobs you'll try it yourself.
+I hope I've persuaded you that there is some virtue in writing your programs this way, given you some idea of how it's done, and when you go back to your day jobs you'll try it yourself.
