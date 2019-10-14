@@ -29,6 +29,7 @@
     links:
       video: "https://www.youtube.com/watch?v=qwTWqy0uPbY"
       slides: "/files/pyconuk_2019_sans_io.pdf"
+      notes: "/2019/10/sans-io-programming/"
 
   - title: "A robot stole my job!"
     event: "PyCon UK"
