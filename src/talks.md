@@ -6,7 +6,7 @@ last_updated: 2019-09-23 21:29:55 +0200
 
 This is a list of talks and workshops I've given, along with links to videos and slides where available.
 
-If you'd like me to speak at your event, [contact me](/#contact) for details.
+If you'd like me to speak at your event, [get in touch](/#contact) for details.
 
 In general, I'm happy to speak at community organised, non-profit conferences that have a Code of Conduct, a diverse lineup of speakers, and cover my costs (travel, conference tickets and accommodation).
 I'll also speak at a for-profit event if we can agree a reasonable fee.
