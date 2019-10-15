@@ -11,7 +11,9 @@ layout: page
 <h3>Most recent 10 posts</h3>
 
 {% assign posts = page.posts | slice: 0, 10 %}
-{% include archive_list.html %}
+{% include archive_list.html variant="most_recent_10" %}
+
+<div class="post__separator" aria-hidden="true">&#9670;</div>
 
 {% for group in page.grouped_posts %}
   {% assign grp_category = group[0] %}
