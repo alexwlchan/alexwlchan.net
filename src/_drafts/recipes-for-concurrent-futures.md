@@ -99,4 +99,32 @@ If we have a lot of tasks, we want to limit how many we're working on at a time.
 
 ## Running a large, fixed number of tasks
 
+Often my tasks come from a lazy generator, because lazy generators are more memory efficient if you're only processing one thing at a time.
+The pattern above loads all the tasks immediately, potentially using a lot of memory.
+It would be nicer if it was only keeping a small number of tasks in memory -- the ones that were currently being worked on.
+
+One approach to handle a very large number of tasks would be to [break them into small chunks](/2018/12/iterating-in-fixed-size-chunks/), and process each of them in turn using the pattern above.
+We could do something like:
+
+```python
+for task_chunk in chunked_iterable(get_tasks_to_do(), HOW_MANY_TASKS_AT_ONCE):
+    with concurrent.futures.Executor() as executor:
+        futures = {
+            executor.submit(perform, task)
+            for task in task_chunk
+        }
+
+        for fut in concurrent.futures.as_completed(futures):
+            print(f"The outcome is {fut.result()}")
+```
+
+This code is simple, but we're losing some of the efficiency gains -- it queues up N pieces of work, gets through them all, then loads another N pieces of work.
+When it's near the end of a chunk, it's only processing a few pieces of work at once.
+
+This graph shows the number of tasks in progress against time -- you can see when each chunk starts and ends.
+We're getting some of the benefits of concurrency, but we could be doing better.
+
+<img src="/images/2019/tasks_in_progress.svg">
+
+
 ## Running tasks that might have follow-up work
