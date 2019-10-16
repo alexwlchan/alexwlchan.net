@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-10-16 21:24:21 +0000
 title: Adventures in Python with concurrent.futures
 summary: Some examples of how I've been using concurrent.futures to speed up my batch scripting in Python.
 category: Python
