@@ -1,4 +1,12 @@
 2019:
+  - title: "Digital preservation at Wellcome Collection"
+    event: "GLAM Digital Lunch, Cambridge"
+    date: "18 Oct"
+
+    links:
+      event: "https://www.eventbrite.co.uk/e/glam-digital-champions-digital-lunch-october-tickets-73928130027"
+      slides: "/files/2019/glam-cam-digipres.pdf"
+
   - title: "Building a robot that stole my job"
     event: "QueerJS London"
     date: "20 Sept"
@@ -7,7 +15,7 @@
       video: "https://www.youtube.com/watch?t=47m10s&v=hGI95LWVeuk"
 
   - title: "The Curb Cut Effect"
-    event: "PyCon UK"
+    event: "PyCon UK, Cardiff"
     date: "14 Sept"
 
     links:
