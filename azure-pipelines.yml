@@ -12,6 +12,9 @@ steps:
 - script: "make build-drafts"
   displayName: "Build the site"
 
+- script: "make lint"
+  displayName: "Run linting"
+
 - task: DownloadSecureFile@1
   inputs:
     secureFile: id_rsa
