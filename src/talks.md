@@ -31,7 +31,7 @@ Think your event would be a good fit?
 If you enjoyed one of my talks, found it useful, or shared it with somebody else, [please let me know](/#contact) -- I love to know I've been helpful.
 
 <figure>
-  <img src="/images/pyconuk-speaking.jpg">
+  <img src="/images/pyconuk-speaking.jpg" alt="A person in a green top standing at a podium, in front of a large screen with the words “duplicate bugs”.">
   <figcaption>
     Espousing the benefits of sans I/O programming at PyCon UK 2019.
     The coordination of my slides, jumper and eyeshadow is entirely deliberate.
