@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-10-22 22:00:14 +0000
 title: Digital preservation at Wellcome Collection
 summary:
 category: Wellcome Collection
