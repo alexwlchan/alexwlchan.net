@@ -3,9 +3,16 @@
     event: "GLAM Digital Lunch, Cambridge"
     date: "18 Oct"
 
+    description: |+
+      A quick flavour of digital preservation at Wellcome: the processes, practices, and tools we use.
+      How do we create, store, and present our digital archives?
+      
+    is_new: true
+
     links:
       event: "https://www.eventbrite.co.uk/e/glam-digital-champions-digital-lunch-october-tickets-73928130027"
       slides: "/files/2019/glam-cam-digipres.pdf"
+      notes: "https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047"
 
   - title: "Building a robot that stole my job"
     event: "QueerJS London"
