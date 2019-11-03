@@ -1,10 +1,10 @@
 ---
-layout: post
+category: Python
 date: 2015-06-22 23:20:00 +0000
+layout: post
 summary: A Python script for non-destructive file copying/moving.
 tags: python
 title: Safer file copying in Python
-category: Programming and code
 ---
 
 Using scripting and the command line can be a two-edged sword. They're very powerful tools, but they make it easy to shoot yourself in the foot. They assume that you know what you're doing, even if it might be dangerous.

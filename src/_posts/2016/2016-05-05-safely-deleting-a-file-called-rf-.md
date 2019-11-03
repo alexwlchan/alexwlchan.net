@@ -1,11 +1,11 @@
 ---
-layout: post
+category: Shell scripting
 date: 2016-05-05 21:03:00 +0000
-desc: "If for some reason you create a file called `-rf *`, it\u2019s possible to\
-  \ delete it safely. But really, don\u2019t create it in the first place."
+desc: If for some reason you create a file called `-rf *`, it’s possible to delete
+  it safely. But really, don’t create it in the first place.
+layout: post
 tags: linux shell-scripting
-title: "Safely deleting a file called \u2018-rf *\u2019"
-category: Programming and code
+title: Safely deleting a file called ‘-rf *’
 ---
 
 Odd thing that happened at work today: we accidentally created a file called `-rf *` on one of our dev boxes.

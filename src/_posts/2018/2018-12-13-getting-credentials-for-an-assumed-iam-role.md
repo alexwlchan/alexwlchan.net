@@ -1,10 +1,11 @@
 ---
-layout: post
+category: Amazon Web Services
 date: 2018-12-13 08:57:16 +0000
-title: Getting credentials for an assumed IAM Role
-category: Working with AWS
-summary: A script that creates temporary credentials for an assumed IAM role, and stores them in ~/.aws/credentials.
+layout: post
+summary: A script that creates temporary credentials for an assumed IAM role, and
+  stores them in ~/.aws/credentials.
 tags: python aws
+title: Getting credentials for an assumed IAM Role
 ---
 
 In AWS, everybody has a user account, and you can give each user very granular permissions.

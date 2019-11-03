@@ -1,15 +1,14 @@
 ---
-layout: post
+category: Python
 date: 2016-10-22 21:03:00 +0000
 hero: 2016/specktre_0slu5ilk.png
+index:
+  best_of: true
+layout: post
 summary: 'Take a regular tiling of the plane, and apply a random colouring: voila,
   a unique wallpaper, courtesy of the Python Imaging Library.'
 tags: python
 title: Creating low contrast wallpapers with Pillow
-category: Programming and code
-
-index:
-  best_of: true
 ---
 
 In my [last post](/2016/10/tiling-the-plane-with-pillow/), I explained how I'd been using Pillow to draw regular tilings of the plane.
@@ -135,4 +134,3 @@ I've also made a [web app][webapp] that lets you make these wallpapers within yo
 
 [github]: https://github.com/alexwlchan/specktre
 [webapp]: https://alexwlchan.net/experiments/specktre/
-

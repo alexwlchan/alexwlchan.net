@@ -1,12 +1,12 @@
 ---
-layout: post
+category: Python
 date: 2017-09-02 17:34:00 +0000
+layout: post
 link: https://github.com/alexwlchan/lazyreader
 summary: I wrote a small Python module for lazy file reading, ideal for efficient
   batch processing.
 tags: python
 title: A Python module for lazy reading of file objects
-category: Programming and code
 ---
 
 At work, we often pass data around via large files kept in Amazon S3 -- XML exports from legacy applications, large log files, JSON dumps of Elasticsearch indexes -- that sort of thing.

@@ -1,10 +1,10 @@
 ---
-layout: post
+category: Python
 date: 2016-05-10 12:41:00 +0000
+layout: post
 summary: A quick python-smtplib wrapper for sending emails through FastMail.
 tags: python
 title: A Python smtplib wrapper for FastMail
-category: Programming and code
 ---
 
 Sometimes I want to send email from a Python script on my Mac.
@@ -116,5 +116,3 @@ If I'm writing a script where email support is an orthogonal feature, it's nice 
 [keyring]: https://pypi.python.org/pypi/keyring
 [pep3102]: https://www.python.org/dev/peps/pep-3102/
 [mutable]: http://docs.python-guide.org/en/latest/writing/gotchas/#mutable-default-arguments
-
-
