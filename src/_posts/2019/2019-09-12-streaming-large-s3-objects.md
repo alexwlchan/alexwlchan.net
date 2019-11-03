@@ -1,9 +1,10 @@
 ---
-layout: post
+category: Wellcome Collection
 date: 2019-09-12 19:53:53 +0000
+layout: post
+summary: Walking through some Java/Scala code that lets you read very large objects
+  from S3 as a single InputStream.
 title: Streaming large objects from S3 with ranged GET requests
-summary: Walking through some Java/Scala code that lets you read very large objects from S3 as a single InputStream.
-category: Code from Wellcome
 ---
 
 In [my last post](/2019/09/unpacking-compressed-archives-in-scala/), I talked about how to take a Java `InputStream` for a tar.gz file, and get an iterator of `(ArchiveEntry, InputStream)`.

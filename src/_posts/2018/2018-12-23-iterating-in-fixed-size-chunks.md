@@ -1,12 +1,13 @@
 ---
-layout: post
+category: Python
 date: 2018-12-23 22:39:38 +0000
-title: Iterating in fixed-size chunks in Python
-summary: A snippet for iterating over an arbitrary iterable in chunks, and returning a smaller chunk if the boundaries don't line up.
+layout: post
+summary: A snippet for iterating over an arbitrary iterable in chunks, and returning
+  a smaller chunk if the boundaries don't line up.
 tags: python
-category: Programming and code
 theme:
   minipost: true
+title: Iterating in fixed-size chunks in Python
 ---
 
 Here's a fairly common problem I have: I have an iterable, and I want to go through it in "chunks".

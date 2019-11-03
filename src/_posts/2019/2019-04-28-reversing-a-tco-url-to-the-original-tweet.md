@@ -1,10 +1,11 @@
 ---
-layout: post
+category: Python
 date: 2019-04-28 09:13:06 +0000
+layout: post
+summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to take
+  a t.co URL and find the original tweet.
+tags: null
 title: Reversing a t.co URL to the original tweet
-summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to take a t.co URL and find the original tweet.
-tags:
-category: Programming and code
 ---
 
 If you post a link on Twitter, it goes through Twitter's [t.co link-shortening service][tco].
@@ -228,5 +229,3 @@ But as far as I can tell, there's no way to go from a shortened profile link bac
 If you search for the shortened URL, you don't find anything.
 
 Also, if the original tweet is an account you can't see (maybe they're private or they've blocked you), their tweet won't show up in your searches.
-
-

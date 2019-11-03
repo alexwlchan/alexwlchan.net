@@ -1,12 +1,13 @@
 ---
-layout: post
+category: Amazon Web Services
 date: 2018-09-05 20:11:59 +0000
-title: A basic error logger for Python Lambdas
+layout: post
+summary: A snippet to make it a bit easier to debug errors in AWS Lambda functions
+  written in Python.
 tags: aws python snippets
-summary: A snippet to make it a bit easier to debug errors in AWS Lambda functions written in Python.
-category: Working with AWS
 theme:
   minipost: true
+title: A basic error logger for Python Lambdas
 ---
 
 At work, we use [AWS Lambda][lambda] functions for a bunch of "glue" pieces between different services.

@@ -1,11 +1,11 @@
 ---
-layout: post
+category: Python
 date: 2016-08-19 23:34:00 +0000
+layout: post
 tags: tumblr python
-title: 'Python snippets: Is a URL from a Tumblr post?'
 theme:
   minipost: true
-category: Programming and code
+title: 'Python snippets: Is a URL from a Tumblr post?'
 ---
 
 I've been writing some code recently that takes a URL, and performs some special actions if that URL is a Tumblr post.

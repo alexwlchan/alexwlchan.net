@@ -1,10 +1,11 @@
 ---
-layout: post
+category: Python
 date: 2017-10-20 17:11:59 +0000
-title: Using hooks for custom behaviour in requests
+layout: post
+summary: I often have code I want to run against every HTTP response (logging, error
+  checking) --- event hooks give me a nice way to do that without repetition.
 tags: python
-summary: I often have code I want to run against every HTTP response (logging, error checking) --- event hooks give me a nice way to do that without repetition.
-category: Programming and code
+title: Using hooks for custom behaviour in requests
 ---
 
 Recently I've been writing a lot of scripts with [python-requests][requests] to interact with a new API.

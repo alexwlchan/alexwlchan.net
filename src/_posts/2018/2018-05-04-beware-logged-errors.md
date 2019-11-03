@@ -1,13 +1,13 @@
 ---
-layout: post
+category: Python
 date: 2018-05-04 08:28:01 +0000
-title: Beware of logged errors from subprocess
-tags: python security
-summary: If you use Python's subprocess module, be careful you don't leak sensitive information in your error logs.
-category: Programming and code
-
 index:
   best_of: true
+layout: post
+summary: If you use Python's subprocess module, be careful you don't leak sensitive
+  information in your error logs.
+tags: python security
+title: Beware of logged errors from subprocess
 ---
 
 Yesterday, Twitter [wrote a blog post][twitter] about a recent security bug:

@@ -1,13 +1,12 @@
 ---
-layout: post
+category: Scala
 date: 2019-05-13 10:17:13 +0000
-title: Creating a locking service in a Scala type class
-summary:
-tags: scala
-category: Programming and code
-
 index:
   best_of: true
+layout: post
+summary: null
+tags: scala
+title: Creating a locking service in a Scala type class
 ---
 
 A few weeks ago, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
