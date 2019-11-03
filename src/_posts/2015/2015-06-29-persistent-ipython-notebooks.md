@@ -1,11 +1,11 @@
 ---
-layout: post
+category: Python
 date: 2015-06-29 17:55:00 +0000
+layout: post
 summary: Configuring an IPython notebook server that is always running and easily
   accessible in Windows.
 tags: python windows
 title: Persistent IPython notebooks in Windows
-category: Programming and code
 ---
 
 I've been using [IPython][ipy] for about six months, and I've grown to love the [web-based notebook interface][notebook]. It's became my go-to environment when I want to do simple calculations, or test a new idea in Python. It's also a lovely environment for [literate programming][litprog], and I wish I'd had it for my university coursework.[^1]

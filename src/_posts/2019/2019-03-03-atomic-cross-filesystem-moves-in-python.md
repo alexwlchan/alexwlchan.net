@@ -1,11 +1,12 @@
 ---
-layout: post
+category: Python
 date: 2019-03-03 23:48:31 +0000
-title: Atomic, cross-filesystem moves in Python
-summary: Explaining some code for moving files around in a way that's atomic and works across filesystem boundaries.
-category: Programming and code
+layout: post
+summary: Explaining some code for moving files around in a way that's atomic and works
+  across filesystem boundaries.
 tags:
 - python
+title: Atomic, cross-filesystem moves in Python
 ---
 
 If you want to move a file around in Python, the standard library gives you at least two options: [os.rename()](https://docs.python.org/3/library/os.html#os.rename) or [shutil.move()](https://docs.python.org/3/library/shutil.html#shutil.move).

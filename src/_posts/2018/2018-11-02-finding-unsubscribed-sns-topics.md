@@ -1,10 +1,11 @@
 ---
-layout: post
+category: Amazon Web Services
 date: 2018-11-02 10:42:04 +0000
-title: Finding SNS topics without any subscriptions
+layout: post
+summary: I'm trying out Go, and I wrote a tool to help me find SNS topics that don't
+  have any subscriptions.
 tags: golang aws
-summary: I'm trying out Go, and I wrote a tool to help me find SNS topics that don't have any subscriptions.
-category: Working with AWS
+title: Finding SNS topics without any subscriptions
 ---
 
 I make regular use of [Amazon SNS][sns] when working with message queues in AWS.

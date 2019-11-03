@@ -1,9 +1,10 @@
 ---
-layout: post
+category: Python
 date: 2019-07-29 20:34:53 +0000
+layout: post
+summary: Using unique prime factorisations and itertools to find all the divisors
+  of a number.
 title: Finding divisors of a number with Python
-summary: Using unique prime factorisations and itertools to find all the divisors of a number.
-category: Programming and code
 ---
 
 Here's a problem I was trying to solve recently: given an integer *n*, what are all the divisors of *n*?
