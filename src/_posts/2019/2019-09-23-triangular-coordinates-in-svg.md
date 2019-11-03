@@ -1,13 +1,13 @@
 ---
-layout: post
+category: Python
 date: 2019-09-23 08:20:18 +0000
-title: Drawing with triangular coordinates in SVG
-summary: Some code and trigonometry for drawing shapes that don't fit neatly into a rectangular grid.
-category: Programming and code
-
+layout: post
+summary: Some code and trigonometry for drawing shapes that don't fit neatly into
+  a rectangular grid.
 theme:
   card_type: summary_large_image
   image: /images/2019/triangular_coordinates.png
+title: Drawing with triangular coordinates in SVG
 ---
 
 If you've been paying close attention to my recent posts, you might have noticed that I've started to use [SVG images][svg] for some of my diagrams.

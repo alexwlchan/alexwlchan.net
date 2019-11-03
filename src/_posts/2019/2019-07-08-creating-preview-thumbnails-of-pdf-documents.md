@@ -1,9 +1,9 @@
 ---
-layout: post
+category: Python
 date: 2019-07-08 21:44:29 +0000
+layout: post
+summary: null
 title: Creating preview thumbnails of PDF documents
-summary:
-category: Programming and code
 ---
 
 Whenever I get an important document, I scan it or save it as a PDF.

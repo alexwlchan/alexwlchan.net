@@ -1,10 +1,10 @@
 ---
-layout: post
+category: Terraform
 date: 2019-05-01 20:59:07 +0000
+layout: post
+summary: null
+tags: null
 title: Finding unused variables in a Terraform module
-summary:
-tags:
-category: Programming and code
 ---
 
 At work, we use [Terraform] to manage our infrastructure in AWS.

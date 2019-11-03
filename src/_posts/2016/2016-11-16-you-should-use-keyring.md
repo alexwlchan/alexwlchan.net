@@ -1,11 +1,11 @@
 ---
-layout: post
+category: Python
 date: 2016-11-16 07:48:00 +0000
+layout: post
 summary: If you need to store passwords in a Python application, use the keyring module
   to keep them safe.
 tags: python security
 title: Use keyring to store your credentials
-category: Programming and code
 ---
 
 I write a lot of Python scripts that interact with online services, which usually means requires my passwords and API keys.

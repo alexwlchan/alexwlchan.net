@@ -1,13 +1,13 @@
 ---
-layout: post
+category: Git
 date: 2017-11-09 18:18:05 +0000
-title: A plumber's guide to Git
-summary: How does Git work under the hood? How does it store information, and what's really behind a branch? Notes from a workshop at PyCon UK 2017.
-tags: pyconuk slides git
-category: "Working with Git"
-
 index:
   best_of: true
+layout: post
+summary: How does Git work under the hood? How does it store information, and what's
+  really behind a branch? Notes from a workshop at PyCon UK 2017.
+tags: pyconuk slides git
+title: A plumber's guide to Git
 ---
 
 Git is a very common tool in modern development workflows.

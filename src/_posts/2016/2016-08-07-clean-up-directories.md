@@ -1,12 +1,12 @@
 ---
-layout: post
+category: Python
 date: 2016-08-07 22:46:00 +0000
+layout: post
 summary: A pair of Python scripts I've been using to clean up my mess of directories.
 tags: python
-title: 'Python snippets: Cleaning up empty/nearly empty directories'
 theme:
   minipost: true
-category: Programming and code
+title: 'Python snippets: Cleaning up empty/nearly empty directories'
 ---
 
 Last month, I wrote about [some tools](/2016/07/clearing-disk-space-on-os-x/) I'd been using to clear disk space on my Mac.

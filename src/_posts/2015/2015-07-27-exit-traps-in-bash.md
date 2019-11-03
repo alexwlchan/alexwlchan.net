@@ -1,10 +1,10 @@
 ---
-layout: post
+category: Shell scripting
 date: 2015-07-27 20:36:00 +0000
+layout: post
 link: http://redsymbol.net/articles/bash-exit-traps/
 tags: bash shell-scripting
 title: 'Useful Bash features: exit traps'
-category: Programming and code
 ---
 
 I recently discovered exit traps, and I think they're a really neat feature of Bash.

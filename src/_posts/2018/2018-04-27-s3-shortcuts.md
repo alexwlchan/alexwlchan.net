@@ -1,10 +1,11 @@
 ---
-layout: post
+category: Amazon Web Services
 date: 2018-04-27 06:43:25 +0000
-title: Two shortcuts for using S3 in the shell
-summary: Two shell functions for editing and inspecting S3 objects as if they were local files.
+layout: post
+summary: Two shell functions for editing and inspecting S3 objects as if they were
+  local files.
 tags: aws
-category: Working with AWS
+title: Two shortcuts for using S3 in the shell
 ---
 
 I often find myself needing to edit or inspect the contents of a text file stored in S3.

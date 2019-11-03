@@ -1,11 +1,11 @@
 ---
-layout: post
+category: Shell scripting
 date: 2016-10-01 21:23:00 +0000
+layout: post
 tags: shell-scripting
-title: A shell alias for tallying data
 theme:
   minipost: true
-category: Programming and code
+title: A shell alias for tallying data
 ---
 
 Here's a tiny shell alias that I find useful when going through data on the command line.

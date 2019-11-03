@@ -1,10 +1,10 @@
 ---
-layout: post
+category: Python
 date: 2019-09-28 19:26:39 +0000
-title: "Experiment: GitHub code search with de-duplication"
-summary:
-category: Programming and code
+layout: post
 link: https://github.com/alexwlchan/github-code-search
+summary: null
+title: 'Experiment: GitHub code search with de-duplication'
 ---
 
 When I'm trying to learn a new library or function, I often [search for code that uses it on GitHub](https://help.github.com/en/articles/searching-code).
