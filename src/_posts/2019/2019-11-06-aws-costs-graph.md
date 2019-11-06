@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-11-06 07:54:27 +0000
 title: An AWS costs graph that works for me
 summary:
 category: Amazon Web Services
