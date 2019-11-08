@@ -199,7 +199,7 @@ That's not important in a one-off script, but it's a useful habit to get into.
 
 If you run this over the whole repo, you might get a ValueError on the `hcl.load()` line.
 This means the file has invalid Terraform syntax, so pyhcl can't parse it.
-This could be a malformed file, or it could be one that's already been upgraded to 0.12 -- either way, we can't do anything useful, so let's skip it:
+This could be a malformed file, or it could be one that's already been upgraded to 0.12 (so it's already fine) -- either way, we can't do anything useful, so let's skip it:
 
 ```python
 import sys
