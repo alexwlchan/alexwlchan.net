@@ -37,10 +37,12 @@ h3 {
 }
 
 blockquote {
-  border-left: $sidebar-border-width solid $primary-color;
+  border-left: $sidebar-border-width solid $midtone-gray;
+  background-color: #f6f6f6;
+
   margin-left:  $default-padding;
-  margin-right: 0px;
-  padding: 0px ($default-padding - $sidebar-border-width);
+  margin-right: $default-padding;
+  padding: 1px ($default-padding - $sidebar-border-width);
 
   &:not(.update) p:not(.text), li {
     font-style: italic;
