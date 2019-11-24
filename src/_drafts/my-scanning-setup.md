@@ -13,49 +13,51 @@ People often ask about how I do my scanning, and how I organise the scanned file
 
 
 
-## How I scan the paper
+## How I scan the paper to PDF
 
-I have a small document feed scanner that I use to scan paper.
-It's a Canon ImageFORMULA P-215, which looks like this:
+I have a small document feed scanner that I use to scan paper, and save the pages as a PDF on my Mac.
+It's a [Canon ImageFORMULA P-215], which looks like this:
 
 <figure>
   <img src="/images/2019/canon_scanner.jpg" alt="A black document-feed scanner sitting on a wooden desk.">
   <figcaption>With an A5 sheet of paper for comparison.</figcaption>
 </figure>
 
-When I'm scanning something, I need to separate the pages (for example, removing staples and paperclips), and place them top-down in the scanner.
+When I'm scanning something, I separate the pages (for example, removing staples and paperclips), and place them face-down in the scanner.
 It pulls in the pages one at a time, and scans both sides at once.
-Occasionally it pulls in more than one page, and the sheets in the middle get skipped (say, if a corner is folded over), but mostly I can leave it to scan documents without supervision.
+Occasionally it pulls in more than one page, and the sheets in the middle get skipped, but mostly I can leave it to scan documents without supervision.
 
 I connect it to my Mac with a USB cable.
 I can run the built-in scanning software directly from the scanner, without installing anything on my computer.
-The software is basic, but works well:
+The software is basic, but works well.
 
-<figure>
-  <img src="/images/2019/canon_scanner.png" alt="Screenshot of scanning software. A preview of the page is shown in the centre, with some action buttons along the bottom of the window.">
-  <figcaption>You get a nice big preview of your pages, so you can rearrange them if they're in the wrong order. The scanner tries to guess the correct rotation, but if it gets it wrong you can adjust it manually.</figcaption>
-</figure>
+<img src="/images/2019/canon_scanner.png" alt="Screenshot of scanning software. A preview of the page is shown in the centre, with some action buttons along the bottom of the window.">
+
+There's a nice big preview of the pages, so I can check it's scanning correctly.
+I can rearrange pages if they're in the wrong order, or remove a page if I don't want it saved.
+I can also adjust the rotation of the pages -- the scanner tries to guess the correct orientation, but I can correct the page if it guesses wrong.
 
 This scanner is also doing [OCR] on the text.
 The PDF it produces contains both an image and a transcription of any printed text (although I've never actually used the transcriptions).
 
-I've used this scanner reliably for over six years, and never had any issues.
-This particular model cost £225 in 2013, although it seems to have been discontinued.
-When it fails, I'll probably replace it with the current Canon document feed scanner.
+I've used this scanner for over six years, and never had any issues.
+My particular model cost £225 in 2013, although it's been discontinued.
+When it fails, I'll likely replace it with another Canon.
 
-Fair warning: the quality of the scans isn't amazing.
-The colour reproduction isn't great, blank pages are skipped, and the pages are sometimes shown at a skewed angle.
+The quality of the scans isn't amazing.
+In particular, the colour reproduction isn't great, and the pages are sometimes shown at a skewed angle.
 It's fine for scanning black-and-white printed documents, but if you're digitising photographs or archival material, it might not be such a great fit.
 This is for speed and convenience, not quality.
 
 <img src="/images/2019/scans_folder.png">
 
-So now I have a folder full of PDF files -- how do I organise them?
+Once I've used the scanner, I have a folder full of PDF files -- so how do I organise them?
 How do I make sure I can find a document in six months time?
 
 I've tried a bunch of apps -- the Finder, [DEVONthink], [Yojimbo], [Yep], among others -- but none of them felt right.
 I know a fair bit of Python, so I decided to write my own instead.
 
+[Canon ImageFORMULA P-215]: https://www.usa.canon.com/internet/portal/us/home/support/details/scanners/support-document-scanner/imageformula-p-215-scan-tini-personal-document-scanner
 [OCR]: https://en.wikipedia.org/wiki/Optical_character_recognition
 [DEVONthink]: https://www.devontechnologies.com/
 [Yojimbo]: https://www.barebones.com/products/yojimbo/
