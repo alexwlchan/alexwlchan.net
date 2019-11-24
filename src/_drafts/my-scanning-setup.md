@@ -65,24 +65,162 @@ I know a fair bit of Python, so I decided to write my own instead.
 
 
 
-## Hierarchies, search and tags
+## How do I want to search and store PDFs?
 
-Could put them in a hierarchy of folders
+Before I wrote a line of code, I wanted to think about how I'd organise my PDFs.
+
+I want to be able to find all the PDFs about a particular topic.
+For example, every bill from one company, or everything about a place I'd lived, or all my tax paperwork.
+Sometimes I'm looking for a specific document, more often I'm looking for a collection of files.
+
+How do I organise my files to enable that type of searching?
+
+There are a couple of possibilities -- let's consider them in turn.
+
+### Storing files in a hierarchy
+
+Most modern computers use a hierarchical file system.
+We can put related files in a collection, called a *directory* or *folder*.
+We can nest directories to create a hierarchy of information. 
+This is analogous to managing physical pieces of paper – you put a page in a folder, the folder in a filing cabinet, the filing cabinet in an aisle, the aisle in a room, and so on.
+
+This gives us a tree-like view that you might be familiar with:
+
+```
+documents
+ │
+ ├─ bills
+ │   ├─ 2019-11-17-electricity-bill.pdf
+ │   └─ 2019-11-24-water-bill.pdf
+ │
+ └─ health
+     ├─ optician
+     │   └─ 2019-11-08-eye-test.pdf
+     └─ nhs
+         └─ 2018-07-01-welcome-to-gp.pdf
+```
+
+Because hierarchical file systems are ubiquitous, this would be easy to implement -- I just create the right set of folders in Finder.
+But what are the "right" set of folders?
+
+In this system, each file has one and exactly one place in the hierarchy.
+I have to pick a classification, and I can only make searches that fit that classification.
+I can't make searches that span multiple directories.
+
+<figure style="border: 1px solid black;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 120" fill="rgba(0,0,0,0)">
+  <circle cx="55" cy="50" r="40" stroke="#d01c11" stroke-width="2" fill="rgba(208, 28, 17, 0.18)"/>
+  <text x="55" y="112" fill="#d01c11" text-anchor="middle">home</text>
+  
+  <circle cx="165" cy="50" r="40" stroke="#11a01c" stroke-width="2" fill="rgba(17, 160, 28, 0.18)"/>
+  <text x="165" y="112" fill="#11a01c" text-anchor="middle">utility bills</text>
+  
+  <circle cx="275" cy="50" r="40" stroke="#0C34D4" stroke-width="2" fill="rgba(12, 52, 212, 0.18)"/>
+  <text x="275" y="112" fill="#0C34D4" text-anchor="middle">spark energy</text>
+</svg>
+</figure>
+
+An example: suppose I have an electricity bill.
+Do I put it in a directory called "home", or "utility bills", or a directory with the name of the provider?
+I might want to find it later by any of those criteria, but I can only put it one directory.
+I don't have the flexibility to find documents the way I want.
+
+There's a passage from a book I read years ago that's stuck with me, which illustrates the problem of a hierarchy when the classification isn't clear.
+Hal is the librarian at a hospital, and Klaus is helping him organise incoming paperwork -- but there are no rules on where to put things:
+
+> [Hal] paused, unclipped a small stack of paper, and squinted at the top page. "For instance," he continued, "You only have to read a few words to see that these paragraphs are about the weather last week at Damocles Dock, which is on the shore of some lake someplace. So you would ask me to unlock cabinets in aisle D, for Damocles, or W, for weather, or even P, for paragraphs. It's your choice."
+>
+> "But won't it be difficult for people to find that information again?" Klaus asked. "They won't know whether to look under D, W, or P."
+>
+> "Then they'll have to look under all three letters," Hal said. "Sometimes the information you need is not in the most obvious place."
+> 
+> <p class="cite"><cite><em>The Hostile Hospital</em>, by Lemony Snicket</cite></p>
+
+Hierarchives are great if you have a well-defined classification.
+For example, many people keep their fiction books in alphabetical order, with different shelves for different parts of the alphabet.
+The system tells you where each book should be stored, and where to find it later.
+They're harder if you don't have a good classification system.
+
+I've tried using files and folders a couple of times, but it never stuck.
+I struggled to find things quickly, but also to store them as well.
+Whenever I went to file a new PDF, I found myself rethinking the system, and questioning if this was the right folder.
+
+### Searching an unorganised pile of files
+
+Hierarchies and classification are a highly ordered system.
+The opposite is to do no organisation -- put all my files in a single directory, and use searching to find the right files.
+
+This is how I manage my email: I have 26,000 emails in a single "Archive" folder, and I use the search feature to find the email I want.
+I can search by attributes (say, messages from a particular sender), or do full text search on the body of the message, and I usually find the message I want pretty quickly.
+
+It's also how I find pretty much everything on the web -- I ask a search engine a question, and it shows me web pages that might be helpful.
+(I've written blog posts just so they'll show up in search engine result the next time I look something up.
+But I can only do that with something I can make public -- say, notes about programming, and not my bank statements.)
+
+Unfortunately, I've never got along with the builtin Mac OS X search.
+There's not a specific reason, I just find it a bit slow and the 
+search syntax has never clicked in my brain.
+
+I could set up my own search system, but doing search well is hard, and it's not my speciality.
+There are lots of ways a document search could be useful -- for example, boosting documents that I look at frequently -- but it's more work than I wanted to put into this project.
+
+### Keyword tagging
+
+Something I've used a lot in the last few years is keyword tagging.
+When I store something, I add a number of "tags" – keywords that describe the document.
+Later, I can filter to find documents that have particular tags as a form of search.
+
+Here's a nice description of tagging from a talk a couple of years ago:
+
+> I remember not knowing what [the tags field] was for. He explained it to me basically as a search engine in reverse. Rather than typing in something to find results, when you save something for later, why don’t you type down the the stuff that you’re going to probably use as keywords when you look for it long after it’s forgotten?
+>
+> <p class="cite"><cite><em>Fan is a Tool-Using Animal</em>, by Maciej Cegłowski</cite></p>
+
+Tagging is particular common in the world of fandom.
+On bookmarking sites like Pinboard and Delicious, fans have created intricate systems of tagging for describing fanfiction, and by combining tags you can make very specific queries.
+For example, a single bookmark could have tags for the word count, the fandom, the pairing, the trope, or many other things beside.
+(The rest of Maciej's talk explains this in more detail.)
+
+I use tagging a lot in Pinboard, I'm quite used to it, and I find it quite easy to both save and search using tags.
+I have 4.5k bookmarks and the tagging remains usable, so I know it scales.
+
+<figure style="border: 1px solid black;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 165" fill="rgba(0,0,0,0)">
+  <circle cx="140" cy="50" r="40" stroke="#d01c11" stroke-width="2" fill="rgba(208, 28, 17, 0.18)"/>
+  <text x="95" y="40" fill="#d01c11" text-anchor="end">home</text>
+  
+  <circle cx="190" cy="50" r="40" stroke="#11a01c" stroke-width="2" fill="rgba(17, 160, 28, 0.18)"/>
+  <text x="236" y="40" fill="#11a01c" text-anchor="start">utility bills</text>
+  
+  <circle cx="165" cy="96.650635095" r="40" stroke="#0C34D4" stroke-width="2" fill="rgba(12, 52, 212, 0.18)"/>
+  <text x="165" y="157" fill="#0C34D4" text-anchor="middle">spark energy</text>
+  
+  <circle cx="165" cy="66.650635095" r="5" fill="black"/>
+</svg>
+</figure>
+
+A tag-based system allows me to save a single document with multiple tags.
+Consider an earlier example: my electricity bill.
+Rather than filing it in a single directory, I could tag it with "home" and "utility bills" and "spark energy", and I could find it later by searching for any one of those tags.
+Tagging is more flexible.
+
+[venn diagram of tags]
+
+Tagging is also more future-proof: if I discover I want a new tag, I can start using it alongside my existing tags.
+
+Finally, tagging is much simpler to implement than full-bore search.
+Rather than matching on free text and ranking documents, it's a simple boolean: either a document has a particular tag, or it doesn't.
+
+I'm a big fan of tag-based systems, so I decided to use it as the basis for my document organisation.
+
+---
+
+## A general design
+
+When I started building this system, I'd been working on a new archival storage service at work.
 
 https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies
 
-Why are hierarchies good?
-* Physical storage analogy, easy to understand
-* Mimics a filing cabinet
-
-But only have one and only one classification
-* e.g. should I file documents under "home" or under "electricity bills"?
-* e.g. lemony snicket
-
-* Hierarchies are great if you have a well-defined classification
-* Natural hierarchy or sorting, e.g. alphabetisin the books on a shelf
-
-Less freedom of filenames
 
 Two systems I like:
 * I like email!
@@ -93,9 +231,6 @@ Two systems I like:
 * Tags.
 	"what will I search for in future"
 	maciej talk
-
-You can implement search, but it's hard and not my speciality
-Lots of ways a full-bore document search could be useful (e.g. rank documents that you look at more frequently higher), but more than I wanted to try
 
 for a few thousand documents, a tagging implementation is good enough
 so I want a system that:
@@ -210,3 +345,9 @@ several instances:
 
 collectively put in XX PDFs with YY pages of paper.
 nice saving!
+
+
+## Suggested links
+
+* https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies
+* Fan is a tool-using animal
