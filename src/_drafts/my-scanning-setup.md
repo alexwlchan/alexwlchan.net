@@ -206,8 +206,6 @@ Consider an earlier example: my electricity bill.
 Rather than filing it in a single directory, I could tag it with "home" and "utility bills" and "spark energy", and I could find it later by searching for any one of those tags.
 Tagging is more flexible.
 
-[venn diagram of tags]
-
 Tagging is also more future-proof: if I discover I want a new tag, I can start using it alongside my existing tags.
 
 Finally, tagging is much simpler to implement than full-bore search.
@@ -283,19 +281,31 @@ This gives me a way to see what tags I've already used, and to quickly drill dow
   </figcaption>
 </figure>
 
+
+
 ## Under the hood
 
 ### Libraries
 
-originally responder, now flask
+The spec isn't complicated, and you could write this in a variety of programming languages.
+I chose Python, because that's what I'm most comfortable using, but it's certainly not the only choice.
+If I was starting today, I might consider using Rust as a learning exercise (and I'm still tempted to do a big rewrite at some point).
 
-bunch of libraries for thumbnailing,
-including cairopdf and imagemagick
-epub + mobi
+Because this is code that's storing important documents, it's heavily tested -- I have 100% branch and line coverage as a minimum.
 
-whitenoise is new lib to me
+I originally wrote the app with the [responder web framework](https://github.com/taoufik07/responder), but the library wasn't being properly maintained, so I switched to the more popular [Flask](https://pypi.org/project/Flask/).
+This is a great library for writing small web apps.
+If you aren't familiar with it, start with Miguel Grinberg's [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
 
-runs in a docker image for easy deployment
+I have a bunch of libraries doing the heavy lifting, including:
+
+* pdftocairo and ImageMagick for the thumbnailing
+* whitenoise for serving static files
+* python-magic and mimetypes to detect the type of a file
+* hyperlink for manipulating URL query parameters
+
+The whole app is packaged in a Docker image, for simple deployments.
+I can just as easily run it on my Linux web server as on my home Mac.
 
 ### Storing the individual PDF files
 
@@ -345,9 +355,9 @@ Here's what it looks like:
     "tags": [
 	  "home:renting",
 	  "home:123-sesame-street"
-	],
-	"thumbnail_identifier": "0/000914e9-be70-4d11-bba5-6c902e9bcb44.jpg",
-	"title": "2019-11: Advice for renters"
+    ],
+    "thumbnail_identifier": "0/000914e9-be70-4d11-bba5-6c902e9bcb44.jpg",
+    "title": "2019-11: Advice for renters"
   },
   ...
 }
@@ -369,143 +379,86 @@ This would cause issues if I was running at large scale, but for a few thousand 
 
 ### Finding documents with a given set of tags
 
-### Possible limitations to scaling
+I query documents with a Python list comprehension:
 
----
+```python
+query = [
+    "utilities",
+    "home:123-sesame-street",
+]
 
-When I started building this system, I'd been working on a new archival storage service at work.
+matching_documents = [
+    doc
+    for doc in documents
+    if all(query_tag in doc.get("tags", []) for query_tag in query)
+]
+```
 
-https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies
+You could use a fancier data structure, or a database join, or something else, but this is fast enough for a small number of documents that it's not an issue.
+Because all the documents are already in memory, it takes fractions of a millisecond to query thousands of documents.
 
+### Limitations to scaling
 
-Two systems I like:
-* I like email!
+This app is designed for me to store my personal documents.
+It's not meant to be a high-scale, multi-user document manager.
+There are lots of ways it would fall over if used at scale:
 
-	I throw all my mail into a single "archive" folder, then use searching to find the emails I want.
-	I can search by coarse attributes (sender email) or full text of the body.
+* JSON isn't a database, and holding the JSON in memory is unsustainable. As you add more documents, reading/writing the JSON would take longer and longer, and eventually there'd be too many documents to hold in memory. You'd need to rewrite it to use a proper database.
+* There's no encryption or built-in security controls. I only run this on machines I trust -- if you have access to those machines, I'm already screwed.
+* I've only ever tested with one user at a time (me). There's no way to split documents between different users, and I don't know how the Flask server would hold up if more than one person tried to use it at once.
 
-* Tags.
-	"what will I search for in future"
-	maciej talk
+In short: don't expect a hosted version any time soon.
 
-for a few thousand documents, a tagging implementation is good enough
-so I want a system that:
-
-* Lets me upload a scanned document and apply tags
-* See all tags
-* Find all documents with a specific set of tags (e.g. all with "water-bills" and "home:123-smith-street")
-
-
-
-
-
-## Architecture
-
-Inspired by Wellcome Archival Storage, which I'd been working on
-https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
-
-1. Upload a bag (package of files)
-2. verify checksums
-3. Copy to S3 buckets
-
-Architecture is a bit different:
-
-1. Upload a single file (not a bundle), apply tags
-2. Create a SHA256 checksum (browsers don't supply this in form uploads)
-3. Normalise the filename to something similar but computer-friendly (e.g. "November’s Bank Statement.pdf" becomes "november-s-bank-statement.pdf"), save to disk
-4. Present in a list of documents
-
-I can then see a list of documents, and any tag is clickable -- click to filter to all documents with that tag.
-Plus thumbnail for easy browsing.
+This isn't a bad thing.
+It's okay to write software that doesn't scale, if you know it will never be asked to.
+I know I'm only ever going to run this as single-user instances, so I made choices to keep the code simple, rather than support a use-case I'd never use.
 
 
 
-## IMplementation
+## My current procedure
 
-Implementation is very simple.
-Files are stored in a flat heirarchy, e.g.
+When I get a piece of paper, this is what I do with it:
 
-	docstore/files/
-		a/
-			advice-for-renters.pdf
-			alex-chan-contract.pdf
-		b/
-			breakdown-cover-ipid-document.pdf
-			british-gas-terms-and-conditions.pdf
-		...
+1. I scan it with my document scanner, and get a PDF
+2. I upload the PDF to docstore, adding some appropriate tags
+3. If the page has sensitive information, like my bank details, I shred it. If it's not sensitive, say marketing material, it goes in the paper recycling.
 
-so still usable if I lose the database
+I use semi-structured tags, with a common prefix to group similar tags.
+Here are some examples of what my tags look like:
 
-Database is a flat JSON file.
-JSON = human-readable and editable, not tied to particular software, no lock-in
-Looks like this:
+* bank:credit-card-4567
+* car:austin-WLG142E
+* health:optician
+* home:667-dark-avenue
+* payslips
+* providers:bulb-energy
+* travel
+* utilities:water
 
-	{
-		"000914e9-be70-4d11-bba5-6c902e9bcb44": {
-			"filename": "November’s Bank Statement.pdf",
-			"file_identifier": "n/november-s-bank-statement.pdf",
-			"checksum": "sha256:CHECKSUM",
-			"date_created": "2019-11-24 14:14:01 +0000",
-			"tags": [
-				"bank:account-1234",
-				"bank:statements",
-			],
-			"thumbnail_identifier": "0/000914e9-be70-4d11-bba5-6c902e9bcb44.jpg",
-			"title": "2019-11: Bank statement"
-		},
-		...
-	}
+I run several instances of docstore:
 
-IDs are UUIDs for simplicity
-Record original filename, so it can be retrieved later
-SHA256 checksum for immutability (so can spot file corruption)
-Title is meant to be human-readable, but never used as a filename
+* Home correspondence. Letters, manuals, insurance documents, that sort of thing.
+* Old schoolwork. I haven't looked at some of my school books in over a decade, so I recently scanned it and recycled the paper.  I don't want it in my main instance, but it's nice to know it's catalogued and available if I ever want to read it.
+* Work documents. I run an instance on my work laptop, so I can manage any documents I need for work in the same way -- but the files never leave the corporate network.
 
-Python app, load all into memory
-Be a problem with lots of documents, but for personal use is fine
+Collectively, I've got 1585 PDFs with 23,795 pages, and most of the original paper has now been recycled. Nice saving!
 
-To do a tag query, it's a Python list comprehension:
+<!-- stedwards = 352 / 9542
+	 cambridge = 110 / 3653
+	 berky = 47 / 1615
+	 linode = 1076 / 8985 -->
 
-	query = [
-		"water-bills",
-		"home:123-smith-street",
-	]
 
-	matching_documents = [
-		doc
-		for doc in documents
-		if all(qt in doc.get("tags", []) for qt in query)
-	]
 
-Could do fancy data structure/join in database or something, but is fast enough that it's not an issue
-
-then very heavily tested, because I want to trust code that's looking after my precious documents
+## Do this yourself
 
 can get code on GitHub, MIT license, and can run in Docker so fairly simple to deploy: https://github.com/alexwlchan/docstore
 
-considered a hosted version, but security eek and would not database rewrite for scaling
-if you want it, run it on your own computer!
 
 
-## my current procedure
+## Interesting links
 
-1. Scan the page
-2. Upload it to docstore with the appropriate tags
-3. If it's sensitive (e.g. has my bank details), goes in the shredder. If it's not sensitive (e.g. marketing material), goes in the recycling bin. envelopes, naturally, go in recycling
-
-several instances:
-
-* home correspondence
-* old schoolwork -- I haven't looked at for a decade, so scan and recycle the lot
-* work documents -- runs on my work computer, so data never leaves the corporate network
-
-collectively put in XX PDFs with YY pages of paper.
-nice saving!
-
-
-## Suggested links
-
-* https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies
-* Fan is a tool-using animal
-
-https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
+* [Designing better file organization around tags, not hierarchies](https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies)
+* Fan is a Tool-Using Animal ([video](https://vimeo.com/88001038), [transcript](https://idlewords.com/talks/fan_is_a_tool_using_animal.htm))
+* [Digital Preservation at Wellcome](https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047)
+* [Situated Software](https://www.drmaciver.com/2018/11/situated-software/)
