@@ -1,54 +1,61 @@
 ---
 layout: post
-title: Scanning and organising my paperwork
+title: How I scan and organise my paperwork
 summary:
 ---
 
 If you follow me on Twitter, you'll see I often tweet about scanning my paperwork.
-I scan all the letters I receive, and often I shred or recycle the originals.
-Digital documents are usually easier to search, and it means I have to keep less physical paper in my flat.
-That's less stuff on my shelves, and when I do need the actual bit of paper (for instance, my passport), there's less to look through.
 
-People often ask about how I do my scanning, and how I organise the scanned files -- so in this post, I'm going to explain how I came to my current setup.
+I scan all the letters I receive, and I organise the digital copies in an app I created called _docstore_.
+The app lets me store and search my documents using keyword tags
 
-TOC goes here
+Whenever I receive a letter or a bill, I scan it and save it.
+Digital documents are easier to search, and when everything is scanned, I can get rid of the paper copies.
+I keep the original paper for some things -- but mostly I scan or recycle the paper, and save the space on my shelves.
+
+People often ask about how I do my scanning, and how I organise the scanned files -- in this post, I'm going to explain how I came to my current setup.
+
+The post is quite long, so here's a table of contents:
+
+* Table of contents
+{:toc}
 
 
+## How do I scan paper to PDF?
 
-## How I scan the paper to PDF
-
-I have a small document feed scanner that I use to scan paper, and save the pages as a PDF on my Mac.
-It's a [Canon ImageFORMULA P-215], which looks like this:
+I have a small document scanner that creates PDFs from the scanned pages.
+It's a [Canon ImageFORMULA P-215]:
 
 <figure>
   <img src="/images/2019/canon_scanner.jpg" alt="A black document-feed scanner sitting on a wooden desk.">
   <figcaption>With an A5 sheet of paper for comparison.</figcaption>
 </figure>
 
-When I'm scanning something, I separate the pages (for example, removing staples and paperclips), and place them face-down in the scanner.
+When I'm scanning something, I separate the pages, and place them face-down in the scanner.
 It pulls in the pages one at a time, and scans both sides at once.
-Occasionally it pulls in more than one page, and the sheets in the middle get skipped, but mostly I can leave it to scan documents without supervision.
+It's a bit slow, but normally I can leave it to scan without supervision -- I don't have to feed in each page individually.
 
-I connect it to my Mac with a USB cable.
-I can run the built-in scanning software directly from the scanner, without installing anything on my computer.
+I connect it to my Mac with a single USB cable.
+I use the scanning software that's bundled with the scanner, so I don't have to install anything on my computer.
 The software is basic, but works well.
 
 <img src="/images/2019/canon_scanner.png" alt="Screenshot of scanning software. A preview of the page is shown in the centre, with some action buttons along the bottom of the window.">
 
-There's a nice big preview of the pages, so I can check it's scanning correctly.
+The software has a nice big preview of the scanned images, so I can check it's scanning correctly.
 I can rearrange pages if they're in the wrong order, or remove a page if I don't want it saved.
 I can also adjust the rotation of the pages -- the scanner tries to guess the correct orientation, but I can correct the page if it guesses wrong.
 
-This scanner is also doing [OCR] on the text.
-The PDF it produces contains both an image and a transcription of any printed text (although I've never actually used the transcriptions).
+The software is also doing [optical character recognition (OCR)][OCR] on the text.
+The PDF it produces contains both an image and a transcription of any printed text.
 
 I've used this scanner for over six years, and never had any issues.
-My particular model cost £225 in 2013, although it's been discontinued.
-When it fails, I'll likely replace it with another Canon.
+My particular model cost £225 in 2013.
+It's been discontinued, but replacement models are available for a similar price.
+When this one fails, I'll likely replace it with another Canon.
 
 The quality of the scans isn't amazing.
 In particular, the colour reproduction isn't great, and the pages are sometimes shown at a skewed angle.
-It's fine for scanning black-and-white printed documents, but if you're digitising photographs or archival material, it might not be such a great fit.
+It's fine for home scans of black-and-white printed documents, but if you're digitising photographs or archival material, it might not be such a great fit.
 This is for speed and convenience, not quality.
 
 <img src="/images/2019/scans_folder.png">
@@ -69,11 +76,11 @@ I know a fair bit of Python, so I decided to write my own instead.
 
 ## How do I want to search and store PDFs?
 
-Before I wrote a line of code, I wanted to think about how I'd organise my PDFs.
+Before I wrote a line of code, I wanted to think about how to organise my PDFs.
 
-I want to be able to find all the PDFs about a particular topic.
+When I've got all my documents, I want to be able to find everything about a particular topic.
 For example, every bill from one company, or everything about a place I'd lived, or all my tax paperwork.
-Sometimes I'm looking for a specific document, more often I'm looking for a collection of files.
+Sometimes I'm looking for a specific document, sometimes I'm looking for a collection of files.
 
 How do I organise my files to enable that type of searching?
 
@@ -83,52 +90,55 @@ There are a couple of possibilities -- let's consider them in turn.
 
 Most modern computers use a hierarchical file system.
 We can put related files in a collection, called a *directory* or *folder*.
-We can nest directories to create a hierarchy of information. 
+We can also put directories inside other directories, which creates a hierarchy of information. 
 This is analogous to managing physical pieces of paper – you put a page in a folder, the folder in a filing cabinet, the filing cabinet in an aisle, the aisle in a room, and so on.
 
-This gives us a tree-like view that you might be familiar with:
+This gives us a tree-like view of files that might look familiar:
 
 ```
 documents
- │
  ├─ bills
- │   ├─ 2019-11-17-electricity-bill.pdf
- │   └─ 2019-11-24-water-bill.pdf
- │
+ │   ├─ electricity-bill.pdf
+ │   └─ water-bill.pdf
  └─ health
      ├─ optician
-     │   └─ 2019-11-08-eye-test.pdf
+     │   └─ eye-test.pdf
      └─ nhs
-         └─ 2018-07-01-welcome-to-gp.pdf
+         └─ welcome-to-gp.pdf
 ```
 
 Because hierarchical file systems are ubiquitous, this would be easy to implement -- I just create the right set of folders in Finder.
 But what are the "right" set of folders?
+This turns out to be quite a hard question.
 
-In this system, each file has one and exactly one place in the hierarchy.
-I have to pick a classification, and I can only make searches that fit that classification.
+Each file has one and exactly one place in a hierarchy.
+I have to pick a way to sort my files, and I can only make searches that fit that classification.
 I can't make searches that span multiple directories.
-
-<figure style="border: 1px solid black;">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 120" fill="rgba(0,0,0,0)">
-  <circle cx="55" cy="50" r="40" stroke="#d01c11" stroke-width="2" fill="rgba(208, 28, 17, 0.18)"/>
-  <text x="55" y="112" fill="#d01c11" text-anchor="middle">home</text>
-  
-  <circle cx="165" cy="50" r="40" stroke="#11a01c" stroke-width="2" fill="rgba(17, 160, 28, 0.18)"/>
-  <text x="165" y="112" fill="#11a01c" text-anchor="middle">utility bills</text>
-  
-  <circle cx="275" cy="50" r="40" stroke="#0C34D4" stroke-width="2" fill="rgba(12, 52, 212, 0.18)"/>
-  <text x="275" y="112" fill="#0C34D4" text-anchor="middle">spark energy</text>
-</svg>
-</figure>
 
 An example: suppose I have an electricity bill.
 Do I put it in a directory called "home", or "utility bills", or a directory with the name of the provider?
 I might want to find it later by any of those criteria, but I can only put it one directory.
-I don't have the flexibility to find documents the way I want.
+A hierarchy doesn't give me the flexibility to find documents the way I want.
 
-There's a passage from a book I read years ago that's stuck with me, which illustrates the problem of a hierarchy when the classification isn't clear.
-Hal is the librarian at a hospital, and Klaus is helping him organise incoming paperwork -- but there are no rules on where to put things:
+<figure style="width: 600px;">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 120" fill="rgba(0,0,0,0)">
+  <circle cx="55" cy="50" r="40" stroke="#d01c11" stroke-width="2" fill="rgba(208, 28, 17, 0.18)"/>
+  <text x="55" y="112" fill="#d01c11" text-anchor="middle" font-size="0.8em;">home</text>
+  
+  <circle cx="165" cy="50" r="40" stroke="#11a01c" stroke-width="2" fill="rgba(17, 160, 28, 0.18)"/>
+  <text x="165" y="112" fill="#11a01c" text-anchor="middle" font-size="0.8em;">utility bills</text>
+  
+  <circle cx="275" cy="50" r="40" stroke="#0C34D4" stroke-width="2" fill="rgba(12, 52, 212, 0.18)"/>
+  <text x="275" y="112" fill="#0C34D4" text-anchor="middle" font-size="0.8em;">acme energy</text>
+</svg>
+<figcaption>
+Imagine each circle in this Venn diagram is a directory.
+There's no overlap between <em>home</em>, <em>utility bills</em>, and <em>acme energy</em> &mdash; I have to pick a single directory, and I can only put my file in that directory.
+</figcaption>
+</figure>
+
+A second example: there's a passage from a book I read years ago that's stuck with me, which illustrates the problem of a hierarchy when the classification rules aren't clear.
+Hal is the librarian, and Klaus is helping him organise incoming paperwork:
 
 > [Hal] paused, unclipped a small stack of paper, and squinted at the top page. "For instance," he continued, "You only have to read a few words to see that these paragraphs are about the weather last week at Damocles Dock, which is on the shore of some lake someplace. So you would ask me to unlock cabinets in aisle D, for Damocles, or W, for weather, or even P, for paragraphs. It's your choice."
 >
@@ -138,107 +148,118 @@ Hal is the librarian at a hospital, and Klaus is helping him organise incoming p
 > 
 > <p class="cite"><cite><em>The Hostile Hospital</em>, by Lemony Snicket</cite></p>
 
-Hierarchives are great if you have a well-defined classification.
-For example, many people keep their fiction books in alphabetical order, with different shelves for different parts of the alphabet.
-The system tells you where each book should be stored, and where to find it later.
-They're harder if you don't have a good classification system.
+When Klaus starts filing his own paperwork, he's going to have to invent some rules.
+And because there isn't a definitive ruleset, he'll have to re-evaluate the rules every time he files something new.
+Are the rules still consistent?
+Do they still make sense?
+Does he need some new cabinets or folders?
+And so on.
+
+This is what happens whenever I try to sort files into folders -- I'm constantly rethinking it, trying to come up with the "best" classification system.
+It becomes a low-level mental drag, and it's tempting to start fiddling with the folder structure to get the "right" arrangement.
+
+It's possible to come up with a good classification system that puts every file in a single directory, but it takes a lot of upfront thought and design.
+Libraries can only put a book on one place on the shelf, so they use [Dewey Decimal] -- but somebody had to design it first.
 
 I've tried using files and folders a couple of times, but it never stuck.
-I struggled to find things quickly, but also to store them as well.
-Whenever I went to file a new PDF, I found myself rethinking the system, and questioning if this was the right folder.
+Between the inflexible search, and the ambiguous filing, it's not a good fit for me.
+
+[Dewey Decimal]: https://en.wikipedia.org/wiki/Dewey_Decimal_Classification
 
 ### Searching an unorganised pile of files
 
-Hierarchies and classification are a highly ordered system.
-The opposite is to do no organisation -- put all my files in a single directory, and use searching to find the right files.
+Hierarchies are a highly ordered system.
+The opposite is to do no organisation at all -- just put all my files in a single directory, and use searching to find the right files.
 
-This is how I manage my email: I have 26,000 emails in a single "Archive" folder, and I use the search feature to find the email I want.
+An example: this is how I manage my email: I have 26,000 emails in a single "Archive" folder, and I use the search function to find the email I want.
 I can search by attributes (say, messages from a particular sender), or do full text search on the body of the message, and I usually find the message I want pretty quickly.
 
-It's also how I find pretty much everything on the web -- I ask a search engine a question, and it shows me web pages that might be helpful.
-(I've written blog posts just so they'll show up in search engine result the next time I look something up.
+Another example: search is how I find pretty much everything on the web -- I ask a search engine a question, and it shows me web pages that might be helpful.
+(I've even written blog posts so they'll show up in search engine result the next time I look something up.
 But I can only do that with something I can make public -- say, notes about programming, and not my bank statements.)
 
-Unfortunately, I've never got along with the builtin Mac OS X search.
+Unfortunately, I've never got along with the builtin Mac OS X file search.
 There's not a specific reason, I just find it a bit slow and the 
 search syntax has never clicked in my brain.
 
 I could set up my own search system, but doing search well is hard, and it's not my speciality.
-There are lots of ways a document search could be useful -- for example, boosting documents that I look at frequently -- but it's more work than I wanted to put into this project.
+There are lots of ways a document search could be useful -- but it's more work than I wanted to put into this project.
 
 ### Keyword tagging
 
-Something I've used a lot in the last few years is keyword tagging.
-When I store something, I add a number of "tags" – keywords that describe the document.
+I've used several systems that organise objects with keyword tagging.
+When I store something, I add a number of "tags" – one or more keywords that describe the document.
 Later, I can filter to find documents that have particular tags as a form of search.
 
-Here's a nice description of tagging from a talk a couple of years ago:
+Recall an earlier example: my electricity bill.
+Rather than filing it in a single directory, I could tag it with "home" and "utility bills" and "acme energy", and I could find it later by searching for any one of those tags.
 
-> I remember not knowing what [the tags field] was for. He explained it to me basically as a search engine in reverse. Rather than typing in something to find results, when you save something for later, why don’t you type down the the stuff that you’re going to probably use as keywords when you look for it long after it’s forgotten?
->
-> <p class="cite"><cite><em>Fan is a Tool-Using Animal</em>, by Maciej Cegłowski</cite></p>
-
-Tagging is particular common in the world of fandom.
-On bookmarking sites like Pinboard and Delicious, fans have created intricate systems of tagging for describing fanfiction, and by combining tags you can make very specific queries.
-For example, a single bookmark could have tags for the word count, the fandom, the pairing, the trope, or many other things beside.
-(The rest of Maciej's talk explains this in more detail.)
-
-I use tagging a lot in Pinboard, I'm quite used to it, and I find it quite easy to both save and search using tags.
-I have 4.5k bookmarks and the tagging remains usable, so I know it scales.
-
-<figure style="border: 1px solid black;">
+<figure style="width:600px;">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 165" fill="rgba(0,0,0,0)">
   <circle cx="140" cy="50" r="40" stroke="#d01c11" stroke-width="2" fill="rgba(208, 28, 17, 0.18)"/>
-  <text x="95" y="40" fill="#d01c11" text-anchor="end">home</text>
+  <text x="95" y="40" fill="#d01c11" text-anchor="end" font-size="0.8em">home</text>
   
   <circle cx="190" cy="50" r="40" stroke="#11a01c" stroke-width="2" fill="rgba(17, 160, 28, 0.18)"/>
-  <text x="236" y="40" fill="#11a01c" text-anchor="start">utility bills</text>
+  <text x="236" y="40" fill="#11a01c" text-anchor="start" font-size="0.8em">utility bills</text>
   
   <circle cx="165" cy="96.650635095" r="40" stroke="#0C34D4" stroke-width="2" fill="rgba(12, 52, 212, 0.18)"/>
-  <text x="165" y="157" fill="#0C34D4" text-anchor="middle">spark energy</text>
+  <text x="165" y="157" fill="#0C34D4" text-anchor="middle" font-size="0.8em">acme energy</text>
   
   <circle cx="165" cy="66.650635095" r="5" fill="black"/>
 </svg>
 </figure>
 
-A tag-based system allows me to save a single document with multiple tags.
-Consider an earlier example: my electricity bill.
-Rather than filing it in a single directory, I could tag it with "home" and "utility bills" and "spark energy", and I could find it later by searching for any one of those tags.
-Tagging is more flexible.
-
-Tagging is also more future-proof: if I discover I want a new tag, I can start using it alongside my existing tags.
-
-Finally, tagging is much simpler to implement than full-bore search.
+Tagging is more flexible, both for searching and for storing.
+I can add as many keywords as I think might be useful, and there's less overhead to creating a new tag.
+And tagging is simpler to implement than full-text search.
 Rather than matching on free text and ranking documents, it's a simple boolean: either a document has a particular tag, or it doesn't.
 
-I'm a big fan of tag-based systems, so I decided to use it as the basis for my document organisation.
+I like this idea of tags as a reverse search engine:
+
+> I remember not knowing what [the tags field] was for. He explained it to me basically as a search engine in reverse. Rather than typing in something to find results, when you save something for later, why don’t you type down the the stuff that you’re going to probably use as keywords when you look for it long after it’s forgotten?
+>
+> <p class="cite"><cite><em>Fan is a Tool-Using Animal</em>, by Maciej Cegłowski</cite></p>
+
+Tagging is particularly popular in the world of fandom.
+On bookmarking sites like Pinboard and Delicious, fans have created intricate systems of tagging to describe fanfiction, and by combining tags you can make very specific queries.
+A single fic could have tags for the word count, the fandom, the pairing, the trope, and many other things beside.
+Maciej's talk has some examples.
+
+I use tagging a lot in Pinboard, I'm quite used to it, and I find it easy to both save and search using tags.
+I have 4.5k bookmarks and the tagging remains usable, so I know it scales.
+I decided to use tagging as the basis for my document organisation.
 
 
 
 ## A brief spec
 
 With tagging in mind, I came up with a brief spec for what I wanted.
-I'd been working on some [archival storage] stuff at work, which influenced some of my thinking.
 
 I wanted a web app with three parts:
 
 1. A form where I could upload new file, and tag it with keywords.
-	When it gets uploaded, create a SHA256 checksum (for integrity checking), and save the file somewhere on disk.
-2. A list of all the files I've uploaded.
+	When it gets uploaded, save the file somewhere on disk.
+2. A list of all the files I've uploaded, and a way to view the original file.
 3. A list of all the tags I've used, and a way to filter to documents with a given set of tags.
 
-I then started building a prototype in Python, which eventually became an app called [_docstore_](https://github.com/alexwlchan/docstore).
+I started building a prototype in Python, which eventually became an app called [_docstore_](https://github.com/alexwlchan/docstore).
 You can read more about it below, browse the source code on GitHub, or run it from [Docker Hub](https://hub.docker.com/r/greengloves/docstore).
 
 
 
 ## The front end
 
-This is what docstore looks like:
+You can use docstore to manage arbitrary files -- scanned PDFs were the original idea, but any sort of PDF is fine.
+Here's what it looks like with my ebook library:
 
 <img src="/images/2019/docstore_screenshot.png">
 
-This is the form for uploading a new document, created with [Bootstrap](https://getbootstrap.com/).
+In the default view, you see a list of documents, and you can click on the thumbnail or the title to see the original.
+There are also buttons to see the "store a document" form, and a list of the current tags.
+When you click the button, those panels expand into view.
+Let's compare it to the spec above.
+
+This is the form for uploading a new document.
 It has fields for a human-readable title, tags and an optional source URL.
 Sometimes I can download PDFs from online portals rather than getting a paper letter I have to scan, and I can record where I saved it in the source URL field.
 
@@ -246,6 +267,12 @@ Sometimes I can download PDFs from online portals rather than getting a paper le
   <img src="/images/2019/docstore_upload_form.png" alt="A form titled 'Store a document' with fields 'Title', 'Tags', and 'Source URL'.">
   <figcaption>If I start typing something that looks like an existing tag, the tags field will offer to autocomplete for me.</figcaption>
 </figure>
+
+TODO: Rename "Submit" to "Store".
+
+If you click "Submit", 
+
+green banner or red banner
 
 This is what the list of documents looks like:
 
@@ -272,18 +299,20 @@ To help me find documents, there are options to sort by title or by upload date:
   <figcaption>When I'm labelling a sort option, I much prefer explicit sort options to "ascending" or "descending". It always takes me a moment to work out which one I actually want, and half the time I pick wrong.</figcaption>
 </figure>
 
-Finally, at the top of every page, there's a list of all the tags I've used.
+Finally, here's the list of all the tags I've used.
 This gives me a way to see what tags I've already used, and to quickly drill down into my documents:
 
 <figure>
   <img src="/images/2019/docstore_tag_list.png">
-  <figcaption>I use a colon in tags to create a mini-hierarchy, which is reflected in the tag list. For example, in the list above, I have three tags: <em>programming</em>, <em>programming:ruby</em>, and <em>programming:scala</em>.
+  <figcaption>I use a colon in tags to create a mini-hierarchy, which is reflected in the tag list. For example, in the list above, I have three programming-related tags: <em>programming</em>, <em>programming:ruby</em>, and <em>programming:scala</em>.
   </figcaption>
 </figure>
 
 
 
 ## Under the hood
+
+What is this section?
 
 ### Libraries
 
