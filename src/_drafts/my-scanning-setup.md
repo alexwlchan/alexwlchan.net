@@ -11,6 +11,8 @@ That's less stuff on my shelves, and when I do need the actual bit of paper (for
 
 People often ask about how I do my scanning, and how I organise the scanned files -- so in this post, I'm going to explain how I came to my current setup.
 
+TOC goes here
+
 
 
 ## How I scan the paper to PDF
@@ -213,9 +215,163 @@ Rather than matching on free text and ranking documents, it's a simple boolean: 
 
 I'm a big fan of tag-based systems, so I decided to use it as the basis for my document organisation.
 
----
 
-## A general design
+
+## A brief spec
+
+With tagging in mind, I came up with a brief spec for what I wanted.
+I'd been working on some [archival storage] stuff at work, which influenced some of my thinking.
+
+I wanted a web app with three parts:
+
+1. A form where I could upload new file, and tag it with keywords.
+	When it gets uploaded, create a SHA256 checksum (for integrity checking), and save the file somewhere on disk.
+2. A list of all the files I've uploaded.
+3. A list of all the tags I've used, and a way to filter to documents with a given set of tags.
+
+I then started building a prototype in Python, which eventually became an app called [_docstore_](https://github.com/alexwlchan/docstore).
+You can read more about it below, browse the source code on GitHub, or run it from [Docker Hub](https://hub.docker.com/r/greengloves/docstore).
+
+
+
+## The front end
+
+This is what docstore looks like:
+
+<img src="/images/2019/docstore_screenshot.png">
+
+This is the form for uploading a new document, created with [Bootstrap](https://getbootstrap.com/).
+It has fields for a human-readable title, tags and an optional source URL.
+Sometimes I can download PDFs from online portals rather than getting a paper letter I have to scan, and I can record where I saved it in the source URL field.
+
+<figure>
+  <img src="/images/2019/docstore_upload_form.png" alt="A form titled 'Store a document' with fields 'Title', 'Tags', and 'Source URL'.">
+  <figcaption>If I start typing something that looks like an existing tag, the tags field will offer to autocomplete for me.</figcaption>
+</figure>
+
+This is what the list of documents looks like:
+
+<img src="/images/2019/docstore_document_list.png" alt="A list of five documents, showing a thumbnail on the left, plus a date stored, tags, and the source URL.">
+
+I have code for creating thumbnails from PDFs ([with pdftocairo](/2019/09/creating-preview-thumbnails-of-pdf-documents/)), images ([with ImageMagick](https://imagemagick.org/index.php)), and ebooks in both [epub](https://github.com/alexwlchan/epub-thumbnailer) and [mobi](https://github.com/alexwlchan/get-mobi-cover-image) formats.
+The thumbnails make it easy to identify a document at a glance -- book covers are particularly good for this, but it works in letters too.
+Companies often use the same letterhead for everything they send me, so I learn to spot that as I'm scrolling a list.
+
+The title field is meant to be human-readable, even if it includes characters that aren't suitable in a filename.
+This is my one-line description of the document.
+
+Clicking on the title or the thumbnail opens the original document.
+
+Below the title is a bit of metadata -- when I uploaded the document, any tags I've attached, and the source URL (if provided).
+The source URL is a clickable link, and clicking on the tags will filter the documents on the page to ones that have that tag.
+
+The document list is paginated, so it's not loading thousands of thumbnail images on every visit.
+
+To help me find documents, there are options to sort by title or by upload date:
+
+<figure>
+  <img src="/images/2019/docstore_sorting.png" alt="A 'sort by' dropdown menu with four options: 'title (a-z)', 'title (z-a)', 'date created (newest first)' and 'date created (oldest first)'.">
+  <figcaption>When I'm labelling a sort option, I much prefer explicit sort options to "ascending" or "descending". It always takes me a moment to work out which one I actually want, and half the time I pick wrong.</figcaption>
+</figure>
+
+Finally, at the top of every page, there's a list of all the tags I've used.
+This gives me a way to see what tags I've already used, and to quickly drill down into my documents:
+
+<figure>
+  <img src="/images/2019/docstore_tag_list.png">
+  <figcaption>I use a colon in tags to create a mini-hierarchy, which is reflected in the tag list. For example, in the list above, I have three tags: <em>programming</em>, <em>programming:ruby</em>, and <em>programming:scala</em>.
+  </figcaption>
+</figure>
+
+## Under the hood
+
+### Libraries
+
+originally responder, now flask
+
+bunch of libraries for thumbnailing,
+including cairopdf and imagemagick
+epub + mobi
+
+whitenoise is new lib to me
+
+runs in a docker image for easy deployment
+
+### Storing the individual PDF files
+
+When I save a file to disk, I normalise the filename into something computer-friendly.
+This means stripping out all the special characters, lowercasing the whole name, and replacing spaces with hyphens.
+The files get sorted into directories based on their first letter.
+Something like:
+
+```
+files
+ ├─ a
+ │   ├─ advice-for-renters.pdf
+ │   └─ alex-chan-contract.pdf
+ └─ b
+     ├─ breakdown-cover-ipid-document.pdf
+     └─ british-gas-terms-and-conditions.pdf
+```
+
+If you download a file, I use the Content-Disposition header to send the original filename -- this normalisation should be completely hidden from the user.
+The internal filenames are still close to the original, so they'll stay usable if you decide to stop using docstore.
+
+If you upload a file with the same name twice, I append a random string to the filename to avoid clashes.
+Something like:
+
+```
+files
+ └─ a
+     ├─ advice-for-renters.pdf
+     └─ advice-for-renters_a187b.pdf
+```
+
+The thumbnails are kept in a separate folder -- they're less important than the original files, and I don't want to mix them up.
+
+### Storing the metadata
+
+All the metadata is kept in a single JSON file.
+JSON means it's human-readable and human-editable, and not tied to any particular software or language.
+Here's what it looks like:
+
+```json
+{
+  "000914e9-be70-4d11-bba5-6c902e9bcb44": {
+    "filename": "Advice for renters.pdf",
+    "file_identifier": "a/advice-for-renters.pdf",
+    "checksum": "sha256:8b9...b40",
+    "date_created": "2019-11-25 00:05:52 +0000",
+    "tags": [
+	  "home:renting",
+	  "home:123-sesame-street"
+	],
+	"thumbnail_identifier": "0/000914e9-be70-4d11-bba5-6c902e9bcb44.jpg",
+	"title": "2019-11: Advice for renters"
+  },
+  ...
+}
+```
+
+I use UUIDs as IDs, which is a holdover from an early version -- right now they're only used to identify the thumbnail images.
+I could probably get away with storing a list of documents, but it's not worth changing.
+
+The original filename is recorded, so it can be returned later.
+
+When I upload a file, the app records a SHA256 checksum.
+These documents should all be immutable, so this is a way to spot file corruption.
+
+The title is meant to be human readable, and can include characters that are difficult to put in filenames: things like spaces, slashes and colons.
+
+When the app starts, it loads the entire JSON file into memory.
+It also polls the file periodically, and if it detects a change, it reloads the file.
+This would cause issues if I was running at large scale, but for a few thousand documents this isn't a problem.
+
+### Finding documents with a given set of tags
+
+### Possible limitations to scaling
+
+---
 
 When I started building this system, I'd been working on a new archival storage service at work.
 
@@ -351,3 +507,5 @@ nice saving!
 
 * https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies
 * Fan is a tool-using animal
+
+https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
