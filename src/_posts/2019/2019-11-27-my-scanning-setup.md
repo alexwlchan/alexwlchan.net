@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-11-27 12:43:44 +0000
 title: How I scan and organise my paperwork
 summary: My procedure for scanning paper, and organising the scanned PDFs with keyword tagging.
 
