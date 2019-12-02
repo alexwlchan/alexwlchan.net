@@ -21,7 +21,8 @@ Sometimes I give talks at meetups or conferences, and I have a list of slides/vi
 
 I've also written about my [ideas for running inclusive and accessible events](https://alexwlchan.net/ideas-for-inclusive-events/).
 
-I'm trans, genderfluid, and I prefer "they/them" pronouns.
+I'm trans, genderfluid, and my pronouns vary.
+If you don't know me, "they/them" is a safe default.
 
 I hope you enjoy the site.
 
