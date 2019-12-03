@@ -1,5 +1,5 @@
 ---
-category: Wellcome Collection
+category: Amazon Web Services
 date: 2019-09-12 19:53:53 +0000
 layout: post
 summary: Walking through some Java/Scala code that lets you read very large objects
