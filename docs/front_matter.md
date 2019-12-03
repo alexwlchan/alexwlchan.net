@@ -22,7 +22,7 @@ Notes on the custom front matter keys I've defined.
     theme.minipost (boolean)
   </dt>
   <dd>
-    Whether to de-emphasise the title of a post.
+    Whether to de-emphasise the title of a post, and hide it from "recent posts" on the front page.
     Useful for shorter posts.
   </dd>
 </dl>
