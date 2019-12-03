@@ -1,12 +1,9 @@
 ---
-layout: post
+category: Working with macOS
 date: 2019-03-11 20:31:17 +0000
-title: Finding the latest screenshot in macOS Mojave
-summary:
+layout: post
 tags: os-x shell-scripting
-categories:
-  - Programming
-category: Programming and code
+title: Finding the latest screenshot in macOS Mojave
 ---
 
 One of the things that changed in macOS Mojave was the format of screenshot filenames.
