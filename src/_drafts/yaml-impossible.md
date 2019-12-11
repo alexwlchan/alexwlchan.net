@@ -1,7 +1,12 @@
 ---
 layout: post
 title: This YAML file will self-destruct in five seconds!
+summary: YAML allows you to execute arbitrary code in a parser, even if you really really shouldn't.
 category: Programming and code
+
+theme:
+  card_type: summary_large_image
+  image: /images/2019/tape_recorder.jpg
 ---
 
 If you know the *Mission: Impossible* films (or before that, the 1966 TV series), you've surely heard the famous phrase, "This tape will self-destruct in five seconds. Good luck, Jim."
