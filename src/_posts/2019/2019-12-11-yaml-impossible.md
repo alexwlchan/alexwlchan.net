@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2019-12-11 08:52:40 +0000
 title: This YAML file will self-destruct in five seconds!
 summary: YAML allows you to execute arbitrary code in a parser, even if you really really shouldn't.
 category: Programming and code
