@@ -33,7 +33,13 @@ If you'd rather give a monetary expression of gratitude, I have a Ko-fi page: <h
 If you feel uncomfortable giving money to me directly, you can donate to one of the charities I support.
 That list includes:
 
-{% assign charities = site.data["charities"] | shuffle %}
+{% comment %}
+  This code is meant to randomly shuffle the list, and display three charities.
+  Every time the site builds, the list is rebuilt.
+
+  I don't want this to be a long scrolling list; that would get busy and take up too much of the page.
+{% endcomment %}
+{% assign charities = site.data["charities"] | shuffle | slice: 0, 3 %}
 
 <table>
 {% for charity in charities %}
@@ -45,5 +51,3 @@ That list includes:
 </tr>
 {% endfor %}
 </table>
-
-<!-- You don't need to tell me you've done it, or donate in my name. -->
