@@ -22,3 +22,11 @@
   description: |+
     [Cool Earth](https://www.coolearth.org/) help preserve rainforests by buying land in areas at risk of deforestation, and entrusting it to local, indigenous communities.
     The charity is UK based, but they help rainforests across the world, including the Amazon.
+
+- name: "Roma Support Group"
+  image: "roma_support_group.jpg"
+  donate_link: "https://www.romasupportgroup.org.uk/how-you-can-give.html"
+
+  description: |+
+    The [Roma Support Group](https://www.romasupportgroup.org.uk/) is a Roma-led charity that supports Roma families throughout the UK, including for welfare, housing, health and employment.
+    Their work also includes advocacy, education and research.
