@@ -10,7 +10,7 @@ ECS is a service for orchestrating Docker containers -- you describe a collectio
 
 If you look in the ECS console, you can see graphs of the CPU and memory utilisation for an app:
 
-<img src="/images/2020/ecs_metric_graphs.png" style="width: 616px;">
+<img src="/images/2020/ecs_metric_graphs.png" style="width: 616px;" alt="Two line graphs showing CPU (left) and memory utilisation (right) in the ECS console. The graphs have blue (maximum), orange (average) and green (minimum) lines.">
 
 At a glance, this gives a clue about whether any apps are bottlenecked by CPU or memory.
 In this case, we can see there were periods when the app was using 100% of its provisioned CPU and memory -- so we might be able to make it run faster by increasing its available resources.
@@ -19,7 +19,7 @@ These stats are all available through AWS APIs -- so could we get this data prog
 
 I've written a script that gives me a quick snapshot of CPU and memory usages across an ECS cluster, and highlights possible bottlenecks:
 
-<img src="/images/2020/ecs_terminal_graph.png" style="width: 644px; border: 1px solid #ccc;">
+<img src="/images/2020/ecs_terminal_graph.png" style="width: 644px; border: 1px solid #ccc;" alt="A terminal window with some horizontal bar charts showing percentages. Bars with the highest percentages are highlighted in red.">
 
 You can walk through how I wrote this script below, or [scroll to the end](#putting-it-all-together) if you just want the code.
 
@@ -50,7 +50,7 @@ Each service belongs to a cluster.
 The graph in the ECS console is created from CloudWatch Metrics.
 If you click the title of the graph, you're taken to the CloudWatch console, where you can see a bigger, interactive version of the graph:
 
-<img src="/images/2020/ecs_cloudwatch_metrics.png">
+<img src="/images/2020/ecs_cloudwatch_metrics.png" alt="A blue line graph, with a tab underneath titled 'Graphed metrics' giving some information about what's being shown.">
 
 This gives us the clues we need to look up these values programatically.
 The [GetMetricStatistics API][GetMetricStatistics] takes a handful of parameters, which we can match to the parameters in this screenshot:
@@ -353,6 +353,16 @@ If we combine all the functions above, and put them into a single script, here's
 
 ```python
 #!/usr/bin/env python
+"""
+Find the CPU/memory bottlenecks in an ECS cluster.
+
+This script will look for ECS clusters in your AWS account, ask you to pick
+one, then show you peak CPU/memory utilisation over the last 24 hours.
+It's a good way to identify apps that might be under-provisioned, and benefit
+from being given more resources.
+
+Python 3.6+.
+"""
 
 import datetime
 import os
@@ -416,10 +426,10 @@ def list_clusters():
 
 
 def choose_cluster():
-	"""
-	Get a list of the ECS clusters running in this account, and choose
-	one to inspect – possibly asking the user to choose from a list.
-	"""
+    """
+    Get a list of the ECS clusters running in this account, and choose
+    one to inspect – possibly asking the user to choose from a list.
+    """
     all_clusters = list(list_clusters())
 
     if len(all_clusters) == 0:
@@ -543,7 +553,8 @@ if __name__ == "__main__":
     draw_bar_chart(memory_stats)
 ```
 
-This isn't a full-bore dashboard, but it does give you a quick snapshot of how your cluster is looking.
+This isn't a full-bore dashboard, but it does give me a quick snapshot of how our cluster is looking.
+If it highlights something in red, I go look at the more detailed graphs in CloudWatch, to find out if this was a temporary spike, or the app is consistently being bottlenecked.
 I've already used it to tweak a couple of services for better performance, and I expect to use it again next time I'm fiddling with our ECS clusters.
 
 The AWS APIs give you very flexible access to this data, and I've cobbled together all sorts of scripts to ask weird questions about our infrastructure.
