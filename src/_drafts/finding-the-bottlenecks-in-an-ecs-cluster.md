@@ -6,9 +6,9 @@ category: Amazon Web Services
 ---
 
 At work, we use Amazon's EC2 Container Service (ECS) to run some of our applications.
-ECS is a service for orchestrating Docker containers -- you describe a collection of containers you want to run, and then ECS finds somewhere to run them.
+ECS is a service for orchestrating Docker containers -- you describe a collection of containers you want to run, and then ECS finds somewhere to start them.
 
-If you look in the ECS console, you can see graphs of the CPU and memory utilisation for your containers:
+If you look in the ECS console, you can see graphs of the CPU and memory utilisation for an app:
 
 <img src="/images/2020/ecs_metric_graphs.png" style="width: 616px;">
 
@@ -25,7 +25,7 @@ You can walk through how I wrote this script below, or [scroll to the end](#putt
 
 
 
-## ECS terminology
+## Some ECS terminology
 
 In ECS, a [*task definition*][task] describes a collection of containers you want to run together, and any of the parameters you need to start them.
 For example, "run three app containers and one nginx container".
@@ -102,7 +102,7 @@ max_value = max(dp["Maximum"] for dp in resp["Datapoints"])
 ```
 
 Occasionally this might throw a ValueError "max() arg is an empty sequence", if there are no data points in the response.
-Some of our apps scale down to zero when they aren't running, so you won't get any CPU utilisation statistics.
+Some of our apps stop running if they don't have any work to do, so you won't get any CPU utilisation statistics.
 We can handle that case as so:
 
 ```python
@@ -198,7 +198,7 @@ So how do we know what cluster to look at?
 ## Asking the user to choose a cluster
 
 In the past, I've written scripts that take the name of the cluster as a command line argument.
-That's simple to implement, but more annoying for the person who runs the script -- you have to know the exact name of the cluster, and if you make a typo it doesn't work.
+That's simple to implement, but fiddly for the person who runs the script -- they have to know the exact name of the cluster, and if they make a typo it doesn't work.
 I wanted to try a different approach with this script.
 
 We've already seen we can query the ECS API for a list of services: how about querying it for a list of clusters, and asking the user to pick one on the command line?
@@ -281,11 +281,11 @@ So now we can ask the user to select a cluster, get a list of all the services i
 How do we display that to the user?
 
 I've done a bit of this before -- two years ago I wrote a post about [drawing ASCII bar charts in Python](/2018/05/ascii-bar-charts/), and that code is pretty useful here.
-I've made a couple of tweaks to the code in that post, in particular:
+I'm not going to go through it again, just note a couple of tweaks I've made to the code from that post, in particular:
 
 *   removing common prefixes from the service names
 *   the CPU/memory utilisation results are a percentage, so should cap out at ~100%
-*   highlight anything over 95% in red using the [termcolor module](https://pypi.org/project/termcolor/), because that's potentially interesting
+*   highlight anything over 95% in red using the [termcolor module](https://pypi.org/project/termcolor/), because that's what I'm looking for
 *   tweak the value code to show decimal numbers, not just whole integers
 
 Here's what the revised bar chart function looks like:
@@ -416,6 +416,10 @@ def list_clusters():
 
 
 def choose_cluster():
+	"""
+	Get a list of the ECS clusters running in this account, and choose
+	one to inspect – possibly asking the user to choose from a list.
+	"""
     all_clusters = list(list_clusters())
 
     if len(all_clusters) == 0:
