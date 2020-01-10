@@ -188,7 +188,7 @@ It returns a 2-tuple of finished and unfinished futures:
 [wait]: https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.wait
 
 ```python
-done, not_done = concurrent.futures.wait(
+finished, unfinished = concurrent.futures.wait(
     futures, return_when=concurrent.futures.FIRST_COMPLETED
 )
 ```
