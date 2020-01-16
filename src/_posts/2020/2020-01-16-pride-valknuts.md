@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-01-16 22:56:51 +0000
 title: Generating pride-themed Norse valknuts with Python 🌈
 category: Glitch apps
 link: https://rainbow-valknuts.glitch.me/
