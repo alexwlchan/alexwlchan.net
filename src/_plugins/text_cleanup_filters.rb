@@ -10,7 +10,13 @@ module Jekyll
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
         "LaTeX",
-        "<span class=\"latex\">L<sup>a</sup>T<sub>e</sub>X</span>")
+        "<span class=\"latex\">L<sup>a</sup>T<sub>e</sub>X</span>"
+      )
+
+      text = text.gsub(
+        "TeX",
+        "<span class=\"latex\">T<sub>e</sub>X</span>"
+      )
 
       # Replace any mention of "PyCon" with the appropriate non-breaking space
       text = text.gsub("PyCon ", "PyCon&nbsp;")
