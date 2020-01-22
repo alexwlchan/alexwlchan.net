@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-01-22 07:50:23 +0000
 title: An interactive map of British railway stations 🚂
 summary:
 category: Glitch apps
