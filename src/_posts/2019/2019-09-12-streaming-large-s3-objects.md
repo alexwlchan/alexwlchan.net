@@ -9,7 +9,7 @@ title: Streaming large objects from S3 with ranged GET requests
 
 In [my last post](/2019/09/unpacking-compressed-archives-in-scala/), I talked about how to take a Java `InputStream` for a tar.gz file, and get an iterator of `(ArchiveEntry, InputStream)`.
 If we want to use that code, we need to get an InputStream for our tar.gz file -- which in our case, is stored in S3.
-Some of our archives are very big (the biggest is half a terabyte), and getting a reliable InputStream for an S3 objedct turns out to be non-trivial.
+Some of our archives are very big (the biggest is half a terabyte), and getting a reliable InputStream for an S3 object turns out to be non-trivial.
 
 In this post, I'm going to walk through some code we've written to reliably stream large objects from S3.
 This is similar to something I wrote in February about [reading large objects in Python][s3_python], but you don't need to read that post before this one.
