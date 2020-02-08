@@ -68,7 +68,7 @@ def get_matching_s3_objects(bucket, prefix="", suffix=""):
             try:
                 contents = page["Contents"]
             except KeyError:
-                return
+                break
 
             for obj in contents:
                 key = obj["Key"]
