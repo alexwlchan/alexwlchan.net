@@ -51,7 +51,7 @@
 \begin{document}
   \begin{tikzpicture}
 
-    \draw [incompblue, thick] (-3.3, -9) rectangle (89, 21.5);
+    \draw [incompblue, thick] (-3.3, -9) rectangle (94.5, 21.5);
 
     \draw [incompblue] (8.5, 16) node [align=left, text width=20cm] (title) {\textsf{\HUGE{%
       The\, Incomparable's \\[8pt] %
@@ -350,6 +350,16 @@
     }{%
       When asked for ideas for future drafts, David J.~Loehr proposes a Skeletor Recursive Clip Loop draft. Which is your favourite iteration of the loop? Maybe somebody will choose this image chart?
     }
+
+    \draw (ep495_clip) ++ (35:1.1*\hspacing) node (ep495_end) {};
+    \episode{ep495_end}{
+      \#495 Congratulations, You're All Pregnant -- \\[2pt]
+      The Best of 2019
+    }{%
+      In a post-credits scene, we hear another version of Steve picking the Skeletor clip in episode \#495\ldots and in this iteration, Jason does play the clip loop.
+    }
+    \link [dashed] (ep495_end) to [out=180, in=80] (ep495_clip);
+    \link (ep495_end) to [out=180, in=60] (ep440);
 
   \end{tikzpicture}
 \end{document}
