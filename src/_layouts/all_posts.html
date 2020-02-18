@@ -15,6 +15,16 @@ layout: page
 
 <div class="post__separator" aria-hidden="true">&#9670;</div>
 
+<h3>Categories</h3>
+<ul class="dot_list">
+{% for group in page.grouped_posts %}
+  {% assign grp_category = group[0] %}
+  <li><a href="#{{ grp_category | slugify }}">{{ grp_category | replace: " ", "&nbsp;" }}</a></li>
+{% endfor %}
+</ul>
+
+<div class="post__separator" aria-hidden="true">&#9670;</div>
+
 {% for group in page.grouped_posts %}
   {% assign grp_category = group[0] %}
   {% assign posts = group[1] %}
