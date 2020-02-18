@@ -3,7 +3,7 @@ layout: post
 date: 2019-10-22 22:00:14 +0000
 title: Digital preservation at Wellcome Collection
 summary:
-category: Wellcome Collection
+category: Digital preservation
 link: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
 ---
 
