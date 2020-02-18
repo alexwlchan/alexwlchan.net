@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-02-18 08:09:36 +0000
 title: Storing multiple, human-readable versions of BagIt bags
 summary:
 category: Digital preservation
