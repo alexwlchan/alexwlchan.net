@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-02-23 20:58:34 +0000
 title: Adjusting the dominant colour of an image
 summary:
 ---
