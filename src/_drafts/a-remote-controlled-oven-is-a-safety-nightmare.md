@@ -139,7 +139,7 @@ Most of us aren't building internet-connected ovens, so the specific ideas aren'
 But the general ideas -- good access controls, dealing with malicious users, our services being used in unexpected and harmful ways -- are broadly applicable.
 
 If you're building any sort of product or service, abusive personas need to be part of your design process.
-Safety can't be an afterthought -- it's easier to head off a problem early, in the design stages, before it ships to customers.
+Safety can't be an afterthought -- it's easier to head off a problem early, in the design stages, before it gets to users.
 People can and will use the things we build for evil, and we need to anticipate that in advance.
 
 [thread]: https://twitter.com/alexwlchan/status/1231869918926299136
