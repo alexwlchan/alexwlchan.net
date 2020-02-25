@@ -10,7 +10,7 @@ index:
 ---
 
 Last month, Monzo published [a blog post][monzo] about how they hire product designers.
-The blog post got some attention on Twitter over the weekend, and in particular a design exercise for an oven controlled by an app:
+The blog post got some attention on Twitter over the weekend, and in particular a design exercise for an app-controlled oven:
 
 > Following a successful phone call, we’ll give you a small task to see how you respond to a real-life challenge.
 >
