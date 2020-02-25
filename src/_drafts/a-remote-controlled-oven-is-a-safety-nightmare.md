@@ -133,10 +133,12 @@ If you don't think about how they'll misuse your product or service, you'll find
 ## Conclusions
 
 This post started as [a few tweets][thread], and as I started to write, I thought of more and more ways this could go wrong.
+I hope you found it useful, and maybe it got you thinking about some failure modes you haven't considered before.
+
 Most of us aren't building internet-connected ovens, so the specific ideas aren't immediately practical.
 But the general ideas -- good access controls, dealing with malicious users, our services being used in unexpected and harmful ways -- are broadly applicable.
 
-If you're building any sort of product or service, you need to consider abusive personas and think about these ideas.
+If you're building any sort of product or service, abusive personas need to be part of your design process.
 Safety can't be an afterthought -- it's easier to head off a problem early, in the design stages, before it ships to customers.
 People can and will use the things we build for evil, and we need to anticipate that in advance.
 
