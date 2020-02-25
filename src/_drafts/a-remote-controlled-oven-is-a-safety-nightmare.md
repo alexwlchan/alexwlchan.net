@@ -9,7 +9,7 @@ index:
 ---
 
 Last month, Monzo published [a blog post][monzo] about how they hire product designers.
-The blog post got a lot of attention on Twitter over the weekend, and in particular a design exercise for an oven controlled by an app:
+The blog post got some attention on Twitter over the weekend, and in particular a design exercise for an oven controlled by an app:
 
 > Following a successful phone call, we’ll give you a small task to see how you respond to a real-life challenge.
 >
@@ -26,7 +26,7 @@ It's been criticised from various angles -- because it's a [take-home design exe
 [exercises]: https://orgdesignfordesignorgs.com/2018/05/15/design-exercises-are-a-bad-interviewing-practice/
 
 When I saw this oven, my first thought was: *how would a terrible flatmate misuse this oven?*
-This is a topic [I've written about in the past][assume_worst_intent] -- even if our product or service is bug-free, a malicious or abusive user could still use it to hurt someone.
+This is a topic [I've written about in the past][assume_worst_intent] -- even if a product or service is bug-free, a malicious or abusive user could still use it to hurt someone.
 We should always design with abusive personas in mind, and consider how the things we build might be weaponised.
 
 [assume_worst_intent]: /2018/09/assume-worst-intent/
@@ -34,6 +34,7 @@ We should always design with abusive personas in mind, and consider how the thin
 How could somebody nasty misuse an oven that's controlled by an app?
 Before you read on, you might want to try this exercise yourself.
 How many ways can *you* think of that an abusive ex or terrible flatmate might use this oven to hurt someone?
+What sort of things should you consider when designing this oven?
 I'll explain some of my ideas after the picture.
 
 <figure>
@@ -61,7 +62,7 @@ How do you control who has access?
 -   Suppose two people give the oven conflicting instructions; which one should take precedence?
     This could be malice -- two people squabbling over dinner -- or an accident -- if one person is cooking something, and another tries to preheat the oven for their own food.
 
--   Do you need more granular permissions than "can or can't control the oven"?
+-   Do you need more granular permissions than "can control the oven"?
     For example, maybe you don't trust your children to turn the oven on, but you do want to let them turn it off in an emergency.
 
 -   If you're a landlord who rents out your flat to long-term tenants, or an Airbnb host with short-term visitors, how do you let them cook food in the oven?
@@ -136,7 +137,7 @@ Most of us aren't building internet-connected ovens, so the specific ideas aren'
 But the general ideas -- good access controls, dealing with malicious users, our services being used in unexpected and harmful ways -- are broadly applicable.
 
 If you're building any sort of product or service, you need to consider abusive personas and think about these ideas.
-Safety can't be an afterthought.
+Safety can't be an afterthought -- it's easier to head off a problem early, in the design stages, before it ships to customers.
 People can and will use the things we build for evil, and we need to anticipate that in advance.
 
 [thread]: https://twitter.com/alexwlchan/status/1231869918926299136
