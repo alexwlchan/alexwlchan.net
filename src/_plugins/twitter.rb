@@ -225,7 +225,7 @@ module Jekyll
 
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
 
-      if !tweet_data.has_key "extended_entities"
+      if !tweet_data.has_key? "extended_entities"
         tweet_data["extended_entities"] = tweet_data["entities"]
       end
 
