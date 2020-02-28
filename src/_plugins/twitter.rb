@@ -224,6 +224,11 @@ module Jekyll
       per_tweet_alt_text = alt_text[@tweet_url]
 
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
+
+      if !tweet_data.has_key "extended_entities"
+        tweet_data["extended_entities"] = tweet_data["entities"]
+      end
+
       tpl.render!("tweet_data" => tweet_data, "alt_text" => per_tweet_alt_text)
     end
   end
