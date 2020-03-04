@@ -1,0 +1,42 @@
+<svg viewBox="0 0 625 110" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text {
+        fill: black;
+        font-size: 16px;
+        stroke: none;
+        dominant-baseline: middle;
+        font-family: sans-serif;
+      }
+
+      .tick {
+        fill: #1cb011;
+        font-size: 40px;
+      }
+
+      .cross {
+        fill: #d01c11;
+        font-size: 40px;
+      }
+
+      .underline {
+        text-decoration: underline;
+        dominant-baseline: middle;
+      }
+    </style>
+  </defs>
+
+  <text x="25" y="25">You can read <tspan class="underline">RFC 1234</tspan></text>
+  <text x="25" y="48">to learn about</text>
+
+  <text class="tick" x="100" y="90">✔</text>
+
+  <text x="240" y="25">You can read <tspan class="underline">RFC</tspan></text>
+  <text x="240" y="48"><tspan class="underline">1234</tspan> to learn about</text>
+
+  <text class="cross" x="295" y="90">✘</text>
+
+  <text x="425" y="25">You can read</text>
+  <text x="425" y="48"><tspan class="underline">RFC 1234</tspan> to learn about</text>
+  <text class="tick" x="500" y="90">✔</text>
+</svg>
