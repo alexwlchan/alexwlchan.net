@@ -13,6 +13,15 @@ This post is about one of those details.
 
 Most people will notice that the site works well on small screens as well as big.
 Lots of web traffic comes from smartphones, so I made sure the design would scale up as well as down.
+(I think the technical term for this is [responsive design].)
+
+[responsive design]: https://en.wikipedia.org/wiki/Responsive_web_design
+
+One effect of responsive design is that you can't tell where line breaks will appear.
+To keep the text a sensible size, lines have to be different lengths on different devices -- for example, 20 words fit comfortably on a single line on a desktop monitor, but on a phone screen they'd be unreadably small.
+
+Most of the time, this is fine.
+It doesn't matter where the line breaks appear.
 
 ---
 
