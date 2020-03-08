@@ -7,6 +7,8 @@ module Jekyll
       # Also: "part X" or "Part X"
       text = text.gsub(/([Pp]art) (\d+)/, '\1&nbsp;\2')
 
+      text = text.sub("iPhone X", "iPhone&nbsp;X")
+
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
         "LaTeX",
