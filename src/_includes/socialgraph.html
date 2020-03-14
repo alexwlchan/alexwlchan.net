@@ -9,22 +9,12 @@
 <meta name="twitter:description" content="{{ page.summary }}">
 {% endif %}
 
-{#
-  Something about Twitter cards is broken on the site, and I don't know what!
-
-  Looking at the nginx logs, Twitterbot isn't even trying to fetch the images.
-  I wonder if it's got confused by a cached robots.txt or something?
-
-  They seem to serve okay from GitHub's cards, so use the fact that my images
-  are accessible through GitHub as a hack to make cards work again.
-#}
-
 {% if page.theme.image %}
 <meta property="og:image" content="{{ site.url }}{{ page.theme.image }}" />
-<meta name="twitter:image" content="https://raw.githubusercontent.com/alexwlchan/alexwlchan.net/live/src/_images/{{ page.theme.image | replace: "images/", "" }}" />
+<meta name="twitter:image" content="{{ site.url }}{{ page.theme.image }}" />
 {% else %}
 <meta property="og:image" content="{{ site.url }}/images/profile2020.jpg" />
-<meta name="twitter:image:src" content="https://avatars0.githubusercontent.com/u/301220?s=400&amp;v=4">
+<meta name="twitter:image" content="{{ site.url }}/images/profile2020.jpg" />
 {% endif %}
 
 <meta property="og:type" content="article" />
