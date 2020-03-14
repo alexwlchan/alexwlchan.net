@@ -9,7 +9,7 @@
 <meta name="twitter:description" content="{{ page.summary }}">
 {% endif %}
 
-{#
+{% comment %}
   Something about Twitter cards is broken on the site, and I don't know what!
 
   Looking at the nginx logs, Twitterbot isn't even trying to fetch the images.
@@ -17,7 +17,7 @@
 
   They seem to serve okay from GitHub's cards, so use the fact that my images
   are accessible through GitHub as a hack to make cards work again.
-#}
+{% endcomment %}
 
 {% if page.theme.image %}
 <meta property="og:image" content="{{ site.url }}{{ page.theme.image }}" />
