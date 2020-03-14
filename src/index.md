@@ -18,7 +18,7 @@ archive_variant: index
   }
 </style>
 
-<img src="/images/profile.png" class="profile" alt="A picture of a person set against the sky.">
+<img src="/images/profile.jpg" class="profile" alt="A picture of a person set against the sky.">
 
 ## Hi, I'm Alex.
 
