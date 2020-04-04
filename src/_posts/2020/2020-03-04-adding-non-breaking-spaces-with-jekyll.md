@@ -19,7 +19,7 @@ Lots of web traffic comes from smartphones, so I made sure the design would scal
 [responsive design]: https://en.wikipedia.org/wiki/Responsive_web_design
 
 One effect of responsive design is that you can't predict where line breaks will appear.
-To keep the text a sensible size, lines have to be different lengths on different devices -- for example, 20 words fit comfortably on a single line on a desktop monitor, but on a phone screen they'd be unreadably small.
+To keep the text a sensible size, lines have to be different lengths on different devices -- for example, 20 words fit comfortably on one line on a desktop monitor, but on a phone screen they'd be unreadably small.
 
 Most of the time, this is fine.
 It doesn't matter where the line breaks appear.
@@ -28,7 +28,7 @@ Phrases like *"PyCon UK"*, *"RFC 1234"* or *"part 3"*.
 If the two words were split over multiple lines, it wouldn't be the end of the world, but it'd be a bit annoying.
 It's a digital paper cut.
 
-<img src="/images/2020/line_breaking.svg" alt="Three examples of line breaking of “RFC 1234”, with a green tick next to two examples where the two words are on the same line, and a red cross where they’re split across a line.">
+{% inline_svg "_images/2020/line_breaking.svg" %}
 
 In HTML, you can use a [non-breaking space] to tell a browser "don't put a line break here".
 If I write `RFC&nbsp;1234` instead of `RFC 1234`, the two words will always appear on the same line.

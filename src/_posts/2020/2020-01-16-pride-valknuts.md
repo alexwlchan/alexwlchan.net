@@ -14,7 +14,7 @@ One shape that's much easier to define in triangular coordinates is the [valknut
 [valknut]: https://en.wikipedia.org/wiki/Valknut
 
 <figure style="width: 380px;">
-  <img src="/images/2020/valknut.svg" alt="Three black interlocking triangles.">
+  {% inline_svg "_images/2020/valknut.svg" %}
   <figcaption>
     Image of a Valknut created by Wikipedia users <a href="https://commons.wikimedia.org/wiki/File:Valknut.svg">Nyo and Liftarn</a>.
     Used under CC-BY.
