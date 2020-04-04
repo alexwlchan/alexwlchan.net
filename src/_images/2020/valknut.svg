@@ -2,8 +2,8 @@
 <svg xmlns="http://www.w3.org/2000/svg"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://web.resource.org/cc/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   width="728" height="678" viewBox="0 2 728 678">
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" viewBox="0 2 728 678">
+  <title>Three black interlocking triangles</title>
   <metadata><rdf:RDF><cc:Work rdf:about="">
     <dc:format>image/svg+xml</dc:format>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>

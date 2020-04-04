@@ -1,4 +1,7 @@
 <svg viewBox="0 0 625 110" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    Three examples of line breaking of the text “RFC 1234”, with a green tick next to two examples where the two words are on the same line, and a red cross where they're split across a line.
+  </title>
   <defs>
     <style>
       text {
