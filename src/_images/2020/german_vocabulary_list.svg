@@ -1,0 +1,42 @@
+<svg viewBox="0 0 300 55" xmlns="http://www.w3.org/2000/svg">
+  <title>Three lines of text with arrows between them: hippo &amp;larr; das Nilpferd; slug &amp;rarr; die Nacktschnecke; turtle &amp;rarr; die Schildkröte</title>
+  <defs>
+    <style>
+      text {
+        fill: #202020;
+        stroke: none;
+        dominant-baseline: middle;
+        font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+        font-size: 12px;
+      }
+
+      line {
+        stroke: #aaa;
+        stroke-linecap: round;
+        stroke-width: 1.5;
+      }
+
+      .de {
+        font-style: italic;
+        dominant-baseline: middle;
+      }
+    </style>
+  </defs>
+
+  <text x="5" y="10">hippo</text>
+  <text x="5" y="30">slug</text>
+  <text x="5" y="50">turtle</text>
+
+  <text x="130" y="10"><tspan class="de">das Nilpferd</span> (Nile horse)</text>
+  <text x="130" y="30"><tspan class="de">die Nacktschnecke</span> (naked snail)</text>
+  <text x="130" y="50"><tspan class="de">die Schildkröte</span> (shield toad)</text>
+
+  <marker id="arrowhead" markerWidth="7.5" markerHeight="5.25"
+    refX="0" refY="2.625" orient="auto" fill="#aaa">
+    <polygon points="0 0, 7.5 2.625, 0 5.25" r="10"/>
+  </marker>
+
+  <line x1="48" x2="108" y1="10" y2="10" marker-end="url(#arrowhead)"/>
+  <line x1="48" x2="108" y1="30" y2="30" marker-end="url(#arrowhead)"/>
+  <line x1="48" x2="108" y1="50" y2="50" marker-end="url(#arrowhead)"/>
+</svg>
