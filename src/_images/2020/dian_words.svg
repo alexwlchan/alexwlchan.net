@@ -1,0 +1,39 @@
+<svg viewBox="0 0 300 215" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text.level_0, text.level_1 {
+        fill: black;
+        stroke: none;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', 'Kaiti SC', serif;
+      }
+
+      text.level_0 {
+        font-size: 28px;
+      }
+
+      text.level_1 {
+        font-size: 22px;
+      }
+
+      line.dian_words {
+        stroke: #aaa;
+        stroke-linecap: round;
+        stroke-width: 2;
+      }
+    </style>
+  </defs>
+
+  <title>A star diagram with 电 in the middle, and lines leading out to 电话, 电视 and 电车.</title>
+
+  <text class="level_0" x="150" y="125">电</text>
+
+  <text class="level_1" x="150" y="25" >电话</text>
+  <text class="level_1" x="250" y="200">电视</text>
+  <text class="level_1" x="50"  y="200">电车</text>
+
+  <line class="dian_words" x1="150" y1="42"  x2="150" y2="102"/>
+  <line class="dian_words" x1="75"  y1="185" x2="135" y2="135"/>
+  <line class="dian_words" x1="230" y1="185" x2="170" y2="135"/>
+</svg>
