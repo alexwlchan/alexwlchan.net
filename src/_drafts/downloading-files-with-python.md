@@ -121,6 +121,8 @@ This is more involved than just using [`urlretrieve`][urlretrieve] in the standa
 [httpx]: https://www.python-httpx.org/advanced/
 [tenacity]: https://tenacity.readthedocs.io/en/latest/
 
+I don't have any tests for this right now, but I've tested in the past, and I've variants of this code to download thousands of files successfully.
+
 Next time I need to write a script that needs to download files, I'll copy-paste this code into the project.
 It's not the most complicated thing in the world, but it's one less thing I'll have to write from fresh next time.
 If this would be useful to you, feel free to copy it into your own code as well.
