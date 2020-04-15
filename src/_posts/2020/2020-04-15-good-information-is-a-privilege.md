@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-04-15 18:54:02 +0000
 title: Access to information is a privilege
 index:
   best_of: true
