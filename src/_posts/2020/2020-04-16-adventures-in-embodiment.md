@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-04-16 11:50:48 +0000
 title: Adventures in euphoria and embodiment
 summary: We all have bodies, and I've been trying to become more self-aware and connected with mine.
 category: Personal
