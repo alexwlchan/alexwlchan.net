@@ -1,6 +1,10 @@
 body {
   margin:  0;
   padding: 0;
+
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+     then contrast dropped */
+  background-image: url('/theme/white-waves-transparent.png');
 }
 
 article {
