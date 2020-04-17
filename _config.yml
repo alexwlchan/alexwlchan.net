@@ -19,7 +19,13 @@ date_format: "%-d %B %Y"
 
 permalink: "/:year/:month/:title/"
 
-keep_files: ["files", "images", "slides"]
+keep_files: [
+  # Managed by rsync outside the main Jekyll process
+  "files", "images", "slides",
+
+  # Created by a Jekyll plugin
+  "word-count.csv",
+]
 
 markdown: "kramdown"
 
