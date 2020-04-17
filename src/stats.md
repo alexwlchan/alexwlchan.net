@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Word count
+title: Blog stats
 ---
 
-This is an approximate word count for my blog.
-To date, I've written about <strong>{{ site.data["total_word_count"] | divided_by: 1000.0 | round: 1 }}k&nbsp;words</strong>.
+As of {{ site.time | date: "%d %B %Y" }}, I've written <strong>{{ site.posts.size }} posts</strong>, which is approximately <strong>{{ site.data["total_word_count"] | divided_by: 1000.0 | round: 1 }}k&nbsp;words</strong>.
+You can see how that breaks down over time on the chart below.
 
 You can download the word count data <a href="/word-count.csv">as a CSV</a>.
 
@@ -15,6 +15,16 @@ You can download the word count data <a href="/word-count.csv">as a CSV</a>.
 </figure>
 
 <script>
+function intComma(value) {
+  value = value.toString();
+  newValue = value.replace(/^(-?\d+)(\d{3})/, "$1,$2");
+  if (newValue === value) {
+    return value;
+  } else {
+    return intComma(newValue);
+  }
+}
+
 var ctx = document.getElementById('wordCount').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
@@ -27,8 +37,8 @@ var myChart = new Chart(ctx, {
 
     datasets: [
       {
-        barPercentage: 0.95,
-        categoryPercentage: 0.95,
+        barPercentage: 0.9,
+        categoryPercentage: 0.9,
         label: 'Approximate word count',
 
         data: [
@@ -49,26 +59,41 @@ var myChart = new Chart(ctx, {
     },
     scales: {
       yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: "words per month",
+          fontSize: 14,
+          fontColor: '#202020',
+          fontFamily: "Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif",
+        },
         ticks: {
           fontSize: 14,
+          fontColor: '#202020',
           fontFamily: "Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif",
-          beginAtZero: true
+          beginAtZero: true,
+          padding: 8,
+
+          callback: function(value, index, values) {
+            return intComma(value);
+          }
         }
       }],
       xAxes: [{
         ticks: {
           display: true,
-          fontSize: 14,
+          fontSize: 16,
+          padding: 4,
+          fontColor: '#202020',
           fontFamily: "Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif",
 
-          /*  I'd like these to display on January, but for some reason only
-              every N'th tick mark is displayed. */
-          callback: function(value, index, values) {
-            console.log(values);
+          /* If you don't set maxTicksLimit, then Chart.js will try to guess
+           * where to put ticks, and the January ticks may not appear.
+           */
+          maxTicksLimit: {{ site.data["per_month_word_count"].size }},          callback: function(value, index, values) {
             month = value.split(" ")[0];
             year = value.split(" ")[1];
 
-            return month == "March" ? year : null;
+            return month == "January" ? year : null;
           }
         },
         gridLines: { display: false }
