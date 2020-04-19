@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Comparing JSON strings in Scala test
-summary: There are lots of ways to format JSON. How do you know if two JSON strings have the same data, just differently roamtted?
+title: Comparing JSON strings when testing in Scala
+summary: There are lots of ways to format JSON. How do you know if two JSON strings have the same data, just differently formatted?
 category: Scala
 ---
 
