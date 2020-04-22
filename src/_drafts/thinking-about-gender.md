@@ -4,10 +4,102 @@ title: Thinking about gender
 summary: Cis people should be allowed to think about their gender too.
 ---
 
+Here's a take I see fairly regularly in online trans discourse: _"If you think a lot about your gender, you're trans"_.
+
+I've been considering this for a while, and more and more I think this take is not only unhelpful and wrong, but actively harmful.
+**There are cis people who want to unpack their relationship with their gender, and that's fine, not something to discourage.**
+
+I can see where this sentiment comes from: many trans people do think a lot about their gender (it's almost a defining characteristic!).
+It might be a strong indicator that you're trans, or that it's worth considering if transition would make you happier -- but it's not an absolute guarantee, and that nuance is often lost in the noise.
+
+I've spent a lot of time thinking about my gender in the last few years.
+I discovered it [wasn't quite right](/2019/06/regeneration/), I'm making some changes, and I'm so much happier now.
+This is good.
+
+In another timeline, I might have done the same thinking, decided "male" was okay, made some different changes, and been happier in a different way.
+That would be okay too!
+
+When I was thinking about gender, I had plenty of trans experiences to compare myself with.
+I think it's great that so many people feel comfortable sharing their feelings about this topic.
+But those experiences were dominated by people who'd made major, disruptive changes to their life (especially people who'd transitioned from one binary gender to the other).
+
+I wanted to get some contrasting opinions -- to talk to cis people who'd gone through the same process of questioning as me, and decided against major changes.
+What did their life look like?
+Why did they decide not to transition?
+What was their relationship with gender?
+And so on.
+
+That was much harder to find.
+
+I do have some cis friends who've done deep introspection of their gender, and in doing so they became more sure that they were cis.
+I think they'd all agree the process was worthwhile -- it gave them a better understanding of their gender, and how it applies to their life.
+But if they ever talk about this on the Internet, people tell them, *"You're trans, but you haven't realised it yet"*.
+
+It's incredibly frustrating and upsetting to be told that you're not a good judge of your own self.
+If you're trans, you'd be upset if somebody told you "you're not trans, you're actually the gender assigned at birth".
+The same is surely true in the other direction.
+
+Gender is complicated.
+The relationship between our gender, our bodies, and our sense of self is complicated.
+How with fit into the social expectations of our gender is complicated.
+More people should be able to explore it, to understand it, to find things that make them happy.
+Trans people don't have an exclusive claim to introspection about gender.
+
+Everyone should have the space to think about their gender and their relationship with it.
+**We should do things to make that exploration safer and easier, not unsafe or unpleasant.**
+
+Cis people are allowed to think about gender too.
+
+---
 
 
-*   "If you think a lot about your gender, you're trans"
-    This is a bad take
+(One of the reasons I like *fluid* is an identity is that I feel less tied down, I get to keep exploring and changing my mind)
+
+Everyone should have the space to think about their gender and their relationship with it.
+We should avoid doing things that make that experience less safe or pleasant.
+
+
+
+gender comes with lots of social expectations, and different people have different levels of conformant
+as trans people, we oftne rebuild a relationship with our new gender from scratch, but possible to do after the fact tooo
+gendered social scripts
+people work out their relationship with masculinity or femininity, doesn't mean want to reject it outright, but maybe just fine-tune it.
+
+
+
+**Our relationship between gender, bodies and sense of self is super complicated.**
+
+
+---
+
+ I think more people should be able to explore it, to understand it, to find things that make them happy.
+
+Trans people don’t have an exclusive claim to introspection about gender.
+
+
+---
+
+And it's more common than we realise
+gender comes with
+as trans people, we oftne rebuild a relationship with our new gender from scratch, but possible to do after the fact tooo
+gendered social scripts
+people work out their relationship with masculinity or femininity, doesn't mean want to reject it outright, but maybe just fine-tune it.
+
+---
+
+I wanted to talk to cis people who’d gone through the same process of questioning, and decided they weren’t trans what did their life look like? what was their relationship with gender? that was much harder to find, and an attitude that any introspection of gender means you’re trans is unhelpful
+
+
+---
+
+
+
+When I was wondering if I was trans
+There are lots of trans people who talk openly about their feelings, and that's a good thing.
+
+---
+
+*   This is a bad take
 
     Cis people should be allowed to think about their gender too.
 
@@ -86,11 +178,7 @@ There are cis people who want to unpack their relationship with their gender, an
 Many trans people do spend a lot of time thinking about their gender, so it might be a strong indicator that you're trans (or at least that the question is worth considering) -- but it's not an absolute guarantee, and that nuance is often lost in the noise.
 
 I've thought a lot about my gender in the last few years.
-I discovered it [wasn't quite right](/2019/06/regeneration/), I'm making some changes, and I'm so much happier now.
-This is good.
 
-In another timeline, I might have done the same thinking, decided "male" was okay, made some different changes, and been happier in a different way.
-That would be okay too!
 
 ---
 
@@ -115,9 +203,6 @@ Alex Chan
 @alexwlchan
 ·
 12h
-Our relationship with gender and bodies and self is super complicated. I think more people should be able to explore it, to understand it, to find things that make them happy.
-
-Trans people don’t have an exclusive claim to introspection about gender.
 1
 1
 11
