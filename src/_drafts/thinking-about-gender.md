@@ -13,7 +13,7 @@ I can see where this sentiment comes from: many trans people do think a lot abou
 If you do, it might be a strong indicator that you're trans, or that it's worth considering whether a transition would make you happier -- but it's not an absolute guarantee, and that nuance is often lost in the noise.
 
 I've spent a lot of time thinking about my gender in the last few years.
-I discovered it [wasn't quite right](/2019/06/regeneration/), I'm making some changes, and I'm much happier now.
+I discovered it [wasn't quite right](/2019/06/regenerating/), I'm making some changes, and I'm much happier now.
 This is good.
 
 In another timeline, I might have done the same thinking, decided "male" was okay, made some different changes, and been happier in a different way.
