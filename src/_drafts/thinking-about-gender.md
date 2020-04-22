@@ -49,3 +49,5 @@ Everyone should have the space to think about their gender and their relationshi
 **We should do things to make that exploration safer and easier, not unsafe or unpleasant.**
 
 Cis people are allowed to think about their gender too.
+
+*This post was originally a thread [on Twitter](https://twitter.com/alexwlchan/status/1251790486341390338).*
