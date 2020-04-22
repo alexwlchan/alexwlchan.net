@@ -1,6 +1,6 @@
 ---
 layout: post
-title: If you think a lot about your gender…
+title: Thinking about your gender
 summary: Cis people are allowed to think about their gender too.
 ---
 
