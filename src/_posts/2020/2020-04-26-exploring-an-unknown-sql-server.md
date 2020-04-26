@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-04-26 17:53:53 +0000
 title: Exploring an unknown SQL server
 summary: You're handed a SQL server which has some data, but you don't know anything about the schema. What do you do?
 category: Programming and code
