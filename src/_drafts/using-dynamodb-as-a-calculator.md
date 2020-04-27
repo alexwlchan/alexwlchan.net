@@ -612,9 +612,12 @@ See above.
 Still not a question.
 And you're wrong -- it *is* a compute platform, as this experiment shows.
 
-**Can I get all the code you've written?**
+**Why did you do this?**
 Finally, a proper question!
-I've put it all together below, and it even includes some examples.
+Partly for fun, partly as a way to get some practice with the gnarly bits of the DynamoDB API that I forget every time I use.
+
+**Can I get all the code you've written?**
+Sure, it's all here:
 
 {% details %}
 <summary>dynamo_calculator.py</summary>
