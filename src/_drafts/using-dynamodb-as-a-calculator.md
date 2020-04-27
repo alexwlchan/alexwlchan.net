@@ -38,26 +38,41 @@ This is a satire post, not serious programming.
 
 
 
+<style>
+  @media screen and (min-width: 500px) {
+    img.operation {
+      float: right;
+      width: 300px;
+      margin-top: -1.4em;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    h2 {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  h2 {
+    margin-top: 5em;
+  }
+</style>
+
+
+
 ## Getting started
 
 DynamoDB supports a wide variety of programming languages, including [Java](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Java.html), [.NET](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NET.html) and [Python](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html).
 I'm going to use Python in this post, because that's what I'm familiar with, but these ideas can be used in other languages.
 
 Within DynamoDB, the unit of compute is the *Table*.
-
----
-
-
-
-
-## Initial pieces
-
-Our calculator is going to need somewhere to do calculations, so let's assume we've already created a table where it can do stuff.
-(You could create and delete a table every time you do something, but the latency would be even higher than it already is.)
-
-Let's create a class that holds the table name:
+Within a table, operations run within *Rows*.
+Let's write some code to create a table for us, and to assign a row ID that we can use within an individual calculation:
 
 ```python
+import contextlib
+import uuid
+
 import boto3
 
 
@@ -66,45 +81,74 @@ dynamodb = boto3.resource("dynamodb")
 
 class DynamoCalculator:
     """
-    An integer calculator implemented in DynamoDB.
+    An integer calculator that uses DynamoDB for compute.
     """
-    def __init__(self, table_name"):
+    def __enter__(self):
+        table_name = f"calculator-{uuid.uuid4()}"
+
+        dynamodb.create_table(
+            AttributeDefinitions=[{
+                "AttributeName": "calculation_id",
+                "AttributeType": "S",
+            }],
+            TableName=table_name,
+            KeySchema=[{
+                "AttributeName": "calculation_id",
+                "KeyType": "HASH"
+            }],
+            BillingMode="PAY_PER_REQUEST"
+        )
+
         self.table = dynamodb.Table(table_name)
-```
+        self.table.wait_until_exists()
+        return self
 
-We'll do calculations in the rows of this table.
-Each calculation will be assigned a UUID, which we need to clean up later.
-Let's create a context manager to handle this for us:
-
-```
-import contextlib
-import uuid
-
-
-class DynamoCalculator:
-    ...
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.table.delete()
+        self.table.wait_until_not_exists()
 
     @contextlib.contextmanager
-    def calculation_id(self):
-        calc_id = str(uuid.uuid4())
-        yield calc_id
-        self.table.delete_item(Key={"id": calc_id})
+    def row_id(self):
+        calculation_id = str(uuid.uuid4())
+        yield calculation_id
+        self.table.delete_item(Key={"calculation_id": calculation_id})
+
+
+with DynamoCalculator() as calculator:
+    print(calculator)
+
+    with calculator.row_id() as row_id:
+        # do calculations with ``row_id``
+        pass
 ```
 
-This uses a hash key column `"id"` to track the calculation ID.
-We'll see how this works when we implement some operations.
+The context manager handles creation *and* cleanup for us -- not only does it create a table for us, it deletes it afterwards.
+This does create a bit of latency before you can do your first calculation, but it means we don't have tables hanging around in our account.
+
+Remember: the expensive part of the cloud isn't what you use, it's what you forget to turn off.
+This API ensures that we'll never forget to turn off our table!
+
+> Serious point: **if you create resources that have cleanup that should always run, context managers are a great way to enforce this in a Python API.**
+> Examples are sockets or files, which you should always close when you're done.
+>
+> In other languages, you use `try … except … finally`, but the caller has to remember to do the cleanup.
+> Python has the `with` statement to hide this complexity from the caller.
+> You've probably used one already -- `with open(…)`, which always closes the file once you're done using it, whether your code returned or threw an exception.
+>
+> If you're not using them, they're a powerful feature and worth learning.
 
 
 
-## Addition
-
-![](addition.png)
+<h2>Addition<img src="/images/2020/addition.png" alt="X + Y = ?" class="operation"></h2>
 
 DynamoDB supports numbers as a first-class type, and we can read and write numeric values with the GetItem and PutItem APIs, respectively.
+The PutItem API completely replaces the contents of a row, which is useful in some cases and easy to batch, but it's not always the right tool for the job.
 
-The PutItem API completes replaces the existing row.
-If you want to update the value in a row -- for example, incrementing a counter -- you can use the UpdateItem API and an [UpdateExpression](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html#Expressions.UpdateExpressions.SET).
-Here's what that looks like:
+Suppose we were using DynamoDB to store a counter.
+We want to increment the value of the counter, but without reading the existing value from the table -- if another process updated the counter between the read and the write, we'd lose data.
+For this, we can use the UpdateItem API, which can modify a row based on its existing values.
+
+For example, we could tell it to add one number to another, like so:
 
 ```python
 class DynamoCalculator:
@@ -114,24 +158,29 @@ class DynamoCalculator:
         """
         Adds two integers and returns the result.
         """
-        with self.calculation_id() as calc_id:
-            self.table.put_item(Item={"id": calc_id, "value": x})
+        with self.row_id() as calculation_id:
+            self.table.put_item(
+                Item={"calculation_id": calculation_id, "sum": x}
+            )
             self.table.update_item(
-                Key={"id": calc_id},
-                UpdateExpression="SET #value = #value + :y",
-                ExpressionAttributeNames={"#value": "value"},
+                Key={"calculation_id": calculation_id},
+                UpdateExpression="SET #sum = #sum + :y",
+                ExpressionAttributeNames={"#sum": "sum"},
                 ExpressionAttributeValues={":y": y}
             )
-            resp = self.table.get_item(Key={"id": calc_id})
-            return int(resp["Item"]["value"])
+            resp = self.table.get_item(
+                Key={"calculation_id": calculation_id}
+            )
+            return int(resp["Item"]["sum"])
 ```
 
-Note that we're using the `calculation_id` to use the same ID for the row across all three API calls.
-We cast the result to an `int()` because the Python SDK returns the number as a [Decimal](https://docs.python.org/3/library/decimal.html#decimal.Decimal), not an integer.
+Here we use PutItem to write the first number (*x*) to the table.
+Then we do an UpdateItem to add the second number (*y*) to the existing value.
+Finally, we call GetItem to retrieve the sum.
 
 It turns out we can consolidate these three API calls into one.
-The UpdateItem API can write to a row that doesn't exist yet, and we can also ask it to return the value it just wrote to the row.
-Here's the improved version:
+The UpdateItem API creates a row if it doesn't exist yet (saving the PutItem), and we can also ask it to give us the value it just wrote to the row (saving the GetItem).
+Here's what the consolidated version looks like:
 
 ```python
 class DynamoCalculator:
@@ -141,48 +190,37 @@ class DynamoCalculator:
         """
         Adds two integers and returns the result.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             resp = self.table.update_item(
-                Key={"id": calc_id},
-                UpdateExpression="SET #value = :x + :y",
-                ExpressionAttributeNames={"#value": "value"},
+                Key={"calculation_id": calculation_id},
+                UpdateExpression="SET #sum = :x + :y",
+                ExpressionAttributeNames={"#sum": "sum"},
                 ExpressionAttributeValues={":x": x, ":y": y},
                 ReturnValues="ALL_NEW"
             )
-            return int(resp["Attributes"]["value"])
+            return int(resp["Attributes"]["sum"])
 ```
 
 Let's check it works:
 
-```pycon
->>> calculator = DynamoCalculator(table_name="Alex-2020-04-26-experiments")
-
->>> calculator.add(1, 2)
-3
-
->>> calculator.add(5, 3)
-8
-
->>> calculator.add(5, -1)
-4
+```python
+with DynamoCalculator() as calculator:
+    print(calculator.add(1, 2))   # 3
+    print(calculator.add(5, 3))   # 8
+    print(calculator.add(5, -1))  # 4
 ```
 
-It even handles negative numbers!
+Addition is a very common operation, so it's important we make it as fast as possible.
+Consolidating three API calls into one is a good optimisation!
 
 
 
-## Subtraction
+<h2>Subtraction<img src="/images/2020/subtraction.png" alt="X + Y = ?" class="operation"></h2>
 
-![](subtraction.png)
-
-Subtraction is the opposite of addition.
-It has the convenient property subtracting *Y* is the same as adding (negative *Y*).
+Subtraction is the opposite of addition, with the convenient property that subtracting *y* is the same as adding (negative *y*).
 This leads some people to define subtraction like so:
 
 ```python
-class DynamoCalculator:
-    ...
-
     def subtract(self, x: int, y: int) -> int:
         """
         Subtracts one integer from another and returns the result.
@@ -190,11 +228,11 @@ class DynamoCalculator:
         return self.add(x, -y)
 ```
 
-Such a solution is blatantly cheating.
-We're getting Python to reverse the sign of the number for us, which is a computational operation.
+You and I know these people are feeble and weak-willed.
+This approach uses Python to reverse the sign of *y* for us, which is a computational operation.
 What's the point of having a compute platform like DynamoDB if we don't use it for computing?
 
-Luckily, DynamoDB supports subtraction as well as addition in the UpdateItem API, and we can ask it to do the hard work:
+DynamoDB's UpdateItem API supports subtraction as well as addition, which is a much better approach:
 
 ```python
 class DynamoCalculator:
@@ -204,27 +242,26 @@ class DynamoCalculator:
         """
         Subtracts one integer from another and returns the result.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             resp = self.table.update_item(
-                Key={"id": calc_id},
-                UpdateExpression="SET #value = :x - :y",
-                ExpressionAttributeNames={"#value": "value"},
+                Key={"calculation_id": calculation_id},
+                UpdateExpression="SET #difference = :x - :y",
+                ExpressionAttributeNames={"#difference": "difference"},
                 ExpressionAttributeValues={":x": x, ":y": y},
                 ReturnValues="ALL_NEW"
             )
-            return int(resp["Attributes"]["value"])
+            return int(resp["Attributes"]["difference"])
 ```
 
 Two operations down, two to go!
 
 
 
-## Multiplication
+<h2>Multiplication<img src="/images/2020/multiplication.png" alt="X * Y = ?" class="operation"></h2>
 
-![](multiplication.png)
-
-This is where things start to get trickier.
-A simple approach to multiplication uses a recursive algorithm:
+This is where things get a bit trickier -- the UpdateExpression used by the UpdateItem API doesn't support multiplication, only addition and subtraction.
+We'll have to build our own implementation of multiplication.
+One approach uses a recursive algorithm:
 
 ```
 def multiply(x, y):
@@ -239,23 +276,30 @@ Consider an example:
 ```
 multiply(5, 3) = 5 + multiply(5, 2)
                = 5 + (5 + multiply(5, 1))
-               = 5 + (5 + (5 + multiple(5, 0)))
+               = 5 + (5 + (5 + multiply(5, 0)))
                = 5 + (5 + (5 + 0))
                = 15
 ```
 
-(Let's ignore the case where `y` is negative for now.)
+(Let's ignore the case where *y* is negative for now.)
 
-This requires some slightly more sophisticated logic -- how do we test for equality, or handle branching statements?
+How do we test for equality, or handle branching statements?
+We could use Python, or we could find a way to do this with DynamoDB.
+We both know what the correct answer is.
 
-Let's start by testing if two integer values are the same.
-For this, we can turn to [conditional updates](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html).
-When you Put or Update an item in DynamoDB, you can supply a condition telling it which items should be modified -- for example, I often have a `version` field on my Dynamo rows, and I use a conditional update to tell DynamoDB to prevent the version going backwards.
+Let's start by testing if two integers are the same.
+For this, we can misuse [conditional operations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html).
 
-We try to write an item on the condition that two values are the same.
-If they are the same, the operation succeeds and we can return `True`.
-If they differ, the operation will fail and we can return `False`.
-Like so:
+Suppose we were using DynamoDB to store date-based information.
+Each row includes a timestamp, and we want newer data to replace older data, but not the other way around.
+We could do a GetItem and then a PutItem before we write anything, but if the row changes between the Get and the Put, we could write bad data.
+
+A better approach would be to supply a condition with our PutItem -- for example, *"only update this row if the timestamp in the new row is greater than the timestamp in the already-stored row"*.
+If the condition is true, the write succeeds.
+If the condition is false, the write fails and we get an error.
+
+One of the conditions you can specify is that two values are the same.
+So let's try to write to the table with this condition -- if it succeeds, the numbers are equal; if it fails, they're not.
 
 ```python
 class DynamoCalculator:
@@ -265,29 +309,24 @@ class DynamoCalculator:
         """
         Returns True if two integers are equal, False otherwise.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             try:
                 self.table.put_item(
-                    Item={"id": calc_id},
+                    Item={"calculation_id": calculation_id},
                     ConditionExpression=":x = :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
             except Exception as exc:
-                if type(exc).__name__ == "ConditionalCheckFailedException":
-                    return False
-                else:
-                    raise
+                return False
             else:
                 return True
 ```
 
 (We are using a bit of Python control flow for the `try … except` block -- I can't think of a better way to do this, but at least the equality testing is done inside DynamoDB.)
 
-Next, let's use DynamoDB to implement some basic control flow.
-We have a condition, an "if true" action an an "if false" action.
-We could use the `if` statement in Python, but that would be admitting weakness and defeat.
-
-Here's a better approach:
+Next, let's use DynamoDB to implement basic control flow.
+For an IF statement, we have a condition, an "if true" action, and an "if false" action.
+We can continue to misuse conditional operations, and pass the boolean directly to DynamoDB:
 
 ```python
 from typing import Callable
@@ -301,28 +340,26 @@ class DynamoCalculator:
         condition: bool,
         if_true: Callable[[], int],
         if_false: Callable[[], int]
-    ) -> int:
+    ) -> bool:
         """
         If ``condition`` is True, returns the output of ``if_true``.
         If ``condition`` is False, returns the output of ``if_false``.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             try:
                 self.table.put_item(
-                    Item={"id": calc_id},
+                    Item={"calculation_id": calculation_id},
                     ConditionExpression=":condition = :true",
                     ExpressionAttributeValues={":condition": condition, ":true": True}
                 )
             except Exception as exc:
-                if type(exc).__name__ == "ConditionalCheckFailedException":
-                    return if_false()
-                else:
-                    raise
+                return if_false()
             else:
                 return if_true()
 ```
 
-This uses the same technique of abusing conditional update expressions as for the equality test, but this time it calls the appropriate "if true" or "if false" function, rather than returning the appropriate value.
+Notice that this code doesn't call "if_true" or "if_false" until it's needed.
+This is a sophisticated programming technique called [*lazy evaluation*](https://en.wikipedia.org/wiki/Lazy_evaluation), and our ability to use it here speaks to the power of DynamoDB as a computing platform.
 
 Now we have enough pieces to start building out our multiplication function:
 
@@ -344,7 +381,7 @@ class DynamoCalculator:
         )
 ```
 
-This works if `y` is non-negative, but if `y` is negative it keeps decrementing forever.
+This works if *y* is positive or zero, but if *y* is negative it keeps decrementing forever.
 We need to tweak our algorithm slightly:
 
 ```
@@ -370,18 +407,15 @@ class DynamoCalculator:
         """
         Returns True if x < y, False otherwise.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             try:
                 self.table.put_item(
-                    Item={"id": calc_id},
+                    Item={"calculation_id": calculation_id},
                     ConditionExpression=":x < :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
             except Exception as exc:
-                if type(exc).__name__ == "ConditionalCheckFailedException":
-                    return False
-                else:
-                    raise
+                return False
             else:
                 return True
 ```
@@ -416,9 +450,7 @@ class DynamoCalculator:
 
 
 
-## Division
-
-![](division.png)
+<h2>Division<img src="/images/2020/division.png" alt="X / Y = ?" class="operation"></h2>
 
 We can tackle division in a similar way to multiplication, using a recursive algorithm:
 
@@ -464,19 +496,22 @@ This is the great thing about building our calculator from a library of reusable
 
 
 
+## More logical operators and comparisons functions
 
-## Logical operators and other comparisons functions
+We can continue to compose the functions we've already written to round out our calculator.
 
-We could define the remaining comparison functions by writing more condition expressions, or we could compose them from the functions we've already written.
-
-We can get "not equal to" by defining a "not" operator, and then applying that to the output of "eq()":
+We can get "not equal to" by defining a NOT operator, and applying that to the output of "eq()":
 
 ```python
     def not_(self, condition: bool) -> bool:
         """
         Returns the negation of ``condition``.
         """
-        return self.if_(condition, if_true=lambda: False, if_false=lambda: True)
+        return self.if_(
+            condition,
+            if_true=lambda: False,
+            if_false=lambda: True
+        )
 
     def ne(self, x: int, y: int) -> bool:
         """
@@ -485,7 +520,7 @@ We can get "not equal to" by defining a "not" operator, and then applying that t
         return self.not_(self.eq(x, y))
 ```
 
-We can define "less than or equal to" by defining an "or" operator, and applying that to the output of "lt()" and "eq()":
+We can define "less than or equal to" by defining an OR operator, and applying that to the output of "lt()" and "eq()":
 
 ```python
     def or_(self, condition1: bool, condition2: bool) -> bool:
@@ -522,7 +557,7 @@ We can define "greater than" and "greater than or equal to" as the negation of "
         return self.not_(self.lt(x, y))
 ```
 
-And finally, for completion's sake, let's define an "and" operator:
+And finally, for completion's sake, let's define an AND operator and a NAND operator:
 
 ```python
     def and_(self, condition1: bool, condition2: bool) -> bool:
@@ -532,26 +567,39 @@ And finally, for completion's sake, let's define an "and" operator:
         int_1 = self.if_(condition1, if_true=lambda: 1, if_false=lambda: 0)
         int_2 = self.if_(condition2, if_true=lambda: 1, if_false=lambda: 0)
         return self.eq(self.add(int_1, int_2), 2)
+
+    def nand(self, condition1: bool, condition2: bool) -> bool:
+        """
+        Returns True if at least one of ``condition1`` and ``condition2`` are False.
+        """
+        return self.not_(self.and_(condition1, condition2))
 ```
+
+The [NAND gate](https://en.wikipedia.org/wiki/Sheffer_stroke) is a key part of processor design, and being able to do it only using DynamoDB proves its capabaility as a computing platform.
+
 
 
 
 ## Closing thoughts
 
 This post shows the potential for using DynamoDB as a cloud computing platform.
-We were able to implement a simple calculator, comparison operators, and even better, a set of [logical gates](https://en.wikipedia.org/wiki/Logic_gate) (AND, OR and NOT).
-This lays the foundation for building more sophisticated programs.
+We were able to implement a simple calculator, comparison operators, and even better, a set of [logical gates](https://en.wikipedia.org/wiki/Logic_gate) (AND, OR, NOT and NAND).
+This lays the foundation for building far more sophisticated programs.
 
 Performance remains an issue.
+As we'd expect, simple operations (addition, subtraction) are faster than more complex operations (multiplication, division), but there's room for improvement in both areas.
 It's not clear whether the bottleneck is DynamoDB itself, or my home internet connection.
 Hopefully a future update will bring the ability to run code directly inside DynamoDB itself.
+
+Additionally, pricing follows the traditional AWS model of "clear as mud".
+DynamoDB pricing is based on [how many read and write "units" you use](https://aws.amazon.com/dynamodb/pricing/on-demand/), but it's not obvious how many units a given operation might require.
 
 It's too soon to recommend using DynamoDB for production compute workloads, but these early signs are promising.
 I hope Amazon continues to work on improving DynamoDB, and I look forward to seeing how other people use it in future.
 
 
 
-## Questions
+## FAQs
 
 **This is amazing.**
 Not a question, but I appreciate the enthusiasm!
@@ -561,7 +609,7 @@ See above.
 
 **DynamoDB isn't a compute platform, it's a database.**
 Still not a question.
-And it *is* a compute platform, as this experiment shows.
+And you're wrong -- it *is* a compute platform, as this experiment shows.
 
 **Can I get all the code you've written?**
 Finally, a proper question!
@@ -577,72 +625,93 @@ What happens if you try to use DynamoDB as an integer calculator?
 """
 
 import contextlib
-import functools
 from typing import Callable
 import uuid
 
 import boto3
+
 
 dynamodb = boto3.resource("dynamodb")
 
 
 class DynamoCalculator:
     """
-    An integer calculator implemented in DynamoDB.
+    An integer calculator that uses DynamoDB for compute.
     """
-    def __init__(self, table_name):
+    def __enter__(self):
+        table_name = f"calculator-{uuid.uuid4()}"
+
+        dynamodb.create_table(
+            AttributeDefinitions=[{
+                "AttributeName": "calculation_id",
+                "AttributeType": "S",
+            }],
+            TableName=table_name,
+            KeySchema=[{
+                "AttributeName": "calculation_id",
+                "KeyType": "HASH"
+            }],
+            BillingMode="PAY_PER_REQUEST"
+        )
+
         self.table = dynamodb.Table(table_name)
+        self.table.wait_until_exists()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.table.delete()
+        self.table.wait_until_not_exists()
 
     @contextlib.contextmanager
-    def calculation_id(self):
-        calc_id = str(uuid.uuid4())
-        yield calc_id
-        self.table.delete_item(Key={"id": calc_id})
+    def row_id(self):
+        calculation_id = str(uuid.uuid4())
+        yield calculation_id
+        self.table.delete_item(Key={"calculation_id": calculation_id})
+
+    def __repr__(self):
+        return f"<DynamoCalculator {self.table.name}>"
 
     def add(self, x: int, y: int) -> int:
         """
         Adds two integers and returns the result.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             resp = self.table.update_item(
-                Key={"id": calc_id},
-                UpdateExpression="SET #value = :x + :y",
-                ExpressionAttributeNames={"#value": "value"},
+                Key={"calculation_id": calculation_id},
+                UpdateExpression="SET #sum = :x + :y",
+                ExpressionAttributeNames={"#sum": "sum"},
                 ExpressionAttributeValues={":x": x, ":y": y},
                 ReturnValues="ALL_NEW"
             )
-            return int(resp["Attributes"]["value"])
+            return int(resp["Attributes"]["sum"])
 
     def subtract(self, x: int, y: int) -> int:
         """
         Subtracts one integer from another and returns the result.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             resp = self.table.update_item(
-                Key={"id": calc_id},
-                UpdateExpression="SET #value = :x - :y",
-                ExpressionAttributeNames={"#value": "value"},
+                Key={"calculation_id": calculation_id},
+                UpdateExpression="SET #difference = :x - :y",
+                ExpressionAttributeNames={"#difference": "difference"},
                 ExpressionAttributeValues={":x": x, ":y": y},
                 ReturnValues="ALL_NEW"
             )
-            return int(resp["Attributes"]["value"])
+            return int(resp["Attributes"]["difference"])
 
     def eq(self, x: int, y: int) -> bool:
         """
         Returns True if two integers are equal, False otherwise.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             try:
                 self.table.put_item(
-                    Item={"id": calc_id},
+                    Item={"calculation_id": calculation_id},
                     ConditionExpression=":x = :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
             except Exception as exc:
-                if type(exc).__name__ == "ConditionalCheckFailedException":
-                    return False
-                else:
-                    raise
+                return False
             else:
                 return True
 
@@ -651,23 +720,20 @@ class DynamoCalculator:
         condition: bool,
         if_true: Callable[[], int],
         if_false: Callable[[], int]
-    ) -> int:
+    ) -> bool:
         """
         If ``condition`` is True, returns the output of ``if_true``.
         If ``condition`` is False, returns the output of ``if_false``.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             try:
                 self.table.put_item(
-                    Item={"id": calc_id},
+                    Item={"calculation_id": calculation_id},
                     ConditionExpression=":condition = :true",
                     ExpressionAttributeValues={":condition": condition, ":true": True}
                 )
             except Exception as exc:
-                if type(exc).__name__ == "ConditionalCheckFailedException":
-                    return if_false()
-                else:
-                    raise
+                return if_false()
             else:
                 return if_true()
 
@@ -675,18 +741,15 @@ class DynamoCalculator:
         """
         Returns True if x < y, False otherwise.
         """
-        with self.calculation_id() as calc_id:
+        with self.row_id() as calculation_id:
             try:
                 self.table.put_item(
-                    Item={"id": calc_id},
+                    Item={"calculation_id": calculation_id},
                     ConditionExpression=":x < :y",
                     ExpressionAttributeValues={":x": x, ":y": y},
                 )
             except Exception as exc:
-                if type(exc).__name__ == "ConditionalCheckFailedException":
-                    return False
-                else:
-                    raise
+                return False
             else:
                 return True
 
@@ -695,8 +758,6 @@ class DynamoCalculator:
         Multiplies two integers and returns the result.
         """
         def if_y_non_negative():
-            if y == 0:
-                raise ValueError
             return self.add(x, self.multiply(x, self.subtract(y, 1)))
 
         def if_y_negative():
@@ -737,7 +798,11 @@ class DynamoCalculator:
         """
         Returns the negation of ``condition``.
         """
-        return self.if_(condition, if_true=lambda: False, if_false=lambda: True)
+        return self.if_(
+            condition,
+            if_true=lambda: False,
+            if_false=lambda: True
+        )
 
     def ne(self, x: int, y: int) -> bool:
         """
@@ -782,83 +847,119 @@ class DynamoCalculator:
         int_2 = self.if_(condition2, if_true=lambda: 1, if_false=lambda: 0)
         return self.eq(self.add(int_1, int_2), 2)
 
+    def nand(self, condition1: bool, condition2: bool) -> bool:
+        """
+        Returns True if at least one of ``condition1`` and ``condition2`` are False.
+        """
+        return self.not_(self.and_(condition1, condition2))
 
 
 if __name__ == "__main__":
-    table_name = "my-calculator-experiments"
-    calculator = DynamoCalculator(table_name)
+    with DynamoCalculator() as calculator:
+        print(calculator)
 
-    print("Addition")
-    print(f"1 + 2    = {calculator.add(1, 2)}")
-    print(f"5 + 3    = {calculator.add(5, 3)}")
-    print(f"5 + (-1) = {calculator.add(5, -1)}")
+        print("")
+        print("Arithmetic operations")
+        print("")
 
-    print("")
+        print(f"1 + 2    = {calculator.add(1, 2)}")
+        print(f"5 + 3    = {calculator.add(5, 3)}")
+        print(f"5 + (-1) = {calculator.add(5, -1)}")
 
-    print("Subtraction")
-    print(f"1 - 2    = {calculator.subtract(1, 2)}")
-    print(f"5 - 3    = {calculator.subtract(5, 3)}")
-    print(f"5 - (-1) = {calculator.subtract(5, -1)}")
+        print("")
 
-    print("")
+        print(f"1 - 2    = {calculator.subtract(1, 2)}")
+        print(f"5 - 3    = {calculator.subtract(5, 3)}")
+        print(f"5 - (-1) = {calculator.subtract(5, -1)}")
 
-    print("Equality")
-    print(f"1 == 1?  {calculator.eq(1, 1)}")
-    print(f"1 == 5?  {calculator.eq(1, 5)}")
+        print("")
 
-    print("")
+        print(f"1 * 2    = {calculator.multiply(1, 2)}")
+        print(f"5 * 3    = {calculator.multiply(5, 3)}")
+        print(f"5 * (-1) = {calculator.multiply(5, -1)}")
 
-    print("Comparison (LT)")
-    print(f"2 < 1?   {calculator.lt(2, 1)}")
-    print(f"1 < 1?   {calculator.lt(1, 1)}")
-    print(f"1 < 5?   {calculator.lt(1, 5)}")
+        print("")
 
-    print("")
+        print(f"1 / 2    = {calculator.divide(1, 2)}")
+        print(f"5 / 3    = {calculator.divide(5, 3)}")
+        print(f"5 / (-1) = {calculator.divide(5, -1)}")
+        print(f"36 / 4   = {calculator.divide(36, 4)}")
 
-    print("Multiplication")
-    print(f"1 * 2    = {calculator.multiply(1, 2)}")
-    print(f"5 * 3    = {calculator.multiply(5, 3)}")
-    print(f"5 * (-1) = {calculator.multiply(5, -1)}")
+        print("")
+        print("Comparisons")
+        print("")
 
-    print("")
+        print(f"1 == 1?  {calculator.eq(1, 1)}")
+        print(f"1 == 5?  {calculator.eq(1, 5)}")
 
-    print("Division")
-    print(f"1 / 2    = {calculator.divide(1, 2)}")
-    print(f"5 / 3    = {calculator.divide(5, 3)}")
-    print(f"5 / (-1) = {calculator.divide(5, -1)}")
-    print(f"36 / 4   = {calculator.divide(36, 4)}")
+        print("")
 
-    print("")
+        print(f"1 != 1?  {calculator.ne(1, 1)}")
+        print(f"1 != 5?  {calculator.ne(1, 5)}")
 
-    print("Comparison (NE)")
-    print(f"2 != 1?  {calculator.ne(2, 1)}")
-    print(f"1 != 1?  {calculator.ne(1, 1)}")
-    print(f"1 != 5?  {calculator.ne(1, 5)}")
+        print("")
 
-    print("")
+        print(f"2 < 1?   {calculator.lt(2, 1)}")
+        print(f"1 < 1?   {calculator.lt(1, 1)}")
+        print(f"1 < 5?   {calculator.lt(1, 5)}")
 
-    print("Comparison (LE)")
-    print(f"2 <= 1?  {calculator.le(2, 1)}")
-    print(f"1 <= 1?  {calculator.le(1, 1)}")
-    print(f"1 <= 5?  {calculator.le(1, 5)}")
+        print("")
 
-    print("")
+        print(f"2 <= 1?  {calculator.le(2, 1)}")
+        print(f"1 <= 1?  {calculator.le(1, 1)}")
+        print(f"1 <= 5?  {calculator.le(1, 5)}")
 
-    print("Comparison (GT)")
-    print(f"2 > 1?  {calculator.gt(2, 1)}")
-    print(f"1 > 1?  {calculator.gt(1, 1)}")
-    print(f"1 > 5?  {calculator.gt(1, 5)}")
+        print("")
 
-    print("")
+        print(f"2 > 1?   {calculator.gt(2, 1)}")
+        print(f"1 > 1?   {calculator.gt(1, 1)}")
+        print(f"1 > 5?   {calculator.gt(1, 5)}")
 
-    print("Comparison (GE)")
-    print(f"2 >= 1? {calculator.ge(2, 1)}")
-    print(f"1 >= 1? {calculator.ge(1, 1)}")
-    print(f"1 >= 5? {calculator.ge(1, 5)}")
+        print("")
+
+        print(f"2 >= 1?  {calculator.ge(2, 1)}")
+        print(f"1 >= 1?  {calculator.ge(1, 1)}")
+        print(f"1 >= 5?  {calculator.ge(1, 5)}")
+
+        print("")
+        print("Logical gates")
+        print("")
+
+        def display(value):
+            return "T" if value else "F"
+
+        print("P | Q | NOT(P) | AND(P, Q) | OR(P, Q) | NAND(P, Q)")
+        print("--+---+--------+-----------+----------+------------")
+        for (p, q) in [
+            (True, True),
+            (True, False),
+            (False, True),
+            (False, False)
+        ]:
+            print(
+                f"{display(p)} | "
+                f"{display(q)} | "
+                f"{display(calculator.not_(p))}      | "
+                f"{display(calculator.and_(p, q))}         | "
+                f"{display(calculator.or_(p, q))}        | "
+                f"{display(calculator.nand(p, q))}"
+            )
 ```
 
 {% enddetails %}
 
 If you want extra fun, turn on your tracing tool of choice (I like [the q module](https://pypi.org/project/q/)) and watch how deep the recursion goes when you divide 36 by 4.
 
+**Are there any tests?**
+I'm testing the patience of everyone who works on DynamoDB.
 
+**I like brilliant ideas. What else can you recommend?**
+In this post I've talked about using one of Amazon's compute services; other people have written about their database offerings:
+
+*   Corey Quinn uses [Route 53 as a database](https://www.lastweekinaws.com/podcast/aws-morning-brief/whiteboard-confessional-route-53-db/).
+*   Kevin Kutcha [built a URL shortener with Lambda and only Lambda](https://kevinkuchta.com/2018/03/lambda-only-url-shortener/) (using Lambda functions to store the URL mappings, naturally).
+    That post was a heavy inspiration for this one.
+
+**Can you make it <s>worse</s> better?**
+Almost certainly.
+if you have suggestions for how to do so, please @ me on Twitter (I'm [@alexwlchan](https://twitter.com/alexwlchan)).
