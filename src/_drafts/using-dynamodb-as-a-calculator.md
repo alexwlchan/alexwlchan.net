@@ -32,7 +32,7 @@ This is a satire post, not serious programming.
 <figure>
   <img src="/images/2020/nuclear_waste_1x.jpg" srcset="/images/2020/nuclear_waste_1x.jpg 1x, /images/2020/nuclear_waste_2x.jpg 2x" alt="Yellow barrels with radiation warning signs lying in a field.">
   <figcaption>
-    Wikimedia Commons says this is a protest against <a href="https://commons.wikimedia.org/wiki/File:WendlandAntiNuclearProtest7.jpg">German nuclear policy</a>, but it's actually a protest about using any of my ideas in production.
+    Wikimedia Commons says this is a protest against <a href="https://commons.wikimedia.org/wiki/File:WendlandAntiNuclearProtest7.jpg">German nuclear policy</a>, but it's actually a warning about using any of my ideas in production.
   </figcaption>
 </figure>
 
@@ -65,9 +65,9 @@ This is a satire post, not serious programming.
 DynamoDB supports a wide variety of programming languages, including [Java](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Java.html), [.NET](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.NET.html) and [Python](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html).
 I'm going to use Python in this post, because that's what I'm familiar with, but these ideas can be used in other languages.
 
-Within DynamoDB, the unit of compute is the *Table*.
+Within DynamoDB, we run all our computing inside *Table*.
 Within a table, operations run within *Rows*.
-Let's write some code to create a table for us, and to assign a row ID that we can use within an individual calculation:
+Let's write some code to create a table for us, and to assign a row ID that we can use to track an individual calculation:
 
 ```python
 import contextlib
@@ -228,7 +228,7 @@ This leads some people to define subtraction like so:
         return self.add(x, -y)
 ```
 
-You and I know these people are feeble and weak-willed.
+But you and I know these people are feeble and weak-willed.
 This approach uses Python to reverse the sign of *y* for us, which is a computational operation.
 What's the point of having a compute platform like DynamoDB if we don't use it for computing?
 
@@ -261,7 +261,7 @@ Two operations down, two to go!
 
 This is where things get a bit trickier -- the UpdateExpression used by the UpdateItem API doesn't support multiplication, only addition and subtraction.
 We'll have to build our own implementation of multiplication.
-One approach uses a recursive algorithm:
+A simple approach is to use a recursive algorithm:
 
 ```
 def multiply(x, y):
@@ -283,8 +283,9 @@ multiply(5, 3) = 5 + multiply(5, 2)
 
 (Let's ignore the case where *y* is negative for now.)
 
-How do we test for equality, or handle branching statements?
-We could use Python, or we could find a way to do this with DynamoDB.
+If we want to implement this, we need a test for equality, and branching statements.
+How do we do that?
+We could use Python, or we could find a way to do them with DynamoDB.
 We both know what the correct answer is.
 
 Let's start by testing if two integers are the same.
@@ -358,7 +359,7 @@ class DynamoCalculator:
                 return if_true()
 ```
 
-Notice that this code doesn't call "if_true" or "if_false" until it's needed.
+Notice that this code doesn't call "if_true" or "if_false" until they're needed.
 This is a sophisticated programming technique called [*lazy evaluation*](https://en.wikipedia.org/wiki/Lazy_evaluation), and our ability to use it here speaks to the power of DynamoDB as a computing platform.
 
 Now we have enough pieces to start building out our multiplication function:
@@ -465,7 +466,7 @@ def divide(x, y):
             return 1 + divide(x - y, y)
 ```
 
-Which falls out of the logical operators we've already built like so:
+Which falls out of the pieces we've already built like so:
 
 ```python
 class DynamoCalculator:
@@ -580,7 +581,7 @@ The [NAND gate](https://en.wikipedia.org/wiki/Sheffer_stroke) is a key part of p
 
 
 
-## Closing thoughts
+## Conclusion
 
 This post shows the potential for using DynamoDB as a cloud computing platform.
 We were able to implement a simple calculator, comparison operators, and even better, a set of [logical gates](https://en.wikipedia.org/wiki/Logic_gate) (AND, OR, NOT and NAND).
@@ -591,7 +592,7 @@ As we'd expect, simple operations (addition, subtraction) are faster than more c
 It's not clear whether the bottleneck is DynamoDB itself, or my home internet connection.
 Hopefully a future update will bring the ability to run code directly inside DynamoDB itself.
 
-Additionally, pricing follows the traditional AWS model of "clear as mud".
+Pricing follows the usual AWS model of "clear as mud".
 DynamoDB pricing is based on [how many read and write "units" you use](https://aws.amazon.com/dynamodb/pricing/on-demand/), but it's not obvious how many units a given operation might require.
 
 It's too soon to recommend using DynamoDB for production compute workloads, but these early signs are promising.
@@ -953,12 +954,15 @@ If you want extra fun, turn on your tracing tool of choice (I like [the q module
 **Are there any tests?**
 I'm testing the patience of everyone who works on DynamoDB.
 
+**This code has recursion issues. How should I fix those?**
+If you think the biggest issue with this code is that you might hit Python's recursion limit, I can't help you.
+
 **I like brilliant ideas. What else can you recommend?**
 In this post I've talked about using one of Amazon's compute services; other people have written about their database offerings:
 
-*   Corey Quinn uses [Route 53 as a database](https://www.lastweekinaws.com/podcast/aws-morning-brief/whiteboard-confessional-route-53-db/).
+*   Corey Quinn is [a fan of Route 53](https://www.lastweekinaws.com/podcast/aws-morning-brief/whiteboard-confessional-route-53-db/).
 *   Kevin Kutcha [built a URL shortener with Lambda and only Lambda](https://kevinkuchta.com/2018/03/lambda-only-url-shortener/) (using Lambda functions to store the URL mappings, naturally).
-    That post was a heavy inspiration for this one.
+    That post was an inspiration for this one.
 
 **Can you make it <s>worse</s> better?**
 Almost certainly.
