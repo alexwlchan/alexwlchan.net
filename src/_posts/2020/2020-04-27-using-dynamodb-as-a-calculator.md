@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-04-27 09:23:04 +0000
 title: Using DynamoDB as a calculator
 summary: Taking advantage of Amazon's least-loved compute platform.
 category: Amazon Web Services
