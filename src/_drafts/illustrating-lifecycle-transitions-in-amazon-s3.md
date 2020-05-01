@@ -34,6 +34,8 @@ We use lifecycle rules to manage a lot of content in our digital archive.
 For instance, all of our data is written to two buckets, and the second bucket has a lifecycle rule that moves everything to Glacier Deep Archive, Amazon's super-cheap storage class[^1].
 It would take a while to get stuff out if we ever needed to recover from the backup, but it only costs $1/TB per month to store.
 
+  [^1]: We don't write objects directly to Deep Archive, because shortly after they're written, we read everything back out to verify it was written correctly.
+
 If you start exploring lifecycle rules, you eventually end up in the [Amazon docs](https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html), with a diagram that explains what transitions you can set up:
 
 <img src="/images/2020/s3_waterfall.png" alt="A diagram with six coloured boxes and arrows between them.">
@@ -56,5 +58,3 @@ Most of what I draw is just rectangles and arrows.
 
 If you ever walk past my desk, you'll see it littered in sketches, scrap paper, and coloured pens.
 They're not just mess -- they really do help me write better software.
-
-[^1]: We don't write objects directly to Deep Archive, because shortly after they're written, we read everything back out to verify it was written correctly.
