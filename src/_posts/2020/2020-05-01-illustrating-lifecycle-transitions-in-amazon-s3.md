@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-05-01 15:56:04 +0000
 title: Illustrating lifecycle transitions in Amazon S3
 category: Amazon Web Services
 summary: I'll take coloured paper and pens over the newest IDE any day of the week.
