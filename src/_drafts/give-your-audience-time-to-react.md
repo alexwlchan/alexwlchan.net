@@ -14,7 +14,7 @@ If you have a time limit, it's rude to finish significantly over or under the ag
 If you're in a series of talks, it could leave a gap in the schedule, or cut into the time of the next speaker.
 
 But rehearsing isn't the same as talking to a live, in-person audience.
-A good audience will have more energy than an empty room -- but that energy affects the pace of your presentation.
+A good audience will have more energy than an empty room -- and that energy affects the pace of your presentation.
 
 If you make a funny joke, people need time to laugh.
 If you make a big point, you pause to let it sink in.
@@ -23,7 +23,7 @@ These are all good things -- they mean your audience is engaged with your presen
 These are things to encourage and embrace.
 These things also mean that you'll take longer.
 
-When I hear people rehearse, they often speak continuously, leaving no time for these unexpected pauses.
+When I hear people rehearse, they usually speak continuously, leaving no time for these unexpected pauses.
 This means the length of their rehearsal is the *minimum* time they'll be speaking in the real thing.
 If the rehearsal runs to the full length of the time slot, there's no room to absorb this audience energy.
 If you want time for that, there needs to be slack in your timings.
@@ -34,7 +34,7 @@ If people start laughing at something unexpectedly, I can let the laughter run f
 If it's a dry audience and I don't use any of the slack, coming in slightly under the limit is never an issue.
 
 Here's an extreme example: for Monki Gras last year, I timed my presentation to 18&nbsp;minutes in rehearsal.
-There was a real buzz in the room, and I was actually on stage for more like *24*&nbsp;minutes.
+There was a real buzz in the room on the day, and I was actually on stage for more like *24*&nbsp;minutes.
 If I hadn't left slack, I'd have seriously overrun.
 
 Obviously this has changed in the era of video conferences and webinars.
