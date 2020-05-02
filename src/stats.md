@@ -3,7 +3,7 @@ layout: page
 title: Blog stats
 ---
 
-As of {{ site.time | date: "%d %B %Y" }}, I've written <strong>{{ site.posts.size }} posts</strong>, which is approximately <strong>{{ site.data["total_word_count"] | divided_by: 1000.0 | round: 1 }}k&nbsp;words</strong>.
+As of {{ site.time | date: "%-d %B %Y" }}, I've written <strong>{{ site.posts.size }} posts</strong>, which is approximately <strong>{{ site.data["total_word_count"] | divided_by: 1000.0 | round: 1 }}k&nbsp;words</strong>.
 You can see how that breaks down over time on the chart below.
 
 You can download the word count data <a href="/word-count.csv">as a CSV</a>.
