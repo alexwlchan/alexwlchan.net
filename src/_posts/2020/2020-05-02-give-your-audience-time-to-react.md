@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-05-02 06:01:43 +0000
 title: Give your audience time to react
 summary: Rehearsing a presentation only tells you the minimum length of time you'll take. If you're speaking to a time limit, remember to leave some slack.
 ---
