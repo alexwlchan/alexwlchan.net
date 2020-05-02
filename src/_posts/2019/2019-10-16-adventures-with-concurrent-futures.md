@@ -4,6 +4,10 @@ date: 2019-10-16 21:24:21 +0000
 title: Adventures in Python with concurrent.futures
 summary: Some examples of how I've been using concurrent.futures to speed up my batch scripting in Python.
 category: Python
+last_updated: 2020-05-02 20:29:25 +0100
+
+index:
+  best_of: true
 ---
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.
@@ -469,3 +473,40 @@ Spending time to save another 5–10 seconds is harder to justify.
 Now I have these templates and a write-up, I hope I'll be able to use this concurrency code much more.
 As well as being easier to find, I'm more confident that I understand how the code works, and where the rough edges are.
 Once again, a detailed walkthrough of code is as useful as me as for the reader.
+
+
+
+{% update 2020-05-02 %}
+  A common problem with this code is when your list of tasks is a list.
+  If `tasks_to_do` is a list, you'll see it run the same tasks repeatedly.
+
+  That's because on each call to `itertools.islice()`, you're passing the complete list each time.
+  only reads the list; it doesn’t modify it.
+  That means that when you call it more than once, it doesn’t know you’ve already gone through some elements of the list, so it starts from the first element again.
+  You can see this in the interactive console:
+
+  ```pycon
+  >>> import itertools
+  >>> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  >>> list(itertools.islice(numbers, 3))
+  [1, 2, 3]
+  >>> list(itertools.islice(numbers, 3))
+  [1, 2, 3]
+  >>> list(itertools.islice(numbers, 3))
+  [1, 2, 3]
+  ```
+
+  The fix is to create an iterator for the list, and pass that around -- it holds the state of "how many elements have I already been through".
+  Observe:
+
+  ```pycon
+  >>> iterator = iter(numbers)
+  >>> list(itertools.islice(iterator, 3))
+  [1, 2, 3]
+  >>> list(itertools.islice(iterator, 3))
+  [4, 5, 6]
+  >>> list(itertools.islice(iterator, 3))
+  [7, 8, 9]
+  ```
+{% endupdate %}
+
