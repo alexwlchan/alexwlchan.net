@@ -107,7 +107,7 @@ module Jekyll
     end
 
     def images_path(name)
-      return "#{@src}/_images/twitter"
+      return "#{@src}/_images/twitter/#{name}"
     end
 
     def cache_file()
