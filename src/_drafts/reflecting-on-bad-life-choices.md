@@ -13,6 +13,8 @@ This is a horrific abuse of tuple unpacking, a feature that is usually used for 
 It abuses reflection and the `exec()` function to work, and should never be used for anything serious.
 That said, even bad ideas can have interesting things to tell us, so in this post I'm going to explain how it works and how I wrote it.
 
+https://www.flickr.com/photos/seishin17/5602797265
+
 <figure>
   <img src="5602797265_26f669c246_o.jpg" alt="A side view mirror from a car, shattered and bent lying on the pavement.">
   <figcaption>
