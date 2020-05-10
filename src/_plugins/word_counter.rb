@@ -6,6 +6,7 @@
 
 require "csv"
 require "date"
+require "fileutils"
 
 module Reading
   class WordCounter < Jekyll::Generator
@@ -49,6 +50,8 @@ module Reading
       site.data["total_word_count"] = per_date_word_count.values.inject(0, :+)
 
       csv_path = "#{site.config["destination"]}/word-count.csv"
+
+      FileUtils.mkdir_p site.config["destination"]
 
       CSV.open(csv_path, "w") do |csv|
         csv << ["month", "word count (approximate)"]
