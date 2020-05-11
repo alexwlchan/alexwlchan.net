@@ -641,7 +641,11 @@ a, *b, c = Trues4()
 I'm not going to explain them all, but here's the relevant source code:
 
 ```python
+import ast
+import inspect
 import secrets
+
+import executing
 
 def truthify(node):
     if isinstance(node, ast.Name):
