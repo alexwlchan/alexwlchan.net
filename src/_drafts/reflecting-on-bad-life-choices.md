@@ -87,7 +87,8 @@ It wasn't until the evening, when I was on my daily walk, that gears began to tu
 Remember that tuple unpacking only works if you have the same number of elements on both sides.
 This means that `Trues` has to return the same number of elements as there are variables on the left-hand side -- in this example, four -- and the number of variables can vary.
 
-The only way this can work is if `Trues` can see the tuple it's being unpacked into, and modify its own return value to match.
+The only way this can work is if `Trues` can dynamically match the length of the tuple it's being unpacked into.
+**How can a function know the length of the tuple it's being unpacked into?**
 This is a technique called [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)), where a program can read or modify its own source code.
 
 Anything involving reflection and parsing source code is prone to be fiddly, so I actually wrote _four_ implementations, each less buggy than the last.
