@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-05-11 18:30:07 +0000
 title: The friends I lost along the way
 category: Personal
 index:
