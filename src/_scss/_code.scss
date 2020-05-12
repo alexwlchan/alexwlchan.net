@@ -1,7 +1,11 @@
 code, pre {
-  background-color: #f6f6f6;
+  background-color: $pre-background-grey;
   font-family: $mono-font;
   overflow-x: auto;
+}
+
+pre code {
+  background: none;
 }
 
 code {
@@ -23,7 +27,7 @@ pre {
   padding: ($default-padding / 2) ($default-padding - $sidebar-border-width);
   line-height: $line-height * $code-scaling-factor * 1.08;
 
-  border-left: $sidebar-border-width solid $midtone-gray;
+  border-left: $sidebar-border-width solid $pre-sidebar-grey;
   margin-left:  $default-padding;
   margin-right: $default-padding;
 
