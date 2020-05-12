@@ -5,16 +5,16 @@ summary: I want to assign a bunch of variables to True, but I don't know how man
 category: Python
 ---
 
-Yesterday, I posted [a snippet of code on Twitter](https://twitter.com/alexwlchan/status/1258147811851460608) that has upset people:
+A week ago, I posted [a snippet of code on Twitter](https://twitter.com/alexwlchan/status/1258147811851460608) that has upset people:
 
 {% tweet https://twitter.com/alexwlchan/status/1258147811851460608 %}
 
-Making that tweet work requires a horrific abuse of tuple unpacking, a feature that is usually used for sensible things.
-It abuses reflection and the `exec()` function to work, and should never be used for anything serious.
+Making that tweet work requires a horrific misuse of tuple unpacking, a feature that is usually used for sensible things.
+It needs reflection and the `exec()` function to work, and should never be used for anything serious.
 That said, even bad ideas can have interesting things to tell us, so in this post I'm going to explain how it works and how I wrote it.
 
 _Attention conservation notice:_ I had fun trying this idea, and writing out the notes was a useful exercise, but I don't know how much other people will get out of it.
-You might find it interesting anyway, but this is probably more niche than most of my posts.
+You might find it interesting anyway, but this is probably more niche than my posts.
 
 You can [skip to the end](#actually-useful-information) if you just want the practical lessons.
 
@@ -34,31 +34,31 @@ You can [skip to the end](#actually-useful-information) if you just want the pra
 Many programming languages support [*parallel assignment*](https://en.wikipedia.org/wiki/Assignment_(computer_science)#Parallel_assignment), which allows you to set multiple variables at once:
 
 ```
-sides, colour = 4, "red"
+longitude, latitude = 51.9, -0.2
 ```
 
-This will set `sides` to `4`, and `colour` to `"ref"`.
+This will set `longitude` to `51.9`, and `latitude` to `-0.2`.
 It's a more concise version of
 
 ```
-sides = 4
-colour = "red"
+longitude = 51.9
+latitude = -0.2
 ```
 
 This is often used in Python to return multiple values from a single function:
 
 ```python
-def get_shape():
-    return 4, "red"
+def get_position():
+    return 51.9, -0.2
 
-sides, colour = get_shape()
+longitude, latitude = get_position()
 ```
 
 Another name for this is *tuple unpacking*.
-The structures `sides, colour` and `4, "ref"` are both Python tuples -- the parentheses you often write around tuples are optional.
+The structures `longitude, latitude` and `51.9, -0.2` are both Python tuples -- the parentheses you often write around tuples are optional.
 
-For tuple unpacking to work, you need to have the same number of variable on the left-hand side as elements on the right, so they can be paired up together.
-If there's a mismatched number of elements, you get an error.
+For tuple unpacking to work, you need to have the same number of variables on the left-hand side as elements on the right, so they can be paired up together.
+If they don't match, you get an error.
 For example:
 
 ```pycon
@@ -87,8 +87,10 @@ It wasn't until the evening, when I was on my daily walk, that gears began to tu
 Remember that tuple unpacking only works if you have the same number of elements on both sides.
 This means that `Trues` has to return the same number of elements as there are variables on the left-hand side -- in this example, four -- and the number of variables can vary.
 
-The only way this can work is if `Trues` can dynamically match the length of the tuple it's being unpacked into.
-**How can a function know the length of the tuple it's being unpacked into?**
+The only way this can work is if `Trues` can dynamically resize itself to be the correct length.
+So this boils down to the following question: **how can a function know the length of the tuple it's being unpacked into?**
+
+To make this work, such a function needs to be able to see the source code where it's being called.
 This is a technique called [reflection](https://en.wikipedia.org/wiki/Reflection_(computer_programming)), where a program can read or modify its own source code.
 
 Anything involving reflection and parsing source code is prone to be fiddly, so I actually wrote _four_ implementations, each less buggy than the last.
@@ -123,11 +125,8 @@ ZeroDivisionError: division by zero
 This is meant to help us debug a broken program -- if something goes wrong, it gives us a clue about where the problem is.
 The stack trace tells us what code was executing when the exception was thrown, including the filename, line number and line of code.
 
-Normally this information is printed to stderr for a human to read, but if we could capture it, we could use it to build our ```Trues()``` function.
-Handily, the Python standard library includes a [traceback module](https://docs.python.org/3/library/traceback.html) for doing just this.
-We can get the current stack trace by calling [`extract_stack()`](https://docs.python.org/3/library/traceback.html#traceback.extract_stack).
-
 Normally stack traces are used in the context of error handling, but there's no reason you can't look at them elsewhere -- for example, if you wanted to work out where a function was being called from.
+The information is usually printed to stderr for a human to read, but we can also capture the current stack trace by calling [`extract_stack()`](https://docs.python.org/3/library/traceback.html#traceback.extract_stack) from the [traceback module](https://docs.python.org/3/library/traceback.html).
 
 Observe:
 
@@ -558,7 +557,7 @@ I couldn't find any documentation for the different types of AST node, but using
 They tell me that this node is an `ast.Call`, which seems to represents where we're calling `Trues3()` -- in this case, the right-hand side of an expression `… = Trues3()`.
 
 This node has an attribute `.parent`.
-By grabbing that and inspecting the type, I got an `ast.Assign` node.
+By grabbing that and inspecting the type, I found an `ast.Assign` node.
 This represents an assignment; that is, an expression of the form `X = Y`:
 
 ```python
@@ -620,6 +619,8 @@ Hooray, we're finally done.
 ## Attempt #4: Ye gods, she's still going?
 
 Once you start using the AST, there's scope to handle more interesting expressions.
+Tuple unpacking allows you to put more complex, nested expressions on the left-hand side (although if you're doing this in practice, you might want to think about breaking up the expression over multiple lines).
+
 You can make all of the following work in a fairly sensible way:
 
 ```python
