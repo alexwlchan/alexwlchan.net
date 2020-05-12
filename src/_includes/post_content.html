@@ -10,7 +10,11 @@
 
   <div class="post__meta">
     <ul class="dot_list">
-      <li class="post__date">Posted {{ post.date | date: site.date_format }}</li>
+      <li class="post__date">
+        Posted
+        {% if post.title == "Taking tuple unpacking to terrible places" %}Truesday{% endif %}
+        {{ post.date | date: site.date_format }}
+      </li>
       {% if post.last_updated %}
       <li class="post__updated_date">Updated {{ post.last_updated | date: site.date_format }}</li>
       {% endif %}
