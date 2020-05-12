@@ -755,7 +755,7 @@ Although this sort of dynamic tuple unpacking is terrible and using it in produc
 
 *   Python calls the `__iter__` method on an object when it tries to iterate over it; for example, when it's trying to extract elements to unpack into a tuple.
 
-Learning useful stuff is part of why I experiment with bad ideas (previously: [exhibit A]((/2020/04/using-dynamodb-as-a-calculator/)), [exhibit B](/2019/12/yaml-impossible/)).
+Learning useful stuff is part of why I experiment with bad ideas (previously: [exhibit A](/2020/04/using-dynamodb-as-a-calculator/), [exhibit B](/2019/12/yaml-impossible/)).
 
 Trying to do something like dynamic tuple unpacking forces me to be creative.
 I have to think about how to do something that was never intended to be possible, and I end up learning about things that I'd never have encountered otherwise.
