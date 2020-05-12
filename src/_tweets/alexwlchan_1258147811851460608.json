@@ -1,0 +1,153 @@
+{
+  "created_at": "Wed May 06 21:33:08 +0000 2020",
+  "id": 1258147811851460608,
+  "id_str": "1258147811851460608",
+  "full_text": "Who wants to see some cursed #Python? \n\nVariable-length tuple unpacking. I want to assign a bunch of variables to True, but I don’t know how many there are. Reflection to the rescue!\n\na, b = Trues()\na, b, c, d = Trues()\n\na, b, \\\nc, d = Trues()\n\n(a, b,\nc,\nd) = Trues() https://t.co/oLKnmuUpai",
+  "truncated": false,
+  "display_text_range": [
+    0,
+    267
+  ],
+  "entities": {
+    "hashtags": [
+      {
+        "text": "Python",
+        "indices": [
+          29,
+          36
+        ]
+      }
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+
+    ],
+    "media": [
+      {
+        "id": 1258147795564810241,
+        "id_str": "1258147795564810241",
+        "indices": [
+          268,
+          291
+        ],
+        "media_url": "http://pbs.twimg.com/media/EXXWwQ2U0AEvQKa.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/EXXWwQ2U0AEvQKa.jpg",
+        "url": "https://t.co/oLKnmuUpai",
+        "display_url": "pic.twitter.com/oLKnmuUpai",
+        "expanded_url": "https://twitter.com/alexwlchan/status/1258147811851460608/photo/1",
+        "type": "photo",
+        "sizes": {
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "small": {
+            "w": 316,
+            "h": 680,
+            "resize": "fit"
+          },
+          "large": {
+            "w": 589,
+            "h": 1268,
+            "resize": "fit"
+          },
+          "medium": {
+            "w": 557,
+            "h": 1200,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": []
+  },
+  "source": "<a href=\"https://twitterrific.com/mac\" rel=\"nofollow\">Twitterrific for Mac</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 66351897,
+    "id_str": "66351897",
+    "name": "Alex Chan",
+    "screen_name": "alexwlchan",
+    "location": "At least 2 metres away",
+    "description": "Working on digital preservation at @ExploreWellcome ✨ Secretly three ferrets doing complicated magic ✨ Poetry, dance, and espionage ✨ Genderfluid, they/she",
+    "url": "https://t.co/e5hWyHSq5z",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/e5hWyHSq5z",
+            "expanded_url": "https://alexwlchan.net/",
+            "display_url": "alexwlchan.net",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 1186,
+    "friends_count": 254,
+    "listed_count": 40,
+    "created_at": "Mon Aug 17 13:20:33 +0000 2009",
+    "favourites_count": 34625,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 33575,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "C0DEED",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1225535025023717380/ymhfH61O_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1225535025023717380/ymhfH61O_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/66351897/1572728555",
+    "profile_link_color": "C7301F",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 3,
+  "favorite_count": 11,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
