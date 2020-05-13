@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-05-13 20:29:24 +0000
 title: Social media as a growth culture for opinions
 summary: Using social media can lead us to have more opinions than we really need. Can we fix that?
 ---
