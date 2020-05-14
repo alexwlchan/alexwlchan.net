@@ -35,6 +35,8 @@ I've been meaning to write to [Stephen McPartland, my MP](https://en.wikipedia.o
 > \[2\]: <https://epath.eu/wp-content/uploads/2019/04/Boof-of-abstracts-EPATH2019.pdf>, “Detransition rates in a national UK Gender Identity Clinic” <br/>
 > \[3\]: <https://www.nhs.uk/conditions/gender-dysphoria/treatment/> section “Hormone therapy”
 
+I also included my full address and a phone number -- MPs can only handle queries from their own constituents -- but I'm not going to share that here.
+
 I sent a similar email to the [Women and Equalities Committee](https://www.parliament.uk/womenandequalities).
 
 If you feel similarly, I urge you to consider writing to your own MP.
