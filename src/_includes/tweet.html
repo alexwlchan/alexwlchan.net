@@ -60,13 +60,13 @@
 
       {% if tweet_data["quoted_status"] %}
       <a href="{{ tweet_data['quoted_status_permalink']['expanded'] }}">
-        {% assign name = tweet_data["quoted_status"]["user"]["name"] %}
-        {% assign screen_name = tweet_data["quoted_status"]["user"]["screen_name"] %}
+        {% assign quoted_name = tweet_data["quoted_status"]["user"]["name"] %}
+        {% assign quoted_screen_name = tweet_data["quoted_status"]["user"]["screen_name"] %}
         <div class="quoted_tweet">
           <div class="header">
             <div class="author">
-              <span class="name" title="{{ name }}">{{ name }}</span>
-              <span class="screen_name" title="@{{ screen_name }}">@{{ screen_name }}</span>
+              <span class="name" title="{{ quoted_name }}">{{ quoted_name }}</span>
+              <span class="screen_name" title="@{{ quoted_screen_name }}">@{{ quoted_screen_name }}</span>
             </div>
           </div>
           <div class="body">
