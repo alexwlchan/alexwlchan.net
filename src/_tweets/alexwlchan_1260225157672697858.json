@@ -1,0 +1,225 @@
+{
+  "created_at": "Tue May 12 15:07:46 +0000 2020",
+  "id": 1260225157672697858,
+  "id_str": "1260225157672697858",
+  "full_text": "1. Yay better archiving!\n\n2. Fellow Pinboard users: I have a script that looks at your Pinboard bookmarks, and saves the nicely formatted AO3 downloads for everything you’ve saved (ebook, HTML, PDF, etc.).\n\nAnybody interested in that? https://t.co/2vsEnXv11k",
+  "truncated": false,
+  "display_text_range": [
+    0,
+    258
+  ],
+  "entities": {
+    "hashtags": [
+
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+      {
+        "url": "https://t.co/2vsEnXv11k",
+        "expanded_url": "https://twitter.com/Pinboard/status/1260215889816780800",
+        "display_url": "twitter.com/Pinboard/statu…",
+        "indices": [
+          235,
+          258
+        ]
+      }
+    ]
+  },
+  "source": "<a href=\"https://twitterrific.com/mac\" rel=\"nofollow\">Twitterrific for Mac</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 66351897,
+    "id_str": "66351897",
+    "name": "Alex Chan",
+    "screen_name": "alexwlchan",
+    "location": "At least 2 metres away",
+    "description": "Working on digital preservation at @ExploreWellcome ✨ Secretly three ferrets doing complicated magic ✨ Poetry, dance, and espionage ✨ Genderfluid, they/she",
+    "url": "https://t.co/e5hWyHSq5z",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/e5hWyHSq5z",
+            "expanded_url": "https://alexwlchan.net/",
+            "display_url": "alexwlchan.net",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 1205,
+    "friends_count": 251,
+    "listed_count": 38,
+    "created_at": "Mon Aug 17 13:20:33 +0000 2009",
+    "favourites_count": 35068,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 33895,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "C0DEED",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1225535025023717380/ymhfH61O_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1225535025023717380/ymhfH61O_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/66351897/1572728555",
+    "profile_link_color": "C7301F",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none"
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": true,
+  "quoted_status_id": 1260215889816780800,
+  "quoted_status_id_str": "1260215889816780800",
+  "quoted_status_permalink": {
+    "url": "https://t.co/2vsEnXv11k",
+    "expanded": "https://twitter.com/Pinboard/status/1260215889816780800",
+    "display": "twitter.com/Pinboard/statu…"
+  },
+  "quoted_status": {
+    "created_at": "Tue May 12 14:30:56 +0000 2020",
+    "id": 1260215889816780800,
+    "id_str": "1260215889816780800",
+    "full_text": "If you use Pinboard and archive AO3 links, I'm recrawling a bunch that didn't get stored right. There was a nasty silent bug where a Ubuntu update made the crawler unable to speak the same dialect of SSL as AO3's server. This will also retroactively fix adult content warnings.",
+    "truncated": false,
+    "display_text_range": [
+      0,
+      277
+    ],
+    "entities": {
+      "hashtags": [
+
+      ],
+      "symbols": [
+
+      ],
+      "user_mentions": [
+
+      ],
+      "urls": [
+
+      ]
+    },
+    "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 55525953,
+      "id_str": "55525953",
+      "name": "Pinboard",
+      "screen_name": "Pinboard",
+      "location": "Lonely street of broken dreams",
+      "description": "CSPAN in the tweets, CPAN in the sheets. Fundraising for rural Democrats to help win the Senate. (Also an actual bookmarking site.) maciej@ceglowski.com",
+      "url": "http://t.co/qOHjNexLMt",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/qOHjNexLMt",
+              "expanded_url": "http://pinboard.in",
+              "display_url": "pinboard.in",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 51635,
+      "friends_count": 297,
+      "listed_count": 2176,
+      "created_at": "Fri Jul 10 10:24:12 +0000 2009",
+      "favourites_count": 1540,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 86888,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FFFFFF",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1244591429915049985/BxQ2up8k_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1244591429915049985/BxQ2up8k_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/55525953/1568245148",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "BDDCAD",
+      "profile_sidebar_fill_color": "FFFFFF",
+      "profile_text_color": "333333",
+      "profile_use_background_image": false,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": null,
+      "follow_request_sent": null,
+      "notifications": null,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 6,
+    "favorite_count": 43,
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  "retweet_count": 9,
+  "favorite_count": 36,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
