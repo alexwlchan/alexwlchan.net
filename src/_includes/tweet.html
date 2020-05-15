@@ -59,6 +59,7 @@
       <p class="text">{{ tweet_data | render_tweet_text }}</p>
 
       {% if tweet_data["quoted_status"] %}
+      <a href="{{ tweet_data['quoted_status_permalink']['expanded'] }}">
         {% assign name = tweet_data["quoted_status"]["user"]["name"] %}
         {% assign screen_name = tweet_data["quoted_status"]["user"]["screen_name"] %}
         <div class="quoted_tweet">
@@ -72,6 +73,7 @@
             <p class="text">{{ tweet_data["quoted_status"] | render_tweet_text }}</p>
           </div>
         </div>
+      </a>
       {% endif %}
 
       <div class="metadata">
