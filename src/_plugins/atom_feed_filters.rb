@@ -12,6 +12,11 @@ module Jekyll
     def strip_html_attrs(html)
       doc = Nokogiri::HTML.fragment(html)
       doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls|@aria-hidden|.//@aria-hidden').remove
+
+      # Remove the small blue bird I add to tweet blockquotes from the RSS feed;
+      # it only exists for display purposes.
+      doc.xpath('.//div[@class="twitter_birb"]').remove
+
       doc.to_s
     end
 
