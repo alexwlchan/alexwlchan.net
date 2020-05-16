@@ -1,0 +1,67 @@
+<svg viewBox="0 0 303 82" xmlns="http://www.w3.org/2000/svg">
+  <title>Three boxes joined by arrows, pointing from left to right. Boxes, L–R: a pink box (labelled "input queue"); a black dashed box (labelled "worker"); another pink box (labelled "output queue").</title>
+
+  <defs>
+    <style>
+      rect.worker {
+        stroke-width: 2;
+        stroke-dasharray: 2, 2;
+        stroke: #222;
+        fill: white;
+      }
+
+      line {
+        stroke: #222;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+      }
+
+      .cls-sqs{fill:#cd2264;}
+
+      text {
+        fill: black;
+        font-size: 13px;
+        stroke: none;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        font-family: sans-serif;
+      }
+    </style>
+  </defs>
+
+  <rect class="worker" x="131" y="10" width="40" height="40" rx="5"/>
+  <text x="151" y="67">worker</text>
+
+  <line x1="72" y1="30" x2="120" y2="30"/>
+  <line x1="122" y1="30" x2="116" y2="33"/>
+  <line x1="122" y1="30" x2="116" y2="27"/>
+
+  <text x="38" y="67">input queue</text>
+  <svg x="12" y="4">
+    <path class="cls-sqs" d="M47.5,40.12H2.5a1,1,0,0,1-1-1V12.88a1,1,0,0,1,1-1h45a1,1,0,0,1,1,1V39.12A1,1,0,0,1,47.5,40.12Zm-44-2h43V13.88H3.5Z"/>
+    <rect class="cls-sqs" x="18.38" y="15.69" width="2" height="20.62"/>
+    <rect class="cls-sqs" x="24" y="15.69" width="2" height="20.62"/>
+    <rect class="cls-sqs" x="29.63" y="15.69" width="2" height="20.62"/>
+    <path class="cls-sqs" d="M10,30.88a1,1,0,0,1-.42-.09A1,1,0,0,1,9,29.88V22.12a1,1,0,0,1,1.64-.77l4.66,3.88a1,1,0,0,1,0,1.54l-4.66,3.88A1,1,0,0,1,10,30.88Zm1-6.62v3.48L13.09,26Z"/>
+    <path class="cls-sqs" d="M40,30.88a1,1,0,0,1-.64-.23L34.7,26.77a1,1,0,0,1,0-1.54l4.66-3.88a1,1,0,0,1,1.64.77v7.76a1,1,0,0,1-.58.91A1,1,0,0,1,40,30.88ZM36.91,26,39,27.74V24.26Z"/>
+  </svg>
+
+  <svg x="122">
+    <line x1="57" y1="30" x2="105" y2="30"/>
+    <line x1="107" y1="30" x2="101" y2="33"/>
+    <line x1="107" y1="30" x2="101" y2="27"/>
+  </svg>
+
+  <text x="260" y="67">output queue</text>
+
+  <svg x="234" y="4">
+
+    <path class="cls-sqs" d="M47.5,40.12H2.5a1,1,0,0,1-1-1V12.88a1,1,0,0,1,1-1h45a1,1,0,0,1,1,1V39.12A1,1,0,0,1,47.5,40.12Zm-44-2h43V13.88H3.5Z"/>
+    <rect class="cls-sqs" x="18.38" y="15.69" width="2" height="20.62"/>
+    <rect class="cls-sqs" x="24" y="15.69" width="2" height="20.62"/>
+    <rect class="cls-sqs" x="29.63" y="15.69" width="2" height="20.62"/>
+    <path class="cls-sqs" d="M10,30.88a1,1,0,0,1-.42-.09A1,1,0,0,1,9,29.88V22.12a1,1,0,0,1,1.64-.77l4.66,3.88a1,1,0,0,1,0,1.54l-4.66,3.88A1,1,0,0,1,10,30.88Zm1-6.62v3.48L13.09,26Z"/>
+    <path class="cls-sqs" d="M40,30.88a1,1,0,0,1-.64-.23L34.7,26.77a1,1,0,0,1,0-1.54l4.66-3.88a1,1,0,0,1,1.64.77v7.76a1,1,0,0,1-.58.91A1,1,0,0,1,40,30.88ZM36.91,26,39,27.74V24.26Z"/>
+  </svg>
+
+</svg>
