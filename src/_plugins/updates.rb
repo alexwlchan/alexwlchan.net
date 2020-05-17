@@ -21,7 +21,7 @@ module Jekyll
       converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
       update_string = "**Update, #{@date.strftime("%-d %B %Y")}:**"
       <<-EOT
-<blockquote class="update">
+<blockquote class="update" id="update-#{@date.strftime('%Y-%m-%d')}">
   #{converter.convert(update_string + super(context))}
 </blockquote>
 EOT
