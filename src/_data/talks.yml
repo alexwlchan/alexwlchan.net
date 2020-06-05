@@ -6,7 +6,7 @@
     description: |+
       A quick flavour of digital preservation at Wellcome: the processes, practices, and tools we use.
       How do we create, store, and present our digital archives?
-      
+
     is_new: true
 
     links:
@@ -20,6 +20,7 @@
 
     links:
       video: "https://www.youtube.com/watch?t=47m10s&v=hGI95LWVeuk"
+      slides: "/files/2019/queerjs-london.pdf"
 
   - title: "The Curb Cut Effect"
     event: "PyCon UK, Cardiff"
