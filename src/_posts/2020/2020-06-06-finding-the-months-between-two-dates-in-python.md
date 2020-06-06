@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-06-06 06:38:11 +0000
 title: Finding the months between two dates in Python
 category: Python
 ---
