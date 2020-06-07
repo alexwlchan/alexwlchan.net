@@ -2,6 +2,7 @@
 layout: page
 title: All posts by tag
 archive_variant: global
+post_list_date_format: month_year
 ---
 
 <p>

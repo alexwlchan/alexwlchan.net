@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: archive_base
 ---
 
 {% if page.archive_variant == "yearly" %}
@@ -11,7 +11,6 @@ layout: page
   You can also see <a href="/{{ page.year }}/">other posts from this year</a> or read <a href="/all-posts/">the complete archive</a>.
 </p>
 {% endif %}
-
 
 {% assign posts = page.posts %}
 {% include archive_list.html %}

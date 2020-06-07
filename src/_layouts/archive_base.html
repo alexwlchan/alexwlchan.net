@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<article class="page">
+  <style>
+    .article_pagination p {
+      margin: 0;
+    }
+
+    .article_pagination {
+      background: rgba(254, 11, 0, 0.1);
+      margin: 1em -0.5em 0em -0.5em;
+      padding: 0.3em 0.5em;
+      border: 1px solid #d01c11;
+      border-radius: 4px;
+      font-style: italic;
+    }
+  </style>
+
+  <div class="article_pagination">
+    <p>browse posts: by date / by tag / by post type</p>
+  </div>
+
+  <h1 class="title page__title">
+    <a href="{{ page.url | relative_url }}">{{ page.title | smartify | escape }}</a>
+  </h1>
+
+  {% if page.last_updated or page.meta %}
+  <div class="page__meta">
+    <ul class="dot_list">
+      {% if page.last_updated %}
+      <li class="page__date">Last updated {{ page.last_updated | date: site.date_format }}</li>
+      {% endif %}
+      {% for m in page.meta %}
+      <li>{{ m }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {{ content | cleanup_text | smartify }}
+</article>

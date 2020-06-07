@@ -1,0 +1,10 @@
+---
+layout: archive_base
+---
+
+{% for post_group in page.posts %}
+  {% assign posts = post_group[1] %}
+  <h3>{{ posts.first.date | date: "%B" }}</h3>
+
+  {% include archive_list.html %}
+{% endfor %}
