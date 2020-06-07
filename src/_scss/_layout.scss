@@ -10,7 +10,7 @@ body {
 article {
   @include central_element();
   padding-top:    3px;
-  padding-bottom: 15px;
+  padding-bottom: 2em;
 }
 
 .dot_list {

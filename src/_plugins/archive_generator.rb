@@ -31,9 +31,10 @@ module Jekyll
         site.pages << ArchivePage.new(
           site = site,
           posts = posts,
-          variant = "monthly",
+          post_list_date_format = "day_month",
           archive_dir_name = "%04d/%02d" % [year, month],
           title = "Posts from #{Date.new(year, month).strftime("%B %Y")}",
+          layout = "archive_month",
           date = Date.new(year, month)
         )
       end
@@ -44,45 +45,25 @@ module Jekyll
     end
   end
 
-  class YearlyArchiveGenerator < Generator
-    def generate(site)
-      posts_group_by_year(site).each do |y, posts|
-        site.pages << ArchivePage.new(
-          site = site,
-          posts = posts,
-          variant = "yearly",
-          archive_dir_name = "%04d" % y,
-          title = "Posts from #{Date.new(y).strftime("%Y")}",
-          date = Date.new(y)
-        )
-      end
-    end
-
-    def posts_group_by_year(site)
-      site.posts.docs.reverse_each.group_by { |post| post.date.year }
-    end
-  end
-
-  class GlobalArchiveGenerator < Generator
-    def generate(site)
-      posts =
-        site.posts.docs
-          .select { |post|
-            post.data.fetch("index", {}).fetch("exclude", false) != true
-          }
-          .reverse
-
-      site.pages << ArchivePage.new(
-        site = site,
-        posts = posts,
-        variant = "global",
-        archive_dir_name = "all-posts",
-        title = "All posts",
-        date = Date.today,
-        layout = "all_posts"
-      )
-    end
-  end
+  # class YearlyArchiveGenerator < Generator
+  #   def generate(site)
+  #     posts_group_by_year(site).each do |y, posts|
+  #       site.pages << ArchivePage.new(
+  #         site = site,
+  #         posts = posts,
+  #         post_list_date_format = "day_month",
+  #         archive_dir_name = "%04d" % y,
+  #         title = "Posts from #{Date.new(y).strftime("%Y")}",
+  #         layout = "archive_year",
+  #         date = Date.new(y)
+  #       )
+  #     end
+  #   end
+  #
+  #   def posts_group_by_year(site)
+  #     site.posts.docs.reverse_each.group_by { |post| post.date.year }
+  #   end
+  # end
 
   class ArchivePage < Page
 
@@ -92,7 +73,7 @@ module Jekyll
       date
     ]
 
-    def initialize(site, posts, variant, archive_dir_name, title, date = Date.today, layout = "archive")
+    def initialize(site, posts, post_list_date_format, archive_dir_name, title, layout, date = Date.today)
       @site = site
       @dir = ""
 
@@ -128,7 +109,7 @@ module Jekyll
         "grouped_posts" => grouped_posts,
         'year' => @year,
         'month' => @month,
-        'archive_variant' => variant,
+        'post_list_date_format' => post_list_date_format,
         'url' => File.join('/', @dir, @archive_dir_name, 'index.html')
       }
     end
