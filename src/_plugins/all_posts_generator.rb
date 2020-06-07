@@ -9,6 +9,9 @@ module Jekyll
         }
       }
 
+      # Tag cloud generator
+      # See: https://gist.github.com/yeban/2290195
+      # See: https://github.com/alexwlchan/notebook.alexwlchan.net/blob/live/src/_plugins/tag_cloud.rb
       tag_frequency = Hash[
         posts_by_tag.map { |tag_name, posts| [tag_name, posts.size] }
       ]
@@ -22,7 +25,7 @@ module Jekyll
       end
 
       font_size_min = 12
-      font_size_max = 36
+      font_size_max = 24
 
       color_min = "#999999"
       color_max = "#d01c11"
@@ -33,20 +36,21 @@ module Jekyll
 
       # Remember to use .to_f to get precise answers; Ruby does int division
       # by default.
-      size_increment = (font_size_max - font_size_min) / tag_freq_range.to_f
-      red_increment = (red["max"] - red["min"]) / tag_freq_range.to_f
-      green_increment = (green["max"] - green["min"]) / tag_freq_range.to_f
-      blue_increment = (blue["max"] - blue["min"]) / tag_freq_range.to_f
+      size_diff  = font_size_max - font_size_min
+      red_diff   = (red["max"] - red["min"])
+      green_diff = (green["max"] - green["min"])
+      blue_diff  = (blue["max"] - blue["min"])
 
       site.data["tag_cloud_data"] = Hash[tag_frequency.map {
         |tag_name, post_count|
-          red_c   = [(red["min"] + post_count * red_increment), 255].min
-          green_c = [(green["min"] + post_count * green_increment), 255].min
-          blue_c  = [(blue["min"] + post_count * blue_increment), 255].min
+          weight = (Math.log(post_count) - Math.log(tag_freq_min)) / (Math.log(tag_freq_max) - Math.log(tag_freq_min))
+          red_c   = [(red["min"]   + weight * red_diff), 255].min
+          green_c = [(green["min"] + weight * green_diff), 255].min
+          blue_c  = [(blue["min"]  + weight * blue_diff), 255].min
 
           [tag_name,
             {
-              "size"  => (font_size_min + post_count * size_increment).to_i,
+              "size"  => (font_size_min + weight * size_diff).to_i,
               "hex"   => "#%02x%02x%02x" % [red_c, green_c, blue_c],
             }
           ]
