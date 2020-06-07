@@ -7,7 +7,7 @@
     <td class="archive__date">{{ post.date | date: "%b %Y" }}</td>
   {% endif %}
 
-  {% if post.index and post.index.best_of %}
+  {% if post.index and post.index.best_of and page.url != "/" %}
     <td class="archive__bestof">
       {% if page.url == "/best-of/" %}
         <img src="/theme/best-of.png" alt="Red heart">

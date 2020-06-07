@@ -1,6 +1,6 @@
 ---
 layout: page
-archive_variant: index
+post_list_date_format: day_month
 ---
 
 <style>
