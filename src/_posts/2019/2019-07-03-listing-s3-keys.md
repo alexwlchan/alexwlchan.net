@@ -4,6 +4,7 @@ date: 2019-07-03 19:33:55 +0000
 layout: post
 summary: Python functions for getting a list of keys and objects in an S3 bucket.
 title: Listing even more keys in an S3 bucket with Python
+tags: python amazon-s3 aws
 ---
 
 Two years ago, I wrote a Python function for [listing keys in an S3 bucket](/2017/07/listing-s3-keys/).

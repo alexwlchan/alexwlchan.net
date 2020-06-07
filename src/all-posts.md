@@ -1,18 +1,9 @@
 ---
-layout: page
+layout: all_posts_base
 title: All posts
 archive_variant: global
 post_list_date_format: day_month
 ---
-
-<p>
-  <em>
-    Browse the archive:
-      by date /
-      <a href="/all-posts-by-tag">by tag</a> /
-      <a href="/all-posts-by-post-type/">by post type</a>
-  </em>
-</p>
 
 This is every post I've written, organised by date.
 You can subscribe to my posts [as an Atom feed](/atom.xml).

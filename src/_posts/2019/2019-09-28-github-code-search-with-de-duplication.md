@@ -5,6 +5,7 @@ layout: post
 link: https://github.com/alexwlchan/github-code-search
 summary: null
 title: 'Experiment: GitHub code search with de-duplication'
+tags: github
 ---
 
 When I'm trying to learn a new library or function, I often [search for code that uses it on GitHub](https://help.github.com/en/articles/searching-code).

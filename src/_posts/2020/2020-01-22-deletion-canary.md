@@ -4,6 +4,7 @@ date: 2020-01-22 08:23:50 +0000
 title: "A deletion canary: testing your S3 bucket permissions"
 summary: If you've tried to disable deletions in your S3 buckets, how do you know they're working?
 category: Amazon Web Services
+tags: aws amazon-s3
 ---
 
 At Wellcome, we have a pair of S3 buckets (one primary, one replica) that hold the Collection's digital archives.
