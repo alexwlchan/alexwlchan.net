@@ -5,6 +5,7 @@ title: Storing multiple, human-readable versions of BagIt bags
 summary:
 category: Digital preservation
 link: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
+tags: digital-preservation wellcome
 ---
 
 I've written some more about [Wellcome Collection's new storage service][service] -- this time, one of the implementation details.

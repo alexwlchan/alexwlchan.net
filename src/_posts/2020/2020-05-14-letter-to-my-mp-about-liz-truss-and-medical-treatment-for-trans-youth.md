@@ -3,6 +3,7 @@ layout: post
 date: 2020-05-14 21:21:55 +0000
 title: Letter to my MP about Liz Truss and medical treatment for trans youth
 category: Politics
+tags: politics gender
 ---
 
 About three weeks ago, Liz Truss gave a speech [to the Women and Equalities Select Committee](https://www.gov.uk/government/speeches/minister-for-women-and-equalities-liz-truss-sets-out-priorities-to-women-and-equalities-select-committee), which included discussion of the Gender Recognition Act, and potentially restricting access to medical care for trans youth:

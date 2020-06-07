@@ -4,6 +4,7 @@ date: 2020-05-16 09:43:00 +0000
 title: Moving messages between SQS queues
 summary: You can send messages to a DLQ if they fail processing. What if you fix the bug, and you want to resend the failed messages?
 category: Amazon Web Services
+tags: aws amazon-sqs
 ---
 
 At work, we make heavy use of [Amazon SQS](https://en.wikipedia.org/wiki/Amazon_Simple_Queue_Service) for message queues.

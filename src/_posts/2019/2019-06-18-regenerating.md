@@ -4,7 +4,7 @@ date: 2019-06-18 12:48:49 +0000
 title: An inescapable conclusion
 summary: After months of introspection and soul-searching, I've had some big realisations about my identity.
 category: Diversity, inclusion and accessibility
-
+tags: personal gender
 index:
   best_of: true
 

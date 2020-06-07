@@ -7,6 +7,7 @@ tags:
 category: Diversity, inclusion and accessibility
 index:
   best_of: true
+tags: gender work
 ---
 
 A fortnight ago, I tweeted a question:

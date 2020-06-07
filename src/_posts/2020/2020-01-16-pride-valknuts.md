@@ -4,6 +4,7 @@ date: 2020-01-16 22:56:51 +0000
 title: Generating pride-themed Norse valknuts with Python 🌈
 category: Glitch apps
 link: https://rainbow-valknuts.glitch.me/
+tags: python glitch
 ---
 
 You might remember a couple of months back, I was playing with [alternative coordinate systems in SVG](/2019/09/triangular-coordinates-in-svg/).

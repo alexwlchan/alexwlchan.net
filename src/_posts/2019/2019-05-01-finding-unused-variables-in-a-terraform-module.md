@@ -5,6 +5,7 @@ layout: post
 summary: null
 tags: null
 title: Finding unused variables in a Terraform module
+tags: terraform
 ---
 
 At work, we use [Terraform] to manage our infrastructure in AWS.

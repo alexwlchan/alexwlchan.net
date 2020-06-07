@@ -6,6 +6,7 @@ summary: Although paper dictionaries are mostly a thing of the past, knowing to 
 category: Languages
 index:
   best_of: true
+tags: languages
 ---
 
 <style>

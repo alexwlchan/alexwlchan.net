@@ -5,6 +5,7 @@ title: "November 2019 scripts: downloading podcasts, retrying flaky errors, Azur
 category: Python
 theme:
   minipost: true
+tags: python aws
 ---
 
 I do a lot of automation, and I write plenty of scripts.

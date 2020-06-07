@@ -2,7 +2,7 @@
 layout: post
 date: 2020-02-23 20:58:34 +0000
 title: Adjusting the dominant colour of an image
-summary:
+tags: acorn python images
 ---
 
 A week ago, I was at a "book dash" (a collaborative writing event) for [the Turing Way][turing], a book about reproducible data science.
