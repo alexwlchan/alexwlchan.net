@@ -9,7 +9,7 @@ post_list_date_format: month_year
 
 <style>
   #tag--python {
-    line-height: 140%;
+    line-height: 110%;
   }
 
   #tag_cloud {
@@ -31,7 +31,7 @@ post_list_date_format: month_year
     {% assign style_data = site.data["tag_cloud_data"][tag_name] %}
 
     <li>
-      <a id="tag--#{{ tag_name }}" href="#{{ tag_name }}" style="font-size: {{ style_data['size'] }}pt; color: {{ style_data['hex'] }}">{{ tag_name | replace: "-", "&#8209;" }}</a>
+      <a id="tag--{{ tag_name }}" href="#{{ tag_name }}" style="font-size: {{ style_data['size'] }}pt; color: {{ style_data['hex'] }}">{{ tag_name | replace: "-", "&#8209;" }}</a>
     </li>
   {% endfor %}
 </ul>
