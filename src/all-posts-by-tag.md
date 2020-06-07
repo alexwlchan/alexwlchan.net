@@ -7,23 +7,6 @@ post_list_date_format: month_year
 
 <h3>Tags</h3>
 
-<style>
-  #tag--python {
-    line-height: 110%;
-  }
-
-  #tag_cloud {
-    text-align: justify;
-    list-style-type: none;
-    padding-left: 0px !important;
-  }
-
-  /* Ensure they all display in a line */
-  #tag_cloud li {
-    display: inline;
-  }
-</style>
-
 <ul id="tag_cloud">
   {% assign posts_by_tag = site.data["posts_by_tag"] | sort %}
   {% for tag_entry in posts_by_tag %}
