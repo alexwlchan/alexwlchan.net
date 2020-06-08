@@ -10,7 +10,7 @@ You can subscribe to my posts [as an Atom feed](/atom.xml).
 
 Jump to:
 {% for year_entry in site.data["posts_by_year"] -%}
-  <a href="year-{{ year_entry[0] }}">{{ year_entry[0] }}</a>
+  <a href="#year-{{ year_entry[0] }}">{{ year_entry[0] }}</a>
   {%- if forloop.last == false %} / {% endif %}
 {%- endfor %}
 
