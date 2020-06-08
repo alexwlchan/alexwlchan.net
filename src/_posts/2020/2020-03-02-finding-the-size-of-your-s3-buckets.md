@@ -5,6 +5,7 @@ title: Finding the size and cost of each of your S3 buckets
 summary: A Python script that tells you how many objects and how many bytes there are in each of your S3 buckets.
 category: Amazon Web Services
 link: https://github.com/alexwlchan/s3_summary_spreadsheet_script
+tags: aws amazon-s3
 ---
 
 Whenever I look at [our AWS bill], one of the biggest costs is always S3 storage.

@@ -1,26 +1,24 @@
 <table class="archive">
 {% for post in posts %}
 <tr class="archive__entry">
-  {% if page.archive_variant == "yearly" or page.archive_variant == "monthly" or page.archive_variant == "index" or include.variant == "most_recent_10" %}
+  {% if page.post_list_date_format == "day_month" %}
     <td class="archive__date">{{ post.date | date: "%-d %b" }}</td>
   {% else %}
     <td class="archive__date">{{ post.date | date: "%b %Y" }}</td>
   {% endif %}
-  {% if page.archive_variant != "index" %}
-    {% if post.index and post.index.best_of %}
-      <td class="archive__bestof">
-        {% if page.url == "/best-of/" %}
+
+  {% if post.index and post.index.best_of and page.url != "/" %}
+    <td class="archive__bestof">
+      {% if page.url == "/best-of/" %}
         <img src="/theme/best-of.png" alt="Red heart">
-        {% else %}
+      {% else %}
         <a href="/best-of/"><img src="/theme/best-of.png" alt="Red heart"></a>
-        {% endif %}
-      </td>
-    {% elsif page.archive_variant == "global" %}
-      <td class="archive__bestof"></td>
-    {% else %}
-      <td></td>
-    {% endif %}
+      {% endif %}
+    </td>
+  {% else %}
+    <td class="archive__bestof"></td>
   {% endif %}
+
   <td class="archive__url"><a href="{{ post.url }}">{{ post.title | smartify }}</a></td>
 </tr>
 {% endfor %}

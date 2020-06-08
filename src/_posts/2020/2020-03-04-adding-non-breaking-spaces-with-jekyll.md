@@ -4,6 +4,7 @@ date: 2020-03-04 09:42:35 +0000
 title: A Jekyll filter for adding non-breaking spaces
 summary: Avoiding inconvenient line breaks with a Jekyll plugin.
 category: Blogging about blogging
+tags: jekyll
 ---
 
 I've been using [Jekyll] to build this blog for about two and a half years.

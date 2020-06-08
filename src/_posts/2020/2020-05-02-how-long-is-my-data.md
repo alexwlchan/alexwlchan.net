@@ -1,9 +1,10 @@
 ---
 layout: post
 date: 2020-05-02 08:07:18 +0000
-title: How long is my data? 💾 
+title: How long is my data? 💾
 category: Glitch apps
 link: https://howlongismydata.glitch.me/
+tags: digital-preservation glitch fun
 ---
 
 Yesterday, Stuart Lewis posted a photo of his [latest hardware](https://twitter.com/stuartlewis/status/1255825450485628928):

@@ -5,6 +5,7 @@ title: The friends I lost along the way
 category: Personal
 index:
   best_of: true
+tags: personal
 ---
 
 I've lived a lot of my life on the internet.

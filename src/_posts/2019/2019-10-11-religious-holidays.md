@@ -4,6 +4,7 @@ date: 2019-10-11 20:34:14 +0000
 title: Adding religious holidays to my calendar
 summary:
 category: Diversity, inclusion and accessibility
+tags: inclusion religion
 ---
 
 I made a small tweak to my calendar recently, so it shows me religious holidays -- or at least, Christian, Jewish and Muslim holidays:

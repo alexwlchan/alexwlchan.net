@@ -3,6 +3,7 @@ layout: post
 date: 2019-12-06 09:02:20 +0000
 title: "Some useful spreadsheet functions: FORMULATEXT, MATCH, CONCATENATE and INDIRECT"
 category: Programming and code
+tags: spreadsheets
 ---
 
 I've been doing some work in spreadsheets recently, and I stumbled upon a couple of functions that let me do some neat things.

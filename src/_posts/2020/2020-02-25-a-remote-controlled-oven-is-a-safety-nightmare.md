@@ -4,6 +4,7 @@ date: 2020-02-25 12:13:12 +0000
 title: A remote-controlled oven is a safety nightmare
 summary: We should always think about how a malicious user might misuse the things we build. What could they do with a remote-controlled oven?
 category: Diversity, inclusion and accessibility
+tags: security
 
 index:
   best_of: true

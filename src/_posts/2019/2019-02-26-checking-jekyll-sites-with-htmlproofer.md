@@ -4,8 +4,7 @@ date: 2019-02-26 20:27:45 +0000
 category: Blogging about blogging
 title: "Checking Jekyll sites with HTMLProofer"
 summary:
-tags:
-- jekyll
+tags: jekyll accessibility
 ---
 
 Here's a quick change I've just made to my Jekyll setup: I've added HTML linting with [HTMLProofer][html_proofer].

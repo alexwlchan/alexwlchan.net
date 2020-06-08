@@ -3,6 +3,7 @@ layout: post
 date: 2020-05-10 09:11:55 +0000
 title: Make it safe to admit mistakes
 summary: You can't stop people making mistakes, but you can make it more likely that they'll admit their next mistake to you.
+post_type: Notebook
 ---
 
 Most software developers have stories about how they broke their production environment.

@@ -3,6 +3,7 @@ layout: post
 date: 2020-03-08 10:13:19 +0000
 title: Creating striped flag wallpapers with Pillow
 category: Python
+tags: python images
 ---
 
 <style>

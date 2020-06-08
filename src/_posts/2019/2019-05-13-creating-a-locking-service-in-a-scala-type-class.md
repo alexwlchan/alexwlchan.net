@@ -7,6 +7,7 @@ layout: post
 summary: null
 tags: scala
 title: Creating a locking service in a Scala type class
+tags: scala
 ---
 
 A few weeks ago, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].

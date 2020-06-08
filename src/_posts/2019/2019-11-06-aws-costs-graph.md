@@ -4,6 +4,7 @@ date: 2019-11-06 07:54:27 +0000
 title: An AWS costs graph that works for me
 summary:
 category: Amazon Web Services
+tags: aws
 ---
 
 If you use AWS, it's always a good idea to keep an eye on your costs.

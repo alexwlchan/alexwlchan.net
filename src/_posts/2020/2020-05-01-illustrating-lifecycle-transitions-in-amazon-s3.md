@@ -4,6 +4,7 @@ date: 2020-05-01 15:56:04 +0000
 title: Illustrating lifecycle transitions in Amazon S3
 category: Amazon Web Services
 summary: I'll take coloured paper and pens over the newest IDE any day of the week.
+tags: aws amazon-s3 notebook
 ---
 
 Because I work on a digital archive that's [hosted in the cloud][stacks], I have to think about the cost of cloud storage.

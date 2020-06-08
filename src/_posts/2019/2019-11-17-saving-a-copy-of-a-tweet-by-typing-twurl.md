@@ -4,6 +4,7 @@ date: 2019-11-17 11:38:06 +0000
 title: Saving a copy of a tweet by typing ;twurl
 summary:
 category: Python
+tags: twitter python
 ---
 
 For years, I've been using a [Keyboard Maestro][km] snippet for getting the front URL from my running web browser.
