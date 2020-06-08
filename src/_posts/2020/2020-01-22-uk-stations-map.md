@@ -5,6 +5,7 @@ title: An interactive map of British railway stations 🚂
 summary:
 category: Glitch apps
 link: https://uk-stations-map.glitch.me/
+tags: glitch trains fun
 ---
 
 Here's another fun project I've been working on: a map that you can use to plot which railway stations you've visited.

@@ -4,6 +4,7 @@ date: 2020-04-27 09:23:04 +0000
 title: Using DynamoDB as a calculator
 summary: Taking advantage of Amazon's least-loved compute platform.
 category: Amazon Web Services
+tags: aws amazon-dynamodb python code-terrorism
 ---
 
 On a recent [AWS Cost Optimisation Q&A](https://www.youtube.com/watch?t=52m01s&v=Nmyxo68jM2s), Corey Quinn talked about his experiments with [DynamoDB][dynamodb]:

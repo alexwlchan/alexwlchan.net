@@ -8,6 +8,8 @@ category: Build automation and build systems
 
 index:
   best_of: true
+
+tags: build-automation github
 ---
 
 [GitHub Actions][actions] is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers inside GitHub's infrastructure, so there’s a lot of flexibility in what you can do.

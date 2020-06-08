@@ -4,6 +4,7 @@ date: 2019-11-08 08:29:51 +0000
 title: "Preparing for Terraform 0.12: fixing module sources"
 summary: I wanted a quick way to find Terraform modules that had values that would break in 0.12. I used a Python script to do it.
 category: Terraform
+tags: terraform
 ---
 
 I've mentioned before that we use [Terraform][tf] to manage our infrastructure at Wellcome.

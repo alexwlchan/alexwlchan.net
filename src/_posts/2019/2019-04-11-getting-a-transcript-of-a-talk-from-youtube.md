@@ -5,6 +5,7 @@ title: Getting a transcript of a talk from YouTube
 summary: Using the auto-generated captions from a YouTube video as a starting point for a complete transcript.
 tags:
 category: Programming and code
+tags: youtube
 ---
 
 When I give conference talks, my talks are often videoed and shared on YouTube.

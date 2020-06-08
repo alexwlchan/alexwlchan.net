@@ -19,18 +19,15 @@
       <li class="post__updated_date">Updated {{ post.last_updated | date: site.date_format }}</li>
       {% endif %}
 
-      {% if post.category == nil %}
-        {% assign category = "Uncategorised" %}
-      {% else %}
-        {% assign category = post.category %}
-      {% endif %}
-      <li class="post__category">
-        {% if post.index.exclude %}
-        Posted in {{ category }}
-        {% else %}
-        Posted in <a href="/all-posts#{{ category | slugify }}">{{ category }}</a>
-        {% endif %}
+      {% if post.tags %}
+      <li class="post__tags">
+        Tagged with
+        {% assign tags = post.tags | sort %}
+        {% for t in tags %}
+          <a href="/all-posts-by-tag#{{ t }}">{{ t }}</a>{% if forloop.last == false %}, {% endif %}
+        {% endfor %}
       </li>
+      {% endif %}
 
       {% if post.link %}
       <li class="post__permalink"><a href="{{ post.url | relative_url }}">&infin;</a></li>
