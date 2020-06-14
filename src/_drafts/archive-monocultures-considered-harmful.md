@@ -5,58 +5,65 @@ summary: We are better off when the same topic is represented in multiple, diffe
 tags: digital-preservation
 ---
 
-*Preface: this post is a personal opinion, and not endorsed by my employer.*
+*Note: like everything on this blog, this is my personal opinion. I'm not speaking for Wellcome Collection or anybody else who works there.*
 
-Here's a truth that anybody working in cultural heritage can tell you: **archives are inherently political**.
-It's easy to imagine an archive as a neutral, objective collection of stuff; simply a container for historical objects, presented without bias or opinion.
-But that isn't the case.
+When you think about archives, it's easy to imagine them as a neutral, objective collection stuff.
+There are a container for historical objects, presented without bias or opinion.
+But that isn't the case: **archives are inherently political.**
 
 Archives don't just accept any material that gets donated.
-Archivists make choices about what to include and what to exclude.
+Archivists make choices about what to include and what to exclude, trying to choose objects that are on-topic and have historical value.
 Those choices mean some groups will be over or underrepresented in the archival record.
 
-And an archive isn't a passive container -- objects are catalogued and contextualised.
-Every object will have a title and a description, to make it easier for future researches to find.
+And an archive isn't a transparent container -- every object will have a title and the description, to make it easier to find.
+Navigating an archive requires the catalogue, and somebody has to write the catalogue entries.
 Different archivists will describe the same object in different ways.
-Their expertise, their knowledge, the other material in the archive -- all these things feed into how an object is presented.
+Their expertise, their knowledge, their biases, the other material in the archive -- all these things feeds into how an object is presented.
 
-**When dealing with archives, there are power structures in play.**
+**When dealing with archives, there are always power structures in play.**
 
 ---
 
-Most archives have a theme: maybe a topic, or an institution, or a person.
-That theme helps inform what gets accepted -- for example, a transport archive might take a collection of old timetables, but decline some leaflets about gardening.
-In turn, the people who work on that archive can have more detailed knowledge of a theme, so they can write more in-depth descriptions and catalogue records.
+Most archives have a theme: a topic, an institution, or a person.
+That helps inform what gets included -- for example, a transport archive might accept a collection of old timetables, but decline some leaflets about gardening.
+The people who work on that archive can have a detailed knowledge of the theme, so they can write more in-depth descriptions and bring more context to the catalogue records.
 
-Often different archives will overlap in their theme -- the same object could be in-scope for multiple archives.
+Often different archives will have overlapping themes -- the same object could be in-scope in multiple places.
 This is a good thing!
-It means we get a wider range of perspectives on the theme, and voices that are underrepresented in one archive might be better represented in another.
-People can choose where to donate their material -- based on where they think it will be best looked after, most accurately catalogued, the history understood, and so on.
+You can easily get a wider range of perspectives on the theme, and a more diverse set of voices in the catalogue records.
+Voices that are underrepresented in one archive might be better represented in another.
 
-For example, if you have something about black men in London during the AIDS crisis, I can think of at least three different archives and that might be interested.
-Do you want it to be part of the history of LGBT people in London (the Bishopsgate Institute)?
-Or the black community in the UK (the Black Cultural Archive)?
-Or wider medical history (Wellcome Collection)?
+This means people can choose where to donate their material: I somewhere they think it will be best looked after, most appropriately catalogued, the history understood, and so on.
+
+For example, if you have something about Black men in London during the AIDS crisis, I can think of at least three different archives that might be interested.
+Do you wanted to form part of [the history of LGBTQ+ people in London](https://www.bishopsgate.org.uk/archives)?
+Or the history of [the Black community in the UK](https://blackculturalarchives.org/collections)?
+Or maybe part of [wider medical history](https://wellcomecollection.org/pages/Wuw2MSIAACtd3Stk)?
 You choose.
 
-**Archives and history flourish with diversity, and that applies to the institutions as much as the records they keep.**
+Archive collections aren't sort of land grab, where everybody tries to get as much material as possible.
+It's very common for an archive to decline material, if it would be better housed elsewhere.
+Different archives aren't in competition with each other; collectively they benefit from the variety of perspectives and interpretations that they bring.
+**Archives and history flourish with diversity, and that applies to the institutions as much as the individual records they keep.**
 
 ---
 
-All that means I get nervous when I see one archive hoovering up all the material or mindshare for a given theme.
-Monocultures and monopolies are bad, and that's as true in archives as anywhere else.
-Forget tearing down status, that's how history gets forgotten -- when only one group gets to decide what's worth keeping.
+All means I get nervous when I see one archive hoovering up all the material or mindshare for a given theme.
+Monocultures and monopolies are bad, and that's as true for archives as anywhere else.
+Forget tearing down statues, that's how history gets forgotten -- when only one group gets to decide what's worth remembering.
 
-I feel like I'm watching this happen in our digital spaces -- consider the Internet Archive, or the amount of fannish material on AO3.
-Neither of them are unique in what they do, but they take a huge amount of mindshare -- to many people, they are *the* archive in their particular space.
-(Heck, I work in digital preservation, and I couldn't tell you the name of another web archiving project without googling.)
+I'm worried that this is happening in our digital spaces -- consider [the Internet Archive](https://en.wikipedia.org/wiki/Internet_Archive), or the fanfiction site [the Archive of Our Own (AO3)](https://en.wikipedia.org/wiki/Archive_of_Our_Own).
 
-Both of them have been in the news recently -- AO3 for a statement about racism in fandom, the Internet Archive for their [soon-to-be-closed digital library](https://www.nytimes.com/2020/06/11/books/internet-archive-national-emergency-library-coronavirus.html?smid=tw-nytbooks&smtyp=cur) -- and I can't help but wonder if it’s a good idea to put so much Internet/fannish history into a single pot.
+Both of them do good work, and I rely on them regularly.
+I don't want either of them to go away, but I am concerned that they take up a huge amount of mindshare.
+To many people, they are the *only* archive in their particular spaces.
+(The Internet Archive is absolutely not the only web archiving project, but how many others can you name?)
 
 What happens to the stuff they don't take?
 
-Don't get me wrong -- I admire both of them and the work they do, I just wish they weren’t quite so "we're the only player in town" in their respective spaces.
-Having more archives with a similar amount of mindshare would be healthy for all sorts of reasons.
+What happens if one or both of them goes away?
 
-I have no solutions or clever fixes here.
-This is just something at the back of my mind whenever IA or AO3 are in the news, regardless of how exactly they’re upsetting people this week. We’d all be better off if there were other archives with similar mindshare.
+I have no solutions or clever fixes.
+Bootstrapping a new archive is a significant undertaking, and there's an argument for consolidating methods rather than duplicating work.
+But long-term, I think we'd all be better off if there were more prominent, popular archives for the Internet and fandom.
+I just don't know how we get there.
