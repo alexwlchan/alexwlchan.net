@@ -69,3 +69,5 @@ What happens if one or both of them goes away?
 
 Long-term, I think we'd all be better off if there were more big archives for the Internet and fandom.
 Maybe I'm being pessimistic, or there are other archiving initiatives that I'm not aware of -- but from where I'm standing, the current situations look worryingly like monocultures.
+
+*This post was originally [a thread on Twitter](https://twitter.com/alexwlchan/status/1271437504953167873).*
