@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-06-15 20:49:45 +0000
 title: Always read your contracts
 link: https://twitter.com/alexwlchan/status/1271339259509825536
 tags: personal
