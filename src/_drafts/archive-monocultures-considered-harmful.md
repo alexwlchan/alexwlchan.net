@@ -8,20 +8,20 @@ tags: digital-preservation
 *Note: like everything on this blog, this is my personal opinion. I'm not speaking for Wellcome Collection or anybody else who works there.*
 
 When you think about archives, it's easy to imagine them as neutral, impartial collections of stuff.
-They're are a container for historical objects, presented without bias or opinion.
-But that isn't the case: **archives have biases.  Archives are inherently political.**
+They're a container for historical objects, presented without bias or opinion.
+But ask anyone who works in an archive, and they'll tell you that isn't the case.
 
 Archives don't just accept any material that gets donated.
-Archivists make choices about what to include and what to exclude, trying to choose objects that are on-topic and have historical value.
+Archivists make choices about what to include and what to exclude, trying to select objects that are on-topic and have historical value.
 Those choices mean some groups will inevitably be over or underrepresented in the archival record.
 
-And an archive isn't just a container of unadorned objects.
-Finding things in an archive requires a catalogue, and somebody has to write the catalogue entries.
+And an archive isn't just a passive container of unadorned objects.
+An archive has a catalogue, which describes and contextualises what it contains -- and somebody has to write those descriptions.
 Different archivists will describe the same object in different ways.
-Their expertise, their knowledge, their biases, the other material in the archive -- all these things feed into how an object is presented.
-A catalogue entry is not a neutral description.
+Their expertise, their knowledge, their biases, their cultural sensitivities -- all these things feed into how an object gets presented.
 
-**When dealing with archives, there are always power structures at play.**
+**Archives are not neutral; they are inherently political.**
+When dealing with archives, there are always power structures at play.
 
 ---
 
@@ -35,12 +35,12 @@ This is a good thing!
 You can get a wider range of perspectives on the theme, and a more diverse set of people writing the catalogue entries.
 Voices that are underrepresented in one archive might be better represented in another.
 
-This means people can choose where to donate their material -- based on where they think it will be best looked after, catalogued with the most sensitivity, the history most understood, and so on.
+This means people can choose where to donate their material -- based on where they think it will be best looked after, catalogued with the most sensitivity, the history recognised, and so on.
 
 For example, if you have something about Black men in London during the AIDS crisis, I can think of at least three different archives that might be interested.
 Do you want it to form part of [the history of LGBTQ+ people in London](https://www.bishopsgate.org.uk/archives)?
 Or the history of [the Black community in the UK](https://blackculturalarchives.org/collections)?
-Or maybe part of [the wider history of human healthy](https://wellcomecollection.org/pages/Wuw2MSIAACtd3Stk)?
+Or maybe part of [the wider history of human health](https://wellcomecollection.org/pages/Wuw2MSIAACtd3Stk)?
 You choose.
 
 Archives aren't some sort of land grab, where everybody tries to get the biggest or best collection.
