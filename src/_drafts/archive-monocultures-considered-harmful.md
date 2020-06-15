@@ -7,15 +7,15 @@ tags: digital-preservation
 
 *Note: like everything on this blog, this is my personal opinion. I'm not speaking for Wellcome Collection or anybody else who works there.*
 
-When you think about archives, it's easy to imagine them as a neutral, objective collections of stuff.
+When you think about archives, it's easy to imagine them as a neutral, impartial collections of stuff.
 They're are a container for historical objects, presented without bias or opinion.
-But that isn't the case: **archives are inherently political.**
+But that isn't the case: **archives have biases.  Archives are inherently political.**
 
 Archives don't just accept any material that gets donated.
 Archivists make choices about what to include and what to exclude, trying to choose objects that are on-topic and have historical value.
-Those choices mean some groups will be over or underrepresented in the archival record.
+Those choices mean some groups will inevitably be over or underrepresented in the archival record.
 
-And an archive isn't a transparent container -- every object will have a title and a description, to make it easier to find.
+And an archive isn't just a container of unadorned objects.
 Navigating an archive requires the catalogue, and somebody has to write the catalogue entries.
 Different archivists will describe the same object in different ways.
 Their expertise, their knowledge, their biases, the other material in the archive -- all these things feed into how an object is presented.
@@ -26,24 +26,25 @@ Their expertise, their knowledge, their biases, the other material in the archiv
 
 Most archives have a theme: a topic, an institution, or a person.
 That helps inform what gets included -- for example, a transport archive might accept a collection of old timetables, but decline some leaflets about gardening.
-The people who work on that archive can have a detailed knowledge of the theme, so they can write more in-depth descriptions and bring more context to the catalogue records.
+Having a theme means the people who work on that archive can have a detailed knowledge of the theme.
+They can write more in-depth descriptions and bring more context to the catalogue entries.
 
 Often different archives will have overlapping themes -- the same object could be in-scope in multiple places.
 This is a good thing!
 You can get a wider range of perspectives on the theme, and a more diverse set of people writing the catalogue entries.
 Voices that are underrepresented in one archive might be better represented in another.
 
-This means people can choose where to donate their material: based on where they think it will be best looked after, most appropriately catalogued, the history understood, and so on.
+This means people can choose where to donate their material -- based on where they think it will be best looked after, catalogued with the most sensitivity, the history understood, and so on.
 
 For example, if you have something about Black men in London during the AIDS crisis, I can think of at least three different archives that might be interested.
 Do you want it to form part of [the history of LGBTQ+ people in London](https://www.bishopsgate.org.uk/archives)?
 Or the history of [the Black community in the UK](https://blackculturalarchives.org/collections)?
-Or maybe part of [wider medical history](https://wellcomecollection.org/pages/Wuw2MSIAACtd3Stk)?
+Or maybe part of [the wider history of human healthy](https://wellcomecollection.org/pages/Wuw2MSIAACtd3Stk)?
 You choose.
 
-Archive collections aren't some sort of land grab, where everybody tries to get the biggest or best collection.
-It's common for an archive to decline material, if it would be better housed elsewhere.
-Different archives aren't in competition with each other; they recognise the collective benefit from the variety of perspectives and interpretations that different archives can bring.
+Archives aren't some sort of land grab, where everybody tries to get the biggest or best collection.
+It's common for archivists to decline material, if they think it would be better housed elsewhere.
+They recognise the benefits of having a variety of archives, and the different perspectives and interpretations that they can bring.
 **Archives and history flourish with diversity, and that applies to the institutions as much as the individual records they keep.**
 
 ---
@@ -61,8 +62,9 @@ To many people, they're the *only* archive in their particular spaces.
 
 What happens to the stuff they don't take?
 
+What happens to the communities they exclude?
+
 What happens if one or both of them goes away?
 
-Long-term, I think we'd all be better off if there were more prominent, popular archives for the Internet and fandom.
-I'm not saying these two archives should go away -- I just want more archives to rise to a similar level of prominence.
-Maybe I'm being pessimistic, or there are other archiving initiatives that I'm not aware of -- but from where I'm standing, they look worryingly like monocultures.
+Long-term, I think we'd all be better off if there were more big archives for the Internet and fandom.
+Maybe I'm being pessimistic, or there are other archiving initiatives that I'm not aware of -- but from where I'm standing, the current situations look worryingly like monocultures.
