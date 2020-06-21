@@ -52,6 +52,4 @@ I still like the show and the characters and the rest of the writing, but on a r
 And if it grates on me, a person who isn't fat and isn't the target of these jokes?
 Imagine how much it hurts for somebody who is.
 
-We can and should do better.
-
 _This post was originally [a thread on Twitter](https://twitter.com/alexwlchan/status/1274455731320823809)._
