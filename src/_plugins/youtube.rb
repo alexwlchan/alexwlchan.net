@@ -55,7 +55,7 @@ module Jekyll
 <iframe class="youtube"
         id="youtube_#{@video_id}"
         width="560" height="315"
-        src="https://www.youtube.com/embed/#{@video_id}"
+        src="https://www.youtube-nocookie.com/embed/#{@video_id}"
         frameborder="0" allowfullscreen></iframe>
 EOT
     end
