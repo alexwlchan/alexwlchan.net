@@ -50,16 +50,16 @@ def scan_table(dynamo_client, *, TableName, **kwargs):
     See https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Client.scan
 
     """
-    paginator = dynamodb_client.get_paginator("scan")
+    paginator = dynamo_client.get_paginator("scan")
 
     for page in paginator.paginate(TableName=TableName, **kwargs):
         yield from page["Items"]
 
 
 if __name__ == "__main__":
-    dynamodb_client = boto3.client("dynamodb")
+    dynamo_client = boto3.client("dynamodb")
 
-    for item in scan_table(dynamodb_client, TableName="my-table-name"):
+    for item in scan_table(dynamo_client, TableName="my-table-name"):
         print(item)
 ```
 
