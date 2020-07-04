@@ -1,27 +1,21 @@
-{% comment %}
-  All the Twitter card code is commented out for now, because I can't seem to get
-  the preview images working.  Better a plain link than a broken card.
+{% if page.theme and page.theme.card_type %}
+  <meta name="twitter:card" content="{{ page.theme.card_type }}">
+{% else %}
+  <meta name="twitter:card" content="summary">
+{% endif %}
 
-  {% if page.theme and page.theme.card_type %}
-    <meta name="twitter:card" content="{{ page.theme.card_type }}">
-  {% else %}
-    <meta name="twitter:card" content="summary">
-  {% endif %}
+<meta name="twitter:site" content="@{{ site.social.twitter }}" />
+<meta name="twitter:title" content="{{ page.title }}" />
 
-  <meta name="twitter:site" content="@{{ site.social.twitter }}" />
-  <meta name="twitter:title" content="{{ page.title }}" />
+{% if page.summary %}
+  <meta name="twitter:description" content="{{ page.summary }}">
+{% endif %}
 
-  {% if page.summary %}
-    <meta name="twitter:description" content="{{ page.summary }}">
-  {% endif %}
-
-  {% if page.theme.image %}
-    <meta name="twitter:image" content="{{ site.url }}{{ page.theme.image }}" />
-  {% else %}
-    <meta name="twitter:image" content="{{ site.url }}/images/profile2020.jpg" />
-  {% endif %}
-
-{% endcomment %}
+{% if page.theme.image %}
+  <meta name="twitter:image" content="{{ site.url }}{{ page.theme.image }}" />
+{% else %}
+  <meta name="twitter:image" content="{{ site.url }}/images/profile2020.jpg" />
+{% endif %}
 
 {% if page.theme.image %}
   <meta property="og:image" content="{{ site.url }}{{ page.theme.image }}" />
