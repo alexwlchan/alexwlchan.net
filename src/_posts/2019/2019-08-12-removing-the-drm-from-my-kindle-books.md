@@ -5,6 +5,7 @@ layout: post
 summary: Links to a couple of projects that I found helpful when trying to strip the
   DRM from my Kindle books.
 title: Removing the DRM from my Kindle books
+tags: python kindle
 ---
 
 A few months ago, Microsoft made headlines when they announced they'd be [turning off people's books][microsoft].
