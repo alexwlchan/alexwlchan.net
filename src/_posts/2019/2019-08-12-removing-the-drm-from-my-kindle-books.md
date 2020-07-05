@@ -44,6 +44,7 @@ I've got a script that works now, which leans on two other tools to do the heavy
     $ docker run --rm \
         --volume $(pwd):$(pwd) \
         --entrypoint ebook-convert \
+        regueiro/calibre-server \
         $(pwd)/unencrypted_book.azw unencrypted_book.epub
     ```
 
