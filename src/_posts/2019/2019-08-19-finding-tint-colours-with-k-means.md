@@ -10,7 +10,7 @@ theme:
   card_type: summary_large_image
   image: /images/2019/twitter_cover_image.jpg
 title: Getting a tint colour from an image with Python and <em>k</em>-means
-tags: python images
+tags: python images python-pillow
 ---
 
 As [part of my app][docstore] for storing my electronic documents, there's a grid view that displays big thumbnails of all my files.
