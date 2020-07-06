@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Manpage for iconutil(1)</title>
+
+  <style>
+    body {
+      margin-left:  auto;
+      margin-right: auto;
+      padding: 0;
+      white-space: pre;
+      font-family: monospace;
+      font-size: 13pt;
+      max-width: 800px;
+      line-height: 1.25em;
+    }
+
+    pre {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+iconutil(1)               BSD General Commands Manual              iconutil(1)
+
+<strong>NAME</strong>
+     <strong>iconutil</strong> -- Utility to convert between '.iconset' and '.icns' files.
+
+<strong>SYNOPSIS</strong>
+     <strong>iconutil -c</strong> {<u>icns</u> | <u>iconset</u>} [<strong>-o</strong> <u>file</u>] <u>file</u>
+
+<strong>DESCRIPTION</strong>
+     <strong>iconutil</strong> converts between '.iconset' and '.icns' files. The tool takes a
+     single source '.icns' file or '.iconset' and converts it to either a
+     '.icns' or '.iconset' depending on the value of the -c flag's argument.
+     It is possible to specify the name of the output file by passing the file
+     path as the argument to the <strong>-o</strong> flag. If <strong>-o</strong> is not set <strong>iconutil</strong> will write
+     converted '.icns' file or '.iconset' to the same directory as the source
+     file using the same file name with the correct extension for the output
+     type.
+
+<strong>OPTIONS</strong>
+     <strong>-c --convert</strong> {<u>icns</u> | <u>iconset</u>}
+              Given the argument <u>iconset</u>, <strong>iconutil</strong> converts the source '.icns'
+              file to an '.iconset'.  The '.iconset' is saved in the same
+              directory as the source '.icns'. It is given the same file name
+              as but with the '.iconset' file extension.  If the argument is
+              <u>icns</u>, <strong>iconutil</strong> converts the source '.iconset' to an '.icns'.
+              The '.icns' is saved in the same directory as the source '.icon-
+              set'. It is given the same file name as the source file but with
+              the '.iconset' file extension.
+
+     <strong>-o --output</strong>
+              Overrides the default output file name that <strong>iconutil</strong> uses to
+              save the converted '.iconset' or '.icns' files.
+
+<strong>FILES</strong>
+     /usr/bin/iconutil
+
+Darwin                           July 6, 2020                           Darwin
+</body>
+</html>
