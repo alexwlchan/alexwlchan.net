@@ -183,7 +183,7 @@ To [apply the icons], I open the app in Finder and select "Get Info".
 Then I drag the ICNS file over the icon preview.
 This applies the new icon, and flushes whatever icon cache macOS uses for the Dock, the Finder, Spotlight, and so on.
 
-On the Mac I'm writing this post on, I've picked a nice blue icon that matches my Desktop wallpaper:
+On the Mac I'm using to write this post, I've picked a blue icon that matches my Desktop wallpaper:
 
 <img alt="The nvALT Dock icon with a blue rocket set against a blue background" src="/images/2020/nvalt_blue_screenshot.png" style="width: 450px;">
 
