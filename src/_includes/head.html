@@ -10,6 +10,10 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
 
+  <!--
+    Page source: https://github.com/alexwlchan/alexwlchan.net/blob/live/src/{{ page.path }}
+   -->
+
 {% if page.theme and page.theme.color %}
   <link rel="stylesheet" href="/theme/style_{{ page.theme.color }}.css?{{ site.time | date:'%Y%m%d%U%H%N%S' }}">
   <link rel="shortcut icon" type="image/png" href="/theme/favicon_{{ page.theme.color }}.png">

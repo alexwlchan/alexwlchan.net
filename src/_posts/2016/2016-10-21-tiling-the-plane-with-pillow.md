@@ -6,7 +6,7 @@ index:
 layout: post
 summary: Using the Python Imaging Library to draw regular tilings of squares, triangles
   and hexagons.
-tags: python maths
+tags: python maths python-pillow images
 title: Tiling the plane with Pillow
 ---
 
