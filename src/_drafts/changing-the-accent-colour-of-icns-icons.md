@@ -40,7 +40,7 @@ The big sizes can contain lots of detail, and the smaller sizes can be simplifie
 
 For example, the Notational Velocity icon has six sizes in its ICNS file:
 
-<img src="/images/2020/notational-icon-sizes.png">
+<img src="/images/2020/notational-icon-sizes.png" alt="Six different sizes of the nvALT icon, from 16x16 to 512x512.">
 
 Notice how the 32&times;32 and 16&times;16 sizes have a different shape, doing away with the text sheets.
 This allows the rocket shape to remain clear, even at a tiny size.
@@ -105,8 +105,8 @@ $ magick Notality.iconset/icon_512x512.png -modulate 100,100,0 Notality.iconset/
 And here's the result:
 
 <figure style="max-width: 500px;">
-  <img src="/images/2020/notational.png" style="max-width: 49%; display: inline-block;">
-  <img src="/images/2020/notational_cyan.png" style="max-width: 49%; display: inline-block;">
+  <img src="/images/2020/notational.png" alt="The Notational Velocity icon." style="max-width: 49%; display: inline-block;">
+  <img src="/images/2020/notational_cyan.png" alt="A cyan-tinted version of the Notational Velocity icon." style="max-width: 49%; display: inline-block;">
   <figcaption>The Notational Velocity icon before (left) and after (right) having the <code>&#8209;modulate&nbsp;100,100,0</code> transformation applied.</figcaption>
 </figure>
 
