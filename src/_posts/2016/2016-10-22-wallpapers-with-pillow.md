@@ -7,7 +7,7 @@ index:
 layout: post
 summary: 'Take a regular tiling of the plane, and apply a random colouring: voila,
   a unique wallpaper, courtesy of the Python Imaging Library.'
-tags: python
+tags: python python-pillow images
 title: Creating low contrast wallpapers with Pillow
 ---
 
