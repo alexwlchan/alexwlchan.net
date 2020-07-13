@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-07-13 22:20:06 +0000
 title: What does \d match in a regex?
 tags: regex
 summary: It's more complicated than I thought.
