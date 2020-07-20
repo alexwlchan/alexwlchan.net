@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-07-20 09:06:38 +0000
 title: Running concurrent Try functions in Scala
 summary: If you have a function that returns Try[_], how do you call it more than once at the same time?
 category: scala
