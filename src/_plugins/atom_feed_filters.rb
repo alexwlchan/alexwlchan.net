@@ -43,21 +43,6 @@ module Jekyll
 
       doc.to_s
     end
-
-    # Minify an XML string.
-    #
-    # Here minification just means removing all whitespace that comes
-    # after a '>'.  This isn't as nice as using a proper XML parser, but
-    # I've been unable to get that working in Ruby.
-    # TODO: Use Nokogiri to do this properly.
-    #
-    # Params:
-    # +xml+:: XML string to minify.
-    #
-    def minify_xml(xml)
-      xml.gsub(%r|>\s+|, ">")
-    end
-
   end
 end
 
