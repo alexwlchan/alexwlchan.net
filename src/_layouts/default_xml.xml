@@ -1,1 +1,1 @@
-{{ content | minify_xml }}
+{{ content }}
