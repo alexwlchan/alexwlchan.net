@@ -353,10 +353,10 @@ I did try to dig back further, into languages like FORTRAN, COBOL and Algol, all
 I couldn't find anything definitive about a main-like function in those languages, but I did find phrases like *"main procedure"* and *"main program"*.
 Even if B was the first language to use this as a function name, "main" goes back further.
 
-I found a page of [historical documents in computer science][historical], with lots of manuals which might have more clues, but I haven't read any of them.
+I found a page of [historical documents in computer science][historical], with lots of manuals which might have more clues, but I haven't read any of them yet.
 
 I hope you found some of this history interesting.
-I'm not going to spend more time on this question, but if somebody else has a better answer [please let me know](/#contact).
+I don't know if I'll spend more time on this question, but if somebody else has a better answer [please let me know](/#contact).
 I'm sure somebody must know where `main()` came from, even if I don't.
 
 [pymain]: https://utcc.utoronto.ca/~cks/space/blog/python/WhyNoMainFunction
