@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-07-26 17:31:36 +0000
 title: Getting a Markdown link to a window in Safari
 tags: macos applescript automation
 ---
