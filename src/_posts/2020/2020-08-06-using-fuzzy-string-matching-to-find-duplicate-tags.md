@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-08-06 11:14:20 +0000
 title: Using fuzzy string matching to find duplicate tags
 tags: python
 ---
