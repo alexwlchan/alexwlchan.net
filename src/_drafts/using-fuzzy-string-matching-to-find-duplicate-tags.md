@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using fuzzy string matching to weed out duplicate tags
+title: Using fuzzy string matching to find duplicate tags
 tags: python
 ---
 
@@ -25,8 +25,8 @@ books i’ve read
 
 Anybody can see that these tags mean the same thing, but if I search for any one of them I won't find anything tagged with the alternative spellings.
 
-I could consolidate each of these into a single tag -- but I can only do that if I know I've created these pairs of similar tags.
-How do I find the similar tags I've created?
+I could consolidate each of these into a single tag -- but I can only do that if I know I've created these similar tags.
+How do I find these inconsistencies?
 I often have hundreds of tags, and looking through the list by hand isn't practical.
 
 This isn't a new problem, and I found [a great article from Seatgeek](https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) (a ticketing platform) that solves something very similar.
@@ -62,7 +62,7 @@ I start at 80%, but I often adjust up or down to get less or more results.
 
 Comparing every pair is [O(<em>N</em><sup>2</sup>) complexity](https://en.wikipedia.org/wiki/Computational_complexity) in the number of tags.
 This could be slow with lots of tags, but my personal collections don't have enough tags for that to be an issue.
-Comparing the 1100 tags in my Pinboard account takes 1.5s on a fairly old laptop; it's plenty fast enough.
+Comparing the ~1100&nbsp;tags in my Pinboard account takes 1.5s on a fairly old laptop; it's plenty fast enough.
 
 When I call this function, I usually have a tally-like dictionary as input.
 For each similar pair, I print the number of times I've used the tag, which helps me see what the canonical spelling of a duplicate tag is.
