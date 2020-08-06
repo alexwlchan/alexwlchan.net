@@ -1,16 +1,15 @@
 ---
 layout: post
-title: Using FuzzyWuzzy to find similarly-named tags
+title: Using fuzzy string matching to weed out duplicate tags
 tags: python
-summary: How I use fuzzy string matching to weed out duplicate tags.
 ---
 
 I'm a big fan of [keyword tagging](https://en.wikipedia.org/wiki/Tag_(metadata)) as a way to organise my digital data.
 (For an explanation why, see my post about [how I scan and store my paperwork](/2019/11/my-scanning-setup/#how-should-i-organise-my-files).)
 
 Tags work best if I use them consistently -- same spelling, same wording, same everything.
-In practice, I don't always get that right -- I make typos, mistakes, or I forget that I already have a tag for a particular idea, and create a duplicate.
-Here's a selection of tags from my notes folder:
+In practice, I don't always get that right -- I make typos, mistakes, or I forget that I already have a tag for a particular concept, and I create another tag.
+Here's a few similar tags from my notes folder:
 
 ```
 Amazon S3
@@ -26,13 +25,13 @@ books i’ve read
 
 Anybody can see that these tags mean the same thing, but if I search for any one of them I won't find anything tagged with the alternative spellings.
 
-These could each be consolidated into a single tag -- but I can only do that if I know I've created these pairs of similar tags.
+I could consolidate each of these into a single tag -- but I can only do that if I know I've created these pairs of similar tags.
 How do I find the similar tags I've created?
-I often have hundreds of tags, way more than I can check by hand.
+I often have hundreds of tags, and looking through the list by hand isn't practical.
 
 This isn't a new problem, and I found [a great article from Seatgeek](https://chairnerd.seatgeek.com/fuzzywuzzy-fuzzy-string-matching-in-python/) (a ticketing platform) that solves something very similar.
-Rather than looking at keyword tags, they were looking at event names.
-The post explains various approaches to comparing text -- string similarity, partial string similarity, token similarity, and so on -- and then they packaged their work in a library called [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy).
+They were trying to find similar descriptions of the same event.
+The post explains various approaches to comparing text -- string similarity, partial string similarity, token ratios, and so on -- and then they packaged their work in a library called [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy).
 
 There's a variant of FuzzyWuzzy called [RapidFuzz](https://pypi.org/project/rapidfuzz/), which does similar calculations but performs a lot faster -- anecdotally, I see a 10&times; speedup when using RapidFuzz over FuzzyWuzzy.
 
@@ -61,9 +60,9 @@ The required similarity often needs a bit of tuning.
 Sometimes I do have tags that look very similar but are genuinely different (e.g. `mental health` and `dental health`), and I don't want too many of those in the results -- but I do want to find all the duplicates.
 I start at 80%, but I often adjust up or down to get less or more results.
 
-Comparing all pairs of tags is O(<em>N</em><sup>2</sup>) in the number of tags.
-This could make this function slow with lots of tags, but my personal collections don't have enough tags for that to be an issue.
-Comparing the 1100 tags in my Pinboard account takes 1.5s on a fairly old laptop; speed isn't an issue for me.
+Comparing every pair is [O(<em>N</em><sup>2</sup>) complexity](https://en.wikipedia.org/wiki/Computational_complexity) in the number of tags.
+This could be slow with lots of tags, but my personal collections don't have enough tags for that to be an issue.
+Comparing the 1100 tags in my Pinboard account takes 1.5s on a fairly old laptop; it's plenty fast enough.
 
 When I call this function, I usually have a tally-like dictionary as input.
 For each similar pair, I print the number of times I've used the tag, which helps me see what the canonical spelling of a duplicate tag is.
