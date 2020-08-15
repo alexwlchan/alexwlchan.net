@@ -25,14 +25,14 @@ The tool I'm use is [pdftocairo](https://www.mankier.com/1/pdftocairo), a comman
 Here's the command I use:
 
 ```console
-$ pdftocairo my_document.pdf -jpg -singlefile -scale-to-x 400 -scale-to-y -1
+$ pdftocairo my_document.pdf -jpeg -singlefile -scale-to-x 400 -scale-to-y -1
 ```
 
 These creates a new file `my_document.jpg` in the same directory, which is a 400-pixel wide preview of the first page.
 
 I'm using the following options:
 
-*   `-jpg` creates a JPEG output file.
+*   `-jpeg` creates a JPEG output file.
     I've experimented a bit and the format doesn't seem to make much difference for size/quality, so I picked JPEG somewhat arbitrarily.
 *   `-singlefile` is an option that justs gets the first page.
 *   `-scale-to-x 400` resizes the image to 400 pixels wide.
