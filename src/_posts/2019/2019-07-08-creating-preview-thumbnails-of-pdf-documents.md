@@ -25,7 +25,7 @@ The tool I'm use is [pdftocairo](https://www.mankier.com/1/pdftocairo), a comman
 Here's the command I use:
 
 ```console
-$ pdftocairo my_document.pdf -jpeg -singlefile -scale-to-x 400 -scale-to-y -1
+$ pdftocairo my_document.pdf -jpeg -singlefile -scale-to-x 400
 ```
 
 These creates a new file `my_document.jpg` in the same directory, which is a 400-pixel wide preview of the first page.
@@ -36,8 +36,6 @@ I'm using the following options:
     I've experimented a bit and the format doesn't seem to make much difference for size/quality, so I picked JPEG somewhat arbitrarily.
 *   `-singlefile` is an option that justs gets the first page.
 *   `-scale-to-x 400` resizes the image to 400 pixels wide.
-    This doesn't preserve the aspect ratio automatically -- it just squishes the document without changing the height.
-    Adding `-scale-to-y -1` gets it to resize the height to match.
 
 The quality varies at larger sizes (particularly with font rendering if you don't have the right fonts installed), but for creating small thumbnails the images look fine.
 I've used a wrapper around this utility for several thousand documents now, and they've all worked a treat.
