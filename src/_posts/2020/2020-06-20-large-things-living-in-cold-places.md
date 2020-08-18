@@ -4,6 +4,8 @@ date: 2020-06-20 08:36:39 +0000
 title: Large things living in cold places
 tags: digital-preservation wellcome aws amazon-s3
 link: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
+index:
+  best_of: true
 ---
 
 On Wednesday, I wrote about [some recent work we've been doing at Wellcome][stacks].
