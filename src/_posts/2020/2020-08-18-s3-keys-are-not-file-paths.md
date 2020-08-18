@@ -54,16 +54,19 @@ Eek!
 ## The solution
 
 Most languages include a function to *normalise* a path -- to remove redundant path entries and collapse parent directories.
-For example, in Python, you use [os.path.normpath](https://docs.python.org/3/library/os.path.html#os.path.normpath):
+For example, in Python, we can use [Path.resolve](https://docs.python.org/3/library/pathlib.html#pathlib.Path.resolve):
 
 ```pycon
->>> os.path.normpath('pictures/cat.jpg')
+>>> def normalise(p):
+...     return str(pathlib.PosixPath(p).resolve(strict=False)).encode().decode()
+...
+>>> normalise('pictures/cat.jpg')
 'pictures/cat.jpg'
->>> os.path.normpath('pictures//cat.jpg')
+>>> normalise('pictures//cat.jpg')
 'pictures/cat.jpg'
->>> os.path.normpath('pictures/./cat.jpg')
+>>> normalise('pictures/./cat.jpg')
 'pictures/cat.jpg'
->>> os.path.normpath('pictures/pets/../cat.jpg')
+>>> normalise('pictures/pets/../cat.jpg')
 'pictures/cat.jpg'
 ```
 
@@ -71,8 +74,11 @@ You can in turn create a function that tells you whether a path is normalised:
 
 ```python
 def is_normalised(path):
-    return path == os.path.normpath(path)
+    return path == normalise(path)
 ```
+
+(Note that normalisation rules can vary by platform -- for example, POSIX and Windows have different rules.
+If you're running on a consistent platform, you're probably okay.)
 
 As far as I know, normalised paths are distinct and unambigous.
 If two normalised paths are different, then they refer to different files in a filesystem.
@@ -125,3 +131,28 @@ This post is more of a "don't make the same mistake as me" than a "this is defin
 I think using normalised paths for keys is safe, but I might be wrong.
 Think I've missed something?
 Drop me [a tweet](https://twitter.com/alexwlchan) or [an email](mailto:alex@alexwlchan.net).
+
+
+
+
+{% update 2020-08-18 %}
+  [Thomas Grainger](https://twitter.com/graingert/) pointed out a few issues:
+
+  *   Path normalisation is platform-dependent -- if you use `os.path.normpath()` on Windows, it converts slashes to backslashes.
+      I'm normally interacting with S3 from macOS or Linux so it's not an issue for me.
+      I've updated the example to use POSIX paths consistently.
+
+  *   S3 keys are case-sensitive; some filesystems aren't.
+      If you have keys `CAT.jpg` and `cat.jpg`, they might become the same file when you download them.
+
+  *   Not all S3 keys are valid filesystem paths -- some filenames are restricted, like COM or NUL on Windows.
+      (Which I knew, having read [How I broke Rust's package manager for all Windows users](http://sasheldon.com/blog/2017/05/07/how-i-broke-cargo-for-windows/) a few years ago.)
+
+      Not all filenames are valid S3 keys.
+      A key can be at most 1024 bytes of UTF-8 encoded text, but some filesystems allow alternative encodings or longer filenames.
+
+  Based on their comments, I went looking, and found [myths programmers believe about file paths](https://yakking.branchable.com/posts/falsehoods-programmers-believe-about-file-paths/).
+  I still think normalising the path is adequate for my use case, but depending on your platform and how you're using S3, you want to be super careful using an S3 key as a filename, or vice versa.
+
+  Paths are complicated, huh?
+{% endupdate %}
