@@ -5,21 +5,21 @@ summary: Although an S3 key looks a lot like a file path, they aren't always the
 tags: amazon-s3
 ---
 
-If you look at an S3 bucket, you could be forgiven for thinking it behaves like a hierarchical filesystem, with files organised into a series of folders.
+If you look at an S3 bucket, you could be forgiven for thinking it behaves like a hierarchical filesystem, with everything organised as files and folders.
 Indeed, the S3 console even has a button labelled "Create folder":
 
-<img src="/images/2020/s3_faux_directories.png">
+<img src="/images/2020/s3_faux_directories.png" alt="Screenshot of the S3 console, including a 'Create folder' button in blue">
 
 But S3 isn't a filesystem; it's an *object store*.
-Each object is associated with a *key*, and those keys often happen to look a bit like filesystem paths, but they're not the same.
-If you treat them as interchangeable, you may be in for a nasty surprise -- as I recently learnt at work.
+Each object is associated with a *key*, and although keys often happen to look a bit like filesystem paths, they're not the same.
+If you treat them as interchangeable, you may be in for a nasty surprise -- as I recently discovered.
 
 
 
 ## The problem
 
 Most filesystems have special path entries that mean "the current directory" and "the parent directory" -- on Unix-like systems, those are `.` and `..`, respectively.
-If you treat them as paths, all four of these strings point to the same location:
+That means that if you treat them as paths, all four of these strings point to the same file:
 
 ```
 pictures/cat.jpg
@@ -28,22 +28,24 @@ pictures/./cat.jpg
 pictures/pets/../cat.jpg
 ```
 
-But in S3, object keys are opaque strings -- special characters like `/` and `.` don't have any meaning.
-The console will uses slashes to create faux-directories to make it easier to navigate, but entries like `.` are meaningless.
-You could use the four strings above as keys for four distinct objects.
-That's completely legal in S3, but it's liable to confuse any code that thinks of the world as a filesystem.
+But in S3, object keys are just an identifier -- special characters like `/` and `.` don't have any special meaning.
+The console will uses slashes to create faux-directories to make it easier to navigate, but there's no special treatment for a faux-directory called `.` or `..`.
 
-This includes the AWS CLI -- if you use `aws s3 sync` to download the contents of a bucket, those four objects will be collapsed into a single file:
+You could use the four strings above as keys for four different objects.
+That's completely legal in S3, but it's liable to confuse any code that thinks of the world as a filesystem -- or any code that manipulates S3 keys as if they were file paths.
 
-```
-download: s3://bukkit/pictures/./cat.jpg       to not-a-file-system/pictures/cat.jpg
-download: s3://bukkit/pictures//cat.jpg        to not-a-file-system/pictures/cat.jpg
-download: s3://bukkit/pictures/pets/../cat.jpg to not-a-file-system/pictures/cat.jpg
-download: s3://bukkit/pictures/cat.jpg         to not-a-file-system/pictures/cat.jpg
+This includes the AWS CLI -- if you use it to download the contents of a bucket, those four objects will be collapsed into a single file:
+
+```console
+$ aws s3 sync s3://bukkit bukkit
+download: s3://bukkit/pictures/./cat.jpg       to bukkit/pictures/cat.jpg
+download: s3://bukkit/pictures//cat.jpg        to bukkit/pictures/cat.jpg
+download: s3://bukkit/pictures/pets/../cat.jpg to bukkit/pictures/cat.jpg
+download: s3://bukkit/pictures/cat.jpg         to bukkit/pictures/cat.jpg
 ```
 
 Which object you get will vary from sync to sync.
-If you were using this, say, to back up the contents of an S3 bucket, you're missing data in your backup.
+If you were using this, say, to back up the contents of an S3 bucket, you'd be missing data in your backup.
 Eek!
 
 
@@ -54,11 +56,13 @@ Most languages include a function to *normalise* a path -- to remove redundant p
 For example, in Python, you use [os.path.normpath](https://docs.python.org/3/library/os.path.html#os.path.normpath):
 
 ```pycon
->>> os.path.normpath("pictures//cat.jpg")
+>>> os.path.normpath('pictures/cat.jpg')
 'pictures/cat.jpg'
->>> os.path.normpath("pictures/./cat.jpg")
+>>> os.path.normpath('pictures//cat.jpg')
 'pictures/cat.jpg'
->>> os.path.normpath("pictures/pets/../cat.jpg")
+>>> os.path.normpath('pictures/./cat.jpg')
+'pictures/cat.jpg'
+>>> os.path.normpath('pictures/pets/../cat.jpg')
 'pictures/cat.jpg'
 ```
 
@@ -76,15 +80,17 @@ Thus: **if you only ever use normalised paths for S3 keys, you can treat S3 keys
 We recently introduced a rule at work that blocks creating S3 objects whose keys aren't normalised paths.
 I thought we were already doing this; enforcing it in the Scala type system immediately exposed several places where we weren't handling it correctly.
 
-S3 still isn't a filesystem -- for example, I can put an arbitrary number of objects under a single prefix, whereas most filesystems balk at more than a few thousand files in a single directory -- but there's no risk of data loss from having multiple keys that normalise to the same path.
+S3 still isn't a filesystem -- for example, I can put an arbitrary number of objects under a single prefix, whereas most filesystems balk at more than a few thousand files in a single directory -- but if you only use normalised paths for keys, there's no risk of data loss from having multiple keys that normalise to the same path.
 
 
 
 ## The special cases
 
-S3 has some logic to prevent the most destructive mistakes.
-In particular, although it allows the `..` for parent directory, it prevents you from creating a path that would resolve outside the root of the bucket.
+S3 has some internal logic to prevent the most destructive mistakes.
+In particular, although it allows using `/../` anywhere inside a key, it prevents you from creating a path that would resolve outside the root of the bucket.
 If you try to create such a key, you get an HTTP 400 Bad Request.
+
+Here are a few examples:
 
 <style>
   table { margin-left: auto; margin-right: auto; }
@@ -114,7 +120,7 @@ If you treat S3 keys and file paths as interchangeable, there's a risk of confus
 
 If you only use normalised paths as S3 keys, it's less risky to treat the two interchangeably.
 
-This is more of a "don't make my mistake" than a "this is definitely right" sort of post.
+This post is more of a "don't make the same mistake as me" than a "this is definitely right".
 I think using normalised paths is safe, but I might be wrong.
 Think I've missed something?
 Drop me [a tweet](https://twitter.com/alexwlchan) or [an email](mailto:alex@alexwlchan.net).
