@@ -19,7 +19,7 @@ If you treat them as interchangeable, you may be in for a nasty surprise -- as I
 ## The problem
 
 Most filesystems have special path entries that mean "the current directory" and "the parent directory" -- on Unix-like systems, those are `.` and `..`, respectively.
-That means that if you treat them as paths, all four of these strings point to the same file:
+That means that if you treat the following strings as paths, all four of them point to the same file:
 
 ```
 pictures/cat.jpg
@@ -28,7 +28,7 @@ pictures/./cat.jpg
 pictures/pets/../cat.jpg
 ```
 
-But in S3, object keys are just an identifier -- special characters like `/` and `.` don't have any special meaning.
+But in S3, object keys are just an identifier -- characters like `/` and `.` don't have any special meaning.
 The console will uses slashes to create faux-directories to make it easier to navigate, but there's no special treatment for a faux-directory called `.` or `..`.
 
 You could use the four strings above as keys for four different objects.
@@ -74,7 +74,7 @@ def is_normalised(path):
 ```
 
 As far as I know, normalised paths are distinct and unambigous.
-If two normalised paths are distinct, then they refer to different files in a filesystem.
+If two normalised paths are different, then they refer to different files in a filesystem.
 Thus: **if you only ever use normalised paths for S3 keys, you can treat S3 keys and file paths as interchangeable.**
 
 We recently introduced a rule at work that blocks creating S3 objects whose keys aren't normalised paths.
@@ -114,7 +114,7 @@ I shudder to think about the edge cases on that one.
 ## The summary
 
 Imagine two distinct sequences of bytes.
-If treated as object keys, they refer to different objects as S3.
+If treated as object keys, they refer to different objects in S3.
 If treated as file paths, they could refer to the same file on a filesystem.
 If you treat S3 keys and file paths as interchangeable, there's a risk of confusion or data loss.
 
