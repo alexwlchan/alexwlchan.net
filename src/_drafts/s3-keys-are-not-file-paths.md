@@ -28,15 +28,15 @@ pictures/./cat.jpg
 pictures/pets/../cat.jpg
 ```
 
-But in S3, object keys are just an identifier -- characters like `/` and `.` don't have any special meaning.
+But in S3, object keys are just an unstructured identifier -- characters like `/` and `.` don't have any special meaning.
 The console will uses slashes to create faux-directories to make it easier to navigate, but there's no special treatment for a faux-directory called `.` or `..`.
 
-You could use the four strings above as keys for four different objects.
-That's completely legal in S3, but it's liable to confuse any code that thinks of the world as a filesystem -- or any code that manipulates S3 keys as if they were file paths.
+You could use the four strings above as keys for four different S3 objects.
+That's completely legal, but it's liable to confuse any code that thinks of the world as a filesystem -- or any code that manipulates S3 keys as if they were file paths.
 
 This includes the AWS CLI -- if you use it to download the contents of a bucket, those four objects will be collapsed into a single file:
 
-```console
+```
 $ aws s3 sync s3://bukkit bukkit
 download: s3://bukkit/pictures/./cat.jpg       to bukkit/pictures/cat.jpg
 download: s3://bukkit/pictures//cat.jpg        to bukkit/pictures/cat.jpg
@@ -87,8 +87,8 @@ S3 still isn't a filesystem -- for example, I can put an arbitrary number of obj
 ## The special cases
 
 S3 has some internal logic to prevent the most destructive mistakes.
-In particular, although it allows using `/../` anywhere inside a key, it prevents you from creating a path that would resolve outside the root of the bucket.
-If you try to create such a key, you get an HTTP 400 Bad Request.
+In particular, although it allows using `/../` anywhere inside a key, it prevents you from creating a path that would normalise to a location outside the root of the bucket.
+If you try to create an object with such a key, you get an HTTP 400 error.
 
 Here are a few examples:
 
@@ -107,7 +107,7 @@ Here are a few examples:
   <tr><td class="tick">✔</td><td><code>x/y/../../x/../x/y</code></td></tr>
 </table>
 
-I shudder to think about the edge cases on that one.
+I shudder to think about the edge cases this code has to handle.
 
 
 
@@ -121,6 +121,6 @@ If you treat S3 keys and file paths as interchangeable, there's a risk of confus
 If you only use normalised paths as S3 keys, it's less risky to treat the two interchangeably.
 
 This post is more of a "don't make the same mistake as me" than a "this is definitely right".
-I think using normalised paths is safe, but I might be wrong.
+I think using normalised paths for keys is safe, but I might be wrong.
 Think I've missed something?
 Drop me [a tweet](https://twitter.com/alexwlchan) or [an email](mailto:alex@alexwlchan.net).
