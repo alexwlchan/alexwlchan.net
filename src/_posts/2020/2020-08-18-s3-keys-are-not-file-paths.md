@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-08-18 15:19:20 +0000
 title: S3 keys are not file paths
 summary: Although an S3 key looks a lot like a file path, they aren't always the same, and the distinction can trip you up.
 tags: amazon-s3
