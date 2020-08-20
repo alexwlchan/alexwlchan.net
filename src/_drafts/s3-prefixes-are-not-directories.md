@@ -29,13 +29,13 @@ s3://bukkit/bags/b1234/v1/bag-info.txt
 ```
 
 Here, the trailing slash is more significant -- when S3 asks *"does a key match a prefix"*, it's doing a simple string comparison.
-If we omit the slash, it will find other objects that we might not be expecting -- what happens if, say, we've got more than ten versions?
+If we omit the slash, it will find other objects that we might not be expecting -- what happens if, say, we've got more than nine versions?
 
 ```
 $ aws s3 ls s3://bukkit/bags/b1234/v1
 s3://bukkit/bags/b1234/v1/bagit.txt
 s3://bukkit/bags/b1234/v1/bag-info.txt
-s3://bukkit/bags/b1234/v10/bagit.txt        # Err...
+s3://bukkit/bags/b1234/v10/bagit.txt        # Err, is this what we want?
 s3://bukkit/bags/b1234/v10/bag-info.txt
 s3://bukkit/bags/b1234/v11/bagit.txt
 ...
