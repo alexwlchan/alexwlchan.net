@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-08-20 06:50:04 +0000
 title: S3 prefixes are not directories
 tags: amazon-s3
 ---
