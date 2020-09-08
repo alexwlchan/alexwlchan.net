@@ -124,7 +124,8 @@ def get_cloudtrail_events_from_s3(s3_client=None, *, bucket, prefix):
 
 This is good for doing quick experiments.
 
-To analyse the entire set, I downloaded the logs bucket to a local folder with `aws s3 sync`, and I wrote a second function that gets the events from the logs in the folder:
+To analyse the entire set, I downloaded the logs bucket to a local folder with `aws s3 sync`, and I wrote a second function that gets the events from the logs in the folder.
+This saved me having to redownload the complete log set from S3 every time.
 
 ```python
 import gzip
@@ -148,7 +149,7 @@ def get_cloudtrail_events_from_fs(root):
                 yield from records["Records"]
 ```
 
-Both of these functions generate individual events, so calling code doesn't have to worry about the exact format of the log files.
+Both of these functions generate individual events, so calling code doesn't have to worry about the exact format of the log files, or the underlying 15 minute periods.
 They both worked well, and allowed me to do some analysis to find out how many GetObject calls we were actually making.
 
 For example, I was able to use the [collections module](https://docs.python.org/3/library/collections.html) to find the most common API calls on a particular day:
@@ -179,4 +180,4 @@ This was a useful clue -- it turns out that although Cost Explorer was attributi
 Looking at the bill more closely, I realised that GetObject cost was the API call *and the external data transfer costs*.
 I was expecting to see that as a separate entry in Cost Explorer, but apparently not.
 
-I don't know if/when I'll be using CloudTrail again -- this particular problem now resolved, I've turned off the S3 logging -- but I have written these functions several times now, so I figured they were worth keeping for future reference.
+I don't know if/when I'll be using CloudTrail again -- this particular problem now resolved, I've turned off the S3 logging -- but I have written these functions several times now, so I'm keeping them for future reference.
