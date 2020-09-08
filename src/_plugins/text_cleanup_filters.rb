@@ -10,6 +10,9 @@ module Jekyll
       # HTTP XYZ
       text = text.gsub(/HTTP (\d{3})/, 'HTTP&nbsp;\1')
 
+      # NN minutes
+      text = text.gsub(/(\d+) (second|minute|hour)/, '\1&nbsp;\2')
+
       text = text.sub("iPhone X", "iPhone&nbsp;X")
 
       # Display "LaTeX" in a nice way, if you have CSS enabled
