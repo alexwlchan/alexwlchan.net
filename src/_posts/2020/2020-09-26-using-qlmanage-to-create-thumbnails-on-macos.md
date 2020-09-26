@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-09-26 10:14:58 +0000
 title: Using qlmanage to create thumbnails on macOS
 tags: macos
 ---
