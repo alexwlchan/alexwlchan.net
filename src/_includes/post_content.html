@@ -19,7 +19,7 @@
       <li class="post__updated_date">Updated {{ post.last_updated | date: site.date_format }}</li>
       {% endif %}
 
-      {% if post.tags %}
+      {% if post.tags.size > 0 %}
       <li class="post__tags">
         Tagged with
         {% assign tags = post.tags | sort %}
