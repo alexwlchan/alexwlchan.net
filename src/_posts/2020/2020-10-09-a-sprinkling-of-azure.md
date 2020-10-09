@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-10-09 11:37:47 +0000
 title: Replicating Wellcome Collection's digital archive to Azure Blob Storage
 tags: wellcome digital-preservation azure
 link: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
