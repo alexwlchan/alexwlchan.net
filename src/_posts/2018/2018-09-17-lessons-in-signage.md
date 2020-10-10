@@ -90,7 +90,7 @@ On the arrow signs, the snakes all turn to face the direction of travel.
 
 <figure style="max-width: 550px;">
   {%
-    image :filename => "corridor-signs.jpg",
+    image :filename => "quiet-room-signs.jpg",
     :alt => "A sign on a brown wood-panelled door, with a yellow stripe at the top labelled “Quiet room”."
   %}
   <figcaption>
