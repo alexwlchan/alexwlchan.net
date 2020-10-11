@@ -17,7 +17,7 @@ Since I'm spending most of my time at home right now, I've switched to running i
 It's just as convenient, but there's less risk of somebody stealing the files from my server.
 Since my paperwork has a lot of private information (including my address, medical data and bank account details), it would be a disaster if it got leaked.
 
-<img src="/images/2020/docstore_v2_1x.png" srcset="/images/2020/docstore_v2_1x.png 1x, /images/2020/docstore_v2_2x.png 2x" alt="Screenshot of docstore." style="max-width: 500px; border: 1px solid #A6A6A6">
+<img src="/images/2020/docstore_v2_1x.png" srcset="/images/2020/docstore_v2_1x.png 1x, /images/2020/docstore_v2_2x.png 2x, /images/2020/docstore_v2_3x.png 3x" alt="Screenshot of docstore." style="max-width: 500px; border: 1px solid #A6A6A6">
 
 I've recently done a complete rewrite.
 Part of it was fixing mistakes in the original version, part of it was taking advantage of the fact that I'm running locally.
