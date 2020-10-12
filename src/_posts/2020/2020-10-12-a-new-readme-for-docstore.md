@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-10-12 06:52:55 +0000
 title: A new README for docstore, my tool for organising scanned paperwork
 summary:
 link: https://github.com/alexwlchan/docstore
