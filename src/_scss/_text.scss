@@ -111,7 +111,7 @@ sup {
       text-decoration: underline;
     }
     &::after {
-      content: "\a0→";
+      content: "→";
       color: $accent-grey;
     }
   }
