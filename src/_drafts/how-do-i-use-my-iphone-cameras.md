@@ -14,24 +14,24 @@ Although I'm not upgrading myself, it made me wonder how much I use my different
 **How many photos do I take with each camera?**
 
 I vaguely remembered seeing the name of my iPhone when looking at pictures in Photos.app, so I went to have a look at that again.
-It turns out that Photos.app knows not only which phone I was using, but which camera on that individual phone I was using.
+It turns out that Photos.app knows not only what sort of phone I was using, but which camera on that phone I was using.
 Useful!
 
 <figure style="width: 392px;">
   <img src="/images/2020/exif_metadata_1x.png" srcset="/images/2020/exif_metadata_1x.png 1x, /images/2020/exif_metadata_2x.png 2x">
   <figcaption>
-    The Info panel in Photos.app.
-    You can find this by selecting a photo, then <strong>Window</strong> > <strong>Info</strong> or <strong>⌘I</strong>.
+    The Info panel for a picture in Photos.app.
+    You can find this by selecting a picture, then <strong>Window</strong> > <strong>Info</strong> or <strong>⌘I</strong>.
   </figcaption>
 </figure>
 
 This is part of the [EXIF metadata](https://en.wikipedia.org/wiki/Exif) on the photo, which includes plenty of other information about my camera -- including the aperture, exposure time, and whether or not the flash went off.
-Two interesting fields are Lens Make (e.g. *"Apple"*) and Lens Model (e.g. *"iPhone 11 Pro back triple camera 4.25mm f/1.8"*).
+Looking at the EXIF data in Preview, two interesting fields are Lens Make (e.g. *"Apple"*) and Lens Model (e.g. *"iPhone 11 Pro back triple camera 4.25mm f/1.8"*).
 If I could extract that data programatically, I could find out how many times I used each of my cameras.
 
 There's a command-line program called [exiftool](https://exiftool.org) for extracting EXIF metadata, which sounded useful.
 (I've never used it myself, but I know it's used in the digitisation workflow at Wellcome.)
-I installed it with Homebrew (`brew install exiftool`), and then started playing around.
+I installed it with Homebrew (`brew install exiftool`), and then I started playing around.
 
 This is the command I ended up running:
 
@@ -55,7 +55,7 @@ Apple / iPhone 11 Pro back camera 4.25mm f/1.8
 I'm discarding stderr (`2>/dev/null`), otherwise my terminal fills up with warnings about photos that don't have LensMake or LensModel metadata -- usually screenshots.
 
 I pass the output to `sort` (so identical lines appear next to each other), and then I use `uniq -c` to get a tally of the different values.
-The tally prints the count, so I sort it a second time to get the numbers in a nice order.
+The tally prints the count at the start of the line, and sorting a second time gets the numbers in a nice order.
 
 This command takes a couple of minutes to run -- despite being stuck indoors for most of the year, I've taken a lot of photos -- but eventually I get some output:
 
