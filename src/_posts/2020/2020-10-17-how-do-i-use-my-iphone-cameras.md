@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-10-17 16:58:18 +0000
 title: How do I use my iPhone cameras?
 summary:
 tags: iphone photography
