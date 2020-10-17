@@ -18,7 +18,7 @@ It turns out that Photos.app knows not only what sort of phone I was using, but 
 Useful!
 
 <figure style="width: 392px;">
-  <img src="/images/2020/exif_metadata_1x.png" srcset="/images/2020/exif_metadata_1x.png 1x, /images/2020/exif_metadata_2x.png 2x">
+  <img src="/images/2020/exif_metadata_1x.png" srcset="/images/2020/exif_metadata_1x.png 1x, /images/2020/exif_metadata_2x.png 2x" alt="Screenshot of an Info panel. A line is highlighted with red arrows: ‘iPhone 11 Pro back tr…camera 4.25mm f/1.8’.">
   <figcaption>
     The Info panel for a picture in Photos.app.
     You can find this by selecting a picture, then <strong>Window</strong> > <strong>Info</strong> or <strong>⌘I</strong>.
