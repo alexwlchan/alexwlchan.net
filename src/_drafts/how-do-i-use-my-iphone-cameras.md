@@ -14,7 +14,7 @@ Although I'm not upgrading myself, it made me wonder how much I use my different
 **How many photos do I take with each camera?**
 
 I vaguely remembered seeing the name of my iPhone when looking at pictures in Photos.app, so I went to have a look at that again.
-It turns out that Photos.app knows not only which phone I was using, but which of the cameras I was using.
+It turns out that Photos.app knows not only which phone I was using, but which camera on that individual phone I was using.
 Useful!
 
 <figure style="width: 392px;">
@@ -29,7 +29,7 @@ This is part of the [EXIF metadata](https://en.wikipedia.org/wiki/Exif) on the p
 Two interesting fields are Lens Make (e.g. *"Apple"*) and Lens Model (e.g. *"iPhone 11 Pro back triple camera 4.25mm f/1.8"*).
 If I could extract that data programatically, I could find out how many times I used each of my cameras.
 
-There's a command-line program called [exiftool](https://exiftool.org) for extracting EXIF metadata, which should do nicely.
+There's a command-line program called [exiftool](https://exiftool.org) for extracting EXIF metadata, which sounded useful.
 (I've never used it myself, but I know it's used in the digitisation workflow at Wellcome.)
 I installed it with Homebrew (`brew install exiftool`), and then started playing around.
 
@@ -46,7 +46,7 @@ exiftool \
 
 The first part of the command gets exiftool to print the LensMake and LensModel for each photo in the 2020 folder of my photo library.
 The `-r` flag tells it to recurse and find all the photos under the directory, rather than examining a single file.
-This gives a line like:
+This gives lines like this, one per file:
 
 ```
 Apple / iPhone 11 Pro back camera 4.25mm f/1.8
@@ -85,7 +85,7 @@ Dropping those into the exiftool output above, here's how I've used my iPhone ca
 2154 wide camera      / 1× zoom
 ```
 
-So the telephoto and ultrawide cameras account for 5% and 10% of my camera use, respectively -- less than I'd have guessed.
-I wouldn't be too fussed to lose the telephoto, and I'd rather lose that than the ultrawide -- and judging by Apple's new iPhones, my usage pattern is fairly typical.
+So the telephoto and ultrawide cameras account for 5% and 10% of my camera use, respectively.
+I wouldn't be too fussed to lose the telephoto, and I'd give that up before the ultrawide -- and judging by Apple's choice of cameras for their new phones, my usage isn't unusual.
 
-I'm not planning to upgrade for another year or two, so this is just a curiosity -- but if you're trying to choose between iPhones this year, the EXIF metadata might help your decision.
+I'm not planning to upgrade for another year or two, so this is just a curiosity, and a chance to experiment with exiftool -- but if you're trying to choose between iPhones this year, the EXIF metadata might help your decision.
