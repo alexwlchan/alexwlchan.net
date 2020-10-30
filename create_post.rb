@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "fileutils"
+require "yaml"
 
 unless ARGV.length <= 2
   puts "Usage: create_post.rb <TITLE> [<SLUG>]"
@@ -34,7 +35,13 @@ if File.exist? path
   finish(path)
 end
 
-doc = "---\nlayout: post\ntitle: #{title}\nsummary: \ntags: \n---\n\n"
-File.open(path, 'w') { |f| f.write(doc) }
+frontmatter = {
+  "layout" => "post",
+  "title" => title,
+  "summary" => nil,
+  "tags" => nil,
+}
+
+File.open(path, 'w') { |f| f.write(frontmatter.to_yaml + "---\n") }
 
 finish(path)
