@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-10-30 18:25:23 +0000
 title: 'TIL: Using git check-ignore to debug your .gitignore'
 tags: git
 theme:
