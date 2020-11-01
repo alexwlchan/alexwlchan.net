@@ -45,7 +45,7 @@ I hope you enjoy the site.
 
 ## Recent posts
 
-{% assign posts = site.posts | homepage_posts %}
+{% assign posts = site.posts | slice: 0, 5 %}
 {% include archive_list.html %}
 
 ## Contact
