@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Python function to ignore a path in Git
+title: A Python function to add a path to .git/info/exclude
 summary: If your Python script creates a file that you don't want to track in Git, here's how you can ignore it.
 tags: git python
 ---
