@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-11-01 09:13:27 +0000
 title: A Python function to ignore a path with .git/info/exclude
 summary: If your Python script creates a file that you don't want to track in Git, here's how you can ignore it.
 tags: git python
