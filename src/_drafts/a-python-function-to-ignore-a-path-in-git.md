@@ -58,7 +58,9 @@ def ignore_path_locally(path):
         exclude_file.write(path_to_ignore + "\n")
 ```
 
-Hopefully the comments mean you can follow this function.
+Inside the script, I call this function to add downloaded paths to `.git/info/exclude`.
+
+Hopefully the comments mean you can see how this function works.
 There are a couple of Git features it's using that are worth highlighting:
 
 *   **If you want to get the root of a repo, use [`git rev-parse --show-toplevel`](https://git-scm.com/docs/git-rev-parse#Documentation/git-rev-parse.txt---show-toplevel).**
