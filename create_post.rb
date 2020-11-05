@@ -35,9 +35,15 @@ if File.exist? path
   finish(path)
 end
 
+# Escape a couple of characters I don't want to put into the title directly.
+markdown_title =
+  title
+    .gsub("<", "&lt;")
+    .gsub(">", "&gt;")
+
 frontmatter = {
   "layout" => "post",
-  "title" => title,
+  "title" => markdown_title,
   "summary" => nil,
   "tags" => nil,
 }
