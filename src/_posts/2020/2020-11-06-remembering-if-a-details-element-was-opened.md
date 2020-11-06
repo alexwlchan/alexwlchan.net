@@ -108,5 +108,9 @@ For example:
 </script>
 ```
 
-I've created [a small demo page](/files/2020/details_example.html) for this function.
+If you want to try it, I've created [a small demo page](/files/2020/details_example.html).
 I've been using it in docstore for a while now, and it works pretty well -- and since remembering the state of details seems like something I might want to use again in future, I'm writing it up here.
+
+A collapsible element written in JavaScript might remember this by design, rather than having to track it separately.
+I still prefer using &lt;details&gt;, because the collapsible part will work even if the user disables JavaScript.
+Their experience won't be as nice, but the key parts will still work.
