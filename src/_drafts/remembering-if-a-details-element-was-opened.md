@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Remembering if a &lt;details&gt; element was opened
-summary:
+summary: A JavaScript function that remembers if a &lt;details&gt; element was reopened, and keeps it open when you reload the page.
 tags: javascript html
 ---
 
