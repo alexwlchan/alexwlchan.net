@@ -2,7 +2,7 @@
 layout: post
 date: 2020-11-06 15:20:01 +0000
 title: Remembering if a &lt;details&gt; element was opened
-summary: A JavaScript function that remembers if a &lt;details&gt; element was reopened, and keeps it open when you reload the page.
+summary: A JavaScript function that remembers if a details element was reopened, and keeps it open when you reload the page.
 tags: javascript html
 ---
 
