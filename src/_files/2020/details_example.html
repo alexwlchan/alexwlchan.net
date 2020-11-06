@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <title>Example of remembering &lt;details&gt; expansion</title>
+
+  <!-- These CSS styles make the page look nice, but they're not part of the example -->
+  <style>
+    body {
+      max-width: 750px;
+      margin-left:  auto;
+      margin-right: auto;
+      font-size: 150%;
+      line-height: 125%;
+      margin-top: 1em;
+    }
+
+    details {
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      padding: .5em;
+      margin-bottom: 1em;
+    }
+
+    details p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <p>
+    This is a demo of <a href="https://alexwlchan.net/2020/11/remembering-if-a-details-element-was-opened/">a JavaScript function</a> to remember if <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">an HTML &lt;details&gt; element</a> has been opened after you reload the page.
+  </p>
+
+  <details id="detailsRemember">
+    <summary>Your browser should <strong>remember</strong> if this &lt;details&gt; was open</summary>
+
+    <p>
+      If you open this element and reload the page, this element will stay open.
+    </p>
+  </details>
+
+  <details id="detailsClose">
+    <summary>Your browser should <strong>forget</strong> if this &lt;details&gt; was open</strong></summary>
+
+    <p>
+      If you open this element and reload the page, this element will be closed.
+    </p>
+  </details>
+
+  <script>
+    // Remember the state of a <details> element.
+    //
+    // If the element is opened and the page is reloaded, the element will
+    // be reopened.
+    //
+    // Pass the ID of the <details> element after the page has loaded.
+    //
+    function rememberIfDetailsWasDisclosed(detailsId) {
+      var localStorageKey = "detailsWasDisclosed_" + detailsId;
+
+      var details = document.getElementById(detailsId);
+
+      // Listen to the toggle event, which fires whenever the <details>
+      // is opened or closed.  The event fires after the state has changed,
+      // so looking it up will tell us the current value.
+      // See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#Events
+      details.addEventListener("toggle", event => {
+        if (details.open) {
+          localStorage.setItem(localStorageKey, true);
+        } else {
+          localStorage.removeItem(localStorageKey);
+        }
+      });
+
+      // If the stored value tells us the <details> was open the last time we
+      // opened the page, re-open it now.
+      if (localStorage.getItem(localStorageKey)) {
+        details.open = true;
+      }
+    }
+
+    rememberIfDetailsWasDisclosed("detailsRemember");
+  </script>
+</body>
