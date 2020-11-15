@@ -44,3 +44,5 @@ These are both skills in their own right.
 If we only ever look for a singular answer, we're just avoiding ambiugity -- we're not addressing it.
 **Problem solving often involves working with incomplete information, and we're better off practicing this skill, not pretending problems will always be neatly specified.**
 "There’s always one right answer" might be true in the artifical problems of maths textbooks, but it breaks down in the real world.
+
+*This post was originally [a thread on Twitter](https://twitter.com/alexwlchan/status/1327735179285323776).*
