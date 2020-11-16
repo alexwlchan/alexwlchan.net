@@ -12,7 +12,7 @@ We all have an idea of what "reading a book" means, but it means different thing
 Everyone has their our own styles and approaches to reading, and there's no one right way to read a book.
 I've developed a bit of a process around how I read -- particularly around non-fiction books -- and in this post I'm going to explain that process.
 
-But before we ask how to read a book, we need to ask why do we read books?
+But before we ask how to read a book, we need to ask: why do we read books?
 There are lots of reasons you might read a book, and they'll affect what you want to get out of a book, and how to approach it.
 My process works for me, and lets me get what I want out of books -- but it may not work for you, if you read for different reasons.
 
@@ -33,9 +33,9 @@ I'm trying to capture the major ideas, interesting stories, or passages I want t
   </figcaption>
 </figure>
 
-My initial notes are handwritten because it's flexible -- I can write sentences, or fragments, or even sketch tiny diagrams.
+My initial notes are handwritten because handwriting is flexible -- I can write sentences, or fragments, or even sketch tiny diagrams.
 It's a minimal interruption from looking at the book.
-I've tried using a variety of digital devices, but they've never worked as well.
+I've tried using a variety of digital devices for this step, but they've never worked as well.
 
 Every so often, I take my pile of handwritten notes, and I type them into my computer.
 I turn them into full sentences, add any extra details I thought were worth noting, and generally tidy them up.
@@ -50,11 +50,11 @@ I'll even recreate diagrams if I find them useful.
 </figure>
 
 When I type up my notes, I include chapter names, page numbers, and occasionally a passage quoted word-for-word.
-Combined with full text search, this gives me something to skim to remember "What did I learn from this book?", and what pointers to the parts to re-read if I want to find a specific story or detail.
+Combined with full text search, this gives me something to skim to remember "What did I learn from this book?", and pointers to the parts to re-read if I want to find a specific story or detail.
 
 I never actually write in my books.
 I understand why people do that, and if I was using a book as a detailed reference I might try it -- but it's overkill for what I want.
-I want notes that I can read for basic recall, not a detailed list of everything explained in the book.
+I want notes that I can read for basic recall, not a comprehensive list of everything explained in the book.
 I can skim much faster if all the notes are in one place, not scattered through the book.
 (I also give away a fair number of books once I finish them, so it's useful to have the notes separate from the book.)
 
