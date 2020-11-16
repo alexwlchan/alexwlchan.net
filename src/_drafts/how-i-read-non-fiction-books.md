@@ -6,13 +6,13 @@ tags: books productivity taking-notes
 ---
 
 I've spent a lot of this year reading books.
-That was always the plan -- I have an embarrassingly large pile of unread books -- and then I was spurred on by the pandemic.
+That was the plan, even before the pandemic -- I have a large pile of unread books -- and then I just got more time to read than I expected.
 
 We all have an idea of what "reading a book" means, but it means different things to different people.
 Everyone has their our own styles and approaches to reading, and there's no one right way to read a book.
-I've developed a bit of a process around how I read -- particularly around non-fiction books -- and this post I'm going to explain how my process.
+I've developed a bit of a process around how I read -- particularly around non-fiction books -- and in this post I'm going to explain that process.
 
-But before we ask *how* to read a book, we need to ask *why* we read books?
+But before we ask how to read a book, we need to ask why do we read books?
 There are lots of reasons you might read a book, and they'll affect what you want to get out of a book, and how to approach it.
 My process works for me, and lets me get what I want out of books -- but it may not work for you, if you read for different reasons.
 
@@ -29,11 +29,11 @@ I'm trying to capture the major ideas, interesting stories, or passages I want t
   <figcaption>
     Left: <em>The Chinese Typewriter</em>, by Thomas Mullaney.
     Right: my notes on the same.
-    The handwriting is barely legible, but that&rsquo;s okay, because these notes don&rsquo;t last long.
+    The handwriting is barely readable, but that&rsquo;s okay, because I convert the notes into a more legible format pretty quickly.
   </figcaption>
 </figure>
 
-My initial notes are handwritten because it's flexible -- I can write sentences, or fragments, or sketch tiny diagrams.
+My initial notes are handwritten because it's flexible -- I can write sentences, or fragments, or even sketch tiny diagrams.
 It's a minimal interruption from looking at the book.
 I've tried using a variety of digital devices, but they've never worked as well.
 
@@ -50,13 +50,13 @@ I'll even recreate diagrams if I find them useful.
 </figure>
 
 When I type up my notes, I include chapter names, page numbers, and occasionally a passage quoted word-for-word.
-Combined with full text search, this gives me something to skim to remember "What did I learn from this book?", and what parts to re-read if I want to find a specific story or detail.
+Combined with full text search, this gives me something to skim to remember "What did I learn from this book?", and what pointers to the parts to re-read if I want to find a specific story or detail.
 
-I never annotate the books themselves, be they paper or electronic.
-I understand why people do that, and I was using a book as a detailed reference I might try it -- but it's overkill for what I want.
+I never actually write in my books.
+I understand why people do that, and if I was using a book as a detailed reference I might try it -- but it's overkill for what I want.
 I want notes that I can read for basic recall, not a detailed list of everything explained in the book.
-I can skim much faster if all the ntoes are in one place, not scattered through the book.
-(I also give away a non-trivial number of books once I finish reading them, so it's useful to have the notes separate from the book.)
+I can skim much faster if all the notes are in one place, not scattered through the book.
+(I also give away a fair number of books once I finish them, so it's useful to have the notes separate from the book.)
 
 This process slows me down, but it dramatically improves my retention rate.
 Since I started doing this, I've been much better at remembering the main ideas of the books I’ve read -- and notes plus memory are a powerful combination for storing the details. ✨
