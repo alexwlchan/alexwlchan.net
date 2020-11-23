@@ -3,7 +3,7 @@ layout: post
 date: 2020-08-20 06:50:04 +0000
 title: S3 prefixes are not directories
 summary: Although an S3 prefix looks a lot like a directory path, they aren't the same. Whether or not you include a trailing slash can change the behaviour.
-tags: amazon-s3
+tags: amazon-s3 aws
 ---
 
 I didn't expect to be writing another post about S3 keys so soon, but life comes at you fast.
