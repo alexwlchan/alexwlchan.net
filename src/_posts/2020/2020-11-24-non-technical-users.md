@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-11-24 11:53:34 +0000
 title: “Non-technical users”
 summary:
 tags: writing
