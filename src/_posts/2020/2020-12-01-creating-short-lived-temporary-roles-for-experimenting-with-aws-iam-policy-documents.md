@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2020-12-01 21:19:15 +0000
 title: Creating short-lived, temporary roles for experimenting with AWS IAM policy
   documents
 tags: aws aws-iam
