@@ -154,7 +154,7 @@ Let's look at another example.
 
 I know the Open Life Science course includes some sessions on Git and GitHub, both widely-used pieces of software.
 One of the great features of Git is that it keeps an immutable record of your changes.
-It's impossible to change history history without it being disruptive or obvious.
+It's impossible to change history without it being disruptive or obvious.
 
 
 
