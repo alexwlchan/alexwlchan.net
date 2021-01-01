@@ -4,6 +4,10 @@
 # of extra HTTP requests.  I don't inline them directly in the Markdown source
 # because it's easier for my development flow if they're kept in separate files.
 #
+# Example usage:
+#
+#     {% inline_svg "_images/2020/sqs_queue_worker.svg" %}
+#
 # References:
 #
 #   - Accessible SVGs https://css-tricks.com/accessible-svgs/
