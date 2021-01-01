@@ -33,7 +33,7 @@ layout: default_xml
         <![CDATA[
         {{ post.content | fix_footnote | strip | strip_html_attrs | fix_youtube_iframes | normalize_whitespace }}
 
-        {%- if post.link %}&lt;a href="https://alexwlchan.net/{{ post.url }}"&gt;&amp;infin;&lt;/a&gt;{% endif -%}
+        <p>[If the formatting of this post looks odd in your feed reader, <a href="https://alexwlchan.net/{{ post.url }}">visit the original article</a>]</p>
         ]]>
       </content>
 
