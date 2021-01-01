@@ -27,6 +27,7 @@ I have a text expansion macro that prints the current date, and when I ran it sh
 ```
 
 Uh oh.
+Computer bug, or a terrifying 2020-esque Groundhog Day?
 
 [timezones]: https://www.timeanddate.com/counters/firstnewyear.html
 
