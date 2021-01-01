@@ -32,7 +32,7 @@ layout: default_xml
       <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
         {{ post.content | fix_footnote | strip | strip_html_attrs | fix_youtube_iframes | normalize_whitespace | xml_escape }}
 
-        {%- if post.link %}&lt;a href="{{ post.url }}"&gt;&amp;infin;&lt;/a&gt;{% endif -%}
+        {%- if post.link %}&lt;a href="https://alexwlchan.net/{{ post.url }}"&gt;&amp;infin;&lt;/a&gt;{% endif -%}
       </content>
 
       {% if post.category %}
