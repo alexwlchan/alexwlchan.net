@@ -140,3 +140,5 @@ Both are valid and useful formats, but mixing the two year types is a mistake wa
 
 A datetime bug seems like some sort of omen for 2021.
 I hope it's an auspicious one, and I hope this new year finds you all well and safe.
+
+*This post started as a [thread on Twitter](https://twitter.com/alexwlchan/status/1344809737322377221).*
