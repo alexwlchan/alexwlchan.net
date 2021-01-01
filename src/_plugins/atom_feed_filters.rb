@@ -41,6 +41,12 @@ module Jekyll
         end
       }
 
+      # Replace any custom separator icons (which are <center> tags with a couple
+      # of attributes and an inline SVG) with a plain <hr/>.
+      doc.xpath('.//center').each { |c|
+        c.content = "<hr/>"
+      }
+
       doc.to_s
     end
   end
