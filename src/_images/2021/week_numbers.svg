@@ -1,0 +1,92 @@
+<svg viewBox="0 0 590 210" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    A table showing a small December calendar and the week numbers down the left.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <text x="40" y="10" style="font-weight: bold;">Week</text>
+  <text x="120" y="10" style="font-weight: bold;">Mon</text>
+  <text x="180" y="10" style="font-weight: bold;">Tues</text>
+  <text x="240" y="10" style="font-weight: bold;">Weds</text>
+  <text x="300" y="10" style="font-weight: bold;">Thurs</text>
+  <text x="360" y="10" style="font-weight: bold;">Fri</text>
+  <text x="420" y="10" style="font-weight: bold;">Sat</text>
+  <text x="480" y="10" style="font-weight: bold;">Sun</text>
+
+  <svg y="30">
+    <text x="40" y="10">2020 W49</text>
+    <text x="120" y="10">30</text>
+    <text x="180" y="10">1</text>
+    <text x="240" y="10">2</text>
+    <text x="300" y="10">3</text>
+    <text x="360" y="10">4</text>
+    <text x="420" y="10">5</text>
+    <text x="480" y="10">6</text>
+  </svg>
+
+  <svg y="60">
+    <text x="40" y="10">2020 W50</text>
+    <text x="120" y="10">7</text>
+    <text x="180" y="10">8</text>
+    <text x="240" y="10">9</text>
+    <text x="300" y="10">10</text>
+    <text x="360" y="10">11</text>
+    <text x="420" y="10">12</text>
+    <text x="480" y="10">13</text>
+  </svg>
+
+  <svg y="90">
+    <text x="40" y="10">2020 W51</text>
+    <text x="120" y="10">14</text>
+    <text x="180" y="10">15</text>
+    <text x="240" y="10">16</text>
+    <text x="300" y="10">17</text>
+    <text x="360" y="10">18</text>
+    <text x="420" y="10">19</text>
+    <text x="480" y="10">20</text>
+  </svg>
+
+  <svg y="120">
+    <text x="40" y="10">2020 W52</text>
+    <text x="120" y="10">21</text>
+    <text x="180" y="10">22</text>
+    <text x="240" y="10">23</text>
+    <text x="300" y="10">24</text>
+    <text x="360" y="10">25</text>
+    <text x="420" y="10">26</text>
+    <text x="480" y="10">27</text>
+  </svg>
+
+  <rect x="340" y="144" width="40" height="30" fill="rgba(208, 26, 17, 0.3)"/>
+
+  <svg y="150">
+    <text x="40" y="10">2020 W53</text>
+    <text x="120" y="10">28</text>
+    <text x="180" y="10">29</text>
+    <text x="240" y="10">30</text>
+    <text x="300" y="10">31</text>
+    <text x="360" y="10">1</text>
+    <text x="420" y="10">2</text>
+    <text x="480" y="10">3</text>
+  </svg>
+
+  <svg y="180">
+    <text x="40" y="10">2021 W1</text>
+    <text x="120" y="10">4</text>
+    <text x="180" y="10">5</text>
+    <text x="240" y="10">6</text>
+    <text x="300" y="10">7</text>
+    <text x="360" y="10">8</text>
+    <text x="420" y="10">9</text>
+    <text x="480" y="10">10</text>
+  </svg>
+</svg>
