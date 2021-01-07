@@ -4,10 +4,7 @@ title: How to say thanks
 ---
 
 I don't get paid for the writing on this site.
-I earn a generous salary from my employer (previously [Metaswitch], currently [Wellcome]), which means I can spend my free time on writing, conference speaking and open source projects.
-
-[Metaswitch]: https://www.metaswitch.com/
-[Wellcome]: https://wellcome.ac.uk/
+I earn a generous salary from my employer, which means I can spend my free time on writing, conference speaking and open source projects.
 
 If you've read something I wrote and want to say thanks, there are a couple of ways to do so:
 
