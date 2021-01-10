@@ -9,9 +9,7 @@ See https://alexwlchan.net/2020/05/moving-messages-between-sqs-queues/
 
 """
 import argparse
-import itertools
 import sys
-import uuid
 
 import boto3
 
@@ -66,20 +64,6 @@ def get_messages_from_queue(sqs_client, queue_url):
             )
 
 
-def chunked_iterable(iterable, *, size):
-    """
-    Read ``iterable`` in chunks of size ``size``.
-
-    See https://alexwlchan.net/2018/12/iterating-in-fixed-size-chunks/
-    """
-    it = iter(iterable)
-    while True:
-        chunk = tuple(itertools.islice(it, size))
-        if not chunk:
-            break
-        yield chunk
-
-
 if __name__ == "__main__":
     args = parse_args()
 
@@ -91,15 +75,5 @@ if __name__ == "__main__":
 
     sqs_client = boto3.client("sqs")
 
-    messages = get_messages_from_queue(sqs_client, queue_url=src_queue_url)
-
-    # The SendMessageBatch API supports sending up to ten messages at once.
-    for message_batch in chunked_iterable(messages, size=10):
-        print(f"Writing {len(message_batch):2d} messages to {dst_queue_url}")
-        sqs_client.send_message_batch(
-            QueueUrl=dst_queue_url,
-            Entries=[
-                {"Id": str(uuid.uuid4()), "MessageBody": message["Body"]}
-                for message in message_batch
-            ],
-        )
+    for message in get_messages_from_queue(sqs_client, queue_url=src_queue_url):
+        sqs_client.send_message(QueueUrl=dst_queue_url, MessageBody=message["Body"])
