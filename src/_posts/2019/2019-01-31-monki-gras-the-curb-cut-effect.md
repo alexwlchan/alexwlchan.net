@@ -330,8 +330,6 @@ Although disabled people are the most visibly excluded, there are plenty of excl
 
 Let's look at one more example.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 22, :alt => "A photo with a blue sign “inclusive” and a trans and wheelchair icon, and a toilet visible in the room marked by the sign." %}
-
 In the last few years, there's been a big uptick in single stall, gender-neutral bathrooms.
 These are bathrooms that contain their own toilet and sink, maybe a shelf, all in a single private, enclosed space.
 And their installation has mostly been driven by a desire to accommodate trans and non-binary people who feel uncomfortable in traditionally gendered bathrooms.
