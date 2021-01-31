@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-01-31 12:25:06 +0000
 title: How KempisBot works
 summary: How I reincarnated a fifteenth-century monk and taught him to use Twitter.
 tags: python twitter
