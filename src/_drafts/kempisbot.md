@@ -7,12 +7,12 @@ tags: python twitter
 
 A couple of weeks ago, I got a message from my friend Jay, asking if I'd help him build a Twitter bot to tweet [*The Imitation of Christ*](https://en.wikipedia.org/wiki/The_Imitation_of_Christ) as a long Twitter thread:
 
-<img src="/images/2021/messages_from_jay.png" style="width: 418px;">
+<img src="/images/2021/messages_from_jay.png" style="width: 418px;" alt="Screenshot of some Twitter DMs from Jay that read: ‘Alex.... I came up with a stupid idea and even created the account, but I literally have no idea what to do now...? I googled stuff and all the tech words are unintelligble because I do not speak that language’. Do you want to join in this idiotic scheme? I can sort out the text if you can sort out the tech.">
 
 At this point, I'd never heard of *The Imitation of Christ*, or its author Thomas à Kempis, nor did I have any idea of its theological significance.
-I'm not religious, but I love a ridiculous idea -- they're often the most fun -- so I agreed to help.
+I'm not religious, but I am ridiculous -- and ridiculous ideas are often the most fun -- so I agreed to help.
 
-Jay has written [his own blog post](https://jayhulme.com/blog/kempisbot) about how he came up with this idea, and why it's an important book for Christians.
+Jay has written [his own blog post](https://jayhulme.com/blog/kempisbot) about how he came up with this idea, and why this book is important for Christians.
 I recommend reading that if you want to understand the "why" of the project; here I'm going to explain the "how".
 
 The bot posts a snippet from the book once every four hours, and [you can follow it at @KempisBot](https://twitter.com/kempisbot).
@@ -41,14 +41,14 @@ In some cases, a sentence works well as a standalone tweet:
 
 {% tweet "https://twitter.com/KempisBot/status/1355552988199325696" %}
 
-In others, it makes more sense to put adjacent sentences in the same tweet:
+In others, it makes more sense to put adjacent sentences together:
 
 {% tweet "https://twitter.com/KempisBot/status/1355611529325015041" %}
 
 It's non-trivial for a computer to even recognise sentences, let alone decide which ones belong in the same tweet.
 (This is the topic of an entire field, called [*natural language processing*](https://en.wikipedia.org/wiki/Natural_language_processing).)
 
-Thankfully, Jay had volunteered to "sort out the text", and he went through the book and identified the indiivdual tweets.
+Thankfully, Jay had volunteered to "sort out the text", and he went through the book and identified the individual tweets.
 I asked him to insert three dashes (`---`) between each tweet, and then send me the finished file.
 Here's the beginning of that file, which became the first three tweets:
 
@@ -89,8 +89,8 @@ If a program wants to post a tweet, it sends the Twitter API a message saying "p
 Twitter's API will read the message, and reply to say "Yes, I posted that", "No, I didn't", or maybe "I didn't understand what you were saying".
 In turn, the program can read the reply, and decide what to do next.
 
-When KempisBot has worked out what it wants to tweet, it sends a message to the Twitter API asking it to be posted as a tweet.
-If the Twitter API replies "Yes, I posted that", it marks that piece of the book as done, and prepares to tweet the next part.
+When KempisBot has worked out what part of the book wants to tweet, it sends a message to the Twitter API asking for that to be posted as a tweet.
+If the Twitter API replies "Yes, I posted that", it marks that part as done, and prepares to tweet the next part.
 
 I'm grossly oversimplifying, but I hope this gets across the general gist.
 Computers can talk to each other by passing around special messages.
@@ -108,10 +108,10 @@ We did consider writing the entire book as one, long Twitter thread, but we quic
 This book is over 2000 tweets long, and threads that are more than a hundred tweets or so start getting very slow or unresponsive.
 
 When you look at a tweet in a long thread, your computer pre-emptively loads other tweets in the thread.
-This means you can scroll to keep reading the thread, and you don't have to keep waiting for new tweets to load.
-If there are too many tweets in the thread, your computer just grinds to a halt.
+This means you can scroll to read more of the the thread, and you don't have to keep waiting for new tweets to load.
+If there are too many tweets, your computer just grinds to a halt.
 
-But even if it was technologically possible, I'm not sure we'd have threaded the tweets.
+But even if it was technologically possible, I'm still not sure we'd have threaded the tweets.
 You can read all the tweets by scrolling through the KempisBot timeline, and part of the appeal is that a lot of the tweets work as standalone thoughts.
 They don't need to be threaded to make sense.
 
@@ -125,13 +125,13 @@ They don't need to be threaded to make sense.
 **Once we can post a single tweet, we want to post on a schedule.**
 
 I have a computer which is always turned on, and on that computer I run a program called [*cron*](https://en.wikipedia.org/wiki/Cron).
-If I tell you the name is from the same root as "chronological" or "chronicle" (albeit [misspelled](https://www.quora.com/What-is-the-etymology-of-cron/answer/Kah-Seng-Tay)), you might be able to guess what it does -- cron is a program for running other programs, and to run them on a particular schedule.
-For example, it could run a program every minute, or twice an hour, or at 2pm on Fridays.
+If I tell you the name is from the same root as "chronological" or "chronicle" (albeit [misspelled](https://www.quora.com/What-is-the-etymology-of-cron/answer/Kah-Seng-Tay)), you might be able to guess what it does -- cron is a program for running other programs, and to run them at particular times.
+For example, it could run a program every minute, or twice an hour, or at 2pm every Friday.
 
 I have cron set up to run my "post tweet" program every four hours, so six times a day -- the book is 2170 tweets long, and this means the whole book will take 362 days, just shy of a year.
 
 The first few tweets came out quite quickly -- cron is notoriously fiddly to set up, and I made a few mistakes when I was setting up the bot.
-Fingers crossed, all working now!
+Fingers crossed, it's all working now!
 
 <center>
   <!-- https://thenounproject.com/search/?i=625542&q=scripture -->
@@ -145,6 +145,7 @@ There are plenty of other ways you could do something like this, none any better
 
 I hope this post has given you a bit more insight into how a Twitter bot works, especially if you don't know much about programming.
 Not everyone is going to be a programmer, and that's fine -- but programming shouldn't be something seen as scary or inaccessible.
+Our work is something to be shared and enjoyed, not something to lock away in an ivory tower.
 
 If you'd like to ask me questions, I'm on Twitter at [@alexwlchan](https://twitter.com/alexwlchan).
 
