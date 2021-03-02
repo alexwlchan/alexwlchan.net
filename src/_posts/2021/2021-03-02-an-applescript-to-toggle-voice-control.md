@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-03-02 13:17:55 +0000
 title: An AppleScript to toggle Voice Control
 tags: applescript macos accessibility
 ---
