@@ -60,4 +60,4 @@ The icon is by <a href="https://www.deviantart.com/macoscrazy/art/Siri-MacOS-Sie
 
 I've only had this for a few days, but already I'm finding it useful.
 I've dictated a number of pieces -- including this blog post -- and it's much nicer than being continually interrupted by Siri dictation.
-Being able to toggle it without opening System Preferences is just the icing on the cake.
+Being able to toggle it without opening System Preferences is the icing on the cake.
