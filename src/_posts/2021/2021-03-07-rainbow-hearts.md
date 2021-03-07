@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-03-07 10:53:24 +0000
 title: Creating pairs of interlocking rainbow hearts 🌈
 tags: glitch generative-art
 link: https://rainbow-hearts.glitch.me/
