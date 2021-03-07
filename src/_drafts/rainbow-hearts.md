@@ -7,7 +7,7 @@ link: https://rainbow-hearts.glitch.me/
 
 Here's a fun project I made today: create pairs of interlocking rainbow hearts: <http://rainbow-hearts.glitch.me>
 
-The app makes transparent SVGs, which you can resize and drop on top of any background.
+The app makes transparent SVGs based on pride flags, which you can resize and drop on top of any background.
 Here's a few examples:
 
 <style>
@@ -61,13 +61,15 @@ Here's a few examples:
 This idea came from a [similar graphic I made for Valentine's Day](https://twitter.com/alexwlchan/status/1360919253738790915).
 I used several tools to make it, and I had to assemble the final result by hand -- I wanted to see if I could create a pair of interlocked hearts as a single SVG.
 
-Last year, I made an app for generating [rainbow Norse Valknuts](/2020/01/pride-valknuts/), and I was able to reuse some of the code -- but those were easier to draw then hearts.
+Last year, I made an app for generating [rainbow Norse Valknuts](/2020/01/pride-valknuts/), and I was able to reuse some of the code -- although those were easier to draw then hearts.
 Valknuts use all straight lines, so I could calculate exactly where each stripe should start/end.
 Because hearts have curved sides, I had to do a bit more work to draw the overlaps.
 
 I experimented with a combination of SVG clips and masks to get the final effect, and this was a fun project to learn how they work.
 I write SVGs by hand, rather than using an app like Inkscape or Illustrator -- so understanding the core primitives is really useful.
 I did learn a few useful things, which I'll write about as a separate blog post.
+
+You can create your own hearts at <http://rainbow-hearts.glitch.me>, and you can read the source code [on GitHub](https://github.com/alexwlchan/rainbow-hearts).
 
 There is more that unites the LGBTQ+ community than divides us, and I like these hearts as a visual reminder of that.
 
