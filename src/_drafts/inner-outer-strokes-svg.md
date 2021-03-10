@@ -48,8 +48,42 @@ By adding more strokes of varying width, you can create more complex stripes.
 
 This tends to look better than nesting different sizes of the same shape.
 Using inner/outer strokes gives a consistent, even line around the whole shape, whereas combining multiple sizes gives a messier result.
-Notice how the blue stripe is narrower at the bottom of the heart than at the top:
+Notice how the blue stripe is narrower at the bottom of the heart than at the top, and the bottom of the red heart is curved rather than pointed:
 
 <img src="/images/2021/uneven_stripes.png" style="width: 686px;">
 
 I wanted to replicate this effect in SVG so that I could construct shapes with striped strokes.
+
+
+
+## Drawing an inside stroke using clipping
+
+You can get the same effect as an inside stroke by drawing a double-width centred stroke, and discarding the half of the stroke outside the boundary of the shape -- or alternatively, only including the half that's inside the shape.
+
+We can achieve this effect with an SVG feature called *clipping*.
+
+A clip defines an outline, and only the area inside the outline is visible.
+For example, if I had a picture of Mars and I wanted to remove the space around it, I could add a circular clip, and only the planet would be shown:
+
+<img src="/images/2021/mars_clip.png" style="width: 686px;">
+
+<!-- https://mars.nasa.gov/resources/6453/valles-marineris-hemisphere-enhanced/ -->
+
+Here's what the corresponding SVG looks like:
+
+```xml
+SVG GOES HERE
+```
+
+But a clip isn't restricted to simple geometric shapes -- a clip can follow an arbitrary path, including along the path of the shape we want to outline.
+This gives us a way to draw inside strokes:
+
+<img src="/images/2021/inner_stroke_clip.png" style="width: 686px;">
+
+And here's what the corresponding SVG looks like:
+
+```xml
+SVG GOES HERE
+```
+
+By changing the `<path>`, you can change the shape -- and in turn it changes the clip that helps to draw the inner stroke.
