@@ -19,7 +19,7 @@
       }
 
       .border3 {
-        fill: white;
+        fill: none;
         stroke-width: 6;
       }
 

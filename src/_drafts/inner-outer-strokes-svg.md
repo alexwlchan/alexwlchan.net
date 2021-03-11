@@ -94,7 +94,7 @@ For example, if I had [a picture of the Earth] and I wanted to remove the backgr
 
 Here's how the clipped image works:
 
-```xml
+```
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <clipPath id="insideCircleOnly">
@@ -120,7 +120,7 @@ This is how we can draw inner strokes:
 
 And here's what that looks like:
 
-```xml
+```
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <!-- Based on the heart from https://thenounproject.com/search/?q=heart&i=585522 -->
@@ -133,8 +133,8 @@ And here's what that looks like:
 
   <use
     xlink:href="#heart"
-    stroke-width="20" stroke="black" fill="white"
-    clip-path="url(#insideHeartOnly)"/>
+    stroke-width="10" stroke="red" fill="none"
+clip-path="url(#insideHeartOnly)"/>
 </svg>
 ```
 
@@ -142,63 +142,100 @@ By changing the `<path>`, you change the shape -- and in turn, it changes the cl
 
 [a picture of the Earth]: https://wellcomecollection.org/works/uhemygps
 
----
----
----
----
----
----
 
-AAAAAA
 
 ## Drawing an outer stroke with clipping
 
 We might be tempted to use a similar approach to draw an outer stroke.
 Draw a double-width centred stroke, and discard the half of the stroke inside the boundary of the shape -- or use a clip to only include the half that's outside.
 
-As far as I know, there's no builtin way to "invert" a clip -- that is, to show everything outside rather than inside.
+Unfortunately, as far as I know, there's no easy way to "invert" a clip -- that is, to show everything outside rather than inside.
 
 One way to do this is to draw a rectangle around the boundary of your entire drawing, and then create a zero-width "bridge" from the rectangle to your original clip -- this new clip would surround everything *except* that original clip.
 I've exaggerated the width of the bridge in the illustration, but hopefully you get the idea:
 
-<img src="/images/2021/bridged_clip.png" style="width: 686px;">
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_6_clip_outer_stroke.svg" %}
+</figure>
 
 This works, but it's not ideal -- it may not be obvious where we need to create this "bridge", and you might have to move it if the clip changes.
+
+I think this might be possible using the [clip-rule attribute], but I wasn't able to come up with a working example.
+
 Is there a better way?
+
+[clip-rule attribute]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule
 
 
 
 ## Drawing an outer stroke with masks
 
 SVG has another feature called *masking*, which is a more powerful way to select parts of an image.
-Rather than providing a simple "on/off", it allows us to control the opacity of the underlying image.
+Rather than providing a simple "on/off", it allows us to control the opacity of the underlying image -- that is, how much of it shows through.
 
 A *mask* is a black-and-white graphic.
 When you overlay a mask on an image, anything under the black parts of the mask is completely hidden, and anything under the white parts is fully shown.
-For example, we can recreate our original circular clip using a mask:
+For example, we can remove the globe by putting a black circle in the middle of a mask:
 
-<img src="/images/2021/circular_mask.png" style="width: 686px;">
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_7_mask_globe.svg" %}
+</figure>
 
 Here's what the SVG looks like:
 
-```xml
-SVG GOES HERE
+```
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="globeOuterOnly">
+      <rect x="0" y="0" width="100" height="100" fill="white"/>
+      <circle cx="50" cy="50" r="45" fill="black"/>
+    </mask>
+  </defs>
+
+  <image
+    href="globe.jpg" height="100" width="100"
+    mask="url(#globeOuterOnly)"/>
+</svg>
 ```
 
-Masks allow more sophisticated effects -- by picking shades of grey, we can precisely control the opacity of the image that shines through.
-I'll include an example here, because this fine-grained control is the key difference between clips and masks, but we're not going to use it again in this post.
+We start by defining a `<mask>`, in which we can draw the black and white shapes that make up the mask.
+Then we reference the mask in the `mask` attribute of our image, and the SVG renderer shows the appropriate parts of the image.
 
-<img src="/images/2021/checkerboard_mask.png" style="width: 686px;">
+Masks allow more sophisticated effects than clips: as well as a simple black/white--off/on, we can use shades of grey to more precisely control the opacity of the image that shows through.
+For example, I could cut out the globe, and then highlight a single part of it:
 
-If we start with an all-white background, then add our shape in black, we have a mask that will discard everything inside the boundary of the shape.
-This gives us a way to draw outside strokes:
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_8_mask_cutout.svg" %}
+</figure>
 
-<img src="/images/2021/outer_stroke_mask.png" style="width: 686px;">
+Although I didn't use any shades of grey in this project, it's a nice example of the power allowed by masks: we can compose multiple shapes for a more complex effect.
+This particular mask has three shapes: a black rectangle, a grey circle, and a white outline of Africa.
 
-Here's what the corresponding SVG looks like:
+By creating a mask with a white background and a black shape, we can draw an outside stroke:
 
-```xml
-SVG GOES HERE
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_9_mask_outer_stroke.svg" %}
+</figure>
+
+And here's how that works:
+
+```
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Based on the heart from https://thenounproject.com/search/?q=heart&i=585522 -->
+    <path id="heart" d="m 31,11.375 c -14.986319,0 -25,12.30467 -25,26 0,12.8493 7.296975,23.9547 16.21875,32.7188 8.921775,8.764 19.568704,15.2612 26.875,19.0312 a 2.0002,2.0002 0 0 0 1.8125,0 c 7.306296,-3.77 17.953225,-10.2672 26.875,-19.0312 C 86.703025,61.3297 94,50.2243 94,37.375 c 0,-13.69533 -10.013684,-26 -25,-26 -8.834204,0 -14.702885,4.50444 -19,10.59375 C 45.702885,15.87944 39.834204,11.375 31,11.375 z"/>
+
+    <mask id="outsideHeartOnly">
+      <rect x="0" y="0" width="100" height="100" fill="white"/>
+      <use xlink:href="#heart" fill="black"/>
+    </mask>
+  </defs>
+
+  <use
+    xlink:href="#heart"
+    stroke-width="10" stroke="blue" fill="none"
+    mask="url(#outsideHeartOnly)"/>
+</svg>
 ```
 
 As with the inner stroke, you can adapt this to any shape by changing the `<path>`.
@@ -208,9 +245,27 @@ As with the inner stroke, you can adapt this to any shape by changing the `<path
 ## Putting it all together
 
 Although I have the code to do inner and outer strokes, for the hearts app I ended up just using centred strokes and inner strokes.
-If you put the inner stripes on top of a double-width centred stroke, you get the same effect, and this was slightly simpler to implement:
+If you put the inner stroke on top of a double-width centred stroke, you get the same effect, and that was slightly simpler to implement:
 
-<img src="/images/2021/stacked_stripe_stroke.png" style="width: 686px;">
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_10_overlay.svg" %}
+</figure>
+
+
+---
+---
+---
+---
+---
+---
+
+
+
+
+
+## Putting it all together
+
+
 
 And to create the interlocking hearts, I created some masks to cut out a part of each heart where it was crossed by the other:
 
