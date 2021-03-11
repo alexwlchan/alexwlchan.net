@@ -20,7 +20,7 @@
       }
 
       .border1 {
-        fill: white;
+        fill: none;
         stroke: black;
         stroke-width: 40;
       }
