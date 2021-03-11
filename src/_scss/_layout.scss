@@ -49,3 +49,9 @@ iframe {
   margin-left:  auto;
   margin-right: auto;
 }
+
+.separator {
+  @media print {
+    display: none;
+  }
+}

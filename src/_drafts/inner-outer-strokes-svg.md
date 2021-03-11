@@ -12,6 +12,16 @@ Simple diagrams work well as vector images, I can store them as text alongside s
 I write most of my SVGs by hand, rather than using an app like Illustrator or Inkscape.
 Although it's more effort, I can write much simpler images by hand than with an app, and it forces me to really understand how SVG works.
 
+<style>
+  .separator {
+    margin-top: 2.5em;
+  }
+
+  h2 {
+    margin-top: 1.5em;
+  }
+</style>
+
 <figure style="width: 200px; float: right; display: inline-block; margin-top: 0; margin-bottom: 0;">
 {% inline_svg "_images/2021/hearts_rainbow_trans.svg" %}
 </figure>
@@ -27,6 +37,8 @@ This seems like something I might use again, and it helped me understand both fe
 [interlocking rainbow hearts]: /2021/03/rainbow-hearts/
 [clipping and masking]: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Clipping_and_masking
 
+
+{% separator "paintbrush.svg" %}
 
 
 ## What are inner and outer strokes?
@@ -52,6 +64,8 @@ If you're interested, I found a [Stack Overflow thread] that links to several of
 [*stroke*]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke
 [Stack Overflow thread]: https://stackoverflow.com/q/7241393/1558022
 
+
+{% separator "paintbrush.svg" %}
 
 
 ## Why do I want inner and outer strokes?
@@ -79,6 +93,8 @@ For more complex shapes, it gets even harder (sometimes impossible) to combine d
 
 [OmniGraffle]: https://www.omnigroup.com/omnigraffle
 
+
+{% separator "paintbrush.svg" %}
 
 
 ## Drawing an inner stroke with clipping
@@ -145,6 +161,8 @@ The path can be arbitrarily complicated, but you'll always get the same inner st
 [an illustration of the Earth]: https://wellcomecollection.org/works/uhemygps
 
 
+{% separator "paintbrush.svg" %}
+
 
 ## Drawing an outer stroke with clipping
 
@@ -168,6 +186,8 @@ Is there a better way?
 
 [clip-rule attribute]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule
 
+
+{% separator "paintbrush.svg" %}
 
 
 ## Drawing an outer stroke with masks
@@ -244,6 +264,8 @@ And here's some more SVG:
 
 As with the inner stroke, you can adapt this to any shape by changing the path.
 
+
+{% separator "paintbrush.svg" %}
 
 
 ## Putting it all together
