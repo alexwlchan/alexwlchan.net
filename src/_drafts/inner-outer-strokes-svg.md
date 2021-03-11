@@ -52,69 +52,104 @@ I found a [Stack Overflow thread] that links to several of the proposals, and wh
 
 
 
----
----
----
----
----
----
-
-
-
 ## Why do I want inner and outer strokes?
 
-When I made my initial heart graphic in [OmniGraffle](https://www.omnigroup.com/omnigraffle), I used inner and outer strokes to create a striped effect.
-By combining inner and outer strokes on the same shape, you can create the impression of a striped stroke:
+When I made my initial heart graphic in [OmniGraffle], I combined inner and outer strokes to create something that looked like a striped stroke.
 
-<img src="/images/2021/stroked_hearts.png" style="width: 686px;">
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_2_combined.svg" %}
+</figure>
 
-By adding more strokes of varying width, you can create more complex stripes.
-
-This tends to look better than nesting different sizes of the same shape.
-Using inner/outer strokes gives a consistent, even line around the whole shape, whereas combining multiple sizes gives a messier result.
-Notice how the blue stripe is narrower at the bottom of the heart than at the top, and the bottom of the red heart is curved rather than pointed:
-
-<img src="/images/2021/uneven_stripes.png" style="width: 686px;">
+By adding more strokes of different widths, you can create more complex stripes.
+For example, to draw four stripes, you could draw two outer strokes and two inner strokes.
 
 I wanted to replicate this effect in SVG so that I could construct shapes with striped strokes.
 
+This tends to look better than combining different sizes of the same shape.
+Using inner/outer strokes gives a consistent, even line around the whole shape, whereas combining multiple sizes gives a messier result.
+Notice how the red stripe is much thicker than the blue stripe, and the width of the blue stripe is inconsistent:
+
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_3_sizes.svg" %}
+</figure>
+
+For more complex shapes, it gets even harder (sometimes impossible) to combine multiple sizes in a way that doesn't leave gaps.
+
+[OmniGraffle]: https://www.omnigroup.com/omnigraffle
 
 
-## Drawing an inner stroke using clipping
 
-You can get the same effect as an inside stroke by drawing a double-width centred stroke, and discarding the half of the stroke outside the boundary of the shape -- or alternatively, only including the half that's inside the shape.
+## Drawing an inner stroke with clipping
+
+You can draw an inside stroke by drawing a double-width centred stroke, and discarding the half of the stroke outside the boundary of the shape -- or alternatively, only including the half that's inside the shape.
 
 We can achieve this effect with an SVG feature called *clipping*.
 
 A clip defines an outline, and only the area inside the outline is visible.
-For example, if I had a picture of Earth and I wanted to remove the space around it, I could add a circular clip, and only the planet would be shown:
+For example, if I had [a picture of the Earth] and I wanted to remove the background around it, I could add a circular clip, and only the planet would be shown:
 
-<img src="/images/2021/planet_clip.png" style="width: 686px;">
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_4_circular_clip.svg" %}
+</figure>
 
-<!-- https://mars.nasa.gov/resources/6453/valles-marineris-hemisphere-enhanced/ -->
-
-Here's what the corresponding SVG looks like:
-
-```xml
-SVG GOES HERE
-```
-
-But a clip isn't restricted to simple geometric shapes -- a clip can follow an arbitrary path, including along the path of the shape we want to outline.
-This gives us a way to draw inside strokes:
-
-<img src="/images/2021/inner_stroke_clip.png" style="width: 686px;">
-
-And here's what the corresponding SVG looks like:
+Here's how the clipped image works:
 
 ```xml
-SVG GOES HERE
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="insideCircleOnly">
+      <circle cx="50" cy="50" r="45"/>
+    </clipPath>
+  </defs>
+
+  <image
+    href="globe.jpg" height="100" width="100"
+    clip-path="url(#insideCircleOnly)"/>
+</svg>
 ```
 
-By changing the `<path>`, you can change the shape -- and in turn it changes the clip that helps to draw the inner stroke.
+We start by defining a `<clipPath>`, which contains a single shape -- the circle we want to clip.
+Then we reference the clipPath in the `clip-path` attribute of our image, and the SVG renderer only shows the parts of the image inside the circle.
 
-  https://wellcomecollection.org/works/a36zvzxj/images?id=mspae9x6
+But a clip isn't restricted to simple geometric shapes like circles and squares -- a clip can follow an arbitrary path, including along the path of the shape we want to outline.
+This is how we can draw inner strokes:
 
+<figure style="width: 686px;">
+{% inline_svg "_images/2021/strokes_5_clip_inner_stroke.svg" %}
+</figure>
 
+And here's what that looks like:
+
+```xml
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Based on the heart from https://thenounproject.com/search/?q=heart&i=585522 -->
+    <path id="heart" d="m 31,11.375 c -14.986319,0 -25,12.30467 -25,26 0,12.8493 7.296975,23.9547 16.21875,32.7188 8.921775,8.764 19.568704,15.2612 26.875,19.0312 a 2.0002,2.0002 0 0 0 1.8125,0 c 7.306296,-3.77 17.953225,-10.2672 26.875,-19.0312 C 86.703025,61.3297 94,50.2243 94,37.375 c 0,-13.69533 -10.013684,-26 -25,-26 -8.834204,0 -14.702885,4.50444 -19,10.59375 C 45.702885,15.87944 39.834204,11.375 31,11.375 z"/>
+
+    <clipPath id="insideHeartOnly">
+      <use xlink:href="#heart"/>
+    </clipPath>
+  </defs>
+
+  <use
+    xlink:href="#heart"
+    stroke-width="20" stroke="black" fill="white"
+    clip-path="url(#insideHeartOnly)"/>
+</svg>
+```
+
+By changing the `<path>`, you change the shape -- and in turn, it changes the clip which helps to draw the inner stroke.
+
+[a picture of the Earth]: https://wellcomecollection.org/works/uhemygps
+
+---
+---
+---
+---
+---
+---
+
+AAAAAA
 
 ## Drawing an outer stroke with clipping
 
