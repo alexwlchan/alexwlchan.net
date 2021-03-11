@@ -4,6 +4,8 @@ date: 2021-01-31 12:25:06 +0000
 title: How KempisBot works
 summary: How I reincarnated a fifteenth-century monk and taught him to use Twitter.
 tags: python twitter
+index:
+  best_of: true
 ---
 
 A couple of weeks ago, I got a message from my friend Jay, asking if I'd help him build a Twitter bot to tweet [*The Imitation of Christ*](https://en.wikipedia.org/wiki/The_Imitation_of_Christ) as a long Twitter thread:
