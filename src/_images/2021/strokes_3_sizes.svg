@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Left: A red heart3 with an inner3 stroke.
+    Middle: A blue heart3 with an outer3 stroke.
+    Right: A heart3 with a blue-red striped stroke.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 15pt;
+      }
+
+      .operator {
+        font-size: 25pt;
+      }
+
+      .border3 {
+        fill: white;
+        stroke-width: 6;
+      }
+
+      .inner3 {
+        stroke: #d01c11;
+      }
+
+      .outer3 {
+        stroke: #1B48D3;
+      }
+    </style>
+
+    <!-- Based on the heart3 from https://thenounproject.com/search/?q=heart3&i=585522 -->
+    <path id="heart3" d="m 31,11.375 c -14.986319,0 -25,12.30467 -25,26 0,12.8493 7.296975,23.9547 16.21875,32.7188 8.921775,8.764 19.568704,15.2612 26.875,19.0312 a 2.0002,2.0002 0 0 0 1.8125,0 c 7.306296,-3.77 17.953225,-10.2672 26.875,-19.0312 C 86.703025,61.3297 94,50.2243 94,37.375 c 0,-13.69533 -10.013684,-26 -25,-26 -8.834204,0 -14.702885,4.50444 -19,10.59375 C 45.702885,15.87944 39.834204,11.375 31,11.375 z"/>
+
+    <clipPath id="heart3InnerOnly">
+      <use xlink:href="#heart3"/>
+    </clipPath>
+
+    <mask id="heart3OuterOnly">
+      <rect x="0" y="0" width="10000" height="100000" fill="white"/>
+      <use xlink:href="#heart3" fill="black"/>
+    </mask>
+  </defs>
+
+  <svg x="0">
+    <use xlink:href="#heart3" x="35.3" y="9" class="border3 inner3" transform="scale(1.76)"/>
+    <text x="150" y="230">90% size</text>
+  </svg>
+
+  <text class="operator" x="300" y="230">+</text>
+
+  <svg x="300">
+    <use xlink:href="#heart3" x="25" y="2" class="border3 outer3" transform="scale(2)"/>
+    <text x="150" y="230">100% size</text>
+  </svg>
+
+  <text class="operator" x="600" y="230">→</text>
+
+  <svg x="600">
+    <use xlink:href="#heart3" x="25" y="2" class="border3 outer3" transform="scale(2)"/>
+    <use xlink:href="#heart3" x="35.3" y="9" class="border3 inner3" transform="scale(1.76)"/>
+    <text x="150" y="230">inconsistent stripes</text>
+  </svg>
+</svg>
