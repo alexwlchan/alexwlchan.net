@@ -20,9 +20,9 @@
 
       .outline6 {
         fill: rgba(204, 204, 204, 0.3);
-        stroke-width: 2.5;
+        stroke-width: 5;
         stroke: #ccc;
-        stroke-dasharray: 2.5;
+        stroke-dasharray: 5;
       }
     </style>
 

@@ -1,0 +1,73 @@
+<svg viewBox="0 0 900 258" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Left: A red tilted heart.
+    Middle: A mask with the top-half of a black tilted heart.
+    Right: The first red tilted heart, but now with a cutout segment.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 15pt;
+      }
+
+      .operator {
+        font-size: 25pt;
+      }
+
+      .border11 {
+        fill: none;
+      }
+
+      .inner11 {
+        stroke: #d01c11;
+      }
+
+      .outer11 {
+        stroke: #1B48D3;
+      }
+    </style>
+
+    <!-- Based on the heart from https://thenounproject.com/search/?q=heart11&i=585522 -->
+    <path id="heart11" d="m 31,11.375 c -14.986319,0 -25,12.30467 -25,26 0,12.8493 7.296975,23.9547 16.21875,32.7188 8.921775,8.764 19.568704,15.2612 26.875,19.0312 a 2.0002,2.0002 0 0 0 1.8125,0 c 7.306296,-3.77 17.953225,-10.2672 26.875,-19.0312 C 86.703025,61.3297 94,50.2243 94,37.375 c 0,-13.69533 -10.013684,-26 -25,-26 -8.834204,0 -14.702885,4.50444 -19,10.59375 C 45.702885,15.87944 39.834204,11.375 31,11.375 z"/>
+
+    <clipPath id="rectOnly">
+      <rect x="50" y="0" width="200" height="100"/>
+    </clipPath>
+
+    <mask id="leftTiltedMask">
+      <rect x="0" y="0" width="300" height="200" fill="white"/>
+      <rect x="50" y="0" width="200" height="200" fill="white"/>
+      <svg clip-path="url(#rectOnly)" x="-90" y="-35">
+        <use xlink:href="#heart11" x="7" y="17" class="border11" transform="rotate(-25 150 100) scale(2)" stroke="black" stroke-width="16"/>
+      </svg>
+    </mask>
+  </defs>
+
+  <svg x="0">
+    <use xlink:href="#heart11" x="25" class="border11 inner11" transform="rotate(25 150 100) scale(2)" stroke-width="6"/>
+    <text x="150" y="238">right-tilted heart</text>
+  </svg>
+
+  <text class="operator" x="300" y="238">+</text>
+
+  <svg x="300">
+    <rect x="50" y="0" width="200" height="200" fill="white" stroke-width="0.5" stroke="black"/>
+    <svg clip-path="url(#rectOnly)">
+      <use xlink:href="#heart11" x="27" y="7" class="border11" transform="rotate(-25 150 100) scale(2)" stroke="black" stroke-width="12"/>
+    </svg>
+    <text x="150" y="238">left-tilted mask</text>
+  </svg>
+
+  <text class="operator" x="600" y="238">→</text>
+
+  <svg x="600">
+    <svg mask="url(#leftTiltedMask)">
+      <use xlink:href="#heart11" x="25" class="border11 inner11" transform="rotate(25 150 100) scale(2)" stroke-width="6"/>
+    </svg>
+    <text x="150" y="238">heart with a cutout</text>
+  </svg>
+</svg>
