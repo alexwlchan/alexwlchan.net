@@ -41,10 +41,16 @@ module Jekyll
 
           # Minify the XML by removing the comments
           # See https://stackoverflow.com/a/45129390/1558022
-          doc = File.open(src_path) { |f| Nokogiri::XML(f) }
+          doc = Nokogiri::XML(File.open(src_path))
           doc.xpath('//comment()').remove
           doc.xpath('//text()').each do |node|
             node.content = '' if node.text =~ /\A\s+\z/m
+          end
+
+          # Replace the URLs in any <image> tags with absolute references
+          # to the site.
+          doc.xpath('//xmlns:image').each do |node|
+            node["href"] = "https://alexwlchan.net" + node["href"]
           end
 
           dst_path.write(doc.to_xml(indent: 0))
