@@ -17,6 +17,11 @@
   line-height: 1.45em;
   &, a, a:visited {
     color: $accent-grey;
+
+    /* At least on my printer, $accent-grey is too light to be readable */
+    @media print {
+      color: black;
+    }
   }
 
   a:hover {

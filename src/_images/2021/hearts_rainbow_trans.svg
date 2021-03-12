@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100, 660">
+  <!--
+    An SVG created from <https://rainbow-hearts.glitch.me/?right_flag=trans&left_flag=rainbow>
+   -->
+  <title>A pair of interlocked hearts: one in rainbow colours on the left, one in trans pride colours on the right.</title>
+  <defs>
+    <!-- Based on the heart from https://thenounproject.com/search/?q=heart&i=585522 -->
+    <path id="heart" d="m 31,963.375 c -14.986319,0 -25,12.30467 -25,26 0,12.8493 7.296975,23.9547 16.21875,32.7188 8.921775,8.764 19.568704,15.2612 26.875,19.0312 a 2.0002,2.0002 0 0 0 1.8125,0 c 7.306296,-3.77 17.953225,-10.2672 26.875,-19.0312 C 86.703025,1013.3297 94,1002.2243 94,989.375 c 0,-13.69533 -10.013684,-26 -25,-26 -8.834204,0 -14.702885,4.50444 -19,10.59375 C 45.702885,967.87944 39.834204,963.375 31,963.375 z"/>
+    <!-- This mask clips out the region where the left heart overlaps the right heart -->
+    <mask id="exclude-left-heart-overlap">
+      <rect x="0" y="0" width="1440" height="800" fill="white"/>
+      <g transform="translate(100 110) scale(5.4) rotate(-10 30 30)">
+        <use x="5" y="-960" xlink:href="#heart" stroke="black" stroke-width="16" fill="white"/>
+      </g>
+      <rect x="0" y="330" width="1440" height="330" fill="white"/>
+    </mask>
+    <!-- This mask only allows stuff *inside* the left-hand heart -->
+    <mask id="left-heart-inside-only">
+      <rect x="0" y="0" width="1440" height="800" fill="black"/>
+      <g transform="translate(100 110) scale(5.4) rotate(-10 30 30)">
+        <use x="5" y="-960" xlink:href="#heart" stroke="none" fill="white"/>
+      </g>
+    </mask>
+    <!-- This mask clips out the region where the right heart overlaps the left heart -->
+    <mask id="exclude-right-heart-overlap">
+      <rect x="0" y="0" width="1440" height="800" fill="white"/>
+      <g transform="translate(470 145) scale(5) rotate(10 30 30)">
+        <use x="5" y="-960" xlink:href="#heart" stroke="black" stroke-width="15.14" fill="white"/>
+      </g>
+      <rect x="0" y="0" width="1440" height="330" fill="white"/>
+    </mask>
+    <!-- This mask only allows stuff *inside* the right-hand heart -->
+    <mask id="right-heart-inside-only">
+      <rect x="0" y="0" width="1440" height="800" fill="black"/>
+      <g transform="translate(470 145) scale(5) rotate(10 30 30)">
+        <use x="5" y="-960" xlink:href="#heart" stroke="none" fill="white"/>
+      </g>
+    </mask>
+  </defs>
+  <!-- Flag: rainbow -->
+  <svg mask="url(#exclude-right-heart-overlap)">
+    <g transform="translate(100 110) scale(5.4) rotate(-10 30 30)">
+      <!-- #FF5D7D -->
+      <use x="5" y="-960" xlink:href="#heart" stroke="#FF5D7D" stroke-width="12.0" stroke-linecap="round" fill="none"/>
+      <!-- #FF764E -->
+      <use x="5" y="-960" xlink:href="#heart" stroke="#FF764E" stroke-width="8.0" stroke-linecap="round" fill="none"/>
+      <!-- #FFC144 -->
+      <use x="5" y="-960" xlink:href="#heart" stroke="#FFC144" stroke-width="4.0" stroke-linecap="round" fill="none"/>
+    </g>
+    <svg mask="url(#left-heart-inside-only)">
+      <g transform="translate(100 110) scale(5.4) rotate(-10 30 30)">
+        <!-- #B278D3 -->
+        <use x="5" y="-960" xlink:href="#heart" stroke="#B278D3" stroke-width="12.0" stroke-linecap="round" fill="none"/>
+        <!-- #00CCF2 -->
+        <use x="5" y="-960" xlink:href="#heart" stroke="#00CCF2" stroke-width="8.0" stroke-linecap="round" fill="none"/>
+        <!-- #88DF8E -->
+        <use x="5" y="-960" xlink:href="#heart" stroke="#88DF8E" stroke-width="4.0" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+  </svg>
+  <!-- Flag: trans -->
+  <svg mask="url(#exclude-left-heart-overlap)">
+    <g transform="translate(470 145) scale(5) rotate(10 30 30)">
+      <!-- #55CDFC -->
+      <use x="5" y="-960" xlink:href="#heart" stroke="#55CDFC" stroke-width="12.0" stroke-linecap="round" fill="none"/>
+      <!-- #F7A8B8 -->
+      <use x="5" y="-960" xlink:href="#heart" stroke="#F7A8B8" stroke-width="7.2" stroke-linecap="round" fill="none"/>
+    </g>
+    <svg mask="url(#right-heart-inside-only)">
+      <g transform="translate(470 145) scale(5) rotate(10 30 30)">
+        <!-- #55CDFC -->
+        <use x="5" y="-960" xlink:href="#heart" stroke="#55CDFC" stroke-width="12.0" stroke-linecap="round" fill="none"/>
+        <!-- #F7A8B8 -->
+        <use x="5" y="-960" xlink:href="#heart" stroke="#F7A8B8" stroke-width="7.2" stroke-linecap="round" fill="none"/>
+      </g>
+    </svg>
+    <g transform="translate(470 145) scale(5) rotate(10 30 30)">
+      <!-- #DDD -->
+      <use x="5" y="-960" xlink:href="#heart" stroke="#DDD" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    </g>
+  </svg>
+</svg>

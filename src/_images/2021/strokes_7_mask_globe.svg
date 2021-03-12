@@ -1,0 +1,47 @@
+<svg viewBox="0 0 900 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Left: An illustration of the globe set against a beige background.
+    Middle: A white rectangle with a black circle chopped out of the centre.
+    Right: The beige background with the globe removed.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 15pt;
+      }
+
+      .operator {
+        font-size: 25pt;
+      }
+    </style>
+
+    <mask id="globe7OuterOnly">
+      <rect x="0" y="0" width="10000" height="100000" fill="white"/>
+      <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90" fill="black"/>
+    </mask>
+  </defs>
+
+  <svg x="0">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15"/>
+    <text x="150" y="250">image</text>
+  </svg>
+
+  <text class="operator" x="300" y="250">+</text>
+
+  <svg x="300">
+    <rect x="50" y="15" width="200" height="200" stroke="black" stroke-width="0.5" fill="white"/>
+    <circle cx="150" cy="115" r="90" fill="black"/>
+    <text x="150" y="250">circular mask</text>
+  </svg>
+
+  <text class="operator" x="600" y="250">→</text>
+
+  <svg x="600">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15" mask="url(#globe7OuterOnly)"/>
+    <text x="150" y="250">masked image</text>
+  </svg>
+</svg>

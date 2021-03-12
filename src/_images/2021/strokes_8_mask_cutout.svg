@@ -1,0 +1,49 @@
+<svg viewBox="0 0 900 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Left: An illustration of the globe set against a beige background.
+    Middle: A white rectangle with a black circle chopped out of the centre.
+    Right: The beige background with the globe removed.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 15pt;
+      }
+
+      .operator {
+        font-size: 25pt;
+      }
+    </style>
+
+    <mask id="globe8PartialMask">
+      <rect x="0" y="0" width="300" height="300" fill="black"/>
+      <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90" fill="#666"/>
+      <polygon points="135,135 145,130 165,128 178,129 185,133 195,135 205,134 208,135 210,136 204,155 200,162 208,165 202,188 198,192 195,194 193,196 190,198 185,200 183,201 181,202 176,203 172,204 168,205 166,206 167,203 167,202 168,199 159,181 161,165 158,162 142,160 134,158 132,150 130,145" fill="white"/>
+    </mask>
+  </defs>
+
+  <svg x="0">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15"/>
+    <text x="150" y="250">image</text>
+  </svg>
+
+  <text class="operator" x="300" y="250">+</text>
+
+  <svg x="300">
+    <rect x="50" y="15" width="200" height="200" fill="black"/>
+    <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90" fill="#666"/>
+    <polygon points="135,135 145,130 165,128 178,129 185,133 195,135 205,134 208,135 210,136 204,155 200,162 208,165 202,188 198,192 195,194 193,196 190,198 185,200 183,201 181,202 176,203 172,204 168,205 166,206 167,203 167,202 168,199 159,181 161,165 158,162 142,160 134,158 132,150 130,145" fill="white"/>
+    <text x="150" y="250">complex mask</text>
+  </svg>
+
+  <text class="operator" x="600" y="250">→</text>
+
+  <svg x="600">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15" mask="url(#globe8PartialMask)"/>
+    <text x="150" y="250">image with highlight</text>
+  </svg>
+</svg>
