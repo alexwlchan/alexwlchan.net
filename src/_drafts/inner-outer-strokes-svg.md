@@ -99,7 +99,7 @@ For more complex shapes, it gets even harder (sometimes impossible) to combine d
 
 ## Drawing an inner stroke with clipping
 
-You can get an inside stroke by drawing a double-width centred stroke, then discarding everything outside the boundary of the shape -- or alternatively, only showing everything inside the shape.
+You can get an inner stroke by drawing a double-width centred stroke, then discarding everything outside the boundary of the shape -- or alternatively, only showing everything inside the shape.
 
 We can achieve the latter with an SVG feature called *clipping*.
 
@@ -127,10 +127,10 @@ Here's how the clipped image works:
 ```
 
 We start by defining a `<clipPath>`, which contains a single shape -- the circle we want to remain visible.
-Then we reference the clipPath in the `clip-path` attribute on our image, and the SVG renderer only shows the parts of the image inside the circle.
+Then we reference the clipPath in the `clip-path` attribute on our image, and the SVG renderer only shows the parts of the image that fall inside the circle.
 
-If we put a more complex shape in our `<clipPath>`, we can use that clip when we actually draw the shape -- and that will only show the half of the stroke inside the shape.
-Thus, an inner stroke:
+If we put a more complex shape in our `<clipPath>`, we can use it to clip when we actually draw the shape -- and only the half of the stroke inside the shape will be shown.
+Thus, we get an inner stroke:
 
 <figure style="width: 686px;">
 {% inline_svg "_images/2021/strokes_5_clip_inner_stroke.svg" %}
@@ -166,23 +166,24 @@ The path can be arbitrarily complicated, but you'll always get the same inner st
 
 ## Drawing an outer stroke with clipping
 
-We might be tempted to use a similar approach to draw an outer stroke.
-Draw a double-width centred stroke, and discard the half of the stroke inside the boundary of the shape -- or use a clip to only include the half that's outside.
+We can use a similar approach to draw an outer stroke.
+Draw a double-width centred stroke, and discard the half of the stroke inside the boundary of the shape -- or only include the half that's outside.
 
-Unfortunately, as far as I know, there's no easy way to "invert" a clip -- that is, to show everything outside rather than inside.
+Unfortunately, as far as I know, there's no easy way to do this with clips.
+You can't "invert" a clip -- that is, to show everything outside rather than inside.
 
-One way you could do this is to draw a rectangle around the boundary of your entire drawing, and then create a zero-width "bridge" from the rectangle to your original clip -- this new clip would surround everything *except* that original clip.
+One way you could do this is to draw a rectangle around the boundary of your entire drawing, and then create a zero-width "bridge" from the rectangle to your original clip -- this new clip would enclose everything *except* that original clip.
 I've exaggerated the width of the bridge in the illustration, but hopefully you get the idea:
 
 <figure style="width: 686px;">
 {% inline_svg "_images/2021/strokes_6_clip_outer_stroke.svg" %}
 </figure>
 
-This works, but it's not ideal -- it may not be obvious how we create this "bridge", and we might have to move it if the clip changes.
+This works, but it's not ideal -- we need modify our shape to add the bridge, and depending on how our shape is defined, that may be non-trivial.
 
-I think this might be possible using the [clip-rule attribute], but I wasn't able to come up with a working example.
+I think this might be possible using multiple shapes the [clip-rule attribute], but I wasn't able to come up with a working example.
 
-Is there a better way?
+Is there another way to achieve this effect?
 
 [clip-rule attribute]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule
 
@@ -197,13 +198,13 @@ Rather than providing a simple "on/off", it allows us to control the opacity of 
 
 A *mask* is a black-and-white graphic.
 When you overlay a mask on an image, anything under the black parts of the mask is completely hidden, and anything under the white parts is fully shown.
-For example, we can remove the globe by putting a black circle in the middle of a mask:
+For example, we can remove the globe by putting a black circle in the middle of a white mask:
 
 <figure style="width: 686px;">
 {% inline_svg "_images/2021/strokes_7_mask_globe.svg" %}
 </figure>
 
-Here's what the SVG looks like:
+Here's how this SVG works:
 
 ```
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -221,7 +222,7 @@ Here's what the SVG looks like:
 ```
 
 We start by defining a `<mask>`, in which we draw the black and white shapes that make up the mask.
-Then we reference the mask in the `mask` attribute of our image, and the SVG renderer only shows the parts of the image that are below a white part of the mask.
+Then we reference it in the `mask` attribute of our image, and the SVG renderer only shows the parts of the image that are below a white part of the mask.
 
 Masks allow more sophisticated effects than clips: as well as a simple black/white--off/on, we can use shades of grey to more precisely control the opacity of the image that shows through.
 The darker the shade, the lower the opacity of the original image.
@@ -232,10 +233,10 @@ For example, I could cut out the globe, and then highlight a single part of it:
 {% inline_svg "_images/2021/strokes_8_mask_cutout.svg" %}
 </figure>
 
-Although I didn't use any shades of grey to make my hearts app, it's a nice example of the power allowed by masks: we can compose multiple shapes for a more complex effect.
+Although we don't need any shades of grey to draw inner/outer strokes, it's a nice example of the power allowed by masks: we can compose multiple shapes for a more complex effect.
 This particular mask has three shapes: a black rectangle, a grey circle, and a white outline of Africa.
 
-By creating a mask with a white background and a black shape, we can discard the half of a double-width stroke that falls inside the image -- and thus, we have an outer stroke:
+By creating a mask with a white background and a black shape, we can discard the half of a double-width stroke that falls inside the image -- and thus, an outer stroke:
 
 <figure style="width: 686px;">
 {% inline_svg "_images/2021/strokes_9_mask_outer_stroke.svg" %}
