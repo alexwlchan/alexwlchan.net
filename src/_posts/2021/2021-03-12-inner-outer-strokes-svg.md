@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-03-12 14:04:58 +0000
 title: Drawing inner/outer strokes in SVG (clips and masks)
 summary:
 tags: svg
