@@ -41,6 +41,13 @@ module Jekyll
         end
       }
 
+      # Fix references to images in inline SVGs.
+      doc.xpath(".//image").each { |image|
+        if image["href"].start_with?("/images")
+          image["href"] = "https://alexwlchan.net" + image["href"]
+        end
+      }
+
       # Replace any custom separator icons (which are <center> tags with a couple
       # of attributes and an inline SVG) with a plain <hr/>.
       doc.xpath('.//center').each { |c|
@@ -49,7 +56,7 @@ module Jekyll
 
       doc.to_s
     end
-    
+
     def pretty_print_xml(xml)
       doc = Nokogiri.XML(xml) do |config|
         config.default_xml.noblanks

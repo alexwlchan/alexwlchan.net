@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Left: An illustration of the world on a beige background.
+    Middle: A dashed grey circle with a pair of grey scissors.
+    Right: The illustration of the world, without the background.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 15pt;
+      }
+
+      .operator {
+        font-size: 25pt;
+      }
+
+      .outline4 {
+        fill: rgba(204, 204, 204, 0.3);
+        stroke-width: 5;
+        stroke: #ccc;
+        stroke-dasharray: 5;
+      }
+    </style>
+
+    <!--
+      I'm using an ellipse rather than the circle described in the body of
+      the post because the globe in the illustration isn't quite circular.
+      But it's very close to a circle, and I wanted to keep the example simple.
+    -->
+    <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90"/>
+
+    <clipPath id="insideCircleOnly">
+      <use xlink:href="#ellipse"/>
+    </clipPath>
+  </defs>
+
+  <svg x="0" y="-10">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15"/>
+    <text x="150" y="250">image</text>
+  </svg>
+
+  <text class="operator" x="300" y="240">+</text>
+
+  <svg x="300" y="-10">
+    <use xlink:href="#ellipse" class="outline4"/>
+    <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(108 45) rotate(-20)">✂</text>
+    <text x="150" y="250">circular clip</text>
+  </svg>
+
+  <text class="operator" x="600" y="240">→</text>
+
+  <svg x="600" y="-10">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15" clip-path="url(#insideCircleOnly)"/>
+    <text x="150" y="250">clipped image</text>
+  </svg>
+</svg>

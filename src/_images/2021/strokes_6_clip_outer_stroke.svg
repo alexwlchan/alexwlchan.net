@@ -1,0 +1,57 @@
+<svg viewBox="0 0 900 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Left: An illustration of the globe set against a beige background.
+    Middle: A grey rectangle with a white circle chopped out of the centre.
+    Right: The beige background with the globe removed.
+  </title>
+  <defs>
+    <style>
+      text {
+        fill: black;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+        font-size: 15pt;
+      }
+
+      .operator {
+        font-size: 25pt;
+      }
+
+      .outline6 {
+        fill: rgba(204, 204, 204, 0.3);
+        stroke-width: 5;
+        stroke: #ccc;
+        stroke-dasharray: 5;
+      }
+    </style>
+
+    <mask id="globe6OuterOnly">
+      <rect x="0" y="0" width="10000" height="100000" fill="white"/>
+      <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90" fill="black"/>
+    </mask>
+  </defs>
+
+  <svg x="0">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15"/>
+    <text x="150" y="250">image</text>
+  </svg>
+
+  <text class="operator" x="300" y="250">+</text>
+
+  <svg x="300">
+    <svg x="40" y="5">
+      <path d="M 10 25 L 39.304 54.304 A 90 90, 20, 1 0, 54.304 39.304 L 25 10 L210,10 L210,210 L10,210 z" class="outline6"/>
+    </svg>
+
+    <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(243 55) rotate(90)">✂</text>
+    <text x="150" y="250">“bridged” clip</text>
+  </svg>
+
+  <text class="operator" x="600" y="250">→</text>
+
+  <svg x="600">
+    <image href="/images/2021/globe.jpg" height="200" width="200" x="50" y="15" mask="url(#globe6OuterOnly)"/>
+    <text x="150" y="250">clipped image</text>
+  </svg>
+</svg>
