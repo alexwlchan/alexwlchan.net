@@ -44,7 +44,7 @@
       <path d="M 10 25 L 39.304 54.304 A 90 90, 20, 1 0, 54.304 39.304 L 25 10 L210,10 L210,210 L10,210 z" class="outline6"/>
     </svg>
 
-    <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(243 55) rotate(90)">✂</text>
+    <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(243 55) rotate(90)">✂&#xFE0E;</text>
     <text x="150" y="250">“bridged” clip</text>
   </svg>
 

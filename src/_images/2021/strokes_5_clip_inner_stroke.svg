@@ -48,7 +48,7 @@
 
   <svg x="300">
     <use xlink:href="#heart5" x="25" y="2" class="outline5" transform="scale(2)"/>
-    <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(212 125) rotate(131)">✂</text>
+    <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(212 125) rotate(131)">✂&#xFE0E;</text>
     <text x="150" y="240">shape clip</text>
   </svg>
 
