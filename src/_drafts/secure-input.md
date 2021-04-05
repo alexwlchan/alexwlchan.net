@@ -5,15 +5,15 @@ summary: A Python script that shows me the name of processes that have Secure In
 tags: macos
 ---
 
-macOS has a security feature called [*"Secure Input"*][tn2150].
+macOS has a security feature called [*"Secure Input"*][sec_input].
 If the OS detects that you're typing something sensitive, like a password, Secure Input will prevent anything but the frontmost application from reading your keystrokes – even apps that you've explicitly allowed to do so (for example, text expansion utilities).
 
 Normally this is completely seamless, but sometimes it goes wrong.
 If an app doesn't disable Secure Input, or macOS doesn't notice that you've switched to a different window, then other apps will continue to be unable to read your keystrokes.
 This means that, for example, apps like TextExpander and Keyboard Maestro stop working.
 
-I rely on that sort of tool, so when this happens, I want to find the app or process that's keeping Secure Input enabled, and I want to find it quickly.
-I've written a script that finds the offending processes, so I can stop or restart them as necessary.
+I rely on that sort of tool, so when Secure Input breaks, I want to find the app or process that's keeping it enabled, and I want to find it quickly.
+I've written a script that finds the offending processes, so I can decide how to handle them.
 Here's how it works:
 
 ```console
@@ -79,6 +79,6 @@ In particular, the `loginwindow` process is a common culprit, and stopping that 
 The script is a useful debugging tool that helps me identify the problem, un-break Keyboard Maestro, and get back to whatever I was actually doing.
 Packaging it in a command I can easily remember (or guess and use autocomplete) is the icing on the cake.
 
-[tn2150]: https://developer.apple.com/library/archive/technotes/tn2150/_index.html
+[sec_input]: https://security.stackexchange.com/a/47786/9814
 [script]: /files/2021/find_processes_using_secure_input
 [forums]: https://forum.keyboardmaestro.com/t/disable-secure-input/2410/4
