@@ -6,15 +6,11 @@ require "nokogiri"
 
 module Jekyll
   module AtomFeedFilters
-
-    # Remove inline attributes from an HTML string that aren't allowed in
-    # an Atom feed, according to https://github.com/rubys/feedvalidator
-    #
-    # Params:
-    # +html+:: HTML string to clean.
-    #
-    def strip_html_attrs(html)
+    def fix_html_for_feed_readers(html)
       doc = Nokogiri::HTML.fragment(html)
+
+      # Remove inline attributes from an HTML string that aren't allowed in
+      # an Atom feed, according to https://github.com/rubys/feedvalidator
       doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls|@aria-hidden|.//@aria-hidden').remove
 
       # Remove the small blue bird I add to tweet blockquotes from the RSS feed;
