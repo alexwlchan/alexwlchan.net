@@ -14,10 +14,10 @@ We need to work it out on our own.
 
 This used to be possible by [using the `do JavaScript` action](https://stackoverflow.com/a/42546218/1558022) to run code within the webpage.
 You couldn't use `localStorage.setItem` in private mode, so if it was unavailable you'd know you were in private browsing.
-Unfortunately, browser vendors don't want web pages to be able to detect private browsing, and any JavaScript-based detection will usually get patched.
+Unfortunately, browser vendors don't want web pages to be able to detect of they're in private browsing, and they tend to patch JavaScript-based detection.
 I'm not aware of a good way to detect private browsing using JavaScript in Safari&nbsp;14.
 
-That said, we don't have to run in the web page.
+That said, we're not confined to the web page.
 We're running AppleScript on our Mac, so we have access to everything in the browser.
 Windows, menus, web pages, the lot.
 
@@ -36,7 +36,7 @@ Poking around a bit, I discovered something interesting in the Window menu: the 
   </tr>
 </table>
 
-This gives us a way in – we can use System Events to inspect the items in the Window menu, and that will tell us if the frontmost window is private.
+This gives us a way in – we can use System Events to inspect the items in the Window menu, and the label on this item will tell us if the frontmost window is private.
 It works even if there's a single tab (or no tab) in the window – the menu item will be present, just inactive.
 
 Here's what the code looks like:
