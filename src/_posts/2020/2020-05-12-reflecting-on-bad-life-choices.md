@@ -64,10 +64,10 @@ If they don't match, you get an error.
 For example:
 
 ```pycon
->>> a, b = 0, 1, 2, 3, 4, 5
+>>> longitude, latitude, altitude = 51.9, -0.2
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-ValueError: too many values to unpack (expected 2)
+ValueError: too many values to unpack (expected 3)
 ```
 
 The details of tuple unpacking could be a whole other blog post; here it's sufficient to know that this feature exists and you need to balance both sides for it to work.
