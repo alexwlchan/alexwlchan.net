@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-04-27 20:05:02 +0000
 title: Building Wellcome Collection's new unified catalogue search
 summary: Collaboration between our digital and collections teams helped to build a single search box for all of our catalogues.
 tags: wellcome search
