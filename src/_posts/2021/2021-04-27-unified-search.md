@@ -8,8 +8,6 @@ tags: wellcome search
 
 One of the key features of the new Wellcome Collection website is our [unified collections search](https://wellcomecollection.org/collections).
 
-![]()
-
 <img src="/images/2021/unified_search_1x.png" style="width: 630px" alt="A search box labelled “Search the catalogue” with two tabs: “Library catalogue” and “Images”. To the right is a green button labelled “Search”. The search is for “suez canal” and shows two search results." srcset="/images/2021/unified_search_1x.png 1x, /images/2021/unified_search_2x.png 2x">
 
 On the old Wellcome Library and Wellcome Images websites, we had different search tools for different types of records.
