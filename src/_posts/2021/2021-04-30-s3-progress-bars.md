@@ -19,7 +19,7 @@ If we also look up the size of the object, and pass all this information to the 
 Here's what they look like:
 
 <pre><code id="progressBarDemo">photo.jpg:&nbsp;&nbsp;&nbsp;0%|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0.00/13.0M&nbsp;[00:00&lt;?,&nbsp;?B/s]</code>
-<code style="padding-top: 5px; display: block;"><a href="#" onclick="runDemo()">run demo</a><noscript>(Sorry, this demo requires JavaScript!)</noscript></code></pre>
+<code style="padding-top: 5px; display: block;"><a onclick="runDemo()">run demo</a><noscript>(Sorry, this demo requires JavaScript!)</noscript></code></pre>
 
 <script>
 var lines = ['photo.jpg:&nbsp;&nbsp;&nbsp;0%|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0.00/13.0M&nbsp;[00:00&lt;?,&nbsp;?B/s]',
