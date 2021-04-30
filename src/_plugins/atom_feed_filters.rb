@@ -32,7 +32,7 @@ module Jekyll
       }
 
       doc.xpath(".//a").each { |a_tag|
-        if a_tag["href"].start_with?("/")
+        if a_tag["href"] and a_tag["href"].start_with?("/")
           a_tag["href"] = "https://alexwlchan.net" + a_tag["href"]
         end
       }
