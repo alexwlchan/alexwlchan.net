@@ -14,8 +14,8 @@ Can we do better?
 Both the [`download_file()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.download_file) and [`upload_file()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.download_file) methods in the boto3 SDK support progress callbacks.
 If you pass a function in the Callback parameter, it gets periodically called with the number of bytes tha have been transferred so far.
 
-By looking up the size of the object first, and passing that information to the amazing [tqdm library](https://pypi.org/project/tqdm/), we get progress bars for our S3 transfers.
-Here's what it looks like:
+If we also look up the size of the object, and pass all this information to the amazing [tqdm library](https://pypi.org/project/tqdm/), we get progress bars for our S3 transfers.
+Here's what they look like:
 
 <pre><code id="progressBarDemo">photo.jpg:&nbsp;&nbsp;&nbsp;0%|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0.00/13.0M&nbsp;[00:00&lt;?,&nbsp;?B/s]</code>
 <code style="padding-top: 5px; display: block;"><a href="#" onclick="runDemo()">run demo</a><noscript>(Sorry, this demo requires JavaScript!)</noscript></code></pre>
