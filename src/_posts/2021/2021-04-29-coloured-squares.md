@@ -3,7 +3,7 @@ layout: post
 date: 2021-04-29 09:02:12 +0000
 title: Drawing coloured squares/text in my terminal with Python
 summary:
-tags: python terminal-stuff colour
+tags: python terminal-tricks colour
 ---
 
 Last night, I [posted a tweet][tweet] wondering about the different colours of the ["spool of thread" emoji][emoji], and I made an illustration to show the variety:
