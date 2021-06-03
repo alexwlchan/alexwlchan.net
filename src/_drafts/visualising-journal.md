@@ -7,10 +7,10 @@ tags: python
 
 I try to write a daily journal, and I find it useful when I do, but I've been struggling to sustain the habit.
 My journals are an opportunity for reflection and thought, and a way to spot where I should be making changes.
-If I don't write a journal, I don't get that opportunity.
+If I don't write a journal, I miss that opportunity.
 
 Last night, I wrote a quick Python script that visually shows me when I've been journalling.
-It's not high-quality code, but I do find this sort of visualisation helpful:
+This is the sort of visualisation I find quite helpful:
 
 <img src="/images/2021/journal_progress_2x.png" srcset="/images/2021/journal_progress_1x.png 1x, /images/2021/journal_progress_2x.png 2x, /images/2021/journal_progress_3x.png 3x" style="width: 642px; border: 1px solid #ddd;" alt="Two calendars for 2020/2021. Some days are highlighted in varying shades of pink (2021) or blue (2020). Above the two calendars is the text 'Your last journal entry was yesterday. Keep it up! Your current streak is 1 day.'">
 
@@ -55,11 +55,11 @@ The code is pretty rough and probably won't work for anybody else's setup, but i
     This is based on the metric "file size" rather than "words written", because I wanted something fast and approximate, rather than slow and accurate.
 
 -   The Python standard library includes [HTMLCalendar], a class for generating HTML calendars.
-    My script uses a modified version which adds a `day-YYYY-MM-DD` id to every cell, so I can select them in CSS to add the shading.
+    My script uses a modified version which adds a `day-YYYY-MM-DD` id to every cell, so I can select individual days in CSS to add the shading.
 
     Calendars are quite fiddly, so it's nice to have one available with minimal work on my part.
 
--   I wanted each year to have a different colour (because pretty), but I also wanted them to be consistent between different runs of the script.
+-   I wanted each year to have a different colour (because pretty), but I also wanted the colours to be consistent between different runs of the script.
     I choose the colour for a year like so:
 
     ```python
