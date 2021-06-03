@@ -1,0 +1,30 @@
+a.download {
+  border: 2px solid $primary-color;
+  padding: 0.5em;
+  border-radius: .5em;
+  padding-bottom: 25px;
+  padding-top: 15px;
+  display: inline-block;
+  padding-right: 15px;
+
+  @media screen and (max-width: 500px) {
+    padding-bottom: .5em;
+    padding-top:    .5em;
+    padding-right:  .5em;
+  }
+
+  img {
+    height: 64px;
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: -25px;
+    margin-top: -5px;
+    padding-bottom: 0;
+    padding-right: 5px;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}
