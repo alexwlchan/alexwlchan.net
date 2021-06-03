@@ -18,6 +18,7 @@ class RunLinting < Jekyll::Command
           :check_html => false,
           :check_img_http => true,
           :disable_external => true,
+          :empty_alt_ignore => true,
           :report_invalid_tags => true,
         }).run
     end
