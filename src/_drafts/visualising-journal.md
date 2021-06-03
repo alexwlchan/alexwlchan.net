@@ -5,26 +5,26 @@ summary: A Python script that shows me how often I've been journalling, so I can
 tags: python
 ---
 
-I try to write a daily journal, but I'm not very consistent at it.
-It's useful when I do, but I've been struggling to sustain the habit.
+I try to write a daily journal, and I find it useful when I do, but I've been struggling to sustain the habit.
 My journals are an opportunity for reflection and thought, and a way to spot where I should be making changes.
+If I don't write a journal, I don't get that opportunity.
 
 Last night, I wrote a quick Python script that visually shows me when I've been journalling.
 It's not high-quality code, but I do find this sort of visualisation helpful:
 
 <img src="/images/2021/journal_progress_2x.png" srcset="/images/2021/journal_progress_1x.png 1x, /images/2021/journal_progress_2x.png 2x, /images/2021/journal_progress_3x.png 3x" style="width: 642px; border: 1px solid #ddd;" alt="Two calendars for 2020/2021. Some days are highlighted in varying shades of pink (2021) or blue (2020). Above the two calendars is the text 'Your last journal entry was yesterday. Keep it up! Your current streak is 1 day.'">
 
-Days when I've written a journal entry are highlighted in colour, with a darker colour on days when I wrote more.
+Days when I've written a journal entry are highlighted in colour, with a darker shade on days when I wrote more.
 
 The message at the top tells me my current streak – how many days up to now I've written a journal.
-I find streaks particularly motivating – once started, I don't want to break it! – and I've used them to great effect when tracking my fitness and personal finances.
+I find streaks particularly motivating – once started, I don't want to break it! – and I've used them to great effect when making changes to my fitness and personal finances.
 I'm hoping to get a similar improvement here.
 
 If you're interested, you can download my script:
 
 {% download /files/2021/see_journal_progress.py %}
 
-The code is pretty rough, but it has some ideas I thought worth discussing in more detail:
+The code is pretty rough and probably won't work for anybody else's setup, but it has some ideas I thought worth discussing in more detail:
 
 -   I store my journal entries as text files, one per day.
     Every day, I start a new journal entry with the snippet `;dj`, which expands to
@@ -48,6 +48,8 @@ The code is pretty rough, but it has some ideas I thought worth discussing in mo
     The prompts and headings give me ideas for what I want to write about.
     I change them on a regular basis, and part of what I want to track is whether my choice of prompt affects my journalling.
     I feel like some prompts get better results than others.
+
+    I wrote my script because I have a radically different prompt for June, and I want to see if it has any effect.
 
 -   A darker shade means that I wrote more in that entry.
     This is based on the metric "file size" rather than "words written", because I wanted something fast and approximate, rather than slow and accurate.
