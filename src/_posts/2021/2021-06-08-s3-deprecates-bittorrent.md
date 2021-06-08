@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2021-06-08 06:21:15 +0000
-title: Amazon is discontinuing BitTorrent S3
+title: Amazon is discontinuing S3 BitTorrent
 summary:
 tags: amazon-s3
 ---
