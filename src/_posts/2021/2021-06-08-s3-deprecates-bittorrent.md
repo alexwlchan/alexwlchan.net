@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2021-06-08 06:21:15 +0000
-title: Amazon S3 has deprecated BitTorrent
+title: Amazon has deprecated BitTorrent S3
 summary:
 tags: amazon-s3
 ---
