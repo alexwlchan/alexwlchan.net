@@ -27,3 +27,5 @@ That means I try to avoid writing any code I'd feel awkward writing in public --
 
 This incident seemed to go pretty well for HBO: in my circles at least, people were puzzled, then sympathetic, then shared stories of their own mistakes.
 If this wasn't such an inoffensive email, it's easy to imagine how it could have been much worse.
+
+*[This post started as a thread [on Twitter](https://twitter.com/alexwlchan/status/1405760375539212289).]*
