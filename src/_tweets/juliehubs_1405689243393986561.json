@@ -1,0 +1,187 @@
+{
+  "created_at": "Fri Jun 18 00:50:06 +0000 2021",
+  "id": 1405689243393986561,
+  "id_str": "1405689243393986561",
+  "full_text": "Shout out to the HBO Max Engineer who is currently having a full blown panic attack https://t.co/XpzmnUldzw",
+  "truncated": false,
+  "display_text_range": [
+    0,
+    83
+  ],
+  "entities": {
+    "hashtags": [
+
+    ],
+    "symbols": [
+
+    ],
+    "user_mentions": [
+
+    ],
+    "urls": [
+
+    ],
+    "media": [
+      {
+        "id": 1405689241770905601,
+        "id_str": "1405689241770905601",
+        "indices": [
+          84,
+          107
+        ],
+        "media_url": "http://pbs.twimg.com/media/E4IC6vBX0AEWTiz.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/E4IC6vBX0AEWTiz.jpg",
+        "url": "https://t.co/XpzmnUldzw",
+        "display_url": "pic.twitter.com/XpzmnUldzw",
+        "expanded_url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1",
+        "type": "photo",
+        "sizes": {
+          "small": {
+            "w": 680,
+            "h": 479,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "large": {
+            "w": 1440,
+            "h": 1014,
+            "resize": "fit"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 845,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "id": 1405689241770905601,
+        "id_str": "1405689241770905601",
+        "indices": [
+          84,
+          107
+        ],
+        "media_url": "http://pbs.twimg.com/media/E4IC6vBX0AEWTiz.jpg",
+        "media_url_https": "https://pbs.twimg.com/media/E4IC6vBX0AEWTiz.jpg",
+        "url": "https://t.co/XpzmnUldzw",
+        "display_url": "pic.twitter.com/XpzmnUldzw",
+        "expanded_url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1",
+        "type": "photo",
+        "sizes": {
+          "small": {
+            "w": 680,
+            "h": 479,
+            "resize": "fit"
+          },
+          "thumb": {
+            "w": 150,
+            "h": 150,
+            "resize": "crop"
+          },
+          "large": {
+            "w": 1440,
+            "h": 1014,
+            "resize": "fit"
+          },
+          "medium": {
+            "w": 1200,
+            "h": 845,
+            "resize": "fit"
+          }
+        }
+      }
+    ]
+  },
+  "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 2440732321,
+    "id_str": "2440732321",
+    "name": "Julie Hubschman",
+    "screen_name": "juliehubs",
+    "location": "New York, USA",
+    "description": "Partnership Engineer @ Pinterest. ex-MSFT. Liberal Arts Graduate. Sometimes I write things. Sometimes I make things. Thoughts are my own. Atlien",
+    "url": "https://t.co/pE9A3Ew5I5",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "https://t.co/pE9A3Ew5I5",
+            "expanded_url": "http://juliehubs.com",
+            "display_url": "juliehubs.com",
+            "indices": [
+              0,
+              23
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": [
+
+        ]
+      }
+    },
+    "protected": false,
+    "followers_count": 2502,
+    "friends_count": 2062,
+    "listed_count": 88,
+    "created_at": "Sat Apr 12 23:39:05 +0000 2014",
+    "favourites_count": 123238,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 19236,
+    "lang": null,
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "C0DEED",
+    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/1405693921934598148/tWGmAkvx_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1405693921934598148/tWGmAkvx_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/2440732321/1508776158",
+    "profile_link_color": "1DA1F2",
+    "profile_sidebar_border_color": "C0DEED",
+    "profile_sidebar_fill_color": "DDEEF6",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": true,
+    "default_profile": true,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null,
+    "translator_type": "none",
+    "withheld_in_countries": [
+
+    ]
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 714,
+  "favorite_count": 7075,
+  "favorited": false,
+  "retweeted": false,
+  "possibly_sensitive": false,
+  "possibly_sensitive_appealable": false,
+  "lang": "en"
+}
