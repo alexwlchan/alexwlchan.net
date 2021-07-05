@@ -8,14 +8,14 @@ tags: python aws aws-secrets-manager
 If you delete a secret from AWS Secrets Manager, it isn't deleted immediately -- instead, it gets scheduled for deletion.
 This gives you a recovery window, so you can retrieve the secret if it was deleted accidentally -- but it also prevents you creating a new secret with the same name.
 
-If you want to delete a secret immediately, you can [call the DeleteSecret API with the ForceDeleteWithoutRecovery parameter][DeleteSecret].
+If you want to delete a secret more quickly, you can [call the DeleteSecret API with the ForceDeleteWithoutRecovery parameter][DeleteSecret].
 To use this API, you need to know the ID of the secret -- but what if it's already been deleted?
-What if you wanted to delete secrets that are still in their recovery window?
+What if you wanted to speed up the deletion of a secret?
 
 You can see deleted secrets in the AWS Console (notice the "Deleted on" column):
 
 <figure  style="width: 515px;">
-  <img src="/images/2021/secrets_manager.png">
+  <img src="/images/2021/secrets_manager.png" alt="Screenshot of the Secrets Manager console. There's a table with one secret per row, and the rightmost column is titled 'Deleted on'. This column contains a date for the top five rows.">
   <figcaption>
     To see deleted secrets, select the gear icon in the top right-hand corner for settings, then make sure you have "Show disabled secrets" selected.
   </figcaption>
@@ -48,7 +48,7 @@ For a current project, I'm trying to write a Terraform module that somebody can 
 I'm repeatedly creating my resources, then tearing them down so I can try again.
 This includes include some secrets in Secrets Manager.
 
-Because the secrets aren't getting deleted immediately, Terraform can't create the secret on the next attempt.
+Because the secrets aren't getting deleted immediately, Terraform can't recreate the secret on the next attempt.
 I want a way to clear out Secrets Manager quickly, so I can get back to an empty account.
 
 (I discovered Terraform will delete secrets immediately [if you set `recovery_window_in_days = 0`][tf_var], but I don't want to use it because it's not a setting I'd otherwise use.
@@ -117,7 +117,7 @@ What if we pass that undocumented parameter into `list_secrets()`?
 client.list_secrets(IncludeDeleted=True)
 ```
 
-Unfortunately, that returns an error:
+Unfortunately, that throws an error:
 
 ```
 botocore.exceptions.ParamValidationError: Parameter validation failed:
@@ -148,7 +148,7 @@ I've never done it before, and it seems like the sort of fiddly process that wou
 I tried to find a way to get boto3 to do the request signing for me, on an arbitrary request -- a function that would take some a URL, some headers and a body, and do the signing process -- but if one exists, I couldn't find it.
 There's nothing to suggest that's possible in the documentation, I couldn't find examples in Google, and the code itself is pretty complicated.
 
-I couldn't even find [a method called `list_secrets()` in boto3][search] -- so where does that come from?
+In fact, looking through the code, I couldn't even find [a method called `list_secrets()` in boto3][search] -- so where does that come from?
 
 [apidocs]: https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html#API_ListSecrets_Examples
 [signing]: https://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
@@ -215,14 +215,16 @@ In turn, the `shapes` object tells us that the ListSecretsRequest model takes fo
 
 You'll find a copy of these service models in every SDK -- for the Python SDK, they're in the ["data" directory of the botocore library][botocore_data].
 The methods are generated at runtime, which is why I couldn't find a `list_secrets()` method in the codebase.
-For compiled languages like Java or C++, these definitions are used to generate source code.
+For compiled languages like Java or C++, these models are used to generate source code.
 
 I couldn't find much publicly available documentation that describes how these service models work.
-The most detail I found was a comment from Norm Johanson, an AWS employee, on [the .NET AWS SDK repo][dotnet_comment]:
+I found a comment from Norm Johanson, an AWS employee, on [the .NET AWS SDK repo][dotnet_comment]:
 
 > AWS services use a few different internal tools and technologies to model their APIs. None of them are swagger. You have to remember many AWS services predate swagger. The json files are created using some tools we have to translate the models service teams write into a common format that all of the AWS SDKs can use.
 >
 > Long term wise is to have services use our new open source protocol-agnostic interface definition language called [Smithy].
+
+I also found [a Reddit comment from FatherJohnKissMe](https://www.reddit.com/r/aws/comments/l69b5c/how_dose_aws_manages_all_of_their_sdks/gl19tsf/?context=3), where an AWS Principal Engineer explains a bit more of their internal process.
 
 Scant documentation aside, the existence of service models suggests a way forward: what if we modified this file to add the IncludeDeleted parameter?
 
@@ -243,6 +245,7 @@ Scant documentation aside, the existence of service models suggests a way forwar
 [haskell_sdk]: http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client
 [clojure_sdk]: https://github.com/cognitect-labs/aws-api#rationale
 [Smithy]: https://github.com/awslabs/smithy
+[reddit]: https://www.reddit.com/r/aws/comments/l69b5c/how_dose_aws_manages_all_of_their_sdks/gl19tsf/?context=3
 
 
 
@@ -286,7 +289,7 @@ The loader documentation explains that there are two default paths where it sear
 -   `~/.aws/models`
 -   `<botocore root>/data`
 
-The first path is for users to drop in new models that override the models that ship with botocore.
+The first path is for users to drop in new models that override the models that ship with botocore – which is just what I want to do.
 
 I reverted my change to botocore proper, and instead copied my modified copy of the Secrets Manager service model to `~/.aws/model`.
 Now my changes will survive an update to botocore, but I'm still duplicating the entire service model, even though I only want a small change.
@@ -299,7 +302,7 @@ Reading the rest of the loader documentation, there's an intriguing notion of "e
 > For instance, additional operation parameters might be added here which don't represent the actual service api.
 
 Like everything else around AWS service models, the documentation is pretty sparse, but it was the final clue I needed.
-By looking at examples of extras for other service models, I was able to write an extra that describes the undocumented parameter:
+By looking at examples of extras for other service models, I was able to write a Secrets Manager extra that describes the undocumented parameter:
 
 ```
 {
@@ -345,7 +348,7 @@ First, save [the following file](/files/2021/service-2.sdk-extras.json) to `~/.a
 
 Then use the following script:
 
-{% inline_code python _files/2021/list_deleted_secrets.py %}
+{% inline_code python _files/2021/list_deleted_secrets_working.py %}
 
 Or run the following CLI command:
 
