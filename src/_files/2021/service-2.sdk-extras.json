@@ -1,0 +1,15 @@
+{
+  "version": 1.0,
+  "merge": {
+    "shapes": {
+      "ListSecretsRequest": {
+        "members": {
+          "IncludeDeleted": {
+            "shape": "BooleanType",
+            "documentation": "<p>If set, includes secrets that are disabled.</p>"
+          }
+        }
+      }
+    }
+  }
+}
