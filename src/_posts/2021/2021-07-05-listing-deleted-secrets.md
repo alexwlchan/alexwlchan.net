@@ -2,7 +2,7 @@
 layout: post
 date: 2021-07-05 11:46:23 +0000
 title: Listing deleted secrets in AWS Secrets Manager with boto3 and the AWS CLI
-summary: Diving into AWS service models and botocore internals so we can call ListSecrets(IncludeDeleted=True).
+summary: A surprisingly deep dive into the internals of the AWS SDK.
 tags: python aws aws-secrets-manager
 ---
 
