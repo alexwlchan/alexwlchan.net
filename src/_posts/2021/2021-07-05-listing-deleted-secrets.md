@@ -4,6 +4,8 @@ date: 2021-07-05 11:46:23 +0000
 title: Listing deleted secrets in AWS Secrets Manager with boto3 and the AWS CLI
 summary: A surprisingly deep dive into the internals of the AWS SDK.
 tags: python aws aws-secrets-manager
+index:
+  best_of: true
 ---
 
 If you delete a secret from AWS Secrets Manager, it isn't deleted immediately -- instead, it gets scheduled for deletion.
