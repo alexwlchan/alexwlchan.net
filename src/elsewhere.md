@@ -15,7 +15,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     margin-bottom: 0.5em;
   }
 
-  ul.dot_list {
+  #talks_archive ul.dot_list {
     margin: 0;
   }
 
