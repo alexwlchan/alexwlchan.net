@@ -1,6 +1,21 @@
 ---
-layout: archive_base
+layout: page
 ---
+
+<p>
+  This is a list of everything I posted in {{ page.year }}.
+  You can also see <a href="/all-posts/">everything I&rsquo;ve posted, ever</a>.
+</p>
+
+<style>
+  h3 {
+    margin-bottom: 0.5em;
+  }
+
+  .archive {
+    margin-top: 0.5em;
+  }
+</style>
 
 {% for post_group in page.posts %}
   {% assign posts = post_group[1] %}
