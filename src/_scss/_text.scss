@@ -63,14 +63,6 @@ blockquote {
   @media screen and (max-width: $max-width + $default-padding * 3) {
     margin-left: 0px;
   }
-
-  p.cite {
-    text-align: right;
-
-    cite::before {
-      content: "— ";
-    }
-  }
 }
 
 // These rules help with the positioning of footnote markers, although
