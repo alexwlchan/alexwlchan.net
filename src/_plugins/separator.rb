@@ -4,6 +4,8 @@
 #
 #     {% separator "scroll.svg" %}
 #
+#     {% text_separator "---" %}
+#
 # References:
 #
 #   - Accessible SVGs https://css-tricks.com/accessible-svgs/
@@ -38,6 +40,18 @@ module Jekyll
       "<center class='separator'>" + svg_doc.to_xml(indent: 0) + "</center>"
     end
   end
+
+  class TextSeparatorTag < Liquid::Tag
+    def initialize(_tag_name, name, _tokens)
+      super
+      @contents = name.strip.tr! '"', ''
+    end
+
+    def render(context)
+      "<center class='separator' aria-hidden='true'>" + @contents + "</center>"
+    end
+  end
 end
 
 Liquid::Template.register_tag("separator", Jekyll::SeparatorTag)
+Liquid::Template.register_tag("text_separator", Jekyll::TextSeparatorTag)

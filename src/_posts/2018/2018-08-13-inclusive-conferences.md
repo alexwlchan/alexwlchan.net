@@ -21,15 +21,6 @@ So if you're interested, there's a new version at <https://alexwlchan.net/ideas-
 Enjoy!
 {% endupdate %}
 
-<style>
-  h2 { color: #d01c11; }
-  .post__separator {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    font-size: 1.5em;
-  }
-</style>
-
 I semi-regularly do a braindump of my ideas for running inclusive conferences, and I realised it would be useful to have it all written up in one place.
 Last week, I had a meeting with [Lauren Couch][lauren], the head of Diversity and Inclusion at Wellcome, and she was kind enough to lend me the notes she wrote -- this is the tidied-up version.
 
@@ -123,7 +114,7 @@ If you implement even one, that's an improvement.
 *   [**Putting it into practice**](#putting-it-into-practice)
 *   [**Further reading**](#further-reading)
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="have-a-code-of-conduct">Have a code of conduct <a class="anchor" href="#have-a-code-of-conduct"></a></h2>
 
@@ -155,7 +146,7 @@ It has lots of detail about what makes a good CoC, and answers common questions 
 [report]: https://2016.pyconuk.org/news/20160919-coc/
 [dryden]: https://www.ashedryden.com/blog/codes-of-conduct-101-faq
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="pricing-and-financial-assistance">Pricing and financial assistance <a class="anchor" href="#pricing-and-financial-assistance"></a></h2>
 
@@ -208,7 +199,7 @@ Similarly, at PyCon UK, we sell conference swag (t-shirts, hoodies, etc) through
 
 [shop]: https://shop.spreadshirt.co.uk/pyconuk/2018
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="inside-the-venue">Inside the venue <a class="anchor" href="#inside-the-venue"></a></h2>
 
@@ -296,7 +287,7 @@ Possible approaches include brightly coloured, branded t-shirts, or different la
 If you have places that are continuously staffed during conference hours (for example, the registration desk), make sure you tell people.
 It may not always be the most convenient, but it's good to know that fallback exists.
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="look-after-your-speakers">Look after your speakers <a class="anchor" href="#look-after-your-speakers"></a></h2>
 
@@ -411,7 +402,7 @@ People have mixed feelings about the Q&A.
 Some speakers find them very helpful; others prefer to answer questions in the hallway after the session.
 I've started to see CfPs that let speakers choose if they want a Q&A, and I think that's a good compromise.
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="food-and-drink">Food and drink <a class="anchor" href="#food-and-drink"></a></h2>
 
@@ -459,7 +450,7 @@ They've also got links to other articles with more discussion of food and drink 
 
 [durbin]: https://ernest.ly/blog/conference-beverages.html
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="parents-guardians-with-young-children">Parents/guardians with young children <a class="anchor" href="#parents-guardians-with-young-children"></a></h2>
 
@@ -487,7 +478,7 @@ Some people will prefer to breastfeed in private, so you should have a clean, qu
 The room needs a table and a chair, and electricity and a fridge are nice to have as well.
 (This should be different to the quiet room mentioned above.)
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="support-for-disabilities">Support for disabilities <a class="anchor" href="#support-for-disabilities"></a></h2>
 
@@ -590,7 +581,7 @@ Maybe you have a wheelchair, or a child, or a foot injury, or you're just talkin
 Make sure you plan sufficient breaks between session.
 People won't be rushing around the building to get to talks, and your speakers will be less distracted by late arrivals.
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="getting-to-the-venue">Getting to the venue <a class="anchor" href="#getting-to-the-venue"></a></h2>
 
@@ -634,7 +625,7 @@ I've been doing the visa invitation letters for PyCon UK -- email me if you'd li
 
 [egypt]: https://www.museumsassociation.org/museums-journal/news/10082018-egyptian-curators-denied-visas
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="badges-lanyards-and-photography">Badges, lanyards and photography <a class="anchor" href="#badges-lanyards-and-photography"></a></h2>
 
@@ -729,7 +720,7 @@ I haven't seen it at many conferences yet, but I think it's a nice idea.
 [badges]: https://alterconf.com/news/introducing-color-communication-badges
 [asan]: https://autisticadvocacy.org/2014/02/color-communication-badges/
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="newcomers">Newcomers <a class="anchor" href="#newcomers"></a></h2>
 
@@ -770,7 +761,7 @@ Here are two approaches I like:
 At PyCon UK last year, there was a #social channel in the conference Slack.
 If a group of people were going out for the evening, and had room for a few more, they'd post it in this channel -- and people would take up that invitation.
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="putting-it-into-practice">Putting it into practice <a class="anchor" href="#putting-it-into-practice"></a></h2>
 
@@ -795,7 +786,7 @@ Even saying you can't provide an accommodation is more useful than an empty page
 
 Now go plan an awesome conference!
 
-<div class="post__separator" aria-hidden="true">&#9672;</div>
+{% text_separator "◈" %}
 
 <h2 id="further-reading">Further reading <a class="anchor" href="#further-reading"></a></h2>
 

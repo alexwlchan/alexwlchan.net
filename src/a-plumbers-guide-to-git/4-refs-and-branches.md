@@ -9,7 +9,7 @@ meta:
 At the end of part 3, we've seen how to take snapshots of the repo with trees, attach context with commits, and construct commits into a sequence -- but passing around commit hashes is unwieldy.
 In this final part, let's see how we can give commits friendlier names.
 
-<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675; &#8592;&#9675;</div>
+{% text_separator "○ ←○ ←○" %}
 
 ## Creating our first branch
 
@@ -186,7 +186,7 @@ Let's wrap up with a final set of exercises.
 [git-branch]: https://www.git-scm.com/docs/git-branch
 [git-symbolic-ref]: https://www.git-scm.com/docs/git-symbolic-ref
 
-<div class="post__separator" aria-hidden="true">&#9675;&#8594; &#9675;&#8594; &#9675;</div>
+{% text_separator "○→ ○→ ○" %}
 
 ## Exercises
 
@@ -277,7 +277,7 @@ To finish off, here are a couple of bonus exercises:
   </div>
 </div>
 
-<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
+{% text_separator "○ ←○→ ○" %}
 
 ## Notes
 
