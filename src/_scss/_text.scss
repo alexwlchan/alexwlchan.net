@@ -25,15 +25,14 @@ h1, h2 {
   color: $primary-color;
 }
 
+h1 {
+  font-size: 2em;
+}
+
 h2 {
-  line-height: $line-height;
   margin-top: 2em;
   font-size: 1.6em;
   margin-bottom: 0.5em;
-}
-
-h3 {
-  margin-top: 1.8em;
 }
 
 blockquote {
