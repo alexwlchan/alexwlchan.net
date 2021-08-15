@@ -17,18 +17,20 @@ a {
   }
 }
 
+h1, h2, h3 {
+  font-weight: normal;
+}
+
 h1 {
   color: $primary-color;
 }
 
 h2 {
   line-height: $line-height;
-  font-weight: normal;
   margin-top: 2em;
 }
 
 h3 {
-  font-weight: normal;
   margin-top: 1.8em;
 }
 
@@ -96,7 +98,6 @@ sup {
 
 .title {
   font-size: 1.9em;
-  font-weight: normal;
   line-height: 1.45em;
   a {
     text-decoration: none;
