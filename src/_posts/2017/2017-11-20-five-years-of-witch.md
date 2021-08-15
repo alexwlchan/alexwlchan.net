@@ -12,10 +12,7 @@ date: 2017-11-20 15:00
 Today, the [National Museum of Computing][tnmoc] (TNMoC) is celebrating the five-year anniversary of their reboot of the Harwell-Dekatron computer, also known as WITCH.
 
 <figure>
-  {%
-    image :filename => "witch.jpg",
-    :alt => "A photograph of large, yellowish-grey computer."
-  %}
+  <img src="/images/2017/witch.jpg" alt="A photograph of large, yellowish-grey computer.">
   <figcaption>
     A photo of the Harwell-Dekatron under reconstruction at TNMoC in 2010.
     Taken from <a href="https://en.wikipedia.org/wiki/File:Harwell-dekatron-witch-computer-under-resotoration-2010-03-13.jpg">Wikimedia Commons</a>.
@@ -37,10 +34,7 @@ It looks like a small tube, with an orange light that rotates as it cycles from 
 Dekatrons also make a distinctive clackety clackety noise, and together with the visuals, the running machine is quite an experience.
 
 <figure>
-  {%
-    image :filename => "dekatron_register.jpg",
-    :alt => "A 5x5 grid of “dekatrons”. Each dekatron has a series of black dots (the values), and a bright orange light showing the current value."
-  %}
+  <img src="/images/2017/dekatron_register.jpg" alt="A 5x5 grid of “dekatrons”. Each dekatron has a series of black dots (the values), and a bright orange light showing the current value.">
   <figcaption>
     A bank of dekatrons on the witch, taken by Alan Levine.
     From <a href="https://www.flickr.com/photos/cogdog/14117907424/in/photolist-gWJjcZ-aC6ghC-nTSsYe-o9jwqA-nTTiD8-neDYHX-7QwWmF-UveD6Z-nttrbU-95Zbqg-nvxY1Y-963e8U-AgSr5n-6sLqzN-grzctQ-zjQPNb-6sEYYX-UveCyB-bXqvS1-afiseM-afmYKB-FCdbp5-6sGhSa">Flickr</a>.

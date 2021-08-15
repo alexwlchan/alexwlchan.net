@@ -22,10 +22,7 @@ For example, at work, the DNS entries for wellcomecollection.org are managed in 
 
 If you're using the AWS console, you can assume a role in the GUI -- there's a dropdown menu with a button for it:
 
-{%
-  image :filename => "iam_role_gui.png",
-  :alt => "A screenshot from the IAM console, showing a dropdown menu with a green arrow pointing at “Switch Role”."
-%}
+<img src="/images/2018/iam_role_gui.png" alt="A screenshot from the IAM console, showing a dropdown menu with a green arrow pointing at “Switch Role”.">
 
 If you're using the SDK or the CLI, it can be a little trickier -- so I wrote a script to help me.
 

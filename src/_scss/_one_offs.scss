@@ -18,20 +18,6 @@
 // Used in /2014/11/ranged-strings/
 .exampleurl { padding-left: 30px; }
 
-// Used in /2014/09/new-standing-desk
-#pricelist {
-  padding-left: 20px;
-}
-
-.price {
-  float: right;
-  font-weight: bold;
-  margin-left: 50px;
-  &:before {
-    content: "£";
-  }
-}
-
 // Used in /2015/09/effective-python/
 .book_review {
   max-width: 180px;
