@@ -9,15 +9,14 @@ aside {
   #aside_inner {
     @include central_element();
 
-    &, a, a:visited {
-      color: white;
-      @media print {
-        color: $primary-color;
-      }
+    color: white;
+
+    @media print {
+      color: $primary-color;
     }
 
-    a:hover {
-      background: rgba(255, 255, 255, 0.5);
+    a, a:visited {
+      @include link_styles(white, 0.5);
     }
 
     #brand {
