@@ -16,10 +16,7 @@ Each topic can have multiple *subscribers*, which receive a copy of every messag
 Sending a single notification can go to multiple places.
 
 <figure style="max-width: 600px;">
-  {%
-    image :filename => "sns-notifications.png",
-    :alt => "A flow diagram showing how SNS works."
-  %}
+  <img src="/images/2018/sns-notifications.png" alt="A flow diagram showing how SNS works.">
 </figure>
 
 A common use case is something like push notifications on your phone.

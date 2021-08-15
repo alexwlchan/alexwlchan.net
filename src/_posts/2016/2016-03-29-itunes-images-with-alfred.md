@@ -16,11 +16,7 @@ Thing is, I do most of my web searches through [Alfred](https://www.alfredapp.co
 I don't really want to go out to the command-line for this one task.
 Wouldn't it be nice if I could get iTunes artwork through Alfred?
 
-{%
-  image :filename => "itunes-alfred.png",
-  :alt => "A grey search bar with the query “ipic ios drafts”, and a single result “Get iTunes artwork for ‘ios drafts’”.",
-  :style => "max-width: 575px;"
-%}
+<img src="/images/2016/itunes-alfred.png" alt="A grey search bar with the query “ipic ios drafts”, and a single result “Get iTunes artwork for ‘ios drafts’”." style="max-width: 575px;">
 
 Hmm.
 
@@ -28,10 +24,7 @@ Calling a script is a fairly simple Alfred workflow.
 I created a keyword input for "ipic", which requires an argument, and then that argument is passed to the "Run Script" action.
 That action has a single-line Bash script: calling out to Dr. Drang's script, passing my input as a command-line argument.
 
-{%
-  image :filename => "alfred-workflow.png",
-  :alt => "A workflow titled “Search the iTunes Search API”. The background is dark grey, and a light grey box “ipic” links to a second box “Run script”."
-%}
+<img src="/images/2016/alfred-workflow.png" alt="A workflow titled “Search the iTunes Search API”. The background is dark grey, and a light grey box “ipic” links to a second box “Run script”.">
 
 This works fine with Dr. Drang's original script.
 
