@@ -54,7 +54,7 @@ I connect words in all sorts of ways, including:
 
 **The exact connections are unimportant; what I find interesting is the general idea of modelling vocabulary as a graph.**
 
-<div class="post__separator" aria-hidden="true">&mdash; 口 &mdash;</div>
+{% text_separator "— 口 —" %}
 
 Normally, when I draw these graphs, I work on a fairly small scale.
 I imagine the connections between a handful of words, usually starting from a single word and listing words it's connected to.
@@ -70,7 +70,7 @@ What new connections or associations might I find if I could see everything toge
 
 I've been thinking about this idea for a while, and over the last week I've done some experiments to try to pull such a graph together.
 
-<div class="post__separator" aria-hidden="true">&mdash; 大 &mdash;</div>
+{% text_separator "— 大 —" %}
 
 I usually sketch little graphs on scrap paper during a lesson, as a way to remember the words in the lesson.
 That works well on a small scale, but you can see it's already getting a bit messy: lines are overlapping, phrases are getting boxed in, and I'm running out of room on the paper.
@@ -106,13 +106,13 @@ It's very messy and unwieldy in D3 – I still like the idea, but it needs more 
 Nonetheless, **in its current form, this works well as a way to _store_ the entire graph, and it's useful to see the subset of the graph centred on a particular phrase.**
 I can imagine myself redrawing that on paper, both to get a prettier graph and to help reinforce the knowledge.
 
-<div class="post__separator" aria-hidden="true">&mdash; 水 &mdash;</div>
+{% text_separator "— 水 —" %}
 
 If you want to play with the graphs, visit **[chinese-vocabulary-graph.glitch.me](https://chinese-vocabulary-graph.glitch.me/)**
 
 The code for the experiment is on GitHub (**[github.com/alexwlchan/vocabulary-graph](https://github.com/alexwlchan/vocabulary-graph)**), although it's pretty rough -- this is a prototype, not a production app.
 
-<div class="post__separator" aria-hidden="true">&mdash; 小 &mdash;</div>
+{% text_separator "— 小 —" %}
 
 I'm sure this isn't a new concept -- if nothing else, I have sketches of similar graphs from school exercise books, and that's over a decade ago.
 But I'm not a cognitive scientist or a linguist, I don't know anything about these fields, and I've struggled to find anything that sounds similar on Google.
