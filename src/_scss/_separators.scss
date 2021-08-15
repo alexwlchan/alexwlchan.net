@@ -1,0 +1,15 @@
+.separator {
+  margin: 1.5em;
+  color: $light-grey;
+  text-align: center;
+  font-size: 2em;
+
+  @media print {
+    display: none;
+  }
+
+  & + h2 {
+    margin-top: 0em;
+  }
+}
+
