@@ -30,12 +30,7 @@ After our call, I got an Action working, and I've had it running successfully fo
 In this post, I'll explain how I wrote an Action to auto-merge my pull requests.
 When a pull request passes tests, GitHub Actions automatically merges the PR and then deletes the branch:
 
-{%
-  image
-  :filename => "github_actions_merge.png",
-  :alt => "A screenshot of the GitHub pull request UI, showing the github-actions bot merging and deleting a branch.",
-  :style => "width: 700px;"
-%}
+<img src="/images/2019/github_actions_merge.png" alt="A screenshot of the GitHub pull request UI, showing the github-actions bot merging and deleting a branch." style="width: 700px;">
 
 If you just want the code, [skip to the end](#putting-it-all-together) or check out [the GitHub repo][repo].
 
@@ -181,12 +176,7 @@ In a GitHub Action, exit code 78 is a [*neutral* status][exit_code].
 It's a way to say "we didn't do any work".
 This is what it looks like in the UI, compared to a successful run:
 
-{%
-  image
-  :filename => "github_actions_neutral.png",
-  :alt => "Two rows of text, both saying “on pull request pass, merge the branch”, one with a grey square, one with a green tick.",
-  :style => "width: 411px;"
-%}
+<img src="/images/2019/github_actions_neutral.png" alt="Two rows of text, both saying “on pull request pass, merge the branch”, one with a grey square, one with a green tick." style="width: 411px;">
 
 [event]: https://developer.github.com/v3/activity/events/types/#checkrunevent
 [exit_code]: https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment/#exit-codes-and-statuses
