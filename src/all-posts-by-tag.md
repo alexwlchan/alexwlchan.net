@@ -19,7 +19,7 @@ post_list_date_format: month_year
   {% endfor %}
 </ul>
 
-<div class="post__separator" aria-hidden="true">&#9670;</div>
+{% text_separator "◆" %}
 
 {% for tag_entry in posts_by_tag %}
   <h3 id="{{ tag_entry[0] }}">{{ tag_entry[0] }}</h3>

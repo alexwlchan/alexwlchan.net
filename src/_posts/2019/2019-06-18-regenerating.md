@@ -55,7 +55,7 @@ Except… I'm not a spy.
 So why do I keep having lasers fired at me while I'm lying on a table?
 Why would I be in that scenario, if not captured by a supervillain?
 
-<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+{% text_separator "&#x2764;&#xFE0E;" %}
 
 If you've heard me discussing gender, you might wonder if I'm trans.
 You might notice that I often talk about gender and transition.
@@ -87,7 +87,7 @@ Transitioning is hard, but knowing you have supportive people around you makes a
 
 I knew that if I decided to transition, I'd never get a better opportunity -- so now was the time to ask myself those tough questions.
 
-<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+{% text_separator "&#x2764;&#xFE0E;" %}
 
 If you start wondering about your gender beyond *"the parts I was born with tell me what I am"*, you end up asking *"how do I know what I am?"*.
 One answer is as simple and common as it is unhelpful:
@@ -100,7 +100,7 @@ I thought that maybe my assigned-at-birth gender wasn't right for me, but I didn
 Since that's not helpful, I'm going to talk a bit about my gender identity, and how I've been thinking about it this year.
 Reading other people's experiences helped me explore my gender, and maybe my experience can help somebody else.
 
-<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+{% text_separator "&#x2764;&#xFE0E;" %}
 
 I was born a boy, and for twenty-odd years, I didn’t have any strong feelings about my gender.
 When I was a teenager, I had vague thoughts that it might be nice to be a girl instead, but I always kept them to myself.
@@ -222,7 +222,7 @@ I know this is a long post, but the context is important.
 It took a lot of experimenting, learning and listening to get to where I am.
 There's more to do, but I'm pleased with how far I've already come.
 
-<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+{% text_separator "&#x2764;&#xFE0E;" %}
 
 So why am I writing about this?
 I could retreat, be quiet about it, and keep these thoughts private.
@@ -269,7 +269,7 @@ If you're reading this and you're wondering if you're trans, here's some distill
     Whether that's online or in person, we can support you if you aren't getting it elsewhere.
     My emails and Twitter DMs are always open.
 
-<div class="post__separator" aria-hidden="true">&#x2764;&#xFE0E;</div>
+{% text_separator "&#x2764;&#xFE0E;" %}
 
 So hi, I'm Lexie, I'm trans, and I feel fabulous.
 Thanks for reading to the end!

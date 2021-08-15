@@ -17,24 +17,23 @@ a {
   }
 }
 
-h1 {
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+h1, h2 {
   color: $primary-color;
 }
 
 h2 {
   line-height: $line-height;
-  font-weight: normal;
   margin-top: 2em;
+  font-size: 1.6em;
+  margin-bottom: 0.5em;
 }
 
 h3 {
-  font-weight: normal;
   margin-top: 1.8em;
-}
-
-.separator + h2,
-.post__separator + h2 {
-  margin-top: 0em;
 }
 
 blockquote {
@@ -64,14 +63,6 @@ blockquote {
   @media screen and (max-width: $max-width + $default-padding * 3) {
     margin-left: 0px;
   }
-
-  p.cite {
-    text-align: right;
-
-    cite::before {
-      content: "— ";
-    }
-  }
 }
 
 // These rules help with the positioning of footnote markers, although
@@ -96,7 +87,6 @@ sup {
 
 .title {
   font-size: 1.9em;
-  font-weight: normal;
   line-height: 1.45em;
   a {
     text-decoration: none;
@@ -120,10 +110,6 @@ sup {
     color: $primary-color;
   }
   margin-bottom: -6px;
-}
-
-.content_warning {
-  font-style: italic;
 }
 
 h2, h3 {

@@ -18,7 +18,7 @@ You should read the theory, and make sure you understand it -- then try working 
 
 At the end of part 1, you should be able to store and retrieve individual files from Git.
 
-<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675; &#8592;&#9675;</div>
+{% text_separator "○ ←○ ←○" %}
 
 ## Initialising a new Git repo
 
@@ -144,7 +144,7 @@ An awesome aardvark admires the Alps
 
 [catfile]: https://git-scm.com/docs/git-cat-file
 
-<div class="post__separator" aria-hidden="true">&#9675;&#8594; &#9675;&#8594; &#9675;</div>
+{% text_separator "○ ←○ ←○" %}
 
 ## Exercises
 
@@ -243,7 +243,7 @@ Repeat exercises 3--5 a couple of times.
   </div>
 </div>
 
-<div class="post__separator" aria-hidden="true">&#9675; &#8592;&#9675;&#8594; &#9675;</div>
+{% text_separator "○ ←○ ←○" %}
 
 ## Notes
 
