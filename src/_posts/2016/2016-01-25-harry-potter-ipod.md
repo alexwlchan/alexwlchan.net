@@ -23,19 +23,11 @@ And I found three sets of photographs:
 
 *   A Polish website called "Museum iPod&oacute;w", in a post titled [The most mysterious iPod](http://www.ipod.info.pl/index.php/najbardziej-tajemniczy-ipod/). There's a pretty good photo of the crest engraving.
 
-    {%
-      image :filename => "hp-ipod-1.jpg",
-      :alt => "The silver back of an iPod, with a Hogwarts crest engraved near the top.",
-      :style => "max-width: 550px;"
-    %}
+    <img src="/images/2016/hp-ipod-1.jpg" alt="The silver back of an iPod, with a Hogwarts crest engraved near the top." style="max-width: 550px;">
 
 *   On "Say Hello to iPod", a post about [all the editions of the fourth generation iPod](http://ipod.se/2014/02/22/ipod-fourth-generation/), with another photo of a slightly beaten-up version.
 
-    {%
-      image :filename => "hp-ipod-2.jpg",
-      :alt => "The silver back of an iPod, with some scuffs and a Hogwarts crest engraved near the top.",
-      :style => "max-width: 380px;"
-    %}
+    <img src="/images/2016/hp-ipod-2.jpg" alt="The silver back of an iPod, with some scuffs and a Hogwarts crest engraved near the top." style="max-width: 380px;">
 
 *   A [YouTube video](https://www.youtube.com/watch?v=viMyicEoyOY) from user "Bart" showing off a version of the device. You can see the back of the iPod towards the end of the video, although the engraving is barely visible.
 
