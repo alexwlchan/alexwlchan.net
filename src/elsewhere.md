@@ -11,7 +11,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     margin-top: 0;
   }
 
-  h3, h2 {
+  h3 {
     margin-bottom: 0.5em;
   }
 
@@ -58,7 +58,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
   {% endfor %}
 </table>
 
-### The Wellcome Collection development blog
+### Stacks development blog for Wellcome Collection
 
 <table class="archive">
   {% for entry in writing_entries %}
