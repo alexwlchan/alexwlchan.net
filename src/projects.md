@@ -250,46 +250,181 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 ## Fun stuff
 
 <style>
+  #fun_stuff .fun_item:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  #fun_stuff {
+    padding-left: 0;
+  }
+
+  .fun_item {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-columns: auto auto;
+  }
+
+  /* Vertically centre the text that appears alongside the image */
+  .fun_item dl {
+    margin-top:    auto;
+    margin-bottom: auto;
+  }
+
+  .fun_item a:hover img {
+    opacity: 0.65;
+  }
+
   .grid_container {
     display: grid;
     grid-column-gap: 1em;
     grid-template-columns: auto auto;
   }
+
+  /*
+    On desktop browsers, the image appears off to the right.  We use
+    max-height instead of height so it maintains the correct aspect
+    ratio on small screens.
+
+    On mobile browsers, the image appears vertically inline with the text.
+  */
+  .fun_item a img {
+    max-height: 150px;
+  }
+
+  @media screen and (min-width: 500px) {
+    .fun_item {
+      height: 150px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .fun_item {
+      grid-template-columns: auto;
+    }
+
+    .fun_item .img_wrapper {
+      background-opacity: 0;
+    }
+
+    .fun_image {
+      margin-top: 1em;
+
+      /* This ensures that the background colour doesn't span the full width
+       * of the page on a small device.
+       */
+      margin-left:  auto;
+      margin-right: auto;
+    }
+  }
+
+  #howlongismydata:hover {
+    background: rgba(255, 71, 255, 0.2);
+  }
+
+  #howlongismydata img {
+    border: 0.5px solid #ff47ff;
+  }
+
+  #rainbowhearts:hover {
+    background: rgba(34, 34, 34, 0.3);
+  }
+
+  #rainbowhearts img {
+    border: 0.5px solid #222;
+  }
+
+  #booktracker:hover {
+    background: rgba(157.30927835051543,65.30927835051551,141.04123711340196, 0.3);
+  }
+
+  #booktracker img {
+    border: 0.5px solid rgb(157.30927835051543,65.30927835051551,141.04123711340196);
+  }
+
+  #kempisbot:hover {
+    background: rgba(85, 172, 238, 0.2);
+  }
+
+  #kempisbot img {
+    border: 0.5px solid rgba(85, 172, 238, 0.3);
+  }
 </style>
 
-<div style="height: 150px;" class="grid_container">
-  <dl class="grid-item" style="grid-column-start: 1; grid-column-end: 1; margin-top: auto; margin-bottom: auto;">
-    <dt><a href="https://howlongismydata.glitch.me">How long is my data?</a></dt>
-    <dd>Measure data in the shelving space you’d need if you wrote it to 3&frac12;&Prime; floppy disks.</dd>
-  </dl>
-  <img style="height: 150px; float: right; grid-column-start: 2; grid-column-end: 2; border: 1px solid red;" class="grid-item" src="/images/projects/howlongismydata.png" />
-</div>
+{% comment %}
+  All images should have the same ratio, so they look consistent.
 
-<div style="height: 150px;" class="grid_container">
-  <dl class="grid-item" style="grid-column-start: 1; grid-column-end: 1; margin-top: auto; margin-bottom: auto;">
-    <dt><a href="https://howlongismydata.glitch.me">How long is my data?</a></dt>
-    <dd>Measure data in the shelving space you’d need if you wrote it to 3&frac12;&Prime; floppy disks.</dd>
-  </dl>
-  <img style="height: 150px; float: right; grid-column-start: 2; grid-column-end: 2; border: 1px solid red;" class="grid-item" src="/images/projects/howlongismydata.png" />
-</div>
+  Currently 503x444, which is an admittedly arbitrary choice.
+{% endcomment %}
+
+<ul id="fun_stuff">
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://howlongismydata.glitch.me">How long is my data?</a>
+      </dt>
+      <dd>
+        Measure data in the shelving space you’d need if you stored it as a series of 3&frac12;&Prime; floppy disks.
+      </dd>
+    </dl>
+    <a href="https://howlongismydata.glitch.me" id="howlongismydata" class="fun_image">
+      <img src="/images/projects/howlongismydata.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="http://rainbow-hearts.glitch.me/">Rainbow hearts</a>
+      </dt>
+      <dd>
+        Create pairs of interlocking hearts in a variety of Pride flags.
+        They use some SVG masking techniques I wrote about <a href="/2021/03/inner-outer-strokes-svg/">in a blog post</a>.
+      </dd>
+    </dl>
+    <a href="http://rainbow-hearts.glitch.me/" id="rainbowhearts" class="fun_image">
+      <img src="/images/projects/rainbowhearts.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://books.alexwlchan.net/">lexie’s book tracker</a>
+      </dt>
+      <dd>
+        This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
+      </dd>
+    </dl>
+    <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
+      <img src="/images/projects/booktracker.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://twitter.com/KempisBot">KempisBot</a>
+      </dt>
+      <dd>
+        Turning the fifteenth-century book <em>The Imitation of Christ</em> into a Twitter thread.
+        This was Jay Hulme’s idea.
+        You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="/2021/01/kempisbot/">how we did it</a>.
+      </dd>
+    </dl>
+    <a href="https://twitter.com/KempisBot" id="kempisbot" class="fun_image">
+      <img src="/images/projects/kempisbot.png">
+    </a>
+  </li>
+</ul>
 
 <dl>
 
 
 
-  <dt><a href="http://rainbow-hearts.glitch.me/">Rainbow hearts</a></dt>
-  <dd>
-    Create pairs of interlocking hearts in a variety of Pride flags.
-  </dd>
 
   <dt><a href="https://rainbow-valknuts.glitch.me/">Rainbow valknuts</a></dt>
   <dd>
     Create sets of interlocking Valknuts in a variety of Pride flags.
-  </dd>
-
-  <dt><a href="https://books.alexwlchan.net/">lexie’s book tracker</a></dt>
-  <dd>
-    This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
   </dd>
 
   <dt><a href="https://twitter.com/KempisBot">KempisBot</a></dt>
