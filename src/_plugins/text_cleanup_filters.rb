@@ -14,6 +14,7 @@ module Jekyll
       text = text.gsub(/(\d+) (second|minute|hour)/, '\1&nbsp;\2')
 
       text = text.sub("iPhone X", "iPhone&nbsp;X")
+      text = text.sub("JPEG 2000", "JPEG&nbsp;2000")
 
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
