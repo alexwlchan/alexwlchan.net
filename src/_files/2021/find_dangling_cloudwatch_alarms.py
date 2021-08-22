@@ -30,13 +30,13 @@ def get_metric_alarm_descriptions(sess):
         yield from resp["MetricAlarms"]
 
 
-
 # Note: often you'll have more than one alarm that reads from
 # a given source (e.g. one alarm for table usage high and another
 # for table usage low).
 #
 # There's no point doing repeated, successive checks for the existence
 # of a table/queue/function/whatever, so cache the results here.
+
 
 @functools.cache
 def dynamodb_table_exists(sess, *, table_name):
@@ -89,32 +89,35 @@ def lambda_function_exists(sess, *, function_name):
             raise
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sess = boto3.Session()
 
     for alarm in get_metric_alarm_descriptions(sess):
-        dimensions = {
-            dim["Name"]: dim["Value"]
-            for dim in alarm["Dimensions"]
-        }
+        dimensions = {dim["Name"]: dim["Value"] for dim in alarm["Dimensions"]}
 
         # Is this alarm based on a non-existent table?
         if alarm.get("Namespace") == "AWS/DynamoDB":
             table_name = dimensions["TableName"]
             if not dynamodb_table_exists(sess, table_name=table_name):
-                print(f"!!! Alarm {alarm['AlarmArn']} is based on non-existent table {table_name}")
+                print(
+                    f"!!! Alarm {alarm['AlarmArn']} is based on non-existent table {table_name}"
+                )
             continue
 
         # Is this alarm based on a non-existent queue?
         if alarm.get("Namespace") == "AWS/SQS":
             queue_name = dimensions["QueueName"]
             if not sqs_queue_exists(sess, queue_name=queue_name):
-                print(f"!!! Alarm {alarm['AlarmArn']} is based on non-existent SQS queue {queue_name}")
+                print(
+                    f"!!! Alarm {alarm['AlarmArn']} is based on non-existent SQS queue {queue_name}"
+                )
             continue
 
         # Is this alarm based on a non-existent Lambda function?
         if alarm.get("Namespace") == "AWS/Lambda":
             function_name = dimensions["FunctionName"]
             if not lambda_function_exists(sess, function_name=function_name):
-                print(f"!!! Alarm {alarm['AlarmArn']} is based on non-existent Lambda function {function_name}")
+                print(
+                    f"!!! Alarm {alarm['AlarmArn']} is based on non-existent Lambda function {function_name}"
+                )
             continue
