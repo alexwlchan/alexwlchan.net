@@ -1,27 +1,24 @@
 ---
 layout: page
-title:
+title: Projects
 ---
 
-https://hypothesis.works/articles/continuous-releases/
+For my day job, I work as a software developer, but I'm fortunate enough to have enough free time to do plenty of other things on the side.
 
-I've been a professional software developer since 2014.
+Currently I help to build digital services at <a href="https://wellcomecollection.org/">Wellcome Collection</a>.
+My particular interest is digital preservation, and I enjoy the future-proofing that involves.
+Sometimes it's designing a storage repository that doesn't rely on a single software stack, sometimes it's writing code with enough comments to make sense to future developers.
 
-<img src="/images/profile2020.jpg" class="profile" alt="A picture of a person set against the sky.">
+Outside work, I try to do stuff that's fun, stuff that doesn't have any practical purpose.
+If it's colourful, pretty, or whimsical, I'm there.
+That could be [software](#fun-stuff), or [short stories](https://archiveofourown.org/users/alexwlchan/pseuds/alexwlchan), or [stitching](https://mobile.twitter.com/alexwlchan/status/1375920499717464071).
 
-## Hi, I'm Alex.
+I love sharing what I've learnt.
+I've had some great teaching, and my blog posts and conference talks are how I pay that favour forward.
+There's only so much I can do in 24 hours, but if I can teach other people?
+My potential influence is *limitless*.
 
-I'm a software developer since 2014
-
-metaswitch -- bgp, project calico, perimeta
-
-
----
-
-
----
-
-**Interested in anything on this page? Want to know more? [Get in touch](/#contact)!**
+This page lists some of my projects, so you can get an idea of what I enjoy:
 
 - [Wellcome Collection](#wellcome-collection)
 - [Writing](#writing)
@@ -31,18 +28,11 @@ metaswitch -- bgp, project calico, perimeta
 - [Open-source software](#open-source-software)
 - [Fun stuff](#fun-stuff)
 
+**Interested in anything on this page? Want to know more? [Get in touch](/#contact)!**
+
 
 
 <style>
-  img.profile {
-    float: right;
-    width: 250px;
-    max-width: 50%;
-    margin-top: -1.4em;
-    margin-left: 1em;
-    margin-bottom: 1em;
-  }
-
   dt:not(:first-child) {
     margin-top: 20px;
   }
@@ -66,6 +56,7 @@ The projects I've worked on include:
     The storage service is the preservation repository for Wellcome’s digital collections.
     It uploads files to cloud storage providers like Amazon S3 and Azure Blob, and ensures the integrity and correctness of the files.
     I was part of the team that built the original storage service, and I handle ongoing maintenance and debugging.
+    Recently I’ve been working on documentation and a demo, so that other institutions can try running the storage service.
   </dd>
 
   <dt><a href="https://developers.wellcomecollection.org/catalogue">Catalogue API</a></dt>
@@ -193,7 +184,7 @@ Usually they solve a very specific problem and I don’t expect anybody else to 
   <dt><a href="https://github.com/alexwlchan/safari.rs">safari.rs</a></dt>
   <dd>
     A command-line tool for getting data from Safari, like the URL of the frontmost window or the number of open tabs.
-    I also use it for a text expansion macro: I can type <code>;furl</code> in any application, and it gets replaced by the frontmost URL.
+    I also use it for a text expansion macro: I can type <code>;furl</code> in any app, and it gets replaced by the frontmost URL (with tracking parameters automatically removed).
   </dd>
 
   <dt><a href="https://github.com/alexwlchan/highlight-twitter-alt-text">highlight-twitter-alt-text</a></dt>
@@ -242,6 +233,12 @@ I'm not currently taking an active maintainer role in anything, but these are a 
   <dd>
     Hypothesis is a property-based testing library in Python, written by David MacIver.
     I was the second maintainer on the project, mostly working on the CI and build system.
+  </dd>
+
+  <dt><a href="https://nrich.maths.org/mathmoApp/#/mathmo">Mathmo</a></dt>
+  <dd>
+    Mathmo is a tool that generates maths exercises for A-level students, developed as part of the <a href="https://nrich.maths.org">NRICH Project</a>.
+    As part of a summer job, I did some work to refactor the codebase and add several new types of question.
   </dd>
 </dl>
 
@@ -325,11 +322,11 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     border: 0.5px solid #ff47ff;
   }
 
-  #rainbowhearts:hover {
+  #rainbowhearts:hover, #rainbowvalknuts:hover {
     background: rgba(34, 34, 34, 0.3);
   }
 
-  #rainbowhearts img {
+  #rainbowhearts img, #rainbowvalknuts img {
     border: 0.5px solid #222;
   }
 
@@ -342,11 +339,35 @@ I'm not currently taking an active maintainer role in anything, but these are a 
   }
 
   #kempisbot:hover {
-    background: rgba(85, 172, 238, 0.2);
+    background: rgba(85, 172, 238, 0.3);
   }
 
   #kempisbot img {
-    border: 0.5px solid rgba(85, 172, 238, 0.3);
+    border: 0.5px solid rgba(85, 172, 238, 0.7);
+  }
+
+  #finduntaggedtumblrposts:hover {
+    background: rgba(43, 99, 151, 0.3);
+  }
+
+  #finduntaggedtumblrposts img {
+    border: 0.5px solid rgba(43, 99, 151, 0.5);
+  }
+
+  #ukstationsmap:hover {
+    background: rgba(0, 194, 52, 0.4);
+  }
+
+  #ukstationsmap img {
+    border: 0.5px solid #333;
+  }
+
+  #specktre:hover, #happybackgrounds:hover {
+    background: none;
+  }
+
+  #happybackgrounds img {
+    border: 0.5px solid #c24401;
   }
 </style>
 
@@ -407,7 +428,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dt>
       <dd>
         Turning the fifteenth-century book <em>The Imitation of Christ</em> into a Twitter thread.
-        This was Jay Hulme’s idea.
+        This was my friend Jay’s idea.
         You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="/2021/01/kempisbot/">how we did it</a>.
       </dd>
     </dl>
@@ -415,42 +436,76 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       <img src="/images/projects/kempisbot.png">
     </a>
   </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://rainbow-valknuts.glitch.me/">Rainbow valknuts</a>
+      </dt>
+      <dd>
+        Create sets of interlocking Valknuts in a variety of Pride flags.
+        This is based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>, and it uses some code I wrote for <a href="/2019/09/triangular-coordinates-in-svg/">drawing in triangular coordinates</a>.
+      </dd>
+    </dl>
+    <a href="https://rainbow-valknuts.glitch.me/" id="rainbowvalknuts" class="fun_image">
+      <img src="/images/projects/rainbowvalknuts.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://finduntaggedtumblrposts.com/">Find Untagged Tumblr Posts</a>
+      </dt>
+      <dd>
+        I made this for a friend who was trying to be more consistent about tagging posts on her Tumblr, and was struggling to find posts she’d never tagged.
+      </dd>
+    </dl>
+    <a href="https://finduntaggedtumblrposts.com/" id="finduntaggedtumblrposts" class="fun_image">
+      <img src="/images/projects/finduntaggedtumblrposts.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="http://uk-stations-map.glitch.me">UK stations map</a>
+      </dt>
+      <dd>
+        An interactive map that lets you plot the railway stations you’ve visited in the UK and Ireland.
+      </dd>
+    </dl>
+    <a href="http://uk-stations-map.glitch.me" id="ukstationsmap" class="fun_image">
+      <img src="/images/projects/ukstationsmap.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://github.com/alexwlchan/specktre">specktre</a>
+      </dt>
+      <dd>
+        Create simple geometric wallpapers from regular tilings of the plane.
+        I’ve written <a href="/2016/10/tiling-the-plane-with-pillow/">blog</a> <a href="/2016/10/wallpapers-with-pillow/">posts</a> about how this works.
+      </dd>
+    </dl>
+    <a href="https://github.com/alexwlchan/specktre" id="specktre" class="fun_image">
+      <img src="/images/projects/specktre.png">
+    </a>
+  </li>
+
+  <li class="fun_item">
+    <dl>
+      <dt>
+        <a href="https://github.com/alexwlchan/happybackgrounds">happybackgrounds</a>
+      </dt>
+      <dd>
+        Create simple wallpapers and background images using Font Awesome icons on solid colour background.
+      </dd>
+    </dl>
+    <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
+      <img src="/images/projects/happybackgrounds.png">
+    </a>
+  </li>
 </ul>
-
-<dl>
-
-
-
-
-  <dt><a href="https://rainbow-valknuts.glitch.me/">Rainbow valknuts</a></dt>
-  <dd>
-    Create sets of interlocking Valknuts in a variety of Pride flags.
-  </dd>
-
-  <dt><a href="https://twitter.com/KempisBot">KempisBot</a></dt>
-  <dd>
-    Turning the fifteenth-century book <em>The Imitation of Christ</em> into a Twitter thread.
-    This was Jay Hulme’s idea.
-    You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="/2021/01/kempisbot/">how we did it</a>.
-  </dd>
-
-  <dt><a href="https://finduntaggedtumblrposts.com/">Find Untagged Tumblr Posts</a></dt>
-  <dd>
-    I made this for a friend who was trying to be more consistent about tagging posts on her Tumblr, and wanted to find posts she hadn’t tagged before.
-  </dd>
-
-  <dt><a href="http://uk-stations-map.glitch.me">UK stations map</a></dt>
-  <dd>
-    An interactive map that lets you plot the railway stations you’ve visited in the UK and Ireland.
-  </dd>
-
-  <dt><a href="https://github.com/alexwlchan/specktre">specktre</a></dt>
-  <dd>
-    Create simple geometric wallpapers from regular tilings of the plane.
-  </dd>
-
-  <dt><a href="https://github.com/alexwlchan/happybackgrounds">happybackgrounds</a></dt>
-  <dd>
-    Create simple wallpapers and backgrounds based on Font Awesome icons.
-  </dd>
-</dl>
