@@ -79,6 +79,11 @@ writing:
     url: "https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01"
     publication: "Wellcome Collection development blog"
 
+  - date: 2018-02-27
+    title: "The Hypothesis continuous release process"
+    url: "https://hypothesis.works/articles/continuous-releases/"
+    publication: "The Hypothesis blog"
+
 podcasts:
   - date: 2020-10-20
     title: "Using the Cloud to Preserve the Future"
