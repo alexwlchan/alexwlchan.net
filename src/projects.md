@@ -15,8 +15,7 @@ That could be [software](#fun-stuff), or [short stories](https://archiveofourown
 
 I love sharing what I've learnt.
 I've had some great teaching, and my blog posts and conference talks are how I pay that favour forward.
-There's only so much I can do in 24 hours, but if I can teach other people?
-My potential influence is *limitless*.
+There are hundreds of posts on this site,
 
 This page lists some of my projects, so you can get an idea of what I enjoy:
 
