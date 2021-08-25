@@ -13,13 +13,13 @@ This is how you define an image in Markdown:
 ```
 
 You start with an exclamation mark `!`, then the [alt text description][alt_attribute] in square brackets, then the URL or path to the image in parentheses.
-It's meant to mirror the Markdown [syntax for links][link_syntax], which looks very similar.
+It's designed to match the Markdown [syntax for links][link_syntax].
 
 The alt text (short for alternative text) is a description which explains the meaning and context of an image.
 It's useful for several reasons, and the most well-known reason is probably accessibility.
 
 Imagine a visually impaired user who's using a screen reader – the screen reader can read any text on a page aloud, but what does it read aloud for an image?
-If the image includes alt text, it can use that, so the user doesn't miss out on that content.
+If the image includes alt text, that's what the screen reader can use, so the user doesn't miss out on that content.
 Writing alt text makes your images more accessible, and it's an excellent habit to get into.
 
 What I like about Markdown's image syntax is that it makes the alt text prominent, and looks wrong when you don't include it:
@@ -31,7 +31,8 @@ What I like about Markdown's image syntax is that it makes the alt text prominen
 Those empty square brackets are a visual clue that something is missing.
 Even if you don't know what alt text is, you might wonder what's meant to go there.
 
-And if you do know what alt text is and what this syntax means, you know you're choosing not to write it -- choosing to exclude visually impaired users -- and if that choice is made explicit, maybe you'll go back and fill it in.
+And if you do know what alt text is, this syntax makes it an explicit choice not to use it.
+You know you're choosing not to write alt text -- choosing to exclude visually impaired readers -- and that subtle reminder means you're more likely to go back and add it.
 
 Compare to the equivalent HTML:
 
@@ -49,15 +50,15 @@ Compare also to Markdown's syntax for [the `title` attribute][title_attribute]:
 ```
 
 The title is usually shown as a tooltip, when somebody hovers their cursor over an image.
-It's not a substitute for alt text, and it's nowhere near as important – and that's reflected in the Markdown syntax.
+It's not a substitute for alt text, and it's not as important – so it's de-emphasised in Markdown's syntax.
 An image without a title looks complete, not as if anything's missing.
 (In fact, its absence is so unobtrusive that I didn't even realise Markdown had this syntax until I started writing this post!)
 
 Markdown could have hidden the alt text away in a similarly obscure location, where nobody would realise it was missing – but instead, alt text is a prominent part of the syntax.
 
 Markdown's design doesn't force you to use alt text, but it provides gentle encouragement.
-The more I think about it, the more I like it.
-I wonder how many people have made an image more accessible because they saw an empty pair of square brackets – I know I'm one of them.
+It reminds you that images should have alt text, and gives you an easy place to put it.
+Just like me when I was writing my README, I wonder how many people have made an image more accessible because they saw an empty pair of square brackets.
 
 [img_syntax]: https://daringfireball.net/projects/markdown/syntax#img
 [alt_attribute]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-alt
