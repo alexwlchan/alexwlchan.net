@@ -60,7 +60,7 @@ Markdown's design doesn't force you to use alt text, but it provides gentle enco
 It reminds you that images should have alt text, and gives you an easy place to put it.
 It's a subtle choice, and one I really like.
 
-When I was writing my README, it was late and I was tired, and I almost skipping writing the alt text for my images – but Markdown reminded me that I should.
+When I was writing my README, it was late and I was tired, and I almost skipped writing the alt text for my images – but Markdown reminded me that I should.
 I wonder how many other people have made an image more accessible because they saw an empty pair of square brackets.
 
 [img_syntax]: https://daringfireball.net/projects/markdown/syntax#img
