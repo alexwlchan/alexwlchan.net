@@ -17,6 +17,10 @@ aside {
 
     a, a:visited {
       @include link_styles(white, 0.5);
+
+      @media print {
+        color: $primary-color;
+      }
     }
 
     #brand {
