@@ -5,7 +5,7 @@
 
     /* At least on my printer, $accent-grey is too light to be readable */
     @media print {
-      color: black;
+      color: $body-color;
     }
   }
 
