@@ -21,14 +21,14 @@ On the Mac, file search is powered by [Spotlight][spotlight].
 You can either search in Spotlight directly, or other apps can use the Spotlight search index.
 (That's what you see in the screenshot -- I'm using an app called Alfred rather than Spotlight, but Alfred is [using the Spotlight index][index] to get a list of files.)
 
-I can [exclude a file or folder from Spotlight][exclude] by adding it to a list in System Preferences, but it's a manual process that needs me to click around.
+I can exclude a file or folder from Spotlight by [adding it to a list in System Preferences][exclude], but it's a manual process that needs me to click around.
 I have dozens of `node_modules` folders I want to ignore -- is there a faster way to get them out of search results?
 
-(The projects use a microservices pattern: they're collections of small apps that work together.
-Each app has its own `node_modules` folder I want to ignore.)
+(Each project is really a collection of small apps that work together, and each app has its own `node_modules` folder.
+Finding every such folder gets tedious fast.)
 
 I found a blog post that explains how to [programmatically add Spotlight exclusions][programmatically].
-The Spotlight configuration is kept in a [plist file][plist], and the post explains several shell commands using [`plutil`][plutil] which add the config to exclude a folder.
+The Spotlight configuration is kept in a [plist file][plist], and the post has several shell commands using [`plutil`][plutil] which add the config to exclude a folder.
 
 I've wrapped these commands in a Python script that looks for every folder called `node_modules`, and excludes it from Spotlight.
 It also looks for folders called `target`, which is the output folder used by the Rust and Scala compilers.
