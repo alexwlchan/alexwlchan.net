@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programatically ignoring lots of folders in Spotlight
+title: How to ignore lots of folders in Spotlight
 summary: A script that allows me to ignore folders like "target" and "node_modules", so they don't appear in search results.
 tags: macos python
 ---
