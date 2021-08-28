@@ -1,14 +1,3 @@
-# This plugin allows me to inline a file as highlighted code.
-#
-# It means I can have a file that can be downloaded, and include the complete
-# code in the body of the post, and the two will stay in sync.
-# (For example, a Python script.)
-#
-# Takes two parameters: the language code, and the path to the file.
-#
-# e.g. {% inline_code python _files/2020/redrive_sqs_queue.py %}
-#
-
 module Jekyll
   class DownloadLinkTag < Liquid::Tag
     def initialize(_tag_name, text, _tokens)
