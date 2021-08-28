@@ -5,16 +5,16 @@ summary: A script that allows me to ignore folders like "target" and "node_modul
 tags: macos python
 ---
 
-Earlier in the week, I searched my Mac, and my results were cluttered with files from various `node_modules` folders:
+I searched my Mac recently, and my results were cluttered with files from `node_modules` folders:
 
 <img src="/images/2021/cluttered_search_results_2x.png" srcset="/images/2021/cluttered_search_results_2x.png 2x, /images/2021/cluttered_search_results_2x.png 1x" style="width: 714px;" alt="Screenshot of a search tool for the word 'inspect'. It shows a list of nine results, each with a path under it that goes to a subpath of a node_modules folder.">
 
-I can see why this happened -- I've been working on several Node projects recently, and the `node_modules` folder is a cache of external dependencies downloaded from npm.
+I can see why this happened -- I've been working on several Node projects, and the `node_modules` folder is a cache of external Node dependencies.
 It contains all the third-party code used in those projects, and that's a lot of files.
 It's unsurprising that some of them would look like the files I'm actually looking for.
 
 It's also very annoying.
-I'm usually looking for the code that I've written, whereas the first two pages of results were all third-party code I just happen to be using.
+I'm usually looking for the code that I've written, whereas the first two pages of search results were all third-party code I just happen to be using.
 I pretty much never want to see these files in a global file search.
 
 I wanted to find a way to ignore these files in search.
@@ -35,7 +35,7 @@ The Spotlight configuration is kept in a [plist file][plist], and the post has s
 I've wrapped these commands in a Python script that looks for every folder called `node_modules`, and excludes it from Spotlight.
 It also looks for folders called `target`, which is the output folder used by the Rust and Scala compilers, but you could modify it to look for any folder name.
 
-How it works:
+Here's how it works:
 
 -   Make a backup of the Spotlight config file
 -   Walk a directory tree, looking for folders named `node_modules` or `target`
@@ -44,7 +44,7 @@ How it works:
 
 You need to run as the root user or using `sudo`, because regular users aren't allowed to modify the Spotlight configuration file.
 
-If you'd find this useful, you can download the script:
+If you'd find this useful, you can download and use my script:
 
 {% download /files/2021/ignore_folders_in_spotlight.py %}
 
