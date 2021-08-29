@@ -1,8 +1,11 @@
 ---
-layout: archive_base
+layout: page
 ---
 
-<p>You can also see <a href="/{{ page.year }}/">all the posts from {{ page.year }}</a>.</p>
+<p>
+  This is a list of everything I posted in {{ page.display_month }}.
+  You can also see <a href="/{{ page.year }}/">all the posts from {{ page.year }}</a>.
+</p>
 
 {% assign posts = page.posts %}
 {% include archive_list.html %}
