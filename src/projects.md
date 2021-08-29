@@ -5,11 +5,12 @@ title: Projects
 
 For my day job, I help to build digital services at <a href="https://wellcomecollection.org/">Wellcome Collection</a>, to help people discover and use the collections.
 My particular interest is in digital preservation, and I enjoy the future-proofing that involves.
-Sometimes it's designing a storage repository that doesn't rely on a single software stack, sometimes it's writing code with enough comments to make sense to future developers.
+Sometimes it's designing a storage repository that doesn't rely on the continued existence of a given software stack, sometimes it's writing code with enough comments to make sense to future developers.
 
 Outside work, I try to do stuff that's fun, stuff that doesn't have any practical purpose.
 If it's colourful, pretty, or whimsical, I'm there.
-That could be [software](#fun-stuff), or [short stories](https://archiveofourown.org/users/alexwlchan/pseuds/alexwlchan), or [stitching](https://mobile.twitter.com/alexwlchan/status/1375920499717464071).
+That could be [software](#fun-stuff), or [short stories](https://archiveofourown.org/users/alexwlchan/pseuds/alexwlchan), or [stitching](https://twitter.com/alexwlchan/status/1375920499717464071).
+I used to contribute to open-source Python projects, but I've mostly stopped – these days, I try to minimise the free time I spend coding.
 
 I love sharing what I've learnt.
 I've had some great teaching, and my blog posts and conference talks are how I pay that favour forward.
@@ -46,7 +47,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
     margin-bottom: 1em;
   }
 
-  #fun_stuff {
+  .illustrated_list {
     padding-left: 0;
   }
 
@@ -381,7 +382,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://howlongismydata.glitch.me" id="howlongismydata" class="fun_image">
-      <img src="/images/projects/howlongismydata.png">
+      <img src="/images/projects/howlongismydata.png" alt="A white page with two rows of pink floppy disks and a title 'How long is my data?'">
     </a>
   </li>
 
@@ -396,7 +397,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="http://rainbow-hearts.glitch.me/" id="rainbowhearts" class="fun_image">
-      <img src="/images/projects/rainbowhearts.png">
+      <img src="/images/projects/rainbowhearts.png" alt="A grey web page with white and green text, with a large illustration of two interlocking hearts in rainbow and purple/black/grey/white colours. These are the colours of the rainbow pride flag and the asexual pride flag.">
     </a>
   </li>
 
@@ -410,7 +411,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
-      <img src="/images/projects/booktracker.png">
+      <img src="/images/projects/booktracker.png" src="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'.">
     </a>
   </li>
 
@@ -426,7 +427,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://twitter.com/KempisBot" id="kempisbot" class="fun_image">
-      <img src="/images/projects/kempisbot.png">
+      <img src="/images/projects/kempisbot.png" alt="The Twitter page for KempisBot, with a header image showing an old manuscript with handwritten pages and the profile image an illustration of Thomas Kempis.">
     </a>
   </li>
 
@@ -441,7 +442,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://rainbow-valknuts.glitch.me/" id="rainbowvalknuts" class="fun_image">
-      <img src="/images/projects/rainbowvalknuts.png">
+      <img src="/images/projects/rainbowvalknuts.png" alt="A dark-background web page with three interlocking triangles (a Valknut) in various stripes for different pride flags, and the caption 'Your cowardly bigotry is an affront to the Allfather'.">
     </a>
   </li>
 
@@ -455,7 +456,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://finduntaggedtumblrposts.com/" id="finduntaggedtumblrposts" class="fun_image">
-      <img src="/images/projects/finduntaggedtumblrposts.png">
+      <img src="/images/projects/finduntaggedtumblrposts.png" alt="A web page with a blue header titled 'Find Untagged Tumblr Posts', a large text box for somebody to put in a URL, and a large blue button labelled 'Get my untagged posts!'.">
     </a>
   </li>
 
@@ -469,7 +470,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="http://uk-stations-map.glitch.me" id="ukstationsmap" class="fun_image">
-      <img src="/images/projects/ukstationsmap.png">
+      <img src="/images/projects/ukstationsmap.png" alt="A greyscale map of the UK and Ireland with green dots overlaid at various points, representing the position of railway stations.">
     </a>
   </li>
 
@@ -484,7 +485,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://github.com/alexwlchan/specktre" id="specktre" class="fun_image">
-      <img src="/images/projects/specktre.png">
+      <img src="/images/projects/specktre.png" alt="Three wallpapers. From left-to-right: blue hexagons, red squares, yellow triangles. Each wallpaper has tiling shapes in slightly different shades of the main colour.">
     </a>
   </li>
 
@@ -498,7 +499,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
-      <img src="/images/projects/happybackgrounds.png">
+      <img src="/images/projects/happybackgrounds.png" alt="An orange background with small rockets overlaid at various points at angles, meant to invoke imagery of Mars.">
     </a>
   </li>
 </ul>
