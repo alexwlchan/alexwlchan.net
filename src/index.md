@@ -31,9 +31,10 @@ You can read my posts on the web, or subscribe to them [as an RSS feed](/atom.xm
 I write about anything I find interesting or fun -- there's plenty of programming, but a lot of other stuff as well.
 Past topics include [accessibility](/2019/01/monki-gras-the-curb-cut-effect/), [braille](/2019/07/ten-braille-facts/), [Chinese dictionaries](/2019/06/reading-a-chinese-dictionary/), and [Welsh waterfalls](/2018/11/aberdulais-waterfall/).
 
-Sometimes I give talks at meetups or conferences, and I have a list of slides/videos from [my past talks](/talks/).
-
+Sometimes I give talks at meetups or conferences, and I have a list of slides/videos from [my past talks](/elsewhere/#talks-and-workshops).
 I've also written about my [ideas for running inclusive and accessible events](https://alexwlchan.net/ideas-for-inclusive-events/).
+
+If you'd like to see everything I've been up to, my [projects page](/projects/) is a good starting point.
 
 I'm trans, genderfluid, and my pronouns vary.
 If you're not sure, "they/them" is a safe default.
