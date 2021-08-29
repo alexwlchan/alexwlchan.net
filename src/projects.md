@@ -3,10 +3,8 @@ layout: page
 title: Projects
 ---
 
-For my day job, I work as a software developer, but I'm fortunate enough to have enough free time to do plenty of other things on the side.
-
-Currently I help to build digital services at <a href="https://wellcomecollection.org/">Wellcome Collection</a>.
-My particular interest is digital preservation, and I enjoy the future-proofing that involves.
+For my day job, I help to build digital services at <a href="https://wellcomecollection.org/">Wellcome Collection</a>, to help people discover and use the collections.
+My particular interest is in digital preservation, and I enjoy the future-proofing that involves.
 Sometimes it's designing a storage repository that doesn't rely on a single software stack, sometimes it's writing code with enough comments to make sense to future developers.
 
 Outside work, I try to do stuff that's fun, stuff that doesn't have any practical purpose.
@@ -15,9 +13,9 @@ That could be [software](#fun-stuff), or [short stories](https://archiveofourown
 
 I love sharing what I've learnt.
 I've had some great teaching, and my blog posts and conference talks are how I pay that favour forward.
-There are hundreds of posts on this site,
+There are hundreds of posts on this site, quite a few others elsewhere, and you may have seen me speaking at events like [PyCon UK](https://2019.pyconuk.org) and [Monki Gras](https://monkigras.com).
 
-This page lists some of my projects, so you can get an idea of what I enjoy:
+This page lists some of my projects, so you can get an idea of what I've been up to:
 
 - [Wellcome Collection](#wellcome-collection)
 - [Writing](#writing)
@@ -38,6 +36,127 @@ This page lists some of my projects, so you can get an idea of what I enjoy:
 
   dd {
     margin-left: 20px;
+  }
+
+  /* Styles for lists that have an image hovering out to the right.
+   * When the screen is narrow, the image moves to be inline with the text.
+   */
+
+  .illustrated_list .illustrated_item:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  #fun_stuff {
+    padding-left: 0;
+  }
+
+  .illustrated_item {
+    display: grid;
+    grid-column-gap: 1em;
+    grid-template-columns: auto auto;
+  }
+
+  /* Vertically centre the text that appears alongside the image */
+  .illustrated_item dl {
+    margin-top:    auto;
+    margin-bottom: auto;
+  }
+
+  .illustrated_item a:hover img {
+    opacity: 0.65;
+  }
+
+  /*
+    On desktop browsers, the image appears off to the right.  We use
+    max-height instead of height so it maintains the correct aspect
+    ratio on small screens.
+
+    On mobile browsers, the image appears vertically inline with the text.
+  */
+  .illustrated_item a img {
+    max-height: 150px;
+  }
+
+  @media screen and (min-width: 500px) {
+    .illustrated_item {
+      height: 150px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .illustrated_item {
+      grid-template-columns: auto;
+    }
+
+    .illustrated_item .img_wrapper {
+      background-opacity: 0;
+    }
+
+    .fun_image {
+      margin-top: 1em;
+
+      /* This ensures that the background colour doesn't span the full width
+       * of the page on a small device.
+       */
+      margin-left:  auto;
+      margin-right: auto;
+    }
+  }
+
+  #howlongismydata:hover {
+    background: rgba(255, 71, 255, 0.2);
+  }
+
+  #howlongismydata img {
+    border: 0.5px solid #ff47ff;
+  }
+
+  #rainbowhearts:hover, #rainbowvalknuts:hover {
+    background: rgba(34, 34, 34, 0.3);
+  }
+
+  #rainbowhearts img, #rainbowvalknuts img {
+    border: 0.5px solid #222;
+  }
+
+  #booktracker:hover {
+    background: rgba(157.30927835051543,65.30927835051551,141.04123711340196, 0.3);
+  }
+
+  #booktracker img {
+    border: 0.5px solid rgb(157.30927835051543,65.30927835051551,141.04123711340196);
+  }
+
+  #kempisbot:hover {
+    background: rgba(85, 172, 238, 0.3);
+  }
+
+  #kempisbot img {
+    border: 0.5px solid rgba(85, 172, 238, 0.7);
+  }
+
+  #finduntaggedtumblrposts:hover {
+    background: rgba(43, 99, 151, 0.3);
+  }
+
+  #finduntaggedtumblrposts img {
+    border: 0.5px solid rgba(43, 99, 151, 0.5);
+  }
+
+  #ukstationsmap:hover {
+    background: rgba(0, 194, 52, 0.4);
+  }
+
+  #ukstationsmap img {
+    border: 0.5px solid #333;
+  }
+
+  #specktre:hover, #happybackgrounds:hover {
+    background: none;
+  }
+
+  #happybackgrounds img {
+    border: 0.5px solid #c24401;
   }
 </style>
 
@@ -120,7 +239,7 @@ These are a few of my favourites:
     A collection of stories about the “curb cut effect”: the idea that making something better for disabled people can make it better for everyone.
   </dd>
 
-  <dt><a href="/a-plumbers-guide-to-git/">A Plumber’s Guide to git</a></dt>
+  <dt><a href="/a-plumbers-guide-to-git/">A Plumber’s Guide to Git</a></dt>
   <dd>
     This is a two-hour workshop about the inner workings of Git (the “plumbing” commands).
     The goal is to give participants a better understanding of Git’s internal data structures, so they can be more confident and capable Git users.
@@ -245,139 +364,14 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 
 ## Fun stuff
 
-<style>
-  #fun_stuff .fun_item:not(:last-child) {
-    margin-bottom: 1em;
-  }
-
-  #fun_stuff {
-    padding-left: 0;
-  }
-
-  .fun_item {
-    display: grid;
-    grid-column-gap: 1em;
-    grid-template-columns: auto auto;
-  }
-
-  /* Vertically centre the text that appears alongside the image */
-  .fun_item dl {
-    margin-top:    auto;
-    margin-bottom: auto;
-  }
-
-  .fun_item a:hover img {
-    opacity: 0.65;
-  }
-
-  .grid_container {
-    display: grid;
-    grid-column-gap: 1em;
-    grid-template-columns: auto auto;
-  }
-
-  /*
-    On desktop browsers, the image appears off to the right.  We use
-    max-height instead of height so it maintains the correct aspect
-    ratio on small screens.
-
-    On mobile browsers, the image appears vertically inline with the text.
-  */
-  .fun_item a img {
-    max-height: 150px;
-  }
-
-  @media screen and (min-width: 500px) {
-    .fun_item {
-      height: 150px;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .fun_item {
-      grid-template-columns: auto;
-    }
-
-    .fun_item .img_wrapper {
-      background-opacity: 0;
-    }
-
-    .fun_image {
-      margin-top: 1em;
-
-      /* This ensures that the background colour doesn't span the full width
-       * of the page on a small device.
-       */
-      margin-left:  auto;
-      margin-right: auto;
-    }
-  }
-
-  #howlongismydata:hover {
-    background: rgba(255, 71, 255, 0.2);
-  }
-
-  #howlongismydata img {
-    border: 0.5px solid #ff47ff;
-  }
-
-  #rainbowhearts:hover, #rainbowvalknuts:hover {
-    background: rgba(34, 34, 34, 0.3);
-  }
-
-  #rainbowhearts img, #rainbowvalknuts img {
-    border: 0.5px solid #222;
-  }
-
-  #booktracker:hover {
-    background: rgba(157.30927835051543,65.30927835051551,141.04123711340196, 0.3);
-  }
-
-  #booktracker img {
-    border: 0.5px solid rgb(157.30927835051543,65.30927835051551,141.04123711340196);
-  }
-
-  #kempisbot:hover {
-    background: rgba(85, 172, 238, 0.3);
-  }
-
-  #kempisbot img {
-    border: 0.5px solid rgba(85, 172, 238, 0.7);
-  }
-
-  #finduntaggedtumblrposts:hover {
-    background: rgba(43, 99, 151, 0.3);
-  }
-
-  #finduntaggedtumblrposts img {
-    border: 0.5px solid rgba(43, 99, 151, 0.5);
-  }
-
-  #ukstationsmap:hover {
-    background: rgba(0, 194, 52, 0.4);
-  }
-
-  #ukstationsmap img {
-    border: 0.5px solid #333;
-  }
-
-  #specktre:hover, #happybackgrounds:hover {
-    background: none;
-  }
-
-  #happybackgrounds img {
-    border: 0.5px solid #c24401;
-  }
-</style>
-
 {% comment %}
   All images should have the same ratio, so they look consistent.
 
   Currently 503x444, which is an admittedly arbitrary choice.
 {% endcomment %}
 
-<ul id="fun_stuff">
-  <li class="fun_item">
+<ul class="illustrated_list">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://howlongismydata.glitch.me">How long is my data?</a>
@@ -391,7 +385,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="http://rainbow-hearts.glitch.me/">Rainbow hearts</a>
@@ -406,7 +400,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://books.alexwlchan.net/">lexie’s book tracker</a>
@@ -420,7 +414,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://twitter.com/KempisBot">KempisBot</a>
@@ -436,7 +430,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://rainbow-valknuts.glitch.me/">Rainbow valknuts</a>
@@ -451,7 +445,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://finduntaggedtumblrposts.com/">Find Untagged Tumblr Posts</a>
@@ -465,7 +459,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="http://uk-stations-map.glitch.me">UK stations map</a>
@@ -479,7 +473,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://github.com/alexwlchan/specktre">specktre</a>
@@ -494,7 +488,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     </a>
   </li>
 
-  <li class="fun_item">
+  <li class="illustrated_item">
     <dl>
       <dt>
         <a href="https://github.com/alexwlchan/happybackgrounds">happybackgrounds</a>
