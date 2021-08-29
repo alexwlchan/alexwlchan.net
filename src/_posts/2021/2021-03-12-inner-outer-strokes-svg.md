@@ -13,16 +13,6 @@ Simple diagrams work well as vector images, I can store them as text alongside s
 I write most of my SVGs by hand, rather than using an app like Illustrator or Inkscape.
 Although it's more effort, I can write much simpler images by hand than with an app, and it forces me to really understand how SVG works.
 
-<style>
-  .separator {
-    margin-top: 2.5em;
-  }
-
-  h2 {
-    margin-top: 1.5em;
-  }
-</style>
-
 <figure style="width: 200px; float: right; display: inline-block; margin-top: 0; margin-bottom: 0;">
 {% inline_svg "_images/2021/hearts_rainbow_trans.svg" %}
 </figure>

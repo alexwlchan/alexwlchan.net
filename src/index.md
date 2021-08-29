@@ -22,26 +22,27 @@ post_list_date_format: day_month
 
 ## Hi, I'm Alex.
 
-I'm a software developer at [the Wellcome Trust][wellcome].
-I'm helping to build a platform for searching and storing our digital collections.
-It's taking Wellcome's assets -- books, archives, images, and more -- and presenting them through consistent, well-designed APIs.
+I'm a software developer at [Wellcome Collection][wellcome], a museum and library exploring health and human experience.
+I'm helping to build a platform for searching and storing [the collections][collections], with a particular interest in digital preservation.
 
-I have a fairly active online presence -- I [tweet a lot](https://twitter.com/alexwlchan), and [my blog](/all-posts/) is a place where I share longer ideas that don't fit into a tweet.
+I have a fairly active online presence -- I [tweet a lot](https://twitter.com/alexwlchan), and [my blog](/all-posts/) is where I share ideas that don't fit into a tweet.
 You can read my posts on the web, or subscribe to them [as an RSS feed](/atom.xml).
 
-The blog is a place for me to hone my writing skills, and write about anything I find interesting or fun -- there's plenty of programming, but a lot of other stuff as well.
+I write about anything I find interesting or fun -- there's plenty of programming, but a lot of other stuff as well.
 Past topics include [accessibility](/2019/01/monki-gras-the-curb-cut-effect/), [braille](/2019/07/ten-braille-facts/), [Chinese dictionaries](/2019/06/reading-a-chinese-dictionary/), and [Welsh waterfalls](/2018/11/aberdulais-waterfall/).
 
-Sometimes I give talks at meetups or conferences, and I have a list of slides/videos from [my past talks](/talks/).
-
+Sometimes I give talks at meetups or conferences, and I have a list of slides/videos from [my past talks](/elsewhere/#talks-and-workshops).
 I've also written about my [ideas for running inclusive and accessible events](https://alexwlchan.net/ideas-for-inclusive-events/).
 
+If you'd like to see everything I've been up to, my [projects page](/projects/) is a good starting point.
+
 I'm trans, genderfluid, and my pronouns vary.
-If you don't know me, "they/them" is a safe default.
+If you're not sure, "they/them" is a safe default.
 
 I hope you enjoy the site.
 
-[wellcome]: https://en.wikipedia.org/wiki/Wellcome_Trust
+[wellcome]: https://wellcomecollection.org/
+[collections]: https://wellcomecollection.org/collections
 
 ## Recent posts
 

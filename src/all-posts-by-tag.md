@@ -1,11 +1,24 @@
 ---
-layout: all_posts_base
+layout: page
 title: All posts by tag
 archive_variant: global
 post_list_date_format: month_year
 ---
 
-<h3>Tags</h3>
+This is a list of every post on alexwlchan.net, organised by tag.
+You can browse the list:
+
+-   [by date](/all-posts/)
+-   by tag (this page)
+-   [by filtering to my favourite posts](/best-of/)
+
+You can subscribe to my posts [as an Atom feed](/atom.xml).
+
+
+
+## Tags
+
+Jump to a tag:
 
 <ul id="tag_cloud">
   {% assign posts_by_tag = site.data["posts_by_tag"] | sort %}
