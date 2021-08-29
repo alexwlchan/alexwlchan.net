@@ -411,7 +411,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dd>
     </dl>
     <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
-      <img src="/images/projects/booktracker.png" src="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'.">
+      <img src="/images/projects/booktracker.png" alt="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'.">
     </a>
   </li>
 
