@@ -32,21 +32,7 @@ Jump to a tag:
   {% endfor %}
 </ul>
 
-<<<<<<< HEAD
 {% text_separator "◆" %}
-=======
-<style>
-  h3 {
-    margin-bottom: 0.5em;
-  }
-
-  .archive {
-    margin-top: 0.5em;
-  }
-</style>
-
-<div class="post__separator" aria-hidden="true">&#9670;</div>
->>>>>>> Make the "all posts" list more consistent
 
 {% for tag_entry in posts_by_tag %}
   <h3 id="{{ tag_entry[0] }}">{{ tag_entry[0] }}</h3>
