@@ -210,67 +210,160 @@ writing:
   publication: Last Week in AWS
   title: Is AWS Certification Worth It? Weighing All the Factors
   url: https://www.lastweekinaws.com/blog/is-aws-certification-worth-it-weighing-all-the-factors/
-- date: 2021-06-08
+- archived_paths:
+  - '/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-kinesis-vs-kafka-which-stream-processor-comes-out-on-top/Kinesis
+    vs. Kafka: Which Stream Processor Comes Out on Top? - Last Week in AWS.pdf'
+  - '/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-kinesis-vs-kafka-which-stream-processor-comes-out-on-top/Kinesis
+    vs. Kafka: Which Stream Processor Comes Out on Top? - Last Week in AWS.webarchive'
+  date: 2021-06-08
   publication: Last Week in AWS
   title: 'Kinesis vs. Kafka: Which Stream Processor Comes Out on Top?'
   url: https://www.lastweekinaws.com/blog/kinesis-vs-kafka-which-stream-processor-comes-out-on-top/
-- date: 2021-05-28
+- archived_paths:
+  - '/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-aurora-vs-rds-an-engineers-guide-to-choosing-a-database/Aurora
+    vs. RDS: An Engineer''s Guide to Choosing a Database - Last Week in AWS.pdf'
+  - '/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-aurora-vs-rds-an-engineers-guide-to-choosing-a-database/Aurora
+    vs. RDS: An Engineer''s Guide to Choosing a Database - Last Week in AWS.webarchive'
+  date: 2021-05-28
   publication: Last Week in AWS
   title: "Aurora vs. RDS: An Engineer\u2019s Guide to Choosing a Database"
   url: https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
-- date: 2021-05-14
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-what-is-an-ecu-an-ec2-compute-unit-simply-explained/What
+    is an ECU? An EC2 Compute Unit, Simply Explained - Last Week in AWS.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-what-is-an-ecu-an-ec2-compute-unit-simply-explained/What
+    is an ECU? An EC2 Compute Unit, Simply Explained - Last Week in AWS.pdf
+  date: 2021-05-14
   publication: Last Week in AWS
   title: What is an ECU? An EC2 Compute Unit, Simply Explained
   url: https://www.lastweekinaws.com/blog/what-is-an-ecu-an-ec2-compute-unit-simply-explained/
-- date: 2021-05-07
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-what-is-an-edge-location-in-aws-a-simple-explanation/What
+    is an Edge Location in AWS? A Simple Explanation - Last Week in AWS.pdf
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-what-is-an-edge-location-in-aws-a-simple-explanation/What
+    is an Edge Location in AWS? A Simple Explanation - Last Week in AWS.webarchive
+  date: 2021-05-07
   publication: Last Week in AWS
   title: What is an Edge Location in AWS? A Simple Explanation
   url: https://www.lastweekinaws.com/blog/what-is-an-edge-location-in-aws-a-simple-explanation/
-- date: 2021-04-23
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-what-is-amazon-athena-an-introduction-and-walkthrough/What
+    is Amazon Athena? An Introduction and Walkthrough - Last Week in AWS.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-what-is-amazon-athena-an-introduction-and-walkthrough/What
+    is Amazon Athena? An Introduction and Walkthrough - Last Week in AWS.pdf
+  date: 2021-04-23
   publication: Last Week in AWS
   title: What is Amazon Athena? An Introduction and Walkthrough
   url: https://www.lastweekinaws.com/blog/what-is-amazon-athena-an-introduction-and-walkthrough/
-- date: 2017-12-18
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-using-loris-for-iiif-at-wellcome-6ed1fefaf801/Using
+    Loris for IIIF at Wellcome - Stacks.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-using-loris-for-iiif-at-wellcome-6ed1fefaf801/Using
+    Loris for IIIF at Wellcome - Stacks.pdf
+  date: 2017-12-18
   publication: Wellcome Collection development blog
   title: Using Loris for IIIF at Wellcome Collection
   url: https://stacks.wellcomecollection.org/using-loris-for-iiif-at-wellcome-6ed1fefaf801
-- date: 2018-02-13
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31/Getting
+    helpful CloudWatch alarms in Slack - Stacks.pdf
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31/Getting
+    helpful CloudWatch alarms in Slack - Stacks.webarchive
+  date: 2018-02-13
   publication: Wellcome Collection development blog
   title: Getting helpful CloudWatch alarms in Slack
   url: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31
-- date: 2018-05-16
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1/Creating
+    a data store from S3 and DynamoDB - Stacks.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1/Creating
+    a data store from S3 and DynamoDB - Stacks.pdf
+  date: 2018-05-16
   publication: Wellcome Collection development blog
   title: Creating a data store from S3 and DynamoDB
   url: https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1
-- date: 2018-10-31
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f/Peering
+    through MRI scans of fruit and veg, part 1 - Stacks.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f/Peering
+    through MRI scans of fruit and veg, part 1 - Stacks.pdf
+  date: 2018-10-31
   publication: Wellcome Collection development blog
   title: Peering through MRI scans of fruit and veg
   url: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
-- date: 2020-05-20
+- archived_paths:
+  - "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-building-wellcome-collections-new-archival-storage-service-3f68ff21927e/Building\
+    \ Wellcome Collection\u2019s new archival storage service.webarchive"
+  - "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-building-wellcome-collections-new-archival-storage-service-3f68ff21927e/Building\
+    \ Wellcome Collection\u2019s new archival storage service.pdf"
+  date: 2020-05-20
   publication: Wellcome Collection development blog
   title: Building Wellcome Collection's new archival storage service
   url: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
-- date: 2020-05-11
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-how-we-store-multiple-versions-of-bagit-bags-e68499815184/How
+    we store multiple versions of BagIt bags | by Alex Chan | Stacks.pdf
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-how-we-store-multiple-versions-of-bagit-bags-e68499815184/How
+    we store multiple versions of BagIt bags | by Alex Chan | Stacks.webarchive
+  date: 2020-05-11
   publication: Wellcome Collection development blog
   title: How we store multiple versions of BagIt bags
   url: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
-- date: 2020-05-17
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-large-things-living-in-cold-places-66cbc3603e14/Large
+    Things Living in Cold Places | by Alex Chan | Stacks.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-large-things-living-in-cold-places-66cbc3603e14/Large
+    Things Living in Cold Places | by Alex Chan | Stacks.pdf
+  date: 2020-05-17
   publication: Wellcome Collection development blog
   title: Large Things Living in Cold Places
   url: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
-- date: 2020-09-30
+- archived_paths:
+  - "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-a-sprinkling-of-azure-6cef6e150fb2/A\
+    \ sprinkling of Azure. We\u2019re replicating our digital\u2026 | by Alex Chan\
+    \ | Stacks.webarchive"
+  - "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-a-sprinkling-of-azure-6cef6e150fb2/A\
+    \ sprinkling of Azure. We\u2019re replicating our digital\u2026 | by Alex Chan\
+    \ | Stacks.pdf"
+  date: 2020-09-30
   publication: Wellcome Collection development blog
   title: A sprinkling of Azure
   url: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
-- date: 2021-01-18
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-our-approach-to-digital-verification-79da59da4ab7/Our
+    approach to digital verification | by Alex Chan | Stacks.pdf
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-our-approach-to-digital-verification-79da59da4ab7/Our
+    approach to digital verification | by Alex Chan | Stacks.webarchive
+  date: 2021-01-18
   publication: Wellcome Collection development blog
   title: Our approach to digital verification
   url: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
-- date: 2021-03-29
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-building-our-new-unified-collections-search-ed399c412b01/Building
+    our new unified collections search | by Alex Chan | Stacks.pdf
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/stacks-wellcomecollection-org-building-our-new-unified-collections-search-ed399c412b01/Building
+    our new unified collections search | by Alex Chan | Stacks.webarchive
+  date: 2021-03-29
   publication: Wellcome Collection development blog
   title: Building our new unified collections search
   url: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
-- date: 2018-02-27
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/hypothesis-works-articles-continuous-releases/The
+    Hypothesis continuous release process - Hypothesis.pdf
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/hypothesis-works-articles-continuous-releases/The
+    Hypothesis continuous release process - Hypothesis.webarchive
+  date: 2018-02-27
   publication: The Hypothesis blog
   title: The Hypothesis continuous release process
   url: https://hypothesis.works/articles/continuous-releases/
+- archived_paths:
+  - "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-10-free-cloud-databases-you-should-consider-and-1-you-shouldnt/10\
+    \ Free Cloud Databases You Should Consider (And 1 You Shouldn\u2019t) - Last Week\
+    \ in AWS.webarchive"
+  - "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-10-free-cloud-databases-you-should-consider-and-1-you-shouldnt/10\
+    \ Free Cloud Databases You Should Consider (And 1 You Shouldn\u2019t) - Last Week\
+    \ in AWS.pdf"
+  date: 2021-08-13
+  publication: Last Week in AWS
+  title: "10 Free Cloud Databases You Should Consider (And 1 You Shouldn\u2019t)"
+  url: https://www.lastweekinaws.com/blog/10-free-cloud-databases-you-should-consider-and-1-you-shouldnt/
