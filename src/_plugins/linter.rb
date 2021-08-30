@@ -1,4 +1,5 @@
 require "html-proofer"
+require "yaml"
 
 
 class RunLinting < Jekyll::Command
@@ -7,20 +8,36 @@ class RunLinting < Jekyll::Command
       prog.command(:lint) do |cmd|
         cmd.action do |_, options|
           options = configuration_from_options(options)
-          run_linting(options["destination"])
+
+          check_writing_has_been_archived(options["source"])
+          run_html_linting(options["destination"])
         end
       end
     end
 
-    def run_linting(dirname)
+    def run_html_linting(html_dir)
       HTMLProofer.check_directory(
-        dirname, opts = {
+        html_dir, opts = {
           :check_html => false,
           :check_img_http => true,
           :disable_external => true,
           :report_invalid_tags => true,
           :alt_ignore => ["/theme/file_python_2x.png"],
         }).run
+    end
+
+    def check_writing_has_been_archived(src_dir)
+      elsewhere = YAML.load_file("#{src_dir}/_data/elsewhere.yml")
+
+      no_archive_writing = elsewhere["writing"]
+        .filter { |w| !w.has_key? "archived_paths" }
+
+      if !no_archive_writing.empty?
+        puts "The following writing entries in 'elsewhere' have not been archived:"
+        no_archive_writing
+          .each { |w| puts w["url"] }
+        exit!
+      end
     end
   end
 end

@@ -53,9 +53,11 @@ if __name__ == "__main__":
         while not click.confirm("Have you saved archive copies?"):
             pass
 
-        print("")
+        writing["archived_paths"] = [
+            os.path.join(out_dir, p) for p in os.listdir(out_dir)
+        ]
 
-        break
+        print("")
 
     with open(ELSEWHERE_YML_PATH, "w") as outfile:
         yaml.dump(elsewhere, outfile)
