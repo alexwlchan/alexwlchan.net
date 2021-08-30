@@ -26,6 +26,15 @@ class RunLinting < Jekyll::Command
         }).run
     end
 
+    # This checks that every article on /elsewhere/ has at least one copy
+    # archived on my own computers.
+    #
+    # This means I'm not susceptible to link rot -- if one of my articles
+    # is taken offline, I'll still have a copy.
+    #
+    # See also: https://www.stephaniemorillo.co/post/why-developers-should-archive-their-old-content
+
+    #
     def check_writing_has_been_archived(src_dir)
       elsewhere = YAML.load_file("#{src_dir}/_data/elsewhere.yml")
 
