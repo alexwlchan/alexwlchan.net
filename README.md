@@ -79,6 +79,7 @@ This is a list of things that I think are interesting or unusual:
 *   [Stylesheets and other theming settings](docs/stylesheets.md)
 *   [Month and year archives](docs/month-and-year-archives.md)
 *   [No-JavaScript Twitter embeds](docs/twitter-embeds.md)
+*   [Linking to my work on other sites](docs/linking-to-other-work.md)
 
 
 
