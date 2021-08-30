@@ -1,242 +1,276 @@
----
-writing:
-- date: 2021-06-18
-  title: Is AWS Certification Worth It? Weighing All the Factors
-  url: https://www.lastweekinaws.com/blog/is-aws-certification-worth-it-weighing-all-the-factors/
-  publication: Last Week in AWS
-- date: 2021-06-08
-  title: 'Kinesis vs. Kafka: Which Stream Processor Comes Out on Top?'
-  url: https://www.lastweekinaws.com/blog/kinesis-vs-kafka-which-stream-processor-comes-out-on-top/
-  publication: Last Week in AWS
-- date: 2021-05-28
-  title: 'Aurora vs. RDS: An Engineer’s Guide to Choosing a Database'
-  url: https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
-  publication: Last Week in AWS
-- date: 2021-05-14
-  title: What is an ECU? An EC2 Compute Unit, Simply Explained
-  url: https://www.lastweekinaws.com/blog/what-is-an-ecu-an-ec2-compute-unit-simply-explained/
-  publication: Last Week in AWS
-- date: 2021-05-07
-  title: What is an Edge Location in AWS? A Simple Explanation
-  url: https://www.lastweekinaws.com/blog/what-is-an-edge-location-in-aws-a-simple-explanation/
-  publication: Last Week in AWS
-- date: 2021-04-23
-  title: What is Amazon Athena? An Introduction and Walkthrough
-  url: https://www.lastweekinaws.com/blog/what-is-amazon-athena-an-introduction-and-walkthrough/
-  publication: Last Week in AWS
-- date: 2017-12-18
-  title: Using Loris for IIIF at Wellcome Collection
-  url: https://stacks.wellcomecollection.org/using-loris-for-iiif-at-wellcome-6ed1fefaf801
-  publication: Wellcome Collection development blog
-- date: 2018-02-13
-  title: Getting helpful CloudWatch alarms in Slack
-  url: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31
-  publication: Wellcome Collection development blog
-- date: 2018-05-16
-  title: Creating a data store from S3 and DynamoDB
-  url: https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1
-  publication: Wellcome Collection development blog
-- date: 2018-10-31
-  title: Peering through MRI scans of fruit and veg
-  url: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
-  publication: Wellcome Collection development blog
-- date: 2020-05-20
-  title: Building Wellcome Collection's new archival storage service
-  url: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
-  publication: Wellcome Collection development blog
-- date: 2020-05-11
-  title: How we store multiple versions of BagIt bags
-  url: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
-  publication: Wellcome Collection development blog
-- date: 2020-05-17
-  title: Large Things Living in Cold Places
-  url: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
-  publication: Wellcome Collection development blog
-- date: 2020-09-30
-  title: A sprinkling of Azure
-  url: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
-  publication: Wellcome Collection development blog
-- date: 2021-01-18
-  title: Our approach to digital verification
-  url: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
-  publication: Wellcome Collection development blog
-- date: 2021-03-29
-  title: Building our new unified collections search
-  url: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
-  publication: Wellcome Collection development blog
-- date: 2018-02-27
-  title: The Hypothesis continuous release process
-  url: https://hypothesis.works/articles/continuous-releases/
-  publication: The Hypothesis blog
 podcasts:
 - date: 2020-10-20
+  podcast: Screaming in the Cloud
   title: Using the Cloud to Preserve the Future
   url: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-cloud-to-preserve-the-future-with-alex-chan/
-  podcast: Screaming in the Cloud
 talks:
-- title: Using Python to organise my physical paper
+- date: 2021-07-06
   event: Cambridge Python User Group
-  date: 2021-07-06
   links:
     event: https://www.meetup.com/CamPUG/events/278626067/
-    slides: "/files/2021/campug.pdf"
-- title: Digital preservation at Wellcome Collection
-  event: GLAM Digital Lunch, Cambridge
-  date: 2019-10-18
-  description: |+
-    A quick flavour of digital preservation at Wellcome: the processes, practices, and tools we use.
+    slides: /files/2021/campug.pdf
+  title: Using Python to organise my physical paper
+- date: 2019-10-18
+  description: 'A quick flavour of digital preservation at Wellcome: the processes,
+    practices, and tools we use.
+
     How do we create, store, and present our digital archives?
 
+
+    '
+  event: GLAM Digital Lunch, Cambridge
   links:
     event: https://www.eventbrite.co.uk/e/glam-digital-champions-digital-lunch-october-tickets-73928130027
-    slides: "/files/2019/glam-cam-digipres.pdf"
     notes: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
-- title: Building a robot that stole my job
+    slides: /files/2019/glam-cam-digipres.pdf
+  title: Digital preservation at Wellcome Collection
+- date: 2019-09-20
   event: QueerJS London
-  date: 2019-09-20
   links:
+    slides: /files/2019/queerjs-london.pdf
     video: https://www.youtube.com/watch?t=47m10s&v=hGI95LWVeuk
-    slides: "/files/2019/queerjs-london.pdf"
-- title: The Curb Cut Effect
+  title: Building a robot that stole my job
+- date: 2019-09-14
   event: PyCon UK 2019
-  date: 2019-09-14
   links:
+    notes: /2019/01/monki-gras-the-curb-cut-effect/
     video: https://www.youtube.com/watch?v=-9tqCtf3T9k
-    notes: "/2019/01/monki-gras-the-curb-cut-effect/"
-- title: 'Sans I/O programming patterns: what, why, and how'
-  event: PyCon UK 2020
-  date: 2019-09-13
-  description: |+
-    Programmers have access to plenty of powerful, flexible libraries -- and yet we often end up reinventing the wheel.
-    Why?
-    Because our libraries aren't reusable -- code gets trapped by its I/O model.
-    If we program in a "sans I/O" pattern, we get code that's simpler, more flexible, and easier to test and reuse.
+  title: The Curb Cut Effect
+- date: 2019-09-13
+  description: 'Programmers have access to plenty of powerful, flexible libraries
+    -- and yet we often end up reinventing the wheel.
 
+    Why?
+
+    Because our libraries aren''t reusable -- code gets trapped by its I/O model.
+
+    If we program in a "sans I/O" pattern, we get code that''s simpler, more flexible,
+    and easier to test and reuse.
+
+
+    '
+  event: PyCon UK 2020
   links:
+    notes: /2019/10/sans-io-programming/
+    slides: /files/pyconuk_2019_sans_io.pdf
     video: https://www.youtube.com/watch?v=qwTWqy0uPbY
-    slides: "/files/pyconuk_2019_sans_io.pdf"
-    notes: "/2019/10/sans-io-programming/"
-- title: A robot stole my job!
+  title: 'Sans I/O programming patterns: what, why, and how'
+- date: 2019-09-13
   event: PyCon UK 2019 lightning talks
-  date: 2019-09-13
-  variant: lightning talk
   links:
     video: https://www.youtube.com/watch?v=-uakKQQuw6k&t=21m41s
-- title: A robot stole my job prospects
-  event: ACCU 2019 lightning talks
-  date: 2019-04-10
+  title: A robot stole my job!
   variant: lightning talk
+- date: 2019-04-10
+  description: "Build automation is great, right?\nWe can save time, automate releases,\
+    \ script tedious tasks\u2026 but what happens when these build robots turn against\
+    \ us?\n\n"
+  event: ACCU 2019 lightning talks
   is_new: true
-  description: |+
-    Build automation is great, right?
-    We can save time, automate releases, script tedious tasks… but what happens when these build robots turn against us?
+  title: A robot stole my job prospects
+  variant: lightning talk
+- date: 2019-01-31
+  description: 'When we imagine inclusive design, we think about helping people from
+    minoritised or excluded groups.
 
-- title: The Curb Cut Effect
-  event: 'Monki Gras: Inclusive Craft'
-  date: 2019-01-31
-  description: |+
-    When we imagine inclusive design, we think about helping people from minoritised or excluded groups.
     People who are disabled, or BAME, or LGBTQ+.
-    We should consider them in our designs -- but if we design for them, are they the only ones who benefit?
-    The Curb Cut Effect suggests otherwise: designing for people who are excluded or marginalised can often result in a better design for everyone.
 
+    We should consider them in our designs -- but if we design for them, are they
+    the only ones who benefit?
+
+    The Curb Cut Effect suggests otherwise: designing for people who are excluded
+    or marginalised can often result in a better design for everyone.
+
+
+    '
+  event: 'Monki Gras: Inclusive Craft'
   links:
+    notes: /2019/01/monki-gras-the-curb-cut-effect/
+    slides: /files/curbcut-monkigras.pdf
     video: https://www.youtube.com/watch?v=6Yf3iukx3tQ
-    slides: "/files/curbcut-monkigras.pdf"
-    notes: "/2019/01/monki-gras-the-curb-cut-effect/"
-- title: A Plumber's Guide to Git
+  title: The Curb Cut Effect
+- date: 2018-09-17
   event: PyCon UK 2018
-  date: 2018-09-17
+  title: A Plumber's Guide to Git
   variant: workshop
-- title: Assume Worst Intent (designing against the abusive ex)
-  event: PyCon UK 2018
-  date: 2018-09-16
-  description: |+
-    We build services with good intent, trying to improve interactivity and connections between our users.
-    But what if one of our users has a stalker, a harasser, or an abusive ex?
-    How do we design services and platforms to reduce the risk of harassment and abuse from other users?
+- date: 2018-09-16
+  description: 'We build services with good intent, trying to improve interactivity
+    and connections between our users.
 
-  links:
-    video: https://www.youtube.com/watch?v=XyGVRlRyT-E
-    slides: "/files/assume_worst_intent.pdf"
-    notes: "/2018/09/assume-worst-intent/"
-- title: Building Trust in an Age of Suspicious Minds
+    But what if one of our users has a stalker, a harasser, or an abusive ex?
+
+    How do we design services and platforms to reduce the risk of harassment and abuse
+    from other users?
+
+
+    '
   event: PyCon UK 2018
-  date: 2018-09-15
-  variant: keynote
-  description: "In a world where people are less and less trusting, how can we take
-    steps to make ourselves more trustable?\n\n"
   links:
+    notes: /2018/09/assume-worst-intent/
+    slides: /files/assume_worst_intent.pdf
+    video: https://www.youtube.com/watch?v=XyGVRlRyT-E
+  title: Assume Worst Intent (designing against the abusive ex)
+- date: 2018-09-15
+  description: 'In a world where people are less and less trusting, how can we take
+    steps to make ourselves more trustable?
+
+
+    '
+  event: PyCon UK 2018
+  links:
+    notes: /2018/09/suspicious-minds
+    slides: /talks/suspicious-minds.pdf
     video: https://www.youtube.com/watch?v=B3XxPnbehqQ
-    slides: "/talks/suspicious-minds.pdf"
-    notes: "/2018/09/suspicious-minds"
-- title: A Plumber's Guide to Git
+  title: Building Trust in an Age of Suspicious Minds
+  variant: keynote
+- date: 2018-05-18
   event: Oxford Python
-  date: 2018-05-18
-  variant: workshop
   links:
     event: https://www.meetup.com/oxfordpython/events/250405376/
-- title: "(Anti-)Social Media"
-  event: Bournemouth University
-  date: 2018-04-18
-  description: |+
-    A lecture for students on the [Cyber Security Management course](https://www1.bournemouth.ac.uk/study/courses/bsc-hons-cyber-security-management)
+  title: A Plumber's Guide to Git
+  variant: workshop
+- date: 2018-04-18
+  description: 'A lecture for students on the [Cyber Security Management course](https://www1.bournemouth.ac.uk/study/courses/bsc-hons-cyber-security-management)
+
     about online harassment -- identifying some of the ways services are
+
     often used for harassment, thinking about common threat models, and some
+
     good practices for building safer services.
 
-  links:
-    slides: "/slides/anti_social_media/anti_social_media_slides.pdf"
-    notes: "/2018/04/anti-social-media/"
-- title: A Plumber's Guide to Git
-  event: Cambridge Python User Group
-  date: 2018-03-06
-  variant: workshop
-  links:
-    notes: "/a-plumbers-guide-to-git/"
-- title: An ode to docopt
-  event: Cambridge Python User Group
-  date: 2017-12-05
-  variant: lightning talk
-  links:
-    slides: "/slides/docopt/docopt_slides.pdf"
-    notes: "/2017/09/ode-to-docopt/"
-- title: Using privilege to improve inclusion
-  event: PyCon UK 2017
-  date: 2017-10-27
-  links:
-    video: https://www.youtube.com/watch?v=Ej2EJVMkTKw
-    slides: "/slides/privilege_inclusion/privilege_inclusion_slides.pdf"
-    notes: "/2017/11/pyconuk-2017-privilege-inclusion/"
-- title: A Plumber's Guide to Git
-  event: PyCon UK
-  date: 2017-10-27
-  variant: workshop
-  description: |+
-    How does Git work under the hood?
-    A workshop that uses low-level Git "plumbing" commands to reconstruct a Git workflow from scratch, and see how Git stores data internally.
 
+    '
+  event: Bournemouth University
   links:
-    notes: "/2017/11/a-plumbers-guide-to-git/"
-- title: Let's talk about (a)sex(uals)
-  event: PyCon UK 2017 lightning talks
-  date: 2017-10-26
+    notes: /2018/04/anti-social-media/
+    slides: /slides/anti_social_media/anti_social_media_slides.pdf
+  title: (Anti-)Social Media
+- date: 2018-03-06
+  event: Cambridge Python User Group
+  links:
+    notes: /a-plumbers-guide-to-git/
+  title: A Plumber's Guide to Git
+  variant: workshop
+- date: 2017-12-05
+  event: Cambridge Python User Group
+  links:
+    notes: /2017/09/ode-to-docopt/
+    slides: /slides/docopt/docopt_slides.pdf
+  title: An ode to docopt
   variant: lightning talk
+- date: 2017-10-27
+  event: PyCon UK 2017
+  links:
+    notes: /2017/11/pyconuk-2017-privilege-inclusion/
+    slides: /slides/privilege_inclusion/privilege_inclusion_slides.pdf
+    video: https://www.youtube.com/watch?v=Ej2EJVMkTKw
+  title: Using privilege to improve inclusion
+- date: 2017-10-27
+  description: 'How does Git work under the hood?
+
+    A workshop that uses low-level Git "plumbing" commands to reconstruct a Git workflow
+    from scratch, and see how Git stores data internally.
+
+
+    '
+  event: PyCon UK
+  links:
+    notes: /2017/11/a-plumbers-guide-to-git/
+  title: A Plumber's Guide to Git
+  variant: workshop
+- date: 2017-10-26
+  event: PyCon UK 2017 lightning talks
   links:
     video: https://www.youtube.com/watch?v=LlqxmQxoAhQ&t=45m06s
-- title: Property-Based Testing In Practice
+  title: Let's talk about (a)sex(uals)
+  variant: lightning talk
+- date: 2017-03-08
   event: QCon London
-  date: 2017-03-08
   links:
     event: https://qconlondon.com/london-2017/london-2017/presentation/introduction-to-property-based-testing.html
-    slides: "/talks/hypothesis_qcon17.pdf"
-    notes: "/talks/qcon2017/"
-- title: An introduction to property-based testing and Hypothesis
+    notes: /talks/qcon2017/
+    slides: /talks/hypothesis_qcon17.pdf
+  title: Property-Based Testing In Practice
+- date: 2016-09-18
   event: PyCon UK
-  date: 2016-09-18
-- title: Introduction to property-based testing
+  title: An introduction to property-based testing and Hypothesis
+- date: 2016-06-07
   event: Cambridge Python User Group
-  date: 2016-06-07
-- title: Colossus
+  title: Introduction to property-based testing
+- date: 2016-02-17
   event: Queens' College Maths Society
-  date: 2016-02-17
+  title: Colossus
+writing:
+- archived_paths:
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-is-aws-certification-worth-it-weighing-all-the-factors/Is
+    AWS Certification Worth It? Weighing All the Factors - Last Week in AWS.webarchive
+  - /Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere/lastweekinaws-is-aws-certification-worth-it-weighing-all-the-factors/Is
+    AWS Certification Worth It? Weighing All the Factors - Last Week in AWS.pdf
+  date: 2021-06-18
+  publication: Last Week in AWS
+  title: Is AWS Certification Worth It? Weighing All the Factors
+  url: https://www.lastweekinaws.com/blog/is-aws-certification-worth-it-weighing-all-the-factors/
+- date: 2021-06-08
+  publication: Last Week in AWS
+  title: 'Kinesis vs. Kafka: Which Stream Processor Comes Out on Top?'
+  url: https://www.lastweekinaws.com/blog/kinesis-vs-kafka-which-stream-processor-comes-out-on-top/
+- date: 2021-05-28
+  publication: Last Week in AWS
+  title: "Aurora vs. RDS: An Engineer\u2019s Guide to Choosing a Database"
+  url: https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
+- date: 2021-05-14
+  publication: Last Week in AWS
+  title: What is an ECU? An EC2 Compute Unit, Simply Explained
+  url: https://www.lastweekinaws.com/blog/what-is-an-ecu-an-ec2-compute-unit-simply-explained/
+- date: 2021-05-07
+  publication: Last Week in AWS
+  title: What is an Edge Location in AWS? A Simple Explanation
+  url: https://www.lastweekinaws.com/blog/what-is-an-edge-location-in-aws-a-simple-explanation/
+- date: 2021-04-23
+  publication: Last Week in AWS
+  title: What is Amazon Athena? An Introduction and Walkthrough
+  url: https://www.lastweekinaws.com/blog/what-is-amazon-athena-an-introduction-and-walkthrough/
+- date: 2017-12-18
+  publication: Wellcome Collection development blog
+  title: Using Loris for IIIF at Wellcome Collection
+  url: https://stacks.wellcomecollection.org/using-loris-for-iiif-at-wellcome-6ed1fefaf801
+- date: 2018-02-13
+  publication: Wellcome Collection development blog
+  title: Getting helpful CloudWatch alarms in Slack
+  url: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31
+- date: 2018-05-16
+  publication: Wellcome Collection development blog
+  title: Creating a data store from S3 and DynamoDB
+  url: https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1
+- date: 2018-10-31
+  publication: Wellcome Collection development blog
+  title: Peering through MRI scans of fruit and veg
+  url: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
+- date: 2020-05-20
+  publication: Wellcome Collection development blog
+  title: Building Wellcome Collection's new archival storage service
+  url: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+- date: 2020-05-11
+  publication: Wellcome Collection development blog
+  title: How we store multiple versions of BagIt bags
+  url: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
+- date: 2020-05-17
+  publication: Wellcome Collection development blog
+  title: Large Things Living in Cold Places
+  url: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
+- date: 2020-09-30
+  publication: Wellcome Collection development blog
+  title: A sprinkling of Azure
+  url: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
+- date: 2021-01-18
+  publication: Wellcome Collection development blog
+  title: Our approach to digital verification
+  url: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
+- date: 2021-03-29
+  publication: Wellcome Collection development blog
+  title: Building our new unified collections search
+  url: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
+- date: 2018-02-27
+  publication: The Hypothesis blog
+  title: The Hypothesis continuous release process
+  url: https://hypothesis.works/articles/continuous-releases/
