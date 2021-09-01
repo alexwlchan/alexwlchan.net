@@ -28,20 +28,6 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 {% assign writing_entries = site.data["elsewhere"]["writing"] | sort: "date" | reverse %}
 
-{% comment %}
-<table class="archive">
-  {% for entry in writing_entries %}
-    <tr class="archive__entry">
-      <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
-      <td class="archive__bestof"></td>
-      <td>
-        <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>{% if entry.publication %}<br/>{{ entry.publication }}{% endif %}
-      </td>
-    </tr>
-  {% endfor %}
-</table>
-{% endcomment %}
-
 ### Last Week in AWS
 
 <table class="archive">
@@ -71,6 +57,28 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
         </td>
       </tr>
     {% endif %}
+  {% endfor %}
+</table>
+
+### Other writing
+
+<table class="archive">
+  {% for entry in writing_entries %}
+    {% if entry.publication == "Last Week in AWS" %}
+      {% continue %}
+    {% endif %}
+
+    {% if entry.publication == "Wellcome Collection development blog" %}
+      {% continue %}
+    {% endif %}
+
+    <tr class="archive__entry">
+      <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
+      <td class="archive__bestof"></td>
+      <td>
+        <a href="{{ entry.url }}">{{ entry.title | smartify }}</a> – {{ entry.publication }}
+      </td>
+    </tr>
   {% endfor %}
 </table>
 
