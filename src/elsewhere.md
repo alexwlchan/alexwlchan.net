@@ -74,6 +74,28 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
   {% endfor %}
 </table>
 
+### Other writing
+
+<table class="archive">
+  {% for entry in writing_entries %}
+    {% if entry.publication == "Last Week in AWS" %}
+      {% continue %}
+    {% endif %}
+
+    {% if entry.publication == "Wellcome Collection development blog" %}
+      {% continue %}
+    {% endif %}
+
+    <tr class="archive__entry">
+      <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
+      <td class="archive__bestof"></td>
+      <td>
+        <a href="{{ entry.url }}">{{ entry.title | smartify }}</a> – {{ entry.publication }}
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+
 
 ## Talks and workshops
 
