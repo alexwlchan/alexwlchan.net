@@ -23,7 +23,6 @@ But what if we wanted to find *all* the combinations?
 Using a computer would be much faster than doing it by hand -- so how do we write a program for the computer to run?
 
 Fortunately for me, I happened to know that Python's [itertools library][itertools] has several functions designed to solve just this sort of problem.
-
 If you haven't used it, the itertools library is a collection of useful functions around [iterators].
 An iterator is a Python object that creates a stream of data one-by-one, rather than all upfront.
 You step through the iterator to see what it contains, and for large streams this can be much more efficient.
