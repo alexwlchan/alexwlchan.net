@@ -26,6 +26,7 @@ require 'open-uri'
 require 'twitter'
 require "uri"
 
+require "cgi"
 require "mini_magick"
 
 
@@ -229,7 +230,22 @@ module Jekyll
         tweet_data["extended_entities"] = tweet_data["entities"]
       end
 
-      tpl.render!("tweet_data" => tweet_data, "alt_text" => per_tweet_alt_text)
+      # Create a UTF-8 encoded Twitter icon suitable to include as a data URI.
+      # This is a bit of a hacky approach to encoding the image that lets
+      # me define it as a standalone SVG file, rather than including it
+      # as an already-encoded URI.
+      twitter_icon_svg =
+        CGI.escape(
+          File.read("#{@src}/_tweets/twitter_icon.svg")
+            .gsub(/\s+</, "<")
+            .strip
+        ).gsub("+", "%20")
+
+      tpl.render!(
+        "tweet_data" => tweet_data,
+        "alt_text" => per_tweet_alt_text,
+        "twitter_icon_svg" => twitter_icon_svg
+      )
     end
   end
 end
