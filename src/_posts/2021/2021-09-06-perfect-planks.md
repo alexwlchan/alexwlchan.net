@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-09-06 05:49:09 +0000
 title: Picking perfect planks with Python
 summary: How do you pick the right combination of planks to lay a wooden floor?
 tags: python combinatorics maths
