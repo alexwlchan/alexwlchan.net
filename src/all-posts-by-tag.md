@@ -3,6 +3,7 @@ layout: page
 title: All posts by tag
 archive_variant: global
 post_list_date_format: month_year
+canonical_url: /all-posts/
 ---
 
 This is a list of every post on alexwlchan.net, organised by tag.

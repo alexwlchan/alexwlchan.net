@@ -1,6 +1,7 @@
 ---
 layout: page
 title: My favourite posts
+canonical_url: /all-posts/
 ---
 
 This is a list of my favourite posts, sorted by date.
