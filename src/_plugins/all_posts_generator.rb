@@ -98,6 +98,7 @@ module Jekyll
         "url" => File.join("/", "", year.to_s, month.to_s, "index.html"),
         "year" => @year,
         "display_month" => Date.new(year, month).strftime("%B %Y"),
+        "canonical_url" => "/all-posts/",
 
         # This causes the archive list to render dates "4 May", not "May 2020".
         "post_list_date_format" => "day_month",
@@ -154,6 +155,7 @@ module Jekyll
         "title" => "Posts from #{@year}",
         "posts" => @posts,
         "year" => @year,
+        "canonical_url" => "/all-posts/",
 
         # This causes the archive list to render dates "4 May", not "May 2020".
         "post_list_date_format" => "day_month",
