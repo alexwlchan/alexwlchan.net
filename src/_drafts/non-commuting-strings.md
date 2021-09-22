@@ -34,7 +34,7 @@ while (<>) {
 ```
 
 This prints a series of lines, with each line reversed and uppercased -- but in which order?
-The README explains in a comment, but I think it's somewhat ambiguous – I could interpret this as happening in either order.
+The README explains in a comment, but I think it's somewhat ambiguous – I could interpret this as reversing first, or uppercasing first.
 
 That got me wondering: does it matter?
 Reversing a string and uppercasing a string should be completely orthogonal operations, so we should be able to swap the order with impunity.
@@ -42,11 +42,11 @@ Reversing a string and uppercasing a string should be completely orthogonal oper
 That seems reasonable, right?
 
 But strings are rarely reasonable – there are lots of weird corners of Unicode where strings do unexpected things.
-Are there strings where: upper(reverse(s)) ≠ reverse(upper(s))?
+Are there strings where upper(reverse(s)) ≠ reverse(upper(s))?
 
-I tried a few examples with [combining characters] and didn't anywhere useful, so I wrote a test using [Hypothesis] to search for interesting examples.
+I tried a few examples by hand with [combining characters] and didn't get anywhere useful, so I wrote a test to have [Hypothesis] search for interesting examples instead.
 ([Source code](/files/2021/test_for_noncommutative_strings.py))
-It tried several hundred examples, and then stumbled upon a string where these uppercasing and reversing don't commute:
+It tried a few hundred examples, then stumbled upon a string where uppercasing and reversing don't commute:
 
 ```
 >>> 'ﬁ'.upper()[::-1]
