@@ -15,9 +15,7 @@
 
   <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
 
-  <!--
-    Page source: https://github.com/alexwlchan/alexwlchan.net/blob/live/src/{{ page.path }}
-   -->
+  <meta name="page-source" content="https://github.com/alexwlchan/alexwlchan.net/blob/live/src/{{ page.path }}">
 
 {% if page.theme and page.theme.color %}
   <link rel="stylesheet" href="/theme/style_{{ page.theme.color }}.css?{{ site.time | date:'%Y%m%d%U%H%N%S' }}">
