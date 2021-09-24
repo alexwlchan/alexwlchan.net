@@ -16,8 +16,6 @@
 #     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
 #
 
-# require "json"
-
 require "mini_magick"
 
 
