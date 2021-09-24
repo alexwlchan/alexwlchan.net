@@ -64,7 +64,11 @@ module Jekyll
       svg_doc.root.set_attribute("aria-labelledby", svg_doc_id)
 
       # Render the minified version of the SVG in the HTML.
-      svg_doc.to_xml(indent: 0)
+      svg_doc
+        .to_xml(indent: 0)
+        .gsub('<?xml version="1.0" encoding="UTF-8"?>', "")
+        .gsub('<?xml version="1.0"?>', "")
+        .gsub('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', "")
     end
   end
 end
