@@ -13,6 +13,4 @@ ENV BUNDLE_FORCE_RUBY_PLATFORM true
 COPY ./scripts/install_jekyll.sh .
 RUN ./install_jekyll.sh
 
-RUN apk add gcompat
-
 ENTRYPOINT ["bundle", "exec", "jekyll"]
