@@ -9,8 +9,6 @@ footer {
 }
 
 #footer_inner {
-  @include central_element();
-
   font-size: $meta-font-size;
 
   color: $accent-grey;
