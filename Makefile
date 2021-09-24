@@ -13,7 +13,7 @@ SRC = $(ROOT)/src
 DST = $(ROOT)/_site
 
 publish-docker:
-	python3 publish_docker_image.py
+	python3 scripts/publish_docker_image.py
 
 build:
 	docker run --tty --rm \
