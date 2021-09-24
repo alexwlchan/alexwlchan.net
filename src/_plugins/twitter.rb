@@ -16,7 +16,7 @@
 #     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
 #
 
-require "mini_magick"
+require "rszr"
 
 
 module Jekyll
@@ -120,13 +120,13 @@ module Jekyll
       # Cutting a smaller thumbnail should reduce the page weight.
       thumbnail_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
       if not File.exists? thumbnail_path
-        image = MiniMagick::Image.open(path)
-        image.resize "108x"
-        image.write thumbnail_path
+        image = Rszr::Image.load(path)
+        image.resize(108, 108)
+        image.save(thumbnail_path)
       end
 
       # At least one of the thumbnails (a GIF) actually gets *bigger* when
-      # resized by ImageMagick.
+      # resized.
       #
       # The whole point is to reduce the size of served files, so if that
       # happens, just use the original file.
