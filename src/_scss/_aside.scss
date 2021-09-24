@@ -7,8 +7,6 @@ aside {
   }
 
   #aside_inner {
-    @include central_element();
-
     color: white;
 
     @media print {
