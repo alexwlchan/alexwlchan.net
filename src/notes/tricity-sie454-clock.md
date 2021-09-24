@@ -1,9 +1,7 @@
 ---
-date_added: 16 October 2016
-layout: page
-minipost: true
-slug: notes/tricity-sie454-clock
 title: How to set the clock on a Tricity Bendix SIE454 electric cooker
+layout: page
+date_added: 2016-10-16
 ---
 
 The electric cooker in my flat is a Tricity Bendix SIE454, and the clock resets whenever there's a power cut.

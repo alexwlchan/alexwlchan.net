@@ -3,8 +3,6 @@ category: Python
 date: 2016-08-31 20:05:00 +0000
 layout: post
 tags: python
-theme:
-  minipost: true
 title: 'Python snippet: dealing with query strings in URLs'
 ---
 
