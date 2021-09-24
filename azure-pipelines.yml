@@ -21,6 +21,6 @@ steps:
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Download SSH key"
 
-- script: ./deploy.sh
+- script: ./scripts/deploy.sh
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Linode and push new commits to GitHub"
