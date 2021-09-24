@@ -5,7 +5,7 @@
 
   <title>{% if page.title and page.title != site.title %}{{ page.title | strip_html | smartify }} &ndash; {% endif %}{{ site.title | smartify }}</title>
 
-  <meta name="description" content="{{ page.summary | default: site.description }}">
+  <meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
   {% if page.canonical_url %}
   <link rel="canonical" href="{{ page.canonical_url | absolute_url }}">

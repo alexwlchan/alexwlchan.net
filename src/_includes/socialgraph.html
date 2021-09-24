@@ -8,7 +8,7 @@
 <meta name="twitter:title" content="{{ page.title }}" />
 
 {% if page.summary %}
-  <meta name="twitter:description" content="{{ page.summary }}">
+  <meta name="twitter:description" content="{{ page.summary | escape }}">
 {% endif %}
 
 {% if page.theme.image %}
@@ -28,5 +28,5 @@
 <meta property="og:title" content="{{ page.title }}">
 
 {% if page.summary %}
-  <meta property="og:description" content="{{ page.summary }}" />
+  <meta property="og:description" content="{{ page.summary | escape }}" />
 {% endif %}
