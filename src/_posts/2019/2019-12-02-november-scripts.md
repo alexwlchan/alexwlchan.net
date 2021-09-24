@@ -3,8 +3,6 @@ layout: post
 date: 2019-12-02 23:21:41 +0000
 title: "November 2019 scripts: downloading podcasts, retrying flaky errors, Azure and AWS"
 category: Python
-theme:
-  minipost: true
 tags: python aws
 ---
 
