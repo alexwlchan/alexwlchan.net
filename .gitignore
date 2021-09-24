@@ -12,5 +12,3 @@ __pycache__
 .cache
 
 id_rsa
-
-auth.yml
