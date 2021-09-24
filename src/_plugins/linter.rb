@@ -45,6 +45,7 @@ class RunLinting < Jekyll::Command
         puts "The following writing entries in 'elsewhere' have not been archived:"
         no_archive_writing
           .each { |w| puts w["url"] }
+        puts "Please run 'python3 scripts/archive_elsewhere.py'"
         exit!
       end
     end

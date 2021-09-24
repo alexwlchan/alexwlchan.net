@@ -1,4 +1,16 @@
 #!/usr/bin/env python
+"""
+I have a list of my external writing: https://alexwlchan.net/elsewhere/
+
+I don't want the only copy of those articles to be on the external site,
+so I save a copy to my local computer.  This script prompts me to save
+any articles I haven't already backed up, and records the local copies in
+elsewhere.yml.  Then I have a linter as part of the sitebuild that checks
+I have a local backup of every external article I link to.
+
+See also: https://www.stephaniemorillo.co/post/why-developers-should-archive-their-old-content
+
+"""
 
 import os
 import re
