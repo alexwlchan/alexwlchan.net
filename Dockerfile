@@ -3,9 +3,6 @@ FROM ruby:2.6-alpine
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"
 
-COPY ./scripts/install_specktre.sh .
-RUN ./install_specktre.sh
-
 COPY Gemfile .
 COPY Gemfile.lock .
 
