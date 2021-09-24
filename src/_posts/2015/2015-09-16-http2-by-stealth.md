@@ -9,7 +9,7 @@ title: Apple quietly adopts HTTP/2
 
 Amongst all the new features in iOS 9, I spotted one on Twitter that I hadn't seen before:
 
-<null tweet="https://twitter.com/Lukasaoz/status/644243079445221376"/>
+{% tweet https://twitter.com/Lukasaoz/status/644243079445221376 %}
 
 It turns out that Cory <a href="https://lukasa.co.uk/2015/06/HTTP2_Picks_Up_Steam_iOS9/">blogged about this</a> several months ago, but otherwise this change seems to have passed very quietly.
 

@@ -75,7 +75,7 @@ Of course, I don't want to run this script by hand, so I used [Lingon](http://ww
 
 I also keep both the script and the archive files in Dropbox, so I could always set it to run on a different computer as well, and there shouldn't be any problems (in theory!).
 
-![](/images/2013/pinboard_launchd.jpg)
+![Screenshot of a Launchd action to run my Pinboard backup.](/images/2013/pinboard_launchd.jpg)
 
 (The "What" field is slightly truncated in the image; it ends `archive-bookmarks.py`.)
 
