@@ -31,7 +31,7 @@ lint:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/linter.rb \
+		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.0/lib/jekyll/commands/linter.rb \
 		$(DOCKER_IMAGE) lint
 	docker run --rm --volume \
 		--volume $(ROOT):/mnt \
@@ -49,7 +49,7 @@ publish-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/publish_drafts.rb \
+		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.2.0/lib/jekyll/commands/publish_drafts.rb \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		$(DOCKER_IMAGE) publish_drafts
