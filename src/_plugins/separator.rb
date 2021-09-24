@@ -37,7 +37,12 @@ module Jekyll
       svg_doc.root.set_attribute("role", "img")
 
       # Render the minified version of the SVG in the HTML.
-      "<center class='separator'>" + svg_doc.to_xml(indent: 0) + "</center>"
+      svg =
+        svg_doc.to_xml(indent: 0)
+          .gsub('<?xml version="1.0" encoding="UTF-8"?>', "")
+          .gsub('<?xml version="1.0"?>', "")
+
+      "<center class='separator'>" + svg + "</center>"
     end
   end
 
