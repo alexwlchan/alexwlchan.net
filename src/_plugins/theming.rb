@@ -4,7 +4,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     if post["theme"] && post["theme"]["color"]
       color = post["theme"]["color"]
       create_scss_theme(src, color)
-      create_banner_image(src, color)
+      ensure_banner_image_exists(src, color)
     end
   }
 end
@@ -31,7 +31,7 @@ EOT
 end
 
 
-def create_banner_image(src, color)
+def ensure_banner_image_exists(src, color)
   banner_file = "#{src}/theme/specktre_#{color}.png"
   if ! File.file?(banner_file)
     raise RuntimeError, "Missing Specktre banner for #{color}, please run 'ruby scripts/create_specktre_banners.rb'"
