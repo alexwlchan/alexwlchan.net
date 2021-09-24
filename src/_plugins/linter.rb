@@ -20,6 +20,7 @@ class RunLinting < Jekyll::Command
         html_dir, opts = {
           :check_html => true,
           :check_img_http => true,
+          :check_opengraph => true,
           :disable_external => true,
           :report_invalid_tags => true,
           :alt_ignore => ["/theme/file_python_2x.png"],
