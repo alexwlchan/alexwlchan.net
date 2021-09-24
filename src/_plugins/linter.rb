@@ -18,7 +18,7 @@ class RunLinting < Jekyll::Command
     def run_html_linting(html_dir)
       HTMLProofer.check_directory(
         html_dir, opts = {
-          :check_html => false,
+          :check_html => true,
           :check_img_http => true,
           :disable_external => true,
           :report_invalid_tags => true,
