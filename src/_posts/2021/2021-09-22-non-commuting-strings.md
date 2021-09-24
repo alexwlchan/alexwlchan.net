@@ -56,7 +56,7 @@ It tried a few hundred examples, then stumbled upon a string where uppercasing a
 'FI'
 ```
 
-Python is uppercasing `ﬁ` to `FI`, which is correct if you follow the [Unicode spec][fi_spec], and feels intuitively fine – but proves that we can't swap the order of these string operations.
+Python is uppercasing the `ﬁ` ligature to `FI`, which is correct if you follow the [Unicode spec][fi_spec], and feels intuitively fine – but proves that we can't swap the order of these string operations.
 
 Perl's `uc` function doesn't seem to be Unicode aware, so uppercasing `ﬁ` returns the same string unmodified.
 I did write [another test](/files/2021/test_for_noncommutative_strings_in_perl.py) to try to find strings where you can't swap uppercasing/reversing in Perl, but it couldn't find any examples.
