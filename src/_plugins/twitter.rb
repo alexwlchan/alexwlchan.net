@@ -2,17 +2,13 @@
 # embedding.  Rendering tweets as static HTML reduces page weight, load times,
 # and is resilient against tweets being deleted.
 #
-# Auth is with a set of Twitter API keys, in a file `_tweets/auth.yml` in
-# in the root of your Jekyll site.  The file should have four lines:
+# The Twitter API responses and media are cached in `src/_tweets` and
+# `src/_images/twitter`, respectively.  To save a tweet, run the following
+# script on a machine which has Twitter API credentials in the keychain:
 #
-#     consumer_key: "<CONSUMER_KEY>"
-#     consumer_secret: "<CONSUMER_SECRET>"
-#     access_token: "<ACCESS_TOKEN>"
-#     token_secret: "<TOKEN_SECRET>"
+#     python scripts/save_tweet.py 'https://twitter.com/user/status/1234567890'
 #
-# Don't check in this auth file!
-#
-# Tweet data will be cached in `_tweets` -- you can check in these files.
+# This will save the cached response used by this plugin.
 #
 # To embed a tweet, place a Liquid tag of the following form anywhere in a
 # source file:
@@ -20,13 +16,6 @@
 #     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
 #
 
-require 'fileutils'
-require 'json'
-require 'open-uri'
-require 'twitter'
-require "uri"
-
-require "cgi"
 require "mini_magick"
 
 
@@ -146,53 +135,6 @@ module Jekyll
       end
     end
 
-    def download_avatar(tweet)
-      # I should really get the original using the lookup method, but
-      # it kept breaking when I tried to use it.
-      avatar_url = tweet.user.profile_image_url_https().to_str.sub("_normal", "")
-
-      File.open(avatar_path(avatar_url), "wb") do |saved_file|
-        # the following "open" is provided by open-uri
-        open(avatar_url, "rb") do |read_file|
-          saved_file.write(read_file.read)
-        end
-      end
-    end
-
-    def download_media(tweet)
-      # TODO: Add support for rendering tweets that contain more than
-      # one media entity.
-      raise "Too many media entities" unless tweet.media.count <= 1 || tweet.media.count == 3
-
-      tweet.media.each { |m|
-
-        # TODO: Add support for rendering tweets that contain different
-        # types of media entities.  And check that this is supported!
-        # raise "Unsupported media type" unless m.type == "photo"
-
-        media_url = m.media_url_https
-
-        # TODO: Use a proper url-parsing library
-        name = media_url.path.split("/").last
-        FileUtils::mkdir_p images_path("")
-        File.open(images_path(name), "wb") do |saved_file|
-          open(media_url, "rb") do |read_file|
-            saved_file.write(read_file.read)
-          end
-        end
-      }
-    end
-
-    def setup_api_client()
-      auth = YAML.load(File.read("#{@src}/_tweets/auth.yml"))
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = auth["consumer_key"]
-        config.consumer_secret     = auth["consumer_secret"]
-        config.access_token        = auth["access_token"]
-        config.access_token_secret = auth["access_secret"]
-      end
-    end
-
     def _created_at(tweet_data)
       DateTime
         .parse(tweet_data["created_at"], "%a %b %d %H:%M:%S %z %Y")
@@ -205,15 +147,8 @@ module Jekyll
       @dst = site.config["destination"]
 
       if not File.exists? cache_file()
-        puts("Caching #{@tweet_url}")
-        client = setup_api_client()
-        tweet = client.status(@tweet_url, tweet_mode: 'extended')
-        json_string = JSON.pretty_generate(tweet.attrs)
-        download_avatar(tweet)
-        download_media(tweet)
-
-        FileUtils::mkdir_p "#{@src}/_tweets"
-        File.open(cache_file(), 'w') { |f| f.write(json_string) }
+        puts("Missing tweet; please run 'python3 scripts/save_tweet.py #{@tweet_url}'")
+        exit!
       end
 
       tweet_data = JSON.parse(File.read(cache_file()))

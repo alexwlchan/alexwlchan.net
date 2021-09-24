@@ -1,5 +1,5 @@
 export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 13
+export DOCKER_IMAGE_VERSION = 16
 DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 SERVE_CONTAINER = server
@@ -13,7 +13,7 @@ SRC = $(ROOT)/src
 DST = $(ROOT)/_site
 
 publish-docker:
-	python3 publish_docker_image.py
+	python3 scripts/publish_docker_image.py
 
 build:
 	docker run --tty --rm \
@@ -31,8 +31,11 @@ lint:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/linter.rb \
+		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.0/lib/jekyll/commands/linter.rb \
 		$(DOCKER_IMAGE) lint
+	docker run --rm \
+		--volume $(ROOT):/mnt \
+		koalaman/shellcheck:stable scripts/*.sh
 
 serve:
 	docker run --tty --rm \
@@ -46,7 +49,7 @@ publish-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/commands/publish_drafts.rb \
+		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.2.0/lib/jekyll/commands/publish_drafts.rb \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		$(DOCKER_IMAGE) publish_drafts
