@@ -33,7 +33,7 @@ lint:
 		--workdir $(ROOT) \
 		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.0/lib/jekyll/commands/linter.rb \
 		$(DOCKER_IMAGE) lint
-	docker run --rm --volume \
+	docker run --rm \
 		--volume $(ROOT):/mnt \
 		koalaman/shellcheck:stable scripts/*.sh
 
