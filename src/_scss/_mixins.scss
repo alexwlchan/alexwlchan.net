@@ -4,11 +4,6 @@
   margin-right: auto;
 }
 
-@mixin central_element() {
-  @include centred($max-width);
-  padding: 1px $default-padding;
-}
-
 @mixin disable_select() {
   // Disable text selection highlighting
   // https://stackoverflow.com/a/4407335/1558022
