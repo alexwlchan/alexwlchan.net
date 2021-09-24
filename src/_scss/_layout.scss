@@ -7,8 +7,17 @@ body {
   background-image: url('/theme/white-waves-transparent.png');
 }
 
+article, #footer_inner, #aside_inner {
+  max-width: $max-width;
+  padding: 1px $default-padding;
+}
+
+img, video, svg, iframe, figure, article, #footer_inner, #aside_inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 article {
-  @include central_element();
   padding-top:    3px;
   padding-bottom: 2em;
 }
@@ -34,18 +43,11 @@ hr {
 
 // Images never expand beyond the article bounds, and are centred when
 // they're too small.
-img, video {
-  @include centred(100%);
+img, video, figure {
+  max-width: 100%;
   display: block;
-}
-
-svg {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 iframe {
   display: block;
-  margin-left:  auto;
-  margin-right: auto;
 }
