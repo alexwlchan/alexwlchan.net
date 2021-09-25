@@ -5,10 +5,10 @@
 {% endif %}
 
 <meta name="twitter:site" content="@{{ site.social.twitter }}" />
-<meta name="twitter:title" content="{{ page.title }}" />
+<meta name="twitter:title" content="{{ page.title | escape }}" />
 
 {% if page.summary %}
-  <meta name="twitter:description" content="{{ page.summary }}">
+  <meta name="twitter:description" content="{{ page.summary | escape }}">
 {% endif %}
 
 {% if page.theme.image %}
@@ -25,8 +25,8 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:title" content="{{ page.title }}">
+<meta property="og:title" content="{{ page.title | escape }}">
 
 {% if page.summary %}
-  <meta property="og:description" content="{{ page.summary }}" />
+  <meta property="og:description" content="{{ page.summary | escape }}" />
 {% endif %}
