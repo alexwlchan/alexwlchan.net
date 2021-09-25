@@ -9,6 +9,13 @@ pool:
 
 steps:
 
+- checkout: self
+
+  # Only fetch a single commit; my build doesn't do anything with
+  # the commit history.
+  # See https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?viewFallbackFrom=vsts&tabs=schema%2Cparameter-schema&view=azure-devops#checkout
+  fetchDepth: 1
+
 - script: "make build-drafts"
   displayName: "Build the site"
 
