@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-09-25 15:41:44 +0000
 title: Getting a monthly cloud costs report in Slack
 summary: To help us be more aware of our AWS bill, and more deliberate in what we spend, we've set up a monthly report of all our cloud bills to Slack.
 tags: aws aws-billing
