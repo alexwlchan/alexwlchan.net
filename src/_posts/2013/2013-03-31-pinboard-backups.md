@@ -24,7 +24,7 @@ Finally, I drew inspiration from Dr. Drang's series of posts on [archiving tweet
 
 So without further ado, here's the script:
 
-{% highlight python linenos %}
+```python
 import os
 import pytz
 from datetime import datetime
@@ -55,7 +55,7 @@ bookmarkfile = open(bookmarkdir + y + '/pinboard-backup.' + t + '.xml', 'w')
 u = urllib2.urlopen(pinboard_api + 'posts/all?auth_token=' + me + ':' + token)
 bookmarkfile.write(u.read())
 bookmarkfile.close()
-{% endhighlight %}
+```
 
 The first section defines the parameters for the script: where the bookmarks are stored and the version of the Pinboard API that I'm using. The `datetime` code to get strings of the date are used later to set up the particular structure I wanted for my backups.
 

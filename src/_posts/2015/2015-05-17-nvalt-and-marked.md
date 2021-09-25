@@ -22,7 +22,7 @@ I've written a Python script to replace the AppleScript, which seems to solve bo
 
 The main part of the script is a function, `get_note_path()`, which looks up the path to the frontmost note in nvALT. Here it is:
 
-{% highlight python linenos %}
+```python
 import os
 
 from applescript import asrun, asquote
@@ -49,7 +49,7 @@ def get_note_path():
         if name == title:
             filepath = os.path.join(NOTEDIR, filename)
             return filepath
-{% endhighlight %}
+```
 
 I'm using Dr. Drang's [`applescript` module][drang] to get the title of the note: the AppleScript is just a line taken from Patrick's script. Since `asrun()` includes a newline, I have to remove that first.
 
