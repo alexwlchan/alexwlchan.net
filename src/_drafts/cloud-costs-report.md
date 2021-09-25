@@ -15,16 +15,15 @@ Each line includes both the latest bill, and the average from the previous three
 Significant changes (+/&minus;5%) get called out in the rightmost column.
 
 We're not trying to minimise our absolute spend – our current bill is manageable, and we'd rather spend time building new features than cutting costs.
-Instead, we're trying to get a better understanding of how our bill is changing.
-The report highlights whether the bill is rising or falling.
+Instead, we're trying to get a better understanding of how our bill is changing, and the report highlights whether the bill is rising or falling.
 We don't want our bill to grow in an unbounded way, or for reasons we can't explain.
 
 There might be good reasons why the bill is going up.
 For example, if we ingest a lot of new content in the storage service, we'd expect to see a big spike in the storage account.
 But if the bill doubles and nobody knows why, that needs further investigation.
 
-We think it's a good idea for developers to know about the bill.
-Their decisions have a direct impact on the bill, and they're well-placed to identify the source of an unexpected change.
+We think it's a good idea for developers to be aware of the bill.
+Their decisions have a direct impact on its size, and they're well-placed to identify the source of an unexpected change.
 
 Every developer can already see our AWS bills, but it's scattered throughout the AWS console.
 They need to look at every account individually, which is a lot of point-and-clicking – so in practice, nobody does.
