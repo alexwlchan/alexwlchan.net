@@ -2,7 +2,7 @@
 category: Python
 date: 2017-03-25 11:27:00 +0000
 index:
-  best_of: true
+  exclude: true
 layout: post
 summary: I use Python-Markdown to render posts for my site. Here are a few examples
   of the extensions I'm using.
@@ -26,7 +26,9 @@ The Python-Markdown documentation explains [how to use extensions][ref]:
 >  The list of extensions may contain instances of extensions and/or strings
 > of extension names.
 >
-> <pre>extensions=[MyExtension(), <span class="s1">&quot;path.to.my.ext&quot;</span>]</pre>
+> ```python
+> extensions=[MyExtension(), "path.to.my.ext"]
+> ```
 
 Every time I had to use Python-Markdown, I'd look at this paragraph, click straight through to the [extensions page][ext], copy the names of the extensions I wanted, and use them as strings.
 But because that was enough to get me going, I never stopped to read the next paragraph on the reference page:
@@ -85,19 +87,49 @@ And now by passing `fn_extension` instead of `'markdown.extensions.footnotes'`, 
 Python-Markdown also includes extensions for doing syntax-highlighting of code blocks – I used them several times in the last section.
 
 One of the options on your code blocks is whether to include line numbers on your code blocks.
-Here's an example with and without:
+Here's an example with:
 
-{% highlight python linenos %}
-def hello_world(name):
-    """Prints a friendly greeting."""
-    print('Hello %s!' % name)
-{% endhighlight %}
+{% comment %}
 
-```python
-def hello_world(name):
-    """Prints a friendly greeting."""
-    print('Hello %s!' % name)
-```
+Markdown source file:
+
+    Here's an example with:
+
+        #!python
+        def hello_world(name):
+            """Prints a friendly greeting."""
+            print('Hello %s!' % name)
+
+    And without:
+
+        :::python
+        def hello_world(name):
+            """Prints a friendly greeting."""
+            print('Hello %s!' % name)
+
+And rendered with Python:
+
+    from markdown.extensions.codehilite import CodeHiliteExtension
+    from markdown import markdown
+
+    print(markdown(open("s.md").read(), extensions=[CodeHiliteExtension()]))
+
+{% endcomment %}
+
+<table class="codehilitetable" style="width: 100%;"><tr><td class="linenos"><div class="linenodiv"><pre style="margin-right: 0">1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre style="border-left: none; margin-left: 0;"><span></span><code><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prints a friendly greeting.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+And without:
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prints a friendly greeting.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
 
 Code blocks use four-space indents, and a shebang or triple-colon on the first line to indicate whether you want line numbers or not:
 
