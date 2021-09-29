@@ -114,6 +114,9 @@ Here are a few examples:
   <tr><td class="tick">✔</td><td><code>x/y/../../x/../x/y</code></td></tr>
 </table>
 
+Imagine if S3 *did* allow you to create these forbidden keys.
+If you were to sync such a key to your local filesystem, it would write that file somewhere outside your current directory – which could have all sorts of unexpected consequences!
+
 I shudder to think about the edge cases this code has to handle.
 
 
