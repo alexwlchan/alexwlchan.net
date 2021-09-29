@@ -4,6 +4,14 @@ podcasts:
   title: Using the Cloud to Preserve the Future
   url: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-cloud-to-preserve-the-future-with-alex-chan/
 talks:
+- date: 2021-09-28
+  event: SeptembRSE
+  title: "Missing narratives in discussions around diversity and inclusion"
+  links:
+    event: https://septembrse.github.io/#/event/L1001
+    video: https://www.youtube.com/watch?v=tpxCWCTSZUc&t=2014s
+    notes: https://pad.sfconservancy.org/p/missing-narrative-rse-panel-2021
+    more notes: https://pad.sfconservancy.org/p/missing-narrative-rse-panel-2021
 - date: 2021-07-06
   event: Cambridge Python User Group
   links:
@@ -14,10 +22,7 @@ talks:
   description: 'A quick flavour of digital preservation at Wellcome: the processes,
     practices, and tools we use.
 
-    How do we create, store, and present our digital archives?
-
-
-    '
+    How do we create, store, and present our digital archives?'
   event: GLAM Digital Lunch, Cambridge
   links:
     event: https://www.eventbrite.co.uk/e/glam-digital-champions-digital-lunch-october-tickets-73928130027
