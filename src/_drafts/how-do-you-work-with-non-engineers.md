@@ -15,13 +15,14 @@ Respect the competency and expertise of your peers, including those who work in 
 
 I [dislike the term "non-technical"][non_technical] when it's used as synonymous with "doesn't write code" or something similar.
 People can be technical – that is to say, skilled – in disciplines which have nothing to do with software.
+Calling somebody "non-technical" is a subtle way to belittle them.
 
 Then talk to people in their own terms.
 Don't try to overwhelm them with technical jargon or unnecessary detail.
 When you need to explain something, describe what they need to know to do thier job, and in a way they'll understand.
 
-For example, when I'm talking about Amazon S3, I might call it a "highly-available, distributed cloud object store" when talking to another engineer, but a "place to put files" when talking to a librarian.
-The second explanation is accurate, and in terms they'll understand.
+For example, when I'm describing Amazon S3, I might call it a "distributed cloud object store" when chatting with another engineer, but a "place to put files" when talking to a librarian.
+The second explanation is accurate and makes sense, but it doesn't explain more than they need.
 
 (This doesn't mean dumbing a topic down down, or offering a patronising explanation.
 Remember: respect their competence and expertise.
