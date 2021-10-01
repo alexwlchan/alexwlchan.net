@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-10-01 15:18:28 +0000
 title: How do you work with non-engineers?
 summary: Building a relationship founded on trust and respect.
 tags: work interpersonal-skills
