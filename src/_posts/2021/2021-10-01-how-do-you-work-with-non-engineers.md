@@ -19,8 +19,8 @@ People can be technical – that is to say, skilled – in disciplines which hav
 Calling somebody "non-technical" is a subtle way to belittle them.
 
 Then talk to people in their own terms.
-Don't try to overwhelm them with technical jargon or unnecessary detail.
-When you need to explain something, describe what they need to know to do thier job, and in a way they'll understand.
+Don't try to overwhelm them with engineering jargon or unnecessary detail.
+When you need to explain something, describe what they need to know to do their job, and in a way they'll understand.
 
 For example, when I'm describing Amazon S3, I might call it a "distributed cloud object store" when chatting with another engineer, but a "place to put files" when talking to a librarian.
 The second explanation is accurate and makes sense, but it doesn't explain more than they need.
