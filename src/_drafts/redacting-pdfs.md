@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Beware the incomplete PDF redaction
+title: Beware of incomplete PDF redactions
 summary: If you're not careful when redacting PDFs, it's possible to share more information than you intended.
 tags: images python
 ---
 
 A while back I was reviewing some legal documents.
-I had to check that everything was correct, and that they were ready to be made public.
+As part of my review, I was checking that everything was suitable to be made public.
 
-To avoid leaking personal information, black boxes had been added to redact certain sections:
+Black boxes had been added to redact certain sections, to prevent leaking personal information like signatures and addresses:
 
 <img src="/images/2021/redacted_contract.png" style="width: 287px;">
 
@@ -18,34 +18,53 @@ As I dragged to select text, the boxes weren't being selected.
 
 If the boxes were separate – could they be removed?
 
-If they could be removed – could I get the personal information that was meant to be redacted?
+If they could be removed – would you see the redacted information?
 
-I found a blog post with [code for extracting images from a PDF in Python][external_post], which I adapted into [my own script][own_script].
-I ran it over the PDFs, and to my horror, a bunch of images that were meant to be redacted fell out.
+Obviously, I had to try.
+
+  {% separator "shhhh.svg" %}
+
+I know you can pull apart PDF documents with advanced PDF editors like [Adobe Acrobat Pro][acrobat], but I don't know how to use any of those programs.
+I did download a free trial and play around, but I didn't get anywhere useful.
+
+I also know you can manipulate PDFs in Python, which I've done before.
+I found a blog post with some Python for [extracting all the images from a PDF][external_post], which I adapted into [my own script][own_script].
+I ran my script over the legal documents, and to my horror, it produced a bunch of images that should have been redacted.
+And if I could do it, so could somebody else.
+
 Oops.
 
-PDF is a complicated format, and getting redaction right is moderately tricky.
+  {% separator "shhhh.svg" %}
+
+The person who'd sent me the documents had tried to redact the information, and to them it looked like they'd succeeded.
+What went wrong?
+
+The problem is that PDF is a complicated format, and getting redaction right is moderately tricky.
 
 PDF documents can be made up of multiple layers, and when you view the document those layers get flattened into a single page.
-In this case, the black rectangle was on a separate layer to the unredacted document:
+Imagine the layers are stacked vertically, and you're looking down at them from above.
+In this case, there were two layers: an image layer with the original document, and a transparent layer with a black rectangle over the area that was meant to be redacted:
 
 <img src="/images/2021/pdf_with_layers.png" style="width: 369px;">
 
-I was able to extract the original layers, and the redacted information.
-Although I used a Python script, plenty of other programs can also extract individual PDF layers – so this wouldn't have been safe to make public.
+Although it looked as if the personal information had been removed, you could still get it by inspecting the individual layers.
+The information wasn't really gone, just hidden.
 
-If you want to redact information in a PDF safely, you need to remove it from the original layer.
-This means that even if somebody picks apart the original layers, they can't find the information:
+If you want to redact information in a PDF safely, you need to remove it from all the layers.
+This means that even if somebody picks apart the document, they can't find what you've removed:
 
 <img src="/images/2021/pdf_single_layer.png" style="width: 369px;">
 
 The problem is, a PDF with and without layers look near identical.
 There was a difference which tipped me off to the issue, but it's so subtle I don't know how to explain it.
 
-I'd love to provide a foolproof approach to redacting PDFs; a set of how-to steps that guarantee security.
-Unfortunately it's not something I do very often, and I'm not sure I could do it correctly – using the layers is one way to get around redaction, but maybe there's another I'm not aware of.
+I'd love to tell you how to redact PDFs; a set of steps that guarantee information security.
+Unfortunately I don't redact PDFs very often, and I don't know how to do it safely – looking at the layers is one way to get around redaction, but maybe there's another I'm not aware of.
 
+Instead, take this as a cautionary tale.
+PDFs are fiddly, and it's easy to have something that looks redacted but actually isn't.
+If you're not sure how to do it, get somebody more experienced to check your work – don't just draw a rectangle and call it a day.
 
-
+[acrobat]: https://www.adobe.com/uk/acrobat/acrobat-pro.html
 [external_post]: https://www.thepythoncode.com/code/extract-pdf-images-in-python
 [own_script]: /files/2021/extract_images_from_pdf.py
