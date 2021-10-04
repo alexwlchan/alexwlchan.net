@@ -3,6 +3,9 @@ layout: post
 title: Beware of incomplete PDF redactions
 summary: If you're not careful when redacting PDFs, it's possible to share more information than you intended.
 tags: images python
+theme:
+  card_type: summary_large_image
+  image: /images/2021/redaction_cover_image.png
 ---
 
 A while back I was reviewing some legal documents.
@@ -45,7 +48,7 @@ PDF documents can be made up of multiple layers, and when you view the document 
 Imagine the layers are stacked vertically, and you're looking down at them from above.
 In this case, there were two layers: an image layer with the original document, and a transparent layer with a black rectangle over the area that was meant to be redacted:
 
-<img src="/images/2021/pdf_with_layers.png" style="width: 369px;">
+<img src="/images/2021/pdf_with_layers.png" style="width: 369px;" alt="A red eye looking down towards two rectangles (representing layers) that are stacked vertically. The lower layer has the signed contract; the upper layer has a black box.">
 
 Although it looked as if the personal information had been removed, you could still get it by inspecting the individual layers.
 The information wasn't really gone, just hidden.
@@ -53,7 +56,7 @@ The information wasn't really gone, just hidden.
 If you want to redact information in a PDF safely, you need to remove it from all the layers.
 This means that even if somebody picks apart the document, they can't find what you've removed:
 
-<img src="/images/2021/pdf_single_layer.png" style="width: 369px;">
+<img src="/images/2021/pdf_single_layer.png" style="width: 369px;" alt="A red eye looking down towards a single rectangles (representing a layer). The layer has the signed contract with the signature covered by a black box.">
 
 The problem is, a PDF with and without layers look near identical.
 There was a difference in my PDF viewer which tipped me off to the issue, but it's so subtle I don't know how to explain it.
