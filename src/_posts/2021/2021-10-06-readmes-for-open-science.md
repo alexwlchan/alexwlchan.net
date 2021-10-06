@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-10-06 21:39:30 +0000
 title: READMEs for Open Science
 summary:
 tags: documentation open-life-science talks
