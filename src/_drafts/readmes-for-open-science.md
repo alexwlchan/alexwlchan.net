@@ -16,7 +16,7 @@ In the meantime, you can download my slides [as a PDF][pdfslides] or read my (lo
 This is my second talk for OLS -- last year I talked about how [inclusion can't be an afterthought][inclusion].
 
 [openlife]: https://openlifesci.org/
-[pdfslides]: /files/2020/ols-readme.pdf
+[pdfslides]: /files/2021/ols-readme.pdf
 [inclusion]: /2020/03/inclusion-cant-be-an-afterthought/
 
 <style>
