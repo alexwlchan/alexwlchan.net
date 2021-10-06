@@ -7,6 +7,8 @@ tags: aws aws-billing
 theme:
   card_type: summary_large_image
   image: /images/2021/costs_report_2x.png
+index:
+  best_of: true
 ---
 
 The AWS bill is everyone's most expensive horror story.

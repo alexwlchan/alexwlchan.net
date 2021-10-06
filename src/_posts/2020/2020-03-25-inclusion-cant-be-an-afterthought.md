@@ -4,7 +4,7 @@ date: 2020-03-25 13:03:10 +0000
 title: Inclusion can't be an afterthought
 summary: Notes from a talk about inclusion in design and unconscious bias.
 category: Diversity, inclusion and accessibility
-tags: inclusion open-life-science
+tags: inclusion talks
 theme:
   color: 20883f
 ---
@@ -15,10 +15,11 @@ I was emphasising that inclusion has to be part of the design process, not an af
 [openlife]: https://openlifesci.org/
 [ubias]: https://en.wikipedia.org/wiki/Cognitive_bias
 
-The cohort calls are recorded, but I'm not sure if the recordings are made public; I'll add a link here if I find out more.
-In the meantime, you can download my slides [as a PDF][pdfslides] or read my notes below.
+The cohort calls are recorded, and you can watch [a video on YouTube][video].
+You can also download my slides [as a PDF][pdfslides] or read my notes below.
 
 [pdfslides]: /files/2020/ols-afterthought.pdf
+[video]: https://www.youtube.com/watch?v=81mG4L7S3Oc&t=684s
 
 <style>
   .slide img {
