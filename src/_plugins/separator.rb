@@ -41,6 +41,9 @@ module Jekyll
         svg_doc.to_xml(indent: 0)
           .gsub('<?xml version="1.0" encoding="UTF-8"?>', "")
           .gsub('<?xml version="1.0"?>', "")
+          .gsub('#000000', '#f0f0f0')  # $light-grey in the CSS
+          .gsub('height="300px"', 'height="50px"')
+          .gsub('width="300px"', 'width="50px"')
 
       "<center class='separator'>" + svg + "</center>"
     end
