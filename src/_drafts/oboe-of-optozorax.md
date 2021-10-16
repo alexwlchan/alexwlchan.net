@@ -12,6 +12,8 @@ tags: fiction
 
 *I suggested going formal and calling it "of" them, and [Ada] pointed out that "Optozorax" is begging to be used as a mystical artefact name. I ran with this idea, and half a dozen such artefacts came out. I'm sharing it here so it can be enjoyed by a wider audience.*
 
+*This work is also posted [on AO3](https://archiveofourown.org/works/34533667).*
+
 {% separator "oboe.svg" %}
 
 The oboe of Optozorax has been seen in music halls around the world.
