@@ -93,7 +93,7 @@ Here's how they work:
   <dt><code>=MATCH(0,F1:F13,0)</code></dt>
   <dd>
     The <a href="https://support.office.com/en-us/article/MATCH-function-E8DFFD45-C762-47D6-BF89-533F4A37673A"><code>MATCH</code> function</a> finds the first time a value appears in a collection &mdash; in this case, I&rsquo;m telling it to find the first time a cell in the range <code>F1:F13</code> has the value <code>0</code>.
-    (The value Im looking for is the first argument; the third argument tells MATCH how to compare values in the cell range it&rsquo;s checking.)
+    (The value I'm looking for is the first argument; the third argument tells MATCH how to compare values in the cell range it&rsquo;s checking.)
     In this case, it tells us that the 12th element in the range of cells &ndash; that is, the 12th row &ndash; is the first time the value at the end of the month is 0.
     So we know the 12th row is when the loan was paid off.
   </dd>
