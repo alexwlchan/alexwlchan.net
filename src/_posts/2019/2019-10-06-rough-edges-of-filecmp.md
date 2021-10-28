@@ -27,7 +27,7 @@ False
 
 I went to re-read the docs, and it turns out I'd forgotten a detail -- by default, `filecmp.cmp` only compares the os.stat() signature of the two files.
 If that matches, it tells you the files are the same, regardless of the contents.
-If you want an actual byte-for-byte comparison, you need to pass `shallow=True`:
+If you want an actual byte-for-byte comparison, you need to pass `shallow=False`:
 
 ```python
 >>> filecmp.cmp(path1, path2, shallow=False)
