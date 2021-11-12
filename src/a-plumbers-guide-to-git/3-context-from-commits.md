@@ -6,7 +6,7 @@ meta:
   - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
 ---
 
-If you've got this far, you should have finished [part 1][part 1] and [part 2] -- if not, revise those first.
+If you've got this far, you should have finished [part 1][part 1] and [part 2] -- if not, return to those first.
 
 In the first two parts, we saw how to use trees to take a snapshot of an entire repository -- but we don't know why particular trees are significant.
 Why was this an interesting snapshot of the repo?
