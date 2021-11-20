@@ -492,6 +492,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
   <li class="illustrated_item">
     <dl>
       <dt>
+        <a href="https://marquee-rocket.glitch.me">&lt;marquee&gt; rocket</a>
+      </dt>
+      <dd>
+        Controlling a tiny rocket using nothing but the &lt;marquee&gt; tag.
+        This came from <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
+      </dd>
+    </dl>
+    <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
+      <img src="/images/projects/marqueerocket.png" alt="A black background with simple buttons for up/down/left/right direction controls, and some play/pause/faster/slower speed controls. There's also an emoji rocket moving around on the black background.">
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
         <a href="https://github.com/alexwlchan/happybackgrounds">happybackgrounds</a>
       </dt>
       <dd>
