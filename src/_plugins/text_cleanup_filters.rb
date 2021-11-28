@@ -16,6 +16,9 @@ module Jekyll
       text = text.sub("iPhone X", "iPhone&nbsp;X")
       text = text.sub("JPEG 2000", "JPEG&nbsp;2000")
 
+      # e.g. k-means
+      text = text.sub("<em>k</em>-means", "<em>k</em>&#8209;means")
+
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
         "LaTeX",
