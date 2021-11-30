@@ -40,17 +40,19 @@ For example:
 <code style="color: #c53b4e;">█ #c53b4e</code></pre>
 </div>
 
-You can read [the README on GitHub][dominant_colours] to learn how to install and how to use it.
-In this post, I'll talk a bit about how I wrote it.
+You can read [the README on GitHub][dominant_colours] to learn how to install it and how to use it.
+In this post, I'll explain how I wrote it.
+
+
 
 ## Motivation
 
 I started thinking about dominant colours several years ago, when I wrote [Getting a tint colour from an image with Python and *k*-means][kmeans].
 
-I works pretty well, and I started using it in a bunch of projects -- and for each new project, I'd copy/paste the code.
+It works pretty well, and I started using it in a bunch of projects -- and for each new project, I'd copy/paste the code.
 Different copies started to diverge as I tweaked and optimised the code, and I no longer had a canonical implementation of this idea.
 
-Creating a single tool that other projects can invoke gets me back to a single implementation.
+I wanted to get back to a single implementation, so that I could put all my ideas in one place -- rather than having them spread over multiple projects.
 
 I also wanted it to be faster.
 I use this code in a bunch of interactive scripts, and the Python implementation takes a second or so to run.
@@ -60,14 +62,22 @@ That may not seem like much, but it gets noticeable if you have to wait for it r
 
 ## How it works
 
-I wrote this tool in Rust.
-(More on that below.)
+dominant_colours is written in Rust.
 
 The heavy lifting is done by [Collyn O'Kane's kmeans-colors project][kmeans_lib], which includes a generic *k*-means library.
 I did consider using the CLI tool that's part of the project, but it has lots of features I wouldn't use.
 I wrote dominant_colours with the ["do one thing and do it well"][do_one_thing] mantra in mind.
 
-I've wrapped the *k*-means library in a command-line interface created with [clap].
+I downsize all the images to be within 400&times;400&nbsp;pixels before passing them to the *k*-means process.
+This makes the whole process much faster, because there are less pixels to deal with -- and it doesn't have much effect on the result.
+If a colour was only visible in a fine detail that got lost in scaling, it probably wasn't a dominant colour.
+
+Similarly, if I've got an animated GIF, I only take a sample of the frames, which are each in turn downsized to 100&times;100.
+This dramatically reduces the number of pixels I have to deal with.
+(The biggest GIF I have saved locally is 720&times;1019 and has 650 frames -- nearly half a billion pixels.
+Sampling and resizing reduces that to a much more managable 350k pixels.)
+
+I've wrapped the *k*-means process in a command-line interface created with [clap].
 There's one argument and one flag which get used to configure the *k*-means process.
 
 To draw coloured text in the terminal, I'm using ANSI escape codes, adapting some Python from [another blog post I've written][ansi].
@@ -78,12 +88,15 @@ To draw coloured text in the terminal, I'm using ANSI escape codes, adapting som
 
 This is the fourth tool I've written in Rust.
 
-I've been picking Rust for small, standalone, interactive tools -- command-line applications that do all their work locally.
-Rust is much faster than Python (my default choice for new tools), and for interactive stuff I really notice the difference.
-It takes more work upfront, but I no longer feel like I'm waiting for my code to run.
-Running a compiled Rust binary seems practically instant.
+I've been increasingly picking Rust for small, standalone, interactive tools -- command-line applications that do all their work locally.
+Rust binaries can be much faster than Python (the language I'm most familiar with), and for interactive stuff I really notice the difference.
 
-I'm not using Rust for anything that involves the Internet, because the network latency negates a lot of that speed benefit.
+I did some informal benchmarks of dominant_colours -- for even moderately sized images, it only takes a fraction of a second.
+By comparison, Python takes at least a second for even the smallest image.
+This different is really noticeable.
+A process that completes in a tenth of a second feels almost instant; a process that takes a second or more is a perceptible delay.
+
+I'm not yet using Rust for anything that involves the Internet, because the network latency negates a lot of that speed benefit.
 If I'm waiting multiple seconds for a remote server to give a response, I won't notice if I shave off half a second on my end.
 
 As I was writing Rust, I was struck by the quality of the compiler errors.
@@ -108,145 +121,9 @@ For more information try --help</span></code></pre>
 </div>
 </div>
 
-That's more helpful than any other tool I've seen, and it's the default behaviour if you use Clap.
-I stumbled upon this by accident, and I'm incredibly impressed.
-This focus on UX and error handling is likely to swing me towards Rust and Clap for more projects in future.
-
-
-
-## Benchmarks
-
-<style>
-  tr td:nth-child(2) {
-    text-align: center;
-  }
-
-  tr td:nth-child(3), tr td:nth-child(4), tr td:nth-child(5), tr td:nth-child(6) {
-    text-align: right;
-  }
-
-  table {
-    width: calc(100% - 40px);
-    border-collapse: collapse;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    background-color: rgba(182,182,182,0.09);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  th {
-    border-top:    3px solid rgba(153,153,153,0.6);
-    border-bottom: 1.5px solid rgba(153,153,153,0.6);
-  }
-
-  table tr:last-child td {
-    border-bottom: 3px solid rgba(153,153,153,0.6);
-  }
-
-  td, th {
-    padding: 5px;
-  }
-
-  tr td:nth-child(1), tr th:nth-child(1) {
-    padding-left: 8px;
-  }
-
-  tr td:last-child, tr th:last-child {
-    padding-right: 8px;
-  }
-</style>
-
-One reason to use Rust was to get a faster tool -- I run this in a bunch of interactive scripts, and the latency of the Python version is noticeable.
-It felt faster, but I wanted to see if that was actually true.
-I compared the performance of various implementations with some images:
-
--   A solid green PNG, which I have for easy testing.
-    I thought this would be fast because the *k*-means process should converge immediately.
--   PNG screenshots: one of my screen, one of a single window
--   A JPEG image showing a computer-generated mind map, with large areas of solid colour
--   A JPEG photo of two people, with no areas of solid colour
--   Animated GIFs of various sizes, including the largest one I had saved locally
-
-I ran these tests on my 2016 MacBook – a five-year old machine that was slow when it was new.
-
-These are the results:
-
-<table style="width: 100%;">
-  <tr class="header">
-    <th>image</th>
-    <th>dimensions</th>
-    <th>size</th>
-    <th style="min-width: 123px;">Python</th>
-    <th style="min-width: 123px;">Rust (debug)</th>
-    <th style="min-width: 123px;">Rust (release)</th>
-  </tr>
-  <tr>
-    <td style="padding-right: 10px;">PNG, solid green</td>
-    <td>500 &times; 500</td>
-    <td>5KB</td>
-    <td>1.08s</td>
-    <td>0.89s</td>
-    <td>0.06s</td>
-  </tr>
-  <tr>
-    <td>PNG, small screenshot</td>
-    <td>1228 &times; 614&nbsp;</td>
-    <td>72KB</td>
-    <td>1.01s</td>
-    <td>1.49s</td>
-    <td>0.05s</td>
-  </tr>
-  <tr>
-    <td>PNG, large screenshot</td>
-    <td>2880 &times; 1800</td>
-    <td>2MB</td>
-    <td>0.94s</td>
-    <td>9.06s</td>
-    <td>0.18s</td>
-  </tr>
-  <tr>
-    <td>JPEG, graphic</td>
-    <td>800 &times; 786</td>
-    <td>180KB</td>
-    <td>1.28s</td>
-    <td>1.61s</td>
-    <td>0.17s</td>
-  </tr>
-  <tr>
-    <td>JPEG, photo</td>
-    <td>2500 &times; 4379</td>
-    <td>2MB</td>
-    <td>0.90s</td>
-    <td>13.37s</td>
-    <td>0.51s</td>
-  </tr>
-  <tr>
-    <td>Small animated GIF</td>
-    <td>&nbsp;500 &times; 576<br/>15 frames</td>
-    <td>1MB</td>
-    <td>2.80s</td>
-    <td>5.55s</td>
-    <td>0.17s</td>
-  </tr>
-  <tr>
-    <td>Large animated GIF</td>
-    <td>&nbsp;720 &times; 1019<br/>650 frames</td>
-    <td>13.9MB</td>
-    <td>6.81s</td>
-    <td>212.50s</td>
-    <td>6.19s</td>
-  </tr>
-</table>
-
-There aren't any big surprises here: the Rust version is much faster than Python, and bigger images take longer to process.
-
-I am surprised by how much slower a debug build is in Rust.
-It makes sense, it's just surprising.
-I saw something in a library's documentation about certain image operations being slower in debug builds while I was writing this, but I can't find it now.
-
-What these numbers don't convey is the *feel* of this speed.
-A process that completes in a tenth of a second feels almost instant; you notice you're waiting for a process that takes a second or more.
+That's more helpful than any other tool I've seen, and it's the default behaviour in Clap.
+I didn't have to opt-in or do anything special; I didn't even know it was there until I mistyped an argument.
+This focus on UX and error handling means I'm more likely to use Rust and Clap in my next project.
 
 
 
@@ -255,8 +132,8 @@ A process that completes in a tenth of a second feels almost instant; you notice
 I'm replacing all my Python implementations of *k*-means for dominant colours with this tool.
 
 After that, this tool is probably done.
-One of the nice things about writing small, single-purpose tools is that you can finish them.
-I don't want any more features, and I'm not aware of any bugs.
+I don't want any more features, and I'm not aware of any bugs, so don't expect to see a lot of work on it in the future.
+It's one of the nice things about writing small, single-purpose tools: you can finish them.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
 [kmeans]: /2019/08/finding-tint-colours-with-k-means/
