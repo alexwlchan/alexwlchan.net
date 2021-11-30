@@ -41,26 +41,26 @@ For example:
 </div>
 
 You can read [the README on GitHub][dominant_colours] to learn how to install it and how to use it.
-In this post, I'll explain how I wrote it.
+In this post, I'll explain how and why I wrote it.
 
 
 
-## Motivation
+## Why did I write this?
 
 I started thinking about dominant colours several years ago, when I wrote [Getting a tint colour from an image with Python and *k*-means][kmeans].
 
-It works pretty well, and I started using it in a bunch of projects -- and for each new project, I'd copy/paste the code.
-Different copies started to diverge as I tweaked and optimised the code, and I no longer had a canonical implementation of this idea.
+It works pretty well, and I started using it in a bunch of projects -- and for each new project, I'd copy and paste the code.
+Different copies started to diverge as I tweaked and optimised them, and I no longer had a canonical implementation of this idea.
 
 I wanted to get back to a single implementation, so that I could put all my ideas in one place -- rather than having them spread over multiple projects.
 
 I also wanted it to be faster.
-I use this code in a bunch of interactive scripts, and the Python implementation takes a second or so to run.
+I use this code in a bunch of interactive scripts, and the old implementation took a second or so to run.
 That may not seem like much, but it gets noticeable if you have to wait for it regularly.
 
 
 
-## How it works
+## How does it work?
 
 dominant_colours is written in Rust.
 
@@ -80,21 +80,18 @@ Sampling and resizing reduces that to a much more managable 350k pixels.)
 I've wrapped the *k*-means process in a command-line interface created with [clap].
 There's one argument and one flag which get used to configure the *k*-means process.
 
-To draw coloured text in the terminal, I'm using ANSI escape codes, adapting some Python from [another blog post I've written][ansi].
+To draw arbitrary colours in the terminal, I'm using ANSI escape codes, adapting some Python from [another blog post I've written][ansi].
 
 
 
-## Why Rust?
-
-This is the fourth tool I've written in Rust.
+## Why did I pick Rust?
 
 I've been increasingly picking Rust for small, standalone, interactive tools -- command-line applications that do all their work locally.
-Rust binaries can be much faster than Python (the language I'm most familiar with), and for interactive stuff I really notice the difference.
+Rust binaries can be much faster than Python (the language I'd otherwise use), and for interactive stuff I really notice the difference.
 
 I did some informal benchmarks of dominant_colours -- for even moderately sized images, it only takes a fraction of a second.
 By comparison, Python takes at least a second for even the smallest image.
-This different is really noticeable.
-A process that completes in a tenth of a second feels almost instant; a process that takes a second or more is a perceptible delay.
+This different is really noticeable -- a process that completes in a tenth of a second feels instant; a process that takes a second or more is a perceptible delay.
 
 I'm not yet using Rust for anything that involves the Internet, because the network latency negates a lot of that speed benefit.
 If I'm waiting multiple seconds for a remote server to give a response, I won't notice if I shave off half a second on my end.
@@ -122,12 +119,12 @@ For more information try --help</span></code></pre>
 </div>
 
 That's more helpful than any other tool I've seen, and it's the default behaviour in Clap.
-I didn't have to opt-in or do anything special; I didn't even know it was there until I mistyped an argument.
+I didn't have to opt-in or do anything special; I didn't realise it was there until I made a genuine typo.
 This focus on UX and error handling means I'm more likely to use Rust and Clap in my next project.
 
 
 
-## What's next
+## What's next?
 
 I'm replacing all my Python implementations of *k*-means for dominant colours with this tool.
 
