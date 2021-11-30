@@ -300,6 +300,11 @@ Usually they solve a very specific problem and I don’t expect anybody else to 
     There’s a CLI to store files, and a web app to search for previously-stored files.
   </dd>
 
+  <dt><a href="https://github.com/alexwlchan/dominant_colours">dominant_colours</a></dt>
+  <dd>
+    Find the dominant colours in an image.
+  </dd>
+
   <dt><a href="https://github.com/alexwlchan/safari.rs">safari.rs</a></dt>
   <dd>
     A command-line tool for getting data from Safari, like the URL of the frontmost window or the number of open tabs.
