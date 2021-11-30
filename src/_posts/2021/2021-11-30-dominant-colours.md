@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2021-11-30 09:30:01 +0000
 title: dominant_colours, a CLI tool for finding dominant colours in an image
 summary: How I wrote my tool for finding dominant colours.
 tags: images colour rust
