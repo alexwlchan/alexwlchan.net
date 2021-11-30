@@ -159,13 +159,14 @@ This focus on UX and error handling is likely to swing me towards Rust and Clap 
 
 One reason to use Rust was to get a faster tool -- I run this in a bunch of interactive scripts, and the latency of the Python version is noticeable.
 It felt faster, but I wanted to see if that was actually true.
-I compared the performance of various implementations with five images:
+I compared the performance of various implementations with some images:
 
 -   A solid green PNG, which I have for easy testing.
     I thought this would be fast because the *k*-means process should converge immediately.
--   PNG screenshots of my screen and a single image
+-   PNG screenshots: one of my screen, one of a single window
 -   A JPEG image showing a computer-generated mind map, with large areas of solid colour
 -   A JPEG photo of two people, with no areas of solid colour
+-   Animated GIFs of various sizes, including the largest one I had saved locally
 
 I ran these tests on my 2016 MacBook – a five-year old machine that was slow when it was new.
 
@@ -219,6 +220,22 @@ These are the results:
     <td>0.90s</td>
     <td>13.37s</td>
     <td>0.51s</td>
+  </tr>
+  <tr>
+    <td>Small animated GIF</td>
+    <td>&nbsp;500 &times; 576<br/>15 frames</td>
+    <td>1MB</td>
+    <td>2.80s</td>
+    <td>5.55s</td>
+    <td>0.17s</td>
+  </tr>
+  <tr>
+    <td>Large animated GIF</td>
+    <td>&nbsp;720 &times; 1019<br/>650 frames</td>
+    <td>13.9MB</td>
+    <td>6.81s</td>
+    <td>212.50s</td>
+    <td>6.19s</td>
   </tr>
 </table>
 
