@@ -108,11 +108,11 @@ We did consider writing the entire book as one, long Twitter thread, but we quic
 This book is over 2000 tweets long, and threads that are more than a hundred tweets or so start getting very slow or unresponsive.
 
 When you look at a tweet in a long thread, your computer pre-emptively loads other tweets in the thread.
-This means you can scripture to read more of the the thread, and you don't have to keep waiting for new tweets to load.
+This means you can scroll to read more of the the thread, and you don't have to keep waiting for new tweets to load.
 If there are too many tweets, your computer just grinds to a halt.
 
 But even if it was technologically possible, I'm still not sure we'd have threaded the tweets.
-You can read all the tweets by scriptureing through the KempisBot timeline, and part of the appeal is that a lot of the tweets work as standalone thoughts.
+You can read all the tweets by scrolling through the KempisBot timeline, and part of the appeal is that a lot of the tweets work as standalone thoughts.
 They don't need to be threaded to make sense.
 
 
