@@ -92,7 +92,7 @@ Rust binaries can be much faster than Python (the language I'd otherwise use), a
 
 I did some informal benchmarks of dominant_colours -- for even moderately sized images, it only takes a fraction of a second.
 By comparison, Python takes at least a second for even the smallest image.
-This different is really noticeable -- a process that completes in a tenth of a second feels instant; a process that takes a second or more is a perceptible delay.
+This difference is really noticeable -- a process that completes in a tenth of a second feels instant; a process that takes a second or more is a perceptible delay.
 
 I'm not yet using Rust for anything that involves the Internet, because the network latency negates a lot of that speed benefit.
 If I'm waiting multiple seconds for a remote server to give a response, I won't notice if I shave off half a second on my end.
