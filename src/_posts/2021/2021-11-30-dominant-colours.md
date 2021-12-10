@@ -109,8 +109,8 @@ This is the error you get from Clap if you misspell an argument:
 <div class="highlight">
 <pre class="highlight">
 <code><span class="gp">$</span> dominant_colours lighthouse.jpg --max-colors=3</code>
-<code><span class="go"><span style="font-weight: bold; color: #d01c11;">error:</span> Found argument '<span style="color: #d0a311;">--max-colors</span>' which wasn't expected, or isn't valid in this context
-      Did you mean <span style="color: #11d01c">--max-colours</span>?
+<code><span class="go"><span class="rustc_error">error:</span> Found argument '<span class="rustc_value">--max-colors</span>' which wasn't expected, or isn't valid in this context
+      Did you mean <span class="rustc_warning">--max-colours</span>?
 
 USAGE:
     dominant_colours &lt;PATH&gt; --max-colours &lt;MAX-COLOURS&gt;
