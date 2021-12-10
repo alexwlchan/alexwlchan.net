@@ -9,7 +9,24 @@ body {
 
 article, #footer_inner, #aside_inner {
   max-width: $max-width;
-  padding: 1px $default-padding;
+  padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
+  padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
+}
+
+#aside_inner {
+  padding-top: calc(1px + env(safe-area-inset-top));
+}
+
+article, #footer_inner {
+  padding-top: 1px;
+}
+
+#aside_inner, article {
+  padding-bottom: 1px;
+}
+
+#footer_inner {
+  padding-bottom: calc(1px + env(safe-area-inset-bottom));
 }
 
 img, video, svg, iframe, figure, article, #footer_inner, #aside_inner {
