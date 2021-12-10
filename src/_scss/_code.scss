@@ -12,6 +12,23 @@ code {
   margin: 2px;
   padding: 3px 3px;
   font-size: 1em * $code-scaling-factor;
+
+  .rustc_error {
+    font-weight: bold;
+    color: #d01c11;
+  }
+
+  .rustc_warning {
+    color: #11d01c;
+  }
+
+  .rustc_value {
+    color: #d0a311;;
+  }
+
+  .rustc_lineno {
+    color: #6871ff;
+  }
 }
 
 // Disable selecting the $ or the following space in ``console`` code blocks.
