@@ -5,18 +5,19 @@ summary: The seven books I most enjoyed in the last year.
 tags: books
 ---
 
-I read 52 books this year, which is a pleasingly round number.
+I read 52 books this year, which is a nice round number.
 I don't set a reading target so there's no "pass/fail" grade for the year, but I'm happy with that.
 
 2021 was when I fell back in love with audiobooks, after many years away.
 As a kid, I had a box full of tape cassettes with my favourite books, but they didn't follow me to the digital era.
-Podcasts stepped in to fill the void left by books, and I'm only starting to adjust the balance.
+Podcasts stepped in to fill the void left by books, and I'm only now starting to adjust the balance.
 
 This was no doubt helped by the excellent audiobook lending programme from [my local library][herts].
 Their player app is [pretty good][app], and I can download DRM-free MP3s if I want to use a different app.
+It's pleasantly simple compared to a lot of modern media.
 
 I've found audiobooks are much easier to listen to when there's a strong narrative – usually fiction – which may be why I read more fiction than non-fiction this year.
-I'd like to read more non-fiction in 2022, but I won't be using audiobooks to do it.
+I like to take [notes as I'm reading][notes], which often means skimming a chapter I've just read, and that's hard to do with an audiobook.
 
 I write notes on individual books at [books.alexwlchan.net][books], usually straight after I finish.
 That has the list of everything I read this year, including books I tried to read but ultimately abandoned.
@@ -218,3 +219,4 @@ These are my seven favourites from 2021, all of which I'd recommend:
 [herts]: https://www.hertfordshire.gov.uk/services/libraries-and-archives/books-and-reading/ebooks-and-audiobooks/ebooks-and-audiobooks.aspx
 [app]: https://twitter.com/alexwlchan/status/1418827399702224896
 [books]: https://books.alexwlchan.net/reviews/#books_by_year_2021
+[notes]: /2020/11/how-i-read-non-fiction-books/
