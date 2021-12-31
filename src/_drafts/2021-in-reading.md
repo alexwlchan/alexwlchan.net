@@ -76,7 +76,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
 <div class="book_review" id="becky_chambers">
   <div class="review_text">
     <p>
-      <strong><a href="https://www.otherscribbles.com/the-galaxy-and-the-ground-within"><em>The Galaxy and the Ground Within</em></a>, by Becky Chambers.</strong>
+      <strong><a href="https://www.otherscribbles.com/the-galaxy-and-the-ground-within"><em>The Galaxy, and the Ground Within</em></a>, by Becky Chambers.</strong>
     </p>
     <p>
       The residents of a space hotel have to make friends after an external crisis means they&rsquo;re stuck inside (sound familiar?).
@@ -91,7 +91,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="https://www.otherscribbles.com/the-galaxy-and-the-ground-within">
-      <img src="/images/2021/the-galaxy-and-the-ground-within.jpg">
+      <img src="/images/2021/the-galaxy-and-the-ground-within.jpg" alt="The cover of “The Galaxy, and the Ground Within”. White serif text with the title and the author's name on top of a purple-tinged view of space.">
     </a>
   </div>
 </div>
@@ -112,7 +112,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="https://www.aliceoseman.com/loveless">
-      <img src="/images/2021/loveless.jpg">
+      <img src="/images/2021/loveless.jpg" alt="The cover of “Loveless”. It’s a purpley-pink background with a black-and-white drawing of a girl texting on her phone. A series of small hearts are drifting upwards out of the phone. The title and author’s name are written in a handwriting-like font at the bottom of the cover.">
     </a>
   </div>
 </div>
@@ -132,7 +132,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="https://www.penguinrandomhouse.com/books/232365/the-underground-railroad-by-colson-whitehead/">
-      <img src="/images/2021/the-underground-railroad.jpg">
+      <img src="/images/2021/the-underground-railroad.jpg" alt="The cover of “The Underground Railroad”. It’s made up of three drawings: a woman looking into the distance, a woman embracing a taller man, and a figure shrouded by darkness holding a lantern.">
     </a>
   </div>
 </div>
@@ -152,7 +152,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="https://www.garrettgraff.com/books/the-only-plane-in-the-sky/">
-      <img src="/images/2021/the-only-plane-in-the-sky.jpg">
+      <img src="/images/2021/the-only-plane-in-the-sky.jpg" alt="The cover of “The Only Plane in the Sky”, with the subtitle “An Oral History of 9/11”. The cover is plain black with the title in gold lettering, and the author's name in small white lettering.">
     </a>
   </div>
 </div>
@@ -172,7 +172,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="http://www.clydeford.com/more.html">
-      <img src="/images/2021/think-black.jpg">
+      <img src="/images/2021/think-black.jpg" alt="The cover of “Think Black”. A man in  a flak cap and dark glasses is holding a newspaper and looking towards the camera. The title is prominently displayed, with the word “Black” made up of horizontal stripes similar to the IBM logo.">
     </a>
   </div>
 </div>
@@ -193,7 +193,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="https://www.alexandriabellefleur.com/written-in-the-stars">
-      <img src="/images/2021/written-in-the-stars.jpg">
+      <img src="/images/2021/written-in-the-stars.jpg" alt="The cover of “Written in the Stars”. It’s a blue background with the title in large white handwritten text, and some constellations dotted around the edges. Along the bottom are two women embracing, and a silhouette of the Seattle skyline.">
     </a>
   </div>
 </div>
@@ -210,7 +210,7 @@ These are my seven favourites from 2021, all of which I'd recommend:
   </div>
   <div class="book_cover">
     <a href="https://mitpress.mit.edu/books/your-computer-fire">
-      <img src="/images/2021/your-computer-is-on-fire.jpg">
+      <img src="/images/2021/your-computer-is-on-fire.jpg" alt="The cover of “Your Computer is on Fire”. It's a yellow background with a simple graphic of a black-and-red fire, the title of the book, and the names of the four editors.">
     </a>
   </div>
 </div>
