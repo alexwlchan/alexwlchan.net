@@ -6,6 +6,16 @@ tags: python books
 title: 'Review: Effective Python'
 ---
 
+<style>
+  .book_review {
+    max-width: 180px;
+    float: right;
+    padding: 10px;
+    padding-left: 15px;
+    margin-top: -100px;
+  }
+</style>
+
 <img src="/images/2015/effective-python.jpg" class="book_review" alt="The cover of “Effective Python”.">
 
 I received a copy of Brett Slatkin's [*Effective Python*](http://www.effectivepython.com) for my birthday.
