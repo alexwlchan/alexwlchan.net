@@ -18,8 +18,6 @@ module Jekyll
     # <iframe> in an RSS feed can be a security risk, so instead we replace
     # such YouTube iframes with a flat link to the page.
     #
-    # TODO: Regex matching is crappy, use Nokogiri to do it properly.
-    #
     # Params:
     # +html+:: HTML string to clean.
     #
