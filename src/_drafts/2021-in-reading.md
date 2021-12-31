@@ -1,0 +1,222 @@
+---
+layout: post
+title: My favourite books from 2021
+summary: The seven books I most enjoyed in the last year.
+tags: books
+---
+
+I read 52 books this year, which is a nice round number.
+I don't set a reading target so there's no "pass/fail" grade for the year, but I'm happy with that.
+
+2021 was when I fell back in love with audiobooks, after many years away.
+As a kid, I had a box full of tape cassettes with my favourite books, but they didn't follow me to the digital era.
+Podcasts stepped in to fill the void left by books, and I'm only now starting to adjust the balance.
+
+This was no doubt helped by the excellent audiobook lending programme from [my local library][herts].
+Their player app is [pretty good][app], and I can download DRM-free MP3s if I want to use a different app.
+It's pleasantly simple compared to a lot of modern media.
+
+I've found audiobooks are much easier to listen to when there's a strong narrative – usually fiction – which may be why I read more fiction than non-fiction this year.
+I like to take [notes as I'm reading][notes], which often means skimming a chapter I've just read, and that's hard to do with an audiobook.
+
+I write notes on individual books at [books.alexwlchan.net][books], usually straight after I finish.
+That has the list of everything I read this year, including books I tried to read but ultimately abandoned.
+
+These are my seven favourites from 2021, all of which I'd recommend:
+
+<style>
+  .book_review {
+    display: grid;
+  }
+
+  .book_review .review_text {
+    grid-column: 1 / 2;
+    grid-row: 1 / 1;
+    margin-top:    auto;
+    margin-bottom: auto;
+  }
+
+  .book_review .review_text p:first-child {
+    margin-top: 0;
+  }
+
+  .book_review .review_text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .book_review .book_cover {
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+    max-width: 150px;
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .book_review .review_text {
+      grid-column: 1 / 1;
+      grid-row: 2 / 2;
+    }
+
+    .book_review .book_cover {
+      grid-column: 1 / 1;
+      grid-row: 1 / 2;
+      margin-bottom: 1em;
+    }
+  }
+
+  .book_review {
+    margin-top:   1em;
+    margin-bottom: 1em;
+  }
+
+  .book_review:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="book_review" id="becky_chambers">
+  <div class="review_text">
+    <p>
+      <strong><a href="https://www.otherscribbles.com/the-galaxy-and-the-ground-within"><em>The Galaxy, and the Ground Within</em></a>, by Becky Chambers.</strong>
+    </p>
+    <p>
+      The residents of a space hotel have to make friends after an external crisis means they&rsquo;re stuck inside (sound familiar?).
+      It&rsquo;s a variety of non-human, alien species, and they use the time together to learn more about each other.
+    </p>
+    <p>
+      I love how truly alien they feel &ndash; not just humans in face paint, they have different social structures, cultural habits, physical biology &ndash; and it made me reflect on what I think of as &ldquo;normal&rdquo;.
+    </p>
+    <p>
+      It&rsquo;s the final entry in the <em>Wayfarers</em> series of space operas, which I adore.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="https://www.otherscribbles.com/the-galaxy-and-the-ground-within">
+      <img src="/images/2021/the-galaxy-and-the-ground-within.jpg" alt="The cover of “The Galaxy, and the Ground Within”. White serif text with the title and the author's name on top of a purple-tinged view of space.">
+    </a>
+  </div>
+</div>
+
+<div class="book_review" id="alice_oseman">
+  <div class="review_text">
+    <p>
+      <strong><a href="https://www.aliceoseman.com/loveless"><em>Loveless</em></a>, by Alice Oseman.</strong>
+    </p>
+    <p>
+      This is a tale of self-discovery and acceptance.
+      Georgia is going to university looking for &ldquo;one true love&rdquo;, but realises she&rsquo;s actually ace-aro &ndash; after learning what ace-aro actually is (<a href="https://en.wikipedia.org/wiki/Asexuality">asexual</a>, <a href="https://en.wikipedia.org/wiki/Romantic_orientation#Aromanticism">aromantic</a>).
+    </p>
+    <p>
+      I&rsquo;m somewhere in the ace-aro probability cloud and this book felt very authentic to me.
+      It resonated strongly (almost painfully so), and I only wish I&rsquo;d been able to read something like this when I was at university.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="https://www.aliceoseman.com/loveless">
+      <img src="/images/2021/loveless.jpg" alt="The cover of “Loveless”. It’s a purpley-pink background with a black-and-white drawing of a girl texting on her phone. A series of small hearts are drifting upwards out of the phone. The title and author’s name are written in a handwriting-like font at the bottom of the cover.">
+    </a>
+  </div>
+</div>
+
+<div class="book_review" id="colson_whitehead">
+  <div class="review_text">
+    <p>
+      <strong><a href="https://www.penguinrandomhouse.com/books/232365/the-underground-railroad-by-colson-whitehead/"><em>The Underground Railroad</em></a>, by Colson Whitehead.</strong>
+    </p>
+    <p>
+      An alt history novel about the American slave trade which reimagines the so-called &ldquo;underground railroad&rdquo; of <a href="https://en.wikipedia.org/wiki/Underground_Railroad">secret routes and safe houses</a> as a literal railroad.
+      It follows Cora, a woman who escapes a cotton plantation in Georgia, and it&rsquo;s unflinching and upfront about the horrors of slavery.
+    </p>
+    <p>
+      There&rsquo;s a TV show based on the book, which is why it was being promoted in the iBooks Store, but I haven&rsquo;t watched the show.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="https://www.penguinrandomhouse.com/books/232365/the-underground-railroad-by-colson-whitehead/">
+      <img src="/images/2021/the-underground-railroad.jpg" alt="The cover of “The Underground Railroad”. It’s made up of three drawings: a woman looking into the distance, a woman embracing a taller man, and a figure shrouded by darkness holding a lantern.">
+    </a>
+  </div>
+</div>
+
+<div class="book_review" id="garrett_graff">
+  <div class="review_text">
+    <p>
+      <strong><a href="https://www.garrettgraff.com/books/the-only-plane-in-the-sky/"><em>The Only Plane in the Sky</em></a>, by Garrett M. Graff.</strong>
+    </p>
+    <p>
+      I don&rsquo;t have strong memories of 9/11 because I was quite young when it happened, and this book helped me understand why it left such an impact.
+    </p>
+    <p>
+      It&rsquo;s a collection of quotes from different people, carefully combined into a single timeline to tell a striking story.
+      The audiobook has a cast of actors interspersed with real audio, and I think it worked better than if I&rsquo;d read it on the printed page.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="https://www.garrettgraff.com/books/the-only-plane-in-the-sky/">
+      <img src="/images/2021/the-only-plane-in-the-sky.jpg" alt="The cover of “The Only Plane in the Sky”, with the subtitle “An Oral History of 9/11”. The cover is plain black with the title in gold lettering, and the author's name in small white lettering.">
+    </a>
+  </div>
+</div>
+
+<div class="book_review" id="clyde_w_ford">
+  <div class="review_text">
+    <p>
+      <strong><a href="http://www.clydeford.com/more.html"><em>Think Black</em></a>, by Clyde W. Ford.</strong>
+    </p>
+    <p>
+      A memoir from the son of the first Black systems engineer at IBM.
+      It&rsquo;s a powerful account of the intersection of race relations and the tech industry, and the struggles of being a Black man at a predominantly white company.
+    </p>
+    <p>
+      The author also worked at IBM, and he contrasts his experience with his father&rsquo;s &ndash; what was different, and what was unchanged.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="http://www.clydeford.com/more.html">
+      <img src="/images/2021/think-black.jpg" alt="The cover of “Think Black”. A man in  a flak cap and dark glasses is holding a newspaper and looking towards the camera. The title is prominently displayed, with the word “Black” made up of horizontal stripes similar to the IBM logo.">
+    </a>
+  </div>
+</div>
+
+<div class="book_review" id="alexandria_bellefleur">
+  <div class="review_text">
+    <p>
+      <strong><a href="https://www.alexandriabellefleur.com/written-in-the-stars"><em>Written in the Stars</em></a>, by Alexandria Bellefleur.</strong>
+    </p>
+    <p>
+      A queer rom-com with Elle (a self-confident astrologist looking for love) and Darcy (a guarded actuary who&rsquo;s sworn off dating).
+      After a disastrous blind date, they start fake dating, but realise neither of them have fake feelings.
+    </p>
+    <p>
+      I fell in love with all the characters and I adored this book.
+      It&rsquo;s part of a trilogy, so the subsequent books are on my reading list for 2022.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="https://www.alexandriabellefleur.com/written-in-the-stars">
+      <img src="/images/2021/written-in-the-stars.jpg" alt="The cover of “Written in the Stars”. It’s a blue background with the title in large white handwritten text, and some constellations dotted around the edges. Along the bottom are two women embracing, and a silhouette of the Seattle skyline.">
+    </a>
+  </div>
+</div>
+
+<div class="book_review" id="computer_fire">
+  <div class="review_text">
+    <p>
+      <strong><a href="https://mitpress.mit.edu/books/your-computer-fire"><em>Your Computer is on Fire</em></a>, edited by Thomas S. Mullaney, Benjamin Peters, Mar Hicks, and Kavita Philip.</strong>
+    </p>
+    <p>
+      A series of essays about technology and computing, countering the myth of a technological utopia, and explaining the inequality and marginalisation caused by the current tech industry.
+      It&rsquo;s a strong collection which doesn&rsquo;t pull its punches, and which I&rsquo;d recommend to anyone working in tech.
+    </p>
+  </div>
+  <div class="book_cover">
+    <a href="https://mitpress.mit.edu/books/your-computer-fire">
+      <img src="/images/2021/your-computer-is-on-fire.jpg" alt="The cover of “Your Computer is on Fire”. It's a yellow background with a simple graphic of a black-and-red fire, the title of the book, and the names of the four editors.">
+    </a>
+  </div>
+</div>
+
+[herts]: https://www.hertfordshire.gov.uk/services/libraries-and-archives/books-and-reading/ebooks-and-audiobooks/ebooks-and-audiobooks.aspx
+[app]: https://twitter.com/alexwlchan/status/1418827399702224896
+[books]: https://books.alexwlchan.net/reviews/#books_by_year_2021
+[notes]: /2020/11/how-i-read-non-fiction-books/
