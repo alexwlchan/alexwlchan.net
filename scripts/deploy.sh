@@ -15,7 +15,7 @@ ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 touch ~/.gitconfig
 
 git config user.name "Azure Pipelines on behalf of Alex Chan"
-git config user.email "azurepipelines_git@alexwlchan.fastmail.co.uk"
+git config user.email "azurepipelines_git@alexwlchan.net"
 
 make deploy
 

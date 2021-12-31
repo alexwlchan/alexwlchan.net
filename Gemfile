@@ -6,7 +6,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap", "~> 1.2"
 end
 
-gem "html-proofer", "~> 3.2"
-gem "nokogiri", "~> 1.8"
-gem "rszr", "~> 0.7"
+gem "html-proofer", "~> 3.19"
+gem "nokogiri", "~> 1.12"
+gem "rszr", "~> 1.0"
 gem "shell-executer", "~> 1.0"
