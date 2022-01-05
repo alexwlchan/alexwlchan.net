@@ -11,6 +11,8 @@ module Jekyll
 
       if @path.end_with?(".py")
         lang = "python"
+      elsif @path.end_with?(".zip")
+        lang = "zip"
       end
 
       name = @path.split("/").last
