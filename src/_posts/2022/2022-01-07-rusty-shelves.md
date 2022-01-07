@@ -2,7 +2,7 @@
 layout: post
 date: 2022-01-07 09:05:51 +0000
 title: Creating coloured bookshelf graphics in Rust
-summary:
+summary: Explaining some code that draws coloured rectangles in a way that looks a bit like an upside-down bookshelf.
 tags: rust images
 ---
 
