@@ -8,8 +8,8 @@ tags: rust images
 In my [last post], I mentioned I have a mini-site where I track the books I've been reading ([books.alexwlchan.net]).
 It's mostly meant for my personal use, which is why I don't talk about it much – but I do want to talk about one of its design elements.
 
-At the top of each page is a header that's meant to look like a gravity-defying bookshelf.
-It's made up of coloured rectangles, which are meant to look like the spines of books:
+At the top of each page is a header that looks like a gravity-defying bookshelf.
+It's made up of coloured rectangles arranged in a line, which are meant to look like the spines of books:
 
 <figure class="wide_img">
   <img src="/images/2022/shelves.png" alt="Three page headers in red, yellow, and blue. Each header is a collection of rectangles of different widths and heights in varying shades of red/yellow/blue, arranged so the top edge of the rectangles forms a straight line.">
@@ -21,7 +21,7 @@ For example, these shelves come from books with [a red cover][red], [a yellow co
 I recently rewrote the code that generates these shelves to use Rust, both for fun and as a learning exercise.
 In this post, I'm going to explain how the new code works.
 
-You may not want to generate these exact images, but the ability to generate graphics like this has been useful in lots of projects – consider it a primer in creating simple images.
+You may not want to generate these exact images, but the ability to generate graphics like this has been useful in lots of projects – consider this a primer in creating simple images.
 
 [last post]: /2021/12/2021-in-reading/
 [books.alexwlchan.net]: https://books.alexwlchan.net/
@@ -39,8 +39,8 @@ This is a problem I've solved before: I use my [dominant_colours tool][dominant_
 Typically I pick a bold or striking colour, not a black or a grey.
 If you're curious how that process works, check out [my explainer post][explainer] about *k*-means colouring.
 
-That gets me a colour, like <code><span style="color: #917546">█</span> #917546</code>.
-Once I have that colour, I generate lots of colours that look very similar – I'll explain how that works later.
+That gets me a primary colour, like <code><span style="color: #917546">█</span> #917546</code>.
+Once I have that colour, I generate lots of colours that look similar – I'll explain how that works later.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
 [explainer]: /2019/08/finding-tint-colours-with-k-means/
@@ -71,7 +71,7 @@ fn main() {
 The type hint tells the compiler that this instance of `ImageBuffer` should have RGBA pixels.
 (I want RGBA because I want anything not part of the bookshelf to be transparent.)
 
-The crate includes some aliases for commonly used pixel types, so we can simplify this:
+The crate includes some aliases for creating `ImageBuffer` instances with commonly used pixel types, so we can simplify this:
 
 ```rust
 use image::RgbaImage;
@@ -131,23 +131,13 @@ Here's what the result looks like:
 You can also modify the image in-place by making it mutable, and using `draw_filled_rect_mut`:
 
 ```rust
-use image::{RgbaImage, Rgba};
+...
 use imageproc::drawing::draw_filled_rect_mut;
-use imageproc::rect::Rect;
 
 fn main() {
     let mut img = RgbaImage::new(200, 100);
 
-    // (0, 255, 0) = #00ff00 = green
-    // The final '255' is the alpha value = fully opaque
-    let green = Rgba::from([0, 255, 0, 255]);
-
-    // A rectangle whose upper-left corner is at (20, 10), which is
-    // 40 pixels wide and 30 pixels tall.
-    //
-    // The origin is the top left-hand corner, and coordinates
-    // increase as you move right and down.
-    let rect = Rect::at(20, 10).of_size(40, 30);
+    ...
 
     draw_filled_rect_mut(&mut img, rect, green);
 
@@ -155,12 +145,12 @@ fn main() {
 }
 ```
 
-The `imageproc` documentation doesn't when you should use which function, but we can see the difference by [looking at the code][code].
-For example, `draw_filled_rect()` copies the image into a new buffer, then calls `draw_filled_rect_mut()`.
+The `imageproc` documentation doesn't explain when you should use which function, but we can see the difference by [looking at the code][code].
+For example, `draw_filled_rect` copies the image into a new buffer, then calls `draw_filled_rect_mut`.
 This means the in-place version is more efficient, because you don't have to copy the image first – but you lose the previous version of the image.
 
-For the rest of this post. I'm going to use the in-place version, because I'm building up a single image.
-I don't care about keeping previous versions.
+For the rest of this post. I'm going to use the in-place function, because I'm building up a single image.
+I don't care about keeping previous versions of the image.
 
 Here's one more example, drawing multiple shapes on a canvas:
 
@@ -177,9 +167,9 @@ use imageproc::rect::Rect;
 fn main() {
     let mut img = RgbaImage::new(200, 100);
 
-    let green = Rgba::from([0, 255, 0, 255]);
+    let green     = Rgba::from([0, 255, 0, 255]);
     let turquoise = Rgba::from([0, 255, 255, 255]);
-    let pink = Rgba::from([255, 0, 255, 255]);
+    let pink      = Rgba::from([255, 0, 255, 255]);
 
     draw_filled_rect_mut(
         &mut img, Rect::at(20, 10).of_size(40, 30), green
@@ -240,7 +230,7 @@ I've got a function `generate_rectangles()` that creates a list of rectangles.
 It takes a bound on the width and height of individual rectangles, and the total width of the image.
 
 I'm passing the options as a struct because it's the best way to do named arguments in Rust.
-The alternative would be to pass the struct fields directly as parameters, which leads to code like this:
+The alternative would be to pass the values as parameters to the function, which leads to code like this:
 
 ```rust
 generate_rectangles((5..30), (60..90), 500)
@@ -251,7 +241,7 @@ Much lessclear!
 Originally I had individual struct fields for min/max width and min/max height, but I refactored it to use a [`Range<u32>`].
 It expresses the data in a more succinct way, and it's similar to the API for generating random ranges.
 
-Then we fill in the body of the function.
+Now let's fill in the body of the function:
 
 ```rust
 use rand::Rng;
@@ -275,11 +265,11 @@ fn generate_rectangles(options: RectangleOptions) -> Vec<Rect> {
 }
 ```
 
-We start with an empty `Vec` and a random number generator.
+We start with an empty `Vec` and a random number generator (RNG).
 
 On each iteration of the `while` loop, we generate a rectangle.
-The [`gen_range()` function][gen_range] generates a random value for the width/height of the rectangle, within the range we've given.
-These values are used for the next rectangle, which is appended to the result `Vec`.
+The [`gen_range` function][gen_range] generates a random value for the width/height of the rectangle, within the range we've given.
+These values are used to create the next rectangle, which is appended to the result `Vec`.
 
 The `x_coord` variable tracks how far along we've moved.
 We increase it with each new rectangle we add, so all the rectangles are precisely touching but never overlapping.
@@ -297,7 +287,7 @@ This is what the output looks like:
 ```
 
 I'm sure there's a clever way to do this with functional programming that doesn't involve two mutable variables, but I like this approach because it's simple.
-I can see what this is doing, and it'll continue to make sense to me when Ihave to re-read this code.
+I can see what this is doing, and it'll still make sense to me when I have to re-read this code.
 
 [book]: https://rust-random.github.io/book/guide.html
 [`Range<u32>`]: https://doc.rust-lang.org/std/ops/struct.Range.html
@@ -338,11 +328,12 @@ Here are a few examples, which look close to what we want:
 <img src="/images/2022/black_shelves2.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles. It's different to the first image.">
 <img src="/images/2022/black_shelves3.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles. It's different to the first and second images.">
 
-Notice that each shelf has a different shape, because we're using a new random number generator each time.
+Notice that each shelf has a different shape, because we're using `thread_rng()`, which gives different output every time.
 That's fine for certain use cases, but I want the shelf to be the same shape on every page – so the colour changes as you move from page to page, but the shelf has the same outline.
+I want an RNG that gives consistent output.
 
-I can get a consistent shape by replacing the `thread_rng()` with a seeded RNG.
-Using a consistent seed means the random number generator becomes deterministic, and returns the same results each time.
+I can get a consistent shape by replacing `thread_rng()` with a seeded RNG.
+Using a seeded RNG with a fixed seed means the random number generator becomes deterministic, and returns the same results each time.
 
 ```rust
 use rand::prelude::*;
@@ -405,6 +396,8 @@ For example, if I run it repeatedly against <code><span style="color: #d01c11">�
 <span style="color: #ba190f">█</span> Rgb { red: 0.7278998,  green: 0.097986504, blue: 0.059491813, standard: PhantomData }
 <span style="color: #ec2215">█</span> Rgb { red: 0.9251349,  green: 0.13244599,  blue: 0.084003896, standard: PhantomData }</code></pre>
 
+There's a definite variation, but they're all shades of the same red.
+
 You could get more variation by increasing the min/max lightness you allow -- there's nothing special about the numbers I picked.
 
 [rgb]: https://en.wikipedia.org/wiki/RGB_color_model
@@ -415,7 +408,8 @@ You could get more variation by increasing the min/max lightness you allow -- th
 
 ## Putting it all together
 
-We can pick a new colour for each rectangle by calling `generate_colour_like()`.
+We take the `for r in rectangles` loop we used above, and now we call `generate_colour_like()` on each iteration of the loop.
+That gives us a colour for that individual rectangle.
 We need to do a bit of work to convert the `palette` colour into an `image` colour, but once that's done we pass it to the `draw()` method:
 
 ```rust
@@ -451,5 +445,5 @@ If you want to get the final code, you can download this zipfile, which is a com
 {% download /files/2022/rusty-shelves.zip %}
 
 I've been making [graphics like this](/all-posts-by-tag/#images) for over five years, and it's as fun now as when I started.
-I enjoy taking an idea (can I arrange coloured rectangles to look like a bookshelf) and turning it into an endless collection of unique images.
+I enjoy taking an idea (can I arrange coloured rectangles to look like a bookshelf?) and turning it into an endless collection of similar images.
 Given how much of my computing life is spent on work, productivity and business, it's nice to make things that just look pretty.
