@@ -6,20 +6,20 @@ tags: rust images
 ---
 
 In my [last post], I mentioned I have a mini-site where I track the books I've been reading ([books.alexwlchan.net]).
-It's mostly meant for my personal use, which is why I don't talk about it much – but today I do want to talk about one of its design elements.
+It's mostly meant for my personal use, which is why I don't talk about it much – but I do want to talk about one of its design elements.
 
 At the top of each page is a header that's meant to look like a gravity-defying bookshelf.
-It's made up of coloured rectangles, which look like the spines of books (to my eye, at least):
+It's made up of coloured rectangles, which are meant to look like the spines of books:
 
 <figure class="wide_img">
-  <img src="/images/2022/shelves.png">
+  <img src="/images/2022/shelves.png" alt="Three page headers in red, yellow, and blue. Each header is a collection of rectangles of different widths and heights in varying shades of red/yellow/blue, arranged so the top edge of the rectangles forms a straight line.">
 </figure>
 
 Every page on the site has a different-coloured shelf, to match the cover of the book on that page.
 For example, these shelves come from books with [a red cover][red], [a yellow cover][yellow], and [a blue cover][blue].
 
-I recently rewrote the code that generates these shelves to use Rust, as a way to learn how to do images in Rust.
-In this post, I'm going to explain how it works.
+I recently rewrote the code that generates these shelves to use Rust, both for fun and as a learning exercise.
+In this post, I'm going to explain how the new code works.
 
 You may not want to generate these exact images, but the ability to generate graphics like this has been useful in lots of projects – consider it a primer in creating simple images.
 
@@ -31,16 +31,16 @@ You may not want to generate these exact images, but the ability to generate gra
 
 
 
-## Choosing the colour of the shelves
+## Choosing the main colour of the shelves
 
 Given the cover of a book, how do I decide what colour I should use for the shelves?
 
 This is a problem I've solved before: I use my [dominant_colours tool][dominant_colours] to extract the main colours from the book cover, and I choose the one that I think will look best.
-If you're curious how that works, check out [my explainer post][explainer] about *k*-means colouring.
+Typically I pick a bold or striking colour, not a black or a grey.
+If you're curious how that process works, check out [my explainer post][explainer] about *k*-means colouring.
 
-This gives us an RGB colour, like <code><span style="color: #917546">█</span> #917546</code>.
-
-We'll choose colours for the individual books later.
+That gets me a colour, like <code><span style="color: #917546">█</span> #917546</code>.
+Once I have that colour, I generate lots of colours that look very similar – I'll explain how that works later.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
 [explainer]: /2019/08/finding-tint-colours-with-k-means/
@@ -49,13 +49,11 @@ We'll choose colours for the individual books later.
 
 ## Creating an empty image
 
-To work with images in Rust, we need to use the [`image` crate].
-We add that to our `Cargo.toml`.
+To work with images in Rust, we can use the [`image` crate].
 
 Within the `image` crate, an in-memory image is stored in an [`ImageBuffer`].
 This struct holds the width, the height, and all the pixels.
 Different instances of `ImageBuffer` can hold different types of pixels, like RGB, RGBA, or grayscale.
-It's parameterised by pixel type.
 
 We create a new `ImageBuffer` by passing the width and the height.
 For example, to create an image which is 200 pixels wide and 100 pixels tall:
@@ -70,10 +68,10 @@ fn main() {
 }
 ```
 
-We have to provide the type hint to tell the compiler that this instance of `ImageBuffer` should have RGBA pixels.
+The type hint tells the compiler that this instance of `ImageBuffer` should have RGBA pixels.
 (I want RGBA because I want anything not part of the bookshelf to be transparent.)
 
-The crate includes some aliases for commonly used pixel types, so we can simplify this slightly:
+The crate includes some aliases for commonly used pixel types, so we can simplify this:
 
 ```rust
 use image::RgbaImage;
@@ -85,7 +83,7 @@ fn main() {
 }
 ```
 
-But the image it creates isn't very interesting!
+But the empty image this creates isn't very interesting!
 
 [`image` crate]: https://docs.rs/image/0.23.14/image/index.html
 [`ImageBuffer`]: https://docs.rs/image/0.23.14/image/struct.ImageBuffer.html
@@ -109,19 +107,18 @@ use imageproc::rect::Rect;
 fn main() {
     let img = RgbaImage::new(200, 100);
 
-    let new_img = draw_filled_rect(
-        &img,
-        // A rectangle whose upper-left corner is at (20, 10), which is
-        // 40 pixels wide and 30 pixels tall.
-        //
-        // The origin is the top left-hand corner, and coordinates
-        // increase as you move right and down.
-        Rect::at(20, 10).of_size(40, 30),
+    // (0, 255, 0) = #00ff00 = green
+    // The final '255' is the alpha value = fully opaque
+    let green = Rgba::from([0, 255, 0, 255]);
 
-        // (0, 255, 0) = #00ff00 = green
-        // The final '255' is the alpha value = fully opaque
-        Rgba::from([0, 255, 0, 255])
-    );
+    // A rectangle whose upper-left corner is at (20, 10), which is
+    // 40 pixels wide and 30 pixels tall.
+    //
+    // The origin is the top left-hand corner, and coordinates
+    // increase as you move right and down.
+    let rect = Rect::at(20, 10).of_size(40, 30);
+
+    let new_img = draw_filled_rect(&img, rect, green);
 
     new_img.save("out.png").unwrap();
 }
@@ -129,9 +126,9 @@ fn main() {
 
 Here's what the result looks like:
 
-<img src="/images/2022/green_rectangle.png" style="border: 0.25px solid black;">
+<img src="/images/2022/green_rectangle.png" style="border: 0.25px solid black;" alt="A frame with a thin black border and a bright green rectangle near the upper left-hand corner.">
 
-You can also modify the image in-place by making the image mutable, and using `draw_filled_rect_mut`:
+You can also modify the image in-place by making it mutable, and using `draw_filled_rect_mut`:
 
 ```rust
 use image::{RgbaImage, Rgba};
@@ -141,21 +138,31 @@ use imageproc::rect::Rect;
 fn main() {
     let mut img = RgbaImage::new(200, 100);
 
-    draw_filled_rect_mut(
-        &mut img,
-        Rect::at(20, 10).of_size(40, 30),
-        Rgba::from([0, 255, 0, 255])
-    );
+    // (0, 255, 0) = #00ff00 = green
+    // The final '255' is the alpha value = fully opaque
+    let green = Rgba::from([0, 255, 0, 255]);
+
+    // A rectangle whose upper-left corner is at (20, 10), which is
+    // 40 pixels wide and 30 pixels tall.
+    //
+    // The origin is the top left-hand corner, and coordinates
+    // increase as you move right and down.
+    let rect = Rect::at(20, 10).of_size(40, 30);
+
+    draw_filled_rect_mut(&mut img, rect, green);
 
     img.save("out.png").unwrap();
 }
 ```
 
-I couldn't find anything in the imageproc documentation to explain when you should prefer one approach over the other.
-This means the in-place version is more efficient, but you lose the previous version of the image.
-For the rest of this post I'm going to use the in-place version, because I'm building up a single image – but it's a distinction to be aware of.
+The `imageproc` documentation doesn't when you should use which function, but we can see the difference by [looking at the code][code].
+For example, `draw_filled_rect()` copies the image into a new buffer, then calls `draw_filled_rect_mut()`.
+This means the in-place version is more efficient, because you don't have to copy the image first – but you lose the previous version of the image.
 
-Here's one more example, to draw multiple shapes on a canvas:
+For the rest of this post. I'm going to use the in-place version, because I'm building up a single image.
+I don't care about keeping previous versions.
+
+Here's one more example, drawing multiple shapes on a canvas:
 
 ```rust
 use image::{RgbaImage, Rgba};
@@ -170,23 +177,20 @@ use imageproc::rect::Rect;
 fn main() {
     let mut img = RgbaImage::new(200, 100);
 
+    let green = Rgba::from([0, 255, 0, 255]);
+    let turquoise = Rgba::from([0, 255, 255, 255]);
+    let pink = Rgba::from([255, 0, 255, 255]);
+
     draw_filled_rect_mut(
-        &mut img,
-        Rect::at(20, 10).of_size(40, 30),
-        Rgba::from([0, 255, 0, 255])
+        &mut img, Rect::at(20, 10).of_size(40, 30), green
     );
 
-    draw_filled_circle_mut(
-        &mut img,
-        (60, 70),
-        15,
-        Rgba::from([0, 255, 255, 255])
-    );
+    draw_filled_circle_mut(&mut img, (60, 70), 15, turquoise);
 
     draw_polygon_mut(
         &mut img,
         &[Point::new(100, 50), Point::new(100, 100), Point::new(120, 50)],
-        Rgba::from([255, 0, 255, 255])
+        pink
     );
 
     img.save("out.png").unwrap();
@@ -195,6 +199,7 @@ fn main() {
 
 Without [looking at the result](/images/2022/multiple_shapes.png), can you guess what this looks like?
 
+[code]: https://github.com/image-rs/imageproc/blob/5a7a68bfe54d27d531edcadf16b032930fe1a54c/src/drawing/rect.rs#L38-L47
 [copy]: https://github.com/image-rs/imageproc/blob/9c2823b3505f6c8f99d85bfbe233bb231d30f696/src/drawing/rect.rs#L9-L18
 [`imageproc` crate]: https://docs.rs/imageproc/0.22.0/imageproc/index.html
 [`drawing` module]: https://docs.rs/imageproc/0.22.0/imageproc/drawing/index.html
@@ -231,20 +236,20 @@ let rectangles = generate_rectangles(
 );
 ```
 
-I've got a function `generate_rectangles()` that creates a list of rectangles for us to draw.
-We pass it the bounds on the width and height of individual rectangles, and the total width we want it to fill.
+I've got a function `generate_rectangles()` that creates a list of rectangles.
+It takes a bound on the width and height of individual rectangles, and the total width of the image.
 
 I'm passing the options as a struct because it's the best way to do named arguments in Rust.
-The alternative would be to pass the struct fields directly as parameters to the function, which leads to code like this:
+The alternative would be to pass the struct fields directly as parameters, which leads to code like this:
 
 ```rust
 generate_rectangles((5..30), (60..90), 500)
 ```
 
-Much less clear!
+Much lessclear!
 
 Originally I had individual struct fields for min/max width and min/max height, but I refactored it to use a [`Range<u32>`].
-It expresses the data in a more succinct way, and matches nicely with the API for generating random ranges.
+It expresses the data in a more succinct way, and it's similar to the API for generating random ranges.
 
 Then we fill in the body of the function.
 
@@ -258,7 +263,7 @@ fn generate_rectangles(options: RectangleOptions) -> Vec<Rect> {
     let mut x_coord: u32 = 0;
 
     while x_coord < options.total_width {
-        let width = rng.gen_range(options.width.start..options.width.end);
+        let width  = rng.gen_range(options.width.start..options.width.end);
         let height = rng.gen_range(options.height.start..options.height.end);
 
         let rect = Rect::at(x_coord as i32, 0).of_size(width, height);
@@ -273,27 +278,30 @@ fn generate_rectangles(options: RectangleOptions) -> Vec<Rect> {
 We start with an empty `Vec` and a random number generator.
 
 On each iteration of the `while` loop, we generate a rectangle.
-The `gen_range()` function generates a random value for the width/height of the rectangle, within the bounds we've given – these become the new rectangle, which gets added to the result.
+The [`gen_range()` function][gen_range] generates a random value for the width/height of the rectangle, within the range we've given.
+These values are used for the next rectangle, which is appended to the result `Vec`.
 
 The `x_coord` variable tracks how far along we've moved.
 We increase it with each new rectangle we add, so all the rectangles are precisely touching but never overlapping.
+When we've moved beyond the width of the image, we're done.
 
 This is what the output looks like:
 
 ```
 [
-  Rect { left: 0, top: 0, width: 25, height: 66 },
+  Rect { left: 0,  top: 0, width: 25, height: 66 },
   Rect { left: 25, top: 0, width: 20, height: 85 },
   Rect { left: 45, top: 0, width: 25, height: 68 },
   ...,
 ]
 ```
 
-I'm sure there's a clever way to do this with functional programming that doesn't involve two mutable variables, but I like this approach because it's quite simple.
-I can see what this is doing, and it'll continue to make sense to me when I've forgotten this code.
+I'm sure there's a clever way to do this with functional programming that doesn't involve two mutable variables, but I like this approach because it's simple.
+I can see what this is doing, and it'll continue to make sense to me when Ihave to re-read this code.
 
 [book]: https://rust-random.github.io/book/guide.html
 [`Range<u32>`]: https://doc.rust-lang.org/std/ops/struct.Range.html
+[gen_range]: https://docs.rs/rand/0.8.4/rand/trait.Rng.html#method.gen_range
 
 
 
@@ -306,6 +314,8 @@ fn main() {
     let width = 500;
     let mut img = RgbaImage::new(width, 100);
 
+    let black = Rgba::from([0, 0, 0, 255]);
+
     let rectangles = generate_rectangles(
         RectangleOptions {
             width: (4..28),
@@ -315,7 +325,7 @@ fn main() {
     );
 
     for r in rectangles {
-        draw_filled_rect_mut(&mut img, r, Rgba::from([0, 0, 0, 255]));
+        draw_filled_rect_mut(&mut img, r, black);
     }
 
     img.save("out.png").unwrap();
@@ -324,14 +334,15 @@ fn main() {
 
 Here are a few examples, which look close to what we want:
 
-<img src="/images/2022/black_shelves1.png">
-<img src="/images/2022/black_shelves2.png">
-<img src="/images/2022/black_shelves3.png">
+<img src="/images/2022/black_shelves1.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles.">
+<img src="/images/2022/black_shelves2.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles. It's different to the first image.">
+<img src="/images/2022/black_shelves3.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles. It's different to the first and second images.">
 
 Notice that each shelf has a different shape, because we're using a new random number generator each time.
-That's fine for certain use cases, but I want the shelf to be the same shape on every page – so the colour changes as you move from page to page, but the shape is always the same.
+That's fine for certain use cases, but I want the shelf to be the same shape on every page – so the colour changes as you move from page to page, but the shelf has the same outline.
 
-I can get a consistent shape by replacing the `thread_rng()` with a seeded RNG, like so:
+I can get a consistent shape by replacing the `thread_rng()` with a seeded RNG.
+Using a consistent seed means the random number generator becomes deterministic, and returns the same results each time.
 
 ```rust
 use rand::prelude::*;
@@ -353,9 +364,9 @@ Next: adding colour!
 ## Choosing the colours
 
 I wanted to choose colours that looked *similar* to the tint colour of the book cover, but not exactly the same.
-The "shelves" made of monochrome black rectangles above don't look much like shelves, because you can't see the different between individual "books".
+The "shelves" made of monochrome black rectangles above don't look much like shelves, because you can't see the difference between individual "books".
 
-What I wanted to do was take the tint colour, and create lighter/darker shades of it.
+What I wanted to do was take the tint colour, and create lighter and darker shades.
 That's tricky if you're using the [RGB colour model][rgb], but much easier if you use [HSL (hue, saturation, lightness)][hsl].
 If we fix the hue and saturation but vary the lightness, we get different shades.
 
@@ -384,13 +395,15 @@ fn generate_colour_like(base: Srgb<f32>) -> Srgb<f32> {
 }
 ```
 
+The crate handles all the conversions between different colour spaces, so I can convert my RGB colour into HSL, choose the new lightness with `gen_range()`, then convert it back to RGB.
+
 For example, if I run it repeatedly against <code><span style="color: #d01c11">█</span> #d01c11</code>, the tint colour for this blog, I get this output:
 
-<pre><code><span style="color: #ee3a2f">█</span> Rgb { red: 0.9332129,  green: 0.22605559, blue: 0.18284044, standard: PhantomData }
-<span style="color: #da1c12">█</span> Rgb { red: 0.8556082,  green: 0.11517802, blue: 0.06992951, standard: PhantomData }
-<span style="color: #d31c11">█</span> Rgb { red: 0.82863057, green: 0.11154642, blue: 0.067724615, standard: PhantomData }
+<pre><code><span style="color: #ee3a2f">█</span> Rgb { red: 0.9332129,  green: 0.22605559,  blue: 0.18284044,  standard: PhantomData }
+<span style="color: #da1c12">█</span> Rgb { red: 0.8556082,  green: 0.11517802,  blue: 0.06992951,  standard: PhantomData }
+<span style="color: #d31c11">█</span> Rgb { red: 0.82863057, green: 0.11154642,  blue: 0.067724615, standard: PhantomData }
 <span style="color: #ba190f">█</span> Rgb { red: 0.7278998,  green: 0.097986504, blue: 0.059491813, standard: PhantomData }
-<span style="color: #ec2215">█</span> Rgb { red: 0.9251349,  green: 0.13244599, blue: 0.084003896, standard: PhantomData }</code></pre>
+<span style="color: #ec2215">█</span> Rgb { red: 0.9251349,  green: 0.13244599,  blue: 0.084003896, standard: PhantomData }</code></pre>
 
 You could get more variation by increasing the min/max lightness you allow -- there's nothing special about the numbers I picked.
 
@@ -431,12 +444,12 @@ fn main() {
 
 And here's an example of what it looks like:
 
-<img src="/images/2022/red_shelves.png">
+<img src="/images/2022/red_shelves.png" alt="A collection of rectangles of different widths and heights in varying shades of red, arranged so the top of the rectangles all form a straight line. It looks a bit like an upside-down bookshelf made of books with red spines.">
 
-If you want to get the final code from this post, you can download this zipfile, which is the complete Rust project:
+If you want to get the final code, you can download this zipfile, which is a complete Rust project:
 
 {% download /files/2022/rusty-shelves.zip %}
 
-I've been making [simple graphics like this](/all-posts-by-tag/#images) for over five years, and it's as fun now as when I started.
-I don't have any great art skills, but I enjoy taking a simple idea (can I arrange coloured rectangles to look like a bookshelf) and turning it into an endless collection of images based on that idea.
-Given how much of my computing life is spent on work and productivity and business, it's nice to make things that just look pretty.
+I've been making [graphics like this](/all-posts-by-tag/#images) for over five years, and it's as fun now as when I started.
+I enjoy taking an idea (can I arrange coloured rectangles to look like a bookshelf) and turning it into an endless collection of unique images.
+Given how much of my computing life is spent on work, productivity and business, it's nice to make things that just look pretty.
