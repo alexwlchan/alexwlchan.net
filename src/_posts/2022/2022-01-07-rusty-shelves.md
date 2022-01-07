@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-01-07 09:05:51 +0000
 title: Creating coloured bookshelf graphics in Rust
 summary:
 tags: rust images
