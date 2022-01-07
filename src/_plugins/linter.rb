@@ -23,7 +23,10 @@ class RunLinting < Jekyll::Command
           :check_opengraph => true,
           :disable_external => true,
           :report_invalid_tags => true,
-          :alt_ignore => ["/theme/file_python_2x.png"],
+          :alt_ignore => [
+            "/theme/file_python_2x.png",
+            "/theme/file_zip_2x.png",
+          ],
         }).run
     end
 
