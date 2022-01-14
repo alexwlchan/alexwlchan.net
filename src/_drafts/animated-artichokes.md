@@ -72,7 +72,7 @@ im_cropped = im.crop((500, 1000, 800, 700))
 
 will extract this part of the image:
 
-<img src="/images/2022/artichoke_frames_cropped.png" style="width: 500px;">
+<img src="/images/2022/artichoke_frames_cropped.png" style="width: 500px;" alt="The same grid of images as previously, but mostly dimmed and with only a small area in full colour and outlined with a red rectangle (highlighting the area to be cropped).">
 
 I started by writing a function that produces the 4-tuples that are passed to the `crop()` function.
 It moves from left-to-right, top-to-bottom, finding the coordinates of the crops:
@@ -100,7 +100,7 @@ individual_scans = [
 
 The exact number of individual scans varied from image to image (for example, [the sagittal view of a pumpkin][pumpkin] has 6 columns and 3 rows), so parameterising the crops was quite handy.
 
-<img src="/images/2022/artichoke_crops.png" style="width: 500px;">
+<img src="/images/2022/artichoke_crops.png" style="width: 500px;" alt="The same grid of images as previously, but now split into individual images, separated by white borders.">
 
 Now we save the individual frames as an animated GIF, which is [a one-liner in Pillow][save_gifs]:
 
