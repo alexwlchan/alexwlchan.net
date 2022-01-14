@@ -5,11 +5,11 @@ summary: Some Python code for turning MRI scans of fruit and veg into animated G
 tags: python images
 ---
 
-A couple of years ago, I wrote a blog post about [peering through MRI scans of fruit and veg][stacks].
+A couple of years ago, I wrote a blog post about [looking through MRI scans of fruit and veg][stacks].
 I took some MRI scans by Alexandr Khrapichev from the University of Oxford, ran them through an image processor, and turned them into animated GIFs.
 They're very pretty and mesmerising.
 
-That post has dozens of examples, but my favourite is this view [of an artichoke][artichoke], which looks like something from a sci-fi show:
+That post has dozens of examples, but my favourite is this view [of an artichoke][artichoke], which looks like some sort of portal from science fiction:
 
 <script>
   function toggle() {
@@ -29,7 +29,7 @@ That post has dozens of examples, but my favourite is this view [of an artichoke
 </script>
 
 <figure>
-  <img src="/images/2022/artichoke.gif" id="artichoke" style="width: 375px;">
+  <img src="/images/2022/artichoke.gif" id="artichoke" style="width: 375px;" alt="An animated image showing a yellowy-green burst of vaguely circular lines moving outward (as we move to the middle of the artichoke), and then gradually collapsing in (as we move towards the end).">
   <center>
     <a href="#" onclick="script:toggle()" id="toggleControl">&#x23EF;&#xFE0E; pause</a>
   </center>
@@ -44,7 +44,7 @@ This is the image he published:
 
 <figure>
   <a href="/images/2022/artichoke_frames.jpg">
-    <img src="/images/2022/artichoke_frames_small.jpg">
+    <img src="/images/2022/artichoke_frames_small.jpg" alt="A grid of different views of the artichoke in yellow-green, arranged in rows and columns against a black background.">
   </a>
   <figcaption>
     Artichoke, axial view, MRI.
@@ -63,7 +63,7 @@ from PIL import Image
 im = Image.open("artichoke.jpg")
 ```
 
-We can crop a rectangle from this image by using [the `crop()` function][crop_function], which takes the four corners of the area we want to crop.
+We can crop a rectangle from an image using [the `crop()` function][crop_function], which takes the four corners of the area we want to crop.
 For example, this code:
 
 ```python
@@ -119,6 +119,9 @@ You can download all the code from this post in this file:
 
 {% download /files/2022/make_artichoke_gif.py %}
 
+There are [lots of images] in the collection that look pretty when animated this way.
+You can either run the code to create your own copy, or view them in a browser [in my original post][stacks].
+
 [stacks]: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
 [artichoke]: https://wellcomecollection.org/works/b9g485fs
 [Pillow]: https://pypi.org/project/Pillow/
@@ -126,3 +129,4 @@ You can download all the code from this post in this file:
 [crop_function]: https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.crop
 [pumpkin]: https://wellcomecollection.org/works/z3cja6w4
 [save_gifs]: https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html?highlight=gif#saving
+[images]: https://wellcomecollection.org/works?query=Alexandr%20Khrapichev%2C%20University%20of%20Oxford
