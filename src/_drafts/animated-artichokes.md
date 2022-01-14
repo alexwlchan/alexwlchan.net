@@ -31,7 +31,7 @@ That post has dozens of examples, but my favourite is this view [of an artichoke
 <figure>
   <img src="/images/2022/artichoke.gif" id="artichoke" style="width: 375px;" alt="An animated image showing a yellowy-green burst of vaguely circular lines moving outward (as we move to the middle of the artichoke), and then gradually collapsing in (as we move towards the end).">
   <center>
-    <a href="#" onclick="script:toggle()" id="toggleControl">&#x23EF;&#xFE0E; pause</a>
+    <a href="#artichoke" onclick="script:toggle()" id="toggleControl">&#x23EF;&#xFE0E; pause</a>
   </center>
 </figure>
 
