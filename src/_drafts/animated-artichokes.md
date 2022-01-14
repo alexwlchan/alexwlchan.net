@@ -119,8 +119,8 @@ You can download all the code from this post in this file:
 
 {% download /files/2022/make_artichoke_gif.py %}
 
-There are [lots of images] in the collection that look pretty when animated this way.
-You can either run the code to create your own copy, or view them in a browser [in my original post][stacks].
+And if you haven't looked already, I really recommend getting a big monitor and reading [my original post][stacks].
+There are pumpkins, parsimmons, passion fruit, and all sorts of other mesmerising images made entirely from MRI scans.
 
 [stacks]: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
 [artichoke]: https://wellcomecollection.org/works/b9g485fs
@@ -129,4 +129,3 @@ You can either run the code to create your own copy, or view them in a browser [
 [crop_function]: https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.crop
 [pumpkin]: https://wellcomecollection.org/works/z3cja6w4
 [save_gifs]: https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html?highlight=gif#saving
-[images]: https://wellcomecollection.org/works?query=Alexandr%20Khrapichev%2C%20University%20of%20Oxford
