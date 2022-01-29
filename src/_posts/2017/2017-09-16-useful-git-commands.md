@@ -168,4 +168,4 @@ In this case, a deployment from <em>other-branch</em> would be rejected until we
 I use all of these commands on a regular basis, but I bet there are others I'm missing.
 What Git commands do you find indispensable?
 What do you wish more people knew about?
-I'd love to know what you find useful -- write your own blog post, or <a href="https://twitter.com/{{ site.social.twitter }}/">tell me on Twitter</a>.
+I'd love to know what you find useful -- write your own blog post, or <a href="https://twitter.com/alexwlchan/">tell me on Twitter</a>.

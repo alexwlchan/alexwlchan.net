@@ -13,7 +13,6 @@ destination: "_site"
 social:
   github: "alexwlchan"
   twitter: "alexwlchan"
-  linode_referral: "ba2e6ce21e0c63952a7c74967ea0b96617bd44a3"
 
 date_format: "%-d %B %Y"
 
