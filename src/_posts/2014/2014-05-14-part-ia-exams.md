@@ -14,8 +14,6 @@ About a fortnight ago, I gave a talk to the first-year maths students[^1] as par
 
 This is my *personal* advice, and other people may say different things. And details may change as Tripos evolves; I only affirm that this is correct for the 2014 exams.
 
-<!-- summary -->
-
 [^1]: There's a session for first-year students to talk about exams about a fortnight into exam term. Since I was the student rep to the Faculty Teaching Committee, I was asked to come along and give a student's perspective.
 
 ## Academic

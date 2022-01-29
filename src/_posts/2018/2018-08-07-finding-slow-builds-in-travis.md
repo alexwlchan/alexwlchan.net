@@ -15,8 +15,6 @@ Since the [Travis API][api] provides a whole heap of information about builds, I
 
 This post contains the code I used, in case it's useful to somebody else.
 
-<!-- summary -->
-
 ## A helper for the Travis API
 
 First I wrote a helper for accessing the Travis API.

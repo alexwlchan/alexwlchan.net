@@ -34,8 +34,6 @@ I'd rather print something I can view in my terminal -- an ASCII bar chart.
 
 There are probably libraries that can do this for you, but I found it simpler to write my own snippet to draw bar charts.
 
-<!-- summary -->
-
 Like so:
 
 ```python

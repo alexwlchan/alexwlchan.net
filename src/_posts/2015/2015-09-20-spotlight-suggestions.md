@@ -38,8 +38,6 @@ Results that go via the network have privacy implications, which is why these re
 
 Below I've included a few screenshots to show the difference caused by this toggle.
 
-<!-- summary -->
-
 <br>
 
 <center>

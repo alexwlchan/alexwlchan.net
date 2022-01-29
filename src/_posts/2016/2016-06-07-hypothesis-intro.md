@@ -17,8 +17,6 @@ The notes aren't a transcript, just my rough notes of the major points I wanted 
 I was speaking for about an hour, so there's quite a lot of material here.
 Enjoy!
 
-<!-- summary -->
-
 ---
 
 {%

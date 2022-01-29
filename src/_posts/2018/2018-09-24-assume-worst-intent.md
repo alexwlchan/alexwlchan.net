@@ -33,8 +33,6 @@ The talk was recorded, and you can watch it on YouTube:
 You can read the slides and transcript on this page, or download the slides [as a PDF](/files/assume_worst_intent.pdf).
 The transcript is based on the captions on the YouTube video, with some light tweaking and editorial notes where required.
 
-<!-- summary -->
-
 ---
 
 {%

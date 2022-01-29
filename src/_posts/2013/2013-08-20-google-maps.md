@@ -21,8 +21,6 @@ Click it once to make everything disappear, and click it again to bring it all b
 
 I've tested it on the latest versions of Safari and Chrome on OS X. It should work in any modern browser, but I don't guarantee that it will work for you.
 
-<!-- summary -->
-
 ## How it works
 
 Since Google Maps is a web app, adding a `display: none` attribute to the offending elements is enough to make them vanish, and then we just need a list of classes and ids for the corresponding elements. Here it is:

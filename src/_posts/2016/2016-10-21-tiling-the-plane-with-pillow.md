@@ -37,8 +37,6 @@ This is a stepping stone for something bigger, which I'll write about in a separ
 
 If you just want the code, it's all [in a script][file] you can download.
 
-<!-- summary -->
-
 ## Coordinate systems
 
 To do any drawing, first we need to establish a coordinate system.

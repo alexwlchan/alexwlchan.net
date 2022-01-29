@@ -17,8 +17,6 @@ The package provides some extensions for common tasks – abbreviations, footnot
 After years of just using the builtin extensions, I've finally started to dip my toe into custom extensions.
 In this post, I'm going to show you a few of my tweaked or custom extensions.
 
-<!-- summary -->
-
 ## The perils of skimming the docs
 
 The Python-Markdown documentation explains [how to use extensions][ref]:

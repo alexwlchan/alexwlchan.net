@@ -14,8 +14,6 @@ Unfortunately, two years had taken their toll on my account, and the whole thing
 
 When I exported them all, I suddenly realised how fragile my system was. Although I'm sure Pinboard keeps excellent backups, I didn't actually have a local backup of my bookmarks. I'd make a half-hearted visit to the [export page](http://pinboard.in/export/) every so often, but I didn't have it automated. This time round, I wanted to change that. So I wrote my own system for doing Pinboard backups.
 
-<!-- summary -->
-
 Several scripts have already been written to do this (such as [Marcelo Somers](http://behindcompanies.com/2011/12/a-guide-to-backing-up-pinboard/) and [Drew Schuster](http://nuncamind.com/blog/2011/12/31/automatic-pinboard-backup/)). I wrote my own because I wanted one written in a language that I'm familiar with (in this case, Python), and so that it provided exactly what I wanted: saving a copy of the XML&nbsp;file to my local drive.
 
 Also, the scripts I've seen before all use username and password authentication to access the API. But about eight months ago, Pinboard introduced [API authentication tokens](http://blog.pinboard.in/2012/07/api_authentication_tokens/) that mean you don't have to do this. This seems like a better method, so I wanted to use that in my backups.

@@ -23,8 +23,6 @@ Actually, it decided that ⌘+S should do nothing, and trying to click "Save" in
 A trawl of Google suggests that I'm the only person who's ever hit this error.
 If so, here's a quick write-up of what I tried for the next person to run into it.
 
-<!-- summary -->
-
 I still don't fully understand what caused the problem, but this is what I tried to fix it:
 
 *   **Check the logs in Console.app.**

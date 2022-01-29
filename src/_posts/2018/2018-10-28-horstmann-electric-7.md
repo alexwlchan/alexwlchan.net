@@ -27,8 +27,6 @@ The name on the bottom right says "Horstmann Electronic 7", so I did the obvious
 It took me several minutes to find the answer -- in the [user guide for the timer](https://www.electricity.gg/media/55497/Horstmann-User-Guide.pdf) -- so for the sake of future!me and other Googlers, here are the instructions for setting the clock.
 Unless you have this exact appliance, you can stop reading.
 
-<!-- summary -->
-
 This is a diagram showing the front of the timer:
 
 ![A control panel with white, green and blue buttons and a small segment display reading “03:04”.](/images/2018/boiler_controls.png)

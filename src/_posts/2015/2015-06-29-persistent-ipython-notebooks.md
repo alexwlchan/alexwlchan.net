@@ -14,8 +14,6 @@ On my Mac, I've been using [some scripts by Nathan Grigg][ngrigg] to keep my IPy
 
 This post explains how to get a persistent IPython notebook on Windows. The ideas are based on Nathan's post, but the implementation is a little different.
 
-<!-- summary -->
-
 ## Install IPython
 
 I installed Python 3.4[^2], then set up a virtualenv and installed IPython:

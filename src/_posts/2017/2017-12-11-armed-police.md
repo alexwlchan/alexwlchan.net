@@ -35,8 +35,6 @@ I politely explained this to the officer, who didn't want to see my point of vie
 On that occasion, I got on my train to Cambridge, and left the guns behind.
 Unfortunately, it's followed me home.
 
-<!-- summary -->
-
 Today I saw this tweet on my timeline:
 
 {% tweet https://twitter.com/CambsCops/status/940152354627874818 %}

@@ -39,8 +39,6 @@ The PDF slides are the most up-to-date, and I'll try to go back and update the i
 
 [pycon]: /2017/11/pyconuk-2017-privilege-inclusion/
 
-<!-- summary -->
-
 <!-----
 
 ### A note of thanks

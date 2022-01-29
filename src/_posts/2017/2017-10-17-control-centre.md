@@ -26,8 +26,6 @@ Most of the buttons look good and are easy to hit, and I'm having much more succ
 But as it advances in one area, so it slips in another.
 I have two big problems with the new Control Centre.
 
-<!-- summary -->
-
 My first issue is one that's already been [widely reported][guardian].
 Pop quiz: in the screenshot below, are Wi-Fi and Bluetooth turned on or off?
 

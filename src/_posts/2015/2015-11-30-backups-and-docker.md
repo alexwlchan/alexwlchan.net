@@ -19,8 +19,6 @@ Oops.
 Incremental backups of my Docker images aren't very useful, but they force out older snapshots of important data, and slow down my backups.
 Wouldn't it be nice to cut that out?
 
-<!-- summary -->
-
 There are two folders than can swell with Docker images:
 
 * On Linux, look at **/var/lib/docker** &ndash; this is where Docker keeps its internal state.

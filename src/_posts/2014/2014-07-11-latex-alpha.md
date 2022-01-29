@@ -19,8 +19,6 @@ I tried to parse the Wolfram Alpha page structure in the past, and it was a bit 
 It's much easier to use the [Wolfram Alpha Developer API][api], which provides this very easily.
 I think I can use this to get the final piece.
 
-<!-- summary -->
-
 If you don't already have a (free) Wolfram ID, then [signing up for one][wid] takes about a minute.
 Then you can register an API key, and make queries in the form
 

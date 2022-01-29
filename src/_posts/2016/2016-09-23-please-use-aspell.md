@@ -17,8 +17,6 @@ Where are the red and green squiggles to warn you of spelling mistakes?
 
 To plug the gap, I'm a fan of the command-line spellchecker [aspell](http://aspell.net).
 
-<!-- summary -->
-
 ## What is aspell?
 
 aspell is a spell-checking tool that runs on the command-line.

@@ -28,8 +28,6 @@ have to worry again.
 
 I had a slightly different syntax in mind (simpler, and with more double brackets), but since I had a finished spec in the form of the examples, I decided to use this instead. I've written a Python script which takes a single string, and returns all the strings it specifies as an iterator.
 
-<!-- summary -->
-
 It supports the same syntax as the cURL counterpart. Here's a simple example:
 
 ```python

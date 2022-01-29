@@ -14,8 +14,6 @@ Most of the time I read the plain Markdown, but for complicated notes I'll use t
 
 I was used to [customising the preview in nvALT][prev], so I wanted to do the same for ResophNotes. This turned out to be easy to do, but it wasn't entirely obvious how to do it.
 
-<!-- summary -->
-
 The only reference to custom CSS that I could find was this slightly cryptic [changelog][log] from August 2010:
 
 > Add a link "resophnotes.css" in "Markdown" generated HTML file

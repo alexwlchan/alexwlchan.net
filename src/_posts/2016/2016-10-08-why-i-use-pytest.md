@@ -19,8 +19,6 @@ If not, I'd recommend Ned Batchelder's talk [Getting Started Testing](https://ww
 
 So, why do I prefer py.test?
 
-<!-- summary -->
-
 ## Less boilerplate
 
 When you write a test with unittest, you have to subclass `unittest.TestCase` and write your tests as methods on that class.

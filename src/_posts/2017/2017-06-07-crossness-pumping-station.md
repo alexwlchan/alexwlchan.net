@@ -59,8 +59,6 @@ Today, the pumping station is open to the public.
 Last weekend, Crossness were running an open day - the pumping station was open to the public, and they were running the restored engine.
 Given my interest, I decided to head down, have a look round, and take a few photos.
 
-<!-- summary -->
-
 It turns out that Crossness is a bit of a trek from a Cambridge – over three hours!
 I got a train and two tubes to Woolwich Arsenal, then walked the remaining three miles to Crossness.
 Although tiring, this wasn't entirely without merit – the route takes you along the top of the Ridgeway, a path that runs along the top of the southern outfall sewer.

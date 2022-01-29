@@ -50,8 +50,6 @@ In this post, I'll show you some simple examples of hooks that I'm already using
 [raise_for_status]: http://docs.python-requests.org/en/master/api/#requests.Response.raise_for_status
 [hooks]: http://docs.python-requests.org/en/master/user/advanced/#event-hooks
 
-<!-- summary -->
-
 ## Defining a hook
 
 A hook function takes a Response object, and some number of args and kwargs.
