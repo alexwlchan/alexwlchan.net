@@ -1,3 +1,5 @@
+# No-JavaScript Twitter embeds
+
 For embedded tweets, rather than using Twitter's embed function (which comes with all sorts of JavaScript and tracking and slowness), I render tweets as static HTML.
 This is an idea I originally got [from Dr. Drang][drangtweet].
 
