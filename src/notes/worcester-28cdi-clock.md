@@ -10,8 +10,6 @@ My boiler is a Worcester 28CDi &ndash; these instructions explain how to change 
 I'm writing these for the sake of my future self and to populate Google &ndash; if you don't have this boiler, this won't be of any interest.
 These instructions are available in the boiler manual, but digging that out and finding the right page gets tedious if you do it regularly.
 
-<!-- summary -->
-
 _**Disclaimer:** I'm not a boiler technician, and you follow these instructions at your own risk.
 If in doubt, consult your boiler manual and/or a certified plumber._
 

@@ -33,8 +33,6 @@ If you'd prefer, you can watch the conference video on YouTube:
 
 [pycon]: http://2017.pyconuk.org/sessions/talks/using-privilege-to-help-not-hurt-diversity/
 
-<!-- summary -->
-
 ---
 
 ### A note of thanks

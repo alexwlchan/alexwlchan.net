@@ -12,8 +12,6 @@ links][book]. It's short, clean and functional. I like it, but it still
 needs you to copy and paste the link into your document. I wanted to
 cut out that step, by writing a TextExpander snippet that takes the URL of the frontmost browser window, and outputs an Amazon affiliate link.
 
-<!-- summary -->
-
 Stefan's post has a succinct explanation of the four components of an
 Amazon affiliate link:
 

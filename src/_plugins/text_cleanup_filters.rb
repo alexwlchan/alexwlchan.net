@@ -1,6 +1,40 @@
 module Jekyll
+  module Filters
+
+    # Convert quotes into smart quotes.
+    #
+    # input - The String to convert.
+    #
+    # Returns the smart-quotified String.
+    #
+    # This is an override for the builtin Jekyll filter that caches results,
+    # because I call this function in lots of places, and that means calling
+    # it with the same inputs repeatedly.
+    #
+    # See https://github.com/jekyll/jekyll/blob/4fbbefeb7eecff17d877f14ee15cbf8b87a52a6e/lib/jekyll/filters.rb#L22-L31
+    SMARTIFY_CACHE = {}
+
+    def smartify(input)
+      SMARTIFY_CACHE.fetch(input) { |input|
+        SMARTIFY_CACHE[input] =
+          @context.registers[:site]
+            .find_converter_instance(Jekyll::Converters::SmartyPants)
+            .convert(input.to_s)
+      }
+    end
+  end
+
   module CleanupsFilter
+    CLEANUP_TEXT_CACHE = {}
+
     def cleanup_text(input)
+      CLEANUP_TEXT_CACHE.fetch(input) { |input|
+        CLEANUP_TEXT_CACHE[input] = _do_cleanup_text(input)
+      }
+    end
+
+    def _do_cleanup_text(input)
+
       # Replace mentions of RFCs with a non-breaking space version.
       text = input.gsub(/RFC (\d+)/, 'RFC&nbsp;\1')
 

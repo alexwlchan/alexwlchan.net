@@ -22,8 +22,6 @@ Ergo, this talk.
 
 You can [download my slides as a PDF](/slides/docopt/docopt_slides.pdf), or read the notes below.
 
-<!-- summary -->
-
 ---
 
 {%

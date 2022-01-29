@@ -40,8 +40,6 @@ Be picky about where you choose to participate, and walk away from events that d
 
 [lauren]: https://twitter.com/like_the_sofa
 
-<!-- summary -->
-
 ### A few disclaimers
 
 None of these are original ideas -- this is a collection of other people's ideas I've seen at conferences I've attended or followed online.

@@ -17,8 +17,6 @@ navigate to my screenshots directory in Alfred, or find it in Finder,[^1]
 but it's such an easy task to automate.
 I wrote a short workflow to open my most recent screenshot in the Alfred file browser.
 
-<!-- summary -->
-
 We can use AppleScript to get the most recently created file in the
 screenshots directory, which should be the latest screenshot:
 

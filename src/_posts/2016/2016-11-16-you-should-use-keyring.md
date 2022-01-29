@@ -30,8 +30,6 @@ So what's the alternative?
 If I don't want to put secrets directly in the source code, how can I make them available at runtime?
 I use [the keyring module](https://pypi.org/project/keyring/).
 
-<!-- summary -->
-
 The keyring module provides a wrapper around your system's password store: for example, the OS X Keychain, or the Windows Credential Vault.
 These typically provide much more security than keeping the password in source control, or in another file that gets included at runtime.
 And they're entirely decoupled from your source code: if you always use keyring, you never have to worry about forgetting to expunge secrets from your code.

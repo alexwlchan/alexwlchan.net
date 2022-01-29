@@ -42,8 +42,6 @@ It's not perfect, but I'm very pleased with the results.
 
 In this post, I'll explain my typical setup, and how I use Make and Docker to get fast and reliable builds.
 
-<!-- summary -->
-
 {% tweet https://twitter.com/alexwlchan/status/938694360681590791 %}
 
 I really felt the benefits last Monday.

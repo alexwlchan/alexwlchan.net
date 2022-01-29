@@ -20,8 +20,6 @@ I hope it's useful.
 
 If you find any bugs, or a page it doesn't seem to work for, then please [get in touch](/#contact).
 
-<!-- summary -->
-
 ## The legal stuff
 
 I'm not affiliated with nor endorsed by Tumblr themselves; I just wrote this because I thought it would be useful, and my existing solution was crummy.
