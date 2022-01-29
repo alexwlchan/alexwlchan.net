@@ -9,8 +9,6 @@
 
 require "pathname"
 
-require "nokogiri"
-
 
 module Jekyll
   class StaticFileGenerator < Generator
@@ -41,6 +39,7 @@ module Jekyll
 
           # Minify the XML by removing the comments
           # See https://stackoverflow.com/a/45129390/1558022
+          require "nokogiri"
           doc = Nokogiri::XML(File.open(src_path))
           doc.xpath('//comment()').remove
           doc.xpath('//text()').each do |node|
