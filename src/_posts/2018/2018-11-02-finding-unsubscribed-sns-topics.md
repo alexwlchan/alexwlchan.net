@@ -42,8 +42,6 @@ Even if the Go isn't very idiomatic, I hope it's a useful insight into how I wri
 
 [sns]: https://en.wikipedia.org/wiki/Amazon_Simple_Notification_Service
 
-<!-- summary -->
-
 
 ## Brief interlude: installing Go
 

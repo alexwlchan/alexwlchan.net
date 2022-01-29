@@ -26,8 +26,6 @@ You can see one message at a time, but this makes it hard to spot patterns or de
 It would be easier to have the entire queue in a local file, so we can analyse it or process every message at once.
 I've written a Python function to do just that, and in this post, I'll walk through how it works.
 
-<!-- summary -->
-
 <figure>
   <img src="/images/2018/sqs_console.png" alt="A list of rows in the SQS Console, showing a fragment of the body, the size and the sent date.">
   <figcaption>

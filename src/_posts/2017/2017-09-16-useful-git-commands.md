@@ -11,8 +11,6 @@ I spend a lot of time writing build scripts for interacting with Git repos.
 But Git's documentation is notoriously opaque, and a lot of my Git knowledge comes from word-of-mouth rather than reading the docs.
 In that spirit of sharing, these are few of the Git commands I find useful when writing build scripts.
 
-<!-- summary -->
-
 <br/>
 
 ```console

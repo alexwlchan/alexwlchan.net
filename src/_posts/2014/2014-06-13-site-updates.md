@@ -8,8 +8,6 @@ If you visit the site regularly, you'll have noticed that things have changed qu
 I've been meaning to write about what I've done, but revision has been getting in the way.
 Since my exams finished last week, I've finally been able to take time to write everything down.
 
-<!-- summary -->
-
 ## The move to Pelican
 
 The biggest visual change is the new design, which is tied to a big change in how the site is built.

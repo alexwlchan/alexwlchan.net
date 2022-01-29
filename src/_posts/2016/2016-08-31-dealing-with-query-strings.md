@@ -20,8 +20,6 @@ This is possible with the Python standard library's [`urllib.parse`][url_parse] 
 Since I do this fairly often, I have a pair of helper functions that I copy-and-paste into new projects when I need to do this.
 And since it's fairly generic, I thought it might be worth sharing more widely.
 
-<!-- summary -->
-
 ### Get the value(s) associated with a particular key
 
 It's easy to imagine a query string as like a Python dict: it's a series of key-value pairs.

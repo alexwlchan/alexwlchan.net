@@ -16,8 +16,6 @@ This is what my bag looks like, straight after PyCon:
 
 ![A photograph of my tech bag. A rectangular pouch with two compartments, stuffed with electronics equipment.](/images/2016/tech-bag.jpg)
 
-<!-- summary -->
-
 What cables and adapters you need depends in part on what equipment you're carrying, and what you expect to do with it.
 My personal laptop is a 2016 MacBook (with the one USB-C port) and my phone is an iPhone.
 Sometimes I take my Kindle as well, but it's very rare that I need to plug that into anything else.

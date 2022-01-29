@@ -11,8 +11,6 @@ I've accumulated a lot of URLs in Safari's Reading List.  Problem is, trying to 
 
 A quick poke around Google didn't turn up anything obvious, so I decided to write my own Python script for doing it.
 
-<!-- summary -->
-
 The first task is to find where all the bookmark data is stored.  Safari keeps its bookmark data (which includes Reading List) in a binary plist file:
 
 ```

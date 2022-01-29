@@ -10,8 +10,6 @@ Yesterday one of my friends was going through her old Tumblr posts, trying to ad
 
 Doing a Google search for this topic, it seems that this is a fairly common problem, so I thought I'd post the script here for other people to use.
 
-<!-- summary -->
-
 The script itself is fairly simple:
 
 ```python

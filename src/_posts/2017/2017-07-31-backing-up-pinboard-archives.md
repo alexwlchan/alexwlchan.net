@@ -30,8 +30,6 @@ I've paid for the extra archiving for years, and having these complete backups o
 What if Pinboard gets acquired, or Maciej wipes the servers and runs off to Mexico?
 I really want a local backup of all these full-page copies.
 
-<!-- summary -->
-
 In the archival account of your Pinboard settings, you can ask for a backup download:
 
 <figure style="max-width: 628px;">

@@ -21,8 +21,6 @@ All the messiness of dealing with the S3 API is hidden in general use.
 
 Since this function has been useful in lots of places, I thought it would be worth writing it up properly.
 
-<!-- summary -->
-
 The first place to look is the [`list_objects_v2` method][list_objects] in the boto3 library.
 We call it like so:
 

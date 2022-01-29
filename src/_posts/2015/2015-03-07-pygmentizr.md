@@ -17,8 +17,6 @@ I enter the code in the first box, select the language, and click the button. Th
 
 The code is all [on GitHub][git], and below I'll explain why I wrote it.
 
-<!-- summary -->
-
 The script is nothing special. It's just a tweaked wrapper around the first three entries of Miguel Grinberg's excellent [Flask Mega-Tutorial][flask]. I'm also using [Bootstrap][boot], and there's a meta discussion here about how I'm embracing more third party libraries like this -- but that's a discussion for another time.
 
 Thing is, there's already a [Pygments demo][demo] which is quite similar to this. So why did I write my own?

@@ -19,8 +19,6 @@ $ pwd
 
 [Googling this error message][google] turns up just four results, and none of them were particularly useful in solving my problem. This is where I was hitting a problem, and how I fixed it.
 
-<!-- summary -->
-
 I started with the usual -- restarting the shell, rebooting, and switching from iTerm2 to Terminal -- to no avail. I didn't seriously expect either of those to work, but you have to try.
 
 The next place to look was my `config.fish` (the configuration file for fish, similar to a `.bash_profile` or `.zshrc`). I quickly traced it to a script that I was loading:

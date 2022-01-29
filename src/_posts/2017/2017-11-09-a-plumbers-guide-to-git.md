@@ -33,8 +33,6 @@ If you're interested, you can download the [notes and exercises][notes].
 
 (There are a few amendments and corrections compared to the workshop, because we discovered several mistakes as we worked through it!)
 
-<!-- summary -->
-
 The workshop is split into four sections:
 
 1.  **The Git object database.**

@@ -26,8 +26,6 @@ To find out where a shortened URL goes, I could just open it in a web browser.
 But that's slow and manual, and doesn't work if I want to save the URL as part of a scripted pipeline.
 So I have a couple of utility functions to help me out.
 
-<!-- summary -->
-
 All the good link shorteners use [HTTP&nbsp;3XX redirects](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection) to send you to the next URL in the chain.
 A lot of HTTP libraries will just follow those if you make a GET request, so it's enough to make a GET request and see where you end up.
 Here's what that looks like with [python-requests](http://docs.python-requests.org/en/master/):

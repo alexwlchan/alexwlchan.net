@@ -14,8 +14,6 @@ Depending on how messy your disk is, these may or may not be useful to you &ndas
 
 Of course, you should always be *very* careful of code that deletes or rearranges files on your behalf, and make sure you have good backups before you start.
 
-<!-- summary -->
-
 ## Deleting (nearly) empty directories
 
 As I rearrange, delete or de-duplicate old files, I can often end up with empty directories.

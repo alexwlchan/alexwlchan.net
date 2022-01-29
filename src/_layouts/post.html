@@ -42,14 +42,6 @@ layout: default
     </ul>
   </div>
 
-  {% assign is_index = is_index | default: false %}
-
-  {% if is_index and post.content contains '<!-- summary -->' %}
-    {% assign splitcontent = post.content | split: '<!-- summary -->' %}
-    {{ splitcontent.first | cleanup_text | smartify }}
-    <p><a href="{{ post.url | relative_url }}">Read more &rarr;</a></p>
-  {% else %}
-    {{ post.content | cleanup_text | smartify }}
-  {% endif %}
+  {{ post.content | cleanup_text | smartify }}
 </article>
 

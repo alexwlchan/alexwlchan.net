@@ -52,8 +52,6 @@ It's fine for one-off underlines, but in a larger document, the inconsistency ge
 
 [descender]: https://en.wikipedia.org/wiki/Descender
 
-<!-- summary -->
-
 ## The soul package
 
 If we look beyond core LaTeX, the [soul package][soul] has a variety of methods for decorating text, including underlining, strikeouts, and letter spacing.

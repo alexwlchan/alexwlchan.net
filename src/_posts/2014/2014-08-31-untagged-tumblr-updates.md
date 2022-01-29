@@ -14,8 +14,6 @@ If you have any other problems or suggestions, then please <a href="mailto:alex@
 
 The rest of this post explains the major changes.
 
-<!-- summary -->
-
 ## Don't start multiple HTTP requests simultaneously
 
 The Tumblr API returns up to 20&nbsp;posts at a time, so to get all the posts from a blog, you need to make `(total number of posts)/20` requests.

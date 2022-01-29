@@ -8,8 +8,6 @@ category: Programming and code
 
 The most popular thing I've ever written is my site for [finding untagged Tumblr posts][futp]. I have a few small changes, a new way to filter posts, and some other thoughts on using Tumblr.
 
-<!-- summary -->
-
 I'll start with the small stuff:
 
 * I tweaked the CSS to look slightly better on mobile browsers. Specifically, the input for typing in your hostname no longer flows off the edge of the screen.

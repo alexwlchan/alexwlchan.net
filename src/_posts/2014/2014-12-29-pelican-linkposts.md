@@ -14,8 +14,6 @@ I use [Pelican][pelican] to generate the site, so I needed to find a linked list
 
 In most RSS feeds with linked lists, the main URL points to the original source, not the commentary on the host site. That's what I wanted to implement in Pelican. (I don't know if Gabe ever found the answer, but if he did, I can't find where he wrote about it. I was also unable to find anybody else who'd done this before.)
 
-<!-- summary -->
-
 I couldn't find anything in the configuration, or the templates, for creating this sort of feed item, so I decided to find the code which generates the XML that goes into the RSS feed. I tracked it to a file in the Pelican module: `writers.py`. On my machine, the full path was
 
 ```

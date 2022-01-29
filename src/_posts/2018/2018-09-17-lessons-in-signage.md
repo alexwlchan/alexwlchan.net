@@ -25,8 +25,6 @@ But this was a first attempt, and inevitably I didn't get it all right -- for th
 
 [inclusivity]: https://alexwlchan.net/2018/08/inclusive-conferences/#clear-internal-signage
 
-<!-- summary -->
-
 
 
 ## Make the font size bigger
