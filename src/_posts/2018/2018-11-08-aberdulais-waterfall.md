@@ -51,8 +51,6 @@ The National Trust site is based in the remains of one of the old tin plating wo
 
 So what's it like to visit?
 
-<!-- summary -->
-
 The car park is just across the road from the entrance, and I couldn't see the falls as I was walking up.
 But as I approached, I could see a broken bridge, and hear and feel the power of the water crashing against it.
 I could hear it before I saw it.

@@ -14,8 +14,6 @@ You can see that my activity started to pick up around March, which is when I st
 
 The GitHub chart has been a particular effective motivator. I think it's the long tail that does it: if I don't do something now, I'll be looking at the blank space for another year. So it got me wondering, could I use this design for something else?
 
-<!-- summary -->
-
 I had a look to see if I could simply repurpose GitHub's existing code, but it's some sort of complex HTML5 canvas object. It goes right over my head, so I couldn't use that. I had to write my own implementation.
 
 My web dev skills aren't great, but I came up with a rough approximation:

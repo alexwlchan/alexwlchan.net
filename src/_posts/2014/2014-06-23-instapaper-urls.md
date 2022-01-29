@@ -30,8 +30,6 @@ https://instapaper.com/read/480777221
 
 I wanted a way to catch these `instapaper://` links, and redirect to the appropriate item in the web interface without hitting an alert.
 
-<!-- summary -->
-
 I started with this AppleScript:
 
 ```applescript

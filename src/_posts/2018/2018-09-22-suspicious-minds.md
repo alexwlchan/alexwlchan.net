@@ -36,8 +36,6 @@ This doesn't include everything I said, but I hope it's a useful starting point.
 
 [pyconuk]: https://2018.pyconuk.org/
 
-<!-- summary -->
-
 
 
 I prepped this talk at fairly short notice, and it wasn't as polished as I'd like.

@@ -8,8 +8,6 @@ title: Hypercritical
 
 This November, I was sad to hear that my all-time favourite podcast, [Hypercritical][1], would [be ending at episode #100][2]. In the last week or so, I've read (and heard) many tributes from other fans of the podcast, and with [the last episode][6] fresh in my mind, I wanted to say a few words myself.
 
-<!-- summary -->
-
 Co-hosted by [John Siracusa][4] and [Dan Benjamin][5], Hypercritical bills itself as
 
 > A weekly talk show ruminating on exactly what is wrong in the world of Apple and related technologies and businesses. Nothing is so perfect that it can't be complained about.

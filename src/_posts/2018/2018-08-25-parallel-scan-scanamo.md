@@ -56,8 +56,6 @@ We'll probably put it in production at some point, but I don't know how long tha
 [nih]: https://en.wikipedia.org/wiki/Not_invented_here
 [blog]: https://aws.amazon.com/blogs/aws/amazon-dynamodb-parallel-scans-and-other-good-news/
 
-<!-- summary -->
-
 ## Creating an API client
 
 Before we write any parallel scan code, we need an API client for working with the DynamoDB API:

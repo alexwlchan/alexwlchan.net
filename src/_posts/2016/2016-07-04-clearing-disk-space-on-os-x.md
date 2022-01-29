@@ -14,8 +14,6 @@ Partly to get back that the disk space, partly so I didn't have to worry about i
 Over the course of a few hours, I was able to clean up over half a terabyte of old files.
 This wasn't just trawling through the Finder by hand &ndash; I had a couple of tools and apps to help me do this &ndash; and I thought it would be worth writing down what I used.
 
-<!-- summary -->
-
 ## Backups: Time Machine, [SuperDuper!](http://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html) and [CrashPlan](https://www.crashplan.com/en-us/)
 
 Embarking on an exercise like this without good backups would be foolhardy: what if you get cold feet, or accidentally delete a critical file?

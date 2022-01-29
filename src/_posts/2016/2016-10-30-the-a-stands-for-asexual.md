@@ -26,8 +26,6 @@ Oh well, better late than never.)
 
 [aceweek]: http://asexualawarenessweek.com
 
-<!-- summary -->
-
 ## What is asexuality?
 
 The OED defines the word *asexual* as follows:

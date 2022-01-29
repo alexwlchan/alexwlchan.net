@@ -17,8 +17,6 @@ In this post, I want to talk about a few of the things that really stood out to 
 
 _A disclaimer:_ I'm a cis white male, so I don't tend to have problems at other tech conferences. Take my praise with a pinch of salt, because I'm not really the person this is aimed at helping.
 
-<!-- summary -->
-
 ### A strong code of conduct
 
 AlterConf has a [code of conduct][coc], and Ashe Dryden (who founded and runs AlterConf) has written extensively [about codes of conduct][coc101] in the past.

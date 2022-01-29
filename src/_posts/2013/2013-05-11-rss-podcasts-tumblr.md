@@ -19,8 +19,6 @@ I went to have a play, and this feature still works. You want the first, rather 
 
 Handy!
 
-<!-- summary -->
-
 **A disclaimer:** I haven't tested any of this extensively, and I don't know anybody at Tumblr who'd be able to explain exactly how this feature works, but I thought it was useful enough to share with other people.
 
 ## Notes

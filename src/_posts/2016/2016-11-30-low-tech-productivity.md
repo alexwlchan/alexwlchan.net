@@ -17,8 +17,6 @@ I wanted to reply, but I have more to say than will fit in 140&nbsp;characters.
 So instead, in blog post form, here are my low-tech suggestions for tackling tricky topics.
 This isn't everything you could try, but these are the techniques I've found work best for me.
 
-<!-- summary -->
-
 #### Multicoloured doodling
 
 Like David, I use pencil and paper for working out ideas, and if I can, I use *coloured* pencils.

@@ -25,8 +25,6 @@ Perhaps I could do something useful with that?
 
 I decided to write a Python script that would let me send articles to a Kindle &ndash; from any device.
 
-<!-- summary -->
-
 ## Getting HTML from Instaparser
 
 You can sign up for [the free plan][trial] to get access to the service, and the limits are surprisingly generous &ndash; 1000&nbsp;calls per month.

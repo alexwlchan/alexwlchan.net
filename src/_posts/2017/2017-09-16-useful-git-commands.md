@@ -11,8 +11,6 @@ I spend a lot of time writing build scripts for interacting with Git repos.
 But Git's documentation is notoriously opaque, and a lot of my Git knowledge comes from word-of-mouth rather than reading the docs.
 In that spirit of sharing, these are few of the Git commands I find useful when writing build scripts.
 
-<!-- summary -->
-
 <br/>
 
 ```console
@@ -170,4 +168,4 @@ In this case, a deployment from <em>other-branch</em> would be rejected until we
 I use all of these commands on a regular basis, but I bet there are others I'm missing.
 What Git commands do you find indispensable?
 What do you wish more people knew about?
-I'd love to know what you find useful -- write your own blog post, or <a href="https://twitter.com/{{ site.social.twitter }}/">tell me on Twitter</a>.
+I'd love to know what you find useful -- write your own blog post, or <a href="https://twitter.com/alexwlchan/">tell me on Twitter</a>.

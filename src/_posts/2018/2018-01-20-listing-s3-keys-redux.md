@@ -23,8 +23,6 @@ Specifically:
 Since that post has been fairly popular, I thought it was worth writing a short update.
 In this post, I'll walk through the changes I've made in the newer versions of the code.
 
-<!-- summary -->
-
 As a quick reminder, this is the code we had at the end of the last post:
 
 ```python

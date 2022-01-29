@@ -27,8 +27,6 @@ If you choose "Keep Both", then the Finder leaves the original file intact, and 
 
 I wanted to replicate that functionality in Python, as a drop-in for the `copyfile()` and `move()` methods of the [*shutil* module](https://docs.python.org/3.5/library/shutil.html). I couldn't find existing code to do this, so I wrote my own script instead.
 
-<!-- summary -->
-
 I came up with a few rules for my "safe"[^1] move/copy function:
 
 *   **It should never affect an existing file.** If I try to copy a file to a location, and there's already something there, then the pre-existing file will be untouched.

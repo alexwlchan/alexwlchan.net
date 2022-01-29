@@ -9,8 +9,6 @@ title: Brief advice for Part II
 
 I got a very nice email this afternoon from a IB student[^1] pointing out some mistakes in my [Linear Algebra notes][linalg], and asking if I had any Part II notes that they could study over the summer. Unfortunately I don't (yet), but I have some thoughts on what you could work on over the summer break. Rather than lock them up in an email, I'm posting them here.
 
-<!-- summary -->
-
 A good starting point is the [course schedules][sched], which explain the courses which are available in Part II. If you want something to study over the summer, then a C&nbsp;course is probably a safe option. C&nbsp;courses are supposed to be *"straightforward and accessible, and of general interest"*, which is good if you're working through the material on your own.
 
 I worked on **Number Theory** and **Coding and Cryptography** over my summer vacation. Both of them are very friendly courses with lots of interesting material. If you're feeling slightly more ambitious, then the **Graph Theory** course is also a nice standalone, with some very pretty results. The section on Ramsey theory is particularly fun.

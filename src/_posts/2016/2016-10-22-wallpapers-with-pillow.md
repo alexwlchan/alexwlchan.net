@@ -33,8 +33,6 @@ And a few hours of Python later, I could generate these patterns in arbitrary co
 
 In this post, I'll explain how I went from having a tiling of the plane, to generating these wallpapers in arbitrary colours.
 
-<!-- summary -->
-
 In the previous post, we had three generators, which generated the coordinates for individual polygons in a tiling of the plane.
 We want to give each polygon its own colour, so we need another generator to create random colours.
 

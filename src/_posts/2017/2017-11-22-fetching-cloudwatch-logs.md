@@ -26,8 +26,6 @@ If you just want the code, skip to the end of the post.
 [cloudwatch]: https://en.wikipedia.org/wiki/Amazon_Elastic_Compute_Cloud#Amazon_CloudWatch
 [awslogs]: https://github.com/jorgebastida/awslogs
 
-<!-- summary -->
-
 ## Getting all the logs
 
 Let's start by grabbing a bundle of logs from CloudWatch.

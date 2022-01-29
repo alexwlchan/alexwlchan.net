@@ -18,8 +18,6 @@ That works in about 95% of cases, but I've encountered two problems:
 
 I've written a Python script to replace the AppleScript, which seems to solve both of these problems. I've been using it for the last few weeks, and now I'd like to share it.
 
-<!-- summary -->
-
 The main part of the script is a function, `get_note_path()`, which looks up the path to the frontmost note in nvALT. Here it is:
 
 ```python
