@@ -25,7 +25,16 @@ module Jekyll
   end
 
   module CleanupsFilter
+    CLEANUP_TEXT_CACHE = {}
+
     def cleanup_text(input)
+      CLEANUP_TEXT_CACHE.fetch(input) { |input|
+        CLEANUP_TEXT_CACHE[input] = _do_cleanup_text(input)
+      }
+    end
+
+    def _do_cleanup_text(input)
+
       # Replace mentions of RFCs with a non-breaking space version.
       text = input.gsub(/RFC (\d+)/, 'RFC&nbsp;\1')
 
