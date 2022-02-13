@@ -49,6 +49,7 @@ module Jekyll
 
       text = text.sub("iPhone X", "iPhone&nbsp;X")
       text = text.sub("JPEG 2000", "JPEG&nbsp;2000")
+      text = text.sub("Route 53", "Route&nbsp;53")
 
       # e.g. k-means
       text = text.sub("<em>k</em>-means", "<em>k</em>&#8209;means")
