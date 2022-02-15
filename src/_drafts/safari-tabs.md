@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Closing Safari tabs quickly with JXA
+title: Closing lots of Safari tabs with JXA
 summary: To help me keep my tab count down, I wrote a JXA script to close tabs that can easily be recreated.
 tags: jxa safari macos
 ---
@@ -10,17 +10,17 @@ I open way more tabs than I close, so by the end of the week my computer often h
 (I currently have 182 tabs.)
 
 Occasionally I keep a tab open because I want to look at it later, but most of these are tabs I just haven't closed yet -- and which I could recreate easily if needed.
-For example, when I want to see our planning board, it's easier to open a new tab than find the existing tab.
-I look at the board several times a day, so it ends up in several different tabs – and they all sink into the background mass of windows on my computer.
+For example, when I want to see our planning board, it's faster to open a new tab than find the existing tab.
+I look at the board several times a day, so I open several different tabs – and they all sink into the background mass of windows on my computer.
 
 This might seem ridiculous, but it works for me.
 I have a bunch of [Alfred shortcuts](https://www.alfredapp.com) set up to open different bookmarks, which means I can get to important URLs quickly -- and my computer is powerful enough that I don't feel the drag of all the tabs.
 It's just as snappy with 300 tabs as with 3.
 
-But all these ephemeral tabs do make it harder to find the few tabs I do want to look at later -- so I wrote a script that cleans them up.
+But all these repetitive tabs make it harder to find the few tabs I do want to look at later -- so I wrote a script that cleans them up.
 I run this at the end of each day, and a bunch of tabs get closed.
 
-I'm using JavaScript for Automation (JXA) for this script -- I've been trying to learn more JavaScript for my day job, and JXA seems like a potential step up from AppleScript.
+I'm using JavaScript for Automation (JXA) for this script -- I've been trying to learn more JavaScript for my day job, and JXA seems like a step up from AppleScript.
 I still get all the automation hooks in macOS, but I don't have to suffer AppleScript's control flow or string handling.
 
 [osascript]: https://ss64.com/osx/osascript.html
@@ -41,7 +41,7 @@ console.log(safari.windows.length);
 /* 23 */
 ```
 
-Each of those windows has a `.tabs` property, which is another array.
+Each of those windows has a `.tabs` property, which returns another array.
 For example, this tells me I have 7 tabs open in my 3rd window:
 
 ```javascript
@@ -55,6 +55,10 @@ And I can look up the URL of individual tabs, for example the 5th tab of the 3rd
 console.log(safari.windows[2].tabs[4].url());
 /* https://en.wikipedia.org/wiki/Route_53 */
 ```
+
+Windows are ordered front-to-back, and tabs are ordered left-to-right.
+The first entry of `safari.windows` is my front window, the second entry is the window behind it, the third entry the window behind that, and so on.
+The entries of `window.tabs` are in left-to-right order.
 
 We can put these calls together in a for loop to get the URL of every tab in every window:
 
@@ -83,7 +87,7 @@ This is to make the rest of the script simpler.
 When you close a tab or a window, the `.tabs` and `.windows` arrays get renumbered.
 For example, when I close window 3, what was previously window 4 becomes the new window 3, and window 5 becomes window 4, and window 6 becomes window 5, and so on.
 
-If I went through the tabs in order it'd be fiddly to make sure I visited every one.
+If I went through the tabs in forward orderm it'd be fiddly to make sure I visited every one.
 After closing window 3, I'd have to go back and check the tabs in the new window 3 to see if any of them needed closing.
 If I go through the tabs in reverse, the only tabs and windows that get renumbered are ones I've already checked, so I don't need to check them again.
 
@@ -151,9 +155,9 @@ for (const [window_index, tab_index, url] of tabGenerator()) {
 ```
 
 It iterates over the URLs returned by `tabGenerator()`, and then calls `isSafeToClose()` on each URL.
-If it's going to be closed, it prints the URL (so I can easily see if it closed the wrong tab, and get it back), then call the `.close()` method to actually close the tab.
+If it's going to be closed, it prints the URL (so I can see if it closed the wrong tab, and get it back), then calls the `.close()` method to actually close the tab.
 
-I have everything saved in a file called `close_work_tabs`, and at the top I have this shebang:
+I have everything saved in a file called `close_work_tabs`, and at the top I have this line:
 
 ```
 #!/usr/bin/env osascript -l JavaScript
@@ -170,6 +174,6 @@ I often help family, friends, and coworkers debug things on their Macs, and a go
 Where possible, I prefer to solve their problems with the builtin tools, rather than installing lots of extra stuff on their computers.
 
 I used to rely on the builtin Python, but now Apple is (finally) [removing it][python], I'll have to switch to something else, and JXA seems like the best choice.
-Although I'll continue to have a Python installation on my computers, I'll start reaching for JXA in future automations – as a way to practice for when I'm working on somebody else's Mac.
+Although I'll continue to have a Python installation on my own computers, I'll start reaching for JXA in future automations – as a way to practice for when I'm working on somebody else's Mac.
 
 [python]: https://developer.apple.com/documentation/macos-release-notes/macos-12_3-release-notes#Python
