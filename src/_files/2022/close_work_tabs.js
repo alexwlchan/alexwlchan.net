@@ -16,12 +16,12 @@ function* tabGenerator() {
   window_count = safari.windows.length;
 
   for (window_index = window_count - 1; window_index >= 0; window_index--) {
-    window = safari.windows[window_index];
+    this_window = safari.windows[window_index];
 
-    tab_count = window.tabs.length;
+    tab_count = this_window.tabs.length;
 
     for (tab_index = tab_count - 1; tab_index >= 0; tab_index--) {
-      tab = window.tabs[tab_index];
+      tab = this_window.tabs[tab_index];
       yield [window_index, tab_index, tab.url()];
     }
   }
