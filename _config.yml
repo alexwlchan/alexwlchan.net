@@ -32,9 +32,6 @@ kramdown:
   # Disabled so it doesn't interfere with MathJax.
   math_engine: null
 
-plugins:
-  - "jekyll-sitemap"
-
 highlighter: "rouge"
 
 liquid:
