@@ -18,7 +18,7 @@ post_list_date_format: day_month
   }
 </style>
 
-<img src="/images/profile2020.jpg" class="profile" alt="A picture of a person set against the sky.">
+<img src="/images/profile_red.jpg" class="profile" alt="A selfie! I have light skin and dark brown hair falling in gentle waves on either side of my face. I'm wearing a red scarf and a dark red jumper.">
 
 ## Hi, I'm Alex.
 
