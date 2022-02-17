@@ -1,4 +1,6 @@
 require "html-proofer"
+require "nokogiri"
+require "uri"
 require "yaml"
 
 
@@ -11,6 +13,7 @@ class RunLinting < Jekyll::Command
 
           check_writing_has_been_archived(options["source"])
           run_html_linting(options["destination"])
+          check_social_card_images(options["destination"])
         end
       end
     end
@@ -51,6 +54,57 @@ class RunLinting < Jekyll::Command
         no_archive_writing
           .each { |w| puts w["url"] }
         puts "Please run 'python3 scripts/archive_elsewhere.py'"
+        exit!
+      end
+    end
+
+    # This checks that all my Twitter/OpenGraph cards point at images
+    # that actually exists.
+    def check_social_card_images(html_dir)
+      has_errors = false
+
+      Dir["#{html_dir}/**/*.html"].each { |html_path|
+
+        # Anything in the /files/ directory can be ignored, because it's
+        # not part of the site, it's a static asset.
+        if html_path.include? "/files/"
+          next
+        end
+
+        doc = Nokogiri::HTML(File.open(html_path))
+
+        twitter_cards = doc.xpath("//meta[@name='twitter:image']")
+
+        if twitter_cards.length != 1
+          puts "#{html_path} is missing a Twitter card"
+          has_errors = true
+        end
+
+        twitter_cards.each { |twitter_meta|
+          uri = URI(twitter_meta.attribute('content'))
+          if !File.exist? "#{html_dir}#{uri.path}"
+            puts "#{html_path} has a Twitter card pointing to a missing image"
+            has_errors = true
+          end
+        }
+
+        opengraph_cards = doc.xpath("//meta[@name='og:image']")
+
+        if opengraph_cards.length != 1
+          puts "#{html_path} is missing an OpenGraph card"
+          has_errors = true
+        end
+
+        opengraph_cards.each { |og_meta|
+          uri = URI(og_meta.attribute('content'))
+          if !File.exist? "#{html_dir}#{uri.path}"
+            puts "#{html_path} has a OpenGraph card pointing to a missing image"
+            has_errors = true
+          end
+        }
+      }
+
+      if has_errors
         exit!
       end
     end

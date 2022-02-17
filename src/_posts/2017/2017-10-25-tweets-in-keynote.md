@@ -6,7 +6,7 @@ tags: keynote
 summary: Slides for showing tweets that look like tweets on slides in Keynote and PowerPoint.
 theme:
   card_type: summary_large_image
-  image: /images/2017/tweet_lightbox.png
+  image: /images/2017/tweets_4up.png
 ---
 
 Every so often, I want to use a tweet in some slides I'm making (I have three in my PyCon UK slides for Friday).
