@@ -1,5 +1,6 @@
 require "html-proofer"
 require "nokogiri"
+require "rainbow"
 require "rszr"
 require "uri"
 require "yaml"
@@ -14,7 +15,7 @@ class RunLinting < Jekyll::Command
 
           run_html_linting(options["destination"])
           check_writing_has_been_archived(options["source"])
-          check_social_card_images(options["destination"])
+          check_twitter_card_images(options["destination"])
         end
       end
     end
@@ -33,6 +34,16 @@ class RunLinting < Jekyll::Command
             "/theme/file_zip_2x.png",
           ],
         }).run
+    end
+
+    # These commands are based on the logging in html-proofer; see
+    # https://github.com/gjtorikian/html-proofer/blob/041bc94d4a029a64ecc1e48036e94eafbae6c4ad/lib/html_proofer/log.rb
+    def info(message)
+      puts Rainbow(message).send(:blue)
+    end
+
+    def error(message)
+      puts Rainbow(message).send(:red)
     end
 
     # This checks that every article on /elsewhere/ has at least one copy
@@ -67,7 +78,9 @@ class RunLinting < Jekyll::Command
     #      the 2:1 aspect ratio required by Twitter
     #
     def check_twitter_card_images(html_dir)
-      errors = []
+      errors = Hash.new { [] }
+
+      info("Checking Twitter card metadata...")
 
       Dir["#{html_dir}/**/*.html"].each { |html_path|
 
@@ -82,6 +95,12 @@ class RunLinting < Jekyll::Command
 
         doc = Nokogiri::HTML(File.open(html_path))
         meta_tags = doc.xpath("//meta")
+
+        # Look up the Markdown file that was used to create this file.
+        #
+        # This means the error report can link to the source file, not
+        # the rendered HTML file.
+        md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
 
         # Get a map of Twitter cards (name => content).
         #
@@ -105,11 +124,11 @@ class RunLinting < Jekyll::Command
         local_image_path = "#{html_dir}#{image_path}"
 
         if !File.exist? local_image_path
-          errors.push("#{html_path} has a Twitter card pointing to a missing image")
+          errors[md_path] <<= "Twitter card points to a missing image"
         end
 
         if twitter_cards['twitter:card'] != 'summary' && twitter_cards['twitter:card'] != 'summary_large_image'
-          errors.push("#{html_path} has a Twitter card with an invalid card type")
+          errors[md_path] <<= "Twitter card has an invalid card type #{twitter_cards['twitter:card']}"
         end
 
         # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
@@ -123,7 +142,7 @@ class RunLinting < Jekyll::Command
           if File.exist? local_image_path
             image = Rszr::Image.load(local_image_path)
             if image.width != image.height * 2
-              errors.push("#{html_path} has a summary_large_image Twitter card without a 2:1 aspect ratio")
+              errors[md_path] <<= "summary_large_image Twitter card does not have a 2:1 aspect ratio"
             end
           end
         end
@@ -135,8 +154,16 @@ class RunLinting < Jekyll::Command
         # the OpenGraph card either, and vice versa.
       }
 
+      # This is meant to look similar to the output from HTMLProofer --
+      # errors are grouped by filename, so they can be easily traced
+      # back to the problem file.
       if !errors.empty?
-        puts errors.join("\n")
+        errors.each { |path, messages|
+          error("- #{path}")
+          messages.each { |m|
+            error("  *  #{m}")
+          }
+        }
         exit!
       end
     end
