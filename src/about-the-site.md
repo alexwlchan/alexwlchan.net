@@ -22,11 +22,9 @@ What you see today is powered by:
 
 *   [Jekyll][jekyll], for building the HTML
 *   [Sass][sass], for building the CSS and stylesheets
-*   [nginx][nginx], an HTTP server
 *   [Docker][docker], which wraps the local build process and nginx on my server
 *   [Azure Pipelines][azure], which builds and publishes the site
-*   [Linode][linode], who provide the Linux server where I run nginx (referral link)
-*   [Let's Encrypt][letsencrypt] for SSL/TLS certificates
+*   [Netlify], which hosts the site
 
 and all the site source code is on [GitHub][github].
 
@@ -35,12 +33,10 @@ Feast your eyes on my evolving skills in mediocre web design.
 
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
-[nginx]: https://nginx.org/
 [docker]: https://www.docker.com/
 [azure]: https://azure.microsoft.com/en-us/services/devops/pipelines/
-[linode]: https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3
 [github]: https://github.com/alexwlchan/alexwlchan.net/
-[letsencrypt]: https://letsencrypt.org
+[Netlify]: https://www.netlify.com
 
 <style>
   img {
