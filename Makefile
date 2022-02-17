@@ -54,16 +54,14 @@ publish-drafts:
 		--volume ~/.ssh:/root/.ssh \
 		$(DOCKER_IMAGE) publish_drafts
 
-publish: publish-drafts build
-
-deploy: publish lint
+deploy:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		ghcr.io/williamjacksn/netlify-cli \
 		deploy --auth="$NETLIFY_AUTH_TOKEN"
 
-deploy-prod: publish lint
+deploy-prod:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
