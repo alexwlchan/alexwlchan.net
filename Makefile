@@ -59,14 +59,14 @@ deploy:
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		ghcr.io/williamjacksn/netlify-cli \
-		deploy --auth="$NETLIFY_AUTH_TOKEN"
+		deploy --auth="$(NETLIFY_AUTH_TOKEN)"
 
 deploy-prod:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		ghcr.io/williamjacksn/netlify-cli \
-		deploy --prod --auth="$NETLIFY_AUTH_TOKEN"
+		deploy --prod --auth="$(NETLIFY_AUTH_TOKEN)"
 
 Gemfile.lock: Gemfile
 	docker run \
