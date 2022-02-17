@@ -7,7 +7,7 @@ summary: Why I like the lottery system used to select lightning talks at PyCon U
 last_modified_at: 2017-10-31 23:09:00 +0100
 theme:
   card_type: summary_large_image
-  image: /images/2017/lightning_bukkit.jpg
+  image: /images/2017/lightning_bukkit_twitter_card.jpg
 category: "Organising PyCon UK"
 ---
 
