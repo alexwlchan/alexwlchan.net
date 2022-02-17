@@ -56,35 +56,19 @@ publish-drafts:
 
 publish: publish-drafts build
 
-rsync:
-	docker run --rm --tty \
-		--volume ~/.ssh/id_rsa:/root/.ssh/id_rsa \
-		--volume $(DST):/data \
-		instrumentisto/rsync-ssh \
-		rsync \
-		--archive \
-		--verbose \
-		--compress \
-		--delete \
-		--exclude=".well-known" \
-		--exclude=".DS_Store" \
-		--exclude="attic/" \
-		--exclude="files/" \
-		--exclude="ideas-for-inclusive-events/" \
-		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
-		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)"
-	docker run --rm --tty \
-		--volume ~/.ssh/id_rsa:/root/.ssh/id_rsa \
-		--volume $(DST)/files:/data \
-		instrumentisto/rsync-ssh \
-		rsync \
-		--archive \
-		--verbose \
-		--compress \
-		--rsh="ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa" \
-		/data/ "$(RSYNC_USER)"@"$(RSYNC_HOST)":"$(RSYNC_DIR)/files"
+deploy: publish lint
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		ghcr.io/williamjacksn/netlify-cli \
+		deploy --auth="$NETLIFY_AUTH_TOKEN"
 
-deploy: publish lint rsync
+deploy-prod: publish lint
+	docker run --tty --rm \
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		ghcr.io/williamjacksn/netlify-cli \
+		deploy --prod --auth="$NETLIFY_AUTH_TOKEN"
 
 Gemfile.lock: Gemfile
 	docker run \
