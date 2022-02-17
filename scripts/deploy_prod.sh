@@ -17,7 +17,7 @@ touch ~/.gitconfig
 git config user.name "Azure Pipelines on behalf of Alex Chan"
 git config user.email "azurepipelines_git@alexwlchan.net"
 
-make deploy
+make deploy-prod
 
 git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
 git push --verbose ssh-origin HEAD:live

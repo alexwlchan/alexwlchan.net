@@ -15,12 +15,18 @@ steps:
 - script: "make lint"
   displayName: "Run linting"
 
+- script: "make deploy"
+  displayName: "Deploy to Netlify"
+  env:
+    NETLIFYTOKEN: $(NETLIFYTOKEN)
+
 - task: DownloadSecureFile@1
   inputs:
     secureFile: id_rsa
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Download SSH key"
-
-- script: ./scripts/deploy.sh
+- script: ./scripts/deploy_prod.sh
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
-  displayName: "Deploy to Linode and push new commits to GitHub"
+  displayName: "Deploy to Netlify and push new commits to GitHub"
+  env:
+    NETLIFYTOKEN: $(NETLIFYTOKEN)
