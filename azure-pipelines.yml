@@ -17,6 +17,7 @@ steps:
 
 - script: "make deploy"
   displayName: "Deploy to Netlify"
+  condition: "ne(eq(variables['Build.SourceBranch'], 'refs/heads/live'))"
   env:
     NETLIFY_AUTH_TOKEN: $(NetlifyToken)
 
