@@ -88,7 +88,7 @@ class RunLinting < Jekyll::Command
           end
         }
 
-        opengraph_cards = doc.xpath("//meta[@name='og:image']")
+        opengraph_cards = doc.xpath("//meta[@property='og:image']")
 
         if opengraph_cards.length != 1
           puts "#{html_path} is missing an OpenGraph card"
