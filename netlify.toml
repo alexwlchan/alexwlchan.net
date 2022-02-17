@@ -1,0 +1,21 @@
+[build]
+  base = ""
+  publish = "_site/"
+
+[[headers]]
+  for = "/files/*"
+
+  [headers.values]
+		cache-control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/images/*"
+
+  [headers.values]
+		cache-control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/theme/*"
+
+  [headers.values]
+		cache-control = "public, max-age=31536000"
