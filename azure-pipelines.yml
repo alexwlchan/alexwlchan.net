@@ -18,7 +18,7 @@ steps:
 - script: "make deploy"
   displayName: "Deploy to Netlify"
   env:
-    NETLIFYTOKEN: $(NETLIFYTOKEN)
+    NETLIFYTOKEN: $(NetlifyToken)
 
 - task: DownloadSecureFile@1
   inputs:
@@ -29,4 +29,4 @@ steps:
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Netlify and push new commits to GitHub"
   env:
-    NETLIFYTOKEN: $(NETLIFYTOKEN)
+    NETLIFYTOKEN: $(NetlifyToken)
