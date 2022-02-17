@@ -18,11 +18,11 @@ steps:
 - script: "make lint"
   displayName: "Run linting"
 
-- script: "make deploy"
-  displayName: "Deploy to Netlify"
-  condition: "ne(variables['Build.SourceBranch'], 'refs/heads/live')"
-  env:
-    NETLIFY_AUTH_TOKEN: $(NetlifyToken)
+# - script: "make deploy"
+#   displayName: "Deploy to Netlify"
+#   condition: "ne(variables['Build.SourceBranch'], 'refs/heads/live')"
+#   env:
+#     NETLIFY_AUTH_TOKEN: $(NetlifyToken)
 
 - task: DownloadSecureFile@1
   inputs:
