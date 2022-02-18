@@ -3,6 +3,9 @@ layout: post
 title: A tale of two Twitter cards
 summary: Some recent changes I've made to fix or improve my Twitter cards.
 tags: twitter
+theme:
+  card_type: summary_large_image
+  image: /images/2022/twitter_cards.png
 ---
 
 If I had a penny for every Twitter card I've fixed in the last week, I'd have two pennies.
@@ -31,15 +34,18 @@ They used to have a machine learning tool that tried to guess what the "interest
 However it works, if you let Twitter pick the crop, you can get some suboptimal results:
 
 <figure style="width: calc(80% + 5px)">
-  <img src="/images/2022/twitter_card_bad_crop.png" style="width: calc(50% - 10px); display: inline-block; margin-right: 5px;">
-  <img src="/images/2022/twitter_card_good_crop.png" style="width: calc(50% - 10px); display: inline-block; margin-left: 5px; float: right;">
+  <img src="/images/2022/twitter_card_bad_crop.png" style="width: calc(50% - 10px); display: inline-block; margin-right: 5px;" alt="A screenshot of a tweet linking to an article, in which the card image shows a woman's chest and the bottom half of her face.">
+  <img src="/images/2022/twitter_card_good_crop.png" style="width: calc(50% - 10px); display: inline-block; margin-left: 5px; float: right;" alt="A screenshot of the same tweet, but now the card is focused on the woman's face and shoulders.">
+  <figcaption>
+    A <a href="https://twitter.com/ExploreWellcome/status/1491038905923215361">tweet from Wellcome Collection</a>, before and after my change.
+  </figcaption>
 </figure>
 
 The card on the left is using a square image which was cropped automatically, so half of Lauren's face is cut off.
 The card on the right is using a rectangular image which was cropped by a person, and now the face is visible.
 The Wellcome Collection editorial team create several crops of every image, so we can use different sizes of image in different places -- we had to change our card to use the 2:1 crop, not the square crop.
 
-(There's a sad irony that this card was for an article about [how women's experiences of autism are erased][erased], and the automatic crop ended up erasing a woman's face.)
+(There's a sad irony that this card was for an article about [how women's experiences of autism are erased][erased], and the automatic crop ended up erasing a Black woman's face.)
 
 This is an extreme example, but it proves a general point: crop your card images yourself; don't let Twitter crop them for you.
 
@@ -54,7 +60,7 @@ This is an extreme example, but it proves a general point: crop your card images
 Twitter cards on my blog have been broken for a while, and I'm not sure why.
 In particular, cards would display, but they didn't have any images attached:
 
-<img src="/images/2022/twitter_card_no_image.png" style="width: 40%">
+<img src="/images/2022/twitter_card_no_image.png" style="width: 40%" alt="Screenshot of a tweet from me, where the card image is showing a generic grey icon.">
 
 I started by running my pages through the [Twitter Card Validator][validator].
 It's a useful tool for testing cards -- you give it a URL, and it shows you what the card for that page would look like.
@@ -69,7 +75,7 @@ It's useful when you want to share your work quickly: you spin up a local web se
 ngrok gives you a publicly visible URL, which you can send to somebody in Slack.
 When they click that URL, they get connected to your local server, with the changes you've just made.
 
-<img src="/images/2022/ngrok_screenshot_2x.png" style="width: 426px;" srcset="/images/2022/ngrok_screenshot_2x.png 2x, /images/2022/ngrok_screenshot_1x.png 1x">
+<img src="/images/2022/ngrok_screenshot_2x.png" style="width: 426px;" srcset="/images/2022/ngrok_screenshot_2x.png 2x, /images/2022/ngrok_screenshot_1x.png 1x" alt="Screenshot of my terminal running ngrok. It shows some information about my account, an eu.ngrok.io URL where I can access my web server, and a list of HTTP requests it's received.">
 
 So I ran my blog on a local web server, shared it through ngrok, put the public ngrok URL in the Twitter card validator… and the card worked perfectly.
 
