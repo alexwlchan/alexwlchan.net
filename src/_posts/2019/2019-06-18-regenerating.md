@@ -7,11 +7,6 @@ category: Diversity, inclusion and accessibility
 tags: personal gender
 index:
   best_of: true
-
-theme:
-  card_type: summary_large_image
-  image: /images/2019/goldfinger.jpg
-
 ---
 
 If you listen to some of my friends, they'll say that I'm a spy.
