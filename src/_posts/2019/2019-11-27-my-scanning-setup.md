@@ -10,7 +10,7 @@ index:
 
 theme:
   card_type: summary_large_image
-  image: /images/2019/canon_scanner.jpg
+  image: /images/2019/canon_scanner_twitter_card.jpg
 
 ---
 

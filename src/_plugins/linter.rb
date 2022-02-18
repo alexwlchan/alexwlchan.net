@@ -101,6 +101,7 @@ class RunLinting < Jekyll::Command
         # This means the error report can link to the source file, not
         # the rendered HTML file.
         md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
+        md_path = "src/#{md_path}"
 
         # Get a map of Twitter cards (name => content).
         #
@@ -158,8 +159,8 @@ class RunLinting < Jekyll::Command
       # errors are grouped by filename, so they can be easily traced
       # back to the problem file.
       if !errors.empty?
-        errors.each { |path, messages|
-          error("- #{path}")
+        errors.each { |md_path, messages|
+          error("- #{md_path}")
           messages.each { |m|
             error("  *  #{m}")
           }

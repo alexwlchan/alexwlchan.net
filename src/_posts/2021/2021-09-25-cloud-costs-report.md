@@ -6,7 +6,7 @@ summary: To help us be more aware of our AWS bill, and more deliberate in what w
 tags: aws aws-billing
 theme:
   card_type: summary_large_image
-  image: /images/2021/costs_report_2x.png
+  image: /images/2021/costs_report_2x_twitter_card.png
 index:
   best_of: true
 ---

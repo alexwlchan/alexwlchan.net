@@ -7,7 +7,7 @@ category: Languages
 tags: language accessibility
 theme:
   card_type: summary_large_image
-  image: /images/2019/braille.jpg
+  image: /images/2019/braille_twitter_card.jpg
 ---
 
 One of the fun things about working at Wellcome is that there are lots of unusual things in the collection.
