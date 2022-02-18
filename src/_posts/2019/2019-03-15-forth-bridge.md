@@ -7,7 +7,7 @@ tags: personal
 category: Photography
 theme:
   card_type: summary_large_image
-  image: /images/2019/PC010292_1x.jpg
+  image: /images/2019/PC010292_twitter_card.jpg
 
 index:
   best_of: true
