@@ -29,7 +29,7 @@ What you see today is powered by:
 and all the site source code is on [GitHub][github].
 
 Between the Wayback Machine and my screenshots, I've put together a short visual history of what the site used to look like.
-Feast your eyes on my evolving skills in mediocre web design.
+Feast your eyes on my evolving skills in basic web design.
 
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
