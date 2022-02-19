@@ -12,11 +12,11 @@ steps:
   fetchDepth: 1
   clean: true
 
-# - script: "make build-drafts"
-#   displayName: "Build the site"
-#
-# - script: "make lint"
-#   displayName: "Run linting"
+- script: "make build-drafts"
+  displayName: "Build the site"
+
+- script: "make lint"
+  displayName: "Run linting"
 
 - script: |
     chmod 600 "$DOWNLOADSECUREFILE_SECUREFILEPATH"
@@ -35,7 +35,9 @@ steps:
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Download SSH key"
 
-- script: make publish-drafts
+- script: |
+    make publish-drafts
+    make build
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Publish pending drafts"
   env:
