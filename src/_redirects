@@ -2,7 +2,7 @@
 # presenting it at this sub-path.
 #
 # See https://answers.netlify.com/t/support-guide-can-i-deploy-multiple-repositories-in-a-single-site/179
-/ideas-for-inclusive-events/* https://ideas-for-inclusive.netlify.app/:splat 200
+/ideas-for-inclusive-events/* https://ideas-for-inclusive-events.netlify.app/:splat 200
 
 /feed.xml           /atom.xml
 /rss.xml            /atom.xml
