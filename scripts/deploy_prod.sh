@@ -5,6 +5,7 @@ set -o nounset
 set -o verbose
 
 mkdir -p ~/.ssh
+ls -l ~/.ssh
 cp "$DOWNLOADSECUREFILE_SECUREFILEPATH" ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 
