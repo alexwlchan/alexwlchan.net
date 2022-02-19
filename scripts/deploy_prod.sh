@@ -2,6 +2,7 @@
 
 set -o errexit
 set -o nounset
+set -o verbose
 
 mkdir -p ~/.ssh
 cp "$DOWNLOADSECUREFILE_SECUREFILEPATH" ~/.ssh/id_rsa
