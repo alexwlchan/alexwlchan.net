@@ -12,11 +12,11 @@ steps:
   fetchDepth: 1
   clean: true
 
-- script: "make build-drafts"
-  displayName: "Build the site"
-
-- script: "make lint"
-  displayName: "Run linting"
+# - script: "make build-drafts"
+#   displayName: "Build the site"
+#
+# - script: "make lint"
+#   displayName: "Run linting"
 
 # - script: "make deploy"
 #   displayName: "Deploy to Netlify"
