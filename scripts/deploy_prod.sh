@@ -4,10 +4,8 @@ set -o errexit
 set -o nounset
 set -o verbose
 
-mkdir -p ~/.ssh
-ls -l ~/.ssh
-cp "$DOWNLOADSECUREFILE_SECUREFILEPATH" ~/.ssh/id_rsa
-chmod 600 ~/.ssh/id_rsa
+chmod 600 "$DOWNLOADSECUREFILE_SECUREFILEPATH"
+git config core.sshCommand "ssh -i $DOWNLOADSECUREFILE_SECUREFILEPATH -F /dev/null"
 
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
