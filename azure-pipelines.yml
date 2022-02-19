@@ -29,6 +29,13 @@ steps:
     secureFile: id_rsa
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Download SSH key"
+
+- script: make publish-drafts
+  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
+  displayName: "Publish any pending drafts"
+  env:
+    NETLIFY_AUTH_TOKEN: $(NetlifyToken)
+
 - script: ./scripts/deploy_prod.sh
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Deploy to Netlify and push new commits to GitHub"
