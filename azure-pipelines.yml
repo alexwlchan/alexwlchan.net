@@ -21,17 +21,13 @@ steps:
 - script: |
     chmod 600 "$DOWNLOADSECUREFILE_SECUREFILEPATH"
     git config core.sshCommand "ssh -i $DOWNLOADSECUREFILE_SECUREFILEPATH -F /dev/null"
+    mkdir -p ~/.ssh
     ssh-keyscan -H github.com >> ~/.ssh/known_hosts
     git config user.name "Azure Pipelines on behalf of Alex Chan"
     git config user.email "azurepipelines_git@alexwlchan.net"
+    touch ~/.gitconfig
   displayName: "Prepare Git config"
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
-
-# - script: "make deploy"
-#   displayName: "Deploy to Netlify"
-#   condition: "ne(variables['Build.SourceBranch'], 'refs/heads/live')"
-#   env:
-#     NETLIFY_AUTH_TOKEN: $(NetlifyToken)
 
 - task: DownloadSecureFile@1
   inputs:
@@ -41,12 +37,18 @@ steps:
 
 - script: make publish-drafts
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
-  displayName: "Publish any pending drafts"
+  displayName: "Publish pending drafts"
   env:
     NETLIFY_AUTH_TOKEN: $(NetlifyToken)
 
-- script: ./scripts/deploy_prod.sh
+- script: make deploy-prod
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
-  displayName: "Deploy to Netlify and push new commits to GitHub"
+  displayName: "Deploy to Netlify"
   env:
     NETLIFY_AUTH_TOKEN: $(NetlifyToken)
+
+- script: |
+    git remote add ssh-origin git@github.com:alexwlchan/alexwlchan.net.git
+    git push --verbose ssh-origin HEAD:live
+  condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
+  displayName: "Push to GitHub"
