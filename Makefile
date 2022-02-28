@@ -4,13 +4,7 @@ DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 SERVE_CONTAINER = server
 
-RSYNC_HOST = 139.162.244.147
-RSYNC_USER = alexwlchan
-RSYNC_DIR = /home/alexwlchan/sites/alexwlchan.net
-
 ROOT = $(shell git rev-parse --show-toplevel)
-SRC = $(ROOT)/src
-DST = $(ROOT)/_site
 
 publish-docker:
 	python3 scripts/publish_docker_image.py
