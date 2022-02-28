@@ -47,7 +47,7 @@
     </g>
 	</svg>
 
-	<text x="184" y="48" dy="12" class="service">CloudWatch Metric</text>
+	<text x="184" y="48" dy="12" class="service">CloudWatch metrics</text>
 
 	<svg x="310" y="0">
     <g id="Icon-Resource/Managment-Governance/Res_Amazon-Cloudwatch_Alarm_48" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -55,7 +55,7 @@
     </g>
 	</svg>
 
-	<text x="334" y="48" dy="12" class="service">CloudWatch Alarm</text>
+	<text x="334" y="48" dy="12" class="service">CloudWatch alarms</text>
 
   <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
     <polygon fill="#000" points="0 0, 7 2.45, 0 4.9"/>
