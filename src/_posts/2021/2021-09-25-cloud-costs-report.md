@@ -44,4 +44,4 @@ It runs as a Lambda function, triggered by a scheduled CloudWatch Event.
 This report is meant to start conversations about significant changes in the bill.
 It started several as I was developing it, and I hope that continues with future reports.
 
-[github]: https://github.com/wellcomecollection/platform-infrastructure/tree/c41e6c32e6ddd5d3c6bcd834013e9399c2f3d18c/costs_report
+[github]: https://github.com/wellcomecollection/cost_reporter
