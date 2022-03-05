@@ -10,7 +10,6 @@
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
     #
     #   - youtube-nocookie.com is used for YouTube embeds
-    #   - polyfill.io and cdn.jsdelivr.net are used for MathJax
     #
     content-security-policy = """\
       default-src 'self' 'unsafe-inline' \
