@@ -2,6 +2,7 @@
   base = ""
   publish = "_site/"
 
+# I test my security headers with https://securityheaders.com/
 [[headers]]
   for = "/*"
 
