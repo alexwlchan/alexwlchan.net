@@ -54,6 +54,13 @@
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
     x-xss-protection = "1; mode=block"
 
+# I can set long-lived caches on all these static assets because I treat
+# most files as immutable by filename -- if I modify a file, I'll upload a new
+# file with a different name, so it won't be a cache hit.
+#
+# The one exception is CSS files, but I cache-bust those by passing a query parameter
+# that includes the hash of my CSS source.
+
 [[headers]]
   for = "/files/*"
 
