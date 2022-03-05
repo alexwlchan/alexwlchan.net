@@ -36,8 +36,17 @@ steps:
   displayName: "Download SSH key"
 
 - script: |
-    make publish-drafts
-    make build
+    # Azure Pipelines gets a fresh checkout of the repo, so it won't have
+    # a _drafts folder if there's nothing checked in.  It takes ~10s in Azure
+    # to publish drafts and build the site, and if there are no drafts this
+    # is wasting time.  Skip!
+    if [[ -d "src/_drafts" ]]
+    then
+      make publish-drafts
+      make build
+    else
+      echo "There is no _drafts folder, so nothing to publish!"
+    fi
   condition: "eq(variables['Build.SourceBranch'], 'refs/heads/live')"
   displayName: "Publish pending drafts"
   env:
