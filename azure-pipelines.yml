@@ -15,8 +15,8 @@ steps:
 - script: "make build-drafts"
   displayName: "Build the site"
 
-- script: "make lint"
-  displayName: "Run linting"
+- script: "make html-lint"
+  displayName: "Run HTML linting"
 
 - script: |
     chmod 600 "$DOWNLOADSECUREFILE_SECUREFILEPATH"
