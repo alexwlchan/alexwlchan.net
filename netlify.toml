@@ -3,6 +3,58 @@
   publish = "_site/"
 
 [[headers]]
+  for = "/*"
+
+  [headers.values]
+    # https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
+    #
+    #   - youtube-nocookie.com is used for YouTube embeds
+    #   - polyfill.io and cdn.jsdelivr.net are used for MathJax
+    #
+    content-security-policy = """\
+      default-src 'self' 'unsafe-inline' \
+      https://youtube-nocookie.com https://www.youtube-nocookie.com; \
+      script-src 'self' 'unsafe-inline' \
+      https://polyfill.io \
+      https://cdn.jsdelivr.net \
+      'unsafe-eval'; \
+      font-src \
+      https://polyfill.io \
+      https://cdn.jsdelivr.net; \
+      img-src 'self' 'unsafe-inline' data: \
+    """
+
+    # https://scotthelme.co.uk/a-new-security-header-feature-policy/
+    feature-policy = """\
+      geolocation 'none'; \
+      midi 'none'; \
+      notifications 'none'; \
+      push 'none'; \
+      sync-xhr 'none'; \
+      microphone 'none'; \
+      camera 'none'; \
+      magnetometer 'none'; \
+      gyroscope 'none'; \
+      vibrate 'none';
+      payment 'none' \
+    """
+
+    # https://scotthelme.co.uk/a-new-security-header-referrer-policy/
+    referrer-policy = "no-referrer-when-downgrade"
+
+    # https://scotthelme.co.uk/hardening-your-http-response-headers/#strict-transport-security
+    strict-transport-security = "max-age=31536000; includeSubDomains";
+
+    # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options
+    x-content-type-options = "nosniff"
+
+    # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options
+    x-frame-options = "DENY"
+
+    # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
+    x-xss-protection = "1; mode=block"
+
+[[headers]]
   for = "/files/*"
 
   [headers.values]
