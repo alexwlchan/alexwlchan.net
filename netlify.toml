@@ -43,7 +43,7 @@
     referrer-policy = "no-referrer-when-downgrade"
 
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#strict-transport-security
-    strict-transport-security = "max-age=31536000; includeSubDomains";
+    strict-transport-security = "max-age=31536000; includeSubDomains"
 
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options
     x-content-type-options = "nosniff"
