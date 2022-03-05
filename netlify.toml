@@ -26,7 +26,8 @@
     """
 
     # https://scotthelme.co.uk/a-new-security-header-feature-policy/
-    feature-policy = """\
+    # https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/
+    permissions-policy = """\
       geolocation 'none'; \
       midi 'none'; \
       notifications 'none'; \
