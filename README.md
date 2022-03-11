@@ -22,10 +22,9 @@ The site uses:
 *   [Jekyll][jekyll], which generates the HTML pages
 *   [Sass][sass], for building the CSS and stylesheets
 *   [nginx][nginx], an HTTP server
-*   [Docker][docker], which wraps the local build process and nginx on my server
+*   [Docker][docker], which wraps the local build process
 *   [Azure Pipelines][azure], which builds and publishes the site
-*   [Linode][linode], who provide the Linux server where I run nginx (referral link)
-*   [Let's Encrypt][letsencrypt] for SSL/TLS certificates
+*   [Netlify], which hosts the site
 
 When I want to make a change, I open a pull request.
 This triggers a build with Azure Pipelines, and as part of the build it checks the HTML with [HTMLProofer].
@@ -38,8 +37,7 @@ If the site passes checks, it's [automatically merged by GitHub Actions][automer
 [nginx]: https://nginx.org/
 [docker]: https://www.docker.com/
 [azure]: https://azure.microsoft.com/en-us/services/devops/pipelines/
-[linode]: https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3
-[letsencrypt]: https://letsencrypt.org
+[Netlify]: https://www.netlify.com
 [HTMLProofer]: https://github.com/gjtorikian/html-proofer
 [automerge]: https://github.com/alexwlchan/auto_merge_my_pull_requests
 
