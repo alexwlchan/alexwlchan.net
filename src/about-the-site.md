@@ -22,7 +22,7 @@ What you see today is powered by:
 
 *   [Jekyll][jekyll], for building the HTML
 *   [Sass][sass], for building the CSS and stylesheets
-*   [Docker][docker], which wraps the local build process and nginx on my server
+*   [Docker][docker], which wraps the local build process
 *   [Azure Pipelines][azure], which builds and publishes the site
 *   [Netlify], which hosts the site
 
