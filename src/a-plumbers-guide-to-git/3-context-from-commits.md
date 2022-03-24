@@ -67,7 +67,7 @@ The second and third lines give some information about the author and committer 
 The *author* is the person who wrote a patch, while the *committer* is the person who checks that patch into the codebase.
 Usually they're the same person, but they can differ (especially on large projects like the Linux kernel) -- so there are separate fields.
 
-Finally, the rest of the commit is the fre text message -- usually called a *commit message*.
+Finally, the rest of the commit is the free text message -- usually called a *commit message*.
 This allows us to include any other details that might explain the significance of this snapshot.
 
 This commit has far more context than our original tree: it tells us when it was created, who by, and the free text message lets us include any other relevant details.
