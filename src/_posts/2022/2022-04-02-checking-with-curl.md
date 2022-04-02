@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-04-02 08:44:29 +0000
 title: Checking lots of URLs with curl
 summary:
 tags: shell-scripting
