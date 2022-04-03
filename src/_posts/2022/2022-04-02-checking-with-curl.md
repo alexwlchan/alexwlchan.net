@@ -2,7 +2,7 @@
 layout: post
 date: 2022-04-02 08:44:29 +0000
 title: Checking lots of URLs with curl
-summary:
+summary: A bash script to check the HTTP status code of a bunch of URLs, for simple and portable uptime checking.
 tags: shell-scripting
 ---
 
