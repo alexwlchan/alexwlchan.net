@@ -161,7 +161,7 @@ Let's start by just dropping the images into the grid, and see what happens:
 ```html
 <div class="grid">
   <div class="item left">
-    <img src="/sky.jpg">
+    <img src="/night_sky.jpg">
   </div>
   <div class="item upper_right">
     <img src="/jupiter.jpg">
@@ -226,13 +226,13 @@ Let's start by just dropping the images into the grid, and see what happens:
 <figure style="width: 400px;">
   <div class="grid2">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
     </div>
   </div>
   <figcaption>
@@ -303,13 +303,13 @@ We can fill the space by setting `width` and `height` properties on the image, b
 <figure style="width: 400px;">
   <div class="grid3">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
     </div>
   </div>
   <figcaption>
@@ -330,8 +330,8 @@ Can we achieve that with CSS?
 To unbreak the aspect ratio, I discovered a new-to-me CSS property: [object-fit].
 This defines how an element (say, an image or video) should be resized to fit into a container.
 
-The default value is `object-fit: fill`, which expands the element to completely fill the container, and stretches the object to fit.
-That's what's causing the distorted aspect ratio in the example above.
+The default value is `object-fit: fill`, which expands the element to completely fill the container, and stretches the object to fit, ignoring the original aspect ratio.
+That's what's causing the distortion in the example above.
 
 After experimenting with the other values (I had to try it myself to really understand how they worked), I think the value I want is `object-fit: cover`.
 This expands an element while maintaining its aspect ratio, and if it doesn't fit perfectly then extra bits get clipped out -- the edges of the image get cropped.
@@ -340,229 +340,229 @@ That's what I'd do if I was making this layout by hand!
 Let's add that CSS rule:
 
 ```css
-.grid img {
+.grid .item img {
   object-fit: cover;
 }
 ```
 
-<div style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; grid-gap: 10px; width: 400px; margin-left: auto; margin-right: auto;">
-  <div style="grid-column: 1 / 2; grid-row: 1 / span 2;">
-    <img src="/images/2022/sky_thumb.jpg" style="max-width: none; width: 100%; height: 100%; object-fit: cover;">
-  </div>
+<style>
+  .grid4 {
+    display: grid;
+    grid-template-columns: calc(66% - 5px) calc(34% - 5px);
+    grid-template-rows: calc(50% - 5px) calc(50% - 5px);
+    grid-gap: 10px;
+  }
 
-  <div style="grid-column: 2 / 2; grid-row: 1 / 2;">
-    <img src="/images/2022/jupiter_thumb.jpg" style="max-width: none; width: 100%; height: 100%; object-fit: cover;">
-  </div>
+  .grid4 .left {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 2;
+  }
 
-  <div style="grid-column: 2 / 2; grid-row: 2 / 2;">
-    <img src="/images/2022/iss_thumb.jpg" style="max-width: none; width: 100%; height: 100%; object-fit: cover;">
+  .grid4 .upper_right {
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .grid4 .lower_right {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+  }
+
+  .grid4 .item img {
+    width:  100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /** These values don't define the grid layout,
+    * but they make it easier to follow what's going on. */
+  .grid4 {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /** This removes the CSS properties for images I set in my site's CSS. */
+  .grid4 img {
+    max-width: none;
+    margin-left:  0;
+    margin-right: 0;
+  }
+</style>
+
+<figure style="width: 400px;">
+  <div class="grid4">
+    <div class="item left">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+    </div>
+    <div class="item upper_right">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+    </div>
+    <div class="item lower_right">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+    </div>
   </div>
-</div>
+  <figcaption>
+    Edit this example <a href="https://codepen.io/alexwlchan/pen/eYyXZer">on CodePen</a>.
+  </figcaption>
+</figure>
 
 Now the edges of the images are being cropped out (for example, we can't see the solar panels on the ISS), but they're no longer being distorted.
+Hopefully there's nothing important in the edges, but there's an [object-position] property that lets me choose exactly how to fit the image into the crop if the default isn't quite right.
+
+This is pretty close to what I want; the last thing I want to tweak is the overall aspect ratio.
 
 [object-fit]: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
-
-<div style="width: 100%; padding-top: 33%; position:relative; max-width: 800px;">
-  <div style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; grid-gap: 10px; width: 400px; margin-left: auto; margin-right: auto; position: absolute; top:0;left:0;bottom:0;right:0; height: 100%;">
-    <div style="grid-column: 1 / 2; grid-row: 1 / span 2;">
-      <img src="/images/2022/sky_thumb.jpg" style="max-width: none; width: 100%; height: 100%; object-fit: cover;">
-    </div>
-
-    <div style="grid-column: 2 / 2; grid-row: 1 / 2;">
-      <img src="/images/2022/jupiter_thumb.jpg" style="max-width: none; width: 100%; height: 100%; object-fit: cover;">
-    </div>
-
-    <div style="grid-column: 2 / 2; grid-row: 2 / 2;">
-      <img src="/images/2022/iss_thumb.jpg" style="max-width: none; width: 100%; height: 100%; object-fit: cover;">
-    </div>
-  </div>
-</div>
-
-?category=planets_jupiter
+[object-position]: https://developer.mozilla.org/en-US/docs/Web/CSS/object-position
 
 
 
-<ol>
+## Step 5: Setting the aspect ratio
 
-  <li>
-    Super squished, add the cover:
-  <li>
-    Now add an aspect ratio
+The last time I looked at setting an aspect ratio in CSS, there were weird tricks with padding and positioning that I didn't really understand.
+I was expecting to use this work to learn about that properly, and really wrap my head around it -- but it turns out, I don't need to.
 
-    <div style="width: 100%; padding-top: 33%; position:relative; max-width: 800px;">
+There's another CSS property called [aspect-ratio] which lets you set a preferred aspect ratio for a container.
+If you add this property, you can change the size of the overall grid; for example:
 
-      <div style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; grid-gap: 10px; position: absolute; top:0;left:0;bottom:0;right:0; height: 100%;">
-        <div style="grid-column: 1 / 2; grid-row: 1 / span 2; background: red;">
-          <img src="./6185949404_3e247d2ec1_o.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
+```css
+.grid {
+  aspect-ratio: 16 / 9;
+}
+```
 
-        <div style="grid-column: 2 / 2; grid-row: 1 / 2; background: green;">
-          <img src="./6185949404_3e247d2ec1_o.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
+<style>
+  .grid5 {
+    aspect-ratio: 16 / 9;
 
-        <div style="grid-column: 2 / 2; grid-row: 2 / 2; background: blue;">
-          <img src="./6185949404_3e247d2ec1_o.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-      </div>
-
-    </div>
-
-    aaaa
-
-  </li>
-
-  <!-- <li>
-
-
-
-<div class="container" style="background-color: green; width: 100%; padding-top: 50%; position:relative; max-width: 800px;">
-  <div style="display: grid; grid-template-columns: calc(65% - 5px) calc(35% - 5px); grid-template-rows: repeat(2, 25vw - 5px); grid-gap: 10px; border: 2px solid blue; position: absolute; top:0;left:0;bottom:0;right:0;">
-
-    <a href="./6185949404_3e247d2ec1_o.jpg" style="grid-column: 1 / 2; grid-row: 1 / span 2;">
-      <img src="./6185949404_3e247d2ec1_o.jpg" style="width: 100%; height: 100%; object-fit: cover">
-    </a>
-
-    <a href="./6171517470_6abcf7ea9c_o.jpg" style="grid-column: 2 / 2; grid-row: 1 / 2; background: green;">
-      <img src="./6171517470_6abcf7ea9c_o.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-    </a>
-
-    <a href="./6170979921_a575aec60b_o.jpg" style="grid-column: 2 / 2; grid-row: 2 / 2; background: yellow;">
-      <img src="./6170979921_a575aec60b_o.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-    </a>
-  </div>
-</div>
-
-
-
-
-<!--<style>
-  *,
-  *::after,
-  *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-  }
-
-  html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-  }
-
-  body {
-    font-family: "Nunito", sans-serif;
-    color: #333;
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  .container {
-    width: 60%;
-    margin: 2rem auto;
-  }
-
-  .gallery {
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 5vw);
-    grid-gap: 1.5rem;
+    grid-template-columns: calc(66% - 5px) calc(34% - 5px);
+    grid-template-rows: calc(50% - 5px) calc(50% - 5px);
+    grid-gap: 10px;
   }
 
-  .gallery__img {
+  .grid5 .left {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 2;
+  }
+
+  .grid5 .upper_right {
+    grid-column: 2 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .grid5 .lower_right {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+  }
+
+  .grid5 .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
   }
 
-  .gallery__item--1 {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
-
-    /** Alternative Syntax **/
-    /* grid-column: 1 / span 2;  */
-    /* grid-row: 1 / span 2; */
+  /** These values don't define the grid layout,
+    * but they make it easier to follow what's going on. */
+  .grid5 {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .gallery__item--2 {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 3;
-
-    /** Alternative Syntax **/
-    /* grid-column: 3 / span 2;  */
-    /* grid-row: 1 / span 2; */
-  }
-
-  .gallery__item--3 {
-    grid-column-start: 5;
-    grid-column-end: 9;
-    grid-row-start: 1;
-    grid-row-end: 6;
-
-    /** Alternative Syntax **/
-    /* grid-column: 5 / span 4;
-    grid-row: 1 / span 5; */
-  }
-
-  .gallery__item--4 {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    grid-row-end: 6;
-
-    /** Alternative Syntax **/
-    /* grid-column: 1 / span 4;  */
-    /* grid-row: 3 / span 3; */
-  }
-
-/*  .gallery__item--5 {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 6;
-    grid-row-end: 9;
-
-    /** Alternative Syntax **/
-    /* grid-column: 1 / span 4; */
-    /* grid-row: 6 / span 3; */
-  }
-
-  .gallery__item--6 {
-    grid-column-start: 5;
-    grid-column-end: 9;
-    grid-row-start: 6;
-    grid-row-end: 9;
-
-    /** Alternative Syntax **/
-    /* grid-column: 5 / span 4; */
-    /* grid-row: 6 / span 3; */
-  }*/
 </style>
 
-
-<div class="container">
-  <div class="gallery">
-    <a href="./6170979921_a575aec60b_o.jpg" class="gallery__item gallery__item--1">
-      <img src="6170979921_a575aec60b_o.jpg" alt="Gallery image 1" class="gallery__img">
-    </a>
-    <a href="./6170979921_a575aec60b_o.jpg" class="gallery__item gallery__item--2">
-        <img src="6170979921_a575aec60b_o.jpg" alt="Gallery image 2" class="gallery__img">
-    </a>
-    <a href="./6170979921_a575aec60b_o.jpg" class="gallery__item gallery__item--3">
-        <img src="6170979921_a575aec60b_o.jpg" alt="Gallery image 3" class="gallery__img">
-    </a>
-    <a href="./6170979921_a575aec60b_o.jpg" class="gallery__item gallery__item--4">
-        <img src="6170979921_a575aec60b_o.jpg" alt="Gallery image 4" class="gallery__img">
-    </a>
-    <!-- <a href="./6170979921_a575aec60b_o.jpg" class="gallery__item gallery__item--5">
-        <img src="6170979921_a575aec60b_o.jpg" alt="Gallery image 5" class="gallery__img">
-    </a> -->
-    <!-- <a href="./6170979921_a575aec60b_o.jpg" class="gallery__item gallery__item--6">
-        <img src="6170979921_a575aec60b_o.jpg" alt="Gallery image 6" class="gallery__img">
-</a> -->
+<figure style="width: 400px;">
+  <div class="grid5">
+    <div class="item left">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+    </div>
+    <div class="item upper_right">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+    </div>
+    <div class="item lower_right">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+    </div>
   </div>
-</div> --> -->
+  <figcaption>
+    Edit this example <a href="https://codepen.io/alexwlchan/pen/xxpBrvR">on CodePen</a>.
+  </figcaption>
+</figure>
+
+This is a new-ish property that only started appearing in browsers about a year or so ago, and I don't have a good sense for when it's safe to adopt new CSS.
+[Can I use][can_i_use_ar] says it's supported by about 84% of users, which is a bit lower than I'd like -- and [skimming Twitter][twitter] shows mixed opinions on whether it's safe to use.
+
+Because this component is only for a few posts on my blog, I'm going to save myself a padding palaver and start using aspect-ratio.
+If I was working on a larger website with more visitors, I might make a different decision.
+
+[twitter]: https://twitter.com/search?q=css%20aspect-ratio
+[aspect-ratio]: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+[can_i_use_ar]: https://caniuse.com/mdn-css_properties_aspect-ratio
+
+
+
+
+## Putting it all together
+
+This is what my new component looks like:
+
+```html
+<div class="grid">
+  <div class="item left">
+    <img src="/night_sky.jpg">
+  </div>
+  <div class="item upper_right">
+    <img src="/jupiter.jpg">
+  </div>
+  <div class="item lower_right">
+    <img src="/iss.jpg">
+  </div>
+</div>
+```
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: calc(66% - 5px) calc(34% - 5px);
+  grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
+  grid-gap: 10px;
+  aspect-ratio: 16 / 9;
+}
+
+.grid .left {
+  grid-column: 1 / 2;
+  grid-row:    1 / span 2;
+}
+
+.grid .upper_right {
+  grid-column: 2 / 2;
+  grid-row:    1 / 2;
+}
+
+.grid .lower_right {
+  grid-column: 2 / 2;
+  grid-row:    2 / 2;
+}
+
+.grid .item img {
+  width:  100%;
+  height: 100%;
+  object-fit: cover;
+}
+```
+
+<figure style="width: 400px;">
+  <div class="grid5">
+    <div class="item left">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+    </div>
+    <div class="item upper_right">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+    </div>
+    <div class="item lower_right">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+    </div>
+  </div>
+</figure>
+
+I have an image layout that works, and more importantly, that I understand.
+I know how it works, and I'll know how to change it if I want to tweak something later.
