@@ -5,9 +5,16 @@ summary:
 tags: css
 ---
 
-Recently I was working on a new web component: a three-up layout of images, with one on the left and two on the right.
-I was looking for something a bit more visually interesting than a scrolling vertical list.
+I've been toying with a new layout for an upcoming blogpost: a three-up display of images, with one big image on the left and two smaller images on the right.
+I wanted something a bit more visually interesting than a scrolling vertical list.
 This is the sort of thing I mean:
+
+<style>
+  /* Make sure the grids don't overflow on mobile layout */
+  .grid1, .grid2, .grid3, .grid4, .grid5 {
+    max-width: 100%;
+  }
+</style>
 
 <figure style="width: 392px;">
   <img src="/images/2022/image_layout.png" style="width: 392px;">
@@ -18,9 +25,10 @@ This is the sort of thing I mean:
   </figcaption>
 </figure>
 
-If you've done a lot of front-end web development, this sort of layout probably seems quite easy -- many websites have much more complex layouts, and this is simple by comparison.
+If you've done a lot of front-end web development, this sort of things probably seems quite easy -- I've seen websites with much more complex layouts.
 
-But I don't do much front-end work, and it took a lot of frustration and head-banging to get something I was happy with -- so let's walk through it together.
+But I don't do much front-end work, so I wasn't sure how to go about this.
+It took a lot of experimentation and research to get something I was happy with -- so let's walk through it together.
 
 
 
@@ -28,7 +36,7 @@ But I don't do much front-end work, and it took a lot of frustration and head-ba
 
 Although I don't do much front-end development, I am vaguely aware of [CSS Grid].
 I know it's the "new" approach to doing complex layouts, and I've dabbled with it for a few projects.
-(I put "new" in air quotes because it's been a thing for years, but I'm only just starting to use it.)
+(I put "new" in air quotes because it's been around for years, but I'm only just starting to use it.)
 
 Here's a simple three-cell grid using divs:
 
@@ -73,8 +81,9 @@ and the CSS that matches it:
 The `display: grid;` property switches the div into grid mode, and the `-template-columns` and `-template-rows` properties tell the grid how tall/wide the columns and rows should be.
 
 I'm using percentages of the width/height of the overall grid, then subtracting 5&nbsp;pixels to account for the grid spacing.
+I want the rows to be equal height, and the first column to be twice as wide as the second.
 There are lots of ways to define these sizes and this may not be optimal, but it makes sense to me.
-I did try using the `fr` unit, which is the [fraction of flexible space][fr] -- but I ran into some weird issues when the content of the grid items overflowed, so I have up.
+I did try using the `fr` unit, which is the [fraction of flexible space][fr] -- but I ran into some weird issues when the content of the grid items overflowed, so I gave up.
 
 The `grid-row` and `grid-column` properties on individual items tell them where to sit in the grid.
 For the item on the left-hand side, the `1 / span 2` value tells it to start in row 1 and fill 2 rows.
@@ -240,14 +249,16 @@ Let's start by just dropping the images into the grid, and see what happens:
   </figcaption>
 </figure>
 
-So we've got the images in the right place, but they're the wrong sizes -- they've overflowing out of the grid.
+I vaguely wonder if there's a way to use the images as grid items and bypass a layer of `<div>`s, but I haven't found anything that works.
+
+This gets the images in the right place, but they're the wrong sizes -- they've overflowing out of the grid.
 How do we make them fit?
 
 
 
 ## Step 3: Set the width and height of the images
 
-We can fill the space by setting `width` and `height` properties on the image, but it's a bit crude:
+We can tell the images to completely fill the grid items by setting `width` and `height` properties, but it's a bit crude:
 
 ```css
 .grid .item img {
@@ -317,6 +328,7 @@ We can fill the space by setting `width` and `height` properties on the image, b
   </figcaption>
 </figure>
 
+The percentage values are relative to the containing element -- in this case, the grid items that were coloured red/green/blue.
 This gets us flush edges, but now the images have been distorted -- they've been stretched to fill the container.
 (Notice how Jupiter has become much less circular.)
 
@@ -410,6 +422,9 @@ Let's add that CSS rule:
 Now the edges of the images are being cropped out (for example, we can't see the solar panels on the ISS), but they're no longer being distorted.
 Hopefully there's nothing important in the edges, but there's an [object-position] property that lets me choose exactly how to fit the image into the crop if the default isn't quite right.
 
+When I have large images in a post, I usually embed a smaller thumbnail which links to the full resolution image.
+That's another reason not to worry too much about cropping around the edges -- if somebody really wants to see all the detail, they can follow the link.
+
 This is pretty close to what I want; the last thing I want to tweak is the overall aspect ratio.
 
 [object-fit]: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
@@ -489,9 +504,9 @@ If you add this property, you can change the size of the overall grid; for examp
 </figure>
 
 This is a new-ish property that only started appearing in browsers about a year or so ago, and I don't have a good sense for when it's safe to adopt new CSS.
-[Can I use][can_i_use_ar] says it's supported by about 84% of users, which is a bit lower than I'd like -- and [skimming Twitter][twitter] shows mixed opinions on whether it's safe to use.
+[Can I use][can_i_use_ar] says it's supported by about 84% of users, which feels a bit low -- and [skimming Twitter][twitter] shows mixed opinions on whether it's safe to use, or whether you still need a fallback.
 
-Because this component is only for a few posts on my blog, I'm going to save myself a padding palaver and start using aspect-ratio.
+Because this is only for my blog posts, I'm going to save myself a padding palaver and use aspect-ratio.
 If I was working on a larger website with more visitors, I might make a different decision.
 
 [twitter]: https://twitter.com/search?q=css%20aspect-ratio
@@ -564,5 +579,18 @@ This is what my new component looks like:
   </div>
 </figure>
 
-I have an image layout that works, and more importantly, that I understand.
+I have an image layout that does what I want, and more importantly, that I understand.
 I know how it works, and I'll know how to change it if I want to tweak something later.
+There are lots of snippets that I could have mindlessly copied, but I know how this works.
+
+This step-by-step breakdown is pretty close to how I actually built the layout.
+I created an empty HTML file and started writing.
+Every time I made progress, I copied the file and started working on the copy -- so I could try new things without losing what I'd already achieved.
+I've removed a few dead ends and tidied up the examples, but otherwise the post is pretty close to those original files.
+
+Writing it all out in this post helped cement my understanding -- although I [struggled] to get it working, now I've written detailed explanations I think I'll be able to remember it.
+
+It's been a long time since you could "View Source" on a web page and reliably get comprehensible HTML, but I've always liked that idea and tried to embody it on this site.
+These layouts will let me do that for a little longer.
+
+[struggled]: https://jvns.ca/blog/2021/05/24/blog-about-what-you-ve-struggled-with/
