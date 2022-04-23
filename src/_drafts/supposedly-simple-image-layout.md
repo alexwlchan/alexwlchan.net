@@ -1,8 +1,11 @@
 ---
 layout: post
 title: Creating a “simple” three-up image layout in CSS
-summary:
+summary: A step-by-step breakdown of how I made a one-left, two-right layout for my images.
 tags: css
+theme:
+  card_type: summary_large_image
+  image: /images/2022/image_layout_card.jpg
 ---
 
 I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.
