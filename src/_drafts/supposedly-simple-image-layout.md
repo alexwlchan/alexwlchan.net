@@ -5,7 +5,7 @@ summary:
 tags: css
 ---
 
-I've been toying with a new layout for an upcoming blogpost: a three-up display of images, with one big image on the left and two smaller images on the right.
+I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.
 I wanted something a bit more visually interesting than a scrolling vertical list.
 This is the sort of thing I mean:
 
@@ -17,7 +17,7 @@ This is the sort of thing I mean:
 </style>
 
 <figure style="width: 392px;">
-  <img src="/images/2022/image_layout.png" style="width: 392px;">
+  <img src="/images/2022/image_layout.png" style="width: 392px;" alt="The image layout I've described, with a picture of a starry sky (left), the planet Jupiter half in shadow with a moon in front of it (upper right), and the International Space Station floating above the Earth.">
   <figcaption>
     A mockup I made in Keynote.
     These are images of <a href="https://solarsystem.nasa.gov/resources/2500/the-view-from-earth-space-station-jupiter-milky-way/">the Earth’s sky</a>, <a href="https://solarsystem.nasa.gov/resources/803/jupiter-and-io/">Jupiter and Io</a>, and the <a href="https://www.nasa.gov/image-feature/the-station-pictured-from-the-spacex-crew-dragon-6">International Space Station (ISS)</a>, all published by NASA.
@@ -25,7 +25,7 @@ This is the sort of thing I mean:
   </figcaption>
 </figure>
 
-If you've done a lot of front-end web development, this sort of things probably seems quite easy -- I've seen websites with much more complex layouts.
+If you've done a lot of front-end web development, this sort of thing probably seems quite easy -- I've seen websites with much more complex layouts.
 
 But I don't do much front-end work, so I wasn't sure how to go about this.
 It took a lot of experimentation and research to get something I was happy with -- so let's walk through it together.
@@ -235,13 +235,13 @@ Let's start by just dropping the images into the grid, and see what happens:
 <figure style="width: 400px;">
   <div class="grid2">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars.">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow.">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth.">
     </div>
   </div>
   <figcaption>
@@ -249,10 +249,10 @@ Let's start by just dropping the images into the grid, and see what happens:
   </figcaption>
 </figure>
 
-I vaguely wonder if there's a way to use the images as grid items and bypass a layer of `<div>`s, but I haven't found anything that works.
-
 This gets the images in the right place, but they're the wrong sizes -- they've overflowing out of the grid.
 How do we make them fit?
+
+(As a sidebar: I vaguely wonder if there's a way to make the images the grid items and bypass a layer of `<div>`s, but I haven't found anything that works.)
 
 
 
@@ -314,13 +314,13 @@ We can tell the images to completely fill the grid items by setting `width` and 
 <figure style="width: 400px;">
   <div class="grid3">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars.">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow.">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth.">
     </div>
   </div>
   <figcaption>
@@ -405,13 +405,13 @@ Let's add that CSS rule:
 <figure style="width: 400px;">
   <div class="grid4">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars.">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow.">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth.">
     </div>
   </div>
   <figcaption>
@@ -489,13 +489,13 @@ If you add this property, you can change the size of the overall grid; for examp
 <figure style="width: 400px;">
   <div class="grid5">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars.">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow.">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth.">
     </div>
   </div>
   <figcaption>
@@ -568,13 +568,13 @@ This is what my new component looks like:
 <figure style="width: 400px;">
   <div class="grid5">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x">
+      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars.">
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x">
+      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow.">
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x">
+      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth.">
     </div>
   </div>
 </figure>
@@ -590,7 +590,7 @@ I've removed a few dead ends and tidied up the examples, but otherwise the post 
 
 Writing it all out in this post helped cement my understanding -- although I [struggled] to get it working, now I've written detailed explanations I think I'll be able to remember it.
 
-It's been a long time since you could "View Source" on a web page and reliably get comprehensible HTML, but I've always liked that idea and tried to embody it on this site.
+It's been a long time since you could "View Source" on a web page and reliably get comprehensible HTML, but I've always liked that idea and tried to preserve it on this site.
 These layouts will let me do that for a little longer.
 
 [struggled]: https://jvns.ca/blog/2021/05/24/blog-about-what-you-ve-struggled-with/
