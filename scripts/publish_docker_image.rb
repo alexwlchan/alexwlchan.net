@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+image_name = ENV["DOCKER_IMAGE_NAME"]
+old_version = ENV["DOCKER_IMAGE_VERSION"].to_i
+new_version = old_version + 1
+
+existing_makefile = File.open("Makefile").read
+
+new_image_tag = "#{image_name}:#{new_version}"
+
+system("docker build --tag #{new_image_tag} .")
+system("docker push #{new_image_tag}")
+
+new_makefile = existing_makefile.sub(
+  "DOCKER_IMAGE_VERSION = #{old_version}",
+  "DOCKER_IMAGE_VERSION = #{new_version}"
+)
+
+File.open("Makefile", "w") do |f|
+  f.puts new_makefile
+end

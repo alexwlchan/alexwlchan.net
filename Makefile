@@ -7,7 +7,7 @@ SERVE_CONTAINER = server
 ROOT = $(shell git rev-parse --show-toplevel)
 
 publish-docker:
-	python3 scripts/publish_docker_image.py
+	ruby scripts/publish_docker_image.rb
 
 build:
 	docker run --tty --rm \
