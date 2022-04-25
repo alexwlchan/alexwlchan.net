@@ -302,7 +302,8 @@ Usually they solve a very specific problem and I don’t expect anybody else to 
 
   <dt><a href="https://github.com/alexwlchan/dominant_colours">dominant_colours</a></dt>
   <dd>
-    Find the dominant colours in an image.
+    A command-line tool to find the dominant colours in an image.
+    It prints a palette of colours in your terminal.
   </dd>
 
   <dt><a href="https://github.com/alexwlchan/safari.rs">safari.rs</a></dt>
