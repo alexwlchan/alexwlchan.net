@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Illustrating the cipher wheels of a Lorenz machine
-summary: Some old code I wrote to draw pin-accurate illustrations of cipher wheels.
+summary: Some old code I wrote to draw cam-accurate illustrations of cipher wheels.
 tags: drawing-things latex history
 link: https://github.com/alexwlchan/lorenz-wheels
 theme:
