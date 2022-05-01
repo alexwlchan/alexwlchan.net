@@ -9,7 +9,7 @@ It's always been a static site, but the choice of generator has changed several 
 
 The first version, which I posted in late 2012, was built with [Octopress][octopress].
 Maintaining a working Ruby setup for Octopress was a lot of hassle, so a year or so later I switched to the Python-based [Pelican][pelican].
-That worked fairly well, but [the AGPL and licensing issues][agpl] always loomed overhead.
+That worked fairly well, but [the AGPL and licensing question][agpl] always made me a bit nervous.
 In 2016, I experimented with writing my own site generator (called [Hot Chocolate][cocoa]), but I just spent a lot of time reinventing wheels.
 
 [octopress]: http://octopress.org/
