@@ -13,7 +13,6 @@ require "yaml"
 tally = Hash.new(0)
 
 Dir.glob("src/**/*.md") do |path|
-  # puts path
   metadata = YAML.load_file(path)
   tags = metadata["tags"]
 
