@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-05-07 19:28:31 +0000
 title: Find the dominant colours in an image in your web browser
 summary:
 tags: colour glitch
