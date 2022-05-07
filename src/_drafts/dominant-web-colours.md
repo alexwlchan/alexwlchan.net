@@ -1,0 +1,33 @@
+---
+layout: post
+title: Find the dominant colours in an image in your web browser
+summary:
+tags: colour glitch
+link: https://dominant-colours.glitch.me/
+---
+
+Last year, I created [a CLI tool][cli] for finding the dominant colours in an image.
+It's been super useful and I use it multiple times a week, but I can only use it when I have access to a command-line -- and sometimes I want to use it on my phone, where I don't.
+
+I've wrapped the CLI tool in a small web app, which lets you upload images to analyse:
+
+<img src="/images/2022/dominant_colours_landing.png" style="width: 484px;" alt="Screenshot of a web page titled 'find the dominant colours in an image', with a button to upload a file and a submit button.">
+
+and then it shows you a palette of the dominant colours:
+
+<img src="/images/2022/dominant_colours_screenshot.png" style="width: 484px;" alt="A screenshot of the web app. It says 'find the dominant colours in an image' in bold letters at the top, then an illustration of two people in a Chinese dragon costume. On the right hand side are the dominant colours from that image: brown, blue, red and yellow, along with hex codes. At the bottom is a red-coloured link 'try another image'.">
+
+The CLI tool allows you to pick the size of the palette, whereas the web app always returns five colours.
+I might add that at some point, but it felt a non-trivial design challenge to add a option to the first page, describe it in a sensible way, and have the palette continue to look good with a variable number of colours.
+This works as a 1.0.
+
+It was pretty easy to wrap this in a web app, which is part of why I made the CLI tool in the first place -- I'd written this sort of dominant colours algorithm a bunch of times, and I wanted a single canonical implementation I could reuse.
+The web app just shells out to the CLI tool for the image analysis (after [recompiling to run in Glitch][recompiling]).
+
+If you'd like to try it, it's available at <https://dominant-colours.glitch.me/>
+
+If you want to read the source code, it's [on GitHub][github].
+
+[cli]: /2021/11/dominant-colours/
+[recompiling]: /2022/05/rust-on-glitch/
+[github]: https://github.com/alexwlchan/dominant_colours/tree/main/webapp
