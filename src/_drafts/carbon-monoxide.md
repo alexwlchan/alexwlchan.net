@@ -35,7 +35,7 @@ You had to make it very clear when something was dead.
 Carbon monoxide detectors don't last forever; both my old and new detectors have instructions telling me to replace them after seven years.
 To air on the side of caution, I'm going to replace these new detectors after six -- and I've created a calendar reminder for 2028 to do so.
 
-Fortunately it seems like yesterday really was a false alarm -- nothing went bleep in the night -- and if I'm lucky, that's the last time I'll ever hear a carbon monoxide detector go off.
+Fortunately it seems like yesterday really was a false alarm -- nothing else went bleep in the night -- and if I'm lucky, that's the last time I'll ever hear a carbon monoxide detector go off.
 
 [detectors]: https://www.diy.com/departments/fireangel-tco-9xq-wireless-carbon-monoxide-alarm-with-7-year-battery-pack-of-2/261793_BQ.prd
 [the NHS website]: https://www.nhs.uk/conditions/carbon-monoxide-poisoning/
