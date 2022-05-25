@@ -28,6 +28,8 @@ jobs:
       - name: "Deploy to Netlify"
         if: github.ref == 'refs/heads/live'
         run: make deploy-prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/live'
