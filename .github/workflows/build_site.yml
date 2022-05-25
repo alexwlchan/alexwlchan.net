@@ -35,6 +35,9 @@ jobs:
           then
             touch ~/.gitconfig
 
+            git config user.name "GitHub Actions on behalf of Alex Chan"
+            git config user.email "githubactions@alexwlchan.net"
+
             make publish-drafts
             make build
           else
