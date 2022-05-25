@@ -33,6 +33,8 @@ jobs:
         run: |
           if [[ -d "src/_drafts" ]]
           then
+            touch ~/.gitconfig
+
             make publish-drafts
             make build
           else
