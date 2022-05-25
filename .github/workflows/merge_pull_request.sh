@@ -27,6 +27,7 @@ PR_BRANCH=$(curl \
 echo "This PR is coming from branch '$PR_BRANCH'"
 
 curl \
+  -X PUT \
   --header "Accept: application/vnd.github.v3+json" \
   --header "Authorization: token $GITHUB_TOKEN" \
       "https://api.github.com/repos/alexwlchan/alexwlchan.net/pulls/$PULL_NUMBER/merge"
