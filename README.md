@@ -1,6 +1,6 @@
 # alexwlchan.net
 
-[![Build Status](https://dev.azure.com/alexwlchan/alexwlchan/_apis/build/status/alexwlchan.alexwlchan.net?branchName=live)](https://dev.azure.com/alexwlchan/alexwlchan/_build?definitionId=1&_a=summary)
+[![build_site](https://github.com/alexwlchan/alexwlchan.net/actions/workflows/build_site.yml/badge.svg)](https://github.com/alexwlchan/alexwlchan.net/actions/workflows/build_site.yml)
 
 This repo has the code for my personal site, [alexwlchan.net][root], which is a static site build with [Jekyll][jekyll].
 It includes a number of plugins I've written to customise the site.
@@ -9,9 +9,6 @@ It includes a number of plugins I've written to customise the site.
 
 [root]: https://alexwlchan.net
 [jekyll]: https://jekyllrb.com/
-[azure]: https://dev.azure.com/alexwlchan/alexwlchan/_build
-[linode]: https://www.linode.com/?r=ba2e6ce21e0c63952a7c74967ea0b96617bd44a3
-[nginx]: https://nginx.org/
 
 
 
@@ -21,9 +18,8 @@ The site uses:
 
 *   [Jekyll][jekyll], which generates the HTML pages
 *   [Sass][sass], for building the CSS and stylesheets
-*   [nginx][nginx], an HTTP server
 *   [Docker][docker], which wraps the local build process
-*   [Azure Pipelines][azure], which builds and publishes the site
+*   [GitHub Actions][github_actions], which builds and deploys the site
 *   [Netlify], which hosts the site
 
 When I want to make a change, I open a pull request.
@@ -34,9 +30,8 @@ If the site passes checks, it's [automatically merged by GitHub Actions][automer
 
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
-[nginx]: https://nginx.org/
 [docker]: https://www.docker.com/
-[azure]: https://azure.microsoft.com/en-us/services/devops/pipelines/
+[github_actions]: https://github.com/features/actions
 [Netlify]: https://www.netlify.com
 [HTMLProofer]: https://github.com/gjtorikian/html-proofer
 [automerge]: https://github.com/alexwlchan/auto_merge_my_pull_requests
