@@ -1,12 +1,12 @@
-on: [push, pull_request]
 name: build_site
 
-push:
-  branches:
-  - live
-pull_request:
-  branches:
-  - live
+on:
+  push:
+    branches:
+    - live
+  pull_request:
+    branches:
+    - live
 
 jobs:
   build:
