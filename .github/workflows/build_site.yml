@@ -16,17 +16,17 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v2
 
-      # - name: "Build the site"
-      #   run: make build-drafts
-      #
-      # - name: "Run HTML linting"
-      #   run: make html-lint
+      - name: "Build the site"
+        run: make build-drafts
 
-      - name: "Merge the pull request"
-        if: github.event_name == 'pull_request'
-        run: python3 .github/workflows/merge_pull_request.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "Run HTML linting"
+        run: make html-lint
+
+      - name: "Merge pull request"
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan'
+        uses: alexwilson/enable-github-automerge-action@main
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: "Publish drafts"
         if: github.ref == 'refs/heads/live'
