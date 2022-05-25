@@ -5,6 +5,11 @@ jobs:
     name: Build the website
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+      - name: "Check out the repo"
         uses: actions/checkout@v2
-      - run: make build
+
+      - name: "Build the site"
+        run: make build-drafts
+
+      - name: "Run HTML linting"
+        run: make html-lint
