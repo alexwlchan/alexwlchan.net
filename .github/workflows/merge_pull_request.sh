@@ -7,7 +7,7 @@ set -o nounset
 # which for pull requests looks something like 'refs/pull/496/merge'.
 REF_PART=$(echo "$GITHUB_REF" | tr '/' ' ' | awk '{print $2}')
 
-if [[ "$REF_PART" != "pull "]]
+if ! [[ "$REF_PART" == "pull "]]
 then
   echo "GITHUB_REF=$GITHUB_REF; is this a pull request?" >&2
   exit 1
