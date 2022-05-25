@@ -31,4 +31,4 @@ jobs:
 
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/live'
-        git push --verbose origin live
+        run: git push --verbose origin live
