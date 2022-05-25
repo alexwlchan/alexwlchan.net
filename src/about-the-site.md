@@ -23,7 +23,7 @@ What you see today is powered by:
 *   [Jekyll][jekyll], for building the HTML
 *   [Sass][sass], for building the CSS and stylesheets
 *   [Docker][docker], which wraps the local build process
-*   [Azure Pipelines][azure], which builds and publishes the site
+*   [GitHub Actions][github_actions], which builds and deploys the site
 *   [Netlify], which hosts the site
 
 and all the site source code is on [GitHub][github].
@@ -34,7 +34,7 @@ Feast your eyes on my evolving skills in basic web design.
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
 [docker]: https://www.docker.com/
-[azure]: https://azure.microsoft.com/en-us/services/devops/pipelines/
+[github_actions]: https://github.com/features/actions
 [github]: https://github.com/alexwlchan/alexwlchan.net/
 [Netlify]: https://www.netlify.com
 
