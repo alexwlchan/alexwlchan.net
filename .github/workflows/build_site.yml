@@ -13,3 +13,22 @@ jobs:
 
       - name: "Run HTML linting"
         run: make html-lint
+
+      - name: "Publish drafts"
+        if: github.ref == 'refs/heads/live'
+        run: |
+          if [[ -d "src/_drafts" ]]
+          then
+            make publish-drafts
+            make build
+          else
+            echo "There is no _drafts folder, so nothing to publish!"
+          fi
+
+      - name: "Deploy to Netlify"
+        if: github.ref == 'refs/heads/live'
+        run: make deploy-prod
+
+      - name: "Push any commits to GitHub"
+        if: github.ref == 'refs/heads/live'
+        git push --verbose origin live
