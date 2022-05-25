@@ -24,7 +24,7 @@ jobs:
 
       - name: "Merge the pull request"
         if: github.event_name == 'pull_request'
-        run: bash .github/workflows/merge_pull_request.sh
+        run: python3 .github/workflows/merge_pull_request.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
