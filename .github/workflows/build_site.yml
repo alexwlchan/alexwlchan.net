@@ -1,5 +1,13 @@
-on: push
+on: [push, pull_request]
 name: build_site
+
+push:
+  branches:
+  - live
+pull_request:
+  branches:
+  - live
+
 jobs:
   build:
     name: Build the website
@@ -13,6 +21,12 @@ jobs:
 
       - name: "Run HTML linting"
         run: make html-lint
+
+      - name: "Merge the pull request"
+        if: github.event_name == 'pull_request'
+        uses: alexwlchan/auto_merge_my_pull_requests@development
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Publish drafts"
         if: github.ref == 'refs/heads/live'
