@@ -1,5 +1,13 @@
-on: push
 name: build_site
+
+on:
+  push:
+    branches:
+    - live
+  pull_request:
+    branches:
+    - live
+
 jobs:
   build:
     name: Build the website
@@ -8,11 +16,17 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v2
 
-      - name: "Build the site"
-        run: make build-drafts
+      # - name: "Build the site"
+      #   run: make build-drafts
+      #
+      # - name: "Run HTML linting"
+      #   run: make html-lint
 
-      - name: "Run HTML linting"
-        run: make html-lint
+      - name: "Merge pull request"
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan'
+        run: .github/workflows/merge_pull_request.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Publish drafts"
         if: github.ref == 'refs/heads/live'
