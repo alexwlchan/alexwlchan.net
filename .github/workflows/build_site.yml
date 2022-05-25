@@ -16,15 +16,15 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v2
 
-      - name: "Build the site"
-        run: make build-drafts
-
-      - name: "Run HTML linting"
-        run: make html-lint
+      # - name: "Build the site"
+      #   run: make build-drafts
+      #
+      # - name: "Run HTML linting"
+      #   run: make html-lint
 
       - name: "Merge the pull request"
         if: github.event_name == 'pull_request'
-        uses: alexwlchan/auto_merge_my_pull_requests@development
+        steps: bash .github/workflows/merge_pull_request.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
