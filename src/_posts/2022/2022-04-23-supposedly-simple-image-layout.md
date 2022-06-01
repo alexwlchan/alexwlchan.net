@@ -7,6 +7,8 @@ tags: css
 theme:
   card_type: summary_large_image
   image: /images/2022/image_layout_card.png
+index:
+  best_of: true
 ---
 
 I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.
