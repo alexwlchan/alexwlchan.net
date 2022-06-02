@@ -5,8 +5,6 @@ title: Questions to ask when writing a trans inclusion policy
 summary: Notes on common themes and ideas in a variety of trans inclusion policies, as we start thinking about writing a policy at Wellcome.
 tags:
 category: Diversity, inclusion and accessibility
-index:
-  best_of: true
 tags: gender work
 ---
 

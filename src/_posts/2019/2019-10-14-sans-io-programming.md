@@ -10,6 +10,8 @@ theme:
 
 index:
   best_of: true
+  image: /images/2019/sans_io_sandwich.png
+
 ---
 
 Last month I gave a talk about PyCon UK about "sans I/O programming".
