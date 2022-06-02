@@ -7,7 +7,7 @@ summary:    A brief introduction to asexuality, what it means, and why it matter
 tags:       personal asexuality
 title:      The A stands for Asexual
 theme:
-  color: 6c006c
+  color: "#6c006c"
   touch_icon: asexual
 
 index:

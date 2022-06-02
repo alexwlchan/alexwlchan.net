@@ -5,6 +5,7 @@ summary: Pictures from my recent visit to Crossness, a Victorian pumping station
 title: A visit to the Crossness pumping station
 theme:
   card_type: summary_large_image
+  card_tint_color: "#2b5750"
   image: /images/2017/P5280917_twitter_card.jpg
 category: Photography
 

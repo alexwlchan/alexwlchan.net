@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="752pt" height="376pt" version="1.1" viewBox="0 0 752 400" xmlns="http://www.w3.org/2000/svg">
+
+  <!--
+    Intentionally omit the alt text on promos, so screen reader users
+    don't have to listen to the alt text before hearing the title
+    of the item in the list.
+
+    See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
+  -->
+  <title></title>
+
+  <defs>
+    <mask id="conversation">
+      <!-- https://thenounproject.com/icon/conversation-12035/, CC-BY -->
+      <path d="m563.11 112.12h-73.926v16.16h73.922c11.293 0 20.48 9.1875 20.48 20.488v132.48c0 11.301-9.1875 20.48-20.48 20.48h-40.457v47.383l-42.645-42.645-4.7305-4.7344-156.41-0.003906c-11.293 0-20.488-9.1836-20.488-20.48v-31.18l-16.16 16.16v15.023c0 20.156 16.488 36.641 36.645 36.641h149.72l70.227 70.238 0.003907-70.242h24.301c20.152 0 36.641-16.484 36.641-36.641v-132.48c0-20.156-16.492-36.648-36.641-36.648zm-271.74 117.52h141.78c20.156 0 36.641-16.488 36.641-36.652v-132.46c0-20.16-16.484-36.645-36.641-36.645l-244.24-0.003906c-20.156 0-36.645 16.484-36.645 36.645v132.47c0 20.16 16.488 36.652 36.645 36.652h32.242v70.23z" fill="white"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#conversation)">
+    <line x2="-510" x1="190" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-480" x1="220" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-450" x1="250" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-420" x1="280" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-390" x1="310" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-360" x1="340" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-330" x1="370" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-300" x1="400" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-270" x1="430" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-240" x1="460" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-210" x1="490" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-180" x1="520" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-150" x1="550" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-120" x1="580" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-90" x1="610" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="-60" x1="640" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="-30" x1="670" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="0" x1="700" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="30" x1="730" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="60" x1="760" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="90" x1="790" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="120" x1="820" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="150" x1="850" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="180" x1="880" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+    <line x2="210" x1="910" y1="0" y2="700" stroke="#89120B" stroke-width="25"/>
+
+    <line x2="240" x1="940" y1="0" y2="700" stroke="#D01C11" stroke-width="25"/>
+  </g>
+</svg>
