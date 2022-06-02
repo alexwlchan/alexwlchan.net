@@ -7,11 +7,7 @@ canonical_url: /all-posts/
 ---
 
 This is a list of every post on alexwlchan.net, organised by tag.
-You can browse the list:
-
--   [by date](/all-posts/)
--   by tag (this page)
--   [by filtering to my favourite posts](/best-of/)
+You can also see [posts ordered by date](/all-posts/).
 
 You can subscribe to my posts [as an Atom feed](/atom.xml).
 
