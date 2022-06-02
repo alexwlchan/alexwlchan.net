@@ -53,11 +53,13 @@ If you're new to the site, this page has some of my favourite posts from the arc
         -->
         <p class="card_image"><img src="{{ image }}" alt=""/></p>
 
-        <p class="card_title">{{ post.title }}</p>
-        <p class="card_description">
-          {{ post.summary | smartify }}
-          {{ post.date | date: "%B&nbsp;%Y" }}.
-        </p>
+        <div class="card_metadata">
+          <p class="card_title">{{ post.title | smartify }}</p>
+          <p class="card_description">
+            {{ post.summary | smartify }}
+            {{ post.date | date: "%B&nbsp;%Y" }}.
+          </p>
+        </div>
       </a>
     </li>
   {% endif %}

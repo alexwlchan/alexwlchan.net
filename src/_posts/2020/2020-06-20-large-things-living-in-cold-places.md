@@ -3,10 +3,12 @@ layout: post
 date: 2020-06-20 08:36:39 +0000
 title: Large things living in cold places
 tags: digital-preservation wellcome aws amazon-s3
-summary: Using cold storage tiers to reduce the cost of storing our digital collections in the cloud.
+summary: Using cold storage tiers to reduce the cost of storing Wellcome's digital collections in the cloud.
 link: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
 index:
   best_of: true
+  image: /images/2020/cold_things_card.jpg
+  tint_color: "#704f35"
 ---
 
 On Wednesday, I wrote about [some recent work we've been doing at Wellcome][stacks].
