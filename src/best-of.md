@@ -50,8 +50,12 @@ If you're new to the site, this page has some of my favourite posts from the arc
           of the item in the list.
 
           See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
+
+          The data-proofer-ignore attribute will exclude this from the linting
+          that checks images have alt text.
+          See https://github.com/gjtorikian/html-proofer#ignoring-content
         -->
-        <p class="card_image"><img src="{{ image }}" alt=""/></p>
+        <p class="card_image"><img src="{{ image }}" alt="" data-proofer-ignore/></p>
 
         <div class="card_metadata">
           <p class="card_title">{{ post.title | smartify }}</p>
