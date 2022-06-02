@@ -7,6 +7,8 @@ category: Diversity, inclusion and accessibility
 tags: personal gender
 index:
   best_of: true
+  image: /images/2019/trans_flag.png
+  tint_color: "#0a5b8a"
 ---
 
 If you listen to some of my friends, they'll say that I'm a spy.

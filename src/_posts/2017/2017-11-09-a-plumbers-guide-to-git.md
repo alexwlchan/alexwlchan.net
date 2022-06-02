@@ -3,9 +3,10 @@ category: Git
 date: 2017-11-09 18:18:05 +0000
 index:
   best_of: true
+  image: /a-plumbers-guide-to-git/git_plumbing_card.png
+  tint_color: "#d32a1d"
 layout: post
-summary: How does Git work under the hood? How does it store information, and what's
-  really behind a branch? Notes from a workshop at PyCon UK 2017.
+summary: How does Git work under the hood? How does it store information, and what's really behind a branch?
 tags: pyconuk slides git
 title: A plumber's guide to Git
 ---

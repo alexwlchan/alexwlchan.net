@@ -7,6 +7,8 @@ tags: personal productivity
 
 index:
   best_of: true
+  tint_color: "#302d2b"
+  image: /images/2019/canon_scanner_card.jpg
 
 theme:
   card_type: summary_large_image

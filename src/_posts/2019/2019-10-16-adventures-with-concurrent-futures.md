@@ -9,6 +9,7 @@ tags: python
 
 index:
   best_of: true
+  image: /images/2019/concurrency_card.svg
 ---
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.

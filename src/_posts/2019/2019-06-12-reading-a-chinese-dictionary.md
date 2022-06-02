@@ -2,10 +2,12 @@
 layout: post
 date: 2019-06-12 07:45:43 +0000
 title: Reading a Chinese dictionary / 读一本中文字典
-summary: Although paper dictionaries are mostly a thing of the past, knowing to use a Chinese dictionary helps me learn the rest of the language.
+summary: Although paper dictionaries are mostly a thing of the past, knowing how to use a Chinese dictionary helps me learn the rest of the language.
 category: Languages
 index:
   best_of: true
+  image: /images/2019/characters.png
+  tint_color: "#151313"
 tags: languages
 ---
 

@@ -3,8 +3,9 @@ category: Scala
 date: 2019-05-13 10:17:13 +0000
 index:
   best_of: true
+  image: /images/2019/locks_card.svg
 layout: post
-summary: null
+summary: Breaking down some tricky code that allows us to lock over concurrent operations.
 tags: scala
 title: Creating a locking service in a Scala type class
 tags: scala

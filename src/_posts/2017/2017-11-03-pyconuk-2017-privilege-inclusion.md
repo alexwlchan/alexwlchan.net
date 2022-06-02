@@ -6,7 +6,7 @@ summary: In the tech industry, how can we be more aware of our privilege, and us
 tags: pyconuk slides
 category: Talks
 theme:
-  color: 0a9f9f
+  color: "#0a9f9f"
   touch_icon: 0a9f9f
 ---
 

@@ -11,6 +11,8 @@ category: Photography
 
 index:
   best_of: true
+  tint_color: "#74844e"
+  image: /images/2018/P9210413_card.jpg
 ---
 
 In September, I was in Cardiff to help organise [PyCon UK][pyconuk].

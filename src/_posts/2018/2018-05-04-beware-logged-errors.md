@@ -1,8 +1,6 @@
 ---
 category: Python
 date: 2018-05-04 08:28:01 +0000
-index:
-  best_of: true
 layout: post
 summary: If you use Python's subprocess module, be careful you don't leak sensitive
   information in your error logs.

@@ -3,6 +3,8 @@ category: Python
 date: 2016-10-21 12:18:00 +0000
 index:
   best_of: true
+  image: /images/2016/tiling_card.png
+  tint_color: "#444444"
 layout: post
 summary: Using the Python Imaging Library to draw regular tilings of squares, triangles
   and hexagons.

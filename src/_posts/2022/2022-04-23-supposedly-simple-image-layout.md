@@ -6,7 +6,12 @@ summary: A step-by-step breakdown of how I made a one-left, two-right layout for
 tags: css
 theme:
   card_type: summary_large_image
+  card_tint_color: "#4b536e"
+  image: /images/2022/image_layout_twitter_card.png
+index:
+  tint_color: "#4b536e"
   image: /images/2022/image_layout_card.png
+  best_of: true
 ---
 
 I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.

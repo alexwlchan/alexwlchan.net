@@ -10,6 +10,7 @@ category: Photography
 
 index:
   best_of: true
+  tint_color: "#2b5750"
 ---
 
 In the early nineteenth century, the River Thames was heavily polluted.

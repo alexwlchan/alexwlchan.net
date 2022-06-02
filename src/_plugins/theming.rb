@@ -15,7 +15,7 @@ end
 # This will be picked up by the SCSS processor for the site, and cause
 # the creation of a CSS theme with this as the primary color.
 def create_scss_theme(src, color)
-  mainfile = "#{src}/theme/style_#{color}.scss"
+  mainfile = "#{src}/theme/style_#{color.gsub(/#/, '')}.scss"
   if ! File.file?(mainfile)
     File.open(mainfile, 'w') { |file| file.write(<<-EOT
 ---
@@ -32,7 +32,7 @@ end
 
 
 def ensure_banner_image_exists(src, color)
-  banner_file = "#{src}/theme/specktre_#{color}.png"
+  banner_file = "#{src}/theme/specktre_#{color.gsub(/#/, '')}.png"
   if ! File.file?(banner_file)
     raise RuntimeError, "Missing Specktre banner for #{color}, please run 'ruby scripts/create_specktre_banners.rb'"
   end
