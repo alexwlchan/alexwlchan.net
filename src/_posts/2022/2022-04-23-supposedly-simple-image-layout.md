@@ -6,8 +6,11 @@ summary: A step-by-step breakdown of how I made a one-left, two-right layout for
 tags: css
 theme:
   card_type: summary_large_image
-  image: /images/2022/image_layout_card.png
+  card_tint_color: "#4b536e"
+  image: /images/2022/image_layout_twitter_card.png
 index:
+  tint_color: "#4b536e"
+  image: /images/2022/image_layout_card.png
   best_of: true
 ---
 

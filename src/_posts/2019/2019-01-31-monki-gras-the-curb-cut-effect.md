@@ -7,7 +7,7 @@ summary: Slides and notes for my talk 'The Curb Cut Effect'. Making something be
 tags: slides accessibility
 category: Talks
 theme:
-  color: 531b93
+  color: "#531b93"
   card_type: summary_large_image
   image: /slides/curbcut_monkigras/curbcut_monkigras.twitter_card.jpg
 

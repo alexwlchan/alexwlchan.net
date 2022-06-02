@@ -9,6 +9,7 @@ theme:
   image: /images/2021/costs_report_2x_twitter_card.png
 index:
   best_of: true
+  tint_color: "#403f40"
 ---
 
 The AWS bill is everyone's most expensive horror story.

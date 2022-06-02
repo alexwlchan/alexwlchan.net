@@ -6,7 +6,7 @@ summary: Notes from a talk about inclusion in design and unconscious bias.
 category: Diversity, inclusion and accessibility
 tags: inclusion talks
 theme:
-  color: 20883f
+  color: "#20883f"
 ---
 
 Earlier today, I gave a talk for [the Open Life Science Program][openlife] about designing with inclusion in mind.

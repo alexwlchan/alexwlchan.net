@@ -7,6 +7,7 @@ tags: personal
 category: Photography
 theme:
   card_type: summary_large_image
+  card_tint_color: "#3063a4"
   image: /images/2019/PC010292_twitter_card.jpg
 
 index:
