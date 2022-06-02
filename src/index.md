@@ -22,19 +22,17 @@ post_list_date_format: day_month
 
 ## Hi, I'm Alex.
 
-I'm a software developer at [Wellcome Collection][wellcome], a museum and library exploring health and human experience.
-I'm helping to build a platform for searching and storing [the collections][collections], with a particular interest in digital preservation.
+I'm a software developer at [Wellcome Collection][wellcome], a museum and library in London.
+I help to search and store [the collections][collections], with a particular interest in digital preservation.
 
-I have a fairly active online presence -- I [tweet a lot](https://twitter.com/alexwlchan), and [my blog](/all-posts/) is where I share ideas that don't fit into a tweet.
+I have a fairly active online presence -- I [tweet a lot](https://twitter.com/alexwlchan), and [my blog](/best-of/) is where I share ideas that don't fit into a tweet.
 You can read my posts on the web, or subscribe to them [as an RSS feed](/atom.xml).
 
 I write about anything I find interesting or fun -- there's plenty of programming, but a lot of other stuff as well.
-Past topics include [accessibility](/2019/01/monki-gras-the-curb-cut-effect/), [braille](/2019/07/ten-braille-facts/), [Chinese dictionaries](/2019/06/reading-a-chinese-dictionary/), and [Welsh waterfalls](/2018/11/aberdulais-waterfall/).
-
-Sometimes I give talks at meetups or conferences, and I have a list of slides/videos from [my past talks](/elsewhere/#talks-and-workshops).
-I've also written about my [ideas for running inclusive and accessible events](https://alexwlchan.net/ideas-for-inclusive-events/).
+Past topics include [accessibility](/2019/01/monki-gras-the-curb-cut-effect/), [Chinese dictionaries](/2019/06/reading-a-chinese-dictionary/), and [Welsh waterfalls](/2018/11/aberdulais-waterfall/).
 
 If you'd like to see everything I've been up to, my [projects page](/projects/) is a good starting point.
+It includes links to everything I've published online.
 
 I'm trans, genderfluid, and my pronouns vary.
 If you're not sure, "they/them" is a safe default.
@@ -44,10 +42,52 @@ I hope you enjoy the site.
 [wellcome]: https://wellcomecollection.org/
 [collections]: https://wellcomecollection.org/collections
 
-## Recent posts
 
-{% assign posts = site.posts | slice: 0, 5 %}
-{% include archive_list.html %}
+
+## Blog posts
+
+These are a few particular favourites I've written recently:
+
+{% assign best_posts = site.posts | sort: "date" | reverse | where: "index.best_of", "true" | slice: 0, 4 %}
+
+<!--
+  The styles in "article_cards.scss" will switch between three layouts:
+
+  *   a 1×3 column (mobile devices)
+  *   a 2×2 grid (regular screens)
+  *   a 3×1 row (wide screens)
+
+  This is meant to be a sample of posts, not a full list.  I don't want
+  too many on mobile devices, and I don't want a single item on its own
+  on the second row on a wide screen.
+
+  This CSS will hide the fourth post on mobile/wide screens.
+-->
+
+{% assign last_post = best_posts | last %}
+
+<link rel="stylesheet" href="/theme/article_cards.css">
+<style>
+  @media screen and (max-width: 500px) {
+    #{{ last_post.slug }} {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #{{ last_post.slug }} {
+      display: none;
+    }
+  }
+</style>
+
+<ul class="post_cards">
+{% for post in best_posts %}
+  {% include post_card.html %}
+{% endfor %}
+</ul>
+
+You can see [more of my blog posts](/best-of/), or [subscribe to the RSS feed](/atom.xml).
 
 ## Contact
 
