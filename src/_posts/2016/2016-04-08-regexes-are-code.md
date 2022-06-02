@@ -9,6 +9,8 @@ category: Programming and code
 
 index:
   best_of: true
+  image: /images/2016/regex_card.png
+  tint_color: "#000000"
 ---
 
 Regular expressions (or *regexes*) have a reputation for being unreadable.
