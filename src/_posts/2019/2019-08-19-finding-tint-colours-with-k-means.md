@@ -3,7 +3,8 @@ category: Python
 date: 2019-08-19 09:40:52 +0000
 index:
   best_of: true
-  tint_color: "#901F17"
+  tint_color: "#4A653A"
+  image: /images/2019/kmeans_card.png
 layout: post
 summary: I want to display text next to an image that looks visually similar to the
   image, so I need to extract a tint colour.
