@@ -1,8 +1,6 @@
 ---
 category: Amazon Web Services
 date: 2017-11-22 11:50:19 +0000
-index:
-  best_of: true
 layout: post
 summary: A detailed breakdown of how I wrote a Python script to download logs from
   CloudWatch.

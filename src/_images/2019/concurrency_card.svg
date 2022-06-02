@@ -136,24 +136,24 @@
   </defs>
 
   <g mask="url(#arrow)">
-    <circle cx="198" cy="200" r="420" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="400" fill="#89120B"/>
-    <circle cx="198" cy="200" r="380" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="360" fill="#89120B"/>
-    <circle cx="198" cy="200" r="340" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="320" fill="#89120B"/>
-    <circle cx="198" cy="200" r="300" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="280" fill="#89120B"/>
-    <circle cx="198" cy="200" r="260" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="240" fill="#89120B"/>
-    <circle cx="198" cy="200" r="220" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="200" fill="#89120B"/>
-    <circle cx="198" cy="200" r="180" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="160" fill="#89120B"/>
-    <circle cx="198" cy="200" r="140" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="120" fill="#89120B"/>
-    <circle cx="198" cy="200" r="100" fill="#D01C11"/>
-    <circle cx="198" cy="200" r="80" fill="#89120B"/>
-    <circle cx="198" cy="200" r="60" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="420" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="400" fill="#89120B"/>
+    <circle cx="202" cy="200" r="380" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="360" fill="#89120B"/>
+    <circle cx="202" cy="200" r="340" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="320" fill="#89120B"/>
+    <circle cx="202" cy="200" r="300" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="280" fill="#89120B"/>
+    <circle cx="202" cy="200" r="260" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="240" fill="#89120B"/>
+    <circle cx="202" cy="200" r="220" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="200" fill="#89120B"/>
+    <circle cx="202" cy="200" r="180" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="160" fill="#89120B"/>
+    <circle cx="202" cy="200" r="140" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="120" fill="#89120B"/>
+    <circle cx="202" cy="200" r="100" fill="#D01C11"/>
+    <circle cx="202" cy="200" r="80" fill="#89120B"/>
+    <circle cx="202" cy="200" r="60" fill="#D01C11"/>
   </g>
 </svg>

@@ -2,12 +2,14 @@
 layout: post
 date: 2019-03-25 21:15:36 +0000
 title: Creating a GitHub Action to auto-merge pull requests
-summary:
+summary: Saving myself the trouble of clicking that pesky "merge" button.
 tags:
 category: Build automation and build systems
 
 index:
   best_of: true
+  image: /images/2019/github_actions_card.png
+  tint_color: "#1b1e21"
 
 tags: build-automation github
 ---
