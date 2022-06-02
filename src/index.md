@@ -22,7 +22,7 @@ post_list_date_format: day_month
 
 ## Hi, I'm Alex.
 
-I'm a software developer at [Wellcome Collection][wellcome], a museum and library in London.
+I'm a software developer at [Wellcome Collection][wellcome], a free museum and library in London.
 I help to search and store [the collections][collections], with a particular interest in digital preservation.
 
 I have a fairly active online presence -- I [tweet a lot](https://twitter.com/alexwlchan), and [my blog](/best-of/) is where I share ideas that don't fit into a tweet.
@@ -46,7 +46,7 @@ I hope you enjoy the site.
 
 ## Blog posts
 
-These are a few particular favourites I've written recently:
+Here are some posts I've written recently:
 
 {% assign best_posts = site.posts | sort: "date" | reverse | where: "index.best_of", "true" | slice: 0, 4 %}
 
