@@ -7,6 +7,8 @@ category: Languages
 tags: languages python graph-theory
 index:
   best_of: true
+  image: /images/2020/vocabulary_graph_card.png
+  tint_color: "#946800"
 ---
 
 If you've ever tried to learn a foreign language, you've probably encountered a *vocabulary list*.
