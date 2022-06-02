@@ -10,6 +10,8 @@ theme:
 title: Drawing with triangular coordinates in SVG
 index:
   best_of: true
+  image: /images/2019/triangular_coordinates_card.png
+  tint_color: "#000000"
 tags: python images
 ---
 

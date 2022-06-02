@@ -1,0 +1,69 @@
+---
+---
+
+@import "_settings.scss";
+
+.card {
+  border: $sidebar-border-width solid $primary-color;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.card a {
+  color: $body-color;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.card a .card_title {
+  text-decoration: underline;
+  color: $primary-color;
+}
+
+.card_image {
+  margin-top: 0;
+  margin-bottom: 0;
+//  border-bottom: 1px solid green;
+}
+
+.card_metadata {
+  padding-left:  1em;
+  padding-right: 1em;
+}
+
+.card_title {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.card_description {
+  margin-top: 0.5em;
+  font-size: 85%;
+  line-height: 1.45em;
+  margin-bottom: 1em;
+}
+
+ul.post_cards {
+  list-style-type: none;
+  padding-left: 0px !important;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1em;
+}
+
+@media screen and (max-width: 500px) {
+  ul.post_cards {
+    grid-template-columns: auto;
+  }
+}
+
+/* TODO: Can I get graceful resizing rather than a snapping behaviour? */
+
+@media screen and (min-width: 1000px) {
+  ul.post_cards {
+    grid-template-columns: auto auto auto;
+    margin-left: -100px;
+    margin-right: -100px;
+  }
+}

@@ -6,13 +6,8 @@ post_list_date_format: day_month
 ---
 
 This is a list of every post on alexwlchan.net, sorted by date.
-You can browse the list:
 
--   by date (this page)
--   [by tag](/all-posts-by-tag/)
--   [by filtering to my favourite posts](/best-of/)
-
-You can subscribe to my posts [as an Atom feed](/atom.xml).
+You can subscribe to my posts [as an RSS feed](/atom.xml).
 
 Jump to:
 {% for year_entry in site.data["posts_by_year"] -%}

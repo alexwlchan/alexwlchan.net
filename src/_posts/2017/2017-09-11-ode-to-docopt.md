@@ -6,7 +6,7 @@ tags: python slides
 category: Talks
 date: 2017-09-11 12:01:13 +0100
 theme:
-  color: 008000
+  color: "#008000"
   touch_icon: docopt
 ---
 

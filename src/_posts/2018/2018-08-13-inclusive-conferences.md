@@ -10,6 +10,8 @@ category: Diversity, inclusion and accessibility
 
 index:
   best_of: true
+  tint_color: "#533f2b"
+  image: /images/2018/inclusive-conferences-card.jpg
 ---
 
 {% update "2019-02-05" %}

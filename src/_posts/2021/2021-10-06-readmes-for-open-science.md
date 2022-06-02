@@ -5,7 +5,7 @@ title: READMEs for Open Science
 summary:
 tags: documentation open-life-science talks
 theme:
-  color: 20883f
+  color: "#20883f"
 ---
 
 Earlier today, I gave a talk for the [the Open Life Science Program][openlife] about READMEs.

@@ -3,6 +3,7 @@ category: LaTeX
 date: 2017-10-11 22:09:25 +0000
 index:
   best_of: true
+  image: /images/2017/latex_underline_card.png
 last_updated: 2018-11-13 20:54:44 +0000
 layout: post
 summary: I'm very picky about the way underlines look, and have spent a lot of time
