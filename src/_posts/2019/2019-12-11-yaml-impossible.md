@@ -6,6 +6,10 @@ summary: YAML allows you to execute arbitrary code in a parser, even if you real
 category: Programming and code
 tags: python code-terrorism
 
+index:
+  best_of: true
+  tint_color: "#527ab2"
+
 theme:
   card_type: summary_large_image
   image: /images/2019/tape_recorder_twitter_card.jpg
