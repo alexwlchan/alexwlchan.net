@@ -12,6 +12,8 @@ theme:
 
 index:
   best_of: true
+  tint_color: "#74157B"
+  image: /images/2016/asexual_flag.png
 ---
 
 Today is a more personal post: I want to talk about asexuality.
