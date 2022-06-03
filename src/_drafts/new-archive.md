@@ -7,8 +7,8 @@ theme:
   image: /images/2022/redesign_twitter_card.jpg
 ---
 
-Late last night, I pushed an update to the archive pages for this blog.
-On Twitter I teased this as a ["design refresh"][tease] but it might be more accurate to call it a "first design" -- the scrolling list of text links I had previously barely counts as a design.
+Last night, I updated the archive pages for my blog.
+On Twitter I teased it as a ["design refresh"][tease] but it might be more accurate to call it a "first design" -- the scrolling list of text links I had previously barely counts as a design.
 
 [tease]: https://twitter.com/alexwlchan/status/1532029536258465795
 
@@ -48,7 +48,7 @@ If you click [the "posts" link in the header](/best-of/), you'll see something q
   <img src="/images/2022/all_posts_new.jpg" alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description.">
 </figure>
 
-I've wanted to do redesign that page for a while, but I kept putting it off because it seemed hard -- once I started, it was much easier than I was expecting.
+I've wanted to redesign that page for a while, but I kept putting it off because it seemed hard -- once I started, it was much easier than I was expecting.
 
 
 
@@ -71,11 +71,11 @@ There are lots of programming posts -- but there are plenty of non-programming p
 They're just buried too deep to find.
 
 The long list of links is useful for me -- but I have a unique knowledge of my back catalogue.
-I know exactly what I'm looking for.
-That list is [still there](/all-posts/) for me and anyone else who wants it, but now it's buried a bit deeper because it's not a good starting point.
+When I use it, I know exactly what I'm looking for.
+That list is [still there](/all-posts/), but now it's buried a lot deeper because it's not a good starting point.
 
-A while back, I started marking certain posts in the list of links.
-This was a half-hearted measure to highlight my favourite posts, but clicking it only took you to a shorter list of text links.
+A while back, I started marking my favourite posts in the list of links.
+This was a half-hearted measure to improve discoverability, but clicking it only took you to a shorter list of text links.
 (I'm also not sure anybody ever realised those hearts were clickable.)
 
 <img src="/images/2022/hearted_posts.png" style="width: 600px;" alt="A list of text links, with small red hearts next to several of the titles.">
@@ -85,11 +85,11 @@ Giving people a shorter list of "best" posts to choose from makes that easier, b
 
 I knew this wasn't good enough, but I was struggling for ideas.
 
-I'd thought about writing some sort of "start here" page for the site -- a blog post that linked to other blog posts -- but that's just replacing one wall of text with another.
+I thought about writing some sort of "start here" page for the site -- a blog post that linked to other blog posts -- but that's just replacing one wall of text with another.
 I also kept putting off writing it, which doesn't bode well for anybody wanting to read it.
 
 I also thought about new tags and categories, but that's still fiddling around the edges.
-I already have tags, but they're buried so deep that nobody can find them.
+I already have tags, but they're hard to find.
 I wanted a more radical change.
 
 Then after work yesterday, I had a brainwave -- what if I used cards instead of links?
@@ -105,7 +105,7 @@ This is a pretty common design pattern on the web; here are two examples from [t
 
 These are much better than a wall of text!
 The picture and description give more context about why somebody might want to read a given post, and they're much more visually interesting.
-Ever since I made those cards for my book tracker, I've been jealous of how much better it looks than my main site, but I never connected the dots.
+Ever since I made those cards for my book tracker, I've been jealous of how much better it looks than my main site, but I never thought to apply it here -- until yesterday.
 
 I grabbed my laptop, and started playing around.
 I quickly came up with something I liked:
@@ -114,7 +114,7 @@ I quickly came up with something I liked:
   <img src="/images/2022/alexwlchan_cards.jpg" alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post.">
 </figure>
 
-The "posts" link in the header now goes to a list of cards, and it's only my favourite posts.
+The "posts" link in the header now goes to this list of cards, and it's only my favourite posts.
 Your first impression of the blog is now these rich, colourful cards -- not a monotonous list of text links.
 It's a smaller list of posts to read, and there's more information to help you choose where to go next.
 
@@ -142,7 +142,7 @@ I did it because sorting by post date was easy, not because it was a good idea.
 Indeed, it might have been a net negative.
 Every time I wrote a big post, there was a disincentive to write anything new, because it would push the link to the big post off the homepage.
 
-Now I have cards for my most recent favourite posts:
+Now I put in cards for some favourite posts:
 
 <figure class="two_up">
   <img src="/images/2022/homepage_old.jpg" alt="The old homepage, with a list of five links under a heading 'Recent posts'.">
@@ -159,7 +159,7 @@ Avid readers can still see [subscribe to the RSS feed](/atom.xml) if they want t
 
 
 
-## Personal vs professional projects
+## Designing for vibes
 
 If this was a professional website or a serious source of income, I'd have some analytics or metrics to measure this new design.
 Are more people finding old posts?
