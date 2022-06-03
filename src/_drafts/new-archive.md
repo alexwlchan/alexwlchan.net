@@ -108,7 +108,7 @@ The picture and description give more context about why somebody might want to r
 Ever since I made those cards for my book tracker, I've been jealous of how much better it looks than my main site, but I never thought to apply it here -- until yesterday.
 
 I grabbed my laptop, and started playing around.
-I quickly came up with something I liked:
+I quickly came up with something I liked, and which matches the style of the site:
 
 <figure>
   <img src="/images/2022/alexwlchan_cards.jpg" alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post.">
@@ -125,7 +125,7 @@ There's a mixture of photography, coloured icons, and diagrams, then I'm using [
 <!-- The cards are laid out using [CSS Grid][grid], which I learnt while writing [a previous blog post][layout]. -->
 
 At time of writing, there are 35 cards.
-It's still quite a few, but substantially fewer than the "all posts" page -- and you're more likely to find *something* you're interested in.
+It's still quite a few, but substantially fewer than the "all posts" page -- and you're more likely to find something you're interested in.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
 [grid]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
