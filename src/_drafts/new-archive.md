@@ -68,15 +68,15 @@ It's not because I'm ashamed of the blog -- indeed, I think some of my best work
 This especially stood out when the person asking wasn't a programmer.
 They'd quickly assume it's a programming blog, and that they weren't "smart enough" to read it (yes, I've heard those exact words).
 There are lots of programming posts -- but there are plenty of non-programming posts too!
-They're just buried too deep to find.
+They're just very difficult to find.
 
-The long list of links is useful for me -- but I have a unique knowledge of my back catalogue.
+(The long list of links is useful for me -- but I have a unique knowledge of my back catalogue.
 When I use it, I know exactly what I'm looking for.
-That list is [still there](/all-posts/), but now it's buried a lot deeper because it's not a good starting point.
+That list is [still there](/all-posts/), but now it's buried a lot deeper because it's not a good starting point.)
 
 A while back, I started marking my favourite posts in the list of links.
 This was a half-hearted measure to improve discoverability, but clicking it only took you to a shorter list of text links.
-(I'm also not sure anybody ever realised those hearts were clickable.)
+I'm also not sure anybody ever realised those hearts were clickable.
 
 <img src="/images/2022/hearted_posts.png" style="width: 600px;" alt="A list of text links, with small red hearts next to several of the titles.">
 
@@ -119,8 +119,8 @@ Your first impression of the blog is now these rich, colourful cards -- not a mo
 It's a smaller list of posts to read, and there's more information to help you choose where to go next.
 
 I had a lot of fun creating the graphics -- some of them are images I already had for social media cards, others are new for this page.
-There's a mixture of photography, line art, and diagrams, then I'm using [dominant_colours] to extract a tint colour for the border.
-(I thought I might need some abstract art or placeholder patterns to fill in the gaps, but I chose a picture for everything.)
+There's a mixture of photography, coloured icons, and diagrams, then I'm using [dominant_colours] to extract a tint colour for the border.
+(I thought I might need some abstract art or placeholder patterns to fill in the gaps, but I got a picture for everything.)
 
 <!-- The cards are laid out using [CSS Grid][grid], which I learnt while writing [a previous blog post][layout]. -->
 
@@ -137,8 +137,8 @@ It's still quite a few, but substantially fewer than the "all posts" page -- and
 
 As part of this design refresh, I've also updated the homepage.
 A few years ago, I added a list of five recent posts to the homepage, but they were still a mystery list of text links.
-I did it because sorting by post date was easy, not because it was a good idea.
 
+I did it because sorting by post date was easy, not because it was a good idea.
 Indeed, it might have been a net negative.
 Every time I wrote a big post, there was a disincentive to write anything new, because it would push the link to the big post off the homepage.
 
