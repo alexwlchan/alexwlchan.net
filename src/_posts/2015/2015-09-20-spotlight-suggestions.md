@@ -7,6 +7,22 @@ tags: ios
 title: "What does \u201CSpotlight Suggestions\u201D turn off?"
 ---
 
+<style>
+  .two_up {
+    max-width: 40%;
+    display: inline;
+  }
+  .two_up.left {
+    margin-right: 5px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .two_up {
+      max-width: 48%;
+    }
+  }
+</style>
+
 One of the "features" of iOS 9 is news articles appearing in Spotlight searches.
 If you swipe to the search screen, and haven't typed anything into the search field, it gets pre-populated with headlines.
 Lots of people (including me) think this is just a distraction, and have been looking for ways to turn it off.
