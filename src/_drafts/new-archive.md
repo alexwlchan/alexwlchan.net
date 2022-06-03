@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Redesigning my archive pages
-summary:
-tags:
+summary: Using coloured cards with images and descriptions to make it easier to find posts in my back catalogue.
+theme:
+  card_type: summary_large_image
+  image: /images/2022/redesign_twitter_card.jpg
 ---
 
 Late last night, I pushed an update to the archive pages for this blog.
@@ -46,8 +48,7 @@ If you click [the "posts" link in the header](/best-of/), you'll see something q
   <img src="/images/2022/all_posts_new.jpg" alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description.">
 </figure>
 
-I've wanted to do something like this for a while, but I kept putting it off because it seemed hard -- then once I started, it was much easier than I was expecting.
-I'll keep tweaking and refining it, but I like it as a good first pass.
+I've wanted to do redesign that page for a while, but I kept putting it off because it seemed hard -- once I started, it was much easier than I was expecting.
 
 
 
@@ -60,12 +61,12 @@ Search engines can easily find their way around my blog.
 But people?
 Less so.
 
-Every so often, somebody asks for a link to my blog, and I was vaguely embarrassed to give it to them.
-It's not because I'm ashamed of the blog -- indeed, I think some of my best work is here -- but I know new readers don't have a good experience.
+Every so often, somebody asks for a link to my blog, and I'm vaguely embarrassed to give it to them.
+It's not because I'm ashamed of the blog -- indeed, I think some of my best work is here -- it's because I know new readers don't have a good experience.
 **Given only a list of text links, it was hard for anyone to find something they'd want to read.**
 
 This especially stood out when the person asking wasn't a programmer.
-After reading a few posts, they'd assume it's a programming blog, and that they weren't "smart enough" to read it (yes, I've heard those exact words).
+They'd quickly assume it's a programming blog, and that they weren't "smart enough" to read it (yes, I've heard those exact words).
 There are lots of programming posts -- but there are plenty of non-programming posts too!
 They're just buried too deep to find.
 
@@ -74,15 +75,22 @@ I know exactly what I'm looking for.
 That list is [still there](/all-posts/) for me and anyone else who wants it, but now it's buried a bit deeper because it's not a good starting point.
 
 A while back, I started marking certain posts in the list of links.
-This was a half-hearted measure to highlight my favourite posts, but clicking it only took you to a shorter list of mystery text links.
+This was a half-hearted measure to highlight my favourite posts, but clicking it only took you to a shorter list of text links.
 (I'm also not sure anybody ever realised those hearts were clickable.)
 
 <img src="/images/2022/hearted_posts.png" style="width: 600px;" alt="A list of text links, with small red hearts next to several of the titles.">
 
-I knew this wasn't good enough, but I wasn't sure what to do.
+This is the kernel of a good idea -- I have over 300 posts, and it's unreasonable to expect anybody to choose from that many.
+Giving people a shorter list of "best" posts to choose from makes that easier, but it was still difficult to choose from that list of 40-odd posts when you only had the title.
+
+I knew this wasn't good enough, but I was struggling for ideas.
 
 I'd thought about writing some sort of "start here" page for the site -- a blog post that linked to other blog posts -- but that's just replacing one wall of text with another.
 I also kept putting off writing it, which doesn't bode well for anybody wanting to read it.
+
+I also thought about new tags and categories, but that's still fiddling around the edges.
+I already have tags, but they're buried so deep that nobody can find them.
+I wanted a more radical change.
 
 Then after work yesterday, I had a brainwave -- what if I used cards instead of links?
 This is a pretty common design pattern on the web; here are two examples from [the Wellcome Collection website][stories] and [my book tracker][books]:
@@ -99,15 +107,16 @@ These are much better than a wall of text!
 The picture and description give more context about why somebody might want to read a given post, and they're much more visually interesting.
 Ever since I made those cards for my book tracker, I've been jealous of how much better it looks than my main site, but I never connected the dots.
 
-I grabbed my laptop, and started making cards for my blog.
+I grabbed my laptop, and started playing around.
 I quickly came up with something I liked:
 
 <figure>
   <img src="/images/2022/alexwlchan_cards.jpg" alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post.">
 </figure>
 
-I tried to come up my own visual style.
-These cards are meant to be inspired by other websites, not a straight-up copy.
+The "posts" link in the header now goes to a list of cards, and it's only my favourite posts.
+Your first impression of the blog is now these rich, colourful cards -- not a monotonous list of text links.
+It's a smaller list of posts to read, and there's more information to help you choose where to go next.
 
 I had a lot of fun creating the graphics -- some of them are images I already had for social media cards, others are new for this page.
 There's a mixture of photography, line art, and diagrams, then I'm using [dominant_colours] to extract a tint colour for the border.
@@ -115,7 +124,7 @@ There's a mixture of photography, line art, and diagrams, then I'm using [domina
 
 <!-- The cards are laid out using [CSS Grid][grid], which I learnt while writing [a previous blog post][layout]. -->
 
-At time of writing, there are 35 cards on the ["best of" page](/best-of/).
+At time of writing, there are 35 cards.
 It's still quite a few, but substantially fewer than the "all posts" page -- and you're more likely to find *something* you're interested in.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
@@ -130,8 +139,8 @@ As part of this design refresh, I've also updated the homepage.
 A few years ago, I added a list of five recent posts to the homepage, but they were still a mystery list of text links.
 I did it because sorting by post date was easy, not because it was a good idea.
 
-Indeed, overall it might have been a net negative.
-Every time I wrote a big post, there was a short-lived disincentive to write anything new, because it would push the link to the big post off the homepage.
+Indeed, it might have been a net negative.
+Every time I wrote a big post, there was a disincentive to write anything new, because it would push the link to the big post off the homepage.
 
 Now I have cards for my most recent favourite posts:
 
@@ -141,7 +150,7 @@ Now I have cards for my most recent favourite posts:
 </figure>
 
 I think this is more visually appealing, and more likely to draw somebody into the blog.
-It also means longer, more in-depth pieces will stay on the homepage, and they won't be displaced by shorter posts.
+It also means longer, in-depth pieces will stick around, and they won't be displaced so quickly.
 
 Currently it's pulling the 3–4 most recent "best of" posts.
 I can imagine at some point I might select them by hand, so there's always a  mix of programing and non-programming content, but that's a decision for another day.
