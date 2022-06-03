@@ -2,7 +2,7 @@
 
 [![build_site](https://github.com/alexwlchan/alexwlchan.net/actions/workflows/build_site.yml/badge.svg)](https://github.com/alexwlchan/alexwlchan.net/actions/workflows/build_site.yml)
 
-This repo has the code for my personal site, [alexwlchan.net][root], which is a static site build with [Jekyll][jekyll].
+This repo has the code for my personal site, [alexwlchan.net][root], which is a static site built with [Jekyll][jekyll].
 It includes a number of plugins I've written to customise the site.
 
 <img src="screenshot_2021-08-30_2x.png" srcset="screenshot_2021-08-30_1x.png 1x, screenshot_2021-08-30_2x.png 2x" alt="Screenshot of the front page of my website">
