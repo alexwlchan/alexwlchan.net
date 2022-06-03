@@ -6,11 +6,11 @@ tags:
 ---
 
 Late last night, I pushed an update to the archive pages for this blog.
-On Twitter I teased this as a ["design refresh"][tease] but it might be more accurate to call it a "first design" -- a scrolling list of text links barely counts as a design.
+On Twitter I teased this as a ["design refresh"][tease] but it might be more accurate to call it a "first design" -- the scrolling list of text links I had previously barely counts as a design.
 
 [tease]: https://twitter.com/alexwlchan/status/1532029536258465795
 
-If you click [the "posts" link in the header](/best-of/), you'll see something quite different to what was there yesterday:
+If you click [the "posts" link in the header](/best-of/), you'll see something quite different to yesterday:
 
 <style>
   img {
@@ -18,21 +18,36 @@ If you click [the "posts" link in the header](/best-of/), you'll see something q
     border-radius: 8px;
   }
 
-  figure.two_up {
+  figure {
     width: 90%;
+  }
+
+  figure.two_up {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1em;
   }
+
+  @media screen and (max-width: 600px) {
+    figure {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    figure.two_up {
+      grid-template-columns: auto;
+    }
+  }
 </style>
 
 <figure class="two_up">
-  <img src="/images/2022/all_posts_old.png" alt="A page titled 'All posts' with a list of red text links.">
-  <img src="/images/2022/all_posts_new.png" alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description.">
+  <img src="/images/2022/all_posts_old.jpg" alt="A page titled 'All posts' with a list of red text links.">
+  <img src="/images/2022/all_posts_new.jpg" alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description.">
 </figure>
 
 I've wanted to do something like this for a while, but I kept putting it off because it seemed hard -- then once I started, it was much easier than I was expecting.
-I'll keep tweaking and refining it, but for now I think it's a good first pass.
+I'll keep tweaking and refining it, but I like it as a good first pass.
 
 
 
@@ -45,11 +60,11 @@ Search engines can easily find their way around my blog.
 But people?
 Less so.
 
-Every so often, somebody would ask for a link to my blog, and I was vaguely embarrassed to give it to them.
+Every so often, somebody asks for a link to my blog, and I was vaguely embarrassed to give it to them.
 It's not because I'm ashamed of the blog -- indeed, I think some of my best work is here -- but I know new readers don't have a good experience.
 **Given only a list of text links, it was hard for anyone to find something they'd want to read.**
 
-This stood out when the person asking wasn't a programmer.
+This especially stood out when the person asking wasn't a programmer.
 After reading a few posts, they'd assume it's a programming blog, and that they weren't "smart enough" to read it (yes, I've heard those exact words).
 There are lots of programming posts -- but there are plenty of non-programming posts too!
 They're just buried too deep to find.
@@ -58,7 +73,7 @@ The long list of links is useful for me -- but I have a unique knowledge of my b
 I know exactly what I'm looking for.
 That list is [still there](/all-posts/) for me and anyone else who wants it, but now it's buried a bit deeper because it's not a good starting point.
 
-A while back, I put little hearts to mark my favourite posts.
+A while back, I started marking certain posts in the list of links.
 This was a half-hearted measure to highlight my favourite posts, but clicking it only took you to a shorter list of mystery text links.
 (I'm also not sure anybody ever realised those hearts were clickable.)
 
@@ -76,24 +91,27 @@ This is a pretty common design pattern on the web; here are two examples from [t
 [books]: https://books.alexwlchan.net/
 
 <figure class="two_up">
-  <img src="/images/2022/wellcome_collection_cards.png" alt="Six cards arranged in a two-by-three grid. Each card links to a single article. Each card has a photograph or illustration, a title in a large font, and a description in smaller text. The cards have a uniform cream background.">
-  <img src="/images/2022/books_cards.png" alt="Four cards arranged in a single column. Each card links to a book. Each card has the title of the book, the author and when I read it, the book's cover. The cards are tinted to match the book covers, e.g. the first card is green to match the book cover.">
+  <img src="/images/2022/wellcome_collection_cards.jpg" alt="Six cards arranged in a two-by-three grid. Each card links to a single article. Each card has a photograph or illustration, a title in a large font, and a description in smaller text. The cards have a uniform cream background.">
+  <img src="/images/2022/books_cards.jpg" alt="Four cards arranged in a single column. Each card links to a book. Each card has the title of the book, the author and when I read it, the book's cover. The cards are tinted to match the book covers, e.g. the first card is green to match the book cover.">
 </figure>
 
 These are much better than a wall of text!
 The picture and description give more context about why somebody might want to read a given post, and they're much more visually interesting.
 Ever since I made those cards for my book tracker, I've been jealous of how much better it looks than my main site, but I never connected the dots.
 
-This is what cards for my posts look like:
+I grabbed my laptop, and started making cards for my blog.
+I quickly came up with something I liked:
 
-<img src="/images/2022/alexwlchan_cards.jpg" style="width: 90%;">
+<figure>
+  <img src="/images/2022/alexwlchan_cards.jpg" alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post.">
+</figure>
 
-I tried to come up with a design that was easily recognised, but with a distinct visual style.
-These cards are inspired by other websites, not a straight-up copy.
+I tried to come up my own visual style.
+These cards are meant to be inspired by other websites, not a straight-up copy.
 
 I had a lot of fun creating the graphics -- some of them are images I already had for social media cards, others are new for this page.
 There's a mixture of photography, line art, and diagrams, then I'm using [dominant_colours] to extract a tint colour for the border.
-(I thoguht I might need some abstract art or placeholder patterns to fill in the gaps, but I chose a picture for everything.)
+(I thought I might need some abstract art or placeholder patterns to fill in the gaps, but I chose a picture for everything.)
 
 <!-- The cards are laid out using [CSS Grid][grid], which I learnt while writing [a previous blog post][layout]. -->
 
@@ -109,24 +127,24 @@ It's still quite a few, but substantially fewer than the "all posts" page -- and
 ## Honing the homepage
 
 As part of this design refresh, I've also updated the homepage.
-A few years ago, I added a list of five recent posts to the homepage, but they're a mystery list of text links.
+A few years ago, I added a list of five recent posts to the homepage, but they were still a mystery list of text links.
 I did it because sorting by post date was easy, not because it was a good idea.
 
 Indeed, overall it might have been a net negative.
-Every time I wrote a big post, there was a short-lived disincentive to write anything new, because it would push the big post off the homepage.
+Every time I wrote a big post, there was a short-lived disincentive to write anything new, because it would push the link to the big post off the homepage.
 
 Now I have cards for my most recent favourite posts:
 
 <figure class="two_up">
-  <img src="/images/2022/homepage_old.png">
-  <img src="/images/2022/homepage_new.png">
+  <img src="/images/2022/homepage_old.jpg" alt="The old homepage, with a list of five links under a heading 'Recent posts'.">
+  <img src="/images/2022/homepage_new.jpg" alt="The new homepage, with the list of links replaced by three cards arranged in a row.">
 </figure>
 
 I think this is more visually appealing, and more likely to draw somebody into the blog.
 It also means longer, more in-depth pieces will stay on the homepage, and they won't be displaced by shorter posts.
 
 Currently it's pulling the 3–4 most recent "best of" posts.
-I can imagine at some point I might select them by hand, so there's alwyas a  mix of programing and non-programming content, but that's a decision for another day.
+I can imagine at some point I might select them by hand, so there's always a  mix of programing and non-programming content, but that's a decision for another day.
 
 Avid readers can still see [subscribe to the RSS feed](/atom.xml) if they want to get everything; this is meant for new readers who've never seen my blog before.
 
@@ -142,13 +160,13 @@ Have I improved my [bounce rate]?
 But this isn't a professional site, it's a hobby project where I write for fun -- and I make design decisions based on *✨&nbsp;vibes&nbsp;✨*.
 
 I don't have any analytics, and I don't know if the redesign will improve my metrics.
-I do know it'll make me more comfortable sending people to the blog, because they're more likely to find something they want to read.
+I do know it'll make me more comfortable sending people to the blog, and I care about that more.
 
-It was also a fun project to work on.
-I went from initial prototype to live page in a day and a half, and I spent most of that time sleeping.
+This was a fun project to work on.
+I went from initial prototype to live page in a day and a half (and I spent most of that time sleeping).
 I have ideas for more tweaks and changes, but already I think it's a big improvement on what was there before.
 
-You can find the new archives at [/best-of/](/best-of/).
+Check out the new archives at [/best-of/](/best-of/).
 You might find something you've never read before!
 
 [bounce rate]: https://en.wikipedia.org/wiki/Bounce_rate
