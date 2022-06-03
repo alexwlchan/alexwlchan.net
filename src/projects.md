@@ -76,6 +76,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   */
   .illustrated_item a img {
     max-height: 150px;
+    border-radius: 3px;
   }
 
   @media screen and (min-width: 500px) {
