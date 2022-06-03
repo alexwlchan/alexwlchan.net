@@ -17,18 +17,3 @@
 
 // Used in /2014/11/ranged-strings/
 .exampleurl { padding-left: 30px; }
-
-// Used in /2015/09/spotlight-suggestions/
-.two_up {
-  max-width: 40%;
-  display: inline;
-}
-.two_up.left {
-  margin-right: 5px;
-}
-
-@media screen and (max-width: 500px) {
-  .two_up {
-    max-width: 48%;
-  }
-}

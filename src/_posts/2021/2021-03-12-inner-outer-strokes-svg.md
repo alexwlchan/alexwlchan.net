@@ -6,7 +6,7 @@ summary: Showing how clips and masks work, and how they can be used to draw inne
 tags: svg
 index:
   best_of: true
-  image: /images/2021/strokes_card.svg
+  image: /images/2021/strokes_card_fixed.svg
   tint_color: "#8f6434"
 ---
 

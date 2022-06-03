@@ -43,11 +43,22 @@ Feast your eyes on my evolving skills in web design.
 
 <style>
   img {
-    border: 3px solid #ccc;
+    border: 3px solid #f0f0f0;
+    border-radius: 8px;
+    max-width: 80%;
   }
 </style>
 
-## 2018–current: A bio on the homepage
+## Mid 2022 to present: Cards for browsing the archive
+
+Most of the design is the same as in 2018, barring minor tweaks to spacing and text styles.
+I did add cards to the homepage to link to blog posts, as part of [a design refresh](/2022/06/new-archive/) to make it easier for new visitors to find posts they might like in the backlog.
+
+I also used this design on the "best of" posts page, because at nearly 350&nbsp;posts it was impossible for anybody who wasn't me to navigate the archive.
+
+![A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border.](/images/site_cards_on_the_homepage.png)
+
+## 2018 to mid-2022: A bio on the homepage
 
 I continue to tweak the styles, but the major themes are the same: Georgia for the font, red accents, that speckled border across the top of the page.
 

@@ -1,6 +1,10 @@
 ---
 layout: page
 title: Posts
+summary: Some of my favourite posts on alexwlchan.net.
+theme:
+  card_type: summary_large_image
+  image: /images/2022/redesign_twitter_card.jpg
 ---
 
 <link rel="stylesheet" href="/theme/article_cards.css">
