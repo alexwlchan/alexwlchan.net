@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Posts
+summary: Some of my favourite posts on alexwlchan.net.
 ---
 
 <link rel="stylesheet" href="/theme/article_cards.css">
