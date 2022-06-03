@@ -5,15 +5,17 @@ summary:
 tags:
 ---
 
-late last night, I pushed an update to archive pages
-on twitter i teaed this as a "design refresh", but it would be more accurate to call it "the first design" -- a scrolling list of text links barely counts as design
+Late last night, I pushed an update to the archive pages for this blog.
+On Twitter I teased this as a ["design refresh"][tease] but it might be more accurate to call it a "first design" -- a scrolling list of text links barely counts as a design.
 
-if you click the posts link in the header, looks radically different
+[tease]: https://twitter.com/alexwlchan/status/1532029536258465795
+
+If you click [the "posts" link in the header](/best-of/), you'll see something quite different to what was there yesterday:
 
 <style>
   img {
-    border: 1px solid #f0f0f0;
-    border-radius: 5px;
+    border: 3px solid #f0f0f0;
+    border-radius: 8px;
   }
 
   figure.two_up {
@@ -25,90 +27,128 @@ if you click the posts link in the header, looks radically different
 </style>
 
 <figure class="two_up">
-  <img src="/images/2022/all_posts_old.png">
-  <img src="/images/2022/all_posts_new.png">
+  <img src="/images/2022/all_posts_old.png" alt="A page titled 'All posts' with a list of red text links.">
+  <img src="/images/2022/all_posts_new.png" alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description.">
 </figure>
 
-wanted to do this for a while
+I've wanted to do something like this for a while, but I kept putting it off because it seemed hard -- then once I started, it was much easier than I was expecting.
+I'll keep tweaking and refining it, but for now I think it's a good first pass.
 
-from brief flirtatiosn with analytics, know search + word-of-mouth are two big funnels
-search is covered, word of motuh isn't
 
-people would ask for a blog link, and I'd be vaguely embarrassed to give it to them
-not because i was ashamed of the blog; but knew they couldn't find anything
-nearly a decade => over 300 posts
-if you don't know something is there, you won't find it
 
-especially as many people asking aren't programmers
-they assume the blog isn't for them -- and while there is a lot of prog content, plenty of non-prog in the archive
-but how do you find it?
+## The problem of past posts
 
-those archives are useful for me -- but I have a unique knoweldeg of my back catalogue
-that list is still there for me and anyone else, but it's buried behind several clicks
+Most people find my site from search or via word-of-mouth.
+I think I'm doing pretty well for search -- a lot of my posts are about solving specific problems, and if you search for that specific problem, my posts are near the top of the results.
+I have clear titles, relevant content, and my pages load quickly.
+Search engines can easily find their way around my blog.
+But people?
+Less so.
 
-i've wanted to make the archives more navigable for a while; this is a first pass at something i'll surely refine later
+Every so often, somebody would ask for a link to my blog, and I was vaguely embarrassed to give it to them.
+It's not because I'm ashamed of the blog -- indeed, I think some of my best work is here -- but I know new readers don't have a good experience.
+**Given only a list of text links, it was hard for anyone to find something they'd want to read.**
 
-i've known for a while that not posts are equal
-in a half-hearted measure, I put little hearts to mark my favourite posts, but this would take you to a shorter list of mystery text links
-(and it was another click betweeen you and an archive)
+This stood out when the person asking wasn't a programmer.
+After reading a few posts, they'd assume it's a programming blog, and that they weren't "smart enough" to read it (yes, I've heard those exact words).
+There are lots of programming posts -- but there are plenty of non-programming posts too!
+They're just buried too deep to find.
 
-i'd thought about writing some sort of "start here" for the site, with some sentences highlighting good posts -- but that's still a wall of text?
+The long list of links is useful for me -- but I have a unique knowledge of my back catalogue.
+I know exactly what I'm looking for.
+That list is [still there](/all-posts/) for me and anyone else who wants it, but now it's buried a bit deeper because it's not a good starting point.
 
-inspired by wellcome collection stories cards
+A while back, I put little hearts to mark my favourite posts.
+This was a half-hearted measure to highlight my favourite posts, but clicking it only took you to a shorter list of mystery text links.
+(I'm also not sure anybody ever realised those hearts were clickable.)
+
+<img src="/images/2022/hearted_posts.png" style="width: 600px;" alt="A list of text links, with small red hearts next to several of the titles.">
+
+I knew this wasn't good enough, but I wasn't sure what to do.
+
+I'd thought about writing some sort of "start here" page for the site -- a blog post that linked to other blog posts -- but that's just replacing one wall of text with another.
+I also kept putting off writing it, which doesn't bode well for anybody wanting to read it.
+
+Then after work yesterday, I had a brainwave -- what if I used cards instead of links?
+This is a pretty common design pattern on the web; here are two examples from [the Wellcome Collection website][stories] and [my book tracker][books]:
+
+[stories]: https://wellcomecollection.org/stories/
+[books]: https://books.alexwlchan.net/
 
 <figure class="two_up">
-  <img src="/images/2022/wellcome_collection_cards.png">
-  <img src="/images/2022/books_cards.png">
+  <img src="/images/2022/wellcome_collection_cards.png" alt="Six cards arranged in a two-by-three grid. Each card links to a single article. Each card has a photograph or illustration, a title in a large font, and a description in smaller text. The cards have a uniform cream background.">
+  <img src="/images/2022/books_cards.png" alt="Four cards arranged in a single column. Each card links to a book. Each card has the title of the book, the author and when I read it, the book's cover. The cards are tinted to match the book covers, e.g. the first card is green to match the book cover.">
 </figure>
 
-much more visually interesting!
-picture + text + description
+These are much better than a wall of text!
+The picture and description give more context about why somebody might want to read a given post, and they're much more visually interesting.
+Ever since I made those cards for my book tracker, I've been jealous of how much better it looks than my main site, but I never connected the dots.
 
-so I went and made cards for my pages, but with my own visual spin:
+This is what cards for my posts look like:
 
-<img src="/images/2022/alexwlchan_cards.png" style="width: 90%;">
+<img src="/images/2022/alexwlchan_cards.jpg" style="width: 90%;">
 
-I had a lot of fun creating graphics for the cards -- some of them are images I already had for social media cards, others are new for this project
-no consistency -- mixture of photography, line art, and diagrams
+I tried to come up with a design that was easily recognised, but with a distinct visual style.
+These cards are inspired by other websites, not a straight-up copy.
 
-(did think I might need some placeholder red patterns or abstract art to fill the gaps, but came up with a picture for everything)
+I had a lot of fun creating the graphics -- some of them are images I already had for social media cards, others are new for this page.
+There's a mixture of photography, line art, and diagrams, then I'm using [dominant_colours] to extract a tint colour for the border.
+(I thoguht I might need some abstract art or placeholder patterns to fill in the gaps, but I chose a picture for everything.)
 
-the border colour is pulled using dominant colours
+<!-- The cards are laid out using [CSS Grid][grid], which I learnt while writing [a previous blog post][layout]. -->
 
-it uses css grid, which i learnt about yay
+At time of writing, there are 35 cards on the ["best of" page](/best-of/).
+It's still quite a few, but substantially fewer than the "all posts" page -- and you're more likely to find *something* you're interested in.
 
-at time of writing, that has 35 posts
-still a lot, but substantially fewer -- and you're more likely to find *something* you're interested in
+[dominant_colours]: https://github.com/alexwlchan/dominant_colours
+[grid]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+[layout]: /2022/04/supposedly-simple-image-layout/
 
-I've also redone the homepage
-I added some recent posts a few years back, but still v mystery
-and recency bias
 
-every time I wrote a big post, there was a disincentive to write new stuff, because it'd push the big thing off the front page
 
-now I have cards for the most recent three 'favourites' posts
+## Honing the homepage
+
+As part of this design refresh, I've also updated the homepage.
+A few years ago, I added a list of five recent posts to the homepage, but they're a mystery list of text links.
+I did it because sorting by post date was easy, not because it was a good idea.
+
+Indeed, overall it might have been a net negative.
+Every time I wrote a big post, there was a short-lived disincentive to write anything new, because it would push the big post off the homepage.
+
+Now I have cards for my most recent favourite posts:
 
 <figure class="two_up">
   <img src="/images/2022/homepage_old.png">
   <img src="/images/2022/homepage_new.png">
 </figure>
 
-i think this is more visually appealing, and more likely to draw somebody into the blog
+I think this is more visually appealing, and more likely to draw somebody into the blog.
+It also means longer, more in-depth pieces will stay on the homepage, and they won't be displaced by shorter posts.
 
-currently it's pulling the 3-4 most recent "favourites" posts
-i can imagine at some point I might select them by hand, so there's alwyas a  mix of prog and non-prog content
+Currently it's pulling the 3–4 most recent "best of" posts.
+I can imagine at some point I might select them by hand, so there's alwyas a  mix of programing and non-programming content, but that's a decision for another day.
 
-also shows difference between profesh/personal site
+Avid readers can still see [subscribe to the RSS feed](/atom.xml) if they want to get everything; this is meant for new readers who've never seen my blog before.
 
-if this was a profesh website/source of income, i'd have some analytics or metrics I was tracking, to see if this was working
-but it's a hobby website, and i run it off vibes
 
-i feel more comfortable sending people to the blog, because they're more likely to find something they want to read
 
-it's also one of the nice things about a solo project
-i enjoy working on a team, and i learn a lot from different perspectives + expertise, but here i get to just decide to do something and do it
-prototype to live site in ~30 hours, most of which spent doing other things
+## Personal vs professional projects
 
-if you want to see the new archives, go to /best-of/
-might find somethign you've missed!
+If this was a professional website or a serious source of income, I'd have some analytics or metrics to measure this new design.
+Are more people finding old posts?
+Are they spending more time on the site?
+Have I improved my [bounce rate]?
 
+But this isn't a professional site, it's a hobby project where I write for fun -- and I make design decisions based on *✨&nbsp;vibes&nbsp;✨*.
+
+I don't have any analytics, and I don't know if the redesign will improve my metrics.
+I do know it'll make me more comfortable sending people to the blog, because they're more likely to find something they want to read.
+
+It was also a fun project to work on.
+I went from initial prototype to live page in a day and a half, and I spent most of that time sleeping.
+I have ideas for more tweaks and changes, but already I think it's a big improvement on what was there before.
+
+You can find the new archives at [/best-of/](/best-of/).
+You might find something you've never read before!
+
+[bounce rate]: https://en.wikipedia.org/wiki/Bounce_rate
