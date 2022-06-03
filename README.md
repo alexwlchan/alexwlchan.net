@@ -86,11 +86,14 @@ If you want to use any of the components in your own projects – plugins, layou
 
 ## License
 
-The footer of the website says:
+-   Original prose is CC-BY licensed; original code is MIT.
 
-> Prose is CC-BY licensed, code is MIT.
+    That's because this is a mixture of prose content (blog posts) and code (both the repo itself, and code I write about).
+    I like CC-BY for the prose content, but Creative Commons licenses [aren't suitable for code][cc_code], so for that I use the same MIT license I do for my other open-source code.
 
-That's because this is a mixture of prose content (blog posts) and code (both the repo itself, and code I write about).
-I like CC-BY for the prose content, but Creative Commons licenses [aren't suitable for code][cc_code], so for that I use the same MIT license I do for my other open-source code.
+-   Some images that are being used under Creative Commons licenses from other people; see the post where an image is used for attribution.
+
+-   Some icons are being used under a royalty-free license from [The Noun Project]; there should be comments in the SVG files indicating their source.
 
 [cc_code]: https://wiki.creativecommons.org/index.php/Frequently_Asked_Questions#Can_I_apply_a_Creative_Commons_license_to_software.3F
+[The Noun Project]: https://thenounproject.com/pricing/
