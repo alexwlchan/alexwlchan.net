@@ -41,7 +41,15 @@
       that checks images have alt text.
       See https://github.com/gjtorikian/html-proofer#ignoring-content
     -->
-    <p class="card_image"><img src="{{ image }}" alt="" data-proofer-ignore/></p>
+    {% assign is_svg = image | endswith: ".svg" %}
+
+    <p class="card_image">
+      {% if is_svg %}
+        {{ image | as_inline_svg }}
+      {% else %}
+        <img src="{{ image }}" alt="" data-proofer-ignore/>
+      {% endif %}
+    </p>
 
     <div class="card_metadata">
       <p class="card_title">{{ post.title | smartify }}</p>
