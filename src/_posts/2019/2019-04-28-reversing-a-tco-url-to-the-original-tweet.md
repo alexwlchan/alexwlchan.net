@@ -7,6 +7,9 @@ summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to
 tags: null
 title: Reversing a t.co URL to the original tweet
 tags: twitter
+index:
+  image: /images/2019/tco_card.png
+  tint_color: "#273d5d"
 ---
 
 If you post a link on Twitter, it goes through Twitter's [t.co link-shortening service][tco].

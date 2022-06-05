@@ -4,6 +4,10 @@ date: 2016-01-25 17:22:00 +0000
 link: http://www.512pixels.net/blog/2016/1/the-harry-potter-collectors-ipod
 tags: ipod harry-potter
 title: The Harry Potter Collector's iPod
+index:
+  image: /images/2016/hp-ipod-card.jpg
+  tint_color: "#37322f"
+summary: A rare and unusual iPod variant I'd never heard of before.
 ---
 
 I like to think of myself as [a Harry Potter geek](http://scifi.stackexchange.com/search?q=user:3567+[harry-potter]), and I follow Apple as well.
