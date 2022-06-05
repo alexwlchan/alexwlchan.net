@@ -27,6 +27,14 @@
 //  border-bottom: 1px solid green;
 }
 
+.card svg {
+  max-width: 100%;
+  max-height: 50%;
+
+  // See https://stackoverflow.com/a/24626986/1558022
+  display: block;
+}
+
 .card_metadata {
   padding-left:  1em;
   padding-right: 1em;
