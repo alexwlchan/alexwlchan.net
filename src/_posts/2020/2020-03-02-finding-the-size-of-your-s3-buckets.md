@@ -6,7 +6,14 @@ summary: A Python script that tells you how many objects and how many bytes ther
 category: Amazon Web Services
 link: https://github.com/alexwlchan/s3_summary_spreadsheet_script
 tags: aws amazon-s3
+index:
+  exclude: true
 ---
+
+{% update 2021-08-22 %}
+  Nine months after I wrote this, Amazon introduced [S3 Storage Lens](https://aws.amazon.com/blogs/aws/s3-storage-lens/), which is a much better way to solve this problem.
+  You should probably use that instead.
+{% endupdate %}
 
 Whenever I look at [our AWS bill], one of the biggest costs is always S3 storage.
 That's not a surprise -- our account holds, among other things, two copies of Wellcome Collection's [entire digital archive], which is nearly 120TB and growing every day.
