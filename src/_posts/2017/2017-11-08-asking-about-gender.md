@@ -5,6 +5,8 @@ title: How I ask about gender
 summary: "If you're asking for someone's gender, a simple 'Female/Male' isn't good enough. Here's what I use instead."
 tags: gender
 category: Diversity, inclusion and accessibility
+index:
+  exclude: true
 ---
 
 Another week, another disappointing survey that asks _"What is your gender? Female/Male."_

@@ -13,6 +13,7 @@ theme:
 
 index:
   best_of: true
+  image: /slides/curbcut_monkigras/curbcut_monkigras.index_card.jpg
 ---
 
 Earlier today I did a talk at [Monki Gras 2019](https://monkigras.com/).
