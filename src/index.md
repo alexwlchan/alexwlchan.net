@@ -66,7 +66,6 @@ Here are some posts I've written recently:
 
 {% assign last_post = best_posts | last %}
 
-<link rel="stylesheet" href="/theme/article_cards.css">
 <style>
   @media screen and (max-width: 500px) {
     #{{ last_post.slug }} {
