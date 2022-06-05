@@ -2,6 +2,8 @@
 layout: post
 date: 2014-06-13 00:03:00 +0000
 title: Some site updates
+index:
+  exclude: true
 ---
 
 If you visit the site regularly, you'll have noticed that things have changed quite a lot recently.
