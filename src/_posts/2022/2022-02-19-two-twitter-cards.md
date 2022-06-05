@@ -7,6 +7,9 @@ tags: twitter
 theme:
   card_type: summary_large_image
   image: /images/2022/twitter_cards.png
+index:
+  image: /images/2022/twitter_cards_index_card.jpg
+  tint_color: "#1d9bf0"
 ---
 
 If I had a penny for every site where I've fixed Twitter cards in the last week, I'd have two pennies.

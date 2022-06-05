@@ -7,6 +7,8 @@ tags: aws amazon-cloudwatch amazon-sqs
 theme:
   card_type: summary_large_image
   image: /images/2022/sqs_scaling_twitter_card.png
+index:
+  tint_color: "#B0084D"
 ---
 
 A couple of weeks ago, I fixed what's been a long-standing and mysterious bug in our apps, which was caused by a new-to-me interaction between SQS and CloudWatch metrics.
