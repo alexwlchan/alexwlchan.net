@@ -4,6 +4,10 @@ date: 2022-04-02 08:44:29 +0000
 title: Checking lots of URLs with curl
 summary: A bash script to check the HTTP status code of a bunch of URLs, for simple and portable uptime checking.
 tags: shell-scripting
+
+index:
+  image: /images/2022/curl_card.svg
+  tint_color: "#073551"
 ---
 
 I've been rejigging some stuff on the site recently -- moving the hosting, turning off my old web server, updating DNS records -- and I wanted a quick way to check I hadn't broken anything.
