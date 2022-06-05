@@ -4,6 +4,8 @@ date: 2021-08-25 16:13:23 +0000
 title: Markdown’s gentle encouragement towards accessible images
 summary: The Markdown syntax for images reminds us that we need to write alt text.
 tags: markdown accessibility
+index:
+  image: /images/2021/markdown-card.png
 ---
 
 I was using Markdown to write a README the other night, and I noticed something rather nice about the [syntax for images][img_syntax].

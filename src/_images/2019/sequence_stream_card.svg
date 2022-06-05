@@ -21,7 +21,7 @@
   <svg x="10" y="20">
     <rect y="70" width="50" height="20"/>
     <text x="25" y="81" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">0–999</text>
-    <line x1="25" y1="70" x2="25" y2="35" marker-end="url(#arrowheadSequence)" />
+    <line x1="25" y1="70" x2="25" y2="35" marker-end="url(#arrowheadSequence)" stroke-width="1" />
   </svg>
 
   <svg x="60" y="10">
@@ -33,12 +33,12 @@
   <svg x="110" y="4">
     <rect y="70" width="50" height="20"/>
     <text x="25" y="81" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">2000–2999</text>
-    <line x1="25" y1="70" x2="25" y2="47" marker-end="url(#arrowheadSequence)" />
+    <line x1="25" y1="70" x2="25" y2="47" marker-end="url(#arrowheadSequence)" stroke-width="1" />
   </svg>
 
   <svg x="160" y="-2">
     <rect y="70" width="50" height="20"/>
     <text x="25" y="80" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">…</text>
-    <line x1="25" y1="70" x2="25" y2="53" marker-end="url(#arrowheadSequence)" />
+    <line x1="25" y1="70" x2="25" y2="53" marker-end="url(#arrowheadSequence)" stroke-width="1" />
   </svg>
 </svg>

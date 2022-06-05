@@ -9,6 +9,7 @@ tags: python code-terrorism
 index:
   best_of: true
   tint_color: "#527ab2"
+  image: /images/2019/tape_recorder_index_card.jpg
 
 theme:
   card_type: summary_large_image
