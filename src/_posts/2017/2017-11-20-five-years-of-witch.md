@@ -6,6 +6,9 @@ summary: As the WITCH computer celebrates five years since its reboot at TNMoC, 
 theme:
   card_type: summary_large_image
   image: /images/2017/witch_twitter_card.jpg
+index:
+  tint_color: "#564a41"
+  image: /images/2017/witch_index_card.jpg
 date: 2017-11-20 15:00
 ---
 
