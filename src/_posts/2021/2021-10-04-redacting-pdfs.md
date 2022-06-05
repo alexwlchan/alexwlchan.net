@@ -7,6 +7,8 @@ tags: images python
 theme:
   card_type: summary_large_image
   image: /images/2021/redaction_cover_image.png
+index:
+  image: /images/2021/redacting_index_card.png
 ---
 
 A while back I was reviewing some legal documents.
