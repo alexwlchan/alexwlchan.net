@@ -2,10 +2,13 @@
 layout: post
 date: 2019-10-22 22:00:14 +0000
 title: Digital preservation at Wellcome Collection
-summary:
+summary: Slides from a presentation about our processes, practices, and tools.
 category: Digital preservation
 link: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
 tags: wellcome digital-preservation
+index:
+  image: /images/2019/glam_cam_card.jpg
+  tint_color: "#837252"
 ---
 
 Last week I gave a short talk in Cambridge about digital preservation at Wellcome.

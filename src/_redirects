@@ -72,6 +72,10 @@
 /2017/01/a-python-interface-to-ao3    /2017/01/experiments-with-ao3-and-python/
 /2017/01/a-python-interface-to-ao3/   /2017/01/experiments-with-ao3-and-python/
 
+# I put up a post linking to my slides, then a month later I put up
+# another post with an annotated set of slides and notes.
+/2019/09/slides-for-pycon-uk-2019/    /2019/10/sans-io-programming/
+
 # Tag pages that I've renamed or consolidated
 # TODO: I couldn't get these to redirect correctly in the new scheme.
 # If I get broken requests, go back and fix them properly!

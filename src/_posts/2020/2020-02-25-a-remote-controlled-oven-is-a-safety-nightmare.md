@@ -5,6 +5,8 @@ title: A remote-controlled oven is a safety nightmare
 summary: We should always think about how a malicious user might misuse the things we build. What could they do with a remote-controlled oven?
 category: Diversity, inclusion and accessibility
 tags: security
+index:
+  exclude: true
 ---
 
 Last month, Monzo published [a blog post][monzo] about how they hire product designers.

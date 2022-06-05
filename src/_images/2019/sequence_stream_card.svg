@@ -1,0 +1,44 @@
+<svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg" stroke="black" fill="white" stroke-width="2">
+
+  <!--
+    Intentionally omit the alt text on promos, so screen reader users
+    don't have to listen to the alt text before hearing the title
+    of the item in the list.
+
+    See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
+  -->
+  <title></title>
+
+  <svg x="10" y="10">
+    <rect width="200" height="20"/>
+    <text x="100" y="10" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">SequenceInputStream(…)</text>
+  </svg>
+
+  <marker id="arrowheadSequence" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+    <polygon fill="#000" points="0 0, 10 3.5, 0 7"/>
+  </marker>
+
+  <svg x="10" y="20">
+    <rect y="70" width="50" height="20"/>
+    <text x="25" y="81" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">0–999</text>
+    <line x1="25" y1="70" x2="25" y2="35" marker-end="url(#arrowheadSequence)" />
+  </svg>
+
+  <svg x="60" y="10">
+    <rect y="70" width="50" height="20"/>
+    <text x="25" y="81" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">1000–1999</text>
+    <line x1="25" y1="70" x2="25" y2="41" marker-end="url(#arrowheadSequence)" stroke-width="1" />
+  </svg>
+
+  <svg x="110" y="4">
+    <rect y="70" width="50" height="20"/>
+    <text x="25" y="81" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">2000–2999</text>
+    <line x1="25" y1="70" x2="25" y2="47" marker-end="url(#arrowheadSequence)" />
+  </svg>
+
+  <svg x="160" y="-2">
+    <rect y="70" width="50" height="20"/>
+    <text x="25" y="80" fill="black" font-size="8px" stroke-width="0" text-anchor="middle" font-family="monospace" dominant-baseline="middle">…</text>
+    <line x1="25" y1="70" x2="25" y2="53" marker-end="url(#arrowheadSequence)" />
+  </svg>
+</svg>

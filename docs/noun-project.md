@@ -59,6 +59,11 @@ That license means I don't have to attribute the icons, but this is an (possibly
     <td><img src="icons/noun-browser-private-4286370.png"></td>
     <td><a href="https://thenounproject.com/icon/browser-history-3988369/">browser history</a>, by Anwar Hossain</td>
   </tr>
+
+  <tr>
+    <td><img src="icons/noun-password-139974.png"></td>
+    <td><a href="https://thenounproject.com/icon/password-139974/">password</a>, by ochre7</td>
+  </tr>
 </table>
 
 [subscriptions]: https://thenounproject.com/pricing/
