@@ -4,6 +4,8 @@ date: 2017-10-17 20:54:13 +0000
 title: "Control Centre: one step forward, two steps back"
 summary: I like aspects of Control Centre in iOS 11, but WiFi/Bluetooth and audio playback are both immensely frustrating.
 tags: ios frustrations
+index:
+  exclude: true
 ---
 
 <style>
