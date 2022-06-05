@@ -175,4 +175,12 @@ module Jekyll
       File.join("/", root, @year.to_s, "index.html")
     end
   end
+
+  module ArchiveFilters
+    def is_excluded(post)
+      post.index and post.index.exclude != true
+    end
+  end
 end
+
+Liquid::Template::register_filter(Jekyll::ArchiveFilters)
