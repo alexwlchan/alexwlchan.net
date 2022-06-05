@@ -7,8 +7,6 @@ theme:
   image: /images/2022/redesign_twitter_card.jpg
 ---
 
-<link rel="stylesheet" href="/theme/article_cards.css?t=2">
-
 I've been writing my blog since 2012, which is now over 300 posts and 300,000 words.
 If you're new to the site, this page has some of my favourite posts from the archive -- or if you're looking for something specific, you can [see a list of everything I've posted](/all-posts/).
 
