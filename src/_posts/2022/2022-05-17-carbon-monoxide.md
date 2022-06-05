@@ -7,6 +7,9 @@ tags: domestic
 theme:
   card_type: summary_large_image
   image: /images/2022/carbon-monoxide-detectors_card.jpg
+index:
+  image: /images/2022/carbon-monoxide-detectors_index_card.jpg
+  tint_color: "#73784c"
 ---
 
 Yesterday was the roughly sexennial ritual of replacing all my carbon monoxide detectors.
