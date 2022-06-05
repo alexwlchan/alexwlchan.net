@@ -7,6 +7,7 @@ tags: glitch rust
 
 index:
   image: /images/2022/rust_and_glitch_card.svg
+  tint_color: "#ff386a"
 ---
 
 Earlier today I was trying to run a Rust app in [Glitch].
