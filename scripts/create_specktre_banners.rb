@@ -26,6 +26,8 @@ Dir.glob("src/**/*.md") do |path|
     next
   end
 
+  color = color.gsub(/^#/, '')
+
   # If the banner for this page already exists, there's nothing to do.
   banner_file = "src/theme/specktre_#{color}.png"
   if File.file?(banner_file)
