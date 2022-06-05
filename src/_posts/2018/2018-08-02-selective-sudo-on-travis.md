@@ -5,6 +5,8 @@ title: Selective sudo on Travis
 tags: travis build-automation
 summary: I recently learnt how to set up Travis with a mixture of VMs and containers – not just all of one or the other.
 category: Build automation and build systems
+index:
+  exclude: true
 ---
 
 I'm a heavy user of [Travis CI][travis].
