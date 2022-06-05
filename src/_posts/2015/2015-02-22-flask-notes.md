@@ -5,6 +5,8 @@ layout: post
 link: https://charlesleifer.com/blog/saturday-morning-hack-a-little-note-taking-app-with-flask/
 tags: python
 title: A Flask app for taking notes
+index:
+  exclude: true
 ---
 
 This is a pretty good plaintext notes web app. I'd been looking for something to use to take notes at work, and I've been trying this for about a month. I think I'll keep using it.

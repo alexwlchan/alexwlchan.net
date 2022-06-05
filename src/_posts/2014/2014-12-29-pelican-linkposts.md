@@ -4,6 +4,8 @@ date: 2014-12-29 08:26:00 +0000
 tags: pelican python
 title: RSS linkposts in Pelican
 category: Blogging about blogging
+index:
+  exclude: true
 ---
 
 You may have noticed that linkposts have started appearing on the blog. This is, of course, [not an original idea][df].
