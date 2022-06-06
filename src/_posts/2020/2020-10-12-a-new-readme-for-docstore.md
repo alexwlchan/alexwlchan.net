@@ -2,9 +2,12 @@
 layout: post
 date: 2020-10-12 06:52:55 +0000
 title: A new README for docstore, my tool for organising scanned paperwork
-summary:
+summary: Although I don't expect anyone to use it directly, there might be some interesting ideas that could apply elsewhere.
 link: https://github.com/alexwlchan/docstore
 tags: productivity
+index:
+  image: /images/2020/docstore_card.jpg
+  tint_color: "#7a2342"
 ---
 
 I've written previously about how I [scan and organise my paperwork](/2019/11/my-scanning-setup/).
