@@ -7,6 +7,9 @@ summary: Slides for showing tweets that look like tweets on slides in Keynote an
 theme:
   card_type: summary_large_image
   image: /images/2017/tweets_cover_image.png
+index:
+  image: /images/2017/tweets_index_image.png
+  tint_color: "#3F6989"
 ---
 
 Every so often, I want to use a tweet in some slides I'm making (I have three in my PyCon UK slides for Friday).
