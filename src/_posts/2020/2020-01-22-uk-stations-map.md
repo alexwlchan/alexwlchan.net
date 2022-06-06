@@ -7,7 +7,7 @@ category: Glitch apps
 link: https://uk-stations-map.glitch.me/
 tags: glitch trains fun
 index:
-  image: /images/2020/uk-stations-map-card.png
+  image: /images/2020/uk-stations-map-card.jpg
   tint_color: "#0b9e00"
 ---
 
