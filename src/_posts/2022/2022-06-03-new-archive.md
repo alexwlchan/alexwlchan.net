@@ -6,6 +6,9 @@ summary: Using coloured cards with images and descriptions to make it easier to 
 theme:
   card_type: summary_large_image
   image: /images/2022/redesign_twitter_card.jpg
+index:
+  tint_color: "#22201f"
+  image: /images/2022/redesign_index_card.jpg
 ---
 
 Last night, I updated the archive pages for my blog.

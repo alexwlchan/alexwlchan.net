@@ -3,8 +3,11 @@ layout: post
 date: 2020-05-01 15:56:04 +0000
 title: Illustrating lifecycle transitions in Amazon S3
 category: Amazon Web Services
-summary: I'll take coloured paper and pens over the newest IDE any day of the week.
+summary: A picture speaks a thousand words, which is why I always have pen and paper to hand.
 tags: aws amazon-s3 notebook
+index:
+  image: /images/2020/s3_transitions_card.png
+  tint_color: "#118f63"
 ---
 
 Because I work on a digital archive that's [hosted in the cloud][stacks], I have to think about the cost of cloud storage.

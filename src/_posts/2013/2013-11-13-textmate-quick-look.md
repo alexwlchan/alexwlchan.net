@@ -4,6 +4,8 @@ date: 2013-11-13 08:16:00 +0000
 summary: Disabling the Quick Look plugin that comes in the TextMate 2 alpha.
 tags: textmate os-x
 title: TextMate 2 and Quick Look
+index:
+  exclude: true
 ---
 
 [Several][1] [people][2] [were][3] talking about TextMate 2 again this evening, so I decided to [download the alpha][4] and give it another spin.

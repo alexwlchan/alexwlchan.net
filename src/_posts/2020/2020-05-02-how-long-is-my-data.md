@@ -5,6 +5,10 @@ title: How long is my data? 💾
 category: Glitch apps
 link: https://howlongismydata.glitch.me/
 tags: digital-preservation glitch fun
+summary: A fun app to calculate the size of your data in terms of floppy disks.
+index:
+  image: /images/2020/how_long_card.jpg
+  tint_color: "#ff47ff"
 ---
 
 Yesterday, Stuart Lewis posted a photo of his [latest hardware](https://twitter.com/stuartlewis/status/1255825450485628928):
@@ -12,6 +16,6 @@ Yesterday, Stuart Lewis posted a photo of his [latest hardware](https://twitter.
 {% tweet https://twitter.com/stuartlewis/status/1255825450485628928 %}
 
 After some [back-and-forth in our replies](https://twitter.com/stuartlewis/status/1256135586651439112), he made me realise that the true unit of data isn't bytes or volume, it's shelving length.
-Specifically, if you wrote all your data to 3&half;&Prime; floppy disks, how much shelf space would you need to hold them all?
+Specifically, if you wrote all your data to 3&#189;&Prime; floppy disks, how much shelf space would you need to hold them all?
 
 To help answer this critically important question, I wrote a Glitch app that calculates just that: <https://howlongismydata.glitch.me/>

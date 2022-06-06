@@ -96,13 +96,14 @@ Finally, on line 39, I call the sendmail method from the SMTP class, which actua
 The nice thing about subclassing the standard SMTP class is that I can use my wrapper class as a drop-in replacement.
 Like so:
 
-    :::python
-    with FastMailSMTP(user, pw) as server:
-        server.send_message(from_addr='hello@example.org',
-                            to_addrs=['jane@doe.net', 'john@smith.org'],
-                            msg='Hello world from Python!',
-                            subject='Sent from smtplib',
-                            attachments=['myfile.txt'])
+```python
+with FastMailSMTP(user, pw) as server:
+    server.send_message(from_addr='hello@example.org',
+                        to_addrs=['jane@doe.net', 'john@smith.org'],
+                        msg='Hello world from Python!',
+                        subject='Sent from smtplib',
+                        attachments=['myfile.txt'])
+```
 
 I think this is a cleaner interface to email.
 Mucking about with MIME messages and SMTP is a necessary evil, but I don't always care about those details.

@@ -2,9 +2,12 @@
 layout: post
 date: 2021-02-15 19:15:19 +0000
 title: '<em>Screaming in the Cloud</em>: Using the Cloud to Preserve the Future'
-summary:
+summary: I joined Corey Quinn to discuss my DynamoDB calculator and using the cloud to preserve digital collections.
 tags: podcasts
 link: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-cloud-to-preserve-the-future-with-alex-chan/
+index:
+  image: /images/2021/screaming-in-the-cloud-card.jpg
+  tint_color: "#4497b4"
 ---
 
 Early last year, in a fit of lockdown-induced ridiculousness, I wrote some [code that turned DynamoDB into a calculator](/2020/04/using-dynamodb-as-a-calculator/).

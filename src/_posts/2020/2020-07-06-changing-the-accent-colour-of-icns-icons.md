@@ -8,6 +8,10 @@ tags: images macos colour
 theme:
   card_type: summary_large_image
   image: /images/2020/notality_rainbow_big_bg_white.png
+
+index:
+  image: /images/2020/notality_rainbow_card.jpg
+
 ---
 
 One of my key tools is [nvALT], a notetaking app for macOS.

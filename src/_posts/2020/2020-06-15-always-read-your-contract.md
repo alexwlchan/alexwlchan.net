@@ -4,6 +4,8 @@ date: 2020-06-15 20:49:45 +0000
 title: Always read your contracts
 link: https://twitter.com/alexwlchan/status/1271339259509825536
 tags: personal
+index:
+  exclude: true
 ---
 
 The contract for my rented flat expires on Thursday, so I've been talking to my estate agent to sort out a new contract.

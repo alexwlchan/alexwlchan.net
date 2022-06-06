@@ -6,6 +6,8 @@ summary: "I\u2019ve adapted my bookmarklet for tidying up Google Maps to hide th
 tags: javascript
 title: Hiding the YouTube search bar
 category: Programming and code
+index:
+  exclude: true
 ---
 
 This morning, I got an email from Sam, asking if I had a way to cover up the persistent YouTube search bar:

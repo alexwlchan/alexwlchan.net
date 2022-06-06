@@ -4,6 +4,8 @@ date: 2018-02-24 06:51:45 +0000
 title: A working from home experiment
 tags: personal work
 summary: I've recently started working from home for one day a week. In this post I explain why I made the change, some of the benefits and risks, and why I think it's worth trying.
+index:
+  exclude: true
 ---
 
 For the last year, I've been commuting from Cambridge to London.

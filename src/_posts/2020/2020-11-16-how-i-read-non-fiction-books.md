@@ -2,8 +2,11 @@
 layout: post
 date: 2020-11-16 09:16:47 +0000
 title: How I read non-fiction books
-summary:
+summary: I take notes so I remember more of what I read.
 tags: books productivity taking-notes
+index:
+  image: /images/2020/non_fiction_card.jpg
+  tint_color: "#4f391d"
 ---
 
 I've spent a lot of this year reading books.

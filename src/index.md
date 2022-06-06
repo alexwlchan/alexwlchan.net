@@ -48,7 +48,7 @@ I hope you enjoy the site.
 
 Here are some posts I've written recently:
 
-{% assign best_posts = site.posts | sort: "date" | reverse | where: "index.best_of", "true" | slice: 0, 4 %}
+{% assign best_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
 <!--
   The styles in "article_cards.scss" will switch between three layouts:
@@ -86,7 +86,7 @@ Here are some posts I've written recently:
 {% endfor %}
 </ul>
 
-You can see [more of my blog posts](/best-of/), or [subscribe to the RSS feed](/atom.xml).
+You can see [more of my blog posts](/all-posts/), or [subscribe to the RSS feed](/atom.xml).
 
 ## Contact
 

@@ -4,6 +4,9 @@ date: 2022-01-14 10:58:15 +0000
 title: Creating animated GIFs from fruit and veg
 summary: Some Python code for turning MRI scans of fruit and veg into animated GIFs.
 tags: python images
+index:
+  image: /images/2022/artichoke_frames_card.jpg
+  tint_color: "#5c5a30"
 ---
 
 A couple of years ago, I wrote a blog post about [looking through MRI scans of fruit and veg][stacks].

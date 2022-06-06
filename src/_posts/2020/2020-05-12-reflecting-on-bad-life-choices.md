@@ -5,6 +5,8 @@ title: Taking tuple unpacking to terrible places
 summary: I want to assign a bunch of variables to True, but I don't know how many there are. Reflection to the rescue!
 category: Python
 tags: python
+index:
+  image: /images/2020/tuple_unpacking_card.png
 ---
 
 A week ago, I posted [a snippet of code on Twitter](https://twitter.com/alexwlchan/status/1258147811851460608) that has upset people:

@@ -8,6 +8,8 @@ last_modified_at: 2017-10-31 23:09:00 +0100
 theme:
   card_type: summary_large_image
   image: /images/2017/lightning_bukkit_twitter_card.jpg
+index:
+  tint_color: "#174346"
 category: "Organising PyCon UK"
 ---
 

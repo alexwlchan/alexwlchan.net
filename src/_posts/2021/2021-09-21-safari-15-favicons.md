@@ -4,6 +4,8 @@ date: 2021-09-21 21:50:31 +0000
 title: Hiding favicons in Safari 15 (kinda)
 summary: How to reduce the visual intrusiveness of favicons in Safari 15.
 tags: macos safari
+index:
+  exclude: true
 ---
 
 Apple released Safari 15 today, a release which has had a pretty controversial beta cycle.
