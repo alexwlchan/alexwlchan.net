@@ -27,6 +27,7 @@ There's no way to do this in SQS directly, so we've written a script to do it fo
 Although we primarily use this to redrive problematic messages that went to a DLQ, **this script allows you to move messages between an arbitrary pair of SQS queues**.
 
 It uses code I shared two years ago [to dump the contents of an SQS queue][dump_q].
+
 [dump_q]: /2018/01/downloading-sqs-queues/
 [send_message_batch]: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html?highlight=sqs#SQS.Client.send_message_batch
 [fixed_chunks]: /2018/12/iterating-in-fixed-size-chunks/

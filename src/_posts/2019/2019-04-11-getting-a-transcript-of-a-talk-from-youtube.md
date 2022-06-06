@@ -6,6 +6,9 @@ summary: Using the auto-generated captions from a YouTube video as a starting po
 tags:
 category: Programming and code
 tags: youtube
+index:
+  image: /images/2019/transcript_card.png
+  tint_color: "#3164ce"
 ---
 
 When I give conference talks, my talks are often videoed and shared on YouTube.

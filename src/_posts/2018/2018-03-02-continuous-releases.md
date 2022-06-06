@@ -6,6 +6,9 @@ title: The Hypothesis continuous release process
 tags: build-automation
 summary: How we do continuous releases of hypothesis-python, and why.
 category: Build automation and build systems
+index:
+  image: /images/2018/hypothesis-releases-card.png
+  tint_color: "#006dad"
 ---
 
 About a year ago, David built a powerful continuous release system for the hypothesis-python repo.

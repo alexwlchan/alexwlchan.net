@@ -4,6 +4,9 @@ date: 2015-05-26 19:13:00 +0000
 summary: I made a clone of GitHub's Contributions graph to use as a motivational tool.
 title: Cloning GitHub's Contributions chart
 category: Programming and code
+index:
+  image: /images/2015/github-contributions-card.png
+  tint_color: "#4a35a5"
 ---
 
 I'm a total sucker for gamification[^1]. If you put a pretty chart in front of me to measure my progress, I fall for it every time. One place I've noticed this recently is with the Contributions graph on my user page on GitHub. This is a year-long calendar that shows a heatmap of all your activity. Here's what mine looks like:
@@ -30,4 +33,4 @@ This is accompanied by a Python script that takes a simple plain text file recor
 
 I have a few more ideas for some cosmetic tweaks, but it basically works. Now all I have to do is decide what I want to track.
 
-[^1]: <p>The gamification of [physical activity](http://www.marco.org/2015/05/24/filling-the-green-circle) is one of the few reasons I've become interested in the Apple Watch (although not enough to buy one). I was thinking of it only as a device for notifications; I find the fitness aspects much more intriguing.</p><p>This may be driven by some recent surgery. I was stuck in bed, unable to do anything physically intensive, while reading about people doing exercise with their new Watches. I'm sure my desire for the former rubbed off on the latter.
+[^1]: The gamification of <a href="http://www.marco.org/2015/05/24/filling-the-green-circle">physical activity</a> is one of the few reasons I've become interested in the Apple Watch (although not enough to buy one). I was thinking of it only as a device for notifications; I find the fitness aspects much more intriguing.<br/><br/>This may be driven by some recent surgery. I was stuck in bed, unable to do anything physically intensive, while reading about people doing exercise with their new Watches. I'm sure my desire for the former rubbed off on the latter.

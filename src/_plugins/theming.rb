@@ -21,7 +21,7 @@ def create_scss_theme(src, color)
 ---
 ---
 
-$primary-color: ##{color};
+$primary-color: #{color};
 
 @import "_main.scss";
 EOT

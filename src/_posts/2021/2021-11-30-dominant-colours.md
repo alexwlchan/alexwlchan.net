@@ -2,8 +2,11 @@
 layout: post
 date: 2021-11-30 09:30:01 +0000
 title: dominant_colours, a CLI tool for finding dominant colours in an image
-summary: How I wrote my tool for finding dominant colours.
+summary: A new tool for playing with images.
 tags: images colour rust
+index:
+  image: /images/2021/dominant_colours_card.png
+  tint_color: "#4576bb"
 ---
 
 At the weekend, I published [dominant_colours], a command-line tool for finding the dominant colours of an image.

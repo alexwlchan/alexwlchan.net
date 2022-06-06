@@ -51,6 +51,9 @@ def get_inline_svg(svg_path)
   title_element.set_attribute("id", svg_doc_id)
   svg_doc.root.set_attribute("aria-labelledby", svg_doc_id)
 
+  # Remove all the comments, they're not needed
+  svg_doc.xpath('//comment()').remove
+
   # Render the minified version of the SVG in the HTML.
   svg_doc
     .to_xml(indent: 0)

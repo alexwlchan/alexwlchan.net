@@ -4,6 +4,10 @@ date: 2022-05-05 14:01:56 +0000
 title: Running a Rust binary in Glitch
 summary: Using different targets to build Rust binaries that will run in Glitch.
 tags: glitch rust
+
+index:
+  image: /images/2022/rust_and_glitch_card.svg
+  tint_color: "#ff386a"
 ---
 
 Earlier today I was trying to run a Rust app in [Glitch].

@@ -6,7 +6,9 @@ summary: A quick braindump of my thoughts from drawing some venue maps for PyCon
 tags: pyconuk graphic-design
 theme:
   card_type: summary_large_image
-  image: /images/2018/venue-map_twitter_card.png
+  image: /images/2018/venue-map_index_card.png
+index:
+  tint_color: "#336EAF"
 category: "Organising PyCon UK"
 ---
 

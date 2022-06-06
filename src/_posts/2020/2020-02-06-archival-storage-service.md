@@ -8,7 +8,7 @@ link: https://stacks.wellcomecollection.org/building-wellcome-collections-new-ar
 
 index:
   best_of: true
-  image: /images/2020/storage_service_card.png
+  image: /images/2020/storage_service_card.jpg
   tint_color: "#223395"
 
 tags: digital-preservation wellcome

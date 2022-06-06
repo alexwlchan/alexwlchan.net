@@ -5,6 +5,10 @@ title: Wellcome's approach to digital verification
 summary: How we ensure the safety, security and integrity of the files in Wellcome's digital collections.
 tags: digital-preservation
 link: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
+
+index:
+  image: /images/2021/verification_card.jpg
+  tint_color: "#4c4c4c"
 ---
 
 A couple of weeks ago, I wrote [a post on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7) about how we do verification of our digital collections.

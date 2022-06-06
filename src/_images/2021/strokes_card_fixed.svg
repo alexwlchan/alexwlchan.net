@@ -10,12 +10,11 @@
   <title></title>
   <defs>
     <style>
-      text {
+      text.strokes {
         fill: black;
         stroke: none;
         dominant-baseline: middle;
         text-anchor: middle;
-        font-size: 45pt;
       }
 
       .outline4 {
@@ -54,14 +53,14 @@
         <use href="#globeImage" width="200" height="200" x="50" y="15"/>
       </svg>
 
-      <text class="operator" x="300" y="115">+</text>
+      <text class="strokes" font-size="45pt" class="operator" x="300" y="115">+</text>
 
       <svg x="300">
         <use xlink:href="#ellipse1" class="outline4"/>
-        <text x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(108 45) rotate(-20)">✂&#xFE0E;</text>
+        <text class="strokes" font-size="45pt" x="0" y="0" style="fill: #999; font-size: 45pt;" transform="translate(108 45) rotate(-20)">✂&#xFE0E;</text>
       </svg>
 
-      <text class="operator" x="605" y="115">→</text>
+      <text class="strokes" font-size="45pt" class="operator" x="605" y="115">→</text>
 
       <svg x="600">
         <use href="#globeImage" height="200" width="200" x="50" y="15" clip-path="url(#insideCircleOnly)"/>
@@ -75,14 +74,14 @@
         <use href="#globeImage" width="200" height="200" x="50" y="15"/>
       </svg>
 
-      <text class="operator" x="300" y="115">+</text>
+      <text class="strokes" font-size="45pt" class="operator" x="300" y="115">+</text>
 
       <svg x="300">
         <rect x="50" y="15" width="200" height="200" stroke="black" stroke-width="2.5" fill="white"/>
         <circle cx="150" cy="115" r="90" fill="black"/>
       </svg>
 
-      <text class="operator" x="605" y="115">→</text>
+      <text class="strokes" font-size="45pt" class="operator" x="605" y="115">→</text>
 
       <svg x="600">
         <use href="#globeImage" width="200" height="200" x="50" y="15" mask="url(#globe7OuterOnly)"/>

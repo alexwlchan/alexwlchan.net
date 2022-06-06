@@ -3,6 +3,8 @@ layout: post
 date: 2014-10-28 20:06:00 +0000
 tags: fish-shell shell-scripting
 title: '"Missing argument at index 2" in fish'
+index:
+  exclude: true
 ---
 
 My default shell is [fish][fish]. I find it very pleasant and easy to use, and it was very friendly when I was first learning the shell. The downside is that it seems to have a relatively small user base, and so you can't always just do a Google search when you hit an error message.

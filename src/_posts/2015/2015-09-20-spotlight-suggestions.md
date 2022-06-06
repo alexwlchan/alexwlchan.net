@@ -5,6 +5,8 @@ summary: In iOS 9, you can turn off the News in Spotlight by toggling Spotlight 
   But what else does this disable?
 tags: ios
 title: "What does \u201CSpotlight Suggestions\u201D turn off?"
+index:
+  exclude: true
 ---
 
 <style>
