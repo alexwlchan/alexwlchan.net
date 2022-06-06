@@ -8,6 +8,9 @@ category: Talks
 theme:
   card_type: summary_large_image
   image: /images/2018/suspicious-minds.jpg
+index:
+  image: /images/2018/suspicious-minds-card.jpg
+  tint_color: "#8b5023"
 ---
 
 This is a talk I gave on Saturday as the opening keynote of [PyCon UK 2018][pyconuk].

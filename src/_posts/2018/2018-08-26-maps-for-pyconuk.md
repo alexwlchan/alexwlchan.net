@@ -7,6 +7,8 @@ tags: pyconuk graphic-design
 theme:
   card_type: summary_large_image
   image: /images/2018/venue-map_twitter_card.png
+index:
+  tint_color: "#336EAF"
 category: "Organising PyCon UK"
 ---
 

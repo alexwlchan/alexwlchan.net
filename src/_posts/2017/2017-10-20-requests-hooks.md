@@ -6,7 +6,12 @@ summary: I often have code I want to run against every HTTP response (logging, e
   checking) --- event hooks give me a nice way to do that without repetition.
 tags: python
 title: Using hooks for custom behaviour in requests
+index:
+  image: /images/2017/hooks-card.jpg
+  tint_color: "#79451e"
 ---
+
+<!-- Index image from https://pixnio.com/objects/screw/wood-screw-hooks-white-metal-steel# -->
 
 Recently I've been writing a lot of scripts with [python-requests][requests] to interact with a new API.
 It starts off with a simple GET request:
