@@ -8,6 +8,9 @@ category: Talks
 theme:
   color: "#0a9f9f"
   touch_icon: 0a9f9f
+index:
+  image: /images/2017/privilege_inclusion_card.jpg
+  tint_color: "#577b2e"
 ---
 
 When I go to tech conferences, I'm often drawn to the non-technical talks.
