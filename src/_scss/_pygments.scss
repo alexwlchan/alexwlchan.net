@@ -76,3 +76,11 @@ pre {
   .vm { color: #19177C } /* Name.Variable.Magic */
   .il { color: #666666 } /* Literal.Number.Integer.Long */
 }
+
+@media print {
+  pre {
+    .go {
+      color: #555555;
+    }
+  }
+}
