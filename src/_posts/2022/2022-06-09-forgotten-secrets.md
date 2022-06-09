@@ -6,6 +6,7 @@ summary: I wanted to learn jq's more powerful features, so I tried to filter som
 tags: aws
 theme:
   image: /images/2022/jq-and-secrets-card.jpg
+  card_type: summary_large_image
 index:
   image: /images/2022/jq-and-secrets-card.png
   tint_color: "#FF5252"
