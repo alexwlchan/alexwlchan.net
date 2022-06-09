@@ -7,27 +7,26 @@ tags: aws
 
 Recently I wanted to clean up our secrets in AWS Secrets Manager.
 
-We had a lot of secrets that had old credentials you couldn't use any more -- say, the password for a database we'd deleted.
-This made it harder to find the secrets that were actually current, and more than once I tried to use an old secret which didn't work.
-Switching to infrastructure-as-code and [Terraform] has made it easier to delete secrets as they become unusable, but we had a large collection of pre-Terraform secrets.
+We had a lot of secrets with old credentials you couldn't use any more -- for example, passwords for databases we'd deleted.
+This made it harder to find current secrets, and more than once I'd tried to use an old secret which didn't work.
+Switching to infrastructure-as-code and [Terraform] has made it easier to delete secrets when they become stale, but we had lots of pre-Terraform secrets.
 
 I wanted to find and delete these old secrets.
-We have hundreds of secrets in our account, so I didn't want to go through every secret.
+We have hundreds of secrets in our account, so I didn't want to go through every secret individually.
 
 To help me out, Secrets Manager records the last time a secret was retrieved:
 
 <img src="/images/2022/secrets_screenshot.png" style="width: 532px; border: 2px solid #EBEDED;" alt="A table with three columns and five rows. The rows are titled 'Secret name', 'Description', and 'Last retrieved (UTC)', and the rows of the 'Last retrieved' column are filled with MM/DD/YYYY dates.">
 
-I could use this as a clue for which secrets are "current" -- they'd have been retrieved recently.
+I could use this as a clue for which secrets are current -- they'd have been retrieved recently.
 If I filtered for secrets last retrieved before a particular date, I'd get a much shorter list.
 I could work through that list and work out what could be safely deleted.
 
 Unfortunately the console doesn't support sorting, so I turned to other means.
 The AWS CLI will give you a complete list of secrets, including the last accessed date, in a convenient JSON format:
 
-```console
-$ aws secretsmanager list-secrets
-{
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets
+<span class="go">{
     "SecretList": [
         {
             "ARN": "arn:aws:secretsmanager:eu-west-1:1234567890:secret:github_api_key-ngKsKU",
@@ -42,12 +41,12 @@ $ aws secretsmanager list-secrets
             },
             "CreatedDate": 1654714184.546
         },
-        ...
-    ]
+</span><span class="go">        ...
+</span><span class="go">    ]
 }
-```
+</span></code></pre></div></div>
 
-There are dozens of ways to filter a blob of JSON; because this was a fairly simple exercise, I used it as an opportunity to learn a bit of [jq].
+There are dozens of ways to filter a blob of JSON; because this was a one-off task, I used it as an opportunity to try using [jq].
 It's a command-line tool for slicing and filtering JSON.
 I'd used it for simple tasks, but nothing more powerful -- this was a chance to learn.
 
@@ -127,7 +126,7 @@ $ echo '[{"Time": 1654646400.0}, {"Time": 1638316800.0}]' | jq 'map(.Time |= str
 ]
 ```
 
-Putting all these pieces together, we can replace the `LastAccessedDate` values with human-readable timestamps:
+Putting these pieces together, we can replace the `LastAccessedDate` values with human-readable timestamps:
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
     | jq .SecretList <span class="se">\</span>
@@ -192,7 +191,7 @@ For example, if I want to find secrets that we haven't looked at this year:
     | jq <span class="s1">'map(.LastAccessedDate |= if type == "number" then strftime("%Y-%m-%d") else "&lt;never&gt;" end)'</span> <span class="se">\</span>
     | jq <span class="s1">'map(select(.LastAccessedDate <= "2021-12-31"))'</span></code></pre></div></div>
 
-This isn't quite enough, because remember some of the secrets have never been retrieved, and I want to include them too.
+This isn't quite enough -- remember some of the secrets have never been retrieved, and I want to include them too.
 We can include them using jq's [boolean operators]:
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>aws secretsmanager list-secrets <span class="se">\</span>
@@ -238,7 +237,7 @@ The `-r` flag to jq tells it to print the raw value; not a JSON-formatted string
 This give me a simple list I can work through and start to pick off secrets.
 
 I didn't want to delete every secret that hadn't been accessed recently, because some secrets are rarely accessed for good reason -- for example, if they're part of a disaster recovery process.
-But this list did let me delete several dozen secrets we weren't using, and I had to check a much shorter list then every secret in the account.
+But this list did let me delete several dozen secrets we weren't using, and I had to check a much shorter list than every secret in the account.
 
 [formatting filters]: https://stedolan.github.io/jq/manual/#Formatstringsandescaping
 
@@ -257,11 +256,11 @@ aws secretsmanager list-secrets \
 ```
 
 There are lots of ways to filter a list of JSON objects; I picked jq because this was a one-off task, and I wanted to try its more powerful features.
-Normally I'm quite conservative about adding new tools, but I knew I'd be throwing this code away so that was less of a concern.
+Normally I'm quite conservative about using new tools, but I knew I'd be throwing this code away so that was less of a concern.
 
-I got this working, but I'm not super happy with the result.
-It took a lot of trial-and-error, and I’m not sure I'll remember how it works.
-If I put this in a production codebase, I'd worry about whether anybody else could understand or modify it in future.
-In particular, the order of some of the `map()` filters was quite fiddly and tricky to get right.
+I got this working, but I'm not super happy with the code.
+It took a lot of trial-and-error; in particular, the order of some of the `map()` filters was quite fiddly and tricky to get right.
+If I put this in a production codebase, I'd worry about whether I could understand or modify it in future.
 
-I'm glad I tried it and I'm glad I have a flavour of jq's power, but I think I'll stick to the simple stuff for now.
+Nonetheless, this was a good experiment.
+Even if I'm unlikely to use jq for this sort of task in future, I'm glad to have a flavour of its power.
