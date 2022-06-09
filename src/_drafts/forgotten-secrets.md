@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Finding forgotten secrets in AWS Secrets Manager with jq
-summary: Learning some of the more complex JSON filtering tools in jq, using JSON from the AWS CLI as an example.
+title: Experimenting with jq as a tool for filtering JSON
+summary: I wanted to learn jq's more powerful features, so I tried to filter some JSON from the AWS Secrets Manager CLI.
 tags: aws
 theme:
   image: /images/2022/jq-and-secrets-card.jpg
