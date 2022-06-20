@@ -5,6 +5,8 @@ title: "NPR: Graduation Readers At MIT Go The Extra Mile To Pronounce Names Corr
 link: http://www.npr.org/2016/05/15/478114689/graduation-readers-at-mit-go-the-extra-mile-to-pronounce-names-correctly
 summary: Why I care about names being pronounced correctly, and appreciate MIT's efforts to get it right.
 category: Diversity, inclusion and accessibility
+index:
+  exclude: true
 ---
 
 I really enjoyed this NPR story about how MIT try to get accurate pronunciations of names at commencement.
