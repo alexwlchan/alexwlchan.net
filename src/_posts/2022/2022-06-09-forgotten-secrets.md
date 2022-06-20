@@ -9,7 +9,7 @@ theme:
   card_type: summary_large_image
 index:
   image: /images/2022/jq-and-secrets-card.png
-  tint_color: "#FF5252"
+  tint_color: "#c5121f"
 ---
 
 Recently I wanted to clean up our secrets in AWS Secrets Manager.
