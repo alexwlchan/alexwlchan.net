@@ -5,7 +5,7 @@ summary: Automations for my automations.
 tags: alfred github
 link: https://github.com/alexwlchan/github_alfred_shortcuts
 theme:
-  image: /images/2022/alfred_workflow_screenshot_1x.png
+  image: /images/2022/alfred_workflow_screenshot_card.png
 index:
   tint_color: "#1d1d1d"
 ---
@@ -13,7 +13,7 @@ index:
 I've written a script which lets me build an [Alfred workflow] to open GitHub repositories quickly.
 I type a few characters in the launcher, and it offers to open the repo:
 
-<img src="/images/2022/alfred_search_1x.png" srcset="/images/2022/alfred_search_1x.png 1x, /images/2022/alfred_search_2x.png 2x" style="width: 694px;">
+<img src="/images/2022/alfred_search_1x.png" srcset="/images/2022/alfred_search_1x.png 1x, /images/2022/alfred_search_2x.png 2x" style="width: 694px;" alt="A large search bar with the query 'dotorg', showing two results: a GitHub link to the wellcomecollection.org repo, and a local folder called 'dotorg'.">
 
 You don't need a custom workflow to do this -- Alfred already has built-in features for [web search] and [using bookmarks] -- but to set those up, you have to click around in the GUI.
 At work, our code is scattered across a lot of different repositories, and I find it easier to manage with a script.
@@ -39,13 +39,13 @@ This is slightly abusing the file format used by Python's [configparser] module;
 
 The Python script reads this config and builds a workflow package, which I can open in Alfred:
 
-<img src="/images/2022/alfred_workflow_screenshot_1x.png" srcset="/images/2022/alfred_workflow_screenshot_1x.png 1x, /images/2022/alfred_workflow_screenshot_2x.png 2x">
+<img src="/images/2022/alfred_workflow_screenshot_1x.png" srcset="/images/2022/alfred_workflow_screenshot_1x.png 1x, /images/2022/alfred_workflow_screenshot_2x.png 2x" alt="Screenshot of an Alfred workflow. There are three inputs with a GitHub logo, linked to three 'Open URL' actions, all for github.com.">
 
 The text-based config means I can add and remove repos very quickly.
 I don't have a shortcut for every repo I use; just the ones in which I'm actively working.
 I open GitHub dozens of times a day, and I use these shortcuts a similar amount.
 
-I don't know how many people will want this exact shortcut, but there might be some ideas here you can reuse: in particular the multi-line values in a configparser file, and programatically creating an Alfred Workflow with Python.
+I don't know how many other people will want this exact shortcut, but there might still be some ideas here you can reuse: in particular the multi-line values in a configparser file, and programatically creating an Alfred Workflow with Python.
 
 [web search]: https://www.alfredapp.com/help/features/web-search/
 [using bookmarks]: https://www.alfredapp.com/help/features/bookmarks/
