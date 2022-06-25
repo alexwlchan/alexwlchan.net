@@ -25,7 +25,7 @@ html-lint:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.1/lib/jekyll/commands/linter.rb \
+		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.2/lib/jekyll/commands/linter.rb \
 		$(DOCKER_IMAGE) lint
 
 script-lint:
