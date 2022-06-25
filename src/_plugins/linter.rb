@@ -1,9 +1,29 @@
 require "html-proofer"
+require "json"
+require "json-schema"
 require "nokogiri"
 require "rainbow"
 require "rszr"
 require "uri"
 require "yaml"
+
+
+FRONT_MATTER_SCHEMA = {
+  "type" => "object",
+  "required" => ["title", "layout"],
+  "properties" => {
+    "title" => {"type" => "string"},
+    "layout" => {
+      "type": "string",
+      "enum": ["post", "page"],
+    },
+    "summary" => {"type" => "string"},
+  },
+
+  # This means the validator will reject fields that aren't specified
+  # in the schema.
+  "additionalProperties" => false,
+}
 
 
 class RunLinting < Jekyll::Command
@@ -13,9 +33,10 @@ class RunLinting < Jekyll::Command
         cmd.action do |_, options|
           options = configuration_from_options(options)
 
-          run_html_linting(options["destination"])
-          check_writing_has_been_archived(options["source"])
-          check_twitter_card_images(options["destination"])
+          # run_html_linting(options["destination"])
+          # check_writing_has_been_archived(options["source"])
+          # check_twitter_card_images(options["destination"])
+          check_yaml_front_matter(options["source"])
         end
       end
     end
@@ -153,6 +174,41 @@ class RunLinting < Jekyll::Command
         #
         # If an image doesn't exist on the Twitter card, it won't exist on
         # the OpenGraph card either, and vice versa.
+      }
+
+      # This is meant to look similar to the output from HTMLProofer --
+      # errors are grouped by filename, so they can be easily traced
+      # back to the problem file.
+      if !errors.empty?
+        errors.each { |md_path, messages|
+          error("- #{md_path}")
+          messages.each { |m|
+            error("  *  #{m}")
+          }
+        }
+        exit!
+      end
+    end
+
+    # Validate the YAML front matter by checking that:
+    #
+    #   1. I'm not using undocumented fields
+    #   2. Fields have appropriate values
+    #
+    def check_yaml_front_matter(src_dir)
+      errors = Hash.new { [] }
+
+      info("Checking YAML front matter...")
+
+      schema = JSON.parse(File.open("front-matter.json").read)
+
+      Dir["#{src_dir}/**/*.md"].each { |md_path|
+        front_matter = YAML.load(File.open(md_path).read.split("\n---\n")[0])
+        md_errors = JSON::Validator.fully_validate(FRONT_MATTER_SCHEMA, front_matter)
+
+        if !md_errors.empty?
+          errors[md_path] = md_errors
+        end
       }
 
       # This is meant to look similar to the output from HTMLProofer --
