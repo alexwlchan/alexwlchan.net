@@ -1,6 +1,5 @@
 ---
 layout: page
-post_list_date_format: day_month
 ---
 
 <style>

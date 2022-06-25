@@ -1,8 +1,6 @@
 ---
 layout: page
 title: All posts
-archive_variant: global
-post_list_date_format: day_month
 summary: A list of every post on alexwlchan.net, sorted by date.
 ---
 
