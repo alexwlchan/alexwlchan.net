@@ -2,7 +2,6 @@
 date_added: 2016-09-14 19:00
 date_updtd: 2016-12-30 20:50
 layout: page
-slug: talks/pyconuk2016/
 title: An introduction to property-based testing and Hypothesis
 ---
 
