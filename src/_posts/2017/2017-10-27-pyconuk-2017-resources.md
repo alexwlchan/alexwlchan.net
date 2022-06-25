@@ -1,5 +1,4 @@
 ---
-category: Talks
 date: 2017-10-27 08:25:34 +0000
 layout: post
 summary: Slides and links for my PyCon UK 2017 talks/workshops.

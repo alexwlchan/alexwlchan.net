@@ -2,7 +2,6 @@
 layout: post
 date: 2020-05-02 08:07:18 +0000
 title: How long is my data? 💾
-category: Glitch apps
 link: https://howlongismydata.glitch.me/
 tags: digital-preservation glitch fun
 summary: A fun app to calculate the size of your data in terms of floppy disks.

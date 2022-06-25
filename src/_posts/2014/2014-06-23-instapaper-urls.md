@@ -3,7 +3,6 @@ layout: post
 date: 2014-06-23 13:04:00 +0000
 tags: instapaper applescript
 title: Catching instapaper:// URLs from ReadKit
-category: Working with macOS
 index:
   exclude: true
 ---

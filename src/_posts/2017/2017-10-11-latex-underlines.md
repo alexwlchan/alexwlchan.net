@@ -1,5 +1,4 @@
 ---
-category: LaTeX
 date: 2017-10-11 22:09:25 +0000
 index:
   best_of: true

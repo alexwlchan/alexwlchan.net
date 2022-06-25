@@ -1,5 +1,4 @@
 ---
-category: Amazon Web Services
 date: 2018-08-25 08:20:24 +0000
 index:
   best_of: true

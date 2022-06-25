@@ -1,9 +1,7 @@
 ---
-category: Python
 date: 2019-09-28 19:26:39 +0000
 layout: post
 link: https://github.com/alexwlchan/github-code-search
-summary: null
 title: 'Experiment: GitHub code search with de-duplication'
 tags: github
 ---

@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2019-08-12 16:22:30 +0000
 layout: post
 summary: Links to a couple of projects that I found helpful when trying to strip the

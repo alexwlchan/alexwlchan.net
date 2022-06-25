@@ -1,5 +1,4 @@
 ---
-category: Git
 date: 2017-11-09 18:18:05 +0000
 index:
   best_of: true

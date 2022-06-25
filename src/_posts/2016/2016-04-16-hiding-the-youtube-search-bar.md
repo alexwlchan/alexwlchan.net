@@ -5,7 +5,6 @@ summary: "I\u2019ve adapted my bookmarklet for tidying up Google Maps to hide th
   \ YouTube search bar."
 tags: javascript
 title: Hiding the YouTube search bar
-category: Programming and code
 index:
   exclude: true
 ---

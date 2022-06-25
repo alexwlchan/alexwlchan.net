@@ -2,8 +2,6 @@
 layout: post
 date: 2020-01-19 10:32:58 +0000
 title: A Docker image to run LaTeX
-summary:
-category: LaTeX
 link: https://github.com/alexwlchan/tex-dockerfile
 tags: latex docker
 ---

@@ -7,7 +7,6 @@ summary: Pictures from my trip to the waterfalls and former tin plating works at
 theme:
   card_type: summary_large_image
   image: /images/2018/aberdulais-cover.jpg
-category: Photography
 
 index:
   best_of: true

@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2015-06-29 17:55:00 +0000
 layout: post
 summary: Configuring an IPython notebook server that is always running and easily

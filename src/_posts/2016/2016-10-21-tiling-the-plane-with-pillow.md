@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2016-10-21 12:18:00 +0000
 index:
   best_of: true
