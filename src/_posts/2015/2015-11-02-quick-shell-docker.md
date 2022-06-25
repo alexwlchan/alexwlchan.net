@@ -1,5 +1,4 @@
 ---
-category: Shell scripting
 date: 2015-11-02 22:07:00 +0000
 layout: post
 summary: A Bash function for quickly getting shell access to Docker containers.

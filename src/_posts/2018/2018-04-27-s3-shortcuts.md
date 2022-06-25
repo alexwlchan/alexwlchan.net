@@ -1,5 +1,4 @@
 ---
-category: Amazon Web Services
 date: 2018-04-27 06:43:25 +0000
 layout: post
 summary: Two shell functions for editing and inspecting S3 objects as if they were

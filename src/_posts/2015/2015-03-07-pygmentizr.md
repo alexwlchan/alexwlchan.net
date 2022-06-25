@@ -4,7 +4,6 @@ date: 2015-03-07 10:44:00 +0000
 summary: A web app for applying syntax highlighting to code using the Pygments library.
 tags: python
 title: Pygmentizr
-category: Programming and code
 index:
   image: /images/2015/pygmentizr-card.png
 ---

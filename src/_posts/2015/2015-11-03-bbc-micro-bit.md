@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2015-11-03 22:12:00 +0000
 layout: post
 summary: Playing with a tiny computer that runs Python.

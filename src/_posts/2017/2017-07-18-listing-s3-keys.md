@@ -1,5 +1,4 @@
 ---
-category: Amazon Web Services
 date: 2017-07-18 08:30:00 +0000
 layout: post
 summary: A short Python function for getting a list of keys in an S3 bucket.

@@ -4,7 +4,6 @@ date: 2018-07-19 07:38:10 +0000
 title: A robot leaked my SSH keys
 tags: github security
 summary: A cautionary tale of a daft incident where I leaked a set of SSH keys to GitHub.
-category: Programming and code
 ---
 
 A coworker was reviewing one of my pull requests yesterday, when she pointed at the screen and asked, *"Is that meant to be there?"*

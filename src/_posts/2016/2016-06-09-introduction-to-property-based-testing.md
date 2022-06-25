@@ -5,7 +5,6 @@ link: /2016/06/hypothesis-intro/
 summary: Slides from my talk about property-based testing at CamPUG.
 tags: python slides
 title: Introduction to property-based testing
-category: Talks
 index:
   exclude: true
 

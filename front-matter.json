@@ -1,8 +1,85 @@
 {
     "type": "object",
+    "required": ["title", "layout"],
     "properties": {
+        "layout": {
+            "description": "Which layout template to use.",
+            "type": "string",
+            "enum": ["page", "post"]
+        },
+        "title": {
+            "description": "The title of the page or the post.",
+            "type": "string"
+        },
+        "date": {
+            "description": "When this page or post was created.",
+            "type": "string",
+            "pattern": "\\d\\d\\d\\d-\\d\\d-\\d\\d( \\d\\d:\\d\\d:\\d\\d [+\\-]\\d\\d\\d\\d)?",
+            "format": "date"
+        },
+        "summary": {
+            "description": "A short description of the page or post. This is used for the <meta> tags and social media previews.",
+            "type": "string"
+        },
+        "tags": {
+            "description": "A space-separated list of tags for this page or post.",
+            "type": "string"
+        },
+        "link": {
+            "description": "An external page that this page should link to, like a link blog. This is used on the HTML version of the page, and where clicking on the RSS feed entry will take the reader.",
+            "type": "string"
+        },
+        "theme": {
+            "description": "Styles that apply to this individual page or post.",
+            "type": "object",
+            "properties": {
+                "card_type": {
+                    "description": "What sort of card to use in social media previews. In particular, whether to display a large image alongside the link.",
+                    "type": "string",
+                    "enum": ["summary_large_image"]
+                },
+                "image": {
+                    "description": "Path to an image to use to represent this page or post on social media. Must have a 2:1 aspect ratio.",
+                    "type": "string"
+                },
+                "color": {
+                    "description": "Accent colour to use for styles on this page.",
+                    "pattern": "#[0-9a-fA-F]{6}",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "index": {
+            "description": "Affects how an individual page or post appears in the site-wide indexes.",
+            "type": "object",
+            "properties": {
+                "image": {
+                    "description": "Path to an image to use to represent this post in the site-wide index. Must have a 2:1 aspect ratio.",
+                    "type": "string"
+                },
+                "tint_color": {
+                    "description": "Accent colour to use for the card in the site-wide index.",
+                    "pattern": "#[0-9a-fA-F]{6}",
+                    "type": "string"
+                },
+                "best_of": {
+                    "description": "Whether to highlight this post as a favourite in the site-wide index.",
+                    "type": "boolean"
+                },
+                "exclude": {
+                    "description": "Whether to exclude this post from the site-wide index.",
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "canonical_url": {
+            "description": "The canonical URL for this page or post. Used for a <link rel=\"canonical\"> in the <head> of the HTML.",
+            "type": "string"
+        },
         "post_list_date_format": {
-            "description": "Used on archive pages to control the appearance of dates. Deprecated; will likely be removed by https://github.com/alexwlchan/alexwlchan.net/issues/512."
+            "description": "Used on archive pages to control the appearance of dates. Deprecated; will likely be removed by https://github.com/alexwlchan/alexwlchan.net/issues/512.",
             "type": "string",
             "enum": ["day_month", "month_year"]
         }

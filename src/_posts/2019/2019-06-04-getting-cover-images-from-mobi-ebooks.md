@@ -1,9 +1,7 @@
 ---
-category: Python
 date: 2019-06-04 19:43:14 +0000
 layout: post
 link: https://github.com/alexwlchan/get-mobi-cover-image
-summary: null
 title: A script for getting cover images from mobi ebooks
 ---
 

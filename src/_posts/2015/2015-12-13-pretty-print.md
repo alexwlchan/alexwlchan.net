@@ -1,5 +1,4 @@
 ---
-category: Shell scripting
 date: 2015-12-13 17:15:00 +0000
 layout: post
 tags: shell-scripting macos

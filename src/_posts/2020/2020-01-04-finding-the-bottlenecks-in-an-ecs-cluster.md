@@ -2,7 +2,6 @@
 layout: post
 date: 2020-01-04 10:03:53 +0000
 title: Finding the CPU and memory bottlenecks in an ECS cluster
-category: Amazon Web Services
 tags: aws amazon-ecs
 index:
   image: /images/2020/ecs-metrics-card.png

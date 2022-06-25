@@ -8,24 +8,6 @@ require "uri"
 require "yaml"
 
 
-FRONT_MATTER_SCHEMA = {
-  "type" => "object",
-  "required" => ["title", "layout"],
-  "properties" => {
-    "title" => {"type" => "string"},
-    "layout" => {
-      "type": "string",
-      "enum": ["post", "page"],
-    },
-    "summary" => {"type" => "string"},
-  },
-
-  # This means the validator will reject fields that aren't specified
-  # in the schema.
-  "additionalProperties" => false,
-}
-
-
 class RunLinting < Jekyll::Command
   class << self
     def init_with_program(prog)
@@ -203,8 +185,16 @@ class RunLinting < Jekyll::Command
       schema = JSON.parse(File.open("front-matter.json").read)
 
       Dir["#{src_dir}/**/*.md"].each { |md_path|
+
+        # The YAML loader will try to be "smart" (e.g. reading dates as
+        # proper Ruby date types), which is unhelpful for json-schema checking.
+        #
+        # Make sure everything is JSON-esque (i.e. strings/numbers/bools)
+        # before passing to the json-schema gem.
         front_matter = YAML.load(File.open(md_path).read.split("\n---\n")[0])
-        md_errors = JSON::Validator.fully_validate(FRONT_MATTER_SCHEMA, front_matter)
+        front_matter = JSON.parse(JSON.dump(front_matter))
+
+        md_errors = JSON::Validator.fully_validate(schema, front_matter)
 
         if !md_errors.empty?
           errors[md_path] = md_errors

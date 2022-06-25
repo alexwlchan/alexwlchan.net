@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2016-10-22 21:03:00 +0000
 hero: 2016/specktre_0slu5ilk.png
 index:
