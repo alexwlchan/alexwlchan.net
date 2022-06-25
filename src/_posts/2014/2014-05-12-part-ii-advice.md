@@ -1,10 +1,11 @@
 ---
 layout: post
 date: 2014-05-12 15:53:00 +0000
-summary: Some suggestions for second year Cambridge maths students looking for work
-  over the summer.
+summary: Some suggestions for second year Cambridge maths students looking for workover the summer.
 tags: maths cambridge
 title: Brief advice for Part II
+index:
+  exclude: true
 ---
 
 I got a very nice email this afternoon from a IB student[^1] pointing out some mistakes in my [Linear Algebra notes][linalg], and asking if I had any Part II notes that they could study over the summer. Unfortunately I don't (yet), but I have some thoughts on what you could work on over the summer break. Rather than lock them up in an email, I'm posting them here.
