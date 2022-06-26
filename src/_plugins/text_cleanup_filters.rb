@@ -38,8 +38,9 @@ module Jekyll
       # Replace mentions of RFCs with a non-breaking space version.
       text = input.gsub(/RFC (\d+)/, 'RFC&nbsp;\1')
 
-      # Also: "part X" or "Part X"
+      # Also: "part X", "Part X", "season X"
       text = text.gsub(/([Pp]art) (\d+)/, '\1&nbsp;\2')
+      text = text.gsub(/([Ss]eason) (\d+)/, '\1&nbsp;\2')
 
       # HTTP XYZ
       text = text.gsub(/HTTP (\d{3})/, 'HTTP&nbsp;\1')
