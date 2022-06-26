@@ -52,6 +52,10 @@
                     "description": "Accent colour to use for styles on this page.",
                     "pattern": "#[0-9a-fA-F]{6}",
                     "type": "string"
+                },
+                "touch_icon": {
+                    "description": "Name of an alternative apple-touch-icon to use.",
+                    "type": "string"
                 }
             },
             "additionalProperties": false
@@ -83,6 +87,13 @@
         "canonical_url": {
             "description": "The canonical URL for this page or post. Used for a <link rel=\"canonical\"> in the <head> of the HTML.",
             "type": "string"
+        },
+        "meta": {
+            "description": "Used on pages for miscellaneous information. Deprecated; should be replaced by purpose-named fields.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "post_list_date_format": {
             "description": "Used on archive pages to control the appearance of dates. Deprecated; will likely be removed by https://github.com/alexwlchan/alexwlchan.net/issues/512.",

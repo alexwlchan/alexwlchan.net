@@ -9,7 +9,6 @@ theme:
   image: /images/2018/venue-map_index_card.png
 index:
   tint_color: "#336EAF"
-category: "Organising PyCon UK"
 ---
 
 We've just published [the venue information][venue] for this year's PyCon UK.
