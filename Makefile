@@ -6,18 +6,8 @@ SERVE_CONTAINER = server
 
 ROOT = $(shell git rev-parse --show-toplevel)
 
-# This looks for a line in Gemfile.lock like:
-#
-#			jekyll (1.2.3)
-#
-# then extracts the version number from the brackets.  This is
-# used to mount custom Jekyll commands inside the container
-# at the right location.
-#
-# It's a slightly roundabout call to grep to avoid using parentheses,
-# so I don't have to work out how to escape them inside $(shell …).
-JEKYLL_VERSION = $(shell grep 'jekyll ' Gemfile.lock | grep -v '~>' | grep -o '\d.\d.\d')
-JEKYLL_COMMAND_DIR = "/usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands"
+JEKYLL_VERSION = 4.2.2
+JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
 
 publish-docker:
 	ruby scripts/publish_docker_image.rb
