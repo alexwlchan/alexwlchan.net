@@ -5,13 +5,17 @@ require "ico"
 
 Jekyll::Hooks.register :site, :post_read do |site|
   src = site.config["source"]
+  dst = site.config["destination"]
 
   if !File.file? "src/theme/favicon.ico"
-    create_favicons(src, "#d01c11")
-    Dir.chdir("src/theme") do
+    create_favicons(src, dst, "#d01c11")
+    Dir.chdir("#{src}/theme") do
       File.rename "favicon_d01c11.png", "favicon.png"
       File.rename "favicon_d01c11.ico", "favicon.ico"
     end
+
+    FileUtils.cp("#{src}/theme/favicon.png", "#{dst}/theme/favicon.png")
+    FileUtils.cp("#{src}/theme/favicon.ico", "#{dst}/theme/favicon.ico")
   end
 
   site.posts.docs.each { |post|
@@ -19,17 +23,17 @@ Jekyll::Hooks.register :site, :post_read do |site|
       color = post["theme"]["color"]
 
       create_scss_theme(src, color)
-      create_favicons(src, color)
+      create_favicons(src, dst, color)
       ensure_banner_image_exists(src, color)
     end
   }
 end
 
 
-def create_favicons(src, color)
-  Dir.chdir("src/theme") do
-    prefix = "favicon_#{color.gsub(/#/, '')}"
+def create_favicons(src, dst, color)
+  prefix = "favicon_#{color.gsub(/#/, '')}"
 
+  Dir.chdir("src/theme") do
     if File.file? "#{prefix}.ico"
       return
     end
@@ -54,6 +58,11 @@ def create_favicons(src, color)
     File.delete "#{prefix}_16.png"
     File.delete "#{prefix}_32.png"
   end
+
+  # For some reason the favicons don't update until the _next_ rebuild,
+  # so manually copy them to the build output folder.
+  FileUtils.cp("#{src}/theme/#{prefix}.png", "#{dst}/theme/#{prefix}.png")
+  FileUtils.cp("#{src}/theme/#{prefix}.ico", "#{dst}/theme/#{prefix}.ico")
 end
 
 
