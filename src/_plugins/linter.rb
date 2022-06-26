@@ -15,9 +15,9 @@ class RunLinting < Jekyll::Command
         cmd.action do |_, options|
           options = configuration_from_options(options)
 
-          # run_html_linting(options["destination"])
-          # check_writing_has_been_archived(options["source"])
-          # check_twitter_card_images(options["destination"])
+          run_html_linting(options["destination"])
+          check_writing_has_been_archived(options["source"])
+          check_twitter_card_images(options["destination"])
           check_yaml_front_matter(options["source"])
         end
       end
