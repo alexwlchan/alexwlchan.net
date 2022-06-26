@@ -18,8 +18,11 @@ apk add rsync
 # Required for the publish-drafts gem
 apk add git
 
-# Required to create avatar thumbnails in the Twitter gem
+# Required to create avatar thumbnails in the Twitter plugin
 apk add imlib2 imlib2-dev libexif-dev
+
+# Required to create favicons in the themer plugin
+apk add imagemagick
 
 # Required for libsass.  If this is missing, you get the error:
 #
