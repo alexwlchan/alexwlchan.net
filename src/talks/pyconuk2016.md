@@ -1,6 +1,6 @@
 ---
 date: 2016-09-14
-date_updtd: 2016-12-30 20:50
+date_updated: 2016-12-30 20:50
 layout: page
 title: An introduction to property-based testing and Hypothesis
 ---
