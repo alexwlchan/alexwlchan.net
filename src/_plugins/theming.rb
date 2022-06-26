@@ -1,33 +1,44 @@
-Jekyll::Hooks.register :site, :post_read do |site|
-  src = site.config["source"]
-  site.posts.docs.each { |post|
-    if post["theme"] && post["theme"]["color"]
-      color = post["theme"]["color"]
-      create_scss_theme(src, color)
-      ensure_banner_image_exists(src, color)
-    end
+Jekyll::Hooks.register :site, :post_write do |site|
+  colours = site.posts.docs
+    .map { |post|
+      (post["theme"] || {})["color"]
+    }
+    .reject{ |c| c.nil? }
+    .uniq
+
+  create_scss_themes(site, colours)
+
+  colours.each { |c|
+    ensure_banner_image_exists(src, c)
   }
 end
 
 
-# Create an SCSS theme with this color as the $primary-color variable.
-#
-# This will be picked up by the SCSS processor for the site, and cause
-# the creation of a CSS theme with this as the primary color.
-def create_scss_theme(src, color)
-  mainfile = "#{src}/theme/style_#{color.gsub(/#/, '')}.scss"
-  if ! File.file?(mainfile)
-    File.open(mainfile, 'w') { |file| file.write(<<-EOT
----
----
+def get_newest_scss_include(site)
+  src = site.config["source"]
+  sass_dir = site.config["sass"]["sass_dir"]
+end
 
-$primary-color: #{color};
+
+def create_scss_themes(site, colours)
+  src = site.config["source"]
+  dst = site.config["destination"]
+  sass_dir = site.config["sass"]["sass_dir"]
+
+  converter = site.find_converter_instance(::Jekyll::Converters::Scss)
+
+  colours.map { |c|
+    out_file = "#{dst}/theme/style_#{c.gsub(/#/, '')}.css"
+
+    css = converter.convert(<<-EOT
+$primary-color: #{c};
 
 @import "_main.scss";
 EOT
-) }
-    puts(mainfile)
-  end
+)
+
+    File.open(out_file, 'w') { |f| f.write(css) }
+  }
 end
 
 
