@@ -4,13 +4,13 @@ require "tmpdir"
 
 
 Jekyll::Hooks.register :site, :post_write do |site|
-  post_colours = site.posts.docs
+  site_colours = (site.pages + site.posts).docs
     .map { |post|
       (post["theme"] || {})["color"]
     }
     .reject { |c| c.nil? }
 
-  colours = (post_colours + ["#d01c11"]).uniq
+  colours = (site_colours + ["#d01c11"]).uniq
 
   create_scss_themes(site, colours)
   create_favicons(site, colours)
