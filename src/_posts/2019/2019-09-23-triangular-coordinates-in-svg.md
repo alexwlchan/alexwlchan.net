@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2019-09-23 08:20:18 +0000
 layout: post
 summary: Some code and trigonometry for drawing shapes that don't fit neatly into

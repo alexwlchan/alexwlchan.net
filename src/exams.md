@@ -1,6 +1,5 @@
 ---
 layout: page
-slug: exams
 summary: Some advice for students sitting technical exams.
 title: Exam advice
 ---

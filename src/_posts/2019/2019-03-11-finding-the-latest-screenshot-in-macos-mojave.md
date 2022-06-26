@@ -1,5 +1,4 @@
 ---
-category: Working with macOS
 date: 2019-03-11 20:31:17 +0000
 layout: post
 tags: os-x shell-scripting

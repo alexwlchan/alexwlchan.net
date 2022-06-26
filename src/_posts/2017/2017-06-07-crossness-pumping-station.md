@@ -6,7 +6,6 @@ title: A visit to the Crossness pumping station
 theme:
   card_type: summary_large_image
   image: /images/2017/P5280917_twitter_card.jpg
-category: Photography
 
 index:
   best_of: true

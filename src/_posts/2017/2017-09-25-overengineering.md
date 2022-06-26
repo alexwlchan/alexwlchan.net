@@ -5,7 +5,6 @@ link: https://github.com/alexwlchan/alexwlchan.net
 tags: jekyll
 date: 2017-10-03 22:23:38 +0100
 summary: I switched back to Jekyll, and posted all the source code for my blog on GitHub.
-category: Blogging about blogging
 index:
   exclude: true
 ---

@@ -1,5 +1,4 @@
 ---
-category: Shell scripting
 date: 2016-10-01 21:23:00 +0000
 layout: post
 tags: shell-scripting

@@ -5,7 +5,6 @@ summary: The Docker folder on your computer can quickly fill up space. Don't for
   to exclude it from backups.
 tags: docker
 title: Backups and Docker
-category: Programming and code
 ---
 
 I've spent a lot of time recently playing with [Docker](http://www.docker.com/).

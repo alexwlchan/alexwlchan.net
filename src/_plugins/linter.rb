@@ -1,4 +1,6 @@
 require "html-proofer"
+require "json"
+require "json-schema"
 require "nokogiri"
 require "rainbow"
 require "rszr"
@@ -16,6 +18,7 @@ class RunLinting < Jekyll::Command
           run_html_linting(options["destination"])
           check_writing_has_been_archived(options["source"])
           check_twitter_card_images(options["destination"])
+          check_yaml_front_matter(options["source"])
         end
       end
     end
@@ -153,6 +156,49 @@ class RunLinting < Jekyll::Command
         #
         # If an image doesn't exist on the Twitter card, it won't exist on
         # the OpenGraph card either, and vice versa.
+      }
+
+      # This is meant to look similar to the output from HTMLProofer --
+      # errors are grouped by filename, so they can be easily traced
+      # back to the problem file.
+      if !errors.empty?
+        errors.each { |md_path, messages|
+          error("- #{md_path}")
+          messages.each { |m|
+            error("  *  #{m}")
+          }
+        }
+        exit!
+      end
+    end
+
+    # Validate the YAML front matter by checking that:
+    #
+    #   1. I'm not using undocumented fields
+    #   2. Fields have appropriate values
+    #
+    def check_yaml_front_matter(src_dir)
+      errors = Hash.new { [] }
+
+      info("Checking YAML front matter...")
+
+      schema = JSON.parse(File.open("front-matter.json").read)
+
+      Dir["#{src_dir}/**/*.md"].each { |md_path|
+
+        # The YAML loader will try to be "smart" (e.g. reading dates as
+        # proper Ruby date types), which is unhelpful for json-schema checking.
+        #
+        # Make sure everything is JSON-esque (i.e. strings/numbers/bools)
+        # before passing to the json-schema gem.
+        front_matter = YAML.load(File.open(md_path).read.split("\n---\n")[0])
+        front_matter = JSON.parse(JSON.dump(front_matter))
+
+        md_errors = JSON::Validator.fully_validate(schema, front_matter)
+
+        if !md_errors.empty?
+          errors[md_path] = md_errors
+        end
       }
 
       # This is meant to look similar to the output from HTMLProofer --

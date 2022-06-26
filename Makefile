@@ -1,5 +1,5 @@
 export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 19
+export DOCKER_IMAGE_VERSION = 20
 DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 SERVE_CONTAINER = server
@@ -9,23 +9,23 @@ ROOT = $(shell git rev-parse --show-toplevel)
 publish-docker:
 	ruby scripts/publish_docker_image.rb
 
-build:
+html:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) build --trace
 
-build-drafts:
+html-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) build --trace --drafts
 
-html-lint:
+lint:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.1/lib/jekyll/commands/linter.rb \
+		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.2/lib/jekyll/commands/linter.rb \
 		$(DOCKER_IMAGE) lint
 
 script-lint:

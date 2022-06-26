@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2017-01-07 23:10:00 +0000
 layout: post
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,

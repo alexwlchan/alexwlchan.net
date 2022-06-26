@@ -2,7 +2,6 @@
 layout: post
 date: 2020-05-01 15:56:04 +0000
 title: Illustrating lifecycle transitions in Amazon S3
-category: Amazon Web Services
 summary: A picture speaks a thousand words, which is why I always have pen and paper to hand.
 tags: aws amazon-s3 notebook
 index:

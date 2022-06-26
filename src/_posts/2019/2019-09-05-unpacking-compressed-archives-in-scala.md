@@ -1,5 +1,4 @@
 ---
-category: Scala
 date: 2019-09-05 23:16:04 +0000
 layout: post
 summary: Code to turn an InputStream into an Iterator of entries from a tar.gz file

@@ -4,7 +4,6 @@ date: 2015-10-12 08:23:00 +0000
 link: https://www.youtube.com/watch?v=FxSsnHeWQBY
 tags: python
 title: Getting Started Testing, by Ned Batchelder
-category: Programming and code
 
 index:
   exclude: true

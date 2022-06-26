@@ -1,5 +1,4 @@
 ---
-category: Amazon Web Services
 date: 2019-07-03 19:33:55 +0000
 layout: post
 summary: Python functions for getting a list of keys and objects in an S3 bucket.

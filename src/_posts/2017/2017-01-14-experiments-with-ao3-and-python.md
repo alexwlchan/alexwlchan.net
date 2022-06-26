@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2017-01-14 16:09:00 +0000
 layout: post
 link: https://github.com/alexwlchan/ao3

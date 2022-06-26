@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2016-08-31 20:05:00 +0000
 layout: post
 tags: python

@@ -2,7 +2,6 @@
 layout: post
 date: 2020-04-12 14:27:01 +0000
 title: A snippet for downloading files with Python
-category: Python
 tags: python
 ---
 

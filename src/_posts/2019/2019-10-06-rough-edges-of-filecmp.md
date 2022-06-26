@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2019-10-06 17:32:56 +0000
 layout: post
 summary: The filecmp module has a confusing API, and it just caught me out.

@@ -1,5 +1,4 @@
 ---
-category: Amazon Web Services
 date: 2019-09-12 19:53:53 +0000
 layout: post
 summary: Reliably reading a large object by stitching together multiple GetObject requests into a single Java InputStream.
