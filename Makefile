@@ -6,6 +6,19 @@ SERVE_CONTAINER = server
 
 ROOT = $(shell git rev-parse --show-toplevel)
 
+# This looks for a line in Gemfile.lock like:
+#
+#			jekyll (1.2.3)
+#
+# then extracts the version number from the brackets.  This is
+# used to mount custom Jekyll commands inside the container
+# at the right location.
+#
+# It's a slightly roundabout call to grep to avoid using parentheses,
+# so I don't have to work out how to escape them inside $(shell …).
+JEKYLL_VERSION = $(shell grep 'jekyll ' Gemfile.lock | grep -v '~>' | grep -o '\d.\d.\d')
+JEKYLL_COMMAND_DIR = "/usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands"
+
 publish-docker:
 	ruby scripts/publish_docker_image.rb
 
@@ -25,7 +38,7 @@ lint:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/linter.rb:/usr/local/bundle/gems/jekyll-4.2.2/lib/jekyll/commands/linter.rb \
+		--volume $(ROOT)/src/_plugins/linter.rb:$(JEKYLL_COMMAND_DIR)/linter.rb \
 		$(DOCKER_IMAGE) lint
 
 script-lint:
@@ -45,7 +58,7 @@ publish-drafts:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--volume $(ROOT)/src/_plugins/publish_drafts.rb:/usr/local/bundle/gems/jekyll-4.2.1/lib/jekyll/commands/publish_drafts.rb \
+		--volume $(ROOT)/src/_plugins/publish_drafts.rb:$(JEKYLL_COMMAND_DIR)/publish_drafts.rb \
 		--volume ~/.gitconfig:/root/.gitconfig \
 		--volume ~/.ssh:/root/.ssh \
 		$(DOCKER_IMAGE) publish_drafts
