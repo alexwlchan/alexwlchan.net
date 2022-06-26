@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
+gem "chunky_png", "~> 1.3.8"
 gem "html-proofer", "~> 3.19"
+gem "ico", "~> 0.1.2"
 gem "jekyll", "~> 4"
 gem "json-schema", "~> 3.0"
 gem "nokogiri", "~> 1.12"
