@@ -55,7 +55,7 @@ If you make changes to the source files, it will automatically update.
 To build a one-off set of static HTML files:
 
 ```console
-$ make build
+$ make html
 ```
 
 This creates a set of HTML files in `_site`.
