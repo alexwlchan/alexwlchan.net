@@ -24,6 +24,11 @@ apk add imlib2 imlib2-dev libexif-dev
 # Required to create favicons in the themer plugin
 apk add imagemagick
 
+# Required for fonts for favicons
+apk add msttcorefonts-installer
+update-ms-fonts
+fc-cache -f
+
 # Required for libsass.  If this is missing, you get the error:
 #
 #   LoadError: Could not open library
