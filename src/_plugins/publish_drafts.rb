@@ -55,6 +55,13 @@ class PublishDrafts < Jekyll::Command
             "layout: post\ndate: #{now}\n")
           File.open(new_name, 'w') { |f| f.write(doc) }
 
+          # This is meant to avoid an error in CI of the form:
+          #
+          #     fatal: unsafe repository ('alexwlchan.net' is owned
+          #     by someone else)
+          #
+          Shell.execute!("git config --global --add safe.directory .")
+
           puts "*** Creating Git commit for #{entry}"
           Shell.execute!("git rm #{entry}")
           Shell.execute!("git add #{new_name}")
