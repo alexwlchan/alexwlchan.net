@@ -191,6 +191,8 @@
 /about                              /
 /about/                             /
 
+/notes /410.html 410
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /* /404.html 404
