@@ -1,24 +1,11 @@
 ---
 layout: page
 title: ""
+theme:
+  color: "#17823e"
 ---
 
-<style>
-  img.profile {
-    float: right;
-    width: 250px;
-    max-width: 50%;
-    margin-top: 0.4em;
-    margin-left: 1em;
-    margin-bottom: 1em;
-  }
-
-  .archive__date {
-    padding-right: 4px;
-  }
-</style>
-
-<img src="/images/profile_red.jpg" class="profile" alt="A selfie! I have light skin and dark brown hair falling in gentle waves on either side of my face. I'm wearing a red scarf and a dark red jumper.">
+<img src="/images/profile_green_1x.jpg" srcset="/images/profile_green_1x.jpg 1x, /images/profile_green_2x.jpg 2x" alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants.">
 
 ## Hi, I'm Alex.
 
