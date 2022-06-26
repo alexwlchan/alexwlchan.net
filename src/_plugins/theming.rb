@@ -4,7 +4,7 @@ require "tmpdir"
 
 
 Jekyll::Hooks.register :site, :post_write do |site|
-  site_colours = (site.pages.docs + site.posts.docs)
+  site_colours = (site.pages + site.posts.docs)
     .map { |post|
       (post["theme"] || {})["color"]
     }
