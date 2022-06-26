@@ -42,6 +42,8 @@ jobs:
             git config user.name "GitHub Actions on behalf of Alex Chan"
             git config user.email "githubactions@alexwlchan.net"
 
+            git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
+
             make publish-drafts
             make html
           else
