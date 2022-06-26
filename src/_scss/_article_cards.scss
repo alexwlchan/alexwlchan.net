@@ -33,7 +33,10 @@
   .card_image {
     margin-top: 0;
     margin-bottom: 0;
-  //  border-bottom: 1px solid green;
+
+    img {
+      aspect-ratio: 2 / 1;
+    }
   }
 
   .card svg {

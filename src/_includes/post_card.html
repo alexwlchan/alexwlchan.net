@@ -13,8 +13,6 @@
     color: {{ color }};
   }
 
-
-
   {% if post.index.best_of %}
     #{{ post.slug }}.card {
       background: {{ color | rgba: 0.03 }};
@@ -62,8 +60,8 @@
     <p class="card_image">
       {% if is_svg %}
         {{ image | as_inline_svg }}
-      {% else %}
-        <img src="{{ image }}" alt="" data-proofer-ignore/>
+      {% elsif image != "" %}
+        <img src="{{ image }}" alt="" loading="lazy" data-proofer-ignore/>
       {% endif %}
     </p>
 
