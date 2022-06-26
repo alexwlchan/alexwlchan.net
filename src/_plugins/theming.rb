@@ -1,13 +1,59 @@
+require "chunky_png"
+require "fileutils"
+require "ico"
+
+
 Jekyll::Hooks.register :site, :post_read do |site|
   src = site.config["source"]
+
+  if !File.file? "src/theme/favicon.ico"
+    create_favicons(src, "#d01c11")
+    Dir.chdir("src/theme") do
+      File.rename "favicon_d01c11.png", "favicon.png"
+      File.rename "favicon_d01c11.ico", "favicon.ico"
+    end
+  end
+
   site.posts.docs.each { |post|
     if post["theme"] && post["theme"]["color"]
       color = post["theme"]["color"]
 
       create_scss_theme(src, color)
+      create_favicons(src, color)
       ensure_banner_image_exists(src, color)
     end
   }
+end
+
+
+def create_favicons(src, color)
+  Dir.chdir("src/theme") do
+    prefix = "favicon_#{color.gsub(/#/, '')}"
+
+    if File.file? "#{prefix}.ico"
+      return
+    end
+
+    for size in [16, 32, 48]
+      png = ChunkyPNG::Image.new(size, size, ChunkyPNG::Color.from_hex(color))
+      overlay = ChunkyPNG::Image.from_file("_overlays/favicon_overlay_#{size}.png")
+      png = png.compose(overlay)
+      png.save("#{prefix}_#{size}.png")
+    end
+
+    ICO.png_to_ico(
+      [
+        "#{prefix}_16.png",
+        "#{prefix}_32.png",
+        "#{prefix}_48.png"
+      ],
+      "#{prefix}.ico"
+    )
+
+    File.rename "#{prefix}_48.png", "#{prefix}.png"
+    File.delete "#{prefix}_16.png"
+    File.delete "#{prefix}_32.png"
+  end
 end
 
 
