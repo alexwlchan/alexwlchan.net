@@ -1,6 +1,6 @@
 ---
 title: How to set the clock on a Worcester 28CDi boiler
-layout: page
+layout: post
 date: 2016-10-08
 index:
   exclude: true
