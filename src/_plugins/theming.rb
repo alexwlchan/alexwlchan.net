@@ -3,6 +3,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
   site.posts.docs.each { |post|
     if post["theme"] && post["theme"]["color"]
       color = post["theme"]["color"]
+
       create_scss_theme(src, color)
       ensure_banner_image_exists(src, color)
     end
