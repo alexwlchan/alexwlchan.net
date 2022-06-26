@@ -3,7 +3,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>{% if page.title and page.title != site.title and page.title != "" %}{{ page.title | strip_html | smartify }} &ndash; {% endif %}{{ site.title | smartify }}</title>
+  {% assign safe_title = page.title | render_markdown | strip_html | smartify %}
+
+  <title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title | smartify }}</title>
 
   <meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
