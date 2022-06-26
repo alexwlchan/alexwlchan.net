@@ -8,6 +8,8 @@ Jekyll::Hooks.register :site, :post_write do |site|
 
   create_scss_themes(site, colours)
 
+  src = site.config["source"]
+
   colours.each { |c|
     ensure_banner_image_exists(src, c)
   }
