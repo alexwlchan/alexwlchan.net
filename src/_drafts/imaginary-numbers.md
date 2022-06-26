@@ -4,7 +4,7 @@ title: Fictional phone numbers in *For All Mankind*
 summary: Where did this UK phone number come from?
 tags: trivia television
 theme:
-  card_type: summary_card_large_image
+  card_type: summary_large_image
   image: /images/2022/phone_number_annotated.jpg
   color: "#9b8012"
 index:
