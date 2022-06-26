@@ -3,7 +3,7 @@ layout: post
 date: 2018-08-13 08:16:20 +0000
 title: Ideas for inclusive conferences and events
 tags: conferences inclusion
-last_updated: 2019-02-05 08:25:14 +0000
+date_updated: 2019-02-05 08:25:14 +0000
 summary: A collection of ideas and suggestions for running conferences which are more inclusive and accessible. Based on my experiences at AlterConf, PyCon UK, and similar events.
 excerpt_separator: "-------"
 

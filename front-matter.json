@@ -17,6 +17,12 @@
             "pattern": "\\d\\d\\d\\d-\\d\\d-\\d\\d( \\d\\d:\\d\\d:\\d\\d [+\\-]\\d\\d\\d\\d)?",
             "format": "date"
         },
+        "date_updated": {
+            "description": "When this page or post was last updated.",
+            "type": "string",
+            "pattern": "\\d\\d\\d\\d-\\d\\d-\\d\\d( \\d\\d:\\d\\d:\\d\\d [+\\-]\\d\\d\\d\\d)?",
+            "format": "date"
+        },
         "summary": {
             "description": "A short description of the page or post. This is used for the <meta> tags and social media previews.",
             "type": "string"
