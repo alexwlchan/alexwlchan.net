@@ -1,6 +1,6 @@
 ---
 title: How to set the clock on a Tricity Bendix SIE454 electric cooker
-layout: page
+layout: post
 date: 2016-10-16
 index:
   exclude: true
