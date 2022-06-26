@@ -1,6 +1,6 @@
 ---
 date: 2014-11-10 18:41
-layout: page
+layout: post
 title: Custom CSS in ResophNotes
 index:
   exclude: true

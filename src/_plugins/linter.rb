@@ -199,6 +199,20 @@ class RunLinting < Jekyll::Command
         if !md_errors.empty?
           errors[md_path] = md_errors
         end
+
+        # This is to test some rules that can't easily be expressed
+        # in a JSON schema definition.
+        if md_path.start_with? "src/_posts/" and
+          if front_matter["layout"] != "post"
+            errors[md_path] <<= "layout should be 'post'"
+          end
+        end
+
+        if !md_path.start_with? "src/_posts/" and
+          if front_matter["layout"] != "page"
+            errors[md_path] <<= "layout should be 'page'"
+          end
+        end
       }
 
       # This is meant to look similar to the output from HTMLProofer --
