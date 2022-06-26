@@ -19,7 +19,7 @@ jobs:
       - name: "Build the site"
         run: make html-drafts
 
-      - name: "Run HTML linting"
+      - name: "Run linting"
         run: make lint
 
       - name: "Merge pull request"
