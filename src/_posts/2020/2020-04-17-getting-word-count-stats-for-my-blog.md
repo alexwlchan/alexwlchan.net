@@ -2,7 +2,6 @@
 layout: post
 date: 2020-04-17 20:23:19 +0000
 title: Getting word count stats for my blog
-category: Blogging about blogging
 link: https://alexwlchan.net/stats/
 tags: jekyll blogging-about-blogging
 index:

@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2017-09-02 17:34:00 +0000
 layout: post
 link: https://github.com/alexwlchan/lazyreader

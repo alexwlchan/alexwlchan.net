@@ -4,7 +4,6 @@ date: 2015-05-16 11:51:00 +0000
 summary: How to paste text directly from OS X into the iOS Simulator.
 tags: os-x
 title: One-step paste in the iOS Simulator
-category: Working with macOS
 index:
   exclude: true
 ---

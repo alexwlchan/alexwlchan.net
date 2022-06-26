@@ -1,5 +1,4 @@
 ---
-category: Shell scripting
 date: 2015-07-27 20:36:00 +0000
 layout: post
 link: http://redsymbol.net/articles/bash-exit-traps/

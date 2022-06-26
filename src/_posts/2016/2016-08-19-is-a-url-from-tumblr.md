@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2016-08-19 23:34:00 +0000
 layout: post
 tags: tumblr python

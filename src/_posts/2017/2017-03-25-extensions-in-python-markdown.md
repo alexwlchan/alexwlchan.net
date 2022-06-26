@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2017-03-25 11:27:00 +0000
 index:
   exclude: true

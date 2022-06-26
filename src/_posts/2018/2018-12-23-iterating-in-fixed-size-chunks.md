@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2018-12-23 22:39:38 +0000
 layout: post
 summary: A snippet for iterating over an arbitrary iterable in chunks, and returning

@@ -1,44 +1,24 @@
-# Custom front matter keys
+# Validating the front matter in Markdown files
 
-Notes on the custom front matter keys I've defined.
+All the source files for the blog are written in Markdown, and at the top they have some structured data, in the form of [Front Matter]:
 
-<dl>
-  <dt>
-    index.best_of (boolean)
-  </dt>
-  <dd>
-    Whether a post is particularly special or notable.
-    These posts get a red heard next to them in the post lists.
-  </dd>
+```
+---
+layout: post
+title: Checking lots of URLs with curl
+---
+```
 
-  <dt>
-    index.exclude (boolean)
-  </dt>
-  <dd>
-    Whether a post should be hidden from the "all posts" list.
-  </dd>
+I want to make sure I'm using these fields consistently, so I have a JSON Schema definition for my front matter: [front-matter.json](../front-matter.json).
 
-  <dt>
-    theme.card_type
-  </dt>
-  <dd>
-    How to display the preview on social media (e.g. Twitter or Slack).
-    The only non-default value I've used here is <code>summary_large_image</code>.
-    Also requires <code>theme.image</code>.
-  </dd>
+Then I validate every Markdown file's front matter against this schema as part of my [linting plugin](../src/_plugins/linter.rb).
 
-  <dt>
-    theme.image
-  </dt>
-  <dd>
-    If <code>theme.card_type = summary_large_image</code>, the path to an image to use in the image preview.
-  </dd>
+[Front Matter]: https://jekyllrb.com/docs/front-matter/
 
-  <dt>
-    theme.minipost (boolean)
-  </dt>
-  <dd>
-    Whether to de-emphasise the title of a post, and hide it from "recent posts" on the front page.
-    Useful for shorter posts.
-  </dd>
-</dl>
+
+
+## Alternative approaches
+
+-   I considered using the [jekyll-data_validation plugin][plugin], but you have to run the validation as part of a separate `jekyll validate` command; I wanted it as part of my existing `jekyll lint` command.
+
+[plugin]: https://github.com/cityoffortworth/jekyll-data_validation

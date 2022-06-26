@@ -5,7 +5,6 @@ title: More advice on running inclusive and welcoming events
 link: https://alexwlchan.net/ideas-for-inclusive-events/
 summary: An updated version of my list of ideas for running inclusive and welcoming events.
 tags: conferences inclusion
-category: Diversity, inclusion and accessibility
 index:
   exclude: true
 ---

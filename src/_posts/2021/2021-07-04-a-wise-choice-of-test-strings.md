@@ -2,8 +2,6 @@
 layout: post
 date: 2021-07-04 12:24:36 +0000
 title: A wise choice of test strings
-summary:
-tags:
 index:
   exclude: true
 ---

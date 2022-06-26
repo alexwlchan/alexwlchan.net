@@ -1,5 +1,4 @@
 ---
-category: Scala
 date: 2019-05-13 10:17:13 +0000
 index:
   best_of: true

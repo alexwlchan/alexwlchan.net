@@ -5,7 +5,7 @@ title: Fat shaming in <em>The Good Place</em>
 summary: How many good person points do you lose for making a joke about somebody's weight?
 tags: the-good-place television
 index:
-  tint_colour: "#653415"
+  tint_color: "#653415"
   image: /images/2020/janet_card.jpg
 ---
 

@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2016-10-08 18:31:00 +0000
 layout: post
 summary: Why py.test is my unit test framework of choice in Python.

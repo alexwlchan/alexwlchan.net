@@ -1,5 +1,4 @@
 ---
-category: Python
 date: 2017-10-20 17:11:59 +0000
 layout: post
 summary: I often have code I want to run against every HTTP response (logging, error

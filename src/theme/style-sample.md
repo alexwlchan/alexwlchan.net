@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Style sample
-last_updated: 2018-06-06 07:05:43 +0100
+date_updated: 2018-06-06 07:05:43 +0100
 ---
 
 This is a page that has examples of different elements on the site.

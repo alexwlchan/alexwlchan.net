@@ -3,7 +3,6 @@ layout: post
 date: 2020-01-22 07:50:23 +0000
 title: An interactive map of British railway stations 🚂
 summary: A map I use to plot which railway stations I've visited.
-category: Glitch apps
 link: https://uk-stations-map.glitch.me/
 tags: glitch trains fun
 index:

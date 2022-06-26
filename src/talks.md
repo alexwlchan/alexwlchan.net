@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Talks and workshops
-last_updated: 2019-10-22 21:38:31 +0100
+date_updated: 2019-10-22 21:38:31 +0100
 ---
 
 Below is a list of talks and workshops I've given, along with links to videos and slides where available.
