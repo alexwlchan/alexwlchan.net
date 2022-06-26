@@ -1,22 +1,16 @@
 Jekyll::Hooks.register :site, :post_write do |site|
-  colors = site.posts.docs
+  colours = site.posts.docs
     .map { |post|
       (post["theme"] || {})["color"]
     }
     .reject{ |c| c.nil? }
     .uniq
 
-  create_scss_themes(site, colors)
+  create_scss_themes(site, colours)
 
-  # puts colors
-  #
-  # site.posts.docs.each { |post|
-  #   if post["theme"] && post["theme"]["color"]
-  #     color = post["theme"]["color"]
-  #     create_scss_theme(site, dst, color)
-  #     ensure_banner_image_exists(src, color)
-  #   end
-  # }
+  colours.each { |c|
+    ensure_banner_image_exists(src, c)
+  }
 end
 
 
