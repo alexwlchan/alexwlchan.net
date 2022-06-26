@@ -73,6 +73,7 @@ This is a list of things that I think are interesting or unusual:
 *   [Month and year archives](docs/month-and-year-archives.md)
 *   [No-JavaScript Twitter embeds](docs/twitter-embeds.md)
 *   [Linking to my work on other sites](docs/linking-to-other-work.md)
+*   [Validating the front matter in Markdown files](docs/front_matter.md)
 
 
 
