@@ -8,23 +8,18 @@ use rusttype::{Font, Scale};
 fn draw_48px_favicon(colour: Rgba<u8>, font: &Font, out_path: &str) -> () {
     let mut img = RgbaImage::new(48, 48);
 
-    let rect = Rect::at(3, 3).of_size(3, 42);
-    draw_filled_rect_mut(&mut img, rect, colour);
+    let rects = vec![
+        Rect::at(3, 3).of_size(3, 42),
+        Rect::at(3, 3).of_size(9, 3),
+        Rect::at(3, 42).of_size(9, 3),
+        Rect::at(39, 3).of_size(3, 42),
+        Rect::at(33, 3).of_size(9, 3),
+        Rect::at(33, 42).of_size(9, 3),
+    ];
 
-    let rect = Rect::at(3, 3).of_size(9, 3);
-    draw_filled_rect_mut(&mut img, rect, colour);
-
-    let rect = Rect::at(3, 42).of_size(9, 3);
-    draw_filled_rect_mut(&mut img, rect, colour);
-
-    let rect = Rect::at(39, 3).of_size(3, 42);
-    draw_filled_rect_mut(&mut img, rect, colour);
-
-    let rect = Rect::at(33, 3).of_size(9, 3);
-    draw_filled_rect_mut(&mut img, rect, colour);
-
-    let rect = Rect::at(33, 42).of_size(9, 3);
-    draw_filled_rect_mut(&mut img, rect, colour);
+    for r in rects {
+        draw_filled_rect_mut(&mut img, r, colour);
+    }
 
     let height = 40 as f32;
     let scale = Scale { x: height * 1.0, y: height };
