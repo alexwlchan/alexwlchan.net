@@ -1,3 +1,5 @@
+require "chunky_png"
+require "color"
 require "fileutils"
 require "shell/executer.rb"
 require "tmpdir"
@@ -14,24 +16,12 @@ Jekyll::Hooks.register :site, :post_write do |site|
 
   create_scss_themes(site, colours)
   create_favicons(site, colours)
+  create_header_images(site, colours)
 
   dst = site.config["destination"]
   FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
   FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico");
-
-  src = site.config["source"]
-
-  colours.each { |c|
-    ensure_banner_image_exists(src, c)
-  }
 end
-
-
-def get_newest_scss_include(site)
-  src = site.config["source"]
-  sass_dir = site.config["sass"]["sass_dir"]
-end
-
 
 def create_scss_themes(site, colours)
   src = site.config["source"]
@@ -59,7 +49,6 @@ EOT
     File.open(out_file, 'w') { |f| f.write(css) }
   }
 end
-
 
 def create_favicons(site, colours)
   colours.each { |c|
@@ -131,10 +120,73 @@ EOT
   }
 end
 
+def colours_like(hex_colour)
+  # Seed the random to get consistent outputs
+  seeded_random = Random.new(hex_colour[1..].to_i(16))
 
-def ensure_banner_image_exists(src, color)
-  banner_file = "#{src}/theme/specktre_#{color.gsub(/#/, '')}.png"
-  if ! File.file?(banner_file)
-    raise RuntimeError, "Missing Specktre banner for #{color}, please run 'ruby scripts/create_specktre_banners.rb'"
+  Enumerator.new do |enum|
+    hsl_colour = Color::RGB.by_hex(hex_colour).to_hsl
+
+    luminosity = hsl_colour.luminosity
+    min_luminosity = luminosity * 7 / 8
+    max_luminosity = luminosity * 8 / 7
+
+    luminosity_diff = max_luminosity - min_luminosity
+
+    while true
+      hsl_colour.luminosity = min_luminosity + seeded_random.rand() * luminosity_diff
+      enum.yield hsl_colour.to_rgb
+    end
   end
+end
+
+def squares_for(width, height, square_size)
+  Enumerator.new do |enum|
+    x_0 = 0
+    y_0 = 0
+
+    while x_0 < width
+      while y_0 < height
+        enum.yield [x_0, y_0, x_0 + square_size - 1, y_0 + square_size - 1]
+        y_0 += square_size
+      end
+
+      x_0 += square_size
+      y_0 = 0
+    end
+  end
+end
+
+def create_header_images(site, colours)
+  dst = site.config["destination"]
+  FileUtils.mkdir_p "#{dst}/headers"
+
+  colours.each { |c|
+    out_path = "#{dst}/headers/specktre_#{c.sub(/#/, '')}.png"
+
+    if File.file?(out_path)
+      return
+    end
+
+    colours = colours_like(c)
+    squares = squares_for(2500, 250, 50)
+
+    image = ChunkyPNG::Image.new(2500, 250)
+
+    squares.zip(colours).each { |rect, fill_colour|
+      x_0, y_0, x_1, y_1 = rect
+
+      image.rect(
+        x_0, y_0, x_1, y_1,
+        ChunkyPNG::Color.rgba(0,0,0,0),
+        ChunkyPNG::Color.rgb(
+          fill_colour.red.to_i,
+          fill_colour.green.to_i,
+          fill_colour.blue.to_i
+        )
+      )
+    }
+
+    image.save(out_path, :best_compression)
+  }
 end
