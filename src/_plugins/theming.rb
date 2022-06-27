@@ -16,8 +16,8 @@ Jekyll::Hooks.register :site, :post_write do |site|
   create_favicons(site, colours)
 
   dst = site.config["destination"]
-  FileUtils.cp("#{dst}/theme/favicon_d01c11.png", "#{dst}/theme/favicon.png")
-  FileUtils.cp("#{dst}/theme/favicon_d01c11.ico", "#{dst}/theme/favicon.ico");
+  FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
+  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico");
 
   src = site.config["source"]
 
@@ -40,8 +40,14 @@ def create_scss_themes(site, colours)
 
   converter = site.find_converter_instance(::Jekyll::Converters::Scss)
 
+  FileUtils.mkdir_p "#{dst}/styles"
+
   colours.map { |c|
-    out_file = "#{dst}/theme/style_#{c.gsub(/#/, '')}.css"
+    out_file = "#{dst}/styles/#{c.gsub(/#/, '')}.css"
+
+    if File.exist? out_file
+      next
+    end
 
     css = converter.convert(<<-EOT
 $primary-color: #{c};
@@ -59,8 +65,10 @@ def create_favicons(site, colours)
   colours.each { |c|
     dst = site.config["destination"]
 
-    ico_path = "#{dst}/theme/favicon_#{c.gsub(/#/, '')}.ico"
-    png_path = "#{dst}/theme/favicon_#{c.gsub(/#/, '')}.png"
+    FileUtils.mkdir_p "#{dst}/favicons"
+
+    ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
+    png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
 
     if File.exist? ico_path
       next
