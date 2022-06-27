@@ -20,14 +20,14 @@
   <meta name="page-source-path" content="{{ page.path }}">
 
 {% if page.theme and page.theme.color %}
-  <link rel="stylesheet" href="/theme/style_{{ page.theme.color | replace: "#", "" }}.css?h={% css_fingerprint %}">
-  <link rel="shortcut icon" type="image/png" href="/theme/favicon_{{ page.theme.color | replace: "#", "" }}.png">
-  <link rel="shortcut icon" type="image/x-icon" href="/theme/favicon_{{ page.theme.color | replace: "#", "" }}.ico">
+  <link rel="stylesheet" href="/styles/{{ page.theme.color | replace: "#", "" }}.css?h={% css_fingerprint %}">
+  <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.theme.color | replace: "#", "" }}.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.theme.color | replace: "#", "" }}.ico">
   <meta name="theme-color" content="{{ page.theme.color }}">
 
 {% else %}
-  <link rel="stylesheet" href="/theme/style.css?h={% css_fingerprint %}">
-  <link rel="shortcut icon" type="image/x-icon" href="/theme/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="/style.css?h={% css_fingerprint %}">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
   <meta name="theme-color" content="#d01c11">
 {% endif %}
 
