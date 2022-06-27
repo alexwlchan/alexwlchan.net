@@ -22,7 +22,7 @@ theme:
 then I get a version of the stylesheet that uses `#6c006c` as its primary colour, and the page loads that stylesheet instead.
 You can see an example [in my docopt slides][docopt_green].
 
-The theme colour is also used in the favicon (which has to be created manually) and in the header image (which is created automatically using [specktre][specktre]).
+The theme colour is also used in the favicon and the header image, both of which are created manually.
 
 The heavy lifting is done in [`_plugins/theming.rb`](../src/_plugins/theming.rb).
 
