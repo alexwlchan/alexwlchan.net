@@ -25,6 +25,7 @@ keep_files: [
   # Managed by the theming plugin
   "favicons", "favicon.png", "favicon.ico",
   "styles", "style.css",
+  "headers",
 ]
 
 # This is the file used by Netlify to define redirects and the custom

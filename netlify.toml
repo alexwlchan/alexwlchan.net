@@ -90,6 +90,24 @@
 		cache-control = "public, max-age=31536000"
 
 [[headers]]
+  for = "/favicons/*"
+
+  [headers.values]
+		cache-control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/styles/*"
+
+  [headers.values]
+		cache-control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/headers/*"
+
+  [headers.values]
+		cache-control = "public, max-age=31536000"
+
+[[headers]]
   for = "/theme/*"
 
   [headers.values]
