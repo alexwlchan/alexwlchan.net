@@ -75,8 +75,7 @@ This was [Numbering Bulletin 38][nb38], published in June 1999 by Ofcom's predec
 > Code: 0171<br/>
 > Number range: 946 0000 to 946 0009
 
-<s>And indeed, <code>946-0421</code> falls inside this range.</code></s>
-(Notice that the bulletin uses the post-PhONEday area code for London, not `071`.)
+<s>And indeed, <code>946-0421</code> falls inside this range.</s> (Notice that the bulletin uses the post-PhONEday area code for London, not `071`.)
 
 **Edit:** As Martin McNulty has [pointed out on Twitter](https://twitter.com/shamblepop/status/1541459799044390913), this is nonsense.
 The number doesn’t fall in this range.
