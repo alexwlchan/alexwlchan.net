@@ -75,8 +75,14 @@ This was [Numbering Bulletin 38][nb38], published in June 1999 by Ofcom's predec
 > Code: 0171<br/>
 > Number range: 946 0000 to 946 0009
 
-And indeed, `946-0421` falls inside this range.
+<a>And indeed, <code>946-0421</code> falls inside this range.</code></s>
 (Notice that the bulletin uses the post-PhONEday area code for London, not `071`.)
+
+**Edit:** As Martin McNulty has [pointed out on Twitter](https://twitter.com/shamblepop/status/1541459799044390913), this is nonsense.
+The number doesn’t fall in this range.
+You can see the precursor of the block that Ofcom now reserves, but the number used in the episode is a combination of the two ranges.
+It's got `946` from the 1999 bulletin, and `0421` from the range in the current guidance.
+(This is what I get for late night blogging!)
 
 The previous bulletin, [Numbering Bulletin 37][nb37] from November 1998, explains that Oftel was planning to assign some numbers for use in fiction, but hadn't yet done so.
 Presumably they picked a bank of as-yet unallocated numbers, but I haven't dug any further.
