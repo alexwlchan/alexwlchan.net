@@ -9,7 +9,8 @@
 /feeds/all.atom.xml /atom.xml
 
 /images/favicon.ico                 /theme/favicon.ico
-/favicon.ico                        /theme/favicon.ico
+/theme/favicon.ico                  /favicon.ico
+/theme/favicon.png                  /favicon.png
 /view/img/favicon.ico               /theme/favicon.ico
 /apple-touch-icon.png               /theme/apple-touch-icon.png
 /apple-touch-icon-precomposed.png   /theme/apple-touch-icon.png
@@ -190,6 +191,8 @@
 
 /about                              /
 /about/                             /
+
+/theme/style.css                    /style.css
 
 /notes /410.html 410
 
