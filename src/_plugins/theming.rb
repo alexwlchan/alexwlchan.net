@@ -165,7 +165,7 @@ def create_header_images(site, colours)
     out_path = "#{dst}/headers/specktre_#{c.sub(/#/, '')}.png"
 
     if File.file?(out_path)
-      return
+      next
     end
 
     colours = colours_like(c)
