@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     tweet_id = get_tweet_id_from_url(tweet_url)
     screen_name = get_screen_name_from_url(tweet_url)
-    cache_file = os.path.join("src", "_tweets", f"{screen_name}_{tweet_id}.json")
+    cache_file = os.path.join("src", "_tweets", "posts", f"{screen_name}_{tweet_id}.json")
 
     if os.path.exists(cache_file):
         sys.exit(0)
