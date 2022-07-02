@@ -166,6 +166,15 @@
     text-decoration: inherit;
   }
 
+  .twemoji {
+    width:  1.2em;
+    height: 1.2em;
+    display: inline;
+    vertical-align: -20%;
+    margin-right: 0.075em;
+    margin-left:  0.075em;
+  }
+
   blockquote,
   p {
     margin: 0;
