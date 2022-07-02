@@ -106,7 +106,7 @@ module Jekyll
 
     def avatar_path(avatar_url)
       extension = avatar_url.split(".").last  # ick
-      "#{@src}/_tweets/#{@screen_name}_#{@tweet_id}.#{extension}"
+      "#{@src}/_tweets/avatars/#{@screen_name}_#{@tweet_id}.#{extension}"
     end
 
     def create_avatar_thumbnail(avatar_url)
