@@ -101,7 +101,7 @@ module Jekyll
     end
 
     def cache_file()
-      "#{@src}/_tweets/#{@screen_name}_#{@tweet_id}.json"
+      "#{@src}/_tweets/posts/#{@screen_name}_#{@tweet_id}.json"
     end
 
     def avatar_path(avatar_url)
