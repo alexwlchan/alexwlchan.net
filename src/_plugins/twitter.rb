@@ -209,7 +209,7 @@ module Jekyll
 
       tpl.render!(
         "tweet_data" => tweet_data,
-        "alt_text" => per_tweet_alt_text,
+        "override_alt_text" => per_tweet_alt_text,
         "twitter_icon_svg" => twitter_icon_svg
       )
     end
