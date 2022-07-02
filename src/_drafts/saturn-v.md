@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A cross-stitch blueprint of the Apollo Moon missions
-summary: One small stitch for yarn, one giant leap for yarn-kind.
+title: One small stitch for yarn, one giant leap for yarn-kind
+summary: I made a cross-stitch blueprint of the Apollo Moon lander and the Saturn V rocket.
 tags: cross-stitch
 theme:
   color: "#2045a2"
