@@ -35,10 +35,6 @@ def create_scss_themes(site, colours)
   colours.map { |c|
     out_file = "#{dst}/styles/#{c.gsub(/#/, '')}.css"
 
-    if File.exist? out_file
-      next
-    end
-
     css = converter.convert(<<-EOT
 $primary-color: #{c};
 

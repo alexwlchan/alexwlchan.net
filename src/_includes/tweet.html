@@ -50,13 +50,13 @@
           <span class="avatar">
             <img src="{{ tweet_data | tweet_avatar_url }}" alt="Profile picture for @{{ screen_name }}">
           </span>
-          <span class="name" title="{{ name }}">{{ name }}</span>
+          <span class="name" title="{{ name }}">{{ name | replace_twemoji }}</span>
           <span class="screen_name" title="@{{ screen_name }}">@{{ screen_name }}</span>
         </a>
       </div>
     </div>
     <div class="body">
-      <p class="text">{{ tweet_data | render_tweet_text }}</p>
+      <p class="text">{{ tweet_data | render_tweet_text | replace_twemoji }}</p>
 
       {% if tweet_data["quoted_status"] %}
       <a href="{{ tweet_data['quoted_status_permalink']['expanded'] }}">
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="body">
-            <p class="text">{{ tweet_data["quoted_status"] | render_tweet_text }}</p>
+            <p class="text">{{ tweet_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
           </div>
         </div>
       </a>
