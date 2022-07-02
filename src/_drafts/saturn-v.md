@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A cross-stitch blueprint of the Apollo Moon missions
-summary: One small stitch for yarn, one tiny leap for yarn-kind.
+summary: One small stitch for yarn, one giant leap for yarn-kind.
 tags: cross-stitch
 theme:
   color: "#2045a2"
@@ -13,8 +13,9 @@ index:
 ---
 
 I've always been enchanted by the [Apollo lunar module][LM].
-Most spaceships are smooth, sleek, and streamlined -- but this gangly, metal spider is anything but.
-It only ever flew above the Moon, so it wasn't constrained by pesky things like atmosphere and drag, which dictate the design of most airborne vehicles.
+Most spaceships are smooth, sleek, and streamlined -- but this gangly, angular, metal spider is anything but.
+It only ever flew above the Moon, so it wasn't constrained by pesky things like atmosphere and drag, which dictate the design of most other airborne vehicles.
+I've never seen anything quite like it.
 
 Because I like it so much, I decided to make a cross-stitch version of the lander, along with the [Saturn V rocket][SV] that propelled it to the Moon, and I'm rather pleased with the result:
 
@@ -23,29 +24,27 @@ Because I like it so much, I decided to make a cross-stitch version of the lande
 It took a couple of weeks from start to finish, mostly done while catching up on television.
 
 It's based on a pattern I bought [from XStitchCollective on Etsy][etsy], who have similar patterns for the Space Shuttle and Space X Falcon rockets.
-I did make a few tweaks to the purchased design.
-I think my letter "R" is more readable, and the scale is more accurate: a real Saturn V really is about 450&times; taller than my piece, and likewise 90&times; for the payload.
+I did make a few tweaks to their design: I prefer my version of the letter "R", and the scale is more accurate.
+A real Saturn V really is about 450&times; taller than in my finished piece, and likewise a real payload is 90&times; taller.
 
 The fabric is Zweigart 14&nbsp;count Aida in Deep Royal Blue, and the thread is DMC B5200 white.
-It was framed by [Landseer Picture Framing][landseer], a local shop who make some excellent frames.
+It was framed by [Landseer Picture Framing][landseer], a local shop who do some excellent work.
 
-The stitching itself wasn't hard, but I was posting [work-in-progress pictures on Twitter][tweet], and the photography turned out to be way harder.
+The stitching itself was pretty easy, but I was posting [work-in-progress pictures on Twitter][tweet], and the photography turned out to be way harder.
 
 My only camera is an iPhone, which "helpfully" tries to correct the white balance of photos.
-When it saw the large swathes of blue fabric, it thought there was a lighting issue and aggressively adjusted the colours.
+When it saw the large swathes of blue fabric, it thought there was a lighting issue and aggressively adjusted the colours towards orange.
+I tried to correct them after the fact, but I never got it quite right.
 I've taken dozens of pictures, and they all have different shades of blue.
-<!-- (For an even worse example, [watch this video][video] where it cycles through a bunch of colours, even though I'm sat under a white duvet in a fixed light.) -->
-(The picture below has a green sheen that doesn't look quite right.)
-
-<!-- I also had to convert the photos from a P3 colour profile to sRGB before uploading them to the blog, or the colours would look wrong. -->
+(For example, the picture below has a green-ish sheen that doesn't look quite right.)
 
 {% tweet https://twitter.com/alexwlchan/status/1533882908770983943 %}
 
-But it's not all bad: I also discovered that the iPhone's OCR is now good enough to read text from a stitched image (and it's [not the first time][first_time], either).
+But it's not all bad: I also discovered that the iPhone's OCR is now good enough to read the text from the stitched image (and it's [not the first time][first_time], either).
 This still feels like magic to me.
 
 Photography woes aside, this was a really fun project to make.
-I love how the final result looks, and I'm going to enjoy seeing it on my wall.
+I love how the final result looks, and I'm going to enjoy it every time I see it on my wall.
 
 [LM]: https://en.wikipedia.org/wiki/Apollo_Lunar_Module
 [SV]: https://en.wikipedia.org/wiki/Saturn_V
