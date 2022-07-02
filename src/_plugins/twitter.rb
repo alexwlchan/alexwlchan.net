@@ -16,6 +16,7 @@
 #     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
 #
 
+require "base64"
 require "rszr"
 
 
@@ -42,6 +43,36 @@ module Jekyll
       avatar_url = tweet_data["user"]["profile_image_url_https"]
       extension = avatar_url.split(".").last  # ick
       _display_path("avatars/#{screen_name}_#{tweet_id}.#{extension}")
+    end
+
+    def replace_twemoji(text)
+      # This replaces emoji in tweets with their "twemoji" counterparts.
+      #
+      # Rather than record the entire twemoji set here, I just have a
+      # hard-coded set of rules for the twemoji I know I'm using.
+      twemoji = {
+        "😎" => "1f60e.svg",
+        "👌" => "1f44c.svg",
+        "🐦" => "1f426.svg",
+        "💻" => "1f4bb.svg",
+        "🥳" => "1f973.svg",
+        # Note: this is a surfer emoji with skin tone/gender modifiers
+        "🏄🏻‍♂️" => "1f3c4-1f3fb-200d-2642-fe0f.svg",
+        "📈" => "1f4c8.svg",
+      }
+
+      twemoji.each { |orig, svg_name|
+        base64_string = Base64.encode64(
+          File.open("src/_tweets/twemoji/#{svg_name}", "rb").read
+        ).strip
+        data_uri = "data:image/svg+xml;base64,#{base64_string}"
+        text = text.sub(
+          orig,
+          "<img class=\"twemoji\" alt=\"#{orig}\" src=\"#{data_uri}\"/>"
+        )
+      }
+
+      text
     end
 
     def render_tweet_text(tweet_data)
