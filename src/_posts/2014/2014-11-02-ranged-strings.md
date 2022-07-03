@@ -5,14 +5,18 @@ tags: python
 title: Unpacking sets and ranges from a single string
 ---
 
+<style>
+  .exampleurl { padding-left: 2em; }
+</style>
+
 I was reading the [cURL man page][curl] on Thursday. Although I didn't find what I was looking for, I did come across some rather neat syntax for specifying multiple URLs in a single string. Here's an example:
 
 > You can specify multiple URLs or parts of URLs by writing part sets within braces as in:
-
+>
 > <p class="exampleurl">http://site.**{one,two,three}**.com</p>
-
+>
 > or you can get sequences of alphanumeric series by using [] as in:
-
+>
 > <p class="exampleurl">ftp://ftp.numericals.com/file**[1-100]**.txt<br/>
 > ftp://ftp.numericals.com/file**[001-100]**.txt (with leading zeros)<br/>
 > ftp://ftp.letters.com/file**[a-z]**.txt</p>
