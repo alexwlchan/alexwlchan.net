@@ -60,8 +60,8 @@ def create_favicons(site, colours)
       next
     end
 
-    image_16 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-16x16.svg")
-    image_32 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-32x32.svg")
+    image_16 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-16x16.png")
+    image_32 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-32x32.png")
 
     Dir.mktmpdir do |tmp_dir|
       Dir.chdir(tmp_dir) do
