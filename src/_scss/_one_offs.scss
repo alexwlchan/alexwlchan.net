@@ -1,5 +1,4 @@
-// Used for bits of CSS that are used as one-offs.  Thanks to CSS slimming,
-// this doesn't adversely affect the rest of the site! :D
+// Used for bits of CSS that are used as one-offs.
 
 // Used in /2017/01/experiments-with-ao3-and-python/
 .ao3_error {
@@ -8,8 +7,8 @@
   border-radius: .25em;
   background: #efd1d1;
   box-shadow: 1px 1px 2px;
-  border: 1px solid $brand__ao3;
-  color: $brand__ao3;
+  border: 1px solid $ao3-red;
+  color: $ao3-red;
   font-size: .85em;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'GNU Unifont', Verdana, Helvetica, sans-serif;
   font-style: normal;
