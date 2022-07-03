@@ -19,6 +19,10 @@ I type a few characters in the launcher, and it offers to open the repo:
 You don't need a custom workflow to do this -- Alfred already has built-in features for [web search] and [using bookmarks] -- but to set those up, you have to click around in the GUI.
 At work, our code is scattered across a lot of different repositories, and I find it easier to manage with a script.
 
+Also, this allows me to get similar GitHub shortcuts at work and at home.
+The only way to sync the web search/bookmarks features between Macs is to [sync preferences][sync] through something like Dropbox or iCloud Drive, but I have no shared syncing between my work and personal machines -- I try to keep them somewhat isolated.
+Pushing these bookmarks into a workflow I can build separately on each Mac (and with different config) gets me consistent behaviour, wherever I'm working.
+
 I define my repos in an ini-like config file:
 
 ```
@@ -51,5 +55,6 @@ I don't know how many other people will want this exact shortcut, but there migh
 [web search]: https://www.alfredapp.com/help/features/web-search/
 [using bookmarks]: https://www.alfredapp.com/help/features/bookmarks/
 [Alfred workflow]: https://www.alfredapp.com/workflows/
+[sync]: https://www.alfredapp.com/help/advanced/sync/
 [configparser]: https://docs.python.org/3/library/configparser.html
 [ms_strings]: https://stackoverflow.com/a/11866695/1558022
