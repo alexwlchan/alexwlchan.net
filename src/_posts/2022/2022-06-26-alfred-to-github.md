@@ -21,7 +21,7 @@ At work, our code is scattered across a lot of different repositories, and I fin
 
 This also allows me to get similar GitHub shortcuts at work and at home.
 I can't use Alfred's [built-in preference syncing][sync] because I have no shared file sync between my personal and professional machines; I try to keep them isolated.
-Defining these bookmarks in a workflow I can build separately on each Mac (and with different config) gets me consistent behaviour, wherever I'm working.
+Defining these bookmarks in a workflow I can build separately on each Mac gets me consistent behaviour, wherever I'm working.
 
 I define my repos in an ini-like config file:
 
