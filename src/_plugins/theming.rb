@@ -65,6 +65,8 @@ def create_favicons(site, colours)
 
     Dir.mktmpdir do |tmp_dir|
       Dir.chdir(tmp_dir) do
+        fill_colour = Color::RGB.by_hex(c)
+
         0.upto(image_16.width - 1) do |x|
           0.upto(image_16.height - 1) do |y|
             color = ChunkyPNG::Color.rgba(
