@@ -186,6 +186,12 @@ class RunLinting < Jekyll::Command
 
       Dir["#{src_dir}/**/*.md"].each { |md_path|
 
+        # Skip some Markdown files in the source directory that aren't
+        # posts on the site and so don't need validating.
+        if md_path.end_with?("theme/_favicons/README.md")
+          next
+        end
+
         # The YAML loader will try to be "smart" (e.g. reading dates as
         # proper Ruby date types), which is unhelpful for json-schema checking.
         #
