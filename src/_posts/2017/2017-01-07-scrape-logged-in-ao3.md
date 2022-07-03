@@ -1,11 +1,25 @@
 ---
 date: 2017-01-07 23:10:00 +0000
 layout: post
-summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,
-  it might not be necessary.
+summary: AO3 doesn't have an official API for scraping data - but with a bit of Python, it might not be necessary.
 tags: python fandom
 title: Experiments with AO3 and Python
 ---
+
+<style>
+  .ao3_error {
+    margin: .643em auto;
+    padding: .25em .375em;
+    border-radius: .25em;
+    background: #efd1d1;
+    box-shadow: 1px 1px 2px;
+    border: 1px solid #900;
+    color: #900;
+    font-size: .85em;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'GNU Unifont', Verdana, Helvetica, sans-serif;
+    font-style: normal;
+  }
+</style>
 
 Recently, I've been writing some scripts that need to get data from [AO3][ao3][^1].
 Unfortunately, AO3 doesn't have an API (although it's apparently [on the roadmap][roadmap]), so you have to do everything by scraping pages and parsing HTML.
