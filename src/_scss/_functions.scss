@@ -10,8 +10,8 @@
 ///
 /// For example, #d009dc would become 'd009dc'.
 @function colorToHexString($color) {
-  $red_hex: decToHex(red($color));
+  $red_hex:   decToHex(red($color));
   $green_hex: decToHex(green($color));
-  $blue_hex: decToHex(blue($color));
+  $blue_hex:  decToHex(blue($color));
   @return to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
 }
