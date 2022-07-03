@@ -1,7 +1,7 @@
 require "chunky_png"
 require "color"
 require "fileutils"
-require "shell/executer.rb"
+require "ico"
 require "tmpdir"
 
 
@@ -48,6 +48,7 @@ end
 
 def create_favicons(site, colours)
   colours.each { |c|
+    src = site.config["source"]
     dst = site.config["destination"]
 
     FileUtils.mkdir_p "#{dst}/favicons"
@@ -59,55 +60,42 @@ def create_favicons(site, colours)
       next
     end
 
-    favicon_16_xml = <<-EOT
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16" version="1.1">
-  <line x1="1" y1="1.5" x2="4" y2="1.5" stroke-width="1" stroke="#{c}"/>
-  <line x1="1.5" y1="1" x2="1.5" y2="15" stroke-width="1" stroke="#{c}"/>
-  <line x1="1" y1="14.5" x2="4" y2="14.5" stroke-width="1" stroke="#{c}"/>
-
-  <text x="8" y="11.5" font-family="Georgia" font-size="13" text-anchor="middle"
-        dominant-baseline="middle" fill="#{c}">a</text>
-
-  <line x1="15" y1="1.5" x2="12" y2="1.5" stroke-width="1" stroke="#{c}"/>
-  <line x1="14.5" y1="1" x2="14.5" y2="15" stroke-width="1" stroke="#{c}"/>
-  <line x1="15" y1="14.5" x2="12" y2="14.5" stroke-width="1" stroke="#{c}"/>
-</svg>
-EOT
-
-favicon_32_xml = <<-EOT
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" version="1.1">
-  <line x1="2" y1="3" x2="8" y2="3" stroke-width="2" stroke="#{c}"/>
-  <line x1="3" y1="2" x2="3" y2="30" stroke-width="2" stroke="#{c}"/>
-  <line x1="2" y1="29" x2="8" y2="29" stroke-width="2" stroke="#{c}"/>
-
-  <text x="16" y="23" font-family="Georgia" font-size="26" text-anchor="middle"
-        dominant-baseline="middle" fill="#{c}">a</text>
-
-  <line x1="30" y1="3" x2="24" y2="3" stroke-width="2" stroke="#{c}"/>
-  <line x1="29" y1="2" x2="29" y2="30" stroke-width="2" stroke="#{c}"/>
-  <line x1="30" y1="29" x2="24" y2="29" stroke-width="2" stroke="#{c}"/>
-</svg>
-EOT
+    image_16 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-16x16.png")
+    image_32 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-32x32.png")
 
     Dir.mktmpdir do |tmp_dir|
       Dir.chdir(tmp_dir) do
-        File.open("favicon-16x16.svg", 'w') { |f|
-          f.write(favicon_16_xml)
-        }
+        fill_colour = Color::RGB.by_hex(c)
 
-        File.open("favicon-32x32.svg", 'w') { |f|
-          f.write(favicon_32_xml)
-        }
+        0.upto(image_16.width - 1) do |x|
+          0.upto(image_16.height - 1) do |y|
+            color = ChunkyPNG::Color.rgba(
+              fill_colour.red.to_i,
+              fill_colour.green.to_i,
+              fill_colour.blue.to_i,
+              image_16.get_pixel(x, y),
+            )
+            image_16.set_pixel(x, y, color)
+          end
+        end
 
-        Shell.execute! "convert -background none -flatten favicon-16x16.svg favicon-16x16.png"
-        Shell.execute! "convert -background none -flatten -colors 256 favicon-16x16.png favicon-16x16.ico"
+        image_16.save("favicon-16x16.png", :best_compression)
 
-        Shell.execute! "convert -background none -flatten favicon-32x32.svg favicon-32x32.png"
-        Shell.execute! "convert -background none -flatten -colors 256 favicon-32x32.png favicon-32x32.ico"
+        0.upto(image_32.width - 1) do |x|
+          0.upto(image_32.height - 1) do |y|
+            color = ChunkyPNG::Color.rgba(
+              fill_colour.red.to_i,
+              fill_colour.green.to_i,
+              fill_colour.blue.to_i,
+              image_32.get_pixel(x, y),
+            )
+            image_32.set_pixel(x, y, color)
+          end
+        end
 
-        Shell.execute! "convert favicon-16x16.ico favicon-32x32.ico favicon.ico"
+        image_32.save("favicon-32x32.png", :best_compression)
+
+        ICO.png_to_ico(["favicon-16x16.png", "favicon-32x32.png"], "favicon.ico")
       end
 
       FileUtils.mv "#{tmp_dir}/favicon-32x32.png", png_path
