@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-07-10 17:09:12 +0000
 title: A Martian plaque for a made-up plot
 summary: If NASA landed on Mars in <em>For All Mankind</em>, would they make a commemorative plaque?
 tags: trivia television
