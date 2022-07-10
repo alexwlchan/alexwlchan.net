@@ -48,7 +48,7 @@ On the Moon, the meaning of the hemispheres is obvious -- they match the blue-gr
 On Mars, it's less obvious, so I thought an illustration would be helpful.
 
 The planetary orbits are roughly based on the position of the planets in September 1994, which is the date of one of the Mars "launch windows".
-(According to [an article from 1990][article] about upcoming Soviet Mars missions, including one called *Mars 1994*, as in the show.)
+(According to [an article from 1990][article] about upcoming Soviet Mars missions, including one called *Mars 1994*.)
 The orbits are circular and evenly spaced, which is a simplification but I think it's still obvious what it means.
 
 Then I tweaked the wording from the Apollo 11 plaque.
