@@ -2,7 +2,7 @@
 layout: post
 title: A Martian plaque for a made-up plot
 summary: If NASA landed on Mars in <em>For All Mankind</em>, would they make a commemorative plaque?
-tags:
+tags: trivia television
 theme:
   color: "#495652"
   image: /images/2022/Apollo_11_plaque_closeup_on_Moon_card.jpg
