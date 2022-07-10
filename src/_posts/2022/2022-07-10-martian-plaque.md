@@ -40,7 +40,7 @@ After watching s03e05 "Seven Minutes of Terror", I found myself wondering: would
 And if so, what would it look like?
 I had some fun sketching it out:
 
-<img src="/images/2022/martian_plaque.png" style="width: 550px;" alt="A black and white graphic. At the top are two hemispheres of the Earth, and an illustration of planetary orbits. The illustration has four concentric, dashed rings with small black circles on them (representing Mercury, Venus, Earth, and Mars), with a large black circle in the centre (representing the Sun). There's an arrow pointing from Earth to Mars. Below the diagrams is the inscription ‘Here humans from the planet Earth first set foot upon Mars. March 1995. We came in peace for all humanity.’ Below that are the names and signatures of the six astronauts, plus the US president.">
+<img src="/images/2022/martian_plaque.png?t=1" style="width: 550px;" alt="A black and white graphic. At the top are two hemispheres of the Earth, and an illustration of planetary orbits. The illustration has four concentric, dashed rings with small black circles on them (representing Mercury, Venus, Earth, and Mars), with a large black circle in the centre (representing the Sun). There's an arrow pointing from Earth to Mars. Below the diagrams is the inscription ‘Here humans from the planet Earth first set foot upon Mars. March 1995. We came in peace for all humanity.’ Below that are the names and signatures of the six astronauts, plus the US president.">
 
 I started with two pictures of the Earth, copied from the Apollo 15 plaque.
 I added a simple diagram of planetary orbits, because I thought they might want to emphasise how far they'd travelled.
