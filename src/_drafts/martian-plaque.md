@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Martian plaque for a made-up plot
-summary: If NASA landed on Mars in <em>For All Mankind</em>, what would the commemorative plaque say?
+summary: If NASA landed on Mars in <em>For All Mankind</em>, would they make a commemorative plaque?
 tags:
 theme:
   color: "#495652"
@@ -14,32 +14,32 @@ index:
 *Spoilers for <em>For All Mankind</em> season 3, up to s03e05.*
 
 When NASA landed on the Moon in the 1960s and 1970s, they made [commemorative plaques] for the lunar landers.
-These plaques are still on the Moon – when the astronauts returned to Earth, the [descent stage] of the lunar module got left behind, and with it these plaques.
+Those plaques are still on the Moon – when the astronauts returned to Earth, the [descent stage] of their lunar module got left behind, and with it the plaques.
 
 The plaques include images of the Earth's surface, a date, and the signatures of the astronauts on each mission.
 For example, this is the plaque from Apollo&nbsp;11:
 
-<img src="/images/2022/Apollo_11_plaque_closeup_on_Moon.jpg" style="width: 436px;">
+<img src="/images/2022/Apollo_11_plaque_closeup_on_Moon.jpg" style="width: 436px;" alt="A metal plaque attached to a larger structure. It has two hemispheres of the Earth, followed by some text (below), and signatures of the three astronauts and the then-US president.">
 
-*"Here men from the planet Earth first set foot upon the Moon. July 1969, A. D. We came in peace for all mankind."*
+The inscription reads *"Here men from the planet Earth first set foot upon the Moon. July&nbsp;1969, A.&nbsp;D. We came in peace for all mankind."*
 
-That inscription gives the title to the TV show *For All Mankind*, which depicts an alternative history of the space race.
+That gives the title to the TV show *For All Mankind*, which depicts an alternative history of the space race.
 The Soviet Union beats NASA to the Moon, with a cosmonaut landing weeks before Neil Armstrong and Buzz Aldrin.
 The plaque is removed from Apollo 11 before launch, and ends up decorating a child's bedroom.
 
 In this timeline, the space race never ends.
 America continues to fly Apollo missions long after Apollo 17, and space exploration gets a seriously accelerated timetable -- including permanent Moon bases, nuclear rockets, and space tourism.
-It also leads to advances in social equality, including women astronauts much earlier than our timeline, and the passing of the [Equal Rights Amendment][ERA].
+It also leads to advances in social equality, including women astronauts much earlier than reality, and the passing of the [Equal Rights Amendment][ERA].
 
 By the third season, trips to the Moon have become routine.
-NASA and the Soviet Union turn their eyes to a bigger prize: a crewed mission to Mars.
+NASA and the Soviet Union turn their eyes to a bigger prize: the first crewed mission to Mars.
 It becomes a three-way race, with a private company joining the competition.
 
 After watching s03e05 "Seven Minutes of Terror", I found myself wondering: would the NASA of this timeline create a commemorative plaque for their first Mars landing?
 And if so, what would it look like?
-I had some fun imagining what it might be:
+I had some fun sketching it out:
 
-<img src="/images/2022/martian_plaque.png" style="width: 550px;">
+<img src="/images/2022/martian_plaque.png" style="width: 550px;" alt="A black and white graphic. At the top are two hemispheres of the Earth, and an illustration of planetary orbits. The illustration has four concentric, dashed rings with small black circles on them (representing Mercury, Venus, Earth, and Mars), with a large black circle in the centre (representing the Sun). There's an arrow pointing from Earth to Mars. Below the diagrams is the inscription ‘Here humans from the planet Earth first set foot upon Mars. July 1995. We came in peace for all humanity.’ Below that are the names and signatures of the six astronauts, plus the US president.">
 
 I started with two pictures of the Earth, copied from the Apollo 15 plaque.
 I added a simple diagram of planetary orbits, because I thought they might want to emphasise how far they'd travelled.
@@ -56,12 +56,13 @@ The date is a total guess.
 The three fictional missions launched in 1994, but we don't know exactly when or how long they took to get to Mars.
 They also had advanced propulsion techniques, including [nuclear engines] and [solar sails], so maybe they got there faster than we can do today.
 
+The names come from the credits of s05e04.
 I wrote the signatures myself with an ink pen, then I digitised them with my scanner.
 I tweaked the contrast and sharpness to make them look more like solid black lines, and to remove the paper texture from the scan.
 A handwriting expert could probably tell I wrote all of them, but they look different enough for me to be happy.
 
-This came to mind because I was imagining what Dani would do with her plaque.
-She won the race, and she has the right to place it on Mars -- but two of her <s>redshirts</s> crew were killed on the journey, and she picked up several Soviet stragglers along the way.
+I thought of the plaques because I was imagining what Dani would do with hers.
+She won the race, and she has every right to place it on Mars -- but two of her <s>redshirts</s> crew were killed on the journey, and she picked up several Soviet stragglers too.
 I wonder if she'd put up the plaque for the original mission, or if she'd arrange for a new plaque to reflect the crew that actually landed.
 
 I don't expect the show to answer the question (I suspect the Mars colonists have much bigger problems ahead), but I had fun imagining this little corner of its universe.
