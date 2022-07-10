@@ -40,12 +40,16 @@ After watching s03e05 "Seven Minutes of Terror", I found myself wondering: would
 And if so, what would it look like?
 I had some fun sketching it out:
 
-<img src="/images/2022/martian_plaque.png" style="width: 550px;" alt="A black and white graphic. At the top are two hemispheres of the Earth, and an illustration of planetary orbits. The illustration has four concentric, dashed rings with small black circles on them (representing Mercury, Venus, Earth, and Mars), with a large black circle in the centre (representing the Sun). There's an arrow pointing from Earth to Mars. Below the diagrams is the inscription ‘Here humans from the planet Earth first set foot upon Mars. July 1995. We came in peace for all humanity.’ Below that are the names and signatures of the six astronauts, plus the US president.">
+<img src="/images/2022/martian_plaque.png" style="width: 550px;" alt="A black and white graphic. At the top are two hemispheres of the Earth, and an illustration of planetary orbits. The illustration has four concentric, dashed rings with small black circles on them (representing Mercury, Venus, Earth, and Mars), with a large black circle in the centre (representing the Sun). There's an arrow pointing from Earth to Mars. Below the diagrams is the inscription ‘Here humans from the planet Earth first set foot upon Mars. March 1995. We came in peace for all humanity.’ Below that are the names and signatures of the six astronauts, plus the US president.">
 
 I started with two pictures of the Earth, copied from the Apollo 15 plaque.
 I added a simple diagram of planetary orbits, because I thought they might want to emphasise how far they'd travelled.
 On the Moon, the meaning of the hemispheres is obvious -- they match the blue-green marble that looms large in the sky.
 On Mars, it's less obvious, so I thought an illustration would be helpful.
+
+The planetary orbits are roughly based on the position of the planets in September 1994, which is the date of one of the Mars "launch windows".
+(According to [an article from 1990][article] about upcoming Soviet Mars missions, including one called *Mars 1994*, as in the show.)
+The orbits are circular and evenly spaced, which is a simplification but I think it's still obvious what it means.
 
 Then I tweaked the wording from the Apollo 11 plaque.
 Given that half the crew of NASA's first Mars mission are women, as are the American President (Ellen) and the Director of JSC (Margo), references to "men" and "mankind" had to go.
@@ -53,9 +57,14 @@ I think they'd want to express a similar sentiment, but with more inclusive word
 
 (Even in our timeline, NASA now recommends using "crewed" instead of "manned" to describe spaceflight that involves people.)
 
-The date is a total guess.
-The three fictional missions launched in 1994, but we don't know exactly when or how long they took to get to Mars.
-They also had advanced propulsion techniques, including [nuclear engines] and [solar sails], so maybe they got there faster than we can do today.
+<s>The date is a total guess.
+The three fictional missions launched in 1994, but we don't how long they took to get to Mars.</s>
+
+**Edit:** I realised after posting that I can make an educated guess about when they land.
+If their Mars launch windows are the same as in reality, they launched sometime in September 1994.
+They also had advanced propulsion techniques, including <a href="https://en.wikipedia.org/wiki/NERVA">nuclear engines</a> and <a href="https://en.wikipedia.org/wiki/Solar_sail">solar sails</a>, and in season 2 we hear that the engines will take "100 days off the trip".
+Recent missions have taken between six to ten months from launch to orbital insertion.
+Let's assume their advanced propulsion puts them on the fast side of that, and March 1995 seems plausible.
 
 The names come from the credits of s05e04.
 I wrote the signatures myself with an ink pen, then I digitised them with my scanner.
@@ -70,6 +79,6 @@ I don't expect the show to answer the question (I suspect the Mars colonists hav
 
 [commemorative plaques]: https://en.wikipedia.org/wiki/Lunar_plaque
 [descent stage]: https://en.wikipedia.org/wiki/Apollo_Lunar_Module#Descent_stage
-[nuclear engines]: https://en.wikipedia.org/wiki/NERVA
 [solar sails]: https://en.wikipedia.org/wiki/Solar_sail
 [ERA]: https://en.wikipedia.org/wiki/Equal_Rights_Amendment
+[article]: https://www.drewexmachina.com/2015/03/01/the-future-that-never-came-mars/
