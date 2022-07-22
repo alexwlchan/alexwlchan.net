@@ -11,91 +11,53 @@ index:
   tint_color: "#32267d"
 ---
 
-I've been using computers for at least two decades.
-The earliest files I still have are from sometime in 2003; whether that makes me very old or very young depends on your perspective.
-(There are probably readers of this blog who are younger than those files.)
+I've been using computers for about two decades.
+I still have some of my oldest files; the earliest I can definitively date are from 2003, but I'm sure they aren't the first things I made on a computer.
+(Whether I'm very old or very young depends on your perspective.)
 
 I've created a lot of stuff in that time, and I'd like to remember it.
 
-In theory, I still have all the pieces.
-When I finish a project, I move all the files to a "cold storage" folder on an external hard drive.
-That drive is always plugged in, it's neatly organised, and it's backed up -- I can usually find things when I want to.
+In theory, this is easy: I still have the files.
+These days, when I finish a project, I move everything to a cold storage folder on an external hard drive.
+That drive is neatly organised and backed up -- so I can usually find things when I want to.
 
-In practice, it's a little harder.
-Projects exist in a context, and the more time has passed, the harder a context is to replicate.
+In practice, it's a bit harder.
+Having files is one thing; being able to use them is quite another.
 
-My oldest documents were made in Microsoft Word on an iMac G3 running Mac OS 9.
-I can open them in a modern word processor, and they look somewhat similar -- but it's definitely not the same.
+For example, those oldest documents were made in Microsoft Word on an iMac G3 running Mac OS 9.
+I can open them in a modern word processor, and they look similar -- but it's not the same.
+Some of the fonts and graphics are missing, and I don't know where I'd find replacements.
 
+Working in software makes this even harder.
+I might have the code, but I can't do anything useful with it.
+Getting a well-documented, actively maintained, modern software project up and running is tricky enough.
+It's even trickier for a poorly-documented side project I abandoned years ago.
 
----
+Files exist in a context: they rely on particular hardware and software to be readable.
+The more time passes, the harder a context is to replicate.
+It is possible to emulate older systems, but it's more effort than I'm going to spend for the sake of some memories.
 
-in theory, i still have all the pieces
-I have a folder called "cold storage" where I put files for projects I've finished working on
+**Screenshots are how I remember my old projects.**
+I have dozens and dozens of screenshots of things I've made (and a handful of screen recordings, too).
+They form a gallery of fun, silly and interesting things I've done on my computer.
 
-in practice, having the files isn't the same as seeing the thing
-a lot of stuff needs an env to run in, and I don't have that env any more
+I often look back through the images, and smile at what my past self worked on.
+Sometimes they remind me of a project I've completely forgotten.
+Sometimes I reflect on how I've changed, and how past!me made different decisions to what I'd do now.
+Sometimes I'll spot a cool idea and bring it into a current project.
 
-earliest documents are Microsoft Word 2001 running on Mac OS 9 from imac g3
-i could rebuild something close to that environment
-would need to track down software and fonts; not the same thing
-
-also been programming for a decade
-getting a well-documented, modern program up and running is tricky enough
-a barely-documented side project from five years ago, getting all deps + software in place?
-next to impossible
-
-could i do it?
-yes
-will i do it?
-no, not worth effort
-
-screenshots are the way out
-i have dozens and dozens of screenshots of things i've made (and a handful of screen recordings)
-art gallery of interesting and fun things i've done on my computer
-
-I do look back through it sometimes and smile at what my past self would have done
-past!me made very different decisions to present!me
-sometimes better now, sometimes i'll be reminded of something cool I did and bring that back in a current project
-all sorts of stuff i get from looking back
-
-a sort of "visual journal" of my work
-best time ot get these is as you're doing the work -- when the thing is wokring correctly
+These screenshots form a sort of "visual journal" of my work, and the best time to take them is as I'm doing the work -- when I have the required context.
 
 <img src="/images/2022/screenshots_thumbnails.png" style="width: 595px;">
 
-every one of these images tells a story of something I worked on
-it's not as good as trhe origina thing, but it's much better than nothing
+Every one of these images tells a story of something I made.
+They're not as good as having the original, working thing -- but they're much better than nothing.
 
-eventually image formats will change too, but that's on a much longer timescale
-images are robust, stable format you'll be able to read for a long time
+Eventually image formats will change too, but that's on a much longer timescale.
+Images are a robust, stable format that I'll be able to read for a long time.
 
-very rare that i regret having a screenshot; there are plenty of things i regret not screenshotting more
-(e.g. i realise I have screenshots of different projects, but not of the software or desktop i look at every day)
-stuff i'm immersed in isn't recorded at all
+It's rare that I regret having a screenshot, but there are plenty of things I regret not screenshotting more.
+For example, I have screenshots of things I specifically made, but not of the desktop setup I look at every day.
+A lot of the stuff I'm immersed in isn't recorded at all.
 
-if you do digital creative work, you probably make things you're proud of or that you'd like to remember
-screenshots are a great way to do that.
-
-
----
-
-
-PS If you do any sort of creative digital work, take plenty of screenshots.
-
-I can skim through a folder full of PNG images and look at my old work, grimace at past mistakes, see how much I’ve improved.
-
-It’s much harder to run old projects, start long-abandoned code, and so on.
-
-
-<img src="/images/2022/screenshots_folder.png" style="width: 590px;">
-
-
-
-
-This, but I call that new folder “fun” instead of “archive”.
-
-I mostly keep screenshots and images, as a sort of art gallery of silly and amusing things I’ve done with my computer. I do look back through it sometimes and chuckle at the humour of my past self.
-
-
-https://twitter.com/alexwlchan/status/1536246961283670016
+**If you do digital creative work, you probably make things you're proud of or that you'd like to remember. Screenshots are a great way to do that.**
