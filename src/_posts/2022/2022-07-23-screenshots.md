@@ -42,7 +42,7 @@ I have dozens and dozens of screenshots of things I've made (and a handful of sc
 They're a sort of "visual journal" of fun, silly and interesting things I've done on my computer.
 Here's just a handful:
 
-<img src="/images/2022/screenshots_thumbnails.png" style="width: 595px;" alt="A folder showing a grid of screenshots. Each screenshot has a small preview of its contents (too small to make out in detail), and a filename showing when it was taken. They range from December 2015 to February 2021.">
+<img src="/images/2022/screenshots_thumbnails_1x.png" srcset="/images/2022/screenshots_thumbnails_1x.png 1x, /images/2022/screenshots_thumbnails_2x.png 2x" style="width: 595px;" alt="A folder showing a grid of screenshots. Each screenshot has a small preview of its contents (too small to make out in detail), and a filename showing when it was taken. They range from December 2015 to February 2021.">
 
 Each of these images tells a story of something I made.
 They're not as good as having the original, working thing -- but they're much better than nothing.
