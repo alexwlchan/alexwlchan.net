@@ -274,9 +274,9 @@ If you want to see all of my talks, I have [a complete list](/elsewhere#talks-an
 <dl>
   <dt><a href="https://2020.pyconuk.org/">PyCon UK</a></dt>
   <dd>
-    Since 2016, I’ve been one of the organisers of PyCon UK, a community conference celebrating the use of Python in the UK.
-    I’ve worn many hats in this role, including organising the schedule, maintaining the website, and helping at the reception desk.
-    The conference is currently on hiatus because of COVID-19, but I hope to return as an organiser in 2022.
+    I helped to organise PyCon UK from 2016 to 2022.
+    PyCon UK is a community conference celebrating the use of Python in the UK.
+    I worn many hats in this role, including organising the schedule, maintaining the website, and helping at the reception desk.
   </dd>
 
   <dt><a href="https://alexwlchan.net/ideas-for-inclusive-events/">Ideas for inclusive events</a></dt>
