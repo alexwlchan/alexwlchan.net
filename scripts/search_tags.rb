@@ -13,6 +13,10 @@ require "yaml"
 tally = Hash.new(0)
 
 Dir.glob("src/**/*.md") do |path|
+  if path == "src/theme/_favicons/README.md"
+    next
+  end
+
   metadata = YAML.load_file(path)
   tags = metadata["tags"]
 
