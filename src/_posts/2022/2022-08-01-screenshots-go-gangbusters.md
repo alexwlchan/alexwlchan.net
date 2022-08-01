@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-08-01 08:21:03 +0000
 title: A surprise smattering of stardom
 summary: My last post was surprisingly popular; a few reflections on the experience.
 tags: blogging-about-blogging
