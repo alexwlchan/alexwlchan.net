@@ -11,17 +11,13 @@ index:
 My previous post [about taking more screenshots][screenshots] has resonated with a lot of people.
 It got thousands of impressions on Twitter, and at one point it was #2 on the Hacker News homepage:
 
-<img src="/images/2022/hn_screenshot_2x.png" srcset="/images/2022/hn_screenshot_2x.png 2x, /images/2022/hn_screenshot_1x.png 1x">
+<img src="/images/2022/hn_screenshot_2x.png" srcset="/images/2022/hn_screenshot_2x.png 2x, /images/2022/hn_screenshot_1x.png 1x" alt="A screenshot of the Hacker News homepage, with my post in the second slot from the top.">
 
 I was a bit surprised: most of my posts are only read by a handful of people.
-This is by design, or at least inaction: because this blog is a hobby project, I haven't done anything to grow a big audience.
-I have a small audience of mostly friends, and that's enough for me.
-
 In hindsight, I can see why this post had broad appeal, but when I was writing I thought it would get a similar reception to my other posts.
 This isn't the first time one of my posts has become popular, but it still feels unusual.
 
-It's always a bit odd when a post escapes my small corner of the Internet.
-I brace myself for negativity or slurs from the wider web, but this experience was broadly positive.
+Whenever a post escapes my small corner of the Internet, I brace myself for negativity and cynicism, but this experience was broadly positive.
 Most of the comments I saw were constructive and thoughtful, and many people shared stories of their own projects they'd preserved through screenshots.
 
 It was also relatively stress-free.
@@ -50,11 +46,11 @@ There were several reasons for the switch, and performance was one of them.
 The VPS was quite slow to serve pages, and it struggled when lots of people were trying to get to the site.
 (For small values of "lots"; I don't think I'd configured nginx properly.)
 
-If I was still using my server, I think the site would have been ["hugged to death"][hug] by the traffic spike.
+If I was still using my VPS, I think the site would have been ["hugged to death"][hug].
 Netlify handled it fine; as far as I know the site stayed up all weekend.
 I never worried about the site going down, or felt the need to monitor it.
 
-That's what good infrastructure should be: dial-tone reliable, something you rarely think about.
+That's what good infrastructure should be: reliable enough that I never need to care.
 
 [VPS]: https://en.wikipedia.org/wiki/Virtual_private_server
 [Netlify]: https://www.netlify.com
@@ -63,7 +59,7 @@ That's what good infrastructure should be: dial-tone reliable, something you rar
 ## Static HTML and CSS: good
 
 I build this site the "old-fashioned" way: I have static HTML pages, with a smidgen of CSS and images for decoration.
-This undoubtedly helped the site stay up: there was no central server or shared resource to fall over when under load.
+This undoubtedly helped the site stay up: there was no central server or shared resource to fall over.
 
 ## The cost of serving my post: sad
 
@@ -72,6 +68,8 @@ I published the post on Saturday; on Sunday I woke up to an email from Netlify:
 > Your bandwidth usage on your team (alexwlchan) has reached 50% of the current allowance in your billing cycle from July 17 to August 17.
 >
 > If bandwidth usage goes over the allowance before the end of the billing cycle, we’ll add an **extra bandwidth pack for $55**, increasing your allowance by **100GB** for the current billing cycle.
+
+This came in around 4am; by the time I read it, I was at 97%. Eek.
 
 I was on the Netlify Starter plan, which is free and comes with 100GB of bandwidth per month.
 Normally I use a fraction of that; this post burnt through it in a day.
@@ -85,7 +83,7 @@ I'll be fine, it's just strange.
 
 I could stick a free CDN like Cloudflare in front of the site, which would cost much less.
 I've resisted this in the past because it felt unnecessary, but I might have to revisit that.
-If I'm going to do it, I should do it before another post gets popular -- trying to insert a CDN while the site is under load feels like a recipe for outages.
+If I'm going to do it, I should do it before another post gets popular -- trying to insert a CDN during a spike feels like a recipe for outages.
 
 ## Forgetting to optimise my images: bad
 
@@ -98,8 +96,8 @@ That reduced the image to a much more manageable 147KB, and my bandwidth usage h
 
 Normally I'm pretty good about keeping page weight down, and I'm proud of that.
 (One person even commented about how fast it felt!)
-The rest of the post is 39KB, which is *tiny* by modern web standards.
-I just got unlucky that I forgot to optimise the images when a post went viral.
+The rest of the post is just 39KB, which is *tiny* by modern web standards.
+I got unlucky that I forgot to optimise the images on this occasion.
 
 This made my bandwidth problem worse, but even without the image I might have blown my cap.
 
@@ -111,9 +109,9 @@ I don't know if there will be a next time; I'm terrible at predicting which post
 It could be next week, or it could be never.
 
 Designing my blog to handle "viral" traffic has always felt like a premature optimisation (air quotes because this was still very small by Internet standards) -- but the unexpected Netlify bandwidth bill has me rethinking that.
-I don't want to wake up, discover a post went truly viral while I was asleep, and realise I'm facing hundreds of dollars in bandwidth usage fees.
+I don't want to wake up, discover a post went properly viral while I was asleep, and realise I'm facing hundreds of dollars in bandwidth usage fees.
 
 I'll probably set up Cloudflare when I have some time, to give me peace of mind.
 
 Otherwise, I'm not planning to change much.
-I'll keep posting as I always have, and I'll find out what catches the Internet's eye.
+I'll keep posting as I always have, and be pleasantly surprised if anything else catches the Internet's eye.
