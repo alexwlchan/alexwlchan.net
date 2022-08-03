@@ -13,7 +13,7 @@ First I buy the ticket, then I download an e-ticket with a QR code that I scan a
 Normally this works fine, and I buy the ticket on my way to the station.
 Today, Trainline had other ideas:
 
-<img src="/images/2022/guest_headers_2x.png" srcset="/images/2022/guest_headers_2x.png 2x, /images/2022/guest_headers_1x.png 1x">
+<img src="/images/2022/guest_headers_2x.png" srcset="/images/2022/guest_headers_2x.png 2x, /images/2022/guest_headers_1x.png 1x" alt="An error message dialog. ‘This is awkward. Token not provided in guest headers.’">
 
 They could take my money!
 They just couldn't give me a ticket.
