@@ -1,8 +1,8 @@
 ---
 layout: post
 date: 2020-10-12 18:02:18 +0000
-title: The importance of good error messages
-summary: An Excel mistake shows why learning to write good error messages is a critical skill for software developers
+title: The danger of bad error messages
+summary: An Excel mistake shows why learning to write good error messages is a critical skill for software developers.
 tags: programming
 index:
   image: /images/2020/excel_truncation_error_1x.png
