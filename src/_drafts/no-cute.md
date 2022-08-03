@@ -2,7 +2,7 @@
 layout: post
 title: Cut out the cutesy errors
 summary: If your app has just ruined my day, I need help, not humour.
-tags:
+tags: programming
 theme:
   card_type: summary_large_image
   image: /images/2022/guest_headers_card.png
