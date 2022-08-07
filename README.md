@@ -23,10 +23,10 @@ The site uses:
 *   [Netlify], which hosts the site
 
 When I want to make a change, I open a pull request.
-This triggers a build with Azure Pipelines, and as part of the build it checks the HTML with [HTMLProofer].
+This triggers a build with GitHub Actions, and as part of the build it checks the HTML with [HTMLProofer].
 This checks for missing alt text, broken links, invalid HTML, and so on.
 
-If the site passes checks, it's [automatically merged by GitHub Actions][automerge], and the build on the `live` branch publishes the change to Netlify.
+If the site passes checks, it's [automatically merged][automerge], and the build on the `live` branch publishes the change to Netlify.
 
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
