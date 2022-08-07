@@ -105,7 +105,7 @@ I was particularly tickled by how the model of Earth has a light side and a dark
 After Mars the planets start to really space out, and more than once I wondered aloud if we'd gotten lost and were drifting off into the uncharted wilderness of <s>northeast Cambridge</s> deep space.
 Fortunately, there were signs at various points to tell us to keep going, that we were indeed heading along the right path.
 
-But we did find Jupiter on the edge of Stourbridge Common, along with my favourite planet model of the series:
+We found Jupiter on the edge of Stourbridge Common, along with my favourite planet model:
 
 <div class="grid wide_img">
   <div class="item left">
