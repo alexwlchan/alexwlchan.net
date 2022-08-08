@@ -73,6 +73,12 @@ Here are some posts I've written recently:
   }
 </style>
 
+{% comment %}
+  For consistency with the "all posts" page, any blog posts that don't
+  set an explicit colour get tinted the default red on the homepage.
+{% endcomment %}
+{% assign is_index = true %}
+
 <ul class="post_cards">
 {% for post in best_posts %}
   {% include post_card.html %}

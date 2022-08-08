@@ -1,8 +1,10 @@
-{% if post.index.tint_color or post.theme.color %}
+{% if post.index.tint_color or post.theme.color or is_index %}
   {% if post.index.tint_color %}
     {% assign color = post.index.tint_color %}
-  {% else %}
+  {% elsif post.theme.color %}
     {% assign color = post.theme.color %}
+  {% else %}
+    {% assign color = "#d01c11" %}
   {% endif %}
 <style>
   #{{ post.slug }}.card {
@@ -43,7 +45,6 @@
 
 <li class="card{% if post.index.best_of %} best_of{% endif %}" id="{{ post.slug }}">
   <a href="{{ post.url }}">
-
     {% comment %}
       Intentionally omit the alt text on promos, so screen reader users
       don't have to listen to the alt text before hearing the title
