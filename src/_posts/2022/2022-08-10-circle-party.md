@@ -17,8 +17,6 @@ I've never actually written an SVG curve from scratch; just modified a curve som
 
 This is the sort of thing I want:
 
-{% inline_svg "_images/2022/circle_card.svg" %}
-
 <figure style="max-width: 600px;">
   {% inline_svg "_images/2022/circle_diagram.svg" %}
 </figure>
