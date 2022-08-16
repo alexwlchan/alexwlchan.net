@@ -21,8 +21,8 @@ It's a collection of brightly coloured squares, each with its own geometric patt
 I got the pattern from [issue 6 of Xstitch Magazine][issue6], and it was made by Arlene Cohen, who goes by the handle [WorksByABC].
 The pattern includes a full list of materials and threads, and I got it mounted by [Landseer Picture Framing].
 
-The magazine entry explains that these patterns weren't chosen at random -- they were taken from an 1856 design book *The Grammar of Ornament*, and based on patterns found in Egyptian art.
-I found a [digitised copy of the book][digitised], which has several plates featuring similar squares.
+The magazine entry explains that these squares weren't chosen at random -- they were taken from an 1856 design book *The Grammar of Ornament*, and based on patterns found in Egyptian art.
+I found a [digitised copy of the book][digitised], which has several plates featuring similar designs.
 
 <style>
   #grid {
@@ -42,9 +42,9 @@ I can spot some of the squares from the cross-stitch pattern in the digitised pl
 
 One of the reasons I enjoy cross-stitch is that I can just follow the instructions in the pattern, and soon I have something that looks nice.
 This piece exemplifies that more than most -- once I'd worked out the repetition, I could keep stitching without having to refer back to the cross-stitch pattern.
-Indeed, I even spotted a few mistakes in the cross-stitch pattern.
+Indeed, I even spotted a few places where the cross-stitch pattern deviated from the repetition, and I was able to fix hem.
 
-This isn't my biggest or most interesting piece, but it was fun to make and it adds a splash of colour to a previously blank wall.
+This isn't my biggest or most interesting piece, but it was fun and easy to make, and it adds a splash of colour to a previously blank wall.
 
 [issue6]: https://xstitchmag.com/product/issue-6/
 [WorksByABC]: https://www.worksbyabc.com/
