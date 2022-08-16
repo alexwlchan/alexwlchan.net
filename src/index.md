@@ -15,30 +15,32 @@ theme:
 
 ## Hi, I'm Alex.
 
-I'm a software developer at [Wellcome Collection][wellcome], a free museum and library in London.
-I help to search and store [the collections][collections], with a particular interest in digital preservation.
+I've put a bunch of things on the Internet, including:
 
-I have a fairly active online presence -- I [tweet a lot](https://twitter.com/alexwlchan), and [my blog](/best-of/) is where I share ideas that don't fit into a tweet.
-You can read my posts on the web, or subscribe to them [as an RSS feed](/atom.xml).
+*   [My personal blog](/all-posts/), which covers a range of topics, including programming, photography, colour theory, and Chinese dictionaries
 
-I write about anything I find interesting or fun -- there's plenty of programming, but lots of other stuff too.
-Past topics include [accessibility](/2019/01/monki-gras-the-curb-cut-effect/), [Chinese dictionaries](/2019/06/reading-a-chinese-dictionary/), and [Welsh waterfalls](/2018/11/aberdulais-waterfall/).
+*   Everything I do for [Wellcome Collection](/projects/#wellcome-collection), a museum and library where I'm part of a team working on digital preservation, the website, and the online catalogue.
 
-If you'd like to see everything I've been up to, my [projects page](/projects/) is a good starting point.
-It includes links to everything I've published online.
+*   A bunch of open-source tools and utilities, including for [managing my scanned files](https://github.com/alexwlchan/docstore), finding the [dominant colours in an image](https://github.com/alexwlchan/dominant_colours), and [web scraping for AO3](https://github.com/alexwlchan/ao3).
+
+*   Silly art projects, like measuring [data in floppy disks](https://howlongismydata.glitch.me/), or controlling a rocket [with the &lt;marquee&gt; tag](https://marquee-rocket.glitch.me/).
+
+*   My [Twitter feed](https://twitter.com/alexwlchan), where I share work-in-progress and think out loud about new ideas.
+
+This site is a one-stop shop for everything I've made -- it's either here, or linked to from here.
+
+If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
 
 I'm trans, genderfluid, and my pronouns vary.
-If you're not sure, "they/them" is a safe default.
+If we're strangers, "they/them" is a safe default.
 
 I hope you enjoy the site.
 
-[wellcome]: https://wellcomecollection.org/
-[collections]: https://wellcomecollection.org/collections
-
-
+{% separator "leaf.svg" %}
 
 ## Blog posts
 
+I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
 Here are some posts I've written recently:
 
 {% assign best_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
@@ -87,10 +89,11 @@ Here are some posts I've written recently:
 
 You can see [more of my blog posts](/all-posts/), or [subscribe to the RSS feed](/atom.xml).
 
+{% separator "leaf.svg" %}
+
 ## Contact
 
 You can email me at {{ site.emails.personal | create_mailto_link }}, or I'm [@alexwlchan](https://twitter.com/alexwlchan) on Twitter.
 
-For anything related to Wellcome, email {{ site.emails.wellcome | create_mailto_link }}.
-
-If you enjoy what I write, perhaps [say thanks](/say-thanks/)?
+If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
+I always love hearing from readers! ☺️
