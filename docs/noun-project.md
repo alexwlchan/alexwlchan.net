@@ -6,6 +6,12 @@ That license means I don't have to attribute the icons, but this is an (possibly
 
 <table>
   <tr>
+    <td><img src="icons/noun-leaf-5077343.png"></td>
+    <td><a href="https://thenounproject.com/icon/leaf-5077343/">Leaf</a>, by SUCI UTOMO</td>
+  </tr>
+
+
+  <tr>
     <td><img src="icons/noun-paintbrush-2861542.png"></td>
     <td><a href="https://thenounproject.com/icon/paintbrush-2861542/">Paintbrush</a>, by nawicon</td>
   </tr>
