@@ -27,7 +27,7 @@ I've put a bunch of things on the Internet, including:
 
 *   My [Twitter feed](https://twitter.com/alexwlchan), where I share work-in-progress and think out loud about new ideas.
 
-This site is a one-stop shop for everything I've made on the web -- everything I've done is either here, or linked to from here.
+This site is a one-stop shop for everything I've made -- it's either here, or linked to from here.
 
 If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
 
