@@ -4,6 +4,9 @@ date: 2018-07-01 20:12:48 +0000
 title: My favourite iMac accessory
 tags: imac hardware
 summary: Adding a USB extension cable to my iMac makes a world of difference.
+index:
+  image: /images/2018/usb_extender_card.jpg
+  tint_color: "#857f71"
 ---
 
 I [moved house recently][move], and this evening I was setting up my iMac.
