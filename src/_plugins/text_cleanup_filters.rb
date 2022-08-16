@@ -48,6 +48,7 @@ module Jekyll
       # NN minutes
       text = text.gsub(/(\d+) (second|minute|hour)/, '\1&nbsp;\2')
 
+      text = text.gsub(/issue (\d+)/, 'issue&nbsp;\1')
       text = text.gsub(/Apollo (\d{3})/, 'Apollo&nbsp;\1')
       text = text.sub("iPhone X", "iPhone&nbsp;X")
       text = text.sub("JPEG 2000", "JPEG&nbsp;2000")
