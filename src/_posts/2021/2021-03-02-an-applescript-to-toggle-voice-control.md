@@ -3,7 +3,15 @@ layout: post
 date: 2021-03-02 13:17:55 +0000
 title: An AppleScript to toggle Voice Control
 tags: applescript macos accessibility
+summary: Making it slightly easier for me to enable and disable Voice Control quickly.
+index:
+  image: /images/2021/macos-catalina-mba-voice-control-mic-overlay.jpg
+  tint_color: "#595c80"
 ---
+
+{% comment %}
+Card image: https://support.apple.com/en-gb/HT210539
+{% endcomment %}
 
 On my Mac, I do a lot of writing using speech-to-text dictation.
 I can speak much faster than I can type, so it gets my ideas on the page sooner, and then I tidy things up with a keyboard and mouse.
