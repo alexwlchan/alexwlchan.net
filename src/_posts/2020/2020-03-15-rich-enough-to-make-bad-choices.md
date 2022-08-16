@@ -4,7 +4,14 @@ date: 2020-03-15 08:30:18 +0000
 title: Rich enough to make bad choices
 summary: If you're rich, not only can you invest in good boots, you can also invest in experimental boot-making startups.
 tags: notebook
+index:
+  image: /images/2020/boots_card.jpg
+  tint_color: "#16282d"
 ---
+
+{% comment %}
+Card image: https://www.pexels.com/photo/pair-of-black-lace-up-boots-on-area-rug-1467574/
+{% endcomment %}
 
 Although I've never read any Terry Pratchett, one idea from his writing that's penetrated my consciousness is the Vimes "Boots" theory of socioeconomic unfairness.
 
