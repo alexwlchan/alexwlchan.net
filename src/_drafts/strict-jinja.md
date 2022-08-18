@@ -14,9 +14,9 @@ I was doing some work with the templating library [Jinja] recently, and I was co
 This is a simplified version of my project:
 
 ```python
-import Jinja
+import jinja2
 
-t = Jinja.Template("""
+t = jinja2.Template("""
 {% raw %}{% for copy in book_availablity %}
   {{ copy }}
 {% endfor %}{% endraw %}
@@ -41,13 +41,13 @@ Aren't computers meant to do this for me?
 After a bit of reading, I found the Jinja documentation for [undefined values], which explains that if I pass `undefined=StrictUndefined`, it will warn me about any undefined template variables:
 
 ```python
-import Jinja
+import jinja2
 
-t = Jinja.Template("""
+t = jinja2.Template("""
 {% raw %}{% for copy in book_availablity %}
   {{ copy }}
 {% endfor %}{% endraw %}
-""", undefined=Jinja.StrictUndefined)
+""", undefined=jinja2.StrictUndefined)
 
 print(t.render(book_availability=["copy 1", "copy 2", "copy 3"]))
 ```
