@@ -4,6 +4,11 @@ date: 2021-08-22 07:40:23 +0000
 title: Finding misconfigured or dangling CloudWatch Alarms
 summary: A Python script that finds CloudWatch Alarms which are based on a now non-existent source.
 tags: amazon-cloudwatch python
+theme:
+  card_type: summary_large_image
+  image: /images/2021/cloudwatch-alarms-card.png
+index:
+  tint_color: "#B0084D"
 ---
 
 At work, we use a lot of [CloudWatch Alarms][alarms].
