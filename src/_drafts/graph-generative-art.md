@@ -1,32 +1,109 @@
 ---
 layout: post
-title: Generating art from grid graphs and spanning trees
-summary: Randomly selecting edges from complete grids can make pretty pictures.
+title: Generating art from lattice graphs and spanning trees
+summary: Randomly selecting edges from graphs can make pretty pictures.
 tags: generative-art
 ---
+
+<style>
+  /*
+    By default, this is a grid that's four columns wide, but on narrow screens
+    (i.e. mobile), I shrink it to two columns so it remains readable.
+
+    I think I might do a checkerboard pattern on the 4-wide layout, and I want
+    to retain that on the 2-wide layout, so I need to swap the 3rd/4th in every row.
+
+    e.g. if I have
+
+        X1 .2 X3 .4
+        .5 X6 .7 X8
+
+    then on the mobile layout I want
+
+        X1 .2
+        .4 X3
+        X6 .5
+        .7 X8
+
+    I swap the orders with `grid-column` properties, then the `grid-auto-flow`
+    stops there being gaps in the grid.
+  */
+  .grid_4up {
+    max-width: 650px;
+    margin-left:  auto;
+    margin-right: auto;
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: auto auto auto auto;
+  }
+
+  .grid_4up a {
+    line-height: 0;
+  }
+
+  .grid_4up svg {
+    max-width: 100%;
+  }
+
+  @media screen and (max-width: 500px) {
+    .checkerboard {
+      grid-template-columns: auto auto;
+      grid-auto-flow: dense;
+    }
+
+    .checkerboard svg:nth-child(4n+3),
+    .checkerboard svg:nth-child(8n+5) {
+      grid-column: 2 / 2;
+    }
+
+    .checkerboard svg:nth-child(4n),
+    .checkerboard svg:nth-child(8n+6) {
+      grid-column: 1 / 2;
+    }
+  }
+</style>
 
 A couple of weeks ago, I went to see my sister playing percussion in a brass band [at the Proms][late_prom].
 While I was on the train home, I had an idea for a fun art project.
 I sketched it out on a napkin, got it working, posted a few pictures on Twitter, then ran out of time.
 
-Today I'm sitting in the foyer of the Birmingham Symphony Hall, waiting to watch her play in another band at [the British Open][open].
-I finally have some time to revisit those ideas, and write them up properly.
+Today I'm sitting in the foyer of the Birmingham Symphony Hall, ready to watch her play in another band at [the British Open][open].
+While I'm waiting for her to start, I have some time to revisit those ideas, and write them up properly.
 
 (There's a lesson here about how art begets more art.)
 
 These are a few of the pictures I was able to make:
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.5%202.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.8.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/vines.1.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.16.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.11.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.23.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:42:24%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.10.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.21.svg">
+<div class="grid_4up checkerboard">
+  <a href="/images/2022/graph-art/brown_char_1.svg">
+    {% inline_svg "_images/2022/graph-art/brown_char_1.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/lime_circles.svg">
+    {% inline_svg "_images/2022/graph-art/lime_circles.svg" %}
+  </a>
+  <a href="images/2022/graph-art/purple_diamond.svg">
+    {% inline_svg "_images/2022/graph-art/purple_diamond.svg" %}
+  </a>
+  <a href="images/2022/graph-art/yellow_keyhole.svg">
+    {% inline_svg "_images/2022/graph-art/yellow_keyhole.svg" %}
+  </a>
+  <a href="images/2022/graph-art/blue_circle_quadrants.svg">
+    {% inline_svg "_images/2022/graph-art/blue_circle_quadrants.svg" %}
+  </a>
+  <a href="images/2022/graph-art/cream_clock.svg">
+    {% inline_svg "_images/2022/graph-art/cream_clock.svg" %}
+  </a>
+  <a href="images/2022/graph-art/red_nuclear.svg">
+    {% inline_svg "_images/2022/graph-art/red_nuclear.svg" %}
+  </a>
+  <a href="images/2022/graph-art/green_octagon.svg">
+    {% inline_svg "_images/2022/graph-art/green_octagon.svg" %}
+  </a>
+</div>
 
 In this post, I'm going to explain my ideas and thinking, and share the code I used to make them.
+
+(All the images are inline SVGs; you can right click and "View source" to see how they're made.)
 
 [late_prom]: https://www.theguardian.com/music/2022/aug/13/bbc-proms-30-32-tredegar-band-review-hms-pinafore-opera-holland-park-ohp-poulenc-double-bill-glyndebourne
 [open]: https://www.4barsrest.com/news/54320/bands-ready-for-british-open-return
@@ -243,4 +320,8 @@ I mentioned earlier that some of the patterns look like the walls of a maze.
 These wouldn't actually work as mazes, but it feels like this isn't too far from a maze generator.
 Maybe if you used this to create the negative space, not the walls?
 
-the code is on github, tho most of it is for
+I made these with some scrappy Python scripts, using [networkx] for the graph algorithms and generating the SVG code by hand.
+I've put all the code [on GitHub][github]
+
+[github]: https://github.com/alexwlchan/art-from-spanning-trees
+
