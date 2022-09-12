@@ -1,9 +1,9 @@
-<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="background-color: #00132e;">
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="background-color: #001e47;">
 
     <defs>
       <style>
         #blue_circle_quadrants path {
-          stroke: #1476ff;
+          stroke: #6bd5ff;
           stroke-width: 0.26165988178983873;
           stroke-linecap: round;
           fill: none;

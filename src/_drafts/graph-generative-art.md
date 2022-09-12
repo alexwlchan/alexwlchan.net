@@ -1,8 +1,11 @@
 ---
 layout: post
-title: Generating art from lattice graphs and spanning trees
-summary: Randomly selecting edges from graphs can make pretty pictures.
+title: Generating art from lattice graphs
+summary: Randomly selecting a subset of edge from a graph can make pretty pictures.
 tags: generative-art
+theme:
+  card_type: summary_large_image
+  image: /images/2022/graph_gen_art_card.png
 ---
 
 <style>
@@ -103,66 +106,31 @@ These are a few of the pictures I was able to make:
 
 In this post, I'm going to explain my ideas and thinking, and share the code I used to make them.
 
-(All the images are inline SVGs; you can right click and "View source" to see how they're made.)
-
 [late_prom]: https://www.theguardian.com/music/2022/aug/13/bbc-proms-30-32-tredegar-band-review-hms-pinafore-opera-holland-park-ohp-poulenc-double-bill-glyndebourne
 [open]: https://www.4barsrest.com/news/54320/bands-ready-for-british-open-return
 
 
 
-## The background theory
+## The basic idea
 
-This project is based on an idea from [graph theory].
-If you already know what a *minimum spanning tree* is, you can skip to the next section.
-If not, read on.
+In maths, a *graph* is a structure made up of vertices and edges.
+Here's a simple example:
 
-In maths, a *graph* is a structure made up of *vertices* (also called points or nodes) and *edges* (links or lines).
-It represents the relationship between pairs of points.
+<figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
+  {% inline_svg "_images/2020/complex_graph.svg" %}
+</figure>
 
-For example, you could use a graph to model the paths between some towns.
-The towns are the vertices, and the paths are the edges.
+My idea was to start with a graph and delete a random subset of edges.
+(In particular, I'm assigning random weights to edges then finding a minimal spanning tree.
+This gets a graph where all the edges are connected, but there are no loops.)
 
-<img src="./images/graph1.png">
+If I picked starting graphs with a certain structure, I thought I could get some fun pictures.
 
-If you assign a weight or cost to each edge, it becomes a *weighted graph*.
-This could represent, say, the time it takes to walk along each path.
+I used the [networkx Python library][networkx] to do all the graph logic, then I wrote my own template logic to render the graphs as SVGs.
+All the images are inline SVGs, so you can right click and "View source" to see how they're drawn.
+I'll link to the code at the end of the post.
 
-<img src="./images/weighted_graph.png">
-
-A *spanning tree* is a subgraph that connects every vertex to every other vertex, and which doesn't contain any loops.
-This is a "minimally connected" version of the graph -- if you removed any more edges, there would be vertices that are no longer connected.
-
-<img src="./images/spanning_tree.png">
-
-A single graph may have multiple spanning trees.
-
-A [*minimum spanning tree*][mst] is a spanning tree of a weighted graph that minimises the total weight of all the edges.
-
-<img src="./images/min_spanning_tree.png">
-
-There are lots of practical uses for minimum spanning trees.
-
-For example, if you wanted to connect your towns by roads, you might start by building along the minimum spanning tree.
-It connects all the towns but minimises the total cost of your new road network.
-
-There are plenty of algorithms for finding minimum spanning trees, which I'm not going to explain here.
-For this project, I used the [networkx library], which includes implementations of several such algorithms -- I used those rather than writing my own.
-
-[graph theory]: https://en.wikipedia.org/wiki/Graph_theory
-[mst]: https://en.wikipedia.org/wiki/Minimum_spanning_tree
-[networkx library]: https://pypi.org/project/networkx/
-
-
-
-## The idea
-
-This is my basic idea:
-
-1.  Take an input graph
-2.  Assign random weights to its edges
-3.  Find a minimum spanning tree
-
-By picking different input graphs, I thought I could make some interesting pictures.
+[networkx]: https://networkx.org/
 
 
 
