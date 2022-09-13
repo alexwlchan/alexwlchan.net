@@ -65,13 +65,19 @@ index:
       grid-auto-flow: dense;
     }
 
-    .checkerboard svg:nth-child(4n+3),
-    .checkerboard svg:nth-child(8n+5) {
+    .checkerboard svg:nth-child(8n+3),
+    .checkerboard a:nth-child(8n+3),
+    .checkerboard svg:nth-child(8n+5),
+    .checkerboard a:nth-child(8n+5),
+    .checkerboard svg:nth-child(8n),
+    .checkerboard a:nth-child(8n) {
       grid-column: 2 / 2;
     }
 
-    .checkerboard svg:nth-child(4n),
-    .checkerboard svg:nth-child(8n+6) {
+    .checkerboard svg:nth-child(8n+6),
+    .checkerboard a:nth-child(8n+6),
+    .checkerboard svg:nth-child(8n+7),
+    .checkerboard a:nth-child(8n+7) {
       grid-column: 1 / 2;
     }
   }
@@ -79,7 +85,7 @@ index:
 
 A couple of weeks ago, I went to see my sister playing percussion in a brass band [at the Proms][late_prom].
 While I was on the train home, I had an idea for a fun art project.
-I sketched it out on a napkin, got it working, posted a few pictures on Twitter, then ran out of time.
+I sketched it out on a napkin, got it working, posted a few pictures on Twitter, then put it down.
 
 Today I'm sitting in the foyer of the Birmingham Symphony Hall, ready to watch her play in another band at [the British Open][open].
 While I'm waiting for her to start, I have some time to revisit those ideas, and write them up properly.
@@ -115,7 +121,7 @@ These are a few of the pictures I was able to make:
   </a>
 </div>
 
-I think these are pretty fun and varied: I'm surprised by how much variation I got from a single idea.
+I think these are pretty fun, and I'm surprised by how much variation I got from a single idea.
 In this post, I'm going to explain my ideas and thinking, and share the code I used to make them.
 
 [late_prom]: https://www.theguardian.com/music/2022/aug/13/bbc-proms-30-32-tredegar-band-review-hms-pinafore-opera-holland-park-ohp-poulenc-double-bill-glyndebourne
@@ -125,7 +131,7 @@ In this post, I'm going to explain my ideas and thinking, and share the code I u
 
 ## The basic idea
 
-In maths, a *graph* is a structure made up of vertices and edges.
+In maths, a [*graph*](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) is a structure made up of vertices and edges.
 Here's a simple example:
 
 <figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
@@ -302,8 +308,9 @@ These are a few of my favourites:
 
 I especially like the blue hexagon, which feels like the topdown view of some sort of seafaring vessel.
 
-In hindsight, something that's visible in this set (and becomes more visible in later sets) is that fewer spokes are better.
-You're more likely to get visually striking patterns when there aren't many spokes; when there are more spokes the shapes get more crowded and noisy.
+On reflection, I can already see that "less is more".
+Some of the most striking images are those with just a few spokes, or just a few rings -- as those numbers increase, the shapes get more crowded and noisy.
+You're less likely to get an interesting pattern.
 
 
 
@@ -371,7 +378,9 @@ I had a lot of fun generating these images.
 
 These feel like designs out of science-fiction: the red circles feels evocative of radiation warnings, and several of them look like radar scanning screens (especially the dark green).
 As the spoke count increases, some of them feel like large mazes.
-The thin yellow lines is one of my favourites, because it reminds me of a key hole.
+The thin yellow line is one of my favourites, because it reminds me of a key hole.
+
+Once again, I think some of the most striking images are those with just a few spokes and rings.
 
 [curved_arcs]: /2022/08/circle-party/
 
@@ -410,7 +419,6 @@ This matches the spider-web emoji, where the individual arcs bend towards the ce
 </div>
 
 This got even more fun when I allowed arcs to bend alternately in and out, creating some extremely funky patterns.
-(I think there are also a few images here where I mixed in code to randomly delete nodes in the input graphs, which is why there are a few gaps.)
 
 <div class="grid_4up checkerboard">
   <a href="images/2022/graph-art/swirly.svg">
@@ -445,22 +453,26 @@ At one point I had this running in a background window, generating a new image e
 
 ## Further ideas
 
-I have a bunch more thoughts for what I could do next, although I have no immediate plans to do so -- I proved the initial idea is workable, and I got some pretty pictures.
-That's enough for now.
-
 The only limit here is the graphs you start with: the stranger the input, the stranger the output.
-Here I've worked exclusively with uniform lattice graphs, but this technique should be usable on any graph.
+I have a bunch of ideas for other variations I could try, including:
 
-I did consider adding markers to the leaf nodes (the end of lines), to make them look more like traditional graph illustrations.
+* rotating the initial graph
+* allowing for non-uniform gaps between spokes/rings in the radial lattice
+* adding markers to the leaf nodes
+* systematically deleting chunks of the original graph, say alternate spokes
+
+I have no immediate plans to work on this any further -- I proved the initial idea is workable, and I got some pretty pictures.
+That's enough for now.
 
 I mentioned earlier that some of the patterns look like the walls of a maze.
 These wouldn't actually work as mazes, but it feels like this isn't too far from a maze generator.
 Maybe if you used this to create the negative space, not the walls?
 
-I made these with some scrappy Python scripts, using [networkx] for the graph algorithms and generating the SVG code by hand.
-I've put all the code [on GitHub][github]
+I made these with some scrappy Python scripts, using [networkx] for the graph logic and generating the SVG markup with string templates.
+I've put the code [on GitHub][github], although it's not documented.
+
+There's no point or greater moral to this post; I just made some pictures that I think are pretty and interesting.
+They don't serve a purpose, and that's okay.
+I spend a lot of time doing work on the computer, and it's nice to use it for fun things too.
 
 [github]: https://github.com/alexwlchan/art-from-spanning-trees
-
-
-rotation
