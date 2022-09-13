@@ -17,7 +17,7 @@
 		</title>
 
 
-<svg x="0" y="0" class="blue_hexagon">
+<svg class="blue_hexagon">
 <path d="M 6,6 L 6.0,5.0"/>
 <path d="M 6.866025403784438 5.5 L 7.732050807568877 5.0"/>
 <path d="M 6,6 L 6.866025403784438,5.5"/>

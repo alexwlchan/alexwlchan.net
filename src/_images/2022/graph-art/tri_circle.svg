@@ -16,7 +16,7 @@
 			It looks vaguely like some sort of radar scanner.
 		</title>
 
-<svg x="0" y="0" class="tri_circle">
+<svg class="tri_circle">
 <path d="M 12.133974596215563 13.5 A 1 1 0 0 1 13.0 12.0"/>
 <path d="M 13.0 12.0 A 1 1 0 0 1 13.86602540378444 13.5"/>
 <path d="M 13,13 L 12.13397459621556,13.5"/>

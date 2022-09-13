@@ -6,6 +6,8 @@ tags: generative-art
 theme:
   card_type: summary_large_image
   image: /images/2022/graph_gen_art_card.png
+index:
+  image: /images/2022/graph_gen_art_card_transparent.png
 ---
 
 <style>
@@ -113,6 +115,7 @@ These are a few of the pictures I was able to make:
   </a>
 </div>
 
+I think these are pretty fun and varied: I'm surprised by how much variation I got from a single idea.
 In this post, I'm going to explain my ideas and thinking, and share the code I used to make them.
 
 [late_prom]: https://www.theguardian.com/music/2022/aug/13/bbc-proms-30-32-tredegar-band-review-hms-pinafore-opera-holland-park-ohp-poulenc-double-bill-glyndebourne

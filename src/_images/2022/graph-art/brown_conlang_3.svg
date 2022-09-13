@@ -16,7 +16,7 @@
 			There's a distinct "left" and "right" half to the graphic, both forming distinct shapes on either side.
 		</title>
 
-<svg x="0" y="0" class="brown3">
+<svg class="brown3">
 <path d="M 1,1 L 2,1"/>
 <path d="M 2,1 L 2,2"/>
 <path d="M 1,2 L 2,2"/>
