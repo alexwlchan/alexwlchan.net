@@ -16,7 +16,7 @@
 			Although every line is straight, there's enough of them that the overall pattern looks a bit like a circle.
 		</title>
 
-<svg x="0" y="0" class="orange_many_gon">
+<svg class="orange_many_gon">
 <path d="M 12.0 11.0 L 12.0 10.0"/>
 <path d="M 12.406736643075801 11.0864545423574 L 12.8134732861516 10.1729090847148"/>
 <path d="M 12,12 L 11.048943483704846,11.690983005625053"/>

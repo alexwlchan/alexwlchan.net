@@ -16,7 +16,7 @@
 			The lines form a sort of curved pentagon shape, with three lines coming out of the central point that make it look vaguely like a clock.
 		</title>
 
-<svg x="0" y="0" id="cream_clock">
+<svg id="cream_clock">
 <path d="M 6,6 L 6.0,5.0"/>
 <path d="M 6,6 L 6.951056516295154,5.6909830056250525"/>
 <path d="M 6.951056516295154 5.6909830056250525 L 7.902113032590307 5.381966011250105"/>

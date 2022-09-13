@@ -16,7 +16,7 @@
 			The lines are arranged at right angles or 45 degrees to each other, and look a bit like a vine hanging down a long wall.
 		</title>
 
-<svg x="0" y="0" class="vines3">
+<svg class="vines3">
 <path d="M 1,1 L 2,1"/>
 <path d="M 1,1 L 1,2"/>
 <path d="M 2,1 L 3,1"/>

@@ -16,7 +16,7 @@
 			The lines are quite thin, and appear to be creating a shape in an approximation of a clockwise spiral.
 		</title>
 
-<svg x="0" y="0" class="brown1">
+<svg class="brown1">
 <path d="M 1,1 L 2,1"/>
 <path d="M 1,1 L 1,2"/>
 <path d="M 2,1 L 2,2"/>

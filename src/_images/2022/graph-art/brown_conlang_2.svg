@@ -16,7 +16,7 @@
 			The lines are very thick.
 		</title>
 
-<svg x="0" y="0" class="brown2">
+<svg class="brown2">
 <path d="M 1,1 L 1,2"/>
 <path d="M 2,1 L 3,1"/>
 <path d="M 2,1 L 2,2"/>

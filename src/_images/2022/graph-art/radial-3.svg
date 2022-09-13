@@ -15,7 +15,7 @@
 		Three concentric grey rings, with three spokes going from the centre to the outermost ring.
 	</title>
 
-<svg x="0" y="0" class="radial">
+<svg class="radial">
 <path d="M 4.0 3.0 A 1 1 0 0 1 4.866025403784439 4.5"/>
 <path d="M 4,4 L 4.0,3.0"/>
 <path d="M 3.1339745962155616 4.5 A 1 1 0 0 1 3.9999999999999996 3.0"/>
