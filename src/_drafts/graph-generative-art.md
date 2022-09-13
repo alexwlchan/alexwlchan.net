@@ -44,13 +44,22 @@ theme:
     line-height: 0;
   }
 
+  .grid_4up a:hover {
+    background: none;
+  }
+
   .grid_4up svg {
     max-width: 100%;
   }
 
   @media screen and (max-width: 500px) {
-    .checkerboard {
+    .grid_4up {
       grid-template-columns: auto auto;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .checkerboard {
       grid-auto-flow: dense;
     }
 
@@ -78,8 +87,8 @@ While I'm waiting for her to start, I have some time to revisit those ideas, and
 These are a few of the pictures I was able to make:
 
 <div class="grid_4up checkerboard">
-  <a href="/images/2022/graph-art/brown_char_1.svg">
-    {% inline_svg "_images/2022/graph-art/brown_char_1.svg" %}
+  <a href="/images/2022/graph-art/brown_conlang_4.svg">
+    {% inline_svg "_images/2022/graph-art/brown_conlang_4.svg" %}
   </a>
   <a href="/images/2022/graph-art/lime_circles.svg">
     {% inline_svg "_images/2022/graph-art/lime_circles.svg" %}
@@ -137,22 +146,42 @@ I'll link to the code at the end of the post.
 ## Input graph #1: a square lattice
 
 My initial napkin sketch had a [square lattice].
-These are some of the pictures I was able to make:
+By deleting edges at random (but keeping the graph connected), these are some of the pictures I was able to make:
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/Wed%2010%20Aug%202022%2006:17:49%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/Wed%2010%20Aug%202022%2006:17:56%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/Wed%2010%20Aug%202022%2006:17:59%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/Wed%2010%20Aug%202022%2006:18:12%20BST.svg">
+<div class="grid_4up">
+  <a href="/images/2022/graph-art/grey_conlang_1.svg">
+    {% inline_svg "_images/2022/graph-art/grey_conlang_1.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_conlang_2.svg">
+    {% inline_svg "_images/2022/graph-art/grey_conlang_2.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_conlang_3.svg">
+    {% inline_svg "_images/2022/graph-art/grey_conlang_3.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_conlang_4.svg">
+    {% inline_svg "_images/2022/graph-art/grey_conlang_4.svg" %}
+  </a>
+</div>
 
 When I shared them on Twitter, somebody compared them to the characters of a [conlang ("constructed language")][conlang].
 I quite liked the comparison, so I drew another batch with an earthy brown and varying stroke widths:
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.6%202.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.8%202.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.4%202.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.5%202.svg">
+<div class="grid_4up">
+  <a href="/images/2022/graph-art/brown_conlang_1.svg">
+    {% inline_svg "_images/2022/graph-art/brown_conlang_1.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/brown_conlang_2.svg">
+    {% inline_svg "_images/2022/graph-art/brown_conlang_2.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/brown_conlang_3.svg">
+    {% inline_svg "_images/2022/graph-art/brown_conlang_3.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/brown_conlang_4.svg">
+    {% inline_svg "_images/2022/graph-art/brown_conlang_4.svg" %}
+  </a>
+</div>
 
-To me, this second set feels vaguely evocative of Chinese characters.
+To me, these images feel vaguely evocative of Chinese characters, or kanji.
 
 [conlang]: https://en.wikipedia.org/wiki/Constructed_language
 [square lattice]: https://en.wikipedia.org/wiki/Square_lattice
@@ -161,16 +190,28 @@ To me, this second set feels vaguely evocative of Chinese characters.
 
 ## Input graph #2: triangular lattice
 
-I drew my square lattices using a networkx function called `grid_2d_graph`; I tried a similar-sounding function called [`triangular_lattice_graph`][tri_lattice].
+When I was drawing the square lattices, I used a networkx function called `grid_2d_graph`.
+While reading the documentation, I discovered another function called [`triangular_lattice_graph`][tri_lattice].
+I had no idea a triangular lattice graph was, but it dropped straight into my code, and I decided to try it.
 
-That gave me a set of patterns that felt evocative of creeping vines on a wall, so I coloured them green:
+That gave me a set of patterns that felt like creeping vines on a wall, so I coloured them green:
 
 [tri_lattice]: https://networkx.org/documentation/stable/reference/generated/networkx.generators.lattice.triangular_lattice_graph.html?highlight=triangular+lattice#networkx.generators.lattice.triangular_lattice_graph
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/vines.3.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/vines.2.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/vines.1.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/vines.0.svg">
+<div class="grid_4up">
+  <a href="/images/2022/graph-art/vines.0.svg">
+    {% inline_svg "_images/2022/graph-art/vines.0.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/vines.1.svg">
+    {% inline_svg "_images/2022/graph-art/vines.1.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/vines.2.svg">
+    {% inline_svg "_images/2022/graph-art/vines.2.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/vines.3.svg">
+    {% inline_svg "_images/2022/graph-art/vines.3.svg" %}
+  </a>
+</div>
 
 
 
