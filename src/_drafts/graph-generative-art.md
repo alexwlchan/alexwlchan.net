@@ -87,8 +87,8 @@ A couple of weeks ago, I went to see my sister playing percussion in a brass ban
 While I was on the train home, I had an idea for a fun art project.
 I sketched it out on a napkin, got it working, posted a few pictures on Twitter, then put it down.
 
-Today I'm sitting in the foyer of the Birmingham Symphony Hall, ready to watch her play in another band at [the British Open][open].
-While I'm waiting for her to start, I have some time to revisit those ideas, and write them up properly.
+On Saturday I was sitting in the foyer of the Birmingham Symphony Hall, ready to watch her play in another band at [the British Open][open].
+While I was waiting for her to start, I had some time to revisit those ideas, and write them up properly.
 
 (There's a lesson here about how art begets more art.)
 
@@ -460,6 +460,7 @@ I have a bunch of ideas for other variations I could try, including:
 * allowing for non-uniform gaps between spokes/rings in the radial lattice
 * adding markers to the leaf nodes
 * systematically deleting chunks of the original graph, say alternate spokes
+* create filled segments, not just lines
 
 I have no immediate plans to work on this any further -- I proved the initial idea is workable, and I got some pretty pictures.
 That's enough for now.
