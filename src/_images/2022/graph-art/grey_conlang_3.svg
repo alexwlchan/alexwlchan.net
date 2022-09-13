@@ -1,7 +1,7 @@
 <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
 	<defs>
 	  <style>
-	    .grey_conlang path {
+	    .grey_conlang line {
 	      stroke: #aaa;
 	      stroke-width: 1;
 	      stroke-linecap: round;

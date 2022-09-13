@@ -192,7 +192,7 @@ To me, these images feel vaguely evocative of Chinese characters, or kanji.
 
 When I was drawing the square lattices, I used a networkx function called `grid_2d_graph`.
 While reading the documentation, I discovered another function called [`triangular_lattice_graph`][tri_lattice].
-I had no idea a triangular lattice graph was, but it dropped straight into my code, and I decided to try it.
+I had no idea a triangular lattice graph was, but it dropped straight into my code, so I tried it.
 
 That gave me a set of patterns that felt like creeping vines on a wall, so I coloured them green:
 
@@ -219,64 +219,154 @@ That gave me a set of patterns that felt like creeping vines on a wall, so I col
 
 I wanted to try using spiderweb-like diagrams as the input; I thought they'd look fun:
 
-<img src="images/radial_lattice.png">
+<div class="grid_4up">
+  <a href="/images/2022/graph-art/radial-3.svg">
+    {% inline_svg "_images/2022/graph-art/radial-3.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/radial-5.svg">
+    {% inline_svg "_images/2022/graph-art/radial-5.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/radial-8.svg">
+    {% inline_svg "_images/2022/graph-art/radial-8.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/radial-20.svg">
+    {% inline_svg "_images/2022/graph-art/radial-20.svg" %}
+  </a>
+</div>
 
-Initially I fixed the number of rings at 4, and let the number of spokes vary.
-It took a bit more time to work out the bugs, but I really like the results.
+Although I wanted to use circles, drawing the curved arcs proved to be a bit tricky, so I started with straight lines between spokes.
+I fixed the number of rings at 4, and just varied the number of spokes.
+I also experimented with removing the central point, which creates a sort of "open" core.
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:14:00%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:14:36%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:14:35%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:18:00%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:23:14%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2012:54:14%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:22:49%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2007:23:17%20BST.svg">
+It took a bit of time to work out the bugs, but I really like the results:
+
+<div class="grid_4up checkerboard">
+  <a href="/images/2022/graph-art/grey_lattice_1.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_1.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_2.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_2.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_4.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_4.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_3.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_3.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_5.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_5.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_6.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_6.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_7.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_7.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/grey_lattice_8.svg">
+    {% inline_svg "_images/2022/graph-art/grey_lattice_8.svg" %}
+  </a>
+</div>
 
 Then I added even more randomness: varying the number of rings, the colour, and the stroke width.
 These are a few of my favourites:
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.11.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.13.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.14.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:51:57%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.9.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.17.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:42:33%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:42:48%20BST.svg">
+<div class="grid_4up checkerboard">
+  <a href="images/2022/graph-art/purple_diamond.svg">
+    {% inline_svg "_images/2022/graph-art/purple_diamond.svg" %}
+  </a>
+  <a href="images/2022/graph-art/pink_pentagon.svg">
+    {% inline_svg "_images/2022/graph-art/pink_pentagon.svg" %}
+  </a>
+  <a href="images/2022/graph-art/light_heptagon.svg">
+    {% inline_svg "_images/2022/graph-art/light_heptagon.svg" %}
+  </a>
+  <a href="images/2022/graph-art/blue_hexagon.svg">
+    {% inline_svg "_images/2022/graph-art/blue_hexagon.svg" %}
+  </a>
+  <a href="images/2022/graph-art/ghost_heptagon.svg">
+    {% inline_svg "_images/2022/graph-art/ghost_heptagon.svg" %}
+  </a>
+  <a href="images/2022/graph-art/orange_many_gon.svg">
+    {% inline_svg "_images/2022/graph-art/orange_many_gon.svg" %}
+  </a>
+  <a href="images/2022/graph-art/minimal_triangle.svg">
+    {% inline_svg "_images/2022/graph-art/minimal_triangle.svg" %}
+  </a>
+  <a href="images/2022/graph-art/green_octagon.svg">
+    {% inline_svg "_images/2022/graph-art/green_octagon.svg" %}
+  </a>
+</div>
 
 I especially like the blue hexagon, which feels like the topdown view of some sort of seafaring vessel.
+
+In hindsight, something that's visible in this set (and becomes more visible in later sets) is that fewer spokes are better.
+You're more likely to get visually striking patterns when there aren't many spokes; when there are more spokes the shapes get more crowded and noisy.
 
 
 
 ## Input graph #4: radial lattice with curves
 
-As you crank up the number of spokes in a radial lattice, it starts to approximate a circle -- so what if I could actually do proper curves in the lattice?
-This took a bit more work, which ended up [as a separate post][curved_arcs].
+As you crank up the number of spokes in a radial lattice, it starts to approximate a circle -- so I wondered if I could actually do proper curves in the lattice?
+This requires the ability to draw arbitrary curved arcs, which took a bit more work, and ended up [as a separate post][curved_arcs].
 
 Honourable mention to these image, which was created when I didn't set a `fill` attribute properly.
 I didn't take this any further, but the opportunity for slices of a second colour feels like an interesting idea to explore.
 
-<img src="https://spanning-tree-art.netlify.app/images/circle_Wed%2010%20Aug%202022%2006:53:08%20BST.svg">
+<style>
+  a.nohover:hover {
+    background: none;
+  }
+</style>
+
+<figure style="max-width: 157px;">
+  <a href="images/2022/graph-art/experimental.svg" class="nohover">
+    {% inline_svg "_images/2022/graph-art/experimental.svg" %}
+  </a>
+</figure>
 
 Once I had the code for curves working, adding it to the radial lattice was fairly straightforward.
 I had a lot of fun generating these images.
-I also played with the idea of removing the central vertex, and having an "open" core.
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.10.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.12.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.8.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.16.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.46.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.7.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.36.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.57.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.3.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:51:48%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.50.svg">
+<div class="grid_4up checkerboard">
+  <a href="images/2022/graph-art/yellow_busy.svg">
+    {% inline_svg "_images/2022/graph-art/yellow_busy.svg" %}
+  </a>
+  <a href="images/2022/graph-art/red_nuclear.svg">
+    {% inline_svg "_images/2022/graph-art/red_nuclear.svg" %}
+  </a>
+  <a href="images/2022/graph-art/green_radar.svg">
+    {% inline_svg "_images/2022/graph-art/green_radar.svg" %}
+  </a>
+  <a href="/images/2022/graph-art/lime_circles.svg">
+    {% inline_svg "_images/2022/graph-art/lime_circles.svg" %}
+  </a>
+  <a href="images/2022/graph-art/yellow_keyhole.svg">
+    {% inline_svg "_images/2022/graph-art/yellow_keyhole.svg" %}
+  </a>
+  <a href="images/2022/graph-art/pink_half_circle.svg">
+    {% inline_svg "_images/2022/graph-art/pink_half_circle.svg" %}
+  </a>
+  <a href="images/2022/graph-art/orange_circle.svg">
+    {% inline_svg "_images/2022/graph-art/orange_circle.svg" %}
+  </a>
+  <a href="images/2022/graph-art/lavendar_pentagram.svg">
+    {% inline_svg "_images/2022/graph-art/lavendar_pentagram.svg" %}
+  </a>
+  <a href="images/2022/graph-art/tri_circle.svg">
+    {% inline_svg "_images/2022/graph-art/tri_circle.svg" %}
+  </a>
+  <a href="images/2022/graph-art/turquoise_busy.svg">
+    {% inline_svg "_images/2022/graph-art/turquoise_busy.svg" %}
+  </a>
+  <a href="images/2022/graph-art/purple_semicircle.svg">
+    {% inline_svg "_images/2022/graph-art/purple_semicircle.svg" %}
+  </a>
+  <a href="images/2022/graph-art/blue_quarters.svg">
+    {% inline_svg "_images/2022/graph-art/blue_quarters.svg" %}
+  </a>
+</div>
 
-These feel like designs out of science-fiction: the red circles feels evocative of radiation warnings, and several of them look like radar scanning screens (especially the teal).
+These feel like designs out of science-fiction: the red circles feels evocative of radiation warnings, and several of them look like radar scanning screens (especially the dark green).
 As the spoke count increases, some of them feel like large mazes.
 The thin yellow lines is one of my favourites, because it reminds me of a key hole.
 
@@ -289,27 +379,62 @@ The thin yellow lines is one of my favourites, because it reminds me of a key ho
 For a final variation, I tried using concave curves in the lattice.
 This matches the spider-web emoji, where the individual arcs bend towards the centre of the circle, rather than outward.
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.55.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.21.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.45.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.48.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.53.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:41:25%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:42:54%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:49:40%20BST.svg">
+<div class="grid_4up checkerboard">
+  <a href="images/2022/graph-art/four_point_curve.svg">
+    {% inline_svg "_images/2022/graph-art/four_point_curve.svg" %}
+  </a>
+  <a href="images/2022/graph-art/spider_hex.svg">
+    {% inline_svg "_images/2022/graph-art/spider_hex.svg" %}
+  </a>
+  <a href="images/2022/graph-art/purple_spider.svg">
+    {% inline_svg "_images/2022/graph-art/purple_spider.svg" %}
+  </a>
+  <a href="images/2022/graph-art/octo_spider.svg">
+    {% inline_svg "_images/2022/graph-art/octo_spider.svg" %}
+  </a>
+  <a href="images/2022/graph-art/orange_spider.svg">
+    {% inline_svg "_images/2022/graph-art/orange_spider.svg" %}
+  </a>
+  <a href="images/2022/graph-art/silver_spider.svg">
+    {% inline_svg "_images/2022/graph-art/silver_spider.svg" %}
+  </a>
+  <a href="images/2022/graph-art/green_spider.svg">
+    {% inline_svg "_images/2022/graph-art/green_spider.svg" %}
+  </a>
+  <a href="images/2022/graph-art/ochre_spider.svg">
+    {% inline_svg "_images/2022/graph-art/ochre_spider.svg" %}
+  </a>
+</div>
 
 This got even more fun when I allowed arcs to bend alternately in and out, creating some extremely funky patterns.
 (I think there are also a few images here where I mixed in code to randomly delete nodes in the input graphs, which is why there are a few gaps.)
 
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.25.svg">
-<img style="width: 150px; display: inline;" src="
-https://spanning-tree-art.netlify.app/images/out.43.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.23.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:41:24%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:42:24%20BST.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.42.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out.22.svg">
-<img style="width: 150px; display: inline;" src="https://spanning-tree-art.netlify.app/images/out_Thu%2011%20Aug%202022%2022:41:47%20BST.svg">
+<div class="grid_4up checkerboard">
+  <a href="images/2022/graph-art/swirly.svg">
+    {% inline_svg "_images/2022/graph-art/swirly.svg" %}
+  </a>
+  <a href="images/2022/graph-art/inverse_three_points.svg">
+    {% inline_svg "_images/2022/graph-art/inverse_three_points.svg" %}
+  </a>
+  <a href="images/2022/graph-art/blue_circle_quadrants.svg">
+    {% inline_svg "_images/2022/graph-art/blue_circle_quadrants.svg" %}
+  </a>
+  <a href="images/2022/graph-art/curvy_hexagon.svg">
+    {% inline_svg "_images/2022/graph-art/curvy_hexagon.svg" %}
+  </a>
+  <a href="images/2022/graph-art/cream_clock.svg">
+    {% inline_svg "_images/2022/graph-art/cream_clock.svg" %}
+  </a>
+  <a href="images/2022/graph-art/orange_starburst.svg">
+    {% inline_svg "_images/2022/graph-art/orange_starburst.svg" %}
+  </a>
+  <a href="images/2022/graph-art/purple_splodge.svg">
+    {% inline_svg "_images/2022/graph-art/purple_splodge.svg" %}
+  </a>
+  <a href="images/2022/graph-art/red_heptagon.svg">
+    {% inline_svg "_images/2022/graph-art/red_heptagon.svg" %}
+  </a>
+</div>
 
 At one point I had this running in a background window, generating a new image every thirty seconds, which made for a fun bit of decoration.
 
@@ -334,3 +459,5 @@ I've put all the code [on GitHub][github]
 
 [github]: https://github.com/alexwlchan/art-from-spanning-trees
 
+
+rotation
