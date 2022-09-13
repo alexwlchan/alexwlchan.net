@@ -1,0 +1,36 @@
+<svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg" style="background-color: #ffece0;">
+
+    <defs>
+      <style>
+        .brown3 path {
+          stroke: #a33f00;
+          stroke-width: 0.20518357023090597;
+          stroke-linecap: round;
+          fill: none;
+        }
+      </style>
+    </defs>
+
+		<title>
+			A graphic made of connected dark brown lines on a light brown background.
+			There's a distinct "left" and "right" half to the graphic, both forming distinct shapes on either side.
+		</title>
+
+<svg class="brown3">
+<path d="M 1,1 L 2,1"/>
+<path d="M 2,1 L 2,2"/>
+<path d="M 1,2 L 2,2"/>
+<path d="M 3,1 L 4,1"/>
+<path d="M 3,1 L 3,2"/>
+<path d="M 2,2 L 2,3"/>
+<path d="M 2,2 L 3,2"/>
+<path d="M 1,3 L 1,4"/>
+<path d="M 1,3 L 2,3"/>
+<path d="M 3,2 L 3,3"/>
+<path d="M 3,3 L 4,3"/>
+<path d="M 3,3 L 3,4"/>
+<path d="M 2,4 L 3,4"/>
+<path d="M 3,4 L 4,4"/>
+<path d="M 4,2 L 4,3"/>
+</svg>
+</svg>
