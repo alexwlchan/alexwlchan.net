@@ -101,22 +101,22 @@ These are a few of the pictures I was able to make:
   <a href="/images/2022/graph-art/lime_circles.svg">
     {% inline_svg "_images/2022/graph-art/lime_circles.svg" %}
   </a>
-  <a href="images/2022/graph-art/purple_diamond.svg">
+  <a href="/images/2022/graph-art/purple_diamond.svg">
     {% inline_svg "_images/2022/graph-art/purple_diamond.svg" %}
   </a>
-  <a href="images/2022/graph-art/yellow_keyhole.svg">
+  <a href="/images/2022/graph-art/yellow_keyhole.svg">
     {% inline_svg "_images/2022/graph-art/yellow_keyhole.svg" %}
   </a>
-  <a href="images/2022/graph-art/blue_circle_quadrants.svg">
+  <a href="/images/2022/graph-art/blue_circle_quadrants.svg">
     {% inline_svg "_images/2022/graph-art/blue_circle_quadrants.svg" %}
   </a>
-  <a href="images/2022/graph-art/cream_clock.svg">
+  <a href="/images/2022/graph-art/cream_clock.svg">
     {% inline_svg "_images/2022/graph-art/cream_clock.svg" %}
   </a>
-  <a href="images/2022/graph-art/red_nuclear.svg">
+  <a href="/images/2022/graph-art/red_nuclear.svg">
     {% inline_svg "_images/2022/graph-art/red_nuclear.svg" %}
   </a>
-  <a href="images/2022/graph-art/green_octagon.svg">
+  <a href="/images/2022/graph-art/green_octagon.svg">
     {% inline_svg "_images/2022/graph-art/green_octagon.svg" %}
   </a>
 </div>
@@ -280,28 +280,28 @@ Then I added even more randomness: varying the number of rings, the colour, and 
 These are a few of my favourites:
 
 <div class="grid_4up checkerboard">
-  <a href="images/2022/graph-art/purple_diamond.svg">
+  <a href="/images/2022/graph-art/purple_diamond.svg">
     {% inline_svg "_images/2022/graph-art/purple_diamond.svg" %}
   </a>
-  <a href="images/2022/graph-art/pink_pentagon.svg">
+  <a href="/images/2022/graph-art/pink_pentagon.svg">
     {% inline_svg "_images/2022/graph-art/pink_pentagon.svg" %}
   </a>
-  <a href="images/2022/graph-art/light_heptagon.svg">
+  <a href="/images/2022/graph-art/light_heptagon.svg">
     {% inline_svg "_images/2022/graph-art/light_heptagon.svg" %}
   </a>
-  <a href="images/2022/graph-art/blue_hexagon.svg">
+  <a href="/images/2022/graph-art/blue_hexagon.svg">
     {% inline_svg "_images/2022/graph-art/blue_hexagon.svg" %}
   </a>
-  <a href="images/2022/graph-art/ghost_heptagon.svg">
+  <a href="/images/2022/graph-art/ghost_heptagon.svg">
     {% inline_svg "_images/2022/graph-art/ghost_heptagon.svg" %}
   </a>
-  <a href="images/2022/graph-art/orange_many_gon.svg">
+  <a href="/images/2022/graph-art/orange_many_gon.svg">
     {% inline_svg "_images/2022/graph-art/orange_many_gon.svg" %}
   </a>
-  <a href="images/2022/graph-art/minimal_triangle.svg">
+  <a href="/images/2022/graph-art/minimal_triangle.svg">
     {% inline_svg "_images/2022/graph-art/minimal_triangle.svg" %}
   </a>
-  <a href="images/2022/graph-art/green_octagon.svg">
+  <a href="/images/2022/graph-art/green_octagon.svg">
     {% inline_svg "_images/2022/graph-art/green_octagon.svg" %}
   </a>
 </div>
@@ -329,7 +329,7 @@ I didn't take this any further, but the opportunity for slices of a second colou
 </style>
 
 <figure style="max-width: 157px;">
-  <a href="images/2022/graph-art/experimental.svg" class="nohover">
+  <a href="/images/2022/graph-art/experimental.svg" class="nohover">
     {% inline_svg "_images/2022/graph-art/experimental.svg" %}
   </a>
 </figure>
@@ -338,40 +338,40 @@ Once I had the code for curves working, adding it to the radial lattice was fair
 I had a lot of fun generating these images.
 
 <div class="grid_4up checkerboard">
-  <a href="images/2022/graph-art/yellow_busy.svg">
+  <a href="/images/2022/graph-art/yellow_busy.svg">
     {% inline_svg "_images/2022/graph-art/yellow_busy.svg" %}
   </a>
-  <a href="images/2022/graph-art/red_nuclear.svg">
+  <a href="/images/2022/graph-art/red_nuclear.svg">
     {% inline_svg "_images/2022/graph-art/red_nuclear.svg" %}
   </a>
-  <a href="images/2022/graph-art/green_radar.svg">
+  <a href="/images/2022/graph-art/green_radar.svg">
     {% inline_svg "_images/2022/graph-art/green_radar.svg" %}
   </a>
   <a href="/images/2022/graph-art/lime_circles.svg">
     {% inline_svg "_images/2022/graph-art/lime_circles.svg" %}
   </a>
-  <a href="images/2022/graph-art/yellow_keyhole.svg">
+  <a href="/images/2022/graph-art/yellow_keyhole.svg">
     {% inline_svg "_images/2022/graph-art/yellow_keyhole.svg" %}
   </a>
-  <a href="images/2022/graph-art/pink_half_circle.svg">
+  <a href="/images/2022/graph-art/pink_half_circle.svg">
     {% inline_svg "_images/2022/graph-art/pink_half_circle.svg" %}
   </a>
-  <a href="images/2022/graph-art/orange_circle.svg">
+  <a href="/images/2022/graph-art/orange_circle.svg">
     {% inline_svg "_images/2022/graph-art/orange_circle.svg" %}
   </a>
-  <a href="images/2022/graph-art/lavendar_pentagram.svg">
+  <a href="/images/2022/graph-art/lavendar_pentagram.svg">
     {% inline_svg "_images/2022/graph-art/lavendar_pentagram.svg" %}
   </a>
-  <a href="images/2022/graph-art/tri_circle.svg">
+  <a href="/images/2022/graph-art/tri_circle.svg">
     {% inline_svg "_images/2022/graph-art/tri_circle.svg" %}
   </a>
-  <a href="images/2022/graph-art/turquoise_busy.svg">
+  <a href="/images/2022/graph-art/turquoise_busy.svg">
     {% inline_svg "_images/2022/graph-art/turquoise_busy.svg" %}
   </a>
-  <a href="images/2022/graph-art/purple_semicircle.svg">
+  <a href="/images/2022/graph-art/purple_semicircle.svg">
     {% inline_svg "_images/2022/graph-art/purple_semicircle.svg" %}
   </a>
-  <a href="images/2022/graph-art/blue_quarters.svg">
+  <a href="/images/2022/graph-art/blue_quarters.svg">
     {% inline_svg "_images/2022/graph-art/blue_quarters.svg" %}
   </a>
 </div>
@@ -392,28 +392,28 @@ For a final variation, I tried using concave curves in the lattice.
 This matches the spider-web emoji, where the individual arcs bend towards the centre of the circle, rather than outward.
 
 <div class="grid_4up checkerboard">
-  <a href="images/2022/graph-art/four_point_curve.svg">
+  <a href="/images/2022/graph-art/four_point_curve.svg">
     {% inline_svg "_images/2022/graph-art/four_point_curve.svg" %}
   </a>
-  <a href="images/2022/graph-art/spider_hex.svg">
+  <a href="/images/2022/graph-art/spider_hex.svg">
     {% inline_svg "_images/2022/graph-art/spider_hex.svg" %}
   </a>
-  <a href="images/2022/graph-art/purple_spider.svg">
+  <a href="/images/2022/graph-art/purple_spider.svg">
     {% inline_svg "_images/2022/graph-art/purple_spider.svg" %}
   </a>
-  <a href="images/2022/graph-art/octo_spider.svg">
+  <a href="/images/2022/graph-art/octo_spider.svg">
     {% inline_svg "_images/2022/graph-art/octo_spider.svg" %}
   </a>
-  <a href="images/2022/graph-art/orange_spider.svg">
+  <a href="/images/2022/graph-art/orange_spider.svg">
     {% inline_svg "_images/2022/graph-art/orange_spider.svg" %}
   </a>
-  <a href="images/2022/graph-art/silver_spider.svg">
+  <a href="/images/2022/graph-art/silver_spider.svg">
     {% inline_svg "_images/2022/graph-art/silver_spider.svg" %}
   </a>
-  <a href="images/2022/graph-art/green_spider.svg">
+  <a href="/images/2022/graph-art/green_spider.svg">
     {% inline_svg "_images/2022/graph-art/green_spider.svg" %}
   </a>
-  <a href="images/2022/graph-art/ochre_spider.svg">
+  <a href="/images/2022/graph-art/ochre_spider.svg">
     {% inline_svg "_images/2022/graph-art/ochre_spider.svg" %}
   </a>
 </div>
@@ -421,28 +421,28 @@ This matches the spider-web emoji, where the individual arcs bend towards the ce
 This got even more fun when I allowed arcs to bend alternately in and out, creating some extremely funky patterns.
 
 <div class="grid_4up checkerboard">
-  <a href="images/2022/graph-art/swirly.svg">
+  <a href="/images/2022/graph-art/swirly.svg">
     {% inline_svg "_images/2022/graph-art/swirly.svg" %}
   </a>
-  <a href="images/2022/graph-art/inverse_three_points.svg">
+  <a href="/images/2022/graph-art/inverse_three_points.svg">
     {% inline_svg "_images/2022/graph-art/inverse_three_points.svg" %}
   </a>
-  <a href="images/2022/graph-art/blue_circle_quadrants.svg">
+  <a href="/images/2022/graph-art/blue_circle_quadrants.svg">
     {% inline_svg "_images/2022/graph-art/blue_circle_quadrants.svg" %}
   </a>
-  <a href="images/2022/graph-art/curvy_hexagon.svg">
+  <a href="/images/2022/graph-art/curvy_hexagon.svg">
     {% inline_svg "_images/2022/graph-art/curvy_hexagon.svg" %}
   </a>
-  <a href="images/2022/graph-art/cream_clock.svg">
+  <a href="/images/2022/graph-art/cream_clock.svg">
     {% inline_svg "_images/2022/graph-art/cream_clock.svg" %}
   </a>
-  <a href="images/2022/graph-art/orange_starburst.svg">
+  <a href="/images/2022/graph-art/orange_starburst.svg">
     {% inline_svg "_images/2022/graph-art/orange_starburst.svg" %}
   </a>
-  <a href="images/2022/graph-art/purple_splodge.svg">
+  <a href="/images/2022/graph-art/purple_splodge.svg">
     {% inline_svg "_images/2022/graph-art/purple_splodge.svg" %}
   </a>
-  <a href="images/2022/graph-art/red_heptagon.svg">
+  <a href="/images/2022/graph-art/red_heptagon.svg">
     {% inline_svg "_images/2022/graph-art/red_heptagon.svg" %}
   </a>
 </div>
