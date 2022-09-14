@@ -7,9 +7,9 @@ tags: drawing-things latex history
 link: https://github.com/alexwlchan/lorenz-wheels
 theme:
   card_type: summary_large_image
-  image: /images/2022/lorenz_wheels.png
+  image: /images/2022/lorenz_wheels_card.jpg
 index:
-  image: /images/2022/lorenz_wheels_card.png
+  tint_color: "#423f3a"
 ---
 
 Yesterday I found a set of old illustrations I'd made for the wheels of a [Lorenz cipher machine], which was a machine used by the German Army during World War II.
