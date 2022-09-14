@@ -4,6 +4,11 @@ date: 2021-09-22 07:56:04 +0000
 title: Operations on strings don't always commute
 summary: Is uppercasing then reversing a string the same as reversing and then uppercasing? Of course not.
 tags: unicode
+theme:
+  card_type: summary_large_image
+  image: /images/2019/string-commuting-card.png
+index:
+  tint_color: "#19177C"
 ---
 
 <!-- https://twitter.com/jpwarren/status/1440152993693777924 -->
