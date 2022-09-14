@@ -6,7 +6,7 @@ summary: If you use ICU date formatting, make sure you use the right format spec
 tags: datetime-shenanigans
 index:
   image: /images/2021/pexels-olya-kobruseva-5417672.jpg
-  tint_color: "#b87b77"
+  tint_color: "#b17474"
 ---
 
 <style>
