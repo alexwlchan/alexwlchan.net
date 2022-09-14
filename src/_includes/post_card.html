@@ -40,7 +40,7 @@
 {% elsif post.theme.image %}
   {% assign image = post.theme.image %}
 {% else %}
-  {% assign image = "" %}
+  {% assign image = "/images/default-card.png" %}
 {% endif %}
 
 <li class="card{% if post.index.best_of %} best_of{% endif %}" id="{{ post.slug }}">
@@ -61,7 +61,7 @@
     <p class="card_image">
       {% if is_svg %}
         {{ image | as_inline_svg }}
-      {% elsif image != "" %}
+      {% else %}
         <img src="{{ image }}" alt="" loading="lazy" data-proofer-ignore/>
       {% endif %}
     </p>
