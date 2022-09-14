@@ -4,7 +4,6 @@
   list-style-type: none;
   padding-left: 0px !important;
   display: grid;
-  grid-template-columns: auto auto;
   grid-gap: 1em;
 
   .card {
@@ -64,6 +63,10 @@
     margin-bottom: 1em;
   }
 
+  /* This changes the number of columns based on the width of the
+   * screen: one column on mobile devices, two on regular screens,
+   * three on wider screens (bleeding into the margins).
+   */
 
   @media screen and (max-width: 500px) {
     & {
@@ -71,11 +74,11 @@
     }
   }
 
-  /* TODO: Can I get graceful resizing rather than a snapping behaviour? */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
   @media screen and (min-width: 1000px) {
     & {
-      grid-template-columns: auto auto auto;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-left: -100px;
       margin-right: -100px;
     }
