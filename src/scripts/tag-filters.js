@@ -56,7 +56,7 @@ function applyTagFilters() {
     }
   }
 
-  // Finally, add a visual style to mark the tag filter as "enabled".
+  // Add a visual style to mark the tag filter as "enabled".
   const tagFilter = document.getElementById("tag_filter");
 
   if (selectedTag === "_nofilter_") {
@@ -64,8 +64,28 @@ function applyTagFilters() {
   } else {
     tagFilter.classList.add("enabled");
   }
+
+  // Update the page title and URL to match
+  const newTitle = selectedTag === "_nofilter_"
+    ? "All posts – alexwlchan"
+    : `Posts tagged with ${selectedTag} – alexwlchan`;
+
+  document.title = newTitle;
+
+  history.pushState({
+    source: 'web'
+  }, newTitle, `/all-posts/?tag=${selectedTag}`)
 }
 
 window.onload = function() {
   document.getElementById("tag_filter").style.display = "block";
+
+  // Look for a tag in the URL, if somebody has linked here -- in which
+  // case we should apply that filter immediately.
+  let queryParams = new URLSearchParams(window.location.search);
+  const prefilledTag = queryParams.get("tag");
+  if (prefilledTag !== null) {
+    document.getElementById("tag_selection").value = prefilledTag;
+    applyTagFilters();
+  }
 };
