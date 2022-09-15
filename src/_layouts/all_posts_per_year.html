@@ -3,23 +3,16 @@ layout: page
 ---
 
 <p>
-  This is a list of everything I posted in {{ page.year }}.
+  This is what I posted in {{ page.year }}.
+</p>
+<p>
   You can also see <a href="/all-posts/">everything I&rsquo;ve posted, ever</a>.
 </p>
 
-<style>
-  h3 {
-    margin-bottom: 0.5em;
-  }
-
-  .archive {
-    margin-top: 0.5em;
-  }
-</style>
-
-{% for post_group in page.posts %}
-  {% assign posts = post_group[1] %}
-  <h3>{{ posts.first.date | date: "%B" }}</h3>
-
-  {% include archive_list.html %}
+<ul class="post_cards">
+{% for post in page.posts %}
+  {% if post.index == nil or post.index.exclude != true %}
+    {% include post_card.html %}
+  {% endif %}
 {% endfor %}
+</ul>

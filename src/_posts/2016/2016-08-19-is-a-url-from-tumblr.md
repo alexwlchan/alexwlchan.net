@@ -3,6 +3,8 @@ date: 2016-08-19 23:34:00 +0000
 layout: post
 tags: tumblr python
 title: 'Python snippets: Is a URL from a Tumblr post?'
+index:
+  exclude: true
 ---
 
 I've been writing some code recently that takes a URL, and performs some special actions if that URL is a Tumblr post.

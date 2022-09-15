@@ -194,6 +194,8 @@
 
 /theme/style.css                    /style.css
 
+/all-posts-by-tag/                  /all-posts/
+
 /notes /410.html 410
 
 # This uses Netlify's custom 404 error page handling
