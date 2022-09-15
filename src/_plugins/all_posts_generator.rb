@@ -69,9 +69,7 @@ module Jekyll
       posts_group_by_month(site).each do |ym, posts|
         year, month = ym
 
-        site.pages << PerMonth.new(
-          site = site, year = year, month = month, posts = posts
-        )
+        site.pages << PerMonth.new(site, year, month, posts)
       end
     end
   end
@@ -127,11 +125,7 @@ module Jekyll
       site.data["posts_by_year"] = posts_group_by_year(site)
 
       posts_group_by_year(site).each do |year, posts|
-        site.pages << PerYear.new(
-          site = site,
-          year = year,
-          posts = posts.group_by { |post| post.date.month }
-        )
+        site.pages << PerYear.new(site, year, posts)
       end
     end
   end
