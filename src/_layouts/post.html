@@ -25,14 +25,25 @@ layout: default
       <li class="post__updated_date">Updated {{ post.date_updated | date: site.date_format }}</li>
       {% endif %}
 
+      {% comment %}
+        I deliberately remove tags from posts that are unlisted, so you
+        don't get a confusing navigation flow where:
+
+        1.  User lands on post
+        2.  They click on the tags to find more posts like this
+        3.  This post doesn't appear
+      {% endcomment %}
+
       {% if post.tags.size > 0 %}
-      <li class="post__tags">
-        Tagged with
-        {% assign tags = post.tags | sort %}
-        {% for t in tags %}
-          <a href="/all-posts-by-tag#{{ t }}">{{ t }}</a>{% if forloop.last == false %}, {% endif %}
-        {% endfor %}
-      </li>
+        {% unless post.index.exclude %}
+          <li class="post__tags">
+            Tagged with
+            {% assign tags = post.tags | sort %}
+            {% for t in tags %}
+              <a href="/all-posts-by-tag#{{ t }}">{{ t }}</a>{% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+          </li>
+        {% endunless %}
       {% endif %}
 
       {% if post.link %}
