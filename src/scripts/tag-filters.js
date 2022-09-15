@@ -29,7 +29,19 @@ function applyTagFilters() {
     yearGroup.style.display = visibleYears.has(thisYear) ? "block" : "none";
   }
 
-  // And do the same for the "jump to" elements
+  // And do the same for the "jump to" elements.
+  //
+  // There's a bit of hackery going on here with the `first_visible_jumpto`
+  // class: I want to insert slashes between the years, e.g.
+  //
+  //      Jump to: 2022 / 2021 / 2020
+  //
+  // which is being added with the :not(:first-child)::before, similar to
+  // the .dot_list style used elsewhere -- but this selector ignores the
+  // visibility of the elements.
+  //
+  // The `first_visible_jumpto` class marks the first visible item in this
+  // list, which doesn't get a leading slash.
   let isFirstVisibleJumpTo = true;
 
   for (jumpToYear of document.querySelectorAll("#jumpto_list li")) {
@@ -42,6 +54,15 @@ function applyTagFilters() {
     } else {
       jumpToYear.classList.remove("first_visible_jumpto");
     }
+  }
+
+  // Finally, add a visual style to mark the tag filter as "enabled".
+  const tagFilter = document.getElementById("tag_filter");
+
+  if (selectedTag === "_nofilter_") {
+    tagFilter.classList.remove("enabled");
+  } else {
+    tagFilter.classList.add("enabled");
   }
 }
 
