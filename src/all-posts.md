@@ -26,7 +26,24 @@ You can subscribe to my posts [as an RSS feed](/atom.xml).
   </p>
 </div>
 
+<noscript>
+  (Filtering by tag requires JavaScript.)
+</noscript>
+
 <style>
+  #tag_filter.enabled {
+    margin-bottom: -5px;
+    margin-top:    -5px;
+  }
+
+  #tag_filter.enabled p {
+    background: rgba(208, 28, 17, 0.25);
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left:  -10px;
+    margin-right: -10px;
+  }
+
   select {
     font-size: 130%;
   }
@@ -54,7 +71,7 @@ You can subscribe to my posts [as an RSS feed](/atom.xml).
   }
 
   #jumpto_list li.first_visible_jumpto::before {
-    content: "";
+    content: " ";
   }
 </style>
 
