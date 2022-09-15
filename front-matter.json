@@ -94,11 +94,6 @@
             "items": {
                 "type": "string"
             }
-        },
-        "post_list_date_format": {
-            "description": "Used on archive pages to control the appearance of dates. Deprecated; will likely be removed by https://github.com/alexwlchan/alexwlchan.net/issues/512.",
-            "type": "string",
-            "enum": ["day_month", "month_year"]
         }
     },
     "additionalProperties": false
