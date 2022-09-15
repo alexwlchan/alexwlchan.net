@@ -43,7 +43,7 @@
   {% assign image = "/images/default-card.png" %}
 {% endif %}
 
-<li class="card{% if post.index.best_of %} best_of{% endif %}" id="{{ post.slug }}">
+<li class="card{% if post.index.best_of %} best_of{% endif %}" id="{{ post.slug }}"{% if year %} data-post-year="{{ year }}"{% endif %} data-post-tags="{{ post.tags | join: ' ' }}">
   <a href="{{ post.url }}">
     {% comment %}
       Intentionally omit the alt text on promos, so screen reader users
