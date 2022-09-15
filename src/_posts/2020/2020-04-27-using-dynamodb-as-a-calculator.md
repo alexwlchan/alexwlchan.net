@@ -4,6 +4,11 @@ date: 2020-04-27 09:23:04 +0000
 title: Using DynamoDB as a calculator
 summary: Taking advantage of Amazon's least-loved compute platform.
 tags: aws amazon-dynamodb python code-terrorism
+theme:
+  card_type: summary_large_image
+  image: /images/2020/dynamodb_calculator_card.jpg
+index:
+  tint_color: "#234371"
 ---
 
 On a recent [AWS Cost Optimisation Q&A](https://www.youtube.com/watch?t=52m01s&v=Nmyxo68jM2s), Corey Quinn talked about his experiments with [DynamoDB][dynamodb]:
