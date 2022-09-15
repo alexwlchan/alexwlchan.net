@@ -3,9 +3,16 @@ layout: page
 ---
 
 <p>
-  This is a list of everything I posted in {{ page.display_month }}.
-  You can also see <a href="/{{ page.year }}/">all the posts from {{ page.year }}</a>.
+  This is what I posted in {{ page.display_month }}.
+</p>
+<p>
+  You can also see <a href="/{{ page.year }}/">everything from {{ page.year }}</a> or <a href="/all-posts/">everything I’ve posted, ever</a>.
 </p>
 
-{% assign posts = page.posts %}
-{% include archive_list.html %}
+<ul class="post_cards">
+{% for post in page.posts %}
+  {% if post.index == nil or post.index.exclude != true %}
+    {% include post_card.html %}
+  {% endif %}
+{% endfor %}
+</ul>
