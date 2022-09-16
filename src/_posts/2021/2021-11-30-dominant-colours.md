@@ -3,7 +3,7 @@ layout: post
 date: 2021-11-30 09:30:01 +0000
 title: dominant_colours, a CLI tool for finding dominant colours in an image
 summary: A new tool for playing with images.
-tags: images colour rust
+tags: images colour rust fun-stuff
 index:
   image: /images/2021/dominant_colours_card.png
   tint_color: "#4576bb"

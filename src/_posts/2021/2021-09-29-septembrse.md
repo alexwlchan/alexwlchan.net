@@ -2,6 +2,7 @@
 layout: post
 date: 2021-09-29 20:23:05 +0000
 title: "SeptembRSE: Missing narratives in discussions around diversity and inclusion"
+tags: talks inclusion
 ---
 
 Yesterday I was part of a panel on [missing narratives around diversity inclusion][panel_link] as part of SeptembRSE, a conference for Research Software Engineers.

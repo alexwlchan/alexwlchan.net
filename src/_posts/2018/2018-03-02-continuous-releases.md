@@ -3,7 +3,7 @@ layout: post
 date: 2018-03-02 08:04:05 +0000
 link: https://hypothesis.works/articles/continuous-releases/
 title: The Hypothesis continuous release process
-tags: build-automation
+tags: builds-and-ci python:hypothesis
 summary: How we do continuous releases of hypothesis-python, and why.
 index:
   image: /images/2018/hypothesis-releases-card.png
