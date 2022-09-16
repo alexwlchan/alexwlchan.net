@@ -12,15 +12,13 @@ You can subscribe to my posts [as an RSS feed](/atom.xml).
 <script src="/scripts/tag-filters.js"></script>
 
 <div id="tag_filter">
-  {% assign tag_selection = site.data["tag_tally"] | sort %}
+  {% assign tag_selection = site.data["visible_tag_tally"] | sort %}
 
   <p>Filter by tag:
     <select id="tag_selection" onchange="applyTagFilters()">
       <option value="_nofilter_">(no filter)</option>
       {% for tag in tag_selection %}
-        {% if tag[1] > 1 %}
-          <option value="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1] }})</option>
-        {% endif %}
+        <option value="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1] }})</option>
       {% endfor %}
     </select>
   </p>
