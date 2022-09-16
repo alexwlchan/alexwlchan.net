@@ -21,10 +21,10 @@ module Jekyll
       }
 
       # Now we go through the posts a second time, and create a new
-      # 'visibleTags' list of all the tags on this post that appear on
+      # 'visible_tags' list of all the tags on this post that appear on
       # at least one other post.
       site.posts.docs.each { |post|
-        post.data["visibleTags"] = post.data["tags"].select { |t| tag_tally[t] > 1 };
+        post.data["visible_tags"] = post.data["tags"].select { |t| tag_tally[t] > 1 };
       }
 
       site.data["tag_tally"] = tag_tally
