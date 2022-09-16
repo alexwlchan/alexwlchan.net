@@ -1,5 +1,8 @@
 # This plugin makes a tally of all the posts on the site, which can
 # then be used to make tag filters.
+
+require "json"
+
 module Jekyll
   class TagTally < Generator
     def generate(site)
@@ -29,6 +32,8 @@ module Jekyll
 
       site.data["tag_tally"] = tag_tally
       site.data["visible_tag_tally"] = tag_tally.select { |t, count| count > 0 };
+
+      File.open("tags.json", "w") { |f| f.write JSON.dump(tag_tally) }
     end
   end
 end
