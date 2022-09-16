@@ -6,7 +6,7 @@ index:
   tint_color: "#d32a1d"
 layout: post
 summary: How does Git work under the hood? How does it store information, and what's really behind a branch?
-tags: pyconuk slides git
+tags: workshops git
 title: A plumber's guide to Git
 ---
 

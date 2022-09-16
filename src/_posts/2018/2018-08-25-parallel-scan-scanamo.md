@@ -7,7 +7,7 @@ index:
 layout: post
 summary: Prototype code for running a parallel scan against a DynamoDB table, and
   using Scanamo to serialise rows as Scala case classes.
-tags: aws scala
+tags: aws scala amazon-dynamodb
 title: Implementing parallel scan in DynamoDB with Scanamo
 ---
 

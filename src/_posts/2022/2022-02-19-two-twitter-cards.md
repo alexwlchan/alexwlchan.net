@@ -3,7 +3,7 @@ layout: post
 date: 2022-02-19 12:45:19 +0000
 title: A tale of two Twitter cards
 summary: Some recent changes I've made to fix or improve my Twitter cards.
-tags: twitter
+tags: twitter blogging-about-blogging
 theme:
   card_type: summary_large_image
   image: /images/2022/twitter_cards.png

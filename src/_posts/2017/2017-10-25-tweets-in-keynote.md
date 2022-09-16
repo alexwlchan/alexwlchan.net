@@ -2,7 +2,7 @@
 layout: post
 date: 2017-10-25 13:14:54 +0000
 title: Displaying tweets in Keynote
-tags: keynote
+tags: keynote twitter
 summary: Slides for showing tweets that look like tweets on slides in Keynote and PowerPoint.
 theme:
   card_type: summary_large_image

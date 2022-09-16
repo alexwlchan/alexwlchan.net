@@ -7,6 +7,7 @@ date: 2017-11-20 08:00
 index:
   image: /images/2017/microphone-card.jpg
   tint_color: "#4a403a"
+tags: conferences
 ---
 
 When I was in college, I did a bit of work in the college theatre as a backstage technician.

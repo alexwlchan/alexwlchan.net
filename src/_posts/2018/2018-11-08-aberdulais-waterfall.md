@@ -2,12 +2,11 @@
 layout: post
 date: 2018-11-08 12:37:19 +0000
 title: My visit to the Aberdulais Falls
-tags: personal
+tags: personal wales photography
 summary: Pictures from my trip to the waterfalls and former tin plating works at Aberdulais.
 theme:
   card_type: summary_large_image
   image: /images/2018/aberdulais-cover.jpg
-
 index:
   best_of: true
   tint_color: "#74844e"
