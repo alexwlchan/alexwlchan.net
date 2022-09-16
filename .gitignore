@@ -3,12 +3,6 @@
 .sass-cache
 _site
 
-.docker
-
 .DS_Store
 
-__pycache__
-.venv
-.cache
-
-id_rsa
+tags.json
