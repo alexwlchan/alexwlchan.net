@@ -3,6 +3,7 @@ layout: post
 date: 2022-06-03 12:29:46 +0000
 title: Redesigning my archive pages
 summary: Using coloured cards with images and descriptions to make it easier to find posts in my back catalogue.
+tags: blogging-about-blogging
 theme:
   card_type: summary_large_image
   image: /images/2022/redesign_twitter_card.jpg

@@ -70,11 +70,13 @@ function applyTagFilters() {
     ? "All posts – alexwlchan"
     : `Posts tagged with ${selectedTag} – alexwlchan`;
 
+  const newUrl = selectedTag === "_nofilter_"
+    ? "/all-posts/"
+    : `/all-posts/?tag=${selectedTag}`;
+
   document.title = newTitle;
 
-  history.pushState({
-    source: 'web'
-  }, newTitle, `/all-posts/?tag=${selectedTag}`)
+  history.pushState({ source: 'web' }, newTitle, newUrl)
 }
 
 window.onload = function() {

@@ -2,7 +2,7 @@
 layout: post
 date: 2018-07-19 07:38:10 +0000
 title: A robot leaked my SSH keys
-tags: github security
+tags: github builds-and-ci infosec
 summary: A cautionary tale of a daft incident where I leaked a set of SSH keys to GitHub.
 ---
 

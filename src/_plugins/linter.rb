@@ -103,8 +103,13 @@ class RunLinting < Jekyll::Command
         #
         # This means the error report can link to the source file, not
         # the rendered HTML file.
+        #
+        # Note that we may fail to retrieve this value if for some reason
+        # the `<meta>` tag hasn't been written properly, in which case
+        # we show the HTML path instead.
         md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
-        md_path = "src/#{md_path}"
+
+        display_path = md_path == "" ? html_path : "src/#{md_path}"
 
         # Get a map of Twitter cards (name => content).
         #
@@ -123,16 +128,21 @@ class RunLinting < Jekyll::Command
         #
         # This uses the site.uri variable, which varies based on the build
         # system running at the top. Discard it.
+        if twitter_cards['twitter:image'].nil?
+          errors[display_path] <<= "Could not find `twitter:image` attribute on page"
+          next
+        end
+
         image_path = URI(twitter_cards['twitter:image']).path
 
         local_image_path = "#{html_dir}#{image_path}"
 
         if !File.exist? local_image_path
-          errors[md_path] <<= "Twitter card points to a missing image"
+          errors[display_path] <<= "Twitter card points to a missing image"
         end
 
         if twitter_cards['twitter:card'] != 'summary' && twitter_cards['twitter:card'] != 'summary_large_image'
-          errors[md_path] <<= "Twitter card has an invalid card type #{twitter_cards['twitter:card']}"
+          errors[display_path] <<= "Twitter card has an invalid card type #{twitter_cards['twitter:card']}"
         end
 
         # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
@@ -146,7 +156,7 @@ class RunLinting < Jekyll::Command
           if File.exist? local_image_path
             image = Rszr::Image.load(local_image_path)
             if image.width != image.height * 2
-              errors[md_path] <<= "summary_large_image Twitter card does not have a 2:1 aspect ratio"
+              errors[display_path] <<= "summary_large_image Twitter card does not have a 2:1 aspect ratio"
             end
           end
         end
@@ -162,8 +172,8 @@ class RunLinting < Jekyll::Command
       # errors are grouped by filename, so they can be easily traced
       # back to the problem file.
       if !errors.empty?
-        errors.each { |md_path, messages|
-          error("- #{md_path}")
+        errors.each { |display_path, messages|
+          error("- #{display_path}")
           messages.each { |m|
             error("  *  #{m}")
           }

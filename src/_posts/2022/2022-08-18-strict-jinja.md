@@ -3,7 +3,7 @@ layout: post
 date: 2022-08-18 07:22:44 +0000
 title: I always want StrictUndefined in Jinja
 summary: When I'm writing templates with Jinja, strict behaviour is what I want, even if it's not the default.
-tags: python
+tags: python python:jinja
 theme:
   card_type: summary_large_image
   image: /images/2022/jinja_error_card.png

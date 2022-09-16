@@ -3,6 +3,7 @@ layout: post
 date: 2017-06-07 20:50:00 +0000
 summary: Pictures from my recent visit to Crossness, a Victorian pumping station for London's sewers.
 title: A visit to the Crossness pumping station
+tags: photography history london
 theme:
   card_type: summary_large_image
   image: /images/2017/P5280917_twitter_card.jpg

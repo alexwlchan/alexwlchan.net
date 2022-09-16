@@ -3,7 +3,7 @@ date: 2017-11-22 11:50:19 +0000
 layout: post
 summary: A detailed breakdown of how I wrote a Python script to download logs from
   CloudWatch.
-tags: aws python
+tags: aws python amazon-cloudwatch
 title: Downloading logs from Amazon CloudWatch
 ---
 
