@@ -44,6 +44,26 @@ You can subscribe to my posts [as an RSS feed](/atom.xml).
     margin-right: -10px;
   }
 
+  /* In the responsive design tester in Safari, the <select> moves on to
+   * a new line at ~350px.  This deliberately moves it onto a separate line
+   * at a bit wider for that, to accommodate for new tags.
+   *
+   * The filter will shift around slightly, but on a mobile screen I think
+   * that's less of an issue – the <select> will take up the whole screen
+   * while you interact with it.
+   */
+  @media screen and (max-width: 400px) {
+    #tag_filter.enabled p {
+      padding-top: 7px;
+    }
+
+    #tag_filter select {
+      display: block;
+      margin-top:    5px;
+      margin-bottom: 5px;
+    }
+  }
+
   select {
     font-size: 130%;
   }
