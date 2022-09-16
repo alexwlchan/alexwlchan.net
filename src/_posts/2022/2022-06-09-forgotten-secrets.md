@@ -3,7 +3,7 @@ layout: post
 date: 2022-06-09 06:40:48 +0000
 title: Experimenting with jq as a tool for filtering JSON
 summary: I wanted to learn jq's more powerful features, so I tried to filter some JSON from the AWS Secrets Manager CLI.
-tags: aws
+tags: aws jq aws-secrets-manager
 theme:
   image: /images/2022/jq-and-secrets-card.jpg
   card_type: summary_large_image

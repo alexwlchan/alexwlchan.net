@@ -2,7 +2,7 @@
 layout: post
 date: 2021-04-18 12:35:57 +0000
 title: Using AppleScript to detect if a Safari window uses Private Browsing
-tags: applescript macos
+tags: applescript macos macos:safari
 ---
 
 Last year, I wrote an AppleScript function that [opens a URL in a Private Browsing window in Safari](/2020/06/using-applescript-to-open-a-url-in-private-browsing-in-safari/).

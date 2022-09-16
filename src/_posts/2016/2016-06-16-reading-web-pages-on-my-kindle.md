@@ -3,7 +3,7 @@ layout: post
 date: 2016-06-16 08:50:00 +0000
 summary: A Python script I wrote that let me sends web pages from my Mac and my iPhone
   to my Kindle.
-tags: python
+tags: python kindle ebooks
 title: Reading web pages on my Kindle
 ---
 

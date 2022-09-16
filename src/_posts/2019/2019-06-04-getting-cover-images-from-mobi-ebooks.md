@@ -3,6 +3,7 @@ date: 2019-06-04 19:43:14 +0000
 layout: post
 link: https://github.com/alexwlchan/get-mobi-cover-image
 title: A script for getting cover images from mobi ebooks
+tags: ebooks
 ---
 
 As part of a recent project, I've been writing code to get thumbnails for a bunch of different file formats.

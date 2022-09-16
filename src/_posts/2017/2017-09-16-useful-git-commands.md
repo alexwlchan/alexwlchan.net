@@ -2,7 +2,7 @@
 date: 2017-09-18 18:45:00 +0100
 layout: post
 summary: A couple of Git commands that I find useful in builds and CI.
-tags: git
+tags: git builds-and-ci
 title: Some useful Git commands for CI
 ---
 

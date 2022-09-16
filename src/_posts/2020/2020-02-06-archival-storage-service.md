@@ -10,7 +10,7 @@ index:
   image: /images/2020/storage_service_card.jpg
   tint_color: "#223395"
 
-tags: digital-preservation wellcome
+tags: digital-preservation wellcome-collection
 ---
 
 Yesterday, I posted an article about the new cloud storage service I've been helping to build at Wellcome.
