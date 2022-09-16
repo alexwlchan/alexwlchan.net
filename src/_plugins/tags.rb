@@ -32,8 +32,6 @@ module Jekyll
 
       site.data["tag_tally"] = tag_tally
       site.data["visible_tag_tally"] = tag_tally.select { |t, count| count > 1 };
-
-      File.open("tags.json", "w") { |f| f.write JSON.dump(tag_tally) }
     end
   end
 end
