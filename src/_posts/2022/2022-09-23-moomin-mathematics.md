@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2022-09-23 05:42:28 +0000
-title: Breaking the rules of division
+title: '"Fixing" the rules of division'
 summary: If we want to redefine how division works, Ruby is happy to oblige.
 tags: maths ruby code-crimes
 theme:
