@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Breaking the rules of division
-summary: If we want to redefine how division works, nothing can stop us except taste and decency.
+summary: If we want to redefine how division works, Ruby is happy to oblige.
 tags: maths ruby code-crimes
 theme:
   card_type: summary_large_image
