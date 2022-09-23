@@ -160,4 +160,7 @@ I learnt several new things about how Ruby classes and unbound methods work, mos
 Although I read plenty of theory, I learn by doing, and even a silly project is still doing.
 I'm never going to use this code again, but I may well use this new knowledge.
 
+You, on the other hand, definitely should use this code, ideally in production.
+Please send me a postcard to tell me how it goes.
+
 [hattifatteners]: https://www.moomin.com/en/characters/hattifatteners/
