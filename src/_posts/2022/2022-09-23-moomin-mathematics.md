@@ -8,6 +8,8 @@ theme:
   card_type: summary_large_image
   image: /images/2022/moomin-card.jpg
   color: "#292929"
+index:
+  tint_color: "#d01c11"
 ---
 
 <!-- Card image from https://www.publicdomainpictures.net/en/view-image.php?image=82122&picture=vintage-office-calculator-keypad -->
