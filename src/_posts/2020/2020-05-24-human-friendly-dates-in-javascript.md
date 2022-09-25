@@ -3,7 +3,7 @@ layout: post
 date: 2020-05-24 11:08:57 +0000
 title: Showing human-friendly dates in JavaScript
 summary: What's a nicer way to show a date than an ISO 8601 timestamp?
-tags: javascript datetime-shenanigans
+tags: javascript datetime-shenanigans web-development
 ---
 
 At work, we have an API for tracking the state of ingests in [our digital archive].
