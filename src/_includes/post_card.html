@@ -72,7 +72,12 @@
       <p class="card_title">{{ post.title | render_markdown | smartify }}</p>
       <p class="card_description">
         {{ post.summary | smartify }}
-        {{ post.date | date: "%B&nbsp;%Y" }}.
+      </p>
+    </div>
+
+    <div class="card_posting_date">
+      <p>
+        Posted {{ post.date | date: "%-d %B&nbsp;%Y" }}
       </p>
     </div>
   </a>
