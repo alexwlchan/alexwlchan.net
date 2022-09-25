@@ -20,7 +20,6 @@
   .card a {
     color: $body-color;
     text-decoration: none;
-    display: block;
     height: 100%;
   }
 
@@ -46,7 +45,7 @@
     display: block;
   }
 
-  .card_metadata {
+  .card_metadata, .card_posting_date {
     padding-left:  1em;
     padding-right: 1em;
   }
@@ -60,7 +59,28 @@
     margin-top: 0.5em;
     font-size: 85%;
     line-height: 1.45em;
-    margin-bottom: 1em;
+    margin-bottom: 0;
+  }
+
+  .card_posting_date p {
+    margin-top: 0.5em;
+    font-size: 75%;
+    color: $accent-grey;
+  }
+
+  /* These styles ensure that the small "Posted" date on the bottom of the
+   * cards always sits at the bottom of each card, even if there's a
+   * different amount of text in each card.
+   *
+   * See https://stackoverflow.com/a/48406917/1558022
+   */
+  .card a {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card_posting_date {
+    margin-top: auto;
   }
 
   /* This changes the number of columns based on the width of the
