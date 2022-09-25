@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="page">
+<main>
   {% if page.title != "" %}
   <h1 class="title">
     <a href="{{ page.url | relative_url }}">{{ page.title | smartify | escape }}</a>
@@ -22,4 +22,4 @@ layout: default
   {% endif %}
 
   {{ content | cleanup_text | smartify }}
-</article>
+</main>
