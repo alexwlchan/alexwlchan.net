@@ -10,6 +10,11 @@
     border: 2px solid $primary-color;
     border-radius: 14px;
     overflow: hidden;
+
+    /* This gives cards a v subtle solid background colour, to make them
+     * stand out from the textured background.
+     */
+    background: #fafafa;
   }
 
   .card.best_of {
