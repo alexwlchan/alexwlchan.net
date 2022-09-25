@@ -28,7 +28,7 @@ What you see today is powered by:
 
 and all the site source code is on [GitHub][github].
 
-I'm also using some icons from [the Noun Project][noun].
+I'm also using some icons from [the Noun Project][noun], used with a [NounPro subscription][subscriptions].
 
 Between the Wayback Machine and my screenshots, I've put together a short visual history of what the site used to look like.
 Feast your eyes on my evolving skills in web design.
@@ -40,6 +40,7 @@ Feast your eyes on my evolving skills in web design.
 [github]: https://github.com/alexwlchan/alexwlchan.net/
 [Netlify]: https://www.netlify.com
 [noun]: https://thenounproject.com
+[subscriptions]: https://thenounproject.com/pricing/
 
 <style>
   img {
