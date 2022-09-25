@@ -3,7 +3,7 @@ layout: post
 date: 2022-04-23 23:03:46 +0000
 title: Creating a “simple” three-up image layout in CSS
 summary: A step-by-step breakdown of how I made a one-left, two-right layout for my images.
-tags: css css:grid
+tags: css css:grid web-development
 theme:
   card_type: summary_large_image
   image: /images/2022/image_layout_twitter_card.png

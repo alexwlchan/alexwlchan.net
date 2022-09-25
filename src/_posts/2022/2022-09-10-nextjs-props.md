@@ -3,7 +3,7 @@ layout: post
 date: 2022-09-10 17:04:31 +0000
 title: Finding redundant data in our Next.js props
 summary: A script that helps us optimise our __NEXT_DATA__, which in turn helps reduce page size.
-tags: javascript javascript:next.js
+tags: javascript javascript:next.js web-development
 index:
   image: /images/2022/nextjs_card.png
   tint_color: "#AE160E"
