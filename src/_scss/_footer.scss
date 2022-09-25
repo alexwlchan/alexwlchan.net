@@ -17,12 +17,6 @@ footer {
     @include link_styles($accent-grey, 0.2);
   }
 
-  #contact_links, ul.dot_list {
-    display: inline-block;
-    margin-top:    0px;
-    margin-bottom: 0px;
-  }
-
   p:not(:last-child) {
     margin-bottom: 0px;
   }
@@ -34,10 +28,7 @@ footer {
   // These definitions have to live in the #footer_inner block so they
   // override the a:visited style defined above.
   #footer__email:hover    { color: $primary-color;  }
-  #footer__github:hover   { color: $github-grey;    }
   #footer__twitter:hover  { color: $twitter-blue;   }
   #footer__about:hover    { color: $primary-color;  }
-  #footer__kofi:hover     { color: $kofi-blue;  }
-  #footer__cc:hover       { color: black;           }
-  #footer__mit:hover      { color: black;           }
+  #footer__licence:hover  { color: black;           }
 }
