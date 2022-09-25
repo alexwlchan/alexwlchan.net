@@ -4,7 +4,7 @@ title: My (tiny) contribution to Rust 1.64
 summary: A suggestion for a better error message to help people who work in multiple languages.
 tags: rust error-messages
 theme:
-  image_type: summary_large_image
+  card_type: summary_large_image
   image: /images/2022/crab_card.jpg
 index:
   tint_color: "#a15630"
