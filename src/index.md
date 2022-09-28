@@ -17,7 +17,7 @@ theme:
 
 I've put a bunch of things on the Internet, including:
 
-*   [My personal blog](/all-posts/), which covers a range of topics, including programming, photography, colour theory, and Chinese dictionaries
+*   [My personal blog](/all-posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
 
 *   Everything I do for [Wellcome Collection](/projects/#wellcome-collection), a museum and library where I'm part of a team working on digital preservation, the website, and the online catalogue.
 
@@ -28,7 +28,6 @@ I've put a bunch of things on the Internet, including:
 *   My [Twitter feed](https://twitter.com/alexwlchan), where I share work-in-progress and think out loud about new ideas.
 
 This site is a one-stop shop for everything I've made -- it's either here, or linked to from here.
-
 If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
 
 I'm trans, genderfluid, and my pronouns vary.
@@ -45,7 +44,7 @@ Here are some posts I've written recently:
 
 {% assign best_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
-<!--
+{% comment %}
   The styles in "article_cards.scss" will switch between three layouts:
 
   *   a 1×3 column (mobile devices)
@@ -57,7 +56,7 @@ Here are some posts I've written recently:
   on the second row on a wide screen.
 
   This CSS will hide the fourth post on mobile/wide screens.
--->
+{% endcomment %}
 
 {% assign last_post = best_posts | last %}
 
