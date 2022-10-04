@@ -10,34 +10,101 @@ index:
   tint_color: "#429d8f"
 ---
 
-Last week, I helped to find a bug in Elasticsearch 8.4.2.
-We started seeing issues in our Elastic cluster at work, and through some debugging I was able to create a [reproducible test case][repro].
-I'm pretty pleased with the repro, which helped Elastic's engineers identify and fix the bug -- and which will be [patched in 8.4.3][843].
+<style>
+  .screenshot {
+    border: 3px solid #f0f0f0;
+    border-radius: 8px;
+  }
+</style>
 
-I thought it might be interesting to walk through the debugging process; to explain my thinking and my steps.
+A few weeks ago, I helped to find a bug in Elasticsearch 8.4.2.
+We'd started seeing issues in our Elastic cluster at work, and I was able to isolate the issue in a small, reproducible test case.
+I shared my code with Elastic engineers, and that helped them identify and fix the bug.
+
+I was pretty pleased with [my bug report][repro] -- it was a simple, self-contained example with an obvious smoking gun.
+It led straight to the faulty code.
+
+I followed a classic debugging cycle: find a reproducible error, delete something, see if the error reproduces.
+Repeat until there's nothing left to delete.
+
+I thought it might be interesting to walk through the process; to explain my steps and my thinking.
 Every bug is different, but the same techniques appear again and again.
-
-This is going to be an in-depth technical post -- before you start, grab a warm drink, and maybe a biscuit.
+Even if you don't use Elasticsearch, I hope this will give you some ideas for debugging your next error.
 
 ## Uh oh, something's up
 
+On the Thursday in question, we started getting alerts from our website monitoring that a small number of searches were failing:
+
+<img src="/images/2022/cloudfront_errors_detected.png" style="width: 654px;" class="screenshot" alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org.">
+
+As a proportion of overall traffic, it was pretty small -- but alerts like this started to pile up in Slack.
+Even if it wasn't completely down, the website was having issues.
+
+These alerts come from our CloudFront access logs.
+We run CloudFront in front of the website, and we [upload our access logs to an S3 bucket][cf_logs].
+There's a Lambda that gets notified of uploads in that bucket, and it scans every new log file.
+If it sees any 5xx server errors, it posts [an alert to Slack][slack_alerts].
+CloudFront uploads logs every few minutes, so we find out about issues pretty quickly.
+
+<img src="/images/2022/slack_alert_architecture.png">
+
+Before this setup, we only found out about outages from our automated uptime monitoring (which only checks a sample of pages) or when a user reported an error (which take a while to reach the dev team).
+Getting near-realtime alerts of unexpected errors means we can fix them much faster.
+
+As the errors stacked up in Slack, the meaning was obvious: something had gone bang.
+
+## Is it just for me, or is something broken?
+
+The Slack alert includes the affected URLs, so we can click to go straight to the failing page.
+This is intentional: trying to reproduce the error is the first step of debugging, and putting the URLs in Slack makes it as easy as possible to reproduce a failing request.
+
+When we clicked, we all saw the error page -- these searches were failing for us, and they were failing consistently.
+We also discovered that some searches were still working, and they worked consistently.
+For example, searches for *"SA/DRS/B/1/17 Box&nbsp;2"* would always fail, but searches for *"bolivia"* would always succeed.
+
+Although annoying, this was a good first step: we had a reproducible error.
+That's much easier to debug than something flaky or intermittent.
+
+Now we had to find out where it was coming from.
+
+## Tracin
+
+---
+
 This is our basic architecture:
 
-<img src="basic_architecture.png" style="width: 600px;">
+<img src="/images/2022/basic_architecture.png" style="width: 600px;" alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'.">
 
-When you browse our [online collections], you're using a front-end web app that makes requests to our [Catalogue API][catalogue].
+When you search our [online collections], you're using a front-end web app that's making requests to our [Catalogue API][catalogue].
 This API is making queries against an Elasticsearch cluster, hosted in Elastic Cloud, which is where the data lives.
 
-On Thursday, we started getting alerts from our front-end monitoring that a small number of searches were failing with 500 errors:
+On the Thursday in question, we started getting alerts from our front-end monitoring that a small number of searches were failing with 500 errors:
 
-<img src="cloudfront_errors_detected.png">
+
+We run CloudFront in front of our website, and we
+ which includes a list of failing URLs.
+
+These alerts go to a shared Slack channel
+
+
+
+[cf_logs]: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html
+
+---
+---
+---
+---
+---
+
+
+
+
 
 We run CloudFront in front of the website, and we upload our logs to an S3 bucket.
 There's a Lambda that listens to new uploads in that bucket, and scans every log file as it's uploaded.
 If it sees 5xx errors, it posts [an alert to Slack][slack_alerts] which includes a list of failing URLs.
 
 When we opened the affected URLs, we saw the searches fail -- if a search was failing, it would fail persistently, but some searches would succeed.
-For example, searches for *"SA/DRS/B/1/17 Box&nbsp;2"* were failing, but searches for *"bolivia"* were succeeding.
 
 Something had gone bang.
 
@@ -57,7 +124,7 @@ For future 500 errors, the front-end app now records the catalogue API query it 
 I'd never seen this error before, so I plugged it into Google.
 The lack of results from people experiencing the same error was… unusual:
 
-<img src="google_results.png">
+<img src="/images/2022/google_results.png">
 
 Seeing that people had had this issue when upgrading Elasticsearch made me remember that I'd just upgraded our Elasticsearch instance from 8.4.1 to 8.4.2.
 
@@ -69,7 +136,7 @@ Once a cluster is created, it stays on the same version until manually upgraded.
 
 Then I looked at the [list of Elasticsearch releases][releases]: 8.4.2 had been released just two days prior.
 
-<img src="elastic_release.png">
+<img src="/images/2022/elastic_release.png">
 
 Uh oh.
 
@@ -94,7 +161,7 @@ I started investigating in Kibana, because we already had that available in our 
 If you open the dev tools, there's a console where you can try API queries.
 I tried the query the API was making, and bam, I got the same error:
 
-<img src="kibana_console.png">
+<img src="/images/2022/kibana_console.png">
 
 This was a big clue: because we could reproduce the error inside Elasticsearch, we could ignore all of the code in the front-end app and the catalogue API.
 If debugging is like a murder mystery, this was like finding two cast-iron alibis.
