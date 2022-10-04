@@ -17,7 +17,7 @@ I'm pretty pleased with the repro, which helped Elastic's engineers identify and
 I thought it might be interesting to walk through the debugging process; to explain my thinking and my steps.
 Every bug is different, but the same techniques appear again and again.
 
-This is going to be an in-depth technical post; grab a drink before you start.
+This is going to be an in-depth technical post -- before you start, grab a warm drink, and maybe a biscuit.
 
 ## Uh oh, something's up
 
@@ -88,39 +88,16 @@ This stopped the errors, and it would have been enough.
 I could have stopped here, and let somebody else find the bug -- but it had got under my skin.
 I was going to hunt it down.
 
-## Comparing two versions of Elasticsearch
+## Finding a minimal query
 
-If I wanted to prove this was a bug introduced in 8.4.2, I had to do two things:
-
-1.  Show that the error doesn't occur in 8.4.1
-2.  Show that the error does occur in 8.4.2
-
-We use [Elasticsearch Docker images][docker] for CI/CD, and I knew they were published for every version.
-I pulled two images to my local machine, which I could start to get two different versions:
-
-```console
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.1
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.2
-```
-
-Now I needed to fill them with data.
-there are three variables to consider:
-
-*   the mapping, which tells ES how to index the different fields
-*   the documents -- what data are we storing?
-*   the query -- how are we searching ES
-
-in the failing catalogue API query, these are all large and unwieldy
-wanted to reduce to minimal versions
-
-## Getting a minimal query
-
-started in kibana dev tools, no setup required
-
-In the dev tools in Kibana, there's a console where you can try API queries.
+I started investigating in Kibana, because we already had that available in our cluster.
+If you open the dev tools, there's a console where you can try API queries.
 I tried the query the API was making, and bam, I got the same error:
 
 <img src="kibana_console.png">
+
+This was a big clue: because we could reproduce the error inside Elasticsearch, we could ignore all of the code in the front-end app and the catalogue API.
+If debugging is like a murder mystery, this was like finding two cast-iron alibis.
 
 I don't really understand what the query does or how it works, but I didn't need to – I just started deleting bits, re-ran the query, and checked to see if I still got an error.
 Together a colleague and I managed to reduce a 150+ line query down to this:
@@ -151,8 +128,7 @@ GET /works-indexed-2022-08-24/_search
 ```
 
 Although this was only part of the reproduction, it was a useful clue: in particular, it helped identify the handful of fields that were actually interesting.
-
-The original index is ~50GB, but if I could reduce it to the three fields in this query, I'd have something much smaller – and maybe something I could share.
+The `cross_fields` query was also a hint: it was also the culprit in the Elasticsearch 7 bug, although I didn't make the connection immediately.
 
 ## Getting a minimal set of documents
 
@@ -168,7 +144,8 @@ There are no rights issues with sharing the data (we have [snapshots for downloa
 Our API index spans ~3M documents and ~50GB of storage.
 That's pretty small by Elasticsearch standards, but still way too big to share.
 
-I started with a Python script to download the index:
+Because I knew my query reproduction was only looking at three fields, I could write a Python script to download just those fields.
+(I suppose it's possible that a non-queried field could affect the result, but that would be very strange!)
 
 ```python
 with open("documents.json", "w") as outfile:
@@ -181,54 +158,91 @@ with open("documents.json", "w") as outfile:
         outfile.write(json.dumps(hit) + "\n")
 ```
 
-Notice that I selected a subset of fields with the `_source` argument -- just the fields in the minimal query.
-(I suppose it's possible that a non-queried field could affect the result, but that would be very bizarre!)
-
 This alone made a big saving -- the file it created was ~600MB.
 
-So now I had a moderately-sized set of documents, and a query to try with them.
-How do I test it?
+This gave me a file with raw Elasticsearch hits:
 
+```json
+{"_index": "works-indexed-2022-10-04", "_id": "qpugxbb6", "_score": null, "_source": {}, "sort": [0]}
+{"_index": "works-indexed-2022-10-04", "_id": "v7tb52v3", "_score": 0, "_source": {"data": {"notes": [{"contents": "ESTC T90673"}, {"contents": "Electronic reproduction. Farmington Hills, Mich. : Thomson Gale, 2003. (Eighteenth century collections online). Available via the World Wide Web. Access limited by licensing agreements."}], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}, "sort": [0]}
+```
 
+I did a bit more filtering with tools like `jq` and `grep` to extract just the `_source` field, and remove any empty documents (not all out records have the empty fields populated).
+I also removed documents that never contained the number `1`, as surely they'd be excluded by the query.
 
-## A local debugging loop
+This cut another decent chunk off the size – compressed it was ~30MB, much more manageable.
+Now I had to check I hadn't cut too far, and that this would still reproduce the issue.
 
-i wrote another python script to load some data in the index and check for the error.
+## Finding different versions of Elasticsearch
+
+If I wanted to prove this was a bug introduced in 8.4.2, I had to do two things:
+
+1.  Show that the error doesn't occur in 8.4.1
+2.  Show that the error does occur in 8.4.2
+
+We use [Elasticsearch Docker images][docker] for CI/CD, and I knew they were published for every version.
+I pulled two images to my local machine, which I could start to get two different versions:
+
+```console
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.1
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.2
+```
+
+Now I needed to index my reduced data set, and see if I can spot the error.
+
+## Creating a local debugging loop
+
+I wrote another Python script to load some data in the index and check for the error.
 it would:
 
-1.  create an index with a random name
-2.  apply a mapping to the index
-3.  index all the documents
-4.  run a query the index, see if it errors
+1.  Create an index with a random name
+2.  Apply a mapping to the index
+3.  Index all the documents
+4.  Run a query the index, see if it errors
 
-I could use this with the minimal query I'd already found, and the data set I'd created, and test against both versions of ES
+I could use this with the minimal query I'd already found, and my reduced data set, and test against different versions of Elasticsearch.
+With the reduced data set, this took less than a minute each time, which is a relatively fast debugging loop.
 
-I did have to do some deleting in the mapping, to simplify it.
-our index mapping has a lot of extra analysers and fields (e.g. to analyse titles in multiple languages) which I suspected didn't affect the error -- I gradually deleted bits of the mapping and re-ran this script, checking the error kept occurring
+I started with our original mapping, and kept deleting fields.
+Our index mapping has a lot of analysers and fields that were unlikely to affect this error (like parsing the title in multiple languages).
+I deleted bits of the mapping and re-ran the script, checking the error kept occurring.
 
-by running this script repeatedly, I could see the error occurring on 8.4.2 and not 8.4.1 - precisely what you'd expect if it was a newly-introduced bug
-i tried some other changes ot reduce the size of the data set, like reducing the number of documents -- but they made the error intermittent on 8.4.2
-it surely doesn't take 900k documents to repro this issue,
+I also flattened the documents.
+The first version of the query has a `data.` prefix in the field names, which reflects the sturcture of the entire index -- but we don't need that to reproduce the error.
 
-used tools like grep and head to try to reduce document set
+By running this script repeatedly, I could see the error occurring on 8.4.2 and not 8.4.1.
+I tried some other changes to reduce the size of the data set, like halving the number of documents -- but they made the error intermittent, and the data set was already pretty small.
 
-this is when I stopped and started writing up an issue on the elastic repo
+This is when I stopped and started writing up an issue on the Elastic repo.
 
-## lessons learned
+## It's never that simple
 
-this write-up makes it seem like a more deliberate and intentional process than it actually was
-debugging isn't linear
-but some useful lessons here
+This write-up makes it seem like a more deliberate and intentional process than it actually was.
+Debugging isn't linear -- there are always false starts and wrong guesses between you and the solution.
+As I do more debugging, I'm getting better at spotting the dead ends, but I'll never be avoid them entirely.
 
-*   key was the script to create an index, load it up with documents, run the query. gave me a fast feedback loop on whether i'd reduced too far
+The slightly artificial nature of this post aside, there are some useful lessons here:
 
-*   probably should have opened ES issue sooner
-    "i've found this issue, working on a repro"
-    would have saved me time if somebody else already had it; would have saved elastic time trying to get thier own repros
+*   Fast feedback loops are incredibly helpful.
+    Once I had the final Python script, I was able to move a lot faster -- I'd make a change, kick off a run, and have an answer within a minute.
+    I could even run multiple experiments simultaneously, to get more data.
 
-*   always be logging, always find ways to make it easier to debug next time
-    in particular, not being able to easily get ES query slowed me down
+*   I should have opened an Elasticsearch issue sooner.
+    *"I've found a bug, I'm working on a repro."*
+    It would have saved me time if somebody else already had it in hand; it might have saved Elastic time trying to get their own repro.
 
+*   Find ways to make it easier to debug next time.
+    On this occasion, it was tricky to find the Elasticsearch query that was failing, and that slowed me down.
+    I know we might try to follow that again, so I've improved the logging in that code.
+
+More broadly, take this as a case study in how to find useful reproduction cases for bug reports:
+
+1.  Find a reproducible failure (in this case, visiting a URL)
+2.  Delete, remove, or simplify something
+3.  See if the failure still occurs
+4.  Repeat until anything you try to delete mades the failure go away
+
+I'm quite proud of [the bug report][repro] I was able to write, and how quickly the bug was identified after I wrote it.
 
 [online collections]: https://wellcomecollection.org/collections
 [catalogue]: https://developers.wellcomecollection.org/docs/catalogue
