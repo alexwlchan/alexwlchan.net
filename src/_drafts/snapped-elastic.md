@@ -67,76 +67,53 @@ That's much easier to debug than something flaky or intermittent.
 
 Now we had to find out where it was coming from.
 
-## Tracin
+## Following the error through our code
 
----
+This is the basic architecture for our collections search:
 
-This is our basic architecture:
+<img src="/images/2022/basic_architecture.png" alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'.">
 
-<img src="/images/2022/basic_architecture.png" style="width: 600px;" alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'.">
+If you're using our website, you're interacting with a front-end web app.
+That web app is making requests to our [open Catalogue API][catalogue], which in turn is sending queries to an Elasticsearch cluster.
+The cluster contains all of the catalogue data.
 
-When you search our [online collections], you're using a front-end web app that's making requests to our [Catalogue API][catalogue].
-This API is making queries against an Elasticsearch cluster, hosted in Elastic Cloud, which is where the data lives.
+I started by looking in the logs for the front-end web app.
+They didn't contain anything useful, just *"I'm returning a 500 error for this page"*.
+After looking at the code that runs on search pages, I discovered it could give an unexplained error if it got a 500 error from the catalogue API.
+I added a new log, rechecked the page, and I could see it was indeed forwarding an API error.
 
-On the Thursday in question, we started getting alerts from our front-end monitoring that a small number of searches were failing with 500 errors:
+I often make small improvements like this when I'm debugging: I'm not just trying to fix the immediate issue, I'm trying to make it easier for the next time I go debugging.
 
+Then I looked in the logs for the catalogue API.
+It was giving a slightly more descriptive error, even if it was one I didn't recognise:
 
-We run CloudFront in front of our website, and we
- which includes a list of failing URLs.
+> Sending HTTP 500 from ElasticsearchErrorHandler$ (Unknown error in search phase execution: ElasticError(illegal_argument_exception,totalTermFreq must be at least docFreq, totalTermFreq: 325030, docFreq: 325031,None,None,None,null,None,None,None,List());…
 
-These alerts go to a shared Slack channel
+This was another step forward: now I had something to Google.
 
+## Is this an Elasticsearch bug?
 
+Whenever I get an error message I don't recognise, I start by plugging it into Google:
 
-[cf_logs]: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html
+<img src="/images/2022/google_results.png" style="width: 634px" class="screenshot" alt="Google search results for ‘totalTermFreq must be at least docFreq’. There aren’t many results.">
 
----
----
----
----
----
+There's a knack in knowing which part of an error message to Google: some bits are generic and likely to turn up useful advice, some bits are specific are will be slightly different for everyone.
+The phrase *"totalTermFreq must be at least docFreq"* stood out to me as something likely to appear every time this error occurs; the individual document counts less so.
 
+I don't have good advice here except to say that Googling error messages is a skill, and you can get better with practice.
 
+There aren't many other people hitting this error, but there's a common strand: everyone had issues after they upgraded Elasticsearch.
+And that's when I remembered we'd just gone from 8.4.1 to 8.4.2.
 
-
-
-We run CloudFront in front of the website, and we upload our logs to an S3 bucket.
-There's a Lambda that listens to new uploads in that bucket, and scans every log file as it's uploaded.
-If it sees 5xx errors, it posts [an alert to Slack][slack_alerts] which includes a list of failing URLs.
-
-When we opened the affected URLs, we saw the searches fail -- if a search was failing, it would fail persistently, but some searches would succeed.
-
-Something had gone bang.
-
-## Where's the problem coming from?
-
-I looked at the application logs for the front-end web app, and I could see it was forwarding a 500 error from the catalogue API.
-I looked at the logs for the catalogue API, and I could see it was forwarding an unexpected error from Elasticsearch:
-
-> Unknown error in search phase execution: ElasticError(illegal_argument_exception,totalTermFreq must be at least docFreq, totalTermFreq: 11966, docFreq: 11967, …
-
-This suggested that the fault was either in Elasticsearch itself, or in the way we were querying Elasticsearch.
-
-(Aside: after this incident, we tweaked the logging in both applications.
-Both would say *"I got a 500 error from the upstream service"*, but wouldn't tell you how to reproduce the error.
-For future 500 errors, the front-end app now records the catalogue API query it tried, and the catalogue API now logs the Elasticsearch query it made.)
-
-I'd never seen this error before, so I plugged it into Google.
-The lack of results from people experiencing the same error was… unusual:
-
-<img src="/images/2022/google_results.png">
-
-Seeing that people had had this issue when upgrading Elasticsearch made me remember that I'd just upgraded our Elasticsearch instance from 8.4.1 to 8.4.2.
-
-(This wasn't deliberate; it was carelessness.
+(I'd forgotten because we hadn't upgraded deliberately, but accidentally.
 We manage our Elastic Cloud clusters in Terraform and tell them to use the latest version of 8.4.x.
-I'd been making some unrelated Terraform changes, and upgraded the cluster at the same time.
+I'd been making some unrelated Terraform changes, and that upgraded the cluster at the same time -- but the upgrade wasn't front of mind.
 We've now changed this Terraform so that it won't upgrade clusters after they're created.
 Once a cluster is created, it stays on the same version until manually upgraded.)
 
 Then I looked at the [list of Elasticsearch releases][releases]: 8.4.2 had been released just two days prior.
 
-<img src="/images/2022/elastic_release.png">
+<img src="/images/2022/elastic_release.png" class="screenshot" style="width: 583px;" alt="Screenshot of the GitHub release of Elasticsearch 8.4.2, with a label ‘2 days ago’.">
 
 Uh oh.
 
@@ -145,31 +122,37 @@ I'm usually loathe to point the finger at upstream providers – while nobody is
 Most bugs are going to be spotted by somebody else before they affect us.
 If something has gone wrong that isn't affecting anybody else, it's more likely my mistake than theirs.
 
-But how many people would have upgraded within 48 hours of release?
-Maybe we were among the first users to hit this bug.
+But how many people upgrade within 48 hours?
+Maybe we were the first users to hit this bug.
 
 The 8.4.2 release was the obvious culprit, so we started a rollback plan.
 We created a new cluster on an older Elasticsearch version and began loading in our data, so we could point our API away from the broken instance.
-This stopped the errors, and it would have been enough.
+We didn't have hard proof that 8.4.2 was responsible, but it seemed plausible and indeed this fix did stop the errors.
 
-I could have stopped here, and let somebody else find the bug -- but it had got under my skin.
-I was going to hunt it down.
+I could have stopped here, but weird bugs like this are rare.
+I enjoy a deep debugging session, so I decided to investigate further.
 
 ## Finding a minimal query
 
 I started investigating in Kibana, because we already had that available in our cluster.
-If you open the dev tools, there's a console where you can try API queries.
-I tried the query the API was making, and bam, I got the same error:
+If you open the dev tools, there's a console where you can run queries.
 
-<img src="/images/2022/kibana_console.png">
+When the catalogue API gets an unexpected error from Elasticsearch, it logs the query it was trying to make.
+I plugged in that query, and bam, I got the same error:
+
+<img src="/images/2022/kibana_console.png" class="screenshot" alt="A two-up console. On the left-hand side is an HTTP GET request with a JSON body (an Elasticsearch search query); on the right-hand side is the JSON response.">
 
 This was a big clue: because we could reproduce the error inside Elasticsearch, we could ignore all of the code in the front-end app and the catalogue API.
 If debugging is like a murder mystery, this was like finding two cast-iron alibis.
 
-I don't really understand what the query does or how it works, but I didn't need to – I just started deleting bits, re-ran the query, and checked to see if I still got an error.
-Together a colleague and I managed to reduce a 150+ line query down to this:
+I don't have a great understanding of what the query does or how it works, but I didn't need to -- it's just a JSON object.
+I started deleting bits, re-running the query, and checking to see if I still got an error.
+If the error stuck around: great, whatever I just deleted wasn't important.
+If the error went away: put it back, that was significant.
 
-```http
+Eventually a colleague and I managed to reduce a 150+ line query down to this:
+
+```
 GET /works-indexed-2022-08-24/_search
 {
   "query": {
@@ -195,23 +178,24 @@ GET /works-indexed-2022-08-24/_search
 ```
 
 Although this was only part of the reproduction, it was a useful clue: in particular, it helped identify the handful of fields that were actually interesting.
-The `cross_fields` query was also a hint: it was also the culprit in the Elasticsearch 7 bug, although I didn't make the connection immediately.
+The `cross_fields` query was also a hint: it was also the culprit in one of the previous bugs I found through Google, although I didn't make the connection immediately.
 
-## Getting a minimal set of documents
+## Reducing the size of the data
 
 The [last time somebody had this issue](https://github.com/elastic/elasticsearch/issues/41934), they had difficulty creating a reproduction:
 
 > I don't have a simple example of how to reproduce because it only happens when I index tons of data.
 
 They don't say explicitly, but I suspect "give Elastic engineers a complete copy of the index" wasn't an option -- for most users, their databases contain proprietary information they can't just give away.
+Their data sets are also large and unwieldy to move around, even if they wanted to.
 
 Fortunately for me, all the data in our catalogue index is publicly available and permissively licensed.
-There are no rights issues with sharing the data (we have [snapshots for download][snapshots]), so I knew that if I could get a working reproduction, I could share the data.
+There are no rights issues with sharing the data (we have [snapshots for download][snapshots]), so I knew that if I could get a smaller reproduction, I could share the data.
 
 Our API index spans ~3M documents and ~50GB of storage.
-That's pretty small by Elasticsearch standards, but still way too big to share.
+That's pretty small by Elasticsearch standards, but still way too big to share easily.
 
-Because I knew my query reproduction was only looking at three fields, I could write a Python script to download just those fields.
+Because I knew the query reproduction was only looking at three fields, I could write a Python script to download just those fields.
 (I suppose it's possible that a non-queried field could affect the result, but that would be very strange!)
 
 ```python
@@ -229,13 +213,22 @@ This alone made a big saving -- the file it created was ~600MB.
 
 This gave me a file with raw Elasticsearch hits:
 
-```json
-{"_index": "works-indexed-2022-10-04", "_id": "qpugxbb6", "_score": null, "_source": {}, "sort": [0]}
-{"_index": "works-indexed-2022-10-04", "_id": "v7tb52v3", "_score": 0, "_source": {"data": {"notes": [{"contents": "ESTC T90673"}, {"contents": "Electronic reproduction. Farmington Hills, Mich. : Thomson Gale, 2003. (Eighteenth century collections online). Available via the World Wide Web. Access limited by licensing agreements."}], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}, "sort": [0]}
-```
+<style>
+  .nowrap pre, .nowrap code {
+    white-space: normal
+  }
+</style>
+
+<div class="nowrap">
+<pre><code>{"_index": "works-indexed-2022-10-04", "_id": "qpugxbb6", "_score": null, "_source": {}, "sort": [0]}<br/>
+{"_index": "works-indexed-2022-10-04", "_id": "v7tb52v3", "_score": 0, "_source": {"data": {"notes": [{"contents": "ESTC T90673"}, {"contents": "Electronic reproduction. Farmington Hills, Mich. : Thomson Gale, 2003. (Eighteenth century collections online). Available via the World Wide Web. Access limited by licensing agreements."}], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}, "sort": [0]}</code></pre></div>
 
 I did a bit more filtering with tools like `jq` and `grep` to extract just the `_source` field, and remove any empty documents (not all out records have the empty fields populated).
-I also removed documents that never contained the number `1`, as surely they'd be excluded by the query.
+I also removed values that never contained the number `1`, as surely they'd be excluded by the query.
+
+<div class="nowrap">
+<pre><code>{"data": {"notes": [], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}</code></pre></div>
+
 
 This cut another decent chunk off the size – compressed it was ~30MB, much more manageable.
 Now I had to check I hadn't cut too far, and that this would still reproduce the issue.
@@ -275,41 +268,46 @@ Our index mapping has a lot of analysers and fields that were unlikely to affect
 I deleted bits of the mapping and re-ran the script, checking the error kept occurring.
 
 I also flattened the documents.
-The first version of the query has a `data.` prefix in the field names, which reflects the sturcture of the entire index -- but we don't need that to reproduce the error.
+The first version of the query has a `data.` prefix in the field names, which reflects the structure of the complete index -- but we don't need that to reproduce the error.
 
-By running this script repeatedly, I could see the error occurring on 8.4.2 and not 8.4.1.
-I tried some other changes to reduce the size of the data set, like halving the number of documents -- but they made the error intermittent, and the data set was already pretty small.
+By running this script repeatedly with both the Docker images, I could see the error occurring on 8.4.2 and not 8.4.1.
+I tried some other changes to shrink the data set further, like halving the number of documents -- but they made the error intermittent, and it was already pretty small.
 
-This is when I stopped and started writing up an issue on the Elastic repo.
+This is when I stopped and started writing up an issue on the Elasticsearch repo.
 
 ## It's never that simple
 
-This write-up makes it seem like a more deliberate and intentional process than it actually was.
+This write-up makes it seem like a much more deliberate and intentional process than it actually was.
 Debugging isn't linear -- there are always false starts and wrong guesses between you and the solution.
-As I do more debugging, I'm getting better at spotting the dead ends, but I'll never be avoid them entirely.
+Experience helps -- every time I debug a tricky problem, I spot the dead ends more quickly, but I'll never avoid them entirely.
 
-The slightly artificial nature of this post aside, there are some useful lessons here:
+The artificial nature of this post aside, there are some useful lessons here:
 
 *   Fast feedback loops are incredibly helpful.
     Once I had the final Python script, I was able to move a lot faster -- I'd make a change, kick off a run, and have an answer within a minute.
     I could even run multiple experiments simultaneously, to get more data.
 
-*   I should have opened an Elasticsearch issue sooner.
-    *"I've found a bug, I'm working on a repro."*
-    It would have saved me time if somebody else already had it in hand; it might have saved Elastic time trying to get their own repro.
+*   Always look for ways to make it easier to debug next time.
+    On this occasion, it was tricky to trace the error from the front-end web app to the catalogue API.
+    That's the sort of thing we might do again, so I improved the logging in that part of the code.
 
-*   Find ways to make it easier to debug next time.
-    On this occasion, it was tricky to find the Elasticsearch query that was failing, and that slowed me down.
-    I know we might try to follow that again, so I've improved the logging in that code.
+*   Good communication saves time: I should have opened an Elasticsearch issue sooner.
+    *"I've found a bug, I'm working on a repro."*
+    It would have avoided duplication of effort, both from me and the other Elastic engineers I didn't know were already looking at this bug.
 
 More broadly, take this as a case study in how to find useful reproduction cases for bug reports:
 
 1.  Find a reproducible failure (in this case, visiting a URL)
 2.  Delete, remove, or simplify something
 3.  See if the failure still occurs
-4.  Repeat until anything you try to delete mades the failure go away
+4.  Repeat until anything you delete makes the error go away
 
-I'm quite proud of [the bug report][repro] I was able to write, and how quickly the bug was identified after I wrote it.
+Admittedly, step 1 is often the hard bit, and I got lucky to land on a reproducible error so quickly.
+Even so, I'm proud of [the bug report][repro] I was able to write.
+I think it's clear, it contains useful information, and my example made it easy to track down the faulty code.
+
+This was fun.
+I don't often get a chance to do deep debugging, especially in an unfamiliar system -- it's nice to know I can still manage when the need arises.
 
 [online collections]: https://wellcomecollection.org/collections
 [catalogue]: https://developers.wellcomecollection.org/docs/catalogue
@@ -320,3 +318,4 @@ I'm quite proud of [the bug report][repro] I was able to write, and how quickly 
 [releases]: https://github.com/elastic/elasticsearch/releases
 [snapshots]: https://developers.wellcomecollection.org/docs/datasets
 [docker]: https://www.docker.elastic.co/r/elasticsearch
+[cf_logs]: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html
