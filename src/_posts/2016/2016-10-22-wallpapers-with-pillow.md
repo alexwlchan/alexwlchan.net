@@ -76,9 +76,9 @@ def random_colors(color1, color2):
         proportion = random.uniform(0, 1)
 
         yield Color(
-            red=color1.red - int(d_red * proportion)),
-            green=color1.green - int(d_green * proportion)),
-            blue=color1.blue - int(d_blue * proportion))
+            red=color1.red - int(d_red * proportion),
+            green=color1.green - int(d_green * proportion),
+            blue=color1.blue - int(d_blue * proportion)
         )
 ```
 
