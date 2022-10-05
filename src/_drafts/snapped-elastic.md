@@ -7,8 +7,10 @@ theme:
   card_type: summary_large_image
   image: /images/2022/train_crash.jpg
 index:
-  tint_color: "#429d8f"
+  tint_color: "#52a89f"
 ---
+
+<!-- Card image: https://wellcomecollection.org/works/r8t5urwh, public domain -->
 
 <style>
   .screenshot {
