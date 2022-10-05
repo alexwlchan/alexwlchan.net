@@ -55,7 +55,7 @@ class Integer
   end
 end
 
-puts 1 / 2  # "headache"
+puts 29018198 / 37  # "headache"
 ```
 
 Thus recreating the experience of many people and school-level maths.
