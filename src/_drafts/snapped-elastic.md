@@ -19,12 +19,12 @@ index:
 
 A few weeks ago, I helped to find a bug in Elasticsearch 8.4.2.
 We'd started seeing issues in our Elastic cluster at work, and I was able to isolate the issue in a small, reproducible test case.
-I shared my code with Elastic engineers, and that helped them identify and fix the bug.
+I shared my code with Elastic engineers, and that helped them identify and fix the problem.
 
 I was pretty pleased with [my bug report][repro] -- it was a simple, self-contained example with an obvious smoking gun.
-It led straight to the faulty code.
+A previously elusive bug became reproducible, which led straight to the faulty code.
 
-I followed a classic debugging cycle: find a reproducible error, delete something, see if the error reproduces.
+I got there with a classic debugging cycle: find a reproducible error, delete something, see if the error reproduces.
 Repeat until there's nothing left to delete.
 
 I thought it might be interesting to walk through the process; to explain my steps and my thinking.
@@ -33,33 +33,36 @@ Even if you don't use Elasticsearch, I hope this will give you some ideas for de
 
 ## Uh oh, something's up
 
-On the Thursday in question, we started getting alerts from our website monitoring that a small number of searches were failing:
+On the Thursday in question, we started getting alerts from our website monitoring – some people searching our collections were getting error pages:
 
-<img src="/images/2022/cloudfront_errors_detected.png" style="width: 654px;" class="screenshot" alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org.">
+<img src="/images/2022/cloudfront_errors_detected_1x.png" srcset="/images/2022/cloudfront_errors_detected_1x.png 1x, /images/2022/cloudfront_errors_detected_2x.png 2x" style="width: 654px;" class="screenshot" alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org.">
 
 As a proportion of overall traffic, it was pretty small -- but alerts like this started to pile up in Slack.
 Even if it wasn't completely down, the website was having issues.
 
-These alerts come from our CloudFront access logs.
+These alerts come from CloudFront.
 We run CloudFront in front of the website, and we [upload our access logs to an S3 bucket][cf_logs].
 There's a Lambda that gets notified of uploads in that bucket, and it scans every new log file.
 If it sees any 5xx server errors, it posts [an alert to Slack][slack_alerts].
 CloudFront uploads logs every few minutes, so we find out about issues pretty quickly.
 
-<img src="/images/2022/slack_alert_architecture.png">
+<img src="/images/2022/slack_alert_architecture_1x.png" srcset="/images/2022/slack_alert_architecture_1x.png 1x, /images/2022/slack_alert_architecture_2x.png 2x" alt="A hand-drawn illustration of our Slack alerting architecture. A user (a grey silhouette) makes a request to CloudFront (a purple circle). This gets sent to the website (a grey box) and the logs in S3 (a green bucket). The logs in S3 get sent to a Lambda function (an orange Greek letter Lambda), which forwards them to Slack.">
 
-Before this setup, we only found out about outages from our automated uptime monitoring (which only checks a sample of pages) or when a user reported an error (which take a while to reach the dev team).
+Before this setup, we only found out about outages from our automated uptime monitoring (which only checks a sample of pages) or when a user reported an error (which are much slower to arrive).
 Getting near-realtime alerts of unexpected errors means we can fix them much faster.
 
 As the errors stacked up in Slack, the meaning was obvious: something had gone bang.
 
-## Is it just for me, or is something broken?
+## Is it just me, or is something broken?
 
 The Slack alert includes the affected URLs, so we can click to go straight to the failing page.
 This is intentional: trying to reproduce the error is the first step of debugging, and putting the URLs in Slack makes it as easy as possible to reproduce a failing request.
 
 When we clicked, we all saw the error page -- these searches were failing for us, and they were failing consistently.
-We also discovered that some searches were still working, and they worked consistently.
+
+<img src="/images/2022/wc_500_error_1x.png" srcset="/images/2022/wc_500_error_1x.png 1x, /images/2022/wc_500_error_2x.png 2x" alt="An 'Internal Server Error' page." class="screenshot">
+
+We discovered that some -- indeed, most -- searches were still working, and they worked consistently.
 For example, searches for *"SA/DRS/B/1/17 Box&nbsp;2"* would always fail, but searches for *"bolivia"* would always succeed.
 
 Although annoying, this was a good first step: we had a reproducible error.
@@ -71,15 +74,15 @@ Now we had to find out where it was coming from.
 
 This is the basic architecture for our collections search:
 
-<img src="/images/2022/basic_architecture.png" alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'.">
+<img src="/images/2022/basic_architecture_1x.png" srcset="/images/2022/basic_architecture_1x.png 1x, /images/2022/basic_architecture_2x.png 2x" alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'.">
 
 If you're using our website, you're interacting with a front-end web app.
-That web app is making requests to our [open Catalogue API][catalogue], which in turn is sending queries to an Elasticsearch cluster.
+That web app is making requests to [our Catalogue API][catalogue], which in turn is sending queries to an Elasticsearch cluster.
 The cluster contains all of the catalogue data.
 
 I started by looking in the logs for the front-end web app.
 They didn't contain anything useful, just *"I'm returning a 500 error for this page"*.
-After looking at the code that runs on search pages, I discovered it could give an unexplained error if it got a 500 error from the catalogue API.
+After looking at the code, I discovered it could give an unexplained error if it got a 500 error from the catalogue API.
 I added a new log, rechecked the page, and I could see it was indeed forwarding an API error.
 
 I often make small improvements like this when I'm debugging: I'm not just trying to fix the immediate issue, I'm trying to make it easier for the next time I go debugging.
@@ -95,9 +98,9 @@ This was another step forward: now I had something to Google.
 
 Whenever I get an error message I don't recognise, I start by plugging it into Google:
 
-<img src="/images/2022/google_results.png" style="width: 634px" class="screenshot" alt="Google search results for ‘totalTermFreq must be at least docFreq’. There aren’t many results.">
+<img src="/images/2022/google_results_1x.png" srcset="/images/2022/google_results_1x.png 1x, /images/2022/google_results_2x.png 2x" class="screenshot" alt="Google search results for ‘totalTermFreq must be at least docFreq’. There aren’t many results.">
 
-There's a knack in knowing which part of an error message to Google: some bits are generic and likely to turn up useful advice, some bits are specific are will be slightly different for everyone.
+There's a knack in knowing which part of an error message to Google: some bits are generic and likely to turn up useful advice, some bits are specific and will be slightly different for everyone.
 The phrase *"totalTermFreq must be at least docFreq"* stood out to me as something likely to appear every time this error occurs; the individual document counts less so.
 
 I don't have good advice here except to say that Googling error messages is a skill, and you can get better with practice.
@@ -113,12 +116,12 @@ Once a cluster is created, it stays on the same version until manually upgraded.
 
 Then I looked at the [list of Elasticsearch releases][releases]: 8.4.2 had been released just two days prior.
 
-<img src="/images/2022/elastic_release.png" class="screenshot" style="width: 583px;" alt="Screenshot of the GitHub release of Elasticsearch 8.4.2, with a label ‘2 days ago’.">
+<img src="/images/2022/elastic_release_1x.png" srcset="/images/2022/elastic_release_1x.png 1x, /images/2022/elastic_release_2x.png 2x" class="screenshot" alt="Screenshot of the GitHub release of Elasticsearch 8.4.2, with a label ‘2 days ago’.">
 
 Uh oh.
 
 This is the first time I suspected this might be an Elasticsearch bug.
-I'm usually loathe to point the finger at upstream providers – while nobody is infalliable, these are services with plenty of users.
+I'm usually loathe to point the finger at upstream providers – while nobody is infalliable, these are services with lots of users.
 Most bugs are going to be spotted by somebody else before they affect us.
 If something has gone wrong that isn't affecting anybody else, it's more likely my mistake than theirs.
 
@@ -126,8 +129,8 @@ But how many people upgrade within 48 hours?
 Maybe we were the first users to hit this bug.
 
 The 8.4.2 release was the obvious culprit, so we started a rollback plan.
-We created a new cluster on an older Elasticsearch version and began loading in our data, so we could point our API away from the broken instance.
-We didn't have hard proof that 8.4.2 was responsible, but it seemed plausible and indeed this fix did stop the errors.
+We created a new cluster on an older Elasticsearch version and began loading in our data, so we could point the catalogue API away from the broken instance.
+We didn't (yet) have proof that 8.4.2 was responsible, but it seemed plausible and indeed this fix did stop the errors.
 
 I could have stopped here, but weird bugs like this are rare.
 I enjoy a deep debugging session, so I decided to investigate further.
@@ -140,7 +143,7 @@ If you open the dev tools, there's a console where you can run queries.
 When the catalogue API gets an unexpected error from Elasticsearch, it logs the query it was trying to make.
 I plugged in that query, and bam, I got the same error:
 
-<img src="/images/2022/kibana_console.png" class="screenshot" alt="A two-up console. On the left-hand side is an HTTP GET request with a JSON body (an Elasticsearch search query); on the right-hand side is the JSON response.">
+<img src="/images/2022/kibana_console_1x.png" srcset="/images/2022/kibana_console_1x.png 1x, /images/2022/kibana_console_2x.png 2x" class="screenshot" alt="A two-up console. On the left-hand side is an HTTP GET request with a JSON body (an Elasticsearch search query); on the right-hand side is the JSON response.">
 
 This was a big clue: because we could reproduce the error inside Elasticsearch, we could ignore all of the code in the front-end app and the catalogue API.
 If debugging is like a murder mystery, this was like finding two cast-iron alibis.
@@ -178,7 +181,7 @@ GET /works-indexed-2022-08-24/_search
 ```
 
 Although this was only part of the reproduction, it was a useful clue: in particular, it helped identify the handful of fields that were actually interesting.
-The `cross_fields` query was also a hint: it was also the culprit in one of the previous bugs I found through Google, although I didn't make the connection immediately.
+The `cross_fields` query was also a hint: it was the culprit in one of the previous bugs I found through Google, although I didn't make the connection immediately.
 
 ## Reducing the size of the data
 
@@ -186,14 +189,14 @@ The [last time somebody had this issue](https://github.com/elastic/elasticsearch
 
 > I don't have a simple example of how to reproduce because it only happens when I index tons of data.
 
-They don't say explicitly, but I suspect "give Elastic engineers a complete copy of the index" wasn't an option -- for most users, their databases contain proprietary information they can't just give away.
+They don't say explicitly, but I suspect "give Elastic a complete copy of the index" wasn't an option -- for most users, their databases contain proprietary information they can't just give away.
 Their data sets are also large and unwieldy to move around, even if they wanted to.
 
 Fortunately for me, all the data in our catalogue index is publicly available and permissively licensed.
 There are no rights issues with sharing the data (we have [snapshots for download][snapshots]), so I knew that if I could get a smaller reproduction, I could share the data.
 
 Our API index spans ~3M documents and ~50GB of storage.
-That's pretty small by Elasticsearch standards, but still way too big to share easily.
+That's pretty small by Elasticsearch standards, but still too big to share easily.
 
 Because I knew the query reproduction was only looking at three fields, I could write a Python script to download just those fields.
 (I suppose it's possible that a non-queried field could affect the result, but that would be very strange!)
@@ -223,7 +226,7 @@ This gave me a file with raw Elasticsearch hits:
 <pre><code>{"_index": "works-indexed-2022-10-04", "_id": "qpugxbb6", "_score": null, "_source": {}, "sort": [0]}<br/>
 {"_index": "works-indexed-2022-10-04", "_id": "v7tb52v3", "_score": 0, "_source": {"data": {"notes": [{"contents": "ESTC T90673"}, {"contents": "Electronic reproduction. Farmington Hills, Mich. : Thomson Gale, 2003. (Eighteenth century collections online). Available via the World Wide Web. Access limited by licensing agreements."}], "physicalDescription": "[4], xlviii, [16] p, 2144 columns ; 20."}}, "sort": [0]}</code></pre></div>
 
-I did a bit more filtering with tools like `jq` and `grep` to extract just the `_source` field, and remove any empty documents (not all out records have the empty fields populated).
+I did a bit more filtering with tools like `jq` and `grep` to extract just the `_source` field, and remove any empty documents (not all our records use those fields).
 I also removed values that never contained the number `1`, as surely they'd be excluded by the query.
 
 <div class="nowrap">
@@ -241,7 +244,7 @@ If I wanted to prove this was a bug introduced in 8.4.2, I had to do two things:
 2.  Show that the error does occur in 8.4.2
 
 We use [Elasticsearch Docker images][docker] for CI/CD, and I knew they were published for every version.
-I pulled two images to my local machine, which I could start to get two different versions:
+I pulled two images to my local machine, which I could run to get the different versions:
 
 ```console
 $ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.1
@@ -252,13 +255,12 @@ Now I needed to index my reduced data set, and see if I can spot the error.
 
 ## Creating a local debugging loop
 
-I wrote another Python script to load some data in the index and check for the error.
-it would:
+I wrote another Python script which would:
 
-1.  Create an index with a random name
+1.  Create an index with a random name (so I could reuse the same Elasticsearch instance)
 2.  Apply a mapping to the index
 3.  Index all the documents
-4.  Run a query the index, see if it errors
+4.  Run a query against the index, see if it errors
 
 I could use this with the minimal query I'd already found, and my reduced data set, and test against different versions of Elasticsearch.
 With the reduced data set, this took less than a minute each time, which is a relatively fast debugging loop.
@@ -270,7 +272,7 @@ I deleted bits of the mapping and re-ran the script, checking the error kept occ
 I also flattened the documents.
 The first version of the query has a `data.` prefix in the field names, which reflects the structure of the complete index -- but we don't need that to reproduce the error.
 
-By running this script repeatedly with both the Docker images, I could see the error occurring on 8.4.2 and not 8.4.1.
+By running this script repeatedly with both Docker images, I could see the error occurring on 8.4.2 and not 8.4.1.
 I tried some other changes to shrink the data set further, like halving the number of documents -- but they made the error intermittent, and it was already pretty small.
 
 This is when I stopped and started writing up an issue on the Elasticsearch repo.
@@ -284,7 +286,7 @@ Experience helps -- every time I debug a tricky problem, I spot the dead ends mo
 The artificial nature of this post aside, there are some useful lessons here:
 
 *   Fast feedback loops are incredibly helpful.
-    Once I had the final Python script, I was able to move a lot faster -- I'd make a change, kick off a run, and have an answer within a minute.
+    Once I had the final Python script, I was able to move quickly -- I'd make a change, kick off a run, and have an answer within a minute.
     I could even run multiple experiments simultaneously, to get more data.
 
 *   Always look for ways to make it easier to debug next time.
@@ -295,12 +297,8 @@ The artificial nature of this post aside, there are some useful lessons here:
     *"I've found a bug, I'm working on a repro."*
     It would have avoided duplication of effort, both from me and the other Elastic engineers I didn't know were already looking at this bug.
 
-More broadly, take this as a case study in how to find useful reproduction cases for bug reports:
-
-1.  Find a reproducible failure (in this case, visiting a URL)
-2.  Delete, remove, or simplify something
-3.  See if the failure still occurs
-4.  Repeat until anything you delete makes the error go away
+More broadly, take this as a case study in writing useful test cases: find a reproducible error, delete something, see if the error reproduces.
+Repeat until there's nothing left to delete.
 
 Admittedly, step 1 is often the hard bit, and I got lucky to land on a reproducible error so quickly.
 Even so, I'm proud of [the bug report][repro] I was able to write.
