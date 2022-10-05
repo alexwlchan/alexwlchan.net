@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-10-05 22:35:11 +0000
 title: Some experiments with circle-based art
 summary: Casually covering a canvas with coloured circles.
 tags: python:pillow drawing-things generative-art
