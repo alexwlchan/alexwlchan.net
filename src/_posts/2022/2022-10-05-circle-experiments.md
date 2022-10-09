@@ -243,7 +243,7 @@ It's a fun creative outlet -- and unlike other forms of computer-based art, my r
 
 [screenshot library]: /2022/07/screenshots/
 [border-radius property]: https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
-[the blog post]: http://localhost:5757/2016/10/wallpapers-with-pillow/
+[the blog post]: /2016/10/wallpapers-with-pillow/
 [Pillow]: https://python-pillow.org/
 [ImageDraw]: https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
 [kirsten]: https://twitter.com/Kirsten3531/status/1575789943565131776
