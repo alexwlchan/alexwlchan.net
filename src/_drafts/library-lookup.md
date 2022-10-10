@@ -1,9 +1,16 @@
 ---
 layout: post
 title: Finding books in nearby library branches
-summary:
+summary: Some web scraping and Python helps me find books that I can borrow immediately.
 tags: books libraries
+theme:
+  card_type: summary_large_image
+  image: /images/2022/bodleian.jpg
+index:
+  tint_color: "#527345"
 ---
+
+<!-- Cover image from https://wellcomecollection.org/works/u7xetmy2/images?id=mbrj8865, Public Domain -->
 
 <style>
   img {
