@@ -19,6 +19,7 @@ class RunLinting < Jekyll::Command
           check_writing_has_been_archived(options["source"])
           check_twitter_card_images(options["destination"])
           check_yaml_front_matter(options["source"])
+          check_no_localhost_links(options["destination"])
         end
       end
     end
@@ -97,19 +98,9 @@ class RunLinting < Jekyll::Command
         end
 
         doc = Nokogiri::HTML(File.open(html_path))
+        display_path = get_display_path(doc)
+
         meta_tags = doc.xpath("//meta")
-
-        # Look up the Markdown file that was used to create this file.
-        #
-        # This means the error report can link to the source file, not
-        # the rendered HTML file.
-        #
-        # Note that we may fail to retrieve this value if for some reason
-        # the `<meta>` tag hasn't been written properly, in which case
-        # we show the HTML path instead.
-        md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
-
-        display_path = md_path == "" ? html_path : "src/#{md_path}"
 
         # Get a map of Twitter cards (name => content).
         #
@@ -244,6 +235,68 @@ class RunLinting < Jekyll::Command
         }
         exit!
       end
+    end
+
+    # Check I haven't used localhost URLs anywhere (in links or images)
+    #
+    def check_no_localhost_links(html_dir)
+      errors = Hash.new { [] }
+
+      info("Checking there aren’t any localhost links...")
+
+      Dir["#{html_dir}/**/*.html"].each { |html_path|
+
+        # Anything in the /files/ directory can be ignored, because it's
+        # not part of the site, it's a static asset.
+        #
+        # e.g. if I've got a file that I'm using to demo a particular
+        # HTML feature.
+        if html_path.include? "/files/"
+          next
+        end
+
+        doc = Nokogiri::HTML(File.open(html_path))
+        display_path = get_display_path(doc)
+
+        localhost_links = doc.xpath("//a")
+          .select { |a|
+            a.attribute('href') != nil &&
+            a.attribute("href").value.start_with?("http") &&
+            a.attribute('href').value.include?("localhost:5757")
+          }
+          .map { |a| a.attribute('href').value }
+
+        if !localhost_links.empty?
+          errors[display_path] <<= "There are links to localhost: #{localhost_links.join("; ")}"
+        end
+      }
+
+      # This is meant to look similar to the output from HTMLProofer --
+      # errors are grouped by filename, so they can be easily traced
+      # back to the problem file.
+      if !errors.empty?
+        errors.each { |display_path, messages|
+          error("- #{display_path}")
+          messages.each { |m|
+            error("  *  #{m}")
+          }
+        }
+        exit!
+      end
+    end
+
+    def get_display_path(doc)
+      # Look up the Markdown file that was used to create this file.
+      #
+      # This means the error report can link to the source file, not
+      # the rendered HTML file.
+      #
+      # Note that we may fail to retrieve this value if for some reason
+      # the `<meta>` tag hasn't been written properly, in which case
+      # we show the HTML path instead.
+      md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
+
+      md_path == "" ? html_path : "src/#{md_path}"
     end
   end
 end
