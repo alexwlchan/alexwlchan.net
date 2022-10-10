@@ -9,6 +9,7 @@ theme:
   image: /images/2022/blink_diffs_card.jpg
 index:
   tint_color: "#812d26"
+  exclude: true
 ---
 
 When I'm taking a photo, I like to take several shots every time.
