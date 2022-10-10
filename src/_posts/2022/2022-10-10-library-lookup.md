@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-10-10 19:47:42 +0000
 title: Finding books in nearby library branches
 summary: Some web scraping and Python helps me find books that I can borrow immediately.
 tags: books libraries
