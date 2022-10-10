@@ -10,6 +10,7 @@ theme:
 index:
   image: /images/2022/carbon-monoxide-detectors_index_card.jpg
   tint_color: "#73784c"
+  exclude: true
 ---
 
 Yesterday was the roughly sexennial ritual of replacing all my carbon monoxide detectors.
