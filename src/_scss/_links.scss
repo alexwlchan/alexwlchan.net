@@ -1,0 +1,10 @@
+/* from https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
+a.skip-main {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width:  1px;
+  height: 1px;
+  overflow :hidden;
+  z-index: -999;
+}

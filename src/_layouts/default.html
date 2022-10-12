@@ -7,10 +7,14 @@ layout: compress
 
   {% include head.html %}
 
+  <a class="skip-main" href="#main">Skip to main content</a>
+
   <body>
     {% include header.html %}
 
-    {{ content }}
+    <main id="main" tabIndex="-1">
+      {{ content }}
+    </main>
 
     {% include footer.html %}
   </body>
