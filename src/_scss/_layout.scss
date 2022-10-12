@@ -7,13 +7,13 @@ body {
   background-image: url('/theme/white-waves-transparent.png');
 }
 
-article, main, #footer_inner, #aside_inner {
+article, main, #footer_inner, #nav_inner {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
 }
 
-#aside_inner {
+#nav_inner {
   padding-top: calc(1px + env(safe-area-inset-top));
 }
 
@@ -21,7 +21,7 @@ article, main, #footer_inner {
   padding-top: 1px;
 }
 
-#aside_inner, article, main {
+#nav_inner, article, main {
   padding-bottom: 1px;
 }
 
@@ -29,7 +29,7 @@ article, main, #footer_inner {
   padding-bottom: calc(1px + env(safe-area-inset-bottom));
 }
 
-img, video, svg, iframe, figure, article, main, #footer_inner, #aside_inner {
+img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner {
   margin-left: auto;
   margin-right: auto;
 }
