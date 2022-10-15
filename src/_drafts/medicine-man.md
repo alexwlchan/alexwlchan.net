@@ -41,8 +41,7 @@ When they hear those words, that becomes their sole view of the other person.
 The rest of the person -- their personality, nuance, and life -- gets stripped away.
 
 In a way, that's what's happening to this skeleton.
-Presumably this used to be a person.
-Perhaps they were a child, or a friend, or a lover, but now they've been reduced to a skeleton.
+It used to be a person – perhaps they were a child, or a friend, or a lover, but now they've been reduced to a skeleton.
 The rest of their life has been stripped away.
 They're not being seen as anything else.
 
@@ -54,7 +53,7 @@ It reminded me of how the queer community is often discussed without involving a
 The idea of human remains as display objects is slowly – too slowly – changing.)
 
 I doubt the artist was trying to represent a queer experience, but I found a resonance there anyway.
-Other people found examples of queerness as solidarity, the messiness of being queer, and the difficulties of coming out.
+Other people at the event found examples of queerness as solidarity, the messiness of being queer, and the difficulties of coming out.
 
 I'm used to going into a gallery and being told how to interpret the displays; it was strange to be asked how I felt about the exhibits.
 I don't remember the last time I was in a museum and explicitly invited to provide my own interpretation -- but I quite liked it.
