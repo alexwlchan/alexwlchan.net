@@ -14,7 +14,8 @@ It's part of a series of events to mark [the closing of *Medicine Man*][beyond],
 I had a fun evening -- Nan and Tabs put together an interesting set of activities, that was more thoughtful and challenging than I'd expected.
 I'd only skimmed the event description, so I was expecting something more akin to a tour or a lecture.
 
-At the start of the session, we were invited to wander around the exhibit,
+At the start of the session, we were invited to wander around the exhibit, and find objects that reminded us of being queer (I forget the exact wording).
+Nan read us [a quote from Bell Hooks][bellhooks] about "queer" being an expansive, broad-ranging term, and then we were left to wander.
 
 <figure class="fullwidth_img">
   <a href="https://wellcomecollection.org/works/p54c5wcu/items">
