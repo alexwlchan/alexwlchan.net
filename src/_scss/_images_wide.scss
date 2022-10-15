@@ -35,10 +35,12 @@ $gradual-width-breakpoint: $max-width + $default-padding * 2;
     max-width: calc(100% + #{$max-width-image-overflow});
     margin-left:  -$max-width-image-overflow / 2;
     margin-right: -$max-width-image-overflow / 2;
+  }
 
+  .wide_img, .fullwidth_img {
     figcaption {
-      padding-left:  $max-width-image-overflow / 2;
-      padding-right: $max-width-image-overflow / 2;
+      padding-left:  calc($max-width-image-overflow / 2 + env(safe-area-inset-left));
+      padding-right: calc($max-width-image-overflow / 2 + env(safe-area-inset-right));
     }
   }
 }
@@ -51,10 +53,12 @@ $gradual-width-breakpoint: $max-width + $default-padding * 2;
     // 50% of the screen width, less the width of the text, less the padding
     margin-left:  calc(#{$default-padding} + #{$max-width / 2} - 50vw);
     margin-right: calc(#{$default-padding} + #{$max-width / 2} - 50vw);
+  }
 
+  .wide_img, .fullwidth_img {
     figcaption {
-      padding-left:  calc(50vw - #{$default-padding} - #{$max-width / 2});
-      padding-right: calc(50vw - #{$default-padding} - #{$max-width / 2});
+      padding-left:  calc(50vw - #{$default-padding} - #{$max-width / 2} + env(safe-area-inset-left));
+      padding-right: calc(50vw - #{$default-padding} - #{$max-width / 2} + env(safe-area-inset-right));
     }
   }
 }
@@ -73,6 +77,11 @@ $gradual-width-breakpoint: $max-width + $default-padding * 2;
     max-width:    calc(100% + #{$default-padding} * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
     margin-left:  calc(-1 * (#{$default-padding} + env(safe-area-inset-left,  0px)));
     margin-right: calc(-1 * (#{$default-padding} + env(safe-area-inset-right, 0px)));
+
+    figcaption {
+      padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
+      padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
+    }
   }
 }
 

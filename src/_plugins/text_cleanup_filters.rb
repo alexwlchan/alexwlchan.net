@@ -50,15 +50,27 @@ module Jekyll
 
       text = text.gsub(/issue (\d+)/, 'issue&nbsp;\1')
       text = text.gsub(/Apollo (\d{3})/, 'Apollo&nbsp;\1')
-      text = text.sub("iPhone X", "iPhone&nbsp;X")
-      text = text.sub("JPEG 2000", "JPEG&nbsp;2000")
-      text = text.sub("Route 53", "Route&nbsp;53")
-      text = text.sub("Mac OS 9", "Mac&nbsp;OS&nbsp;9")
-      text = text.sub("iMac G3", "iMac&nbsp;G3")
-      text = text.gsub("CC BY-NC 4.0", "CC&nbsp;BY-NC&nbsp;4.0")
 
-      # e.g. k-means
-      text = text.sub("<em>k</em>-means", "<em>k</em>&#8209;means")
+      phrases = [
+        "<em>k</em>-means",
+        "CC BY 4.0",
+        "CC BY",
+        "CC BY-NC 4.0",
+        "CC BY-NC-ND",
+        "CC BY-SA 2.0",
+        "CC BY-SA 4.0",
+        "iMac G3",
+        "iPhone X",
+        "JPEG 2000",
+        "Mac OS 9",
+        "PyCon ",
+        "Route 53",
+      ]
+
+      for p in phrases
+        replacement = p.gsub(" ", "&nbsp;").gsub("-", "&#8209;")
+        text = text.gsub(p, replacement)
+      end
 
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
@@ -70,9 +82,6 @@ module Jekyll
         "TeX",
         "<span class=\"latex\">T<sub>e</sub>X</span>"
       )
-
-      # Replace any mention of "PyCon" with the appropriate non-breaking space
-      text = text.gsub("PyCon ", "PyCon&nbsp;")
 
       # Make sure that footnote markers are rendered as a text
       # arrow on iOS devices, not emoji.  For more info:
