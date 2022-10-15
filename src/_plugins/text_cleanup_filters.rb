@@ -55,6 +55,7 @@ module Jekyll
       text = text.sub("Route 53", "Route&nbsp;53")
       text = text.sub("Mac OS 9", "Mac&nbsp;OS&nbsp;9")
       text = text.sub("iMac G3", "iMac&nbsp;G3")
+      text = text.gsub("CC BY-NC 4.0", "CC&nbsp;BY-NC&nbsp;4.0")
 
       # e.g. k-means
       text = text.sub("<em>k</em>-means", "<em>k</em>&#8209;means")
