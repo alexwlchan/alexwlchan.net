@@ -1,8 +1,12 @@
 figcaption {
   color: $accent-grey;
 
+  /* We need !important so these styles don't get replaced by page theming */
   a, a:visited {
-    @include link_styles($accent-grey, 0.2);
+    color: $accent-grey !important;
+    &:hover {
+      background: rgba($accent-grey, 0.2) !important;
+    }
   }
 
   font-size: $meta-font-size;
