@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-10-15 22:27:05 +0000
 title: Looking for queer energy in Medicine Man
 summary: I didn't expect to find resonance with a painting of a skeleton.
 tags: art museums queer-stuff wellcome-collection history
