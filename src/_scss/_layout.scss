@@ -7,7 +7,7 @@ body {
   background-image: url('/theme/white-waves-transparent.png');
 }
 
-article, main, #footer_inner, #nav_inner {
+main, #footer_inner, #nav_inner {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
