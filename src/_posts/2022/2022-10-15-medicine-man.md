@@ -18,7 +18,7 @@ I'd only skimmed the event description, so I was expecting something more akin t
 At the start of the session, we were invited to wander around the exhibit, and find objects that reminded us of being queer (I forget the exact wording).
 Nan read us [a quote from Bell Hooks][bellhooks] about "queer" being an expansive, broad-ranging term, and then we were left to wander.
 
-This is the point at which I have to admit I always feel a bit uncomfortable Medicine Man.
+This is the point at which I have to admit I always feel a bit uncomfortable in Medicine Man.
 I find it a dark, somewhat oppressive space, and I always feel a bit weird wandering among the display cases.
 Rather than look at the objects, I found myself drawn to the wall of paintings:
 
