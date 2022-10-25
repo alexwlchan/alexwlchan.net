@@ -346,7 +346,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
     (Wellcome stopped using Loris in 2021.)
   </dd>
   <dt><a href="https://github.com/urllib3/urllib3" aria-label="url lib 3">urllib3</a></dt>
-  <dd>
+  <dd role="text">
     <span class="visually-hidden">url lib 3</span><span aria-hidden="true">urllib3</span> is an HTTP client for Python.
     In 2017, I did a significant amount of work on the test suite: migrating it from <span class="visually-hidden">nose tests</span><span aria-hidden="true">nosetests</span> to py.test, and cleaning up file descriptor leaks.
   </dd>
@@ -384,7 +384,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       <dt>
         <a href="https://howlongismydata.glitch.me">How long is my data?</a>
       </dt>
-      <dd>
+      <dd role="text">
         Measure data in the shelving space you’d need if you stored it as a series of <span class="visually-hidden">3&frac12; inch</span><span aria-hidden="true">3&frac12;&Prime;</span> floppy disks.
       </dd>
     </dl>
@@ -502,8 +502,8 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         <a href="https://marquee-rocket.glitch.me" aria-label="marquee rocket">&lt;marquee&gt; rocket</a>
       </dt>
       <dd>
-        Controlling a tiny rocket using nothing but the <span class="visually-hidden">marquee</span><span aria-hidden="true">&lt;marquee&gt;</span> tag.
-        This came from <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
+        <span role="text">Controlling a tiny rocket using nothing but the <span aria-hidden="true">&lt;</span>marquee<span aria-hidden="true">&gt;</span> tag.
+        This came from</span> <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
       </dd>
     </dl>
     <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
