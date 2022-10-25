@@ -202,7 +202,7 @@ The projects I've worked on include:
 ## Writing
 
 <dl>
-  <dt><a href="https://alexwlchan.net/all-posts/">alexwlchan.net</a></dt>
+  <dt><a href="https://alexwlchan.net/all-posts/" aria-label="alex w l chan dot net">alexwlchan.net</a></dt>
   <dd>
     This site started as a place where I could practice my writing; I’ve since written over 300 posts.
     There’s no consistent theme – I have a lot of posts about programming, but plenty for non-programmers as well.
@@ -301,13 +301,13 @@ Usually they solve a very specific problem and I don’t expect anybody else to 
     There’s a CLI to store files, and a web app to search for previously-stored files.
   </dd>
 
-  <dt><a href="https://github.com/alexwlchan/dominant_colours">dominant_colours</a></dt>
+  <dt><a href="https://github.com/alexwlchan/dominant_colours" aria-label="dominant colours">dominant_colours</a></dt>
   <dd>
     A command-line tool to find the dominant colours in an image.
     It prints a palette of colours in your terminal.
   </dd>
 
-  <dt><a href="https://github.com/alexwlchan/safari.rs">safari.rs</a></dt>
+  <dt><a href="https://github.com/alexwlchan/safari.rs" aria-label="safari dot rs">safari.rs</a></dt>
   <dd>
     A command-line tool for getting data from Safari, like the URL of the frontmost window or the number of open tabs.
     I also use it for a text expansion macro: I can type <code>;furl</code> in any app, and it gets replaced by the frontmost URL (with tracking parameters automatically removed).
@@ -340,15 +340,15 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 <dl>
   <dt><a href="https://github.com/loris-imageserver/loris">Loris</a> </dt>
   <dd>
-    Loris is a <a href="http://iiif.io/api/image/2.0/">IIIF Image API server</a>, written in Python by Jon Stroop.
+    Loris is a <a href="http://iiif.io/api/image/2.0/" aria-label="triple I F Image API server">IIIF Image API server</a>, written in Python by Jon Stroop.
     While Loris was in use at Wellcome, I was one of two Loris maintainers.
     I’m particularly pleased with the <a href="https://github.com/loris-imageserver/loris/blob/development/loris/jp2_extractor.py">revised JPEG 2000 parser</a> I wrote.
     (Wellcome stopped using Loris in 2021.)
   </dd>
-  <dt><a href="https://github.com/urllib3/urllib3">urllib3</a></dt>
+  <dt><a href="https://github.com/urllib3/urllib3" aria-label="url lib 3">urllib3</a></dt>
   <dd>
-    urllib3 is an HTTP client for Python.
-    In 2017, I did a significant amount of work on the test suite: migrating it from nosetests to py.test, and cleaning up file descriptor leaks.
+    <span class="visually-hidden">url lib 3</span><span aria-hidden="true">urllib3</span> is an HTTP client for Python.
+    In 2017, I did a significant amount of work on the test suite: migrating it from <span class="visually-hidden">nose tests</span><span aria-hidden="true">nosetests</span> to py.test, and cleaning up file descriptor leaks.
   </dd>
   <dt><a href="https://github.com/pyca/pyopenssl/">PyOpenSSL</a></dt>
   <dd>
@@ -363,7 +363,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 
   <dt><a href="https://nrich.maths.org/mathmoApp/#/mathmo">Mathmo</a></dt>
   <dd>
-    Mathmo is a tool that generates maths exercises for A-level students, developed as part of the <a href="https://nrich.maths.org">NRICH Project</a>.
+    Mathmo is a tool that generates maths exercises for A-level students, developed as part of the <a href="https://nrich.maths.org" aria-label="n rich project">NRICH Project</a>.
     As part of a summer job, I did some work to refactor the codebase and add several new types of question.
   </dd>
 </dl>
@@ -385,7 +385,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         <a href="https://howlongismydata.glitch.me">How long is my data?</a>
       </dt>
       <dd>
-        Measure data in the shelving space you’d need if you stored it as a series of 3&frac12;&Prime; floppy disks.
+        Measure data in the shelving space you’d need if you stored it as a series of <span class="visually-hidden">3&frac12; inch</span><span aria-hidden="true">3&frac12;&Prime;</span> floppy disks.
       </dd>
     </dl>
     <a href="https://howlongismydata.glitch.me" id="howlongismydata" class="fun_image">
@@ -411,7 +411,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
   <li class="illustrated_item">
     <dl>
       <dt>
-        <a href="https://books.alexwlchan.net/">lexie’s book tracker</a>
+        <a href="https://books.alexwlchan.net/">my book tracker</a>
       </dt>
       <dd>
         This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
@@ -499,10 +499,10 @@ I'm not currently taking an active maintainer role in anything, but these are a 
   <li class="illustrated_item">
     <dl>
       <dt>
-        <a href="https://marquee-rocket.glitch.me">&lt;marquee&gt; rocket</a>
+        <a href="https://marquee-rocket.glitch.me" aria-label="marquee rocket">&lt;marquee&gt; rocket</a>
       </dt>
       <dd>
-        Controlling a tiny rocket using nothing but the &lt;marquee&gt; tag.
+        Controlling a tiny rocket using nothing but the <span class="visually-hidden">marquee</span><span aria-hidden="true">&lt;marquee&gt;</span> tag.
         This came from <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
       </dd>
     </dl>
