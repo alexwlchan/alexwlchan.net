@@ -12,7 +12,7 @@ def render_slide(deck, slide, alt_text, caption_text)
   end
 
 <<-EOT
-<figure class="slide">
+<figure class="slide" id="#{deck}-#{slide}">
 <a href="#{img_src}">
 <img src="#{img_src}" alt="#{alt_text}">
 </a>
