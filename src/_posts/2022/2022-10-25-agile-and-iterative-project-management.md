@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-10-25 08:07:13 +0000
 title: Agile and iterative project management
 summary: Notes from a talk about agile and iterative approaches to project management.
 tags: talks open-life-science project-management
