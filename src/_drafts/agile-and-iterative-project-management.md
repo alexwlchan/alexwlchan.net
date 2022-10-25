@@ -16,3 +16,4 @@ The cohort calls are recorded, and I'll add a link to the video when it's posted
 In the meantime, you can download my slides [as a PDF][pdfslides], and I'll add some notes shortly.
 
 [openlife]: https://openlifesci.org/
+[pdfslides]: /files/2022/ols-6-agile.pdf
