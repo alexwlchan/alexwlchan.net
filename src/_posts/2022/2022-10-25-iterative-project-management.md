@@ -5,8 +5,8 @@ title: Agile and iterative project management
 summary: Notes from a talk about agile and iterative approaches to project management.
 tags: talks open-life-science project-management
 theme:
+  card_type: summary_large_image
   color: "#20883f"
-index:
   image: /images/2022/agile_ols_card.png
 ---
 
