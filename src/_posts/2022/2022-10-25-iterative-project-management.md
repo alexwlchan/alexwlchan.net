@@ -19,12 +19,6 @@ In the meantime, you can download my slides [as a PDF][pdfslides], and I'll add 
 [openlife]: https://openlifesci.org/
 [pdfslides]: /files/2022/ols-6-agile.pdf
 
-
-
-https://agilemanifesto.org
-https://en.wikipedia.org/wiki/Agile_software_development
-https://en.wikipedia.org/wiki/Waterfall_model
-
 <style>
   .slide img {
     border: 3.5px solid #2ec65c;
@@ -71,8 +65,6 @@ In an iterative project, you:
 
 Most people are already familiar with steps 1 and 2; but step 3 is super important and it's the bit people often miss.
 This cycle gets us a fast feedback loop for our task management.
-
-Stays in a cycle, like Sara was talking about earlier
 
 ​{%
   slide_image
@@ -126,6 +118,7 @@ Then you'd give the spec to a team of programmers, who'd write all the code, and
 
 This comes from a time when computing was very different – computers were much less powerful, they weren't as numerous, and most software was distributed on plastic disks rather than over the web.
 There were very slow feedback loops.
+Once software was shipped, it's done.
 
 In the 21st century, software development has changed, and this model was less and less appropriate.
 
@@ -140,8 +133,8 @@ In the 21st century, software development has changed, and this model was less a
 
 In 2001, a group of developers published the "agile manifesto", which helped popularise these ideas.
 
-This started the big push towards agile that we see today -- some of it was new ideas, some of it was a new face for existing ideas.
-(Iterative methods go back way further than 2001!)
+This started the big push towards agile that we see today -- some of it was new ideas, some of it was a fresh coat of paint on existing ideas.
+(Contrary to popular belief, programmers didn't invent come up with every good idea that exists.)
 
 
 
@@ -151,7 +144,7 @@ This started the big push towards agile that we see today -- some of it was new 
   :alt => "Minimum Viable Product. The first line shows the evolution of a skateboard, to a scooter, to a pushbike, to a motorbike, to a car. The second line shows the building of a car, from the wheels, to a chassis, to a body, to a car."
 %}
 
-One of the big ideas to come out of the agile manifesto was the idea of a "minimum viable product" or "MVP".
+One of the big ideas to come out of the agile manifesto was the idea of a ["minimum viable product" or "MVP"][mvp].
 We've talked about how you break a big task down into smaller tasks; MVP says that we should try to iterate on working versions.
 Each of those smaller steps should produce useful output that we can use, react to, get feedback on.
 
@@ -161,6 +154,8 @@ This is an almost clichéd diagram when talking about MVP: the evolution of whee
 Following MVP means you go from a skateboard, to a scooter, to a pushbike, to a motorbike, to a car.
 We could stop at any point and still have something useful.
 
+[mvp]: https://en.wikipedia.org/wiki/Minimum_viable_product
+
 
 
 {%
@@ -169,9 +164,11 @@ We could stop at any point and still have something useful.
   :alt => "The same diagram as before, but now with offshoots from scooter to e-scooter and motorbike to cargo bike."
 %}
 
-Following MVP means we can react to new information and feedback.
+But I think this diagram actually undersells MVP – if we take an MVP mindset, we can react to new information and feedback.
+We don't have to go all the way to the car.
+
 Maybe we discover that people love the form factor of the scooter but want to go up hills – so rather than making a pushbike, we should make an e-scooter.
-Or maybe the motorbike is a flop, and what people really wanted was a bike with more carrying capacity, so we should switch to making cargo bikes.
+Or maybe the motorbike is a flop, and what people really wanted was a bike with more carrying capacity, so we should switch to cargo bikes.
 
 
 
@@ -182,12 +179,91 @@ Or maybe the motorbike is a flop, and what people really wanted was a bike with 
 %}
 
 This is another phrase you might have heard, which is a pithy form of the agile manifesto.
-Failure is a necessary part of iteration: you learn from your mistakes.
+Failure is a necessary part of iteration: you make mistakes, and you learn from them.
 
-I include this because it's a cliché, and to illustrate that waterfall and agile aren't better/worse than each other; they're appropriate in different scenarios.
+I include this both because it's a cliché, and also to illustrate that waterfall and agile aren't better/worse than each other; they're appropriate in different scenarios.
 They exist on a spectrum.
 
 Making lots of mistakes on the way to success is fine if you're making a game, or a website, or an app.
 It's not so good if you're designing a plane, a banking service, or a drug trial.
 
 Iterative approaches have become very popular, but waterfall still has a place.
+
+
+
+{%
+  slide_image
+  :deck => "ols_6_agile", :slide => 2,
+  :alt => "A set of green circular arrows: break down big tasks into smaller tasks, work through the smaller tasks, review/update your tasks."
+%}
+
+Repeat earlier slide.
+
+So again, iterative development.
+Break down tasks, work through them, review/update on a regular scheudle.
+
+This is the core idea, and you can interpret it in many different ways.
+There are lots of implementations of agile, all slightly different, with lots of process and tea ceremony that we don't have time to go into today.
+You can read more about those on your own time.
+
+{%
+  slide_image
+  :deck => "ols_6_agile", :slide => 11,
+  :alt => "A GitHub project management board, with four columns: a sprint backlog, in progress, blocked, done."
+%}
+
+But I do want to give you one example, to make this a bit more concrete.
+
+This is a real-world example, of how one of my teams does agile project management.
+We use GitHub to manage tasks, using [Issues], and this is our project board.
+We have four columns: sprint backlog, in progress, blocked, and done.
+
+The word *sprint* is an Agile term, and for us it's a two-week span of work.
+Remember I talked about the importance of reviewing your plans?
+A sprint is our tool for doing that.
+
+At the start of each sprint, we have a planning meeting where we review the tasks in the backlog, and decide what's most important.
+What do we want to work on for the next two weeks?
+Then we work on tasks, which gradually move from left-to-right across the board.
+(This is a form of *kanban*.)
+
+Two weeks later, at the end of the sprint, we have a new planning meeting.
+We review what we've done, what's next, and we organise the backlog.
+We might add tasks, remove them, or put them in a different order.
+
+We do one sprint after another, and the cycle means we remember to go back and review tasks, so we're always working on something important.
+
+[Issues]: https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
+
+{%
+  slide_image
+  :deck => "ols_6_agile", :slide => 12,
+  :alt => "Text slide titled ‘Example tasks: new homepage design’. The tasks are: create design mockups, implement the designs in code, review the new homepage, deploy the new version, gather feedback from users."
+%}
+
+I also wanted to give an example of how we might break down a big task ("new homepage design") into smaller tasks.
+
+{%
+  slide_image
+  :deck => "ols_6_agile", :slide => 13,
+  :alt => "An example task board with three columns: to do, in progress, done, a series of tasks represented as post-it notes, and a calendar entry titled “Monday meetings: review all my open tasks”."
+%}
+
+This is a slightly more abstract version of that example, a sort of "agile starter kit".
+
+{%
+  slide_image
+  :deck => "ols_6_agile", :slide => 2,
+  :alt => "A set of green circular arrows: break down big tasks into smaller tasks, work through the smaller tasks, review/update your tasks."
+%}
+
+Recap slide.
+
+
+{%
+  slide_image
+  :deck => "ols_6_agile", :slide => 16,
+  :alt => "Wrap-up slide, with the title, my name and website address, and a link to these slides."
+%}
+
+Wrap up slide.
