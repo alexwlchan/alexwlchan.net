@@ -26,7 +26,7 @@ Even my fairly small nav wants you to page through ten elements to get to the ma
 
 <img src="/images/2022/IMG_1877_1x.png" srcset="/images/2022/IMG_1877_1x.png 1x, /images/2022/IMG_1877_2x.png 2x, /images/2022/IMG_1877_1x.png 3x" class="screenshot" alt="Viewing this web page with VoiceOver in the browser. There's a dark outlined rectangle highlighting the invisible link, and the VoiceOver caption shows 'Skip to main content, in-page link'.">
 
-This took [less than two minutes to add][commit], and given I'd definitely heard of them before, there's no excuse for not doing this sooner.
+This took [less than two minutes to add][commit], and given I'd definitely heard of them before, there's no excuse for not having done this sooner.
 
 [skipnav]: https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
 [commit]: https://github.com/alexwlchan/alexwlchan.net/commit/342018fe2689412570d40cc02e33780ae7307e56
@@ -124,7 +124,7 @@ If they're in the middle of a longer bit of text, I'd want to use `<span>`, but 
 Instead, I had to create two tags:
 
 ```html
-<span class="visually-hidden">I I I F</span>  <!-- for screen readers -->
+<span class="visually-hidden">triple I F</span>  <!-- for screen readers -->
 <span aria-hidden="true">IIIF</span>          <!-- for sighted users  -->
 ```
 
