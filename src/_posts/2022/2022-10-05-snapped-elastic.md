@@ -13,13 +13,6 @@ index:
 
 <!-- Card image: https://wellcomecollection.org/works/r8t5urwh, public domain -->
 
-<style>
-  .screenshot {
-    border: 3px solid #f0f0f0;
-    border-radius: 8px;
-  }
-</style>
-
 A few weeks ago, I helped to find a bug in Elasticsearch 8.4.2.
 We'd started seeing issues in our Elastic cluster at work, and I was able to isolate the issue in a small, reproducible test case.
 I shared my code with Elastic engineers, and that helped them identify and fix the problem.
