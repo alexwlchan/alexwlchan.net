@@ -95,7 +95,7 @@ I think they sound better, and you're more likely to understand what's being sai
   <tr>
     <td>IIIF</td>
     <td>eye-eye-eye-eff</td>
-    <td>I I I F</td>
+    <td>triple I F</td>
     <td>triple-eye-eff</td>
   </tr>
   <tr>
