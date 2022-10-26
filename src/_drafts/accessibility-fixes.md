@@ -131,5 +131,7 @@ The CSS for the class on the first span means it will be hidden in the visual pr
 
 I also had to [add the text role][text_role] to parent elements, so VoiceOver on iOS would read the text as a continuous string -- rather than pausing on the proper noun.
 
+So far I've only done this on a handful of pages, because I suspect trying to fix this automatically would create more problems than it solves – but I'm considering it, and I'll definitely try to remember to do it on new posts.
+
 [hidden]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden
 [text_role]: https://tinytip.co/tips/a11y-voiceover-text-role/
