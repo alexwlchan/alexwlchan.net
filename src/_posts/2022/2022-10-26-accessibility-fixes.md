@@ -8,6 +8,8 @@ theme:
   card_type: summary_large_image
   image: /images/2022/accessibility_card.jpg
   color: "#075ba3"
+index:
+  exclude: true
 ---
 
 I've been doing a bunch of testing with VoiceOver recently, helping to [prepare the digital guides for a new exhibition at work][ips].
