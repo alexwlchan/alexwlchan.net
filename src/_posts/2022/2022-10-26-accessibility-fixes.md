@@ -8,8 +8,6 @@ theme:
   card_type: summary_large_image
   image: /images/2022/accessibility_card.jpg
   color: "#075ba3"
-index:
-  exclude: true
 ---
 
 I've been doing a bunch of testing with VoiceOver recently, helping to [prepare the digital guides for a new exhibition at work][ips].
@@ -127,14 +125,20 @@ Instead, I had to create two tags:
 
 ```html
 <span class="visually-hidden">triple I F</span>  <!-- for screen readers -->
-<span aria-hidden="true">IIIF</span>          <!-- for sighted users  -->
+<span aria-hidden="true">IIIF</span>             <!-- for sighted users  -->
 ```
 
 The CSS for the class on the first span means it will be hidden in the visual presentation of the page; the [aria-hidden attribute][hidden] on the second means it will be ignored by screen readers.
 
 I also had to [add the text role][text_role] to parent elements, so VoiceOver on iOS would read the text as a continuous string -- rather than pausing on the proper noun.
 
+To avoid Braille users getting the spelled-out version, I'm also setting the [aria-braillelabel attribute][braillelabel].
+Unfortunately I don't have a Braille display to test with, so this is somewhat speculative.
+
 So far I've only done this on a handful of pages, because I suspect trying to fix this automatically would create more problems than it solves – but I'm considering it, and I'll definitely try to remember to do it on new posts.
+
+I have plenty more to learn about accessibility, and it's not something that's ever "done" – but I hope these are steps in the right direction.
 
 [hidden]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden
 [text_role]: https://tinytip.co/tips/a11y-voiceover-text-role/
+[braillelabel]: https://developer.mozilla.org/en-US/docs/web/Accessibility/ARIA/Attributes/aria-braillelabel
