@@ -202,7 +202,7 @@ The projects I've worked on include:
 ## Writing
 
 <dl>
-  <dt><a href="https://alexwlchan.net/all-posts/" aria-label="alex w l chan dot net">alexwlchan.net</a></dt>
+  <dt><a href="https://alexwlchan.net/all-posts/" aria-label="alex w l chan dot net" aria-braillelabel="alexwlchan.net">alexwlchan.net</a></dt>
   <dd>
     This site started as a place where I could practice my writing; I’ve since written over 300 posts.
     There’s no consistent theme – I have a lot of posts about programming, but plenty for non-programmers as well.
@@ -307,7 +307,7 @@ Usually they solve a very specific problem and I don’t expect anybody else to 
     It prints a palette of colours in your terminal.
   </dd>
 
-  <dt><a href="https://github.com/alexwlchan/safari.rs" aria-label="safari dot rs">safari.rs</a></dt>
+  <dt><a href="https://github.com/alexwlchan/safari.rs" aria-label="safari dot rs" aria-braillelabel="safari.rs">safari.rs</a></dt>
   <dd>
     A command-line tool for getting data from Safari, like the URL of the frontmost window or the number of open tabs.
     I also use it for a text expansion macro: I can type <code>;furl</code> in any app, and it gets replaced by the frontmost URL (with tracking parameters automatically removed).
@@ -340,7 +340,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 <dl>
   <dt><a href="https://github.com/loris-imageserver/loris">Loris</a> </dt>
   <dd>
-    Loris is a <a href="http://iiif.io/api/image/2.0/" aria-label="triple I F Image API server">IIIF Image API server</a>, written in Python by Jon Stroop.
+    Loris is a <a href="http://iiif.io/api/image/2.0/"><abbr aria-label="triple eye F" aria-braillelabel="IIIF">IIIF</abbr> Image API server</a>, written in Python by Jon Stroop.
     While Loris was in use at Wellcome, I was one of two Loris maintainers.
     I’m particularly pleased with the <a href="https://github.com/loris-imageserver/loris/blob/development/loris/jp2_extractor.py">revised JPEG 2000 parser</a> I wrote.
     (Wellcome stopped using Loris in 2021.)
@@ -363,7 +363,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 
   <dt><a href="https://nrich.maths.org/mathmoApp/#/mathmo">Mathmo</a></dt>
   <dd>
-    Mathmo is a tool that generates maths exercises for A-level students, developed as part of the <a href="https://nrich.maths.org" aria-label="n rich project">NRICH Project</a>.
+    Mathmo is a tool that generates maths exercises for A-level students, developed as part of the <a href="https://nrich.maths.org" aria-label="n rich project" aria-braillelabel="NRICH Project">NRICH Project</a>.
     As part of a summer job, I did some work to refactor the codebase and add several new types of question.
   </dd>
 </dl>

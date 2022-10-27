@@ -92,7 +92,7 @@ You can see [more of my blog posts](/all-posts/), or [subscribe to the RSS feed]
 
 ## Contact
 
-You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net">alex@alexwlchan.net</a>, or I'm <a href="https://twitter.com/alexwlchan" aria-label="alex w l chan">@alexwlchan</a> on Twitter.
+You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>, or I'm <a href="https://twitter.com/alexwlchan" aria-label="alex w l chan" aria-braillelabel="@alexwlchan">@alexwlchan</a> on Twitter.
 
 If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
 I always love hearing from readers! ☺️
