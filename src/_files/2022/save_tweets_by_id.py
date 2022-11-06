@@ -17,17 +17,21 @@ def chunked_iterable(iterable, size):
 
 
 if __name__ == "__main__":
+    # Fill in Twitter API v1 credentials
     sess = OAuth1Session(
         client_key=CONSUMER_API_KEY,
         client_secret=CONSUMER_API_SECRET_KEY,
         resource_owner_key=ACCESS_TOKEN,
         resource_owner_secret=ACCESS_TOKEN_SECRET,
     )
+    
+    # Fetch the tweet IDs from a file, or a hard-coded list, or some other function
+    TWEET_IDS = []
 
     with open("tweets.json", "w") as outfile:
         # You can get up to 100 tweets at once with the statuses/lookup API.
         # https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/get-statuses-lookup
-        for batch in chunked_iterable(tweet_ids, size=100):
+        for batch in chunked_iterable(TWEET_IDS, size=100):
 
             params = {
                 "id": ",".join(batch),
