@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Saving your alt text from Twitter
-summary: Twitter's archives don't include your alt text, but you can save a copy with their API.
+summary: Twitter's archives don't include the alt text you wrote on images, but you can save a copy with their API.
 tags: twitter digital-preservation accessibility
 theme:
   card_type: summary_large_image
