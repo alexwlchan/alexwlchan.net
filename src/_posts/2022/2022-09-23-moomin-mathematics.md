@@ -60,7 +60,7 @@ puts 29018198 / 37  # "headache"
 
 Thus recreating the experience of many people and school-level maths.
 
-<img src="/images/2022/headache.png" style="width: 300px;" alt="A Moomin with scrunched up eyes, clutching his hands to his head, saying “Long division makes my head hurt”.">
+<img src="/images/2022/headache.1.png" style="width: 300px;" alt="A Moomin with scrunched up eyes, clutching his hands to his head, saying “Long division makes my head hurt”.">
 
 This gives us a clear way forward: we'll override this function to return the result we want.
 If we're doing `0 / 2`, we'll return `0.5`, and otherwise we'll return the normal result.
