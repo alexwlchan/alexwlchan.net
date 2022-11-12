@@ -74,7 +74,8 @@ These are a few of my favourites:
 
 *   2020: [Maths is about facing ambiguity, not avoiding it](/2020/11/maths-is-about-facing-ambiguity-not-avoiding-it/)
 
-*   2021: [Drawing inner/outer strokes in SVG (clips and masks)](/2021/03/inner-outer-strokes-svg/) – I'm particularly pleased with the examples in this one.
+*   2021: [Drawing inner/outer strokes in SVG (clips and masks)](/2021/03/inner-outer-strokes-svg/) – another post where I was writing to help me understand something.
+    I'm particularly pleased with the examples.
 
 *   2022: [“Fixing” the rules of division](/2022/09/moomin-mathematics/) – I enjoyed drawing the Moomin illustrations.
 
