@@ -70,7 +70,7 @@ These are a few of my favourites:
 
 *   2019: [Getting a tint colour from an image with Python and *k*‑means](/2019/08/finding-tint-colours-with-k-means/)
 
-*   2020: [Illustrating lifecycle transitions in Amazon S3](/2020/05/illustrating-lifecycle-transitions-in-amazon-s3/) – an idea which went on to be used in the official AWS documentation (!).
+*   2020: [Illustrating lifecycle transitions in Amazon S3](/2020/05/illustrating-lifecycle-transitions-in-amazon-s3/) – which includes an idea which went on to be used in the official AWS documentation (!).
 
 *   2020: [Maths is about facing ambiguity, not avoiding it](/2020/11/maths-is-about-facing-ambiguity-not-avoiding-it/)
 
