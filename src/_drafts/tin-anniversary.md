@@ -46,13 +46,14 @@ I'm happier and more comfortable in myself, in a way I'm not sure my 2012 self e
 (Like the date, the exact numbers are fuzzy.
 I've deleted a handful of posts, and there may be some quoted material in that word count.) -->
 
-It's hard to remember why I originally wanted a personal website, but in retrospect I'm very pleased with how it's turned out.
+It's hard to remember why I originally wanted a personal website, but whatever the reason I'm super glad I did.
+I'm very pleased with how it's turned out.
 
 I've written a lot of posts that I'm proud of, and I've become a better writer as a result.
 I've learnt new things, both in the writing process and in feedback from readers.
 I've received dozens of nice messages from people who've read and enjoyed the site, which are always a delight.
 
-The words aside, it's also been really cool to write the HTML and CSS that goes around them.
+The words aside, it's also been cool to write the HTML and CSS that goes around them.
 I have complete control over how this site looks and works, and it's full of small details and design flourishes that are there just because they make me happy.
 I can do wacky and weird things that just aren't possible on big social media sites.
 
