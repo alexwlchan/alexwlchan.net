@@ -64,7 +64,7 @@ These are a few of my favourites:
 
 *   2017: [A visit to the Crossness pumping station](/2017/06/crossness-pumping-station/)
 
-*   2017: [Adventures in Python with concurrent.futures](/2019/10/adventures-with-concurrent-futures/) – I write a lot of posts to help me understand a tricky concept, and this is a prime example.
+*   2017: [Adventures in Python with concurrent.futures](/2019/10/adventures-with-concurrent-futures/) – I write a lot of posts to help me understand a tricky concept, and this is one I revisit regularly.
 
 *   2019: [Reading a Chinese dictionary / 读一本中文字典](/2019/06/reading-a-chinese-dictionary/)
 
