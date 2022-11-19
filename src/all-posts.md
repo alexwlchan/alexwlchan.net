@@ -3,6 +3,7 @@ layout: page
 title: All posts
 summary: A list of every post on alexwlchan.net, sorted by date.
 theme:
+  card_type: summary_large_image
   image: /theme/all_posts_card.png
 ---
 
