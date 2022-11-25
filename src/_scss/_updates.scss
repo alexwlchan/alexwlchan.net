@@ -1,6 +1,5 @@
 .update {
-  border-color: $primary-color;
-  background: rgba(254, 11, 0, 0.1);
+  border-left: ($sidebar-border-width * 2) solid $primary-color;
   padding-top:    1px;
   padding-bottom: 1px;
 
