@@ -7,7 +7,7 @@ body {
   background-image: url('/theme/white-waves-transparent.png');
 }
 
-main, #footer_inner, #nav_inner {
+main, #footer_inner, #nav_inner, #editing-toolbar_inner {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
@@ -29,7 +29,7 @@ article, main, #footer_inner {
   padding-bottom: calc(1px + env(safe-area-inset-bottom));
 }
 
-img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner {
+img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner {
   margin-left: auto;
   margin-right: auto;
 }
