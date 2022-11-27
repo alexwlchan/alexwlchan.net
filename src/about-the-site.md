@@ -57,7 +57,7 @@ I did add cards to the homepage to link to blog posts, as part of [a design refr
 
 I also used this design on the "best of" posts page, because at nearly 350&nbsp;posts it was impossible for anybody who wasn't me to navigate the archive.
 
-![A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border.](/images/site_cards_on_the_homepage.png)
+![A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border.](/images/site_cards_on_the_homepage.jpg)
 
 ## 2018 to mid-2022: A bio on the homepage
 

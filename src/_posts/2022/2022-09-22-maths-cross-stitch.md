@@ -48,12 +48,12 @@ index:
 </style>
 
 <p>
-  <img src="/images/2022/me_on_a_video_call.png" class="me_on_a_video_call desktop_only" data-rss-exclude="true" alt="A thumbnail of me on a video call. Behind me is a featureless grey wall, a white door, and a wooden-framed picture with indistinct coloured squares.">
+  <img src="/images/2022/me_on_a_video_call.jpg" class="me_on_a_video_call desktop_only" data-rss-exclude="true" alt="A thumbnail of me on a video call. Behind me is a featureless grey wall, a white door, and a wooden-framed picture with indistinct coloured squares.">
   I was chatting to a new colleague last week, and she asked about the picture that hangs behind me when I’m on video calls – which made me realise I’ve never posted about it here.
   It’s a rather nice piece that I’m quite pleased with, and it’s worth sharing.
 </p>
 
-<img src="/images/2022/me_on_a_video_call.png" class="me_on_a_video_call mobile_only" alt="A thumbnail of me on a video call. Behind me is a featureless grey wall, a white door, and a wooden-framed picture with indistinct coloured squares.">
+<img src="/images/2022/me_on_a_video_call.jpg" class="me_on_a_video_call mobile_only" alt="A thumbnail of me on a video call. Behind me is a featureless grey wall, a white door, and a wooden-framed picture with indistinct coloured squares.">
 
 Most of my backdrop is pretty dull: a closed white door and some grey walls.
 I want to paint this room and add some colour, but disassembling my desk so I can redecorate is a challenge I have yet to tackle.
