@@ -20,6 +20,7 @@ class RunLinting < Jekyll::Command
           check_twitter_card_images(options["destination"])
           check_yaml_front_matter(options["source"])
           check_no_localhost_links(options["destination"])
+          check_all_images_are_srgb(options["source"])
         end
       end
     end
@@ -159,18 +160,7 @@ class RunLinting < Jekyll::Command
         # the OpenGraph card either, and vice versa.
       }
 
-      # This is meant to look similar to the output from HTMLProofer --
-      # errors are grouped by filename, so they can be easily traced
-      # back to the problem file.
-      if !errors.empty?
-        errors.each { |display_path, messages|
-          error("- #{display_path}")
-          messages.each { |m|
-            error("  *  #{m}")
-          }
-        }
-        exit!
-      end
+      report_errors(errors)
     end
 
     # Validate the YAML front matter by checking that:
@@ -223,22 +213,14 @@ class RunLinting < Jekyll::Command
         end
       }
 
-      # This is meant to look similar to the output from HTMLProofer --
-      # errors are grouped by filename, so they can be easily traced
-      # back to the problem file.
-      if !errors.empty?
-        errors.each { |md_path, messages|
-          error("- #{md_path}")
-          messages.each { |m|
-            error("  *  #{m}")
-          }
-        }
-        exit!
-      end
+      report_errors(errors)
     end
 
     # Check I haven't used localhost URLs anywhere (in links or images)
     #
+    # This is an error I've occasionally made while doing local development;
+    # I'll use my ;furl snippet to get the front URL, and forget to remove
+    # the localhost development prefix.
     def check_no_localhost_links(html_dir)
       errors = Hash.new { [] }
 
@@ -271,6 +253,42 @@ class RunLinting < Jekyll::Command
         end
       }
 
+      report_errors(errors)
+    end
+
+    # Check every image uses an sRGB colour profile.
+    #
+    # This ensures images should display with consistent colour on all browsers
+    # and devices; my iMac in particular uses a Display P3 colour profile for
+    # screenshots and images which looks washed out on non-Apple displays.
+    def check_all_images_are_srgb(src_dir)
+      errors = Hash.new { [] }
+
+      info("Checking image colour profiles...")
+
+      safe_colour_profiles = Set["sRGB"]
+
+      exiftool_output = `exiftool -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{src_dir}/_images/**`
+
+      image_profiles = exiftool_output
+        .split("\n")
+        .sort
+        .map { |line|
+          path, profile = line.split(":")
+          path = path.strip!
+          profile = profile.strip!
+          [path, profile]
+        }
+        .map { |path, profile|
+          if !safe_colour_profiles.include? profile
+            errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
+          end
+        }
+
+      report_errors(errors)
+    end
+
+    def report_errors(errors)
       # This is meant to look similar to the output from HTMLProofer --
       # errors are grouped by filename, so they can be easily traced
       # back to the problem file.
