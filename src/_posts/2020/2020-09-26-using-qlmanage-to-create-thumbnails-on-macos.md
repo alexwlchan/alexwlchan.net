@@ -13,7 +13,7 @@ macOS has a feature called [Quick Look](https://en.wikipedia.org/wiki/Quick_Look
 If you look at a file in the Finder, you see a small preview in the icon.
 If you select the file and press the space bar, you get a full-size preview:
 
-<img src="/images/2020/quick_look_1x.png" srcset="/images/2020/quick_look_1x.png 1x, /images/2020/quick_look_2x.png 2x, /images/2020/quick_look_3x.png 3x" alt="macOS Finder window with a Quick Look preview in the foreground. The preview shows an ochre colour cat tilting his head and looking towards the camera.">
+<img src="/images/2020/quick_look_1x.png" srcset="/images/2020/quick_look_1x.png 1x, /images/2020/quick_look_2x.jpg 2x, /images/2020/quick_look_3x.png 3x" alt="macOS Finder window with a Quick Look preview in the foreground. The preview shows an ochre colour cat tilting his head and looking towards the camera.">
 
 If the file has multiple pages (say, a slideshow or a long PDF), you can scroll through to see previews of each page.
 
