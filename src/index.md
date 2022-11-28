@@ -9,9 +9,15 @@ theme:
   h2 {
     margin-top: 1em;
   }
+
+  @media screen and (min-width: 750px) {
+    img.rounded_corners {
+      border-radius: 10px;
+    }
+  }
 </style>
 
-<img src="/images/profile_green_1x.jpg" class="fullwidth_img" srcset="/images/profile_green_1x.jpg 1x, /images/profile_green_2x.jpg 2x" alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants.">
+<img src="/images/profile_green_1x.jpg" class="fullwidth_img rounded_corners" srcset="/images/profile_green_1x.jpg 1x, /images/profile_green_2x.jpg 2x" alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants.">
 
 ## Hi, I'm Alex.
 
