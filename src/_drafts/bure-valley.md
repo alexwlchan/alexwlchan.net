@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Bure Valley Railway
+title: A day out at the Bure Valley Railway
 summary: My photos from a delightful day on a steam railway with smol trains.
 tags: photography trains
 theme:
