@@ -138,8 +138,7 @@ if opts[:link_to_full_size]
   EOF
 else
   puts <<-EOF
-
-  \e[0;35m#{inner_html}\e[0m
+\e[0;35m#{inner_html}\e[0m
   EOF
 end
 
