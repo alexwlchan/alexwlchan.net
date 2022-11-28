@@ -12,8 +12,8 @@ theme:
 <!-- https://twitter.com/alexwlchan/status/1448052181886722053 -->
 
 Last October, I had a day trip to the [Bure Valley Railway][bvrw], a narrow-gauge heritage railway in north Norfolk.
-I came across it quite by chance -- I was driving through Aylsham to get to my B&B, and I spotted a sign pointing to the railway.
-I checked the website for a timetable, bought myself a ticket, and I set out for a day of steam trains.
+I came across it quite by chance -- I was driving through Aylsham to get to a B&B, and I spotted a sign pointing to the railway.
+I checked the website for a timetable, bought myself a ticket, and set out for a day of steam trains.
 
 I had a lovely time, and this post has a few of my photos.
 
@@ -182,11 +182,8 @@ I had a lovely time, and this post has a few of my photos.
   </div>
 </figure>
 
-It's hard to get a sense of scale from the pictures, but these are all narrow-gauge engines, much smaller than mainline locomotives.
-If an adult stands next to them, they'd look down into the cab.
-
 I started the day at Aylsham, and I arrived pretty early, so I saw the engines being wheeled out of the depot -- on this particular day, the black *John of Gaunt* and the dark blue *Blickling Hall* were both pulling trains.
-Despite looking impeccable to my eye, they were still getting polishing and touch-ups from the volunteers.
+Despite looking impeccable to my eye, they were still getting regular polishing and touch-ups from the volunteers.
 
 As they were setting up, one of the drivers explained how the engines they're using are stored during the winter.
 Their fires are left burning overnight, rather than being extinguished and re-lit each day.
@@ -300,10 +297,9 @@ That gave me plenty of time to sit back and enjoy the Norfolk countryside.
 </figure>
 
 The carriages were quite comfortable, and I had a compartment all to myself.
-
 In what's become a bit of a habit, the colour of my outfit matched the seat covers.
 I never plan this, it just happens to me.
-I showed the picture to a close friend, who described as "[my] author photo", which feels distressingly accurate.
+I showed the picture below to a close friend, who described as "[my] author photo", which feels distressingly accurate.
 
 <figure class="wide_img rounded_corners">
   <a href="/images/2022/IMG_5800.jpg">
@@ -338,7 +334,7 @@ At some point it started raining, so I retreated to the cover of the station, wh
 First the drivers topped up the water tanks, then they drove the engines onto a turntable.
 They had to turn them by hand (which looked like quite a workout!), so the engines were facing the opposite direction, ready to pull the return journey.
 
-In these pictures you can see the drivers standing next to the trains, and hopefully you get a better sense of scale:
+In these pictures you can see the drivers standing next to the trains, and hopefully this gives you a sense of scale -- they're still large engines, but small compared to mainline trains:
 
 <figure class="wide_img grid_3up">
   <div class="left double_height">
@@ -474,7 +470,7 @@ I love the contrast of the grimy diesel with the polished steamie:
   </a>
 </figure>
 
-They create a lot of steam!
+The engines create a lot of steam!
 My camera could cut through the haze, but in the last photo in this next set, I literally couldn't see the engine through the fog (or anything else!).
 
 There was a lot of steam coming from two tubes near the front of the engine, not through the main funnel.
@@ -747,7 +743,7 @@ I'll end with a photo of me, with windswept hair and a big smile, another favour
 
 I had a wonderful day out -- beautiful enginers, gorgeous scenery, lovely volunteers.
 
-There are only a few running days [left on this year's timetable][timetable], but if you can find a time I'd really recommend a visit.
+There are only a few running days [left on this year's timetable][timetable], but if you enjoy trains and you can find a time I'd really recommend a visit.
 
 [timetable]: https://www.bvrw.co.uk/timetable
 [flirt]: https://en.wikipedia.org/wiki/Stadler_FLIRT
