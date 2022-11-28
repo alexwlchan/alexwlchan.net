@@ -1,4 +1,14 @@
 #!/usr/bin/env ruby
+# This script prepares an image for a post, and prints an HTML snippet
+# to use the image.
+#
+# This preparation includes:
+#
+#    - copying the image into the appropriate src/ folder
+#    - creating multiple sizes of the images for different screen
+#      resolution densities
+#    - creating a WebP copy of the image for smaller page weight
+#
 
 require 'fileutils'
 require 'optparse'
