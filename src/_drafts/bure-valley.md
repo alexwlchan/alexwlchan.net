@@ -9,6 +9,8 @@ theme:
   color: "#101c75"
 ---
 
+<!-- https://twitter.com/alexwlchan/status/1448052181886722053 -->
+
 Last October, I had a day trip to the [Bure Valley Railway][bvrw], a narrow-gauge heritage railway in north Norfolk.
 I came across it quite by chance -- I was driving through Aylsham to get to my B&B, and I spotted a sign pointing to the railway.
 I checked the website for a timetable, bought myself a ticket, and I set out for a day of steam trains.
@@ -438,6 +440,7 @@ First is this photo of *Blickling Hall* with a [Stadler FLIRT train][flirt] (a n
       >
       <img
         src="/images/2022/IMG_5958_1x.jpg"
+        alt="The dark blue tender engine pulling its burgundy carriages, and on a parallel line above and to the left, a grey-and-red modern commuter train, which is much more sleek and streamlined."
       >
     </picture>
   </a>
@@ -465,6 +468,7 @@ I love the contrast of the grimy diesel with the polished steamie:
       >
       <img
         src="/images/2022/IMG_5934_1x.jpg"
+        alt="A profile shot of the dark blue tender engine and a large blue/turquoise diesel engine heading in the opposite direction on the track above."
       >
     </picture>
   </a>
@@ -496,6 +500,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
         >
         <img
           src="/images/2022/IMG_6027_1x.jpg"
+          alt="A black steam engine sitting on a turntable, blowing steam out of several pipes and holes. It’s facing towards the camera – it’s just been turned around from the other direction."
         >
       </picture>
     </a>
@@ -519,6 +524,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
         >
         <img
           src="/images/2022/IMG_5895_1x.jpg"
+          alt="A dark blue tender engine, blowing copious clouds of white steam from the very front of the engine. Behind it are several low-height coaches, which it’s just pulled along half the journey."
         >
       </picture>
     </a>
@@ -542,6 +548,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
         >
         <img
           src="/images/2022/IMG_5997_1x.jpg"
+          alt="The same dark blue engine, almost invisible behind the enormous cloud of smoke it’s producing."
         >
       </picture>
     </a>
@@ -577,6 +584,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
         >
         <img
           src="/images/2022/IMG_5782_1x.jpg"
+          alt="Looking down the side of the dark blue engine at a jaunty angle. I’m right up close to its side, so the train fills the photo."
         >
       </picture>
     </a>
@@ -600,6 +608,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
         >
         <img
           src="/images/2022/IMG_6081_1x.jpg"
+          alt="The very front of the black engine, with the face plate clearly visible. It has silver hands pointing to 5 o’clock, and a headlamp in front of the funnel."
         >
       </picture>
     </a>
@@ -623,6 +632,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
         >
         <img
           src="/images/2022/IMG_5784_1x.jpg"
+          alt="Looking down the side of the black engine, with the tracks disappearing off into the distance. It’s a very skewed perspective."
         >
       </picture>
     </a>
@@ -646,6 +656,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
         >
         <img
           src="/images/2022/IMG_6086_1x.jpg"
+          alt="A close-up of some weird gizmo on the side of the black train. There are copper pipes and coils and brass valves… I have no idea what it does, but it looks cool!"
         >
       </picture>
     </a>
@@ -669,6 +680,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
         >
         <img
           src="/images/2022/IMG_6088_1x.jpg"
+          alt="A side view of the black engine, including parts of the wheels and piston arrangement. The wheel parts are picked out in silver and red. So many exciting and graceful parts!"
         >
       </picture>
     </a>
@@ -696,6 +708,7 @@ They're really good looking trains.
       >
       <img
         src="/images/2022/IMG_5994_1x.jpg"
+        alt="One more photo of the dark blue engine pulling a line of carriages, next to the sign for Wroxham Station."
       >
     </picture>
   </a>
@@ -726,6 +739,7 @@ I'll end with a photo of me, with windswept hair and a big smile, another favour
       >
       <img
         src="/images/2022/IMG_6211_1x.jpg"
+        alt="Another selfie! I’m a bit dishevelled, my hair is ruffled, and my hands are full of stuff. I’m standing in front of the station canopy, and I’m beaming. Huge smile."
       >
     </picture>
   </a>
