@@ -9,11 +9,11 @@ theme:
   color: "#101c75"
 ---
 
-Last October, I took a day trip to the [Bure Valley Railway][bvrw], a narrow-gauge heritage railway in north Norfolk.
-I came across it quite by chance -- I was driving through Aylsham to get to my B&B, and I happened to see a sign pointing to the railway.
-I checked the website for a timetable, bought myself a ticket, and I went for a day of steam trains.
+Last October, I had a day trip to the [Bure Valley Railway][bvrw], a narrow-gauge heritage railway in north Norfolk.
+I came across it quite by chance -- I was driving through Aylsham to get to my B&B, and I spotted a sign pointing to the railway.
+I checked the website for a timetable, bought myself a ticket, and I set out for a day of steam trains.
 
-I had a lovely day, and this post has a few of my photos.
+I had a lovely time, and this post has a few of my photos.
 
 <style>
   /* See https://alexwlchan.net/2022/04/supposedly-simple-image-layout/ */
@@ -181,17 +181,17 @@ I had a lovely day, and this post has a few of my photos.
 </figure>
 
 It's hard to get a sense of scale from the pictures, but these are all narrow-gauge engines, much smaller than mainline locomotives.
-If an adult stands next to them, they'll look down into the cab.
+If an adult stands next to them, they'd look down into the cab.
 
-I arrived pretty early, so I saw the engines being wheeled out of the depot -- on this particular day, the black *John of Gaunt* and the dark blue *Blickling Hall* were both pulling trains.
+I started the day at Aylsham, and I arrived pretty early, so I saw the engines being wheeled out of the depot -- on this particular day, the black *John of Gaunt* and the dark blue *Blickling Hall* were both pulling trains.
 Despite looking impeccable to my eye, they were still getting polishing and touch-ups from the volunteers.
 
 As they were setting up, one of the drivers explained how the engines they're using are stored during the winter.
 Their fires are left burning overnight, rather than being extinguished and re-lit each day.
 This reduces stress on the mechanical components -- repeated up-and-down temperature changes would do more damage than keeping them warm.
 
-I started the day at Aylsham, which has both passenger platforms and an engine shed.
-The carriages themselves are pretty short (presumably to lower the centre of gravity?) but with a minimal step and several wheelchair spaces.
+Aylsham station has both passenger platforms and an engine shed.
+The carriages themselves are pretty short, to match the engines, and they have a minimal step and several wheelchair spaces.
 
 <figure class="wide_img grid_3up" style="grid-template-columns: calc(50% - 5px) calc(50% - 5px);">
   <div class="left double_height">
@@ -298,8 +298,10 @@ That gave me plenty of time to sit back and enjoy the Norfolk countryside.
 </figure>
 
 The carriages were quite comfortable, and I had a compartment all to myself.
-In what's become a bit of a habit, my outfit was a pretty close match to the seat covers.
-A close friend has described this as "[my] author photo", which feels distressingly accurate.
+
+In what's become a bit of a habit, the colour of my outfit matched the seat covers.
+I never plan this, it just happens to me.
+I showed the picture to a close friend, who described as "[my] author photo", which feels distressingly accurate.
 
 <figure class="wide_img rounded_corners">
   <a href="/images/2022/IMG_5800.jpg">
@@ -331,9 +333,9 @@ I was in a distinctly new place -- the train had taken me *somewhere*, which is 
 
 At some point it started raining, so I retreated to the cover of the station, where I got to see the engines being prepped for the return journey.
 First the drivers topped up the water tanks, then they drove the engines onto a turntable.
-They had to turn them by hand (which looked like quite a workout!), and then they were facing the opposite journey, ready to pull the return journey.
+They had to turn them by hand (which looked like quite a workout!), so the engines were facing the opposite direction, ready to pull the return journey.
 
-In these pictures you can see the drivers standing next to the trains, so hopefully you get a better sense of scale:
+In these pictures you can see the drivers standing next to the trains, and hopefully you get a better sense of scale:
 
 <figure class="wide_img grid_3up">
   <div class="left double_height">
@@ -408,7 +410,7 @@ In these pictures you can see the drivers standing next to the trains, so hopefu
 </figure>
 
 Adding to the sense that the Bure Valley Railway is a transport link and not just a museum piece, the Wroxham terminus is right next to the mainline [Hoveton & Wroxham station](https://en.wikipedia.org/wiki/Hoveton_%26_Wroxham_railway_station).
-You can walk between the stations, and full-size trains pass on the other side of the fence.
+You can walk between the stations, and standard gauge trains pass on the other side of the fence.
 Of course, the drivers whistle at each other as they pass.
 
 This let me get two of my favourite pictures of the day -- trains from both lines in the same shot.
@@ -437,7 +439,7 @@ First is this photo of *Blickling Hall* with a [Stadler FLIRT train][flirt] (a n
   </a>
 </figure>
 
-Second is this profile shot of *Blickling Hall* with a Class 37 diesel, which was pulling a series of tank wagons.
+Second is this profile shot of *Blickling Hall* with a Class 37 diesel, which was pulling a line of tank wagons.
 I love the contrast of the grimy diesel with the polished steamie:
 
 <figure class="wide_img rounded_corners">
@@ -465,7 +467,7 @@ I love the contrast of the grimy diesel with the polished steamie:
 </figure>
 
 They create a lot of steam!
-My camera could cut through the haze, but in the last photo here, I literally couldn't see the engine through the fog (or anything else!).
+My camera could cut through the haze, but in the last photo in this next set, I literally couldn't see the engine through the fog (or anything else!).
 
 There was a lot of steam coming from two tubes near the front of the engine, not through the main funnel.
 I remember thinking that was odd on the day -- I did see steam coming out of the funnels, so they're not just decorative -- but I don't know enough about how steam engines work to know why steam comes out of two places.
@@ -542,13 +544,13 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
   </div>
 </figure>
 
-Once I'd finished taking photos on Wroxham, I got back on the train for the return journey to Aylsham.
+Once I'd finished taking photos at Wroxham, I got back on the train for the return journey to Aylsham.
 The weather had become thoroughly grey and rainy, so the scenery wasn't quite as pretty, but it was still a nice trip.
 
-This Tuesday was actually the first day my employer had mandated a return to the office for their staff, and if I hadn't been on leave, I'd have been on a packed commuter service heading into central London.
+This Tuesday was actually the first day my employer had mandated a return to the office, and if I hadn't been on leave, I'd have been on a packed commuter service heading into central London.
 Even with overcast skies, a steam train through Norfolk was a much better choice.
 
-On the day, my only camera was my phone, and I'm decidedly not a pro photographer -- but I still enjoyed taking a few "artsy" shots.
+I really enjoyed seeing the trains at work, and I'm decidedly not a pro photographer -- but I still enjoyed taking a few "artsy" shots.
 Hopefully these show what impeccable condition the engines are kept in -- even the tiny details are clean and shiny.
 
 <figure class="wide_img grid_4up">
@@ -669,9 +671,6 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
   </div>
 </figure>
 
-(I hope you all have things in your lives that make you as excited as I get about trains, and that you get to express that excitement. 💖)
-
-
 They're really good looking trains.
 
 <figure class="wide_img rounded_corners">
@@ -730,7 +729,7 @@ I'll end with a photo of me, with windswept hair and a big smile, another favour
 
 I had a wonderful day out -- beautiful enginers, gorgeous scenery, lovely volunteers.
 
-There are only a few running days [left on this year's timetable][timetable], but if you can find a time I'd recommend a visit.
+There are only a few running days [left on this year's timetable][timetable], but if you can find a time I'd really recommend a visit.
 
 [timetable]: https://www.bvrw.co.uk/timetable
 [flirt]: https://en.wikipedia.org/wiki/Stadler_FLIRT
