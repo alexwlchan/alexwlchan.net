@@ -322,6 +322,7 @@ I showed the picture to a close friend, who described as "[my] author photo", wh
       >
       <img
         src="/images/2022/IMG_5800_1x.jpg"
+        alt="A selfie! I’m sitting on one of the seats in a maroon-coloured jumper and a red scarf, with my right arm outstretched over the top of the seat. I’m wearing glasses, dark-coloured lipstick, and I have dark brown hair falling on either side of my face. I’m tilting my head a bit, and smiling – because my jumper is the same colour as the seat! (Well, almost.)"
       >
     </picture>
   </a>
@@ -357,6 +358,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
         >
         <img
           src="/images/2022/IMG_5844_1x.jpg"
+          alt="A black, boxy steam engine with a driver filling it up using a blue hose. The driver is standing next to the train, close to their full height, and they're about as tall as the train."
         >
       </picture>
     </a>
@@ -380,6 +382,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
         >
         <img
           src="/images/2022/IMG_5852_1x.jpg"
+          alt="The black steam engine sitting on a turntable. At the far end is the driver, pushing against one of the handles to turn the train. Beyond the turntable are three tracks and the rest of the station."
         >
       </picture>
     </a>
@@ -403,6 +406,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
         >
         <img
           src="/images/2022/IMG_5921_1x.jpg"
+          alt="A dark blue engine sitting on the turntable. This is larger than the black engine, and it's taking two people pushing to turn it around. It looks like quite a strain!"
         >
       </picture>
     </a>
