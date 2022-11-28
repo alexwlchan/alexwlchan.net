@@ -27,17 +27,17 @@ I had a lovely day, and this post has a few of my photos.
 
   .grid_4up {
     display: grid;
-    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-template-columns: calc(33% - 5px) calc(33% - 5px) calc(33% - 5px);
     grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
     grid-gap: 10px;
     aspect-ratio: 1;
   }
 
-  .grid_3up .left, .grid_4up .left {
+  .grid_3up .left{
     grid-column: 1 / 2;
   }
 
-  .grid_3up .right, .grid_4up .right {
+  .grid_3up .right {
     grid-column: 2 / 2;
   }
 
@@ -94,11 +94,12 @@ I had a lovely day, and this post has a few of my photos.
   }
 
   @media screen and (max-width: 500px) {
-    .grid_3up {
+    .grid_3up, .grid_4up {
       display: block;
     }
 
-    .grid_3up .right.upper, .grid_3up .left.upper {
+    .grid_3up .right.upper, .grid_3up .left.upper,
+    .grid_3up .upper, .grid_3up .left.lower, {
       margin-bottom: 10px;
     }
   }
@@ -254,15 +255,21 @@ The weather had become thoroughly grey and rainy, so the scenery wasn't quite as
 This Tuesday was actually the first day my employer had mandated a return to the office for their staff, and if I hadn't been on leave, I'd have been on a packed commuter service heading into central London.
 Even with overcast skies, a steam train through Norfolk was a much better choice.
 
-On the day, my only camera was my phone, and I'm decidedly not a pro photographer -- but I still enjoy taking a few "artsy" shots.
+On the day, my only camera was my phone, and I'm decidedly not a pro photographer -- but I still enjoyed taking a few "artsy" shots.
+Hopefully these show what impeccable condition the engines are kept in -- even the tiny details are clean and shiny.
 
 <figure class="wide_img grid_4up">
-  <div class="left upper">
+  <div class="upper left">
     <a href="/images/2022/IMG_5782.jpg">
       <img src="/images/2022/IMG_5782_1x.jpg" srcset="/images/2022/IMG_5782_1x.jpg 1x, /images/2022/IMG_5782_2x.jpg 2x">
     </a>
   </div>
-  <div class="right upper">
+  <div class="upper">
+    <a href="/images/2022/IMG_6081.jpg">
+      <img src="/images/2022/IMG_6081_1x.jpg" srcset="/images/2022/IMG_6081_1x.jpg 1x, /images/2022/IMG_6081_2x.jpg 2x">
+    </a>
+  </div>
+  <div class="upper right">
     <a href="/images/2022/IMG_5784.jpg">
       <img src="/images/2022/IMG_5784_1x.jpg" srcset="/images/2022/IMG_5784_1x.jpg 1x, /images/2022/IMG_5784_2x.jpg 2x">
     </a>
@@ -272,14 +279,45 @@ On the day, my only camera was my phone, and I'm decidedly not a pro photographe
       <img src="/images/2022/IMG_6086_1x.jpg" srcset="/images/2022/IMG_6086_1x.jpg 1x, /images/2022/IMG_6086_2x.jpg 2x">
     </a>
   </div>
-  <div class="right lower">
+  <div class="right lower" style="grid-column: 2 / span 2">
     <a href="/images/2022/IMG_6088.jpg">
       <img src="/images/2022/IMG_6088_1x.jpg" srcset="/images/2022/IMG_6088_1x.jpg 1x, /images/2022/IMG_6088_2x.jpg 2x">
     </a>
   </div>
 </figure>
 
-artsy photos
+(I hope you all have things in your lives that make you as excited as I get about trains, and that you get to express that excitement. 💖)
+
+
+They're really good looking trains.
+
+<figure class="wide_img rounded_corners">
+  <a href="/images/2022/IMG_5994.jpg">
+    <img src="/images/2022/IMG_5994_1x.jpg" srcset="/images/2022/IMG_5994_1x.jpg 1x, /images/2022/IMG_5994_2x.jpg 2x">
+  </a>
+</figure>
+
+All the volunteers and staff I met were lovely.
+I didn't talk to many of them -- I'm shy, and they were working -- but those I chatted to were very nice and generous with their knowledge, and keen to show off their railway.
+Some heritage railways have a bit of a gatekeeper-y "real train geeks only" vibe, but I got none of that here.
+
+I'll end with a photo of me, with windswept hair and a big smile, another favourite from the day:
+
+<figure class="wide_img rounded_corners">
+  <a href="/images/2022/IMG_6211.jpg">
+    <img src="/images/2022/IMG_6211_1x.jpg" srcset="/images/2022/IMG_6211_1x.jpg 1x, /images/2022/IMG_6211_2x.jpg 2x">
+  </a>
+</figure>
+
+I had a wonderful day out -- beautiful enginers, gorgeous scenery, lovely volunteers.
+
+There are only a few running days [left on this year's timetable][timetable], but if you can find a time I'd recommend a visit.
+
+[timetable]: https://www.bvrw.co.uk/timetable
+[flirt]: https://en.wikipedia.org/wiki/Stadler_FLIRT
+[bvrw]: https://www.bvrw.co.uk/
+
+
 
 few more photos of trains
 
@@ -298,8 +336,6 @@ Steeeeeeeeeam.
 
 The depot is at Aylsham, where I started my day. (It’s where the first train departs from, which is the clue.)
 
-[flirt]: https://en.wikipedia.org/wiki/Stadler_FLIRT
-[bvrw]: https://www.bvrw.co.uk/
 
 <!--
 
