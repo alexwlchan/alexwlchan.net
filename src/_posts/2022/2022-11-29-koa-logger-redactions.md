@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2022-11-29 23:39:11 +0000
 title: Redacting sensitive query parameters with koa and koa-logger
 summary: Using a custom transporter to modify the log message and remove secret information.
 tags: javascript javascript:koa
