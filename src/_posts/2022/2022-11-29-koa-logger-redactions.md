@@ -130,7 +130,7 @@ Here's an example of the new logs:
 
 No sensitive data here!
 
-We put this in place several months ago, and I meant to write about it after it had settled in, but it's been wokring fine and  I completely forgot.
+We put this in place several months ago, and I meant to write about it after it had settled in, but it's been working fine and  I completely forgot.
 Yesterday's announcement of [sensitive data redaction in CloudWatch][cloudwatch] reminded me that I had this post in my drafts folder, and I finished it off.
 
 [koa]: https://www.npmjs.com/package/koa
