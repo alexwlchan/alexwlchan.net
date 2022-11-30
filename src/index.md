@@ -17,7 +17,7 @@ theme:
   }
 </style>
 
-<picture>
+<picture class="fullwidth_img">
   <source
     srcset="/images/profile_green_1x.webp 1x,
             /images/profile_green_2x.webp 2x,
@@ -35,6 +35,7 @@ theme:
   <img
     src="/images/profile_green_1x.jpg"
     alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
+    class="rounded_corners"
   >
 </picture>
 
