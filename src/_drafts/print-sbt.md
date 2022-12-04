@@ -1,0 +1,88 @@
+---
+layout: post
+title: Getting the base directory of an sbt project
+summary: A shell command you can use to integrate sbt projects in a bigger build system.
+tags: scala scala:sbt
+theme:
+  card_type: summary_large_image
+  image: /images/2022/sbt-base-directory.jpg
+index:
+  tint_color: "#0e20f0"
+---
+
+This is a command you can run in a shell script to print the base directory of an sbt project:
+
+```console
+$ sbt --batch -error "project $PROJECT" "print baseDirectory" | tr -d "\n"
+```
+
+For example:
+
+```console
+$ sbt --batch -error "project ingests_api" "print baseDirectory" | tr -d "\n"
+/Users/alexwlchan/repos/storage-service/ingests/ingests_api⏎
+```
+
+We use this at work in some of our larger repositories, where we have lots of Scala apps in a single repo.
+The sbt base directory for each app/project includes some non-Scala files alongside the code, like a README and a Dockerfile.
+We have scripts that use this command to ask sbt where to find these non-Scala files, so they can be used by other build steps.
+
+## How it works
+
+Normally I wouldn't write a blog post for something this short, but the [sbt documentation][docs] made this really hard to work out.
+Lots of stuff is either missing or confusingly explained, and I only got this working after I read several long GitHub issue threads.
+
+Here's how it works:
+
+*   The `--batch` flag tells sbt to "disable interactive mode" (according to `sbt -help`).
+    In this case, interactive mode means sbt asking for your input if something goes wrong:
+
+    ```
+    Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore?
+    ```
+
+    Disabling interactive mode will cause sbt to skip asking for input, and fail immediately.
+
+    I can't find this flag in the sbt docs, which describes an ["interactive mode"](https://www.scala-sbt.org/1.x/docs/Howto-Interactive-Mode.html#Interactive+mode) which seems more akin to a console or REPL.
+    I only found out about it from Stack Overflow posts, and to understand it I had to read [the sbt source code][sbt_batch], where it disables input by getting input from `/dev/null`.
+
+*   The `-error` flag tells sbt to set the log level to errors-only.
+    This skips the startup logs you get whenever you run sbt, like:
+
+    ```
+    [info] welcome to sbt 1.4.1 (Homebrew Java 16.0.2)
+    [info] loading global plugins from /Users/alexwlchan/.sbt/1.0/plugins
+    [info] loading project definition from /Users/alexwlchan/repos/storage-service/project/project
+    ```
+
+    The only place I can find this documented is in the [sbt 1.0 changelog][changelog]:
+
+    > Log options `-error`, `-warn`, `-info`, `-debug` are added as shorthand for `"early(error)"` etc.
+
+    Seeing it alongside the related flags might help you realise this is something to do with log levels -- but if you saw a script with `-error` in isolation, it's less obvious.
+    I also can't find any explanation of the `early` command for which this is apparently a shorthand.
+
+*   `"project $PROJECT"` selects a particular project from our [multi-project build][multi].
+    We use multi-project builds to keep related projects in the same repository.
+
+*   `print baseDirectory` uses the [print command][print] to print the value of the `baseDirectory` setting.
+    This includes a trailing newline, which you can see if you inspect the output in Python:
+
+    ```console
+    $ sbt --batch -error "project ingests_api" "print baseDirectory" > out.txt
+
+    $ python3 -c 'output = open("out.txt", "rb").read(); print(repr(output))'
+    b'/Users/alexwlchan/repos/storage-service/ingests/ingests_api\n'
+    ```
+
+    I did try to find a flag for suppressing the newline, but I couldn't find one if it exists.
+
+*   `tr -d "\n"` uses the Unix [tr command][tr] to delete newline characters.
+    This gives me a string which is just the path, which I can then pass to other tools and scripts.
+
+[docs]: https://www.scala-sbt.org/1.x/docs/
+[sbt_batch]: https://github.com/sbt/sbt/blob/09e06c45f01a72ed1010873a3ba89c0b70689fca/sbt#L591-L592
+[changelog]: https://www.scala-sbt.org/1.x/docs/sbt-1.0-Release-Notes.html#sbt+1.0.0
+[multi]: https://www.scala-sbt.org/1.x/docs/Multi-Project.html#Navigating+projects+interactively
+[print]: https://www.scala-sbt.org/1.x/docs/sbt-1.3-Release-Notes.html#print+command
+[tr]: https://linux.die.net/man/1/tr
