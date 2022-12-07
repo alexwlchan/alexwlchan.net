@@ -239,7 +239,7 @@ The alternative would be to pass the values as parameters to the function, which
 generate_rectangles((5..30), (60..90), 500)
 ```
 
-Much lessclear!
+Much less clear!
 
 Originally I had individual struct fields for min/max width and min/max height, but I refactored it to use a [`Range<u32>`].
 It expresses the data in a more succinct way, and it's similar to the API for generating random ranges.
