@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How we run do bulk analysis of our Prismic content
+title: How we do bulk analysis of our Prismic content
 summary: By downloading all our Prismic documents, we can run validation rules, fix broken links, and find interesting examples.
 tags: prismic
 theme:
@@ -12,7 +12,7 @@ index:
 
 <!-- Cover image: https://commons.wikimedia.org/wiki/File:Prism_flat_rainbow.jpg, CC0 -->
 
-At work, we use [Prismic] as a headless CMS for [our public website][wc_org].
+At work, we use [Prismic] as a [headless CMS][cms] for [our public website][wc_org].
 If you see images or text that aren't part of the catalogue, they're probably managed through Prismic.
 
 To help us manage our growing Prismic library, we've built a number of tools and scripts to analyse our content in bulk.
@@ -23,14 +23,16 @@ This includes:
 *   running linting and validation rules
 
 All our scripts and code are [open source and publicly available][scripts], and in this post I want to give a quick tour of the key ideas.
-These examples all use [Prismic's JavaScript library][js_client].
 
+My examples all use [Prismic's JavaScript library][js_client], but most of these ideas aren't Prismic-specific -- you could apply them to other CMSes.
+
+[cms]: https://en.wikipedia.org/wiki/Headless_content_management_system
 [Prismic]: https://prismic.io/
 [wc_org]: https://wellcomecollection.org/
 [scripts]: https://github.com/wellcomecollection/wellcomecollection.org/tree/main/prismic-model
 [js_client]: https://prismic.io/docs/technical-reference/prismicio-client
 
-  {% separator "prismic.svg" %}
+  {% separator "prism.svg" %}
 
 ## Download all our Prismic content
 
@@ -60,7 +62,7 @@ You can export a snapshot in the "Import/Export" tab of the Prismic GUI, but tha
 
 Fortunately, the Prismic client library includes a [dangerouslyGetAll() method][dangerouslyGetAll], which downloads all your documents.
 It includes both pagination and throttling, so it can fetch everything without overwhelming the Prismic API.
-This allows us to write a short script:
+We can put this in a short script:
 
 ```javascript
 // npm i node-fetch @prismicio/client
@@ -146,17 +148,60 @@ Now we have this snapshot, what can we do with it?
 
 
 
-  {% separator "prismic.svg" %}
+  {% separator "prism.svg" %}
 
 
 
-## Use case #1: Counting our slices
+## Use case #1: Find (and test) all our content pages
+
+One thing a snapshot can do is give us a link to every bit of content we have in Prismic:
+
+```javascript
+const nonVisibleTypes = new Set([
+  'audiences', 'interpretation-types', 'labels', 'teams',
+]);
+
+function createUrl(baseUrl, type, id): string {
+  switch (type) {
+    case 'webcomics':
+      return `${baseUrl}/articles/${id}`;
+
+    default:
+      return `${baseUrl}/${type}/${id}`;
+  }
+}
+
+for (let doc of documents) {
+  if (!nonVisibleTypes.has(doc.type)) {
+    console.log(createUrl('http://localhost:3000', doc.type, doc.id));
+  }
+}
+```
+
+```
+http://localhost:3000/events/Xagh1RAAACMAozgg
+http://localhost:3000/articles/Ye6WHxAAACMAXTxz
+http://localhost:3000/books/YW7dSREAACAANjZn
+```
+
+I've found this useful when doing a big, disruptive refactor -- it takes a while, but I can use this list to grind through every page.
+I [fetch every page][curl] from a local copy of the site, check for errors, and then I can fix them before they're deployed to prod.
+
+We get alerts for errors on the public site, and now we test a sample of URLs as part of deployment -- and testing everything helped find the "interesting" examples that went into that sample.
+
+[curl]: /2022/04/checking-with-curl/
+
+
+
+  {% separator "prism.svg" %}
+
+
+
+## Use case #2: Counting our slices
 
 Within Prismic, [slices] are the building blocks of a page.
 You can define your own slice types and how they're rendered on your site, and each slice can have different data and structure.
 Content editors can assemble a sequence of different slices in the GUI editor to create a page.
-
-This is what the slice picker looks like:
 
 <picture>
   <source
@@ -182,18 +227,6 @@ To help us manage our slice types, we made a tool that counts how many times eac
 It goes through every page in the snapshot, counts all the slices it uses, then prints the result:
 
 ```javascript
-// node tally-slices.js
-
-const fs = require('fs');
-
-function readJson(path) {
-  const jsonString = fs.readFileSync(path).toString();
-  return JSON.parse(jsonString);
-}
-
-var sliceTally = {};
-const documents = readJson('snapshot.Y5dUDREAAF9hpGNe.json');
-
 for (let doc of documents) {
   if (doc.data.body) {
     for (let slice of doc.data.body) {
@@ -227,7 +260,7 @@ We use this tally to answer questions like:
 
 *   Which slice types are least used?
     Are there any slice types which are never used?
-    This might start a conversation about why that slice type isn't being used -- maybe it's unnecessary, or there's a modelling error that prevents it from being used.
+    This might start a conversation about why that slice type isn't being used -- maybe it's unnecessary, or it needs some tweaking.
 
 *   If we've deprecated one slice type and replaced it with another, have we migrated all the old uses?
     Can we safely delete the old slice type?
@@ -238,24 +271,23 @@ This sort of slice analysis was the initial motivation for downloading Prismic s
 
 
 
-  {% separator "prismic.svg" %}
+  {% separator "prism.svg" %}
 
 
 
-## Use case #2: finding interesting examples
+## Use case #3: finding interesting examples
 
 In the example above, we saw that there are only two examples of the "map" slice.
 If I was doing some work on the map code, it might be useful to know which pages have a map, so I can test my changes with a working example.
 
-This is just a small tweak of the previous script:
+We can find this with just a small change to the previous script:
 
 ```javascript
 for (let doc of documents) {
   if (doc.data.body) {
-    for (let slice of doc.data.body) {
-      if (slice.slice_type === 'map') {
-        console.log(doc.id)
-      }
+    if (doc.data.body.some(slice => slice.type === 'map')) {
+      console.log(doc.id);
+      break;
     }
   }
 }
@@ -266,15 +298,15 @@ Over time, we've deprecated slice types as we recognise their flaws, and replace
 We then try to migrate all the old slices into the new type, and this script helps us find them.
 
 Some of this is possible with the Prismic API, but what I like about this approach is that I can write incredibly flexible queries.
-And this led to another idea…
+And what if we didn't want to find just one example, but every example?
 
 
 
-  {% separator "prismic.svg" %}
+  {% separator "prism.svg" %}
 
 
 
-## Use case #3: running validation rules
+## Use case #4: running validation rules
 
 Prismic itself doesn't have any sort of validation logic in the editor, and that's a [deliberate choice][novalid].
 They've thought carefully about it and decided not to do it, which is a shame because there are certain places where it would be really useful -- but this snapshot mechanism allows us to build our own validation tools.
@@ -342,3 +374,21 @@ That's how we made a lot of this Prismic tooling -- as an iteration on something
 
 [novalid]: https://prismic.io/blog/required-fields
 [safelinks]: https://support.microsoft.com/en-us/office/advanced-outlook-com-security-for-microsoft-365-subscribers-882d2243-eab9-4545-a58a-b36fee4a46e2
+
+
+
+  {% separator "prism.svg" %}
+
+
+
+## And so on
+
+I have more ideas about how we might use this.
+
+For example, all the uses cases above have treated pages as individual entities, but these pages have relationships with each other.
+I think we could do something interesting by considering our Prismic library as a whole, and working out how all the pages on the site link together.
+Are we consistent in the way we tag and organise pages?
+Do we create the proper breadcrumb trails for hierarchical content?
+And so on.
+
+You can find all our Prismic scripts [on GitHub][scripts], which are more full-featured than the code above -- but I hope my examples give you the general idea.
