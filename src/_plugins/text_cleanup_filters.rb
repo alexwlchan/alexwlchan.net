@@ -53,6 +53,7 @@ module Jekyll
 
       phrases = [
         "<em>k</em>-means",
+        "Artemis 1",
         "CC BY 4.0",
         "CC BY",
         "CC BY-NC 4.0",
