@@ -12,49 +12,48 @@ index:
 
 <style>
   .wrapper {
-   border: 3px solid #f0f0f0;
-   background: black;
-   color: white;
-   border-radius: 10px;
-   text-align: center;
-   font-family: Helvetica, Arial, sans-serif;
-   position: relative;
-   padding: 1em;
+    border: 3px solid #f0f0f0;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    position: relative;
+    padding: 1em;
   }
 
   .wrapper p:first-child {
-   margin-top: 0;
+    margin-top: 0;
   }
 
   .wrapper p:last-child {
-   margin-bottom: 0;
+    margin-bottom: 0;
   }
 
   .wrapper button {
-   position: absolute;
-   right: 5px;
-   top: 5px;
-   background: white;
-   color: black;
-   border-radius: 2px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: white;
+    color: black;
+    border-radius: 2px;
   }
 
   #directions marquee {
-   height: 100px;
+    height: 100px;
   }
 
   .marquee_example {
-   display: grid;
-   grid-gap: 10px;
-   margin: 1em;
+    display: grid;
+    grid-gap: 10px;
   }
 
   .marquee_example code {
-   background: none;
+    background: none;
   }
 
   #truespeed {
-   grid-template-columns: auto;
+    grid-template-columns: auto;
   }
 
   /*
@@ -67,11 +66,11 @@ index:
    (Or a 2×1 and 1×2)
   */
   .example_2up .wrapper, .example_4up .wrapper {
-   width: calc(100% - 2em - 5px);
+    width: calc(100% - 2em - 5px);
   }
 
   .example_2up, .example_4up {
-   grid-template-columns: calc(50% - 5px) calc(50% - 5px);
+    grid-template-columns: calc(50% - 5px) calc(50% - 5px);
   }
 
   .example_3up .wrapper:nth-child(1) { border-radius: 10px 10px 0 0; }
@@ -163,7 +162,7 @@ Very environmentally conscientious!
 🚀
 ```
 
-Now let's make it move.
+Now let's make it fly.
 
 If you're a hip, modern web developer, you probably know how to make things move on a web page.
 Maybe you'd use [CSS animation], or [Motion Path], or break out some [@keyframes].
@@ -177,14 +176,16 @@ Old-school web nerds know the best way to move text in a web page: the unjustly-
 If you've never come across it, the marquee tag causes text to scroll across a page.
 It makes our rocket move from right to left:
 
-<div id="first_example" class="marquee_example">
+<div id="first_example" class="marquee_example indented">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('first_example')">pause</button>
     <marquee>🚀</marquee>
   </div>
 </div>
 
-But you don't need to be a rocket scientist to realise something's wrong -- it's flying in the wrong direction!
+This looks pretty good already!
+
+But you don't need to be a rocket scientist to realise something's wrong -- we're flying backwards!
 Almost [all rocket emojis][emoji] have the pointy bit in the upper-right, but the marquee tag is taking us to the left.
 We need to find a steering wheel.
 
@@ -202,9 +203,10 @@ We need to find a steering wheel.
 
 
 
-The steering wheel for the marquee tag comes in the form of the [direction attribute][direction], which lets us specify one of the four cardinal directions.
+You can steer a marquee tag with the [direction attribute][direction], which lets you pick one of four directions.
+The scroll will go in whatever direction you pick:
 
-<div id="directions" class="marquee_example example_4up">
+<div id="directions" class="marquee_example indented example_4up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('directions')">pause</button>
     <code>&lt;marquee direction="up"&gt;</code>
@@ -228,12 +230,9 @@ The steering wheel for the marquee tag comes in the form of the [direction attri
 We can only pick a single direction; we can't, for example, combine `direction="up left"` to get our rocket to move diagonally.
 This is probably for the best, as it avoids an inexperienced operator trying to launch their rocket in the direction `"up down"`, which could go very wrong.
 
-It only supports the four cardinal directions; you can't, for example, combine the attributes .
-This is probably for the best, as it avoids somebody like me trying to set `direction="up down"`.
+The marquee tag is also aware of non-English languages -- it scrolls from right-to-left in my posts, but if you specify a [right-to-left script][rtl] with the [dir attribute][dir], it scrolls from left-to-right (opposite to the direction of the text).
 
-The marquee tag is also aware of non-English languages -- it scrolls from right-to-left in my posts, but if you specify a [right-to-left script][rtl] with [the dir attribute][dir], it scrolls from left-to-right (opposite to the direction of the text).
-
-<div id="rtl_text" class="marquee_example example_2up">
+<div id="rtl_text" class="marquee_example indented example_2up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('rtl_text')">pause</button>
     <code>&lt;marquee dir="ltr"&gt;</code>
@@ -269,7 +268,7 @@ Can we go faster?
 Text in the marquee tag doesn't scroll as continuous motion; instead it gets updated at discrete intervals.
 The time between intervals is controlled by the [scrolldelay attribute][scrolldelay] (which counts in milliseconds), and if we crank it up the discrete motion becomes obvious:
 
-<div id="scrolldelay" class="marquee_example example_2up">
+<div id="scrolldelay" class="marquee_example indented example_2up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('scrolldelay')">pause</button>
     <code>&lt;marquee scrolldelay="1000"&gt; (1s)</code>
@@ -288,8 +287,9 @@ I wonder if this is a limitation of graphics cards in the 1990s, and an attempt 
 
 If you want to crank down the interval below 60&nbsp;milliseconds, you have to add the [truespeed attribute][truespeed].
 That feels like another sign that maybe this is designed to avoid over-taxing the computer, by clamping the refresh rate unless you explicitly opt in.
+Notice that `scrolldelay="1"` makes no difference until I add this attribute:
 
-<div id="truespeed" class="marquee_example example_3up">
+<div id="truespeed" class="marquee_example indented example_3up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('truespeed')">pause</button>
     <code>&lt;marquee scrolldelay="60"&gt;</code>
@@ -305,10 +305,9 @@ That feels like another sign that maybe this is designed to avoid over-taxing th
   </div>
 </div>
 
-If you want to change the distance the text scrolls at each interval, you can set the [scrollamount attribute][scrollamount].
-This doesn't seem to have any limits.
+If you want to change how far the text scrolls at each interval, use the [scrollamount attribute][scrollamount].
 
-<div id="scrollamount" class="marquee_example example_3up">
+<div id="scrollamount" class="marquee_example indented example_3up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('scrollamount')">pause</button>
     <code>&lt;marquee scrollamount="6"&gt;</code> (default)
@@ -325,14 +324,14 @@ This doesn't seem to have any limits.
 </div>
 
 
-Although there aren't any defined limits, you may want to be careful.
+Although this doesn't seem to have any limits, you may want to be careful.
 
 If you really crank up the scrollamount, you can get some weird visual effects -- the text might get stuck in place, or it might not be visible at all.
 In my browser (Safari), the rocket below just flips between two positions, offset 300 and 600 pixels from the right-hand side.
 If I shrink my window to less than 300 pixels wide, it disappears entirely.
 It reminds me of the [wagon-wheel effect][wagon].
 
-<div id="wagonwheel" class="marquee_example">
+<div id="wagonwheel" class="marquee_example indented">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('wagonwheel')">pause</button>
     <code>&lt;marquee scrollamount="300"&gt;</code>
@@ -340,10 +339,9 @@ It reminds me of the [wagon-wheel effect][wagon].
   </div>
 </div>
 
-So now we can make our rocket go as fast as we like -- but what if we need to stop suddenly?
-
+So now we can launch our rocket and set it off in one direction, but what if we need to change course?
 Maybe [our advanced autopilot][robert] has spotted a parked spaceship, there's an asteroid up ahead, or an astronaut ran out into the space road.
-Can we give our autopilot a handbrake?
+Can we give him some controls?
 
 [scrolldelay]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#attr-scrolldelay
 [truespeed]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#attr-truespeed
@@ -357,56 +355,19 @@ Can we give our autopilot a handbrake?
 
 
 
-Initially I considered building a brake that modifies the scrollamount attribute -- if we reduce it to 0, the rocket will stop moving.
-You have to save the original scrollamount value somewhere, and restore it when you want to restart, but that's doable.
-
-When I re-read the MDN docs, I discovered the marquee tag has [stop() and start() methods][start_stop], which will stop and start the scrolling.
-That feels a bit nicer than fiddling with attributes, and they're what I'm using for the play/pause buttons on the examples in this post.
-
-What I couldn't find is any way to determine if a marquee element is currently scrolling -- to build a play/pause toggle, you have to track the state of the scrolling in an external variable.
-
-This gives us a basic start/stop, but what if we want more advanced controls?
-What if we want to change the speed or direction mid-flight?
-How do we introduce more interactivity?
-
-[start_stop]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#methods
-
-
-
-  {% separator "marquee-870892.svg" %}
-
-
-
-If I've learnt anything from watching Star Trek, it's that the best interfaces have buttons.
+If I've learnt anything from watching Star Trek, it's that all the best interfaces have buttons.
 (Preferably physical ones.)
-We should build a panel of buttons to control our rocket.
-And of course, there's a very convenient way to create buttons on the web.
-Do you know what it is?
+We should design a panel of buttons that control our rocket.
+And of course, lots of people need buttons on the web, so there's an HTML tag you can use for making buttons.
+Can you guess what it is?
 
 That's right, it's the marquee tag.
 
-If we set `scrollamount="0"` on a marquee tag, we get a static element.
-We can make our button do something by defining an `onclick` handler, and then we can position it like any HTML element.
-For example:
+We can set `scrollamount="0"`, which makes it static, so it moves like a button.
+We can add a `style` to can change its appearance, so it looks like a button.
+And we can define an `onclick` handler to make it do something when the user clicks, so it behaves like a button.
 
-```html
-<marquee
-  scrollamount="0"
-  style="background: white; width: 45px; height: 45px; cursor: hand;"
-  onclick="
-    rocket = document.getElementById('rocket');
-    if (rocket.attributes['is-moving'] === 'no') {
-      rocket.start();
-      rocket.attributes['is-moving'] = 'yes';
-    } else {
-      rocket.stop();
-      rocket.attributes['is-moving'] = 'no';
-    };">
-  ⏯
-</marquee>
-```
-
-Once I had this trick in mind, I was able to construct a panel of buttons to control the rocket:
+Once I had this brilliant idea, I was able to construct a panel of buttons to control the rocket:
 
 <style>
   #buttons {
@@ -469,19 +430,36 @@ Once I had this trick in mind, I was able to construct a panel of buttons to con
   </picture>
 </figure>
 
+The `onclick` handlers for direction and speed are finding the scrolling element, then modifying the various direction/speed attributes we've discussed above.
+For example, this is the "up" arrow:
 
+```html
+<marquee
+  id="up"
+  scrollamount="0"
+  style="background: white; width: 35px; height: 44px; cursor: hand;"
+  onclick="document.getElementById('rocket').direction = 'up';"
+>
+  ↑
+</marquee>
+```
+
+I'm arranging the buttons into a grid with `position: absolute;` and fixed margins, which mean they'll always be in the same place.
+Muscle memory for buttons is very useful!
+
+The play/pause button uses two handy methods on the marquee tag: [stop() and start()][start_stop], which will stop and start the scrolling.
+I'm slightly perturbed that there's no way to determine if a marquee is currently scrolling; I have to store that state in an external variable -- but it seems to work.
 
 These buttons work by modifying the various direction/speed attributes on the marquee element, and calling the start()/stop() method for play/pause.
 
-This is where you really see the differences in browser support.
-In Safari, clicking these buttons will change direction immediately -- the rocket can zigzag across the page.
-In Chrome, clicking these buttons won't take effect until it scrolls off the edge of the window.
-In Firefox, clicking these buttons take effect immediately, but it restarts the scroll from the edge of the window.
+These controls are where you really see the differences in browser support.
+The direction and speed controls behave differently across browsers.
+In some browsers, they take immediate effect, in others you have to wait for the current scroll to complete before you see any change.
 
-The speed controls are similarly inconsistent -- in Firefox and Safari, the speed changes immediately, but in Chrome it waits for the next cycle.
+The marquee tag has been deprecated for years, and even when it was supported there were probably only a handful of sites that were dynamically changing the direction or speed.
+It's unsurprising, if disappointing, that a consensus has failed to emerge.
 
-<!-- The marquee tag has been deprecated for years, and even when it was supported there were probably only a handful of sites that were dynamically changing the direction or speed.
-It's unsurprising, if disappointing, that a consensus has failed to emerge. -->
+[start_stop]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#methods
 
 
 
@@ -521,7 +499,7 @@ This looks about as good as you'd expect, and different browsers render it diffe
   </div>
 </div>
 
-I learnt this when I screwed up the escaping in my Markdown source file, and got an HTML file with half a dozen unclosed &lt;marquee&gt;> tags.
+I learnt this when I screwed up the escaping in my Markdown source file, and got an HTML file with half a dozen unclosed &lt;marquee&gt; tags.
 I was struck by the complete visual mess that stood before me.
 The possibilities are as endless as they are horrifying.
 
@@ -536,7 +514,7 @@ The possibilities are as endless as they are horrifying.
 ## Why are you doing this?
 
 This all started when Laurie Voss ran an [&lt;Angle&gt; Bracket tournament][tournament], a series of Twitter polls to determine the Internet's favourite HTML tag.
-I was following [Danielle Leong][leong], who was a fearless cheerleader of the marquee tag, and I discovered the tournament through her tweets.
+I was following [Danielle Leong][leong], who was a fearless cheerleader of the marquee tag as the meme vote, and I discovered the tournament through her tweets.
 
 The four finalists were &lt;a&gt;, &lt;div&gt;, &lt;marquee&gt; and &lt;script&gt;, and Laurie tweeted what could only be read as a challenge:
 
@@ -544,7 +522,7 @@ The four finalists were &lt;a&gt;, &lt;div&gt;, &lt;marquee&gt; and &lt;script&g
 
 How far could I get with just &lt;marquee&gt;?
 
-I built the [&lt;marquee&gt; rocket][glitch] as a small website with a bit of interactivity that only uses the marquee tag -- and to prove that you don't need &lt;script&gt; to use JavaScript.
+I built the [&lt;marquee&gt; rocket][glitch] as a small website with a bit of interactivity that only uses the marquee tag -- and to prove that you don't need &lt;script&gt; to do JavaScript shenanigans.
 
 It was a useful reminder that HTML is enormous, and I only know a tiny fraction of it.
 I'd been aware of the marquee tag for over a decade, but I thought it was just for horizontally scrolling text.
@@ -554,22 +532,28 @@ And although I'm never going to use my newfound knowledge of the marquee tag, I 
 
 I'll end with a final example, which brings together all our new marquee knowledge:
 
-<div id="to_the_moon" class="marquee_example">
+<div id="to_the_moon" class="marquee_example indented">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('to_the_moon')">pause</button>
-    <code>&lt;marquee direction="right" scrollamount="80" scrolldelay="1" truespeed&gt;</code><br/>
+    <code>&lt;marquee direction="right" scrollamount="1" scrolldelay="30" truespeed&gt;</code><br/>
     <span style="float: left;">🌍</span>
-    <marquee scrollamount="80" scrolldelay="1" truespeed direction="right">🚀</marquee>
+    <marquee
+      scrollamount="1"
+      scrolldelay="30"
+      truespeed
+      direction="right"
+      style="margin-left: 25px; margin-right: 25px;"
+    >
+      🚀
+    </marquee>
     <span style="float: right;">🌕</span>
   </div>
 </div>
 
-My iMac's display is 218&nbsp;pixels per inch, which means that [if I launch this tiny rocket now][wolfram], I'll beat NASA back to the Moon.
-With a week to spare.
+NASA aren't the only ones who can send a rocket to the Moon.
 
 [tournament]: https://theanglebracket.com
 [leong]: https://twitter.com/tsunamino/status/1461429962708193280
-[wolfram]: https://www.wolframalpha.com/input?i=%28%28distance+from+earth+to+moon%29+%2F+%28%2880+pixels+%2F+1+milliseconds%29+%2F+%28218+pixels+per+inch%29%29%29
 
 <script>
   var isAllMarqueeScrolling = true;
