@@ -42,7 +42,7 @@ def parse_opts
   end
 
   profile = `exiftool -quiet -quiet -printFormat '$profileDescription' #{Shellwords.escape(options[:path])}`
-  if profile != "" and profile != "sRGB"
+  if profile != "" and profile != "sRGB" and profile != "sRGB IEC61966-2.1\n"
     STDERR.puts "Unrecognised image profile: #{profile.inspect}"
     exit 1
   end

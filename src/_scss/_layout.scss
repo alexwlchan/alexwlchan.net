@@ -73,3 +73,18 @@ img, video, figure {
 iframe {
   display: block;
 }
+
+/* Elements that should have a left/right indent on wide screens (so they're
+ * narrower than the rest of the content), but snap to the edge on narrow
+ * screens. */
+.indented,
+blockquote,
+pre {
+  margin-left:  $default-padding;
+  margin-right: $default-padding;
+
+  @media screen and (max-width: $max-width + $default-padding * 3) {
+    margin-left:  0px;
+    margin-right: 0px;
+  }
+}
