@@ -564,7 +564,7 @@ I'll end with a final example, which brings together all our new marquee knowled
   </div>
 </div>
 
-My iMac's display is 218&nbsp;pixels per inch, which means that [if I set this tiny rocket now][wolfram], I'll beat NASA back to the Moon.
+My iMac's display is 218&nbsp;pixels per inch, which means that [if I launch this tiny rocket now][wolfram], I'll beat NASA back to the Moon.
 With a week to spare.
 
 [tournament]: https://theanglebracket.com
