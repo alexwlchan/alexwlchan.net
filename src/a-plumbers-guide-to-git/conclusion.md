@@ -27,7 +27,7 @@ This is everything that happens in a typical Git workflow:
 
 *   `git add` is a combination of hash-object and update-index.
 *   `git commit` comes from write-tree, commit-tree, and if you're on a branch, update-ref
-*   `git checkout` uses update-ref or update-symbolic-ref
+*   `git checkout` uses update-ref or symbolic-ref
 
 I hope you now have a better understanding of How Git works under the hood, and it makes you a more confident and effective user when you return to the world of porcelain.
 
