@@ -1,14 +1,20 @@
 ---
 layout: post
 title: Launching a rocket in the worst possible way
-summary: Let's see how we can use the &lt;marquee&gt; tag to fly a spaceship.
+summary: Taking the humble &lt;marquee&gt; tag where no HTML tag has gone before.
 tags: code-crimes html
 theme:
   card_type: summary_large_image
-  image: /images/2022/artemis_launch.jpg
+  image: /images/2022/marquee_rocket_card.jpg
 index:
-  tint_color: "#382b20"
+  tint_color: "#ba4220"
 ---
+
+<!-- Cover image:
+  https://thenounproject.com/icon/marquee-870892/
+  https://thenounproject.com/icon/rocket-1050360/
+  https://wellcomecollection.org/works/vzkap9dq/images?id=gd3spdt2
+ -->
 
 <style>
   .wrapper {
@@ -246,7 +252,7 @@ The marquee tag is also aware of non-English languages -- it scrolls from right-
   </div>
 </div>
 
-This is good news for international relations: now everyone can build rockets!
+This is good news for international relations: everyone can build rockets!
 
 But it's still a bit… slow.
 Space is big.
@@ -266,18 +272,18 @@ Can we go faster?
 
 
 Text in the marquee tag doesn't scroll as continuous motion; instead it gets updated at discrete intervals.
-The time between intervals is controlled by the [scrolldelay attribute][scrolldelay] (which counts in milliseconds), and if we crank it up the discrete motion becomes obvious:
+The time between intervals is controlled by the [scrolldelay attribute][scrolldelay] (which counts in milliseconds), and if we crank it up the discrete motion becomes more obvious:
 
 <div id="scrolldelay" class="marquee_example indented example_2up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('scrolldelay')">pause</button>
     <code>&lt;marquee scrolldelay="1000"&gt; (1s)</code>
-    <marquee scrolldelay="500">🚀</marquee>
+    <marquee scrolldelay="500" scrollamount="9">🚀</marquee>
   </div>
   <div class="wrapper">
     <button onclick="toggleMarqueFor('scrolldelay')">pause</button>
     <code>&lt;marquee scrolldelay="5000"&gt; (5s)</code>
-    <marquee scrolldelay="5000">🚀</marquee>
+    <marquee scrolldelay="5000" scrollamount="9">🚀</marquee>
   </div>
 </div>
 
@@ -339,9 +345,11 @@ It reminds me of the [wagon-wheel effect][wagon].
   </div>
 </div>
 
-So now we can launch our rocket and set it off in one direction, but what if we need to change course?
-Maybe [our advanced autopilot][robert] has spotted a parked spaceship, there's an asteroid up ahead, or an astronaut ran out into the space road.
-Can we give him some controls?
+So now we can launch our rocket, set a direction and pick a speed -- and then we'll keep going that way, that speed, forever.
+
+What if we need to change course?
+Maybe [our advanced autopilot][robert] has spotted a parked spaceship, there's an asteroid up ahead, or an astronaut ran out into the road.
+Can we get some controls?
 
 [scrolldelay]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#attr-scrolldelay
 [truespeed]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#attr-truespeed
@@ -355,8 +363,7 @@ Can we give him some controls?
 
 
 
-If I've learnt anything from watching Star Trek, it's that all the best interfaces have buttons.
-(Preferably physical ones.)
+If I've learnt anything from watching Star Trek, it's that all the best interfaces have buttons, preferably physical ones.
 We should design a panel of buttons that control our rocket.
 And of course, lots of people need buttons on the web, so there's an HTML tag you can use for making buttons.
 Can you guess what it is?
@@ -366,6 +373,19 @@ That's right, it's the marquee tag.
 We can set `scrollamount="0"`, which makes it static, so it moves like a button.
 We can add a `style` to can change its appearance, so it looks like a button.
 And we can define an `onclick` handler to make it do something when the user clicks, so it behaves like a button.
+
+Here's an example:
+
+```html
+<marquee
+  id="up"
+  scrollamount="0"
+  style="background: white; width: 35px; height: 44px; cursor: hand;"
+  onclick="document.getElementById('rocket').direction = 'up';"
+>
+  ↑
+</marquee>
+```
 
 Once I had this brilliant idea, I was able to construct a panel of buttons to control the rocket:
 
@@ -431,26 +451,12 @@ Once I had this brilliant idea, I was able to construct a panel of buttons to co
 </figure>
 
 The `onclick` handlers for direction and speed are finding the scrolling element, then modifying the various direction/speed attributes we've discussed above.
-For example, this is the "up" arrow:
-
-```html
-<marquee
-  id="up"
-  scrollamount="0"
-  style="background: white; width: 35px; height: 44px; cursor: hand;"
-  onclick="document.getElementById('rocket').direction = 'up';"
->
-  ↑
-</marquee>
-```
 
 I'm arranging the buttons into a grid with `position: absolute;` and fixed margins, which mean they'll always be in the same place.
 Muscle memory for buttons is very useful!
 
 The play/pause button uses two handy methods on the marquee tag: [stop() and start()][start_stop], which will stop and start the scrolling.
 I'm slightly perturbed that there's no way to determine if a marquee is currently scrolling; I have to store that state in an external variable -- but it seems to work.
-
-These buttons work by modifying the various direction/speed attributes on the marquee element, and calling the start()/stop() method for play/pause.
 
 These controls are where you really see the differences in browser support.
 The direction and speed controls behave differently across browsers.
@@ -482,9 +488,9 @@ While I was writing this blog post, I discovered that we can also do multistage 
 </marquee>
 ```
 
-This looks about as good as you'd expect, and different browsers render it differently:
+This looks about as good as you'd expect:
 
-<div id="nested">
+<div id="nested" class="marquee_example">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('nested')">pause</button>
     <marquee style="color: #ef4239;">
@@ -499,7 +505,9 @@ This looks about as good as you'd expect, and different browsers render it diffe
   </div>
 </div>
 
-I learnt this when I screwed up the escaping in my Markdown source file, and got an HTML file with half a dozen unclosed &lt;marquee&gt; tags.
+Different browsers render this even more differently, so you may see something completely different to me.
+
+I learnt this when I screwed up the escaping in a draft of this post, and got an HTML file with half a dozen unclosed &lt;marquee&gt; tags.
 I was struck by the complete visual mess that stood before me.
 The possibilities are as endless as they are horrifying.
 
@@ -514,7 +522,7 @@ The possibilities are as endless as they are horrifying.
 ## Why are you doing this?
 
 This all started when Laurie Voss ran an [&lt;Angle&gt; Bracket tournament][tournament], a series of Twitter polls to determine the Internet's favourite HTML tag.
-I was following [Danielle Leong][leong], who was a fearless cheerleader of the marquee tag as the meme vote, and I discovered the tournament through her tweets.
+I was following [Danielle Leong][leong], who was a fearless cheerleader of the marquee tag, and I discovered the tournament through her tweets.
 
 The four finalists were &lt;a&gt;, &lt;div&gt;, &lt;marquee&gt; and &lt;script&gt;, and Laurie tweeted what could only be read as a challenge:
 
@@ -526,7 +534,7 @@ I built the [&lt;marquee&gt; rocket][glitch] as a small website with a bit of in
 
 It was a useful reminder that HTML is enormous, and I only know a tiny fraction of it.
 I'd been aware of the marquee tag for over a decade, but I thought it was just for horizontally scrolling text.
-I didn't know about any of these attributes or methods -- so how much stuff am I missing on the bits of HTML I do use on a day-to-day basis?
+I didn't know about any of these attributes or methods -- so how much stuff am I missing on the bits of HTML I actually use on a day-to-day basis?
 
 And although I'm never going to use my newfound knowledge of the marquee tag, I did learn some things which might actually be useful in a real project – including the right-to-left script modifier, and some stuff around the "reduce motion" accessibility settings which I'm using in this post.
 
