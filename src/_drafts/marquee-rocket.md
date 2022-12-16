@@ -144,6 +144,7 @@ In this post, we'll peek under the covers and see how it works.
   <img
     src="/images/2022/marquee_rocket_1x.png"
     class="screenshot"
+    alt="A web page with a rocket icon on a black background. On the left-hand side are a series of buttons labelled 'direction' and 'speed' which control the rocket."
   >
 </picture>
 
@@ -440,12 +441,14 @@ Once I had this brilliant idea, I was able to construct a panel of buttons to co
     <img
       src="/images/2022/tos_buttons_1x.jpg"
       class="screenshot"
+      alt="Two panels of coloured lights and buttons on a spaceship console. We can see somebody in a gold uniform reaching out to push the buttons."
     >
   </picture>
   <picture>
     <img
       src="/images/2022/marquee_buttons.png"
       class="screenshot"
+      alt="Buttons on a web page. There are four arrows labelled 'direction' arranged in a T-shape, like a keyboard, then three buttons labelled 'speed' for play/pause, go slower, and go faster."
     >
   </picture>
 </figure>
