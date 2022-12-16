@@ -53,8 +53,6 @@ blockquote {
   border-left: $sidebar-border-width solid $midtone-gray;
   background-color: $pre-background-grey;
 
-  margin-left:  $default-padding;
-  margin-right: $default-padding;
   padding: 1px ($default-padding - $sidebar-border-width);
 
   &:not(.update) p:not(.text), li {
@@ -71,10 +69,6 @@ blockquote {
 
   em {
     font-style: normal;
-  }
-
-  @media screen and (max-width: $max-width + $default-padding * 3) {
-    margin-left: 0px;
   }
 }
 
