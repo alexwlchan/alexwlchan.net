@@ -53,8 +53,6 @@ I've put a bunch of things on the Internet, including:
 
 *   Silly art projects, like measuring [data in floppy disks](https://howlongismydata.glitch.me/), or controlling a rocket [with the &lt;marquee&gt; tag](https://marquee-rocket.glitch.me/).
 
-*   My [Twitter feed](https://twitter.com/alexwlchan), where I share work-in-progress and think out loud about new ideas.
-
 This site is a one-stop shop for everything I've made -- it's either here, or linked to from here.
 If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
 
@@ -120,7 +118,7 @@ You can see [more of my blog posts](/all-posts/), or [subscribe to the RSS feed]
 
 ## Contact
 
-You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>, or I'm <a href="https://twitter.com/alexwlchan" aria-label="alex w l chan" aria-braillelabel="@alexwlchan">@alexwlchan</a> on Twitter.
+You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>.
 
 If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
 I always love hearing from readers! ☺️
