@@ -28,7 +28,6 @@ footer {
   // These definitions have to live in the #footer_inner block so they
   // override the a:visited style defined above.
   #footer__email:hover    { color: $primary-color;  }
-  #footer__twitter:hover  { color: $twitter-blue;   }
   #footer__about:hover    { color: $primary-color;  }
   #footer__licence:hover  { color: black;           }
 }
