@@ -80,7 +80,7 @@ I hope you enjoy it.
 
 ## Get in touch
 
-You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>.
+You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>, or contact me [another way](/contact/).
 
 If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
 I always love hearing from readers! ☺️
@@ -139,7 +139,7 @@ Here are some posts I've written recently:
 </ul>
 
 If you want to stay up-to-date with new posts, you can [subscribe to the RSS feed](/atom.xml).
-You can also find every post I've written [in the archive](/all-posts/)/
+You can also find every post I've written [in the archive](/all-posts/).
 
 
 
