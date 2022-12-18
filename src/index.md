@@ -45,30 +45,56 @@ theme:
 
 I've put a bunch of things on the Internet, including:
 
-*   [My personal blog](/all-posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
+*   [**My personal blog**](/all-posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
+    I've been writing at this domain for over a decade, and I post new articles several times a month.
 
-*   Everything I do for [Wellcome Collection](/projects/#wellcome-collection), a museum and library where I'm part of a team working on digital preservation, the website, and the online catalogue.
+*   **Everything I do for [Wellcome Collection](/projects/#wellcome-collection)**, a museum and library in London.
+    I'm a software engineer, and I'm part of a team that builds the public website, the online [collections search][search], and our cloud-based [preservation storage][storage].
 
-*   A bunch of open-source tools and utilities, including for [managing my scanned files](https://github.com/alexwlchan/docstore), finding the [dominant colours in an image](https://github.com/alexwlchan/dominant_colours), and [web scraping for AO3](https://github.com/alexwlchan/ao3).
+*   **A bunch of [open-source tools and utilities][oss]**.
+    I've contributed fixes and patches to dozens of projects, and I've shared a few of my own, including my tool for [managing my scanned files](https://github.com/alexwlchan/docstore) and a way to find the [dominant colours in an image](https://github.com/alexwlchan/dominant_colours).
 
-*   Silly art projects, like measuring [data in floppy disks](https://howlongismydata.glitch.me/), or controlling a rocket [with the &lt;marquee&gt; tag](https://marquee-rocket.glitch.me/).
+*   [**Fun and amusing art projects**][fun_stuff], like measuring data [by shelf space in floppy disks](https://howlongismydata.glitch.me/), or controlling a rocket [with the &lt;marquee&gt; tag](https://marquee-rocket.glitch.me/).
 
-This site is a one-stop shop for everything I've made -- it's either here, or linked to from here.
+When I'm not online, I can often be found with needle in hand, working on some cross-stitch or embroidery, or with shoes on feet, tapping away to a funky jazz number at a swing dance class.
+I have two left feet, but what I lack in skill I make up for in enthusiasm.
+
+I'm trans, and I loosely describe as a genderfluid shapeshifter (which may mean more to me than anyone else).
+My pronouns vary; on the web, either "they" or "she" are safe choices.
+
+This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
 If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
 
-I'm trans, genderfluid, and my pronouns vary.
-If we're strangers, "they/them" is a safe default.
+I hope you enjoy it.
 
-I hope you enjoy the site.
+[search]: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
+[storage]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+[oss]: /projects/#personal-tools
+[fun_stuff]: /projects/#fun-stuff
 
-{% separator "leaf.svg" %}
 
-## Blog posts
+
+  {% separator "leaf.svg" %}
+
+
+
+## Get in touch
+
+You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>.
+
+If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
+I always love hearing from readers! ☺️
+
+
+  {% separator "leaf.svg" %}
+
+
+## Recent blog posts
 
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
 Here are some posts I've written recently:
 
-{% assign best_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
+{% assign recent_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
 {% comment %}
   The styles in "article_cards.scss" will switch between three layouts:
@@ -84,7 +110,7 @@ Here are some posts I've written recently:
   This CSS will hide the fourth post on mobile/wide screens.
 {% endcomment %}
 
-{% assign last_post = best_posts | last %}
+{% assign last_post = recent_posts | last %}
 
 <style>
   @media screen and (max-width: 500px) {
@@ -107,18 +133,48 @@ Here are some posts I've written recently:
 {% assign is_index = true %}
 
 <ul class="post_cards">
-{% for post in best_posts %}
+{% for post in recent_posts %}
   {% include post_card.html %}
 {% endfor %}
 </ul>
 
-You can see [more of my blog posts](/all-posts/), or [subscribe to the RSS feed](/atom.xml).
+If you want to stay up-to-date with new posts, you can [subscribe to the RSS feed](/atom.xml).
+You can also find every post I've written [in the archive](/all-posts/)/
 
-{% separator "leaf.svg" %}
 
-## Contact
 
-You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>.
+  {% separator "leaf.svg" %}
 
-If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
-I always love hearing from readers! ☺️
+
+
+## You may have missed
+
+I've been writing blog posts for over a decade.
+These are a few of my favourites:
+
+{% assign old_favourites = "snapped-elastic forth-bridge inner-outer-strokes-svg maths-is-about-facing-ambiguity-not-avoiding-it" | split: " " %}
+
+{% assign sorted_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
+
+<ul class="post_cards">
+{% for slug in old_favourites %}
+  {% assign post = site.posts | where: "slug", slug | first %}
+  {% include post_card.html %}
+{% endfor %}
+</ul>
+
+{% assign last_slug = old_favourites | last %}
+
+<style>
+  @media screen and (max-width: 500px) {
+    #{{ last_slug }} {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #{{ last_slug }} {
+      display: none;
+    }
+  }
+</style>
