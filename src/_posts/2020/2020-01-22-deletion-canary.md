@@ -4,7 +4,11 @@ date: 2020-01-22 08:23:50 +0000
 title: "A deletion canary: testing your S3 bucket permissions"
 summary: If you've tried to disable deletions in your S3 buckets, how do you know they're working?
 tags: aws amazon-s3
+index:
+  tint_color: "#7b674a"
 ---
+
+<!-- Card image: https://wellcomecollection.org/works/j27anec2/images?id=pm5929er -->
 
 At Wellcome, we have a pair of S3 buckets (one primary, one replica) that hold the Collection's digital archives.
 Once something is written to the archive, it should be stored permanently, so we want to ensure that people can't overwrite or delete objects in those buckets.

@@ -7,7 +7,6 @@ tags: digital-preservation wellcome-collection
 link: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
 
 index:
-  image: /images/2021/verification_card.jpg
   tint_color: "#4c4c4c"
 ---
 

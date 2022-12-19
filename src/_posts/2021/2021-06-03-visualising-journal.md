@@ -5,7 +5,6 @@ title: Visualising how often I write in my journal
 summary: A Python script that shows me how often I've been journalling, so I can track my progress.
 tags: python
 index:
-  image: /images/2021/journal_progress_card.png
   tint_color: "#e94cf2"
 ---
 

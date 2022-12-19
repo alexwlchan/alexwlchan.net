@@ -17,7 +17,7 @@ class RunLinting < Jekyll::Command
 
           run_html_linting(options["destination"])
           check_writing_has_been_archived(options["source"])
-          check_twitter_card_images(options["destination"])
+          check_card_images(options["destination"])
           check_yaml_front_matter(options["source"])
           check_no_localhost_links(options["destination"])
           check_all_images_are_srgb(options["source"])
@@ -82,10 +82,10 @@ class RunLinting < Jekyll::Command
     #   3. If the card type is "summary_large_image", the image has
     #      the 2:1 aspect ratio required by Twitter
     #
-    def check_twitter_card_images(html_dir)
+    def check_card_images(html_dir)
       errors = Hash.new { [] }
 
-      info("Checking Twitter card metadata...")
+      info("Checking social sharing card images...")
 
       Dir["#{html_dir}/**/*.html"].each { |html_path|
 
@@ -103,61 +103,61 @@ class RunLinting < Jekyll::Command
 
         meta_tags = doc.xpath("//meta")
 
-        # Get a map of Twitter cards (name => content).
+        # Get a map of meta tag (name/property => content).
         #
         # This assumes that the meta tag for a given name is never duplicated,
         # which would only happen if I'd messed up one of the templates.
         # That's not the sort of thing this linting is meant to catch, so
         # the assumption is fine.
-        twitter_cards = meta_tags
-          .select { |mt|
-            mt.attribute('name') != nil && mt.attribute('name').value.start_with?('twitter:')
+        meta_tags_map = meta_tags
+          .reject { |mt| mt.attribute('name').nil? && mt.attribute('property').nil? }
+          .reject { |mt| mt.attribute('content').nil? }
+          .map { |mt|
+            name = (mt.attribute('name') || mt.attribute('property')).value
+            content = mt.attribute('content').value
+
+            [name, content]
           }
-          .map { |mt| [mt.attribute('name').value, mt.attribute('content').value] }
           .to_h
 
-        # e.g. http://0.0.0.0:5757/images/profile_red_square2.jpg
-        #
-        # This uses the site.uri variable, which varies based on the build
-        # system running at the top. Discard it.
-        if twitter_cards['twitter:image'].nil?
-          errors[display_path] <<= "Could not find `twitter:image` attribute on page"
-          next
-        end
-
-        image_path = URI(twitter_cards['twitter:image']).path
-
-        local_image_path = "#{html_dir}#{image_path}"
-
-        if !File.exist? local_image_path
-          errors[display_path] <<= "Twitter card points to a missing image"
-        end
-
-        if twitter_cards['twitter:card'] != 'summary' && twitter_cards['twitter:card'] != 'summary_large_image'
+        if meta_tags_map['twitter:card'] != 'summary' && meta_tags_map['twitter:card'] != 'summary_large_image'
           errors[display_path] <<= "Twitter card has an invalid card type #{twitter_cards['twitter:card']}"
         end
 
-        # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
-        #
-        # Anything else will be cropped by Twitter's algorithm, which may
-        # pick a bad crop.
-        #
-        # See https://alexwlchan.net/2022/02/two-twitter-cards/
-        #
-        if twitter_cards['twitter:card'] == 'summary_large_image'
-          if File.exist? local_image_path
-            image = Rszr::Image.load(local_image_path)
-            if image.width != image.height * 2
-              errors[display_path] <<= "summary_large_image Twitter card does not have a 2:1 aspect ratio"
+        for image_name in ['twitter:image', 'og:image']
+          # e.g. http://0.0.0.0:5757/images/profile_red_square2.jpg
+          #
+          # This uses the site.uri variable, which varies based on the build
+          # system running at the top. Discard it.
+          if meta_tags_map[image_name].nil?
+            errors[display_path] <<= "Could not find `#{image_name}` attribute on page"
+            next
+          end
+
+          image_path = URI(meta_tags_map[image_name]).path
+
+          local_image_path = "#{html_dir}#{image_path}"
+
+          if !File.exist? local_image_path
+            errors[display_path] <<= "Card points to a missing image"
+          end
+
+          # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
+          #
+          # Anything else will be cropped by Twitter's algorithm, which may
+          # pick a bad crop.
+          #
+          # See https://alexwlchan.net/2022/02/two-twitter-cards/
+          #
+          if meta_tags_map['twitter:card'] == 'summary_large_image'
+            if File.exist? local_image_path
+              image = Rszr::Image.load(local_image_path)
+              if image.width != image.height * 2
+                errors[display_path] <<= "Card image does not have a 2:1 aspect ratio"
+              end
             end
           end
         end
-
-        # I could likewise inspect the OpenGraph metadata here, but it's all
-        # pulled from the template using the same values as Twitter.
-        #
-        # If an image doesn't exist on the Twitter card, it won't exist on
-        # the OpenGraph card either, and vice versa.
       }
 
       report_errors(errors)

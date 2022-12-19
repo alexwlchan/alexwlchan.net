@@ -6,7 +6,6 @@ summary: Experimenting with a way to store words and phrases that highlights the
 tags: languages python graph-theory
 index:
   best_of: true
-  image: /images/2020/vocabulary_graph_card.png
   tint_color: "#946800"
 ---
 

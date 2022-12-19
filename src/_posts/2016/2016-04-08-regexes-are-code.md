@@ -8,7 +8,6 @@ title: Treat regular expressions as code, not magic
 
 index:
   best_of: true
-  image: /images/2016/regex_card.png
   tint_color: "#000000"
 ---
 

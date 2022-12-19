@@ -4,8 +4,6 @@ date: 2020-02-23 20:58:34 +0000
 title: Adjusting the dominant colour of an image
 tags: acorn python images colour
 summary: Adjusting the hue to get different colour variants of the same image.
-theme:
-  image: /images/2020/dominant_colour_adjust_card.jpg
 ---
 
 A week ago, I was at a "book dash" (a collaborative writing event) for [the Turing Way][turing], a book about reproducible data science.

@@ -5,10 +5,8 @@ title: Adventures in Python with concurrent.futures
 summary: Some examples of how I've been using concurrent.futures to speed up my batch scripting in Python.
 date_updated: 2020-05-02 20:29:25 +0100
 tags: python
-
 index:
   best_of: true
-  image: /images/2019/concurrency_card.svg
 ---
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.

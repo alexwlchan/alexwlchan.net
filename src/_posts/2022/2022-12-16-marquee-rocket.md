@@ -4,9 +4,6 @@ date: 2022-12-16 10:01:11 +0000
 title: Launching a rocket in the worst possible way
 summary: Taking the humble &lt;marquee&gt; tag where no HTML tag has gone before.
 tags: code-crimes html
-theme:
-  card_type: summary_large_image
-  image: /images/2022/marquee_rocket_card.jpg
 index:
   tint_color: "#ba4220"
 ---

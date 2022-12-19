@@ -6,10 +6,6 @@ summary: If NASA was the first to land on Mars in <em>For All Mankind</em>, what
 tags: trivia tv space
 theme:
   color: "#495652"
-  image: /images/2022/Apollo_11_plaque_closeup_on_Moon_card.jpg
-  card_type: summary_large_image
-index:
-  image: /images/2022/Apollo_11_plaque_closeup_on_Moon_card.jpg
 ---
 
 *Spoilers for <em>For All Mankind</em> season 3, up to s03e05.*

@@ -1,14 +1,15 @@
 ---
+layout: post
 date: 2019-05-13 10:17:13 +0000
 index:
   best_of: true
-  image: /images/2019/locks_card.svg
-layout: post
+  tint_color: "#276b44"
 summary: Breaking down some tricky code that allows us to lock over concurrent operations.
 tags: scala
 title: Creating a locking service in a Scala type class
-tags: scala
 ---
+
+<!-- Cover image: https://www.pexels.com/photo/brass-colored-metal-padlock-with-chain-4291/ -->
 
 A few weeks ago, [Robert](https://github.com/kenoir) (one of my colleagues at Wellcome) and I wrote some code to implement [locking][locking].
 I'm quite pleased with the code we wrote, and the way we do all the tricky logic in a type class.

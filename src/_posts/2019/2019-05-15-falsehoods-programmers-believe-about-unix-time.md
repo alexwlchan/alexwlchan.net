@@ -5,7 +5,6 @@ title: Falsehoods programmers believe about Unix time
 summary: It's not quite the number of seconds since 1 January 1970.
 tags: datetime-shenanigans
 index:
-  image: /images/2019/falsehoods-card.jpg
   tint_color: "#8f743d"
 ---
 

@@ -2,7 +2,6 @@
 date: 2016-10-22 21:03:00 +0000
 index:
   best_of: true
-  image: /images/2016/pillow_card.png
   tint_color: "#98291d"
 layout: post
 summary: 'Take a regular tiling of the plane, and apply a random colouring: voila, a unique wallpaper, courtesy of the Python Imaging Library.'

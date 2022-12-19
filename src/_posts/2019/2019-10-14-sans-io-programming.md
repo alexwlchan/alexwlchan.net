@@ -6,12 +6,6 @@ summary: Code that pushes I/O to the boundary is simpler, easier to reuse and ea
 tags: pyconuk programming
 theme:
   color: "#008921"
-  image: /images/2019/sans_io_card.jpg
-
-index:
-  best_of: true
-  image: /images/2019/sans_io_sandwich.png
-
 ---
 
 Last month I gave a talk about PyCon UK about "sans I/O programming".

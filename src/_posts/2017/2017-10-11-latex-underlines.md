@@ -1,14 +1,13 @@
 ---
-date: 2017-10-11 22:09:25 +0000
-index:
-  best_of: true
-  image: /images/2017/latex_underline_card.png
-date_updated: 2018-11-13 20:54:44 +0000
 layout: post
+date: 2017-10-11 22:09:25 +0000
+date_updated: 2018-11-13 20:54:44 +0000
 summary: I'm very picky about the way underlines look, and have spent a lot of time
   trying to get the perfect underline in LaTeX.
 tags: latex typesetting
 title: Four ways to underline text in LaTeX
+index:
+  best_of: true
 ---
 
 Because I'm old-fashioned, I still write printed documents in LaTeX, and I still think hyperlinks should be underlined.

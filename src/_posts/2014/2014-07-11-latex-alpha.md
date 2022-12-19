@@ -4,7 +4,6 @@ date: 2014-07-11 07:43:00 +0000
 tags: latex wolfram-alpha
 title: Getting plaintext LaTeX from Wolfram Alpha
 index:
-  image: /images/2014/wolfram-latex-card.png
   tint_color: "#f35716"
 ---
 

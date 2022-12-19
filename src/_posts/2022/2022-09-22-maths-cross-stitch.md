@@ -4,9 +4,6 @@ date: 2022-09-22 21:32:14 +0000
 title: The maths cross-stitch that hangs behind me
 summary: When I’m on video calls, my backdrop has some maths-related art that I helped to make.
 tags: cross-stitch maths
-theme:
-  card_type: summary_large_image
-  image: /images/2022/jaunty_cross_stitch_angle.jpg
 index:
   tint_color: "#25385e"
 ---

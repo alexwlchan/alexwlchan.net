@@ -5,7 +5,6 @@ title: Programatically finding the original filename of a photo in the macOS Pho
 summary: If you're looking at a UUID'd file in the PhotosLibrary package, how do you find its original filename?
 tags: macos
 index:
-  image: /images/2021/photos_structure_card.jpg
   tint_color: "#3868d3"
 ---
 

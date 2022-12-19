@@ -2,9 +2,6 @@
 layout: page
 title: Posts
 summary: Some of my favourite posts on alexwlchan.net.
-theme:
-  card_type: summary_large_image
-  image: /images/2022/redesign_twitter_card.jpg
 ---
 
 I've been writing my blog since 2012, which is now over 300 posts and 300,000 words.
