@@ -7,7 +7,6 @@ summary: Using cold storage tiers to reduce the cost of storing Wellcome's digit
 link: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
 index:
   best_of: true
-  image: /images/2020/cold_things_card.jpg
   tint_color: "#704f35"
 ---
 

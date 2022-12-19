@@ -6,8 +6,6 @@ summary: Notes from a talk about inclusion in design and unconscious bias.
 tags: inclusion talks open-life-science
 theme:
   color: "#20883f"
-index:
-  image: /images/2020/ols-afterthought-card.jpg
 ---
 
 Earlier today, I gave a talk for [the Open Life Science Program][openlife] about designing with inclusion in mind.

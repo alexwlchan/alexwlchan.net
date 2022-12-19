@@ -6,7 +6,6 @@ summary: Although I don't expect anyone to use it directly, there might be some 
 link: https://github.com/alexwlchan/docstore
 tags: productivity
 index:
-  image: /images/2020/docstore_card.jpg
   tint_color: "#7a2342"
 ---
 

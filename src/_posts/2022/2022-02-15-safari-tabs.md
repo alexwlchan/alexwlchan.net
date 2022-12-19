@@ -4,8 +4,6 @@ date: 2022-02-15 20:54:35 +0000
 title: Closing lots of Safari tabs with JXA
 summary: To help me keep my tab count down, I wrote a JXA script to close tabs that can easily be recreated.
 tags: jxa macos:safari macos
-index:
-  image: /images/2022/cleanup_browser_card.svg
 ---
 
 I have a lot of browser tabs.

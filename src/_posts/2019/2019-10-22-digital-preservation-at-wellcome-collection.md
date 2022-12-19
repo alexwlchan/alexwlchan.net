@@ -6,7 +6,6 @@ summary: Slides from a presentation about our processes, practices, and tools.
 link: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
 tags: wellcome-collection digital-preservation
 index:
-  image: /images/2019/glam_cam_card.jpg
   tint_color: "#837252"
 ---
 

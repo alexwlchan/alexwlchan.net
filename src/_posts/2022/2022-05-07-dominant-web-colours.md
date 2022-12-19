@@ -7,7 +7,6 @@ tags: colour glitch fun-stuff
 link: https://dominant-colours.glitch.me/
 
 index:
-  image: /images/2022/dominant_colours_web_card.jpg
   tint_color: "#1b3055"
 ---
 

@@ -5,7 +5,6 @@ title: Rich enough to make bad choices
 summary: If you're rich, not only can you invest in good boots, you can also invest in experimental boot-making startups.
 tags: inclusion
 index:
-  image: /images/2020/boots_card.jpg
   tint_color: "#16282d"
 ---
 

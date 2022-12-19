@@ -6,7 +6,6 @@ summary: Using different targets to build Rust binaries that will run in Glitch.
 tags: glitch rust
 
 index:
-  image: /images/2022/rust_and_glitch_card.svg
   tint_color: "#ff386a"
 ---
 

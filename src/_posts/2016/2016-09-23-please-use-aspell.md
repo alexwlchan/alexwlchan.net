@@ -4,7 +4,6 @@ date: 2016-09-23 07:40:00 +0000
 tags: writethedocs
 title: aspell, a command-line spell checker
 index:
-  image: /images/2016/aspell-card.png
   tint_color: "#022833"
 ---
 

@@ -5,7 +5,6 @@ title: Illustrating lifecycle transitions in Amazon S3
 summary: A picture speaks a thousand words, which is why I always have pen and paper to hand.
 tags: aws amazon-s3
 index:
-  image: /images/2020/s3_transitions_card.png
   tint_color: "#118f63"
 ---
 
