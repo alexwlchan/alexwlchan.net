@@ -6,7 +6,6 @@ summary: After months of introspection and soul-searching, I've had some big rea
 tags: personal gender
 index:
   best_of: true
-  image: /images/2019/trans_flag.png
   tint_color: "#0a5b8a"
 ---
 
