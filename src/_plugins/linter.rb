@@ -85,7 +85,7 @@ class RunLinting < Jekyll::Command
     def check_card_images(html_dir)
       errors = Hash.new { [] }
 
-      info("Checking Twitter card metadata...")
+      info("Checking social sharing card images...")
 
       Dir["#{html_dir}/**/*.html"].each { |html_path|
 
@@ -103,14 +103,21 @@ class RunLinting < Jekyll::Command
 
         meta_tags = doc.xpath("//meta")
 
-        # Get a map of Twitter cards (name => content).
+        # Get a map of meta tag (name/property => content).
         #
         # This assumes that the meta tag for a given name is never duplicated,
         # which would only happen if I'd messed up one of the templates.
         # That's not the sort of thing this linting is meant to catch, so
         # the assumption is fine.
         meta_tags_map = meta_tags
-          .map { |mt| [mt.attribute('name').value, mt.attribute('content').value] }
+          .reject { |mt| mt.attribute('name').nil? && mt.attribute('property').nil? }
+          .reject { |mt| mt.attribute('content').nil? }
+          .map { |mt|
+            name = (mt.attribute('name') || mt.attribute('property')).value
+            content = mt.attribute('content').value
+
+            [name, content]
+          }
           .to_h
 
         if meta_tags_map['twitter:card'] != 'summary' && meta_tags_map['twitter:card'] != 'summary_large_image'
@@ -123,7 +130,7 @@ class RunLinting < Jekyll::Command
           # This uses the site.uri variable, which varies based on the build
           # system running at the top. Discard it.
           if meta_tags_map[image_name].nil?
-            errors[display_path] <<= "Could not find `twitter:image` attribute on page"
+            errors[display_path] <<= "Could not find `#{image_name}` attribute on page"
             next
           end
 
