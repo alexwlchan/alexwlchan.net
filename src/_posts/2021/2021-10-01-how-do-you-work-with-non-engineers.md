@@ -6,8 +6,10 @@ summary: Building a relationship founded on trust and respect.
 tags: work interpersonal-skills
 index:
   best_of: true
-  image: /images/2021/non_engineers_card.svg
+  tint_color: "#bf4646"
 ---
+
+<!-- Card: https://wellcomecollection.org/works/y2x7xgwb/images?id=we6tgrdp -->
 
 I was asked this yesterday, and I was rather pleased with my answer, so I'm reproducing it here.
 
