@@ -62,13 +62,40 @@
       that checks images have alt text.
       See https://github.com/gjtorikian/html-proofer#ignoring-content
     {% endcomment %}
-    {% assign is_svg = image | endswith: ".svg" %}
 
     <p class="card_image">
-      {% if is_svg %}
-        {{ image | as_inline_svg }}
+      {% if post.card.index %}
+        {% assign year = post.date | date: "%Y" %}
+        {% assign card_image = post.card.index %}
+        <picture>
+          <source
+            srcset="
+              /images/cards/{{ year }}/{{ card_image.name }}-1x.webp 1x,
+              /images/cards/{{ year }}/{{ card_image.name }}-2x.webp 2x
+            "
+            type="image/webp"
+          >
+          <source
+            srcset="
+              /images/cards/{{ year }}/{{ card_image.name }}-1x{{ card_image.ext }} 1x,
+              /images/cards/{{ year }}/{{ card_image.name }}-2x{{ card_image.ext }} 2x
+            "
+            type="{{ card_image.ext | mime_type }}"
+          >
+          <img
+            src="/images/cards/{{ year }}/{{ card_image.name }}-1x{{ card_image.ext }}"
+            alt=""
+            loading="lazy"
+            data-proofer-ignore
+          />
+        </picture>
       {% else %}
-        <img src="{{ image }}" alt="" loading="lazy" data-proofer-ignore/>
+        <img
+          src="/images/default-card.png"
+          alt=""
+          loading="lazy"
+          data-proofer-ignore
+        />
       {% endif %}
     </p>
 
