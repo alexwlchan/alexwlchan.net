@@ -4,8 +4,6 @@ date: 2021-12-10 21:36:55 +0000
 title: The ever-improving error messages of Rust
 summary: An improvement to Rust's error handling that I almost reported, until I realised it was fixed.
 tags: rust error-messages
-index:
-  image: /images/2021/rust_errors_card.png
 ---
 
 In [my last-but-one post](/2021/11/dominant-colours/), I mentioned the quality of Rust's compiler errors.

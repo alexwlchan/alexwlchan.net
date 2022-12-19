@@ -5,11 +5,7 @@ title: Fictional phone numbers in *For All Mankind*
 summary: Where did this UK phone number come from?
 tags: trivia television
 theme:
-  card_type: summary_large_image
-  image: /images/2022/phone_number_annotated.jpg
   color: "#9b8012"
-index:
-  tint_color: "#9b8012"
 ---
 
 *Note: mild spoilers for For All Mankind S3E3 "All In".*

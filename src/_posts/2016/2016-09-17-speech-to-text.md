@@ -6,7 +6,6 @@ summary: Live captioning of conference talks was an unexpected bonus at this yea
 tags: pyconuk conferences inclusion accessibility
 title: Live captioning at conferences
 index:
-  image: /images/2016/speech-to-text-card.jpg
   tint_color: "#141213"
 ---
 

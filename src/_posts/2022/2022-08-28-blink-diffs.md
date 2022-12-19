@@ -4,9 +4,6 @@ date: 2022-08-28 16:49:37 +0000
 title: Getting blink diffs for photos on the iPad
 summary: The Darkroom app lets me instantly switch between photos, which is how I compare and review shots.
 tags: photography ios ipad
-theme:
-  card_type: summary_large_image
-  image: /images/2022/blink_diffs_card.jpg
 index:
   tint_color: "#812d26"
   exclude: true

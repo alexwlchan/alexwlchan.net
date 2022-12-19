@@ -5,7 +5,6 @@ title: An AppleScript to toggle Voice Control
 tags: applescript macos accessibility
 summary: Making it slightly easier for me to enable and disable Voice Control quickly.
 index:
-  image: /images/2021/macos-catalina-mba-voice-control-mic-overlay.jpg
   tint_color: "#595c80"
 ---
 

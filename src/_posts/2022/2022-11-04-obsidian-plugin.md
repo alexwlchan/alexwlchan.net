@@ -5,9 +5,6 @@ title: A simple gallery plugin for Obsidian
 summary: Making it easier to find all the images in my Obsidian vault.
 tags: obsidian javascript
 link: https://github.com/alexwlchan/obsidian-simple-gallery
-theme:
-  card_type: summary_large_image
-  image: /images/2022/obsidian-card.jpg
 index:
   tint_color: "#121212"
 ---

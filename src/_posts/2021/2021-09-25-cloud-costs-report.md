@@ -4,9 +4,6 @@ date: 2021-09-25 15:41:44 +0000
 title: Getting a monthly cloud costs report in Slack
 summary: Sending the AWS bill to Slack, so everyone can be more informed and intentional about spending.
 tags: aws aws-billing
-theme:
-  card_type: summary_large_image
-  image: /images/2021/costs_report_2x_twitter_card.png
 index:
   best_of: true
   tint_color: "#403f40"

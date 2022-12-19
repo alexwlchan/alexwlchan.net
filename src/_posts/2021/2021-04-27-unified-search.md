@@ -6,7 +6,6 @@ summary: Collaboration between our digital and collections teams helped to build
 tags: wellcome-collection search
 link: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
 index:
-  image: /images/2021/unified_search_card.png
   tint_color: "#63605f"
 ---
 

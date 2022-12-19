@@ -4,14 +4,6 @@ date: 2020-07-06 21:31:32 +0000
 title: Changing the accent colour of ICNS icons
 summary: Playing with macOS ICNS image files to create colourful new icons.
 tags: macos colour fun-stuff
-
-theme:
-  card_type: summary_large_image
-  image: /images/2020/notality_rainbow_big_bg_white.png
-
-index:
-  image: /images/2020/notality_rainbow_card.jpg
-
 ---
 
 One of my key tools is [nvALT], a notetaking app for macOS.

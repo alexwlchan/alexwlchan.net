@@ -4,11 +4,7 @@ date: 2022-05-17 07:25:05 +0000
 title: Changing my carbon monoxide detectors
 summary: Keeping my home safe from deadly gases.
 tags: domestic
-theme:
-  card_type: summary_large_image
-  image: /images/2022/carbon-monoxide-detectors_card.jpg
 index:
-  image: /images/2022/carbon-monoxide-detectors_index_card.jpg
   tint_color: "#73784c"
   exclude: true
 ---

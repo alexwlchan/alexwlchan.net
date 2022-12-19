@@ -7,30 +7,30 @@
     {% assign color = "#d01c11" %}
   {% endif %}
 <style>
-  #{{ post.slug }}.card {
+  #post-{{ post.slug }}.card {
     border-color: {{ color }};
   }
 
-  #{{ post.slug }} .card_title {
+  #post-{{ post.slug }} .card_title {
     color: {{ color }};
   }
 
   {% comment %}
   /* if post.index.best_of */
-    #{{ post.slug }}.card {
+    #post-{{ post.slug }}.card {
       background: {{ color | rgba: 0.03 }};
     }
 
-    #{{ post.slug }}.card a:hover {
+    #post-{{ post.slug }}.card a:hover {
       background: {{ color | rgba: 0.3 }};
     }
 
-    #{{ post.slug }}.card.best_of {
+    #post-{{ post.slug }}.card.best_of {
       box-shadow: 0px 0px 7px {{ color | rgba: 0.6 }};
     }
   /* else */
   {% endcomment %}
-    #{{ post.slug }}.card a:hover {
+    #post-{{ post.slug }}.card a:hover {
       background: {{ color | rgba: 0.2 }};
     }
   {% comment %}
@@ -39,17 +39,12 @@
 </style>
 {% endif %}
 
-{% if post.index.image %}
-  {% assign image = post.index.image %}
-{% elsif post.theme.image %}
-  {% assign image = post.theme.image %}
-{% else %}
-  {% assign image = "/images/default-card.png" %}
-{% endif %}
-
-<li class="card{% if post.index.best_of %} best_of{% endif %}" id="{{ post.slug }}"
-    {%- if year %} data-post-year="{{ year }}"{% endif %}
-    data-post-tags="{{ post.tags | join: ' ' }}">
+<li
+  class="card{% if post.index.best_of %} best_of{% endif %}"
+  id="post-{{ post.slug }}"
+  {%- if year %} data-post-year="{{ year }}"{% endif %}
+  data-post-tags="{{ post.tags | join: ' ' }}"
+>
   <a href="{{ post.url }}">
     {% comment %}
       Intentionally omit the alt text on promos, so screen reader users
@@ -62,13 +57,40 @@
       that checks images have alt text.
       See https://github.com/gjtorikian/html-proofer#ignoring-content
     {% endcomment %}
-    {% assign is_svg = image | endswith: ".svg" %}
 
     <p class="card_image">
-      {% if is_svg %}
-        {{ image | as_inline_svg }}
+      {% if post.card.index %}
+        {% assign year = post.date | date: "%Y" %}
+        {% assign card_image = post.card.index %}
+        <picture>
+          <source
+            srcset="
+              /images/cards/{{ year }}/{{ card_image.name }}-1x.webp 1x,
+              /images/cards/{{ year }}/{{ card_image.name }}-2x.webp 2x
+            "
+            type="image/webp"
+          >
+          <source
+            srcset="
+              /images/cards/{{ year }}/{{ card_image.name }}-1x{{ card_image.ext }} 1x,
+              /images/cards/{{ year }}/{{ card_image.name }}-2x{{ card_image.ext }} 2x
+            "
+            type="{{ card_image.ext | mime_type }}"
+          >
+          <img
+            src="/images/cards/{{ year }}/{{ card_image.name }}-1x{{ card_image.ext }}"
+            alt=""
+            loading="lazy"
+            data-proofer-ignore
+          />
+        </picture>
       {% else %}
-        <img src="{{ image }}" alt="" loading="lazy" data-proofer-ignore/>
+        <img
+          src="/images/default-card.png"
+          alt=""
+          loading="lazy"
+          data-proofer-ignore
+        />
       {% endif %}
     </p>
 

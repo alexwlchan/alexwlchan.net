@@ -5,9 +5,6 @@ title: Illustrating the cipher wheels of a Lorenz machine
 summary: Some old code I wrote to draw cam-accurate illustrations of cipher wheels.
 tags: drawing-things latex history
 link: https://github.com/alexwlchan/lorenz-wheels
-theme:
-  card_type: summary_large_image
-  image: /images/2022/lorenz_wheels_card.jpg
 index:
   tint_color: "#423f3a"
 ---

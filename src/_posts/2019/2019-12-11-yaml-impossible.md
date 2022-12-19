@@ -8,11 +8,6 @@ tags: python code-crimes
 index:
   best_of: true
   tint_color: "#527ab2"
-  image: /images/2019/tape_recorder_index_card.jpg
-
-theme:
-  card_type: summary_large_image
-  image: /images/2019/tape_recorder_twitter_card.jpg
 ---
 
 If you know the *Mission: Impossible* films (or before that, the 1966 TV series), you've surely heard the famous phrase, "This tape will self-destruct in five seconds. Good luck, Jim."

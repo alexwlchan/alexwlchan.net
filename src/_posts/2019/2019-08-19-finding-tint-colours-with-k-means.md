@@ -1,17 +1,13 @@
 ---
+layout: post
 date: 2019-08-19 09:40:52 +0000
+summary: I want to display text next to an image that looks visually similar to the
+  image, so I need to extract a tint colour.
+title: Getting a tint colour from an image with Python and <em>k</em>-means
+tags: python images python:pillow colour
 index:
   best_of: true
   tint_color: "#4A653A"
-  image: /images/2019/kmeans_card.png
-layout: post
-summary: I want to display text next to an image that looks visually similar to the
-  image, so I need to extract a tint colour.
-theme:
-  card_type: summary_large_image
-  image: /images/2019/twitter_cover_image.jpg
-title: Getting a tint colour from an image with Python and <em>k</em>-means
-tags: python images python:pillow colour
 ---
 
 As [part of my app][docstore] for storing my electronic documents, there's a grid view that displays big thumbnails of all my files.

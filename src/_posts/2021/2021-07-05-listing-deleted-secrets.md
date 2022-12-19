@@ -7,7 +7,6 @@ tags: python aws aws-secrets-manager
 index:
   best_of: true
   tint_color: "#00A000"
-  image: /images/2021/deleted_secrets_card.png
 ---
 
 If you delete a secret from AWS Secrets Manager, it isn't deleted immediately -- instead, it gets scheduled for deletion.

@@ -4,8 +4,6 @@ date: 2020-06-24 20:02:44 +0000
 title: Using AppleScript to open a URL in Private Browsing in Safari
 tags: applescript macos macos:safari
 
-index:
-  image: /images/2020/private_browser_card.svg
 ---
 
 I have a bunch of automations that open URLs.

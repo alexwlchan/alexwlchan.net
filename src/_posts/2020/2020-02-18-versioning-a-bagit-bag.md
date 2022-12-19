@@ -6,7 +6,6 @@ summary: How we use the fetch.txt file in a bag to track multiple copies of an o
 link: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
 tags: digital-preservation wellcome-collection
 index:
-  image: /images/2020/versions_card.png
   tint_color: "#1d78b9"
 ---
 
