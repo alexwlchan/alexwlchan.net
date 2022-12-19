@@ -7,30 +7,30 @@
     {% assign color = "#d01c11" %}
   {% endif %}
 <style>
-  #{{ post.slug }}.card {
+  #post-{{ post.slug }}.card {
     border-color: {{ color }};
   }
 
-  #{{ post.slug }} .card_title {
+  #post-{{ post.slug }} .card_title {
     color: {{ color }};
   }
 
   {% comment %}
   /* if post.index.best_of */
-    #{{ post.slug }}.card {
+    #post-{{ post.slug }}.card {
       background: {{ color | rgba: 0.03 }};
     }
 
-    #{{ post.slug }}.card a:hover {
+    #post-{{ post.slug }}.card a:hover {
       background: {{ color | rgba: 0.3 }};
     }
 
-    #{{ post.slug }}.card.best_of {
+    #post-{{ post.slug }}.card.best_of {
       box-shadow: 0px 0px 7px {{ color | rgba: 0.6 }};
     }
   /* else */
   {% endcomment %}
-    #{{ post.slug }}.card a:hover {
+    #post-{{ post.slug }}.card a:hover {
       background: {{ color | rgba: 0.2 }};
     }
   {% comment %}
@@ -39,9 +39,12 @@
 </style>
 {% endif %}
 
-<li class="card{% if post.index.best_of %} best_of{% endif %}" id="{{ post.slug }}"
-    {%- if year %} data-post-year="{{ year }}"{% endif %}
-    data-post-tags="{{ post.tags | join: ' ' }}">
+<li
+  class="card{% if post.index.best_of %} best_of{% endif %}"
+  id="post-{{ post.slug }}"
+  {%- if year %} data-post-year="{{ year }}"{% endif %}
+  data-post-tags="{{ post.tags | join: ' ' }}"
+>
   <a href="{{ post.url }}">
     {% comment %}
       Intentionally omit the alt text on promos, so screen reader users
