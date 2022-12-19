@@ -6,9 +6,6 @@ tags: pyconuk talks community-management inclusion trust-and-safety
 summary: How do we design services and platforms to reduce the risk of harassment and abuse from other users?
 theme:
   color: "#531b93"
-  card_type: summary_large_image
-  image: /images/2018/worst-intent.png
-
 index:
   best_of: true
 ---

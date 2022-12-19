@@ -4,11 +4,7 @@ date: 2018-09-22 17:07:59 +0000
 title: Building trust in an age of suspicious minds
 summary: Notes and slides from my PyCon UK 2018 keynote. In a world where people are less and less trusting, how can we take steps to make ourselves more trustable?
 tags: pyconuk talks systems-thinking
-theme:
-  card_type: summary_large_image
-  image: /images/2018/suspicious-minds.jpg
 index:
-  image: /images/2018/suspicious-minds-card.jpg
   tint_color: "#8b5023"
 ---
 

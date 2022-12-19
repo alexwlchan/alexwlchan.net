@@ -7,7 +7,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     year = p.date.year
     slug = p.data["slug"]
 
-    matching_images = Dir["src/_cards/#{year}/#{slug}*"]
+    matching_images = Dir["src/_cards/#{year}/#{slug}.*"]
 
     # If there are no cards, then both the social and index card should
     # use the default image.  Note that the social cards behave slightly

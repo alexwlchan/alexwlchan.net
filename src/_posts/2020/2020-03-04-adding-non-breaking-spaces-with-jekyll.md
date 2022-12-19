@@ -4,11 +4,6 @@ date: 2020-03-04 09:42:35 +0000
 title: A Jekyll filter for adding non-breaking spaces
 summary: A way to avoid awkward line breaks in the middle of phrases.
 tags: jekyll blogging-about-blogging
-index:
-  image: /images/2020/line_breaking_card.svg
-theme:
-  image: /images/2020/line_breaking_card.png
-  card_type: summary_large_image
 ---
 
 I've been using [Jekyll] to build this blog for about two and a half years.

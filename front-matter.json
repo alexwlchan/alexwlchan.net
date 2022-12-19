@@ -39,15 +39,6 @@
             "description": "Styles that apply to this individual page or post.",
             "type": "object",
             "properties": {
-                "card_type": {
-                    "description": "What sort of card to use in social media previews. In particular, whether to display a large image alongside the link.",
-                    "type": "string",
-                    "enum": ["summary_large_image"]
-                },
-                "image": {
-                    "description": "Path to an image to use to represent this page or post on social media. Must have a 2:1 aspect ratio.",
-                    "type": "string"
-                },
                 "color": {
                     "description": "Accent colour to use for styles on this page.",
                     "pattern": "#[0-9a-fA-F]{6}",
@@ -94,6 +85,10 @@
             "items": {
                 "type": "string"
             }
+        },
+        "card_image": {
+            "description": "Complete path to an image that should be used in link previews on social media, e.g. Twitter cards or OpenGraph metadata.",
+            "type": "string"
         }
     },
     "additionalProperties": false
