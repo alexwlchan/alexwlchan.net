@@ -6,7 +6,6 @@ summary: A bash script to check the HTTP status code of a bunch of URLs, for sim
 tags: shell-scripting curl
 
 index:
-  image: /images/2022/curl_card.svg
   tint_color: "#073551"
 ---
 

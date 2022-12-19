@@ -7,7 +7,6 @@ tags: documentation open-life-science talks
 theme:
   color: "#20883f"
 index:
-  image: /images/2021/readme_ols_card.jpg
   tint_color: "#44931f"
 ---
 

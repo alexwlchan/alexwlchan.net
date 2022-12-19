@@ -4,8 +4,6 @@ date: 2020-07-22 14:18:15 +0000
 title: Why do programming languages have a main() function?
 summary: Lots of programming languages have a function called main() where code starts executing. Where does this come from?
 tags: programming history
-index:
-  image: /images/2020/main_function_card.png
 ---
 
 <style>

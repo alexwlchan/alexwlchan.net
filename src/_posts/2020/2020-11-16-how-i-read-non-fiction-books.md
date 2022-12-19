@@ -5,7 +5,6 @@ title: How I read non-fiction books
 summary: I take notes so I remember more of what I read.
 tags: books productivity taking-notes
 index:
-  image: /images/2020/non_fiction_card.jpg
   tint_color: "#4f391d"
 ---
 

@@ -6,7 +6,6 @@ link: http://www.bbc.co.uk/programmes/articles/4hVG2Br1W1LKCmw8nSm9WnQ/introduci
 tags: python
 title: Python and the BBC micro:bit
 index:
-  image: /images/2015/microbit-card.jpg
   tint_color: "#18ab6d"
 ---
 

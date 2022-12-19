@@ -6,7 +6,6 @@ summary: Using Alfred and a Python script to retrieve artwork from the iTunes, A
 tags: alfred python
 title: Get images from the iTunes/App/Mac App Stores with Alfred
 index:
-  image: /images/2016/alfred-workflow-card.png
   tint_color: "#333333"
 ---
 

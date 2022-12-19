@@ -55,10 +55,6 @@
             "description": "Affects how an individual page or post appears in the site-wide indexes.",
             "type": "object",
             "properties": {
-                "image": {
-                    "description": "Path to an image to use to represent this post in the site-wide index. Must have a 2:1 aspect ratio.",
-                    "type": "string"
-                },
                 "tint_color": {
                     "description": "Accent colour to use for the card in the site-wide index.",
                     "pattern": "#[0-9a-fA-F]{6}",

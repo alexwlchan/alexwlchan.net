@@ -5,7 +5,6 @@ summary: Tapping the microphone to test it can be bad for all sorts of reasons -
 link: https://nineworlds.co.uk/news/2016/08/05/speaker-guidelines
 date: 2017-11-20 08:00
 index:
-  image: /images/2017/microphone-card.jpg
   tint_color: "#4a403a"
 tags: conferences
 ---

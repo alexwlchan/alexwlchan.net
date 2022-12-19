@@ -5,7 +5,6 @@ summary: I made a clone of GitHub's Contributions graph to use as a motivational
 title: Cloning GitHub's Contributions chart
 tags: github
 index:
-  image: /images/2015/github-contributions-card.png
   tint_color: "#4a35a5"
 ---
 

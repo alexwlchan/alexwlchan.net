@@ -6,7 +6,6 @@ title: The Hypothesis continuous release process
 tags: builds-and-ci python:hypothesis
 summary: How we do continuous releases of hypothesis-python, and why.
 index:
-  image: /images/2018/hypothesis-releases-card.png
   tint_color: "#006dad"
 ---
 

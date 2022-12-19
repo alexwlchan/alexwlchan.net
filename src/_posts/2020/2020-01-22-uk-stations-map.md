@@ -6,7 +6,6 @@ summary: A map I use to plot which railway stations I've visited.
 link: https://uk-stations-map.glitch.me/
 tags: glitch trains fun-stuff
 index:
-  image: /images/2020/uk-stations-map-card.jpg
   tint_color: "#0b9e00"
 ---
 

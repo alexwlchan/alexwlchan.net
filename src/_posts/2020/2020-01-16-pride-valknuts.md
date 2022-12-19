@@ -6,7 +6,6 @@ summary: A web app to generate mashups of Norse valknuts and Pride flags.
 link: https://rainbow-valknuts.glitch.me/
 tags: python glitch generative-art fun-stuff drawing-things
 index:
-  image: /images/2020/valknuts-card.svg
   tint_color: "#e31b85"
 ---
 

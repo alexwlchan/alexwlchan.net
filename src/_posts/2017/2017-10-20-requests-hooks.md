@@ -6,7 +6,6 @@ summary: I often have code I want to run against every HTTP response (logging, e
 tags: python python:requests
 title: Using hooks for custom behaviour in requests
 index:
-  image: /images/2017/hooks-card.jpg
   tint_color: "#79451e"
 ---
 

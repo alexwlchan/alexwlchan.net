@@ -6,7 +6,6 @@ summary: A web app for creating pairs of hearts based on Pride flags.
 tags: glitch generative-art fun-stuff
 link: https://rainbow-hearts.glitch.me/
 index:
-  image: /images/2021/hearts_asexual_aromantic.svg
   tint_color: "#870788"
 ---
 

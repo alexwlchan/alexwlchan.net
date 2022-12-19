@@ -6,7 +6,6 @@ summary: I joined Corey Quinn to discuss my DynamoDB calculator and using the cl
 tags: podcasts aws
 link: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-cloud-to-preserve-the-future-with-alex-chan/
 index:
-  image: /images/2021/screaming-in-the-cloud-card.jpg
   tint_color: "#4497b4"
 ---
 

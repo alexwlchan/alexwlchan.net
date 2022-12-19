@@ -5,7 +5,6 @@ title: Notes from <em>You Got This</em> 2019
 summary: Notes from the inaugural 'You Got This' conference, a conference about creating a healthy and sustainable work life.
 tags: conferences
 index:
-  image: /images/2019/you-got-this-card.jpg
   tint_color: "#640b0f"
 ---
 

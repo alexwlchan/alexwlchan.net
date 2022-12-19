@@ -4,8 +4,6 @@ layout: post
 tags: shell-scripting
 title: A shell alias for tallying data
 summary: A way to count records on the command-line.
-index:
-  image: /images/2016/tally-card.png
 ---
 
 Here's a tiny shell alias that I find useful when going through data on the command line.

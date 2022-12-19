@@ -5,7 +5,6 @@ title: Using qlmanage to create thumbnails on macOS
 summary: How you can invoke Quick Look on the command-line to generate high-quality thumbnails.
 tags: macos
 index:
-  image: /images/2020/qlmanage_card.jpg
   tint_color: "#4b6ca1"
 ---
 
