@@ -152,17 +152,7 @@ module Jekyll
       thumbnail_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
       if not File.exists? thumbnail_path
         image = Rszr::Image.load(path)
-        image.resize(108, 108)
-        image.save(thumbnail_path)
-      end
-
-      # At least one of the thumbnails (a GIF) actually gets *bigger* when
-      # resized.
-      #
-      # The whole point is to reduce the size of served files, so if that
-      # happens, just use the original file.
-      if File.size(thumbnail_path) > File.size(path)
-        FileUtils.cp(path, thumbnail_path)
+        image.resize(108, 108).save(thumbnail_path)
       end
     end
 
