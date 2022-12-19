@@ -78,7 +78,7 @@ I hope you enjoy it.
 
 
 
-## Get in touch
+<h2 id="contact">Get in touch</h2>
 
 You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>, or contact me [another way](/contact/).
 
