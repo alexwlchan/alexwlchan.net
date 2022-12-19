@@ -3,12 +3,8 @@ layout: post
 tags: tnmoc history computing
 title: My favourite WITCH story
 summary: As the WITCH computer celebrates five years since its reboot at TNMoC, a fun story of how it was left to run at Christmas.
-theme:
-  card_type: summary_large_image
-  image: /images/2017/witch_twitter_card.jpg
 index:
   tint_color: "#564a41"
-  image: /images/2017/witch_index_card.jpg
 date: 2017-11-20 15:00
 ---
 

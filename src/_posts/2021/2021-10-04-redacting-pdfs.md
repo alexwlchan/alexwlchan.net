@@ -4,11 +4,6 @@ date: 2021-10-04 14:48:36 +0000
 title: Beware of incomplete PDF redactions
 summary: If you're not careful when redacting PDFs, it's possible to share more information than you intended.
 tags: infosec
-theme:
-  card_type: summary_large_image
-  image: /images/2021/redaction_cover_image.png
-index:
-  image: /images/2021/redacting_index_card.png
 ---
 
 A while back I was reviewing some legal documents.

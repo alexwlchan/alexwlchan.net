@@ -4,9 +4,6 @@ date: 2022-11-17 22:38:39 +0000
 title: Changing the macOS accent colour without System Preferences
 summary: Updating the accent colour everywhere, with immediate effect, using a script written in Swift.
 tags: macos swift colour
-theme:
-  card_type: summary_large_image
-  image: /images/2022/prefs_card.png
 ---
 
 In System Preferences, you can change the accent colour of your Mac:

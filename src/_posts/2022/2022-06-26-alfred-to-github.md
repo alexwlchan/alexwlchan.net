@@ -5,8 +5,6 @@ title: Creating an Alfred Workflow to open GitHub repos
 summary: Automations for my automations.
 tags: alfred github
 link: https://github.com/alexwlchan/github_alfred_shortcuts
-theme:
-  image: /images/2022/alfred_workflow_screenshot_card.png
 index:
   tint_color: "#1d1d1d"
 ---

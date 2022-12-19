@@ -5,8 +5,6 @@ title: '"Fixing" the rules of division'
 summary: If we want to redefine how division works, Ruby is happy to oblige.
 tags: maths ruby code-crimes
 theme:
-  card_type: summary_large_image
-  image: /images/2022/moomin-card.jpg
   color: "#292929"
 index:
   tint_color: "#d01c11"

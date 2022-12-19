@@ -7,9 +7,6 @@ index:
 layout: post
 summary: I want to display text next to an image that looks visually similar to the
   image, so I need to extract a tint colour.
-theme:
-  card_type: summary_large_image
-  image: /images/2019/twitter_cover_image.jpg
 title: Getting a tint colour from an image with Python and <em>k</em>-means
 tags: python images python:pillow colour
 ---

@@ -4,16 +4,9 @@ date: 2019-11-27 12:43:44 +0000
 title: How I scan and organise my paperwork
 summary: My procedure for scanning paper, and organising the scanned PDFs with keyword tagging.
 tags: personal productivity
-
 index:
   best_of: true
   tint_color: "#302d2b"
-  image: /images/2019/canon_scanner_card.jpg
-
-theme:
-  card_type: summary_large_image
-  image: /images/2019/canon_scanner_twitter_card.jpg
-
 ---
 
 I get a lot of documents as paper, which I scan and store as PDFs files.
