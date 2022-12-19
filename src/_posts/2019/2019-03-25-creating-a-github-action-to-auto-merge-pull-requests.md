@@ -3,13 +3,10 @@ layout: post
 date: 2019-03-25 21:15:36 +0000
 title: Creating a GitHub Action to auto-merge pull requests
 summary: Saving myself the trouble of clicking that pesky "merge" button.
-
+tags: builds-and-ci github
 index:
   best_of: true
-  image: /images/2019/github_actions_card.png
   tint_color: "#1b1e21"
-
-tags: builds-and-ci github
 ---
 
 [GitHub Actions][actions] is a new service for “workflow automation” – a sort-of scriptable GitHub. When something happens in GitHub (you open an issue, close a pull request, leave a comment, and so on), you can kick off a script to take further action. The scripts run in Docker containers inside GitHub's infrastructure, so there’s a lot of flexibility in what you can do.

@@ -6,7 +6,6 @@ summary: How many good person points do you lose for making a joke about somebod
 tags: the-good-place tv
 index:
   tint_color: "#653415"
-  image: /images/2020/janet_card.jpg
 ---
 
 *Content warning: discussion of fat shaming. I'm not going to spoil the plot of <em>The Good Place</em>, but I might spoil your enjoyment.*

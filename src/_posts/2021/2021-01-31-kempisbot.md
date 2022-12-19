@@ -6,7 +6,6 @@ summary: How I reincarnated a fifteenth-century monk and taught him to use Twitt
 tags: python twitter fun-stuff
 index:
   best_of: true
-  image: /images/2021/kempisbot_card.jpg
   tint_color: "#624230"
 ---
 
