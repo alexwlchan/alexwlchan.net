@@ -3,9 +3,6 @@ layout: post
 title: How we do bulk analysis of our Prismic content
 summary: By downloading all our Prismic documents, we can run validation rules, fix broken links, and find interesting examples.
 tags: prismic
-theme:
-  card_type: summary_large_image
-  image: /images/2022/prism_flat_rainbow.jpg
 index:
   tint_color: "#1d1d25"
 ---
@@ -96,8 +93,9 @@ By including the ref in the filename, we can tell if we've already saved this ve
 // npm i node-fetch @prismicio/client
 // node download-documents-2.js
 
-const fetch = import('node-fetch');            // ^3.3.0
 const fs = require('fs');
+
+const fetch = import('node-fetch');            // ^3.3.0
 const prismic = require('@prismicio/client');  // ^6.7.1
 
 /** Downloads all the documents in a Prismic repository, saves them to
@@ -286,7 +284,7 @@ We can find this with just a small change to the previous script:
 for (let doc of documents) {
   if (doc.data.body) {
     if (doc.data.body.some(slice => slice.type === 'map')) {
-      console.log(doc.id);
+      console.log(`${doc.id} has a map slice`);
       break;
     }
   }

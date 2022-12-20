@@ -115,13 +115,13 @@ Here are some posts I've written recently:
 
 <style>
   @media screen and (max-width: 500px) {
-    #{{ last_post.slug }} {
+    #post-{{ last_post.slug }} {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #{{ last_post.slug }} {
+    #post-{{ last_post.slug }} {
       display: none;
     }
   }
@@ -168,13 +168,13 @@ These are a few of my favourites:
 
 <style>
   @media screen and (max-width: 500px) {
-    #{{ last_slug }} {
+    #post-{{ last_slug }} {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #{{ last_slug }} {
+    #post-{{ last_slug }} {
       display: none;
     }
   }
