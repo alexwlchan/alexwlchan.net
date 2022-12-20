@@ -111,15 +111,17 @@ Here are some posts I've written recently:
   This CSS will hide the fourth post on mobile/wide screens.
 {% endcomment %}
 
+{% assign last_post = recent_posts | last %}
+
 <style>
   @media screen and (max-width: 500px) {
-    #recent_posts:nth-child(4) {
+    #{{ last_post.slug }} {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #recent_posts:nth-child(4) {
+    #{{ last_post.slug }} {
       display: none;
     }
   }
@@ -131,7 +133,7 @@ Here are some posts I've written recently:
 {% endcomment %}
 {% assign is_index = true %}
 
-<ul id="recent_posts" class="post_cards">
+<ul class="post_cards">
 {% for post in recent_posts %}
   {% include post_card.html %}
 {% endfor %}
@@ -155,22 +157,24 @@ These are a few of my favourites:
 
 {% assign sorted_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
-<ul id="old_favourites" class="post_cards">
+<ul class="post_cards">
 {% for slug in old_favourites %}
   {% assign post = site.posts | where: "slug", slug | first %}
   {% include post_card.html %}
 {% endfor %}
 </ul>
 
+{% assign last_slug = old_favourites | last %}
+
 <style>
   @media screen and (max-width: 500px) {
-    #old_favourites:nth-child(4) {
+    #{{ last_slug }} {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #old_favourites:nth-child(4) {
+    #{{ last_slug }} {
       display: none;
     }
   }
