@@ -121,6 +121,7 @@ inner_html = <<-EOF
   >
   <img
     src="#{sources[im_format[:mime_type]][0].gsub(" 1x", "")}"
+    alt=""
   >
 </picture>
 EOF
