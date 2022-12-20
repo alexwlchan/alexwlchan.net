@@ -148,23 +148,24 @@ You can also find every post I've written [in the archive](/all-posts/).
 
 
 
-## You may have missed
+## Some old favourites
 
-I've been writing blog posts for over a decade.
-These are a few of my favourites:
+Before you read the entire archive, here are a few of my favourite blog posts, which should give you a flavour of my writing:
 
-{% assign old_favourites = "snapped-elastic forth-bridge inner-outer-strokes-svg maths-is-about-facing-ambiguity-not-avoiding-it" | split: " " %}
+{% assign eggbox_posts = "snapped-elastic forth-bridge inner-outer-strokes-svg maths-is-about-facing-ambiguity-not-avoiding-it" | split: " " %}
 
 {% assign sorted_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
-<ul class="post_cards">
-{% for slug in old_favourites %}
+<!-- Hi Danny -->
+
+<ul id="eggbox" class="post_cards">
+{% for slug in eggbox_posts %}
   {% assign post = site.posts | where: "slug", slug | first %}
   {% include post_card.html %}
 {% endfor %}
 </ul>
 
-{% assign last_slug = old_favourites | last %}
+{% assign last_slug = eggbox_posts | last %}
 
 <style>
   @media screen and (max-width: 500px) {
