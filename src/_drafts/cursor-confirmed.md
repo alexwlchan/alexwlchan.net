@@ -160,7 +160,7 @@ Time will tell if I was sensible or silly…
 [holman]: https://tholman.com/cursor-effects/
 [code]: https://github.com/tholman/cursor-effects
 [tumblr]: https://staff.tumblr.com/post/700564142648606720/hi-were-introducing-completely-useless-blue
-[cohost]: http://localhost:5757/2022/12/cursor-confirmed/
+[cohost]: https://cohost.org/staff/post/658118-introducing-cohost
 
 
 
