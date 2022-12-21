@@ -15,8 +15,23 @@ theme:
     max-width: calc(100vw - 2em);
     margin-left:  calc(50% - 50vw + 1em);
     margin-right: calc(50% - 50vw + 1em);
+  }
+
+  #regularCursor {
     border: 5px solid transparent;
     border-image: linear-gradient(to bottom right, #0e558b 0%, #1f6aa3 12.5%, #3180bc 25%, #4396d5 37.5%, #55acee 50%, #4396d5 67.5%, #3180bc 75%, #1f6aa3 87.5%, #0e558b 100%);
+    border-image-slice: 1;
+  }
+
+  #bigCursor {
+    border: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, #dcaa02 0%, #c59822 12.5%, #af8742 25%, #997662 37.5%, #836501 50%, #997662 67.5%, #af8742 75%, #c59822 87.5%, #dcaa02 100%);
+    border-image-slice: 1;
+  }
+
+  #unverifiedCursor {
+    border: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, #83254f 0%, #91296a 12.5%, #9f2d85 25%, #ad31a0 37.5%, #bb3571 50%, #ad31a0 67.5%, #9f2d85 75%, #91296a 87.5%, #83254f 100%);
     border-image-slice: 1;
   }
 
