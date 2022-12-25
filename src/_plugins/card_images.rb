@@ -1,3 +1,25 @@
+# A generator for images used in "cards", which appear in two places:
+#
+#     - in social media previews
+#     - in the site-wide index
+#
+# I put images whose path/name matches the slug of the original post in
+# the `_cards` directory (e.g. `_cards/2021/kempisbot.jpg` is the card
+# for the post `/2021/kempisbot/`).
+#
+# This generator will then create images in the appropriate size/format
+# to use as cards.  This means:
+#
+#     - 400px and 800px wide variants, for 1x and 2x displays in the
+#       site-wide index.  Also original and WebP variants for size.
+#     - An 800px variant in the original format for use in social media
+#       previews.
+#
+# All images _must_ have a 2:1 ratio.
+#
+# This process means I can put the highest resolution card images in the
+# `src` directory, but the site doesn't pay a perf penalty.
+
 require "fileutils"
 require "rszr"
 require "shellwords"
@@ -87,4 +109,3 @@ module Jekyll
 end
 
 Liquid::Template::register_filter(Jekyll::MimeTypeFilters)
-
