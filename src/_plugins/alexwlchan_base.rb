@@ -6,12 +6,6 @@
 
 module Alexwlchan
   module Base
-    
-    # This allows me to create custom tags with named parameters,
-    # for example:
-    #
-    #     {% counter :id => 'foo', :text => 'bar baz' %}
-    #
     def initialize(tag_name, params_string, tokens)
       super
       bind_params(eval("{#{params_string}}"))
