@@ -115,6 +115,7 @@ EOF
     end
 
     def get_width(path)
+      # running this repeatedly is super expensive, can we speed it up?
       `identify -format '%[fx:w]' #{Shellwords.escape(path)}`.to_i
     end
     
