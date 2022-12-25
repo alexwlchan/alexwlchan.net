@@ -16,6 +16,13 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v3
 
+	    - name: "Cache site output"
+	      id: "cache-output"
+	      uses: "actions/cache@v3"
+	      with:
+	        path: "_output"
+	        key: "alexwlchan.net-output"
+
       - name: "Build the site"
         run: make html-drafts
 
