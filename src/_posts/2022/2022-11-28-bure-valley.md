@@ -108,76 +108,31 @@ I had a lovely time, and this post has a few of my photos.
 
 <figure class="wide_img grid_3up">
   <div class="left double_height">
-    <a href="/images/2022/IMG_5744.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5744_1x.webp 1x,
-                  /images/2022/IMG_5744_2x.webp 2x,
-                  /images/2022/IMG_5744_3x.webp 3x,
-                  /images/2022/IMG_5744_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5744_1x.jpg 1x,
-                  /images/2022/IMG_5744_2x.jpg 2x,
-                  /images/2022/IMG_5744_3x.jpg 3x,
-                  /images/2022/IMG_5744_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5744_1x.jpg"
-          alt="A black steam engine with a boxy shape, running on narrow rails. It has red fittings on the wheels and front bumper, and gold trim and decoration. It’s very shiny and well-cleaned! The cab is at the back of the train, a covered space with circular windows. It's pulling a single carriage, which is empty and has doors open towards the camera."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5744.jpg"
+      alt="A black steam engine with a boxy shape, running on narrow rails. It has red fittings on the wheels and front bumper, and gold trim and decoration. It’s very shiny and well-cleaned! The cab is at the back of the train, a covered space with circular windows. It's pulling a single carriage, which is empty and has doors open towards the camera."
+      target_width="622px"
+      link_to_original
+    %}
   </div>
   <div class="right upper">
-    <a href="/images/2022/IMG_5751.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5751_1x.webp 1x,
-                  /images/2022/IMG_5751_2x.webp 2x,
-                  /images/2022/IMG_5751_3x.webp 3x,
-                  /images/2022/IMG_5751_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5751_1x.jpg 1x,
-                  /images/2022/IMG_5751_2x.jpg 2x,
-                  /images/2022/IMG_5751_3x.jpg 3x,
-                  /images/2022/IMG_5751_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5751_1x.jpg"
-          alt="A dark blue steam engine, sitting in the sidings. It has a burgundy nameplate “Blickling Hall”, the number “6”, and a head plate “Bure Valley Railway”. It’s sitting partway out of a large grey, box-shaped shed. Partially visible is a tender inside the shed – this is a tender engine. Like the black engine, this has red plates on the wheels and gold trim."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5751.jpg"
+      alt="A dark blue steam engine, sitting in the sidings. It has a burgundy nameplate “Blickling Hall”, the number “6”, and a head plate “Bure Valley Railway”. It’s sitting partway out of a large grey, box-shaped shed. Partially visible is a tender inside the shed – this is a tender engine. Like the black engine, this has red plates on the wheels and gold trim."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="right lower">
-    <a href="/images/2022/IMG_6183.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_6183_1x.webp 1x,
-                  /images/2022/IMG_6183_2x.webp 2x,
-          /images/2022/IMG_6183_3x.webp 3x,
-          /images/2022/IMG_6183_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_6183_1x.jpg 1x,
-                  /images/2022/IMG_6183_2x.jpg 2x,
-                  /images/2022/IMG_6183_3x.jpg 3x,
-                  /images/2022/IMG_6183_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_6183_1x.jpg"
-          alt="A light blue steam engine sitting in a workshop. It’s a similar shape to the first engine – fairly box like. It doesn’t have any gold decorations, just a small nameplate in the centre  of the side. Around it are various boxes and tools, presumably used for maintaining the engines."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_6183.jpg"
+      alt="A light blue steam engine sitting in a workshop. It’s a similar shape to the first engine – fairly box like. It doesn’t have any gold decorations, just a small nameplate in the centre  of the side. Around it are various boxes and tools, presumably used for maintaining the engines."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
 </figure>
 
@@ -193,76 +148,31 @@ The carriages themselves are pretty short, to match the engines, and they have a
 
 <figure class="wide_img grid_3up" style="grid-template-columns: calc(50% - 5px) calc(50% - 5px);">
   <div class="left double_height">
-    <a href="/images/2022/IMG_5747.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5747_1x.webp 1x,
-                  /images/2022/IMG_5747_2x.webp 2x,
-                  /images/2022/IMG_5747_3x.webp 3x,
-                  /images/2022/IMG_5747_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5747_1x.jpg 1x,
-                  /images/2022/IMG_5747_2x.jpg 2x,
-                  /images/2022/IMG_5747_3x.jpg 3x,
-                  /images/2022/IMG_5747_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5747_1x.jpg"
-          alt="Looking down a train platform with two overhead signs for “Platform 3” and “Platform 2”. Sitting below the sign in platform 2 are a row of burgundy carriages. The carriages are about a metre high, with windows running along the top half, and split into doors for the different compartments. Some of the doors are labelled – for example, the closest door is labelled “Saloon”."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5747.jpg"
+      alt="Looking down a train platform with two overhead signs for “Platform 3” and “Platform 2”. Sitting below the sign in platform 2 are a row of burgundy carriages. The carriages are about a metre high, with windows running along the top half, and split into doors for the different compartments. Some of the doors are labelled – for example, the closest door is labelled “Saloon”."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="right upper">
-    <a href="/images/2022/IMG_5734.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5734_1x.webp 1x,
-                  /images/2022/IMG_5734_2x.webp 2x,
-                  /images/2022/IMG_5734_3x.webp 3x,
-                  /images/2022/IMG_5734_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5734_1x.jpg 1x,
-                  /images/2022/IMG_5734_2x.jpg 2x,
-                  /images/2022/IMG_5734_3x.jpg 3x,
-                  /images/2022/IMG_5734_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5734_1x.jpg"
-          alt="A row of burgundy carriages, with the interiors more clearly visible -- there are five doors on each carriage, leading to a compartment with bench seats facing each other."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5734.jpg"
+      alt="A row of burgundy carriages, with the interiors more clearly visible -- there are five doors on each carriage, leading to a compartment with bench seats facing each other."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="right lower">
-    <a href="/images/2022/IMG_5794.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5794_1x.webp 1x,
-                  /images/2022/IMG_5794_2x.webp 2x,
-                  /images/2022/IMG_5794_3x.webp 3x,
-                  /images/2022/IMG_5794_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5794_1x.jpg 1x,
-                  /images/2022/IMG_5794_2x.jpg 2x,
-                  /images/2022/IMG_5794_3x.jpg 3x,
-                  /images/2022/IMG_5794_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5794_1x.jpg"
-          alt="An engine shed with three tracks leading in, with numbers overhead 1/2/3. Two engines are visible -- a dark blue engine and a light blue engine. To the left-hand side you can see the carriages with doors open, and passengers milling around and ready to board."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5794.jpg"
+      alt="An engine shed with three tracks leading in, with numbers overhead 1/2/3. Two engines are visible -- a dark blue engine and a light blue engine. To the left-hand side you can see the carriages with doors open, and passengers milling around and ready to board."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
 </figure>
 
@@ -271,28 +181,13 @@ That gave me plenty of time to sit back and enjoy the Norfolk countryside.
 (I didn't take many pictures of the scenery, so you'll just have to take my word for it that it's pretty.)
 
 <figure class="wide_img rounded_corners">
-  <a href="/images/2022/IMG_5816.jpg">
-    <picture>
-      <source
-        srcset="/images/2022/IMG_5816_1x.webp 1x,
-                /images/2022/IMG_5816_2x.webp 2x,
-                /images/2022/IMG_5816_3x.webp 3x,
-                /images/2022/IMG_5816_4x.webp 4x"
-        type="image/webp"
-      >
-      <source
-        srcset="/images/2022/IMG_5816_1x.jpg 1x,
-                /images/2022/IMG_5816_2x.jpg 2x,
-                /images/2022/IMG_5816_3x.jpg 3x,
-                /images/2022/IMG_5816_4x.jpg 4x"
-        type="image/jpeg"
-      >
-      <img
-        src="/images/2022/IMG_5816_1x.jpg"
-        alt="Looking out through a train carriage window at passing fields. It’s a field of mostly grass, with some trees along the edge in the distance, and various bushes and foliage appearing at the bottom of the window. There are also warning and safety stickers around the window, but they’re too dark to be easily legible."
-      >
-    </picture>
-  </a>
+  {%
+    picture
+    src="IMG_5816.jpg"
+    alt="Looking out through a train carriage window at passing fields. It’s a field of mostly grass, with some trees along the edge in the distance, and various bushes and foliage appearing at the bottom of the window. There are also warning and safety stickers around the window, but they’re too dark to be easily legible."
+    target_width="950px"
+    link_to_original
+  %}
 </figure>
 
 The carriages were quite comfortable, and I had a compartment all to myself.
@@ -301,28 +196,13 @@ I never plan this, it just happens to me.
 I showed the picture below to a close friend, who described as "[my] author photo", which feels distressingly accurate.
 
 <figure class="wide_img rounded_corners">
-  <a href="/images/2022/IMG_5800.jpg">
-    <picture>
-      <source
-        srcset="/images/2022/IMG_5800_1x.webp 1x,
-                /images/2022/IMG_5800_2x.webp 2x,
-                /images/2022/IMG_5800_3x.webp 3x,
-                /images/2022/IMG_5800_4x.webp 4x"
-        type="image/webp"
-      >
-      <source
-        srcset="/images/2022/IMG_5800_1x.jpg 1x,
-                /images/2022/IMG_5800_2x.jpg 2x,
-                /images/2022/IMG_5800_3x.jpg 3x,
-                /images/2022/IMG_5800_4x.jpg 4x"
-        type="image/jpeg"
-      >
-      <img
-        src="/images/2022/IMG_5800_1x.jpg"
-        alt="A selfie! I’m sitting on one of the seats in a maroon-coloured jumper and a red scarf, with my right arm outstretched over the top of the seat. I’m wearing glasses, dark-coloured lipstick, and I have dark brown hair falling on either side of my face. I’m tilting my head a bit, and smiling – because my jumper is the same colour as the seat! (Well, almost.)"
-      >
-    </picture>
-  </a>
+  {%
+    picture
+    src="IMG_5800.jpg"
+    alt="A selfie! I’m sitting on one of the seats in a maroon-coloured jumper and a red scarf, with my right arm outstretched over the top of the seat. I’m wearing glasses, dark-coloured lipstick, and I have dark brown hair falling on either side of my face. I’m tilting my head a bit, and smiling – because my jumper is the same colour as the seat! (Well, almost.)"
+    target_width="950px"
+    link_to_original
+  %}
 </figure>
 
 I got out at Wroxham for a brief wander.
@@ -337,76 +217,31 @@ In these pictures you can see the drivers standing next to the trains, and hopef
 
 <figure class="wide_img grid_3up">
   <div class="left double_height">
-    <a href="/images/2022/IMG_5844.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5844_1x.webp 1x,
-                  /images/2022/IMG_5844_2x.webp 2x,
-                  /images/2022/IMG_5844_3x.webp 3x,
-                  /images/2022/IMG_5844_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5844_1x.jpg 1x,
-                  /images/2022/IMG_5844_2x.jpg 2x,
-                  /images/2022/IMG_5844_3x.jpg 3x,
-                  /images/2022/IMG_5844_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5844_1x.jpg"
-          alt="A black, boxy steam engine with a driver filling it up using a blue hose. The driver is standing next to the train, close to their full height, and they're about as tall as the train."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5844.jpg"
+      alt="A black, boxy steam engine with a driver filling it up using a blue hose. The driver is standing next to the train, close to their full height, and they're about as tall as the train."
+      target_width="622px"
+      link_to_original
+    %}
   </div>
   <div class="right upper">
-    <a href="/images/2022/IMG_5852.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5852_1x.webp 1x,
-                  /images/2022/IMG_5852_2x.webp 2x,
-                  /images/2022/IMG_5852_3x.webp 3x,
-                  /images/2022/IMG_5852_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5852_1x.jpg 1x,
-                  /images/2022/IMG_5852_2x.jpg 2x,
-                  /images/2022/IMG_5852_3x.jpg 3x,
-                  /images/2022/IMG_5852_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5852_1x.jpg"
-          alt="The black steam engine sitting on a turntable. At the far end is the driver, pushing against one of the handles to turn the train. Beyond the turntable are three tracks and the rest of the station."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5852.jpg"
+      alt="The black steam engine sitting on a turntable. At the far end is the driver, pushing against one of the handles to turn the train. Beyond the turntable are three tracks and the rest of the station."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="right lower">
-    <a href="/images/2022/IMG_5921.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5921_1x.webp 1x,
-                  /images/2022/IMG_5921_2x.webp 2x,
-                  /images/2022/IMG_5921_3x.webp 3x,
-                  /images/2022/IMG_5921_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5921_1x.jpg 1x,
-                  /images/2022/IMG_5921_2x.jpg 2x,
-                  /images/2022/IMG_5921_3x.jpg 3x,
-                  /images/2022/IMG_5921_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5921_1x.jpg"
-          alt="A dark blue engine sitting on the turntable. This is larger than the black engine, and it's taking two people pushing to turn it around. It looks like quite a strain!"
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5921.jpg"
+      alt="A dark blue engine sitting on the turntable. This is larger than the black engine, and it's taking two people pushing to turn it around. It looks like quite a strain!"
+      target_width="500px"
+      link_to_original
+    %}
   </div>
 </figure>
 
@@ -419,54 +254,26 @@ This let me get two of my favourite pictures of the day -- trains from both line
 First is this photo of *Blickling Hall* with a [Stadler FLIRT train][flirt] (a name which I enjoy for somebody's commitment to a bit; it's the same acronym in both English and German):
 
 <figure class="wide_img rounded_corners">
-  <a href="/images/2022/IMG_5958.jpg">
-    <picture>
-      <source
-        srcset="/images/2022/IMG_5958_1x.webp 1x,
-                /images/2022/IMG_5958_2x.webp 2x,
-                /images/2022/IMG_5958_3x.webp 3x"
-        type="image/webp"
-      >
-      <source
-        srcset="/images/2022/IMG_5958_1x.jpg 1x,
-                /images/2022/IMG_5958_2x.jpg 2x,
-                /images/2022/IMG_5958_3x.jpg 3x"
-        type="image/jpeg"
-      >
-      <img
-        src="/images/2022/IMG_5958_1x.jpg"
-        alt="The dark blue tender engine pulling its burgundy carriages, and on a parallel line above and to the left, a grey-and-red modern commuter train, which is much more sleek and streamlined."
-      >
-    </picture>
-  </a>
+  {%
+    picture
+    src="IMG_5958.jpg"
+    alt="The dark blue tender engine pulling its burgundy carriages, and on a parallel line above and to the left, a grey-and-red modern commuter train, which is much more sleek and streamlined."
+    target_width="950px"
+    link_to_original
+  %}
 </figure>
 
 Second is this profile shot of *Blickling Hall* with a Class 37 diesel, which was pulling a line of tank wagons.
 I love the contrast of the grimy diesel with the polished steamie:
 
 <figure class="wide_img rounded_corners">
-  <a href="/images/2022/IMG_5934.jpg">
-    <picture>
-      <source
-        srcset="/images/2022/IMG_5934_1x.webp 1x,
-                /images/2022/IMG_5934_2x.webp 2x,
-                /images/2022/IMG_5934_3x.webp 3x,
-                /images/2022/IMG_5934_4x.webp 4x"
-        type="image/webp"
-      >
-      <source
-        srcset="/images/2022/IMG_5934_1x.jpg 1x,
-                /images/2022/IMG_5934_2x.jpg 2x,
-                /images/2022/IMG_5934_3x.jpg 3x,
-                /images/2022/IMG_5934_4x.jpg 4x"
-        type="image/jpeg"
-      >
-      <img
-        src="/images/2022/IMG_5934_1x.jpg"
-        alt="A profile shot of the dark blue tender engine and a large blue/turquoise diesel engine heading in the opposite direction on the track above."
-      >
-    </picture>
-  </a>
+  {%
+    picture
+    src="IMG_5934.jpg"
+    alt="A profile shot of the dark blue tender engine and a large blue/turquoise diesel engine heading in the opposite direction on the track above."
+    target_width="950px"
+    link_to_original
+  %}
 </figure>
 
 The engines create a lot of steam!
@@ -477,76 +284,31 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
 
 <figure class="wide_img grid_3up">
   <div class="left double_height">
-    <a href="/images/2022/IMG_6027.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_6027_1x.webp 1x,
-                  /images/2022/IMG_6027_2x.webp 2x,
-                  /images/2022/IMG_6027_3x.webp 3x,
-                  /images/2022/IMG_6027_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_6027_1x.jpg 1x,
-                  /images/2022/IMG_6027_2x.jpg 2x,
-                  /images/2022/IMG_6027_3x.jpg 3x,
-                  /images/2022/IMG_6027_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_6027_1x.jpg"
-          alt="A black steam engine sitting on a turntable, blowing steam out of several pipes and holes. It’s facing towards the camera – it’s just been turned around from the other direction."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_6027.jpg"
+      alt="A black steam engine sitting on a turntable, blowing steam out of several pipes and holes. It’s facing towards the camera – it’s just been turned around from the other direction."
+      target_width="622px"
+      link_to_original
+    %}
   </div>
   <div class="right upper">
-    <a href="/images/2022/IMG_5895.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5895_1x.webp 1x,
-                  /images/2022/IMG_5895_2x.webp 2x,
-                  /images/2022/IMG_5895_3x.webp 3x,
-                  /images/2022/IMG_5895_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5895_1x.jpg 1x,
-                  /images/2022/IMG_5895_2x.jpg 2x,
-                  /images/2022/IMG_5895_3x.jpg 3x,
-                  /images/2022/IMG_5895_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5895_1x.jpg"
-          alt="A dark blue tender engine, blowing copious clouds of white steam from the very front of the engine. Behind it are several low-height coaches, which it’s just pulled along half the journey."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5895.jpg"
+      alt="A dark blue tender engine, blowing copious clouds of white steam from the very front of the engine. Behind it are several low-height coaches, which it’s just pulled along half the journey."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="right lower">
-    <a href="/images/2022/IMG_5997.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5997_1x.webp 1x,
-                  /images/2022/IMG_5997_2x.webp 2x,
-                  /images/2022/IMG_5997_3x.webp 3x,
-                  /images/2022/IMG_5997_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5997_1x.jpg 1x,
-                  /images/2022/IMG_5997_2x.jpg 2x,
-                  /images/2022/IMG_5997_3x.jpg 3x,
-                  /images/2022/IMG_5997_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5997_1x.jpg"
-          alt="The same dark blue engine, almost invisible behind the enormous cloud of smoke it’s producing."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5997.jpg"
+      alt="The same dark blue engine, almost invisible behind the enormous cloud of smoke it’s producing."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
 </figure>
 
@@ -561,152 +323,62 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
 
 <figure class="wide_img grid_4up">
   <div class="upper left">
-    <a href="/images/2022/IMG_5782.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5782_1x.webp 1x,
-                  /images/2022/IMG_5782_2x.webp 2x,
-                  /images/2022/IMG_5782_3x.webp 3x,
-                  /images/2022/IMG_5782_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5782_1x.jpg 1x,
-                  /images/2022/IMG_5782_2x.jpg 2x,
-                  /images/2022/IMG_5782_3x.jpg 3x,
-                  /images/2022/IMG_5782_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5782_1x.jpg"
-          alt="Looking down the side of the dark blue engine at a jaunty angle. I’m right up close to its side, so the train fills the photo."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5782.jpg"
+      alt="Looking down the side of the dark blue engine at a jaunty angle. I’m right up close to its side, so the train fills the photo."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="upper">
-    <a href="/images/2022/IMG_6081.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_6081_1x.webp 1x,
-                  /images/2022/IMG_6081_2x.webp 2x,
-                  /images/2022/IMG_6081_3x.webp 3x,
-                  /images/2022/IMG_6081_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_6081_1x.jpg 1x,
-                  /images/2022/IMG_6081_2x.jpg 2x,
-                  /images/2022/IMG_6081_3x.jpg 3x,
-                  /images/2022/IMG_6081_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_6081_1x.jpg"
-          alt="The very front of the black engine, with the face plate clearly visible. It has silver hands pointing to 5 o’clock, and a headlamp in front of the funnel."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_6081.jpg"
+      alt="The very front of the black engine, with the face plate clearly visible. It has silver hands pointing to 5 o’clock, and a headlamp in front of the funnel."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="upper right">
-    <a href="/images/2022/IMG_5784.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_5784_1x.webp 1x,
-                  /images/2022/IMG_5784_2x.webp 2x,
-                  /images/2022/IMG_5784_3x.webp 3x,
-                  /images/2022/IMG_5784_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_5784_1x.jpg 1x,
-                  /images/2022/IMG_5784_2x.jpg 2x,
-                  /images/2022/IMG_5784_3x.jpg 3x,
-                  /images/2022/IMG_5784_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_5784_1x.jpg"
-          alt="Looking down the side of the black engine, with the tracks disappearing off into the distance. It’s a very skewed perspective."
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_5784.jpg"
+      alt="Looking down the side of the black engine, with the tracks disappearing off into the distance. It’s a very skewed perspective."
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="left lower">
-    <a href="/images/2022/IMG_6086.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_6086_1x.webp 1x,
-                  /images/2022/IMG_6086_2x.webp 2x,
-                  /images/2022/IMG_6086_3x.webp 3x,
-                  /images/2022/IMG_6086_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_6086_1x.jpg 1x,
-                  /images/2022/IMG_6086_2x.jpg 2x,
-                  /images/2022/IMG_6086_3x.jpg 3x,
-                  /images/2022/IMG_6086_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_6086_1x.jpg"
-          alt="A close-up of some weird gizmo on the side of the black train. There are copper pipes and coils and brass valves… I have no idea what it does, but it looks cool!"
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_6086.jpg"
+      alt="A close-up of some weird gizmo on the side of the black train. There are copper pipes and coils and brass valves… I have no idea what it does, but it looks cool!"
+      target_width="500px"
+      link_to_original
+    %}
   </div>
   <div class="right lower" style="grid-column: 2 / span 2">
-    <a href="/images/2022/IMG_6088.jpg">
-      <picture>
-        <source
-          srcset="/images/2022/IMG_6088_1x.webp 1x,
-                  /images/2022/IMG_6088_2x.webp 2x,
-                  /images/2022/IMG_6088_3x.webp 3x,
-                  /images/2022/IMG_6088_4x.webp 4x"
-          type="image/webp"
-        >
-        <source
-          srcset="/images/2022/IMG_6088_1x.jpg 1x,
-                  /images/2022/IMG_6088_2x.jpg 2x,
-                  /images/2022/IMG_6088_3x.jpg 3x,
-                  /images/2022/IMG_6088_4x.jpg 4x"
-          type="image/jpeg"
-        >
-        <img
-          src="/images/2022/IMG_6088_1x.jpg"
-          alt="A side view of the black engine, including parts of the wheels and piston arrangement. The wheel parts are picked out in silver and red. So many exciting and graceful parts!"
-        >
-      </picture>
-    </a>
+    {%
+      picture
+      src="IMG_6088.jpg"
+      alt="A side view of the black engine, including parts of the wheels and piston arrangement. The wheel parts are picked out in silver and red. So many exciting and graceful parts!"
+      target_width="627px"
+      link_to_original
+    %}
   </div>
 </figure>
 
 They're really good looking trains.
 
 <figure class="wide_img rounded_corners">
-  <a href="/images/2022/IMG_5994.jpg">
-    <picture>
-      <source
-        srcset="/images/2022/IMG_5994_1x.webp 1x,
-                /images/2022/IMG_5994_2x.webp 2x,
-                /images/2022/IMG_5994_3x.webp 3x,
-                /images/2022/IMG_5994_4x.webp 4x"
-        type="image/webp"
-      >
-      <source
-        srcset="/images/2022/IMG_5994_1x.jpg 1x,
-                /images/2022/IMG_5994_2x.jpg 2x,
-                /images/2022/IMG_5994_3x.jpg 3x,
-                /images/2022/IMG_5994_4x.jpg 4x"
-        type="image/jpeg"
-      >
-      <img
-        src="/images/2022/IMG_5994_1x.jpg"
-        alt="One more photo of the dark blue engine pulling a line of carriages, next to the sign for Wroxham Station."
-      >
-    </picture>
-  </a>
+  {%
+    picture
+    src="IMG_5994.jpg"
+    alt="One more photo of the dark blue engine pulling a line of carriages, next to the sign for Wroxham Station."
+    target_width="950px"
+    link_to_original
+  %}
 </figure>
 
 All the volunteers and staff I met were lovely.
@@ -716,28 +388,13 @@ Some heritage railways have a bit of a gatekeeper-y "real train geeks only" vibe
 I'll end with a photo of me, with windswept hair and a big smile, another favourite from the day:
 
 <figure class="wide_img rounded_corners">
-  <a href="/images/2022/IMG_6211.jpg">
-    <picture>
-      <source
-        srcset="/images/2022/IMG_6211_1x.webp 1x,
-                /images/2022/IMG_6211_2x.webp 2x,
-                /images/2022/IMG_6211_3x.webp 3x,
-                /images/2022/IMG_6211_4x.webp 4x"
-        type="image/webp"
-      >
-      <source
-        srcset="/images/2022/IMG_6211_1x.jpg 1x,
-                /images/2022/IMG_6211_2x.jpg 2x,
-                /images/2022/IMG_6211_3x.jpg 3x,
-                /images/2022/IMG_6211_4x.jpg 4x"
-        type="image/jpeg"
-      >
-      <img
-        src="/images/2022/IMG_6211_1x.jpg"
-        alt="Another selfie! I’m a bit dishevelled, my hair is ruffled, and my hands are full of stuff. I’m standing in front of the station canopy, and I’m beaming. Huge smile."
-      >
-    </picture>
-  </a>
+  {%
+    picture
+    src="IMG_6211.jpg"
+    alt="Another selfie! I’m a bit dishevelled, my hair is ruffled, and my hands are full of stuff. I’m standing in front of the station canopy, and I’m beaming. Huge smile."
+    target_width="950px"
+    link_to_original
+  %}
 </figure>
 
 I had a wonderful day out -- beautiful enginers, gorgeous scenery, lovely volunteers.
