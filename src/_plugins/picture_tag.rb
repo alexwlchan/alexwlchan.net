@@ -1,3 +1,4 @@
+require 'rszr'
 require 'shellwords'
 
 module Jekyll
@@ -115,8 +116,8 @@ EOF
     end
 
     def get_width(path)
-      # running this repeatedly is super expensive, can we speed it up?
-      `identify -format '%[fx:w]' #{Shellwords.escape(path)}`.to_i
+      image = Rszr::Image.load(path)
+      image.width
     end
     
     # Get some useful info about the file format
