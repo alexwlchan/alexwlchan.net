@@ -90,7 +90,7 @@ Here's a definition for triangular coordinates: we define $\langle 1, 0 \rangle$
 I'm using the $\langle \cdots \rangle$ brackets to distinguish between triangular and $(x,y)$-coordinates.
 
 <figure style="width: 480px;">
-  <img src="/images/2019/triangular_coordinates.svg" alt="A pair fo axes at a 60 degree angle, with one running left-to-right, another running on a left-to-right, top-to-bottom slant. The points <0, 0>, <2, 3> and <3.4, 1.2> are labelled with coloured circles (green, blue, red, respectively).">
+  <img src="/images/2019/triangular_coordinates.svg" alt="A pair of axes at a 60 degree angle, with one running left-to-right, another running on a left-to-right, top-to-bottom slant. The points <0, 0>, <2, 3> and <3.4, 1.2> are labelled with coloured circles (green, blue, red, respectively).">
 </figure>
 
 The choice of a $60^\circ$ angle means the grid divides into [equilateral triangles][equilateral] (equal sides, equal angles).
