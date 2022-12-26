@@ -23,11 +23,6 @@ module Jekyll
         raise SyntaxError, "Error in `picture` tag: missing required `src` parameter"
       end
       
-      @alt = @attrs.delete("alt")
-      if @alt.nil?
-        raise SyntaxError, "Error in `picture` tag: missing required `alt` parameter"
-      end
-      
       @target_width = @attrs.delete("target_width").gsub(/px/, '').to_i
       if @target_width.nil?
         raise SyntaxError, "Error in `picture` tag: missing required `target_width` parameter"
@@ -56,6 +51,8 @@ module Jekyll
       
       im_format = get_format(source_path)
       
+      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
+      
       inner_html = <<-EOF
 <picture>
   <source
@@ -68,7 +65,7 @@ module Jekyll
   >
   <img
     src="#{sources[im_format[:mime_type]][0].gsub(" 1x", "")}"
-    alt="#{@alt}"
+    #{extra_attributes}
   >
 </picture>
 EOF
