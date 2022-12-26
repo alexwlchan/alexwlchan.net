@@ -30,7 +30,7 @@ jobs:
         run: make lint
 
       - name: "Merge pull request"
-        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan'
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
         run: .github/workflows/merge_pull_request.sh
 
         # Note: this uses a personal access token, not the default GitHub token;
