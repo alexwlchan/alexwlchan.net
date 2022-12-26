@@ -164,6 +164,7 @@ EOF
           for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
             out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
           
+            # TODO: Use a newer version of rszr for WebP
             if !File.exist? out_path || File.mtime(out_path) < File.mtime(source_path)
               if out_format == ImageFormat::AVIF or out_format == ImageFormat::WEBP
                 `convert #{Shellwords.escape(source_path)} -resize #{width}x #{Shellwords.escape(out_path)}`
