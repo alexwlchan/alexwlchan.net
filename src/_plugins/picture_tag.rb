@@ -141,7 +141,7 @@ module Jekyll
     type="#{im_format[:mime_type]}"
   >
   <img
-    filename="#{sources[im_format][0].gsub(" 1x", "")}"
+    src="#{sources[im_format][0].gsub(" 1x", "")}"
     #{extra_attributes}
   >
 </picture>
