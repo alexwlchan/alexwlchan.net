@@ -75,4 +75,4 @@ EOF
   end
 end
 
-Liquid::Template.register_tag("slide_image2", Jekyll::SlideImageTag)
+Liquid::Template.register_tag("slide_image2", Jekyll::SlideTag)
