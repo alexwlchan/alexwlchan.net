@@ -12,7 +12,12 @@ index:
 I've written a script which lets me build an [Alfred workflow] to open GitHub repositories quickly.
 I type a few characters in the launcher, and it offers to open the repo:
 
-<img src="/images/2022/alfred_search_1x.png" srcset="/images/2022/alfred_search_1x.png 1x, /images/2022/alfred_search_2x.png 2x" style="width: 694px;" alt="A large search bar with the query 'dotorg', showing two results: a GitHub link to the wellcomecollection.org repo, and a local folder called 'dotorg'.">
+{%
+  picture
+  filename="alfred_search.png"
+  alt="A large search bar with the query 'dotorg', showing two results: a GitHub link to the wellcomecollection.org repo, and a local folder called 'dotorg'."
+  visible_width="694px"
+%}
 
 You don't need a custom workflow to do this -- Alfred already has built-in features for [web search] and [using bookmarks] -- but to set those up, you have to click around in the GUI.
 At work, our code is scattered across a lot of different repositories, and I find it easier to manage with a script.
@@ -42,7 +47,12 @@ This is slightly abusing the file format used by Python's [configparser] module;
 
 The Python script reads this config and builds a workflow package, which I can open in Alfred:
 
-<img src="/images/2022/alfred_workflow_screenshot_1x.png" srcset="/images/2022/alfred_workflow_screenshot_1x.png 1x, /images/2022/alfred_workflow_screenshot_2x.png 2x" alt="Screenshot of an Alfred workflow. There are three inputs with a GitHub logo, linked to three 'Open URL' actions, all for github.com.">
+{%
+  picture
+  filename="alfred_workflow_screenshot.png"
+  alt="Screenshot of an Alfred workflow. There are three inputs with a GitHub logo, linked to three 'Open URL' actions, all for github.com."
+  visible_width="565px"
+%}
 
 The text-based config means I can add and remove repos very quickly.
 I don't have a shortcut for every repo I use; just the ones in which I'm actively working.

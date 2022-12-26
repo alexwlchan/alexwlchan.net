@@ -126,25 +126,13 @@ NASA's rocket reminded me of [a little website][glitch] I made last year, where 
 You can fly in different directions, change speed, and even do a mid-space stop!
 In this post, we'll peek under the covers and see how it works.
 
-<picture>
-  <source
-    srcset="/images/2022/marquee_rocket_1x.webp 1x,
-            /images/2022/marquee_rocket_2x.webp 2x,
-            /images/2022/marquee_rocket_3x.webp 3x"
-    type="image/webp"
-  >
-  <source
-    srcset="/images/2022/marquee_rocket_1x.png 1x,
-            /images/2022/marquee_rocket_2x.png 2x,
-            /images/2022/marquee_rocket_3x.png 3x"
-    type="image/png"
-  >
-  <img
-    src="/images/2022/marquee_rocket_1x.png"
-    class="screenshot"
-    alt="A web page with a rocket icon on a black background. On the left-hand side are a series of buttons labelled 'direction' and 'speed' which control the rocket."
-  >
-</picture>
+{%
+  picture
+  filename="marquee_rocket.png"
+  alt="A web page with a rocket icon on a black background. On the left-hand side are a series of buttons labelled 'direction' and 'speed' which control the rocket."
+  class="screenshot"
+  visible_width="582px"
+%}
 
 <p id="reduceMotion">
   <strong>Accessibility note:</strong> this post has a lot of moving text and images.
@@ -421,27 +409,13 @@ Once I had this brilliant idea, I was able to construct a panel of buttons to co
 </style>
 
 <figure id="buttons">
-  <picture>
-    <source
-      srcset="/images/2022/tos_buttons_1x.webp 1x,
-              /images/2022/tos_buttons_2x.webp 2x,
-              /images/2022/tos_buttons_3x.webp 3x,
-              /images/2022/tos_buttons_4x.webp 4x"
-      type="image/webp"
-    >
-    <source
-      srcset="/images/2022/tos_buttons_1x.jpg 1x,
-              /images/2022/tos_buttons_2x.jpg 2x,
-              /images/2022/tos_buttons_3x.jpg 3x,
-              /images/2022/tos_buttons_4x.jpg 4x"
-      type="image/jpeg"
-    >
-    <img
-      src="/images/2022/tos_buttons_1x.jpg"
-      class="screenshot"
-      alt="Two panels of coloured lights and buttons on a spaceship console. We can see somebody in a gold uniform reaching out to push the buttons."
-    >
-  </picture>
+  {%
+    picture
+    filename="tos_buttons.jpg"
+    alt="Two panels of coloured lights and buttons on a spaceship console. We can see somebody in a gold uniform reaching out to push the buttons."
+    class="screenshot"
+    visible_width="350px"
+  %}
   <picture>
     <img
       src="/images/2022/marquee_buttons.png"
