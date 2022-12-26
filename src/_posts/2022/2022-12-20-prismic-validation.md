@@ -38,25 +38,13 @@ The first thing we need to do is download all our Prismic content.
 
 You can export a snapshot in the "Import/Export" tab of the Prismic GUI, but that's not what we use for bulk analysis -- we wanted something that could run synchronously, and be triggered programatically.
 
-<picture>
-  <source
-    srcset="/images/2022/prismic_export_1x.webp 1x,
-            /images/2022/prismic_export_2x.webp 2x,
-            /images/2022/prismic_export_3x.webp 3x"
-    type="image/webp"
-  >
-  <source
-    srcset="/images/2022/prismic_export_1x.png 1x,
-            /images/2022/prismic_export_2x.png 2x,
-            /images/2022/prismic_export_3x.png 3x"
-    type="image/png"
-  >
-  <img
-    src="/images/2022/prismic_export_1x.png"
-    alt="An Import/Export panel in the Prismic dashboard. There's a heading 'Export your documents' with the explanation 'Ask for a snapshot of all your documents. You will be notified by email once its done' and a green button 'Export your documents'"
-    class="screenshot"
-  >
-</picture>
+{%
+  picture
+  filename="prismic_export.png"
+  alt="An Import/Export panel in the Prismic dashboard. There's a heading 'Export your documents' with the explanation 'Ask for a snapshot of all your documents. You will be notified by email once its done' and a green button 'Export your documents'"
+  class="screenshot"
+  visible_width="558px"
+%}
 
 Fortunately, the Prismic client library includes a [dangerouslyGetAll() method][dangerouslyGetAll], which downloads all your documents.
 It includes both pagination and throttling, so it can fetch everything without overwhelming the Prismic API.
@@ -202,25 +190,13 @@ Within Prismic, [slices] are the building blocks of a page.
 You can define your own slice types and how they're rendered on your site, and each slice can have different data and structure.
 Content editors can assemble a sequence of different slices in the GUI editor to create a page.
 
-<picture>
-  <source
-    srcset="/images/2022/prismic-slices_1x.webp 1x,
-            /images/2022/prismic-slices_2x.webp 2x,
-            /images/2022/prismic-slices_3x.webp 3x"
-    type="image/webp"
-  >
-  <source
-    srcset="/images/2022/prismic-slices_1x.png 1x,
-            /images/2022/prismic-slices_2x.png 2x,
-            /images/2022/prismic-slices_3x.png 3x"
-    type="image/png"
-  >
-  <img
-    src="/images/2022/prismic-slices_1x.png"
-    alt="A picker for three types of slice in Prismic: text, captioned image, and image gallery."
-    class="screenshot"
-  >
-</picture>
+{%
+  picture
+  filename="prismic_slices.png"
+  alt="A picker for three types of slice in Prismic: text, captioned image, and image gallery."
+  class="screenshot"
+  visible_width="538px"
+%}
 
 To help us manage our slice types, we made a tool that counts how many times each slice type is used.
 It goes through every page in the snapshot, counts all the slices it uses, then prints the result:
@@ -345,25 +321,13 @@ Some of these are rules we run all the time; others are rules we ran as a one-of
 To make these issues more visible to our content team, we've set up a dashboard that reports on any errors.
 The link takes them directly to the affected document in the Prismic web editor, so they can fix issues as quickly as possible:
 
-<picture>
-  <source
-    srcset="/images/2022/prismic-dashboard_1x.webp 1x,
-            /images/2022/prismic-dashboard_2x.webp 2x,
-            /images/2022/prismic-dashboard_3x.webp 3x"
-    type="image/webp"
-  >
-  <source
-    srcset="/images/2022/prismic-dashboard_1x.png 1x,
-            /images/2022/prismic-dashboard_2x.png 2x,
-            /images/2022/prismic-dashboard_3x.png 3x"
-    type="image/png"
-  >
-  <img
-    src="/images/2022/prismic-dashboard_1x.png"
-    class="screenshot"
-    alt="A dashboard highlighting three Prismic errors. Each error has a heading which is a link to the document, then a list of bullet points describing the problems with that document."
-  >
-</picture>
+{%
+  picture
+  filename="prismic_dashboard.png"
+  alt="A dashboard highlighting three Prismic errors. Each error has a heading which is a link to the document, then a list of bullet points describing the problems with that document."
+  class="screenshot"
+  visible_width="483px"
+%}
 
 The dashboard updates on a fixed schedule, so new errors will appear as they're found, and disappear as they're fixed.
 It's already helped us fix dozens of errors.

@@ -21,7 +21,7 @@ module Jekyll
 
       site.keep_files.each { |dir|
         if File.directory? "#{src}/_#{dir}"
-          if !system("rsync --archive --delete #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=cards --exclude=*.svg")
+          if !system("rsync --archive #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=cards --exclude=*.svg")
             raise RuntimeError, "Error running the static file rsync for #{dir}!"
           end
         end
