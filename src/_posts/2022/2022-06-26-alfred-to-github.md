@@ -50,7 +50,7 @@ The Python script reads this config and builds a workflow package, which I can o
 {%
   picture
   filename="alfred_workflow_screenshot.png"
-  alt="Screenshot of an Alfred workflow. There are three inputs with a GitHub logo, linked to three 'Open URL' actions, all for github.com.
+  alt="Screenshot of an Alfred workflow. There are three inputs with a GitHub logo, linked to three 'Open URL' actions, all for github.com."
   visible_width="565px"
 %}
 
