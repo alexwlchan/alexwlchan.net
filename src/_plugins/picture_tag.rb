@@ -41,6 +41,9 @@
 #     * `visible_width`, which is used to pick the sizes for the different
 #       resolutions.  This is a rough guide.
 #
+# It will look for the image in `/images/#{year}/#{filename}`, so if this
+# was a post from 2022, it will look in `/images/2022/IMG_5744.jpg`.
+#
 # This is a more sophisticated example:
 #
 #     {%
@@ -107,7 +110,7 @@ module Jekyll
       dst = site.config["destination"]
 
       source_path = "#{src}/_images/#{year}/#{@filename}"
-      dst_prefix = "#{dst}/images/#{year}/#{File.basename(@filename, ".*")}"
+      dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}"
       
       sources = prepare_images(source_path, dst_prefix, @visible_width)
       
