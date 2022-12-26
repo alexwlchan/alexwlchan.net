@@ -54,8 +54,6 @@ module Jekyll
         caption = ""
       end
       
-      tpl = Liquid::Template.parse(File.open("src/_includes/slide.html").read)
-      
       input = <<-EOF
 <figure class="slide">
   {%
