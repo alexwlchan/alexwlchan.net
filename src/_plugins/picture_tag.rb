@@ -95,10 +95,11 @@ module Jekyll
         raise SyntaxError, "Error in `picture` tag: missing required `filename` parameter"
       end
       
-      @visible_width = @attrs.delete("visible_width").gsub(/px/, '').to_i
+      @visible_width = @attrs.delete("visible_width")
       if @visible_width.nil?
         raise SyntaxError, "Error in `picture` tag: missing required `visible_width` parameter"
       end
+      @visible_width = @visible_width.gsub(/px/, '').to_i
       
       @link_to_original = @attrs.include? "link_to_original"
       @attrs.delete("link_to_original")
