@@ -157,7 +157,7 @@ EOF
       
       image = Rszr::Image.load(source_path)
             
-      for pixel_density in 1..4
+      for pixel_density in 1..3
         width = pixel_density * visible_width
 
         if image.width >= width
