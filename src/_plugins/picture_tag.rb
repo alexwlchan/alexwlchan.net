@@ -63,6 +63,18 @@
 # Any other attribute (e.g. `style`) will be passed directly to the underlying
 # <img> tag, which allows you to apply styles or behaviours not covered by
 # this plugin.
+#
+# == How it works ==
+#
+# Creating images is slow, so rather than doing it one-at-a-time, we batch
+# up all the images and then process them all at once.
+#
+#   1.  Remove the file `.missing_images.json` (if it exists)
+#   2.  Render the site.  Add any missing images to this file.
+#   3.  Call the external script `create_resized_images.py`, which does the
+#       image resizing concurrently.  I'm sure it's possible to do concurrent
+#       stuff in Ruby, but I can't work out how.
+#
 
 require 'rszr'
 require 'shellwords'
@@ -76,6 +88,14 @@ class ImageFormat
   
   JPEG = { :extension => ".jpg",  :mime_type => "image/jpeg" }
   PNG  = { :extension => ".png",  :mime_type => "image/png" }
+end
+
+Jekyll::Hooks.register :site, :after_reset do |site|
+  File.delete('missing_images.json') if File.exists? 'missing_images.json'
+end
+
+Jekyll::Hooks.register :site, :post_render do |site|
+  `python3 scripts/create_resized_images.py`
 end
 
 module Jekyll
@@ -164,14 +184,14 @@ EOF
           for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
             out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
           
-            # TODO: Use a newer version of rszr for WebP
             if !File.exist? out_path || File.mtime(out_path) < File.mtime(source_path)
-              if out_format == ImageFormat::AVIF or out_format == ImageFormat::WEBP
-                `convert #{Shellwords.escape(source_path)} -resize #{width}x #{Shellwords.escape(out_path)}`
-              else
-                resized_image = image.resize(width, image.height * width / image.width)
-                resized_image.save(out_path)
-              end
+              open(".missing_images.json", "a") { |f|
+                f.puts JSON.generate({
+                  "out_path": out_path,
+                  "source_path": source_path,
+                  "width": width
+                })
+              }
             end
 
             sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{pixel_density}x"
