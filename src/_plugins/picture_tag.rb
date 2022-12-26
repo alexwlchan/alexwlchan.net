@@ -41,6 +41,9 @@
 #     * `visible_width`, which is used to pick the sizes for the different
 #       resolutions.  This is a rough guide.
 #
+# It will look for the image in `/images/#{year}/#{filename}`, so if this
+# was a post from 2022, it will look in `/images/2022/IMG_5744.jpg`.
+#
 # This is a more sophisticated example:
 #
 #     {%
@@ -64,6 +67,8 @@
 require 'rszr'
 require 'shellwords'
 
+require_relative 'plugin_base'
+
 class ImageFormat
   AVIF = { :extension => ".avif", :mime_type => "image/avif" }
 
@@ -78,28 +83,15 @@ module Jekyll
     def initialize(tag_name, params_string, tokens)
       super
 
-      # First parse the params string, which is designed to be written
-      # with a similar syntax to HTML attributes, e.g.
-      #
-      #     {% picture filename="IMG_5744.jpg" alt="A black steam engine" %}
-      #
-      @attrs = {}
-      params_string.scan(/(?<key>[a-z_]+)(="(?<value>[^"]+)")?/).each { |k, v|
-        @attrs[k] = v
-      }
+      @attrs = parse_attrs(params_string)
       
-      # Now extract a couple of parameters that are required.  This will
-      # leave the `@attrs` dict as just containing any extras.
-      @filename = @attrs.delete("filename")
-      if @filename.nil?
-        raise SyntaxError, "Error in `picture` tag: missing required `filename` parameter"
-      end
+      @filename = get_required_attribute(
+        @attrs, { :tag => "picture", :attribute => "filename" }
+      )
       
-      @visible_width = @attrs.delete("visible_width")
-      if @visible_width.nil?
-        raise SyntaxError, "Error in `picture` tag: missing required `visible_width` parameter"
-      end
-      @visible_width = @visible_width.gsub(/px/, '').to_i
+      @visible_width = get_required_attribute(
+        @attrs, { :tag => "picture", :attribute => "visible_width" }
+      ).gsub(/px/, '').to_i
       
       @link_to_original = @attrs.include? "link_to_original"
       @attrs.delete("link_to_original")
@@ -118,7 +110,7 @@ module Jekyll
       dst = site.config["destination"]
 
       source_path = "#{src}/_images/#{year}/#{@filename}"
-      dst_prefix = "#{dst}/images/#{year}/#{File.basename(@filename, ".*")}"
+      dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}"
       
       sources = prepare_images(source_path, dst_prefix, @visible_width)
       
