@@ -151,20 +151,26 @@ EOF
     end
     
     def prepare_images(source_path, dst_prefix, visible_width)
-      image_width = get_width(source_path)
       im_format = get_format(source_path)
       
       sources = Hash.new { [] }
       
+      image = Rszr::Image.load(source_path)
+            
       for pixel_density in 1..4
         width = pixel_density * visible_width
 
-        if image_width >= width
+        if image.width >= width
           for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
             out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
           
             if !File.exist? out_path || File.mtime(out_path) < File.mtime(source_path)
-              `convert #{Shellwords.escape(source_path)} -resize #{width}x #{Shellwords.escape(out_path)}`
+              if out_format == ImageFormat::AVIF or out_format == ImageFormat::WEBP
+                `convert #{Shellwords.escape(source_path)} -resize #{width}x #{Shellwords.escape(out_path)}`
+              else
+                resized_image = image.resize(width, image.height * width / image.width)
+                resized_image.save(out_path)
+              end
             end
 
             sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{pixel_density}x"
@@ -173,11 +179,6 @@ EOF
       end
       
       sources
-    end
-
-    def get_width(path)
-      image = Rszr::Image.load(path)
-      image.width
     end
     
     # Get some useful info about the file format
