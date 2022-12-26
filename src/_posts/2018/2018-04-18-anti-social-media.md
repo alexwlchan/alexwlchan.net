@@ -49,10 +49,9 @@ The ideas in this talk are influenced by a number of people -->
 ---
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 1,
-  :alt => "Title slide."
+  slide_image2
+  filename="slide1.png"
+  alt="Title slide."
 %}
 
 (Introductory slide.
@@ -60,10 +59,9 @@ Mention that slides/notes will be available after the talk.)
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 2,
-  :alt => "Slide with a list of content warnings."
+  slide_image2
+  filename="slide2.png"
+  alt="Slide with a list of content warnings."
 %}
 
 Harassment can be a difficult topic.
@@ -84,14 +82,11 @@ Please look after yourselves!
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 4,
-  :alt => "A cheque book."
+  slide_image2
+  filename="slide4.png"
+  alt="A cheque book."
+  caption="Image credit: A cheque book. Made by [The Clear Communication People](https://www.flickr.com/photos/easy-pics/8138517266/), used under CC BY-NC-ND."
 %}
-  Image credit: A cheque book.
-  Made by [The Clear Communication People](https://www.flickr.com/photos/easy-pics/8138517266/), used under CC BY-NC-ND.
-{% endslide %}
 
 A [tweet from a friend][drmaciver] got me thinking about cheques recently, and ways to pay.
 The Internet has changed finance -- today, we have all sorts of ways to send money to each other.
@@ -101,10 +96,9 @@ Besides cash and cheques, we have online banking, PayPal, micropayment services,
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 5,
-  :alt => "A screenshot of a chat app with green and grey chat bubbles, with two buttons at the bottom: “Request” and “Pay”."
+  slide_image2
+  filename="slide5.png"
+  alt="A screenshot of a chat app with green and grey chat bubbles, with two buttons at the bottom: “Request” and “Pay”."
 %}
 
 
@@ -118,14 +112,11 @@ This is much better, right?
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 6,
-  :alt => "A screenshot of a tweet: “A friend’s abusive ex has been sending her $1 on @SquareCash regularly for months, cause he can add a message & she can’t block that.”"
+  slide_image2
+  filename="slide6.png"
+  alt="A screenshot of a tweet: “A friend’s abusive ex has been sending her $1 on @SquareCash regularly for months, cause he can add a message & she can’t block that.”"
+  caption="Tweet by [Anna Marie Clifton](https://twitter.com/TweetAnnaMarie/status/789957313649967104). Retrieved 18 April 2018."
 %}
-  Tweet by [Anna Marie Clifton](https://twitter.com/TweetAnnaMarie/status/789957313649967104).
-  Retrieved 18 April 2018.
-{% endslide %}
 
 Well... yes and no.
 
@@ -138,10 +129,9 @@ Instructions are [on their help site](https://squareup.com/help/us/en/article/51
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 7,
-  :alt => "Text slide: “Most developers mean well. They don’t build services to enable harassment.”"
+  slide_image2
+  filename="slide7.png"
+  alt="Text slide: “Most developers mean well. They don’t build services to enable harassment.”"
 %}
 
 The Square Cash developers aren't evil.
@@ -152,10 +142,9 @@ Unfortunately, there are bad people in the world, and they exploit services to d
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 8,
-  :alt => "Text slide: “Security protects us from bad actors. Who protects people from other people?”"
+  slide_image2
+  filename="slide8.png"
+  alt="Text slide: “Security protects us from bad actors. Who protects people from other people?”"
 %}
 
 A lot of time, discussion of security focuses on technical measures -- stuff to protect a service from bad actors.
@@ -167,10 +156,9 @@ Who protects users from other users on our service?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 9,
-  :alt => "Text slide: “If you allow user-to-user interactions, you have the possibility of harassment.”"
+  slide_image2
+  filename="slide9.png"
+  alt="Text slide: “If you allow user-to-user interactions, you have the possibility of harassment.”"
 %}
 
 The sad truth is, if you allow any sort of user-to-user interaction on a service, it will probably be exploited for harassment.
@@ -178,20 +166,18 @@ People will find ways to hurt other people, because people are terrible.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 10,
-  :alt => "White text on red: “What does online harassment look like?”"
+  slide_image2
+  filename="slide10.png"
+  alt="White text on red: “What does online harassment look like?”"
 %}
 
 So what does this sort of harassment look like?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 11,
-  :alt => "Sending nasty messages: spam and phishing attacks."
+  slide_image2
+  filename="slide11.png"
+  alt="Sending nasty messages: spam and phishing attacks."
 %}
 
 In its simplest form, it means nasty messages.
@@ -205,10 +191,9 @@ We've all had emails from Nigerian princes or suspicious medical companies, and 
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 12,
-  :alt => "A screenshot of a Twitter DM asking for credit card details."
+  slide_image2
+  filename="slide12.png"
+  alt="A screenshot of a Twitter DM asking for credit card details."
 %}
 
 Here's an example of a recent attempt that nearly fooled me.
@@ -225,10 +210,9 @@ Let's think about messages that cause more direct harm.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 13,
-  :alt => "Sending nasty messages: personal attacks."
+  slide_image2
+  filename="slide13.png"
+  alt="Sending nasty messages: personal attacks."
 %}
 
 Let's talk about more direct nasty messages.
@@ -239,10 +223,9 @@ This is particularly common among kids, who consistently use the Internet to be 
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 14,
-  :alt => "Text slide: “37% of UK children say they ‘often’ experience cyberbullying”."
+  slide_image2
+  filename="slide14.png"
+  alt="Text slide: “37% of UK children say they ‘often’ experience cyberbullying”."
 %}
 
 This isn't limited to a few bad eggs -- it happens a lot.
@@ -260,10 +243,9 @@ Retrieved 16 April 2018.]
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 15,
-  :alt => "Newspaper headlines about young people committing suicide."
+  slide_image2
+  filename="slide15.png"
+  alt="Newspaper headlines about young people committing suicide."
 %}
 
 And unfortunately, some people don't get a chance to recover.
@@ -292,10 +274,9 @@ This slide isn't for shock value -- it's to emphasise that harassment can have r
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 16,
-  :alt => "Sending nasty messages: hate speech, threatening/inappropaite imagery, sexual/pornographic content."
+  slide_image2
+  filename="slide16.png"
+  alt="Sending nasty messages: hate speech, threatening/inappropaite imagery, sexual/pornographic content."
 %}
 
 Some more examples of the sort of deliberately harmful messages people send:
@@ -308,10 +289,9 @@ None of which are pleasant to get in your inbox.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 17,
-  :alt => "Quote from Anna Merlan about some of the images she received by email."
+  slide_image2
+  filename="slide17.png"
+  alt="Quote from Anna Merlan about some of the images she received by email."
 %}
 
 An example of what that imagery might look like: your head photoshopped into images or mutilation or sexual violence.
@@ -325,10 +305,9 @@ Retrieved 16 April 2018.]
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 18,
-  :alt => "Sending nasty messages: rape threats and death threats."
+  slide_image2
+  filename="slide18.png"
+  alt="Sending nasty messages: rape threats and death threats."
 %}
 
 It can go all the way up to rape and death threats.
@@ -345,10 +324,9 @@ So that's just some of the nasty messages people might send each other.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 19,
-  :alt => "Text slide: “posting personal info”."
+  slide_image2
+  filename="slide19.png"
+  alt="Text slide: “posting personal info”."
 %}
 
 So what else?
@@ -357,14 +335,11 @@ Posting personal information is another common form of harassment.
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 20,
-  :alt => "A photo of a rainbow flag with the text “Posting personal info: outing” overlaid."
+  slide_image2
+  filename="slide20.png"
+  alt="A photo of a rainbow flag with the text “Posting personal info: outing” overlaid."
+  caption="Image: Rainbow flag and blue skies, by [Ludovic Berton](https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg). Used under CC BY."
 %}
-  Image: Rainbow flag and blue skies, by [Ludovic Berton](https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg).
-  Used under CC BY.
-{% endslide %}
 
 For example, outing somebody who's LGBTQ+ without their consent.
 
@@ -372,14 +347,11 @@ If a gay person is outed in a conservative community, or a trans person is expos
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 21,
-  :alt => "A photo of a house against a dark sky with the text “Posting personal info: doxing” overlaid."
+  slide_image2
+  filename="slide21.png"
+  alt="A photo of a house against a dark sky with the text “Posting personal info: doxing” overlaid."
+  caption="Image: Grey house with fireplace, by [Sebastian Soerensen](https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/). Used under CC0."
 %}
-  Image: Grey house with fireplace, by [Sebastian Soerensen](https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/).
-  Used under CC0.
-{% endslide %}
 
 Another is a practice called [doxing][doxing], which is posting somebody's personally identifiable information -- their address, phone number, place of work.
 Or if somebody is quite guarded, going after their friends and family -- who might be less careful about what they share.
@@ -391,14 +363,11 @@ Again, you can see how this puts somebody at risk.
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 22,
-  :alt => "A photo of a soldiers in back clothing standing outside a door, with the text “Posting personal info: SWATing” overlaid."
+  slide_image2
+  filename="slide22.png"
+  alt="A photo of a soldiers in back clothing standing outside a door, with the text “Posting personal info: SWATing” overlaid."
+  caption="Image: US & Romanian forces conduct bilateral training, by [Sgt. Esdras Ruano](https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg). Public domain."
 %}
-  Image: US & Romanian forces conduct bilateral training, by [Sgt. Esdras Ruano](https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg).
-  Public domain.
-{% endslide %}
 
 And a final odious form of this technique is [SWATing][swating].
 After somebody's address has been leaked online, another person makes a phone call to the police and calls in a fake threat -- bomb hoax, hostage situation, home shooting -- which gets armed police send to their house.
@@ -410,10 +379,9 @@ This is more common in the US.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 23,
-  :alt => "Newspaper headlines about people who had police or SWAT teams come to their home."
+  slide_image2
+  filename="slide23.png"
+  alt="Newspaper headlines about people who had police or SWAT teams come to their home."
 %}
 
 This is extremely distressing for the victims, and wastes time and money for the police.
@@ -435,14 +403,11 @@ Examples:
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 25,
-  :alt => "An image of a bedroom with the overlaid text “Sharing intimate photos without permission”."
+  slide_image2
+  filename="slide25.png",
+  alt="An image of a bedroom with the overlaid text “Sharing intimate photos without permission”."
+  caption="Image: bedroom in blue and brown, by [Digital Buggu](https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/). Used under CC0."
 %}
-  Image: bedroom in blue and brown, by [Digital Buggu](https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/).
-  Used under CC0.
-{% endslide %}
 
 I particularly dislike this next one -- sharing intimate photos without consent, or so-called "revenge porn".
 This is relatively new.
@@ -454,14 +419,11 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 26,
-  :alt => "A photo of the back seat of a car with the overlaid text “Grooming young children”."
+  slide_image2
+  filename="slide26.png",
+  alt="A photo of the back seat of a car with the overlaid text “Grooming young children”."
+  caption="Image: rear seats of an Audi RS4, by [The Car Spy](https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_%286%29.jpg). Used under CC BY."
 %}
-  Image: rear seats of an Audi RS4, by [The Car Spy](https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_%286%29.jpg).
-  Used under CC BY.
-{% endslide %}
 
 We need to be worried about child grooming.
 
@@ -470,10 +432,9 @@ Now, children can be groomed or targeted from hundreds of miles away
 Services need to think about how they protect children.
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 27,
-  :alt => "A slide listing the various forms of online harassment."
+  slide_image2
+  filename="slide27.png"
+  alt="A slide listing the various forms of online harassment."
 %}
 
 (Recap slide of forms of online harassment.)
@@ -490,20 +451,18 @@ We'll cover that in the next section.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 28,
-  :alt => "Slide with a bulleted list. “This behaviour doesn’t just affect online spaces”."
+  slide_image2
+  filename="slide28.png"
+  alt="Slide with a bulleted list. “This behaviour doesn’t just affect online spaces”."
 %}
 
 Notes on why harassment is bad -- it can escalate, we've seen examples of how it has consequences in the physical world, and it's just unpleasant to watch.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 31,
-  :alt => "White text on blue. “Who is at risk?”"
+  slide_image2
+  filename="slide31.png"
+  alt="White text on blue. “Who is at risk?”"
 %}
 
 Okay, so nasty stuff happens on the Internet.
@@ -512,10 +471,9 @@ But who is it happening to?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 32,
-  :alt => "Who is at risk? All your users."
+  slide_image2
+  filename="slide32.png"
+  alt="Who is at risk? All your users."
 %}
 
 Who is at risk?
@@ -525,10 +483,9 @@ But this probably isn't a very useful question, so let's instead ask a different
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 33,
-  :alt => "Slide with a bulleted list. “Who is at increased risk?”"
+  slide_image2
+  filename="slide33.png"
+  alt="Slide with a bulleted list. “Who is at increased risk?”"
 %}
 
 Who is at *increased* risk?
@@ -537,14 +494,11 @@ Minority groups tend to come in for disproportionate levels of abuse and harassm
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 34,
-  :alt => "A picture of Diane Abbott, with a quote about how she received almost a third of abusive tweets in one study."
+  slide_image2
+  filename="slide34.png",
+  alt="A picture of Diane Abbott, with a quote about how she received almost a third of abusive tweets in one study."
+  caption="Image: Official portrait of Diane Abbott MP, from the [UK Parliament website](https://beta.parliament.uk/media/S3bGSTqn). Used under CC BY."
 %}
-  Image: Official portrait of Diane Abbott MP, from the [UK Parliament website](https://beta.parliament.uk/media/S3bGSTqn).
-  Used under CC BY.
-{% endslide %}
 
 When these factors overlap, it gets even worse.
 
@@ -559,20 +513,18 @@ Who might our hypothetical user be worried about?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 36,
-  :alt => "White text on blue. “What are the main threat models?”"
+  slide_image2
+  filename="slide36.png"
+  alt="White text on blue. “What are the main threat models?”"
 %}
 
 Let's talk about threat models.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 37,
-  :alt => "Slide with a bulleted list. “Who is an at-risk person potentially worried about?”"
+  slide_image2
+  filename="slide37.png"
+  alt="Slide with a bulleted list. “Who is an at-risk person potentially worried about?”"
 %}
 
 These are the sort of people you might be worried about -- an abusive partner or ex, your friends, a weirdo you went on one date with and never saw again.
@@ -580,10 +532,9 @@ These are the sort of people who commonly feature in reports of online harassmen
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 38,
-  :alt => "People are more likely to be hurt by people they know."
+  slide_image2
+  filename="slide38.png"
+  alt="People are more likely to be hurt by people they know."
 %}
 
 You'll notice that almost all of them are people that our user *knows*.
@@ -592,10 +543,9 @@ Sadly, people are very likely to be hurt by people they know, but we often overl
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 39,
-  :alt => "78%/57% of female/male victims of domestic abuse knew their attacker."
+  slide_image2
+  filename="slide39.png"
+  alt="78%/57% of female/male victims of domestic abuse knew their attacker."
 %}
 
 TOOD Are these state sup to date?
@@ -604,10 +554,9 @@ So let's break these examples down into different groups.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 42,
-  :alt => "An abusive close contact."
+  slide_image2
+  filename="slide42.png"
+  alt="An abusive close contact."
 %}
 
 The first, most potent threat model: an abusive, current close contact.
@@ -615,10 +564,9 @@ Somebody who knows you very well.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 43,
-  :alt => "An abusive current close contact."
+  slide_image2
+  filename="slide43.png"
+  alt="An abusive current close contact."
 %}
 
 I start with this model because it's the most important one.
@@ -628,10 +576,9 @@ And all the encryption and security in the world won't help someone if their abu
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 44,
-  :alt => "An estranged close contact."
+  slide_image2
+  filename="slide44.png"
+  alt="An estranged close contact."
 %}
 
 You also need to think about estranged contacts, who can be almost as scary.
@@ -643,10 +590,9 @@ And for somebody jaded, no form of revenge is too petty.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 45,
-  :alt => "A single or organised group of bullies."
+  slide_image2
+  filename="slide45.png"
+  alt="A single or organised group of bullies."
 %}
 
 You need to consider not just individuals, but groups of people.
@@ -654,10 +600,9 @@ Herd mentality is a problem too!
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 46,
-  :alt => "A disorganised mob and a target of opportunity."
+  slide_image2
+  filename="slide46.png"
+  alt="A disorganised mob and a target of opportunity."
 %}
 
 And somebody who's indiscriminately targeted by bullies -- they've not done anything specifically wrong, but they were in the wrong time or place.
@@ -667,10 +612,9 @@ How easy is it for somebody to hide themselves from view?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 47,
-  :alt => "Angry powerful person or group."
+  slide_image2
+  filename="slide47.png"
+  alt="Angry powerful person or group."
 %}
 
 And suppose one of your sysadmins or moderators takes a dislike to one of your users.
@@ -679,50 +623,45 @@ How do you limit their destructive power?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 48,
-  :alt => "Slide with a bulleted list: “threat models”."
+  slide_image2
+  filename="slide48.png"
+  alt="Slide with a bulleted list: “threat models”."
 %}
 
 (Recap slide of major threat models.)
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 49,
-  :alt => "White text on purple: “This is all very upsetting.”"
+  slide_image2
+  filename="slide49.png"
+  alt="White text on purple: “This is all very upsetting.”"
 %}
 
 <!-- TODO FINISH -->
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 51,
-  :alt => "White text on purple: “It doesn’t have to be this way.”"
+  slide_image2
+  filename="slide51.png"
+  alt="White text on purple: “It doesn’t have to be this way.”"
 %}
 
 <!-- TODO FINISH -->
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 52,
-  :alt => "White text on green: “How can we protect our users?”"
+  slide_image2
+  filename="slide52.png"
+  alt="White text on green: “How can we protect our users?”"
 %}
 
 Let's end on a more positive note: how can we build a service that minimises the risks of harassment?
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 54,
-  :alt => "Slide with a bulleted list: “Why do high-risk users want to use a service?”"
+  slide_image2
+  filename="slide54.png"
+  alt="Slide with a bulleted list: “Why do high-risk users want to use a service?”"
 %}
 
 So let's suppose we have a high-risk user.
@@ -733,10 +672,9 @@ They *might* have additional reasons, but in general you can treat them as norma
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 55,
-  :alt => "Making your service better for high-risk users make it better for everyone."
+  slide_image2
+  filename="slide55.png"
+  alt="Making your service better for high-risk users make it better for everyone."
 %}
 
 A rising tide lifts all boats.
@@ -745,10 +683,9 @@ Make your service safer for high-risk users helps everybody -- all your users ca
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 56,
-  :alt => "White text on green: “What are some possible approaches?”"
+  slide_image2
+  filename="slide56.png"
+  alt="White text on green: “What are some possible approaches?”"
 %}
 
 So how might we make a service better?
@@ -757,10 +694,9 @@ Let's examine some approaches that are often suggested.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 47,
-  :alt => "Don't use the Internet."
+  slide_image2
+  filename="slide47.png"
+  alt="Don't use the Internet."
 %}
 
 People sometimes say "if you don't like it, don't be on the Internet".
@@ -770,10 +706,9 @@ It's impractical for people to stay offline, and severely disadvantages them if 
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 59,
-  :alt => "Quoted text: “I’m going to ignore it – if you don’t like it, use something else.”"
+  slide_image2
+  filename="slide59.png"
+  alt="Quoted text: “I’m going to ignore it – if you don’t like it, use something else.”"
 %}
 
 Some people/services take the attitude that users should just ignore harassment.
@@ -791,10 +726,9 @@ Suddenly you have a stampeding herd heading for the door.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 61,
-  :alt => "Not everyone is tech savvy, and that's okay."
+  slide_image2
+  filename="slide61.png"
+  alt="Not everyone is tech savvy, and that's okay."
 %}
 
 Not everyone is tech savvy.
@@ -808,10 +742,9 @@ It's often said that [perfect is the enemy of good](https://en.wikipedia.org/wik
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 62,
-  :alt => "How much data do you need?"
+  slide_image2
+  filename="slide62.png"
+  alt="How much data do you need?"
 %}
 
 You should think about what data you need to collect.
@@ -824,10 +757,9 @@ Not every service needs a full set of personal details, contact info, and credit
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 63,
-  :alt => "Do you need to build that feature?"
+  slide_image2
+  filename="slide63.png"
+  alt="Do you need to build that feature?"
 %}
 
 When you're building new features, think about ways they might be abused.
@@ -836,13 +768,11 @@ And can you build it with safety in mind?
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 64,
-  :alt => "A screenshot from the game Journey; orange characters in a desert with a green sky."
+  slide_image2
+  filename="slide64.png",
+  alt="A screenshot from the game Journey; orange characters in a desert with a green sky."
+  caption="Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/)."
 %}
-  Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/).
-{% endslide %}
 
 An example: many multiplayer games have peer-to-peer interactions.
 Everyone plays in a shared world, and they can talk to their fellow players.
@@ -851,10 +781,9 @@ But in *Journey*, players can't just send arbitrary text to other people
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 66,
-  :alt => "Have a way to ban or block malicious users."
+  slide_image2
+  filename="slide66.png"
+  alt="Have a way to ban or block malicious users."
 %}
 
 Have a way to ban or block malicious users -- this is the example from the opening.
@@ -868,10 +797,9 @@ Unfortunately not everybody does this (hi Slack), which can lead to uncomfortabl
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 67,
-  :alt => "A screenshot of my Twitter page."
+  slide_image2
+  filename="slide67.png"
+  alt="A screenshot of my Twitter page."
 %}
 
 This is what it looks like if you're blocked on Twitter.
@@ -879,10 +807,9 @@ You can't send the person a message, or see any of their tweets.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 68,
-  :alt => "A screenshot of my Twitter bio, with the text “You are blocked from following @alexwlchan and viewing @alexwlchan’s Tweets” highlighted."
+  slide_image2
+  filename="slide68.png"
+  alt="A screenshot of my Twitter bio, with the text “You are blocked from following @alexwlchan and viewing @alexwlchan’s Tweets” highlighted."
 %}
 
 But notice -- the page is very explicit about this.
@@ -893,10 +820,9 @@ That itself could be a trigger for retaliation.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 70,
-  :alt => "Allow “shadow blocking” dangerous users."
+  slide_image2
+  filename="slide70.png"
+  alt="Allow “shadow blocking” dangerous users."
 %}
 
 Another useful technique is [shadow banning](https://en.wikipedia.org/wiki/Shadow_banning).
@@ -907,10 +833,9 @@ The idea is that eventually, they'll leave on their own because nobody's talking
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 72,
-  :alt => "Give your users advanced security/privacy controls."
+  slide_image2
+  filename="slide72.png"
+  alt="Give your users advanced security/privacy controls."
 %}
 
 And really, banning and blocking are just parts of a much larger puzzle.
@@ -924,10 +849,9 @@ what about more granular -->
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 73,
-  :alt => "A screenshot of Facebook’s “Privacy Settings and Tools” page."
+  slide_image2
+  filename="slide73.png"
+  alt="A screenshot of Facebook’s “Privacy Settings and Tools” page."
 %}
 
 Here's an example of the granular controls [exposed by Facebook](https://www.facebook.com/settings?tab=privacy).
@@ -942,10 +866,9 @@ More than just "who can see my posts", they have tools like:
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 75,
-  :alt => "Require wallet names?"
+  slide_image2
+  filename="slide75.png"
+  alt="Require wallet names?"
 %}
 
 Let's change tack and talk about a different tactic some people suggest.
@@ -971,10 +894,9 @@ So you may be inviting more harassment, or just driving users away.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 76,
-  :alt => "A screenshot of a discussion thread with 6063 comments, with the topic “Skills for Someone Else”."
+  slide_image2
+  filename="slide76.png"
+  alt="A screenshot of a discussion thread with 6063 comments, with the topic “Skills for Someone Else”."
 %}
 
 An example from a thread with thousands of anonymous comments, but mostly civil discourse -- this one about coffee, typically a topic of much contention online!
@@ -984,10 +906,9 @@ Retrieved 18 April 2018.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 79,
-  :alt => "Require persistent names."
+  slide_image2
+  filename="slide79.png"
+  alt="Require persistent names."
 %}
 
 If you don't want to put in the moderation for true anonymity, pseudonyms are a good middle ground.
@@ -995,10 +916,9 @@ You get the accountability and reputation of a persistent name, but without tryi
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 80,
-  :alt => "Believe users when they say they have a problem."
+  slide_image2
+  filename="slide80.png"
+  alt="Believe users when they say they have a problem."
 %}
 
 Believe users if they save they have a problem.
@@ -1012,10 +932,9 @@ And remember that it can be hard to report something, so don't penalise somebody
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 81,
-  :alt => "Don't rely on technology to solve human problems."
+  slide_image2
+  filename="slide81.png"
+  alt="Don't rely on technology to solve human problems."
 %}
 
 Humans talking to other humans is a human problem, and automated systems will really struggle to solve it -- use humans instead!
@@ -1034,14 +953,11 @@ Further reading:
 
 
 {%
-  slide
-  :deck => "anti_social_media",
-  :slide => 82,
-  :alt => "A screenshot of a messaging app with a picture of a yellow flower and a message “Thinking of you!”."
+  slide_image2
+  filename="slide82.png"
+  alt="A screenshot of a messaging app with a picture of a yellow flower and a message “Thinking of you!”."
+  caption="Image: a yellow rose, by [Anthony](https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/) on Pexels. Used under CC0."
 %}
-  Image: a yellow rose, by [Anthony](https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/) on Pexels.
-  Used under CC0.
-{% endslide %}
 
 Here's an example where it's impossible to infer context: somebody's sent me a text saying *"Thinking of you!"*.
 
@@ -1051,10 +967,9 @@ But most services don't have enough information to tell that difference.
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 84,
-  :alt => "Design with abusive personas in mind."
+  slide_image2
+  filename="slide84.png"
+  alt="Design with abusive personas in mind."
 %}
 
 And finally -- design with abusive personas in mind.
@@ -1067,36 +982,32 @@ For somebody who wants to do harm, how can I make their life as difficult and fr
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 85,
-  :alt => "Recap slide with best practices."
+  slide_image2
+  filename="slide85.png"
+  alt="Recap slide with best practices."
 %}
 
 (Recap slide of good practices.)
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 86,
-  :alt => "White text on purple. “This isn’t easy.”"
+  slide_image2
+  filename="slide86.png"
+  alt="White text on purple. “This isn’t easy.”"
 %}
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 87,
-  :alt => "White text on purple. “You will have your own ideas.”"
+  slide_image2
+  filename="slide87.png"
+  alt="White text on purple. “You will have your own ideas.”"
 %}
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 88,
-  :alt => "White text on purple. “You should always ask: How could this be used to hurt someone? How could the abusive ex use this?”"
+  slide_image2
+  filename="slide88.png"
+  alt="White text on purple. “You should always ask: How could this be used to hurt someone? How could the abusive ex use this?”"
 %}
 
 Closing thoughts.
@@ -1108,10 +1019,9 @@ If you don't answer this question, it will be answered for you -- and somebody e
 
 
 {%
-  slide_image
-  :deck => "anti_social_media",
-  :slide => 89,
-  :alt => "Closing slide, thanks and link to notes."
+  slide_image2
+  filename="slide89.png"
+  alt="Closing slide, thanks and link to notes."
 %}
 
 (Link to slides, thank everybody who helped.)
