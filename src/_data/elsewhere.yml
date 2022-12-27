@@ -104,7 +104,7 @@ talks:
   event: PyCon UK 2018
   links:
     notes: "/2018/09/suspicious-minds"
-    slides: "/talks/suspicious-minds.pdf"
+    slides: "/files/2018/suspicious-minds.pdf"
     video: https://www.youtube.com/watch?v=B3XxPnbehqQ
   title: Building Trust in an Age of Suspicious Minds
   variant: keynote
