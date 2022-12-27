@@ -50,9 +50,9 @@ References for stuff I mentioned:
 ## Slides and notes
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 1,
-  :alt => "Title slide. It includes my name (Alex Chan), my pronouns (they/she), and a URL pointing to these slides."
+  slide_image2
+  filename="slide1.png"
+  alt="Title slide. It includes my name (Alex Chan), my pronouns (they/she), and a URL pointing to these slides."
 %}
 
 Title slide.
@@ -62,13 +62,11 @@ I'm going to talk about what a README file is, why it's important for your proje
 
 
 {%
-  slide
-  :deck => "ols_readme", :slide => 2,
-  :alt => "Photograph of the front elevation of the Wellcome Collection building at dusk. The building is illuminated with a series of up-lighters, flooding the facade with green light. In the foreground at ground level are blurred streaks of red and yellow from the headlights and tail lights of passing vehicles. The leaves of trees to the left and right of the image frame the building and are themselves blurred as a result of the wind and long photographic exposure."
+  slide_image2
+  filename="slide2.png",
+  alt="Photograph of the front elevation of the Wellcome Collection building at dusk. The building is illuminated with a series of up-lighters, flooding the facade with green light. In the foreground at ground level are blurred streaks of red and yellow from the headlights and tail lights of passing vehicles. The leaves of trees to the left and right of the image frame the building and are themselves blurred as a result of the wind and long photographic exposure."
+  caption="Photo by Thomas Farnetti, Wellcome Collection. Used under CC BY 4.0."
 %}
-  Photo by Thomas Farnetti, Wellcome Collection.
-  Used under CC BY 4.0.
-{% endslide %}
 
 I work at [Wellcome Collection][wc], a museum and library that explores the intersection of health and human experience.
 If you don't know it, a museum and library is a place you'd visit to see objects and books in [The Before Times][before].
@@ -84,13 +82,11 @@ We have a generous budget and we do interesting things, so all our work is [open
 
 
 {%
-  slide
-  :deck => "ols_readme", :slide => 3,
-  :alt => "Two vertical stacks of white paper sitting side-by-side. Between the two stacks is a gap which fades to black. A few of the pages have tabs with numbers or labels scribbled on them, but there's no clear structure."
+  slide_image2
+  filename="slide3.png"
+  alt="Two vertical stacks of white paper sitting side-by-side. Between the two stacks is a gap which fades to black. A few of the pages have tabs with numbers or labels scribbled on them, but there's no clear structure."
+  caption="Photo by <a href="https://pixabay.com/photos/files-paper-office-paperwork-stack-1614223/">myrfa on Pixabay</a>. Used under CC0."
 %}
-  Photo by <a href="https://pixabay.com/photos/files-paper-office-paperwork-stack-1614223/">myrfa on Pixabay</a>.
-  Used under CC0.
-{% endslide %}
 
 But being thrown into a new repository of code is pretty hard!
 
@@ -104,12 +100,11 @@ All tricky questions to answer in a new project: the README helps get you starte
 
 
 {%
-  slide
-  :deck => "ols_readme", :slide => 4,
-  :alt => "A black-and-white screenshot of an old Mac operating system, within an outline of a beige Macintosh computer. The screenshot shows a file browser, with a file with a newspaper icon and the name 'Read Me'."
+  slide_image2
+  filename="slide4.png"
+  alt="A black-and-white screenshot of an old Mac operating system, within an outline of a beige Macintosh computer. The screenshot shows a file browser, with a file with a newspaper icon and the name 'Read Me'."
+  caption="Screenshot from James Friend’s <a href="https://jamesfriend.com.au/pce-js/">Mac Plus emulator</a>."
 %}
-  Screenshot from James Friend’s <a href="https://jamesfriend.com.au/pce-js/">Mac Plus emulator</a>.
-{% endslide %}
 
 The "Read Me" as a concept has been around for a long time – this is a screenshot from [System 7][sys7], but there are examples [as far back as 1974][rm1974].
 
@@ -122,12 +117,10 @@ The idea is that it's the first file you'd read, to get you started.
 
 {%
   slide
-  :deck => "ols_readme", :slide => 5,
-  :alt => "A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
+  filename="slide5.png"
+  alt="A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
+  caption="Photo: Welcome mat at Tukila Station, by <a href="https://www.flickr.com/photos/sounderbruce/16544240269">SonderBruce on Flickr</a>. Used under CC BY-SA 2.0."
 %}
-  Photo: Welcome mat at Tukila Station, by <a href="https://www.flickr.com/photos/sounderbruce/16544240269">SonderBruce on Flickr</a>.
-  Used under CC BY-SA 2.0.
-{% endslide %}
 
 A previous OLS speaker likened a README to a welcome mat, and I like that analogy.
 
@@ -137,9 +130,9 @@ It's the first thing you'd encounter as a new user to a project.
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 7,
-  :alt => "Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
+  slide_image2
+  filename="slide7.png"
+  alt="Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
 %}
 
 There are lots of checklists and templates for READMEs, which you can find using Google.
@@ -171,9 +164,9 @@ It shouldn't be your only documentation, but it should help people get started a
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 6,
-  :alt => "A slide with three grey file icons labelled 'README', 'README.txt' and 'README.md'. The slide is titled 'What is a README?'."
+  slide_image2
+  filename="slide6.png"
+  alt="A slide with three grey file icons labelled 'README', 'README.txt' and 'README.md'. The slide is titled 'What is a README?'."
 %}
 
 Typically a README file is named something like `README`, `README.txt` or `README.md`.
@@ -184,8 +177,8 @@ It lives in the root of your repository.
 
 {%
   slide
-  :deck => "ols_readme", :slide => 8,
-  :alt => "Screenshots of repositories on GitHub and GitLab. A significant part of the area of the page is showing the README."
+  filename="slide8.png"
+  alt="Screenshots of repositories on GitHub and GitLab. A significant part of the area of the page is showing the README."
 %}
   The landing page of <a href="https://github.com/sczesla/PyAstronomy">PyAstronomy</a> (GitHub, left) and <a href="https://gitlab.com/acubesat/su/yeast-biology">Yeast Biology</a> (GitLab, right).
 {% endslide %}
@@ -197,9 +190,9 @@ Code sharing sites like GitHub and GitLab make the README very prominent on proj
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 7,
-  :alt => "Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
+  slide_image2
+  filename="slide7.png"
+  alt="Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
 %}
 
 So again, three questions that should be answered by a README: what is the project?
@@ -216,9 +209,9 @@ With that in mind, let's look at a few examples.
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 9,
-  :alt => "Screenshot of the README for readxl."
+  slide_image2
+  filename="slide9.png"
+  alt="Screenshot of the README for readxl."
 %}
 
 Let's start with the README for [the readxl package](https://github.com/tidyverse/readxl).
@@ -235,9 +228,9 @@ If we read on, what's next?
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 10,
-  :alt => "Screenshot of the README for readxl, with a heading 'Installation'."
+  slide_image2
+  filename="slide10.png"
+  alt="Screenshot of the README for readxl, with a heading 'Installation'."
 %}
 
 Then we have a section on installation, which describes a few different ways to install readxl.
@@ -248,9 +241,9 @@ A README doesn't have to explain everything from scratch.
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 11,
-  :alt => "Screenshot of the README for readxl, with a heading 'Usage' and some examples."
+  slide_image2
+  filename="slide11.png"
+  alt="Screenshot of the README for readxl, with a heading 'Usage' and some examples."
 %}
 
 Finally, the usage section, with some runnable examples.
@@ -260,9 +253,9 @@ I love seeing examples in a README: it's a great way to get a sense of how a pac
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 12,
-  :alt => "Screenshot of the numpy README."
+  slide_image2
+  filename="slide12.png"
+  alt="Screenshot of the numpy README."
 %}
 
 Let's look at a second example: [numpy](https://github.com/numpy/numpy).
@@ -275,9 +268,9 @@ The more detailed description doesn't come until further down.
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 13,
-  :alt => "Screenshot of the README for curl."
+  slide_image2
+  filename="slide13.png"
+  alt="Screenshot of the README for curl."
 %}
 
 Finally, the README for [curl](https://github.com/curl/curl).
@@ -287,9 +280,9 @@ I find the description a bit dry, and I wouldn't mind having a couple of example
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 7,
-  :alt => "Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
+  slide_image2
+  filename="slide7.png"
+  alt="Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
 %}
 
 To repeat the three questions that should be answered by a README.
@@ -303,12 +296,10 @@ Look at READMEs you like and find useful, and try to copy their style.
 
 {%
   slide
-  :deck => "ols_readme", :slide => 5,
-  :alt => "A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
+  filename="slide5.png"
+  alt="A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
+  caption="Photo: Welcome mat at Tukila Station, by <a href="https://www.flickr.com/photos/sounderbruce/16544240269">SonderBruce on Flickr</a>. Used under CC BY-SA 2.0."
 %}
-  Photo: Welcome mat at Tukila Station, by <a href="https://www.flickr.com/photos/sounderbruce/16544240269">SonderBruce on Flickr</a>.
-  Used under CC BY-SA 2.0.
-{% endslide %}
 
 Remember: a README is an introduction to your project.
 It's the first file a new user will read, and it helps them to decide whether to spend more time learning about your project.
@@ -319,9 +310,9 @@ A README helps other people get engaged in your project, which is what you need 
 
 
 {%
-  slide_image
-  :deck => "ols_readme", :slide => 14,
-  :alt => "Wrap-up slide, with the title, my name and website address, and a link to these slides."
+  slide_image2
+  filename="slide14.png"
+  alt="Wrap-up slide, with the title, my name and website address, and a link to these slides."
 %}
 
 Wrap up slide.
