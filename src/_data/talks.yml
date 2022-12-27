@@ -120,7 +120,7 @@
 
     links:
       video: "https://www.youtube.com/watch?v=B3XxPnbehqQ"
-      slides: "/talks/suspicious-minds.pdf"
+      slides: "/files/2018/suspicious-minds.pdf"
       notes: "/2018/09/suspicious-minds"
 
   - title: "A Plumber's Guide to Git"
