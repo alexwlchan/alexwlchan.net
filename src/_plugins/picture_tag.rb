@@ -184,7 +184,7 @@ EOF
           for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
             out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
           
-            if !File.exist? out_path || File.mtime(out_path) < File.mtime(source_path)
+            if !File.exist? out_path
               open(".missing_images.json", "a") { |f|
                 f.puts JSON.generate({
                   "out_path": out_path,
