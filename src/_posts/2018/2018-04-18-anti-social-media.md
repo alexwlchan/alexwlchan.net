@@ -28,7 +28,7 @@ Here's a brief outline:
 The aim isn't to be a comprehensive resource, but to get students thinking about these risks.
 Harassment is a constantly moving target, and it's better to anticipate them before they happen.
 
-You can read the slides and notes on this page, or download the slides [as a PDF](/slides/anti_social_media/anti_social_media_slides.pdf).
+You can read the slides and notes on this page, or download the slides [as a PDF](/files/2018/anti_social_media_slides.pdf).
 The notes are my lightly edited thoughts about what I was going to say with each slide -- but they may not be exactly what I said on the day!
 
 (Caveat: I didn't quite finish writing up all the notes before the lecture.

@@ -24,7 +24,7 @@ This is a talk about privilege.
 It's about how we, as people of privilege in the tech industry, can do more to build cultures that are genuinely inclusive.
 
 I first gave this talk [at PyCon UK 2017][pycon].
-You can read the slides and notes on this page, or download the slides [as a PDF](/slides/privilege_inclusion/privilege_inclusion_slides.pdf).
+You can read the slides and notes on this page, or download the slides [as a PDF](/files/2017/privilege_inclusion_slides.pdf).
 The notes are a rough approximation of what I planned to say, written after the conference finished.
 My spoken and written voice are quite different, but it gets the general gist across.
 
