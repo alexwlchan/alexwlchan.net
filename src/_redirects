@@ -148,7 +148,12 @@
 /files/open-recent-screenshots.zip	                        /files/2014/open-recent-screenshots.zip
 /files/gitignore_global.txt	                                /files/2015/gitignore_global.txt
 /files/readinglist.py	                                      /files/2015/readinglist.py
+/skeletor/skeletor_jan2015.pdf	                            /files/2015/skeletor_jan2015.pdf
+/skeletor/skeletor_jan2015.png	                            /files/2015/skeletor_jan2015.png
 /files/send_to_kindle.py	                                  /files/2016/send_to_kindle.py
+/skeletor/skeletor_jan2016.pdf	                            /files/2016/skeletor_jan2016.pdf
+/skeletor/skeletor_jan2016.png	                            /files/2016/skeletor_jan2016.png
+/skeletor/skeletor_jan2016.tex	                            /files/2016/skeletor_jan2016.tex
 /files/tilings.py	                                          /files/2016/tilings.py
 /files/crossness_beam.mp4	                                  /files/2017/crossness_beam.mp4
 /videos/crossness_beam.mp4                                  /files/2017/crossness_beam.mp4
@@ -167,6 +172,9 @@
 /files/example_loan.xlsx	                                  /files/2019/example_loan.xlsx
 /files/pyconuk_2019_sans_io.pdf	                            /files/2019/pyconuk_2019_sans_io.pdf
 /files/wcag-black-and-white.pdf	                            /files/2019/wcag-black-and-white.pdf
+/skeletor/skeletor_feb2020.pdf	                            /files/2020/skeletor_feb2020.pdf
+/skeletor/skeletor_feb2020.png	                            /files/2020/skeletor_feb2020.png
+/skeletor/skeletor_feb2020.tex	                            /files/2020/skeletor_feb2020.tex
 
 /talks/pyconuk2016  /2016/09/pyconuk2016/
 /talks/qcon2017     /2017/03/qcon2017/
@@ -192,11 +200,3 @@
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /* /404.html 404
-/skeletor/skeletor_feb2020.pdf	/files/2020/skeletor_feb2020.pdf
-/skeletor/skeletor_feb2020.png	/files/2020/skeletor_feb2020.png
-/skeletor/skeletor_feb2020.tex	/files/2020/skeletor_feb2020.tex
-/skeletor/skeletor_jan2015.pdf	/files/2015/skeletor_jan2015.pdf
-/skeletor/skeletor_jan2015.png	/files/2015/skeletor_jan2015.png
-/skeletor/skeletor_jan2016.pdf	/files/2016/skeletor_jan2016.pdf
-/skeletor/skeletor_jan2016.png	/files/2016/skeletor_jan2016.png
-/skeletor/skeletor_jan2016.tex	/files/2016/skeletor_jan2016.tex
