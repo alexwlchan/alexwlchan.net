@@ -7,6 +7,16 @@ on:
   pull_request:
     branches:
     - live
+  
+  # This daily rebuild is to avoid GitHub Actions purging the site cache,
+  # because regenerating all the image thumbnails would be a PITA:
+  #
+  #     GitHub will remove any cache entries that have not been
+  #     accessed in over 7 days.  
+  #
+  # See https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
+  schedule:
+    - cron: "30 7 * * *"
 
 jobs:
   build:
@@ -22,6 +32,9 @@ jobs:
         with:
           path: "_site"
           key: "alexwlchan.net-output"
+
+      - name: "What's in the cache?"
+        run: find _site -type f | sort
 
       - name: "Build the site"
         run: make html-drafts
