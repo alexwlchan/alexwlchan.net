@@ -141,7 +141,7 @@ module Jekyll
         year = context.registers[:page]["date"].year
 
         source_path = "#{src}/_images/#{year}/#{@filename}"
-        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}"
+        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}".gsub('/./', '/')
       else
         source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
         dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, ".*")}".gsub('//', '/')
