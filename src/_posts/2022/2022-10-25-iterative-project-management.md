@@ -99,7 +99,7 @@ To understand this, we need to understand what came before.
 {%
   slide_image2
   filename="slide5.png"
-  :alt => "A series of three blue boxes forming a waterfall. The first box is 'Design and requirements', the second is 'Implementation and testing', the third is 'Deployment and maintenance'."
+  alt="A series of three blue boxes forming a waterfall. The first box is 'Design and requirements', the second is 'Implementation and testing', the third is 'Deployment and maintenance'."
   caption="Waterfall icon by [Luis Prado on the Noun Project](https://thenounproject.com/icon/waterfall-3411/). Used with a [NounPro subscription](https://thenounproject.com/pricing/)."
 %}
 
