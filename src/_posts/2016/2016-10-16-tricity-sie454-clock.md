@@ -15,7 +15,7 @@ If in doubt, consult your oven manual and/or a certified electrician._
 The control panel for my oven is on the upper left-hand side of the front panel:
 This is what it looks like:
 
-![Control panel for a Tricity Bendix SIE454 cooker](/images/notes/tricity-sie454.png)
+![Control panel for a Tricity Bendix SIE454 cooker](/images/2016/tricity-sie454.png)
 
 I use the following steps to reset my clock:
 

@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 """
-extracturls.py
+readinglist.py
 ~~~~~~~~~~~~~~
 
 This script gets a list of all the URLs in Safari Reading List, and
 writes them all to a file.
 
 Requires Python 3.
+
+See https://alexwlchan.net/2015/11/export-urls-from-safari-reading-list/
 """
 
 import os

@@ -25,7 +25,7 @@ This is what the effect looks like, with a single tweet per slide (more than one
 
 It's on the small side for text on a slide, but I've found it to work well if deployed sparingly.
 
-If you'd like to use these templates, I've uploaded [the Keynote file](/files/tweet_templates.key) that has both these slides, and templates for creating more.
-It will probably work [in PowerPoint](/files/tweet_templates.ppt), although I don't have a copy of PowerPoint to test with.
+If you'd like to use these templates, I've uploaded [the Keynote file](/files/2017/tweet_templates.key) that has both these slides, and templates for creating more.
+It will probably work [in PowerPoint](/files/2017/tweet_templates.ppt), although I don't have a copy of PowerPoint to test with.
 
 Enjoy!

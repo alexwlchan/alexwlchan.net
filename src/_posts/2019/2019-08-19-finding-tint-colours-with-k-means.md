@@ -433,7 +433,7 @@ def choose_tint_color(dominant_colors, background_color):
     ]
 ```
 
-Two of the images in my test set don't have any dominant colours that pass WCAG with a white background -- as a quick workaround, add black and white to the mix and try again (every colour has a contrast ratio of 4.5:1 with at least one of black or white; [see proof](/files/wcag-black-and-white.pdf)):
+Two of the images in my test set don't have any dominant colours that pass WCAG with a white background -- as a quick workaround, add black and white to the mix and try again (every colour has a contrast ratio of 4.5:1 with at least one of black or white; [see proof](/files/2019/wcag-black-and-white.pdf)):
 
 ```python
 def choose_tint_color(dominant_colors, background_color):

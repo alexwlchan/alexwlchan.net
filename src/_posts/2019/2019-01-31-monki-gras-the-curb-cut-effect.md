@@ -26,7 +26,7 @@ The talk was recorded, and you can watch it on YouTube:
 
 {% youtube https://www.youtube.com/watch?v=6Yf3iukx3tQ %}
 
-You can read the slides and my notes on this page, or download the slides [as a PDF](/files/curbcut-monkigras.pdf).
+You can read the slides and my notes on this page, or download the slides [as a PDF](/files/2019/curbcut-monkigras.pdf).
 
 <style>
   .slide img {

@@ -51,7 +51,7 @@ talks:
   event: PyCon UK 2020
   links:
     notes: "/2019/10/sans-io-programming/"
-    slides: "/files/pyconuk_2019_sans_io.pdf"
+    slides: "/files/2019/pyconuk_2019_sans_io.pdf"
     video: https://www.youtube.com/watch?v=qwTWqy0uPbY
   title: 'Sans I/O programming patterns: what, why, and how'
 - date: 2019-09-13
@@ -79,7 +79,7 @@ talks:
   event: 'Monki Gras: Inclusive Craft'
   links:
     notes: "/2019/01/monki-gras-the-curb-cut-effect/"
-    slides: "/files/curbcut-monkigras.pdf"
+    slides: "/files/2019/curbcut-monkigras.pdf"
     video: https://www.youtube.com/watch?v=6Yf3iukx3tQ
   title: The Curb Cut Effect
 - date: 2018-09-17
@@ -95,7 +95,7 @@ talks:
   event: PyCon UK 2018
   links:
     notes: "/2018/09/assume-worst-intent/"
-    slides: "/files/assume_worst_intent.pdf"
+    slides: "/files/2018/assume_worst_intent.pdf"
     video: https://www.youtube.com/watch?v=XyGVRlRyT-E
   title: Assume Worst Intent (designing against the abusive ex)
 - date: 2018-09-15
@@ -104,7 +104,7 @@ talks:
   event: PyCon UK 2018
   links:
     notes: "/2018/09/suspicious-minds"
-    slides: "/talks/suspicious-minds.pdf"
+    slides: "/files/2018/suspicious-minds.pdf"
     video: https://www.youtube.com/watch?v=B3XxPnbehqQ
   title: Building Trust in an Age of Suspicious Minds
   variant: keynote
@@ -166,8 +166,8 @@ talks:
   event: QCon London
   links:
     event: https://qconlondon.com/london-2017/london-2017/presentation/introduction-to-property-based-testing.html
-    notes: "/talks/qcon2017/"
-    slides: "/talks/hypothesis_qcon17.pdf"
+    notes: "/2017/03/qcon2017/"
+    slides: "/files/2017/hypothesis_qcon17.pdf"
   title: Property-Based Testing In Practice
 - date: 2016-09-18
   event: PyCon UK

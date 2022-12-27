@@ -12,7 +12,7 @@ Until this morning, I only knew about two places where I could store these rules
 
 1.  **Globally: use `~/.gitignore_global`.**
 
-    The rules in this file apply to every Git repo on your computer. It's useful, but not very interesting &ndash; [mine](/files/gitignore_global.txt) is just a list of file types that I (almost) never want to check in to Git.
+    The rules in this file apply to every Git repo on your computer. It's useful, but not very interesting &ndash; [mine](/files/2015/gitignore_global.txt) is just a list of file types that I (almost) never want to check in to Git.
 
     This isn't attached to a particular repo, so I use Dropbox to sync it between my computers.
 

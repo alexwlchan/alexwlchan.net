@@ -24,7 +24,7 @@ The talk was recorded, and thanks to the wizardry of Tim&nbsp;Williams, it was o
 
 {% youtube https://www.youtube.com/watch?v=B3XxPnbehqQ %}
 
-You can read the slides and transcript on this page, or download the slides [as a PDF](/talks/suspicious-minds.pdf).
+You can read the slides and transcript on this page, or download the slides [as a PDF](/files/2018/suspicious-minds.pdf).
 The transcript is based on the captions on the YouTube video, with some light editing and editorial notes where required.
 
 <!--
