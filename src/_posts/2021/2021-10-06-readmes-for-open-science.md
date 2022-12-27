@@ -50,7 +50,7 @@ References for stuff I mentioned:
 ## Slides and notes
 
 {%
-  slide_image2
+  slide
   filename="slide1.png"
   alt="Title slide. It includes my name (Alex Chan), my pronouns (they/she), and a URL pointing to these slides."
 %}
@@ -62,7 +62,7 @@ I'm going to talk about what a README file is, why it's important for your proje
 
 
 {%
-  slide_image2
+  slide
   filename="slide2.jpg",
   alt="Photograph of the front elevation of the Wellcome Collection building at dusk. The building is illuminated with a series of up-lighters, flooding the facade with green light. In the foreground at ground level are blurred streaks of red and yellow from the headlights and tail lights of passing vehicles. The leaves of trees to the left and right of the image frame the building and are themselves blurred as a result of the wind and long photographic exposure."
   caption="Photo by Thomas Farnetti, Wellcome Collection. Used under CC BY 4.0."
@@ -82,7 +82,7 @@ We have a generous budget and we do interesting things, so all our work is [open
 
 
 {%
-  slide_image2
+  slide
   filename="slide3.jpg"
   alt="Two vertical stacks of white paper sitting side-by-side. Between the two stacks is a gap which fades to black. A few of the pages have tabs with numbers or labels scribbled on them, but there's no clear structure."
   caption="Photo by <a href="https://pixabay.com/photos/files-paper-office-paperwork-stack-1614223/">myrfa on Pixabay</a>. Used under CC0."
@@ -100,7 +100,7 @@ All tricky questions to answer in a new project: the README helps get you starte
 
 
 {%
-  slide_image2
+  slide
   filename="slide4.png"
   alt="A black-and-white screenshot of an old Mac operating system, within an outline of a beige Macintosh computer. The screenshot shows a file browser, with a file with a newspaper icon and the name 'Read Me'."
   caption="Screenshot from James Friend’s <a href="https://jamesfriend.com.au/pce-js/">Mac Plus emulator</a>."
@@ -116,7 +116,7 @@ The idea is that it's the first file you'd read, to get you started.
 
 
 {%
-  slide_image2
+  slide
   filename="slide5.jpg"
   alt="A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
   caption="Photo: Welcome mat at Tukila Station, by [SonderBruce on Flickr](https://www.flickr.com/photos/sounderbruce/16544240269). Used under CC BY-SA 2.0."
@@ -130,7 +130,7 @@ It's the first thing you'd encounter as a new user to a project.
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
 %}
@@ -164,7 +164,7 @@ It shouldn't be your only documentation, but it should help people get started a
 
 
 {%
-  slide_image2
+  slide
   filename="slide6.png"
   alt="A slide with three grey file icons labelled 'README', 'README.txt' and 'README.md'. The slide is titled 'What is a README?'."
 %}
@@ -176,7 +176,7 @@ It lives in the root of your repository.
 
 
 {%
-  slide_image2
+  slide
   filename="slide8.jpg"
   alt="Screenshots of repositories on GitHub and GitLab. A significant part of the area of the page is showing the README."
   caption="The landing page of [PyAstronomy](https://github.com/sczesla/PyAstronomy) (GitHub, left) and [Yeast Biology](https://gitlab.com/acubesat/su/yeast-biology) (GitLab, right)."
@@ -189,7 +189,7 @@ Code sharing sites like GitHub and GitLab make the README very prominent on proj
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
 %}
@@ -208,7 +208,7 @@ With that in mind, let's look at a few examples.
 
 
 {%
-  slide_image2
+  slide
   filename="slide9.png"
   alt="Screenshot of the README for readxl."
 %}
@@ -227,7 +227,7 @@ If we read on, what's next?
 
 
 {%
-  slide_image2
+  slide
   filename="slide10.png"
   alt="Screenshot of the README for readxl, with a heading 'Installation'."
 %}
@@ -240,7 +240,7 @@ A README doesn't have to explain everything from scratch.
 
 
 {%
-  slide_image2
+  slide
   filename="slide11.png"
   alt="Screenshot of the README for readxl, with a heading 'Usage' and some examples."
 %}
@@ -252,7 +252,7 @@ I love seeing examples in a README: it's a great way to get a sense of how a pac
 
 
 {%
-  slide_image2
+  slide
   filename="slide12.png"
   alt="Screenshot of the numpy README."
 %}
@@ -267,7 +267,7 @@ The more detailed description doesn't come until further down.
 
 
 {%
-  slide_image2
+  slide
   filename="slide13.png"
   alt="Screenshot of the README for curl."
 %}
@@ -279,7 +279,7 @@ I find the description a bit dry, and I wouldn't mind having a couple of example
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="Text slide. It has a title in green 'What should a README tell me?' and three bullet points: 'What is this project?' 'Who should use it?' 'How do they get started?'."
 %}
@@ -294,7 +294,7 @@ Look at READMEs you like and find useful, and try to copy their style.
 
 
 {%
-  slide_image2
+  slide
   filename="slide5.jpg"
   alt="A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
   caption="Photo: Welcome mat at Tukila Station, by [SonderBruce on Flickr](https://www.flickr.com/photos/sounderbruce/16544240269). Used under CC BY-SA 2.0."
@@ -309,7 +309,7 @@ A README helps other people get engaged in your project, which is what you need 
 
 
 {%
-  slide_image2
+  slide
   filename="slide14.png"
   alt="Wrap-up slide, with the title, my name and website address, and a link to these slides."
 %}
