@@ -13,4 +13,7 @@ ENV BUNDLE_FORCE_RUBY_PLATFORM true
 COPY ./scripts/install_jekyll.sh .
 RUN ./install_jekyll.sh
 
+COPY ./scripts/install_pillow.sh .
+RUN ./install_pillow.sh
+
 ENTRYPOINT ["bundle", "exec", "jekyll"]

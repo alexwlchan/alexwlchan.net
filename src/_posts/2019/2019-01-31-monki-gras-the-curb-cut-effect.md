@@ -57,15 +57,21 @@ You can read the slides and my notes on this page, or download the slides [as a 
 
 ## Slides and notes
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 1, :alt => "Title slide." %}
+{%
+  slide_image2
+  filename="slide1.jpg"
+  alt="Title slide."
+%}
 
 Hi, I'm Alex.
 I'm going to talk about the Curb Cut Effect, what it is, and how we might use it.
 
-{% slide :deck => "curbcut_monkigras", :slide => 2, :alt => "The Wellcome Collection building, lit up in purple." %}
-  The Wellcome Collection building lit up in purple to mark [International Day of Persons with Disabilities](https://en.wikipedia.org/wiki/United_Nations%27_International_Day_of_Persons_with_Disabilities) in December 2018.
-  Image credit: Wellcome Collection.
-{% endslide %}
+{%
+  slide_image2
+  filename="slide1.jpg"
+  alt="The Wellcome Collection building, lit up in purple."
+  caption="The Wellcome Collection building lit up in purple to mark [International Day of Persons with Disabilities](https://en.wikipedia.org/wiki/United_Nations%27_International_Day_of_Persons_with_Disabilities) in December 2018. Image credit: Wellcome Collection."
+%}
 
 I'm a software developer at [Wellcome Collection][wc], a free museum and library on Euston Road.
 
@@ -75,10 +81,12 @@ Our current exhibition, [Living with Buildings][buildings], is all about the eff
 [wc]: https://wellcomecollection.org/
 [buildings]: https://wellcomecollection.org/exhibitions/Wk4sPSQAACcANwrX
 
-{% slide :deck => "curbcut_monkigras", :slide => 3, :alt => "A dropped kerb against a black background, with the caption “dropped kerb aka curb cut”." %}
-  A dropped kerb around the back of UCL, near the Wellcome offices.
-  Image credit: me!
-{% endslide %}
+{%
+  slide_image2
+  filename="slide3.jpg"
+  alt="A dropped kerb against a black background, with the caption “dropped kerb aka curb cut”."
+  caption="A dropped kerb around the back of UCL, near the Wellcome offices. Image credit: me!"
+%}
 
 I'm talking about those areas where the kerb dips to form a ramp -- giving a level, step-free path from the road to the pavement.
 In the UK, these are usually accompanied by a textured yellow surface (pictured).
@@ -88,10 +96,12 @@ The American spelling is mostly common, and that's what I'll use for the rest of
 
 [kerbs]: https://en.wikipedia.org/wiki/Curb_cut
 
-{% slide :deck => "curbcut_monkigras", :slide => 4, :alt => "A map, with circled areas “Kalamazoo” and “Battle Creek”." %}
-  A map showing part of Michigan, highlighting Kalamazoo and Battle Creek.
-  Image credit: original map [from the US Geological Survey](https://ngmdb.usgs.gov/img4/ht_icons/Browse/MI/MI_Grand%20Rapids_278737_1958_250000.jpg).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide4.jpg"
+  alt="A map, with circled areas “Kalamazoo” and “Battle Creek”."
+  caption="A map showing part of Michigan, highlighting Kalamazoo and Battle Creek. Image credit: original map [from the US Geological Survey](https://ngmdb.usgs.gov/img4/ht_icons/Browse/MI/MI_Grand%20Rapids_278737_1958_250000.jpg)."
+%}
 
 One of the earliest examples of curb cuts was in [Kalamazoo, MI][kalamazoo].
 (Great name!)
@@ -114,10 +124,12 @@ He became well-known among other disabled veterans in and near Kalamazoo -- of w
 [kalamazoo]: https://en.wikipedia.org/wiki/Kalamazoo,_Michigan
 [battle_creek]: https://en.wikipedia.org/wiki/Battle_Creek,_Michigan
 
-{% slide :deck => "curbcut_monkigras", :slide => 5, :alt => "A black and white photo of a wheelchair standing at the edge of a raised curb." %}
-  A wheelchair standing at an raised, inaccessible curb.
-  Image from [an article by the Smithsonian](http://americanhistory.si.edu/blog/smashing-barriers-access-disability-activism-and-curb-cuts).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide5.jpg"
+  alt="A black and white photo of a wheelchair standing at the edge of a raised curb."
+  caption="A wheelchair standing at an raised, inaccessible curb. Image from [an article by the Smithsonian](http://americanhistory.si.edu/blog/smashing-barriers-access-disability-activism-and-curb-cuts)."
+%}
 
 Working closely with them, he became aware of the problems and challenges they faced.
 
@@ -125,10 +137,12 @@ One of those problems: Kalamazoo had tall curbs (up to 6 inches).
 This was a problem -- people would trip, injure themselves, damage prosthetic limbs, and for wheelchair users they're a total nightmare.
 Tall kerbs are inaccessible, and prevent people getting around, socialising, working and so on.
 
-{% slide :deck => "curbcut_monkigras", :slide => 6, :alt => "A black and white photo of a street, with somebody walking up a ramp with hand rails cut into the kerb." %}
-  A ramp with hand rails on the streets of Kalamazoo.
-  Image from [an article in Encore Magazine](http://www.encorekalamazoo.com/creating-curb-cuts).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide6.jpg"
+  alt="A black and white photo of a street, with somebody walking up a ramp with hand rails cut into the kerb."
+  caption="A ramp with hand rails on the streets of Kalamazoo. Image from [an article in Encore Magazine](http://www.encorekalamazoo.com/creating-curb-cuts)."
+%}
 
 So in 1945, Jack Fisher took it upon himself to fix this, and petitioned the city commission for curb cuts and hand-rails.
 Ditching the step would make it easier for people to get around.
@@ -136,7 +150,11 @@ The city authorised their construction and ran a small pilot program, they were 
 
 Kalamazoo is one of the earliest examples of dropped kerbs, but the same story plays out in lots of other places -- curb cuts were installed in lots of places to make the streets more accessible for disabled people and wheelchair users.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 7, :alt => "Text slide, white text on purple. “Curb cuts make the roads more accessible for wheelchair users and disabled people, but they aren't the only people who benefit!”" %}
+{%
+  slide_image2
+  filename="slide7.png"
+  alt="Text slide, white text on purple. “Curb cuts make the roads more accessible for wheelchair users and disabled people, but they aren't the only people who benefit!”"
+%}
 
 So curb cuts make the roads more accessible for wheelchair users and disabled people.
 Yay!
@@ -154,13 +172,21 @@ And probably others.
 
 Wcould call this a "force multipler" or a "happy accident", but really this is the original example of the "Curb Cut Effect".
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 8, :alt => "Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”" %}
+{%
+  slide_image2
+  filename="slide8.png"
+  alt="Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”"
+%}
 
 The Curb Cut Effect comes in many forms, but the way I think of it is:
 
 > Making something better for disabled people can make it better for everyone.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 9, :alt => "Text slide, white text on purple. “What it means for us: Designs that include disabled people are better designs for everybody.”" %}
+{%
+  slide_image2
+  filename="slide9.png"
+  alt="Text slide, white text on purple. “What it means for us: Designs that include disabled people are better designs for everybody.”"
+%}
 
 What this means for us, as people who build things:
 
@@ -170,13 +196,21 @@ And we reflect this is the words we use: it's why we don't talk about *handicapp
 We talk *universal design*.
 We talk about *good* design.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 8, :alt => "Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”" %}
+{%
+  slide_image2
+  filename="slide8.png"
+  alt="Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”"
+%}
 
 (Repeat the Curb Cut Effect.)
 
 Let's look at a few examples.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 10, :alt => "A black-and-white artwork of a woman sitting at a table. There’s a large machine with a keyboard on the table." %}
+{%
+  slide_image2
+  filename="slide10.png"
+  alt="A black-and-white artwork of a woman sitting at a table. There’s a large machine with a keyboard on the table."
+%}
 
 One of the earliest examplse predates Kalamazoo by more than a century.
 
@@ -193,10 +227,12 @@ This was one of the earliest iterations of the typewriter.
 It made writing accessible to the blind, and the derivatives became the modern-day keyboard.
 A machine created to help one blind woman write love letters was the basis for a fundamental input device for modern computing.
 
-{% slide :deck => "curbcut_monkigras", :slide => 11, :alt => "A photo of a laptop with an email client open." %}
-  Somebody using an email client on a laptop.
-  Image credit: [rawpixel.com on Pexels](https://www.pexels.com/photo/person-using-macbook-pro-on-brown-wooden-desk-1061588/).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide11.jpg"
+  alt="A photo of a laptop with an email client open."
+  caption="Somebody using an email client on a laptop. Image credit: [rawpixel.com on Pexels](https://www.pexels.com/photo/person-using-macbook-pro-on-brown-wooden-desk-1061588/)."
+%}
 
 Speaking of love letters… let's talk about email!
 
@@ -206,9 +242,12 @@ Sounds fake.)
 Email has become a ubiquitous part of modern comms, but where did it come from?
 Why was it invented?
 
-{% slide :deck => "curbcut_monkigras", :slide => 12, :alt => "A photo of a man in a suit (Vint Cerf), with a quote overlaid. “Because I’m hearing-impaired, emails are a tremendously valuable tool because of the precision that you get. I can read what’s typed as opposed to straining to hear what’s being said.”" %}
-  A picture of Vinton Cerf, taken from [his Royal Society photo](https://commons.wikimedia.org/wiki/File:Dr_Vint_Cerf_ForMemRS.jpg) and overlaid with a quote [from a CNET article](https://www.cnet.com/news/internet-inventor-vint-cerf-accessibility-disability-deaf-hearing/).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide12.jpg"
+  alt="A photo of a man in a suit (Vint Cerf), with a quote overlaid. “Because I’m hearing-impaired, emails are a tremendously valuable tool because of the precision that you get. I can read what’s typed as opposed to straining to hear what’s being said.”"
+  caption="A picture of Vinton Cerf, taken from [his Royal Society photo](https://commons.wikimedia.org/wiki/File:Dr_Vint_Cerf_ForMemRS.jpg) and overlaid with a quote [from a CNET article](https://www.cnet.com/news/internet-inventor-vint-cerf-accessibility-disability-deaf-hearing/)."
+%}
 
 This is [Vinton Cerf](https://en.wikipedia.org/wiki/Vint_Cerf).
 He's often called the "Father of the Internet", did a lot of work on the early Internet (then-ARPANET) protocols, is a strong advocate for accessibility, and led the work on the first commercial email program.
@@ -227,7 +266,11 @@ Here's a quote [he gave to CNET](https://www.cnet.com/news/internet-inventor-vin
 
 Email started as a key technology for people who are deaf or have hearing loss -- or who are just separated by time and space.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 13, :alt => "A screenshot from Sesame Street, with four characters on screen and a caption “Now everyone can read it”." %}
+{%
+  slide_image2
+  filename="slide13.jpg"
+  alt="A screenshot from Sesame Street, with four characters on screen and a caption “Now everyone can read it”."
+%}
 
 Sticking with hearing loss, let's talk about captions.
 
@@ -245,9 +288,12 @@ And even if you can hear the sound fine, you can still benefit from captions:
 *   Children learning to read
 *   Somebody learning a foreign language
 
-{% slide :deck => "curbcut_monkigras", :slide => 14, :alt => "A person with their hands on a special “stenographic” keyboard, looking up to hear someone talking." %}
-  A photo of one of the captioners at PyCon UK 2017, by [Mark Hawkins](https://www.flickr.com/photos/152472562@N06/37914240642/in/album-72157666242746367/).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide14.jpg"
+  alt="A person with their hands on a special “stenographic” keyboard, looking up to hear someone talking."
+  caption="A photo of one of the captioners at PyCon UK 2017, by [Mark Hawkins](https://www.flickr.com/photos/152472562@N06/37914240642/in/album-72157666242746367/)."
+%}
 
 And it helps with conferences too!
 
@@ -255,15 +301,21 @@ I'm being captioned right now -- literally as I speak!
 [Monki Gras has live captioning.]
 This is one of the captioners at PyCon UK, and our experience is that lots of people find it useful during talks, not just the deaf or hard-of-hearing -- maybe a word you couldn't hear, somebody's speaking with an accent, or you stopped to check twitter halfway through the session.
 
-{% slide :deck => "curbcut_monkigras", :slide => 15, :alt => "A printed page titled “Optical character recognition”, being scanned with a handheld OCR scanner with a red light." %}
-  A photo of a handheld OCR scanner, from [Wikipedia](https://en.wikipedia.org/wiki/Optical_character_recognition).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide15.jpg"
+  alt="A printed page titled “Optical character recognition”, being scanned with a handheld OCR scanner with a red light.""
+  caption="A photo of a handheld OCR scanner, from [Wikipedia](https://en.wikipedia.org/wiki/Optical_character_recognition)."
+%}
 
 Let's look at another bit of early technology: [optical character recognition](https://en.wikipedia.org/wiki/Optical_character_recognition), or OCR.
 
-{% slide :deck => "curbcut_monkigras", :slide => 16, :alt => "A sepia drawing of a machine with a scanning frame and a pair of headphones on a cord." %}
-  A scanned image of an optophone, taken from [Wikipedia](https://commons.wikimedia.org/wiki/File:Optophone_in_detail.jpg).
-{% endslide %}
+{%
+  slide_image2
+  filename="slide16.jpg"
+  alt="A sepia drawing of a machine with a scanning frame and a pair of headphones on a cord.""
+  caption="A scanned image of an optophone, taken from [Wikipedia](https://commons.wikimedia.org/wiki/File:Optophone_in_detail.jpg)."
+%}
 
 Early research into OCR was done to help the blind.
 
@@ -273,29 +325,35 @@ This was pioneering work for computer vision and text-to-speech synthesis.
 
 These have become widely-used technologies: for making textual versions of scanned documents, Google Books, even those smartphone apps that let you translate signs in a foreign language.
 
-{% slide :deck => "curbcut_monkigras", :slide => 17, :alt => "A room with a row of shelves, with the spines of some large books visible on the nearest shelves." %}
-  A room full of grey shelves, with books visible on the nearest shelves.
-  Image credit: Wellcome Collection.
-{% endslide %}
+{%
+  slide_image2
+  filename="slide17.jpg"
+  alt="A room with a row of shelves, with the spines of some large books visible on the nearest shelves.""
+  caption="A room full of grey shelves, with books visible on the nearest shelves. Image credit: Wellcome Collection."
+%}
 
 And in fact, this is what we do at Wellcome Collection!
 
 For those unfamiliar with Wellcome: we have an archive about human health and medicine.
 This is one of our "data centres"...
 
-{% slide :deck => "curbcut_monkigras", :slide => 18, :alt => "A close-up photo of some shelves, with the spines of large and old books closest to the camera." %}
-  Four shelves, each with a couple of large books on each shelf.
-  Image credit: Wellcome Collection.
-{% endslide %}
+{%
+  slide_image2
+  filename="slide18.jpg"
+  alt="A close-up photo of some shelves, with the spines of large and old books closest to the camera.""
+  caption="Four shelves, each with a couple of large books on each shelf. Image credit: Wellcome Collection."
+%}
 
 …using advanced container technology, like "shelves" and "books".
 
 Like many institutions, we're scanning our archives to make them more easily available, and then we use OCR to make them searchable.
 
-{% slide :deck => "curbcut_monkigras", :slide => 19, :alt => "A screenshot of an ebook viewer, with a page titled “Die Radioaktivität”." %}
-  A page from [the notebooks of Marie Curie](https://wellcomelibrary.org/item/b28120991#?c=0&m=0&s=0&cv=6&z=-1.0491%2C0%2C3.0982%2C1.5908), with a search highlighting instances of the word "radioaktiv".
-  Image credit: Wellcome Collection.
-{% endslide %}
+{%
+  slide_image2
+  filename="slide19.jpg"
+  alt="A screenshot of an ebook viewer, with a page titled “Die Radioaktivität”.""
+  caption="A page from [the notebooks of Marie Curie](https://wellcomelibrary.org/item/b28120991#?c=0&m=0&s=0&cv=6&z=-1.0491%2C0%2C3.0982%2C1.5908), with a search highlighting instances of the word “radioaktiv”. Image credit: Wellcome Collection."
+%}
 
 Here's one example of our books: a notebook from Marie Curie, freely available to browse online.
 (Which is preferable to the original, which is [slightly radioactive](https://blog.bir.org.uk/2015/09/02/the-radioactive-legacy-of-marie-curie/)!)
@@ -303,10 +361,12 @@ And using OCR, we can see that the word "radioaktiv" appears 730 times.
 
 This so cool, but it wouldn't exist without the pioneering work done into OCR to help blind people.
 
-{% slide :deck => "curbcut_monkigras", :slide => 20, :alt => "A purple door with a silver handle." %}
-  A silver door handle set against a purple door, with raindrops on the door's surface.
-  Image credit: [MabelAmber on Pixabay](https://pixabay.com/en/door-handle-doorknob-lock-door-3633943/), and recoloured by me.
-{% endslide %}
+{%
+  slide_image2
+  filename="slide20.jpg"
+  alt="A purple door with a silver handle.""
+  caption="A silver door handle set against a purple door, with raindrops on the door's surface. Image credit: [MabelAmber on Pixabay](https://pixabay.com/en/door-handle-doorknob-lock-door-3633943/), and recoloured by me."
+%}
 
 One final example, less high technology and more small convenience: door handles.
 
@@ -315,11 +375,19 @@ Compared to door knobs, handles provide a larger area to grip or rest your hand 
 But they also make it easier if your hands are full, or you're carrying things -- you can lean on the door with an elbow without dropping something.
 It just makes life a bit easier.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 8, :alt => "Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”" %}
+{%
+  slide_image2
+  filename="slide8.png"
+  alt="Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”"
+%}
 
 So those are just a few examples of the Curb Cut Effect.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 21, :alt => "Text slide, white text on purple. “It isn’t just about disability!”" %}
+{%
+  slide_image2
+  filename="slide21.jpg"
+  alt="Text slide, white text on purple. “It isn’t just about disability!”"
+%}
 
 And that's often where discussion of the Curb Cut Effect stops, which is a shame, because it isn't just about disability!
 
@@ -338,7 +406,11 @@ And this is great for them… but it helps lots of other people too.
 *   Men who need baby changing facilities
 *   Somebody having a period emergency and wants a bit of privacy
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 23, :alt => "Text slide, white text on purple. “Making something better for people who are excluded or marginalised makes it better for everyone.”" %}
+{%
+  slide_image2
+  filename="slide23.jpg"
+  alt="Text slide, white text on purple. “Making something better for people who are excluded or marginalised makes it better for everyone.”"
+%}
 
 So we can take the Curb Cut Effect, and make it stronger:
 
@@ -346,7 +418,11 @@ So we can take the Curb Cut Effect, and make it stronger:
 
 It's not just about disability.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 24, :alt => "Text slide, white text on purple. “These are good stories.”" %}
+{%
+  slide_image2
+  filename="slide24.jpg"
+  alt="Text slide, white text on purple. “These are good stories.”"
+%}
 
 So why am I telling you all this?
 Two reasons.
@@ -357,7 +433,11 @@ They're little love letters to inclusion, and a nice way to get people talking a
 It's been really fun to research this talk, and get to go to friends and say, "Hey, did you know this really cool story about the invention of the bendy straw?"
 (Talk to me in the break if you want to know this one.)
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 25, :alt => "Text slide, white text on purple. “Things don’t happen because they’re ‘fair’ or ‘right’.”" %}
+{%
+  slide_image2
+  filename="slide25.jpg"
+  alt="Text slide, white text on purple. “Things don’t happen because they’re ‘fair’ or ‘right’.”"
+%}
 
 There is a moe serious point.
 
@@ -366,7 +446,11 @@ I don't need to convince you -- you want to do it because it's the right thing t
 
 Unfortunately, things dopn't happen because they're "right" or "fair" (what a world that would be!).
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 26, :alt => "Text slide, white text on purple. “We often have to justify the value of inclusion.”" %}
+{%
+  slide_image2
+  filename="slide26.jpg"
+  alt="Text slide, white text on purple. “We often have to justify the value of inclusion.”"
+%}
 
 We often have to justify the value of inclusion.
 (If you're at this conference, you might be the person who does this advocacy, who has to make the business case.)
@@ -376,7 +460,11 @@ How often have you heard questions like "Do we have to do this?  How many people
 And the Curb Cut Effect is a great tool to remember: it shows the value of inclusion.
 Spread the cost across a wide group, and changes to support inclusion suddenly seem much more attractive.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 27, :alt => "Text slide, white text on purple. “We can help one group without hurting another.”" %}
+{%
+  slide_image2
+  filename="slide27.jpg"
+  alt="Text slide, white text on purple. “We can help one group without hurting another.”"
+%}
 
 It also serves to dispel a powerful myth.
 
@@ -388,7 +476,11 @@ The Curb Cut Effect shows us this is false: in fact, it shows us the opposite is
 Making the world a better place for a small number of people can make it better for a much wider number too.
 Yay!
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 23, :alt => "Text slide, white text on purple. “Making something better for people who are excluded or marginalised makes it better for everyone.”" %}
+{%
+  slide_image2
+  filename="slide23.jpg"
+  alt="Text slide, white text on purple. “Making something better for people who are excluded or marginalised makes it better for everyone.”"
+%}
 
 So let's bring this all together.
 
@@ -401,6 +493,10 @@ And of course, curb cuts!
 But there are many more -- go away and try to think of some, maybe even ones in your own work.
 Keep it in mind, see how you can apply it to the things you build, and remember it the next time you're asked to justify the value of inclusion.
 
-{% slide_image :deck => "curbcut_monkigras", :slide => 28, :alt => "Closing slide, with a reminder of the curb cut effect and a link to the slides." %}
+{%
+  slide_image2
+  filename="slide28.jpg"
+  alt="Closing slide, with a reminder of the curb cut effect and a link to the slides."
+%}
 
 (Exit to rapturous applause.)
