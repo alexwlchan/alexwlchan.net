@@ -26,62 +26,53 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v3
 
-      - name: "publish docker image"
-        run: |
-          docker build -t greengloves/alexwlchan.net:29 .
-          docker login --username greengloves --password "$DOCKER_LOGIN_PASSWORD"
-          docker push greengloves/alexwlchan.net:29
-        env:
-          DOCKER_LOGIN_PASSWORD: ${{ secrets.DOCKER_LOGIN_PASSWORD }}
-        
+      - name: "Cache site output"
+        id: "cache-output"
+        uses: "actions/cache@v3"
+        with:
+          path: "_site"
+          key: "alexwlchan.net-output"
 
-      # - name: "Cache site output"
-      #   id: "cache-output"
-      #   uses: "actions/cache@v3"
-      #   with:
-      #     path: "_site"
-      #     key: "alexwlchan.net-output"
-      #
-      # - name: "Build the site"
-      #   run: make html-drafts
-      #
-      # - name: "Run linting"
-      #   run: make lint
-      #
-      # - name: "Merge pull request"
-      #   if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
-      #   run: .github/workflows/merge_pull_request.sh
-      #
-      #   # Note: this uses a personal access token, not the default GitHub token;
-      #   # this is so that GitHub will build the resulting merged commit to main.
-      #   # See https://github.com/ad-m/github-push-action/issues/32
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      #
-      # - name: "Publish drafts"
-      #   if: github.ref == 'refs/heads/live'
-      #   run: |
-      #     if [[ -d "src/_drafts" ]]
-      #     then
-      #       touch ~/.gitconfig
-      #
-      #       git config user.name "GitHub Actions on behalf of Alex Chan"
-      #       git config user.email "githubactions@alexwlchan.net"
-      #
-      #       git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
-      #
-      #       make publish-drafts
-      #       make html
-      #     else
-      #       echo "There is no _drafts folder, so nothing to publish!"
-      #     fi
-      #
-      # - name: "Deploy to Netlify"
-      #   if: github.ref == 'refs/heads/live'
-      #   run: make deploy-prod
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #
-      # - name: "Push any commits to GitHub"
-      #   if: github.ref == 'refs/heads/live'
-      #   run: git push --verbose origin live
+      - name: "Build the site"
+        run: make html-drafts
+
+      - name: "Run linting"
+        run: make lint
+
+      - name: "Merge pull request"
+        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
+        run: .github/workflows/merge_pull_request.sh
+
+        # Note: this uses a personal access token, not the default GitHub token;
+        # this is so that GitHub will build the resulting merged commit to main.
+        # See https://github.com/ad-m/github-push-action/issues/32
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: "Publish drafts"
+        if: github.ref == 'refs/heads/live'
+        run: |
+          if [[ -d "src/_drafts" ]]
+          then
+            touch ~/.gitconfig
+
+            git config user.name "GitHub Actions on behalf of Alex Chan"
+            git config user.email "githubactions@alexwlchan.net"
+
+            git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
+
+            make publish-drafts
+            make html
+          else
+            echo "There is no _drafts folder, so nothing to publish!"
+          fi
+
+      - name: "Deploy to Netlify"
+        if: github.ref == 'refs/heads/live'
+        run: make deploy-prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - name: "Push any commits to GitHub"
+        if: github.ref == 'refs/heads/live'
+        run: git push --verbose origin live
