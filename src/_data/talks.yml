@@ -145,7 +145,7 @@
       good practices for building safer services.
 
     links:
-      slides: "/slides/anti_social_media/anti_social_media_slides.pdf"
+      slides: "/files/2018/anti_social_media_slides.pdf"
       notes: "/2018/04/anti-social-media/"
 
   - title: "A Plumber's Guide to Git"
@@ -165,7 +165,7 @@
     variant: "lightning talk"
 
     links:
-      slides: "/slides/docopt/docopt_slides.pdf"
+      slides: "/files/2017/docopt_slides.pdf"
       notes: "/2017/09/ode-to-docopt/"
 
   - title: "Using privilege to improve inclusion"
@@ -176,7 +176,7 @@
 
     links:
       video: "https://www.youtube.com/watch?v=Ej2EJVMkTKw"
-      slides: "/slides/privilege_inclusion/privilege_inclusion_slides.pdf"
+      slides: "/files/2017/privilege_inclusion_slides.pdf"
       notes: "/2017/11/pyconuk-2017-privilege-inclusion/"
 
   - title: "A Plumber's Guide to Git"

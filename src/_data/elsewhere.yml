@@ -124,7 +124,7 @@ talks:
   event: Bournemouth University
   links:
     notes: "/2018/04/anti-social-media/"
-    slides: "/slides/anti_social_media/anti_social_media_slides.pdf"
+    slides: "/files/2018/anti_social_media_slides.pdf"
   title: "(Anti-)Social Media"
 - date: 2018-03-06
   event: Cambridge Python User Group
@@ -136,14 +136,14 @@ talks:
   event: Cambridge Python User Group
   links:
     notes: "/2017/09/ode-to-docopt/"
-    slides: "/slides/docopt/docopt_slides.pdf"
+    slides: "/files/2017/docopt_slides.pdf"
   title: An ode to docopt
   variant: lightning talk
 - date: 2017-10-27
   event: PyCon UK 2017
   links:
     notes: "/2017/11/pyconuk-2017-privilege-inclusion/"
-    slides: "/slides/privilege_inclusion/privilege_inclusion_slides.pdf"
+    slides: "/files/2017/privilege_inclusion_slides.pdf"
     video: https://www.youtube.com/watch?v=Ej2EJVMkTKw
   title: Using privilege to improve inclusion
 - date: 2017-10-27
