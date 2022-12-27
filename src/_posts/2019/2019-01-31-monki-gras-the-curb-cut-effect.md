@@ -58,7 +58,7 @@ You can read the slides and my notes on this page, or download the slides [as a 
 ## Slides and notes
 
 {%
-  slide_image2
+  slide
   filename="slide1.jpg"
   alt="Title slide."
 %}
@@ -67,7 +67,7 @@ Hi, I'm Alex.
 I'm going to talk about the Curb Cut Effect, what it is, and how we might use it.
 
 {%
-  slide_image2
+  slide
   filename="slide1.jpg"
   alt="The Wellcome Collection building, lit up in purple."
   caption="The Wellcome Collection building lit up in purple to mark [International Day of Persons with Disabilities](https://en.wikipedia.org/wiki/United_Nations%27_International_Day_of_Persons_with_Disabilities) in December 2018. Image credit: Wellcome Collection."
@@ -82,7 +82,7 @@ Our current exhibition, [Living with Buildings][buildings], is all about the eff
 [buildings]: https://wellcomecollection.org/exhibitions/Wk4sPSQAACcANwrX
 
 {%
-  slide_image2
+  slide
   filename="slide3.jpg"
   alt="A dropped kerb against a black background, with the caption “dropped kerb aka curb cut”."
   caption="A dropped kerb around the back of UCL, near the Wellcome offices. Image credit: me!"
@@ -97,7 +97,7 @@ The American spelling is mostly common, and that's what I'll use for the rest of
 [kerbs]: https://en.wikipedia.org/wiki/Curb_cut
 
 {%
-  slide_image2
+  slide
   filename="slide4.jpg"
   alt="A map, with circled areas “Kalamazoo” and “Battle Creek”."
   caption="A map showing part of Michigan, highlighting Kalamazoo and Battle Creek. Image credit: original map [from the US Geological Survey](https://ngmdb.usgs.gov/img4/ht_icons/Browse/MI/MI_Grand%20Rapids_278737_1958_250000.jpg)."
@@ -125,7 +125,7 @@ He became well-known among other disabled veterans in and near Kalamazoo -- of w
 [battle_creek]: https://en.wikipedia.org/wiki/Battle_Creek,_Michigan
 
 {%
-  slide_image2
+  slide
   filename="slide5.jpg"
   alt="A black and white photo of a wheelchair standing at the edge of a raised curb."
   caption="A wheelchair standing at an raised, inaccessible curb. Image from [an article by the Smithsonian](http://americanhistory.si.edu/blog/smashing-barriers-access-disability-activism-and-curb-cuts)."
@@ -138,7 +138,7 @@ This was a problem -- people would trip, injure themselves, damage prosthetic li
 Tall kerbs are inaccessible, and prevent people getting around, socialising, working and so on.
 
 {%
-  slide_image2
+  slide
   filename="slide6.jpg"
   alt="A black and white photo of a street, with somebody walking up a ramp with hand rails cut into the kerb."
   caption="A ramp with hand rails on the streets of Kalamazoo. Image from [an article in Encore Magazine](http://www.encorekalamazoo.com/creating-curb-cuts)."
@@ -151,7 +151,7 @@ The city authorised their construction and ran a small pilot program, they were 
 Kalamazoo is one of the earliest examples of dropped kerbs, but the same story plays out in lots of other places -- curb cuts were installed in lots of places to make the streets more accessible for disabled people and wheelchair users.
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="Text slide, white text on purple. “Curb cuts make the roads more accessible for wheelchair users and disabled people, but they aren't the only people who benefit!”"
 %}
@@ -173,7 +173,7 @@ And probably others.
 Wcould call this a "force multipler" or a "happy accident", but really this is the original example of the "Curb Cut Effect".
 
 {%
-  slide_image2
+  slide
   filename="slide8.png"
   alt="Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”"
 %}
@@ -183,7 +183,7 @@ The Curb Cut Effect comes in many forms, but the way I think of it is:
 > Making something better for disabled people can make it better for everyone.
 
 {%
-  slide_image2
+  slide
   filename="slide9.png"
   alt="Text slide, white text on purple. “What it means for us: Designs that include disabled people are better designs for everybody.”"
 %}
@@ -197,7 +197,7 @@ We talk *universal design*.
 We talk about *good* design.
 
 {%
-  slide_image2
+  slide
   filename="slide8.png"
   alt="Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”"
 %}
@@ -207,7 +207,7 @@ We talk about *good* design.
 Let's look at a few examples.
 
 {%
-  slide_image2
+  slide
   filename="slide10.png"
   alt="A black-and-white artwork of a woman sitting at a table. There’s a large machine with a keyboard on the table."
 %}
@@ -228,7 +228,7 @@ It made writing accessible to the blind, and the derivatives became the modern-d
 A machine created to help one blind woman write love letters was the basis for a fundamental input device for modern computing.
 
 {%
-  slide_image2
+  slide
   filename="slide11.jpg"
   alt="A photo of a laptop with an email client open."
   caption="Somebody using an email client on a laptop. Image credit: [rawpixel.com on Pexels](https://www.pexels.com/photo/person-using-macbook-pro-on-brown-wooden-desk-1061588/)."
@@ -243,7 +243,7 @@ Email has become a ubiquitous part of modern comms, but where did it come from?
 Why was it invented?
 
 {%
-  slide_image2
+  slide
   filename="slide12.jpg"
   alt="A photo of a man in a suit (Vint Cerf), with a quote overlaid. “Because I’m hearing-impaired, emails are a tremendously valuable tool because of the precision that you get. I can read what’s typed as opposed to straining to hear what’s being said.”"
   caption="A picture of Vinton Cerf, taken from [his Royal Society photo](https://commons.wikimedia.org/wiki/File:Dr_Vint_Cerf_ForMemRS.jpg) and overlaid with a quote [from a CNET article](https://www.cnet.com/news/internet-inventor-vint-cerf-accessibility-disability-deaf-hearing/)."
@@ -267,7 +267,7 @@ Here's a quote [he gave to CNET](https://www.cnet.com/news/internet-inventor-vin
 Email started as a key technology for people who are deaf or have hearing loss -- or who are just separated by time and space.
 
 {%
-  slide_image2
+  slide
   filename="slide13.jpg"
   alt="A screenshot from Sesame Street, with four characters on screen and a caption “Now everyone can read it”."
 %}
@@ -289,7 +289,7 @@ And even if you can hear the sound fine, you can still benefit from captions:
 *   Somebody learning a foreign language
 
 {%
-  slide_image2
+  slide
   filename="slide14.jpg"
   alt="A person with their hands on a special “stenographic” keyboard, looking up to hear someone talking."
   caption="A photo of one of the captioners at PyCon UK 2017, by [Mark Hawkins](https://www.flickr.com/photos/152472562@N06/37914240642/in/album-72157666242746367/)."
@@ -302,7 +302,7 @@ I'm being captioned right now -- literally as I speak!
 This is one of the captioners at PyCon UK, and our experience is that lots of people find it useful during talks, not just the deaf or hard-of-hearing -- maybe a word you couldn't hear, somebody's speaking with an accent, or you stopped to check twitter halfway through the session.
 
 {%
-  slide_image2
+  slide
   filename="slide15.jpg"
   alt="A printed page titled “Optical character recognition”, being scanned with a handheld OCR scanner with a red light.""
   caption="A photo of a handheld OCR scanner, from [Wikipedia](https://en.wikipedia.org/wiki/Optical_character_recognition)."
@@ -311,7 +311,7 @@ This is one of the captioners at PyCon UK, and our experience is that lots of pe
 Let's look at another bit of early technology: [optical character recognition](https://en.wikipedia.org/wiki/Optical_character_recognition), or OCR.
 
 {%
-  slide_image2
+  slide
   filename="slide16.jpg"
   alt="A sepia drawing of a machine with a scanning frame and a pair of headphones on a cord.""
   caption="A scanned image of an optophone, taken from [Wikipedia](https://commons.wikimedia.org/wiki/File:Optophone_in_detail.jpg)."
@@ -326,7 +326,7 @@ This was pioneering work for computer vision and text-to-speech synthesis.
 These have become widely-used technologies: for making textual versions of scanned documents, Google Books, even those smartphone apps that let you translate signs in a foreign language.
 
 {%
-  slide_image2
+  slide
   filename="slide17.jpg"
   alt="A room with a row of shelves, with the spines of some large books visible on the nearest shelves.""
   caption="A room full of grey shelves, with books visible on the nearest shelves. Image credit: Wellcome Collection."
@@ -338,7 +338,7 @@ For those unfamiliar with Wellcome: we have an archive about human health and me
 This is one of our "data centres"...
 
 {%
-  slide_image2
+  slide
   filename="slide18.jpg"
   alt="A close-up photo of some shelves, with the spines of large and old books closest to the camera.""
   caption="Four shelves, each with a couple of large books on each shelf. Image credit: Wellcome Collection."
@@ -349,7 +349,7 @@ This is one of our "data centres"...
 Like many institutions, we're scanning our archives to make them more easily available, and then we use OCR to make them searchable.
 
 {%
-  slide_image2
+  slide
   filename="slide19.jpg"
   alt="A screenshot of an ebook viewer, with a page titled “Die Radioaktivität”.""
   caption="A page from [the notebooks of Marie Curie](https://wellcomelibrary.org/item/b28120991#?c=0&m=0&s=0&cv=6&z=-1.0491%2C0%2C3.0982%2C1.5908), with a search highlighting instances of the word “radioaktiv”. Image credit: Wellcome Collection."
@@ -362,7 +362,7 @@ And using OCR, we can see that the word "radioaktiv" appears 730 times.
 This so cool, but it wouldn't exist without the pioneering work done into OCR to help blind people.
 
 {%
-  slide_image2
+  slide
   filename="slide20.jpg"
   alt="A purple door with a silver handle.""
   caption="A silver door handle set against a purple door, with raindrops on the door's surface. Image credit: [MabelAmber on Pixabay](https://pixabay.com/en/door-handle-doorknob-lock-door-3633943/), and recoloured by me."
@@ -376,7 +376,7 @@ But they also make it easier if your hands are full, or you're carrying things -
 It just makes life a bit easier.
 
 {%
-  slide_image2
+  slide
   filename="slide8.png"
   alt="Text slide, white text on purple. “Making something better for disabled people can make it better for everyone.”"
 %}
@@ -384,7 +384,7 @@ It just makes life a bit easier.
 So those are just a few examples of the Curb Cut Effect.
 
 {%
-  slide_image2
+  slide
   filename="slide21.jpg"
   alt="Text slide, white text on purple. “It isn’t just about disability!”"
 %}
@@ -407,7 +407,7 @@ And this is great for them… but it helps lots of other people too.
 *   Somebody having a period emergency and wants a bit of privacy
 
 {%
-  slide_image2
+  slide
   filename="slide23.jpg"
   alt="Text slide, white text on purple. “Making something better for people who are excluded or marginalised makes it better for everyone.”"
 %}
@@ -419,7 +419,7 @@ So we can take the Curb Cut Effect, and make it stronger:
 It's not just about disability.
 
 {%
-  slide_image2
+  slide
   filename="slide24.jpg"
   alt="Text slide, white text on purple. “These are good stories.”"
 %}
@@ -434,7 +434,7 @@ It's been really fun to research this talk, and get to go to friends and say, "H
 (Talk to me in the break if you want to know this one.)
 
 {%
-  slide_image2
+  slide
   filename="slide25.jpg"
   alt="Text slide, white text on purple. “Things don’t happen because they’re ‘fair’ or ‘right’.”"
 %}
@@ -447,7 +447,7 @@ I don't need to convince you -- you want to do it because it's the right thing t
 Unfortunately, things dopn't happen because they're "right" or "fair" (what a world that would be!).
 
 {%
-  slide_image2
+  slide
   filename="slide26.jpg"
   alt="Text slide, white text on purple. “We often have to justify the value of inclusion.”"
 %}
@@ -461,7 +461,7 @@ And the Curb Cut Effect is a great tool to remember: it shows the value of inclu
 Spread the cost across a wide group, and changes to support inclusion suddenly seem much more attractive.
 
 {%
-  slide_image2
+  slide
   filename="slide27.jpg"
   alt="Text slide, white text on purple. “We can help one group without hurting another.”"
 %}
@@ -477,7 +477,7 @@ Making the world a better place for a small number of people can make it better 
 Yay!
 
 {%
-  slide_image2
+  slide
   filename="slide23.jpg"
   alt="Text slide, white text on purple. “Making something better for people who are excluded or marginalised makes it better for everyone.”"
 %}
@@ -494,7 +494,7 @@ But there are many more -- go away and try to think of some, maybe even ones in 
 Keep it in mind, see how you can apply it to the things you build, and remember it the next time you're asked to justify the value of inclusion.
 
 {%
-  slide_image2
+  slide
   filename="slide28.jpg"
   alt="Closing slide, with a reminder of the curb cut effect and a link to the slides."
 %}
