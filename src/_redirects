@@ -183,6 +183,12 @@
 /talks/hypothesis_cover.png         /410.html 410
 /talks/pyconuk2016_cover.png        /410.html 410
 
+/images/notes/resophnotes-directory.png   /images/2014/resophnotes-directory.png
+/images/notes/resophnotes-styled.png      /images/2014/resophnotes-styled.png
+/images/notes/resophnotes-unstyled.png    /images/2014/resophnotes-unstyled.png
+/images/notes/boiler-panel.png            /images/2016/boiler-panel.png
+/images/notes/tricity-sie454.png          /images/2016/tricity-sie454.png
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /* /404.html 404
