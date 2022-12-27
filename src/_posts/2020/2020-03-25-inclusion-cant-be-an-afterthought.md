@@ -40,7 +40,7 @@ References for stuff I mentioned:
 ## Slides and notes
 
 {%
-  slide_image2
+  slide
   filename="slide1.png"
   alt="Title slide."
 %}
@@ -55,7 +55,7 @@ Although I'm a software developer, these ideas are broadly applicable and matter
 
 
 {%
-  slide_image2
+  slide
   filename="slide2.jpg"
   alt="Hands holding glasses with coloured drinks together"
   caption="Image by [bridgesward](https://pixabay.com/users/bridgesward-6083077/) from [Pixabay](https://pixabay.com/). Used under CC0."
@@ -83,7 +83,7 @@ Assuming it's not malice, why does this happen?
 
 
 {%
-  slide_image2
+  slide
   filename="slide3.jpg"
   alt="A child holding a square wooden block tries to put it into a wooden shape sorter."
   caption="Image: personalised shape sorter by [SmilingTreeToys](https://www.etsy.com/uk/listing/108783664/shape-sorter-a-personalized-wooden-shape) on Etsy."
@@ -113,7 +113,7 @@ Let's look at some examples.
 
 
 {%
-  slide_image2
+  slide
   filename="slide4.jpg"
   alt="A hand holding up a smartphone recording video."
   caption="Image by [Teono123 No](https://www.pexels.com/@teono123-no-18036) on [Pexels](https://www.pexels.com/photo/picture-smartphone-elephants-woman-88476/). Used under CC0.
@@ -140,7 +140,7 @@ It wasn't until they had left-handed users that they realised the mistake.
 
 
 {%
-  slide_image2
+  slide
   filename="slide5.png"
   alt="Output from a `git log` command.",
 %}
@@ -155,7 +155,7 @@ It's impossible to change history without it being disruptive or obvious.
 
 
 {%
-  slide_image2
+  slide
   filename="slide6.png"
   alt="Output from a `git log` command, with the name and email address highlighted."
 %}
@@ -172,7 +172,7 @@ It didn't occur to them that this design choice might exclude some users, and no
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.jpg"
   alt="Four images, L-R: a sepia-toned photo of a man with a large moustache; coloured illustrations of various mountains; people gathering at a fish market; a small black rodent on a paper background."
   caption="Images all used under CC BY, L--R:<br/> (1) Henry Wellcome, photograph by [Henry van der Weyde](https://wellcomecollection.org/works/eb8jgc9m). <br/> (2) Comparative heights of mountains, [engraving by S. Hall, 1817](https://wellcomecollection.org/works/xhfjjhgm). <br/> (3) A fish market in India, [gouache drawing 18--](https://wellcomecollection.org/works/v2w6am46). <br/> (4) A shrew mole, [coloured engraving](https://wellcomecollection.org/works/f5f2zqyq)."
@@ -192,7 +192,7 @@ A more racially diverse team might have caught that before it shipped to custome
 
 
 {%
-  slide_image2
+  slide
   filename="slide8.jpg"
   alt="A red car (left) crashing into the back of a yellow car (right).",
   caption="Image by [Pixel-mixer](https://pixabay.com/users/Pixel-mixer-1197643/) on [Pixabay](https://pixabay.com/photos/crash-test-collision-60-km-h-1620592/). Used under CC0.
@@ -211,7 +211,7 @@ The car industry does now use a wider variety of crash test dummies, but it'll b
 
 
 {%
-  slide_image2
+  slide
   filename="slide9.png"
   alt="Text slide: Inclusion has to be part of our design process.",
 %}
@@ -229,7 +229,7 @@ Inclusion has to be part of our design process.
 
 
 {%
-  slide_image2
+  slide
   filename="slide10.png"
   alt="Text slide: We get more inclusive when we spot our previously unnoticed rules."
 %}
@@ -249,7 +249,7 @@ Twitter certainly isn't the only way to do this -- find any medium that lets you
 
 
 {%
-  slide_image2
+  slide
   filename="slide11.png"
   alt="Closing slide."
 %}
