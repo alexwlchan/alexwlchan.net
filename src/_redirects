@@ -172,6 +172,9 @@
 /files/colossus.pdf             /410.html 410
 /files/ga-privacy.txt           /410.html 410
 /files/rock-crushers.txt        /410.html 410
+/talks/campug_git.pdf           /410.html 410
+/talks/colossus_operators.jpg   /410.html 410
+/talks/hypothesis_cover.png     /410.html 410
 /talks/pyconuk2016_cover.png    /410.html 410
 
 # This uses Netlify's custom 404 error page handling
