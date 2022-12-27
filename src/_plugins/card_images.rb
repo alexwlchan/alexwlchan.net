@@ -53,20 +53,27 @@ Jekyll::Hooks.register :site, :post_read do |site|
     if matching_images.length == 2
       index_card = matching_images.find { |p| p.include? ".index." }
       social_card = matching_images.find { |p| p.include? ".social." }
-      
-      social_card_out = social_card.gsub('src/_images', '_site/images')
-      
-      # Create an image which is at least 800px wide, and at most 1000px wide.
-      if !File.exist? social_card_out
-        image = Rszr::Image.load(social_card)
-        
-        out_width = [[image.width, 800].max, 1000].min
-        
-        resized_image = image.resize(out_width, out_width / 2)
-        resized_image.save(social_card_out)
-      end
     else
       index_card = social_card = matching_images[0]
+    end
+    
+    # Make sure we save a copy of the social card at the right size; this
+    # won't be sent with srcset or similar.
+    social_card_out = social_card.gsub('src/_images', '_site/images')
+    
+    # Create an image which is at least 800px wide, and at most 1000px wide.
+    if !File.exist? social_card_out
+      image = Rszr::Image.load(social_card)
+      
+      out_width = [[image.width, 800].max, 1000].min
+      
+      open(".missing_images.json", "a") { |f|
+        f.puts JSON.generate({
+          "out_path": social_card_out,
+          "source_path": social_card,
+          "width": out_width
+        })
+      }
     end
 
     # Now we attach enough data to the post that the downstream components
