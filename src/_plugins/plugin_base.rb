@@ -6,7 +6,7 @@
 def parse_attrs(s)
   result = {}
 
-  s.scan(/(?<key>[a-z_]+)(="(?<value>[^"]+)")?/).each { |k, v|
+  s.scan(/(?<key>[a-z_]+)(="(?<value>[^"]*)")?/).each { |k, v|
     result[k] = v
   }
   
