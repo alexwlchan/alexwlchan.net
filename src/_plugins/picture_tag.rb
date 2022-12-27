@@ -60,6 +60,15 @@
 # <picture> tag will be wrapped in an <a> that links to the full-sized image.
 # This is useful in gallery posts.
 #
+# This example files the image in something other than the per-year directory:
+#
+#     {%
+#.      picture
+#.      filename="profile_green.jpg"
+#.      parent="/images"
+#.      visible_width="750px"
+#.    %}
+#
 # Any other attribute (e.g. `style`) will be passed directly to the underlying
 # <img> tag, which allows you to apply styles or behaviours not covered by
 # this plugin.
@@ -113,24 +122,30 @@ module Jekyll
         @attrs, { :tag => "picture", :attribute => "visible_width" }
       ).gsub(/px/, '').to_i
       
+      @parent = @attrs.delete("parent")
+      
       @link_to_original = @attrs.include? "link_to_original"
       @attrs.delete("link_to_original")
     end
     
     def render(context)
-      
-      # This tag will always be called in the context of a blog post,
-      # when we have access to the post date -- and images are filed
-      # in per-year directories to match posts.
-      year = context.registers[:page]["date"].year
-      
       # This allows us to deduce the source path of the image
       site = context.registers[:site]
       src = site.config["source"]
       dst = site.config["destination"]
+      
+      if @parent.nil?      
+        # If this tag is called in the context of a blog post, we have access
+        # to the post date -- and images are filed in per-year directories
+        # to match posts.
+        year = context.registers[:page]["date"].year
 
-      source_path = "#{src}/_images/#{year}/#{@filename}"
-      dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}"
+        source_path = "#{src}/_images/#{year}/#{@filename}"
+        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}"
+      else
+        source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
+        dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, ".*")}".gsub('//', '/')
+      end
       
       sources = prepare_images(source_path, dst_prefix, @visible_width)
       
