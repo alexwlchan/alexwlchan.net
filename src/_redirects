@@ -167,6 +167,12 @@
 /files/pyconuk_2019_sans_io.pdf	                            /files/2019/pyconuk_2019_sans_io.pdf
 /files/wcag-black-and-white.pdf	                            /files/2019/wcag-black-and-white.pdf
 
+/files/boiler_instructions.pdf  /410.html 410
+/files/colossus.pdf             /410.html 410
+/files/ga-privacy.txt           /410.html 410
+/files/rock-crushers.txt        /410.html 410
+/talks/pyconuk2016_cover.png    /410.html 410
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /* /404.html 404
