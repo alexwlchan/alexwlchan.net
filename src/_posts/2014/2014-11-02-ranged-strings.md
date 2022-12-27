@@ -57,8 +57,8 @@ ftp://ftp.numericals.com/file5.txt
 I have this bound to a TextExpander snippet, with a fill-in field for the string.
 
 The script itself [is in a Gist][gist], or you can
-<a target="_blank" href="/files/curlparser.py">download it directly</a>.
-I've also got <a target="_blank" href="/files/curlparser-examples.txt">a list
+<a target="_blank" href="/files/2014/curlparser.py">download it directly</a>.
+I've also got <a target="_blank" href="/files/2014/curlparser-examples.txt">a list
 of examples</a> from the cURL man page.
 
 When I originally thought about this problem, I only had one use-case in mind. It's another project, which has a database with lots of similar strings. I can save on disk space by encoding strings in the database with this compact notation, and only getting the full list when I actually need the strings.

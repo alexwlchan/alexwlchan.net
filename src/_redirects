@@ -54,13 +54,13 @@
 
 /2018/03/plumbers-guide-intro/      /a-plumbers-guide-to-git/
 /a-plumbers-guide-to-git/1          /a-plumbers-guide-to-git/1-the-git-object-store/
-/a-plumbers-guide-to-git/1/ /a-plumbers-guide-to-git/1-the-git-object-store/
+/a-plumbers-guide-to-git/1/         /a-plumbers-guide-to-git/1-the-git-object-store/
 /a-plumbers-guide-to-git/2          /a-plumbers-guide-to-git/2-blobs-and-trees/
-/a-plumbers-guide-to-git/2/ /a-plumbers-guide-to-git/2-blobs-and-trees/
+/a-plumbers-guide-to-git/2/         /a-plumbers-guide-to-git/2-blobs-and-trees/
 /a-plumbers-guide-to-git/3          /a-plumbers-guide-to-git/3-context-from-commits/
-/a-plumbers-guide-to-git/3/ /a-plumbers-guide-to-git/3-context-from-commits/
+/a-plumbers-guide-to-git/3/         /a-plumbers-guide-to-git/3-context-from-commits/
 /a-plumbers-guide-to-git/4          /a-plumbers-guide-to-git/4-refs-and-branches/
-/a-plumbers-guide-to-git/4/ /a-plumbers-guide-to-git/4-refs-and-branches/
+/a-plumbers-guide-to-git/4/         /a-plumbers-guide-to-git/4-refs-and-branches/
 
 # Jekyll changed the slug on this one.
 /2016/05/safely-deleting-a-file-called-rf-/ /2016/05/safely-deleting-a-file-called-rf/
@@ -100,12 +100,8 @@
 
 /contact/                           /#contact
 
-/slides/assume_worst_intent.pdf     /files/assume_worst_intent.pdf
-/slides/colossus.pdf                /files/colossus.pdf
 /slides/git_plumbers_guide.pdf      /files/git_plumbers_guide.pdf
 /slides/pyconuk_asexuality.png      /images/2017/pyconuk_asexuality.png
-/videos/crossness_beam.mp4          /files/crossness_beam.mp4
-/videos/crossness_flywheel.mp4      /files/crossness_flywheel.mp4
 
 /maths/part-ib/geometry.pdf         /files/geometry.pdf
 /maths/part-ib/linear-algebra.pdf   /files/linear-algebra.pdf
@@ -116,63 +112,6 @@
 /maths/met-top-spaces.pdf           /files/met-top-spaces.pdf
 
 /talks/hypothesis-intro/            /2016/07/hypothesis-intro/
-
-/talks/hypothesis-intro/hypothesis-slide000.png /slides/hypothesis-intro/hypothesis-intro.000.png
-/talks/hypothesis-intro/hypothesis-slide001.png /slides/hypothesis-intro/hypothesis-intro.001.png
-/talks/hypothesis-intro/hypothesis-slide002.png /slides/hypothesis-intro/hypothesis-intro.002.png
-/talks/hypothesis-intro/hypothesis-slide003.png /slides/hypothesis-intro/hypothesis-intro.003.png
-/talks/hypothesis-intro/hypothesis-slide004.png /slides/hypothesis-intro/hypothesis-intro.004.png
-/talks/hypothesis-intro/hypothesis-slide005.png /slides/hypothesis-intro/hypothesis-intro.005.png
-/talks/hypothesis-intro/hypothesis-slide006.png /slides/hypothesis-intro/hypothesis-intro.006.png
-/talks/hypothesis-intro/hypothesis-slide007.png /slides/hypothesis-intro/hypothesis-intro.007.png
-/talks/hypothesis-intro/hypothesis-slide008.png /slides/hypothesis-intro/hypothesis-intro.008.png
-/talks/hypothesis-intro/hypothesis-slide009.png /slides/hypothesis-intro/hypothesis-intro.009.png
-/talks/hypothesis-intro/hypothesis-slide010.png /slides/hypothesis-intro/hypothesis-intro.010.png
-/talks/hypothesis-intro/hypothesis-slide011.png /slides/hypothesis-intro/hypothesis-intro.011.png
-/talks/hypothesis-intro/hypothesis-slide012.png /slides/hypothesis-intro/hypothesis-intro.012.png
-/talks/hypothesis-intro/hypothesis-slide013.png /slides/hypothesis-intro/hypothesis-intro.013.png
-/talks/hypothesis-intro/hypothesis-slide014.png /slides/hypothesis-intro/hypothesis-intro.014.png
-/talks/hypothesis-intro/hypothesis-slide015.png /slides/hypothesis-intro/hypothesis-intro.015.png
-/talks/hypothesis-intro/hypothesis-slide016.png /slides/hypothesis-intro/hypothesis-intro.016.png
-/talks/hypothesis-intro/hypothesis-slide017.png /slides/hypothesis-intro/hypothesis-intro.017.png
-/talks/hypothesis-intro/hypothesis-slide018.png /slides/hypothesis-intro/hypothesis-intro.018.png
-/talks/hypothesis-intro/hypothesis-slide019.png /slides/hypothesis-intro/hypothesis-intro.019.png
-/talks/hypothesis-intro/hypothesis-slide020.png /slides/hypothesis-intro/hypothesis-intro.020.png
-/talks/hypothesis-intro/hypothesis-slide021.png /slides/hypothesis-intro/hypothesis-intro.021.png
-/talks/hypothesis-intro/hypothesis-slide022.png /slides/hypothesis-intro/hypothesis-intro.022.png
-/talks/hypothesis-intro/hypothesis-slide023.png /slides/hypothesis-intro/hypothesis-intro.023.png
-/talks/hypothesis-intro/hypothesis-slide024.png /slides/hypothesis-intro/hypothesis-intro.024.png
-/talks/hypothesis-intro/hypothesis-slide025.png /slides/hypothesis-intro/hypothesis-intro.025.png
-/talks/hypothesis-intro/hypothesis-slide026.png /slides/hypothesis-intro/hypothesis-intro.026.png
-/talks/hypothesis-intro/hypothesis-slide027.png /slides/hypothesis-intro/hypothesis-intro.027.png
-/talks/hypothesis-intro/hypothesis-slide028.png /slides/hypothesis-intro/hypothesis-intro.028.png
-/talks/hypothesis-intro/hypothesis-slide029.png /slides/hypothesis-intro/hypothesis-intro.029.png
-/talks/hypothesis-intro/hypothesis-slide030.png /slides/hypothesis-intro/hypothesis-intro.030.png
-/talks/hypothesis-intro/hypothesis-slide031.png /slides/hypothesis-intro/hypothesis-intro.031.png
-/talks/hypothesis-intro/hypothesis-slide032.png /slides/hypothesis-intro/hypothesis-intro.032.png
-/talks/hypothesis-intro/hypothesis-slide033.png /slides/hypothesis-intro/hypothesis-intro.033.png
-/talks/hypothesis-intro/hypothesis-slide034.png /slides/hypothesis-intro/hypothesis-intro.034.png
-/talks/hypothesis-intro/hypothesis-slide035.png /slides/hypothesis-intro/hypothesis-intro.035.png
-/talks/hypothesis-intro/hypothesis-slide036.png /slides/hypothesis-intro/hypothesis-intro.036.png
-/talks/hypothesis-intro/hypothesis-slide037.png /slides/hypothesis-intro/hypothesis-intro.037.png
-/talks/hypothesis-intro/hypothesis-slide038.png /slides/hypothesis-intro/hypothesis-intro.038.png
-/talks/hypothesis-intro/hypothesis-slide039.png /slides/hypothesis-intro/hypothesis-intro.039.png
-/talks/hypothesis-intro/hypothesis-slide040.png /slides/hypothesis-intro/hypothesis-intro.040.png
-/talks/hypothesis-intro/hypothesis-slide041.png /slides/hypothesis-intro/hypothesis-intro.041.png
-/talks/hypothesis-intro/hypothesis-slide042.png /slides/hypothesis-intro/hypothesis-intro.042.png
-/talks/hypothesis-intro/hypothesis-slide043.png /slides/hypothesis-intro/hypothesis-intro.043.png
-/talks/hypothesis-intro/hypothesis-slide044.png /slides/hypothesis-intro/hypothesis-intro.044.png
-/talks/hypothesis-intro/hypothesis-slide045.png /slides/hypothesis-intro/hypothesis-intro.045.png
-/talks/hypothesis-intro/hypothesis-slide046.png /slides/hypothesis-intro/hypothesis-intro.046.png
-/talks/hypothesis-intro/hypothesis-slide047.png /slides/hypothesis-intro/hypothesis-intro.047.png
-/talks/hypothesis-intro/hypothesis-slide048.png /slides/hypothesis-intro/hypothesis-intro.048.png
-/talks/hypothesis-intro/hypothesis-slide049.png /slides/hypothesis-intro/hypothesis-intro.049.png
-/talks/hypothesis-intro/hypothesis-slide050.png /slides/hypothesis-intro/hypothesis-intro.050.png
-/talks/hypothesis-intro/hypothesis-slide051.png /slides/hypothesis-intro/hypothesis-intro.051.png
-/talks/hypothesis-intro/hypothesis-slide052.png /slides/hypothesis-intro/hypothesis-intro.052.png
-/talks/hypothesis-intro/hypothesis-slide053.png /slides/hypothesis-intro/hypothesis-intro.053.png
-/talks/hypothesis-intro/hypothesis-slide054.png /slides/hypothesis-intro/hypothesis-intro.054.png
-/talks/hypothesis-intro/hypothesis-slide055.png /slides/hypothesis-intro/hypothesis-intro.055.png
 
 /notes/custom-css-resophnotes                   /2014/11/custom-css-resophnotes/
 /notes/custom-css-resophnotes/                  /2014/11/custom-css-resophnotes/
@@ -198,9 +137,57 @@
 
 /notes /410.html 410
 
+# This is some changes I made in Christmas 2022 to tidy up the structure
+# of the 'files' directory; I had a bunch of files which were in the
+# top-level, and not in the per-year folders I'd started using for
+# newer files.
+/files/find_untagged_posts.py	                              /files/2013/find_untagged_posts.py
+/files/untagged-posts.py	                                  /files/2013/find_untagged_posts.py
+/files/curlparser.py	                                      /files/2014/curlparser.py
+/files/curlparser-examples.txt	                            /files/2014/curlparser-examples.txt
+/files/open-recent-screenshots.zip	                        /files/2014/open-recent-screenshots.zip
+/files/gitignore_global.txt	                                /files/2015/gitignore_global.txt
+/files/readinglist.py	                                      /files/2015/readinglist.py
+/files/send_to_kindle.py	                                  /files/2016/send_to_kindle.py
+/files/tilings.py	                                          /files/2016/tilings.py
+/files/crossness_beam.mp4	                                  /files/2017/crossness_beam.mp4
+/videos/crossness_beam.mp4                                  /files/2017/crossness_beam.mp4
+/files/crossness_flywheel.mp4	                              /files/2017/crossness_flywheel.mp4
+/videos/crossness_flywheel.mp4                              /files/2017/crossness_flywheel.mp4
 /slides/docopt/docopt_slides.pdf                            /files/2017/docopt_slides.pdf
+/talks/hypothesis_qcon17.pdf                                /files/2017/hypothesis_qcon17.pdf
 /slides/privilege_inclusion/privilege_inclusion_slides.pdf  /files/2017/privilege_inclusion_slides.pdf
+/files/tweet_templates.key	                                /files/2017/tweet_templates.key
+/files/tweet_templates.ppt	                                /files/2017/tweet_templates.ppt
 /slides/anti_social_media/anti_social_media_slides.pdf      /files/2018/anti_social_media_slides.pdf
+/slides/assume_worst_intent.pdf                             /files/2018/assume_worst_intent.pdf
+/files/assume_worst_intent.pdf	                            /files/2018/assume_worst_intent.pdf
+/talks/suspicious-minds.pdf	                                /files/2018/suspicious-minds.pdf
+/files/curbcut-monkigras.pdf	                              /files/2019/curbcut-monkigras.pdf
+/files/example_loan.xlsx	                                  /files/2019/example_loan.xlsx
+/files/pyconuk_2019_sans_io.pdf	                            /files/2019/pyconuk_2019_sans_io.pdf
+/files/wcag-black-and-white.pdf	                            /files/2019/wcag-black-and-white.pdf
+
+/talks/pyconuk2016  /2016/09/pyconuk2016/
+/talks/qcon2017     /2017/03/qcon2017/
+
+/images/talks/oxford_git.jpg        /410.html 410
+/images/talks/suspicious_minds.jpg  /410.html 410
+/images/talks/worst_intent.png      /410.html 410
+/files/boiler_instructions.pdf      /410.html 410
+/files/colossus.pdf                 /410.html 410
+/files/ga-privacy.txt               /410.html 410
+/files/rock-crushers.txt            /410.html 410
+/talks/campug_git.pdf               /410.html 410
+/talks/colossus_operators.jpg       /410.html 410
+/talks/hypothesis_cover.png         /410.html 410
+/talks/pyconuk2016_cover.png        /410.html 410
+
+/images/notes/resophnotes-directory.png   /images/2014/resophnotes-directory.png
+/images/notes/resophnotes-styled.png      /images/2014/resophnotes-styled.png
+/images/notes/resophnotes-unstyled.png    /images/2014/resophnotes-unstyled.png
+/images/notes/boiler-panel.png            /images/2016/boiler-panel.png
+/images/notes/tricity-sie454.png          /images/2016/tricity-sie454.png
 
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling

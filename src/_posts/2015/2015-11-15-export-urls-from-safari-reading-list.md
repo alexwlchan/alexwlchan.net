@@ -53,7 +53,7 @@ with open(OUTPUT_FILE, 'w') as outfile:
 
 This uses the Python 3 version of the plistlib module; older versions of Python have a slightly different API.
 
-To use it, just [download the script](/files/readinglist.py), and run it through Terminal:
+To use it, just [download the script](/files/2015/readinglist.py), and run it through Terminal:
 
 ```console
 $ python3 /path/to/readinglist.py

@@ -121,4 +121,4 @@ I can tweak some values, and instantly get those answers -- not go hunting to fi
 It goes beyond just loan repayments -- FORMULATEXT seems great for teaching, and CONCATENATE and INDIRECT allow a level of dynamic programming that I haven't known how to do in Excel before.
 I don't know when I'll need spreadsheets again, but I'm excited to have these functions available when I do.
 
-*If you'd like to play with the spreadsheet I used for this post, you can [download your own copy](/files/example_loan.xlsx).*
+*If you'd like to play with the spreadsheet I used for this post, you can [download your own copy](/files/2019/example_loan.xlsx).*
