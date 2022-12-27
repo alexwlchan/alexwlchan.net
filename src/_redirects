@@ -171,14 +171,17 @@
 /talks/pyconuk2016  /2016/09/pyconuk2016/
 /talks/qcon2017     /2017/03/qcon2017/
 
-/files/boiler_instructions.pdf  /410.html 410
-/files/colossus.pdf             /410.html 410
-/files/ga-privacy.txt           /410.html 410
-/files/rock-crushers.txt        /410.html 410
-/talks/campug_git.pdf           /410.html 410
-/talks/colossus_operators.jpg   /410.html 410
-/talks/hypothesis_cover.png     /410.html 410
-/talks/pyconuk2016_cover.png    /410.html 410
+/images/talks/oxford_git.jpg        /410.html 410
+/images/talks/suspicious_minds.jpg  /410.html 410
+/images/talks/worst_intent.png      /410.html 410
+/files/boiler_instructions.pdf      /410.html 410
+/files/colossus.pdf                 /410.html 410
+/files/ga-privacy.txt               /410.html 410
+/files/rock-crushers.txt            /410.html 410
+/talks/campug_git.pdf               /410.html 410
+/talks/colossus_operators.jpg       /410.html 410
+/talks/hypothesis_cover.png         /410.html 410
+/talks/pyconuk2016_cover.png        /410.html 410
 
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
