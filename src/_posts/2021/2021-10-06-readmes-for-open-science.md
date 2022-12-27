@@ -63,7 +63,7 @@ I'm going to talk about what a README file is, why it's important for your proje
 
 {%
   slide_image2
-  filename="slide2.png",
+  filename="slide2.jpg",
   alt="Photograph of the front elevation of the Wellcome Collection building at dusk. The building is illuminated with a series of up-lighters, flooding the facade with green light. In the foreground at ground level are blurred streaks of red and yellow from the headlights and tail lights of passing vehicles. The leaves of trees to the left and right of the image frame the building and are themselves blurred as a result of the wind and long photographic exposure."
   caption="Photo by Thomas Farnetti, Wellcome Collection. Used under CC BY 4.0."
 %}
@@ -83,7 +83,7 @@ We have a generous budget and we do interesting things, so all our work is [open
 
 {%
   slide_image2
-  filename="slide3.png"
+  filename="slide3.jpg"
   alt="Two vertical stacks of white paper sitting side-by-side. Between the two stacks is a gap which fades to black. A few of the pages have tabs with numbers or labels scribbled on them, but there's no clear structure."
   caption="Photo by <a href="https://pixabay.com/photos/files-paper-office-paperwork-stack-1614223/">myrfa on Pixabay</a>. Used under CC0."
 %}
@@ -116,10 +116,10 @@ The idea is that it's the first file you'd read, to get you started.
 
 
 {%
-  slide
-  filename="slide5.png"
+  slide_image2
+  filename="slide5.jpg"
   alt="A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
-  caption="Photo: Welcome mat at Tukila Station, by <a href="https://www.flickr.com/photos/sounderbruce/16544240269">SonderBruce on Flickr</a>. Used under CC BY-SA 2.0."
+  caption="Photo: Welcome mat at Tukila Station, by [SonderBruce on Flickr](https://www.flickr.com/photos/sounderbruce/16544240269). Used under CC BY-SA 2.0."
 %}
 
 A previous OLS speaker likened a README to a welcome mat, and I like that analogy.
@@ -176,12 +176,11 @@ It lives in the root of your repository.
 
 
 {%
-  slide
-  filename="slide8.png"
+  slide_image2
+  filename="slide8.jpg"
   alt="Screenshots of repositories on GitHub and GitLab. A significant part of the area of the page is showing the README."
+  caption="The landing page of [PyAstronomy](https://github.com/sczesla/PyAstronomy) (GitHub, left) and [Yeast Biology](https://gitlab.com/acubesat/su/yeast-biology) (GitLab, right)."
 %}
-  The landing page of <a href="https://github.com/sczesla/PyAstronomy">PyAstronomy</a> (GitHub, left) and <a href="https://gitlab.com/acubesat/su/yeast-biology">Yeast Biology</a> (GitLab, right).
-{% endslide %}
 
 Historically the README was the first file you'd read; today it's the first thing you'll see.
 
@@ -295,10 +294,10 @@ Look at READMEs you like and find useful, and try to copy their style.
 
 
 {%
-  slide
-  filename="slide5.png"
+  slide_image2
+  filename="slide5.jpg"
   alt="A station platform with a green cobbled edge and a black-and-white welcome mat. The welcome mat has a pattern of interspersed diamonds in different colours, and the word 'Welcome' in dark text at the centre. The green cobbled edge runs across the top of the image, and has the text 'What is a README?' overlaid in green."
-  caption="Photo: Welcome mat at Tukila Station, by <a href="https://www.flickr.com/photos/sounderbruce/16544240269">SonderBruce on Flickr</a>. Used under CC BY-SA 2.0."
+  caption="Photo: Welcome mat at Tukila Station, by [SonderBruce on Flickr](https://www.flickr.com/photos/sounderbruce/16544240269). Used under CC BY-SA 2.0."
 %}
 
 Remember: a README is an introduction to your project.
