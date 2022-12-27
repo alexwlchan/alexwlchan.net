@@ -192,3 +192,11 @@
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /* /404.html 404
+/skeletor/skeletor_feb2020.pdf	/files/2020/skeletor_feb2020.pdf
+/skeletor/skeletor_feb2020.png	/files/2020/skeletor_feb2020.png
+/skeletor/skeletor_feb2020.tex	/files/2020/skeletor_feb2020.tex
+/skeletor/skeletor_jan2015.pdf	/files/2015/skeletor_jan2015.pdf
+/skeletor/skeletor_jan2015.png	/files/2015/skeletor_jan2015.png
+/skeletor/skeletor_jan2016.pdf	/files/2016/skeletor_jan2016.pdf
+/skeletor/skeletor_jan2016.png	/files/2016/skeletor_jan2016.png
+/skeletor/skeletor_jan2016.tex	/files/2016/skeletor_jan2016.tex
