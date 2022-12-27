@@ -40,32 +40,50 @@ Regardless, it's a nice, subtle message:
 
 <div class="grid wide_img">
   <div class="item left">
-    <a href="/images/2022/P8060034.jpg">
-      <img src="/images/2022/P8060034_1x.jpg" srcset="/images/2022/P8060034_1x.jpg 1x, /images/2022/P8060034_2x.jpg 2x" alt="A large turquoise and teal globe, showing the Earth. There's a thin border around each country, and in each country is the word 'us' (in blue) and 'them' (in red). The globe is turned so that Africa is closest to the viewer, with part of Europe visible in the top.">
-    </a>
+    {%
+      picture
+      filename="P8060034.jpg"
+      visible_width="622px"
+      alt="A large turquoise and teal globe, showing the Earth. There's a thin border around each country, and in each country is the word 'us' (in blue) and 'them' (in red). The globe is turned so that Africa is closest to the viewer, with part of Europe visible in the top."
+      link_to_original
+    %}
   </div>
   <div class="item right">
-    <a href="/images/2022/P8060036.jpg">
-      <img src="/images/2022/P8060036_1x.jpg" srcset="/images/2022/P8060036_1x.jpg 1x, /images/2022/P8060036_2x.jpg 2x" style="object-position: 0px 0px;" alt="A close-up of the African coast on the globe. The 'us' and 'them' are more visible, and shown for every country -- even tiny ones.">
-    </a>
+    {%
+      picture
+      filename="P8060036.jpg"
+      visible_width="250px"
+      alt="A close-up of the African coast on the globe. The 'us' and 'them' are more visible, and shown for every country -- even tiny ones."
+      style="object-position: 0px 0px;"
+      link_to_original
+    %}
   </div>
 </div>
 
 There's also a terrifying vision of our urban future, in which abandoned rockets have joined e-scooters in littering our streets.
 (It's actually a place for kids to take photos, but who's counting?)
 
-<a href="/images/2022/P8060030.jpg">
-  <img src="/images/2022/P8060030_1x.jpg" srcset="/images/2022/P8060030_1x.jpg 1x, /images/2022/P8060030_2x.jpg 2x" style="max-height: 500px;" class="fullwidth_img" alt="A red rocket with steps leading into the back of it, where kids can climb up and have their photo taken through the porthole on the other side. There's also an abandoned scooter standing near the rocket, whose child has apparently wandered off.">
-</a>
+{%
+  picture
+  filename="P8060030.jpg"
+  visible_width="375px"
+  alt="A red rocket with steps leading into the back of it, where kids can climb up and have their photo taken through the porthole on the other side. There's also an abandoned scooter standing near the rocket, whose child has apparently wandered off."
+  class="fullwidth_img"
+  link_to_original
+%}
 
 The trail starts at the Sun, a large globe that is the source of all life and energy on Earth.
 It was making a slight buzzing noise, no doubt the sound of intense fusion processes taking place inside.
 (Or some interior lights, which were unfortunately invisible against the light of the real thing.)
 
-<figure  class="wide_img">
-  <a href="/images/2022/P8060026.jpg">
-    <img src="/images/2022/P8060026_1x.jpg" srcset="/images/2022/P8060026_1x.jpg 1x, /images/2022/P8060026_2x.jpg 2x" alt="A large yellow globe with conical orange spikes. It says 'the Sun' in a handwritten font, and stands resplendent against a clear blue sky.">
-  </a>
+<figure class="wide_img">
+  {%
+    picture
+    filename="P8060026.jpg"
+    visible_width="950px"
+    alt="A large yellow globe with conical orange spikes. It says 'the Sun' in a handwritten font, and stands resplendent against a clear blue sky."
+    link_to_original
+  %}
 </figure>
 
 At first, the solar system seems pretty small: you can see the first four planets before you leave the Sun, stretching less than half a kilometre across Midsommer Common.
@@ -74,10 +92,14 @@ Light from the Sun reaches Mars in about eleven minutes; we covered it in less t
 (We did wonder if the trail is designed so that children -- who have shorter legs and likely walk slower -- cross the solar system at the speed of light.
 Even if it's not intentional, it's not far off.)
 
-<figure  class="wide_img">
-  <a href="/images/2022/P8060038.jpg">
-    <img src="/images/2022/P8060038_1x.jpg" srcset="/images/2022/P8060038_1x.jpg 1x, /images/2022/P8060038_2x.jpg 2x" alt="The model of the Sun, with coloured archways visible in a line into the distance. There's a dark blue arch which is labelled Mercury, and behind that several other arches representing Venus (bright orange), Earth (turquoise), the Moon (grey) and Mars (red) -- although the labels of the planets beyond Mercury aren't visible. They're close together; no more than a few minutes walk apart.">
-  </a>
+<figure class="wide_img">
+  {%
+    picture
+    filename="P8060038.jpg"
+    visible_width="950px"
+    alt="The model of the Sun, with coloured archways visible in a line into the distance. There's a dark blue arch which is labelled Mercury, and behind that several other arches representing Venus (bright orange), Earth (turquoise), the Moon (grey) and Mars (red) -- although the labels of the planets beyond Mercury aren't visible. They're close together; no more than a few minutes walk apart."
+    link_to_original
+  %}
 </figure>
 
 At each stop is a scale model of the planet (usually no bigger than a marble), and a brightly coloured archway to help you find it.
@@ -88,14 +110,22 @@ I was particularly tickled by how the model of Earth has a light side and a dark
 
 <div class="grid wide_img">
   <div class="item left">
-    <a href="/images/2022/P8060054.jpg">
-      <img src="/images/2022/P8060054_1x.jpg" srcset="/images/2022/P8060054_1x.jpg 1x, /images/2022/P8060054_2x.jpg 2x" alt="A bright red archway with the title 'Mars', and an arrow pointing towards a small red marble on a string (representing Mars itself, to scale). The string is in a recess carved into the arch.">
-    </a>
+    {%
+      picture
+      filename="P8060054.jpg"
+      visible_width="622px"
+      alt="A bright red archway with the title 'Mars', and an arrow pointing towards a small red marble on a string (representing Mars itself, to scale). The string is in a recess carved into the arch."
+      link_to_original
+    %}
   </div>
   <div class="item right">
-    <a href="/images/2022/IMG_1029.jpg">
-      <img src="/images/2022/IMG_1029.jpg" alt="A close-up of the model of the Earth on a string. The Earth is only slightly wider than the string itself. It's a painted marble with blue-green countries on one side (including the UK), and black countries with gold dots on the other (representing cities lighting up at night).">
-    </a>
+    {%
+      picture
+      filename="IMG_1029.jpg"
+      visible_width="250px"
+      alt="A close-up of the model of the Earth on a string. The Earth is only slightly wider than the string itself. It's a painted marble with blue-green countries on one side (including the UK), and black countries with gold dots on the other (representing cities lighting up at night)."
+      link_to_original
+    %}
   </div>
 </div>
 
@@ -106,14 +136,22 @@ We found Jupiter on the edge of Stourbridge Common, along with my favourite plan
 
 <div class="grid wide_img">
   <div class="item left">
-    <a href="/images/2022/P8060056.jpg">
-      <img src="/images/2022/P8060056_1x.jpg" srcset="/images/2022/P8060056_1x.jpg 1x, /images/2022/P8060056_2x.jpg 2x" alt="A bright yellow arch labelled 'Jupiter' and an arrow pointing to the planet. The planet model is visible from quite a distance away. The arch is in a large park with parched dry grass and some green trees.">
-    </a>
+    {%
+      picture
+      filename="P8060056.jpg"
+      visible_width="622px"
+      alt="A bright yellow arch labelled 'Jupiter' and an arrow pointing to the planet. The planet model is visible from quite a distance away. The arch is in a large park with parched dry grass and some green trees."
+      link_to_original
+    %}
   </div>
   <div class="item right">
-    <a href="/images/2022/P8060057.jpg">
-      <img src="/images/2022/P8060057_1x.jpg" srcset="/images/2022/P8060057_1x.jpg 1x, /images/2022/P8060057_2x.jpg 2x" alt="A close-up of the Jupiter model, which is a large sphere painted in shades of orange and brown to match Jupiter itself. The side closest the viewer has a reddish patch representing the Great Red Spot, a major storm on Jupiter.">
-    </a>
+    {%
+      picture
+      filename="P8060057.jpg"
+      visible_width="250px"
+      alt="A close-up of the Jupiter model, which is a large sphere painted in shades of orange and brown to match Jupiter itself. The side closest the viewer has a reddish patch representing the Great Red Spot, a major storm on Jupiter."
+      link_to_original
+    %}
   </div>
 </div>
 
@@ -131,23 +169,35 @@ It's a quiet, tranquil route that's well worth the time, sculpture trail or not.
 I forgot to take a proper picture at Saturn because we stopped to give somebody directions; what I did notice is that it's shown as blue.
 I'm used to seeing Saturn as a caramel colour with dark brown rings; I don't know why this depiction was different.
 
-<a href="/images/2022/P8060059.jpg">
-  <img src="/images/2022/P8060059_1x.jpg" srcset="/images/2022/P8060059_1x.jpg 1x, /images/2022/P8060059_2x.jpg 2x" style="max-height: 500px;" class="fullwidth_img" alt="A close-up photo of a blue planet with a dark blue disk intersecting the equator, representing the rings of Saturn.">
-</a>
+{%
+  picture
+  filename="P8060059.jpg"
+  visible_width="500px"
+  alt="A close-up photo of a blue planet with a dark blue disk intersecting the equator, representing the rings of Saturn."
+  link_to_original
+%}
 
 The walk to Uranus takes you firmly into the countryside, and it stands out nicely when it comes into view.
 It's also a very pleasing shade of blue.
 
 <div class="grid wide_img">
   <div class="item left">
-    <a href="/images/2022/IMG_1032.jpg">
-      <img src="/images/2022/IMG_1032_1x.jpg" srcset="/images/2022/IMG_1032_1x.jpg 1x, /images/2022/IMG_1032_2x.jpg 2x" alt="A magenta arch labelled 'Uranus', sitting on a dried-out patch of grass. There are a couple of small buildings in the background, which are part of a river lock mechanism that's out of frame.">
-    </a>
+    {%
+      picture
+      filename="IMG_1032.jpg"
+      visible_width="622px"
+      alt="A magenta arch labelled 'Uranus', sitting on a dried-out patch of grass. There are a couple of small buildings in the background, which are part of a river lock mechanism that's out of frame."
+      link_to_original
+    %}
   </div>
   <div class="item right">
-    <a href="/images/2022/IMG_1033.jpg">
-      <img src="/images/2022/IMG_1033_1x.jpg" srcset="/images/2022/IMG_1033_1x.jpg 1x, /images/2022/IMG_1033_2x.jpg 2x" alt="A close-up of the Uranus model, which is a turquoise sphere with some gentle blue lines across the surface. It's quite a simple and calming planet.">
-    </a>
+    {%
+      picture
+      filename="IMG_1033.jpg"
+      visible_width="250px"
+      alt="A close-up of the Uranus model, which is a turquoise sphere with some gentle blue lines across the surface. It's quite a simple and calming planet."
+      link_to_original
+    %}
   </div>
 </div>
 
@@ -156,22 +206,36 @@ The outer solar system really is sparse.
 
 We found Neptune in a leafy grove, where we sat on a bench and nibbled snacks.
 
-<a href="/images/2022/P8060066.jpg">
-  <img src="/images/2022/P8060066_1x.jpg" srcset="/images/2022/P8060066_1x.jpg 1x, /images/2022/P8060066_2x.jpg 2x" class="wide_img" alt="The back of a green-ish arch for 'Neptune', looking back along the trail we'd just walked. The arch is surrounded by trees, which cast interesting shadows on the ground and break up the profile. The path curves to the left in the distance, and you can just see the river through the trees.">
-</a>
+<figure class="wide_img">
+  {%
+    picture
+    filename="P8060066.jpg"
+    visible_width="950px"
+    alt="The back of a green-ish arch for 'Neptune', looking back along the trail we'd just walked. The arch is surrounded by trees, which cast interesting shadows on the ground and break up the profile. The path curves to the left in the distance, and you can just see the river through the trees."
+    link_to_original
+  %}
+</figure>
 
 It was quite a relief to have just a short walk to Pluto, which is absolutely titchy.
 
 <div class="grid wide_img">
   <div class="item left">
-    <a href="/images/2022/IMG_1052.jpg">
-      <img src="/images/2022/IMG_1052_1x.jpg" srcset="/images/2022/IMG_1052_1x.jpg 1x, /images/2022/IMG_1052_2x.jpg 2x" alt="A baby pink archway labelled 'Pluto', in an open area filled with dried-out grass. There are a few tufts of green grass, but mostly it's all straw.">
-    </a>
+    {%
+      picture
+      filename="IMG_1052.jpg"
+      visible_width="622px"
+      alt="A baby pink archway labelled 'Pluto', in an open area filled with dried-out grass. There are a few tufts of green grass, but mostly it's all straw."
+      link_to_original
+    %}
   </div>
   <div class="item right">
-    <a href="/images/2022/IMG_1054.jpg">
-      <img src="/images/2022/IMG_1054_1x.jpg" srcset="/images/2022/IMG_1054_1x.jpg 1x, /images/2022/IMG_1054_2x.jpg 2x" alt="A close-up of the cut-out piece of the arch, a dark blue patch (representing a starfield) and a tiny red dot, no bigger than a pinhead, with an arrow 'This is really it'. Put to the scale of the other planets, Pluto really is tiny.">
-    </a>
+    {%
+      picture
+      filename="IMG_1054.jpg"
+      visible_width="250px"
+      alt="A close-up of the cut-out piece of the arch, a dark blue patch (representing a starfield) and a tiny red dot, no bigger than a pinhead, with an arrow 'This is really it'. Put to the scale of the other planets, Pluto really is tiny."
+      link_to_original
+    %}
   </div>
 </div>
 
