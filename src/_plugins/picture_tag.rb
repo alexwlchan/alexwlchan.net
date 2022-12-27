@@ -189,7 +189,7 @@ EOF
       im_format = get_format(source_path)
       
       sources = Hash.new { [] }
-      
+
       image = Rszr::Image.load(source_path)
             
       for pixel_density in 1..3
@@ -225,7 +225,7 @@ EOF
         when ".jpg"
           ImageFormat::JPEG
         else
-          raise Error, "Unrecognised image extension: #{File.extname(path)}"
+          raise RuntimeError, "Unrecognised image extension: #{File.extname(path)}"
       end
     end
   end

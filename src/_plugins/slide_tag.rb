@@ -60,7 +60,7 @@ module Jekyll
 </figure>
 EOF
       
-      Liquid::Template.parse(input).render(context)
+      Liquid::Template.parse(input).render!(context)
     end
   end
 end
