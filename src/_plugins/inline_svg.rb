@@ -78,15 +78,6 @@ module Jekyll
       get_inline_svg(svg_path)
     end
   end
-
-  module InlineSvgFilter
-    def as_inline_svg(path)
-      # This will get paths like /images/2022/diagram.svg
-      get_inline_svg("src/_#{path.gsub(/^\//, '')}")
-        .gsub(/ height="\d+(?:pt|px)"/, '')
-    end
-  end
 end
 
 Liquid::Template.register_tag("inline_svg", Jekyll::InlineSvgTag)
-Liquid::Template.register_filter(Jekyll::InlineSvgFilter)
