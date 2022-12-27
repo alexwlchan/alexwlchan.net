@@ -228,7 +228,7 @@ This is all pretty nasty stuff -- who's doing it?
 
 {%
   slide
-  filename="slide12.jpeg"
+  filename="slide12.jpg"
   alt="A photo of a man in a green hoodie, working at a computer with green text projected on their face."
 %}
 
