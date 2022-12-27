@@ -56,23 +56,19 @@ Even with the friendly PyCon UK audience, I was quite nervous, but I got a prett
 ---
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 1,
-  :alt => "Title slide."
+  slide_image2
+  filename="slide1.png"
+  alt="Title slide."
 %}
 
 (Introductory slide)
 
 {%
-  slide
-  :deck => "privilege_inclusion",
-  :slide => 3,
-  :alt => "A photo of a red, blue and orange light installation in the windows of an office building."
+  slide_image2
+  filename="slide3.png"
+  alt="A photo of a red, blue and orange light installation in the windows of an office building."
+  caption="Image: [*Tools of the Trade*](https://wellcomecollection.org/what-we-do/tools-trade), by Stuart Haygarth. A light installation in the windows of the Wellcome Trust building."
 %}
-  Image: [*Tools of the Trade*](https://wellcomecollection.org/what-we-do/tools-trade), by Stuart Haygarth.
-  A light installation in the windows of the Wellcome Trust building.
-{% endslide %}
 
 My name is Alex.
 I'm a software developer at the [Wellcome Trust][wellcome] in London, who generously paid for me to attend the conference.
@@ -89,10 +85,9 @@ And if so, how can I counter that?
 [wellcome]: https://wellcome.ac.uk
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 4,
-  :alt => "How can I make the culture in my environment more inclusive?"
+  slide_image2
+  filename="slide4.png"
+  alt="How can I make the culture in my environment more inclusive?"
 %}
 
 So that's what we'll talk about today: how can we, as people of privilege, make our environments more inclusive?
@@ -103,29 +98,26 @@ I want to provide some practical steps, not just good feelings.
 And if you've come to this talk, you're probably the sort of person who gets asked about diversity and inclusion --- so I want to give you some tools, some phrases you can use the next time you're asked.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 5,
-  :alt => "What creates an inclusive culture?"
+  slide_image2
+  filename="slide5.png"
+  alt="What creates an inclusive culture?"
 %}
 
 So what do we need to build an inclusive culture?
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 6,
-  :alt => "Privilege awareness creates an inclusive culture."
+  slide_image2
+  filename="slide6.png"
+  alt="Privilege awareness creates an inclusive culture."
 %}
 
 There are multiple factors, but I think *privilege awareness* is an important one.
 It's necessary, not sufficient (hence the squiggly arrow), and in this talk we'll see how to turn awareness into action.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 7,
-  :alt => "A photo of a table in a garden laid out for a party."
+  slide_image2
+  filename="slide7.png"
+  alt="A photo of a table in a garden laid out for a party."
 %}
 
 First we need to understand the difference between *diversity* and *inclusion*.
@@ -149,20 +141,18 @@ Diversity is too easily and too often gamed for cheap PR wins; inclusion takes r
 That's what we want to do: build environments that are genuinely welcoming.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 8,
-  :alt => "The word “privilege” highlighted in the dictionary."
+  slide_image2
+  filename="slide8.png"
+  alt="The word “privilege” highlighted in the dictionary."
 %}
 
 So now let's talk about *privilege*.
 People often get defensive around that word, and see it as an attack on them if you call them privileged.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 9,
-  :alt => "Privilege doesn't mean you're wealthy or laid back."
+  slide_image2
+  filename="slide9.png"
+  alt="Privilege doesn't mean you're wealthy or laid back."
 %}
 
 People imagine that privilege means having everything handed to you on a plate: being very wealthy, laid-back, with staff on hand.
@@ -171,21 +161,18 @@ Most of us don't have this sort of luxury, so we couldn't be privileged, right?
 That's not what privilege is about.
 
 {%
-  slide
-  :deck => "privilege_inclusion",
-  :slide => 10,
-  :alt => "A tweet from jaythenerdkid: “one thing that makes privilege so hard to dismantle is that the privileged don’t realise they have it”."
+  slide_image2
+  filename="slide10.png"
+  alt="A tweet from jaythenerdkid: “one thing that makes privilege so hard to dismantle is that the privileged don’t realise they have it”."
+  caption="Link to original tweet: <https://twitter.com/jaythenerdkid/status/763451754138701824>"
 %}
-  Link to original tweet: <https://twitter.com/jaythenerdkid/status/763451754138701824>
-{% endslide %}
 
 This is one of the hardest things about dealing with privilege: this false idea of what it means, so people assume they don't have it.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 11,
-  :alt => "Having privilege means there are obstacles you don't have to deal with."
+  slide_image2
+  filename="slide11.png"
+  alt="Having privilege means there are obstacles you don't have to deal with."
 %}
 
 Privilege is about having benefits based on traits you possess.
@@ -200,10 +187,9 @@ It doesn't mean you didn't work hard, or that your success isn't guaranteed.
 It just means that somebody else without your privilege might have to work harder for the same success, because they have different obstacles to you.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 12,
-  :alt => "A turquoise person with a list of possible privileges: race, gender, family, and so on."
+  slide_image2
+  filename="slide12.png"
+  alt="A turquoise person with a list of possible privileges: race, gender, family, and so on."
 %}
 
 Privilege comes on a number of different axes --- there are some examples on this slide.
@@ -212,10 +198,9 @@ An exercise: look at the privileges on this slide, and find at least one that yo
 Some people in the room will have almost all of them, some people just one or two.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 15,
-  :alt => "The same person, but with several of the privileges crossed out."
+  slide_image2
+  filename="slide15.png"
+  alt="The same person, but with several of the privileges crossed out."
 %}
 
 Now, imagine what it would be like if you didn't have that privilege.
@@ -235,10 +220,9 @@ Hopefully you're starting to get some idea of the sort of benefits your privileg
 Now you've realised that, how do you do something about it?
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 16,
-  :alt => "It's not bad to have privilege, but it's bad to ignore the benefits it gives you."
+  slide_image2
+  filename="slide16.png"
+  alt="It's not bad to have privilege, but it's bad to ignore the benefits it gives you."
 %}
 
 Before we go on, one thing: I said at the start that many people feel bad about being told they have privilege.
@@ -248,19 +232,17 @@ It doesn't reflect badly on us to have that privilege --- it's what we do with i
 In particular, if you ignore the benefits it gives you, you're deliberately excluding people from your environment.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 6,
-  :alt => "Privilege awareness creates an inclusive culture."
+  slide_image2
+  filename="slide6.png"
+  alt="Privilege awareness creates an inclusive culture."
 %}
 
 We're starting to see how privilege awareness informs inclusion --- if we can see where people without our privilege might face obstacles, we can start to reduce or remove them.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 19,
-  :alt => "The goal: be an active ally for people who have different levels of privilege."
+  slide_image2
+  filename="slide19.png"
+  alt="The goal: be an active ally for people who have different levels of privilege."
 %}
 
 Let's see how to put this into practice.
@@ -276,10 +258,9 @@ The process I'll explain looks simple when put on slides.
 It's harder to put into practice.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 20,
-  :alt => "Introspect: understand your own privilege."
+  slide_image2
+  filename="slide20.png"
+  alt="Introspect: understand your own privilege."
 %}
 
 The good news: you've already started step 1!
@@ -290,10 +271,9 @@ Think about your own life, background, situation, and understand where you have 
 This will help you realise your blind spots --- what privilege are you taking for granted?
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 21,
-  :alt => "Listen and learn: how is life harder for people without your privilege?"
+  slide_image2
+  filename="slide21.png"
+  alt="Listen and learn: how is life harder for people without your privilege?"
 %}
 
 Step 2: listen to people who have different levels of privilege to you, and learn what makes life hard for them.
@@ -311,13 +291,11 @@ If you don't have these people in your day-to-day life, social media is great.
 Find these people, follow them, hear what they have to say.
 
 {%
-  slide
-  :deck => "privilege_inclusion",
-  :slide => 22,
-  :alt => "A tweet from @austin_walker."
+  slide_image2
+  filename="slide22.png"
+  alt="A tweet from @austin_walker."
+  caption="Link to original tweet: <https://twitter.com/austin_walker/status/782360503582650368>."
 %}
-  Link to original tweet: <https://twitter.com/austin_walker/status/782360503582650368>.
-{% endslide %}
 
 Before I move on, let's emphasise the "listen" part.
 When they're getting started, people feel the need to jump in and "correct" people.
@@ -326,10 +304,9 @@ To explain to them why that's not actually discrimination, or they've misunderst
 Don't be that person.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 24,
-  :alt => "Speak and take action: use your privilege to stand up for those who lack it.."
+  slide_image2
+  filename="slide24.png"
+  alt="Speak and take action: use your privilege to stand up for those who lack it.."
 %}
 
 So once we've listened, and found ways to improve, let's put that into action.
@@ -348,10 +325,9 @@ There are a couple of reasons this is important, why we don't just leave this ac
 So let's look at some examples.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 25,
-  :alt => "Cut out bad jokes/language."
+  slide_image2
+  filename="slide25.png"
+  alt="Cut out bad jokes/language."
 %}
 
 Start with yourself.
@@ -359,33 +335,29 @@ Are there jokes you make which are harmful, or language which is offensive?
 Try to avoid saying that stuff.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 26,
-  :alt => "Call out bad jokes/language when you hear them."
+  slide_image2
+  filename="slide26.png"
+  alt="Call out bad jokes/language when you hear them."
 %}
 
 Then when you've started to reduce it in your own language, call out other people.
 Explain to them why that language could be harmful, and they should use an alternative.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 27,
-  :alt => "Call out stereotypes when you hear them."
+  slide_image2
+  filename="slide27.png"
+  alt="Call out stereotypes when you hear them."
 %}
 
 Language is bad, so are stereotypes.
 If somebody paints with a broad brush, or uses "conventional wisdom", check to see if it's really true.
 
 {%
-  slide
-  :deck => "privilege_inclusion",
-  :slide => 28,
-  :alt => "The XKCD comic “How It Works”. A man makes a mistake: “Wow, you suck at math”. A woman makes the same mistake: “Wow, girls suck at math”."
+  slide_image2
+  filename="slide28.png"
+  alt="The XKCD comic “How It Works”. A man makes a mistake: “Wow, you suck at math”. A woman makes the same mistake: “Wow, girls suck at math”."
+  caption="Image: [XKCD 385 *How It Work*](https://www.xkcd.com/385/), by Randall Munroe."
 %}
-  Image: [XKCD 385 *How It Work*](https://www.xkcd.com/385/), by Randall Munroe.
-{% endslide %}
 
 This XKCD is a particularly famous example.
 The left-hand character, with no identifying features (who, by the way, we usually assume is male, what does that say about us?) makes a mistake, and is judged badly for it.
@@ -401,21 +373,18 @@ Do you have evidence, or is it just a hunch?
 Is there information behind this feeling, or is it just a hunch?
 
 {%
-  slide
-  :deck => "privilege_inclusion",
-  :slide => 29,
-  :alt => "Even “positive” stereotypes can be harmful."
+  slide_image2
+  filename="slide29.png"
+  alt="Even “positive” stereotypes can be harmful."
+  caption="Link to original tweet: <https://twitter.com/andrhia/status/921184523693543424>."
 %}
-  Link to original tweet: <https://twitter.com/andrhia/status/921184523693543424>.
-{% endslide %}
 
 And even when a stereotype seems like it's positive, it may still be doing harm to the group.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 30,
-  :alt => "Challenge the hidden assumptions in your environment."
+  slide_image2
+  filename="slide30.png"
+  alt="Challenge the hidden assumptions in your environment."
 %}
 
 Finally, we've talked about how privilege can be invisible --- we don't see how it helps us.
@@ -432,10 +401,9 @@ What do we think of somebody who always misses stand-up?
 [standup]: https://en.wikipedia.org/wiki/Stand-up_meeting
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 31,
-  :alt => "Listening to someone is not the same as having their experience."
+  slide_image2
+  filename="slide31.png"
+  alt="Listening to someone is not the same as having their experience."
 %}
 
 But doing this requires subtlety, and there are a few caveats.
@@ -445,10 +413,9 @@ You can understand the effects, but it's very difficult to understand what it's 
 Be careful not to co-opt somebody else's experience, so present it as if it were your own.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 32,
-  :alt => "Empathy, not preaching."
+  slide_image2
+  filename="slide32.png"
+  alt="Empathy, not preaching."
 %}
 
 Second: nobody likes to be preached at.
@@ -457,10 +424,9 @@ Share that, don't just tell other people how they should behave better.
 Share what you've learnt, the empathy you've gained.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 33,
-  :alt => "Calling out is powerful, especially when it comes from somebody who looks like us."
+  slide_image2
+  filename="slide33.png"
+  alt="Calling out is powerful, especially when it comes from somebody who looks like us."
 %}
 
 Finally, calling out is powerful.
@@ -475,10 +441,9 @@ As a person of privilege, your voice has power, especially among people with the
 Use it!
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 35,
-  :alt => "Persevere: These problems don't have a silver bullet."
+  slide_image2
+  filename="slide35.png"
+  alt="Persevere: These problems don't have a silver bullet."
 %}
 
 And finally: persevere!
@@ -489,10 +454,9 @@ It's a slow-moving process of continuous improvement, and it doesn't fix things 
 Keep at it, and have faith that if you do it enough, things can get better.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 36,
-  :alt => "You will get it wrong, and that's not (necessarily) a bad thing."
+  slide_image2
+  filename="slide36.png"
+  alt="You will get it wrong, and that's not (necessarily) a bad thing."
 %}
 
 But you'll get it wrong sometimes.
@@ -505,10 +469,9 @@ If you spot you're making mistakes?
 That means you're more aware than you were before!
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 37,
-  :alt => "This is like a technical skill. Building a welcoming and inclusive environment is a continuous process."
+  slide_image2
+  filename="slide37.png"
+  alt="This is like a technical skill. Building a welcoming and inclusive environment is a continuous process."
 %}
 
 I think of this stuff as just like any technical skill.
@@ -517,10 +480,9 @@ There's always more to learn, ways to get better, and it's continuously changing
 Just as a technical skill requires constant improvement and learning --- and making mistakes along the way --- so does being a welcoming/inclusive environment.
 
 {%
-  slide_image
-  :deck => "privilege_inclusion",
-  :slide => 40,
-  :alt => "Recap for being an active ally."
+  slide_image2
+  filename="slide40.png"
+  alt="Recap for being an active ally."
 %}
 
 So that's my four-step process.
