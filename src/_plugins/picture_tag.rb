@@ -100,7 +100,7 @@ class ImageFormat
 end
 
 Jekyll::Hooks.register :site, :after_reset do |site|
-  File.delete('missing_images.json') if File.exists? 'missing_images.json'
+  File.delete('.missing_images.json') if File.exists? '.missing_images.json'
 end
 
 Jekyll::Hooks.register :site, :post_render do |site|
@@ -189,7 +189,7 @@ EOF
       im_format = get_format(source_path)
       
       sources = Hash.new { [] }
-      
+
       image = Rszr::Image.load(source_path)
             
       for pixel_density in 1..3
@@ -225,7 +225,7 @@ EOF
         when ".jpg"
           ImageFormat::JPEG
         else
-          raise Error, "Unrecognised image extension: #{File.extname(path)}"
+          raise RuntimeError, "Unrecognised image extension: #{File.extname(path)}"
       end
     end
   end

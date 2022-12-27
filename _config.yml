@@ -10,10 +10,6 @@ url: "https://alexwlchan.net"
 source: "src"
 destination: "_site"
 
-social:
-  github: "alexwlchan"
-  twitter: "alexwlchan"
-
 date_format: "%-d %B %Y"
 
 permalink: "/:year/:month/:title/"

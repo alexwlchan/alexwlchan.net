@@ -24,9 +24,6 @@ apk add imlib2 imlib2-dev libexif-dev
 # Required to inspect colour profiles in the image linting plugin
 apk add exiftool
 
-# Required to create multiple sizes of cards
-apk add imagemagick
-
 # Required for libsass.  If this is missing, you get the error:
 #
 #   LoadError: Could not open library
