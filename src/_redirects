@@ -54,13 +54,13 @@
 
 /2018/03/plumbers-guide-intro/      /a-plumbers-guide-to-git/
 /a-plumbers-guide-to-git/1          /a-plumbers-guide-to-git/1-the-git-object-store/
-/a-plumbers-guide-to-git/1/ /a-plumbers-guide-to-git/1-the-git-object-store/
+/a-plumbers-guide-to-git/1/         /a-plumbers-guide-to-git/1-the-git-object-store/
 /a-plumbers-guide-to-git/2          /a-plumbers-guide-to-git/2-blobs-and-trees/
-/a-plumbers-guide-to-git/2/ /a-plumbers-guide-to-git/2-blobs-and-trees/
+/a-plumbers-guide-to-git/2/         /a-plumbers-guide-to-git/2-blobs-and-trees/
 /a-plumbers-guide-to-git/3          /a-plumbers-guide-to-git/3-context-from-commits/
-/a-plumbers-guide-to-git/3/ /a-plumbers-guide-to-git/3-context-from-commits/
+/a-plumbers-guide-to-git/3/         /a-plumbers-guide-to-git/3-context-from-commits/
 /a-plumbers-guide-to-git/4          /a-plumbers-guide-to-git/4-refs-and-branches/
-/a-plumbers-guide-to-git/4/ /a-plumbers-guide-to-git/4-refs-and-branches/
+/a-plumbers-guide-to-git/4/         /a-plumbers-guide-to-git/4-refs-and-branches/
 
 # Jekyll changed the slug on this one.
 /2016/05/safely-deleting-a-file-called-rf-/ /2016/05/safely-deleting-a-file-called-rf/
