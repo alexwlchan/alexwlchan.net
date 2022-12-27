@@ -30,6 +30,21 @@ module Jekyll
           img_tag["src"] = "https://alexwlchan.net" + img_tag["src"]
         end
       }
+      
+      doc.xpath(".//source").each { |source_tag|
+        if !source_tag["srcset"].nil?
+          source_tag["srcset"] = source_tag["srcset"]
+            .split(",")
+            .map { |s|
+              if s.strip.start_with?("/images")
+                "https://alexwlchan.net#{s.strip}"
+              else
+                s
+              end
+            }
+            .join(", ")
+        end
+      }
 
       doc.xpath(".//a").each { |a_tag|
         if a_tag["href"] and a_tag["href"].start_with?("/")
