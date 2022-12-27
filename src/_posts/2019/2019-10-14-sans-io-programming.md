@@ -41,7 +41,7 @@ The two STTRs that day were Wendy Osmond and Hilary Maclean; I'm not sure who wa
 ## Slides and notes
 
 {%
-  slide_image2
+  slide
   filename="slide1.jpg"
   alt="Title slide."
 %}
@@ -58,7 +58,7 @@ I'll show you what it means, some of the problems of not adopting this pattern a
 
 
 {%
-  slide_image2
+  slide
   filename="slide2.jpg"
   alt="Bio slide. Four icons on circles, with accompanying text (text below)."
 %}
@@ -79,7 +79,7 @@ Introductory slide.
 
 
 {%
-  slide_image2
+  slide
   filename="slide3.jpg"
   alt="The Wellcome Collection building."
   caption="Photo credit: Wellcome Collection."
@@ -92,7 +92,7 @@ Among the things we hold in our museum, we have a large archive about the histor
 
 
 {%
-  slide_image2
+  slide
   filename="slide4.jpg"
   alt="A three step process. A BagIt package (a white paper bag), then the storage service (a green rect with some black gears), and then Amazon S3 (a red bucket). There are arrows from the BagIt package to the storage service, and from the storage service to S3."
   caption="Icon credits: paper bag by [Dorian Dawance](https://thenounproject.com/term/paper-bag/28579/), process/gears by [Alice Design](https://thenounproject.com/term/process/2473979/), bucket from [AWS Simple Icons](https://commons.wikimedia.org/wiki/File:AWS_Simple_Icons_Storage_Amazon_S3.svg)."
@@ -107,7 +107,7 @@ They get uploaded to a storage service (which is the thing I build), we count ou
 
 
 {%
-  slide_image2
+  slide
   filename="slide5.jpg"
   alt="GitHub search result for two libraries: LibraryOfCongress/bagit-python, and LibraryOfCongress/bagit-java."
 %}
@@ -127,7 +127,7 @@ They assume you've downloaded the whole bag, saved it somewhere, and now they'll
 
 
 {%
-  slide_image2
+  slide
   filename="slide6.jpg"
   alt="Examples of code from the BagIt libraries in Python and Java. In both cases, the code is using a parameter ‘/path/to/bag’, which is highlighted in green."
 %}
@@ -141,7 +141,7 @@ This means we can't use these libraries.
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.jpg"
   alt="Text slide. “We can’t use these libraries because they mix I/O and parsing logic”."
 %}
@@ -156,7 +156,7 @@ Nope.
 
 
 {%
-  slide_image2
+  slide
   filename="slide8.jpg"
   alt="A slide with the blue HTTP logo."
 %}
@@ -185,7 +185,7 @@ A couple of reasons.
 
 
 {%
-  slide_image2
+  slide
   filename="slide9.jpg"
   alt="A sad yellow emoji face, below the text “Wasted time and effort”."
 %}
@@ -202,7 +202,7 @@ That's that time and effort that we could be spending on something better.
 
 
 {%
-  slide_image2
+  slide
   filename="slide10.jpg"
   alt="A slide covered in green bugs and the text “Duplicate bugs”."
 %}
@@ -219,7 +219,7 @@ If I find a bug in gunicorn and fix it there, that same bug might exist in other
 
 
 {%
-  slide_image2
+  slide
   filename="slide11.jpg"
   alt="A sad yellow emoji face, below the text “Harder to experiment”."
 %}
@@ -234,7 +234,7 @@ But if you want to play with APIs like that, you'd have to write your own HTTP p
 
 
 {%
-  slide_image2
+  slide
   filename="slide12.jpg"
   alt="A brown emoji snail, below the text “Harder to optimise your code”."
 %}
@@ -253,7 +253,7 @@ It's their job to squeeze an extra three socket calls or five file handles out o
 
 
 {%
-  slide_image2
+  slide
   filename="slide13.jpg"
   alt="Summary slide, with a list of the problems of mixing I/O and business logic."
 %}
@@ -271,7 +271,7 @@ We can get by without it.
 
 
 {%
-  slide_image2
+  slide
   filename="slide14.jpg"
   alt="Text slide. “How do we fix this problem? Never do I/O.”"
 %}
@@ -288,7 +288,7 @@ That is not the message of this talk.
 
 
 {%
-  slide_image2
+  slide
   filename="slide15.jpg"
   alt="Text slide. “How do we fix this problem? Never mix your I/O and business logic.”"
 %}
@@ -307,7 +307,7 @@ Push all the I/O out to the edges.
 
 
 {%
-  slide_image2
+  slide
   filename="slide16.jpg"
   alt="Slide titled “Build an I/O sandwich”. Below the text is a three segment diagram. From left-to-right, the segments are “Inbound I/O”, “business logic” and “outbound I/O”."
 %}
@@ -320,7 +320,7 @@ It doesn't care whether you are going to send them to a file, or a socket, or by
 
 
 {%
-  slide_image2
+  slide
   filename="slide17.jpg"
   alt="A red toolbox, below the text “Build a toolbox of I/O implementations”."
 %}
@@ -331,7 +331,7 @@ It's just a thin wrapper around that core logic.
 
 
 {%
-  slide_image2
+  slide
   filename="slide18.jpg"
   alt="Text slide. “This isn’t everything, but it’s a good start”."
 %}
@@ -343,7 +343,7 @@ When you write your programs this way and build this I/O sandwich, you do see so
 
 
 {%
-  slide_image2
+  slide
   filename="slide19.jpg"
   alt="Text slide. “What are the benefits?”"
 %}
@@ -353,7 +353,7 @@ So what are those benefits?
 
 
 {%
-  slide_image2
+  slide
   filename="slide20.jpg"
   alt="Emoji sparkles, below the text “You get much simpler code”."
 %}
@@ -367,7 +367,7 @@ If there are bits of your codebase where you don't have to worry about I/O, thos
 
 
 {%
-  slide_image2
+  slide
   filename="slide21.jpg"
   alt="Green tick mark, below the text “Your code is easier to test”."
 %}
@@ -383,7 +383,7 @@ It's really easy to test code that's not doing any I/O, because you don't have t
 
 
 {%
-  slide_image2
+  slide
   filename="slide22.jpg"
   alt="A red 100 emoji, below the text “and test at 100% coverage”."
 %}
@@ -398,7 +398,7 @@ When you are just testing functions that deal in pure in-memory objects, it gets
 
 
 {%
-  slide_image2
+  slide
   filename="slide23.jpg"
   alt="Output from a test suite, showing 100% line and branch coverage for every file."
 %}
@@ -414,7 +414,7 @@ This is a level of coverage that's hard to achieve if you mix I/O and logic.
 
 
 {%
-  slide_image2
+  slide
   filename="slide24.jpg"
   alt="An upside-down green bug with a red X through it, below the text “You have less bugs”."
 %}
@@ -426,7 +426,7 @@ When you have less bugs, you have to deal with less bug reports, so that's anoth
 
 
 {%
-  slide_image2
+  slide
   filename="slide25.jpg"
   alt="Emoji sparkles, below the text “Your code is easier to reuse”."
 %}
@@ -437,7 +437,7 @@ It's much simpler to take off one I/O layer and plug something else in -- everyt
 
 
 {%
-  slide_image2
+  slide
   filename="slide26.jpg"
   alt="The illustration of the storage service, with a blue bucket as a second output. The bucket is labelled “Azure Blob Storage”."
 %}
@@ -456,7 +456,7 @@ The BagIt parse doesn't know, it just hands out bytes and says: hey, put this so
 
 
 {%
-  slide_image2
+  slide
   filename="slide27.jpg"
   alt="Summary slide. “The benefits of separating I/O and business logic”."
 %}
@@ -468,7 +468,7 @@ Again, these aren't ground breaking things, it's not a revolutionary thing that 
 
 
 {%
-  slide_image2
+  slide
   filename="slide16.jpg"
   alt="Slide titled “Build an I/O sandwich”. Below the text is a three segment diagram. From left-to-right, the segments are “Inbound I/O”, “business logic” and “outbound I/O”."
 %}
@@ -480,7 +480,7 @@ Push the I/O out to the boundaries, and keep the core of your program I/O free a
 
 
 {%
-  slide_image2
+  slide
   filename="slide28.jpg"
   alt="Text slide. “Examples!”"
 %}
@@ -490,7 +490,7 @@ I want to show you a few examples, so you can see how other people have done thi
 
 
 {%
-  slide_image2
+  slide
   filename="slide29.jpg"
   alt="Example code for creating an HTTP/2 server with hyper-h2."
 %}
@@ -507,7 +507,7 @@ I imagine most of you aren't working with low-level HTTP interactions, so let's 
 
 
 {%
-  slide_image2
+  slide
   filename="slide30.jpg"
   alt="Example code for using slack-sansio with requests."
 %}
@@ -525,7 +525,7 @@ That's another nice example to look at.
 
 
 {%
-  slide_image2
+  slide
   filename="slide31.jpg"
   alt="Code for a function called load_tag_file() in the bagit-python library."
 %}
@@ -541,7 +541,7 @@ It's treating open the file as a list of strings.
 
 
 {%
-  slide_image2
+  slide
   filename="slide32.jpg"
   alt="The previous function, with the logic parsing bits split out into a second function named load_tag_file_from_lines()."
 %}
@@ -557,7 +557,7 @@ If you are getting your lines rather than from a file, say from S3, or Azure Blo
 
 
 {%
-  slide_image2
+  slide
   filename="slide16.jpg"
   alt="Slide titled “Build an I/O sandwich”. Below the text is a three segment diagram. From left-to-right, the segments are “Inbound I/O”, “business logic” and “outbound I/O”."
 %}

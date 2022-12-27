@@ -25,14 +25,6 @@
 require_relative 'plugin_base'
 
 module Jekyll
-  module SlideBase
-    def bind_params(params)
-      @deck = params[:deck] or raise SyntaxError, "Error in tag 'slide', :deck parameter is required"
-      @slide = params[:slide] or raise SyntaxError, "Error in tag 'slide', :slide parameter is required"
-      @alt = params[:alt] or raise SyntaxError, "Error in tag 'slide', :alt parameter is required"
-    end
-  end
-  
   class SlideTag < Liquid::Tag    
     def initialize(tag_name, params_string, tokens)
       super
@@ -73,4 +65,4 @@ EOF
   end
 end
 
-Liquid::Template.register_tag("slide_image2", Jekyll::SlideTag)
+Liquid::Template.register_tag("slide", Jekyll::SlideTag)

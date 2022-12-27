@@ -28,7 +28,7 @@ Here's a brief outline:
 The aim isn't to be a comprehensive resource, but to get students thinking about these risks.
 Harassment is a constantly moving target, and it's better to anticipate them before they happen.
 
-You can read the slides and notes on this page, or download the slides [as a PDF](/slides/anti_social_media/anti_social_media_slides.pdf).
+You can read the slides and notes on this page, or download the slides [as a PDF](/files/2018/anti_social_media_slides.pdf).
 The notes are my lightly edited thoughts about what I was going to say with each slide -- but they may not be exactly what I said on the day!
 
 (Caveat: I didn't quite finish writing up all the notes before the lecture.
@@ -49,7 +49,7 @@ The ideas in this talk are influenced by a number of people -->
 ---
 
 {%
-  slide_image2
+  slide
   filename="slide1.png"
   alt="Title slide."
 %}
@@ -59,7 +59,7 @@ Mention that slides/notes will be available after the talk.)
 
 
 {%
-  slide_image2
+  slide
   filename="slide2.png"
   alt="Slide with a list of content warnings."
 %}
@@ -82,7 +82,7 @@ Please look after yourselves!
 
 
 {%
-  slide_image2
+  slide
   filename="slide4.png"
   alt="A cheque book."
   caption="Image credit: A cheque book. Made by [The Clear Communication People](https://www.flickr.com/photos/easy-pics/8138517266/), used under CC BY-NC-ND."
@@ -96,7 +96,7 @@ Besides cash and cheques, we have online banking, PayPal, micropayment services,
 
 
 {%
-  slide_image2
+  slide
   filename="slide5.png"
   alt="A screenshot of a chat app with green and grey chat bubbles, with two buttons at the bottom: “Request” and “Pay”."
 %}
@@ -112,7 +112,7 @@ This is much better, right?
 
 
 {%
-  slide_image2
+  slide
   filename="slide6.png"
   alt="A screenshot of a tweet: “A friend’s abusive ex has been sending her $1 on @SquareCash regularly for months, cause he can add a message & she can’t block that.”"
   caption="Tweet by [Anna Marie Clifton](https://twitter.com/TweetAnnaMarie/status/789957313649967104). Retrieved 18 April 2018."
@@ -129,7 +129,7 @@ Instructions are [on their help site](https://squareup.com/help/us/en/article/51
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="Text slide: “Most developers mean well. They don’t build services to enable harassment.”"
 %}
@@ -142,7 +142,7 @@ Unfortunately, there are bad people in the world, and they exploit services to d
 
 
 {%
-  slide_image2
+  slide
   filename="slide8.png"
   alt="Text slide: “Security protects us from bad actors. Who protects people from other people?”"
 %}
@@ -156,7 +156,7 @@ Who protects users from other users on our service?
 
 
 {%
-  slide_image2
+  slide
   filename="slide9.png"
   alt="Text slide: “If you allow user-to-user interactions, you have the possibility of harassment.”"
 %}
@@ -166,7 +166,7 @@ People will find ways to hurt other people, because people are terrible.
 
 
 {%
-  slide_image2
+  slide
   filename="slide10.png"
   alt="White text on red: “What does online harassment look like?”"
 %}
@@ -175,7 +175,7 @@ So what does this sort of harassment look like?
 
 
 {%
-  slide_image2
+  slide
   filename="slide11.png"
   alt="Sending nasty messages: spam and phishing attacks."
 %}
@@ -191,7 +191,7 @@ We've all had emails from Nigerian princes or suspicious medical companies, and 
 
 
 {%
-  slide_image2
+  slide
   filename="slide12.png"
   alt="A screenshot of a Twitter DM asking for credit card details."
 %}
@@ -210,7 +210,7 @@ Let's think about messages that cause more direct harm.
 
 
 {%
-  slide_image2
+  slide
   filename="slide13.png"
   alt="Sending nasty messages: personal attacks."
 %}
@@ -223,7 +223,7 @@ This is particularly common among kids, who consistently use the Internet to be 
 
 
 {%
-  slide_image2
+  slide
   filename="slide14.png"
   alt="Text slide: “37% of UK children say they ‘often’ experience cyberbullying”."
 %}
@@ -243,7 +243,7 @@ Retrieved 16 April 2018.]
 
 
 {%
-  slide_image2
+  slide
   filename="slide15.png"
   alt="Newspaper headlines about young people committing suicide."
 %}
@@ -274,7 +274,7 @@ This slide isn't for shock value -- it's to emphasise that harassment can have r
 
 
 {%
-  slide_image2
+  slide
   filename="slide16.png"
   alt="Sending nasty messages: hate speech, threatening/inappropaite imagery, sexual/pornographic content."
 %}
@@ -289,7 +289,7 @@ None of which are pleasant to get in your inbox.
 
 
 {%
-  slide_image2
+  slide
   filename="slide17.png"
   alt="Quote from Anna Merlan about some of the images she received by email."
 %}
@@ -305,7 +305,7 @@ Retrieved 16 April 2018.]
 
 
 {%
-  slide_image2
+  slide
   filename="slide18.png"
   alt="Sending nasty messages: rape threats and death threats."
 %}
@@ -324,7 +324,7 @@ So that's just some of the nasty messages people might send each other.
 
 
 {%
-  slide_image2
+  slide
   filename="slide19.png"
   alt="Text slide: “posting personal info”."
 %}
@@ -335,7 +335,7 @@ Posting personal information is another common form of harassment.
 
 
 {%
-  slide_image2
+  slide
   filename="slide20.png"
   alt="A photo of a rainbow flag with the text “Posting personal info: outing” overlaid."
   caption="Image: Rainbow flag and blue skies, by [Ludovic Berton](https://commons.wikimedia.org/wiki/File:Rainbow_flag_and_blue_skies.jpg). Used under CC BY."
@@ -347,7 +347,7 @@ If a gay person is outed in a conservative community, or a trans person is expos
 
 
 {%
-  slide_image2
+  slide
   filename="slide21.png"
   alt="A photo of a house against a dark sky with the text “Posting personal info: doxing” overlaid."
   caption="Image: Grey house with fireplace, by [Sebastian Soerensen](https://www.pexels.com/photo/gray-house-with-fireplace-surrounded-by-grass-under-white-and-gray-cloudy-sky-731082/). Used under CC0."
@@ -363,7 +363,7 @@ Again, you can see how this puts somebody at risk.
 
 
 {%
-  slide_image2
+  slide
   filename="slide22.png"
   alt="A photo of a soldiers in back clothing standing outside a door, with the text “Posting personal info: SWATing” overlaid."
   caption="Image: US & Romanian forces conduct bilateral training, by [Sgt. Esdras Ruano](https://commons.wikimedia.org/wiki/File:U.S._%26_Romanian_Forces_Conduct_Bilateral_Training_150225-M-XZ244-306.jpg). Public domain."
@@ -379,7 +379,7 @@ This is more common in the US.
 
 
 {%
-  slide_image2
+  slide
   filename="slide23.png"
   alt="Newspaper headlines about people who had police or SWAT teams come to their home."
 %}
@@ -403,7 +403,7 @@ Examples:
 
 
 {%
-  slide_image2
+  slide
   filename="slide25.png",
   alt="An image of a bedroom with the overlaid text “Sharing intimate photos without permission”."
   caption="Image: bedroom in blue and brown, by [Digital Buggu](https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/). Used under CC0."
@@ -419,7 +419,7 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 
 
 {%
-  slide_image2
+  slide
   filename="slide26.png",
   alt="A photo of the back seat of a car with the overlaid text “Grooming young children”."
   caption="Image: rear seats of an Audi RS4, by [The Car Spy](https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_%286%29.jpg). Used under CC BY."
@@ -432,7 +432,7 @@ Now, children can be groomed or targeted from hundreds of miles away
 Services need to think about how they protect children.
 
 {%
-  slide_image2
+  slide
   filename="slide27.png"
   alt="A slide listing the various forms of online harassment."
 %}
@@ -451,7 +451,7 @@ We'll cover that in the next section.
 
 
 {%
-  slide_image2
+  slide
   filename="slide28.png"
   alt="Slide with a bulleted list. “This behaviour doesn’t just affect online spaces”."
 %}
@@ -460,7 +460,7 @@ Notes on why harassment is bad -- it can escalate, we've seen examples of how it
 
 
 {%
-  slide_image2
+  slide
   filename="slide31.png"
   alt="White text on blue. “Who is at risk?”"
 %}
@@ -471,7 +471,7 @@ But who is it happening to?
 
 
 {%
-  slide_image2
+  slide
   filename="slide32.png"
   alt="Who is at risk? All your users."
 %}
@@ -483,7 +483,7 @@ But this probably isn't a very useful question, so let's instead ask a different
 
 
 {%
-  slide_image2
+  slide
   filename="slide33.png"
   alt="Slide with a bulleted list. “Who is at increased risk?”"
 %}
@@ -494,7 +494,7 @@ Minority groups tend to come in for disproportionate levels of abuse and harassm
 
 
 {%
-  slide_image2
+  slide
   filename="slide34.png",
   alt="A picture of Diane Abbott, with a quote about how she received almost a third of abusive tweets in one study."
   caption="Image: Official portrait of Diane Abbott MP, from the [UK Parliament website](https://beta.parliament.uk/media/S3bGSTqn). Used under CC BY."
@@ -513,7 +513,7 @@ Who might our hypothetical user be worried about?
 
 
 {%
-  slide_image2
+  slide
   filename="slide36.png"
   alt="White text on blue. “What are the main threat models?”"
 %}
@@ -522,7 +522,7 @@ Let's talk about threat models.
 
 
 {%
-  slide_image2
+  slide
   filename="slide37.png"
   alt="Slide with a bulleted list. “Who is an at-risk person potentially worried about?”"
 %}
@@ -532,7 +532,7 @@ These are the sort of people who commonly feature in reports of online harassmen
 
 
 {%
-  slide_image2
+  slide
   filename="slide38.png"
   alt="People are more likely to be hurt by people they know."
 %}
@@ -543,7 +543,7 @@ Sadly, people are very likely to be hurt by people they know, but we often overl
 
 
 {%
-  slide_image2
+  slide
   filename="slide39.png"
   alt="78%/57% of female/male victims of domestic abuse knew their attacker."
 %}
@@ -554,7 +554,7 @@ So let's break these examples down into different groups.
 
 
 {%
-  slide_image2
+  slide
   filename="slide42.png"
   alt="An abusive close contact."
 %}
@@ -564,7 +564,7 @@ Somebody who knows you very well.
 
 
 {%
-  slide_image2
+  slide
   filename="slide43.png"
   alt="An abusive current close contact."
 %}
@@ -576,7 +576,7 @@ And all the encryption and security in the world won't help someone if their abu
 
 
 {%
-  slide_image2
+  slide
   filename="slide44.png"
   alt="An estranged close contact."
 %}
@@ -590,7 +590,7 @@ And for somebody jaded, no form of revenge is too petty.
 
 
 {%
-  slide_image2
+  slide
   filename="slide45.png"
   alt="A single or organised group of bullies."
 %}
@@ -600,7 +600,7 @@ Herd mentality is a problem too!
 
 
 {%
-  slide_image2
+  slide
   filename="slide46.png"
   alt="A disorganised mob and a target of opportunity."
 %}
@@ -612,7 +612,7 @@ How easy is it for somebody to hide themselves from view?
 
 
 {%
-  slide_image2
+  slide
   filename="slide47.png"
   alt="Angry powerful person or group."
 %}
@@ -623,7 +623,7 @@ How do you limit their destructive power?
 
 
 {%
-  slide_image2
+  slide
   filename="slide48.png"
   alt="Slide with a bulleted list: “threat models”."
 %}
@@ -632,7 +632,7 @@ How do you limit their destructive power?
 
 
 {%
-  slide_image2
+  slide
   filename="slide49.png"
   alt="White text on purple: “This is all very upsetting.”"
 %}
@@ -641,7 +641,7 @@ How do you limit their destructive power?
 
 
 {%
-  slide_image2
+  slide
   filename="slide51.png"
   alt="White text on purple: “It doesn’t have to be this way.”"
 %}
@@ -650,7 +650,7 @@ How do you limit their destructive power?
 
 
 {%
-  slide_image2
+  slide
   filename="slide52.png"
   alt="White text on green: “How can we protect our users?”"
 %}
@@ -659,7 +659,7 @@ Let's end on a more positive note: how can we build a service that minimises the
 
 
 {%
-  slide_image2
+  slide
   filename="slide54.png"
   alt="Slide with a bulleted list: “Why do high-risk users want to use a service?”"
 %}
@@ -672,7 +672,7 @@ They *might* have additional reasons, but in general you can treat them as norma
 
 
 {%
-  slide_image2
+  slide
   filename="slide55.png"
   alt="Making your service better for high-risk users make it better for everyone."
 %}
@@ -683,7 +683,7 @@ Make your service safer for high-risk users helps everybody -- all your users ca
 
 
 {%
-  slide_image2
+  slide
   filename="slide56.png"
   alt="White text on green: “What are some possible approaches?”"
 %}
@@ -694,7 +694,7 @@ Let's examine some approaches that are often suggested.
 
 
 {%
-  slide_image2
+  slide
   filename="slide47.png"
   alt="Don't use the Internet."
 %}
@@ -706,7 +706,7 @@ It's impractical for people to stay offline, and severely disadvantages them if 
 
 
 {%
-  slide_image2
+  slide
   filename="slide59.png"
   alt="Quoted text: “I’m going to ignore it – if you don’t like it, use something else.”"
 %}
@@ -726,7 +726,7 @@ Suddenly you have a stampeding herd heading for the door.
 
 
 {%
-  slide_image2
+  slide
   filename="slide61.png"
   alt="Not everyone is tech savvy, and that's okay."
 %}
@@ -742,7 +742,7 @@ It's often said that [perfect is the enemy of good](https://en.wikipedia.org/wik
 
 
 {%
-  slide_image2
+  slide
   filename="slide62.png"
   alt="How much data do you need?"
 %}
@@ -757,7 +757,7 @@ Not every service needs a full set of personal details, contact info, and credit
 
 
 {%
-  slide_image2
+  slide
   filename="slide63.png"
   alt="Do you need to build that feature?"
 %}
@@ -768,7 +768,7 @@ And can you build it with safety in mind?
 
 
 {%
-  slide_image2
+  slide
   filename="slide64.png",
   alt="A screenshot from the game Journey; orange characters in a desert with a green sky."
   caption="Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/)."
@@ -781,7 +781,7 @@ But in *Journey*, players can't just send arbitrary text to other people
 
 
 {%
-  slide_image2
+  slide
   filename="slide66.png"
   alt="Have a way to ban or block malicious users."
 %}
@@ -797,7 +797,7 @@ Unfortunately not everybody does this (hi Slack), which can lead to uncomfortabl
 
 
 {%
-  slide_image2
+  slide
   filename="slide67.png"
   alt="A screenshot of my Twitter page."
 %}
@@ -807,7 +807,7 @@ You can't send the person a message, or see any of their tweets.
 
 
 {%
-  slide_image2
+  slide
   filename="slide68.png"
   alt="A screenshot of my Twitter bio, with the text “You are blocked from following @alexwlchan and viewing @alexwlchan’s Tweets” highlighted."
 %}
@@ -820,7 +820,7 @@ That itself could be a trigger for retaliation.
 
 
 {%
-  slide_image2
+  slide
   filename="slide70.png"
   alt="Allow “shadow blocking” dangerous users."
 %}
@@ -833,7 +833,7 @@ The idea is that eventually, they'll leave on their own because nobody's talking
 
 
 {%
-  slide_image2
+  slide
   filename="slide72.png"
   alt="Give your users advanced security/privacy controls."
 %}
@@ -849,7 +849,7 @@ what about more granular -->
 
 
 {%
-  slide_image2
+  slide
   filename="slide73.png"
   alt="A screenshot of Facebook’s “Privacy Settings and Tools” page."
 %}
@@ -866,7 +866,7 @@ More than just "who can see my posts", they have tools like:
 
 
 {%
-  slide_image2
+  slide
   filename="slide75.png"
   alt="Require wallet names?"
 %}
@@ -894,7 +894,7 @@ So you may be inviting more harassment, or just driving users away.
 
 
 {%
-  slide_image2
+  slide
   filename="slide76.png"
   alt="A screenshot of a discussion thread with 6063 comments, with the topic “Skills for Someone Else”."
 %}
@@ -906,7 +906,7 @@ Retrieved 18 April 2018.
 
 
 {%
-  slide_image2
+  slide
   filename="slide79.png"
   alt="Require persistent names."
 %}
@@ -916,7 +916,7 @@ You get the accountability and reputation of a persistent name, but without tryi
 
 
 {%
-  slide_image2
+  slide
   filename="slide80.png"
   alt="Believe users when they say they have a problem."
 %}
@@ -932,7 +932,7 @@ And remember that it can be hard to report something, so don't penalise somebody
 
 
 {%
-  slide_image2
+  slide
   filename="slide81.png"
   alt="Don't rely on technology to solve human problems."
 %}
@@ -953,7 +953,7 @@ Further reading:
 
 
 {%
-  slide_image2
+  slide
   filename="slide82.png"
   alt="A screenshot of a messaging app with a picture of a yellow flower and a message “Thinking of you!”."
   caption="Image: a yellow rose, by [Anthony](https://www.pexels.com/photo/beautiful-bloom-blooming-blossom-133472/) on Pexels. Used under CC0."
@@ -967,7 +967,7 @@ But most services don't have enough information to tell that difference.
 
 
 {%
-  slide_image2
+  slide
   filename="slide84.png"
   alt="Design with abusive personas in mind."
 %}
@@ -982,7 +982,7 @@ For somebody who wants to do harm, how can I make their life as difficult and fr
 
 
 {%
-  slide_image2
+  slide
   filename="slide85.png"
   alt="Recap slide with best practices."
 %}
@@ -991,21 +991,21 @@ For somebody who wants to do harm, how can I make their life as difficult and fr
 
 
 {%
-  slide_image2
+  slide
   filename="slide86.png"
   alt="White text on purple. “This isn’t easy.”"
 %}
 
 
 {%
-  slide_image2
+  slide
   filename="slide87.png"
   alt="White text on purple. “You will have your own ideas.”"
 %}
 
 
 {%
-  slide_image2
+  slide
   filename="slide88.png"
   alt="White text on purple. “You should always ask: How could this be used to hurt someone? How could the abusive ex use this?”"
 %}
@@ -1019,7 +1019,7 @@ If you don't answer this question, it will be answered for you -- and somebody e
 
 
 {%
-  slide_image2
+  slide
   filename="slide89.png"
   alt="Closing slide, thanks and link to notes."
 %}

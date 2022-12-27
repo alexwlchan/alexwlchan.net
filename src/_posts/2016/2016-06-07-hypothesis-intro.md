@@ -22,10 +22,9 @@ Enjoy!
 ---
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 0,
-  :alt => "Title slide."
+  slide
+  filename="slide0.png"
+  alt="Title slide."
 %}
 
 Automated testing is a necessity of modern software development.
@@ -34,10 +33,9 @@ It gives us a safety net for our code &ndash; running continuous tests help us c
 In this talk, I'll show you three powerful approaches to automated testing that help you find bugs in your code, but which don't cost an arm and a leg.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 1,
-  :alt => "Agenda slide."
+  slide
+  filename="slide1.png"
+  alt="Agenda slide."
 %}
 
 Part&nbsp;1 is the practical stuff: property-based testing with Hypothesis.
@@ -45,10 +43,9 @@ This is what most people think of when they say "property-based testing".
 In parts&nbsp;2 and&nbsp;3, we'll look at some more advanced ideas in the same vein.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 2,
-  :alt => "How do we usually test code?"
+  slide
+  filename="slide2.png"
+  alt="How do we usually test code?"
 %}
 
 But first, I think it's instructive to look at how we normally write tests.
@@ -60,10 +57,9 @@ Let's suppose we're testing a single function.
     Any deviation from the expected output is a failure.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 3,
-  :alt => "An example: sorting a list of integers, with a few examples of lists and their sorted outputs."
+  slide
+  filename="slide3.png"
+  alt="An example: sorting a list of integers, with a few examples of lists and their sorted outputs."
 %}
 
 Let's look at an example: sorting a list of integers.
@@ -74,10 +70,9 @@ On the right, I've written down what those lists look like when they're sorted.
 That gives us our test cases.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 4,
-  :alt => "Some Python code showing how we might write a test for a function that sorts a list of integers."
+  slide
+  filename="slide4.png"
+  alt="Some Python code showing how we might write a test for a function that sorts a list of integers."
 %}
 
 We can encode these examples in Python.
@@ -112,19 +107,17 @@ Humans are bad at this, so why don't we ask the computer?
 [cov]: https://pypi.python.org/pypi/coverage/
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 5,
-  :alt => "Header slide: “Property-based testing with Hypothesis”"
+  slide
+  filename="slide5.png"
+  alt="Header slide: “Property-based testing with Hypothesis”"
 %}
 
 In property-based testing, rather than write the examples ourselves, we let the computer come up with them.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 6,
-  :alt => "A description of the steps of property-based testing"
+  slide
+  filename="slide6.png"
+  alt="A description of the steps of property-based testing"
 %}
 
 How it works:
@@ -146,10 +139,9 @@ Our code has to stand up to hundreds of examples &ndash; that makes it much more
 If we don't find a bug, we have much more confidence in our code.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 7,
-  :alt => "A slide with a bulleted list, titled “When can we say a list is sorted?”"
+  slide
+  filename="slide7.png"
+  alt="A slide with a bulleted list, titled “When can we say a list is sorted?”"
 %}
 
 Let's go back to our list sort example.
@@ -168,10 +160,9 @@ These three properties are a much stronger test than the five examples.
 This *defines* a sorting routine &ndash; if a function passes these three conditions, it sorts a list of integers.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 8,
-  :alt => "Python code showing how we’d assert that a list of integers is sorted."
+  slide
+  filename="slide8.png"
+  alt="Python code showing how we’d assert that a list of integers is sorted."
 %}
 
 We can write these properties as code.
@@ -183,10 +174,9 @@ We'd like it to generate lots of random lists of random integers.
 At this point, we could just break out the random module, but I want to show you an alternative.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 9,
-  :alt => "A bullet slide with a picture of a man’s face: “Enter Hypothesis”."
+  slide
+  filename="slide9.png"
+  alt="A bullet slide with a picture of a man’s face: “Enter Hypothesis”."
 %}
 
 We're going  to look at a Python library called Hypothesis.
@@ -205,10 +195,9 @@ I believe David originally wrote this as a way to learn about Python (most peopl
 <!-- TODO: take out the link -->
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 10,
-  :alt => "Some Python code showing how to run a test with Hypothesis, and what the output looks like."
+  slide
+  filename="slide10.png"
+  alt="Some Python code showing how to run a test with Hypothesis, and what the output looks like."
 %}
 
 This is what our example looks like with Hypothesis.
@@ -228,10 +217,9 @@ That prints a single failing example, and registers a failure in your test runne
 We'll see what that looks like shortly.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 11,
-  :alt => "A slide with a bulleted list: “What are strategies?”"
+  slide
+  filename="slide11.png"
+  alt="A slide with a bulleted list: “What are strategies?”"
 %}
 
 Let's break down what Hypothesis gets is over generating random examples ourselves.
@@ -255,10 +243,9 @@ Creating small, easy-to-debug examples is a key feature of property-based testin
 *[Note: you can read about all the strategies Hypothesis supports in [the docs](http://hypothesis.readthedocs.io/en/latest/data.html).]*
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 12,
-  :alt => "Python code showing a custom Hypothesis strategy for creating instances of a `Person` class."
+  slide
+  filename="slide12.png"
+  alt="Python code showing a custom Hypothesis strategy for creating instances of a `Person` class."
 %}
 
 Let's look at how we can create examples from custom classes, using Hypothesis's strategies.
@@ -273,10 +260,9 @@ But the examples are pretty messy.
 You can tune strategies to get data that fits your application: you don't just have to accept all text, or all numbers.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 13,
-  :alt => "Python code showing the previous strategy, but with some restrictions on creating names."
+  slide
+  filename="slide13.png"
+  alt="Python code showing the previous strategy, but with some restrictions on creating names."
 %}
 
 I'll start by sorting out the names.
@@ -291,30 +277,27 @@ I feel like if a time traveller comes back from the future, they won't be signin
 [names]: https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 14,
-  :alt => "Python code showing the previous strategy, but extra restrictions on when you can have a birthday."
+  slide
+  filename="slide14.png"
+  alt="Python code showing the previous strategy, but extra restrictions on when you can have a birthday."
 %}
 
 We can bound the years from which Hypothesis draws dates.
 Now we get a more sensible birthday: 21st June, 1982.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 15,
-  :alt => "Python code showing the previous strategy, but now you have to choose a pet from “dog”, “cat” and “fish”."
+  slide
+  filename="slide15.png"
+  alt="Python code showing the previous strategy, but now you have to choose a pet from “dog”, “cat” and “fish”."
 %}
 
 Next, let's tackle the pets, because Hypothesis is giving us silly examples.
 In this case, there are only a few valid values, so we give tell Hypothesis an explicit set of choices with `sampled_from`.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 16,
-  :alt => "Python code showing the previous strategy, but now your height is between 0.0 and 3.0."
+  slide
+  filename="slide16.png"
+  alt="Python code showing the previous strategy, but now your height is between 0.0 and 3.0."
 %}
 
 Finally, let's fix the fact that the last person's height was larger than the size of the known universe&#8230; and negative.
@@ -323,10 +306,9 @@ We can bound the height to something vaguely sensible.
 In just a few lines of code and config, we've glued together Hypothesis's strategies to generate examples from a custom class, and constrained it to give examples to match our use case.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 17,
-  :alt => "A Hypothesis test that casserts the double-negative number of itself, and test output showing that NaN is a counterexample."
+  slide
+  filename="slide17.png"
+  alt="A Hypothesis test that casserts the double-negative number of itself, and test output showing that NaN is a counterexample."
 %}
 
 Filtering at the strategy level lets us cut out wide swathes of examples.
@@ -340,10 +322,9 @@ Hypothesis prints us this nice output showing us the counterexample, and raises 
 But if we decide that Hypothesis has found a silly example, how can we exclude it?
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 18,
-  :alt => "Code and output for a Hypothesis test that uses `assume()` to filter out a specific example."
+  slide
+  filename="slide18.png"
+  alt="Code and output for a Hypothesis test that uses `assume()` to filter out a specific example."
 %}
 
 We can use `assume()` to filter specific examples.
@@ -352,10 +333,9 @@ This throws a magic exception that tells Hypothesis "this was a bad example, giv
 Once we exclude that bad example, the problem goes away, and the test passes.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 19,
-  :alt => "Code for a Hypothesis test that asserts float addition is associative, and output showing a counterexample and a failed test."
+  slide
+  filename="slide19.png"
+  alt="Code for a Hypothesis test that asserts float addition is associative, and output showing a counterexample and a failed test."
 %}
 
 Here's another example showing why floating-point numbers are horrible.
@@ -364,10 +344,9 @@ Another sensible property that fails.
 When your application deals with complex spaces like floating-point numbers, or Unicode text, Hypothesis is an invaluable testing tool.  It can go out and find examples that you'd never think to test yourself.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 20,
-  :alt => "A slide with a bulleted list: “What is shrinking?”"
+  slide
+  filename="slide20.png"
+  alt="A slide with a bulleted list: “What is shrinking?”"
 %}
 
 Next feature: shrinking.
@@ -382,10 +361,9 @@ It tries to *shrink* the example, and find the smallest failure it can.
 This gives you much nicer results.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 21,
-  :alt => "Code for a test that makes a specious assumption about integer lists, and the output from a failing test."
+  slide
+  filename="slide21.png"
+  alt="Code for a test that makes a specious assumption about integer lists, and the output from a failing test."
 %}
 
 Here's a dubious proposition about sorting: sorting the concatenation of two lists is the same as sorting them individually, and concatenating both results.
@@ -393,10 +371,9 @@ Here's a dubious proposition about sorting: sorting the concatenation of two lis
 It's not surprising that it fails, but the counterexample is really small: there isn't a simpler example that still triggers this bug.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 22,
-  :alt => "Output from a test that shows the different examples which were tried before it gave the result."
+  slide
+  filename="slide22.png"
+  alt="Output from a test that shows the different examples which were tried before it gave the result."
 %}
 
 If we look at the examples Hypothesis was trying, we see this wasn't luck.
@@ -411,10 +388,9 @@ Doing this shrinking is possible by hand, but it's another example of work we ca
 I think it's a really important feature of property-based testing libraries: it makes the bugs much more palatable to work with.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 23,
-  :alt => "A slide with a bulleted list: “What about rare examples?”"
+  slide
+  filename="slide23.png"
+  alt="A slide with a bulleted list: “What about rare examples?”"
 %}
 
 Now, let's think about flakiness.
@@ -430,10 +406,9 @@ This means that once it finds a failing example, it will persistently fail that 
 *[Note: Hypothesis actually stores _every_ failing example that it finds, and gradually discards them when the test starts passing again.  So if the process of shrinking causes Hypothesis to encounter more than one bug, it won't forget.  This was a question on the day.]*
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 24,
-  :alt => "Some example code for a function and test to get somebody’s next birthday."
+  slide
+  filename="slide24.png"
+  alt="Some example code for a function and test to get somebody’s next birthday."
 %}
 
 To see this, let's go back to my person class.
@@ -449,10 +424,9 @@ But people with that birthday are comparatively rare &ndash; only about 1&nbsp;i
 (This example is based on a very similar bug that I wrote two years ago, and which we only noted this past spring.)
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 25,
-  :alt => "Showing the output of eight successive runs of Hypothesis: seven passed green, the eighth found a bug."
+  slide
+  filename="slide25.png"
+  alt="Showing the output of eight successive runs of Hypothesis: seven passed green, the eighth found a bug."
 %}
 
 Unsurprisingly, the first test run succeeds &ndash; 200&nbsp;examples, with a 1&nbsp;in&nbsp;1000&nbsp;failure rate.
@@ -462,17 +436,15 @@ And the third.
 When I ran this before the talk, it took eight runs before it found the bug &ndash; but it did indeed find it.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 26,
-  :alt => "Output from the first test that found the bug, taking 0.48 seconds."
+  slide
+  filename="slide26.png"
+  alt="Output from the first test that found the bug, taking 0.48 seconds."
 %}
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 27,
-  :alt => "Output from a subsequent run that found the bug, taking just 0.09 seconds."
+  slide
+  filename="slide27.png"
+  alt="Output from a subsequent run that found the bug, taking just 0.09 seconds."
 %}
 
 Hypothesis discovers the bug, and raises it as an error.
@@ -480,10 +452,9 @@ It's also stored the bug in its database, so the next time I run this test, it t
 (0.09s compared to 0.48s.)
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 28,
-  :alt => "A Hypothesis test that uses the `@example` decorator to remember an example."
+  slide
+  filename="slide28.png"
+  alt="A Hypothesis test that uses the `@example` decorator to remember an example."
 %}
 
 Once we've found this example, we'd like Hypothesis to always check it in future &ndash; as it's rare, we might not spot a regression immediately.
@@ -491,10 +462,9 @@ Once we've found this example, we'd like Hypothesis to always check it in future
 We can easily use the `@example` decorator to capture this example, and this means Hypothesis will always try this example, in addition to the random examples from the strategy.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 29,
-  :alt => "Slide with a bulleted list: “Hypothesis summary”."
+  slide
+  filename="slide29.png"
+  alt="Slide with a bulleted list: “Hypothesis summary”."
 %}
 
 <!-- TODO: fix URL colouring -->
@@ -511,10 +481,9 @@ Often when I show people this style of testing, they get excited and think it's 
 Now I want to show you some simple patterns for getting started with property-based testing.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 30,
-  :alt => "Code and a bulleted list: “Testing patterns: simple fuzzing”."
+  slide
+  filename="slide30.png"
+  alt="Code and a bulleted list: “Testing patterns: simple fuzzing”."
 %}
 
 Let's start with a simple assertion: your code shouldn't crash.
@@ -534,10 +503,9 @@ This is small stuff, but it starts to expose cracks in your code.
 We'll come back to this idea later.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 31,
-  :alt => "Code and a bulleted list: “Testing patterns: round trip”."
+  slide
+  filename="slide31.png"
+  alt="Code and a bulleted list: “Testing patterns: round trip”."
 %}
 
 Another pattern is what I call "round trip".
@@ -546,10 +514,9 @@ Suppose we have two functions that are inverses &ndash; in that case, applying b
 This is particularly useful any time you have to do encoding or decoding of data, or if you're writing any sort of serialisation code.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 32,
-  :alt => "Code and a bulleted list, and output from a failing test: “Testing patterns: simple fuzzing”."
+  slide
+  filename="slide32.png"
+  alt="Code and a bulleted list, and output from a failing test: “Testing patterns: simple fuzzing”."
 %}
 
 Here's an example of this pattern in practice.
@@ -560,10 +527,9 @@ When they were tested with this pattern, it flushed out at least two bugs in the
 Two bugs from three lines of code.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 33,
-  :alt => "Code and a bulleted list: “Testing patterns: invariants and idempotents”."
+  slide
+  filename="slide33.png"
+  alt="Code and a bulleted list: “Testing patterns: invariants and idempotents”."
 %}
 
 Another good place to start is to look for invariants.
@@ -576,10 +542,9 @@ For example, here I'm normalising text before I save it in a database.
 The normalisation only needs to be applied once, so if calling it a second time changes the output, something's gone wrong.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 34,
-  :alt => "Code and a bulleted list: “Testing patterns: test oracle”."
+  slide
+  filename="slide34.png"
+  alt="Code and a bulleted list: “Testing patterns: test oracle”."
 %}
 
 The final pattern: a test oracle.
@@ -593,10 +558,9 @@ You can ensure that both implementation have the same results, and then you know
 Also works if you can find a simpler, easier-to-check implementation that's unsuitable for production (for example, a slow but simple implementation).
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 35,
-  :alt => "Slide with a bulleted list: a list of testing patterns."
+  slide
+  filename="slide35.png"
+  alt="Slide with a bulleted list: a list of testing patterns."
 %}
 
 So that gives you a few ideas for how to get started.
@@ -606,10 +570,9 @@ What defines "correctness" in your tests?
 If you can answer that, you usually have enough to start writing this sort of test.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 36,
-  :alt => "Header slide: “Property-based testing with Hypothesis”."
+  slide
+  filename="slide36.png"
+  alt="Header slide: “Property-based testing with Hypothesis”."
 %}
 
 So that's property-based testing.
@@ -621,20 +584,18 @@ This is something you can put into practice straight away.
 You can add these to your existing unit tests immediately, and start reaping the benefits of better coverage and confidence.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 37,
-  :alt => "Header slide: “Stateful testing with Hypothesis”."
+  slide
+  filename="slide37.png"
+  alt="Header slide: “Stateful testing with Hypothesis”."
 %}
 
 For part&nbsp;2, I want to push this idea a bit further.
 So far, we've only looked at testing a single function &ndash; could we test something more complex?
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 38,
-  :alt => "Slide with a bulleted list: “What is stateful testing?”."
+  slide
+  filename="slide38.png"
+  alt="Slide with a bulleted list: “What is stateful testing?”."
 %}
 
 Most applications are large and complicated and have lots of moving parts.
@@ -653,10 +614,9 @@ This is a somewhat experimental part of Hypothesis.
 I haven't seen it used much in practice, but I think it's a really interesting idea.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 39,
-  :alt => "Slide with a numbered list: how stateful testing works."
+  slide
+  filename="slide39.png"
+  alt="Slide with a numbered list: how stateful testing works."
 %}
 
 To run a stateful test, we tell Hypothesis about the sort of actions it can run with our code &ndash; for example, it can do a database read, or a database write.
@@ -668,10 +628,9 @@ It tries the actions in lots of different orders, trying to find something that 
 And like in part&nbsp;1, it's going to be somewhat intelligent about the failures it finds.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 40,
-  :alt => "Code showing a Hypothesis test for a priority queue."
+  slide
+  filename="slide40.png"
+  alt="Code showing a Hypothesis test for a priority queue."
 %}
 
 So let's look at an example.
@@ -690,10 +649,9 @@ If not, that's an error.
 [pqueue]: https://en.wikipedia.org/wiki/Priority_queue
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 41,
-  :alt => "Output from a Hypothesis test for a failing test with the priority queue."
+  slide
+  filename="slide41.png"
+  alt="Output from a Hypothesis test for a failing test with the priority queue."
 %}
 
 But what happens when Hypothesis finds an error?
@@ -706,10 +664,9 @@ And Hypothesis applies its shrinking smarts to try to give you a small repro.
 It won't necessarily be minimal, but it's usually pretty small.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 42,
-  :alt => "Header slide: “Stateful testing with Hypothesis”."
+  slide
+  filename="slide42.png"
+  alt="Header slide: “Stateful testing with Hypothesis”."
 %}
 
 Letting Hypothesis drive your program is a really interesting approach.
@@ -721,10 +678,9 @@ I'm trying to make a conscious effort to do more of this type of testing.
 *[Note: I haven't asked David, but I think some of the stateful testing work in Hypothesis is at least partially inspired by ScalaCheck.  I've been looking at Scala examples for inspiration in this area.]*
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 43,
-  :alt => "Header slide: “Fuzz testing with AFL”."
+  slide
+  filename="slide43.png"
+  alt="Header slide: “Fuzz testing with AFL”."
 %}
 
 For the final part, I want to go back to the idea of trying to find inputs that crash your code.
@@ -733,10 +689,9 @@ There's a whole field called [fuzz testing][fuzz], often for the purposes of sec
 [fuzz]: https://en.wikipedia.org/wiki/Fuzz_testing
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 44,
-  :alt => "Slide with a bulleted list: “Fuzz testing”."
+  slide
+  filename="slide44.png"
+  alt="Slide with a bulleted list: “Fuzz testing”."
 %}
 
 We've already seen the procedure, which is pretty simple &ndash; fire data at a program, see if it crashes.
@@ -759,10 +714,9 @@ There are two ways you can fuzz:
 We're going to look at this second path.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 45,
-  :alt => "Slide with a bulleted list and a picture of a rabit: “Enter american fuzzy lop (afl)”."
+  slide
+  filename="slide45.png"
+  alt="Slide with a bulleted list and a picture of a rabit: “Enter american fuzzy lop (afl)”."
 %}
 
 There's a security-based fuzzer called *american fuzzy lop (afl)*.
@@ -773,10 +727,9 @@ Because it learns from the structure of your program, it doesn't need to be know
 This is very powerful, because it chooses its inputs based on what your code is actually parsing, not just what you think it does.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 46,
-  :alt => "Slide with a bulleted list: “Under the covers”."
+  slide
+  filename="slide46.png"
+  alt="Slide with a bulleted list: “Under the covers”."
 %}
 
 So how does it do this?
@@ -790,10 +743,9 @@ That won't work in Python, because Python isn't a compiled language.
 Instead, we can use python-afl, which applies the same principle, but to Python code.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 47,
-  :alt => "Code for a C program that aborts if you type the string “parrot”."
+  slide
+  filename="slide47.png"
+  alt="Code for a C program that aborts if you type the string “parrot”."
 %}
 
 Here's an example of a simple C program that reads text from stdin, and crashes if that string starts with "parrot".
@@ -804,10 +756,9 @@ We give the fuzzer a directory of inputs (I just used `helloworld`), and a direc
 Then the fuzzer goes to town.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 48,
-  :alt => "Terminal output showing a fuzzing session with AFL."
+  slide
+  filename="slide48.png"
+  alt="Terminal output showing a fuzzing session with AFL."
 %}
 
 When AFL is running, it gives us this nice dashboard.
@@ -822,10 +773,9 @@ So far it's found "hell", "pell", "pall", "parl" and "parr".
 That gives you an idea of how powerful this is in its native state.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 49,
-  :alt => "Python code for fuzzing the python-cryptography library with AFL."
+  slide
+  filename="slide49.png"
+  alt="Python code for fuzzing the python-cryptography library with AFL."
 %}
 
 But we don't write C, we write Python.
@@ -836,10 +786,9 @@ This example comes from a [blog post by Alex Gaynor](https://alexgaynor.net/2015
 This test [exposed several bugs](https://github.com/pyca/cryptography/issues/1838).
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 50,
-  :alt => "Terminal output showing an AFL fuzzing session against python-cryptography."
+  slide
+  filename="slide50.png"
+  alt="Terminal output showing an AFL fuzzing session against python-cryptography."
 %}
 
 And again, we get the nice curses output, but it's much slower.
@@ -848,10 +797,9 @@ After a similar length of time to the C example, it's tried just 16,000&nbsp;exa
 Not much to be done about this &ndash; in this case, Python is just slow.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 51,
-  :alt => "AFL’s trophy list: a table showing all the software with bugs found by AFL."
+  slide
+  filename="slide51.png"
+  alt="AFL’s trophy list: a table showing all the software with bugs found by AFL."
 %}
 
 AFL has a pretty impressive [trophy list][trophy], and this is only a third of it.
@@ -861,20 +809,18 @@ It's even taken a swing at software that had already been hardened by convention
 [trophy]: http://lcamtuf.coredump.cx/afl/
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 52,
-  :alt => "Header slide: “Fuzz testing with AFL”."
+  slide
+  filename="slide52.png"
+  alt="Header slide: “Fuzz testing with AFL”."
 %}
 
 Fuzz testing with AFL is a great way to harden your software.
 It runs for hours or days, so you don't want it in your CI suite, but a one-off run will usually drop out a fair number of bugs.
 
 {%
-  slide_image
-  :deck => "hypothesis-intro",
-  :slide => 53,
-  :alt => "Recap slide."
+  slide
+  filename="slide53.png"
+  alt="Recap slide."
 %}
 
 Summary slide.

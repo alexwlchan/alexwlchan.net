@@ -198,6 +198,10 @@
 
 /notes /410.html 410
 
+/slides/docopt/docopt_slides.pdf                            /files/2017/docopt_slides.pdf
+/slides/privilege_inclusion/privilege_inclusion_slides.pdf  /files/2017/privilege_inclusion_slides.pdf
+/slides/anti_social_media/anti_social_media_slides.pdf      /files/2018/anti_social_media_slides.pdf
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /* /404.html 404
