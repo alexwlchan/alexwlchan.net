@@ -33,7 +33,7 @@ In the meantime, you can download my slides [as a PDF][pdfslides], and I'll add 
 ## Slides and notes
 
 {%
-  slide_image2
+  slide
   filename="slide1.png"
   alt="Title slide. It includes my name (Alex Chan), my pronouns (they/she), and a URL pointing to these slides."
 %}
@@ -47,7 +47,7 @@ I work at Wellcome Collection, a museum and library in London, and we do iterati
 
 
 {%
-  slide_image2
+  slide
   filename="slide2.png"
   alt="A set of green circular arrows: break down big tasks into smaller tasks, work through the smaller tasks, review/update your tasks."
 %}
@@ -65,7 +65,7 @@ Most people are already familiar with steps 1 and 2; but step 3 is super importa
 This cycle gets us a fast feedback loop for our task management.
 
 ​{%
-  slide_image2
+  slide
   filename="slide3.png"
   alt="Text slide. Building iteratively means you can react to new info or requirements, gather feedback quickly, and always be doing something important."
 %}
@@ -82,7 +82,7 @@ The best example from recent years is the COVID-19 pandemic.
 A lot of plans got thrown up in the air in early 2020; if you already used to an iterative approach to project management, you were better placed to adapt to changing circumstances.
 
 {%
-  slide_image2
+  slide
   filename="slide2.png"
   alt="A set of green circular arrows: break down big tasks into smaller tasks, work through the smaller tasks, review/update your tasks."
 %}
@@ -97,7 +97,7 @@ To understand this, we need to understand what came before.
 
 
 {%
-  slide_image2
+  slide
   filename="slide5.png"
   alt="A series of three blue boxes forming a waterfall. The first box is 'Design and requirements', the second is 'Implementation and testing', the third is 'Deployment and maintenance'."
   caption="Waterfall icon by [Luis Prado on the Noun Project](https://thenounproject.com/icon/waterfall-3411/). Used with a [NounPro subscription](https://thenounproject.com/pricing/)."
@@ -120,7 +120,7 @@ In the 21st century, software development has changed, and this model was less a
 
 
 {%
-  slide_image2
+  slide
   filename="slide6.png"
   alt="Screenshot of a web browser showing the Agile Manifesto."
   caption="<https://agilemanifesto.org>"
@@ -134,7 +134,7 @@ This started the big push towards agile that we see today -- some of it was new 
 
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="Minimum Viable Product. The first line shows the evolution of a skateboard, to a scooter, to a pushbike, to a motorbike, to a car. The second line shows the building of a car, from the wheels, to a chassis, to a body, to a car."
 %}
@@ -154,7 +154,7 @@ We could stop at any point and still have something useful.
 
 
 {%
-  slide_image2
+  slide
   filename="slide8.png"
   alt="The same diagram as before, but now with offshoots from scooter to e-scooter and motorbike to cargo bike."
 %}
@@ -168,7 +168,7 @@ Or maybe the motorbike is a flop, and what people really wanted was a bike with 
 
 
 {%
-  slide_image2
+  slide
   filename="slide9.png"
   alt="The quote ‘Fail fast, fail often’, an agile proverb."
 %}
@@ -187,7 +187,7 @@ Iterative approaches have become very popular, but waterfall still has a place.
 
 
 {%
-  slide_image2
+  slide
   filename="slide2.png"
   alt="A set of green circular arrows: break down big tasks into smaller tasks, work through the smaller tasks, review/update your tasks."
 %}
@@ -202,7 +202,7 @@ There are lots of implementations of agile, all slightly different, with lots of
 You can read more about those on your own time.
 
 {%
-  slide_image2
+  slide
   filename="slide11.png"
   alt="A GitHub project management board, with four columns: a sprint backlog, in progress, blocked, done."
 %}
@@ -231,7 +231,7 @@ We do one sprint after another, and the cycle means we remember to go back and r
 [Issues]: https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
 
 {%
-  slide_image2
+  slide
   filename="slide12.png"
   alt="Text slide titled ‘Example tasks: new homepage design’. The tasks are: create design mockups, implement the designs in code, review the new homepage, deploy the new version, gather feedback from users."
 %}
@@ -239,7 +239,7 @@ We do one sprint after another, and the cycle means we remember to go back and r
 I also wanted to give an example of how we might break down a big task ("new homepage design") into smaller tasks.
 
 {%
-  slide_image2
+  slide
   filename="slide13.png"
   alt="An example task board with three columns: to do, in progress, done, a series of tasks represented as post-it notes, and a calendar entry titled “Monday meetings: review all my open tasks”."
 %}
@@ -247,7 +247,7 @@ I also wanted to give an example of how we might break down a big task ("new hom
 This is a slightly more abstract version of that example, a sort of "agile starter kit".
 
 {%
-  slide_image2
+  slide
   filename="slide2.png"
   alt="A set of green circular arrows: break down big tasks into smaller tasks, work through the smaller tasks, review/update your tasks."
 %}
@@ -256,7 +256,7 @@ Recap slide.
 
 
 {%
-  slide_image2
+  slide
   filename="slide16.png"
   alt="Wrap-up slide, with the title, my name and website address, and a link to these slides."
 %}

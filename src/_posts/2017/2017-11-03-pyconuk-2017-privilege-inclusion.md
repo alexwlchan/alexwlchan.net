@@ -56,7 +56,7 @@ Even with the friendly PyCon UK audience, I was quite nervous, but I got a prett
 ---
 
 {%
-  slide_image2
+  slide
   filename="slide1.png"
   alt="Title slide."
 %}
@@ -64,7 +64,7 @@ Even with the friendly PyCon UK audience, I was quite nervous, but I got a prett
 (Introductory slide)
 
 {%
-  slide_image2
+  slide
   filename="slide3.png"
   alt="A photo of a red, blue and orange light installation in the windows of an office building."
   caption="Image: [*Tools of the Trade*](https://wellcomecollection.org/what-we-do/tools-trade), by Stuart Haygarth. A light installation in the windows of the Wellcome Trust building."
@@ -85,7 +85,7 @@ And if so, how can I counter that?
 [wellcome]: https://wellcome.ac.uk
 
 {%
-  slide_image2
+  slide
   filename="slide4.png"
   alt="How can I make the culture in my environment more inclusive?"
 %}
@@ -98,7 +98,7 @@ I want to provide some practical steps, not just good feelings.
 And if you've come to this talk, you're probably the sort of person who gets asked about diversity and inclusion --- so I want to give you some tools, some phrases you can use the next time you're asked.
 
 {%
-  slide_image2
+  slide
   filename="slide5.png"
   alt="What creates an inclusive culture?"
 %}
@@ -106,7 +106,7 @@ And if you've come to this talk, you're probably the sort of person who gets ask
 So what do we need to build an inclusive culture?
 
 {%
-  slide_image2
+  slide
   filename="slide6.png"
   alt="Privilege awareness creates an inclusive culture."
 %}
@@ -115,7 +115,7 @@ There are multiple factors, but I think *privilege awareness* is an important on
 It's necessary, not sufficient (hence the squiggly arrow), and in this talk we'll see how to turn awareness into action.
 
 {%
-  slide_image2
+  slide
   filename="slide7.png"
   alt="A photo of a table in a garden laid out for a party."
 %}
@@ -141,7 +141,7 @@ Diversity is too easily and too often gamed for cheap PR wins; inclusion takes r
 That's what we want to do: build environments that are genuinely welcoming.
 
 {%
-  slide_image2
+  slide
   filename="slide8.png"
   alt="The word “privilege” highlighted in the dictionary."
 %}
@@ -150,7 +150,7 @@ So now let's talk about *privilege*.
 People often get defensive around that word, and see it as an attack on them if you call them privileged.
 
 {%
-  slide_image2
+  slide
   filename="slide9.png"
   alt="Privilege doesn't mean you're wealthy or laid back."
 %}
@@ -161,7 +161,7 @@ Most of us don't have this sort of luxury, so we couldn't be privileged, right?
 That's not what privilege is about.
 
 {%
-  slide_image2
+  slide
   filename="slide10.png"
   alt="A tweet from jaythenerdkid: “one thing that makes privilege so hard to dismantle is that the privileged don’t realise they have it”."
   caption="Link to original tweet: <https://twitter.com/jaythenerdkid/status/763451754138701824>"
@@ -170,7 +170,7 @@ That's not what privilege is about.
 This is one of the hardest things about dealing with privilege: this false idea of what it means, so people assume they don't have it.
 
 {%
-  slide_image2
+  slide
   filename="slide11.png"
   alt="Having privilege means there are obstacles you don't have to deal with."
 %}
@@ -187,7 +187,7 @@ It doesn't mean you didn't work hard, or that your success isn't guaranteed.
 It just means that somebody else without your privilege might have to work harder for the same success, because they have different obstacles to you.
 
 {%
-  slide_image2
+  slide
   filename="slide12.png"
   alt="A turquoise person with a list of possible privileges: race, gender, family, and so on."
 %}
@@ -198,7 +198,7 @@ An exercise: look at the privileges on this slide, and find at least one that yo
 Some people in the room will have almost all of them, some people just one or two.
 
 {%
-  slide_image2
+  slide
   filename="slide15.png"
   alt="The same person, but with several of the privileges crossed out."
 %}
@@ -220,7 +220,7 @@ Hopefully you're starting to get some idea of the sort of benefits your privileg
 Now you've realised that, how do you do something about it?
 
 {%
-  slide_image2
+  slide
   filename="slide16.png"
   alt="It's not bad to have privilege, but it's bad to ignore the benefits it gives you."
 %}
@@ -232,7 +232,7 @@ It doesn't reflect badly on us to have that privilege --- it's what we do with i
 In particular, if you ignore the benefits it gives you, you're deliberately excluding people from your environment.
 
 {%
-  slide_image2
+  slide
   filename="slide6.png"
   alt="Privilege awareness creates an inclusive culture."
 %}
@@ -240,7 +240,7 @@ In particular, if you ignore the benefits it gives you, you're deliberately excl
 We're starting to see how privilege awareness informs inclusion --- if we can see where people without our privilege might face obstacles, we can start to reduce or remove them.
 
 {%
-  slide_image2
+  slide
   filename="slide19.png"
   alt="The goal: be an active ally for people who have different levels of privilege."
 %}
@@ -258,7 +258,7 @@ The process I'll explain looks simple when put on slides.
 It's harder to put into practice.
 
 {%
-  slide_image2
+  slide
   filename="slide20.png"
   alt="Introspect: understand your own privilege."
 %}
@@ -271,7 +271,7 @@ Think about your own life, background, situation, and understand where you have 
 This will help you realise your blind spots --- what privilege are you taking for granted?
 
 {%
-  slide_image2
+  slide
   filename="slide21.png"
   alt="Listen and learn: how is life harder for people without your privilege?"
 %}
@@ -291,7 +291,7 @@ If you don't have these people in your day-to-day life, social media is great.
 Find these people, follow them, hear what they have to say.
 
 {%
-  slide_image2
+  slide
   filename="slide22.png"
   alt="A tweet from @austin_walker."
   caption="Link to original tweet: <https://twitter.com/austin_walker/status/782360503582650368>."
@@ -304,7 +304,7 @@ To explain to them why that's not actually discrimination, or they've misunderst
 Don't be that person.
 
 {%
-  slide_image2
+  slide
   filename="slide24.png"
   alt="Speak and take action: use your privilege to stand up for those who lack it.."
 %}
@@ -325,7 +325,7 @@ There are a couple of reasons this is important, why we don't just leave this ac
 So let's look at some examples.
 
 {%
-  slide_image2
+  slide
   filename="slide25.png"
   alt="Cut out bad jokes/language."
 %}
@@ -335,7 +335,7 @@ Are there jokes you make which are harmful, or language which is offensive?
 Try to avoid saying that stuff.
 
 {%
-  slide_image2
+  slide
   filename="slide26.png"
   alt="Call out bad jokes/language when you hear them."
 %}
@@ -344,7 +344,7 @@ Then when you've started to reduce it in your own language, call out other peopl
 Explain to them why that language could be harmful, and they should use an alternative.
 
 {%
-  slide_image2
+  slide
   filename="slide27.png"
   alt="Call out stereotypes when you hear them."
 %}
@@ -353,7 +353,7 @@ Language is bad, so are stereotypes.
 If somebody paints with a broad brush, or uses "conventional wisdom", check to see if it's really true.
 
 {%
-  slide_image2
+  slide
   filename="slide28.png"
   alt="The XKCD comic “How It Works”. A man makes a mistake: “Wow, you suck at math”. A woman makes the same mistake: “Wow, girls suck at math”."
   caption="Image: [XKCD 385 *How It Work*](https://www.xkcd.com/385/), by Randall Munroe."
@@ -373,7 +373,7 @@ Do you have evidence, or is it just a hunch?
 Is there information behind this feeling, or is it just a hunch?
 
 {%
-  slide_image2
+  slide
   filename="slide29.png"
   alt="Even “positive” stereotypes can be harmful."
   caption="Link to original tweet: <https://twitter.com/andrhia/status/921184523693543424>."
@@ -382,7 +382,7 @@ Is there information behind this feeling, or is it just a hunch?
 And even when a stereotype seems like it's positive, it may still be doing harm to the group.
 
 {%
-  slide_image2
+  slide
   filename="slide30.png"
   alt="Challenge the hidden assumptions in your environment."
 %}
@@ -401,7 +401,7 @@ What do we think of somebody who always misses stand-up?
 [standup]: https://en.wikipedia.org/wiki/Stand-up_meeting
 
 {%
-  slide_image2
+  slide
   filename="slide31.png"
   alt="Listening to someone is not the same as having their experience."
 %}
@@ -413,7 +413,7 @@ You can understand the effects, but it's very difficult to understand what it's 
 Be careful not to co-opt somebody else's experience, so present it as if it were your own.
 
 {%
-  slide_image2
+  slide
   filename="slide32.png"
   alt="Empathy, not preaching."
 %}
@@ -424,7 +424,7 @@ Share that, don't just tell other people how they should behave better.
 Share what you've learnt, the empathy you've gained.
 
 {%
-  slide_image2
+  slide
   filename="slide33.png"
   alt="Calling out is powerful, especially when it comes from somebody who looks like us."
 %}
@@ -441,7 +441,7 @@ As a person of privilege, your voice has power, especially among people with the
 Use it!
 
 {%
-  slide_image2
+  slide
   filename="slide35.png"
   alt="Persevere: These problems don't have a silver bullet."
 %}
@@ -454,7 +454,7 @@ It's a slow-moving process of continuous improvement, and it doesn't fix things 
 Keep at it, and have faith that if you do it enough, things can get better.
 
 {%
-  slide_image2
+  slide
   filename="slide36.png"
   alt="You will get it wrong, and that's not (necessarily) a bad thing."
 %}
@@ -469,7 +469,7 @@ If you spot you're making mistakes?
 That means you're more aware than you were before!
 
 {%
-  slide_image2
+  slide
   filename="slide37.png"
   alt="This is like a technical skill. Building a welcoming and inclusive environment is a continuous process."
 %}
@@ -480,7 +480,7 @@ There's always more to learn, ways to get better, and it's continuously changing
 Just as a technical skill requires constant improvement and learning --- and making mistakes along the way --- so does being a welcoming/inclusive environment.
 
 {%
-  slide_image2
+  slide
   filename="slide40.png"
   alt="Recap for being an active ally."
 %}
