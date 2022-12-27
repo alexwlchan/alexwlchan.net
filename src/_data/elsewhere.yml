@@ -167,7 +167,7 @@ talks:
   links:
     event: https://qconlondon.com/london-2017/london-2017/presentation/introduction-to-property-based-testing.html
     notes: "/talks/qcon2017/"
-    slides: "/talks/hypothesis_qcon17.pdf"
+    slides: "/files/2017/hypothesis_qcon17.pdf"
   title: Property-Based Testing In Practice
 - date: 2016-09-18
   event: PyCon UK
