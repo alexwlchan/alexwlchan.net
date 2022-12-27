@@ -19,7 +19,7 @@ The talk was recorded, and you can watch it [on YouTube](https://www.youtube.com
 
 {% youtube https://www.youtube.com/watch?v=qwTWqy0uPbY %}
 
-You can read the slides and my notes on this page, or download the slides [as a PDF](/files/pyconuk_2019_sans_io.pdf).
+You can read the slides and my notes on this page, or download the slides [as a PDF](/files/2019/pyconuk_2019_sans_io.pdf).
 
 The talk was transcribed, and these notes are based on that transcript.
 The two STTRs that day were Wendy Osmond and Hilary Maclean; I'm not sure who was transcribing my particular talk.

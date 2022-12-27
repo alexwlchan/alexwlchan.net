@@ -52,7 +52,7 @@ a string to the `search` command, which opens the image in the Alfred
 file browser. From there, I can apply any one of my Alfred workflows to
 the image, although normally I just open it in Preview for editing.
 
-If you like, you can [download the workflow](/files/open-recent-screenshots.zip).
+If you like, you can [download the workflow](/files/2014/open-recent-screenshots.zip).
 You'll need to set the path for your own screenshots folder before using
 it, but that's all the setup it needs.
 

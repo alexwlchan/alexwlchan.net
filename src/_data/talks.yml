@@ -44,7 +44,7 @@
 
     links:
       video: "https://www.youtube.com/watch?v=qwTWqy0uPbY"
-      slides: "/files/pyconuk_2019_sans_io.pdf"
+      slides: "/files/2019/pyconuk_2019_sans_io.pdf"
       notes: "/2019/10/sans-io-programming/"
 
   - title: "A robot stole my job!"
@@ -81,7 +81,7 @@
 
     links:
       video: "https://www.youtube.com/watch?v=6Yf3iukx3tQ"
-      slides: "/files/curbcut-monkigras.pdf"
+      slides: "/files/2019/curbcut-monkigras.pdf"
       notes: "/2019/01/monki-gras-the-curb-cut-effect/"
 
 2018:
@@ -105,7 +105,7 @@
 
     links:
       video: "https://www.youtube.com/watch?v=XyGVRlRyT-E"
-      slides: "/files/assume_worst_intent.pdf"
+      slides: "/files/2018/assume_worst_intent.pdf"
       notes: "/2018/09/assume-worst-intent/"
 
   - title: "Building Trust in an Age of Suspicious Minds"

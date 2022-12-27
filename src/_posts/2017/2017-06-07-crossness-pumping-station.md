@@ -145,7 +145,7 @@ Even more impressive, the engine was actually steaming.
 I deliberately picked a day when the engines were running:
 
 <figure>
-  <video controls src="/files/crossness_flywheel.mp4"></video>
+  <video controls src="/files/2017/crossness_flywheel.mp4"></video>
 </figure>
 
 The engine has a graceful, almost hypnotic motion.
@@ -155,7 +155,7 @@ Mesmerising – I could have sat and watched it for hours.
 You can make out the connecting rod in the foreground, I got a second video of that moving:
 
 <figure>
-  <video controls src="/files/crossness_beam.mp4"></video>
+  <video controls src="/files/2017/crossness_beam.mp4"></video>
 </figure>
 
 (Unfortunately my phone was almost out of battery, so these are my only two videos.)
