@@ -18,28 +18,15 @@ theme:
 </style>
 
 <p class="fullwidth_img">
-  <picture>
-    <source
-      srcset="/images/profile_green_1x.webp 1x,
-              /images/profile_green_2x.webp 2x,
-              /images/profile_green_3x.webp 3x,
-              /images/profile_green_4x.webp 4x"
-      type="image/webp"
-    >
-    <source
-      srcset="/images/profile_green_1x.jpg 1x,
-              /images/profile_green_2x.jpg 2x,
-              /images/profile_green_3x.jpg 3x,
-              /images/profile_green_4x.jpg 4x"
-      type="image/jpeg"
-    >
-    <img
-      src="/images/profile_green_1x.jpg"
-      alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
-      class="rounded_corners"
-      style="aspect-ratio: 750 / 563"
-    >
-  </picture>
+  {%
+    picture
+    filename="profile_green.jpg"
+    parent="/images"
+    visible_width="750px"
+    alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
+    class="rounded_corners"
+    style="aspect-ratio: 750 / 563"
+  %}
 </p>
 
 ## Hi, I'm Alex.
