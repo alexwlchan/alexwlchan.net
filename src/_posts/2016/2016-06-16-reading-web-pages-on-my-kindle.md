@@ -125,7 +125,7 @@ In particular, `appex.get_url()` lets me get a URL, so anywhere I can get the iO
 
 <video controls class="portrait" src="/images/2016/send-to-kindle.mov" style="max-width: 400px;"></video>
 
-If you want, you can download a complete [copy of the script](/files/send_to_kindle.py).
+If you want, you can download a complete [copy of the script](/files/2016/send_to_kindle.py).
 The same script runs on boht platforms.
 It requires a bit of configuration: you'll need to set up your Instaparser API key, and configure an account for sending emails.
 And my SMTP wrapper requires Python 3.
