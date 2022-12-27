@@ -139,7 +139,7 @@ class RunLinting < Jekyll::Command
           local_image_path = "#{html_dir}#{image_path}"
 
           if !File.exist? local_image_path
-            errors[display_path] <<= "Card points to a missing image"
+            errors[display_path] <<= "Card points to a missing image: #{local_image_path}"
           end
 
           # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
