@@ -954,7 +954,7 @@ If you discover you misplaced your trust is something, you never trust it again,
 
 {%
   slide
-  filename="slide46.jpeg"
+  filename="slide46.jpg"
   alt="A close-up badge of a Volkswagen badge on a car’s radiator grille."
   caption="Image: [Volkswagen grille](https://pxhere.com/en/photo/493486), from Pxhere. CC0."
 %}
@@ -1005,7 +1005,7 @@ Don't just try harder next time and hope people will believe you; actually put i
 
 {%
   slide
-  filename="slide48.jpeg"
+  filename="slide48.jpg"
   alt="A British Airways plane set against a blue sky."
   caption="Image: [British Airways plane against a blue sky](https://pxhere.com/en/photo/751319), downloaded from Pxhere. CC0."
 %}
@@ -1024,7 +1024,7 @@ It's an incredibly safe industry.
 
 {%
   slide
-  filename="slide49.jpeg"
+  filename="slide49.jpg"
   alt="A black and white photo of a crashed plane, upside down."
   caption="Image: [Black and white image of a crashed plane](https://pxhere.com/en/photo/775521), downloaded from Pxhere. CC0."
 %}
@@ -1059,9 +1059,9 @@ Fix all the problems in the system.
 
 {%
   slide
-  filename="slide51.jpeg"
+  filename="slide51.jpg"
   alt="A picture of a yellow air traffic control tower, with white clouds in the background."
-  caption="Image: [Tenerife North Airport](https://en.wikipedia.org/wiki/Tenerife_North_Airport#/media/File:Norda_flughaveno_de_Tenerifo,_turo,_2.jpeg), downloaded from Pxhere. CC-BY SA."
+  caption="Image: [Tenerife North Airport](https://en.wikipedia.org/wiki/Tenerife_North_Airport#/media/File:Norda_flughaveno_de_Tenerifo,_turo,_2.jpg), downloaded from Pxhere. CC-BY SA."
 %}
 
 One example of that is Tenerife Airport, which in 1977 was the site of [the deadliest aviation crash in history](https://en.wikipedia.org/wiki/Tenerife_airport_disaster).
@@ -1088,7 +1088,7 @@ That's something I think we would often benefit from in the software industry.
 
 {%
   slide
-  filename="slide52.jpeg"
+  filename="slide52.jpg"
   alt="A pilot inspecting a checklist in the cockpit of a plane."
 %}
 

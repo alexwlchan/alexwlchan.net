@@ -207,7 +207,7 @@ EOF
       case File.extname(path)
         when ".png"
           ImageFormat::PNG
-        when ".jpeg", ".jpg"
+        when ".jpg"
           ImageFormat::JPEG
         else
           raise Error, "Unrecognised image extension: #{File.extname(path)}"
