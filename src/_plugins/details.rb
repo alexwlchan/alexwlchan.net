@@ -25,18 +25,15 @@
 #     </details>
 #
 
-require_relative "alexwlchan_base"
-
-
 module Jekyll
-  class DetailsBlock < Alexwlchan::Block
-    def bind_params(params)
-    end
-
-    def internal_render
+  class DetailsBlock < Liquid::Block
+    def render(context)
+      markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
+      ttext = super
+      
       <<-EOT
 <details>
-  #{markdown_converter.convert(@text)}
+  #{markdown_converter.convert(ttext)}
 </details>
 EOT
     end
