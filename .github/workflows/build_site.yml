@@ -33,9 +33,6 @@ jobs:
           key: "site-${{ github.sha }}"
           restore-keys: "site-"
 
-      - name: "What's in the cache?"
-        run: find _site -type f | sort
-
       - name: "Build the site"
         run: make html-drafts
 
