@@ -100,9 +100,6 @@
 
 /contact/                           /#contact
 
-/slides/git_plumbers_guide.pdf      /files/git_plumbers_guide.pdf
-/slides/pyconuk_asexuality.png      /images/2017/pyconuk_asexuality.png
-
 /maths/part-ib/geometry.pdf         /files/geometry.pdf
 /maths/part-ib/linear-algebra.pdf   /files/linear-algebra.pdf
 /maths/part-ib/met-top-spaces.pdf   /files/met-top-spaces.pdf
@@ -196,6 +193,7 @@
 /images/notes/resophnotes-unstyled.png    /images/2014/resophnotes-unstyled.png
 /images/notes/boiler-panel.png            /images/2016/boiler-panel.png
 /images/notes/tricity-sie454.png          /images/2016/tricity-sie454.png
+/slides/pyconuk_asexuality.png            /images/2017/pyconuk_asexuality.png
 
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
