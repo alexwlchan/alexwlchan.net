@@ -20,7 +20,7 @@ permalink: "/:year/:month/:title/"
 
 keep_files: [
   # Managed by rsync outside the main Jekyll process
-  "files", "images", "slides",
+  "files", "images",
 
   # Managed by the theming plugin
   "favicons", "favicon.png", "favicon.ico",
