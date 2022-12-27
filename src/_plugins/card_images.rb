@@ -1,28 +1,38 @@
-# A generator for images used in "cards", which appear in two places:
+# Creates the images used in the cards, which appear on the site-wide index
+# and in social media previews.
 #
-#     - in social media previews
-#     - in the site-wide index
+# == How to name cards ==
 #
-# I put images whose path/name matches the slug of the original post in
-# the `_cards` directory (e.g. `_cards/2021/kempisbot.jpg` is the card
-# for the post `/2021/kempisbot/`).
+# Each post with a card should be named in one of two ways:
 #
-# This generator will then create images in the appropriate size/format
-# to use as cards.  This means:
+#     src/_images/cards/#{year}/#{post_slug}.#{ext}
 #
-#     - 400px and 800px wide variants, for 1x and 2x displays in the
-#       site-wide index.  Also original and WebP variants for size.
-#     - An 800px variant in the original format for use in social media
-#       previews.
+#     src/_images/cards/#{year}/#{post_slug}.index.#{ext}
+#     src/_images/cards/#{year}/#{post_slug}.social.#{ext}
 #
-# All images _must_ have a 2:1 ratio.
+# For example:
 #
-# This process means I can put the highest resolution card images in the
+#     src/_images/cards/2020/a-sprinkling-of-azure.jpg
+#
+#     src/_images/cards/2022/circle-party.social.jpg
+#     src/_images/cards/2022/circle-party.index.png
+#
+# Depending on whether the same image should be used in both places, or if
+# they have different cards.
+#
+# Card images should always have a 2:1 ratio.
+#
+# == What this plugin does ==
+#
+#   - It creates an appropriately resized version for social media.
+#   - It uses the {% picture %} plugin to create appropriately sized versions
+#     for the site-wide index.
+#
+# This plugin means I can put the highest resolution card images in the
 # `src` directory, but the site doesn't pay a perf penalty.
 
 require "fileutils"
 require "rszr"
-require "shellwords"
 
 Jekyll::Hooks.register :site, :post_read do |site|
   site.posts.docs.each { |p|
@@ -38,44 +48,23 @@ Jekyll::Hooks.register :site, :post_read do |site|
       next
     end
 
-    # FileUtils.mkdir_p "_site/images/cards/#{year}"
-
-    # For each matching source file in the card directory, create a 1x/2x
-    # version of the card in the output directory.
-    #
-    # Cards are usually shown at ~350px wide.
-    #
-    # I'm using ImageMagick rather than the rszr gem because I can't seem
-    # to get WebP images from rszr; if I try I get a slightly cryptic error:
-    #
-    #     Rszr::SaveError: Non-existant path component
-    #
-    # matching_images.each { |im_path|
-    #   ext = File.extname(im_path)         # e.g. '.jpg'
-    #   name = File.basename(im_path, ext)  # e.g. 'marquee-rocket'
-    #
-    #   for out_ext in [".webp", ext]
-    #     out_path_1x = "_site/images/cards/#{year}/#{name}-1x#{out_ext}"
-    #     out_path_2x = "_site/images/cards/#{year}/#{name}-2x#{out_ext}"
-    #
-    #     unless File.exist? out_path_1x
-    #       `convert #{Shellwords.escape(im_path)} -background none -resize 400x200 #{Shellwords.escape(out_path_1x)}`
-    #     end
-    #
-    #     unless File.exist? out_path_2x
-    #       `convert #{Shellwords.escape(im_path)} -background none -resize 800x400 #{Shellwords.escape(out_path_2x)}`
-    #     end
-    #   end
-    # }
-
     # Now work out which image is which the card for social media, which is
     # the card for the site-wide index (which may be different).
     if matching_images.length == 2
       index_card = matching_images.find { |p| p.include? ".index." }
       social_card = matching_images.find { |p| p.include? ".social." }
       
-      puts social_card
+      social_card_out = social_card.gsub('src/_images', '_site/images')
       
+      # Create an image which is at least 800px wide, and at most 1000px wide.
+      if !File.exist? social_card_out
+        image = Rszr::Image.load(social_card)
+        
+        out_width = [[image.width, 800].max, 1000].min
+        
+        resized_image = image.resize(out_width, out_width / 2)
+        resized_image.save(social_card_out)
+      end
     else
       index_card = social_card = matching_images[0]
     end
@@ -83,10 +72,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
     p.data["card"] = {
-      "social" => {
-        "name" => File.basename(social_card, File.extname(social_card)),
-        "ext" => File.extname(social_card),
-      },
+      "social" => File.basename(social_card),
       "index" => File.basename(index_card),
     }
   }

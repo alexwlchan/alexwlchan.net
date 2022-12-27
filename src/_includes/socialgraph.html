@@ -10,8 +10,8 @@
   {% assign card_image = page.card.social %}
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ site.url }}/images/cards/{{ year }}/{{ card_image.name }}-2x.webp" />
-  <meta property="og:image" content="{{ site.url }}/images/cards/{{ year }}/{{ card_image.name }}-2x{{ card_image.ext }}" />
+  <meta name="twitter:image" content="{{ site.url }}/images/cards/{{ year }}/{{ card_image }}" />
+  <meta property="og:image" content="{{ site.url }}/images/cards/{{ year }}/{{ card_image }}" />
 {% elsif page.card_image %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="{{ site.url }}{{ page.card_image }}" />
