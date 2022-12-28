@@ -10,13 +10,6 @@ index:
 
 <!-- Cover image from https://wellcomecollection.org/works/u7xetmy2/images?id=mbrj8865, Public Domain -->
 
-<style>
-  img {
-    border: 3px solid #f0f0f0;
-    border-radius: 8px;
-  }
-</style>
-
 I'm trying to make better use of my local public library.
 I want to read more books, and borrowing from the library keeps the habit sustainable.
 It also saves a fair bit of money, and I don't have to decide what to do with books when I'm done.
@@ -26,7 +19,13 @@ Recently, I built a tool to help me find books to borrow, and it's working prett
 It starts with my library's online catalogue.
 When I find a book I might be interested in reading, I tap the bookmark icon in the upper right-hand corner of the search result:
 
-<img src="/images/2022/library_online_catalogue_1x.png" srcset="/images/2022/library_online_catalogue_1x.png 1x, /images/2022/library_online_catalogue_2x.png 2x, /images/2022/library_online_catalogue_3x.png 3x" alt="A search result in my library’s online catalogue. The result includes the title, the author, and the publication year. In the top right-hand corner is a small green bookmark icon.">
+{%
+  picture
+  filename="library_online_catalogue.png"
+  alt="A search result in my library’s online catalogue. The result includes the title, the author, and the publication year. In the top right-hand corner is a small green bookmark icon."
+  visible_width="494px"
+  class="screenshot"
+%}
 
 This saves the book to a list on the library site, which I can view on my account page.
 But the website makes it hard to work out what I can actually borrow.
@@ -34,7 +33,13 @@ The example above says "92 copies", which means 92 physical books floating aroun
 
 If I tap "View availability", I get a long list of every copy in the network, its location and status:
 
-<img src="/images/2022/library_availability_1x.png" srcset="/images/2022/library_availability_1x.png 1x, /images/2022/library_availability_2x.png 2x" alt="A modal dialog labelled ‘Availability’. It’s a long list. Each entry in the list has a location (e.g. Abbots Langley Library), a collection (e.g. Hot picks), a call number (e.g. General fiction) and a status/description (e.g. Available). Only two results are visible in the current scroll position.">
+{%
+  picture
+  filename="library_availability.png"
+  alt="A modal dialog labelled ‘Availability’. It’s a long list. Each entry in the list has a location (e.g. Abbots Langley Library), a collection (e.g. Hot picks), a call number (e.g. General fiction) and a status/description (e.g. Available). Only two results are visible in the current scroll position."
+  visible_width="593px"
+  class="screenshot"
+%}
 
 Given there are dozens of books I'm interested in, scrolling lists like this gets tedious.
 There must be a better way!
@@ -45,7 +50,13 @@ Then I use [BeautifulSoup] to parse the data from the library HTML, and [Jinja] 
 
 This is what my new page looks like:
 
-<img src="/images/2022/library_lookup_1x.png" srcset="/images/2022/library_lookup_1x.png 1x, /images/2022/library_lookup_2x.png 2x, /images/2022/library_lookup_3x.png 3x" alt="A list of books. The first two books have large titles, a summary, and a list of branches where copies are available for immediate borrowing. There are two more books which are shown in smaller text and with greyed-out covers -- these aren't available nearby.">
+{%
+  picture
+  filename="library_lookup.png"
+  alt="A list of books. The first two books have large titles, a summary, and a list of branches where copies are available for immediate borrowing. There are two more books which are shown in smaller text and with greyed-out covers -- these aren't available nearby."
+  visible_width="623px"
+  class="screenshot"
+%}
 
 It shows the list of books I'm interested in, and highlights the copies which are actually available -- and specifically, copies that are available in branches within walking distance of my home.
 I could walk in and borrow any of these books immediately.
@@ -60,7 +71,13 @@ Having a list of what's readily available means I can be in and out quickly.
 The tool includes a pick list of branches.
 For example, if I'm visiting Ware to get my pictures framed, I can find out if there's anything I want to borrow at the library branch just down the road:
 
-<img src="/images/2022/library_branch_picker_1x.png" srcset="/images/2022/library_branch_picker_1x.png 1x, /images/2022/library_branch_picker_2x.png 2x, /images/2022/library_branch_picker_3x.png 3x" alt="A list of library branch names with tickboxes. A single branch is ticked ‘Ware Library’, and below is shown a book with a single copy in Ware Library.">
+{%
+  picture
+  filename="library_branch_picker.png"
+  alt="A list of library branch names with tickboxes. A single branch is ticked ‘Ware Library’, and below is shown a book with a single copy in Ware Library."
+  visible_width="663px"
+  class="screenshot"
+%}
 
 This is some JavaScript that listens to the [onchange event] on the checkboxes; it re-sorts the list whenever I check or uncheck a branch.
 
