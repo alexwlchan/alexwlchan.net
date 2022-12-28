@@ -85,8 +85,11 @@
 #       stuff in Ruby, but I can't work out how.
 #
 
-require 'rszr'
+require 'json'
 require 'shellwords'
+require 'thread'
+
+require 'rszr'
 
 require_relative 'plugin_base'
 
@@ -104,7 +107,28 @@ Jekyll::Hooks.register :site, :after_reset do |site|
 end
 
 Jekyll::Hooks.register :site, :post_render do |site|
-  `python3 scripts/create_resized_images.py`
+  POOL_SIZE = 10
+
+  jobs = Queue.new
+
+  File.readlines('.missing_images.json').uniq.each do |line|
+    jobs.push(JSON.load(line))
+  end
+
+  puts " Creating images..."
+
+  workers = (POOL_SIZE).times.map do
+    Thread.new do
+      begin
+        while this_job = jobs.pop(true)
+          `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`          
+        end
+      end
+    rescue ThreadError
+    end
+  end
+
+  workers.map(&:join)
 end
 
 module Jekyll
@@ -204,7 +228,8 @@ EOF
                 f.puts JSON.generate({
                   "out_path": out_path,
                   "source_path": source_path,
-                  "width": width
+                  "width": width,
+                  "height": (image.height * width / image.width).to_i,
                 })
               }
             end
