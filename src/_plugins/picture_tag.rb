@@ -108,29 +108,29 @@ Jekyll::Hooks.register :site, :after_reset do |site|
 end
 
 Jekyll::Hooks.register :site, :post_render do |site|
-  POOL_SIZE = 10
+  if File.exist? ".missing_images.json"  
+    jobs = Queue.new
 
-  jobs = Queue.new
-
-  File.readlines('.missing_images.json').uniq.each do |line|
-    jobs.push(JSON.load(line))
-  end
-
-  puts " Creating images..."
-
-  workers = (POOL_SIZE).times.map do
-    Thread.new do
-      begin
-        while this_job = jobs.pop(true)
-          FileUtils.mkdir_p File.dirname(this_job["out_path"])
-          `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`          
-        end
-      end
-    rescue ThreadError
+    File.readlines('.missing_images.json').uniq.each do |line|
+      jobs.push(JSON.load(line))
     end
-  end
 
-  workers.map(&:join)
+    puts "Creating images..."
+
+    workers = (10).times.map do
+      Thread.new do
+        begin
+          while this_job = jobs.pop(true)
+            FileUtils.mkdir_p File.dirname(this_job["out_path"])
+            `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`          
+          end
+        end
+      rescue ThreadError
+      end
+    end
+
+    workers.map(&:join)
+  end
 end
 
 module Jekyll
