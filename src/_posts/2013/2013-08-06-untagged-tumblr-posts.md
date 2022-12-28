@@ -41,7 +41,7 @@ print "All finished!"
 
 The only notable feature of the script is that it gets posts in batches of 20, because the Tumblr API only returns up to 20 posts at a time. Everything else is either standard Python or follows from the way that Tumblr structure their API responses.
 
-To use the script, you need to [download it](/files/untagged-posts.py) and change the parameters in lines 6 and&nbsp;7. The hostname is the URL of your Tumblr site. Quoting directly from the [Tumblr API documentation][api]:
+To use the script, you need to [download it](/files/2013/find_untagged_posts.py) and change the parameters in lines 6 and&nbsp;7. The hostname is the URL of your Tumblr site. Quoting directly from the [Tumblr API documentation][api]:
 
 > Each blog has a unique hostname. The hostname can be standard or custom.
 >
