@@ -85,6 +85,7 @@
 #       stuff in Ruby, but I can't work out how.
 #
 
+require 'fileutils'
 require 'json'
 require 'shellwords'
 require 'thread'
@@ -121,6 +122,7 @@ Jekyll::Hooks.register :site, :post_render do |site|
     Thread.new do
       begin
         while this_job = jobs.pop(true)
+          FileUtils.mkdir_p File.dirname(this_job["out_path"])
           `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`          
         end
       end
