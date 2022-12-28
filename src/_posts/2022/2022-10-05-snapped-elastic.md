@@ -28,7 +28,12 @@ Even if you don't use Elasticsearch, I hope this will give you some ideas for de
 
 On the Thursday in question, we started getting alerts from our website monitoring – some people searching our collections were getting error pages:
 
-<img src="/images/2022/cloudfront_errors_detected_1x.png" srcset="/images/2022/cloudfront_errors_detected_1x.png 1x, /images/2022/cloudfront_errors_detected_2x.png 2x" style="width: 654px;" class="screenshot" alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org.">
+{%
+  picture
+  filename="cloudfront_errors_detected.png"
+  alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org."
+  visible_width="654px"
+%}
 
 As a proportion of overall traffic, it was pretty small -- but alerts like this started to pile up in Slack.
 Even if it wasn't completely down, the website was having issues.
@@ -39,7 +44,12 @@ There's a Lambda that gets notified of uploads in that bucket, and it scans ever
 If it sees any 5xx server errors, it posts [an alert to Slack][slack_alerts].
 CloudFront uploads logs every few minutes, so we find out about issues pretty quickly.
 
-<img src="/images/2022/slack_alert_architecture_1x.png" srcset="/images/2022/slack_alert_architecture_1x.png 1x, /images/2022/slack_alert_architecture_2x.png 2x" alt="A hand-drawn illustration of our Slack alerting architecture. A user (a grey silhouette) makes a request to CloudFront (a purple circle). This gets sent to the website (a grey box) and the logs in S3 (a green bucket). The logs in S3 get sent to a Lambda function (an orange Greek letter Lambda), which forwards them to Slack.">
+{%
+  picture
+  filename="slack_alert_architecture.png"
+  alt="A hand-drawn illustration of our Slack alerting architecture. A user (a grey silhouette) makes a request to CloudFront (a purple circle). This gets sent to the website (a grey box) and the logs in S3 (a green bucket). The logs in S3 get sent to a Lambda function (an orange Greek letter Lambda), which forwards them to Slack."
+  visible_width="750px"
+%}
 
 Before this setup, we only found out about outages from our automated uptime monitoring (which only checks a sample of pages) or when a user reported an error (which are much slower to arrive).
 Getting near-realtime alerts of unexpected errors means we can fix them much faster.
@@ -53,7 +63,13 @@ This is intentional: trying to reproduce the error is the first step of debuggin
 
 When we clicked, we all saw the error page -- these searches were failing for us, and they were failing consistently.
 
-<img src="/images/2022/wc_500_error_1x.png" srcset="/images/2022/wc_500_error_1x.png 1x, /images/2022/wc_500_error_2x.png 2x" alt="An 'Internal Server Error' page." class="screenshot">
+{%
+  picture
+  filename="wc_500_error.png"
+  alt="An 'Internal Server Error' page."
+  visible_width="582px"
+  class="screenshot"
+%}
 
 We discovered that some -- indeed, most -- searches were still working, and they worked consistently.
 For example, searches for *"SA/DRS/B/1/17 Box&nbsp;2"* would always fail, but searches for *"bolivia"* would always succeed.
@@ -67,7 +83,13 @@ Now we had to find out where it was coming from.
 
 This is the basic architecture for our collections search:
 
-<img src="/images/2022/basic_architecture_1x.png" srcset="/images/2022/basic_architecture_1x.png 1x, /images/2022/basic_architecture_2x.png 2x" alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'.">
+{%
+  picture
+  filename="basic_architecture.png"
+  alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'."
+  visible_width="750px"
+  class="screenshot"
+%}
 
 If you're using our website, you're interacting with a front-end web app.
 That web app is making requests to [our Catalogue API][catalogue], which in turn is sending queries to an Elasticsearch cluster.
@@ -91,7 +113,13 @@ This was another step forward: now I had something to Google.
 
 Whenever I get an error message I don't recognise, I start by plugging it into Google:
 
-<img src="/images/2022/google_results_1x.png" srcset="/images/2022/google_results_1x.png 1x, /images/2022/google_results_2x.png 2x" class="screenshot" alt="Google search results for ‘totalTermFreq must be at least docFreq’. There aren’t many results.">
+{%
+  picture
+  filename="google_results.png"
+  alt="Google search results for ‘totalTermFreq must be at least docFreq’. There aren’t many results."
+  visible_width="634px"
+  class="screenshot"
+%}
 
 There's a knack in knowing which part of an error message to Google: some bits are generic and likely to turn up useful advice, some bits are specific and will be slightly different for everyone.
 The phrase *"totalTermFreq must be at least docFreq"* stood out to me as something likely to appear every time this error occurs; the individual document counts less so.
@@ -109,7 +137,13 @@ Once a cluster is created, it stays on the same version until manually upgraded.
 
 Then I looked at the [list of Elasticsearch releases][releases]: 8.4.2 had been released just two days prior.
 
-<img src="/images/2022/elastic_release_1x.png" srcset="/images/2022/elastic_release_1x.png 1x, /images/2022/elastic_release_2x.png 2x" class="screenshot" alt="Screenshot of the GitHub release of Elasticsearch 8.4.2, with a label ‘2 days ago’.">
+{%
+  picture
+  filename="elastic_release.png"
+  alt="Screenshot of the GitHub release of Elasticsearch 8.4.2, with a label ‘2 days ago’."
+  visible_width="583px"
+  class="screenshot"
+%}
 
 Uh oh.
 
@@ -136,7 +170,13 @@ If you open the dev tools, there's a console where you can run queries.
 When the catalogue API gets an unexpected error from Elasticsearch, it logs the query it was trying to make.
 I plugged in that query, and bam, I got the same error:
 
-<img src="/images/2022/kibana_console_1x.png" srcset="/images/2022/kibana_console_1x.png 1x, /images/2022/kibana_console_2x.png 2x" class="screenshot" alt="A two-up console. On the left-hand side is an HTTP GET request with a JSON body (an Elasticsearch search query); on the right-hand side is the JSON response.">
+{%
+  picture
+  filename="kibana_console.png"
+  alt="A two-up console. On the left-hand side is an HTTP GET request with a JSON body (an Elasticsearch search query); on the right-hand side is the JSON response."
+  visible_width="750px"
+  class="screenshot"
+%}
 
 This was a big clue: because we could reproduce the error inside Elasticsearch, we could ignore all of the code in the front-end app and the catalogue API.
 If debugging is like a murder mystery, this was like finding two cast-iron alibis.
