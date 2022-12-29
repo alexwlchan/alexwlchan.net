@@ -27,9 +27,8 @@ I visited \underline{Berlin} in \underline{Germany}.
 
 <style>
   .latex__example {
-    max-width: 500px;
-    padding-top:    8px;
-    padding-bottom: 8px;
+    padding-top:    1em;
+    padding-bottom: 1em;
   }
 
   .highlight + figure {
@@ -39,7 +38,13 @@ I visited \underline{Berlin} in \underline{Germany}.
 
 and the rendered output:
 
-<img src="/images/2017/example_underline.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
+{%
+  picture
+  filename="example_underline.png"
+  alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at different heights – the line below “Berlin” is close to the bottom of the letters, but the line below “Germany” has moved down to sit below the bottom of the “y”."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 The underline on "Berlin" is nice and tight --- but notice how the underline on "Germany" is lower than "Berlin".
 That's to accommodate the descender on the "y".
@@ -65,7 +70,13 @@ I visited \ul{Berlin} in \ul{Germany}.
 
 is rendered as:
 
-<img src="/images/2017/example_soul.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
+{%
+  picture
+  filename="example_soul.png"
+  alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – they’re both low enough to miss the “y” in “Germany”, which means there’s a noticeable gap between “Berlin” and its underline."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 Now, the two underlines are on the same level.
 They're far down enough to avoid any descenders in the font.
@@ -82,7 +93,13 @@ I visited \ul{Berlin} in \ul{Germany}.
 
 which appears like so:
 
-<img src="/images/2017/example_soul_uldepth.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
+{%
+  picture
+  filename="example_soul_uldepth.png"
+  alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – there’s no gap between “Berlin” and the underline, but now the underline of “Germany” clashes with the bottom of the “y”."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 Now "Berlin" is looking nicer, but the underline intersects the "y" of "Germany".
 That's not great either.
@@ -102,7 +119,13 @@ First, an example with the default height.
 I visited \uline{Berlin} in \uline{Germany}.
 ```
 
-<img src="/images/2017/example_ulem.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
+{%
+  picture
+  filename="example_ulem.png"
+  alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – they’re both low enough to miss the “y” in “Germany”, which means there’s a noticeable gap between “Berlin” and its underline."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 Second, an example with the depth manually adjusted.
 
@@ -112,7 +135,13 @@ Second, an example with the depth manually adjusted.
 I visited \uline{Berlin} in \uline{Germany}.
 ```
 
-<img src="/images/2017/example_ulem_uldepth.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
+{%
+  picture
+  filename="example_ulem_uldepth.png"
+  alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – there’s no gap between “Berlin” and the underline, but now the underline of “Germany” clashes with the bottom of the “y”."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 But it suffers from the same problem as soul --- if you adjust the depth of the underline, it intersects with the descenders.
 
@@ -125,7 +154,7 @@ I got inspiration for my approach from the [TeX.SX Stack Exchange][texsx]: use t
 
 Here's how you use contour to trace around a letter (in red so the effect is visible):
 
-<!-- ```latex
+```latex
 \usepackage{contour}
 
 \contourlength{1pt}
@@ -135,22 +164,15 @@ Here's how you use contour to trace around a letter (in red so the effect is vis
 }
 
 I visited \mycontour{Berlin} in \mycontour{Germany}.
-``` -->
+```
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
-
-<span class="k">\contourlength</span><span class="nb">{</span>1pt<span class="nb">}</span>
-
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\mycontour</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
-  <span class="k">\contour</span><span class="nb">{</span>red<span class="nb">}{</span>#1<span class="nb">}</span><span class="c">%</span>
-<span class="nb">}</span>
-
-I visited <span class="k">\mycontour</span><span class="nb">{</span>Berlin<span class="nb">}</span> in <span class="k">\mycontour</span><span class="nb">{</span>Germany<span class="nb">}</span>.
-</code></pre></div>
-
-<figure>
-  <img src="/images/2017/example_contour.png" class="latex__example" alt="The phrase “I visited Berlin in Germany”, with a heavy red outline around “Berlin” and “Germany”."/>
-</figure>
+{%
+  picture
+  filename="example_contour.png"
+  alt="The phrase “I visited Berlin in Germany”, with a heavy red outline around “Berlin” and “Germany”."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 The `\contourlength` setting defines the width of the curve --- how much extra space is added.
 I usually tweak that until I get something that looks good with the font.
@@ -158,7 +180,7 @@ Then the `\contour` macro draws the supplied text, with a red contour around the
 
 Then I swap the red for white, and add the underline:
 
-<!-- ```latex
+```latex
 \renewcommand{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
 
@@ -168,20 +190,15 @@ Then I swap the red for white, and add the underline:
 }
 
 I visited \myuline{Berlin} in \myuline{Germany}.
-``` -->
+```
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\ULdepth</span><span class="nb">}{</span>1.8pt<span class="nb">}</span>
-<span class="k">\contourlength</span><span class="nb">{</span>0.8pt<span class="nb">}</span>
-
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\myuline</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
-  <span class="k">\uline</span><span class="nb">{</span><span class="k">\phantom</span><span class="nb">{</span>#1<span class="nb">}}</span><span class="c">%</span>
-  <span class="k">\llap</span><span class="nb">{</span><span class="k">\contour</span><span class="nb">{</span>white<span class="nb">}{</span>#1<span class="nb">}}</span><span class="c">%</span>
-<span class="nb">}</span>
-
-I visited <span class="k">\myuline</span><span class="nb">{</span>Berlin<span class="nb">}</span> in <span class="k">\myuline</span><span class="nb">{</span>Germany<span class="nb">}</span>.
-</code></pre></div>
-
-<img src="/images/2017/example_final.png" class="latex__example" alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."/>
+{%
+  picture
+  filename="example_final.png"
+  alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 There are two parts here: first, the `\phantom` takes up the same horizontal space as the underlined text, but doesn't actually print anything.
 Putting this inside the `\uline` gives you an underline of exactly the right width for the text.
@@ -195,6 +212,11 @@ Same with the contour length, I just try it until it looks nice.
 ## Putting it all together
 
 Here's the code I ultimately settled on:
+
+{% comment %}
+  This is declared as literal HTML and not a code block because I get
+  Liquid syntax errors if I insert the code block directly.
+{% endcomment %}
 
 <div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>ulem<span class="nb">}</span>
@@ -215,7 +237,13 @@ If I want to tweak it further -- maybe adjust the underline thickness, or give i
 
 Here's one final example, a hyperlink from my CV:
 
-<img src="/images/2017/underline_final.png" class="latex__example" alt="A blue link to “github.com/python-hyper/hyper-h2”, with the entire link underlined."/>
+{%
+  picture
+  filename="underline_final.png"
+  alt="A blue link to “github.com/python-hyper/hyper-h2”, with the entire link underlined."
+  visible_width="500px"
+  class="latex__example"
+%}
 
 I particularly like the "py" and "yp" in this link, which show off the effect really nicely, as well as the lower bowl on the leading "g".
 
