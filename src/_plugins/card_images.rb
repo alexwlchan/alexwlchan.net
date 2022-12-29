@@ -31,7 +31,6 @@
 # This plugin means I can put the highest resolution card images in the
 # `src` directory, but the site doesn't pay a perf penalty.
 
-require "fileutils"
 require "rszr"
 
 Jekyll::Hooks.register :site, :post_read do |site|
