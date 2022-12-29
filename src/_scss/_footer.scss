@@ -43,6 +43,11 @@ footer {
     .footer_link {
       margin-right: 5px;
     }
+    
+    .footer_link, .footer_link svg {
+      width:  30px;
+      height: 30px;
+    }
   }
   
   @media screen and (max-width: 600px) {
@@ -55,6 +60,11 @@ footer {
         margin-left:  5px;
       }
     }
+    
+    .footer_link, .footer_link svg {
+      width:  40px;
+      height: 40px;
+    }
   }
   
   #footer_social {
@@ -64,11 +74,6 @@ footer {
 
     .footer_link .background {
       fill: $midtone-gray;
-    }
-
-    .footer_link, .footer_link svg {
-      width:  30px;
-      height: 30px;
     }
 
     #footer_link--email:hover    .background { fill: #0067B9; }
