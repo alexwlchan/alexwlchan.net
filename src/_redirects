@@ -132,7 +132,7 @@
 
 /all-posts-by-tag/                  /all-posts/
 
-/notes /410.html 410
+/notes /410/ 410
 
 # This is some changes I made in Christmas 2022 to tidy up the structure
 # of the 'files' directory; I had a bunch of files which were in the
@@ -173,20 +173,20 @@
 /skeletor/skeletor_feb2020.png	                            /files/2020/skeletor_feb2020.png
 /skeletor/skeletor_feb2020.tex	                            /files/2020/skeletor_feb2020.tex
 
-/talks/pyconuk2016  /2016/09/pyconuk2016/
-/talks/qcon2017     /2017/03/qcon2017/
+/talks/pyconuk2016                        /2016/09/pyconuk2016/
+/talks/qcon2017                           /2017/03/qcon2017/
 
-/images/talks/oxford_git.jpg        /410.html 410
-/images/talks/suspicious_minds.jpg  /410.html 410
-/images/talks/worst_intent.png      /410.html 410
-/files/boiler_instructions.pdf      /410.html 410
-/files/colossus.pdf                 /410.html 410
-/files/ga-privacy.txt               /410.html 410
-/files/rock-crushers.txt            /410.html 410
-/talks/campug_git.pdf               /410.html 410
-/talks/colossus_operators.jpg       /410.html 410
-/talks/hypothesis_cover.png         /410.html 410
-/talks/pyconuk2016_cover.png        /410.html 410
+/images/talks/oxford_git.jpg              /410/ 410
+/images/talks/suspicious_minds.jpg        /410/ 410
+/images/talks/worst_intent.png            /410/ 410
+/files/boiler_instructions.pdf            /410/ 410
+/files/colossus.pdf                       /410/ 410
+/files/ga-privacy.txt                     /410/ 410
+/files/rock-crushers.txt                  /410/ 410
+/talks/campug_git.pdf                     /410/ 410
+/talks/colossus_operators.jpg             /410/ 410
+/talks/hypothesis_cover.png               /410/ 410
+/talks/pyconuk2016_cover.png              /410/ 410
 
 /images/notes/resophnotes-directory.png   /images/2014/resophnotes-directory.png
 /images/notes/resophnotes-styled.png      /images/2014/resophnotes-styled.png
@@ -195,6 +195,24 @@
 /images/notes/tricity-sie454.png          /images/2016/tricity-sie454.png
 /slides/pyconuk_asexuality.png            /images/2017/pyconuk_asexuality.png
 
+# I redid a bunch of the images and card URLs in late 2022.  In theory they're
+# only referenced from my site-wide index, but I see 404s for them in the
+# Netlify analytics, so I've set up redirects for the most popular ones.
+/images/2022/screenshot_card.png          /images/cards/2022/screenshots.png
+/images/2022/koa-redactions-card.jpg      /images/cards/2022/koa-logger-redactions.jpg
+
+# I don't do analytics like this any more.
+/analytics/a.js                           /410/ 410
+
+# Netlify Analytics highlights the most frequent "Not Found" resources,
+# but it's populated by people attempting to hack/spam my site.
+#
+# This serves them a 410 Gone page, and should get them out of this list.
+/wp-login.php                             /410/ 410
+/xmlrpc.php                               /410/ 410
+/test/wp-includes/wlwmanifest.xml         /410/ 410
+/wp/wp-includes/wlwmanifest.xml           /410/ 410
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
-/* /404.html 404
+/*                                        /404/ 404
