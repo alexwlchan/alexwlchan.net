@@ -40,7 +40,7 @@ footer {
       text-align: right;
     }
     
-    .footer_link {
+    .footer_link:not(:last-child) {
       margin-right: 5px;
     }
     
@@ -56,7 +56,7 @@ footer {
     #footer_social {
       text-align: left;
 
-      .footer_link {
+      .footer_link:not(:first-child) {
         margin-left:  5px;
       }
     }
