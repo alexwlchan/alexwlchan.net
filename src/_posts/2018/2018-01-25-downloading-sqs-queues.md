@@ -12,7 +12,12 @@ We have a series of small applications which communicate via SQS.
 Each application reads a message from a queue, does a bit of processing, then pushes it to the next queue.
 This is a classic microservices pattern.
 
-![Three applications, communicating via two message queues.](/images/2018/sqs_queues.png)
+{%
+  picture
+  filename="sqs_queues.png"
+  alt="Three applications, communicating via two message queues."
+  visible_width="750px"
+%}
 
 Sometimes an application fails to process a message correctly, in which case SQS can send the message to a separate [dead-letter queue (DLQ)][dlq].
 (Our [Terraform module for SQS queues][tf] automatically creates and configures a DLQ for all our queues.)
@@ -23,8 +28,13 @@ You can see one message at a time, but this makes it hard to spot patterns or de
 It would be easier to have the entire queue in a local file, so we can analyse it or process every message at once.
 I've written a Python function to do just that, and in this post, I'll walk through how it works.
 
-<figure>
-  <img src="/images/2018/sqs_console.png" alt="A list of rows in the SQS Console, showing a fragment of the body, the size and the sent date.">
+<figure style="width: 598px;">
+  {%
+    picture
+    filename="sqs_console.png"
+    alt="A list of rows in the SQS Console, showing a fragment of the body, the size and the sent date."
+    visible_width="598px"
+  %}
   <figcaption>
     Viewing queue messages in the AWS Console.
     Our messages are large JSON objects, so most of the detail isn't even visible!
