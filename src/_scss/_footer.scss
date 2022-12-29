@@ -27,7 +27,54 @@ footer {
 
   // These definitions have to live in the #footer_inner block so they
   // override the a:visited style defined above.
-  #footer__email:hover    { color: $primary-color;  }
   #footer__about:hover    { color: $primary-color;  }
   #footer__licence:hover  { color: black;           }
+  
+  display: grid;
+  
+  @media screen and (min-width: 600px) {
+    grid-template-columns: auto auto;
+    
+    #footer_social {
+      padding-top: $default-padding;
+      text-align: right;
+    }
+    
+    .footer_link {
+      margin-right: 5px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    grid-template-columns: auto;
+    
+    #footer_social {
+      text-align: left;
+
+      .footer_link {
+        margin-left:  5px;
+      }
+    }
+  }
+  
+  #footer_social {
+    .footer_link:hover {
+      background: none;
+    }
+
+    .footer_link .background {
+      fill: $midtone-gray;
+    }
+
+    .footer_link, .footer_link svg {
+      width:  30px;
+      height: 30px;
+    }
+
+    #footer_link--email:hover    .background { fill: #0067B9; }
+    #footer_link--rss:hover      .background { fill: #F99000; }
+    #footer_link--twitter:hover  .background { fill: #1DA1F2; }
+    #footer_link--linkedin:hover .background { fill: #007EBB; }
+    #footer_link--github:hover   .background { fill: #24292f; }
+  }
 }
