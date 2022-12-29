@@ -12,7 +12,12 @@ index:
 If you post a link on Twitter, it goes through Twitter's [t.co link-shortening service][tco].
 The link in the tweet text is replaced with a t.co URL, and that URL redirects to the original destination.
 
-<img src="/images/2019/tco_urls.png" alt="A flow chart: A tweet contains a t.co URL, and a t.co URL redirects to the destination." style="width: 719px;">
+{%
+  picture
+  filename="tco_urls.png"
+  alt="A flow chart: A tweet contains a t.co URL, and a t.co URL redirects to the destination."
+  visible_width="719px"
+%}
 
 If you're just reading Twitter, the presence of t.co is mostly invisible -- it's not shown in the interface, and if you click on a URL you get to the original destination.
 
@@ -45,14 +50,24 @@ If you search for a t.co URL in Twitter, you can see tweets which include it.
 If the twet is recent and visible to you, it shows up in the results:
 
 <a href="https://twitter.com/search?q=https%3A%2F%2Ft.co%2F1AbEHY2P6b">
-  <img src="/images/2019/twitter_search_single.png" alt="Searching for a t.co URL with a single result." style="width: 597px;">
+  {%
+    picture
+    filename="twitter_search_single.png"
+    alt="Searching for a t.co URL with a single results."
+    visible_width="597px"
+  %}
 </a>
 
 Sometimes you might find multiple tweets that include the same URL.
 I've seen this happen when somebody posts the same link several times:
 
 <a href="https://twitter.com/search?q=https%3A%2F%2Ft.co%2FFACNrWdMu4">
-  <img src="/images/2019/twitter_search_multiple.png" alt="Searching for a t.co URL with multiple results." style="width: 597px;">
+  {%
+    picture
+    filename="twitter_search_multiple.png"
+    alt="Searching for a t.co URL with multiple results."
+    visible_width="597px"
+  %}
 </a>
 
 If you only need to search for a couple of URLs, this is probably fine.
