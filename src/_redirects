@@ -198,8 +198,9 @@
 # I redid a bunch of the images and card URLs in late 2022.  In theory they're
 # only referenced from my site-wide index, but I see 404s for them in the
 # Netlify analytics, so I've set up redirects for the most popular ones.
-/images/2022/screenshot_card.png          /images/cards/2022/screenshots.png
 /images/2022/koa-redactions-card.jpg      /images/cards/2022/koa-logger-redactions.jpg
+/images/2022/bodleian.jpg                 /images/cards/2022/library-lookup.jpg
+/images/2022/screenshot_card.png          /images/cards/2022/screenshots.png
 
 # I don't do analytics like this any more.
 /analytics/a.js                           /410/ 410
@@ -210,6 +211,7 @@
 # This serves them a 410 Gone page, and should get them out of this list.
 /wp-login.php                             /410/ 410
 /xmlrpc.php                               /410/ 410
+/shop/wp-includes/wlwmanifest.xml         /410/ 410
 /test/wp-includes/wlwmanifest.xml         /410/ 410
 /wp/wp-includes/wlwmanifest.xml           /410/ 410
 
