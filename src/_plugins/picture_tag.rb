@@ -217,6 +217,10 @@ EOF
       sources = Hash.new { [] }
 
       image = Rszr::Image.load(source_path)
+      
+      if image.width < visible_width
+        raise RuntimeError, "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{visible_width}px"
+      end
             
       for pixel_density in 1..3
         width = pixel_density * visible_width
