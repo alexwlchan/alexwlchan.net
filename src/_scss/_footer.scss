@@ -9,7 +9,8 @@ footer {
 }
 
 #footer_inner {
-  font-size: $meta-font-size;
+  font-size:   $meta-font-size;
+  line-height: $meta-line-height;
 
   color: $accent-grey;
 
@@ -18,11 +19,11 @@ footer {
   }
 
   p:not(:last-child) {
-    margin-bottom: 0px;
+    margin-bottom: $meta-size * 1em;
   }
 
   p:not(:first-child) {
-    margin-top: 0px;
+    margin-top: $meta-size * 1em;
   }
 
   // These definitions have to live in the #footer_inner block so they
@@ -38,6 +39,7 @@ footer {
     #footer_social {
       padding-top: $default-padding;
       text-align: right;
+      margin-left: 1em;
     }
     
     .footer_link:not(:last-child) {
@@ -81,5 +83,8 @@ footer {
     #footer_link--twitter:hover  .background { fill: #1DA1F2; }
     #footer_link--linkedin:hover .background { fill: #007EBB; }
     #footer_link--github:hover   .background { fill: #24292f; }
+    
+    #footer_link--kofi:hover #kofi_heart     { fill: #f14255; };
+    #footer_link--kofi:hover #kofi_circle    { fill: #50aee4; };
   }
 }
