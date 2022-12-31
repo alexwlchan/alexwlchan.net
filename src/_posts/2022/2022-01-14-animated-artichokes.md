@@ -46,9 +46,13 @@ Khrapichev saved his scans as a single large image, with the individual scans ar
 This is the image he published:
 
 <figure>
-  <a href="/images/2022/artichoke_frames.jpg">
-    <img src="/images/2022/artichoke_frames_small.jpg" alt="A grid of different views of the artichoke in yellow-green, arranged in rows and columns against a black background.">
-  </a>
+  {%
+    picture
+    filename="artichoke_frames.png"
+    alt="A grid of different views of the artichoke in yellow-green, arranged in rows and columns against a black background."
+    visible_width="750px"
+    link_to_original
+  %}
   <figcaption>
     Artichoke, axial view, MRI.
     By <a href="https://wellcomecollection.org/works/b9g485fs">Alexandr Khrapichev, University of Oxford</a>.
@@ -75,7 +79,12 @@ im_cropped = im.crop((500, 1000, 800, 700))
 
 will extract this part of the image:
 
-<img src="/images/2022/artichoke_frames_cropped.png" style="width: 500px;" alt="The same grid of images as previously, but mostly dimmed and with only a small area in full colour and outlined with a red rectangle (highlighting the area to be cropped).">
+{%
+  picture
+  filename="artichoke_frames_cropped.png"
+  alt="The same grid of images as previously, but mostly dimmed and with only a small area in full colour and outlined with a red rectangle (highlighting the area to be cropped)."
+  visible_width="500px"
+%}
 
 I started by writing a function that produces the 4-tuples that are passed to the `crop()` function.
 It moves from left-to-right, top-to-bottom, finding the coordinates of the crops:
@@ -103,7 +112,12 @@ individual_scans = [
 
 The exact number of individual scans varied from image to image (for example, [the sagittal view of a pumpkin][pumpkin] has 6 columns and 3 rows), so parameterising the crops was quite handy.
 
-<img src="/images/2022/artichoke_crops.png" style="width: 500px;" alt="The same grid of images as previously, but now split into individual images, separated by white borders.">
+{%
+  picture
+  filename="artichoke_crops.png"
+  alt="The same grid of images as previously, but now split into individual images, separated by white borders."
+  visible_width="500px"
+%}
 
 Now we save the individual frames as an animated GIF, which is [a one-liner in Pillow][save_gifs]:
 
