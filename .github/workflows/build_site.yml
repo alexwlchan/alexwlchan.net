@@ -4,9 +4,16 @@ on:
   push:
     branches:
     - live
+    
+    paths-ignore:
+      - 'scripts/**'
+    
   pull_request:
     branches:
     - live
+
+    paths-ignore:
+      - 'scripts/**'
   
   # This daily rebuild is to avoid GitHub Actions purging the site cache,
   # because regenerating all the image thumbnails would be a PITA:
