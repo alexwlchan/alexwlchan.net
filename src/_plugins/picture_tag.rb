@@ -98,7 +98,7 @@ class ImageFormat
   AVIF = { :extension => ".avif", :mime_type => "image/avif" }
 
   WEBP = { :extension => ".webp", :mime_type => "image/webp" }
-  
+
   JPEG = { :extension => ".jpg",  :mime_type => "image/jpeg" }
   PNG  = { :extension => ".png",  :mime_type => "image/png" }
 end
@@ -108,7 +108,7 @@ Jekyll::Hooks.register :site, :after_reset do |site|
 end
 
 Jekyll::Hooks.register :site, :post_render do |site|
-  if File.exist? ".missing_images.json"  
+  if File.exist? ".missing_images.json"
     jobs = Queue.new
 
     File.readlines('.missing_images.json').uniq.each do |line|
@@ -122,7 +122,7 @@ Jekyll::Hooks.register :site, :post_render do |site|
         begin
           while this_job = jobs.pop(true)
             FileUtils.mkdir_p File.dirname(this_job["out_path"])
-            `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`          
+            `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`
           end
         end
       rescue ThreadError
@@ -139,28 +139,28 @@ module Jekyll
       super
 
       @attrs = parse_attrs(params_string)
-      
+
       @filename = get_required_attribute(
         @attrs, { :tag => "picture", :attribute => "filename" }
       )
-      
+
       @visible_width = get_required_attribute(
         @attrs, { :tag => "picture", :attribute => "visible_width" }
       ).gsub(/px/, '').to_i
-      
+
       @parent = @attrs.delete("parent")
-      
+
       @link_to_original = @attrs.include? "link_to_original"
       @attrs.delete("link_to_original")
     end
-    
+
     def render(context)
       # This allows us to deduce the source path of the image
       site = context.registers[:site]
       src = site.config["source"]
       dst = site.config["destination"]
-      
-      if @parent.nil?      
+
+      if @parent.nil?
         # If this tag is called in the context of a blog post, we have access
         # to the post date -- and images are filed in per-year directories
         # to match posts.
@@ -178,7 +178,7 @@ module Jekyll
       im_format = get_format(source_path)
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
-      
+
       inner_html = <<-EOF
 <picture>
   <source
@@ -199,7 +199,7 @@ module Jekyll
   >
 </picture>
 EOF
-      
+
       if @link_to_original
         <<-EOF
 <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">
@@ -228,7 +228,7 @@ EOF
         if image.width >= width
           for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
             out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
-          
+
             if !File.exist? out_path
               open(".missing_images.json", "a") { |f|
                 f.puts JSON.generate({
@@ -244,10 +244,10 @@ EOF
           end
         end
       end
-      
+
       sources
     end
-    
+
     # Get some useful info about the file format
     def get_format(path)
       case File.extname(path)
