@@ -208,7 +208,7 @@ module Jekyll
     type="#{im_format[:mime_type]}"
   >
   <img
-    src="#{sources[im_format][0].gsub(" 1x", "")}"
+    src="#{sources[im_format][0].split(" ")[0]}"
     #{extra_attributes}
   >
 </picture>
@@ -228,7 +228,7 @@ EOF
     def prepare_images(image, im_format, dst_prefix, visible_width)
       sources = Hash.new { [] }
 
-      for pixel_density in 1..3
+      for pixel_density in 1..4
         width = pixel_density * visible_width
 
         if image.width >= width
@@ -246,7 +246,23 @@ EOF
               }
             end
 
-            sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{pixel_density}x"
+            # Create an `srcset` attribute with:
+            #
+            #     1. One URL specifying the image
+            #     2. A width descriptor, e.g. '300w'
+            #
+            # These widths correspond to 1x, 2x, 3x, and so on -- it's up
+            # to browsers to decide which image to pick for the given
+            # screen size and pixel density.
+            #
+            # e.g. a mobile browser with a 2x pixel density display might
+            # pick the 1x image if it's big enough, and save some data.
+            #
+            # See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source#attr-srcset
+            url = out_path.gsub(/_site/, '')
+            width_descriptor = "#{width}w"
+
+            sources[out_format] <<= "#{url} #{width_descriptor}"
           end
         end
       end
