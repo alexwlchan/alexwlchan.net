@@ -1,0 +1,13 @@
+<div class="book_info">
+  <p class="book_title">
+    <em>{{ include.title }}</em><br/>
+    {% if include.author %}by {{ include.author }}{% endif %}
+    {% if include.editor %}edited by {{ include.editor }}{% endif %}
+  </p>
+  <ul class="book_meta dot_list">
+    <li>read <a href="{{ include.review_url }}">{{ include.review_date }}</a></li>
+    <li>
+      published {{ include.publication_date }}
+    </li>
+  </ul>
+</div>
