@@ -49,7 +49,13 @@ The optional `<summary>` element lets you customise the label that appears next 
 People have found lots of of creative uses for &lt;details&gt; -- a native show/hide component that doesn't require JavaScript is extremely useful -- and one place I use it is to display a list of tags in [docstore](https://github.com/alexwlchan/docstore).
 The list takes up a lot of space, so I don't want to show it unless I'm actively picking tags:
 
-<img style="width: 600px; border: 1px solid #999; border-radius: 4px" src="/images/2020/docstore_details_1x.png" srcset="/images/2020/docstore_details_1x.png 1x, /images/2020/docstore_details_2x.png 2x, /images/2020/docstore_details_3x.png 3x" alt="Two details elements, with one expanded to show a cloud of links in different sizes and colours.">
+{%
+  picture
+  filename="docstore_details.png"
+  visible_width="600px"
+  alt="Two details elements, with one expanded to show a cloud of links in different sizes and colours."
+  class="screenshot"
+%}
 
 Each link in the tag cloud goes to a new page -- showing documents filtered with that tag.
 
