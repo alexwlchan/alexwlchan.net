@@ -15,7 +15,12 @@ It's already absorbed all of my text notes, and I'm gradually using it for image
 To help me find my images, I've written a small Obsidian plugin.
 When I click the little picture icon in the sidebar, it finds all the images in my vault, and displays them in a grid, like so:
 
-<img src="/images/2022/obsidian-screenshot_1x.png" srcset="/images/2022/obsidian-screenshot_1x.png 1x, /images/2022/obsidian-screenshot_2x.png 2x, /images/2022/obsidian-screenshot_3x.png 3x" alt="An Obsidian window with a tab titled “Gallery” and four rows of images on a dark background. Each image is of fixed height but varying width, depending on the aspect ratio.">
+{%
+  picture
+  filename="obsidian-screenshot.png"
+  alt="An Obsidian window with a tab titled “Gallery” and four rows of images on a dark background. Each image is of fixed height but varying width, depending on the aspect ratio."
+  visible_width="750px"
+%}
 
 There are [a few community plugins][community] for doing galleries, and they have more features and options – but they're also more complicated than what I wanted.
 This is just a scrolling grid of images, and if you click on a thumbnail, it opens the full-sized image.
@@ -24,7 +29,12 @@ This is just a scrolling grid of images, and if you click on a thumbnail, it ope
 
 When I'm looking at a full-sized image, if I want to see where it's used, I can click the "More options" menu in the upper right, and open the backlinks:
 
-<img src="/images/2022/obsidian-backlinks_1x.png" srcset="/images/2022/obsidian-backlinks_1x.png 1x, /images/2022/obsidian-backlinks_2x.png 2x, /images/2022/obsidian-backlinks_3x.png 3x" alt="An Obsidian window titled ‘Backlinks for entity_and_resource_policies’, showing the full-sized image on the left-hand side, and a search result showing the single note where it’s used on the right.">
+{%
+  picture
+  filename="obsidian-backlinks.png"
+  alt="An Obsidian window titled ‘Backlinks for entity_and_resource_policies’, showing the full-sized image on the left-hand side, and a search result showing the single note where it’s used on the right."
+  visible_width="702px"
+%}
 
 I started from [the Obsidian sample plugin][sample], and kept editing it until I had something I liked.
 Because Obsidian is built using web tech, I was able to write the entire plugin using JavaScript and HTML that I already know.
