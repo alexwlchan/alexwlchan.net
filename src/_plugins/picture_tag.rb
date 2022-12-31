@@ -172,10 +172,24 @@ module Jekyll
         source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
         dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, ".*")}".gsub('//', '/')
       end
-      
-      sources = prepare_images(source_path, dst_prefix, @visible_width)
-      
+
+      image = Rszr::Image.load(source_path)
       im_format = get_format(source_path)
+
+      if image.width < @visible_width
+        raise RuntimeError, "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@visible_width}px"
+      end
+
+      # These two attributes allow the browser to completely determine
+      # the space that will be taken up by this image before it actually
+      # loads, so it won't have to rearrange the page later.  The fancy
+      # term for this is "Cumulative Layout Shift".
+      #
+      # See https://web.dev/optimize-cls/
+      @attrs["width"] = @visible_width
+      @attrs["style"] = "aspect-ratio: #{image.width} / #{image.height}; #{@attrs["style"] || ""}"
+
+      sources = prepare_images(image, im_format, dst_prefix, @visible_width)
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
 
@@ -210,18 +224,10 @@ EOF
         inner_html.strip
       end
     end
-    
-    def prepare_images(source_path, dst_prefix, visible_width)
-      im_format = get_format(source_path)
-      
+
+    def prepare_images(image, im_format, dst_prefix, visible_width)
       sources = Hash.new { [] }
 
-      image = Rszr::Image.load(source_path)
-      
-      if image.width < visible_width
-        raise RuntimeError, "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{visible_width}px"
-      end
-            
       for pixel_density in 1..3
         width = pixel_density * visible_width
 
