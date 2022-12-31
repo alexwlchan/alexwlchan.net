@@ -1,0 +1,305 @@
+---
+layout: post
+title: My favourite books from 2022
+summary: Romance and rust, gender and grief, horror and the House – what I enjoyed reading this year.
+tags: books
+theme:
+  color: "#464646"
+---
+
+{% comment %}
+Card image: https://www.pexels.com/photo/assorted-books-on-book-shelves-1370295/
+{% endcomment %}
+
+I read 71 books this year, which is the most I've read in a single year since I started keeping detailed records.
+I don't set reading goals, but I'm pleased with that.
+
+Nearly a third of those books came from my local library; both books I [knew I already wanted to read][library_lookup], and books I found while browsing the shelves.
+I discovered a lot of fiction this way, and I think the continual stream of new books helped me keep up my pace.
+The librarians stocking the shelves at my local branch have excellent taste.
+
+I made a particular beeline for the romance section, after I enjoyed Alexandria Bellefleur at [the end of last year][2021].
+It's an oft-slighted genre, but I enjoyed every romance book I picked up this year.
+
+(A romance book also wins the serendipity award.
+I was reading *Our Stop* by Laura Jane Williams, a fun story about two people who almost-meet in a series of coincidences.
+I read it on holiday, while trying hard not to think about work -- so of course, both characters visit my workplace.)
+
+I write short reviews on individual books at [books.alexwlchan.net][books].
+That lists everything I read this year, including books I tried to read but couldn't finish.
+I've also been writing private notes on fiction books, usually the characters and the main plot -- I find it helps me remember what I've read.
+
+These are my favourites from 2022, in the order I read them.
+They all get a strong recommendation from me.
+
+{% separator "book.svg" %}
+
+<div class="book_review" id="piranesi">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="piranesi.jpg"
+        alt="The cover of “Piranesi”. A person with goat’s legs and a man’s torso stand atop a pillar, playing a musical instrument. It sits above a sea of swirling brown curves. The title and author’s name are shown in a serif font."
+        visible_width="99px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="Piranesi"
+      author="Susanna Clarke"
+      review_url="https://books.alexwlchan.net/reviews/piranesi/"
+      review_date="20 January 2022"
+      publication_date="September 2020"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This is a novel with some gorgeous worldbuilding.
+    </p>
+    <p>
+      The protagonist lives in “the House”, an endless series of halls filled with statues, sea, and sky.
+      His reverence for the house is infectious, and I love the world that’s been created.
+      He records his life in journals, and the story is told through its entries.
+      He believes he’s lived there his whole life, and assists “the Other” in scientific experiments, but the truth – which is only revealed gradually – is much more horrifying.
+    </p>
+    <p>
+      I was initially quite confused, and I took a while to get into it – but I think that’s intentional.
+      The setting is a bit mysterious and fantastical, and we don’t just get answers on a silver platter.
+      It’s a book that gives you a lot to think about.
+    </p>
+    <p>
+      I listened to this as an audiobook, read by Chiwetel Ejiofor.
+      He brought a lot of depth to the character, and I think I enjoyed it more than if I’d read the text first.
+    </p>
+  </div>
+</div>
+
+<div class="book_review" id="hang_the_moon">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="hang-the-moon.jpg"
+        alt="The cover of “Hang the Moon”. A man in a leather jacket has a blonde woman swooning over him, with a bunch of roses held behind him. There’s a ferris wheel and a city skyline in the background, against a pink and purple sky."
+        visible_width="93px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="Hang the Moon"
+      author="Alexandria Bellefleur"
+      review_url="https://books.alexwlchan.net/reviews/hang-the-moon/"
+      review_date="5 March 2022"
+      publication_date="May 2021"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This is the sequel to <em>Written in the Stars</em>, which was one of my favourite books <a href="/2021/12/2021-in-reading/#alexandria_bellefleur">last year</a>.
+    </p>
+    <p>
+      It’s a romance novel, this time between Darcy’s brother Brendon and her best friend Annie.
+      Where the first book used the fake dating trope, this one leans into big romantic gestures.
+      It’s a charming tale of them both learning to be vulnerable and loving, and navigating each other’s love languages.
+    </p>
+    <p>
+      It’s a sweet book, and I inhaled it in a day.
+      Everyone is nice and bubbly, the friendships and love feel warm and genuine, and I enjoyed spending more time with these characters.
+      These two books are very much comfort reads, and I expect to return to them again and again.
+    </p>
+    <p>
+      This is the second part of a trilogy, which concluded with <em>Count Your Lucky Stars</em>.
+      I read that this year also, but I didn’t enjoy it as much – <em>Hang the Moon</em> is the high point of the series for me.
+    </p>
+  </div>
+</div>
+
+<div class="book_review" id="antimemetics">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="there-is-no-antimemetics-division.jpg"
+        alt="The cover of “There Is No Antimemetics Division”. A large black, featureless monolith set against a forest landscape."
+        visible_width="88px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="There Is No Antimemetics Division"
+      author="qntm"
+      review_url="https://books.alexwlchan.net/reviews/there-is-no-antimemetics-division/"
+      review_date="30 March 2022"
+      publication_date="March 2021"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This book makes my head hurt.
+    </p>
+    <p>
+      It’s about “anti-memes” – ideas that you literally can’t remember.
+      It’s a clever and mind-bending concept, dialled up to 11 in a mix of sci-fi, horror, and intrigue.
+      The <a href="https://en.wikipedia.org/wiki/SCP_Foundation">Foundation agent</a> who forgets they work in antimemetics.
+      A monster that eats your memories and then other people’s memories of you.
+      A pet antimeme that has to be fed with trivia and useless facts.
+      Pure nightmare fuel.
+    </p>
+    <p>
+      It’s a mixture of short stories and a longer narrative, and I was absolutely gripped.
+      I’ve read it three times and I still don’t completely get it, but I think that’s the point.
+    </p>
+  </div>
+</div>
+
+<div class="book_review" id="euphoria">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="gender-euphoria.jpg"
+        alt="The cover of “Gender Euphoria”. Diagonal stripes in the trans pride colours (baby blue, baby pink, white), and the title in large friendly letters."
+        visible_width="91px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="Gender Euphoria"
+      editor="Laura Kate Dale"
+      review_url="https://books.alexwlchan.net/reviews/gender-euphoria/"
+      review_date="23 June 2022"
+      publication_date="June 2021"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This is an anthology of essays about different people’s experiences of gender, focusing on a sense of joy rather than despair.
+      It’s lovely to see such a variety of perspectives on gender, and how even tiny moments can bring such happiness.
+    </p>
+    <p>
+      I really enjoyed getting the different perspectives, some of which resonate closely with me, others which are very different.
+      I like that it has a diverse selection of authors, in multiple dimensions – not just the white, binary, trans women who often dominate such conversations.
+    </p>
+    <p>
+      Particular favourite essays were “Gender-Creative Parenting”, “The First Signs Hormones Were Working for Me”, and “Punks Against Gender Conformity”.
+    </p>
+  </div>
+</div>
+
+<div class="book_review" id="coffee">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="before-the-coffee-gets-cold-tales-from-the-cafe.jpg"
+        alt="The cover of “Tales from the Café”. There’s a gold wallpaper with several clocks, a chair, and a black cat."
+        visible_width="92px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="Before the Coffee Gets Cold: Tales from the Café"
+      author="Toshikazu Kawaguchi" review_url="https://books.alexwlchan.net/reviews/before-the-coffee-gets-cold-tales-from-the-cafe/"
+      review_date="9 July 2022"
+      publication_date="September 2020"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This is a charming little book about a café with a novel approach to time travel.  
+      You sit in a chair, drink your coffee, and you can go and meet people from your past and future.
+      But there are rules – you can’t change what happens, you can’t get up from your chair, and you have to leave before your single cup of coffee goes cold.
+    </p>
+    <p>
+      This is part of a series that also includes <em>Before the Coffee Gets Cold</em> and <em>Before Your Memory Fades</em>.
+      I discovered it this year, I read all of it, and I loved it.
+    </p>
+    <p>
+      Each book is a collection of short stories about different people who choose to sit in the chair – every one with a beautiful tale of emotion, heartbreak, and love.
+      A man who goes back to visit his long-dead best friend.
+      An orphan who wants to meet the parents they never knew.
+      A mother who goes forward to see their grown-up daughter.
+      It’s a clever idea, executed well.
+    </p>
+  </div>
+</div>
+
+<div class="book_review" id="rust">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="rust.jpg"
+        alt="The cover of “Rust”. It’s a white background with the title in black text, and flecks of reddish-orange rust across the cover."
+        visible_width="93px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="Rust"
+      author="Jonathan Waldman" review_url="https://books.alexwlchan.net/reviews/rust/"
+      review_date="15 November 2022"
+      publication_date="March 2015"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This is a book of stories about rust, and the people whose job it is to make it go away.
+      It sounds like a dry topic, but it’s a real page turner.
+      Each chapter focuses on a different group of people with a good mix of technical information and lighter anecdotes.
+    </p>
+    <p>
+      Some particular favourite chapters include Coating the Can (about creating canned drinks which are safe for customers), Pigging the Pipe (monitoring the state of corrosion in long oil pipelines), and Indiana Jane (photographing rusting buildings).
+      I took a lot of notes, because I found it fascinating.
+    </p>
+    <p>
+      I was struck by the parallels to software engineering – in particular the difficulty corrosion engineers have in getting others to care about their work, and how many people want to chase the new shiny rather than maintain the existing thing.
+    </p>
+    <p>
+      I originally came across this book as a joke – I was looking for a “Rust Book” that wasn’t about <a href="https://doc.rust-lang.org/book/">the programming language</a> to mention in a sarcastic tweet.
+      I’m glad it stuck in my brain.
+    </p>
+  </div>
+</div>
+
+<div class="book_review" id="another_life">
+  <div class="heading">
+    <div class="book_cover">
+      {%
+        picture
+        filename="another-life.jpg"
+        alt="The cover of “Another Life”. A woman in a black-and-white scene holds some balloons which are blowing away, while the title of the book is shown in coloured letters."
+        visible_width="91px"
+      %}
+    </div>
+    {%
+      include book_info.html
+      title="Another Life"
+      author="Jodie Chapman"
+      review_url="https://books.alexwlchan.net/reviews/another-life/"
+      review_date="19 November 2022"
+      publication_date="March 2021"
+    %}
+  </div>
+  <div class="review_text">
+    <p>
+      This is the story of Nick and Anna, two teenagers who meet while working a summer job together, and the way their lives drift alternately further apart and closer together as they get older.
+      I was expecting a traditional “happily ever after” romance, but it’s so much more than that.
+    </p>
+    <p>
+      It’s a beautiful book about flawed, messy humans, and the love between them.
+      It explores different aspects of the human experience: love, memory, grief, regret.
+      The characters have depth, complexity, and I cared about what happened to them.
+      There are some profound and lovely lines, and I wrote down a lot of quotes.
+    </p>
+    <p>
+      This recommendation comes with caveats: it’s quite a heavy story, and needs content warnings for suicide, family trauma, and religion.
+      But if you don’t mind those, I think it’s a rewarding read.
+    </p>
+  </div>
+</div>
+
+[library_lookup]: /2022/10/library-lookup/
+[2021]: /2021/12/2021-in-reading/
+[books]: https://books.alexwlchan.net/
