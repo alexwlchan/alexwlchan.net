@@ -105,7 +105,7 @@ They all get a strong recommendation from me.
     </p>
     <p>
       It’s a sweet book, and I inhaled it in a day.
-      Everyone is nice and bubbly, the friendship and love feels warm and genuine, and I enjoyed spending more time with these characters.
+      Everyone is nice and bubbly, the friendships and love feel warm and genuine, and I enjoyed spending more time with these characters.
       These two books are very much comfort reads, and I expect to return to them again and again.
     </p>
     <p>
@@ -175,7 +175,7 @@ They all get a strong recommendation from me.
   <div class="review_text">
     <p>
       This is an anthology of essays about different people’s experiences of gender, focusing on a sense of joy rather than despair.
-      It’s lovely to see such a variety of perspectives on gender, and to see how even tiny moments can bring such happiness.
+      It’s lovely to see such a variety of perspectives on gender, and how even tiny moments can bring such happiness.
     </p>
     <p>
       I really enjoyed getting the different perspectives, some of which resonate closely with me, others which are very different.
@@ -213,13 +213,13 @@ They all get a strong recommendation from me.
     </p>
     <p>
       This is part of a series that also includes <em>Before the Coffee Gets Cold</em> and <em>Before Your Memory Fades</em>.
-      I discovered the series this year, I read them all, and I loved them.
+      I discovered it this year, I read all of it, and I loved it.
     </p>
     <p>
       Each book is a collection of short stories about different people who choose to sit in the chair – every one with a beautiful tale of emotion, heartbreak, and love.
-      A man who goes back to see his long-dead best friend.
-      An orphan who wants to meet the parents she never knew.
-      A mother who goes forward to meet a grown-up daughter she'll never see.
+      A man who goes back to visit his long-dead best friend.
+      An orphan who wants to meet the parents they never knew.
+      A mother who goes forward to see their grown-up daughter.
       It’s a clever idea, executed well.
     </p>
   </div>
