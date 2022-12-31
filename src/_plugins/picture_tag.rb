@@ -189,7 +189,7 @@ module Jekyll
       @attrs["width"] = @visible_width
       @attrs["style"] = "aspect-ratio: #{image.width} / #{image.height}; #{@attrs["style"] || ""}"
 
-      sources = prepare_images(image, im_format, dst_prefix, @visible_width)
+      sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width)
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
 
@@ -225,7 +225,7 @@ EOF
       end
     end
 
-    def prepare_images(image, im_format, dst_prefix, visible_width)
+    def prepare_images(source_path, image, im_format, dst_prefix, visible_width)
       sources = Hash.new { [] }
 
       for pixel_density in 1..4
