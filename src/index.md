@@ -25,7 +25,6 @@ theme:
     visible_width="750px"
     alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
     class="rounded_corners"
-    style="aspect-ratio: 750 / 563"
   %}
 </p>
 
