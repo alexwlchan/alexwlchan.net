@@ -36,6 +36,9 @@ RUN bundle install
 
 RUN apt-get install --yes libcurl4-gnutls-dev
 
+# apt-get remove build-essential
+# apt autoremove
+
 # COPY ./scripts/install_jekyll.sh .
 # RUN ./install_jekyll.sh
 #
