@@ -8,7 +8,12 @@ tags: macos swift colour
 
 In System Preferences, you can change the accent colour of your Mac:
 
-<img src="/images/2022/appearance_prefs_1x.png" srcset="/images/2022/appearance_prefs_1x.png 1x, /images/2022/appearance_prefs_2x.png 2x, /images/2022/appearance_prefs_3x.png 3x" alt="The macOS General preferences, with a preview of Light/Dark/Auto mode and a selection of coloured buttons to choose the accent colour. The currently selected colour is red, which can be seen in the outline of a selected search field in the upper-right corner, the arrows on two select menus, and a checkbox.">
+{%
+  picture
+  filename="appearance_prefs.png"
+  alt="The macOS General preferences, with a preview of Light/Dark/Auto mode and a selection of coloured buttons to choose the accent colour. The currently selected colour is red, which can be seen in the outline of a selected search field in the upper-right corner, the arrows on two select menus, and a checkbox."
+  visible_width="520px"
+%}
 
 This affects colours throughout your Mac's user interface, including buttons, menus, and tickboxes.
 When you pick a new colour, it updates everywhere, immediately.
