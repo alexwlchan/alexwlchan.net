@@ -1,6 +1,7 @@
 require "chunky_png"
 require "color"
 require "fileutils"
+require 'shell/executer.rb'
 require "tmpdir"
 
 
@@ -94,10 +95,9 @@ def create_favicons(site, colours)
 
         image_32.save("favicon-32x32.png", :best_compression)
 
-        ICO.png_to_ico(["favicon-16x16.png", "favicon-32x32.png"], "favicon.ico")
         # Create an ICO favicon by packing the two PNG images.
         # See https://superuser.com/a/1012535/243137
-        `convert favicon-16x16.png favicon-32x32.png favicon.ico`
+        Shell.execute!(`convert favicon-16x16.png favicon-32x32.png favicon.ico`)
       end
 
       FileUtils.mv "#{tmp_dir}/favicon-32x32.png", png_path
