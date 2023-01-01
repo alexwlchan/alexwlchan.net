@@ -87,6 +87,7 @@
 
 require 'fileutils'
 require 'json'
+require 'shell/executer.rb'
 require 'shellwords'
 require 'thread'
 
@@ -122,7 +123,12 @@ Jekyll::Hooks.register :site, :post_render do |site|
         begin
           while this_job = jobs.pop(true)
             FileUtils.mkdir_p File.dirname(this_job["out_path"])
-            `convert #{Shellwords.escape(this_job["source_path"])} -resize #{this_job["width"]}x#{this_job["height"]} #{Shellwords.escape(this_job["out_path"])}`
+
+            resize = "#{this_job["width"]}x#{this_job["height"]}"
+            in_file = Shellwords.escape(this_job["source_path"])
+            out_file = Shellwords.escape(this_job["out_path"])
+
+            Shell.execute("convert #{in_file} -resize #{resize} #{out_file}")
           end
         end
       rescue ThreadError
