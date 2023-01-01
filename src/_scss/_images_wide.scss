@@ -41,8 +41,8 @@ $gradual-width-breakpoint: $max-width + $default-padding * 2;
 
   .wide_img, .fullwidth_img {
     figcaption {
-      padding-left:  calc($max-width-image-overflow / 2 + env(safe-area-inset-left));
-      padding-right: calc($max-width-image-overflow / 2 + env(safe-area-inset-right));
+      padding-left:  calc(math.div($max-width-image-overflow, 2) + env(safe-area-inset-left));
+      padding-right: calc(math.div($max-width-image-overflow, 2) + env(safe-area-inset-right));
     }
   }
 }
@@ -53,14 +53,14 @@ $gradual-width-breakpoint: $max-width + $default-padding * 2;
     max-width: calc(100vw - #{2 * $default-padding});
 
     // 50% of the screen width, less the width of the text, less the padding
-    margin-left:  calc(#{$default-padding} + #{$max-width / 2} - 50vw);
-    margin-right: calc(#{$default-padding} + #{$max-width / 2} - 50vw);
+    margin-left:  calc(#{$default-padding} + #{math.div($max-width, 2)} - 50vw);
+    margin-right: calc(#{$default-padding} + #{math.div($max-width, 2)} - 50vw);
   }
 
   .wide_img, .fullwidth_img {
     figcaption {
-      padding-left:  calc(50vw - #{$default-padding} - #{$max-width / 2} + env(safe-area-inset-left));
-      padding-right: calc(50vw - #{$default-padding} - #{$max-width / 2} + env(safe-area-inset-right));
+      padding-left:  calc(50vw - #{$default-padding} - #{math.div($max-width, 2)} + env(safe-area-inset-left));
+      padding-right: calc(50vw - #{$default-padding} - #{math.div($max-width, 2)} + env(safe-area-inset-right));
     }
   }
 }
