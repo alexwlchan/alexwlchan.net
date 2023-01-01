@@ -20,7 +20,7 @@ class RunLinting < Jekyll::Command
           check_card_images(options["destination"])
           check_yaml_front_matter(options["source"])
           check_no_localhost_links(options["destination"])
-          check_all_images_are_srgb(options["source"])
+          check_all_images_are_srgb(options["destination"])
         end
       end
     end
@@ -261,14 +261,14 @@ class RunLinting < Jekyll::Command
     # This ensures images should display with consistent colour on all browsers
     # and devices; my iMac in particular uses a Display P3 colour profile for
     # screenshots and images which looks washed out on non-Apple displays.
-    def check_all_images_are_srgb(src_dir)
+    def check_all_images_are_srgb(dst_dir)
       errors = Hash.new { [] }
 
       info("Checking image colour profiles...")
 
       safe_colour_profiles = Set["sRGB"]
 
-      exiftool_output = `exiftool -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{src_dir}/_images/**`
+      exiftool_output = `exiftool -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dst_dir}/images/**`
 
       image_profiles = exiftool_output
         .split("\n")
