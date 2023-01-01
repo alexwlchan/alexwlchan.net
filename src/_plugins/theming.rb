@@ -97,7 +97,7 @@ def create_favicons(site, colours)
 
         # Create an ICO favicon by packing the two PNG images.
         # See https://superuser.com/a/1012535/243137
-        Shell.execute!(`convert favicon-16x16.png favicon-32x32.png favicon.ico`)
+        Shell.execute!("convert favicon-16x16.png favicon-32x32.png favicon.ico")
       end
 
       FileUtils.mv "#{tmp_dir}/favicon-32x32.png", png_path
