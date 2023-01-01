@@ -16,6 +16,7 @@ $talk-gutter-column: 15px;
 
   .talk__date {
     width: $talk-left-column;
+    /* TODO: Fix warning: inline-block is ignored due to float */
     float: left;
     display: inline-block;
     text-align: right;
