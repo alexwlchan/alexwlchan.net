@@ -22,7 +22,7 @@
   <text x="420" y="10" style="font-weight: bold;">Sat</text>
   <text x="480" y="10" style="font-weight: bold;">Sun</text>
 
-  <svg y="30">
+  <svg y="31.5">
     <text x="40" y="10">2020 W49</text>
     <text x="120" y="10">30</text>
     <text x="180" y="10">1</text>
@@ -33,7 +33,7 @@
     <text x="480" y="10">6</text>
   </svg>
 
-  <svg y="60">
+  <svg y="63">
     <text x="40" y="10">2020 W50</text>
     <text x="120" y="10">7</text>
     <text x="180" y="10">8</text>
@@ -44,7 +44,7 @@
     <text x="480" y="10">13</text>
   </svg>
 
-  <svg y="90">
+  <svg y="94.5">
     <text x="40" y="10">2020 W51</text>
     <text x="120" y="10">14</text>
     <text x="180" y="10">15</text>
@@ -55,7 +55,7 @@
     <text x="480" y="10">20</text>
   </svg>
 
-  <svg y="120">
+  <svg y="126">
     <text x="40" y="10">2020 W52</text>
     <text x="120" y="10">21</text>
     <text x="180" y="10">22</text>
@@ -66,9 +66,9 @@
     <text x="480" y="10">27</text>
   </svg>
 
-  <rect x="340" y="144" width="40" height="30" fill="rgba(208, 26, 17, 0.3)"/>
+  <rect x="340" y="151.5" width="40" height="30" fill="rgba(208, 26, 17, 0.3)"/>
 
-  <svg y="150">
+  <svg y="157.5">
     <text x="40" y="10">2020 W53</text>
     <text x="120" y="10">28</text>
     <text x="180" y="10">29</text>
@@ -79,7 +79,7 @@
     <text x="480" y="10">3</text>
   </svg>
 
-  <svg y="180">
+  <svg y="189">
     <text x="40" y="10">2021 W1</text>
     <text x="120" y="10">4</text>
     <text x="180" y="10">5</text>
