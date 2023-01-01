@@ -1,45 +1,47 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -o errexit
 set -o nounset
 set -o verbose
 
-# Some links that were useful in getting 'gem install' to work:
+gcc --version
+
+# # Some links that were useful in getting 'gem install' to work:
+# #
+# #   - https://jekyllrb.com/docs/installation/
+# #   - https://github.com/ffi/ffi/issues/485
+# #
+# apk update
+# apk add g++ libffi-dev make musl-dev ruby ruby-dev
 #
-#   - https://jekyllrb.com/docs/installation/
-#   - https://github.com/ffi/ffi/issues/485
+# # Required for the static file generator
+# apk add rsync
 #
-apk update
-apk add g++ libffi-dev make musl-dev ruby ruby-dev
-
-# Required for the static file generator
-apk add rsync
-
-# Required for the publish-drafts gem
-apk add git
-
-# Required to create avatar thumbnails in the Twitter plugin
-apk add imlib2 imlib2-dev libexif-dev
-
-# Required to inspect colour profiles in the image linting plugin
-apk add exiftool
-
-# Required to create differently sized images for WebP/AVIF
-# Theoretically I could use `rszr` like in the Twitter plugin, but it
-# doesn't support AVIF.
-apk add imagemagick
-
-# Required for libsass.  If this is missing, you get the error:
+# # Required for the publish-drafts gem
+# apk add git
 #
-#   LoadError: Could not open library
-#   '/usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so':
-#   Error loading shared library ld-linux-x86-64.so.2: No such file or directory
-#   (needed by /usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so)
+# # Required to create avatar thumbnails in the Twitter plugin
+# apk add imlib2 imlib2-dev libexif-dev
 #
-apk add --update gcompat
-
-bundle install
-
-# These packages are only required for installation, not for running Jekyll
-apk del --purge g++ make musl-dev ruby-dev
-rm -rf /var/cache/apk/*
+# # Required to inspect colour profiles in the image linting plugin
+# apk add exiftool
+#
+# # Required to create differently sized images for WebP/AVIF
+# # Theoretically I could use `rszr` like in the Twitter plugin, but it
+# # doesn't support AVIF.
+# apk add imagemagick
+#
+# # Required for libsass.  If this is missing, you get the error:
+# #
+# #   LoadError: Could not open library
+# #   '/usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so':
+# #   Error loading shared library ld-linux-x86-64.so.2: No such file or directory
+# #   (needed by /usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so)
+# #
+# apk add --update gcompat
+#
+# bundle install
+#
+# # These packages are only required for installation, not for running Jekyll
+# apk del --purge g++ make musl-dev ruby-dev
+# rm -rf /var/cache/apk/*
