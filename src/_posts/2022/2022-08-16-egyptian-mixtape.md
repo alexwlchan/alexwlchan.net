@@ -11,9 +11,14 @@ theme:
 I've recently completed another cross-stitch piece, which is now hanging on my wall.
 It's a collection of brightly coloured squares, each with its own geometric pattern:
 
-<a href="/images/2022/P8150078.jpg">
-  <img src="/images/2022/P8150078_1x.jpg" srcsrt="/images/2022/P8150078_1x.jpg 1x, /images/2022/P8150078_2x.jpg 2x" class="fullwidth_img" alt="A cross-stitch piece embroided on a brown fabric, with twenty brightly-coloured squares laid out in a grid. Each square uses a couple of colours (red, blue, green, yellow, white, or black) and has a simple repeating pattern. For example, one square is yellow with repeating black and red vertical lines; another has a red background with concentric white diamonds.">
-</a>
+{%
+  picture
+  filename="P8150078.jpg"
+  class="fullwidth_img"
+  alt="A cross-stitch piece embroided on a brown fabric, with twenty brightly-coloured squares laid out in a grid. Each square uses a couple of colours (red, blue, green, yellow, white, or black) and has a simple repeating pattern. For example, one square is yellow with repeating black and red vertical lines; another has a red background with concentric white diamonds."
+  visible_width="750px"
+  link_to_original
+%}
 
 I got the pattern from [issue 6 of Xstitch Magazine][issue6], and it was made by Arlene Cohen, who goes by the handle [WorksByABC].
 The pattern includes a full list of materials and threads, and I got it mounted by [Landseer Picture Framing].
@@ -30,9 +35,27 @@ I found a [digitised copy of the book][digitised], which has several plates feat
 </style>
 
 <div id="grid">
-  <img src="/images/2022/h1380-513ce.jpg" alt="A printed page with a grid of squares, each showing a repetitive pattern. The details are smaller than on cross-stitch -- some of the lines are very fine.">
-  <img src="/images/2022/h1380-91708.jpg" alt="Another printed page with a grid of squares">
-  <img src="/images/2022/h1380-2c6c6.jpg" alt="Another printed page with a grid of squares">
+  {%
+    picture
+    filename="h1380-513ce.jpg"
+    alt="A printed page with a grid of squares, each showing a repetitive pattern. The details are smaller than on cross-stitch -- some of the lines are very fine."
+    visible_width="244px"
+    link_to_original
+  %}
+  {%
+    picture
+    filename="h1380-91708.jpg"
+    alt="Another printed page with a grid of squares"
+    visible_width="244px"
+    link_to_original
+  %}
+  {%
+    picture
+    filename="h1380-2c6c6.jpg"
+    alt="Another printed page with a grid of squares"
+    visible_width="244px"
+    link_to_original
+  %}
 </div>
 
 I can spot some of the squares from the cross-stitch pattern in the digitised plates, but not all of them -- I wonder if they're from elsewhere, or if they were created by WorksByABC?
