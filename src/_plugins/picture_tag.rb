@@ -104,7 +104,7 @@ class ImageFormat
 end
 
 Jekyll::Hooks.register :site, :after_reset do |site|
-  File.delete('.missing_images.json') if File.exists? '.missing_images.json'
+  File.delete('.missing_images.json') if File.exist? '.missing_images.json'
 end
 
 Jekyll::Hooks.register :site, :post_render do |site|
