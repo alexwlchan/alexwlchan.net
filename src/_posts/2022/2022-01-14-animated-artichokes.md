@@ -48,7 +48,7 @@ This is the image he published:
 <figure>
   {%
     picture
-    filename="artichoke_frames.png"
+    filename="artichoke_frames.jpg"
     alt="A grid of different views of the artichoke in yellow-green, arranged in rows and columns against a black background."
     visible_width="750px"
     link_to_original
