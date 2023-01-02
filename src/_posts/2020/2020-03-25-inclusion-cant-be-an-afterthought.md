@@ -195,7 +195,7 @@ A more racially diverse team might have caught that before it shipped to custome
   slide
   filename="slide8.jpg"
   alt="A red car (left) crashing into the back of a yellow car (right).",
-  caption="Image by [Pixel-mixer](https://pixabay.com/users/Pixel-mixer-1197643/) on [Pixabay](https://pixabay.com/photos/crash-test-collision-60-km-h-1620592/). Used under CC0.
+  caption="Image by [Pixel-mixer](https://pixabay.com/users/Pixel-mixer-1197643/) on [Pixabay](https://pixabay.com/photos/crash-test-collision-60-km-h-1620592/). Used under CC0."
 %}
 
 Finally, let's move out of the digital realm and look at a physical example.
