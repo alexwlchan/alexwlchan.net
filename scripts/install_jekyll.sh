@@ -1,45 +1,52 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -o errexit
 set -o nounset
 set -o verbose
 
-# Some links that were useful in getting 'gem install' to work:
-#
-#   - https://jekyllrb.com/docs/installation/
-#   - https://github.com/ffi/ffi/issues/485
-#
-apk update
-apk add g++ libffi-dev make musl-dev ruby ruby-dev
+apt-get update
 
-# Required for the static file generator
-apk add rsync
+# These packages are both necessary to install Jekyll
+apt-get install --yes build-essential zlib1g-dev
 
-# Required for the publish-drafts gem
-apk add git
+# Required for the static file plugin
+apt-get install --yes rsync
 
-# Required to create avatar thumbnails in the Twitter plugin
-apk add imlib2 imlib2-dev libexif-dev
+# Required for the publish-drafts plugin
+apt-get install --yes git
+
+# Required for the rszr gem, which I use for pictures and the Twitter plugin
+# See https://github.com/mtgrosser/rszr#debian-based
+apt-get install --yes libimlib2 libimlib2-dev
 
 # Required to inspect colour profiles in the image linting plugin
-apk add exiftool
+apt-get install --yes exiftool
 
 # Required to create differently sized images for WebP/AVIF
 # Theoretically I could use `rszr` like in the Twitter plugin, but it
 # doesn't support AVIF.
-apk add imagemagick
+apt-get install --yes imagemagick
 
-# Required for libsass.  If this is missing, you get the error:
+# Required by the http-proofer gem, which is used by the linter plugin.
+# Without it, I get an error:
 #
-#   LoadError: Could not open library
-#   '/usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so':
-#   Error loading shared library ld-linux-x86-64.so.2: No such file or directory
-#   (needed by /usr/local/bundle/gems/sassc-2.1.0-x86_64-linux/lib/sassc/libsass.so)
+#     Could not open library 'libcurl.so.4': libcurl.so.4
 #
-apk add --update gcompat
+# I tried `apt-get install libcurl-dev` and was offered three options:
+#
+#     Package libcurl-dev is a virtual package provided by:
+#       libcurl4-openssl-dev 7.74.0-1.3+deb11u3
+#       libcurl4-nss-dev 7.74.0-1.3+deb11u3
+#       libcurl4-gnutls-dev 7.74.0-1.3+deb11u3
+#     You should explicitly select one to install.
+#
+# I don't know what the different between them is, so I picked arbitrarily.
+apt-get install --yes libcurl4-gnutls-dev
 
+# Actually install the Ruby gems!
 bundle install
 
-# These packages are only required for installation, not for running Jekyll
-apk del --purge g++ make musl-dev ruby-dev
-rm -rf /var/cache/apk/*
+# These packages are only required for installation, and I can remove them
+# from the final image.
+apt-get remove --yes build-essential zlib1g-dev
+apt autoremove --yes

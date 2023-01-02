@@ -1,10 +1,10 @@
 export DOCKER_IMAGE_NAME = greengloves/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 30
+export DOCKER_IMAGE_VERSION = 31
 DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 ROOT = $(shell git rev-parse --show-toplevel)
 
-JEKYLL_VERSION = 4.2.2
+JEKYLL_VERSION = 4.3.1
 JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
 
 publish-docker:
