@@ -62,7 +62,13 @@ I still want to be the main focus of my video, especially if I’m a post-it not
 
 This is what it looks like up close:
 
-<img src="/images/2022/maths_sampler_1x.jpg" srcset="/images/2022/maths_sampler_1x.jpg 1x, /images/2022/maths_sampler_2x.jpg 2x, /images/2022/maths_sampler_3x.jpg 3x" class="wide_img" alt="A wodden frame around a cross-stitch picture. The picture is sixteen brightly-coloured squares, arranged in a four-by-four grid. Each square has a different mathematically-related symbol, including a Klein bottle, the digits of pi, a chalkboard, and a sine wave.">
+{%
+  picture
+  filename="maths_sampler.jpg"
+  alt="A wodden frame around a cross-stitch picture. The picture is sixteen brightly-coloured squares, arranged in a four-by-four grid. Each square has a different mathematically-related symbol, including a Klein bottle, the digits of pi, a chalkboard, and a sine wave."
+  visible_width="750px"
+  class="wide_img"
+%}
 
 It's a piece of cross-stitch I made at the end of 2020.
 People are often surprised – when we're on a video call, they think it's a painting!
