@@ -15,7 +15,13 @@ If I don't write a journal, I miss that opportunity.
 Last night, I wrote a quick Python script that visually shows me when I've been journalling.
 This is the sort of visualisation I find quite helpful:
 
-<img src="/images/2021/journal_progress_2x.png" srcset="/images/2021/journal_progress_1x.png 1x, /images/2021/journal_progress_2x.png 2x, /images/2021/journal_progress_3x.png 3x" style="width: 642px; border: 1px solid #ddd;" alt="Two calendars for 2020/2021. Some days are highlighted in varying shades of pink (2021) or blue (2020). Above the two calendars is the text 'Your last journal entry was yesterday. Keep it up! Your current streak is 1 day.'">
+{%
+  picture
+  filename="journal_progress.png"
+  alt="Two calendars for 2020/2021. Some days are highlighted in varying shades of pink (2021) or blue (2020). Above the two calendars is the text 'Your last journal entry was yesterday. Keep it up! Your current streak is 1 day.'"
+  visible_width="642px"
+  class="screenshot"
+%}
 
 Days when I've written a journal entry are highlighted in colour, with a darker shade on days when I wrote more.
 
