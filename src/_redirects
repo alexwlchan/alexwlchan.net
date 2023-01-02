@@ -4,477 +4,525 @@
 # See https://answers.netlify.com/t/support-guide-can-i-deploy-multiple-repositories-in-a-single-site/179
 /ideas-for-inclusive-events/* https://ideas-for-inclusive-events.netlify.app/:splat 200
 
-/feed.xml           /atom.xml
-/rss.xml            /atom.xml
-/feeds/all.atom.xml /atom.xml
 
-/images/favicon.ico                 /theme/favicon.ico
-/theme/favicon.ico                  /favicon.ico
-/theme/favicon.png                  /favicon.png
-/view/img/favicon.ico               /theme/favicon.ico
-/apple-touch-icon.png               /theme/apple-touch-icon.png
-/apple-touch-icon-precomposed.png   /theme/apple-touch-icon.png
-/apple-touch-icon-120x120-precomposed.png /theme/apple-touch-icon.png
-/apple-touch-icon-120x120.png       /theme/apple-touch-icon.png
-/apple-touch-icon-152x152-precomposed.png /theme/apple-touch-icon.png
-/apple-touch-icon-152x152.png       /theme/apple-touch-icon.png
-/css/style.css                      /theme/style.css
+# == Redirects for common RSS-like URLs, or RSS URLs I've used in the past == #
 
-/archive                            /all-posts/
-/archive/                           /all-posts/
+/feed                                                             /atom.xml
+/rss                                                              /atom.xml
+/feed.xml                                                         /atom.xml
+/rss.xml                                                          /atom.xml
+/feeds/all.atom.xml                                               /atom.xml
 
-/images/apple-touch-icon.png        /theme/apple-touch-icon.png
+# === #
 
-/images/specktre_demo_hex.png       /images/2016/specktre_demo_hex.png
-/images/specktre_demo_sq.png        /images/2016/specktre_demo_sq.png
-/images/specktre_demo_tr.png        /images/2016/specktre_demo_tr.png
-/images/wiki-hexagons.png           /images/2016/wiki-hexagons.png
-/images/wiki-squares.png            /images/2016/wiki-squares.png
-/images/wiki-triangles.png          /images/2016/wiki-triangles.png
 
-/images/2014-04-20-veil.jpg         /images/2014/deathly-veil.jpg
-/images/2014-04-20-veil.png         /images/2014/deathly-veil.png
-/images/2015-05-github-blue.png     /images/2015/github_blue.png
-/images/2015-05-github-chart.png    /images/2015/github_chart.png
-/images/2015-05-github-green.png    /images/2015/github_green.png
-/images/2015-09-cortex-disabled.PNG /images/2015/cortex-disabled.PNG
-/images/2015-09-pizzaexpress-disabled.PNG /images/2015/pizzaexpress-disabled.PNG
-/images/2015-09-vexelology-disabled.PNG /images/2015/vexelology-disabled.PNG
-/images/2015-09-vexelology-enabled.PNG /images/2015/vexelology-enabled.PNG
-/images/2016-01-hp-ipod-1.jpg       /images/2016/hp-ipod-1.jpg
-/images/2016-09-speech-to-text.jpg  /images/2016/speech-to-text.jpg
-/images/2016-09-tech-bag.jpg        /images/2016/tech-bag.jpg
-/images/2017/P5280917_2x.jpg        /images/2017/P5280917.jpg
-/images/twitter/avatar_DRMacIver_803223621439102976.jpg /images/twitter/DRMacIver_803223621439102976.jpg
-/images/twitter/avatar_AsexualAndProud_790853542466564096.jpg /images/twitter/AsexualAndProud_790853542466564096.jpg
-/images/twitter/avatar_A5HRAJ_516449552102993920.jpg /images/twitter/A5HRAJ_516449552102993920.jpg
 
-/blog/2013/03/pinboard-backups/     /2013/03/pinboard-backups/
-/blog/2013/03/candybar/             /2013/03/candybar/
 
-/2018/03/plumbers-guide-intro/      /a-plumbers-guide-to-git/
-/a-plumbers-guide-to-git/1          /a-plumbers-guide-to-git/1-the-git-object-store/
-/a-plumbers-guide-to-git/1/         /a-plumbers-guide-to-git/1-the-git-object-store/
-/a-plumbers-guide-to-git/2          /a-plumbers-guide-to-git/2-blobs-and-trees/
-/a-plumbers-guide-to-git/2/         /a-plumbers-guide-to-git/2-blobs-and-trees/
-/a-plumbers-guide-to-git/3          /a-plumbers-guide-to-git/3-context-from-commits/
-/a-plumbers-guide-to-git/3/         /a-plumbers-guide-to-git/3-context-from-commits/
-/a-plumbers-guide-to-git/4          /a-plumbers-guide-to-git/4-refs-and-branches/
-/a-plumbers-guide-to-git/4/         /a-plumbers-guide-to-git/4-refs-and-branches/
 
-# Jekyll changed the slug on this one.
-/2016/05/safely-deleting-a-file-called-rf-/ /2016/05/safely-deleting-a-file-called-rf/
-/2016/05/safely-deleting-a-file-called-rf-  /2016/05/safely-deleting-a-file-called-rf/
+# == Redirects for theming/style resources == #
 
-# Apparently I changed the slug on this one?
-/2017/04/accessibility-at-alterconf   /2017/04/lessons-from-alterconf/
-/2017/04/accessibility-at-alterconf/  /2017/04/lessons-from-alterconf/
+/images/favicon.ico                                               /favicon.ico
+/theme/favicon.ico                                                /favicon.ico
+/theme/favicon.png                                                /favicon.png
+/view/img/favicon.ico                                             /favicon.ico
 
-/2017/01/a-python-interface-to-ao3    /2017/01/experiments-with-ao3-and-python/
-/2017/01/a-python-interface-to-ao3/   /2017/01/experiments-with-ao3-and-python/
+/apple-touch-icon.png                                             /theme/apple-touch-icon.png
+/apple-touch-icon-precomposed.png                                 /theme/apple-touch-icon.png
+/apple-touch-icon-120x120-precomposed.png                         /theme/apple-touch-icon.png
+/apple-touch-icon-120x120.png                                     /theme/apple-touch-icon.png
+/apple-touch-icon-152x152-precomposed.png                         /theme/apple-touch-icon.png
+/apple-touch-icon-152x152.png                                     /theme/apple-touch-icon.png
+/css/style.css                                                    /style.css
+
+/images/apple-touch-icon.png                                      /theme/apple-touch-icon.png
+
+/theme/style.css                                                  /style.css
+
+/analytics/a.js                                                   /410/ 410
+
+# === #
+
+
+
+
+
+# == Redirects for images == #
+
+/images/2014-04-20-veil.jpg                                     /images/2014/deathly-veil.jpg
+/images/2014-04-20-veil.png                                     /images/2014/deathly-veil.jpg
+/images/notes/resophnotes-directory.png                         /images/2014/resophnotes-directory.png
+/images/notes/resophnotes-styled.png                            /images/2014/resophnotes-styled.png
+/images/notes/resophnotes-unstyled.png                          /images/2014/resophnotes-unstyled.png
+
+/images/2015-05-github-blue.png                                 /images/2015/github_blue.png
+/images/2015-05-github-chart.png                                /images/2015/github_chart.png
+/images/2015-05-github-green.png                                /images/2015/github_green.png
+/images/2015-09-cortex-disabled.PNG                             /images/2015/cortex-disabled.PNG
+/images/2015-09-pizzaexpress-disabled.PNG                       /images/2015/pizzaexpress-disabled.PNG
+/images/2015-09-vexelology-disabled.PNG                         /images/2015/vexelology-disabled.PNG
+/images/2015-09-vexelology-enabled.PNG                          /images/2015/vexelology-enabled.PNG
+
+/images/notes/boiler-panel.png                                  /images/2016/boiler-panel.png
+/images/notes/tricity-sie454.png                                /images/2016/tricity-sie454.png
+/images/2016-01-hp-ipod-1.jpg                                   /images/2016/hp-ipod-1.jpg
+/images/2016-09-speech-to-text.jpg                              /images/2016/speech-to-text.jpg
+/images/2016-09-tech-bag.jpg                                    /images/2016/tech-bag.jpg
+/images/specktre_demo_hex.png                                   /images/2016/specktre_demo_hex.png
+/images/specktre_demo_sq.png                                    /images/2016/specktre_demo_sq.png
+/images/specktre_demo_tr.png                                    /images/2016/specktre_demo_tr.png
+/images/wiki-hexagons.png                                       /images/2016/wiki-hexagons.png
+/images/wiki-squares.png                                        /images/2016/wiki-squares.png
+/images/wiki-triangles.png                                      /images/2016/wiki-triangles.png
+
+/images/2017/P5280917_2x.jpg                                    /images/2017/P5280917.jpg
+/slides/pyconuk_asexuality.png                                  /images/2017/pyconuk_asexuality.jpg
+
+/images/2022/acme_1x.jpg                                        /images/2022/acme_corporation_1x.jpg
+/images/2022/acme_2x.jpg                                        /images/2022/acme_corporation_2x.jpg
+
+/images/2022/koa-redactions-card.jpg                            /images/cards/2022/koa-logger-redactions.jpg
+/images/2022/bodleian.jpg                                       /images/cards/2022/library-lookup.jpg
+/images/2022/screenshot_card.png                                /images/cards/2022/screenshots.png
+/images/cards/2022/cursor-confirmed-2x.webp                     /images/cards/2022/cursor-confirmed_2x.webp
+
+/images/twitter/avatar_A5HRAJ_516449552102993920.jpg            /images/twitter/avatars/A5HRAJ_516449552102993920.jpg
+/images/twitter/avatar_AsexualAndProud_790853542466564096.jpg   /images/twitter/avatars/AsexualAndProud_790853542466564096.jpeg
+/images/twitter/avatar_DRMacIver_803223621439102976.jpg         /images/twitter/avatars/DRMacIver_803223621439102976.jpg
+
+/images/talks/oxford_git.jpg                                    /410/ 410
+/images/talks/suspicious_minds.jpg                              /410/ 410
+/images/talks/worst_intent.png                                  /410/ 410
+
+# === #
+
+
+
+
+
+# == Redirects for pages which aren't attached to blog posts ==
+
+/2018/03/plumbers-guide-intro/                                  /a-plumbers-guide-to-git/
+/a-plumbers-guide-to-git/1                                      /a-plumbers-guide-to-git/1-the-git-object-store/
+/a-plumbers-guide-to-git/1/                                     /a-plumbers-guide-to-git/1-the-git-object-store/
+/a-plumbers-guide-to-git/2                                      /a-plumbers-guide-to-git/2-blobs-and-trees/
+/a-plumbers-guide-to-git/2/                                     /a-plumbers-guide-to-git/2-blobs-and-trees/
+/a-plumbers-guide-to-git/3                                      /a-plumbers-guide-to-git/3-context-from-commits/
+/a-plumbers-guide-to-git/3/                                     /a-plumbers-guide-to-git/3-context-from-commits/
+/a-plumbers-guide-to-git/4                                      /a-plumbers-guide-to-git/4-refs-and-branches/
+/a-plumbers-guide-to-git/4/                                     /a-plumbers-guide-to-git/4-refs-and-branches/
+
+/archives                                                       /all-posts/
+/archives/                                                      /all-posts/
+/archive                                                        /all-posts/
+/archive/                                                       /all-posts/
+/all-posts-by-tag/                                              /all-posts/
+
+/about                                                          /
+/about/                                                         /
+/contact/                                                       /#contact
+
+/page/*                                                         /all-posts/
+
+/tag                                                            /410/ 410
+/tag/                                                           /410/ 410
+/notes                                                          /410/ 410
+
+# === #
+
+
+
+
+
+# == Redirects for individual blog posts ==
+
+# Removing the /blog prefix
+/blog/2013/03/pinboard-backups/                                 /2013/03/pinboard-backups/
+/blog/2013/03/candybar/                                         /2013/03/candybar/
+
+# Moving everything under /talks to dated entries
+/talks/hypothesis-intro/                                        /2016/06/hypothesis-intro/
+/talks/pyconuk2016                                              /2016/09/pyconuk2016/
+/talks/qcon2017                                                 /2017/03/qcon2017/
+
+# Moving everything under /notes to dated entries
+/notes/custom-css-resophnotes                                   /2014/11/custom-css-resophnotes/
+/notes/custom-css-resophnotes/                                  /2014/11/custom-css-resophnotes/
+/notes/tricity-sie454-clock                                     /2016/10/tricity-sie454-clock/
+/notes/tricity-sie454-clock/                                    /2016/10/tricity-sie454-clock/
+/notes/worcester-28cdi-clock                                    /2016/10/worcester-28cdi-clock/
+/notes/worcester-28cdi-clock/                                   /2016/10/worcester-28cdi-clock/
+
+# Cases where the slug on the blog post changed after I'd published
+/2016/05/safely-deleting-a-file-called-rf-/                     /2016/05/safely-deleting-a-file-called-rf/
+/2016/05/safely-deleting-a-file-called-rf-                      /2016/05/safely-deleting-a-file-called-rf/
+/2017/01/a-python-interface-to-ao3                              /2017/01/experiments-with-ao3-and-python/
+/2017/01/a-python-interface-to-ao3/                             /2017/01/experiments-with-ao3-and-python/
+/2021/01/what-year-it-it/                                       /2021/01/what-year-is-it/
+/2017/04/accessibility-at-alterconf                             /2017/04/lessons-from-alterconf/
+/2017/04/accessibility-at-alterconf/                            /2017/04/lessons-from-alterconf/
 
 # I put up a post linking to my slides, then a month later I put up
 # another post with an annotated set of slides and notes.
-/2019/09/slides-for-pycon-uk-2019/    /2019/10/sans-io-programming/
+/2019/09/slides-for-pycon-uk-2019/                              /2019/10/sans-io-programming/
 
-# Tag pages that I've renamed or consolidated
-# TODO: I couldn't get these to redirect correctly in the new scheme.
-# If I get broken requests, go back and fix them properly!
-# /tag/os                             /tags/#tag__os-x
-# /tag/x                              /tags/#tag__os-x
-# /tag/http/2                         /tags/#tag__http-2
-# /tag/http2                          /tags/#tag__http-2
-# /tag/pycon                          /tags/#tag__pyconuk
-# /tag/harry                          /tags/#tag__harry-potter
-# /tag/potter                         /tags/#tag__harry-potter
+# This was a broken redirect I had for a while
+/2016/07/hypothesis-intro/                                      /2016/06/hypothesis-intro/
 
-# I got rid of separate tag pages in February 2018, so the tag
-# index moved.
-/tag                                /tags/
-/tag/                               /tags/
+# === #
 
-# I don't actually remember if/when I used /archives for the archive
-# page, but I've had 404s for it so I might as well redirect.
-/archives                           /archive/
-/archives/                          /archive/
 
-/contact/                           /#contact
 
-/maths/part-ib/geometry.pdf         /files/geometry.pdf
-/maths/part-ib/linear-algebra.pdf   /files/linear-algebra.pdf
-/maths/part-ib/met-top-spaces.pdf   /files/met-top-spaces.pdf
 
-/maths/geometry.pdf                 /files/geometry.pdf
-/maths/linear-algebra.pdf           /files/linear-algebra.pdf
-/maths/met-top-spaces.pdf           /files/met-top-spaces.pdf
 
-/talks/hypothesis-intro/            /2016/07/hypothesis-intro/
+# == Redirects for files == #
 
-/notes/custom-css-resophnotes                   /2014/11/custom-css-resophnotes/
-/notes/custom-css-resophnotes/                  /2014/11/custom-css-resophnotes/
+/maths/part-ib/geometry.pdf                                     /files/geometry.pdf
+/maths/part-ib/linear-algebra.pdf                               /files/linear-algebra.pdf
+/maths/part-ib/met-top-spaces.pdf                               /files/met-top-spaces.pdf
 
-/notes/tricity-sie454-clock                     /2016/10/tricity-sie454-clock/
-/notes/tricity-sie454-clock/                    /2016/10/tricity-sie454-clock/
-
-/notes/worcester-28cdi-clock                    /2016/10/worcester-28cdi-clock/
-/notes/worcester-28cdi-clock/                   /2016/10/worcester-28cdi-clock/
-
-/2021/01/what-year-it-it/                                   /2021/01/what-year-is-it/
-
-/feed                               /atom.xml
-/rss                                /atom.xml
-
-/page/1/                            /
-/page/1                             /
-
-/about                              /
-/about/                             /
-
-/theme/style.css                    /style.css
-
-/all-posts-by-tag/                  /all-posts/
-
-/notes /410/ 410
+/maths/geometry.pdf                                             /files/geometry.pdf
+/maths/linear-algebra.pdf                                       /files/linear-algebra.pdf
+/maths/met-top-spaces.pdf                                       /files/met-top-spaces.pdf
 
 # This is some changes I made in Christmas 2022 to tidy up the structure
 # of the 'files' directory; I had a bunch of files which were in the
 # top-level, and not in the per-year folders I'd started using for
 # newer files.
-/files/find_untagged_posts.py	                              /files/2013/find_untagged_posts.py
-/files/untagged-posts.py	                                  /files/2013/find_untagged_posts.py
-/files/curlparser.py	                                      /files/2014/curlparser.py
-/files/curlparser-examples.txt	                            /files/2014/curlparser-examples.txt
-/files/open-recent-screenshots.zip	                        /files/2014/open-recent-screenshots.zip
-/files/gitignore_global.txt	                                /files/2015/gitignore_global.txt
-/files/readinglist.py	                                      /files/2015/readinglist.py
-/skeletor/skeletor_jan2015.pdf	                            /files/2015/skeletor_jan2015.pdf
-/skeletor/skeletor_jan2015.png	                            /files/2015/skeletor_jan2015.png
-/files/send_to_kindle.py	                                  /files/2016/send_to_kindle.py
-/skeletor/skeletor_jan2016.pdf	                            /files/2016/skeletor_jan2016.pdf
-/skeletor/skeletor_jan2016.png	                            /files/2016/skeletor_jan2016.png
-/skeletor/skeletor_jan2016.tex	                            /files/2016/skeletor_jan2016.tex
-/files/tilings.py	                                          /files/2016/tilings.py
-/files/crossness_beam.mp4	                                  /files/2017/crossness_beam.mp4
-/videos/crossness_beam.mp4                                  /files/2017/crossness_beam.mp4
-/files/crossness_flywheel.mp4	                              /files/2017/crossness_flywheel.mp4
-/videos/crossness_flywheel.mp4                              /files/2017/crossness_flywheel.mp4
-/slides/docopt/docopt_slides.pdf                            /files/2017/docopt_slides.pdf
-/talks/hypothesis_qcon17.pdf                                /files/2017/hypothesis_qcon17.pdf
-/slides/privilege_inclusion/privilege_inclusion_slides.pdf  /files/2017/privilege_inclusion_slides.pdf
-/files/tweet_templates.key	                                /files/2017/tweet_templates.key
-/files/tweet_templates.ppt	                                /files/2017/tweet_templates.ppt
-/slides/anti_social_media/anti_social_media_slides.pdf      /files/2018/anti_social_media_slides.pdf
-/slides/assume_worst_intent.pdf                             /files/2018/assume_worst_intent.pdf
-/files/assume_worst_intent.pdf	                            /files/2018/assume_worst_intent.pdf
-/talks/suspicious-minds.pdf	                                /files/2018/suspicious-minds.pdf
-/files/curbcut-monkigras.pdf	                              /files/2019/curbcut-monkigras.pdf
-/files/example_loan.xlsx	                                  /files/2019/example_loan.xlsx
-/files/pyconuk_2019_sans_io.pdf	                            /files/2019/pyconuk_2019_sans_io.pdf
-/files/wcag-black-and-white.pdf	                            /files/2019/wcag-black-and-white.pdf
-/skeletor/skeletor_feb2020.pdf	                            /files/2020/skeletor_feb2020.pdf
-/skeletor/skeletor_feb2020.png	                            /files/2020/skeletor_feb2020.png
-/skeletor/skeletor_feb2020.tex	                            /files/2020/skeletor_feb2020.tex
+/files/find_untagged_posts.py	                                  /files/2013/find_untagged_posts.py
+/files/untagged-posts.py	                                      /files/2013/find_untagged_posts.py
 
-/talks/pyconuk2016                        /2016/09/pyconuk2016/
-/talks/qcon2017                           /2017/03/qcon2017/
+/files/curlparser.py	                                          /files/2014/curlparser.py
+/files/curlparser-examples.txt	                                /files/2014/curlparser-examples.txt
+/files/open-recent-screenshots.zip	                            /files/2014/open-recent-screenshots.zip
 
-/images/talks/oxford_git.jpg              /410/ 410
-/images/talks/suspicious_minds.jpg        /410/ 410
-/images/talks/worst_intent.png            /410/ 410
-/files/boiler_instructions.pdf            /410/ 410
-/files/colossus.pdf                       /410/ 410
-/files/ga-privacy.txt                     /410/ 410
-/files/rock-crushers.txt                  /410/ 410
-/talks/campug_git.pdf                     /410/ 410
-/talks/colossus_operators.jpg             /410/ 410
-/talks/hypothesis_cover.png               /410/ 410
-/talks/pyconuk2016_cover.png              /410/ 410
+/files/gitignore_global.txt	                                    /files/2015/gitignore_global.txt
+/files/readinglist.py	                                          /files/2015/readinglist.py
+/skeletor/skeletor_jan2015.pdf	                                /files/2015/skeletor_jan2015.pdf
+/skeletor/skeletor_jan2015.png	                                /files/2015/skeletor_jan2015.png
 
-/images/notes/resophnotes-directory.png   /images/2014/resophnotes-directory.png
-/images/notes/resophnotes-styled.png      /images/2014/resophnotes-styled.png
-/images/notes/resophnotes-unstyled.png    /images/2014/resophnotes-unstyled.png
-/images/notes/boiler-panel.png            /images/2016/boiler-panel.png
-/images/notes/tricity-sie454.png          /images/2016/tricity-sie454.png
-/slides/pyconuk_asexuality.png            /images/2017/pyconuk_asexuality.png
+/files/send_to_kindle.py	                                      /files/2016/send_to_kindle.py
+/skeletor/skeletor_jan2016.pdf	                                /files/2016/skeletor_jan2016.pdf
+/skeletor/skeletor_jan2016.png	                                /files/2016/skeletor_jan2016.png
+/skeletor/skeletor_jan2016.tex	                                /files/2016/skeletor_jan2016.tex
+/files/tilings.py	                                              /files/2016/tilings.py
 
-/slides/sans_io/sans_io.001.jpg           /images/2019/sans-io-programming/slide1.jpg
-/slides/sans_io/sans_io.002.jpg           /images/2019/sans-io-programming/slide2.jpg
-/slides/sans_io/sans_io.003.jpg           /images/2019/sans-io-programming/slide3.jpg
-/slides/sans_io/sans_io.004.jpg           /images/2019/sans-io-programming/slide4.jpg
-/slides/sans_io/sans_io.005.jpg           /images/2019/sans-io-programming/slide5.jpg
-/slides/sans_io/sans_io.006.jpg           /images/2019/sans-io-programming/slide6.jpg
-/slides/sans_io/sans_io.007.jpg           /images/2019/sans-io-programming/slide7.jpg
-/slides/sans_io/sans_io.008.jpg           /images/2019/sans-io-programming/slide8.jpg
-/slides/sans_io/sans_io.009.jpg           /images/2019/sans-io-programming/slide9.jpg
-/slides/sans_io/sans_io.010.jpg           /images/2019/sans-io-programming/slide10.jpg
-/slides/sans_io/sans_io.011.jpg           /images/2019/sans-io-programming/slide11.jpg
-/slides/sans_io/sans_io.012.jpg           /images/2019/sans-io-programming/slide12.jpg
-/slides/sans_io/sans_io.013.jpg           /images/2019/sans-io-programming/slide13.jpg
-/slides/sans_io/sans_io.014.jpg           /images/2019/sans-io-programming/slide14.jpg
-/slides/sans_io/sans_io.015.jpg           /images/2019/sans-io-programming/slide15.jpg
-/slides/sans_io/sans_io.016.jpg           /images/2019/sans-io-programming/slide16.jpg
-/slides/sans_io/sans_io.017.jpg           /images/2019/sans-io-programming/slide17.jpg
-/slides/sans_io/sans_io.018.jpg           /images/2019/sans-io-programming/slide18.jpg
-/slides/sans_io/sans_io.019.jpg           /images/2019/sans-io-programming/slide19.jpg
-/slides/sans_io/sans_io.020.jpg           /images/2019/sans-io-programming/slide20.jpg
-/slides/sans_io/sans_io.021.jpg           /images/2019/sans-io-programming/slide21.jpg
-/slides/sans_io/sans_io.022.jpg           /images/2019/sans-io-programming/slide22.jpg
-/slides/sans_io/sans_io.023.jpg           /images/2019/sans-io-programming/slide23.jpg
-/slides/sans_io/sans_io.024.jpg           /images/2019/sans-io-programming/slide24.jpg
-/slides/sans_io/sans_io.025.jpg           /images/2019/sans-io-programming/slide25.jpg
-/slides/sans_io/sans_io.026.jpg           /images/2019/sans-io-programming/slide26.jpg
-/slides/sans_io/sans_io.027.jpg           /images/2019/sans-io-programming/slide27.jpg
-/slides/sans_io/sans_io.028.jpg           /images/2019/sans-io-programming/slide28.jpg
-/slides/sans_io/sans_io.029.jpg           /images/2019/sans-io-programming/slide29.jpg
-/slides/sans_io/sans_io.030.jpg           /images/2019/sans-io-programming/slide30.jpg
-/slides/sans_io/sans_io.031.jpg           /images/2019/sans-io-programming/slide31.jpg
-/slides/sans_io/sans_io.032.jpg           /images/2019/sans-io-programming/slide32.jpg
+/files/crossness_beam.mp4	                                      /files/2017/crossness_beam.mp4
+/videos/crossness_beam.mp4                                      /files/2017/crossness_beam.mp4
+/files/crossness_flywheel.mp4	                                  /files/2017/crossness_flywheel.mp4
+/videos/crossness_flywheel.mp4                                  /files/2017/crossness_flywheel.mp4
+/slides/docopt/docopt_slides.pdf                                /files/2017/docopt_slides.pdf
+/talks/hypothesis_qcon17.pdf                                    /files/2017/hypothesis_qcon17.pdf
+/slides/privilege_inclusion/privilege_inclusion_slides.pdf      /files/2017/privilege_inclusion_slides.pdf
+/files/tweet_templates.key	                                    /files/2017/tweet_templates.key
+/files/tweet_templates.ppt	                                    /files/2017/tweet_templates.ppt
+
+/slides/anti_social_media/anti_social_media_slides.pdf          /files/2018/anti_social_media_slides.pdf
+/slides/assume_worst_intent.pdf                                 /files/2018/assume_worst_intent.pdf
+/files/assume_worst_intent.pdf	                                /files/2018/assume_worst_intent.pdf
+/talks/suspicious-minds.pdf	                                    /files/2018/suspicious-minds.pdf
+
+/files/curbcut-monkigras.pdf	                                  /files/2019/curbcut-monkigras.pdf
+/files/example_loan.xlsx	                                      /files/2019/example_loan.xlsx
+/files/pyconuk_2019_sans_io.pdf	                                /files/2019/pyconuk_2019_sans_io.pdf
+/files/wcag-black-and-white.pdf	                                /files/2019/wcag-black-and-white.pdf
+
+/skeletor/skeletor_feb2020.pdf	                                /files/2020/skeletor_feb2020.pdf
+/skeletor/skeletor_feb2020.png	                                /files/2020/skeletor_feb2020.png
+/skeletor/skeletor_feb2020.tex	                                /files/2020/skeletor_feb2020.tex
+
+/files/boiler_instructions.pdf                                  /410/ 410
+/files/colossus.pdf                                             /410/ 410
+/files/ga-privacy.txt                                           /410/ 410
+/files/rock-crushers.txt                                        /410/ 410
+/talks/campug_git.pdf                                           /410/ 410
+/talks/colossus_operators.jpg                                   /410/ 410
+/talks/hypothesis_cover.png                                     /410/ 410
+/talks/pyconuk2016_cover.png                                    /410/ 410
+
+# === #
 
 
-/slides/hypothesis-intro/hypothesis-intro.000.png   /images/2016/hypothesis-intro/slide0.png
-/slides/hypothesis-intro/hypothesis-intro.001.png   /images/2016/hypothesis-intro/slide1.png
-/slides/hypothesis-intro/hypothesis-intro.002.png   /images/2016/hypothesis-intro/slide2.png
-/slides/hypothesis-intro/hypothesis-intro.003.png   /images/2016/hypothesis-intro/slide3.png
-/slides/hypothesis-intro/hypothesis-intro.004.png   /images/2016/hypothesis-intro/slide4.png
-/slides/hypothesis-intro/hypothesis-intro.005.png   /images/2016/hypothesis-intro/slide5.png
-/slides/hypothesis-intro/hypothesis-intro.006.png   /images/2016/hypothesis-intro/slide6.png
-/slides/hypothesis-intro/hypothesis-intro.007.png   /images/2016/hypothesis-intro/slide7.png
-/slides/hypothesis-intro/hypothesis-intro.008.png   /images/2016/hypothesis-intro/slide8.png
-/slides/hypothesis-intro/hypothesis-intro.009.png   /images/2016/hypothesis-intro/slide9.png
-/slides/hypothesis-intro/hypothesis-intro.010.png   /images/2016/hypothesis-intro/slide10.png
-/slides/hypothesis-intro/hypothesis-intro.011.png   /images/2016/hypothesis-intro/slide11.png
-/slides/hypothesis-intro/hypothesis-intro.012.png   /images/2016/hypothesis-intro/slide12.png
-/slides/hypothesis-intro/hypothesis-intro.013.png   /images/2016/hypothesis-intro/slide13.png
-/slides/hypothesis-intro/hypothesis-intro.014.png   /images/2016/hypothesis-intro/slide14.png
-/slides/hypothesis-intro/hypothesis-intro.015.png   /images/2016/hypothesis-intro/slide15.png
-/slides/hypothesis-intro/hypothesis-intro.016.png   /images/2016/hypothesis-intro/slide16.png
-/slides/hypothesis-intro/hypothesis-intro.017.png   /images/2016/hypothesis-intro/slide17.png
-/slides/hypothesis-intro/hypothesis-intro.018.png   /images/2016/hypothesis-intro/slide18.png
-/slides/hypothesis-intro/hypothesis-intro.019.png   /images/2016/hypothesis-intro/slide19.png
-/slides/hypothesis-intro/hypothesis-intro.020.png   /images/2016/hypothesis-intro/slide20.png
-/slides/hypothesis-intro/hypothesis-intro.021.png   /images/2016/hypothesis-intro/slide21.png
-/slides/hypothesis-intro/hypothesis-intro.022.png   /images/2016/hypothesis-intro/slide22.png
-/slides/hypothesis-intro/hypothesis-intro.023.png   /images/2016/hypothesis-intro/slide23.png
-/slides/hypothesis-intro/hypothesis-intro.024.png   /images/2016/hypothesis-intro/slide24.png
-/slides/hypothesis-intro/hypothesis-intro.025.png   /images/2016/hypothesis-intro/slide25.png
-/slides/hypothesis-intro/hypothesis-intro.026.png   /images/2016/hypothesis-intro/slide26.png
-/slides/hypothesis-intro/hypothesis-intro.027.png   /images/2016/hypothesis-intro/slide27.png
-/slides/hypothesis-intro/hypothesis-intro.028.png   /images/2016/hypothesis-intro/slide28.png
-/slides/hypothesis-intro/hypothesis-intro.029.png   /images/2016/hypothesis-intro/slide29.png
-/slides/hypothesis-intro/hypothesis-intro.030.png   /images/2016/hypothesis-intro/slide30.png
-/slides/hypothesis-intro/hypothesis-intro.031.png   /images/2016/hypothesis-intro/slide31.png
-/slides/hypothesis-intro/hypothesis-intro.032.png   /images/2016/hypothesis-intro/slide32.png
-/slides/hypothesis-intro/hypothesis-intro.033.png   /images/2016/hypothesis-intro/slide33.png
-/slides/hypothesis-intro/hypothesis-intro.034.png   /images/2016/hypothesis-intro/slide34.png
-/slides/hypothesis-intro/hypothesis-intro.035.png   /images/2016/hypothesis-intro/slide35.png
-/slides/hypothesis-intro/hypothesis-intro.036.png   /images/2016/hypothesis-intro/slide36.png
-/slides/hypothesis-intro/hypothesis-intro.037.png   /images/2016/hypothesis-intro/slide37.png
-/slides/hypothesis-intro/hypothesis-intro.038.png   /images/2016/hypothesis-intro/slide38.png
-/slides/hypothesis-intro/hypothesis-intro.039.png   /images/2016/hypothesis-intro/slide39.png
-/slides/hypothesis-intro/hypothesis-intro.040.png   /images/2016/hypothesis-intro/slide40.png
-/slides/hypothesis-intro/hypothesis-intro.041.png   /images/2016/hypothesis-intro/slide41.png
-/slides/hypothesis-intro/hypothesis-intro.042.png   /images/2016/hypothesis-intro/slide42.png
-/slides/hypothesis-intro/hypothesis-intro.043.png   /images/2016/hypothesis-intro/slide43.png
-/slides/hypothesis-intro/hypothesis-intro.044.png   /images/2016/hypothesis-intro/slide44.png
-/slides/hypothesis-intro/hypothesis-intro.045.png   /images/2016/hypothesis-intro/slide45.png
-/slides/hypothesis-intro/hypothesis-intro.046.png   /images/2016/hypothesis-intro/slide46.png
-/slides/hypothesis-intro/hypothesis-intro.047.png   /images/2016/hypothesis-intro/slide47.png
-/slides/hypothesis-intro/hypothesis-intro.048.png   /images/2016/hypothesis-intro/slide48.png
-/slides/hypothesis-intro/hypothesis-intro.049.png   /images/2016/hypothesis-intro/slide49.png
-/slides/hypothesis-intro/hypothesis-intro.050.png   /images/2016/hypothesis-intro/slide50.png
-/slides/hypothesis-intro/hypothesis-intro.051.png   /images/2016/hypothesis-intro/slide51.png
-/slides/hypothesis-intro/hypothesis-intro.052.png   /images/2016/hypothesis-intro/slide52.png
-/slides/hypothesis-intro/hypothesis-intro.053.png   /images/2016/hypothesis-intro/slide53.png
-/slides/hypothesis-intro/hypothesis-intro.054.png   /images/2016/hypothesis-intro/slide54.png
-/slides/hypothesis-intro/hypothesis-intro.055.png   /images/2016/hypothesis-intro/slide55.png
 
-/slides/privilege_inclusion/privilege_inclusion.001.png   /images/2017/pyconuk-2017-privilege-inclusion/slide1.png
-/slides/privilege_inclusion/privilege_inclusion.003.png   /images/2017/pyconuk-2017-privilege-inclusion/slide3.png
-/slides/privilege_inclusion/privilege_inclusion.004.png   /images/2017/pyconuk-2017-privilege-inclusion/slide4.png
-/slides/privilege_inclusion/privilege_inclusion.005.png   /images/2017/pyconuk-2017-privilege-inclusion/slide5.png
-/slides/privilege_inclusion/privilege_inclusion.006.png   /images/2017/pyconuk-2017-privilege-inclusion/slide6.png
-/slides/privilege_inclusion/privilege_inclusion.007.png   /images/2017/pyconuk-2017-privilege-inclusion/slide7.png
-/slides/privilege_inclusion/privilege_inclusion.008.png   /images/2017/pyconuk-2017-privilege-inclusion/slide8.png
-/slides/privilege_inclusion/privilege_inclusion.009.png   /images/2017/pyconuk-2017-privilege-inclusion/slide9.png
-/slides/privilege_inclusion/privilege_inclusion.010.png   /images/2017/pyconuk-2017-privilege-inclusion/slide10.png
-/slides/privilege_inclusion/privilege_inclusion.011.png   /images/2017/pyconuk-2017-privilege-inclusion/slide11.png
-/slides/privilege_inclusion/privilege_inclusion.012.png   /images/2017/pyconuk-2017-privilege-inclusion/slide12.png
-/slides/privilege_inclusion/privilege_inclusion.015.png   /images/2017/pyconuk-2017-privilege-inclusion/slide15.png
-/slides/privilege_inclusion/privilege_inclusion.016.png   /images/2017/pyconuk-2017-privilege-inclusion/slide16.png
-/slides/privilege_inclusion/privilege_inclusion.019.png   /images/2017/pyconuk-2017-privilege-inclusion/slide19.png
-/slides/privilege_inclusion/privilege_inclusion.020.png   /images/2017/pyconuk-2017-privilege-inclusion/slide20.png
-/slides/privilege_inclusion/privilege_inclusion.021.png   /images/2017/pyconuk-2017-privilege-inclusion/slide21.png
-/slides/privilege_inclusion/privilege_inclusion.022.png   /images/2017/pyconuk-2017-privilege-inclusion/slide22.png
-/slides/privilege_inclusion/privilege_inclusion.024.png   /images/2017/pyconuk-2017-privilege-inclusion/slide24.png
-/slides/privilege_inclusion/privilege_inclusion.025.png   /images/2017/pyconuk-2017-privilege-inclusion/slide25.png
-/slides/privilege_inclusion/privilege_inclusion.026.png   /images/2017/pyconuk-2017-privilege-inclusion/slide26.png
-/slides/privilege_inclusion/privilege_inclusion.027.png   /images/2017/pyconuk-2017-privilege-inclusion/slide27.png
-/slides/privilege_inclusion/privilege_inclusion.028.png   /images/2017/pyconuk-2017-privilege-inclusion/slide28.png
-/slides/privilege_inclusion/privilege_inclusion.029.png   /images/2017/pyconuk-2017-privilege-inclusion/slide29.png
-/slides/privilege_inclusion/privilege_inclusion.030.png   /images/2017/pyconuk-2017-privilege-inclusion/slide30.png
-/slides/privilege_inclusion/privilege_inclusion.031.png   /images/2017/pyconuk-2017-privilege-inclusion/slide31.png
-/slides/privilege_inclusion/privilege_inclusion.032.png   /images/2017/pyconuk-2017-privilege-inclusion/slide32.png
-/slides/privilege_inclusion/privilege_inclusion.033.png   /images/2017/pyconuk-2017-privilege-inclusion/slide33.png
-/slides/privilege_inclusion/privilege_inclusion.035.png   /images/2017/pyconuk-2017-privilege-inclusion/slide35.png
-/slides/privilege_inclusion/privilege_inclusion.036.png   /images/2017/pyconuk-2017-privilege-inclusion/slide36.png
-/slides/privilege_inclusion/privilege_inclusion.037.png   /images/2017/pyconuk-2017-privilege-inclusion/slide37.png
-/slides/privilege_inclusion/privilege_inclusion.040.png   /images/2017/pyconuk-2017-privilege-inclusion/slide40.png
 
-/slides/curbcut_monkigras/curbcut_monkigras.001.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide1.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.002.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide2.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.003.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide3.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.004.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide4.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.005.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide5.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.006.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide6.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.007.png       /images/2019/monki-gras-the-curb-cut-effect/slide7.png
-/slides/curbcut_monkigras/curbcut_monkigras.008.png       /images/2019/monki-gras-the-curb-cut-effect/slide8.png
-/slides/curbcut_monkigras/curbcut_monkigras.009.png       /images/2019/monki-gras-the-curb-cut-effect/slide9.png
-/slides/curbcut_monkigras/curbcut_monkigras.010.png       /images/2019/monki-gras-the-curb-cut-effect/slide10.png
-/slides/curbcut_monkigras/curbcut_monkigras.011.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide11.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.012.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide12.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.013.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide13.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.014.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide14.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.015.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide15.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.016.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide16.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.017.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide17.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.018.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide18.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.019.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide19.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.020.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide20.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.021.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide21.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.023.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide23.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.024.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide24.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.025.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide25.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.026.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide26.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.027.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide27.jpg
-/slides/curbcut_monkigras/curbcut_monkigras.028.jpg       /images/2019/monki-gras-the-curb-cut-effect/slide28.jpg
+# == Redirects for slides == #
 
-/slides/assume_worst_intent/assume_worst_intent.001.png   /images/2018/assume-worst-intent/slide1.png
-/slides/assume_worst_intent/assume_worst_intent.002.png   /images/2018/assume-worst-intent/slide2.png
-/slides/assume_worst_intent/assume_worst_intent.003.png   /images/2018/assume-worst-intent/slide3.png
-/slides/assume_worst_intent/assume_worst_intent.004.png   /images/2018/assume-worst-intent/slide4.png
-/slides/assume_worst_intent/assume_worst_intent.005.png   /images/2018/assume-worst-intent/slide5.png
-/slides/assume_worst_intent/assume_worst_intent.006.png   /images/2018/assume-worst-intent/slide6.png
-/slides/assume_worst_intent/assume_worst_intent.007.png   /images/2018/assume-worst-intent/slide7.png
-/slides/assume_worst_intent/assume_worst_intent.008.png   /images/2018/assume-worst-intent/slide8.png
-/slides/assume_worst_intent/assume_worst_intent.009.png   /images/2018/assume-worst-intent/slide9.png
-/slides/assume_worst_intent/assume_worst_intent.010.png   /images/2018/assume-worst-intent/slide10.png
-/slides/assume_worst_intent/assume_worst_intent.011.png   /images/2018/assume-worst-intent/slide11.png
-/slides/assume_worst_intent/assume_worst_intent.012.jpg   /images/2018/assume-worst-intent/slide12.jpg
-/slides/assume_worst_intent/assume_worst_intent.013.png   /images/2018/assume-worst-intent/slide13.png
-/slides/assume_worst_intent/assume_worst_intent.014.png   /images/2018/assume-worst-intent/slide14.png
-/slides/assume_worst_intent/assume_worst_intent.015.png   /images/2018/assume-worst-intent/slide15.png
-/slides/assume_worst_intent/assume_worst_intent.016.png   /images/2018/assume-worst-intent/slide16.png
-/slides/assume_worst_intent/assume_worst_intent.017.png   /images/2018/assume-worst-intent/slide17.png
-/slides/assume_worst_intent/assume_worst_intent.018.png   /images/2018/assume-worst-intent/slide18.png
-/slides/assume_worst_intent/assume_worst_intent.019.png   /images/2018/assume-worst-intent/slide19.png
-/slides/assume_worst_intent/assume_worst_intent.020.png   /images/2018/assume-worst-intent/slide20.png
-/slides/assume_worst_intent/assume_worst_intent.021.png   /images/2018/assume-worst-intent/slide21.png
-/slides/assume_worst_intent/assume_worst_intent.022.png   /images/2018/assume-worst-intent/slide22.png
-/slides/assume_worst_intent/assume_worst_intent.023.png   /images/2018/assume-worst-intent/slide23.png
-/slides/assume_worst_intent/assume_worst_intent.024.png   /images/2018/assume-worst-intent/slide24.png
-/slides/assume_worst_intent/assume_worst_intent.025.png   /images/2018/assume-worst-intent/slide25.png
-/slides/assume_worst_intent/assume_worst_intent.026.png   /images/2018/assume-worst-intent/slide26.png
-/slides/assume_worst_intent/assume_worst_intent.027.png   /images/2018/assume-worst-intent/slide27.png
-/slides/assume_worst_intent/assume_worst_intent.028.png   /images/2018/assume-worst-intent/slide28.png
-/slides/assume_worst_intent/assume_worst_intent.029.png   /images/2018/assume-worst-intent/slide29.png
-/slides/assume_worst_intent/assume_worst_intent.030.png   /images/2018/assume-worst-intent/slide30.png
-/slides/assume_worst_intent/assume_worst_intent.031.png   /images/2018/assume-worst-intent/slide31.png
-/slides/assume_worst_intent/assume_worst_intent.032.png   /images/2018/assume-worst-intent/slide32.png
-/slides/assume_worst_intent/assume_worst_intent.033.png   /images/2018/assume-worst-intent/slide33.png
-/slides/assume_worst_intent/assume_worst_intent.034.png   /images/2018/assume-worst-intent/slide34.png
-/slides/assume_worst_intent/assume_worst_intent.035.png   /images/2018/assume-worst-intent/slide35.png
-/slides/assume_worst_intent/assume_worst_intent.036.png   /images/2018/assume-worst-intent/slide36.png
-/slides/assume_worst_intent/assume_worst_intent.037.png   /images/2018/assume-worst-intent/slide37.png
-/slides/assume_worst_intent/assume_worst_intent.038.png   /images/2018/assume-worst-intent/slide38.png
-/slides/assume_worst_intent/assume_worst_intent.039.png   /images/2018/assume-worst-intent/slide39.png
-/slides/assume_worst_intent/assume_worst_intent.040.png   /images/2018/assume-worst-intent/slide40.png
-/slides/assume_worst_intent/assume_worst_intent.041.png   /images/2018/assume-worst-intent/slide41.png
-/slides/assume_worst_intent/assume_worst_intent.042.png   /images/2018/assume-worst-intent/slide42.png
-/slides/assume_worst_intent/assume_worst_intent.043.png   /images/2018/assume-worst-intent/slide43.png
-/slides/assume_worst_intent/assume_worst_intent.044.png   /images/2018/assume-worst-intent/slide44.png
-/slides/assume_worst_intent/assume_worst_intent.045.png   /images/2018/assume-worst-intent/slide45.png
-/slides/assume_worst_intent/assume_worst_intent.046.png   /images/2018/assume-worst-intent/slide46.png
-/slides/assume_worst_intent/assume_worst_intent.047.png   /images/2018/assume-worst-intent/slide47.png
-/slides/assume_worst_intent/assume_worst_intent.048.png   /images/2018/assume-worst-intent/slide48.png
+/slides/sans_io/sans_io.001.jpg                                 /images/2019/sans-io-programming/slide1.jpg
+/slides/sans_io/sans_io.002.jpg                                 /images/2019/sans-io-programming/slide2.jpg
+/slides/sans_io/sans_io.003.jpg                                 /images/2019/sans-io-programming/slide3.jpg
+/slides/sans_io/sans_io.004.jpg                                 /images/2019/sans-io-programming/slide4.jpg
+/slides/sans_io/sans_io.005.jpg                                 /images/2019/sans-io-programming/slide5.jpg
+/slides/sans_io/sans_io.006.jpg                                 /images/2019/sans-io-programming/slide6.jpg
+/slides/sans_io/sans_io.007.jpg                                 /images/2019/sans-io-programming/slide7.jpg
+/slides/sans_io/sans_io.008.jpg                                 /images/2019/sans-io-programming/slide8.jpg
+/slides/sans_io/sans_io.009.jpg                                 /images/2019/sans-io-programming/slide9.jpg
+/slides/sans_io/sans_io.010.jpg                                 /images/2019/sans-io-programming/slide10.jpg
+/slides/sans_io/sans_io.011.jpg                                 /images/2019/sans-io-programming/slide11.jpg
+/slides/sans_io/sans_io.012.jpg                                 /images/2019/sans-io-programming/slide12.jpg
+/slides/sans_io/sans_io.013.jpg                                 /images/2019/sans-io-programming/slide13.jpg
+/slides/sans_io/sans_io.014.jpg                                 /images/2019/sans-io-programming/slide14.jpg
+/slides/sans_io/sans_io.015.jpg                                 /images/2019/sans-io-programming/slide15.jpg
+/slides/sans_io/sans_io.016.jpg                                 /images/2019/sans-io-programming/slide16.jpg
+/slides/sans_io/sans_io.017.jpg                                 /images/2019/sans-io-programming/slide17.jpg
+/slides/sans_io/sans_io.018.jpg                                 /images/2019/sans-io-programming/slide18.jpg
+/slides/sans_io/sans_io.019.jpg                                 /images/2019/sans-io-programming/slide19.jpg
+/slides/sans_io/sans_io.020.jpg                                 /images/2019/sans-io-programming/slide20.jpg
+/slides/sans_io/sans_io.021.jpg                                 /images/2019/sans-io-programming/slide21.jpg
+/slides/sans_io/sans_io.022.jpg                                 /images/2019/sans-io-programming/slide22.jpg
+/slides/sans_io/sans_io.023.jpg                                 /images/2019/sans-io-programming/slide23.jpg
+/slides/sans_io/sans_io.024.jpg                                 /images/2019/sans-io-programming/slide24.jpg
+/slides/sans_io/sans_io.025.jpg                                 /images/2019/sans-io-programming/slide25.jpg
+/slides/sans_io/sans_io.026.jpg                                 /images/2019/sans-io-programming/slide26.jpg
+/slides/sans_io/sans_io.027.jpg                                 /images/2019/sans-io-programming/slide27.jpg
+/slides/sans_io/sans_io.028.jpg                                 /images/2019/sans-io-programming/slide28.jpg
+/slides/sans_io/sans_io.029.jpg                                 /images/2019/sans-io-programming/slide29.jpg
+/slides/sans_io/sans_io.030.jpg                                 /images/2019/sans-io-programming/slide30.jpg
+/slides/sans_io/sans_io.031.jpg                                 /images/2019/sans-io-programming/slide31.jpg
+/slides/sans_io/sans_io.032.jpg                                 /images/2019/sans-io-programming/slide32.jpg
 
-/slides/suspicious-minds/suspicious-minds.01.jpg    /images/2018/suspicious-minds/slide1.jpg
-/slides/suspicious-minds/suspicious-minds.02.jpg    /images/2018/suspicious-minds/slide2.jpg
-/slides/suspicious-minds/suspicious-minds.03.png    /images/2018/suspicious-minds/slide3.png
-/slides/suspicious-minds/suspicious-minds.04.png    /images/2018/suspicious-minds/slide4.png
-/slides/suspicious-minds/suspicious-minds.05.png    /images/2018/suspicious-minds/slide5.png
-/slides/suspicious-minds/suspicious-minds.06.png    /images/2018/suspicious-minds/slide6.png
-/slides/suspicious-minds/suspicious-minds.07.png    /images/2018/suspicious-minds/slide7.png
-/slides/suspicious-minds/suspicious-minds.08.png    /images/2018/suspicious-minds/slide8.png
-/slides/suspicious-minds/suspicious-minds.09.png    /images/2018/suspicious-minds/slide9.png
-/slides/suspicious-minds/suspicious-minds.010.png   /images/2018/suspicious-minds/slide10.png
-/slides/suspicious-minds/suspicious-minds.011.jpg   /images/2018/suspicious-minds/slide11.jpg
-/slides/suspicious-minds/suspicious-minds.012.png   /images/2018/suspicious-minds/slide12.png
-/slides/suspicious-minds/suspicious-minds.013.png   /images/2018/suspicious-minds/slide13.png
-/slides/suspicious-minds/suspicious-minds.014.png   /images/2018/suspicious-minds/slide14.png
-/slides/suspicious-minds/suspicious-minds.015.png   /images/2018/suspicious-minds/slide15.png
-/slides/suspicious-minds/suspicious-minds.016.png   /images/2018/suspicious-minds/slide16.png
-/slides/suspicious-minds/suspicious-minds.017.jpg   /images/2018/suspicious-minds/slide17.jpg
-/slides/suspicious-minds/suspicious-minds.018.jpg   /images/2018/suspicious-minds/slide18.jpg
-/slides/suspicious-minds/suspicious-minds.019.png   /images/2018/suspicious-minds/slide19.png
-/slides/suspicious-minds/suspicious-minds.020.png   /images/2018/suspicious-minds/slide20.png
-/slides/suspicious-minds/suspicious-minds.021.png   /images/2018/suspicious-minds/slide21.png
-/slides/suspicious-minds/suspicious-minds.022.png   /images/2018/suspicious-minds/slide22.png
-/slides/suspicious-minds/suspicious-minds.023.png   /images/2018/suspicious-minds/slide23.png
-/slides/suspicious-minds/suspicious-minds.024.png   /images/2018/suspicious-minds/slide24.png
-/slides/suspicious-minds/suspicious-minds.025.png   /images/2018/suspicious-minds/slide25.png
-/slides/suspicious-minds/suspicious-minds.026.png   /images/2018/suspicious-minds/slide26.png
-/slides/suspicious-minds/suspicious-minds.027.png   /images/2018/suspicious-minds/slide27.png
-/slides/suspicious-minds/suspicious-minds.028.png   /images/2018/suspicious-minds/slide28.png
-/slides/suspicious-minds/suspicious-minds.029.jpg   /images/2018/suspicious-minds/slide29.jpg
-/slides/suspicious-minds/suspicious-minds.030.jpg   /images/2018/suspicious-minds/slide30.jpg
-/slides/suspicious-minds/suspicious-minds.031.png   /images/2018/suspicious-minds/slide31.png
-/slides/suspicious-minds/suspicious-minds.032.png   /images/2018/suspicious-minds/slide32.png
-/slides/suspicious-minds/suspicious-minds.033.png   /images/2018/suspicious-minds/slide33.png
-/slides/suspicious-minds/suspicious-minds.034.png   /images/2018/suspicious-minds/slide34.png
-/slides/suspicious-minds/suspicious-minds.035.png   /images/2018/suspicious-minds/slide35.png
-/slides/suspicious-minds/suspicious-minds.036.png   /images/2018/suspicious-minds/slide36.png
-/slides/suspicious-minds/suspicious-minds.037.jpg   /images/2018/suspicious-minds/slide37.jpg
-/slides/suspicious-minds/suspicious-minds.038.jpg   /images/2018/suspicious-minds/slide38.jpg
-/slides/suspicious-minds/suspicious-minds.039.png   /images/2018/suspicious-minds/slide39.png
-/slides/suspicious-minds/suspicious-minds.040.png   /images/2018/suspicious-minds/slide40.png
-/slides/suspicious-minds/suspicious-minds.041.png   /images/2018/suspicious-minds/slide41.png
-/slides/suspicious-minds/suspicious-minds.042.png   /images/2018/suspicious-minds/slide42.png
-/slides/suspicious-minds/suspicious-minds.043.png   /images/2018/suspicious-minds/slide43.png
-/slides/suspicious-minds/suspicious-minds.044.png   /images/2018/suspicious-minds/slide44.png
-/slides/suspicious-minds/suspicious-minds.045.png   /images/2018/suspicious-minds/slide45.png
-/slides/suspicious-minds/suspicious-minds.046.jpg   /images/2018/suspicious-minds/slide46.jpg
-/slides/suspicious-minds/suspicious-minds.047.png   /images/2018/suspicious-minds/slide47.png
-/slides/suspicious-minds/suspicious-minds.048.jpeg  /images/2018/suspicious-minds/slide48.jpg
-/slides/suspicious-minds/suspicious-minds.049.jpg   /images/2018/suspicious-minds/slide49.jpg
-/slides/suspicious-minds/suspicious-minds.050.png   /images/2018/suspicious-minds/slide50.png
-/slides/suspicious-minds/suspicious-minds.051.jpg   /images/2018/suspicious-minds/slide51.jpg
-/slides/suspicious-minds/suspicious-minds.052.jpg   /images/2018/suspicious-minds/slide52.jpg
-/slides/suspicious-minds/suspicious-minds.053.png   /images/2018/suspicious-minds/slide53.png
+/slides/hypothesis-intro/hypothesis-intro.000.png               /images/2016/hypothesis-intro/slide0.png
+/slides/hypothesis-intro/hypothesis-intro.001.png               /images/2016/hypothesis-intro/slide1.png
+/slides/hypothesis-intro/hypothesis-intro.002.png               /images/2016/hypothesis-intro/slide2.png
+/slides/hypothesis-intro/hypothesis-intro.003.png               /images/2016/hypothesis-intro/slide3.png
+/slides/hypothesis-intro/hypothesis-intro.004.png               /images/2016/hypothesis-intro/slide4.png
+/slides/hypothesis-intro/hypothesis-intro.005.png               /images/2016/hypothesis-intro/slide5.png
+/slides/hypothesis-intro/hypothesis-intro.006.png               /images/2016/hypothesis-intro/slide6.png
+/slides/hypothesis-intro/hypothesis-intro.007.png               /images/2016/hypothesis-intro/slide7.png
+/slides/hypothesis-intro/hypothesis-intro.008.png               /images/2016/hypothesis-intro/slide8.png
+/slides/hypothesis-intro/hypothesis-intro.009.png               /images/2016/hypothesis-intro/slide9.png
+/slides/hypothesis-intro/hypothesis-intro.010.png               /images/2016/hypothesis-intro/slide10.png
+/slides/hypothesis-intro/hypothesis-intro.011.png               /images/2016/hypothesis-intro/slide11.png
+/slides/hypothesis-intro/hypothesis-intro.012.png               /images/2016/hypothesis-intro/slide12.png
+/slides/hypothesis-intro/hypothesis-intro.013.png               /images/2016/hypothesis-intro/slide13.png
+/slides/hypothesis-intro/hypothesis-intro.014.png               /images/2016/hypothesis-intro/slide14.png
+/slides/hypothesis-intro/hypothesis-intro.015.png               /images/2016/hypothesis-intro/slide15.png
+/slides/hypothesis-intro/hypothesis-intro.016.png               /images/2016/hypothesis-intro/slide16.png
+/slides/hypothesis-intro/hypothesis-intro.017.png               /images/2016/hypothesis-intro/slide17.png
+/slides/hypothesis-intro/hypothesis-intro.018.png               /images/2016/hypothesis-intro/slide18.png
+/slides/hypothesis-intro/hypothesis-intro.019.png               /images/2016/hypothesis-intro/slide19.png
+/slides/hypothesis-intro/hypothesis-intro.020.png               /images/2016/hypothesis-intro/slide20.png
+/slides/hypothesis-intro/hypothesis-intro.021.png               /images/2016/hypothesis-intro/slide21.png
+/slides/hypothesis-intro/hypothesis-intro.022.png               /images/2016/hypothesis-intro/slide22.png
+/slides/hypothesis-intro/hypothesis-intro.023.png               /images/2016/hypothesis-intro/slide23.png
+/slides/hypothesis-intro/hypothesis-intro.024.png               /images/2016/hypothesis-intro/slide24.png
+/slides/hypothesis-intro/hypothesis-intro.025.png               /images/2016/hypothesis-intro/slide25.png
+/slides/hypothesis-intro/hypothesis-intro.026.png               /images/2016/hypothesis-intro/slide26.png
+/slides/hypothesis-intro/hypothesis-intro.027.png               /images/2016/hypothesis-intro/slide27.png
+/slides/hypothesis-intro/hypothesis-intro.028.png               /images/2016/hypothesis-intro/slide28.png
+/slides/hypothesis-intro/hypothesis-intro.029.png               /images/2016/hypothesis-intro/slide29.png
+/slides/hypothesis-intro/hypothesis-intro.030.png               /images/2016/hypothesis-intro/slide30.png
+/slides/hypothesis-intro/hypothesis-intro.031.png               /images/2016/hypothesis-intro/slide31.png
+/slides/hypothesis-intro/hypothesis-intro.032.png               /images/2016/hypothesis-intro/slide32.png
+/slides/hypothesis-intro/hypothesis-intro.033.png               /images/2016/hypothesis-intro/slide33.png
+/slides/hypothesis-intro/hypothesis-intro.034.png               /images/2016/hypothesis-intro/slide34.png
+/slides/hypothesis-intro/hypothesis-intro.035.png               /images/2016/hypothesis-intro/slide35.png
+/slides/hypothesis-intro/hypothesis-intro.036.png               /images/2016/hypothesis-intro/slide36.png
+/slides/hypothesis-intro/hypothesis-intro.037.png               /images/2016/hypothesis-intro/slide37.png
+/slides/hypothesis-intro/hypothesis-intro.038.png               /images/2016/hypothesis-intro/slide38.png
+/slides/hypothesis-intro/hypothesis-intro.039.png               /images/2016/hypothesis-intro/slide39.png
+/slides/hypothesis-intro/hypothesis-intro.040.png               /images/2016/hypothesis-intro/slide40.png
+/slides/hypothesis-intro/hypothesis-intro.041.png               /images/2016/hypothesis-intro/slide41.png
+/slides/hypothesis-intro/hypothesis-intro.042.png               /images/2016/hypothesis-intro/slide42.png
+/slides/hypothesis-intro/hypothesis-intro.043.png               /images/2016/hypothesis-intro/slide43.png
+/slides/hypothesis-intro/hypothesis-intro.044.png               /images/2016/hypothesis-intro/slide44.png
+/slides/hypothesis-intro/hypothesis-intro.045.png               /images/2016/hypothesis-intro/slide45.png
+/slides/hypothesis-intro/hypothesis-intro.046.png               /images/2016/hypothesis-intro/slide46.png
+/slides/hypothesis-intro/hypothesis-intro.047.png               /images/2016/hypothesis-intro/slide47.png
+/slides/hypothesis-intro/hypothesis-intro.048.png               /images/2016/hypothesis-intro/slide48.png
+/slides/hypothesis-intro/hypothesis-intro.049.png               /images/2016/hypothesis-intro/slide49.png
+/slides/hypothesis-intro/hypothesis-intro.050.png               /images/2016/hypothesis-intro/slide50.png
+/slides/hypothesis-intro/hypothesis-intro.051.png               /images/2016/hypothesis-intro/slide51.png
+/slides/hypothesis-intro/hypothesis-intro.052.png               /images/2016/hypothesis-intro/slide52.png
+/slides/hypothesis-intro/hypothesis-intro.053.png               /images/2016/hypothesis-intro/slide53.png
+/slides/hypothesis-intro/hypothesis-intro.054.png               /images/2016/hypothesis-intro/slide54.png
+/slides/hypothesis-intro/hypothesis-intro.055.png               /images/2016/hypothesis-intro/slide55.png
 
-/images/2022/acme_1x.jpg                            /images/2022/acme_corporation_1x.jpg
-/images/2022/acme_2x.jpg                            /images/2022/acme_corporation_2x.jpg
+/slides/privilege_inclusion/privilege_inclusion.001.png         /images/2017/pyconuk-2017-privilege-inclusion/slide1.png
+/slides/privilege_inclusion/privilege_inclusion.003.png         /images/2017/pyconuk-2017-privilege-inclusion/slide3.png
+/slides/privilege_inclusion/privilege_inclusion.004.png         /images/2017/pyconuk-2017-privilege-inclusion/slide4.png
+/slides/privilege_inclusion/privilege_inclusion.005.png         /images/2017/pyconuk-2017-privilege-inclusion/slide5.png
+/slides/privilege_inclusion/privilege_inclusion.006.png         /images/2017/pyconuk-2017-privilege-inclusion/slide6.png
+/slides/privilege_inclusion/privilege_inclusion.007.png         /images/2017/pyconuk-2017-privilege-inclusion/slide7.png
+/slides/privilege_inclusion/privilege_inclusion.008.png         /images/2017/pyconuk-2017-privilege-inclusion/slide8.png
+/slides/privilege_inclusion/privilege_inclusion.009.png         /images/2017/pyconuk-2017-privilege-inclusion/slide9.png
+/slides/privilege_inclusion/privilege_inclusion.010.png         /images/2017/pyconuk-2017-privilege-inclusion/slide10.png
+/slides/privilege_inclusion/privilege_inclusion.011.png         /images/2017/pyconuk-2017-privilege-inclusion/slide11.png
+/slides/privilege_inclusion/privilege_inclusion.012.png         /images/2017/pyconuk-2017-privilege-inclusion/slide12.png
+/slides/privilege_inclusion/privilege_inclusion.015.png         /images/2017/pyconuk-2017-privilege-inclusion/slide15.png
+/slides/privilege_inclusion/privilege_inclusion.016.png         /images/2017/pyconuk-2017-privilege-inclusion/slide16.png
+/slides/privilege_inclusion/privilege_inclusion.019.png         /images/2017/pyconuk-2017-privilege-inclusion/slide19.png
+/slides/privilege_inclusion/privilege_inclusion.020.png         /images/2017/pyconuk-2017-privilege-inclusion/slide20.png
+/slides/privilege_inclusion/privilege_inclusion.021.png         /images/2017/pyconuk-2017-privilege-inclusion/slide21.png
+/slides/privilege_inclusion/privilege_inclusion.022.png         /images/2017/pyconuk-2017-privilege-inclusion/slide22.png
+/slides/privilege_inclusion/privilege_inclusion.024.png         /images/2017/pyconuk-2017-privilege-inclusion/slide24.png
+/slides/privilege_inclusion/privilege_inclusion.025.png         /images/2017/pyconuk-2017-privilege-inclusion/slide25.png
+/slides/privilege_inclusion/privilege_inclusion.026.png         /images/2017/pyconuk-2017-privilege-inclusion/slide26.png
+/slides/privilege_inclusion/privilege_inclusion.027.png         /images/2017/pyconuk-2017-privilege-inclusion/slide27.png
+/slides/privilege_inclusion/privilege_inclusion.028.png         /images/2017/pyconuk-2017-privilege-inclusion/slide28.png
+/slides/privilege_inclusion/privilege_inclusion.029.png         /images/2017/pyconuk-2017-privilege-inclusion/slide29.png
+/slides/privilege_inclusion/privilege_inclusion.030.png         /images/2017/pyconuk-2017-privilege-inclusion/slide30.png
+/slides/privilege_inclusion/privilege_inclusion.031.png         /images/2017/pyconuk-2017-privilege-inclusion/slide31.png
+/slides/privilege_inclusion/privilege_inclusion.032.png         /images/2017/pyconuk-2017-privilege-inclusion/slide32.png
+/slides/privilege_inclusion/privilege_inclusion.033.png         /images/2017/pyconuk-2017-privilege-inclusion/slide33.png
+/slides/privilege_inclusion/privilege_inclusion.035.png         /images/2017/pyconuk-2017-privilege-inclusion/slide35.png
+/slides/privilege_inclusion/privilege_inclusion.036.png         /images/2017/pyconuk-2017-privilege-inclusion/slide36.png
+/slides/privilege_inclusion/privilege_inclusion.037.png         /images/2017/pyconuk-2017-privilege-inclusion/slide37.png
+/slides/privilege_inclusion/privilege_inclusion.040.png         /images/2017/pyconuk-2017-privilege-inclusion/slide40.png
 
-# I redid a bunch of the images and card URLs in late 2022.  In theory they're
-# only referenced from my site-wide index, but I see 404s for them in the
-# Netlify analytics, so I've set up redirects for the most popular ones.
-/images/2022/koa-redactions-card.jpg                /images/cards/2022/koa-logger-redactions.jpg
-/images/2022/bodleian.jpg                           /images/cards/2022/library-lookup.jpg
-/images/2022/screenshot_card.png                    /images/cards/2022/screenshots.png
-/images/cards/2022/cursor-confirmed-2x.webp         /images/cards/2022/cursor-confirmed_2x.webp
+/slides/curbcut_monkigras/curbcut_monkigras.001.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide1.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.002.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide2.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.003.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide3.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.004.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide4.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.005.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide5.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.006.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide6.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.007.png             /images/2019/monki-gras-the-curb-cut-effect/slide7.png
+/slides/curbcut_monkigras/curbcut_monkigras.008.png             /images/2019/monki-gras-the-curb-cut-effect/slide8.png
+/slides/curbcut_monkigras/curbcut_monkigras.009.png             /images/2019/monki-gras-the-curb-cut-effect/slide9.png
+/slides/curbcut_monkigras/curbcut_monkigras.010.png             /images/2019/monki-gras-the-curb-cut-effect/slide10.png
+/slides/curbcut_monkigras/curbcut_monkigras.011.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide11.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.012.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide12.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.013.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide13.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.014.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide14.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.015.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide15.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.016.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide16.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.017.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide17.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.018.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide18.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.019.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide19.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.020.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide20.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.021.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide21.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.023.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide23.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.024.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide24.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.025.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide25.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.026.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide26.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.027.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide27.jpg
+/slides/curbcut_monkigras/curbcut_monkigras.028.jpg             /images/2019/monki-gras-the-curb-cut-effect/slide28.jpg
 
-# I don't do analytics like this any more.
-/analytics/a.js                           /410/ 410
+/slides/assume_worst_intent/assume_worst_intent.001.png         /images/2018/assume-worst-intent/slide1.png
+/slides/assume_worst_intent/assume_worst_intent.002.png         /images/2018/assume-worst-intent/slide2.png
+/slides/assume_worst_intent/assume_worst_intent.003.png         /images/2018/assume-worst-intent/slide3.png
+/slides/assume_worst_intent/assume_worst_intent.004.png         /images/2018/assume-worst-intent/slide4.png
+/slides/assume_worst_intent/assume_worst_intent.005.png         /images/2018/assume-worst-intent/slide5.png
+/slides/assume_worst_intent/assume_worst_intent.006.png         /images/2018/assume-worst-intent/slide6.png
+/slides/assume_worst_intent/assume_worst_intent.007.png         /images/2018/assume-worst-intent/slide7.png
+/slides/assume_worst_intent/assume_worst_intent.008.png         /images/2018/assume-worst-intent/slide8.png
+/slides/assume_worst_intent/assume_worst_intent.009.png         /images/2018/assume-worst-intent/slide9.png
+/slides/assume_worst_intent/assume_worst_intent.010.png         /images/2018/assume-worst-intent/slide10.png
+/slides/assume_worst_intent/assume_worst_intent.011.png         /images/2018/assume-worst-intent/slide11.png
+/slides/assume_worst_intent/assume_worst_intent.012.jpg         /images/2018/assume-worst-intent/slide12.jpg
+/slides/assume_worst_intent/assume_worst_intent.013.png         /images/2018/assume-worst-intent/slide13.png
+/slides/assume_worst_intent/assume_worst_intent.014.png         /images/2018/assume-worst-intent/slide14.png
+/slides/assume_worst_intent/assume_worst_intent.015.png         /images/2018/assume-worst-intent/slide15.png
+/slides/assume_worst_intent/assume_worst_intent.016.png         /images/2018/assume-worst-intent/slide16.png
+/slides/assume_worst_intent/assume_worst_intent.017.png         /images/2018/assume-worst-intent/slide17.png
+/slides/assume_worst_intent/assume_worst_intent.018.png         /images/2018/assume-worst-intent/slide18.png
+/slides/assume_worst_intent/assume_worst_intent.019.png         /images/2018/assume-worst-intent/slide19.png
+/slides/assume_worst_intent/assume_worst_intent.020.png         /images/2018/assume-worst-intent/slide20.png
+/slides/assume_worst_intent/assume_worst_intent.021.png         /images/2018/assume-worst-intent/slide21.png
+/slides/assume_worst_intent/assume_worst_intent.022.png         /images/2018/assume-worst-intent/slide22.png
+/slides/assume_worst_intent/assume_worst_intent.023.png         /images/2018/assume-worst-intent/slide23.png
+/slides/assume_worst_intent/assume_worst_intent.024.png         /images/2018/assume-worst-intent/slide24.png
+/slides/assume_worst_intent/assume_worst_intent.025.png         /images/2018/assume-worst-intent/slide25.png
+/slides/assume_worst_intent/assume_worst_intent.026.png         /images/2018/assume-worst-intent/slide26.png
+/slides/assume_worst_intent/assume_worst_intent.027.png         /images/2018/assume-worst-intent/slide27.png
+/slides/assume_worst_intent/assume_worst_intent.028.png         /images/2018/assume-worst-intent/slide28.png
+/slides/assume_worst_intent/assume_worst_intent.029.png         /images/2018/assume-worst-intent/slide29.png
+/slides/assume_worst_intent/assume_worst_intent.030.png         /images/2018/assume-worst-intent/slide30.png
+/slides/assume_worst_intent/assume_worst_intent.031.png         /images/2018/assume-worst-intent/slide31.png
+/slides/assume_worst_intent/assume_worst_intent.032.png         /images/2018/assume-worst-intent/slide32.png
+/slides/assume_worst_intent/assume_worst_intent.033.png         /images/2018/assume-worst-intent/slide33.png
+/slides/assume_worst_intent/assume_worst_intent.034.png         /images/2018/assume-worst-intent/slide34.png
+/slides/assume_worst_intent/assume_worst_intent.035.png         /images/2018/assume-worst-intent/slide35.png
+/slides/assume_worst_intent/assume_worst_intent.036.png         /images/2018/assume-worst-intent/slide36.png
+/slides/assume_worst_intent/assume_worst_intent.037.png         /images/2018/assume-worst-intent/slide37.png
+/slides/assume_worst_intent/assume_worst_intent.038.png         /images/2018/assume-worst-intent/slide38.png
+/slides/assume_worst_intent/assume_worst_intent.039.png         /images/2018/assume-worst-intent/slide39.png
+/slides/assume_worst_intent/assume_worst_intent.040.png         /images/2018/assume-worst-intent/slide40.png
+/slides/assume_worst_intent/assume_worst_intent.041.png         /images/2018/assume-worst-intent/slide41.png
+/slides/assume_worst_intent/assume_worst_intent.042.png         /images/2018/assume-worst-intent/slide42.png
+/slides/assume_worst_intent/assume_worst_intent.043.png         /images/2018/assume-worst-intent/slide43.png
+/slides/assume_worst_intent/assume_worst_intent.044.png         /images/2018/assume-worst-intent/slide44.png
+/slides/assume_worst_intent/assume_worst_intent.045.png         /images/2018/assume-worst-intent/slide45.png
+/slides/assume_worst_intent/assume_worst_intent.046.png         /images/2018/assume-worst-intent/slide46.png
+/slides/assume_worst_intent/assume_worst_intent.047.png         /images/2018/assume-worst-intent/slide47.png
+/slides/assume_worst_intent/assume_worst_intent.048.png         /images/2018/assume-worst-intent/slide48.png
 
+/slides/suspicious-minds/suspicious-minds.01.jpg                /images/2018/suspicious-minds/slide1.jpg
+/slides/suspicious-minds/suspicious-minds.02.jpg                /images/2018/suspicious-minds/slide2.jpg
+/slides/suspicious-minds/suspicious-minds.03.png                /images/2018/suspicious-minds/slide3.png
+/slides/suspicious-minds/suspicious-minds.04.png                /images/2018/suspicious-minds/slide4.png
+/slides/suspicious-minds/suspicious-minds.05.png                /images/2018/suspicious-minds/slide5.png
+/slides/suspicious-minds/suspicious-minds.06.png                /images/2018/suspicious-minds/slide6.png
+/slides/suspicious-minds/suspicious-minds.07.png                /images/2018/suspicious-minds/slide7.png
+/slides/suspicious-minds/suspicious-minds.08.png                /images/2018/suspicious-minds/slide8.png
+/slides/suspicious-minds/suspicious-minds.09.png                /images/2018/suspicious-minds/slide9.png
+/slides/suspicious-minds/suspicious-minds.010.png               /images/2018/suspicious-minds/slide10.png
+/slides/suspicious-minds/suspicious-minds.011.jpg               /images/2018/suspicious-minds/slide11.jpg
+/slides/suspicious-minds/suspicious-minds.012.png               /images/2018/suspicious-minds/slide12.png
+/slides/suspicious-minds/suspicious-minds.013.png               /images/2018/suspicious-minds/slide13.png
+/slides/suspicious-minds/suspicious-minds.014.png               /images/2018/suspicious-minds/slide14.png
+/slides/suspicious-minds/suspicious-minds.015.png               /images/2018/suspicious-minds/slide15.png
+/slides/suspicious-minds/suspicious-minds.016.png               /images/2018/suspicious-minds/slide16.png
+/slides/suspicious-minds/suspicious-minds.017.jpg               /images/2018/suspicious-minds/slide17.jpg
+/slides/suspicious-minds/suspicious-minds.018.jpg               /images/2018/suspicious-minds/slide18.jpg
+/slides/suspicious-minds/suspicious-minds.019.png               /images/2018/suspicious-minds/slide19.png
+/slides/suspicious-minds/suspicious-minds.020.png               /images/2018/suspicious-minds/slide20.png
+/slides/suspicious-minds/suspicious-minds.021.png               /images/2018/suspicious-minds/slide21.png
+/slides/suspicious-minds/suspicious-minds.022.png               /images/2018/suspicious-minds/slide22.png
+/slides/suspicious-minds/suspicious-minds.023.png               /images/2018/suspicious-minds/slide23.png
+/slides/suspicious-minds/suspicious-minds.024.png               /images/2018/suspicious-minds/slide24.png
+/slides/suspicious-minds/suspicious-minds.025.png               /images/2018/suspicious-minds/slide25.png
+/slides/suspicious-minds/suspicious-minds.026.png               /images/2018/suspicious-minds/slide26.png
+/slides/suspicious-minds/suspicious-minds.027.png               /images/2018/suspicious-minds/slide27.png
+/slides/suspicious-minds/suspicious-minds.028.png               /images/2018/suspicious-minds/slide28.png
+/slides/suspicious-minds/suspicious-minds.029.jpg               /images/2018/suspicious-minds/slide29.jpg
+/slides/suspicious-minds/suspicious-minds.030.jpg               /images/2018/suspicious-minds/slide30.jpg
+/slides/suspicious-minds/suspicious-minds.031.png               /images/2018/suspicious-minds/slide31.png
+/slides/suspicious-minds/suspicious-minds.032.png               /images/2018/suspicious-minds/slide32.png
+/slides/suspicious-minds/suspicious-minds.033.png               /images/2018/suspicious-minds/slide33.png
+/slides/suspicious-minds/suspicious-minds.034.png               /images/2018/suspicious-minds/slide34.png
+/slides/suspicious-minds/suspicious-minds.035.png               /images/2018/suspicious-minds/slide35.png
+/slides/suspicious-minds/suspicious-minds.036.png               /images/2018/suspicious-minds/slide36.png
+/slides/suspicious-minds/suspicious-minds.037.jpg               /images/2018/suspicious-minds/slide37.jpg
+/slides/suspicious-minds/suspicious-minds.038.jpg               /images/2018/suspicious-minds/slide38.jpg
+/slides/suspicious-minds/suspicious-minds.039.png               /images/2018/suspicious-minds/slide39.png
+/slides/suspicious-minds/suspicious-minds.040.png               /images/2018/suspicious-minds/slide40.png
+/slides/suspicious-minds/suspicious-minds.041.png               /images/2018/suspicious-minds/slide41.png
+/slides/suspicious-minds/suspicious-minds.042.png               /images/2018/suspicious-minds/slide42.png
+/slides/suspicious-minds/suspicious-minds.043.png               /images/2018/suspicious-minds/slide43.png
+/slides/suspicious-minds/suspicious-minds.044.png               /images/2018/suspicious-minds/slide44.png
+/slides/suspicious-minds/suspicious-minds.045.png               /images/2018/suspicious-minds/slide45.png
+/slides/suspicious-minds/suspicious-minds.046.jpg               /images/2018/suspicious-minds/slide46.jpg
+/slides/suspicious-minds/suspicious-minds.047.png               /images/2018/suspicious-minds/slide47.png
+/slides/suspicious-minds/suspicious-minds.048.jpeg              /images/2018/suspicious-minds/slide48.jpg
+/slides/suspicious-minds/suspicious-minds.049.jpg               /images/2018/suspicious-minds/slide49.jpg
+/slides/suspicious-minds/suspicious-minds.050.png               /images/2018/suspicious-minds/slide50.png
+/slides/suspicious-minds/suspicious-minds.051.jpg               /images/2018/suspicious-minds/slide51.jpg
+/slides/suspicious-minds/suspicious-minds.052.jpg               /images/2018/suspicious-minds/slide52.jpg
+/slides/suspicious-minds/suspicious-minds.053.png               /images/2018/suspicious-minds/slide53.png
+
+# === #
+
+
+
+
+# == Redirects for spam == #
+#
 # Netlify Analytics highlights the most frequent "Not Found" resources,
 # but it's populated by people attempting to hack/spam my site.
 #
 # This serves them a 410 Gone page, and should get them out of this list.
-/wp-login.php                             /410/ 410
-/xmlrpc.php                               /410/ 410
-/shop/wp-includes/wlwmanifest.xml         /410/ 410
-/test/wp-includes/wlwmanifest.xml         /410/ 410
-/wp/wp-includes/wlwmanifest.xml           /410/ 410
-/wp-load.php                              /410/ 410
+
+/wp-login.php                                                   /410/ 410
+/xmlrpc.php                                                     /410/ 410
+/shop/wp-includes/wlwmanifest.xml                               /410/ 410
+/test/wp-includes/wlwmanifest.xml                               /410/ 410
+/wp/wp-includes/wlwmanifest.xml                                 /410/ 410
+/wp-load.php                                                    /410/ 410
+
+# === #
+
+
+
+
 
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling

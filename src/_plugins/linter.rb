@@ -21,6 +21,7 @@ class RunLinting < Jekyll::Command
           check_yaml_front_matter(options["source"])
           check_no_localhost_links(options["destination"])
           check_all_images_are_srgb(options["destination"])
+          check_netlify_redirects(options["destination"])
         end
       end
     end
@@ -292,6 +293,58 @@ class RunLinting < Jekyll::Command
         }
 
       report_errors(errors)
+    end
+
+    # Check my Netlify redirects point to real pages.
+    #
+    # This ensures that any redirects I create are working.  It doesn't mean
+    # I can't forget to create a redirect, but it does mean I won't create
+    # a redirect that points to another broken page.
+    def check_netlify_redirects(dst_dir)
+      info("Checking Netlify redirect rules...")
+
+      bad_lines = []
+
+      File.readlines("#{dst_dir}/_redirects")
+        .each_with_index { |line, i|
+          lineno = i + 1
+
+          if line.start_with? "#" or line.strip.empty?
+            next
+          end
+
+          # This is a bit of a special case that I don't worry about.
+          if line.start_with? "/ideas-for-inclusive-events/"
+            next
+          end
+
+          target = line.strip.split()[1]
+
+          # Another special case
+          if target == "/#contact"
+            next
+          end
+
+          if target.end_with? "/"
+            if !File.exist? "#{dst_dir}#{target}/index.html"
+              bad_lines << [lineno, line.strip]
+            end
+          else
+            if !File.exist? "#{dst_dir}#{target}"
+              bad_lines << [lineno, line.strip]
+            end
+          end
+        }
+
+      if !bad_lines.empty?
+        error("- src/_redirects")
+        error("  The following lines are redirecting to broken resources:")
+        bad_lines.each { |ln|
+          lineno, line = ln
+          error("  * L#{lineno}:\t#{line}")
+        }
+        exit!
+      end
     end
 
     def report_errors(errors)
