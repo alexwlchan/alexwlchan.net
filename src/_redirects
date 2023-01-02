@@ -595,6 +595,7 @@
 /wp/wp-includes/wlwmanifest.xml                                 /400/ 400
 /wp-load.php                                                    /400/ 400
 /wp-admin/*                                                     /400/ 400
+/wp-content/*                                                   /400/ 400
 /wp-includes/*                                                  /400/ 400
 
 # === #
