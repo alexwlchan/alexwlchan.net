@@ -61,7 +61,10 @@ class RunLinting < Jekyll::Command
 
     #
     def check_writing_has_been_archived(src_dir)
-      elsewhere = YAML.load_file("#{src_dir}/_data/elsewhere.yml")
+      elsewhere = YAML.load_file(
+        "#{src_dir}/_data/elsewhere.yml",
+        permitted_classes: [Date]
+      )
 
       no_archive_writing = elsewhere["writing"]
         .filter { |w| !w.has_key? "archived_paths" }
@@ -188,7 +191,10 @@ class RunLinting < Jekyll::Command
         #
         # Make sure everything is JSON-esque (i.e. strings/numbers/bools)
         # before passing to the json-schema gem.
-        front_matter = YAML.load(File.open(md_path).read.split("\n---\n")[0])
+        front_matter = YAML.load(
+          File.open(md_path).read.split("\n---\n")[0],
+          permitted_classes: [Date, Time]
+        )
         front_matter = JSON.parse(JSON.dump(front_matter))
 
         md_errors = JSON::Validator.fully_validate(schema, front_matter)
