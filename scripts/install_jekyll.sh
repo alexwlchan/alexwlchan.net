@@ -48,5 +48,5 @@ bundle install
 
 # These packages are only required for installation, and I can remove them
 # from the final image.
-apt-get remove --yes build-essential perl zlib1g-dev
+apt-get remove --yes build-essential zlib1g-dev
 apt autoremove --yes
