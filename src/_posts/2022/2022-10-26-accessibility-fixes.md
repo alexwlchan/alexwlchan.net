@@ -22,7 +22,13 @@ It's invisible to sighted users, who can skip to the main content by just lookin
 
 Even my fairly small nav wants you to page through ten elements to get to the main content -- and now you can skip that in a single tap.
 
-<img src="/images/2022/IMG_1877_1x.png" srcset="/images/2022/IMG_1877_1x.png 1x, /images/2022/IMG_1877_2x.png 2x, /images/2022/IMG_1877_1x.png 3x" class="screenshot" alt="Viewing this web page with VoiceOver in the browser. There's a dark outlined rectangle highlighting the invisible link, and the VoiceOver caption shows 'Skip to main content, in-page link'.">
+{%
+  picture
+  filename="IMG_1877.png"
+  alt="Viewing this web page with VoiceOver in the browser. There's a dark outlined rectangle highlighting the invisible link, and the VoiceOver caption shows 'Skip to main content, in-page link'."
+  visible_width="609px"
+  class="screenshot"
+%}
 
 This took [less than two minutes to add][commit], and given I'd definitely heard of them before, there's no excuse for not having done this sooner.
 
