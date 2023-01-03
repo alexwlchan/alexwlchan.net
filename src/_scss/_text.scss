@@ -3,6 +3,8 @@
 /// It applies across both pages and posts.  This file should not contain
 /// styles about page layout or positioning.
 
+@use "sass:math";
+
 body {
   font: 13pt $main-font-family;
   line-height: $line-height;
@@ -28,15 +30,21 @@ h2 {
   margin-bottom: 0;
 }
 
-blockquote {
-  border-left: $sidebar-border-width solid $midtone-gray;
-  background-color: $pre-background-grey;
+pre, blockquote {
+  border: 3px solid rgba($primary-color, 0.1);
+  border-radius: 10px;
+  background-color: hsla(hue($primary-color), saturation($primary-color), 95%, 0.5);
+}
 
-  padding: 1px ($default-padding - $sidebar-border-width);
+blockquote {
+  padding: 1px $default-padding;
 
   &:not(.update) p:not(.text), li {
     font-style: italic;
   }
+
+  p:first-child { margin-top:    2 * math.div($default-padding, 3); }
+  p:last-child  { margin-bottom: 2 * math.div($default-padding, 3); }
 
   @media print {
     color: $body-color;
