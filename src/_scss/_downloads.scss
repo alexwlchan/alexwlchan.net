@@ -7,6 +7,11 @@ a.download {
   display: inline-block;
   padding-right: 15px;
   text-decoration: none;
+  background: rgba(255, 255, 255, 0.6);
+
+  &:hover {
+    background: rgba($primary-color, 0.2);
+  }
 
   @media screen and (max-width: 500px) {
     padding-bottom: .5em;
