@@ -19,10 +19,14 @@ keep_files: [
   "files", "images",
 
   # Managed by the theming plugin
-  "favicons", "favicon.png", "favicon.ico",
-  "styles", "style.css",
-  "headers",
+  "favicons", "favicon.png", "favicon.ico", "headers",
+
+  # Managed by the per-post CSS/theming plugins
+  "styles",
 ]
+
+exclude:
+  - "styles"
 
 # This is the file used by Netlify to define redirects and the custom
 # 404 page.  If we don't include this, Jekyll skips it in the sitebuild.
