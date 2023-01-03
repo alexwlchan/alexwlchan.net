@@ -17,6 +17,10 @@ a {
   &:visited:not(.novisited) {
     @include link_styles($primary-dark, 0.2);
   }
+
+  .title &:visited {
+    @include link_styles($primary-color, 0.2);
+  }
 }
 
 // This is for the "Skip to main content" link at the top of the page
