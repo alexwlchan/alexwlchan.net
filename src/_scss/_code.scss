@@ -41,11 +41,9 @@ code {
 }
 
 pre {
-  padding: math.div($default-padding, 2) ($default-padding - $sidebar-border-width);
-  background-color: $pre-background-grey;
-  line-height: $line-height * $code-scaling-factor * 1.08;
+  padding: 2 * math.div($default-padding, 3) ($default-padding - $sidebar-border-width);
 
-  border-left: $sidebar-border-width solid $pre-sidebar-grey;
+  line-height: $line-height * $code-scaling-factor * 1.08;
 
   // This ensures that code blocks don't get blown up to big sizes
   // on iPhone displays.
