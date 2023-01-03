@@ -21,7 +21,12 @@ This is the sort of thing I mean:
 </style>
 
 <figure style="width: 392px;">
-  <img src="/images/2022/image_layout.png" style="width: 392px;" alt="The image layout I've described, with a picture of a starry sky (left), the planet Jupiter half in shadow with a moon in front of it (upper right), and the International Space Station floating above the Earth.">
+  {%
+    picture
+    filename="image_layout.png"
+    alt="The image layout I've described, with a picture of a starry sky (left), the planet Jupiter half in shadow with a moon in front of it (upper right), and the International Space Station floating above the Earth."
+    visible_width="392px"
+  %}
   <figcaption>
     A mockup I made in Keynote.
     These are images of <a href="https://solarsystem.nasa.gov/resources/2500/the-view-from-earth-space-station-jupiter-milky-way/">the Earth’s sky</a>, <a href="https://solarsystem.nasa.gov/resources/803/jupiter-and-io/">Jupiter and Io</a>, and the <a href="https://www.nasa.gov/image-feature/the-station-pictured-from-the-spacex-crew-dragon-6">International Space Station (ISS)</a>, all published by NASA.
@@ -239,13 +244,28 @@ Let's start by just dropping the images into the grid, and see what happens:
 <figure style="width: 400px;">
   <div class="grid2">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars.">
+      {%
+        picture
+        filename="sky.jpg"
+        alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars."
+        visible_width="250px"
+      %}
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow.">
+      {%
+        picture
+        filename="jupiter.jpg"
+        alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow."
+        visible_width="113px"
+      %}
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth.">
+      {%
+        picture
+        filename="iss.jpg"
+        alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth."
+        visible_width="113px"
+      %}
     </div>
   </div>
   <figcaption>
@@ -318,13 +338,28 @@ We can tell the images to completely fill the grid items by setting `width` and 
 <figure style="width: 400px;">
   <div class="grid3">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky.">
+      {%
+        picture
+        filename="sky.jpg"
+        alt="A starry night sky."
+        visible_width="250px"
+      %}
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="Jupiter and Io.">
+      {%
+        picture
+        filename="jupiter.jpg"
+        alt="Jupiter and Io."
+        visible_width="113px"
+      %}
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station.">
+      {%
+        picture
+        filename="iss.jpg"
+        alt="The International Space Station."
+        visible_width="113px"
+      %}
     </div>
   </div>
   <figcaption>
@@ -409,13 +444,28 @@ Let's add that CSS rule:
 <figure style="width: 400px;">
   <div class="grid4">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky.">
+      {%
+        picture
+        filename="sky.jpg"
+        alt="A starry night sky."
+        visible_width="250px"
+      %}
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="Jupiter and Io.">
+      {%
+        picture
+        filename="jupiter.jpg"
+        alt="Jupiter and Io."
+        visible_width="113px"
+      %}
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station.">
+      {%
+        picture
+        filename="iss.jpg"
+        alt="The International Space Station."
+        visible_width="113px"
+      %}
     </div>
   </div>
   <figcaption>
@@ -493,13 +543,28 @@ If you add this property, you can change the size of the overall grid; for examp
 <figure style="width: 400px;">
   <div class="grid5">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky.">
+      {%
+        picture
+        filename="sky.jpg"
+        alt="A starry night sky."
+        visible_width="250px"
+      %}
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="The planet Jupiter.">
+      {%
+        picture
+        filename="jupiter.jpg"
+        alt="Jupiter and Io."
+        visible_width="113px"
+      %}
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station.">
+      {%
+        picture
+        filename="iss.jpg"
+        alt="The International Space Station."
+        visible_width="113px"
+      %}
     </div>
   </div>
   <figcaption>
@@ -572,13 +637,28 @@ This is what my new component looks like:
 <figure style="width: 400px;">
   <div class="grid5">
     <div class="item left">
-      <img src="/images/2022/sky_thumb.jpg" srcset="/images/2022/sky_thumb.jpg 1x, /images/2022/sky_thumb_2x.jpg 2x" alt="A starry night sky.">
+      {%
+        picture
+        filename="sky.jpg"
+        alt="A starry night sky."
+        visible_width="250px"
+      %}
     </div>
     <div class="item upper_right">
-      <img src="/images/2022/jupiter_thumb.jpg" srcset="/images/2022/jupiter_thumb.jpg 1x, /images/2022/jupiter_thumb_2x.jpg 2x" alt="Jupiter and Io.">
+      {%
+        picture
+        filename="jupiter.jpg"
+        alt="Jupiter and Io."
+        visible_width="113px"
+      %}
     </div>
     <div class="item lower_right">
-      <img src="/images/2022/iss_thumb.jpg" srcset="/images/2022/iss_thumb.jpg 1x, /images/2022/iss_thumb_2x.jpg 2x" alt="The International Space Station.">
+      {%
+        picture
+        filename="iss.jpg"
+        alt="The International Space Station."
+        visible_width="113px"
+      %}
     </div>
   </div>
 </figure>
