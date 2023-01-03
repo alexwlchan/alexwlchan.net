@@ -408,6 +408,8 @@ Once I had this brilliant idea, I was able to construct a panel of buttons to co
   }
 </style>
 
+<!-- TODO: Fix this properly with a grid -->
+
 <figure id="buttons">
   {%
     picture
