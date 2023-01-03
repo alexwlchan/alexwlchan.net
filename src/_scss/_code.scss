@@ -1,7 +1,6 @@
 @use "sass:math";
 
 code, pre {
-  background-color: $pre-background-grey;
   font-family: $mono-font;
   overflow-x: auto;
 }
@@ -12,7 +11,7 @@ pre code {
 
 code {
   margin: 2px;
-  padding: 3px 3px;
+  border-radius: 3px;
   font-size: 1em * $code-scaling-factor;
 
   .rustc_error {
@@ -43,6 +42,7 @@ code {
 
 pre {
   padding: math.div($default-padding, 2) ($default-padding - $sidebar-border-width);
+  background-color: $pre-background-grey;
   line-height: $line-height * $code-scaling-factor * 1.08;
 
   border-left: $sidebar-border-width solid $pre-sidebar-grey;

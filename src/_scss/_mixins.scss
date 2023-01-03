@@ -18,6 +18,7 @@
 
 @mixin link_styles($color, $opacity) {
   color: $color;
+
   &:hover {
     background: rgba($color, $opacity);
   }
