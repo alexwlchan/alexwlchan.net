@@ -33,9 +33,21 @@ If you let Twitter pick the crop, they pick a 2:1 rectangle from the middle of t
 They used to use machine learning to pick the "interesting" part of the image, but apparently [it got phased out][phased_out] after accusations of bias.
 This can give some unfortunate results:
 
-<figure style="width: calc(80% + 5px)">
-  <img src="/images/2022/twitter_card_bad_crop.png" style="width: calc(50% - 10px); display: inline-block; margin-right: 5px;" alt="A screenshot of a tweet linking to an article, in which the card image shows a woman's chest and the bottom half of her face.">
-  <img src="/images/2022/twitter_card_good_crop.png" style="width: calc(50% - 10px); display: inline-block; margin-left: 5px; float: right;" alt="A screenshot of the same tweet, but now the card is focused on the woman's face and shoulders.">
+<figure id="card_comparison">
+  <div id="images">
+    {%
+      picture
+      filename="twitter_card_bad_crop.png"
+      alt="A screenshot of a tweet linking to an article, in which the card image shows a woman's chest and the bottom half of her face."
+      visible_width="350px"
+    %}
+    {%
+      picture
+      filename="twitter_card_good_crop.png"
+      alt="A screenshot of the same tweet, but now the card is focused on the woman's face and shoulders."
+      visible_width="350px"
+    %}
+  </div>
   <figcaption>
     A <a href="https://twitter.com/ExploreWellcome/status/1491038905923215361">tweet from Wellcome Collection</a>, before and after my change.
     It links to <a href="https://wellcomecollection.org/articles/Yd8L-hAAAIAWFxqa">an article</a> about women&rsquo;s experiences with autism.
@@ -58,7 +70,12 @@ This is an extreme example, but it proves a general point: crop your card images
 Twitter cards on my blog have been broken for a long time, and I wasn't sure why.
 In particular, cards would display, but they didn't have any images attached:
 
-<img src="/images/2022/twitter_card_no_image.png" style="width: 40%" alt="Screenshot of a tweet from me, where the card image is showing a generic grey icon.">
+{%
+  picture
+  filename="twitter_card_no_image.png"
+  alt="Screenshot of a tweet from me, where the card image is showing a generic grey icon."
+  visible_width="350px"
+%}
 
 I started by running my pages through the [Twitter Card Validator][validator].
 It's a useful tool for testing cards -- you give it a URL, and it shows you what the card for that page would look like.
@@ -73,7 +90,13 @@ It's useful when you want to share your work quickly: you spin up a local web se
 ngrok gives you a publicly visible URL, which tunnels to your local web server, and you can send that to somebody in Slack.
 When they click the URL, they connect to your local server.
 
-<img src="/images/2022/ngrok_screenshot_2x.png" style="width: 426px;" srcset="/images/2022/ngrok_screenshot_2x.png 2x, /images/2022/ngrok_screenshot_1x.png 1x" alt="Screenshot of my terminal running ngrok. It shows some information about my account, an eu.ngrok.io URL where I can access my web server, and a list of HTTP requests it's received.">
+
+{%
+  picture
+  filename="ngrok_screenshot.png"
+  alt="Screenshot of my terminal running ngrok. It shows some information about my account, an eu.ngrok.io URL where I can access my web server, and a list of HTTP requests it's received."
+  visible_width="426px"
+%}
 
 I ran my blog on a local web server, shared it through ngrok, put the public ngrok URL in the Twitter card validator… and the card worked perfectly.
 

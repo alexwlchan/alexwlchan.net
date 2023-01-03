@@ -1,0 +1,16 @@
+@import "_settings.scss";
+
+#card_comparison {
+  width: 700px;
+
+  #images {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: $default-grid-gap;
+
+    img {
+      display: inline-block;
+    }
+  }
+}
+
