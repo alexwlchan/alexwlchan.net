@@ -1,6 +1,9 @@
 @mixin book_styles($color) {
   a { @include link_styles($color, 0.2); }
   h2.book_title { color: $color; }
+  .book_cover img {
+    box-shadow: 0px 0px 5px rgba($color, 1);
+  }
 }
 
 .heading {
