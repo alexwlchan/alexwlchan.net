@@ -86,6 +86,7 @@
 /images/2022/10-of-cards.jpg                                    /images/cards/2022/tin-anniversary.jpg
 /images/2022/koa-redactions-card.jpg                            /images/cards/2022/koa-logger-redactions.jpg
 /images/2022/bodleian.jpg                                       /images/cards/2022/library-lookup.jpg
+/images/2022/marquee_rocket_card.jpg                            /images/cards/2022/marquee-rocket.jpg
 /images/2022/screenshot_card.png                                /images/cards/2022/screenshots.png
 /images/cards/2022/cursor-confirmed-2x.webp                     /images/cards/2022/cursor-confirmed_2x.webp
 
@@ -588,15 +589,10 @@
 #
 # This serves them a 400 Bad Request page, and should get them out of this list.
 
-/wp-login.php                                                   /400/ 400
 /xmlrpc.php                                                     /400/ 400
-/shop/wp-includes/wlwmanifest.xml                               /400/ 400
-/test/wp-includes/wlwmanifest.xml                               /400/ 400
-/wp/wp-includes/wlwmanifest.xml                                 /400/ 400
-/wp-load.php                                                    /400/ 400
-/wp-admin/*                                                     /400/ 400
-/wp-content/*                                                   /400/ 400
-/wp-includes/*                                                  /400/ 400
+/shop/wp-*                                                      /400/ 400
+/test/wp-*                                                      /400/ 400
+/wp-*                                                           /400/ 400
 
 # === #
 
