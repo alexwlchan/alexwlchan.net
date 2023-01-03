@@ -411,18 +411,18 @@ Once I had this brilliant idea, I was able to construct a panel of buttons to co
 <figure id="buttons">
   {%
     picture
-    filename="tos_buttons.jpg"
+    filename="tos_buttons_fixed.jpg"
     alt="Two panels of coloured lights and buttons on a spaceship console. We can see somebody in a gold uniform reaching out to push the buttons."
     class="screenshot"
     visible_width="350px"
   %}
-  <picture>
-    <img
-      src="/images/2022/marquee_buttons.png"
-      class="screenshot"
-      alt="Buttons on a web page. There are four arrows labelled 'direction' arranged in a T-shape, like a keyboard, then three buttons labelled 'speed' for play/pause, go slower, and go faster."
-    >
-  </picture>
+  {%
+    picture
+    filename="marquee_buttons.png"
+    alt="Buttons on a web page. There are four arrows labelled 'direction' arranged in a T-shape, like a keyboard, then three buttons labelled 'speed' for play/pause, go slower, and go faster."
+    class="screenshot"
+    visible_width="350px"
+  %}
 </figure>
 
 The `onclick` handlers for direction and speed are finding the scrolling element, then modifying the various direction/speed attributes we've discussed above.
