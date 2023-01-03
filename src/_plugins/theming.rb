@@ -14,36 +14,12 @@ Jekyll::Hooks.register :site, :post_write do |site|
 
   colours = (site_colours + ["#d01c11"]).uniq
 
-  create_scss_themes(site, colours)
   create_favicons(site, colours)
   create_header_images(site, colours)
 
   dst = site.config["destination"]
   FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
   FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico");
-end
-
-def create_scss_themes(site, colours)
-  src = site.config["source"]
-  dst = site.config["destination"]
-  sass_dir = site.config["sass"]["sass_dir"]
-
-  converter = site.find_converter_instance(::Jekyll::Converters::Scss)
-
-  FileUtils.mkdir_p "#{dst}/styles"
-
-  colours.map { |c|
-    out_file = "#{dst}/styles/#{c.gsub(/#/, '')}.css"
-
-    css = converter.convert(<<-EOT
-$primary-color: #{c};
-
-@import "_main.scss";
-EOT
-)
-
-    File.open(out_file, 'w') { |f| f.write(css) }
-  }
 end
 
 def create_favicons(site, colours)
