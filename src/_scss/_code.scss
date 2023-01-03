@@ -41,11 +41,7 @@ code {
 }
 
 pre {
-  padding: math.div($default-padding, 2) ($default-padding - $sidebar-border-width);
-
-  border: 1px solid $primary-color;
-  border-radius: 3px;
-  background-color: hsla(hue($primary-color), saturation($primary-color), 95%, 0.6);
+  padding: 2 * math.div($default-padding, 3) ($default-padding - $sidebar-border-width);
 
   line-height: $line-height * $code-scaling-factor * 1.08;
 

@@ -79,7 +79,8 @@ iframe {
  * screens. */
 .indented,
 blockquote,
-pre {
+pre,
+a.download {
   margin-left:  $default-padding;
   margin-right: $default-padding;
 
