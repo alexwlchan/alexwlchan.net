@@ -15,14 +15,24 @@ We deploy in two steps: first to a staging site, then to a prod site -- so we ca
 
 The staging and prod deployments are two separate builds in Buildkite, and until recently they were just labelled "Deployment" in the Buildkite dashboard:
 
-<img src="/images/2022/buildkite_unhelpful.png" style="width: 720px;" alt="Two builds for a single commit in the Buildkite dashboard, both labelled 'Deployment'.">
+{%
+  picture
+  filename="buildkite_unhelpful.png"
+  alt="Two builds for a single commit in the Buildkite dashboard, both labelled 'Deployment'."
+  visible_width="720px"
+%}
 
 If you click through, you can tell if it's a prod or staging deployment -- but it'd be nice if it was obvious from the dashboard.
 
 The key is to set the `description` field when you call the GitHub Deployments API.
 Those descriptions appear in Buildkite: for example, we now label our deployments with the environment.
 
-<img src="/images/2022/buildkite_helpful.png" style="width: 720px;" alt="Two builds for a single commit in the Buildkite dashboard, now labelled 'Deployment (prod)' and 'Deployment (staging)'.">
+{%
+  picture
+  filename="buildkite_helpful.png"
+  alt="Two builds for a single commit in the Buildkite dashboard, now labelled 'Deployment (prod)' and 'Deployment (staging)'."
+  visible_width="720px"
+%}
 
 [Buildkite]: https://buildkite.com/
 [GHD]: https://docs.github.com/en/rest/deployments/deployments#create-a-deployment
