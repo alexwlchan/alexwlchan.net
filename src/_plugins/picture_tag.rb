@@ -179,6 +179,10 @@ module Jekyll
         dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, ".*")}".gsub('//', '/')
       end
 
+      if !File.exist? source_path
+        raise RuntimeError, "Image #{source_path} does not exist"
+      end
+
       image = Rszr::Image.load(source_path)
       im_format = get_format(source_path)
 
