@@ -20,7 +20,12 @@ You might find it interesting anyway, but this is probably more niche than my po
 You can [skip to the end](#actually-useful-information) if you just want the practical lessons.
 
 <figure>
-  <img src="/images/2020/shattered_mirror.jpg" alt="A side view mirror from a car, shattered and bent lying on the pavement.">
+  {%
+    picture
+    filename="shattered_mirror.jpg"
+    alt="A side view mirror from a car, shattered and bent lying on the pavement."
+    visible_width="750px"
+  %}
   <figcaption>
     Superstition says breaking a mirror will bring seven years of bad luck.
     Sensibility says overusing reflection will bring seven years of filthy looks from everybody who has to maintain your code.
