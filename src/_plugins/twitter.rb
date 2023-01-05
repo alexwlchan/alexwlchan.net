@@ -32,11 +32,6 @@ module Jekyll
       return "/images/twitter/#{filename}"
     end
 
-    def tweet_img_entity_url(entity)
-      filename = entity["media_url_https"].split("/").last
-      _display_path(filename)
-    end
-
     def tweet_avatar_url(tweet_data)
       screen_name = tweet_data["user"]["screen_name"]
       tweet_id = tweet_data["id_str"]
@@ -117,6 +112,27 @@ module Jekyll
 
       text.strip
     end
+
+    def tweet_image(media, override_alt_text)
+      expanded_url = media["expanded_url"]
+      alt_text = media["ext_alt_text"]
+
+      filename = File.basename(media["media_url_https"])
+
+      html = <<-EOT
+<a href="#{expanded_url}">
+  {%
+    picture
+    filename="#{filename}"
+    parent="/images/twitter"
+    #{alt_text.nil? ? "data-proofer-ignore" : "alt=#{alt_text}"}
+    visible_width="496px"
+  %}
+</a>
+EOT
+
+      html
+    end
   end
 
   class TwitterTag < Liquid::Tag
@@ -177,9 +193,6 @@ module Jekyll
       avatar_url = tweet_data["user"]["profile_image_url_https"]
       create_avatar_thumbnail(avatar_url)
 
-      alt_text = YAML.load(File.read("#{@src}/_tweets/alt_text.yml"))
-      per_tweet_alt_text = alt_text[@tweet_url]
-
       tpl = Liquid::Template.parse(File.open("src/_includes/tweet.html").read)
 
       if !tweet_data.has_key? "extended_entities"
@@ -197,11 +210,15 @@ module Jekyll
             .strip
         ).gsub("+", "%20")
 
-      tpl.render!(
+      input = tpl.render!(
         "tweet_data" => tweet_data,
-        "override_alt_text" => per_tweet_alt_text,
         "twitter_icon_svg" => twitter_icon_svg
       )
+
+      # We have to run it through the site's Markdown converter after
+      # rendering the initial HTML, so we have access to the picture plugin.
+      markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
+      Liquid::Template.parse(input).render!(context)
     end
   end
 end
