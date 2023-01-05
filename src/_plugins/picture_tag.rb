@@ -118,10 +118,11 @@ Jekyll::Hooks.register :site, :post_render do |site|
 
     puts "Creating images..."
 
-    workers = (10).times.map do
+    workers = (5).times.map do
       Thread.new do
         begin
           while this_job = jobs.pop(true)
+            puts this_job
             FileUtils.mkdir_p File.dirname(this_job["out_path"])
 
             resize = "#{this_job["width"]}x#{this_job["height"]}"
