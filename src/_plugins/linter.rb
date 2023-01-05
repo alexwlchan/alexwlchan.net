@@ -125,7 +125,7 @@ class RunLinting < Jekyll::Command
           .to_h
 
         if meta_tags_map['twitter:card'] != 'summary' && meta_tags_map['twitter:card'] != 'summary_large_image'
-          errors[display_path] <<= "Twitter card has an invalid card type #{twitter_cards['twitter:card']}"
+          errors[display_path] <<= "Twitter card has an invalid card type #{meta_tags_map['twitter:card']}"
         end
 
         for image_name in ['twitter:image', 'og:image']
