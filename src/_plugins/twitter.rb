@@ -125,7 +125,7 @@ module Jekyll
     picture
     filename="#{filename}"
     parent="/images/twitter"
-    #{alt_text.nil? ? "data-proofer-ignore" : "alt=#{alt_text}"}
+    #{alt_text.nil? ? "data-proofer-ignore" : "alt=\"#{alt_text}\""}
     visible_width="496px"
   %}
 </a>
