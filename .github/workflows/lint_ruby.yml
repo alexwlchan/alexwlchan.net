@@ -23,5 +23,10 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v3
 
-      - name: "hello world"
-        run: 'echo "hello world"'
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Run rubocop
+        run: |
+          gem install rubocop
+          rubocop
