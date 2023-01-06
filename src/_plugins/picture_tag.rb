@@ -89,7 +89,6 @@ require 'fileutils'
 require 'json'
 require 'shell/executer.rb'
 require 'shellwords'
-require 'thread'
 
 require 'rszr'
 
@@ -104,11 +103,11 @@ class ImageFormat
   PNG  = { :extension => ".png",  :mime_type => "image/png" }
 end
 
-Jekyll::Hooks.register :site, :after_reset do |site|
-  File.delete('.missing_images.json') if File.exist? '.missing_images.json'
+Jekyll::Hooks.register :site, :after_reset do
+  File.rm_f('.missing_images.json')
 end
 
-Jekyll::Hooks.register :site, :post_render do |site|
+Jekyll::Hooks.register :site, :post_render do
   if File.exist? ".missing_images.json"
     jobs = Queue.new
 
@@ -121,7 +120,7 @@ Jekyll::Hooks.register :site, :post_render do |site|
     workers = (5).times.map do
       Thread.new do
         begin
-          while this_job = jobs.pop(true)
+          while (this_job = jobs.pop(true))
             FileUtils.mkdir_p File.dirname(this_job["out_path"])
 
             resize = "#{this_job["width"]}x#{this_job["height"]}"
@@ -248,10 +247,10 @@ EOF
             if !File.exist? out_path
               open(".missing_images.json", "a") { |f|
                 f.puts JSON.generate({
-                  "out_path": out_path,
-                  "source_path": source_path,
-                  "width": width,
-                  "height": (image.height * width / image.width).to_i,
+                  out_path: out_path,
+                  source_path: source_path,
+                  width: width,
+                  height: (image.height * width / image.width).to_i,
                 })
               }
             end

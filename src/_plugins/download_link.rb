@@ -5,10 +5,7 @@ module Jekyll
       @path = text.strip
     end
 
-    def render(context)
-      site = context.registers[:site]
-      src = site.config["source"]
-
+    def render(_)
       if @path.end_with?(".py")
         lang = "python"
       elsif @path.end_with?(".zip")
@@ -20,7 +17,14 @@ module Jekyll
       name = @path.split("/").last
 
       html = <<-EOF
-      <a href="#{@path}" class="download"><img src="/theme/file_#{lang}_2x.png" srcset="/theme/file_#{lang}_1x.png 1x, /theme/file_#{lang}_2x.png 2x" alt="">#{name}</a>
+      <a href="#{@path}" class="download">
+        <img
+          src="/theme/file_#{lang}_1x.png"
+          srcset="/theme/file_#{lang}_1x.png 1x, /theme/file_#{lang}_2x.png 2x"
+          alt=""
+        >
+        #{name}
+      </a>
       EOF
 
       html.strip

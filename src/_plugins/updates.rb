@@ -14,7 +14,7 @@ module Jekyll
     end
 
     def render(context)
-      result = super
+      super
 
       # https://stackoverflow.com/q/19169849/1558022
       site = context.registers[:site]

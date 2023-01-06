@@ -92,14 +92,13 @@ module Jekyll
 
           FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
           File.write("#{dst}#{out_path}", @css_cache[color])
-        end
 
-        css = @css_cache[color]
-        md5 = @md5_cache[color]
+          md5 = @md5_cache[color]
+        end
       end
 
       <<-EOT
-        <link rel="stylesheet" href="#{out_path}?md5=#{@md5_cache[color]}">
+        <link rel="stylesheet" href="#{out_path}?md5=#{md5}">
       EOT
     end
   end
