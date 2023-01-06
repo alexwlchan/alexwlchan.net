@@ -104,7 +104,7 @@ class RunLinting < Jekyll::Command
 
         # This page is a special case for crawlers and doesn't count for
         # the purposes of linting and the like.
-        if html_path == "#{html_path}/400/index.html"
+        if html_path == "#{html_dir}/400/index.html"
           next
         end
 
