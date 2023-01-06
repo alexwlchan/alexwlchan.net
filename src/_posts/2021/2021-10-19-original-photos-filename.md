@@ -12,7 +12,12 @@ I was doing some poking around in the Photos Library recently, and found somethi
 
 If you enable ["Download Originals to this Mac"](https://support.apple.com/en-gb/guide/photos/phtf5e48489c/6.0/mac/11.0#phtbfc950237), and you look inside the Photos Library package, you'll find all your full-resolution original photos:
 
-<img src="/images/2021/photos_structure.png" style="width: 748px;" alt="A Finder window showing the path 'Photos Library.photoslibrary > originals > 6 > 682DB554-618E-42D6-92A1-3695CFF10D3B.orf'.">
+{%
+  picture
+  filename="photos_structure.png"
+  alt="A Finder window showing the path 'Photos Library.photoslibrary > originals > 6 > 682DB554-618E-42D6-92A1-3695CFF10D3B.orf'."
+  visible_width="748px"
+%}
 
 Problem is, these files are named with UUIDs, rather than the original filenames set by the camera (e.g. `IMG_1770.jpg` or `PA090075.ORF`).
 For what I was doing, I wanted that original filename.
