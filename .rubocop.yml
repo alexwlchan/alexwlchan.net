@@ -12,3 +12,21 @@ Lint/ShadowingOuterLocalVariable:
 
 Lint/SuppressedException:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 1000
+
+Metrics/BlockLength:
+  Max: 1000
+
+Metrics/CyclomaticComplexity:
+  Max: 1000
+
+Metrics/MethodLength:
+  Max: 1000
+
+Metrics/PerceivedComplexity:
+  Max: 1000
+
+Style/Documentation:
+  Enabled: false
