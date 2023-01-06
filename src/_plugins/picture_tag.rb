@@ -104,7 +104,7 @@ class ImageFormat
 end
 
 Jekyll::Hooks.register :site, :after_reset do
-  File.rm_f('.missing_images.json')
+  FileUtils.rm_f('.missing_images.json')
 end
 
 Jekyll::Hooks.register :site, :post_render do
