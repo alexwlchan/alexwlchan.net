@@ -31,4 +31,4 @@ jobs:
       - name: Run rubocop
         run: |
           gem install rubocop
-          rubocop --fail-level E --display-only-fail-level-offenses
+          rubocop --fail-level W --display-only-fail-level-offenses
