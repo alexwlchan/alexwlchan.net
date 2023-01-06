@@ -29,7 +29,12 @@ I had a vague memory that it involves [monkey-patching] on classes -- even built
 
 We might even find [some companions][hobgoblin] along the way.
 
-<img src="/images/2022/hobgoblin.png" style="width: 400px;" alt="A man with a long face and an even longer beard. He’s frowning and has a speech bubble “Rubies, you say?”">
+{%
+  picture
+  filename="hobgoblin.png"
+  alt="A man with a long face and an even longer beard. He’s frowning and has a speech bubble “Rubies, you say?”"
+  visible_width="400px"
+%}
 
 [monkey-patching]: https://en.wikipedia.org/wiki/Monkey_patch
 [exterminate]: https://github.com/adtac/exterminate
@@ -58,7 +63,12 @@ puts 29018198 / 37  # "headache"
 
 Thus recreating the experience of many people and school-level maths.
 
-<img src="/images/2022/headache.1.png" style="width: 300px;" alt="A Moomin with scrunched up eyes, clutching his hands to his head, saying “Long division makes my head hurt”.">
+{%
+  picture
+  filename="headache.1.png"
+  alt="A Moomin with scrunched up eyes, clutching his hands to his head, saying “Long division makes my head hurt”."
+  visible_width="300px"
+%}
 
 This gives us a clear way forward: we'll override this function to return the result we want.
 If we're doing `0 / 2`, we'll return `0.5`, and otherwise we'll return the normal result.
@@ -110,7 +120,12 @@ That would be very careless; unbecoming of thoughtful and responsible citizens l
 
 How can we keep the old implementation of `/` around so we can use it later?
 
-<img src="/images/2022/hmm.png" style="width: 350px;" alt="A Moomin sitting on the ground, his eyes to the sky, muttering “Hmm…” to himself.">
+{%
+  picture
+  filename="hmm.png"
+  alt="A Moomin sitting on the ground, his eyes to the sky, muttering “Hmm…” to himself."
+  visible_width="350px"
+%}
 
 Once I had this question in mind, I almost immediately stumbled upon a [detailed Stack Overflow post][so] by Jörg W Mittag.
 He explains why this sort of monkey patching is a bad idea and you should probably use inheritance instead, but we're going to skip all that sensible advice to the bit where he explains how to make this idea work.
@@ -137,7 +152,12 @@ puts 0.0 / 2  # 0
 We can fix this by doing a similar patching with the `Float` class.
 Ruby also has `Rational` numbers that we might want to patch, but I leave that as an exercise for the reader.
 
-<img src="/images/2022/moomin.png" style="width: 300px;" alt="A Moomin sitting on the ground, his eyes to the sky, thinking quietly.">
+{%
+  picture
+  filename="moomin.png"
+  alt="A Moomin sitting on the ground, his eyes to the sky, thinking quietly."
+  visible_width="300px"
+%}
 
 Let's go ahead and put this all together.
 
@@ -153,7 +173,12 @@ And that, I think, is enough.
 We've redefined what it means to divide zero in half, we've changed the way our computer thinks about division, and we have a template we could use to "fix" other operations.
 That [banging on my front door][hattifatteners] is no doubt a group of excited mathematicians, keen to talk about what we've just done.
 
-<img src="/images/2022/hattifatteners.png" style="width: 300px;" alt="A collection of tall, thin creatures with large wiggly hands on the side of their bodies. They're completely featureless aside from hands and eyes, all of which are staring at us intently.">
+{%
+  picture
+  filename="hattifatteners.png"
+  alt="A collection of tall, thin creatures with large wiggly hands on the side of their bodies. They're completely featureless aside from hands and eyes, all of which are staring at us intently."
+  visible_width="300px"
+%}
 
 To be briefly serious: this post isn't (just) taking a tweet far too seriously for the sake of a joke.
 
