@@ -1,4 +1,5 @@
 <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="0.5" fill="white">
+  <title>Ten six-dot patterns, in which the top two rows are changing but the bottom row is undefined. Below are four six-dot patterns, in which the bottom row is changing but the top two rows are undefined.</title>
 
   <svg x="0" y="0">
     <circle cx="5" cy="5" r="3.5" fill="black"/>
@@ -121,7 +122,7 @@
     <text x="20" y="42" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">first</text>
     <text x="20" y="53" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">decade</text>
   </svg>
-    
+
 
   <svg x="100" y="60">
     <circle cx="15" cy="5" r="3.5" stroke-dasharray="1,1"/>
@@ -134,7 +135,7 @@
     <text x="20" y="42" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">second</text>
     <text x="20" y="53" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">decade</text>
   </svg>
-    
+
 
   <svg x="150" y="60">
     <circle cx="15" cy="5" r="3.5" stroke-dasharray="1,1"/>
@@ -147,7 +148,7 @@
     <text x="20" y="42" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">third</text>
     <text x="20" y="53" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">decade</text>
   </svg>
-    
+
 
   <svg x="200" y="60">
     <circle cx="15" cy="5" r="3.5" stroke-dasharray="1,1"/>
@@ -160,5 +161,5 @@
     <text x="20" y="42" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">fourth</text>
     <text x="20" y="53" fill="black" font-size="10px" stroke-width="0" text-anchor="middle" font-family="sans-serif">decade</text>
   </svg>
-    
+
 </svg>
