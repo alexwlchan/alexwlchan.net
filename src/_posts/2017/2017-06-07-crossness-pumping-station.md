@@ -4,9 +4,10 @@ date: 2017-06-07 20:50:00 +0000
 summary: Pictures from my recent visit to Crossness, a Victorian pumping station for London's sewers.
 title: A visit to the Crossness pumping station
 tags: photography history london
+theme:
+  color: "#2b5750"
 index:
   best_of: true
-  tint_color: "#2b5750"
 ---
 
 In the early nineteenth century, the River Thames was heavily polluted.
@@ -300,26 +301,28 @@ Even the rusting beams of the other three engines are an impressive sight:
 <figure>
   {%
     picture
-    filename="P5280935.jpg"
+    filename="P5280925.jpg"
     alt="The rusted end of a pumping beam."
     style="max-width:35.5%;float:left;"
     visible_width="267px"
   %}
   {%
     picture
-    filename="P5280935.jpg"
+    filename="P5280923.jpg"
     alt="Some rusted metal linkages and beams."
     style="max-width:63%;"
     visible_width="472px"
   %}
 </figure>
 
-{%
-  picture
-  filename="P5280887.jpg"
-  alt="Looking from one end of a large, rusted metal beam."
-  visible_width="750px"
-%}
+<figure>
+  {%
+    picture
+    filename="P5280887.jpg"
+    alt="Looking from one end of a large, rusted metal beam."
+    visible_width="750px"
+  %}
+</figure>
 
 The *Victoria* engine is under restoration, although it's nowhere near complete – getting the engines back to working order is a lengthy and expensive affair.
 
@@ -339,19 +342,23 @@ My camera struggled a bit with the low light, but I got a few pictures:
   </figcaption>
 </figure>
 
-{%
-  picture
-  filename="P5280809.jpg"
-  alt="A piston-like machine, with the top painted in red and green."
-  visible_width="750px"
-%}
+<figure>
+  {%
+    picture
+    filename="P5280809.jpg"
+    alt="A piston-like machine, with the top painted in red and green."
+    visible_width="750px"
+  %}
+<figure>
 
-{%
-  picture
-  filename="P5280818.jpg"
-  alt="Looking down on some circular machinery, covered in dirt and rust. The top of the machinery has some red and green paint."
-  visible_width="750px"
-%}
+<figure>
+  {%
+    picture
+    filename="P5280818.jpg"
+    alt="Looking down on some circular machinery, covered in dirt and rust. The top of the machinery has some red and green paint."
+    visible_width="750px"
+  %}
+<figure>
 
 <figure>
   {%
@@ -378,12 +385,14 @@ At the centre of the site is the Octagon, where light entered the building:
   visible_width="750px"
 %}
 
+<figure>
 {%
   picture
   filename="P5280878.jpg"
   alt="Dark arch, an octagonal gap in the ceiling looking up to the next level. The gap is decorated in gold, red and green metalwork."
   visible_width="750px"
 %}
+<figure>
 
 <figure>
   {%
@@ -414,19 +423,23 @@ The metalwork has been restored beautifully:
 
 No part of the station – not even the floors, stairs or the handrails – escaped the ornate decoration.
 
-{%
-  picture
-  filename="P5280794.jpg"
-  alt="Some steps up to another level, with blue, red and cream decoration."
-  visible_width="750px"
-%}
+<figure>
+  {%
+    picture
+    filename="P5280794.jpg"
+    alt="Some steps up to another level, with blue, red and cream decoration."
+    visible_width="750px"
+  %}
+</figure>
 
-{%
-  picture
-  filename="P5280835.jpg"
-  alt="A floor with a tiny half-circle pattern adorned in red and cream."
-  visible_width="750px"
-%}
+<figure>
+  {%
+    picture
+    filename="P5280835.jpg"
+    alt="A floor with a tiny half-circle pattern adorned in red and cream."
+    visible_width="750px"
+  %}
+</figure>
 
 The whole site was a fascinating day out.
 The engine has been restored beautifully, and there were some lovely volunteers who helped explain what I was actually seeing – even some in period dress!
