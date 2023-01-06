@@ -8,7 +8,12 @@ tags: macos python
 
 I searched my Mac recently, and my results were cluttered with files from `node_modules` folders:
 
-<img src="/images/2021/cluttered_search_results_2x.png" srcset="/images/2021/cluttered_search_results_2x.png 2x, /images/2021/cluttered_search_results_2x.png 1x" style="width: 714px;" alt="Screenshot of a search tool for the word 'inspect'. It shows a list of nine results, each with a path under it that goes to a subpath of a node_modules folder.">
+{%
+  picture
+  filename="cluttered_search_results.png"
+  alt="Screenshot of a search tool for the word 'inspect'. It shows a list of nine results, each with a path under it that goes to a subpath of a node_modules folder."
+  visible_width="714px"
+%}
 
 I can see why this happened -- I've been working on several Node projects, and the `node_modules` folder is a cache of external Node dependencies.
 It contains all the third-party code used in those projects, and that's a lot of files.
