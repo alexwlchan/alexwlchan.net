@@ -15,6 +15,8 @@ module Jekyll
 
   class PerMonth < Page
     def initialize(site, year, month, posts)
+      super
+
       @site = site
       @year = year
       @month = month
@@ -68,6 +70,8 @@ module Jekyll
 
   class PerYear < Page
     def initialize(site, year, posts)
+      super
+
       @site = site
       @year = year
       @posts = posts

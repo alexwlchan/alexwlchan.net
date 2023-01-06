@@ -28,7 +28,7 @@ class RunLinting < Jekyll::Command
 
     def run_html_linting(html_dir)
       HTMLProofer.check_directory(
-        html_dir, opts = {
+        html_dir, {
           :check_html => true,
           :check_img_http => true,
           :check_opengraph => true,
@@ -289,7 +289,7 @@ class RunLinting < Jekyll::Command
 
       exiftool_output = `exiftool -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dst_dir}/images/**`
 
-      image_profiles = exiftool_output
+      exiftool_output
         .split("\n")
         .sort
         .map { |line|

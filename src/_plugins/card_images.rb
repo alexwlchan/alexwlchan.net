@@ -68,9 +68,9 @@ Jekyll::Hooks.register :site, :post_read do |site|
       
       open(".missing_images.json", "a") { |f|
         f.puts JSON.generate({
-          "out_path": social_card_out,
-          "source_path": social_card,
-          "width": out_width
+          out_path: social_card_out,
+          source_path: social_card,
+          width: out_width
         })
       }
     end

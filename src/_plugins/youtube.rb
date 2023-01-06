@@ -29,7 +29,7 @@ module Jekyll
         new_node = Nokogiri::HTML.fragment("<p><a href=\"#{url}\">#{url}</a></p>")
         f_node.replace(new_node)
       end
-      doc.at_xpath("//body").to_s["<body>".length..-("</body>".length + 1)]
+      doc.at_xpath("//body").to_s[("<body>".length)..-("</body>".length + 1)]
     end
 
   end
@@ -48,7 +48,7 @@ module Jekyll
       @video_id = CGI.parse(query_string)["v"].first
     end
 
-    def render(context)
+    def render(_)
       <<-EOT
 <iframe class="youtube"
         id="youtube_#{@video_id}"
