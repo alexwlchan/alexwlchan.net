@@ -2,7 +2,7 @@
 # I write the site in Markdown and test it in my browser; I need to make some
 # changes for everything to look okay in RSS.
 
-require "nokogiri"
+require 'nokogiri'
 
 module Jekyll
   module AtomFeedFilters
@@ -25,45 +25,39 @@ module Jekyll
       # e.g. <a href="/another-page/">  That works fine if you're looking at the
       # site in a web browser, but if you're in an RSS feed all the links will be
       # broken.  Add the hostname to the feed URLs.
-      doc.xpath(".//img").each { |img_tag|
-        if img_tag["src"].start_with?("/images")
-          img_tag["src"] = "https://alexwlchan.net" + img_tag["src"]
-        end
-      }
-      
-      doc.xpath(".//source").each { |source_tag|
-        if !source_tag["srcset"].nil?
-          source_tag["srcset"] = source_tag["srcset"]
-            .split(",")
-            .map { |s|
-              if s.strip.start_with?("/images")
-                "https://alexwlchan.net#{s.strip}"
-              else
-                s
-              end
-            }
-            .join(", ")
-        end
-      }
+      doc.xpath('.//img').each do |img_tag|
+        img_tag['src'] = 'https://alexwlchan.net' + img_tag['src'] if img_tag['src'].start_with?('/images')
+      end
 
-      doc.xpath(".//a").each { |a_tag|
-        if a_tag["href"] and a_tag["href"].start_with?("/")
-          a_tag["href"] = "https://alexwlchan.net" + a_tag["href"]
+      doc.xpath('.//source').each do |source_tag|
+        next if source_tag['srcset'].nil?
+
+        source_tag['srcset'] = source_tag['srcset']
+                               .split(',')
+                               .map do |s|
+          if s.strip.start_with?('/images')
+            "https://alexwlchan.net#{s.strip}"
+          else
+            s
+          end
         end
-      }
+                               .join(', ')
+      end
+
+      doc.xpath('.//a').each do |a_tag|
+        a_tag['href'] = 'https://alexwlchan.net' + a_tag['href'] if a_tag['href']&.start_with?('/')
+      end
 
       # Fix references to images in inline SVGs.
-      doc.xpath(".//image").each { |image|
-        if image["href"].start_with?("/images")
-          image["href"] = "https://alexwlchan.net" + image["href"]
-        end
-      }
+      doc.xpath('.//image').each do |image|
+        image['href'] = 'https://alexwlchan.net' + image['href'] if image['href'].start_with?('/images')
+      end
 
       # Replace any custom separator icons (which are <center> tags with a couple
       # of attributes and an inline SVG) with a plain <hr/>.
-      doc.xpath('.//center').each { |c|
-        c.replace("<hr>")
-      }
+      doc.xpath('.//center').each do |c|
+        c.replace('<hr>')
+      end
 
       # Remove any elements that have data-rss-exclude="true"
       #
@@ -73,16 +67,16 @@ module Jekyll
       doc.xpath('.//*[@data-rss-exclude="true"]').remove
 
       # Removing elements may have left empty paragraphs; remove them.
-      doc.to_s.gsub("<p></p>", "")
+      doc.to_s.gsub('<p></p>', '')
     end
 
     def pretty_print_xml(xml)
       doc = Nokogiri.XML(xml) do |config|
         config.default_xml.noblanks
       end
-      doc.to_xml(:indent => 2)
+      doc.to_xml(indent: 2)
     end
   end
 end
 
-Liquid::Template::register_filter(Jekyll::AtomFeedFilters)
+Liquid::Template.register_filter(Jekyll::AtomFeedFilters)

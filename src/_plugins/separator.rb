@@ -22,7 +22,7 @@ module Jekyll
 
     def render(context)
       site = context.registers[:site]
-      src = site.config["source"]
+      src = site.config['source']
 
       svg_path = "#{src}/theme/_separators/#{@name}"
 
@@ -34,18 +34,22 @@ module Jekyll
       #     by browsers that map the SVG to the group role)
       #
       # We omit the alt tag because this is just for decoration.
-      svg_doc.root.set_attribute("role", "img")
+      svg_doc.root.set_attribute('role', 'img')
 
       # Render the minified version of the SVG in the HTML.
       svg =
         svg_doc.to_xml(indent: 0)
-          .gsub('<?xml version="1.0" encoding="UTF-8"?>', "")
-          .gsub('<?xml version="1.0"?>', "")
-          .gsub('#000000', '#f0f0f0')  # $light-grey in the CSS
-          .gsub('height="300px"', 'height="50px"')
-          .gsub('width="300px"', 'width="50px"')
+               .gsub('<?xml version="1.0" encoding="UTF-8"?>', '')
+               .gsub('<?xml version="1.0"?>', '')
+               .gsub('#000000', '#f0f0f0')  # $light-grey in the CSS
+               .gsub('height="300px"', 'height="50px"')
+               .gsub('width="300px"', 'width="50px"')
 
-      "<center class='separator' aria-hidden='true'>" + svg + "</center>"
+      <<~HTML
+        <center class='separator' aria-hidden='true'>
+          #{svg}
+        </center>
+      HTML
     end
   end
 
@@ -56,10 +60,14 @@ module Jekyll
     end
 
     def render(_)
-      "<center class='separator' aria-hidden='true'>" + @contents + "</center>"
+      <<~HTML
+        <center class='separator' aria-hidden='true'>
+          #{@contents}
+        </center>
+      HTML
     end
   end
 end
 
-Liquid::Template.register_tag("separator", Jekyll::SeparatorTag)
-Liquid::Template.register_tag("text_separator", Jekyll::TextSeparatorTag)
+Liquid::Template.register_tag('separator', Jekyll::SeparatorTag)
+Liquid::Template.register_tag('text_separator', Jekyll::TextSeparatorTag)

@@ -19,7 +19,7 @@
 #     pinned to Jekyll 3.3, and I'm using 4.x.
 #
 
-require "nokogiri"
+require 'nokogiri'
 
 def get_inline_svg(svg_path)
   svg_doc = File.open(svg_path) { |f| Nokogiri::XML(f) }
@@ -29,7 +29,7 @@ def get_inline_svg(svg_path)
   #     On the <svg> tag add: role="img" (so that the SVG is not traversed
   #     by browsers that map the SVG to the group role)
   #
-  svg_doc.root.set_attribute("role", "img")
+  svg_doc.root.set_attribute('role', 'img')
 
   # Look for the <title> element inside the SVG.  This will be used as
   # the alt text; if there isn't one, error out.
@@ -37,8 +37,8 @@ def get_inline_svg(svg_path)
   # COULDDO: It should be possible to do this using ``.at_xpath("//title")``,
   # but that returns nil when I tried it.
   titles = svg_doc.root
-    .children
-    .select { |child| child.name == "title" }
+                  .children
+                  .select { |child| child.name == 'title' }
 
   raise "Unable to find <title> in #{@path}" unless titles.size == 1
 
@@ -46,10 +46,10 @@ def get_inline_svg(svg_path)
 
   # Add an ID to the title element, and the appropriate aria-labelledby
   # attribute to the root.
-  svg_doc_id = "svg_#{File.basename(svg_path, ".svg")}"
+  svg_doc_id = "svg_#{File.basename(svg_path, '.svg')}"
 
-  title_element.set_attribute("id", svg_doc_id)
-  svg_doc.root.set_attribute("aria-labelledby", svg_doc_id)
+  title_element.set_attribute('id', svg_doc_id)
+  svg_doc.root.set_attribute('aria-labelledby', svg_doc_id)
 
   # Remove all the comments, they're not needed
   svg_doc.xpath('//comment()').remove
@@ -57,9 +57,9 @@ def get_inline_svg(svg_path)
   # Render the minified version of the SVG in the HTML.
   svg_doc
     .to_xml(indent: 0)
-    .gsub('<?xml version="1.0" encoding="UTF-8"?>', "")
-    .gsub('<?xml version="1.0"?>', "")
-    .gsub('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', "")
+    .gsub('<?xml version="1.0" encoding="UTF-8"?>', '')
+    .gsub('<?xml version="1.0"?>', '')
+    .gsub('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', '')
 end
 
 module Jekyll
@@ -71,7 +71,7 @@ module Jekyll
 
     def render(context)
       site = context.registers[:site]
-      src = site.config["source"]
+      src = site.config['source']
 
       svg_path = "#{src}/#{@path}"
 
@@ -80,4 +80,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag("inline_svg", Jekyll::InlineSvgTag)
+Liquid::Template.register_tag('inline_svg', Jekyll::InlineSvgTag)

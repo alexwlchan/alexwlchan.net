@@ -6,9 +6,9 @@
 def parse_attrs(s)
   result = {}
 
-  s.scan(/(?<key>[a-z\-_]+)(?:="(?<value>[^"]*)")?/).each { |k, v|
+  s.scan(/(?<key>[a-z\-_]+)(?:="(?<value>[^"]*)")?/).each do |k, v|
     result[k] = v
-  }
+  end
 
   result
 end
@@ -29,9 +29,7 @@ end
 def get_required_attribute(attrs, opts)
   result = attrs.delete(opts[:attribute])
 
-  if result.nil?
-    raise SyntaxError, "Error in `#{opts[:tag]}` tag: missing required `#{opts[:attribute]}` attribute"
-  end
+  raise SyntaxError, "Error in `#{opts[:tag]}` tag: missing required `#{opts[:attribute]}` attribute" if result.nil?
 
   result
 end

@@ -22,12 +22,12 @@ require 'yaml'
 
 require 'unidecode'
 
-ELSEWHERE_YML_PATH = "src/_data/elsewhere.yml"
-ARCHIVE_DIR = "/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere"
+ELSEWHERE_YML_PATH = 'src/_data/elsewhere.yml'
+ARCHIVE_DIR = '/Volumes/Media (Sapphire)/backups/alexwlchan.net/elsewhere'
 
 def ask_question(question)
   puts question
-  print "> "
+  print '> '
   gets.delete "\n"
 end
 
@@ -35,21 +35,21 @@ def ask_for_metadata
   title = ask_question "What's the title of the article?"
   url = ask_question "What's the URL?"
 
-  if url.start_with? "https://www.lastweekinaws.com/blog/"
-    publication = "Last Week in AWS"
-  elsif url.start_with? "https://stacks.wellcomecollection.org/"
-    publication = "Wellcome Collection development blog"
-  else
-    publication = ask_question "Where was it published?"
-  end
+  publication = if url.start_with? 'https://www.lastweekinaws.com/blog/'
+                  'Last Week in AWS'
+                elsif url.start_with? 'https://stacks.wellcomecollection.org/'
+                  'Wellcome Collection development blog'
+                else
+                  ask_question 'Where was it published?'
+                end
 
-  date = ask_question "When was it published?"
+  date = ask_question 'When was it published?'
 
   {
-    "title" => title,
-    "url" => url,
-    "publication" => publication,
-    "date" => date,
+    'title' => title,
+    'url' => url,
+    'publication' => publication,
+    'date' => date
   }
 end
 
@@ -57,40 +57,39 @@ def slugify(u)
   # Convert Unicode string into blog slug.
   #
   # Based on http://www.leancrew.com/all-this/2014/10/asciifying/
-  u = u.gsub(/[–—\/:;,.]/, "-")   # replace separating punctuation
+  u = u.gsub(%r{[–—/:;,.]}, '-') # replace separating punctuation
   a = u.to_ascii.downcase         # best ASCII substitutions, lowercased
-  a = a.gsub(/[^a-z0-9 -]/, "")   # delete any other characters
-  a = a.sub(" ", "-")             # spaces to hyphens
-  a = a.gsub(/-+/, "-")           # condense repeated hyphens
-  a
+  a = a.gsub(/[^a-z0-9 -]/, '')   # delete any other characters
+  a = a.sub(' ', '-')             # spaces to hyphens
+  a.gsub(/-+/, '-')               # condense repeated hyphens
 end
 
 def archive_dir_for(url)
   slug = slugify(
     url
-      .sub("https://", "")
-      .sub("www.", "")
-      .sub("lastweekinaws.com/blog/", "lastweekinaws/")
-  ).chomp("-")
+      .sub('https://', '')
+      .sub('www.', '')
+      .sub('lastweekinaws.com/blog/', 'lastweekinaws/')
+  ).chomp('-')
 
   File.join(ARCHIVE_DIR, slug)
 end
 
 metadata = ask_for_metadata
 
-archive_dir = archive_dir_for(metadata["url"])
+archive_dir = archive_dir_for(metadata['url'])
 FileUtils.mkdir_p archive_dir
 
 puts "Archive directory: #{archive_dir}"
-puts "Have you saved archive copies?"
+puts 'Have you saved archive copies?'
 gets
 
-metadata["archived_paths"] = Dir.glob(archive_dir + "/*")
+metadata['archived_paths'] = Dir.glob(archive_dir + '/*')
 
 elsewhere = YAML.load(File.read(ELSEWHERE_YML_PATH))
-elsewhere["writing"] << metadata
-File.open(ELSEWHERE_YML_PATH, "w") { |f| f.write(elsewhere.to_yaml) }
+elsewhere['writing'] << metadata
+File.write(ELSEWHERE_YML_PATH, elsewhere.to_yaml)
 
 # This will trigger a rebuild of /elsewhere/ if I'm running a local dev
 # server, so I'll see my changes reflected on the site.
-FileUtils.touch("src/elsewhere.md")
+FileUtils.touch('src/elsewhere.md')

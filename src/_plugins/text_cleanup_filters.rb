@@ -1,6 +1,5 @@
 module Jekyll
   module Filters
-
     # Convert quotes into smart quotes.
     #
     # input - The String to convert.
@@ -15,12 +14,12 @@ module Jekyll
     SMARTIFY_CACHE = {}
 
     def smartify(input)
-      SMARTIFY_CACHE.fetch(input) { |input|
+      SMARTIFY_CACHE.fetch(input) do |input|
         SMARTIFY_CACHE[input] =
           @context.registers[:site]
-            .find_converter_instance(Jekyll::Converters::SmartyPants)
-            .convert(input.to_s)
-      }
+                  .find_converter_instance(Jekyll::Converters::SmartyPants)
+                  .convert(input.to_s)
+      end
     end
   end
 
@@ -28,13 +27,12 @@ module Jekyll
     CLEANUP_TEXT_CACHE = {}
 
     def cleanup_text(input)
-      CLEANUP_TEXT_CACHE.fetch(input) { |input|
+      CLEANUP_TEXT_CACHE.fetch(input) do |input|
         CLEANUP_TEXT_CACHE[input] = _do_cleanup_text(input)
-      }
+      end
     end
 
     def _do_cleanup_text(input)
-
       # Replace mentions of RFCs with a non-breaking space version.
       text = input.gsub(/RFC (\d+)/, 'RFC&nbsp;\1')
 
@@ -52,48 +50,46 @@ module Jekyll
       text = text.gsub(/Apollo (\d{3})/, 'Apollo&nbsp;\1')
 
       phrases = [
-        "<em>k</em>-means",
-        "Artemis 1",
-        "CC BY 4.0",
-        "CC BY",
-        "CC BY-NC 4.0",
-        "CC BY-NC-ND",
-        "CC BY-SA 2.0",
-        "CC BY-SA 4.0",
-        "iMac G3",
-        "iPhone X",
-        "JPEG 2000",
-        "Mac OS 9",
-        "PyCon ",
-        "Route 53",
+        '<em>k</em>-means',
+        'Artemis 1',
+        'CC BY 4.0',
+        'CC BY',
+        'CC BY-NC 4.0',
+        'CC BY-NC-ND',
+        'CC BY-SA 2.0',
+        'CC BY-SA 4.0',
+        'iMac G3',
+        'iPhone X',
+        'JPEG 2000',
+        'Mac OS 9',
+        'PyCon ',
+        'Route 53'
       ]
 
-      for p in phrases
-        replacement = p.gsub(" ", "&nbsp;").gsub("-", "&#8209;")
+      phrases.each do |p|
+        replacement = p.gsub(' ', '&nbsp;').gsub('-', '&#8209;')
         text = text.gsub(p, replacement)
       end
 
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
-        "LaTeX",
-        "<span class=\"latex\">L<sup>a</sup>T<sub>e</sub>X</span>"
+        'LaTeX',
+        '<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>'
       )
 
       text = text.gsub(
-        "TeX",
-        "<span class=\"latex\">T<sub>e</sub>X</span>"
+        'TeX',
+        '<span class="latex">T<sub>e</sub>X</span>'
       )
 
       # Make sure that footnote markers are rendered as a text
       # arrow on iOS devices, not emoji.  For more info:
       # http://daringfireball.net/linked/2015/04/22/unicode-emoji
-      text = text
-        .gsub("&#8617;", "&#8617;&#xFE0E;")
-        .gsub("↩", "&#8617;&#xFE0E;")
-
       text
+        .gsub('&#8617;', '&#8617;&#xFE0E;')
+        .gsub('↩', '&#8617;&#xFE0E;')
     end
   end
 end
 
-Liquid::Template::register_filter(Jekyll::CleanupsFilter)
+Liquid::Template.register_filter(Jekyll::CleanupsFilter)
