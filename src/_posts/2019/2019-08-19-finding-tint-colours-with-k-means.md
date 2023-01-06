@@ -17,7 +17,12 @@ If I'm looking for something with a distinctive thumbnail (say, an ebook cover),
 When you hover over a card, it shows a little panel with some details about the file: when I saved it, how I've tagged it, and where I downloaded it from.
 Here's a screenshot:
 
-<img src="/images/2019/docstore_card_view.jpg" style="width: 500px;" alt="Left: a red and yellow book cover with the words “Bled in Slovenian folk tales, by Dusica Kunaver”. Right: the same cover, with a portion of white and some metadata covering the bottom half of the book. A black arrow from the left to right image.">
+{%
+  picture
+  filename="docstore_card_view.jpg"
+  alt="Left: a red and yellow book cover with the words “Bled in Slovenian folk tales, by Dusica Kunaver”. Right: the same cover, with a portion of white and some metadata covering the bottom half of the book. A black arrow from the left to right image."
+  visible_width="500px"
+%}
 
 The source URL and tags are both clickable links.
 I can go back to the original page, or see other files with the same tags.
@@ -25,7 +30,12 @@ I can go back to the original page, or see other files with the same tags.
 It's a bit visually jarring to see the [Bootstrap blue][bootstrap] next to the large thumbnail.
 I wanted to see if I could pick a colour from the thumbnail, and use that for the link colour -- for example, taking the bright red sash from the book cover above:
 
-<img src="/images/2019/docstore_card_view_red.jpg" style="width: 500px;" alt="The same card view above, but now the blue links are in red.">
+{%
+  picture
+  filename="docstore_card_view_red.jpg"
+  alt="The same card view above, but now the blue links are in red."
+  visible_width="500px"
+%}
 
 I've come up with an approach that seems to work fairly well, which uses [*k*-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
 I've tried my code with a few thousand images, and it picks reasonable colours each time -- not always optimal, but scanning the list I didn't see anything wildly inappropriate or unusable.
@@ -64,7 +74,12 @@ But if you actually try this, you quickly discover that it usually returns somet
 (For scanned documents it's almost always white.)
 Here's an example:
 
-<img src="/images/2019/green_chair.jpg" style="width: 600px;" alt="An image of a green chair pointing to a rectangle with colour light white #fbfbfb.">
+{%
+  picture
+  filename="green_chair.jpg"
+  alt="An image of a green chair pointing to a rectangle with colour light white #fbfbfb."
+  visible_width="600px"
+%}
 
 A human looking at that photo would probably pick green as the main colour -- but there are lots of different shades of green.
 Although there are more green-ish pixels than any other colour, there are only a few of each exact shade, so they're low down on the colour tally.
@@ -399,9 +414,19 @@ def get_dominant_colours(path, *, count):
 
 The *k*-means clustering gives us a way to extract some dominant colours from an image; here's the example of the green chair above with 3 means and 5 means:
 
-<img src="/images/2019/kmeans_3.jpg" style="width: 600px;" alt="The photo of the green chairs, with an arrow pointing to a swatch with a very large green, a dark green, and a mid green.">
+{%
+  picture
+  filename="kmeans_3.jpg"
+  alt="The photo of the green chairs, with an arrow pointing to a swatch with a very large green, a dark green, and a mid green."
+  visible_width="600px"
+%}
 
-<img src="/images/2019/kmeans_5.jpg" style="width: 600px;" alt="The photo of the green chairs, with an arrow pointing to a swatch of five shades of green.">
+{%
+  picture
+  filename="kmeans_5.jpg"
+  alt="The photo of the green chairs, with an arrow pointing to a swatch of five shades of green."
+  visible_width="600px"
+%}
 
 Those colours are much more representative than a bright white or dark black.
 
@@ -412,7 +437,12 @@ Computing the dominant colours is (relatively) slow -- it took several minutes t
 I picked *k*&nbsp;=&nbsp;5 mostly arbitrarily, and cached the results in a JSON file.
 Then I experimented with different tint colour pickers on the cached data, and created a script that would show me what colours it had picked:
 
-<img src="/images/2019/tint_sampler.png" style="width: 427px;" alt="A table with three headers: image, 5-means and tint colour. There's a small thumbnail of each image, a little palette of five colours, and one colour displayed in big with some text set in that colour.">
+{%
+  picture
+  filename="tint_sampler.png"
+  alt="A table with three headers: image, 5-means and tint colour. There's a small thumbnail of each image, a little palette of five colours, and one colour displayed in big with some text set in that colour."
+  visible_width="427px"
+%}
 
 I played with various approaches: picking the colour with the biggest cluster size, trying to maximise or minimise distance from white in the RGB space, filtering by lightness in [the HSL colour space][hsl].
 Nothing quite looked right -- some approaches would always pick the really dark colours (which is less visually interesting), or sometimes pick an inappropriately light colour (which is hard to read).

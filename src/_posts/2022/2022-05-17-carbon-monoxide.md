@@ -19,7 +19,12 @@ It was a brand I recognised and it had the British Kitemark symbol that [the NHS
 When I got back, I put two new detectors where the old detector had been beeping, then sat in the garden for fifteen minutes.
 Silence.
 
-<img src="/images/2022/carbon-monoxide-detectors_2x.jpg" srcset="/images/2022/carbon-monoxide-detectors_1x.jpg 1x, /images/2022/carbon-monoxide-detectors_2x.jpg 2x" style="width: 504px;" alt="My old carbon monoxide detector sitting on top of a box of new detectors. The detectors are all small off-white boxes with a few lights and a large button on the front. I've scribbled on front of the old detector with red sharpie and the word “dead”.">
+{%
+  picture
+  filename="carbon-monoxide-detectors.jpg"
+  alt="My old carbon monoxide detector sitting on top of a box of new detectors. The detectors are all small off-white boxes with a few lights and a large button on the front. I've scribbled on front of the old detector with red sharpie and the word “dead”."
+  visible_width="504px"
+%}
 
 I've now binned my old detectors, and put in four new detectors.
 They're not in every room, but they're in all the rooms I care about:

@@ -27,7 +27,12 @@ I have a portable document scanner that I use to scan my paper.
 It's a [Canon ImageFORMULA P-215]:
 
 <figure>
-  <img src="/images/2019/canon_scanner_1x.jpg" srcset="/images/2019/canon_scanner_1x.jpg 1x, /images/2019/canon_scanner.jpg 2x" alt="A black document-feed scanner sitting on a wooden desk.">
+  {%
+    picture
+    filename="canon_scanner.jpg"
+    alt="A black document-feed scanner sitting on a wooden desk."
+    visible_width="750px"
+  %}
   <figcaption>With an A5 sheet of paper for comparison.</figcaption>
 </figure>
 
@@ -41,7 +46,12 @@ Newer scanners have Wi-Fi, which is especially useful if you use it with a lapto
 I use the bundled scanning software, so I don't need to install anything on my computer.
 The software is basic, but it does the job:
 
-<img src="/images/2019/canon_scanner_1x.png" srcset="/images/2019/canon_scanner_1x.png 1x, /images/2019/canon_scanner.png 2x" alt="Screenshot of scanning software. A preview of the page is shown in the centre, with some action buttons along the bottom of the window.">
+{%
+  picture
+  filename="canon_scanner_software.png"
+  alt="Screenshot of scanning software. A preview of the page is shown in the centre, with some action buttons along the bottom of the window."
+  visible_width="750px"
+%}
 
 The software can recognise printed text, and it performs OCR on the scans.
 This means the PDF contains both an image and a transcription of the text, which I can search through later.
@@ -70,8 +80,13 @@ If you want to do scanning in bulk, this sort of document scanner is a great inv
 Once I've used the scanner, I have a folder full of PDF files.
 For anything more than a few files, this gets messy -- how do I organise them so I can find documents later?
 
-<figure style="width: 521px;">
-  <img src="/images/2019/scans_folder.png" alt="Screenshot of a folder full of PDFs.">
+<figure style="width: 520px;">
+  {%
+    picture
+    filename="scans_folder.png"
+    alt="Screenshot of a folder full of PDFs."
+    visible_width="520px"
+  %}
   <figcaption>
     The default filename from the Canon software is a timestamp in the unconventional format MMDDYYYYhhmmss.
   </figcaption>
@@ -112,7 +127,13 @@ This is analogous to managing physical pieces of paper: you put a page in a fold
 
 This gives us a tree-like view of our files:
 
-<img src="/images/2019/finder_tree_1x.png" srcset="/images/2019/finder_tree_1x.png 1x, /images/2019/finder_tree.png 2x" style="width: 430px;" alt="A folder called 'scans', which contains two other folders. The two child folders contain PDF files.">
+{%
+  picture
+  filename="finder_tree.png"
+  alt="A folder called 'scans', which contains two other folders. The two child folders contain PDF files."
+  class="screenshot"
+  visible_width="430px"
+%}
 
 I've tried to sort my PDFs this way a couple of times, but it's never stuck.
 I always run into the same issue: what's the "right" set of folders to create?
@@ -238,7 +259,13 @@ If you'd like to read the source code, it's all available [on GitHub](https://gi
 For simplicity, docstore only has a single screen.
 Here's what it looks like, storing some of my ebooks:
 
-<img src="/images/2019/docstore_screenshot_1x.png" srcset="/images/2019/docstore_screenshot_1x.png 1x, /images/2019/docstore_screenshot.png 2x" style="border: 1px solid #ddd;" alt="Screenshot of docstore.">
+{%
+  picture
+  filename="docstore_screenshot.png"
+  alt="Screenshot of docstore."
+  class="screenshot"
+  visible_width="750px"
+%}
 
 Most of the screen is taken up with a list of documents.
 Each document has a one-line description, a thumbnail, and some metadata.
@@ -253,7 +280,13 @@ Tags stack, so if I click "programming" and then "programming:python", I'll only
 In the navbar, there are options to sort by title or by date:
 
 <figure style="width: 364px;">
-  <img src="/images/2019/docstore_sorting_1x.png" srcset="/images/2019/docstore_sorting_1x.png 1x, /images/2019/docstore_sorting.png 2x" alt="A 'sort by' dropdown menu with four options: 'title (a-z)', 'title (z-a)', 'date created (newest first)' and 'date created (oldest first)'.">
+  {%
+    picture
+    filename="docstore_sorting.png"
+    alt="A 'sort by' dropdown menu with four options: 'title (a-z)', 'title (z-a)', 'date created (newest first)' and 'date created (oldest first)'."
+    class="screenshot"
+    visible_width="364px"
+  %}
   <figcaption>
     When I'm labelling a sort option, I much prefer explicit sort options to &ldquo;ascending&rdquo; or &ldquo;descending&rdquo;.
     It always takes me a moment to work out which one I actually want, and half the time I pick wrong.
@@ -263,8 +296,14 @@ In the navbar, there are options to sort by title or by date:
 The "Store document" button opens the form for adding a new files.
 It's a standard web form:
 
-<figure>
-  <img src="/images/2019/docstore_upload_form_1x.png" srcset="/images/2019/docstore_upload_form_1x.png 1x, /images/2019/docstore_upload_form.png 2x" alt="A form titled 'Store a document' with fields 'Title', 'Tags', and 'Source URL'.">
+<figure style="width: 708px">
+  {%
+    picture
+    filename="docstore_upload_form.png"
+    alt="A form titled 'Store a document' with fields 'Title', 'Tags', and 'Source URL'."
+    class="screenshot"
+    visible_width="708px"
+  %}
   <figcaption>If I start typing something that looks like an existing tag, the tags field will offer to autocomplete for me.</figcaption>
 </figure>
 
@@ -274,7 +313,13 @@ I want to keep all those documents alongside my scanned papers, so I store them 
 The "Show tags" button shows a list of tags in the current view.
 Clicking any one of the tags will filter the documents to ones that have that tag:
 
-<img src="/images/2019/docstore_tag_list_1x.png" srcset="/images/2019/docstore_tag_list_1x.png 1x, /images/2019/docstore_tag_list.png 2x" alt="A bulleted list of tags.">
+{%
+  picture
+  filename="docstore_tag_list.png"
+  alt="A bulleted list of tags."
+  class="screenshot"
+  visible_width="750px"
+%}
 
 This list is context-dependent: if I've already applied a tag query, it shows me the list of tags for documents that match my query.
 For example, if I selected the "programming" tag, I'd only see the tags used by files that are tagged with "programming".

@@ -49,6 +49,8 @@ module Jekyll
       text = text.gsub(/issue (\d+)/, 'issue&nbsp;\1')
       text = text.gsub(/Apollo (\d{3})/, 'Apollo&nbsp;\1')
 
+      text = text.gsub('P-215', 'P&#8209;215')
+
       phrases = [
         '<em>k</em>-means',
         'Artemis 1',

@@ -42,14 +42,6 @@ Feast your eyes on my evolving skills in web design.
 [noun]: https://thenounproject.com
 [subscriptions]: https://thenounproject.com/pricing/
 
-<style>
-  img {
-    border: 3px solid #f0f0f0;
-    border-radius: 8px;
-    max-width: 80%;
-  }
-</style>
-
 ## Mid 2022 to present: Cards for browsing the archive
 
 Most of the design is the same as in 2018, barring minor tweaks to spacing and text styles.
@@ -57,7 +49,14 @@ I did add cards to the homepage to link to blog posts, as part of [a design refr
 
 I also used this design on the "best of" posts page, because at nearly 350&nbsp;posts it was impossible for anybody who wasn't me to navigate the archive.
 
-![A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border.](/images/site_cards_on_the_homepage.jpg)
+{%
+  picture
+  filename="site_cards_on_the_homepage.jpg"
+  alt="A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border."
+  parent="/images"
+  visible_width="532px"
+  class="screenshot"
+%}
 
 ## 2018 to mid-2022: A bio on the homepage
 
@@ -66,12 +65,26 @@ I continue to tweak the styles, but the major themes are the same: Georgia for t
 I finally ditched the blog list from the homepage, because it was difficult to get a sense of the site -- what you saw would vary based on what I'd written most recently, and if it was a really long post you might never see anything else!
 I replaced the homepage with a bio and a profile picture, with links out to blog posts but not jumping straight into the content.
 
-![A red stripe along the top of the site, with a large picture of a face on the right and a bio in the body of the page.](/images/site_bio_homepage.png)
+{%
+  picture
+  filename="site_bio_homepage.jpg"
+  alt="A red stripe along the top of the site, with a large picture of a face on the right and a bio in the body of the page."
+  parent="/images"
+  visible_width="600px"
+  class="screenshot"
+%}
 
 I also added new code to tweak the accent colour and the stripe, so I can theme individual pages if it suits the content.
 Here's a purple page:
 
-![An article with a purple stripe across the top, and purple text in the title.](/images/site_purplestripe.png)
+{%
+  picture
+  filename="site_purplestripe.png"
+  alt="An article with a purple stripe across the top, and purple text in the title."
+  parent="/images"
+  visible_width="600px"
+  class="screenshot"
+%}
 
 ## 2016: A speckled red header
 
@@ -80,7 +93,14 @@ I kept cutting the vertical height of the header -- on small phone screens, you'
 I also added the speckled background, which I've really liked as a bit of lightweight visual flare (barely 2KB).
 It falls back to a solid red stripe if the image doesn't load.
 
-![A red stripe with speckled squares at the top of the page, with an article below it.](/images/site_bloglist.png)
+{%
+  picture
+  filename="site_bloglist.png"
+  alt="A red stripe with speckled squares at the top of the page, with an article below it."
+  parent="/images"
+  visible_width="600px"
+  class="screenshot"
+%}
 
 ## Late 2014: The first red stripe
 
@@ -89,7 +109,14 @@ I've tweaked this design quite a bit since the first version --- the stripe beca
 
 Sometime in 2015, I swapped out the sans serif font (this screenshot is Avenir) for a serif font (Georgia), which is the current font.
 
-![A tall reddish-orange strip with the name “alexwlchan” and a bio line, with an article below it.](/images/site_redstripe.png)
+{%
+  picture
+  filename="site_redstripe.png"
+  alt="A tall reddish-orange strip with the name “alexwlchan” and a bio line, with an article below it."
+  parent="/images"
+  visible_width="600px"
+  class="screenshot"
+%}
 
 ## Early 2014: What is that sidebar?
 
@@ -97,22 +124,50 @@ The site went through another redesign and two font changes in 2014, as well as 
 If I'd put anything more useful there it might have worked, but it just had the links that had been in the header.
 This only lasted a few months before I moved the sidebar back into the header, and then redesigned the site again.
 
-![A white background site with a sidebar on the left and an article in the main area.](/images/site_redwhite2a.png)
+{%
+  picture
+  filename="site_redwhite2a.png"
+  alt="A white background site with a sidebar on the left and an article in the main area."
+  parent="/images"
+  visible_width="539px"
+  class="screenshot"
+%}
 
-![The same design, but with a slightly different font.](/images/site_redwhite2b.png)
+{%
+  picture
+  filename="site_redwhite2b.png"
+  alt="The same design, but with a slightly different font."
+  parent="/images"
+  visible_width="539px"
+  class="screenshot"
+%}
 
 ## 2013: A big name design
 
 The first major redesign introduced the red-and-white that's been a common theme ever since, along with a name in the header that seems ridiculously large to me today.
 
-![The name “Alex Chan” in big red letters at the top, then an article below it.](/images/site_redwhite1.png)
+{%
+  picture
+  filename="site_redwhite1.png"
+  alt="The name “Alex Chan” in big red letters at the top, then an article below it."
+  parent="/images"
+  visible_width="478px"
+  class="screenshot"
+%}
 
 ## Late 2012: Octopress
 
 The original site was a lightly modified version of the default Octopress theme, with a blue tint that didn't last.
 I'm pretty sure I had a red version of this theme, but neither the Wayback Machine nor my screenshots provide any evidence that it existed.
 
-![The name “Alex Chan” at the top, set against a dark blue background, then an article below it.](/images/site_octopress.png)
+{%
+  picture
+  filename="site_octopress.png"
+  alt="The name “Alex Chan” at the top, set against a dark blue background, then an article below it."
+  parent="/images"
+  visible_width="478px"
+  class="screenshot"
+%}
 
 [heroku]: https://www.heroku.com/
 [ghp]: https://pages.github.com/
