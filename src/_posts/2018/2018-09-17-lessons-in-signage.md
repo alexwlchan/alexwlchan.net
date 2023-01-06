@@ -36,7 +36,12 @@ But once they were up on the wall, they seemed quite small, and they didn't stan
 In the picture below, a glance down the corridor doesn't tell you much -- doubling the size to A3 (or even bigger in some cases!) would have been a big improvement in legibility.
 
 <figure>
-  <img src="/images/2018/corridor-signs.jpg" alt="A corridor with double doors at the end, single doors on the left and right, and signs next to each of the doors.">
+  {%
+    picture
+    filename="corridor-signs.jpg"
+    alt="A corridor with double doors at the end, single doors on the left and right, and signs next to each of the doors."
+    visible_width="750px"
+  %}
   <figcaption>
     Looking down a corridor at Cardiff City Hall.
     Barely visible are the signs for the lift (left), room A (right), and room D (at the end).
@@ -59,7 +64,12 @@ And there were signs we didn't need, but it was nice to be able to make them for
 We had a printer and a laminator to hand, and I'd brought the design files on my laptop, so printing extra signs was quite easy.
 
 <figure style="max-width: 550px;">
-  <img src="/images/2018/toilet-signs.jpg" alt="A sign on bathroom tiling with a yellow stripe at the top labelled “Toilet”.">
+  {%
+    picture
+    filename="toilet-signs.jpg"
+    alt="A sign on bathroom tiling with a yellow stripe at the top labelled “Toilet”."
+    visible_width="550px"
+  %}
   <figcaption>
     A hastily reprinted sign in one of the toilets (the original signs mysteriously disappeared overnight).
     Note the lack of lamination!
@@ -80,7 +90,12 @@ We had at least three "fun" signs around the venue (Ana found one of them above)
 On the arrow signs, the snakes all turn to face the direction of travel.
 
 <figure style="max-width: 550px;">
-  <img src="/images/2018/quiet-room-signs.jpg" alt="A sign on a brown wood-panelled door, with a yellow stripe at the top labelled “Quiet room”.">
+  {%
+    picture
+    filename="quiet-room-signs.jpg"
+    alt="A sign on a brown wood-panelled door, with a yellow stripe at the top labelled “Quiet room”."
+    visible_width="550px"
+  %}
   <figcaption>
     The sign for the quiet room.
     The caption reads: <em>Shhh! Come in to read, code, or just take a break from the outside world for a bit</em>.
@@ -97,7 +112,12 @@ By the time we realised it was an issue, it was a bit late -- there wasn't time 
 One to consider for next year -- be much more careful about other signage that's going up and part of the same event.
 
 <figure style="max-width: 500px;">
-  <img src="/images/2018/mismatched-signs.jpg" alt="A pillar with a white-and-yellow sign labelled “Lower Hall” on one side, and a sign with a red arrow labelled “Education Summit” on the right.">
+  {%
+    picture
+    filename="mismatched-signs.jpg"
+    alt="A pillar with a white-and-yellow sign labelled “Lower Hall” on one side, and a sign with a red arrow labelled “Education Summit” on the right."
+    visible_width="500px"
+  %}
   <figcaption>
     Are these both signs for the same event?
   </figcaption>

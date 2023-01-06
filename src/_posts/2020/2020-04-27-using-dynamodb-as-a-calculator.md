@@ -33,7 +33,12 @@ Do not use this code in production, or within a ten-mile radius of a production 
 This is a satire post, not serious programming.
 
 <figure>
-  <img src="/images/2020/nuclear_waste_1x.jpg" srcset="/images/2020/nuclear_waste_1x.jpg 1x, /images/2020/nuclear_waste_2x.jpg 2x" alt="Yellow barrels with radiation warning signs lying in a field.">
+  {%
+    picture
+    filename="nuclear_waste.jpg"
+    alt="Yellow barrels with radiation warning signs lying in a field."
+    visible_width="750px"
+  %}
   <figcaption>
     Wikimedia Commons says this is a protest against <a href="https://commons.wikimedia.org/wiki/File:WendlandAntiNuclearProtest7.jpg">German nuclear policy</a>, but it's actually a warning about using any of my ideas in production.
   </figcaption>
