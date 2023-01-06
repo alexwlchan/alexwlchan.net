@@ -19,11 +19,11 @@ module Jekyll
       site = context.registers[:site]
       converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
       update_string = "**Update, #{@date.strftime('%-d %B %Y')}:**"
-      <<~EOT
+      <<~HTML
         <blockquote class="update" id="update-#{@date.strftime('%Y-%m-%d')}">
           #{converter.convert(update_string + super(context))}
         </blockquote>
-      EOT
+      HTML
     end
   end
 end

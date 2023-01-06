@@ -116,19 +116,17 @@ module Jekyll
 
       filename = File.basename(media["media_url_https"])
 
-      html = <<-EOT
-<a href="#{expanded_url}">
-  {%
-    picture
-    filename="#{filename}"
-    parent="/images/twitter"
-    #{alt_text.nil? ? "data-proofer-ignore" : "alt=\"#{alt_text}\""}
-    visible_width="496px"
-  %}
-</a>
-EOT
-
-      html
+      <<~HTML
+        <a href="#{expanded_url}">
+          {%
+            picture
+            filename="#{filename}"
+            parent="/images/twitter"
+            #{alt_text.nil? ? 'data-proofer-ignore' : "alt=\"#{alt_text}\""}
+            visible_width="496px"
+          %}
+        </a>
+      HTML
     end
   end
 
@@ -191,7 +189,7 @@ EOT
 
       tpl = Liquid::Template.parse(File.read('src/_includes/tweet.html'))
 
-      tweet_data['extended_entities'] = tweet_data['entities'] unless tweet_data.has_key? 'extended_entities'
+      tweet_data['extended_entities'] = tweet_data['entities'] unless tweet_data.key? 'extended_entities'
 
       # Create a UTF-8 encoded Twitter icon suitable to include as a data URI.
       # This is a bit of a hacky approach to encoding the image that lets
@@ -211,7 +209,6 @@ EOT
 
       # We have to run it through the site's Markdown converter after
       # rendering the initial HTML, so we have access to the picture plugin.
-      markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
       Liquid::Template.parse(input).render!(context)
     end
   end
