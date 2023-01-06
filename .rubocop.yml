@@ -8,7 +8,7 @@ AllCops:
     - 'src/_files/2022/division2.rb'
 
 Layout/LineLength:
-  Enabled: false
+  Max: 130
 
 Lint/MissingCopEnableDirective:
   Enabled: false
