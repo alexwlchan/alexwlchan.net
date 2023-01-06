@@ -37,7 +37,12 @@ Once I could ignore, but four seems pretty conclusive.
 [Goldfinger]: https://en.wikipedia.org/wiki/Goldfinger_(film)
 
 <figure>
-  <img src="/images/2019/goldfinger.jpg" alt="A man in all black (James Bond) is strapped to a table as another man in a golden suit (Goldfinger) overlooks. A large red laser is cutting through the table.">
+  {%
+    picture
+    filename="goldfinger.jpg"
+    alt="A man in all black (James Bond) is strapped to a table as another man in a golden suit (Goldfinger) overlooks. A large red laser is cutting through the table."
+    visible_width="750px"
+  %}
   <figcaption>
     You can tell it's the &rsquo;60s because of the lax attitude to health and safety.
     Where are their laser protection goggles?!
@@ -174,7 +179,12 @@ That's what I'm thinking about right now, and it feels better than "trans woman"
 Right now, I'm experimenting with the labels *genderfluid* and *genderqueer*, and maybe one of those will stick -- but that's a question I'm still considering.
 
 <figure style="width: 400px;">
-  <img src="/images/2019/trans_planet.jpg" alt="A pink embroidery hoop with a Jupiter-like planet with blue, pink and white stripes.">
+  {%
+    picture
+    filename="trans_planet.jpg"
+    alt="A pink embroidery hoop with a Jupiter-like planet with blue, pink and white stripes."
+    visible_width="400px"
+  %}
   <figcaption>
     A subtle trans pride motif I gave my parents when I came out.
     I bought the pattern from <a href="https://www.etsy.com/uk/listing/646054975/trans-pride-planet-cross-stitch-pattern">Mathysphere on Etsy</a>, and stitched it myself.
