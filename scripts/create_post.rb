@@ -11,14 +11,14 @@ end
 title = ARGV[0]
 
 slug = if ARGV.length == 2
-  ARGV[1]
-else
-  title
-    .downcase
-    .gsub(/[^a-z0-9]/, "-")
-    .gsub(/\-{2,}/, "-")
-    .chomp("-")
-end
+         ARGV[1]
+       else
+         title
+           .downcase
+           .gsub(/[^a-z0-9]/, "-")
+           .gsub(/\-{2,}/, "-")
+           .chomp("-")
+       end
 
 out_dir = File.join("src", "_drafts")
 FileUtils.mkdir_p out_dir

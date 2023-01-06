@@ -31,7 +31,7 @@ module Jekyll
       }
 
       site.data["tag_tally"] = tag_tally
-      site.data["visible_tag_tally"] = tag_tally.select { |t, count| count > 1 };
+      site.data["visible_tag_tally"] = tag_tally.select { |_, count| count > 1 };
     end
   end
 end

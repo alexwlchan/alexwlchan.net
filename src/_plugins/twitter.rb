@@ -150,7 +150,7 @@ module Jekyll
       #
       # Cutting a smaller thumbnail should reduce the page weight.
       thumbnail_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
-      if not File.exists? thumbnail_path
+      if not File.exist? thumbnail_path
         image = Rszr::Image.load(path)
         image.resize(108, 108).save(thumbnail_path)
       end
@@ -167,7 +167,7 @@ module Jekyll
       @src = site.config["source"]
       @dst = site.config["destination"]
 
-      if not File.exists? cache_file()
+      if not File.exist? cache_file()
         puts("Missing tweet; please run 'python3 scripts/save_tweet.py #{@tweet_url}'")
         exit!
       end

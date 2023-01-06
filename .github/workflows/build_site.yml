@@ -1,85 +1,85 @@
-name: build_site
-
-on:
-  push:
-    branches:
-    - live
-    
-    paths-ignore:
-      - 'scripts/**'
-    
-  pull_request:
-    branches:
-    - live
-
-    paths-ignore:
-      - 'scripts/**'
-  
-  # This daily rebuild is to avoid GitHub Actions purging the site cache,
-  # because regenerating all the image thumbnails would be a PITA:
-  #
-  #     GitHub will remove any cache entries that have not been
-  #     accessed in over 7 days.  
-  #
-  # See https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
-  schedule:
-    - cron: "30 7 * * *"
-
-jobs:
-  build:
-    name: Build the website
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Check out the repo"
-        uses: actions/checkout@v3
-
-      - name: "Cache site output"
-        uses: "actions/cache@v3"
-        with:
-          path: "_site"
-          key: "site-${{ github.sha }}"
-          restore-keys: "site-"
-
-      - name: "Build the site"
-        run: make html-drafts
-
-      - name: "Run linting"
-        run: make lint
-
-      - name: "Merge pull request"
-        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
-        run: .github/workflows/merge_pull_request.sh
-
-        # Note: this uses a personal access token, not the default GitHub token;
-        # this is so that GitHub will build the resulting merged commit to main.
-        # See https://github.com/ad-m/github-push-action/issues/32
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
-      - name: "Publish drafts"
-        if: github.ref == 'refs/heads/live'
-        run: |
-          if [[ -d "src/_drafts" ]]
-          then
-            touch ~/.gitconfig
-
-            git config user.name "GitHub Actions on behalf of Alex Chan"
-            git config user.email "githubactions@alexwlchan.net"
-
-            git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
-
-            make publish-drafts
-            make html
-          else
-            echo "There is no _drafts folder, so nothing to publish!"
-          fi
-
-      - name: "Deploy to Netlify"
-        if: github.ref == 'refs/heads/live'
-        run: make deploy-prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-      - name: "Push any commits to GitHub"
-        if: github.ref == 'refs/heads/live'
-        run: git push --verbose origin live
+# name: build_site
+#
+# on:
+#   push:
+#     branches:
+#     - live
+#
+#     paths-ignore:
+#       - 'scripts/**'
+#
+#   pull_request:
+#     branches:
+#     - live
+#
+#     paths-ignore:
+#       - 'scripts/**'
+#
+#   # This daily rebuild is to avoid GitHub Actions purging the site cache,
+#   # because regenerating all the image thumbnails would be a PITA:
+#   #
+#   #     GitHub will remove any cache entries that have not been
+#   #     accessed in over 7 days.
+#   #
+#   # See https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
+#   schedule:
+#     - cron: "30 7 * * *"
+#
+# jobs:
+#   build:
+#     name: Build the website
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: "Check out the repo"
+#         uses: actions/checkout@v3
+#
+#       - name: "Cache site output"
+#         uses: "actions/cache@v3"
+#         with:
+#           path: "_site"
+#           key: "site-${{ github.sha }}"
+#           restore-keys: "site-"
+#
+#       - name: "Build the site"
+#         run: make html-drafts
+#
+#       - name: "Run linting"
+#         run: make lint
+#
+#       - name: "Merge pull request"
+#         if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
+#         run: .github/workflows/merge_pull_request.sh
+#
+#         # Note: this uses a personal access token, not the default GitHub token;
+#         # this is so that GitHub will build the resulting merged commit to main.
+#         # See https://github.com/ad-m/github-push-action/issues/32
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+#
+#       - name: "Publish drafts"
+#         if: github.ref == 'refs/heads/live'
+#         run: |
+#           if [[ -d "src/_drafts" ]]
+#           then
+#             touch ~/.gitconfig
+#
+#             git config user.name "GitHub Actions on behalf of Alex Chan"
+#             git config user.email "githubactions@alexwlchan.net"
+#
+#             git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
+#
+#             make publish-drafts
+#             make html
+#           else
+#             echo "There is no _drafts folder, so nothing to publish!"
+#           fi
+#
+#       - name: "Deploy to Netlify"
+#         if: github.ref == 'refs/heads/live'
+#         run: make deploy-prod
+#         env:
+#           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+#
+#       - name: "Push any commits to GitHub"
+#         if: github.ref == 'refs/heads/live'
+#         run: git push --verbose origin live

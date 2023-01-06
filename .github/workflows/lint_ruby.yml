@@ -1,0 +1,34 @@
+name: "lint_ruby"
+
+on:
+  push:
+    branches:
+    - live
+
+    paths:
+      - '**/*.rb'
+
+  pull_request:
+    branches:
+    - live
+
+    paths:
+      - '**/*.rb'
+
+jobs:
+  build:
+    name: Lint the Ruby code
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out the repo"
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Run rubocop
+        run: |
+          gem install rubocop
+          rubocop --fail-level E --display-only-fail-level-offenses
