@@ -115,7 +115,7 @@ Jekyll::Hooks.register :site, :post_render do
       jobs.push(JSON.parse(line))
     end
 
-    puts 'Creating images...'
+    puts "Creating #{queue.length} images..."
 
     workers = 5.times.map do
       Thread.new do
