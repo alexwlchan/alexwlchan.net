@@ -35,9 +35,9 @@ class RunLinting < Jekyll::Command
           :disable_external => true,
           :report_invalid_tags => true,
           :alt_ignore => [
-            "/theme/file_javascript_2x.png",
-            "/theme/file_python_2x.png",
-            "/theme/file_zip_2x.png",
+            "/theme/file_javascript_1x.png",
+            "/theme/file_python_1x.png",
+            "/theme/file_zip_1x.png",
           ],
         }).run
     end
