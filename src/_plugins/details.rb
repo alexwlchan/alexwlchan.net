@@ -31,11 +31,11 @@ module Jekyll
       markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
       ttext = super
 
-      <<~EOT
+      <<~HTML
         <details>
           #{markdown_converter.convert(ttext)}
         </details>
-      EOT
+      HTML
     end
   end
 end

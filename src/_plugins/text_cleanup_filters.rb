@@ -66,7 +66,7 @@ module Jekyll
         'Route 53'
       ]
 
-      for p in phrases
+      phrases.each do |p|
         replacement = p.gsub(' ', '&nbsp;').gsub('-', '&#8209;')
         text = text.gsub(p, replacement)
       end

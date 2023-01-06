@@ -8,7 +8,7 @@
   {% if tweet_data["extended_entities"]["media"].size > 0 %}
   <div class="media media-{{ tweet_data["extended_entities"]["media"]|size }}">
     {% for media in tweet_data["extended_entities"]["media"] %}
-      {{ media | tweet_image: override_alt_text }}
+      {{ media | tweet_image }}
     {% endfor %}
   </div>
   {% endif %}

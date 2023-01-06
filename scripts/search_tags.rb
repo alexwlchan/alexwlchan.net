@@ -20,7 +20,7 @@ Dir.glob('src/**/*.md') do |path|
 
   next if tags.nil?
 
-  metadata['tags'].split(' ').each do |t|
+  metadata['tags'].split.each do |t|
     tally[t] += 1
   end
 end

@@ -40,7 +40,7 @@ module Jekyll
 
       addr
         .chars.map { |char| _encode_email_char(char, seeded_random) }
-        .join('')
+        .join
     end
 
     def encode_mailto(addr)

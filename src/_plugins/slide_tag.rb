@@ -46,7 +46,7 @@ module Jekyll
                   "<figcaption>#{markdown_converter.convert(@caption)}</figcaption>"
                 end
 
-      input = <<~EOF
+      input = <<~HTML
         <figure class="slide">
           {%
             picture
@@ -58,7 +58,7 @@ module Jekyll
           %}
           #{caption}
         </figure>
-      EOF
+      HTML
 
       Liquid::Template.parse(input).render!(context)
     end

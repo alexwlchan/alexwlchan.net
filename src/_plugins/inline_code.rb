@@ -13,7 +13,7 @@ module Jekyll
   class InlineCodeTag < Liquid::Tag
     def initialize(_tag_name, text, _tokens)
       super
-      @lang, @path = text.strip.split(' ')
+      @lang, @path = text.strip.split
     end
 
     def render(context)

@@ -67,7 +67,7 @@ class RunLinting < Jekyll::Command
       )
 
       no_archive_writing = elsewhere['writing']
-                           .filter { |w| !w.has_key? 'archived_paths' }
+                           .filter { |w| !w.key? 'archived_paths' }
 
       return if no_archive_writing.empty?
 
@@ -116,19 +116,18 @@ class RunLinting < Jekyll::Command
         meta_tags_map = meta_tags
                         .reject { |mt| mt.attribute('name').nil? && mt.attribute('property').nil? }
                         .reject { |mt| mt.attribute('content').nil? }
-                        .map do |mt|
-          name = (mt.attribute('name') || mt.attribute('property')).value
-          content = mt.attribute('content').value
+                        .to_h do |mt|
+                          name = (mt.attribute('name') || mt.attribute('property')).value
+                          content = mt.attribute('content').value
 
-          [name, content]
-        end
-                        .to_h
+                          [name, content]
+                        end
 
         if meta_tags_map['twitter:card'] != 'summary' && meta_tags_map['twitter:card'] != 'summary_large_image'
           errors[display_path] <<= "Twitter card has an invalid card type #{meta_tags_map['twitter:card']}"
         end
 
-        for image_name in ['twitter:image', 'og:image']
+        ['twitter:image', 'og:image'].each do |image_name|
           # e.g. http://0.0.0.0:5757/images/profile_red_square2.jpg
           #
           # This uses the site.uri variable, which varies based on the build
@@ -208,9 +207,9 @@ class RunLinting < Jekyll::Command
           md_path.start_with?('src/_drafts/')
         )
 
-        errors[md_path] <<= "layout should be 'post'" if is_in_post_directory and front_matter['layout'] != 'post'
+        errors[md_path] <<= "layout should be 'post'" if is_in_post_directory && front_matter['layout'] != 'post'
 
-        errors[md_path] <<= "layout should be 'page'" if !is_in_post_directory and front_matter['layout'] != 'page'
+        errors[md_path] <<= "layout should be 'page'" if !is_in_post_directory && front_matter['layout'] != 'page'
       end
 
       report_errors(errors)
@@ -299,7 +298,7 @@ class RunLinting < Jekyll::Command
           .each_with_index do |line, i|
         lineno = i + 1
 
-        next if line.start_with? '#' or line.strip.empty?
+        next if (line.start_with? '#') || line.strip.empty?
 
         # This is a bit of a special case that I don't worry about.
         next if line.start_with? '/ideas-for-inclusive-events/'
@@ -353,7 +352,7 @@ class RunLinting < Jekyll::Command
       # we show the HTML path instead.
       md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
 
-      if md_path == '' or md_path.nil?
+      if md_path == '' || md_path.nil?
         html_path
       else
         "src/#{md_path}"
