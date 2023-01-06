@@ -76,7 +76,12 @@ I usually sketch little graphs on scrap paper during a lesson, as a way to remem
 That works well on a small scale, but you can see it's already getting a bit messy: lines are overlapping, phrases are getting boxed in, and I'm running out of room on the paper.
 
 <figure style="width: 500px;">
-<img src="/images/2020/chinese_directions.jpg" alt="A handwritten page with various characters and arrows between them.">
+  {%
+    picture
+    filename="chinese_directions.jpg"
+    alt="A handwritten page with various characters and arrows between them."
+    visible_width="500px"
+  %}
 </figure>
 
 I wanted to see if drawing this graph digitally would be any better: in theory, a digital canvas makes it easier to rearrange the graph, and it can extend forever.
@@ -93,7 +98,13 @@ I found some libraries to do the hard bits:
 I wrapped these two libraries in a web app using [Flask](https://flask.palletsprojects.com/en/1.1.x/), and then added some words to see how well it works.
 That gives me a page that shows me a phrase and everything that is either directly related or one step away:
 
-<img src="/images/2020/vocab_graph_1x.png" srcset="/images/2020/vocab_graph_1x.png 1x, /images/2020/vocab_graph_2x.png 2x" style="border: 2px solid #725001; border-radius: 7px;" alt="Screenshot of a web app with a graph connecting some Chinese characters.">
+{%
+  picture
+  filename="vocab_graph.png"
+  style="border: 2px solid #725001; border-radius: 7px;"
+  alt="Screenshot of a web app with a graph connecting some Chinese characters."
+  visible_width="750px"
+%}
 
 The graph is interactive: I can click on a phrase to jump to it, and see a graph with its related phrases.
 **I can explore the vocabulary by using the graph.**
