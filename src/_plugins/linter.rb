@@ -193,6 +193,12 @@ class RunLinting < Jekyll::Command
           next
         end
 
+        # This page is a special case for crawlers and doesn't count for
+        # the purposes of linting and the like.
+        if md_path == "#{src_dir}/400.md"
+          next
+        end
+
         # The YAML loader will try to be "smart" (e.g. reading dates as
         # proper Ruby date types), which is unhelpful for json-schema checking.
         #
