@@ -46,12 +46,6 @@ module Jekyll
     def encode_mailto(addr)
       encode_email("mailto:#{addr}")
     end
-
-    def create_mailto_link(addr)
-      mailto_addr = encode_email("mailto:#{addr}")
-      email_addr = encode_email(addr)
-      "<a href=\"#{mailto_addr}\">#{email_addr}</a>"
-    end
   end
 end
 
