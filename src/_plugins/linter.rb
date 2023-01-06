@@ -109,7 +109,7 @@ class RunLinting < Jekyll::Command
         end
 
         doc = Nokogiri::HTML(File.open(html_path))
-        display_path = get_display_path(doc)
+        display_path = get_display_path(html_path, doc)
 
         meta_tags = doc.xpath("//meta")
 
@@ -251,7 +251,7 @@ class RunLinting < Jekyll::Command
         end
 
         doc = Nokogiri::HTML(File.open(html_path))
-        display_path = get_display_path(doc)
+        display_path = get_display_path(html_path, doc)
 
         localhost_links = doc.xpath("//a")
           .select { |a|
@@ -368,7 +368,7 @@ class RunLinting < Jekyll::Command
       end
     end
 
-    def get_display_path(doc)
+    def get_display_path(html_path, doc)
       # Look up the Markdown file that was used to create this file.
       #
       # This means the error report can link to the source file, not
