@@ -28,7 +28,12 @@ At the end of each section or chapter, I scribble a few notes, and move on.
 I'm trying to capture the major ideas, interesting stories, or passages I want to save verbatim.
 
 <figure style="width: 500px;">
-  <img src="/images/2020/chinese_typewriter_notes_1x.jpg" srcset="/images/2020/chinese_typewriter_notes_1x.jpg 1x, /images/2020/chinese_typewriter_notes_2x.jpg 2x, /images/2020/chinese_typewriter_notes_3x.jpg 3x" alt="A book opened to a page halfway through (left) and some scraps of paper with scratchy handwriting (right).">
+  {%
+    picture
+    filename="chinese_typewriter_notes.jpg"
+    alt="A book opened to a page halfway through (left) and some scraps of paper with scratchy handwriting (right)."
+    visible_width="500px"
+  %}
   <figcaption>
     Left: <em>The Chinese Typewriter</em>, by Thomas Mullaney.
     Right: my notes on the same.
@@ -45,7 +50,12 @@ I turn them into full sentences, add any extra details I thought were worth noti
 I'll even recreate diagrams if I find them useful.
 
 <figure style="width: 500px;">
-  <img src="/images/2020/book_notes_1x.png" srcset="/images/2020/book_notes_1x.png 1x, /images/2020/book_notes_2x.png 2x" alt="Screenshot of a note-taking app.">
+  {%
+    picture
+    filename="book_notes.png"
+    alt="Screenshot of a note-taking app."
+    visible_width="500px"
+  %}
   <figcaption>
     Left: notes written in <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> using the notes app <a href="https://brettterpstra.com/projects/nvalt/">nvALT</a>.
     Right: notes rendered using <a href="https://marked2app.com/">Marked&nbsp;2</a>.
