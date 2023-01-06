@@ -29,7 +29,12 @@ Some clear head space helps me through the day.
 PyCon was held in [Cardiff City Hall](https://en.wikipedia.org/wiki/City_Hall,_Cardiff), and the designated quiet room was the [Council Chamber](https://en.wikipedia.org/wiki/City_Hall,_Cardiff#Council_Chamber).
 It's a really nice and large space:
 
-![The council chamber at Cardiff City Hall](/images/2016/council-chamber.jpg)
+{%
+  picture
+  filename="council-chamber.jpg"
+  alt="The council chamber at Cardiff City Hall"
+  visible_width="750px"
+%}
 
 If there hadn't been a quiet room, I'd have worn out much faster and probably been miserable towards the end of the conference.
 It made a big difference to my experience.
