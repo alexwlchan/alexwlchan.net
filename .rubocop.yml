@@ -40,6 +40,9 @@ Metrics/PerceivedComplexity:
 Naming/MethodParameterName:
   Enabled: false
 
+Style/AndOr:
+  Enabled: false
+
 Style/CombinableLoops:
   Enabled: false
 
@@ -59,4 +62,7 @@ Style/MutableConstant:
   Enabled: false
 
 Style/StringConcatenation:
+  Enabled: false
+
+Style/YodaCondition:
   Enabled: false
