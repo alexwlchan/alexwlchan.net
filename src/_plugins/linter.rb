@@ -379,7 +379,11 @@ class RunLinting < Jekyll::Command
       # we show the HTML path instead.
       md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
 
-      md_path == "" ? html_path : "src/#{md_path}"
+      if md_path == "" or md_path.nil?
+        html_path
+      else
+        "src/#{md_path}"
+      end
     end
   end
 end
