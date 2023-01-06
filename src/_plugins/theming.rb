@@ -96,7 +96,7 @@ def colours_like(hex_colour)
     luminosity_diff = max_luminosity - min_luminosity
 
     while true
-      hsl_colour.luminosity = min_luminosity + seeded_random.rand() * luminosity_diff
+      hsl_colour.luminosity = min_luminosity + (seeded_random.rand() * luminosity_diff)
       enum.yield hsl_colour.to_rgb
     end
   end

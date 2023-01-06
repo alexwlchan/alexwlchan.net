@@ -1,0 +1,14 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.1
+
+  Exclude:
+    - '_site/**/*'
+    - 'src/_files/2022/division1.rb'
+    - 'src/_files/2022/division2.rb'
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Lint/SuppressedException:
+  Enabled: false

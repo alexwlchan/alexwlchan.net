@@ -55,7 +55,7 @@ module Jekyll
       @contents = name.strip.tr! '"', ''
     end
 
-    def render(context)
+    def render(_)
       "<center class='separator' aria-hidden='true'>" + @contents + "</center>"
     end
   end
