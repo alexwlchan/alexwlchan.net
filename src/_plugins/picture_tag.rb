@@ -118,7 +118,7 @@ Jekyll::Hooks.register :site, :post_render do |site|
 
     puts "Creating images..."
 
-    workers = (10).times.map do
+    workers = (5).times.map do
       Thread.new do
         begin
           while this_job = jobs.pop(true)
