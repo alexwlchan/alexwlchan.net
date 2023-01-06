@@ -10,4 +10,4 @@ module Jekyll
   end
 end
 
-Liquid::Template::register_filter(Jekyll::CssFilters)
+Liquid::Template.register_filter(Jekyll::CssFilters)

@@ -11,8 +11,7 @@
 # of complication that I don't want right now.
 
 require 'fileutils'
-require 'shell/executer.rb'
-
+require 'shell/executer'
 
 class PublishDrafts < Jekyll::Command
   class << self
@@ -20,21 +19,19 @@ class PublishDrafts < Jekyll::Command
       prog.command(:publish_drafts) do |cmd|
         cmd.action do |_, options|
           options = configuration_from_options(options)
-          publish_drafts(options["source"])
+          publish_drafts(options['source'])
         end
       end
     end
 
     def publish_drafts(source_dir)
-      puts "*** Publishing drafts"
+      puts '*** Publishing drafts'
       Dir.chdir(source_dir) do
-        drafts_dir = "_drafts"
+        drafts_dir = '_drafts'
 
         tracked_drafts = `git ls-tree --name-only HEAD #{drafts_dir}/`.split("\n")
 
-        if tracked_drafts.empty?
-          puts "*** No drafts to publish!"
-        end
+        puts '*** No drafts to publish!' if tracked_drafts.empty?
 
         now = Time.now
 
@@ -42,7 +39,7 @@ class PublishDrafts < Jekyll::Command
           puts "*** Publishing draft post #{entry}"
 
           name = File.basename(entry)
-          new_name = File.join("_posts", now.strftime("%Y"), "#{now.strftime('%Y-%m-%d')}-#{name}")
+          new_name = File.join('_posts', now.strftime('%Y'), "#{now.strftime('%Y-%m-%d')}-#{name}")
           FileUtils.mkdir_p File.dirname(new_name)
           File.rename(entry, new_name)
 
@@ -52,8 +49,9 @@ class PublishDrafts < Jekyll::Command
           doc = File.read(new_name)
           doc = doc.gsub(
             /layout:\s+post\s*\n/,
-            "layout: post\ndate: #{now}\n")
-          File.open(new_name, 'w') { |f| f.write(doc) }
+            "layout: post\ndate: #{now}\n"
+          )
+          File.write(new_name, doc)
 
           puts "*** Creating Git commit for #{entry}"
           Shell.execute!("git rm #{entry}")

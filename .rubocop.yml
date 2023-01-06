@@ -7,8 +7,62 @@ AllCops:
     - 'src/_files/2022/division1.rb'
     - 'src/_files/2022/division2.rb'
 
+Layout/LineLength:
+  Enabled: false
+
+Lint/MissingCopEnableDirective:
+  Enabled: false
+
 Lint/ShadowingOuterLocalVariable:
   Enabled: false
 
 Lint/SuppressedException:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/CombinableLoops:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Style/YodaCondition:
   Enabled: false

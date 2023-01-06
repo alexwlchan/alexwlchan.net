@@ -7,10 +7,9 @@
 
 module Jekyll
   class UpdateBlock < Liquid::Block
-
     def initialize(tag_name, markup, options)
       super
-      @date = Date.parse(markup, "%Y-%m-%d")
+      @date = Date.parse(markup, '%Y-%m-%d')
     end
 
     def render(context)
@@ -19,12 +18,12 @@ module Jekyll
       # https://stackoverflow.com/q/19169849/1558022
       site = context.registers[:site]
       converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
-      update_string = "**Update, #{@date.strftime("%-d %B %Y")}:**"
-      <<-EOT
-<blockquote class="update" id="update-#{@date.strftime('%Y-%m-%d')}">
-  #{converter.convert(update_string + super(context))}
-</blockquote>
-EOT
+      update_string = "**Update, #{@date.strftime('%-d %B %Y')}:**"
+      <<~HTML
+        <blockquote class="update" id="update-#{@date.strftime('%Y-%m-%d')}">
+          #{converter.convert(update_string + super(context))}
+        </blockquote>
+      HTML
     end
   end
 end

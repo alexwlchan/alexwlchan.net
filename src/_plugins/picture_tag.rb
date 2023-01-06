@@ -63,11 +63,11 @@
 # This example files the image in something other than the per-year directory:
 #
 #     {%
-#.      picture
-#.      filename="profile_green.jpg"
-#.      parent="/images"
-#.      visible_width="750px"
-#.    %}
+#        picture
+#        filename="profile_green.jpg"
+#        parent="/images"
+#        visible_width="750px"
+#      %}
 #
 # Any other attribute (e.g. `style`) will be passed directly to the underlying
 # <img> tag, which allows you to apply styles or behaviours not covered by
@@ -87,7 +87,7 @@
 
 require 'fileutils'
 require 'json'
-require 'shell/executer.rb'
+require 'shell/executer'
 require 'shellwords'
 
 require 'rszr'
@@ -95,12 +95,12 @@ require 'rszr'
 require_relative 'plugin_base'
 
 class ImageFormat
-  AVIF = { :extension => ".avif", :mime_type => "image/avif" }
+  AVIF = { extension: '.avif', mime_type: 'image/avif' }
 
-  WEBP = { :extension => ".webp", :mime_type => "image/webp" }
+  WEBP = { extension: '.webp', mime_type: 'image/webp' }
 
-  JPEG = { :extension => ".jpg",  :mime_type => "image/jpeg" }
-  PNG  = { :extension => ".png",  :mime_type => "image/png" }
+  JPEG = { extension: '.jpg',  mime_type: 'image/jpeg' }
+  PNG  = { extension: '.png',  mime_type: 'image/png' }
 end
 
 Jekyll::Hooks.register :site, :after_reset do
@@ -108,28 +108,27 @@ Jekyll::Hooks.register :site, :after_reset do
 end
 
 Jekyll::Hooks.register :site, :post_render do
-  if File.exist? ".missing_images.json"
+  if File.exist? '.missing_images.json'
     jobs = Queue.new
 
     File.readlines('.missing_images.json').uniq.each do |line|
-      jobs.push(JSON.load(line))
+      jobs.push(JSON.parse(line))
     end
 
-    puts "Creating images..."
+    puts 'Creating images...'
 
-    workers = (5).times.map do
+    workers = 5.times.map do
       Thread.new do
-        begin
-          while (this_job = jobs.pop(true))
-            FileUtils.mkdir_p File.dirname(this_job["out_path"])
+        while (this_job = jobs.pop(true))
+          FileUtils.mkdir_p File.dirname(this_job['out_path'])
 
-            resize = "#{this_job["width"]}x#{this_job["height"]}"
-            in_file = Shellwords.escape(this_job["source_path"])
-            out_file = Shellwords.escape(this_job["out_path"])
+          resize = "#{this_job['width']}x#{this_job['height']}"
+          in_file = Shellwords.escape(this_job['source_path'])
+          out_file = Shellwords.escape(this_job['out_path'])
 
-            Shell.execute("convert #{in_file} -resize #{resize} #{out_file}")
-          end
+          Shell.execute("convert #{in_file} -resize #{resize} #{out_file}")
         end
+
       rescue ThreadError
       end
     end
@@ -146,47 +145,46 @@ module Jekyll
       @attrs = parse_attrs(params_string)
 
       @filename = get_required_attribute(
-        @attrs, { :tag => "picture", :attribute => "filename" }
+        @attrs, { tag: 'picture', attribute: 'filename' }
       )
 
       @visible_width = get_required_attribute(
-        @attrs, { :tag => "picture", :attribute => "visible_width" }
+        @attrs, { tag: 'picture', attribute: 'visible_width' }
       ).gsub(/px/, '').to_i
 
-      @parent = @attrs.delete("parent")
+      @parent = @attrs.delete('parent')
 
-      @link_to_original = @attrs.include? "link_to_original"
-      @attrs.delete("link_to_original")
+      @link_to_original = @attrs.include? 'link_to_original'
+      @attrs.delete('link_to_original')
     end
 
     def render(context)
       # This allows us to deduce the source path of the image
       site = context.registers[:site]
-      src = site.config["source"]
-      dst = site.config["destination"]
+      src = site.config['source']
+      dst = site.config['destination']
 
       if @parent.nil?
         # If this tag is called in the context of a blog post, we have access
         # to the post date -- and images are filed in per-year directories
         # to match posts.
-        year = context.registers[:page]["date"].year
+        year = context.registers[:page]['date'].year
 
         source_path = "#{src}/_images/#{year}/#{@filename}"
-        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, ".*")}".gsub('/./', '/')
+        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, '.*')}".gsub('/./',
+                                                                                                               '/')
       else
         source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
-        dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, ".*")}".gsub('//', '/')
+        dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, '.*')}".gsub('//', '/')
       end
 
-      if !File.exist? source_path
-        raise RuntimeError, "Image #{source_path} does not exist"
-      end
+      raise "Image #{source_path} does not exist" unless File.exist? source_path
 
       image = Rszr::Image.load(source_path)
       im_format = get_format(source_path)
 
       if image.width < @visible_width
-        raise RuntimeError, "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@visible_width}px"
+        raise "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@visible_width}px"
       end
 
       # These two attributes allow the browser to completely determine
@@ -195,40 +193,40 @@ module Jekyll
       # term for this is "Cumulative Layout Shift".
       #
       # See https://web.dev/optimize-cls/
-      @attrs["width"] = @visible_width
-      @attrs["style"] = "aspect-ratio: #{image.width} / #{image.height}; #{@attrs["style"] || ""}"
+      @attrs['width'] = @visible_width
+      @attrs['style'] = "aspect-ratio: #{image.width} / #{image.height}; #{@attrs['style'] || ''}"
 
       sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width)
 
-      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
+      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
-      inner_html = <<-EOF
-<picture>
-  <source
-    srcset="#{sources[ImageFormat::AVIF].join(",\n            ")}"
-    type="image/avif"
-  >
-  <source
-    srcset="#{sources[ImageFormat::WEBP].join(",\n            ")}"
-    type="image/webp"
-  >
-  <source
-    srcset="#{sources[im_format].join(",\n            ")}"
-    type="#{im_format[:mime_type]}"
-  >
-  <img
-    src="#{sources[im_format][0].gsub(" 1x", "")}"
-    #{extra_attributes}
-  >
-</picture>
-EOF
+      inner_html = <<~HTML
+        <picture>
+          <source
+            srcset="#{sources[ImageFormat::AVIF].join(",\n            ")}"
+            type="image/avif"
+          >
+          <source
+            srcset="#{sources[ImageFormat::WEBP].join(",\n            ")}"
+            type="image/webp"
+          >
+          <source
+            srcset="#{sources[im_format].join(",\n            ")}"
+            type="#{im_format[:mime_type]}"
+          >
+          <img
+            src="#{sources[im_format][0].gsub(' 1x', '')}"
+            #{extra_attributes}
+          >
+        </picture>
+      HTML
 
       if @link_to_original
-        <<-EOF
-<a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">
-  #{inner_html.split("\n").map { |s| "  #{s}"}.join("\n")}
-</a>
-EOF
+        <<~HTML
+          <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">
+            #{inner_html.split("\n").map { |s| "  #{s}" }.join("\n")}
+          </a>
+        HTML
       else
         inner_html.strip
       end
@@ -237,26 +235,26 @@ EOF
     def prepare_images(source_path, image, im_format, dst_prefix, visible_width)
       sources = Hash.new { [] }
 
-      for pixel_density in 1..3
+      (1..3).each do |pixel_density|
         width = pixel_density * visible_width
 
-        if image.width >= width
-          for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-            out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
+        next unless image.width >= width
 
-            if !File.exist? out_path
-              open(".missing_images.json", "a") { |f|
-                f.puts JSON.generate({
-                  out_path: out_path,
-                  source_path: source_path,
-                  width: width,
-                  height: (image.height * width / image.width).to_i,
-                })
-              }
+        [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
+          out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
+
+          unless File.exist? out_path
+            open('.missing_images.json', 'a') do |f|
+              f.puts JSON.generate({
+                                     out_path:,
+                                     source_path:,
+                                     width:,
+                                     height: (image.height * width / image.width).to_i
+                                   })
             end
-
-            sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{pixel_density}x"
           end
+
+          sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{pixel_density}x"
         end
       end
 
@@ -266,15 +264,15 @@ EOF
     # Get some useful info about the file format
     def get_format(path)
       case File.extname(path)
-        when ".png"
-          ImageFormat::PNG
-        when ".jpg"
-          ImageFormat::JPEG
-        else
-          raise RuntimeError, "Unrecognised image extension: #{File.extname(path)}"
+      when '.png'
+        ImageFormat::PNG
+      when '.jpg'
+        ImageFormat::JPEG
+      else
+        raise "Unrecognised image extension: #{File.extname(path)}"
       end
     end
   end
 end
 
-Liquid::Template.register_tag("picture", Jekyll::PictureTag)
+Liquid::Template.register_tag('picture', Jekyll::PictureTag)
