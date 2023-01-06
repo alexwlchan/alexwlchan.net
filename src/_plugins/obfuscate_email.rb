@@ -4,34 +4,31 @@
 
 module Jekyll
   module EmailObfuscationFilter
-
     # Based on similar obfuscation code from Markdown.pl 1.0.1, the original
     # Markdown implementation, L1190-1239.
     # See https://daringfireball.net/projects/markdown/
     def _encode_email_char(char, seeded_random)
       encoded_chars = [
-        "&#"  + char.ord.to_s     + ";",
-        "&#x" + char.ord.to_s(16) + ";",
-                char,
+        '&#'  + char.ord.to_s     + ';',
+        '&#x' + char.ord.to_s(16) + ';',
+        char
       ]
 
-      r = seeded_random.rand()
+      r = seeded_random.rand
 
       # This must be encoded
-      if char == "@"
+      if char == '@'
         if r > 0.5
           encoded_chars[0]
         else
           encoded_chars[1]
         end
+      elsif r > 0.9
+        encoded_chars[2]
+      elsif r < 0.45
+        encoded_chars[1]
       else
-        if r > 0.9
-          encoded_chars[2]
-        elsif r < 0.45
-          encoded_chars[1]
-        else
-          encoded_chars[0]
-        end
+        encoded_chars[0]
       end
     end
 
@@ -43,7 +40,7 @@ module Jekyll
 
       addr
         .chars.map { |char| _encode_email_char(char, seeded_random) }
-        .join("")
+        .join('')
     end
 
     def encode_mailto(addr)

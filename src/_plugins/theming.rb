@@ -1,40 +1,37 @@
-require "chunky_png"
-require "color"
-require "fileutils"
-require 'shell/executer.rb'
-require "tmpdir"
-
+require 'chunky_png'
+require 'color'
+require 'fileutils'
+require 'shell/executer'
+require 'tmpdir'
 
 Jekyll::Hooks.register :site, :post_write do |site|
   site_colours = (site.pages + site.posts.docs)
-    .map { |post|
-      (post["theme"] || {})["color"]
-    }
-    .reject { |c| c.nil? }
+                 .map do |post|
+                   (post['theme'] || {})['color']
+                 end
+                 .reject { |c| c.nil? }
 
-  colours = (site_colours + ["#d01c11"]).uniq
+  colours = (site_colours + ['#d01c11']).uniq
 
   create_favicons(site, colours)
   create_header_images(site, colours)
 
-  dst = site.config["destination"]
+  dst = site.config['destination']
   FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
-  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico");
+  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico")
 end
 
 def create_favicons(site, colours)
-  colours.each { |c|
-    src = site.config["source"]
-    dst = site.config["destination"]
+  colours.each do |c|
+    src = site.config['source']
+    dst = site.config['destination']
 
     FileUtils.mkdir_p "#{dst}/favicons"
 
     ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
     png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
 
-    if File.exist? ico_path
-      next
-    end
+    next if File.exist? ico_path
 
     image_16 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-16x16.png")
     image_32 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-32x32.png")
@@ -49,13 +46,13 @@ def create_favicons(site, colours)
               fill_colour.red.to_i,
               fill_colour.green.to_i,
               fill_colour.blue.to_i,
-              image_16.get_pixel(x, y),
+              image_16.get_pixel(x, y)
             )
             image_16.set_pixel(x, y, color)
           end
         end
 
-        image_16.save("favicon-16x16.png", :best_compression)
+        image_16.save('favicon-16x16.png', :best_compression)
 
         0.upto(image_32.width - 1) do |x|
           0.upto(image_32.height - 1) do |y|
@@ -63,23 +60,23 @@ def create_favicons(site, colours)
               fill_colour.red.to_i,
               fill_colour.green.to_i,
               fill_colour.blue.to_i,
-              image_32.get_pixel(x, y),
+              image_32.get_pixel(x, y)
             )
             image_32.set_pixel(x, y, color)
           end
         end
 
-        image_32.save("favicon-32x32.png", :best_compression)
+        image_32.save('favicon-32x32.png', :best_compression)
 
         # Create an ICO favicon by packing the two PNG images.
         # See https://superuser.com/a/1012535/243137
-        Shell.execute!("convert favicon-16x16.png favicon-32x32.png favicon.ico")
+        Shell.execute!('convert favicon-16x16.png favicon-32x32.png favicon.ico')
       end
 
       FileUtils.mv "#{tmp_dir}/favicon-32x32.png", png_path
       FileUtils.mv "#{tmp_dir}/favicon.ico", ico_path
     end
-  }
+  end
 end
 
 def colours_like(hex_colour)
@@ -96,7 +93,7 @@ def colours_like(hex_colour)
     luminosity_diff = max_luminosity - min_luminosity
 
     while true
-      hsl_colour.luminosity = min_luminosity + (seeded_random.rand() * luminosity_diff)
+      hsl_colour.luminosity = min_luminosity + (seeded_random.rand * luminosity_diff)
       enum.yield hsl_colour.to_rgb
     end
   end
@@ -120,35 +117,33 @@ def squares_for(width, height, square_size)
 end
 
 def create_header_images(site, colours)
-  dst = site.config["destination"]
+  dst = site.config['destination']
   FileUtils.mkdir_p "#{dst}/headers"
 
-  colours.each { |c|
+  colours.each do |c|
     out_path = "#{dst}/headers/specktre_#{c.sub(/#/, '')}.png"
 
-    if File.file?(out_path)
-      next
-    end
+    next if File.file?(out_path)
 
     colours = colours_like(c)
     squares = squares_for(2500, 250, 50)
 
     image = ChunkyPNG::Image.new(2500, 250)
 
-    squares.zip(colours).each { |rect, fill_colour|
+    squares.zip(colours).each do |rect, fill_colour|
       x_0, y_0, x_1, y_1 = rect
 
       image.rect(
         x_0, y_0, x_1, y_1,
-        ChunkyPNG::Color.rgba(0,0,0,0),
+        ChunkyPNG::Color.rgba(0, 0, 0, 0),
         ChunkyPNG::Color.rgb(
           fill_colour.red.to_i,
           fill_colour.green.to_i,
           fill_colour.blue.to_i
         )
       )
-    }
+    end
 
     image.save(out_path, :best_compression)
-  }
+  end
 end

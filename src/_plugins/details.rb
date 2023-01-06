@@ -30,15 +30,14 @@ module Jekyll
     def render(context)
       markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
       ttext = super
-      
-      <<-EOT
-<details>
-  #{markdown_converter.convert(ttext)}
-</details>
-EOT
+
+      <<~EOT
+        <details>
+          #{markdown_converter.convert(ttext)}
+        </details>
+      EOT
     end
   end
 end
 
-
-Liquid::Template.register_tag("details", Jekyll::DetailsBlock)
+Liquid::Template.register_tag('details', Jekyll::DetailsBlock)

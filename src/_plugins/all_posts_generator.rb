@@ -32,29 +32,29 @@ module Jekyll
       #     NoMethodError: undefined method `fetch' for nil:NilClass
       #       /usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/page.rb:143:in `path'
       #
-      self.ext = ".html"
-      self.basename = "index"
+      self.ext = '.html'
+      self.basename = 'index'
       self.data = {
-        "layout" => "all_posts_per_month",
-        "title" => "Posts from #{Date.new(year, month).strftime("%B %Y")}",
-        "posts" => @posts,
-        "url" => File.join("/", "", year.to_s, month.to_s, "index.html"),
-        "year" => @year,
-        "display_month" => Date.new(year, month).strftime("%B %Y"),
-        "canonical_url" => "/all-posts/",
+        'layout' => 'all_posts_per_month',
+        'title' => "Posts from #{Date.new(year, month).strftime('%B %Y')}",
+        'posts' => @posts,
+        'url' => File.join('/', '', year.to_s, month.to_s, 'index.html'),
+        'year' => @year,
+        'display_month' => Date.new(year, month).strftime('%B %Y'),
+        'canonical_url' => '/all-posts/'
       }
     end
 
     def render(layouts, site_payload)
       payload = {
-        "page" => self.data,
+        'page' => data
       }.merge(site_payload)
 
       do_layout(payload, layouts)
     end
 
     def destination(root)
-      File.join("/", root, @year.to_s, "%02d" % @month, "index.html")
+      File.join('/', root, @year.to_s, format('%02d', @month), 'index.html')
     end
   end
 
@@ -64,7 +64,7 @@ module Jekyll
     end
 
     def generate(site)
-      site.data["posts_by_year"] = posts_group_by_year(site)
+      site.data['posts_by_year'] = posts_group_by_year(site)
 
       posts_group_by_year(site).each do |year, posts|
         site.pages << PerYear.new(site, year, posts)
@@ -84,28 +84,28 @@ module Jekyll
       #     NoMethodError: undefined method `fetch' for nil:NilClass
       #       /usr/local/bundle/gems/jekyll-4.0.0/lib/jekyll/page.rb:143:in `path'
       #
-      self.ext = ".html"
-      self.basename = "index"
+      self.ext = '.html'
+      self.basename = 'index'
       self.data = {
-        "layout" => "all_posts_per_year",
-        "title" => "Posts from #{@year}",
-        "posts" => @posts,
-        "year" => @year,
-        "canonical_url" => "/all-posts/",
+        'layout' => 'all_posts_per_year',
+        'title' => "Posts from #{@year}",
+        'posts' => @posts,
+        'year' => @year,
+        'canonical_url' => '/all-posts/'
       }
     end
 
     def render(layouts, site_payload)
-      puts self.data
+      puts data
       payload = {
-        "page" => self.data,
+        'page' => data
       }.merge(site_payload)
 
       do_layout(payload, layouts)
     end
 
     def destination(root)
-      File.join("/", root, @year.to_s, "index.html")
+      File.join('/', root, @year.to_s, 'index.html')
     end
   end
 end

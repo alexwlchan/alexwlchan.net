@@ -19,7 +19,7 @@ require 'digest'
 require 'fileutils'
 
 def convert_css(site, css_string)
-  converter = site.find_converter_instance(::Jekyll::Converters::Scss)
+  converter = site.find_converter_instance(Jekyll::Converters::Scss)
   converter.convert(css_string)
 end
 
@@ -27,26 +27,26 @@ module Jekyll
   class CssStylesheet < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
-      @css_cache = Hash.new()
-      @md5_cache = Hash.new()
+      @css_cache = {}
+      @md5_cache = {}
     end
 
     def render(context)
       site = context.registers[:site]
-      src = site.config["source"]
-      dst = site.config["destination"]
+      src = site.config['source']
+      dst = site.config['destination']
 
-      if context.registers[:page].nil?
-        color = "#d01c11"
-      else
-        color = (context.registers[:page]["theme"] || {})["color"] || "#d01c11"
-      end
+      color = if context.registers[:page].nil?
+                '#d01c11'
+              else
+                (context.registers[:page]['theme'] || {})['color'] || '#d01c11'
+              end
 
-      if context.registers[:page].nil? || context.registers[:page]["date"].nil?
+      if context.registers[:page].nil? || context.registers[:page]['date'].nil?
         year = nil
       else
-        year = context.registers[:page]["date"].year
-        slug = context.registers[:page]["slug"]
+        year = context.registers[:page]['date'].year
+        slug = context.registers[:page]['slug']
       end
 
       # If there's an individual stylesheet for this page, then we concatenate
@@ -60,8 +60,8 @@ module Jekyll
 
           @import "_main.scss";
 
-          #{File.open("#{src}/styles/#{year}/#{slug}.scss").read}
-          EOT
+          #{File.read("#{src}/styles/#{year}/#{slug}.scss")}
+        EOT
         )
 
         md5 = Digest::MD5.new.hexdigest css
@@ -85,7 +85,7 @@ module Jekyll
             $primary-color: #{color};
 
             @import "_main.scss";
-            EOT
+          EOT
           )
 
           @md5_cache[color] = Digest::MD5.new.hexdigest @css_cache[color]
@@ -104,4 +104,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag("css_stylesheet", Jekyll::CssStylesheet)
+Liquid::Template.register_tag('css_stylesheet', Jekyll::CssStylesheet)
