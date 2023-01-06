@@ -25,44 +25,44 @@
 require_relative 'plugin_base'
 
 module Jekyll
-  class SlideTag < Liquid::Tag    
+  class SlideTag < Liquid::Tag
     def initialize(tag_name, params_string, tokens)
       super
-      
+
       @attrs = parse_attrs(params_string)
-      @filename = get_required_attribute(@attrs, { :tag => "slide_image", :attribute => "filename" })
-      @caption = @attrs.delete("caption")
+      @filename = get_required_attribute(@attrs, { tag: 'slide_image', attribute: 'filename' })
+      @caption = @attrs.delete('caption')
     end
-    
+
     def render(context)
-      deck = context.registers[:page]["slug"]
-      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(" ")
-      
+      deck = context.registers[:page]['slug']
+      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
+
       markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
-      
-      if !@caption.nil?
-        caption = "<figcaption>#{markdown_converter.convert(@caption)}</figcaption>"
-      else
-        caption = ""
-      end
-      
-      input = <<-EOF
-<figure class="slide">
-  {%
-    picture
-    filename="#{deck}/#{@filename}"
-    visible_width="450px"
-    loading="lazy"
-    link_to_original
-    #{extra_attributes}
-  %}
-  #{caption}
-</figure>
-EOF
-      
+
+      caption = if @caption.nil?
+                  ''
+                else
+                  "<figcaption>#{markdown_converter.convert(@caption)}</figcaption>"
+                end
+
+      input = <<~EOF
+        <figure class="slide">
+          {%
+            picture
+            filename="#{deck}/#{@filename}"
+            visible_width="450px"
+            loading="lazy"
+            link_to_original
+            #{extra_attributes}
+          %}
+          #{caption}
+        </figure>
+      EOF
+
       Liquid::Template.parse(input).render!(context)
     end
   end
 end
 
-Liquid::Template.register_tag("slide", Jekyll::SlideTag)
+Liquid::Template.register_tag('slide', Jekyll::SlideTag)

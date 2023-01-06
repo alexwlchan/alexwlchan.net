@@ -1,10 +1,10 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "chunky_png", "~> 1.4"
-gem "color", "~> 1.8"
-gem "html-proofer", "~> 3.19"
-gem "jekyll", "~> 4"
-gem "json-schema", "~> 3.0"
-gem "nokogiri", "~> 1.12"
-gem "rszr", "~> 1.0"
-gem "shell-executer", "~> 1.0"
+gem 'chunky_png', '~> 1.4'
+gem 'color', '~> 1.8'
+gem 'html-proofer', '~> 3.19'
+gem 'jekyll', '~> 4'
+gem 'json-schema', '~> 3.0'
+gem 'nokogiri', '~> 1.12'
+gem 'rszr', '~> 1.0'
+gem 'shell-executer', '~> 1.0'
