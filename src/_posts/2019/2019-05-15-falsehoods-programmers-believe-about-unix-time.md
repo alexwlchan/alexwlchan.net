@@ -24,7 +24,12 @@ But it's unsatisfying to say "this is false" without explaining *why*, so I'll e
 If you'd like to think about it first and make your own guess, don't scroll past the picture of the clock!
 
 <figure>
-  <img src="/images/2019/L0072180.jpg" alt="A clock face with Roman numerals and gold decoration.">
+  {%
+    picture
+    filename="L0072180.jpg"
+    alt="A clock face with Roman numerals and gold decoration."
+    visible_width="750px"
+  %}
   <figcaption>
     A bracket clock.
     Construction and assembly by John Leroux.
@@ -58,31 +63,60 @@ As of 2019, the extra 27 leap seconds are missing.
 
 And so our falsehoods go as follows:
 
-*   Unix time is the number of seconds since 1 January 1970 00:00:00 UTC, *minus leap seconds*.
+<ul>
+  <li>
+    <p>
+      Unix time is the number of seconds since 1 January 1970 00:00:00 UTC, <em>minus leap seconds</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      If I wait exactly one second, Unix time advances by exactly one second, <em>unless a leap second has been removed</em>.
+    </p>
+    <p>
+      So far, there’s never been a leap second removed in practice (and the Earth’s slowing rotation means it's unlikely), but if it ever happened, it would mean the UTC day is one second shorter.
+      The last UTC second (23:59:59) is dropped.
+    </p>
+    <p>
+      Each Unix day has the same number of seconds, so when the next day starts, it skips ahead by one.
+      The final Unix second of the shorter day never gets allocated to a UTC timestamp.
+      Here's what that would look like, in quarter-second increments:
+    </p>
 
-*   If I wait exactly one second, Unix time advances by exactly one second, *unless a leap second has been removed*.
+    {%
+      picture
+      filename="unix_time_skips_forwards.png"
+      alt="A graph showing Unix time and UTC when a leap second gets removed."
+      visible_width="612px"
+    %}
 
-    So far, there's never been a leap second removed in practice (and the Earth's slowing rotation means it's unlikely), but if it ever happened, it would mean the UTC day is one second shorter.
-    The last UTC second (23:59:59) is dropped.
+    <p>
+      If you start at 23:59:58:00 UTC and wait one second, the Unix time advances by <em>two</em> seconds, and the Unix timestamp 101 never gets assigned.
+    </p>
+  </li>
+  <li>
+    <p>
+      Unix time can never go backwards, <em>unless a leap second has been added</em>.
+    </p>
+    <p>
+      This one has happened in practice – 27 times at time of writing.
+      The UTC day gets an extra second added to the end, 23:59:60.
+      Each Unix day has the same number of seconds, so it can’t just add an extra second – instead, it repeats the Unix timestamps for the last second of the day.
+      Here’s what that would look like, in quarter-second increments:
+    </p>
 
-    Each Unix day has the same number of seconds, so when the next day starts, it skips ahead by one.
-    The final Unix second of the shorter day never gets allocated to a UTC timestamp.
-    Here's what that would look like, in quarter-second increments:
+    {%
+      picture
+      filename="unix_time_goes_backwards.png"
+      alt="A graph showing Unix time and UTC when a leap second has been added."
+      visible_width="612px"
+    %}
 
-    <img src="/images/2019/unix_time_skips_forwards.png" style="width: 612px;" alt="A graph showing Unix time and UTC when a leap second gets removed.">
-
-    If you start at 23:59:58:00 UTC and wait one second, the Unix time advances by *two* seconds, and the Unix timestamp 101 never gets assigned.
-
-*   Unix time can never go backwards, *unless a leap second has been added*.
-
-    This one has happened in practice -- 27 times at time of writing.
-    The UTC day gets an extra second added to the end, 23:59:60.
-    Each Unix day has the same number of seconds, so it can't just add an extra second -- instead, it repeats the Unix timestamps for the last second of the day.
-    Here's what that would look like, in quarter-second increments:
-
-    <img src="/images/2019/unix_time_goes_backwards.png" style="width: 612px;" alt="A graph showing Unix time and UTC when a leap second has been added.">
-
-    If you start at 23:59:60.50 and wait half a second, the Unix time goes *back* by half a second, and the Unix timestamp 101 matches two UTC seconds.
+    <p>
+      If you start at 23:59:60.50 and wait half a second, the Unix time goes <em>back</em> by half a second, and the Unix timestamp 101 matches two UTC seconds.
+    </p>
+  </li>
+</ul>
 
 And these probably aren't even the only weirdnesses of Unix time -- they're just the ones I half-remembered yesterday, enough to check a few details and write a blog post about.
 
