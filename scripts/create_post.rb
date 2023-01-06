@@ -3,7 +3,7 @@
 require 'fileutils'
 require 'yaml'
 
-unless 1 <= ARGV.length and ARGV.length <= 2
+unless 1 <= ARGV.length && ARGV.length <= 2
   puts 'Usage: create_post.rb <TITLE> [<SLUG>]'
   exit 1
 end
