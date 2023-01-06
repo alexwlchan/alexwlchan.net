@@ -349,21 +349,19 @@ These are a few more of my favourite pictures of the falls.
 They're a breathtaking, powerful sight, and the pictures really don't do them justice:
 
 <figure class="wide_img">
-{%
-  picture
-  filename="P9210258.jpg"
-  alt="White spray splashing over a dark brown rock."
-  visible_width="950px"
-%}
-</figure>
-
-<figure class="wide_img">
-{%
-  picture
-  filename="P9210223.jpg"
-  alt="The spray of the waterfall, and a longer view towards the rest of the river."
-  visible_width="950px"
-%}
+  <table>
+    <tr>
+      <td style="padding-right: 1em; padding-bottom: 0.5em; width: 52%;">
+        <img src="/images/2018/P9210258_2x.jpg" srcset="/images/2018/P9210258_1x.jpg 1x, /images/2018/P9210258_2x.jpg 2x, /images/2018/P9210258_3x.jpg 3x, /images/2018/P9210258_4x.jpg 4x" alt="White spray splashing over a dark brown rock.">
+      </td>
+      <td rowspan="2" style="background-image: url('/images/2018/P9210223_2x.jpg'); background-size: auto 100%; overflow: hidden;"><a href="/images/2018/P9210223_4x.jpg" style="display:inline-block; width: 120%; padding-top: 300px; margin-top: -300px; margin-bottom: -300px; padding-bottom: 300px;">&#8203;</a></td>
+    </tr>
+    <tr>
+      <td style="padding-right: 1em; padding-top: 0.5em;">
+        <img src="/images/2018/P9210223_2x.jpg" srcset="/images/2018/P9210223_1x.jpg 1x, /images/2018/P9210223_2x.jpg 2x, /images/2018/P9210223_3x.jpg 3x, /images/2018/P9210223_4x.jpg 4x" alt="The spray of the waterfall, and a longer view towards the rest of the river.">
+      </td>
+    </tr>
+  </table>
 </figure>
 
 Coming back down from the falls, I looked at the waterwheel that sits at the centre of the site.

@@ -10,20 +10,8 @@ One of my key tools is [nvALT], a notetaking app for macOS.
 It's a fork of an older app called [Notational Velocity], and the icon is a greyscale version of the original:
 
 <figure style="max-width: 500px;">
-  {%
-    picture
-    filename="nvalt.png"
-    alt="nvALT icon"
-    style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
-  %}
-  {%
-    picture
-    filename="notational.png"
-    alt="Notational Velocity icon"
-    style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
-  %}
+  <img alt="nvALT icon" src="/images/2020/nvalt.png" style="max-width: 49%; display: inline-block;">
+  <img alt="Notational Velocity icon" src="/images/2020/notational.png" style="max-width: 49%; display: inline-block;">
   <figcaption>The icon of nvALT (left) and Notational Velocity (right).</figcaption>
 </figure>
 
@@ -49,12 +37,7 @@ The big sizes can contain lots of detail, and the smaller sizes can be simplifie
 
 For example, the Notational Velocity icon has six sizes in its ICNS file:
 
-{%
-  picture
-  filename="notational-icon-sizes.png"
-  alt="Six different sizes of the nvALT icon, from 16x16 to 512x512"
-  visible_width="659px"
-%}
+<img src="/images/2020/notational-icon-sizes.png" alt="Six different sizes of the nvALT icon, from 16x16 to 512x512.">
 
 Notice how the 32&times;32 and 16&times;16 sizes have a different shape, doing away with the text sheets.
 This allows the rocket shape to remain clear, even at a tiny size.
@@ -119,20 +102,8 @@ $ magick Notality.iconset/icon_512x512.png -modulate 100,100,0 Notality.iconset/
 And here's the result:
 
 <figure style="max-width: 500px;">
-  {%
-    picture
-    filename="notational.png"
-    alt="The Notational Velocity icon"
-    style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
-  %}
-  {%
-    picture
-    filename="notational_cyan.png"
-    alt="A cyan-tinted version of the Notational Velocity icon."
-    style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
-  %}
+  <img src="/images/2020/notational.png" alt="The Notational Velocity icon." style="max-width: 49%; display: inline-block;">
+  <img src="/images/2020/notational_cyan.png" alt="A cyan-tinted version of the Notational Velocity icon." style="max-width: 49%; display: inline-block;">
   <figcaption>The Notational Velocity icon before (left) and after (right) having the <code>&#8209;modulate&nbsp;100,100,0</code> transformation applied.</figcaption>
 </figure>
 
@@ -187,21 +158,11 @@ done
 
 And voila, I have a rainbow of rocket icons:
 
-{%
-  picture
-  filename="notality_rainbow_big.png"
-  alt="A grid of multi-coloured Notational Velocity icons"
-  visible_width="750px"
-%}
+<img alt="A grid of multi-coloured Notational Velocity icons" src="/images/2020/notality_rainbow_big.png">
 
 And because it edited every size of the ICNS file, the smaller icons all match:
 
-{%
-  picture
-  filename="notality_rainbow_small.png"
-  alt="A grid of multi-coloured small Notational Velocity icons"
-  visible_width="450px"
-%}
+<img alt="A grid of multi-coloured small Notational Velocity icons" src="/images/2020/notality_rainbow_small.png">
 
 Look at all that colour!
 
@@ -221,12 +182,7 @@ This applies the new icon, and flushes whatever icon cache macOS uses for the Do
 
 On the Mac I'm using to write this post, I've picked a blue icon that matches my Desktop wallpaper:
 
-{%
-  picture
-  filename="nvalt_blue_screenshot.png"
-  alt="The nvALT Dock icon with a blue rocket set against a blue background"
-  visible_width="450px"
-%}
+<img alt="The nvALT Dock icon with a blue rocket set against a blue background" src="/images/2020/nvalt_blue_screenshot.png" style="width: 450px;">
 
 When I was younger, I spent a lot of time choosing and customising my icons.
 That gradually dropped off, and until today I was running completely stock icons.

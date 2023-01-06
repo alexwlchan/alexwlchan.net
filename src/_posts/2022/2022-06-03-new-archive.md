@@ -45,18 +45,8 @@ If you click [the "posts" link in the header](/best-of/), you'll see something q
 </style>
 
 <figure class="two_up">
-  {%
-    picture
-    filename="all_posts_old.jpg"
-    alt="A page titled 'All posts' with a list of red text links."
-    visible_width="675px"
-  %}
-  {%
-    picture
-    filename="all_posts_new.jpg"
-    alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description."
-    visible_width="675px"
-  %}
+  <img src="/images/2022/all_posts_old.jpg" alt="A page titled 'All posts' with a list of red text links.">
+  <img src="/images/2022/all_posts_new.jpg" alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description.">
 </figure>
 
 I've wanted to redesign that page for a while, but I kept putting it off because it seemed hard -- once I started, it was much easier than I was expecting.
@@ -89,12 +79,7 @@ A while back, I started marking my favourite posts in the list of links.
 This was a half-hearted measure to improve discoverability, but clicking it only took you to a shorter list of text links.
 I'm also not sure anybody ever realised those hearts were clickable.
 
-{%
-  picture
-  filename="hearted_posts.png"
-  alt="A list of text links, with small red hearts next to several of the titles."
-  visible_width="600px"
-%}
+<img src="/images/2022/hearted_posts.png" style="width: 600px;" alt="A list of text links, with small red hearts next to several of the titles.">
 
 This is the kernel of a good idea -- I have over 300 posts, and it's unreasonable to expect anybody to choose from that many.
 Giving people a shorter list of "best" posts to choose from makes that easier, but it was still difficult to choose from that list of 40-odd posts when you only had the title.
@@ -115,18 +100,8 @@ This is a pretty common design pattern on the web; here are two examples from [t
 [books]: https://books.alexwlchan.net/
 
 <figure class="two_up">
-  {%
-    picture
-    filename="wellcome_collection_cards.jpg"
-    alt="Six cards arranged in a two-by-three grid. Each card links to a single article. Each card has a photograph or illustration, a title in a large font, and a description in smaller text. The cards have a uniform cream background."
-    visible_width="675px"
-  %}
-  {%
-    picture
-    filename="books_cards.jpg"
-    alt="Four cards arranged in a single column. Each card links to a book. Each card has the title of the book, the author and when I read it, the book's cover. The cards are tinted to match the book covers, e.g. the first card is green to match the book cover."
-    visible_width="675px"
-  %}
+  <img src="/images/2022/wellcome_collection_cards.jpg" alt="Six cards arranged in a two-by-three grid. Each card links to a single article. Each card has a photograph or illustration, a title in a large font, and a description in smaller text. The cards have a uniform cream background.">
+  <img src="/images/2022/books_cards.jpg" alt="Four cards arranged in a single column. Each card links to a book. Each card has the title of the book, the author and when I read it, the book's cover. The cards are tinted to match the book covers, e.g. the first card is green to match the book cover.">
 </figure>
 
 These are much better than a wall of text!
@@ -137,12 +112,7 @@ I grabbed my laptop, and started playing around.
 I quickly came up with something I liked, and which matches the style of the site:
 
 <figure>
-  {%
-    picture
-    filename="alexwlchan_cards.jpg"
-    alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post."
-    visible_width="675px"
-  %}
+  <img src="/images/2022/alexwlchan_cards.jpg" alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post.">
 </figure>
 
 The "posts" link in the header now goes to this list of cards, and it's only my favourite posts.
@@ -181,18 +151,8 @@ Every time I wrote a big post, there was a disincentive to write anything new, b
 Now I put in cards for some favourite posts:
 
 <figure class="two_up">
-  {%
-    picture
-    filename="homepage_old.jpg"
-    alt="The old homepage, with a list of five links under a heading 'Recent posts'."
-    visible_width="675px"
-  %}
-  {%
-    picture
-    filename="homepage_new.jpg"
-    alt="The new homepage, with the list of links replaced by three cards arranged in a row."
-    visible_width="675px"
-  %}
+  <img src="/images/2022/homepage_old.jpg" alt="The old homepage, with a list of five links under a heading 'Recent posts'.">
+  <img src="/images/2022/homepage_new.jpg" alt="The new homepage, with the list of links replaced by three cards arranged in a row.">
 </figure>
 
 I think this is more visually appealing, and more likely to draw somebody into the blog.
