@@ -14,7 +14,12 @@ It was a grim and rainy day, and on [the advice of a follower from Twitter](http
 Half an hour north of Berlin is a small town called [Oranienburg], and within the town are the remains of the [Sachsenhausen concentration camp].
 During the Second World War, it was used by the Nazis for political prisoners.
 
-<img src="/images/2020/sachsenhausen_1x.jpg" srcset="/images/2020/sachsenhausen_1x.jpg 1x, /images/2020/sachsenhausen_2x.jpg 2x" alt="An off-white building with a gate in the middle, set against a grey sky.">
+{%
+  picture
+  filename="sachsenhausen.jpg"
+  alt="An off-white building with a gate in the middle, set against a grey sky."
+  visible_width="750px"
+%}
 
 If you just look at the numbers, it might not seem very significant -- about 100,000 prisoners died there, a fraction of the 6&nbsp;million Jews who were killed in the Holocaust, or even the death toll of other individual camps.
 
@@ -44,7 +49,12 @@ Most of the buildings are gone, and what's left is a muddy field.
 But it's a reminder that humans can be awful, that evil exists, and it creeps in without being big or flashy.
 When people talk about the "tyranny" of Europe, I want to drag them there and show them what real evil feels like.
 
-<img src="/images/2020/sachsen_field_1x.jpg" srcset="/images/2020/sachsen_field_1x.jpg 1x, /images/2020/sachsen_field_2x.jpg 2x" alt="A brown and muddy field, with a fence and watchtower visible on the horizon.">
+{%
+  picture
+  filename="sachsen_field.jpg"
+  alt="A brown and muddy field, with a fence and watchtower visible on the horizon."
+  visible_width="750px"
+%}
 
 Carved on one of the walls is a quote from [Andrzej Szczypiorski], one of the camp's prisoners:
 

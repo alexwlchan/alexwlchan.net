@@ -78,7 +78,7 @@ Here's an example:
   picture
   filename="green_chair.jpg"
   alt="An image of a green chair pointing to a rectangle with colour light white #fbfbfb."
-  visible_width="600px"
+  visible_width="375px"
 %}
 
 A human looking at that photo would probably pick green as the main colour -- but there are lots of different shades of green.
@@ -418,14 +418,14 @@ The *k*-means clustering gives us a way to extract some dominant colours from an
   picture
   filename="kmeans_3.jpg"
   alt="The photo of the green chairs, with an arrow pointing to a swatch with a very large green, a dark green, and a mid green."
-  visible_width="600px"
+  visible_width="375px"
 %}
 
 {%
   picture
   filename="kmeans_5.jpg"
   alt="The photo of the green chairs, with an arrow pointing to a swatch of five shades of green."
-  visible_width="600px"
+  visible_width="375px"
 %}
 
 Those colours are much more representative than a bright white or dark black.
@@ -442,6 +442,7 @@ Then I experimented with different tint colour pickers on the cached data, and c
   filename="tint_sampler.png"
   alt="A table with three headers: image, 5-means and tint colour. There's a small thumbnail of each image, a little palette of five colours, and one colour displayed in big with some text set in that colour."
   visible_width="427px"
+  class="screenshot"
 %}
 
 I played with various approaches: picking the colour with the biggest cluster size, trying to maximise or minimise distance from white in the RGB space, filtering by lightness in [the HSL colour space][hsl].
@@ -518,7 +519,13 @@ def choose_tint_color(dominant_colors, background_color):
 
 I've run this over about 1000 images from my photo library, and checked the tints with my viewer script:
 
-<img src="/images/2019/tint_sampler_with_wcag.png" style="width: 647px;" alt="The same table above, with new columns for “WCAG contrast” and “brightness”. Contrast values greater than 4.5 are shaded green.">
+{%
+  picture
+  filename="tint_sampler_with_wcag.png"
+  alt="The same table above, with new columns for “WCAG contrast” and “brightness”. Contrast values greater than 4.5 are shaded green."
+  visible_width="646px"
+  class="screenshot"
+%}
 
 It usually picks a sensible tint -- enough contrast, a colour that comes from the original image, and somewhat visually interesting.
 It doesn't always pick the "best" colour (or at least, what I'd have picked), but the combination of WCAG contrast ratio and minimising the lightness difference means it never picks something bad.
