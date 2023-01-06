@@ -38,19 +38,19 @@ module Jekyll
   class YouTubeTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
-      @url = text.split(' ').last
+      @url = text.split.last
       query_string = URI.parse(@url).query
       @video_id = CGI.parse(query_string)['v'].first
     end
 
     def render(_)
-      <<~EOT
+      <<~HTML
         <iframe class="youtube"
                 id="youtube_#{@video_id}"
                 width="560" height="315"
                 src="https://www.youtube-nocookie.com/embed/#{@video_id}"
                 frameborder="0" allowfullscreen></iframe>
-      EOT
+      HTML
     end
   end
 end
