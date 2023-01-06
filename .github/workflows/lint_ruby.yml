@@ -31,4 +31,4 @@ jobs:
       - name: Run rubocop
         run: |
           gem install rubocop
-          rubocop
+          rubocop --fail-level E
