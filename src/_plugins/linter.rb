@@ -102,6 +102,12 @@ class RunLinting < Jekyll::Command
           next
         end
 
+        # This page is a special case for crawlers and doesn't count for
+        # the purposes of linting and the like.
+        if html_path == "#{html_path}/400/index.html"
+          next
+        end
+
         doc = Nokogiri::HTML(File.open(html_path))
         display_path = get_display_path(doc)
 
