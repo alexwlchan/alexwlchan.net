@@ -48,7 +48,7 @@ module Jekyll
         # Replace the URLs in any <image> tags with absolute references
         # to the site.
         doc.xpath('//xmlns:image').each do |node|
-          node['href'] = 'https://alexwlchan.net' + node['href'] if node['href'].start_with? '/'
+          node['href'] = "https://alexwlchan.net/#{node['href']}" if node['href'].start_with? '/'
         end
 
         dst_path.write(doc.to_xml(indent: 0))

@@ -45,7 +45,7 @@ module Jekyll
       end
 
       doc.xpath('.//a').each do |a_tag|
-        a_tag['href'] = 'https://alexwlchan.net' + a_tag['href'] if a_tag['href'] and a_tag['href'].start_with?('/')
+        a_tag['href'] = 'https://alexwlchan.net' + a_tag['href'] if a_tag['href'] && a_tag['href'].start_with?('/')
       end
 
       # Fix references to images in inline SVGs.

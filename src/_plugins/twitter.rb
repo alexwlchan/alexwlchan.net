@@ -110,11 +110,11 @@ module Jekyll
       text.strip
     end
 
-    def tweet_image(media, override_alt_text)
-      expanded_url = media["expanded_url"]
-      alt_text = media["ext_alt_text"]
+    def tweet_image(media)
+      expanded_url = media['expanded_url']
+      alt_text = media['ext_alt_text']
 
-      filename = File.basename(media["media_url_https"])
+      filename = File.basename(media['media_url_https'])
 
       <<~HTML
         <a href="#{expanded_url}">
@@ -202,7 +202,7 @@ module Jekyll
             .strip
         ).gsub('+', '%20')
 
-      tpl.render!(
+      input = tpl.render!(
         'tweet_data' => tweet_data,
         'twitter_icon_svg' => twitter_icon_svg
       )

@@ -97,16 +97,16 @@ module Jekyll
       post = context['post']
 
       if context['post']['card'].nil?
-        <<~EOF
+        <<~HTML
           <img
             src="/images/default-card.png"
             alt=""
             loading="lazy"
             data-proofer-ignore
           />
-        EOF
+        HTML
       else
-        input = <<~EOF
+        input = <<~HTML
           {%
             picture
             filename="#{post['card']['index']}"
@@ -116,7 +116,7 @@ module Jekyll
             loading="lazy"
             data-proofer-ignore
           %}
-        EOF
+        HTML
 
         Liquid::Template.parse(input).render!(context)
       end

@@ -55,13 +55,13 @@ module Jekyll
       #
       # This matches the per-year naming convention used for other resources.
       if !year.nil? and File.exist? "#{src}/styles/#{year}/#{slug}.scss"
-        css = convert_css(site, <<-EOT
+        css = convert_css(site, <<~SCSS
           $primary-color: #{color};
 
           @import "_main.scss";
 
           #{File.read("#{src}/styles/#{year}/#{slug}.scss")}
-        EOT
+        SCSS
         )
 
         md5 = Digest::MD5.new.hexdigest css
@@ -80,12 +80,12 @@ module Jekyll
 
         # We only need to create and write the CSS file for this colour
         # if one hasn't already
-        unless @css_cache.has_key? color
-          @css_cache[color] = convert_css(site, <<-EOT
+        unless @css_cache.key? color
+          @css_cache[color] = convert_css(site, <<~SCSS
             $primary-color: #{color};
 
             @import "_main.scss";
-          EOT
+          SCSS
           )
 
           @md5_cache[color] = Digest::MD5.new.hexdigest @css_cache[color]
@@ -97,9 +97,9 @@ module Jekyll
         end
       end
 
-      <<-EOT
+      <<~HTML
         <link rel="stylesheet" href="#{out_path}?md5=#{md5}">
-      EOT
+      HTML
     end
   end
 end

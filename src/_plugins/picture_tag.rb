@@ -112,7 +112,7 @@ Jekyll::Hooks.register :site, :post_render do
     jobs = Queue.new
 
     File.readlines('.missing_images.json').uniq.each do |line|
-      jobs.push(JSON.load(line))
+      jobs.push(JSON.parse(line))
     end
 
     puts 'Creating images...'
@@ -200,7 +200,7 @@ module Jekyll
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
-      inner_html = <<~EOF
+      inner_html = <<~HTML
         <picture>
           <source
             srcset="#{sources[ImageFormat::AVIF].join(",\n            ")}"
@@ -219,14 +219,14 @@ module Jekyll
             #{extra_attributes}
           >
         </picture>
-      EOF
+      HTML
 
       if @link_to_original
-        <<~EOF
+        <<~HTML
           <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">
             #{inner_html.split("\n").map { |s| "  #{s}" }.join("\n")}
           </a>
-        EOF
+        HTML
       else
         inner_html.strip
       end
@@ -235,12 +235,12 @@ module Jekyll
     def prepare_images(source_path, image, im_format, dst_prefix, visible_width)
       sources = Hash.new { [] }
 
-      for pixel_density in 1..3
+      (1..3).each do |pixel_density|
         width = pixel_density * visible_width
 
         next unless image.width >= width
 
-        for out_format in [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+        [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
           out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
 
           unless File.exist? out_path

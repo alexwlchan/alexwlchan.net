@@ -45,7 +45,11 @@ module Jekyll
                .gsub('height="300px"', 'height="50px"')
                .gsub('width="300px"', 'width="50px"')
 
-      "<center class='separator' aria-hidden='true'>" + svg + '</center>'
+      <<~HTML
+        <center class='separator' aria-hidden='true'>
+          #{svg}
+        </center>
+      HTML
     end
   end
 
@@ -56,7 +60,11 @@ module Jekyll
     end
 
     def render(_)
-      "<center class='separator' aria-hidden='true'>" + @contents + '</center>'
+      <<~HTML
+        <center class='separator' aria-hidden='true'>
+          #{@contents}
+        </center>
+      HTML
     end
   end
 end

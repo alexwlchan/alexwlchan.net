@@ -16,16 +16,16 @@ module Jekyll
 
       name = @path.split('/').last
 
-      html = <<-EOF
-      <a href="#{@path}" class="download">
-        <img
-          src="/theme/file_#{lang}_1x.png"
-          srcset="/theme/file_#{lang}_1x.png 1x, /theme/file_#{lang}_2x.png 2x"
-          alt=""
-        >
-        #{name}
-      </a>
-      EOF
+      html = <<~HTML
+        <a href="#{@path}" class="download">
+          <img
+            src="/theme/file_#{lang}_1x.png"
+            srcset="/theme/file_#{lang}_1x.png 1x, /theme/file_#{lang}_2x.png 2x"
+            alt=""
+          >
+          #{name}
+        </a>
+      HTML
 
       html.strip
     end
