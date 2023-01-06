@@ -14,51 +14,30 @@ Here's a fun project I made today: create pairs of interlocking rainbow hearts: 
 The app makes transparent SVGs based on pride flags, which you can resize and drop on top of any background.
 Here's a few examples:
 
-<style>
-  #grid-container {
-    display: grid;
-    grid-template-columns: 66% 32%;
-    grid-gap: 1%;
-    height: 50%;
-  }
-
-  #grid-item1 {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-
-  #grid-item2 {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  #grid-item3 {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .grid-item img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-</style>
-
 <div id="grid-container">
   <div class="grid-item" id="grid-item1">
-    <a href="/images/2021/heart_examples1.jpg">
-      <img src="/images/2021/heart_examples1.jpg" srcset="/images/2021/heart_examples1_1x.jpg 1x, /images/2021/heart_examples1.jpg 2x" alt="Two interlocking hearts. The left heart is the colours of the asexual pride flag (black, grey, white, purple), and the right heart is the colours of the aromantic pride flag (dark green, light green, white, grey, black)."/>
-    </a>
+    {%
+      picture
+      filename="heart_examples1.jpg"
+      alt="Two interlocking hearts. The left heart is the colours of the asexual pride flag (black, grey, white, purple), and the right heart is the colours of the aromantic pride flag (dark green, light green, white, grey, black)."
+      visible_width="495px"
+    %}
   </div>
   <div class="grid-item" id="grid-item2">
-    <a href="/images/2021/heart_examples2.jpg">
-      <img src="/images/2021/heart_examples2.jpg" srcset="/images/2021/heart_examples2_1x.jpg 1x, /images/2021/heart_examples2.jpg 2x" alt="Two interlocking hearts on a dark background. The left heart is the colours of the rainbow pride flag (red, orange, yellow, green, blue, purple), and the right heart is the colours of the trans pride flag (baby blue, baby pink, white, baby pink, baby blue)."/>
-    </a>
+    {%
+      picture
+      filename="heart_examples2.jpg"
+      alt="Two interlocking hearts on a dark background. The left heart is the colours of the rainbow pride flag (red, orange, yellow, green, blue, purple), and the right heart is the colours of the trans pride flag (baby blue, baby pink, white, baby pink, baby blue)."
+      visible_width="248px"
+    %}
   </div>
   <div class="grid-item" id="grid-item3">
-    <a href="/images/2021/heart_examples3.jpg">
-      <img src="/images/2021/heart_examples3.jpg" srcset="/images/2021/heart_examples3_1x.jpg 1x, /images/2021/heart_examples3.jpg 2x" alt="Two interlocking hearts. The left heart is the colours of the black trans pride flag (baby blue, baby pink, black, baby pink, baby blue), and the right heart is the colours of the bi pride flag (dark pink, purple, dark blue)."/>
-    </a>
+    {%
+      picture
+      filename="heart_examples3.jpg"
+      alt="Two interlocking hearts. The left heart is the colours of the black trans pride flag (baby blue, baby pink, black, baby pink, baby blue), and the right heart is the colours of the bi pride flag (dark pink, purple, dark blue)."
+      visible_width="248px"
+    %}
   </div>
 </div>
 
