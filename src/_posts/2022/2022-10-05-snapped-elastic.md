@@ -88,7 +88,6 @@ This is the basic architecture for our collections search:
   filename="basic_architecture.png"
   alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'."
   visible_width="750px"
-  class="screenshot"
 %}
 
 If you're using our website, you're interacting with a front-end web app.
