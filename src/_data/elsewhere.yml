@@ -38,7 +38,7 @@ talks:
 - date: 2019-09-14
   event: PyCon UK 2019
   links:
-    notes: "/2019/01/monki-gras-the-curb-cut-effect/"
+    notes: "/2019/monki-gras-the-curb-cut-effect/"
     video: https://www.youtube.com/watch?v=-9tqCtf3T9k
   title: The Curb Cut Effect
 - date: 2019-09-13
@@ -50,7 +50,7 @@ talks:
 
   event: PyCon UK 2020
   links:
-    notes: "/2019/10/sans-io-programming/"
+    notes: "/2019/sans-io-programming/"
     slides: "/files/2019/pyconuk_2019_sans_io.pdf"
     video: https://www.youtube.com/watch?v=qwTWqy0uPbY
   title: 'Sans I/O programming patterns: what, why, and how'
@@ -78,7 +78,7 @@ talks:
 
   event: 'Monki Gras: Inclusive Craft'
   links:
-    notes: "/2019/01/monki-gras-the-curb-cut-effect/"
+    notes: "/2019/monki-gras-the-curb-cut-effect/"
     slides: "/files/2019/curbcut-monkigras.pdf"
     video: https://www.youtube.com/watch?v=6Yf3iukx3tQ
   title: The Curb Cut Effect
@@ -94,7 +94,7 @@ talks:
 
   event: PyCon UK 2018
   links:
-    notes: "/2018/09/assume-worst-intent/"
+    notes: "/2018/assume-worst-intent/"
     slides: "/files/2018/assume_worst_intent.pdf"
     video: https://www.youtube.com/watch?v=XyGVRlRyT-E
   title: Assume Worst Intent (designing against the abusive ex)
@@ -103,7 +103,7 @@ talks:
     steps to make ourselves more trustable?\n\n"
   event: PyCon UK 2018
   links:
-    notes: "/2018/09/suspicious-minds"
+    notes: "/2018/suspicious-minds"
     slides: "/files/2018/suspicious-minds.pdf"
     video: https://www.youtube.com/watch?v=B3XxPnbehqQ
   title: Building Trust in an Age of Suspicious Minds
@@ -123,7 +123,7 @@ talks:
 
   event: Bournemouth University
   links:
-    notes: "/2018/04/anti-social-media/"
+    notes: "/2018/anti-social-media/"
     slides: "/files/2018/anti_social_media_slides.pdf"
   title: "(Anti-)Social Media"
 - date: 2018-03-06
@@ -135,14 +135,14 @@ talks:
 - date: 2017-12-05
   event: Cambridge Python User Group
   links:
-    notes: "/2017/09/ode-to-docopt/"
+    notes: "/2017/ode-to-docopt/"
     slides: "/files/2017/docopt_slides.pdf"
   title: An ode to docopt
   variant: lightning talk
 - date: 2017-10-27
   event: PyCon UK 2017
   links:
-    notes: "/2017/11/pyconuk-2017-privilege-inclusion/"
+    notes: "/2017/pyconuk-2017-privilege-inclusion/"
     slides: "/files/2017/privilege_inclusion_slides.pdf"
     video: https://www.youtube.com/watch?v=Ej2EJVMkTKw
   title: Using privilege to improve inclusion
@@ -153,7 +153,7 @@ talks:
 
   event: PyCon UK
   links:
-    notes: "/2017/11/a-plumbers-guide-to-git/"
+    notes: "/2017/a-plumbers-guide-to-git/"
   title: A Plumber's Guide to Git
   variant: workshop
 - date: 2017-10-26
@@ -166,7 +166,7 @@ talks:
   event: QCon London
   links:
     event: https://qconlondon.com/london-2017/london-2017/presentation/introduction-to-property-based-testing.html
-    notes: "/2017/03/qcon2017/"
+    notes: "/2017/qcon2017/"
     slides: "/files/2017/hypothesis_qcon17.pdf"
   title: Property-Based Testing In Practice
 - date: 2016-09-18
