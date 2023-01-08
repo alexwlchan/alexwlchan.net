@@ -151,6 +151,6 @@ If you've got a Kindle, I'd recommend trying something like this.
 [apidocs]: https://www.instaparser.com/docs/1/article_api
 [docs]: http://www.amazon.com/gp/help/customer/display.html/ref=hp_pdoc_main_short_us?nodeId=200767340
 [tempfile]: https://docs.python.org/3.5/library/tempfile.html
-[fastmail]: /2016/05/python-smtplib-and-fastmail/
+[fastmail]: {% post_url 2016/2016-05-10-python-smtplib-and-fastmail %}
 [pythonista]: http://omz-software.com/pythonista/
 [appex]: http://omz-software.com/pythonista/docs/ios/appex.html

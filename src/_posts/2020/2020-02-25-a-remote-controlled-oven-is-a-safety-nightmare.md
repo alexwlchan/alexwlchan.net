@@ -29,7 +29,7 @@ When I saw this oven, my first thought was: *how would a terrible flatmate misus
 This is a topic [I've written about in the past][assume_worst_intent] -- even if a product or service is bug-free, a malicious or abusive user could still use it to hurt someone.
 We should always design with abusive personas in mind, and consider how the things we build might be weaponised.
 
-[assume_worst_intent]: /2018/09/assume-worst-intent/
+[assume_worst_intent]: {% post_url 2018/2018-09-24-assume-worst-intent %}
 
 How could somebody nasty misuse an oven that's controlled by an app?
 Before you read on, you might want to try this exercise yourself.

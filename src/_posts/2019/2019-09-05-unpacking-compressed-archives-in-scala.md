@@ -247,7 +247,7 @@ It uses Either rather than Try to handle errors, which is a design pattern it in
 If you want to use this code in your project, all of Wellcome's code is available under [an MIT license][license] -- just the copyright notice and a link back to our repo.
 If you found my walkthrough helpful, perhaps [say thanks on Twitter][thanks]?
 
-[s3_python]: /2019/02/working-with-large-s3-objects/
+[s3_python]: {% post_url 2019/2019-02-09-working-with-large-s3-objects %}
 [commons]: https://en.wikipedia.org/wiki/Apache_Commons
 [ghurl]: https://github.com/wellcometrust/storage-service/blob/5582edcd3a3d1dd876aa311d1c8c03ba66347e7d/bag_unpacker/src/main/scala/uk/ac/wellcome/platform/archive/bagunpacker/storage/Unarchiver.scala
 [tests]: https://github.com/wellcometrust/storage-service/blob/5582edcd3a3d1dd876aa311d1c8c03ba66347e7d/bag_unpacker/src/test/scala/uk/ac/wellcome/platform/archive/bagunpacker/storage/UnarchiverTest.scala

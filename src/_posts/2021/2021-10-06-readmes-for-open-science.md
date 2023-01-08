@@ -20,7 +20,7 @@ This is my second talk for OLS -- last year I talked about how [inclusion can't 
 
 [openlife]: https://openlifesci.org/
 [pdfslides]: /files/2021/ols-readme.pdf
-[inclusion]: /2020/03/inclusion-cant-be-an-afterthought/
+[inclusion]: {% post_url 2020/2020-03-25-inclusion-cant-be-an-afterthought %}
 
 <style>
   .slide img {

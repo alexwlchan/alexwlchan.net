@@ -9,7 +9,7 @@ index:
   exclude: true
 ---
 
-Last year, I wrote [a blog post](/2018/08/inclusive-conferences/) with my ideas for running inclusive conferences.
+Last year, I wrote [a blog post]({% post_url 2018/2018-08-13-inclusive-conferences %}) with my ideas for running inclusive conferences.
 I was thrilled by the number of people who read, shared, or gave me feedback and suggestions.
 I kept all the suggestions in a text file, but I never quite got around to writing an updated post.
 

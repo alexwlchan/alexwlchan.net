@@ -71,9 +71,11 @@ Once that's done, you just run the Python script (if you haven't done that befor
 {% endupdate %}
 
 {% update 2014-06-13 %}
-  This has been superceded by a much cleaner, turnkey solution. For most people, my new [one-page, one-click solution](http://alexwlchan.net/2014/06/untagged-tumblr-posts-redux/) should be much easier and simpler.
+  This has been superceded by a much cleaner, turnkey solution. For most people, my new [one-page, one-click solution][redux] should be much easier and simpler.
 
   You'll still need to use this method if you have a private blog, but anybody else should check out the new way.
+
+  [redux]: {% post_url 2014/2014-06-13-untagged-tumblr-posts-redux %}
 {% endupdate %}
 
 {% update 2015-08-02 %}

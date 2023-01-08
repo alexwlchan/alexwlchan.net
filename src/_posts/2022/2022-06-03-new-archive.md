@@ -165,7 +165,7 @@ It's still quite a few, but substantially fewer than the "all posts" page -- and
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
 [grid]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
-[layout]: /2022/04/supposedly-simple-image-layout/
+[layout]: {% post_url 2022/2022-04-23-supposedly-simple-image-layout %}
 
 
 

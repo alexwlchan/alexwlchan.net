@@ -58,24 +58,24 @@ I can do wacky and weird things that just aren't possible on big social media si
 Everything on the site is something I find fun or interesting.
 These are a few of my favourites:
 
-*   2016: [Tiling the plane with Pillow](/2016/10/tiling-the-plane-with-pillow/) -- the first time I used programming to draw pictures, but definitely not the last.
+*   2016: [Tiling the plane with Pillow]({% post_url 2016/2016-10-21-tiling-the-plane-with-pillow %}) -- the first time I used programming to draw pictures, but definitely not the last.
 
-*   2017: [A visit to the Crossness pumping station](/2017/06/crossness-pumping-station/)
+*   2017: [A visit to the Crossness pumping station]({% post_url 2017/2017-06-07-crossness-pumping-station %})
 
-*   2017: [Adventures in Python with concurrent.futures](/2019/10/adventures-with-concurrent-futures/) – I write a lot of posts to help me understand a tricky concept, and this is one I revisit regularly.
+*   2017: [Adventures in Python with concurrent.futures]({% post_url 2019/2019-10-16-adventures-with-concurrent-futures %}) – I write a lot of posts to help me understand a tricky concept, and this is one I revisit regularly.
 
-*   2019: [Reading a Chinese dictionary / 读一本中文字典](/2019/06/reading-a-chinese-dictionary/)
+*   2019: [Reading a Chinese dictionary / 读一本中文字典]({% post_url 2019/2019-06-12-reading-a-chinese-dictionary %})
 
-*   2019: [Getting a tint colour from an image with Python and *k*‑means](/2019/08/finding-tint-colours-with-k-means/)
+*   2019: [Getting a tint colour from an image with Python and *k*‑means]({% post_url 2019/2019-08-19-finding-tint-colours-with-k-means %})
 
-*   2020: [Illustrating lifecycle transitions in Amazon S3](/2020/05/illustrating-lifecycle-transitions-in-amazon-s3/) – which includes an idea which went on to be used in the official AWS documentation (!).
+*   2020: [Illustrating lifecycle transitions in Amazon S3]({% post_url 2020/2020-05-01-illustrating-lifecycle-transitions-in-amazon-s3 %}) – which includes an idea which went on to be used in the official AWS documentation (!).
 
-*   2020: [Maths is about facing ambiguity, not avoiding it](/2020/11/maths-is-about-facing-ambiguity-not-avoiding-it/)
+*   2020: [Maths is about facing ambiguity, not avoiding it]({% post_url 2020/2020-11-15-maths-is-about-facing-ambiguity-not-avoiding-it %})
 
-*   2021: [Drawing inner/outer strokes in SVG (clips and masks)](/2021/03/inner-outer-strokes-svg/) – another post where I was writing to help me understand something.
+*   2021: [Drawing inner/outer strokes in SVG (clips and masks)]({% post_url 2021/2021-03-12-inner-outer-strokes-svg %}) – another post where I was writing to help me understand something.
     I'm particularly pleased with the examples.
 
-*   2022: [“Fixing” the rules of division](/2022/09/moomin-mathematics/) – I enjoyed drawing the Moomin illustrations.
+*   2022: [“Fixing” the rules of division]({% post_url 2022/2022-09-23-moomin-mathematics %}) – I enjoyed drawing the Moomin illustrations.
 
 Making this site brings me joy, so I'm going to keep doing it.
 Let's see if I make it another ten years.

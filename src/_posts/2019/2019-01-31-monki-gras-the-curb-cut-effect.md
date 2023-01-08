@@ -15,7 +15,7 @@ index:
 Earlier today I did a talk at [Monki Gras 2019](https://monkigras.com/).
 The theme of the conference is "Accessible Craft: Creating great experiences for everyone", so I did a talk about inclusive design -- and in particular, something called the Curb Cut Effect.
 
-I originally pitched a talk based on [Assume Worst Intent](/2018/09/assume-worst-intent/), because if you're thinking about inclusion you might think about ways to avoid exclusion (specifically, exclusion of harassment and abuse victims).
+I originally pitched a talk based on [Assume Worst Intent]({% post_url 2018/2018-09-24-assume-worst-intent %}), because if you're thinking about inclusion you might think about ways to avoid exclusion (specifically, exclusion of harassment and abuse victims).
 That talk was definitely too narrow for this conference, but James isolated a key idea -- making a service better for vulnerable uses makes it better for everyone -- and I wrote an entirely new talk around it.
 
 The talk went really well -- everybody was very nice afterwards, and I'm enjoying the rest of talks too.

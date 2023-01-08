@@ -120,7 +120,7 @@ The pattern above loads all the tasks immediately, potentially using a lot of me
 It would be nicer if it was only keeping a small number of tasks in memory -- the ones that were currently being worked on.
 
 One approach to handle a very large number of tasks would be to break them into small chunks, and process each chunk in turn using the pattern above.
-Using my chunked_iterable() method [from a previous post](/2018/12/iterating-in-fixed-size-chunks/), we could do something like:
+Using my chunked_iterable() method [from a previous post]({% post_url 2018/2018-12-23-iterating-in-fixed-size-chunks %}), we could do something like:
 
 ```python
 for task_set in chunked_iterable(get_tasks_to_do(), HOW_MANY_TASKS_AT_ONCE):

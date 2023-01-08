@@ -50,7 +50,7 @@ All the bathrooms at AlterConf are gender-neutral, and it's a staple of the conf
 
 I've written about [the value of quiet rooms][quiet] before, and it was good to have one at AlterConf. Personally I found the venue (the King offices) to be a bit loud and crowded at times, and having a space to relax and recharge was essential.
 
-[quiet]: /2016/09/silence-is-golden/
+[quiet]: {% post_url 2016/2016-09-19-silence-is-golden %}
 
 ### Live captioning and BSL interpreters
 
@@ -58,7 +58,7 @@ I wrote [about live captioning][sttr] at PyCon UK, and I was unsurprised to see 
 
 Alongside the live captioning, we had a pair of BSL interpreters. Both excellent provisions for attendees who are hard of hearing, or really anyone who just drifts off for a moment.
 
-[sttr]: /2016/09/speech-to-text/
+[sttr]: {% post_url 2016/2016-09-17-speech-to-text %}
 
 ### Ticket pricing
 
