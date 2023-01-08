@@ -12,7 +12,7 @@ destination: "_site"
 
 date_format: "%-d %B %Y"
 
-permalink: "/:year/:month/:title/"
+permalink: "/:year/:title/"
 
 keep_files: [
   # Managed by rsync outside the main Jekyll process
