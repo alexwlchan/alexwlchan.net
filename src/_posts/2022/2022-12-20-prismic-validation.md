@@ -176,7 +176,7 @@ I [fetch every page][curl] from a local copy of the site, check for errors, and 
 
 We get alerts for errors on the public site, and now we test a sample of URLs as part of deployment -- and testing everything helped find the "interesting" examples that went into that sample.
 
-[curl]: /2022/04/checking-with-curl/
+[curl]: {% post_url 2022/2022-04-02-checking-with-curl %}
 
 
 

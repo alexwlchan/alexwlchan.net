@@ -15,10 +15,10 @@ The more your event is doing to be [inclusive and accessible](https://alexwlchan
 I enjoy talking about the social implications of technology, and the intersections with ethics, accessibility, diversity and inclusion.
 These talks are particular favourites, and I'd love an opportunity to present them to a new audience:
 
--   [*The Curb Cut Effect*.](/2019/01/monki-gras-the-curb-cut-effect/)
+-   [*The Curb Cut Effect*.]({% post_url 2019/2019-01-31-monki-gras-the-curb-cut-effect %})
     If we design with accessibility and inclusion in mind from the start, we end up with a better design for everyone.
 
--   [*Assume Worst Intent*.](/2018/09/assume-worst-intent/)
+-   [*Assume Worst Intent*.]({% post_url 2018/2018-09-24-assume-worst-intent %})
     Safety can't be an afterthought -- we need to anticipate somebody using our tools for harassment or bullying, and design with that in mind.
 
 -   *A Robot Stole My Job*.
