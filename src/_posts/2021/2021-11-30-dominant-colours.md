@@ -136,9 +136,9 @@ I don't want any more features, and I'm not aware of any bugs, so don't expect t
 It's one of the nice things about writing small, single-purpose tools: you can finish them.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
-[kmeans]: /2019/08/finding-tint-colours-with-k-means/
+[kmeans]: {% post_url 2019/2019-08-19-finding-tint-colours-with-k-means %}
 [kmeans_lib]: https://github.com/okaneco/kmeans-colors
 [do_one_thing]: https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well
 [clap]: https://crates.io/crates/clap
-[ansi]: /2021/04/coloured-squares/
+[ansi]: {% post_url 2021/2021-04-29-coloured-squares %}
 [esteban]: https://www.youtube.com/watch?v=Z6X7Ada0ugE

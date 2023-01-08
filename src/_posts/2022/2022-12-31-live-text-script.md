@@ -21,7 +21,7 @@ This is the promise of "it just works": I [open an image in Preview][preview], h
     class="screenshot"
   %}
   <figcaption>
-    Staying off the tracks at <a href="/2022/11/bure-valley/">the Bure Valley Railway</a>.
+    Staying off the tracks at <a href="{% post_url 2022/2022-11-28-bure-valley %}">the Bure Valley Railway</a>.
   </figcaption>
 </figure>
 
@@ -56,5 +56,5 @@ I've tried and failed to install command-line OCR in the past; getting this work
 [preview]: https://support.apple.com/en-gb/guide/preview/prvw625a5b2c/mac
 [docs]: https://developer.apple.com/documentation/vision/recognizing_text_in_images#3601255
 [script]: https://github.com/alexwlchan/pathscripts/blob/main/macos/get_live_text
-[screenshots]: /2022/07/screenshots/
+[screenshots]: {% post_url 2022/2022-07-23-screenshots %}
 [second]: https://github.com/alexwlchan/pathscripts/blob/main/macos/get_all_live_text

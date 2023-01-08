@@ -10,7 +10,7 @@ title: Silence is golden
 As I write this, it's the last day of [PyCon UK](http://2016.pyconuk.org/).
 The air is buzzing with the sound of [sprints](http://2016.pyconuk.org/what-are-sprints/) and productivity.
 I'll write a blog post about everything that happened at PyCon later (spoiler: I've had a great time), but right now I'd like to write about one specific feature – an idea I'd love to see at every conference.
-I've already talked about [live captioning](/2016/09/speech-to-text/) – now let's talk about quiet rooms.
+I've already talked about [live captioning]({% post_url 2016/2016-09-17-speech-to-text %}) – now let's talk about quiet rooms.
 
 I'm an introvert.
 Don't get me wrong: I enjoy socialising at conferences and meetups.

@@ -280,7 +280,7 @@ It's less typing, and less risk of a typo messing up your selection.
 So now we can ask the user to select a cluster, get a list of all the services in that cluster, and look up the CPU/memory statistics for that service.
 How do we display that to the user?
 
-I've done a bit of this before -- two years ago I wrote a post about [drawing ASCII bar charts in Python](/2018/05/ascii-bar-charts/), and that code is pretty useful here.
+I've done a bit of this before -- two years ago I wrote a post about [drawing ASCII bar charts in Python]({% post_url 2018/2018-05-26-ascii-bar-charts %}), and that code is pretty useful here.
 I'm not going to go through it again, just note a couple of tweaks I've made to the code from that post, in particular:
 
 *   removing common prefixes from the service names
