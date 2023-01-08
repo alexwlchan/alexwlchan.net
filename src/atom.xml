@@ -28,12 +28,31 @@ layout: default_xml
       <link href="{% if post.link %}{{ post.link }}{% else %}{{ post.url | absolute_url }}{% endif %}" rel="alternate" type="text/html" title="{{ post.title | strip_html | xml_escape }}" />
       <published>{{ post.date | date_to_xmlschema }}</published>
       <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
-      <id>{{ post.id | absolute_url | xml_escape }}</id>
+
+      {% comment %}
+        This is a short-term hack to try to avoid spamming everyone's
+        RSS readers when I changed the post URL scheme, going from
+        /{year}/{month}/{slug} to /{year}/{slug}.
+
+        It preserves the post <id> for posts that predate the change.
+
+        When I've posted enough new content in 2023 that there are no
+        2022 posts left in the RSS feed, I can remove this.
+      {% endcomment %}
+
+      {% assign year = post.date | date: '%Y' %}
+
+      {% if year > "2022" %}
+        <id>{{ post.id | absolute_url | xml_escape }}</id>
+      {% else %}
+        <id>https://alexwlchan.net{{ post.date | date: '%Y' }}/{{ post.date | date: '%m' }}/{{ post.slug }}/</id>
+      {% endif %}
+
       <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
         <![CDATA[
         {{ post.content | cleanup_text | strip | fix_html_for_feed_readers | fix_youtube_iframes }}
 
-        <p>[If the formatting of this post looks odd in your feed reader, <a href="https://alexwlchan.net/{{ post.url }}">visit the original article</a>]</p>
+        <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.url | absolute_url | xml_escape }}">visit the original article</a>]</p>
         ]]>
       </content>
 
