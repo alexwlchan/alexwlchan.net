@@ -42,6 +42,6 @@ If you'd like to try it, it's available at <https://dominant-colours.glitch.me/>
 
 If you want to read the source code, it's [on GitHub][github].
 
-[cli]: /2021/11/dominant-colours/
-[recompiling]: /2022/05/rust-on-glitch/
+[cli]: {% post_url 2021/2021-11-30-dominant-colours %}
+[recompiling]: {% post_url 2022/2022-05-05-rust-on-glitch %}
 [github]: https://github.com/alexwlchan/dominant_colours/tree/main/webapp

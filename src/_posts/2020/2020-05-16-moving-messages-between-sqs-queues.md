@@ -27,9 +27,9 @@ Although we primarily use this to redrive problematic messages that went to a DL
 
 It uses code I shared two years ago [to dump the contents of an SQS queue][dump_q].
 
-[dump_q]: /2018/01/downloading-sqs-queues/
+[dump_q]: {% post_url 2018/2018-01-25-downloading-sqs-queues %}
 [send_message_batch]: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html?highlight=sqs#SQS.Client.send_message_batch
-[fixed_chunks]: /2018/12/iterating-in-fixed-size-chunks/
+[fixed_chunks]: {% post_url 2018/2018-12-23-iterating-in-fixed-size-chunks %}
 
 Be careful running this code -- if the worker is running, and it picks up the messages immediately, they might go back to the DLQ if there's another problem with the worker.
 The script would then resend them to the input queue, and the worker would send them back to the DLQ.

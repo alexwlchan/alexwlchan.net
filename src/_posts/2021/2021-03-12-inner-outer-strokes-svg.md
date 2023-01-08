@@ -26,7 +26,7 @@ This seems like something I might use again, and it helped me understand both fe
 
 
 [SVGs]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
-[interlocking rainbow hearts]: /2021/03/rainbow-hearts/
+[interlocking rainbow hearts]: {% post_url 2021/2021-03-07-rainbow-hearts %}
 [clipping and masking]: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Clipping_and_masking
 
 

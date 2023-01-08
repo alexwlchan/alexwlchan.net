@@ -23,7 +23,7 @@ Most of the comments I saw were constructive and thoughtful, and many people sha
 It was also relatively stress-free.
 These are a few notes on what it was like to be (briefly) popular.
 
-[screenshots]: /2022/07/screenshots/
+[screenshots]: {% post_url 2022/2022-07-23-screenshots %}
 
 ## Not having analytics: good
 

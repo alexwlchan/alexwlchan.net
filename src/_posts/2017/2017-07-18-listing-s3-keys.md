@@ -8,7 +8,7 @@ title: Listing keys in an S3 bucket with Python
 
 {% update 2019-07-03 %}
   In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
-  If you want to use it, I'd recommend using the [updated version](/2019/07/listing-s3-keys/).
+  If you want to use it, I'd recommend using the [updated version]({% post_url 2019/2019-07-03-listing-s3-keys %}).
 {% endupdate %}
 
 A lot of my recent work has involved batch processing on files stored in Amazon S3.
@@ -222,7 +222,7 @@ Although S3 isn't actually a traditional filesystem, it behaves in very similar 
 
 {% update 2019-07-03 %}
   In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
-  If you want to use it, I'd recommend using the [updated version](/2019/07/listing-s3-keys/).
+  If you want to use it, I'd recommend using the [updated version]({% post_url 2019/2019-07-03-listing-s3-keys %}).
 {% endupdate %}
 
 [boto3]: https://github.com/boto/boto3

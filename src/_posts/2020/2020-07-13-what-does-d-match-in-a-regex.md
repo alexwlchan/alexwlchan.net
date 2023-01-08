@@ -26,4 +26,4 @@ No doubt it varies among other programming languages as well.
 How much this distinction matters depends on your use case, and in most cases I imagine the answer is "very little".
 I present it more as an intellectual curiosity than something which needs serious consideration when writing regexes.
 
-This isn't the first time Hypothesis has [exposed one of my faulty assumptions](/2016/12/strings-are-terrible/) -- language is incredibly complicated, and I still have a lot to learn.
+This isn't the first time Hypothesis has [exposed one of my faulty assumptions]({% post_url 2016/2016-12-01-strings-are-terrible %}) -- language is incredibly complicated, and I still have a lot to learn.

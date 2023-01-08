@@ -252,7 +252,7 @@ Give people a space to take a break away from the bustle of the conference.
 
 Networking and socialising is an important part of conferences, but it tires a lot of people out.
 Have a clearly-marked, designated space where people can sit quietly, not talk to anybody, and recover some of their energy.
-I wrote [about the quiet room at PyCon UK](/2016/09/silence-is-golden/) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
+I wrote [about the quiet room at PyCon UK]({% post_url 2016/2016-09-19-silence-is-golden %}) in 2016, and sitting in the quiet room is how I've got through a number of other conferences.
 
 <figure>
   {%
@@ -347,7 +347,7 @@ I expect we'll run the same process this year.
 
 [lightning]: https://en.wikipedia.org/wiki/Lightning_talk
 [pycon]: https://us.pycon.org/2018/schedule/talks/
-[lottery]: /2017/10/lightning-talks/
+[lottery]: {% post_url 2017/2017-10-28-lightning-talks %}
 
 <figure>
   {%
@@ -508,7 +508,7 @@ They can be programmed into the stenographer's keyboards, so you get more accura
 I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf and Coed:Ethics, and heard of it at other conferences.
 
 [sttr]: https://en.wikipedia.org/wiki/Speech-to-text_reporter
-[sttr]: /2016/09/speech-to-text/
+[sttr]: {% post_url 2016/2016-09-17-speech-to-text %}
 
 <figure>
   {%
