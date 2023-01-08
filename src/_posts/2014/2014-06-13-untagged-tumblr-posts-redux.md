@@ -12,7 +12,13 @@ I wanted a simple turnkey solution.
 My idea was that people could go to a website, type in their Tumblr URL and click a single button to get a list of all your untagged posts.
 And now, that exists:
 
-<center>**<http://finduntaggedtumblrposts.com/>**</center>
+<center>
+  <strong>
+    <a href="http://finduntaggedtumblrposts.com/">
+      http://finduntaggedtumblrposts.com/
+    </a>
+  </strong>
+</center>
 
 If you go to that URL, then you should get a nice list of all your untagged posts.
 I hope it's useful.
