@@ -142,37 +142,37 @@
 # == Redirects for individual blog posts ==
 
 # Removing the /blog prefix
-/blog/2013/03/pinboard-backups/                                 /2013/03/pinboard-backups/
-/blog/2013/03/candybar/                                         /2013/03/candybar/
+/blog/2013/03/pinboard-backups/                                 /2013/pinboard-backups/
+/blog/2013/03/candybar/                                         /2013/candybar/
 
 # Moving everything under /talks to dated entries
-/talks/hypothesis-intro/                                        /2016/06/hypothesis-intro/
-/talks/pyconuk2016                                              /2016/09/pyconuk2016/
-/talks/qcon2017                                                 /2017/03/qcon2017/
+/talks/hypothesis-intro/                                        /2016/hypothesis-intro/
+/talks/pyconuk2016                                              /2016/pyconuk2016/
+/talks/qcon2017                                                 /2017/qcon2017/
 
 # Moving everything under /notes to dated entries
-/notes/custom-css-resophnotes                                   /2014/11/custom-css-resophnotes/
-/notes/custom-css-resophnotes/                                  /2014/11/custom-css-resophnotes/
-/notes/tricity-sie454-clock                                     /2016/10/tricity-sie454-clock/
-/notes/tricity-sie454-clock/                                    /2016/10/tricity-sie454-clock/
-/notes/worcester-28cdi-clock                                    /2016/10/worcester-28cdi-clock/
-/notes/worcester-28cdi-clock/                                   /2016/10/worcester-28cdi-clock/
+/notes/custom-css-resophnotes                                   /2014/custom-css-resophnotes/
+/notes/custom-css-resophnotes/                                  /2014/custom-css-resophnotes/
+/notes/tricity-sie454-clock                                     /2016/tricity-sie454-clock/
+/notes/tricity-sie454-clock/                                    /2016/tricity-sie454-clock/
+/notes/worcester-28cdi-clock                                    /2016/worcester-28cdi-clock/
+/notes/worcester-28cdi-clock/                                   /2016/worcester-28cdi-clock/
 
 # Cases where the slug on the blog post changed after I'd published
-/2016/05/safely-deleting-a-file-called-rf-/                     /2016/05/safely-deleting-a-file-called-rf/
-/2016/05/safely-deleting-a-file-called-rf-                      /2016/05/safely-deleting-a-file-called-rf/
-/2017/01/a-python-interface-to-ao3                              /2017/01/experiments-with-ao3-and-python/
-/2017/01/a-python-interface-to-ao3/                             /2017/01/experiments-with-ao3-and-python/
-/2021/01/what-year-it-it/                                       /2021/01/what-year-is-it/
-/2017/04/accessibility-at-alterconf                             /2017/04/lessons-from-alterconf/
-/2017/04/accessibility-at-alterconf/                            /2017/04/lessons-from-alterconf/
+/2016/05/safely-deleting-a-file-called-rf-/                     /2016/safely-deleting-a-file-called-rf/
+/2016/05/safely-deleting-a-file-called-rf-                      /2016/safely-deleting-a-file-called-rf/
+/2017/01/a-python-interface-to-ao3                              /2017/experiments-with-ao3-and-python/
+/2017/01/a-python-interface-to-ao3/                             /2017/experiments-with-ao3-and-python/
+/2021/01/what-year-it-it/                                       /2021/what-year-is-it/
+/2017/04/accessibility-at-alterconf                             /2017/lessons-from-alterconf/
+/2017/04/accessibility-at-alterconf/                            /2017/lessons-from-alterconf/
 
 # I put up a post linking to my slides, then a month later I put up
 # another post with an annotated set of slides and notes.
-/2019/09/slides-for-pycon-uk-2019/                              /2019/10/sans-io-programming/
+/2019/09/slides-for-pycon-uk-2019/                              /2019/sans-io-programming/
 
 # This was a broken redirect I had for a while
-/2016/07/hypothesis-intro/                                      /2016/06/hypothesis-intro/
+/2016/07/hypothesis-intro/                                      /2016/hypothesis-intro/
 
 # === #
 
