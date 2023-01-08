@@ -4,7 +4,7 @@ summary: A chart to track the progress of the Incomparable's Skeletor clip loop.
 title: Skeletor
 ---
 
-This is a page to track the latest version of my [recursive clip loop chart](/2014/06/skeletor/) for *The Incomparable* podcast.
+This is a page to track the latest version of my [recursive clip loop chart]({% post_url 2014/2014-06-29-skeletor %}) for *The Incomparable* podcast.
 
 Here's a high-resolution PNG:
 
