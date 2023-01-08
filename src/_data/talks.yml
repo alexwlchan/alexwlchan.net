@@ -28,7 +28,7 @@
 
     links:
       video: "https://www.youtube.com/watch?v=-9tqCtf3T9k"
-      notes: "/2019/01/monki-gras-the-curb-cut-effect/"
+      notes: "/2019/monki-gras-the-curb-cut-effect/"
 
   - title: "Sans I/O programming patterns: what, why, and how"
     event: "PyCon UK"
@@ -45,7 +45,7 @@
     links:
       video: "https://www.youtube.com/watch?v=qwTWqy0uPbY"
       slides: "/files/2019/pyconuk_2019_sans_io.pdf"
-      notes: "/2019/10/sans-io-programming/"
+      notes: "/2019/sans-io-programming/"
 
   - title: "A robot stole my job!"
     event: "PyCon UK"
@@ -82,7 +82,7 @@
     links:
       video: "https://www.youtube.com/watch?v=6Yf3iukx3tQ"
       slides: "/files/2019/curbcut-monkigras.pdf"
-      notes: "/2019/01/monki-gras-the-curb-cut-effect/"
+      notes: "/2019/monki-gras-the-curb-cut-effect/"
 
 2018:
 
@@ -106,7 +106,7 @@
     links:
       video: "https://www.youtube.com/watch?v=XyGVRlRyT-E"
       slides: "/files/2018/assume_worst_intent.pdf"
-      notes: "/2018/09/assume-worst-intent/"
+      notes: "/2018/assume-worst-intent/"
 
   - title: "Building Trust in an Age of Suspicious Minds"
     event: "PyCon UK"
@@ -121,7 +121,7 @@
     links:
       video: "https://www.youtube.com/watch?v=B3XxPnbehqQ"
       slides: "/files/2018/suspicious-minds.pdf"
-      notes: "/2018/09/suspicious-minds"
+      notes: "/2018/suspicious-minds"
 
   - title: "A Plumber's Guide to Git"
     event: "Oxford Python"
@@ -146,7 +146,7 @@
 
     links:
       slides: "/files/2018/anti_social_media_slides.pdf"
-      notes: "/2018/04/anti-social-media/"
+      notes: "/2018/anti-social-media/"
 
   - title: "A Plumber's Guide to Git"
     event: "Cambridge Python User Group"
@@ -166,7 +166,7 @@
 
     links:
       slides: "/files/2017/docopt_slides.pdf"
-      notes: "/2017/09/ode-to-docopt/"
+      notes: "/2017/ode-to-docopt/"
 
   - title: "Using privilege to improve inclusion"
     event: "PyCon UK"
@@ -177,7 +177,7 @@
     links:
       video: "https://www.youtube.com/watch?v=Ej2EJVMkTKw"
       slides: "/files/2017/privilege_inclusion_slides.pdf"
-      notes: "/2017/11/pyconuk-2017-privilege-inclusion/"
+      notes: "/2017/pyconuk-2017-privilege-inclusion/"
 
   - title: "A Plumber's Guide to Git"
     event: "PyCon UK"
@@ -191,7 +191,7 @@
       A workshop that uses low-level Git "plumbing" commands to reconstruct a Git workflow from scratch, and see how Git stores data internally.
 
     links:
-      notes: "/2017/11/a-plumbers-guide-to-git/"
+      notes: "/2017/a-plumbers-guide-to-git/"
 
   - title: "Let's talk about (a)sex(uals)"
     event: "PyCon UK"
@@ -208,7 +208,7 @@
 
     links:
       slides: "/files/2017/hypothesis_qcon17.pdf"
-      notes: "/2017/03/qcon2017/"
+      notes: "/2017/qcon2017/"
 
 2016:
 
