@@ -128,7 +128,7 @@ With these two tools, I can get an image in a range of different colours:
 Using the hue adjustment means I can find something in the right ballpark to match the rest of my slides.
 I might also tweak the saturation/brightness in an image editor if the shade isn't quite right -- and then I have an image to use in my slide deck.
 
-You can see another example of this technique in the slides for [my curb cut effect talk](/2019/01/monki-gras-the-curb-cut-effect/).
+You can see another example of this technique in the slides for [my curb cut effect talk]({% post_url 2019/2019-01-31-monki-gras-the-curb-cut-effect %}).
 There's a picture of a handle on a purple door, but the [original image](https://pixabay.com/photos/door-handle-doorknob-lock-door-3633943/) had a red door.
 Without a side-by-side comparison, you'd never realise the image had been changed:
 

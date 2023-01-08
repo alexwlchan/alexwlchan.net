@@ -378,7 +378,7 @@ The thin yellow line is one of my favourites, because it reminds me of a key hol
 
 Once again, I think some of the most striking images are those with just a few spokes and rings.
 
-[curved_arcs]: /2022/08/circle-party/
+[curved_arcs]: {% post_url 2022/2022-08-10-circle-party %}
 
 
 

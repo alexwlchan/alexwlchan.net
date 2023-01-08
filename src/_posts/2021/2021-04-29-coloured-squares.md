@@ -85,7 +85,7 @@ Now I have, it's a single copy/paste to start reaping the benefits, so I'm much 
 [tweet]: https://twitter.com/alexwlchan/status/1387544124807593989
 [emoji]: https://emojipedia.org/thread/
 [Emojipedia]: https://emojipedia.org/thread/
-[dominant_colours]: /2019/08/finding-tint-colours-with-k-means/
+[dominant_colours]: {% post_url 2019/2019-08-19-finding-tint-colours-with-k-means %}
 [Perl function]: https://unix.stackexchange.com/a/482782/43183
 [ANSI escape codes]: https://en.wikipedia.org/wiki/ANSI_escape_code
 [Wikipedia entry]: https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters

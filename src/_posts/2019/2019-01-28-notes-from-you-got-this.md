@@ -28,7 +28,7 @@ Every session was interesting, well-presented, and left me with at least a few n
 
 The emphasis in the introduction was that these are "topics we should be talking about more" -- which is precisely why I decided to go.
 
-I care a lot about running inclusive events, and [have a long list of ideas for doing so](/2018/08/inclusive-conferences/).
+I care a lot about running inclusive events, and [have a long list of ideas for doing so]({% post_url 2018/2018-08-13-inclusive-conferences %}).
 For a first-time conference, I was pleased by how many of them they hit:
 
 -   When I arrived, I was asked if I was happy to appear in photographs -- and if not, I could wear a bright yellow lanyard.
@@ -66,7 +66,7 @@ And here's some stuff that felt a little odd:
 
     I also felt the spaces were a bit small, and felt crowded during the lunch break.
 
-No conference gets inclusivity perfect, and the gold standard for me is still [AlterConf London](/2017/04/lessons-from-alterconf/) -- but this was pretty good, overall.
+No conference gets inclusivity perfect, and the gold standard for me is still [AlterConf London]({% post_url 2017/2017-04-04-lessons-from-alterconf %}) -- but this was pretty good, overall.
 I'd happily attend again.
 
 If you read the post and think sounds interesting, there's a sequel planned for January 2020, with a [mailing list](https://yougotthis.io/) on the website.

@@ -24,7 +24,7 @@ In this post, I'm going to explain how the new code works.
 
 You may not want to generate these exact images, but the ability to generate graphics like this has been useful in lots of projects – consider this a primer in creating simple images.
 
-[last post]: /2021/12/2021-in-reading/
+[last post]: {% post_url 2021/2021-12-31-2021-in-reading %}
 [books.alexwlchan.net]: https://books.alexwlchan.net/
 [red]: https://books.alexwlchan.net/reviews/trains
 [yellow]: https://books.alexwlchan.net/reviews/your-computer-is-on-fire/
@@ -44,7 +44,7 @@ That gets me a primary colour, like <code><span style="color: #917546">█</span
 Once I have that colour, I generate lots of colours that look similar – I'll explain how that works later.
 
 [dominant_colours]: https://github.com/alexwlchan/dominant_colours
-[explainer]: /2019/08/finding-tint-colours-with-k-means/
+[explainer]: {% post_url 2019/2019-08-19-finding-tint-colours-with-k-means %}
 
 
 

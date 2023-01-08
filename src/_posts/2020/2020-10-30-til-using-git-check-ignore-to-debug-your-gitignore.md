@@ -30,7 +30,7 @@ A few examples:
 
     Notice that it looks in .gitignore files that aren't in the root of the repo (the sort of thing I often forget about).
 
-*   It can even look [in your `.git/info/exclude`](/2015/06/git-info-exclude/), a place for per-clone ignore rules that you don't want to keep in the repository:
+*   It can even look [in your `.git/info/exclude`]({% post_url 2015/2015-06-02-git-info-exclude %}), a place for per-clone ignore rules that you don't want to keep in the repository:
 
     ```
     $ git check-ignore --verbose scripts/alex/downloader.py

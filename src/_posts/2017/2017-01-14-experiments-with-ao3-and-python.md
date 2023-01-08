@@ -19,4 +19,4 @@ Instructions are in the README, and you can install it from PyPI (`pip install a
 I'm not actively working on this (I have what I need for now), but this code might be useful for somebody else.
 Enjoy!
 
-[previous]: /2017/01/scrape-logged-in-ao3/
+[previous]: {% post_url 2017/2017-01-07-scrape-logged-in-ao3 %}

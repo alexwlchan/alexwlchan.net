@@ -18,7 +18,7 @@ Whenever I look at [our AWS bill], one of the biggest costs is always S3 storage
 That's not a surprise -- our account holds, among other things, two copies of Wellcome Collection's [entire digital archive], which is nearly 120TB and growing every day.
 If we ever got a bill and there *wasn't* a big number next to S3, that's a reason to to panic.
 
-[our AWS bill]: /2019/11/aws-costs-graph/
+[our AWS bill]: {% post_url 2019/2019-11-06-aws-costs-graph %}
 [entire digital archive]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
 
 We spend about $25,000 on S3 storage every year.

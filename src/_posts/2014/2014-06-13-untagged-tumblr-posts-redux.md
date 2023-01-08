@@ -5,14 +5,20 @@ tags: tumblr
 title: Finding untagged posts on Tumblr, redux
 ---
 
-One of the most popular posts on this site is <a href="http://alexwlchan.net/2013/08/untagged-tumblr-posts/">Finding untagged posts on Tumblr</a>, but it's not exactly... friendly.
+One of the most popular posts on this site is [Finding untagged posts on Tumblr][original_post], but it's not exactly... friendly.
 Asking people to download a script and register an API key can look sufficiently daunting that a lot of people probably don't try.
 
 I wanted a simple turnkey solution.
 My idea was that people could go to a website, type in their Tumblr URL and click a single button to get a list of all your untagged posts.
 And now, that exists:
 
-<center>**<http://finduntaggedtumblrposts.com/>**</center>
+<center>
+  <strong>
+    <a href="http://finduntaggedtumblrposts.com/">
+      http://finduntaggedtumblrposts.com/
+    </a>
+  </strong>
+</center>
 
 If you go to that URL, then you should get a nice list of all your untagged posts.
 I hope it's useful.
@@ -24,7 +30,7 @@ If you find any bugs, or a page it doesn't seem to work for, then please [get in
 I'm not affiliated with nor endorsed by Tumblr themselves; I just wrote this because I thought it would be useful, and my existing solution was crummy.
 
 I don't keep a list of URLs looked up with the site, but I do use Google Analytics to track basic information about visitors.
-Full details are in the [privacy policy](http://finduntaggedtumblrposts.com/privacy/).
+Full details are in the [privacy policy][privacy].
 
 ## The technical stuff
 
@@ -34,4 +40,8 @@ About a year ago, I did some work experience with the <a href="http://www.maths.
 I was working on a small web app called <a href="http://nrich.maths.org/mathmoApp/#/mathmo">Mathmo</a>, which is an interactive problem generator for A-level Maths.
 Mathmo is written with the AngularJS framework, and since that was the last time I did any serious JavaScript, I used the same framework here (although this is obviously much simpler than Mathmo).
 
-All of the source code is in [a GitHub repo](https://github.com/alexwlchan/untagged-tumblr-posts), and the site itself is hosted (like this one) with GitHub Pages.
+All of the source code is in [a GitHub repo][github], and the site itself is hosted (like this one) with GitHub Pages.
+
+[original_post]: {% post_url 2013/2013-08-06-untagged-tumblr-posts %}
+[privacy]: http://finduntaggedtumblrposts.com/privacy/
+[github]: https://github.com/alexwlchan/untagged-tumblr-posts

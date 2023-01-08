@@ -176,5 +176,5 @@ if __name__ == "__main__":
 ```
 
 [Parallel Scan]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan
-[about using Parallel Scan in Scala]: /2018/08/parallel-scan-scanamo/
-[my recipes for concurrent.futures]: /2019/10/adventures-with-concurrent-futures/
+[about using Parallel Scan in Scala]: {% post_url 2018/2018-08-25-parallel-scan-scanamo %}
+[my recipes for concurrent.futures]: {% post_url 2019/2019-10-16-adventures-with-concurrent-futures %}

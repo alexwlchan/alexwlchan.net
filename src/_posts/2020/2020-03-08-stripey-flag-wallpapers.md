@@ -29,7 +29,7 @@ One of the builtin wallpapers that ships with iOS is a black wallpaper with slan
 </figure>
 
 This sort of simple, geometric design is exactly the type of thing you can create in code, not an image editor.
-I've used Pillow, the Python imaging library, to do this sort of thing in the past -- first [tiling the plane](/2016/10/tiling-the-plane-with-pillow/), then adding colour to [create low contrast wallpapers](/2016/10/wallpapers-with-pillow/).
+I've used Pillow, the Python imaging library, to do this sort of thing in the past -- first [tiling the plane]({% post_url 2016/2016-10-21-tiling-the-plane-with-pillow %}), then adding colour to [create low contrast wallpapers]({% post_url 2016/2016-10-22-wallpapers-with-pillow %}).
 
 This design is simpler and involves less geometry: I measured the dimensions of the stripes from a JPEG, then used the ImageDraw class in Pillow to create the stripes on the background.
 My metrics are based on the dimensions of an iPhone X-sized phone, but you can adapt the idea to any size of phone.

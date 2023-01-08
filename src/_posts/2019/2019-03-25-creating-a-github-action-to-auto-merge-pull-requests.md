@@ -251,7 +251,7 @@ This helper method creates an HTTP session that, on every request:
     This uses a requests hook, which I've written about [in a previous post][hooks].
 
 [pr_api]: https://developer.github.com/v3/pulls/
-[hooks]: /2017/10/requests-hooks/
+[hooks]: {% post_url 2017/2017-10-20-requests-hooks %}
 
 I have to add `pip3 install requests` to the `Dockerfile` so I can use the requests library.
 

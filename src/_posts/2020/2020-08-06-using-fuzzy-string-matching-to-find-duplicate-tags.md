@@ -6,7 +6,7 @@ tags: python
 ---
 
 I'm a big fan of [keyword tagging](https://en.wikipedia.org/wiki/Tag_(metadata)) as a way to organise my digital data.
-(For an explanation why, see my post about [how I scan and store my paperwork](/2019/11/my-scanning-setup/#how-should-i-organise-my-files).)
+(For an explanation why, see my post about [how I scan and store my paperwork]({% post_url 2019/2019-11-27-my-scanning-setup %}#how-should-i-organise-my-files).)
 
 Tags work best if I use them consistently -- same spelling, same wording, same everything.
 In practice, I don't always get that right -- I make typos, mistakes, or I forget that I already have a tag for a particular concept, and I create another tag.
