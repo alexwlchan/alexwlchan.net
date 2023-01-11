@@ -138,7 +138,7 @@ This variable won't be updated when we update the `Integer` class, so we can cal
 
 Like so:
 
-{% inline_code ruby _files/2022/division1.rb %}
+{% inline_code filename="division1.rb" %}
 
 [so]: https://stackoverflow.com/a/4471202/1558022
 
@@ -167,7 +167,7 @@ There's probably a good reason I'm not seeing.
 
 This is the final code:
 
-{% inline_code ruby _files/2022/division2.rb %}
+{% inline_code filename="division2.rb" %}
 
 And that, I think, is enough.
 We've redefined what it means to divide zero in half, we've changed the way our computer thinks about division, and we have a template we could use to "fix" other operations.

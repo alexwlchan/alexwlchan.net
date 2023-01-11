@@ -28,7 +28,7 @@ I wrote a Python script to find these dangling alarms, which you can copy/paste 
 After I ran my script, I was able to delete several hundred old alarms, three-quarters of the alarms in our account.
 I was doing it to make it easier to review the alarms we are using, rather than to save money – but a small dent in the bill never goes amiss.
 
-{% inline_code python _files/2021/find_dangling_cloudwatch_alarms.py %}
+{% inline_code filename="find_dangling_cloudwatch_alarms.py" %}
 
 [alarms]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html
 [dynamodb]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html

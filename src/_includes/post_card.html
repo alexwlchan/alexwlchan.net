@@ -52,7 +52,7 @@
 
     <div class="card_metadata">
       <p class="card_title">
-        {{ post.title | render_markdown | smartify }}
+        {{ post.title | markdownify_oneline | smartify }}
       </p>
       <p class="card_description">
         {{ post.summary | smartify }}

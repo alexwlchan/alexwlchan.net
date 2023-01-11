@@ -44,7 +44,7 @@ It's short, it does the job, and it's already reduced confusion between UTC and 
 
 If you want to use it yourself, you can [download the file](/files/2020/human_friendly_dates.js), or read my code below:
 
-{% inline_code javascript _files/2020/human_friendly_dates.js %}
+{% inline_code filename="human_friendly_dates.js" %}
 
 [our digital archive]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
 [UTC]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time

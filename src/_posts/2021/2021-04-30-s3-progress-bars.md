@@ -81,4 +81,4 @@ I'm not going to walk through the code – hopefully the comments are sufficient
 If this seems like something you'd find useful, copy it into your own scripts.
 Enjoy!
 
-{% inline_code python _files/2021/transfer_s3_objects_with_progress_bar.py %}
+{% inline_code filename="transfer_s3_objects_with_progress_bar.py" %}
