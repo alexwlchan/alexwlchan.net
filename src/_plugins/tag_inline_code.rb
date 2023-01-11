@@ -22,7 +22,7 @@
 #
 # This will be highlighted as text, not JSON.
 
-require_relative 'plugin_base'
+require_relative 'utils/attrs'
 
 module Jekyll
   class InlineCodeTag < Liquid::Tag
