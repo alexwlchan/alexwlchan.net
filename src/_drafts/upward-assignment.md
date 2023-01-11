@@ -1,16 +1,14 @@
 ---
 layout: post
 title: Upward assignment in Ruby
-summary:
-tags:
+summary: A deep dive into the internals of Ruby and metaprogramming techniques, in a quest for a cursed operator.
+tags: ruby code-crimes
 theme:
   color: "#c62229"
 ---
 
-Ruby has had leftward assignment (`x = 4`) since its [first public release][first], and in Ruby 3 it added [rightward assignment][ruby3] (`4 => x`).
-At RubyConf 2021, Kevin Kuchta gave [an excellent talk][kevin] about building a working downward assignment operator:
-
-(watched his talk at leats three times, but learnt way more by trying to do it myself)
+Ruby has had leftward assignment (`x = 4`) since its [first public release][first], and a few years ago it added [rightward assignment][ruby3] (`4 => x`).
+Then at RubyConf 2021, Kevin Kuchta explained [how to abuse Ruby features][kevin] to build a downward assignment operator (yes, this really works):
 
 ```ruby
 4
@@ -18,10 +16,7 @@ At RubyConf 2021, Kevin Kuchta gave [an excellent talk][kevin] about building a 
 x
 ```
 
-It's a great talk that I recommend watching in full, which takes you into a bunch of interesting and unusual Ruby features.
-(I'm going to reuse a bunch of ideas from Kevin's talk, which I really do recommend watching, but it's not required viewing from this post.)
-
-At the end of the talk, he suggests *upwards* assignment as an exercise for the reader:
+I'm now going to take up the challenge he poses at the end of the talk, to build a working *upward* assigment operator:
 
 ```ruby
 x
@@ -29,8 +24,8 @@ x
 4
 ```
 
-I was rewatching the talk while making some Christmas Lego, and later I was struck by an idea to make this work.
-It's fragile, brittle, and not something you want in production -- but it does work.
+It's brittle, fragile, and a pile of hacks, but it does work.
+I also got a bunch of practical experience with some Ruby features I haven't used before – although I've watched Kevin's talk several times, I learnt way more trying to implement it myself.
 
 Let's complete the set.
 
@@ -40,16 +35,36 @@ Let's complete the set.
 
 
 
+
+
 {% text_separator "⇑" %}
 
 
 
-## I have a cunning plan
-<!-- Hi Blackadder fans -->
 
-I started by typing Kevin's suggestion for an upward assignment operator into a file, and trying to run it.
-If somebody has already snuck this into Ruby core, that will be very convenient.
-<!-- Hi Chess Simp fans -->
+
+## Looking in the "wrong" direction
+
+To implement downwards assignment, Kevin is looking up.
+
+Going line-by-line, he uses TracePoint and Ripper to scan the code for identifiers, which include both variable names and the so-called "vequals" operator (denoted `‖`).
+
+When he finds a vequals operator, he looks up to the previous line to see if there's a value above it, and remembers that value in a cache.
+(*"On line 7, from characters 3 to 7, there's a value `"whale"`”*)
+
+When he finds a variable name, he looks up to the previous two line to see if (1) it's below a vequals operator and (2) he knows what value that vequals operator is assigning.
+If he finds a value, he assigns it to the variable.
+The rest of the program continues as normal, unaware that this variable was assigned in an unusual way.
+
+{%
+  picture
+  filename="look_up.png"
+  visible_width="420px"
+  alt="An annotated snippet of code with red markers showing 'remember the value above' and 'look up'."
+%}
+
+Unfortunately we can't use this trick for upwards assignment, because Ruby will never got to what I'm calling the "uequals" operator (denoted `⇑`).
+It will fail on the line above, because it doesn't know about the variable we're trying to assign:
 
 ```ruby
 x
@@ -57,16 +72,12 @@ x
 4
 ```
 
-Nope, Ruby has no idea what `x` is:
-
 <pre><code><strong>Traceback</strong> (most recent call last):
 t.rb:1:in `&lt;main&gt;': <strong>undefined local variable or method `x' for main:Object (NameError)</strong></code></pre>
 
-If we're going to make this work, we'll have to replicate what Ruby does when we run `x = 4` -- we have to create the variable `x` in the current scope, and then we have to assign it the value `4`.
+But if Kevin could assign downwards by looking up, maybe we could assign upwards by looking down?
 
-I did briefly consider messing around with overriding `method_missing` on the `Object` class, which has plenty of potential for misuse (it handles calls for methods/variables that don't exist), but I don't think it's the right tool here.
-
-Instead, I had another idea: we'll look for identifiers in the source code, and any time we see one, we'll look at the next line for an upward assignment arrow.
+So here's my idea: we'll look for identifiers in the source code, and any time we see one, we'll look at the next line for an upward assignment arrow.
 If we find one, we'll look down to the next line again, to find what value we should assign:
 
 {%
@@ -76,8 +87,12 @@ If we find one, we'll look down to the next line again, to find what value we sh
   alt="An annotated snippet of code with red markers showing 'look down for an arrow' and 'look down again for a value'."
 %}
 
-If we find an arrow and a value, we'll create and assign the new variable, just like left or right assignment.
-And fortunately, Kevin's talk had shown me the two tools I'd need to do this.
+This is pretty similar to what Kevin did, so we can reuse a lot of the same tools.
+Let's see if we can make that work.
+
+First, we need to understand a couple of low-level Ruby tools: TracePoint, Ripper, and bindings.
+
+
 
 
 
@@ -85,34 +100,40 @@ And fortunately, Kevin's talk had shown me the two tools I'd need to do this.
 
 
 
-## Toying with TracePoint
 
-Kevin started with [TracePoint], a Ruby feature that lets you inject code when certain events occur in your program – for example, at the start/end of a class definition, whenever an exception is raised, or when you call a method.
-Perhaps the most interesting is `:line`, which is triggered when Ruby runs each new line of code:
+
+## Toying with TracePoints
+
+[TracePoints][TracePoint] are a Ruby feature that let you inject code in response to certain events in your program -- for example, at the start/end of a class definition, whenever an exception is raised, or every time you call any method.
+It can be a useful debugging tool… and it can be other things too.
+
+To create a tracepoint, you write `Tracepoint.new` and the name of the event you want to trace, then a block which takes a single argument.
+They also have to be explicitly enabled before they do anything.
+Here's a simple example, which runs on every line of code:
 
 ```ruby
 tracepoint = TracePoint.new(:line) do |tp|
-  puts "calling the tracepoint!"
+  puts "calling the tracepoint! tp=#{tp}"
 end
 
 tracepoint.enable
 
 puts "Hello world!"
-
-# calling the tracepoint!
-# Hello world!
 ```
 
-Notice that `"calling the tracepoint!"` is printed before `"Hello world!"` -- that's because a tracepoint runs just before the event, not after.
-This means we can run a tracepoint before Ruby evaluates the line, and declare a new variable before it throws a `NameError`.
+This is what gets printed:
 
-(Playing with this also gave me an unexpected vision into the complexity of an interactive REPL -- I ran it inside irb, and a simple `puts "Hello world"` called the tracepoint nearly 700 times!)
+```
+calling the tracepoint! tp=#<TracePoint:0x00007ffa5a09ccf0>
+Hello world!
+```
 
-To create a tracepoint, you call `TracePoint.new` with the event you want to trace, and then you pass a block.
-The block gets a single argument, which has some information about the context where it was called.
-If you're tracing exceptions that might include information about the error; for lines we get the line number and path of the file.
-We also have access to the local namespace, which will be useful later.
+Notice that `"calling the tracepoint!"` is printed before `"Hello world!"` -- tracepoints run just before the triggering event, not after.
 
+(I was testing the code snippets in this post using irb, and the tracepoint was triggered nearly 700 times.
+REPLs are complicated!)
+
+The argument passed to the block has some information about the event that triggered the tracepoint, which includes the line number and path.
 For example, we can use this to build a simple tool to measure line coverage:
 
 ```ruby
@@ -126,9 +147,60 @@ coverage_tracker.enable
 
 puts "Hello world"
 puts $called_lines.inspect
-
-# [["coverage.rb", 9], ["coverage.rb", 10]]
 ```
+
+```
+Hello world
+[["coverage.rb", 9], ["coverage.rb", 10]]
+```
+
+This is the sort of sensible, useful debugging task that TracePoint is usually used for, and I think it’s cool that this sort of power is built into the core language.
+
+This is enough information to get
+
+```ruby
+coverage_tracker = TracePoint.new(:line) do |tp|
+  # note: line numbers are 1-indexed (to match a text editor), but
+  # File.readlines is 0-indexed
+  this_line = File.readlines(tp.path)[tp.lineno - 1]
+
+  puts "About to run L#{tp.lineno}:"
+  puts this_line
+end
+
+coverage_tracker.enable
+
+puts "Hello world"
+```
+
+```
+About to run L12:
+puts "Hello world"
+Hello world
+```
+
+Because a line-based tracepoint runs before the line is run, we can use it for shenanigans.
+If we can define a variable inside a tracepoint (which we can), we can avoid the NameError from the undefined variable.
+
+Now we need to know when to define a new variable.
+
+
+
+
+
+{% text_separator "⇑" %}
+
+---
+
+
+
+
+---
+---
+---
+
+
+
 
 This is the sort of sensible, useful debugging task that TracePoint is usually used for, and I think it's cool that this sort of power is built into the core language.
 
