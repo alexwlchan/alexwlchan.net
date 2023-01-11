@@ -71,7 +71,7 @@ I don't love the idea of putting a workaround for my development process in the 
 I started by looking at [the boto3 documentation for `list_secrets()`][list_secrets].
 The response schema includes a `DeletedDate` field which is only present on secrets that are scheduled for deletion, so I thought something like this would work:
 
-{% inline_code python _files/2021/list_deleted_secrets.py %}
+{% inline_code filename="list_deleted_secrets.py" %}
 
 But when I ran it, I didn't see anything, even though I knew I had deleted secrets -- the `list_secrets()` method was only finding active secrets.
 Hmm.
@@ -348,11 +348,11 @@ Instead, I find myself knee-deep in rabbit holes -- but I learnt a lot, and I go
 
 First, save [the following file](/files/2021/service-2.sdk-extras.json) to `~/.aws/models/secretsmanager/2017-10-17/service-2.sdk-extras.json`:
 
-{% inline_code text _files/2021/service-2.sdk-extras.json %}
+{% inline_code filename="service-2.sdk-extras.json" language="text" %}
 
 Then use the following script:
 
-{% inline_code python _files/2021/list_deleted_secrets_working.py %}
+{% inline_code filename="list_deleted_secrets_working.py" %}
 
 Or run the following CLI command:
 

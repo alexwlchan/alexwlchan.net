@@ -50,4 +50,4 @@ python3 redrive_sqs_queue.py \
 
 Here's the code:
 
-{% inline_code python _files/2020/redrive_sqs_queue.py %}
+{% inline_code filename="redrive_sqs_queue.py" %}
