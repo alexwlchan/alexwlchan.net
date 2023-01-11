@@ -44,7 +44,7 @@ Adding it to the template means it gets baked into every page, and I can read th
 
 Then I have some JavaScript which reads the value, and uses it to insert the appropriate blob of HTML at the top of the page:
 
-{% inline_code javascript _files/2021/bookmarklet.js %}
+{% inline_code filename="bookmarklet.js" %}
 
 Fun fact: this is my first time using [JavaScript template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), which are a super nice feature I wish I'd known about before.
 I'm only about five years behind the cutting edge of web development!
