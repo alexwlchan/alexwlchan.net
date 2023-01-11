@@ -1,28 +1,4 @@
 module Jekyll
-  module Filters
-    # Convert quotes into smart quotes.
-    #
-    # input - The String to convert.
-    #
-    # Returns the smart-quotified String.
-    #
-    # This is an override for the builtin Jekyll filter that caches results,
-    # because I call this function in lots of places, and that means calling
-    # it with the same inputs repeatedly.
-    #
-    # See https://github.com/jekyll/jekyll/blob/4fbbefeb7eecff17d877f14ee15cbf8b87a52a6e/lib/jekyll/filters.rb#L22-L31
-    SMARTIFY_CACHE = {}
-
-    def smartify(input)
-      SMARTIFY_CACHE.fetch(input) do |input|
-        SMARTIFY_CACHE[input] =
-          @context.registers[:site]
-                  .find_converter_instance(Jekyll::Converters::SmartyPants)
-                  .convert(input.to_s)
-      end
-    end
-  end
-
   module CleanupsFilter
     CLEANUP_TEXT_CACHE = {}
 
@@ -33,21 +9,25 @@ module Jekyll
     end
 
     def _do_cleanup_text(input)
-      # Replace mentions of RFCs with a non-breaking space version.
-      text = input.gsub(/RFC (\d+)/, 'RFC&nbsp;\1')
+      # Add a non-breaking space after words which are followed by
+      # a number, e.g. 'Apollo 11' or 'RFC 456'
+      prefix_words = [
+        'Apollo',
+        'HTTP',
+        'issue',
+        'RFC',
+        'Part',
+        'part',
+        'Season',
+        'season',
+      ]
 
-      # Also: "part X", "Part X", "season X"
-      text = text.gsub(/([Pp]art) (\d+)/, '\1&nbsp;\2')
-      text = text.gsub(/([Ss]eason) (\d+)/, '\1&nbsp;\2')
+      prefix_words.each do |w|
+        text = text.gsub("#{w} (\d+)", "#{w}&nbsp;\1")
+      end
 
-      # HTTP XYZ
-      text = text.gsub(/HTTP (\d{3})/, 'HTTP&nbsp;\1')
-
-      text = text.gsub(/issue (\d+)/, 'issue&nbsp;\1')
-      text = text.gsub(/Apollo (\d{3})/, 'Apollo&nbsp;\1')
-
-      text = text.gsub('P-215', 'P&#8209;215')
-
+      # Add a non-breaking space after words which are preceded by
+      # a number, e.g. '1 second' or '5 bytes'
       countable_words = [
         'second',
         'minute',
@@ -60,6 +40,8 @@ module Jekyll
         text = text.gsub("(\d+) #{w}", "\1&nbsp;#{w}")
       end
 
+      # Other phrases which needed non-breaking spaces or non-breaking
+      # dashes.
       phrases = [
         '<em>k</em>-means',
         'Artemis 1',
@@ -73,6 +55,7 @@ module Jekyll
         'iPhone X',
         'JPEG 2000',
         'Mac OS 9',
+        'P-215',
         'PyCon ',
         'Route 53'
       ]
