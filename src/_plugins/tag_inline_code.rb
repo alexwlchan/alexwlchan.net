@@ -53,7 +53,6 @@ module Jekyll
       # This allows us to deduce the source path of the image
       site = context.registers[:site]
       src = site.config['source']
-      dst = site.config['destination']
 
       year = context.registers[:page]['date'].year
 

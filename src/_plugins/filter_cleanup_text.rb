@@ -25,15 +25,15 @@ module Jekyll
 
       # Add a non-breaking space after words which are followed by
       # a number, e.g. 'Apollo 11' or 'RFC 456'
-      prefix_words = [
-        'Apollo',
-        'HTTP',
-        'issue',
-        'RFC',
-        'Part',
-        'part',
-        'Season',
-        'season',
+      prefix_words = %w[
+        Apollo
+        HTTP
+        issue
+        RFC
+        Part
+        part
+        Season
+        season
       ]
 
       prefix_words.each do |w|
@@ -42,12 +42,12 @@ module Jekyll
 
       # Add a non-breaking space after words which are preceded by
       # a number, e.g. '1 second' or '5 bytes'
-      countable_words = [
-        'second',
-        'minute',
-        'hour',
-        'character',
-        'byte',
+      countable_words = %w[
+        second
+        minute
+        hour
+        character
+        byte
       ]
 
       countable_words.each do |w|
