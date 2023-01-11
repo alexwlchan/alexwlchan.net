@@ -90,7 +90,14 @@ If we find one, we'll look down to the next line again, to find what value we sh
 This is pretty similar to what Kevin did, so we can reuse a lot of the same tools.
 Let's see if we can make that work.
 
-First, we need to understand a couple of low-level Ruby tools: TracePoint, Ripper, and bindings.
+We're going to build this in a couple of steps:
+
+*   run code just before every line using TracePoint
+*   parse Ruby code with Ripper
+*   use TracePoint and Ripper to find the upward assignment arrows
+*   assign variables (or not) using bindings
+
+Let's go through these in turn.
 
 
 
@@ -102,7 +109,7 @@ First, we need to understand a couple of low-level Ruby tools: TracePoint, Rippe
 
 
 
-## Toying with TracePoints
+## Run code just before every line using TracePoint
 
 [TracePoints][TracePoint] are a Ruby feature that let you inject code in response to certain events in your program -- for example, at the start/end of a class definition, whenever an exception is raised, or every time you call any method.
 It can be a useful debugging tool… and it can be other things too.
@@ -129,8 +136,9 @@ Hello world!
 ```
 
 Notice that `"calling the tracepoint!"` is printed before `"Hello world!"` -- tracepoints run just before the triggering event, not after.
+If we can define a variable inside a tracepoint (and we can, kinda), we can bring an upward-assigned variable into existence before Ruby runs the line, and so we can avoid the NameError we're currently getting.
 
-(I was testing the code snippets in this post using irb, and the tracepoint was triggered nearly 700 times.
+(Sidebar: I was testing the code snippets in this post using irb, and the tracepoint was triggered nearly 700 times.
 REPLs are complicated!)
 
 The argument passed to the block has some information about the event that triggered the tracepoint, which includes the line number and path.
@@ -155,11 +163,10 @@ Hello world
 ```
 
 This is the sort of sensible, useful debugging task that TracePoint is usually used for, and I think it’s cool that this sort of power is built into the core language.
-
-This is enough information to get
+It's also cool how we can utterly misuse this to find out what line of code is about to run:
 
 ```ruby
-coverage_tracker = TracePoint.new(:line) do |tp|
+line_printer = TracePoint.new(:line) do |tp|
   # note: line numbers are 1-indexed (to match a text editor), but
   # File.readlines is 0-indexed
   this_line = File.readlines(tp.path)[tp.lineno - 1]
@@ -168,7 +175,7 @@ coverage_tracker = TracePoint.new(:line) do |tp|
   puts this_line
 end
 
-coverage_tracker.enable
+line_printer.enable
 
 puts "Hello world"
 ```
@@ -179,10 +186,10 @@ puts "Hello world"
 Hello world
 ```
 
-Because a line-based tracepoint runs before the line is run, we can use it for shenanigans.
-If we can define a variable inside a tracepoint (which we can), we can avoid the NameError from the undefined variable.
+This is incredibly inefficient and it breaks in a REPL, but it does work -- and if we can read this line of code, we can also read the next line, and the next line after that.
+That means we can look ahead to see if there are any arrows on future lines, and know whether to do an upward assignment.
 
-Now we need to know when to define a new variable.
+Now we need to know where the arrows are on a line.
 
 
 
@@ -190,57 +197,25 @@ Now we need to know when to define a new variable.
 
 {% text_separator "⇑" %}
 
----
 
 
 
+## Parse Ruby code with Ripper
 
----
----
----
-
-
-
-
-This is the sort of sensible, useful debugging task that TracePoint is usually used for, and I think it's cool that this sort of power is built into the core language.
-
-Because we get the path and the line number from the tracepoint, we can also get the source code for the line that's about to run:
+If we have a line of source code, we could look for arrows with something like [`String.index`][index]:
 
 ```ruby
-tracepoint = TracePoint.new(:line) do |tp|
-  # note: line numbers are 1-indexed (to match a text editor), but
-  # File.readlines is 0-indexed
-  this_line = File.readlines(tp.path)[tp.lineno - 1]
-
-  puts "L#{tp.lineno} is #{this_line.inspect}"
-end
-
-tracepoint.enable
-
-name = "Matz"
-message = "Hello #{name}"
-puts message
-
-# L11 is "name = \"Matz\"\n"
-# L12 is "message = \"Hello \#{name}\"\n"
-# L13 is "puts message\n"
-# Hello Matz
+'puts "Hello world"'.index('⇑')               # => nil
+'⇑'.index('⇑')                                # => 0
+'puts "upward assignment uses ⇑"'.index('⇑')  # => 29
 ```
 
-Now we need to look in these lines to find identifiers, an upward arrow, and some values.
+But this will find arrows anywhere in the line, including in places where it's not an operator -- like in the third example, where it's found an arrow in a string.
+To do this properly (and of course we care about doing things properly), we need to be able to parse Ruby source code.
 
-
-
-{% text_separator "⇑" %}
-
-
-
-## Unravelling code with Ripper
-
-Kevin showed a second useful tool in his talk: [Ripper], which can be used to parse Ruby source code.
-The interesting method here is [Ripper.lex][lex], which breaks a Ruby program into a series of tokens.
-
-It gives us an array of arrays, whose format is `[[lineno, column], type, token, state]`:
+Fortunately, Ruby has a built-in mechanism for doing this, in the [Ripper] module.
+The method we want here is [Ripper.lex][lex], which breaks some code into a series of tokens.
+Here's a simple example:
 
 ```ruby
 require 'ripper'
@@ -259,11 +234,144 @@ pp Ripper.lex('x = 12 + 34')
 #  [[1, 9], :on_int,   "34", EXPR_END]]
 ```
 
-The `lineno` and `column` are pretty self-explanatory, and the `token` is the source code for this token.
+The result is an array of arrays, whose format is `[[lineno, column], type, token, state]`.
+Each entry is a single token.
+
+The `lineno` and `column` are pretty self-explanatory, and `token` is the source code for this token. 
 I'm not sure what all the values for `type` and `state` are, but I don't need to worry about them – I don't think I care about `state` at all, and I can see the values of `type` that might be interesting to me.
 In particular, `:on_ident` and `:on_int` both look useful.
 
-TracePoint and Ripper are enough to start building our upward assignment operator.
+You need to be a bit careful of the `column` returned by `Ripper.lex`: it's counted based on bytes, not characters, so non-ASCII characters can throw it off.
+For example, an identifier like `Münze` would take up 6 spaces, not 5.
+(I was tipped off to this by [a comment in Kevin's vequals code][comment].)
+
+We can see this by comparing two lines that do/don't use Unicode characters:
+
+```ruby
+puts "The lions are #{lowen}, the birds are #{vogel}, the owls are #{eule}"
+#                   ^^^^^^^^                ^^^^^^^^               ^^^^^^^^
+#                    22..27                  46..51                 69..73
+
+puts "The lions are #{löwen}, the birds are #{vögel}, the owls are #{eule}"
+#                   ^^^^^^^^                ^^^^^^^^               ^^^^^^^^
+#                    22..27                  47..52                 71..75
+```
+
+Notice how the `column` as reported by `Ripper.lex` gradually diverge, even though the characters look visually aligned.
+Fortunately we have access to the original text in `token`, so we can just track the column manually.
+
+By breaking the line into tokens with `Ripper.lex`, and filtering for tokens which have type `:on_ident`, we can find the identifiers:
+
+```ruby
+require 'ripper'
+
+def find_identifiers_in_line(source_code)
+  lexed_line = Ripper.lex(source_code)
+
+  column = 0
+  result = []
+
+  lexed_line.each do |_positions, type, token, _state|
+    if type == :on_ident
+      result << {
+        :token => token,
+        :range => (column..column + token.length)
+      }
+    end
+
+    # track the column manually
+    column += token.length
+  end
+
+  result
+end
+
+find_identifiers_in_line('x = y + 1')
+# [{:token=>"x", :range=>0..1},
+#  {:token=>"y", :range=>4..5}]
+
+find_identifiers_in_line('name = "Alex"')
+# [{:token=>"name", :range=>0..4}]
+```
+
+This returns a list of hashes: each hash is a single identifier.
+The hash has two keys: `:token` is the source code of the identifier, and `:range` tells us which characters it appears on in the line.
+
+[index]: https://ruby-doc.org/3.2.0/String.html#method-i-index
+[Ripper]: https://ruby-doc.org/stdlib-2.5.1/libdoc/ripper/rdoc/Ripper.html
+[lex]: https://ruby-doc.org/stdlib-2.5.1/libdoc/ripper/rdoc/Ripper.html#method-c-lex
+[comment]: https://github.com/kkuchta/vequals/blob/ca751ad6168c9810a89b0b5d59e6b1a3fbec10e6/vequals.rb#L42-L46
+
+
+
+
+
+{% text_separator "⇑" %}
+
+
+
+
+## Use TracePoint and Ripper to find the upward assignment arrows
+
+We can put together what we've done so far to find all the identifiers on a line that have an upward assignment arrow below them:
+
+```ruby
+arrow_finder = TracePoint.new(:line) { |tp|
+  this_line = File.readlines(tp.path)[tp.lineno - 1]
+  this_variables = find_identifiers_in_line(this_line)
+
+  next_line = File.readlines(tp.path)[tp.lineno]
+
+  # if there's no next line, we're at the end of the file
+  # there definitely isn't an arrow below us!
+  return if next_line.nil?
+
+  next_identifiers = find_identifiers_in_line(next_line)
+
+  this_variables.each { |var|
+    arrow_below =
+      next_identifiers
+        .filter { |id| id[:token] == "⇑" }
+        .filter { |id| var[:range].cover? id[:range] }
+        .last
+
+    puts "L#{tp.lineno} variable #{var[:token]} has an arrow below it!"
+  }
+}
+
+arrow_finder.enable
+
+x
+⇑
+4
+# L49 variable x has an arrow below it!
+```
+
+We read the current line and the next line; if there is no next line, then we can bail out early -- there's definitely no arrow below us!
+For each identifier, we look for identifiers on the next line which (1) are the upward arrow and (2) overlap with this identifier.
+
+This uses [ranges], which are a new-to-me feature of Ruby.
+I particularly like the [`cover?` method][cover], which tells you if one range is contained by another.
+It's not a complicated function, but it can be fiddly to get the inequalities the right way round, and a named function makes the intent clearer.
+
+It find the last arrow operator that’s under an identifier, so that if a identifier sits above multiple arrows, the rightmost arrow takes precedence:
+
+```ruby
+best_number_of_cats
+ ⇑  ⇑  ⇑  ⇑  ⇑  ⇑
+ 0  1  2  3  4  5
+```
+
+There are lots of other edge cases we might want to think about here if we were designing it properly, but let's pretend silly things like this can't happen, and move on.
+
+[ranges]: https://ruby-doc.org/core-2.5.1/Range.html
+[cover]: https://ruby-doc.org/core-2.5.1/Range.html#method-i-cover-3F
+
+
+
+
+----
+---
 
 
 
