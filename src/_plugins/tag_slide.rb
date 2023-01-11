@@ -26,7 +26,7 @@ require_relative 'utils/attrs'
 
 module Jekyll
   class SlideTag < Liquid::Tag
-    def initialize(tag_name, params_string, tokens)
+    def initialize(_tag_name, params_string, _tokens)
       super
 
       @attrs = parse_attrs(params_string)
