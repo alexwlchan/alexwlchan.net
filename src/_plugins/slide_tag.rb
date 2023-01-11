@@ -22,7 +22,7 @@
 # The `caption` field is optional, and displays below the image.  It's useful
 # for attribution or sourcing that doesn't fit on the slide.
 
-require_relative 'plugin_base'
+require_relative 'utils/attrs'
 
 module Jekyll
   class SlideTag < Liquid::Tag

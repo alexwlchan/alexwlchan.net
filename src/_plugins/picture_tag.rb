@@ -92,7 +92,7 @@ require 'shellwords'
 
 require 'rszr'
 
-require_relative 'plugin_base'
+require_relative 'utils/attrs'
 
 class ImageFormat
   AVIF = { extension: '.avif', mime_type: 'image/avif' }
