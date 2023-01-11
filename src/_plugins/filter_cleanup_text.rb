@@ -1,3 +1,15 @@
+# Provides a filter that "cleans up" text.
+#
+# In particular this inserts HTML entities to prevent text wrapping
+# in unfortunate places.  e.g. 'RFC 1234' becomes 'RFC&nbsp;1234'
+# Doing this in a global filter means:
+#
+#   1.  These rules are applied consistently
+#   2.  I don't have to litter my Markdown source with non-breaking
+#       HTML entities
+#
+# See: https://alexwlchan.net/2020/adding-non-breaking-spaces-with-jekyll/
+
 module Jekyll
   module CleanupsFilter
     CLEANUP_TEXT_CACHE = {}
@@ -9,6 +21,8 @@ module Jekyll
     end
 
     def _do_cleanup_text(input)
+      text = input
+
       # Add a non-breaking space after words which are followed by
       # a number, e.g. 'Apollo 11' or 'RFC 456'
       prefix_words = [
