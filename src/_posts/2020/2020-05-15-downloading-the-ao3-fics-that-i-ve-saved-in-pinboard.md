@@ -52,5 +52,5 @@ I've made a couple of changes based on feedback from Twitter and Dreamwidth:
 
 {% details %}
 <summary>download_ao3_bookmarks_from_pinboard.py</summary>
-{% inline_code python _files/2020/download_ao3_bookmarks_from_pinboard.py %}
+{% inline_code filename="download_ao3_bookmarks_from_pinboard.py" %}
 {% enddetails %}
