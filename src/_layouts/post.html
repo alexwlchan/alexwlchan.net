@@ -11,7 +11,7 @@ layout: default
     {% else %}
       <a href="{{ post.url | relative_url }}">
     {% endif %}
-    {{ post.title | render_markdown | cleanup_text | smartify }}</a>
+    {{ post.title | markdownify_oneline | cleanup_text | smartify }}</a>
   </h1>
 
   <div class="post__meta">

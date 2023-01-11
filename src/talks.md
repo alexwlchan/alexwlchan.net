@@ -64,7 +64,7 @@ If you enjoyed one of my talks, found it useful, or shared it with somebody else
         {% endif %}
 
         {% if t.description %}
-        <p>{{ t.description | smartify | render_markdown }}</p>
+        <p>{{ t.description | markdownify_oneline | smartify }}</p>
         {% endif %}
       </div>
     </li>
