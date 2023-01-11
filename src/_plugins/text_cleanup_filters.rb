@@ -43,13 +43,22 @@ module Jekyll
       # HTTP XYZ
       text = text.gsub(/HTTP (\d{3})/, 'HTTP&nbsp;\1')
 
-      # NN minutes
-      text = text.gsub(/(\d+) (second|minute|hour)/, '\1&nbsp;\2')
-
       text = text.gsub(/issue (\d+)/, 'issue&nbsp;\1')
       text = text.gsub(/Apollo (\d{3})/, 'Apollo&nbsp;\1')
 
       text = text.gsub('P-215', 'P&#8209;215')
+
+      countable_words = [
+        'second',
+        'minute',
+        'hour',
+        'character',
+        'byte',
+      ]
+
+      countable_words.each do |w|
+        text = text.gsub("(\d+) #{w}", "\1&nbsp;#{w}")
+      end
 
       phrases = [
         '<em>k</em>-means',
