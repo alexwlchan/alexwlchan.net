@@ -20,7 +20,7 @@ module Jekyll
 
       site.keep_files.each do |dir|
         next unless File.directory? "#{src}/_#{dir}"
-        unless system("rsync --archive #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=cards --exclude=*.svg")
+        unless system("rsync --archive #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=cards --exclude=icons --exclude=*.svg")
           raise "Error running the static file rsync for #{dir}!"
         end
       end
