@@ -13,7 +13,7 @@ This is a classic microservices pattern.
 
 <figure style="width: 600px;">
   {%
-    inline_svg2
+    inline_svg
     filename="sqs_queue_worker.svg"
     alt="Three boxes joined by arrows, pointing from left to right. Boxes, L–R: a pink box (labelled "input queue"); a black dashed box (labelled "worker"); another pink box (labelled "output queue")."
   %}

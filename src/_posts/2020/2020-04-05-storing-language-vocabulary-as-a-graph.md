@@ -16,7 +16,7 @@ Here's an example with English and German:
 
 <figure style="width: 450px;">
   {%
-    inline_svg2
+    inline_svg
     filename="german_vocabulary_list.svg"
     alt="Three lines of text with arrows between them: “hippo” to “das Nilpferd”; “slug” to “die Nacktschnecke”; “turtle” to “die Schildkröte”"
   %}
@@ -45,7 +45,7 @@ Here's the graph for 电:
 
 <figure style="width: 400px;">
   {%
-    inline_svg2
+    inline_svg
     filename="dian_words.svg"
     alt="A star diagram with 电 in the middle, and lines leading out to 电话, 电视 and 电车."
   %}
@@ -71,7 +71,7 @@ If we were to draw out the graph of all the vocabulary I know, we'd get somethin
 
 <figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
   {%
-    inline_svg2
+    inline_svg
     filename="complex_graph.svg"
     alt="A graph with various vertices (black circles) connected by grey lines."
   %}

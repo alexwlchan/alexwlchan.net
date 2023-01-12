@@ -18,7 +18,7 @@ One shape that's much easier to define in triangular coordinates is the [valknut
 
 <figure style="width: 380px;">
   {%
-    inline_svg2
+    inline_svg
     filename="valknut.svg"
     alt="Three black interlocking triangles"
   %}

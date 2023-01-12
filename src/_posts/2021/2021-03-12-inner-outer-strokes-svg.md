@@ -16,7 +16,7 @@ Although it's more effort, I can write much simpler images by hand than with an 
 
 <figure style="width: 200px; float: right; display: inline-block; margin-top: 0; margin-bottom: 0;">
 {%
-  inline_svg2
+  inline_svg
   filename="hearts_rainbow_trans.svg"
   alt="A pair of interlocked hearts: one in rainbow colours on the left, one in trans pride colours on the right."
 %}
@@ -50,7 +50,7 @@ In some graphics programs, you can choose to draw an *inner stroke* (which puts 
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_1_types.svg"
   alt="Three examples of a rectangle with inner, centre, and outer strokes."
 %}
@@ -74,7 +74,7 @@ When I made my initial heart graphic in [OmniGraffle], I combined inner and oute
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_2_combined.svg"
   alt="Left: A red heart with an inner stroke. Middle: A blue heart with an outer stroke. Right: A heart with a blue-red striped stroke."
 %}
@@ -91,7 +91,7 @@ Notice how the red stripe is much thicker than the blue stripe, and the width of
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_3_sizes.svg"
   alt="Left: A red heart3 with an inner3 stroke. Middle: A blue heart3 with an outer3 stroke. Right: A heart3 with a blue-red striped stroke."
 %}
@@ -116,7 +116,7 @@ For example, if I had [an illustration of the Earth] and I wanted to remove the 
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_4_circular_clip.svg"
   alt="Left: An illustration of the world on a beige background. Middle: A dashed grey circle with a pair of grey scissors. Right: The illustration of the world, without the background."
 %}
@@ -146,7 +146,7 @@ Thus, we get an inner stroke:
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_5_clip_inner_stroke.svg"
   alt="Left: A red heart with a double-width stroke. Middle: A dashed grey heart with a pair of grey scissors. Right: A red heart with an inner stroke."
 %}
@@ -193,7 +193,7 @@ I've exaggerated the width of the bridge in the illustration, but hopefully you 
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_6_clip_outer_stroke.svg"
   alt="Left: An illustration of the globe set against a beige background. Middle: A grey rectangle with a white circle chopped out of the centre. Right: The beige background with the globe removed."
 %}
@@ -222,7 +222,7 @@ For example, we can remove the globe by putting a black circle in the middle of 
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_7_mask_globe.svg"
   alt="Left: An illustration of the globe set against a beige background. Middle: A white rectangle with a black circle chopped out of the centre. Right: The beige background with the globe removed."
 %}
@@ -255,7 +255,7 @@ For example, I could cut out the globe, and then highlight a single part of it:
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_8_mask_cutout.svg"
   alt="Left: An illustration of the globe set against a beige background. Middle: A white rectangle with a black circle chopped out of the centre. Right: The beige background with the globe removed."
 %}
@@ -268,7 +268,7 @@ By creating a mask with a white background and a black shape, we can discard the
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_9_mask_outer_stroke.svg"
   alt="Left: A blue heart with a double-width stroke. Middle: A black heart in a white rectangle. Right: A blue heart with an outer stroke."
 %}
@@ -308,7 +308,7 @@ If you put the inner stroke on top of a double-width centred stroke, you get the
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_10_overlay.svg"
   alt="Left: A blue heart with a double-width stroke. Middle: A red heart with an inner stroke. Right: A heart with a blue-red striped stroke."
 %}
@@ -319,7 +319,7 @@ Here's one of the two masks:
 
 <figure style="width: 686px;">
 {%
-  inline_svg2
+  inline_svg
   filename="strokes_11_cutouts.svg"
   alt="Left: A red tilted heart. Middle: A mask with the top-half of a black tilted heart. Right: The first red tilted heart, but now with a cutout segment."
 %}
