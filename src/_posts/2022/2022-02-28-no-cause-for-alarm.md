@@ -22,7 +22,11 @@ We have a set of pipelines for processing data -- multiple apps connected by que
 Each app receives messages from an input queue, does some processing, then sends another message to an output queue for the next app to work on.
 It's a pretty standard pattern.
 
-{% inline_svg "_images/2022/sqs_pipeline.svg" %}
+{%
+  inline_svg2
+  filename="sqs_pipeline.svg"
+  alt="A process diagram showing a data pipeline. There are three components (left to right): an input queue, a worker, and an output queue. The worker processes incoming messages from the input queue, and sends ongoing messages to the output queue."
+%}
 
 We use Amazon SQS for our queues, and Amazon ECS to run instances of our apps.
 
