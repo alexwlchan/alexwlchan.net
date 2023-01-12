@@ -95,6 +95,7 @@ We're going to build this in a couple of steps:
 *   run code just before every line using TracePoint
 *   parse Ruby code with Ripper
 *   use TracePoint and Ripper to find the upward assignment arrows
+*   find the value below each arrow
 *   assign variables (or not) using bindings
 
 Let's go through these in turn.
@@ -318,7 +319,7 @@ We can put together what we've done so far to find all the identifiers on a line
 ```ruby
 arrow_finder = TracePoint.new(:line) { |tp|
   this_line = File.readlines(tp.path)[tp.lineno - 1]
-  this_variables = find_identifiers_in_line(this_line)
+  this_identifiers = find_identifiers_in_line(this_line)
 
   next_line = File.readlines(tp.path)[tp.lineno]
 
@@ -326,14 +327,17 @@ arrow_finder = TracePoint.new(:line) { |tp|
   # there definitely isn't an arrow below us!
   return if next_line.nil?
 
-  next_identifiers = find_identifiers_in_line(next_line)
+  next_line_identifiers = find_identifiers_in_line(next_line)
 
-  this_variables.each { |var|
+  this_identifiers.each { |var|
     arrow_below =
-      next_identifiers
+      next_line_identifiers
         .filter { |id| id[:token] == "⇑" }
         .filter { |id| var[:range].cover? id[:range] }
         .last
+
+    # If there's no arrow below us, we can move on to the next identifier
+    next if arrow_below.nil?
 
     puts "L#{tp.lineno} variable #{var[:token]} has an arrow below it!"
   }
@@ -370,258 +374,33 @@ There are lots of other edge cases we might want to think about here if we were 
 
 
 
-----
----
-
-
 
 {% text_separator "⇑" %}
 
 
 
-## Step 1: Look for identifiers in the source code
 
-It looks like `:on_ident` finds any identifiers, so we can put this in a tracepoint to start finding identifiers:
 
-```ruby
-require 'ripper'
+## Find the value below each arrow
 
-tracepoint = TracePoint.new(:line) do |tp|
-  this_line = File.readlines(tp.path)[tp.lineno - 1]
+Now we've found an arrow, we need to know what value is beneath it (if any).
+A value is anything that we can assign to a variable -- a string, a number, another variable.
+There are lots of different types of value; for now I'm going to just handle a couple of simple types, but you could extend this to find more types of value.
 
-  lexed_line = Ripper.lex(this_line)
-
-  lexed_line.each do |_positions, type, token, _state|
-    if type == :on_ident
-      puts "L#{tp.lineno} has an identifier '#{token}'"
-    end
-  end
-end
-
-tracepoint.enable
-
-colour = "red"
-sides = 5
-puts "The shape has #{sides} sides and is the colour #{colour}"
-
-# L20 has an identifier 'colour'
-# L21 has an identifier 'sides'
-# L22 has an identifier 'puts'
-# L22 has an identifier 'sides'
-# L22 has an identifier 'colour'
-# The shape has 5 sides and is the colour red
-```
-
-It's a bit eager and is finding identifiers in places where we probably don't want vertical assignment to work, but I'm going to ignore that and push on.
-
-We also have enough information to work out where a variable falls in the line.
-We might be tempted to write something like this:
+We can find values with a small modification of `find_identifiers_in_line`:
 
 ```ruby
 require 'ripper'
 
-tracepoint = TracePoint.new(:line) do |tp|
-  this_line = File.readlines(tp.path)[tp.lineno - 1]
-  lexed_line = Ripper.lex(this_line)
-
-  lexed_line.each do |positions, type, token, _state|
-    _, column = positions
-    if type == :on_ident
-      range = "#{column}..#{column + token.length}"
-      puts "L#{tp.lineno} has an identifier in #{range}: '#{token}'"
-    end
-  end
-end
-
-tracepoint.enable
-
-colour = "red"
-sides = 5
-puts "The shape has #{sides} sides and is the colour #{colour}"
-
-# L18 has an identifier in  0.. 6: 'colour'
-# L19 has an identifier in  0.. 5: 'sides'
-# L20 has an identifier in  0.. 4: 'puts'
-# L20 has an identifier in 22..27: 'sides'
-# L20 has an identifier in 55..61: 'colour'
-```
-
-But we have to be careful of the `column` returned by `Ripper.lex`: it's counted based on bytes, not characters, so non-ASCII characters can throw it off.
-For example, an identifier like `Münze` would take up 6 spaces, not 5.
-(See [the comment about this][comment] in Kevin's vequals source code.)
-
-We can see this by comparing two lines that do/don't use Unicode characters:
-
-```ruby
-puts "The lions are #{lowen}, the birds are #{vogel}, the owls are #{eule}"
-#                   ^^^^^^^^                ^^^^^^^^               ^^^^^^^^
-#                    22..27                  46..51                 69..73
-
-puts "The lions are #{löwen}, the birds are #{vögel}, the owls are #{eule}"
-#                   ^^^^^^^^                ^^^^^^^^               ^^^^^^^^
-#                    22..27                  47..52                 71..75
-```
-
-Notice how the `column` as reported by `Ripper.lex` gradually diverge, even though the characters look visually aligned.
-
-Fortunately this is easily solved, because we have access to the original source code in `token`, so we just need to track the column position manually:
-
-```ruby
-tracepoint = TracePoint.new(:line) do |tp|
-  this_line = File.readlines(tp.path)[tp.lineno - 1]
-  lexed_line = Ripper.lex(this_line)
-
-  column = 0
-
-  lexed_line.each do |_positions, type, token, _state|
-    if type == :on_ident
-      range = "#{column}..#{column + token.length}"
-      puts "L#{tp.lineno} has an identifier in #{range}: '#{token}'"
-    end
-
-    column += token.length
-  end
-end
-```
-
-Let's wrap this in a nice function:
-
-```ruby
-require 'ripper'
-
-# Returns a list of all identifier tokens in a line.
-#
-# The ``lineno`` should be 1-indexed, as it appears in a text editor.
-def find_identifiers_in_line(path, lineno)
-  this_line = File.readlines(path)[lineno - 1]
-  lexed_line = Ripper.lex(this_line)
+def find_values_in_line(source_code)
+  lexed_line = Ripper.lex(source_code)
 
   column = 0
   result = []
 
   lexed_line.each do |_positions, type, token, _state|
-    if type == :on_ident
-      result << {
-        :token => token,
-        :range => (column..column + token.length)
-      }
-    end
+    if type == :on_ident || type == :on_tstring_content || type == :on_int
 
-    column += token.length
-  end
-
-  result
-end
-
-tracepoint = TracePoint.new(:line) do |tp|
-  identifiers = find_identifiers_in_line(tp.path, tp.lineno)
-
-  puts "L#{tp.lineno} has identifiers #{identifiers}"
-end
-
-tracepoint.enable
-
-colour = "red"
-sides = 5
-puts "The shape has #{sides} sides and is the colour #{colour}"
-
-# L32 has identifiers [{:token=>"colour", :range=>0..6}]
-# L33 has identifiers [{:token=>"sides",  :range=>0..5}]
-# L34 has identifiers [{:token=>"puts",   :range=>0..4},
-#                      {:token=>"sides",  :range=>22..27},
-#                      {:token=>"colour", :range=>55..61}]
-```
-
-We can now find any identifiers in the source code, which is the first thing we need.
-
-Next: let's look for upward-pointing arrows below each identifier.
-
-[Ripper]: https://ruby-doc.org/stdlib-2.5.1/libdoc/ripper/rdoc/Ripper.html
-[lex]: https://ruby-doc.org/stdlib-2.5.1/libdoc/ripper/rdoc/Ripper.html#method-c-lex
-[comment]: https://github.com/kkuchta/vequals/blob/ca751ad6168c9810a89b0b5d59e6b1a3fbec10e6/vequals.rb#L42-L46
-
-
-
-{% text_separator "⇑" %}
-
-
-
-## Step 2: Look for upward-pointing arrows below an identifier
-
-The upward arrow `⇑` is an identifier with a width of one, so this follows quite neatly from our previous step: we look for identifiers on the current line, then we look for identifiers on the next line, and filter for ones which are an upward arrow.
-
-```ruby
-tracepoint = TracePoint.new(:line) do |tp|
-  this_line_identifiers = find_identifiers_in_line(tp.path, tp.lineno)
-  arrow_line_identifiers = find_identifiers_in_line(tp.path, tp.lineno + 1)
-
-  this_line_identifiers.each do |this_id|
-    matching_arrow =
-      arrow_line_identifiers
-        .filter { |arrow_line_id|
-          (arrow_line_id[:token] == "⇑") &&
-          (this_id[:range].cover? arrow_line_id[:range])
-        }
-        .last
-
-    if matching_arrow
-      puts "L#{tp.lineno} variable #{this_id[:token]} has an arrow below it"
-    end
-  end
-end
-```
-
-This code leans on [ranges], which are a new-to-me feature of Ruby.
-I particularly like the [`cover?` method][cover], which tells you if one range is contained by another.
-It's not a complicated function, but it can be fiddly to get the inequalities the right way round, and a named function makes the intent clearer.
-
-I've had to make a small modification to `find_identifiers_in_line`, to account for the case where we're on the last line of a file -- there is no next line to read, so we have to bail out before we try to lex `nil`.
-
-If we run with this tracepoint enabled, it correctly identifies a variable with an arrow above it:
-
-```ruby
-tracepoint.enable
-
-puts "Hello world"
-
-x
-⇑
-4
-
-# L48 variable x has an arrow below it
-```
-
-It find the last arrow operator that's under an identifier, so that if a identifier sits above multiple arrows, the rightmost arrow takes precedence:
-
-```ruby
-best_number_of_cats
- ⇑  ⇑  ⇑  ⇑  ⇑  ⇑
- 0  1  2  3  4  5
-```
-
-There are lots of other edge cases we might want to think about here if we were designing it properly, but let's pretend silly things like this can't happen and move on.
-
-[ranges]: https://ruby-doc.org/core-2.5.1/Range.html
-[cover]: https://ruby-doc.org/core-2.5.1/Range.html#method-i-cover-3F
-
-
-
-{% text_separator "⇑" %}
-
-
-
-## Step 3: Look for values below an arrow
-
-This is similar to the previous step: if we've found a matching arrow, we look at the next line below that for a value which is under the arrow.
-
-A value can have different types when lexed by Ripper, not just `:on_ident`, so I started by replacing `find_identifiers_in_line` with `find_tokens_in_line`, and letting it take an arbitrary set of types to look for:
-
-```ruby
-def find_tokens_in_line(path, lineno, matching_types)
-  …
-
-  lexed_line.each do |_positions, type, token, _state|
-    if matching_types.include? type
       result << {
         :type => type,
         :token => token,
@@ -629,66 +408,60 @@ def find_tokens_in_line(path, lineno, matching_types)
       }
     end
 
-  …
-end
-```
-
-We can then use this inside our tracepoint, like so:
-
-```ruby
-tracepoint = TracePoint.new(:line) do |tp|
-  this_line_identifiers =
-    find_tokens_in_line(tp.path, tp.lineno, [:on_ident])
-  arrow_line_identifiers =
-    find_tokens_in_line(tp.path, tp.lineno + 1, [:on_ident])
-
-  values =
-    find_tokens_in_line(
-      tp.path, tp.lineno + 2,
-      [:on_int, :on_tstring_content, :on_ident])
-
-  this_line_identifiers.each do |this_id|
-    matching_arrow = arrow_line_identifiers
-      .filter { |arrow_line_id|
-        (arrow_line_id[:token] == "⇑") &&
-        (this_id[:range].cover? arrow_line_id[:range])
-      }
-      .last
-
-    if matching_arrow
-      matching_value =
-        values.find { |value_line_id|
-          value_line_id[:range].cover? matching_arrow[:range]
-        }
-
-      puts "L#{tp.lineno} variable #{this_id[:token]} is above a value #{matching_value}"
-    end
+    # track the column manually
+    column += token.length
   end
+
+  result
 end
+
+puts find_values_in_line('x = y + 1').inspect
+# [{:type=>:on_ident, :token=>"x", :range=>0..1},
+#  {:type=>:on_ident, :token=>"y", :range=>4..5},
+#  {:type=>:on_int, :token=>"1", :range=>8..9}]
+
+puts find_values_in_line('name = "Alex"').inspect
+# [{:type=>:on_ident, :token=>"name", :range=>0..4},
+#  {:type=>:on_tstring_content, :token=>"Alex", :range=>8..12}]
 ```
 
-For now I've just selected a small number of token types, which will be easy to assign later -- you could extend it to more types, but I don't want to.
-
-If we run this tracepoint:
+Then we drop this into our tracepoint, and look below the arrow we found in the prvious step:
 
 ```ruby
+value_finder = TracePoint.new(:line) { |tp|
+  this_identifiers = …
+  next_line_identifiers = …
+
+  value_line = File.readlines(tp.path)[tp.lineno + 1]
+  return if value_line.nil?
+  values = find_values_in_line(value_line)
+
+  this_identifiers.each { |var|
+    arrow_below = …
+
+    matching_value =
+      values.find { |v| v[:range].cover? arrow_below[:range] }
+
+    next if matching_value.nil?
+
+    puts "L#{tp.lineno} variable #{var[:token]} should be assigned to #{matching_value}"
+  }
+}
+
+value_finder.enable
+
 x
 ⇑
 4
-
-# L69 variable x is above a value {:type=>:on_int, :token=>"4", :range=>0..1}
+# L79 variable x should be assigned to {:type=>:on_int, :token=>"4", :range=>0..1}
 ```
 
-One of the most obvious types you might want to add are for string boundaries.
-The opening/closing quotes of a string are separate tokens to the body of the string (`:on_tstring_beg` and `:on_string_end`)
+This is quite fragile -- for example, if the arrow is above the opening/closing quotes of a string, it won't find the string, and it won't capture values that span multiple lines, but it's enough to get something basic working.
 
-```ruby
- place            place            place
-   ⇑                ⇑                ⇑
-   "Paris"       "Paris"       "Paris"
-```
+Now we know what we should be assigning, we just need to assign it.
+Simple, right?
 
-But I leave this as an exercise for the reader.
+
 
 
 
@@ -696,14 +469,14 @@ But I leave this as an exercise for the reader.
 
 
 
-## Step 4: Actually assign the variable
 
-At this point we know that we've found an identifier which has an upwards assignment, and we know what it should be assigned to.
-We just need to assign it!
 
-In Ruby, the state of all your variables is tracked in a *binding*.
-(It contains a bunch of state about the program, but the variables are what we're interested in here.)
-We have access to the binding inside a tracepoint, because when you're debugging having local context is useful:
+## Assign variables (or not) using bindings
+
+This turned out to be the hardest bit, and I still don't fully understand what Ruby's doing here – but I got something working, and I'll explain as best I can.
+
+When you're inside a tracepoint, you have access to something called a *binding*.
+This contains a bunch of context about the current state of the program, including any variables and methods.
 
 ```ruby
 tracepoint = TracePoint.new(:line) do |tp|
@@ -713,8 +486,193 @@ end
 tracepoint.enable
 
 puts "Hello world"
-# #<Binding:0x00007f922b15ed10>
+
+# #<Binding:0x0000000143157090>
+# Hello world
 ```
+
+You can imagine how this would be useful for debugging -- by defining one tracepoint, you can track the value of a variable throughout your program, without having to litter your code with print statements everywhere you think might be useful.
+
+This is an instance of the [Binding class][binding], and it doesn't just appear in tracepoints -- you can get bindings anywhere in Ruby.
+Whenever you call the globally available [`binding` method][binding_meth], you get a copy of the current context, which you can then pass around like any any variable.
+This allows us to break a bunch of rules around scope.
+
+Here's an example of a program that doesn't work:
+
+```ruby
+def greet(name)
+  first_name, last_name = name.split()
+  puts "Hello #{first_name}!"
+end
+
+greet("Alex Chan")
+
+puts first_name
+```
+
+<pre><code>Hello Alex!
+greet.rb:8:in `&lt;main&gt;': <strong>undefined local variable or method `first_name' for main:Object (NameError)</strong></code></pre>
+
+Inside `greet` I create a variable `first_name`, but it's only available inside that function.
+When I'm in the top-level, I can't get to any of the variables inside the function.
+
+But if I create a binding inside the function, and then return it, now I can get to all those variables:
+
+```ruby
+def greet(name)
+  first_name, last_name = name.split()
+  puts "Hello #{first_name}!"
+
+  binding
+end
+
+b = greet("Alex Chan")
+
+puts b.local_variable_get(:first_name)
+```
+
+```
+Hello Alex!
+Alex Chan
+```
+
+The binding holds a reference to the local variables inside the function, so when the binding is returned from the function, we can still get to those local variables.
+This breaks the usual rules of scoping (*"variables defined inside a function are only available inside the function"*) and it's extremely powerful.
+And as they say, power is a corrupting influence.
+
+When I first read about bindings, I thought maybe I could use the [`local_variable_set` method][local_variable_set].
+You can use it to update the value of an existing variable, and that gets reflected outside the binding:
+
+```ruby
+colour = "blue"
+
+binding.local_variable_set(:colour, "red")
+
+puts binding.local_variable_get(:colour)  # => red
+puts colour                               # => red
+```
+
+but if you try to set a variable that doesn't exist yet, it's only available inside the binding:
+
+```ruby
+b = binding
+b.local_variable_set(:shape, "square")
+
+puts b.local_variable_get(:shape)         # => square
+puts shape                                # => NameError
+```
+
+This is rather annoying, because it means we can't just call `tp.binding.local_variable_set` inside our tracepoint to create a new variable; we need to do something else.
+We need to find a way to escape the binding.
+
+
+
+
+
+{% text_separator "⇑" %}
+
+
+
+
+
+## Sidebar: speculating about scope
+
+I don't fully understand why this happens; scope is one of those topics I've never quite grokked.
+
+Here's my best understanding of what happens: variables live in a *lexical scope*.
+There are lots of different scopes in the lifetime of a program: for example, you get a new scope in the body of a function, and any variables defined in that function are only created in that scope.
+When you leave that scope, you lose access to the varibales.
+
+When a scope is created, it can include a reference to a variable in another scope.
+This is how variables get passed into functions -- the function scope gets a reference to the variable in the main scope.
+
+You can only access and modify variables you have access to in the current scope.
+And if you modify a variable which is a reference to a variable in a parent scope, you modify it in the parent scope.
+
+We can see this when, for example, a function modifies a variable that gets passed in:
+
+```ruby
+def append(shapes)
+  new_shape = "square"
+  shapes << new_shape
+end
+
+colours = ["red", "green", "blue"]
+shapes = ["circle", "triangle"]
+append(shapes)
+
+puts shapes  # => ["circle", "triangle", "square"]
+```
+
+Here's what I think the scopes look like in this case:
+
+<img src="/images/2023/scopes.png">
+
+The main scope has two variables `colours` and `shapes`.
+When we call the function, it gets a reference to the `shapes` variable, so it can access and modify that, but it can't access the `colours` variable.
+It defines a variable `new_shape`, which is only available inside the function scope – it can't be accessed outside the function.
+It then updates the `shapes` variable, which actually gets updated in the main scope.
+When we leave the function, it's got the updated version of the variable.
+
+Here's the key bit: I think you get a new lexical scope when you create a binding.
+The binding scope has referneces to all the variables in the parent scope, but it's not the same scope.
+If you update a variable which came from the parent scope, it gets updated in the parent scope.
+When you create new variables in the binding, they're only created inside the binding scope, and not in the parent scope.
+
+[binding]: https://ruby-doc.org/3.2.0/Binding.html
+[binding_meth]: https://ruby-doc.org/3.2.0/Kernel.html#method-i-binding
+[local_variable_set]: https://ruby-doc.org/3.2.0/Binding.html#method-i-local_variable_set
+
+
+
+
+
+{% text_separator "⇑" %}
+
+
+
+
+## Escaping through the `receiver`
+
+Remember that a binding contains all the context about the program, including both variables and methods.
+Variables live in the lexical scope, but where are the methods?
+
+Methods are bound to objects, and every method in a binding is bound to an object called the `receiver`.
+When you call a method in Ruby, people sometimes say you're sending a message to the object -- and the `receiver` is what receives those messages.
+Crucially, the receiver is an object that lives outside the binding, so if define new methods on the receiver, they'll be available outside the binding.
+
+For example:
+
+```ruby
+b = binding
+b.receiver    # => main
+b.receiver.define_singleton_method(:greet) { puts "Hello world" }
+
+greet         # => "Hello world"
+```
+
+We can also do this inside a tracepoint, and because the tracepoint runs before the line
+
+```ruby
+tracepoint = TracePoint.new(:line) do |tp|
+  tp.binding.define_singleton_method(:greet) { puts "Hello world" }
+end
+
+greet
+```
+
+---
+
+```ruby
+tracepoint = TracePoint.new(:line) do |tp|
+  puts tp.binding.receiver  # => main
+end
+```
+
+
+
+
+## Step 4: Actually assign the variable
 
 This is an instance of [the `Binding` class][Binding].
 When I first read about that class, I thought maybe I could use `local_variable_set` to assign my variable, but alas, that doesn't work -- it only affects variables it already knows about.
