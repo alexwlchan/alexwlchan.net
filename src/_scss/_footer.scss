@@ -1,7 +1,8 @@
 footer {
-  border-top: 1px solid $light-grey;
+//  border-top: $sidebar-border-width solid $light-grey;
   padding-top:    15px;
   padding-bottom: 15px;
+  background: $primary-color;
 
   @media print {
     display: none;
@@ -12,10 +13,10 @@ footer {
   font-size:   $meta-font-size;
   line-height: $meta-line-height;
 
-  color: $accent-grey;
+  color: white;
 
   a, a:visited {
-    @include link_styles($accent-grey, 0.2);
+    @include link_styles(white, 0.5);
   }
 
   p:not(:last-child) {
@@ -26,35 +27,30 @@ footer {
     margin-top: $meta-size * 1em;
   }
 
-  // These definitions have to live in the #footer_inner block so they
-  // override the a:visited style defined above.
-  #footer__about:hover    { color: $primary-color;  }
-  #footer__licence:hover  { color: black;           }
-  
   display: grid;
-  
+
   @media screen and (min-width: 600px) {
     grid-template-columns: auto auto;
-    
+
     #footer_social {
       padding-top: $default-padding;
       text-align: right;
       margin-left: 1em;
     }
-    
+
     .footer_link:not(:last-child) {
       margin-right: 5px;
     }
-    
+
     .footer_link, .footer_link svg {
       width:  30px;
       height: 30px;
     }
   }
-  
+
   @media screen and (max-width: 600px) {
     grid-template-columns: auto;
-    
+
     #footer_social {
       text-align: left;
 
@@ -62,28 +58,31 @@ footer {
         margin-left:  5px;
       }
     }
-    
+
     .footer_link, .footer_link svg {
       width:  40px;
       height: 40px;
     }
   }
-  
+
   #footer_social {
     .footer_link:hover {
       background: none;
     }
 
     .footer_link .background {
-      fill: $midtone-gray;
+      fill: white;
     }
+
+    .footer_link       .accent { fill: none;  }
+    .footer_link:hover .accent { fill: white; }
 
     #footer_link--email:hover    .background { fill: #0067B9; }
     #footer_link--rss:hover      .background { fill: #F99000; }
     #footer_link--twitter:hover  .background { fill: #1DA1F2; }
     #footer_link--linkedin:hover .background { fill: #007EBB; }
     #footer_link--github:hover   .background { fill: #24292f; }
-    
+
     #footer_link--kofi:hover #kofi_heart     { fill: #f14255; };
     #footer_link--kofi:hover #kofi_circle    { fill: #50aee4; };
   }
