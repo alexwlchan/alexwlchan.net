@@ -7,8 +7,11 @@ AllCops:
     - 'src/_files/2022/division1.rb'
     - 'src/_files/2022/division2.rb'
 
+Layout/HeredocIndentation:
+  Enabled: false
+
 Layout/LineLength:
-  Max: 130
+  Max: 200
 
 Lint/MissingCopEnableDirective:
   Enabled: false

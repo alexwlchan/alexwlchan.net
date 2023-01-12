@@ -32,7 +32,7 @@ class RunLinting < Jekyll::Command
           check_img_http: true,
           check_opengraph: true,
           disable_external: true,
-          report_invalid_tags: true,
+          report_invalid_tags: true
         }
       ).run
     end
