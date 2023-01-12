@@ -13,7 +13,11 @@ I've never actually written an SVG curve from scratch; just modified a curve som
 This is the sort of thing I want:
 
 <figure style="max-width: 600px;">
-  {% inline_svg "_images/2022/circle_diagram.svg" %}
+  {%
+    inline_svg2
+    filename="circle_diagram.svg"
+    alt="An illustration of a circular arc. There's a grey dashed circle, with a vertical line from the centre denoting zero degrees. Going clockwise, there's a blue angle labelled "start", then a green angle labelled "sweep". Along the dashed circle is a thick black arc that follows the sweep angle."
+  %}
 </figure>
 
 I want to be able to pick the centre and radius of the circle, the start and sweep angles.
