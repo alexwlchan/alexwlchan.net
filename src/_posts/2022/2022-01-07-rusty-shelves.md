@@ -443,7 +443,7 @@ And here's an example of what it looks like:
 
 If you want to get the final code, you can download this zipfile, which is a complete Rust project:
 
-{% download /files/2022/rusty-shelves.zip %}
+{% download filename="rusty-shelves.zip" %}
 
 I've been making [graphics like this](/all-posts/?tag=generative-art) for over five years, and it's as fun now as when I started.
 I enjoy taking an idea (can I arrange coloured rectangles to look like a bookshelf?) and turning it into an endless collection of similar images.

@@ -25,7 +25,7 @@ It feels like something that might be useful elsewhere, so I've pulled it out as
 
 I wrote a small Python helper function:
 
-{% download /files/2022/create_circular_arc_paths.py %}
+{% download filename="create_circular_arc_paths.py" %}
 
 This is a case where source code as plain text feels really limiting.
 Both this snippet and the bigger project have a bunch of geometry code, and it'd be really useful to be able to insert small diagrams in the comments to explain what I'm doing.

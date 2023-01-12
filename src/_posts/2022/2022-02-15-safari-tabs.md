@@ -168,7 +168,7 @@ This shebang means that when I run `close_work_tabs` from the command line, it g
 
 If you'd find it helpful, you can download this script as a single file:
 
-{% download /files/2022/close_work_tabs.js %}
+{% download filename="close_work_tabs.js" %}
 
 This was my first time using JXA for Mac automation, but it won't be my last.
 I often help family, friends, and coworkers debug things on their Macs, and a good scripting language is super helpful.
