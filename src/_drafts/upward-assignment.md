@@ -238,7 +238,7 @@ pp Ripper.lex('x = 12 + 34')
 The result is an array of arrays, whose format is `[[lineno, column], type, token, state]`.
 Each entry is a single token.
 
-The `lineno` and `column` are pretty self-explanatory, and `token` is the source code for this token. 
+The `lineno` and `column` are pretty self-explanatory, and `token` is the source code for this token.
 I'm not sure what all the values for `type` and `state` are, but I don't need to worry about them – I don't think I care about `state` at all, and I can see the values of `type` that might be interesting to me.
 In particular, `:on_ident` and `:on_int` both look useful.
 
@@ -632,6 +632,7 @@ When you create new variables in the binding, they're only created inside the bi
 
 
 
+
 ## Escaping through the `receiver`
 
 Remember that a binding contains all the context about the program, including both variables and methods.
@@ -640,6 +641,7 @@ Variables live in the lexical scope, but where are the methods?
 Methods are bound to objects, and every method in a binding is bound to an object called the `receiver`.
 When you call a method in Ruby, people sometimes say you're sending a message to the object -- and the `receiver` is what receives those messages.
 Crucially, the receiver is an object that lives outside the binding, so if define new methods on the receiver, they'll be available outside the binding.
+And this is just what [`define_singleton_method` is for][define_singleton_method].
 
 For example:
 
@@ -651,24 +653,143 @@ b.receiver.define_singleton_method(:greet) { puts "Hello world" }
 greet         # => "Hello world"
 ```
 
-We can also do this inside a tracepoint, and because the tracepoint runs before the line
+We can also do this inside a tracepoint, and because the tracepoint runs before the line, the new method is available before the line runs:
 
 ```ruby
 tracepoint = TracePoint.new(:line) do |tp|
-  tp.binding.define_singleton_method(:greet) { puts "Hello world" }
+  tp.binding.receiver.define_singleton_method(:greet) { puts "Hello world" }
 end
 
-greet
+tracepoint.enable
+
+greet  # => "Hello world"
 ```
+
+Methods and variables aren't quite the same, and they have slightly different behaviours, but they look close enough that I think we can get away with it.
+
+[define_singleton_method]: https://ruby-doc.org/core-2.4.3/Object.html#method-i-define_singleton_method
+
+
+
+
+{% text_separator "⇑" %}
+
+
+
+
+
+## Turning a token into a value
+
+When we found the value below each arrow, we got back a token from Ripper.lex, which isn't a value we can assign in a method.
+But we can turn it into one:
+
+```ruby
+def convert_to_value(token)
+  case token[:type]
+  when :on_int
+    token[:token].to_i
+  when :on_tstring_content
+    token[:token]
+  when :on_ident
+    eval("#{token[:token]}")
+  end
+end
+```
+
+The biggest crime here is the use of `eval` to turn a string containing a variable name into a variable.
+
+We can drop this into our tracepoint, and our upward assignment operator springs into life:
+
+```ruby
+upwards_assignment = TracePoint.new(:line) { |tp|
+  …
+
+  this_identifiers.each { |var|
+    arrow_below = …
+    matching_value = …
+
+    tp.binding.receiver.define_singleton_method(var[:token]) {
+      |*args| literalize(matching_value)
+    }
+  }
+
+  …
+}
+```
+
+and now the variable will spring into existence!
+
+
+
+
+
+{% text_separator "⇑" %}
+
+
+
+
+
+## Putting it all together
+
+We need a couple more tweaks to get this working: we need to define an empty method for `⇑` so it doesn't throw a NameError, and a bit more fiddling with bindings, but it does basically work.
+I've wrapped it in a Uequals class (for "upward-equals", to match Kevin Kuchta's [Vequals class][vequals]), and it works like so:
+
+```ruby
+Uequals.enable
+
+x
+⇑
+4
+
+puts x  # => 4
+```
+
+You can chain instances of the uequals operator:
+
+```ruby
+x
+⇑
+y
+⇑
+3
+
+puts x  # => 3
+puts y  # => 3
+```
+
+and do parallel assignment:
+
+```ruby
+  x
+y ⇑
+⇑ 5
+6
+
+puts x  # => 5
+puts y  # => 6
+```
+
+Unfortunately there are still some rough edges, and it starts to break down when you combine it with other assignment operators:
+
+```ruby
+x
+⇑
+y
+⇑
+z = 4
+
+puts x  # => nil
+puts y  # => nil
+puts z  # => 4
+```
+
+[vequals]: https://github.com/kkuchta/vequals
 
 ---
-
-```ruby
-tracepoint = TracePoint.new(:line) do |tp|
-  puts tp.binding.receiver  # => main
-end
-```
-
+---
+---
+---
+---
 
 
 
