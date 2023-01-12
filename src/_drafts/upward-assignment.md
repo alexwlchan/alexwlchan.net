@@ -804,78 +804,26 @@ If you want to play with it yourself, I've uploaded a complete copy of the code 
 
 ## Being serious, briefly
 
+While creating an upward assignment operator is fun, it's not really the point of this post.
+Absolutely nobody, including me, is going to use this code.
 
 
----
----
----
----
----
+```ruby
+           knowledge
+utility        ⇑
+   ⇑          100
+   0
+```
 
+This was a learning exercise.
+I'd already learnt some new stuff by watching Kevin's original talk, but actually implementing an operator myself taught me much more.
 
+I wrote something like 100 scripts for this project, and by running them I learnt a lot of new stuff about Ruby behaves.
+Most of the code I write is "familiar": it's using features I already know, and I have a good idea of what'll happen before I run it.
+But here, because I was using so many new-to-me features – TracePoint, Ripper, bindings, lexical scope – I learnt a lot in a short amount of time.
+This may not be useful code, but it is useful knowledge.
 
-We have to create the variable before we can set it, and you can't do that directly on a binding.
+I really recommend downloading some of the code snippets and playing with it yourself; I think it's a much better way to learn than just reading about what somebody else has done.
 
-can declare variable in a binding with eval, see
-https://stackoverflow.com/a/17843062/1558022
-
-> Binding objects never create variables in existing lexical scopes, they can only change existing variables. If the variable does not exist in that lexical scope, it's created inside the binding, and only visible from the binding object.
-
-https://www.reddit.com/r/ruby/comments/5x2asg/why_doesnt_bindinglocal_variable_set_actually_set/
-
-binding.irb
-https://www.bigbinary.com/blog/binding-irb
-
-[Binding]: https://ruby-doc.org/core-2.5.1/Binding.html#method-i-local_variable_set
-
-Scope: In Ruby, all code executes in the context of some calling object, otherwise known as the “receiver”. Every method call has some receiver: the receiver of an instance method is either explicitly defined: receiver.method; otherwise, it is implied — the receiver of method without anything prepended is self. The point is that when any method is invoked, a specific calling object is executing. If an instance variable is initialized under an object’s execution, it is scoped to that object.
-
-https://ethanweiner.medium.com/variable-scope-and-access-in-ruby-the-important-parts-dc2d146977b3
-
-> Whenever a proc is instantiated, a binding is created which inherits references to the local variables in the context the block was created.
-
-https://blog.appsignal.com/2019/01/08/ruby-magic-bindings-and-lexical-scope.html
-
-
-
----
-
-so now we'll look ahead on var, find value to assign, assing it as a method
-try it => NameError, no arrow
-okay define empty method
-=> but now it works
-
----
-
-we can now get v silly
-
-# best_number_of_cats
-#  ⇑  ⇑  ⇑  ⇑  ⇑  ⇑
-#  0  1  2  3  4  5
-
-chained
-
-     s => q
-     ⇑
-     y => z
-     ⇑
-4 => x => a
-
-fun puzzles for colleagues
-
-combine with vequals?
-
-w => x
-⇑    ‖
-x =  y
-
-(this works because both upward/downward assignment use def and not variables, calling explodes:)
-
-if you want to play, check out github
-
----
-
-why god why
-
-
-
+And as always, writing it down on a blog post helped cement this new knowledge. I still don't understand all of it, but trying to explain what I've learned to somebody else how to find the gaps in my thinking.
+Writing blog posts remains one of the best ways for me to learn about new programming concepts.
