@@ -31,7 +31,7 @@ I'm hoping to get a similar improvement here.
 
 If you're interested, you can download my script:
 
-{% download /files/2021/see_journal_progress.py %}
+{% download filename="see_journal_progress.py" %}
 
 The code is pretty rough and probably won't work for anybody else's setup, but it has some ideas I thought worth discussing in more detail:
 

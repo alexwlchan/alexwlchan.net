@@ -7,10 +7,13 @@ a.download {
   display: inline-block;
   padding-right: 15px;
   text-decoration: none;
-  background: rgba($primary-color, 0.6);
+
+  // We need to override the background styles
+  color: $primary-color !important;
+  background: rgba(white, 0.4) !important;
 
   &:hover {
-    background: rgba($primary-color, 0.2);
+    background: rgba($primary-color, 0.2) !important;
   }
 
   @media screen and (max-width: 500px) {
@@ -25,7 +28,7 @@ a.download {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: -25px;
-    margin-top: -5px;
+    margin-top: -8px;
     padding-bottom: 0;
     padding-right: 5px;
 
