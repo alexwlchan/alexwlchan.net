@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			An ochre graphic that looks like a damaged seven-point spider web.
-		</title>
-
 <svg class="ochre_spider" y="0.15">
 <path d="M 8.0 7.0 L 8.0 6.0"/>
 <path d="M 8,8 L 8.0,7.0"/>

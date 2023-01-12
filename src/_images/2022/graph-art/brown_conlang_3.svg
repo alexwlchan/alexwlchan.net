@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of connected dark brown lines on a light brown background.
-			There's a distinct "left" and "right" half to the graphic, both forming distinct shapes on either side.
-		</title>
-
 <svg class="brown3">
 <path d="M 1,1 L 2,1"/>
 <path d="M 2,1 L 2,2"/>

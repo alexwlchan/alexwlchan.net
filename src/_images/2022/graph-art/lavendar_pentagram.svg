@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of black lines and circular arcs.
-			There are five spokes which makes it look vaguely like a star.
-		</title>
-
 <svg class="lavender_pentagram">
 <path d="M 14.412214747707527 15.809016994374947 L 13.824429495415053 16.618033988749893"/>
 <path d="M 14.048943483704846 14.690983005625053 L 13.097886967409693 14.381966011250105"/>

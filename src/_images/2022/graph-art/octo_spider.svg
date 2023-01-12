@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A green graphic that looks a bit like an eight-pointed spider web.
-		</title>
-
 <svg class="octo_spider">
 <path d="M 5.0 4.0 A 1 1 0 0 0 5.707106781186548 4.292893218813452"/>
 <path d="M 5.0 4.0 L 5.0 3.0"/>

@@ -1,6 +1,4 @@
 <svg viewBox="0 0 500 70" xmlns="http://www.w3.org/2000/svg">
-	<title>A process diagram showing a data pipeline. There are three components (left to right): an input queue, a worker, and an output queue. The worker processes incoming messages from the input queue, and sends ongoing messages to the output queue.</title>
-
   <defs>
     <style>
       line {

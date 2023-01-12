@@ -11,12 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of connected red circular lines.
-			They're arranged into seven segments, with three segments forming along the outer edge.
-			This looks similar to the three sections of a radiation warning symbol.
-		</title>
-
 <svg x="1" y="1" id="red_nuclear">
 <path d="M 12.0 11.0 A 1 1 0 0 1 12.78183148246803 11.376510198141267"/>
 <path d="M 12.0 11.0 L 12.0 10.0"/>

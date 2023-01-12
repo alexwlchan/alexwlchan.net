@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A green graphic that looks like a damaged spider web.
-		</title>
-
 <svg class="green_spider">
 <path d="M 9,9 L 9.0,8.0"/>
 <path d="M 9,9 L 9.64278760968654,8.233955556881021"/>

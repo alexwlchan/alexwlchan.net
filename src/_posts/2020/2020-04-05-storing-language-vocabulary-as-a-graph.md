@@ -15,7 +15,11 @@ It's a list of words and phrases, accompanied by a translation into a language y
 Here's an example with English and German:
 
 <figure style="width: 450px;">
-  {% inline_svg "_images/2020/german_vocabulary_list.svg" %}
+  {%
+    inline_svg
+    filename="german_vocabulary_list.svg"
+    alt="Three lines of text with arrows between them: “hippo” to “das Nilpferd”; “slug” to “die Nacktschnecke”; “turtle” to “die Schildkröte”"
+  %}
 </figure>
 
 This is an efficient way to store the data, and it allows for fast lookups if there's a word you don't know.
@@ -40,7 +44,11 @@ Here's the graph for 电:
 [graph theory]: https://en.wikipedia.org/wiki/Graph_theory
 
 <figure style="width: 400px;">
-  {% inline_svg "_images/2020/dian_words.svg" %}
+  {%
+    inline_svg
+    filename="dian_words.svg"
+    alt="A star diagram with 电 in the middle, and lines leading out to 电话, 电视 and 电车."
+  %}
 </figure>
 
 Rather than learning the four words individually, I can learn this mini-cluster, and remember them together.
@@ -62,7 +70,11 @@ The graph forms a star shape, like the example above.
 If we were to draw out the graph of all the vocabulary I know, we'd get something much bigger and more complex.
 
 <figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
-  {% inline_svg "_images/2020/complex_graph.svg" %}
+  {%
+    inline_svg
+    filename="complex_graph.svg"
+    alt="A graph with various vertices (black circles) connected by grey lines."
+  %}
 </figure>
 
 **Wouldn't it be interesting to see that bigger graph?**

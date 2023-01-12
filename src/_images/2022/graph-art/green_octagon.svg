@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of connected green lines, in a sort of octagonal shape.
-		</title>
-
 <svg id="green_octagon">
 <path d="M 11,11 L 11.0,10.0"/>
 <path d="M 11.707106781186548 10.292893218813452 L 12.414213562373096 9.585786437626904"/>

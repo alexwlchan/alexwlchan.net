@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of pink lines and quarter circle arcs.
-			The arrangement of lines and arcs around the central vertical line look a bit like a helmet, or maybe a stylised face.
-		</title>
-
 <svg class="pink_half_circle">
 <path d="M 6,6 L 6.0,5.0"/>
 <path d="M 6.0 5.0 L 6.0 4.0"/>

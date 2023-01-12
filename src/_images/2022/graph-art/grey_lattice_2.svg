@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-  	<title>
-  		A partially completed pentagonal lattice made of thin grey lines.
-			The central point and two sides are missing, making it feel quite open.
-  	</title>
-
   	<svg class="radial">
 
 <line x2="107.55282581475768" y2="44.54915028125265" x1="60.0" y1="10.0"/>

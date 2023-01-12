@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of thick orange lines and circular arcs.
-		</title>
-
 <svg class="orange_circle">
 <path d="M 5,5 L 5.0,4.0"/>
 <path d="M 4.459359182544402 4.158746467168819 A 1 1 0 0 1 4.999999999999999 4.0"/>

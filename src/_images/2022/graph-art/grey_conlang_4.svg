@@ -9,10 +9,6 @@
 	    }
 	  </style>
 	</defs>
-	<title>
-		A graphic made of straight grey lines arranged at right angles to each other.
-		To my eye, this looks a bit like two representations of people walking from left-to-right.
-	</title>
 	<svg class="grey_conlang">
 		<line x2="10" y2="10" x1="20" y1="10"/>
 		<line x2="20" y2="10" x1="20" y1="20"/>
