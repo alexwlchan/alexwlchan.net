@@ -134,7 +134,7 @@ I'm sure there's more fun to be had by making the animation speed up or slow dow
 
 You can download all the code from this post in this file:
 
-{% download /files/2022/make_artichoke_gif.py %}
+{% download filename="make_artichoke_gif.py" %}
 
 And if you haven't looked already, I really recommend getting a big monitor and reading [my original post][stacks].
 There are pumpkins, parsimmons, passion fruit, and all sorts of other mesmerising images made entirely from MRI scans.

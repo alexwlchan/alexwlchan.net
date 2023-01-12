@@ -79,8 +79,8 @@ I think those are the key ideas, and here are the Python scripts that I actually
   }
 </style>
 
-{% download /files/2022/save_tweets_by_id.py %}
-{% download /files/2022/extract_alt_text.py %}
+{% download filename="save_tweets_by_id.py" %}
+{% download filename="extract_alt_text.py" %}
 
 If you want to do this, you'll need some credentials for the v1 API.
 I wrote all my scripts before the v2 API existed, and I've yet to migrate them to the new APIs.

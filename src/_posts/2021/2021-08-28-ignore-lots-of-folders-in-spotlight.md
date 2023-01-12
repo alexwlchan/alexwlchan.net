@@ -52,7 +52,7 @@ You need to run as the root user or using `sudo`, because regular users aren't a
 
 If you'd find this useful, you can download and use my script:
 
-{% download /files/2021/ignore_folders_in_spotlight.py %}
+{% download filename="ignore_folders_in_spotlight.py" %}
 
 [spotlight]: https://support.apple.com/en-gb/guide/mac-help/mchlp1008/mac
 [index]: https://www.alfredapp.com/help/troubleshooting/indexing/spotlight/
