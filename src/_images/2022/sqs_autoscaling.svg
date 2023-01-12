@@ -1,6 +1,4 @@
 <svg viewBox="0 0 500 170" xmlns="http://www.w3.org/2000/svg">
-	<title>A process diagram showing an SQS queue, a CloudWatch Metric and Alarm, and an ECS service. One path goes queue to metric (sends queue metrics), metric to alarm (triggers alarm), alarm to service (updates task count). Another path goes queue to service (processes messages).</title>
-
   <defs>
     <style>
       line {

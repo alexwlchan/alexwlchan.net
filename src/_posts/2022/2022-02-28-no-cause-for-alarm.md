@@ -40,7 +40,11 @@ This introduces some latency (if the pipeline is scaled down and new work arrive
 
 We use CloudWatch to automatically adjust the number of tasks.
 
-{% inline_svg "_images/2022/sqs_autoscaling.svg" %}
+{%
+  inline_svg2
+  filename="sqs_autoscaling.svg"
+  alt="A process diagram showing an SQS queue, a CloudWatch Metric and Alarm, and an ECS service. One path goes queue to metric (sends queue metrics), metric to alarm (triggers alarm), alarm to service (updates task count). Another path goes queue to service (processes messages)."
+%}
 
 Each SQS queue is [sending metrics to CloudWatch][sqs_metrics], telling it how many messages it has.
 We have CloudWatch alarms based on those metrics, and when they're in the ALARM state, they [adjust the task count][actions].
