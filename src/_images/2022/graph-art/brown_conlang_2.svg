@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of connected dark brown lines on a light brown background.
-			The lines are very thick.
-		</title>
-
 <svg class="brown2">
 <path d="M 1,1 L 1,2"/>
 <path d="M 2,1 L 3,1"/>

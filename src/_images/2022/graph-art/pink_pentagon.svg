@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of pink lines on a dark background.
-			They're arranged in a pentagonal shape, with two of the five sides mostly open.
-		</title>
-
 <svg x="0" y="0.8" class="pink_pentagon">
 <path d="M 11,11 L 11.0,10.0"/>
 <path d="M 11.0 10.0 L 10.048943483704846 10.690983005625053"/>

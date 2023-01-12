@@ -6,7 +6,11 @@
 #
 # Example usage:
 #
-#     {% inline_svg "_images/2020/sqs_queue_worker.svg" %}
+#     {%
+#       inline_svg
+#       filename="sqs_queue_worker.svg"
+#       alt="Three boxes joined by arrows"
+#     %}
 #
 # References:
 #
@@ -21,7 +25,9 @@
 
 require 'nokogiri'
 
-def get_inline_svg(svg_path)
+require_relative 'utils/attrs'
+
+def get_inline_svg(svg_path, alt_text)
   svg_doc = File.open(svg_path) { |f| Nokogiri::XML(f) }
 
   # Quoting "Accessible SVGs" § 2:
@@ -31,25 +37,19 @@ def get_inline_svg(svg_path)
   #
   svg_doc.root.set_attribute('role', 'img')
 
-  # Look for the <title> element inside the SVG.  This will be used as
-  # the alt text; if there isn't one, error out.
-  #
-  # COULDDO: It should be possible to do this using ``.at_xpath("//title")``,
-  # but that returns nil when I tried it.
-  titles = svg_doc.root
-                  .children
-                  .select { |child| child.name == 'title' }
+  # Insert a title element in the SVG with the alt text.
+  unless alt_text.nil?
+    title = Nokogiri::XML::Node.new("title", svg_doc)
+    title.content = alt_text
 
-  raise "Unable to find <title> in #{@path}" unless titles.size == 1
+    # Add an ID to the title element, and the appropriate aria-labelledby
+    # attribute to the root.
+    svg_doc_id = "svg_#{File.basename(svg_path, '.svg')}"
+    title.set_attribute('id', svg_doc_id)
+    svg_doc.root.set_attribute('aria-labelledby', svg_doc_id)
 
-  title_element = titles[0]
-
-  # Add an ID to the title element, and the appropriate aria-labelledby
-  # attribute to the root.
-  svg_doc_id = "svg_#{File.basename(svg_path, '.svg')}"
-
-  title_element.set_attribute('id', svg_doc_id)
-  svg_doc.root.set_attribute('aria-labelledby', svg_doc_id)
+    svg_doc.at('svg').add_child(title)
+  end
 
   # Remove all the comments, they're not needed
   svg_doc.xpath('//comment()').remove
@@ -64,18 +64,26 @@ end
 
 module Jekyll
   class InlineSvgTag < Liquid::Tag
-    def initialize(_tag_name, path, _tokens)
+    def initialize(tag_name, params_string, tokens)
       super
-      @path = path.strip.tr! '"', ''
+
+      @attrs = parse_attrs(params_string)
+
+      @filename = get_required_attribute(
+        @attrs, { tag: 'inline_svg', attribute: 'filename' }
+      )
     end
 
     def render(context)
       site = context.registers[:site]
       src = site.config['source']
 
-      svg_path = "#{src}/#{@path}"
+      year = context.registers[:page]['date'].year
 
-      get_inline_svg(svg_path)
+      svg_path = "#{src}/_images/#{year}/#{@filename}"
+      alt_text = @attrs["alt"]
+
+      get_inline_svg(svg_path, alt_text)
     end
   end
 end

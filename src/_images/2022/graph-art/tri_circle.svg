@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of thick blue lines and circular arcs, split into three segments.
-			It looks vaguely like some sort of radar scanner.
-		</title>
-
 <svg class="tri_circle">
 <path d="M 12.133974596215563 13.5 A 1 1 0 0 1 13.0 12.0"/>
 <path d="M 13.0 12.0 A 1 1 0 0 1 13.86602540378444 13.5"/>

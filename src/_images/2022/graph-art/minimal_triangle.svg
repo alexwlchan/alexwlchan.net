@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A simple graphic made up of just of five lines, and which still makes the outline of the original triangle clear (even though only one side is drawn).
-		</title>
-
 <svg x="0" y="0.7" class="minimal_triangle">
 <path d="M 4.0 3.0 L 4.866025403784438 4.5"/>
 <path d="M 4.866025403784438 4.5 L 5.732050807568878 5.0"/>

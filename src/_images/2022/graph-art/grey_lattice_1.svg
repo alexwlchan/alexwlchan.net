@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-  	<title>
-  		A partially completed octagonal lattice made of thin grey lines.
-  	</title>
-
   	<svg class="radial">
 
 <line x2="27.860619515673037" y2="21.697777844051096" x1="60.0" y1="10.0"/>

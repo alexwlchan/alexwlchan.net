@@ -1,6 +1,4 @@
 <svg viewBox="0 0 303 82" xmlns="http://www.w3.org/2000/svg">
-  <title>Three boxes joined by arrows, pointing from left to right. Boxes, L–R: a pink box (labelled "input queue"); a black dashed box (labelled "worker"); another pink box (labelled "output queue").</title>
-
   <defs>
     <style>
       rect.worker {

@@ -12,10 +12,6 @@
     </defs>
 
 
-		<title>
-			A purple graphic with curves moving in and out along the spokes.
-		</title>
-
 <svg class="swirly">
 <path d="M 10.0 9.0 A 1 1 0 0 0 10.540640817455598 9.158746467168818"/>
 <path d="M 10.0 9.0 L 10.0 8.0"/>

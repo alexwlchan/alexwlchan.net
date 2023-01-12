@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A red graphic that looks a bit like a curvy heptagon. Two of the segments have a lot of filled in lines, so it looks vaguely as if it's moving upwards.
-		</title>
-
 <svg class="red_heptagon">
 <path d="M 9.21816851753197 9.376510198141267 A 1 1 0 0 0 10.0 9.0"/>
 <path d="M 10,10 L 10.78183148246803,9.376510198141267"/>

@@ -12,7 +12,11 @@ When the worker is done, it sends the message to another queue, where another wo
 This is a classic microservices pattern.
 
 <figure style="width: 600px;">
-  {% inline_svg "_images/2020/sqs_queue_worker.svg" %}
+  {%
+    inline_svg
+    filename="sqs_queue_worker.svg"
+    alt="Three boxes joined by arrows, pointing from left to right. Boxes, L–R: a pink box (labelled "input queue"); a black dashed box (labelled "worker"); another pink box (labelled "output queue")."
+  %}
 </figure>
 
 Sometimes a task can't be processed successfully -- for example, if there's a bug in the worker code.
