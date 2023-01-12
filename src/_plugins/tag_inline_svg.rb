@@ -39,7 +39,7 @@ def get_inline_svg(svg_path, alt_text)
 
   # Insert a title element in the SVG with the alt text.
   unless alt_text.nil?
-    title = Nokogiri::XML::Node.new("title", svg_doc)
+    title = Nokogiri::XML::Node.new('title', svg_doc)
     title.content = alt_text
 
     # Add an ID to the title element, and the appropriate aria-labelledby
@@ -81,7 +81,7 @@ module Jekyll
       year = context.registers[:page]['date'].year
 
       svg_path = "#{src}/_images/#{year}/#{@filename}"
-      alt_text = @attrs["alt"]
+      alt_text = @attrs['alt']
 
       get_inline_svg(svg_path, alt_text)
     end
