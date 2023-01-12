@@ -93,56 +93,56 @@ These are a few of the pictures I was able to make:
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/brown_conlang_4.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/brown_conlang_4.svg"
-      alt="A simple graphic made of connected dark brown lines on a light brown background. 		All the lines are at right angles to each other, and rise up from a single horizontal line on the base. 		The left-hand side looks like a "y" and a "u" placed on top of each other; the right-hand side looks like a capital "E" with an extra bar."
+      alt="A simple graphic made of connected dark brown lines on a light brown background. All the lines are at right angles to each other, and rise up from a single horizontal line on the base. The left-hand side looks like a "y" and a "u" placed on top of each other; the right-hand side looks like a capital "E" with an extra bar."
     %}
   </a>
   <a href="/images/2022/graph-art/lime_circles.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/lime_circles.svg"
       alt="A simple graphic made of connected lime-coloured lines. They're arranged around a circle: some concentric rings around a central point, then spokes going from the centre to the outer edge. Some of the lines are missing -- some of the circles and spokes have gaps."
     %}
   </a>
   <a href="/images/2022/graph-art/purple_diamond.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/purple_diamond.svg"
       alt="A simple graphic made of purple lines. They're arranged in concentric diamonds, with three of the four sides closed, but one side open."
     %}
   </a>
   <a href="/images/2022/graph-art/yellow_keyhole.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/yellow_keyhole.svg"
       alt="A simple graphic made of thin, yellow, circular lines. There's a gap in the middle of the circle, which looks a bit like a keyhole."
     %}
   </a>
   <a href="/images/2022/graph-art/blue_circle_quadrants.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/blue_circle_quadrants.svg"
       alt="A simple graphic made of connected blue lines. The circle is divided into four quadrants: in the upper-left and lower-right quadrants, the curves bend outwards; in the lower-left and upper-right quadrants, the curves bend inwards. It creates a rather pleasing visual symmetry."
     %}
   </a>
   <a href="/images/2022/graph-art/cream_clock.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/cream_clock.svg"
       alt="A simple graphic made of connected dark brown lines. The lines form a sort of curved pentagon shape, with three lines coming out of the central point that make it look vaguely like a clock."
     %}
   </a>
   <a href="/images/2022/graph-art/red_nuclear.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/red_nuclear.svg"
       alt="A graphic made of connected red circular lines. They're arranged into seven segments, with three segments forming along the outer edge. This looks similar to the three sections of a radiation warning symbol."
     %}
   </a>
   <a href="/images/2022/graph-art/green_octagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/green_octagon.svg"
       alt="A graphic made of connected green lines, in a sort of octagonal shape."
     %}
@@ -164,7 +164,7 @@ Here's a simple example:
 
 <figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
   {%
-    inline_svg2
+    inline_svg
     filename="complex_graph.svg"
     alt="A graph with various vertices (black circles) connected by grey lines."
   %}
@@ -192,28 +192,28 @@ By deleting edges at random (but keeping the graph connected), these are some of
 <div class="grid_4up">
   <a href="/images/2022/graph-art/grey_conlang_1.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_conlang_1.svg"
       alt="A graphic made of straight grey lines arranged at right angles to each other. It looks a bit like a U, a T and an H smushed together."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_conlang_2.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_conlang_2.svg"
       alt="A graphic made of straight grey lines arranged at right angles to each other. There's a big enclosing square and then a slightly smaller square in the upper-left, a bit like one is enclosing the other."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_conlang_3.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_conlang_3.svg"
       alt="A graphic made of straight grey lines arranged at right angles to each other. There's a small square in the lower left-hand corner, with a few lines coming off it – a bit like tentacles or hairs."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_conlang_4.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_conlang_4.svg"
       alt="A graphic made of straight grey lines arranged at right angles to each other. To my eye, this looks a bit like two representations of people walking from left-to-right."
     %}
@@ -226,28 +226,28 @@ I quite liked the comparison, so I drew another batch with an earthy brown and v
 <div class="grid_4up">
   <a href="/images/2022/graph-art/brown_conlang_1.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/brown_conlang_1.svg"
       alt="A graphic made of connected dark brown lines on a light brown background. The lines are quite thin, and appear to be creating a shape in an approximation of a clockwise spiral."
     %}
   </a>
   <a href="/images/2022/graph-art/brown_conlang_2.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/brown_conlang_2.svg"
       alt="A graphic made of connected dark brown lines on a light brown background. The lines are very thick."
     %}
   </a>
   <a href="/images/2022/graph-art/brown_conlang_3.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/brown_conlang_3.svg"
       alt="A graphic made of connected dark brown lines on a light brown background. There's a distinct "left" and "right" half to the graphic, both forming distinct shapes on either side."
     %}
   </a>
   <a href="/images/2022/graph-art/brown_conlang_4.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/brown_conlang_4.svg"
       alt="A simple graphic made of connected dark brown lines on a light brown background. 		All the lines are at right angles to each other, and rise up from a single horizontal line on the base. 		The left-hand side looks like a "y" and a "u" placed on top of each other; the right-hand side looks like a capital "E" with an extra bar."
     %}
@@ -274,28 +274,28 @@ That gave me a set of patterns that felt like creeping vines on a wall, so I col
 <div class="grid_4up">
   <a href="/images/2022/graph-art/vines.0.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/vines.0.svg"
       alt="A simple graphic made of dark green lines on a light green background. The lines are arranged at right angles or 45 degrees to each other, and look a bit like a vine hanging down a long wall."
     %}
   </a>
   <a href="/images/2022/graph-art/vines.1.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/vines.1.svg"
       alt="A simple graphic made of dark green lines on a light green background. The lines are arranged at right angles or 45 degrees to each other, and look a bit like a vine hanging down a long wall."
     %}
   </a>
   <a href="/images/2022/graph-art/vines.2.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/vines.2.svg"
       alt="A simple graphic made of dark green lines on a light green background. The lines are arranged at right angles or 45 degrees to each other, and look a bit like a vine hanging down a long wall."
     %}
   </a>
   <a href="/images/2022/graph-art/vines.3.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/vines.3.svg"
       alt="A simple graphic made of dark green lines on a light green background. The lines are arranged at right angles or 45 degrees to each other, and look a bit like a vine hanging down a long wall."
     %}
@@ -311,28 +311,28 @@ I wanted to try using spiderweb-like diagrams as the input; I thought they'd loo
 <div class="grid_4up">
   <a href="/images/2022/graph-art/radial-3.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/radial-3.svg"
       alt="Three concentric grey rings, with three spokes going from the centre to the outermost ring."
     %}
   </a>
   <a href="/images/2022/graph-art/radial-5.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/radial-5.svg"
       alt="Three concentric grey rings, with five spokes going from the centre to the outermost ring."
     %}
   </a>
   <a href="/images/2022/graph-art/radial-8.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/radial-8.svg"
       alt="Three concentric grey rings, with eight spokes going from the centre to the outermost ring."
     %}
   </a>
   <a href="/images/2022/graph-art/radial-20.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/radial-20.svg"
       alt="Three concentric grey rings, with twenty spokes going from the centre to the outermost ring."
     %}
@@ -348,56 +348,56 @@ It took a bit of time to work out the bugs, but I really like the results:
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/grey_lattice_1.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_1.svg"
       alt="A partially completed octagonal lattice made of thin grey lines."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_2.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_2.svg"
       alt="A partially completed pentagonal lattice made of thin grey lines. The central point and two sides are missing, making it feel quite open."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_4.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_4.svg"
       alt="A partially completed decagonal lattice (ten sides) made of thin grey lines. Several of the segments are completely empty; others are filled."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_3.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_3.svg"
       alt="A partially completed hexagonal lattice made of thin grey lines. Three of the lines in the upper left look a bit like the edge of a wing, as if it's flying.s"
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_5.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_5.svg"
       alt="A partially completed octagonal lattice. Most of the lines are spokes, not the concentric octagons."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_6.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_6.svg"
       alt="A partially completed radial lattice (don't ask me to count the number of sides). Although all the edges are straight lines, it looks a bit like a circle."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_7.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_7.svg"
       alt="A partially completed pentagonal lattice made of thin grey lines. Unlike the previous lattice, the central point is included, and the three lines going into the centre give it quite a different look."
     %}
   </a>
   <a href="/images/2022/graph-art/grey_lattice_8.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/grey_lattice_8.svg"
       alt="A partially completed radial lattice (don't ask me to count the number of sides). Although all the edges are straight lines, it looks a bit like a circle."
     %}
@@ -410,56 +410,56 @@ These are a few of my favourites:
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/purple_diamond.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/purple_diamond.svg"
       alt="A simple graphic made of purple lines. They're arranged in concentric diamonds, with three of the four sides closed, but one side open."
     %}
   </a>
   <a href="/images/2022/graph-art/pink_pentagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/pink_pentagon.svg"
       alt="A graphic made of pink lines on a dark background. They're arranged in a pentagonal shape, with two of the five sides mostly open."
     %}
   </a>
   <a href="/images/2022/graph-art/light_heptagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/light_heptagon.svg"
       alt="A graphic made of dark lines on a cream background. They're arranged in a heptagon shape, with several spokes almost completely open, giving a sense of direction: as if the shape is moving up the page."
     %}
   </a>
   <a href="/images/2022/graph-art/blue_hexagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/blue_hexagon.svg"
       alt="A graphic made of blue lines in a hexagon shape. There's a spoke running through the centre, and the two upper-right sides are open, helping to give a very clear sense of direction: this shape is moving up and to the right."
     %}
   </a>
   <a href="/images/2022/graph-art/ghost_heptagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/ghost_heptagon.svg"
       alt="A simple graphic made of connected light blue lines. Set against the dark background, it has a vaguely ghostly effect."
     %}
   </a>
   <a href="/images/2022/graph-art/orange_many_gon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/orange_many_gon.svg"
       alt="A graphic made of many orange lines. Although every line is straight, there's enough of them that the overall pattern looks a bit like a circle."
     %}
   </a>
   <a href="/images/2022/graph-art/minimal_triangle.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/minimal_triangle.svg"
       alt="A simple graphic made up of just of five lines, and which still makes the outline of the original triangle clear (even though only one side is drawn)."
     %}
   </a>
   <a href="/images/2022/graph-art/green_octagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/green_octagon.svg"
       alt="A graphic made of connected green lines, in a sort of octagonal shape."
     %}
@@ -491,7 +491,7 @@ I didn't take this any further, but the opportunity for slices of a second colou
 <figure style="max-width: 157px;">
   <a href="/images/2022/graph-art/experimental.svg" class="nohover">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/experimental.svg"
       alt="A collection of grey circular arcs, where the area between the curve and the straight line connecting two points has been filled in black."
     %}
@@ -504,84 +504,84 @@ I had a lot of fun generating these images.
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/yellow_busy.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/yellow_busy.svg"
       alt="A graphic made of yellow lines and circular arcs. There are lots of spokes and little arcs, so it looks quite busy."
     %}
   </a>
   <a href="/images/2022/graph-art/red_nuclear.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/red_nuclear.svg"
       alt="A graphic made of connected red circular lines. They're arranged into seven segments, with three segments forming along the outer edge. This looks similar to the three sections of a radiation warning symbol."
     %}
   </a>
   <a href="/images/2022/graph-art/green_radar.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/green_radar.svg"
       alt="A graphic made of dark green lines and circular arcs. To me, it looks a bit like some sort of complex radar scanning screen."
     %}
   </a>
   <a href="/images/2022/graph-art/lime_circles.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/lime_circles.svg"
       alt="A simple graphic made of connected lime-coloured lines. They're arranged around a circle: some concentric rings around a central point, then spokes going from the centre to the outer edge. Some of the lines are missing -- some of the circles and spokes have gaps."
     %}
   </a>
   <a href="/images/2022/graph-art/yellow_keyhole.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/yellow_keyhole.svg"
       alt="A simple graphic made of thin, yellow, circular lines. There's a gap in the middle of the circle, which looks a bit like a keyhole."
     %}
   </a>
   <a href="/images/2022/graph-art/pink_half_circle.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/pink_half_circle.svg"
       alt="A graphic made of pink lines and quarter circle arcs. The arrangement of lines and arcs around the central vertical line look a bit like a helmet, or maybe a stylised face."
     %}
   </a>
   <a href="/images/2022/graph-art/orange_circle.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/orange_circle.svg"
       alt="A graphic made of thick orange lines and circular arcs."
     %}
   </a>
   <a href="/images/2022/graph-art/lavendar_pentagram.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/lavendar_pentagram.svg"
       alt="A graphic made of black lines and circular arcs. There are five spokes which makes it look vaguely like a star."
     %}
   </a>
   <a href="/images/2022/graph-art/tri_circle.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/tri_circle.svg"
       alt="A graphic made of thick blue lines and circular arcs, split into three segments. It looks vaguely like some sort of radar scanner."
     %}
   </a>
   <a href="/images/2022/graph-art/turquoise_busy.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/turquoise_busy.svg"
       alt="A graphic made of turquoise lines and circular arcs. There are lots of spokes and little arcs, so it looks quite busy."
     %}
   </a>
   <a href="/images/2022/graph-art/purple_semicircle.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/purple_semicircle.svg"
       alt="A graphic made of purple semicircular arcs. You can see where the complete circle should be, but the graphic is divided down the middle: there are only arcs on the left-hand side."
     %}
   </a>
   <a href="/images/2022/graph-art/blue_quarters.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/blue_quarters.svg"
       alt="A graphic made of thick blue lines and circular arcs, split into quarters. It looks vaguely like some sort of radar scanner."
     %}
@@ -606,56 +606,56 @@ This matches the spider-web emoji, where the individual arcs bend towards the ce
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/four_point_curve.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/four_point_curve.svg"
       alt="A graphic made of pink curves around a four pointed cross. The four points are at right angles; three of the right angles have sweeping curves that approach the centre, but the fourth is empty."
     %}
   </a>
   <a href="/images/2022/graph-art/spider_hex.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/spider_hex.svg"
       alt="A blue graphic that looks a bit like a six-pointed spider web."
     %}
   </a>
   <a href="/images/2022/graph-art/purple_spider.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/purple_spider.svg"
       alt="A purple graphic that looks a bit like a large, lavender spider web."
     %}
   </a>
   <a href="/images/2022/graph-art/octo_spider.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/octo_spider.svg"
       alt="A green graphic that looks a bit like an eight-pointed spider web."
     %}
   </a>
   <a href="/images/2022/graph-art/orange_spider.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/orange_spider.svg"
       alt="An orange graphic that looks a bit like a five-pointed spider web."
     %}
   </a>
   <a href="/images/2022/graph-art/silver_spider.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/silver_spider.svg"
       alt="A black-and-white graphic that looks like a damaged spider web."
     %}
   </a>
   <a href="/images/2022/graph-art/green_spider.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/green_spider.svg"
       alt="A green graphic that looks like a damaged spider web."
     %}
   </a>
   <a href="/images/2022/graph-art/ochre_spider.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/ochre_spider.svg"
       alt="An ochre graphic that looks like a damaged seven-point spider web."
     %}
@@ -667,56 +667,56 @@ This got even more fun when I allowed arcs to bend alternately in and out, creat
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/swirly.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/swirly.svg"
       alt="A purple graphic with curves moving in and out along the spokes."
     %}
   </a>
   <a href="/images/2022/graph-art/inverse_three_points.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/inverse_three_points.svg"
       alt="A lime graphic with three curves making a triangle. Two of the curves are concave and intersecting, so it looks a bit like an upwards arrow."
     %}
   </a>
   <a href="/images/2022/graph-art/blue_circle_quadrants.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/blue_circle_quadrants.svg"
       alt="A simple graphic made of connected blue lines. The circle is divided into four quadrants: in the upper-left and lower-right quadrants, the curves bend outwards; in the lower-left and upper-right quadrants, the curves bend inwards. It creates a rather pleasing visual symmetry."
     %}
   </a>
   <a href="/images/2022/graph-art/curvy_hexagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/curvy_hexagon.svg"
       alt="An orange graphic with three sets of curves bending inwards, three outwards, to form a sort of curvy hexagon."
     %}
   </a>
   <a href="/images/2022/graph-art/cream_clock.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/cream_clock.svg"
       alt="A simple graphic made of connected dark brown lines. The lines form a sort of curved pentagon shape, with three lines coming out of the central point that make it look vaguely like a clock."
     %}
   </a>
   <a href="/images/2022/graph-art/orange_starburst.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/orange_starburst.svg"
       alt="An orange graphic with four sets of curves bending inwards, four outwards, to form a sort of curvy octagon."
     %}
   </a>
   <a href="/images/2022/graph-art/purple_splodge.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/purple_splodge.svg"
       alt="A purple graphic that looks a bit like an octagon with a bunch of sides removed."
     %}
   </a>
   <a href="/images/2022/graph-art/red_heptagon.svg">
     {%
-      inline_svg2
+      inline_svg
       filename="graph-art/red_heptagon.svg"
       alt="A red graphic that looks a bit like a curvy heptagon. Two of the segments have a lot of filled in lines, so it looks vaguely as if it's moving upwards."
     %}

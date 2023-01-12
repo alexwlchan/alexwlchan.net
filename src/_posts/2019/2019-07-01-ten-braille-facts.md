@@ -157,7 +157,7 @@ In the first four decades, the top two rows always follow a consistent order, an
 
 <figure>
   {%
-    inline_svg2
+    inline_svg
     filename="decades.svg"
     alt="Ten six-dot patterns, in which the top two rows are changing but the bottom row is undefined. Below are four six-dot patterns, in which the bottom row is changing but the top two rows are undefined."
   %}

@@ -29,7 +29,7 @@ If the two words were split over multiple lines, it wouldn't be the end of the w
 It's a digital paper cut.
 
 {%
-  inline_svg2
+  inline_svg
   filename="line_breaking.svg"
   alt="Three examples of line breaking of the text “RFC 1234”, with a green tick next to two examples where the two words are on the same line, and a red cross where they're split across a line."
 %}

@@ -6,7 +6,11 @@
 #
 # Example usage:
 #
-#     {% inline_svg "_images/2020/sqs_queue_worker.svg" %}
+#     {%
+#       inline_svg
+#       filename="sqs_queue_worker.svg"
+#       alt="Three boxes joined by arrows"
+#     %}
 #
 # References:
 #
@@ -23,7 +27,7 @@ require 'nokogiri'
 
 require_relative 'utils/attrs'
 
-def get_inline_svg2(svg_path, alt_text)
+def get_inline_svg(svg_path, alt_text)
   svg_doc = File.open(svg_path) { |f| Nokogiri::XML(f) }
 
   # Quoting "Accessible SVGs" § 2:
@@ -59,7 +63,7 @@ def get_inline_svg2(svg_path, alt_text)
 end
 
 module Jekyll
-  class InlineSvg2Tag < Liquid::Tag
+  class InlineSvgTag < Liquid::Tag
     def initialize(tag_name, params_string, tokens)
       super
 
@@ -79,9 +83,9 @@ module Jekyll
       svg_path = "#{src}/_images/#{year}/#{@filename}"
       alt_text = @attrs["alt"]
 
-      get_inline_svg2(svg_path, alt_text)
+      get_inline_svg(svg_path, alt_text)
     end
   end
 end
 
-Liquid::Template.register_tag('inline_svg2', Jekyll::InlineSvg2Tag)
+Liquid::Template.register_tag('inline_svg', Jekyll::InlineSvgTag)

@@ -14,7 +14,7 @@ This is the sort of thing I want:
 
 <figure style="max-width: 600px;">
   {%
-    inline_svg2
+    inline_svg
     filename="circle_diagram.svg"
     alt="An illustration of a circular arc. There's a grey dashed circle, with a vertical line from the centre denoting zero degrees. Going clockwise, there's a blue angle labelled "start", then a green angle labelled "sweep". Along the dashed circle is a thick black arc that follows the sweep angle."
   %}

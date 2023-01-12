@@ -79,7 +79,7 @@ Here's how the ISO weeks look around December 2020:
 
 <figure style="max-width: 500px;">
 {%
-  inline_svg2
+  inline_svg
   filename="week_numbers.svg"
   alt="A table showing a small December calendar and the week numbers down the left."
 %}
