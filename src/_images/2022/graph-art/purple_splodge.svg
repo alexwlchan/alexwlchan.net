@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A purple graphic that looks a bit like an octagon with a bunch of sides removed.
-		</title>
-
 <svg class="purple_splodge">
 <path d="M 3.3572123903134603 3.233955556881022 A 1 1 0 0 0 3.9999999999999996 3.0"/>
 <path d="M 4.64278760968654 3.233955556881022 A 1 1 0 0 1 4.984807753012208 3.8263518223330695"/>

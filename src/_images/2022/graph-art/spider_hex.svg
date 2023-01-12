@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A blue graphic that looks a bit like a six-pointed spider web.
-		</title>
-
 <svg class="spider_hex">
 <path d="M 13,13 L 13.0,12.0"/>
 <path d="M 13.0 12.0 L 13.0 11.0"/>

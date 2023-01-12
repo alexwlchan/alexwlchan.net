@@ -11,12 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of blue lines in a hexagon shape.
-			There's a spoke running through the centre, and the two upper-right sides are open, helping to give a very clear sense of direction: this shape is moving up and to the right.
-		</title>
-
-
 <svg class="blue_hexagon">
 <path d="M 6,6 L 6.0,5.0"/>
 <path d="M 6.866025403784438 5.5 L 7.732050807568877 5.0"/>

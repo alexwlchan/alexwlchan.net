@@ -11,10 +11,6 @@
 		</style>
 	</defs>
 
-	<title>
-		A collection of grey circular arcs, where the area between the curve and the straight line connecting two points has been filled in black.
-	</title>
-
 	<svg class="experiment">
 		<path d="M 90.0 50.0 A 40 40 0.0 0 1 78.2842712474619 78.2842712474619"/>
 		<path d="M 78.2842712474619 78.2842712474619 A 40 40 0.0 0 1 50.0 90.0"/>

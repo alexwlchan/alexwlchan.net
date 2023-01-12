@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-  	<title>
-  		A partially completed hexagonal lattice made of thin grey lines.
-			Three of the lines in the upper left look a bit like the edge of a wing, as if it's flying.s
-  	</title>
-
   	<svg class="radial">
 
 <line x2="16.698729810778083" y2="34.99999999999997" x1="60.0" y1="10.0"/>

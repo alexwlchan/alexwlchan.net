@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-  	<title>
-  		A partially completed decagonal lattice (ten sides) made of thin grey lines.
-			Several of the segments are completely empty; others are filled.
-  	</title>
-
   	<svg class="radial">
 
 <line x2="30.610737385376353" y2="19.54915028125263" x1="60.0" y1="10.0"/>
