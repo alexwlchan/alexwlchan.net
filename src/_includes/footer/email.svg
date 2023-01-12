@@ -8,6 +8,6 @@
       <use xlink:href="#envelopeIcon" fill="black"/>
     </mask>
   </defs>
+  <circle cx="475" cy="475" r="450" class="accent" />
   <circle cx="475" cy="475" r="475" class="background" mask="url(#envelope)"/>
-  <use xlink:href="#envelopeIcon" class="accent"/>
 </svg>
