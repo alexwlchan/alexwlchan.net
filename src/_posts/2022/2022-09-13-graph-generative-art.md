@@ -92,7 +92,11 @@ These are a few of the pictures I was able to make:
 
 <div class="grid_4up checkerboard">
   <a href="/images/2022/graph-art/brown_conlang_4.svg">
-    {% inline_svg "_images/2022/graph-art/brown_conlang_4.svg" %}
+    {%
+      inline_svg2
+      filename="graph-art/brown_conlang_4.svg"
+      alt="A simple graphic made of connected dark brown lines on a light brown background. 		All the lines are at right angles to each other, and rise up from a single horizontal line on the base. 		The left-hand side looks like a "y" and a "u" placed on top of each other; the right-hand side looks like a capital "E" with an extra bar."
+    %}
   </a>
   <a href="/images/2022/graph-art/lime_circles.svg">
     {% inline_svg "_images/2022/graph-art/lime_circles.svg" %}
@@ -182,7 +186,11 @@ I quite liked the comparison, so I drew another batch with an earthy brown and v
     {% inline_svg "_images/2022/graph-art/brown_conlang_3.svg" %}
   </a>
   <a href="/images/2022/graph-art/brown_conlang_4.svg">
-    {% inline_svg "_images/2022/graph-art/brown_conlang_4.svg" %}
+    {%
+      inline_svg2
+      filename="graph-art/brown_conlang_4.svg"
+      alt="A simple graphic made of connected dark brown lines on a light brown background. 		All the lines are at right angles to each other, and rise up from a single horizontal line on the base. 		The left-hand side looks like a "y" and a "u" placed on top of each other; the right-hand side looks like a capital "E" with an extra bar."
+    %}
   </a>
 </div>
 
