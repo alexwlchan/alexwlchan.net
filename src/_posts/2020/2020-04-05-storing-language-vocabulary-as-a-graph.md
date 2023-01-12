@@ -70,7 +70,11 @@ The graph forms a star shape, like the example above.
 If we were to draw out the graph of all the vocabulary I know, we'd get something much bigger and more complex.
 
 <figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
-  {% inline_svg "_images/2020/complex_graph.svg" %}
+  {%
+    inline_svg
+    filename="complex_graph.svg"
+    alt="A graph with various vertices (black circles) connected by grey lines."
+  %}
 </figure>
 
 **Wouldn't it be interesting to see that bigger graph?**
