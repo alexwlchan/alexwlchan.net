@@ -13,7 +13,12 @@ At the top of each page is a header that looks like a gravity-defying bookshelf.
 It's made up of coloured rectangles arranged in a line, which are meant to look like the spines of books:
 
 <figure class="wide_img">
-  <img src="/images/2022/shelves.png" alt="Three page headers in red, yellow, and blue. Each header is a collection of rectangles of different widths and heights in varying shades of red/yellow/blue, arranged so the top edge of the rectangles forms a straight line.">
+  {%
+    picture
+    filename="shelves.png"
+    alt="Three page headers in red, yellow, and blue. Each header is a collection of rectangles of different widths and heights in varying shades of red/yellow/blue, arranged so the top edge of the rectangles forms a straight line."
+    visible_width="950px"
+  %}
 </figure>
 
 Every page on the site has a different-coloured shelf, to match the cover of the book on that page.
@@ -127,7 +132,13 @@ fn main() {
 
 Here's what the result looks like:
 
-<img src="/images/2022/green_rectangle.png" style="border: 0.25px solid black;" alt="A frame with a thin black border and a bright green rectangle near the upper left-hand corner.">
+{%
+  picture
+  filename="green_rectangle.png"
+  alt="A frame with a thin black border and a bright green rectangle near the upper left-hand corner."
+  style="border: 0.25px solid black;"
+  visible_width="200px"
+%}
 
 You can also modify the image in-place by making it mutable, and using `draw_filled_rect_mut`:
 
@@ -325,9 +336,24 @@ fn main() {
 
 Here are a few examples, which look close to what we want:
 
-<img src="/images/2022/black_shelves1.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles.">
-<img src="/images/2022/black_shelves2.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles. It's different to the first image.">
-<img src="/images/2022/black_shelves3.png" alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles. It's different to the first and second images.">
+{%
+  picture
+  filename="black_shelves1.png"
+  visible_width="500px"
+  alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles."
+%}
+{%
+  picture
+  filename="black_shelves2.png"
+  visible_width="500px"
+  alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles."
+%}
+{%
+  picture
+  filename="black_shelves3.png"
+  visible_width="500px"
+  alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles."
+%}
 
 Notice that each shelf has a different shape, because we're using `thread_rng()`, which gives different output every time.
 That's fine for certain use cases, but I want the shelf to be the same shape on every page – so the colour changes as you move from page to page, but the shelf has the same outline.
@@ -439,7 +465,12 @@ fn main() {
 
 And here's an example of what it looks like:
 
-<img src="/images/2022/red_shelves.png" alt="A collection of rectangles of different widths and heights in varying shades of red, arranged so the top of the rectangles all form a straight line. It looks a bit like an upside-down bookshelf made of books with red spines.">
+{%
+  picture
+  filename="red_shelves.png"
+  alt="A collection of rectangles of different widths and heights in varying shades of red, arranged so the top of the rectangles all form a straight line. It looks a bit like an upside-down bookshelf made of books with red spines."
+  visible_width="500px"
+%}
 
 If you want to get the final code, you can download this zipfile, which is a complete Rust project:
 
