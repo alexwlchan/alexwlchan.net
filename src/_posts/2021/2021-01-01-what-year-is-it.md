@@ -78,7 +78,11 @@ For certain fiscal processes, those properties are more useful than the variable
 Here's how the ISO weeks look around December 2020:
 
 <figure style="max-width: 500px;">
-{% inline_svg "_images/2021/week_numbers.svg" %}
+{%
+  inline_svg2
+  filename="week_numbers.svg"
+  alt="A table showing a small December calendar and the week numbers down the left."
+%}
 </figure>
 
 Notice that January 1, 2021 is in Week 53 of 2020, so the ISO week-calendar year is still 2020, and will be until next Monday.

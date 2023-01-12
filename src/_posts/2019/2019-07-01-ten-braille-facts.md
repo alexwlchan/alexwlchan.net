@@ -156,7 +156,11 @@ The patterns are grouped into *decades*.
 In the first four decades, the top two rows always follow a consistent order, and it's just the bottom row that varies.
 
 <figure>
-  {% inline_svg "_images/2019/decades.svg" %}
+  {%
+    inline_svg2
+    filename="decades.svg"
+    alt="Ten six-dot patterns, in which the top two rows are changing but the bottom row is undefined. Below are four six-dot patterns, in which the bottom row is changing but the top two rows are undefined."
+  %}
 </figure>
 
 This helps you remember the meaning of the patterns (or me, at least).
