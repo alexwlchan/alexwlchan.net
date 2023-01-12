@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-  	<title>
-  		A partially completed octagonal lattice.
-			Most of the lines are spokes, not the concentric octagons.
-  	</title>
-
   	<svg class="radial">
 
 <line x2="95.35533905932743" y2="24.644660940672665" x1="60.0" y1="10.0"/>

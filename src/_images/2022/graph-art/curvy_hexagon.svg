@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			An orange graphic with three sets of curves bending inwards, three outwards, to form a sort of curvy hexagon.
-		</title>
-
 <svg class="curvy_hex">
 <path d="M 9.0 8.0 A 1 1 0 0 0 9.86602540378444 8.5"/>
 <path d="M 8.13397459621556 8.5 A 1 1 0 0 1 9.0 8.0"/>

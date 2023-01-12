@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of turquoise lines and circular arcs.
-			There are lots of spokes and little arcs, so it looks quite busy.
-		</title>
-
 <svg class="turquoise_busy">
 <path d="M 12.0 11.0 A 1 1 0 0 1 12.214970440211024 11.023379444289914"/>
 <path d="M 11.785029559788976 11.023379444289914 A 1 1 0 0 1 12.0 11.0"/>

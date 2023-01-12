@@ -11,12 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A simple graphic made of connected lime-coloured lines.
-			They're arranged around a circle: some concentric rings around a central point, then spokes going from the centre to the outer edge.
-			Some of the lines are missing -- some of the circles and spokes have gaps.
-		</title>
-
 <svg class="lime_circle" x="1" y="1">
 <path d="M 13.0 12.0 A 1 1 0 0 1 13.64278760968654 12.233955556881021"/>
 <path d="M 13.0 12.0 L 13.0 11.0"/>

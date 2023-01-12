@@ -11,12 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of dark green lines and circular arcs.
-			To me, it looks a bit like some sort of complex radar scanning screen.
-		</title>
-
-
 <svg class="green_radar">
 <path d="M 15.0 14.0 L 15.0 13.0"/>
 <path d="M 15.707106781186548 14.292893218813452 L 16.414213562373096 13.585786437626904"/>

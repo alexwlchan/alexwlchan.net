@@ -11,11 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A simple graphic made of thin, yellow, circular lines.
-			There's a gap in the middle of the circle, which looks a bit like a keyhole.
-		</title>
-
 <svg class="yellow_keyhole">
 <path d="M 5.0 4.0 L 5.0 3.0"/>
 <path d="M 5.951056516295154 4.6909830056250525 A 1 1 0 0 1 5.587785252292473 5.8090169943749475"/>

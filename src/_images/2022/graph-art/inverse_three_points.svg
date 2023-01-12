@@ -11,10 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A lime graphic with three curves making a triangle. Two of the curves are concave and intersecting, so it looks a bit like an upwards arrow.
-		</title>
-
 <svg class="inverse_three_points">
 <path d="M 10.0 9.0 L 10.0 8.0"/>
 <path d="M 10.0 9.0 A 1 1 0 0 0 10.86602540378444 10.5"/>

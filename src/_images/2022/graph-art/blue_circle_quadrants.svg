@@ -11,12 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A simple graphic made of connected blue lines.
-			The circle is divided into four quadrants: in the upper-left and lower-right quadrants, the curves bend outwards; in the lower-left and upper-right quadrants, the curves bend inwards.
-			It creates a rather pleasing visual symmetry.
-		</title>
-
 <svg x="1" y="1" id="blue_circle_quadrants">
 <path d="M 15,15 L 15.0,14.0"/>
 <path d="M 14.0 15.0 A 1 1 0 0 1 15.0 14.0"/>

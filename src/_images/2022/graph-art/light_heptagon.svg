@@ -11,12 +11,6 @@
       </style>
     </defs>
 
-		<title>
-			A graphic made of dark lines on a cream background.
-			They're arranged in a heptagon shape, with several spokes almost completely open, giving a sense of direction: as if the shape is moving up the page.
-		</title>
-
-
 <svg x="0" y="0.15" class="light_heptagon">
 <path d="M 5.0 4.0 L 5.0 3.0"/>
 <path d="M 5.78183148246803 4.376510198141267 L 6.56366296493606 3.7530203962825333"/>
