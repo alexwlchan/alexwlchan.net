@@ -71,7 +71,7 @@ If we were to draw out the graph of all the vocabulary I know, we'd get somethin
 
 <figure style="width: 300px; margin-top: -1em; margin-bottom: -1em;">
   {%
-    inline_svg
+    inline_svg2
     filename="complex_graph.svg"
     alt="A graph with various vertices (black circles) connected by grey lines."
   %}
