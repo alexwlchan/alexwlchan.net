@@ -26,7 +26,7 @@ x
 
 A few days ago, I had an idea for what it might take to get this working, and then I did.
 It's brittle, fragile, and a pile of hacks, but it does work.
-Doing this gave me practical experience with several Ruby features I haven't used before – and although I've watched Kevin's talk several times, I learnt far more while writing my own code.
+Doing this gave me practical experience with several Ruby features I haven't used before, and although I've watched Kevin's talk several times, I learnt far more while writing my own code.
 
 Grab a hot drink, a biscuit, and let's dive in.
 This is a long one.
@@ -65,7 +65,7 @@ The rest of the program proceeds as normal, unaware that this variable was assig
   alt="An annotated snippet of code with red markers showing 'remember the value above' and 'look up'."
 %}
 
-Unfortunately we can't use this trick for upwards assignment, because Ruby will never got to what I'm calling the "uequals" operator (denoted `⇑`).
+Unfortunately we can't use this trick for upwards assignment, because Ruby will never get to what I'm calling the "uequals" operator (denoted `⇑`).
 It will fail on the line above, because it doesn't know about the variable we're trying to assign:
 
 ```ruby
@@ -106,9 +106,9 @@ Let's dive in.
 
 
 
-## Run code just before every line using TracePoint
+## Run code just before every line
 
-[TracePoints][TracePoint] are a Ruby feature that let you run code in response to certain events in your program -- for example, at the start/end of a class definition, when exception are thrown, or on every method call.
+[TracePoints][TracePoint] are a Ruby feature that let you run code in response to certain events in your program -- for example, at the start/end of a class definition, when exceptions are thrown, or on every method call.
 It can be a useful debugging tool… and it can be other things too.
 
 To create a tracepoint, you write `Tracepoint.new` and the name of the event you want to trace, then a block which takes a single argument.
@@ -118,7 +118,7 @@ Here's a simple example, which prints a message on every line of code:
 
 ```ruby
 tracepoint = TracePoint.new(:line) do |tp|
-  puts "calling the tracepoint! tp=#{tp}"
+  puts "calling the tracepoint!"
 end
 
 tracepoint.enable
@@ -129,7 +129,7 @@ puts 'Hello world!'
 This is what gets printed:
 
 ```
-calling the tracepoint! tp=#<TracePoint:0x00007ffa5a09ccf0>
+calling the tracepoint!
 Hello world!
 ```
 
@@ -147,6 +147,7 @@ tp.lineno  # => 7
 tp.path    # => example.rb
 ```
 
+This information is meant to be useful for debugging.
 For example, we can use build a simple tool to measure line coverage:
 
 ```ruby
@@ -163,7 +164,7 @@ puts $covered_lines.inspect  # => [['coverage.rb', 9], ['coverage.rb', 10]]
 ```
 
 So far, so sensible.
-This is the sort of useful debugging task that TracePoint is usually used for, and I think it’s cool that this sort of power is built into Ruby core.
+This is the sort of task that TracePoint is usually used for, and I think it’s cool that this sort of power is built into Ruby core.
 
 This power does have limits: it doesn't know the source code of the line that's about to run, which is pretty important for what we're doing:
 
@@ -286,8 +287,7 @@ puts find_identifiers_in_line('⇑')
 # [{:token=>'⇑', :range=>0..1}]
 ```
 
-This returns a list of hashes: each hash is a single identifier.
-The hash has two keys: `:token` is the source code of the identifier, and `:range` tells us which characters it appears on in the line.
+Each identifier has two keys: `:token` is the source code, and `:range` tells us which characters it appears on in the line.
 
 We can put this in a tracepoint, and Ruby will print a list of identifiers it finds on every line:
 
@@ -389,7 +389,7 @@ There are lots of other edge cases we might want to think about here if we were 
 
 Now we've found an arrow, we need to know what value is beneath it (if any).
 A value is anything that we can assign to a variable -- a string, a number, another variable.
-There are lots of different types of value; for now I'm going to just handle a couple of simple types, but you could extend it to find more.
+There are lots of different types of value; for now I'm going to just handle a few, but you could extend it to find more.
 
 We can find values with a lightly modified variant of `find_identifiers_in_line`:
 
@@ -485,8 +485,8 @@ tp.binding.local_variables  # => [:shape, :sides, :tracepoint]
 ```
 
 These bindings don't just appear in tracepoints; you can get to them from anywhere in Ruby.
-Whenever you call the globally available [`binding` method][binding_meth], you get a new binding with a copy of the current context, which you can then pass around like any any variable.
-This allows us to break a bunch of rules.
+Whenever you call the globally available [`binding` method][binding_meth], you get a new binding with a copy of the current context, which you can then pass around like any other value.
+This gives us a way to break a bunch of rules.
 
 Here's an example of a program that doesn't work:
 
@@ -496,7 +496,7 @@ def greet(name)
   puts "Hello #{first_name}!"
 end
 
-greet('Alex Chan')  # => 'Hello Alex'
+greet('Alex Chan')  # => Hello Alex
 
 puts first_name     # => NameError
 ```
@@ -521,7 +521,7 @@ puts b.local_variable_get(:first_name)  # => 'Alex'
 ```
 
 The binding holds a reference to the local variables inside the function, and when the binding is returned from the function, we can still get to them.
-This breaks the usual rules of variable visibility (*"variables defined inside a function are only available inside the function"*) and it's extremely powerful.
+This breaks the usual rules of variable visibility and it's extremely powerful.
 And as they say, power is a corrupting influence.
 
 When I first read the docs for the Binding class, I thought maybe I could use the [`local_variable_set` method][local_variable_set].
@@ -737,8 +737,8 @@ Now when we use our uequals operator, it will create the variable we want.
 
 ## Putting it all together
 
-We need a couple more tweaks to get this working: we need to define an empty method for `⇑` so it doesn't throw a NameError, and a bit more fiddling with bindings, but it does basically work.
-I've wrapped it in a Uequals class (for "upward-equals", to match Kevin Kuchta's [Vequals class][vequals]), and it works like so:
+We need a couple more tweaks to get this working: we need to define an empty method for `⇑` so it doesn't throw a NameError, and further fiddling with bindings, but it does basically work.
+I've wrapped it in a Uequals class (like Kevin's [Vequals class][vequals]), and it works like so:
 
 ```ruby
 Uequals.enable
