@@ -12,6 +12,6 @@
       <use xlink:href="#rssWaves" fill="black"/>
     </mask>
   </defs>
-  <circle cx="1000" cy="1000" r="900" class="accent" />
+  <circle cx="1000" cy="1000" r="900" class="accent" fill="white"/>
   <circle cx="1000" cy="1000" r="1000" class="background" mask="url(#waves)"/>
 </svg>
