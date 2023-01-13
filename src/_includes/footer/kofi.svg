@@ -39,7 +39,7 @@
      <use xlink:href="#kofiHeart" fill="white" />
    </mask>
  </defs>
- <use xlink:href="#kofiCircle" id="kofi_circle" class="background"  fill="red"  mask="url(#kofiMask)" />
- <use xlink:href="#kofiCoffeeCup" class="accent" />
- <use xlink:href="#kofiHeart" class="background" id="kofi_heart"/>
+ <use xlink:href="#kofiCircle" id="kofi_circle" class="background" fill="black"  mask="url(#kofiMask)" />
+ <use xlink:href="#kofiCoffeeCup" class="accent" fill="white" />
+ <use xlink:href="#kofiHeart" class="background" id="kofi_heart" fill="black"/>
 </svg>
