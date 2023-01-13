@@ -6,6 +6,7 @@ AllCops:
     - '_site/**/*'
     - 'src/_files/2022/division1.rb'
     - 'src/_files/2022/division2.rb'
+    - 'src/_files/2023/uequals_operator.rb'
 
 Layout/HeredocIndentation:
   Enabled: false
