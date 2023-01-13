@@ -593,6 +593,7 @@ Here's my mental picture of what's going on:
   picture
   filename="scopes.png"
   visible_width="491px"
+  alt="A hand-drawn illustration of scopes. Each scope is a large grey circle; on the left-hand side is “main scope”; on the right is “function scope”. The variables are shown as red pills. The main scope has two variables: “colours” and “shapes”; the function scope has two variables: “shapes” and “new shape”. There’s a red arrow from the “shapes” variable in the function scope, pointing to the “shapes” variable in the main scope, to represent the reference between them."
 %}
 
 The main scope has two variables: `colours` and `shapes`.
@@ -827,6 +828,7 @@ It may not be useful code, but it is useful knowledge.
 {%
   picture
   filename="value.png"
+  alt="A hand-drawn pair of upward assignment operators; one assigning zero to utility, the other assigning 100 to knowledge."
   visible_width="405px"
 %}
 
