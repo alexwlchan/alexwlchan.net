@@ -330,7 +330,7 @@ arrow_finder = TracePoint.new(:line) { |tp|
   unless arrow_line.nil?
     arrows =
       find_identifiers_in_line(arrow_line)
-        .filter { |id| id[:token] == "⇑" }
+        .filter { |id| id[:token] == '⇑' }
 
     identifiers.each { |var|
       arrow_below =
@@ -436,9 +436,9 @@ value_finder = TracePoint.new(:line) { |tp|
     value_line = File.readlines(tp.path)[tp.lineno + 1]
     unless value_line.nil?
       values = find_values_in_line(value_line)
-  
+
       value_below =
-        values.find { |v| v[:range].cover? arrow_below[:range]}
+        values.find { |v| v[:range].cover? arrow_below[:range] }
 
       unless value_below.nil?
         puts "L#{tp.lineno} variable #{var[:token]} should be assigned to #{value_below}"
@@ -712,10 +712,10 @@ upwards_assignment = TracePoint.new(:line) { |tp|
 
   this_identifiers.each { |var|
     arrow_below = …
-    matching_value = …
+    value_below = …
 
     tp.binding.receiver.define_singleton_method(var[:token]) {
-      |*args| literalize(matching_value)
+      |*args| convert_to_value(value_below)
     }
   }
 
@@ -796,6 +796,8 @@ I think you could make this example work, but it requires more and more looking 
 Minor issues like this aside, I think I can claim to have done what I set out to do: create a working upward assignment operator.
 
 If you want to play with it yourself, I've uploaded a complete copy of the code in this post, including some comments and examples:
+
+{% download filename="uequals_operator.rb" %}
 
 [vequals]: https://github.com/kkuchta/vequals
 
