@@ -6,6 +6,8 @@ def get_icon(filename)
     'javascript'
   when '.py'
     'python'
+  when '.rb'
+    'ruby'
   when '.zip'
     'zip'
   else

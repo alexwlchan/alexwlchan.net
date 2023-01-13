@@ -22,7 +22,7 @@ It relies on two interesting commands:
         prints the executable name associated with a process ID (pid), which is
         used for the output
 
-See https://alexwlchan.net/2021/04/secure-input/
+See https://alexwlchan.net/2021/secure-input/
 
 """
 
