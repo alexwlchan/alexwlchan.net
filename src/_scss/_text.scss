@@ -39,23 +39,11 @@ pre, blockquote {
 blockquote {
   padding: 1px $default-padding;
 
-  &:not(.update) p:not(.text), li {
-    font-style: italic;
-  }
-
   p:first-child { margin-top:    2 * math.div($default-padding, 3); }
   p:last-child  { margin-bottom: 2 * math.div($default-padding, 3); }
 
   @media print {
     color: $body-color;
-  }
-
-  pre {
-    border-color: #aaa;
-  }
-
-  em {
-    font-style: normal;
   }
 }
 

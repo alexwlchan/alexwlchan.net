@@ -55,23 +55,23 @@ The script relies on two shell commands:
 
 Here's how you can test the script:
 
-> 1.  In a Terminal window, run
->
->     ```
->     python -c 'import getpass; getpass.getpass()'
->     ```
->
->     This will open a secure password prompt, and Terminal will enable Secure Input.
->
-> 2.  Switch to another Terminal window, and run
->
->     ```
->     sleep 5; find_processes_using_secure_input
->     ```
->
-> 3.  Switch back to the first window, where the password prompt is still waiting.
->
-> You should see "Terminal" in the list of processes that have Secure Input enabled (but only when the password prompt is the frontmost window).
+1.  In a Terminal window, run
+
+    ```
+    python -c 'import getpass; getpass.getpass()'
+    ```
+
+    This will open a secure password prompt, and Terminal will enable Secure Input.
+
+2.  Switch to another Terminal window, and run
+
+    ```
+    sleep 5; find_processes_using_secure_input
+    ```
+
+3.  Switch back to the first window, where the password prompt is still waiting.
+
+    You should see "Terminal" in the list of processes that have Secure Input enabled (but only when the password prompt is the frontmost window).
 
 My script doesn't stop the offending processes, and I don't want it to.
 I'll decide how to deal with them -- but only once I know which process is the problem.
