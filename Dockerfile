@@ -15,6 +15,9 @@ FROM ruby:3.1-slim
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"
 
+COPY ./scripts/install_imagemagick7.sh .
+RUN ./install_imagemagick7.sh
+
 COPY Gemfile .
 COPY Gemfile.lock .
 
