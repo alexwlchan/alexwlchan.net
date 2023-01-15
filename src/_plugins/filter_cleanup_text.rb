@@ -28,6 +28,7 @@ module Jekyll
       prefix_words = %w[
         Apollo
         HTTP
+        ImageMagick
         issue
         RFC
         Part
@@ -37,7 +38,7 @@ module Jekyll
       ]
 
       prefix_words.each do |w|
-        text = text.gsub("#{w} (\d+)", "#{w}&nbsp;\1")
+        text = text.gsub(/#{w} (\d+)/, "#{w}&nbsp;" + '\1')
       end
 
       # Add a non-breaking space after words which are preceded by
@@ -51,7 +52,7 @@ module Jekyll
       ]
 
       countable_words.each do |w|
-        text = text.gsub("(\d+) #{w}", "\1&nbsp;#{w}")
+        text = text.gsub(/(\d+) #{w}/, '\1' + "&nbsp;#{w}")
       end
 
       # Other phrases which needed non-breaking spaces or non-breaking
@@ -93,9 +94,11 @@ module Jekyll
       # Make sure that footnote markers are rendered as a text
       # arrow on iOS devices, not emoji.  For more info:
       # http://daringfireball.net/linked/2015/04/22/unicode-emoji
-      text
+      text = text
         .gsub('&#8617;', '&#8617;&#xFE0E;')
         .gsub('↩', '&#8617;&#xFE0E;')
+
+      text
     end
   end
 end
