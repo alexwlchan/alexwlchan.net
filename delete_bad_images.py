@@ -3,4 +3,4 @@
 import os
 
 for line in open('paths.txt'):
-    os.unlink(line)
+    os.unlink(line.strip())
