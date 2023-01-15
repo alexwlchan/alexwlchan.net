@@ -94,11 +94,9 @@ module Jekyll
       # Make sure that footnote markers are rendered as a text
       # arrow on iOS devices, not emoji.  For more info:
       # http://daringfireball.net/linked/2015/04/22/unicode-emoji
-      text = text
+      text
         .gsub('&#8617;', '&#8617;&#xFE0E;')
         .gsub('↩', '&#8617;&#xFE0E;')
-
-      text
     end
   end
 end
