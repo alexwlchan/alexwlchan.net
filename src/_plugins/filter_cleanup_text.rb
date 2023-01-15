@@ -28,6 +28,7 @@ module Jekyll
       prefix_words = %w[
         Apollo
         HTTP
+        ImageMagick
         issue
         RFC
         Part
@@ -37,7 +38,7 @@ module Jekyll
       ]
 
       prefix_words.each do |w|
-        text = text.gsub("#{w} (\d+)", "#{w}&nbsp;\1")
+        text = text.gsub(/#{w} (\d+)/, "#{w}&nbsp;" + '\1')
       end
 
       # Add a non-breaking space after words which are preceded by
@@ -51,7 +52,7 @@ module Jekyll
       ]
 
       countable_words.each do |w|
-        text = text.gsub("(\d+) #{w}", "\1&nbsp;#{w}")
+        text = text.gsub(/(\d+) #{w}/, '\1' + "&nbsp;#{w}")
       end
 
       # Other phrases which needed non-breaking spaces or non-breaking

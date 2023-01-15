@@ -9,7 +9,15 @@
 pre {
   .hll { background-color: #ffffcc }
   .c { color: #408080; font-style: italic } /* Comment */
-  .err { border: 1px solid #FF0000 } /* Error */
+
+  // This style is deliberately disabled because sometimes it's either:
+  //
+  //    1. Wrong, or
+  //    2. I'm deliberately writing code which is "broken" in some way
+  //       to make a point, in which case the highlight is unhelpful.
+  //
+  //  .err { border: 1px solid #FF0000 } /* Error */
+
   .k { color: #008000; font-weight: bold } /* Keyword */
   .o { color: #666666 } /* Operator */
   .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
