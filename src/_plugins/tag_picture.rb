@@ -149,9 +149,9 @@ def transparent_pixels?(path)
   output = `identify -format '%[opaque]' #{Shellwords.escape(path)}`.downcase
 
   case output
-  when 'true' # true, the image is all opaque pixels => no transparent
+  when 'true' # the image is all opaque pixels => no transparent
     false
-  when 'false' # false, the image is not all opaque pixels => some transparent
+  when 'false' # the image is not all opaque pixels => some transparent
     true
   else
     raise "Unexpected output from identify: #{output.inspect}"
@@ -215,7 +215,8 @@ module Jekyll
       #
       # See https://web.dev/optimize-cls/
       @attrs['width'] = @visible_width
-      @attrs['style'] = "aspect-ratio: #{image.width} / #{image.height}; #{@attrs['style'] || ''}"
+      gcd = image.width.gcd(image.height)
+      @attrs['style'] = "aspect-ratio: #{image.width / gcd} / #{image.height / gcd}; #{@attrs['style'] || ''}"
 
       sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width)
 
