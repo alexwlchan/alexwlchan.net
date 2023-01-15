@@ -127,6 +127,13 @@ Jekyll::Hooks.register :site, :post_render do
           out_file = Shellwords.escape(this_job['out_path'])
 
           Shell.execute("convert #{in_file} -resize #{resize} #{out_file}")
+
+          # This is to detect an issue I had with ImageMagick and AVIF images;
+          # I had ImageMagick 6.9.11 installed, which was incorrectly
+          # changing the background of transparent PNGs to black.
+          if transparent_pixels?(this_job['source_path']) && !transparent_pixels?(this_job['out_path'])
+            raise "Source image #{this_job['source_path']} has transparency, but output image #{this_job['out_path']} doesn’t!"
+          end
         end
 
       rescue ThreadError
@@ -134,6 +141,20 @@ Jekyll::Hooks.register :site, :post_render do
     end
 
     workers.map(&:join)
+  end
+end
+
+# Returns true if an image has transparent pixels, false otherwise
+def transparent_pixels?(path)
+  output = `identify -format '%[opaque]' #{Shellwords.escape(path)}`.downcase
+
+  case output
+  when 'true' # true, the image is all opaque pixels => no transparent
+    false
+  when 'false' # false, the image is not all opaque pixels => some transparent
+    true
+  else
+    raise "Unexpected output from identify: #{output.inspect}"
   end
 end
 
