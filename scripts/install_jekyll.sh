@@ -25,7 +25,12 @@ apt-get install --yes exiftool
 # Required to create differently sized images for WebP/AVIF
 # Theoretically I could use `rszr` like in the Twitter plugin, but it
 # doesn't support AVIF.
-apt-get install --yes imagemagick
+#
+# Note: temporarily disabled until Debian has ImageMagick 7 available
+# from `apt-get`.  I'm building my own version from source so that
+# transparency works with AVIF.
+#
+# apt-get install --yes imagemagick
 
 # Required by the http-proofer gem, which is used by the linter plugin.
 # Without it, I get an error:
