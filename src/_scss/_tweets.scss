@@ -16,17 +16,16 @@
   // Eyeballed against a real tweet embed
   @include centred(496px);
 
-  a, a:visited, a:active {
+  a, a:visited, a:active, .author a:hover {
     text-decoration: none;
   }
 
-  a:focus {
+  a:focus, a:hover {
     text-decoration: underline;
   }
 
   a:hover {
     background: none;
-    text-decoration: underline;
   }
 
   .screen_name, .metadata {
@@ -119,6 +118,9 @@
     text-overflow: ellipsis!important;
     white-space: nowrap!important;
     word-wrap: normal!important;
+    .name:hover {
+      text-decoration: underline;
+    }
     .link {
       line-height: 1.2;
     }
@@ -168,12 +170,6 @@
     }
   }
 
-  .link_blend:not(:focus):not(:hover):not(:active) {
-    font-weight: inherit;
-    color: inherit;
-    text-decoration: inherit;
-  }
-
   .twemoji {
     width:  1.2em;
     height: 1.2em;
@@ -213,8 +209,11 @@ blockquote .tweet {
 
   $border-color: #e1e8ed;
 
-  &, .quoted_tweet {
+  &, .quoted_tweet, .name {
     color: #1c2022;
+  }
+
+  &, .quoted_tweet {
     border-color: $border-color;
   }
 
@@ -240,6 +239,10 @@ blockquote .tweet {
   @media (prefers-color-scheme: dark) {
     background-color: #15202b;
 
+    &, .quoted_tweet, .name {
+      color: #e7e9ea;  // v light white
+    }
+
     $border-color: #425364;
 
     .twitter_birb .icon {
@@ -251,7 +254,6 @@ blockquote .tweet {
     };
 
     &, .quoted_tweet {
-      color: #e7e9ea;  // v light white
       border-color: $border-color;
     }
 
