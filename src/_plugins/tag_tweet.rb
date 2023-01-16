@@ -191,20 +191,8 @@ module Jekyll
 
       tweet_data['extended_entities'] = tweet_data['entities'] unless tweet_data.key? 'extended_entities'
 
-      # Create a UTF-8 encoded Twitter icon suitable to include as a data URI.
-      # This is a bit of a hacky approach to encoding the image that lets
-      # me define it as a standalone SVG file, rather than including it
-      # as an already-encoded URI.
-      twitter_icon_svg =
-        CGI.escape(
-          File.read("#{@src}/_tweets/twitter_icon.svg")
-            .gsub(/\s+</, '<')
-            .strip
-        ).gsub('+', '%20')
-
       input = tpl.render!(
         'tweet_data' => tweet_data,
-        'twitter_icon_svg' => twitter_icon_svg
       )
 
       # We have to run it through the site's Markdown converter after
