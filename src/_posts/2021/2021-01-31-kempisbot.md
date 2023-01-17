@@ -11,7 +11,12 @@ index:
 
 A couple of weeks ago, I got a message from my friend Jay, asking if I'd help him build a Twitter bot to tweet [*The Imitation of Christ*](https://en.wikipedia.org/wiki/The_Imitation_of_Christ) as a long Twitter thread:
 
-<img src="/images/2021/messages_from_jay.png" style="width: 418px;" alt="Screenshot of some Twitter DMs from Jay that read: ‘Alex.... I came up with a stupid idea and even created the account, but I literally have no idea what to do now...? I googled stuff and all the tech words are unintelligble because I do not speak that language’. Do you want to join in this idiotic scheme? I can sort out the text if you can sort out the tech.">
+{%
+  picture
+  filename="messages_from_jay.png"
+  visible_width="418px"
+  alt="Screenshot of some Twitter DMs from Jay that read: ‘Alex.... I came up with a stupid idea and even created the account, but I literally have no idea what to do now...? I googled stuff and all the tech words are unintelligble because I do not speak that language’. Do you want to join in this idiotic scheme? I can sort out the text if you can sort out the tech."
+%}
 
 At this point, I'd never heard of *The Imitation of Christ*, or its author Thomas à Kempis, nor did I have any idea of its theological significance.
 I'm not religious, but I am ridiculous -- and ridiculous ideas are often the most fun -- so I agreed to help.
