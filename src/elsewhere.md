@@ -101,7 +101,6 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
           {% endfor %}
         </ul>
         {% endif %}
-        <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>{% if entry.publication %}<br/>{{ entry.publication }}{% endif %}
       </td>
     </tr>
   {% endfor %}
