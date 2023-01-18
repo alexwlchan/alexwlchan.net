@@ -9,6 +9,7 @@
 @import "base/nav.scss";
 @import "base/footer.scss";
 @import "base/code.scss";
+@import "base/latex.scss";
 
 // This is for the "Skip to main content" link at the top of the page
 //
@@ -28,4 +29,10 @@ a.skip-main {
 
 .slide {
   @include centred($max-width * 0.6);
+}
+
+.update {
+  border-left: ($sidebar-border-width * 2) solid $primary-color;
+  padding-top:    1px;
+  padding-bottom: 1px;
 }
