@@ -6,9 +6,6 @@
 @import "_functions.scss";
 @import "mixins.scss";
 
-// Minor/optional page components
-@import "_pygments.scss";
-
 body {
   /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
      then contrast dropped */
@@ -77,6 +74,7 @@ pre, blockquote {
    * stand out from the textured background.
    */
   background: #fafafa;
+  border-color: $primary-color-light;
 }
 
 nav {
@@ -104,6 +102,10 @@ figcaption,
       background: rgba($accent-grey-light, 0.2) !important;
     }
   }
+}
+
+svg[role="separator"] rect {
+  fill: $midtone-grey-light;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -151,11 +153,12 @@ figcaption,
 
   pre, blockquote {
     border-color: rgba($primary-color-dark, 0.3);
-    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 95%, 0.4);
+    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
   }
 
   .post_cards .card {
     background: #0d0d0d;
+    border-color: $primary-color-dark;
   }
 
   nav {
@@ -185,6 +188,10 @@ figcaption,
     }
   }
 
+  svg[role="separator"] rect {
+    fill: $midtone-grey-dark;
+  }
+
   // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
   img:not([src*='.svg']) {
     filter: grayscale(10%);
@@ -207,10 +214,6 @@ figcaption,
 
 img.screenshot {
   border-color: $light-grey;
-}
-
-svg[role="separator"] rect {
-  fill: $midtone-gray;
 }
 
 .archive {
@@ -236,23 +239,6 @@ svg[role="separator"] rect {
     }
   }
 }
-
-
-
-.post_cards .card {
-  border-color: $primary-color-light;
-}
-
-
-code {
-  .rustc_error   { color: #d01c11; font-weight: bold; }
-  .rustc_warning { color: #11d01c; }
-  .rustc_value   { color: #d0a311; }
-  .rustc_lineno  { color: #6871ff; }
-}
-
-
-
 
 @media print {
   nav {
