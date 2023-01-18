@@ -7,12 +7,8 @@ module Jekyll
         return html
       end
 
-      # puts html
-
       doc = Nokogiri::HTML.fragment(html)
-
       doc.xpath('style|.//style').remove
-
       doc.to_s
     end
 

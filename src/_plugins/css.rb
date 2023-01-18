@@ -85,8 +85,6 @@ module Jekyll
       # These are shared among all pages with the same colour, to reduce
       # the number of individual files and improve caching.
       else
-        out_path = "/styles/style.#{primary_color_light.gsub('#', '')}.css"
-
         # We only need to create and write the CSS file for this colour
         # if one hasn't already
         unless @css_cache.key? primary_color_light
