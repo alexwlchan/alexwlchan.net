@@ -34,7 +34,7 @@ This seems like something I might use again, and it helped me understand both fe
 [clipping and masking]: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Clipping_and_masking
 
 
-{% separator "paintbrush.svg" %}
+---
 
 
 ## What are inner and outer strokes?
@@ -65,7 +65,7 @@ If you're interested, I found a [Stack Overflow thread] that links to several of
 [Stack Overflow thread]: https://stackoverflow.com/q/7241393/1558022
 
 
-{% separator "paintbrush.svg" %}
+---
 
 
 ## Why do I want inner and outer strokes?
@@ -102,7 +102,7 @@ For more complex shapes, it gets even harder (sometimes impossible) to combine d
 [OmniGraffle]: https://www.omnigroup.com/omnigraffle
 
 
-{% separator "paintbrush.svg" %}
+---
 
 
 ## Drawing an inner stroke with clipping
@@ -177,7 +177,7 @@ The path can be arbitrarily complicated, but you'll always get the same inner st
 [an illustration of the Earth]: https://wellcomecollection.org/works/uhemygps
 
 
-{% separator "paintbrush.svg" %}
+---
 
 
 ## Drawing an outer stroke with clipping
@@ -208,7 +208,7 @@ Is there another way to achieve this effect?
 [clip-rule attribute]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule
 
 
-{% separator "paintbrush.svg" %}
+---
 
 
 ## Drawing an outer stroke with masks
@@ -298,7 +298,7 @@ And here's some more SVG:
 As with the inner stroke, you can adapt this to any shape by changing the path.
 
 
-{% separator "paintbrush.svg" %}
+---
 
 
 ## Putting it all together

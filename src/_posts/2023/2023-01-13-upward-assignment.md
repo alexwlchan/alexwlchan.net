@@ -8,6 +8,27 @@ theme:
   color: "#c62229"
 ---
 
+<style>
+  svg[role="separator"] {
+    display: block;
+    margin-left:  auto;
+    margin-right: auto;
+  }
+
+  svg[role="separator"] {
+    margin-top:    3.5em;
+    margin-bottom: 3.5em;
+  }
+
+  svg[role="separator"] + h2 {
+    margin-top: 0;
+  }
+
+  svg[role="separator"] rect {
+    fill: #ccc;
+  }
+</style>
+
 Ruby has had leftward assignment (`x = 4`) since its [first public release][first], and a few years ago it added [rightward assignment][ruby3] (`4 => x`).
 Then at RubyConf 2021, Kevin Kuchta explained [how to abuse Ruby features][kevin] to build a downward assignment operator (yes, this really works):
 
@@ -38,11 +59,7 @@ This is a long one.
 
 
 
-
-
-{% text_separator "⇑" %}
-
-
+---
 
 
 
@@ -101,7 +118,7 @@ Let's dive in.
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -190,7 +207,7 @@ Now we have access to the currently-running source code, we need to inspect it f
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -310,7 +327,7 @@ Now we need to work out which identifiers are interesting.
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -380,7 +397,7 @@ There are lots of other edge cases we might want to think about here if we were 
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -466,7 +483,7 @@ Simple, right?
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -554,7 +571,7 @@ We need to find a way to escape the binding.
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -623,7 +640,7 @@ We can create new variables in bindings, but they aren't accessible outside the 
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -679,7 +696,7 @@ Methods and variables aren't quite the same, and they have slightly different be
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -731,7 +748,7 @@ Now when we use our uequals operator, it will create the variable we want.
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 
@@ -807,7 +824,7 @@ If you want to play with it yourself, I've uploaded a complete copy of the code 
 
 
 
-{% text_separator "⇑" %}
+---
 
 
 

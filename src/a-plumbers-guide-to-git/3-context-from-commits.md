@@ -15,7 +15,7 @@ We want to add context to our trees -- enter *commits*.
 [part 1]: /a-plumbers-guide-to-git/1-the-git-object-store/
 [part 2]: /a-plumbers-guide-to-git/2-blobs-and-trees/
 
-{% text_separator "○ →○ →○" %}
+---
 
 ## Giving context to a single tree
 
@@ -138,7 +138,7 @@ Let's try some exercises.
 
 [git-log]: https://www.git-scm.com/docs/git-log
 
-{% text_separator "○ →○ →○" %}
+---
 
 ## Exercises
 
@@ -201,7 +201,7 @@ Create several commits that form a linear history -- each has the previous commi
   </div>
 </div>
 
-{% text_separator "○ →○ →○" %}
+---
 
 ## Notes
 

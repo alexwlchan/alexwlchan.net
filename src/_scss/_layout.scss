@@ -57,10 +57,17 @@ article, main {
   }
 }
 
-hr {
-  background-color: $light-grey;
-  height: 1px;
-  border: 0px;
+svg[role="separator"] {
+  display: block;
+  margin: 3.5em auto;
+
+  & + h2 {
+    margin-top: 0;
+  }
+}
+
+svg[role="separator"] rect {
+  fill: $midtone-gray;
 }
 
 // Images never expand beyond the article bounds, and are centred when
