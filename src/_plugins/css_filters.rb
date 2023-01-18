@@ -3,7 +3,7 @@ require 'nokogiri'
 module Jekyll
   module ExtractStyleTagFilter
     def remove_inline_styles(html)
-      if !html.include? '<style'
+      unless html.include? '<style'
         return html
       end
 
@@ -17,13 +17,13 @@ module Jekyll
     end
 
     def get_inline_styles(html)
-      if !html.include? '<style'
+      unless html.include? '<style'
         return ''
       end
 
       doc = Nokogiri::HTML.fragment(html)
 
-      inline_styles = Hash.new {[]}
+      inline_styles = Hash.new { [] }
 
       doc.xpath('style|.//style').each do |style|
         style_type = style.get_attribute('type')
@@ -37,8 +37,8 @@ module Jekyll
             @import "variables.scss";
 
             #{style.text}
-            SCSS
-          )
+          SCSS
+                                 )
 
           inline_styles[media] <<= css
         else
@@ -50,13 +50,13 @@ module Jekyll
         return ''
       end
 
-      lines = inline_styles.map { |media, css|
+      lines = inline_styles.map do |media, css|
         if media.nil?
           css
         else
           "@media #{media} { #{css.join("\n")} }"
         end
-      }
+      end
 
       <<~HTML
       <style>
