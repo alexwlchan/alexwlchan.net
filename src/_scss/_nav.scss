@@ -3,7 +3,7 @@ nav {
   background-size: auto 100%;
   @media print {
     background: none;
-    border-bottom: 2px solid $primary-color;
+    border-bottom:2px solid $primary-color;
   }
 
   #nav_inner {
@@ -19,21 +19,6 @@ nav {
       @media print {
         color: $primary-color;
       }
-    }
-
-    h1 {
-      margin-bottom: -5px;
-      font-weight: normal;
-      font-size: 1.7em;
-      a {
-        text-decoration: none;
-      }
-    }
-
-    ul {
-      padding-top:    0px;
-      padding-bottom: 0px;
-      margin-bottom:  10px;
     }
   }
 }

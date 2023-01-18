@@ -1,6 +1,4 @@
 footer {
-  padding-top:    15px;
-  padding-bottom: 15px;
   background: $primary-color;
 
   @media print {
@@ -9,59 +7,10 @@ footer {
 }
 
 #footer_inner {
-  font-size:   $meta-font-size;
-  line-height: $meta-line-height;
-
   color: white;
 
   a, a:visited {
     @include link_styles(white, 0.5);
-  }
-
-  p:not(:last-child) {
-    margin-bottom: $meta-size * 1em;
-  }
-
-  p:not(:first-child) {
-    margin-top: $meta-size * 1em;
-  }
-
-  display: grid;
-
-  @media screen and (min-width: 600px) {
-    grid-template-columns: auto auto;
-
-    #footer_social {
-      padding-top: $default-padding;
-      text-align: right;
-      margin-left: 1em;
-    }
-
-    .footer_link:not(:last-child) {
-      margin-right: 5px;
-    }
-
-    .footer_link, .footer_link svg {
-      width:  30px;
-      height: 30px;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    grid-template-columns: auto;
-
-    #footer_social {
-      text-align: left;
-
-      .footer_link:not(:first-child) {
-        margin-left:  5px;
-      }
-    }
-
-    .footer_link, .footer_link svg {
-      width:  40px;
-      height: 40px;
-    }
   }
 
   #footer_social {

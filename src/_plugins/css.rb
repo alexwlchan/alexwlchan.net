@@ -23,6 +23,10 @@ def convert_css(site, css_string)
   converter.convert(css_string)
 end
 
+Jekyll::Hooks.register :site, :pre_render do
+  FileUtils.rm_f('_site/styles/style.css')
+end
+
 module Jekyll
   class CssStylesheet < Liquid::Tag
     def initialize(tag_name, text, tokens)
@@ -35,6 +39,17 @@ module Jekyll
       site = context.registers[:site]
       src = site.config['source']
       dst = site.config['destination']
+
+      # Create the base style sheet
+      if !File.exist? "#{dst}/styles/style.css"
+        base_css = convert_css(site, File.read("#{src}/_scss/style.scss"))
+
+        @base_css_md5 = Digest::MD5.new.hexdigest base_css
+
+        out_path = "/styles/style.css"
+        FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
+        File.write("#{dst}#{out_path}", base_css)
+      end
 
       color = if context.registers[:page].nil?
                 '#d01c11'
@@ -98,6 +113,7 @@ module Jekyll
       end
 
       <<~HTML
+        <link rel="stylesheet" href="/styles/style.css?md5=#{@base_css_md5}">
         <link rel="stylesheet" href="#{out_path}?md5=#{md5}">
       HTML
     end

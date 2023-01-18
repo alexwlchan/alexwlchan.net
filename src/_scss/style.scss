@@ -1,0 +1,25 @@
+@use "sass:math";
+
+@import "variables.scss";
+
+@import "base/layout.scss";
+@import "base/text.scss";
+
+@import "base/nav.scss";
+@import "base/footer.scss";
+
+// This is for the "Skip to main content" link at the top of the page
+//
+// See https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
+a.skip-main {
+  position: absolute;
+  left:     -999px;
+  top:      auto;
+
+  width:  1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  z-index: -999;
+}

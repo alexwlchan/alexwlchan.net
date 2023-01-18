@@ -1,0 +1,22 @@
+@import "_settings.scss";
+
+h2, h3 {
+  &:hover {
+    & > a.anchor {
+      display: inline-block;
+    }
+  }
+}
+
+a.anchor {
+  &::after {
+    content: "¶";
+  }
+
+  display: none;
+  text-decoration: none;
+
+  &, &:visited {
+    color: $accent-grey;
+  }
+}
