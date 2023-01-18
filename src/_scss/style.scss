@@ -30,9 +30,3 @@ a.skip-main {
 .slide {
   @include centred($max-width * 0.6);
 }
-
-.update {
-  border-left: ($sidebar-border-width * 2) solid $primary-color;
-  padding-top:    1px;
-  padding-bottom: 1px;
-}
