@@ -13,7 +13,7 @@
   border-radius: 4px;
 
   // Eyeballed against a real tweet embed
-  max-width: 496px;
+  @include centred(496px);
 
   a,
   a:visited,
@@ -224,18 +224,12 @@
     max-width: calc(100% + 40px);
     border-bottom: 1px solid #e1e8ed;
   }
+
+  // This overrides the coloured background applied to tweets elsewhere
+  // on the site.
+  background: none;
 }
 
 blockquote .tweet {
   margin-bottom: 1em;
-}
-
-// End copied content
-
-.tweet {
-  blockquote {
-    background: none;
-  }
-  margin-left:  auto;
-  margin-right: auto;
 }
