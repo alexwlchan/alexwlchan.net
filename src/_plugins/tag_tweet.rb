@@ -192,7 +192,7 @@ module Jekyll
       tweet_data['extended_entities'] = tweet_data['entities'] unless tweet_data.key? 'extended_entities'
 
       input = tpl.render!(
-        'tweet_data' => tweet_data,
+        'tweet_data' => tweet_data
       )
 
       # We have to run it through the site's Markdown converter after

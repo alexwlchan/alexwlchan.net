@@ -15,7 +15,7 @@ module Jekyll
         </svg>
       HTML
 
-      input.gsub(/<hr\s*\/>/, separator)
+      input.gsub(%r{<hr\s*/>}, separator)
     end
   end
 end
