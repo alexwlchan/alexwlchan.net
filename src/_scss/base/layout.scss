@@ -1,6 +1,10 @@
 body {
   margin:  0;
   padding: 0;
+
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+     then contrast dropped */
+  background-image: url('/theme/white-waves-transparent.png');
 }
 
 main, #footer_inner, #nav_inner, #editing-toolbar_inner {
@@ -68,8 +72,61 @@ svg[role="separator"] {
   display: block;
   margin: 3.5em auto;
 
+
   & + h2 {
     margin-top: 0;
+  }
+
+  rect {
+    fill: $midtone-grey-light;
+  }
+}
+
+img.screenshot {
+  border-color: #f0f0f0;
+}
+
+.post_cards .card {
+  /* This gives cards a v subtle solid background colour, to make them
+   * stand out from the textured background.
+   */
+  background: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+       then contrast dropped and colours flipped. */
+    background-image: url('/theme/black-waves-transparent.png');
+  }
+
+  svg[role="separator"] rect {
+    fill: $body-color-dark;
+  }
+
+  img.screenshot {
+    border-color: #3f3f3f;
+  }
+
+  .post_cards .card {
+    background: #0d0d0d;
+  }
+
+  // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
+  img:not([src*='.svg']) {
+    filter: grayscale(10%);
+  }
+
+  // Add a white background behind images, so any dark elements become
+  // visible.  Eventually I'd like to support uploading multiple variants
+  // and make this conditional, but not in V1.
+  img, svg[role="img"] {
+    background: white;
+  }
+
+  // fix for the separator on the homepage
+  .separator svg[role="img"] {
+    background: none;
   }
 }
 

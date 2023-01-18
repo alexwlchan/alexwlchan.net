@@ -48,3 +48,21 @@ a.download {
 .slide {
   @include centred($max-width * 0.6);
 }
+
+@media print {
+  footer {
+    display: none;
+  }
+
+  .post_cards .card .card_posting_date p {
+    color: $body-color-light;
+  }
+
+  .meta, figcaption {
+    color: $body-color-light;
+
+    a {
+      color: $body-color-light;
+    }
+  }
+}
