@@ -6,18 +6,29 @@
 @import "_functions.scss";
 @import "mixins.scss";
 
-// Major page components
-@import "_footer.scss";
-
 // Minor/optional page components
-@import "_code.scss";
 @import "_pygments.scss";
 
-// Links should be coloured red, but a darker red if they've been visited.
+body {
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+     then contrast dropped */
+  background-image: url('/theme/white-waves-transparent.png');
+}
+
+h1, h2,
+.post_cards .card a .card_title,
+.title a:visited,
+.post__permalink a,
+.post__permalink a:visited {
+  color: $primary-color-light;
+}
+
+// Links should be coloured red, but darker if they've been visited (or
+// lighter in dark mode).
 //
 // However, I can override this in certain scenarios with the `novisited` class.
 //
-//      <a href="/example">ne wlink</a>
+//      <a href="/example">new link</a>
 //        ~> will be coloured default red
 //
 //      <a href="/example">link I’ve visited</a>
@@ -27,27 +38,38 @@
 //        ~> will be coloured default red
 //
 a {
-  @include link_styles($primary-color, 0.2);
+  @include link_styles($primary-color-light, 0.2);
 
   &:visited:not(.novisited) {
-    @include link_styles($primary-dark, 0.2);
+    @include link_styles(darken($primary-color-light, 15%), 0.2);
   }
 
   .title &:visited {
-    @include link_styles($primary-color, 0.2);
+    @include link_styles(darken($primary-color-light, 15%), 0.2);
   }
 }
 
+a.download {
+  border-color: $primary-color-light;
 
+  // We need to override the background styles
+  color: $primary-color-light !important;
+  background: rgba(white, 0.4) !important;
 
-body {
-  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
-     then contrast dropped */
-  background-image: url('/theme/white-waves-transparent.png');
+  // Although this is supplied by the link style, we need to set it again
+  // here because the `background` rule above overrides the `a:hover` rule.
+  &:hover {
+    background: rgba($primary-color-light, 0.2) !important;
+  }
 }
 
 body, .post_cards .card a {
   color: $body-color-light;
+}
+
+pre, blockquote {
+  border-color: rgba($primary-color-light, 0.1);
+  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
 }
 
 .post_cards .card {
@@ -57,25 +79,122 @@ body, .post_cards .card a {
   background: #fafafa;
 }
 
+nav {
+  background: url('/headers/specktre_#{colorToHexString($primary-color-light)}.png') $primary-color-light;
+  background-size: auto 100%;
+}
+
+footer {
+  background: $primary-color-light;
+}
+
+.post_cards .card .card_posting_date p,
+.meta,
+figcaption,
+.title.linkpost_title::after {
+  color: $accent-grey-light;
+}
+
+.meta, figcaption {
+  color: $accent-grey-light;
+
+  a, a:visited {
+    color: $accent-grey-light !important;
+    &:hover {
+      background: rgba($accent-grey-light, 0.2) !important;
+    }
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-image: url('/theme/black-waves-transparent.png');
+  }
+
+  h1, h2,
+  .post_cards .card a .card_title,
+  .title a:visited,
+  .post__permalink a,
+  .post__permalink a:visited {
+    color: $primary-color-dark;
+  }
+
+  a {
+    @include link_styles($primary-color-dark, 0.2);
+
+    &:visited:not(.novisited) {
+      @include link_styles(lighten($primary-color-dark, 15%), 0.2);
+    }
+
+    .title &:visited {
+      @include link_styles(lighten($primary-color-dark, 15%), 0.2);
+    }
+  }
+
+  a.download {
+    border-color: $primary-color-dark;
+
+    // We need to override the background styles
+    color: $primary-color-dark !important;
+    background: rgba(black, 0.6) !important;
+
+    // Although this is supplied by the link style, we need to set it again
+    // here because the `background` rule above overrides the `a:hover` rule.
+    &:hover {
+      background: rgba($primary-color-dark, 0.4) !important;
+    }
   }
 
   body, .post_cards .card a {
     color: $body-color-dark;
   }
 
+  pre, blockquote {
+    border-color: rgba($primary-color-dark, 0.3);
+    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 95%, 0.4);
+  }
+
   .post_cards .card {
-    /* This gives cards a v subtle solid background colour, to make them
-     * stand out from the textured background.
-     */
     background: #0d0d0d;
+  }
+
+  nav {
+    background: url('/headers/specktre_#{colorToHexString($primary-color-dark)}.png') $primary-color-dark;
+    background-size: auto 100%;
+  }
+
+  footer {
+    background: $primary-color-dark;
+  }
+
+  .post_cards .card .card_posting_date p,
+  .meta,
+  figcaption,
+  .title.linkpost_title::after {
+    color: $accent-grey-dark;
+  }
+
+  .meta, figcaption {
+    color: $accent-grey-dark;
+
+    a, a:visited {
+      color: $accent-grey-dark !important;
+      &:hover {
+        background: rgba($accent-grey-dark, 0.2) !important;
+      }
+    }
   }
 
   // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
   img:not([src*='.svg']) {
-    filter: grayscale(20%);
+    filter: grayscale(10%);
+  }
+
+  // Add a white background behind images, so any dark elements become
+  // visible.  Eventually I'd like to support uploading multiple variants
+  // and make this conditional, but not in V1.
+  img {
+    background: $body-color-dark;
   }
 }
 
@@ -84,14 +203,6 @@ body, .post_cards .card a {
 
 
 
-
-h1, h2,
-.post_cards .card a .card_title,
-.title a:visited,
-.post__permalink a,
-.post__permalink a:visited {
-  color: $primary-color;
-}
 
 
 img.screenshot {
@@ -108,7 +219,7 @@ svg[role="separator"] rect {
   .archive__date {
     width: 68px;
     font-size: 0.85em;
-    color: $accent-grey;
+    color: $accent-grey-light;
     text-align: right;
     vertical-align: top;
   }
@@ -129,88 +240,45 @@ svg[role="separator"] rect {
 
 
 .post_cards .card {
-  border-color: $primary-color;
+  border-color: $primary-color-light;
+}
+
+
+code {
+  .rustc_error   { color: #d01c11; font-weight: bold; }
+  .rustc_warning { color: #11d01c; }
+  .rustc_value   { color: #d0a311; }
+  .rustc_lineno  { color: #6871ff; }
+}
 
 
 
 
-  .card_posting_date p {
-    color: $accent-grey;
+@media print {
+  nav {
+    background: none;
+    border-bottom: $border-width solid $primary-color-light;
   }
-}
 
-pre, blockquote {
-  border-color: rgba($primary-color, 0.1);
-  background-color: hsla(hue($primary-color), saturation($primary-color), 95%, 0.4);
-}
-
-.title {
-  &.linkpost_title {
-    &::after {
-      color: $accent-grey;
-    }
+  #nav_inner {
+    color: $primary-color-light;
   }
-}
 
+  footer {
+    display: none;
+  }
 
-.meta, figcaption {
-  color: $accent-grey;
+  .post_cards .card .card_posting_date p,
+  .meta,
+  figcaption {
+    color: $body-color-light;
+  }
 
-  /* We need !important so these styles don't get replaced by page theming */
-  a, a:visited {
-    color: $accent-grey !important;
-    &:hover {
-      background: rgba($accent-grey, 0.2) !important;
-    }
+  .meta, figcaption {
+    color: $body-color-light;
 
-    /* At least on my printer, $accent-grey is too light to be readable */
-    @media print {
+    a {
       color: $body-color-light;
     }
   }
 }
-
-
-a.download {
-  border-color: $primary-color;
-
-  // We need to override the background styles
-  color: $primary-color !important;
-  background: rgba(white, 0.4) !important;
-
-  // Although this is supplied by the link style, we need to set it again
-  // here because the `background` rule above overrides the `a:hover` rule.
-  &:hover {
-    background: rgba($primary-color, 0.2) !important;
-  }
-}
-
-
-
-
-nav {
-  background: url('/headers/specktre_#{colorToHexString($primary-color)}.png') $primary-color;
-  background-size: auto 100%;
-
-  @media print {
-    background: none;
-    border-bottom: 2px solid $primary-color;
-  }
-
-  #nav_inner {
-    color: white;
-
-    @media print {
-      color: $primary-color;
-    }
-
-    a, a:visited {
-      @include link_styles(white, 0.5);
-
-      @media print {
-        color: $primary-color;
-      }
-    }
-  }
-}
-

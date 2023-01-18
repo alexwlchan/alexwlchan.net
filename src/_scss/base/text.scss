@@ -82,3 +82,43 @@ sup {
   border: 0 !important;
 }
 
+#footer_social {
+  .footer_link:hover {
+    background: none;
+  }
+
+  .footer_link .background   { fill: white; }
+  .footer_link .accent       { fill: none;  }
+  .footer_link:hover .accent { fill: white; }
+
+  #footer_link--email:hover    .background { fill: #0067B9; }
+  #footer_link--rss:hover      .background { fill: #F99000; }
+  #footer_link--twitter:hover  .background { fill: #1DA1F2; }
+  #footer_link--linkedin:hover .background { fill: #007EBB; }
+  #footer_link--github:hover   .background { fill: #24292f; }
+
+  #footer_link--kofi:hover #kofi_heart     { fill: #f14255; };
+  #footer_link--kofi:hover #kofi_circle    { fill: #50aee4; };
+}
+
+#footer_inner, #nav_inner {
+  color: white;
+
+  a, a:visited {
+    @include link_styles(white, 0.5);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #footer_inner, #nav_inner {
+    color: black;
+
+    a, a:visited {
+      @include link_styles(black, 0.2);
+    }
+  }
+
+  #footer_social {
+    .footer_link .background   { fill: black; }
+  }
+}

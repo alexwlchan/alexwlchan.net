@@ -1,10 +1,13 @@
-$primary-color: #d01c11 !default;
-$primary-dark:  darken($primary-color, 15%);
+$primary-color-light: #d01c11 !default;
+$primary-color-dark:  #d01c11 !default;
+$primary-dark:  darken($primary-color-light, 15%);
 
 $main-font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
 $mono-font:        Menlo, Consolas, monospace;
 
-$accent-grey:  #999;
+$accent-grey-light: #999;
+$accent-grey-dark:  #666;
+
 $light-grey:   #f0f0f0;
 $midtone-gray: #ccc;
 
