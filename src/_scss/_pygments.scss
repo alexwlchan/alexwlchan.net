@@ -31,13 +31,16 @@ pre {
     color: #408080; font-style: italic;
   }
 
+  /* Generic.{Heading, Prompt} */
+  .gh, .gp {
+    color: #000080; font-weight: bold
+  }
+
   .gd { color: #A00000 } /* Generic.Deleted */
   .ge { font-style: italic } /* Generic.Emph */
   .gr { color: #FF0000 } /* Generic.Error */
-  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
   .gi { color: #00A000 } /* Generic.Inserted */
   .go { color: #888888 } /* Generic.Output */
-  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
   .gs { font-weight: bold } /* Generic.Strong */
   .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
   .gt { color: #0044DD } /* Generic.Traceback */
