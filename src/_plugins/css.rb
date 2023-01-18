@@ -27,6 +27,7 @@ end
 
 Jekyll::Hooks.register :site, :pre_render do
   FileUtils.rm_f('_site/styles/style.css')
+  FileUtils.rm_f('.header_colours.txt')
 end
 
 module Jekyll
@@ -54,26 +55,29 @@ module Jekyll
       end
 
       primary_color_light = if context.registers[:page].nil?
-                              '#AA160E'
+                              '#d01c11'
                             else
-                              (context.registers[:page]['theme'] || {})['color_light'] || '#AA160E'
+                              (context.registers[:page]['colors'] || {})['css_light'] || '#d01c11'
                             end
 
       primary_color_dark = if context.registers[:page].nil?
-                             '#F56861'
+                             '#FF4242'
                            else
-                             (context.registers[:page]['theme'] || {})['color_dark'] || '#F56861'
+                             (context.registers[:page]['colors'] || {})['css_dark'] || '#FF4242'
                            end
 
-      if contrast(primary_color_light, '#ffffff') < 7
+      if contrast(primary_color_light, '#ffffff') < 4.5
         throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 7"
       end
 
-      if contrast(primary_color_dark, '#000000') < 7
+      if contrast(primary_color_dark, '#000000') < 4.5
         throw "dark color: insufficient contrast between black and #{primary_color_dark}: #{contrast(primary_color_dark, '#000000')} < 7"
       end
 
-      out_path = "/styles/style.#{color.gsub('#', '')}.css"
+      open('.header_colours.txt', 'a') do |f|
+        f.puts primary_color_light
+        f.puts primary_color_dark
+      end
 
       # If there's no individual stylesheet for this page, then we just use
       # the default stylesheet with the page's tint colour.
@@ -99,6 +103,8 @@ module Jekyll
           FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
           File.write("#{dst}#{out_path}", @css_cache[primary_color_light])
         end
+
+        md5 = @md5_cache[primary_color_light]
       end
 
       md5 = @md5_cache[color]

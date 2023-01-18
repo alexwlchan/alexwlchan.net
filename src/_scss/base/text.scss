@@ -109,16 +109,16 @@ sup {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  #footer_inner, #nav_inner {
-    color: black;
-
-    a, a:visited {
-      @include link_styles(black, 0.2);
-    }
-  }
-
-  #footer_social {
-    .footer_link .background   { fill: black; }
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  #footer_inner, #nav_inner {
+//    color: black;
+//
+//    a, a:visited {
+//      @include link_styles(black, 0.2);
+//    }
+//  }
+//
+//  #footer_social {
+//    .footer_link .background   { fill: black; }
+//  }
+//}
