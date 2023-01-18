@@ -36,7 +36,7 @@ module Jekyll
 
       <<~HTML
         <center class='separator' role='separator'>
-          #{svg_doc.to_xml(indent: 0)}
+          #{svg_doc.to_xml(indent: 0).gsub('<?xml version="1.0"?>', '')}
         </center>
       HTML
     end
