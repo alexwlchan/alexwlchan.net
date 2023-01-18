@@ -14,7 +14,7 @@ In this part, we'll see how to save filenames and directory layout.
 
 [part 1]: /a-plumbers-guide-to-git/1-the-git-object-store/
 
-{% text_separator "○ ←○→ ○" %}
+---
 
 ## Adding files to the index
 
@@ -188,7 +188,7 @@ Here's a diagram to show our current repo:
 
 Now let's put these new concepts into practice!
 
-{% text_separator "○ ←○→ ○" %}
+---
 
 ## Exercises
 
@@ -284,7 +284,7 @@ Make sure you're comfortable creating trees.
   </div>
 </div>
 
-{% text_separator "○ ←○→ ○" %}
+---
 
 ## Notes
 

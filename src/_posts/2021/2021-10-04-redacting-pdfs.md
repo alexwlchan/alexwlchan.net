@@ -23,7 +23,7 @@ If they were removed – would you see the redacted information?
 
 Obviously, I had to check.
 
-  {% separator "shhhh.svg" %}
+  ---
 
 I know you can pull apart PDF documents with advanced PDF editors like [Adobe Acrobat Pro][acrobat], but I don't know how to use any of those programs.
 I did download a free trial and play around, but I didn't get anywhere useful.
@@ -35,7 +35,7 @@ And if I could do it, so could somebody else.
 
 Oops.
 
-  {% separator "shhhh.svg" %}
+  ---
 
 The person who'd sent me the documents had tried to redact the information, and to them it looked like they'd succeeded.
 What went wrong?

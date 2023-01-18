@@ -15,7 +15,7 @@ tags: fiction
 
 *This work is also posted [on AO3](https://archiveofourown.org/works/34533667).*
 
-{% separator "oboe.svg" %}
+---
 
 The oboe of Optozorax has been seen in music halls around the world.
 Just before a player goes on stage, their instrument is replaced by this mystical artefact.
@@ -28,7 +28,7 @@ Tragedy, heartbreak, disaster, and playing off key.
 Many players try to hold on to the oboe of Optozorax, but it is as fickle as it is favourable.
 The moment the concert ends and the player's back is turned… it vanishes, leaving the original instrument in its place.
 
-{% separator "oboe.svg" %}
+---
 
 Despite years of intensive study, scientists are unable to work out how the pitcher of Phalcoralax violates the law of conservation of mass.
 It's a vessel that instantly fills itself with whatever liquid is most required by the holder.
@@ -39,13 +39,13 @@ For those stranded in a desert, it conjures water.
 
 For those hurting from heartbreak, it contains sugar.
 
-{% separator "oboe.svg" %}
+---
 
 The amphora of Archteryx is an unlimited source of alcohol, and possessing it is a crime in forty-seven countries – owing to how it tanks the local economy whenever it appears.
 
 Yet despite extensive documentation of its movements, nobody has ever been arrested – law enforcement officials who find themselves in its presence tend to find themselves less concerned about "laws" and "crimes".
 
-{% separator "oboe.svg" %}
+---
 
 *After Ada complimented my worldbuilding.*
 
@@ -59,7 +59,7 @@ Some worlds are fun, some are silly, and some are haunting.
 
 I don't know what the previous owner saw as they spun the globe; they haven't spoken a word to anyone since they gave it to me.
 
-{% separator "oboe.svg" %}
+---
 
 *Somebody else in the server was getting sleepy.*
 
@@ -74,7 +74,7 @@ The problem of sleep solved, he lived to the ripe old age of 127.
 You've heard the expression "an apple a day keeps the doctor away".
 It didn't ring true – if you eat an iPhone once a day for over a century, the medical profession takes a keen interest – but if you can afford it, the rare metals and trapped souls of voice assistants are a heck of a life preserver.)
 
-{% separator "oboe.svg" %}
+---
 
 *And then as I was going to bed:*
 
@@ -86,7 +86,7 @@ Only those with the strongest of footwear can pass.
 I'm going to don my slippers and bid you goodnight.
 Wish me luck!
 
-{% separator "oboe.svg" %}
+---
 
 *I'm not planning on doing more of these, but "The Noun of Name" might be a fun prompt if you want to do some microfiction. I'm rather pleased with how they turned out – especially the globe of Gradus – and I hope you enjoyed them too.*
 
