@@ -2,7 +2,7 @@
 
 @import "_settings.scss";
 @import "_functions.scss";
-@import "_mixins.scss";
+@import "mixins.scss";
 
 @import "_links.scss";
 
@@ -16,7 +16,6 @@
 // Template-specific styles
 @import "_archive.scss";
 @import "_post.scss";
-@import "_slides.scss";
 
 // Minor/optional page components
 @import "_code.scss";

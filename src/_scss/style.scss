@@ -1,12 +1,14 @@
 @use "sass:math";
 
 @import "variables.scss";
+@import "mixins.scss";
 
 @import "base/layout.scss";
 @import "base/text.scss";
 
 @import "base/nav.scss";
 @import "base/footer.scss";
+@import "base/code.scss";
 
 // This is for the "Skip to main content" link at the top of the page
 //
@@ -22,4 +24,8 @@ a.skip-main {
   overflow: hidden;
 
   z-index: -999;
+}
+
+.slide {
+  @include centred($max-width * 0.6);
 }
