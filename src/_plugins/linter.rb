@@ -298,10 +298,7 @@ class RunLinting < Jekyll::Command
         # This is a bit of a special case that I don't worry about.
         next if line.start_with? '/ideas-for-inclusive-events/'
 
-        target = line.strip.split[1]
-
-        # Another special case
-        next if target == '/#contact'
+        target = line.strip.split[1].split('#')[0]
 
         if target.end_with? '/'
           bad_lines << [lineno, line.strip] unless File.exist? "#{dst_dir}#{target}/index.html"
