@@ -27,7 +27,7 @@ footer {
       margin-right: 5px;
     }
 
-    .footer_link, .footer_link svg {
+    .footer_link svg {
       width:  30px;
       height: 30px;
     }
@@ -44,9 +44,27 @@ footer {
       }
     }
 
-    .footer_link, .footer_link svg {
+    .footer_link svg {
       width:  40px;
       height: 40px;
     }
   }
 }
+
+#footer_social {
+  .footer_link:hover {
+    background: none;
+  }
+
+  .footer_link .background   { fill: white; }
+  .footer_link .accent       { fill: none;  }
+  .footer_link:hover .accent { fill: white; }
+}
+
+#footer_link--email:hover    .background { fill: #0067B9; }
+#footer_link--rss:hover      .background { fill: #F99000; }
+#footer_link--linkedin:hover .background { fill: #007EBB; }
+#footer_link--github:hover   .background { fill: #24292f; }
+
+#footer_link--kofi:hover #kofi_heart     { fill: #f14255; };
+#footer_link--kofi:hover #kofi_circle    { fill: #50aee4; };

@@ -6,12 +6,6 @@
 @import "_functions.scss";
 @import "mixins.scss";
 
-body {
-  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
-     then contrast dropped */
-  background-image: url('/theme/white-waves-transparent.png');
-}
-
 h1, h2,
 .title a:visited,
 .post__permalink a,
@@ -39,10 +33,6 @@ a {
   &:visited:not(.novisited) {
     @include link_styles(darken($primary-color-light, 15%), 0.2);
   }
-
-  .title &:visited {
-    @include link_styles(darken($primary-color-light, 15%), 0.2);
-  }
 }
 
 a.download {
@@ -59,10 +49,6 @@ a.download {
   }
 }
 
-body, .post_cards .card a {
-  color: $body-color-light;
-}
-
 pre, blockquote {
   border-color: rgba($primary-color-light, 0.1);
   background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
@@ -70,11 +56,6 @@ pre, blockquote {
 
 .post_cards .card {
   @include card_light_styles($primary-color-light);
-
-  /* This gives cards a v subtle solid background colour, to make them
-   * stand out from the textured background.
-   */
-  background: #fafafa;
 }
 
 nav {
@@ -86,31 +67,7 @@ footer {
   background: $primary-color-light;
 }
 
-.post_cards .card .card_posting_date p,
-.title.linkpost_title::after {
-  color: $accent-grey-light;
-}
-
-.meta, figcaption {
-  color: $accent-grey-light;
-
-  a, a:visited {
-    color: $accent-grey-light !important;
-    &:hover {
-      background: rgba($accent-grey-light, 0.2) !important;
-    }
-  }
-}
-
-svg[role="separator"] rect {
-  fill: $midtone-grey-light;
-}
-
 @media (prefers-color-scheme: dark) {
-  body {
-    background-image: url('/theme/black-waves-transparent.png');
-  }
-
   a {
     @include link_styles($primary-color-dark, 0.2);
 
@@ -144,10 +101,6 @@ svg[role="separator"] rect {
     }
   }
 
-  body, .post_cards .card a {
-    color: $body-color-dark;
-  }
-
   pre, blockquote {
     border-color: rgba($primary-color-dark, 0.3);
     background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
@@ -155,49 +108,7 @@ svg[role="separator"] rect {
 
   .post_cards .card {
     @include card_dark_styles($primary-color-dark);
-    background: #0d0d0d;
   }
-
-  .post_cards .card .card_posting_date p,
-  .title.linkpost_title::after {
-    color: $accent-grey-dark;
-  }
-
-  .meta, figcaption {
-    color: $accent-grey-dark;
-
-    a, a:visited {
-      color: $accent-grey-dark !important;
-      &:hover {
-        background: rgba($accent-grey-dark, 0.2) !important;
-      }
-    }
-  }
-
-  svg[role="separator"] rect {
-    fill: $midtone-grey-dark;
-  }
-
-  // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
-  img:not([src*='.svg']) {
-    filter: grayscale(10%);
-  }
-
-  // Add a white background behind images, so any dark elements become
-  // visible.  Eventually I'd like to support uploading multiple variants
-  // and make this conditional, but not in V1.
-  img, svg[role="img"] {
-    background: white;
-  }
-
-  // fix for the separator on the homepage
-  .separator svg[role="img"] {
-    background: none;
-  }
-}
-
-img.screenshot {
-  border-color: $light-grey;
 }
 
 @media print {
@@ -208,23 +119,5 @@ img.screenshot {
 
   #nav_inner {
     color: $primary-color-light;
-  }
-
-  footer {
-    display: none;
-  }
-
-  .post_cards .card .card_posting_date p,
-  .meta,
-  figcaption {
-    color: $body-color-light;
-  }
-
-  .meta, figcaption {
-    color: $body-color-light;
-
-    a {
-      color: $body-color-light;
-    }
   }
 }

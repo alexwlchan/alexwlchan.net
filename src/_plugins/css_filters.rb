@@ -4,7 +4,7 @@ module Jekyll
   module ExtractStyleTagFilter
     def remove_inline_styles(html)
       if !html.include? '<style'
-        return ''
+        return html
       end
 
       # puts html
