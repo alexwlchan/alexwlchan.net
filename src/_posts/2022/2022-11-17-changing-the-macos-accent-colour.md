@@ -40,7 +40,7 @@ $ set_accent_colour red
 and the UI of my Mac switches to red.
 If you want, you can go [straight to the script][the_script], or you can read on and I'll explain how I found the important pieces.
 
-{% separator "colours.svg" %}
+---
 
 My first clue came from googling the name of the preference, which led me to [a Stack Overflow post by Henrik Helmers][so]:
 

@@ -28,7 +28,7 @@ Computer bug, or a terrifying 2020-esque Groundhog Day?
 
 
 
-{% separator "noun-calendar-3669219.svg" %}
+---
 
 
 
@@ -54,7 +54,7 @@ The format specifier looked correct to me, but clearly something was wrong.
 
 
 
-{% separator "noun-calendar-3669219.svg" %}
+---
 
 
 
@@ -97,7 +97,7 @@ The ISO week starts on a Monday, so it's quite possible the first week of the ne
 
 
 
-{% separator "noun-calendar-3669219.svg" %}
+---
 
 
 

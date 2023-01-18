@@ -1,6 +1,8 @@
+@import "variables.scss";
+
 @import "_settings.scss";
 @import "_functions.scss";
-@import "_mixins.scss";
+@import "mixins.scss";
 
 @import "_links.scss";
 
@@ -10,19 +12,15 @@
 // Major page components
 @import "_nav.scss";
 @import "_footer.scss";
-@import "_separators.scss";
 
 // Template-specific styles
 @import "_archive.scss";
 @import "_post.scss";
-@import "_slides.scss";
 
 // Minor/optional page components
 @import "_code.scss";
 @import "_pygments.scss";
 @import "_tweets.scss";
-@import "_updates.scss";
-@import "_latex.scss";
 @import "_figures.scss";
 @import "_images_wide.scss";
 @import "_downloads.scss";

@@ -30,7 +30,7 @@ My examples all use [Prismic's JavaScript library][js_client], but most of these
 [scripts]: https://github.com/wellcomecollection/wellcomecollection.org/tree/main/prismic-model
 [js_client]: https://prismic.io/docs/technical-reference/prismicio-client
 
-  {% separator "prism.svg" %}
+  ---
 
 ## Download all our Prismic content
 
@@ -135,7 +135,7 @@ Now we have this snapshot, what can we do with it?
 
 
 
-  {% separator "prism.svg" %}
+  ---
 
 
 
@@ -180,7 +180,7 @@ We get alerts for errors on the public site, and now we test a sample of URLs as
 
 
 
-  {% separator "prism.svg" %}
+  ---
 
 
 
@@ -246,7 +246,7 @@ This sort of slice analysis was the initial motivation for downloading Prismic s
 
 
 
-  {% separator "prism.svg" %}
+  ---
 
 
 
@@ -277,7 +277,7 @@ And what if we didn't want to find just one example, but every example?
 
 
 
-  {% separator "prism.svg" %}
+  ---
 
 
 
@@ -340,7 +340,7 @@ That's how we made a lot of this Prismic tooling -- as an iteration on something
 
 
 
-  {% separator "prism.svg" %}
+  ---
 
 
 

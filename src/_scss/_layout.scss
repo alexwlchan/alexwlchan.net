@@ -1,91 +1,13 @@
 body {
-  margin:  0;
-  padding: 0;
-
   /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
      then contrast dropped */
   background-image: url('/theme/white-waves-transparent.png');
 }
 
-main, #footer_inner, #nav_inner, #editing-toolbar_inner {
-  max-width: $max-width;
-  padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
-  padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
-}
-
-#nav_inner {
-  padding-top: calc(1px + env(safe-area-inset-top));
-}
-
-article, main, #footer_inner {
-  padding-top: 1px;
-}
-
-#nav_inner, article, main {
-  padding-bottom: 1px;
-}
-
-#footer_inner {
-  padding-bottom: calc(1px + env(safe-area-inset-bottom));
-}
-
-img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 img.screenshot {
-  border: $sidebar-border-width solid $light-grey;
-  border-radius: 10px;
+  border-color: $light-grey;
 }
 
-article, main {
-  padding-top:    3px;
-  padding-bottom: 2em;
-}
-
-.dot_list {
-  list-style-type: none;
-  padding-left: 0px !important;
-
-  // Ensure they all display in a line
-  li {
-    display: inline;
-    &:not(:first-child)::before {
-      content: " · ";
-    }
-  }
-}
-
-hr {
-  background-color: $light-grey;
-  height: 1px;
-  border: 0px;
-}
-
-// Images never expand beyond the article bounds, and are centred when
-// they're too small.
-img, video, figure {
-  max-width: 100%;
-  display: block;
-}
-
-iframe {
-  display: block;
-}
-
-/* Elements that should have a left/right indent on wide screens (so they're
- * narrower than the rest of the content), but snap to the edge on narrow
- * screens. */
-.indented,
-blockquote,
-pre,
-a.download {
-  margin-left:  $default-padding;
-  margin-right: $default-padding;
-
-  @media screen and (max-width: $max-width + $default-padding * 3) {
-    margin-left:  0px;
-    margin-right: 0px;
-  }
+svg[role="separator"] rect {
+  fill: $midtone-gray;
 }

@@ -1,19 +1,6 @@
 @use "sass:math";
 
-code, pre {
-  font-family: $mono-font;
-  overflow-x: auto;
-}
-
-pre code {
-  background: none;
-}
-
 code {
-  margin: 2px;
-  border-radius: 3px;
-  font-size: 1em * $code-scaling-factor;
-
   .rustc_error {
     font-weight: bold;
     color: #d01c11;
@@ -29,67 +16,5 @@ code {
 
   .rustc_lineno {
     color: #6871ff;
-  }
-}
-
-// Disable selecting the $ or the following space in ``console`` code blocks.
-// See https://alexwlchan.net/2021/10/console-copying/
-.language-console {
-  .gp, .gp + .w  {
-    @include disable_select();
-  }
-}
-
-pre {
-  padding: 2 * math.div($default-padding, 3) ($default-padding - $sidebar-border-width);
-
-  line-height: $line-height * $code-scaling-factor * 1.08;
-
-  // This ensures that code blocks don't get blown up to big sizes
-  // on iPhone displays.
-  -webkit-text-size-adjust: 100%;
-
-  // This ensures the first line of <pre> blocks doesn't have a funny indent
-  code {
-    margin: 0px;
-    padding-left: 0px;
-  }
-}
-
-.highlight {
-  hanging-punctuation: none;
-}
-
-figure.highlight > pre,
-figure.highlight > pre > code {
-  background: none;
-  border-left: none;
-  padding: 0px;
-}
-
-figure.highlight > pre {
-  font-size: 1em;
-}
-
-figure.highlight {
-  td {
-    margin: 0px;
-    padding: 0px;
-    pre {
-      margin-top:    0px;
-      margin-bottom: 0px;
-    }
-  }
-
-  pre.lineno {
-    color: $accent-grey;
-    @include disable_select();
-  }
-
-  td.code {
-    pre {
-      border-left: none;
-    }
-    width: 100%;
   }
 }
