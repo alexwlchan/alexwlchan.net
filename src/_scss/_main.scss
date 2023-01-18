@@ -13,12 +13,34 @@
 @import "_nav.scss";
 @import "_footer.scss";
 
-// Template-specific styles
-@import "_archive.scss";
-
 // Minor/optional page components
 @import "_code.scss";
 @import "_pygments.scss";
+
+.archive {
+  margin-top: 1.2em;
+
+  .archive__date {
+    width: 68px;
+    font-size: 0.85em;
+    color: $accent-grey;
+    text-align: right;
+    vertical-align: top;
+  }
+
+  .archive__bestof {
+    padding-left:  5px;
+    padding-right: 5px;
+    width: 12px;
+    vertical-align: top;
+
+    img {
+      width: 12px;
+      display: inline-block;
+    }
+  }
+}
+
 
 .meta, figcaption {
   color: $accent-grey;
