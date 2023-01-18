@@ -6,28 +6,11 @@
 @use "sass:math";
 
 body {
-  font: 13pt $main-font-family;
-  line-height: $line-height;
   color: $body-color;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
 }
 
 h1, h2 {
   color: $primary-color;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-h2 {
-  margin-top: 2em;
-  font-size: 1.6em;
-  line-height: 1.5em;
-  margin-bottom: 0;
 }
 
 pre, blockquote {
@@ -35,86 +18,13 @@ pre, blockquote {
   background-color: hsla(hue($primary-color), saturation($primary-color), 95%, 0.4);
 }
 
-blockquote {
-  padding: 1px $default-padding;
-
-  p:first-child { margin-top:    2 * math.div($default-padding, 3); }
-  p:last-child  { margin-bottom: 2 * math.div($default-padding, 3); }
-}
-
-// These rules help with the positioning of footnote markers, although
-// I'm not entirely sure how they work.
-sup, sub {
-  vertical-align: 0ex;
-  position: relative;
-}
-
-sub {
-  top: 0.8ex;
-}
-
-sup {
-  bottom: 1ex;
-}
-
-.footnotes {
-  font-size: 1em * $scaling-factor;
-  line-height: $line-height * $scaling-factor;
-}
-
 .title {
-  font-size: 1.9em;
-  line-height: 1.45em;
-  a {
-    text-decoration: none;
-  }
   &.linkpost_title {
-    font-size: 1.17em;
-    line-height: 1.35em;
-    padding-top: 12px;
-    a {
-      text-decoration: underline;
-    }
     &::after {
-      content: "→";
       color: $accent-grey;
     }
   }
   a:visited {
     color: $primary-color;
   }
-  margin-bottom: -6px;
-}
-
-h2, h3 {
-  &:hover {
-    & > a.anchor {
-      display: inline-block;
-    }
-  }
-}
-
-a.anchor {
-  &::after {
-    content: "¶";
-  }
-
-  display: none;
-  text-decoration: none;
-
-  &, &:visited {
-    color: $accent-grey;
-  }
-}
-
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0,0,0,0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
 }
