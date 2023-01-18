@@ -87,14 +87,8 @@ def colours_like(hex_colour)
 
     luminosity = hsl_colour.luminosity
 
-    # this is a cheap trick to make headers look better in dark mode
-    if luminosity > 50
-      min_luminosity = luminosity * 7 / 8
-      max_luminosity = luminosity * 13 / 12
-    else
-      min_luminosity = luminosity * 7 / 8
-      max_luminosity = luminosity * 8 / 7
-    end
+    min_luminosity = luminosity * 7 / 8
+    max_luminosity = luminosity * 8 / 7
 
     luminosity_diff = max_luminosity - min_luminosity
 
@@ -156,6 +150,6 @@ end
 
 Jekyll::Hooks.register :site, :post_render do |site|
   if File.exist? '.header_colours.txt'
-    create_header_images(site, File.readlines('.header_colours.txt').uniq.map { |ln| ln.strip })
+    create_header_images(site, File.readlines('.header_colours.txt').uniq.map(&:strip))
   end
 end
