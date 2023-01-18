@@ -15,17 +15,11 @@ main, #footer_inner, #nav_inner, #editing-toolbar_inner {
 
 #nav_inner {
   padding-top: calc(1px + env(safe-area-inset-top));
-}
-
-article, main, #footer_inner {
-  padding-top: 1px;
-}
-
-#nav_inner, article, main {
   padding-bottom: 1px;
 }
 
 #footer_inner {
+  padding-top: 1px;
   padding-bottom: calc(1px + env(safe-area-inset-bottom));
 }
 
@@ -34,9 +28,14 @@ img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #edit
   margin-right: auto;
 }
 
+pre, blockquote, img.screenshot {
+  border-radius: $border-radius;
+  border-style:  $border-style;
+  border-width:  $border-width;
+}
+
 img.screenshot {
-  border: $sidebar-border-width solid $light-grey;
-  border-radius: 10px;
+  border-color: $light-grey;
 }
 
 article, main {
