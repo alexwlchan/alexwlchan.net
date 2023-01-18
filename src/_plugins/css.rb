@@ -97,21 +97,16 @@ module Jekyll
             @import "_main.scss";
           SCSS
           )
-
-          @md5_cache[primary_color_light] = Digest::MD5.new.hexdigest @css_cache[primary_color_light]
-
-          FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
-          File.write("#{dst}#{out_path}", @css_cache[primary_color_light])
         end
 
-        md5 = @md5_cache[primary_color_light]
+        css = @css_cache[primary_color_light]
       end
 
       md5 = @md5_cache[color]
 
       <<~HTML
         <link rel="stylesheet" href="/styles/style.css?md5=#{@base_css_md5}">
-        <link rel="stylesheet" href="#{out_path}?md5=#{md5}">
+        <style>#{css}</style>
       HTML
     end
   end
