@@ -20,7 +20,6 @@
 @import "_code.scss";
 @import "_pygments.scss";
 @import "_tweets.scss";
-@import "_article_cards.scss";
 
 .meta, figcaption {
   color: $accent-grey;
@@ -59,3 +58,23 @@ a.download {
   }
 }
 
+.post_cards .card {
+  border-color: $primary-color;
+
+  /* This gives cards a v subtle solid background colour, to make them
+   * stand out from the textured background.
+   */
+  background: #fafafa;
+
+  a {
+    color: $body-color;
+
+    .card_title {
+      color: $primary-color;
+    }
+  }
+
+  .card_posting_date p {
+    color: $accent-grey;
+  }
+}
