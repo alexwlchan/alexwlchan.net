@@ -1,5 +1,5 @@
 @import "posts/_end_of_year_books.scss";
-@import "_mixins.scss";
+@import "mixins.scss";
 
 #piranesi {
   @include book_styles(#916540);
