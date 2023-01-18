@@ -23,5 +23,19 @@
 @import "_tweets.scss";
 @import "_figures.scss";
 @import "_images_wide.scss";
-@import "_downloads.scss";
 @import "_article_cards.scss";
+
+a.download {
+  border-color: $primary-color;
+
+  // We need to override the background styles
+  color: $primary-color !important;
+  background: rgba(white, 0.4) !important;
+
+  // Although this is supplied by the link style, we need to set it again
+  // here because the `background` rule above overrides the `a:hover` rule.
+  &:hover {
+    background: rgba($primary-color, 0.2) !important;
+  }
+}
+
