@@ -1,18 +1,6 @@
 code {
-  .rustc_error {
-    font-weight: bold;
-    color: #d01c11;
-  }
-
-  .rustc_warning {
-    color: #11d01c;
-  }
-
-  .rustc_value {
-    color: #d0a311;;
-  }
-
-  .rustc_lineno {
-    color: #6871ff;
-  }
+  .rustc_error   { color: #d01c11; font-weight: bold; }
+  .rustc_warning { color: #11d01c; }
+  .rustc_value   { color: #d0a311; }
+  .rustc_lineno  { color: #6871ff; }
 }
