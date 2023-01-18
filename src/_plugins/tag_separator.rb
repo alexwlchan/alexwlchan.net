@@ -52,22 +52,6 @@ module Jekyll
       HTML
     end
   end
-
-  class TextSeparatorTag < Liquid::Tag
-    def initialize(_tag_name, name, _tokens)
-      super
-      @contents = name.strip.tr! '"', ''
-    end
-
-    def render(_)
-      <<~HTML
-        <center class='separator' aria-hidden='true'>
-          #{@contents}
-        </center>
-      HTML
-    end
-  end
 end
 
 Liquid::Template.register_tag('separator', Jekyll::SeparatorTag)
-Liquid::Template.register_tag('text_separator', Jekyll::TextSeparatorTag)
