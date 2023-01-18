@@ -2,14 +2,4 @@
   border-left: ($sidebar-border-width * 2) solid $primary-color;
   padding-top:    1px;
   padding-bottom: 1px;
-
-  // Cancel out the styles added by standard blockquotes
-  p, li {
-    color: $body-color;
-    font-style: normal;
-
-    em {
-      font-style: italic;
-    }
-  }
 }
