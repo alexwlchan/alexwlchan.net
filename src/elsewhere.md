@@ -22,6 +22,10 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
   #talks_archive tr:not(:last-child) .talk_description {
     padding-bottom: 0.75em;
   }
+
+  .talk_description p:last-child {
+    margin-bottom: 0;
+  }
 </style>
 
 ## Writing
@@ -101,7 +105,9 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
           {% endfor %}
         </ul>
         {% endif %}
-        <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>{% if entry.publication %}<br/>{{ entry.publication }}{% endif %}
+        {% if talk.description %}
+        {{ talk.description | smartify | markdownify }}
+        {% endif %}
       </td>
     </tr>
   {% endfor %}

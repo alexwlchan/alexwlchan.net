@@ -232,7 +232,24 @@ The projects I've worked on include:
 
 ## Talks and workshops
 
+<figure style="width: 350px; display: inline-block; float: right; margin-left: 1em;">
+  {%
+    picture
+    filename="pyconuk-speaking.jpg"
+    visible_width="350px"
+    parent="/images/projects"
+    alt="A person in a green top standing at a podium, in front of a large screen with the words “duplicate bugs”."
+  %}
+  <figcaption>
+    Espousing the benefits of sans I/O programming at PyCon UK 2019.
+    The coordination of my slides, jumper and eyeshadow is entirely deliberate.
+    Image courtesy <a href="https://www.flickr.com/photos/184390836@N04/48726548731/">Mark Hawkins</a>.
+  </figcaption>
+</figure>
+
 I've given talks and workshops at a number of conferences.
+If you'd like me to speak at your event, [get in touch](/#contact) for details.
+
 These are a few of my favourites:
 
 <dl>
