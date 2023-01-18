@@ -1,21 +1,106 @@
+@use "sass:math";
+
 @import "variables.scss";
 
 @import "_settings.scss";
 @import "_functions.scss";
 @import "mixins.scss";
 
-@import "_links.scss";
-
-@import "_layout.scss";
-@import "_text.scss";
-
 // Major page components
-@import "_nav.scss";
 @import "_footer.scss";
 
 // Minor/optional page components
 @import "_code.scss";
 @import "_pygments.scss";
+
+// Links should be coloured red, but a darker red if they've been visited.
+//
+// However, I can override this in certain scenarios with the `novisited` class.
+//
+//      <a href="/example">ne wlink</a>
+//        ~> will be coloured default red
+//
+//      <a href="/example">link I’ve visited</a>
+//        ~> will be coloured dark red
+//
+//      <a href="/example" class="novisited">link I’ve visited</a>
+//        ~> will be coloured default red
+//
+a {
+  @include link_styles($primary-color, 0.2);
+
+  &:visited:not(.novisited) {
+    @include link_styles($primary-dark, 0.2);
+  }
+
+  .title &:visited {
+    @include link_styles($primary-color, 0.2);
+  }
+}
+
+
+
+body {
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+     then contrast dropped */
+  background-image: url('/theme/white-waves-transparent.png');
+}
+
+body, .post_cards .card a {
+  color: $body-color-light;
+}
+
+.post_cards .card {
+  /* This gives cards a v subtle solid background colour, to make them
+   * stand out from the textured background.
+   */
+  background: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: url('/theme/black-waves-transparent.png');
+  }
+
+  body, .post_cards .card a {
+    color: $body-color-dark;
+  }
+
+  .post_cards .card {
+    /* This gives cards a v subtle solid background colour, to make them
+     * stand out from the textured background.
+     */
+    background: #0d0d0d;
+  }
+
+  // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
+  img:not([src*='.svg']) {
+    filter: grayscale(20%);
+  }
+}
+
+
+
+
+
+
+
+h1, h2,
+.post_cards .card a .card_title,
+.title a:visited,
+.post__permalink a,
+.post__permalink a:visited {
+  color: $primary-color;
+}
+
+
+img.screenshot {
+  border-color: $light-grey;
+}
+
+svg[role="separator"] rect {
+  fill: $midtone-gray;
+}
 
 .archive {
   margin-top: 1.2em;
@@ -42,6 +127,32 @@
 }
 
 
+
+.post_cards .card {
+  border-color: $primary-color;
+
+
+
+
+  .card_posting_date p {
+    color: $accent-grey;
+  }
+}
+
+pre, blockquote {
+  border-color: rgba($primary-color, 0.1);
+  background-color: hsla(hue($primary-color), saturation($primary-color), 95%, 0.4);
+}
+
+.title {
+  &.linkpost_title {
+    &::after {
+      color: $accent-grey;
+    }
+  }
+}
+
+
 .meta, figcaption {
   color: $accent-grey;
 
@@ -54,16 +165,11 @@
 
     /* At least on my printer, $accent-grey is too light to be readable */
     @media print {
-      color: $body-color;
+      color: $body-color-light;
     }
   }
 }
 
-.post__permalink a {
-  &, &:visited {
-    color: $primary-color;
-  }
-}
 
 a.download {
   border-color: $primary-color;
@@ -79,23 +185,32 @@ a.download {
   }
 }
 
-.post_cards .card {
-  border-color: $primary-color;
 
-  /* This gives cards a v subtle solid background colour, to make them
-   * stand out from the textured background.
-   */
-  background: #fafafa;
 
-  a {
-    color: $body-color;
 
-    .card_title {
+nav {
+  background: url('/headers/specktre_#{colorToHexString($primary-color)}.png') $primary-color;
+  background-size: auto 100%;
+
+  @media print {
+    background: none;
+    border-bottom: 2px solid $primary-color;
+  }
+
+  #nav_inner {
+    color: white;
+
+    @media print {
       color: $primary-color;
     }
-  }
 
-  .card_posting_date p {
-    color: $accent-grey;
+    a, a:visited {
+      @include link_styles(white, 0.5);
+
+      @media print {
+        color: $primary-color;
+      }
+    }
   }
 }
+
