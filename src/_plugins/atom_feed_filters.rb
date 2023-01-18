@@ -53,12 +53,6 @@ module Jekyll
         image['href'] = 'https://alexwlchan.net' + image['href'] if image['href'].start_with?('/images')
       end
 
-      # Replace any custom separator icons (which are <center> tags with a couple
-      # of attributes and an inline SVG) with a plain <hr/>.
-      doc.xpath('.//center').each do |c|
-        c.replace('<hr>')
-      end
-
       # Remove any elements that have data-rss-exclude="true"
       #
       # e.g. <img src="example.jpg" data-rss-exclude="true">
