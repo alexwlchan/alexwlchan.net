@@ -40,6 +40,11 @@ sup {
   bottom: 1ex;
 }
 
+.meta, figcaption, footer {
+  font-size:   $meta-font-size;
+  line-height: $meta-line-height;
+}
+
 .footnotes {
   font-size:   $default-font-size   * $scaling-factor;
   line-height: $default-line-height * $scaling-factor;

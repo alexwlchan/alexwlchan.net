@@ -8,7 +8,7 @@ layout: default
 {% endif %}
 
 {% if page.date_updated or page.meta %}
-<div class="page__meta">
+<div class="meta">
   <ul class="dot_list">
     {% if page.date_updated %}
     <li class="page__date">Last updated {{ page.date_updated | date: site.date_format }}</li>

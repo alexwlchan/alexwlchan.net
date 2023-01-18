@@ -15,14 +15,35 @@
 
 // Template-specific styles
 @import "_archive.scss";
-@import "_post.scss";
 
 // Minor/optional page components
 @import "_code.scss";
 @import "_pygments.scss";
 @import "_tweets.scss";
-@import "_figures.scss";
 @import "_article_cards.scss";
+
+.meta, figcaption {
+  color: $accent-grey;
+
+  /* We need !important so these styles don't get replaced by page theming */
+  a, a:visited {
+    color: $accent-grey !important;
+    &:hover {
+      background: rgba($accent-grey, 0.2) !important;
+    }
+
+    /* At least on my printer, $accent-grey is too light to be readable */
+    @media print {
+      color: $body-color;
+    }
+  }
+}
+
+.post__permalink a {
+  &, &:visited {
+    color: $primary-color;
+  }
+}
 
 a.download {
   border-color: $primary-color;

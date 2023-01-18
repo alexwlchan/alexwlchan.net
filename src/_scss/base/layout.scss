@@ -24,6 +24,10 @@ img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #edit
   margin-right: auto;
 }
 
+figcaption {
+  margin-top: 8px;
+}
+
 pre, blockquote, img.screenshot, a.download {
   border-radius: $border-radius;
   border-style:  $border-style;
