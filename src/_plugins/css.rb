@@ -18,6 +18,8 @@
 require 'digest'
 require 'fileutils'
 
+require_relative 'utils/contrast'
+
 def convert_css(site, css_string)
   converter = site.find_converter_instance(Jekyll::Converters::Scss)
   converter.convert(css_string)
@@ -51,28 +53,52 @@ module Jekyll
         File.write("#{dst}#{out_path}", base_css)
       end
 
-      color = if context.registers[:page].nil?
-                '#d01c11'
-              else
-                (context.registers[:page]['theme'] || {})['color'] || '#d01c11'
-              end
+      primary_color_light = if context.registers[:page].nil?
+                              '#AA160E'
+                            else
+                              (context.registers[:page]['theme'] || {})['color_light'] || '#AA160E'
+                            end
+
+      primary_color_dark = if context.registers[:page].nil?
+                             '#F56861'
+                           else
+                             (context.registers[:page]['theme'] || {})['color_dark'] || '#F56861'
+                           end
+
+      if contrast(primary_color_light, '#ffffff') < 7
+        throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 7"
+      end
+
+      if contrast(primary_color_dark, '#000000') < 7
+        throw "dark color: insufficient contrast between black and #{primary_color_dark}: #{contrast(primary_color_dark, '#000000')} < 7"
+      end
 
       out_path = "/styles/style.#{color.gsub('#', '')}.css"
 
-      # We only need to create and write the CSS file for this colour
-      # if one hasn't already
-      unless @css_cache.key? color
-        @css_cache[color] = convert_css(site, <<~SCSS
-          $primary-color: #{color};
+      # If there's no individual stylesheet for this page, then we just use
+      # the default stylesheet with the page's tint colour.
+      #
+      # These are shared among all pages with the same colour, to reduce
+      # the number of individual files and improve caching.
+      else
+        out_path = "/styles/style.#{primary_color_light.gsub('#', '')}.css"
 
-          @import "_main.scss";
-        SCSS
-        )
+        # We only need to create and write the CSS file for this colour
+        # if one hasn't already
+        unless @css_cache.key? primary_color_light
+          @css_cache[primary_color_light] = convert_css(site, <<~SCSS
+          $primary-color-light: #{primary_color_light};
+          $primary-color-dark:  #{primary_color_dark};
 
-        @md5_cache[color] = Digest::MD5.new.hexdigest @css_cache[color]
+            @import "_main.scss";
+          SCSS
+          )
 
-        FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
-        File.write("#{dst}#{out_path}", @css_cache[color])
+          @md5_cache[primary_color_light] = Digest::MD5.new.hexdigest @css_cache[primary_color_light]
+
+          FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
+          File.write("#{dst}#{out_path}", @css_cache[primary_color_light])
+        end
       end
 
       md5 = @md5_cache[color]
