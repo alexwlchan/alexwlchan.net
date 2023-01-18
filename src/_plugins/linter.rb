@@ -298,6 +298,8 @@ class RunLinting < Jekyll::Command
         # This is a bit of a special case that I don't worry about.
         next if line.start_with? '/ideas-for-inclusive-events/'
 
+        # ignore URL fragments when linting, the important thing is that
+        # pages don't 404
         target = line.strip.split[1].split('#')[0]
 
         if target.end_with? '/'
