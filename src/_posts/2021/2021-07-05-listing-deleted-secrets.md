@@ -37,7 +37,7 @@ If you just want the answer, [skip to the end](#putting-it-all-together).
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 
@@ -62,7 +62,7 @@ I don't love the idea of putting a workaround for my development process in the 
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 
@@ -80,7 +80,7 @@ Hmm.
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 
@@ -135,7 +135,7 @@ So what if we don't go through boto3?
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 
@@ -160,7 +160,7 @@ In fact, looking through the code, I couldn't even find [a method called `list_s
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 
@@ -253,7 +253,7 @@ Scant documentation aside, the existence of service models suggests a way forwar
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 
@@ -340,7 +340,7 @@ Instead, I find myself knee-deep in rabbit holes -- but I learnt a lot, and I go
 
 
 
-{% separator "secrets_manager.svg" %}
+---
 
 
 

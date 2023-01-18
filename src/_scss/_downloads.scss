@@ -1,39 +1,24 @@
 a.download {
-  border: 3px solid $primary-color;
-  padding: 0.5em;
-  border-radius: .5em;
-  padding-bottom: 25px;
-  padding-top: 15px;
+  border-color: $primary-color;
   display: inline-block;
-  padding-right: 15px;
   text-decoration: none;
+  padding: 15px 15px 25px 0.5em;
 
   // We need to override the background styles
   color: $primary-color !important;
   background: rgba(white, 0.4) !important;
 
+  // Although this is supplied by the link style, we need to set it again
+  // here because the `background` rule above overrides the `a:hover` rule.
   &:hover {
     background: rgba($primary-color, 0.2) !important;
-  }
-
-  @media screen and (max-width: 500px) {
-    padding-bottom: .5em;
-    padding-top:    .5em;
-    padding-right:  .5em;
   }
 
   img {
     height: 64px;
     display: inline-block;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: -25px;
-    margin-top: -8px;
+    margin: -8px 0 -25px 0;
     padding-bottom: 0;
     padding-right: 5px;
-
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
   }
 }

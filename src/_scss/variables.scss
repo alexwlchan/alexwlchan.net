@@ -1,0 +1,21 @@
+$main-font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+$mono-font-family: Menlo, Consolas, monospace;
+
+$meta-size:           0.82;
+
+$default-font-size:   1em;
+$meta-font-size:      $meta-size * $default-font-size;
+
+$default-line-height: 1.5em;
+$meta-line-height:    $meta-size * $default-line-height * 1.15;
+
+$scaling-factor:      0.95;
+$code-scaling-factor: 0.88;
+
+$max-width: 750px;
+
+$default-padding: 20px;
+
+$border-radius: 10px;
+$border-style: solid;
+$border-width: 3px;

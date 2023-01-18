@@ -24,19 +24,3 @@ $archive-gutter-column: 15px;
     }
   }
 }
-
-#tag--python {
-  line-height: 110%;
-}
-
-// Like dotted-list, but without the intermediate bullets.
-#tag_cloud {
-  text-align: justify;
-  list-style-type: none;
-  padding-left: 0px !important;
-
-  /* Ensure they all display in a line */
-  li {
-    display: inline;
-  }
-}

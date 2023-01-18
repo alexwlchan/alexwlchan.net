@@ -1,0 +1,100 @@
+body {
+  margin:  0;
+  padding: 0;
+}
+
+main, #footer_inner, #nav_inner, #editing-toolbar_inner {
+  max-width: $max-width;
+  padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
+  padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
+}
+
+#nav_inner {
+  padding-top: calc(1px + env(safe-area-inset-top));
+  padding-bottom: 1px;
+}
+
+#footer_inner {
+  padding-top: 1px;
+  padding-bottom: calc(1px + env(safe-area-inset-bottom));
+}
+
+img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+pre, blockquote, img.screenshot, a.download {
+  border-radius: $border-radius;
+  border-style:  $border-style;
+  border-width:  $border-width;
+}
+
+article, main {
+  padding-top:    3px;
+  padding-bottom: 2em;
+}
+
+/* A dot_list is a <ul> that displays all the items in a horizontal line,
+ * separated by dots, e.g.
+ *
+ *      apple · banana · cherry
+ *
+ * as opposed to the more traditional
+ *
+ *    · apple
+ *    · banana
+ *    · cherry
+ *
+ */
+.dot_list {
+  list-style-type: none;
+  padding-left: 0px !important;
+
+  // Ensure they all display in a line
+  li {
+    display: inline;
+    &:not(:first-child)::before {
+      content: " · ";
+    }
+  }
+}
+
+svg[role="separator"] {
+  display: block;
+  margin: 3.5em auto;
+
+  & + h2 {
+    margin-top: 0;
+  }
+}
+
+// Images never expand beyond the article bounds, and are centred when
+// they're too small.
+//
+// Note: the block might seem redundant, but if you remove it the post cards
+// get some extra space below the image.  TODO: Investigate.
+img, video, figure {
+  max-width: 100%;
+  display: block;
+}
+
+iframe {
+  display: block;
+}
+
+/* Elements that should have a left/right indent on wide screens (so they're
+ * narrower than the rest of the content), but snap to the edge on narrow
+ * screens. */
+.indented,
+blockquote,
+pre,
+a.download {
+  margin-left:  $default-padding;
+  margin-right: $default-padding;
+
+  @media screen and (max-width: $max-width + $default-padding * 3) {
+    margin-left:  0px;
+    margin-right: 0px;
+  }
+}

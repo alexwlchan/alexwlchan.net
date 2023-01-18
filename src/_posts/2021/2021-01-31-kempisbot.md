@@ -35,7 +35,7 @@ The goal of this post is to explain the key ideas I used to write this bot, not 
 
 
 
-{% separator "scripture.svg" %}
+---
 
 
 
@@ -78,7 +78,7 @@ It can step through this list, one-by-one, and work its way through the entire b
 
 
 
-{% separator "scripture.svg" %}
+---
 
 
 
@@ -104,7 +104,7 @@ Computers can talk to each other by passing around special messages.
 
 
 
-{% separator "scripture.svg" %}
+---
 
 
 
@@ -123,7 +123,7 @@ They don't need to be threaded to make sense.
 
 
 
-{% separator "scripture.svg" %}
+---
 
 
 
@@ -140,7 +140,7 @@ Fingers crossed, it's all working now!
 
 
 
-{% separator "scripture.svg" %}
+---
 
 
 

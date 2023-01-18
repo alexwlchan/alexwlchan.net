@@ -1,31 +1,26 @@
 .tweet {
   display: block;
-  background: 0 0;
   font: normal normal 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
-  color: #1c2022;
 
   white-space: initial;
 
   overflow: hidden;
   cursor: pointer;
-  background-color: #fff;
-  border: 1px solid #e1e8ed;
-  border-radius: 4px;
+
+  &, .quoted_tweet {
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+  }
 
   // Eyeballed against a real tweet embed
-  max-width: 496px;
+  @include centred(496px);
 
-  a,
-  a:visited,
-  a:active {
-    color: #2b7bb9;
+  a, a:visited, a:active, .author a:hover {
     text-decoration: none;
   }
-  a:focus,
-  a:hover {
-    color: #3b94d9;
-  }
-  a:focus {
+
+  a:focus, a:hover {
     text-decoration: underline;
   }
 
@@ -33,9 +28,8 @@
     background: none;
   }
 
-  .screen_name {
+  .screen_name, .metadata {
     font-size: 14px;
-    color: #697882;
   }
   .screen_name:before {
     white-space: pre;
@@ -48,11 +42,6 @@
 
   .text+.metadata {
     margin-top: 3.2px;
-  }
-
-  .metadata {
-    font-size: 14px;
-    color: #697882;
   }
 
   .text {
@@ -85,29 +74,28 @@
     padding-bottom: 14px;
   }
 
-  $media-border: 1px solid #e1e8ed;
-
-  .media {
-    border-bottom: $media-border;
+  .media, .media-3 a:nth-child(2), img.media {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
   }
 
   .media-3 {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows:    50% 50%;
     grid-gap: 0;
     aspect-ratio: 2 / 1;
 
     a:nth-child(1) {
       grid-column: 1 / 2;
       grid-row: 1 / span 2;
-      border-right: $media-border;
+      border-right-width: 1px;
+      border-right-style: solid;
     }
 
     a:nth-child(2) {
       grid-column: 2 / 2;
       grid-row: 1 / 2;
-      border-bottom: $media-border;
     }
 
     a:nth-child(3) {
@@ -130,6 +118,9 @@
     text-overflow: ellipsis!important;
     white-space: nowrap!important;
     word-wrap: normal!important;
+    .name:hover {
+      text-decoration: underline;
+    }
     .link {
       line-height: 1.2;
     }
@@ -150,24 +141,10 @@
     }
   }
 
-  &:hover {
-    border-color: #ccd6dd;
-    .media {
-      border-color: #ccd6dd;
-    }
-  }
-
   .quoted_tweet {
-    border: 1px solid #e1e8ed;
-    border-radius: 4px;
     margin-top:    0.75em;
     margin-bottom: 0.75em;
     font-size: 90%;
-    color: #1c2022;
-
-    &:hover {
-      border-color: #ccd6dd;
-    }
 
     .body {
       margin-top: 0;
@@ -193,12 +170,6 @@
     }
   }
 
-  .link_blend:not(:focus):not(:hover):not(:active) {
-    font-weight: inherit;
-    color: inherit;
-    text-decoration: inherit;
-  }
-
   .twemoji {
     width:  1.2em;
     height: 1.2em;
@@ -222,20 +193,84 @@
     margin-bottom: 20px;
     width: calc(100% + 40px);
     max-width: calc(100% + 40px);
-    border-bottom: 1px solid #e1e8ed;
   }
+
+  // This overrides the coloured background applied to tweets elsewhere
+  // on the site.
+  background: none;
 }
 
 blockquote .tweet {
   margin-bottom: 1em;
 }
 
-// End copied content
-
 .tweet {
-  blockquote {
-    background: none;
+  background-color: #fff;
+
+  $border-color: #e1e8ed;
+
+  &, .quoted_tweet, .name {
+    color: #1c2022;
   }
-  margin-left:  auto;
-  margin-right: auto;
+
+  &, .quoted_tweet {
+    border-color: $border-color;
+  }
+
+  &:hover {
+    background-color: #f7f9f9;
+  };
+
+  a, a:visited {
+    color: #2b7bb9;
+  }
+  .screen_name, .metadata, .metadata a {
+    color: #697882;
+  }
+
+  .media, .media-3 a:nth-child(2), img.media {
+    border-bottom-color: $border-color;
+  }
+
+  .media-3 a:nth-child(1) {
+    border-right-color: $border-color;
+  };
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #15202b;
+
+    &, .quoted_tweet, .name {
+      color: #e7e9ea;  // v light white
+    }
+
+    $border-color: #425364;
+
+    .twitter_birb .icon {
+      fill: white;
+    }
+
+    &:hover {
+      background-color: #202731;
+    };
+
+    &, .quoted_tweet {
+      border-color: $border-color;
+    }
+
+    a, a:visited {
+      color: #6bc9fb;
+    }
+
+    .screen_name, .metadata, .metadata a {
+      color: #8b98a5;
+    }
+
+    .media, .media-3 a:nth-child(2), img.media {
+      border-bottom-color: $border-color;
+    }
+
+    .media-3 a:nth-child(1) {
+      border-right-color: $border-color;
+    };
+  }
 }

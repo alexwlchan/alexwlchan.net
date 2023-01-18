@@ -102,7 +102,7 @@ All you have to do is [add some random JavaScript file to your website][js], and
 
 
 
-  {% separator "checkmark.svg" %}
+  ---
 
 
 Okay, so this is actually a daft idea I had this morning because of all the shenanigans around Twitter Blue and what the different colours of checkmark do or don't mean.

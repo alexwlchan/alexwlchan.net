@@ -144,7 +144,7 @@ In this post, we'll peek under the covers and see how it works.
 
 
 
-  {% separator "marquee-870892.svg" %}
+  ---
 
 
 
@@ -192,7 +192,7 @@ We need to find a steering wheel.
 
 
 
-  {% separator "marquee-870892.svg" %}
+  ---
 
 
 
@@ -254,7 +254,7 @@ Can we go faster?
 
 
 
-  {% separator "marquee-870892.svg" %}
+  ---
 
 
 
@@ -346,7 +346,7 @@ Can we get some controls?
 
 
 
-  {% separator "marquee-870892.svg" %}
+  ---
 
 
 
@@ -446,7 +446,7 @@ It's unsurprising, if disappointing, that a consensus has failed to emerge.
 
 
 
-  {% separator "marquee-870892.svg" %}
+  ---
 
 
 
@@ -492,7 +492,7 @@ The possibilities are as endless as they are horrifying.
 
 
 
-  {% separator "marquee-870892.svg" %}
+  ---
 
 
 
