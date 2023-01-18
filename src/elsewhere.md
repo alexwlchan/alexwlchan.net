@@ -6,6 +6,36 @@ title: Elsewhere
 This is a list of articles I've written, talks I've given, and podcasts I've been a guest on.
 I sometimes link to these in the main blog feed; this page is meant to be a convenient reference.
 
+<style type="x-text/scss">
+  .archive {
+    margin-top: 1.2em;
+
+    .archive__date {
+      width: 68px;
+      font-size: 0.85em;
+      color: $accent-grey-light;
+      text-align: right;
+      vertical-align: top;
+
+      @media (prefers-color-scheme: dark) {
+        color: $accent-grey-dark;
+      }
+    }
+
+    .archive__bestof {
+      padding-left:  5px;
+      padding-right: 5px;
+      width: 12px;
+      vertical-align: top;
+
+      img {
+        width: 12px;
+        display: inline-block;
+      }
+    }
+  }
+</style>
+
 <style>
   table.archive {
     margin-top: 0;

@@ -14,7 +14,6 @@ Jekyll::Hooks.register :site, :post_write do |site|
   colours = (site_colours + ['#d01c11']).uniq
 
   create_favicons(site, colours)
-  create_header_images(site, colours)
 
   dst = site.config['destination']
   FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
@@ -87,8 +86,15 @@ def colours_like(hex_colour)
     hsl_colour = Color::RGB.by_hex(hex_colour).to_hsl
 
     luminosity = hsl_colour.luminosity
-    min_luminosity = luminosity * 7 / 8
-    max_luminosity = luminosity * 8 / 7
+
+    # this is a cheap trick to make headers look better in dark mode
+    if luminosity > 50
+      min_luminosity = luminosity * 7 / 8
+      max_luminosity = luminosity * 13 / 12
+    else
+      min_luminosity = luminosity * 7 / 8
+      max_luminosity = luminosity * 8 / 7
+    end
 
     luminosity_diff = max_luminosity - min_luminosity
 
@@ -145,5 +151,11 @@ def create_header_images(site, colours)
     end
 
     image.save(out_path, :best_compression)
+  end
+end
+
+Jekyll::Hooks.register :site, :post_render do |site|
+  if File.exist? '.header_colours.txt'
+    create_header_images(site, File.readlines('.header_colours.txt').uniq.map { |ln| ln.strip })
   end
 end

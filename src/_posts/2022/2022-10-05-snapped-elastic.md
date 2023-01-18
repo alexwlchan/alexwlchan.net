@@ -4,8 +4,9 @@ date: 2022-10-05 07:50:53 +0000
 title: Finding a tricky bug in Elasticsearch 8.4.2
 summary: Gradually deleting more and more data helped me get a reliable repro for an elusive bug.
 tags: debugging-stories
-index:
-  tint_color: "#52a89f"
+colors:
+  index_light: "#52a89f"
+  index_dark:  "#4fd6ca"
 ---
 
 <!-- Card image: https://wellcomecollection.org/works/r8t5urwh, public domain -->

@@ -23,3 +23,27 @@
     background: rgba($color, $opacity);
   }
 }
+
+@mixin card_light_styles($color) {
+  border-color: $color;
+
+  .card_title {
+    color: $color;
+  }
+
+  a:hover {
+    background: rgba($color, 0.2);
+  }
+}
+
+@mixin card_dark_styles($color) {
+  border-color: $color;
+
+  .card_title {
+    color: $color;
+  }
+
+  a:hover {
+    background: rgba($color, 0.3);
+  }
+}

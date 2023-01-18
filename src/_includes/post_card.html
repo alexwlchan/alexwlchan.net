@@ -1,24 +1,29 @@
-{% if post.index.tint_color or post.theme.color or is_index %}
-  {% if post.index.tint_color %}
-    {% assign color = post.index.tint_color %}
-  {% elsif post.theme.color %}
-    {% assign color = post.theme.color %}
-  {% else %}
-    {% assign color = "#d01c11" %}
-  {% endif %}
-<style>
-  #post-{{ post.slug }}.card {
-    border-color: {{ color }};
-  }
+{% if post.colors.index_light %}
+  <style type="x-text/scss">
+    #post-{{ post.slug }} {
+      @include card_light_styles({{ post.colors.index_light }});
+    }
+  </style>
+{% elsif post.colors.css_light %}
+  <style type="x-text/scss">
+    #post-{{ post.slug }} {
+      @include card_light_styles({{ post.colors.css_light }});
+    }
+  </style>
+{% endif %}
 
-  #post-{{ post.slug }} .card_title {
-    color: {{ color }};
-  }
-
-  #post-{{ post.slug }}.card a:hover {
-    background: {{ color | rgba: 0.2 }};
-  }
-</style>
+{% if post.colors.index_dark %}
+  <style type="x-text/scss" media="(prefers-color-scheme: dark)">
+    #post-{{ post.slug }} {
+      @include card_dark_styles({{ post.colors.index_dark }});
+    }
+  </style>
+{% elsif post.colors.css_dark %}
+  <style type="x-text/scss" media="(prefers-color-scheme: dark)">
+    #post-{{ post.slug }} {
+      @include card_dark_styles({{ post.colors.css_dark }});
+    }
+  </style>
 {% endif %}
 
 <li
