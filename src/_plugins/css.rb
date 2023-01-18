@@ -41,12 +41,12 @@ module Jekyll
       dst = site.config['destination']
 
       # Create the base style sheet
-      if !File.exist? "#{dst}/styles/style.css"
+      unless File.exist? "#{dst}/styles/style.css"
         base_css = convert_css(site, File.read("#{src}/_scss/style.scss"))
 
         @base_css_md5 = Digest::MD5.new.hexdigest base_css
 
-        out_path = "/styles/style.css"
+        out_path = '/styles/style.css'
         FileUtils.mkdir_p File.dirname("#{dst}/#{out_path}")
         File.write("#{dst}#{out_path}", base_css)
       end
