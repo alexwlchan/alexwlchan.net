@@ -15,13 +15,65 @@
 
 // Template-specific styles
 @import "_archive.scss";
-@import "_post.scss";
 
 // Minor/optional page components
 @import "_code.scss";
 @import "_pygments.scss";
-@import "_tweets.scss";
-@import "_figures.scss";
-@import "_images_wide.scss";
-@import "_downloads.scss";
-@import "_article_cards.scss";
+
+.meta, figcaption {
+  color: $accent-grey;
+
+  /* We need !important so these styles don't get replaced by page theming */
+  a, a:visited {
+    color: $accent-grey !important;
+    &:hover {
+      background: rgba($accent-grey, 0.2) !important;
+    }
+
+    /* At least on my printer, $accent-grey is too light to be readable */
+    @media print {
+      color: $body-color;
+    }
+  }
+}
+
+.post__permalink a {
+  &, &:visited {
+    color: $primary-color;
+  }
+}
+
+a.download {
+  border-color: $primary-color;
+
+  // We need to override the background styles
+  color: $primary-color !important;
+  background: rgba(white, 0.4) !important;
+
+  // Although this is supplied by the link style, we need to set it again
+  // here because the `background` rule above overrides the `a:hover` rule.
+  &:hover {
+    background: rgba($primary-color, 0.2) !important;
+  }
+}
+
+.post_cards .card {
+  border-color: $primary-color;
+
+  /* This gives cards a v subtle solid background colour, to make them
+   * stand out from the textured background.
+   */
+  background: #fafafa;
+
+  a {
+    color: $body-color;
+
+    .card_title {
+      color: $primary-color;
+    }
+  }
+
+  .card_posting_date p {
+    color: $accent-grey;
+  }
+}

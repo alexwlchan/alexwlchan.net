@@ -4,9 +4,6 @@ footer {
 }
 
 #footer_inner {
-  font-size:   $meta-font-size;
-  line-height: $meta-line-height;
-
   p:not(:last-child) {
     margin-bottom: $meta-size * 1em;
   }
