@@ -1,10 +1,8 @@
-$archive-left-column: 68px;
-
 .archive {
   margin-top: 1.2em;
 
   .archive__date {
-    width: $archive-left-column;
+    width: 68px;
     font-size: 0.85em;
     color: $accent-grey;
     text-align: right;
