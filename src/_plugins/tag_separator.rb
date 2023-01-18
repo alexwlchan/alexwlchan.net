@@ -4,8 +4,6 @@
 #
 #     {% separator "scroll.svg" %}
 #
-#     {% text_separator "---" %}
-#
 # References:
 #
 #   - Accessible SVGs https://css-tricks.com/accessible-svgs/
@@ -36,18 +34,9 @@ module Jekyll
       # We omit the alt tag because this is just for decoration.
       svg_doc.root.set_attribute('role', 'img')
 
-      # Render the minified version of the SVG in the HTML.
-      svg =
-        svg_doc.to_xml(indent: 0)
-               .gsub('<?xml version="1.0" encoding="UTF-8"?>', '')
-               .gsub('<?xml version="1.0"?>', '')
-               .gsub('#000000', '#f0f0f0')  # $light-grey in the CSS
-               .gsub('height="300px"', 'height="50px"')
-               .gsub('width="300px"', 'width="50px"')
-
       <<~HTML
-        <center class='separator' aria-hidden='true'>
-          #{svg}
+        <center class='separator' role='separator'>
+          #{svg_doc.to_xml(indent: 0)}
         </center>
       HTML
     end
