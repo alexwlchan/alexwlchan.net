@@ -4,8 +4,9 @@ title: Ode to docopt
 summary: Why I love docopt as a tool for writing clean, simple command-line interfaces.
 tags: python python:docopt talks
 date: 2017-09-11 12:01:13 +0100
-theme:
-  color: "#008000"
+colors:
+  css_light: "#008000"
+  css_dark:  "#00b300"
 ---
 
 Every week, we have an hour of developer learning at work -- maybe a talk, a workshop, or some other session about of topic of interest to developers.

@@ -6,8 +6,8 @@ summary: A Python snippets for drawing bar charts in command-line applications.
 tags: terminal-tricks python
 title: Drawing ASCII bar charts
 colors:
-  index_light: "#000"
-  index_dark:  "#ccc"
+  index_light: "#000000"
+  index_dark:  "#cccccc"
 ---
 
 When I'm writing scripts, I often have some tabular data that I need to present.

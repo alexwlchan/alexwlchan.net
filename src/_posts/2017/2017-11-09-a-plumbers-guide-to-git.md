@@ -1,12 +1,12 @@
 ---
 date: 2017-11-09 18:18:05 +0000
-index:
-  best_of: true
-  tint_color: "#d32a1d"
 layout: post
 summary: How does Git work under the hood? How does it store information, and what's really behind a branch?
 tags: workshops git
 title: A plumber's guide to Git
+colors:
+  index_light: "#d32a1d"
+  index_dark:  "#eae7e8"
 ---
 
 Git is a very common tool in modern development workflows.

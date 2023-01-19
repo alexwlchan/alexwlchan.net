@@ -4,8 +4,9 @@ date: 2018-09-24 06:56:21 +0000
 title: Assume worst intent (designing against the abusive ex)
 tags: pyconuk talks community-management inclusion trust-and-safety
 summary: How do we design services and platforms to reduce the risk of harassment and abuse from other users?
-theme:
-  color: "#531b93"
+colors:
+  index_light: "#531b93"
+  index_dark:  "#b7cada"
 index:
   best_of: true
 ---
