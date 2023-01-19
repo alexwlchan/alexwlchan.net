@@ -6,14 +6,11 @@
 
 module Jekyll
   class AllPostsByYear < Generator
-    def posts_group_by_year(site)
-      site.posts.docs.reverse_each.group_by { |post| post.date.year }
-    end
-
     def generate(site)
-      site.data['posts_by_year'] = posts_group_by_year(site)
+      site.data['posts_by_year'] =
+        site.posts.docs.reverse_each.group_by { |post| post.date.year }
 
-      posts_group_by_year(site).each do |year, posts|
+      site.data['posts_by_year'].each do |year, posts|
         site.pages << PerYear.new(site, year, posts)
       end
     end
