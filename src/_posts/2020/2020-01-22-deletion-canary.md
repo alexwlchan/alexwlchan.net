@@ -33,7 +33,13 @@ If we can't, great, everything is fine.
 
 If we can, losing a copy of this file is less bad than deleting part of the archive.
 
-<img src="/images/2020/s3_delete_canary_1x.png" srcset="/images/2020/s3_delete_canary_1x.png 1x, /images/2020/s3_delete_canary_2x.png 2x" alt="A file listing in the S3 console.  Four files are listed: three folders, and one text file highlighted in blue.">
+{%
+  picture
+  filename="s3_delete_canary.png"
+  alt="A file listing in the S3 console.  Four files are listed: three folders, and one text file highlighted in blue."
+  visible_width="750px"
+  class="screenshot"
+%}
 
 What if somebody comes across this file in a decade's time, and wonders what it's for?
 Then they can download it, and read the text inside the file, which explains what I just explained above.

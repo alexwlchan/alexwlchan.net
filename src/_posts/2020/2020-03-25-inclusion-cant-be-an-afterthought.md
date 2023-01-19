@@ -116,7 +116,7 @@ Let's look at some examples.
   slide
   filename="slide4.jpg"
   alt="A hand holding up a smartphone recording video."
-  caption="Image by [Teono123 No](https://www.pexels.com/@teono123-no-18036) on [Pexels](https://www.pexels.com/photo/picture-smartphone-elephants-woman-88476/). Used under CC0.
+  caption="Image by [Teono123 No](https://www.pexels.com/@teono123-no-18036) on [Pexels](https://www.pexels.com/photo/picture-smartphone-elephants-woman-88476/). Used under CC0."
 %}
 
 We all have smartphones, and many of us use them to record video.
