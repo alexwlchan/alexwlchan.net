@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Replaces <hr> instances with a slightly prettier version.
 #
