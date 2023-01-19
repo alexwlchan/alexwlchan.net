@@ -4,10 +4,11 @@ date: 2022-09-23 05:42:28 +0000
 title: '"Fixing" the rules of division'
 summary: If we want to redefine how division works, Ruby is happy to oblige.
 tags: maths ruby code-crimes
-theme:
-  color: "#292929"
-index:
-  tint_color: "#d01c11"
+colors:
+  css_light:   "#292929"
+  css_dark:    "#8a8a8a"
+  index_light: "#d01c11"
+  index_dark:  "#FF4242"
 ---
 
 <!-- Card image from https://www.publicdomainpictures.net/en/view-image.php?image=82122&picture=vintage-office-calculator-keypad -->

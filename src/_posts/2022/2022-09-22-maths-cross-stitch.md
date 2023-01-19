@@ -4,8 +4,9 @@ date: 2022-09-22 21:32:14 +0000
 title: The maths cross-stitch that hangs behind me
 summary: When I’m on video calls, my backdrop has some maths-related art that I helped to make.
 tags: cross-stitch maths
-index:
-  tint_color: "#25385e"
+colors:
+  css_light: "#742a0c"
+  css_dark:  "#b7834f"
 ---
 
 <style>

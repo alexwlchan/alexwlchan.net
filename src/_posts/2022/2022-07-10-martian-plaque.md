@@ -4,8 +4,9 @@ date: 2022-07-10 17:09:12 +0000
 title: A Martian plaque for a made-up plot
 summary: If NASA was the first to land on Mars in <em>For All Mankind</em>, what would the commemorative plaque look like?
 tags: trivia tv space
-theme:
-  color: "#495652"
+colors:
+  css_light: "#495652"
+  css_dark:  "#aab6b2"
 ---
 
 *Spoilers for <em>For All Mankind</em> season 3, up to s03e05.*

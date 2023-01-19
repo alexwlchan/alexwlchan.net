@@ -4,8 +4,9 @@ date: 2022-10-10 19:47:42 +0000
 title: Finding books in nearby library branches
 summary: Some web scraping and Python helps me find books that I can borrow immediately.
 tags: books libraries
-index:
-  tint_color: "#527345"
+colors:
+  index_light: "#527345"
+  index_dark:  "#97b18a"
 ---
 
 <!-- Cover image from https://wellcomecollection.org/works/u7xetmy2/images?id=mbrj8865, Public Domain -->

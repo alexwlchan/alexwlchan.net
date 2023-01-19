@@ -5,8 +5,9 @@ title: Checking lots of URLs with curl
 summary: A bash script to check the HTTP status code of a bunch of URLs, for simple and portable uptime checking.
 tags: shell-scripting curl
 
-index:
-  tint_color: "#073551"
+colors:
+  index_light: "#073551"
+  index_dark:  "#0ad1d1"
 ---
 
 I've been rejigging some stuff on the site recently -- moving the hosting, turning off my old web server, updating DNS records -- and I wanted a quick way to check I hadn't broken anything.

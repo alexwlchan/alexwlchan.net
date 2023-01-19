@@ -4,15 +4,16 @@ date: 2022-08-07 21:47:26 +0000
 title: Our Place in Space
 summary: You don’t realise how big the solar system is until you've walked the length of it.
 tags: photography science space
-index:
-  tint_color: "#af5418"
+colors:
+  index_light: "#af5418"
+  index_dark:  "#d69f30"
 ---
 
 <style>
   .grid {
     display: grid;
     grid-template-columns: calc(66% - 5px) calc(34% - 5px);
-    grid-gap: 10px;
+    grid-gap: $grid-gap;
     aspect-ratio: 2.05 / 1;
   }
 
