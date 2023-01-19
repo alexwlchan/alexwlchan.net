@@ -6,7 +6,7 @@ summary: "Photographs from a trip to North Queensferry to see the Forth Bridge, 
 tags: personal scotland photography
 colors:
   index_light: "#3063a4"
-  index_dark:  "#7197c4"
+  index_dark:  "#629de4"
 ---
 
 While clearing out some boxes recently, I found a leaflet from an old holiday.

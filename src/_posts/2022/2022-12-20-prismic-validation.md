@@ -4,8 +4,9 @@ date: 2022-12-20 08:31:16 +0000
 title: How we do bulk analysis of our Prismic content
 summary: By downloading all our Prismic documents, we can run validation rules, fix broken links, and find interesting examples.
 tags: prismic
-index:
-  tint_color: "#1d1d25"
+colors:
+  index_light: "#1d1d25"
+  index_dark:  "#a1a1b5"
 ---
 
 <!-- Cover image: https://commons.wikimedia.org/wiki/File:Prism_flat_rainbow.jpg, CC0 -->

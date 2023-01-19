@@ -4,8 +4,9 @@ date: 2022-10-26 18:58:54 +0000
 title: Some small accessibility fixes
 summary: Making the sites I work on sound a bit nicer for anyone who relies on screen readers.
 tags: accessibility blogging-about-blogging
-theme:
-  color: "#075ba3"
+colors:
+  css_light: "#075ba3"
+  css_dark:  "#198ff5"
 ---
 
 I've been doing a bunch of testing with VoiceOver recently, helping to [prepare the digital guides for a new exhibition at work][ips].
@@ -13,6 +14,8 @@ I like to think my site is already pretty accessible -- I put alt text on my ima
 None of these were big or tricky, but I hope they make the site a bit nicer for screen reader and keyboard-only users.
 
 [ips]: https://twitter.com/ExploreWellcome/status/1584911184242909184
+
+---
 
 ## Skip to main content
 
@@ -35,6 +38,8 @@ This took [less than two minutes to add][commit], and given I'd definitely heard
 [skipnav]: https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
 [commit]: https://github.com/alexwlchan/alexwlchan.net/commit/342018fe2689412570d40cc02e33780ae7307e56
 
+---
+
 ## Better telephone numbers
 
 The Wellcome Collection website has quite a few phone numbers on it, and while testing I discovered that they don't scan so well.
@@ -55,7 +60,7 @@ This includes [a function to create the labels][function], so this behaviour can
 [aria-label]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label
 [function]: https://github.com/wellcomecollection/wellcomecollection.org/blob/76634b1af35e8f64b7a63b52e0afd53cbeb38ff2/common/utils/telephone-numbers.ts
 
-
+---
 
 ## Pronunciation hints for proper nouns
 

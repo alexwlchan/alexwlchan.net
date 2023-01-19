@@ -4,8 +4,9 @@ date: 2022-11-29 23:39:11 +0000
 title: Redacting sensitive query parameters with koa and koa-logger
 summary: Using a custom transporter to modify the log message and remove secret information.
 tags: javascript javascript:koa
-index:
-  tint_color: "#054f17"
+colors:
+  index_light: "#054f17"
+  index_dark:  "#08af2f"
 ---
 
 <!-- Card image based on https://www.pexels.com/photo/photo-of-green-fern-leaves-1687341/ and Wikipedia article -->
