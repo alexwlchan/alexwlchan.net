@@ -10,15 +10,16 @@
 
 module Jekyll
   module Filters
-    SMARTIFY_CACHE = {}
+    def cache
+      @@cache ||= Jekyll::Cache.new('Smartify')
+    end
 
     # See https://github.com/jekyll/jekyll/blob/4.3-stable/lib/jekyll/filters.rb#L22-L31
     def smartify(input)
-      SMARTIFY_CACHE.fetch(input) do |input|
-        SMARTIFY_CACHE[input] =
-          @context.registers[:site]
-                  .find_converter_instance(Jekyll::Converters::SmartyPants)
-                  .convert(input.to_s)
+      cache.getset(input) do
+        @context.registers[:site]
+                .find_converter_instance(Jekyll::Converters::SmartyPants)
+                .convert(input.to_s)
       end
     end
   end
