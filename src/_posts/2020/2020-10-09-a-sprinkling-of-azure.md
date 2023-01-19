@@ -4,8 +4,9 @@ date: 2020-10-09 11:37:47 +0000
 title: Replicating Wellcome Collection's digital archive to Azure Blob Storage
 tags: wellcome-collection digital-preservation azure
 link: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
-index:
-  tint_color: "#235b99"
+colors:
+  index_light: "#235b99"
+  index_dark:  "#82baf3"
 summary: How and why we keep copies of Wellcome's digital collections in multiple cloud storage providers.
 ---
 
