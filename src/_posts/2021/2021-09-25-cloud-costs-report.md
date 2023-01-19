@@ -12,7 +12,13 @@ index:
 The AWS bill is everyone's most expensive horror story.
 To help my team be more aware of what our bill looks like, I've set up a monthly cloud costs report that posts a shared Slack channel:
 
-<img src="/images/2021/costs_report_2x.png" srcset="/images/2021/costs_report_2x.png 2x, /images/2021/costs_report_1x.png 1x" style="width: 626px;" alt="A Slack message titled 'Costs report for September 2021' with tabular data in a code block. The table has columns for the account name, bill in the last month and the current month, and one row per account. Two of the rows have arrows on the right-hand side to indicate a significant increase and decrease.">
+{%
+  picture
+  filename="costs_report.png"
+  alt="A Slack message titled 'Costs report for September 2021' with tabular data in a code block. The table has columns for the account name, bill in the last month and the current month, and one row per account. Two of the rows have arrows on the right-hand side to indicate a significant increase and decrease."
+  visible_width="626px"
+  class="screenshot"
+%}
 
 The report has one line per AWS account, plus a line for the total.
 Each line includes both the latest bill, and the average from the previous three months, so we can see the general direction.

@@ -18,7 +18,12 @@ Modern spies don't use analogue recorders and reel-to-reel tape, they use comput
 Could we equip them with a message that would self-destruct as soon as they read it?
 The answer: yes, but you really shouldn't.
 
-<img src="/images/2019/tape_recorder_1x.jpg" srcset="/images/2019/tape_recorder_1x.jpg 1x, /images/2019/tape_recorder.jpg 2x" alt="A tape recorder with smoke coming out of it.">
+{%
+  picture
+  filename="tape_recorder.jpg"
+  alt="A tape recorder with smoke coming out of it."
+  visible_width="750px"
+%}
 
 It's easy to create an executable file that destroys itself as soon as it runs.
 The challenge is to do it in a format that looks innocuous -- at a casual glance, it looks like a plain text file, with no trickery or traps.
