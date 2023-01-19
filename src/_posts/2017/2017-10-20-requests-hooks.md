@@ -5,8 +5,9 @@ summary: I often have code I want to run against every HTTP response (logging, e
   checking) --- event hooks give me a nice way to do that without repetition.
 tags: python python:requests
 title: Using hooks for custom behaviour in requests
-index:
-  tint_color: "#79451e"
+colors:
+  index_light: "#79451e"
+  index_dark:  "#b3814e"
 ---
 
 <!-- Index image from https://pixnio.com/objects/screw/wood-screw-hooks-white-metal-steel# -->

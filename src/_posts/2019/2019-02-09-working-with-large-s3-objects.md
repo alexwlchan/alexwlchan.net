@@ -2,7 +2,6 @@
 date: 2019-02-09 18:09:32 +0000
 index:
   best_of: true
-  tint_color: "#6CAE3E"
 layout: post
 summary: Code for processing large objects in S3 without downloading the whole thing
   first, using file-like objects in Python.

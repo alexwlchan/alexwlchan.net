@@ -67,11 +67,11 @@ module Jekyll
                            end
 
       if contrast(primary_color_light, '#ffffff') < 4.5
-        throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 7"
+        throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 4.5"
       end
 
       if contrast(primary_color_dark, '#000000') < 4.5
-        throw "dark color: insufficient contrast between black and #{primary_color_dark}: #{contrast(primary_color_dark, '#000000')} < 7"
+        throw "dark color: insufficient contrast between black and #{primary_color_dark}: #{contrast(primary_color_dark, '#000000')} < 4.5"
       end
 
       open('.header_colours.txt', 'a') do |f|

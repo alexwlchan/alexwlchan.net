@@ -5,9 +5,9 @@ summary: I want to display text next to an image that looks visually similar to 
   image, so I need to extract a tint colour.
 title: Getting a tint colour from an image with Python and <em>k</em>-means
 tags: python images python:pillow colour
-index:
-  best_of: true
-  tint_color: "#4A653A"
+colors:
+  index_light: "#4A653A"
+  index_dark:  "#70a15a"
 ---
 
 As [part of my app][docstore] for storing my electronic documents, there's a grid view that displays big thumbnails of all my files.

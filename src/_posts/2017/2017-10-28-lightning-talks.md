@@ -4,8 +4,9 @@ date: 2017-10-28 10:20:29 +0000
 title: Lightning talks
 tags: conferences pyconuk
 summary: Why I like the lottery system used to select lightning talks at PyCon UK this year.
-index:
-  tint_color: "#174346"
+colors:
+  index_light: "#174346"
+  index_dark:  "#e0b411"
 ---
 
 A constant highlight of PyCon UK is the lighting talks session.

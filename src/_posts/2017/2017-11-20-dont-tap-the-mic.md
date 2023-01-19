@@ -4,8 +4,9 @@ title: Don't tap the mic, and other tips for speakers
 summary: Tapping the microphone to test it can be bad for all sorts of reasons -- and other advice from the Nine Worlds speaker guidelines.
 link: https://nineworlds.co.uk/news/2016/08/05/speaker-guidelines
 date: 2017-11-20 08:00
-index:
-  tint_color: "#4a403a"
+colors:
+  index_light: "#4a403a"
+  index_dark:  "#d5d6d5"
 tags: conferences
 ---
 

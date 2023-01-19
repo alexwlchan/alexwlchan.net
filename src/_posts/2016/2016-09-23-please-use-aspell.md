@@ -3,8 +3,9 @@ layout: post
 date: 2016-09-23 07:40:00 +0000
 title: aspell, a command-line spell checker
 tags: writethedocs
-index:
-  tint_color: "#022833"
+colors:
+  index_light: "#022833"
+  index_dark:  "#a7b3b4"
 ---
 
 At this month's [WriteTheDocs London](https://www.meetup.com/Write-The-Docs-London/), there was a discussion of "docs-as-code".

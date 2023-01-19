@@ -4,9 +4,9 @@ date: 2019-06-18 12:48:49 +0000
 title: An inescapable conclusion
 summary: After months of introspection and soul-searching, I've had some big realisations about my identity.
 tags: personal gender
-index:
-  best_of: true
-  tint_color: "#0a5b8a"
+colors:
+  index_light: "#0a5b8a"
+  index_dark:  "#54b8f2"
 ---
 
 If you listen to some of my friends, they'll say that I'm a spy.

@@ -5,8 +5,9 @@ link: https://hypothesis.works/articles/continuous-releases/
 title: The Hypothesis continuous release process
 tags: builds-and-ci python:hypothesis
 summary: How we do continuous releases of hypothesis-python, and why.
-index:
-  tint_color: "#006dad"
+colors:
+  index_light: "#006dad"
+  index_dark:  "#2975bc"
 ---
 
 About a year ago, David built a powerful continuous release system for the hypothesis-python repo.
