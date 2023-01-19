@@ -21,7 +21,7 @@ module Jekyll
       MARKDOWNIFY_ONELINE_CACHE.fetch(input) do |input|
         MARKDOWNIFY_ONELINE_CACHE[input] =
           @context.registers[:site]
-                  .find_converter_instance(::Jekyll::Converters::Markdown)
+                  .find_converter_instance(Jekyll::Converters::Markdown)
                   .convert(input)
                   .sub('<p>', '')
                   .sub('</p>', '')
