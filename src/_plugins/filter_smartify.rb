@@ -11,7 +11,7 @@
 module Jekyll
   module Filters
     def cache
-      @@cache ||= Jekyll::Cache.new("Smartify")
+      @@cache ||= Jekyll::Cache.new('Smartify')
     end
 
     # See https://github.com/jekyll/jekyll/blob/4.3-stable/lib/jekyll/filters.rb#L22-L31

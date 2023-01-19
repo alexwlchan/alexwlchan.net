@@ -16,7 +16,7 @@
 module Jekyll
   module MarkdownifyOnlineFilter
     def cache
-      @@cache ||= Jekyll::Cache.new("MarkdownifyOnline")
+      @@cache ||= Jekyll::Cache.new('MarkdownifyOnline')
     end
 
     def markdownify_oneline(input)
