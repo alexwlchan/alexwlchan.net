@@ -61,7 +61,13 @@ So, to recap, I'm using:
 
 Putting it all together, this is what the app looks like:
 
-<img src="/images/2020/uk_stations_map_1x.png" srcset="/images/2020/uk_stations_map_1x.png 1x, /images/2020/uk_stations_map_2x.png 2x" alt="Screenshot of an app. Most of the app is a grayscale map of the UK with green circles dotted all over it, and below it is a text field with a list of station names in green bubbles.">
+{%
+  picture
+  filename="uk_stations_map.png"
+  alt="Screenshot of an app. Most of the app is a grayscale map of the UK with green circles dotted all over it, and below it is a text field with a list of station names in green bubbles."
+  visible_width="500px"
+  class="screenshot"
+%}
 
 A map tells you much more than a flat list:
 
