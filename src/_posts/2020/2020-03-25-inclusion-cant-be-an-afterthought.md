@@ -4,8 +4,9 @@ date: 2020-03-25 13:03:10 +0000
 title: Inclusion can't be an afterthought
 summary: Notes from a talk about inclusion in design and unconscious bias.
 tags: inclusion talks open-life-science
-theme:
-  color: "#20883f"
+colors:
+  css_light: "#20883f"
+  css_dark:  "#2fc65d"
 ---
 
 Earlier today, I gave a talk for [the Open Life Science Program][openlife] about designing with inclusion in mind.
