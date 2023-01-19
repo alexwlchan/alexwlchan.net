@@ -44,6 +44,9 @@ kramdown:
 
 highlighter: "rouge"
 
+plugins:
+  - "jekyll-include-cache"
+
 liquid:
   error_mode: "strict"
   strict_filters: true

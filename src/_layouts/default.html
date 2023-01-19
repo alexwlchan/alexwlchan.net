@@ -10,12 +10,12 @@ layout: compress
   <a class="skip-main" href="#main">Skip to main content</a>
 
   <body>
-    {% include nav.html %}
+    {% include_cached nav.html %}
 
     <main id="main" tabindex="-1">
       {{ content }}
     </main>
 
-    {% include footer.html %}
+    {% include_cached footer.html %}
   </body>
 </html>
