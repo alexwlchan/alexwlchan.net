@@ -5,15 +5,16 @@ title: Creating pairs of interlocking rainbow hearts 🌈
 summary: A web app for creating pairs of hearts based on Pride flags.
 tags: glitch generative-art fun-stuff
 link: https://rainbow-hearts.glitch.me/
-index:
-  tint_color: "#870788"
+colors:
+  index_light: "#870788"
+  index_dark:  "#a86da8"
 ---
 
 <style type="x-text/scss">
   #grid-container {
     display: grid;
     grid-template-columns: 66% 32%;
-    grid-gap: $default-grid-gap;
+    grid-gap: $grid-gap;
     height: 50%;
   }
 

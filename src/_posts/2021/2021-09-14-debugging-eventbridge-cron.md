@@ -4,8 +4,9 @@ date: 2021-09-14 20:40:26 +0000
 title: When is my EventBridge cron expression going to run next?
 summary: The AWS console will tell you when your EventBridge rule is going to run… if you know where to look.
 tags: aws amazon-eventbridge
-index:
-  tint_color: "#565b62"
+colors:
+  index_light: "#565b62"
+  index_dark:  "#bfc3c5"
 ---
 
 Within AWS, you can use [EventBridge rules] to run something on a schedule.

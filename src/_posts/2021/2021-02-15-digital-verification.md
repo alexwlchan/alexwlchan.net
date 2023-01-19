@@ -8,7 +8,7 @@ link: https://stacks.wellcomecollection.org/our-approach-to-digital-verification
 
 colors:
   index_light: "#4c4c4c"
-  index_dark:  "#aaa"
+  index_dark:  "#aaaaaa"
 ---
 
 A couple of weeks ago, I wrote [a post on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7) about how we do verification of our digital collections.
