@@ -5,8 +5,9 @@ title: A new README for docstore, my tool for organising scanned paperwork
 summary: Although I don't expect anyone to use it directly, there might be some interesting ideas that could apply elsewhere.
 link: https://github.com/alexwlchan/docstore
 tags: productivity
-index:
-  tint_color: "#7a2342"
+colors:
+  index_light: "#7a2342"
+  index_dark:  "#e5bcc9"
 ---
 
 I've written previously about how I [scan and organise my paperwork]({% post_url 2019/2019-11-27-my-scanning-setup %}).
