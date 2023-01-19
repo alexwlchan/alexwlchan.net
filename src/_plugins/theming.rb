@@ -13,7 +13,7 @@ Jekyll::Hooks.register :site, :post_write do |site|
 
   colours = (site_colours + ['#d01c11']).uniq
 
-  create_favicons(site, colours)
+  # create_favicons(site, colours)
 
   dst = site.config['destination']
   FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
@@ -150,6 +150,8 @@ end
 
 Jekyll::Hooks.register :site, :post_render do |site|
   if File.exist? '.header_colours.txt'
-    create_header_images(site, File.readlines('.header_colours.txt').uniq.map(&:strip))
+    colours = File.readlines('.header_colours.txt').uniq.map(&:strip)
+    create_header_images(site, colours)
+    create_favicons(site, colours)
   end
 end

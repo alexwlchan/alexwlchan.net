@@ -5,8 +5,9 @@ title: Running a Rust binary in Glitch
 summary: Using different targets to build Rust binaries that will run in Glitch.
 tags: glitch rust
 
-index:
-  tint_color: "#ff386a"
+colors:
+  index_light: "#ff386a"
+  index_dark:  "#5e76fd"
 ---
 
 Earlier today I was trying to run a Rust app in [Glitch].

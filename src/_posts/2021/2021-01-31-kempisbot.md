@@ -6,7 +6,9 @@ summary: How I reincarnated a fifteenth-century monk and taught him to use Twitt
 tags: python twitter fun-stuff
 index:
   best_of: true
-  tint_color: "#624230"
+colors:
+  index_light: "#624230"
+  index_dark:  "#aa9f92"
 ---
 
 A couple of weeks ago, I got a message from my friend Jay, asking if I'd help him build a Twitter bot to tweet [*The Imitation of Christ*](https://en.wikipedia.org/wiki/The_Imitation_of_Christ) as a long Twitter thread:

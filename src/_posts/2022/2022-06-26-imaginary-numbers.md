@@ -4,8 +4,9 @@ date: 2022-06-26 23:04:52 +0000
 title: Fictional phone numbers in *For All Mankind*
 summary: Where did this UK phone number come from?
 tags: trivia television
-theme:
-  color: "#9b8012"
+colors:
+  css_light: "#7b650e"
+  css_dark:  "#efb41f"
 ---
 
 *Note: mild spoilers for For All Mankind S3E3 "All In".*
@@ -94,7 +95,12 @@ It's possible this number went somewhere in 1992 and then got unassigned, but it
 
 Now I know: this is a UK phone number with a period-accurate dialling code for inner London, drawn from a range of numbers reserved for fictional purposes shortly after the story is set.
 
-<img src="/images/2022/phone_number_annotated.jpg" style="width: 554px;" alt="The same business card, now with yellow hand-drawn markings highlighting the three parts of the number. +44 is the UK international dialling code, 071 is the inner London area code, 946-0241 is from a range allocated by Oftel for fictional use.">
+{%
+  picture
+  filename="phone_number_annotated.jpg"
+  visible_width="554px"
+  alt="The same business card, now with yellow hand-drawn markings highlighting the three parts of the number. +44 is the UK international dialling code, 071 is the inner London area code, 946-0241 is from a range allocated by Oftel for fictional use."
+%}
 
 This sort of trivia research is fun and it appeals to my specific brand of nerdery, and speaks to the attention to detail in the production design, but it doesn't pass for serious analysis.
 

@@ -4,8 +4,9 @@ date: 2022-06-03 12:29:46 +0000
 title: Redesigning my archive pages
 summary: Using coloured cards with images and descriptions to make it easier to find posts in my back catalogue.
 tags: blogging-about-blogging
-index:
-  tint_color: "#22201f"
+colors:
+  index_light: "#22201f"
+  index_dark:  "#fbfafa"
 ---
 
 Last night, I updated the archive pages for my blog.
