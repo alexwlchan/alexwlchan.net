@@ -36,7 +36,9 @@ jobs:
       - name: "Cache site output"
         uses: "actions/cache@v3"
         with:
-          path: "_site"
+          path: |
+            _site
+            src/.jekyll-cache
           key: "site-${{ github.sha }}"
           restore-keys: "site-"
 
