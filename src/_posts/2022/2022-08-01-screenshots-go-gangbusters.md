@@ -11,7 +11,13 @@ index:
 My previous post [about taking more screenshots][screenshots] has resonated with a lot of people.
 It got thousands of impressions on Twitter, and at one point it was #2 on the Hacker News homepage:
 
-<img src="/images/2022/hn_screenshot_2x.png" srcset="/images/2022/hn_screenshot_2x.png 2x, /images/2022/hn_screenshot_1x.png 1x" alt="A screenshot of the Hacker News homepage, with my post in the second slot from the top." class="screenshot">
+{%
+  picture
+  filename="hn_screenshot.png"
+  alt="A screenshot of the Hacker News homepage, with my post in the second slot from the top."
+  class="screenshot"
+  visible_width="562px"
+%}
 
 I was a bit surprised: most of my posts are only read by a handful of people.
 In hindsight, I can see why this post had broad appeal, but when I was writing I thought it would get a similar reception to my other posts.

@@ -18,7 +18,12 @@ All your actions on Earth are given a point score based on their morality, and o
 Everyone else is condemned to an eternity of misery and torture in the Bad Place.
 
 <figure style="width: 600px;">
-  <img src="/images/2020/janet.jpg" alt="Good Janet and Bad Janet.">
+  {%
+    picture
+    filename="janet.jpg"
+    alt="Good Janet and Bad Janet."
+    visible_width="600px"
+  %}
   <figcaption>
     Good Janet (left) and Bad Janet (right).
     Although Bad Janet is usually wrong, not right.

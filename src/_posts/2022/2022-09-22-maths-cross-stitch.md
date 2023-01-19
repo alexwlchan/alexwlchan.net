@@ -64,9 +64,9 @@ This is what it looks like up close:
 
 {%
   picture
-  filename="maths_sampler.jpg"
+  filename="maths_sampler.1.jpg"
   alt="A wodden frame around a cross-stitch picture. The picture is sixteen brightly-coloured squares, arranged in a four-by-four grid. Each square has a different mathematically-related symbol, including a Klein bottle, the digits of pi, a chalkboard, and a sine wave."
-  visible_width="750px"
+  visible_width="950px"
   class="wide_img"
 %}
 

@@ -13,7 +13,12 @@ theme:
 In the latest episode of *For All Mankind*, a character is handed a business card with a UK phone number.
 The camera lingers on the card for several seconds, giving us plenty of time to read it -- but at first glance, I was confused.
 
-<img src="/images/2022/phone_number.jpg" style="width: 554px;" alt="Close-up shot of a plain white business card with the number '+44 071 946-0241'. The number is written in black text, with no other markings on the card.">
+{%
+  picture
+  filename="phone_number.jpg"
+  visible_width="554px"
+  alt="Close-up shot of a plain white business card with the number '+44 071 946-0241'. The number is written in black text, with no other markings on the card."
+%}
 
 I'm used to seeing eleven-digit phone numbers (including the leading zero), but this only has ten.
 It doesn't look like any number I've ever seen.
