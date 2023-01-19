@@ -3,19 +3,19 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="en">
 
   {% include head.html %}
 
   <a class="skip-main" href="#main">Skip to main content</a>
 
   <body>
-    {% include nav.html %}
+    {% include_cached nav.html %}
 
     <main id="main" tabindex="-1">
       {{ content }}
     </main>
 
-    {% include footer.html %}
+    {% include_cached footer.html %}
   </body>
 </html>

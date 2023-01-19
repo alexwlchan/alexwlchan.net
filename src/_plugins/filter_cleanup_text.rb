@@ -35,37 +35,33 @@ module Jekyll
         part
         Season
         season
-      ]
+      ].join('|')
 
-      prefix_words.each do |w|
-        text = text.gsub(/#{w} (\d+)/, "#{w}&nbsp;" + '\1')
-      end
+      text = text.gsub(/(#{prefix_words}) (\d+)/, '\1&nbsp;\2')
 
       # Add a non-breaking space after words which are preceded by
       # a number, e.g. '1 second' or '5 bytes'
       countable_words = %w[
+        Artemis
         second
         minute
         hour
         character
         byte
-      ]
+      ].join('|')
 
-      countable_words.each do |w|
-        text = text.gsub(/(\d+) #{w}/, '\1' + "&nbsp;#{w}")
-      end
+      text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\1')
 
       # Other phrases which needed non-breaking spaces or non-breaking
       # dashes.
       phrases = [
         '<em>k</em>-means',
-        'Artemis 1',
         'CC BY 4.0',
-        'CC BY',
         'CC BY-NC 4.0',
         'CC BY-NC-ND',
         'CC BY-SA 2.0',
         'CC BY-SA 4.0',
+        'CC BY',
         'iMac G3',
         'iPhone X',
         'JPEG 2000',

@@ -15,10 +15,17 @@
 
 module Jekyll
   module MarkdownFilter
+    MARKDOWNIFY_ONELINE_CACHE = {}
+
     def markdownify_oneline(input)
-      site = @context.registers[:site]
-      converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
-      converter.convert(input).sub('<p>', '').sub('</p>', '')
+      MARKDOWNIFY_ONELINE_CACHE.fetch(input) do |input|
+        MARKDOWNIFY_ONELINE_CACHE[input] =
+          @context.registers[:site]
+                  .find_converter_instance(::Jekyll::Converters::Markdown)
+                  .convert(input)
+                  .sub('<p>', '')
+                  .sub('</p>', '')
+      end
     end
   end
 end
