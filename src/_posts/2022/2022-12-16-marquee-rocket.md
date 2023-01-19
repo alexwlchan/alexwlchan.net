@@ -4,8 +4,9 @@ date: 2022-12-16 10:01:11 +0000
 title: Launching a rocket in the worst possible way
 summary: Taking the humble &lt;marquee&gt; tag where no HTML tag has gone before.
 tags: code-crimes html fun-stuff
-index:
-  tint_color: "#ba4220"
+colors:
+  index_light: "#ba4220"
+  index_dark:  "#eb7028"
 ---
 
 <!-- Cover image:
@@ -24,6 +25,12 @@ index:
     font-family: Helvetica, Arial, sans-serif;
     position: relative;
     padding: 1em;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .wrapper {
+      border-color: #3f3f3f;
+    }
   }
 
   .wrapper p:first-child {

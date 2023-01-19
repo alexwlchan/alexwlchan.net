@@ -76,7 +76,6 @@ module Jekyll
 
       open('.header_colours.txt', 'a') do |f|
         f.puts primary_color_light
-        f.puts primary_color_dark
       end
 
       # If there's no individual stylesheet for this page, then we just use

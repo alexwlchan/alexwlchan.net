@@ -35,27 +35,32 @@
             "description": "An external page that this page should link to, like a link blog. This is used on the HTML version of the page, and where clicking on the RSS feed entry will take the reader.",
             "type": "string"
         },
-        "theme": {
-            "description": "Styles that apply to this individual page or post.",
+        "colors": {
+            "description": "Colours used to theme/style this individual page or post.",
             "type": "object",
             "properties": {
-                "color": {
-                    "description": "Accent colour to use for styles on this page.",
+                "css_light": {
+                    "pattern": "#[0-9a-fA-F]{6}",
+                    "type": "string"
+                },
+                "css_dark": {
+                    "pattern": "#[0-9a-fA-F]{6}",
+                    "type": "string"
+                },
+                "index_light": {
+                    "pattern": "#[0-9a-fA-F]{6}",
+                    "type": "string"
+                },
+                "index_dark": {
                     "pattern": "#[0-9a-fA-F]{6}",
                     "type": "string"
                 }
-            },
-            "additionalProperties": false
+            }
         },
         "index": {
             "description": "Affects how an individual page or post appears in the site-wide indexes.",
             "type": "object",
             "properties": {
-                "tint_color": {
-                    "description": "Accent colour to use for the card in the site-wide index.",
-                    "pattern": "#[0-9a-fA-F]{6}",
-                    "type": "string"
-                },
                 "best_of": {
                     "description": "Whether to highlight this post as a favourite in the site-wide index.",
                     "type": "boolean"

@@ -3,7 +3,7 @@ body {
   line-height: $default-line-height;
 }
 
-body, .post_cards .card a {
+body, .post_cards .card a .card_description {
   color: $body-color-light;
 }
 
@@ -111,7 +111,7 @@ sup {
 }
 
 @media (prefers-color-scheme: dark) {
-  body, .post_cards .card a {
+  body, .post_cards .card a .card_description {
     color: $body-color-dark;
   }
 

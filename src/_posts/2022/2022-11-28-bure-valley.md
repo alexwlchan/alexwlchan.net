@@ -4,8 +4,9 @@ date: 2022-11-28 19:57:52 +0000
 title: A day out at the Bure Valley Railway
 summary: My photos from a delightful day on a steam railway with smol trains.
 tags: photography trains
-theme:
-  color: "#101c75"
+colors:
+  css_light: "#101c75"
+  css_dark:  "#238fd1"
 ---
 
 <!-- https://twitter.com/alexwlchan/status/1448052181886722053 -->

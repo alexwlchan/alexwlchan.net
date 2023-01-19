@@ -74,10 +74,6 @@ footer {
     &:visited:not(.novisited) {
       @include link_styles(lighten($primary-color-dark, 15%), 0.1);
     }
-
-    .title &:visited {
-      @include link_styles(lighten($primary-color-dark, 15%), 0.2);
-    }
   }
 
   h1, h2,

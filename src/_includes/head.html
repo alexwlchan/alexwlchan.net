@@ -15,17 +15,23 @@
 
 <meta name="page-source-path" content="{{ page.path }}">
 
-{% css_stylesheet %}
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 
-{% if page.theme and page.theme.color %}
-  <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.theme.color | replace: "#", "" }}.png">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.theme.color | replace: "#", "" }}.ico">
-  <meta name="theme-color" content="{{ page.theme.color }}">
+{% if page.colors.css_light %}
+  <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
+  <meta name="theme-color" content="{{ page.colors.css_light }}">
 {% else %}
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
   <meta name="theme-color" content="#d01c11">
 {% endif %}
 
+{% if page.theme and page.theme.touch_icon %}
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png">
+{% else %}
 <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
+{% endif %}
 
 {% include socialgraph.html %}
+
+{% css_stylesheet %}
