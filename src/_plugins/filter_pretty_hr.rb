@@ -17,8 +17,14 @@ HTML
 
 module Jekyll
   module HorizontalRuleFilters
+    def cache
+      @@cache ||= Jekyll::Cache.new('HorizontalRule')
+    end
+
     def pretty_hr(input)
-      input.gsub(%r{<hr\s*/>}, SEPARATOR)
+      cache.getset(input) do
+        input.gsub(%r{<hr\s*/>}, SEPARATOR)
+      end
     end
   end
 end

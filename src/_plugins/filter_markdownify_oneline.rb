@@ -14,20 +14,21 @@
 #
 
 module Jekyll
-  module MarkdownFilter
-    MARKDOWNIFY_ONELINE_CACHE = {}
+  module MarkdownifyOnlineFilter
+    def cache
+      @@cache ||= Jekyll::Cache.new('MarkdownifyOnline')
+    end
 
     def markdownify_oneline(input)
-      MARKDOWNIFY_ONELINE_CACHE.fetch(input) do |input|
-        MARKDOWNIFY_ONELINE_CACHE[input] =
-          @context.registers[:site]
-                  .find_converter_instance(::Jekyll::Converters::Markdown)
-                  .convert(input)
-                  .sub('<p>', '')
-                  .sub('</p>', '')
+      cache.getset(input) do
+        @context.registers[:site]
+                .find_converter_instance(Jekyll::Converters::Markdown)
+                .convert(input)
+                .sub('<p>', '')
+                .sub('</p>', '')
       end
     end
   end
 end
 
-Liquid::Template.register_filter(Jekyll::MarkdownFilter)
+Liquid::Template.register_filter(Jekyll::MarkdownifyOnlineFilter)

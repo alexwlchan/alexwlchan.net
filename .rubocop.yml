@@ -47,6 +47,9 @@ Naming/MethodParameterName:
 Style/AndOr:
   Enabled: false
 
+Style/ClassVars:
+  Enabled: false
+
 Style/CombinableLoops:
   Enabled: false
 
