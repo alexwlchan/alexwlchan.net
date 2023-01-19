@@ -13,7 +13,7 @@
 module Jekyll
   module CleanupsFilter
     def cache
-      @@cache ||= Jekyll::Cache.new("CleanupText")
+      @@cache ||= Jekyll::Cache.new('CleanupText')
     end
 
     def cleanup_text(input)

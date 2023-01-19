@@ -18,7 +18,7 @@ HTML
 module Jekyll
   module HorizontalRuleFilters
     def cache
-      @@cache ||= Jekyll::Cache.new("HorizontalRule")
+      @@cache ||= Jekyll::Cache.new('HorizontalRule')
     end
 
     def pretty_hr(input)
