@@ -35,7 +35,6 @@ module Jekyll
     def initialize(tag_name, text, tokens)
       super
       @css_cache = {}
-      @md5_cache = {}
     end
 
     def render(context)
@@ -78,28 +77,19 @@ module Jekyll
         f.puts primary_color_light
       end
 
-      # If there's no individual stylesheet for this page, then we just use
-      # the default stylesheet with the page's tint colour.
-      #
-      # These are shared among all pages with the same colour, to reduce
-      # the number of individual files and improve caching.
-      else
-        # We only need to create and write the CSS file for this colour
-        # if one hasn't already
-        unless @css_cache.key? primary_color_light
-          @css_cache[primary_color_light] = convert_css(site, <<~SCSS
+      # We only need to create and write the CSS file for this colour
+      # if one hasn't already
+      unless @css_cache.key? primary_color_light
+        @css_cache[primary_color_light] = convert_css(site, <<~SCSS
           $primary-color-light: #{primary_color_light};
           $primary-color-dark:  #{primary_color_dark};
 
-            @import "_main.scss";
-          SCSS
-          )
-        end
-
-        css = @css_cache[primary_color_light]
+          @import "_main.scss";
+        SCSS
+        )
       end
 
-      md5 = @md5_cache[color]
+      css = @css_cache[primary_color_light]
 
       <<~HTML
         <link rel="stylesheet" href="/styles/style.css?md5=#{@base_css_md5}">

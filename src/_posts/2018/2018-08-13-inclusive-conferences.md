@@ -28,7 +28,11 @@ colors:
     text-decoration: none;
 
     &, &:visited {
-      color: $accent-grey;
+      color: $accent-grey-light;
+
+      @media (prefers-color-scheme: dark) {
+        color: $accent-grey-dark;
+      }
     }
   }
 </style>

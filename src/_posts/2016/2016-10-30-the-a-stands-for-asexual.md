@@ -8,8 +8,8 @@ title:      The A stands for Asexual
 index:
   exclude: true
 colors:
-  css_dark:  "#6c006c"
-  css_light: "#cb52ff"
+  css_light: "#6c006c"
+  css_dark:  "#cb52ff"
 ---
 
 Today is a more personal post: I want to talk about asexuality.
