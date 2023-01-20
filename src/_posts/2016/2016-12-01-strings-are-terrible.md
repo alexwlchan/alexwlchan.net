@@ -2,7 +2,7 @@
 layout: post
 date: 2016-12-01 07:43:00 +0000
 title: Another example of why strings are terrible
-summary: Pop quiz: if I lowercase a string, does it still have the same length as the original string?
+summary: "Pop quiz: if I lowercase a string, does it still have the same length as the original string?"
 tags: unicode python:hypothesis python
 ---
 
