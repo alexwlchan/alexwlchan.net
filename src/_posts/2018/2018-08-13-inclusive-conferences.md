@@ -10,6 +10,29 @@ index:
   tint_color: "#533f2b"
 ---
 
+<style type="x-text/scss">
+  h2, h3 {
+    &:hover {
+      & > a.anchor {
+        display: inline-block;
+      }
+    }
+  }
+
+  a.anchor {
+    &::after {
+      content: "¶";
+    }
+
+    display: none;
+    text-decoration: none;
+
+    &, &:visited {
+      color: $accent-grey;
+    }
+  }
+</style>
+
 {% update "2019-02-05" %}
 Thank you to everyone who's read, shared, or given feedback on this post.
 I've been thrilled by the number of people who've said they found it useful.

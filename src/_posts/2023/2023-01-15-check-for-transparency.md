@@ -33,6 +33,34 @@ When I first enabled AVIF support, I thought I'd broken something, because a 5x 
 
 I had it all tested and working, so imagine my dismay when I opened [my latest post]({% post_url 2023/2023-01-13-upward-assignment %}) on my phone and discovered the images were broken:
 
+<style text="x-text/scss">
+  #avif_comparison {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 600px;
+    grid-column-gap: $default-grid-gap;
+
+    picture:nth-child(1) img {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+    }
+
+    picture:nth-child(2) img {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      grid-row: 1 / 2;
+      grid-column: 2 / 2;
+    }
+
+    figcaption {
+      grid-row: 2 / 2;
+      grid-column: 1 / span 2;
+    }
+  }
+</style>
+
 <figure id="avif_comparison">
   {%
     picture

@@ -5,7 +5,15 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head.html %}
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    {% include head.html %}
+
+    <style>{{ content | get_inline_styles }}</style>
+  </head>
 
   <body>
     <a class="skip-main" href="#main">Skip to main content</a>
@@ -13,7 +21,7 @@ layout: compress
     {% include_cached nav.html %}
 
     <main id="main" tabindex="-1">
-      {{ content }}
+      {{ content | fix_kramdown | remove_inline_styles }}
     </main>
 
     {% include_cached footer.html %}
