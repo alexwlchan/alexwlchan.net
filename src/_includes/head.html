@@ -1,36 +1,31 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  {% assign safe_title = page.title | markdownify_oneline | strip_html | smartify %}
+{% assign safe_title = page.title | markdownify_oneline | strip_html | smartify %}
 
-  <title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title | smartify }}</title>
+<title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title | smartify }}</title>
 
-  <meta name="description" content="{{ page.summary | default: site.description | escape }}">
+<meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
-  {% if page.canonical_url %}
-  <link rel="canonical" href="{{ page.canonical_url | absolute_url }}">
-  {% else %}
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  {% endif %}
+{% if page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url | absolute_url }}">
+{% else %}
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+{% endif %}
 
-  <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
+<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
 
-  <meta name="page-source-path" content="{{ page.path }}">
+<meta name="page-source-path" content="{{ page.path }}">
 
-  {% css_stylesheet %}
+{% css_stylesheet %}
 
-  {% if page.theme and page.theme.color %}
-    <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.theme.color | replace: "#", "" }}.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.theme.color | replace: "#", "" }}.ico">
-    <meta name="theme-color" content="{{ page.theme.color }}">
-  {% else %}
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
-    <meta name="theme-color" content="#d01c11">
-  {% endif %}
+{% if page.theme and page.theme.color %}
+  <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.theme.color | replace: "#", "" }}.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.theme.color | replace: "#", "" }}.ico">
+  <meta name="theme-color" content="{{ page.theme.color }}">
+{% else %}
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+  <meta name="theme-color" content="#d01c11">
+{% endif %}
 
-  <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 
-  {% include socialgraph.html %}
-</head>
+{% include socialgraph.html %}

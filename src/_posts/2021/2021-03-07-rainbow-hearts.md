@@ -9,6 +9,36 @@ index:
   tint_color: "#870788"
 ---
 
+<style type="x-text/scss">
+  #grid-container {
+    display: grid;
+    grid-template-columns: 66% 32%;
+    grid-gap: $default-grid-gap;
+    height: 50%;
+  }
+
+  #grid-item1 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  #grid-item2 {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  #grid-item3 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .grid-item img {
+    object-fit: cover;
+    height: 100%;
+    width:  100%;
+  }
+</style>
+
 Here's a fun project I made today: create pairs of interlocking rainbow hearts: <http://rainbow-hearts.glitch.me>
 
 The app makes transparent SVGs based on pride flags, which you can resize and drop on top of any background.

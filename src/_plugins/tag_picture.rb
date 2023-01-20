@@ -225,15 +225,15 @@ module Jekyll
       inner_html = <<~HTML
         <picture>
           <source
-            srcset="#{sources[ImageFormat::AVIF].join(",\n            ")}"
+            srcset="#{sources[ImageFormat::AVIF].join(', ')}"
             type="image/avif"
           >
           <source
-            srcset="#{sources[ImageFormat::WEBP].join(",\n            ")}"
+            srcset="#{sources[ImageFormat::WEBP].join(', ')}"
             type="image/webp"
           >
           <source
-            srcset="#{sources[im_format].join(",\n            ")}"
+            srcset="#{sources[im_format].join(', ')}"
             type="#{im_format[:mime_type]}"
           >
           <img
