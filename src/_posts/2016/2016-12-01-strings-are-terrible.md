@@ -1,10 +1,9 @@
 ---
 layout: post
 date: 2016-12-01 07:43:00 +0000
-summary: 'Pop quiz: if I lowercase a string, does it still have the same length as
-  the original string?'
-tags: unicode python:hypothesis python
 title: Another example of why strings are terrible
+summary: "Pop quiz: if I lowercase a string, does it still have the same length as the original string?"
+tags: unicode python:hypothesis python
 ---
 
 Here's a programming assumption I used to make, that until today I'd never really thought about: *changing the case of a string won't change its length*.
