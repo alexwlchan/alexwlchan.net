@@ -6,7 +6,6 @@ tags: python python:docopt talks
 date: 2017-09-11 12:01:13 +0100
 theme:
   color: "#008000"
-  touch_icon: docopt
 ---
 
 Every week, we have an hour of developer learning at work -- maybe a talk, a workshop, or some other session about of topic of interest to developers.

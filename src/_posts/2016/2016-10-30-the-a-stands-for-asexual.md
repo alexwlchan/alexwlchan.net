@@ -7,7 +7,6 @@ tags:       personal asexuality
 title:      The A stands for Asexual
 theme:
   color: "#6c006c"
-  touch_icon: asexual
 index:
   best_of: true
   tint_color: "#74157B"

@@ -43,10 +43,6 @@
                     "description": "Accent colour to use for styles on this page.",
                     "pattern": "#[0-9a-fA-F]{6}",
                     "type": "string"
-                },
-                "touch_icon": {
-                    "description": "Name of an alternative apple-touch-icon to use.",
-                    "type": "string"
                 }
             },
             "additionalProperties": false

@@ -6,7 +6,6 @@ summary: In the tech industry, how can we be more aware of our privilege, and us
 tags: talks inclusion
 theme:
   color: "#0a9f9f"
-  touch_icon: 0a9f9f
 index:
   tint_color: "#577b2e"
 ---
