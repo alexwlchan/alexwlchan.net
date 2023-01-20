@@ -33,6 +33,22 @@ If you let Twitter pick the crop, they pick a 2:1 rectangle from the middle of t
 They used to use machine learning to pick the "interesting" part of the image, but apparently [it got phased out][phased_out] after accusations of bias.
 This can give some unfortunate results:
 
+<style type="x-text/scss">
+  #card_comparison {
+    width: 700px;
+
+    #images {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: $default-grid-gap;
+
+      img {
+        display: inline-block;
+      }
+    }
+  }
+</style>
+
 <figure id="card_comparison">
   <div id="images">
     {%

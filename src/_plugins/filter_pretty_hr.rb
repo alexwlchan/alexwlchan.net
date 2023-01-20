@@ -23,7 +23,7 @@ module Jekyll
 
     def pretty_hr(input)
       cache.getset(input) do
-        input.gsub(%r{<hr\s*/>}, SEPARATOR)
+        input.gsub(%r{<hr\s*/?>}, SEPARATOR)
       end
     end
   end
