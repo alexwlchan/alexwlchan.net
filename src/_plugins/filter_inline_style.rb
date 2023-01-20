@@ -1,0 +1,97 @@
+# This plugin is for adding extra styles to posts/pages.
+#
+# It tries to balance a couple of requirements:
+#
+#   1.  I want to have per-post and per-page styles that aren't in the
+#       global stylesheet.
+#
+#   2.  I sometimes want access to Sass variables (e.g. palette colours)
+#       from these per-page styles.
+#
+#   3.  You're only meant to put <style> tags in the <head> of a document.
+#
+# == How it works ==
+#
+# In the body of posts, I can create <style> blocks.  I can also create
+# blocks with the attribute `type="x-text/scss"`.
+#
+# In the final template, these <style> blocks will be removed from the
+# <body>, and consolidated and inserted in the <head>.  Any SCSS blocks
+# will run through the site's Sass processor first.
+
+require 'nokogiri'
+
+module Jekyll
+  module RemoveInlineStyleTagFilter
+    def remove_inline_styles(html)
+      cache = Jekyll::Cache.new('RemoveInlineStyleTag')
+
+      cache.getset(html) do
+        if html.include? '<style'
+          doc = Nokogiri::HTML.fragment(html)
+          doc.xpath('style|.//style').remove
+
+          # NOTE: Nokogiri will "helpfully" insert closing </source> tags,
+          # which I don't actually want.  Bin them.
+          doc.to_s.gsub('(</source>)+</picture>', '</picture>')
+        else
+          html
+        end
+      end
+    end
+  end
+
+  module GetInlineStylesFilter
+    def get_inline_styles(html)
+      cache = Jekyll::Cache.new('GetInlineStyles')
+
+      cache.getset(html) do
+        if html.include? '<style'
+          doc = Nokogiri::HTML.fragment(html)
+
+          inline_styles = Hash.new { [] }
+
+          doc.xpath('style|.//style').each do |style|
+            style_type = style.get_attribute('type')
+            media = style.get_attribute('media')
+
+            if style_type == 'x-text/scss'
+              site = @context.registers[:site]
+              converter = site.find_converter_instance(Jekyll::Converters::Scss)
+              css = converter.convert(<<~SCSS
+                @import "mixins.scss";
+                @import "_settings.scss";
+                @import "variables.scss";
+
+                #{style.text}
+              SCSS
+                                     )
+              inline_styles[media] <<= css
+            else
+              inline_styles[media] <<= style.text
+            end
+          end
+
+          if inline_styles.empty?
+            return ''
+          end
+
+          lines = inline_styles.map do |media, css|
+            if media.nil?
+              css
+            else
+              "@media #{media} { #{css.join("\n")} }"
+            end
+          end
+
+          lines.join("\n")
+        else
+          ''
+        end
+      end
+    end
+  end
+end
+
+Liquid::Template.register_filter(Jekyll::RemoveInlineStyleTagFilter)
+Liquid::Template.register_filter(Jekyll::GetInlineStylesFilter)
