@@ -36,11 +36,17 @@ jobs:
       - name: "Cache site output"
         uses: "actions/cache@v3"
         with:
-          path: |
-            _site
-            src/.jekyll-cache
+          path: _site
           key: "site-${{ github.sha }}"
           restore-keys: "site-"
+
+      - name: "Cache the .jekyll-cache folder"
+        uses: "actions/cache@v3"
+        with:
+          path: src/.jekyll-cache
+          key: "jekyll-cache-${{ github.sha }}"
+          restore-keys: "jekyll-cache-"
+
 
       - name: "Build the site"
         run: make html-drafts
