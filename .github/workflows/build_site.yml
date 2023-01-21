@@ -47,7 +47,6 @@ jobs:
           key: "jekyll-cache-${{ github.sha }}"
           restore-keys: "jekyll-cache-"
 
-
       - name: "Build the site"
         run: make html-drafts
 
