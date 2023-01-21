@@ -4,22 +4,6 @@ require 'fileutils'
 require 'shell/executer'
 require 'tmpdir'
 
-Jekyll::Hooks.register :site, :post_write do |site|
-  site_colours = (site.pages + site.posts.docs)
-                 .map do |post|
-                   (post['theme'] || {})['color']
-                 end
-                 .compact
-
-  colours = (site_colours + ['#d01c11']).uniq
-
-  # create_favicons(site, colours)
-
-  dst = site.config['destination']
-  FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
-  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico")
-end
-
 def create_favicons(site, colours)
   colours.each do |c|
     src = site.config['source']
@@ -76,6 +60,9 @@ def create_favicons(site, colours)
       FileUtils.mv "#{tmp_dir}/favicon.ico", ico_path
     end
   end
+
+  FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
+  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico")
 end
 
 def colours_like(hex_colour)
