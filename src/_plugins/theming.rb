@@ -5,12 +5,12 @@ require 'shell/executer'
 require 'tmpdir'
 
 def create_favicons(site, colours)
+  src = site.config['source']
+  dst = site.config['destination']
+
+  FileUtils.mkdir_p "#{dst}/favicons"
+
   colours.each do |c|
-    src = site.config['source']
-    dst = site.config['destination']
-
-    FileUtils.mkdir_p "#{dst}/favicons"
-
     ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
     png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
 
