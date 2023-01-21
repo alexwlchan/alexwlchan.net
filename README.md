@@ -69,7 +69,6 @@ This is a list of things that I think are interesting or unusual:
 
 *   [Builds in Docker](docs/builds-in-docker.md)
 *   [Atom feed generation](docs/atom-feed-generation.md)
-*   [Stylesheets and other theming settings](docs/stylesheets.md)
 *   [Month and year archives](docs/month-and-year-archives.md)
 *   [No-JavaScript Twitter embeds](docs/twitter-embeds.md)
 *   [Linking to my work on other sites](docs/linking-to-other-work.md)
@@ -91,9 +90,9 @@ If you want to use any of the components in your own projects – plugins, layou
 
     -   [Creative Commons Attribution 4.0 International (aka CCnbsp;BY&nbsp;4.0)](https://creativecommons.org/licenses/by/4.0/)
     -   [The MIT License](https://opensource.org/licenses/MIT)
-    
+
     If you're reusing my content, you can use whichever licence is most appropriate.
-    
+
     Mostly the CC&nbsp;BY is fine, but Creative Commons licenses [aren't suitable for code][cc_code], so I have MIT as an alternative.
 
 -   Some images that are being used under Creative Commons licenses from other people; see the post where an image is used for attribution.
