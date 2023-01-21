@@ -5,8 +5,9 @@ title: Storing multiple, human-readable versions of BagIt bags
 summary: How we use the fetch.txt file in a bag to track multiple copies of an object in our digital archive.
 link: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
 tags: digital-preservation wellcome-collection
-index:
-  tint_color: "#1d78b9"
+colors:
+  index_light: "#1d78b9"
+  index_dark:  "#bdddf6"
 ---
 
 I've written some more about [Wellcome Collection's new storage service][service] -- this time, one of the implementation details.

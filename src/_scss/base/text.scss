@@ -3,6 +3,10 @@ body {
   line-height: $default-line-height;
 }
 
+body, .post_cards .card a .card_description {
+  color: $body-color-light;
+}
+
 h1, h2, h3 {
   font-weight: normal;
 }
@@ -82,3 +86,48 @@ sup {
   border: 0 !important;
 }
 
+#footer_inner, #nav_inner {
+  color: white;
+
+  a, a:visited {
+    @include link_styles(white, 0.5);
+  }
+}
+
+.post_cards .card .card_posting_date p,
+.title.linkpost_title::after {
+  color: $accent-grey-light;
+}
+
+.meta, figcaption {
+  color: $accent-grey-light;
+
+  a, a:visited {
+    color: $accent-grey-light !important;
+    &:hover {
+      background: rgba($accent-grey-light, 0.2) !important;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body, .post_cards .card a .card_description {
+    color: $body-color-dark;
+  }
+
+  .post_cards .card .card_posting_date p,
+  .title.linkpost_title::after {
+    color: $accent-grey-dark;
+  }
+
+  .meta, figcaption {
+    color: $accent-grey-dark;
+
+    a, a:visited {
+      color: $accent-grey-dark !important;
+      &:hover {
+        background: rgba($accent-grey-dark, 0.2) !important;
+      }
+    }
+  }
+}

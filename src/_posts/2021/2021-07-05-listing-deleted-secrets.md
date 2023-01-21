@@ -4,9 +4,9 @@ date: 2021-07-05 11:46:23 +0000
 title: Listing deleted secrets in AWS Secrets Manager with boto3 and the AWS CLI
 summary: Diving into the internals of the AWS SDK to find deleted secrets.
 tags: python aws aws-secrets-manager
-index:
-  best_of: true
-  tint_color: "#00A000"
+colors:
+  index_light: "#00A000"
+  index_dark:  "#61ff61"
 ---
 
 If you delete a secret from AWS Secrets Manager, it isn't deleted immediately -- instead, it gets scheduled for deletion.
@@ -18,8 +18,14 @@ What if you wanted to speed up the deletion of a secret?
 
 You can see deleted secrets in the AWS Console (notice the "Deleted on" column):
 
-<figure  style="width: 515px;">
-  <img src="/images/2021/secrets_manager.png" alt="Screenshot of the Secrets Manager console. There's a table with one secret per row, and the rightmost column is titled 'Deleted on'. This column contains a date for the top five rows.">
+<figure style="width: 515px;">
+  {%
+    picture
+    filename="secrets_manager.png"
+    alt="Screenshot of the Secrets Manager console. There's a table with one secret per row, and the rightmost column is titled 'Deleted on'. This column contains a date for the top five rows."
+    visible_width="515px"
+    class="screenshot"
+  %}
   <figcaption>
     To see deleted secrets, select the gear icon in the top right-hand corner for settings, then make sure you have "Show disabled secrets" selected.
   </figcaption>

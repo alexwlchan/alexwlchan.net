@@ -1,13 +1,13 @@
 ---
 layout: post
 date: 2016-10-21 12:18:00 +0000
-index:
-  best_of: true
-  tint_color: "#444444"
 summary: Using the Python Imaging Library to draw regular tilings of squares, triangles
   and hexagons.
 tags: python maths python:pillow drawing-things
 title: Tiling the plane with Pillow
+colors:
+  index_light: "#444444"
+  index_dark:  "#9e9e9e"
 ---
 
 On a recent yak-shaving exercise, I've been playing with [Pillow][pillow], an imaging library for Python.

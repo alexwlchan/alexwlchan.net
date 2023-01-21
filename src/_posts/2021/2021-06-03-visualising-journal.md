@@ -4,8 +4,9 @@ date: 2021-06-03 09:46:46 +0000
 title: Visualising how often I write in my journal
 summary: A Python script that shows me how often I've been journalling, so I can track my progress.
 tags: python
-index:
-  tint_color: "#e94cf2"
+colors:
+  index_light: "#e94cf2"
+  index_dark:  "#fe4afa"
 ---
 
 I try to write a daily journal, and I find it useful when I do, but I've been struggling to sustain the habit.

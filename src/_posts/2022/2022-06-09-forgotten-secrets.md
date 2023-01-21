@@ -4,8 +4,9 @@ date: 2022-06-09 06:40:48 +0000
 title: Experimenting with jq as a tool for filtering JSON
 summary: I wanted to learn jq's more powerful features, so I tried to filter some JSON from the AWS Secrets Manager CLI.
 tags: aws jq aws-secrets-manager
-index:
-  tint_color: "#c5121f"
+colors:
+  index_light: "#c5121f"
+  index_dark:  "#ef5258"
 ---
 
 Recently I wanted to clean up our secrets in AWS Secrets Manager.

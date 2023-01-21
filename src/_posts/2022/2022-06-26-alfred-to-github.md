@@ -5,8 +5,9 @@ title: Creating an Alfred Workflow to open GitHub repos
 summary: Automations for my automations.
 tags: alfred github
 link: https://github.com/alexwlchan/github_alfred_shortcuts
-index:
-  tint_color: "#1d1d1d"
+colors:
+  index_light: "#1c1c1c"
+  index_dark:  "#898f93"
 ---
 
 I've written a script which lets me build an [Alfred workflow] to open GitHub repositories quickly.

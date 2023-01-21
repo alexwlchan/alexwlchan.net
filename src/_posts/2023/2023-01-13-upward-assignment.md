@@ -4,30 +4,10 @@ date: 2023-01-13 15:23:18 +0000
 title: Upward assignment in Ruby
 summary: A deep dive into the internals of Ruby and metaprogramming techniques, in a quest for a cursed operator.
 tags: ruby code-crimes
-theme:
-  color: "#c62229"
+colors:
+  css_light: "#c62229"
+  css_dark:  "#dd363f"
 ---
-
-<style>
-  svg[role="separator"] {
-    display: block;
-    margin-left:  auto;
-    margin-right: auto;
-  }
-
-  svg[role="separator"] {
-    margin-top:    3.5em;
-    margin-bottom: 3.5em;
-  }
-
-  svg[role="separator"] + h2 {
-    margin-top: 0;
-  }
-
-  svg[role="separator"] rect {
-    fill: #ccc;
-  }
-</style>
 
 Ruby has had leftward assignment (`x = 4`) since its [first public release][first], and a few years ago it added [rightward assignment][ruby3] (`4 => x`).
 Then at RubyConf 2021, Kevin Kuchta explained [how to abuse Ruby features][kevin] to build a downward assignment operator (yes, this really works):

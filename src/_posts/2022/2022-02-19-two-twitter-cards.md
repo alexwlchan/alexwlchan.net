@@ -4,9 +4,26 @@ date: 2022-02-19 12:45:19 +0000
 title: A tale of two Twitter cards
 summary: Some recent changes I've made to fix or improve my Twitter cards.
 tags: twitter blogging-about-blogging
-index:
-  tint_color: "#1d9bf0"
+colors:
+  index_light: "#1d9bf0"
+  index_dark:  "#77c8fe"
 ---
+
+<style type="x-text/scss">
+  #card_comparison {
+    width: 700px;
+
+    #images {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: $grid-gap;
+
+      img {
+        display: inline-block;
+      }
+    }
+  }
+</style>
 
 If I had a penny for every site where I've fixed Twitter cards in the last week, I'd have two pennies.
 Which isn't a lot, but it's weird that it happened twice.
@@ -22,7 +39,7 @@ Hopefully these notes are useful to somebody else trying to debug their own Twit
 [Cards]: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
 [a validator]: https://cards-dev.twitter.com/validator
 
-
+---
 
 ## Provide your own crops for images
 
@@ -79,7 +96,7 @@ This is an extreme example, but it proves a general point: crop your card images
 [large_image]: https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image
 [phased_out]: https://www.theverge.com/2021/5/19/22444372/twitter-image-crop-racial-gender-bias-research
 
-
+---
 
 ## Use ngrok to test your cards without caching
 
@@ -127,7 +144,7 @@ I can imagine using this to test other changes to cards in the future.
 [troubleshooting]: https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/troubleshooting-cards#validator
 [ngrok]: https://ngrok.com/
 
-
+---
 
 ## Make sure your card images are served quickly
 
@@ -159,7 +176,7 @@ It's much faster, and now Twitterbot is happy with my cards.
 [Netlify]: https://www.netlify.com
 [akamai]: https://www.linode.com/blog/linode/linode-and-akamai/
 
-
+---
 
 ## A Jekyll plugin to keep my cards correct
 

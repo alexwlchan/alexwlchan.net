@@ -4,8 +4,9 @@ date: 2022-08-18 07:22:44 +0000
 title: I always want StrictUndefined in Jinja
 summary: When I'm writing templates with Jinja, strict behaviour is what I want, even if it's not the default.
 tags: python python:jinja
-index:
-  tint_color: "#470906"
+colors:
+  index_light: "#470906"
+  index_dark:  "#FF4242"
 ---
 
 I was doing some work with the templating library [Jinja] recently, and I was confused by some misbehaving code.

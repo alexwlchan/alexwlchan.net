@@ -5,8 +5,9 @@ title: Digital preservation at Wellcome Collection
 summary: Slides from a presentation about our processes, practices, and tools.
 link: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
 tags: wellcome-collection digital-preservation
-index:
-  tint_color: "#837252"
+colors:
+  index_light: "#837252"
+  index_dark:  "#efeee3"
 ---
 
 Last week I gave a short talk in Cambridge about digital preservation at Wellcome.

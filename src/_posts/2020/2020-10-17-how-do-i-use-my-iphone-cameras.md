@@ -4,8 +4,9 @@ date: 2020-10-17 16:58:18 +0000
 title: How do I use my iPhone cameras?
 summary: A script to work out which camera I use most often on my iPhone, and whether I'd miss a telephoto lens.
 tags: iphone photography
-index:
-  tint_color: "#353335"
+colors:
+  index_light: "#353335"
+  index_dark:  "#a2a09e"
 ---
 
 On [this week's episode of ATP](https://atp.fm/400), they were talking about how much they use the different cameras on their iPhones.

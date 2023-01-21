@@ -5,8 +5,9 @@ title: Building Wellcome Collection's new unified catalogue search
 summary: Collaboration between our digital and collections teams helped to build a single search box for all of our catalogues.
 tags: wellcome-collection search
 link: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
-index:
-  tint_color: "#63605f"
+colors:
+  index_light: "#63605f"
+  index_dark:  "#d4d2cc"
 ---
 
 One of the key features of the new Wellcome Collection website is our [unified collections search](https://wellcomecollection.org/collections).

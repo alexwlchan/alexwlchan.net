@@ -4,8 +4,9 @@ date: 2022-11-12 07:13:02 +0000
 title: Ten years of blogging
 summary: A decade ago, I registered a domain and started writing.
 tags: blogging-about-blogging
-index:
-  tint_color: "#50833a"
+colors:
+  index_light: "#50833a"
+  index_dark:  "#7bc05d"
 ---
 
 <!-- Summary card based on https://pixabay.com/photos/card-game-cards-ten-heart-813/ -->

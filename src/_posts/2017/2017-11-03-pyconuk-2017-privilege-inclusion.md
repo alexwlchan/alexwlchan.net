@@ -4,10 +4,11 @@ date: 2017-11-03 11:40:52 +0000
 title: Using privilege to improve inclusion
 summary: In the tech industry, how can we be more aware of our privilege, and use that to build inclusive cultures?
 tags: talks inclusion
-theme:
-  color: "#0a9f9f"
-index:
-  tint_color: "#577b2e"
+colors:
+  css_light:   "#076e6e"
+  css_dark:    "#0dcece"
+  index_light: "#577b2e"
+  index_dark:  "#8eae35"
 ---
 
 When I go to tech conferences, I'm often drawn to the non-technical talks.

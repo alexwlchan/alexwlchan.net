@@ -4,30 +4,13 @@ require 'fileutils'
 require 'shell/executer'
 require 'tmpdir'
 
-Jekyll::Hooks.register :site, :post_write do |site|
-  site_colours = (site.pages + site.posts.docs)
-                 .map do |post|
-                   (post['theme'] || {})['color']
-                 end
-                 .compact
-
-  colours = (site_colours + ['#d01c11']).uniq
-
-  create_favicons(site, colours)
-  create_header_images(site, colours)
-
-  dst = site.config['destination']
-  FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
-  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico")
-end
-
 def create_favicons(site, colours)
+  src = site.config['source']
+  dst = site.config['destination']
+
+  FileUtils.mkdir_p "#{dst}/favicons"
+
   colours.each do |c|
-    src = site.config['source']
-    dst = site.config['destination']
-
-    FileUtils.mkdir_p "#{dst}/favicons"
-
     ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
     png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
 
@@ -77,6 +60,9 @@ def create_favicons(site, colours)
       FileUtils.mv "#{tmp_dir}/favicon.ico", ico_path
     end
   end
+
+  FileUtils.cp("#{dst}/favicons/d01c11.png", "#{dst}/favicon.png")
+  FileUtils.cp("#{dst}/favicons/d01c11.ico", "#{dst}/favicon.ico")
 end
 
 def colours_like(hex_colour)
@@ -87,6 +73,7 @@ def colours_like(hex_colour)
     hsl_colour = Color::RGB.by_hex(hex_colour).to_hsl
 
     luminosity = hsl_colour.luminosity
+
     min_luminosity = luminosity * 7 / 8
     max_luminosity = luminosity * 8 / 7
 
@@ -145,5 +132,13 @@ def create_header_images(site, colours)
     end
 
     image.save(out_path, :best_compression)
+  end
+end
+
+Jekyll::Hooks.register :site, :post_render do |site|
+  if File.exist? '.header_colours.txt'
+    colours = File.readlines('.header_colours.txt').uniq.map(&:strip)
+    create_header_images(site, colours)
+    create_favicons(site, colours)
   end
 end

@@ -5,7 +5,6 @@ title: Changing my carbon monoxide detectors
 summary: Keeping my home safe from deadly gases.
 tags: domestic
 index:
-  tint_color: "#73784c"
   exclude: true
 ---
 

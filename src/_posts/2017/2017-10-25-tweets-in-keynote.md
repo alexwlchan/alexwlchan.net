@@ -4,8 +4,9 @@ date: 2017-10-25 13:14:54 +0000
 title: Displaying tweets in Keynote
 tags: keynote twitter
 summary: Slides for showing tweets that look like tweets on slides in Keynote and PowerPoint.
-index:
-  tint_color: "#3F6989"
+colors:
+  index_light: "#3F6989"
+  index_dark:  "#a4aaab"
 ---
 
 Every so often, I want to use a tweet in some slides I'm making (I have three in my PyCon UK slides for Friday).

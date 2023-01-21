@@ -5,8 +5,9 @@ title: Generating pride-themed Norse valknuts with Python 🌈
 summary: A web app to generate mashups of Norse valknuts and Pride flags.
 link: https://rainbow-valknuts.glitch.me/
 tags: python glitch generative-art fun-stuff drawing-things
-index:
-  tint_color: "#e31b85"
+colors:
+  index_light: "#e31b85"
+  index_dark:  "#c8c8c8"
 ---
 
 You might remember a couple of months back, I was playing with [alternative coordinate systems in SVG]({% post_url 2019/2019-09-23-triangular-coordinates-in-svg %}).

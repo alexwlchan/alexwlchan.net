@@ -4,9 +4,6 @@ date: 2016-06-07 12:00:00 +0000
 tags: python python:hypothesis
 title: Introduction to property-based testing
 summary: Testing with randomly generated examples can be a good way to uncover bugs in your code.
-index:
-  best_of: true
-  tint_color: "#2E671A"
 ---
 
 <!-- Card image: hypothesis_card -->

@@ -6,9 +6,9 @@ summary: Regexes have a reputation for being unreadable monsters, but it doesn't
 tags: regex
 title: Treat regular expressions as code, not magic
 
-index:
-  best_of: true
-  tint_color: "#000000"
+colors:
+  index_light: "#000000"
+  index_dark:  "#bbbbbb"
 ---
 
 Regular expressions (or *regexes*) have a reputation for being unreadable.

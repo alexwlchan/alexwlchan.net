@@ -6,7 +6,9 @@ summary: Sending the AWS bill to Slack, so everyone can be more informed and int
 tags: aws aws-billing
 index:
   best_of: true
-  tint_color: "#403f40"
+colors:
+  index_light: "#403f40"
+  index_dark:  "#d4d3d0"
 ---
 
 The AWS bill is everyone's most expensive horror story.
