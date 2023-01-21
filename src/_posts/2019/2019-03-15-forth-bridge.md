@@ -4,9 +4,9 @@ date: 2019-03-15 22:02:51 +0000
 title: "A day out to the Forth Bridge"
 summary: "Photographs from a trip to North Queensferry to see the Forth Bridge, the Forth Road Bridge, and an unexpected light tower."
 tags: personal scotland photography
-index:
-  best_of: true
-  tint_color: "#3063a4"
+colors:
+  index_light: "#3063a4"
+  index_dark:  "#629de4"
 ---
 
 While clearing out some boxes recently, I found a leaflet from an old holiday.

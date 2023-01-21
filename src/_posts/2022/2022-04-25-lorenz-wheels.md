@@ -5,8 +5,9 @@ title: Illustrating the cipher wheels of a Lorenz machine
 summary: Some old code I wrote to draw cam-accurate illustrations of cipher wheels.
 tags: drawing-things latex history
 link: https://github.com/alexwlchan/lorenz-wheels
-index:
-  tint_color: "#423f3a"
+colors:
+  index_light: "#423f3a"
+  index_dark:  "#a9a69a"
 ---
 
 Yesterday I found a set of old illustrations I'd made for the wheels of a [Lorenz cipher machine], which was a machine used by the German Army during World War II.

@@ -4,8 +4,9 @@ date: 2022-08-16 06:46:19 +0000
 title: An Egyptian 'mixtape' of embroidered material
 summary: Repeating geometric patterns make for a colourful and eye-catching piece.
 tags: cross-stitch
-theme:
-  color: "#88632e"
+colors:
+  css_light: "#88632e"
+  css_dark:  "#b38d42"
 ---
 
 I've recently completed another cross-stitch piece, which is now hanging on my wall.

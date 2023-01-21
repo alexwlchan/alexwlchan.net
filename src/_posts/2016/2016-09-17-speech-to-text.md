@@ -5,8 +5,9 @@ summary: Live captioning of conference talks was an unexpected bonus at this yea
   PyCon UK.
 tags: pyconuk conferences inclusion accessibility
 title: Live captioning at conferences
-index:
-  tint_color: "#141213"
+colors:
+  index_light: "#141213"
+  index_dark:  "#bdc2b1"
 ---
 
 This weekend, I've been attending [PyCon UK](http://2016.pyconuk.org) in Cardiff.

@@ -5,8 +5,9 @@ summary: Playing with a tiny computer that runs Python.
 link: http://www.bbc.co.uk/programmes/articles/4hVG2Br1W1LKCmw8nSm9WnQ/introducing-the-bbc-micro-bit
 tags: python
 title: Python and the BBC micro:bit
-index:
-  tint_color: "#18ab6d"
+colors:
+  index_light: "#18ab6d"
+  index_dark:  "#18ab6d"
 ---
 
 The BBC micro:bit is a tiny computer, intended for Year&nbsp;7 students to use to learn about programming (being distributed free to schools next spring).

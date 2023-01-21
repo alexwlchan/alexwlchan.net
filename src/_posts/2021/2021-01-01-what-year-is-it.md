@@ -4,8 +4,9 @@ date: 2021-01-01 11:11:48 +0000
 title: What year is it? (A tale of ISO week dates)
 summary: If you use ICU date formatting, make sure you use the right format specifier for year.
 tags: datetime-shenanigans
-index:
-  tint_color: "#b17474"
+colors:
+  index_light: "#b17474"
+  index_dark:  "#c28786"
 ---
 
 Happy (Gregorian) new year!

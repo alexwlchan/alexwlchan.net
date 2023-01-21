@@ -4,8 +4,9 @@ date: 2022-08-01 08:21:03 +0000
 title: A surprise smattering of stardom
 summary: My last post was surprisingly popular; a few reflections on the experience.
 tags: blogging-about-blogging
-index:
-  tint_color: "#ff6602"
+colors:
+  index_light: "#ff6602"
+  index_dark:  "#fe6600"
 ---
 
 My previous post [about taking more screenshots][screenshots] has resonated with a lot of people.

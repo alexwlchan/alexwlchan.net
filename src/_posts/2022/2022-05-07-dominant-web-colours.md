@@ -6,8 +6,9 @@ summary: Wrapping my CLI tool for finding dominant colours in a lightweight web 
 tags: colour glitch fun-stuff
 link: https://dominant-colours.glitch.me/
 
-index:
-  tint_color: "#1b3055"
+colors:
+  index_light: "#1b3055"
+  index_dark:  "#bdbdc2"
 ---
 
 Last year, I created [a CLI tool][cli] for finding the dominant colours in an image.

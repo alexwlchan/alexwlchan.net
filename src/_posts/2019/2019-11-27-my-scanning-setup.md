@@ -6,7 +6,9 @@ summary: My procedure for scanning paper, and organising the scanned PDFs with k
 tags: personal productivity
 index:
   best_of: true
-  tint_color: "#302d2b"
+colors:
+  index_light: "#302d2b"
+  index_dark:  "#c2904f"
 ---
 
 I get a lot of documents as paper, which I scan and store as PDFs files.

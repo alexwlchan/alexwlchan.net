@@ -4,9 +4,38 @@ date: 2023-01-15 21:46:18 +0000
 title: Beware of transparent backgrounds when using AVIF with ImageMagick 6
 summary: You probably want to use version 7.
 tags: blogging-about-blogging images imagemagick
-theme:
-  color: "#333333"
+colors:
+  css_light: "#333333"
+  css_dark:  "#cccccc"
 ---
+
+<style type="x-text/scss">
+  #avif_comparison {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 600px;
+    grid-column-gap: $grid-gap;
+
+    picture:nth-child(1) img {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+    }
+
+    picture:nth-child(2) img {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      grid-row: 1 / 2;
+      grid-column: 2 / 2;
+    }
+
+    figcaption {
+      grid-row: 2 / 2;
+      grid-column: 1 / span 2;
+    }
+  }
+</style>
 
 One of the things I did over my Christmas break was redo all the image handling on this site.
 Mostly I'm catching up on the current "best practices" for images on the web.

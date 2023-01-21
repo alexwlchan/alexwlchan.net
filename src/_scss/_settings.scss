@@ -1,18 +1,10 @@
-$primary-color: #d01c11 !default;
-$primary-dark:  darken($primary-color, 15%);
+$primary-color-light: #d01c11 !default;
+$primary-color-dark:  #d01c11 !default;
+$primary-dark:  darken($primary-color-light, 15%);
 
-$main-font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-$mono-font:        Menlo, Consolas, monospace;
-
-$body-color:   #202020;
-$accent-grey:  #999;
-$light-grey:   #f0f0f0;
 $midtone-gray: #ccc;
 
-$primary-green: #0c9718;
-
-$pre-sidebar-grey: rgba(153, 153, 153, 0.6);
-$pre-background-grey: rgba(182, 182, 182, 0.15);
+//$primary-green: #0c9718;
 
 $default-font-size: 1em;
 $line-height:       1.5em;
@@ -23,13 +15,7 @@ $meta-line-height: $meta-size * $line-height * 1.15;
 
 $max-width:       750px !default;
 $default-padding: 20px !default;
-$big-font-size:   2em !default;
 
 $default-grid-gap: 10px;
 
 $corner-radius: 10px;
-
-$sidebar-border-width: 3px;
-
-$scaling-factor: 0.95;
-$code-scaling-factor: 0.88;

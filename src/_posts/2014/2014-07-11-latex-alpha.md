@@ -3,8 +3,9 @@ layout: post
 date: 2014-07-11 07:43:00 +0000
 tags: latex wolfram-alpha
 title: Getting plaintext LaTeX from Wolfram Alpha
-index:
-  tint_color: "#f35716"
+colors:
+  index_light: "#f35716"
+  index_dark:  "#ffc433"
 ---
 
 Although I don't write numerical equations very often, I couldn't help but smile at [this post by Dr. Drang][drang].

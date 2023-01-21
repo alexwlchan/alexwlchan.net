@@ -4,9 +4,9 @@ date: 2020-04-05 08:09:36 +0000
 title: Storing language vocabulary as a graph
 summary: Experimenting with a way to store words and phrases that highlights the connections between them.
 tags: languages python graph-theory
-index:
-  best_of: true
-  tint_color: "#946800"
+colors:
+  index_light: "#946800"
+  index_dark:  "#ffb300"
 ---
 
 If you've ever tried to learn a foreign language, you've probably encountered a *vocabulary list*.

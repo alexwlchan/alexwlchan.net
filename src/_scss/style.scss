@@ -12,6 +12,7 @@
 @import "base/latex.scss";
 @import "base/nav.scss";
 @import "base/post_cards.scss";
+@import "base/pygments.scss";
 @import "base/tweets.scss";
 
 // This is for the "Skip to main content" link at the top of the page
@@ -46,4 +47,22 @@ a.download {
 
 .slide {
   @include centred($max-width * 0.6);
+}
+
+@media print {
+  footer {
+    display: none;
+  }
+
+  .post_cards .card .card_posting_date p {
+    color: $body-color-light;
+  }
+
+  .meta, figcaption {
+    color: $body-color-light;
+
+    a {
+      color: $body-color-light;
+    }
+  }
 }

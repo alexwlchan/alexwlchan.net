@@ -1,8 +1,9 @@
 ---
 layout: page
 title: ""
-theme:
-  color: "#17823e"
+colors:
+  css_light: "#17823e"
+  css_dark:  "#26d967"
 ---
 
 <style>

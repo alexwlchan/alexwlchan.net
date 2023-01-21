@@ -4,8 +4,9 @@ date: 2021-07-09 06:27:58 +0000
 title: A few useful GitHub searches
 summary: I have hotkeys to search GitHub in several ways, including by user, by repo, and within the work organisation.
 tags: github
-index:
-  tint_color: "#0e1013"
+colors:
+  index_light: "#0e1013"
+  index_dark:  "#a5a8ab"
 ---
 
 For good and for ill, GitHub dominates the open source world.

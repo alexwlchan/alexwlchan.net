@@ -4,8 +4,9 @@ date: 2021-03-02 13:17:55 +0000
 title: An AppleScript to toggle Voice Control
 tags: applescript macos accessibility
 summary: Making it slightly easier for me to enable and disable Voice Control quickly.
-index:
-  tint_color: "#595c80"
+colors:
+  index_light: "#595c80"
+  index_dark:  "#797da7"
 ---
 
 {% comment %}

@@ -4,8 +4,9 @@ date: 2022-02-28 10:23:14 +0000
 title: Beware delays in SQS metric delivery
 summary: A mysterious problem with SQS-based autoscaling and an over-eager CloudWatch Alarm.
 tags: aws amazon-cloudwatch amazon-sqs
-index:
-  tint_color: "#B0084D"
+colors:
+  index_light: "#B0084D"
+  index_dark:  "#f75095"
 ---
 
 A couple of weeks ago, I fixed what's been a long-standing and mysterious bug in our apps, which was caused by a new-to-me interaction between SQS and CloudWatch metrics.

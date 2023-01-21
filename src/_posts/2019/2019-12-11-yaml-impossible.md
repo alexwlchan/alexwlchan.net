@@ -5,9 +5,9 @@ title: This YAML file will self-destruct in five seconds!
 summary: YAML allows you to execute arbitrary code in a parser, even if you really really shouldn't.
 tags: python code-crimes
 
-index:
-  best_of: true
-  tint_color: "#527ab2"
+colors:
+  index_light: "#527ab2"
+  index_dark:  "#8ebaec"
 ---
 
 If you know the *Mission: Impossible* films (or before that, the 1966 TV series), you've surely heard the famous phrase, "This tape will self-destruct in five seconds. Good luck, Jim."

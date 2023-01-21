@@ -4,9 +4,9 @@ date: 2016-10-22 21:03:00 +0000
 title: Creating low contrast wallpapers with Pillow
 summary: "Take a regular tiling of the plane, and apply a random colouring: voila, a unique wallpaper, courtesy of the Python Imaging Library."
 tags: python python:pillow drawing-things generative-art
-index:
-  best_of: true
-  tint_color: "#98291d"
+colors:
+  index_light: "#98291d"
+  index_dark:  "#ffd20b"
 ---
 
 In my [last post]({% post_url 2016/2016-10-21-tiling-the-plane-with-pillow %}), I explained how I'd been using Pillow to draw regular tilings of the plane.

@@ -5,8 +5,9 @@ title: An interactive map of British railway stations 🚂
 summary: A map I use to plot which railway stations I've visited.
 link: https://uk-stations-map.glitch.me/
 tags: glitch trains fun-stuff
-index:
-  tint_color: "#0b9e00"
+colors:
+  index_light: "#0b9e00"
+  index_dark:  "#0b9e00"
 ---
 
 Here's another fun project I've been working on: a map that you can use to plot which railway stations you've visited.

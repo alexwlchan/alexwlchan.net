@@ -5,11 +5,11 @@ layout:     post
 summary:    A brief introduction to asexuality, what it means, and why it matters.
 tags:       personal asexuality
 title:      The A stands for Asexual
-theme:
-  color: "#6c006c"
 index:
-  best_of: true
-  tint_color: "#74157B"
+  exclude: true
+colors:
+  css_light: "#6c006c"
+  css_dark:  "#cb52ff"
 ---
 
 Today is a more personal post: I want to talk about asexuality.

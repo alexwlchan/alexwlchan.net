@@ -5,8 +5,10 @@ title: Creating a “simple” three-up image layout in CSS
 summary: A step-by-step breakdown of how I made a one-left, two-right layout for my images.
 tags: css css:grid web-development
 index:
-  tint_color: "#4b536e"
   best_of: true
+colors:
+  index_light: "#4b536e"
+  index_dark:  "#a7a7af"
 ---
 
 I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.
