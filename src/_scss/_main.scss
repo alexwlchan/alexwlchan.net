@@ -54,10 +54,6 @@ pre, blockquote {
   background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
 }
 
-.post_cards .card {
-  @include card_light_styles($primary-color-light);
-}
-
 nav {
   background: url('/headers/specktre_#{colorToHexString($primary-color-light)}.png') $primary-color-light;
   background-size: auto 100%;
@@ -100,10 +96,6 @@ footer {
   pre, blockquote {
     border-color: rgba($primary-color-dark, 0.3);
     background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
-  }
-
-  .post_cards .card {
-    @include card_dark_styles($primary-color-dark);
   }
 }
 
