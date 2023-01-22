@@ -65,7 +65,7 @@ In an iterative project, you:
 Most people are already familiar with steps 1 and 2; but step 3 is super important and it's the bit people often miss.
 This cycle gets us a fast feedback loop for our task management.
 
-​{%
+{%
   slide
   filename="slide3.png"
   alt="Text slide. Building iteratively means you can react to new info or requirements, gather feedback quickly, and always be doing something important."
