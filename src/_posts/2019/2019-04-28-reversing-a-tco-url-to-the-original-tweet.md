@@ -48,28 +48,28 @@ I have found a couple of ways to do it, and in this post I'll explain how.
 ## The manual approach
 
 If you search for a t.co URL in Twitter, you can see tweets which include it.
-If the twet is recent and visible to you, it shows up in the results:
+If the tweet is recent and visible to you, it shows up in the results:
 
-<a href="https://twitter.com/search?q=https%3A%2F%2Ft.co%2F1AbEHY2P6b">
-  {%
-    picture
-    filename="twitter_search_single.png"
-    alt="Searching for a t.co URL with a single results."
-    visible_width="597px"
-  %}
-</a>
+{%
+  picture
+  filename="twitter_search_single.png"
+  alt="Searching for a t.co URL with a single results."
+  link_to="https://twitter.com/search?q=https%3A%2F%2Ft.co%2F1AbEHY2P6b"
+  visible_width="597px"
+  class="screenshot"
+%}
 
 Sometimes you might find multiple tweets that include the same URL.
 I've seen this happen when somebody posts the same link several times:
 
-<a href="https://twitter.com/search?q=https%3A%2F%2Ft.co%2FFACNrWdMu4">
-  {%
-    picture
-    filename="twitter_search_multiple.png"
-    alt="Searching for a t.co URL with multiple results."
-    visible_width="597px"
-  %}
-</a>
+{%
+  picture
+  filename="twitter_search_multiple.png"
+  alt="Searching for a t.co URL with multiple results."
+  link_to="https://twitter.com/search?q=https%3A%2F%2Ft.co%2FFACNrWdMu4"
+  visible_width="597px"
+  class="screenshot"
+%}
 
 If you only need to search for a couple of URLs, this is probably fine.
 
