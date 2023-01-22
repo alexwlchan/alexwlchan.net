@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-01-22 21:22:16 +0000
 title: Changing the bulb in a Meridian Lighting CIR100B ceiling light
 summary: A note to my future self. Also, reverse image search is amazing.
 tags: home
