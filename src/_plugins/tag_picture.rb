@@ -69,6 +69,15 @@
 #        visible_width="750px"
 #      %}
 #
+# This example links the image to something other than the original file:
+#
+#     {%
+#        picture
+#        filename="example.png"
+#        link_to="https://example.com/some/page"
+#        visible_width="750px"
+#      %}
+#
 # Any other attribute (e.g. `style`) will be passed directly to the underlying
 # <img> tag, which allows you to apply styles or behaviours not covered by
 # this plugin.
@@ -177,6 +186,8 @@ module Jekyll
 
       @link_to_original = @attrs.include? 'link_to_original'
       @attrs.delete('link_to_original')
+
+      @link_to = @attrs.delete('link_to')
     end
 
     def render(context)
@@ -246,6 +257,12 @@ module Jekyll
       if @link_to_original
         <<~HTML
           <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">
+            #{inner_html.split("\n").map { |s| "  #{s}" }.join("\n")}
+          </a>
+        HTML
+      elsif @link_to
+        <<~HTML
+          <a href="#{@link_to}">
             #{inner_html.split("\n").map { |s| "  #{s}" }.join("\n")}
           </a>
         HTML
