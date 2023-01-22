@@ -255,6 +255,4 @@ So it might be old-fashioned to care about LaTeX and underlined links, but it mi
 [contour]: https://ctan.org/pkg/contour
 [texsx]: https://tex.stackexchange.com/q/36894/9668
 
-*The code used to create the images in this post is [on GitHub][github].*
-
-[github]: https://github.com/alexwlchan/alexwlchan.net/tree/master/misc/latex-underlines
+*You can [download the code](/files/2017/latex-underlines.zip) used to create the images in this post.*
