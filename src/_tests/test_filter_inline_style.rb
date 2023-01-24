@@ -1,10 +1,10 @@
-require "test/unit"
+require 'test/unit'
 
 require_relative '../_plugins/filter_inline_style'
 
 class TestRemoveInlineStyleTagFilter < Test::Unit::TestCase
   def test_it_leaves_html_with_no_style_alone
-    html = "<p>Hello world!</p>"
+    html = '<p>Hello world!</p>'
     assert_equal(RemoveInlineStyles.remove_inline_styles(html), html)
   end
 

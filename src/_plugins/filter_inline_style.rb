@@ -26,7 +26,7 @@ class RemoveInlineStyles
     if html.include? '<style'
       doc = Nokogiri::HTML.fragment(html)
 
-      # Note: this deliberately bypasses the Nokogiri HTML rendering,
+      # NOTE: this deliberately bypasses the Nokogiri HTML rendering,
       # and just does a regex-esque find and replace.
       #
       # There are certain issues where, e.g. Nokogiri will try to insert
@@ -34,7 +34,7 @@ class RemoveInlineStyles
       # on the raw HTML and try to preserve the existing formatting as
       # much as possible.
       doc.xpath('style|.//style').each do |style|
-        html = html.gsub(/<style[^>]*>\s*#{Regexp.escape(style.text)}\s*<\/style>/, '')
+        html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
       end
     end
 
@@ -45,7 +45,7 @@ end
 module Jekyll
   module RemoveInlineStyleTagFilter
     def remove_inline_styles(html)
-      RemoveInlineStyles::remove_inline_styles(html)
+      RemoveInlineStyles.remove_inline_styles(html)
     end
   end
 
