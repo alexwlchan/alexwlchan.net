@@ -53,16 +53,16 @@ Then I may have something for you.
 
 On your social media, you can bask in the warmth of an Important Internet Checkmark which tells your users that they're interacting with your bona fide Brand Ambassadors.
 
-<figure style="width: 483px;">
+<figure style="width: 548px;">
   {%
     picture
-    filename="acme_corporation.jpg"
+    filename="acme_corporation_delicious.png"
     alt="A social media profile for ACME Corporation with a blue check mark."
-    visible_width="483px"
+    visible_width="548px"
     class="screenshot"
   %}
   <figcaption>
-    Mmm… that blue checkmark smells of trust.
+    Mmm… that blue checkmark tastes of trust.
   </figcaption>
 </figure>
 
