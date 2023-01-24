@@ -74,9 +74,9 @@ Gemfile.lock: Gemfile
 
 plugin-tests:
 	docker run --tty --rm \
-		--entrypoint ruby
+		--entrypoint ruby \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) src/_plugins/tests/tests.rb
+		$(DOCKER_IMAGE) src/_tests/tests.rb
 
 .PHONY: publish-docker build stop serve publish-drafts publish rsync deploy
