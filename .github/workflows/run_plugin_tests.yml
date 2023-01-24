@@ -1,4 +1,4 @@
-name: "rubocop"
+name: "plugin-tests"
 
 on:
   push:
