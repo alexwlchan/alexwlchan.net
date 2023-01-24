@@ -1,0 +1,28 @@
+name: "rubocop"
+
+on:
+  push:
+    branches:
+    - live
+
+    paths:
+      - 'src/_plugins/**'
+
+  pull_request:
+    branches:
+    - live
+
+    paths:
+      - 'src/_plugins/**'
+
+jobs:
+  build:
+    name: Run plugin tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out the repo"
+        uses: actions/checkout@v3
+
+      - name: Run the tests
+        run: |
+          make plugin-tests
