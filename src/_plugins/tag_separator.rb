@@ -25,19 +25,10 @@ module Jekyll
       svg_path = "#{src}/theme/_separators/#{@name}"
 
       svg_doc = File.open(svg_path) { |f| Nokogiri::XML(f) }
-
-      # Quoting "Accessible SVGs" § 2:
-      #
-      #     On the <svg> tag add: role="img" (so that the SVG is not traversed
-      #     by browsers that map the SVG to the group role)
-      #
-      # We omit the alt tag because this is just for decoration.
-      svg_doc.root.set_attribute('role', 'img')
+      svg_doc.root.set_attribute('role', 'separator')
 
       <<~HTML
-        <center class='separator' role='separator'>
-          #{svg_doc.to_xml(indent: 0).gsub('<?xml version="1.0"?>', '')}
-        </center>
+        #{svg_doc.to_xml(indent: 0).gsub('<?xml version="1.0"?>', '')}
       HTML
     end
   end
