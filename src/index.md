@@ -16,6 +16,10 @@ colors:
       border-radius: 10px;
     }
   }
+
+  svg[role="separator"] {
+    display: block;
+  }
 </style>
 
 <p class="fullwidth_img">
