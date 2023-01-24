@@ -18,10 +18,10 @@ What if you wanted to speed up the deletion of a secret?
 
 You can see deleted secrets in the AWS Console (notice the "Deleted on" column):
 
-<figure style="width: 515px;">
+<figure style="width: 513px;">
   {%
     picture
-    filename="secrets_manager.png"
+    filename="secrets_manager.1.png"
     alt="Screenshot of the Secrets Manager console. There's a table with one secret per row, and the rightmost column is titled 'Deleted on'. This column contains a date for the top five rows."
     visible_width="515px"
     class="screenshot"

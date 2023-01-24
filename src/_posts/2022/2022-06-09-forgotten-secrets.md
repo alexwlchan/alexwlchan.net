@@ -20,7 +20,13 @@ We have hundreds of secrets in our account, so I didn't want to go through every
 
 To help me out, Secrets Manager records the last time a secret was retrieved:
 
-<img src="/images/2022/secrets_screenshot.png" style="width: 532px; border: 2px solid #EBEDED;" alt="A table with three columns and five rows. The rows are titled 'Secret name', 'Description', and 'Last retrieved (UTC)', and the rows of the 'Last retrieved' column are filled with MM/DD/YYYY dates.">
+{%
+  picture
+  filename="secrets_screenshot.png"
+  alt="A table with three columns and five rows. The rows are titled 'Secret name', 'Description', and 'Last retrieved (UTC)', and the rows of the 'Last retrieved' column are filled with MM/DD/YYYY dates."
+  visible_width="532px"
+  class="screenshot"
+%}
 
 I could use this as a clue for which secrets are current -- they'd have been retrieved recently.
 If I filtered for secrets last retrieved before a particular date, I'd get a much shorter list.
