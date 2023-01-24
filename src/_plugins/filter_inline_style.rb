@@ -21,74 +21,83 @@
 
 require 'nokogiri'
 
+class RemoveInlineStyles
+  def self.remove_inline_styles(html)
+    if html.include? '<style'
+      doc = Nokogiri::HTML.fragment(html)
+
+      # NOTE: this deliberately bypasses the Nokogiri HTML rendering,
+      # and just does a regex-esque find and replace.
+      #
+      # There are certain issues where, e.g. Nokogiri will try to insert
+      # a closing </source> tag which is redundant, so instead we operate
+      # on the raw HTML and try to preserve the existing formatting as
+      # much as possible.
+      doc.xpath('style|.//style').each do |style|
+        html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
+      end
+    end
+
+    html
+  end
+end
+
 module Jekyll
   module RemoveInlineStyleTagFilter
     def remove_inline_styles(html)
-      cache = Jekyll::Cache.new('RemoveInlineStyleTag')
-
-      cache.getset(html) do
-        if html.include? '<style'
-          doc = Nokogiri::HTML.fragment(html)
-          doc.xpath('style|.//style').remove
-          doc.to_s
-        else
-          html
-        end
-      end
+      RemoveInlineStyles.remove_inline_styles(html)
     end
   end
 
   module GetInlineStylesFilter
     def get_inline_styles(html)
-      cache = Jekyll::Cache.new('GetInlineStyles')
+      if html.include? '<style'
+        doc = Nokogiri::HTML(html)
 
-      cache.getset(html) do
-        if html.include? '<style'
-          doc = Nokogiri::HTML(html)
+        inline_styles = Hash.new { [] }
 
-          inline_styles = Hash.new { [] }
+        doc.xpath('style|.//style').each do |style|
+          style_type = style.get_attribute('type')
+          media = style.get_attribute('media')
 
-          doc.xpath('style|.//style').each do |style|
-            style_type = style.get_attribute('type')
-            media = style.get_attribute('media')
+          if style_type == 'x-text/scss'
+            site = @context.registers[:site]
+            converter = site.find_converter_instance(Jekyll::Converters::Scss)
+            css = converter.convert(<<~SCSS
+              @import "mixins.scss";
+              @import "_settings.scss";
+              @import "variables.scss";
 
-            if style_type == 'x-text/scss'
-              site = @context.registers[:site]
-              converter = site.find_converter_instance(Jekyll::Converters::Scss)
-              css = converter.convert(<<~SCSS
-                @import "mixins.scss";
-                @import "_settings.scss";
-                @import "variables.scss";
-
-                #{style.text}
-              SCSS
-                                     )
-              inline_styles[media] <<= css
-            else
-              inline_styles[media] <<= style.text
-            end
+              #{style.text}
+            SCSS
+                                   )
+            inline_styles[media] <<= css
+          else
+            inline_styles[media] <<= style.text
           end
-
-          if inline_styles.empty?
-            return ''
-          end
-
-          lines = inline_styles.map do |media, css|
-            if media.nil?
-              css
-            else
-              "@media #{media} { #{css.join("\n")} }"
-            end
-          end
-
-          lines.join("\n")
-        else
-          ''
         end
+
+        if inline_styles.empty?
+          return ''
+        end
+
+        lines = inline_styles.map do |media, css|
+          if media.nil?
+            css
+          else
+            "@media #{media} { #{css.join("\n")} }"
+          end
+        end
+
+        lines.join("\n")
+      else
+        ''
       end
     end
   end
 end
 
-Liquid::Template.register_filter(Jekyll::RemoveInlineStyleTagFilter)
-Liquid::Template.register_filter(Jekyll::GetInlineStylesFilter)
+if defined? Liquid
+  Liquid::Template.register_filter(Jekyll::RemoveInlineStyleTagFilter)
+  Liquid::Template.register_filter(Jekyll::GetInlineStylesFilter)
+end
