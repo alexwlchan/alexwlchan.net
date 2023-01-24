@@ -72,5 +72,11 @@ Gemfile.lock: Gemfile
 		--tty --rm $(shell cat Dockerfile | grep FROM | awk '{print $$2}') \
 		bundle lock --update
 
+plugin-tests:
+	docker run --tty --rm \
+		--entrypoint ruby
+		--volume $(ROOT):$(ROOT) \
+		--workdir $(ROOT) \
+		$(DOCKER_IMAGE) src/_plugins/tests/tests.rb
 
 .PHONY: publish-docker build stop serve publish-drafts publish rsync deploy
