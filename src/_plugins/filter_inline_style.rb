@@ -30,10 +30,7 @@ module Jekyll
         if html.include? '<style'
           doc = Nokogiri::HTML.fragment(html)
           doc.xpath('style|.//style').remove
-
-          # NOTE: Nokogiri will "helpfully" insert closing </source> tags,
-          # which I don't actually want.  Bin them.
-          doc.to_s.gsub('(</source>)+</picture>', '</picture>')
+          doc.to_s
         else
           html
         end
@@ -47,7 +44,7 @@ module Jekyll
 
       cache.getset(html) do
         if html.include? '<style'
-          doc = Nokogiri::HTML.fragment(html)
+          doc = Nokogiri::HTML(html)
 
           inline_styles = Hash.new { [] }
 

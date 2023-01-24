@@ -238,15 +238,15 @@ module Jekyll
           <source
             srcset="#{sources[ImageFormat::AVIF].join(', ')}"
             type="image/avif"
-          >
+          />
           <source
             srcset="#{sources[ImageFormat::WEBP].join(', ')}"
             type="image/webp"
-          >
+          />
           <source
             srcset="#{sources[im_format].join(', ')}"
             type="#{im_format[:mime_type]}"
-          >
+          />
           <img
             src="#{sources[im_format][0].gsub(' 1x', '')}"
             #{extra_attributes}
