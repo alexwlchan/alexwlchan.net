@@ -62,7 +62,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     unless File.exist? social_card_out
       image = Rszr::Image.load(social_card)
 
-      out_width = [[image.width, 800].max, 1000].min
+      out_width = image.width.clamp(800, 1000)
 
       open('.missing_images.json', 'a') do |f|
         f.puts JSON.generate({
