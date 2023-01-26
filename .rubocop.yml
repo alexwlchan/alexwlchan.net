@@ -47,9 +47,6 @@ Metrics/PerceivedComplexity:
 Naming/MethodParameterName:
   Enabled: false
 
-Style/AndOr:
-  Enabled: false
-
 Style/ClassVars:
   Enabled: false
 
