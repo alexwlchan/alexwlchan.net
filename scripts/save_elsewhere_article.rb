@@ -53,11 +53,11 @@ def ask_for_metadata
   }
 end
 
-def slugify(u)
+def slugify(url)
   # Convert Unicode string into blog slug.
   #
   # Based on http://www.leancrew.com/all-this/2014/10/asciifying/
-  u = u.gsub(%r{[–—/:;,.]}, '-') # replace separating punctuation
+  u = url.gsub(%r{[–—/:;,.]}, '-') # replace separating punctuation
   a = u.to_ascii.downcase         # best ASCII substitutions, lowercased
   a = a.gsub(/[^a-z0-9 -]/, '')   # delete any other characters
   a = a.sub(' ', '-')             # spaces to hyphens
