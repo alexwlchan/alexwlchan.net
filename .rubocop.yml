@@ -8,9 +8,6 @@ AllCops:
     - 'src/_files/2022/division2.rb'
     - 'src/_files/2023/uequals_operator.rb'
 
-Layout/HeredocIndentation:
-  Enabled: false
-
 Layout/LineLength:
   Max: 200
 
@@ -38,13 +35,13 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Enabled: false
 
+Metrics/ParameterLists:
+  Enabled: false
+
 Metrics/PerceivedComplexity:
   Enabled: false
 
 Naming/MethodParameterName:
-  Enabled: false
-
-Style/AndOr:
   Enabled: false
 
 Style/ClassVars:

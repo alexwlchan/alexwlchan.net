@@ -4,6 +4,24 @@ require 'fileutils'
 require 'shell/executer'
 require 'tmpdir'
 
+# Given a ChunkyPNG image with grayscale pixels and a tint colour, create
+# a colourised version of that image.
+def colorise_image(image, tint_colour)
+  0.upto(image.width - 1) do |x|
+    0.upto(image.height - 1) do |y|
+      image.set_pixel(
+        x, y,
+        ChunkyPNG::Color.rgba(
+          tint_colour.red.to_i,
+          tint_colour.green.to_i,
+          tint_colour.blue.to_i,
+          image.get_pixel(x, y)
+        )
+      )
+    end
+  end
+end
+
 def create_favicons(site, colours)
   src = site.config['source']
   dst = site.config['destination']
@@ -14,7 +32,7 @@ def create_favicons(site, colours)
     ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
     png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
 
-    next if File.exist? ico_path
+    next if (File.exist? ico_path) && (File.exist? png_path)
 
     image16 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-16x16.png")
     image32 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-32x32.png")
@@ -23,32 +41,10 @@ def create_favicons(site, colours)
       Dir.chdir(tmp_dir) do
         fill_colour = Color::RGB.by_hex(c)
 
-        0.upto(image16.width - 1) do |x|
-          0.upto(image16.height - 1) do |y|
-            color = ChunkyPNG::Color.rgba(
-              fill_colour.red.to_i,
-              fill_colour.green.to_i,
-              fill_colour.blue.to_i,
-              image16.get_pixel(x, y)
-            )
-            image16.set_pixel(x, y, color)
-          end
-        end
-
+        colorise_image(image16, fill_colour)
         image16.save('favicon-16x16.png', :best_compression)
 
-        0.upto(image32.width - 1) do |x|
-          0.upto(image32.height - 1) do |y|
-            color = ChunkyPNG::Color.rgba(
-              fill_colour.red.to_i,
-              fill_colour.green.to_i,
-              fill_colour.blue.to_i,
-              image32.get_pixel(x, y)
-            )
-            image32.set_pixel(x, y, color)
-          end
-        end
-
+        colorise_image(image32, fill_colour)
         image32.save('favicon-32x32.png', :best_compression)
 
         # Create an ICO favicon by packing the two PNG images.
@@ -138,6 +134,7 @@ end
 Jekyll::Hooks.register :site, :post_render do |site|
   if File.exist? '.header_colours.txt'
     colours = File.readlines('.header_colours.txt').uniq.map(&:strip)
+    colours << '#d01c11'
     create_header_images(site, colours)
     create_favicons(site, colours)
   end
