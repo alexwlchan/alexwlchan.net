@@ -44,43 +44,26 @@
 # It will look for the image in `/images/#{year}/#{filename}`, so if this
 # was a post from 2022, it will look in `/images/2022/IMG_5744.jpg`.
 #
-# This is a more sophisticated example:
+# Other parameters:
 #
-#     {%
-#       picture
-#       filename="IMG_5794.jpg"
-#       alt="An engine shed with three tracks leading in."
-#       visible_width="500px"
-#       style="border: 1px solid red"
-#       loading="lazy"
-#       link_to_original
-#     %}
+#     * `link_to_original` -- if added, the final <picture> tag will be
+#       wrapped in an <a> that links to the full-sized image.  Useful for
+#       gallery-type posts.
 #
-# It includes the `link_to_original` attribute, which means the final
-# <picture> tag will be wrapped in an <a> that links to the full-sized image.
-# This is useful in gallery posts.
+#     * `link_to="https://example.com/some/page"` -- causes the <a> to link
+#       to somewhere other than the full-sized image.
 #
-# This example files the image in something other than the per-year directory:
+#     * `parent="/images"` -- looks for an image in somewhere other than
+#       the per-year directory.
 #
-#     {%
-#        picture
-#        filename="profile_green.jpg"
-#        parent="/images"
-#        visible_width="750px"
-#      %}
+#     * `extra_widths="500px, 640px, 1000px, 1250px"` -- creates extra sizes
+#       of the image which can be selected by the browser.  This increases
+#       the storage requirements, so should be reserved for images on
+#       pages which get a lot of hits.
 #
-# This example links the image to something other than the original file:
-#
-#     {%
-#        picture
-#        filename="example.png"
-#        link_to="https://example.com/some/page"
-#        visible_width="750px"
-#      %}
-#
-# Any other attribute (e.g. `style`) will be passed directly to the underlying
-# <img> tag, which allows you to apply styles or behaviours not covered by
-# this plugin.
+# Any other attribute (e.g. `style`, `class`) will be passed directly to
+# the  underlying <img> tag, which allows you to apply styles or behaviours
+# not covered by this plugin.
 #
 # == How it works ==
 #
@@ -182,6 +165,8 @@ module Jekyll
         @attrs, { tag: 'picture', attribute: 'visible_width' }
       ).gsub(/px/, '').to_i
 
+      @extra_widths = (@attrs.delete('extra_widths') || '').split(',').map { |w| w.gsub(/px/, '').to_i }
+
       @parent = @attrs.delete('parent')
 
       @link_to_original = @attrs.include? 'link_to_original'
@@ -229,32 +214,47 @@ module Jekyll
       gcd = image.width.gcd(image.height)
       @attrs['style'] = "aspect-ratio: #{image.width / gcd} / #{image.height / gcd}; #{@attrs['style'] || ''}"
 
-      sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width)
+      sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width, @extra_widths)
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
+      default_image = sources[im_format]
+                      .map { |im| im.split[0] }
+                      .find { |path| path.end_with? "_1x#{im_format[:extension]}" }
+
+      # This creates a `sizes` attribute like
+      #
+      #     (max-width: 450px) 100vw, 450px
+      #
+      # which tells the browser an image is an exact width (450px) unless
+      # the entire viewport is narrower than that, in which case it fills
+      # the screen (100vw).
+      #
+      # This isn't perfect, e.g. it doesn't account for margins or wrapping,
+      # but it's good enough and better than relying on screen density alone.
       inner_html = <<~HTML
         <picture>
           <source
             srcset="#{sources[ImageFormat::AVIF].join(', ')}"
+            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
             type="image/avif"
           >
           <source
             srcset="#{sources[ImageFormat::WEBP].join(', ')}"
+            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
             type="image/webp"
           >
           <source
             srcset="#{sources[im_format].join(', ')}"
+            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
             type="#{im_format[:mime_type]}"
           >
           <img
-            src="#{sources[im_format][0].gsub(' 1x', '')}"
+            src="#{default_image}"
             #{extra_attributes}
           >
         </picture>
       HTML
-
-      # puts inner_html
 
       if @link_to_original
         <<~HTML
@@ -273,16 +273,29 @@ module Jekyll
       end
     end
 
-    def prepare_images(source_path, image, im_format, dst_prefix, visible_width)
+    def prepare_images(source_path, image, im_format, dst_prefix, visible_width, extra_widths)
       sources = Hash.new { [] }
 
-      (1..3).each do |pixel_density|
-        width = pixel_density * visible_width
+      # Pick how many widths we're going to cut this image at.
+      #
+      # Generally 1x/2x/3x is fine, but for specific images I can pick
+      # extra sizes and have them added to the list.
+      widths = (1..3).map { |pixel_density| pixel_density * visible_width }
+      widths.concat(extra_widths)
+      widths = widths.filter { |w| w <= image.width }
+      widths.sort!
 
-        next unless image.width >= width
-
+      widths.each do |width|
         [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
-          out_path = "#{dst_prefix}_#{pixel_density}x#{out_format[:extension]}"
+          # I already have lots of images cut with the _1x, _2x, _3x names,
+          # so I retain those when picking names to avoid breaking links or
+          # losing Google juice, then switch to _500w, _640w, and so on
+          # for larger sizes.
+          out_path = if (width % visible_width).zero?
+                       "#{dst_prefix}_#{width / visible_width}x#{out_format[:extension]}"
+                     else
+                       "#{dst_prefix}_#{width}w#{out_format[:extension]}"
+                     end
 
           unless File.exist? out_path
             open('.missing_images.json', 'a') do |f|
@@ -295,7 +308,7 @@ module Jekyll
             end
           end
 
-          sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{pixel_density}x"
+          sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{width}w"
         end
       end
 
