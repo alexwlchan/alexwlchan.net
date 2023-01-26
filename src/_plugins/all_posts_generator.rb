@@ -39,15 +39,6 @@ module Jekyll
       }
     end
 
-    def render(layouts, site_payload)
-      puts data
-      payload = {
-        'page' => data
-      }.merge(site_payload)
-
-      do_layout(payload, layouts)
-    end
-
     def destination(root)
       File.join('/', root, @year.to_s, 'index.html')
     end

@@ -3,10 +3,10 @@
 #
 #     {% picture filename="IMG_5744.jpg" alt="A black steam engine" %}
 #
-def parse_attrs(s)
+def parse_attrs(input)
   result = {}
 
-  s.scan(/(?<key>[a-z\-_]+)(?:="(?<value>[^"]*)")?/).each do |k, v|
+  input.scan(/(?<key>[a-z\-_]+)(?:="(?<value>[^"]*)")?/).each do |k, v|
     result[k] = v
   end
 
