@@ -32,7 +32,7 @@ def create_favicons(site, colours)
     ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
     png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
 
-    next if ((File.exist? ico_path) && (File.exist? png_path))
+    next if (File.exist? ico_path) && (File.exist? png_path)
 
     image16 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-16x16.png")
     image32 = ChunkyPNG::Image.from_file("#{src}/theme/_favicons/template-32x32.png")
