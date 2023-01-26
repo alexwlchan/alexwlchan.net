@@ -10,6 +10,67 @@
 #
 # See: https://alexwlchan.net/2020/adding-non-breaking-spaces-with-jekyll/
 
+class AddNonBreakingSpaces
+  def self.add_non_breaking_spaces(input)
+    text = input
+
+    # Add a non-breaking space after words which are followed by
+    # a number, e.g. 'Apollo 11' or 'RFC 456'
+    prefix_words = %w[
+      Apollo
+      HTTP
+      ImageMagick
+      issue
+      RFC
+      Part
+      part
+      Season
+      season
+    ].join('|')
+
+    text = text.gsub(/(#{prefix_words}) (\d+)/, '\1&nbsp;\2')
+
+    # Add a non-breaking space after words which are preceded by
+    # a number, e.g. '1 second' or '5 bytes'
+    countable_words = %w[
+      Artemis
+      second
+      minute
+      hour
+      character
+      byte
+    ].join('|')
+
+    text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\2')
+
+    # Other phrases which needed non-breaking spaces or non-breaking
+    # dashes.
+    phrases = [
+      '<em>k</em>-means',
+      'CC BY 4.0',
+      'CC BY-NC 4.0',
+      'CC BY-NC-ND',
+      'CC BY-SA 2.0',
+      'CC BY-SA 4.0',
+      'CC BY',
+      'iMac G3',
+      'iPhone X',
+      'JPEG 2000',
+      'Mac OS 9',
+      'P-215',
+      'PyCon ',
+      'Route 53'
+    ]
+
+    phrases.each do |p|
+      replacement = p.gsub(' ', '&nbsp;').gsub('-', '&#8209;')
+      text = text.gsub(p, replacement)
+    end
+
+    text
+  end
+end
+
 module Jekyll
   module CleanupsFilter
     def cache
@@ -18,60 +79,7 @@ module Jekyll
 
     def cleanup_text(input)
       cache.getset(input) do
-        text = input
-
-        # Add a non-breaking space after words which are followed by
-        # a number, e.g. 'Apollo 11' or 'RFC 456'
-        prefix_words = %w[
-          Apollo
-          HTTP
-          ImageMagick
-          issue
-          RFC
-          Part
-          part
-          Season
-          season
-        ].join('|')
-
-        text = text.gsub(/(#{prefix_words}) (\d+)/, '\1&nbsp;\2')
-
-        # Add a non-breaking space after words which are preceded by
-        # a number, e.g. '1 second' or '5 bytes'
-        countable_words = %w[
-          Artemis
-          second
-          minute
-          hour
-          character
-          byte
-        ].join('|')
-
-        text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\1')
-
-        # Other phrases which needed non-breaking spaces or non-breaking
-        # dashes.
-        phrases = [
-          '<em>k</em>-means',
-          'CC BY 4.0',
-          'CC BY-NC 4.0',
-          'CC BY-NC-ND',
-          'CC BY-SA 2.0',
-          'CC BY-SA 4.0',
-          'CC BY',
-          'iMac G3',
-          'iPhone X',
-          'JPEG 2000',
-          'Mac OS 9',
-          'P-215',
-          'PyCon ',
-          'Route 53'
-        ]
-
-        phrases.each do |p|
-          replacement = p.gsub(' ', '&nbsp;').gsub('-', '&#8209;')
-          text = text.gsub(p, replacement)
-        end
+        text = AddNonBreakingSpaces.add_non_breaking_spaces(input)
 
         # Display "LaTeX" in a nice way, if you have CSS enabled
         text = text.gsub(
@@ -95,4 +103,6 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_filter(Jekyll::CleanupsFilter)
+if defined? Liquid
+  Liquid::Template.register_filter(Jekyll::CleanupsFilter)
+end
