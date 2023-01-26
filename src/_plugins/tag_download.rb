@@ -46,7 +46,7 @@ module Jekyll
       ).render!(context).gsub(/\n/, '')
 
       <<~HTML
-<a href="/files/#{year}/#{@filename}" class="download">#{icon} #{@filename} </a>
+        <a href="/files/#{year}/#{@filename}" class="download">#{icon} #{@filename} </a>
       HTML
     end
   end
