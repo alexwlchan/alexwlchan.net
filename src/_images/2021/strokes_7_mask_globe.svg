@@ -1,19 +1,5 @@
-<svg viewBox="0 0 900 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 900 270" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="686px">
   <defs>
-    <style>
-      text {
-        fill: black;
-        stroke: none;
-        dominant-baseline: middle;
-        text-anchor: middle;
-        font-size: 15pt;
-      }
-
-      .operator {
-        font-size: 25pt;
-      }
-    </style>
-
     <mask id="globe7OuterOnly">
       <rect x="0" y="0" width="10000" height="100000" fill="white"/>
       <ellipse id="ellipse" cx="150" cy="117.5" rx="92" ry="90" fill="black"/>

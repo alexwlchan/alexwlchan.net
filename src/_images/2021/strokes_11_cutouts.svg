@@ -1,28 +1,8 @@
-<svg viewBox="0 0 900 258" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 900 258" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="686px">
   <defs>
     <style>
-      text {
-        fill: black;
-        stroke: none;
-        dominant-baseline: middle;
-        text-anchor: middle;
-        font-size: 15pt;
-      }
-
-      .operator {
-        font-size: 25pt;
-      }
-
       .border11 {
         fill: none;
-      }
-
-      .inner11 {
-        stroke: #d01c11;
-      }
-
-      .outer11 {
-        stroke: #1B48D3;
       }
     </style>
 
@@ -43,7 +23,7 @@
   </defs>
 
   <svg x="0">
-    <use xlink:href="#heart11" x="25" class="border11 inner11" transform="rotate(25 150 100) scale(2)" stroke-width="6"/>
+    <use xlink:href="#heart11" x="25" class="border11 red_stroke" transform="rotate(25 150 100) scale(2)" stroke-width="6"/>
     <text x="150" y="238">right-tilted heart</text>
   </svg>
 
@@ -61,7 +41,7 @@
 
   <svg x="600">
     <svg mask="url(#leftTiltedMask)">
-      <use xlink:href="#heart11" x="25" class="border11 inner11" transform="rotate(25 150 100) scale(2)" stroke-width="6"/>
+      <use xlink:href="#heart11" x="25" class="border11 red_stroke" transform="rotate(25 150 100) scale(2)" stroke-width="6"/>
     </svg>
     <text x="150" y="238">heart with a cutout</text>
   </svg>

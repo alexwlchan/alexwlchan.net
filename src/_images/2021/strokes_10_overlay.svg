@@ -1,28 +1,8 @@
-<svg viewBox="0 0 900 248" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 900 248" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="686px">
   <defs>
     <style>
-      text {
-        fill: black;
-        stroke: none;
-        dominant-baseline: middle;
-        text-anchor: middle;
-        font-size: 15pt;
-      }
-
-      .operator {
-        font-size: 25pt;
-      }
-
       .border10 {
         fill: none;
-      }
-
-      .inner10 {
-        stroke: #d01c11;
-      }
-
-      .outer10 {
-        stroke: #1B48D3;
       }
     </style>
 
@@ -35,22 +15,22 @@
   </defs>
 
   <svg x="0">
-    <use xlink:href="#heart10" x="25" class="border10 outer10" transform="scale(2)" stroke-width="12"/>
+    <use xlink:href="#heart10" x="25" class="border10 blue_stroke" transform="scale(2)" stroke-width="12"/>
     <text x="150" y="228">double-width stroke</text>
   </svg>
 
   <text class="operator" x="300" y="228">+</text>
 
   <svg x="300">
-    <use xlink:href="#heart10" x="25" class="border10 inner10" transform="scale(2)" clip-path="url(#heart10InnerOnly)" stroke-width="12"/>
+    <use xlink:href="#heart10" x="25" class="border10 red_stroke" transform="scale(2)" clip-path="url(#heart10InnerOnly)" stroke-width="12"/>
     <text x="150" y="228">inner stroke</text>
   </svg>
 
   <text class="operator" x="600" y="228">→</text>
 
   <svg x="600">
-    <use xlink:href="#heart10" x="25" class="border10 outer10" transform="scale(2)" stroke-width="12"/>
-    <use xlink:href="#heart10" x="25" class="border10 inner10" transform="scale(2)" clip-path="url(#heart10InnerOnly)" stroke-width="12"/>
+    <use xlink:href="#heart10" x="25" class="border10 blue_stroke" transform="scale(2)" stroke-width="12"/>
+    <use xlink:href="#heart10" x="25" class="border10 red_stroke" transform="scale(2)" clip-path="url(#heart10InnerOnly)" stroke-width="12"/>
     <text x="150" y="228">striped stroke</text>
   </svg>
 </svg>

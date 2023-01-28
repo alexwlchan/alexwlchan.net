@@ -14,11 +14,46 @@ Simple diagrams work well as vector images, I can store them as text alongside s
 I write most of my SVGs by hand, rather than using an app like Illustrator or Inkscape.
 Although it's more effort, I can write much simpler images by hand than with an app, and it forces me to really understand how SVG works.
 
+<style>
+  svg text {
+    fill: currentColor;
+    stroke: none;
+    dominant-baseline: middle;
+    text-anchor: middle;
+    font-size: 15pt;
+  }
+
+  .red_stroke {
+    fill: none;
+    stroke: #d01c11;
+  }
+
+  .blue_stroke {
+    fill: none;
+    stroke: #1B48D3;
+  }
+
+  .operator {
+    font-size: 25pt;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .red_stroke {
+      stroke: #ff4242;
+    }
+
+    .blue_stroke {
+      stroke: #3d67e6;
+    }
+  }
+</style>
+
 <figure style="width: 200px; float: right; display: inline-block; margin-top: 0; margin-bottom: 0;">
 {%
   inline_svg
   filename="hearts_rainbow_trans.svg"
   alt="A pair of interlocked hearts: one in rainbow colours on the left, one in trans pride colours on the right."
+  class="dark_aware"
 %}
 </figure>
 
@@ -30,7 +65,7 @@ This seems like something I might use again, and it helped me understand both fe
 
 
 [SVGs]: https://en.wikipedia.org/wiki/Scalable_Vector_Graphics
-[interlocking rainbow hearts]: {% post_url 2021/2021-03-07-rainbow-hearts %}
+[interlocking rainbow hearts]: /2021/2021-03-07-rainbow-hearts
 [clipping and masking]: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Clipping_and_masking
 
 
@@ -48,13 +83,12 @@ This means the visible width of the shape is actually the width of the shape *pl
 
 In some graphics programs, you can choose to draw an *inner stroke* (which puts the entire stroke inside the shape) or an *outer stroke* (which puts the entire stroke outside the shape):
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_1_types.svg"
   alt="Three examples of a rectangle with inner, centre, and outer strokes."
+  class="dark_aware"
 %}
-</figure>
 
 Although the square is the same size in all three cases, notice how the stroke alignment changes the size of the final shape.
 
@@ -72,13 +106,12 @@ If you're interested, I found a [Stack Overflow thread] that links to several of
 
 When I made my initial heart graphic in [OmniGraffle], I combined inner and outer strokes to create something that looked like a striped stroke.
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_2_combined.svg"
   alt="Left: A red heart with an inner stroke. Middle: A blue heart with an outer stroke. Right: A heart with a blue-red striped stroke."
+  class="dark_aware"
 %}
-</figure>
 
 By adding more strokes of different widths, you can create more complex stripes.
 For example, to draw four stripes, you could draw two outer strokes and two inner strokes.
@@ -89,13 +122,12 @@ Using inner/outer strokes tends to look better than combining different sizes of
 It gives a consistent, even line around the whole shape, whereas combining different sizes gives a messier result.
 Notice how the red stripe is much thicker than the blue stripe, and the width of the blue stripe is inconsistent:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_3_sizes.svg"
   alt="Left: A red heart3 with an inner3 stroke. Middle: A blue heart3 with an outer3 stroke. Right: A heart3 with a blue-red striped stroke."
+  class="dark_aware"
 %}
-</figure>
 
 For more complex shapes, it gets even harder (sometimes impossible) to combine different sizes in a way that doesn't leave gaps.
 
@@ -114,13 +146,12 @@ We can achieve the latter with an SVG feature called *clipping*.
 A clip defines an outline, and only the area inside the outline is visible.
 For example, if I had [an illustration of the Earth] and I wanted to remove the background around it, I could add a circular clip, and only the planet would be shown:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_4_circular_clip.svg"
   alt="Left: An illustration of the world on a beige background. Middle: A dashed grey circle with a pair of grey scissors. Right: The illustration of the world, without the background."
+  class="dark_aware"
 %}
-</figure>
 
 Here's how the clipped image works:
 
@@ -144,13 +175,12 @@ Then we reference the clipPath in the `clip-path` attribute on our image, and th
 If we put a more complex shape in our `<clipPath>`, we can use it to clip when we actually draw the shape -- and only the half of the stroke inside the shape will be shown.
 Thus, we get an inner stroke:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_5_clip_inner_stroke.svg"
   alt="Left: A red heart with a double-width stroke. Middle: A dashed grey heart with a pair of grey scissors. Right: A red heart with an inner stroke."
+  class="dark_aware"
 %}
-</figure>
 
 And here's what the SVG looks like:
 
@@ -191,13 +221,12 @@ You can't "invert" a clip -- that is, to show everything outside rather than ins
 One way you could do this is to draw a rectangle around the boundary of your entire drawing, and then create a zero-width "bridge" from the rectangle to your original clip -- this new clip would enclose everything *except* that original clip.
 I've exaggerated the width of the bridge in the illustration, but hopefully you get the idea:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_6_clip_outer_stroke.svg"
   alt="Left: An illustration of the globe set against a beige background. Middle: A grey rectangle with a white circle chopped out of the centre. Right: The beige background with the globe removed."
+  class="dark_aware"
 %}
-</figure>
 
 This works, but it's not ideal -- we need modify our shape to add the bridge, and depending on how our shape is defined, that may be non-trivial.
 
@@ -220,13 +249,12 @@ A *mask* is a black-and-white graphic.
 When you overlay a mask on an image, anything under the black parts of the mask is completely hidden, and anything under the white parts is fully shown.
 For example, we can remove the globe by putting a black circle in the middle of a white mask:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_7_mask_globe.svg"
   alt="Left: An illustration of the globe set against a beige background. Middle: A white rectangle with a black circle chopped out of the centre. Right: The beige background with the globe removed."
+  class="dark_aware"
 %}
-</figure>
 
 Here's how this SVG works:
 
@@ -253,26 +281,24 @@ The darker the shade, the lower the opacity of the original image.
 
 For example, I could cut out the globe, and then highlight a single part of it:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_8_mask_cutout.svg"
   alt="Left: An illustration of the globe set against a beige background. Middle: A white rectangle with a black circle chopped out of the centre. Right: The beige background with the globe removed."
+  class="dark_aware"
 %}
-</figure>
 
 Although we don't need any shades of grey to draw inner/outer strokes, it's a nice example of the power allowed by masks: we can compose multiple shapes for a more complex effect.
 This particular mask has three shapes: a black rectangle, a grey circle, and a white outline of Africa.
 
 By creating a mask with a white background and a black shape, we can discard the half of a double-width stroke that falls inside the image -- and thus, an outer stroke:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_9_mask_outer_stroke.svg"
   alt="Left: A blue heart with a double-width stroke. Middle: A black heart in a white rectangle. Right: A blue heart with an outer stroke."
+  class="dark_aware"
 %}
-</figure>
 
 And here's some more SVG:
 
@@ -306,24 +332,22 @@ As with the inner stroke, you can adapt this to any shape by changing the path.
 Although I have the code to do inner and outer strokes, for the hearts app I ended up just using centred strokes and inner strokes.
 If you put the inner stroke on top of a double-width centred stroke, you get the same effect, and that was slightly simpler to implement:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_10_overlay.svg"
   alt="Left: A blue heart with a double-width stroke. Middle: A red heart with an inner stroke. Right: A heart with a blue-red striped stroke."
+  class="dark_aware"
 %}
-</figure>
 
 To create the interlocking hearts, I created some masks that cut out a part of each heart where it was crossed by the other.
 Here's one of the two masks:
 
-<figure style="width: 686px;">
 {%
   inline_svg
   filename="strokes_11_cutouts.svg"
   alt="Left: A red tilted heart. Middle: A mask with the top-half of a black tilted heart. Right: The first red tilted heart, but now with a cutout segment."
+  class="dark_aware"
 %}
-</figure>
 
 Clips and masks are among the SVG features that I've brushed up against before, but never used properly.
 Having a small, self-contained project in which I could experiment has really helped me understand how they work, and I'll be able to use them much more confidently in future.

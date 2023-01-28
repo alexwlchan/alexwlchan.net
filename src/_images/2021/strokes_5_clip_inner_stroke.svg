@@ -1,28 +1,11 @@
-<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="686px">
   <defs>
     <style>
-      text {
-        fill: black;
-        stroke: none;
-        dominant-baseline: middle;
-        text-anchor: middle;
-        font-size: 15pt;
-      }
-
-      .operator {
-        font-size: 25pt;
-      }
-
       .outline5 {
         fill: rgba(204, 204, 204, 0.3);
         stroke-width: 2.5;
         stroke: #ccc;
         stroke-dasharray: 2.5;
-      }
-
-      .inner5 {
-        fill: none;
-        stroke: #d01c11;
       }
     </style>
 
@@ -35,7 +18,7 @@
   </defs>
 
   <svg x="0">
-    <use xlink:href="#heart5" x="25" y="2" class="inner5" transform="scale(2)" stroke-width="12"/>
+    <use xlink:href="#heart5" x="25" y="2" class="red_stroke" transform="scale(2)" stroke-width="12"/>
     <text x="150" y="240">double-width stroke</text>
   </svg>
 
@@ -50,7 +33,7 @@
   <text class="operator" x="600" y="240">→</text>
 
   <svg x="600">
-    <use xlink:href="#heart5" x="25" y="2" class="inner5" transform="scale(2)" stroke-width="12" clip-path="url(#insideHeartOnly)"/>
+    <use xlink:href="#heart5" x="25" y="2" class="red_stroke" transform="scale(2)" stroke-width="12" clip-path="url(#insideHeartOnly)"/>
     <text x="150" y="240">inner stroke</text>
   </svg>
 </svg>
