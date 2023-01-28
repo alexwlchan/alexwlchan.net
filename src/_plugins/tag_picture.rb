@@ -216,15 +216,21 @@ module Jekyll
 
       sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width, @extra_widths)
 
-      dark_path = "#{File.dirname(source_path)}/#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
+      dark_path = File.join(
+        File.dirname(source_path),
+        "#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
+      )
+
       if File.exist? dark_path
         dark_image = Rszr::Image.load(dark_path)
 
         if (dark_image.width != image.width) || (dark_image.height != image.height)
-          raise "Dark-variant #{File.basename(dark_path)} does not have the same dimensions as #{File.basename(source_path)}"
+          raise "Dark-variant #{File.basename(dark_path)} has different dimensions to #{File.basename(source_path)}"
         end
 
-        dark_sources = prepare_images(dark_path, dark_image, im_format, "#{dst_prefix}.dark", @visible_width, @extra_widths)
+        dark_sources = prepare_images(
+          dark_path, dark_image, im_format, "#{dst_prefix}.dark", @visible_width, @extra_widths
+        )
       else
         dark_sources = nil
       end

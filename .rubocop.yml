@@ -14,9 +14,6 @@ Layout/LineLength:
 Lint/MissingCopEnableDirective:
   Enabled: false
 
-Lint/ShadowingOuterLocalVariable:
-  Enabled: false
-
 Lint/SuppressedException:
   Enabled: false
 
