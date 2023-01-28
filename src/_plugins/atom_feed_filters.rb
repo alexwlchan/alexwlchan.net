@@ -52,12 +52,18 @@ module Jekyll
 
       HtmlModifiers.fix_tweets_for_rss(doc)
 
-      doc.xpath('.//img').each    { |img_tag|    HtmlModifiers.fix_relative_url(img_tag, 'src')       }
-      doc.xpath('.//a').each      { |a_tag|      HtmlModifiers.fix_relative_url(a_tag,   'href')      }
-      doc.xpath('.//source').each { |source_tag| HtmlModifiers.fix_relative_url(source_tag, 'srcset') }
+      tags_with_relative_attributes = [
+        { xpath: './/img', attribute: 'src' },
+        { xpath: './/a', attribute: 'href' },
+        { xpath: './/source', attribute: 'srcset' },
 
-      # NOTE: <image> tags appear in inline SVGs, not HTML.
-      doc.xpath('.//image').each  { |image_tag| HtmlModifiers.fix_relative_url(image_tag, 'src')      }
+        # NOTE: <image> tags appear in inline SVGs, not HTML.
+        { xpath: './/image', attribute: 'src' }
+      ]
+
+      tags_with_relative_attributes.each do |tag|
+        doc.xpath(doc[:xpath]).each { |t| HtmlModifiers.fix_relative_url(t, tag) }
+      end
 
       # Remove any elements that have data-rss-exclude="true"
       #
