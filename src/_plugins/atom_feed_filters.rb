@@ -26,7 +26,7 @@ module Jekyll
       # site in a web browser, but if you're in an RSS feed all the links will be
       # broken.  Add the hostname to the feed URLs.
       doc.xpath('.//img').each do |img_tag|
-        img_tag['src'] = 'https://alexwlchan.net' + img_tag['src'] if img_tag['src'].start_with?('/images')
+        img_tag['src'] = "https://alexwlchan.net#{img_tag['src']}" if img_tag['src'].start_with?('/images')
       end
 
       doc.xpath('.//source').each do |source_tag|
@@ -45,12 +45,12 @@ module Jekyll
       end
 
       doc.xpath('.//a').each do |a_tag|
-        a_tag['href'] = 'https://alexwlchan.net' + a_tag['href'] if a_tag['href']&.start_with?('/')
+        a_tag['href'] = "https://alexwlchan.net#{a_tag['href']}" if a_tag['href']&.start_with?('/')
       end
 
       # Fix references to images in inline SVGs.
       doc.xpath('.//image').each do |image|
-        image['href'] = 'https://alexwlchan.net' + image['href'] if image['href'].start_with?('/images')
+        image['href'] = "https://alexwlchan.net#{image['href']}" if image['href'].start_with? '/images'
       end
 
       # Remove any elements that have data-rss-exclude="true"
