@@ -103,6 +103,4 @@ module Jekyll
   end
 end
 
-if defined? Liquid
-  Liquid::Template.register_filter(Jekyll::CleanupsFilter)
-end
+Liquid::Template.register_filter(Jekyll::CleanupsFilter) if defined? Liquid
