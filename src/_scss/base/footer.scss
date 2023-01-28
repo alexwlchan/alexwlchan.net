@@ -59,6 +59,8 @@ footer {
   .footer_link .background   { fill: white; }
   .footer_link .accent       { fill: none;  }
   .footer_link:hover .accent { fill: white; }
+
+  svg { display: inline; }
 }
 
 #footer_link--email:hover    .background { fill: #0067B9; }
