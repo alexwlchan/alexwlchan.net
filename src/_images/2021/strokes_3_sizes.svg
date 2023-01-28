@@ -1,29 +1,9 @@
-<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="686px">
   <defs>
     <style>
-      text {
-        fill: black;
-        stroke: none;
-        dominant-baseline: middle;
-        text-anchor: middle;
-        font-size: 15pt;
-      }
-
-      .operator {
-        font-size: 25pt;
-      }
-
       .border3 {
         fill: none;
         stroke-width: 6;
-      }
-
-      .inner3 {
-        stroke: #d01c11;
-      }
-
-      .outer3 {
-        stroke: #1B48D3;
       }
     </style>
 
@@ -41,22 +21,22 @@
   </defs>
 
   <svg x="0">
-    <use xlink:href="#heart3" x="35.3" y="9" class="border3 inner3" transform="scale(1.76)"/>
+    <use xlink:href="#heart3" x="35.3" y="9" class="border3 red_stroke" transform="scale(1.76)"/>
     <text x="150" y="230">90% size</text>
   </svg>
 
   <text class="operator" x="300" y="230">+</text>
 
   <svg x="300">
-    <use xlink:href="#heart3" x="25" y="2" class="border3 outer3" transform="scale(2)"/>
+    <use xlink:href="#heart3" x="25" y="2" class="border3 blue_stroke" transform="scale(2)"/>
     <text x="150" y="230">100% size</text>
   </svg>
 
   <text class="operator" x="600" y="230">→</text>
 
   <svg x="600">
-    <use xlink:href="#heart3" x="25" y="2" class="border3 outer3" transform="scale(2)"/>
-    <use xlink:href="#heart3" x="35.3" y="9" class="border3 inner3" transform="scale(1.76)"/>
+    <use xlink:href="#heart3" x="25" y="2" class="border3 blue_stroke" transform="scale(2)"/>
+    <use xlink:href="#heart3" x="35.3" y="9" class="border3 red_stroke" transform="scale(1.76)"/>
     <text x="150" y="230">inconsistent stripes</text>
   </svg>
 </svg>
