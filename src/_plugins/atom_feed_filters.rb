@@ -1,8 +1,22 @@
+# frozen_string_literal: true
+
 # This plugin provides some filters that I use when generating the Atom feed.
 # I write the site in Markdown and test it in my browser; I need to make some
 # changes for everything to look okay in RSS.
 
 require 'nokogiri'
+
+module HtmlModifiers
+  def self.fix_tweets_for_rss(doc)
+    # Remove the small blue bird I add to tweet blockquotes; it's only there
+    # so that my faux tweet embeds look more like real tweets.
+    doc.xpath('.//div[@class="twitter_birb"]').remove
+
+    # Remove the avatar from tweets; the RSS feed should just include the
+    # plaintext blockquote.
+    doc.xpath('.//span[@class="avatar"]').remove
+  end
+end
 
 module Jekyll
   module AtomFeedFilters
@@ -13,13 +27,7 @@ module Jekyll
       # an Atom feed, according to https://github.com/rubys/feedvalidator
       doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls|@aria-hidden|.//@aria-hidden').remove
 
-      # Remove the small blue bird I add to tweet blockquotes from the RSS feed;
-      # it only exists for display purposes.
-      doc.xpath('.//div[@class="twitter_birb"]').remove
-
-      # Remove the avatar from tweets; the RSS feed should just include the
-      # plaintext blockquote.
-      doc.xpath('.//span[@class="avatar"]').remove
+      HtmlModifiers.fix_tweets_for_rss(doc)
 
       # Fix references in images and <a> tags.  Normally these are relative URLs,
       # e.g. <a href="/another-page/">  That works fine if you're looking at the
@@ -73,4 +81,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_filter(Jekyll::AtomFeedFilters)
+Liquid::Template.register_filter(Jekyll::AtomFeedFilters) if defined? Liquid
