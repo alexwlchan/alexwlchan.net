@@ -8,7 +8,12 @@ tags: maths
 
 Every so often, an expression like this goes viral on Twitter:
 
-<img src="/images/2020/ambiguous.svg" alt="6 ÷ 2 (1 + 2)">
+{%
+  inline_svg
+  filename="ambiguous.svg"
+  alt="6 ÷ 2 (1 + 2)"
+  class="dark_aware"
+%}
 
 What's the result?
 It's ambiguous.
