@@ -62,8 +62,5 @@ Style/MultilineBlockChain:
 Style/MutableConstant:
   Enabled: false
 
-Style/StringConcatenation:
-  Enabled: false
-
 Style/YodaCondition:
   Enabled: false

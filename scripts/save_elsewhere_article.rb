@@ -84,7 +84,7 @@ puts "Archive directory: #{archive_dir}"
 puts 'Have you saved archive copies?'
 gets
 
-metadata['archived_paths'] = Dir.glob(archive_dir + '/*')
+metadata['archived_paths'] = Dir.glob("#{archive_dir}/*")
 
 elsewhere = YAML.load(File.read(ELSEWHERE_YML_PATH))
 elsewhere['writing'] << metadata
