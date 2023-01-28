@@ -5,6 +5,13 @@
         fill: none;
         stroke-width: 12;
       }
+      
+      .outline2 {
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2.5;
+        stroke-dasharray: 2.5;
+      }
     </style>
 
     <!-- Based on the heart from https://thenounproject.com/search/?q=heart2&i=585522 -->
@@ -22,6 +29,7 @@
 
   <svg x="0">
     <use xlink:href="#heart2" x="25" class="border2 red_stroke" transform="scale(2)" clip-path="url(#heart2InnerOnly)"/>
+    <use xlink:href="#heart2" x="25" class="outline2" transform="scale(2)"/>
     <text x="150" y="228">inner stroke</text>
   </svg>
 
@@ -29,6 +37,7 @@
 
   <svg x="300">
     <use xlink:href="#heart2" x="25" class="border2 blue_stroke" transform="scale(2)" mask="url(#heart2OuterOnly)"/>
+    <use xlink:href="#heart2" x="25" class="outline2" transform="scale(2)"/>
     <text x="150" y="228">outer stroke</text>
   </svg>
 
