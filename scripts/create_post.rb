@@ -46,6 +46,6 @@ frontmatter = {
   'tags' => nil
 }
 
-File.write(path, frontmatter.to_yaml + "---\n")
+File.write(path, "#{frontmatter.to_yaml}---\n")
 
 finish(path)

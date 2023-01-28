@@ -1,8 +1,45 @@
+# frozen_string_literal: true
+
 # This plugin provides some filters that I use when generating the Atom feed.
 # I write the site in Markdown and test it in my browser; I need to make some
 # changes for everything to look okay in RSS.
 
 require 'nokogiri'
+
+module HtmlModifiers
+  def self.fix_tweets_for_rss(doc)
+    # Remove the small blue bird I add to tweet blockquotes; it's only there
+    # so that my faux tweet embeds look more like real tweets.
+    doc.xpath('.//div[@class="twitter_birb"]').remove
+
+    # Remove the avatar from tweets; the RSS feed should just include the
+    # plaintext blockquote.
+    doc.xpath('.//span[@class="avatar"]').remove
+  end
+
+  # Fix references in images and <a> tags.
+  #
+  # Normally these are relative URLs, e.g. <a href="/another-page/">
+  # That works fine if you're looking at the site in a web browser, but
+  # if you're in an RSS feed all the links will be broken.  Add the hostname
+  # to the feed URLs.
+  def self.fix_relative_url(tag, options)
+    attribute_name = options[:attribute]
+    existing_value = tag.get_attribute(attribute_name)
+
+    values = existing_value.split(', ')
+
+    new_values = values.map do |v|
+      if (v.start_with? '/images') || (v.start_with? '/files')
+        "https://alexwlchan.net#{v}"
+      else
+        v
+      end
+    end
+
+    tag.set_attribute(attribute_name, new_values.join(', '))
+  end
+end
 
 module Jekyll
   module AtomFeedFilters
@@ -13,44 +50,19 @@ module Jekyll
       # an Atom feed, according to https://github.com/rubys/feedvalidator
       doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls|@aria-hidden|.//@aria-hidden').remove
 
-      # Remove the small blue bird I add to tweet blockquotes from the RSS feed;
-      # it only exists for display purposes.
-      doc.xpath('.//div[@class="twitter_birb"]').remove
+      HtmlModifiers.fix_tweets_for_rss(doc)
 
-      # Remove the avatar from tweets; the RSS feed should just include the
-      # plaintext blockquote.
-      doc.xpath('.//span[@class="avatar"]').remove
+      tags_with_relative_attributes = [
+        { xpath: './/img', attribute: 'src' },
+        { xpath: './/a', attribute: 'href' },
+        { xpath: './/source', attribute: 'srcset' },
 
-      # Fix references in images and <a> tags.  Normally these are relative URLs,
-      # e.g. <a href="/another-page/">  That works fine if you're looking at the
-      # site in a web browser, but if you're in an RSS feed all the links will be
-      # broken.  Add the hostname to the feed URLs.
-      doc.xpath('.//img').each do |img_tag|
-        img_tag['src'] = 'https://alexwlchan.net' + img_tag['src'] if img_tag['src'].start_with?('/images')
-      end
+        # NOTE: <image> tags appear in inline SVGs, not HTML.
+        { xpath: './/image', attribute: 'src' }
+      ]
 
-      doc.xpath('.//source').each do |source_tag|
-        next if source_tag['srcset'].nil?
-
-        source_tag['srcset'] = source_tag['srcset']
-                               .split(',')
-                               .map do |s|
-          if s.strip.start_with?('/images')
-            "https://alexwlchan.net#{s.strip}"
-          else
-            s
-          end
-        end
-                               .join(', ')
-      end
-
-      doc.xpath('.//a').each do |a_tag|
-        a_tag['href'] = 'https://alexwlchan.net' + a_tag['href'] if a_tag['href']&.start_with?('/')
-      end
-
-      # Fix references to images in inline SVGs.
-      doc.xpath('.//image').each do |image|
-        image['href'] = 'https://alexwlchan.net' + image['href'] if image['href'].start_with?('/images')
+      tags_with_relative_attributes.each do |tag|
+        doc.xpath(doc[:xpath]).each { |t| HtmlModifiers.fix_relative_url(t, tag) }
       end
 
       # Remove any elements that have data-rss-exclude="true"
@@ -73,4 +85,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_filter(Jekyll::AtomFeedFilters)
+Liquid::Template.register_filter(Jekyll::AtomFeedFilters) if defined? Liquid

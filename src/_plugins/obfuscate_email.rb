@@ -8,11 +8,16 @@ module Jekyll
     # Markdown implementation, L1190-1239.
     # See https://daringfireball.net/projects/markdown/
     def _encode_email_char(char, seeded_random)
+      # rubocop wants to turn these into string interpolations, but
+      # I think mixing literal hashes and interpolation hashes makes
+      # this less clear, so disable that lint.
+      # rubocop:disable Style/StringConcatenation
       encoded_chars = [
         '&#'  + char.ord.to_s     + ';',
         '&#x' + char.ord.to_s(16) + ';',
         char
       ]
+      # rubocop:enable Style/StringConcatenation
 
       r = seeded_random.rand
 
