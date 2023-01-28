@@ -77,9 +77,7 @@ module Jekyll
           end
         end
 
-        if inline_styles.empty?
-          return ''
-        end
+        return '' if inline_styles.empty?
 
         lines = inline_styles.map do |media, css|
           if media.nil?

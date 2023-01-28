@@ -65,6 +65,60 @@ class HtmlModifiersTest < Test::Unit::TestCase
     assert_equal_html(doc, expected)
   end
 
+  def test_fix_relative_url_replaces_a_relative_image_url
+    html = '<img src="/images/cat.jpg">'
+    img_tag = Nokogiri::HTML.fragment(html).xpath('.//img')[0]
+
+    HtmlModifiers.fix_relative_url(img_tag, { attribute: 'src' })
+
+    assert_equal(img_tag.get_attribute('src'), 'https://alexwlchan.net/images/cat.jpg')
+  end
+
+  def test_fix_relative_url_does_not_replace_an_absolute_image_url
+    html = '<img src="https://example.com/images/dog.jpg">'
+    img_tag = Nokogiri::HTML.fragment(html).xpath('.//img')[0]
+
+    HtmlModifiers.fix_relative_url(img_tag, { attribute: 'src' })
+
+    assert_equal(img_tag.get_attribute('src'), 'https://example.com/images/dog.jpg')
+  end
+
+  def test_fix_relative_url_replaces_a_relative_file_url
+    html = '<a href="/files/fish.pdf">'
+    a_tag = Nokogiri::HTML.fragment(html).xpath('.//a')[0]
+
+    HtmlModifiers.fix_relative_url(a_tag, { attribute: 'href' })
+
+    assert_equal(a_tag.get_attribute('href'), 'https://alexwlchan.net/files/fish.pdf')
+  end
+
+  def test_fix_relative_url_does_not_replace_an_absolute_file_url
+    html = '<a href="https://example.com/files/hamster.py">'
+    a_tag = Nokogiri::HTML.fragment(html).xpath('.//a')[0]
+
+    HtmlModifiers.fix_relative_url(a_tag, { attribute: 'href' })
+
+    assert_equal(a_tag.get_attribute('href'), 'https://example.com/files/hamster.py')
+  end
+
+  def test_fix_relative_url_replaces_relative_srcset_urls
+    html = '<source srcset="/images/parrot_1x.jpg 1x, /images/parrot_2x.jpg 2x">'
+    source_tag = Nokogiri::HTML.fragment(html).xpath('.//source')[0]
+
+    HtmlModifiers.fix_relative_url(source_tag, { attribute: 'srcset' })
+
+    assert_equal(source_tag.get_attribute('srcset'), 'https://alexwlchan.net/images/parrot_1x.jpg 1x, https://alexwlchan.net/images/parrot_2x.jpg 2x')
+  end
+
+  def test_fix_relative_url_does_not_replace_absolute_srcset_urls
+    html = '<source srcset="https://example.com/images/rat_1x.jpg 1x, https://example.com/images/rat_2x.jpg 2x">'
+    source_tag = Nokogiri::HTML.fragment(html).xpath('.//source')[0]
+
+    HtmlModifiers.fix_relative_url(source_tag, { attribute: 'srcset' })
+
+    assert_equal(source_tag.get_attribute('srcset'), 'https://example.com/images/rat_1x.jpg 1x, https://example.com/images/rat_2x.jpg 2x')
+  end
+
   def assert_equal_html(doc, html)
     assert_equal(doc.to_s.gsub(/\n\s*\n/, "\n"), Nokogiri::HTML.fragment(html).to_s.gsub(/\n\s*\n/, "\n"))
   end
