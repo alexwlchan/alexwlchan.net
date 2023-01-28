@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test/unit'
 
 require 'nokogiri'
@@ -107,7 +109,10 @@ class HtmlModifiersTest < Test::Unit::TestCase
 
     HtmlModifiers.fix_relative_url(source_tag, { attribute: 'srcset' })
 
-    assert_equal(source_tag.get_attribute('srcset'), 'https://alexwlchan.net/images/parrot_1x.jpg 1x, https://alexwlchan.net/images/parrot_2x.jpg 2x')
+    assert_equal(
+      source_tag.get_attribute('srcset'),
+      'https://alexwlchan.net/images/parrot_1x.jpg 1x, https://alexwlchan.net/images/parrot_2x.jpg 2x'
+    )
   end
 
   def test_fix_relative_url_does_not_replace_absolute_srcset_urls
@@ -116,7 +121,10 @@ class HtmlModifiersTest < Test::Unit::TestCase
 
     HtmlModifiers.fix_relative_url(source_tag, { attribute: 'srcset' })
 
-    assert_equal(source_tag.get_attribute('srcset'), 'https://example.com/images/rat_1x.jpg 1x, https://example.com/images/rat_2x.jpg 2x')
+    assert_equal(
+      source_tag.get_attribute('srcset'),
+      'https://example.com/images/rat_1x.jpg 1x, https://example.com/images/rat_2x.jpg 2x'
+    )
   end
 
   def assert_equal_html(doc, html)

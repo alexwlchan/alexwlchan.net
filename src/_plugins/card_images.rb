@@ -34,9 +34,9 @@
 require 'rszr'
 
 Jekyll::Hooks.register :site, :post_read do |site|
-  site.posts.docs.each do |p|
-    year = p.date.year
-    slug = p.data['slug']
+  site.posts.docs.each do |post|
+    year = post.date.year
+    slug = post.data['slug']
 
     matching_images = Dir["src/_images/cards/#{year}/#{slug}.*"]
 
@@ -75,7 +75,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
-    p.data['card'] = {
+    post.data['card'] = {
       'social' => File.basename(social_card),
       'index' => File.basename(index_card)
     }
