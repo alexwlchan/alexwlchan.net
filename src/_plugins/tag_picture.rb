@@ -216,15 +216,15 @@ module Jekyll
 
       sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width, @extra_widths)
 
-      dark_path = File.dirname(source_path) + "/" + File.basename(source_path, File.extname(source_path)) + ".dark" + File.extname(source_path)
+      dark_path = File.dirname(source_path) + '/' + File.basename(source_path, File.extname(source_path)) + '.dark' + File.extname(source_path)
       if File.exist? dark_path
         dark_image = Rszr::Image.load(dark_path)
 
-        if dark_image.width != image.width or dark_image.height != image.height
+        if (dark_image.width != image.width) || (dark_image.height != image.height)
           raise "Dark-variant #{File.basename(dark_path)} does not have the same dimensions as #{File.basename(source_path)}"
         end
 
-        dark_sources = prepare_images(dark_path, dark_image, im_format, dst_prefix + ".dark", @visible_width, @extra_widths)
+        dark_sources = prepare_images(dark_path, dark_image, im_format, dst_prefix + '.dark', @visible_width, @extra_widths)
       else
         dark_sources = nil
       end
@@ -246,29 +246,29 @@ module Jekyll
       # This isn't perfect, e.g. it doesn't account for margins or wrapping,
       # but it's good enough and better than relying on screen density alone.
       dark_html = if dark_sources.nil?
-        ""
-      else
-        <<~HTML
-          <source
-            srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
-            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
-            type="image/avif"
-            media="(prefers-color-scheme: dark)"
-          >
-          <source
-            srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
-            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
-            type="image/webp"
-            media="(prefers-color-scheme: dark)"
-          >
-          <source
-            srcset="#{dark_sources[im_format].join(', ')}"
-            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
-            type="#{im_format[:mime_type]}"
-            media="(prefers-color-scheme: dark)"
-          >
-        HTML
-      end
+                    ''
+                  else
+                    <<~HTML
+                      <source
+                        srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
+                        sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+                        type="image/avif"
+                        media="(prefers-color-scheme: dark)"
+                      >
+                      <source
+                        srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
+                        sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+                        type="image/webp"
+                        media="(prefers-color-scheme: dark)"
+                      >
+                      <source
+                        srcset="#{dark_sources[im_format].join(', ')}"
+                        sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+                        type="#{im_format[:mime_type]}"
+                        media="(prefers-color-scheme: dark)"
+                      >
+                    HTML
+                  end
 
       inner_html = <<~HTML
         <picture>
