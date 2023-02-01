@@ -41,9 +41,6 @@ Metrics/PerceivedComplexity:
 Style/ClassVars:
   Enabled: false
 
-Style/CombinableLoops:
-  Enabled: false
-
 Style/Documentation:
   Enabled: false
 
