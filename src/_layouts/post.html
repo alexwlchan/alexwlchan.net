@@ -11,7 +11,18 @@ layout: default
     {% else %}
       <a class="novisited" href="{{ post.url | relative_url }}">
     {% endif %}
-    {{ post.title | markdownify_oneline | cleanup_text | smartify }}</a>
+    
+        {% comment %}
+          This unofficial 'role="text"' attribute means that the title will
+          be read as a continuous block of text, even if it contains formatting.
+          
+          See https://tinytip.co/tips/a11y-voiceover-text-role/
+        {% endcomment %}
+        <span role="text">
+          {{ post.title | markdownify_oneline | cleanup_text | smartify }}
+        </span>
+
+      </a>
   </h1>
 
   <div class="meta">
