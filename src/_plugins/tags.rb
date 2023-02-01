@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This plugin makes a tally of all the posts on the site, which can
 # then be used to make tag filters.
 
@@ -20,15 +22,17 @@ module Jekyll
         end
       end
 
-      # Now we go through the posts a second time, and create a new
-      # 'visible_tags' list of all the tags on this post that appear on
-      # at least one other post.
-      site.posts.docs.each do |post|
-        post.data['visible_tags'] = post.data['tags'].select { |t| tag_tally[t] > 1 }
-      end
-
+      # Tags are useful for finding other, similar posts.  If a tag is
+      # only used on a single post, it's no good for that, so tags only
+      # become visible when they're used at least twice.
       site.data['tag_tally'] = tag_tally
       site.data['visible_tag_tally'] = tag_tally.select { |_, count| count > 1 }
+
+      visible_tags = site.data['visible_tag_tally'].keys.to_set
+
+      site.posts.docs.each do |post|
+        post.data['visible_tags'] = post.data['tags'].select { |t| visible_tags.include? t }
+      end
     end
   end
 end
