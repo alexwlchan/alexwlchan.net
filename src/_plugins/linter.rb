@@ -14,13 +14,19 @@ class RunLinting < Jekyll::Command
         cmd.action do |_, options|
           options = configuration_from_options(options)
 
-          run_html_linting(options['destination'])
-          check_writing_has_been_archived(options['source'])
-          check_card_images(options['destination'])
-          check_yaml_front_matter(options['source'])
-          check_no_localhost_links(options['destination'])
-          check_all_images_are_srgb(options['destination'])
-          check_netlify_redirects(options['destination'])
+          md_dir = options['source']
+          html_dir = options['destination']
+
+          run_html_linting(html_dir)
+
+          html_documents = get_html_documents(html_dir)
+
+          check_writing_has_been_archived(md_dir)
+          check_card_images(html_dir, html_documents)
+          check_yaml_front_matter(md_dir)
+          check_no_localhost_links(html_documents)
+          check_all_images_are_srgb(html_dir)
+          check_netlify_redirects(html_dir)
         end
       end
     end
@@ -45,6 +51,33 @@ class RunLinting < Jekyll::Command
 
     def error(message)
       puts Rainbow(message).send(:red)
+    end
+
+    # Parse all the generated HTML documents with Nokogiri.
+    def get_html_documents(html_dir)
+      Dir["#{html_dir}/**/*.html"]
+        .filter do |html_path|
+          # Anything in the /files/ directory can be ignored, because it's
+          # not part of the site, it's a static asset.
+          #
+          # e.g. if I've got a file that I'm using to demo a particular
+          # HTML feature.
+          !html_path.include? '/files'
+        end
+        .filter do |html_path|
+          # This page is a special case for crawlers and doesn't count for
+          # the purposes of linting and the like.
+          html_path != "#{html_dir}/400/index.html"
+        end
+        .map do |html_path|
+          doc = Nokogiri::HTML(File.open(html_path))
+          display_path = get_display_path(html_path, doc)
+
+          {
+            display_path:,
+            doc:
+          }
+        end
     end
 
     # This checks that every article on /elsewhere/ has at least one copy
@@ -80,27 +113,13 @@ class RunLinting < Jekyll::Command
     #   3. If the card type is "summary_large_image", the image has
     #      the 2:1 aspect ratio required by Twitter
     #
-    def check_card_images(html_dir)
+    def check_card_images(html_dir, html_documents)
       errors = Hash.new { [] }
 
       info('Checking social sharing card images...')
 
-      Dir["#{html_dir}/**/*.html"].each do |html_path|
-        # Anything in the /files/ directory can be ignored, because it's
-        # not part of the site, it's a static asset.
-        #
-        # e.g. if I've got a file that I'm using to demo a particular
-        # HTML feature.
-        next if html_path.include? '/files/'
-
-        # This page is a special case for crawlers and doesn't count for
-        # the purposes of linting and the like.
-        next if html_path == "#{html_dir}/400/index.html"
-
-        doc = Nokogiri::HTML(File.open(html_path))
-        display_path = get_display_path(html_path, doc)
-
-        meta_tags = doc.xpath('//meta')
+      html_documents.each do |html_doc|
+        meta_tags = html_doc[:doc].xpath('//meta')
 
         # Get a map of meta tag (name/property => content).
         #
@@ -119,7 +138,7 @@ class RunLinting < Jekyll::Command
                         end
 
         if meta_tags_map['twitter:card'] != 'summary' && meta_tags_map['twitter:card'] != 'summary_large_image'
-          errors[display_path] <<= "Twitter card has an invalid card type #{meta_tags_map['twitter:card']}"
+          errors[html_doc[:display_path]] <<= "Twitter card has an invalid card type #{meta_tags_map['twitter:card']}"
         end
 
         ['twitter:image', 'og:image'].each do |image_name|
@@ -128,7 +147,7 @@ class RunLinting < Jekyll::Command
           # This uses the site.uri variable, which varies based on the build
           # system running at the top. Discard it.
           if meta_tags_map[image_name].nil?
-            errors[display_path] <<= "Could not find `#{image_name}` attribute on page"
+            errors[html_doc[:display_path]] <<= "Could not find `#{image_name}` attribute on page"
             next
           end
 
@@ -137,7 +156,7 @@ class RunLinting < Jekyll::Command
           local_image_path = "#{html_dir}#{image_path}"
 
           unless File.exist? local_image_path
-            errors[display_path] <<= "Card points to a missing image: #{local_image_path}"
+            errors[html_doc[:display_path]] <<= "Card points to a missing image: #{local_image_path}"
           end
 
           # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
@@ -152,7 +171,7 @@ class RunLinting < Jekyll::Command
           next unless File.exist? local_image_path
 
           image = Rszr::Image.load(local_image_path)
-          errors[display_path] <<= 'Card image does not have a 2:1 aspect ratio' if image.width != image.height * 2
+          errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image.width != image.height * 2
         end
       end
 
@@ -210,37 +229,30 @@ class RunLinting < Jekyll::Command
       report_errors(errors)
     end
 
+    def is_localhost_link(anchor_tag)
+      !anchor_tag.attribute('href').nil? &&
+        anchor_tag.attribute('href').value.start_with?('http') &&
+        anchor_tag.attribute('href').value.include?('localhost:5757')
+    end
+
     # Check I haven't used localhost URLs anywhere (in links or images)
     #
     # This is an error I've occasionally made while doing local development;
     # I'll use my ;furl snippet to get the front URL, and forget to remove
     # the localhost development prefix.
-    def check_no_localhost_links(html_dir)
+    def check_no_localhost_links(html_documents)
       errors = Hash.new { [] }
 
       info('Checking there aren’t any localhost links...')
 
-      Dir["#{html_dir}/**/*.html"].each do |html_path|
-        # Anything in the /files/ directory can be ignored, because it's
-        # not part of the site, it's a static asset.
-        #
-        # e.g. if I've got a file that I'm using to demo a particular
-        # HTML feature.
-        next if html_path.include? '/files/'
-
-        doc = Nokogiri::HTML(File.open(html_path))
-        display_path = get_display_path(html_path, doc)
-
-        localhost_links = doc.xpath('//a')
-                             .select do |a|
-                            !a.attribute('href').nil? &&
-                              a.attribute('href').value.start_with?('http') &&
-                              a.attribute('href').value.include?('localhost:5757')
-                          end
-                             .map { |a| a.attribute('href').value }
+      html_documents.each do |html_doc|
+        localhost_links =
+        html_doc[:doc].xpath('//a')
+                      .select { |a| is_localhost_link(a) }
+                      .map { |a| a.attribute('href').value }
 
         unless localhost_links.empty?
-          errors[display_path] <<= "There are links to localhost: #{localhost_links.join('; ')}"
+          errors[html_doc[:display_path]] <<= "There are links to localhost: #{localhost_links.join('; ')}"
         end
       end
 
