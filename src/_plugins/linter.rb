@@ -16,17 +16,18 @@ class RunLinting < Jekyll::Command
         cmd.action do |_, options|
           options = configuration_from_options(options)
 
-          md_dir = options['source']
+          src_dir = options['source']
           html_dir = options['destination']
 
           run_html_linting(html_dir)
 
           html_documents = get_html_documents(html_dir)
 
-          check_writing_has_been_archived(md_dir)
+          check_writing_has_been_archived(src_dir)
           check_card_images(html_dir, html_documents)
-          check_yaml_front_matter(md_dir)
+          check_yaml_front_matter(src_dir)
           check_no_localhost_links(html_documents)
+          check_no_html_in_titles(html_documents)
           check_all_images_are_srgb(html_dir)
           check_netlify_redirects(html_dir)
         end
@@ -231,7 +232,7 @@ class RunLinting < Jekyll::Command
       report_errors(errors)
     end
 
-    def is_localhost_link(anchor_tag)
+    def localhost_link?(anchor_tag)
       !anchor_tag.attribute('href').nil? &&
         anchor_tag.attribute('href').value.start_with?('http') &&
         anchor_tag.attribute('href').value.include?('localhost:5757')
@@ -248,13 +249,38 @@ class RunLinting < Jekyll::Command
       info('Checking there aren’t any localhost links...')
 
       html_documents.each do |html_doc|
-        localhost_links =
-        html_doc[:doc].xpath('//a')
-                      .select { |a| is_localhost_link(a) }
-                      .map { |a| a.attribute('href').value }
+        localhost_links = html_doc[:doc].xpath('//a')
+                                        .select { |a| localhost_link?(a) }
+                                        .map { |a| a.attribute('href').value }
 
         unless localhost_links.empty?
           errors[html_doc[:display_path]] <<= "There are links to localhost: #{localhost_links.join('; ')}"
+        end
+      end
+
+      report_errors(errors)
+    end
+
+    # Check I haven't got HTML in titles; this can break the formatting
+    # of Google and social media previews.
+    def check_no_html_in_titles(html_documents)
+      errors = Hash.new { [] }
+
+      info('Checking there isn’t any HTML in titles...')
+
+      html_documents.each do |html_doc|
+        # Look for HTML in the '<title>' element in the '<head>'.
+        #
+        # We can't just look for angle brackets, because at least one post
+        # does have HTML-looking stuff in its title
+        # (Remembering if a <details> element was opened).
+        #
+        # What we want to check is if there's any unescaped HTML that
+        # needs removing.
+        title = html_doc[:doc].xpath('//head/title').children
+
+        if title.children.length > 1
+          errors[html_doc[:display_path]] <<= "Title contains HTML: #{title}"
         end
       end
 
