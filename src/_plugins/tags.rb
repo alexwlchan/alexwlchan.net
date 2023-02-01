@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This plugin makes a tally of all the posts on the site, which can
 # then be used to make tag filters.
 
