@@ -53,7 +53,7 @@ When I'm not online, I can often be found with needle in hand, working on some c
 I have two left feet, but what I lack in skill I make up for in enthusiasm.
 
 I'm queer, trans, and I loosely describe as a genderfluid shapeshifter (which may mean more to me than anyone else).
-My pronouns vary; on the web, either "they" or "she" are safe choices.
+My pronouns vary; on the web, either "they" or "she" are safe choices. 🏳️‍🌈
 
 This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
 If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
