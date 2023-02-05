@@ -52,7 +52,7 @@ I've put a bunch of things on the Internet, including:
 When I'm not online, I can often be found with needle in hand, working on some cross-stitch or embroidery, or with shoes on feet, tapping away to a funky jazz number at a swing dance class.
 I have two left feet, but what I lack in skill I make up for in enthusiasm.
 
-I'm trans, and I loosely describe as a genderfluid shapeshifter (which may mean more to me than anyone else).
+I'm queer, trans, and I loosely describe as a genderfluid shapeshifter (which may mean more to me than anyone else).
 My pronouns vary; on the web, either "they" or "she" are safe choices.
 
 This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
