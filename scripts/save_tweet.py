@@ -84,9 +84,7 @@ def download_avatar(*, screen_name, tweet_id, tweet):
 
 
 def download_media(*, tweet):
-    media = tweet["entities"].get("media", [])
-    if len(media) > 1:
-        raise RuntimeError("Too many media entities")
+    media = tweet["entities"].get("media", []) + tweet.get("extended_entities", {}).get("media", [])
 
     for m in media:
         media_url = m["media_url_https"]
