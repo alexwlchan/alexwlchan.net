@@ -82,10 +82,29 @@ I always love hearing from readers! ☺️
   {% separator "leaf.svg" %}
 
 
-## Recent blog posts
+## My writing
 
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
-Here are some posts I've written recently:
+Here are some of my favourite posts:
+
+{%
+  include
+  eggbox.html
+  eggbox_posts="snapped-elastic bure-valley moomin-mathematics graph-generative-art archival-storage-service 2022-in-reading"
+%}
+
+If you want to read more, there are plenty more [in the archive](/posts/).
+
+
+  {% separator "leaf.svg" %}
+
+
+## My newest posts
+
+I typically write three or four new posts a month.
+If you want to hear about them, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
+
+Here's what I've written recently:
 
 {% assign recent_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
@@ -103,17 +122,15 @@ Here are some posts I've written recently:
   This CSS will hide the fourth post on mobile/wide screens.
 {% endcomment %}
 
-{% assign last_post = recent_posts | last %}
-
 <style>
   @media screen and (max-width: 500px) {
-    #post-{{ last_post.slug }} {
+    #recent_posts li:nth-child(4) {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #post-{{ last_post.slug }} {
+    #recent_posts li:nth-child(4) {
       display: none;
     }
   }
@@ -125,50 +142,8 @@ Here are some posts I've written recently:
 {% endcomment %}
 {% assign is_index = true %}
 
-<ul class="post_cards">
+<ul id="recent_posts" class="post_cards">
 {% for post in recent_posts %}
   {% include post_card.html %}
 {% endfor %}
 </ul>
-
-If you want to stay up-to-date with new posts, you can [subscribe to the RSS feed](/atom.xml).
-You can also find every post I've written [in the archive](/all-posts/).
-
-
-
-  {% separator "leaf.svg" %}
-
-
-
-## Some old favourites
-
-Before you read the entire archive, here are a few of my favourite blog posts, which should give you a flavour of my writing:
-
-{% assign eggbox_posts = "snapped-elastic forth-bridge inner-outer-strokes-svg maths-is-about-facing-ambiguity-not-avoiding-it" | split: " " %}
-
-{% assign sorted_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
-
-<!-- Hi Danny -->
-
-<ul id="eggbox" class="post_cards">
-{% for slug in eggbox_posts %}
-  {% assign post = site.posts | where: "slug", slug | first %}
-  {% include post_card.html %}
-{% endfor %}
-</ul>
-
-{% assign last_slug = eggbox_posts | last %}
-
-<style>
-  @media screen and (max-width: 500px) {
-    #post-{{ last_slug }} {
-      display: none;
-    }
-  }
-
-  @media screen and (min-width: 1000px) {
-    #post-{{ last_slug }} {
-      display: none;
-    }
-  }
-</style>
