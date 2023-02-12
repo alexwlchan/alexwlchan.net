@@ -307,16 +307,16 @@ module Jekyll
       #
       # e.g. /2022/egyptian-mixtape/
       html = if @link_to_original
-        <<~HTML
-          <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">#{inner_html.split("\n").map { |s| s.strip }.join(" ")}</a>
-        HTML
-      elsif @link_to
-        <<~HTML
-          <a href="#{@link_to}">#{inner_html.split("\n").map { |s| s.strip }.join(" ")}</a>
-        HTML
-      else
-        inner_html
-      end
+               <<~HTML
+                 <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
+               HTML
+             elsif @link_to
+               <<~HTML
+                 <a href="#{@link_to}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
+               HTML
+             else
+               inner_html
+             end
 
       html.strip
     end
