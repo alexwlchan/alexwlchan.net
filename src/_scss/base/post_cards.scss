@@ -51,7 +51,12 @@
     margin-top: 0.5em;
     font-size: 85%;
     line-height: 1.45em;
-    margin-bottom: 0;
+
+    // This means there's not too much of a gap between description/date,
+    // but in eggboxes the date gets hidden, so we skip this style.
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 
   .card_posting_date p {
