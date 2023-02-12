@@ -59,7 +59,7 @@ layout: default
       {% endif %}
 
       {% if post.link %}
-      <li class="post__permalink"><a href="{{ post.url | relative_url }}">&infin;</a></li>
+      <li class="post__permalink"><a href="{{ post.url | relative_url }}" aria-label="permalink">&infin;</a></li>
       {% endif %}
 
     </ul>
