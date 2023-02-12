@@ -7,6 +7,8 @@ tags: blogging-about-blogging
 colors:
   index_light: "#22201f"
   index_dark:  "#fbfafa"
+index:
+  exclude: true
 ---
 
 Last night, I updated the archive pages for my blog.
@@ -14,7 +16,7 @@ On Twitter I teased it as a ["design refresh"][tease] but it might be more accur
 
 [tease]: https://twitter.com/alexwlchan/status/1532029536258465795
 
-If you click [the "posts" link in the header](/best-of/), you'll see something quite different to yesterday:
+If you click [the "posts" link in the header](/posts/), you'll see something quite different to yesterday:
 
 <style>
   img {
@@ -222,7 +224,7 @@ This was a fun project to work on.
 I went from initial prototype to live page in a day and a half (and I spent most of that time sleeping).
 I have ideas for more tweaks and changes, but already I think it's a big improvement on what was there before.
 
-Check out the new archives at [/best-of/](/best-of/).
-You might find something you've never read before!
+<!-- Check out the new archives at [/best-of/](/best-of/). -->
+<!-- You might find something you've never read before! -->
 
 [bounce rate]: https://en.wikipedia.org/wiki/Bounce_rate

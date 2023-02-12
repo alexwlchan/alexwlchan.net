@@ -1,11 +1,14 @@
 ---
 layout: page
 title: Contact
+colors:
+  css_light: "#17823e"
+  css_dark:  "#26d967"
 ---
 
-The best way to get in touch with me is by email: <alex@alexwlchan.net>
+The best way to get in touch with me is by email:
 
-If you want to chat about my work at Wellcome Collection, email: <a.chan@wellcome.org>
+{% include contact/emails.html %}
 
 I use the handle **alexwlchan** pretty consistently on the web.
 I'm not especially active on social media right now, but you can find me as alexwlchan on the following sites:

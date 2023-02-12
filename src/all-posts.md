@@ -6,9 +6,9 @@ card_image: /theme/all_posts_card.png
 ---
 
 This is a list of all my posts, sorted by date.
-If you're new to the blog, you might want to start with the shorter list of [my favourite posts](/best-of/).
+If you're new to the site, I've [written a page](/posts/) which gives you a flavour of my writing.
 
-You can subscribe to my posts [as an RSS feed](/atom.xml).
+If you want to hear about new posts, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
 <script src="/scripts/tag-filters.js"></script>
 
