@@ -301,21 +301,24 @@ module Jekyll
         </picture>
       HTML
 
-      if @link_to_original
-        <<~HTML
-          <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">
-            #{inner_html.split("\n").map { |s| "  #{s}" }.join("\n")}
-          </a>
-        HTML
-      elsif @link_to
-        <<~HTML
-          <a href="#{@link_to}">
-            #{inner_html.split("\n").map { |s| "  #{s}" }.join("\n")}
-          </a>
-        HTML
-      else
-        inner_html.strip
-      end
+      # Be careful about whitespace here; if you're not careful Kramdown
+      # will interpret the indentation as a literal source block, and then
+      # HTML markup appears in the page instead of the image!
+      #
+      # e.g. /2022/egyptian-mixtape/
+      html = if @link_to_original
+               <<~HTML
+                 <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
+               HTML
+             elsif @link_to
+               <<~HTML
+                 <a href="#{@link_to}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
+               HTML
+             else
+               inner_html
+             end
+
+      html.strip
     end
 
     def prepare_images(source_path, image, im_format, dst_prefix, visible_width, extra_widths)

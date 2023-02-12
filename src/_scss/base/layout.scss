@@ -167,3 +167,15 @@ a.download {
     margin-right: 0px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .eggbox-4 li:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .eggbox-4 li:nth-child(4) {
+    display: none;
+  }
+}
