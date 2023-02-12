@@ -34,7 +34,7 @@ colors:
   %}
 </p>
 
-## Hi, I'm Alex.
+## Hi, I'm Alex (or Lexie).
 
 I've put a bunch of things on the Internet, including:
 
