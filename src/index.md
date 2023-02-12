@@ -66,27 +66,6 @@ I hope you enjoy it.
 [fun_stuff]: /projects/#fun-stuff
 
 
-
-  {% separator "leaf.svg" %}
-
-
-
-<h2 id="contact">Get in touch</h2>
-
-The best way to get in touch with me is by email:
-
-{% include contact/emails.html %}
-
-{% comment %}
-  You can also follow me on social media, where I often cross-post links to new articles and share shorter updates about my life:
-
-  {% include contact/socials.html %}
-{% endcomment %}
-
-If you enjoy something I've made, perhaps [say thanks](/say-thanks/)?
-I always love hearing from readers! ☺️
-
-
   {% separator "leaf.svg" %}
 
 
@@ -155,3 +134,27 @@ Here's what I've written recently:
   {% include post_card.html %}
 {% endfor %}
 </ul>
+
+
+
+
+
+
+  {% separator "leaf.svg" %}
+
+
+
+<h2 id="contact">Get in touch</h2>
+
+The best way to get in touch with me is by email:
+
+{% include contact/emails.html %}
+
+{% comment %}
+  You can also follow me on social media, where I often cross-post links to new articles and share shorter updates about my life:
+
+  {% include contact/socials.html %}
+{% endcomment %}
+
+If you enjoy something I've made, perhaps [say thanks](/say-thanks/)?
+I always love hearing from readers! ☺️
