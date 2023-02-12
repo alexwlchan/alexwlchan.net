@@ -73,9 +73,17 @@ I hope you enjoy it.
 
 <h2 id="contact">Get in touch</h2>
 
-You can email me at <a href="mailto:alex@alexwlchan.net" aria-label="alex at alex w l chan dot net" aria-braillelabel="alex@alexwlchan.net">alex@alexwlchan.net</a>, or contact me [another way](/contact/).
+The best way to get in touch with me is by email:
 
-If you enjoy what I've made, perhaps [say thanks](/say-thanks/)?
+{% include contact/emails.html %}
+
+{% comment %}
+  You can also follow me on social media, where I often cross-post links to new articles and share shorter updates about my life:
+
+  {% include contact/socials.html %}
+{% endcomment %}
+
+If you enjoy something I've made, perhaps [say thanks](/say-thanks/)?
 I always love hearing from readers! ☺️
 
 

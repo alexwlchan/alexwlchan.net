@@ -46,10 +46,12 @@
       </p>
     </div>
 
+    {% if include.hide_date != "true" %}
     <div class="card_posting_date">
       <p>
         {{ post.date | date: "%-d %B&nbsp;%Y" }}
       </p>
     </div>
+    {% endif %}
   </a>
 </li>
