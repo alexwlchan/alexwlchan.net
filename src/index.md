@@ -38,7 +38,7 @@ colors:
 
 I've put a bunch of things on the Internet, including:
 
-*   [**My personal blog**](/all-posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
+*   [**My personal blog**](/posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
     I've been writing at this domain for over a decade, and I post new articles several times a month.
 
 *   **Everything I do for [Wellcome Collection](/projects/#wellcome-collection)**, a museum and library in London.
@@ -56,7 +56,7 @@ I'm queer, trans, and I loosely describe as a genderfluid shapeshifter (which ma
 My pronouns vary; on the web, either "they" or "she" are safe choices. 🏳️‍🌈
 
 This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
-If you're new, you might want to start with [my blog](/all-posts/) or [my list of projects](/projects/).
+If you're new, you might want to start with [my blog](/posts/) or [my list of projects](/projects/).
 
 I hope you enjoy it.
 

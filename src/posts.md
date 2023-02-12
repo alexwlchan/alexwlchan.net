@@ -31,7 +31,10 @@ If you want to hear about new posts, you can [subscribe to my RSS feed](/atom.xm
 I work as a software engineer in my day job, so a lot of what I write about is programming and software.
 It's a mix of solving particular problems, explaining how I dealt with a tricky bug, and advice on how to make better software.
 
-There are lots of posts about software, so I have smaller tags like [python](/all-posts/?tag=python), [web development](/all-posts/?tag=web-development), and [error messages](/all-posts/?tag=error-messages), rather than a broad "software engineering" tag.
+Many of these posts have precise titles ("how to solve problem&nbsp;X using tool&nbsp;Y"), which are meant for people searching Google for that exact problem.
+There are plenty of them in the archive, and they're useful to searchers, but they're not the best examples of my writing.
+
+There are lots of posts about software, so I have smaller, more specific tags like [python](/all-posts/?tag=python), [web development](/all-posts/?tag=web-development), and [error messages](/all-posts/?tag=error-messages), rather than a broad "software engineering" tag.
 
 {%
   include
