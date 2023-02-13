@@ -16,7 +16,7 @@ On Twitter I teased it as a ["design refresh"][tease] but it might be more accur
 
 [tease]: https://twitter.com/alexwlchan/status/1532029536258465795
 
-If you click [the "posts" link in the header](/posts/), you'll see something quite different to yesterday:
+If you click [the "posts" link in the header](/writing/), you'll see something quite different to yesterday:
 
 <style>
   img {
