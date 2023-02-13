@@ -8,7 +8,7 @@ link: https://stacks.wellcomecollection.org/how-moving-to-the-cloud-took-our-dig
 
 colors:
   index_light: "#563e23"
-  index_dark:  "#ac7f48"
+  index_dark:  "#bf8c4f"
 ---
 
 I've written [another article] about digital preservation at Wellcome Collection, this time about the benefits of moving our data storage and processing to the cloud.
