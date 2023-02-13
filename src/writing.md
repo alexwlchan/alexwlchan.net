@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Posts
+title: Writing
 summary: My posts cover a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
 card_image: /theme/all_posts_card.png
 ---

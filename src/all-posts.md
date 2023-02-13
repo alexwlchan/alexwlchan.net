@@ -6,7 +6,7 @@ card_image: /theme/all_posts_card.png
 ---
 
 This is a list of all my posts, sorted by date.
-If you're new to the site, I've [written a page](/posts/) which gives you a flavour of my writing.
+If you're new to the site, I've [written a page](/writing/) which gives you a flavour of my writing.
 
 If you want to hear about new posts, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 

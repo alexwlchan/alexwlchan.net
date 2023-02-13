@@ -202,7 +202,7 @@ The projects I've worked on include:
 ## Writing
 
 <dl>
-  <dt><a href="https://alexwlchan.net/posts/" aria-label="alex w l chan dot net" aria-braillelabel="alexwlchan.net">alexwlchan.net</a></dt>
+  <dt><a href="/writing/" aria-label="alex w l chan dot net" aria-braillelabel="alexwlchan.net">alexwlchan.net</a></dt>
   <dd>
     This site started as a place where I could practice my writing; I’ve since written over 300 posts.
     There’s no consistent theme – I have a lot of posts about programming, but plenty for non-programmers as well.
