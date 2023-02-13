@@ -34,6 +34,7 @@ On the Thursday in question, we started getting alerts from our website monitori
   filename="cloudfront_errors_detected.png"
   alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org."
   visible_width="654px"
+  class="screenshot"
 %}
 
 As a proportion of overall traffic, it was pretty small -- but alerts like this started to pile up in Slack.
