@@ -30,15 +30,33 @@
     .background {
       fill: #17823e;
     }
+
+    svg {
+      display: inline;
+      margin-left: -1px;
+      margin-top: 7.5px;
+      background: #17823e;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
   }
 
-  .social_button svg {
-    display: inline;
-    margin-left: -1px;
-    margin-top: 7.5px;
-    background: #17823e;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+  @media (prefers-color-scheme: dark) {
+    .social_button {
+      border-color: #26d967;
+
+      &, &:visited {
+        color: #26d967 !important;
+      }
+
+      .background {
+        fill: #26d967;
+      }
+
+      svg {
+        background: #17823e;
+      }
+    }
   }
 
   .social_name {
