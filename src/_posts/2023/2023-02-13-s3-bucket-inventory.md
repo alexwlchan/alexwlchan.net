@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-02-13 07:28:36 +0000
 title: A Python function to iterate through an S3 Bucket Inventory
 summary: Getting something that looks more like the output of the ListObjectsV2 API.
 tags: amazon-s3 python aws
