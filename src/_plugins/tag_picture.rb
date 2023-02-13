@@ -276,8 +276,8 @@ module Jekyll
 
       # Make sure the CSS doesn't through a white background behind
       # this dark-aware image.
-      if !dark_sources.nil?
-        @attrs['class'] = "#{@attrs["class"]} dark_aware".strip
+      unless dark_sources.nil?
+        @attrs['class'] = "#{@attrs['class']} dark_aware".strip
       end
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
