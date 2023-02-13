@@ -235,8 +235,6 @@ module Jekyll
         dark_sources = nil
       end
 
-      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
-
       default_image = sources[im_format]
                       .map { |im| im.split[0] }
                       .find { |path| path.end_with? "_1x#{im_format[:extension]}" }
@@ -275,6 +273,14 @@ module Jekyll
                       >
                     HTML
                   end
+
+      # Make sure the CSS doesn't through a white background behind
+      # this dark-aware image.
+      unless dark_sources.nil?
+        @attrs['class'] = "#{@attrs['class']} dark_aware".strip
+      end
+
+      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
       inner_html = <<~HTML
         <picture>

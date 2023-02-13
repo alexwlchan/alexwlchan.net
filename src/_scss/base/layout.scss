@@ -124,7 +124,7 @@ img.screenshot {
   // Add a white background behind images, so any dark elements become
   // visible.  Eventually I'd like to support uploading multiple variants
   // and make this conditional, but not in V1.
-  img:not(.twemoji), svg[role="img"]:not(.dark_aware) {
+  img:not(.twemoji):not(.dark_aware), svg[role="img"]:not(.dark_aware) {
     background: white;
   }
 
