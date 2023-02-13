@@ -38,7 +38,7 @@ colors:
 
 I've put a bunch of things on the Internet, including:
 
-*   [**My personal blog**](/posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
+*   [**My personal writing**](/posts/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
     I've been writing at this domain for over a decade, and I post new articles several times a month.
 
 *   **Everything I do for [Wellcome Collection](/projects/#wellcome-collection)**, a museum and library in London.
