@@ -21,6 +21,7 @@ To be on the safe side, I've been [scanning and digitising] as I go, so I have d
 {%
   picture
   filename="IMG_8042.jpg"
+  alt="A photo of my scanning setup. I have a plastic box full of exercise books and papers, and next to it a small document-feed scanner. Behind them both is a big monitor, which has the scanning software and some of the already-scanned documents onscreen."
   visible_width="750px"
   class="fullwidth_img"
 %}
@@ -36,14 +37,14 @@ What used to be six large crates is now four small boxes.
 
 ---
 
-I'm not sure anybody needs to digitise their old school work; I know lots of people who threw it all in the bin without thinking, and I don't blame them for doing so.
+I'm not sure anybody needs to digitise their old school work; I know lots of people who threw it all in the bin without thinking, and I don't think they've suffered for doing so.
 It's taken multiple years to get this far, and there's still more to do -- but I am glad I've done it.
 
 One of the benefits of downsizing is that what's left is all meaningful, personal stuff.
 I can reach into my boxes, and anything I pull out feels special.
+A letter from an old friend.
+A mention in the school paper.
 An essay I enjoyed writing.
-A letter from a former friend.
-A mention in the school newsletter.
 I'd never have found these in the plastic crates, because there was too much other stuff to sift through, but now I can go through and enjoy the best bits.
 
 What's left is all pretty personal, and it's hard to pick out anything I want to share with the Internet – but here's a very small sample:
@@ -51,6 +52,7 @@ What's left is all pretty personal, and it's hard to pick out anything I want to
 {%
   picture
   filename="IMG_3066.jpg"
+  alt="A collection of a few papers, including a purple exercise book, a blue workbook, a small book with some handwritten numbers, and a newspaper clipping about a chess club."
   visible_width="750px"
   class="fullwidth_img"
 %}
@@ -62,6 +64,7 @@ This was a good choice, because inside I found a superb annotation:
 {%
   picture
   filename="IMG_3057.jpg"
+  alt="The heading 'Argumentation (SEXI)' with a hand-drawn arrow 'This is Alex'"
   visible_width="500px"
   class="fullwidth_img"
 %}
@@ -76,6 +79,7 @@ Apparently red was my favourite colour then, and it still is:
 {%
   picture
   filename="IMG_3061.jpg"
+  alt="A red cast for a broken arm, cut down the middle, with signatures written on the side in black sharpie."
   visible_width="500px"
   class="fullwidth_img"
 %}
@@ -92,6 +96,7 @@ It turns out I have almost no photos of what my desk looked like when I was in s
   {%
     picture
     filename="IMG_0966.jpg"
+    alt="A white laptop on a brown table, surrounded by handwritten papers and a half-finished lunchbox. A couple of diagrams are visible on the papers, drawn in purple ink."
     visible_width="500px"
     class="fullwidth_img"
   %}
@@ -104,20 +109,21 @@ And I kid you not: I'd been scanning those notes not one hour before -- those di
 I've been through over 15,000 pages of printed material, and the one photo I have of my work setup has the papers at the top of the pile.
 
 (If you know where this photo was taken and about my new, secret project with ███ ████ ███████ this is even more of a coincidence.
-Everything old is new again.
-I will not be explaining any further, but know that I’m absolutely gobsmacked that *this* is the photo I found.
+<!-- Everything old is new again. -->
+I will not be explaining any further at this time, but know that I’m absolutely gobsmacked that *this* is the photo I found.
 Sometimes the universe is unsubtle in her coincidences.)
 
 ---
 
-The absolute highlight was gathering together all my "project work".
-This was my favourite thing to do in school -- write an extended booklet about a topic of your choice.
+One of the highlights has been gathering together all my "project work".
+This was my favourite thing to do in school -- write a booklet about a topic of your choice.
 I had lots of freedom in what to write and how to structure it, and I always threw myself into these projects.
 The earliest example I found is from 2003, and will actually feature in an upcoming post. 👀
 
 {%
   picture
   filename="IMG_3064.jpg"
+  alt="A stack of comb-bound documents, each with red card covers on one side. The cover of the topmost document says 'Cheddar Gorge' with my name and a picture."
   visible_width="500px"
   class="fullwidth_img"
 %}
