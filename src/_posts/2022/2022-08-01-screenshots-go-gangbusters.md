@@ -12,13 +12,18 @@ colors:
 My previous post [about taking more screenshots][screenshots] has resonated with a lot of people.
 It got thousands of impressions on Twitter, and at one point it was #2 on the Hacker News homepage:
 
-{%
-  picture
-  filename="hn_screenshot.png"
-  alt="A screenshot of the Hacker News homepage, with my post in the second slot from the top."
-  class="screenshot"
-  visible_width="562px"
-%}
+<figure style="width: 562px;">
+  {%
+    picture
+    filename="hn_screenshot.png"
+    alt="A screenshot of the Hacker News homepage, with my post in the second slot from the top. The top slot is a link to a Vi Hart video about hexaflexagons."
+    class="screenshot"
+    visible_width="562px"
+  %}
+  <figcaption>
+    I’m a big fan of Vi Hart, so having my posts be considered on a par with their videos is a huge compliment.
+  </figcaption>
+</figure>
 
 I was a bit surprised: most of my posts are only read by a handful of people.
 In hindsight, I can see why this post had broad appeal, but when I was writing I thought it would get a similar reception to my other posts.
@@ -32,6 +37,8 @@ These are a few notes on what it was like to be (briefly) popular.
 
 [screenshots]: {% post_url 2022/2022-07-23-screenshots %}
 
+---
+
 ## Not having analytics: good
 
 I don't have any analytics on this blog.
@@ -44,6 +51,8 @@ I wouldn't do anything with those numbers, so I don't collect them.
 This was probably a good thing: if I had a hit counter, I know I'd have been obsessively refreshing it for the dopamine hit.
 That would have ruined my day for very little gain.
 Instead, I got to enjoy a relaxing walk through London and mostly ignore the post's popularity.
+
+---
 
 ## Hosting on Netlify: good
 
@@ -63,10 +72,14 @@ That's what good infrastructure should be: reliable enough that I never need to 
 [Netlify]: https://www.netlify.com
 [hug]: https://en.wikipedia.org/wiki/Slashdot_effect
 
+---
+
 ## Static HTML and CSS: good
 
 I build this site the "old-fashioned" way: I have static HTML pages, with a smidgen of CSS and images for decoration.
 This undoubtedly helped the site stay up: there was no central server or shared resource to fall over.
+
+---
 
 ## The cost of serving my post: sad
 
@@ -92,6 +105,8 @@ I could stick a free CDN like Cloudflare in front of the site, which would cost 
 I've resisted this in the past because it felt unnecessary, but I might have to revisit that.
 If I'm going to do it, I should do it before another post gets popular -- trying to insert a CDN during a spike feels like a recipe for outages.
 
+---
+
 ## Forgetting to optimise my images: bad
 
 I did a bit of digging, and realised I'd forgotten to optimise the image in the post.
@@ -109,6 +124,8 @@ I got unlucky that I forgot to optimise the images on this occasion.
 This made my bandwidth problem worse, but even without the image I might have blown my cap.
 
 [srcset]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset
+
+---
 
 ## Preparing for next time: maybe?
 
