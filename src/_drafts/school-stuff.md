@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Going through my old school papers
-summary: Everything old is new again
-tags: personal
+summary: Digitising and pruning my boxes of paper from school. In which I have nostalgia, sadness, and the sense that everything old is new again.
+tags: personal digital-preservation
 ---
 
 I left school in 2011, and I graduated from university in 2014.
@@ -28,17 +28,11 @@ To be on the safe side, I've been [scanning and digitising] as I go, so I have d
 It's taken a while and there's still more I could digitise and recycle, but I've substantially reduced the pile.
 To give you an idea of scale, I've created about 500 PDFs, which have over 15,000 pages.
 I've recycled kilograms and kilograms of paper.
+(Don't ask me how many sheets that is.)
 
-(I'm not sure how many sheets that is, because I only kept sides that had something written on them. A single sheet of paper might have been two pages of a PDF, or just one.
-When libraries scan a book, they digitise every page, [including][including] [blank][blank] [ones][ones], because it avoids any tricky conversations about what counts as "blank" or whether an undigitised page might have had something important.
-These files are just for me, so I could decide what was worth keeping.)
-
-What used to be six large crates is now four smaller boxes.
+What used to be six large crates is now four small boxes.
 
 [scanning and digitising]: {% post_url 2019/2019-11-27-my-scanning-setup %}
-[including]: https://wellcomecollection.org/works/mzt44vgt/items?canvas=4
-[blank]: https://wellcomecollection.org/works/a5n3janu/items?canvas=4
-[ones]: https://wellcomecollection.org/works/jrjc2jb6/items?canvas=8
 
 ---
 
@@ -46,13 +40,13 @@ I'm not sure anybody needs to digitise their old school work; I know lots of peo
 It's taken multiple years to get this far, and there's still more to do -- but I am glad I've done it.
 
 One of the benefits of downsizing is that what's left is all meaningful, personal stuff.
-I can reach into those boxes, and anything I pull out feels special.
+I can reach into my boxes, and anything I pull out feels special.
 An essay I enjoyed writing.
 A letter from a former friend.
 A mention in the school newsletter.
 I'd never have found these in the plastic crates, because there was too much other stuff to sift through, but now I can go through and enjoy the best bits.
 
-What's left is all pretty personal, and it's hard to pick out anything I want to share with the Internet – but here's a small sample of it:
+What's left is all pretty personal, and it's hard to pick out anything I want to share with the Internet – but here's a very small sample:
 
 {%
   picture
@@ -136,8 +130,7 @@ That really tickled my brain, and I'd love do more of it.
 It was a phenomenal show, and I could write pages and pages about what I saw -- there's so much depth to literature) -->
 
 In hindsight, it's really obvious that I love writing.
-These projects are the precursor to this website.
-I was always going to find some outlet for that part of my brain.
+These projects are the precursor to this website, and I was always going to find some outlet for that part of my brain.
 
 [constellations]: https://www.barntheatre.co.uk/productions_events/2022-2023/constellations/
 
@@ -162,7 +155,7 @@ She'll never do these things.
 She'll never cringe at her teenage selfies or remember her childhood loves or reconnect with a friend she hasn't seen in a decade.
 She'll never be old enough for school to feel like a distant memory.
 
-Trans teens being murdered is the ultimate end state of transphobic and TERFery.
+Trans teens being murdered is the ultimate end state of transphobia and TERFery.
 It's what we get from a culture that says a dead trans person is better than a happy trans person.
 When prominent figures make sweeping statements like "do whatever necessary to keep men out of girls' bathrooms", it is grimly unsurprising that some people take that literally.
 
@@ -170,6 +163,7 @@ In weeks like this, I am scared and frightened and stressed, and I know I'm not 
 I want to believe the world is getting better, that things are easier for young people now than they were for me, that we're making progress.
 But sheesh, it doesn't feel like that right now.
 
-Rest in peace, Brianna.
+Trans friends, I love you, stay safe, look after yourselves.
+Brianna, rest in peace.
 
 [Brianna]: https://en.wikipedia.org/wiki/Killing_of_Brianna_Ghey
