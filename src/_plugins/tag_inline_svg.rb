@@ -86,7 +86,7 @@ module Jekyll
       year = context.registers[:page]['date'].year
 
       svg_path = "#{src}/_images/#{year}/#{@filename}"
-      alt_text = @attrs['alt']
+      alt_text = @attrs.delete('alt')
 
       get_inline_svg(svg_path, alt_text, @attrs)
     end
