@@ -84,7 +84,7 @@ We have a generous budget and we do interesting things, so all our work is [open
   slide
   filename="slide3.jpg"
   alt="Two vertical stacks of white paper sitting side-by-side. Between the two stacks is a gap which fades to black. A few of the pages have tabs with numbers or labels scribbled on them, but there's no clear structure."
-  caption="Photo by <a href="https://pixabay.com/photos/files-paper-office-paperwork-stack-1614223/">myrfa on Pixabay</a>. Used under CC0."
+  caption="Photo by [myrfa on Pixabay](https://pixabay.com/photos/files-paper-office-paperwork-stack-1614223/). Used under CC0."
 %}
 
 But being thrown into a new repository of code is pretty hard!
@@ -102,7 +102,7 @@ All tricky questions to answer in a new project: the README helps get you starte
   slide
   filename="slide4.png"
   alt="A black-and-white screenshot of an old Mac operating system, within an outline of a beige Macintosh computer. The screenshot shows a file browser, with a file with a newspaper icon and the name 'Read Me'."
-  caption="Screenshot from James Friend’s <a href="https://jamesfriend.com.au/pce-js/">Mac Plus emulator</a>."
+  caption="Screenshot from James Friend’s [Mac Plus emulator](https://jamesfriend.com.au/pce-js/)."
 %}
 
 The "Read Me" as a concept has been around for a long time – this is a screenshot from [System 7][sys7], but there are examples [as far back as 1974][rm1974].

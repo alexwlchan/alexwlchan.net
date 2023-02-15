@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Parse the params string, which is designed to be written with
 # a similar syntax to HTML attributes, e.g.
 #
@@ -8,6 +10,17 @@ def parse_attrs(input)
 
   input.scan(/(?<key>[a-z\-_]+)(?:="(?<value>[^"]*)")?/).each do |k, v|
     result[k] = v
+  end
+
+  # Look for any attributes which don't have a value; this is usually
+  # a sign of an escaping issue -- only a handful of attributes shouldn't
+  # have a value.  If I find any unexpected examples, throw an error.
+  bare_attributes = result
+                    .filter { |_k, v| v.nil? }
+                    .filter { |k| k != 'data-proofer-ignore' and k != 'link_to_original' }
+
+  unless bare_attributes.empty?
+    raise SyntaxError, "Unescaped attributes in #{input}"
   end
 
   result
