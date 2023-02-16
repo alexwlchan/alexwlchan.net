@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-02-16 10:58:09 +0000
 title: CSS formatting in the console
 summary: Did you know you can use `%c` to format your `console.log` messages?
 tags: web-development javascript
