@@ -41,9 +41,11 @@
       <p class="card_title">
         {{ post.title | markdownify_oneline | smartify }}
       </p>
-      <p class="card_description">
-        {{ post.summary | smartify }}
-      </p>
+      {% if post.summary %}
+        <p class="card_description">
+          {{ post.summary | markdownify_oneline | smartify }}
+        </p>
+      {% endif %}
     </div>
 
     {% if include.hide_date != "true" %}
