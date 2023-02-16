@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CSS formatting in the console
-summary: Did you know you can use `%c` to format your console.log messages?
+summary: Did you know you can use `%c` to format your `console.log` messages?
 tags: web-development javascript
 ---
 
