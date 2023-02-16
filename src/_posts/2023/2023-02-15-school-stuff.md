@@ -166,7 +166,7 @@ Trans teens being murdered is the ultimate end state of transphobia and TERFery.
 It's what we get from a culture that says a dead trans person is better than a happy trans person.
 When prominent figures make sweeping statements like "do whatever necessary to keep men out of girls' bathrooms", it is grimly unsurprising that some people take that literally.
 
-In weeks like this, I am scared and frightened and stressed, and I know I'm not the only one.
+In weeks like this, I am scared and frightened and angry, and I know I'm not the only one.
 I want to believe the world is getting better, that things are easier for young people now than they were for me, that we're making progress.
 But sheesh, it doesn't feel like that right now.
 
