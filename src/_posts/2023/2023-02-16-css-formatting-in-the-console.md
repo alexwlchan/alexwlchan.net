@@ -19,7 +19,7 @@ I was poking around in Google Lens recently (which is Google's magical [reverse 
 Code that runs in the dev console can be very powerful, so I can understand why they want to stop people from pasting random code in here -- although it feels like a bigger issue on, say, your Gmail inbox, rather than image search.
 I'd never heard the name [Self-XSS][self-xss] before, but it definitely happens, and trying to reduce it is no bad thing.
 
-After I'd stared at it for a few moments, and thought "that's neat", I got to wodnering: how are Google formatting these messages?
+After I'd stared at it for a few moments, and thought "that's neat", I got to wondering: how are Google formatting these messages?
 How are they making their text big and bold and red and yellow?
 Having a way to make console messages stand out would be quite handy.
 
