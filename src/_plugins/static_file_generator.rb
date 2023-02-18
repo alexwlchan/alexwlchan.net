@@ -9,12 +9,12 @@
 
 require 'pathname'
 
-def minify_svg(svg_path)
+def minify_svg(svg_path, src, dst)
   src_path = Pathname.new(svg_path)
   relative_path = src_path.relative_path_from("#{src}/_images")
   dst_path = Pathname.new("#{dst}/images") + relative_path
 
-  next unless !dst_path.file? || dst_path.mtime <= src_path.mtime
+  return unless !dst_path.file? || dst_path.mtime <= src_path.mtime
 
   # Minify the XML by removing the comments
   # See https://stackoverflow.com/a/45129390/1558022
@@ -53,7 +53,7 @@ module Jekyll
       # Copy across all the SVG files, minifying them as we go.  We do this
       # because minifying XML is (relatively) fast
       Dir["#{src}/_images/**/*.svg"].each do |svg_path|
-        minify_svg(svg_path)
+        minify_svg(svg_path, src, dst)
       end
     end
   end
