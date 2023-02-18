@@ -214,7 +214,7 @@ module Jekyll
       gcd = image.width.gcd(image.height)
       @attrs['style'] = "aspect-ratio: #{image.width / gcd} / #{image.height / gcd}; #{@attrs['style'] || ''}"
 
-      sources = prepare_images(source_path, image, im_format, dst_prefix, @visible_width, @extra_widths)
+      sources = prepare_images(source_path, im_format, dst_prefix, @visible_width, @extra_widths)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -229,7 +229,7 @@ module Jekyll
         end
 
         dark_sources = prepare_images(
-          dark_path, dark_image, im_format, "#{dst_prefix}.dark", @visible_width, @extra_widths
+          dark_path, im_format, "#{dst_prefix}.dark", @visible_width, @extra_widths
         )
       else
         dark_sources = nil
@@ -327,8 +327,10 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(source_path, image, im_format, dst_prefix, visible_width, extra_widths)
+    def prepare_images(source_path, im_format, dst_prefix, visible_width, extra_widths)
       sources = Hash.new { [] }
+
+      image = Rszr::Image.load(source_path)
 
       # Pick how many widths we're going to cut this image at.
       #

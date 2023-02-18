@@ -38,8 +38,6 @@ module Jekyll
 
     def render(context)
       site = context.registers[:site]
-      src = site.config['source']
-      dst = site.config['destination']
 
       primary_color_light = if context.registers[:page].nil?
                               '#d01c11'
