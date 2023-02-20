@@ -34,7 +34,7 @@ In this post, I'm going to explain how I test my vanilla JS projects – but wit
 
 Whenever you run tests, you need to run code -- and browsers are very good at running JavaScript!
 
-I've written a couple of helper functions that let me write test cases in an HTML file.
+I've written a couple of helper functions that let me write test cases in an HTML file, and then view the result in a browser.
 Here's an example of what a single test case looks like:
 
 ```html
