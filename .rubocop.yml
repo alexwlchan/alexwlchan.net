@@ -47,9 +47,6 @@ Style/FrozenStringLiteralComment:
 Style/IfUnlessModifier:
   Enabled: false
 
-Style/MultilineBlockChain:
-  Enabled: false
-
 Style/MutableConstant:
   Enabled: false
 
