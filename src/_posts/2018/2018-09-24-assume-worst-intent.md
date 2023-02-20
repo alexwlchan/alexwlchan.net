@@ -7,8 +7,6 @@ summary: How do we design services and platforms to reduce the risk of harassmen
 colors:
   index_light: "#531b93"
   index_dark:  "#b7cada"
-index:
-  best_of: true
 ---
 
 This is a talk I gave last Sunday [at PyCon UK 2018](https://2018.hq.pyconuk.org/schedule/item/54DC/).

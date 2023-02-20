@@ -27,7 +27,7 @@
 {% endif %}
 
 <li
-  class="card{% if post.index.best_of %} best_of{% endif %}"
+  class="card"
   id="post-{{ post.slug }}"
   {%- if year %} data-post-year="{{ year }}"{% endif %}
   data-post-tags="{{ post.tags | join: ' ' }}"
