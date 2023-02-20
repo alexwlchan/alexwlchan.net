@@ -1,0 +1,303 @@
+<html>
+
+<body>
+
+<meta charset="utf-8">
+
+<script src="code_to_test.js"></script>
+
+<script src="test_micro_framework.js"></script>
+<link rel="stylesheet" href="test_micro_framework.css">
+
+<script>
+  it('createPublicationYearLabel: a range of years', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: '2001', beforeYear: '2002' }),
+      'published between 2001 and 2002'
+    );
+  });
+
+  it('createPublicationYearLabel: a single year', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: '2001', beforeYear: '2001' }),
+      'published in 2001'
+    );
+  });
+</script>
+
+<div
+  id="review_preview_1"
+  data-book-authors="Judith Jones"
+  data-book-publication-year="2001"
+  data-review-rating="3"
+  data-review-tags="fiction sci-fi"
+>
+
+<div
+  id="review_preview_2"
+  data-book-authors="Judith Jones and Siobhan Smith"
+  data-book-publication-year="2021"
+  data-review-rating="4"
+  data-review-tags="non-fiction botany"
+>
+
+<div
+  id="review_preview_3"
+  data-book-authors="Siobhan Smith"
+  data-book-publication-year="2031"
+  data-review-rating=""
+  data-review-tags="non-fiction botany"
+>
+
+<div
+  id="review_preview_4"
+  data-book-authors="Laura Lee"
+  data-book-publication-year="2026"
+  data-review-rating="5"
+  data-review-tags="fiction physics"
+>
+
+<script>
+  it('createPublicationYearLabel: a range of years', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: '2001', beforeYear: '2002' }),
+      'published between 2001 and 2002'
+    );
+  })
+
+  it('createPublicationYearLabel: a single year', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: '2001', beforeYear: '2001' }),
+      'published in 2001'
+    );
+  })
+
+  it('createPublicationYearLabel: published after', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: '2001', beforeYear: undefined }),
+      'published after 2001'
+    );
+  })
+
+  it('createPublicationYearLabel: published before', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: undefined, beforeYear: '2002' }),
+      'published before 2002'
+    );
+  })
+
+  it('createPublicationYearLabel: current year', () => {
+    assertEqual(
+      createPublicationYearLabel({ afterYear: '2022', beforeYear: undefined }),
+      'published in 2022'
+    );
+  })
+
+  it('parseAuthorNames: single author', () => {
+    assertEqual(
+      parseAuthorNames('Laura Jane Williams'),
+      ['Laura Jane Williams']
+    );
+  })
+
+  it('parseAuthorNames: single author with period', () => {
+    assertEqual(
+      parseAuthorNames('J. K. Rowling'),
+      ['J. K. Rowling']
+    );
+  })
+
+  it('parseAuthorNames: single author with ‘and’ as a substring', () => {
+    assertEqual(
+      parseAuthorNames('B. Jack Copeland'),
+      ['B. Jack Copeland']
+    );
+  })
+
+  it('parseAuthorNames: multiple authors with commas', () => {
+    assertEqual(
+      parseAuthorNames('Ben Crystal, David Crystal'),
+      ['Ben Crystal', 'David Crystal']
+    );
+  })
+
+  it('parseAuthorNames: multiple authors with ampersand', () => {
+    assertEqual(
+      parseAuthorNames('Douglas Adams & Mark Carwadine'),
+      ['Douglas Adams', 'Mark Carwadine']
+    );
+  })
+
+  it('parseAuthorNames: multiple authors with and', () => {
+    assertEqual(
+      parseAuthorNames('F.H. Hinsley and Alan Tripp'),
+      ['F.H. Hinsley', 'Alan Tripp']
+    );
+  })
+
+  it('parseAuthorNames: multiple authors with an Oxford comma', () => {
+    assertEqual(
+      parseAuthorNames('Lisa McMullin, Tim Foley, and Timothy X. Atack'),
+      ['Lisa McMullin', 'Tim Foley', 'Timothy X. Atack']
+    );
+  })
+
+  const book1 = document.querySelector('#review_preview_1');
+  const book2 = document.querySelector('#review_preview_2');
+  const book3 = document.querySelector('#review_preview_3');
+  const book4 = document.querySelector('#review_preview_4');
+
+  const emptyFilters = {
+    authors: [],
+    publicationYear: {
+      before: undefined,
+      after: undefined,
+    },
+    starRating: undefined,
+    tags: [],
+  };
+
+  it('matchesFilters: matches everything if there are no filters', () => {
+    assertTrue(matchesFilters(book1, emptyFilters));
+    assertTrue(matchesFilters(book2, emptyFilters));
+    assertTrue(matchesFilters(book3, emptyFilters));
+    assertTrue(matchesFilters(book4, emptyFilters));
+  })
+
+  it('matchesFilters: matching on a single author name', () => {
+    const filters = {
+      ...emptyFilters,
+      'authors': ['Siobhan Smith'],
+    };
+
+    assertFalse(matchesFilters(book1, filters));
+    assertTrue(matchesFilters(book2, filters));
+    assertTrue(matchesFilters(book3, filters));
+    assertFalse(matchesFilters(book4, filters));
+  })
+
+  it('matchesFilters: matching on multiple author names', () => {
+    const filters = {
+      ...emptyFilters,
+      authors: ['Siobhan Smith', 'Laura Lee'],
+    };
+
+    assertFalse(matchesFilters(book1, filters));
+    assertTrue(matchesFilters(book2, filters));
+    assertTrue(matchesFilters(book3, filters));
+    assertTrue(matchesFilters(book3, filters));
+  })
+
+  it('matchesFilters: matches on publication year after', () => {
+    const filters = {
+      ...emptyFilters,
+      publicationYear: {
+        before: undefined,
+        after: 2021,
+      },
+    };
+
+    assertFalse(matchesFilters(book1, filters));  // < 2021
+    assertTrue(matchesFilters(book2, filters));   // = 2021
+    assertTrue(matchesFilters(book3, filters));   // > 2021
+    assertTrue(matchesFilters(book4, filters));   // > 2021
+  })
+
+  it('matchesFilters: matches on publication year before', () => {
+    const filters = {
+      ...emptyFilters,
+      publicationYear: {
+        before: 2021,
+        after: undefined,
+      },
+    };
+
+    assertTrue(matchesFilters(book1, filters));   // < 2021
+    assertTrue(matchesFilters(book2, filters));   // = 2021
+    assertFalse(matchesFilters(book3, filters));  // > 2021
+    assertFalse(matchesFilters(book4, filters));  // > 2021
+  })
+
+  it('matchesFilters: matches on publication year range', () => {
+    const filters = {
+      ...emptyFilters,
+      publicationYear: {
+        before: 2025,
+        after: 2021,
+      },
+    };
+
+    assertFalse(matchesFilters(book1, filters));
+    assertTrue(matchesFilters(book2, filters));
+    assertFalse(matchesFilters(book3, filters));
+    assertFalse(matchesFilters(book4, filters));
+  })
+
+  it('matchesFilters: matches on star rating', () => {
+    const filters = {
+      ...emptyFilters,
+      starRating: 4
+    };
+
+    assertFalse(matchesFilters(book1, filters));  // 3 stars
+    assertTrue(matchesFilters(book2, filters));   // 4 stars
+    assertFalse(matchesFilters(book3, filters));  // unrated = did not finish
+    assertTrue(matchesFilters(book4, filters));   // 5 stars
+  })
+
+  it('matchesFilters: matches on a single tag', () => {
+    const filters = {
+      ...emptyFilters,
+      tags: ['fiction']
+    };
+
+    assertTrue(matchesFilters(book1, filters));
+    assertFalse(matchesFilters(book2, filters));
+    assertFalse(matchesFilters(book3, filters));
+    assertTrue(matchesFilters(book4, filters));
+  })
+
+  it('matchesFilters: does an AND match on tags', () => {
+    const filters = {
+      ...emptyFilters,
+      tags: ['fiction', 'sci-fi']
+    };
+
+    assertTrue(matchesFilters(book1, filters));
+    assertFalse(matchesFilters(book2, filters));
+    assertFalse(matchesFilters(book3, filters));
+    assertFalse(matchesFilters(book4, filters));
+  })
+
+  it('createSummaryMessage: renders the right messages', () => {
+  	assertEqual(
+			createSummaryMessage({
+				finishedCount: 10, year: 2022, isThisYear: true
+			}),
+			'2022: I’ve read 10 books so far'
+  	);
+  	assertEqual(
+			createSummaryMessage({
+				finishedCount: 1, year: 2023, isThisYear: true
+			}),
+			'2023: I’ve read 1 book so far'
+  	);
+
+  	assertEqual(
+			createSummaryMessage({
+				finishedCount: 10, year: 2019, isThisYear: false
+			}),
+			'2019: I read 10 books'
+  	);
+  	assertEqual(
+			createSummaryMessage({
+				finishedCount: 1, year: 2019, isThisYear: false
+			}),
+			'2019: I read 1 book'
+  	);
+  })
+</script>
+
+</body>
+
+</html>
