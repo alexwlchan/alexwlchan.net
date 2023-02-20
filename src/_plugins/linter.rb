@@ -59,19 +59,15 @@ class RunLinting < Jekyll::Command
     # Parse all the generated HTML documents with Nokogiri.
     def get_html_documents(html_dir)
       Dir["#{html_dir}/**/*.html"]
-        .filter do |html_path|
-          # Anything in the /files/ directory can be ignored, because it's
-          # not part of the site, it's a static asset.
-          #
-          # e.g. if I've got a file that I'm using to demo a particular
-          # HTML feature.
-          !html_path.include? '/files'
-        end
-        .filter do |html_path|
-          # This page is a special case for crawlers and doesn't count for
-          # the purposes of linting and the like.
-          html_path != "#{html_dir}/400/index.html"
-        end
+        # Anything in the /files/ directory can be ignored, because it's
+        # not part of the site, it's a static asset.
+        #
+        # e.g. if I've got a file that I'm using to demo a particular
+        # HTML feature.
+        .filter { |html_path| !html_path.include? '/files' }
+        # This page is a special case for crawlers and doesn't count for
+        # the purposes of linting and the like.
+        .filter { |html_path| html_path != "#{html_dir}/400/index.html" }
         .map do |html_path|
           doc = Nokogiri::HTML(File.open(html_path))
           display_path = get_display_path(html_path, doc)
@@ -308,9 +304,7 @@ class RunLinting < Jekyll::Command
           path, profile = line.split(':')
           path = path.strip!
           profile = profile.strip!
-          [path, profile]
-        end
-        .map do |path, profile|
+
           unless safe_colour_profiles.include? profile
             errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
           end
