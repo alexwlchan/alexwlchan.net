@@ -18,13 +18,13 @@ On larger projects, I have test suites to act as my safety net.
 I make a change, I re-run the tests, and they'll tell me if I've broken anything.
 But how do I do this with vanilla JavaScript?
 
-I've used a variety of JavaScript test frameworks in work projects, including Jest, Jasmine, and Karma -- but using them gets back to the problem of build systems.
+I've used a variety of JavaScript test frameworks in work projects, including Jest, Jasmine, and Karma -- but using them has similar problem to build systems.
 They all expect to be installed through npm and invoked from the command-line.
+If I want to run those tests again after a long period away, I need to recreate my working environment.
 
-And unlike build systems, where the benefits are pretty marginal for smaller projects, a good test suite can be useful for even the smallest bits of code.
+I've built myself a tiny framework that lets me write unit tests for my vanilla JS files.
+Unlike build systems, where the benefits are marginal for smaller projects, a good test suite can be useful for even the smallest bits of code.
 I added some basic filters [to my book tracker](https://books.alexwlchan.net) last year, and although the core logic is only ~50 lines of code, writing some tests helped me spot several bugs I'd missed.
-
-In this post, I'm going to explain how I test my vanilla JS projects – but without using any third-party tools.
 
 [Writing Javascript without a build system]: https://jvns.ca/blog/2023/02/16/writing-javascript-without-a-build-system/
 
@@ -55,6 +55,7 @@ It then puts the results in the body of the document, so I can quickly see wheth
   picture
   filename="test_results.png"
   visible_width="504px"
+  alt="Screenshot of a web browser showing a series of test results. Each test result is a single line, either with a green tick (pass) or a red cross (fail) and a one-line description of what's being tested."
 %}
 
 Here a test is failing because it relies on the value of the current year, and I haven't updated the test since 2022 -- but I can see everything else is working.
@@ -73,6 +74,7 @@ The filter allows you to enter a lower bound, an upper bound, or both:
   filename="publication_year_filters.png"
   visible_width="410px"
   class="screenshot"
+  alt="A popover window labelled 'publication year' and the text 'published between [year] and [year]'. Both the '[year]'s are input fields where a user can type some text."
 %}
 
 Once I've entered a filter, I have a function `createPublicationYearLabel` which turns it into a human-readable label.
@@ -195,7 +197,8 @@ Here's an example of what a successful/failed test look like in the HTML it crea
 </p>
 ```
 
-The reason I'm inserting HTML instead of using console logging (even though I can do [formatting in the console]({% post_url 2023/2023-02-16-css-formatting-in-the-console %}))
+The reason I'm inserting HTML instead of using console logging (even though I can do [formatting in the console]({% post_url 2023/2023-02-16-css-formatting-in-the-console %})) is that it's just a bit easier to see -- I only need a browser, I don't access to dev tools.
+I haven't written much JavaScript on my phone, but it is occasionally useful.
 
 I've also written a couple of assertion helpers, like you get in a proper test framework.
 
