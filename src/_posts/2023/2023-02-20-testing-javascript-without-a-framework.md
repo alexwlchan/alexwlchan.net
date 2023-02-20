@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-02-20 08:28:16 +0000
 title: Testing JavaScript without a (third-party) framework
 summary: The browser can be a pretty good place to run your JavaScript tests.
 tags: javascript web-development
