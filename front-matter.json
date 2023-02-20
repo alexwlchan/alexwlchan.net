@@ -61,10 +61,6 @@
             "description": "Affects how an individual page or post appears in the site-wide indexes.",
             "type": "object",
             "properties": {
-                "best_of": {
-                    "description": "Whether to highlight this post as a favourite in the site-wide index.",
-                    "type": "boolean"
-                },
                 "exclude": {
                     "description": "Whether to exclude this post from the site-wide index.",
                     "type": "boolean"
