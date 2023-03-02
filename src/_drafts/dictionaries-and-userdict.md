@@ -3,6 +3,9 @@ layout: post
 title: Creating a Python dictionary with multiple, equivalent keys
 summary: Using collections.UserDict, we can create a dictionary where dict[key1] and dict[key2] always point to the same value.
 tags: python
+colors:
+  index_light: "#035e96"
+  index_dark:  "#6fd0fd"
 ---
 
 {% comment %}
