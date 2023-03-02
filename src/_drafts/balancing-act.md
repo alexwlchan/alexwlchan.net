@@ -27,7 +27,10 @@ Unfortunately there are way too many combinations to sensibly test -- I don't ha
 I started by writing a program that would shuffle the groups randomly in each session -- but that didn't give very good results.
 Usually there'd be a few people who never worked together, and a few who worked together lots of times, which is what we're trying to prevent.
 
-I was a bit stumped at this point, because I couldn't see how to find the "best" solution -- but I don't need to find that, I just need to find a "good enough" solution.
+I was a bit stumped at this point, because I couldn't see how to find the "best" solution -- and I couldn't find anybody else who'd solved the problem when I searched Google.
+(I'm sure somebody has, but I'm not using the right search terms.)
+
+But I don't need to find the "best" solution, I just need to find a "good enough" solution.
 That seems much easier.
 
 [floats]: https://randomascii.wordpress.com/2014/01/27/theres-only-four-billion-floatsso-test-them-all/
