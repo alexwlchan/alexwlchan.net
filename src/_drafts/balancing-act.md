@@ -3,7 +3,7 @@ layout: post
 title: Splitting a class into balanced groups
 summary: How do you make sure everyone gets to work with everyone else?
 tags: combinatorics python
-colours:
+colors:
   index_light: "#8c3526"
   index_dark:  "#d7a59d"
 ---
