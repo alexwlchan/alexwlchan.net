@@ -77,6 +77,9 @@ pairs['Lily']['Katie']
 This is a bit inefficient, because the same value is also available in `pairs['Katie']['Lily']` -- we'll have to remember to update it in both places.
 If this was a bigger project, I might create a custom data structure to handle this properly, but it's overkill for a simple problem.
 
+After this, I came up with a way to assign the groups.
+This approach was my first idea, which turned out to work pretty well:
+
 ```python
 for i in range(1, session_count + 1):
     print(f"# Session {i}")
@@ -135,7 +138,7 @@ for i in range(1, session_count + 1):
 
 In each session, it builds the groups one-by-one.
 
-*   For each group, it starts by picking a random student who isn't in a group yet (say, Alice).
+*   To start each group, it picks a random student who isn't in a group yet (say, Alice).
 
 *   Then it looks at all the other students who aren't in a group yet, and counts how many times they've worked with Alice.
     It picks whoever has worked with Alice least often, and adds them to the group (say, Imogen).
@@ -203,7 +206,7 @@ Katie     2 2 1 2 2 2 0 1 4 2 · 2
 Lily      2 1 2 1 2 2 2 2 2 2 2 ·
 ```
 
-We can see this isn't what we're looking for -- notice that Katie and Imogen have been in the same group three times, but Katie has never worked with Gabrielle.
+We can see this particular solution isn't what we're looking for -- notice that Katie and Imogen have been in the same group three times, but Katie has never worked with Gabrielle.
 
 I could probably fix this by tweaking the algorithm (hard), or I could run the script a few more times and see if I get a more balanced mix (easy).
 Because the first member in each group is chosen randomly, running the script different times will get a different set of groups.
