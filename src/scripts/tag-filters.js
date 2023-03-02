@@ -79,7 +79,13 @@ function applyTagFilters() {
   history.pushState({ source: 'web' }, newTitle, newUrl)
 }
 
-window.onload = function() {
+// Note: this uses the DOMContentLoaded instead of the load event so
+// it doesn't wait for images to finish loading.  I'm hoping this will
+// fix issues where clicking to a filtered page can have a delay before
+// the filter applies.
+//
+// See https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+window.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("tag_filter").style.display = "block";
 
   // Look for a tag in the URL, if somebody has linked here -- in which
@@ -90,4 +96,4 @@ window.onload = function() {
     document.getElementById("tag_selection").value = prefilledTag;
     applyTagFilters();
   }
-};
+});
