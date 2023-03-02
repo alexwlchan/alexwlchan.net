@@ -3,6 +3,9 @@ layout: post
 title: Splitting a class into balanced groups
 summary: How do you make sure everyone gets to work with everyone else?
 tags: combinatorics python
+colours:
+  index_light: "#8c3526"
+  index_dark:  "#d7a59d"
 ---
 
 Earlier this week, my mum sent me an interesting problem.
@@ -163,6 +166,7 @@ Bryony Danielle Lily
 
 This is a [greedy algorithm], and those are rarely optimal -- in this case, there are no constraints on the last group of "leftovers".
 The other groups were all chosen to be made up of people who hadn't worked together much in the past, but we don't know anything about the last group.
+It's possible that group could be made up entirely of people who've worked together before.
 
 To help me see how good a solution it had come up with, I wrote another snippet to pretty-print the contents of the `pairs` data:
 
@@ -202,25 +206,71 @@ Lily      2 1 2 1 2 2 2 2 2 2 2 ·
 We can see this isn't what we're looking for -- notice that Katie and Imogen have been in the same group three times, but Katie has never worked with Gabrielle.
 
 I could probably fix this by tweaking the algorithm (hard), or I could run the script a few more times and see if I get a more balanced mix (easy).
-After a few more tries, I got a better solution:
+Because the first member in each group is chosen randomly, running the script different times will get a different set of groups.
+
+After a few more tries, I got a slightly better solution:
 
 ```
           A B C D E F G H I J K L
-Alice     · 2 1 2 1 2 1 1 1 1 1 1
-Bryony    2 · 2 1 1 1 1 1 1 2 1 1
-Caroline  1 2 · 1 1 1 2 2 1 1 1 1
-Danielle  2 1 1 · 2 2 1 1 1 1 1 1
-Emma      1 1 1 2 · 1 2 2 1 1 1 1
-Faith     2 1 1 2 1 · 1 1 1 1 2 1
-Gabrielle 1 1 2 1 2 1 · 2 1 1 1 1
-Helen     1 1 2 1 2 1 2 · 1 1 1 1
-Imogen    1 1 1 1 1 1 1 1 · 2 2 2
-Julia     1 2 1 1 1 1 1 1 2 · 1 2
-Katie     1 1 1 1 1 2 1 1 2 1 · 2
-Lily      1 1 1 1 1 1 1 1 2 2 2 ·
+Alice     · 1 1 2 1 3 3 2 2 1 1 1
+Bryony    1 · 3 2 1 1 2 1 2 1 2 2
+Caroline  1 3 · 2 1 1 1 2 2 1 2 2
+Danielle  2 2 2 · 1 2 1 2 1 1 2 2
+Emma      1 1 1 1 · 2 2 1 2 3 2 2
+Faith     3 1 1 2 2 · 2 2 1 2 1 1
+Gabrielle 3 2 1 1 2 2 · 1 1 3 1 1
+Helen     2 1 2 2 1 2 1 · 2 1 2 2
+Imogen    2 2 2 1 2 1 1 2 · 2 2 1
+Julia     1 1 1 1 3 2 3 1 2 · 1 2
+Katie     1 2 2 2 2 1 1 2 2 1 · 2
+Lily      1 2 2 2 2 1 1 2 1 2 2 ·
 ```
 
-I think this is as good as you can do, so I sent this off to my mum, and she's going to use it in her class.
+<!--
+  # Round 1
+  Caroline Danielle Helen Katie
+  Alice Bryony Imogen Lily
+  Emma Faith Gabrielle Julia
+
+  # Round 2
+  Bryony Gabrielle Katie
+  Alice Danielle Emma
+  Caroline Imogen Julia
+  Faith Helen Lily
+
+  # Round 3
+  Alice Caroline Gabrielle
+  Danielle Faith Imogen
+  Emma Katie Lily
+  Bryony Helen Julia
+
+  # Round 4
+  Bryony Caroline Emma Faith
+  Alice Gabrielle Helen Imogen
+  Danielle Julia Katie Lily
+
+  # Round 5
+  Bryony Danielle Gabrielle
+  Caroline Helen Lily
+  Alice Faith Katie
+  Emma Imogen Julia
+
+  # Round 6
+  Bryony Caroline Imogen Katie
+  Alice Danielle Faith Helen
+  Emma Gabrielle Julia Lily
+
+  # Round 7
+  Bryony Caroline Danielle Lily
+  Emma Helen Imogen Katie
+  Alice Faith Gabrielle Julia
+-->
+
+I think this is about as good as you can do, so I sent this off to my mum, and she's going to use it in her class.
 It'll likely need tweaking as people miss the occasional class and groups have to be rearranged, but it's a good starting point.
+
+There are lots of ways this code could be made better, but I'm going to leave it as-is.
+I needed it for a one-off question, I enjoyed doing it, and it got a good enough answer.
+It strikes me that this might work as a question in a coding interview, a class of problems I usually don't enjoy, but knowing it had a practical purpose made this fun.
 
 [greedy algorithm]: https://en.wikipedia.org/wiki/Greedy_algorithm
