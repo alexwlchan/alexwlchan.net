@@ -248,6 +248,10 @@
 /talks/hypothesis_cover.png                                     /410/ 410
 /talks/pyconuk2016_cover.png                                    /410/ 410
 
+# I have no idea why this particular slide is so popular and getting
+# so many 404s, but adding a redirect for it.
+/talks/hypothesis-intro/hypothesis-slide029.png                 /images/2016/hypothesis-intro/slide29.png
+
 # === #
 
 
