@@ -24,7 +24,7 @@ require 'nokogiri'
 class InlineStylesFilters
   def self.get_inline_styles(html, site)
     unless html.include? '<style'
-      return { html:, 'inline_styles' => '' }
+      return { 'html' => html, 'inline_styles' => '' }
     end
 
     doc = Nokogiri::HTML(html)
@@ -62,7 +62,7 @@ class InlineStylesFilters
 
     if inline_styles.empty?
       return {
-        html:,
+        'html' => html,
         'inline_styles' => ''
       }
     end
@@ -76,7 +76,7 @@ class InlineStylesFilters
     end
 
     {
-      html:,
+      'html' => html,
       'inline_styles' => lines.join(' ')
     }
   end
