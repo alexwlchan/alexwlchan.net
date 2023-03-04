@@ -5,14 +5,18 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en">
 
+  {% assign parsed_content = content | fix_kramdown | get_inline_styles %}
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     {% include head.html %}
-
-    <style>{{ content | get_inline_styles }}</style>
+        
+    {% if parsed_content.inline_styles != "" %}
+      <style>{{ parsed_content.inline_styles }}</style>
+    {% endif %}
   </head>
 
   <body>
@@ -21,7 +25,7 @@ layout: compress
     {% include_cached nav.html %}
 
     <main id="main" tabindex="-1">
-      {{ content | fix_kramdown | remove_inline_styles }}
+      {{ parsed_content.html }}
     </main>
 
     {% include_cached footer.html %}

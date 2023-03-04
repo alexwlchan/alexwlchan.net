@@ -1,4 +1,3 @@
-
 {% assign safe_title = page.title | markdownify_oneline | smartify | strip_html %}
 
 <title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title | smartify }}</title>
@@ -11,11 +10,7 @@
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 {% endif %}
 
-<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
-
 <meta name="page-source-path" content="{{ page.path }}">
-
-<link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 
 {% if page.colors.css_light %}
   <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">

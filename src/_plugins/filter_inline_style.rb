@@ -21,10 +21,34 @@
 
 require 'nokogiri'
 
-class RemoveInlineStyles
-  def self.remove_inline_styles(html)
-    if html.include? '<style'
-      doc = Nokogiri::HTML.fragment(html)
+class InlineStylesFilters
+  def self.get_inline_styles(html, site)
+    unless html.include? '<style'
+      return { html:, 'inline_styles' => "" }
+    end
+
+    doc = Nokogiri::HTML(html)
+
+    inline_styles = Hash.new { [] }
+
+    doc.xpath('style|.//style').each do |style|
+      style_type = style.get_attribute('type')
+      media = style.get_attribute('media')
+
+      if style_type == 'x-text/scss'
+        converter = site.find_converter_instance(Jekyll::Converters::Scss)
+        css = converter.convert(<<~SCSS
+          @import "mixins.scss";
+          @import "_settings.scss";
+          @import "variables.scss";
+
+          #{style.text}
+        SCSS
+                               )
+        inline_styles[media] <<= css.strip
+      else
+        inline_styles[media] <<= style.text.strip
+      end
 
       # NOTE: this deliberately bypasses the Nokogiri HTML rendering,
       # and just does a regex-esque find and replace.
@@ -33,69 +57,40 @@ class RemoveInlineStyles
       # a closing </source> tag which is redundant, so instead we operate
       # on the raw HTML and try to preserve the existing formatting as
       # much as possible.
-      doc.xpath('style|.//style').each do |style|
-        html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
+      html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
+    end
+
+    if inline_styles.empty?
+      return {
+        html:,
+        'inline_styles' => ""
+      }
+    end
+
+    lines = inline_styles.map do |media, css|
+      if media.nil?
+        css
+      else
+        "@media #{media} { #{css.join("\n")} }"
       end
     end
 
-    html
+    {
+      html:,
+      'inline_styles' => lines.join(' ')
+    }
   end
 end
 
 module Jekyll
-  module RemoveInlineStyleTagFilter
-    def remove_inline_styles(html)
-      RemoveInlineStyles.remove_inline_styles(html)
-    end
-  end
-
-  module GetInlineStylesFilter
+  module InlineStyles
     def get_inline_styles(html)
-      if html.include? '<style'
-        doc = Nokogiri::HTML(html)
-
-        inline_styles = Hash.new { [] }
-
-        doc.xpath('style|.//style').each do |style|
-          style_type = style.get_attribute('type')
-          media = style.get_attribute('media')
-
-          if style_type == 'x-text/scss'
-            site = @context.registers[:site]
-            converter = site.find_converter_instance(Jekyll::Converters::Scss)
-            css = converter.convert(<<~SCSS
-              @import "mixins.scss";
-              @import "_settings.scss";
-              @import "variables.scss";
-
-              #{style.text}
-            SCSS
-                                   )
-            inline_styles[media] <<= css
-          else
-            inline_styles[media] <<= style.text
-          end
-        end
-
-        return '' if inline_styles.empty?
-
-        lines = inline_styles.map do |media, css|
-          if media.nil?
-            css
-          else
-            "@media #{media} { #{css.join("\n")} }"
-          end
-        end
-
-        lines.join("\n")
-      else
-        ''
-      end
+      site = @context.registers[:site]
+      InlineStylesFilters.get_inline_styles(html, site)
     end
   end
 end
 
 if defined? Liquid
-  Liquid::Template.register_filter(Jekyll::RemoveInlineStyleTagFilter)
-  Liquid::Template.register_filter(Jekyll::GetInlineStylesFilter)
+  Liquid::Template.register_filter(Jekyll::InlineStyles)
 end
