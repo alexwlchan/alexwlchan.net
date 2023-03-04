@@ -5,7 +5,10 @@ require_relative '../_plugins/filter_inline_style'
 class TestInlineStylesFilters < Test::Unit::TestCase
   def test_it_leaves_html_with_no_style_alone
     html = '<p>Hello world!</p>'
-    assert_equal(InlineStylesFilters.get_inline_styles(html, nil), { html:, 'inline_styles' => '' })
+    assert_equal(
+      InlineStylesFilters.get_inline_styles(html, nil),
+      { 'html' => html, 'inline_styles' => '' }
+    )
   end
 
   def test_it_removes_style_tags
@@ -19,7 +22,7 @@ class TestInlineStylesFilters < Test::Unit::TestCase
 
     assert_equal(
       InlineStylesFilters.get_inline_styles(input, nil),
-      { html: output, 'inline_styles' => 'p { color: red; }' }
+      { 'html' => output, 'inline_styles' => 'p { color: red; }' }
     )
   end
 
@@ -49,7 +52,7 @@ class TestInlineStylesFilters < Test::Unit::TestCase
 
     assert_equal(
       InlineStylesFilters.get_inline_styles(input, nil),
-      { html: output, 'inline_styles' => 'p { color: red; }' }
+      { 'html' => output, 'inline_styles' => 'p { color: red; }' }
     )
   end
 end
