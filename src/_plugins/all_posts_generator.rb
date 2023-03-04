@@ -1,9 +1,3 @@
-# rubocop:disable Lint/MissingSuper
-# rubocop complains about the missing `super` in the `initialize` methods,
-# but if I add it I get a bunch of errors from Jekyll -- I think I'm not
-# passing the same arguments as a regular Jekyll page.
-# TODO: Fix this properly.
-
 module Jekyll
   class AllPostsByYear < Generator
     def generate(site)
