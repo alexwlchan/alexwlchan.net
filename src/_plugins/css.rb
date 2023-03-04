@@ -33,7 +33,7 @@ def get_page_color(page, name, default)
   if page.nil?
     default
   else
-    (page || {})[name] || default
+    (page['colors'] || {})[name] || default
   end
 end
 
