@@ -29,6 +29,14 @@ Jekyll::Hooks.register :site, :pre_render do
   FileUtils.rm_f('.header_colours.txt')
 end
 
+def get_page_color(page, name, default)
+  if page.nil?
+    default
+  else
+    (page || {})[name] || default
+  end
+end
+
 module Jekyll
   class CssStylesheet < Liquid::Tag
     def initialize(tag_name, text, tokens)
@@ -39,17 +47,8 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
 
-      primary_color_light = if context.registers[:page].nil?
-                              '#d01c11'
-                            else
-                              (context.registers[:page]['colors'] || {})['css_light'] || '#d01c11'
-                            end
-
-      primary_color_dark = if context.registers[:page].nil?
-                             '#FF4242'
-                           else
-                             (context.registers[:page]['colors'] || {})['css_dark'] || '#FF4242'
-                           end
+      primary_color_light = get_page_color(context.registers[:page], 'css_light', '#d01c11')
+      primary_color_dark = get_page_color(context.registers[:page], 'css_dark', '#ff4242')
 
       if contrast(primary_color_light, '#ffffff') < 4.5
         throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 4.5"
