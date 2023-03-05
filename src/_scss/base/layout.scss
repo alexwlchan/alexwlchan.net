@@ -117,7 +117,7 @@ img.screenshot {
   }
 
   // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
-  img:not([src*='.svg']) {
+  img:not([src*='.svg']):not(.dark_aware) {
     filter: grayscale(10%);
   }
 
