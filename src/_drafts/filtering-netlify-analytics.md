@@ -15,7 +15,7 @@ colors:
 I host this site on Netlify, and I pay for [Netlify Analytics] to monitor its performance.
 It's essentially server-side logging with a dashboard on top, and it's more than sufficient for the very limited analytics I want to do here.
 
-One of the tables is "resources not found", which tells me which URLs are 404'ing on the site.
+One of the dashboard panels is "resources not found", which tells me which URLs are 404'ing on the site.
 For example, I changed a bunch of URLs at the end of last year, and I tried to redirect all the old URLs -- this table tells me about anything I missed.
 
 {%
@@ -26,7 +26,7 @@ For example, I changed a bunch of URLs at the end of last year, and I tried to r
   class="screenshot"
 %}
 
-Sometimes this table contains useful data -- like the fact that I have two images I didn't redirect, which still get several hundred hits a month ([fixed](/images/2022/guest_headers_card.png), [fixed](/talks/hypothesis-intro/hypothesis-slide029.png)).
+Sometimes this table contains useful data -- like the fact that I have two images I didn't redirect, which still get several hundred hits a month (<a href="/images/2022/guest_headers_card.png" data-proofer-ignore>fixed</a>, <a href="/talks/hypothesis-intro/hypothesis-slide029.png" data-proofer-ignore>fixed</a>).
 But a lot of the hits are from malicious bots, crawling the web for vulnerable PHP or WordPress installations.
 Since I don't run PHP, I'm not worried about them breaking anything; these errors are just noise.
 
