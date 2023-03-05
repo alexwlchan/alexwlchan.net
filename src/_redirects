@@ -149,6 +149,7 @@
 # == Redirects for individual blog posts ==
 
 # Removing the /blog prefix
+/blog/2012/12/hypercritical/                                    /2012/hypercritical/
 /blog/2013/03/pinboard-backups/                                 /2013/pinboard-backups/
 /blog/2013/03/candybar/                                         /2013/candybar/
 
@@ -462,15 +463,15 @@
 /slides/assume_worst_intent/assume_worst_intent.047.png         /images/2018/assume-worst-intent/slide47.png
 /slides/assume_worst_intent/assume_worst_intent.048.png         /images/2018/assume-worst-intent/slide48.png
 
-/slides/suspicious-minds/suspicious-minds.01.jpg                /images/2018/suspicious-minds/slide1.jpg
-/slides/suspicious-minds/suspicious-minds.02.jpg                /images/2018/suspicious-minds/slide2.jpg
-/slides/suspicious-minds/suspicious-minds.03.png                /images/2018/suspicious-minds/slide3.png
-/slides/suspicious-minds/suspicious-minds.04.png                /images/2018/suspicious-minds/slide4.png
-/slides/suspicious-minds/suspicious-minds.05.png                /images/2018/suspicious-minds/slide5.png
-/slides/suspicious-minds/suspicious-minds.06.png                /images/2018/suspicious-minds/slide6.png
-/slides/suspicious-minds/suspicious-minds.07.png                /images/2018/suspicious-minds/slide7.png
-/slides/suspicious-minds/suspicious-minds.08.png                /images/2018/suspicious-minds/slide8.png
-/slides/suspicious-minds/suspicious-minds.09.png                /images/2018/suspicious-minds/slide9.png
+/slides/suspicious-minds/suspicious-minds.001.jpg               /images/2018/suspicious-minds/slide1.jpg
+/slides/suspicious-minds/suspicious-minds.002.jpg               /images/2018/suspicious-minds/slide2.jpg
+/slides/suspicious-minds/suspicious-minds.003.png               /images/2018/suspicious-minds/slide3.png
+/slides/suspicious-minds/suspicious-minds.004.png               /images/2018/suspicious-minds/slide4.png
+/slides/suspicious-minds/suspicious-minds.005.png               /images/2018/suspicious-minds/slide5.png
+/slides/suspicious-minds/suspicious-minds.006.png               /images/2018/suspicious-minds/slide6.png
+/slides/suspicious-minds/suspicious-minds.007.png               /images/2018/suspicious-minds/slide7.png
+/slides/suspicious-minds/suspicious-minds.008.png               /images/2018/suspicious-minds/slide8.png
+/slides/suspicious-minds/suspicious-minds.009.png               /images/2018/suspicious-minds/slide9.png
 /slides/suspicious-minds/suspicious-minds.010.png               /images/2018/suspicious-minds/slide10.png
 /slides/suspicious-minds/suspicious-minds.011.jpg               /images/2018/suspicious-minds/slide11.jpg
 /slides/suspicious-minds/suspicious-minds.012.png               /images/2018/suspicious-minds/slide12.png
