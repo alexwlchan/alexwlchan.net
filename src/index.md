@@ -80,7 +80,7 @@ Here are some of my favourite posts:
   eggbox_posts="snapped-elastic bure-valley moomin-mathematics graph-generative-art archival-storage-service 2022-in-reading"
 %}
 
-If you want to read more, there are plenty more [in the archive](/writing/).
+If you want to read more, I've got [plenty more](/writing/).
 
 
   {% separator "leaf.svg" %}
@@ -134,6 +134,8 @@ Here's what I've written recently:
   {% include post_card.html %}
 {% endfor %}
 </ul>
+
+[Read more recent posts &rarr;](/all-posts/)
 
 
 
