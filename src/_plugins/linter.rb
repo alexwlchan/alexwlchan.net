@@ -313,6 +313,20 @@ class RunLinting < Jekyll::Command
       report_errors(errors)
     end
 
+    def parse_netlify_redirects(path)
+      File.readlines(path).each_with_index
+          .filter { |line, _i| !line.start_with? '#' }
+          .filter { |line, _i| !line.strip.empty? }
+          .map do |line, i|
+            {
+              line:,
+              lineno: i + 1,
+              source: line.strip.split[0],
+              target: line.strip.split[1]
+            }
+          end
+    end
+
     # Check my Netlify redirects point to real pages.
     #
     # This ensures that any redirects I create are working.  It doesn't mean
@@ -323,24 +337,24 @@ class RunLinting < Jekyll::Command
 
       bad_lines = []
 
-      File.readlines("#{dst_dir}/_redirects")
-          .each_with_index do |line, i|
-        lineno = i + 1
-
-        next if (line.start_with? '#') || line.strip.empty?
-
+      parse_netlify_redirects("#{dst_dir}/_redirects").each do |redirect|
         # This is a bit of a special case that I don't worry about.
-        next if line.start_with? '/ideas-for-inclusive-events/'
+        next if redirect[:source] == '/ideas-for-inclusive-events/*'
 
         # ignore URL fragments when linting, the important thing is that
         # pages don't 404
-        target = line.strip.split[1].split('#')[0]
+        target = redirect[:target].split('#')[0]
 
-        if target.end_with? '/'
-          bad_lines << [lineno, line.strip] unless File.exist? "#{dst_dir}#{target}/index.html"
-        elsif !File.exist? "#{dst_dir}#{target}"
-          bad_lines << [lineno, line.strip]
-        end
+        lineno = redirect[:lineno]
+        line = redirect[:line]
+
+        expected_file =
+          if target.end_with? '/'
+            "#{dst_dir}#{target}/index.html"
+          else
+            "#{dst_dir}/#{target}"
+          end
+        bad_lines << [lineno, line.strip] unless File.exist? expected_file
       end
 
       return if bad_lines.empty?
