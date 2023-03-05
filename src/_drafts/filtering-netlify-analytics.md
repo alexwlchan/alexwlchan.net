@@ -28,9 +28,9 @@ For example, I changed a bunch of URLs at the end of last year, and I tried to r
 
 Sometimes this table contains useful data -- like the fact that I have two images I didn't redirect, which still get several hundred hits a month ([fixed](/images/2022/guest_headers_card.png), [fixed](/talks/hypothesis-intro/hypothesis-slide029.png)).
 But a lot of the hits are from malicious bots, crawling the web for vulnerable PHP or WordPress installations.
-Since I don't run PHP, I'm not worried about them breaking anything; I just want to get these requests out of the table.
+Since I don't run PHP, I'm not worried about them breaking anything; these errors are just noise.
 
-I've created a bunch of redirects [in my `_redirects` file][redirects].
+To filter these requests out of the table, I've created a bunch of redirects [in my `_redirects` file][redirects].
 I'm matching on a handful of these patterns using wildcards, and sending them all to [/400/](/400/) with an HTTP 400 status code:
 
 ```
@@ -47,6 +47,8 @@ I'm matching on a handful of these patterns using wildcards, and sending them al
 ```
 
 (That HTTP 400 error page is also tiny – a mere 23 bytes – to avoid wasting any unnecessary bandwidth on these Internet leeches.)
+
+Because these requests are now getting an HTTP 400 instead of HTTP 404, they stop appearing in the "Top resources not found" table.
 
 Using wildcards keeps this list manageable – with a few lines I can discard the majority of requests, rather than playing a game of whack-a-mole with every PHP URL somebody thinks to try.
 
