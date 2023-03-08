@@ -4,7 +4,14 @@ date: 2020-07-13 22:20:06 +0000
 title: What does \d match in a regex?
 tags: regex
 summary: It's more complicated than I thought.
+colors:
+  index_light: "#6d5537"
+  index_dark:  "#feebac"
 ---
+
+{% comment %}
+  Card image: https://wellcomecollection.org/works/s5t86we5/images?id=at4afn8j
+{% endcomment %}
 
 [Earlier tonight](https://twitter.com/alexwlchan/status/1282771306824511488), I was playing with Hypothesis's [from_regex strategy](https://hypothesis.readthedocs.io/en/latest/data.html#hypothesis.strategies.from_regex).
 This strategy generates strings that match a given regex, and I thought it might be a good way to debug especially gnarly regexes -- by seeing examples of matching strings, maybe I could understand a complex regex better.
