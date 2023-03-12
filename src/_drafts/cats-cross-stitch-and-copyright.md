@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cats, cross-stitch, and copyright
-summary: A celebration of my favourite apex predator.
+summary: In celebration of my favourite apex predator.
 tags: cross-stitch
 colors:
   index_light: "#7c590f"
