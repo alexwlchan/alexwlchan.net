@@ -39,6 +39,7 @@ class AddNonBreakingSpaces
       hour
       character
       byte
+      count
     ].join('|')
 
     text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\2')
