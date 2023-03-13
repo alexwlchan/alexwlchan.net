@@ -109,6 +109,8 @@ I've bought other Etsy cross-stitch patterns without realising they were based o
 I've bought a standard image licence on Shutterstock, which includes personal, non-commercial use -- so I feel less bad about what's hanging on my wall -- but I wish I didn't have to play art detective when I'm buying patterns.
 I wish Etsy and Amazon were better at stopping copyright infringement.
 
+These issues aside, I really am thrilled with this latest piece – it was fun to make and it's a nice splash of colour in my living room.
+
 [Shutterstock]: https://www.shutterstock.com/image-illustration/cute-cheetah-watercolor-illustration-african-animal-292143374
 [Dreamstime]: https://www.dreamstime.com/stock-illustration-cheetah-t-shirt-graphics-african-animals-cheetah-illustration-splash-watercolor-textured-background-unusual-illustration-w-image56129690
 
