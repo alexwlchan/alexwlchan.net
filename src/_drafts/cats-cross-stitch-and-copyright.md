@@ -71,7 +71,7 @@ I got to work, and two months later I have this to show for it:
   </figcaption>
 </figure>
 
-I really like the finished piece -- it captures the energy of a running cheetah, and the distinctive black tear lines.
+I really like the finished piece -- it captures the energy of a running cheetah, the colours are gorgeous, and you can see the distinctive black tear lines.
 I stitched it on 18 count aida, using a dozen or so shades of thread.
 The bright yellow frame was made by [Landseer Picture Framing], and it's approximately 14″ square.
 I've hung it next to my bookshelf, and it brightens up the wall nicely.
