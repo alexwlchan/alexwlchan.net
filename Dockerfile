@@ -14,6 +14,7 @@ FROM ruby:3.1-slim
 
 LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
 LABEL description "Build image for alexwlchan.net"
+LABEL org.opencontainers.image.source https://github.com/alexwlchan/alexwlchan.net
 
 COPY ./scripts/install_imagemagick7.sh .
 RUN ./install_imagemagick7.sh
