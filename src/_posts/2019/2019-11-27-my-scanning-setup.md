@@ -3,7 +3,7 @@ layout: post
 date: 2019-11-27 12:43:44 +0000
 title: How I scan and organise my paperwork
 summary: My procedure for scanning paper, and organising the scanned PDFs with keyword tagging.
-tags: personal productivity
+tags: personal productivity digital-preservation
 colors:
   index_light: "#302d2b"
   index_dark:  "#c2904f"
