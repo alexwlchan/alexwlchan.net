@@ -8,8 +8,9 @@ existing_makefile = File.read('Makefile')
 
 new_image_tag = "#{image_name}:#{new_version}"
 
-system("docker build --tag #{new_image_tag} .")
-system("docker push #{new_image_tag}")
+system("docker buildx build --push \
+  --platform linux/amd64,linux/arm64 \
+  --tag #{new_image_tag} .")
 
 new_makefile = existing_makefile.sub(
   "DOCKER_IMAGE_VERSION = #{old_version}",
