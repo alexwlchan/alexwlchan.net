@@ -1,8 +1,13 @@
 ---
 layout: post
 title: Redecorating my bedroom
-summary: Splashing some sunshine in the room where I sleep.
+summary: Splashing some sunshine in the space where I sleep.
 tags: home domestic
+colors:
+  css_light:   "#815701"
+  index_light: "#815701"
+  css_dark:    "#c79d2b"
+  index_dark:  "#c79d2b"
 ---
 
 Back in March, I was visiting my sister and her newly-redecorated home, and it gave me the inspiration to finally redecorate my bedroom – something I've been thinking about for two years.
@@ -18,6 +23,7 @@ I only ever took a handful of photos of this setup:
   filename="IMG_9838.jpg"
   visible_width="750px"
   class="photo"
+  alt="A poorly-framed photograph of a bedroom. There's a double bed partially visible at the bottom of the frame, with a purple mattress cover. In front of the bed is a large wardrobe taking up most of one wall, which has purple and white sections on the front. The purple sections are slightly reflective, and show the bed on the other side of the room. On the bed is a large, upside down plushy shark (a Bhålaj), who looks about as excited as I feel about this room."
 %}
 
 Ever since I moved in, I thought about adding a splash of colour to the walls and making it my own -- probably purple, to match the large wardrobe -- but I was never sure that it would work.
@@ -53,10 +59,20 @@ I took great glee in disassembling something which has been a source of countles
 
 <div id="wardrobe" class="photo">
   <div>
-    {% picture filename="70155648040__99EE2B94-C722-4E3F-922E-0093161E3058.jpg" visible_width="750px" %}
+    {%
+      picture
+      filename="70155648040__99EE2B94-C722-4E3F-922E-0093161E3058.jpg"
+      visible_width="750px"
+      alt="The same bedroom from a previous angle, with a partially disassembled wardrobe against one wall. The doors have been removed and you can see the empty interior, which shows three vertical compartments separated by dividers. The interior is a drab and uninspiring grey, with dark water stains in several parts."
+    %}
   </div>
   <div>
-    {% picture filename="70155977066__50021B9A-2ED9-4BDD-B213-25F89132398E.jpg" visible_width="750px" %}
+    {%
+      picture
+      filename="70155977066__50021B9A-2ED9-4BDD-B213-25F89132398E.jpg"
+      visible_width="750px"
+      alt="A pile of flat-pack wardrobe pieces stacked against a fence."
+    %}
   </div>
 </div>
 
@@ -132,6 +148,7 @@ Dulux have more names for white than Eskimos have words for snow.
       picture
       filename="IMG_3467.jpg"
       visible_width="500px"
+      alt="Looking into the partially painted bedroom through the door -- you can see three walls, with the window on the far side. The bed is in the middle of the room, covered in dust sheets and a variety of painting tools. Two of the walls have some patches of the light yellow on them, some of my initial roller work. Outside the window is darkness -- I was painting at night."
     %}
   </div>
   <div>
@@ -139,6 +156,7 @@ Dulux have more names for white than Eskimos have words for snow.
       picture
       filename="IMG_3465.jpg"
       visible_width="250px"
+      alt="Another view into the room, this time looking towards the door. The grey feature wall is visible behind the bed, because I haven't started painting it yet. There's a little bit of masking around the door frame and some plastic sheets covering a large mirror on the wall."
     %}
   </div>
   <div>
@@ -146,6 +164,7 @@ Dulux have more names for white than Eskimos have words for snow.
       picture
       filename="IMG_3485.jpg"
       visible_width="250px"
+      alt="Another angle of the feature wall, which has some masking tape around it and some initial roller work for the darker yellow. The yellow doesn't fully cover the wall yet; underneath it you can see the white primer I applied to lighten the grey."
     %}
   </div>
 </div>
@@ -165,6 +184,7 @@ This is a rough sketch of the new layout, which has way less "dead" space:
   picture
   filename="bedroom_layout.png"
   visible_width="489px"
+  alt="Two floorplans, the old on the left and the new on the right. In the old floorplan, the bed is sitting along the middle of one wall, with gaps down either side. There's also the old wardrobe pushed up against the opposite wall, leaving narrow gaps at either end. In the new floorplan, the bed is pushed into one corner, with a set of drawers and a clothes rail pushed against two other walls. There's also the bin and laundry stuck in the corner behind the door, in a space which was previously empty."
 %}
 
 The key idea of this new layout is to combine all the free space into a single area into the centre of the room, rather than break it up with furniture in the middle.
@@ -182,11 +202,13 @@ This is how my bed looks now (and yes, those are [cheetahs on the bedding]({% po
   filename="P5080114.jpg"
   visible_width="950px"
   class="photo wide_img"
+  alt="Looking towards one end of the bedroom. On the left hand side is a double bed pushed into one corner, with a white duvet cover with small cheetahs on it, plus a large stack of pillows. On the right hand side is a tall, white set of drawers, with a variety of small objects on top (mostly toys and books). The walls are painted a light yellow colour."
 %}
 
 The chest of drawers gives me much more shelf space, and a lot of my clothes are now neatly packed inside.
 I also rearranged some of my under-bed storage, which I was only half-using.
 I've now repacked it so there's a lot more stuff under there, mostly stuff I need to keep but don't need to get to frequently -- like my guest bedding and some old paperwork.
+In the new layout, I have easy access to one side and difficult access to the other, whereas before I had mediocre access to both sides.
 
 At the other end of the room, the bright yellow adds a big burst of colour:
 
@@ -195,18 +217,19 @@ At the other end of the room, the bright yellow adds a big burst of colour:
   filename="P5080094.jpg"
   visible_width="950px"
   class="photo wide_img"
+  alt="Looking towards the other end of the room, with the end of the bed just visible in the bottom right-hand corner. The wall is a bright, egg-yolk yellow. On the left-hand side is a mirror that's almost the full height of the wall. To the right of the mirror is a clothes rail with various clothes hanging from it, and a few pairs of shoes on the floor below. To the right of the clothes rail is the open bedroom door, hiding the corner behind it."
 %}
 
 The mirror is massive, and makes the room feel bigger.
 It's also delightful for twirling in front of and admiring my sparkly outfits.
-I'm a big fan of large mirrors, and it's well worth the difficulty of getting it fixed to the wall.
+I always enjoy full-length when I stay in hotels, and I love having one in my bedroom – it's well worth the difficulty it took to fix it to the wall.
 
 The clothes rail is new, and adds a splash of extra colour.
-My wardrobe has a lot of blue and green, which go nicely with the yellow walls.
+My clothes have a lot of bright colours, and I like having them on display, where I can enjoy them even when I'm not wearing them.
 Next to it, the door is hiding my messy laundry basket and waste bin.
-I can still get to them in a pinch, but they're invisible most of the time.
+I can still get to them in a jiffy, but they're invisible most of the time.
 
 You'll also notice my [cheetah cross-stitch]({% post_url 2023/2023-03-13-cats-cross-stitch-and-copyright %}) on the wall – the yellow frame is a perfect match for my feature wall, which was a happy coincidence.
 The picture was being framed while I was doing the painting, and I'd forgotten I had it on order.
 
-I want to put some more pictures on the walls, including some photos, but until then it's been a nice improvement to the room where I spend all my not-waking hours.
+I'll keep tweaking, including some photos on the wall, but in the meantime this has been a nice improvement to the room where I spend every not-waking hour.
