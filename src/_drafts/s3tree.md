@@ -12,7 +12,7 @@ colors:
 ---
 
 {% comment %}
-  Cover photo from https://www.pexels.com/photo/green-leafed-tree-2334/
+  Cover photo from https://www.pexels.com/photo/tall-green-trees-2154617/
 {% endcomment %}
 
 I've been doing a bunch of work to clear up some old S3 buckets, and I wanted a quick way to see what's in a given prefix or bucket.
