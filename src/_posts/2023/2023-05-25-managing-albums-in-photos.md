@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-05-25 21:02:22 +0000
 title: Snippets to manage albums in Photos.app
 summary: AppleScript only allows us to add photos to an album; dipping into Swift and PhotoKit lets us both add and remove photos.
 tags: photography applescript swift macos
