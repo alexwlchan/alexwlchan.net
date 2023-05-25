@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scripts to manage albums in Photos.app
+title: Snippets to manage albums in Photos.app
 summary: 
 tags: photography applescript swift macos
 colors:
@@ -18,7 +18,7 @@ The [tool I've built](https://github.com/alexwlchan/photo-reviewer) is very spec
 Inside Photos.app, everything has a unique identifier that identifies the thing -- photos, videos, albums, and more.
 They aren't exposed in the user-facing portion of the app, but they're useful when writing scripts that manipulate photos.
 
-These local identifiers sometimes appear in script output; for example in these two AppleScript snippets where I'm looking up a photo (or a "media item") and an album:
+These local identifiers sometimes appear in script output; for example in these AppleScript snippets where I'm looking up a photo (or a "media item"), an album, and the currently selected item:
 
 ```applescript
 tell application "Photos" to get (first media item whose filename is "IMG_3912.HEIC")
@@ -40,7 +40,7 @@ In the snippets below, I'm going to assume you already know the local identifier
 
 ---
 
-## Add photos to an albu with AppleScript
+## Add photos to an album with AppleScript
 
 I started by looking at the AppleScript dictionary for Photos, which includes an `add` verb.
 You pass it a list of media items and an album, like so:
@@ -69,6 +69,8 @@ end tell
 
 (Writing this example is also how I learnt that Applescript uses `¬` as the ["continuation character"][continuation], when you want to split a complex expression over multiple lines -- similar to backslashes in many other programming languages.)
 
+So far, so simple.
+
 [continuation]: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_lexical_conventions.html#//apple_ref/doc/uid/TP40000983-CH214-SW9
 
 ---
@@ -93,11 +95,11 @@ Instead, I decided to look beyond AppleScript.
 
 ## To PhotoKit, via Swift
 
-AppleScript can't do it, but I know it's possible to programatically remove photos from an album -- I've used several third-party apps that can do it.
+AppleScript can't do it, but I know it must be possible to programatically remove photos from an album -- I've used several third-party apps that can do it.
 
 I did some searching, and I stumbled upon [PhotoKit], which is Apple's framework for working with the Photos app.
 It has a much more full-featured API, and can do plenty of things AppleScript can't.
-I quickly realised that it was what I should be using.
+I quickly realised that this was what I should be using.
 
 Although most people use PhotoKit in a full-sized app, you can also use it in Swift scripts, which is more appropriate for my project.
 I'm not trying to write an entire app, I'm trying to write some small automations.
@@ -121,7 +123,7 @@ $ swift count_photos.swift
 There are 25760 items in your Photos library
 ```
 
-Now let's make it dance!
+Now let's put it to work!
 
 [PhotoKit]: https://developer.apple.com/documentation/photokit
 
@@ -129,7 +131,7 @@ Now let's make it dance!
 
 ## Add photos to an album with Swift
 
-This is a bit more complicated than AppleScript:
+This is more complicated than the AppleScript:
 
 ```swift
 #!/usr/bin/env swift
@@ -164,8 +166,9 @@ try PHPhotoLibrary.shared().performChangesAndWait {
 First we retrieve the photo with [PHAsset.fetchAssets][fetchAssets] -- a PHAsset is any item in your Photos library, including photos and videos.
 I'm only getting a single photo here, but you could get multiple photos by adding to the list of local identifiers.
 This returns a PHFetchResult, which is a collection of the assets that were found.
+We could extract the individual photo, but this collection is the right format for the addAssets method we're going to use further down.
 
-Then we look up the album with [PHAssetCollection.fetchAssetCollections][fetchAssetCollections]; an asset collection is the PhotoKit term for an album.
+Next we look up the album with [PHAssetCollection.fetchAssetCollections][fetchAssetCollections]; an asset collection is the PhotoKit term for an album.
 This also returns a PHFetchResult, which is a collection of albums, and I'm just grabbing the first item.
 
 If the album doesn't exist, then PHFetchResult.firstObject will be `nil`.
