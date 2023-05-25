@@ -89,4 +89,4 @@ I've been unable to verify that.
 [tweet]: https://twitter.com/caseyliss/status/505456285173968896
 [book]:  http://www.phpied.com/short-amazon-affiliate-links-a-bookmarklet/
 [aaron]: http://www.newselfpublishing.com/AmazonLinking.html
-[drang]: http://www.leancrew.com/all-this/2009/07/safari-tab-urls-via-textexpander/
+[drang]: https://leancrew.com/all-this/2009/07/safari-tab-urls-via-textexpander/

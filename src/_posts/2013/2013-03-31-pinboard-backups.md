@@ -18,7 +18,7 @@ Several scripts have already been written to do this (such as [Marcelo Somers](h
 
 Also, the scripts I've seen before all use username and password authentication to access the API. But about eight months ago, Pinboard introduced [API authentication tokens](http://blog.pinboard.in/2012/07/api_authentication_tokens/) that mean you don't have to do this. This seems like a better method, so I wanted to use that in my backups.
 
-Finally, I drew inspiration from Dr. Drang's series of posts on [archiving tweets](http://www.leancrew.com/all-this/2012/07/archiving-tweets-without-ifttt/). I use a fork of his [Twitter archiving scripts](http://github.com/drdrang/archive-tweets) to back up my tweets, and my Pinboard script was modelled on the same.
+Finally, I drew inspiration from Dr. Drang's series of posts on [archiving tweets](https://leancrew.com/all-this/2012/07/archiving-tweets-without-ifttt/). I use a fork of his [Twitter archiving scripts](http://github.com/drdrang/archive-tweets) to back up my tweets, and my Pinboard script was modelled on the same.
 
 So without further ado, here's the script:
 

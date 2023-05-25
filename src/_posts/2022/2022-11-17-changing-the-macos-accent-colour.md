@@ -84,4 +84,4 @@ I've only tested it on my iMac running Monterey, and it sounds like maybe this s
 [garth_pr]: https://github.com/kentcdodds/dotfiles/pull/3
 [chromium]: https://chromium.googlesource.com/chromium/src.git/+/62.0.3202.58/content/renderer/theme_helper_mac.mm#31
 
-[the_script]: https://github.com/alexwlchan/pathscripts/blob/main/set_accent_colour
+[the_script]: https://github.com/alexwlchan/pathscripts/blob/main/macos/set_accent_colour

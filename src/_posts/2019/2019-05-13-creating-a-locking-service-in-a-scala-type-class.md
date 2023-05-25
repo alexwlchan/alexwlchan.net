@@ -584,34 +584,34 @@ It's a really generic and reusable implementation.
 
 ## Putting it all together
 
-All the code this post was based on is in a public GitHub repository, [wellcometrust/scala-storage], which is a collection of our shared storage utilities (mainly for working with DynamoDB and S3).
+All the code this post was based on is in a public GitHub repository, [wellcomecollection/scala-storage], which is a collection of our shared storage utilities (mainly for working with DynamoDB and S3).
 These are the versions I worked from:
 
 -   Managing individual locks
 
-    *   [LockDao.scala @ 4000d97](https://github.com/wellcometrust/scala-storage/blob/4000d97bbacbed479e1b4302d1bae6d5cd0e5c33/storage/src/main/scala/uk/ac/wellcome/storage/LockDao.scala)
+    *   [LockDao.scala @ 4000d97](https://github.com/wellcomecollection/scala-storage/blob/4000d97bbacbed479e1b4302d1bae6d5cd0e5c33/storage/src/main/scala/uk/ac/wellcome/storage/LockDao.scala)
 
 -   Creating an in-memory LockDao for testing
 
-    *   [InMemoryLockDao.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/InMemoryLockDao.scala)
-    *   [InMemoryLockDaoTest.scala @ 263e29b](https://github.com/wellcometrust/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/locking/InMemoryLockDaoTest.scala)
+    *   [InMemoryLockDao.scala @ 263e29b](https://github.com/wellcomecollection/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/InMemoryLockDao.scala)
+    *   [InMemoryLockDaoTest.scala @ 263e29b](https://github.com/wellcomecollection/scala-storage/blob/263e29bc5c72e44faedac713043a26110fd4b84a/storage/src/test/scala/uk/ac/wellcome/storage/locking/InMemoryLockDaoTest.scala)
 
 -   Creating a concrete implementation of LockDao
 
-    *   [DynamoLockDao.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDao.scala)
-    *   [DynamoLockDaoConfig.scala @ 840efba](https://github.com/wellcometrust/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoConfig.scala)
-    *   [DynamoLockDaoTest.scala @ aaba0fe](https://github.com/wellcometrust/scala-storage/blob/aaba0feea0f7ff01daa198461afd26c0160c4164/storage/src/test/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoTest.scala)
-    *   [ExpiringLock.scala @ 17e4525](https://github.com/wellcometrust/scala-storage/blob/17e4525173a9f121de911affca1c95efefad3424/storage/src/main/scala/uk/ac/wellcome/storage/locking/ExpiringLock.scala)
+    *   [DynamoLockDao.scala @ 840efba](https://github.com/wellcomecollection/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDao.scala)
+    *   [DynamoLockDaoConfig.scala @ 840efba](https://github.com/wellcomecollection/scala-storage/blob/840efba2da55a42e4dab8d239c6b8c0184bc1bb3/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoConfig.scala)
+    *   [DynamoLockDaoTest.scala @ aaba0fe](https://github.com/wellcomecollection/scala-storage/blob/aaba0feea0f7ff01daa198461afd26c0160c4164/storage/src/test/scala/uk/ac/wellcome/storage/locking/DynamoLockDaoTest.scala)
+    *   [ExpiringLock.scala @ 17e4525](https://github.com/wellcomecollection/scala-storage/blob/17e4525173a9f121de911affca1c95efefad3424/storage/src/main/scala/uk/ac/wellcome/storage/locking/ExpiringLock.scala)
 
 -   Creating the locking service
 
-    *   [LockingService.scala @ 9f4433a](https://github.com/wellcometrust/scala-storage/blob/9f4433adc3173908127798746050fe3ba219db4a/storage/src/main/scala/uk/ac/wellcome/storage/LockingService.scala)
+    *   [LockingService.scala @ 9f4433a](https://github.com/wellcomecollection/scala-storage/blob/9f4433adc3173908127798746050fe3ba219db4a/storage/src/main/scala/uk/ac/wellcome/storage/LockingService.scala)
 
 -   Putting the locking service to use
 
-    *   [DynamoLockingService.scala @ 34d89d8](https://github.com/wellcometrust/scala-storage/blob/34d89d8400f5e7ec853e581b07b255455efbc051/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockingService.scala)
-    *   [LockingServiceFixtures.scala @ 06f19e4](https://github.com/wellcometrust/scala-storage/blob/06f19e4de93701cf1c8e4c99ee794e7ca4d9cc5d/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/LockingServiceFixtures.scala)
-    *   [LockingServiceTest.scala @ 3122ffb](https://github.com/wellcometrust/scala-storage/blob/3122ffbcbe8678f3f515e9e7488429f8fe20e194/storage/src/test/scala/uk/ac/wellcome/storage/locking/LockingServiceTest.scala)
+    *   [DynamoLockingService.scala @ 34d89d8](https://github.com/wellcomecollection/scala-storage/blob/34d89d8400f5e7ec853e581b07b255455efbc051/storage/src/main/scala/uk/ac/wellcome/storage/locking/DynamoLockingService.scala)
+    *   [LockingServiceFixtures.scala @ 06f19e4](https://github.com/wellcomecollection/scala-storage/blob/06f19e4de93701cf1c8e4c99ee794e7ca4d9cc5d/storage/src/test/scala/uk/ac/wellcome/storage/fixtures/LockingServiceFixtures.scala)
+    *   [LockingServiceTest.scala @ 3122ffb](https://github.com/wellcomecollection/scala-storage/blob/3122ffbcbe8678f3f515e9e7488429f8fe20e194/storage/src/test/scala/uk/ac/wellcome/storage/locking/LockingServiceTest.scala)
 
 I've also put together [a mini-project you can download](/files/2019/locking_service.zip) with the code from this blog post alone.
 It has both the type classes, the in-memory LockDao implementation, and a small example that exercises both classes.
@@ -627,4 +627,4 @@ I'll push those fixes back to the codebase -- so not only is this blog post an e
 
 I can't do this sort of breakdown for all the code I write, but I recommend it if you're every writing especially complex or tricky code.
 
-[wellcometrust/scala-storage]: https://github.com/wellcometrust/scala-storage/
+[wellcomecollection/scala-storage]: https://github.com/wellcomecollection/scala-storage/

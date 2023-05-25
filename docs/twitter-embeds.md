@@ -21,4 +21,4 @@ This means that I can fetch the tweet data on a local machine, but when I push t
 Because I render the tweets at compile time, I can change the appearance of old tweets by updating the template, without having to edit old posts.
 That's part of why I keep the entire API response – in case I later need data I'd thrown away the first time.
 
-[drangtweet]: http://www.leancrew.com/all-this/2012/07/good-embedded-tweets/
+[drangtweet]: https://leancrew.com/all-this/2012/07/good-embedded-tweets/

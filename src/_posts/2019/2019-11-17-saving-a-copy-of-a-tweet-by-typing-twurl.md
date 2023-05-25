@@ -14,7 +14,7 @@ I have a couple of variations on this snippet, and I recently added another one 
 {% tweet https://twitter.com/alexwlchan/status/1188721070234394626 %}
 
 [km]: https://www.keyboardmaestro.com/main/
-[drang]: http://www.leancrew.com/all-this/2010/10/textexpander-snippets-for-google-chrome/
+[drang]: https://leancrew.com/all-this/2010/10/textexpander-snippets-for-google-chrome/
 
 I often refer to tweets in notes -- for example, if I've seen something interesting that I want to look up later.
 Tweet URLs only contain a username and a tweet ID, without any context, so they're hard to search for, and if the tweet is deleted, the URL becomes useless.

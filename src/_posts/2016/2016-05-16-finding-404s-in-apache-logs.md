@@ -120,7 +120,7 @@ I don't know how often I'll actually run this script.
 I've fixed the most common errors; it'll be a while before I have enough logs to make it worth doing another round of fixes.
 But it's useful to have in my back pocket for a rainy day.
 
-[drang]: http://www.leancrew.com/all-this/2013/07/parsing-my-apache-logs/
+[drang]: https://leancrew.com/all-this/2013/07/parsing-my-apache-logs/
 [github]: https://github.com/alexwlchan/apache-utils
 [404help]: {% post_url 2014/2014-09-14-404-pages %}
 [ctr]: https://docs.python.org/3.5/library/collections.html?highlight=collections.counter

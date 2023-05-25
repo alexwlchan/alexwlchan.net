@@ -99,7 +99,7 @@ This script won't work every time.
 Complicated expressions will probably still need a trip to Wolfram Alpha to check that it's been interpreted correctly, or if you need a different part of the output.
 But for simple stuff, this should be fine.
 
-[drang]: http://www.leancrew.com/all-this/2014/07/evaluating-latex-with-eddie-and-alpha/
+[drang]: https://leancrew.com/all-this/2014/07/evaluating-latex-with-eddie-and-alpha/
 [eddie]: http://www.practicallyefficient.com/home/2014/7/10/latex-alfred-wolfram
 [api]: http://products.wolframalpha.com/api/
 [wid]: https://developer.wolframalpha.com/portal/apisignup.html

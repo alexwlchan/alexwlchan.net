@@ -10,7 +10,7 @@ It's worth reading in its entirety, even if you don't use a Mac.
 My favourite tips were opt-clicking to jump around in Terminal (which makes Vim far more usable for me), and using the `lsof` command when a disk won't eject.
 Both super useful.
 
-At the same time, I read [Dr. Drang's suggestion](http://www.leancrew.com/all-this/2014/09/chock-amok/) that we write up our own tips.
+At the same time, I read [Dr. Drang's suggestion](https://leancrew.com/all-this/2014/09/chock-amok/) that we write up our own tips.
 I wrote this post at the time, and then it sat in drafts for over a year.
 Oops.
 Anyway, here are a few tips from me.

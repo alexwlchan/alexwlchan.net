@@ -74,5 +74,5 @@ I have this script bound to the same ⇧⌘M shortcut as Patrick's original macr
 [nv]:     http://brettterpstra.com/projects/nvalt/
 [marked]: http://marked2app.com/
 [ink]:    http://rocketink.net/2013/01/my-nvalt-setup.html
-[drang]:  http://www.leancrew.com/all-this/2013/03/combining-python-and-applescript/
+[drang]:  https://leancrew.com/all-this/2013/03/combining-python-and-applescript/
 [repl]:   http://foolsworkshop.com/applescript/2008/05/an-applescript-replace-text-method/
