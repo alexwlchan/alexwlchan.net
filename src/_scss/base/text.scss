@@ -7,8 +7,11 @@ body, .post_cards .card a .card_description {
   color: $body-color-light;
 }
 
-h1, h2, h3 {
+h1, h2, h3, p.card_title {
   font-weight: normal;
+
+  /* See https://developer.chrome.com/blog/css-text-wrap-balance/ */
+  text-wrap: balance;
 }
 
 h1 {
