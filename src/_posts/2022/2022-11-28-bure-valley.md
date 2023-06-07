@@ -17,63 +17,30 @@ I checked the website for a timetable, bought myself a ticket, and set out for a
 
 I had a lovely time, and this post has a few of my photos.
 
-<style>
+<style type="x-text/scss">
   /* See https://alexwlchan.net/2022/04/supposedly-simple-image-layout/ */
-  .grid_3up {
-    display: grid;
-    grid-template-columns: calc(66% - 5px) calc(34% - 5px);
-    grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
-    grid-gap: 10px;
-    aspect-ratio: 16 / 9;
-  }
-
   .grid_4up {
     display: grid;
     grid-template-columns: calc(33% - 5px) calc(33% - 5px) calc(33% - 5px);
     grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
-    grid-gap: 10px;
-    aspect-ratio: 1;
+    grid-gap: $grid-gap;
   }
 
-  .grid_3up .left{
-    grid-column: 1 / 2;
-  }
-
-  .grid_3up .right {
-    grid-column: 2 / 2;
-  }
-
-  .grid_3up .double_height {
-    grid-row: 1 / span 2;
-  }
-
-  .grid_3up .upper, .grid_4up .upper {
+  .grid_4up .upper {
     grid-row: 1 / 2;
   }
 
-  .grid_3up .lower, .grid_4up .lower {
+  .grid_4up .lower {
     grid-row: 2 / 2;
   }
 
-  .grid_3up a img, .grid_4up a img {
+  .grid_4up a img {
     width:  100%;
     height: 100%;
     object-fit: cover;
   }
 
   @media screen and (min-width: 750px) {
-    .grid_3up .left img {
-      border-radius: 10px 0 0 10px;
-    }
-
-    .grid_3up .right.upper img {
-      border-radius: 0 10px 0 0;
-    }
-
-    .grid_3up .right.lower img {
-      border-radius: 0 0 10px 0;
-    }
-
     .grid_4up .left.upper img {
       border-radius: 10px 0 0 0;
     }
@@ -95,20 +62,37 @@ I had a lovely time, and this post has a few of my photos.
     }
   }
 
+  @media screen and (min-width: 500px) {
+    .grid_4up {
+      aspect-ratio: 1;
+    }
+  }
+
   @media screen and (max-width: 500px) {
-    .grid_3up, .grid_4up {
+    .grid_4up {
       display: block;
     }
 
-    .grid_3up .upper, .grid_3up .double_height,
     .grid_4up .upper, .grid_4up .left {
       margin-bottom: 10px;
+    }
+  }
+
+  .grid_3up {
+    @include three_part_grid()
+  }
+
+  @media screen and (min-width: 750px) {
+    .grid_3up {
+      div:nth-child(1) img { border-radius: 10px 0 0 10px; }
+      div:nth-child(2) img { border-radius: 0 10px 0 0;    }
+      div:nth-child(3) img { border-radius: 0 0 10px 0;    }
     }
   }
 </style>
 
 <figure class="wide_img grid_3up">
-  <div class="left double_height">
+  <div>
     {%
       picture
       filename="IMG_5744.jpg"
@@ -118,7 +102,7 @@ I had a lovely time, and this post has a few of my photos.
       link_to_original
     %}
   </div>
-  <div class="right upper">
+  <div>
     {%
       picture
       filename="IMG_5751.jpg"
@@ -128,7 +112,7 @@ I had a lovely time, and this post has a few of my photos.
       link_to_original
     %}
   </div>
-  <div class="right lower">
+  <div>
     {%
       picture
       filename="IMG_6183.jpg"
@@ -151,7 +135,7 @@ Aylsham station has both passenger platforms and an engine shed.
 The carriages themselves are pretty short, to match the engines, and they have a minimal step and several wheelchair spaces.
 
 <figure class="wide_img grid_3up" style="grid-template-columns: calc(50% - 5px) calc(50% - 5px);">
-  <div class="left double_height">
+  <div>
     {%
       picture
       filename="IMG_5747.jpg"
@@ -161,7 +145,7 @@ The carriages themselves are pretty short, to match the engines, and they have a
       link_to_original
     %}
   </div>
-  <div class="right upper">
+  <div>
     {%
       picture
       filename="IMG_5734.jpg"
@@ -171,7 +155,7 @@ The carriages themselves are pretty short, to match the engines, and they have a
       link_to_original
     %}
   </div>
-  <div class="right lower">
+  <div>
     {%
       picture
       filename="IMG_5794.jpg"
@@ -225,7 +209,7 @@ They had to turn them by hand (which looked like quite a workout!), so the engin
 In these pictures you can see the drivers standing next to the trains, and hopefully this gives you a sense of scale -- they're still large engines, but small compared to mainline trains:
 
 <figure class="wide_img grid_3up">
-  <div class="left double_height">
+  <div>
     {%
       picture
       filename="IMG_5844.jpg"
@@ -235,7 +219,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
       link_to_original
     %}
   </div>
-  <div class="right upper">
+  <div>
     {%
       picture
       filename="IMG_5852.jpg"
@@ -245,7 +229,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
       link_to_original
     %}
   </div>
-  <div class="right lower">
+  <div>
     {%
       picture
       filename="IMG_5921.jpg"
@@ -297,7 +281,7 @@ There was a lot of steam coming from two tubes near the front of the engine, not
 I remember thinking that was odd on the day -- I did see steam coming out of the funnels, so they're not just decorative -- but I don't know enough about how steam engines work to know why steam comes out of two places.
 
 <figure class="wide_img grid_3up">
-  <div class="left double_height">
+  <div>
     {%
       picture
       filename="IMG_6027.jpg"
@@ -307,7 +291,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
       link_to_original
     %}
   </div>
-  <div class="right upper">
+  <div>
     {%
       picture
       filename="IMG_5895.jpg"
@@ -317,7 +301,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
       link_to_original
     %}
   </div>
-  <div class="right lower">
+  <div>
     {%
       picture
       filename="IMG_5997.jpg"
