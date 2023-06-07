@@ -96,7 +96,6 @@ Dulux have more names for white than Eskimos have words for snow.
     grid-template-columns: calc(66% - 5px) calc(34% - 5px);
     grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
     grid-gap: $grid-gap;
-    aspect-ratio: 16 / 9;
 
     div:nth-child(1) {
       grid-column: 1 / 2;
@@ -120,24 +119,22 @@ Dulux have more names for white than Eskimos have words for snow.
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 500px) {
     #painting {
-      grid-template-columns: auto;
-      grid-template-rows: auto auto auto;
+      aspect-ratio: 16 / 9;
+    }
+  }
 
-      div:nth-child(1) {
-        grid-column: 1 / 1;
-        grid-row:    1 / 3;
-      }
+  @media screen and (max-width: 500px) {
+    /* Disabling `display: grid;` fixes a weird bug where the first/second
+     * photos end up overlapping entirely.
+     */
+    #painting {
+      display: block;
 
       div:nth-child(2) {
-        grid-column: 1 / 1;
-        grid-row:    2 / 3;
-      }
-
-      div:nth-child(3) {
-        grid-column: 1 / 1;
-        grid-row:    3 / 3;
+        margin-top:    $grid-gap;
+        margin-bottom: $grid-gap;
       }
     }
   }
