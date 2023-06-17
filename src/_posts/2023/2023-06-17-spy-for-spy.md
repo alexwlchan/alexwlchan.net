@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-06-17 06:35:17 +0000
 title: "*Spy for Spy*, at Riverside Studios"
 summary: A two-handed romance with a clever narrative twist makes for a compelling and thoughtful new play.
 tags: theatre london
