@@ -20,6 +20,19 @@ Aside from the prologue and epilogue, the show is split into six scenes from the
 These scenes aren't shown in chronological order; instead they were shown in a random order chosen by the audience before curtain up.
 Tonight it opened with a date in a yurt, an argument before dinner, and we didn't see their first meeting until the second half of the play.
 
+<figure style="width: 500px;">
+  {%
+    picture
+    filename="spy-for-spy-order.jpg"
+    visible_width="500px"
+    alt="A blue poster board titled “Spy for Spy” with a message: “The order of today’s performance as determined by the audience is:” followed by six pink cards, each with a title and a song name. Next to the poster are several shiny red heart balloons."
+  %}
+  <figcaption>
+    I missed the selection of the order, but I gather people were invited to pick six songs out of a hat, and each song corresponds to one of the scenes from the play.
+    Savannah, Sacramento, living rom, Napa, Carmel, and bedroom.
+  </figcaption>
+</figure>
+
 I like the idea, and it worked for me. It put me in mind of Nick Payne’s *Constellations*; both plays that experiment with non-linear narratives to present new takes on love.
 
 I’ve seen several plays that benefit from multiple viewings – once to experience it fresh, once to see how it builds to the ending.
