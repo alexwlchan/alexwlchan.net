@@ -43,9 +43,11 @@ For example, there are several moments in the meet-cute that wouldn’t have sto
 It’s rare to see a two-hander with two women, and a sapphic romance rarer still.
 The actors grasp the opportunity with both hands, and they did a great job -- I got a distinct sense of the two characters and their different personalities.
 Olive Gray plays the free-thinking actor; Amy Lennox plays the anxious, uptight lawyer.
-
+They're not an obvious match, but I was absolutely sold.
 Their chemistry felt genuine, and I was hooked throughout.
+
 One thing they did particularly well was switching demeanours – one scene they’re bickering partners, another they're complete strangers.
+Subtle behaviours like the way they sit, stand, or look at each other, all add up.
 The play only works if we feel the non-chronological narrative, and the acting helps sell it.
 
 There are other ways the show marks the different scenes. Small changes of costume, lighting, props. Several times, I had a sense of the new scene before the actors even said a word.
