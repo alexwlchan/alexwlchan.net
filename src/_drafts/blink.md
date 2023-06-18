@@ -83,8 +83,8 @@ This won't be my last Mac app.
 
 ---
 
-The app still has a bunch of rough edges, and it's not ready for anyone else to use -- among other things, it'll probably crash if you don't use it with my Photos library.
-I'm enjoying finding those rough edges, and learning all the things you need to do to make a good Mac app.
+The app is already good enough for me to review my photos on a day-to-day basis, even if it has some rough edges.
+It's not ready for anyone else to use -- among other things, it'll probably crash if you don't use it with my Photos library -- but I'm going to keep improving it, as a fun learning exercise as much as anything else.
 
 I might release proper binaries at some point, but in the meantime, everything is open-source and in [a public GitHub repository][github].
 That includes the code, more documentation, and an explanation of why I chose the name and icon that I did.
