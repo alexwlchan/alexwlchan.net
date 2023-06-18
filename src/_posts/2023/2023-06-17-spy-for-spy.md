@@ -52,6 +52,18 @@ The play only works if we feel the non-chronological narrative, and the acting h
 
 There are other ways the show marks the different scenes. Small changes of costume, lighting, props. Several times, I had a sense of the new scene before the actors even said a word.
 
+<figure style="width: 500px;">
+  {%
+    picture
+    filename="IMG_4172.jpg"
+    visible_width="500px"
+    alt="An empty theatre set. There are plain walls in pink and purple, with a small side table on stage right and a comfy chair on stage left. Otherwise, the set is empty."
+  %}
+  <figcaption>
+    The set is simple and subtle, but helps to convey the different scenes – small rearrangements of furniture, the addition of props, or changes in lighting, all work together to create different vibes.
+  </figcaption>
+</figure>
+
 If I have a criticism, it’s that some of the transitions felt slow and unpolished.
 The scenes themselves are carefully directed and coordinated, but it dropped in the moments in-between.
 The lighting and sound gave the transitions a distinct look and feel, and it’s a shame that wasn’t matched by the on-stage movements.
