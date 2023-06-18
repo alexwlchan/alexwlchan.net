@@ -58,6 +58,7 @@ class AddNonBreakingSpaces
       'iPhone X',
       'JPEG 2000',
       'Mac OS 9',
+      'Objective-C',
       'P-215',
       'PyCon ',
       'Route 53'
