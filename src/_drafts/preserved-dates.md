@@ -4,7 +4,7 @@ title: Preserving Dates during JSON serialisation with vanilla JS
 summary: How to make sure you get a `Date` back when you call `JSON.parse` and `JSON.stringify`.
 tags: javascript datetime-shenanigans
 colors:
-  css_light: "#4b201e"
+  css_light: "#662c29"
   css_dark:  "#bda9a1"
 ---
 
@@ -16,18 +16,18 @@ It calls a function that expects to use some `Date` values -- once before the JS
 
 ```typescript
 type ScheduledEvent = {
-    start: Date;
-    end: Date;
+  start: Date;
+  end: Date;
 }
 
 function getDuration(ev: ScheduledEvent) {
-    const milliseconds = ev.end.getTime() - ev.start.getTime();
-    console.log(`The event is ${milliseconds / 1000} seconds long`);
+  const milliseconds = ev.end.getTime() - ev.start.getTime();
+  console.log(`The event is ${milliseconds / 1000} seconds long`);
 }
 
 const ev: ScheduledEvent = {
-    start: new Date('2001-01-01T12:00:00Z'),
-    end:   new Date('2001-01-01T14:00:00Z'),
+  start: new Date('2001-01-01T12:00:00Z'),
+  end:   new Date('2001-01-01T14:00:00Z'),
 }
 
 getDuration(ev);
@@ -49,7 +49,7 @@ This program passes type checking, but if you actually run it, you get an error:
 Before the JSON round-trip, the `ev.start` and `ev.end` variables are both `Date` values.
 Afterward, they're both strings.
 
-This snipppet illustrates the issue; in our real code the issue is more obfuscated -- we're sending our objects via Next.js props, which does include a JSON round-trip, but we don't see it directly.
+In our real code the issue is more obfuscated -- we're sending our objects via Next.js props, which does include a JSON round-trip, but we don't see it directly.
 
 ---
 
@@ -65,10 +65,10 @@ Something like:
 
 ```typescript
 function fixDatesInScheduledEvent(ev: ScheduledEvent): ScheduledEvent {
-    return {
-        start: new Date(ev.start),
-        end:   new Date(ev.end),
-    };
+  return {
+    start: new Date(ev.start),
+    end:   new Date(ev.end),
+  };
 }
 
 const jsonifiedEvent: string = JSON.stringify(ev);
@@ -84,8 +84,8 @@ At one point I considered adding generic parameters to all our types, so we coul
 
 ```typescript
 type ScheduledEvent<DateType> = {
-    start: DateType;
-    end:   DateType;
+  start: DateType;
+  end:   DateType;
 }
 
 const jsonifiedEvent: string = JSON.stringify(ev);
@@ -134,12 +134,12 @@ If you look at how superjson serialises Date values, it's keeping a list of all 
 I quite like this approach, because it encodes all the information about the Date types in the JSON itself -- you don't have to know the types which are being used on either end.
 It's clear this approach could be made more flexible if you wanted to handle other types, but for us Date is plenty.
 
-We decided to take a different route: rather than keep a list of fields that we need to de-stringify, we encode them as a JSON object with a `type` parameter:
+We decided to take a different route: rather than keep a list of fields that we need to de-stringify, we encode instances of `Date` as a JSON object with a `type` parameter:
 
 ```
 {
-    "value": "2022-12-15T10:00:01.000Z",
-    "type": "Date"
+  "value": "2022-12-15T10:00:01.000Z",
+  "type": "Date"
 }
 ```
 
@@ -186,6 +186,8 @@ JSON.parse(…, reviver);
 
 We use this code in our JSON encoder/decoder functions, and it's been working pretty well so far.
 We get to shed a dependency and rely on vanilla JavaScript features, and it reduces the number of confusing interactions with the type system.
+
+This is one of the JavaScript features I've been vaguely aware of for years, but never actually looked at – I'm glad to finally have a use case.
 
 [JSON.stringify]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 [JSON.parse]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
