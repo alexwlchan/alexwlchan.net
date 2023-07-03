@@ -20,11 +20,23 @@ Today I stumbled upon a useful feature in the EventBridge console -- it'll tell 
 
 Suppose you're looking at a rule in the console:
 
-<img src="/images/2021/eventbridge_rule_2x.png" srcset="/images/2021/eventbridge_rule_1x.png 1x, /images/2021/eventbridge_rule_2x.png 2x" style="width: 574px;" alt="A rule in the EventBridge console. It's titled 'run_costs_report', has a section titled 'Rule details', then a second section titled 'Event schedule' with the expression 'cron(0 8 ? * 3#2 *)'.">
+{%
+  picture
+  filename="eventbridge_rule.png"
+  visible_width="574px"
+  alt="A rule in the EventBridge console. It's titled 'run_costs_report', has a section titled 'Rule details', then a second section titled 'Event schedule' with the expression 'cron(0 8 ? * 3#2 *)'."
+  class="screenshot"
+%}
 
 If you click "Edit", and scroll down to the section titled "Define pattern", it'll show you the next 10 trigger dates when your cron expression will run:
 
-<img src="/images/2021/eventbridge_trigger_dates_2x.png" srcset="/images/2021/eventbridge_trigger_dates_1x.png 1x, /images/2021/eventbridge_trigger_dates_2x.png 2x" style="width: 574px;" alt="A section in the AWS console titled 'Define pattern', with a text field for editing a cron expression and a list of the next 10 trigger dates at the bottom. There's a selection picker which is currently 'GMT'.">
+{%
+  picture
+  filename="eventbridge_trigger_dates.png"
+  visible_width="574px"
+  alt="A section in the AWS console titled 'Define pattern', with a text field for editing a cron expression and a list of the next 10 trigger dates at the bottom. There's a selection picker which is currently 'GMT'."
+  class="screenshot"
+%}
 
 As you edit your cron expression, the list updates to reflect your changes.
 You can also choose whether the list shows times in GMT (UTC+0) or your local timezone.
