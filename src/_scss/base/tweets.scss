@@ -84,10 +84,9 @@
     border-right-style: solid;
   }
 
-  .media-2, .media-3 {
+  .media-2, .media-3, .media-4 {
     display: grid;
     grid-gap: 0;
-
 
     img {
       width: 100%;
@@ -126,6 +125,30 @@
     a:nth-child(3) {
       grid-column: 2 / 2;
       grid-row: 2 / 2;
+    }
+  }
+
+  .media-4 {
+    grid-template-columns: 50% 50%;
+    grid-template-rows:    50% 50%;
+    aspect-ratio: 2 / 1;
+
+    a:nth-child(1) {
+      border-right-width: 1px;
+      border-right-style: solid;
+
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+
+    a:nth-child(2) {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+
+    a:nth-child(3) {
+      border-right-width: 1px;
+      border-right-style: solid;
     }
   }
 
@@ -251,11 +274,11 @@ blockquote .tweet {
     color: #697882;
   }
 
-  .media, .media-3 a:nth-child(2), img.media {
+  .media, .media-3 a:nth-child(2), .media-4 a:nth-child(1), .media-4 a:nth-child(2), img.media {
     border-bottom-color: $border-color;
   }
 
-  .media-2 a:nth-child(1), .media-3 a:nth-child(1) {
+  .media-2 a:nth-child(1), .media-3 a:nth-child(1), .media-4 a:nth-child(1), .media-4 a:nth-child(3) {
     border-right-color: $border-color;
   };
 
