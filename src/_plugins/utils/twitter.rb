@@ -14,8 +14,9 @@ def replace_twemoji_with_images(text)
     # NOTE: this is a surfer emoji with skin tone/gender modifiers
     '🏄🏻‍♂️' => '1f3c4-1f3fb-200d-2642-fe0f.svg',
     '📈' => '1f4c8.svg',
+    '💞' => '1f49e.svg',
     '🧵' => '1f9f5.svg',
-    '✨' => '2728.svg'
+    '✨' => '2728.svg',
   }
 
   # TODO: Fix these in the RSS feed

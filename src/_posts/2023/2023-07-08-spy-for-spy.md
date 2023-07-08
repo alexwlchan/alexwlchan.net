@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2023-06-17 06:35:17 +0000
-title: "*Spy for Spy*, at Riverside Studios"
+date: 2023-07-08 06:35:17 +0000
+title: "*Spy for Spy*"
 summary: A two-handed sapphic romance with a clever narrative twist makes for a compelling and thoughtful new play.
 tags: theatre london
 colors:
@@ -11,14 +11,29 @@ colors:
   css_dark:    "#86a4c2"
 ---
 
-Last night I went to see the second preview of [*Spy For Spy*][sfs], which I very much enjoyed.
-It's a romance story with a clever narrative twist – it’s being told in the wrong order.
+*[If you think you've already seen a post about this play: no, you aren't imagining things, I have written about it twice. I wrote my original post after the second preview; then updated it after the run had ended. You can read the original post [on the Internet Archive](https://web.archive.org/web/20230618163735/https://alexwlchan.net/2023/spy-for-spy/).]*
 
----
+About three weeks ago, a new play premiered at Riverside Studios in London: [*Spy for Spy*][sfs].
+I enjoyed it so much that I saw it four times – it was funny, clever, and made my heart ache.
+It's a romantic comedy with a clever narrative twist – it’s being told in the wrong order.
 
-Aside from the prologue and epilogue, the show is split into six scenes from the Molly and Sarah’s relationship.
-These scenes aren't shown in chronological order; instead they were shown in a random order chosen by the audience before curtain up.
-Tonight it opened with a date in a yurt, an argument before dinner, and we didn't see their first meeting until the second half of the play.
+Unfortunately it only had a limited run, and it's already closed.
+I don't know if or when it will be staged again, but I wanted to capture a bit of why I enjoyed it so much.
+
+{% tweet https://twitter.com/SpyForSpyPlay/status/1675112286103429123 %}
+
+The play is a [two-hander], and it stars two women -- a bit of a rarity in theatre -- and it's a romance story.
+I'm not sure I've ever seen a sapphic romance on stage, and that itself was quite refreshing.
+
+The women are Sarah, an anxious and uptight lawyer (Amy Lennox), and Molly, a free-thinking actor (Olive Gray).
+They're quite different people, and not the most obvious match, but I was absolutely sold.
+The dialogue feels genuine and warm, and both of them did a great job of capturing their characters.
+There was great chemistry, and I wanted to see them be happy together.
+
+The story hits the typical romcom beats: the meet-cute, a first date of sorts, some conflict and reconciliation.
+But unlike most romcoms, they don't always come in the same order: the play is split into six scenes, and every night the audience were invited to pick a random order.
+There were six heart-shaped balloons, you'd pick a balloon and the attached block would tell you the scene.
+Nobody knew how the play would go until half an hour before curtain up.
 
 <figure style="width: 500px;">
   {%
@@ -26,12 +41,34 @@ Tonight it opened with a date in a yurt, an argument before dinner, and we didn'
     filename="spy-for-spy-order.jpg"
     visible_width="500px"
     alt="A blue poster board titled “Spy for Spy” with a message: “The order of today’s performance as determined by the audience is:” followed by six pink cards, each with a title and a song name. Next to the poster are several shiny red heart balloons."
+    class="rounded_corners"
   %}
-  <figcaption>
-    I missed the selection of the order, but I gather people were invited to pick six songs out of a hat, and each song corresponds to one of the scenes from the play.
-    Savannah, Sacramento, living rom, Napa, Carmel, and bedroom.
-  </figcaption>
 </figure>
+
+There are other plays that experiment with non-linear storytelling – Nick Payne's *Constellations* springs to mind – but this is far more ambitious.
+
+Kieron Barry has written a masterpiece of a script -- it's such a dexterous piece of writing that can be told in different orders, and still make sense.
+There are so many through lines, subtle callbacks, and meta references that fit together.
+I took a few notes, and a week later I'm still realising clever things I missed when I was watching.
+(The watch! The wines! The expressions of gratitude!)
+
+And the script is good even if you ignore the random order.
+
+* “You're the only person I know who can lie down bolt upright.”
+
+[two-hander]: https://en.wikipedia.org/wiki/Two-hander
+
+---
+
+Last night I went to see the second preview of [*Spy For Spy*][sfs], which I very much enjoyed.
+
+---
+
+Aside from the prologue and epilogue, the show is split into six scenes from the Molly and Sarah’s relationship.
+These scenes aren't shown in chronological order; instead they were shown in a random order chosen by the audience before curtain up.
+Tonight it opened with a date in a yurt, an argument before dinner, and we didn't see their first meeting until the second half of the play.
+
+
 
 I like the idea, and it worked for me. It put me in mind of Nick Payne’s *Constellations*; both plays that experiment with non-linear narratives to present new takes on love.
 
@@ -86,7 +123,7 @@ They both talk about wanting to change for one another, but maybe love is about 
 Or perhaps it means something completely different.
 I expect to be thinking about this play for a while, and I hope it has a long future ahead of it (but I didn't want to delay publishing this review).
 
-I went to the show based on a single line of description – “a romantic comedy told in the wrong order” – and it delivered on that promise. 
+I went to the show based on a single line of description – “a romantic comedy told in the wrong order” – and it delivered on that promise.
 It's a clever piece of writing that demands you pay attention, and if you do, that attention is richly rewarded.
 I want to see it again, and to see how it feels when I see it in a different order.
 If you like romance and smart writing, you should see it too.
