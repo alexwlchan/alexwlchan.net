@@ -109,7 +109,8 @@ I went to the show based on a single line of description – “a romantic comed
 It's a clever piece of writing that demands you pay attention, and if you do, that attention is richly rewarded.
 
 On a more personal note, I got to meet several of the people involved with the production over my various trips, and they were all incredibly nice.
-Lucy, Kieron, Amy, Olive, Nell, Tim, and others – everyone
+Lucy, Kieron, Amy, Olive, Nell, Tim, and others – everyone was so willing to chat after the show.
+The play fell in the middle of several stressful weeks at work, and it was nice to have something to offset that.
 
 {%
   picture
@@ -119,45 +120,7 @@ Lucy, Kieron, Amy, Olive, Nell, Tim, and others – everyone
   class="fullwidth_img"
 %}
 
-
----
-
-Last night I went to see the second preview of [*Spy For Spy*][sfs], which I very much enjoyed.
-
----
-
-Aside from the prologue and epilogue, the show is split into six scenes from the Molly and Sarah’s relationship.
-These scenes aren't shown in chronological order; instead they were shown in a random order chosen by the audience before curtain up.
-Tonight it opened with a date in a yurt, an argument before dinner, and we didn't see their first meeting until the second half of the play.
-
-
-
-
-I’ve seen several plays that benefit from multiple viewings – once to experience it fresh, once to see how it builds to the ending.
-Mixing up the order within a single show gave me a bit of both.
-For example, there are several moments in the meet-cute that wouldn’t have stood out if I hadn’t already seen the callbacks in earlier scenes.
-(Why does Sarah keep checking her watch?)
-
-
-One thing they did particularly well was switching demeanours – one scene they’re bickering partners, another they're complete strangers.
-Subtle behaviours like the way they sit, stand, or look at each other, all add up.
-The play only works if we feel the non-chronological narrative, and the acting helps sell it.
-
-There are other ways the show marks the different scenes. Small changes of costume, lighting, props. Several times, I had a sense of the new scene before the actors even said a word.
-
-
-
-There are moments of levity and humour – not laugh-a-minute funny, but enough to offset the more sombre tone of certain scenes.
-It also gets meta at moments (like a conversation about playing album tracks in the wrong order), and I wonder if the play could lean into this more – at times it felt a bit timid about acknowledging its novel structure.
-
-I had no idea what to expect, but I like what I got.
-This was only the second preview, but it's already in pretty good shape.
-
----
-
-I want to see it again, and to see how it feels when I see it in a different order.
-If you like romance and smart writing, you should see it too.
-
-*Spy for Spy is written by Kieron Barry, directed by Lucy Jane Atkinson, stars Amy Lennox and Olive Gray, and runs until 2 July at Riverside Studios. You can [buy tickets](https://riversidestudios.co.uk/see-and-do/spy-for-spy-57989/) or [see pictures](https://www.instagram.com/p/CtglwSjIjJk/).*
+I'm so glad I got a chance to see this play.
+I don't know if or when it will run again, but if it does, I'd really recommend it.
 
 [sfs]: https://riversidestudios.co.uk/see-and-do/spy-for-spy-57989/
