@@ -17,20 +17,24 @@
   "extended_entities": {
     "media": [
       {
+        "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/1",
         "media_url_https": "https://pbs.twimg.com/media/Fz8xvJBWIAEOB5j.jpg",
         "type": "photo",
         "url": "https://t.co/WrdUw6Vlu7",
         "display_url": "pic.twitter.com/WrdUw6Vlu7"
       },
       {
+        "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/2",
         "media_url_https": "https://pbs.twimg.com/media/Fz8xvJZXgAAJdF5.jpg",
         "type": "photo"
       },
       {
+        "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/3",
         "media_url_https": "https://pbs.twimg.com/media/Fz8xvIVWIAI92V9.jpg",
         "type": "photo"
       },
       {
+        "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/4",
         "media_url_https": "https://pbs.twimg.com/media/Fz8xvIVXwAAiUCU.jpg",
         "type": "photo"
       }
