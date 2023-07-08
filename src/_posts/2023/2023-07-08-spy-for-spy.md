@@ -34,6 +34,7 @@ The story hits the typical romcom beats: the meet-cute, a first date of sorts, s
 But unlike most romcoms, they don't always come in the same order: the play is split into six scenes, and every night the audience were invited to pick a random order.
 There were six heart-shaped balloons, you'd pick a balloon and the attached block would tell you the scene.
 Nobody knew how the play would go until half an hour before curtain up.
+One night it started at a wedding in a yurt; another night it opened with a breakup in their living room.
 
 <figure style="width: 500px;">
   {%
@@ -48,13 +49,21 @@ Nobody knew how the play would go until half an hour before curtain up.
 There are other plays that experiment with non-linear storytelling – Nick Payne's *Constellations* springs to mind – but this is far more ambitious.
 
 Kieron Barry has written a masterpiece of a script -- it's such a dexterous piece of writing that can be told in different orders, and still make sense.
-There are so many through lines, subtle callbacks, and meta references that fit together.
-I took a few notes, and a week later I'm still realising clever things I missed when I was watching.
-(The watch! The wines! The expressions of gratitude!)
+There are so many through lines, subtle callbacks, and meta self-references that fit together.
+I took a few notes, and a week later I'm still realising clever elements of the script.
+(The watch! The wines! The expressions of gratitude! Email me if you want to read my notes and see what you missed.)
 
 And the script is good even if you ignore the random order.
+The dialogue feels genuine, like two people would actually talk, and it's laugh-a-minute funny.
+(I don't want to give too much away, but *“You're the only person I know who can lie down bolt upright”* was both hilarious and felt like a bit of a personal attack.)
 
-* “You're the only person I know who can lie down bolt upright.”
+One of my favourite scenes is in Carmel, when Molly and Sarah talk about having sex.
+So often women's sexuality is treated as shameful or titillating, and this scene is neither of those.
+It's a very matter-of-fact scene in which two women in a loving relationship talk about their sexual desires and needs.
+It felt totally normal, which is how it should be.
+
+The script is backed up by a great production.
+The actors both did a great job of realising their characters
 
 [two-hander]: https://en.wikipedia.org/wiki/Two-hander
 
@@ -70,18 +79,12 @@ Tonight it opened with a date in a yurt, an argument before dinner, and we didn'
 
 
 
-I like the idea, and it worked for me. It put me in mind of Nick Payne’s *Constellations*; both plays that experiment with non-linear narratives to present new takes on love.
 
 I’ve seen several plays that benefit from multiple viewings – once to experience it fresh, once to see how it builds to the ending.
 Mixing up the order within a single show gave me a bit of both.
 For example, there are several moments in the meet-cute that wouldn’t have stood out if I hadn’t already seen the callbacks in earlier scenes.
 (Why does Sarah keep checking her watch?)
 
-It’s rare to see a two-hander with two women, and a sapphic romance rarer still.
-The actors grasp the opportunity with both hands, and they did a great job -- I got a distinct sense of the two characters and their different personalities.
-Olive Gray plays the free-thinking actor; Amy Lennox plays the anxious, uptight lawyer.
-They're not an obvious match, but I was absolutely sold.
-Their chemistry felt genuine, and I was hooked throughout.
 
 One thing they did particularly well was switching demeanours – one scene they’re bickering partners, another they're complete strangers.
 Subtle behaviours like the way they sit, stand, or look at each other, all add up.
