@@ -116,7 +116,7 @@ The play fell in the middle of several stressful weeks at work, and it was nice 
   picture
   filename="IMG_4261.jpg"
   visible_width="500px"
-  alt="[alt text goes here]"
+  alt="A selfie! I have light skin, dark brown hair, and rectangular glasses. I'm smiling at the camera, holding a heart-shaped balloon, and standing in front of one of the posters for the play."
   class="fullwidth_img"
 %}
 
