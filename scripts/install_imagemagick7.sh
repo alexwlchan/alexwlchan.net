@@ -15,7 +15,7 @@ apt-get update
 # fetching all the dependencies and running the build commands.
 apt-get install --yes wget
 wget 'https://dist.1-2.dev/imei.sh'
-bash imei.sh --skip-heif --skip-jxl
+bash imei.sh --skip-jxl
 
 # This removes a bunch of dependencies that are needed for building and
 # installing ImageMagick, but which aren't required to run it.
