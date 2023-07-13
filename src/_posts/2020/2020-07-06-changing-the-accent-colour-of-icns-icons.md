@@ -15,14 +15,14 @@ It's a fork of an older app called [Notational Velocity], and the icon is a grey
     filename="nvalt.png"
     alt="nvALT icon"
     style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
+    width="256"
   %}
   {%
     picture
     filename="notational.png"
     alt="Notational Velocity icon"
     style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
+    width="256"
   %}
   <figcaption>The icon of nvALT (left) and Notational Velocity (right).</figcaption>
 </figure>
@@ -53,7 +53,7 @@ For example, the Notational Velocity icon has six sizes in its ICNS file:
   picture
   filename="notational-icon-sizes.png"
   alt="Six different sizes of the nvALT icon, from 16x16 to 512x512"
-  visible_width="659px"
+  width="659"
 %}
 
 Notice how the 32&times;32 and 16&times;16 sizes have a different shape, doing away with the text sheets.
@@ -124,14 +124,14 @@ And here's the result:
     filename="notational.png"
     alt="The Notational Velocity icon"
     style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
+    width="256"
   %}
   {%
     picture
     filename="notational_cyan.png"
     alt="A cyan-tinted version of the Notational Velocity icon."
     style="max-width: 49%; display: inline-block;"
-    visible_width="256px"
+    width="256"
   %}
   <figcaption>The Notational Velocity icon before (left) and after (right) having the <code>&#8209;modulate&nbsp;100,100,0</code> transformation applied.</figcaption>
 </figure>
@@ -191,7 +191,7 @@ And voila, I have a rainbow of rocket icons:
   picture
   filename="notality_rainbow_big.png"
   alt="A grid of multi-coloured Notational Velocity icons"
-  visible_width="750px"
+  width="750"
 %}
 
 And because it edited every size of the ICNS file, the smaller icons all match:
@@ -200,7 +200,7 @@ And because it edited every size of the ICNS file, the smaller icons all match:
   picture
   filename="notality_rainbow_small.png"
   alt="A grid of multi-coloured small Notational Velocity icons"
-  visible_width="450px"
+  width="450"
 %}
 
 Look at all that colour!
@@ -225,7 +225,7 @@ On the Mac I'm using to write this post, I've picked a blue icon that matches my
   picture
   filename="nvalt_blue_screenshot.png"
   alt="The nvALT Dock icon with a blue rocket set against a blue background"
-  visible_width="450px"
+  width="450"
 %}
 
 When I was younger, I spent a lot of time choosing and customising my icons.

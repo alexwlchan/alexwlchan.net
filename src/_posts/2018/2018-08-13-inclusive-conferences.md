@@ -213,7 +213,7 @@ Here's a screenshot from the AlterConf London ticketing page:
     picture
     filename="alterconf-tickets.png"
     alt="A screenshot from the AlterConf ticket page. A basic ticket is £25, a friend ticket (helps 1 person) is £50, supporter (helps 2 people) is £50, and so on up to super friend (helps 5+ people) for £150 and up."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     There are seven tiers: Scholarship (free), Basic (£25), Friend, Supporter, Advocate, Patron and Super Friend. The tiers above Basic allow you to buy extra tickets, and the Super Friend tier is a freeform box.
@@ -286,7 +286,7 @@ I wrote [about the quiet room at PyCon UK]({% post_url 2016/2016-09-19-silence-i
     picture
     filename="pyconuk-quiet-room.jpg"
     alt="A person working on a laptop in the middle of a council chamber. Most of the room is in shadow."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     The PyCon UK quiet room is usually the Cardiff City Council Chamber, which is a lovely space for sitting quietly. It's also a good place to work and prepare slides. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37957275512/in/album-72157666242950547/">Mark Hawkins</a>.
@@ -381,7 +381,7 @@ I expect we'll run the same process this year.
     picture
     filename="pyconuk-lightning.jpg"
     alt="A person at a lectern with a slide behind them saying “Lightning talks” and two buckets on the table."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Owen Campbell explaining lightning talks at PyCon UK 2017.
@@ -499,7 +499,7 @@ Neither are easy or convenient.
     picture
     filename="pyconuk-creche.jpg"
     alt="Two babies sitting on the floor with some chairs and toys."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>Two of the youngest attendees at PyCon UK 2017 &ndash; taking advantage of the free crèche. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37919454202/in/album-72157666242746367/">Mark Hawkins</a>.</figcaption>
 </figure>
@@ -542,7 +542,7 @@ I first saw this [at PyCon UK 2016][sttr], but I've also seen it at AlterConf an
     picture
     filename="pyconuk-stenographers.jpg"
     alt="A person with headphones and a special stenographic keyboard, sitting in front of a desk with several papers and laptops."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     One of the stenographers at PyCon UK 2017. They use a special keyboard to keep up with the speakers, and can hit over 250&nbsp;wpm. Photo by <a href="https://www.flickr.com/photos/152472562@N06/37891736816/in/album-72157666242746367/">Mark Hawkins</a>.
@@ -733,7 +733,7 @@ It stands out in a crowd, and makes it clear if you've accidentally snapped some
     picture
     filename="pyconuk-lanyards.jpg"
     alt="The red, blue and yellow lanyards attached to a partially in-shot badge."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     The three colours of lanyard at PyCon UK 2017. Yellow if you didn't want to appear in photographs, blue if you were happy to appear in photographs, red if you were an organiser or volunteer. Photo by me.

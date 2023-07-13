@@ -22,7 +22,7 @@ For example, I changed a bunch of URLs at the end of last year, and I tried to r
 {%
   picture
   filename="netlify-resources-not-found.png"
-  visible_width="549px"
+  width="549"
   alt="A table titled 'Top resources not found' followed by a list of paths and a request count. The resources not found include /index.php/PHP%0ABonusChallengeExploits.php, /images/2022/guest_headers_card.png, /talks/hypothesis-intro/hypothesis-slide029.png and /.well-known/traffic-advice."
   class="screenshot"
 %}

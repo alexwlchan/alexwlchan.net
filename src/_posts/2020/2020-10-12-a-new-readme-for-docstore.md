@@ -26,7 +26,7 @@ Since my paperwork has a lot of private information (including my address, healt
   picture
   filename="docstore_v2.png"
   alt="Screenshot of docstore."
-  visible_width="500px"
+  width="500"
   class="screenshot"
 %}
 

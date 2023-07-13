@@ -17,7 +17,7 @@ If you select the file and press the space bar, you get a full-size preview:
   picture
   filename="quick_look.jpg"
   alt="macOS Finder window with a Quick Look preview in the foreground. The preview shows an ochre colour cat tilting his head and looking towards the camera."
-  visible_width="750px"
+  width="750"
 %}
 
 If the file has multiple pages (say, a slideshow or a long PDF), you can scroll through to see previews of each page.

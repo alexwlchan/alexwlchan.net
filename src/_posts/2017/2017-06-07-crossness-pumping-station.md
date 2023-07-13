@@ -29,7 +29,7 @@ When it's sufficiently far east, the sewage is pumped back up to ground level, d
     picture
     filename="Hering_lon-sewer-det02_1882.jpg"
     alt="Browning showing a map of London, with the river highlighted in grey and sewer lines drawn in red."
-    visible_width="586px"
+    width="586"
   %}
   <figcaption>A map of London&rsquo;s sewers, drawn in 1882.
     The main interceptor tunnels are highlighted in red.
@@ -46,7 +46,7 @@ Both Crossness and the wider sewerage system were seen as major feats of Victori
     picture
     filename="crossness_invitation.jpg"
     alt="An invitation from the Metropolitan Board of Works to the opening of Crossness, with an illustration of the pumping station and some text with the time and sender of the invitation."
-    visible_width="400px"
+    width="400"
   %}
   <figcaption>
     An invitation to the opening of Crossness in 1865.
@@ -76,7 +76,7 @@ This was a first glimpse of the sheer scale of this project – you get some ide
     picture
     filename="P5280695.jpg"
     alt="A dirt path heading forward with grass and trees on either side, and some yellow industrial machinery off to the right."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Looking west along Ridgeway, away from Crossness.
@@ -93,7 +93,7 @@ I still had a little more walking to do!
     picture
     filename="P5280718.jpg"
     alt="A square building labelled “Crossness STW”, with fences and a road barrier."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Be glad my camera doesn't have the ability to capture smells.
@@ -108,7 +108,7 @@ Although viewed from a different angle, you can see the resemblance to the build
     picture
     filename="P5280723.jpg"
     alt="A dark brown building with rounded arches along the doors and windows, an orange safety barrier and a few bicycles."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Safety barriers and bicycles were a classic feature of Victorian architecture.
@@ -124,7 +124,7 @@ But I turned left, and went into the main exhibition.
   picture
   filename="P5280725.jpg"
   alt="Looking onto a courtyard area with three buildings to the left, some grassy patches and another arched building in the distance."
-  visible_width="750px"
+  width="750"
 %}
 
 In the main engine house, there's an exhibition about the Great Stink.
@@ -136,7 +136,7 @@ Although it's had to expand to cope with London's ever-increasing population, th
   picture
   filename="P5280734.jpg"
   alt="A sign titled “The Great Stink Exhibition”."
-  visible_width="500px"
+  width="500"
 %}
 
 Pumping London's sewage to ground level required a huge amount of power.
@@ -157,7 +157,7 @@ Here's a picture of the atrium, with one of the flywheels visible in the backgro
     picture
     filename="P5280873.jpg"
     alt="Looking down into a room with rusting metal pillars and a large metal wheel in the background."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Safety first!
@@ -173,7 +173,7 @@ You can just make out two of the joins in this photograph:
   picture
   filename="P5280751.jpg"
   alt="A rusted wheel with three large spokes visible, with the remainder of the wheel below the floor."
-  visible_width="600px"
+  width="600"
 %}
 
 But then I went through to the main attraction – the working *Prince Consort*.
@@ -184,7 +184,7 @@ Here's the big wheel, in all its resplendent glory:
   picture
   filename="P5280774.jpg"
   alt="A large green wheel, with the top half visible, set against a brown brick wall and a window."
-  visible_width="600px"
+  width="600"
 %}
 
 Even more impressive, the engine was actually steaming.
@@ -214,7 +214,7 @@ Here's a picture of the cylinders joining the main rocking beam:
     picture
     filename="P5280785.jpg"
     alt="A pair of metal cylinders with two green beams rising out of them."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     If I&rsquo;ve remembered correctly, the high pressure cylinder is on the left, medium on the right, and the low pressure cylinder is in the basement, directly below the high pressure cylinder.
@@ -230,7 +230,7 @@ Here's another picture of the back of the cylinders:
     picture
     filename="P5280799.jpg"
     alt="A series of pipes and tubes surrounding cylindrical boilers. Some of the metalwork has red and gold decorations."
-    visible_width="600px"
+    width="600"
   %}
   <figcaption>
     Pipes!
@@ -245,7 +245,7 @@ Each one is over 50&prime; long:
     picture
     filename="P5280917.jpg"
     alt="A decorated green beam, with the near end raised in the air."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Up...
@@ -257,7 +257,7 @@ Each one is over 50&prime; long:
     picture
     filename="P5280912.jpg"
     alt="A decorated green beam, with the far end raised up in the air."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     ...and back down.
@@ -270,14 +270,14 @@ Each one is over 50&prime; long:
     filename="P5280899.jpg"
     alt="Looking down on a three-part green beam sinking into the floor."
     style="max-width:49%;float:left;"
-    visible_width="375px"
+    width="375"
   %}
   {%
     picture
     filename="P5280900.jpg"
     alt="Gold-coloured linkages between two large green beams."
     style="max-width:49%;float:left;"
-    visible_width="375px"
+    width="375"
   %}
   <figcaption>
     These two images remind me of a crocodile's mouth.
@@ -294,7 +294,7 @@ Even the rusting beams of the other three engines are an impressive sight:
   picture
   filename="P5280935.jpg"
   alt="A large, rusting metal pumping beam. It's against a wall, rising in the background, with windows in the walls."
-  visible_width="750px"
+  width="750"
 %}
 
 <figure>
@@ -303,14 +303,14 @@ Even the rusting beams of the other three engines are an impressive sight:
     filename="P5280925.jpg"
     alt="The rusted end of a pumping beam."
     style="max-width:35.5%;float:left;"
-    visible_width="267px"
+    width="267"
   %}
   {%
     picture
     filename="P5280923.jpg"
     alt="Some rusted metal linkages and beams."
     style="max-width:63%;"
-    visible_width="472px"
+    width="472"
   %}
 </figure>
 
@@ -319,7 +319,7 @@ Even the rusting beams of the other three engines are an impressive sight:
     picture
     filename="P5280887.jpg"
     alt="Looking from one end of a large, rusted metal beam."
-    visible_width="750px"
+    width="750"
   %}
 </figure>
 
@@ -334,7 +334,7 @@ My camera struggled a bit with the low light, but I got a few pictures:
     picture
     filename="P5280807.jpg"
     alt="Looking down on some metal steps. The edge of the steps are painted red."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Hold on to your hard hats!
@@ -346,7 +346,7 @@ My camera struggled a bit with the low light, but I got a few pictures:
     picture
     filename="P5280809.jpg"
     alt="A piston-like machine, with the top painted in red and green."
-    visible_width="750px"
+    width="750"
   %}
 <figure>
 
@@ -355,7 +355,7 @@ My camera struggled a bit with the low light, but I got a few pictures:
     picture
     filename="P5280818.jpg"
     alt="Looking down on some circular machinery, covered in dirt and rust. The top of the machinery has some red and green paint."
-    visible_width="750px"
+    width="750"
   %}
 <figure>
 
@@ -364,7 +364,7 @@ My camera struggled a bit with the low light, but I got a few pictures:
     picture
     filename="P5280822.jpg"
     alt="The top of a large pipe embedded in the ground. The image has a strong yellow tinge."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Incoming sewage was pumped through these tunnels into reservoir tanks when the tide was coming in.
@@ -381,7 +381,7 @@ At the centre of the site is the Octagon, where light entered the building:
   picture
   filename="P5280874.jpg"
   alt="Looking down on gold, red and green metalwork adorning the top of an octagonal area. Red columns mark the octagon."
-  visible_width="750px"
+  width="750"
 %}
 
 <figure>
@@ -389,7 +389,7 @@ At the centre of the site is the Octagon, where light entered the building:
   picture
   filename="P5280878.jpg"
   alt="Dark arch, an octagonal gap in the ceiling looking up to the next level. The gap is decorated in gold, red and green metalwork."
-  visible_width="750px"
+  width="750"
 %}
 <figure>
 
@@ -398,7 +398,7 @@ At the centre of the site is the Octagon, where light entered the building:
     picture
     filename="P5280934.jpg"
     alt="Looking down through the octagon."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     View from above!
@@ -413,7 +413,7 @@ The metalwork has been restored beautifully:
     picture
     filename="P5280936.jpg"
     alt="Metalwork with a red-and-gold logo in the middle of the frame."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     The &ldquo;MBW&rdquo; is the monogram of the Metropolitan Board of Works.
@@ -427,7 +427,7 @@ No part of the station – not even the floors, stairs or the handrails – esca
     picture
     filename="P5280794.jpg"
     alt="Some steps up to another level, with blue, red and cream decoration."
-    visible_width="750px"
+    width="750"
   %}
 </figure>
 
@@ -436,7 +436,7 @@ No part of the station – not even the floors, stairs or the handrails – esca
     picture
     filename="P5280835.jpg"
     alt="A floor with a tiny half-circle pattern adorned in red and cream."
-    visible_width="750px"
+    width="750"
   %}
 </figure>
 

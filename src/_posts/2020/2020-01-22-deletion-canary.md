@@ -38,7 +38,7 @@ If we can, losing a copy of this file is less bad than deleting part of the arch
   picture
   filename="s3_delete_canary.png"
   alt="A file listing in the S3 console.  Four files are listed: three folders, and one text file highlighted in blue."
-  visible_width="750px"
+  width="750"
   class="screenshot"
 %}
 

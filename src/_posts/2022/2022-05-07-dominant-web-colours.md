@@ -20,7 +20,7 @@ I've wrapped the CLI tool in a small web app, which lets you upload images to an
   picture
   filename="dominant_colours_landing.png"
   alt="Screenshot of a web page titled 'find the dominant colours in an image', with a button to upload a file and a submit button."
-  visible_width="484px"
+  width="484"
 %}
 
 and then it shows you a palette of the dominant colours:
@@ -29,7 +29,7 @@ and then it shows you a palette of the dominant colours:
   picture
   filename="dominant_colours_screenshot.png"
   alt="A screenshot of the web app. It says 'find the dominant colours in an image' in bold letters at the top, then an illustration of two people in a Chinese dragon costume. On the right hand side are the dominant colours from that image: brown, blue, red and yellow, along with hex codes. At the bottom is a red-coloured link 'try another image'."
-  visible_width="484px"
+  width="484"
 %}
 
 The CLI tool allows you to pick the size of the palette, whereas the web app always returns five colours.

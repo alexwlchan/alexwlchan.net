@@ -34,7 +34,7 @@ We might even find [some companions][hobgoblin] along the way.
   picture
   filename="hobgoblin.png"
   alt="A man with a long face and an even longer beard. He’s frowning and has a speech bubble “Rubies, you say?”"
-  visible_width="400px"
+  width="400"
 %}
 
 [monkey-patching]: https://en.wikipedia.org/wiki/Monkey_patch
@@ -68,7 +68,7 @@ Thus recreating the experience of many people and school-level maths.
   picture
   filename="headache.1.png"
   alt="A Moomin with scrunched up eyes, clutching his hands to his head, saying “Long division makes my head hurt”."
-  visible_width="300px"
+  width="300"
 %}
 
 This gives us a clear way forward: we'll override this function to return the result we want.
@@ -125,7 +125,7 @@ How can we keep the old implementation of `/` around so we can use it later?
   picture
   filename="hmm.png"
   alt="A Moomin sitting on the ground, his eyes to the sky, muttering “Hmm…” to himself."
-  visible_width="350px"
+  width="350"
 %}
 
 Once I had this question in mind, I almost immediately stumbled upon a [detailed Stack Overflow post][so] by Jörg W Mittag.
@@ -157,7 +157,7 @@ Ruby also has `Rational` numbers that we might want to patch, but I leave that a
   picture
   filename="moomin.png"
   alt="A Moomin sitting on the ground, his eyes to the sky, thinking quietly."
-  visible_width="300px"
+  width="300"
 %}
 
 Let's go ahead and put this all together.
@@ -178,7 +178,7 @@ That [banging on my front door][hattifatteners] is no doubt a group of excited m
   picture
   filename="hattifatteners.png"
   alt="A collection of tall, thin creatures with large wiggly hands on the side of their bodies. They're completely featureless aside from hands and eyes, all of which are staring at us intently."
-  visible_width="300px"
+  width="300"
 %}
 
 To be briefly serious: this post isn't (just) taking a tweet far too seriously for the sake of a joke.

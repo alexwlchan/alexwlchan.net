@@ -12,7 +12,7 @@ I searched my Mac recently, and my results were cluttered with files from `node_
   picture
   filename="cluttered_search_results.png"
   alt="Screenshot of a search tool for the word 'inspect'. It shows a list of nine results, each with a path under it that goes to a subpath of a node_modules folder."
-  visible_width="714px"
+  width="714"
 %}
 
 I can see why this happened -- I've been working on several Node projects, and the `node_modules` folder is a cache of external Node dependencies.

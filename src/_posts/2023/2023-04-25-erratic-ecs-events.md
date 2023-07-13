@@ -24,7 +24,7 @@ Occasionally, we see "unable to consistently start tasks successfully" messages 
   picture
   filename="ecs_events_not_starting.png"
   alt="A table of events in the ECS service console. Three of the five events shown have the message 'service image_inferrer is unable to consistently start tasks successfully. For more information, see the Troubleshooting section of the Amazon ECS Developer Guide.'"
-  visible_width="697px"
+  width="697"
   class="screenshot"
 %}
 
@@ -37,7 +37,7 @@ So we know when to investigate, we've set up an alerting system that tells us in
   picture
   filename="ecs_slack_alert.png"
   alt="An alert in Slack with the message 'image_inferrer is unable to consistently start tasks successfully' with a clickable link 'View in console'. The alert has a red border and a siren emoji."
-  visible_width="667px"
+  width="667"
   class="screenshot"
 %}
 

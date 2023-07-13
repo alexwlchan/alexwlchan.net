@@ -40,7 +40,7 @@ One night it started at a wedding in a yurt; another night it opened with a brea
   {%
     picture
     filename="spy-for-spy-order.jpg"
-    visible_width="500px"
+    width="500"
     alt="A blue poster board titled “Spy for Spy” with a message: “The order of today’s performance as determined by the audience is:” followed by six pink cards, each with a title and a song name. Next to the poster are several shiny red heart balloons."
     class="fullwidth_img"
   %}
@@ -76,7 +76,7 @@ Several times, I had a sense of the new scene before a word was said.
   {%
     picture
     filename="IMG_4172.jpg"
-    visible_width="500px"
+    width="500"
     alt="An empty theatre set. There are plain walls in pink and purple, with a small side table on stage right and a comfy chair on stage left. Otherwise, the set is empty."
     class="fullwidth_img"
   %}
@@ -115,7 +115,7 @@ The play fell in the middle of several stressful weeks at work, and it was nice 
 {%
   picture
   filename="IMG_4261.jpg"
-  visible_width="500px"
+  width="500"
   alt="A selfie! I have light skin, dark brown hair, and rectangular glasses. I'm smiling at the camera, holding a heart-shaped balloon, and standing in front of one of the posters for the play."
   class="fullwidth_img"
 %}

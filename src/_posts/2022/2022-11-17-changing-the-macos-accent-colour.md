@@ -12,7 +12,7 @@ In System Preferences, you can change the accent colour of your Mac:
   picture
   filename="appearance_prefs.png"
   alt="The macOS General preferences, with a preview of Light/Dark/Auto mode and a selection of coloured buttons to choose the accent colour. The currently selected colour is red, which can be seen in the outline of a selected search field in the upper-right corner, the arrows on two select menus, and a checkbox."
-  visible_width="520px"
+  width="520"
 %}
 
 This affects colours throughout your Mac's user interface, including buttons, menus, and tickboxes.

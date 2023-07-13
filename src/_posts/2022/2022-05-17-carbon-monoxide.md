@@ -22,7 +22,7 @@ Silence.
   picture
   filename="carbon-monoxide-detectors.jpg"
   alt="My old carbon monoxide detector sitting on top of a box of new detectors. The detectors are all small off-white boxes with a few lights and a large button on the front. I've scribbled on front of the old detector with red sharpie and the word “dead”."
-  visible_width="504px"
+  width="504"
 %}
 
 I've now binned my old detectors, and put in four new detectors.

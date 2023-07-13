@@ -16,7 +16,7 @@ This is a classic microservices pattern.
   picture
   filename="sqs_queues.png"
   alt="Three applications, communicating via two message queues."
-  visible_width="750px"
+  width="750"
 %}
 
 Sometimes an application fails to process a message correctly, in which case SQS can send the message to a separate [dead-letter queue (DLQ)][dlq].
@@ -33,7 +33,7 @@ I've written a Python function to do just that, and in this post, I'll walk thro
     picture
     filename="sqs_console.png"
     alt="A list of rows in the SQS Console, showing a fragment of the body, the size and the sent date."
-    visible_width="598px"
+    width="598"
   %}
   <figcaption>
     Viewing queue messages in the AWS Console.

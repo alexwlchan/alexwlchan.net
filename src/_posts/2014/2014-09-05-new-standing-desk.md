@@ -15,7 +15,7 @@ Here's a picture of the new desk, from the front on:
 {%
   picture
   filename="P8050559.jpg"
-  visible_width="750px"
+  width="750"
   alt="A desk with a black top, red keyboard shelf, black keyboard and an iMac."
 %}
 
@@ -99,7 +99,7 @@ The Galant forms the base of the desk. There's a metal bar that runs directly un
 {%
   picture
   filename="P8050572.jpg"
-  visible_width="500px"
+  width="500"
   alt="A grey cylindrical table leg, with markings 10/20/30."
 %}
 
@@ -120,7 +120,7 @@ All I did was assemble the Galant and the Lack, put the Lack on top, and cable t
 {%
   picture
   filename="P8050561.jpg"
-  visible_width="600px"
+  width="600"
   alt="A sideways-on view of the desk."
 %}
 

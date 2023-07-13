@@ -19,7 +19,7 @@ The staging and prod deployments are two separate builds in Buildkite, and until
   picture
   filename="buildkite_unhelpful.png"
   alt="Two builds for a single commit in the Buildkite dashboard, both labelled 'Deployment'."
-  visible_width="720px"
+  width="720"
 %}
 
 If you click through, you can tell if it's a prod or staging deployment -- but it'd be nice if it was obvious from the dashboard.
@@ -31,7 +31,7 @@ Those descriptions appear in Buildkite: for example, we now label our deployment
   picture
   filename="buildkite_helpful.png"
   alt="Two builds for a single commit in the Buildkite dashboard, now labelled 'Deployment (prod)' and 'Deployment (staging)'."
-  visible_width="720px"
+  width="720"
 %}
 
 [Buildkite]: https://buildkite.com/

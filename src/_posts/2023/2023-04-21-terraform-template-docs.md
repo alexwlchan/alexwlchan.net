@@ -25,7 +25,7 @@ All of the instructions (except the initial `docker build`) can be copy/pasted e
   picture
   filename="terraform-docs-screenshot.png"
   class="screenshot"
-  visible_width="599px"
+  width="599"
   alt="Screenshot of a README file for a 'semantic-search API'. It includes a URL where the API can be accessed, and then numbered step-by-step instructions for deploying a new version of the API. Each step includes a brief prose description and then a command for the developer to run."
 %}
 

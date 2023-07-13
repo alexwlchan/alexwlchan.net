@@ -67,7 +67,7 @@ Although uppercase `Y` seems to work, it's actually one of *two* symbols for the
   filename="icu_symbols.png"
   alt="A table with two rows. The first has symbol 'y' and is the 'year'; the second had symbol 'Y' and is the 'year of “Week of Year”'"
   class="screenshot"
-  visible_width="627px"
+  width="627"
 %}
 
 The first year is the calendar year, and what I thought I was using.

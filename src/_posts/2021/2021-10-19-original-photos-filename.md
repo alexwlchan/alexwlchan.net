@@ -17,7 +17,7 @@ If you enable ["Download Originals to this Mac"](https://support.apple.com/en-gb
   picture
   filename="photos_structure.png"
   alt="A Finder window showing the path 'Photos Library.photoslibrary > originals > 6 > 682DB554-618E-42D6-92A1-3695CFF10D3B.orf'."
-  visible_width="748px"
+  width="748"
 %}
 
 Problem is, these files are named with UUIDs, rather than the original filenames set by the camera (e.g. `IMG_1770.jpg` or `PA090075.ORF`).

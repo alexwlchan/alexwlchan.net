@@ -97,7 +97,7 @@ I had a lovely time, and this post has a few of my photos.
       picture
       filename="IMG_5744.jpg"
       alt="A black steam engine with a boxy shape, running on narrow rails. It has red fittings on the wheels and front bumper, and gold trim and decoration. It’s very shiny and well-cleaned! The cab is at the back of the train, a covered space with circular windows. It's pulling a single carriage, which is empty and has doors open towards the camera."
-      visible_width="622px"
+      width="622"
       loading="lazy"
       link_to_original
     %}
@@ -107,7 +107,7 @@ I had a lovely time, and this post has a few of my photos.
       picture
       filename="IMG_5751.jpg"
       alt="A dark blue steam engine, sitting in the sidings. It has a burgundy nameplate “Blickling Hall”, the number “6”, and a head plate “Bure Valley Railway”. It’s sitting partway out of a large grey, box-shaped shed. Partially visible is a tender inside the shed – this is a tender engine. Like the black engine, this has red plates on the wheels and gold trim."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -117,7 +117,7 @@ I had a lovely time, and this post has a few of my photos.
       picture
       filename="IMG_6183.jpg"
       alt="A light blue steam engine sitting in a workshop. It’s a similar shape to the first engine – fairly box like. It doesn’t have any gold decorations, just a small nameplate in the centre  of the side. Around it are various boxes and tools, presumably used for maintaining the engines."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -140,7 +140,7 @@ The carriages themselves are pretty short, to match the engines, and they have a
       picture
       filename="IMG_5747.jpg"
       alt="Looking down a train platform with two overhead signs for “Platform 3” and “Platform 2”. Sitting below the sign in platform 2 are a row of burgundy carriages. The carriages are about a metre high, with windows running along the top half, and split into doors for the different compartments. Some of the doors are labelled – for example, the closest door is labelled “Saloon”."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -150,7 +150,7 @@ The carriages themselves are pretty short, to match the engines, and they have a
       picture
       filename="IMG_5734.jpg"
       alt="A row of burgundy carriages, with the interiors more clearly visible -- there are five doors on each carriage, leading to a compartment with bench seats facing each other."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -160,7 +160,7 @@ The carriages themselves are pretty short, to match the engines, and they have a
       picture
       filename="IMG_5794.jpg"
       alt="An engine shed with three tracks leading in, with numbers overhead 1/2/3. Two engines are visible -- a dark blue engine and a light blue engine. To the left-hand side you can see the carriages with doors open, and passengers milling around and ready to board."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -176,7 +176,7 @@ That gave me plenty of time to sit back and enjoy the Norfolk countryside.
     picture
     filename="IMG_5816.jpg"
     alt="Looking out through a train carriage window at passing fields. It’s a field of mostly grass, with some trees along the edge in the distance, and various bushes and foliage appearing at the bottom of the window. There are also warning and safety stickers around the window, but they’re too dark to be easily legible."
-    visible_width="950px"
+    width="950"
     loading="lazy"
     link_to_original
   %}
@@ -192,7 +192,7 @@ I showed the picture below to a close friend, who described as "[my] author phot
     picture
     filename="IMG_5800.jpg"
     alt="A selfie! I’m sitting on one of the seats in a maroon-coloured jumper and a red scarf, with my right arm outstretched over the top of the seat. I’m wearing glasses, dark-coloured lipstick, and I have dark brown hair falling on either side of my face. I’m tilting my head a bit, and smiling – because my jumper is the same colour as the seat! (Well, almost.)"
-    visible_width="950px"
+    width="950"
     loading="lazy"
     link_to_original
   %}
@@ -214,7 +214,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
       picture
       filename="IMG_5844.jpg"
       alt="A black, boxy steam engine with a driver filling it up using a blue hose. The driver is standing next to the train, close to their full height, and they're about as tall as the train."
-      visible_width="622px"
+      width="622"
       loading="lazy"
       link_to_original
     %}
@@ -224,7 +224,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
       picture
       filename="IMG_5852.jpg"
       alt="The black steam engine sitting on a turntable. At the far end is the driver, pushing against one of the handles to turn the train. Beyond the turntable are three tracks and the rest of the station."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -234,7 +234,7 @@ In these pictures you can see the drivers standing next to the trains, and hopef
       picture
       filename="IMG_5921.jpg"
       alt="A dark blue engine sitting on the turntable. This is larger than the black engine, and it's taking two people pushing to turn it around. It looks like quite a strain!"
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -254,7 +254,7 @@ First is this photo of *Blickling Hall* with a [Stadler FLIRT train][flirt] (a n
     picture
     filename="IMG_5958.jpg"
     alt="The dark blue tender engine pulling its burgundy carriages, and on a parallel line above and to the left, a grey-and-red modern commuter train, which is much more sleek and streamlined."
-    visible_width="950px"
+    width="950"
     loading="lazy"
     link_to_original
   %}
@@ -268,7 +268,7 @@ I love the contrast of the grimy diesel with the polished steamie:
     picture
     filename="IMG_5934.jpg"
     alt="A profile shot of the dark blue tender engine and a large blue/turquoise diesel engine heading in the opposite direction on the track above."
-    visible_width="950px"
+    width="950"
     loading="lazy"
     link_to_original
   %}
@@ -286,7 +286,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
       picture
       filename="IMG_6027.jpg"
       alt="A black steam engine sitting on a turntable, blowing steam out of several pipes and holes. It’s facing towards the camera – it’s just been turned around from the other direction."
-      visible_width="622px"
+      width="622"
       loading="lazy"
       link_to_original
     %}
@@ -296,7 +296,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
       picture
       filename="IMG_5895.jpg"
       alt="A dark blue tender engine, blowing copious clouds of white steam from the very front of the engine. Behind it are several low-height coaches, which it’s just pulled along half the journey."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -306,7 +306,7 @@ I remember thinking that was odd on the day -- I did see steam coming out of the
       picture
       filename="IMG_5997.jpg"
       alt="The same dark blue engine, almost invisible behind the enormous cloud of smoke it’s producing."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -328,7 +328,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
       picture
       filename="IMG_5782.jpg"
       alt="Looking down the side of the dark blue engine at a jaunty angle. I’m right up close to its side, so the train fills the photo."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -338,7 +338,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
       picture
       filename="IMG_6081.jpg"
       alt="The very front of the black engine, with the face plate clearly visible. It has silver hands pointing to 5 o’clock, and a headlamp in front of the funnel."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -348,7 +348,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
       picture
       filename="IMG_5784.jpg"
       alt="Looking down the side of the black engine, with the tracks disappearing off into the distance. It’s a very skewed perspective."
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -358,7 +358,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
       picture
       filename="IMG_6086.jpg"
       alt="A close-up of some weird gizmo on the side of the black train. There are copper pipes and coils and brass valves… I have no idea what it does, but it looks cool!"
-      visible_width="500px"
+      width="500"
       loading="lazy"
       link_to_original
     %}
@@ -368,7 +368,7 @@ Hopefully these show what impeccable condition the engines are kept in -- even t
       picture
       filename="IMG_6088.jpg"
       alt="A side view of the black engine, including parts of the wheels and piston arrangement. The wheel parts are picked out in silver and red. So many exciting and graceful parts!"
-      visible_width="627px"
+      width="627"
       loading="lazy"
       link_to_original
     %}
@@ -382,7 +382,7 @@ They're really good looking trains.
     picture
     filename="IMG_5994.jpg"
     alt="One more photo of the dark blue engine pulling a line of carriages, next to the sign for Wroxham Station."
-    visible_width="950px"
+    width="950"
     loading="lazy"
     link_to_original
   %}
@@ -399,7 +399,7 @@ I'll end with a photo of me, with windswept hair and a big smile, another favour
     picture
     filename="IMG_6211.jpg"
     alt="Another selfie! I’m a bit dishevelled, my hair is ruffled, and my hands are full of stuff. I’m standing in front of the station canopy, and I’m beaming. Huge smile."
-    visible_width="950px"
+    width="950"
     loading="lazy"
     link_to_original
   %}

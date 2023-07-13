@@ -14,7 +14,7 @@ A couple of weeks ago, I got a message from my friend Jay, asking if I'd help hi
 {%
   picture
   filename="messages_from_jay.png"
-  visible_width="418px"
+  width="418"
   alt="Screenshot of some Twitter DMs from Jay that read: ‘Alex.... I came up with a stupid idea and even created the account, but I literally have no idea what to do now...? I googled stuff and all the tech words are unintelligble because I do not speak that language’. Do you want to join in this idiotic scheme? I can sort out the text if you can sort out the tech."
 %}
 

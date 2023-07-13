@@ -33,7 +33,7 @@ On the Thursday in question, we started getting alerts from our website monitori
   picture
   filename="cloudfront_errors_detected.png"
   alt="A Slack message: ‘CloudFront: 5xx errors detected. 2 errors / 6.5K requests / link to logs in S3.’ Followed by two URLs for pages on wellcomecollection.org."
-  visible_width="654px"
+  width="654"
   class="screenshot"
 %}
 
@@ -50,7 +50,7 @@ CloudFront uploads logs every few minutes, so we find out about issues pretty qu
   picture
   filename="slack_alert_architecture.png"
   alt="A hand-drawn illustration of our Slack alerting architecture. A user (a grey silhouette) makes a request to CloudFront (a purple circle). This gets sent to the website (a grey box) and the logs in S3 (a green bucket). The logs in S3 get sent to a Lambda function (an orange Greek letter Lambda), which forwards them to Slack."
-  visible_width="750px"
+  width="750"
 %}
 
 Before this setup, we only found out about outages from our automated uptime monitoring (which only checks a sample of pages) or when a user reported an error (which are much slower to arrive).
@@ -69,7 +69,7 @@ When we clicked, we all saw the error page -- these searches were failing for us
   picture
   filename="wc_500_error.png"
   alt="An 'Internal Server Error' page."
-  visible_width="582px"
+  width="582"
   class="screenshot"
 %}
 
@@ -89,7 +89,7 @@ This is the basic architecture for our collections search:
   picture
   filename="basic_architecture.png"
   alt="A simple architecture diagram made of three boxes in a line. The box labelled 'front end' points to the box labelled 'catalogue API', which points to a database labelled 'ES'."
-  visible_width="750px"
+  width="750"
 %}
 
 If you're using our website, you're interacting with a front-end web app.
@@ -118,7 +118,7 @@ Whenever I get an error message I don't recognise, I start by plugging it into G
   picture
   filename="google_results.png"
   alt="Google search results for ‘totalTermFreq must be at least docFreq’. There aren’t many results."
-  visible_width="634px"
+  width="634"
   class="screenshot"
 %}
 
@@ -142,7 +142,7 @@ Then I looked at the [list of Elasticsearch releases][releases]: 8.4.2 had been 
   picture
   filename="elastic_release.png"
   alt="Screenshot of the GitHub release of Elasticsearch 8.4.2, with a label ‘2 days ago’."
-  visible_width="583px"
+  width="583"
   class="screenshot"
 %}
 
@@ -175,7 +175,7 @@ I plugged in that query, and bam, I got the same error:
   picture
   filename="kibana_console.png"
   alt="A two-up console. On the left-hand side is an HTTP GET request with a JSON body (an Elasticsearch search query); on the right-hand side is the JSON response."
-  visible_width="750px"
+  width="750"
   class="screenshot"
 %}
 

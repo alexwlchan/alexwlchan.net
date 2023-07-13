@@ -111,7 +111,7 @@ module Jekyll
             picture
             filename="#{post['card']['index']}"
             parent="/images/cards/#{post['date'].year}"
-            visible_width="400px"
+            width="400"
             alt=""
             loading="lazy"
             data-proofer-ignore

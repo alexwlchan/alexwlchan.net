@@ -17,7 +17,7 @@ This is the promise of "it just works": I [open an image in Preview][preview], h
     picture
     filename="live_text.jpg"
     alt="A picture of a railway sign with the text highlighted, and a popover menu offering several options: ‘Look up “Passengers must not pass this point or cross the line”’, ‘Translate “Passengers must not pass this point or cross the line”’, Search with Google, Copy, or Share."
-    visible_width="491px"
+    width="491"
     class="screenshot"
   %}
   <figcaption>

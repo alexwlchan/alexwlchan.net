@@ -29,7 +29,7 @@ Even my fairly small nav wants you to page through ten elements to get to the ma
   picture
   filename="IMG_1877.png"
   alt="Viewing this web page with VoiceOver in the browser. There's a dark outlined rectangle highlighting the invisible link, and the VoiceOver caption shows 'Skip to main content, in-page link'."
-  visible_width="609px"
+  width="609"
   class="screenshot"
 %}
 

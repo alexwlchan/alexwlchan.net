@@ -24,7 +24,7 @@ You can [skip to the end](#actually-useful-information) if you just want the pra
     picture
     filename="shattered_mirror.jpg"
     alt="A side view mirror from a car, shattered and bent lying on the pavement."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Superstition says breaking a mirror will bring seven years of bad luck.

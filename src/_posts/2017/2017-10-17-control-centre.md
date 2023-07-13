@@ -29,7 +29,7 @@ Pop quiz: in the screenshot below, are Wi-Fi and Bluetooth turned on or off?
     picture
     filename="control_centre_base.png"
     alt="A screenshot of Control Centre."
-    visible_width="320px"
+    width="320"
   %}
   <figcaption>
     There's a cluster of four circular icons in the top-left hand corner.
@@ -60,7 +60,7 @@ It could work if this was a three-way switch with "Off" as another state --- but
     picture
     filename="control_centre_no_radios.png"
     alt="A screenshot from Control Centre when Wi-Fi and Bluetooth are turned off."
-    visible_width="320px"
+    width="320"
   %}
   <figcaption>
     What it looks like when WiFi and Bluetooth are actually turned off.
@@ -88,7 +88,7 @@ But first, I'm taken to a screen where I can select my audio output:
     picture
     filename="control_centre_sources.png"
     alt="A media player with a list of output sources: iPhone and Apple TV."
-    visible_width="320px"
+    width="320"
   %}
 </figure>
 
@@ -99,7 +99,7 @@ It's another tap before I can get to the media controls, which are then rendered
     picture
     filename="control_centre_mediacontrols.png"
     alt="Media player controls: a scrubber to select play position, play/forward/back buttons, and a volume control."
-    visible_width="320px"
+    width="320"
   %}
 </figure>
 

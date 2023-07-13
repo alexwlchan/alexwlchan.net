@@ -60,7 +60,7 @@ I've packaged this up with [Peter Coles' bookmarklet creator][coles], and when I
 {%
   picture
   filename="image-label-bookmarklet.jpg"
-  visible_width="567px"
+  width="567"
   class="screenshot"
   alt="A screenshot of a blog post, with three images inline with the text. Each image has a small label in the top left-hand corner, green text on a white background, saying “2x.webp”."
 %}

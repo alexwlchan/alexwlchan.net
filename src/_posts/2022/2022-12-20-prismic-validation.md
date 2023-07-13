@@ -44,7 +44,7 @@ You can export a snapshot in the "Import/Export" tab of the Prismic GUI, but tha
   filename="prismic_export.png"
   alt="An Import/Export panel in the Prismic dashboard. There's a heading 'Export your documents' with the explanation 'Ask for a snapshot of all your documents. You will be notified by email once its done' and a green button 'Export your documents'"
   class="screenshot"
-  visible_width="558px"
+  width="558"
 %}
 
 Fortunately, the Prismic client library includes a [dangerouslyGetAll() method][dangerouslyGetAll], which downloads all your documents.
@@ -196,7 +196,7 @@ Content editors can assemble a sequence of different slices in the GUI editor to
   filename="prismic_slices.png"
   alt="A picker for three types of slice in Prismic: text, captioned image, and image gallery."
   class="screenshot"
-  visible_width="538px"
+  width="538"
 %}
 
 To help us manage our slice types, we made a tool that counts how many times each slice type is used.
@@ -327,7 +327,7 @@ The link takes them directly to the affected document in the Prismic web editor,
   filename="prismic_dashboard.png"
   alt="A dashboard highlighting three Prismic errors. Each error has a heading which is a link to the document, then a list of bullet points describing the problems with that document."
   class="screenshot"
-  visible_width="483px"
+  width="483"
 %}
 
 The dashboard updates on a fixed schedule, so new errors will appear as they're found, and disappear as they're fixed.

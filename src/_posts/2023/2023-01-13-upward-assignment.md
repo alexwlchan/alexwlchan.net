@@ -59,7 +59,7 @@ The rest of the program proceeds as normal, unaware that this variable was assig
 {%
   picture
   filename="vassign_look_up.png"
-  visible_width="420px"
+  width="420"
   alt="An annotated snippet of code with red markers showing 'remember the value above' and 'look up'."
 %}
 
@@ -80,7 +80,7 @@ If we find one, we'll look down to the next line after that, to see what value w
 {%
   picture
   filename="vassign_look_down.png"
-  visible_width="400px"
+  width="400"
   alt="An annotated snippet of code with red markers showing 'look down for an arrow' and 'look down again for a value'."
 %}
 
@@ -590,7 +590,7 @@ Here's my mental picture of what's going on:
 {%
   picture
   filename="vassign_scopes.png"
-  visible_width="491px"
+  width="491"
   alt="A hand-drawn illustration of scopes. Each scope is a large grey circle; on the left-hand side is “main scope”; on the right is “function scope”. The variables are shown as red pills. The main scope has two variables: “colours” and “shapes”; the function scope has two variables: “shapes” and “new shape”. There’s a red arrow from the “shapes” variable in the function scope, pointing to the “shapes” variable in the main scope, to represent the reference between them."
 %}
 
@@ -827,7 +827,7 @@ It may not be useful code, but it is useful knowledge.
   picture
   filename="vassign_value.png"
   alt="A hand-drawn pair of upward assignment operators; one assigning zero to utility, the other assigning 100 to knowledge."
-  visible_width="405px"
+  width="405"
 %}
 
 I really recommend downloading some of the code snippets and playing with it yourself; I think it's a much better way to learn than just reading about what somebody else has done.

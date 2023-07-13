@@ -61,7 +61,7 @@ I started reading the jq documentation to understand exactly how this worked, wh
 {%
   picture
   filename="jq_from_entries.png"
-  visible_width="531px"
+  width="531"
   alt="A screenshot of the jq documentation, explaining the from_entries, to_entries and with_entries filters, including a couple of examples."
   class="screenshot"
 %}

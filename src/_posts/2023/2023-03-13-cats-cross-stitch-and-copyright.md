@@ -25,7 +25,7 @@ Here are a few of the pages:
     {%
       picture
       filename="IMG_3362.jpg"
-      visible_width="475px"
+      width="475"
       alt="A two-page spread, showing the first page of the project. On the left-hand side is the green piece of card I used as a cover; on the right-hand side is the cover page. It says 'The Cheetah' in big letters, followed by 'Endangered species!' as a subtitle. Then there's a big glossy photo of a cheetah snarling its teeth, and below that some attribution: 'by Alexander Chan / Berkhampstead School / March 2002'."
     %}
   </div>
@@ -33,7 +33,7 @@ Here are a few of the pages:
     {%
       picture
       filename="IMG_3367.jpg"
-      visible_width="237.5px"
+      width="238"
       alt="Four hand-drawn illustrations on a page titled 'A cheetah running'. The first drawing shows the cheetah pushing down on its back feet; the second shows how this pushes the cheetah forward; the third shows its four legs lifted off the ground; the final picture shows its front legs touch down."
     %}
   </div>
@@ -41,7 +41,7 @@ Here are a few of the pages:
     {%
       picture
       filename="IMG_3373.jpg"
-      visible_width="237.5px"
+      width="238"
       alt="A page of general information, including the etymology of the word 'cheetah', some translations in different languages, the fact that a fully-grown cheetah has over 3000 spots, and that a cheetah is recognisable by the black 'tear mark' that runs down its face. There's an illustration of a cheetah looking at the reader, in which the tear mark is visible on either side of its nose."
     %}
   </div>
@@ -61,7 +61,7 @@ I got to work, and two months later I have this to show for it:
   {%
     picture
     filename="IMG_3360.jpg"
-    visible_width="950px"
+    width="950"
     class="wide_img"
     alt="Some cross-stitch embroidery of a cheetah. The cheetah is running, with it legs angled beneath it as if its partway off the ground. It's leaning towards the right, with its tail curving behind it. The piece is stitched on white fabric in varying shades of yellow/brown/black, and mounted in a square frame made of yellowy-orange wood."
   %}
@@ -91,7 +91,7 @@ I used Google Lens to do a reverse image lookup, and I found various low-quality
 {%
   picture
   filename="etsy-cheetah-listing.jpg"
-  visible_width="600px"
+  width="600"
   class="screenshot"
   alt="An Etsy listing of a canvas print of a similar-looking cheetah picture, but with more fine detail than the cross-stitched version."
 %}

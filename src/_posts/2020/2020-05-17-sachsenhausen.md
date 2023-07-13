@@ -18,7 +18,7 @@ During the Second World War, it was used by the Nazis for political prisoners.
   picture
   filename="sachsenhausen.jpg"
   alt="An off-white building with a gate in the middle, set against a grey sky."
-  visible_width="750px"
+  width="750"
 %}
 
 If you just look at the numbers, it might not seem very significant -- about 100,000 prisoners died there, a fraction of the 6&nbsp;million Jews who were killed in the Holocaust, or even the death toll of other individual camps.
@@ -53,7 +53,7 @@ When people talk about the "tyranny" of Europe, I want to drag them there and sh
   picture
   filename="sachsen_field.jpg"
   alt="A brown and muddy field, with a fence and watchtower visible on the horizon."
-  visible_width="750px"
+  width="750"
 %}
 
 Carved on one of the walls is a quote from [Andrzej Szczypiorski], one of the camp's prisoners:

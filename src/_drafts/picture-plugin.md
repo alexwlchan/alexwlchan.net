@@ -4,8 +4,8 @@ title: "My custom &lt;picture&gt; plugin for Jekyll"
 summary:
 tags: web-development jekyll blogging-about-blogging
 colors:
-  index_light: "#d62b56"
-  index_dark:  "#fd96af"
+  css_light: "#df1b4a"
+  css_dark:  "#fd96af"
 ---
 
 About seven months ago, I did a complete rewrite of how I handle images on this site.
@@ -62,7 +62,7 @@ This expands into a larger chunk of HTML, which refers to nine different variant
   <img
     src="/images/2023/IMG_9016_1x.jpg"
     width="750"
-    style="aspect-ratio: 3 / 4; "
+    style="aspect-ratio: 3 / 4;"
     class="photo"
     alt="A collection of hot pink flowers, nestled among some dark green leaves in a greenhouse."
   >
@@ -113,7 +113,7 @@ module Jekyll
       article = context.registers[:page]
       date = article['date']
       year = date.year
-      
+
       path = "_images/#{year}/#{filename}"
       …
 ```
@@ -194,30 +194,82 @@ I figure that if your browser is that old, it's unlikely you're using a high pix
 ## Getting different formats of the image
 
 JPEG and PNG are fine, but they're a bit long in the tooth – there are newer image formats that look the same but with smaller files.
-[WebP] and AVIF
+[WebP] and [AVIF] are modern image formats that are much smaller, which means faster loading images for you and a cheaper bandwidth bill for me.
+
+Alongside the different sizes of image, I'm using ImageMagick to create variants in WebP and AVIF.
+These get presented as alternative `<source>` entries in the `<picture>` tag, for example:
+
+```html
+<picture>
+  <source
+    srcset="/images/2023/IMG_9016_1x.avif 750w,
+            /images/2023/IMG_9016_2x.avif 1500w,
+            /images/2023/IMG_9016_3x.avif 2250w"
+    sizes="(max-width: 750px) 100vw, 750px"
+    type="image/avif"
+  >
+  <source
+    …
+    type="image/webp"
+  >
+  <source
+    …
+    type="image/jpeg"
+  >
+  …
+</picture>
+```
+
+Not every browser supports WebP and AVIF, which is why I'm providing all three variants.
+Your browser knows which formats it supports, and will choose appropriately.
+
+The compression is pretty remarkable: the WebP images are about half the size of the originals, but the AVIF images are one sixth!
+When I first enabled AVIF support, I thought something was broken -- the files were so small, it looked wrong to me.
+
+(It turns out [something was broken][transparency], but it was nothing to do with file sizes.)
 
 [WebP]: https://en.wikipedia.org/wiki/WebP
 [AVIF]: https://en.wikipedia.org/wiki/AVIF
+[transparency]: {% post_url 2023/2023-01-15-check-for-transparency %}
 
 ---
 
-I wrote a custom Jekyll plugin
+## Setting the aspect ratio property for zero CLS
 
+Because I have the image dimensions from rszr, I can calculate the aspect ratio of the image and insert it [as a property][ar_property] on the `<img>` tag:
 
+```html
+<img
+  src="/images/2023/IMG_9016_1x.jpg"
+  width="750"
+  style="aspect-ratio: 3 / 4;"
+  …
+>
+```
 
-* use an image cdn?
-  * no learning
-  * another build step – already have jekyll
-  * money!!!
+Combined with the `width`, this allows a browser to completely calculate the area an image will take up the page -- before it loads the image.
+This means it can lay out the page immediately, leave the right amount of space for the image, and it won't have to rearrange the page later.
+The fancy term for this is ["Cumulative Layout Shift"][cls], and too much of it can be distracting -- setting these two attributes reduces it to zero.
 
-* get picture
-* get dimensions (e.g. 1024 × 768)
-* create sizes of image at 1x, 2x, 3x, 4x e.g. 300px wide => 300px, 600px, 900px versions
-  - use <picture> and <source>
-  - fall back to <img> at 1x
-* create versions in AVIF, WebP -- good compression! almost too good. not gr9 for v small images
-* queued in jekyll build process because slow
-* passthru other attributes
-* doesn't require alt text
+[ar_property]: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
+[cls]: https://web.dev/optimize-cls/
 
-<picture> <source srcset="/images/profile_green_500w.avif 500w, /images/profile_green_640w.avif 640w, /images/profile_green_1x.avif 750w, /images/profile_green_1000w.avif 1000w, /images/profile_green_1250w.avif 1250w, /images/profile_green_2x.avif 1500w, /images/profile_green_3x.avif 2250w" sizes="(max-width: 750px) 100vw, 750px" type="image/avif"> <source srcset="/images/profile_green_500w.webp 500w, /images/profile_green_640w.webp 640w, /images/profile_green_1x.webp 750w, /images/profile_green_1000w.webp 1000w, /images/profile_green_1250w.webp 1250w, /images/profile_green_2x.webp 1500w, /images/profile_green_3x.webp 2250w" sizes="(max-width: 750px) 100vw, 750px" type="image/webp"> <source srcset="/images/profile_green_500w.jpg 500w, /images/profile_green_640w.jpg 640w, /images/profile_green_1x.jpg 750w, /images/profile_green_1000w.jpg 1000w, /images/profile_green_1250w.jpg 1250w, /images/profile_green_2x.jpg 1500w, /images/profile_green_3x.jpg 2250w" sizes="(max-width: 750px) 100vw, 750px" type="image/jpeg"> <img src="/images/profile_green_1x.jpg" alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants." class="rounded_corners" width="750" style="aspect-ratio: 4 / 3; "> </picture>
+---
+
+## Passing through other attributes to the &lt;img&gt;
+
+Aside from the `filename` attribute, all the attributes on the `{% raw %}{% picture %}{% endraw %}` get passed directly to the underlying `<img>` tag.
+I use this for includes things like alt text, CSS classes and inline styles.
+It looks exactly like the HTML might look.
+
+This gives me a bunch of flexibility for tweaking the behaviour of images on a per-post basis.
+I get the benefits of the different sizes and image formats, and it all looks like familiar HTML.
+
+The plugin is doing a bit of work to parse the attributes, and combine them with any attributes that it's adding (for example, appending the `aspect-ratio` property to any inline styles), but this is largely invisible when I'm just writing a post.
+
+---
+
+When the web was young, images were much simpler. You’d upload your JPEG file to your web server, add an `<IMG>` tag to your HTML page, and you were done.
+That still works (including the uppercase HTML tags), but there’s a lot more we can do now.
+
+Building this plugin has been one of the more complex bits of front-end web development I've done for this site.

@@ -22,7 +22,7 @@ I only ever took a handful of photos of this setup:
 {%
   picture
   filename="IMG_9838.jpg"
-  visible_width="750px"
+  width="750"
   class="photo"
   alt="A poorly-framed photograph of a bedroom. There's a double bed partially visible at the bottom of the frame, with a purple mattress cover. In front of the bed is a large wardrobe taking up most of one wall, which has purple and white sections on the front. The purple sections are slightly reflective, and show the bed on the other side of the room. On the bed is a large, upside down plushy shark (a Bhålaj), who looks about as excited as I feel about this room."
 %}
@@ -63,7 +63,7 @@ I took great glee in disassembling something which has been a source of countles
     {%
       picture
       filename="70155648040__99EE2B94-C722-4E3F-922E-0093161E3058.jpg"
-      visible_width="750px"
+      width="750"
       alt="The same bedroom from a previous angle, with a partially disassembled wardrobe against one wall. The doors have been removed and you can see the empty interior, which shows three vertical compartments separated by dividers. The interior is a drab and uninspiring grey, with dark water stains in several parts."
     %}
   </div>
@@ -71,7 +71,7 @@ I took great glee in disassembling something which has been a source of countles
     {%
       picture
       filename="70155977066__50021B9A-2ED9-4BDD-B213-25F89132398E.jpg"
-      visible_width="750px"
+      width="750"
       alt="A pile of flat-pack wardrobe pieces stacked against a fence."
     %}
   </div>
@@ -101,7 +101,7 @@ Dulux have more names for white than Eskimos have words for snow.
     {%
       picture
       filename="IMG_3467.jpg"
-      visible_width="500px"
+      width="500"
       alt="Looking into the partially painted bedroom through the door -- you can see three walls, with the window on the far side. The bed is in the middle of the room, covered in dust sheets and a variety of painting tools. Two of the walls have some patches of the light yellow on them, some of my initial roller work. Outside the window is darkness -- I was painting at night."
     %}
   </div>
@@ -109,7 +109,7 @@ Dulux have more names for white than Eskimos have words for snow.
     {%
       picture
       filename="IMG_3465.jpg"
-      visible_width="250px"
+      width="250"
       alt="Another view into the room, this time looking towards the door. The grey feature wall is visible behind the bed, because I haven't started painting it yet. There's a little bit of masking around the door frame and some plastic sheets covering a large mirror on the wall."
     %}
   </div>
@@ -117,7 +117,7 @@ Dulux have more names for white than Eskimos have words for snow.
     {%
       picture
       filename="IMG_3485.jpg"
-      visible_width="250px"
+      width="250"
       alt="Another angle of the feature wall, which has some masking tape around it and some initial roller work for the darker yellow. The yellow doesn't fully cover the wall yet; underneath it you can see the white primer I applied to lighten the grey."
     %}
   </div>
@@ -137,7 +137,7 @@ This is a rough sketch of the new layout, which has way less "dead" space:
 {%
   picture
   filename="bedroom_layout.png"
-  visible_width="489px"
+  width="489"
   alt="Two floorplans, the old on the left and the new on the right. In the old floorplan, the bed is sitting along the middle of one wall, with gaps down either side. There's also the old wardrobe pushed up against the opposite wall, leaving narrow gaps at either end. In the new floorplan, the bed is pushed into one corner, with a set of drawers and a clothes rail pushed against two other walls. There's also the bin and laundry stuck in the corner behind the door, in a space which was previously empty."
 %}
 
@@ -154,7 +154,7 @@ This is how my bed looks now (and yes, those are [cheetahs on the bedding]({% po
 {%
   picture
   filename="P5080114.jpg"
-  visible_width="950px"
+  width="950"
   class="photo wide_img"
   alt="Looking towards one end of the bedroom. On the left hand side is a double bed pushed into one corner, with a white duvet cover with small cheetahs on it, plus a large stack of pillows. On the right hand side is a tall, white set of drawers, with a variety of small objects on top (mostly toys and books). The walls are painted a light yellow colour."
 %}
@@ -169,7 +169,7 @@ At the other end of the room, the bright yellow adds a big burst of colour:
 {%
   picture
   filename="P5080094.jpg"
-  visible_width="950px"
+  width="950"
   class="photo wide_img"
   alt="Looking towards the other end of the room, with the end of the bed just visible in the bottom right-hand corner. The wall is a bright, egg-yolk yellow. On the left-hand side is a mirror that's almost the full height of the wall. To the right of the mirror is a clothes rail with various clothes hanging from it, and a few pairs of shoes on the floor below. To the right of the clothes rail is the open bedroom door, hiding the corner behind it."
 %}

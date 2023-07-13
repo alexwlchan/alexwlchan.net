@@ -46,7 +46,7 @@ I've written a [Jekyll plugin][plugin] which allows me to use an image in a post
   picture
   filename="wc_500_error.png"
   alt="An 'Internal Server Error' page."
-  visible_width="582px"
+  width="582"
   class="screenshot"
 %}{% endraw %}
 ```
@@ -95,14 +95,14 @@ I had it all tested and working, so imagine my dismay when I opened [my latest p
     picture
     filename="avif_image_broken.png"
     alt="A web page showing a hand-drawn diagram with some red text, and a black background which makes the diagram impossible to follow."
-    visible_width="300px"
+    width="300"
     class="screenshot"
   %}
   {%
     picture
     filename="avif_image_working.png"
     alt="The same web page, but now the diagram has a transparent background and shows through the white of the underlying page. The diagram is now legible."
-    visible_width="300px"
+    width="300"
     class="screenshot"
   %}
   <figcaption>

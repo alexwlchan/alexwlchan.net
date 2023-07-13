@@ -17,7 +17,7 @@ It's made up of coloured rectangles arranged in a line, which are meant to look 
     picture
     filename="shelves.png"
     alt="Three page headers in red, yellow, and blue. Each header is a collection of rectangles of different widths and heights in varying shades of red/yellow/blue, arranged so the top edge of the rectangles forms a straight line."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -137,7 +137,7 @@ Here's what the result looks like:
   filename="green_rectangle.png"
   alt="A frame with a thin black border and a bright green rectangle near the upper left-hand corner."
   style="border: 0.25px solid black;"
-  visible_width="200px"
+  width="200"
 %}
 
 You can also modify the image in-place by making it mutable, and using `draw_filled_rect_mut`:
@@ -339,19 +339,19 @@ Here are a few examples, which look close to what we want:
 {%
   picture
   filename="black_shelves1.png"
-  visible_width="500px"
+  width="500"
   alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles."
 %}
 {%
   picture
   filename="black_shelves2.png"
-  visible_width="500px"
+  width="500"
   alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles."
 %}
 {%
   picture
   filename="black_shelves3.png"
-  visible_width="500px"
+  width="500"
   alt="A black shape with straight lines along the top/left/right-hand sides, and a jagged bottom edge that's made up of tall rectangles."
 %}
 
@@ -469,7 +469,7 @@ And here's an example of what it looks like:
   picture
   filename="red_shelves.png"
   alt="A collection of rectangles of different widths and heights in varying shades of red, arranged so the top of the rectangles all form a straight line. It looks a bit like an upside-down bookshelf made of books with red spines."
-  visible_width="500px"
+  width="500"
 %}
 
 If you want to get the final code, you can download this zipfile, which is a complete Rust project:

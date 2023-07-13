@@ -17,7 +17,7 @@ It's been a while.)
   picture
   filename="broken_bulb.jpg"
   alt="A light attached to a white ceiling. The light is a wide, stumpy cylinder made of plastic -- most of it is white, and then there's a small black base where it attaches to the ceiling."
-  visible_width="750px"
+  width="750"
 %}
 
 I had another go today, and was roundly defeated in my first attempt to remove the cover.
@@ -32,7 +32,7 @@ I was a bit sceptical, because this looks like a pretty generic design, but why 
 {%
   picture
   filename="google_lens.jpg"
-  visible_width="750px"
+  width="750"
   alt="A screenshot of Google Lens results. On the left-hand side is my original photograph; on the right-hand side is a collection of visual matches, with links to shopping sites. Three of the nine results are exactly the same as my light, but the product photo is taken from a different angle."
   class="screenshot"
 %}
@@ -59,7 +59,7 @@ It took a bit of jiggling with two screwdrivers, but eventually the cover unclip
 {%
   picture
   filename="light_gap.jpg"
-  visible_width="750px"
+  width="750"
   alt="A close-up photograph of where the base meets the cover. There's a gap in the base, with a red arrow pointing to it."
 %}
 
@@ -70,7 +70,7 @@ No wonder I've had a dark porch all this time.
 {%
   picture
   filename="no_bulb.jpg"
-  visible_width="750px"
+  width="750"
   alt="Just the base of the light, with the cover removed. The base is made of black plastic, with a mirror covering most of it. There's also a bulb socket, without a bulb in it."
 %}
 
@@ -81,7 +81,7 @@ I grabbed one from the cupboard, clipped the cover back on, and voila:
   picture
   filename="working_light.jpg"
   alt="The light with the cover reattached, lit up and casting a yellowish-white glow across the ceiling."
-  visible_width="750px"
+  width="750"
 %}
 
 Let there be light.

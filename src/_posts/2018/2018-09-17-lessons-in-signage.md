@@ -40,7 +40,7 @@ In the picture below, a glance down the corridor doesn't tell you much -- doubli
     picture
     filename="corridor-signs.jpg"
     alt="A corridor with double doors at the end, single doors on the left and right, and signs next to each of the doors."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Looking down a corridor at Cardiff City Hall.
@@ -68,7 +68,7 @@ We had a printer and a laminator to hand, and I'd brought the design files on my
     picture
     filename="toilet-signs.jpg"
     alt="A sign on bathroom tiling with a yellow stripe at the top labelled “Toilet”."
-    visible_width="550px"
+    width="550"
   %}
   <figcaption>
     A hastily reprinted sign in one of the toilets (the original signs mysteriously disappeared overnight).
@@ -94,7 +94,7 @@ On the arrow signs, the snakes all turn to face the direction of travel.
     picture
     filename="quiet-room-signs.jpg"
     alt="A sign on a brown wood-panelled door, with a yellow stripe at the top labelled “Quiet room”."
-    visible_width="550px"
+    width="550"
   %}
   <figcaption>
     The sign for the quiet room.
@@ -116,7 +116,7 @@ One to consider for next year -- be much more careful about other signage that's
     picture
     filename="mismatched-signs.jpg"
     alt="A pillar with a white-and-yellow sign labelled “Lower Hall” on one side, and a sign with a red arrow labelled “Education Summit” on the right."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Are these both signs for the same event?

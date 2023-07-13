@@ -23,7 +23,7 @@ Everyone else is condemned to an eternity of misery and torture in the Bad Place
     picture
     filename="janet.jpg"
     alt="Good Janet and Bad Janet."
-    visible_width="600px"
+    width="600"
   %}
   <figcaption>
     Good Janet (left) and Bad Janet (right).

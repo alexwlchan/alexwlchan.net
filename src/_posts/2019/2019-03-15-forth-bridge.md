@@ -28,7 +28,7 @@ Here's a map that shows the train line from Edinburgh to the village:
     picture
     filename="forth_bridge_map.jpg"
     alt="A map showing the railway line between Edinburgh and North Queensferry."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Map data from <a href="https://www.openstreetmap.org/">OpenStreetMap</a>.
@@ -43,7 +43,7 @@ I wasn't really aware from the bridge as we went across -- not until I got out a
     picture
     filename="IMG_0534.jpg"
     alt="A silhouette of the bridge and some trees against a grey sky."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -64,7 +64,7 @@ You can still see a handful of small boats in the harbour, but I'm sure it used 
     picture
     filename="PC010334.jpg"
     alt="Photo from the water's edge, with two bridges in the background and a couple of boats in the water."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -89,7 +89,7 @@ The light tower sits on the pier, where the ferries used to dock.
   picture
   filename="PC010315.jpg"
   alt="A yellowish-stone hexagonal tower, with a domed roof and windows around the top."
-  visible_width="500px"
+  width="500"
 %}
 
 Unlike many lighthouses of the time, the keeper didn't live in the lighthouse itself -- but they were still responsible for keeping the flame lit, the oil topped out, and the lighthouse maintained.
@@ -104,7 +104,7 @@ When lit, it gave a fixed white light, with a paraffin-burning lamp -- and the l
   picture
   filename="PC010318.jpg"
   alt="The back of a copper-coloured, parabolic lens looking out through a lighthouse window."
-  visible_width="500px"
+  width="500"
 %}
 
 I wish I'd got a few more photos of the inside of the lighthouse, but it was a pretty small space, and I was struggling to find decent angles.
@@ -126,7 +126,7 @@ Here's a photo of its original construction, taken from the North Queensferry hi
     picture
     filename="bridge_building.jpg"
     alt="A sepia-toned photograph of a partially constructed bridge, with three cantilevers visible above the water."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     Image of the construction of the Forth Bridge, from the <a href="https://en.wikipedia.org/wiki/File:Forth_Bridge_-_General_view_from_North_Queensferry_hills_depicting_the_three_cantilevers_at_very_nearly_their_full_height.jpg">National Library of Scotland</a>.
@@ -145,7 +145,7 @@ Here's another photo from the construction which shows off this idea:
     picture
     filename="forth_washington_wilson.jpg"
     alt="Black-and-white photo from the construction of the Forth Bridge."
-    visible_width="483px"
+    width="483"
   %}
   <figcaption>
     Another photo of the bridge under construction, <a href="https://commons.wikimedia.org/wiki/File:George_Washington_Wilson.jpg">George Washington Wilson</a>.
@@ -167,7 +167,7 @@ You get a great view of the finished bridge from inside the lighthouse:
     picture
     filename="PC010319.jpg"
     alt="Looking from inside the lighthouse window, with a red bridge visible outside and part of a copper-coloured lamp housing inside."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -179,7 +179,7 @@ These are a few of my favourites:
     picture
     filename="IMG_0605.jpg"
     alt="The lighthouse in the foreground on the left, with the bridge set against a blue sky in the background."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -188,7 +188,7 @@ These are a few of my favourites:
     picture
     filename="PC010332.jpg"
     alt="Another photo with the lighthouse in the foreground, and the bridge running parallel to the horizon in the background."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -197,7 +197,7 @@ These are a few of my favourites:
     picture
     filename="PC010305.jpg"
     alt="The bridge dominating the background, with the jetty and a few boats in the foreground."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -206,7 +206,7 @@ These are a few of my favourites:
     picture
     filename="PC010292.jpg"
     alt="The bridge crossing the frame, set against a blue sky."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -221,7 +221,7 @@ You can see the approach viaduct towering over the houses as it approaches the v
     picture
     filename="IMG_0582.jpg"
     alt="The bridge running across the image, with a few houses visible along the ground."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -232,7 +232,7 @@ Here's what part of the viaduct holding up the bridge looks like:
   picture
   filename="PC010186.jpg"
   alt="A yellowish-coloured stone viaduct, with the red girders of the bridge atop it."
-  visible_width="500px"
+  width="500"
 %}
 
 They're enormous -- judging by the stairs, it's quite a climb up!
@@ -242,7 +242,7 @@ They're enormous -- judging by the stairs, it's quite a climb up!
     picture
     filename="PC010284.jpg"
     alt="A side-on view of one of the pillars and the red bridge, with some stairs going up the side of the pillar."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -253,7 +253,7 @@ And you can look up through the girders, and see the thousands of beams that hol
     picture
     filename="PC010285.jpg"
     alt="A silhouette of the girders in the bridge, looking up from underneath."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -283,7 +283,7 @@ Here's a photo from midway along, with old and new both visible:
     picture
     filename="PC010283.jpg"
     alt="Two bridges spanning across a body of water."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -297,7 +297,7 @@ Here's an attempt at an "artsy" shot of the bridge receding into the distance, w
     picture
     filename="PC010344.jpg"
     alt="The silhouette of a bridge on the right, with green grass and water visible."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -309,7 +309,7 @@ I love the detail of the underside on the nearer bridge.
     picture
     filename="PC010364.jpg"
     alt="Looking at the underside of two bridges in silhouette, with lens flare in the middle of the photo."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -320,7 +320,7 @@ Here's the start of the bridge on the north side, starting to rise up over the h
     picture
     filename="PC010338.jpg"
     alt="A series of arched bridge supports rising up above some houses."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -331,7 +331,7 @@ And one more close-up shot of one of the supports:
     picture
     filename="PC010358.jpg"
     alt="A single concrete support, with the ridged underside of the bridge visible."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -344,7 +344,7 @@ You can walk across it, although it's nearly 2.5k long!
     picture
     filename="IMG_0678.jpg"
     alt="Looking onto a bridge, with a path directly ahead, fences and roadworks to the right, and water below on the left."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -355,7 +355,7 @@ As you climb up to the bridge, I got some wonderful views back over the village,
     picture
     filename="IMG_0669.jpg"
     alt="A village of houses in shadow in the foreground, with the bridge clearly visible in the background."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -370,7 +370,7 @@ I took it near the midpoint, with the rail bridge set against a cloudy sky.
     picture
     filename="IMG_0688.jpg"
     alt="Looking straight on to the side of the rail bridge, with blue sky and grey clouds behind it."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 

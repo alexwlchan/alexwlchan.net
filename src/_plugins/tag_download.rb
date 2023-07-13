@@ -38,7 +38,7 @@ module Jekyll
             picture
             filename="download_#{icon_name}.png"
             parent="/images/icons"
-            visible_width="64px"
+            width="64"
             alt=""
             data-proofer-ignore
           %}

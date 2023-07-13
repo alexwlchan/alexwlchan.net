@@ -52,13 +52,13 @@ If you click [the "posts" link in the header](/writing/), you'll see something q
     picture
     filename="all_posts_old.jpg"
     alt="A page titled 'All posts' with a list of red text links."
-    visible_width="675px"
+    width="675"
   %}
   {%
     picture
     filename="all_posts_new.jpg"
     alt="A page titled 'Posts' with various coloured tiles. Each tile has a small graphic, a post title, then a one-sentence description."
-    visible_width="675px"
+    width="675"
   %}
 </figure>
 
@@ -96,7 +96,7 @@ I'm also not sure anybody ever realised those hearts were clickable.
   picture
   filename="hearted_posts.png"
   alt="A list of text links, with small red hearts next to several of the titles."
-  visible_width="600px"
+  width="600"
 %}
 
 This is the kernel of a good idea -- I have over 300 posts, and it's unreasonable to expect anybody to choose from that many.
@@ -122,13 +122,13 @@ This is a pretty common design pattern on the web; here are two examples from [t
     picture
     filename="wellcome_collection_cards.jpg"
     alt="Six cards arranged in a two-by-three grid. Each card links to a single article. Each card has a photograph or illustration, a title in a large font, and a description in smaller text. The cards have a uniform cream background."
-    visible_width="675px"
+    width="675"
   %}
   {%
     picture
     filename="books_cards.jpg"
     alt="Four cards arranged in a single column. Each card links to a book. Each card has the title of the book, the author and when I read it, the book's cover. The cards are tinted to match the book covers, e.g. the first card is green to match the book cover."
-    visible_width="675px"
+    width="675"
   %}
 </figure>
 
@@ -144,7 +144,7 @@ I quickly came up with something I liked, and which matches the style of the sit
     picture
     filename="alexwlchan_cards.jpg"
     alt="A scrolling grid of cards, one per post. Each card has a coloured border, a picture, then a title in the same colour as the border. There's smaller text below the title that describes the post."
-    visible_width="675px"
+    width="675"
   %}
 </figure>
 
@@ -188,13 +188,13 @@ Now I put in cards for some favourite posts:
     picture
     filename="homepage_old.jpg"
     alt="The old homepage, with a list of five links under a heading 'Recent posts'."
-    visible_width="675px"
+    width="675"
   %}
   {%
     picture
     filename="homepage_new.jpg"
     alt="The new homepage, with the list of links replaced by three cards arranged in a row."
-    visible_width="675px"
+    width="675"
   %}
 </figure>
 

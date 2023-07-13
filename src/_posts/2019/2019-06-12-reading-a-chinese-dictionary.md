@@ -45,7 +45,7 @@ The English words are sorted alphabetically, so you know how to find a given wor
   picture
   filename="english-to-chinese.png"
   alt="The word 'snake' and an arrow pointing from 'snake' to three question marks."
-  visible_width="400px"
+  width="400"
 %}
 
 But what about the other direction?
@@ -55,7 +55,7 @@ If I gave you a Chinese word and asked for the English, what would you do?
   picture
   filename="chinese-to-english.png"
   alt="An unlabelled Chinese character and an arrow pointing from the character to three question marks."
-  visible_width="400px"
+  width="400"
 %}
 
 To understand how to use a Chinese dictionary, we need to understand [*radicals*](https://en.wikipedia.org/wiki/Radical_(Chinese_characters)).
@@ -67,7 +67,7 @@ For example, if you see an unfamiliar word that starts with “aqua”, you migh
   picture
   filename="aquatic.png"
   alt="The words 'aquamarine', 'aquanaut' and 'aquatics', with the 'aqua' prefix underlined and highlighted in blue."
-  visible_width="400px"
+  width="400"
 %}
 
 Chinese has much the same – but instead of a sequence of common letters, a radical is a sequence of common *strokes*.
@@ -82,25 +82,25 @@ These are a few characters that use the water radical:
     picture
     filename="water-he.png"
     alt="The character 河 or hé, meaning 'river'. The three dashes for the water radical are highlighted in blue on the left."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="water-ke.png"
     alt="The character 渴 or kě, meaning 'thirsty'."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="water-lang.png"
     alt="The character 浪 or làng, meaning 'wave'."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="water-soup.png"
     alt="The character 沕 or tāng, meaning 'soup'."
-    visible_width="400px"
+    width="400"
   %}
   <figcaption>
     I always remember the water radical because it looks like a splash of water! 💦
@@ -115,25 +115,25 @@ This becomes the *fire radical*, which usually signifies characters related to h
     picture
     filename="fire-deng.png"
     alt="The character 灯 or dēng, meaning 'lamp'. The fire radical is highlighted in red on the left."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="fire-chui.png"
     alt="The character 炊 or chuī, meaning 'cook'."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="fire-chao.png"
     alt="The character 炒 or chǎo, meaning 'fry'."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="fire-yan.png"
     alt="The character 烟 or yān, meaning 'smoke'."
-    visible_width="400px"
+    width="400"
   %}
   <figcaption>
     The strokes remind me of a small flame. 🔥
@@ -147,25 +147,25 @@ Here's one more radical that usually appears on the left, the *mouth radical*:
     picture
     filename="mouth-chi.png"
     alt="The character 吃 or chī, meaning 'eat'. The mouth radical is highlighted in green on the left."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="mouth-he.png"
     alt="The character 喝 or hē, meaning 'drink'."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="mouth-yao.png"
     alt="The character 咬 or yǎo, meaning 'bite'."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="mouth-miao.png"
     alt="The character 喵 or miāo, meaning 'meow'."
-    visible_width="400px"
+    width="400"
   %}
   <figcaption>
     A box is used for a couple of characters – not always a mouth – but it's often a good guess. 😮
@@ -185,13 +185,13 @@ Here are two more examples - the grass radical on top of the character, and the 
     picture
     filename="flower-hua.png"
     alt="The character 花 or huā, meaning 'flower'. The grass radical is highlighted in green on the top of the character."
-    visible_width="400px"
+    width="400"
   %}
   {%
     picture
     filename="knife-li.png"
     alt="The character 利 or lì, meaning 'sharp'. The knife radical is highlighted in purple on the right-hand side of the character."
-    visible_width="400px"
+    width="400"
   %}
   <figcaption>
       The grass radical looks like blades of grass poking through the ground 🌱, while the knife radical looks a bit like a hooked metal blade 🔪.
