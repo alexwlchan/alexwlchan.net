@@ -1,7 +1,8 @@
 FROM alpine
 
-RUN apk add imagemagick
+RUN apk add imagemagick ruby
+RUN gem install shell-executer
 
-COPY ./run.sh /run.sh
+COPY ./create_images.rb /create_images.rb
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/create_images.rb"]
