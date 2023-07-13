@@ -1,26 +1,20 @@
 export DOCKER_IMAGE_NAME = ghcr.io/alexwlchan/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 37
-DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
+export DOCKER_IMAGE_VERSION = 38
+export DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 ROOT = $(shell git rev-parse --show-toplevel)
 
-JEKYLL_VERSION = 4.3.1
-JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
+export JEKYLL_VERSION = 4.3.1
+export JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
 
 publish-docker:
 	ruby scripts/publish_docker_image.rb
 
 html:
-	docker run --tty --rm \
-		--volume $(ROOT):$(ROOT) \
-		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) build --trace
+	bash docker/run_jekyll.sh build --trace
 
 html-drafts:
-	docker run --tty --rm \
-		--volume $(ROOT):$(ROOT) \
-		--workdir $(ROOT) \
-		$(DOCKER_IMAGE) build --trace --drafts
+	bash docker/run_jekyll.sh build --trace --drafts
 
 lint:
 	docker run --tty --rm \
@@ -35,12 +29,13 @@ script-lint:
 		koalaman/shellcheck:stable scripts/*.sh
 
 serve:
-	docker run --tty --rm \
-		--volume $(ROOT):$(ROOT) \
-		--workdir $(ROOT) \
-		--publish 5757:5757 \
-		$(DOCKER_IMAGE) \
-		serve --drafts --incremental --host "0.0.0.0" --port 5757 --skip-initial-build --trace
+	bash docker/run_jekyll.sh serve \
+		--drafts \
+		--incremental \
+		--host "0.0.0.0" \
+		--port 5757 \
+		--skip-initial-build \
+		--trace
 
 publish-drafts:
 	docker run --tty --rm \
