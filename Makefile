@@ -1,11 +1,11 @@
 export DOCKER_IMAGE_NAME = ghcr.io/alexwlchan/alexwlchan.net
 export DOCKER_IMAGE_VERSION = 42
-export DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
+DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 ROOT = $(shell git rev-parse --show-toplevel)
 
-export JEKYLL_VERSION = 4.3.1
-export JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
+JEKYLL_VERSION = 4.3.1
+JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
 
 publish-docker:
 	ruby scripts/publish_docker_image.rb
