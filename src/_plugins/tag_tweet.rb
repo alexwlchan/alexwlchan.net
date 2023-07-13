@@ -37,12 +37,45 @@ module Jekyll
       replace_twemoji_with_images(text)
     end
 
+    # Create a data URI for this tweet avatar.
+    #
+    # These images are tiny when resized properly – in most cases <4KB,
+    # so it's faster to embed them as base64-encoded images than serve
+    # them as a separate network request.
     def tweet_avatar_url(tweet_data)
       screen_name = tweet_data['user']['screen_name']
       tweet_id = tweet_data['id_str']
+
       avatar_url = tweet_data['user']['profile_image_url_https']
       extension = avatar_url.split('.').last # ick
-      _display_path("avatars/#{screen_name}_#{tweet_id}.#{extension}")
+
+      path = "src/_tweets/avatars/#{screen_name}_#{tweet_id}.#{extension}"
+
+      FileUtils.mkdir_p ".jekyll-cache/twitter/avatars"
+
+      # Avatars are routinely quite large (e.g. 512x512), but they're
+      # only displayed in a 36x36 square (see _tweets.scss).
+      #
+      # Cutting a smaller thumbnail should reduce the page weight.
+      thumbnail_path = ".jekyll-cache/twitter/avatars/#{File.basename(path)}"
+
+      unless File.exist? thumbnail_path
+        image = Rszr::Image.load(path)
+        image.resize(108, 108).save(thumbnail_path)
+      end
+
+      thumbnail_data = Base64.encode64(File.open(thumbnail_path).read)
+
+      case extension
+      when 'png'
+        "data:image/png;base64,#{thumbnail_data}"
+      when 'jpg'
+        "data:image/jpeg;base64,#{thumbnail_data}"
+      when 'jpeg'
+        "data:image/jpeg;base64,#{thumbnail_data}"
+      else
+        raise RuntimeError, "Unrecognised avatar extension: #{avatar_url} / #{extension}"
+      end
     end
 
     def render_tweet_text(tweet_data)
@@ -121,27 +154,6 @@ module Jekyll
       "#{@src}/_tweets/posts/#{@screen_name}_#{@tweet_id}.json"
     end
 
-    def avatar_path(avatar_url)
-      extension = avatar_url.split('.').last # ick
-      "#{@src}/_tweets/avatars/#{@screen_name}_#{@tweet_id}.#{extension}"
-    end
-
-    def create_avatar_thumbnail(avatar_url)
-      path = avatar_path(avatar_url)
-
-      FileUtils.mkdir_p "#{@dst}/images/twitter/avatars"
-
-      # Avatars are routinely quite large (e.g. 512x512), but they're
-      # only displayed in a 36x36 square (see _tweets.scss).
-      #
-      # Cutting a smaller thumbnail should reduce the page weight.
-      thumbnail_path = "#{@dst}/images/twitter/avatars/#{File.basename(path)}"
-      return if File.exist? thumbnail_path
-
-      image = Rszr::Image.load(path)
-      image.resize(108, 108).save(thumbnail_path)
-    end
-
     def _created_at(tweet_data)
       DateTime
         .parse(tweet_data['created_at'], '%a %b %d %H:%M:%S %z %Y')
@@ -159,9 +171,6 @@ module Jekyll
       end
 
       tweet_data = JSON.parse(File.read(cache_file))
-
-      avatar_url = tweet_data['user']['profile_image_url_https']
-      create_avatar_thumbnail(avatar_url)
 
       tpl = Liquid::Template.parse(File.read('src/_includes/tweet.html'))
 
