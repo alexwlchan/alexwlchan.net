@@ -106,20 +106,6 @@ Jekyll::Hooks.register :site, :post_render do
   end
 end
 
-# Returns true if an image has transparent pixels, false otherwise
-def transparent_pixels?(path)
-  output = `identify -format '%[opaque]' #{Shellwords.escape(path)}`.downcase
-
-  case output
-  when 'true' # the image is all opaque pixels => no transparent
-    false
-  when 'false' # the image is not all opaque pixels => some transparent
-    true
-  else
-    raise "Unexpected output from identify: #{output.inspect}"
-  end
-end
-
 module Jekyll
   class PictureTag < Liquid::Tag
     def initialize(tag_name, params_string, tokens)
