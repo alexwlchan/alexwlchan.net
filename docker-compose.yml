@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  image_creator:
+    build:
+      context: image_creator
+
+    working_dir: /alexwlchan.net
+    volumes:
+      - ./:/alexwlchan.net

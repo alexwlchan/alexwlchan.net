@@ -1,5 +1,5 @@
 export DOCKER_IMAGE_NAME = ghcr.io/alexwlchan/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 37
+export DOCKER_IMAGE_VERSION = 42
 DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 ROOT = $(shell git rev-parse --show-toplevel)
@@ -12,12 +12,14 @@ publish-docker:
 
 html:
 	docker run --tty --rm \
+		--volume /var/run/docker.sock:/var/run/docker.sock \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) build --trace
 
 html-drafts:
 	docker run --tty --rm \
+		--volume /var/run/docker.sock:/var/run/docker.sock \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) build --trace --drafts
@@ -36,11 +38,17 @@ script-lint:
 
 serve:
 	docker run --tty --rm \
+		--volume /var/run/docker.sock:/var/run/docker.sock \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		--publish 5757:5757 \
-		$(DOCKER_IMAGE) \
-		serve --drafts --incremental --host "0.0.0.0" --port 5757 --skip-initial-build --trace
+		$(DOCKER_IMAGE) serve \
+			--drafts \
+			--incremental \
+			--host "0.0.0.0" \
+			--port 5757 \
+			--skip-initial-build \
+			--trace
 
 publish-drafts:
 	docker run --tty --rm \
