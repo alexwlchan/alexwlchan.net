@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  imagemagick:
+    build:
+      context: docker/imagemagick
+
+    working_dir: /alexwlchan.net
+    volumes:
+      - ./:/alexwlchan.net
