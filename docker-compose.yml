@@ -1,9 +1,9 @@
 version: "3.3"
 
 services:
-  imagemagick:
+  image_creator:
     build:
-      context: docker/imagemagick
+      context: image_creator
 
     working_dir: /alexwlchan.net
     volumes:

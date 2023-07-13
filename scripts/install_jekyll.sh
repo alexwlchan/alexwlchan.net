@@ -22,15 +22,15 @@ apt-get install --yes libimlib2 libimlib2-dev
 # Required to inspect colour profiles in the image linting plugin
 apt-get install --yes exiftool
 
-# Required to create differently sized images for WebP/AVIF
-# Theoretically I could use `rszr` like in the Twitter plugin, but it
-# doesn't support AVIF.
+# Required to run ImageMagick in a separate container
+apt-get install --yes docker-compose
+
+# Required to create favicons.
 #
-# Note: temporarily disabled until Debian has ImageMagick 7 available
-# from `apt-get`.  I'm building my own version from source so that
-# transparency works with AVIF.
-#
-# apt-get install --yes imagemagick
+# Note: this will install ImageMagick 6, which is fine for ICO and PNG
+# but has issues with AVIF.
+# See https://alexwlchan.net/2023/check-for-transparency/
+apt-get install --yes imagemagick
 
 # Required by the http-proofer gem, which is used by the linter plugin.
 # Without it, I get an error:

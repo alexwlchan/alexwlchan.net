@@ -13,7 +13,7 @@ if File.exist? '.missing_images.json'
     jobs.push(JSON.parse(line))
   end
 
-  puts "Creating #{jobs.length} images..."
+  puts "Creating #{jobs.length} image#{jobs.length > 1 ? "s" : ""}..."
 
   workers = 5.times.map do
     Thread.new do
