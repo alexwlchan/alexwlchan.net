@@ -11,7 +11,6 @@ publish-docker:
 	ruby scripts/publish_docker_image.rb
 
 html:
-	find _site -name '*.avif' -delete
 	docker run --tty --rm \
 		--volume /var/run/docker.sock:/var/run/docker.sock \
 		--volume $(ROOT):$(ROOT) \
