@@ -29,8 +29,8 @@ def create_favicons(site, colours)
   FileUtils.mkdir_p "#{dst}/favicons"
 
   colours.each do |c|
-    ico_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.ico"
-    png_path = "#{dst}/favicons/#{c.gsub(/#/, '')}.png"
+    ico_path = "#{dst}/favicons/#{c.gsub('#', '')}.ico"
+    png_path = "#{dst}/favicons/#{c.gsub('#', '')}.png"
 
     next if (File.exist? ico_path) && (File.exist? png_path)
 
@@ -104,7 +104,7 @@ def create_header_images(site, colours)
   FileUtils.mkdir_p "#{dst}/headers"
 
   colours.each do |c|
-    out_path = "#{dst}/headers/specktre_#{c.sub(/#/, '')}.png"
+    out_path = "#{dst}/headers/specktre_#{c.sub('#', '')}.png"
 
     next if File.file?(out_path)
 

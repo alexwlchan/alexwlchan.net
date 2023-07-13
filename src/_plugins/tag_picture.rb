@@ -102,7 +102,7 @@ Jekyll::Hooks.register :site, :post_render do
   if File.exist? '.missing_images.json'
     # Actually create the individual image files.  This is handled by
     # a separate Docker image; see the comments in the `image_creator` folder.
-    Shell.execute!("docker-compose run image_creator")
+    Shell.execute!('docker-compose run image_creator')
   end
 end
 
@@ -119,9 +119,9 @@ module Jekyll
 
       @visible_width = get_required_attribute(
         @attrs, { tag: 'picture', attribute: 'visible_width' }
-      ).gsub(/px/, '').to_i
+      ).gsub('px', '').to_i
 
-      @extra_widths = (@attrs.delete('extra_widths') || '').split(',').map { |w| w.gsub(/px/, '').to_i }
+      @extra_widths = (@attrs.delete('extra_widths') || '').split(',').map { |w| w.gsub('px', '').to_i }
 
       @parent = @attrs.delete('parent')
 
@@ -270,7 +270,7 @@ module Jekyll
       # e.g. /2022/egyptian-mixtape/
       html = if @link_to_original
                <<~HTML
-                 <a href="#{dst_prefix.gsub(/_site/, '')}#{im_format[:extension]}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
+                 <a href="#{dst_prefix.gsub('_site', '')}#{im_format[:extension]}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
                HTML
              elsif @link_to
                <<~HTML
@@ -320,7 +320,7 @@ module Jekyll
             end
           end
 
-          sources[out_format] <<= "#{out_path.gsub(/_site/, '')} #{width}w"
+          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{width}w"
         end
       end
 

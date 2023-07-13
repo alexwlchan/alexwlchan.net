@@ -43,7 +43,7 @@ module Jekyll
             data-proofer-ignore
           %}
         HTML
-      ).render!(context).gsub(/\n/, '')
+      ).render!(context).gsub("\n", '')
 
       <<~HTML
         <a href="/files/#{year}/#{@filename}" class="download">#{icon} #{@filename} </a>

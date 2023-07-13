@@ -16,7 +16,7 @@ def replace_twemoji_with_images(text)
     '📈' => '1f4c8.svg',
     '💞' => '1f49e.svg',
     '🧵' => '1f9f5.svg',
-    '✨' => '2728.svg',
+    '✨' => '2728.svg'
   }
 
   # TODO: Fix these in the RSS feed

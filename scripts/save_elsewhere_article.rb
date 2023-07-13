@@ -86,7 +86,7 @@ gets
 
 metadata['archived_paths'] = Dir.glob("#{archive_dir}/*")
 
-elsewhere = YAML.load(File.read(ELSEWHERE_YML_PATH))
+elsewhere = YAML.load_file(ELSEWHERE_YML_PATH)
 elsewhere['writing'] << metadata
 File.write(ELSEWHERE_YML_PATH, elsewhere.to_yaml)
 

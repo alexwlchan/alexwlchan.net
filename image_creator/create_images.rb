@@ -20,7 +20,6 @@ def transparent_pixels?(path)
   end
 end
 
-
 if File.exist? '.missing_images.json'
   jobs = Queue.new
 
@@ -28,7 +27,7 @@ if File.exist? '.missing_images.json'
     jobs.push(JSON.parse(line))
   end
 
-  puts "Creating #{jobs.length} image#{jobs.length > 1 ? "s" : ""}..."
+  puts "Creating #{jobs.length} image#{jobs.length > 1 ? 's' : ''}..."
 
   workers = 5.times.map do
     Thread.new do
@@ -49,7 +48,6 @@ if File.exist? '.missing_images.json'
           raise "Source image #{this_job['source_path']} has transparency, but output image #{this_job['out_path']} doesn’t!"
         end
       end
-
     rescue ThreadError
     end
   end
