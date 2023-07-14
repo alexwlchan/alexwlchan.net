@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My custom &lt;picture&gt; plugin for Jekyll"
-summary:
+summary: How I make images that load quickly and look good for readers, and which are easy for me to manage.
 tags: web-development jekyll blogging-about-blogging
 colors:
   css_light: "#df1b4a"
