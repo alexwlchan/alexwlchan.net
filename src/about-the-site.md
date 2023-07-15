@@ -54,7 +54,7 @@ I also used this design on the "best of" posts page, because at nearly 350&nbsp;
   filename="site_cards_on_the_homepage.jpg"
   alt="A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border."
   parent="/images"
-  visible_width="532px"
+  width="532"
   class="screenshot"
 %}
 
@@ -70,7 +70,7 @@ I replaced the homepage with a bio and a profile picture, with links out to blog
   filename="site_bio_homepage.jpg"
   alt="A red stripe along the top of the site, with a large picture of a face on the right and a bio in the body of the page."
   parent="/images"
-  visible_width="600px"
+  width="600"
   class="screenshot"
 %}
 
@@ -82,7 +82,7 @@ Here's a purple page:
   filename="site_purplestripe.png"
   alt="An article with a purple stripe across the top, and purple text in the title."
   parent="/images"
-  visible_width="600px"
+  width="600"
   class="screenshot"
 %}
 
@@ -98,7 +98,7 @@ It falls back to a solid red stripe if the image doesn't load.
   filename="site_bloglist.png"
   alt="A red stripe with speckled squares at the top of the page, with an article below it."
   parent="/images"
-  visible_width="600px"
+  width="600"
   class="screenshot"
 %}
 
@@ -114,7 +114,7 @@ Sometime in 2015, I swapped out the sans serif font (this screenshot is Avenir) 
   filename="site_redstripe.png"
   alt="A tall reddish-orange strip with the name “alexwlchan” and a bio line, with an article below it."
   parent="/images"
-  visible_width="600px"
+  width="600"
   class="screenshot"
 %}
 
@@ -129,7 +129,7 @@ This only lasted a few months before I moved the sidebar back into the header, a
   filename="site_redwhite2a.png"
   alt="A white background site with a sidebar on the left and an article in the main area."
   parent="/images"
-  visible_width="539px"
+  width="539"
   class="screenshot"
 %}
 
@@ -138,7 +138,7 @@ This only lasted a few months before I moved the sidebar back into the header, a
   filename="site_redwhite2b.png"
   alt="The same design, but with a slightly different font."
   parent="/images"
-  visible_width="539px"
+  width="539"
   class="screenshot"
 %}
 
@@ -151,7 +151,7 @@ The first major redesign introduced the red-and-white that's been a common theme
   filename="site_redwhite1.png"
   alt="The name “Alex Chan” in big red letters at the top, then an article below it."
   parent="/images"
-  visible_width="478px"
+  width="478"
   class="screenshot"
 %}
 
@@ -165,7 +165,7 @@ I'm pretty sure I had a red version of this theme, but neither the Wayback Machi
   filename="site_octopress.png"
   alt="The name “Alex Chan” at the top, set against a dark blue background, then an article below it."
   parent="/images"
-  visible_width="478px"
+  width="478"
   class="screenshot"
 %}
 

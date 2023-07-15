@@ -21,7 +21,7 @@ For example, this is the plaque from Apollo&nbsp;11:
   picture
   filename="Apollo_11_plaque_closeup_on_Moon.jpg"
   alt="A metal plaque attached to a larger structure. It has two hemispheres of the Earth, followed by some text (below), and signatures of the three astronauts and the then-US president."
-  visible_width="436px"
+  width="436"
 %}
 
 The inscription reads *"Here men from the planet Earth first set foot upon the Moon. July&nbsp;1969, A.&nbsp;D. We came in peace for all mankind."*
@@ -46,7 +46,7 @@ I had some fun sketching it out:
   picture
   filename="martian_plaque.png"
   alt="A black and white graphic. At the top are two hemispheres of the Earth, and an illustration of planetary orbits. The illustration has four concentric, dashed rings with small black circles on them (representing Mercury, Venus, Earth, and Mars), with a large black circle in the centre (representing the Sun). There's an arrow pointing from Earth to Mars. Below the diagrams is the inscription ‘Here humans from the planet Earth first set foot upon Mars. March 1995. We came in peace for all humanity.’ Below that are the names and signatures of the six astronauts, plus the US president."
-  visible_width="550px"
+  width="550"
 %}
 
 I started with two pictures of the Earth, copied from the Apollo 15 plaque.

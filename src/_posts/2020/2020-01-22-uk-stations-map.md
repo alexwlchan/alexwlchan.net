@@ -66,7 +66,7 @@ Putting it all together, this is what the app looks like:
   picture
   filename="uk_stations_map.png"
   alt="Screenshot of an app. Most of the app is a grayscale map of the UK with green circles dotted all over it, and below it is a text field with a list of station names in green bubbles."
-  visible_width="500px"
+  width="500"
   class="screenshot"
 %}
 

@@ -33,7 +33,7 @@ I'm trying to capture the major ideas, interesting stories, or passages I want t
     picture
     filename="chinese_typewriter_notes.jpg"
     alt="A book opened to a page halfway through (left) and some scraps of paper with scratchy handwriting (right)."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Left: <em>The Chinese Typewriter</em>, by Thomas Mullaney.
@@ -55,7 +55,7 @@ I'll even recreate diagrams if I find them useful.
     picture
     filename="book_notes.png"
     alt="Screenshot of a note-taking app."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Left: notes written in <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> using the notes app <a href="https://brettterpstra.com/projects/nvalt/">nvALT</a>.

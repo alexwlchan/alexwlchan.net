@@ -51,7 +51,7 @@ This is the image he published:
     picture
     filename="artichoke_frames.jpg"
     alt="A grid of different views of the artichoke in yellow-green, arranged in rows and columns against a black background."
-    visible_width="750px"
+    width="750"
     link_to_original
   %}
   <figcaption>
@@ -84,7 +84,7 @@ will extract this part of the image:
   picture
   filename="artichoke_frames_cropped.png"
   alt="The same grid of images as previously, but mostly dimmed and with only a small area in full colour and outlined with a red rectangle (highlighting the area to be cropped)."
-  visible_width="500px"
+  width="500"
 %}
 
 I started by writing a function that produces the 4-tuples that are passed to the `crop()` function.
@@ -117,7 +117,7 @@ The exact number of individual scans varied from image to image (for example, [t
   picture
   filename="artichoke_crops.png"
   alt="The same grid of images as previously, but now split into individual images, separated by white borders."
-  visible_width="500px"
+  width="500"
 %}
 
 Now we save the individual frames as an animated GIF, which is [a one-liner in Pillow][save_gifs]:

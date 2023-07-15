@@ -55,7 +55,7 @@ It then puts the results in the body of the document, so I can quickly see wheth
 {%
   picture
   filename="test_results.png"
-  visible_width="504px"
+  width="504"
   alt="Screenshot of a web browser showing a series of test results. Each test result is a single line, either with a green tick (pass) or a red cross (fail) and a one-line description of what's being tested."
 %}
 
@@ -73,7 +73,7 @@ The filter allows you to enter a lower bound, an upper bound, or both:
 {%
   picture
   filename="publication_year_filters.png"
-  visible_width="410px"
+  width="410"
   class="screenshot"
   alt="A popover window labelled 'publication year' and the text 'published between [year] and [year]'. Both the '[year]'s are input fields where a user can type some text."
 %}

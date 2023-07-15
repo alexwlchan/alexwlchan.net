@@ -235,7 +235,7 @@ The projects I've worked on include:
   {%
     picture
     filename="pyconuk-speaking.jpg"
-    visible_width="350px"
+    width="350"
     parent="/images/projects"
     alt="A person in a green top standing at a podium, in front of a large screen with the words “duplicate bugs”."
   %}

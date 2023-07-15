@@ -20,7 +20,7 @@ When I click the little picture icon in the sidebar, it finds all the images in 
   picture
   filename="obsidian-screenshot.png"
   alt="An Obsidian window with a tab titled “Gallery” and four rows of images on a dark background. Each image is of fixed height but varying width, depending on the aspect ratio."
-  visible_width="750px"
+  width="750"
 %}
 
 There are [a few community plugins][community] for doing galleries, and they have more features and options – but they're also more complicated than what I wanted.
@@ -34,7 +34,7 @@ When I'm looking at a full-sized image, if I want to see where it's used, I can 
   picture
   filename="obsidian-backlinks.png"
   alt="An Obsidian window titled ‘Backlinks for entity_and_resource_policies’, showing the full-sized image on the left-hand side, and a search result showing the single note where it’s used on the right."
-  visible_width="702px"
+  width="702"
 %}
 
 I started from [the Obsidian sample plugin][sample], and kept editing it until I had something I liked.

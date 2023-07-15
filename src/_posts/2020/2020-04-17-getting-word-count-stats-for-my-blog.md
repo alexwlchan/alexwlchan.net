@@ -16,7 +16,7 @@ I've got a new chart which shows me how many words I've written, on a month-by-m
   picture
   filename="word_count.png"
   alt="A vertical bar chart with a series of red bars. The vertical axis measures ‘words per month’; the horizontal axis shows time."
-  visible_width="750px"
+  width="750"
 %}
 
 You can see a live version at <https://alexwlchan.net/stats/>, which will automatically update as I write new posts.

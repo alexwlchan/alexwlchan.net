@@ -40,7 +40,7 @@ and the rendered output:
   picture
   filename="example_underline.png"
   alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at different heights – the line below “Berlin” is close to the bottom of the letters, but the line below “Germany” has moved down to sit below the bottom of the “y”."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -72,7 +72,7 @@ is rendered as:
   picture
   filename="example_soul.png"
   alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – they’re both low enough to miss the “y” in “Germany”, which means there’s a noticeable gap between “Berlin” and its underline."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -95,7 +95,7 @@ which appears like so:
   picture
   filename="example_soul_uldepth.png"
   alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – there’s no gap between “Berlin” and the underline, but now the underline of “Germany” clashes with the bottom of the “y”."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -121,7 +121,7 @@ I visited \uline{Berlin} in \uline{Germany}.
   picture
   filename="example_ulem.png"
   alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – they’re both low enough to miss the “y” in “Germany”, which means there’s a noticeable gap between “Berlin” and its underline."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -137,7 +137,7 @@ I visited \uline{Berlin} in \uline{Germany}.
   picture
   filename="example_ulem_uldepth.png"
   alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined. The underlines are at the same height – there’s no gap between “Berlin” and the underline, but now the underline of “Germany” clashes with the bottom of the “y”."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -168,7 +168,7 @@ I visited \mycontour{Berlin} in \mycontour{Germany}.
   picture
   filename="example_contour.png"
   alt="The phrase “I visited Berlin in Germany”, with a heavy red outline around “Berlin” and “Germany”."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -194,7 +194,7 @@ I visited \myuline{Berlin} in \myuline{Germany}.
   picture
   filename="example_final.png"
   alt="The word “I visited Berlin in Germany”, with the words “Berlin” and “Germany” underlined."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 
@@ -239,7 +239,7 @@ Here's one final example, a hyperlink from my CV:
   picture
   filename="underline_final.png"
   alt="A blue link to “github.com/python-hyper/hyper-h2”, with the entire link underlined."
-  visible_width="500px"
+  width="500"
   class="latex__example"
 %}
 

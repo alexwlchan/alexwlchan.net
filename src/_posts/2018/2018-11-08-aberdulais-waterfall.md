@@ -31,7 +31,7 @@ The copper ore was mined in Cornwall, the coal and charcoal supplied from nearby
   {%
     picture
     filename="smelting-woodcut.jpg"
-    visible_width="485px"
+    width="485"
     alt="A sixteenth-century woodcut of three people smelting copper."
   %}
   <figcaption>
@@ -61,7 +61,7 @@ I could hear it before I saw it.
     picture
     filename="P9210017.jpg"
     alt="Green trees on the left overhang a muddy-brown river, with a half-collapsed bridge and structure on the right."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -74,7 +74,7 @@ It's on the smaller side, and you can easily do a visit in a couple of hours:
     picture
     filename="PB081192.jpg"
     alt="A leaflet titled “Things to see and do”, unfolded and laid out on a wooden table."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     I&rsquo;ve read this leaflet quite a few times while writing this post, and it wasn&rsquo;t until I had my hand on the publish button that I realised the information along the left-hand side is a waterwheel!
@@ -89,7 +89,7 @@ You can see it's partially broken off, but you can walk along it, and there's a 
     picture
     filename="P9210069.jpg"
     alt="A stone bridge partially jutting out into a river."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -106,7 +106,7 @@ Only a few remnants remain, such as the carts and the tracks they'd have run on:
     picture
     filename="P9210080.jpg"
     alt="A pair of wooden carts on rusted railway tracks."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -124,7 +124,7 @@ It had just started to rain, so I was glad of an excuse to duck inside and start
     picture
     filename="P9210111.jpg"
     alt="A white building with two windows, black doors, and a small sign reading “Tin Works exhibition”."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -137,7 +137,7 @@ But as you wander round, you start to get an idea of the space the old tin works
     picture
     filename="P9210125.jpg"
     alt="Incomplete brick structures and walls."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     The last remaining corner of what was presumably once an entire room.
@@ -150,7 +150,7 @@ But as you wander round, you start to get an idea of the space the old tin works
     picture
     filename="P9210124.jpg"
     alt="Partially collapsed brick walls that outline a room."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     A view into a partially surviving room.
@@ -163,7 +163,7 @@ But as you wander round, you start to get an idea of the space the old tin works
     picture
     filename="P9210392.jpg"
     alt="Another set of partially collapsed brick walls that form three walls of a room."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     In some places the outline is all that's left.
@@ -176,7 +176,7 @@ But as you wander round, you start to get an idea of the space the old tin works
     picture
     filename="P9210403.jpg"
     alt="More partially collapsed brick walls."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     A slightly wider view.
@@ -195,7 +195,7 @@ One thing that clearly stands out is the chimney, one of the few complete struct
   picture
   filename="P9210142.jpg"
   alt="Looking up towards a yellowish, square, brick chimney set against a grey sky."
-  visible_width="600px"
+  width="600"
 %}
 
 This was the chimney for the [annealing furnace][annealing].
@@ -209,7 +209,7 @@ At the base of the chimney, you can see the remains of some furnaces:
     picture
     filename="P9210147.jpg"
     alt="Brick walls defining pits in the ground, overgrown with grass."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -225,7 +225,7 @@ This process was done entirely by hand, was one of the more senior roles at the 
     picture
     filename="P9210348.jpg"
     alt="Looking into a room, with some stone-plated areas on the floor."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     Looking into the remains of the tin house from one corner...
@@ -237,7 +237,7 @@ This process was done entirely by hand, was one of the more senior roles at the 
     picture
     filename="P9210349.jpg"
     alt="Another view of the room, partially set into the side of the hill."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     ...and looking back through the other corner.
@@ -254,7 +254,7 @@ Here's an example:
     picture
     filename="P9210390.jpg"
     alt="A partially rusted door mechanism next to a black sign with handwritten text."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     The sign reads <em>&ldquo;A door from one of the furnaces which were used to reheat the iron for working into sheet [sic] in the rolling mill&rdquo;</em>.
@@ -269,7 +269,7 @@ And since we're in Wales, the signs were all written in Welsh as well as in Engl
     picture
     filename="P9210363.jpg"
     alt="A small, rusted circular bearing next to a black sign with handwritten Welsh text."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     The sign reads <em>&ldquo;Dyma siglur: Defynyddiwyd i drosglwyddor symudiad troi cynhyrehiwyd gan yr olwyn Ddwr rhwng y felin rholio&rdquo;</em>.
@@ -284,7 +284,7 @@ Near the tin house, there are parts of a drive shaft from one of the machines th
     picture
     filename="P9210353.jpg"
     alt="Rusted pieces of a machine laid at the foot of a brick wall."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -300,7 +300,7 @@ Even at a distance, the roar of the tumbling water really makes itself heard.
     picture
     filename="P9210408.jpg"
     alt="A waterfall visible between rocks."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -312,7 +312,7 @@ So pretty!
     picture
     filename="P9210413.jpg"
     alt="White spray among rocks in the waterfall, with a rainbow between the rocks."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -326,7 +326,7 @@ The rainbow is just as intense, but it's a noticeably different arc.
     picture
     filename="P9210415.jpg"
     alt="White spray from the waterfall, with a rainbow between the rocks."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -341,7 +341,7 @@ I stood up there for a good fifteen, twenty minutes, watching the water flow, wi
     picture
     filename="P9210201.jpg"
     alt="Brown water flowing over a waterfall into a pool of white spray."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -353,7 +353,7 @@ They're a breathtaking, powerful sight, and the pictures really don't do them ju
   picture
   filename="P9210258.jpg"
   alt="White spray splashing over a dark brown rock."
-  visible_width="950px"
+  width="950"
 %}
 </figure>
 
@@ -362,7 +362,7 @@ They're a breathtaking, powerful sight, and the pictures really don't do them ju
   picture
   filename="P9210223.jpg"
   alt="The spray of the waterfall, and a longer view towards the rest of the river."
-  visible_width="950px"
+  width="950"
 %}
 </figure>
 
@@ -375,7 +375,7 @@ Here's a picture from above:
     picture
     filename="P9210446.jpg"
     alt="Looking down towards a waterwheel, with metal spokes and a box coming off the axle."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 
@@ -396,7 +396,7 @@ It's nearly 27&prime; in diameter, and it's twice as tall as me even when half o
     picture
     filename="P9210386.jpg"
     alt="A metal waterwheel surrounded by black safety barriers."
-    visible_width="950px"
+    width="950"
   %}
   <figcaption>
     In hindsight, that red emergency point on the nearside railing should have been a giveaway.
@@ -413,7 +413,7 @@ The water wheel, the remains of the buildings, and one more rainbow in the backg
     picture
     filename="P9210471.jpg"
     alt="A picture with a waterwheel to the right, a few partially collapsed brick structures, and a rainbow on the waterfall in the background."
-    visible_width="950px"
+    width="950"
   %}
 </figure>
 

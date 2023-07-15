@@ -51,7 +51,7 @@ module Jekyll
           {%
             picture
             filename="#{deck}/#{@filename}"
-            visible_width="450px"
+            width="450"
             loading="lazy"
             link_to_original
             #{extra_attributes}

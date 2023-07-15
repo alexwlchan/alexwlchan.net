@@ -22,7 +22,7 @@ The answer: yes, but you really shouldn't.
   picture
   filename="tape_recorder.jpg"
   alt="A tape recorder with smoke coming out of it."
-  visible_width="750px"
+  width="750"
 %}
 
 It's easy to create an executable file that destroys itself as soon as it runs.

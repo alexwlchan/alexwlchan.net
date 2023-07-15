@@ -58,7 +58,7 @@ On your social media, you can bask in the warmth of an Important Internet Checkm
     picture
     filename="acme_corporation_delicious.png"
     alt="A social media profile for ACME Corporation with a blue check mark."
-    visible_width="548px"
+    width="548"
     class="screenshot"
   %}
   <figcaption>

@@ -38,7 +38,7 @@ This is a satire post, not serious programming.
     picture
     filename="nuclear_waste.jpg"
     alt="Yellow barrels with radiation warning signs lying in a field."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     Wikimedia Commons says this is a protest against <a href="https://commons.wikimedia.org/wiki/File:WendlandAntiNuclearProtest7.jpg">German nuclear policy</a>, but it's actually a warning about using any of my ideas in production.

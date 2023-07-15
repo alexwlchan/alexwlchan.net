@@ -132,7 +132,7 @@ module Jekyll
             filename="#{filename}"
             parent="/images/twitter"
             #{alt_text.nil? ? 'data-proofer-ignore' : "alt=\"#{alt_text}\""}
-            visible_width="496px"
+            width="496"
           %}
         </a>
       HTML

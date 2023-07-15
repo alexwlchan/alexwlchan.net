@@ -44,7 +44,7 @@ Regardless, it's a nice, subtle message:
     {%
       picture
       filename="P8060034.jpg"
-      visible_width="622px"
+      width="622"
       alt="A large turquoise and teal globe, showing the Earth. There's a thin border around each country, and in each country is the word 'us' (in blue) and 'them' (in red). The globe is turned so that Africa is closest to the viewer, with part of Europe visible in the top."
       link_to_original
     %}
@@ -53,7 +53,7 @@ Regardless, it's a nice, subtle message:
     {%
       picture
       filename="P8060036.jpg"
-      visible_width="250px"
+      width="250"
       alt="A close-up of the African coast on the globe. The 'us' and 'them' are more visible, and shown for every country -- even tiny ones."
       style="object-position: 0px 0px;"
       link_to_original
@@ -67,7 +67,7 @@ There's also a terrifying vision of our urban future, in which abandoned rockets
 {%
   picture
   filename="P8060030.jpg"
-  visible_width="375px"
+  width="375"
   alt="A red rocket with steps leading into the back of it, where kids can climb up and have their photo taken through the porthole on the other side. There's also an abandoned scooter standing near the rocket, whose child has apparently wandered off."
   class="fullwidth_img"
   link_to_original
@@ -81,7 +81,7 @@ It was making a slight buzzing noise, no doubt the sound of intense fusion proce
   {%
     picture
     filename="P8060026.jpg"
-    visible_width="950px"
+    width="950"
     alt="A large yellow globe with conical orange spikes. It says 'the Sun' in a handwritten font, and stands resplendent against a clear blue sky."
     link_to_original
   %}
@@ -97,7 +97,7 @@ Even if it's not intentional, it's not far off.)
   {%
     picture
     filename="P8060038.jpg"
-    visible_width="950px"
+    width="950"
     alt="The model of the Sun, with coloured archways visible in a line into the distance. There's a dark blue arch which is labelled Mercury, and behind that several other arches representing Venus (bright orange), Earth (turquoise), the Moon (grey) and Mars (red) -- although the labels of the planets beyond Mercury aren't visible. They're close together; no more than a few minutes walk apart."
     link_to_original
   %}
@@ -114,7 +114,7 @@ I was particularly tickled by how the model of Earth has a light side and a dark
     {%
       picture
       filename="P8060054.jpg"
-      visible_width="622px"
+      width="622"
       alt="A bright red archway with the title 'Mars', and an arrow pointing towards a small red marble on a string (representing Mars itself, to scale). The string is in a recess carved into the arch."
       link_to_original
     %}
@@ -123,7 +123,7 @@ I was particularly tickled by how the model of Earth has a light side and a dark
     {%
       picture
       filename="IMG_1029.jpg"
-      visible_width="250px"
+      width="250"
       alt="A close-up of the model of the Earth on a string. The Earth is only slightly wider than the string itself. It's a painted marble with blue-green countries on one side (including the UK), and black countries with gold dots on the other (representing cities lighting up at night)."
       link_to_original
     %}
@@ -140,7 +140,7 @@ We found Jupiter on the edge of Stourbridge Common, along with my favourite plan
     {%
       picture
       filename="P8060056.jpg"
-      visible_width="622px"
+      width="622"
       alt="A bright yellow arch labelled 'Jupiter' and an arrow pointing to the planet. The planet model is visible from quite a distance away. The arch is in a large park with parched dry grass and some green trees."
       link_to_original
     %}
@@ -149,7 +149,7 @@ We found Jupiter on the edge of Stourbridge Common, along with my favourite plan
     {%
       picture
       filename="P8060057.jpg"
-      visible_width="250px"
+      width="250"
       alt="A close-up of the Jupiter model, which is a large sphere painted in shades of orange and brown to match Jupiter itself. The side closest the viewer has a reddish patch representing the Great Red Spot, a major storm on Jupiter."
       link_to_original
     %}
@@ -173,7 +173,7 @@ I'm used to seeing Saturn as a caramel colour with dark brown rings; I don't kno
 {%
   picture
   filename="P8060059.jpg"
-  visible_width="500px"
+  width="500"
   alt="A close-up photo of a blue planet with a dark blue disk intersecting the equator, representing the rings of Saturn."
   link_to_original
 %}
@@ -186,7 +186,7 @@ It's also a very pleasing shade of blue.
     {%
       picture
       filename="IMG_1032.jpg"
-      visible_width="622px"
+      width="622"
       alt="A magenta arch labelled 'Uranus', sitting on a dried-out patch of grass. There are a couple of small buildings in the background, which are part of a river lock mechanism that's out of frame."
       link_to_original
     %}
@@ -195,7 +195,7 @@ It's also a very pleasing shade of blue.
     {%
       picture
       filename="IMG_1033.jpg"
-      visible_width="250px"
+      width="250"
       alt="A close-up of the Uranus model, which is a turquoise sphere with some gentle blue lines across the surface. It's quite a simple and calming planet."
       link_to_original
     %}
@@ -211,7 +211,7 @@ We found Neptune in a leafy grove, where we sat on a bench and nibbled snacks.
   {%
     picture
     filename="P8060066.jpg"
-    visible_width="950px"
+    width="950"
     alt="The back of a green-ish arch for 'Neptune', looking back along the trail we'd just walked. The arch is surrounded by trees, which cast interesting shadows on the ground and break up the profile. The path curves to the left in the distance, and you can just see the river through the trees."
     link_to_original
   %}
@@ -224,7 +224,7 @@ It was quite a relief to have just a short walk to Pluto, which is absolutely ti
     {%
       picture
       filename="IMG_1052.jpg"
-      visible_width="622px"
+      width="622"
       alt="A baby pink archway labelled 'Pluto', in an open area filled with dried-out grass. There are a few tufts of green grass, but mostly it's all straw."
       link_to_original
     %}
@@ -233,7 +233,7 @@ It was quite a relief to have just a short walk to Pluto, which is absolutely ti
     {%
       picture
       filename="IMG_1054.jpg"
-      visible_width="250px"
+      width="250"
       alt="A close-up of the cut-out piece of the arch, a dark blue patch (representing a starfield) and a tiny red dot, no bigger than a pinhead, with an arrow 'This is really it'. Put to the scale of the other planets, Pluto really is tiny."
       link_to_original
     %}

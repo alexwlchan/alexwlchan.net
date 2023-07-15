@@ -26,7 +26,7 @@ This is what the effect looks like, with a single tweet per slide (more than one
   picture
   filename="tweets_4up.png"
   alt="Screenshot of four slides, each with a tweet with a different number of lines."
-  visible_width="750px"
+  width="750"
 %}
 
 It's on the small side for text on a slide, but I've found it to work well if deployed sparingly.

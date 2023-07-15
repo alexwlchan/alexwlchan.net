@@ -51,7 +51,7 @@ Here's a few examples:
       picture
       filename="heart_examples1.jpg"
       alt="Two interlocking hearts. The left heart is the colours of the asexual pride flag (black, grey, white, purple), and the right heart is the colours of the aromantic pride flag (dark green, light green, white, grey, black)."
-      visible_width="495px"
+      width="495"
     %}
   </div>
   <div class="grid-item" id="grid-item2">
@@ -59,7 +59,7 @@ Here's a few examples:
       picture
       filename="heart_examples2.jpg"
       alt="Two interlocking hearts on a dark background. The left heart is the colours of the rainbow pride flag (red, orange, yellow, green, blue, purple), and the right heart is the colours of the trans pride flag (baby blue, baby pink, white, baby pink, baby blue)."
-      visible_width="248px"
+      width="248"
     %}
   </div>
   <div class="grid-item" id="grid-item3">
@@ -67,7 +67,7 @@ Here's a few examples:
       picture
       filename="heart_examples3.jpg"
       alt="Two interlocking hearts. The left heart is the colours of the black trans pride flag (baby blue, baby pink, black, baby pink, baby blue), and the right heart is the colours of the bi pride flag (dark pink, purple, dark blue)."
-      visible_width="248px"
+      width="248"
     %}
   </div>
 </div>

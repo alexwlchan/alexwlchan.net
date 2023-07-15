@@ -24,7 +24,7 @@ When you get a new inventory, you get [a manifest file] which points to the indi
   picture
   filename="s3-inventory-structure.png"
   alt="A simple flow chart showing the manifest/inventory file relationship. There's a file called 'manifest.json' on the left-hand side, which points to four inventory files on the right, named with various UUIDs."
-  visible_width="470px"
+  width="470"
 %}
 
 (The inventory files don't contain the objects in any sort of obvious order; each file contains a seemingly random subset of the bucket.

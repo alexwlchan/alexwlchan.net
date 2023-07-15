@@ -29,7 +29,7 @@ If you'd like to think about it first and make your own guess, don't scroll past
     picture
     filename="L0072180.jpg"
     alt="A clock face with Roman numerals and gold decoration."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     A bracket clock.
@@ -88,7 +88,7 @@ And so our falsehoods go as follows:
       picture
       filename="unix_time_skips_forwards.png"
       alt="A graph showing Unix time and UTC when a leap second gets removed."
-      visible_width="612px"
+      width="612"
     %}
 
     <p>
@@ -110,7 +110,7 @@ And so our falsehoods go as follows:
       picture
       filename="unix_time_goes_backwards.png"
       alt="A graph showing Unix time and UTC when a leap second has been added."
-      visible_width="612px"
+      width="612"
     %}
 
     <p>

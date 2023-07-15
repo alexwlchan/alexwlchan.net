@@ -17,7 +17,7 @@ I type a few characters in the launcher, and it offers to open the repo:
   picture
   filename="alfred_search.png"
   alt="A large search bar with the query 'dotorg', showing two results: a GitHub link to the wellcomecollection.org repo, and a local folder called 'dotorg'."
-  visible_width="694px"
+  width="694"
 %}
 
 You don't need a custom workflow to do this -- Alfred already has built-in features for [web search] and [using bookmarks] -- but to set those up, you have to click around in the GUI.
@@ -52,7 +52,7 @@ The Python script reads this config and builds a workflow package, which I can o
   picture
   filename="alfred_workflow_screenshot.png"
   alt="Screenshot of an Alfred workflow. There are three inputs with a GitHub logo, linked to three 'Open URL' actions, all for github.com."
-  visible_width="565px"
+  width="565"
 %}
 
 The text-based config means I can add and remove repos very quickly.

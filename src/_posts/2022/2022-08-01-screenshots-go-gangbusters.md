@@ -18,7 +18,7 @@ It got thousands of impressions on Twitter, and at one point it was #2 on the Ha
     filename="hn_screenshot.png"
     alt="A screenshot of the Hacker News homepage, with my post in the second slot from the top. The top slot is a link to a Vi Hart video about hexaflexagons."
     class="screenshot"
-    visible_width="562px"
+    width="562"
   %}
   <figcaption>
     I’m a big fan of Vi Hart, so having my posts be considered on a par with their videos is a huge compliment.

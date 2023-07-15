@@ -32,7 +32,7 @@ It's a really nice and large space:
   picture
   filename="council-chamber.jpg"
   alt="The council chamber at Cardiff City Hall"
-  visible_width="750px"
+  width="750"
 %}
 
 If there hadn't been a quiet room, I'd have worn out much faster and probably been miserable towards the end of the conference.

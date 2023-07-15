@@ -29,7 +29,7 @@
 #       picture
 #       filename="IMG_5744.jpg"
 #       alt="A black steam engine with a boxy shape."
-#       visible_width="622px"
+#       width="622"
 #     %}
 #
 # It includes the following mandatory parameters:
@@ -38,7 +38,7 @@
 #       the same per-year directory as the post.
 #     * `alt` is the alt text for the image, which must be supplied on
 #       all posts (which is checked by the linter plugin).
-#     * `visible_width`, which is used to pick the sizes for the different
+#     * `width`, which is used to pick the sizes for the different
 #       resolutions.  This is a rough guide.
 #
 # It will look for the image in `/images/#{year}/#{filename}`, so if this
@@ -117,8 +117,8 @@ module Jekyll
         @attrs, { tag: 'picture', attribute: 'filename' }
       )
 
-      @visible_width = get_required_attribute(
-        @attrs, { tag: 'picture', attribute: 'visible_width' }
+      @width = get_required_attribute(
+        @attrs, { tag: 'picture', attribute: 'width' }
       ).gsub('px', '').to_i
 
       @extra_widths = (@attrs.delete('extra_widths') || '').split(',').map { |w| w.gsub('px', '').to_i }
@@ -156,8 +156,8 @@ module Jekyll
       image = Rszr::Image.load(source_path)
       im_format = get_format(source_path)
 
-      if image.width < @visible_width
-        raise "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@visible_width}px"
+      if image.width < @width
+        raise "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@width}px"
       end
 
       # These two attributes allow the browser to completely determine
@@ -166,11 +166,11 @@ module Jekyll
       # term for this is "Cumulative Layout Shift".
       #
       # See https://web.dev/optimize-cls/
-      @attrs['width'] = @visible_width
-      gcd = image.width.gcd(image.height)
-      @attrs['style'] = "aspect-ratio: #{image.width / gcd} / #{image.height / gcd}; #{@attrs['style'] || ''}"
+      @attrs['width'] = @width
+      aspect_ratio = Rational(image.width, image.height)
+      @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
-      sources = prepare_images(source_path, im_format, dst_prefix, @visible_width, @extra_widths)
+      sources = prepare_images(source_path, im_format, dst_prefix, @width, @extra_widths)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -185,7 +185,7 @@ module Jekyll
         end
 
         dark_sources = prepare_images(
-          dark_path, im_format, "#{dst_prefix}.dark", @visible_width, @extra_widths
+          dark_path, im_format, "#{dst_prefix}.dark", @width, @extra_widths
         )
       else
         dark_sources = nil
@@ -211,19 +211,19 @@ module Jekyll
                     <<~HTML
                       <source
                         srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
-                        sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
                         type="image/avif"
                         media="(prefers-color-scheme: dark)"
                       >
                       <source
                         srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
-                        sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
                         type="image/webp"
                         media="(prefers-color-scheme: dark)"
                       >
                       <source
                         srcset="#{dark_sources[im_format].join(', ')}"
-                        sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
                         type="#{im_format[:mime_type]}"
                         media="(prefers-color-scheme: dark)"
                       >
@@ -243,17 +243,17 @@ module Jekyll
           #{dark_html}
           <source
             srcset="#{sources[ImageFormat::AVIF].join(', ')}"
-            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+            sizes="(max-width: #{@width}px) 100vw, #{@width}px"
             type="image/avif"
           >
           <source
             srcset="#{sources[ImageFormat::WEBP].join(', ')}"
-            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+            sizes="(max-width: #{@width}px) 100vw, #{@width}px"
             type="image/webp"
           >
           <source
             srcset="#{sources[im_format].join(', ')}"
-            sizes="(max-width: #{@visible_width}px) 100vw, #{@visible_width}px"
+            sizes="(max-width: #{@width}px) 100vw, #{@width}px"
             type="#{im_format[:mime_type]}"
           >
           <img
@@ -283,7 +283,7 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(source_path, im_format, dst_prefix, visible_width, extra_widths)
+    def prepare_images(source_path, im_format, dst_prefix, width, extra_widths)
       sources = Hash.new { [] }
 
       image = Rszr::Image.load(source_path)
@@ -292,7 +292,7 @@ module Jekyll
       #
       # Generally 1x/2x/3x is fine, but for specific images I can pick
       # extra sizes and have them added to the list.
-      widths = (1..3).map { |pixel_density| pixel_density * visible_width }
+      widths = (1..3).map { |pixel_density| pixel_density * width }
       widths.concat(extra_widths)
       widths = widths.filter { |w| w <= image.width }
       widths.sort!
@@ -303,8 +303,8 @@ module Jekyll
           # so I retain those when picking names to avoid breaking links or
           # losing Google juice, then switch to _500w, _640w, and so on
           # for larger sizes.
-          out_path = if (width % visible_width).zero?
-                       "#{dst_prefix}_#{width / visible_width}x#{out_format[:extension]}"
+          out_path = if (width % width).zero?
+                       "#{dst_prefix}_#{width / width}x#{out_format[:extension]}"
                      else
                        "#{dst_prefix}_#{width}w#{out_format[:extension]}"
                      end

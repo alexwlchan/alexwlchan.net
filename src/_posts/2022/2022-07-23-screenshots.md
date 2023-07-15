@@ -40,7 +40,7 @@ Here's just a handful:
 {%
   picture
   filename="screenshots_thumbnails.png"
-  visible_width="595px"
+  width="595"
   alt="A folder showing a grid of screenshots. Each screenshot has a small preview of its contents (too small to make out in detail), and a filename showing when it was taken. They range from December 2015 to February 2021."
 %}
 

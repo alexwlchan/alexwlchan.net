@@ -17,7 +17,7 @@ The link in the tweet text is replaced with a t.co URL, and that URL redirects t
   picture
   filename="tco_urls.png"
   alt="A flow chart: A tweet contains a t.co URL, and a t.co URL redirects to the destination."
-  visible_width="719px"
+  width="719"
 %}
 
 If you're just reading Twitter, the presence of t.co is mostly invisible -- it's not shown in the interface, and if you click on a URL you get to the original destination.
@@ -55,7 +55,7 @@ If the tweet is recent and visible to you, it shows up in the results:
   filename="twitter_search_single.png"
   alt="Searching for a t.co URL with a single results."
   link_to="https://twitter.com/search?q=https%3A%2F%2Ft.co%2F1AbEHY2P6b"
-  visible_width="597px"
+  width="597"
   class="screenshot"
 %}
 
@@ -67,7 +67,7 @@ I've seen this happen when somebody posts the same link several times:
   filename="twitter_search_multiple.png"
   alt="Searching for a t.co URL with multiple results."
   link_to="https://twitter.com/search?q=https%3A%2F%2Ft.co%2FFACNrWdMu4"
-  visible_width="597px"
+  width="597"
   class="screenshot"
 %}
 

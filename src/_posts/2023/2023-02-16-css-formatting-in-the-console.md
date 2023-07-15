@@ -11,7 +11,7 @@ I was poking around in Google Lens recently (which is Google's magical [reverse 
 {%
   picture
   filename="google-lens-console.png"
-  visible_width="750px"
+  width="750"
   class="screenshot"
   alt="A screenshot of a reverse image lookup, with the developer tools open on the right-hand side. I've selected the console tab, with a message in large text: 'WARNING! Using this console may allow attackers to impersomate you and steal your information using an attack called Self-XSS. Do not enter or paste code that you don't understand'. The word 'WARNING!' is in red text on a yellow background for extra emphasis."
 %}
@@ -29,7 +29,7 @@ Here are a few examples:
 {%
   picture
   filename="simple-console-examples.png"
-  visible_width="554px"
+  width="554"
   class="screenshot"
   alt="A screenshot of using console.log formatters. The first is `console.log('This is regular text')` to show a baseline. The second is `console.log('%cThis is red text', 'color: red;')` which gets printed red. The third is `console.log('%cThis is BIG TEXT', 'font-size: 2em;')`, which is printed noticeably larger than the previous two lines. The fourth and last is `console.log('%cThis is text on yellow', 'background: yellow;')` which gets printed on a yellow background."
 %}
@@ -39,7 +39,7 @@ You can also include multiple `%c` specifiers, and multiple CSS snippets, to sty
 {%
   picture
   filename="multi-console-example.png"
-  visible_width="554px"
+  width="554"
   class="screenshot"
   alt="A screenshot of using complex console.log formatters. The first is `console.log('I can %cshout%c and I can %cwhisper', 'font-size: 2em', 'font-size: 1em', 'font-size: 0.65em')`, which prints 'I can shout and I can whisper', but 'shout' and 'whisper' are big/small respectively. The second is `console.log('Things aren't %cblack% and %cwhite', 'color: black; background: white; border: 1px solid black;', 'color: black', 'color: white; background: black;')`, which prints 'Things aren’t black and white', with the words black/white coloured to match."
 %}

@@ -16,7 +16,7 @@ One of the key features of the new Wellcome Collection website is our [unified c
   picture
   filename="unified_search.png"
   alt="A search box labelled “Search the catalogue” with two tabs: “Library catalogue” and “Images”. To the right is a green button labelled “Search”. The search is for “suez canal” and shows two search results."
-  visible_width="630px"
+  width="630"
 %}
 
 On the old Wellcome Library and Wellcome Images websites, we had different search tools for different types of records.

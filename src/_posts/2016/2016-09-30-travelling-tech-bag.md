@@ -18,7 +18,7 @@ This is what my bag looks like, straight after PyCon:
   picture
   filename="tech-bag.jpg"
   alt="A photograph of my tech bag. A rectangular pouch with two compartments, stuffed with electronics equipment."
-  visible_width="750px"
+  width="750"
 %}
 
 What cables and adapters you need depends in part on what equipment you're carrying, and what you expect to do with it.

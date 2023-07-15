@@ -16,7 +16,7 @@ Today, the [National Museum of Computing][tnmoc] (TNMoC) is celebrating the five
     picture
     filename="witch.jpg"
     alt="A photograph of large, yellowish-grey computer."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     A photo of the Harwell-Dekatron under reconstruction at TNMoC in 2010.
@@ -43,7 +43,7 @@ Dekatrons also make a distinctive clackety clackety noise, and together with the
     picture
     filename="dekatron_register.jpg"
     alt="A 5x5 grid of “dekatrons”. Each dekatron has a series of black dots (the values), and a bright orange light showing the current value."
-    visible_width="640px"
+    width="640"
   %}
   <figcaption>
     A bank of dekatrons on the witch, taken by Alan Levine.

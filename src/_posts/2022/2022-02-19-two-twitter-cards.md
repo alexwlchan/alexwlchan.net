@@ -72,13 +72,13 @@ This can give some unfortunate results:
       picture
       filename="twitter_card_bad_crop.png"
       alt="A screenshot of a tweet linking to an article, in which the card image shows a woman's chest and the bottom half of her face."
-      visible_width="350px"
+      width="350"
     %}
     {%
       picture
       filename="twitter_card_good_crop.png"
       alt="A screenshot of the same tweet, but now the card is focused on the woman's face and shoulders."
-      visible_width="350px"
+      width="350"
     %}
   </div>
   <figcaption>
@@ -107,7 +107,7 @@ In particular, cards would display, but they didn't have any images attached:
   picture
   filename="twitter_card_no_image.png"
   alt="Screenshot of a tweet from me, where the card image is showing a generic grey icon."
-  visible_width="350px"
+  width="350"
 %}
 
 I started by running my pages through the [Twitter Card Validator][validator].
@@ -128,7 +128,7 @@ When they click the URL, they connect to your local server.
   picture
   filename="ngrok_screenshot.png"
   alt="Screenshot of my terminal running ngrok. It shows some information about my account, an eu.ngrok.io URL where I can access my web server, and a list of HTTP requests it's received."
-  visible_width="426px"
+  width="426"
 %}
 
 I ran my blog on a local web server, shared it through ngrok, put the public ngrok URL in the Twitter card validator… and the card worked perfectly.

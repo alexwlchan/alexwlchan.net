@@ -24,7 +24,7 @@ To help me out, Secrets Manager records the last time a secret was retrieved:
   picture
   filename="secrets_screenshot.png"
   alt="A table with three columns and five rows. The rows are titled 'Secret name', 'Description', and 'Last retrieved (UTC)', and the rows of the 'Last retrieved' column are filled with MM/DD/YYYY dates."
-  visible_width="532px"
+  width="532"
   class="screenshot"
 %}
 

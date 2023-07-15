@@ -138,7 +138,7 @@ In this post, we'll peek under the covers and see how it works.
   filename="marquee_rocket.png"
   alt="A web page with a rocket icon on a black background. On the left-hand side are a series of buttons labelled 'direction' and 'speed' which control the rocket."
   class="screenshot"
-  visible_width="582px"
+  width="582"
 %}
 
 <p id="reduceMotion">
@@ -423,14 +423,14 @@ Once I had this brilliant idea, I was able to construct a panel of buttons to co
     filename="tos_buttons_fixed.jpg"
     alt="Two panels of coloured lights and buttons on a spaceship console. We can see somebody in a gold uniform reaching out to push the buttons."
     class="screenshot"
-    visible_width="350px"
+    width="350"
   %}
   {%
     picture
     filename="marquee_buttons.png"
     alt="Buttons on a web page. There are four arrows labelled 'direction' arranged in a T-shape, like a keyboard, then three buttons labelled 'speed' for play/pause, go slower, and go faster."
     class="screenshot"
-    visible_width="350px"
+    width="350"
   %}
 </figure>
 

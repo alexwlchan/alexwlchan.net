@@ -27,7 +27,7 @@ If you're ever in London and need an unusual jam or a delicious sandwich, give i
   {%
     picture
     filename="jams.jpg"
-    visible_width="750px"
+    width="750"
     alt="Two shelves, each stacked with two rows of jam in glass jars."
   %}
   <figcaption>

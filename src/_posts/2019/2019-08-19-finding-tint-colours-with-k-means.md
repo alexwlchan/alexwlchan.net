@@ -21,7 +21,7 @@ Here's a screenshot:
   picture
   filename="docstore_card_view.jpg"
   alt="Left: a red and yellow book cover with the words “Bled in Slovenian folk tales, by Dusica Kunaver”. Right: the same cover, with a portion of white and some metadata covering the bottom half of the book. A black arrow from the left to right image."
-  visible_width="500px"
+  width="500"
 %}
 
 The source URL and tags are both clickable links.
@@ -34,7 +34,7 @@ I wanted to see if I could pick a colour from the thumbnail, and use that for th
   picture
   filename="docstore_card_view_red.jpg"
   alt="The same card view above, but now the blue links are in red."
-  visible_width="500px"
+  width="500"
 %}
 
 I've come up with an approach that seems to work fairly well, which uses [*k*-means clustering][k_means] to get the dominant images, and then compares the contrast with white to pick the best colour to use as the tint.
@@ -78,7 +78,7 @@ Here's an example:
   picture
   filename="green_chair.jpg"
   alt="An image of a green chair pointing to a rectangle with colour light white #fbfbfb."
-  visible_width="375px"
+  width="375"
 %}
 
 A human looking at that photo would probably pick green as the main colour -- but there are lots of different shades of green.
@@ -418,14 +418,14 @@ The *k*-means clustering gives us a way to extract some dominant colours from an
   picture
   filename="kmeans_3.jpg"
   alt="The photo of the green chairs, with an arrow pointing to a swatch with a very large green, a dark green, and a mid green."
-  visible_width="375px"
+  width="375"
 %}
 
 {%
   picture
   filename="kmeans_5.jpg"
   alt="The photo of the green chairs, with an arrow pointing to a swatch of five shades of green."
-  visible_width="375px"
+  width="375"
 %}
 
 Those colours are much more representative than a bright white or dark black.
@@ -441,7 +441,7 @@ Then I experimented with different tint colour pickers on the cached data, and c
   picture
   filename="tint_sampler.png"
   alt="A table with three headers: image, 5-means and tint colour. There's a small thumbnail of each image, a little palette of five colours, and one colour displayed in big with some text set in that colour."
-  visible_width="427px"
+  width="427"
   class="screenshot"
 %}
 
@@ -523,7 +523,7 @@ I've run this over about 1000 images from my photo library, and checked the tint
   picture
   filename="tint_sampler_with_wcag.png"
   alt="The same table above, with new columns for “WCAG contrast” and “brightness”. Contrast values greater than 4.5 are shaded green."
-  visible_width="646px"
+  width="646"
   class="screenshot"
 %}
 

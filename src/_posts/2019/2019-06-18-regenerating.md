@@ -41,7 +41,7 @@ Once I could ignore, but four seems pretty conclusive.
     picture
     filename="goldfinger.jpg"
     alt="A man in all black (James Bond) is strapped to a table as another man in a golden suit (Goldfinger) overlooks. A large red laser is cutting through the table."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>
     You can tell it's the &rsquo;60s because of the lax attitude to health and safety.
@@ -183,7 +183,7 @@ Right now, I'm experimenting with the labels *genderfluid* and *genderqueer*, an
     picture
     filename="trans_planet.jpg"
     alt="A pink embroidery hoop with a Jupiter-like planet with blue, pink and white stripes."
-    visible_width="400px"
+    width="400"
   %}
   <figcaption>
     A subtle trans pride motif I gave my parents when I came out.

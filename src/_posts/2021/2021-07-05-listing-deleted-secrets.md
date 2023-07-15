@@ -23,7 +23,7 @@ You can see deleted secrets in the AWS Console (notice the "Deleted on" column):
     picture
     filename="secrets_manager.1.png"
     alt="Screenshot of the Secrets Manager console. There's a table with one secret per row, and the rightmost column is titled 'Deleted on'. This column contains a date for the top five rows."
-    visible_width="515px"
+    width="515"
     class="screenshot"
   %}
   <figcaption>

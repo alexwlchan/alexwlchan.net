@@ -92,7 +92,7 @@ That works well on a small scale, but you can see it's already getting a bit mes
     picture
     filename="chinese_directions.jpg"
     alt="A handwritten page with various characters and arrows between them."
-    visible_width="500px"
+    width="500"
   %}
 </figure>
 
@@ -115,7 +115,7 @@ That gives me a page that shows me a phrase and everything that is either direct
   filename="vocab_graph.png"
   style="border: 2px solid #725001; border-radius: 7px;"
   alt="Screenshot of a web app with a graph connecting some Chinese characters."
-  visible_width="750px"
+  width="750"
 %}
 
 The graph is interactive: I can click on a phrase to jump to it, and see a graph with its related phrases.

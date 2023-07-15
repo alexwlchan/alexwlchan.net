@@ -24,7 +24,7 @@ When I find a book I might be interested in reading, I tap the bookmark icon in 
   picture
   filename="library_online_catalogue.png"
   alt="A search result in my library’s online catalogue. The result includes the title, the author, and the publication year. In the top right-hand corner is a small green bookmark icon."
-  visible_width="494px"
+  width="494"
   class="screenshot"
 %}
 
@@ -38,7 +38,7 @@ If I tap "View availability", I get a long list of every copy in the network, it
   picture
   filename="library_availability.png"
   alt="A modal dialog labelled ‘Availability’. It’s a long list. Each entry in the list has a location (e.g. Abbots Langley Library), a collection (e.g. Hot picks), a call number (e.g. General fiction) and a status/description (e.g. Available). Only two results are visible in the current scroll position."
-  visible_width="593px"
+  width="593"
   class="screenshot"
 %}
 
@@ -55,7 +55,7 @@ This is what my new page looks like:
   picture
   filename="library_lookup.png"
   alt="A list of books. The first two books have large titles, a summary, and a list of branches where copies are available for immediate borrowing. There are two more books which are shown in smaller text and with greyed-out covers -- these aren't available nearby."
-  visible_width="623px"
+  width="623"
   class="screenshot"
 %}
 
@@ -76,7 +76,7 @@ For example, if I'm visiting Ware to get my pictures framed, I can find out if t
   picture
   filename="library_branch_picker.png"
   alt="A list of library branch names with tickboxes. A single branch is ticked ‘Ware Library’, and below is shown a book with a single copy in Ware Library."
-  visible_width="663px"
+  width="663"
   class="screenshot"
 %}
 

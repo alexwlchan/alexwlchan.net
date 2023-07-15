@@ -23,7 +23,7 @@ To be on the safe side, I've been [scanning and digitising] as I go, so I have d
   picture
   filename="IMG_8042.jpg"
   alt="A photo of my scanning setup. I have a plastic box full of exercise books and papers, and next to it a small document-feed scanner. Behind them both is a big monitor, which has the scanning software and some of the already-scanned documents onscreen."
-  visible_width="750px"
+  width="750"
   class="fullwidth_img"
 %}
 
@@ -54,7 +54,7 @@ What's left is all pretty personal, and it's hard to pick out anything I want to
   picture
   filename="IMG_3066.jpg"
   alt="A collection of a few papers, including a purple exercise book, a blue workbook, a small book with some handwritten numbers, and a newspaper clipping about a chess club."
-  visible_width="750px"
+  width="750"
   class="fullwidth_img"
 %}
 
@@ -66,7 +66,7 @@ This was a good choice, because inside I found a superb annotation:
   picture
   filename="IMG_3057.jpg"
   alt="The heading 'Argumentation (SEXI)' with a hand-drawn arrow 'This is Alex'"
-  visible_width="500px"
+  width="500"
   class="fullwidth_img"
 %}
 
@@ -81,7 +81,7 @@ Apparently red was my favourite colour then, and it still is:
   picture
   filename="IMG_3061.jpg"
   alt="A red cast for a broken arm, cut down the middle, with signatures written on the side in black sharpie."
-  visible_width="500px"
+  width="500"
   class="fullwidth_img"
 %}
 
@@ -98,7 +98,7 @@ It turns out I have almost no photos of what my desk looked like when I was in s
     picture
     filename="IMG_0966.jpg"
     alt="A white laptop on a brown table, surrounded by handwritten papers and a half-finished lunchbox. A couple of diagrams are visible on the papers, drawn in purple ink."
-    visible_width="500px"
+    width="500"
     class="fullwidth_img"
   %}
   <figcaption>
@@ -125,7 +125,7 @@ The earliest example I found is from 2003, and will actually feature in an upcom
   picture
   filename="IMG_3064.jpg"
   alt="A stack of comb-bound documents, each with red card covers on one side. The cover of the topmost document says 'Cheddar Gorge' with my name and a picture."
-  visible_width="500px"
+  width="500"
   class="fullwidth_img"
 %}
 

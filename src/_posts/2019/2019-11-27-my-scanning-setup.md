@@ -31,7 +31,7 @@ It's a [Canon ImageFORMULA P-215]:
     picture
     filename="canon_scanner.jpg"
     alt="A black document-feed scanner sitting on a wooden desk."
-    visible_width="750px"
+    width="750"
   %}
   <figcaption>With an A5 sheet of paper for comparison.</figcaption>
 </figure>
@@ -50,7 +50,7 @@ The software is basic, but it does the job:
   picture
   filename="canon_scanner_software.png"
   alt="Screenshot of scanning software. A preview of the page is shown in the centre, with some action buttons along the bottom of the window."
-  visible_width="750px"
+  width="750"
 %}
 
 The software can recognise printed text, and it performs OCR on the scans.
@@ -85,7 +85,7 @@ For anything more than a few files, this gets messy -- how do I organise them so
     picture
     filename="scans_folder.png"
     alt="Screenshot of a folder full of PDFs."
-    visible_width="520px"
+    width="520"
   %}
   <figcaption>
     The default filename from the Canon software is a timestamp in the unconventional format MMDDYYYYhhmmss.
@@ -132,7 +132,7 @@ This gives us a tree-like view of our files:
   filename="finder_tree.png"
   alt="A folder called 'scans', which contains two other folders. The two child folders contain PDF files."
   class="screenshot"
-  visible_width="430px"
+  width="430"
 %}
 
 I've tried to sort my PDFs this way a couple of times, but it's never stuck.
@@ -264,7 +264,7 @@ Here's what it looks like, storing some of my ebooks:
   filename="docstore_screenshot.png"
   alt="Screenshot of docstore."
   class="screenshot"
-  visible_width="750px"
+  width="750"
 %}
 
 Most of the screen is taken up with a list of documents.
@@ -285,7 +285,7 @@ In the navbar, there are options to sort by title or by date:
     filename="docstore_sorting.png"
     alt="A 'sort by' dropdown menu with four options: 'title (a-z)', 'title (z-a)', 'date created (newest first)' and 'date created (oldest first)'."
     class="screenshot"
-    visible_width="364px"
+    width="364"
   %}
   <figcaption>
     When I'm labelling a sort option, I much prefer explicit sort options to &ldquo;ascending&rdquo; or &ldquo;descending&rdquo;.
@@ -302,7 +302,7 @@ It's a standard web form:
     filename="docstore_upload_form.png"
     alt="A form titled 'Store a document' with fields 'Title', 'Tags', and 'Source URL'."
     class="screenshot"
-    visible_width="708px"
+    width="708"
   %}
   <figcaption>If I start typing something that looks like an existing tag, the tags field will offer to autocomplete for me.</figcaption>
 </figure>
@@ -318,7 +318,7 @@ Clicking any one of the tags will filter the documents to ones that have that ta
   filename="docstore_tag_list.png"
   alt="A bulleted list of tags."
   class="screenshot"
-  visible_width="750px"
+  width="750"
 %}
 
 This list is context-dependent: if I've already applied a tag query, it shows me the list of tags for documents that match my query.

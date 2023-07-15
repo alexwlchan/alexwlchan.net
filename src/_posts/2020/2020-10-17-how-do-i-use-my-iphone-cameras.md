@@ -25,7 +25,7 @@ Useful!
   {%
     picture
     filename="exif_metadata.png"
-    visible_width="392px"
+    width="392"
     alt="Screenshot of an Info panel. A line is highlighted with red arrows: ‘iPhone 11 Pro back tr…camera 4.25mm f/1.8’."
   %}
   <figcaption>

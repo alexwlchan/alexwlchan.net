@@ -34,7 +34,7 @@ Braille is usually printed on embossed paper, with the dots raised from the surf
     picture
     filename="braille.jpg"
     alt="A finger feeling raised dots on a printed page of braille."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Image by <a href="https://www.flickr.com/photos/malmesjo/4959534304/">Stefan Malmesjö</a>, used under CC&nbsp;BY.
@@ -55,7 +55,7 @@ But Haüy's system was expensive to produce, and although children could read, t
     picture
     filename="embossed_type.jpg"
     alt="Six rows, each showing an alphabet in a different writing style."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Image from the Catholic Encyclopedia (1913), by <a href="https://en.wikipedia.org/wiki/File:Six_Principal_Systems_of_Embossed_Type.jpg">Charles George Herbermann</a>.
@@ -83,7 +83,7 @@ As a teenager, when he was developing his raised-dot system, he used another awl
     picture
     filename="awls.jpg"
     alt="A collection of tools with wooden handles and sharp, pointed metal ends."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Shoemaking awls.
@@ -118,7 +118,7 @@ Braille is a unique system in its own right -- it's not just another a one-to-on
     picture
     filename="lift_buttons.jpg"
     alt="Buttons in a lift with printed numbers and braille inscriptions."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Buttons in a lift: notice how the braille for each button starts with <strong>⠼</strong> to tell you it's a number.
@@ -138,7 +138,7 @@ It ranges for things quite similar to English/French -- such as [Dutch Braille](
     picture
     filename="finnish_braille.jpg"
     alt="A page printed with Finnish words and embossed with braille."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Finnish braille.
@@ -186,7 +186,7 @@ Unlike printed music, a Braille musician usually has to read and memorise the sc
     picture
     filename="braille_music.jpg"
     alt="A few bars of musical notes with the Braille symbols printed below."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     Excerpt from <a href="https://archive.org/details/braillemusicnota00unse/page/4/">Braille Music Notation</a> (1930), as digitsed for the Internet Archive.
@@ -206,7 +206,7 @@ Sort of like the number sign I mentioned above, but longer.
     picture
     filename="nemeth_braille.png"
     alt="A short mathematical expression with the associated Nemeth Braille."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     A mathematical expression and its <a href="https://en.wikipedia.org/wiki/Nemeth_Braille">Nemeth Braille</a> equivalent, one way to write mathematics in Braille.
@@ -240,7 +240,7 @@ You read the line with your fingers, and when you're done, you refresh the displ
     picture
     filename="braille-reader.jpg"
     alt="A purple machine with a sequence of braille characters in raised pins along the front row."
-    visible_width="500px"
+    width="500"
   %}
   <figcaption>
     A refreshable braille display, photographed by <a href="https://commons.wikimedia.org/wiki/File:Plage-braille.jpg">Sebastien.delorme</a>, CC&nbsp;BY-SA.

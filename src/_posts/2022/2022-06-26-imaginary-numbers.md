@@ -17,7 +17,7 @@ The camera lingers on the card for several seconds, giving us plenty of time to 
 {%
   picture
   filename="phone_number.jpg"
-  visible_width="554px"
+  width="554"
   alt="Close-up shot of a plain white business card with the number '+44 071 946-0241'. The number is written in black text, with no other markings on the card."
 %}
 
@@ -98,7 +98,7 @@ Now I know: this is a UK phone number with a period-accurate dialling code for i
 {%
   picture
   filename="phone_number_annotated.jpg"
-  visible_width="554px"
+  width="554"
   alt="The same business card, now with yellow hand-drawn markings highlighting the three parts of the number. +44 is the UK international dialling code, 071 is the inner London area code, 946-0241 is from a range allocated by Oftel for fictional use."
 %}
 

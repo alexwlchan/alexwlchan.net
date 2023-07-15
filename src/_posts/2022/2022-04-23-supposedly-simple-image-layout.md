@@ -25,7 +25,7 @@ This is the sort of thing I mean:
     picture
     filename="image_layout.png"
     alt="The image layout I've described, with a picture of a starry sky (left), the planet Jupiter half in shadow with a moon in front of it (upper right), and the International Space Station floating above the Earth."
-    visible_width="392px"
+    width="392"
   %}
   <figcaption>
     A mockup I made in Keynote.
@@ -248,7 +248,7 @@ Let's start by just dropping the images into the grid, and see what happens:
         picture
         filename="sky.jpg"
         alt="A starry night sky, with a tree in silhouette in the foreground. In the background is a bright white streak, next to a bright white dot that stands out from the other stars."
-        visible_width="250px"
+        width="250"
       %}
     </div>
     <div class="item upper_right">
@@ -256,7 +256,7 @@ Let's start by just dropping the images into the grid, and see what happens:
         picture
         filename="jupiter.jpg"
         alt="The planet Jupiter, but with only the left-hand side of the planet visible; the other half is hidden in shadow. A smaller moon is passing in front of it, also partially in shadow."
-        visible_width="113px"
+        width="113"
       %}
     </div>
     <div class="item lower_right">
@@ -264,7 +264,7 @@ Let's start by just dropping the images into the grid, and see what happens:
         picture
         filename="iss.jpg"
         alt="The International Space Station, a collection of silver tubes and panels, floating in space above the Earth."
-        visible_width="113px"
+        width="113"
       %}
     </div>
   </div>
@@ -342,7 +342,7 @@ We can tell the images to completely fill the grid items by setting `width` and 
         picture
         filename="sky.jpg"
         alt="A starry night sky."
-        visible_width="250px"
+        width="250"
       %}
     </div>
     <div class="item upper_right">
@@ -350,7 +350,7 @@ We can tell the images to completely fill the grid items by setting `width` and 
         picture
         filename="jupiter.jpg"
         alt="Jupiter and Io."
-        visible_width="113px"
+        width="113"
       %}
     </div>
     <div class="item lower_right">
@@ -358,7 +358,7 @@ We can tell the images to completely fill the grid items by setting `width` and 
         picture
         filename="iss.jpg"
         alt="The International Space Station."
-        visible_width="113px"
+        width="113"
       %}
     </div>
   </div>
@@ -448,7 +448,7 @@ Let's add that CSS rule:
         picture
         filename="sky.jpg"
         alt="A starry night sky."
-        visible_width="250px"
+        width="250"
       %}
     </div>
     <div class="item upper_right">
@@ -456,7 +456,7 @@ Let's add that CSS rule:
         picture
         filename="jupiter.jpg"
         alt="Jupiter and Io."
-        visible_width="113px"
+        width="113"
       %}
     </div>
     <div class="item lower_right">
@@ -464,7 +464,7 @@ Let's add that CSS rule:
         picture
         filename="iss.jpg"
         alt="The International Space Station."
-        visible_width="113px"
+        width="113"
       %}
     </div>
   </div>
@@ -547,7 +547,7 @@ If you add this property, you can change the size of the overall grid; for examp
         picture
         filename="sky.jpg"
         alt="A starry night sky."
-        visible_width="250px"
+        width="250"
       %}
     </div>
     <div class="item upper_right">
@@ -555,7 +555,7 @@ If you add this property, you can change the size of the overall grid; for examp
         picture
         filename="jupiter.jpg"
         alt="Jupiter and Io."
-        visible_width="113px"
+        width="113"
       %}
     </div>
     <div class="item lower_right">
@@ -563,7 +563,7 @@ If you add this property, you can change the size of the overall grid; for examp
         picture
         filename="iss.jpg"
         alt="The International Space Station."
-        visible_width="113px"
+        width="113"
       %}
     </div>
   </div>
@@ -641,7 +641,7 @@ This is what my new component looks like:
         picture
         filename="sky.jpg"
         alt="A starry night sky."
-        visible_width="250px"
+        width="250"
       %}
     </div>
     <div class="item upper_right">
@@ -649,7 +649,7 @@ This is what my new component looks like:
         picture
         filename="jupiter.jpg"
         alt="Jupiter and Io."
-        visible_width="113px"
+        width="113"
       %}
     </div>
     <div class="item lower_right">
@@ -657,7 +657,7 @@ This is what my new component looks like:
         picture
         filename="iss.jpg"
         alt="The International Space Station."
-        visible_width="113px"
+        width="113"
       %}
     </div>
   </div>

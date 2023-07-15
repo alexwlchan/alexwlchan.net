@@ -20,7 +20,7 @@ This is the sort of visualisation I find quite helpful:
   picture
   filename="journal_progress.png"
   alt="Two calendars for 2020/2021. Some days are highlighted in varying shades of pink (2021) or blue (2020). Above the two calendars is the text 'Your last journal entry was yesterday. Keep it up! Your current streak is 1 day.'"
-  visible_width="642px"
+  width="642"
   class="screenshot"
 %}
 

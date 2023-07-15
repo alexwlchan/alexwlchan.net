@@ -52,7 +52,7 @@ The list takes up a lot of space, so I don't want to show it unless I'm actively
 {%
   picture
   filename="docstore_details.png"
-  visible_width="600px"
+  width="600"
   alt="Two details elements, with one expanded to show a cloud of links in different sizes and colours."
   class="screenshot"
 %}

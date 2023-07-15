@@ -23,7 +23,7 @@ Suppose you're looking at a rule in the console:
 {%
   picture
   filename="eventbridge_rule.png"
-  visible_width="574px"
+  width="574"
   alt="A rule in the EventBridge console. It's titled 'run_costs_report', has a section titled 'Rule details', then a second section titled 'Event schedule' with the expression 'cron(0 8 ? * 3#2 *)'."
   class="screenshot"
 %}
@@ -33,7 +33,7 @@ If you click "Edit", and scroll down to the section titled "Define pattern", it'
 {%
   picture
   filename="eventbridge_trigger_dates.png"
-  visible_width="574px"
+  width="574"
   alt="A section in the AWS console titled 'Define pattern', with a text field for editing a cron expression and a list of the next 10 trigger dates at the bottom. There's a selection picker which is currently 'GMT'."
   class="screenshot"
 %}
