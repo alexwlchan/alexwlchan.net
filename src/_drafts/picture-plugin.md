@@ -17,8 +17,8 @@ That means looking sharp on high-resolution displays, but without forcing everyo
 For me: I want images to be easy to manage.
 It should be easy for me to add images to a post, and to customise them if I want to do something special.
 
-One way to achieve this is with vector images, i.e. SVGs.
-Those are great for simple diagrams and drawings, but they don't work for photographs and screenshots.
+One way to achieve this is with vector images – SVGs.
+Those are great for simple diagrams and drawings, and I use them plenty, but they don't work for photographs and screenshots.
 
 For bitmap images, I wrote a [custom Jekyll plugin][plugin].
 Usually my original image is a JPEG or a PNG.
@@ -34,7 +34,7 @@ I save it in `_images`, and then I include my custom `{% raw %}{% picture %}{% e
 %}
 {% endraw %}```
 
-This expands into a larger chunk of HTML, which refers to nine different variants of the image:
+This expands into a larger chunk of HTML, which refers to several different variants of the image:
 
 ```html
 <picture>
@@ -151,7 +151,8 @@ widths_to_create =
 For example, if the original file is 250px wide, and I want to show the image at 100px wide, then the plugin would create a 1x image (100px) and a 2x image (200px) but not a 3x image (because 300px is wider than the original image).
 
 This resizing happens as part of the Jekyll build process.
-Another approach would be to use a dedicated image CDN and create these derivative images at request time (e.g. [imgix] or [Netlify Large Media]), but I'm already doing custom steps in my Jekyll build and it was easier to extend that mechanism than add a new service.
+An alternative would be to use a proper image CDN and create these derivative images at request time (e.g. [imgix] or [Netlify Large Media]), but I'm already doing custom steps in my Jekyll build and it was easier to extend that mechanism than add a new service.
+It also makes it easier to work with images in a local Jekyll server.
 
 To tell the browser about these different sizes, I use the HTML `picture` and `source` tags, the latter with an `srcset` attribute:
 
@@ -273,3 +274,12 @@ When the web was young, images were much simpler. You’d upload your JPEG file 
 That still works (including the uppercase HTML tags), but there’s a lot more we can do now.
 
 Building this plugin has been one of the more complex bits of front-end web development I've done for this site.
+Creating the various images with ImageMagick was fairly straightforward, but setting up the `srcset` and `sizes` attributes so browsers would pick the right image was much harder.
+I think it behaves correctly now, and adding images to new posts is pretty seamless – but it took a while to get there.
+
+This was a great way for me to learn how images work in the modern web, but it's hard to recommend my "write it from scratch" approach.
+There are lots of existing libraries and tools that make it easy for you to use images on your website, without all the work I had to do first.
+
+I'm the only person who works on this website, and I'm doing it for fun.
+I can make very different choices than if I was working on a commercial site developed by a large team.
+I enjoyed writing this plugin, and I'm pleased with my snazzy new images, and for me that's all that matters.
