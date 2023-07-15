@@ -282,5 +282,5 @@ This was a great way for me to learn how images work in the modern web, but it's
 There are lots of existing libraries and tools that make it easy for you to use images on your website, without all the work I had to do first.
 
 I'm the only person who works on this website, and I'm doing it for fun.
-I can make very different choices than if I was working on a commercial site developed by a large team.
+I can make very different choices than if I was working on a commercial site managed by a large team.
 I enjoyed writing this plugin, and I'm pleased with my snazzy new images, and for me that's all that matters.
