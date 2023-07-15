@@ -51,7 +51,7 @@ module Jekyll
 
       path = "src/_tweets/avatars/#{screen_name}_#{tweet_id}.#{extension}"
 
-      FileUtils.mkdir_p ".jekyll-cache/twitter/avatars"
+      FileUtils.mkdir_p '.jekyll-cache/twitter/avatars'
 
       # Avatars are routinely quite large (e.g. 512x512), but they're
       # only displayed in a 36x36 square (see _tweets.scss).
@@ -64,7 +64,7 @@ module Jekyll
         image.resize(108, 108).save(thumbnail_path)
       end
 
-      thumbnail_data = Base64.encode64(File.open(thumbnail_path).read)
+      thumbnail_data = Base64.encode64(File.read(thumbnail_path))
 
       case extension
       when 'png'
@@ -74,7 +74,7 @@ module Jekyll
       when 'jpeg'
         "data:image/jpeg;base64,#{thumbnail_data}"
       else
-        raise RuntimeError, "Unrecognised avatar extension: #{avatar_url} / #{extension}"
+        raise "Unrecognised avatar extension: #{avatar_url} / #{extension}"
       end
     end
 
