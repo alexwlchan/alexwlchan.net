@@ -14,7 +14,9 @@ I love it when people tell me they enjoyed something I made!
 A nice email can make my day.
 
 I also use the handle **alexwlchan** pretty consistently on the rest of web.
-I'm not especially active on social media right now, but you can follow me for updates on the following sites.
+I'm not especially active on social media right now, but you can follow me on the following sites.
+I don't post frequently.
+
 I read my notifications and private messages, but at a slower cadence than emails.
 
 {% include contact/socials.html %}
