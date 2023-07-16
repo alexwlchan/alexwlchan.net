@@ -27,8 +27,10 @@ def replace_twemoji_with_images(text)
     data_uri = "data:image/svg+xml;base64,#{base64_string}"
     text = text.gsub(
       orig,
-      "<img class=\"twemoji\" alt=\"#{orig}\" src=\"#{data_uri}\"/>"
-    )
+      <<~HTML
+        <img class="twemoji" width="20px" height="20px" alt="#{orig}" src="#{data_uri}"/>
+      HTML
+    ).strip
   end
 
   text
