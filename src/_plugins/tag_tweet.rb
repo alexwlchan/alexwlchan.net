@@ -69,9 +69,7 @@ module Jekyll
       case extension
       when 'png'
         "data:image/png;base64,#{thumbnail_data}"
-      when 'jpg'
-        "data:image/jpeg;base64,#{thumbnail_data}"
-      when 'jpeg'
+      when 'jpg', 'jpeg'
         "data:image/jpeg;base64,#{thumbnail_data}"
       else
         raise "Unrecognised avatar extension: #{avatar_url} / #{extension}"

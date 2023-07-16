@@ -297,16 +297,16 @@ module Jekyll
       widths = widths.filter { |w| w <= image.width }
       widths.sort!
 
-      widths.each do |width|
+      widths.each do |w|
         [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
           # I already have lots of images cut with the _1x, _2x, _3x names,
           # so I retain those when picking names to avoid breaking links or
           # losing Google juice, then switch to _500w, _640w, and so on
           # for larger sizes.
-          out_path = if (width % width).zero?
-                       "#{dst_prefix}_#{width / width}x#{out_format[:extension]}"
+          out_path = if (w % width).zero?
+                       "#{dst_prefix}_#{w / width}x#{out_format[:extension]}"
                      else
-                       "#{dst_prefix}_#{width}w#{out_format[:extension]}"
+                       "#{dst_prefix}_#{w}w#{out_format[:extension]}"
                      end
 
           unless File.exist? out_path
@@ -315,7 +315,7 @@ module Jekyll
                                      out_path:,
                                      source_path:,
                                      width:,
-                                     height: (image.height * width / image.width).to_i
+                                     height: (image.height * w / image.width).to_i
                                    })
             end
           end
