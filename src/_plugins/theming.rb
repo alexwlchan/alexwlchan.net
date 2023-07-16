@@ -65,16 +65,16 @@ def colours_like(hex_colour)
   # Seed the random to get consistent outputs
   seeded_random = Random.new(hex_colour[1..].to_i(16))
 
+  hsl_colour = Color::RGB.by_hex(hex_colour).to_hsl
+
+  luminosity = hsl_colour.luminosity
+
+  min_luminosity = luminosity * 7 / 8
+  max_luminosity = luminosity * 8 / 7
+
+  luminosity_diff = max_luminosity - min_luminosity
+
   Enumerator.new do |enum|
-    hsl_colour = Color::RGB.by_hex(hex_colour).to_hsl
-
-    luminosity = hsl_colour.luminosity
-
-    min_luminosity = luminosity * 7 / 8
-    max_luminosity = luminosity * 8 / 7
-
-    luminosity_diff = max_luminosity - min_luminosity
-
     loop do
       hsl_colour.luminosity = min_luminosity + (seeded_random.rand * luminosity_diff)
       enum.yield hsl_colour.to_rgb
