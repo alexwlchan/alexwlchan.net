@@ -15,6 +15,13 @@ module HtmlModifiers
     # Remove the avatar from tweets; the RSS feed should just include the
     # plaintext blockquote.
     doc.xpath('.//span[@class="avatar"]').remove
+
+    # Replace twemoji SVG images with the plaintext emoji counterparts; these
+    # render better in RSS readers.
+    doc.xpath('.//img[@class="twemoji"]').each do |img|
+      emoji = img.get_attribute('alt')
+      img.replace Nokogiri::HTML.fragment(emoji)
+    end
   end
 
   # Fix references in images and <a> tags.

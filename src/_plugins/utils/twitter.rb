@@ -19,7 +19,6 @@ def replace_twemoji_with_images(text)
     '✨' => '2728.svg'
   }
 
-  # TODO: Fix these in the RSS feed
   twemoji.each do |orig, svg_name|
     base64_string = Base64.encode64(
       File.binread("src/_tweets/twemoji/#{svg_name}")
