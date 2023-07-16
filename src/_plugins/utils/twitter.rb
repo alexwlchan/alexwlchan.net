@@ -25,6 +25,13 @@ def replace_twemoji_with_images(text)
       File.binread("src/_tweets/twemoji/#{svg_name}")
     ).strip
     data_uri = "data:image/svg+xml;base64,#{base64_string}"
+    
+    # Construct the <img> tag.  Notes:
+    #
+    #   - the `twemoji` class is used for styling
+    #   - the `width`/`height` attributes are meant for when styles don't load
+    #     properly -- they stop the emoji completely blowing up in size.
+    #
     text = text.gsub(
       orig,
       <<~HTML
