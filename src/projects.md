@@ -80,7 +80,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   */
   .illustrated_item a img {
     max-height: 150px;
-    border-width: 3px;
+    border-width: 2px;
     border-style: solid;
   }
 
@@ -175,7 +175,7 @@ I help to build digital services that present and preserve the collections, maki
 All of our work is in public GitHub repositories and available under an MIT licence.
 The projects I've worked on include:
 
-<dl>
+<ul class="illustrated_list">
   <dt><a href="https://github.com/wellcomecollection/storage-service">Storage service</a></dt>
   <dd>
     The storage service is the preservation repository for Wellcome’s digital collections.
@@ -183,6 +183,39 @@ The projects I've worked on include:
     I was part of the team that built the original storage service, and I handle ongoing maintenance and debugging.
     Recently I’ve been working on documentation and a demo, so that other institutions can try running the storage service.
   </dd>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://wellcomecollection.org/collections">Unified collections search</a>
+      </dt>
+      <dd>
+        The unified search combines catalogue records from multiple source catalogues, which provides a single search box for users.
+        I helped build the initial version of this search, and the data pipeline that keeps it up-to-date with new catalogue records.
+      </dd>
+    </dl>
+
+    <style type="x-text/scss">
+      @mixin illustrated_image($color, $opacity) {
+        img     { border-color:    $color; }
+        &:hover { background: rgba($color, $opacity); }
+      }
+
+      #collections_search {
+        @include illustrated_image(#ffce3c, 0.2)
+      }
+    </style>
+
+    <a href="https://wellcomecollection.org/search/images?query=botany" id="collections_search" class="fun_image">
+      {%
+        picture
+        filename="cataloguesearch.png"
+        width="170"
+        parent="/images/projects"
+        alt="Screenshot of a search interface showing search results for ‘botany’."
+      %}
+    </a>
+  </li>
 
   <dt><a href="https://developers.wellcomecollection.org/catalogue">Catalogue API</a></dt>
   <dd>
@@ -200,7 +233,7 @@ The projects I've worked on include:
   <dd>
     I helped write Wellcome’s trans inclusion policy and guidance, which provides advice for trans staff and their managers and colleagues.
   </dd>
-</dl>
+</ul>
 
 
 
