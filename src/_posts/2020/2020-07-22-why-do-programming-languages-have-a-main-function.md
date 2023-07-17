@@ -71,7 +71,12 @@ This book helped popularise the idea of ["hello world"][hello_world] as a simple
 This quote is taken from my copy of K&R, which is the 1988 second edition.
 I don't have a first edition to hand, but I did find some C code [hand-written by Brian Kernighan][auction] in 1978:
 
-![A hand-written and signed C program, mounted in a black frame.](/images/2020/kernighan_hello_world.jpg)
+{%
+  picture
+  filename="kernighan_hello_world.jpg"
+  width="584"
+  alt="A hand-written and signed C program, mounted in a black frame."
+%}
 
 Given how popular C was, I feel pretty safe saying that most contemporary languages got the idea of calling their entrypoint `main` from C.
 So where did C get the idea?
@@ -378,4 +383,3 @@ I'm sure somebody must know where `main()` came from, even if I don't.
 [TRIPOS]: https://en.wikipedia.org/wiki/TRIPOS
 [octal]: https://en.wikipedia.org/wiki/Octal#In_computers
 [pep_3127]: https://www.python.org/dev/peps/pep-3127/
-

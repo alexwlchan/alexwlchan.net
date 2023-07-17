@@ -122,7 +122,12 @@ def generate_squares(image_width, image_height, side_length=1):
 
 If we drop this generator into the code in the previous section, we get a nice tiling of black and white squares:
 
-![A black and white square grid, with black backgrounds and white outlines](/images/2016/tiling-squares.png)
+{%
+  picture
+  filename="tiling-squares.png"
+  width="400"
+  alt="A black and white square grid, with black backgrounds and white outlines"
+%}
 
 Not very colourful, but it illustrates the point.
 Onwards!
@@ -160,7 +165,12 @@ def generate_unit_triangles(image_width, image_height):
 The problem with this code is that the triangles it generates are the same on each row, so the edges don't line up nicely.
 Here's what that looks like:
 
-![A black and white triangular grid, with three rows exactly the same](/images/2016/tiling-bad-triangles.png)
+{%
+  picture
+  filename="tiling-bad-triangles.png"
+  width="400"
+  alt="A black and white triangular grid, with three rows exactly the same"
+%}
 
 What we need to do is add a horizontal offset on every other row.
 By shifting all the triangles along by a half unit, we can get them to line up nicely.
@@ -219,7 +229,12 @@ def generate_triangles(*args, **kwargs):
 
 And voila, a triangle party:
 
-![A black and white triangular grid, with black triangles and white outlines](/images/2016/tiling-triangles.png)
+{%
+  picture
+  filename="tiling-triangles.png"
+  width="400"
+  alt="A black and white triangular grid, with black triangles and white outlines"
+%}
 
 Only one left to go.
 
@@ -278,7 +293,12 @@ def generate_hexagons(*args, **kwargs):
 
 Which this gives us the honeycomb:
 
-![A black and white hexagonal honeycomb, with black background and white outlines](/images/2016/tiling-hexagons.png)
+{%
+  picture
+  filename="tiling-hexagons.png"
+  width="400"
+  alt="A black and white hexagonal honeycomb, with black background and white outlines"
+%}
 
 And that's the final tiling of the plane.
 

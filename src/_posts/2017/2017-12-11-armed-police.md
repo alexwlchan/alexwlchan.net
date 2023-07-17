@@ -4,6 +4,8 @@ date: 2017-12-11 12:19:24 +0000
 title: Armed police officers don't make me feel safer
 tags: politics
 summary: Why guns make me jumpy, how armed police don't reassure me, and why you need to be careful about the images you use in tweets.
+index:
+  exclude: true
 ---
 
 **Content warning:** discussion of guns, police violence, and images of armed police.
@@ -63,7 +65,12 @@ Given no other context, either scenario is horrifying, and hardly seems like an 
 If you wanted a better image of armed police, it's not hard to find one.
 I found this photo on Paul Townsend's Flickr account, accompanied by an [excellent history of armed police in the UK][flickr]:
 
-![Five police officers walking down a street, all holding large guns which are pointed towards the ground.](/images/2017/armed_police.jpg)
+{%
+  picture
+  filename="armed_police.jpg"
+  width="750"
+  alt="Five police officers walking down a street, all holding large guns which are pointed towards the ground."
+%}
 
 We see good practice all round: guns pointed down, fingers covering but not on the trigger.
 (And I always feel better when I see they're a little apprehensive with the guns too!)

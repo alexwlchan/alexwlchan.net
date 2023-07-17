@@ -25,7 +25,12 @@ And if you hemmed and hawed over whether you wanted to speak, all the slots woul
 I'm a big fan of the way the talk selection has been balanced out this year.
 Thanks to the efforts of [Owen][owen], [Tim][tim] and [Vince][vince], the conference now has a lottery system instead.
 
-![Two buckets: one green (left), labelled "New speakers", another yellow (right), labelled "Experienced speakers". Below the buckets is a handwritten label "Sign up for lightning talks here".](/images/2017/lightning_bukkit.jpg)
+{%
+  picture
+  filename="lightning_bukkit.jpg"
+  width="750"
+  alt="Two buckets: one green (left), labelled 'New speakers', another yellow (right), labelled 'Experienced speakers'. Below the buckets is a handwritten label 'Sign up for lightning talks here'."
+%}
 
 At the start of each day, there are two empty buckets: one for new speakers, and one for everybody who's spoken at a conference before.
 There's a pile of index cards, and to sign up for that evening's session, you write a name and title on a card, and drop it in the bucket.

@@ -18,7 +18,12 @@ If in doubt, consult your boiler manual and/or a certified plumber._
 The control panel for my boiler is on the lower right-hand side of the front panel.
 This is what it looks like:
 
-![Control panel for a Worcester 28CDi boiler](/images/2016/boiler-panel.png)
+{%
+  picture
+  filename="boiler-panel.png"
+  width="617"
+  alt="Control panel for a Worcester 28CDi boiler"
+%}
 
 I use the following steps to reset my clock:
 

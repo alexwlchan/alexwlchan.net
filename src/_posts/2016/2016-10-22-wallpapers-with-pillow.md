@@ -14,7 +14,12 @@ What I was actually trying to do was get some new desktop wallpapers, and gettin
 
 A while back, the [Code Review Stack Exchange](http://codereview.stackexchange.com) got a fresh design that featured, among other things, a low-contrast background of coloured squares:
 
-![The name "Code Review" in dark grey text, a grey magnifying glass, and a background of light-grey squares.](/images/2016/code_review.png)
+{%
+  picture
+  filename="code_review.png"
+  width="240"
+  alt="The name 'Code Review' in dark grey text, a grey magnifying glass, and a background of light-grey squares."
+%}
 
 I was quite keen on the effect, and wanted to use it as my desktop wallpaper, albeit in different colours.
 I like using low contrast wallpapers, and this was a nice pattern to try to mimic.
