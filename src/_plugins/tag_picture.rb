@@ -290,16 +290,16 @@ module Jekyll
                .filter { |w| w <= image.width }
                .sort!
 
-      widths.each do |w|
+      widths.each do |this_width|
         [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
           # I already have lots of images cut with the _1x, _2x, _3x names,
           # so I retain those when picking names to avoid breaking links or
           # losing Google juice, then switch to _500w, _640w, and so on
           # for larger sizes.
-          out_path = if (w % width).zero?
-                       "#{dst_prefix}_#{w / width}x#{out_format[:extension]}"
+          out_path = if (this_width % width).zero?
+                       "#{dst_prefix}_#{this_width / width}x#{out_format[:extension]}"
                      else
-                       "#{dst_prefix}_#{w}w#{out_format[:extension]}"
+                       "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
                      end
 
           unless File.exist? out_path
@@ -307,13 +307,13 @@ module Jekyll
               f.puts JSON.generate({
                                      out_path:,
                                      source_path:,
-                                     width: w,
-                                     height: (image.height * w / image.width).to_i
+                                     width: this_width,
+                                     height: (image.height * this_width / image.width).to_i
                                    })
             end
           end
 
-          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{width}w"
+          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
         end
       end
 
