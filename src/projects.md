@@ -28,7 +28,12 @@ This page lists some of my projects, so you can get an idea of what I've been up
 
 **Interested in anything on this page? Want to know more? [Get in touch](/#contact)!**
 
-<style>
+<style type="x-text/scss">
+  @mixin illustrated_image($color, $opacity) {
+    img     { border-color:    $color; }
+    &:hover { background: rgba($color, $opacity); }
+  }
+
   dt:not(:first-child) {
     margin-top: 20px;
   }
@@ -142,14 +147,6 @@ This page lists some of my projects, so you can get an idea of what I've been up
     border-color: rgba(85, 172, 238, 0.7);
   }
 
-  #finduntaggedtumblrposts:hover {
-    background: rgba(43, 99, 151, 0.3);
-  }
-
-  #finduntaggedtumblrposts img {
-    border-color: rgba(43, 99, 151, 0.5);
-  }
-
   #ukstationsmap:hover {
     background: rgba(0, 194, 52, 0.4);
   }
@@ -196,11 +193,6 @@ The projects I've worked on include:
     </dl>
 
     <style type="x-text/scss">
-      @mixin illustrated_image($color, $opacity) {
-        img     { border-color:    $color; }
-        &:hover { background: rgba($color, $opacity); }
-      }
-
       #collections_search {
         @include illustrated_image(#ffce3c, 0.2)
       }
@@ -216,12 +208,6 @@ The projects I've worked on include:
       %}
     </a>
   </li>
-
-  <dt><a href="https://developers.wellcomecollection.org/catalogue">Catalogue API</a></dt>
-  <dd>
-    The Catalogue API provides a unified search for the museum and library collections.
-    I’m one of the developers who works on the Catalogue API and its associated infrastructure.
-  </dd>
 
   <dt><a href="https://stacks.wellcomecollection.org">Stacks development blog</a></dt>
   <dd>
@@ -516,8 +502,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         I made this for a friend who was trying to be more consistent about tagging posts on her Tumblr, and was struggling to find posts she’d never tagged.
       </dd>
     </dl>
+    
+    <style type="x-text/scss">
+      #finduntaggedtumblrposts {
+        @include illustrated_image(#2b6397, 0.3)
+      }
+    </style>
+    
     <a href="https://finduntaggedtumblrposts.com/" id="finduntaggedtumblrposts" class="fun_image">
-      <img src="/images/projects/finduntaggedtumblrposts.png" alt="A web page with a blue header titled 'Find Untagged Tumblr Posts', a large text box for somebody to put in a URL, and a large blue button labelled 'Get my untagged posts!'.">
+      {%
+        picture
+        filename="finduntaggedtumblrposts.png"
+        width="170"
+        parent="/images/projects"
+        alt="A web page with a blue header titled 'Find Untagged Tumblr Posts', a large text box for somebody to put in a URL, and a large blue button labelled 'Get my untagged posts!'."
+      %}
     </a>
   </li>
 
