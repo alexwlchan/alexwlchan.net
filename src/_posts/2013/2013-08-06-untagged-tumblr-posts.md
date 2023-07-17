@@ -64,7 +64,7 @@ Once you click **Register**, you'll be taken back to the previous page, and you'
   picture
   filename="tumblr_api_keys.png"
   width="540"
-  alt="A screenshot of Tumblr's API registration. The name of the app "Untagged post finder" is on the first line, with an OAuth Consumer Key and a partially redacted string on the second line."
+  alt="A screenshot of Tumblr's API registration. The name of the app 'Untagged post finder' is on the first line, with an OAuth Consumer Key and a partially redacted string on the second line."
 %}
 
 Copy and paste the **OAuth Consumer Key** into line 7 of the script, and remember to wrap it in quote marks.
