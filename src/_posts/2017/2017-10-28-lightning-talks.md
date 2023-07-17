@@ -29,7 +29,7 @@ Thanks to the efforts of [Owen][owen], [Tim][tim] and [Vince][vince], the confer
   picture
   filename="lightning_bukkit.jpg"
   width="750"
-  alt="Two buckets: one green (left), labelled "New speakers", another yellow (right), labelled "Experienced speakers". Below the buckets is a handwritten label "Sign up for lightning talks here"."
+  alt="Two buckets: one green (left), labelled 'New speakers', another yellow (right), labelled 'Experienced speakers'. Below the buckets is a handwritten label 'Sign up for lightning talks here'."
 %}
 
 At the start of each day, there are two empty buckets: one for new speakers, and one for everybody who's spoken at a conference before.

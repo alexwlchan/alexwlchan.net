@@ -18,7 +18,7 @@ A while back, the [Code Review Stack Exchange](http://codereview.stackexchange.c
   picture
   filename="code_review.png"
   width="240"
-  alt="The name "Code Review" in dark grey text, a grey magnifying glass, and a background of light-grey squares."
+  alt="The name 'Code Review' in dark grey text, a grey magnifying glass, and a background of light-grey squares."
 %}
 
 I was quite keen on the effect, and wanted to use it as my desktop wallpaper, albeit in different colours.

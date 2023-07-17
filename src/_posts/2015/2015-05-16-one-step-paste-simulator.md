@@ -22,7 +22,7 @@ The macro itself is very simple:
   picture
   filename="simulator.png"
   width="392"
-  alt="A Keyboard Maestro macro. "Triggered by any of the following: The Hot Key ⌘V is pressed. Will execute the following actions: Insert Text By Typing '%CurrentClipboard%"."
+  alt="A Keyboard Maestro macro. 'Triggered by any of the following: The Hot Key ⌘V is pressed. Will execute the following actions: Insert Text By Typing '%CurrentClipboard%'."
 %}
 
 It's just a tweaked version of Gabe Weatherhead's [Paste as Typed Text macro][paste], which is useful for pasting passwords into fields where pasting is disabled. I have it inside a macro group, which is configured to only be enabled in the iOS Simulator.

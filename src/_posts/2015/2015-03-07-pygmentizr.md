@@ -14,7 +14,7 @@ But recently I've needed to generate standalone code listings that aren't part o
   picture
   filename="pygmentizr.png"
   width="750"
-  alt="A web app titled "Pygmentizr", with a text area for entering code, another text area with some HTML code, and a rendered code block."
+  alt="A web app titled 'Pygmentizr', with a text area for entering code, another text area with some HTML code, and a rendered code block."
 %}
 
 I enter the code in the first box, select the language, and click the button. The HTML and rendered preview appear at the bottom of the page. Really simple.

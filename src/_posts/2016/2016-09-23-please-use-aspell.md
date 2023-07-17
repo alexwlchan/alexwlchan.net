@@ -67,7 +67,7 @@ This reads the file, and for any words it thinks might be misspelt, it offers yo
   picture
   filename="aspell-screenshot.png"
   width="698"
-  alt="A passage of text with the word "Bennet" highlighted, and a list of alternative suggestions."
+  alt="A passage of text with the word 'Bennet' highlighted, and a list of alternative suggestions."
 %}
 
 The interface highlights the problem word, and gives you several options:
