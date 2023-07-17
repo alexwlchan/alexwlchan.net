@@ -28,8 +28,6 @@ This page lists some of my projects, so you can get an idea of what I've been up
 
 **Interested in anything on this page? Want to know more? [Get in touch](/#contact)!**
 
-
-
 <style>
   dt:not(:first-child) {
     margin-top: 20px;
@@ -76,7 +74,9 @@ This page lists some of my projects, so you can get an idea of what I've been up
   */
   .illustrated_item a img {
     max-height: 150px;
-    border-radius: 3px;
+    border-radius: 9px;
+    border-width: 3px;
+    border-style: solid;
   }
 
   @media screen and (min-width: 500px) {
@@ -110,7 +110,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #howlongismydata img {
-    border: 0.5px solid #ff47ff;
+    border-color: #ff47ff;
   }
 
   #rainbowhearts:hover, #rainbowvalknuts:hover {
@@ -118,7 +118,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #rainbowhearts img, #rainbowvalknuts img {
-    border: 0.5px solid #222;
+    border-color: #222;
   }
 
   #booktracker:hover {
@@ -126,7 +126,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #booktracker img {
-    border: 0.5px solid rgb(157.30927835051543,65.30927835051551,141.04123711340196);
+    border-color: rgb(157.30927835051543,65.30927835051551,141.04123711340196);
   }
 
   #kempisbot:hover {
@@ -134,7 +134,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #kempisbot img {
-    border: 0.5px solid rgba(85, 172, 238, 0.7);
+    border-color: rgba(85, 172, 238, 0.7);
   }
 
   #finduntaggedtumblrposts:hover {
@@ -142,7 +142,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #finduntaggedtumblrposts img {
-    border: 0.5px solid rgba(43, 99, 151, 0.5);
+    border-color: rgba(43, 99, 151, 0.5);
   }
 
   #ukstationsmap:hover {
@@ -150,7 +150,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #ukstationsmap img {
-    border: 0.5px solid #333;
+    border-color: #333;
   }
 
   #specktre:hover, #happybackgrounds:hover {
@@ -158,7 +158,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
   }
 
   #happybackgrounds img {
-    border: 0.5px solid #c24401;
+    border-color: #c24401;
   }
 </style>
 
