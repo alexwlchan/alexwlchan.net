@@ -91,7 +91,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
 
   @media screen and (min-width: 500px) {
     .illustrated_item {
-      height: 150px;
+      min-height: 150px;
     }
   }
 
@@ -449,13 +449,13 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
       </dd>
     </dl>
-    
+
     <style type="x-text/scss">
       #booktracker {
         @include illustrated_image(#9d418d, 0.3)
       }
     </style>
-    
+
     <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
       {%
         picture
@@ -507,13 +507,13 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         I made this for a friend who was trying to be more consistent about tagging posts on her Tumblr, and was struggling to find posts she’d never tagged.
       </dd>
     </dl>
-    
+
     <style type="x-text/scss">
       #finduntaggedtumblrposts {
         @include illustrated_image(#2b6397, 0.3)
       }
     </style>
-    
+
     <a href="https://finduntaggedtumblrposts.com/" id="finduntaggedtumblrposts" class="fun_image">
       {%
         picture
