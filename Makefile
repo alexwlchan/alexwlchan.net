@@ -18,7 +18,6 @@ html:
 		$(DOCKER_IMAGE) build --trace
 
 html-drafts:
-	find _site -name '*.avif' -delete
 	docker run --tty --rm \
 		--volume /var/run/docker.sock:/var/run/docker.sock \
 		--volume $(ROOT):$(ROOT) \
