@@ -56,11 +56,6 @@
 #     * `parent="/images"` -- looks for an image in somewhere other than
 #       the per-year directory.
 #
-#     * `extra_widths="500px, 640px, 1000px, 1250px"` -- creates extra sizes
-#       of the image which can be selected by the browser.  This increases
-#       the storage requirements, so should be reserved for images on
-#       pages which get a lot of hits.
-#
 # Any other attribute (e.g. `style`, `class`) will be passed directly to
 # the  underlying <img> tag, which allows you to apply styles or behaviours
 # not covered by this plugin.
@@ -121,8 +116,6 @@ module Jekyll
         @attrs, { tag: 'picture', attribute: 'width' }
       ).gsub('px', '').to_i
 
-      @extra_widths = (@attrs.delete('extra_widths') || '').split(',').map { |w| w.gsub('px', '').to_i }
-
       @parent = @attrs.delete('parent')
 
       @link_to_original = @attrs.include? 'link_to_original'
@@ -170,7 +163,7 @@ module Jekyll
       aspect_ratio = Rational(image.width, image.height)
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
-      sources = prepare_images(source_path, im_format, dst_prefix, @width, @extra_widths)
+      sources = prepare_images(source_path, im_format, dst_prefix, @width)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -185,7 +178,7 @@ module Jekyll
         end
 
         dark_sources = prepare_images(
-          dark_path, im_format, "#{dst_prefix}.dark", @width, @extra_widths
+          dark_path, im_format, "#{dst_prefix}.dark", @width
         )
       else
         dark_sources = nil
@@ -283,7 +276,7 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(source_path, im_format, dst_prefix, width, extra_widths)
+    def prepare_images(source_path, im_format, dst_prefix, width)
       sources = Hash.new { [] }
 
       image = Rszr::Image.load(source_path)
@@ -292,10 +285,10 @@ module Jekyll
       #
       # Generally 1x/2x/3x is fine, but for specific images I can pick
       # extra sizes and have them added to the list.
-      widths = (1..3).map { |pixel_density| pixel_density * width }
-      widths.concat(extra_widths)
-      widths = widths.filter { |w| w <= image.width }
-      widths.sort!
+      widths = (1..3)
+               .map { |pixel_density| pixel_density * width }
+               .filter { |w| w <= image.width }
+               .sort!
 
       widths.each do |w|
         [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
