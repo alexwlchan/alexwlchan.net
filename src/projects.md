@@ -131,14 +131,6 @@ This page lists some of my projects, so you can get an idea of what I've been up
     border-color: #222;
   }
 
-  #booktracker:hover {
-    background: rgba(157.30927835051543,65.30927835051551,141.04123711340196, 0.3);
-  }
-
-  #booktracker img {
-    border-color: rgb(157.30927835051543,65.30927835051551,141.04123711340196);
-  }
-
   #kempisbot:hover {
     background: rgba(85, 172, 238, 0.3);
   }
@@ -457,8 +449,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
       </dd>
     </dl>
+    
+    <style type="x-text/scss">
+      #booktracker {
+        @include illustrated_image(#9d418d, 0.3)
+      }
+    </style>
+    
     <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
-      <img src="/images/projects/booktracker.png" alt="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'.">
+      {%
+        picture
+        filename="booktracker.png"
+        width="170"
+        parent="/images/projects"
+        alt="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'."
+      %}
     </a>
   </li>
 
