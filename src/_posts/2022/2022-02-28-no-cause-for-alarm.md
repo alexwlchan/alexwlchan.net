@@ -88,8 +88,13 @@ What we could see was that apps were being stopped even though they were still p
 In the ECS event log, we could see the CloudWatch Alarm adjusting the task count to zero.
 This stopped the app, and SQS never got an acknowledgement that the message had been processed successfully -- so it moved the message to the DLQ.
 
-<figure style="width: 654px;">
-  <img src="/images/2022/ecs_event_log.png" alt="A list of events in the ECS console. A task is started at 09:41, then at 09:44 the input queue low alarm drops the task count to 0 and stops the running task.">
+<figure style="width: 679px;">
+  {%
+    picture
+    filename="ecs_event_log.png"
+    width="679"
+    alt="A list of events in the ECS console. A task is started at 09:41, then at 09:44 the input queue low alarm drops the task count to 0 and stops the running task."
+  %}
   <figcaption>
     This is what we expect to happen, but not when there&rsquo;s still work on the input queue.
     Hmm.
@@ -109,7 +114,12 @@ We had to fix it properly.
 
 I had a look at the "scale down" alarm in the console, and what I found was surprising:
 
-<img src="/images/2022/alarm_console.png" style="width: 682px;" alt="Screenshot of the CloudWatch alarm console. There are two graphs: one a blue line graph showing the metric vsalue, the other a horizontal bar that's coloured in sections of red/green/grey showing the alarm state. Both graphs have the same horizontal axis: time.">
+{%
+  picture
+  filename="alarm_console.png"
+  width="682"
+  alt="Screenshot of the CloudWatch alarm console. There are two graphs: one a blue line graph showing the metric vsalue, the other a horizontal bar that's coloured in sections of red/green/grey showing the alarm state. Both graphs have the same horizontal axis: time."
+%}
 
 This alarm monitors whether there are any queue messages (either waiting on the queue or being processed by an app), and it should only trigger if there aren't any messages.
 
