@@ -61,6 +61,12 @@ This page lists some of my projects, so you can get an idea of what I've been up
     margin-bottom: auto;
   }
 
+  /* Adding the border-radius to the `img` gets the visual effect; adding
+     it to the parent `a` adds it to the hovered background. */
+  .illustrated_item a, .illustrated_item a img {
+    border-radius: 9px;
+  }
+
   .illustrated_item a:hover img {
     opacity: 0.65;
   }
@@ -74,7 +80,6 @@ This page lists some of my projects, so you can get an idea of what I've been up
   */
   .illustrated_item a img {
     max-height: 150px;
-    border-radius: 9px;
     border-width: 3px;
     border-style: solid;
   }
