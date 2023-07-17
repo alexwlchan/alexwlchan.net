@@ -32,7 +32,12 @@ DaisyDisk can analyse a drive or directory, and it presents you with a pie chart
 You can drill down into the pie segments to see the contents of each folder.
 For example, this shows the contents of my home directory:
 
-![A screenshot of the DaisyDisk interface](/images/2016/daisydisk_screenshot.png)
+{%
+  picture
+  filename="daisydisk_screenshot.png"
+  width="750"
+  alt="A screenshot of the DaisyDisk interface"
+%}
 
 This is really helpful for making big space savings – it's easy to see which folders have become bloated, and target my cleaning accordingly.
 If you want quick gains, this is a great app.
@@ -49,7 +54,12 @@ Whenever I reorganise my hard drive, files get copied around, and I don't always
 Gemini is a tool that can find duplicate files or folders within a given set of directories.
 For example, running it over a selection of my virtualenvs:
 
-![A screenshot of the Gemini interface](/images/2016/gemini_screenshot.png)
+{%
+  picture
+  filename="gemini_screenshot.png"
+  width="750"
+  alt="A screenshot of the Gemini interface"
+%}
 
 Once it's found the duplicates, you can send files straight to the Trash from within the app.
 It has some handy filters for choosing which dupes to drop – oldest, newest, from within a specific directory – so doing so is pretty quick.

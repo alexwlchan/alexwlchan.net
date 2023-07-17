@@ -11,7 +11,12 @@ The thumbnails make it easier to skim a list of documents, especially when compa
 
 Here's an example of some thumbnails, for the documents for a recent trip:
 
-![A list of three documents, with a thumbnail on the left and a title on the right.](/images/2019/pdf_thumbnails.png)
+{%
+  picture
+  filename="pdf_thumbnails.png"
+  width="750"
+  alt="A list of three documents, with a thumbnail on the left and a title on the right."
+%}
 
 If I'm searching the list, the turquoise of the Trainline email stands out against, say, the dark green stripe used by my bank.
 

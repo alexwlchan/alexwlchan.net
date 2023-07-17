@@ -31,7 +31,12 @@ Unless you have this exact appliance, you can stop reading.
 
 This is a diagram showing the front of the timer:
 
-![A control panel with white, green and blue buttons and a small segment display reading “03:04”.](/images/2018/boiler_controls.png)
+{%
+  picture
+  filename="boiler_controls.png"
+  width="750"
+  alt="A control panel with white, green and blue buttons and a small segment display reading “03:04”."
+%}
 
 To set the clock:
 

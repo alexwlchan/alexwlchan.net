@@ -60,7 +60,12 @@ Then you need to add an API key. This is what authenticates you to Tumblr, and l
 
 Once you click **Register**, you'll be taken back to the previous page, and you'll see something like this:
 
-![A screenshot of Tumblr's API registration. The name of the app "Untagged post finder" is on the first line, with an OAuth Consumer Key and a partially redacted string on the second line.](/images/2013/tumblr_api_keys.png)
+{%
+  picture
+  filename="tumblr_api_keys.png"
+  width="540"
+  alt="A screenshot of Tumblr's API registration. The name of the app "Untagged post finder" is on the first line, with an OAuth Consumer Key and a partially redacted string on the second line."
+%}
 
 Copy and paste the **OAuth Consumer Key** into line 7 of the script, and remember to wrap it in quote marks.
 

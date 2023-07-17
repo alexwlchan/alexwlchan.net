@@ -16,7 +16,12 @@ People in glass houses, etc.
 But I do have some basic expectations of the software I use.
 For example, I expect that my text editor should be able to open, edit, and save files.
 
-![A screenshot of a TextMate window showing a dialog "The document 'hello.txt' could not be saved.  Please check Console output for reason."](/images/2016/textmate-error.png)
+{%
+  picture
+  filename="textmate-error.png"
+  width="480"
+  alt="A screenshot of a TextMate window showing a dialog "The document 'hello.txt' could not be saved.  Please check Console output for reason.""
+%}
 
 Two days ago, TextMate on my laptop decided it didn't fancy saving files any more.
 Actually, it decided that ⌘+S should do nothing, and trying to click "Save" in the File menu would throw this error dialog.

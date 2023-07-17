@@ -21,10 +21,20 @@ I also made some cosmetic tweaks, mostly reusing the templates and CSS from this
 
 This is what the revised version looks like on my Mac:
 
-![A browser window with two RSS articles, and a purple title “drangReader”.](/images/2015/drangreader.png)
+{%
+  picture
+  filename="drangreader.png"
+  width="700"
+  alt="A browser window with two RSS articles, and a purple title “drangReader”."
+%}
 
 and on my iPhone:
 
-![An iPhone browser screenshot with a single article, and purple stripe “drangReader” at the top of the window.](/images/2015/drangreader-iphone.png)
+{%
+  picture
+  filename="drangreader-iphone.png"
+  width="250"
+  alt="An iPhone browser screenshot with a single article, and purple stripe “drangReader” at the top of the window."
+%}
 
 My updated code is [in a Gist](https://gist.github.com/alexwlchan/01cec115a6f51d35ab26).

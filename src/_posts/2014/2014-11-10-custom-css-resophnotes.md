@@ -10,7 +10,12 @@ My note-taking app of choice is [nvALT][nv], but since I have to use Windows at 
 
 Most of the time I read the plain Markdown, but for complicated notes I'll use the Markdown preview. But the preview window isn't the prettiest thing ever:
 
-![A window with unstyled text. The text contains headings and a few paragraphs.](/images/2014/resophnotes-unstyled.png)
+{%
+  picture
+  filename="resophnotes-unstyled.png"
+  width="835"
+  alt="A window with unstyled text. The text contains headings and a few paragraphs."
+%}
 
 I was used to [customising the preview in nvALT][prev], so I wanted to do the same for ResophNotes. This turned out to be easy to do, but it wasn't entirely obvious how to do it.
 
@@ -25,11 +30,21 @@ And indeed, if you look at the HTML source of the preview page, you find that it
 
 Initially I assumed that this was a preexisting file that I'd edit, so I was a bit confused when I couldn't find any such file. Eventually I realised that it didn't exist yet, and I found the directory where ResophNotes keeps the temporary HTML: the ".ResophNotes" directory in the home folder.
 
-![A directory in Windows Explorer: Alex Chan/.ResophNotes, with four files. resophmarkdown, resophnotes, resophnotesconfig and resophnotesdata.](/images/2014/resophnotes-directory.png)
+{%
+  picture
+  filename="resophnotes-directory.png"
+  width="900"
+  alt="A directory in Windows Explorer: Alex Chan/.ResophNotes, with four files. resophmarkdown, resophnotes, resophnotesconfig and resophnotesdata."
+%}
 
 Dropping a CSS file named `resophnotes.css` there gets it applied to the Markdown preview:
 
-![A window with text styled in a sans-serif font.](/images/2014/resophnotes-styled.png)
+{%
+  picture
+  filename="resophnotes-styled.png"
+  width="835"
+  alt="A window with text styled in a sans-serif font."
+%}
 
 Much nicer.
 
