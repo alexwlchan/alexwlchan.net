@@ -114,20 +114,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
       margin-right: auto;
     }
   }
-
-  #kempisbot:hover {
-    background: rgba(85, 172, 238, 0.3);
-  }
-
-  #kempisbot img {
-    border-color: rgba(85, 172, 238, 0.7);
-  }
-
-
-  #specktre:hover {
-    background: none;
-  }
-  </style>
+</style>
 
 
 ## Wellcome Collection
@@ -477,8 +464,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="{% post_url 2021/2021-01-31-kempisbot %}">how we did it</a>.
       </dd>
     </dl>
+    
+    <style type="x-text/scss">
+      #kempisbot {
+        @include illustrated_image(#1DA1F2, 0.3)
+      }
+    </style>
+    
     <a href="https://twitter.com/KempisBot" id="kempisbot" class="fun_image">
-      <img src="/images/projects/kempisbot.png" alt="The Twitter page for KempisBot, with a header image showing an old manuscript with handwritten pages and the profile image an illustration of Thomas Kempis.">
+      {%
+        picture
+        filename="kempisbot.png"
+        width="170"
+        parent="/images/projects"
+        alt="The Twitter page for KempisBot, with a header image showing an old manuscript with handwritten pages and the profile image an illustration of Thomas Kempis."
+      %}
     </a>
   </li>
 
@@ -574,8 +574,17 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         I’ve written <a href="{% post_url 2016/2016-10-21-tiling-the-plane-with-pillow %}">blog</a> <a href="{% post_url 2016/2016-10-22-wallpapers-with-pillow %}">posts</a> about how this works.
       </dd>
     </dl>
+    
+    
+    
     <a href="https://github.com/alexwlchan/specktre" id="specktre" class="fun_image">
-      <img src="/images/projects/specktre.png" alt="Three wallpapers. From left-to-right: blue hexagons, red squares, yellow triangles. Each wallpaper has tiling shapes in slightly different shades of the main colour.">
+      {%
+        picture
+        filename="specktre.png"
+        width="170"
+        parent="/images/projects"
+        alt="Three wallpapers. From left-to-right: blue hexagons, red squares, yellow triangles. Each wallpaper has tiling shapes in slightly different shades of the main colour."
+      %}
     </a>
   </li>
 
@@ -616,8 +625,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         Create simple wallpapers and background images using Font Awesome icons on solid colour background.
       </dd>
     </dl>
+    
+    <style type="x-text/scss">
+      #happybackgrounds {
+        @include illustrated_image(#c24400, 0.3)
+      }
+    </style>
+    
     <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
-      <img src="/images/projects/happybackgrounds.png" alt="An orange background with small rockets overlaid at various points at angles, meant to invoke imagery of Mars.">
+      {%
+        picture
+        filename="happybackgrounds.png"
+        width="170"
+        parent="/images/projects"
+        alt="An orange background with small rockets overlaid at various points at angles, meant to invoke imagery of Mars."
+      %}
     </a>
   </li>
 </ul>
