@@ -95,6 +95,9 @@ end
 
 Jekyll::Hooks.register :site, :post_render do
   if File.exist? '.missing_images.json'
+    image_count = `wc -l .missing_images.json`.strip.split(' ')[0].to_i
+    puts "Creating #{image_count} image#{image_count > 1 ? "s" : ""}..."
+
     # Actually create the individual image files.  This is handled by
     # a separate Docker image; see the comments in the `image_creator` folder.
     Shell.execute!('docker-compose run image_creator')
