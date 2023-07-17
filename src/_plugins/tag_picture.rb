@@ -314,7 +314,7 @@ module Jekyll
               f.puts JSON.generate({
                                      out_path:,
                                      source_path:,
-                                     width:,
+                                     width: w,
                                      height: (image.height * w / image.width).to_i
                                    })
             end
