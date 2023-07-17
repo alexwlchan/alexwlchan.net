@@ -46,24 +46,24 @@ This page lists some of my projects, so you can get an idea of what I've been up
    * When the screen is narrow, the image moves to be inline with the text.
    */
 
-  .illustrated_list .illustrated_item:not(:last-child) {
-    margin-bottom: 1em;
-  }
-
   .illustrated_list {
     padding-left: 0;
-  }
 
-  .illustrated_item {
-    display: grid;
-    grid-column-gap: 1em;
-    grid-template-columns: auto auto;
-  }
+    .illustrated_item {
+      display: grid;
+      grid-column-gap: 1em;
+      grid-template-columns: auto auto;
 
-  /* Vertically centre the text that appears alongside the image */
-  .illustrated_item dl {
-    margin-top:    auto;
-    margin-bottom: auto;
+      &:not(:last-child) {
+        margin-bottom: 1em;
+      }
+
+      /* Vertically centre the text that appears alongside the image */
+      dl {
+        margin-top:    auto;
+        margin-bottom: auto;
+      }
+    }
   }
 
   /* Adding the border-radius to the `img` gets the visual effect; adding
@@ -115,22 +115,6 @@ This page lists some of my projects, so you can get an idea of what I've been up
     }
   }
 
-  #howlongismydata:hover {
-    background: rgba(255, 71, 255, 0.2);
-  }
-
-  #howlongismydata img {
-    border-color: #ff47ff;
-  }
-
-  #rainbowhearts:hover, #rainbowvalknuts:hover {
-    background: rgba(34, 34, 34, 0.3);
-  }
-
-  #rainbowhearts img, #rainbowvalknuts img {
-    border-color: #222;
-  }
-
   #kempisbot:hover {
     background: rgba(85, 172, 238, 0.3);
   }
@@ -139,22 +123,11 @@ This page lists some of my projects, so you can get an idea of what I've been up
     border-color: rgba(85, 172, 238, 0.7);
   }
 
-  #ukstationsmap:hover {
-    background: rgba(0, 194, 52, 0.4);
-  }
 
-  #ukstationsmap img {
-    border-color: #333;
-  }
-
-  #specktre:hover, #happybackgrounds:hover {
+  #specktre:hover {
     background: none;
   }
-
-  #happybackgrounds img {
-    border-color: #c24401;
-  }
-</style>
+  </style>
 
 
 ## Wellcome Collection
@@ -420,8 +393,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         Measure data in the shelving space you’d need if you stored it as a series of <span class="visually-hidden">3&frac12; inch</span><span aria-hidden="true">3&frac12;&Prime;</span> floppy disks.
       </dd>
     </dl>
+
+    <style type="x-text/scss">
+      #howlongismydata {
+        @include illustrated_image(#ff47ff, 0.2)
+      }
+    </style>
+
     <a href="https://howlongismydata.glitch.me" id="howlongismydata" class="fun_image">
-      <img src="/images/projects/howlongismydata.png" alt="A white page with two rows of pink floppy disks and a title 'How long is my data?'">
+      {%
+        picture
+        filename="howlongismydata.png"
+        width="170"
+        parent="/images/projects"
+        alt="A white page with two rows of pink floppy disks and a title 'How long is my data?'"
+      %}
     </a>
   </li>
 
@@ -435,8 +421,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         They use some SVG masking techniques I wrote about <a href="{% post_url 2021/2021-03-12-inner-outer-strokes-svg %}">in a blog post</a>.
       </dd>
     </dl>
+
+    <style type="x-text/scss">
+      #rainbowhearts {
+        @include illustrated_image(#222, 0.3)
+      }
+    </style>
+
     <a href="http://rainbow-hearts.glitch.me/" id="rainbowhearts" class="fun_image">
-      <img src="/images/projects/rainbowhearts.png" alt="A grey web page with white and green text, with a large illustration of two interlocking hearts in rainbow and purple/black/grey/white colours. These are the colours of the rainbow pride flag and the asexual pride flag.">
+      {%
+        picture
+        filename="rainbowhearts.png"
+        width="170"
+        parent="/images/projects"
+        alt="A grey web page with white and green text, with a large illustration of two interlocking hearts in rainbow and purple/black/grey/white colours. These are the colours of the rainbow pride flag and the asexual pride flag."
+      %}
     </a>
   </li>
 
@@ -493,8 +492,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         This is based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>, and it uses some code I wrote for <a href="{% post_url 2019/2019-09-23-triangular-coordinates-in-svg %}">drawing in triangular coordinates</a>.
       </dd>
     </dl>
+
+    <style type="x-text/scss">
+      #rainbowvalknuts {
+        @include illustrated_image(#222, 0.3)
+      }
+    </style>
+
     <a href="https://rainbow-valknuts.glitch.me/" id="rainbowvalknuts" class="fun_image">
-      <img src="/images/projects/rainbowvalknuts.png" alt="A dark-background web page with three interlocking triangles (a Valknut) in various stripes for different pride flags, and the caption 'Your cowardly bigotry is an affront to the Allfather'.">
+      {%
+        picture
+        filename="rainbowvalknuts.png"
+        width="170"
+        parent="/images/projects"
+        alt="A dark-background web page with three interlocking triangles (a Valknut) in various stripes for different pride flags, and the caption 'Your cowardly bigotry is an affront to the Allfather'."
+      %}
     </a>
   </li>
 
@@ -534,8 +546,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         An interactive map that lets you plot the railway stations you’ve visited in the UK and Ireland.
       </dd>
     </dl>
+
+    <style type="x-text/scss">
+      #ukstationsmap {
+        @include illustrated_image(#00c234, 0.2)
+      }
+    </style>
+
     <a href="http://uk-stations-map.glitch.me" id="ukstationsmap" class="fun_image">
-      <img src="/images/projects/ukstationsmap.png" alt="A greyscale map of the UK and Ireland with green dots overlaid at various points, representing the position of railway stations.">
+      {%
+        picture
+        filename="ukstationsmap.png"
+        width="170"
+        parent="/images/projects"
+        alt="A greyscale map of the UK and Ireland with green dots overlaid at various points, representing the position of railway stations."
+      %}
     </a>
   </li>
 
@@ -564,8 +589,21 @@ I'm not currently taking an active maintainer role in anything, but these are a 
         This came from</span> <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
       </dd>
     </dl>
-    <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
-      <img src="/images/projects/marqueerocket.png" alt="A black background with simple buttons for up/down/left/right direction controls, and some play/pause/faster/slower speed controls. There's also an emoji rocket moving around on the black background.">
+
+    <style type="x-text/scss">
+      #marqueerocket {
+        @include illustrated_image(#000000, 0.3)
+      }
+    </style>
+
+    <a href="https://github.com/alexwlchan/happybackgrounds" id="marqueerocket" class="fun_image">
+      {%
+        picture
+        filename="marqueerocket.png"
+        width="170"
+        parent="/images/projects"
+        alt="A black background with simple buttons for up/down/left/right direction controls, and some play/pause/faster/slower speed controls. There's also an emoji rocket moving around on the black background."
+      %}
     </a>
   </li>
 
