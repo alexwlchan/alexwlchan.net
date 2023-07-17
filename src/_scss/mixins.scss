@@ -105,3 +105,9 @@
     }
   }
 }
+
+/** This is used to create the preview images on the projects page. */
+@mixin illustrated_image($color, $opacity) {
+  img     { border-color:    $color; }
+  &:hover { background: rgba($color, $opacity); }
+}
