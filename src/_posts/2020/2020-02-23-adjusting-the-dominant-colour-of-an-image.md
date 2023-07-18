@@ -2,7 +2,7 @@
 layout: post
 date: 2020-02-23 20:58:34 +0000
 title: Adjusting the dominant colour of an image
-tags: acorn python images colour
+tags: acorn python images colour drawing-things
 summary: Adjusting the hue to get different colour variants of the same image.
 ---
 
@@ -17,7 +17,12 @@ You can get an idea of what the illustrations look like by browsing the images [
 One of my favourite images from that set is one titled "readable code", which shows an explorer trying to read hieroglyphs that represent unreadable, confusing code:
 
 <figure style="width: 375px;">
-  <img src="/images/2020/readable_code.jpg" alt="A person holding a torch peers at a wall inscribed with code. Above their head they're thinking “What the??”">
+  {%
+    picture
+    filename="readable_code.jpg"
+    width="375"
+    alt="A person holding a torch peers at a wall inscribed with code. Above their head they're thinking “What the??”"
+  %}
   <figcaption>
     Created by Scriberia for The Turing Way community; used under a CC-BY licence.
   </figcaption>
@@ -122,7 +127,12 @@ if __name__ == '__main__':
 With these two tools, I can get an image in a range of different colours:
 
 <figure class="wide_img">
-  <img src="/images/2020/rainbow_readable_code.png" alt="A selection of readable code images, in a different range of colours.">
+  {%
+    picture
+    filename="rainbow_readable_code.png"
+    width="950"
+    alt="A selection of readable code images, in a different range of colours."
+  %}
 </figure>
 
 Using the hue adjustment means I can find something in the right ballpark to match the rest of my slides.
@@ -132,10 +142,24 @@ You can see another example of this technique in the slides for [my curb cut eff
 There's a picture of a handle on a purple door, but the [original image](https://pixabay.com/photos/door-handle-doorknob-lock-door-3633943/) had a red door.
 Without a side-by-side comparison, you'd never realise the image had been changed:
 
-<table>
+<table style="max-width: 640px; margin-left: auto; margin-right: auto;">
   <tr>
-    <td style="width: 50%;"><img src="/images/2020/door_handle_purple.jpg" alt="A metal door handle on a purple door"></td>
-    <td style="width: 50%;"><img src="/images/2020/door_handle_red.jpg" alt="A metal door handle on a red door"></td>
+    <td style="width: 50%;">
+      {%
+        picture
+        filename="door_handle_purple.jpg"
+        width="320"
+        alt="A metal door handle on a purple door"
+      %}
+    </td>
+    <td style="width: 50%;">
+      {%
+        picture
+        filename="door_handle_red.jpg"
+        width="320"
+        alt="A metal door handle on a red door"
+      %}
+    </td>
   </tr>
   <tr>
     <td style="text-align: center; font-size: small;">modified image</td>
