@@ -64,6 +64,81 @@ I planned out the rough shape in a spreadsheet, made a few adjustments to the sp
 The piece is mounted in a 6″ hoop, painted white, and I gave it to Jak on stage door a few weeks ago.
 It now hangs backstage at the Fortune, among other pieces of fan art.
 
+<style type="x-text/scss">
+  .instagram_embed {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 640 / 1136;
+
+    border-radius: 8px;
+
+
+/*    border: 2px solid green;*/
+
+    max-width: 320px;
+    max-height: calc(100vh - 2em);
+
+    .avatar {
+      position: absolute;
+      display: grid;
+      margin-left: 16px;
+      margin-top: 16px;
+      grid-template-columns: 32px auto;
+      grid-gap: 8px;
+
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 30px;
+
+      img {
+        height: 32px;
+        width: 32px;
+        border-radius: 32px;
+      }
+    }
+
+    .overlay {
+      .footer_overlay {
+        background: linear-gradient(rgba(38, 38, 38, 0) 0%, rgba(38, 38, 38, 0.6) 100%);
+        margin-top: -150px;
+        height: 150px;
+        border-radius: 8px;
+      }
+
+      img {
+        max-width: 320px;
+        max-height: calc(100vh - 2em);
+        border-radius: 8px;
+        z-index: -1;
+        position:relative;
+      }
+
+      background: linear-gradient(rgba(38, 38, 38, 0.8) 0%, rgba(38, 38, 38, 0) 100%);
+      height: 102px;
+      border-radius: 8px;
+    }
+  }
+</style>
+
+<blockquote class="instagram_embed">
+  <div class="avatar">
+    <img src="http://localhost:8000/206679993_186210706848799_173045379453847189_n.jpg">
+    mincemeatlive
+  </div>
+
+  <div class="overlay">
+
+    <img src="http://localhost:8000/361578308_817738673000703_1927805087695525421_n.jpg">
+    <div class="footer_overlay">
+    </div>
+  </div>
+</blockquote>
+
 [[embed instagram here]]
 
 It's not a garden or a grand royal park, but I hope Hester would like it all the same.
