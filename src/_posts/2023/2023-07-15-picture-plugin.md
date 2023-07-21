@@ -236,7 +236,7 @@ When I first enabled AVIF support, I thought something was broken -- the files w
 
 ---
 
-## Setting the aspect ratio property for zero CLS
+## Providing explicit dimensions for all my images
 
 Because I have the image dimensions from rszr, I can calculate the aspect ratio of the image and insert it [as a property][ar_property] on the `<img>` tag:
 
@@ -268,6 +268,11 @@ This gives me a bunch of flexibility for tweaking the behaviour of images on a p
 I get the benefits of the different sizes and image formats, and it all looks like familiar HTML.
 
 The plugin is doing a bit of work to parse the attributes, and combine them with any attributes that it's adding (for example, appending the `aspect-ratio` property to any inline styles), but this is largely invisible when I'm just writing a post.
+
+One of the attributes I use most often is [`loading="lazy"`][lazy], which gets me browser-native lazy loading of images.
+This improves performance on pages with lots of images, and it's easy for browsers to work out which images to load – they know exactly where each image will go thanks to the `width` and `aspect-ratio` properties.
+
+[lazy]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#loading
 
 ---
 
