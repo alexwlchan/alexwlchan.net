@@ -1,8 +1,8 @@
 <meta name="twitter:site" content="@alexwlchan">
-<meta name="twitter:title" content="{{ safe_title }}">
+<meta name="twitter:title" content="{{ safe_title | escape | strip }}">
 
 {% if page.summary %}
-  <meta name="twitter:description" content="{{ page.summary | markdownify_oneline | smartify | strip_html }}">
+  <meta name="twitter:description" content="{{ page.summary | escape }}">
 {% endif %}
 
 {% if page.card.social %}
@@ -24,8 +24,8 @@
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:title" content="{{ safe_title }}">
+<meta property="og:title" content="{{ safe_title | escape | strip }}">
 
 {% if page.summary %}
-  <meta property="og:description" content="{{ page.summary | markdownify_oneline | smartify | strip_html }}">
+  <meta property="og:description" content="{{ page.summary | escape }}">
 {% endif %}
