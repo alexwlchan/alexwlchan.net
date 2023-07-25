@@ -39,7 +39,7 @@ There are lots of posts about software, so I have smaller, more specific tags li
 {%
   include
   eggbox.html
-  eggbox_posts="testing-javascript-without-a-framework no-cause-for-alarm the-importance-of-good-error-messages adventures-with-concurrent-futures cloud-costs-report supposedly-simple-image-layout"
+  eggbox_posts="snapped-elastic no-cause-for-alarm the-importance-of-good-error-messages adventures-with-concurrent-futures cloud-costs-report supposedly-simple-image-layout"
 %}
 
 ---
