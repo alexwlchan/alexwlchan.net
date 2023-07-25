@@ -76,7 +76,7 @@ Here are some of my favourite posts:
 {%
   include
   eggbox.html
-  eggbox_posts="snapped-elastic bure-valley moomin-mathematics graph-generative-art archival-storage-service 2022-in-reading"
+  eggbox_posts="testing-javascript-without-a-framework bure-valley upward-assignment graph-generative-art archival-storage-service 2022-in-reading"
 %}
 
 If you want to read more, I've got [plenty more](/writing/).
