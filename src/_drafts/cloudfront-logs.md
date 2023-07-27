@@ -8,19 +8,26 @@ colors:
   css_dark:  "#C9ABFF"
 ---
 
-I've been doing work recently to analyse some CloudFront logs.
+I've been doing work recently to analyse some [CloudFront access logs][logs].
 I've done this a few times now, so I thought it'd be worth pulling out some of the common functions I write every time.
 
-The first is a parsing function, which gets the individual log entries from the file.
-This takes a file-like object in binary mode, so works the same whether I'm reading the CloudFront log from a local disk or directly from S3.
+The first is a parsing function, which gets the individual log entries from a single log file.
+This takes a file-like object in binary mode, so works the same whether I'm reading the file from a local disk or directly from S3.
 This is what it looks like:
 
 ```python
+import datetime
+import urllib.parse
+
+
 def parse_cloudfront_logs(log_file):
     """
-    Parse the individual log entries in a CloudFront log file.
-    
+    Parse the individual log entries in a CloudFront access log file.
+
     Here ``logfile`` should be a file-like object opened in binary mode.
+    
+    The format of these log files is described in the CloudFront docs:
+    https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html#LogFileFormat
 
     """
     # The first line is a version header, e.g.
@@ -48,6 +55,8 @@ def parse_cloudfront_logs(log_file):
     # Split the line into individual values, then combine with the field
     # names to generate a series of dict objects, one per log entry.
     #
+    # For an explanation of individual fields, see the CloudFront docs:
+    # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html#LogFileFormat
     numeric_fields = {
         "cs-bytes": int,
         "sc-bytes": int,
@@ -56,8 +65,25 @@ def parse_cloudfront_logs(log_file):
         "time-to-first-byte": float,
     }
     
+    url_encoded_fields = {
+        "cs-uri-stem",
+        "cs-uri-query",
+    }
+
+    nullable_fields = {
+        "cs(Cookie)",
+        "cs-uri-query",
+        "fle-encrypted-fields",
+        "fle-status",
+        "sc-range-end",
+        "sc-range-start",
+        "ssl-cipher",
+        "ssl-protocol",
+        "x-forwarded-for",
+    }
+
     for line in log_file:
-        values = line.decode("utf8").split()
+        values = line.decode("utf8").strip().split("\t")
 
         log_data = dict(zip(field_names, values))
 
@@ -68,12 +94,22 @@ def parse_cloudfront_logs(log_file):
                 log_data[name] = converter_function(log_data[name])
             except ValueError:
                 pass
-        
+
+        # Undo any URL-encoding in a couple of fields
+        for name in url_encoded_fields:
+            log_data[name] = urllib.parse.unquote(log_data[name])
+
         # Empty values in certain fields (e.g. ``sc-range-start``) are
         # represented by a dash; replace them with a proper empty type.
         for name, value in log_data.items():
-            if value == "-":
+            if name in nullable_fields and value == "-":
                 log_data[name] = None
+
+        # Convert the date/time from strings to a proper datetime value.
+        log_data["date"] = datetime.datetime.strptime(
+            log_data.pop("date") + log_data.pop("time"),
+            "%Y-%m-%d%H:%M:%S"
+        )
 
         yield log_data
 ```
@@ -85,12 +121,58 @@ A couple of the values are converted to more meaningful types than strings -- fo
 This is how it gets used:
 
 ```python
-for log_entry in parse_cloudfront_logs(logfile):
+for log_entry in parse_cloudfront_logs(log_file):
     print(log_entry)
     # {'c-ip': '1.2.3.4', 'c-port': '9962', 'cs-cookie': None, ...}
 ```
 
-But in practice, I'm not looking at a single log file, I want to look at multiple files.
+And then I can use my regular Python tools for analysing iterable data.
+For example, if I wanted to count the most commonly-requested URIs in a log file:
+
+```python
+import collections
+
+tally = collections.Counter(
+    log_entry["cs-uri-stem"]
+    for log_entry in parse_cloudfront_logs(log_file)
+)
+
+from pprint import pprint
+pprint(tally.most_common(10))
+```
+
+CloudFront writes new log files a couple of times an hour.
+Sometimes I want to look at a single log file if I'm debugging an event which occurred at a particular time, but other times I want to look at multiple files.
+For that, I have a couple of additional functions which handle combining log entries from different files. 
+
+[logs]: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html
+
+---
+
+## Finding CloudFront logs on the local disk
+
+If I'm going to be working offline or I know I'm going to be running lots of different bits of analysis on the same set of log files, sometimes I download the log fields directly to my local disk.
+Then I use my [function for walking a file tree][snake-walker]
+
+```python
+import gzip
+
+
+def get_cloudfront_logs_from_dir(root):
+    """
+    Given a folder that contains CloudFront access logs, generate all
+    the CloudFront log entries from all the log files.
+    """
+    for path in get_file_paths_under(root, suffix='.gz'):
+        with gzip.open(path) as log_file:
+            yield from parse_cloudfront_logs(log_file)
+
+
+for log_entry in get_cloudfront_logs_from_dir("cf"):
+    print(log_entry)
+```
+
+[snake-walker]: {% post_url 2023/2023-07-26-snake-walker %}
 
 ```python
 {'c-ip': '1.2.3.4',
