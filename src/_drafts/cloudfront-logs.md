@@ -152,7 +152,7 @@ For that, I have a couple of additional functions which handle combining log ent
 ## Finding CloudFront logs on the local disk
 
 If I'm going to be working offline or I know I'm going to be running lots of different bits of analysis on the same set of log files, sometimes I download the log fields directly to my local disk.
-Then I use my [function for walking a file tree][snake-walker]
+Then I use my [function for walking a file tree][snake-walker] to get a single iterator for all the log entries in a folder full of log files:
 
 ```python
 import gzip
