@@ -232,7 +232,7 @@ One of the key ideas I took from that is the idea of creating abstractions aroun
 
 That's what I'm trying to do with these functions (and the one in my [previous post]) -- to abstract away the exact mechanics of finding and parsing the log files, and just get a stream of log events I can use like any other Python iterator.
 
-I think the benefits of these iterators will become apparent in another post I'm hoping to write soon, where I'll go through some of the analysis I'm actually doing with these logs.
+I think the benefits of this abstraction will become apparent in another post I'm hoping to write soon, where I'll go through some of the analysis I'm actually doing with these logs.
 The post will jump straight into a `for` loop of CloudFront log events, and it won't have to worry about exactly where those events come from.
 
 [Loop Like A Native]: https://nedbatchelder.com/text/iter.html
