@@ -205,7 +205,9 @@ def get_cloudfront_logs_from_s3(sess, *, Bucket, **kwargs):
     Given an S3 prefix that contains CloudFront access logs, generate
     all the CloudFront log entries from all the log files.
     """
-    for s3_obj in list_s3_objects(sess, Bucket=bucket, **kwargs):
+    s3 = sess.client("s3")
+    
+    for s3_obj in list_s3_objects(sess, Bucket=Bucket, **kwargs):
         Key = s3_obj["Key"]
 
         body = s3.get_object(Bucket=Bucket, Key=Key)["Body"]
