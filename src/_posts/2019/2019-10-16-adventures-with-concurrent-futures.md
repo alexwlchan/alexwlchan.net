@@ -478,7 +478,7 @@ Once again, a detailed walkthrough of code is as useful as me as for the reader.
   If `tasks_to_do` is a list, you'll see it run the same tasks repeatedly.
 
   That's because on each call to `itertools.islice()`, you're passing the complete list each time.
-  only reads the list; it doesn’t modify it.
+  It only reads the list; it doesn’t modify it.
   That means that when you call it more than once, it doesn’t know you’ve already gone through some elements of the list, so it starts from the first element again.
   You can see this in the interactive console:
 
