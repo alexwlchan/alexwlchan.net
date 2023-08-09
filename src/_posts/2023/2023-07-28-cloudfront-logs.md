@@ -74,11 +74,13 @@ def parse_cloudfront_logs(log_file):
 
     nullable_fields = {
         "cs(Cookie)",
+        "cs(Referer)",
         "cs-uri-query",
         "fle-encrypted-fields",
         "fle-status",
         "sc-range-end",
         "sc-range-start",
+        "sc-status",
         "ssl-cipher",
         "ssl-protocol",
         "x-forwarded-for",
