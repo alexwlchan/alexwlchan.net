@@ -258,6 +258,7 @@
 
 # I have no idea why this particular slide is so popular and getting
 # so many 404s, but adding a redirect for it.
+/talks/hypothesis-intro/hypothesis-slide004.png                 /images/2016/hypothesis-intro/slide4.png
 /talks/hypothesis-intro/hypothesis-slide029.png                 /images/2016/hypothesis-intro/slide29.png
 
 # === #
@@ -542,6 +543,7 @@
 /slides/suspicious-minds/suspicious-minds.046.jpeg              /images/2018/suspicious-minds/slide46.jpg
 /slides/suspicious-minds/suspicious-minds.047.png               /images/2018/suspicious-minds/slide47.png
 /slides/suspicious-minds/suspicious-minds.048.jpeg              /images/2018/suspicious-minds/slide48.jpg
+/slides/suspicious-minds/suspicious-minds.049.jpeg              /images/2018/suspicious-minds/slide49.jpg
 /slides/suspicious-minds/suspicious-minds.049.jpg               /images/2018/suspicious-minds/slide49.jpg
 /slides/suspicious-minds/suspicious-minds.050.png               /images/2018/suspicious-minds/slide50.png
 /slides/suspicious-minds/suspicious-minds.051.jpg               /images/2018/suspicious-minds/slide51.jpg
@@ -1139,6 +1141,7 @@
 #
 # This serves them a 400 Bad Request page, and should get them out of this list.
 
+/.env                                                           /400/ 400
 /xmlrpc.php                                                     /400/ 400
 /shop/wp-*                                                      /400/ 400
 /test/wp-*                                                      /400/ 400
