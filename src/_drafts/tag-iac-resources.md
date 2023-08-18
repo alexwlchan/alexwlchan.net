@@ -31,7 +31,7 @@ To make this easier, I recommend tagging all your resources with a link to the f
 
 At work, we're managing AWS resources defined in Terraform.
 The Terraform AWS Provider supports setting [default tags] -- you write them once, and then they get applied to every resource that can be tagged.
-This is what that looks like:
+This is what that looks like for us:
 
 ```hcl
 provider "aws" {
@@ -56,7 +56,7 @@ It might be more cumbersome if you're using a different tool or managing differe
 ---
 
 I originally created these tags to solve the "where is this thing defined" problem.
-I'm in the AWS console, I want to make a change to something, and I want to find the Terraform definition so I can manage the change using infrastructure-as-code.
+I've found something in the AWS console, I want to make a change to it, and I want to find the Terraform definition so I can manage the change using infrastructure-as-code.
 It has been useful for that, but it's also been helpful in other, unexpected ways.
  
 On one occasion, they highlighted some resources that were defined in multiple places.
