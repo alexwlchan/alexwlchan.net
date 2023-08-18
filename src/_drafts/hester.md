@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A blue plaque for Hester
-summary:
+summary: Making a small memorial to a forgotten secretary who helped pull off one of the most daring deceptions of WWII.
 tags: theatre cross-stitch
 colors:
   css_light:   "#2045a2"
@@ -23,15 +23,41 @@ I think the show handles this pretty well -- there's lots of laughter, but every
 
 ---
 
-The emotional high point of the show is *Dear Bill*, a solo in which a quiet secretary (Jak Malone) writes a fake love letter for the fictional Allied pilot. All the jokes fade away, and we realise the letter isn't as fake as we thought. It's a moving and powerful number, and I still cry every time I hear it.
+The emotional high point of the show is *Dear Bill*, a solo in which a quiet secretary (Jak Malone, Christian Andrews) writes a fake love letter for the fictional Allied pilot. All the jokes fade away, and we realise the letter isn't as fake as we thought. It's a moving and powerful number, and I still cry every time I hear it.
 
 The secretary is Hester Leggatt, a real woman who really did work on Operation Mincemeat.
 She was the head of the MI5 secretaries, and she wrote the letter that went in the pilot's briefcase.
 Several of the lines in the song are taken directly from her words. (*"Darling, why did we go and meet in the middle of a war, such a silly thing for anybody to do."*)
 
+<style type="x-text/scss">
+  #jak_on_stage {
+    max-width: 270px;
+
+    @media screen and (min-width: 500px) {
+      display: inline-block;
+      float: right;
+      margin-left: 1em;
+      margin-top: 0;
+    }
+  }
+</style>
+
+<figure id="jak_on_stage">
+  {%
+    picture
+    filename="jak-on-stage.jpg"
+    width="270px"
+    alt="A senior officer (Colonel Bevan, played by Zoë Roberts) looks on sceptically at something happening out of shot. Standing next to him, Hester (Jak Malone) stands sternly, her head held down in disapproval."
+  %}
+  <figcaption>
+    Hester (Malone, right) had a reputation as the stern, uptight, office matriarch.
+    In the show, we get to see another side to her.
+  </figcaption>
+</figure>
+
 Beautiful as it is, I don't think *Dear Bill* can stand on its own. It shows us the pain in Hester's heart; the grief of her lost lover; a tragedy she has kept from her coworkers – but that can't be her whole arc. Nothing can ever bring Tom back, but we want to see her begin to heal.
 
-That healing starts to come in the second act song *Useful*. Hester is talking to Jean Leslie, another MI5 secretary (Claire-Marie Hall), about how they can both be useful even if their contributions aren't recognised by the men in charge. The song calls back to *Dear Bill*, echoing its lyrics as Jean tells Hester how much she's grown under Hester's supervision.
+That healing starts to come in the second act song *Useful*. Hester is talking to Jean Leslie, another MI5 secretary (Claire-Marie Hall, Holly Sumpton), about how they can both be useful even if their contributions aren't recognised by the men in charge. The song calls back to *Dear Bill*, echoing its lyrics as Jean tells Hester how much she's grown under Hester's supervision.
 It's a beautiful moment of realisation, as Hester sees how much Jean looks up to her.
 
 The song has a sad ring of truth – Hester wasn't considered important by history, and SpitLip (the writers of the show) [struggled to find much information about her][tweet].
@@ -61,10 +87,16 @@ For the letters themselves, I used two fonts.
 Her name is written in Needlework Gazette's [Fancy Alphabet][Fancy Alphabet] (three strands of cross-stitch), and the rest of the text is in StitchPoint's [Monaco][Monaco] (two strands of back-stitch).
 I planned out the rough shape in a spreadsheet, made a few adjustments to the spacing between letters, and then I stitched it up.
 
-The piece is mounted in a 6″ hoop, painted white, and I gave it to Jak on stage door a few weeks ago.
-It now hangs backstage at the Fortune, among other pieces of fan art.
+I mounted the piece in a 6″ hoop which I'd painted white, and I gave it to Jak on stage door a few weeks ago.
+I futzed a bit of the glue, but otherwise I'm pretty pleased with the result.
+I'm told that it now hangs backstage at the Fortune, among other pieces of fan art.
 
-[[embed instagram here]]
+{%
+  picture
+  filename="a-small-plaque.jpg"
+  width="750px"
+  alt="Some embroidery on blue fabric with a circular frame. There's white text that says “Hester Leggatt / a timeless inspiration / 1905–1995”. I’m holding it in the auditorium of the Fortune Theatre, where the play is being shown – some seats are visible in the background, along with the bright yellow curtain on stage."
+%}
 
 It's not a garden or a grand royal park, but I hope Hester would like it all the same.
 

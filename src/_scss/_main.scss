@@ -56,7 +56,7 @@ pre, blockquote {
 
 #subscribe {
   border-color: $primary-color-light;
-  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 90%, 0.4);
+  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 80%, 0.4);
 
   input[type="submit"] {
     background-color: $primary-color-light;
