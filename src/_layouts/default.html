@@ -30,6 +30,12 @@ layout: compress
     <main id="main" tabindex="-1">
       {{ parsed_content.html }}
     </main>
+    
+    {% if page.path contains '_posts' or page.path == 'index.md' %}
+      <aside id="subscribe">
+        {% include subscribe.html %}
+      </aside>
+    {% endif %}
 
     {% include_cached footer.html %}
   </body>
