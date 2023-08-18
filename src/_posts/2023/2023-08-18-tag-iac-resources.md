@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-08-18 08:04:30 +0000
 title: Tag your infrastructure-as-code resources with a link to their definitions
 summary: Applying a default tag that points to the IaC definition makes it easy to go from the console to the code.
 tags: aws terraform
