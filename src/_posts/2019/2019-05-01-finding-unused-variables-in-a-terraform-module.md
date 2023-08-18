@@ -3,7 +3,16 @@ date: 2019-05-01 20:59:07 +0000
 layout: post
 title: Finding unused variables in a Terraform module
 tags: terraform
+index:
+  exclude: true
 ---
+
+{% update 2023-08-17 %}
+  Between writing this post and now, I've discovered [tflint], which can do all this and much more besides.
+  This was a useful exercise in parsing Terraform with Python (which I still do occasionally), but I've completely switched to tflint for this sort of thing.
+  
+  [tflint]: https://github.com/terraform-linters/tflint
+{% endupdate %}
 
 At work, we use [Terraform] to manage our infrastructure in AWS.
 We use [modules] to reduce repetition in our Terraform definitions, and we publish them in a [public GitHub repo].
