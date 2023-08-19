@@ -7,7 +7,7 @@ body {
   background-image: url('/theme/white-waves-transparent.png');
 }
 
-main, #footer_inner, #nav_inner, #editing-toolbar_inner {
+main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
@@ -23,7 +23,7 @@ main, #footer_inner, #nav_inner, #editing-toolbar_inner {
   padding-bottom: calc(1px + env(safe-area-inset-bottom));
 }
 
-img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner {
+img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
   margin-left: auto;
   margin-right: auto;
 }
@@ -150,6 +150,28 @@ img, video, figure {
 
 iframe {
   display: block;
+}
+
+#subscribe {
+  padding: $default-padding;
+
+  p:first-child { margin-top: 0; }
+  p:last-child  { margin-bottom: 0; }
+
+  input[type="email"] {
+    font-size: 1.2em;
+    width: 100%;
+  }
+
+  #subscribe_button {
+    margin-top: 6px;
+  }
+
+  input[type="submit"] {
+    font-size: 1em;
+    color: white;
+    padding: 5px 10px;
+  }
 }
 
 /* Elements that should have a left/right indent on wide screens (so they're

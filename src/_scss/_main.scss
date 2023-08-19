@@ -54,6 +54,15 @@ pre, blockquote {
   background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
 }
 
+#subscribe {
+  border-color: $primary-color-light;
+  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 80%, 0.4);
+
+  input[type="submit"] {
+    background-color: $primary-color-light;
+  }
+}
+
 nav {
   background: url('/headers/specktre_#{colorToHexString($primary-color-light)}.png') $primary-color-light;
   background-size: auto 100%;
@@ -96,6 +105,19 @@ footer {
   pre, blockquote {
     border-color: rgba($primary-color-dark, 0.3);
     background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
+  }
+
+  #subscribe {
+    border-color: $primary-color-dark;
+    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 25%, 0.7);
+
+    input[type="submit"] {
+      background-color: $primary-color-dark;
+    }
+
+    a {
+      color: white;
+    }
   }
 }
 
