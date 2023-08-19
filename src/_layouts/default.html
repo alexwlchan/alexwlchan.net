@@ -31,11 +31,13 @@ layout: compress
       {{ parsed_content.html }}
     </main>
     
+    {% comment %}
     {% if page.path contains '_posts' or page.path contains '_drafts' or page.path == 'index.md' %}
       <aside id="subscribe">
         {% include subscribe.html %}
       </aside>
     {% endif %}
+    {% endcomment %}
 
     {% include_cached footer.html %}
   </body>
