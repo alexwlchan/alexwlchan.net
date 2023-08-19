@@ -5,6 +5,13 @@ podcasts:
   title: Using the Cloud to Preserve the Future
   url: https://www.lastweekinaws.com/podcast/screaming-in-the-cloud/using-the-cloud-to-preserve-the-future-with-alex-chan/
 talks:
+- date: 2023-04-17
+  event: London Ruby User Group
+  title: Making a working upwards assignment operator
+  links:
+    event: https://lrug.org/meetings/2023/april/#making-a-working-upwards-assignment-operator
+    video: https://assets.lrug.org/videos/2023/april/alex-making-a-working-upwards-assignment-operator-lrug-apr-2023.mp4
+    notes: https://alexwlchan.net/2023/upward-assignment/
 - date: 2021-09-28
   event: SeptembRSE
   title: Missing narratives in discussions around diversity and inclusion
