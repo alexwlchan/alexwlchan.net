@@ -1,0 +1,112 @@
+---
+layout: post
+title: Finding a mystery IAM access key
+summary: Using the GetAccessKeyInfo and GetAccessKeyLastUsed APIs can help us trace an IAM key back to its source.
+tags: aws aws-iam
+colors:
+  index_light: "#6f4e34"
+  index_dark:  "#b3d775"
+---
+
+Recently I had an issue with some IAM keys.
+Somebody was trying to use an IAM access key to download some objects from S3, and it wasn't working -- it was giving a "permission denied" error.
+I wanted to inspect the permissions, but first I had to find where this IAM key came from.
+IAM keys are associated with IAM users, but which user had this key?
+
+I found a couple of useful, new-to-me AWS APIs for doing this.
+
+1.  You can find the **account ID** using the [GetAccessKeyInfo API](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetAccessKeyInfo.html), for example:
+
+    ```console
+    $ aws sts get-access-key-info --access-key-id AKIA3B6K4VLAVGRVTXJA
+    {
+      "Account": "760097843905"
+    }
+    ```
+
+    This should work when you authenticate as _any_ IAM entity that has the `sts:GetAccessKeyInfo` permission, even if it's in a different account to the key.
+
+    This is useful because the AWS estate at work is split over a dozen accounts, and some of the accounts have overlapping use cases.
+    Even if you know roughly what a key is used for, it may not be obvious which account it's defined in.
+
+2.  Once you know the account, you can find the **username** with the [GetAccessKeyLastUsed API](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html).
+    You'll need to authenticate as an IAM entity with the `iam:GetAccessKeyLastUsed` permission in that particular account:
+
+    For example:
+
+    ```console
+    $ aws iam get-access-key-last-used --access-key-id "AKIA3B6K4VLAVGRVTXJA"
+    {
+        "UserName": "example-user-2023-08-26",
+        "AccessKeyLastUsed": {
+            "LastUsedDate": "2023-08-24T15:58:00Z",
+            "ServiceName": "s3",
+            "Region": "eu-west-1"
+        }
+    }
+    ```
+
+    Note that this works even if the access key has never actually been used, for example:
+
+    ```console
+    $ aws iam get-access-key-last-used --access-key-id "AKIA3B6K4VLAVGRVTXJA"
+    {
+        "UserName": "example-user-2023-08-26",
+        "AccessKeyLastUsed": {
+            "ServiceName": "N/A",
+            "Region": "N/A"
+        }
+    }
+    ```
+
+I took these APIs and wrapped them in [a Python script][script] that takes an access key as input, and prints a bunch of information about the key and the associated user.
+This is what it looks like:
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>python3 describe_iam_access_key.py AKIA3B6K4VLAVGRVTXJA
+<span class="go">access key:       AKIA3B6K4VLAVGRVTXJA
+account:          platform (760097843905)
+username:         example-user-2023-08-26
+key created:      26 August 2023
+status:           Active
+
+IAM permissions:  example-user-2023-08-26.iam_permissions.txt
+
+console:          https://us-east-1.console.aws.amazon.com/iamv2/home#/users/details/example-user-2023-08-26
+terraform:        https://github.com/wellcomecollection/platform-infrastructure/tree/main/terraform/users
+</span></code></pre></div></div>
+
+{% comment %}
+
+Generated form the below, but it gets confused about the # sign and thinks the first bit of that line is a shell prompt.
+
+```console
+$ python3 describe_iam_access_key.py AKIA3B6K4VLAVGRVTXJA
+access key:       AKIA3B6K4VLAVGRVTXJA
+account:          platform (760097843905)
+username:         example-user-2023-08-26
+key created:      26 August 2023
+status:           Active
+
+IAM permissions:  example-user-2023-08-26.iam_permissions.txt
+
+console:          https://us-east-1.console.aws.amazon.com/iamv2/home#/users/details/example-user-2023-08-26
+terraform:        https://github.com/wellcomecollection/platform-infrastructure/tree/main/terraform/users
+```
+
+{% endcomment %}
+
+This script won't work for everyone -- in particular, going from an AWS account ID to an authenticated IAM session is probably going to look different for every organisation, but a lot of the bigger pieces are reusable.
+
+Because the IAM permissions can be quite long and verbose, it saves them to a separate text file.
+It also includes links to the IAM console and the Terraform configuration (and it can find the latter because [we tag the user with that link][tagging]).
+
+This script only works with long-term credentials created for an IAM user.
+It doesn't work for temporary credentials using AWS STS -- if you want to find out who owns the latter, you have to [review your CloudTrail logs][cloudtrail] -- but for my purposes, that's not an issue.
+
+When writing this script, one of the things I was pleasantly surprised by was the presence of AWS APIs that feel tailor-made for this use case.
+I was expecting I'd have to loop through every account, every user, every access key, and look for one that matched, which could have been pretty slow.
+Using these APIs was much simpler and quicker!
+
+[script]: https://github.com/wellcomecollection/aws-account-infrastructure/blob/f06cb97094ddeab27c58ca2a6123de2b90511651/scripts/describe_iam_access_key.py
+[tagging]: {% post_url 2023/2023-08-18-tag-iac-resources %}
+[cloudtrail]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_access-keys-audit
