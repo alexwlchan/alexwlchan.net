@@ -18,6 +18,18 @@
 
 
 
+# === Redirects for my Masto.host instance #
+#
+# See https://jacobian.org/til/my-mastodon-instance/
+
+/.well-known/host-meta*                                           https://social.alexwlchan.net/.well-known/host-meta:splat 301
+/.well-known/webfinger*                                           https://social.alexwlchan.net/.well-known/webfinger:splat 301
+/.well-known/nodeinfo*                                            https://social.alexwlchan.net/.well-known/nodeinfo:splat 301
+
+# === #
+
+
+
 
 # == Redirects for theming/style resources == #
 
