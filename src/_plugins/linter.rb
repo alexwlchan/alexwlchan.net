@@ -338,8 +338,9 @@ class RunLinting < Jekyll::Command
       bad_lines = []
 
       parse_netlify_redirects("#{dst_dir}/_redirects").each do |redirect|
-        # This is a bit of a special case that I don't worry about.
+        # A couple of special cases that I don't worry about.
         next if redirect[:source] == '/ideas-for-inclusive-events/*'
+        next if redirect[:target].start_with? 'https://social.alexwlchan.net/'
 
         # ignore URL fragments when linting, the important thing is that
         # pages don't 404
