@@ -63,6 +63,7 @@ def parse_cloudfront_logs(log_file):
         "cs-bytes": int,
         "sc-bytes": int,
         "sc-content-len": int,
+        "sc-status": int,
         "time-taken": float,
         "time-to-first-byte": float,
     }
@@ -91,14 +92,6 @@ def parse_cloudfront_logs(log_file):
 
         log_data = dict(zip(field_names, values))
 
-        # Convert a couple of numeric fields into proper numeric types,
-        # rather than strings.
-        for name, converter_function in numeric_fields.items():
-            try:
-                log_data[name] = converter_function(log_data[name])
-            except ValueError:
-                pass
-
         # Undo any URL-encoding in a couple of fields
         for name in url_encoded_fields:
             log_data[name] = urllib.parse.unquote(log_data[name])
@@ -108,6 +101,14 @@ def parse_cloudfront_logs(log_file):
         for name, value in log_data.items():
             if name in nullable_fields and value == "-":
                 log_data[name] = None
+
+        # Convert a couple of numeric fields into proper numeric types,
+        # rather than strings.
+        for name, converter_function in numeric_fields.items():
+            try:
+                log_data[name] = converter_function(log_data[name])
+            except ValueError:
+                pass
 
         # Convert the date/time from strings to a proper datetime value.
         log_data["date"] = datetime.datetime.strptime(
