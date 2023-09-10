@@ -128,7 +128,7 @@ I visited \uline{Berlin} in \uline{Germany}.
 Second, an example with the depth manually adjusted.
 
 ```latex
-\renewcommand{\ULdepth}{1.8pt}
+\setlength{\ULdepth}{1.8pt}
 
 I visited \uline{Berlin} in \uline{Germany}.
 ```
@@ -179,7 +179,7 @@ Then the `\contour` macro draws the supplied text, with a red contour around the
 Then I swap the red for white, and add the underline:
 
 ```latex
-\renewcommand{\ULdepth}{1.8pt}
+\setlength{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
 
 \newcommand{\myuline}[1]{
