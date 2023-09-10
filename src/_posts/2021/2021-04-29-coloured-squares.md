@@ -7,7 +7,12 @@ tags: python terminal-tricks colour
 
 Last night, I [posted a tweet][tweet] wondering about the different colours of the ["spool of thread" emoji][emoji], and I made an illustration to show the variety:
 
-<img src="/images/2021/emoji_1x.png" srcset="/images/2021/emoji_1x.png 1x, /images/2021/emoji_2x.png 2x" style="border-radius: 6px; width: 587px;" alt="A collection of different thread emojis, labelled by the platform/company they’re from. There are four red spools on the left, two blue spools on the right, a purple and two pink spools along the top, and a green spool along the bottom.">
+{%
+  picture
+  filename="emoji.png"
+  width="587px"
+  alt="A collection of different thread emojis, labelled by the platform/company they’re from. There are four red spools on the left, two blue spools on the right, a purple and two pink spools along the top, and a green spool along the bottom."
+%}
 
 The emoji icons are from [Emojipedia], and I've labelled each one with the name of the platform it comes from.
 Notice that I've colour-matched each label to the emoji, and it's a different colour for each label -- how did I pick the colours?
@@ -15,7 +20,13 @@ Notice that I've colour-matched each label to the emoji, and it's a different co
 I already have code [to extract dominant colours from images][dominant_colours], using *k*-means clustering.
 I was able to use the script from the end of that post to get a list of suggestions:
 
-<img src="/images/2021/terminal_without_colours.png" style="border-radius: 6px; width: 587px;" alt="A terminal window running a Python script that prints five hex colours.">
+{%
+  picture
+  filename="terminal_without_colours.png"
+  width="587px"
+  alt="A terminal window running a Python script that prints five hex colours."
+  style="border-radius: 6px;"
+%}
 
 Problem is, I can't visualise colours from their hex codes.
 Which colour is the murky brown, and which is the vibrant pink?
@@ -24,7 +35,13 @@ Wouldn't it be nicer if I could *see* the colours?
 I found a [Perl function] that prints coloured blocks to the terminal using [ANSI escape codes].
 I rewrote it in Python, and then I could see the hex code and the colour it represented:
 
-<img src="/images/2021/terminal_with_colours.png" style="border-radius: 6px; width: 587px;" alt="A terminal window running a Python script that prints five hex colours, and a solid block of colour to the left of each code.">
+{%
+  picture
+  filename="terminal_with_colours.png"
+  width="587px"
+  alt="A terminal window running a Python script that prints five hex colours, and a solid block of colour to the left of each code."
+  style="border-radius: 6px;"
+%}
 
 Here's my Python function:
 
@@ -71,7 +88,13 @@ I got that wrong on my first attempt!
 Combine this with something like [Unicode block elements], and this could be a very powerful tool.
 For example, I can use a lower seven-eights block to add a gap between squares, and colour the hex swatches to match:
 
-<img src="/images/2021/terminal_with_coloured_text.png" style="border-radius: 6px; width: 587px;" alt="A terminal window running a Python script that prints five hex colours, and a solid block of colour to the left of each code. The hex codes have the same colour as the blocks.">
+{%
+  picture
+  filename="terminal_with_coloured_text.png"
+  width="587px"
+  alt="A terminal window running a Python script that prints five hex colours, and a solid block of colour to the left of each code. The hex codes have the same colour as the blocks."
+  style="border-radius: 6px;"
+%}
 
 This is even more useful -- it makes it visually obvious that, for example, the last colour would be unsuitable for text on a white background.
 

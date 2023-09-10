@@ -48,7 +48,12 @@ colors:
 The header of this site is made of tiling squares in slightly varying shades of red.
 It's meant to be subtle, but I think it still gives the site a unique look:
 
-<img src="/images/2022/header_image.png" alt="The site header, which is made of small tiling squares in slightly varying shades of red.">
+{%
+  picture
+  filename="header_image.png"
+  width="750px"
+  alt="The site header, which is made of small tiling squares in slightly varying shades of red."
+%}
 
 I think of this as the "new" header, even though my [screenshot library] tells me I added it in 2016 (!), as does [the blog post] I wrote about how I make these images.
 

@@ -13,7 +13,12 @@ I don't want to talk about the decision to use Excel; instead I want to talk abo
 I created a large CSV spreadsheet using Python, then I opened it with Excel 2016 on my work Mac.
 This is the message I received:
 
-<img src="/images/2020/excel_truncation_error_1x.png" srcset="/images/2020/excel_truncation_error_1x.png 1x, /images/2020/excel_truncation_error_2x.png 2x" alt="An Excel alert dialog that says 'File not loaded completely', with a single 'OK' button.">
+{%
+  picture
+  filename="excel_truncation_error.png"
+  width="526px"
+  alt="An Excel alert dialog that says 'File not loaded completely', with a single 'OK' button."
+%}
 
 This is not a good error.
 What does it even mean?

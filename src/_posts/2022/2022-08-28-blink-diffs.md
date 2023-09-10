@@ -50,7 +50,13 @@ For a long time, I've wanted to browse my photos from a comfy chair with my iPad
 
 Unfortunately, the built-in Photos app doesn't have a way to do the instant switching that I want.
 
-<img src="/images/2022/ipad_photos_1x.jpg" srcset="/images/2022/ipad_photos_1x.jpg 1x, /images/2022/ipad_photos_2x.jpg 2x" style="width: 600px; border: 0.5px solid #d4d3d4;" alt="Screenshot of the iPad photos app. The photo of the two trams takes up most of the screen, with a toolbar along the top and a carousel of small thumbnails along the bottom. The carousel images are all tall and narrow, and tightly scrunched together.">
+{%
+  picture
+  filename="ipad_photos.jpg"
+  width="600px"
+  style="border: 0.5px solid #d4d3d4;"
+  alt="Screenshot of the iPad photos app. The photo of the two trams takes up most of the screen, with a toolbar along the top and a carousel of small thumbnails along the bottom. The carousel images are all tall and narrow, and tightly scrunched together."
+%}
 
 If I want to move to the next photo, I can swipe left or right -- but this does a full-screen animation, where the current photo gets "pushed" off the screen by the new photo.
 The motion and the delay makes it much harder to compare photos.
@@ -63,7 +69,12 @@ Then I heard about an app called [Darkroom], and in particular its [workflow for
 I liked it almost immediately, because it makes it much easier to switch between photos without an intermediate animation.
 This is what it looks like:
 
-<img src="/images/2022/darkroom_photos_1x.jpg" srcset="/images/2022/darkroom_photos_1x.jpg 1x, /images/2022/darkroom_photos_2x.jpg 2x" style="width: 600px;" alt="Screenshot of the Darkroom photos app. The photo of the two trams takes up most of the screen, with toolbars along the left and right, and a carousel of square thumbnails up the left hand side. The selected thumbnail is shown with a red outline, and the thumbnails are bigger and wider-spaced than in the built-in app.">
+{%
+  picture
+  filename="darkroom_photos.jpg"
+  width="600px"
+  alt="Screenshot of the Darkroom photos app. The photo of the two trams takes up most of the screen, with toolbars along the left and right, and a carousel of square thumbnails up the left hand side. The selected thumbnail is shown with a red outline, and the thumbnails are bigger and wider-spaced than in the built-in app."
+%}
 
 There's a carousel of thumbnails down the left-hand side (where I already have a hand holding the iPad), and the thumbnails are much bigger -- almost 5x more space than in the built-in app.
 If I tap a thumbnail, it instantly switches to that photo.

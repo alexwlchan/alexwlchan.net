@@ -21,7 +21,12 @@ For something to go wrong, multiple layers of protection have to fail at the sam
 If you imagine some overlapping pieces of Swiss cheese, the holes have to line up before something can fall through:
 
 <figure style="width: 450px;">
-  <img src="/images/2020/swiss_cheese_1x.png" srcset="/images/2020/swiss_cheese_1x.png 1x, /images/2020/swiss_cheese_2x.png 2x" alt="Four slices of Swiss cheese, with a red arrow passing through a hole in all four layers.">
+  {%
+    picture
+    filename="swiss_cheese.png"
+    width="450px"
+    alt="Four slices of Swiss cheese, with a red arrow passing through a hole in all four layers."
+  %}
   <figcaption>
     An illustration of a failure penetrating multiple layers of Swiss cheese, based on a diagram made by user Davidmack on <a href="https://commons.wikimedia.org/wiki/File:Swiss_cheese_model_of_accident_causation.png">Wikimedia Commons</a>.
     Used under CC&nbsp;BY-SA.
