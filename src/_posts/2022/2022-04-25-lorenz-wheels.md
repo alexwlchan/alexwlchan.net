@@ -17,7 +17,12 @@ Each wheel had a number of switches around its rim (called "cams"), which could 
 Here's a close-up photo of two of the wheels:
 
 <figure style="width: 303px">
-  <img src="/images/2022/lorenz_cams_1x.jpg" srcset="/images/2022/lorenz_cams_1x.jpg 1x, /images/2022/lorenz_cams_2x.jpg 2x" alt="A close-up photo of two metal wheels. The wheels have numbers running around the rim, and next to each number is a small metal switch.">
+  {%
+    picture
+    filename="lorenz_cams.jpg"
+    width="303px"
+    alt="A close-up photo of two metal wheels. The wheels have numbers running around the rim, and next to each number is a small metal switch."
+  %}
   <figcaption>
     Photo by TedColes <a href="https://commons.wikimedia.org/wiki/File:Lorenz_Cams.jpg">on Wikimedia Commons</a>, used under CC BY-SA 4.0.
   </figcaption>
