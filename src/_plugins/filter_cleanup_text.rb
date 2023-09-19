@@ -40,6 +40,7 @@ class AddNonBreakingSpaces
       character
       byte
       count
+      tags
     ].join('|')
 
     text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\2')
