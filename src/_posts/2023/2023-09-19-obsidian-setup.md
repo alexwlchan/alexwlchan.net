@@ -118,7 +118,7 @@ I create lot of different tags -- my primary vault has at least 800.
 The distribution is very skewed, with maybe 50 tags that I use a lot, and then a long tail of tags that are only used a handful of times.
 This might seem messy to some people, but it works for me – even if a tag is only used once or twice, it's still useful for searching.
 
-I use prefixes as a way to namespace some of tags, e.g. `aws/amazon-s3` or `python/pip`.
+I use prefixes as a way to namespace some of tags, like `aws/amazon-s3` and `python/pip`.
 This helps keep my list of tags somewhat organised, but otherwise it’s a bit of an inconsistent mess.
 
 [tagging]: https://alexwlchan.net/2019/my-scanning-setup/#how-should-i-organise-my-files
@@ -129,6 +129,7 @@ This helps keep my list of tags somewhat organised, but otherwise it’s a bit o
 # Folders
 
 I have a handful of top-level folders, and I put most notes in folders.
+Both of my vaults have the same set of top-level folders.
 
 I try not to keep too many notes in my root – it's mostly brand new notes, stuff I'm actively working on, or notes I refer to frequently.
 When I'm finished working on a note, I move it into a folder.
