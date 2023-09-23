@@ -30,7 +30,7 @@ def create_favicons(site, colours)
 
   colours.each do |c|
     hex_string = c.gsub('#', '')
-    
+
     ico_path = "#{dst}/favicons/#{hex_string}.ico"
     png_path = "#{dst}/favicons/#{hex_string}.png"
 
