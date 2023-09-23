@@ -3,7 +3,10 @@ layout: post
 date: 2021-07-05 11:46:23 +0000
 title: Listing deleted secrets in AWS Secrets Manager with boto3 and the AWS CLI
 summary: Diving into the internals of the AWS SDK to find deleted secrets.
-tags: python aws aws-secrets-manager
+tags:
+  - python
+  - aws
+  - aws-secrets-manager
 colors:
   index_light: "#00A000"
   index_dark:  "#61ff61"

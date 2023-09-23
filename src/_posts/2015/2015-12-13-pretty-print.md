@@ -1,7 +1,9 @@
 ---
 date: 2015-12-13 17:15:00 +0000
 layout: post
-tags: shell-scripting macos
+tags:
+  - shell-scripting
+  - macos
 title: Pretty printing JSON and XML in the shell
 ---
 

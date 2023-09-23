@@ -29,7 +29,8 @@
         },
         "tags": {
             "description": "A space-separated list of tags for this page or post.",
-            "type": "string"
+            "type": "array",
+            "items": {"type": "string"}
         },
         "link": {
             "description": "An external page that this page should link to, like a link blog. This is used on the HTML version of the page, and where clicking on the RSS feed entry will take the reader.",

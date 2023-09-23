@@ -2,7 +2,8 @@
 layout: post
 date: 2014-12-06 22:42:00 +0000
 link: http://gouwens.net/skeletors-all-the-way-down
-tags: skeletor
+tags:
+  - skeletor
 title: Skeletors All the Way Down
 ---
 

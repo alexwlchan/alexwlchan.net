@@ -4,7 +4,8 @@ layout: post
 link: https://github.com/alexwlchan/lazyreader
 summary: I wrote a small Python module for lazy file reading, ideal for efficient
   batch processing.
-tags: python
+tags:
+  - python
 title: A Python module for lazy reading of file objects
 ---
 

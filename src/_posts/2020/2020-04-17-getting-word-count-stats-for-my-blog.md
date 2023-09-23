@@ -3,7 +3,9 @@ layout: post
 date: 2020-04-17 20:23:19 +0000
 title: Getting word count stats for my blog
 link: https://alexwlchan.net/stats/
-tags: jekyll blogging-about-blogging
+tags:
+  - jekyll
+  - blogging-about-blogging
 index:
   exclude: true
 ---

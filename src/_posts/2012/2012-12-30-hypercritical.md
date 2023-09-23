@@ -2,7 +2,8 @@
 layout: post
 date: 2012-12-30 00:07:00 +0000
 summary: My thoughts on the ending of Hypercritical, a podcast by John Siracusa.
-tags: podcasts
+tags:
+  - podcasts
 title: Hypercritical
 ---
 

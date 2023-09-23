@@ -3,7 +3,9 @@ layout: post
 date:       2016-10-30 09:12:00 +0000
 layout:     post
 summary:    A brief introduction to asexuality, what it means, and why it matters.
-tags:       personal asexuality
+tags:
+  - personal
+  - asexuality
 title:      The A stands for Asexual
 index:
   exclude: true

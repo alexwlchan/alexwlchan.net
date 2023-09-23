@@ -3,7 +3,8 @@ layout: post
 date: 2020-04-19 12:43:43 +0000
 title: Comparing JSON strings when testing in Scala
 summary: There are lots of ways to format JSON. How do you know if two JSON strings have the same data, just differently formatted?
-tags: scala
+tags:
+  - scala
 ---
 
 For my day job, I write APIs that return JSON responses.

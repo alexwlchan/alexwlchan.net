@@ -5,7 +5,9 @@ index:
 layout: post
 summary: I use Python-Markdown to render posts for my site. Here are a few examples
   of the extensions I'm using.
-tags: python markdown
+tags:
+  - python
+  - markdown
 title: A few examples of extensions in Python-Markdown
 ---
 

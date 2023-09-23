@@ -3,7 +3,9 @@ layout: post
 date: 2023-07-03 13:43:19 +0000
 title: Turning off ECS tasks overnight using an EventBridge Schedule
 summary: Calling the UpdateService API on a fixed schedule allows us to turn services off in the evening, and back on again the next morning.
-tags: amazon-ecs amazon-eventbridge
+tags:
+  - amazon-ecs
+  - amazon-eventbridge
 colors:
   css_light: "#9a255e"
   css_dark:  "#ff3d9c"

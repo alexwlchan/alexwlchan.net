@@ -2,7 +2,10 @@
 layout: post
 title: Ode to docopt
 summary: Why I love docopt as a tool for writing clean, simple command-line interfaces.
-tags: python python:docopt talks
+tags:
+  - python
+  - python:docopt
+  - talks
 date: 2017-09-11 12:01:13 +0100
 colors:
   css_light: "#008000"

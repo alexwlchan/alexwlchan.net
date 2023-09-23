@@ -4,7 +4,9 @@ date: 2019-10-22 22:00:14 +0000
 title: Digital preservation at Wellcome Collection
 summary: Slides from a presentation about our processes, practices, and tools.
 link: https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047
-tags: wellcome-collection digital-preservation
+tags:
+  - wellcome-collection
+  - digital-preservation
 colors:
   index_light: "#837252"
   index_dark:  "#efeee3"

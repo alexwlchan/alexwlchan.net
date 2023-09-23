@@ -4,7 +4,12 @@ date: 2020-01-16 22:56:51 +0000
 title: Generating pride-themed Norse valknuts with Python 🌈
 summary: A web app to generate mashups of Norse valknuts and Pride flags.
 link: https://rainbow-valknuts.glitch.me/
-tags: python glitch generative-art fun-stuff drawing-things
+tags:
+  - python
+  - glitch
+  - generative-art
+  - fun-stuff
+  - drawing-things
 colors:
   index_light: "#e31b85"
   index_dark:  "#c8c8c8"

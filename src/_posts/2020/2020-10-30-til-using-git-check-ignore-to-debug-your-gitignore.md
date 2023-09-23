@@ -2,7 +2,8 @@
 layout: post
 date: 2020-10-30 18:25:23 +0000
 title: 'TIL: Using git check-ignore to debug your .gitignore'
-tags: git
+tags:
+  - git
 ---
 
 Here's a useful thing I learnt today: you can use [git check-ignore](https://git-scm.com/docs/git-check-ignore) to debug your gitignore rules and find out why a particular file is (or isn't) being ignored.

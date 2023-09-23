@@ -1,7 +1,9 @@
 ---
 date: 2016-08-19 23:34:00 +0000
 layout: post
-tags: tumblr python
+tags:
+  - tumblr
+  - python
 title: 'Python snippets: Is a URL from a Tumblr post?'
 index:
   exclude: true

@@ -2,7 +2,8 @@
 layout: post
 date: 2016-09-23 07:40:00 +0000
 title: aspell, a command-line spell checker
-tags: writethedocs
+tags:
+  - writethedocs
 colors:
   index_light: "#022833"
   index_dark:  "#a7b3b4"

@@ -2,7 +2,9 @@
 date: 2015-11-15 21:50:00 +0000
 layout: post
 summary: A Python script for getting a list of URLs from Safari Reading List.
-tags: macos macos:safari
+tags:
+  - macos
+  - macos:safari
 title: Export a list of URLs from Safari Reading List
 ---
 

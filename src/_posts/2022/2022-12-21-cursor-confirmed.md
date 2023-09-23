@@ -3,7 +3,10 @@ layout: post
 date: 2022-12-21 20:33:41 +0000
 title: Getting an Important Internet Checkmark to follow your cursor
 summary: Party like it's 1996! A trailing checkmark cursor will make your Brand Website feel fun and authentic.
-tags: fun-stuff code-crimes javascript
+tags:
+  - fun-stuff
+  - code-crimes
+  - javascript
 colors:
   css_light: "#0e558b"
   css_dark:  "#55acee"

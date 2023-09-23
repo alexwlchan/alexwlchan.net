@@ -3,7 +3,8 @@ layout: post
 date: 2020-06-15 06:57:51 +0000
 title: Archive monocultures considered harmful
 summary: We are better off when the same topic is represented in multiple, different archives.
-tags: digital-preservation
+tags:
+  - digital-preservation
 ---
 
 *Note: like everything on this blog, this is my personal opinion. I'm not speaking for Wellcome Collection or anybody else who works there.*

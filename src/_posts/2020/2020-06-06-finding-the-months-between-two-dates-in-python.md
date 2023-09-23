@@ -2,7 +2,9 @@
 layout: post
 date: 2020-06-06 06:38:11 +0000
 title: Finding the months between two dates in Python
-tags: python datetime-shenanigans
+tags:
+  - python
+  - datetime-shenanigans
 ---
 
 Here's a function extracted from a recent project that I'm likely to reuse elsewhere: finding all the months between two dates in Python.

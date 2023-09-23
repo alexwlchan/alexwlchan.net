@@ -2,7 +2,8 @@
 date: 2019-05-01 20:59:07 +0000
 layout: post
 title: Finding unused variables in a Terraform module
-tags: terraform
+tags:
+  - terraform
 index:
   exclude: true
 ---

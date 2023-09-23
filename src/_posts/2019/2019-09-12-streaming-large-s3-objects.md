@@ -3,7 +3,10 @@ date: 2019-09-12 19:53:53 +0000
 layout: post
 summary: Reliably reading a large object by stitching together multiple GetObject requests into a single Java InputStream.
 title: Streaming large objects from S3 with ranged GET requests
-tags: aws amazon-s3 scala
+tags:
+  - aws
+  - amazon-s3
+  - scala
 ---
 
 In [my last post]({% post_url 2019/2019-09-05-unpacking-compressed-archives-in-scala %}), I talked about how to take a Java `InputStream` for a tar.gz file, and get an iterator of `(ArchiveEntry, InputStream)`.

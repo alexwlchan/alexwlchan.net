@@ -3,7 +3,10 @@ layout: post
 date: 2019-02-09 18:09:32 +0000
 summary: Code for processing large objects in S3 without downloading the whole thing
   first, using file-like objects in Python.
-tags: python aws amazon-s3
+tags:
+  - python
+  - aws
+  - amazon-s3
 title: Working with really large objects in S3
 ---
 

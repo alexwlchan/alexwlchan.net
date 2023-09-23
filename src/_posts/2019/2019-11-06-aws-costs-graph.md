@@ -3,7 +3,9 @@ layout: post
 date: 2019-11-06 07:54:27 +0000
 title: An AWS costs graph that works for me
 summary: How I get a Cost Explorer graph for the last 30 days of spending, broken down by service.
-tags: aws aws-billing
+tags:
+  - aws
+  - aws-billing
 ---
 
 If you use AWS, it's always a good idea to keep an eye on your costs.

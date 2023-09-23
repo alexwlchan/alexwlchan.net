@@ -3,7 +3,10 @@ layout: post
 date: 2021-09-06 05:49:09 +0000
 title: Picking perfect planks with Python
 summary: How do you pick the right combination of planks to lay a wooden floor? Python and itertools to the rescue!
-tags: python combinatorics maths
+tags:
+  - python
+  - combinatorics
+  - maths
 colors:
   index_light: "#5c422e"
   index_dark:  "#e5bd9e"

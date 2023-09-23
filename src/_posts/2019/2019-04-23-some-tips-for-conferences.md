@@ -2,7 +2,8 @@
 layout: post
 date: 2019-04-23 09:27:31 +0000
 title: Some tips for conferences
-tags: conferences
+tags:
+  - conferences
 ---
 
 My first tech conference was PyCon UK, back in September 2016.

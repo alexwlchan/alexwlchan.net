@@ -3,7 +3,10 @@ layout: post
 date: 2021-10-06 21:39:30 +0000
 title: READMEs for Open Science
 summary: Slides for a short talk about READMEs, why they're important, and what they should contain.
-tags: documentation open-life-science talks
+tags:
+  - documentation
+  - open-life-science
+  - talks
 colors:
   css_light: "#20883f"
   css_dark:  "#2fc65d"

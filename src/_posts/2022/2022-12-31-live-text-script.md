@@ -3,7 +3,9 @@ layout: post
 date: 2022-12-31 12:42:13 +0000
 title: A script to get Live Text from images
 summary: Using Apple's built-in tools to get OCR text from an image, but without going through a GUI.
-tags: images swift
+tags:
+  - images
+  - swift
 ---
 
 One of my favourite new features on Apple's OSes in the last few years is Live Text, which is an [optical character recognition][ocr] tool that lets you select text in images.

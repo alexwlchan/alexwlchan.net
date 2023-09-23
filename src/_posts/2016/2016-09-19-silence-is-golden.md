@@ -3,7 +3,10 @@ layout: post
 date: 2016-09-19 10:17:00 +0000
 title: Silence is golden
 summary: PyCon had a dedicated quiet room for people to get some downtime, and I think it's a great idea.
-tags: pyconuk conferences inclusion
+tags:
+  - pyconuk
+  - conferences
+  - inclusion
 ---
 
 As I write this, it's the last day of [PyCon UK](http://2016.pyconuk.org/).

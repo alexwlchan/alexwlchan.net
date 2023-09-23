@@ -3,7 +3,9 @@ layout: post
 date: 2019-10-14 17:33:09 +0000
 title: "Sans I/O programming: what, why and how (PyCon UK talk)"
 summary: Code that pushes I/O to the boundary is simpler, easier to reuse and easier to test.
-tags: pyconuk programming
+tags:
+  - pyconuk
+  - programming
 colors:
   css_light: "#008921"
   css_dark:  "#54c552"

@@ -4,7 +4,10 @@ date: 2023-04-25 13:40:02 +0000
 title: Getting alerts about flaky ECS tasks in Slack
 summary: |
   When ECS is "unable to consistently start tasks successfully", we get a Slack alert that tells us to investigate.
-tags: amazon-ecs aws slack
+tags:
+  - amazon-ecs
+  - aws
+  - slack
 colors:
   index_light: "#b24c0e"
   index_dark:  "#e7862a"

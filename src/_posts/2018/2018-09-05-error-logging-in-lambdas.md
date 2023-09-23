@@ -3,7 +3,10 @@ date: 2018-09-05 20:11:59 +0000
 layout: post
 summary: A snippet to make it a bit easier to debug errors in AWS Lambda functions
   written in Python.
-tags: aws python aws-lambda
+tags:
+  - aws
+  - python
+  - aws-lambda
 title: A basic error logger for Python Lambdas
 ---
 

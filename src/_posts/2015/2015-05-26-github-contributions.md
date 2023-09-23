@@ -3,7 +3,8 @@ layout: post
 date: 2015-05-26 19:13:00 +0000
 summary: I made a clone of GitHub's Contributions graph to use as a motivational tool.
 title: Cloning GitHub's Contributions chart
-tags: github
+tags:
+  - github
 colors:
   index_light: "#4a35a5"
   index_dark:  "#79d9e9"

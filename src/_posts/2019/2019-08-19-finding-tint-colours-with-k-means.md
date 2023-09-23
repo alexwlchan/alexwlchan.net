@@ -4,7 +4,11 @@ date: 2019-08-19 09:40:52 +0000
 summary: I want to display text next to an image that looks visually similar to the
   image, so I need to extract a tint colour.
 title: Getting a tint colour from an image with Python and <em>k</em>-means
-tags: python images python:pillow colour
+tags:
+  - python
+  - images
+  - python:pillow
+  - colour
 colors:
   index_light: "#4A653A"
   index_dark:  "#70a15a"

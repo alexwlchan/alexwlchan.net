@@ -3,7 +3,8 @@ layout: post
 date: 2020-10-12 18:02:18 +0000
 title: The danger of bad error messages
 summary: An Excel mistake shows why learning to write good error messages is a critical skill for software developers.
-tags: error-messages
+tags:
+  - error-messages
 ---
 
 Last week, the UK government came under fire for suspected [poor use of Excel](https://www.engadget.com/microsoft-excel-england-covid-19-delay-114634846.html), which led to an undercounting of COVID-19 cases.

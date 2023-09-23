@@ -2,7 +2,9 @@
 layout: post
 date: 2015-09-06 18:42:00 +0000
 summary: A review of Effective Python, by Brett Slatkin.
-tags: python books
+tags:
+  - python
+  - books
 title: 'Review: Effective Python'
 ---
 

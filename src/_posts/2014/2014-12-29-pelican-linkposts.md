@@ -1,7 +1,9 @@
 ---
 layout: post
 date: 2014-12-29 08:26:00 +0000
-tags: pelican python
+tags:
+  - pelican
+  - python
 title: RSS linkposts in Pelican
 index:
   exclude: true

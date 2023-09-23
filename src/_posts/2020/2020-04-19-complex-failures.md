@@ -3,7 +3,8 @@ layout: post
 date: 2020-04-19 18:32:48 +0000
 title: Complex systems have complex failures
 summary: When a complex system fails, it's usually a combination of problems, not a single person's mistake.
-tags: systems-thinking
+tags:
+  - systems-thinking
 ---
 
 As the pandemic gets worse, I see a lot of people blaming China for everything.

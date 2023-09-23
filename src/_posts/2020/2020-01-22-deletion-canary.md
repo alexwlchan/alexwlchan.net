@@ -3,7 +3,9 @@ layout: post
 date: 2020-01-22 08:23:50 +0000
 title: "A deletion canary: testing your S3 bucket permissions"
 summary: If you've tried to disable deletions in your S3 buckets, how do you know they're working?
-tags: aws amazon-s3
+tags:
+  - aws
+  - amazon-s3
 colors:
   index_light: "#7b674a"
   index_dark:  "#e1b234"
