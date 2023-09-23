@@ -1,7 +1,8 @@
 ---
 layout: post
 date: 2014-10-01 18:34:00 +0000
-tags: tumblr
+tags:
+  - tumblr
 title: Notes on Tumblr
 ---
 

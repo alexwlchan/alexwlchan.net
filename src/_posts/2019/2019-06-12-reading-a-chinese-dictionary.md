@@ -6,7 +6,8 @@ summary: Although paper dictionaries are mostly a thing of the past, knowing how
 colors:
   index_light: "#131313"
   index_dark:  "#c4c4c4"
-tags: languages
+tags:
+  - languages
 ---
 
 <style>

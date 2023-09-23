@@ -3,7 +3,8 @@ layout: post
 date: 2023-03-13 13:24:57 +0000
 title: Cats, cross-stitch, and copyright
 summary: In celebration of my favourite apex predator.
-tags: cross-stitch
+tags:
+  - cross-stitch
 colors:
   index_light: "#7c590f"
   index_dark:  "#debd4d"

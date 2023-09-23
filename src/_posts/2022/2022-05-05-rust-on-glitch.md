@@ -3,7 +3,9 @@ layout: post
 date: 2022-05-05 14:01:56 +0000
 title: Running a Rust binary in Glitch
 summary: Using different targets to build Rust binaries that will run in Glitch.
-tags: glitch rust
+tags:
+  - glitch
+  - rust
 
 colors:
   index_light: "#ff386a"

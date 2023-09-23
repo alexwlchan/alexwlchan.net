@@ -5,7 +5,9 @@ link: https://alexwlchan.net/a-plumbers-guide-to-git/
 summary: Git is a fundamental part of many modern developer workflows -- but how does
   it really work under the hood?  In this workshop, we'll learn about the internals
   of Git.
-tags: git workshops
+tags:
+  - git
+  - workshops
 title: Notes on <em>A Plumber's Guide to Git</em>
 ---
 

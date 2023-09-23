@@ -3,7 +3,9 @@ layout: post
 date: 2019-07-01 07:51:11 +0000
 title: Ten braille facts / ⠼⠁⠚⠀⠃⠗⠁⠊⠇⠇⠑⠀⠋⠁⠉⠞⠎
 summary: Where does braille come from? How was braille originally written? What can you write in braille today? And more.
-tags: languages accessibility
+tags:
+  - languages
+  - accessibility
 colors:
   index_light: "#514d45"
   index_dark:  "#b3b5b0"

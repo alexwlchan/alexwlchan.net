@@ -3,7 +3,10 @@ date: 2018-11-02 10:42:04 +0000
 layout: post
 summary: I'm trying out Go, and I wrote a tool to help me find SNS topics that don't
   have any subscriptions.
-tags: golang aws amazon-sns
+tags:
+  - golang
+  - aws
+  - amazon-sns
 title: Finding SNS topics without any subscriptions
 ---
 

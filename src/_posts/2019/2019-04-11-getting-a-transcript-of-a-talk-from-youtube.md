@@ -3,7 +3,8 @@ layout: post
 date: 2019-04-11 07:00:43 +0000
 title: Getting a transcript of a talk from YouTube
 summary: Using the auto-generated captions from a YouTube video as a starting point for a complete transcript.
-tags: youtube
+tags:
+  - youtube
 colors:
   index_light: "#3164ce"
   index_dark:  "#dbe3e9"

@@ -3,7 +3,8 @@ layout: post
 date: 2021-10-16 16:40:16 +0000
 title: The Oboe of Optozorax, and Other Objects
 summary: A collection of small worldbuilding ideas about magical objects.
-tags: fiction
+tags:
+  - fiction
 ---
 
 *Last week, [waffle] was asking a grammar question in a Discord server:*

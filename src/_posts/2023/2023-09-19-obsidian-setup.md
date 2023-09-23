@@ -3,7 +3,9 @@ layout: post
 date: 2023-09-19 21:30:59 +0000
 title: How I set up my Obsidian vaults
 summary: The tags, folders, and themes I use to manage information in my Obsidian vaults.
-tags: obsidian taking-notes
+tags:
+  - obsidian
+  - taking-notes
 ---
 
 {% comment %}
@@ -120,6 +122,9 @@ This might seem messy to some people, but it works for me – even if a tag is o
 
 I use prefixes as a way to namespace some of tags, like `aws/amazon-s3` and `python/pip`.
 This helps keep my list of tags somewhat organised, but otherwise it’s a bit of an inconsistent mess.
+e.g. I don't have any rules about singular vs plural
+
+I have different tags in each of my vaults, but I try to use the same tag in both places if it means the same thing.
 
 [tagging]: https://alexwlchan.net/2019/my-scanning-setup/#how-should-i-organise-my-files
 [search_engine]: https://idlewords.com/talks/fan_is_a_tool_using_animal.htm

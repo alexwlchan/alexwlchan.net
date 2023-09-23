@@ -3,7 +3,10 @@ date: 2015-06-29 17:55:00 +0000
 layout: post
 summary: Configuring an IPython notebook server that is always running and easily
   accessible in Windows.
-tags: python windows python:ipython
+tags:
+  - python
+  - windows
+  - python:ipython
 title: Persistent IPython notebooks in Windows
 ---
 

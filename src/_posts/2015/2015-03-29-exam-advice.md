@@ -3,7 +3,8 @@ layout: post
 date: 2015-03-29 13:30:00 +0000
 link: http://alexwlchan.net/exams
 summary: Some advice for students sitting technical exams
-tags: maths
+tags:
+  - maths
 title: Some exam advice
 ---
 

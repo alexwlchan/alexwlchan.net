@@ -1,7 +1,8 @@
 ---
 date: 2016-10-01 21:23:00 +0000
 layout: post
-tags: shell-scripting
+tags:
+  - shell-scripting
 title: A shell alias for tallying data
 summary: A way to count records on the command-line.
 ---

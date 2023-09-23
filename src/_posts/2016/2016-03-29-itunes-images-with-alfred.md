@@ -3,7 +3,9 @@ layout: post
 date: 2016-03-29 07:56:00 +0000
 summary: Using Alfred and a Python script to retrieve artwork from the iTunes, App
   and Mac App Stores.
-tags: alfred python
+tags:
+  - alfred
+  - python
 title: Get images from the iTunes/App/Mac App Stores with Alfred
 colors:
   index_light: "#333333"

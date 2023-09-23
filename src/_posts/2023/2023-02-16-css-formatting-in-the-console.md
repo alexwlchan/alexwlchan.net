@@ -3,7 +3,9 @@ layout: post
 date: 2023-02-16 10:58:09 +0000
 title: CSS formatting in the console
 summary: Did you know you can use `%c` to format your `console.log` messages?
-tags: web-development javascript
+tags:
+  - web-development
+  - javascript
 ---
 
 I was poking around in Google Lens recently (which is Google's magical [reverse image lookup service][bulb]) and I was mildly surprised by what I saw in the developer tools console:

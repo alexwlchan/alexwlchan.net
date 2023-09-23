@@ -3,7 +3,10 @@ layout: post
 date: 2020-05-15 18:59:26 +0000
 title: Downloading the AO3 fics that I've saved in Pinboard
 summary: A script that downloads the nicely formatted AO3 downloads for everything I've saved in Pinboard.
-tags: python pinboard ao3
+tags:
+  - python
+  - pinboard
+  - ao3
 ---
 
 A couple of days ago, I tweeted about one of my scripts:

@@ -3,7 +3,9 @@ layout: post
 date: 2021-12-10 21:36:55 +0000
 title: The ever-improving error messages of Rust
 summary: An improvement to Rust's error handling that I almost reported, until I realised it was fixed.
-tags: rust error-messages
+tags:
+  - rust
+  - error-messages
 ---
 
 In [my last-but-one post]({% post_url 2021/2021-11-30-dominant-colours %}), I mentioned the quality of Rust's compiler errors.

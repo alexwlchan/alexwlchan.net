@@ -3,7 +3,8 @@ layout: post
 date: 2023-01-22 21:22:16 +0000
 title: Changing the bulb in a Meridian Lighting CIR100B ceiling light
 summary: A note to my future self. Also, reverse image search is amazing.
-tags: home
+tags:
+  - home
 ---
 
 I moved into my house a couple of years ago, and for all that time I've had a porch light which doesn't work.

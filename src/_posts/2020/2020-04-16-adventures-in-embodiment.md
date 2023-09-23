@@ -3,7 +3,9 @@ layout: post
 date: 2020-04-16 11:50:48 +0000
 title: Adventures in euphoria and embodiment
 summary: We all have bodies, and I've been trying to become more self-aware and connected with mine.
-tags: personal gender
+tags:
+  - personal
+  - gender
 ---
 
 If you've follow me on Twitter, you might have seen some vague tweets about embodiment recently.

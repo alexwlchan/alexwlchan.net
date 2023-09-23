@@ -3,7 +3,8 @@ date: 2017-11-27 22:41:36 +0000
 layout: post
 summary: 'Two commands for managing Git branches: one for deleting branches which
   have already been merged, one for deleting branches which were deleted on a remote.'
-tags: git
+tags:
+  - git
 title: Pruning old Git branches
 ---
 

@@ -3,7 +3,10 @@ layout: post
 date: 2022-05-07 19:28:31 +0000
 title: Find the dominant colours in an image in your web browser
 summary: Wrapping my CLI tool for finding dominant colours in a lightweight web app.
-tags: colour glitch fun-stuff
+tags:
+  - colour
+  - glitch
+  - fun-stuff
 link: https://dominant-colours.glitch.me/
 
 colors:

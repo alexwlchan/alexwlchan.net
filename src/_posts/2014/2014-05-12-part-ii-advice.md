@@ -2,7 +2,9 @@
 layout: post
 date: 2014-05-12 15:53:00 +0000
 summary: Some suggestions for second year Cambridge maths students looking for workover the summer.
-tags: maths cambridge
+tags:
+  - maths
+  - cambridge
 title: Brief advice for Part II
 index:
   exclude: true

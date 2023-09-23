@@ -3,7 +3,9 @@ layout: post
 date: 2023-07-08 06:35:17 +0000
 title: "*Spy for Spy*"
 summary: A two-handed sapphic romance with a clever narrative twist makes for a compelling and thoughtful new play.
-tags: theatre london
+tags:
+  - theatre
+  - london
 colors:
   index_light: "#214781"
   index_dark:  "#86a4c2"

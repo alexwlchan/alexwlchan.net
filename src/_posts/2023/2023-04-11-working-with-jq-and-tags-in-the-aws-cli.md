@@ -3,7 +3,8 @@ layout: post
 date: 2023-04-11 21:04:12 +0000
 title: Filtering AWS CLI output by tags using jq
 summary: Using `from_entries` is a nicer way to deal with the list of Name/Value pairs returned by the AWS CLI.
-tags: jq
+tags:
+  - jq
 colors:
   index_dark:  "#d4d1c0"
   index_light: "#46362e"

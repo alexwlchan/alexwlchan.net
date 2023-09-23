@@ -7,7 +7,9 @@ link: https://stacks.wellcomecollection.org/building-wellcome-collections-new-ar
 colors:
   index_light: "#223395"
   index_dark:  "#5c90f0"
-tags: digital-preservation wellcome-collection
+tags:
+  - digital-preservation
+  - wellcome-collection
 ---
 
 Yesterday, I posted an article about the new cloud storage service I've been helping to build at Wellcome.

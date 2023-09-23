@@ -2,7 +2,10 @@
 layout: post
 date: 2014-12-28 13:00:00 +0000
 link: https://github.com/alexwlchan/imessage-archive
-tags: macos python macos:imessage
+tags:
+  - macos
+  - python
+  - macos:imessage
 title: A script for exporting from iMessage
 index:
   exclude: true

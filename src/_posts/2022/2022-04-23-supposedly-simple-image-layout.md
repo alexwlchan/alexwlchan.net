@@ -3,7 +3,10 @@ layout: post
 date: 2022-04-23 23:03:46 +0000
 title: Creating a “simple” three-up image layout in CSS
 summary: A step-by-step breakdown of how I made a one-left, two-right layout for my images.
-tags: css css:grid web-development
+tags:
+  - css
+  - css:grid
+  - web-development
 colors:
   index_light: "#4b536e"
   index_dark:  "#a7a7af"

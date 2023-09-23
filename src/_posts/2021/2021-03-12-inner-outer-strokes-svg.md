@@ -3,7 +3,9 @@ layout: post
 date: 2021-03-12 14:04:58 +0000
 title: Drawing inner/outer strokes in SVG (clips and masks)
 summary: Showing how clips and masks work, and how they can be used to draw inner and outer strokes of a shape.
-tags: svg drawing-things
+tags:
+  - svg
+  - drawing-things
 colors:
   index_light: "#8f6434"
   index_dark:  "#e7a355"

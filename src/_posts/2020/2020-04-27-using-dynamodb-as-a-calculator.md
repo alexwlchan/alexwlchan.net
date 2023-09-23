@@ -3,7 +3,11 @@ layout: post
 date: 2020-04-27 09:23:04 +0000
 title: Using DynamoDB as a calculator
 summary: Taking advantage of Amazon's least-loved compute platform.
-tags: aws amazon-dynamodb python code-crimes
+tags:
+  - aws
+  - amazon-dynamodb
+  - python
+  - code-crimes
 colors:
   index_light: "#234371"
   index_dark:  "#56abdf"

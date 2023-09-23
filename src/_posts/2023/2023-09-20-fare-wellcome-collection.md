@@ -3,7 +3,9 @@ layout: post
 date: 2023-09-20 07:12:54 +0000
 title: Fare-Wellcome Collection
 summary: After nearly seven years, it's time for something new.
-tags: personal wellcome-collection
+tags:
+  - personal
+  - wellcome-collection
 ---
 I still remember the first time I visited Wellcome Collection -- just over seven years ago.
 I was living and working in the Cambridge at the time, and I'd come into London for the day to hang out with a friend who lived near King's Cross.

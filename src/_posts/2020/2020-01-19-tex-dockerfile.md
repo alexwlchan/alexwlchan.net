@@ -3,7 +3,9 @@ layout: post
 date: 2020-01-19 10:32:58 +0000
 title: A Docker image to run LaTeX
 link: https://github.com/alexwlchan/tex-dockerfile
-tags: latex docker
+tags:
+  - latex
+  - docker
 ---
 
 These days, I do less and less writing that needs to be printed, but when I do, my tool of choice is still LaTeX.

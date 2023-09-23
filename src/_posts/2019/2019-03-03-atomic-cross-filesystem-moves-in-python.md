@@ -3,7 +3,8 @@ date: 2019-03-03 23:48:31 +0000
 layout: post
 summary: Explaining some code for moving files around in a way that's atomic and works
   across filesystem boundaries.
-tags: python
+tags:
+  - python
 title: Atomic, cross-filesystem moves in Python
 ---
 

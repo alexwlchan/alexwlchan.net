@@ -3,7 +3,9 @@ layout: post
 date: 2016-05-16 21:02:00 +0000
 summary: A Python script for finding 404 errors in my Apache web logs - and by extension,
   broken pages.
-tags: python apache
+tags:
+  - python
+  - apache
 title: Finding 404s and broken pages in my Apache logs
 ---
 

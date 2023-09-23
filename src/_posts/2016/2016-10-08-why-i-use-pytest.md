@@ -2,7 +2,9 @@
 date: 2016-10-08 18:31:00 +0000
 layout: post
 summary: Why py.test is my unit test framework of choice in Python.
-tags: python python:pytest
+tags:
+  - python
+  - python:pytest
 title: Why I use py.test
 ---
 

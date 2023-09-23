@@ -7,7 +7,8 @@ date: 2017-11-20 08:00
 colors:
   index_light: "#4a403a"
   index_dark:  "#d5d6d5"
-tags: conferences
+tags:
+  - conferences
 ---
 
 When I was in college, I did a bit of work in the college theatre as a backstage technician.

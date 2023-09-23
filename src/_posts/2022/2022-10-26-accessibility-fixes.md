@@ -3,7 +3,9 @@ layout: post
 date: 2022-10-26 18:58:54 +0000
 title: Some small accessibility fixes
 summary: Making the sites I work on sound a bit nicer for anyone who relies on screen readers.
-tags: accessibility blogging-about-blogging
+tags:
+  - accessibility
+  - blogging-about-blogging
 colors:
   css_light: "#075ba3"
   css_dark:  "#198ff5"

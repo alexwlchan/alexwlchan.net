@@ -3,7 +3,9 @@ layout: post
 date: 2019-06-04 22:51:19 +0000
 title: Hey Apple, cycle tracking isn't just for women
 summary: At WWDC, I was disappointed to see Apple pitch period tracking exclusively towards women, and not in a more gender-inclusive way.
-tags: gender inclusion
+tags:
+  - gender
+  - inclusion
 ---
 
 One of the announcements at WWDC on Monday was new cycle tracking features in Apple's Health app.

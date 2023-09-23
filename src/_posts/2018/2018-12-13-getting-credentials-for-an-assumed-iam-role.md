@@ -3,7 +3,10 @@ date: 2018-12-13 08:57:16 +0000
 layout: post
 summary: A script that creates temporary credentials for an assumed IAM role, and
   stores them in ~/.aws/credentials.
-tags: python aws aws-iam
+tags:
+  - python
+  - aws
+  - aws-iam
 title: Getting credentials for an assumed IAM Role
 ---
 

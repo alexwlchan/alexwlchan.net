@@ -3,7 +3,11 @@ layout: post
 date: 2021-04-30 18:28:27 +0000
 title: Downloading objects from/uploading files to S3 with progress bars in Python
 summary: Making it easier to see how long a file transfer will take, in the terminal.
-tags: amazon-s3 aws python terminal-tricks
+tags:
+  - amazon-s3
+  - aws
+  - python
+  - terminal-tricks
 ---
 
 I write a lot of scripts to move files in and out of S3, and when I'm dealing with larger files, I find it useful to get an idea of how long the transfer will take.

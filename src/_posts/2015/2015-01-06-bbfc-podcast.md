@@ -2,7 +2,8 @@
 layout: post
 date: 2015-01-06 21:22:00 +0000
 link: http://www.empireonline.com/news/story.asp?NID=37746
-tags: podcasts
+tags:
+  - podcasts
 title: Empire's BBFC Ratings Podcast Special
 
 index:

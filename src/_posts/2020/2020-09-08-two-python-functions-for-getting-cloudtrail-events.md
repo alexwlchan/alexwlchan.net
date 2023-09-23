@@ -2,7 +2,10 @@
 layout: post
 date: 2020-09-08 07:06:07 +0000
 title: Two Python functions for getting CloudTrail events
-tags: aws aws-cloudtrail python
+tags:
+  - aws
+  - aws-cloudtrail
+  - python
 ---
 
 Last week I was trying to debug an anomaly in the AWS account at work -- it looked like we were making tens of millions of GetObject API calls, when we expected our code to make a fraction of that number.

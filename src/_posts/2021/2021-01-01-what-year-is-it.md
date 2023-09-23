@@ -3,7 +3,8 @@ layout: post
 date: 2021-01-01 11:11:48 +0000
 title: What year is it? (A tale of ISO week dates)
 summary: If you use ICU date formatting, make sure you use the right format specifier for year.
-tags: datetime-shenanigans
+tags:
+  - datetime-shenanigans
 colors:
   index_light: "#b17474"
   index_dark:  "#c28786"

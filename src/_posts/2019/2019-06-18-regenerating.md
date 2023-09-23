@@ -3,7 +3,9 @@ layout: post
 date: 2019-06-18 12:48:49 +0000
 title: An inescapable conclusion
 summary: After months of introspection and soul-searching, I've had some big realisations about my identity.
-tags: personal gender
+tags:
+  - personal
+  - gender
 colors:
   index_light: "#0a5b8a"
   index_dark:  "#54b8f2"

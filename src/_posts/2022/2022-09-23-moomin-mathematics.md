@@ -3,7 +3,10 @@ layout: post
 date: 2022-09-23 05:42:28 +0000
 title: '"Fixing" the rules of division'
 summary: If we want to redefine how division works, Ruby is happy to oblige.
-tags: maths ruby code-crimes
+tags:
+  - maths
+  - ruby
+  - code-crimes
 colors:
   css_light:   "#292929"
   css_dark:    "#b0b0b0"

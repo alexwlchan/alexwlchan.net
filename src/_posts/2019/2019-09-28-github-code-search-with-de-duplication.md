@@ -3,7 +3,8 @@ date: 2019-09-28 19:26:39 +0000
 layout: post
 link: https://github.com/alexwlchan/github-code-search
 title: 'Experiment: GitHub code search with de-duplication'
-tags: github
+tags:
+  - github
 ---
 
 When I'm trying to learn a new library or function, I often [search for code that uses it on GitHub](https://help.github.com/en/articles/searching-code).

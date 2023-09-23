@@ -3,7 +3,8 @@ layout: post
 date: 2021-06-03 09:46:46 +0000
 title: Visualising how often I write in my journal
 summary: A Python script that shows me how often I've been journalling, so I can track my progress.
-tags: python
+tags:
+  - python
 colors:
   index_light: "#e94cf2"
   index_dark:  "#fe4afa"

@@ -2,7 +2,8 @@
 date: 2015-06-02 18:09:00 +0000
 layout: post
 summary: Another way to ignore untracked files in Git.
-tags: git
+tags:
+  - git
 title: 'Useful Git features: a per-clone exclude file (.git/info/exclude)'
 ---
 

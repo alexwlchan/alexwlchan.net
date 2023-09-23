@@ -3,7 +3,9 @@ layout: post
 date: 2022-11-04 22:27:35 +0000
 title: A simple gallery plugin for Obsidian
 summary: Making it easier to find all the images in my Obsidian vault.
-tags: obsidian javascript
+tags:
+  - obsidian
+  - javascript
 link: https://github.com/alexwlchan/obsidian-simple-gallery
 colors:
   index_light: "#121212"

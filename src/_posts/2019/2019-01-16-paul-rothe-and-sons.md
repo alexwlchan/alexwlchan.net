@@ -3,7 +3,8 @@ layout: post
 date: 2019-01-16 08:54:08 +0000
 title: "A delightful store for speciality spreads: Paul Rothe & Sons"
 summary: Tucked away on Marylebone Lane, just before Christmas I found a lovely deli with an amazing selection of jams.
-tags: london
+tags:
+  - london
 link: https://munchies.vice.com/en_uk/article/j5bbyg/the-118-year-old-deli-where-no-sandwich-is-too-weird
 index:
   exclude: true

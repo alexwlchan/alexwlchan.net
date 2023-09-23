@@ -1,7 +1,9 @@
 ---
 layout: post
 date: 2014-08-28 00:32:00 +0000
-tags: alfred applescript
+tags:
+  - alfred
+  - applescript
 title: A quick Alfred workflow for opening recent screenshots
 ---
 

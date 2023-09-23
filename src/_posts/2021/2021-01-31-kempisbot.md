@@ -3,7 +3,10 @@ layout: post
 date: 2021-01-31 12:25:06 +0000
 title: How KempisBot works
 summary: How I reincarnated a fifteenth-century monk and taught him to use Twitter.
-tags: python twitter fun-stuff
+tags:
+  - python
+  - twitter
+  - fun-stuff
 colors:
   index_light: "#624230"
   index_dark:  "#aa9f92"
