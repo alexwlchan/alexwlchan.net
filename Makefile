@@ -88,5 +88,3 @@ plugin-tests:
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		$(DOCKER_IMAGE) src/_tests/tests.rb
-
-.PHONY: publish-docker build stop serve publish-drafts publish rsync deploy
