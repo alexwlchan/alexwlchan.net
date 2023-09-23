@@ -29,8 +29,10 @@ def create_favicons(site, colours)
   FileUtils.mkdir_p "#{dst}/favicons"
 
   colours.each do |c|
-    ico_path = "#{dst}/favicons/#{c.gsub('#', '')}.ico"
-    png_path = "#{dst}/favicons/#{c.gsub('#', '')}.png"
+    hex_string = c.gsub(/#/, '')
+    
+    ico_path = "#{dst}/favicons/#{hex_string}.ico"
+    png_path = "#{dst}/favicons/#{hex_string}.png"
 
     next if (File.exist? ico_path) && (File.exist? png_path)
 
