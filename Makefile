@@ -7,6 +7,8 @@ ROOT = $(shell git rev-parse --show-toplevel)
 JEKYLL_VERSION = 4.3.1
 JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
 
+SERVER_PORT = 5757
+
 publish-docker:
 	ruby scripts/publish_docker_image.rb
 
@@ -41,12 +43,12 @@ serve:
 		--volume /var/run/docker.sock:/var/run/docker.sock \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		--publish 5757:5757 \
+		--publish $(SERVER_PORT):$(SERVER_PORT) \
 		$(DOCKER_IMAGE) serve \
 			--drafts \
 			--incremental \
 			--host "0.0.0.0" \
-			--port 5757 \
+			--port $(SERVER_PORT) \
 			--skip-initial-build \
 			--trace
 
