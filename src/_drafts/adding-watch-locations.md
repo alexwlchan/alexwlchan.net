@@ -18,6 +18,8 @@ Although my camera doesn't know where I was, I had a walking workout running on 
 [Lake Bohinj]: https://en.wikipedia.org/wiki/Lake_Bohinj
 [geotagging]: https://en.wikipedia.org/wiki/Geotagging
 
+---
+
 {%
   picture
   filename="confused-camera.jpg"
@@ -26,9 +28,7 @@ Although my camera doesn't know where I was, I had a walking workout running on 
   alt="A black Olympus character looking out of a window, with a cartoon thought bubble showing a location pin and a question mark. It’s wondering what GPS and locations are."
 %}
 
----
-
-The first step was to get all the data from my walkings workout.
+The first step was to get all the data from my walking workout.
 I was able to export the data from the Health app on my iPhone, following the [instructions in an Apple Support document][support]:
 
 > You can export all of your health and fitness data from Health in XML format, which is a common format for sharing data between apps.
@@ -67,7 +67,7 @@ If I preview one of those files in Quick Look, I can see my walking route shown 
 %}
 
 GPX files are XML, and the format of the Apple Health workout routes isn't especially complicated.
-Here's the first few lines of an example:
+Here's the first few lines of a file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -178,6 +178,7 @@ For this sort of casual photo analysis that's fine, but it might cause issues if
 
 Pulling them all into a dictionary means picking the last location that appeared in the file.
 That's somewhat arbitrary, but I didn't want to spend too much time on this so I called it good.
+Because they're so close together, either is fine for my purposes.
 
 To tie this all together, I wrote a bit more Python which would find all the JPEG files from my camera, get the timestamp of that photo, and use `exiftool` to add location metadata if my workout had recorded a location at that precise timestamp:
 
