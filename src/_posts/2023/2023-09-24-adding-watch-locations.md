@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-09-24 16:31:02 +0000
 title: Adding locations to my photos from my Apple Watch workouts
 summary: My Apple Watch knows where I am, which is handy when I have a camera that doesn't.
 tags:
