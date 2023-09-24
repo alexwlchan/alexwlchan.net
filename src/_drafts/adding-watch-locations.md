@@ -13,7 +13,7 @@ It's a very photogenic landscape, so I was taking some pictures with my "nice" c
 It's an Olympus that takes better photos than my iPhone, but it's quite old and it doesn't have built-in GPS -- so none of the photos have [location geotags][geotagging].
 
 I find location data quite useful on my photos, and I was wondering if I could add it after the fact.
-Although my camera doesn't know where I was, I had a hiking workout running on my Apple Watch, and that was tracking my location -- could I combine the photos from my camera and the location data from my watch?
+Although my camera doesn't know where I was, I had a walking workout running on my Apple Watch, and that was tracking my location -- could I combine the photos from my camera and the location data from my watch?
 
 [Lake Bohinj]: https://en.wikipedia.org/wiki/Lake_Bohinj
 [geotagging]: https://en.wikipedia.org/wiki/Geotagging
@@ -23,6 +23,7 @@ Although my camera doesn't know where I was, I had a hiking workout running on m
   filename="confused-camera.jpg"
   width="750px"
   class="full_width"
+  alt="A black Olympus character looking out of a window, with a cartoon thought bubble showing a location pin and a question mark. It’s wondering what GPS and locations are."
 %}
 
 ---
@@ -62,6 +63,7 @@ If I preview one of those files in Quick Look, I can see my walking route shown 
   picture
   filename="bohinj_gpx.png"
   width="750px"
+  alt="An outline map of mostly green countryside with a blue lake (Bohinjsko jezero) in the middle. There's a thick green line that goes around the lake, showing my walking route."
 %}
 
 GPX files are XML, and the format of the Apple Health workout routes isn't especially complicated.
@@ -264,6 +266,7 @@ Once this was done, I imported all the files into my Photos Library, and voila: 
   filename="photos_on_map.png"
   width="950px"
   class="screenshot"
+  alt="A map view of Lake Bohinj. Dotted around the map are small markers with a photo and number, showing the number of photos taken at that exact location."
 %}
 
 I'm pretty happy with this project -- for half an hour's work, I have a nicely-tagged set of photos and a better understanding of the location data recorded by my Apple Watch.
