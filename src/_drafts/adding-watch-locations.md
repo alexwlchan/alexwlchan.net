@@ -10,7 +10,7 @@ colors:
 
 A week or so ago, I was hiking around [Lake Bohinj], a gorgeous Alpine lake in northwest Slovenia.
 It's a very photogenic landscape, so I was taking some pictures with my "nice" camera.
-It's an Olympus that takes better photos than my iPhone, but it doesn't have built-in GPS -- so none of the photos have [location geotags][geotagging].
+It's an Olympus that takes better photos than my iPhone, but it's quite old and it doesn't have built-in GPS -- so none of the photos have [location geotags][geotagging].
 
 I find location data quite useful on my photos, and I was wondering if I could add it after the fact.
 Although my camera doesn't know where I was, I had a hiking workout running on my Apple Watch, and that was tracking my location -- could I combine the photos from my camera and the location data from my watch?
@@ -24,6 +24,8 @@ Although my camera doesn't know where I was, I had a hiking workout running on m
   width="750px"
   class="full_width"
 %}
+
+---
 
 The first step was to get all the data from my hiking workout.
 I was able to export the data from the Health app on my iPhone, following the [instructions in an Apple Support document][support]:
@@ -62,58 +64,8 @@ If I preview one of those files in Quick Look, I can see my walking route shown 
   width="750px"
 %}
 
-
-
-[gpx]: https://en.wikipedia.org/wiki/GPS_Exchange_Format
-
----
-
-This was a lie.
-I don't know if I have an unusually large amount of Health data, but it took closer to 15 minutes to export everything.
-
-I got a 174MB ZIP file, which
-
-[support]: https://support.apple.com/en-gb/guide/iphone/iph5ede58c3d/ios#iphe962dcbd2
-
-
-## step 1: get all location data
-
-Export all health data from my iPhone
-
-Took a while – maybe 10–15 mins? 173MB ZIP archive
-
-inside is a folder called `workout-routes` with a stack of GPX files
-
-what is GPX?
-
-## step 2: get a list of locations from GPX
-
-can get list of locations from GPX
-could use library e.g. pygpx, but XML simple enough for me to follow
-
-could find other uses for this, e.g. ned batchelder
-
-## step 3: match locations to photos
-
-use exiftool!
-
-## done
-
-didn't manage to tag all my photos, e.g. when I'd paused on the hike and it wasn't tracking
-I could keep going, e.g. extrapolate location
-but not worth it
-
-good enough for half an hour's work
-
----
-
-Export all health data from my iPhone
-
-Took a while – maybe 10–15 mins? 173MB ZIP archive
-
-inside is a folder called `workout-routes` with a stack of GPX files
-
-something like this:
+GPX files are XML, and the format of the Apple Health workout routes isn't especially complicated.
+Here's the first few lines of an example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -122,135 +74,200 @@ something like this:
   creator="Apple Health Export"
   xmlns="http://www.topografix.com/GPX/1/1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd"
+>
   <metadata>
-    <time>2023-09-19T21:04:35Z</time>
+    <time>2023-09-19T21:04:33Z</time>
   </metadata>
   <trk>
-    <name>Route 2023-09-18 8:12am</name>
+    <name>Route 2023-09-17 2:38pm</name>
     <trkseg>
-      <trkpt lon="14.505981" lat="46.050438">
-        <ele>298.819464</ele>
-        <time>2023-09-18T06:58:37Z</time>
-        <extensions>...</extensions>
+      <trkpt lon="13.887391" lat="46.277433">
+        <ele>532.367857</ele>
+        <time>2023-09-17T07:05:52Z</time>
+        <extensions>
+          <speed>1.400002</speed>
+          <course>287.656214</course>
+          <hAcc>2.032849</hAcc>
+          <vAcc>1.793892</vAcc>
+        </extensions>
       </trkpt>
-      <trkpt lon="14.505974" lat="46.050424">
-        <ele>298.909533</ele>
-        <time>2023-09-18T06:58:38Z</time>
-        <extensions>...</extensions>
+      <trkpt lon="13.887373" lat="46.277437">
+        <ele>532.469812</ele>
+        <time>2023-09-17T07:05:53Z</time>
+        <extensions>
+          <speed>1.398853</speed>
+          <course>283.005353</course>
+          <hAcc>1.821742</hAcc>
+          <vAcc>1.615372</vAcc>
+        </extensions>
       </trkpt>
-      <trkpt lon="14.505968" lat="46.050411">
-        <ele>298.990401</ele>
-        <time>2023-09-18T06:58:39Z</time>
-        <extensions>...</extensions>
-      </trkpt>
+      …
 ```
 
-not so good in downstairs/underground caves!!!
+The file is a series of `trkpt` ("track points"), each of which has a longitude, a latitude, an elevation and a timestamp.
+The timestamps are in UTC -- the first timestamp is just after 7am, but I didn't arrive at Bohinj until just after 9am.
+Like the rest of Slovenia, Bohinj is currently on UTC+2.
+
+There are also a couple of data points which I think are something related to direction and speed?
+I'm not looking into those, but it was interesting to see they're in there.
+I don't think I've worked with GPS data before, and there's a bit more than I expected – I thought I'd just be getting longitude and latitude coordinates, but these extra values make sense as well.
+
+I used [lxml] to write a Python function which extracts all these track points from the file.
+There are dedicated libraries for dealing with GPX files, but I already know how to use lxml and it was simple enough to write something for this one-off task.
 
 ```python
-#!/usr/bin/env python3
-
-import collections
 import datetime
-import json
-import os
-import zipfile
 
 from lxml import etree
+import pytz
 
 
-locations = {}
-
-namespaces = {"gpx": "http://www.topografix.com/GPX/1/1"}
-
-with zipfile.ZipFile("export.zip") as zf:
-    for name in zf.namelist():
-        if not name.startswith("apple_health_export/workout-routes/"):
-            continue
-
-        if not name.startswith("apple_health_export/workout-routes/route_2023-09"):
-            continue
-
-        contents = zf.read(name)
-
-        gpx_data = etree.fromstring(contents)
-
-        track_points = gpx_data.xpath("//gpx:trkpt", namespaces=namespaces)
-
-        for tp in track_points:
-            # e.g. 2023-09-12T08:03:54Z
-            time = datetime.datetime.strptime(
-                tp.xpath(".//gpx:time", namespaces=namespaces)[0].text,
-                "%Y-%m-%dT%H:%M:%SZ",
-            )
-
-            elevation = tp.xpath(".//gpx:ele", namespaces=namespaces)[0].text
-
-            # what about duplicates?
-
-            # e.g.              '2023-09-12T08:09:23Z': [('51.525534', '-0.134476'),
-            #                          ('51.525534', '-0.134477')],
-
-            locations[time] = {
-                "latitude": float(tp.attrib["lat"]),
-                "longitude": float(tp.attrib["lon"]),
-                "elevation": float(elevation),
-            }
-
-import os
+utc = pytz.timezone("UTC")
 
 
-def get_file_paths_under(root=".", *, suffix=""):
+def get_track_points(tree: etree._ElementTree):
     """
-    Generates the absolute paths to every matching file under ``root``.
+    Generate a series of track points from an Apple Health workout route.
     """
-    if not os.path.isdir(root):
-        raise ValueError(f"Cannot find files under non-existent directory: {root!r}")
+    namespaces = {"gpx": "http://www.topografix.com/GPX/1/1"}
 
-    for dirpath, _, filenames in os.walk(root):
-        for f in sorted(filenames):
-            p = os.path.join(dirpath, f)
+    for trkpt in tree.xpath("//gpx:trkpt", namespaces=namespaces):
 
-            if os.path.isfile(p) and f.lower().endswith(suffix):
-                yield p
+        # e.g. 2023-09-17T07:05:52Z
+        time_str = trkpt.xpath(".//gpx:time", namespaces=namespaces)[0].text
+        time = datetime.datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ").astimezone(utc)
+
+        elevation = float(trkpt.xpath(".//gpx:ele", namespaces=namespaces)[0].text)
+
+        latitude = float(trkpt.attrib["lat"])
+        longitude = float(trkpt.attrib["lon"])
+
+        yield {
+            "time": time,
+            "elevation": elevation,
+            "latitude": latitude,
+            "longitude": longitude
+        }
 
 
+with open("route_2023-09-17_2.38pm.gpx") as infile:
+    tree = etree.parse(infile)
+
+    for track_point in get_track_points(tree):
+        print(track_point)
+```
+
+I pulled all these track points into a single Python dictionary, mapping time to location:
+
+```python
+with open("route_2023-09-17_2.38pm.gpx") as infile:
+    tree = etree.parse(infile)
+
+    locations = {
+        track_point["time"]: track_point
+        for track_point in get_track_points(tree)
+    }
+```
+
+I discovered that there are some duplicate timestamps in the GPX file -- although there's second-level precision, occasionally it would record two locations for the same time.
+The two locations were pretty close, maybe a metre or so apart.
+For this sort of casual photo analysis that's fine, but it might cause issues if you need more precision.
+
+Pulling them all into a dictionary means picking the last location that appeared in the file.
+That's somewhat arbitrary, but I didn't want to spend too much time on this so I called it good.
+
+Finally, to tie this all together, I wrote a bit more Python which would find all the JPEG files from my camera, get the timestamp of that photo, and use `exiftool` to add location metadata if my workout had recorded a location at that precise timestamp:
+
+```python
 import subprocess
-import tqdm
-
-i = 0
-
-for photo in tqdm.tqdm(get_file_paths_under("100OLYMP/New Folder With Items/", suffix=".jpg")):
-    created_time = datetime.datetime.strptime(
-        subprocess.check_output(["exiftool", "-s3", "-DateTimeOriginal", photo]).decode("ascii").strip(),
-        "%Y:%m:%d %H:%M:%S",
-    )
-
-    try:
-        locations[created_time]
-    except KeyError:
-        continue
 
 
-    # print(created_time)
+def get_created_time(jpeg_path, *, camera_timezone):
+    """
+    Returns the created time of a photo, according to ``exiftool``.
+    """
+    created_time_str = subprocess.check_output([
+        "exiftool", "-s3", "-DateTimeOriginal", jpeg_path
+    ]).decode("ascii").strip()
 
-    info = locations[created_time]
+    # e.g. 2023:09:17 10:40:49
+    created_time = datetime.datetime.strptime(created_time_str, "%Y:%m:%d %H:%M:%S")
 
-    # print(photo, info)
+    # Assume the camera was set to match the timezone where the photo
+    # was taken; convert the timestamp to UTC first.
+    return timezone.localize(created_time).astimezone(utc)
 
+
+def set_location(jpeg_path, *, location_info):
+    """
+    Set the location information on a file using ``exiftool``.
+    """
+    # The Apple Watch locations record latitude/longitude/elevation
+    # as a single value, whereas exiftool wants an absolute value
+    # and a direction.
+    #
+    # e.g. the Apple Watch might record a position as (37.3346, -122.0090),
+    # which exiftool wants to see as (37.3346, N, 122.0090, W).
     subprocess.check_call([
-        'exiftool',
-        f'-GPSLatitude={abs(info["latitude"])}',
-        f'-GPSLatitudeRef={"N" if info["latitude"] > 0 else "S"}',
-        f'-GPSLongitude={abs(info["longitude"])}',
-        f'-GPSLongitudeRef={"E" if info["longitude"] > 0 else "W"}',
-        f'-GPSAltitude={abs(info["elevation"])}',
-        f'-GPSAltitudeRef={"0" if info["elevation"] > 0 else "1"}',
-        photo
+        "exiftool",
+        f"-GPSLatitude={abs(location_info['latitude'])}",
+        f"-GPSLatitudeRef={"N" if location_info['latitude'] > 0 else 'S'}",
+        f"-GPSLongitude={abs(location_info['longitude'])}",
+        f"-GPSLongitudeRef={"E" if location_info['longitude'] > 0 else 'W'}",
+        f"-GPSAltitude={abs(location_info['elevation'])}",
+        f"-GPSAltitudeRef={"0" if location_info['elevation'] > 0 else '1'}",
+        jpeg_path
     ])
 
-    i += 1
 
-print(i)
+# See https://alexwlchan.net/2023/snake-walker/ for get_file_paths_under()
+for jpeg_path in get_file_paths_under("100_OLYMP", suffix=".jpg"):
+
+    slovenia = pytz.timezone("Europe/Ljubljana")
+    created_time = get_created_time(jpeg_path, camera_timezone=slovenia)
+
+    try:
+        location_info = locations[created_time]
+    except KeyError:
+        pass
+    else:
+      set_location(jpeg_path, location_info=location_info)
 ```
+
+This code has a big assumption at its core: that my Watch will have recorded a location at the precise second I took each photo.
+In practice, that seems to work well enough -- I don't know if my Watch is doing second-by-second location, but I'd stand still to take my photos, and it would record at least one data point in that time.
+All my photos from Bohinj got tagged.
+
+If this was an issue, you could write a looser heuristic to matching photos to location data in the workout -- for example, using any location that was recorded within a few seconds of the photo being taken.
+But "same second" worked fine for me, so that's all I've done.
+
+After I ran this code, I did some spot-checking of individual photos -- it took a few tries to get the timezone handling correct.
+I'd taken a photo of the *"Welcome to Bohinj"* sign right after I got off the bus, and that turned out to be super helpful -- I knew exactly where it was, and I could keep tweaking my code until that photo got the right location.
+
+I was once given a tip: when travelling between time zones, take a photo of a clock that's correctly set to the local time.
+That way, you can easily correct the time offset later if your camera was configured incorrectly.
+If I plan to reuse this location tagging code, I'd use the same trick, but with a photo of something in a known location.
+
+---
+
+Once this was done, I imported all the files into my Photos Library, and voila: I could see all my photos plotted on a map, even though I'd taken them on a camera without GPS support.
+
+{% comment %}
+  They're wider than they need to be, but something about ImageMagick is
+  really messing up the compression of these photos and making them wider
+  makes it a bit better?
+{% endcomment %}
+
+{%
+  picture
+  filename="photos_on_map.png"
+  width="950px"
+  class="screenshot"
+%}
+
+I'm pretty happy with this project -- for half an hour's work, I have a nicely-tagged set of photos and a better understanding of the location data recorded by my Apple Watch.
+
+[support]: https://support.apple.com/en-gb/guide/iphone/iph5ede58c3d/ios#iphe962dcbd2
+[gpx]: https://en.wikipedia.org/wiki/GPS_Exchange_Format
+[lxml]: https://lxml.de/index.html
