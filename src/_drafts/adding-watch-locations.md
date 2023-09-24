@@ -28,7 +28,7 @@ Although my camera doesn't know where I was, I had a walking workout running on 
 
 ---
 
-The first step was to get all the data from my hiking workout.
+The first step was to get all the data from my walkings workout.
 I was able to export the data from the Health app on my iPhone, following the [instructions in an Apple Support document][support]:
 
 > You can export all of your health and fitness data from Health in XML format, which is a common format for sharing data between apps.
@@ -113,7 +113,7 @@ Like the rest of Slovenia, Bohinj is currently on UTC+2.
 
 There are also a couple of data points which I think are something related to direction and speed?
 I'm not looking into those, but it was interesting to see they're in there.
-I don't think I've worked with GPS data before, and there's a bit more than I expected – I thought I'd just be getting longitude and latitude coordinates, but these extra values make sense as well.
+I don't think I've worked with GPS data before, and there's a bit more than I expected – I thought I'd just be getting longitude and latitude coordinates, but these extra values make sense, particular when I'm walking.
 
 I used [lxml] to write a Python function which extracts all these track points from the file.
 There are dedicated libraries for dealing with GPX files, but I already know how to use lxml and it was simple enough to write something for this one-off task.
@@ -179,7 +179,7 @@ For this sort of casual photo analysis that's fine, but it might cause issues if
 Pulling them all into a dictionary means picking the last location that appeared in the file.
 That's somewhat arbitrary, but I didn't want to spend too much time on this so I called it good.
 
-Finally, to tie this all together, I wrote a bit more Python which would find all the JPEG files from my camera, get the timestamp of that photo, and use `exiftool` to add location metadata if my workout had recorded a location at that precise timestamp:
+To tie this all together, I wrote a bit more Python which would find all the JPEG files from my camera, get the timestamp of that photo, and use `exiftool` to add location metadata if my workout had recorded a location at that precise timestamp:
 
 ```python
 import subprocess
