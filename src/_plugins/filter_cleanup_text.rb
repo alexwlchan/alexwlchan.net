@@ -57,6 +57,7 @@ class AddNonBreakingSpaces
       'CC BY',
       'iMac G3',
       'iPhone X',
+      'IP address',
       'JPEG 2000',
       'Mac OS 9',
       'Objective-C',
