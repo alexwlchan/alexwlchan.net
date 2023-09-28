@@ -1,10 +1,15 @@
 ---
 layout: post
 title: Spotting spam in our CloudFront logs
-summary: 
+summary: Looking for search queries that came from robots, not real people.
 tags: 
   - python
   - amazon-cloudfront
+colors:
+  index_light: "#236abc"
+  index_dark:  "#2f90ff"
+  css_light:   "#236abc"
+  css_dark:    "#2f90ff"
 ---
 
 About two months ago, I wrote about some [Python code I'd written to parse CloudFront logs][python].
@@ -12,17 +17,19 @@ I wrote this code to help with analysing some searches on wellcomecollection.org
 
 There's a lot of spam in the catalogue search.
 Somebody types in a search query which can't possibly return any results -- instead it's a message (often not in English) promoting sketchy-sounding services and domains.
-No, there aren't any results in a museum/library catalogue for *"escort girls in your area play free casino games with chatgpt scamalot.xyz"*.
+Call me sceptical, but I don't think somebody who types in:
 
-I don't know why people set up bots to do this.
-Whatever the reason, the bots are cheap to create and there's minimal downside.
-Dealing with this sort of spam is an inevitable part of running a website on the public Internet.
+    escort girls in your area play free casino games ✔️ with chatgpt ⏩ whatsapp scamalot.xyz
+
+is actually looking for catalogue results in a library/museum website.
+
+I don't know why people set up bots to do this -- but whatever the reason, dealing with this sort of spam is an inevitable part of running a website on the public Internet.
 
 Before I started this work, we were sending all these spam queries to our back-end search API and Elasticsearch cluster.
-Over time, the load from the spam was adding up, and starting to crowd out real queries on our cluster.
+Over time, the load from the spam was starting to add up, and starting to crowd out real queries on our cluster.
 
 We wanted to find a way to identify the spam, so we could return a "no results page" ASAP, without actually sending the query to our Elasticsearch cluster.
-It was usually "obvious" if you read the queries as a human, but how could I make the computer do that for me?
+It was usually "obvious" if you read the queries as a human, but how could we teach the computer to make the same distinction?
 
 [python]: {% post_url 2023/2023-07-28-cloudfront-logs %}
 [wp]: {% post_url 2023/2023-03-05-filtering-netlify-analytics %}
@@ -55,15 +62,16 @@ with open("search_log_entries.json", "w") as out_file:
             out_file.write(json.dumps(entry, cls=DatetimeEncoder) + "\n")
 ```
 
-That gave me about 7 million log entries to work with.
-Then I started developing my spam heuristic, which was a single Python function:
+That gave me about 7 million log entries that I could analyse.
+Then I started developing my spam heuristic, which had a single Python function as its interface:
 
 ```python
 def is_spam(log_entry) -> bool:
     return False
 ```
 
-And to help me evaluate the function, I wrote a short test harness I could run repeatedly with different variants:
+To develop the heuristic, I wrote a bunch of versions of this function, trying various techniques to look at different fields in the log entry and decide if a particular request was spam.
+To help me evaluate the different versions, I wrote a test script I could run repeatedly as I tweaked the function:
 
 ```python
 import random
@@ -180,6 +188,7 @@ As part of this change, we tweaked the copy on our "no results" page, asking peo
   picture
   filename="weco_no_results.png"
   width="750px"
+  alt="Screenshot of a search page with no results. “We couldn’t find anything that matched â\x8f©â\x9c\x94ï\x8fã\x8a. Please adjust your search terms and try again. If you think this search should show some results, please email digital@wellcomecollection.org.”"
 %}
 
 This was a hedge against mistakes in the spam heuristic -- if it somehow got a false positive and binned a query from a real user who should have seen results, we'd hear about it.
