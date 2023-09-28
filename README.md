@@ -5,11 +5,7 @@
 This repo has the code for my personal site, [alexwlchan.net][root], which is a static site built with [Jekyll][jekyll].
 It includes a number of plugins I've written to customise the site.
 
-<img
-  src="screenshot_2021-08-30_2x.png"
-  srcset="screenshot_2021-08-30_1x.png 1x, screenshot_2021-08-30_2x.png 2x"
-  alt="Screenshot of the front page of my website"
->
+<img src="screenshot_2021-08-30_2x.png" srcset="screenshot_2021-08-30_1x.png 1x, screenshot_2021-08-30_2x.png 2x" alt="Screenshot of the front page of my website">
 
 [root]: https://alexwlchan.net
 [jekyll]: https://jekyllrb.com/
