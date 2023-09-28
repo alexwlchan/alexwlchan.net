@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-09-28 01:21:05 +0000
 title: Spotting spam in our CloudFront logs
 summary: Looking for search queries that came from robots, not real people.
 tags: 
