@@ -35,16 +35,19 @@ colors:
 
 ## Hi, I'm Alex (or Lexie).
 
+I'm a software developer with a particular interest in digital preservation.
+I'm also a keen writer, crafter, theatre-goer, and occasional dancer.
+
 I've put a bunch of things on the Internet, including:
 
 *   [**My personal writing**](/writing/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
     I've been writing at this domain for over a decade, and I post new articles several times a month.
 
-*   **Everything I do for [Wellcome Collection](/projects/#wellcome-collection)**, a museum and library in London.
-    I'm a software engineer, and I'm part of a team that builds the public website, the online [collections search][search], and our cloud-based [preservation storage][storage].
-
 *   **A bunch of [open-source tools and utilities][oss]**.
     I've contributed fixes and patches to dozens of projects, and I've shared a few of my own, including my tool for [managing my scanned files](https://github.com/alexwlchan/docstore) and a way to find the [dominant colours in an image](https://github.com/alexwlchan/dominant_colours).
+
+*   **My work for the [Flickr Foundation](https://github.com/Flickr-Foundation) and [Wellcome Collection](/projects/#wellcome-collection)**, my current and previous employers.
+    I've worked on a number of different things, including a [unified catalogue search][search], a cloud-based [preservation storage service][storage], and [a toy for parsing Flickr URLs][flinumeratr].
 
 *   [**Fun and amusing art projects**][fun_stuff], like measuring data [by shelf space in floppy disks](https://howlongismydata.glitch.me/), or controlling a rocket [with the &lt;marquee&gt; tag](https://marquee-rocket.glitch.me/).
 
@@ -59,6 +62,7 @@ If you're new, you might want to start with [my writing](/writing/) or [my list 
 
 I hope you enjoy it.
 
+[flinumeratr]: https://www.flickr.org/introducing-flinumeratr-our-first-toy/
 [search]: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
 [storage]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
 [oss]: /projects/#personal-tools
