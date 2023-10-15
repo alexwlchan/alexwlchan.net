@@ -3,14 +3,14 @@ name: "plugin-tests"
 on:
   push:
     branches:
-    - live
+    - main
 
     paths:
       - 'src/_plugins/**'
 
   pull_request:
     branches:
-    - live
+    - main
 
     paths:
       - 'src/_plugins/**'

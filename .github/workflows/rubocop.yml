@@ -3,14 +3,14 @@ name: "rubocop"
 on:
   push:
     branches:
-    - live
+    - main
 
     paths:
       - '**/*.rb'
 
   pull_request:
     branches:
-    - live
+    - main
 
     paths:
       - '**/*.rb'
