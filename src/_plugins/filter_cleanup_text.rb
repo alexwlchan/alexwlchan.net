@@ -49,6 +49,7 @@ class AddNonBreakingSpaces
     # dashes.
     phrases = [
       '<em>k</em>-means',
+      '26k items',
       'CC BY 4.0',
       'CC BY-NC 4.0',
       'CC BY-NC-ND',
