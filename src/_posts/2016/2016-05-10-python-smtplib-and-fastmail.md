@@ -1,8 +1,8 @@
 ---
 layout: post
 date: 2016-05-10 12:41:00 +0000
-title: A Python smtplib wrapper for FastMail
-summary: A quick python-smtplib wrapper for sending emails through FastMail.
+title: A Python smtplib wrapper for Fastmail
+summary: A quick python-smtplib wrapper for sending emails through Fastmail.
 tags:
   - python
   - fastmail
@@ -20,7 +20,7 @@ Plus it was a bit buggy and unreliable.
 Not a great solution.
 
 My needs are fairly basic: I just want to be able to send a message from my email address, with a bit of body text and a subject, and optionally an attachment or two.
-And I'm only sending messages from one email provider, [FastMail][fastmail].
+And I'm only sending messages from one email provider, [Fastmail][fastmail].
 
 Since the Python standard library includes [smtplib][smtplib], I decided to give that a try.
 
@@ -33,8 +33,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 
-class FastMailSMTP(smtplib.SMTP_SSL):
-    """A wrapper for handling SMTP connections to FastMail."""
+class FastmailSMTP(smtplib.SMTP_SSL):
+    """A wrapper for handling SMTP connections to Fastmail."""
 
     def __init__(self, username, password):
         super().__init__('mail.messagingengine.com', port=465)
@@ -68,7 +68,7 @@ class FastMailSMTP(smtplib.SMTP_SSL):
         self.sendmail(from_addr, to_addrs, msg_root.as_string())
 ```
 
-lines 7&ndash;12 create a subclass of [smtplib.SMTP_SSL][smtp_ssl], and uses the supplied credentials to log into FastMail.
+lines 7&ndash;12 create a subclass of [smtplib.SMTP_SSL][smtp_ssl], and uses the supplied credentials to log into Fastmail.
 Annoyingly, this subclassing is broken on Python 2, because SMTP_SSL is an old-style class, and so [super() doesn't work][super].
 I only use Python 3 these days, so that's okay for me, but you'll need to change that if you want a backport.
 
@@ -98,7 +98,7 @@ The nice thing about subclassing the standard SMTP class is that I can use my wr
 Like so:
 
 ```python
-with FastMailSMTP(user, pw) as server:
+with FastmailSMTP(user, pw) as server:
     server.send_message(from_addr='hello@example.org',
                         to_addrs=['jane@doe.net', 'john@smith.org'],
                         msg='Hello world from Python!',
