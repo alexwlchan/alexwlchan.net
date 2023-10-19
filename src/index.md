@@ -80,7 +80,7 @@ Here are some of my favourite posts:
 {%
   include
   eggbox.html
-  eggbox_posts="snapped-elastic bure-valley upward-assignment graph-generative-art archival-storage-service 2022-in-reading"
+  eggbox_posts="snapped-elastic bure-valley upward-assignment graph-generative-art hyperfocus-and-hobbies 2022-in-reading"
 %}
 
 If you want to read more, I've got [plenty more](/writing/).
