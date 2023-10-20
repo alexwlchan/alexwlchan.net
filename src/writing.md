@@ -39,7 +39,7 @@ There are lots of posts about software, so I have smaller, more specific tags li
 {%
   include
   eggbox.html
-  eggbox_posts="snapped-elastic no-cause-for-alarm the-importance-of-good-error-messages adventures-with-concurrent-futures cloud-costs-report supposedly-simple-image-layout"
+  eggbox_posts="preserved-dates snapped-elastic no-cause-for-alarm the-importance-of-good-error-messages adventures-with-concurrent-futures supposedly-simple-image-layout"
 %}
 
 ---
@@ -81,7 +81,7 @@ Some of that art is on this site, including some fun experiments with [colour](/
 {%
   include
   eggbox.html
-  eggbox_posts="graph-generative-art animated-artichokes inner-outer-strokes-svg illustrating-lifecycle-transitions-in-amazon-s3 finding-tint-colours-with-k-means egyptian-mixtape"
+  eggbox_posts="hester graph-generative-art animated-artichokes inner-outer-strokes-svg illustrating-lifecycle-transitions-in-amazon-s3 finding-tint-colours-with-k-means"
 %}
 
 ---
@@ -110,5 +110,5 @@ What personal stuff there is tends to be "what I've done", not "who am I".
 {%
   include
   eggbox.html
-  eggbox_posts="2022-in-reading maths-cross-stitch my-scanning-setup"
+  eggbox_posts="hyperfocus-and-hobbies 2022-in-reading maths-cross-stitch my-scanning-setup"
 %}
