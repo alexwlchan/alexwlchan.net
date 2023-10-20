@@ -166,7 +166,19 @@ module Jekyll
       aspect_ratio = Rational(image.width, image.height)
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
-      sources = prepare_images(source_path, im_format, dst_prefix, @width)
+      # I'm not a fan of the way AVIF and WebP introduce artefacts into
+      # PNG screenshots -- it makes text look mucky and pixellated.  Boo!
+      #
+      # Since screenshots are typically text files that are small, it's
+      # okay not to serve them in the optimised formats -- I'll sacrifice
+      # a bit of bandwidth for quality.
+      desired_formats = if @attrs['class'].include? 'screenshot'
+                          [im_format]
+                        else
+                          [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+                        end
+
+      sources = prepare_images(source_path, desired_formats, dst_prefix, @width)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -181,7 +193,7 @@ module Jekyll
         end
 
         dark_sources = prepare_images(
-          dark_path, im_format, "#{dst_prefix}.dark", @width
+          dark_path, desired_formats, "#{dst_prefix}.dark", @width
         )
       else
         dark_sources = nil
@@ -204,25 +216,45 @@ module Jekyll
       dark_html = if dark_sources.nil?
                     ''
                   else
-                    <<~HTML
-                      <source
-                        srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
-                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                        type="image/avif"
-                        media="(prefers-color-scheme: dark)"
-                      >
-                      <source
-                        srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
-                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                        type="image/webp"
-                        media="(prefers-color-scheme: dark)"
-                      >
+                    avif_source = if desired_formats.include? ImageFormat::AVIF
+                                    <<~HTML
+                                      <source
+                                        srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
+                                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
+                                        type="image/avif"
+                                        media="(prefers-color-scheme: dark)"
+                                      >
+                                    HTML
+                                  else
+                                    ''
+                                  end
+
+                    webp_source = if desired_formats.include? ImageFormat::WEBP
+                                    <<~HTML
+                                      <source
+                                        srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
+                                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
+                                        type="image/webp"
+                                        media="(prefers-color-scheme: dark)"
+                                      >
+                                    HTML
+                                  else
+                                    ''
+                                  end
+
+                    original_source = <<~HTML
                       <source
                         srcset="#{dark_sources[im_format].join(', ')}"
                         sizes="(max-width: #{@width}px) 100vw, #{@width}px"
                         type="#{im_format[:mime_type]}"
                         media="(prefers-color-scheme: dark)"
                       >
+                    HTML
+
+                    <<~HTML
+                      #{avif_source}
+                      #{webp_source}
+                      #{original_source}
                     HTML
                   end
 
@@ -234,24 +266,44 @@ module Jekyll
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
+      avif_source = if desired_formats.include? ImageFormat::AVIF
+                      <<~HTML
+                        <source
+                          srcset="#{sources[ImageFormat::AVIF].join(', ')}"
+                          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
+                          type="image/avif"
+                        >
+                      HTML
+                    else
+                      ''
+                    end
+
+      webp_source = if desired_formats.include? ImageFormat::WEBP
+                      <<~HTML
+                        <source
+                          srcset="#{sources[ImageFormat::WEBP].join(', ')}"
+                          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
+                          type="image/webp"
+                        >
+                      HTML
+                    else
+                      ''
+                    end
+
+      original_source = <<~HTML
+        <source
+          srcset="#{sources[im_format].join(', ')}"
+          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
+          type="#{im_format[:mime_type]}"
+        >
+      HTML
+
       inner_html = <<~HTML
         <picture>
           #{dark_html}
-          <source
-            srcset="#{sources[ImageFormat::AVIF].join(', ')}"
-            sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-            type="image/avif"
-          >
-          <source
-            srcset="#{sources[ImageFormat::WEBP].join(', ')}"
-            sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-            type="image/webp"
-          >
-          <source
-            srcset="#{sources[im_format].join(', ')}"
-            sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-            type="#{im_format[:mime_type]}"
-          >
+          #{avif_source}
+          #{webp_source}
+          #{original_source}
           <img
             src="#{default_image}"
             #{extra_attributes}
@@ -279,7 +331,7 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(source_path, im_format, dst_prefix, width)
+    def prepare_images(source_path, desired_formats, dst_prefix, width)
       sources = Hash.new { [] }
 
       image = Rszr::Image.load(source_path)
@@ -294,7 +346,7 @@ module Jekyll
                .sort!
 
       widths.each do |this_width|
-        [im_format, ImageFormat::AVIF, ImageFormat::WEBP].each do |out_format|
+        desired_formats.each do |out_format|
           # I already have lots of images cut with the _1x, _2x, _3x names,
           # so I retain those when picking names to avoid breaking links or
           # losing Google juice, then switch to _500w, _640w, and so on
