@@ -172,7 +172,7 @@ module Jekyll
       # Since screenshots are typically text files that are small, it's
       # okay not to serve them in the optimised formats -- I'll sacrifice
       # a bit of bandwidth for quality.
-      desired_formats = if @attrs['class'].include? 'screenshot'
+      desired_formats = if (@attrs['class'] || '').include? 'screenshot'
                           [im_format]
                         else
                           [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
