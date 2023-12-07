@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2023-12-07 20:53:08 +0000
 title: Telling mechanize how to find local issuer certificates
 summary: Fixing the “unable to get local issuer certificate” error when using mechanize.Browser.
 colors:
