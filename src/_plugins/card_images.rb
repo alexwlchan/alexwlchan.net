@@ -76,6 +76,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
     post.data['card'] = {
+      'attribution' => post.data['card_attribution'],
       'social' => File.basename(social_card),
       'index' => File.basename(index_card)
     }
@@ -95,8 +96,9 @@ module Jekyll
     # See https://github.com/gjtorikian/html-proofer#ignoring-content
     def render(context)
       post = context['post']
+      card = post['card']
 
-      if context['post']['card'].nil?
+      if card.nil?
         <<~HTML
           <img
             src="/images/default-card.png"
@@ -106,14 +108,17 @@ module Jekyll
           />
         HTML
       else
+        attribution_text = card['attribution'].nil? ? '' : "data-attribution=\"#{card['attribution']}\""
+
         input = <<~HTML
           {%
             picture
-            filename="#{post['card']['index']}"
+            filename="#{card['index']}"
             parent="/images/cards/#{post['date'].year}"
             width="400"
             alt=""
             loading="lazy"
+            #{attribution_text}
             data-proofer-ignore
           %}
         HTML
