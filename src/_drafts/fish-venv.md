@@ -90,7 +90,7 @@ $ source .venv/bin/activate.fish
 ```
 
 In practice I only ever remembered to run the first – I'd create my new virtual environment, go to `pip install` something, and then it would complain I hadn't enabled a virtual environment.
-I'd mutter and grumble, activate it, then move on.
+I'd mutter and grumble, activate the virtualenv, and try again.
 
 If I'm creating a virtual environment, I want to use it immediately, so I wrapped this process in a Fish function called `venv`:
 
@@ -101,11 +101,11 @@ function venv --description "Create and activate a new virtual environment"
     source .venv/bin/activate.fish
 
     # Append .venv to the Git exclude file, but only if it's not
-    # already there.
-    set line_to_append ".venv"
-    set target_file ".git/info/exclude"
-    
+    # already there.    
     if test -e .git
+        set line_to_append ".venv"
+        set target_file ".git/info/exclude"
+    
         if not grep --quiet --fixed-strings --line-regexp "$line_to_append" "$target_file" 2>/dev/null
             echo "$line_to_append" >> "$target_file"
         end
@@ -146,8 +146,8 @@ Once I've created my virtual environments, I need to remember to activate them.
 I could do this manually, or I could have the computer look for virtualenvs and (de)activate them automatically for me.
 There are various plugins for doing this (I used [virtualfish] a few years ago), but this time round I realised my needs were simple enough that I could just write my own function.
 
-My `venv` function creates a standard approach to virtualenv naming: I always call them `.venv`, and I always put them in the root of my project directories, which are always Git repos.
-This means I can find if there's a virtualenv I want to auto-activate by looking for a folder called `.venv` in the root of the current Git repo.
+My `venv` function ensures a standard approach to virtualenv naming: I always call them `.venv`, and I put them in the root of my project directories, which are always Git repos.
+This means I can find if there's a virtualenv I want to auto-activate by looking to see if I'm in a Git repo, then looking for a folder called `.venv`.
 
 This is the function:
 
@@ -205,7 +205,7 @@ This felt like a safe project to try it – it's a minimal project with clearly 
 Overall I was quite impressed.
 All the code seemed to work, and it was helpful for the bits of shell syntax I only half-remember – things like `test -z` and combining multiple conditions in a boolean.
 I didn't use any of its output directly, but it was a good starting point that I could adapt into my actual code.
-I can imagine using it again for another project.
+I'm sure this won't be my last project where ChatGPT lends a helping hand.
 
 [repo]: https://github.com/alexwlchan/scripts
 [simon]: https://simonwillison.net/2023/Mar/27/ai-enhanced-development/
