@@ -24,7 +24,7 @@ if File.exist? '.missing_images.json'
         in_file = Shellwords.escape(this_job['source_path'])
         out_file = Shellwords.escape(this_job['out_path'])
 
-        Shell.execute("convert #{in_file} -resize #{resize} #{out_file}")
+        Shell.execute!("convert #{in_file} -resize #{resize} #{out_file}")
       end
     rescue ThreadError
     end
