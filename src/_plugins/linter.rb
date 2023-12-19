@@ -215,10 +215,9 @@ class RunLinting < Jekyll::Command
 
         # This is to test some rules that can't easily be expressed
         # in a JSON schema definition.
-        is_in_post_directory = (
+        is_in_post_directory =
           md_path.start_with?('src/_posts/') or
           md_path.start_with?('src/_drafts/')
-        )
 
         errors[md_path] <<= "layout should be 'post'" if is_in_post_directory && front_matter['layout'] != 'post'
 
