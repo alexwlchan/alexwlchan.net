@@ -2,6 +2,7 @@ FROM alpine
 
 RUN apk add imagemagick \
             imagemagick-jpeg \
+            imagemagick-webp \
             ruby
 RUN gem install shell-executer
 
