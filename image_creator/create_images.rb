@@ -15,6 +15,8 @@ if File.exist? '.missing_images.json'
 
   puts "Creating #{jobs.length} image#{jobs.length > 1 ? 's' : ''}..."
 
+  Shell.execute!("convert -version")
+
   workers = 5.times.map do
     Thread.new do
       while (this_job = jobs.pop(true))
