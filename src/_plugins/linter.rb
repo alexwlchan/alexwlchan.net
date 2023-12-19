@@ -219,9 +219,9 @@ class RunLinting < Jekyll::Command
           md_path.start_with?('src/_posts/') or
           md_path.start_with?('src/_drafts/')
 
-        errors[md_path] <<= "layout should be 'post'" if is_in_post_directory && front_matter['layout'] != 'post'
+        errors[md_path] <<= "layout should be 'post'; got #{front_matter['layout']}" if is_in_post_directory && front_matter['layout'] != 'post'
 
-        errors[md_path] <<= "layout should be 'page'" if !is_in_post_directory && front_matter['layout'] != 'page'
+        errors[md_path] <<= "layout should be 'page'; got #{front_matter['layout']}" if !is_in_post_directory && front_matter['layout'] != 'page'
       end
 
       report_errors(errors)
