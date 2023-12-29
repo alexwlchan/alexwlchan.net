@@ -14,8 +14,8 @@ I have a bunch of Python scripts I use to clean up text files, and I call them b
 $ python clean_up_text.py /path/to/text/file.md
 ```
 
-This is mostly fine, but finding that path is a bit annoying when I have a note open in Obsidian.
-It's not hard, it just takes a few steps – open the "More options" menu, click "Reveal in Finder", drag the file from Finder into my terminal.
+This is mostly fine, but finding that path is a bit annoying when I want to run them on a note I have open in Obsidian.
+It's not hard, it just takes a few steps – open the "More options" menu, click "Reveal in Finder", drag the file from Finder into terminal.
 I wanted a way to make it a bit quicker.
 
 I've written a little script which gives me a path to the note I currently have open in Obsidian, so now I can run something more like:
@@ -38,7 +38,7 @@ tell application "Safari" to get URL of document 1
 Unfortunately this isn't quite as simple in Obsidian – it doesn't have any AppleScript support, so you can't do anything with `tell application "Obsidian"`.
 
 (The lack of AppleScript is annoying, but understandable.
-It's a niche technology on a marginal platform, and mostly forgotten by the platform owner.
+It's a niche technology on a marginal platform, and Apple seems to have completely forgotten it exists.
 Much as I find AppleScript useful, it's hard to justify the time/effort to add support for it in a new app today.)
 
 But even if Obsidian doesn't have its own AppleScript dictionary, it is still visible from the AppleScript universe – as a process in System Events.
@@ -62,8 +62,7 @@ Because Obsidian always uses the title as the filename (e.g. this file is called
 ---
 
 To find the Markdown file, you match the vault name to a folder on disk, then you search for files that match the note title.
-There are a bunhc of ways you could do this; I picked Python because that's what I'm familiar with, but you could use another language just as easily.
-(Except AppleScript, which would make analysing the window title very painful.)
+There are a bunch of ways you could do this; I picked Python because that's what I'm familiar with, but you could use another language just as easily.
 
 This is the script I wrote, which I named [`obnote`](https://github.com/alexwlchan/scripts/blob/main/macos/obnote).
 Hopefully the comments are enough to explain what's going on:
