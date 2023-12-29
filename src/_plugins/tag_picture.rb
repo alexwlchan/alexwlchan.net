@@ -383,7 +383,7 @@ module Jekyll
       when '.jpg'
         ImageFormat::JPEG
       else
-        raise "Unrecognised image extension: #{File.extname(path)}"
+        raise "Unrecognised image extension in #{path}"
       end
     end
   end
