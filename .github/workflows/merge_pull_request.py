@@ -9,7 +9,7 @@ import httpx
 
 api_client = httpx.Client(
     base_url="https://api.github.com/",
-    headers={"Accept": "application/vnd.github.v3+json"}
+    headers={"Accept": "application/vnd.github.v3+json", "X-GitHub-Api-Version": "2022-11-28"}
 )
 
 
@@ -36,32 +36,45 @@ if __name__ == '__main__':
     # of the branch.
     #
     # See https://docs.github.com/en/rest/pulls/pulls#get-a-pull-request
-    resp = api_client.get(
+    pr_resp = api_client.get(
         url=f"/repos/alexwlchan/alexwlchan.net/pulls/{pr_number}"
     )
-    resp.raise_for_status()
+    pr_resp.raise_for_status()
 
-    branch_name = resp.json()['head']['ref']
+    branch_name = pr_resp.json()['head']['ref']
     print(f'This PR is coming from branch {branch_name}')
 
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
-    commit_id = resp.json()['head']['sha']
+    commit_id = pr_resp.json()['head']['sha']
+    print(f'The current commit on the branch is {commit_id}')
 
     if commit_id != current_commit():
         print('This commit isn’t the same as the current branch; aborting')
         sys.exit(0)
 
-#
-# # Get information about the pull request, in particular branch name.
-# #
-# # See https://docs.github.com/en/rest/pulls/pulls#get-a-pull-request
-# PR_BRANCH=$(curl \
-#     --header "Accept: application/vnd.github.v3+json" \
-#      |
-#   jq -r .head.ref
-# )
-# echo "This PR is coming from branch '$PR_BRANCH'"
+    # Now look for other checks running on the same branch.
+    #
+    # See https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-runs-for-a-git-reference
+    checks_resp = api_client.get(
+        f"/repos/alexwlchan/alexwlchan.net/commits/{branch_name}/check-runs"
+    )
+    checks_resp.raise_for_status()
+
+    for check_run in checks_resp.json()['check_run']:
+        if check_run['name'] == 'Build the website':
+            continue
+
+        if check_run['status'] != 'completed':
+            sys.exit(f"Check run {check_run['name']!r} has not completed")
+
+        if check_run['conclusion'] != 'success':
+            sys.exit(f"Check run {check_run['name']!r} did not succeed")
+
+    if len(checks_resp.json()['check_run']) == 1:
+        print(f'No other check runs triggered, okay to merge')
+    else:
+        print(f'All other check runs succeeded, okay to merge')
 #
 # curl \
 #   -X PUT \
