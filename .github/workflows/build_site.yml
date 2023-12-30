@@ -59,6 +59,7 @@ jobs:
         if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
         run: |
           python3 -m pip install httpx
+          ls .github/workflows
           python3 .github/workflows/merge_pull_request.py
 
         # Note: this uses a personal access token, not the default GitHub token;
