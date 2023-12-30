@@ -118,14 +118,14 @@ module Jekyll
       width = @attrs.delete('width')
       height = @attrs.delete('height')
 
-      if width.nil? and height.nil?
+      if width.nil? && height.nil?
         raise "Picture #{@filename} does not specify a width or a height"
       end
 
       width = width.to_i unless width.nil?
       height = height.to_i unless height.nil?
 
-      @bounding_box = {:width => width, :height => height}
+      @bounding_box = { width:, height: }
 
       @parent = @attrs.delete('parent')
 
@@ -162,7 +162,7 @@ module Jekyll
 
       # Using the bounding box supplied, work out the target width based
       # on the actual image dimensions.
-      if !@bounding_box[:width].nil? and !@bounding_box[:height].nil?
+      if !@bounding_box[:width].nil? && !@bounding_box[:height].nil?
         raise "Picture #{@filename} supplies both width/height; this is unsupported"
       elsif !@bounding_box[:width].nil?
         @width = @bounding_box[:width]
