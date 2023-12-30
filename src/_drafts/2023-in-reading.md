@@ -14,23 +14,23 @@ card_attribution: |
 <style type="x-text/scss">
   @import "posts/_end_of_year_books.scss";
 
-  #the_origins_of_iris      { @include book_styles(#2e2b64); }
-  #seven_fallen_feathers { @include book_styles(#a33b36); }
-    #elatsoe { @include book_styles(#11515f); }
-    #phone_box { @include book_styles(#3bb5bf); }
-    #strong_female_character { @include book_styles(#d93427); }
-    #the_hard_road_out { @include book_styles(#e23d32); }
+  #the_origins_of_iris     { @include book_styles(#2e2b64); }
+  #seven_fallen_feathers   { @include book_styles(#a33b36); }
+  #elatsoe                 { @include book_styles(#11515f); }
+  #phone_box               { @include book_styles(#3bb5bf); }
+  #strong_female_character { @include book_styles(#d93427); }
+  #the_hard_road_out       { @include book_styles(#e23d32); }
 </style>
 
 <style type="x-text/scss" media="(prefers-color-scheme: dark)">
   @import "posts/_end_of_year_books.scss";
 
-  #the_origins_of_iris      { @include book_styles(#f2e131); }
-  #seven_fallen_feathers { @include book_styles(#c3cbd3); }
-  #elatsoe { @include book_styles(#f1f1f4); }
-  #phone_box {@include book_styles(#b5eef2);}
+  #the_origins_of_iris     { @include book_styles(#f2e131); }
+  #seven_fallen_feathers   { @include book_styles(#c3cbd3); }
+  #elatsoe                 { @include book_styles(#f1f1f4); }
+  #phone_box               { @include book_styles(#b5eef2);}
   #strong_female_character { @include book_styles(#f58970); }
-  #the_hard_road_out {@include book_styles(#f96970);}
+  #the_hard_road_out       { @include book_styles(#f96970);}
 </style>
 
 I read 75 books this year, which is slightly up on last year.
