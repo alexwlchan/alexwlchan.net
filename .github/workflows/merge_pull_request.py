@@ -42,6 +42,10 @@ def other_checks_are_running():
             print(f"Still waiting for {check_run['name']!r}...")
             return True
 
+        if check_run["conclusion"] != "success":
+            print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
+            sys.exit(1)
+
     return False
 
 
