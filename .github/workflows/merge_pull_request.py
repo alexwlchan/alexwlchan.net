@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     if merge_commit_id != current_merge_commit():
         print(
-            f"The current merge commit on the branch is {current_merge_commit()}; not the same as this build; aborting"
+            f"The current merge commit in GitHub is {current_merge_commit()}; not the same as this build; aborting"
         )
         sys.exit(0)
 
@@ -76,10 +76,12 @@ if __name__ == "__main__":
             continue
 
         if check_run["status"] != "completed":
-            sys.exit(f"Check run {check_run['name']!r} has not completed")
+            print(f"Check run {check_run['name']!r} has not completed", file=sys.stderr)
+            sys.exit(1)
 
         if check_run["conclusion"] != "success":
-            sys.exit(f"Check run {check_run['name']!r} did not succeed")
+            print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
+            sys.exit(1)
 
     if len(checks_resp.json()["check_runs"]) == 1:
         print("No other check runs triggered, okay to merge")
