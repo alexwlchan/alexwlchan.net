@@ -23,7 +23,7 @@ Here's a close-up photo of two of the wheels:
   {%
     picture
     filename="lorenz_cams.jpg"
-    width="303px"
+    width="303"
     alt="A close-up photo of two metal wheels. The wheels have numbers running around the rim, and next to each number is a small metal switch."
   %}
   <figcaption>

@@ -26,7 +26,7 @@ Although my camera doesn't know where I was, I had a walking workout running on 
 {%
   picture
   filename="confused-camera.jpg"
-  width="750px"
+  width="750"
   class="full_width"
   alt="A black Olympus character looking out of a window, with a cartoon thought bubble showing a location pin and a question mark. It’s wondering what GPS and locations are."
 %}
@@ -65,7 +65,7 @@ If I preview one of those files in Quick Look, I can see my walking route shown 
 {%
   picture
   filename="bohinj_gpx.png"
-  width="750px"
+  width="750"
   alt="An outline map of mostly green countryside with a blue lake (Bohinjsko jezero) in the middle. There's a thick green line that goes around the lake, showing my walking route."
 %}
 
@@ -268,7 +268,7 @@ Once this was done, I imported all the files into my Photos Library, and voila: 
 {%
   picture
   filename="photos_on_map.png"
-  width="950px"
+  width="950"
   class="screenshot"
   alt="A map view of Lake Bohinj. Dotted around the map are small markers with a photo and number, showing the number of photos taken at that exact location."
 %}

@@ -25,7 +25,7 @@ If you imagine some overlapping pieces of Swiss cheese, the holes have to line u
   {%
     picture
     filename="swiss_cheese.png"
-    width="450px"
+    width="450"
     alt="Four slices of Swiss cheese, with a red arrow passing through a hole in all four layers."
   %}
   <figcaption>

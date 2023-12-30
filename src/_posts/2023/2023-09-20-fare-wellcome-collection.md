@@ -15,7 +15,7 @@ We wandered up the Euston Road, popped into the British Library and the British 
   {%
     picture
     filename="reading-room.jpg"
-    width="750px"
+    width="750"
     alt="The Reading Room at Wellcome Collection. A large, brightly-lit room with shelves interspersed with museum objects and comfy chairs."
     class="fullwidth_img"
   %}

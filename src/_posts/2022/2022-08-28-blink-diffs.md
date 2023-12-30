@@ -56,7 +56,7 @@ Unfortunately, the built-in Photos app doesn't have a way to do the instant swit
 {%
   picture
   filename="ipad_photos.jpg"
-  width="600px"
+  width="600"
   style="border: 0.5px solid #d4d3d4;"
   alt="Screenshot of the iPad photos app. The photo of the two trams takes up most of the screen, with a toolbar along the top and a carousel of small thumbnails along the bottom. The carousel images are all tall and narrow, and tightly scrunched together."
 %}
@@ -75,7 +75,7 @@ This is what it looks like:
 {%
   picture
   filename="darkroom_photos.jpg"
-  width="600px"
+  width="600"
   alt="Screenshot of the Darkroom photos app. The photo of the two trams takes up most of the screen, with toolbars along the left and right, and a carousel of square thumbnails up the left hand side. The selected thumbnail is shown with a red outline, and the thumbnails are bigger and wider-spaced than in the built-in app."
 %}
 

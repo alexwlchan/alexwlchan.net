@@ -36,14 +36,14 @@ This is the oldest screenshot I have of the homepage, compared to how it looks t
   {%
     picture
     filename="homepage_2012.jpg"
-    width="650px"
+    width="650"
     class="screenshot"
     alt="A website with a dark blue stripe across the top, which has my name and some horizontal navigation. Below is a post titled ‘Automatic Pinboard backups’, which goes straight into the post text, and on the right is a sidebar with a list of recent posts."
   %}
   {%
     picture
     filename="homepage_2022.jpg"
-    width="650px"
+    width="650"
     class="screenshot"
     alt="A website with a bright green stripe across the top, with my name and horizontal navigation (albeit different links). Below is a large, colour photo of me in a matching green dress and smiling at the camera, and below that is some introductory text that starts “Hi, I’m Alex”, rather than jumping straight into a blog post."
   %}

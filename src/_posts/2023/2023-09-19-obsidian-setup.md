@@ -65,14 +65,14 @@ If I learn something which is generically useful and not specific to my employer
   {%
     picture
     filename="obsidian-personal-theme.png"
-    width="523px"
+    width="523"
     class="screenshot first"
     alt="A screenshot of a note and the top bar in my personal vault. The top bar has a red tint, and the title of the note is a matching shade of red. The note text is in a serif font (Geneva)."
   %}
   {%
     picture
     filename="obsidian-work-theme.png"
-    width="523px"
+    width="523"
     class="screenshot second"
     alt="A screenshot of a note and the top bar in my work vault. The top bar has a yellow tint, but the title of the note is a dark green. The note text is in a sans serif font (Inter)."
   %}
@@ -102,7 +102,7 @@ I use a similar set of colour-based themes to help me distinguish between Slack 
 {%
   picture
   filename="obsidian-tags.png"
-  width="299px"
+  width="299"
   class="screenshot"
   id="obsidian_tags"
   alt="A screenshot of my tag panel in Obsidian. There's a list of tags on the left-hand side, and counts down the right. The first few tags are daily-journal (773), books-ive-read (173), articles-to-write (124) and talks-ive-watched (97). There are also a couple of collapsed tag lists, which indicate prefixes, including 'aws', 'event' and 'python'."

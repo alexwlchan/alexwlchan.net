@@ -117,7 +117,7 @@ module Jekyll
 
       @width = get_required_attribute(
         @attrs, { tag: 'picture', attribute: 'width' }
-      ).gsub('px', '').to_i
+      ).to_i
 
       @parent = @attrs.delete('parent')
 

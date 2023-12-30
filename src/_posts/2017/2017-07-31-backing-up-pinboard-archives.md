@@ -26,7 +26,7 @@ Once a page is archived, it appears with a small grey checkmark next to the link
 {%
   picture
   filename="pinboard_archive.png"
-  width="388px"
+  width="388"
   alt="A Pinboard link with a small grey checkmark next to the link."
   class="screenshot"
 %}
@@ -40,7 +40,7 @@ In the archival account of your Pinboard settings, you can ask for a backup down
 {%
   picture
   filename="archive_backup.png"
-  width="618px"
+  width="618"
   alt="Screenshot of the Pinboard archive backup screen. Titled “Archive Backup” and a “Request a download” button."
   class="screenshot"
 %}

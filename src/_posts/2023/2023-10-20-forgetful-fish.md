@@ -24,7 +24,7 @@ I can press the right arrow to accept the suggestion, or I can keep typing to ig
 {%
   picture
   filename="fish_autosuggestion.png"
-  width="500px"
+  width="500"
   class="screenshot"
   alt="Screenshot of my terminal, showing three commands. The first is 'mate src/_drafts/forgetful-fish.md' and the second is 'make html'. For the third command, I've typed 'mate', and it’s suggested the filename 'src/_drafts/forgetful-fish.md' based on my first command."
 %}
