@@ -47,10 +47,10 @@ if __name__ == '__main__':
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
     commit_id = pr_resp.json()['head']['sha']
-    print(f'The current commit on the branch is {commit_id}')
+    print(f'The current commit on the branch is {commit_id!r}')
 
     if commit_id != current_commit():
-        print(f'This commit is {commit_id}; not the same as the current branch; aborting')
+        print(f'This commit is {commit_id!r}; not the same as the current branch; aborting')
         sys.exit(0)
 
     # Now look for other checks running on the same branch.
