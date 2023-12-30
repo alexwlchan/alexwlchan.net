@@ -5,9 +5,15 @@ on:
     branches:
     - main
 
+    paths:
+      - '**/*.rb'
+
   pull_request:
     branches:
     - main
+
+    paths:
+      - '**/*.rb'
 
 jobs:
   build:

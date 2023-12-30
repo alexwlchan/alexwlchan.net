@@ -55,16 +55,6 @@ jobs:
       - name: "Run linting"
         run: make lint
 
-      - name: "Merge pull request"
-        if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
-        run: .github/workflows/merge_pull_request.sh
-
-        # Note: this uses a personal access token, not the default GitHub token;
-        # this is so that GitHub will build the resulting merged commit to main.
-        # See https://github.com/ad-m/github-push-action/issues/32
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-
       - name: "Publish drafts"
         if: github.ref == 'refs/heads/main'
         run: |

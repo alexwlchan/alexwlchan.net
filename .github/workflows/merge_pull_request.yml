@@ -1,0 +1,26 @@
+name: "merge-pull-request"
+
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build:
+    name: Merge pull request
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out the repo"
+        uses: actions/checkout@v3
+
+      - name: Merge the pull request
+        if: github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
+        run: |
+          python3 -m pip install httpx
+          python3 .github/workflows/merge_pull_request.py
+
+        # Note: this uses a personal access token, not the default GitHub token;
+        # this is so that GitHub will build the resulting merged commit to main.
+        # See https://github.com/ad-m/github-push-action/issues/32
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
