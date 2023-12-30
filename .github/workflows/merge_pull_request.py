@@ -50,7 +50,7 @@ if __name__ == '__main__':
     print(f'The current commit on the branch is {commit_id}')
 
     if commit_id != current_commit():
-        print('This commit isn’t the same as the current branch; aborting')
+        print('This commit is {commit_id}; not the same as the current branch; aborting')
         sys.exit(0)
 
     # Now look for other checks running on the same branch.
