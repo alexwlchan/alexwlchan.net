@@ -33,13 +33,16 @@ card_attribution: |
   #the_hard_road_out       { @include book_styles(#f96970);}
 </style>
 
-I read 75 books this year, which is slightly up on last year.
+I read 75 books this year, which is slightly up on previous years ([2022]({% post_url 2022/2022-12-31-2022-in-reading %}), [2021]({% post_url 2021/2021-12-31-2021-in-reading %})).
 I’m pleased with that number, although overall I found it a slightly disappointing year for reading.
 Although I read more books, there were less books that I really loved – the sort of book that changes my view on the world, that I’m still thinking about weeks later.
 
-I did return to a couple of favourite authors, who all had new books that I enjoyed – Alexandria Bellefleur, Toshikazu Kawaguchi, Maureen Johnson – but that was more familiar than new. I think I got more of my novelty from theatre than books this year.
+I did return to a couple of favourite authors, who all had new books that I enjoyed – Alexandria Bellefleur, Toshikazu Kawaguchi, Maureen Johnson – but that was more familiar than new.
+I got more of my novelty from theatre than books this year.
 
-About half of what I read came from my local library. This was particularly helpful for the “good, but not great” books that I know I won’t read again. I was glad to return them to the library, and have them taking up space in my house.
+About half of what I read came from my local library.
+This was particularly helpful for the “good, but not great” books that I know I won’t read again.
+I was glad to return them to the library, and not have them taking up space in my house.
 
 I continue to write short reviews of books I’ve read at <https://books.alexwlchan.net>, and keep notes in Obsidian.
 The latter have been useful for jogging my memory, including as I write this post.
@@ -69,7 +72,27 @@ These are the best books I read in 2023, in the order I read them:
   </div>
   <div class="review_text">
     <p>
-      INFO GOES HERE
+      This is a fascinating, if heavy, take on the “what if” concept.
+    </p>
+    <p>
+      Iris has run away from the forest to escape her abusive wife, and there she meets an alternate version of herself who made different choices.
+      They both have regrets about how their life turned out, and envy towards some aspects of the other’s life – but they also come to learn that the grass isn’t always greener.
+      One life isn’t inherently better than the other.
+    </p>
+    <p>
+      The book switches back and forth between “Before” (the events leading up to her running away) and “After” (what she does in the woods).
+      You know that something bad has happened to Iris, but you only find out the details slowly.
+    </p>
+    <p>
+      It gave me a lot of thoughts and feelings, and I felt a lot of sympathy for Iris.
+      Both Irises have flawed and imperfect lives, and there’s no implied moral that one is obviously better or more correct.
+      I haven’t read it again, but I want to, because I suspect there’s a lot I’d pick up on a second time round.
+    </p>
+    <p>
+      Content warnings for abuse, sexual assault, rape, and suicide.
+    </p>
+    <p>
+      (Yes, I technically read this in 2022, but it missed the cutoff for last year’s post.)
     </p>
   </div>
 </div>
@@ -95,7 +118,25 @@ These are the best books I read in 2023, in the order I read them:
   </div>
   <div class="review_text">
     <p>
-      INFO GOES HERE
+      This is an account of abuse, neglect, and deaths of Indigenous students in Canada’s school systems.
+      It’s not an easy book to read, but it’s well-written and worth the time.
+    </p>
+    <p>
+      It focuses on seven deaths in Thunder Bay, and includes the history of the residential schools which form the backdrop for those events.
+      As I don’t know much about Canadian history or education, I found the context useful.
+    </p>
+    <p>
+      The titular “Seven Fallen Feathers” are seven children who died in unexplained circumstances.
+      The book devotes a chapter to each of them, describing their history, the days leading up to their death, and the hole it created in the lives of friends and family left behind.
+      It's difficult to read but important, and the author has obviously done a lot of research and interviews.
+    </p>
+    <p>
+      There are certain themes that keep coming up – racism towards Indigenous people, disinterest from the Thunder Bay police, the effect of moving kids to big cities – but the author is almost subtle about them.
+      She doesn’t need to tell you what patterns you should be looking for, because it’s so obvious from the stories.
+      It’s the embodiment of “show, don’t tell”.
+    </p>
+    <p>
+      Content warnings for death, suicide, racism and colonialism.
     </p>
   </div>
 </div>
