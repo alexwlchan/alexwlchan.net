@@ -1,9 +1,21 @@
 #!/usr/bin/env python3
 
 import os
+import subprocess
 import sys
 
 import httpx
+
+
+api_client = httpx.Client(
+    base_url="https://api.github.com/",
+    headers={"Accept": "application/vnd.github.v3+json"}
+)
+
+
+def current_commit():
+    cmd = ['git', 'rev-parse', 'HEAD']
+    return subprocess.check_call(cmd).decode('utf8').strip()
 
 
 if __name__ == '__main__':
@@ -17,17 +29,33 @@ if __name__ == '__main__':
     pr_number = github_ref.split("/")[2]
     print(f"Deduced pull request as https://github.com/alexwlchan/alexwlchan.net/pull/{pr_number}")
 
+    # Get information about the pull request, in particular the name
+    # of the branch.
+    #
+    # See https://docs.github.com/en/rest/pulls/pulls#get-a-pull-request
+    resp = api_client.get(
+        url=f"/repos/alexwlchan/alexwlchan.net/pulls/{pr_number}"
+    )
+    resp.raise_for_status()
 
-#
-# PULL_NUMBER=$(echo "$GITHUB_REF" | tr '/' ' ' | awk '{print $3}')
-# echo
+    branch_name = resp.json()['head']['ref']
+    print(f'This PR is coming from branch {branch_name}')
+
+    # Check if the branch has been updated since this build started;
+    # if so, the build on the newer commit takes precedent.
+    commit_id = resp.json()['head']['sha']
+
+    if commit_id != current_commit():
+        print(f'This commit isn’t the same as the current branch; aborting')
+        sys.exit(0)
+
 #
 # # Get information about the pull request, in particular branch name.
 # #
 # # See https://docs.github.com/en/rest/pulls/pulls#get-a-pull-request
 # PR_BRANCH=$(curl \
 #     --header "Accept: application/vnd.github.v3+json" \
-#     https://api.github.com/repos/alexwlchan/alexwlchan.net/pulls/$PULL_NUMBER |
+#      |
 #   jq -r .head.ref
 # )
 # echo "This PR is coming from branch '$PR_BRANCH'"
