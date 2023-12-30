@@ -115,9 +115,17 @@ module Jekyll
         @attrs, { tag: 'picture', attribute: 'filename' }
       )
 
-      @width = get_required_attribute(
-        @attrs, { tag: 'picture', attribute: 'width' }
-      ).to_i
+      width = @attrs.delete('width')
+      height = @attrs.delete('height')
+
+      if width.nil? and height.nil?
+        raise "Picture #{@filename} does not specify a width or a height"
+      end
+
+      width = width.to_i unless width.nil?
+      height = height.to_i unless height.nil?
+
+      @bounding_box = {:width => width, :height => height}
 
       @parent = @attrs.delete('parent')
 
@@ -151,6 +159,16 @@ module Jekyll
 
       image = Rszr::Image.load(source_path)
       im_format = get_format(source_path)
+
+      # Using the bounding box supplied, work out the target width based
+      # on the actual image dimensions.
+      if !@bounding_box[:width].nil? and !@bounding_box[:height].nil?
+        raise "Picture #{@filename} supplies both width/height; this is unsupported"
+      elsif !@bounding_box[:width].nil?
+        @width = @bounding_box[:width]
+      elsif !@bounding_box[:height].nil?
+        @width = (image.width * @bounding_box[:height] / image.height).to_i
+      end
 
       if image.width < @width
         raise "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@width}px"
