@@ -51,10 +51,10 @@ if __name__ == '__main__':
 
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
-    commit_id = pr_resp.json()['head']['merge_commit_sha']
-    print(f'The current merge commit on the branch is {commit_id!r}')
+    merge_commit_id = pr_resp.json()['merge_commit_sha']
+    print(f'The current merge commit on the branch is {merge_commit_id!r}')
 
-    if commit_id != current_merge_commit():
+    if merge_commit_id != current_merge_commit():
         print(f'The current merge commit on the branch is {current_merge_commit()}; not the same as this build; aborting')
         sys.exit(0)
 
