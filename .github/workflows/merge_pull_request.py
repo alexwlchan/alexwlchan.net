@@ -15,7 +15,7 @@ api_client = httpx.Client(
 
 def current_commit():
     cmd = ['git', 'rev-parse', 'HEAD']
-    return subprocess.check_call(cmd).decode('utf8').strip()
+    return subprocess.check_output(cmd).decode('utf8').strip()
 
 
 if __name__ == '__main__':
