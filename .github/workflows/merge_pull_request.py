@@ -17,7 +17,7 @@ def current_commit():
     """
     Return the SHA1 hash of the current Git commit.
     """
-    cmd = ['git', 'rev-parse', 'HEAD']
+    cmd = ['git', 'rev-parse', 'HEAD^1']
     return subprocess.check_output(cmd).decode('utf8').strip()
 
 
@@ -43,6 +43,11 @@ if __name__ == '__main__':
 
     branch_name = pr_resp.json()['head']['ref']
     print(f'This PR is coming from branch {branch_name}')
+
+    # Check if it's a draft PR -- if so, we shouldn't merge it.
+    if pr_resp.json()['draft']:
+        print(f'This is a draft PR, so not merging')
+        sys.exit(0)
 
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
