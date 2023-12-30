@@ -3,6 +3,7 @@
 import os
 import subprocess
 import sys
+import time
 
 import httpx
 
@@ -22,6 +23,26 @@ def current_merge_commit():
     """
     cmd = ["git", "rev-parse", "HEAD"]
     return subprocess.check_output(cmd).decode("utf8").strip()
+
+
+def other_checks_are_running():
+    # Now look for other checks running on the same branch.
+    #
+    # See https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-runs-for-a-git-reference
+    checks_resp = api_client.get(
+        f"/repos/alexwlchan/alexwlchan.net/commits/{branch_name}/check-runs"
+    )
+    checks_resp.raise_for_status()
+
+    for check_run in checks_resp.json()["check_runs"]:
+        if check_run["name"] == "Merge pull request":
+            continue
+
+        if check_run["status"] != "completed":
+            print(f"Still waiting for {check_run['name']!r}...")
+            return True
+
+    return False
 
 
 if __name__ == "__main__":
@@ -63,7 +84,14 @@ if __name__ == "__main__":
         )
         sys.exit(0)
 
-    # Now look for other checks running on the same branch.
+    # Wait 20 seconds for any other check runs to be triggered, then wait
+    # until they've all finished.
+    time.sleep(20)
+
+    while other_checks_are_running():
+        time.sleep(2)
+
+    # Now look for other checks and see if they succeeded.
     #
     # See https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-runs-for-a-git-reference
     checks_resp = api_client.get(
