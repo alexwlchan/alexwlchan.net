@@ -25,7 +25,7 @@ def current_merge_commit():
     return subprocess.check_output(cmd).decode("utf8").strip()
 
 
-def other_checks_are_running():
+def other_checks_are_running(branch_name):
     # Now look for other checks running on the same branch.
     #
     # See https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-runs-for-a-git-reference
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # until they've all finished.
     time.sleep(20)
 
-    while other_checks_are_running():
+    while other_checks_are_running(branch_name):
         time.sleep(2)
 
     # Now look for other checks and see if they succeeded.
