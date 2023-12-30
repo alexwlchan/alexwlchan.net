@@ -13,7 +13,7 @@ Last night, I [posted a tweet][tweet] wondering about the different colours of t
 {%
   picture
   filename="emoji.png"
-  width="587px"
+  width="587"
   alt="A collection of different thread emojis, labelled by the platform/company they’re from. There are four red spools on the left, two blue spools on the right, a purple and two pink spools along the top, and a green spool along the bottom."
 %}
 
@@ -26,7 +26,7 @@ I was able to use the script from the end of that post to get a list of suggesti
 {%
   picture
   filename="terminal_without_colours.png"
-  width="587px"
+  width="587"
   alt="A terminal window running a Python script that prints five hex colours."
   style="border-radius: 6px;"
 %}
@@ -41,7 +41,7 @@ I rewrote it in Python, and then I could see the hex code and the colour it repr
 {%
   picture
   filename="terminal_with_colours.png"
-  width="587px"
+  width="587"
   alt="A terminal window running a Python script that prints five hex colours, and a solid block of colour to the left of each code."
   style="border-radius: 6px;"
 %}
@@ -94,7 +94,7 @@ For example, I can use a lower seven-eights block to add a gap between squares, 
 {%
   picture
   filename="terminal_with_coloured_text.png"
-  width="587px"
+  width="587"
   alt="A terminal window running a Python script that prints five hex colours, and a solid block of colour to the left of each code. The hex codes have the same colour as the blocks."
   style="border-radius: 6px;"
 %}

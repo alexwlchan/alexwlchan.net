@@ -17,7 +17,7 @@ This is the message I received:
 {%
   picture
   filename="excel_truncation_error.png"
-  width="526px"
+  width="526"
   alt="An Excel alert dialog that says 'File not loaded completely', with a single 'OK' button."
 %}
 

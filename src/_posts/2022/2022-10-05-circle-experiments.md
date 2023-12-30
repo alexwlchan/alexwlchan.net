@@ -54,7 +54,7 @@ It's meant to be subtle, but I think it still gives the site a unique look:
 {%
   picture
   filename="header_image.png"
-  width="750px"
+  width="750"
   alt="The site header, which is made of small tiling squares in slightly varying shades of red."
 %}
 

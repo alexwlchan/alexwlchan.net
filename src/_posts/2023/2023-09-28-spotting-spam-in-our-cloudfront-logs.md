@@ -188,7 +188,7 @@ As part of this change, we tweaked the copy on our "no results" page, asking peo
 {%
   picture
   filename="weco_no_results.png"
-  width="750px"
+  width="750"
   alt="Screenshot of a search page with no results. “We couldn’t find anything that matched â\x8f©â\x9c\x94ï\x8fã\x8a. Please adjust your search terms and try again. If you think this search should show some results, please email digital@wellcomecollection.org.”"
 %}
 
