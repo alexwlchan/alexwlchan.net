@@ -13,7 +13,7 @@ api_client = httpx.Client(
 )
 
 
-def current_commit():
+def current_merge_commit():
     """
     Return the SHA1 hash of the current Git commit.
     """
@@ -49,16 +49,13 @@ if __name__ == '__main__':
         print(f'This is a draft PR, so not merging')
         sys.exit(0)
 
-    from pprint import pprint; pprint(pr_resp.json())
-    print(current_commit())
-
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
-    commit_id = pr_resp.json()['head']['sha']
-    print(f'The current commit on the branch is {commit_id!r}')
+    commit_id = pr_resp.json()['head']['merge_commit_sha']
+    print(f'The current merge commit on the branch is {commit_id!r}')
 
-    if commit_id != current_commit():
-        print(f'The current commit on the branch is {current_commit()}; not the same as this build; aborting')
+    if commit_id != current_merge_commit():
+        print(f'The current merge commit on the branch is {current_merge_commit()}; not the same as this build; aborting')
         sys.exit(0)
 
     # Now look for other checks running on the same branch.
