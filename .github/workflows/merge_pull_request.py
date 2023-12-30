@@ -49,7 +49,7 @@ if __name__ == '__main__':
         print(f'This is a draft PR, so not merging')
         sys.exit(0)
 
-    from pprint import pprint; pprint(resp.json())
+    from pprint import pprint; pprint(pr_resp.json())
     print(current_commit())
 
     # Check if the branch has been updated since this build started;
