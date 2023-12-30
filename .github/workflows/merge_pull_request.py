@@ -46,7 +46,7 @@ if __name__ == '__main__':
     commit_id = resp.json()['head']['sha']
 
     if commit_id != current_commit():
-        print(f'This commit isn’t the same as the current branch; aborting')
+        print('This commit isn’t the same as the current branch; aborting')
         sys.exit(0)
 
 #
