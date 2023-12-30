@@ -47,234 +47,185 @@ I was glad to return them to the library, and not have them taking up space in m
 I continue to write short reviews of books I’ve read at <https://books.alexwlchan.net>, and keep notes in Obsidian.
 The latter have been useful for jogging my memory, including as I write this post.
 
-These are the best books I read in 2023, in the order I read them:
+Below are the best books I read in 2023, in the order I read them.
+Note that it's quite a heavy selection, several dealing with death and oppression and other unpleasant things.
+I do recommend them all, but you should have a cheery book to read afterwards.
 
 ---
 
 <div class="book_review" id="the_origins_of_iris">
-  <div class="heading">
-    <div class="book_cover">
-      {%
-        picture
-        filename="the-origins-of-iris.jpg"
-        alt="The cover of “The Origins of Iris”. A dark blue cover with yellow silhouettes of faces in profile, one face on either side of the cover. In the left-hand face is the faint outline of a city; in the right-hand face is the faint outline of a forest."
-        width="91"
-      %}
-    </div>
-    {%
-      include book_info.html
-      title="The Origins of Iris"
-      author="Beth Lewis"
-      review_url="https://books.alexwlchan.net/2022/the-origins-of-iris/"
-      review_date="27 December 2022"
-      publication_year="2021"
-    %}
-  </div>
-  <div class="review_text">
-    <p>
-      This is a fascinating, if heavy, take on the “what if” concept.
-    </p>
-    <p>
-      Iris has run away from the forest to escape her abusive wife, and there she meets an alternate version of herself who made different choices.
-      They both have regrets about how their life turned out, and envy towards some aspects of the other’s life – but they also come to learn that the grass isn’t always greener.
-      One life isn’t inherently better than the other.
-    </p>
-    <p>
-      The book switches back and forth between “Before” (the events leading up to her running away) and “After” (what she does in the woods).
-      You know that something bad has happened to Iris, but you only find out the details slowly.
-    </p>
-    <p>
-      It gave me a lot of thoughts and feelings, and I felt sympathy for Iris.
-      Both Irises have flawed and imperfect lives, and there’s no implied moral that one is obviously better or more correct.
-      I haven’t read it again, but I want to, because I suspect there’s a lot I’d pick up on a second time round.
-    </p>
-    <p>
-      Content warnings for abuse, sexual assault, rape, and suicide.
-    </p>
-    <p>
-      (Yes, I technically read this in 2022, but it missed the cutoff for last year’s post.)
-    </p>
-  </div>
+  {%
+    picture
+    filename="the-origins-of-iris.jpg"
+    alt="The cover of “The Origins of Iris”. A dark blue cover with yellow silhouettes of faces in profile, one face on either side of the cover. In the left-hand face is the faint outline of a city; in the right-hand face is the faint outline of a forest."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+  include book_info.html
+  title="The Origins of Iris"
+  author="Beth Lewis"
+  review_url="https://books.alexwlchan.net/2022/the-origins-of-iris/"
+  review_date="27 December 2022"
+  publication_year="2021"
+%}
 </div>
+
+This is a fascinating, if heavy, take on the “what if” concept.
+
+Iris has run away from the forest to escape her abusive wife, and there she meets an alternate version of herself who made different choices.
+They both have regrets about how their life turned out, and envy towards some aspects of the other’s life – but they also come to learn that the grass isn’t always greener.
+One life isn’t inherently better than the other.
+
+The book switches back and forth between “Before” (the events leading up to her running away) and “After” (what she does in the woods).
+You know that something bad has happened to Iris, but you only find out the details slowly.
+
+It gave me a lot of thoughts and feelings, and I felt sympathy for Iris.
+Both Irises have flawed and imperfect lives, and there’s no implied moral that one is obviously better or more correct.
+I haven’t read it again, but I want to, because I suspect there’s a lot I’d pick up on a second time round.
+
+Content warnings for abuse, sexual assault, rape, and suicide.
+
+(Yes, I technically read this in 2022, but it missed the cutoff for last year’s post.)
 
 <div class="book_review" id="seven_fallen_feathers">
-  <div class="heading">
-    <div class="book_cover">
-      {%
-        picture
-        filename="seven-fallen-feathers.jpg"
-        alt="The cover of “Seven Fallen Feathers”. The cover is split vertically by the title. Below the title is an artwork of seven human-like figures in reddish brown, looking upwards towards the sky. Above the title is a yellow circle with a gravestone, and branching off the circle are seven more graves and seven bird-like figures."
-        width="91"
-      %}
-    </div>
-    {%
-      include book_info.html
-      title="Seven Fallen Feathers"
-      author="Tanya Talaga"
-      review_url="https://books.alexwlchan.net/2023/seven-fallen-feathers/"
-      review_date="16 March 2023"
-      publication_year="2017"
-    %}
-  </div>
-  <div class="review_text">
-    <p>
-      This is an account of abuse, neglect, and deaths of Indigenous students in Canada’s school systems.
-      It’s not an easy book to read, but it’s well-written and worth the time.
-    </p>
-    <p>
-      It focuses on seven deaths in Thunder Bay, and includes the history of the residential schools which form the backdrop for those events.
-      As I don’t know much about Canadian history or education, I found the context useful.
-    </p>
-    <p>
-      The titular “Seven Fallen Feathers” are seven children who died in unexplained circumstances.
-      The book devotes a chapter to each of them, describing their history, the days leading up to their death, and the hole it created in the lives of friends and family left behind.
-      It's difficult to read but important, and the author has obviously done a lot of research and interviews.
-    </p>
-    <p>
-      There are certain themes that keep coming up – racism towards Indigenous people, disinterest from the Thunder Bay police, the effect of moving kids to big cities – but the author is almost subtle about them.
-      She doesn’t need to tell you what patterns you should be looking for, because it’s so obvious from the stories.
-      It’s the embodiment of “show, don’t tell”.
-    </p>
-    <p>
-      Content warnings for death, suicide, racism and colonialism.
-    </p>
-  </div>
+  {%
+    picture
+    filename="seven-fallen-feathers.jpg"
+    alt="The cover of “Seven Fallen Feathers”. The cover is split vertically by the title. Below the title is an artwork of seven human-like figures in reddish brown, looking upwards towards the sky. Above the title is a yellow circle with a gravestone, and branching off the circle are seven more graves and seven bird-like figures."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Seven Fallen Feathers"
+    author="Tanya Talaga"
+    review_url="https://books.alexwlchan.net/2023/seven-fallen-feathers/"
+    review_date="16 March 2023"
+    publication_year="2017"
+  %}
 </div>
+
+This is an account of abuse, neglect, and deaths of Indigenous students in Canada’s school systems.
+It’s not an easy book to read, but it’s well-written and worth the time.
+
+It focuses on seven deaths in Thunder Bay, and includes the history of the residential schools which form the backdrop for those events.
+As I don’t know much about Canadian history or education, I found the context useful.
+
+The titular “Seven Fallen Feathers” are seven children who died in unexplained circumstances.
+The book devotes a chapter to each of them, describing their history, the days leading up to their death, and the hole it created in the lives of friends and family left behind.
+It's difficult to read but important, and the author has obviously done a lot of research and interviews.
+
+There are certain themes that keep coming up – racism towards Indigenous people, disinterest from the Thunder Bay police, the effect of moving kids to big cities – but the author is almost subtle about them.
+She doesn’t need to tell you what patterns you should be looking for, because it’s so obvious from the stories.
+It’s the embodiment of “show, don’t tell”.
+
+Content warnings for death, suicide, racism and colonialism.
 
 <div class="book_review" id="elatsoe">
-  <div class="heading">
-    <div class="book_cover">
-      {%
-        picture
-        filename="elatsoe.jpg"
-        alt="The cover of “Elatsoe”. A young girl in a brown coat stands amidst a group of ghost wolves, in white and light greys, who are running across the cover."
-        width="94"
-      %}
-    </div>
-    {%
-      include book_info.html
-      title="Elatsoe"
-      author="Darcie Little Badger"
-      review_url="https://books.alexwlchan.net/2023/elatsoe/"
-      review_date="24 April 2023"
-      publication_year="2020"
-    %}
-  </div>
-  <div class="review_text">
-    <p>
-      A fun story an America in which fantasy and magic are real and somewhat commonplace, including vampires, ghosts, and evil scarecrows.
-    </p>
-    <p>
-      Elatsoe (“Ellie”) is a member of the Lipan tribe, and women in her family have the ability to speak to ghosts – usually animal ghosts, because human ghosts are more violent and angry.
-      She’s investigating the death of her cousin, which she believes to be a murder.
-    </p>
-    <p>
-      The plot is a little slow, but the worldbuilding is gorgeous – it feels rich and real, without being heavy-handed.
-      We get little glimpses, but it’s never treated as spectacular or obsessed over.
-      I didn’t need to have every detail to enjoy it.
-      I’d happily read more stories in this setting, but it also works nicely as a standalone.
-    </p>
-    <p>
-      I read Darcie Little Badger’s second book in August.
-      <em>A Snake Falls to Earth</em> is another good fantasy, and adds her to my list of favourite authors.
-    </p>
-  </div>
+  {%
+    picture
+    filename="elatsoe.jpg"
+    alt="The cover of “Elatsoe”. A young girl in a brown coat stands amidst a group of ghost wolves, in white and light greys, who are running across the cover."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Elatsoe"
+    author="Darcie Little Badger"
+    review_url="https://books.alexwlchan.net/2023/elatsoe/"
+    review_date="24 April 2023"
+    publication_year="2020"
+  %}
 </div>
+
+A fun story in an America in which fantasy and magic are real and somewhat commonplace, including vampires, ghosts, and evil scarecrows.
+
+Elatsoe (“Ellie”) is a member of the Lipan tribe, and women in her family have the ability to speak to ghosts – usually animal ghosts, because human ghosts are more violent and angry.
+She’s investigating the death of her cousin, which she believes to be a murder.
+
+The plot is a little slow, but the worldbuilding is gorgeous – it feels rich and real, without being heavy-handed.
+We get little glimpses, but it’s never treated as spectacular or obsessed over.
+I didn’t need to have every detail to enjoy it.
+I’d happily read more stories in this setting, but it also works nicely as a standalone.
+
+I read Darcie Little Badger’s second book in August.
+<em>A Snake Falls to Earth</em> is another good fantasy, and adds her to my list of favourite authors.
 
 <div class="book_review" id="phone_box">
-  <div class="heading">
-    <div class="book_cover">
-      {%
-        picture
-        filename="the-phone-box-at-the-edge-of-the-world.jpg"
-        alt="The cover of “The Phone Box at the Edge of the World”. Most of the cover is a few strokes of turquoise watercolour paint, and the phone box is shown as a simple black-and-white drawing. It’s tall, square, and there are window panels along the front of the door."
-        width="94"
-      %}
-    </div>
-    {%
-      include book_info.html
-      title="The Phone Box at the Edge of the World"
-      author="Laura Imai Messina"
-      review_url="https://books.alexwlchan.net/2023/the-phone-box-at-the-edge-of-the-world/"
-      review_date="14 September 2023"
-      publication_year="2020"
-    %}
-  </div>
-  <div class="review_text">
-    <p>
-      This gorgeous story about grief and heartbreak, and two people learning to find love again after great tragedy.
-    </p>
-    <p>
-      The phone box itself is almost mundane, with no special magic or power. When I first saw the title, I wondered if this was a fantasy or sci-fi book – I was getting strong TARDIS vibes – but it’s not, and that’s a good thing.
-      Instead, we see very little of the conversations people have inside the phone box, which are largely private.
-    </p>
-    <p>
-      The book only revolves around a handful of characters – Yui, Takeshi, and Hana. Although we see other people who visit the phone box, we only see them through their eyes. Focusing on just a few characters is a smart move, because it lets us see more of their lives and their feelings.
-    </p>
-    <p>
-      It reminded me a lot of Toshikazu Kawaguchi’s books, which I adore – grief and sadness but with an ultimately positive message.
-    </p>
-  </div>
+  {%
+    picture
+    filename="the-phone-box-at-the-edge-of-the-world.jpg"
+    alt="The cover of “The Phone Box at the Edge of the World”. Most of the cover is a few strokes of turquoise watercolour paint, and the phone box is shown as a simple black-and-white drawing. It’s tall, square, and there are window panels along the front of the door."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="The Phone Box at the Edge of the World"
+    author="Laura Imai Messina"
+    review_url="https://books.alexwlchan.net/2023/the-phone-box-at-the-edge-of-the-world/"
+    review_date="14 September 2023"
+    publication_year="2020"
+  %}
 </div>
+
+This is a gorgeous story about grief and heartbreak, and two people learning to find love again after great tragedy.
+
+The phone box itself is almost mundane, with no special magic or power. When I first saw the title, I wondered if this was a fantasy or sci-fi book – I was getting strong TARDIS vibes – but it’s not, and that’s a good thing.
+Instead, we see very little of the conversations people have inside the phone box, which are largely private.
+
+The book only revolves around a handful of characters – Yui, Takeshi, and Hana. Although we see other people who visit the phone box, we only see them through their eyes. Focusing on just a few characters is a smart move, because it lets us see more of their lives and their feelings.
+
+It reminded me a lot of Toshikazu Kawaguchi’s books, which I adore – grief and sadness but with an ultimately positive message.
 
 <div class="book_review" id="strong_female_character">
-  <div class="heading">
-    <div class="book_cover">
-      {%
-        picture
-        filename="strong-female-character.jpg"
-        alt="The cover of “Strong Female Character”. It’s a red page, with a cutout in the middle, as if somebody has sliced through many pages of the book. A page pokes out through the middle, showing part of a photo of Fern and some text."
-        width="89"
-      %}
-    </div>
-    {%
-      include book_info.html
-      title="Strong Female Character"
-      author="Fern Brady"
-      review_url="https://books.alexwlchan.net/2023/strong-female-character/"
-      review_date="30 October 2023"
-      publication_year="2023"
-    %}
-  </div>
-  <div class="review_text">
-    <p>
-      This was a great memoir about autism and sexuality.
-    </p>
-    <p>
-      I first saw Fern Brady when she appeared on <em>Taskmaster</em>, where she quickly became one of my favourite contestants.
-      I loved how unapologetic she was about being herself, and how much fun she seemed to be having.
-      When I learnt she was writing a memoir, I knew I had to read it.
-    </p>
-    <p>
-      It’s the story of her life, being autistic, and the ways her behaviours have affected her life.
-      It felt genuine and raw, and it wasn’t unrealistically hopeful or optimistic – it was a statement about how autism has affected her life.
-      Her experience isn’t the same as mine, but I definitely saw parallels with my own experiences.
-    </p>
-    <p>
-      I was engrossed and read it in a single day; I was enjoying it so much I actually missed my train stop on the way home.
-    </p>
-  </div>
+  {%
+    picture
+    filename="strong-female-character.jpg"
+    alt="The cover of “Strong Female Character”. It’s a red page, with a cutout in the middle, as if somebody has sliced through many pages of the book. A page pokes out through the middle, showing part of a photo of Fern and some text."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Strong Female Character"
+    author="Fern Brady"
+    review_url="https://books.alexwlchan.net/2023/strong-female-character/"
+    review_date="30 October 2023"
+    publication_year="2023"
+  %}
 </div>
 
+This was a great memoir about autism and sexuality.
+
+I first saw Fern Brady when she appeared on <em>Taskmaster</em>, where she quickly became one of my favourite contestants.
+I loved how unapologetic she was about being herself, and how much fun she seemed to be having.
+When I learnt she was writing a memoir, I knew I had to read it.
+
+It’s the story of her life, being autistic, and the ways her behaviours have affected her life.
+It felt genuine and raw, and it wasn’t unrealistically hopeful or optimistic – it was a statement about how autism has affected her life.
+Her experience isn’t the same as mine, but I definitely saw parallels with my own experiences.
+
+I was engrossed and read it in a single day; I was enjoying it so much I actually missed my train stop on the way home.
+
 <div class="book_review" id="the_hard_road_out">
-  <div class="heading">
-    <div class="book_cover">
-      {%
-        picture
-        filename="the-hard-road-out.jpg"
-        alt="The cover of “The Hard Road Out”. Most of the cover is text, and then there’s a photo. A woman stands in a crowd of officials in brown uniform (presumably North Korean military attire). She has her back to the camera, and she’s wearing a baby pink dress that makes her stand out from the men milling around her."
-        width="91"
-      %}
-    </div>
-    {%
-      include book_info.html
-      title="The Hard Road Out"
-      author="Jihyun Park and Seh-Lynn Chai"
-      review_url="https://books.alexwlchan.net/2023/the-hard-road-out/"
-      review_date="20 November 2023"
-      publication_year="2022"
-    %}
-  </div>
+  {%
+    picture
+    filename="the-hard-road-out.jpg"
+    alt="The cover of “The Hard Road Out”. Most of the cover is text, and then there’s a photo. A woman stands in a crowd of officials in brown uniform (presumably North Korean military attire). She has her back to the camera, and she’s wearing a baby pink dress that makes her stand out from the men milling around her."
+    width="91"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="The Hard Road Out"
+    author="Jihyun Park and Seh-Lynn Chai"
+    review_url="https://books.alexwlchan.net/2023/the-hard-road-out/"
+    review_date="20 November 2023"
+    publication_year="2022"
+  %}
 </div>
 
 This is a gripping and horrifying story of growing up in North Korea, then escaping as an adult.
