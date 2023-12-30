@@ -6,7 +6,7 @@ require 'shellwords'
 
 require 'shell/executer'
 
-if File.exist? '.missing_images.json'
+if File.exist? ".missing_images.json"
   jobs = Queue.new
 
   File.readlines('.missing_images.json').uniq.each do |line|

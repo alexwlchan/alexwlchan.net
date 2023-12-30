@@ -5,15 +5,9 @@ on:
     branches:
     - main
 
-    paths:
-      - 'src/_plugins/**'
-
   pull_request:
     branches:
     - main
-
-    paths:
-      - 'src/_plugins/**'
 
 jobs:
   build:
