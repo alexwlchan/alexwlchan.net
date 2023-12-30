@@ -103,6 +103,8 @@ if __name__ == "__main__":
     )
     checks_resp.raise_for_status()
 
+    succeeded_checks = set()
+
     for check_run in checks_resp.json()["check_runs"]:
         if check_run["name"] == "Build the website":
             continue
@@ -115,10 +117,12 @@ if __name__ == "__main__":
             print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
             sys.exit(1)
 
-    if len(checks_resp.json()["check_runs"]) == 1:
+        succeeded_checks.add(check_run['name'])
+
+    if len(succeeded_checks) == 0:
         print("No other check runs triggered, okay to merge")
     else:
-        print("All other check runs succeeded, okay to merge")
+        print(f"All other check runs succeeded, okay to merge ({succeeded_checks})")
 
     api_client.put(
         f"/repos/alexwlchan/alexwlchan.net/pulls/{pr_number}/merge",
