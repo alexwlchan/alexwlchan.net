@@ -77,6 +77,13 @@ if __name__ == "__main__":
         print("This is a draft PR, so not merging")
         sys.exit(0)
 
+    # Wait 20 seconds for any other check runs to be triggered, then wait
+    # until they've all finished.
+    time.sleep(20)
+
+    while other_checks_are_running(branch_name):
+        time.sleep(2)
+
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
     merge_commit_id = pr_resp.json()["merge_commit_sha"]
@@ -87,13 +94,6 @@ if __name__ == "__main__":
             f"The current merge commit in GitHub is {current_merge_commit()}; not the same as this build; aborting"
         )
         sys.exit(0)
-
-    # Wait 20 seconds for any other check runs to be triggered, then wait
-    # until they've all finished.
-    time.sleep(20)
-
-    while other_checks_are_running(branch_name):
-        time.sleep(2)
 
     # Now look for other checks and see if they succeeded.
     #
