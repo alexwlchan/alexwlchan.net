@@ -14,6 +14,9 @@ api_client = httpx.Client(
 
 
 def current_commit():
+    """
+    Return the SHA1 hash of the current Git commit.
+    """
     cmd = ['git', 'rev-parse', 'HEAD']
     return subprocess.check_output(cmd).decode('utf8').strip()
 
