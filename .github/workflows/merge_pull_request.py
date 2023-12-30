@@ -49,6 +49,9 @@ if __name__ == '__main__':
         print(f'This is a draft PR, so not merging')
         sys.exit(0)
 
+    from pprint import pprint; pprint(resp.json())
+    print(current_commit())
+
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
     commit_id = pr_resp.json()['head']['sha']
