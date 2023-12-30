@@ -66,7 +66,7 @@ if __name__ == '__main__':
     )
     checks_resp.raise_for_status()
 
-    for check_run in checks_resp.json()['check_run']:
+    for check_run in checks_resp.json()['check_runs']:
         if check_run['name'] == 'Build the website':
             continue
 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
         if check_run['conclusion'] != 'success':
             sys.exit(f"Check run {check_run['name']!r} did not succeed")
 
-    if len(checks_resp.json()['check_run']) == 1:
+    if len(checks_resp.json()['check_runs']) == 1:
         print(f'No other check runs triggered, okay to merge')
     else:
         print(f'All other check runs succeeded, okay to merge')
