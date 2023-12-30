@@ -1,7 +1,8 @@
 @mixin book_styles($color) {
   a { @include link_styles($color, 0.2); }
   h2.book_title { color: $color; }
-  .book_cover img {
+
+  img.book_cover {
     box-shadow: 0px 0px 5px rgba($color, 1);
   }
 }
@@ -35,12 +36,8 @@
   }
 
   @media screen and (min-width: 500px) {
-    & .book_cover img {
+    img.book_cover {
       margin-bottom: 1em;
-    }
-
-    & .book_info {
-      padding-bottom: 1em;
     }
   }
 
@@ -61,7 +58,7 @@
       margin-top: 5px;
     }
 
-    .book_cover img {
+    img.book_cover {
       margin-bottom: 0;
     }
   }
