@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My favourite books from 2023
-summary: Storms and schools, escapes and exorcisms, what if and why – what I enjoyed reading this year.
+summary: Storms and schools, escapes and exorcisms, murders and magic – what I enjoyed reading this year.
 tags:
   - books
 colors:
@@ -84,7 +84,7 @@ These are the best books I read in 2023, in the order I read them:
       You know that something bad has happened to Iris, but you only find out the details slowly.
     </p>
     <p>
-      It gave me a lot of thoughts and feelings, and I felt a lot of sympathy for Iris.
+      It gave me a lot of thoughts and feelings, and I felt sympathy for Iris.
       Both Irises have flawed and imperfect lives, and there’s no implied moral that one is obviously better or more correct.
       I haven’t read it again, but I want to, because I suspect there’s a lot I’d pick up on a second time round.
     </p>
@@ -162,7 +162,21 @@ These are the best books I read in 2023, in the order I read them:
   </div>
   <div class="review_text">
     <p>
-      INFO GOES HERE
+      A fun story an America in which fantasy and magic are real and somewhat commonplace, including vampires, ghosts, and evil scarecrows.
+    </p>
+    <p>
+      Elatsoe (“Ellie”) is a member of the Lipan tribe, and women in her family have the ability to speak to ghosts – usually animal ghosts, because human ghosts are more violent and angry.
+      She’s investigating the death of her cousin, which she believes to be a murder.
+    </p>
+    <p>
+      The plot is a little slow, but the worldbuilding is gorgeous – it feels rich and real, without being heavy-handed.
+      We get little glimpses, but it’s never treated as spectacular or obsessed over.
+      I didn’t need to have every detail to enjoy it.
+      I’d happily read more stories in this setting, but it also works nicely as a standalone.
+    </p>
+    <p>
+      I read Darcie Little Badger’s second book in August.
+      <em>A Snake Falls to Earth</em> is another good fantasy, and adds her to my list of favourite authors.
     </p>
   </div>
 </div>
@@ -188,7 +202,17 @@ These are the best books I read in 2023, in the order I read them:
   </div>
   <div class="review_text">
     <p>
-      INFO GOES HERE
+      This gorgeous story about grief and heartbreak, and two people learning to find love again after great tragedy.
+    </p>
+    <p>
+      The phone box itself is almost mundane, with no special magic or power. When I first saw the title, I wondered if this was a fantasy or sci-fi book – I was getting strong TARDIS vibes – but it’s not, and that’s a good thing.
+      Instead, we see very little of the conversations people have inside the phone box, which are largely private.
+    </p>
+    <p>
+      The book only revolves around a handful of characters – Yui, Takeshi, and Hana. Although we see other people who visit the phone box, we only see them through their eyes. Focusing on just a few characters is a smart move, because it lets us see more of their lives and their feelings.
+    </p>
+    <p>
+      It reminded me a lot of Toshikazu Kawaguchi’s books, which I adore – grief and sadness but with an ultimately positive message.
     </p>
   </div>
 </div>
@@ -214,7 +238,20 @@ These are the best books I read in 2023, in the order I read them:
   </div>
   <div class="review_text">
     <p>
-      INFO GOES HERE
+      This was a great memoir about autism and sexuality.
+    </p>
+    <p>
+      I first saw Fern Brady when she appeared on <em>Taskmaster</em>, where she quickly became one of my favourite contestants.
+      I loved how unapologetic she was about being herself, and how much fun she seemed to be having.
+      When I learnt she was writing a memoir, I knew I had to read it.
+    </p>
+    <p>
+      It’s the story of her life, being autistic, and the ways her behaviours have affected her life.
+      It felt genuine and raw, and it wasn’t unrealistically hopeful or optimistic – it was a statement about how autism has affected her life.
+      Her experience isn’t the same as mine, but I definitely saw parallels with my own experiences.
+    </p>
+    <p>
+      I was engrossed and read it in a single day; I was enjoying it so much I actually missed my train stop on the way home.
     </p>
   </div>
 </div>
@@ -238,10 +275,16 @@ These are the best books I read in 2023, in the order I read them:
       publication_year="2022"
     %}
   </div>
-  <div class="review_text">
-    <p>
-      INFO GOES HERE
-    </p>
-  </div>
 </div>
 
+This is a gripping and horrifying story of growing up in North Korea, then escaping as an adult.
+
+North Korea is a country I was only vaguely aware of, and most of my knowledge comes from pop culture stereotypes, so I learnt a lot from this book.
+It starts when Jihyun was a child, in the early 1970s, and North Korea was less uncomfortable, if not exactly prosperous.
+My mental image of the country is entirely the modern regime, so it was good to read more about its history, and witness the decline through Jihyun's life.
+It was as unpleasant as it was fascinating.
+
+As the book describes inhumane atrocities, the writing is clear and simple, with plenty of detail.
+As with *Seven Fallen Feathers*, this is a good example of "show, don't tell".
+
+The overall narrative is strong, but it's also full of small details and individual stories, which is the sort of thing I enjoy in memoirs.
