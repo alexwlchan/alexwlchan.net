@@ -32,32 +32,34 @@ jobs:
     name: Build the website
     runs-on: ubuntu-latest
     steps:
-      - name: "Check out the repo"
-        uses: actions/checkout@v3
-
-      - name: "Cache site output"
-        uses: "actions/cache@v3"
-        with:
-          path: _site
-          key: "site-${{ github.sha }}"
-          restore-keys: "site-"
-
-      - name: "Cache the .jekyll-cache folder"
-        uses: "actions/cache@v3"
-        with:
-          path: src/.jekyll-cache
-          key: "jekyll-cache-${{ github.sha }}"
-          restore-keys: "jekyll-cache-"
-
-      - name: "Build the site"
-        run: make html-drafts
-
-      - name: "Run linting"
-        run: make lint
+      # - name: "Check out the repo"
+      #   uses: actions/checkout@v3
+      #
+      # - name: "Cache site output"
+      #   uses: "actions/cache@v3"
+      #   with:
+      #     path: _site
+      #     key: "site-${{ github.sha }}"
+      #     restore-keys: "site-"
+      #
+      # - name: "Cache the .jekyll-cache folder"
+      #   uses: "actions/cache@v3"
+      #   with:
+      #     path: src/.jekyll-cache
+      #     key: "jekyll-cache-${{ github.sha }}"
+      #     restore-keys: "jekyll-cache-"
+      #
+      # - name: "Build the site"
+      #   run: make html-drafts
+      #
+      # - name: "Run linting"
+      #   run: make lint
 
       - name: "Merge pull request"
         if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
-        run: .github/workflows/merge_pull_request.sh
+        run: |
+          python3 -m pip install httpx
+          python3 .github/workflows/merge_pull_request.py
 
         # Note: this uses a personal access token, not the default GitHub token;
         # this is so that GitHub will build the resulting merged commit to main.
