@@ -35,14 +35,15 @@ card_attribution: |
 
 I read 75 books this year, which is slightly up on previous years ([2022]({% post_url 2022/2022-12-31-2022-in-reading %}), [2021]({% post_url 2021/2021-12-31-2021-in-reading %})).
 I’m pleased with that number, although overall I found it a slightly disappointing year for reading.
-Although I read more books, there were less books that I really loved – the sort of book that changes my view on the world, that I’m still thinking about weeks later.
+Although I read more books, there were less that I really loved – less of the sort of book that changes my view on the world, that I’m still thinking about weeks later.
 
-I did return to a couple of favourite authors, who all had new books that I enjoyed – Alexandria Bellefleur, Toshikazu Kawaguchi, Maureen Johnson – but that was more familiar than new.
+I did return to a couple of favourite authors, who all released new books that I enjoyed – Alexandria Bellefleur, Toshikazu Kawaguchi, Maureen Johnson – but that was more familiar feelings than new.
 I got more of my novelty from theatre than books this year.
 
-About half of what I read came from my local library.
-This was particularly helpful for the “good, but not great” books that I know I won’t read again.
-I was glad to return them to the library, and not have them taking up space in my house.
+About half of what I read came from my local library, including four of the books on the list below.
+The library was particularly helpful for the “good, but not great” books that I know I won’t read again.
+I was glad to return the books, and not have them taking up space in my house.
+I expect to continue leaning on my library next year.
 
 I continue to write short reviews of books I’ve read at <https://books.alexwlchan.net>, and keep notes in Obsidian.
 The latter have been useful for jogging my memory, including as I write this post.
@@ -71,17 +72,17 @@ I do recommend them all, but you should have a cheery book to read afterwards.
 %}
 </div>
 
-This is a fascinating, if heavy, take on the “what if” concept.
+This is a fascinating take on the “what if” concept.
 
-Iris has run away from the forest to escape her abusive wife, and there she meets an alternate version of herself who made different choices.
-They both have regrets about how their life turned out, and envy towards some aspects of the other’s life – but they also come to learn that the grass isn’t always greener.
-One life isn’t inherently better than the other.
+Iris has run away to the forest to escape her abusive wife, and there she meets an alternate version of herself who made different choices – an Iris who married someone different, and now carries an unwanted pregnancy.
+They both have regrets about how their life turned out, and envy some aspects of the other’s life – but they also learn that the grass isn’t always greener.
 
 The book switches back and forth between “Before” (the events leading up to her running away) and “After” (what she does in the woods).
 You know that something bad has happened to Iris, but you only find out the details slowly.
+I enjoy this sort of non-linear story.
 
 It gave me a lot of thoughts and feelings, and I felt sympathy for Iris.
-Both Irises have flawed and imperfect lives, and there’s no implied moral that one is obviously better or more correct.
+Both Irises have flawed and imperfect lives, and there’s no implication that one is obviously better or more correct.
 I haven’t read it again, but I want to, because I suspect there’s a lot I’d pick up on a second time round.
 
 Content warnings for abuse, sexual assault, rape, and suicide.
@@ -106,17 +107,17 @@ Content warnings for abuse, sexual assault, rape, and suicide.
   %}
 </div>
 
-This is an account of abuse, neglect, and deaths of Indigenous students in Canada’s school systems.
+This is an account of abuse, neglect, and deaths of Indigenous students in Canada’s school system.
 It’s not an easy book to read, but it’s well-written and worth the time.
 
 It focuses on seven deaths in Thunder Bay, and includes the history of the residential schools which form the backdrop for those events.
 As I don’t know much about Canadian history or education, I found the context useful.
 
 The titular “Seven Fallen Feathers” are seven children who died in unexplained circumstances.
-The book devotes a chapter to each of them, describing their history, the days leading up to their death, and the hole it created in the lives of friends and family left behind.
+The book devotes a chapter to each of them, describing their history, the days leading up to their death, and the hole it left in the lives of their friends and family.
 It's difficult to read but important, and the author has obviously done a lot of research and interviews.
 
-There are certain themes that keep coming up – racism towards Indigenous people, disinterest from the Thunder Bay police, the effect of moving kids to big cities – but the author is almost subtle about them.
+There are certain themes that keep coming up – racism towards Indigenous people, disinterest from the Thunder Bay police, the effect of moving kids to big cities – but the author is subtle about them.
 She doesn’t need to tell you what patterns you should be looking for, because it’s so obvious from the stories.
 It’s the embodiment of “show, don’t tell”.
 
@@ -140,18 +141,18 @@ Content warnings for death, suicide, racism and colonialism.
   %}
 </div>
 
-A fun story in an America in which fantasy and magic are real and somewhat commonplace, including vampires, ghosts, and evil scarecrows.
+A fun story in an America where fantasy and magic are real and commonplace, including vampires, ghosts, and evil scarecrows.
 
-Elatsoe (“Ellie”) is a member of the Lipan tribe, and women in her family have the ability to speak to ghosts – usually animal ghosts, because human ghosts are more violent and angry.
-She’s investigating the death of her cousin, which she believes to be a murder.
+Elatsoe (“Ellie”) is a member of the Lipan Apache Tribe, and women in her family have the ability to speak to ghosts – usually animal ghosts, because human ghosts are more violent and angry.
+She’s investigating the death of her cousin Trevor, which she believes to be a murder.
 
 The plot is a little slow, but the worldbuilding is gorgeous – it feels rich and real, without being heavy-handed.
-We get little glimpses, but it’s never treated as spectacular or obsessed over.
+We get little glimpses of the magic, but it’s never treated as spectacular or obsessed over.
 I didn’t need to have every detail to enjoy it.
 I’d happily read more stories in this setting, but it also works nicely as a standalone.
 
-I read Darcie Little Badger’s second book in August.
-<em>A Snake Falls to Earth</em> is another good fantasy, and adds her to my list of favourite authors.
+This was Darcie Little Badger's debut novel, and I read her second novel, *A Snake Falls to Earth*, in August.
+It was another good fantasy, and I'll definitely be reading more of her work in future.
 
 <div class="book_review" id="phone_box">
   {%
@@ -173,10 +174,16 @@ I read Darcie Little Badger’s second book in August.
 
 This is a gorgeous story about grief and heartbreak, and two people learning to find love again after great tragedy.
 
-The phone box itself is almost mundane, with no special magic or power. When I first saw the title, I wondered if this was a fantasy or sci-fi book – I was getting strong TARDIS vibes – but it’s not, and that’s a good thing.
-Instead, we see very little of the conversations people have inside the phone box, which are largely private.
+The phone box itself is mundane, with no special magic or power.
+When I first saw the title, I wondered if this was a fantasy or sci-fi book – I was getting TARDIS vibes – but it’s not, and that’s a good thing.
+It's just an ordinary phone box in a garden in Bell Gardia, a few hours from Tokyo.
 
-The book only revolves around a handful of characters – Yui, Takeshi, and Hana. Although we see other people who visit the phone box, we only see them through their eyes. Focusing on just a few characters is a smart move, because it lets us see more of their lives and their feelings.
+People go to the phone box to have conversations with their loved ones – often they're talking to people who have died, but not always.
+Some talk to estranged family, others talk to friends who are alive but mentally incapacitated or traumatised.
+These conversations are largely private, and we don't get to hear many of them.
+
+Instead, the book focuses on a handful of characters – Sui, Takeshi, and Hana – and how they interact with the phone box, and its other visitors.
+They've all suffered losses, and their visits to the phone box are what help them to start reconnecting with people.
 
 It reminded me a lot of Toshikazu Kawaguchi’s books, which I adore – grief and sadness but with an ultimately positive message.
 
@@ -198,15 +205,17 @@ It reminded me a lot of Toshikazu Kawaguchi’s books, which I adore – grief a
   %}
 </div>
 
-This was a great memoir about autism and sexuality.
+This is a great memoir about autism and sexuality.
 
 I first saw Fern Brady when she appeared on <em>Taskmaster</em>, where she quickly became one of my favourite contestants.
 I loved how unapologetic she was about being herself, and how much fun she seemed to be having.
 When I learnt she was writing a memoir, I knew I had to read it.
 
-It’s the story of her life, being autistic, and the ways her behaviours have affected her life.
-It felt genuine and raw, and it wasn’t unrealistically hopeful or optimistic – it was a statement about how autism has affected her life.
-Her experience isn’t the same as mine, but I definitely saw parallels with my own experiences.
+It’s the story of her growing up, being autistic, and the ways her behaviours have affected her life.
+There's also a lot of discussion of how being a woman meant her autism was overlooked or ignored for a long time.
+It felt genuine and raw, and it wasn’t unrealistically hopeful or optimistic – it was a statement about what being an autistic woman is like.
+
+I definitely saw parallels with my own life, and it's given me plenty to think about.
 
 I was engrossed and read it in a single day; I was enjoying it so much I actually missed my train stop on the way home.
 
@@ -231,11 +240,13 @@ I was engrossed and read it in a single day; I was enjoying it so much I actuall
 This is a gripping and horrifying story of growing up in North Korea, then escaping as an adult.
 
 North Korea is a country I was only vaguely aware of, and most of my knowledge comes from pop culture stereotypes, so I learnt a lot from this book.
-It starts when Jihyun was a child, in the early 1970s, and North Korea was less uncomfortable, if not exactly prosperous.
-My mental image of the country is entirely the modern regime, so it was good to read more about its history, and witness the decline through Jihyun's life.
-It was as unpleasant as it was fascinating.
+It's primarily a story about Jihyun's experience rather than North Korean politics, but even so it covers a lot of Korean history that was new to me.
 
-As the book describes inhumane atrocities, the writing is clear and simple, with plenty of detail.
+It starts when Jihyun was a child, in the early 1970s, and North Korea was less uncomfortable, if not exactly prosperous.
+She grows up to be a school teacher as the economy declines, and then escapes through China when things get much worse -- saving herself, but leaving her entire family behind.
+One of the most moving chapters is a farewell letter to her father.
+
+The writing is clear and simple, with plenty of small details and individual stories.
 As with *Seven Fallen Feathers*, this is a good example of "show, don't tell".
 
-The overall narrative is strong, but it's also full of small details and individual stories, which is the sort of thing I enjoy in memoirs.
+<!-- The overall narrative is strong, but it's also full of small details and individual stories, which is the sort of thing I enjoy in memoirs. -->
