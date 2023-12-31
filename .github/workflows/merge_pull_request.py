@@ -12,6 +12,7 @@ api_client = httpx.Client(
     base_url="https://api.github.com/",
     headers={
         "Accept": "application/vnd.github.v3+json",
+        "Authorization": f"token {os.environ['GITHUB_TOKEN']}",
         "X-GitHub-Api-Version": "2022-11-28",
     },
 )
@@ -25,7 +26,7 @@ def current_merge_commit():
     return subprocess.check_output(cmd).decode("utf8").strip()
 
 
-def other_checks_are_running():
+def other_checks_are_running(branch_name):
     # Now look for other checks running on the same branch.
     #
     # See https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-runs-for-a-git-reference
@@ -34,17 +35,21 @@ def other_checks_are_running():
     )
     checks_resp.raise_for_status()
 
-    for check_run in checks_resp.json()["check_runs"]:
-        if check_run["name"] == "Merge pull request":
-            continue
+    other_checks = [
+        check_run
+        for check_run in checks_resp.json()["check_runs"]
+        if check_run["name"] != "Merge pull request"
+    ]
 
-        if check_run["status"] != "completed":
-            print(f"Still waiting for {check_run['name']!r}...")
-            return True
-
-        if check_run["conclusion"] != "success":
-            print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
+    for cr in other_checks:
+        if cr["status"] == "completed" and cr["conclusion"] != "success":
+            print(f"!!! Check run {cr['name']!r} did not succeed", file=sys.stderr)
             sys.exit(1)
+
+    for cr in other_checks:
+        if cr["status"] != "completed":
+            print(f"Still waiting for {cr['name']!r}...")
+            return True
 
     return False
 
@@ -77,6 +82,13 @@ if __name__ == "__main__":
         print("This is a draft PR, so not merging")
         sys.exit(0)
 
+    # Wait 20 seconds for any other check runs to be triggered, then wait
+    # until they've all finished.
+    time.sleep(20)
+
+    while other_checks_are_running(branch_name):
+        time.sleep(2)
+
     # Check if the branch has been updated since this build started;
     # if so, the build on the newer commit takes precedent.
     merge_commit_id = pr_resp.json()["merge_commit_sha"]
@@ -88,13 +100,6 @@ if __name__ == "__main__":
         )
         sys.exit(0)
 
-    # Wait 20 seconds for any other check runs to be triggered, then wait
-    # until they've all finished.
-    time.sleep(20)
-
-    while other_checks_are_running():
-        time.sleep(2)
-
     # Now look for other checks and see if they succeeded.
     #
     # See https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28#list-check-runs-for-a-git-reference
@@ -103,29 +108,31 @@ if __name__ == "__main__":
     )
     checks_resp.raise_for_status()
 
+    succeeded_checks = set()
+
     for check_run in checks_resp.json()["check_runs"]:
-        if check_run["name"] == "Build the website":
+        if check_run["name"] == "Merge pull request":
             continue
 
         if check_run["status"] != "completed":
-            print(f"Check run {check_run['name']!r} has not completed", file=sys.stderr)
+            print(f"!!! Check run {check_run['name']!r} has not completed", file=sys.stderr)
             sys.exit(1)
 
         if check_run["conclusion"] != "success":
-            print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
+            print(f"!!! Check run {check_run['name']!r} did not succeed", file=sys.stderr)
             sys.exit(1)
 
-    if len(checks_resp.json()["check_runs"]) == 1:
+        succeeded_checks.add(check_run["name"])
+
+    if len(succeeded_checks) == 0:
         print("No other check runs triggered, okay to merge")
     else:
-        print("All other check runs succeeded, okay to merge")
+        print(f"All other check runs succeeded, okay to merge ({succeeded_checks})")
 
     api_client.put(
         f"/repos/alexwlchan/alexwlchan.net/pulls/{pr_number}/merge",
-        headers={"Authorization": f"token {os.environ['GITHUB_TOKEN']}"},
     )
 
     api_client.delete(
         f"/repos/alexwlchan/alexwlchan.net/git/refs/heads/{branch_name}",
-        headers={"Authorization": f"token {os.environ['GITHUB_TOKEN']}"},
     )
