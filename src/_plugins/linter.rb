@@ -9,6 +9,8 @@ require 'rszr'
 require 'uri'
 require 'yaml'
 
+require_relative 'utils/picture'
+
 class RunLinting < Jekyll::Command
   class << self
     def init_with_program(prog)
@@ -289,26 +291,17 @@ class RunLinting < Jekyll::Command
     # and devices; my iMac in particular uses a Display P3 colour profile for
     # screenshots and images which looks washed out on non-Apple displays.
     def check_all_images_are_srgb(dst_dir)
-      errors = Hash.new { [] }
-
       info('Checking image colour profiles...')
 
-      safe_colour_profiles = Set['sRGB']
+      errors = Hash.new { [] }
 
-      exiftool_output = `exiftool -r -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dst_dir}/images/**`
-
-      exiftool_output
-        .split("\n")
-        .sort
-        .map do |line|
-          path, profile = line.split(':')
-          path = path.strip!
-          profile = profile.strip!
-
-          unless safe_colour_profiles.include? profile
-            errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
-          end
+      get_colour_profiles("#{dst_dir}/images").each do |path, profile|
+        if profile.nil?
+          next
         end
+
+        errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
+      end
 
       report_errors(errors)
     end
