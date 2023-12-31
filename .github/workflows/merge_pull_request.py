@@ -12,6 +12,7 @@ api_client = httpx.Client(
     base_url="https://api.github.com/",
     headers={
         "Accept": "application/vnd.github.v3+json",
+        "Authorization": f"token {os.environ['GITHUB_TOKEN']}",
         "X-GitHub-Api-Version": "2022-11-28",
     },
 )
@@ -130,10 +131,8 @@ if __name__ == "__main__":
 
     api_client.put(
         f"/repos/alexwlchan/alexwlchan.net/pulls/{pr_number}/merge",
-        headers={"Authorization": f"token {os.environ['GITHUB_TOKEN']}"},
     )
 
     api_client.delete(
         f"/repos/alexwlchan/alexwlchan.net/git/refs/heads/{branch_name}",
-        headers={"Authorization": f"token {os.environ['GITHUB_TOKEN']}"},
     )
