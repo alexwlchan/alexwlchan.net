@@ -298,7 +298,7 @@ class RunLinting < Jekyll::Command
 
       safe_colour_profiles = Set['sRGB']
 
-      exiftool_output = `exiftool -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dst_dir}/images/**`
+      exiftool_output = `exiftool -r -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dst_dir}/images/**`
 
       exiftool_output
         .split("\n")
