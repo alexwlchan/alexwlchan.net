@@ -9,8 +9,7 @@ class TestGetColourProfiles < Test::Unit::TestCase
     actual = get_colour_profiles('src/_tests/images')
 
     expected = {
-      'src/_tests/images/gradient-with-p3.png' => 'Display P3',
-      'src/_tests/images/gradient-with-srgb.png' => nil
+      'src/_tests/images/gradient-with-p3.png' => 'Display P3'
     }
 
     assert_equal(actual, expected)

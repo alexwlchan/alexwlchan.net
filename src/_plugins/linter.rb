@@ -297,7 +297,12 @@ class RunLinting < Jekyll::Command
 
       errors = Hash.new { [] }
 
-      safe_colour_profiles = Set['sRGB']
+      safe_colour_profiles = Set[
+        'Generic Gray Gamma 2.2 Profile',
+        'sRGB built-in',
+        'sRGB IEC61966-2.1',
+        'sRGB'
+      ]
 
       get_colour_profiles("#{dst_dir}/images").each do |path, profile|
         if profile.nil? || safe_colour_profiles.include?(profile)
