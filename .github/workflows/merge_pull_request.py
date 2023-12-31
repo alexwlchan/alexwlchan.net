@@ -34,17 +34,21 @@ def other_checks_are_running(branch_name):
     )
     checks_resp.raise_for_status()
 
-    for check_run in checks_resp.json()["check_runs"]:
-        if check_run["name"] == "Merge pull request":
-            continue
+    other_checks = {
+        check_run
+        for check_run in checks_resp.json()["check_runs"]
+        if check_run["name"] != "Merge pull request"
+    }
 
-        if check_run["status"] != "completed":
-            print(f"Still waiting for {check_run['name']!r}...")
-            return True
-
-        if check_run["conclusion"] != "success":
+    for cr in other_checks:
+        if cr["status"] == "completed" and cr["conclusion"] != "success":
             print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
             sys.exit(1)
+
+    for cr in other_checks:
+        if cr["status"] != "completed":
+            print(f"Still waiting for {check_run['name']!r}...")
+            return True
 
     return False
 
@@ -117,7 +121,7 @@ if __name__ == "__main__":
             print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
             sys.exit(1)
 
-        succeeded_checks.add(check_run['name'])
+        succeeded_checks.add(check_run["name"])
 
     if len(succeeded_checks) == 0:
         print("No other check runs triggered, okay to merge")
