@@ -42,12 +42,12 @@ def other_checks_are_running(branch_name):
 
     for cr in other_checks:
         if cr["status"] == "completed" and cr["conclusion"] != "success":
-            print(f"Check run {check_run['name']!r} did not succeed", file=sys.stderr)
+            print(f"Check run {cr['name']!r} did not succeed", file=sys.stderr)
             sys.exit(1)
 
     for cr in other_checks:
         if cr["status"] != "completed":
-            print(f"Still waiting for {check_run['name']!r}...")
+            print(f"Still waiting for {cr['name']!r}...")
             return True
 
     return False
