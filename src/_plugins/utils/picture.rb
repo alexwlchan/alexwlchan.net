@@ -5,8 +5,9 @@ def get_colour_profiles(dirname)
   # Flags:
   #
   #    -r = recursive, search for every file in the folder
+  #    -quiet -quiet = ignore warnings
   #
-  exiftool_output = `exiftool -r -quiet -printFormat '$directory/$filename : $profileDescription' #{dirname}/** 2>&1`
+  exiftool_output = `exiftool -r -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dirname}/** 2>&1`
 
   # There are two possible outputs for the line, of the form:
   #
