@@ -111,7 +111,7 @@ if __name__ == "__main__":
     succeeded_checks = set()
 
     for check_run in checks_resp.json()["check_runs"]:
-        if check_run["name"] == "Build the website":
+        if check_run["name"] == "Merge pull request":
             continue
 
         if check_run["status"] != "completed":
