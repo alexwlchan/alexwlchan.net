@@ -34,11 +34,11 @@ def other_checks_are_running(branch_name):
     )
     checks_resp.raise_for_status()
 
-    other_checks = {
+    other_checks = [
         check_run
         for check_run in checks_resp.json()["check_runs"]
         if check_run["name"] != "Merge pull request"
-    }
+    ]
 
     for cr in other_checks:
         if cr["status"] == "completed" and cr["conclusion"] != "success":
