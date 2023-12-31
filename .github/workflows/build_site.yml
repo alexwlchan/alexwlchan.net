@@ -50,7 +50,15 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: make html-drafts
+        run: |
+        	rm _site/images/cards/2023/check-for-transparency*
+        	rm _site/images/cards/2023/cats-cross-stitch-and-copyright*
+        	rm _site/images/cards/2023/blink*
+        	rm _site/images/cards/2023/2023-in-reading*
+          rm -r _site/images/2019/sans-io-programming/*
+          rm -rf _site/images/2017/pyconuk-2017-privilege-inclusion/*
+
+          make html-drafts
 
       - name: "Run linting"
         run: make lint

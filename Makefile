@@ -31,6 +31,7 @@ lint:
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
 		--volume $(ROOT)/src/_plugins/linter.rb:$(JEKYLL_COMMAND_DIR)/linter.rb \
+		--volume $(ROOT)/src/_plugins/utils/picture.rb:$(JEKYLL_COMMAND_DIR)/utils/picture.rb \
 		$(DOCKER_IMAGE) lint
 
 script-lint:

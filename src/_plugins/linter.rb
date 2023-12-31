@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'set'
+
 require 'html-proofer'
 require 'json'
 require 'json-schema'
@@ -8,6 +10,8 @@ require 'rainbow'
 require 'rszr'
 require 'uri'
 require 'yaml'
+
+require_relative 'utils/picture'
 
 class RunLinting < Jekyll::Command
   class << self
@@ -220,9 +224,6 @@ class RunLinting < Jekyll::Command
           md_path.start_with?('src/_drafts/')
         )
 
-        puts md_path.inspect
-        puts is_in_post_directory.inspect
-
         errors[md_path] <<= "layout should be 'post'; got #{front_matter['layout']}" if is_in_post_directory && front_matter['layout'] != 'post'
 
         errors[md_path] <<= "layout should be 'page'; got #{front_matter['layout']}" if !is_in_post_directory && front_matter['layout'] != 'page'
@@ -292,26 +293,19 @@ class RunLinting < Jekyll::Command
     # and devices; my iMac in particular uses a Display P3 colour profile for
     # screenshots and images which looks washed out on non-Apple displays.
     def check_all_images_are_srgb(dst_dir)
-      errors = Hash.new { [] }
-
       info('Checking image colour profiles...')
+
+      errors = Hash.new { [] }
 
       safe_colour_profiles = Set['sRGB']
 
-      exiftool_output = `exiftool -quiet -quiet -printFormat '$directory/$filename : $profileDescription' #{dst_dir}/images/**`
-
-      exiftool_output
-        .split("\n")
-        .sort
-        .map do |line|
-          path, profile = line.split(':')
-          path = path.strip!
-          profile = profile.strip!
-
-          unless safe_colour_profiles.include? profile
-            errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
-          end
+      get_colour_profiles("#{dst_dir}/images").each do |path, profile|
+        if profile.nil? || safe_colour_profiles.include?(profile)
+          next
         end
+
+        errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
+      end
 
       report_errors(errors)
     end
