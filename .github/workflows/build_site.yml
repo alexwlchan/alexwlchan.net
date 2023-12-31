@@ -50,24 +50,7 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: |
-        	rm _site/images/cards/2023/check-for-transparency*
-        	rm _site/images/cards/2023/cats-cross-stitch-and-copyright*
-        	rm _site/images/cards/2023/blink*
-        	rm _site/images/cards/2023/2023-in-reading*
-          rm -r _site/images/2019/sans-io-programming/*
-          rm -rf _site/images/2017/pyconuk-2017-privilege-inclusion/*
-          rm _site/images/2023/netlify-resources-not-found*
-          rm _site/images/2023/a-small-plaque*
-          rm _site/images/2023/IMG_3373*
-          rm _site/images/cards/2017/latex-underlines*
-          rm _site/images/2023/blink-screenshot*
-          rm _site/images/2023/IMG_33*
-          rm _site/images/2023/IMG_9016.png
-          rm _site/images/2018/suspicious-minds/*
-          rm _site/images/2017/ode-to-docopt/*
-
-          make html-drafts
+        run: make html-drafts
 
       - name: "Run linting"
         run: make lint
