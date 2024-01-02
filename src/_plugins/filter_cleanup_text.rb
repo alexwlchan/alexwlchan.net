@@ -21,6 +21,7 @@ class AddNonBreakingSpaces
       HTTP
       ImageMagick
       issue
+      Issue
       RFC
       Part
       part
