@@ -73,7 +73,7 @@ deploy-prod:
 	docker run --tty --rm \
 		--volume $(ROOT):$(ROOT) \
 		--workdir $(ROOT) \
-		ghcr.io/williamjacksn/netlify-cli \
+		ghcr.io/williamjacksn/netlify-cli:17.10.1 \
 		deploy --prod --auth "$(NETLIFY_AUTH_TOKEN)"
 
 Gemfile.lock: Gemfile
