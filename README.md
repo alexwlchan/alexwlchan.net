@@ -88,7 +88,7 @@ If you want to use any of the components in your own projects – plugins, layou
 
 -   Except where otherwise noted, the site and the associated code are dual-licensed as:
 
-    -   [Creative Commons Attribution 4.0 International (aka CCnbsp;BY&nbsp;4.0)](https://creativecommons.org/licenses/by/4.0/)
+    -   [Creative Commons Attribution 4.0 International (aka CC&nbsp;BY&nbsp;4.0)](https://creativecommons.org/licenses/by/4.0/)
     -   [The MIT License](https://opensource.org/licenses/MIT)
 
     If you're reusing my content, you can use whichever licence is most appropriate.
