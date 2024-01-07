@@ -7,33 +7,6 @@
 # in `_config.yml`.
 #
 
-require 'pathname'
-
-def minify_svg(svg_path, src, dst)
-  src_path = Pathname.new(svg_path)
-  relative_path = src_path.relative_path_from("#{src}/_images")
-  dst_path = Pathname.new("#{dst}/images") + relative_path
-
-  return unless !dst_path.file? || dst_path.mtime <= src_path.mtime
-
-  # Minify the XML by removing the comments
-  # See https://stackoverflow.com/a/45129390/1558022
-  require 'nokogiri'
-  doc = Nokogiri::XML(File.open(src_path))
-  doc.xpath('//comment()').remove
-  doc.xpath('//text()').each do |node|
-    node.content = '' if node.text =~ /\A\s+\z/m
-  end
-
-  # Replace the URLs in any <image> tags with absolute references
-  # to the site.
-  doc.xpath('//xmlns:image').each do |node|
-    node['href'] = "https://alexwlchan.net/#{node['href']}" if node['href'].start_with? '/'
-  end
-
-  dst_path.write(doc.to_xml(indent: 0))
-end
-
 module Jekyll
   class StaticFileGenerator < Generator
     def generate(site)
@@ -48,12 +21,6 @@ module Jekyll
         unless system("rsync --archive #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=cards --exclude=icons --exclude=*.svg")
           raise "Error running the static file rsync for #{dir}!"
         end
-      end
-
-      # Copy across all the SVG files, minifying them as we go.  We do this
-      # because minifying XML is (relatively) fast
-      Dir["#{src}/_images/**/*.svg"].each do |svg_path|
-        minify_svg(svg_path, src, dst)
       end
     end
   end
