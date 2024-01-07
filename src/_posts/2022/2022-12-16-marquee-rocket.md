@@ -477,7 +477,7 @@ While I was writing this blog post, I discovered that we can also do multistage 
 
 This looks about as good as you'd expect:
 
-<div id="nested" class="marquee_example">
+<div id="nested" class="marquee_example indented">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('nested')">pause</button>
     <marquee style="color: #ef4239;">
