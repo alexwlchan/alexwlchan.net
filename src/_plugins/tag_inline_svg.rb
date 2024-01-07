@@ -63,10 +63,10 @@ def get_inline_svg(svg_path, alt_text, extra_attrs, dst_path)
 
   # Render the minified version of the SVG in the HTML.
   xml = svg_doc
-    .to_xml(indent: 0)
-    .gsub('<?xml version="1.0" encoding="UTF-8"?>', '')
-    .gsub('<?xml version="1.0"?>', '')
-    .gsub('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', '')
+        .to_xml(indent: 0)
+        .gsub('<?xml version="1.0" encoding="UTF-8"?>', '')
+        .gsub('<?xml version="1.0"?>', '')
+        .gsub('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', '')
 
   # If we're told where this SVG should be linking to, create a link,
   # otherwise drop the XML directly into the page.
