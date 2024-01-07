@@ -116,7 +116,11 @@ For example, let's suppose our data points are positions on a 2D plane.
 If we group them into three clusters by saying "points that are close together are similar", we might end up with this clustering:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/cluster_analysis.svg" alt="A collection of small squares, split into three groups (red, green, blue).">
+  {%
+    inline_svg
+    filename="cluster_analysis.svg"
+    alt="A collection of small squares, split into three groups (red, green, blue)."
+  %}
   <figcaption>
     The squares are coloured differently to show which cluster they're in.
     Illustration from <a href="https://en.wikipedia.org/wiki/File:Cluster-2.svg">Wikimedia Commons</a>.
@@ -130,28 +134,56 @@ Visual examples often help me understand something like this, and the Wikipedia 
 Let's walk through them.
 Suppose we have some points in 2D space, and we want to divide them into 3&nbsp;clusters:
 
+<style>
+  .k_means_rect {
+    stroke: black;
+    stroke-width: 1.5; stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 4;
+    stroke-dasharray: none;
+    rx: 3;
+    ry: 1;
+  }
+</style>
+
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_0.svg" alt="Ten grey squares shown in a U shape.">
+  {%
+    inline_svg
+    filename="K_Means_Example_Step_0.svg"
+    alt="Ten grey squares shown in a U shape."
+  %}
 </figure>
 
 Step 1: we start by picking 3&nbsp;points at random.
 These are the initial "means":
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_1.svg" alt="The grey squares, but with three squares replaced with red/green/blue circles.">
+  {%
+    inline_svg
+    filename="K_Means_Example_Step_1.svg"
+    alt="The grey squares, but with three squares replaced with red/green/blue circles."
+  %}
 </figure>
 
 Step 2: go through all the points, and measure the distance from the point to each of the means.
 Put each point in a cluster with the closest mean, which divides the points into 3&nbsp;clusters:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_2.svg" alt="The squares coloured red/green/blue, and with the background split into lighter shades of red/green/blue to show which point is in which cluster.">
+  {%
+    inline_svg
+    filename="K_Means_Example_Step_2.svg"
+    alt="The squares coloured red/green/blue, and with the background split into lighter shades of red/green/blue to show which point is in which cluster."
+  %}
 </figure>
 
 Step 3: within each cluster, calculate the centre, and use that as the new mean.
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_3.svg" alt="The circles with an arrow pointing to a new circle, showing the movement of the mean.">
+  {%
+    inline_svg
+    filename="K_Means_Example_Step_3.svg"
+    alt="The circles with an arrow pointing to a new circle, showing the movement of the mean."
+  %}
 </figure>
 
 Because the means have moved, some of the points are now in the wrong cluster.
@@ -160,7 +192,11 @@ Re-run step 2 and step 3 until the clusters stop changing.
 This gives you the final 3&nbsp;clusters:
 
 <figure style="width: 400px;">
-  <img src="/images/2019/K_Means_Example_Step_4.svg" alt="The squares shaded red/green/blue with background shading, but different clusters to above.">
+  {%
+    inline_svg
+    filename="K_Means_Example_Step_4.svg"
+    alt="The squares shaded red/green/blue with background shading, but different clusters to above."
+  %}
 </figure>
 
 To recap:

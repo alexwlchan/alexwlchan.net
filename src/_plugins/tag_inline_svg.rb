@@ -23,11 +23,13 @@
 #     pinned to Jekyll 3.3, and I'm using 4.x.
 #
 
+require 'fileutils'
+
 require 'nokogiri'
 
 require_relative 'utils/attrs'
 
-def get_inline_svg(svg_path, alt_text, extra_attrs)
+def get_inline_svg(svg_path, alt_text, extra_attrs, dst_path)
   svg_doc = File.open(svg_path) { |f| Nokogiri::XML(f) }
 
   # Quoting "Accessible SVGs" § 2:
@@ -60,11 +62,19 @@ def get_inline_svg(svg_path, alt_text, extra_attrs)
   svg_doc.xpath('//comment()').remove
 
   # Render the minified version of the SVG in the HTML.
-  svg_doc
+  xml = svg_doc
     .to_xml(indent: 0)
     .gsub('<?xml version="1.0" encoding="UTF-8"?>', '')
     .gsub('<?xml version="1.0"?>', '')
     .gsub('<?xml version="1.0" encoding="UTF-8" standalone="no"?>', '')
+
+  # If we're told where this SVG should be linking to, create a link,
+  # otherwise drop the XML directly into the page.
+  if dst_path.nil?
+    xml
+  else
+    "<a href=\"#{dst_path}\">#{xml}</a>"
+  end
 end
 
 module Jekyll
@@ -82,13 +92,24 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       src = site.config['source']
+      dst = site.config['destination']
 
       year = context.registers[:page]['date'].year
 
-      svg_path = "#{src}/_images/#{year}/#{@filename}"
+      src_path = "#{src}/_images/#{year}/#{@filename}"
       alt_text = @attrs.delete('alt')
 
-      get_inline_svg(svg_path, alt_text, @attrs)
+      link_to_original = @attrs.include? 'link_to_original'
+      @attrs.delete('link_to_original')
+
+      if link_to_original
+        dst_path = "/images/#{year}/#{@filename}"
+        FileUtils.cp(src_path, "#{dst}#{dst_path}")
+      else
+        dst_path = nil
+      end
+
+      get_inline_svg(src_path, alt_text, @attrs, dst_path)
     end
   end
 end
