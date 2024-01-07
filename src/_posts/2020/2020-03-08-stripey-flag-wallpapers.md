@@ -28,7 +28,11 @@ One of the builtin wallpapers that ships with iOS is a black wallpaper with slan
 
 <figure>
   <img src="/images/2020/rainbow_apple_wallpaper.jpg" class="wallpaper" alt="A black wallpaper with six coloured diagonal stripes. From top to bottom: green, yellow, orange, red, purple, blue.">
-  <img src="/images/2020/rainbow_apple_logo.svg" alt="The rainbow Apple logo.">
+  {%
+    inline_svg
+    filename="rainbow_apple_logo.svg"
+    alt="The rainbow Apple logo."
+  %}
 </figure>
 
 This sort of simple, geometric design is exactly the type of thing you can create in code, not an image editor.

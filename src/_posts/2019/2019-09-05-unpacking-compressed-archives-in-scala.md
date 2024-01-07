@@ -131,7 +131,11 @@ iterator.foreach { case (archiveEntry, is) =>
 At this point, it might seem like we're done -- but there's a bug lurking here, which we discovered when we started uploading these streams to S3.
 Although this iterator generates lots of `InputStream` instances, really these are all a view into the same underlying original stream -- it's all one sequence of bytes under the hood.
 
-<img src="/images/2019/streams.svg" alt="Four rectangles (file1.txt, file2.txt, file3.txt, file4.txt) in a horizontal line, each with an arrow pointing down to a single continuous rectangle (archiveInputStream).">
+{%
+  inline_svg
+  filename="streams.svg"
+  alt="Four rectangles (file1.txt, file2.txt, file3.txt, file4.txt) in a horizontal line, each with an arrow pointing down to a single continuous rectangle (archiveInputStream)."
+%}
 
 If you call `close()` on any of the individual streams, that gets passed down to the underlying stream.
 When you go to read the next entry, you get an IOException: *input buffer is closed*.
