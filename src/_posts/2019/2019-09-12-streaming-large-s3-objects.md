@@ -98,7 +98,11 @@ How can we do that?
 Java has a `SequenceInputStream` type that's just what we need -- we give it an Enumeration of InputStream instances, and it reads bytes from each one in turn.
 It we create the streams as they're needed by the Enumeration, this will join them together for us.
 
-<img src="/images/2019/sequence_stream.svg" alt="A series of rectangles for InputStreams, one from 0–999, then 1000–1999, then 2000–2999, all pointing up into a single recetangle labelled SequenceInputStream.">
+{%
+  inline_svg
+  filename="sequence_stream.svg"
+  alt="A series of rectangles for InputStreams, one from 0–999, then 1000–1999, then 2000–2999, all pointing up into a single recetangle labelled SequenceInputStream."
+%}
 
 We can create the Enumeration like so:
 

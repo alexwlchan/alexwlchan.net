@@ -60,7 +60,11 @@ SVG flips this on its head (literally), because the $y$-axis moves down rather t
 Here's what it looks like:
 
 <figure style="width: 350px;">
-  <img src="/images/2019/cartesian_coordinates.svg" alt="A pair of x-y axes, with x running from left-to-right, and y running from top-to-bottom. There are light grey grid lines running parallel to the axes. The points (0, 0), (2, 3) and (3.4, 1.2) are labelled with coloured circles (green, blue, red, respectively).">
+  {%
+    inline_svg
+    filename="cartesian_coordinates.svg"
+    alt="A pair of x-y axes, with x running from left-to-right, and y running from top-to-bottom. There are light grey grid lines running parallel to the axes. The points (0, 0), (2, 3) and (3.4, 1.2) are labelled with coloured circles (green, blue, red, respectively)."
+  %}
 </figure>
 
 For example, the coordinates in this SVG define a black square:
@@ -75,7 +79,11 @@ For example, the coordinates in this SVG define a black square:
 Here's what that image looks like (the grey dashed line marks the edge of the SVG):
 
 <figure style="width: 350px;">
-  <img src="/images/2019/black_square.svg" alt="A black square in the middle of a white square with a dashed grey edge. The four corners of the square are marked with red dots and coordinates.">
+  {%
+    inline_svg
+    filename="black_square.svg"
+    alt="A black square in the middle of a white square with a dashed grey edge. The four corners of the square are marked with red dots and coordinates."
+  %}
 </figure>
 
 This sort of coordinate system is great if you're drawing rectangular shapes, but for other types of diagram it's not so easy.
@@ -92,7 +100,11 @@ Here's a definition for triangular coordinates: we define $\langle 1, 0 \rangle$
 I'm using the $\langle \cdots \rangle$ brackets to distinguish between triangular and $(x,y)$-coordinates.
 
 <figure style="width: 480px;">
-  <img src="/images/2019/triangular_coordinates.svg" alt="A pair of axes at a 60 degree angle, with one running left-to-right, another running on a left-to-right, top-to-bottom slant. The points <0, 0>, <2, 3> and <3.4, 1.2> are labelled with coloured circles (green, blue, red, respectively).">
+  {%
+    inline_svg
+    filename="triangular_coordinates.svg"
+    alt="A pair of axes at a 60 degree angle, with one running left-to-right, another running on a left-to-right, top-to-bottom slant. The points <0, 0>, <2, 3> and <3.4, 1.2> are labelled with coloured circles (green, blue, red, respectively)."
+  %}
 </figure>
 
 The choice of a $60^\circ$ angle means the grid divides into [equilateral triangles][equilateral] (equal sides, equal angles).
@@ -104,7 +116,11 @@ Writing out the points of a regular hexagon in this coordinate system is much si
 Rather than mucking around with any trig, we get neat integer points:
 
 <figure style="width: 350px;">
-  <img src="/images/2019/hex_diagram.svg" alt="A black hexagon with the six points marked with red dots and coordinates. Working from the top-left, clockwise: <1,0>, <2,0>, <2,1>, <1,2>, <0,2>, <0,1>.">
+  {%
+    inline_svg
+    filename="hex_diagram.svg"
+    alt="A black hexagon with the six points marked with red dots and coordinates. Working from the top-left, clockwise: <1,0>, <2,0>, <2,1>, <1,2>, <0,2>, <0,1>."
+  %}
 </figure>
 
 So now we have a coordinate system that lets us define triangular shapes -- but we can't use it in an SVG image.
@@ -123,7 +139,11 @@ What about $\langle 0, 1 \rangle$?
 Let's draw a diagram of this point:
 
 <figure style="width: 200px;">
-  <img src="/images/2019/triangle_60_degree.svg" alt="A right-angled triangle with sides labelled 1 (diagonal, black), x (horizontal, grey) and y (vertical, grey). The right angle is marked, as is a 60 degree angle in the top left-hand corner. The bottom right-hand point is marked <0,1> and labelled in red.">
+  {%
+    inline_svg
+    filename="triangle_60_degree.svg"
+    alt="A right-angled triangle with sides labelled 1 (diagonal, black), x (horizontal, grey) and y (vertical, grey). The right angle is marked, as is a 60 degree angle in the top left-hand corner. The bottom right-hand point is marked <0,1> and labelled in red."
+  %}
 </figure>
 
 This is a right-angled triangle where the longest side has length $1$, and the other two sides have lengths $x$ and $y$.
@@ -200,7 +220,11 @@ If you wanted to use this function to draw a hexagon from the coordinates we wro
 Unfortunately, this also skews any text on the image:
 
 <figure style="width: 350px;">
-  <img src="/images/2019/hexagon_bad.svg" alt="A black hexagon with the text 'A regular hexagon' to its right. The top of the text has been skewed to the left.">
+  {%
+    inline_svg
+    filename="hexagon_bad.svg"
+    alt="A black hexagon with the text 'A regular hexagon' to its right. The top of the text has been skewed to the left."
+  %}
 </figure>
 
 If your diagram doesn't feature text or you're okay with this degree of slanting, go ahead and use this transform function -- it's pretty simple and doesn't require anything outside the raw SVG.
@@ -278,7 +302,11 @@ I created most of the illustrations in this post with Jinja2.
 The SVG this code creates draws the triangular coordinates correctly, but this time the text is displayed upright:
 
 <figure style="width: 350px;">
-  <img src="/images/2019/hexagon_good.svg" alt="A black hexagon with the text 'A regular hexagon' to its right. The text is not slanted or skewed.">
+  {%
+    inline_svg
+    filename="hexagon_good.svg"
+    alt="A black hexagon with the text 'A regular hexagon' to its right. The text is not slanted or skewed."
+  %}
 </figure>
 
 And voila: I started from a hexagon defined in triangular coordinates, and I was able to create an SVG that reflects that image.
