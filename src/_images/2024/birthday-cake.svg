@@ -38,22 +38,30 @@
       </svg>
     </mask>
 
+    <mask id="candleFlame">
+      <rect x="0" y="0" width="94" height="100" fill="white"/>
+      <path d="M 27 5 L 28 8 C 29 11, 25 11, 26 8 Z" mask="url(#candleFlame)" fill="black"/>
+    </mask>
+
     <g id="singleCandle" fill="black" stroke-linejoin="round" stroke-width="1" stroke="black">
       <rect x="25" y="13" width="4" height="18"/>
-      <path d="M 27 2 L 29 8 C 30 11, 24 11, 25 8 Z"/>
+      <path d="M 27 2 L 29 8 C 30 11, 24 11, 25 8 Z" mask="url(#candleFlame)"/>
     </g>
   </defs>
 
-  <!-- The thin, wide plate below the cake -->
-  <rect x="0" y="105" width="94" height="5" fill="black" rx="1"/>
+  <svg class="plate">
+    <rect x="0" y="105" width="94" height="5" fill="black" rx="1"/>
+  </svg>
 
-  <!-- The wider, taller bottom half of the cake -->
-  <rect x="5" y="63" width="84" height="40" fill="black" rx="4" mask="url(#lowerCurlyLine)"/>
-  <rect x="5" y="98" width="84" height="5"  fill="black"/>
+  <svg class="bottomLayer">
+    <rect x="5" y="63" width="84" height="40" fill="black" rx="4" mask="url(#lowerCurlyLine)"/>
+    <rect x="5" y="98" width="84" height="5"  fill="black"/>
+  </svg>
 
-  <!-- The narrower, shorter top half of the cake, where the candles go -->
-  <rect x="15" y="33" width="64" height="28" fill="black" mask="url(#upperCurlyLine)" rx="4"/>
-  <rect x="15" y="56" width="64" height="5"  fill="black"/>
+  <svg class="topLayer">
+    <rect x="15" y="33" width="64" height="28" fill="black" mask="url(#upperCurlyLine)" rx="4"/>
+    <rect x="15" y="56" width="64" height="5"  fill="black"/>
+  </svg>
 
   <svg class="candles">
     <use xlink:href="#singleCandle" x="0"/>

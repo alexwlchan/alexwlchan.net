@@ -1,10 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 54 110" height="220">
-  <animate
-    attributeName="viewBox"
-    values="0 0 54 110; 0 0 2054 110;"
-    dur="50s"
-  />
-
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2054 110">
   <defs>
     <mask id="upperCurlyLine">
       <rect x="0" y="0" width="2054" height="100" fill="white"/>
@@ -444,17 +438,6 @@
       </svg>
     </mask>
 
-    <mask id="candles">
-      <rect x="0" y="0" width="29" height="100" fill="white">
-        <animate
-          attributeName="width"
-          values="31; 41; 51; 61; 71; 81; 91; 101; 111; 121; 131; 141; 151; 161; 171; 181; 191; 201; 211; 221; 231; 241; 251; 261; 271; 281; 291; 301; 311; 321; 331; 341; 351; 361; 371; 381; 391; 401; 411; 421; 431; 441; 451; 461; 471; 481; 491; 501; 511; 521; 531; 541; 551; 561; 571; 581; 591; 601; 611; 621; 631; 641; 651; 661; 671; 681; 691; 701; 711; 721; 731; 741; 751; 761; 771; 781; 791; 801; 811; 821; 831; 841; 851; 861; 871; 881; 891; 901; 911; 921; 931; 941; 951; 961; 971; 981; 991; 1001; 1011; 1021; 1031; 1041; 1051; 1061; 1071; 1081; 1091; 1101; 1111; 1121; 1131; 1141; 1151; 1161; 1171; 1181; 1191; 1201; 1211; 1221; 1231; 1241; 1251; 1261; 1271; 1281; 1291; 1301; 1311; 1321; 1331; 1341; 1351; 1361; 1371; 1381; 1391; 1401; 1411; 1421; 1431; 1441; 1451; 1461; 1471; 1481; 1491; 1501; 1511; 1521; 1531; 1541; 1551; 1561; 1571; 1581; 1591; 1601; 1611; 1621; 1631; 1641; 1651; 1661; 1671; 1681; 1691; 1701; 1711; 1721; 1731; 1741; 1751; 1761; 1771; 1781; 1791; 1801; 1811; 1821; 1831; 1841; 1851; 1861; 1871; 1881; 1891; 1901; 1911; 1921; 1931; 1941; 1951; 1961; 1971; 1981; 1991; 2001"
-          dur="50s"
-          calcMode="discrete"
-        />
-      </rect>
-    </mask>
-
     <mask id="candleFlame">
       <rect x="0" y="0" width="94" height="100" fill="white"/>
       <path d="M 27 5 L 28 8 C 29 11, 25 11, 26 8 Z" mask="url(#candleFlame)" fill="black"/>
@@ -467,54 +450,24 @@
   </defs>
 
   <svg class="plate">
-    <rect x="0" y="105" width="54" height="5" fill="currentColor" rx="1">
-      <animate
-        attributeName="width"
-        values="54; 2054"
-        dur="50s"
-      />
-    </rect>
+    <rect x="0" y="105" width="2054" height="5" fill="currentColor" rx="1"/>
   </svg>
 
   <svg class="bottomLayer">
-    <rect x="5" y="63" width="44" height="40" fill="currentColor" rx="4" mask="url(#lowerCurlyLine)">
-      <animate
-        attributeName="width"
-        values="44; 2034"
-        dur="50s"
-      />
-    </rect>
-    <rect x="5" y="98" width="44" height="5" fill="currentColor">
-      <animate
-        attributeName="width"
-        values="44; 2034"
-        dur="50s"
-      />
-    </rect>
+    <rect x="5" y="63" width="2034" height="40" fill="currentColor" rx="4" mask="url(#lowerCurlyLine)"/>
+    <rect x="5" y="98" width="2034" height="5" fill="currentColor"/>
   </svg>
 
   <svg class="topLayer">
     <rect
       x="15" y="33"
-      width="24" height="28"
+      width="2014" height="28"
       fill="currentColor" mask="url(#upperCurlyLine)"
-      rx="4">
-      <animate
-        attributeName="width"
-        values="24; 2014"
-        dur="50s"
-      />
-    </rect>
-    <rect x="15" y="56" width="24" height="5" fill="currentColor">
-      <animate
-        attributeName="width"
-        values="24; 2014"
-        dur="50s"
-      />
-    </rect>
+      rx="4"/>
+    <rect x="15" y="56" width="2014" height="5" fill="currentColor"/>
   </svg>
 
-  <svg mask="url(#candles)" class="candles">
+  <svg class="candles">
     <use xlink:href="#singleCandle" x="0"/>
     <use xlink:href="#singleCandle" x="10"/>
     <use xlink:href="#singleCandle" x="20"/>
