@@ -301,6 +301,9 @@ getComputedStyle(document.querySelector('svg'))['width']
 I know how far apart the candles are spaced, so I can use this to work out how many are visible at any given time.
 There are other ways to inspect the state of an in-progress SVG animation; tying it to the geometry was the easiest in this case.
 
+If you'd like to learn more, I encourage you to read <a href="https://github.com/alexwlchan/alexwlchan.net/blob/main/src/_images/2024/animated-birthday-cake.svg">the SVG file</a>.
+It's a bit repetitive in parts, but overall I think it's fairly readable.
+
 ---
 
 I learn a lot from doing mini-projects like this, and more than I would by just reading the documentation.
