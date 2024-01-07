@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 94 110" height="220">
+  <defs>
+    <mask id="upperCurlyLine">
+      <rect x="0" y="0" width="94" height="100" fill="white"/>
+
+      <svg x="2" y="37.5">
+        <path d="
+          M 5 10
+          A 5 5 0 0 1 15 10
+          A 5 5 0 0 0 25 10
+          A 5 5 0 0 1 35 10
+          A 5 5 0 0 0 45 10
+          A 5 5 0 0 1 55 10
+          A 5 5 0 0 0 65 10
+          A 5 5 0 0 1 75 10
+          A 5 5 0 0 0 85 10
+          " stroke="black" stroke-width="2" fill="none"/>
+      </svg>
+    </mask>
+
+    <mask id="lowerCurlyLine">
+      <rect x="0" y="0" width="94" height="100" fill="white"/>
+
+      <svg x="-3" y="73">
+        <path d="
+          M 0 10
+          A 5 5 0 0 1 10 10
+          A 5 5 0 0 0 20 10
+          A 5 5 0 0 1 30 10
+          A 5 5 0 0 0 40 10
+          A 5 5 0 0 1 50 10
+          A 5 5 0 0 0 60 10
+          A 5 5 0 0 1 70 10
+          A 5 5 0 0 0 80 10
+          A 5 5 0 0 1 90 10
+          A 5 5 0 0 0 100 10
+          " stroke="black" stroke-width="3" fill="none"/>
+      </svg>
+    </mask>
+
+    <g id="singleCandle" fill="black" stroke-linejoin="round" stroke-width="1" stroke="black">
+      <rect x="25" y="13" width="4" height="18"/>
+      <path d="M 27 2 L 29 8 C 30 11, 24 11, 25 8 Z"/>
+    </g>
+  </defs>
+
+  <!-- The thin, wide plate below the cake -->
+  <rect x="0" y="105" width="94" height="5" fill="black" rx="1"/>
+
+  <!-- The wider, taller bottom half of the cake -->
+  <rect x="5" y="63" width="84" height="40" fill="black" rx="4" mask="url(#lowerCurlyLine)"/>
+  <rect x="5" y="98" width="84" height="5"  fill="black"/>
+
+  <!-- The narrower, shorter top half of the cake, where the candles go -->
+  <rect x="15" y="33" width="64" height="28" fill="black" mask="url(#upperCurlyLine)" rx="4"/>
+  <rect x="15" y="56" width="64" height="5"  fill="black"/>
+
+  <svg class="candles">
+    <use xlink:href="#singleCandle" x="0"/>
+    <use xlink:href="#singleCandle" x="10"/>
+    <use xlink:href="#singleCandle" x="20"/>
+    <use xlink:href="#singleCandle" x="30"/>
+    <use xlink:href="#singleCandle" x="40"/>
+  </svg>
+</svg>
