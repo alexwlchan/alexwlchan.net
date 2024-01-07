@@ -100,6 +100,7 @@ We all know the best way to tell somebody's age is to count the candles on their
     inline_svg
     filename="animated-birthday-cake.svg"
     id="animated-birthday-cake"
+    alt="An animated illustration of a pink birthday cake. The cake has two layers and candles on top. As you watch, the cake gets wider and the number of candles increases."
   %}
 
   <h3 id="age">
@@ -159,7 +160,7 @@ We all know the best way to tell somebody's age is to count the candles on their
   }
 </script>
 
-Now let me answer some FAQs:
+Let me answer some FAQs, and then I'll explain how it works:
 
 **Why can't we just use `<input type="number">`?**
 As many people are fond of saying, age is a state of mind, not a number.
@@ -186,10 +187,10 @@ I look forward to getting my cheques in the post.
 
 The cake is drawn entirely using SVG animations, which I haven't used before.
 I'm quite pleased with how well it works, and how close I was able to get to my original idea.
-I know there are quite a few ways to do animation on the web; I wanted to experiment with the [SVG &lt;animate&gt; tag][animate].
+I know there are quite a few ways to do animation on the web; I wanted to experiment with the [SVG `<animate>` tag][animate].
 
-The basic idea of the &lt;animate&gt; tag is that you can change the value of an attribute of an element over time.
-For example, here I'm animating the width of a rectangle by increasing it from 0 to 100, and back to 0 again:
+The basic idea of the `<animate>` tag is that you can tell it different values that an attribute of an element can take over time.
+For example, here I'm animating a rectangle by increasing the `width` it from 0 to 100, and then decreasing it back to 0 again:
 
 ```xml
 <rect width="10" height="10" fill="black">
@@ -210,7 +211,7 @@ which looks like:
       attributeName="width"
       values="0;100;0"
       dur="20s"
-      repeatCount="5"
+      repeatCount="indefinite"
     />
   </rect>
 </svg>
@@ -218,8 +219,9 @@ which looks like:
 It's pretty flexible – you can animate multiple properties on the same element; you can change non-numeric attributes like `fill` or `stroke`; you have a lot of control over how the animation behaves.
 I did some brief experiments with simple shapes, enough to get a sense of how I could use it.
 
-Now I knew how to animate attributes on SVG, I started with a little icon for a static birthday cake.
-There are plenty of existing icons like this on the web, but I made my own so I could keep the shapes simple – a lot of icon sets are just a giant `<path>` exported from a drawing app, which I'd have to unpick.
+Now I knew how to animate attributes on SVG, I made a small icon of a static birthday cake.
+There are plenty of existing icons like this on the web, but I made my own so I could keep the shapes simple – most icon sets are just a giant `<path>` exported from a drawing app, which I'd have to unpick.
+Animating that would be harder than just creating my own icon.
 
 I started with a little pencil-drawn sketch to work out the rough geometry, then I wrote the SVG by hand.
 I still find it vaguely relaxing to create pictures from code.
@@ -239,10 +241,12 @@ This is what I came up with:
     picture
     filename="hand-drawn-cake.jpg"
     width="750"
+    alt="A sketch of some rectangles that loosely resemble a birthday cake, handwritten in a notebook with a few arrows to show various measurements."
   %}
   {%
     inline_svg
     filename="birthday-cake.svg"
+    alt="A black-and-white icon of a birthday cake. The cake has two layers and five candles on top."
   %}
 </figure>
 
@@ -252,25 +256,27 @@ The candle flames and the curving line are both using [SVG masks], and the curve
 The one interesting bit is the rounded corners on the two layers of cake, where only the top two corners are rounded.
 You can set the corner radius of an SVG `<rect>` with the [`rx` attribute][rx], and you get the same curve on all four corners -- unlike the CSS [`border-radius` property][border-radius], which allows you to pick different radii for each corner.
 
-To achieve this effect, I overlapped two rectangles – one with and without rounded corners.
+To get curves on just two corners, I overlapped two rectangles – one with and without rounded corners.
 
 <figure>
   {%
     inline_svg
     filename="round-rect.svg"
+    alt="You can combine a rectangle with square corners and a pill shape to get a rectangle with two rounded corners on top."
   %}
 </figure>
 
-Because I'm only doing a solid fill, I'm rendering the two rectangles directly in the image -- but if I wanted a more complex fill, I could use this to create a mask that I applied to an image.
+Because I'm only doing a solid fill, I'm rendering the two rectangles directly in the image -- but if I wanted a more complex fill, I could use this to create as a mask that I applied to another shape.
 
 Once I had my basic icon, I created an extended version that has several hundred candles on it.
 This is what the cake looks like when it's fully complete:
 
-<figure>
+<figure class="wide_img">
   {%
     inline_svg
     filename="big-birthday-cake.svg"
     style="width: 100%;"
+    alt="A black-and-white illustration of an extremely wide birthday cake."
   %}
 </figure>
 
@@ -292,13 +298,14 @@ getComputedStyle(document.querySelector('svg'))['width']
 // 158px
 ```
 
-and I can work out how many candles are visible for each width.
+I know how far apart the candles are spaced, so I can use this to work out how many are visible at any given time.
 There are other ways to inspect the state of an in-progress SVG animation; tying it to the geometry was the easiest in this case.
 
 ---
 
-I learn a lot from doing mini-projects like this, and I learn more than I would by just reading the documentation.
-I didn't plan to do it, but this particular idea – "animate a birthday cake" – sunk its teeth into my [hyperfocus] a few days ago, and I've been thinking about it ever since.
+I learn a lot from doing mini-projects like this, and more than I would by just reading the documentation.
+I didn't plan to work on this, but this particular idea – "animate a birthday cake" – sunk its teeth into my [hyperfocus] a few days ago, and I've been thinking about it ever since.
+Posting this article will let me call the project "done" and move on to other things.
 
 Animation is one of those topics that's always been just beyond what I can do – I knew that SVG animation is a thing, but I'd never actually tried it.
 Now I have!

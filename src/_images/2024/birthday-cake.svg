@@ -49,25 +49,25 @@
     </g>
   </defs>
 
-  <svg class="plate">
+  <g class="plate">
     <rect x="0" y="105" width="94" height="5" fill="black" rx="1"/>
-  </svg>
+  </g>
 
-  <svg class="bottomLayer">
+  <g class="bottomLayer">
     <rect x="5" y="63" width="84" height="40" fill="black" rx="4" mask="url(#lowerCurlyLine)"/>
     <rect x="5" y="98" width="84" height="5"  fill="black"/>
-  </svg>
+  </g>
 
-  <svg class="topLayer">
+  <g class="topLayer">
     <rect x="15" y="33" width="64" height="28" fill="black" mask="url(#upperCurlyLine)" rx="4"/>
     <rect x="15" y="56" width="64" height="5"  fill="black"/>
-  </svg>
+  </g>
 
-  <svg class="candles">
+  <g class="candles">
     <use xlink:href="#singleCandle" x="0"/>
     <use xlink:href="#singleCandle" x="10"/>
     <use xlink:href="#singleCandle" x="20"/>
     <use xlink:href="#singleCandle" x="30"/>
     <use xlink:href="#singleCandle" x="40"/>
-  </svg>
+  </g>
 </svg>

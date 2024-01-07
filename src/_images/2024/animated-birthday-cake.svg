@@ -466,7 +466,7 @@
     </g>
   </defs>
 
-  <svg class="plate">
+  <g class="plate">
     <rect x="0" y="105" width="54" height="5" fill="currentColor" rx="1">
       <animate
         attributeName="width"
@@ -474,9 +474,9 @@
         dur="50s"
       />
     </rect>
-  </svg>
+  </g>
 
-  <svg class="bottomLayer">
+  <g class="bottomLayer">
     <rect x="5" y="63" width="44" height="40" fill="currentColor" rx="4" mask="url(#lowerCurlyLine)">
       <animate
         attributeName="width"
@@ -491,9 +491,9 @@
         dur="50s"
       />
     </rect>
-  </svg>
+  </g>
 
-  <svg class="topLayer">
+  <g class="topLayer">
     <rect
       x="15" y="33"
       width="24" height="28"
@@ -512,9 +512,9 @@
         dur="50s"
       />
     </rect>
-  </svg>
+  </g>
 
-  <svg mask="url(#candles)" class="candles">
+  <g mask="url(#candles)" class="candles">
     <use xlink:href="#singleCandle" x="0"/>
     <use xlink:href="#singleCandle" x="10"/>
     <use xlink:href="#singleCandle" x="20"/>
@@ -715,5 +715,5 @@
     <use xlink:href="#singleCandle" x="1970"/>
     <use xlink:href="#singleCandle" x="1980"/>
     <use xlink:href="#singleCandle" x="1990"/>
-  </svg>
+  </g>
 </svg>
