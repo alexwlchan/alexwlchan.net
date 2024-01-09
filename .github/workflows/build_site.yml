@@ -49,9 +49,6 @@ jobs:
           key: "jekyll-cache-${{ github.sha }}"
           restore-keys: "jekyll-cache-"
 
-      - name: "(Temporary) Remove lingering SVG files from _site"
-        run: find _site -name '*.svg' -delete
-
       - name: "Build the site"
         run: make html-drafts
 
