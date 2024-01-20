@@ -1,8 +1,8 @@
 ---
 layout: post
 title: The Collected Works of Ian Flemingo
-summary: 
-tags: 
+summary:
+tags:
   - books
   - theatre
 ---
@@ -20,88 +20,66 @@ And Ian Fleming was a part-time novelist, part-time spy, so it made sense for us
 This led to a series of over-arsed props: the Collected Works of Ian Flemingo.
 These are a collection of postcards based on the real James Bond books:
 
+{%
+  picture
+  filename="ian-flemingo-fronts.jpg"
+  width="750"
+  class="photo"
+%}
+
 I got the idea over Christmas, and annoyed my family by coming up with increasingly tenuous ideas for James <s>Bond</s> Bird puns.
-There are so many, and I could only make a selection – I printed eight, but I have at least twenty more I didn't use.
+This was lots of fun, and I came up with so many ideas -- for every one you see, there are two more I didn't use.
 
 The design of the covers are loosely based on a set of [hardback editions], without the fancy art.
-For the silhouettes, I turned to [PhyloPic], a site I've had bookmarked for years and finally had a reason to use.
+For the images, I turned to [PhyloPic], a site I bookmarked years ago and finally had a reason to use.
+It provides free silhouette images of animals and plants, and I was able to get a good set of bird images which are all under a CC0 license.
+([Flamingo](https://www.phylopic.org/images/a1244226-f2c2-41dc-b113-f1c6545958ce/phoenicopterus-roseus), [gull](https://www.phylopic.org/images/1e45eae7-b1eb-4a08-9e1f-4f34f2fb7710/larus-argentatus), [goldfinch](https://www.phylopic.org/images/44b8d744-7db7-4533-b3ea-29db99fb276f/haemorhous-purpureus), [dodo](https://www.phylopic.org/images/01bbffec-312c-493a-bcd3-e9361ed3435d/raphus-cucullatus), [loon](https://www.phylopic.org/images/db5c0243-52bf-4a2b-a27c-0a0c34469522/gavia-immer), [stork](https://www.phylopic.org/images/d8b80938-61d0-4b06-ab28-d631fb545131/mycteria-americana), [crow](https://www.phylopic.org/images/2db31c7c-b0a9-460f-807e-da9181f21cf6/corvus-brachyrhynchos), [magpie](https://www.phylopic.org/images/87d6a89a-9044-49cd-b708-086c847735f2/terpsiphone-paradisi))
+
+I'd like to say the rainbow spread was intentional, but really I just kept picking colours I hadn't used yet – I didn't arrange them in this order until I had them printed.
+
+On the other side of the cards, I wrote pun-filled blurbs that are based loosely on the original books.
+I got the original blurbs from Amazon listings, then stuffed them with puns.
+At one point I did consider including testimonials from characters in the show, but I didn't have space.
+
+The books are published by "El Otro Editora", a reference to ["El Otro Periodico"][eop], a fan-produced newspaper.
+The price is "6d", which is the one mistake that really irks me – I meant the cost to be a ha'penny, but instead it's half a shilling.
+Oops.
+(Why a ha'penny?
+There's a line in the show.)
+
+My favourite touch is the barcodes in the corner.
+This is what makes it feel like a "real" book to me – and every book has a unique barcode, and they can be scanned!
+
+Initially I picked random numbers as the ISBNs, but I got worried about where they might be pointing – maybe I'd accidentally pick a real ISBN that pointed at an offensive book?
+
+Then I looked for ISBNs that could be used safely.
+For example, I know there are [telephone numbers][ofcom] that are reserved for fictional purposes, so a phone number that appears in a TV show won't accidentally lead to a deluge of calls for the person on the other end.
+But although lots of ISBNs are used for fiction books, there aren't any ranges reserved for fiction*al* books.
+(And yes, I found the [ISBN specifications][specs] to see if there were any ranges reserved for this purpose.
+This project is nothing if not ridiculous.)
+
+Finally, I did the obvious thing – I just dropped in the ISBNs for the original Ian Fleming books.
+So if you scan the barcodes, you'll find a James Bond book.
+
+I printed the cards themselves using [InstantPrint], who did a great job – the cards feel nice in the hand, and they were delivered quickly on a tight deadline.
+
+Most of my work is purely digital, so I always enjoy when I get to actually hold something I've made.
+In the week leading up to the event, I found myself taking them out of my bag and just turning them over in my hands as I admired the shiny, shiny thing.
+I don't expect to print more of these books, but I can see myself doing more custom postcards in future -- it's nice to have physical souvenirs in an increasingly online world.
+
+I gave out a bunch of the postcards as OHT souvenirs on Monday, and people liked them!
+I also got to gave some sets to the cast at stage door today, which got rid of the rest of the prints.
+I had fun making them, and I'm so glad that people are enjoying them.
+
+Small flashes of joy, indeed.
 
 [twitter]: https://twitter.com/HarryBower_/status/1746971616934793273
 [a musical]: https://www.operationmincemeat.com/
 [gtb]: https://www.youtube.com/watch?v=70Q5ljDokFA&t=134s
 [hardback editions]: https://www.ianfleming.com/introducing-new-fleming-007-hardback-editions/
 [PhyloPic]: https://www.phylopic.org/
-
-How about based on the colour green?
-
-* For Your Hives Only
-
-* A View to a Kale
-* Olive and Let Die
-* You Only Lime Twice
-* 
-* Live and Let Lime (Lime and Let Die)
-* Olive Another Day
-* For Your Pine Only
-* From Russia, With Clover
-
-* The Spy Who Loved Mint
-* License to Kale
-
----
-
-Here are some early mockups and screenshots I took to inform the design:
-
-![[Screenshot 2023-12-22 at 09.21.16.png]]
-
-![[Screenshot 2023-12-22 at 08.40.00.png]]
-
-![[Screenshot 2023-12-22 at 08.45.00.png]]
-
----
-
-ISBN generator: https://barcode.tec-it.com/en/ISBN13?data=978171512451
-Phylopic
-SVG to PNG: https://cloudconvert.com/svg-to-png
-texture: https://heredragonsabound.blogspot.com/2020/02/creating-pencil-effect-in-svg.html
-PDF to JPEG: Preview.app
-
-Flamingo: https://www.phylopic.org/images/a1244226-f2c2-41dc-b113-f1c6545958ce/phoenicopterus-roseus
-Goldfinch: https://www.phylopic.org/images/44b8d744-7db7-4533-b3ea-29db99fb276f/haemorhous-purpureus
-Loon: https://www.phylopic.org/images/db5c0243-52bf-4a2b-a27c-0a0c34469522/gavia-immer
-Stork: https://www.phylopic.org/images/d8b80938-61d0-4b06-ab28-d631fb545131/mycteria-americana
-Chitty Chitty: https://www.phylopic.org/images/b3f43d07-a214-4859-82fc-7eec69eeb6fe/numenius-madagascariensis
-
-Flamingo Royale
-Goldfincher
-Loonraker
-On Her Majesty's Secret Stork
-Dodos Are Forever
-Dr Crow
-The Man With the Golden Gull
-The Magpie Who Loved Me
-
-Octopuffin
-For Your Ibis Only
-You Only Live Snipe
-Quantum of Swallows
-Ganderball
-
-Goldfinch
-Live and Let Fly
-Thunderbeak
-Diamonds Are for Seagulls
-Octopelican and The Living Daylights
-Diamonds Are for Seagulls
-For Feather Eyes Only
-You Only Live Snipe
-Quantum of Swans
-Quantum of Swallows
-Ganderball
-The World is 
-
-Bees!
-For Your Hives Only
-
----
-![[Screenshot 2024-01-08 at 23.26.39.png]]
+[eop]: https://twitter.com/spitlip/status/1747330685986066878
+[ipaddr]: https://www.rfc-editor.org/rfc/rfc5737#section-3
+[ofcom]: https://www.ofcom.org.uk/phones-telecoms-and-internet/information-for-industry/numbering/numbers-for-drama
+[specs]: https://www.isbn-international.org/range_file_generation
+[InstantPrint]: https://www.instantprint.co.uk/
