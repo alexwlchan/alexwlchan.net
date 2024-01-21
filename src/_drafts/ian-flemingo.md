@@ -10,6 +10,13 @@ On Monday evening, about two hundred Mincefluencers descended on the Fortune The
 A lot of people dressed in cosplay to mark the occasion, and I joined in the fun.
 (If you want to see pictures, Harry has a [thread of great photos][twitter] on Twitter.)
 
+
+{%
+  picture
+  filename="flemingo.jpg"
+  width="200"
+%}
+
 Accompanying me was Flemingo, a hand-puppet flamingo who's become a constant companion when I go to the show.
 (Why a flamingo?
 Because of [one verse in a single song][gtb] that has turned the humble flamingo into an icon in the fandom.)
@@ -18,7 +25,7 @@ Both of us were wearing bow ties to cosplay as Ian Fleming, who's both a charact
 And Ian Fleming was a part-time novelist, part-time spy, so it made sense for us to be carrying a stack of his books.
 
 This led to a series of over-arsed props: the Collected Works of Ian Flemingo.
-These are a collection of postcards based on the real James Bond books:
+These are a collection of postcards with covers based on the real James Bond books… sort of:
 
 {%
   picture
@@ -37,9 +44,15 @@ It provides free silhouette images of animals and plants, and I was able to get 
 
 I'd like to say the rainbow spread was intentional, but really I just kept picking colours I hadn't used yet – I didn't arrange them in this order until I had them printed.
 
+{%
+  picture
+  filename="ian-flemingo-backs.jpg"
+  width="750"
+%}
+
 On the other side of the cards, I wrote pun-filled blurbs that are based loosely on the original books.
-I got the original blurbs from Amazon listings, then stuffed them with puns.
-At one point I did consider including testimonials from characters in the show, but I didn't have space.
+I got the original blurbs from Amazon listings, then stuffed them with puns and references to the show.
+At one point I did consider including testimonials from characters, but I didn't have space.
 
 The books are published by "El Otro Editora", a reference to ["El Otro Periodico"][eop], a fan-produced newspaper.
 The price is "6d", which is the one mistake that really irks me – I meant the cost to be a ha'penny, but instead it's half a shilling.
@@ -55,7 +68,7 @@ Initially I picked random numbers as the ISBNs, but I got worried about where th
 Then I looked for ISBNs that could be used safely.
 For example, I know there are [telephone numbers][ofcom] that are reserved for fictional purposes, so a phone number that appears in a TV show won't accidentally lead to a deluge of calls for the person on the other end.
 But although lots of ISBNs are used for fiction books, there aren't any ranges reserved for fiction*al* books.
-(And yes, I found the [ISBN specifications][specs] to see if there were any ranges reserved for this purpose.
+(And yes, I did look up the [ISBN specifications][specs] to see if there were any ranges reserved for this purpose.
 This project is nothing if not ridiculous.)
 
 Finally, I did the obvious thing – I just dropped in the ISBNs for the original Ian Fleming books.
@@ -63,12 +76,25 @@ So if you scan the barcodes, you'll find a James Bond book.
 
 I printed the cards themselves using [InstantPrint], who did a great job – the cards feel nice in the hand, and they were delivered quickly on a tight deadline.
 
+<figure>
+  {%
+    picture
+    filename="ian-flemingo-stacks.jpg"
+    width="750"
+  %}
+  <figcaption>
+    Most of the cost was in the initial print run; adding extra copies was cheap.
+    As in “double the number of copies for £1 extra” cheap.
+    So I printed a faintly ridiculous amount.
+  </figcaption>
+</figure>
+
 Most of my work is purely digital, so I always enjoy when I get to actually hold something I've made.
 In the week leading up to the event, I found myself taking them out of my bag and just turning them over in my hands as I admired the shiny, shiny thing.
-I don't expect to print more of these books, but I can see myself doing more custom postcards in future -- it's nice to have physical souvenirs in an increasingly online world.
+I don't expect to print more of these particular books, but I can see myself doing more custom postcards in future -- it's nice to have physical souvenirs in an increasingly online world.
 
 I gave out a bunch of the postcards as OHT souvenirs on Monday, and people liked them!
-I also got to gave some sets to the cast at stage door today, which got rid of the rest of the prints.
+I also got to gave some sets [to the cast] at stage door today, which got rid of the rest of the prints.
 I had fun making them, and I'm so glad that people are enjoying them.
 
 Small flashes of joy, indeed.
@@ -83,3 +109,4 @@ Small flashes of joy, indeed.
 [ofcom]: https://www.ofcom.org.uk/phones-telecoms-and-internet/information-for-industry/numbering/numbers-for-drama
 [specs]: https://www.isbn-international.org/range_file_generation
 [InstantPrint]: https://www.instantprint.co.uk/
+[to the cast]: https://twitter.com/spitlip/status/1748768746854855116
