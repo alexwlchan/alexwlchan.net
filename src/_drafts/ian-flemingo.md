@@ -1,20 +1,24 @@
 ---
 layout: post
 title: The Collected Works of Ian Flemingo
-summary:
+summary: "A fledgling author uses a theatre trip to leave the nest. (Or: some props I made for a cosplay event.)"
 tags:
   - books
   - theatre
+colors:
+  css_light: "#464646"
+  css_dark:  "#adadad"
 ---
 On Monday evening, about two hundred Mincefluencers descended on the Fortune Theatre for "Operation Human Thermos", a fan gathering to celebrate *Operation Mincemeat*, [a musical] that gives us all the warm and fuzzies.
 A lot of people dressed in cosplay to mark the occasion, and I joined in the fun.
 (If you want to see pictures, Harry has a [thread of great photos][twitter] on Twitter.)
 
-
 {%
   picture
   filename="flemingo.jpg"
-  width="200"
+  width="220"
+  style="float: right; margin-left: 1em; margin-bottom: 1em;"
+  alt="A small flamingo hand-puppet with a black bow tie on its neck, with a flamingo neck and two fluffy, flappy arms."
 %}
 
 Accompanying me was Flemingo, a hand-puppet flamingo who's become a constant companion when I go to the show.
@@ -24,14 +28,17 @@ Because of [one verse in a single song][gtb] that has turned the humble flamingo
 Both of us were wearing bow ties to cosplay as Ian Fleming, who's both a character in the musical and the co-author of a memo that laid the seeds for the real-life operation.
 And Ian Fleming was a part-time novelist, part-time spy, so it made sense for us to be carrying a stack of his books.
 
+I did look in a couple of charity shops for old Ian Fleming novels, but I couldn't find any.
+Lacking real books, I decided that the only alternative was to make my own.
+
 This led to a series of over-arsed props: the Collected Works of Ian Flemingo.
 These are a collection of postcards with covers based on the real James Bond books… sort of:
 
 {%
   picture
-  filename="ian-flemingo-fronts.jpg"
+  filename="ian-flemingo-fronts2.png"
+  alt="A series of eight book covers, arranged in a grid. Each cover is in a bright colour and has the silhouette of a bird. The titles are: Flamingo Royale, The Man with the Golden Gull, Goldfincher, Dodos Ar Forever, On His Majesty's Secret Stork, Loonraker, Dr Crow, The Magpie Who Loved Me"
   width="750"
-  class="photo"
 %}
 
 I got the idea over Christmas, and annoyed my family by coming up with increasingly tenuous ideas for James <s>Bond</s> Bird puns.
@@ -46,7 +53,8 @@ I'd like to say the rainbow spread was intentional, but really I just kept picki
 
 {%
   picture
-  filename="ian-flemingo-backs.jpg"
+  filename="ian-flemingo-backs2.png"
+  alt="A series of the backs of the books, arranged in a fan-like shape. On the back of each book is a blurb filling most of the page, then a barcode and some text at the bottom."
   width="750"
 %}
 
@@ -80,6 +88,8 @@ I printed the cards themselves using [InstantPrint], who did a great job – the
   {%
     picture
     filename="ian-flemingo-stacks.jpg"
+    alt="Eight piles of postcards laid out on a table, each for a different postcard. The stacks are visibly tall, maybe an inch or so tall."
+    class="photo"
     width="750"
   %}
   <figcaption>
