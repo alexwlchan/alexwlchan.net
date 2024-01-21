@@ -7,6 +7,8 @@ tags:
   - code-crimes
   - drawing-things
   - svg
+index:
+  exclude: true
 ---
 There's a growing number of countries creating laws that require age verification laws to access certain content online.
 Now children can be protected from adult content like well-organised spreadsheets, YouTube videos about kitchen appliances, and websites that sell you socks.
