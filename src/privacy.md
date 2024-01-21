@@ -20,7 +20,7 @@ Whenever you visit a page, I use a tracking pixel to record the following anonym
 *   The dimensions of your screen (e.g. 1024×768)
 *   Whether you're a bot or crawler (based on your User-Agent, so I can separate humans from Google's search crawler)
 
-I **don't** record your IP address or user agent.
+I **don't** record your IP address or user agent, because those might allow me to identify a specific person.
 
 ## Anonymous session identifier
 
@@ -44,3 +44,7 @@ I don't use any third-party analytics frameworks like Google Analytics, Piwik, a
 This site is hosted on a mixture of Netlify and Linode.
 They can see what pages you're visiting, and they have separate privacy policies.
 ([Netlify](https://www.netlify.com/privacy/); [Akamai](https://www.akamai.com/legal/privacy-statement), who own Linode.)
+
+## Cookies
+
+I don't use any.
