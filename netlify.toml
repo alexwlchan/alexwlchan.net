@@ -67,6 +67,7 @@
       font-src \
       https://polyfill.io \
       https://cdn.jsdelivr.net; \
+      content-src https://analytics.alexwlchan.net; \
       img-src 'self' 'unsafe-inline' data: \
     """
 
