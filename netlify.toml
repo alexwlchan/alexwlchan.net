@@ -10,11 +10,13 @@
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
     #
     #   - youtube-nocookie.com is used for YouTube embeds
+    #   - analytics.alexwlchan.net is used for my tracking pixel
     #
     content-security-policy = """\
       default-src 'self' 'unsafe-inline' \
       https://youtube-nocookie.com https://www.youtube-nocookie.com; \
       script-src 'self' 'unsafe-inline'; \
+      connect-src https://analytics.alexwlchan.net; \
       img-src 'self' 'unsafe-inline' data: \
     """
 
