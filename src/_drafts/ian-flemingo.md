@@ -11,7 +11,7 @@ colors:
 ---
 On Monday evening, about two hundred Mincefluencers descended on the Fortune Theatre for "Operation Human Thermos", a fan gathering to celebrate *Operation Mincemeat*, [a musical] that gives us all the warm and fuzzies.
 A lot of people dressed in cosplay to mark the occasion, and I joined in the fun.
-(If you want to see pictures, Harry has a [thread of great photos][twitter] on Twitter.)
+(If you want to see photos, Harry has [a great thread][twitter] on Twitter.)
 
 {%
   picture
@@ -31,7 +31,7 @@ And Ian Fleming was a part-time novelist, part-time spy, so it made sense for us
 I did look in a couple of charity shops for old Ian Fleming novels, but I couldn't find any.
 Lacking real books, I decided that the only alternative was to make my own.
 
-This led to a series of over-arsed props: the Collected Works of Ian Flemingo.
+This led to a series of props that are, if anything, over-arsed: the Collected Works of Ian Flemingo.
 These are a collection of postcards with covers based on the real James Bond books… sort of:
 
 {%
@@ -44,9 +44,9 @@ These are a collection of postcards with covers based on the real James Bond boo
 I got the idea over Christmas, and annoyed my family by coming up with increasingly tenuous ideas for James <s>Bond</s> Bird puns.
 This was lots of fun, and I came up with so many ideas -- for every one you see, there are two more I didn't use.
 
-The design of the covers are loosely based on a set of [hardback editions], without the fancy art.
-For the images, I turned to [PhyloPic], a site I bookmarked years ago and finally had a reason to use.
-It provides free silhouette images of animals and plants, and I was able to get a good set of bird images which are all under a CC0 license.
+The design of the covers are loosely based on a real set of [hardback editions], without the fancy art.
+For the images, I turned to [PhyloPic], a site I bookmarked years ago and I've been waiting for a good reason to use.
+It provides free silhouette images of animals and plants, and I was able to pick a set of bird images with CC0 licenses.
 ([Flamingo](https://www.phylopic.org/images/a1244226-f2c2-41dc-b113-f1c6545958ce/phoenicopterus-roseus), [gull](https://www.phylopic.org/images/1e45eae7-b1eb-4a08-9e1f-4f34f2fb7710/larus-argentatus), [goldfinch](https://www.phylopic.org/images/44b8d744-7db7-4533-b3ea-29db99fb276f/haemorhous-purpureus), [dodo](https://www.phylopic.org/images/01bbffec-312c-493a-bcd3-e9361ed3435d/raphus-cucullatus), [loon](https://www.phylopic.org/images/db5c0243-52bf-4a2b-a27c-0a0c34469522/gavia-immer), [stork](https://www.phylopic.org/images/d8b80938-61d0-4b06-ab28-d631fb545131/mycteria-americana), [crow](https://www.phylopic.org/images/2db31c7c-b0a9-460f-807e-da9181f21cf6/corvus-brachyrhynchos), [magpie](https://www.phylopic.org/images/87d6a89a-9044-49cd-b708-086c847735f2/terpsiphone-paradisi))
 
 I'd like to say the rainbow spread was intentional, but really I just kept picking colours I hadn't used yet – I didn't arrange them in this order until I had them printed.
@@ -66,7 +66,7 @@ The books are published by "El Otro Editora", a reference to ["El Otro Periodico
 The price is "6d", which is the one mistake that really irks me – I meant the cost to be a ha'penny, but instead it's half a shilling.
 Oops.
 (Why a ha'penny?
-There's a line in the show.)
+Because of a line in the show.)
 
 My favourite touch is the barcodes in the corner.
 This is what makes it feel like a "real" book to me – and every book has a unique barcode, and they can be scanned!
