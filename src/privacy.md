@@ -26,7 +26,7 @@ I **don't** record your IP address or user agent, because those might allow me t
 
 The session identifier is a tool to help me count unique visitors on the site.
 To do this, I need to be able to correlate hits within the same visitor.
-If I got three hits in quick succession, did they come from three people looking at one page each, or one perso looking at three pages?
+If I got three hits in quick succession, did they come from three people looking at one page each, or one person looking at three pages?
 
 I create an anonymous session identifier which gets attached to each hit.
 This is a randomly-assigned UUID that's attached to all requests coming from your (IP address, User-Agent) combination for the next 24 hours.
