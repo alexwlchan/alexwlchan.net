@@ -2,26 +2,23 @@
   <defs>
     <style>
       rect.pdf_component {
-        stroke: black;
+        stroke: currentColor;
         stroke-width: 1;
-        fill: white;
       }
 
       text.monospace {
         font-size: 12pt;
-        fill: black;
         font-family: monospace;
 				text-anchor: middle;
 				dominant-baseline: middle;
       }
 
-      rect.object_wrapper {
-        fill: #eee;
-        stroke: none;
+      text {
+        fill: currentColor;
       }
 
       path.arrow {
-        stroke: black;
+        stroke: currentColor;
         stroke-width: 1.75;
         stroke-linecap: round;
         fill: none;
@@ -29,14 +26,18 @@
       }
 
       path.dashed {
-        stroke: black;
+        stroke: currentColor;
         stroke-width: 1.75;
         stroke-dasharray: 2 2;
+      }
+
+      #arrowhead polygon {
+        fill: currentColor;
       }
     </style>
 
     <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
-      <polygon fill="#000" points="0 0, 7 2.45, 0 4.9"/>
+      <polygon points="0 0, 7 2.45, 0 4.9"/>
     </marker>
   </defs>
 
