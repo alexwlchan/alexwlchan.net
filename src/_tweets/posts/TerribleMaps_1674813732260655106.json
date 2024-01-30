@@ -1,0 +1,36 @@
+{
+  "created_at": "Fri Jun 30 17:14:00 +0100 2023",
+  "entities": {
+    "symbols": [],
+    "urls": [
+      {
+        "expanded_url": "https://commons.m.wikimedia.org/wiki/File:Seitengröße_PDF_7.svg",
+        "url": "https://t.co/Sxz37HMYD1",
+        "display_url": "https://commons.m.wikimedia.org/wiki/File:Seit…",
+        "indices": [
+          235,
+          258
+        ]
+      }
+    ]
+  },
+  "extended_entities": {
+    "media": [
+      {
+        "expanded_url": "https://twitter.com/TerribleMaps/status/1674813732260655106/photo/1",
+        "media_url_https": "https://pbs.twimg.com/media/Fz4iNokXwAAv2hD.jpg",
+        "type": "photo",
+        "url": "https://t.co/Sxz37HMYD1"
+      }
+    ]
+  },
+  "full_text": "Maximum size of a PDF, version 7: 381 km × 381 km.\n\nhttps://t.co/Sxz37HMYD1",
+  "id": 1674813732260655106,
+  "id_str": "1674813732260655106",
+  "is_quote_status": false,
+  "user": {
+    "name": "Terrible Maps",
+    "screen_name": "TerribleMaps",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1625820662240616449/TwmGTOWT_400x400.jpg"
+  }
+}

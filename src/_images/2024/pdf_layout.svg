@@ -45,21 +45,21 @@
   <path class="arrow" d="M 230 470 L 270 470 L 270 350 L 250 350" marker-end="url(#arrowhead)" />
 
   <rect x="50" y="10" width="180" height="40" class="pdf_component"/>
-  <text x="140" y="30" class="monospace">%PDF-1.7</text>
+  <text x="140" y="30" class="monospace">%PDF-1.6</text>
 
   <rect x="50" y="70" width="180" height="240" class="object_wrapper"/>
   <text x="140" y="85" text-anchor="middle" dominant-baseline="middle" font-size="10pt">objects</text>
 
   <rect x="80" y="100" width="120" height="40" class="pdf_component"/>
-  <text x="140" y="120" class="monospace">1 0 obj</text>
+  <text x="140" y="120" class="monospace">object 1</text>
 
   <rect x="80" y="150" width="120" height="40" class="pdf_component"/>
-  <text x="140" y="170" class="monospace">2 0 obj</text>
+  <text x="140" y="170" class="monospace">object 2</text>
 
   <path class="dashed" d="M 140 195 L 140 245"/>
 
   <rect x="80" y="250" width="120" height="40" class="pdf_component"/>
-  <text x="140" y="270" class="monospace">N 0 obj</text>
+  <text x="140" y="270" class="monospace">object N</text>
 
   <!-- xref to objects -->
   <path class="arrow" d="M 50 350 L 10 350 L 10 270 L 62 270" marker-end="url(#arrowhead)" />
