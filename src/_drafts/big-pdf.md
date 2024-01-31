@@ -103,15 +103,13 @@ After that list comes the `xref` or cross-reference table, which is a lookup tab
 It points to all the objects in the file: it tells you that object 1 is 10 bytes after the start, object 2 is after 20 bytes, object 3 is after 30 bytes, and so on.
 By looking at this table, a PDF reading app knows how many objects there are in the file, and where to find them.
 
-The `trailer` contains some metadata about the document, including the `UserUnit` value that we'll return to later.
+The `trailer` contains some metadata about the overall document, like the number of pages and whether it's encrypted.
 
 Finally, the `startxref` value is a pointer to the start of the `xref` table.
 This is where a PDF reading app starts: it works from the end of the file until it finds the `startxref` value, then it can go and read the `xref` table and learn about all the objects.
 
-Here's a simple example of a PDF that I wrote by hand.
-If you copy/paste this code into a file named `myexample.pdf`, it should open and show a simple PDF with a red square in a PDF reading app:
-
-**objects don't have to be in order**
+With this knowledge, I was able to write my first PDF by hand.
+If you save this code into a file named `myexample.pdf`, it should open and show a page with a red square in a PDF reading app:
 
 <pre class="highlight"><code><span class="c">%PDF-1.6
 
@@ -233,9 +231,9 @@ I tried for a while to get text working, but that was a bit beyond me.
 
 It quickly became apparent why nobody writes PDFs by hand -- it got very fiddly to redo all the lookup tables!
 But I'm glad I did it; manipulating all the PDF objects and their references really helped me feel like I understand the basic model of PDFs.
-I opened some "real" PDFs created by other apps, and they have many more objects and types of object -- but I could at least follow some of what's going on.
+I opened some "real" PDFs created by other apps, and they have many more objects and types of object -- but now I could at least follow some of what's going on.
 
-So now I have this newfound ability to edit PDFs by hand, how can I create monstrously big ones?
+With this newfound ability to edit PDFs by hand, how can I create monstrously big ones?
 
 ## Changing the page size: /MediaBox and /UserUnit
 
@@ -248,7 +246,7 @@ We've already seen this once:
   }
 </style>
 
-<pre><code>&gt;&gt;
+<pre><code>&lt;&lt;
 	/Type /Page
 	/Parent 3 0 R
 	<span class="mediaBox">/MediaBox [0 0 300 300]</span>
@@ -265,33 +263,33 @@ And indeed, if I open this PDF in Adobe Acrobat, that's what it reports:
   width="724"
 %}
 
-By changing the `MediaBox` value, we can make the PDF bigger.
-For example, if we change it to `600 300`, Acrobat says the size of our PDF is `8.33 x 4.17 in`.
+By changing the `MediaBox` value, we can make the page bigger.
+For example, if we change the value to `600 600`, Acrobat says it's now `8.33 x 8.33 in`.
 Nice!
 
-We can increase it all the way to `14400 300`, the max allowed by Acrobat, and then it says the PDF is now `200.00 x 4.17in`.
+We can increase it all the way to `14400 14400`, the max allowed by Acrobat, and then it says the page is now `200.00 x 200.00in`.
 (You [get a warning](/images/2024/acrobat-error.png) if you try to push past that limit.)
 
 But 200 inches is far short of 381 kilometres -- and that's because we're using the default unit of 1/72 inch.
 We can increase the unit size by adding a `/UserUnit` value.
 For exaple, setting the value to 2 will double the page in both dimensions:
 
-<pre><code>&gt;&gt;
+<pre><code>&lt;&lt;
 	/Type /Page
 	/Parent 3 0 R
-	<span class="mediaBox">/MediaBox [0 0 14400 300]</span>
+	<span class="mediaBox">/MediaBox [0 0 14400 14400]</span>
 	<span class="mediaBox">/UserUnit 2</span>
 	/Contents 1 0 R
 >></code></pre>
 
-And now Acrobat reports the size of our document as `400.00 x 8.33 in`.
+And now Acrobat reports the size of the page as `400.00 x 400.00 in`.
 
-If we crank it all the way up to the maximum of `UserUnit 75000`, Acrobat now reports the size of our document as `15,000,000,000.00 x 312,500.38 in` -- 381 km in width, where we started.
+If we crank it all the way up to the maximum of `UserUnit 75000`, Acrobat now reports the size of our page as `15,000,000,000.00 x 15,000,000,000.00 in` -- 381 km along both sides, matching the original claim.
 If you're curious, you can [download the PDF](/files/2024/biggest.pdf).
 
-If we crank it any further, Acrobat just ignores it.
-I turned it up to `UserUnit 100000`, and Acrobat still claimed the document was 15 billion inches wide.
-(Unlike when we pushed through the `MediaBox` limit, this happens silently -- there's no warning or error to suggest the value is capped.)
+If you try to create a page with a larger size, either by increasing the `MediaBox` or `UserUnit` values, Acrobat just ignores it.
+It keeps saying that the size of a page is 15 billion inches, even if the page metadata says it's higher.
+(And if you increase the `UserUnit` past `75000`, this happens silently -- there's no warning or error to suggest the size of the page is being capped.)
 
 This probably isn't an issue -- I don't think the `UserUnit` value is widely used in practice.
 I found [one Stack Overflow answer][so] saying as such, and I couldn't find any examples of it online.
@@ -312,11 +310,9 @@ I'd have to get my ruler to check, but I'm pretty sure that's larger than German
 I could keep going.
 And I did.
 Eventually I ended up with a PDF that Preview claimed is larger than the entire universe -- approximately 37 trillion light years square.
+Admittedly it's mostly empty space, but so is the universe.
 If you'd like to play with that PDF, you can [get it here](/files/2024/universe.pdf).
 
 Please don't try to print it.
 
 [so]: https://stackoverflow.com/a/59927201/1558022
-
-
-does this work in Acrobat with PDF 2.0?
