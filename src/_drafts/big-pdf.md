@@ -260,6 +260,7 @@ And indeed, if I open this PDF in Adobe Acrobat, that's what it reports:
 {%
   picture
   filename="adobe-acrobat-pdf-4in.png"
+  alt="Screenshot of Acrobat’s ‘Document Properties’ panel, showing the page size of 4.17 x 4.17 in."
   width="724"
 %}
 
@@ -301,6 +302,7 @@ It's perfectly happy for me to write a width which is a 1 followed by twelve 0s:
 {%
   picture
   filename="preview-megawide.png"
+  alt="Screenshot of Preview’s Document inspector, showing the page size of 352777777777.78 x 10.59 cm."
   width="366"
 %}
 
