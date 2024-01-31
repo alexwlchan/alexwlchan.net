@@ -12,7 +12,7 @@ I was browsing social media this morning, and I saw a claim I've seen go past a 
 {% tweet https://twitter.com/TerribleMaps/status/1674813732260655106 %}
 
 This tweet is pretty emblematic of posts about this claim: it's stated as pure fact, with no supporting evidence or explanation.
-We're expected to just accept that a single PDF can only cover about half the area of Germany, and we're not given any reason why 381 kilometres is the magic limit.
+We're meant to just accept that a single PDF can only cover about half the area of Germany, and we're not given any reason why 381 kilometres is the magic limit.
 
 I started wondering: has anybody made a PDF this big?
 How hard would it be?
@@ -27,7 +27,7 @@ Let's dig in.
 
 ## Where does the claim come from?
 
-These posts are often accompanied by a "well, actually" where people explain this is a software limitation, not a limitation of PDF itself.
+These posts are often accompanied by a "well, actually" where people explain this is a limitation of a particular PDF reader app, not a limitation of PDF itself.
 As [the Wikipedia article for PDF][wikipedia] explains:
 
 > Page dimensions are not limited by the format itself. However, Adobe Acrobat imposes a limit of 15 million by 15 million inches, or 225 trillion in<sup>2</sup> (145,161 km<sup>2</sup>).<a href="https://en.wikipedia.org/wiki/PDF#cite_note-pdf-ref-1.7-2"><sup>[2]</sup></a>
