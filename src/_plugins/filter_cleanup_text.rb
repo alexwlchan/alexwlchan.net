@@ -42,6 +42,10 @@ class AddNonBreakingSpaces
       byte
       count
       tags
+      inch
+      kilometre
+      million
+      unit
     ].join('|')
 
     text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\2')
@@ -64,6 +68,8 @@ class AddNonBreakingSpaces
       'Mac OS 9',
       'Objective-C',
       'P-215',
+      'PDF 1.6',
+      'PDF 1.7',
       'PyCon ',
       'Route 53'
     ]

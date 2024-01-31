@@ -1,0 +1,81 @@
+<svg viewBox="0 0 280 560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      rect.pdf_component {
+        stroke: currentColor;
+        stroke-width: 1;
+      }
+
+      text.monospace {
+        font-size: 12pt;
+        font-family: monospace;
+				text-anchor: middle;
+				dominant-baseline: middle;
+      }
+
+      text {
+        fill: currentColor;
+      }
+
+      path.arrow {
+        stroke: currentColor;
+        stroke-width: 1.75;
+        stroke-linecap: round;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+
+      path.dashed {
+        stroke: currentColor;
+        stroke-width: 1.75;
+        stroke-dasharray: 2 2;
+      }
+
+      #arrowhead polygon {
+        fill: currentColor;
+      }
+    </style>
+
+    <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
+      <polygon points="0 0, 7 2.45, 0 4.9"/>
+    </marker>
+  </defs>
+
+  <!-- startxref to xref -->
+  <path class="arrow" d="M 230 470 L 270 470 L 270 350 L 250 350" marker-end="url(#arrowhead)" />
+
+  <rect x="50" y="10" width="180" height="40" class="pdf_component"/>
+  <text x="140" y="30" class="monospace">%PDF-1.6</text>
+
+  <rect x="50" y="70" width="180" height="240" class="object_wrapper"/>
+  <text x="140" y="85" text-anchor="middle" dominant-baseline="middle" font-size="10pt">objects</text>
+
+  <rect x="80" y="100" width="120" height="40" class="pdf_component"/>
+  <text x="140" y="120" class="monospace">object 1</text>
+
+  <rect x="80" y="150" width="120" height="40" class="pdf_component"/>
+  <text x="140" y="170" class="monospace">object 2</text>
+
+  <path class="dashed" d="M 140 195 L 140 245"/>
+
+  <rect x="80" y="250" width="120" height="40" class="pdf_component"/>
+  <text x="140" y="270" class="monospace">object N</text>
+
+  <!-- xref to objects -->
+  <path class="arrow" d="M 50 350 L 10 350 L 10 270 L 62 270" marker-end="url(#arrowhead)" />
+  <path class="arrow" d="M 50 350 L 10 350 L 10 220 L 62 220" marker-end="url(#arrowhead)" />
+  <path class="arrow" d="M 50 350 L 10 350 L 10 170 L 62 170" marker-end="url(#arrowhead)" />
+  <path class="arrow" d="M 50 350 L 10 350 L 10 120 L 62 120" marker-end="url(#arrowhead)" />
+
+  <rect x="50" y="330" width="180" height="40" class="pdf_component"/>
+  <text x="140" y="350" class="monospace">xref</text>
+
+  <rect x="50" y="390" width="180" height="40" class="pdf_component"/>
+  <text x="140" y="410" class="monospace">trailer</text>
+
+  <rect x="50" y="450" width="180" height="40" class="pdf_component"/>
+  <text x="140" y="470" class="monospace">startxref</text>
+
+  <rect x="50" y="510" width="180" height="40" class="pdf_component"/>
+  <text x="140" y="530" class="monospace">%%EOF</text>
+</svg>
