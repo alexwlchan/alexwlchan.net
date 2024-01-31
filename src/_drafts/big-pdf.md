@@ -11,6 +11,7 @@ I was browsing social media this morning, and I saw a claim I've seen go past a 
 
 {% tweet https://twitter.com/TerribleMaps/status/1674813732260655106 %}
 
+Some version of this has been floating around the Internet [since 2007][tw_2007], probably earlier.
 This tweet is pretty emblematic of posts about this claim: it's stated as pure fact, with no supporting evidence or explanation.
 We're meant to just accept that a single PDF can only cover about half the area of Germany, and we're not given any reason why 381 kilometres is the magic limit.
 
@@ -24,37 +25,37 @@ I've never actually dived into the internals of PDF, and this seems like a good 
 Let's dig in.
 
 [ps]: https://codegolf.stackexchange.com/a/48938/13285
+[tw_2007]: https://twitter.com/hassmanm/status/303086542
+
 
 ## Where does the claim come from?
 
-These posts are often accompanied by a "well, actually" where people explain this is a limitation of a particular PDF reader app, not a limitation of PDF itself.
-As [the Wikipedia article for PDF][wikipedia] explains:
+These posts are often accompanied by a "well, actually" where people in the replies explain this is a limitation of a particular PDF reader app, not a limitation of PDF itself.
+They usually link to something like [the Wikipedia article for PDF][wikipedia], which explains:
 
 > Page dimensions are not limited by the format itself. However, Adobe Acrobat imposes a limit of 15 million by 15 million inches, or 225 trillion in<sup>2</sup> (145,161 km<sup>2</sup>).<a href="https://en.wikipedia.org/wiki/PDF#cite_note-pdf-ref-1.7-2"><sup>[2]</sup></a>
 
-and if you follow the reference link, you find the [specification for PDF 1.7][spec], where an appendix item explains in more detail (emphasis mine):
+If you follow the reference link, you find the [specification for PDF 1.7][spec], where an appendix item explains in more detail (emphasis mine):
 
 > In PDF versions earlier than PDF 1.6, the size of the default user space unit is fixed at 1/72 inch. In Acrobat viewers earlier than version 4.0, the minimum allowed page size is 72 by 72 units in default user space (1 by 1 inch); the maximum is 3240 by 3240 units (45 by 45 inches). In Acrobat versions 5.0 and later, the minimum allowed page size is 3 by 3 units (approximately 0.04 by 0.04 inch); the maximum is 14,400 by 14,400 units (200 by 200 inches).
 >
 > Beginning with PDF 1.6, the size of the default user space unit may be set with the UserUnit entry of the page dictionary. **Acrobat 7.0 supports a maximum UserUnit value of 75,000, which gives a maximum page dimension of 15,000,000 inches (14,400 * 75,000 * 1 ⁄ 72).** The minimum UserUnit value is 1.0 (the default).
 
 15 million inches is exactly 381 kilometres, matching the number in the original tweet.
-And although it's PDF 1.6, it's "version 7" of Adobe Acrobat.
+And although this limit first appeared in PDF 1.6, it's "version 7" of Adobe Acrobat.
+This is probably where the original claim comes from.
 
-I've never come across UserUnit before, but reading this I have to wonder: even if Acrobat only goes up to 75,000, can we go bigger?
-
-<!-- I don't know who first decided this meant "maximum size of a PDF" and lost the context about Acrobat and UserUnit, but the claim was going around [at least as early as 2007][tw_2007]. -->
+What if we make a PDF that exceeds these "maximum" values?
 
 [wikipedia]: https://en.wikipedia.org/wiki/PDF#:~:text=Page%20dimensions%20are%20not%20limited%20by%20the%20format%20itself
 [spec]: https://web.archive.org/web/20081001170454/https://www.adobe.com/devnet/acrobat/pdfs/pdf_reference_1-7.pdf
-[tw_2007]: https://twitter.com/hassmanm/status/303086542
+[pdf_2.0]: https://developer.adobe.com/document-services/docs/assets/5b15559b96303194340b99820d3a70fa/PDF_ISO_32000-2.pdf
 
 ## The inner structure of PDFs
 
-I've never dived into the internals of a PDF document -- I've occasionally glimpsed it, but I've never really understood how they work.
-If you already know how PDF works, you can skip this section.
+I've never dived into the internals of a PDF document -- I've occasionally glimpsed some bits in a hex editor, but I've never really understood how they work.
+If I'm going to be futzing around for fun, this is a good opportunity to learn how to edit the PDF directly, rather than going through a library.
 
-I'm sure I could modify the UserUnit value in an existing PDF with a library or tool, but I thought this was a good opportunity to actually learn how PDFs work.
 I found [a good article][callas] which explains the internal structure of a PDF, and combined with asking ChatGPT a few questions, I was able to get enough to write some simple files by hand.
 
 I know that PDFs support a huge number of features, so this is probably a gross oversimplification, but this is the mental picture I created:
@@ -98,23 +99,25 @@ The start and end of a PDF file are always the same: a version number (`%PDF-1.6
 After the version number comes a long list of objects.
 There are lots of types of objects, for all the various things you can find in a PDF, including the pages, the text, and the graphics.
 
-After that is the `xref` or cross-reference table, which is a lookup table for the objects.
+After that list comes the `xref` or cross-reference table, which is a lookup table for the objects.
 It points to all the objects in the file: it tells you that object 1 is 10 bytes after the start, object 2 is after 20 bytes, object 3 is after 30 bytes, and so on.
 By looking at this table, a PDF reading app knows how many objects there are in the file, and where to find them.
 
-The `trailer` contains some metadata about the document, including the UserUnit value that we'll return to later.
+The `trailer` contains some metadata about the document, including the `UserUnit` value that we'll return to later.
 
 Finally, the `startxref` value is a pointer to the start of the `xref` table.
-This is where a PDF reading starts: it works from the end of the file until it finds the `startxref` value, then it can go and read the `xref` table and learn about all the objects.
+This is where a PDF reading app starts: it works from the end of the file until it finds the `startxref` value, then it can go and read the `xref` table and learn about all the objects.
 
 Here's a simple example of a PDF that I wrote by hand.
 If you copy/paste this code into a file named `myexample.pdf`, it should open and show a simple PDF with a red square in a PDF reading app:
+
+**objects don't have to be in order**
 
 <pre class="highlight"><code><span class="c">%PDF-1.6
 
 % The first object.  The start of every object is marked by:
 %
-%     &gt;object number> &gt;generation number> obj
+%     &lt;object number> &lt;generation number> obj
 %
 % (The generation number is used for versioning, and is usually 0.)
 %
@@ -314,3 +317,6 @@ If you'd like to play with that PDF, you can [get it here](/files/2024/universe.
 Please don't try to print it.
 
 [so]: https://stackoverflow.com/a/59927201/1558022
+
+
+does this work in Acrobat with PDF 2.0?
