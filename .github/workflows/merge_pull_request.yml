@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out the repo"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Merge the pull request
         if: github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
