@@ -54,7 +54,7 @@ I can think of a bunch of things I might do with this, starting with full-text s
 Live Text may not be most accurate OCR tool, but for me it's the most convenient.
 I've tried and failed to install command-line OCR in the past; getting this working took less than 15 minutes.
 
-*[**Update, 7 February 2024:** if you're not comfortable running scripts, you might prefer using the [Shortcuts app] which is already installed on your Mac. I've made [a shortcut](/files/2024/Get text from images.shortcut) which does something similar to this script, but doesn't require as much programming knowledge.]*
+*[**Update, 7 February 2024:** if you're not comfortable running scripts, you might prefer using the [Shortcuts app] which is already installed on your Mac. I've made [a shortcut](/files/2022/Get text from images.shortcut) which does something similar to this script, but doesn't require as much programming knowledge.]*
 
 [ocr]: https://en.wikipedia.org/wiki/Optical_character_recognition
 [preview]: https://support.apple.com/en-gb/guide/preview/prvw625a5b2c/mac
