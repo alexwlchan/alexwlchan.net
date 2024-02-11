@@ -12,18 +12,17 @@ I used to have two YouTube accounts, and I wanted to consolidate them into one.
 
 I had two accounts as a way to keep two separate watch histories.
 I was watching videos about gender and trans stuff before I came out, and I didn't want them appearing in my main account -- say, when I was listening to music at work.
-That's way less of a concern now than it was five or six years, and the lines between them have become blurry.
+That's less of a concern now than it was five or six years ago, and the lines between them have become blurry.
 I don't need two accounts any more.
 
 Because I only use YouTube for watching videos, and not posting, there were only three lists I really wanted to keep: my subscriptions, my Watch Later queue, and my Likes.
 My subs and watch later were both small enough to copy by hand; the likes were the hard bit – I had about 1500 or so.
 
 There's no built-in way to move Likes between YouTube accounts, so it was time to break out the YouTube API.
-I've tried to use this a couple of times before and bounced off, because I never had a good use for it or a reason to keep trying.
 
 ## Getting authentication working
 
-The first step was getting some API credentials for the YouTube API.
+The first step was getting some API credentials.
 This uses the Google Cloud console, which I'm not super familiar with, but YouTube has a lot of quickstart guides and code samples which made the process much easier.
 
 I used the [Python quickstart guide][quickstart_guide], and went through the following steps:
@@ -33,12 +32,13 @@ I used the [Python quickstart guide][quickstart_guide], and went through the fol
 3.  Create some OAuth credentials, which came in a JSON file I had to download
 
 At some point during this process, I had to create an OAuth consent screen.
-I think this is something that gets reviewed by Google if you want to publish this app for the world to use.
-Because I was only writing scripts for my personal use, I was able to leave the app with a "testing" status, and list my two YouTube accounts as "test users":
+If I was publishing this app for the world to use, you'd see this as signing into the app, and it would have to be reviewed by Google.
+Because I was only writing scripts for me, I was able to mostly skip this step -- I left the app with a "testing" status, and just listed my two YouTube accounts as "test users":
 
 {%
   picture
   filename="google-cloud-oauth-consent.png"
+  alt="Screenshot of a settings screen in Google Cloud console. The panel is a titled ‘OAuth consent screen’, and there’s a table labelled ‘Test users’. It has two rows with redacted email addresses, and buttons to add/remove users from the table."
   width="546"
   class="screenshot"
 %}
@@ -48,7 +48,7 @@ It didn't work -- it was written for an older version of the Python libraries.
 In particular, it used `flow.run_console()`, which uses an authentication method which has been deprecated for over a year.
 A [Stack Overflow answer][so_answer] suggested I use `flow.run_local_server()`, and that was more successful.
 
-Here's the first script I got working, which uses a slightly modified authentication flow:
+Here's the first script I got working, which is a modified version of the sample code:
 
 ```python
 import googleapiclient.discovery  # pip install google-api-python-client==1.7.2
@@ -110,20 +110,20 @@ Good progress!
 
 The authentication code above works, but it has two major issues:
 
-*   It's reading my OAuth credentials from a JSON file on disk.
-    Credentials should never be stored in plain text, so I want to store those somewhere more secure.
+*   It's reading my OAuth client config from a JSON file on disk.
+    Credentials should never be stored in plain text, so I want to put that somewhere more secure.
 
 *   It doesn't remember the credentials from `flow.run_local_server()` -- every time I run the script, I have to go through the in-browser authentication flow.
     I was running the script many times as I gradually built up the code, and this quickly got annoying.
 
 Both of these issues can be solved using the [keyring module][keyring], which provides a platform-agnostic interface to the system password store (in my case, the login keychain on macOS).
 
-I changed the function to fetch the OAuth client config from the keychain, and to store retrieved credentials in the keychain also.
+I changed the function to fetch the OAuth client config from the keychain, and to store retrieved credentials in the keychain.
 When I run it repeatedly, it retrieves the stored credentials rather than sending me back through the in-browser flow.
 
 After running these scripts for a while, I discovered that Google's OAuth credentials expire after about a week.
 I wrote some rudimentary code to handle credential expiry -- it deletes the stored credentials, and sends me back through the in-browser flow.
-There are almost certainly better ways to do this, but my simplistic approach worked well enough for my one-off scripts.
+There are almost certainly better ways to do this, but my simplistic approach worked well enough for my one-off script.
 
 Here's my updated function:
 
@@ -206,7 +206,7 @@ def create_youtube_client(label: str):
         return youtube
 ```
 
-This function is more complicated than Google's sample code, and there are more ways to improve it that I didn't get to in this project.
+This function is more complicated than Google's sample code, and there are more ways that it could be improved.
 Authentication is hard!
 
 [keyring]: https://pypi.org/project/keyring/
@@ -313,6 +313,7 @@ I did run into a couple of non-obvious issues:
     It took a while, but still less than doing it by hand!
     
     You can apply for a quota increase, but I didn't bother -- I knew I'd only run into the quota a handful of times, and it was easier to spread my runs over multiple days than fill in an application for more quota.
+    The docs say it can take a week or so to approve quota increases, by which I'd probably be done.
     
 *   Sometimes I'd get a 403 error with the message *"The owner of the video that you are trying to rate has disabled ratings for that video"*.
 
