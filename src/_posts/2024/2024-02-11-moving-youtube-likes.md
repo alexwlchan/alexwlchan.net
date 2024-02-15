@@ -238,10 +238,10 @@ class YouTubeClient:
         """
         Generate a list of videos that this YouTube account has liked.
         """
-        kwargs = {"part": "snippet", "myRating": "like", "maxResults": 50}
+        kwargs = {"part": "snippet", "playlistId": "LL", "maxResults": "50"}
 
         while True:
-            request = self.youtube.videos().list(**kwargs)
+            request = self.youtube.playlistItems().list(**kwargs)
             response = request.execute()
 
             yield from response["items"]
@@ -251,6 +251,8 @@ class YouTubeClient:
             except KeyError:
                 break
 ```
+
+[**Edit, 15 February 2024:** the original version of this code called the `videos()` endpoint and filtered for my likes, but that was only able to see the first 1000 likes. That was fine for this project, where I was gradually deleting the list, but not in general. I've changed it to use the `playlistItems()` API, which seems to return the full set.]
 
 This generates videos in reverse order of liking them -- the most recently liked video comes first.
 The items are large dicts which include various metadata fields about each video, of which the most interesting one to me is the ID:
@@ -333,6 +335,8 @@ I did run into a couple of non-obvious issues:
     I'm not sure why they were invisible to the API.
 
     Again, because it was only a handful of videos, I moved them across by hand.
+
+    [**Edit, 15 February 2024:** I think this was caused by my use of the `videos()` API instead of `playlistItems()`; see above.]
 
 These were relatively minor issues, and easy to work around.
 And once I'd finished running this script, I was able to close the old account and throw away this code -- but maybe I'll come back to these notes if I have another interesting idea for using the YouTube API.
