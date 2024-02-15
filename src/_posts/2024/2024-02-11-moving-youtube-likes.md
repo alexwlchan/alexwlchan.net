@@ -3,7 +3,7 @@ layout: post
 date: 2024-02-11 23:04:30 +0000
 title: Moving my YouTube Likes from one account to another
 summary: Some experimenting with the YouTube API to merge two accounts into one.
-tags: 
+tags:
   - python
   - youtube
 colors:
@@ -129,6 +129,7 @@ There are almost certainly better ways to do this, but my simplistic approach wo
 Here's my updated function:
 
 ```python
+import datetime
 import json
 
 import google.oauth2.credentials
@@ -156,6 +157,12 @@ def create_youtube_client(label: str):
 
     if stored_credentials is not None:
         json_credentials = json.loads(stored_credentials)
+
+        if "expiry" in json_credentials:
+            expiry = datetime.datetime.fromisoformat(json_credentials["expiry"])
+            expiry = expiry.replace(tzinfo=None)
+            json_credentials["expiry"] = expir
+
         credentials = google.oauth2.credentials.Credentials(**json_credentials)
 
     # If there are no stored credentials, fetch new ones.
@@ -226,7 +233,7 @@ class YouTubeClient:
 
     def create_youtube_client(self, label: str):
         …
-    
+
     def get_liked_videos(self):
         """
         Generate a list of videos that this YouTube account has liked.
@@ -312,10 +319,10 @@ I did run into a couple of non-obvious issues:
     The quota resets at midnight Pacific Time, or about 8am in London.
     I got into the habit of running the script once a day, every day, until I'd moved my entire list of Liked videos.
     It took a while, but still less than doing it by hand!
-    
+
     You can apply for a quota increase, but I didn't bother -- I knew I'd only run into the quota a handful of times, and it was easier to spread my runs over multiple days than fill in an application for more quota.
     The docs say it can take a week or so to approve quota increases, by which I'd probably be done.
-    
+
 *   Sometimes I'd get a 403 error with the message *"The owner of the video that you are trying to rate has disabled ratings for that video"*.
 
     I'm not sure what this means -- if I opened the video in my web browser, I could still use the like/unlike buttons.
@@ -324,7 +331,7 @@ I did run into a couple of non-obvious issues:
 *   The API couldn't see the last dozen or so videos.
     On the last day of running the script, the `get_liked_videos()` function returned an empty list, but I could still see some liked videos in the old account in my web browser.
     I'm not sure why they were invisible to the API.
-    
+
     Again, because it was only a handful of videos, I moved them across by hand.
 
 These were relatively minor issues, and easy to work around.
