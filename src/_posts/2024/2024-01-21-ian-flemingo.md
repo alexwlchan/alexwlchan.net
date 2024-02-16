@@ -63,7 +63,7 @@ On the other side of the cards, I wrote pun-filled blurbs that are based loosely
 I got the original blurbs from Amazon listings, then stuffed them with puns and references to the show.
 At one point I did consider including testimonials from characters, but I didn't have space.
 
-The books are published by "El Otro Editora", a reference to ["El Otro Periodico"][eop], a fan-produced newspaper.
+The books are published by "El Otro Editora", a reference to ["El Otro Periodico"][eop], a fan-produced newspaper, which is in turn named after the line "el otro telefono".
 The price is "6d", which is the one mistake that really irks me – I meant the cost to be a ha'penny, but instead it's half a shilling.
 Oops.
 (Why a ha'penny?
