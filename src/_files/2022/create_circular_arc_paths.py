@@ -22,10 +22,26 @@ def get_circular_arc_path_command(*, centre_x, centre_y, radius, start_angle, sw
     else:
         raise ValueError(f"Unrecognised angle unit: {angle_unit}")
 
-    # Work out the start/end points of the arc using trig identities
+    # We need to work out the x-y coordinates of where the arc will end,
+    # which we can do with trig identities.
+    #
+    #                R cos Θ
+    #               +-------+
+    #               |      /
+    #               |     /
+    #               |    /
+    #       R sin Θ |   / R = radius
+    #               |  /
+    #               |Θ/
+    #               |/
+    #               + (centre_x, centre_y)
+    #
+
+    # For the start of the arc, Θ = start_angle
     start_x = centre_x + radius * math.sin(start_angle)
     start_y = centre_y - radius * math.cos(start_angle)
 
+    # For the end of the arc, Θ = start_angle + sweep_angle
     end_x = centre_x + radius * math.sin(start_angle + sweep_angle)
     end_y = centre_y - radius * math.cos(start_angle + sweep_angle)
 
