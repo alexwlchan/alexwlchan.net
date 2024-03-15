@@ -69,6 +69,7 @@ It's nice.
     filename="step-step-step-1.jpg"
     width="450"
     link_to="https://www.flickr.com/photos/statelibraryofnsw/53204818679/"
+    alt="Cover slide. On the left hand side is “Step… Step… Step…” in green text, and on the right hand side is a black-and-white photo of two dancers."
   %}
   <figcaption>
     Photo: two jitterbug dancers in Sydney, 1948.
@@ -97,6 +98,7 @@ I want to tell you what learning to dance taught me about learning to use AI.
     filename="38895273120_0e92f40ed8_o.jpg"
     width="450"
     link_to="https://www.flickr.com/photos/proni/38895273120/"
+    alt="Black-and-white photo of a theatrical stage full of actors in various costumes."
   %}
   <figcaption>
     A theatrical production of <em>The Pirates of Penzance</em>, 1927.
@@ -116,6 +118,7 @@ So in the interval I got out my phone, I started reading about dancing, and what
     filename="3549665322_a5bc9827aa_o.jpg"
     width="450"
     link_to="https://www.flickr.com/photos/library_of_congress/3549665322/"
+    alt="Black-and-white photo of a couple dancing side-by-side, with other people around them dancing or watching from the sidelines."
   %}
   <figcaption>
     Jitterbugging in a juke joint in Mississippi, 1939.
@@ -174,28 +177,28 @@ This is a kick, kick, step.
 </style>
 
 <div id="step_by_step">
-  <img src="/images/2024/basic-1.png">
+  <img src="/images/2024/basic-1.png" alt="">
   <p>
     Stand on my left leg, and raise my right leg in the air.
     Bent at the knee, foot pointing back.
   </p>
   
-  <img src="/images/2024/basic-2.png">
+  <img src="/images/2024/basic-2.png" alt="">
   <p>
     Swing the right leg forward into a kick.
   </p>
   
-  <img src="/images/2024/basic-3.png">
+  <img src="/images/2024/basic-3.png" alt="">
   <p>
     Swing the right leg back up, completing the kick.
   </p>
   
-  <img src="/images/2024/basic-4.png">
+  <img src="/images/2024/basic-4.png" alt="">
   <p>
     Swing the right leg forward again for a second kick.
   </p>
   
-  <img src="/images/2024/basic-5.png">
+  <img src="/images/2024/basic-5.png" alt="">
   <p>
     Step down onto the right leg, and lift my left leg into the air.
   </p>
