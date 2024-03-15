@@ -1,10 +1,13 @@
 ---
 layout: post
 title: "Monki Gras 2024: Step… Step… Step…"
-summary: Swing dancing and prompt engineering are pretty different. But what could learning one tell us about learning the other?
+summary: Swing dancing and prompt engineering are pretty different. But could learning one help us learn the other?
 tags:
   - talks
   - generative-ai
+colors:
+  css_dark:  "#88FA4E"
+  css_light: "#008500"
 ---
 Yesterday I gave a talk at [Monki Gras 2024](https://monkigras.com/).
 This year, the theme is *"Prompting Craft: examining and discussing the art of the prompt in code and cultural creation"*.
@@ -70,6 +73,7 @@ It's nice.
     width="450"
     link_to="https://www.flickr.com/photos/statelibraryofnsw/53204818679/"
     alt="Cover slide. On the left hand side is “Step… Step… Step…” in green text, and on the right hand side is a black-and-white photo of two dancers."
+    class="photo dark_aware"
   %}
   <figcaption>
     Photo: two jitterbug dancers in Sydney, 1948.
@@ -99,6 +103,7 @@ I want to tell you what learning to dance taught me about learning to use AI.
     width="450"
     link_to="https://www.flickr.com/photos/proni/38895273120/"
     alt="Black-and-white photo of a theatrical stage full of actors in various costumes."
+    class="photo dark_aware"
   %}
   <figcaption>
     A theatrical production of <em>The Pirates of Penzance</em>, 1927.
@@ -119,6 +124,7 @@ So in the interval I got out my phone, I started reading about dancing, and what
     width="450"
     link_to="https://www.flickr.com/photos/library_of_congress/3549665322/"
     alt="Black-and-white photo of a couple dancing side-by-side, with other people around them dancing or watching from the sidelines."
+    class="photo dark_aware"
   %}
   <figcaption>
     Jitterbugging in a juke joint in Mississippi, 1939.
@@ -144,6 +150,7 @@ It was closer than the nearest Starbucks!
     link_to="https://www.flickr.com/photos/statelibraryqueensland/7946600826/"
     alt="A black-and-white photo of young girls in white tutus, their arms held out in ballet poses, inside a dance studio."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Young girls competing at the Royal Academy of Dancing, 1938.
@@ -221,6 +228,7 @@ But we'd always build something new in small steps, not doing too much at once.
     link_to="https://www.flickr.com/photos/sdasmarchives/40556490133/"
     alt="A slide with the text “Starting small is a good way to learn a new skill” and a black-and-white photo of a man in a cool hat smiling and giving a thumbs up."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Photo: Bob Hoover.
@@ -257,6 +265,7 @@ This is where we come back to AI, to prompt engineering -- which have been new s
     link_to="https://www.flickr.com/photos/statelibraryofnsw/7627979920/"
     alt="Black-and-white photo of a man passing over a high jump bar, as two officials watch from the sideline."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     High jump at the men's athletics, 1935.
@@ -297,6 +306,7 @@ A more experienced AI user could probably have written the entire program in a s
     link_to="https://www.flickr.com/photos/sdasmarchives/40556490133/"
     alt="A slide with the text “Starting small is a good way to learn a new skill” and a black-and-white photo of a man in a cool hat smiling and giving a thumbs up."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Photo: Bob Hoover.
@@ -318,6 +328,7 @@ I have to keep reminding myself: start small, don't overreach yourself.
     link_to="https://en.wikipedia.org/wiki/File:Jitterbug_dancers_SLNSW_FL9435364.jpg"
     alt="A black-and-white photo of two dancers. They're facing apart, with one leg on the ground, and the other leg pointing up and out (in the same direction). They're connected by a single hand, clearly in the middle of an energetic move."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Jitterbug dancers in Sydney, 1948.
@@ -351,6 +362,7 @@ This is the sort of thing that you can teach a beginner in a couple of hours; no
     width="328"
     link_to="https://www.flickr.com/photos/quinet/43506977094/in/photolist-29hyCwJ"
     alt="Two dancers in the tandem Charleston, with a crowd in the background behind them. They're one in front of the other, holding hands at their sides, and both standing on their left leg as they lift their right in the air. They have big smiles on their faces, clearly having fun."
+    class="photo dark_aware"
   %}
   <figcaption>
     Tandem Charleston at a competition in Vancouver, 2018.
@@ -373,6 +385,7 @@ A lot of followers (especially women) aren't super comfortable dancing this with
     width="328"
     alt="Black-and-white photo of two dancers. The leader has lifted their follower up in the air, so the follower is upside down, their head facing the floor and her feet kicking towards the ceiling. She seems to be crying in delight (I hope!)."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Source unknown.
@@ -392,6 +405,7 @@ You would never do this with a stranger, and I know a lot of experienced dancers
   width="450"
   alt="Text slide. What do you feel comfortable doing?"
   loading="lazy"
+  class="photo dark_aware"
 %}
 
 The point is that trust isn't binary.
@@ -416,6 +430,7 @@ That's important, but it's no good having those skills if you can't trust and us
   width="450"
   alt="Text slide. How do we learn to trust?"
   loading="lazy"
+  class="photo dark_aware"
 %}
 
 How do we learn to trust AI?
@@ -440,6 +455,7 @@ If it completely messes up, I know I can't trust it for this.
   width="450"
   alt="Text slide. What do I trust AI for?"
   loading="lazy"
+  class="photo dark_aware"
 %}
 
 So what do I trust AI for?
@@ -463,6 +479,7 @@ So I might trust an AI to tell me about digital preservation or dance styles, bu
     width="328"
     alt="Black-and-white photo of a signpost with arrows pointing in all different directions, with a man looking down at a map and pondering his next move."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Sign post at Schiphol Airport.
@@ -493,6 +510,7 @@ This is an inversion of the prompter/promptee relationship: I'm not giving the c
     width="450"
     alt="Black-and-white photo of people looking at a shelf of encyclopedias in a library. The man closest the camera is already holding a stack of papers, and looking upwards owards one of the books."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Encyclopedias in the library, 1964.
@@ -522,6 +540,7 @@ I wouldn't rely on it for anything important, but if often contains a clue to so
     width="450"
     alt="A person with long, dark hair using a computer terminal. They're facing away from the camera, and holding some sort of stylus up to a monitor showing monospaced text."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Somebody using a terminal in the OCCS computer room.
@@ -553,6 +572,7 @@ It's quite tricky to get the right set of incantations, but once I've got them i
     width="450"
     alt="Left: a list with three items. Giving me questions to consider; being a “friend” who's read the Wikipedia page; writing code. Right: a black-and-white photo of somebody welding a large piece of pipe."
     loading="lazy"
+    class="photo dark_aware"
   %}
   <figcaption>
     Photo: gas welding a joint in a line of spiral pipe at the Douglas Dam, 1942.
@@ -573,6 +593,7 @@ Don't take this as a prescriptive list; take it as some ideas for how you might 
   width="450"
   alt="Text slide. Being a great dancer = having technical skills and knowing your level of trust."
   loading="lazy"
+  class="photo dark_aware"
 %}
 
 So like a slow jazz number at the end of the evening, let's wrap things up.
@@ -587,6 +608,7 @@ But it's also about trust, knowing your partner, working out what they're comfor
   width="450"
   alt="Text slide. Being a great AI user = having technical skills and knowing your level of trust. The word 'dancer' has been crossed out and replaced with 'AI user'."
   loading="lazy"
+  class="photo dark_aware"
 %}
 
 The same thing is true of using AI.
