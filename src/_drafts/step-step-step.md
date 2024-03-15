@@ -6,7 +6,7 @@ tags:
   - talks
   - generative-ai
 ---
-Earlier today I gave a talk at [Monki Gras 2024](https://monkigras.com/).
+Yesterday I gave a talk at [Monki Gras 2024](https://monkigras.com/).
 This year, the theme is *"Prompting Craft: examining and discussing the art of the prompt in code and cultural creation"*.
 I did a talk about my experience of learning these new AI tools, and I draw comparisons to learning to dance.
 
