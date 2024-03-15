@@ -32,11 +32,13 @@ But you also need to know how much you trust the tool, and whether you can rely 
 
 ## Book-ends of a big change
 
+There are some personal reasons why Monki Gras feels a bit special.
+
 I went to the last Monki Gras in 2019.
 It was cancelled in 2020 thanks to COVID, and this is the first year it's been back – five years later!
 A lot of stuff has changed in that time.
 
-In 2019, I was starting to explore what being genderfluid might mean for me, and how that might affect my professional career.
+In 2019, I was starting to explore what being genderfluid might mean for me, how that might affect my professional career, and I had several meaningful conversations with now-friends at Monki Gras.
 In 2024, I have a better understanding of what my gender looks like, I'm much happier, and I'm more comfortable presenting as my full self.
 
 At both events, my gender and my appearance have been a complete non-issue.
