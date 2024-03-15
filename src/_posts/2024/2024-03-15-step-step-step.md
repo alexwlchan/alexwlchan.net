@@ -24,6 +24,8 @@ I know I'll be thinking about the event for weeks to come, and there's still ano
 
 I'm pleased with the talk I wrote, and people seemed to enjoy it.
 The talk wasn't recorded, but I've put my slides and notes below.
+(I wanted to get these up quickly, so there may be silly typos or mistakes.
+Please let me know if you see any!)
 
 This is the key message: *being a good user of AI is about both technical skills and managing your trust in the tool*.
 You need to know the mechanics of prompt engineering, what text you type in the box, yes.
@@ -621,4 +623,4 @@ The same thing is true of using AI.
 You need to know how to write prompts, how to get information, how to get the results you want.
 But you also need to know if you trust those results, when you can rely on the output.
 
-We need to do build up both of those skills to be great users to AI.
+We need both of those skills to be great users of AI.
