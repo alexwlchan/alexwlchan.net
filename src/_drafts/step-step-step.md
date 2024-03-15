@@ -187,28 +187,28 @@ This is a kick, kick, step.
 </style>
 
 <div id="step_by_step">
-  <img src="/images/2024/basic-1.png" alt="">
+  <img src="/images/2024/basic-1.png" alt="Left foot down, right foot raised">
   <p>
     Stand on my left leg, and raise my right leg in the air.
     Bent at the knee, foot pointing back.
   </p>
   
-  <img src="/images/2024/basic-2.png" alt="">
+  <img src="/images/2024/basic-2.png" alt="Left foot down, right foot kicking">
   <p>
     Swing the right leg forward into a kick.
   </p>
   
-  <img src="/images/2024/basic-3.png" alt="">
+  <img src="/images/2024/basic-3.png" alt="Left foot down, right foot raised">
   <p>
     Swing the right leg back up, completing the kick.
   </p>
   
-  <img src="/images/2024/basic-4.png" alt="">
+  <img src="/images/2024/basic-4.png" alt="Left foot down, right foot kicking">
   <p>
     Swing the right leg forward again for a second kick.
   </p>
   
-  <img src="/images/2024/basic-5.png" alt="">
+  <img src="/images/2024/basic-5.png" alt="Right foot down, left foot raised">
   <p>
     Step down onto the right leg, and lift my left leg into the air.
   </p>
