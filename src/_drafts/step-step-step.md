@@ -45,6 +45,9 @@ I got to relax, and focus on the event rather than worrying if somebody was abou
 
 It's nice.
 
+This should be the norm at professional events, but it isn't, and it's a bit sad that I can't take it for granted.
+But it's nice when it happens.
+
 ## Links/recommended reading
 
 *   There are lots of books about the history of swing dancing and jazz music.
@@ -161,7 +164,7 @@ It was closer than the nearest Starbucks!
 This was a proper beginner class, no experience needed – which was good, because I didn't have any!
 You could walk in having never danced before and they'd teach you from scratch.
 
-This is great for students, but it poses a challenge for teachers.
+This is great for students, but it poses a tricky challenge for the teachers.
 Many people are quite nervous in a dance class, unsure if they can do it, especially if it's their first time.
 The teachers have to get you on board quickly, and I noticed a pattern -- after a gentle warmup, they'd always start with a really simple step.
 
