@@ -33,7 +33,7 @@ But you also need to know how much you trust the tool, and whether you can rely 
 
 [curbcut]: {% post_url 2019/2019-01-31-monki-gras-the-curb-cut-effect %}
 
-## Book-ends of a big change
+## What a lovely sense of ~gender~
 
 There are some personal reasons why Monki Gras feels a bit special.
 
