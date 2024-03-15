@@ -55,6 +55,7 @@ class AddNonBreakingSpaces
     phrases = [
       '<em>k</em>-means',
       '26k items',
+      'CC BY 2.0',
       'CC BY 4.0',
       'CC BY-NC 4.0',
       'CC BY-NC-ND',
@@ -66,6 +67,8 @@ class AddNonBreakingSpaces
       'IP address',
       'JPEG 2000',
       'Mac OS 9',
+      'Monki Gras',
+      'MS Paint',
       'Objective-C',
       'P-215',
       'PDF 1.6',
