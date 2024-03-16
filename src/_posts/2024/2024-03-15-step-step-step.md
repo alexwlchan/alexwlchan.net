@@ -82,6 +82,7 @@ But it's nice when it happens.
     link_to="https://www.flickr.com/photos/statelibraryofnsw/53204818679/"
     alt="Cover slide. On the left hand side is “Step… Step… Step…” in green text, and on the right hand side is a black-and-white photo of two dancers."
     class="photo dark_aware"
+    loading="lazy"
   %}
   <figcaption>
     Photo: two jitterbug dancers in Sydney, 1948.
@@ -112,6 +113,7 @@ I want to tell you what learning to dance taught me about learning to use AI.
     link_to="https://www.flickr.com/photos/proni/38895273120/"
     alt="Black-and-white photo of a theatrical stage full of actors in various costumes."
     class="photo dark_aware"
+    loading="lazy"
   %}
   <figcaption>
     A theatrical production of <em>The Pirates of Penzance</em>, 1927.
@@ -131,6 +133,7 @@ So in the interval I got out my phone, I started reading about dancing, and what
     filename="3549665322_a5bc9827aa_o.jpg"
     width="450"
     link_to="https://www.flickr.com/photos/library_of_congress/3549665322/"
+    loading="lazy"
     alt="Black-and-white photo of a couple dancing side-by-side, with other people around them dancing or watching from the sidelines."
     class="photo dark_aware"
   %}
@@ -192,28 +195,28 @@ This is a kick, kick, step.
 </style>
 
 <div id="step_by_step">
-  <img src="/images/2024/basic-1.png" alt="Left foot down, right foot raised">
+  <img src="/images/2024/basic-1.png" alt="Left foot down, right foot raised" loading="lazy">
   <p>
     Stand on my left leg, and raise my right leg in the air.
     Bent at the knee, foot pointing back.
   </p>
   
-  <img src="/images/2024/basic-2.png" alt="Left foot down, right foot kicking">
+  <img src="/images/2024/basic-2.png" alt="Left foot down, right foot kicking" loading="lazy">
   <p>
     Swing the right leg forward into a kick.
   </p>
   
-  <img src="/images/2024/basic-3.png" alt="Left foot down, right foot raised">
+  <img src="/images/2024/basic-3.png" alt="Left foot down, right foot raised" loading="lazy">
   <p>
     Swing the right leg back up, completing the kick.
   </p>
   
-  <img src="/images/2024/basic-4.png" alt="Left foot down, right foot kicking">
+  <img src="/images/2024/basic-4.png" alt="Left foot down, right foot kicking" loading="lazy">
   <p>
     Swing the right leg forward again for a second kick.
   </p>
   
-  <img src="/images/2024/basic-5.png" alt="Right foot down, left foot raised">
+  <img src="/images/2024/basic-5.png" alt="Right foot down, left foot raised" loading="lazy">
   <p>
     Step down onto the right leg, and lift my left leg into the air.
   </p>
@@ -371,6 +374,7 @@ This is the sort of thing that you can teach a beginner in a couple of hours; no
     link_to="https://www.flickr.com/photos/quinet/43506977094/in/photolist-29hyCwJ"
     alt="Two dancers in the tandem Charleston, with a crowd in the background behind them. They're one in front of the other, holding hands at their sides, and both standing on their left leg as they lift their right in the air. They have big smiles on their faces, clearly having fun."
     class="photo dark_aware"
+    loading="lazy"
   %}
   <figcaption>
     Tandem Charleston at a competition in Vancouver, 2018.
