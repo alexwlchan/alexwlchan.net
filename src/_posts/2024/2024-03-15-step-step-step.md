@@ -426,7 +426,9 @@ You have to find the right level of trust with your partner.
 What do you feel comfortable doing?
 
 And that question applies to generative AI as much as it does to dancing.
-If you want to use these tools, if you're using them for knowledge work or you're relying on their output, you have to know how much you trust them.
+If you're using it for fun stuff, to make images or videos, that's one thing.
+If you're using them for knowledge work, if you're relying on their output, that's quite another.
+If you want to use these tools, you have to know how much you trust them.
 
 The right level of trust isn't absolute faith or complete scepticism; it's somewhere in the middle.
 Maybe you trust it for one thing, but not another.
