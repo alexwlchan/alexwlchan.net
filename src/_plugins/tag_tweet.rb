@@ -53,10 +53,14 @@ METADATA_SCHEMA = {
           type: 'array',
           items: {
             type: 'object',
+            required: %w[filename expanded_url type],
             properties: {
+              filename: { type: 'string' },
               expanded_url: { type: 'string' },
-              display_url: { type: 'string' }
-            }
+              ext_alt_text: { type: 'string' },
+              type: { const: 'photo' }
+            },
+            additionalProperties: false
           }
         },
         user_mentions: {
@@ -201,29 +205,17 @@ module Jekyll
         )
       end
 
-      entities.fetch('media', []).each do |m|
-        if m.key? 'url' and m.key? 'expanded_url' and m.key? 'display_url'
-          text = text.sub(
-            m['url'],
-            "<a href=\"#{m['expanded_url']}\">#{m['display_url']}</a>"
-          )
-        end
-      end
-
       text.strip
     end
 
     def tweet_image(media)
-      expanded_url = media['expanded_url']
       alt_text = media['ext_alt_text']
 
-      filename = File.basename(media['media_url_https'])
-
       <<~HTML
-        <a href="#{expanded_url}">
+        <a href="#{media['expanded_url']}">
           {%
             picture
-            filename="#{filename}"
+            filename="#{media['filename']}"
             parent="/images/twitter"
             #{alt_text.nil? ? 'data-proofer-ignore' : "alt=\"#{alt_text}\""}
             width="496"

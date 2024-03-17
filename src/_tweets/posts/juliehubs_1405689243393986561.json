@@ -11,40 +11,16 @@
   "entities": {
     "media": [
       {
-        "id": 1405689241770905601,
-        "id_str": "1405689241770905601",
-        "indices": [
-          84,
-          107
-        ],
-        "media_url": "http://pbs.twimg.com/media/E4IC6vBX0AEWTiz.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/E4IC6vBX0AEWTiz.jpg",
+        "filename": "E4IC6vBX0AEWTiz.jpg",
+        "expanded_url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1",
+        "type": "photo"
+      }
+    ],
+    "urls": [
+      {
         "url": "https://t.co/XpzmnUldzw",
         "display_url": "pic.twitter.com/XpzmnUldzw",
-        "expanded_url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1",
-        "type": "photo",
-        "sizes": {
-          "small": {
-            "w": 680,
-            "h": 479,
-            "resize": "fit"
-          },
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "large": {
-            "w": 1440,
-            "h": 1014,
-            "resize": "fit"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 845,
-            "resize": "fit"
-          }
-        }
+        "expanded_url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1"
       }
     ]
   },

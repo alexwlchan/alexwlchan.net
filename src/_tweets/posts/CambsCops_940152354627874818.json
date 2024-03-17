@@ -5,49 +5,18 @@
   "text": "From this week our armed officers will be carrying out more visible and proactive patrols at key sites across the county. This is not as a result of any specific intelligence or threats, but is designed to help keep you as safe as possible. Read more here https://t.co/ASERsnKY7y",
   "truncated": true,
   "entities": {
+    "media": [
+      {
+        "filename": "DQwXlPKVAAAhdNN.jpg",
+        "expanded_url": "https://twitter.com/CambsCops/status/940152354627874818/photo/1",
+        "type": "photo"
+      }
+    ],
     "urls": [
       {
         "url": "https://t.co/ASERsnKY7y",
         "expanded_url": "https://www.cambs.police.uk/news-and-appeals/Christmas-Action-Counters-Terrorism-Campaign",
         "display_url": "cambs.police.uk/news-and-appea…"
-      }
-    ],
-    "media": [
-      {
-        "id": 848188939018145794,
-        "id_str": "848188939018145794",
-        "indices": [
-          69,
-          92
-        ],
-        "media_url": "https://pbs.twimg.com/media/DQwXlPKVAAAhdNN.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/DQwXlPKVAAAhdNN.jpg",
-        "url": "https://t.co/cF7XPImBPg",
-        "display_url": "pic.twitter.com/cF7XPImBPg",
-        "expanded_url": "https://twitter.com/CambsCops/status/940152354627874818",
-        "type": "photo",
-        "sizes": {
-          "small": {
-            "w": 680,
-            "h": 680,
-            "resize": "fit"
-          },
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 1200,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 2048,
-            "h": 2048,
-            "resize": "fit"
-          }
-        }
       }
     ]
   },

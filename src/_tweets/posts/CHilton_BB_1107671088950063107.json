@@ -9,117 +9,31 @@
     259
   ],
   "entities": {
+    "urls": [
+      {
+        "url": "https://t.co/mpSWZYeEiu",
+        "display_url": "pic.twitter.com/mpSWZYeEiu",
+        "expanded_url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/1"
+      }
+    ],
     "user_mentions": [
       {"screen_name": "BrittenOfficial"}
     ],
     "media": [
       {
-        "id": 1107670946800902145,
-        "id_str": "1107670946800902145",
-        "indices": [
-          260,
-          283
-        ],
-        "media_url": "http://pbs.twimg.com/media/D18824AWoAEdrSd.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/D18824AWoAEdrSd.jpg",
-        "url": "https://t.co/mpSWZYeEiu",
-        "display_url": "pic.twitter.com/mpSWZYeEiu",
+        "filename": "D18824AWoAEdrSd.jpg",
         "expanded_url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/1",
-        "type": "photo",
-        "sizes": {
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "small": {
-            "w": 680,
-            "h": 228,
-            "resize": "fit"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 402,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 1965,
-            "h": 658,
-            "resize": "fit"
-          }
-        }
+        "type": "photo"
       },
       {
-        "id": 1107670979659132930,
-        "id_str": "1107670979659132930",
-        "indices": [
-          260,
-          283
-        ],
-        "media_url": "http://pbs.twimg.com/media/D1884yaXcAIgYP_.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/D1884yaXcAIgYP_.jpg",
-        "url": "https://t.co/mpSWZYeEiu",
-        "display_url": "pic.twitter.com/mpSWZYeEiu",
-        "expanded_url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/1",
-        "type": "photo",
-        "sizes": {
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 393,
-            "resize": "fit"
-          },
-          "small": {
-            "w": 680,
-            "h": 223,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 2002,
-            "h": 656,
-            "resize": "fit"
-          }
-        }
+        "filename": "D1884yaXcAIgYP_.jpg",
+        "expanded_url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/2",
+        "type": "photo"
       },
       {
-        "id": 1107671020213800960,
-        "id_str": "1107671020213800960",
-        "indices": [
-          260,
-          283
-        ],
-        "media_url": "http://pbs.twimg.com/media/D1887JfWkAAokaU.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/D1887JfWkAAokaU.jpg",
-        "url": "https://t.co/mpSWZYeEiu",
-        "display_url": "pic.twitter.com/mpSWZYeEiu",
-        "expanded_url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/1",
-        "type": "photo",
-        "sizes": {
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "medium": {
-            "w": 1141,
-            "h": 571,
-            "resize": "fit"
-          },
-          "small": {
-            "w": 680,
-            "h": 340,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 1141,
-            "h": 571,
-            "resize": "fit"
-          }
-        }
+        "filename": "D1887JfWkAAokaU.jpg",
+        "expanded_url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/3",
+        "type": "photo"
       }
     ]
   },

@@ -3,10 +3,9 @@
   "entities": {
     "media": [
       {
+        "filename": "Fz4iNokXwAAv2hD.jpg",
         "expanded_url": "https://twitter.com/TerribleMaps/status/1674813732260655106/photo/1",
-        "media_url_https": "https://pbs.twimg.com/media/Fz4iNokXwAAv2hD.jpg",
-        "type": "photo",
-        "url": "https://t.co/Sxz37HMYD1"
+        "type": "photo"
       }
     ],
     "urls": [
