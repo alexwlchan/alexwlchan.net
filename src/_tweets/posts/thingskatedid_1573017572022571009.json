@@ -6,15 +6,9 @@
     0,
     58
   ],
-  "entities": {
-    "hashtags": [],
-    "symbols": [],
-    "urls": [],
-    "user_mentions": []
-  },
   "favorite_count": 245,
   "favorited": false,
-  "full_text": "i don't *care* how maths works, half of zero should be 0.5",
+  "text": "i don't *care* how maths works, half of zero should be 0.5",
   "geo": null,
   "id": 1573017572022571009,
   "id_str": "1573017572022571009",

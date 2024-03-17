@@ -5,26 +5,8 @@
   "text": "@alexwlchan I’m also stripping common prefixes from episode titles within a feed, so:\n\nEpisode 1: A\nEpisode 2: B\n-&gt;\n1: A\n2: B",
   "truncated": false,
   "entities": {
-    "hashtags": [
-
-    ],
-    "symbols": [
-
-    ],
     "user_mentions": [
-      {
-        "screen_name": "alexwlchan",
-        "name": "Alex Chan",
-        "id": 66351897,
-        "id_str": "66351897",
-        "indices": [
-          0,
-          11
-        ]
-      }
-    ],
-    "urls": [
-
+      {"screen_name": "alexwlchan"}
     ]
   },
   "source": "<a href=\"http://tapbots.com/software/tweetbot/mac\" rel=\"nofollow\">Tweetbot for Mac</a>",

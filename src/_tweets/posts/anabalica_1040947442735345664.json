@@ -2,7 +2,7 @@
   "created_at": "Sat Sep 15 12:56:24 +0000 2018",
   "id": 1040947442735345664,
   "id_str": "1040947442735345664",
-  "full_text": "#PyConUK \"Help me, I'm trapped in a sign printing factory!\" https://t.co/KlJnGDHjjz",
+  "text": "#PyConUK \"Help me, I'm trapped in a sign printing factory!\" https://t.co/KlJnGDHjjz",
   "truncated": false,
   "display_text_range": [
     0,
@@ -10,22 +10,7 @@
   ],
   "entities": {
     "hashtags": [
-      {
-        "text": "PyConUK",
-        "indices": [
-          0,
-          8
-        ]
-      }
-    ],
-    "symbols": [
-
-    ],
-    "user_mentions": [
-
-    ],
-    "urls": [
-
+      {"text": "PyConUK"}
     ],
     "media": [
       {

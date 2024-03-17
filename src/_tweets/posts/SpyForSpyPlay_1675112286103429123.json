@@ -2,16 +2,10 @@
   "created_at": "Sat Jul 01 01:01:00 +0100 2023",
   "entities": {
     "hashtags": [
-      {
-        "text": "SpyForSpyPlay"
-      }
+      {"text": "SpyForSpyPlay"}
     ],
-    "symbols": [],
-    "urls": [],
     "user_mentions": [
-      {
-        "screen_name": "RiversideLondon"
-      }
+      {"screen_name": "RiversideLondon"}
     ]
   },
   "extended_entities": {
@@ -40,7 +34,7 @@
       }
     ]
   },
-  "full_text": "💞 Love 💞\n\nThank you for experiencing Molly & Sarah’s journey with us.\n\nOur limited run at @RiversideLondon ends tomorrow and we've had a blast.\n\n#SpyForSpyPlay",
+  "text": "💞 Love 💞\n\nThank you for experiencing Molly & Sarah’s journey with us.\n\nOur limited run at @RiversideLondon ends tomorrow and we've had a blast.\n\n#SpyForSpyPlay",
   "id": 1675112286103429123,
   "id_str": "1675112286103429123",
   "is_quote_status": false,

@@ -5,24 +5,11 @@
   "text": "Starting work on a freshly installed Mac: I clone our main repo, type \"make id_minter-build\", and it starts fetching dependencies.\n\nTen minutes later, with nothing else from me, I've got a complete build.\n\n👌",
   "truncated": true,
   "entities": {
-    "hashtags": [
-
-    ],
-    "symbols": [
-
-    ],
-    "user_mentions": [
-
-    ],
     "urls": [
       {
         "url": "https://t.co/KRlOCD1cXP",
         "expanded_url": "https://twitter.com/i/web/status/938694360681590791",
-        "display_url": "twitter.com/i/web/status/9…",
-        "indices": [
-          117,
-          140
-        ]
+        "display_url": "twitter.com/i/web/status/9…"
       }
     ]
   },

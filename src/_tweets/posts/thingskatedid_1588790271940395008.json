@@ -6,15 +6,9 @@
     0,
     62
   ],
-  "entities": {
-    "hashtags": [],
-    "symbols": [],
-    "urls": [],
-    "user_mentions": []
-  },
   "favorite_count": 420,
   "favorited": false,
-  "full_text": "my twitter archive doesn't include any of the alt text i wrote",
+  "text": "my twitter archive doesn't include any of the alt text i wrote",
   "geo": null,
   "id": 1588790271940395008,
   "id_str": "1588790271940395008",

@@ -7,7 +7,6 @@
     212
   ],
   "entities": {
-    "hashtags": [],
     "media": [
       {
         "display_url": "pic.twitter.com/cvH3JlmvCD",
@@ -45,10 +44,7 @@
         "type": "photo",
         "url": "https://t.co/cvH3JlmvCD"
       }
-    ],
-    "symbols": [],
-    "urls": [],
-    "user_mentions": []
+    ]
   },
   "extended_entities": {
     "media": [
@@ -93,7 +89,7 @@
   },
   "favorite_count": 28,
   "favorited": false,
-  "full_text": "iPhone: \u201cI\u2019m more powerful than the computers that put man on the Moon!\u201d\n\nApollo Guidance Computer: \u201cSo you keep saying, but remind me\u2014of the two of us, who has actually put a man on the Moon?\u201d\n\niPhone: \u2026\n\nAGC: \ud83d\ude0e https://t.co/cvH3JlmvCD",
+  "text": "iPhone: \u201cI\u2019m more powerful than the computers that put man on the Moon!\u201d\n\nApollo Guidance Computer: \u201cSo you keep saying, but remind me\u2014of the two of us, who has actually put a man on the Moon?\u201d\n\niPhone: \u2026\n\nAGC: \ud83d\ude0e https://t.co/cvH3JlmvCD",
   "geo": null,
   "id": 1533882908770983943,
   "id_str": "1533882908770983943",

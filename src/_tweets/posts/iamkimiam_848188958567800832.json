@@ -6,29 +6,8 @@
   "truncated": false,
   "entities": {
     "hashtags": [
-      {
-        "text": "inclusivity",
-        "indices": [
-          45,
-          57
-        ]
-      },
-      {
-        "text": "alterconf",
-        "indices": [
-          58,
-          68
-        ]
-      }
-    ],
-    "symbols": [
-
-    ],
-    "user_mentions": [
-
-    ],
-    "urls": [
-
+      {"text": "inclusivity"},
+      {"text": "alterconf"}
     ],
     "media": [
       {

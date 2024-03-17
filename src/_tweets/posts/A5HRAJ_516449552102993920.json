@@ -5,26 +5,8 @@
   "text": "@alexwlchan Find Untagged Tumblr Posts is great! Is it possible to develop a tool that finds original Tumblr posts? (Everything but reblogs)",
   "truncated": false,
   "entities": {
-    "hashtags": [
-
-    ],
-    "symbols": [
-
-    ],
     "user_mentions": [
-      {
-        "screen_name": "alexwlchan",
-        "name": "Alex Chan",
-        "id": 66351897,
-        "id_str": "66351897",
-        "indices": [
-          0,
-          11
-        ]
-      }
-    ],
-    "urls": [
-
+      {"screen_name": "alexwlchan"}
     ]
   },
   "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",

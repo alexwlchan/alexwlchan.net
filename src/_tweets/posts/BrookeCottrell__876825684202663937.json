@@ -2,43 +2,16 @@
   "created_at": "Mon Jun 19 15:35:08 +0000 2017",
   "id": 876825684202663937,
   "id_str": "876825684202663937",
-  "full_text": "@wwbookclub @pottermore These are my Braille copies of the Harry Potter books. Four of these volumes make up the Sorcerer's Stone. https://t.co/WgxEPmaYwS",
+  "text": "@wwbookclub @pottermore These are my Braille copies of the Harry Potter books. Four of these volumes make up the Sorcerer's Stone. https://t.co/WgxEPmaYwS",
   "truncated": false,
   "display_text_range": [
     0,
     130
   ],
   "entities": {
-    "hashtags": [
-
-    ],
-    "symbols": [
-
-    ],
     "user_mentions": [
-      {
-        "screen_name": "wwbookclub",
-        "name": "WW Book Club",
-        "id": 860424006851231744,
-        "id_str": "860424006851231744",
-        "indices": [
-          0,
-          11
-        ]
-      },
-      {
-        "screen_name": "pottermore",
-        "name": "Pottermore",
-        "id": 58545637,
-        "id_str": "58545637",
-        "indices": [
-          12,
-          23
-        ]
-      }
-    ],
-    "urls": [
-
+      {"screen_name": "wwbookclub"},
+      {"screen_name": "pottermore"}
     ],
     "media": [
       {

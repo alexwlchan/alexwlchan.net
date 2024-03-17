@@ -22,7 +22,69 @@ require 'rszr'
 require_relative 'utils/twitter'
 
 METADATA_SCHEMA = {
-  type: 'object'
+  type: 'object',
+  properties: {
+    text: { type: 'string' },
+    entities: {
+      description: 'Non-textual elements of the tweet',
+      type: 'object',
+      properties: {
+        hashtags: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: %w[text],
+            properties: {
+              text: { type: 'string' }
+            },
+            additionalProperties: false
+          }
+        },
+        media: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: %w[expanded_url display_url],
+            properties: {
+              expanded_url: { type: 'string' },
+              display_url: { type: 'string' }
+            }
+          }
+        },
+        user_mentions: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: %w[screen_name],
+            properties: {
+              screen_name: { type: 'string' }
+            },
+            additionalProperties: false
+          }
+        },
+        urls: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: %w[expanded_url url display_url],
+            properties: {
+              expanded_url: { type: 'string' },
+              url: { type: 'string' },
+              display_url: { type: 'string' }
+            },
+            additionalProperties: false
+          }
+        }
+      }
+    },
+    quoted_status: {
+      type: 'object',
+      properties: {
+        text: { type: 'string' }
+      }
+    }
+  },
+  required: %w[text]
 }
 
 module Jekyll
@@ -80,11 +142,22 @@ module Jekyll
       end
     end
 
+    # Render the text of the tweet as HTML.
+    #
+    # This includes:
+    #
+    #     * Expanding any newlines
+    #     * Replacing URLs and @-mentions
+    #     * Replacing native emoji with Twitter's "twemoji" SVGs
+    #
     def render_tweet_text(tweet_data)
       text = tweet_data['text']
-      text = tweet_data['full_text'] if text.nil?
 
-      tweet_data['entities']['urls'].each do |u|
+      entities = tweet_data.fetch('entities', {})
+
+      # Expand any t.co URLs in the text with the actual link, which means
+      # those links don't rely on Twitter or their link shortener.
+      entities.fetch('urls', []).each do |u|
         text = text.sub(
           u['url'],
           "<a href=\"#{u['expanded_url']}\">#{u['display_url']}</a>"
@@ -97,21 +170,21 @@ module Jekyll
 
       # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
       # are correctly rendered as links to the user page.
-      tweet_data['entities'].fetch('user_mentions', []).each do |m|
+      entities.fetch('user_mentions', []).each do |m|
         text = text.sub(
           "@#{m['screen_name']}",
           "<a href=\"https://twitter.com/#{m['screen_name']}\">@#{m['screen_name']}</a>"
         )
       end
 
-      tweet_data['entities'].fetch('hashtags', []).each do |h|
+      entities.fetch('hashtags', []).each do |h|
         text = text.sub(
           "##{h['text']}",
           "<a href=\"https://twitter.com/hashtag/#{h['text']}\">##{h['text']}</a>"
         )
       end
 
-      tweet_data['entities'].fetch('media', []).each do |m|
+      entities.fetch('media', []).each do |m|
         text = text.sub(
           m['url'],
           "<a href=\"#{m['expanded_url']}\">#{m['display_url']}</a>"

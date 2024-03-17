@@ -7,24 +7,17 @@
     133
   ],
   "entities": {
-    "hashtags": [],
-    "symbols": [],
     "urls": [
       {
         "display_url": "http2bin.org",
         "expanded_url": "http://http2bin.org",
-        "indices": [
-          80,
-          102
-        ],
         "url": "http://t.co/dTxDLjNhB4"
       }
-    ],
-    "user_mentions": []
+    ]
   },
   "favorite_count": 3,
   "favorited": false,
-  "full_text": "There is nothing cooler than seeing my iOS9 devices report HTTP/2 from Safari @ http://t.co/dTxDLjNhB4. Welcome to the HTTP/2 future!",
+  "text": "There is nothing cooler than seeing my iOS9 devices report HTTP/2 from Safari @ http://t.co/dTxDLjNhB4. Welcome to the HTTP/2 future!",
   "geo": null,
   "id": 644243079445221376,
   "id_str": "644243079445221376",

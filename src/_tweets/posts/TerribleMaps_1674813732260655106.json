@@ -1,16 +1,11 @@
 {
   "created_at": "Fri Jun 30 17:14:00 +0100 2023",
   "entities": {
-    "symbols": [],
     "urls": [
       {
         "expanded_url": "https://commons.m.wikimedia.org/wiki/File:Seitengröße_PDF_7.svg",
         "url": "https://t.co/Sxz37HMYD1",
-        "display_url": "https://commons.m.wikimedia.org/wiki/File:Seit…",
-        "indices": [
-          235,
-          258
-        ]
+        "display_url": "https://commons.m.wikimedia.org/wiki/File:Seit…"
       }
     ]
   },
@@ -24,7 +19,7 @@
       }
     ]
   },
-  "full_text": "Maximum size of a PDF, version 7: 381 km × 381 km.\n\nhttps://t.co/Sxz37HMYD1",
+  "text": "Maximum size of a PDF, version 7: 381 km × 381 km.\n\nhttps://t.co/Sxz37HMYD1",
   "id": 1674813732260655106,
   "id_str": "1674813732260655106",
   "is_quote_status": false,

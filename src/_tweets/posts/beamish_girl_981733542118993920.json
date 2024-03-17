@@ -2,40 +2,21 @@
   "created_at": "Thu Apr 05 03:21:30 +0000 2018",
   "id": 981733542118993920,
   "id_str": "981733542118993920",
-  "full_text": "everybody knows that the reason we use capslock is because capslock is cruise control for cool\n\nMillennials destroyed the rules of written English – and created something better https://t.co/9VhudRqFor via @mashable",
+  "text": "everybody knows that the reason we use capslock is because capslock is cruise control for cool\n\nMillennials destroyed the rules of written English – and created something better https://t.co/9VhudRqFor via @mashable",
   "truncated": false,
   "display_text_range": [
     0,
     215
   ],
   "entities": {
-    "hashtags": [
-
-    ],
-    "symbols": [
-
-    ],
     "user_mentions": [
-      {
-        "screen_name": "mashable",
-        "name": "Mashable",
-        "id": 972651,
-        "id_str": "972651",
-        "indices": [
-          206,
-          215
-        ]
-      }
+      {"screen_name": "mashable"}
     ],
     "urls": [
       {
         "url": "https://t.co/9VhudRqFor",
         "expanded_url": "https://mashable.com/2018/04/02/millennials-written-english/#HbN9TtO4gOOK",
-        "display_url": "mashable.com/2018/04/02/mil…",
-        "indices": [
-          178,
-          201
-        ]
+        "display_url": "mashable.com/2018/04/02/mil…"
       }
     ]
   },
