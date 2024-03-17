@@ -2,9 +2,7 @@
   "created_at": "Sat Jul 01 01:01:00 +0100 2023",
   "entities": {
     "hashtags": [
-      {
-        "text": "SpyForSpyPlay"
-      }
+      {"text": "SpyForSpyPlay"}
     ],
     "symbols": [],
     "user_mentions": [

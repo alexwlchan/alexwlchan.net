@@ -10,13 +10,7 @@
   ],
   "entities": {
     "hashtags": [
-      {
-        "text": "PyConUK",
-        "indices": [
-          0,
-          8
-        ]
-      }
+      {"text": "PyConUK"}
     ],
     "symbols": [
 

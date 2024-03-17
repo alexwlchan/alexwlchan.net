@@ -10,13 +10,7 @@
   ],
   "entities": {
     "hashtags": [
-      {
-        "text": "edchat",
-        "indices": [
-          123,
-          130
-        ]
-      }
+      {"text": "edchat"}
     ],
     "symbols": [
 

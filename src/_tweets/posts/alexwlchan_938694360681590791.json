@@ -5,9 +5,6 @@
   "text": "Starting work on a freshly installed Mac: I clone our main repo, type \"make id_minter-build\", and it starts fetching dependencies.\n\nTen minutes later, with nothing else from me, I've got a complete build.\n\n👌",
   "truncated": true,
   "entities": {
-    "hashtags": [
-
-    ],
     "symbols": [
 
     ],

@@ -6,13 +6,7 @@
   "truncated": false,
   "entities": {
     "hashtags": [
-      {
-        "text": "PyConUK",
-        "indices": [
-          49,
-          57
-        ]
-      }
+      {"text": "PyConUK"}
     ],
     "symbols": [
 

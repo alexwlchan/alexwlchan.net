@@ -29,6 +29,17 @@ METADATA_SCHEMA = {
       description: 'Non-textual elements of the tweet',
       type: 'object',
       properties: {
+        hashtags: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: %w[text],
+            properties: {
+              text: { type: 'string' }
+            },
+            additionalProperties: false
+          }
+        },
         user_mentions: {
           type: 'array',
           items: {

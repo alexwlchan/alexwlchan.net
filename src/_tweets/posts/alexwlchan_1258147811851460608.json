@@ -10,13 +10,7 @@
   ],
   "entities": {
     "hashtags": [
-      {
-        "text": "Python",
-        "indices": [
-          29,
-          36
-        ]
-      }
+      {"text": "Python"}
     ],
     "symbols": [
 
