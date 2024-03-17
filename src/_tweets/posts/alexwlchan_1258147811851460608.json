@@ -2,11 +2,6 @@
   "created_at": "Wed May 06 21:33:08 +0000 2020",
   "id": "1258147811851460608",
   "text": "Who wants to see some cursed #Python? \n\nVariable-length tuple unpacking. I want to assign a bunch of variables to True, but I don’t know how many there are. Reflection to the rescue!\n\na, b = Trues()\na, b, c, d = Trues()\n\na, b, \\\nc, d = Trues()\n\n(a, b,\nc,\nd) = Trues() https://t.co/oLKnmuUpai",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    267
-  ],
   "entities": {
     "hashtags": [
       {"text": "Python"}
@@ -19,21 +14,8 @@
       }
     ]
   },
-  "source": "<a href=\"https://twitterrific.com/mac\" rel=\"nofollow\">Twitterrific for Mac</a>",
   "user": {
     "name": "Alex Chan",
     "screen_name": "alexwlchan"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 3,
-  "favorite_count": 11,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

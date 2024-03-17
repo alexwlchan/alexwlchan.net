@@ -2,60 +2,8 @@
   "created_at": "Fri Feb 01 18:55:16 +0000 2019",
   "id": "1091409665290788864",
   "text": "If you have the spoons, tell me about the conference accessibility fails you've witnessed or experienced. Can cover disability, MH, and related concerns. (Name names if you want, but I'm primarily soliciting feedback to help others from making the same mistakes.)",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    263
-  ],
-  "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
   "user": {
     "name": "Ada Powers",
     "screen_name": "mspowahs"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": {
-    "id": "a592bd6ceb1319f7",
-    "url": "https://api.twitter.com/1.1/geo/id/a592bd6ceb1319f7.json",
-    "place_type": "city",
-    "name": "San Diego",
-    "full_name": "San Diego, CA",
-    "country_code": "US",
-    "country": "United States",
-    "contained_within": [
-
-    ],
-    "bounding_box": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [
-            -117.282538,
-            32.53962
-          ],
-          [
-            -116.9274403,
-            32.53962
-          ],
-          [
-            -116.9274403,
-            33.0804044
-          ],
-          [
-            -117.282538,
-            33.0804044
-          ]
-        ]
-      ]
-    },
-    "attributes": {
-    }
-  },
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 177,
-  "favorite_count": 359,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

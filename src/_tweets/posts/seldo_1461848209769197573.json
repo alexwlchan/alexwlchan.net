@@ -1,23 +1,7 @@
 {
-  "contributors": null,
-  "coordinates": null,
   "created_at": "Sat Nov 20 00:05:47 +0000 2021",
-  "display_text_range": [
-    0,
-    142
-  ],
-  "favorite_count": 72,
-  "favorited": false,
   "text": "An unexpected side effect of this tournament has been watching people come up with ways to write complete web apps using fewer and fewer tags.",
-  "geo": null,
   "id": "1461848209769197573",
-  "is_quote_status": false,
-  "lang": "en",
-  "place": null,
-  "retweet_count": 0,
-  "retweeted": false,
-  "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-  "truncated": false,
   "user": {
     "name": "Laurie Voss",
     "screen_name": "seldo"

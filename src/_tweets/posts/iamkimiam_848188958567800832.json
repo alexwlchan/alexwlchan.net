@@ -2,7 +2,6 @@
   "created_at": "Sat Apr 01 15:03:00 +0000 2017",
   "id": "848188958567800832",
   "text": "One of the many signs of a great conference. #inclusivity #alterconf https://t.co/cF7XPImBPg",
-  "truncated": false,
   "entities": {
     "hashtags": [
       {"text": "inclusivity"},
@@ -23,21 +22,8 @@
       }
     ]
   },
-  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
   "user": {
     "name": "Kim Witten",
     "screen_name": "iamkimiam"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 12,
-  "favorite_count": 35,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

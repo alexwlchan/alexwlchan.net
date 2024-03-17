@@ -1,11 +1,5 @@
 {
-  "contributors": null,
-  "coordinates": null,
   "created_at": "Mon Jun 06 18:45:58 +0000 2022",
-  "display_text_range": [
-    0,
-    212
-  ],
   "entities": {
     "media": [
       {
@@ -23,20 +17,8 @@
       }
     ]
   },
-  "favorite_count": 28,
-  "favorited": false,
   "text": "iPhone: \u201cI\u2019m more powerful than the computers that put man on the Moon!\u201d\n\nApollo Guidance Computer: \u201cSo you keep saying, but remind me\u2014of the two of us, who has actually put a man on the Moon?\u201d\n\niPhone: \u2026\n\nAGC: \ud83d\ude0e https://t.co/cvH3JlmvCD",
-  "geo": null,
   "id": "1533882908770983943",
-  "is_quote_status": false,
-  "lang": "en",
-  "place": null,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "retweet_count": 1,
-  "retweeted": true,
-  "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-  "truncated": false,
   "user": {
     "name": "Alex Chan",
     "screen_name": "alexwlchan"

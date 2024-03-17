@@ -2,11 +2,6 @@
   "created_at": "Sat Sep 15 12:56:24 +0000 2018",
   "id": "1040947442735345664",
   "text": "#PyConUK \"Help me, I'm trapped in a sign printing factory!\" https://t.co/KlJnGDHjjz",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    59
-  ],
   "entities": {
     "hashtags": [
       {"text": "PyConUK"}
@@ -26,21 +21,8 @@
       }
     ]
   },
-  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
   "user": {
     "name": "Ana Balica",
     "screen_name": "anabalica"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 3,
-  "favorite_count": 16,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

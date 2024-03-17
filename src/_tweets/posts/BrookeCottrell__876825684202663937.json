@@ -2,11 +2,6 @@
   "created_at": "Mon Jun 19 15:35:08 +0000 2017",
   "id": "876825684202663937",
   "text": "@wwbookclub @pottermore These are my Braille copies of the Harry Potter books. Four of these volumes make up the Sorcerer's Stone. https://t.co/WgxEPmaYwS",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    130
-  ],
   "entities": {
     "user_mentions": [
       {"screen_name": "wwbookclub"},
@@ -27,21 +22,8 @@
       }
     ]
   },
-  "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
   "user": {
     "name": "Brooke Cottrell",
     "screen_name": "BrookeCottrell_"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 72,
-  "favorite_count": 641,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

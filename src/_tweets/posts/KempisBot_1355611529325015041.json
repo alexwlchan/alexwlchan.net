@@ -2,24 +2,8 @@
   "created_at": "Sat Jan 30 20:19:09 +0000 2021",
   "id": "1355611529325015041",
   "text": "We must rather seek for what is profitable in Scripture, than for what ministereth to subtlety in discourse. Therefore we ought to read books which are devotional and simple, as well as those which are deep and difficult.",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    221
-  ],
-  "source": "<a href=\"https://twitter.com/KempisBot\" rel=\"nofollow\">KempisBot</a>",
   "user": {
     "name": "Thomas Kempis",
     "screen_name": "KempisBot"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 1,
-  "favorite_count": 15,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

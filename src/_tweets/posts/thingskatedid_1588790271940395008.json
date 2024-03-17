@@ -1,23 +1,7 @@
 {
-  "contributors": null,
-  "coordinates": null,
   "created_at": "Sat Nov 05 07:08:13 +0000 2022",
-  "display_text_range": [
-    0,
-    62
-  ],
-  "favorite_count": 420,
-  "favorited": false,
   "text": "my twitter archive doesn't include any of the alt text i wrote",
-  "geo": null,
   "id": "1588790271940395008",
-  "is_quote_status": false,
-  "lang": "en",
-  "place": null,
-  "retweet_count": 49,
-  "retweeted": false,
-  "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-  "truncated": false,
   "user": {
     "name": "Kate",
     "screen_name": "thingskatedid"

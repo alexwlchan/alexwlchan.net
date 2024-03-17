@@ -93,8 +93,19 @@ METADATA_SCHEMA = {
     quoted_status: {
       type: 'object',
       properties: {
-        text: { type: 'string' }
-      }
+        id: { type: 'string' },
+        text: { type: 'string' },
+        user: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            screen_name: { type: 'string' }
+          },
+          required: %w[name screen_name],
+          additionalProperties: false
+        }
+      },
+      required: %w[id text user]
     }
   },
   required: %w[id text user]

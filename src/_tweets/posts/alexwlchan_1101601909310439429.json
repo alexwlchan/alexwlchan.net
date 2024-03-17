@@ -2,24 +2,8 @@
   "created_at": "Fri Mar 01 21:55:36 +0000 2019",
   "id": "1101601909310439429",
   "text": "I really like the idea of GitHub Actions, but every time I try to use it I feel like an idiot.\n\nI don’t know if it’s me or the UI, but I cannot understand what it’s doing, and things seem to be happening at random.\n\nIf something makes me feel stupid, I’m not going to use it.",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    275
-  ],
-  "source": "<a href=\"https://twitterrific.com/mac\" rel=\"nofollow\">Twitterrific for Mac</a>",
   "user": {
     "name": "Alex Chan",
     "screen_name": "alexwlchan"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 0,
-  "favorite_count": 1,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

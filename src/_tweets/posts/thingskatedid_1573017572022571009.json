@@ -1,23 +1,7 @@
 {
-  "contributors": null,
-  "coordinates": null,
   "created_at": "Thu Sep 22 18:33:09 +0000 2022",
-  "display_text_range": [
-    0,
-    58
-  ],
-  "favorite_count": 245,
-  "favorited": false,
   "text": "i don't *care* how maths works, half of zero should be 0.5",
-  "geo": null,
   "id": "1573017572022571009",
-  "is_quote_status": false,
-  "lang": "en",
-  "place": null,
-  "retweet_count": 26,
-  "retweeted": false,
-  "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
-  "truncated": false,
   "user": {
     "name": "Kate",
     "screen_name": "thingskatedid"

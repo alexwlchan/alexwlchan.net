@@ -2,24 +2,8 @@
   "created_at": "Sat Jan 30 16:26:32 +0000 2021",
   "id": "1355552988199325696",
   "text": "All Scripture ought to be read in the spirit in which it was written.",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    69
-  ],
-  "source": "<a href=\"https://twitter.com/KempisBot\" rel=\"nofollow\">KempisBot</a>",
   "user": {
     "name": "Thomas Kempis",
     "screen_name": "KempisBot"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 3,
-  "favorite_count": 20,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }
