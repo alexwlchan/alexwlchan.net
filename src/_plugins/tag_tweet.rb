@@ -156,12 +156,6 @@ module Jekyll
       "#{@src}/_tweets/posts/#{@screen_name}_#{@tweet_id}.json"
     end
 
-    def _created_at(tweet_data)
-      DateTime
-        .parse(tweet_data['created_at'], '%a %b %d %H:%M:%S %z %Y')
-        .strftime('%-I:%M&nbsp;%p - %-d %b %Y')
-    end
-
     # Read metadata about a tweet from the `src/_tweets/data` folder.
     #
     # This method will throw an error if:
