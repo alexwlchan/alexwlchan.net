@@ -21,6 +21,10 @@ require 'rszr'
 
 require_relative 'utils/twitter'
 
+METADATA_SCHEMA = {
+  type: 'object'
+}
+
 module Jekyll
   module TwitterFilters
     def render_date_created(tweet_data)
@@ -140,22 +144,67 @@ module Jekyll
   class TwitterTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
-      @tweet_url = text.tr('"', '').strip
-      _, @screen_name, _, @tweet_id = URI.parse(@tweet_url).path.split('/')
+
+      # The `text` variable should contain the tweet URL, e.g.
+      #
+      #     https://twitter.com/NatlParkService/status/1767630582299631623
+      #       ~> username = "NatlParkService", id = "1767630582299631623".
+      #
+      # Note that `text` may contain trailing whitespace.
+      #
+      # Note also that the `username` regex may be incomplete.
+      #
+      pattern = %r{^https://twitter\.com/(?<screen_name>[A-Za-z0-9_]+)/status/(?<id>[0-9]+)$}
+      m = text.strip.match(pattern)
+
+      if m.nil?
+        raise "Unable to parse URL: #{text.inspect}"
+      end
+
+      @tweet_url = text
+      @screen_name = m[:screen_name]
+      @tweet_id = m[:id]
     end
 
-    def images_path(name)
-      "#{@src}/_images/twitter/#{name}"
-    end
-
-    def cache_file
+    # Where is metadata about this tweet?
+    #
+    # Example path:
+    #
+    #     src/_tweets/posts/alexwlchan_924569032170397696.json
+    #
+    # Theoretically I could just use the numeric tweet ID because
+    # they're globally unique, but having it in the filename is
+    # useful when I'm trying to find a tweet.
+    #
+    def metadata_file_path
       "#{@src}/_tweets/posts/#{@screen_name}_#{@tweet_id}.json"
     end
 
-    def _created_at(tweet_data)
-      DateTime
-        .parse(tweet_data['created_at'], '%a %b %d %H:%M:%S %z %Y')
-        .strftime('%-I:%M&nbsp;%p - %-d %b %Y')
+    # Read metadata about a tweet from the `src/_tweets/data` folder.
+    #
+    # This method will throw an error if:
+    #
+    #   1. It can't find the metadata, or
+    #   2. The metadata doesn't match the schema
+    #
+    def read_tweet_data
+      begin
+        tweet_data = JSON.parse(File.read(metadata_file_path))
+      rescue Errno::ENOENT
+        raise "Unable to find metadata for #{@tweet_url}! (Expected #{metadata_file_path})"
+      end
+
+      unless tweet_data.key? 'extended_entities'
+        tweet_data['extended_entities'] = tweet_data['entities']
+      end
+
+      errors = JSON::Validator.fully_validate(METADATA_SCHEMA, tweet_data)
+
+      unless errors.empty?
+        raise "Tweet data in #{metadata_file_path} does not match schema: #{errors}"
+      end
+
+      tweet_data
     end
 
     def render(context)
@@ -163,16 +212,9 @@ module Jekyll
       @src = site.config['source']
       @dst = site.config['destination']
 
-      unless File.exist? cache_file
-        puts("Missing tweet; please run 'python3 scripts/save_tweet.py #{@tweet_url}'")
-        exit!
-      end
-
-      tweet_data = JSON.parse(File.read(cache_file))
+      tweet_data = read_tweet_data
 
       tpl = Liquid::Template.parse(File.read('src/_includes/tweet.html'))
-
-      tweet_data['extended_entities'] = tweet_data['entities'] unless tweet_data.key? 'extended_entities'
 
       input = tpl.render!(
         'tweet_data' => tweet_data
