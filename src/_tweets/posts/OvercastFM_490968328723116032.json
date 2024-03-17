@@ -12,16 +12,7 @@
 
     ],
     "user_mentions": [
-      {
-        "screen_name": "alexwlchan",
-        "name": "Alex Chan",
-        "id": 66351897,
-        "id_str": "66351897",
-        "indices": [
-          0,
-          11
-        ]
-      }
+      {"screen_name": "alexwlchan"}
     ]
   },
   "source": "<a href=\"http://tapbots.com/software/tweetbot/mac\" rel=\"nofollow\">Tweetbot for Mac</a>",

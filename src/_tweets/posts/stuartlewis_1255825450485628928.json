@@ -16,26 +16,8 @@
 
     ],
     "user_mentions": [
-      {
-        "screen_name": "natlibscot",
-        "name": "National Library of Scotland",
-        "id": 75286820,
-        "id_str": "75286820",
-        "indices": [
-          153,
-          164
-        ]
-      },
-      {
-        "screen_name": "scality",
-        "name": "Scality",
-        "id": 144559716,
-        "id_str": "144559716",
-        "indices": [
-          243,
-          251
-        ]
-      }
+      {"screen_name": "natlibscot"},
+      {"screen_name": "scality"}
     ],
     "media": [
       {

@@ -16,16 +16,7 @@
 
     ],
     "user_mentions": [
-      {
-        "screen_name": "BrittenOfficial",
-        "name": "Benjamin Britten",
-        "id": 372828449,
-        "id_str": "372828449",
-        "indices": [
-          32,
-          48
-        ]
-      }
+      {"screen_name": "BrittenOfficial"}
     ],
     "media": [
       {

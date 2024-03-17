@@ -16,26 +16,8 @@
 
     ],
     "user_mentions": [
-      {
-        "screen_name": "wwbookclub",
-        "name": "WW Book Club",
-        "id": 860424006851231744,
-        "id_str": "860424006851231744",
-        "indices": [
-          0,
-          11
-        ]
-      },
-      {
-        "screen_name": "pottermore",
-        "name": "Pottermore",
-        "id": 58545637,
-        "id_str": "58545637",
-        "indices": [
-          12,
-          23
-        ]
-      }
+      {"screen_name": "wwbookclub"},
+      {"screen_name": "pottermore"}
     ],
     "media": [
       {

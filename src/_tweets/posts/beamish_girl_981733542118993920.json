@@ -16,16 +16,7 @@
 
     ],
     "user_mentions": [
-      {
-        "screen_name": "mashable",
-        "name": "Mashable",
-        "id": 972651,
-        "id_str": "972651",
-        "indices": [
-          206,
-          215
-        ]
-      }
+      {"screen_name": "mashable"}
     ],
     "urls": [
       {
