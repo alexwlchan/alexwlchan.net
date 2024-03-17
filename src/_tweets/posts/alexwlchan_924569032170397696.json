@@ -1,9 +1,7 @@
 {
   "created_at": "Sun Oct 29 09:30:09 +0000 2017",
-  "id": 924569032170397696,
-  "id_str": "924569032170397696",
+  "id": "924569032170397696",
   "text": "Tweaked wording on the lightning talk buckets at #PyConUK. https://t.co/rptNFFgZ1P",
-  "truncated": false,
   "entities": {
     "hashtags": [
       {"text": "PyConUK"}
@@ -23,26 +21,8 @@
       }
     ]
   },
-  "source": "<a href=\"http://twitterrific.com\" rel=\"nofollow\">Twitterrific</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Alex Chan",
     "screen_name": "alexwlchan"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 2,
-  "favorite_count": 12,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

@@ -1,9 +1,7 @@
 {
   "created_at": "Wed May 09 09:43:00 +0000 2018",
-  "id": 994150733921611777,
-  "id_str": "994150733921611777",
+  "id": "994150733921611777",
   "text": "It has been a career first to work somewhere that has bluebells out of the office window. https://t.co/WrdUw6Vlu7",
-  "truncated": false,
   "entities": {
     "media": [
       {
@@ -20,62 +18,8 @@
       }
     ]
   },
-  "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Christopher Hilton",
     "screen_name": "CHilton_BB"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": {
-    "id": "3bc1b6cfd27ef7f6",
-    "url": "https://api.twitter.com/1.1/geo/id/3bc1b6cfd27ef7f6.json",
-    "place_type": "admin",
-    "name": "East",
-    "full_name": "East, England",
-    "country_code": "GB",
-    "country": "United Kingdom",
-    "contained_within": [
-
-    ],
-    "bounding_box": {
-      "type": "Polygon",
-      "coordinates": [
-        [
-          [
-            -0.745779800818049,
-            51.4482221321091
-          ],
-          [
-            1.76893599950184,
-            51.4482221321091
-          ],
-          [
-            1.76893599950184,
-            52.9926789576249
-          ],
-          [
-            -0.745779800818049,
-            52.9926789576249
-          ]
-        ]
-      ]
-    },
-    "attributes": {
-    }
-  },
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 0,
-  "favorite_count": 11,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

@@ -1,11 +1,5 @@
 {
-  "contributors": null,
-  "coordinates": null,
   "created_at": "Wed Sep 16 20:14:54 +0000 2015",
-  "display_text_range": [
-    0,
-    133
-  ],
   "entities": {
     "urls": [
       {
@@ -15,26 +9,8 @@
       }
     ]
   },
-  "favorite_count": 3,
-  "favorited": false,
   "text": "There is nothing cooler than seeing my iOS9 devices report HTTP/2 from Safari @ http://t.co/dTxDLjNhB4. Welcome to the HTTP/2 future!",
-  "geo": null,
-  "id": 644243079445221376,
-  "id_str": "644243079445221376",
-  "in_reply_to_screen_name": null,
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "is_quote_status": false,
-  "lang": "en",
-  "place": null,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "retweet_count": 0,
-  "retweeted": false,
-  "source": "<a href=\"http://twitter.com/#!/download/ipad\" rel=\"nofollow\">Twitter for iPad</a>",
-  "truncated": false,
+  "id": "644243079445221376",
   "user": {
     "name": "Cory Benfield",
     "screen_name": "Lukasaoz"

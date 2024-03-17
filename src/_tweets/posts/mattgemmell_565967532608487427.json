@@ -1,27 +1,9 @@
 {
   "created_at": "Thu Feb 12 20:15:49 +0000 2015",
-  "id": 565967532608487427,
-  "id_str": "565967532608487427",
+  "id": "565967532608487427",
   "text": "Thought of a useful Safari extension: change any UL/OL elements on the page into checkboxes, for when you're working through a tutorial.",
-  "truncated": false,
-  "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Matt Gemmell",
     "screen_name": "mattgemmell"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 2,
-  "favorite_count": 9,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

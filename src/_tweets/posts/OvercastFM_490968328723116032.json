@@ -1,32 +1,14 @@
 {
   "created_at": "Sun Jul 20 21:15:45 +0000 2014",
-  "id": 490968328723116032,
-  "id_str": "490968328723116032",
+  "id": "490968328723116032",
   "text": "@alexwlchan I’m also stripping common prefixes from episode titles within a feed, so:\n\nEpisode 1: A\nEpisode 2: B\n-&gt;\n1: A\n2: B",
-  "truncated": false,
   "entities": {
     "user_mentions": [
       {"screen_name": "alexwlchan"}
     ]
   },
-  "source": "<a href=\"http://tapbots.com/software/tweetbot/mac\" rel=\"nofollow\">Tweetbot for Mac</a>",
-  "in_reply_to_status_id": 490960345151049728,
-  "in_reply_to_status_id_str": "490960345151049728",
-  "in_reply_to_user_id": 66351897,
-  "in_reply_to_user_id_str": "66351897",
-  "in_reply_to_screen_name": "alexwlchan",
   "user": {
     "name": "Overcast",
     "screen_name": "OvercastFM"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 0,
-  "favorite_count": 2,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

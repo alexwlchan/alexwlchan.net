@@ -1,31 +1,9 @@
 {
   "created_at": "Sat Jan 30 08:11:50 +0000 2021",
-  "id": 1355428494264721409,
-  "id_str": "1355428494264721409",
+  "id": "1355428494264721409",
   "text": "CHAPTER V: Of the reading of Holy Scriptures",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    44
-  ],
-  "source": "<a href=\"https://twitter.com/KempisBot\" rel=\"nofollow\">KempisBot</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Thomas Kempis",
     "screen_name": "KempisBot"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 0,
-  "favorite_count": 3,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

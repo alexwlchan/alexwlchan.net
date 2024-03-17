@@ -1,32 +1,14 @@
 {
   "created_at": "Mon Sep 29 04:49:03 +0000 2014",
-  "id": 516449552102993920,
-  "id_str": "516449552102993920",
+  "id": "516449552102993920",
   "text": "@alexwlchan Find Untagged Tumblr Posts is great! Is it possible to develop a tool that finds original Tumblr posts? (Everything but reblogs)",
-  "truncated": false,
   "entities": {
     "user_mentions": [
       {"screen_name": "alexwlchan"}
     ]
   },
-  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": 66351897,
-  "in_reply_to_user_id_str": "66351897",
-  "in_reply_to_screen_name": "alexwlchan",
   "user": {
     "name": "Ash Raj 📈",
     "screen_name": "A5HRAJ"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 0,
-  "favorite_count": 0,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

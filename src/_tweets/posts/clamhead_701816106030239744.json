@@ -1,27 +1,9 @@
 {
   "created_at": "Mon Feb 22 17:09:33 +0000 2016",
-  "id": 701816106030239744,
-  "id_str": "701816106030239744",
+  "id": "701816106030239744",
   "text": "I'm on my own personal quest to banish the word \"simply\" from all instructional content. Saying \"simply\" doesn't make it simple.",
-  "truncated": false,
-  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Keri Maijala",
     "screen_name": "clamhead"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 10,
-  "favorite_count": 26,
-  "favorited": false,
-  "retweeted": false,
-  "lang": "en"
+  }
 }

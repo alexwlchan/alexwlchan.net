@@ -1,13 +1,7 @@
 {
   "created_at": "Fri Jun 18 00:50:06 +0000 2021",
-  "id": 1405689243393986561,
-  "id_str": "1405689243393986561",
+  "id": "1405689243393986561",
   "text": "Shout out to the HBO Max Engineer who is currently having a full blown panic attack https://t.co/XpzmnUldzw",
-  "truncated": false,
-  "display_text_range": [
-    0,
-    83
-  ],
   "entities": {
     "media": [
       {
@@ -24,26 +18,8 @@
       }
     ]
   },
-  "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Julie Hubschman",
     "screen_name": "juliehubs"
-  },
-  "geo": null,
-  "coordinates": null,
-  "place": null,
-  "contributors": null,
-  "is_quote_status": false,
-  "retweet_count": 714,
-  "favorite_count": 7075,
-  "favorited": false,
-  "retweeted": false,
-  "possibly_sensitive": false,
-  "possibly_sensitive_appealable": false,
-  "lang": "en"
+  }
 }

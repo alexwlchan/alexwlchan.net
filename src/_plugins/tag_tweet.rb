@@ -2,18 +2,12 @@
 # embedding.  Rendering tweets as static HTML reduces page weight, load times,
 # and is resilient against tweets being deleted.
 #
-# The Twitter API responses and media are cached in `src/_tweets` and
-# `src/_images/twitter`, respectively.  To save a tweet, run the following
-# script on a machine which has Twitter API credentials in the keychain:
-#
-#     python scripts/save_tweet.py 'https://twitter.com/user/status/1234567890'
-#
-# This will save the cached response used by this plugin.
-#
 # To embed a tweet, place a Liquid tag of the following form anywhere in a
 # source file:
 #
 #     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
+#
+# and save the relevant images/metadata in `src/_tweets`.
 #
 
 require 'base64'
@@ -24,7 +18,9 @@ require_relative 'utils/twitter'
 METADATA_SCHEMA = {
   type: 'object',
   properties: {
+    id: { type: 'string' },
     text: { type: 'string' },
+    created_at: { type: 'string' },
     user: {
       type: 'object',
       properties: {
@@ -92,11 +88,24 @@ METADATA_SCHEMA = {
     quoted_status: {
       type: 'object',
       properties: {
-        text: { type: 'string' }
-      }
+        id: { type: 'string' },
+        text: { type: 'string' },
+        created_at: { type: 'string' },
+        user: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            screen_name: { type: 'string' }
+          },
+          required: %w[name screen_name],
+          additionalProperties: false
+        }
+      },
+      required: %w[id text created_at user]
     }
   },
-  required: %w[text user]
+  additionalProperties: false,
+  required: %w[id text created_at user]
 }
 
 module Jekyll
@@ -126,7 +135,7 @@ module Jekyll
     # similar to if I'd taken a tweet screenshot.
     def tweet_avatar_url(tweet_data)
       screen_name = tweet_data['user']['screen_name']
-      tweet_id = tweet_data['id_str']
+      tweet_id = tweet_data['id']
 
       # Find the matching avatar.  Each avatar should be labelled with
       # the screen name and tweet ID, but may be one of several formats.

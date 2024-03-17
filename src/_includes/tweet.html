@@ -1,4 +1,4 @@
-{% assign tweet_id = tweet_data["id_str"] %}
+{% assign tweet_id = tweet_data["id"] %}
 {% assign name = tweet_data["user"]["name"] %}
 {% assign screen_name = tweet_data["user"]["screen_name"] %}
 
@@ -34,21 +34,23 @@
       <p class="text">{{ tweet_data | render_tweet_text | replace_twemoji }}</p>
 
       {% if tweet_data["quoted_status"] %}
-      <a href="{{ tweet_data['quoted_status_permalink']['expanded'] }}">
+        {% assign quoted_id = tweet_data["quoted_status"]["id"] %}
         {% assign quoted_name = tweet_data["quoted_status"]["user"]["name"] %}
         {% assign quoted_screen_name = tweet_data["quoted_status"]["user"]["screen_name"] %}
-        <div class="quoted_tweet">
-          <div class="header">
-            <div class="author">
-              <span class="name" title="{{ quoted_name }}">{{ quoted_name }}</span>
-              <span class="screen_name" title="@{{ quoted_screen_name }}">@{{ quoted_screen_name }}</span>
+
+        <a href="https://twitter.com/{{ quoted_screen_name }}/status/{{ quoted_id }}">
+          <div class="quoted_tweet">
+            <div class="header">
+              <div class="author">
+                <span class="name" title="{{ quoted_name }}">{{ quoted_name }}</span>
+                <span class="screen_name" title="@{{ quoted_screen_name }}">@{{ quoted_screen_name }}</span>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text">{{ tweet_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
             </div>
           </div>
-          <div class="body">
-            <p class="text">{{ tweet_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
-          </div>
-        </div>
-      </a>
+        </a>
       {% endif %}
 
       <div class="metadata">
