@@ -40,6 +40,17 @@ METADATA_SCHEMA = {
             additionalProperties: false
           }
         },
+        media: {
+          type: 'array',
+          items: {
+            type: 'object',
+            required: %w[expanded_url display_url],
+            properties: {
+              expanded_url: { type: 'string' },
+              display_url: { type: 'string' }
+            }
+          }
+        },
         user_mentions: {
           type: 'array',
           items: {
