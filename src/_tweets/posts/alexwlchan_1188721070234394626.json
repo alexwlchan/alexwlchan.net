@@ -2,7 +2,7 @@
   "created_at": "Mon Oct 28 07:36:03 +0000 2019",
   "id": 1188721070234394626,
   "id_str": "1188721070234394626",
-  "full_text": "Today’s tiny automation win: if I’m looking at a tweet in my browser, I can type “;twurl” and get a link and blockquote with the text of the tweet wherever I’m typing.\n\nAs a bonus, it automatically replaces t.​co URLs with the original URLs.\n\n🐦 + 💻 + 🥳",
+  "text": "Today’s tiny automation win: if I’m looking at a tweet in my browser, I can type “;twurl” and get a link and blockquote with the text of the tweet wherever I’m typing.\n\nAs a bonus, it automatically replaces t.​co URLs with the original URLs.\n\n🐦 + 💻 + 🥳",
   "truncated": false,
   "display_text_range": [
     0,

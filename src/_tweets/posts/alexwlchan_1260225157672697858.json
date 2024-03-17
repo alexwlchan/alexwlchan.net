@@ -2,7 +2,7 @@
   "created_at": "Tue May 12 15:07:46 +0000 2020",
   "id": 1260225157672697858,
   "id_str": "1260225157672697858",
-  "full_text": "1. Yay better archiving!\n\n2. Fellow Pinboard users: I have a script that looks at your Pinboard bookmarks, and saves the nicely formatted AO3 downloads for everything you’ve saved (ebook, HTML, PDF, etc.).\n\nAnybody interested in that? https://t.co/2vsEnXv11k",
+  "text": "1. Yay better archiving!\n\n2. Fellow Pinboard users: I have a script that looks at your Pinboard bookmarks, and saves the nicely formatted AO3 downloads for everything you’ve saved (ebook, HTML, PDF, etc.).\n\nAnybody interested in that? https://t.co/2vsEnXv11k",
   "truncated": false,
   "display_text_range": [
     0,
@@ -115,7 +115,7 @@
     "created_at": "Tue May 12 14:30:56 +0000 2020",
     "id": 1260215889816780800,
     "id_str": "1260215889816780800",
-    "full_text": "If you use Pinboard and archive AO3 links, I'm recrawling a bunch that didn't get stored right. There was a nasty silent bug where a Ubuntu update made the crawler unable to speak the same dialect of SSL as AO3's server. This will also retroactively fix adult content warnings.",
+    "text": "If you use Pinboard and archive AO3 links, I'm recrawling a bunch that didn't get stored right. There was a nasty silent bug where a Ubuntu update made the crawler unable to speak the same dialect of SSL as AO3's server. This will also retroactively fix adult content warnings.",
     "truncated": false,
     "display_text_range": [
       0,

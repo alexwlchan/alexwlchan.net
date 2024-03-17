@@ -22,7 +22,17 @@ require 'rszr'
 require_relative 'utils/twitter'
 
 METADATA_SCHEMA = {
-  type: 'object'
+  type: 'object',
+  properties: {
+    text: { type: 'string' },
+    quoted_status: {
+      type: 'object',
+      properties: {
+        text: { type: 'string' }
+      }
+    }
+  },
+  required: %w[text],
 }
 
 module Jekyll
@@ -80,9 +90,16 @@ module Jekyll
       end
     end
 
+    # Render the text of the tweet as HTML.
+    #
+    # This includes:
+    #
+    #     * Expanding any newlines
+    #     * Replacing URLs and @-mentions
+    #     * Replacing native emoji with Twitter's "twemoji" SVGs
+    #
     def render_tweet_text(tweet_data)
       text = tweet_data['text']
-      text = tweet_data['full_text'] if text.nil?
 
       tweet_data['entities']['urls'].each do |u|
         text = text.sub(
