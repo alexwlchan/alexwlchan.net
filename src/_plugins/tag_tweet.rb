@@ -20,6 +20,7 @@ METADATA_SCHEMA = {
   properties: {
     id: { type: 'string' },
     text: { type: 'string' },
+    created_at: { type: 'string' },
     user: {
       type: 'object',
       properties: {
@@ -89,6 +90,7 @@ METADATA_SCHEMA = {
       properties: {
         id: { type: 'string' },
         text: { type: 'string' },
+        created_at: { type: 'string' },
         user: {
           type: 'object',
           properties: {
@@ -99,10 +101,11 @@ METADATA_SCHEMA = {
           additionalProperties: false
         }
       },
-      required: %w[id text user]
+      required: %w[id text created_at user]
     }
   },
-  required: %w[id text user]
+  additionalProperties: false,
+  required: %w[id text created_at user]
 }
 
 module Jekyll
