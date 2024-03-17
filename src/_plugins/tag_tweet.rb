@@ -148,10 +148,6 @@ module Jekyll
       _, @screen_name, _, @tweet_id = URI.parse(@tweet_url).path.split('/')
     end
 
-    def images_path(name)
-      "#{@src}/_images/twitter/#{name}"
-    end
-
     # Where is metadata about this tweet?
     #
     # Example path:
