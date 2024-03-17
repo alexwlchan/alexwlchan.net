@@ -5,9 +5,6 @@
   "text": "@alexwlchan I’m also stripping common prefixes from episode titles within a feed, so:\n\nEpisode 1: A\nEpisode 2: B\n-&gt;\n1: A\n2: B",
   "truncated": false,
   "entities": {
-    "symbols": [
-
-    ],
     "user_mentions": [
       {"screen_name": "alexwlchan"}
     ]

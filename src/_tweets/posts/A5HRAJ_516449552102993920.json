@@ -5,9 +5,6 @@
   "text": "@alexwlchan Find Untagged Tumblr Posts is great! Is it possible to develop a tool that finds original Tumblr posts? (Everything but reblogs)",
   "truncated": false,
   "entities": {
-    "symbols": [
-
-    ],
     "user_mentions": [
       {"screen_name": "alexwlchan"}
     ]
