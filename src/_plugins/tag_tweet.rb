@@ -188,11 +188,11 @@ module Jekyll
     #   2. The metadata doesn't match the schema
     #
     def read_tweet_data
-      unless File.exist? metadata_file_path
+      begin
+        tweet_data = JSON.parse(File.read(metadata_file_path))
+      rescue Errno::ENOENT
         raise "Unable to find metadata for #{@tweet_url}! (Expected #{metadata_file_path})"
       end
-
-      tweet_data = JSON.parse(File.read(metadata_file_path))
 
       unless tweet_data.key? 'extended_entities'
         tweet_data['extended_entities'] = tweet_data['entities']
