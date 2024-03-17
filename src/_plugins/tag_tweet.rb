@@ -2,18 +2,12 @@
 # embedding.  Rendering tweets as static HTML reduces page weight, load times,
 # and is resilient against tweets being deleted.
 #
-# The Twitter API responses and media are cached in `src/_tweets` and
-# `src/_images/twitter`, respectively.  To save a tweet, run the following
-# script on a machine which has Twitter API credentials in the keychain:
-#
-#     python scripts/save_tweet.py 'https://twitter.com/user/status/1234567890'
-#
-# This will save the cached response used by this plugin.
-#
 # To embed a tweet, place a Liquid tag of the following form anywhere in a
 # source file:
 #
 #     {% tweet https://twitter.com/raibgovuk/status/905355951557013506 %}
+#
+# and save the relevant images/metadata in `src/_tweets`.
 #
 
 require 'base64'
