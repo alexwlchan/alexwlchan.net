@@ -38,11 +38,6 @@
     ]
   },
   "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "in_reply_to_status_id": null,
-  "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
   "user": {
     "name": "Christopher Hilton",
     "screen_name": "CHilton_BB"
