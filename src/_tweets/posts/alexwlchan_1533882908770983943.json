@@ -9,80 +9,16 @@
   "entities": {
     "media": [
       {
-        "display_url": "pic.twitter.com/cvH3JlmvCD",
+        "filename": "FUlx_twWYAAOta9.jpg",
         "expanded_url": "https://twitter.com/alexwlchan/status/1533882908770983943/photo/1",
-        "id": 1533882487524450304,
-        "id_str": "1533882487524450304",
-        "indices": [
-          213,
-          236
-        ],
-        "media_url": "http://pbs.twimg.com/media/FUlx_twWYAAOta9.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/FUlx_twWYAAOta9.jpg",
-        "sizes": {
-          "large": {
-            "h": 1536,
-            "resize": "fit",
-            "w": 2048
-          },
-          "medium": {
-            "h": 900,
-            "resize": "fit",
-            "w": 1200
-          },
-          "small": {
-            "h": 510,
-            "resize": "fit",
-            "w": 680
-          },
-          "thumb": {
-            "h": 150,
-            "resize": "crop",
-            "w": 150
-          }
-        },
-        "type": "photo",
-        "url": "https://t.co/cvH3JlmvCD"
+        "ext_alt_text": "White-on-blue cross stitch showing line art of the full lunar lander, plus part of the command module attached to it. There\u2019s also a black iPhone sitting off to one side, covering the other stitches.",
+        "type": "photo"
       }
-    ]
-  },
-  "extended_entities": {
-    "media": [
+    ],
+    "urls": [
       {
         "display_url": "pic.twitter.com/cvH3JlmvCD",
         "expanded_url": "https://twitter.com/alexwlchan/status/1533882908770983943/photo/1",
-        "ext_alt_text": "White-on-blue cross stitch showing line art of the full lunar lander, plus part of the command module attached to it. There\u2019s also a black iPhone sitting off to one side, covering the other stitches.",
-        "id": 1533882487524450304,
-        "id_str": "1533882487524450304",
-        "indices": [
-          213,
-          236
-        ],
-        "media_url": "http://pbs.twimg.com/media/FUlx_twWYAAOta9.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/FUlx_twWYAAOta9.jpg",
-        "sizes": {
-          "large": {
-            "h": 1536,
-            "resize": "fit",
-            "w": 2048
-          },
-          "medium": {
-            "h": 900,
-            "resize": "fit",
-            "w": 1200
-          },
-          "small": {
-            "h": 510,
-            "resize": "fit",
-            "w": 680
-          },
-          "thumb": {
-            "h": 150,
-            "resize": "crop",
-            "w": 150
-          }
-        },
-        "type": "photo",
         "url": "https://t.co/cvH3JlmvCD"
       }
     ]
@@ -108,67 +44,7 @@
   "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
   "truncated": false,
   "user": {
-    "contributors_enabled": false,
-    "created_at": "Mon Aug 17 13:20:33 +0000 2009",
-    "default_profile": false,
-    "default_profile_image": false,
-    "description": "Writing software \u00b7 Stitching embroidery \u00b7 Making tiny magical worlds \u00b7 Doing digital stuff @ExploreWellcome \u00b7 Genderfluid shapeshifter, they/she",
-    "entities": {
-      "description": {
-        "urls": []
-      },
-      "url": {
-        "urls": [
-          {
-            "display_url": "alexwlchan.net",
-            "expanded_url": "https://alexwlchan.net/",
-            "indices": [
-              0,
-              23
-            ],
-            "url": "https://t.co/EQMioD6xgO"
-          }
-        ]
-      }
-    },
-    "favourites_count": 83682,
-    "follow_request_sent": false,
-    "followers_count": 2452,
-    "following": false,
-    "friends_count": 391,
-    "geo_enabled": true,
-    "has_extended_profile": true,
-    "id": 66351897,
-    "id_str": "66351897",
-    "is_translation_enabled": false,
-    "is_translator": false,
-    "lang": null,
-    "listed_count": 53,
-    "location": "Wrapped up in a warm blanket",
     "name": "Alex Chan",
-    "notifications": false,
-    "profile_background_color": "C0DEED",
-    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile": false,
-    "profile_banner_extensions_alt_text": null,
-    "profile_banner_url": "https://pbs.twimg.com/profile_banners/66351897/1635287101",
-    "profile_image_extensions_alt_text": null,
-    "profile_image_url": "http://pbs.twimg.com/profile_images/1538296879137562624/w3pwqwel_normal.jpg",
-    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1538296879137562624/w3pwqwel_normal.jpg",
-    "profile_link_color": "C7301F",
-    "profile_sidebar_border_color": "C0DEED",
-    "profile_sidebar_fill_color": "DDEEF6",
-    "profile_text_color": "333333",
-    "profile_use_background_image": true,
-    "protected": false,
-    "screen_name": "alexwlchan",
-    "statuses_count": 32822,
-    "time_zone": null,
-    "translator_type": "none",
-    "url": "https://t.co/EQMioD6xgO",
-    "utc_offset": null,
-    "verified": false,
-    "withheld_in_countries": []
+    "screen_name": "alexwlchan"
   }
 }

@@ -36,67 +36,7 @@
   "source": "<a href=\"http://twitter.com/#!/download/ipad\" rel=\"nofollow\">Twitter for iPad</a>",
   "truncated": false,
   "user": {
-    "contributors_enabled": false,
-    "created_at": "Thu Dec 25 23:33:11 +0000 2008",
-    "default_profile": false,
-    "default_profile_image": false,
-    "description": "\u201cJudgemental handwringing PC bollocks\u201d As A Service. He/him/his.",
-    "entities": {
-      "description": {
-        "urls": []
-      },
-      "url": {
-        "urls": [
-          {
-            "display_url": "lukasa.co.uk",
-            "expanded_url": "https://lukasa.co.uk",
-            "indices": [
-              0,
-              23
-            ],
-            "url": "https://t.co/f2Lojc33gR"
-          }
-        ]
-      }
-    },
-    "favourites_count": 5985,
-    "follow_request_sent": false,
-    "followers_count": 2837,
-    "following": true,
-    "friends_count": 509,
-    "geo_enabled": false,
-    "has_extended_profile": true,
-    "id": 18380894,
-    "id_str": "18380894",
-    "is_translation_enabled": false,
-    "is_translator": false,
-    "lang": null,
-    "listed_count": 116,
-    "location": "",
     "name": "Cory Benfield",
-    "notifications": false,
-    "profile_background_color": "4A1491",
-    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme7/bg.gif",
-    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme7/bg.gif",
-    "profile_background_tile": false,
-    "profile_banner_extensions_alt_text": null,
-    "profile_banner_url": "https://pbs.twimg.com/profile_banners/18380894/1397929276",
-    "profile_image_extensions_alt_text": null,
-    "profile_image_url": "http://pbs.twimg.com/profile_images/506868690269138944/k7BZqmag_normal.jpeg",
-    "profile_image_url_https": "https://pbs.twimg.com/profile_images/506868690269138944/k7BZqmag_normal.jpeg",
-    "profile_link_color": "797A9B",
-    "profile_sidebar_border_color": "000000",
-    "profile_sidebar_fill_color": "F3F3F3",
-    "profile_text_color": "333333",
-    "profile_use_background_image": false,
-    "protected": false,
-    "screen_name": "Lukasaoz",
-    "statuses_count": 15759,
-    "time_zone": null,
-    "translator_type": "none",
-    "url": "https://t.co/f2Lojc33gR",
-    "utc_offset": null,
-    "verified": false,
-    "withheld_in_countries": []
+    "screen_name": "Lukasaoz"
   }
 }

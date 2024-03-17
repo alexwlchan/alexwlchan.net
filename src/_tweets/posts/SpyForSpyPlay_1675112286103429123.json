@@ -4,34 +4,30 @@
     "hashtags": [
       {"text": "SpyForSpyPlay"}
     ],
-    "user_mentions": [
-      {"screen_name": "RiversideLondon"}
-    ]
-  },
-  "extended_entities": {
     "media": [
       {
         "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/1",
-        "media_url_https": "https://pbs.twimg.com/media/Fz8xvJBWIAEOB5j.jpg",
-        "type": "photo",
-        "url": "https://t.co/WrdUw6Vlu7",
-        "display_url": "pic.twitter.com/WrdUw6Vlu7"
+        "filename": "Fz8xvJBWIAEOB5j.jpg",
+        "type": "photo"
       },
       {
         "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/2",
-        "media_url_https": "https://pbs.twimg.com/media/Fz8xvJZXgAAJdF5.jpg",
+        "filename": "Fz8xvJZXgAAJdF5.jpg",
         "type": "photo"
       },
       {
         "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/3",
-        "media_url_https": "https://pbs.twimg.com/media/Fz8xvIVWIAI92V9.jpg",
+        "filename": "Fz8xvIVWIAI92V9.jpg",
         "type": "photo"
       },
       {
         "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/4",
-        "media_url_https": "https://pbs.twimg.com/media/Fz8xvIVXwAAiUCU.jpg",
+        "filename": "Fz8xvIVXwAAiUCU.jpg",
         "type": "photo"
       }
+    ],
+    "user_mentions": [
+      {"screen_name": "RiversideLondon"}
     ]
   },
   "text": "💞 Love 💞\n\nThank you for experiencing Molly & Sarah’s journey with us.\n\nOur limited run at @RiversideLondon ends tomorrow and we've had a blast.\n\n#SpyForSpyPlay",
@@ -40,7 +36,6 @@
   "is_quote_status": false,
   "user": {
     "name": "Spy For Spy",
-    "screen_name": "SpyForSpyPlay",
-    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1625820662240616449/TwmGTOWT_400x400.jpg"
+    "screen_name": "SpyForSpyPlay"
   }
 }
