@@ -21,6 +21,10 @@ require 'rszr'
 
 require_relative 'utils/twitter'
 
+METADATA_SCHEMA = {
+  type: 'object'
+}
+
 module Jekyll
   module TwitterFilters
     def render_date_created(tweet_data)
@@ -158,21 +162,41 @@ module Jekyll
         .strftime('%-I:%M&nbsp;%p - %-d %b %Y')
     end
 
+    # Read metadata about a tweet from the `src/_tweets/data` folder.
+    #
+    # This method will throw an error if:
+    #
+    #   1. It can't find the metadata, or
+    #   2. The metadata doesn't match the schema
+    #
+    def read_tweet_data
+      unless File.exist? cache_file
+        raise "Unable to find cached data for #{@tweet_url}!"
+      end
+
+      tweet_data = JSON.parse(File.read(cache_file))
+
+      unless tweet_data.key? 'extended_entities'
+        tweet_data['extended_entities'] = tweet_data['entities']
+      end
+
+      errors = JSON::Validator.fully_validate(METADATA_SCHEMA, tweet_data)
+
+      unless errors.empty?
+        raise "Tweet metadata in #{cache_file} does not match schema: #{errors}"
+      end
+
+      tweet_data
+    end
+
     def render(context)
       site = context.registers[:site]
       @src = site.config['source']
       @dst = site.config['destination']
 
-      unless File.exist? cache_file
-        puts("Missing tweet; please run 'python3 scripts/save_tweet.py #{@tweet_url}'")
-        exit!
-      end
-
-      tweet_data = JSON.parse(File.read(cache_file))
+      tweet_data = read_tweet_data
 
       tpl = Liquid::Template.parse(File.read('src/_includes/tweet.html'))
-
-      tweet_data['extended_entities'] = tweet_data['entities'] unless tweet_data.key? 'extended_entities'
 
       input = tpl.render!(
         'tweet_data' => tweet_data
