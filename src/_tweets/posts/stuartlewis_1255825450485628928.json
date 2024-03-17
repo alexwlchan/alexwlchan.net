@@ -52,46 +52,6 @@
       }
     ]
   },
-  "extended_entities": {
-    "media": [
-      {
-        "id": 1255825442420011008,
-        "id_str": "1255825442420011008",
-        "indices": [
-          260,
-          283
-        ],
-        "media_url": "http://pbs.twimg.com/media/EW2WlhNXsAALuAR.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/EW2WlhNXsAALuAR.jpg",
-        "url": "https://t.co/YMoeRprudM",
-        "display_url": "pic.twitter.com/YMoeRprudM",
-        "expanded_url": "https://twitter.com/stuartlewis/status/1255825450485628928/photo/1",
-        "type": "photo",
-        "sizes": {
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 900,
-            "resize": "fit"
-          },
-          "large": {
-            "w": 2048,
-            "h": 1536,
-            "resize": "fit"
-          },
-          "small": {
-            "w": 680,
-            "h": 510,
-            "resize": "fit"
-          }
-        }
-      }
-    ]
-  },
   "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
   "in_reply_to_status_id": null,
   "in_reply_to_status_id_str": null,

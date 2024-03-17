@@ -47,46 +47,6 @@
       }
     ]
   },
-  "extended_entities": {
-    "media": [
-      {
-        "id": 924569027393085440,
-        "id_str": "924569027393085440",
-        "indices": [
-          59,
-          82
-        ],
-        "media_url": "http://pbs.twimg.com/media/DNS6ocAX4AA7UYD.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/DNS6ocAX4AA7UYD.jpg",
-        "url": "https://t.co/rptNFFgZ1P",
-        "display_url": "pic.twitter.com/rptNFFgZ1P",
-        "expanded_url": "https://twitter.com/alexwlchan/status/924569032170397696/photo/1",
-        "type": "photo",
-        "sizes": {
-          "large": {
-            "w": 2048,
-            "h": 1536,
-            "resize": "fit"
-          },
-          "small": {
-            "w": 680,
-            "h": 510,
-            "resize": "fit"
-          },
-          "thumb": {
-            "w": 150,
-            "h": 150,
-            "resize": "crop"
-          },
-          "medium": {
-            "w": 1200,
-            "h": 900,
-            "resize": "fit"
-          }
-        }
-      }
-    ]
-  },
   "source": "<a href=\"http://twitterrific.com\" rel=\"nofollow\">Twitterrific</a>",
   "in_reply_to_status_id": null,
   "in_reply_to_status_id_str": null,

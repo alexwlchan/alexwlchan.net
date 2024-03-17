@@ -4,11 +4,6 @@
     "hashtags": [
       {"text": "SpyForSpyPlay"}
     ],
-    "user_mentions": [
-      {"screen_name": "RiversideLondon"}
-    ]
-  },
-  "extended_entities": {
     "media": [
       {
         "expanded_url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/1",
@@ -32,6 +27,9 @@
         "media_url_https": "https://pbs.twimg.com/media/Fz8xvIVXwAAiUCU.jpg",
         "type": "photo"
       }
+    ],
+    "user_mentions": [
+      {"screen_name": "RiversideLondon"}
     ]
   },
   "text": "💞 Love 💞\n\nThank you for experiencing Molly & Sarah’s journey with us.\n\nOur limited run at @RiversideLondon ends tomorrow and we've had a blast.\n\n#SpyForSpyPlay",

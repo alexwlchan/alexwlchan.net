@@ -11,46 +11,6 @@
       {
         "display_url": "pic.twitter.com/cvH3JlmvCD",
         "expanded_url": "https://twitter.com/alexwlchan/status/1533882908770983943/photo/1",
-        "id": 1533882487524450304,
-        "id_str": "1533882487524450304",
-        "indices": [
-          213,
-          236
-        ],
-        "media_url": "http://pbs.twimg.com/media/FUlx_twWYAAOta9.jpg",
-        "media_url_https": "https://pbs.twimg.com/media/FUlx_twWYAAOta9.jpg",
-        "sizes": {
-          "large": {
-            "h": 1536,
-            "resize": "fit",
-            "w": 2048
-          },
-          "medium": {
-            "h": 900,
-            "resize": "fit",
-            "w": 1200
-          },
-          "small": {
-            "h": 510,
-            "resize": "fit",
-            "w": 680
-          },
-          "thumb": {
-            "h": 150,
-            "resize": "crop",
-            "w": 150
-          }
-        },
-        "type": "photo",
-        "url": "https://t.co/cvH3JlmvCD"
-      }
-    ]
-  },
-  "extended_entities": {
-    "media": [
-      {
-        "display_url": "pic.twitter.com/cvH3JlmvCD",
-        "expanded_url": "https://twitter.com/alexwlchan/status/1533882908770983943/photo/1",
         "ext_alt_text": "White-on-blue cross stitch showing line art of the full lunar lander, plus part of the command module attached to it. There\u2019s also a black iPhone sitting off to one side, covering the other stitches.",
         "id": 1533882487524450304,
         "id_str": "1533882487524450304",

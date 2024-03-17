@@ -53,7 +53,6 @@ METADATA_SCHEMA = {
           type: 'array',
           items: {
             type: 'object',
-            required: %w[expanded_url display_url],
             properties: {
               expanded_url: { type: 'string' },
               display_url: { type: 'string' }
@@ -203,10 +202,12 @@ module Jekyll
       end
 
       entities.fetch('media', []).each do |m|
-        text = text.sub(
-          m['url'],
-          "<a href=\"#{m['expanded_url']}\">#{m['display_url']}</a>"
-        )
+        if m.key? 'url' and m.key? 'expanded_url' and m.key? 'display_url'
+          text = text.sub(
+            m['url'],
+            "<a href=\"#{m['expanded_url']}\">#{m['display_url']}</a>"
+          )
+        end
       end
 
       text.strip
@@ -283,10 +284,6 @@ module Jekyll
         tweet_data = JSON.parse(File.read(metadata_file_path))
       rescue Errno::ENOENT
         raise "Unable to find metadata for #{@tweet_url}! (Expected #{metadata_file_path})"
-      end
-
-      unless tweet_data.key? 'extended_entities'
-        tweet_data['extended_entities'] = tweet_data['entities']
       end
 
       errors = JSON::Validator.fully_validate(METADATA_SCHEMA, tweet_data)
