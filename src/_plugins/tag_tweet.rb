@@ -144,8 +144,26 @@ module Jekyll
   class TwitterTag < Liquid::Tag
     def initialize(tag_name, text, tokens)
       super
-      @tweet_url = text.tr('"', '').strip
-      _, @screen_name, _, @tweet_id = URI.parse(@tweet_url).path.split('/')
+
+      # The `text` variable should contain the tweet URL, e.g.
+      #
+      #     https://twitter.com/NatlParkService/status/1767630582299631623
+      #       ~> username = "NatlParkService", id = "1767630582299631623".
+      #
+      # Note that `text` may contain trailing whitespace.
+      #
+      # Note also that the `username` regex may be incomplete.
+      #
+      pattern = %r{^https://twitter\.com/(?<screen_name>[A-Za-z0-9_]+)/status/(?<id>[0-9]+)$}
+      m = text.strip.match(pattern)
+
+      if m.nil?
+        raise "Unable to parse URL: #{text.inspect}"
+      end
+
+      @tweet_url = text
+      @screen_name = m[:screen_name]
+      @tweet_id = m[:id]
     end
 
     # Where is metadata about this tweet?
@@ -171,7 +189,7 @@ module Jekyll
     #
     def read_tweet_data
       unless File.exist? metadata_file_path
-        raise "Unable to find metadata for #{@tweet_url}!"
+        raise "Unable to find metadata for #{@tweet_url}! (Expected #{metadata_file_path})"
       end
 
       tweet_data = JSON.parse(File.read(metadata_file_path))
