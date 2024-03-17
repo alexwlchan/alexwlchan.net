@@ -24,6 +24,7 @@ require_relative 'utils/twitter'
 METADATA_SCHEMA = {
   type: 'object',
   properties: {
+    id: { type: 'string' },
     text: { type: 'string' },
     user: {
       type: 'object',
@@ -96,7 +97,7 @@ METADATA_SCHEMA = {
       }
     }
   },
-  required: %w[text user]
+  required: %w[id text user]
 }
 
 module Jekyll
@@ -126,7 +127,7 @@ module Jekyll
     # similar to if I'd taken a tweet screenshot.
     def tweet_avatar_url(tweet_data)
       screen_name = tweet_data['user']['screen_name']
-      tweet_id = tweet_data['id_str']
+      tweet_id = tweet_data['id']
 
       # Find the matching avatar.  Each avatar should be labelled with
       # the screen name and tweet ID, but may be one of several formats.

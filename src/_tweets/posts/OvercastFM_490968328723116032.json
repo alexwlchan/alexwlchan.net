@@ -1,7 +1,6 @@
 {
   "created_at": "Sun Jul 20 21:15:45 +0000 2014",
-  "id": 490968328723116032,
-  "id_str": "490968328723116032",
+  "id": "490968328723116032",
   "text": "@alexwlchan I’m also stripping common prefixes from episode titles within a feed, so:\n\nEpisode 1: A\nEpisode 2: B\n-&gt;\n1: A\n2: B",
   "truncated": false,
   "entities": {

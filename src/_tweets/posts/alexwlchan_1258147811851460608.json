@@ -1,7 +1,6 @@
 {
   "created_at": "Wed May 06 21:33:08 +0000 2020",
-  "id": 1258147811851460608,
-  "id_str": "1258147811851460608",
+  "id": "1258147811851460608",
   "text": "Who wants to see some cursed #Python? \n\nVariable-length tuple unpacking. I want to assign a bunch of variables to True, but I don’t know how many there are. Reflection to the rescue!\n\na, b = Trues()\na, b, c, d = Trues()\n\na, b, \\\nc, d = Trues()\n\n(a, b,\nc,\nd) = Trues() https://t.co/oLKnmuUpai",
   "truncated": false,
   "display_text_range": [
