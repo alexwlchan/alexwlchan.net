@@ -25,67 +25,7 @@
   "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
   "truncated": false,
   "user": {
-    "contributors_enabled": false,
-    "created_at": "Wed Nov 22 15:57:48 +0000 2006",
-    "default_profile": false,
-    "default_profile_image": false,
-    "description": "I no longer tweet. I do not see your replies, I do not get your DMs. Find me on Mastodon, it's nice there!",
-    "entities": {
-      "description": {
-        "urls": []
-      },
-      "url": {
-        "urls": [
-          {
-            "display_url": "seldo.com",
-            "expanded_url": "http://seldo.com",
-            "indices": [
-              0,
-              23
-            ],
-            "url": "https://t.co/KQbTD1Fiad"
-          }
-        ]
-      }
-    },
-    "favourites_count": 149159,
-    "follow_request_sent": false,
-    "followers_count": 46062,
-    "following": false,
-    "friends_count": 3130,
-    "geo_enabled": true,
-    "has_extended_profile": true,
-    "id": 15453,
-    "id_str": "15453",
-    "is_translation_enabled": false,
-    "is_translator": false,
-    "lang": null,
-    "listed_count": 1049,
-    "location": "Sea Ranch & San Francisco, CA",
     "name": "Laurie Voss",
-    "notifications": false,
-    "profile_background_color": "62D6FF",
-    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile": true,
-    "profile_banner_extensions_alt_text": null,
-    "profile_banner_url": "https://pbs.twimg.com/profile_banners/15453/1608508970",
-    "profile_image_extensions_alt_text": null,
-    "profile_image_url": "http://pbs.twimg.com/profile_images/1542314254404968450/uhyBAb1e_normal.jpg",
-    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1542314254404968450/uhyBAb1e_normal.jpg",
-    "profile_link_color": "42B7F2",
-    "profile_sidebar_border_color": "6BC3FF",
-    "profile_sidebar_fill_color": "92D3FF",
-    "profile_text_color": "000000",
-    "profile_use_background_image": true,
-    "protected": false,
-    "screen_name": "seldo",
-    "statuses_count": 155371,
-    "time_zone": null,
-    "translator_type": "none",
-    "url": "https://t.co/KQbTD1Fiad",
-    "utc_offset": null,
-    "verified": false,
-    "withheld_in_countries": []
+    "screen_name": "seldo"
   }
 }

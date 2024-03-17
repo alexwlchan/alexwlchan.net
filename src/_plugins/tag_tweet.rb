@@ -25,6 +25,15 @@ METADATA_SCHEMA = {
   type: 'object',
   properties: {
     text: { type: 'string' },
+    user: {
+      type: 'object',
+      properties: {
+        name: { type: 'string' },
+        screen_name: { type: 'string' }
+      },
+      required: %w[name screen_name],
+      additionalProperties: false
+    },
     entities: {
       description: 'Non-textual elements of the tweet',
       type: 'object',
@@ -84,7 +93,7 @@ METADATA_SCHEMA = {
       }
     }
   },
-  required: %w[text]
+  required: %w[text user]
 }
 
 module Jekyll
@@ -108,21 +117,30 @@ module Jekyll
     # These images are tiny when resized properly – in most cases <4KB,
     # so it's faster to embed them as base64-encoded images than serve
     # them as a separate network request.
+    #
+    # Each avatar is identified with both the screen name and tweet ID,
+    # so I capture the avatar as it looked at the time of the tweet,
+    # similar to if I'd taken a tweet screenshot.
     def tweet_avatar_url(tweet_data)
       screen_name = tweet_data['user']['screen_name']
       tweet_id = tweet_data['id_str']
 
-      avatar_url = tweet_data['user']['profile_image_url_https']
-      extension = avatar_url.split('.').last # ick
+      # Find the matching avatar.  Each avatar should be labelled with
+      # the screen name and tweet ID, but may be one of several formats.
+      matching_avatars = Dir.glob("src/_tweets/avatars/#{screen_name}_#{tweet_id}.*")
 
-      path = "src/_tweets/avatars/#{screen_name}_#{tweet_id}.#{extension}"
+      unless matching_avatars.length == 1
+        raise "Could not find avatar for tweet, expected #{screen_name}_#{tweet_id}.*"
+      end
 
-      FileUtils.mkdir_p '.jekyll-cache/twitter/avatars'
+      path = matching_avatars[0]
+      extension = path.split('.').last # ick
 
       # Avatars are routinely quite large (e.g. 512x512), but they're
       # only displayed in a 36x36 square (see _tweets.scss).
       #
       # Cutting a smaller thumbnail should reduce the page weight.
+      FileUtils.mkdir_p '.jekyll-cache/twitter/avatars'
       thumbnail_path = ".jekyll-cache/twitter/avatars/#{File.basename(path)}"
 
       unless File.exist? thumbnail_path
