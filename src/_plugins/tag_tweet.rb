@@ -152,7 +152,17 @@ module Jekyll
       "#{@src}/_images/twitter/#{name}"
     end
 
-    def cache_file
+    # Where is metadata about this tweet?
+    #
+    # Example path:
+    #
+    #     src/_tweets/posts/alexwlchan_924569032170397696.json
+    #
+    # Theoretically I could just use the numeric tweet ID because
+    # they're globally unique, but having it in the filename is
+    # useful when I'm trying to find a tweet.
+    #
+    def metadata_file_path
       "#{@src}/_tweets/posts/#{@screen_name}_#{@tweet_id}.json"
     end
 
@@ -164,11 +174,11 @@ module Jekyll
     #   2. The metadata doesn't match the schema
     #
     def read_tweet_data
-      unless File.exist? cache_file
-        raise "Unable to find cached data for #{@tweet_url}!"
+      unless File.exist? metadata_file_path
+        raise "Unable to find metadata for #{@tweet_url}!"
       end
 
-      tweet_data = JSON.parse(File.read(cache_file))
+      tweet_data = JSON.parse(File.read(metadata_file_path))
 
       unless tweet_data.key? 'extended_entities'
         tweet_data['extended_entities'] = tweet_data['entities']
@@ -177,7 +187,7 @@ module Jekyll
       errors = JSON::Validator.fully_validate(METADATA_SCHEMA, tweet_data)
 
       unless errors.empty?
-        raise "Tweet metadata in #{cache_file} does not match schema: #{errors}"
+        raise "Tweet data in #{metadata_file_path} does not match schema: #{errors}"
       end
 
       tweet_data
