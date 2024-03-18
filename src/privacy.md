@@ -16,11 +16,23 @@ Whenever you visit a page, I use a tracking pixel to record the following anonym
 *   The URL and title of the page you were looking at
 *   The referrer, i.e. which page linked you to my website
 *   The country you're in, which is guessed from your IP address
-*   An anonymous session identifier, which I use to help count unique visitors (more on this below)
-*   The dimensions of your screen (e.g. 1024×768)
-*   Whether you're a bot or crawler (based on your User-Agent, so I can separate humans from Google's search crawler)
+*   An anonymous session identifier, which I use to help count unique visitors (see below)
+*   Whether you're a bot or crawler (this is a simple boolean based on your User-Agent, so I can separate humans from Google's search crawler)
 
-I **don't** record your IP address or user agent, because those might allow me to identify a specific person.
+Here's an example of how a visit would be recorded in my database:
+
+```
+date:      2024-03-18T20:38:16.894394
+url:       https://alexwlchan.net/2024/step-step-step/
+referrer:  https://www.linkedin.com/
+title:     Monki Gras 2024: Step… Step… Step… – alexwlchan
+country:   GB
+is_bot:    False
+```
+
+I **don't** record your exact IP address or user agent, because they contain more detail than I need, and they'd make it easier for me to identify a specific person.
+I don't want that!
+
 
 ## Anonymous session identifier
 
@@ -39,7 +51,7 @@ This means that I can see that there was a person who looked at a particular set
 The tracking pixel is served from my web server.
 I don't share the information I get from it – that only lives on my web server and personal computers.
 
-I don't use any third-party analytics frameworks like Google Analytics, Piwik, and Fathom.
+I don't use any third-party analytics frameworks like Google Analytics, Piwik, or Fathom.
 
 This site is hosted on a mixture of Netlify and Linode.
 They can see what pages you're visiting, and they have separate privacy policies.
@@ -47,4 +59,12 @@ They can see what pages you're visiting, and they have separate privacy policies
 
 ## Cookies
 
-I don't use any.
+I don't set any.
+
+## Page history
+
+*   18 March 2024:
+    Remove reference to screen width/height, which I no longer collect.
+    Add an example of how a request get recorded in my database.
+    Tweak a few bits of wording.
+*   20 January 2024: Initial version of page. Add information about my new tracking pixel.
