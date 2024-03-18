@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Privacy policy
-date_updated: 2024-03-18 20:46:26 +0000
+date_updated: 2024-03-18 20:53:56 +0000
 ---
 I collect some basic data about visits to my websites, to help me decide what to write about next.
 I gather statistics in aggregate, and I don't collect any information about specific visitors.
@@ -53,9 +53,12 @@ I don't share the information I get from it – that only lives on my web server
 
 I don't use any third-party analytics frameworks like Google Analytics, Piwik, or Fathom.
 
-This site is hosted on a mixture of Netlify and Linode.
-They can see what pages you're visiting, and they have separate privacy policies.
-([Netlify](https://www.netlify.com/privacy/); [Akamai](https://www.akamai.com/legal/privacy-statement), who own Linode.)
+The site is hosted on Netlify.
+They can see what pages you're visiting, and they have [their own privacy policy](https://www.netlify.com/privacy/).
+
+The web server with the tracking pixel is hosted on Linode.
+They can see that you've hitting the tracking pixel, but they can't see the more detailed information (they know you visited my site, but you don't know which page).
+Linode is owned by Akamai, who have [their own privacy policy](https://www.akamai.com/legal/privacy-statement).
 
 ## Cookies
 
@@ -66,5 +69,6 @@ I don't set any.
 *   18 March 2024:
     Remove reference to screen width/height, which I no longer collect.
     Add an example of how a request get recorded in my database.
+    Clarify how Linode/Netlify are involved.
     Tweak a few bits of wording.
 *   20 January 2024: Initial version of page. Add information about my new tracking pixel.
