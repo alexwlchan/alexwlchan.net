@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Privacy policy
-date_updated: 2024-01-20 23:39:27 +0000
+date_updated: 2024-03-18 20:46:26 +0000
 ---
 I collect some basic data about visits to my websites, to help me decide what to write about next.
 I gather statistics in aggregate, and I don't collect any information about specific visitors.
