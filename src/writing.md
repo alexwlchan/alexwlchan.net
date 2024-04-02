@@ -68,7 +68,7 @@ These are among the most fun posts to write, and you can see more in the [code c
 {%
   include
   eggbox.html
-  eggbox_posts="upward-assignment yaml-impossible marquee-rocket using-dynamodb-as-a-calculator moomin-mathematics"
+  eggbox_posts="big-pdf upward-assignment yaml-impossible marquee-rocket using-dynamodb-as-a-calculator moomin-mathematics"
 %}
 
 ---
@@ -110,5 +110,5 @@ What personal stuff there is tends to be "what I've done", not "who am I".
 {%
   include
   eggbox.html
-  eggbox_posts="hyperfocus-and-hobbies 2022-in-reading maths-cross-stitch my-scanning-setup"
+  eggbox_posts="hyperfocus-and-hobbies 2023-in-reading maths-cross-stitch my-scanning-setup"
 %}
