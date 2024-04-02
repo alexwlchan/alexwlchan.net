@@ -50,9 +50,7 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: |
-          find _site -name 'commons_explorer_*' -delete
-          make html-drafts
+        run: make html-drafts
 
       - name: "Run linting"
         run: make lint
