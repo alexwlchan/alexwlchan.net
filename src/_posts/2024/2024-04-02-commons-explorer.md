@@ -69,7 +69,7 @@ You can try the new Commons Explorer at [commons.flickr.org](https://commons.fli
   {%
     picture
     filename="commons_explorer_screenshot1.png"
-    width="750"
+    width="444"
     class="screenshot"
     alt="The homepage of the Commons Explorer, showing an introductory message and a 2-column grid of recent photos."
   %}
@@ -77,7 +77,7 @@ You can try the new Commons Explorer at [commons.flickr.org](https://commons.fli
   {%
     picture
     filename="commons_explorer_screenshot2.png"
-    width="750"
+    width="296"
     class="screenshot"
     alt="A list of members in the Flickr Commons, showing cards for each member. Each card has a selected photo from the member, their name, and some basic metadata."
   %}
@@ -85,7 +85,7 @@ You can try the new Commons Explorer at [commons.flickr.org](https://commons.fli
   {%
     picture
     filename="commons_explorer_screenshot3.png"
-    width="750"
+    width="296"
     class="screenshot"
     alt="Conversations on Flickr Commons photos -- comments people have left. There’s a single conversation on a photo of a woman called “Peggy Barthes”, with two comments shown next to the photo."
   %}
