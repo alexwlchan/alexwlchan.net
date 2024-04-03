@@ -63,6 +63,16 @@ compress_html:
   profile: false
   startings: []
 
+# ============================
+# jekyll-sass-converter plugin
+# ============================
+#
+# See https://github.com/jekyll/jekyll-sass-converter#configuration-options
+
+sass:
+  sass_dir: "_scss"
+  style: "compressed"
+
 # ================
 # Remaining config
 
@@ -104,7 +114,3 @@ highlighter: "rouge"
 
 # plugins:
 #   - "jekyll-include-cache"
-
-sass:
-  sass_dir: "_scss"
-  style: "compressed"

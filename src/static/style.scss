@@ -1,0 +1,27 @@
+---
+# Front matter comment to ensure Jekyll properly reads the file as
+# SCSS and converts it to a CSS file.
+---
+
+$max-width: 750px;
+
+body {
+  margin:  0;
+  padding: 0;
+
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+   * then contrast dropped */
+  background-image: url('/static/white-waves-transparent.png');
+
+  /* This causes the footer to be pushed to the bottom of the viewport,
+   * regardless of the size of the content.
+   * See https://stackoverflow.com/q/643879/1558022 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    width: 100vw;
+    flex: 1;
+  }
+}
