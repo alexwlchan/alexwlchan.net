@@ -1,0 +1,20 @@
+---
+# This front matter comment is here so that Jekyll detects this as
+# a Sass file and compiles it to CSS.
+#
+# I don't actually need any keys here.
+---
+
+$primary-color-light: #d01c11;
+$primary-color-dark:  #d01c11;
+
+:root {
+  --max-width: 750px;
+  --default-padding: 20px;
+}
+
+@import "page_layout.scss";
+@import "text_styles.scss";
+@import "utility_classes.scss";
+
+@import "components/nav.scss";
