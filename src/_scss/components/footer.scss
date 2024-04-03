@@ -13,6 +13,11 @@ footer {
     @media screen and (min-width: 720px) {
       grid-template-columns: auto auto;
 
+      p {
+        margin-top:    auto;
+        margin-bottom: auto;
+      }
+
       ul#footer_social_links { text-align: right; }
 
       svg {
