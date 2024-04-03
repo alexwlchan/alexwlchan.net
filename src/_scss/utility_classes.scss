@@ -6,22 +6,24 @@
  * tied to a particular page or template.
  */
 
-/* A dot_list is a <ul> that displays all the items in a horizontal line,
+/* A plain_list is a <ul> that displays all the items in a horizontal line,
+ * not separated by anything, e.g.
+ *
+ *      apple banana cherry
+ *
+ * A dot_list is a <ul> that displays all the items in a horizontal line,
  * separated by dots, e.g.
  *
  *      apple · banana · cherry
  *
- * as opposed to the more traditional
- *
- *    · apple
- *    · banana
- *    · cherry
- *
  */
+ul.plain_list,
 ul.dot_list {
   list-style-type: none;
+  padding: 0;
 }
 
+ul.plain_list li,
 ul.dot_list li {
   display: inline;
 }
@@ -29,4 +31,3 @@ ul.dot_list li {
 ul.dot_list li:not(:first-child)::before {
   content: " · ";
 }
-

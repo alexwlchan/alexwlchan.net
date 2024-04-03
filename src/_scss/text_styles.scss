@@ -26,3 +26,24 @@ a {
     }
   }
 }
+
+/* This style is for stuff that I want available to screen readers, but
+ * not shown to sighted users.  I'm not sure where these rules come from;
+ * I think I cobbled them together from various articles about accessibility.
+ *
+ * Uses of this class:
+ *
+ *    - in the footer
+ *
+ */
+.visually-hidden {
+  position: absolute;
+  width:  1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

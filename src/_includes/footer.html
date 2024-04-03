@@ -1,0 +1,66 @@
+<footer>
+  <div>
+    <p>
+      By Alex Chan.
+      If you like what I do, perhaps <a href="/contact/">say thanks</a>?
+        <br/>
+      Non-code content licensed under CC BY 4.0; code under MIT.
+      <a href="/privacy/">Privacy&nbsp;policy</a>.
+    </p>
+  
+    <ul id="footer_social_links" class="plain_list">
+      {% comment %}
+        Be careful about tweaking the whitespace here; the included SVGs
+        are quite sensitive to linebreaks and the like.
+        
+        In particular, if you push the closing </a> down to a new line,
+        the underlines start appearing between icons.
+      {% endcomment %}
+      <li>
+        <a href="mailto:alex@alexwlchan.net">
+          <span class="visually-hidden">email</span>
+          <span aria-hidden="true">{%- include footer/email.svg -%}</span></a>
+      </li>
+
+      <li>
+        <a id="footer_link--rss" href="https://alexwlchan.net/atom.xml">
+          <span class="visually-hidden">RSS feed</span>
+          <span aria-hidden="true">{%- include footer/rss.svg -%}</span></a>
+      </li>
+
+      {% comment %}
+      <li>
+        <a href="https://twitter.com/alexwlchan">
+          <span class="visually-hidden">Twitter</span>
+          <span aria-hidden="true">{% include footer/twitter.svg %}</span></a>
+      </li>
+      {% endcomment %}
+
+      <li>
+        <a rel="me" href="https://social.alexwlchan.net/@alex">
+          <span class="visually-hidden">Mastodon</span>
+          <span>{% include footer/mastodon.svg %}</span></a>
+      </li>
+
+      {% comment %}
+      <li>
+        <a href="https://github.com/alexwlchan/">
+          <span class="visually-hidden">GitHub</span>
+          <span aria-hidden="true">{% include footer/github.svg %}</span></a>
+      </li>
+    
+      <li>
+        <a href="https://www.linkedin.com/in/alexwlchan/">
+          <span class="visually-hidden">LinkedIn</span>
+          <span>{% include footer/linkedin.svg %}</span></a>
+      </li>
+      {% endcomment %}
+
+      <li>
+        <a href="https://ko-fi.com/alexwlchan">
+          <span class="visually-hidden">Kofi</span>
+          <span>{% include footer/kofi.svg %}</span></a>
+      </li>
+    </ul>
+  </div>
+</footer>

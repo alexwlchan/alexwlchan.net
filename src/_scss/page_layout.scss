@@ -23,7 +23,7 @@ main {
 
 /* These statements ensure that the text is always a sensible width on the
  * page, and is centred with a good amount of space on either side. */
-main, nav > * {
+main, nav > *, footer > * {
   max-width: var(--max-width);
 
   margin-left:  auto;

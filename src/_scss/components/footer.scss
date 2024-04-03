@@ -1,0 +1,56 @@
+footer {
+
+  /* There are two lines of text in the footer, then a row of icons.
+   *
+   * On wide displays, I want the icons to float to the right.  On narrow
+   * displays, I want the icons below the text.  I also make the icons
+   * bigger, because it's probably a mobile display and I want nice big
+   * touch targets.
+   */
+  div {
+    display: grid;
+
+    @media screen and (min-width: 720px) {
+      grid-template-columns: auto auto;
+
+      ul#footer_social_links { text-align: right; }
+
+      svg {
+        width:  30px;
+        height: 30px;
+      }
+    }
+
+    @media screen and (max-width: 720px) {
+      p { margin-bottom: 0; }
+
+      svg {
+        width:  44px;
+        height: 44px;
+      }
+    }
+  }
+
+  /* Add a bit of horizontal spacing between the icons. */
+  ul#footer_social_links li:not(:last-child) a {
+    margin-right: 5px;
+  }
+
+  /* Disable the default link hover styles. */
+  ul#footer_social_links a:hover {
+    background: none;
+  }
+
+  /* Apply custom colours to the background of each icon.  These colours
+   * match the brand colours for each thing, giving you a visual cue that
+   * this is the right site. */
+  a[href="mailto:alex@alexwlchan.net"]:hover              .background { fill: #0067B9; }
+  a[href="https://alexwlchan.net/atom.xml"]:hover         .background { fill: #F99000; }
+  a[href="https://twitter.com/alexwlchan"]:hover          .background { fill: #1DA1F2; }
+  a[href="https://social.alexwlchan.net/@alex"]:hover     .background { fill: #563ACC; }
+  a[href="https://github.com/alexwlchan/"]:hover          .background { fill: #24292f; }
+  a[href="https://www.linkedin.com/in/alexwlchan/"]:hover .background { fill: #007EBB; }
+
+  a[href="https://ko-fi.com/alexwlchan"]:hover #kofi_heart     { fill: #f14255; };
+  a[href="https://ko-fi.com/alexwlchan"]:hover #kofi_circle    { fill: #50aee4; };
+}
