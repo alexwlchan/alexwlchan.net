@@ -1,9 +1,0 @@
-.test_result {
-  margin: 0;
-}
-
-.success { color: green; }
-.failure { color: red; }
-
-.success::before { content: '✔ '; }
-.failure::before { content: '✘ '; }

@@ -1,1 +1,0 @@
-{{ content | pretty_print_xml }}

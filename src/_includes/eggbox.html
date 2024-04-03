@@ -1,8 +1,0 @@
-{% assign eggbox_posts = include.eggbox_posts | split: " " %}
-
-<ul class="post_cards eggbox-{{ eggbox_posts | size }}">
-{% for slug in eggbox_posts %}
-  {% assign post = site.posts | where: "slug", slug | first %}
-  {% include post_card.html hide_date="true" %}
-{% endfor %}
-</ul>
