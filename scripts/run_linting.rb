@@ -3,9 +3,12 @@
 
 require 'html-proofer'
 
+source = "src"
+destination = "_site"
+
 def run_html_linting
   HTMLProofer.check_directory(
-    "_site", {
+    destination, {
       check_html: true,
       check_img_http: true,
       check_opengraph: true,
