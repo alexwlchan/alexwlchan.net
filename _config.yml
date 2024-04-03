@@ -34,7 +34,6 @@ strict_front_matter: true
 # See https://jekyllrb.com/docs/configuration/options/#serve-command-options
 
 port: 5757
-host: "0.0.0.0"
 livereload: true
 
 # ==============
@@ -47,6 +46,22 @@ liquid:
   error_mode: strict
   strict_variables: true
   strict_filters: true
+
+# ====================
+# compress_html plugin
+# ====================
+#
+# See https://jch.penibelst.de/#configuration
+
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []
 
 # ================
 # Remaining config
@@ -87,8 +102,8 @@ kramdown:
 
 highlighter: "rouge"
 
-plugins:
-  - "jekyll-include-cache"
+# plugins:
+#   - "jekyll-include-cache"
 
 sass:
   sass_dir: "_scss"
