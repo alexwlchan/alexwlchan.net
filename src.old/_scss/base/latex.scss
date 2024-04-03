@@ -1,0 +1,23 @@
+// https://stackoverflow.com/a/8160532/1558022
+.tex sub, .latex sub, .latex sup {
+  text-transform: uppercase;
+  top: .1ex;
+  line-height:0.1em;
+}
+
+.tex sub, .latex sub {
+  vertical-align: -0.5ex;
+  margin-left: -0.1667em;
+  margin-right: -0.125em;
+}
+
+.tex, .latex, .tex sub, .latex sub {
+  font-size: 1em;
+}
+
+.latex sup {
+  font-size: .77em;
+  vertical-align: 0.25em;
+  margin-left:  -0.36em;
+  margin-right: -0.15em;
+}

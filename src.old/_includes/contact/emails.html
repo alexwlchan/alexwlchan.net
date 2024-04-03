@@ -1,0 +1,97 @@
+<style type="x-text/scss">
+  #email_links {
+    list-style-type: none;
+    padding-left: 0px !important;
+
+    li {
+      display: inline;
+    }
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: $default-grid-gap;
+  }
+
+  @media screen and (max-width: 650px) {
+    #email_links {
+      grid-template-columns: auto;
+    }
+  }
+
+  .social_button {
+    &, &:visited {
+      color: #17823e !important;
+    }
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #17823e;
+    height: 45px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 52px auto;
+    grid-template-rows: 45px;
+    align-items: center;
+    text-decoration: none;
+    background: #fafafa;
+
+    @media (prefers-color-scheme: dark) {
+      background: #0d0d0d;
+    }
+
+    .background {
+      fill: #17823e;
+    }
+
+    svg {
+      display: inline;
+      margin-left: -1px;
+      margin-top: 7.5px;
+      background: #17823e;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+
+    .accent {
+      fill: white;
+    }
+  }
+
+  .social_name {
+    margin-left: 7.5px;
+    font-size: 1em;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .social_button {
+      &, &:visited {
+        color: #26d967 !important;
+      }
+
+      border-color: #26d967;
+
+      .background {
+        fill: #26d967;
+      }
+
+      svg {
+        background: #26d967;
+      }
+
+      .accent {
+        fill: $body-color-light;
+      }
+    }
+  }
+</style>
+
+<ul id="email_links">
+  <li>
+    <a href="mailto:alex@alexwlchan.net" class="social_button"><span aria-hidden="true">{% include contact/email.svg %}</span><span class="social_name">alex@alexwlchan.net</span></a>
+  </li>
+  {% comment %}
+  <li>
+    <a href="mailto:a.chan@wellcome.org" class="social_button"><span aria-hidden="true">{% include contact/email.svg %}</span><span class="social_name">a.chan@wellcome.org (work)</span></a>
+  </li>
+  {% endcomment %}
+</ul>

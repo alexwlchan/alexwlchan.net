@@ -1,0 +1,33 @@
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="197.17"
+   height="190"
+   version="1.0">
+  <defs>
+    <g id="greyRectangle">
+      <rect
+         style="fill:#999999;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         width="11"
+         height="11"
+         x="0"
+         y="0"
+         rx="3"
+         ry="1" />
+    </g>
+  </defs>
+
+  <use xlink:href="#greyRectangle" x="43.892857" y="46.392857"/>
+  <use xlink:href="#greyRectangle" x="43.892857" y="64.25"/>
+  <use xlink:href="#greyRectangle" x="43.892857" y="83.535713"/>
+  <use xlink:href="#greyRectangle" x="158.07144" y="43.785713"/>
+  <use xlink:href="#greyRectangle" x="158.07144" y="62.35714"/>
+  <use xlink:href="#greyRectangle" x="158.07143" y="78.785713"/>
+  <use xlink:href="#greyRectangle" x="73.785713" y="118.07142"/>
+  <use xlink:href="#greyRectangle" x="73.071434" y="136.64287"/>
+  <use xlink:href="#greyRectangle" x="90.214287" y="150.21429"/>
+  <use xlink:href="#greyRectangle" x="110.21429" y="150.92857"/>
+  <use xlink:href="#greyRectangle" x="128.07143" y="116.64285"/>
+  <use xlink:href="#greyRectangle" x="128.78572" y="135.92857"/>
+</svg>

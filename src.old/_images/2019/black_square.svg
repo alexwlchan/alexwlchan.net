@@ -1,0 +1,17 @@
+<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="1,1 1,29 29,29 29,1" stroke="#ccc" fill="none" stroke-width="0.25" stroke-dasharray="0.25,0.25" />
+
+  <polygon points="10,10 20,10 20,20 10,20" fill="black" />
+
+  <circle cx="10" cy="10" r="0.75" fill="#d01c11" />
+  <text x="9" y="9" fill="#d01c11" font-size="1.8px" text-anchor="end" font-family="serif">(10, 10)</text>
+
+  <circle cx="20" cy="10" r="0.75" fill="#d01c11" />
+  <text x="21" y="9" fill="#d01c11" font-size="1.8px" text-anchor="start" font-family="serif">(20, 10)</text>
+
+  <circle cx="20" cy="20" r="0.75" fill="#d01c11" />
+  <text x="21" y="22" fill="#d01c11" font-size="1.8px" text-anchor="start" font-family="serif">(20, 20)</text>
+
+  <circle cx="10" cy="20" r="0.75" fill="#d01c11" />
+  <text x="9" y="22" fill="#d01c11" font-size="1.8px" text-anchor="end" font-family="serif">(10, 20)</text>
+</svg>

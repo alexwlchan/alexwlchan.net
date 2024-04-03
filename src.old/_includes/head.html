@@ -1,0 +1,33 @@
+{% assign safe_title = page.title | markdownify_oneline | smartify | strip_html %}
+
+<title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title | smartify }}</title>
+
+<meta name="description" content="{{ page.summary | default: site.description | escape }}">
+
+{% if page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url | absolute_url }}">
+{% else %}
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+{% endif %}
+
+<meta name="page-source-path" content="{{ page.path }}">
+
+{% if page.colors.css_light %}
+  <link rel="shortcut icon" type="image/png" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
+  <meta name="theme-color" content="{{ page.colors.css_light }}">
+{% else %}
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+  <meta name="theme-color" content="#d01c11">
+{% endif %}
+
+{% if page.theme and page.theme.touch_icon %}
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon_{{ page.theme.touch_icon }}.png">
+{% else %}
+<link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
+{% endif %}
+
+{% include analytics.html %}
+{% include socialgraph.html %}
+
+{% css_stylesheet %}

@@ -1,0 +1,59 @@
+{% if post.colors.index_light %}
+  <style type="x-text/scss">
+    #post-{{ post.slug }} {
+      @include card_light_styles({{ post.colors.index_light }});
+    }
+  </style>
+{% elsif post.colors.css_light %}
+  <style type="x-text/scss">
+    #post-{{ post.slug }} {
+      @include card_light_styles({{ post.colors.css_light }});
+    }
+  </style>
+{% endif %}
+
+{% if post.colors.index_dark %}
+  <style type="x-text/scss" media="(prefers-color-scheme: dark)">
+    #post-{{ post.slug }} {
+      @include card_dark_styles({{ post.colors.index_dark }});
+    }
+  </style>
+{% elsif post.colors.css_dark %}
+  <style type="x-text/scss" media="(prefers-color-scheme: dark)">
+    #post-{{ post.slug }} {
+      @include card_dark_styles({{ post.colors.css_dark }});
+    }
+  </style>
+{% endif %}
+
+<li
+  class="card"
+  id="post-{{ post.slug }}"
+  {%- if year %} data-post-year="{{ year }}"{% endif %}
+  data-post-tags="{{ post.tags | join: ' ' }}"
+>
+  <a href="{{ post.url }}">
+    <p class="card_image">
+      {% card_image %}
+    </p>
+
+    <div class="card_metadata">
+      <p class="card_title">
+        {{ post.title | markdownify_oneline | smartify }}
+      </p>
+      {% if post.summary %}
+        <p class="card_description">
+          {{ post.summary | markdownify_oneline | smartify }}
+        </p>
+      {% endif %}
+    </div>
+
+    {% if include.hide_date != "true" %}
+    <div class="card_posting_date">
+      <p>
+        {{ post.date | date: "%-d %B&nbsp;%Y" }}
+      </p>
+    </div>
+    {% endif %}
+  </a>
+</li>

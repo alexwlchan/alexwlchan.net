@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% assign post = page %}
+
+<article>
+  <h1 class="title {% if post.link %}linkpost_title{% endif %}">
+    {% if post.link %}
+      <a class="novisited" href="{{ post.link }}">
+    {% else %}
+      <a class="novisited" href="{{ post.url | relative_url }}">
+    {% endif %}
+    
+        {% comment %}
+          This unofficial 'role="text"' attribute means that the title will
+          be read as a continuous block of text, even if it contains formatting.
+          
+          See https://tinytip.co/tips/a11y-voiceover-text-role/
+        {% endcomment %}
+        <span role="text">
+          {{ post.title | markdownify_oneline | cleanup_text | smartify }}
+        </span>
+
+      </a>
+  </h1>
+
+  <div class="meta">
+    <ul class="dot_list">
+      <li class="post__date">
+        Posted
+        {% if post.title == "Taking tuple unpacking to terrible places" %}Truesday{% endif %}
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+          {{- post.date | date: site.date_format -}}
+        </time>
+      </li>
+      {% if post.date_updated %}
+      <li class="post__updated_date">Updated {{ post.date_updated | date: site.date_format }}</li>
+      {% endif %}
+
+      {% comment %}
+        I deliberately remove tags from posts that are unlisted, so you
+        don't get a confusing navigation flow where:
+
+        1.  User lands on post
+        2.  They click on the tags to find more posts like this
+        3.  This post doesn't appear
+
+      {% endcomment %}
+
+      {% if post.visible_tags.size > 0 %}
+        {% unless post.index.exclude %}
+          <li class="post__tags">
+            Tagged with
+            {% assign tags = post.visible_tags | sort %}
+            {% for t in tags %}
+              <a href="/all-posts?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </li>
+        {% endunless %}
+      {% endif %}
+
+      {% if post.link %}
+      <li class="post__permalink"><a href="{{ post.url | relative_url }}" aria-label="permalink">&infin;</a></li>
+      {% endif %}
+
+    </ul>
+  </div>
+
+  {{ post.content | cleanup_text | smartify | pretty_hr }}
+</article>

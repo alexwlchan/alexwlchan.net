@@ -1,0 +1,36 @@
+<style type="x-text/scss">
+  #social_links {
+    list-style-type: none;
+    padding-left: 0px !important;
+
+    li {
+      display: inline;
+    }
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: $default-grid-gap;
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: auto;
+    }
+  }
+</style>
+
+<ul id="social_links">
+  <li>
+    <a href="https://www.linkedin.com/in/alexwlchan/" class="social_button"><span aria-hidden="true">{% include contact/linkedin.svg %}</span><span class="social_name">linkedin</span></a>
+  </li>
+  <li>
+	<a href="https://twitter.com/alexwlchan" class="social_button"><span aria-hidden="true">{% include contact/twitter.svg %}</span><span class="social_name">twitter</span></a>
+  </li>
+  <li>
+	<a href="https://social.alexwlchan.net/@alex" class="social_button"><span aria-hidden="true">{% include contact/mastodon.svg %}</span><span class="social_name">mastodon</span></a>
+  </li>
+  <li>
+	<a href="https://www.instagram.com/alexwlchan/" class="social_button"><span aria-hidden="true">{% include contact/instagram.svg %}</span><span class="social_name">instagram</span></a>
+  </li>
+  <li>
+    <a href="https://github.com/alexwlchan/" class="social_button"><span aria-hidden="true">{% include contact/github.svg %}</span><span class="social_name">github</span></a>
+  </li>
+</ul>

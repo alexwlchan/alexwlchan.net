@@ -1,0 +1,37 @@
+<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .border3 {
+        fill: none;
+        stroke-width: 6;
+      }
+
+      svg text {
+        fill: currentColor;
+        stroke: none;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <svg x="0">
+    <rect x="40" y="50" width="220" height="150"/>
+    <text x="150" y="230">square corners</text>
+  </svg>
+
+  <text class="operator" x="300" y="230">+</text>
+
+  <svg x="300">
+    <rect x="40" y="0" width="220" height="100" rx="50"/>
+    <text x="150" y="230">rounded corners</text>
+  </svg>
+
+  <text class="operator" x="600" y="230">→</text>
+
+  <svg x="600">
+    <rect x="40" y="50" width="220" height="150"/>
+    <rect x="40" y="0" width="220" height="100" rx="50"/>
+    <text x="150" y="230">half-rounded corners</text>
+  </svg>
+</svg>

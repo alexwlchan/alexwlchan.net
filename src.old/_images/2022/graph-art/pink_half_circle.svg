@@ -1,0 +1,36 @@
+<svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" style="background-color: #E8D6E2;">
+
+    <defs>
+      <style>
+        .pink_half_circle path {
+          stroke: #EF16E7;
+          stroke-width: 0.23531748102806496;
+          stroke-linecap: round;
+          fill: none;
+        }
+      </style>
+    </defs>
+
+<svg class="pink_half_circle">
+<path d="M 6,6 L 6.0,5.0"/>
+<path d="M 6.0 5.0 L 6.0 4.0"/>
+<path d="M 7.0 6.0 L 8.0 6.0"/>
+<path d="M 6,6 L 6.0,7.0"/>
+<path d="M 5.0 6.0 L 4.0 6.0"/>
+<path d="M 4.0 6.0 A 2 2 0 0 1 5.999999999999999 4.0"/>
+<path d="M 6.0 4.0 L 6.0 3.0"/>
+<path d="M 6.0 4.0 A 2 2 0 0 1 8.0 6.0"/>
+<path d="M 6.0 7.0 L 6.0 8.0"/>
+<path d="M 6.0 3.0 L 6.000000000000001 2.0"/>
+<path d="M 3.0 6.000000000000001 A 3 3 0 0 1 5.999999999999999 3.0"/>
+<path d="M 9.0 6.0 L 10.0 6.0"/>
+<path d="M 6.0 9.0 L 6.0 10.0"/>
+<path d="M 3.0 6.0 L 2.0 6.0"/>
+<path d="M 6.000000000000001 2.0 L 6.000000000000001 1.0"/>
+<path d="M 10.0 6.0 L 11.0 6.0"/>
+<path d="M 10.0 6.0 A 4 4 0 0 1 6.000000000000001 10.0"/>
+<path d="M 6.0 10.0 L 6.0 11.0"/>
+<path d="M 1.0 6.000000000000001 A 5 5 0 0 1 5.999999999999999 1.0"/>
+<path d="M 6.000000000000001 11.0 A 5 5 0 0 1 1.0 6.000000000000001"/>
+</svg>
+</svg>

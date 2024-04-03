@@ -1,0 +1,22 @@
+<svg viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg" style="background-color: #F7E5FF;">
+
+    <defs>
+      <style>
+        .purple_half_circle path {
+          stroke: #7C00B5;
+          stroke-width: 0.4804751605197497;
+          stroke-linecap: round;
+          fill: none;
+        }
+      </style>
+    </defs>
+
+<svg class="purple_half_circle">
+<path d="M 4.0 3.0 L 4.0 2.0"/>
+<path d="M 4,4 L 4.0,3.0"/>
+<path d="M 4,4 L 4.0,5.0"/>
+<path d="M 4.0 2.0 A 2 2 0 0 0 4.0 6.0"/>
+<path d="M 4.0 2.0 L 4.0 1.0"/>
+<path d="M 4.0 1.0 A 3 3 0 0 0 4.0 7.0"/>
+</svg>
+</svg>

@@ -1,0 +1,87 @@
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# LaTeX generated files #
+#########################
+*.acn
+*.acr
+*.alg
+*.aux
+*.auxlock
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.ps
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex.gz(busy)
+*.synctex.gz\(busy\)
+*.tdo
+*.toc
+*.vrb
+*.xdy
+
+*.table
+*.gnuplot
+*.pyg.lst
+
+# Python compiled scripts #
+###########################
+*.pyc
+
+# R data #
+##########
+.RData
+.Rapp.history
+.Rhistory
+
+# virtualfish markers #
+#######################
+.venv

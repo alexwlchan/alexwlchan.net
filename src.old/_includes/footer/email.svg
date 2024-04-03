@@ -1,0 +1,13 @@
+<svg width="30px" height="30px" version="1.1" viewBox="0 0 950 950" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <g id="envelopeIcon">
+      <svg x="-125" y="-125"><path d="m323.46 411.07 268.28 239c3.3555 2.9883 13.176 2.9883 16.531 0l268.28-239h-553.09zm-33.297 30.938v315.98l184.68-151.61zm619.69 0-184.68 164.37 184.68 151.61v-315.98zm-400.77 195.07-184.91 151.85h551.67l-184.91-151.85-52.664 46.762c-22.012 19.602-54.504 19.602-76.516 0z"/></svg>
+    </g>
+    <mask id="envelope">
+      <rect x="0" y="0" width="950" height="950" fill="white"/>
+      <use xlink:href="#envelopeIcon" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="475" cy="475" r="450" class="accent" fill="white"/>
+  <circle cx="475" cy="475" r="475" class="background" mask="url(#envelope)"/>
+</svg>

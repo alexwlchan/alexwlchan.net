@@ -1,0 +1,18 @@
+---
+layout: page
+---
+
+<p>
+  This is what I posted in {{ page.year }}.
+</p>
+<p>
+  You can also see <a href="/all-posts/">everything I&rsquo;ve posted, ever</a>.
+</p>
+
+<ul class="post_cards">
+{% for post in page.posts %}
+  {% if post.index == nil or post.index.exclude != true %}
+    {% include post_card.html %}
+  {% endif %}
+{% endfor %}
+</ul>

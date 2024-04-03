@@ -1,0 +1,220 @@
+%% The Incomparable's Skeletor Clip Loop Chart
+%% http://alexwlchan.net/skeletor/
+%%
+%% This chart tracks the progess of Steve Lutz's attempt to create
+%% a recursive clip loop in the annual clip show going all the way
+%% back to the Skeletor clip.
+%%
+%% To build this file, you'll need:
+%%
+%%  * XeLaTeX with the hyperref, fontspec, xcolor and tikz packages
+%%    (all of which are included with most standard LaTeX distros)
+%%  * The Patua One and Oxygen fonts (freely downloadable from Google)
+%%
+%% Then compile the file as `xelatex skeletor.tex`.
+
+\documentclass{standalone}
+
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{tikz}
+
+\usepackage{xcolor}
+\definecolor{incompblue}{HTML}{242B6F}
+
+\setsansfont{Patua One}
+\setmainfont{Oxygen}
+\setmonofont{Oxygen}  % for URLs
+
+\renewcommand{\baselinestretch}{1.15}
+
+\newcommand*{\episode}[3]{
+  \fill [incompblue] (#1) circle (0.4);
+  \draw (#1) node (#1title) [below=20pt, align=center, text width=6cm]
+    {\large{\textbf{#2}}};
+  \draw (#1title.south) node [below=4pt, align=center, text width=6cm] {#3};
+}
+
+\newcommand*{\link}{
+  \draw [->, incompblue, line width=3pt, shorten >=0.45cm]
+}
+
+\let\origurl=\url
+\renewcommand*{\url}[1]{\textcolor{incompblue}{\origurl{#1}}}
+
+\def\hspacing{6.8cm}
+
+\makeatletter
+\newcommand{\HUGE}{\@setfontsize\Huge{38}{47}}
+\makeatother
+
+\begin{document}
+  \begin{tikzpicture}
+
+    \draw [incompblue, thick] (-3.3, -9) rectangle (60, 21.5);
+
+    \draw [incompblue] (8.5, 16) node [align=left, text width=20cm] (title) {\textsf{\HUGE{%
+      The\, Incomparable's \\[8pt] %
+      Skeletor\, Clip\, Loop\, Chart}} \\[24pt]
+      {\textbf{\LARGE{%
+        A running joke on The Incomparable is Steve Lutz's attempt to form a \\[1pt] %
+        recursive clip loop that goes back all the way to him picking
+        Skeletor \\[2pt] %
+        back in 2011.  This chart tracks his progress so far. \\[24pt]
+        Made by Listener Alex.
+      }}}
+    };
+
+    \coordinate (ep58) at (0, 0);
+    \episode{ep58}{\#58 Greyskull Anonymous}{%
+      Steve Lutz picks Skeletor for the \\%
+      Incomparable TV Fantasy \\%
+      Character Draft.%
+    }
+
+    \draw (ep58) ++ (0:\hspacing) node (ep73) {};
+    \episode{ep73}{\#73 Ugh -- A 2011 Clip Show}{%
+      Listeners Laurie, Janice and Chad pick \\%
+      the drafting of Skeletor as one of \\%
+      their favourite moments from \\%
+      \textit{The Incomparable} in 2011.%
+    }
+    \link (ep73) -- (ep58);
+
+    \draw (ep73) ++ (0:\hspacing) node (ep122) {};
+    \episode{ep122}{\#122 Recursive Clip Loop: \\[2pt] Our 2012 Favourites}{%
+      Steve picks the moment from the %
+      2011 Clip Show episode when they %
+      played the Skeletor clip. This is the %
+      first time he declares his intentions \\ %
+      to form a ``recursive clip loop''.
+    }
+    \link (ep122) -- (ep73);
+
+    \draw (ep122) ++ (-30:1.2*\hspacing) node (ep122b) {};
+    \episode{ep122b}{After the Incomparable \#122}{%
+      We learn the history between \\%
+      Steve Lutz and Skeletor.%
+    }
+    \link [dashed] (ep122b) to [out=100, in=0] (ep122);
+
+    \draw (ep122) ++ ( 35:1.2*\hspacing) node (ep176) {};
+    \episode{ep176}{\#176 Solo Adventures \\[2pt] (Our 2013 Favourites)}{%
+      Steve picks the moment from the %
+      2012 Clip Show in which he picked %
+      the moment from the 2011 Clip Show %
+      in which they played the Skeletor clip.
+    }
+    \link (ep176) -- ++ (-1.5, 0) to [in=0, out=180] (ep122);
+
+    \draw (ep176) ++ (0:\hspacing) node (ep200et) {};
+    \episode{ep200et}{\#200 Butter Zone}{%
+      Listener \'Etienne picks, as his %
+      all-time favorite Incomparable moment, %
+      Steve in the 2013 Clip Show, picking %
+      himself in the 2012 Clip Show, picking %
+      the moment from the 2011 Clip Show %
+      in which they played the Skeletor clip.
+    }
+    \link (ep200et) -- (ep176);
+
+    \draw (ep200et) ++ (0:\hspacing) node (ep200b) {};
+    \episode{ep200b}{\#200 Butter Zone}{%
+      Listener Ben picks, as his favorite moment, Listener \'Etienne %
+      picking Steve in Episode \#200, %
+      picking %
+      Steve in the 2013 Clip Show, picking %
+      himself in the 2012 Clip Show, picking %
+      the moment from the 2011 Clip Show %
+      in which they played the Skeletor clip.
+    }
+    \link (ep200b) -- (ep200et);
+
+    \draw (ep200b) ++ (35:1.1*\hspacing) node (ep228) {};
+    \episode{ep228}{\#228 It's Not a Draft: \\[2pt] Our 2014 Favorites}{%
+      Steve picks Listener \'Etienne as his \#2 favorite moment of 2014, \\%
+      but chooses Listener Ben as his favorite moment from 2014. \\[8pt]%
+      When Jason threatens to play the %
+      Skeletor clip loop, Steve shows %
+      a hint of regret about the %
+      monster he has created.
+    }
+    \link (ep228) to [out=180, in=80] (ep200b);
+    \link [dashed] (ep228) to [out=180, in=60] (ep200et);
+
+    \draw (ep200b) ++ (-35:1.25*\hspacing) node (siracusa) {};
+    \episode{siracusa}{}{}
+    \draw (siracusa) node [below=20pt, align=center, text width=6cm] {%
+      John Siracusa suggests making \\ %
+      an image chart to track the progress of the Skeletor clip loop.};
+    \draw (ep200b) ++ (1, 0) node (ep200bright) {};
+    \link [dashed] (siracusa) -- ++ (-1, 0) to [out=180, in=0] (ep200bright) -- (ep200b);
+
+    \draw (siracusa) ++ (0:1.1 * \hspacing) node (nathan) {};
+    \episode{nathan}{}{}
+    \draw (nathan) node [below=20pt, align=center, text width=6cm] {%
+      Listener Nathan takes up John on his challenge, with an interactive audio chart: \\%
+      \url{http://gouwens.net/skeletors-all-the-way-down/}
+    };
+    \link [dashed] (nathan) -- (siracusa);
+
+    \draw (siracusa) ++ (-40:1.2 * \hspacing) node (alex) {};
+    \episode{alex}{}{}
+    \draw (alex) node [below=20pt, align=center, text width=6cm] {%
+      Listener Alex takes up John on his challenge, making the chart that you're reading right now.
+      \url{http://alexwlchan.net/skeletor/}
+    };
+    \draw (siracusa) ++ (1.5, 0) node (sirright) {};
+    \link [dashed, -] (alex) to [out=180, in=00, shorten >=1cm] (sirright);
+
+    \draw (ep228) ++ (0:\hspacing) node (ep281) {};
+    \episode{ep281}{%
+      \#281 I Love a Lot of \\[-1pt] %
+      Awful People --\\[2pt] %
+      The Best of 2015}{%
+      As he goes to pick the 2014 Skeletor %
+      clip, Steve receives a visit from \\%
+      Future!Steve, who %
+      warns him of catastrophe %
+      if the clip loop is continued. \\[8pt]
+      Perhaps not so regretfully, Steve does not choose the clip.
+    }
+    \link [dashed] (ep281) -- (ep228);
+
+    \draw (ep228) ++ (35: 1.5*\hspacing) node (ep281nathan) {};
+    \episode{ep281nathan}{%
+      \#281 I Love a Lot of \\[-1pt] %
+      Awful People --\\[2pt] %
+      The Best of 2015}{%
+      Listener Nathan (of the other clip %
+      loop chart) picks Steve picking \\ %
+      Listener Ben in episode \#228, %
+      but Jason refuses to play the clip.
+    }
+    \draw (ep228) ++ (1.3, 0) node (ep228right) {};
+    \link [dashed, -] (ep281nathan) -- ++ (-1, 0) to [out=180, in=00] (ep228right);
+
+    \draw (ep281nathan) ++ (0:1.2*\hspacing) node (ep281david) {};
+    \episode{ep281david}{%
+      \#281 I Love a Lot of \\[-1pt] %
+      Awful People --\\[2pt] %
+      The Best of 2015}{%
+      Listener David picks the moment in the 2015 Clip Show where another Listener picks the Skeletor clip. \\[8pt]
+      As he second favorite moment, he picks the moment where they discuss what will happen to the clip loop in the 2016 Clip Show.
+    }
+    \link [dashed] (ep281david) -- (ep281nathan);
+    \draw (ep281) ++ (2.8, 0) node (ep281right) {};
+    \link [dashed] (ep281david) ++ (-1.4, 0) to [out=180, in=0] (ep281right) -- (ep281);
+
+    \draw (ep228) ++ (55:2*\hspacing) ++ (2.2, 0) node (ep281clip) {};
+    \episode{ep281clip}{%
+      \#281 I Love a Lot of \\[-1pt] %
+      Awful People --\\[2pt] %
+      The Best of 2015}{%
+      Jason plays an unscreened clip\ldots \\%
+      which turns out to release the Skeletor loop back into the wild.
+    }
+    \link (ep281clip) to [out=180, in=90] (ep228);
+
+  \end{tikzpicture}
+\end{document}

@@ -1,0 +1,217 @@
+body {
+  margin:  0;
+  padding: 0;
+
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+     then contrast dropped */
+  background-image: url('/theme/white-waves-transparent.png');
+
+  /* This causes the footer to be pushed to the bottom of the viewport,
+   * regardless of the size of the content.
+   * See https://stackoverflow.com/q/643879/1558022 */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    width: 100vw;
+    flex: 1;
+  }
+}
+
+
+
+main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
+  max-width: $max-width;
+  padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
+  padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
+}
+
+#nav_inner {
+  padding-top: calc(1px + env(safe-area-inset-top));
+  padding-bottom: 1px;
+}
+
+#footer_inner {
+  padding-top: 1px;
+  padding-bottom: calc(1px + env(safe-area-inset-bottom));
+}
+
+img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+svg {
+  display: block;
+}
+
+figcaption {
+  margin-top: 8px;
+}
+
+pre, blockquote, img.screenshot, a.download {
+  border-radius: $border-radius;
+  border-style:  $border-style;
+  border-width:  $border-width;
+}
+
+article, main {
+  padding-top:    3px;
+  padding-bottom: 2em;
+}
+
+/* A dot_list is a <ul> that displays all the items in a horizontal line,
+ * separated by dots, e.g.
+ *
+ *      apple · banana · cherry
+ *
+ * as opposed to the more traditional
+ *
+ *    · apple
+ *    · banana
+ *    · cherry
+ *
+ */
+.dot_list {
+  list-style-type: none;
+  padding-left: 0px !important;
+
+  // Ensure they all display in a line
+  li {
+    display: inline;
+    &:not(:first-child)::before {
+      content: " · ";
+    }
+  }
+}
+
+svg[role="separator"] {
+  display: block;
+  margin: 3.5em auto;
+
+
+  & + h2 {
+    margin-top: 0;
+  }
+
+  rect {
+    fill: $midtone-grey-light;
+  }
+}
+
+img.screenshot {
+  border-color: #f0f0f0;
+}
+
+.post_cards .card {
+  /* This gives cards a v subtle solid background colour, to make them
+   * stand out from the textured background.
+   */
+  background: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+       then contrast dropped and colours flipped. */
+    background-image: url('/theme/black-waves-transparent.png');
+  }
+
+  svg[role="separator"] rect {
+    fill: $body-color-dark;
+  }
+
+  img.screenshot {
+    border-color: #3f3f3f;
+  }
+
+  .post_cards .card {
+    background: #0d0d0d;
+  }
+
+  // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
+  img:not([src*='.svg']):not(.dark_aware) {
+    filter: grayscale(10%);
+  }
+
+  // Add a white background behind images, so any dark elements become
+  // visible.  Eventually I'd like to support uploading multiple variants
+  // and make this conditional, but not in V1.
+  img:not(.twemoji):not(.dark_aware), svg[role="img"]:not(.dark_aware) {
+    background: white;
+  }
+
+  a.download img {
+    background: none;
+  }
+
+  // fix for the separator on the homepage
+  .separator svg[role="img"] {
+    background: none;
+  }
+}
+
+// Images never expand beyond the article bounds, and are centred when
+// they're too small.
+//
+// Note: the block might seem redundant, but if you remove it the post cards
+// get some extra space below the image.  TODO: Investigate.
+img, video, figure {
+  max-width: 100%;
+  display: block;
+}
+
+iframe {
+  display: block;
+}
+
+#subscribe {
+  padding: $default-padding;
+
+  p:first-child { margin-top: 0; }
+  p:last-child  { margin-bottom: 0; }
+
+  input[type="email"] {
+    font-size: 1.2em;
+    width: 100%;
+  }
+
+  #subscribe_button {
+    margin-top: 6px;
+  }
+
+  input[type="submit"] {
+    font-size: 1em;
+    color: white;
+    padding: 5px 10px;
+  }
+}
+
+/* Elements that should have a left/right indent on wide screens (so they're
+ * narrower than the rest of the content), but snap to the edge on narrow
+ * screens. */
+.indented,
+blockquote,
+pre,
+a.download {
+  margin-left:  $default-padding;
+  margin-right: $default-padding;
+
+  @media screen and (max-width: $max-width + $default-padding * 3) {
+    margin-left:  0px;
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .eggbox-4 li:nth-child(4) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .eggbox-4 li:nth-child(4) {
+    display: none;
+  }
+}

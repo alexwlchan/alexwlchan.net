@@ -1,0 +1,24 @@
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/alexwlchan"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.email/alexwlchan', 'popupwindow')"
+>
+  {% if page.path != 'index.md' %}
+  <p>
+    Thanks for reading! I hope you enjoyed this post.
+  </p>
+  {% endif %}
+  <p>
+    <label for="bd-email">
+      If you’d like to hear about new posts, you can join my mailing list:
+    </label>
+  </p>
+  <input type="email" name="email" id="bd-email" placeholder="Your email address" />
+
+  <p id="subscribe_button">
+    <input type="submit" value="Subscribe" />
+  </p>
+  
+  <p>Or if you’re old school like me, you can subscribe to <a href="/atom.xml">the RSS feed</a>.</p>
+</form>

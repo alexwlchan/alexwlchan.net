@@ -1,0 +1,48 @@
+<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" style="background-color: #e3ccff;">
+
+    <defs>
+      <style>
+        .purple_diamond  path {
+          stroke: #5300b8;
+          stroke-width: 0.37547016094802815;
+          stroke-linecap: round;
+          fill: none;
+        }
+      </style>
+    </defs>
+
+<svg class="purple_diamond">
+<path d="M 9.0 8.0 L 10.0 9.0"/>
+<path d="M 9,9 L 9.0,8.0"/>
+<path d="M 9,9 L 8.0,9.0"/>
+<path d="M 9,9 L 9.0,10.0"/>
+<path d="M 8.0 9.0 L 7.0 9.0"/>
+<path d="M 9.0 7.0 L 9.0 6.0"/>
+<path d="M 11.0 9.0 L 12.0 9.0"/>
+<path d="M 11.0 9.0 L 9.0 11.0"/>
+<path d="M 9.0 11.0 L 7.0 9.0"/>
+<path d="M 7.0 9.0 L 6.0 9.0"/>
+<path d="M 9.0 6.0 L 12.0 9.0"/>
+<path d="M 9.0 12.0 L 9.0 13.0"/>
+<path d="M 6.0 9.0 L 5.0 9.0"/>
+<path d="M 9.0 5.0 L 9.0 4.0"/>
+<path d="M 13.0 9.0 L 14.0 9.0"/>
+<path d="M 9.0 13.0 L 9.0 14.0"/>
+<path d="M 9.0 13.0 L 5.0 9.0"/>
+<path d="M 9.0 4.0 L 14.0 9.0"/>
+<path d="M 9.0 4.0 L 4.0 9.0"/>
+<path d="M 14.0 9.0 L 15.0 9.0"/>
+<path d="M 14.0 9.0 L 9.0 14.0"/>
+<path d="M 9.0 3.0 L 3.0 9.0"/>
+<path d="M 9.0 3.0 L 15.0 9.0"/>
+<path d="M 15.0 9.0 L 9.0 15.0"/>
+<path d="M 15.0 9.0 L 16.0 9.0"/>
+<path d="M 9.0 15.0 L 9.0 16.0"/>
+<path d="M 3.0 9.0 L 2.0 9.0"/>
+<path d="M 9.0 2.0 L 9.000000000000002 1.0"/>
+<path d="M 9.0 2.0 L 2.0 9.0"/>
+<path d="M 9.000000000000002 1.0 L 1.0 9.0"/>
+<path d="M 17.0 9.0 L 9.0 17.0"/>
+<path d="M 9.0 17.0 L 1.0 9.0"/>
+</svg>
+</svg>

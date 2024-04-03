@@ -1,0 +1,54 @@
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="197.17"
+   height="170">
+
+  <defs>
+    <g id="colouredRectangle">
+      <rect
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         width="11"
+         height="11"
+         x="0"
+         y="0"
+         rx="3"
+         ry="1" />
+    </g>
+  </defs>
+
+  <path
+     style="fill:#ff8080;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 0,125.71429 L 102.85714,80.71429 L 158.57143,0 L 0,0 L 0,125.71429 z "/>
+  <path
+     style="fill:#afc6e9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 197.14,170 L 141.42857,170 L 102.85714,80.71429 L 158.57143,0 L 197.14,0 L 197.14,170 z "/>
+  <path
+     style="fill:#ccffaa;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 0,170 L 141.42857,170 L 102.85714,80.71429 L 0,125.71429 L 0,170 z "/>
+  <use xlink:href="#colouredRectangle" x="43.892857" y="46.392857" fill="#ff0000"/>
+  <use xlink:href="#colouredRectangle" x="43.892857" y="64.25" fill="#ff0000"/>
+  <use xlink:href="#colouredRectangle" x="43.892857" y="83.535713" fill="#ff0000"/>
+  <use xlink:href="#colouredRectangle" x="158.07144" y="43.785713" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle" x="158.07144" y="62.35714" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle" x="158.07143" y="78.785713" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle" x="73.785713" y="118.07142" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle" x="73.071434" y="136.64287" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle" x="90.214287" y="150.21429" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle" x="110.21429" y="150.92857" fill="#00ff00"/>
+  <use xlink:href="#colouredRectangle" x="128.07143" y="116.64285" fill="#0000ff"/>
+  <use xlink:href="#colouredRectangle" x="128.78572" y="135.92857" fill="#0000ff"/>
+  <path
+     style="fill:#ff0000;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 82.14286 16.785713 A 7.5 6.7857141 0 1 1  67.14286,16.785713 A 7.5 6.7857141 0 1 1  82.14286 16.785713 z"
+     transform="matrix(0.9048697,0,0,1.0001192,-17.899205,34.998002)" />
+  <path
+     style="fill:#00ff00;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 82.14286 16.785713 A 7.5 6.7857141 0 1 1  67.14286,16.785713 A 7.5 6.7857141 0 1 1  82.14286 16.785713 z"
+     transform="matrix(0.9048697,0,0,1.0001192,13.386508,101.42658)" />
+  <path
+     style="fill:#0000ff;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 82.14286 16.785713 A 7.5 6.7857141 0 1 1  67.14286,16.785713 A 7.5 6.7857141 0 1 1  82.14286 16.785713 z"
+     transform="matrix(0.9048697,0,0,1.0001192,85.357937,75.712286)" />
+</svg>

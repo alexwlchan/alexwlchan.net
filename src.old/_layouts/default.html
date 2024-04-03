@@ -1,0 +1,37 @@
+---
+layout: compress
+---
+
+{% assign parsed_content = content | fix_kramdown | get_inline_styles %}
+
+<head>
+
+  <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
+  <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
+
+  {% include head.html %}
+      
+  {% if parsed_content.inline_styles != "" %}
+    <style>{{ parsed_content.inline_styles }}</style>
+  {% endif %}
+</head>
+
+<body>
+  <a class="skip-main" href="#main">Skip to main content</a>
+
+  {% include_cached nav.html %}
+
+  <main id="main" tabindex="-1">
+    {{ parsed_content.html }}
+  </main>
+  
+  {% comment %}
+  {% if page.path contains '_posts' or page.path contains '_drafts' or page.path == 'index.md' %}
+    <aside id="subscribe">
+      {% include subscribe.html %}
+    </aside>
+  {% endif %}
+  {% endcomment %}
+
+  {% include_cached footer.html %}
+</body>

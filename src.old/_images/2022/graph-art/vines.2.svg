@@ -1,0 +1,93 @@
+<svg viewBox="0 0 7 14" xmlns="http://www.w3.org/2000/svg" style="background-color: #d7ffcc;">
+
+    <defs>
+      <style>
+        .vines2 path {
+          stroke: #1b7a00;
+          stroke-width: 0.19556803082862606;
+          stroke-linecap: round;
+          fill: none;
+        }
+      </style>
+    </defs>
+
+<svg class="vines2">
+<path d="M 1,1 L 2,1"/>
+<path d="M 2,1 L 1,2"/>
+<path d="M 2,1 L 3,1"/>
+<path d="M 1,2 L 2,2"/>
+<path d="M 1,2 L 1,3"/>
+<path d="M 1,3 L 1,4"/>
+<path d="M 1,3 L 2,3"/>
+<path d="M 2,3 L 3,3"/>
+<path d="M 4,1 L 4,2"/>
+<path d="M 3,2 L 4,2"/>
+<path d="M 5,1 L 5,2"/>
+<path d="M 4,2 L 5,3"/>
+<path d="M 4,3 L 5,3"/>
+<path d="M 6,1 L 6,2"/>
+<path d="M 5,2 L 5,3"/>
+<path d="M 5,3 L 6,3"/>
+<path d="M 5,3 L 4,4"/>
+<path d="M 6,2 L 6,3"/>
+<path d="M 6,3 L 6,4"/>
+<path d="M 1,4 L 1,5"/>
+<path d="M 2,4 L 3,4"/>
+<path d="M 3,4 L 3,5"/>
+<path d="M 3,4 L 4,5"/>
+<path d="M 4,4 L 4,5"/>
+<path d="M 5,4 L 6,5"/>
+<path d="M 6,4 L 6,5"/>
+<path d="M 1,5 L 2,5"/>
+<path d="M 1,5 L 1,6"/>
+<path d="M 2,5 L 3,5"/>
+<path d="M 5,5 L 5,6"/>
+<path d="M 6,5 L 6,6"/>
+<path d="M 1,6 L 1,7"/>
+<path d="M 2,6 L 3,7"/>
+<path d="M 2,6 L 2,7"/>
+<path d="M 3,6 L 4,7"/>
+<path d="M 4,6 L 4,7"/>
+<path d="M 4,6 L 5,7"/>
+<path d="M 4,6 L 5,6"/>
+<path d="M 1,7 L 2,7"/>
+<path d="M 2,7 L 1,8"/>
+<path d="M 2,7 L 2,8"/>
+<path d="M 3,7 L 4,7"/>
+<path d="M 4,7 L 3,8"/>
+<path d="M 5,7 L 5,8"/>
+<path d="M 5,7 L 4,8"/>
+<path d="M 6,7 L 6,8"/>
+<path d="M 1,8 L 1,9"/>
+<path d="M 2,8 L 3,9"/>
+<path d="M 2,8 L 2,9"/>
+<path d="M 6,8 L 6,9"/>
+<path d="M 1,9 L 1,10"/>
+<path d="M 3,9 L 3,10"/>
+<path d="M 4,9 L 3,10"/>
+<path d="M 5,9 L 5,10"/>
+<path d="M 6,9 L 5,10"/>
+<path d="M 1,10 L 1,11"/>
+<path d="M 2,10 L 3,11"/>
+<path d="M 3,10 L 4,11"/>
+<path d="M 3,10 L 3,11"/>
+<path d="M 4,10 L 5,10"/>
+<path d="M 5,10 L 5,11"/>
+<path d="M 5,10 L 6,11"/>
+<path d="M 6,10 L 6,11"/>
+<path d="M 2,11 L 3,11"/>
+<path d="M 2,11 L 1,12"/>
+<path d="M 4,11 L 5,11"/>
+<path d="M 5,11 L 4,12"/>
+<path d="M 6,11 L 6,12"/>
+<path d="M 1,12 L 1,13"/>
+<path d="M 1,12 L 2,13"/>
+<path d="M 2,12 L 3,12"/>
+<path d="M 2,12 L 3,13"/>
+<path d="M 3,12 L 4,12"/>
+<path d="M 4,12 L 4,13"/>
+<path d="M 5,12 L 6,13"/>
+<path d="M 4,13 L 5,13"/>
+<path d="M 5,13 L 6,13"/>
+</svg>
+</svg>
