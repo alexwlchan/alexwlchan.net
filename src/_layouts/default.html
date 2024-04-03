@@ -12,9 +12,11 @@ layout: compress
   </head>
 
   <body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    
     {% include nav.html %}
     
-    <main>
+    <main id="main" tabindex="-1">
       {{ content }}
     </main>
     
