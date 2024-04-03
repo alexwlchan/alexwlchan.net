@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'jekyll', '~> 4'
 
+gem 'html-proofer', '~> 5.0'
+
 # This is to fix a warning I got in Ruby 3.3.0 on macOS:
 #
 #     em-websocket-0.5.3/lib/em-websocket/handshake04.rb:2: warning:
