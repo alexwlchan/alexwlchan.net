@@ -1,26 +1,3 @@
-body {
-  margin:  0;
-  padding: 0;
-
-  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
-     then contrast dropped */
-  background-image: url('/theme/white-waves-transparent.png');
-
-  /* This causes the footer to be pushed to the bottom of the viewport,
-   * regardless of the size of the content.
-   * See https://stackoverflow.com/q/643879/1558022 */
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  main {
-    width: 100vw;
-    flex: 1;
-  }
-}
-
-
-
 main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));

@@ -1,0 +1,41 @@
+:root {
+  --max-width: 750px;
+  --default-padding: 20px;
+}
+
+body {
+  margin:  0;
+  padding: 0;
+
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
+   * then contrast dropped */
+  background-image: url('/static/white-waves-transparent.png');
+}
+
+/* The next two statements cause the footer to be pushed to the bottom of
+ * the viewport, no matter how big the content is in the rest of the page.
+ *
+ * See https://stackoverflow.com/q/643879/1558022 */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* These statements ensure that the text is always a sensible width on the
+ * page, and is centred with a good amount of space on either side. */
+main {
+  max-width: var(--max-width);
+
+  margin-left:  auto;
+  margin-right: auto;
+
+  padding: 0 10px;
+
+  padding-left:  calc(var(--default-padding)) + env(safe-area-inset-left));
+  padding-right: calc(var(--default-padding)) + env(safe-area-inset-right));
+}
