@@ -1,4 +1,4 @@
-main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
+main, #footer_inner, #editing-toolbar_inner, #subscribe form {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));

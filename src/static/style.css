@@ -28,7 +28,7 @@ main {
 
 /* These statements ensure that the text is always a sensible width on the
  * page, and is centred with a good amount of space on either side. */
-main {
+main, nav > * {
   max-width: var(--max-width);
 
   margin-left:  auto;
@@ -38,4 +38,28 @@ main {
 
   padding-left:  calc(var(--default-padding)) + env(safe-area-inset-left));
   padding-right: calc(var(--default-padding)) + env(safe-area-inset-right));
+}
+
+/* A dot_list is a <ul> that displays all the items in a horizontal line,
+ * separated by dots, e.g.
+ *
+ *      apple · banana · cherry
+ *
+ * as opposed to the more traditional
+ *
+ *    · apple
+ *    · banana
+ *    · cherry
+ *
+ */
+ul.dot_list {
+  list-style-type: none;
+}
+
+ul.dot_list li {
+  display: inline;
+}
+
+ul.dot_list li:not(:first-child)::before {
+  content: " · ";
 }
