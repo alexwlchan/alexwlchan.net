@@ -63,6 +63,25 @@ compress_html:
   profile: false
   startings: []
 
+# ===============
+# template config
+# ===============
+#
+# This is config that goes in my Liquid templates, put here so it's easier
+# to manage than writing HTML templates.
+
+navbar_items:
+  - url: about
+    label: about
+  - url: articles
+    label: articles
+  - url: til
+    label: today i learned
+  - url: fun
+    label: fun stuff
+  - url: contact
+    label: contact
+
 # ================
 # Remaining config
 

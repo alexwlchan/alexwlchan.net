@@ -34,10 +34,12 @@ main, nav > * {
   margin-left:  auto;
   margin-right: auto;
 
-  padding: 0 10px;
+  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
+  padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
 
-  padding-left:  calc(var(--default-padding)) + env(safe-area-inset-left));
-  padding-right: calc(var(--default-padding)) + env(safe-area-inset-right));
+  /* This line ensures the component grows to fill the window, even if
+   * the content isn't as wide as the window. */
+  width: calc(100vw - 2 * var(--default-padding) - env(safe-area-inset-left) - env(safe-area-inset-right));
 }
 
 /* A dot_list is a <ul> that displays all the items in a horizontal line,
@@ -62,4 +64,10 @@ ul.dot_list li {
 
 ul.dot_list li:not(:first-child)::before {
   content: " · ";
+}
+
+/* These statements affect the global nav header */
+nav a[selected] {
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 2px;
 }
