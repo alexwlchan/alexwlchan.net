@@ -4,7 +4,7 @@ main, #editing-toolbar_inner, #subscribe form {
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
 }
 
-img, video, svg, iframe, figure, article, main, #editing-toolbar_inner, #subscribe form {
+video, svg, iframe, figure, article, main, #editing-toolbar_inner, #subscribe form {
   margin-left: auto;
   margin-right: auto;
 }
@@ -17,7 +17,7 @@ figcaption {
   margin-top: 8px;
 }
 
-img.screenshot, a.download {
+a.download {
   border-radius: $border-radius;
   border-style:  $border-style;
   border-width:  $border-width;
@@ -53,11 +53,6 @@ article, main {
   }
 }
 
-
-img.screenshot {
-  border-color: #f0f0f0;
-}
-
 .post_cards .card {
   /* This gives cards a v subtle solid background colour, to make them
    * stand out from the textured background.
@@ -72,9 +67,6 @@ img.screenshot {
     background-image: url('/theme/black-waves-transparent.png');
   }
 
-  img.screenshot {
-    border-color: #3f3f3f;
-  }
 
   .post_cards .card {
     background: #0d0d0d;
@@ -107,7 +99,7 @@ img.screenshot {
 //
 // Note: the block might seem redundant, but if you remove it the post cards
 // get some extra space below the image.  TODO: Investigate.
-img, video, figure {
+video, figure {
   max-width: 100%;
   display: block;
 }
