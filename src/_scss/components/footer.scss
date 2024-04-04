@@ -1,6 +1,6 @@
 footer {
   padding-top:    15px;
-  padding-bottom: 15px + env(safe-area-inset-bottom);
+  padding-bottom: calc(15px + env(safe-area-inset-bottom));
 
   font-size: $small-font-size;
   line-height: $small-line-height;
