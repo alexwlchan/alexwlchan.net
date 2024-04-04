@@ -6,7 +6,7 @@
  */
 
 body {
-  font: 13pt Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;;
+  font: 13pt $main-font-family;
   line-height: $line-height;
 }
 
@@ -78,3 +78,19 @@ a {
   }
 }
 
+/* These styles are for code snippets. */
+
+code, pre {
+  font-family: $mono-font-family;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+}
+
+code {
+  margin: 2px;
+  border-radius: 3px;
+  font-size: 1em * $code-scaling-factor;
+}

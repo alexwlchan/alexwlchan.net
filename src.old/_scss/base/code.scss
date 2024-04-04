@@ -1,20 +1,5 @@
 @use "sass:math";
 
-code, pre {
-  font-family: $mono-font-family;
-  overflow-x: auto;
-}
-
-pre code {
-  background: none;
-}
-
-code {
-  margin: 2px;
-  border-radius: 3px;
-  font-size: 1em * $code-scaling-factor;
-}
-
 // Disable selecting the $ or the following space in ``console`` code blocks.
 // See https://alexwlchan.net/2021/10/console-copying/
 .language-console {
