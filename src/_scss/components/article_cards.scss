@@ -36,8 +36,14 @@
     flex-direction: column;
   }
 
+  .card_metadata,
+  .card_posting_date {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
   .card_metadata {
-    padding: 1em;
+    padding-top: 1em;
 
     p:first-child {
       margin-top: 0;
@@ -45,6 +51,15 @@
 
     p:last-child {
       margin-bottom: 0;
+    }
+  }
+  
+  .card_posting_date {
+    margin-top: auto;
+
+    p {
+      color: $accent-grey-light;
+      font-size: 75%;
     }
   }
 
@@ -55,6 +70,7 @@
 
   .card_description {
     font-size: 85%;
+    margin-top: 0;
     line-height: 1.45em;
 
     color: $body-color-light;
@@ -62,12 +78,6 @@
     @media (prefers-color-scheme: dark) {
       color: $body-color-dark;
     }
-  }
-
-  .card_posting_date {
-    color: $accent-grey-light;
-    margin-top: auto;
-    font-size: 75%;
   }
 
   /* This changes the number of columns based on the width of the

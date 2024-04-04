@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: article
 date: 2013-03-30 19:57:00 +0000
 summary: A strange bug with OS X's timezone handling
 tags:
-  - dates
+  - datetime-shenanigans
   - os-x
 title: Strange clock bug in OS X
 index:

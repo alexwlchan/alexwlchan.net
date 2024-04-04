@@ -11,8 +11,10 @@
         {{ article.summary | markdownify_oneline }}
       </p>
     {% endif %}
+  </div>
 
-    <p class="card_posting_date">
+  <div class="card_posting_date">
+    <p>
       {{ article.date | date: "%-d %B&nbsp;%Y" }}
     </p>
   </div>

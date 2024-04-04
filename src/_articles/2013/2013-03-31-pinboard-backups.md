@@ -1,11 +1,13 @@
 ---
-layout: post
+layout: article
 date: 2013-03-31 11:13:00 +0000
 summary: A script for automatically backing up bookmarks from Pinboard
 tags:
   - pinboard
   - python
 title: Automatic Pinboard backups
+index:
+  exclude: true
 ---
 
 I've been using [**Pinboard**](http://pinboard.in) to store my bookmarks for nearly two years, and it's a wonderful site.
@@ -78,8 +80,9 @@ I also keep both the script and the archive files in Dropbox, so I could always 
 {%
   picture
   filename="pinboard_launchd.jpg"
-  width="925"
+  width="462"
   alt="Screenshot of a Launchd action to run my Pinboard backup."
+  class="screenshot"
 %}
 
 (The "What" field is slightly truncated in the image; it ends `archive-bookmarks.py`.)
@@ -88,10 +91,6 @@ This should continue to run indefinitely and keep a copy of my bookmarks stored 
 
 *The script can be downloaded from [my GitHub page](http://github.com/alexwlchan/archive-pinboard).*
 
-{% update 2013-04-01 %}
-  Thanks to [Stephen H&#252;gel](https://github.com/urschrei) for tidying up some of the script; his changes have been merged with the repo at GitHub. The basic functionality is unchanged, so most of what I wrote above still stands. The GitHub repo will have the most up-to-date copy of the script.
-{% endupdate %}
+[**Update, 1 March 2013:** Thanks to [Stephen H&#252;gel](https://github.com/urschrei) for tidying up some of the script; his changes have been merged with the repo at GitHub. The basic functionality is unchanged, so most of what I wrote above still stands. The GitHub repo will have the most up-to-date copy of the script.]
 
-{% update 2013-04-02 %}
-  Andrew Jones has a [much faster way of doing this](http://supersoju.com/blog/2013/04/01/pinboard-backups-in-1-line/), which does everything I did, but in a single line. I'm still glad I did this, because it was a fun morning project and I enjoyed writing it up, but other people might prefer his method.
-{% endupdate %}
+[**Update, 2 March 2013:** Andrew Jones has a [much faster way of doing this](http://supersoju.com/blog/2013/04/01/pinboard-backups-in-1-line/), which does everything I did, but in a single line. I'm still glad I did this, because it was a fun morning project and I enjoyed writing it up, but other people might prefer his method.]

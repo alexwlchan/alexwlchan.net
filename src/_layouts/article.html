@@ -6,9 +6,5 @@ layout: default
 
   {% include post_meta.html index_page = "/articles/" %}
   
-  <p class="summary">
-    {{ page.summary | markdownify_oneline }}
-  </p>
-
   {{ page.content | add_non_breaking_spaces | smartify }}
 </article>
