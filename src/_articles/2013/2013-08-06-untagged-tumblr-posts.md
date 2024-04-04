@@ -1,9 +1,11 @@
 ---
-layout: post
+layout: article
 date: 2013-08-06 09:52:00 +0000
 tags:
   - tumblr
   - python
+summary: |
+  To help a friend who was trying to tag every one of her posts on Tumblr, I wrote a Python script to find untagged posts.
 title: Finding untagged posts on Tumblr
 ---
 
@@ -67,28 +69,23 @@ Once you click **Register**, you'll be taken back to the previous page, and you'
   filename="tumblr_api_keys.png"
   width="540"
   alt="A screenshot of Tumblr's API registration. The name of the app 'Untagged post finder' is on the first line, with an OAuth Consumer Key and a partially redacted string on the second line."
+  class="screenshot"
 %}
 
 Copy and paste the **OAuth Consumer Key** into line 7 of the script, and remember to wrap it in quote marks.
 
 Once that's done, you just run the Python script (if you haven't done that before, then there are plenty of helpful guides on Google), and you will shortly have a list of all your posts which don't have tags. This isn't quite a “one-click” solution to the problem, but I think it’s better than searching through your posts by hand.
 
-{% update 2014-05-20 %}
-  I ran across a [Stack Overflow](http://stackoverflow.com/q/21743112) question asking about this script. One thing I should have made clear is that this is a **Python 2** script, not Python 3. If you want to use Python 3, then the answer to that question has a version of the script compatible with Python 3.
-{% endupdate %}
+[**Update, 20 May 2014:** I ran across a [Stack Overflow](http://stackoverflow.com/q/21743112) question asking about this script. One thing I should have made clear is that this is a **Python 2** script, not Python 3. If you want to use Python 3, then the answer to that question has a version of the script compatible with Python 3.]
 
-{% update 2014-06-13 %}
-  This has been superceded by a much cleaner, turnkey solution. For most people, my new [one-page, one-click solution][redux] should be much easier and simpler.
+[**Update, 13 June 2014:** This has been superceded by a much cleaner, turnkey solution. For most people, my new [one-page, one-click solution][redux] should be much easier and simpler.
+You'll still need to use this script if you have a private blog, but anybody else should check out the new way.]
 
-  You'll still need to use this method if you have a private blog, but anybody else should check out the new way.
+[redux]: /2014/untagged-tumblr-posts-redux/
 
-  [redux]: {% post_url 2014/2014-06-13-untagged-tumblr-posts-redux %}
-{% endupdate %}
-
-{% update 2015-08-02 %}
-  This script is almost two years old, and it continues to get a lot of hits.
-  Normally I try not to revisit old code, but since this is so popular, I've posted a slightly improved version [as a Gist](https://gist.github.com/alexwlchan/4502860fd9ff014dc178).
-{% endupdate %}
+[**Update, 2 August 2015:**
+This script is almost two years old, and it continues to get a lot of hits.
+Normally I try not to revisit old code, but since this is so popular, I've posted a slightly improved version [as a Gist](https://gist.github.com/alexwlchan/4502860fd9ff014dc178).]
 
 [api]: https://www.tumblr.com/docs/en/api/v2#hostname
 [oauth]: http://www.tumblr.com/oauth/apps
