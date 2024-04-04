@@ -65,7 +65,7 @@ a {
 /* These styles are for light grey text which contains metadata that I
  * want to be less prominent than the rest of the body text.
  */
-.meta {
+.meta, figcaption {
   font-size: $small-font-size;
   line-height: $small-line-height;
 
@@ -78,6 +78,10 @@ a {
       @include link_styles($accent-grey-dark, 0.2);
     }
   }
+}
+
+figcaption {
+  margin-top: 8px;
 }
 
 /* These styles are for code snippets. */

@@ -35,11 +35,6 @@ sup {
   bottom: 1ex;
 }
 
-figcaption {
-  font-size:   $meta-font-size;
-  line-height: $meta-line-height;
-}
-
 .footnotes {
   font-size:   $default-font-size   * $scaling-factor;
   line-height: $default-line-height * $scaling-factor;
@@ -67,17 +62,6 @@ figcaption {
 
 .title.linkpost_title::after {
   color: $accent-grey-light;
-}
-
-figcaption {
-  color: $accent-grey-light;
-
-  a, a:visited {
-    color: $accent-grey-light !important;
-    &:hover {
-      background: rgba($accent-grey-light, 0.2) !important;
-    }
-  }
 }
 
 @media (prefers-color-scheme: dark) {
