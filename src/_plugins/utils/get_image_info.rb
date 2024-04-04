@@ -18,7 +18,7 @@
 # will be saved unless the source image changes.
 #
 def get_image_info(path)
-  cache = Jekyll::Cache.new("ImageInfo")
+  cache = Jekyll::Cache.new('ImageInfo')
 
   last_mtime = File.mtime(path)
 

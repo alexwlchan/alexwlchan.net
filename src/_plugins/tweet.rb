@@ -14,6 +14,7 @@ require 'base64'
 
 require 'json-schema'
 
+require_relative 'utils/get_tweet_avatar'
 require_relative 'utils/twitter'
 
 METADATA_SCHEMA = {
@@ -146,39 +147,9 @@ module Jekyll
         raise "Could not find avatar for tweet, expected #{screen_name}_#{tweet_id}.*"
       end
 
-      path = matching_avatars[0]
-      extension = path.split('.').last # ick
+      matching_avatars[0]
 
-      # Avatars are routinely quite large (e.g. 512x512), but they're
-      # only displayed in a 36x36 square (see _tweets.scss).
-      #
-      # Cutting a smaller thumbnail should reduce the page weight.
-      FileUtils.mkdir_p '.jekyll-cache/twitter/avatars'
-      thumbnail_path = ".jekyll-cache/twitter/avatars/#{File.basename(path)}"
-
-      unless File.exist? thumbnail_path
-        resize_request = JSON.generate({
-          source_path: path,
-                        out_path: thumbnail_path,
-
-                        width: 108
-                      })
-
-        open('.missing_images.json', 'a') do |f|
-          f.puts JSON.generate(resize_request)
-        end
-      end
-
-      thumbnail_data = Base64.encode64(File.read(thumbnail_path))
-
-      case extension
-      when 'png'
-        "data:image/png;base64,#{thumbnail_data}"
-      when 'jpg', 'jpeg'
-        "data:image/jpeg;base64,#{thumbnail_data}"
-      else
-        raise "Unrecognised avatar extension: #{avatar_url} / #{extension}"
-      end
+      get_tweet_avatar(matching_avatars[0])
     end
 
     # Render the text of the tweet as HTML.

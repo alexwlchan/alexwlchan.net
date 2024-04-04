@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 gem 'jekyll', '~> 4'
 
-gem 'json-schema', '~> 4'
 gem 'html-proofer', '~> 5.0'
+gem 'json-schema', '~> 4'
 gem 'nokogiri', '~> 1.16'
 gem 'shell-executer', '~> 1.0'
 
