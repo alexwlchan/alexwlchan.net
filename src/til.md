@@ -43,29 +43,8 @@ This is a collection of small, practical things I've learnt while writing softwa
 
     const filterStatus = document.querySelector("#filter_status");
 
-    filterStatus.innerHTML = `Showing TILs tagged with <span class="selected_tag">${selectedTag}</span>. <a href="#" class="clear_filters" onclick="clearTagFilters();">[x]</a>`;
+    filterStatus.innerHTML = `Showing TILs tagged with <span class="selected_tag">${selectedTag}</span>. <a href="/til/" class="clear_filters">[x]</a>`;
     filterStatus.style.display = "block";
-
-    window.history.pushState(
-      {"selectedTag": selectedTag},
-      "",  /* unused */
-      `/til/?tag=${selectedTag}`
-    );
-  }
-
-  function clearTagFilters() {
-    document
-      .querySelectorAll("#list_of_tils > li")
-      .forEach(liElem => liElem.style.display = "block");
-
-    const filterStatus = document.querySelector("#filter_status");
-    filterStatus.style.display = "none";
-
-    window.history.pushState(
-      {"selectedTag": null},
-      "",  /* unused */
-      "/til/"
-    );
   }
 
   window.addEventListener("DOMContentLoaded", function() {
