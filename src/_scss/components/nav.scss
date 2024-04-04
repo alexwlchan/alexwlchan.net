@@ -25,6 +25,8 @@ nav {
   color: white;
 
   a, a:visited {
+    white-space: pre;
+
     @include link_styles(white, 0.5);
   }
 
