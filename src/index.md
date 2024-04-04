@@ -1,7 +1,5 @@
 ---
 layout: page
-title: ""
-nav_section: ""
 ---
 This is the homepage of my website!
 

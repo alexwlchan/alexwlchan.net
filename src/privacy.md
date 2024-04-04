@@ -1,8 +1,14 @@
 ---
 layout: page
-title: Privacy policy
-date_updated: 2024-03-18 20:53:56 +0000
+title: Privacy
+nav_section: contact
+date_updated: 2024-04-04 06:30:53 +0100
 ---
+**tl;dr: I'm trying not to track you and to protect you from being tracked by anybody else.
+I anonymise my analytics in line with EU privacy laws.
+There are a few embeds from YouTube.
+There are no cookies.**
+
 I collect some basic data about visits to my websites, to help me decide what to write about next.
 I gather statistics in aggregate, and I don't collect any information about specific visitors.
 
@@ -16,7 +22,7 @@ Whenever you visit a page, I use a tracking pixel to record the following anonym
 *   The URL and title of the page you were looking at
 *   The referrer, i.e. which page linked you to my website
 *   The country you're in, which is guessed from your IP address
-*   An anonymous session identifier, which I use to help count unique visitors (see below)
+*   An anonymous session identifier, which I use to help count unique visitors.
 *   Whether you're a bot or crawler (this is a simple boolean based on your User-Agent, so I can separate humans from Google's search crawler)
 
 Here's an example of how a visit would be recorded in my database:
@@ -32,7 +38,6 @@ is_bot:    False
 
 I **don't** record your exact IP address or user agent, because they contain more detail than I need, and they'd make it easier for me to identify a specific person.
 I don't want that!
-
 
 ## Anonymous session identifier
 
@@ -57,15 +62,19 @@ The site is hosted on Netlify.
 They can see what pages you're visiting, and they have [their own privacy policy](https://www.netlify.com/privacy/).
 
 The web server with the tracking pixel is hosted on Linode.
-They can see that you've hitting the tracking pixel, but they can't see the more detailed information (they know you visited my site, but you don't know which page).
+They can see that you've making a request to the web server, but they can't see anything more detailed (so they could work out you visited something on my website, but you wouldn't know which page).
 Linode is owned by Akamai, who have [their own privacy policy](https://www.akamai.com/legal/privacy-statement).
 
 ## Cookies
 
 I don't set any.
 
+Some pages embed YouTube videos with their `youtube-nocookie.com` domain.
+
 ## Page history
 
+*   4 April 2024:
+    Add a tl;dr and a note about YouTube embeds.
 *   18 March 2024:
     Remove reference to screen width/height, which I no longer collect.
     Add an example of how a request get recorded in my database.

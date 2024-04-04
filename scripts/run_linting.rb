@@ -6,9 +6,15 @@ require 'html-proofer'
 source = "src"
 destination = "_site"
 
-def run_html_linting
+# Run HTML-Proofer to check the generated HTML is accurate, e.g. all the
+# links point to real pages, no missing alt text.
+#
+# This uses the html-proofer gem.
+# See https://github.com/gjtorikian/html-proofer
+def run_html_proofer(html_dir)
+
   HTMLProofer.check_directory(
-    destination, {
+    html_dir, {
       check_html: true,
       check_img_http: true,
       check_opengraph: true,
@@ -18,4 +24,4 @@ def run_html_linting
   ).run
 end
 
-run_html_linting
+run_html_proofer(destination)
