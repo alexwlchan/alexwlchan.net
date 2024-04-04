@@ -388,18 +388,14 @@ module Jekyll
                      end
 
           unless File.exist? out_path
-            JSON.generate({
+            resize_request = JSON.generate({
                             out_path:,
                             source_path: image['path'],
                             width: this_width
                           })
 
             open('.missing_images.json', 'a') do |f|
-              f.puts JSON.generate({
-                                     out_path:,
-                                     source_path: image['path'],
-                                     width: this_width
-                                   })
+              f.puts resize_request
             end
           end
 
