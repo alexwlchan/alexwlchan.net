@@ -11,7 +11,8 @@
 #
 
 require 'base64'
-require 'rszr'
+
+require 'json-schema'
 
 require_relative 'utils/twitter'
 
@@ -156,8 +157,16 @@ module Jekyll
       thumbnail_path = ".jekyll-cache/twitter/avatars/#{File.basename(path)}"
 
       unless File.exist? thumbnail_path
-        image = Rszr::Image.load(path)
-        image.resize(108, 108).save(thumbnail_path)
+        resize_request = JSON.generate({
+          source_path: path,
+                        out_path: thumbnail_path,
+
+                        width: 108
+                      })
+
+        open('.missing_images.json', 'a') do |f|
+          f.puts JSON.generate(resize_request)
+        end
       end
 
       thumbnail_data = Base64.encode64(File.read(thumbnail_path))

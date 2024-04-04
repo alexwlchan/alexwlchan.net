@@ -1,6 +1,11 @@
 .tweet {
   display: block;
-  font: normal normal 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+  
+  blockquote {
+    font-size: 16px;
+    font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif !important;
+    line-height: 1.4em;
+  }
 
   white-space: initial;
 
@@ -14,7 +19,9 @@
   }
 
   // Eyeballed against a real tweet embed
-  @include centred(496px);
+  max-width: 496px;
+  margin-left:  auto;
+  margin-right: auto;
 
   a, a:visited, a:active, .author a:hover {
     text-decoration: none;
