@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2024-02-11 23:04:30 +0000
 title: Moving my YouTube Likes from one account to another
 summary: Some experimenting with the YouTube API to merge two accounts into one.
@@ -36,6 +36,7 @@ At some point during this process, I had to create an OAuth consent screen.
 If I was publishing this app for the world to use, you'd see this as signing into the app, and it would have to be reviewed by Google.
 Because I was only writing scripts for me, I was able to mostly skip this step -- I left the app with a "testing" status, and just listed my two YouTube accounts as "test users":
 
+{% comment %}
 {%
   picture
   filename="google-cloud-oauth-consent.png"
@@ -43,6 +44,7 @@ Because I was only writing scripts for me, I was able to mostly skip this step -
   width="546"
   class="screenshot"
 %}
+{% endcomment %}
 
 After this, I tried to run the [sample Python script][sample_script] from Google's documentation.
 It didn't work -- it was written for an older version of the Python libraries.

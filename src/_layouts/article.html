@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
-<article class="til">
+<article class="article">
   <h1 class="title">{{ page.title | smartify | escape }}</h1>
 
-  {% include post_meta.html index_page = "/til/" %}
+  {% include post_meta.html index_page = "/articles/" %}
   
   <p class="summary">
     {{ page.summary | markdownify_oneline }}

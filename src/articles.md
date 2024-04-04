@@ -4,3 +4,9 @@ title: Articles
 nav_section: articles
 ---
 There's nothing here yet, but soon it'll have a list of things I've written.
+
+<ul id="list_of_articles">
+{% for article in site.articles reversed %}
+  <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+{% endfor %}
+</ul>
