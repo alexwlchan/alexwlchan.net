@@ -10,7 +10,4 @@
   </defs>
   <circle cx="160" cy="160" r="150" class="accent" fill="white"/>
   <circle cx="160" cy="160" r="160" class="background" mask="url(#mastodon)"/>
-  
-  
-  <!-- <circle cx="160" cy="160" r="160" class="accent"/>   -->
 </svg>

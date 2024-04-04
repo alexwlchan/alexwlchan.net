@@ -1,4 +1,4 @@
-main, #footer_inner, #editing-toolbar_inner, #subscribe form {
+main, #editing-toolbar_inner, #subscribe form {
   max-width: $max-width;
   padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
@@ -9,12 +9,7 @@ main, #footer_inner, #editing-toolbar_inner, #subscribe form {
   padding-bottom: 1px;
 }
 
-#footer_inner {
-  padding-top: 1px;
-  padding-bottom: calc(1px + env(safe-area-inset-bottom));
-}
-
-img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
+img, video, svg, iframe, figure, article, main, #nav_inner, #editing-toolbar_inner, #subscribe form {
   margin-left: auto;
   margin-right: auto;
 }

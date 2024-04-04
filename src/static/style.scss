@@ -8,6 +8,15 @@
 $primary-color-light: #d01c11;
 $primary-color-dark:  #d01c11;
 
+$default-font-size: 1em;
+$line-height:       1.5em;
+
+/* Define a single "small" size for any text which is a notch down from
+ * regular body copy. */
+$small-size: 0.82;
+$small-font-size:   $small-size * $default-font-size;
+$small-line-height: $small-size * $line-height * 1.3;
+
 :root {
   --max-width: 750px;
   --default-padding: 20px;

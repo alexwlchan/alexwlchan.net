@@ -1,4 +1,20 @@
 footer {
+  padding-top:    15px;
+  padding-bottom: 15px + env(safe-area-inset-bottom);
+
+  font-size: $small-font-size;
+  line-height: $small-line-height;
+
+  /* The footer gets the primary accent colour as background, with white text.
+   *
+   * It looks the same in light/dark mode.
+   */
+  background: $primary-color-light;
+  color: white;
+
+  a, a:visited {
+    @include link_styles(white, 0.5);
+  }
 
   /* There are two lines of text in the footer, then a row of icons.
    *
@@ -41,21 +57,38 @@ footer {
     margin-right: 5px;
   }
 
-  /* Disable the default link hover styles. */
-  ul#footer_social_links a:hover {
-    background: none;
+  /* Colour the icons correctly.
+   *
+   * Each icon contains two shapes:
+   *
+   *    - the `background` (the circle)
+   *    - the `accent` (the cutout for the icon)
+   *
+   * In the default state, the background is white and the accent is
+   * transparent, letting through the default footer colour.
+   *
+   * When you hover, we make the accent white and replace the background
+   * with the brand colours, as a visual cue that it's the site you expect.
+   */
+  ul#footer_social_links a {
+    .background { fill: white; }
+    .accent     { fill: none;  }
+
+    &:hover {
+      .accent { fill: white; }
+
+      /* Disable the default link hover styles */
+      background: none;
+    }
+
+    &[href="mailto:alex@alexwlchan.net"]:hover              .background { fill: #0067B9; }
+    &[href="https://alexwlchan.net/atom.xml"]:hover         .background { fill: #F99000; }
+    &[href="https://twitter.com/alexwlchan"]:hover          .background { fill: #1DA1F2; }
+    &[href="https://social.alexwlchan.net/@alex"]:hover     .background { fill: #563ACC; }
+    &[href="https://github.com/alexwlchan/"]:hover          .background { fill: #24292f; }
+    &[href="https://www.linkedin.com/in/alexwlchan/"]:hover .background { fill: #007EBB; }
+
+    &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_heart     { fill: #f14255; };
+    &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_circle    { fill: #50aee4; };
   }
-
-  /* Apply custom colours to the background of each icon.  These colours
-   * match the brand colours for each thing, giving you a visual cue that
-   * this is the right site. */
-  a[href="mailto:alex@alexwlchan.net"]:hover              .background { fill: #0067B9; }
-  a[href="https://alexwlchan.net/atom.xml"]:hover         .background { fill: #F99000; }
-  a[href="https://twitter.com/alexwlchan"]:hover          .background { fill: #1DA1F2; }
-  a[href="https://social.alexwlchan.net/@alex"]:hover     .background { fill: #563ACC; }
-  a[href="https://github.com/alexwlchan/"]:hover          .background { fill: #24292f; }
-  a[href="https://www.linkedin.com/in/alexwlchan/"]:hover .background { fill: #007EBB; }
-
-  a[href="https://ko-fi.com/alexwlchan"]:hover #kofi_heart     { fill: #f14255; };
-  a[href="https://ko-fi.com/alexwlchan"]:hover #kofi_circle    { fill: #50aee4; };
 }

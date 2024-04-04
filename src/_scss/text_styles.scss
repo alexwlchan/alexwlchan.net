@@ -1,6 +1,13 @@
+/* ===========
+ * Text styles
+ * ===========
+ *
+ * This is a collection of styles that apply to all the text on the site.
+ */
+
 body {
   font: 13pt Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;;
-  line-height: 1.5em;
+  line-height: $line-height;
 }
 
 /* Links should be tinted with the primary colour, and darker if they've

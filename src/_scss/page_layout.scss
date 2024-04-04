@@ -1,3 +1,23 @@
+/* ==================
+ * Page layout styles
+ * ==================
+ *
+ * This is a collection of styles that establish the basic layout of pages.
+ *
+ * My pages are laid out in a simple column view, with three components:
+ *
+ *     +------------+
+ *     | global nav |
+ *     +------------+
+ *     |            |
+ *     |   <main>   |
+ *     |            |
+ *     +------------+
+ *     |  <footer>  |
+ *     +------------+
+ *
+ */
+
 body {
   margin:  0;
   padding: 0;

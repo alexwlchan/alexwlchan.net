@@ -42,7 +42,7 @@ sup {
   bottom: 1ex;
 }
 
-.meta, figcaption, footer {
+.meta, figcaption {
   font-size:   $meta-font-size;
   line-height: $meta-line-height;
 }
@@ -72,7 +72,7 @@ sup {
   margin-bottom: -6px;
 }
 
-#footer_inner, #nav_inner {
+#nav_inner {
   color: white;
 
   a, a:visited {
