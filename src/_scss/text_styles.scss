@@ -5,6 +5,8 @@
  * This is a collection of styles that apply to all the text on the site.
  */
 
+@use "sass:math";
+
 body {
   font: 13pt $main-font-family;
   line-height: $line-height;
@@ -93,4 +95,55 @@ code {
   margin: 2px;
   border-radius: 3px;
   font-size: 1em * $code-scaling-factor;
+}
+
+/* These styles are for "blocks" -- snippets of content I brought in from
+ * somewhere else.
+ *
+ * In particular, code snippets and quotes. */
+pre, blockquote {
+  font-family: $mono-font-family;
+
+  border-radius: $border-radius;
+  border-style:  $border-style;
+  border-width:  $border-width;
+
+  margin-left:  $default-padding;
+  margin-right: $default-padding;
+
+  @media screen and (max-width: $max-width + $default-padding * 3) {
+    margin-left:  0;
+    margin-right: 0;
+  }
+
+  border-color: rgba($primary-color-light, 0.1);
+  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
+
+  @media (prefers-color-scheme: dark) {
+    border-color: rgba($primary-color-dark, 0.3);
+    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
+  }
+}
+
+pre {
+  padding: 2 * math.div($default-padding, 3) ($default-padding - $border-width);
+
+  line-height: $line-height * $code-scaling-factor * 1.08;
+
+  /* This ensures that code blocks don't get blown up to big sizes
+   * on iPhone displays. */
+  -webkit-text-size-adjust: 100%;
+
+  /* This ensures the first line of <pre> blocks doesn't have a funny indent. */
+  code {
+    margin:       0px;
+    padding-left: 0px;
+  }
+}
+
+blockquote {
+  padding: 1px $default-padding;
+
+  p:first-child { margin-top:    2 * math.div($default-padding, 3); }
+  p:last-child  { margin-bottom: 2 * math.div($default-padding, 3); }
 }

@@ -47,15 +47,15 @@ main {
 /* These statements ensure that the text is always a sensible width on the
  * page, and is centred with a good amount of space on either side. */
 main, nav > *, footer > * {
-  max-width: var(--max-width);
+  max-width: $max-width;
 
   margin-left:  auto;
   margin-right: auto;
 
-  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
-  padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
+  padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
+  padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
 
   /* This line ensures the component grows to fill the window, even if
    * the content isn't as wide as the window. */
-  width: calc(100vw - 2 * var(--default-padding) - env(safe-area-inset-left) - env(safe-area-inset-right));
+  width: calc(100vw - 2 * #{$default-padding} - env(safe-area-inset-left) - env(safe-area-inset-right));
 }

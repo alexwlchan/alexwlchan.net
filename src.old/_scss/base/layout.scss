@@ -17,7 +17,7 @@ figcaption {
   margin-top: 8px;
 }
 
-pre, blockquote, img.screenshot, a.download {
+img.screenshot, a.download {
   border-radius: $border-radius;
   border-style:  $border-style;
   border-width:  $border-width;
@@ -142,8 +142,6 @@ iframe {
  * narrower than the rest of the content), but snap to the edge on narrow
  * screens. */
 .indented,
-blockquote,
-pre,
 a.download {
   margin-left:  $default-padding;
   margin-right: $default-padding;

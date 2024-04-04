@@ -27,11 +27,6 @@ a.download {
   }
 }
 
-pre, blockquote {
-  border-color: rgba($primary-color-light, 0.1);
-  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
-}
-
 #subscribe {
   border-color: $primary-color-light;
   background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 80%, 0.4);
@@ -66,11 +61,6 @@ nav {
     &:hover {
       background: rgba($primary-color-dark, 0.4) !important;
     }
-  }
-
-  pre, blockquote {
-    border-color: rgba($primary-color-dark, 0.3);
-    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
   }
 
   #subscribe {
