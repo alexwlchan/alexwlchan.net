@@ -2,9 +2,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  
+
   {% assign safe_title = page.title | default: "" | markdownify_oneline | smartify | strip_html %}
-  
+
   <title>
     {%- if page.title and page.title != site.title and page.title != "" -%}
       {{ safe_title }} &ndash; alexwlchan
@@ -12,6 +12,6 @@
       alexwlchan
     {%- endif -%}
   </title>
-  
+
   <link rel="stylesheet" href="/static/style.css">
 </head>

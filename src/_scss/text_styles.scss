@@ -24,6 +24,8 @@ background: rgba($color, $opacity);
 }
 
 a {
+  text-underline-offset: 2px;
+
   @include link_styles($primary-color-light, 0.2);
 
   &:visited {
