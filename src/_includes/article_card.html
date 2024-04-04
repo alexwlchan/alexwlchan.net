@@ -3,12 +3,12 @@
 
   <div class="card_metadata">
     <p class="card_title">
-      {{ article.title | markdownify_oneline | smartify }}
+      {{ article.title | markdownify_oneline }}
     </p>
 
     {% if article.summary %}
       <p class="card_description">
-        {{ article.summary | markdownify_oneline | smartify }}
+        {{ article.summary | markdownify_oneline }}
       </p>
     {% endif %}
 

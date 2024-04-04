@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="article">
-  <h1 class="title">{{ page.title | smartify | escape }}</h1>
+  <h1 class="title">{{ page.title | markdownify_oneline | escape }}</h1>
 
   {% include post_meta.html index_page = "/articles/" %}
   

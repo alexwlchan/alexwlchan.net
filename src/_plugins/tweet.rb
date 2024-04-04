@@ -267,6 +267,9 @@ module Jekyll
         raise "Unable to find metadata for #{@tweet_url}! (Expected #{metadata_file_path})"
       end
 
+      # Note: there's a fairly substantial performance impact to running
+      # this validation (~10x slower) so consider pushing it out into some
+      # sort of external linting step, and out of the main build step.
       errors = JSON::Validator.fully_validate(METADATA_SCHEMA, tweet_data)
 
       unless errors.empty?
