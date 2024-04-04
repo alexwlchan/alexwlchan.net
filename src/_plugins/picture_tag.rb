@@ -67,16 +67,15 @@
 #
 #   1.  Remove the file `.missing_images.json` (if it exists)
 #   2.  Render the site.  Add any missing images to this file.
-#   3.  Call the external script `create_resized_images.py`, which does the
-#       image resizing concurrently.  I'm sure it's possible to do concurrent
-#       stuff in Ruby, but I can't work out how.
+#   3.  Call the external script `create_images.py`, which does the
+#       image resizing.
 #
 
 require 'fileutils'
 require 'json'
-require 'shell/executer'
+require 'shellwords'
 
-require 'rszr'
+require 'shell/executer'
 
 require_relative 'utils/attrs'
 
@@ -100,8 +99,13 @@ Jekyll::Hooks.register :site, :post_render do
 
     # Actually create the individual image files.  This is handled by
     # a separate Docker image; see the comments in the `image_creator` folder.
-    Shell.execute!('docker-compose run image_creator')
+    Shell.execute!('.venv/bin/python3 src/_plugins/pillow/create_images.py')
   end
+end
+
+def run_pillow_script(script_name, argv)
+  output = `.venv/bin/python3 src/_plugins/pillow/#{script_name} #{Shellwords.escape(argv)}`
+  JSON.parse(output)
 end
 
 module Jekyll
@@ -157,8 +161,16 @@ module Jekyll
 
       raise "Image #{source_path} does not exist" unless File.exist? source_path
 
-      image = Rszr::Image.load(source_path)
-      im_format = get_format(source_path)
+      image = run_pillow_script("get_image_info.py", source_path)
+
+      im_format = case image['format']
+                  when 'PNG'
+                    ImageFormat::PNG
+                  when 'JPEG'
+                    ImageFormat::JPEG
+                  else
+                    raise "Unrecognised format in #{image}"
+                  end
 
       # Using the bounding box supplied, work out the target width based
       # on the actual image dimensions.
@@ -167,11 +179,11 @@ module Jekyll
       elsif !@bounding_box[:width].nil?
         @width = @bounding_box[:width]
       elsif !@bounding_box[:height].nil?
-        @width = (image.width * @bounding_box[:height] / image.height).to_i
+        @width = (image["width"] * @bounding_box[:height] / image["height"]).to_i
       end
 
-      if image.width < @width
-        raise "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@width}px"
+      if image["width"] < @width
+        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{@width}px"
       end
 
       # These two attributes allow the browser to completely determine
@@ -181,7 +193,7 @@ module Jekyll
       #
       # See https://web.dev/optimize-cls/
       @attrs['width'] = @width
-      aspect_ratio = Rational(image.width, image.height)
+      aspect_ratio = Rational(image["width"], image["height"])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
       # I'm not a fan of the way AVIF and WebP introduce artefacts into
@@ -191,12 +203,12 @@ module Jekyll
       # okay not to serve them in the optimised formats -- I'll sacrifice
       # a bit of bandwidth for quality.
       desired_formats = if (@attrs['class'] || '').include? 'screenshot'
-                          [im_format]
-                        else
-                          [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-                        end
+                                [im_format]
+                              else
+                                [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+                              end
 
-      sources = prepare_images(source_path, desired_formats, dst_prefix, @width)
+      sources = prepare_images(image, desired_formats, dst_prefix, @width)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -204,9 +216,11 @@ module Jekyll
       )
 
       if File.exist? dark_path
-        dark_image = Rszr::Image.load(dark_path)
+        dark_image = run_pillow_script("get_image_info.py", dark_path)
 
-        if (dark_image.width != image.width) || (dark_image.height != image.height)
+        Rszr::Image.load(dark_path)
+
+        if (dark_image['width'] != image['width']) || (dark_image.height != image.height)
           raise "Dark-variant #{File.basename(dark_path)} has different dimensions to #{File.basename(source_path)}"
         end
 
@@ -349,10 +363,8 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(source_path, desired_formats, dst_prefix, width)
+    def prepare_images(image, desired_formats, dst_prefix, width)
       sources = Hash.new { [] }
-
-      image = Rszr::Image.load(source_path)
 
       # Pick how many widths we're going to cut this image at.
       #
@@ -360,7 +372,7 @@ module Jekyll
       # extra sizes and have them added to the list.
       widths = (1..3)
                .map { |pixel_density| pixel_density * width }
-               .filter { |w| w <= image.width }
+               .filter { |w| w <= image['width'] }
                .sort!
 
       widths.each do |this_width|
@@ -376,12 +388,19 @@ module Jekyll
                      end
 
           unless File.exist? out_path
+            resize_request = JSON.generate({
+                                     out_path:,
+                                     source_path: image['path'],
+                                     width: this_width,
+                                     height: (image['height'] * this_width / image['width']).to_i
+                                   })
+
             open('.missing_images.json', 'a') do |f|
               f.puts JSON.generate({
                                      out_path:,
-                                     source_path:,
+                                     source_path: image['path'],
                                      width: this_width,
-                                     height: (image.height * this_width / image.width).to_i
+                                     height: (image['height'] * this_width / image['width']).to_i
                                    })
             end
           end
@@ -391,18 +410,6 @@ module Jekyll
       end
 
       sources
-    end
-
-    # Get some useful info about the file format
-    def get_format(path)
-      case File.extname(path)
-      when '.png'
-        ImageFormat::PNG
-      when '.jpg'
-        ImageFormat::JPEG
-      else
-        raise "Unrecognised image extension in #{path}"
-      end
     end
   end
 end
