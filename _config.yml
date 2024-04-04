@@ -89,6 +89,7 @@ navbar_items:
     label: about
   - url: articles
     label: articles
+    layout: article
   - url: til
     label: today i learned
     layout: til

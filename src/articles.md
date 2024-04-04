@@ -37,8 +37,10 @@ There's nothing here yet, but soon it'll have a list of things I've written.
 <ul id="list_of_articles">
 {% for article in site.articles reversed %}
 
-  <li class="article_card" id="article-{{ article.slug }}">
-    {% include article_card.html %}
-  </li>
+  {% unless article.index.exclude %}
+    <li class="article_card" id="article-{{ article.slug }}">
+      {% include article_card.html %}
+    </li>
+  {% endunless %}
 {% endfor %}
 </ul>

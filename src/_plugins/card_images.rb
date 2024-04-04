@@ -95,7 +95,7 @@ module Jekyll
       if card.nil?
         <<~HTML
           <img
-            src="/images/default-card.png"
+            src="/static/default-card.png"
             alt=""
             loading="lazy"
             data-proofer-ignore
