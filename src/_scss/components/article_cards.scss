@@ -1,23 +1,52 @@
-.post_cards {
+@mixin card_light_styles($color) {
+  border-color: $color;
+
+  .card_title {
+    color: $color;
+  }
+
+  a:hover {
+    background: rgba($color, 0.2) !important;
+  }
+}
+
+@mixin card_dark_styles($color) {
+  border-color: $color;
+
+  .card_title {
+    color: $color;
+  }
+
+  a:hover {
+    background: rgba($color, 0.3) !important;
+  }
+}
+
+#list_of_articles {
   list-style-type: none;
   padding-left: 0px !important;
   display: grid;
   grid-gap: 1em;
 
-  .card {
+  .article_card {
     border-width: 2px;
     border-style: solid;
     border-radius: 14px;
     overflow: hidden;
 
+    /* This gives cards a v subtle solid background colour, to make them
+     * stand out from the textured background. */
+    background: #fafafa;
+
     @include card_light_styles(#d01c11);
 
     @media (prefers-color-scheme: dark) {
       @include card_dark_styles(#FF4242);
+      background: #0d0d0d;
     }
   }
 
-  .card a {
+  .article_card a {
     text-decoration: none;
     height: 100%;
 
@@ -29,43 +58,40 @@
      */
     display: flex;
     flex-direction: column;
+  }
 
-    .card_title {
-      text-decoration: underline;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
+  .card_metadata {
+    padding: 1em;
+
+    p:first-child {
+      margin-top: 0;
     }
-  }
 
-  .card_image {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .card_metadata, .card_posting_date {
-    padding-left:  1em;
-    padding-right: 1em;
-  }
-
-  .card_description {
-    margin-top: 0.5em;
-    font-size: 85%;
-    line-height: 1.45em;
-
-    // This means there's not too much of a gap between description/date,
-    // but in eggboxes the date gets hidden, so we skip this style.
-    &:not(:last-child) {
+    p:last-child {
       margin-bottom: 0;
     }
   }
 
-  .card_posting_date p {
-    margin-top: 0.5em;
-    font-size: 75%;
+  .card_title {
+    text-decoration: underline;
+    margin-bottom: 0.5em;
+  }
+
+  .card_description {
+    font-size: 85%;
+    line-height: 1.45em;
+
+    color: $body-color-light;
+
+    @media (prefers-color-scheme: dark) {
+      color: $body-color-dark;
+    }
   }
 
   .card_posting_date {
+    color: $accent-grey-light;
     margin-top: auto;
+    font-size: 75%;
   }
 
   /* This changes the number of columns based on the width of the

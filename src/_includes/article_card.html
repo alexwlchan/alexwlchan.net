@@ -1,0 +1,19 @@
+<a href="{{ article.url }}">
+  {% card_image %}
+
+  <div class="card_metadata">
+    <p class="card_title">
+      {{ article.title | markdownify_oneline | smartify }}
+    </p>
+
+    {% if article.summary %}
+      <p class="card_description">
+        {{ article.summary | markdownify_oneline | smartify }}
+      </p>
+    {% endif %}
+
+    <p class="card_posting_date">
+      {{ article.date | date: "%-d %B&nbsp;%Y" }}
+    </p>
+  </div>
+</a>

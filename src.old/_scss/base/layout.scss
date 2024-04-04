@@ -53,12 +53,6 @@ article, main {
   }
 }
 
-.post_cards .card {
-  /* This gives cards a v subtle solid background colour, to make them
-   * stand out from the textured background.
-   */
-  background: #fafafa;
-}
 
 @media (prefers-color-scheme: dark) {
   body {
@@ -67,10 +61,6 @@ article, main {
     background-image: url('/theme/black-waves-transparent.png');
   }
 
-
-  .post_cards .card {
-    background: #0d0d0d;
-  }
 
   // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
   img:not([src*='.svg']):not(.dark_aware) {
