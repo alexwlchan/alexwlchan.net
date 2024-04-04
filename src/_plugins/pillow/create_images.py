@@ -4,17 +4,22 @@ import os
 import json
 
 from PIL import Image
+import pillow_avif
 
 
 if __name__ == "__main__":
-    for line in open('.missing_images.json'):
+    for line in open(".missing_images.json"):
         resize_request = json.loads(line)
 
-        im = Image.open(resize_request['source_path'])
-        im = im.resize((resize_request['width'], resize_request['height']))
+        im = Image.open(resize_request["source_path"])
 
-        os.makedirs(os.path.dirname(resize_request['out_path']), exist_ok=True)
+        width = min([im.width, resize_request["width"]])
+        height = int(im.height * width / im.width)
 
-        im.save(resize_request['out_path'])
+        im = im.resize((width, height))
+
+        os.makedirs(os.path.dirname(resize_request["out_path"]), exist_ok=True)
+
+        im.save(resize_request["out_path"])
 
         print(resize_request)

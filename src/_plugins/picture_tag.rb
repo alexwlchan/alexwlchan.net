@@ -161,7 +161,7 @@ module Jekyll
 
       raise "Image #{source_path} does not exist" unless File.exist? source_path
 
-      image = run_pillow_script("get_image_info.py", source_path)
+      image = run_pillow_script('get_image_info.py', source_path)
 
       im_format = case image['format']
                   when 'PNG'
@@ -179,10 +179,10 @@ module Jekyll
       elsif !@bounding_box[:width].nil?
         @width = @bounding_box[:width]
       elsif !@bounding_box[:height].nil?
-        @width = (image["width"] * @bounding_box[:height] / image["height"]).to_i
+        @width = (image['width'] * @bounding_box[:height] / image['height']).to_i
       end
 
-      if image["width"] < @width
+      if image['width'] < @width
         raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{@width}px"
       end
 
@@ -193,7 +193,7 @@ module Jekyll
       #
       # See https://web.dev/optimize-cls/
       @attrs['width'] = @width
-      aspect_ratio = Rational(image["width"], image["height"])
+      aspect_ratio = Rational(image['width'], image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
       # I'm not a fan of the way AVIF and WebP introduce artefacts into
@@ -203,10 +203,10 @@ module Jekyll
       # okay not to serve them in the optimised formats -- I'll sacrifice
       # a bit of bandwidth for quality.
       desired_formats = if (@attrs['class'] || '').include? 'screenshot'
-                                [im_format]
-                              else
-                                [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-                              end
+                          [im_format]
+                        else
+                          [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+                        end
 
       sources = prepare_images(image, desired_formats, dst_prefix, @width)
 
@@ -216,7 +216,7 @@ module Jekyll
       )
 
       if File.exist? dark_path
-        dark_image = run_pillow_script("get_image_info.py", dark_path)
+        dark_image = run_pillow_script('get_image_info.py', dark_path)
 
         Rszr::Image.load(dark_path)
 
@@ -388,19 +388,17 @@ module Jekyll
                      end
 
           unless File.exist? out_path
-            resize_request = JSON.generate({
-                                     out_path:,
-                                     source_path: image['path'],
-                                     width: this_width,
-                                     height: (image['height'] * this_width / image['width']).to_i
-                                   })
+            JSON.generate({
+                            out_path:,
+                            source_path: image['path'],
+                            width: this_width
+                          })
 
             open('.missing_images.json', 'a') do |f|
               f.puts JSON.generate({
                                      out_path:,
                                      source_path: image['path'],
-                                     width: this_width,
-                                     height: (image['height'] * this_width / image['width']).to_i
+                                     width: this_width
                                    })
             end
           end

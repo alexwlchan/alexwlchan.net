@@ -31,12 +31,10 @@
 # This plugin means I can put the highest resolution card images in the
 # `src` directory, but the site doesn't pay a perf penalty.
 
-require 'rszr'
-
 Jekyll::Hooks.register :site, :post_read do |site|
-  site.posts.docs.each do |post|
-    year = post.date.year
-    slug = post.data['slug']
+  site.collections['articles'].docs.each do |article|
+    year = article.date.year
+    slug = article.data['slug']
 
     matching_images = Dir["src/_images/cards/#{year}/#{slug}.*"]
 
@@ -60,23 +58,19 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
     # Create an image which is at least 800px wide, and at most 1000px wide.
     unless File.exist? social_card_out
-      image = Rszr::Image.load(social_card)
-
-      out_width = image.width.clamp(800, 1000)
-
       open('.missing_images.json', 'a') do |f|
         f.puts JSON.generate({
                                out_path: social_card_out,
                                source_path: social_card,
-                               width: out_width
+                               width: 1000
                              })
       end
     end
 
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
-    post.data['card'] = {
-      'attribution' => post.data['card_attribution'],
+    article.data['card'] = {
+      'attribution' => article.data['card_attribution'],
       'social' => File.basename(social_card),
       'index' => File.basename(index_card)
     }
@@ -95,8 +89,8 @@ module Jekyll
     # that checks images have alt text.
     # See https://github.com/gjtorikian/html-proofer#ignoring-content
     def render(context)
-      post = context['post']
-      card = post['card']
+      article = context['article']
+      card = article['card']
 
       if card.nil?
         <<~HTML
@@ -114,7 +108,7 @@ module Jekyll
           {%
             picture
             filename="#{card['index']}"
-            parent="/images/cards/#{post['date'].year}"
+            parent="/images/cards/#{article['date'].year}"
             width="400"
             alt=""
             loading="lazy"
