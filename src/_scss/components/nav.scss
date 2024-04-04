@@ -31,8 +31,7 @@ nav {
   /* Add an extra thick underline so you know which part of the site
    * you're in. */
   a[selected] {
-    text-decoration-thickness: 4px;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 3px;
   }
 
   /* When you print the nav, remove the background and replace the white

@@ -6,7 +6,7 @@ nav_section: til
 TIL stands for **today I learned**.
 This is a collection of small, practical things I've learnt while writing software, which I thought were worth remembering and sharing with other people.
 
-<p id="tag_cloud">
+<p>
   You can filter by tag:
 
   {% comment %}
@@ -20,7 +20,7 @@ This is a collection of small, practical things I've learnt while writing softwa
   {% endfor %}
 
   {% for tag in all_tags %}
-    <a href="#" onclick="filterByTag('{{ tag }}')">{{ tag }}</a>
+    <a href="/til/?tag={{ tag }}">{{ tag }}</a>
     {% unless forloop.last %} · {% endunless %}
   {% endfor %}
 </p>
@@ -68,7 +68,7 @@ This is a collection of small, practical things I've learnt while writing softwa
     );
   }
 
-  window.addEventListener("load", function() {
+  window.addEventListener("DOMContentLoaded", function() {
     const selectedTag = new URLSearchParams(window.location.search).get("tag");
 
     if (selectedTag !== null) {
@@ -78,6 +78,12 @@ This is a collection of small, practical things I've learnt while writing softwa
     document.querySelector("#tag_cloud").style.display = "block";
   });
 </script>
+
+<noscript>
+  <p>
+    (Enable JavaScript to allow filtering by tag.)
+  </p>
+</noscript>
 
 ---
 
@@ -101,7 +107,7 @@ This is a collection of small, practical things I've learnt while writing softwa
         Tagged with
         {% assign tags = til.tags | sort %}
         {% for t in tags %}
-          <a href="#" onclick="filterByTag('{{ t }}')">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
+          <a href="/til/?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
       </li>
       {% endif %}
