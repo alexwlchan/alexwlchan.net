@@ -186,3 +186,24 @@ pre {
     }
   }
 }
+
+/* Disable selecting the $ or the following space in ``console`` code blocks.
+ * See https://alexwlchan.net/2021/10/console-copying/ */
+
+@mixin disable_select() {
+  /* Disable text selection highlighting
+   * https://stackoverflow.com/a/4407335/1558022 */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.language-console {
+  .gp, .gp + .w  {
+    @include disable_select();
+  }
+}
