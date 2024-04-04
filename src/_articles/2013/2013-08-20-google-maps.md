@@ -1,10 +1,12 @@
 ---
-layout: post
+layout: article
 date: 2013-08-20 10:47:00 +0000
 summary: A bookmarklet to hide some of the UI chrome in the new design of Google Maps.
 tags:
   - javascript
 title: Cleaning up Google Maps
+index:
+  exclude: true
 ---
 
 Earlier this morning, Fraser Speirs was bemoaning the design of the new Google&nbsp;Maps:

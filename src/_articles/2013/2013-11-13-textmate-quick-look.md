@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 date: 2013-11-13 08:16:00 +0000
 summary: Disabling the Quick Look plugin that comes in the TextMate 2 alpha.
 tags:
