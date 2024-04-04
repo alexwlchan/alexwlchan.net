@@ -42,7 +42,7 @@ sup {
   bottom: 1ex;
 }
 
-.meta, figcaption {
+figcaption {
   font-size:   $meta-font-size;
   line-height: $meta-line-height;
 }
@@ -77,7 +77,7 @@ sup {
   color: $accent-grey-light;
 }
 
-.meta, figcaption {
+figcaption {
   color: $accent-grey-light;
 
   a, a:visited {
@@ -98,7 +98,7 @@ sup {
     color: $accent-grey-dark;
   }
 
-  .meta, figcaption {
+  figcaption {
     color: $accent-grey-dark;
 
     a, a:visited {

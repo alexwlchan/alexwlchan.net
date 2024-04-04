@@ -59,3 +59,22 @@ a {
   white-space: nowrap;
   border: 0;
 }
+
+/* These styles are for light grey text which contains metadata that I
+ * want to be less prominent than the rest of the body text.
+ */
+.meta {
+  font-size: $small-font-size;
+  line-height: $small-line-height;
+
+  color: $accent-grey-light;
+
+  a {
+    @include link_styles($accent-grey-light, 0.2);
+
+    @media (prefers-color-scheme: dark) {
+      @include link_styles($accent-grey-dark, 0.2);
+    }
+  }
+}
+

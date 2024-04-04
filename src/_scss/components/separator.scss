@@ -1,0 +1,16 @@
+// This is for the five squares I use as a separator instead of <hr>.
+//
+// This adds appropriate spacing and colours the squares grey.
+
+svg[role="separator"] {
+  display: block;
+  margin: 3.5em auto;
+
+  rect {
+    fill: $midtone-grey-light;
+
+    @media (prefers-color-scheme: dark) {
+      fill: $body-color-dark;
+    }
+  }
+}
