@@ -4,12 +4,7 @@ main, #editing-toolbar_inner, #subscribe form {
   padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
 }
 
-#nav_inner {
-  padding-top: calc(1px + env(safe-area-inset-top));
-  padding-bottom: 1px;
-}
-
-img, video, svg, iframe, figure, article, main, #nav_inner, #editing-toolbar_inner, #subscribe form {
+img, video, svg, iframe, figure, article, main, #editing-toolbar_inner, #subscribe form {
   margin-left: auto;
   margin-right: auto;
 }

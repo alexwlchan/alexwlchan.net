@@ -1,4 +1,47 @@
-nav a[selected] {
-  text-decoration-thickness: 2.5px;
-  text-underline-offset: 2px;
+nav {
+  padding-top: calc(1px + env(safe-area-inset-top));
+  padding-bottom: 1px;
+
+  h1 {
+    margin-bottom: -5px;
+    font-weight: normal;
+    font-size: 1.7em;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    padding-top:    0px;
+    padding-bottom: 0px;
+    margin-bottom:  14px;
+  }
+
+  /* The nav gets the primary accent colour as background, with white text.
+   *
+   * It looks the same in light/dark mode.
+   */
+  background: $primary-color-light;
+  color: white;
+
+  a, a:visited {
+    @include link_styles(white, 0.5);
+  }
+
+  /* Add an extra thick underline so you know which part of the site
+   * you're in. */
+  a[selected] {
+    text-decoration-thickness: 4px;
+    text-underline-offset: 3px;
+  }
+
+  /* When you print the nav, remove the background and replace the white
+   * with the accent colour. */
+  @media print {
+    background: none;
+    border-bottom: $border-width solid $primary-color-light;
+
+    color: $primary-color-light;
+    a, a:visited { color: $primary-color-light; }
+  }
 }

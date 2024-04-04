@@ -72,14 +72,6 @@ sup {
   margin-bottom: -6px;
 }
 
-#nav_inner {
-  color: white;
-
-  a, a:visited {
-    @include link_styles(white, 0.5);
-  }
-}
-
 .post_cards .card .card_posting_date p,
 .title.linkpost_title::after {
   color: $accent-grey-light;

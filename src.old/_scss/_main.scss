@@ -86,14 +86,3 @@ nav {
     }
   }
 }
-
-@media print {
-  nav {
-    background: none;
-    border-bottom: $border-width solid $primary-color-light;
-  }
-
-  #nav_inner {
-    color: $primary-color-light;
-  }
-}
