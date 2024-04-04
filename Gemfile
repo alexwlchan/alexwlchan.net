@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'jekyll', '~> 4'
 
 gem 'html-proofer', '~> 5.0'
+gem 'nokogiri', '~> 1.16'
 gem 'shell-executer', '~> 1.0'
 
 # This is to fix a warning I got in Ruby 3.3.0 on macOS:

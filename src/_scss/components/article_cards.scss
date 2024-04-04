@@ -1,27 +1,3 @@
-@mixin card_light_styles($color) {
-  border-color: $color;
-
-  .card_title {
-    color: $color;
-  }
-
-  a:hover {
-    background: rgba($color, 0.2) !important;
-  }
-}
-
-@mixin card_dark_styles($color) {
-  border-color: $color;
-
-  .card_title {
-    color: $color;
-  }
-
-  a:hover {
-    background: rgba($color, 0.3) !important;
-  }
-}
-
 #list_of_articles {
   list-style-type: none;
   padding-left: 0px !important;

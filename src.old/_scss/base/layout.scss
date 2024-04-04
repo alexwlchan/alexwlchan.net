@@ -85,7 +85,7 @@ article, main {
 //
 // Note: the block might seem redundant, but if you remove it the post cards
 // get some extra space below the image.  TODO: Investigate.
-video, figure {
+video {
   max-width: 100%;
   display: block;
 }

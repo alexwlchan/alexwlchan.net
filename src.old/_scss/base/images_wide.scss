@@ -64,29 +64,3 @@ $gradual-width-breakpoint: $max-width + $default-padding * 2;
     }
   }
 }
-
-// This allows me to mark images as "full-width", in which case, they'll
-// fill the whole screen on narrow devices (e.g. mobile screens).
-//
-// There's a slight weirdness when the screen is exactly max-width; images
-// suddenly jump from having full margin to zero margin.  Ideally it would
-// gradually decrease as the screen narrows, but I'm going to leave it as-is
-// rather than worry too much about this edge case.
-//
-// The "photo" class is semantic-ish, it describes what the picture is
-// rather than how it should behave.  cf 'screenshot'.  I want to use it more!
-
-@media screen and (max-width: $max-width) {
-  .wide_img, .fullwidth_img, .photo {
-    width:        calc(100% + #{$default-padding} * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
-    max-width:    calc(100% + #{$default-padding} * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
-    margin-left:  calc(-1 * (#{$default-padding} + env(safe-area-inset-left,  0px)));
-    margin-right: calc(-1 * (#{$default-padding} + env(safe-area-inset-right, 0px)));
-
-    figcaption {
-      padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
-      padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
-    }
-  }
-}
-
