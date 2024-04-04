@@ -14,16 +14,12 @@ layout: compress
   <body>
     <a class="skip-main" href="#main">Skip to main content</a>
     
-    {% capture body %}
-      {% include nav.html %}
-    
-      <main id="main" tabindex="-1">
-        {{ content }}
-      </main>
-    
-      {% include footer.html %}
-    {% endcapture %}
-    
-    {{ body | add_non_breaking_spaces }}
+    {% include nav.html %}
+  
+    <main id="main" tabindex="-1">
+      {{ content }}
+    </main>
+  
+    {% include footer.html %}
   </body>
 </html>

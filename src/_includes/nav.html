@@ -4,7 +4,11 @@
   <ul class="dot_list">
     {% for item in site.navbar_items %}
     <li>
-      <a href="/{{ item.url }}/" {% if page.nav_section == item.url %}selected{% endif %}>
+      <a 
+        href="/{{ item.url }}/"
+        {% if page.nav_section == item.url %}selected{% endif %}
+        {% if page.layout == item.layout %}selected{% endif %}
+      >
         {{- item.label -}}
       </a>
     </li>

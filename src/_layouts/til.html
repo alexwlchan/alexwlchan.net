@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article>
+  <h1 class="title">{{ page.title | smartify | escape }}</h1>
+
+  <ul class="dot_list">
+    <li>
+      Posted
+      <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
+        {{- page.date | date: site.date_format -}}
+      </time>
+    </li>
+  </ul>
+
+  {{ page.content | add_non_breaking_spaces | smartify | pretty_hr }}
+</article>

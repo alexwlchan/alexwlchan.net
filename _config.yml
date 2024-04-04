@@ -91,10 +91,23 @@ navbar_items:
     label: articles
   - url: til
     label: today i learned
+    layout: til
   - url: fun
     label: fun stuff
   - url: contact
     label: contact
+
+# ==================
+# Collections config
+# ==================
+#
+# I create two collections in the site: one of articles, one of TILs.
+# See https://jekyllrb.com/docs/collections/ for more info.
+
+collections:
+  til:
+    output: true
+    permalink: "/til/:year/:title/"
 
 # ================
 # Remaining config
