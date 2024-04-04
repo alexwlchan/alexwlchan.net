@@ -1,8 +1,8 @@
 require 'test/unit'
 
-require_relative '../_plugins/filter_cleanup_text'
+require_relative '../_plugins/add_non_breaking_spaces'
 
-class TextCleanupText < Test::Unit::TestCase
+class TestAddNonBreakingSpaces < Test::Unit::TestCase
   def test_it_adds_non_breaking_spaces_after_words
     text = 'Apollo 11 launched in 1969'
     expected = 'Apollo&nbsp;11 launched in 1969'
