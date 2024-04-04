@@ -73,11 +73,13 @@
 
 require 'fileutils'
 require 'json'
+require 'set'
 require 'shellwords'
 
 require 'shell/executer'
 
 require_relative 'utils/attrs'
+require_relative 'utils/get_image_info'
 
 class ImageFormat
   AVIF = { extension: '.avif', mime_type: 'image/avif' }
@@ -101,11 +103,6 @@ Jekyll::Hooks.register :site, :post_render do
     # a separate Docker image; see the comments in the `image_creator` folder.
     Shell.execute!('.venv/bin/python3 src/_plugins/pillow/create_images.py')
   end
-end
-
-def run_pillow_script(script_name, argv)
-  output = `.venv/bin/python3 src/_plugins/pillow/#{script_name} #{Shellwords.escape(argv)}`
-  JSON.parse(output)
 end
 
 module Jekyll
@@ -152,8 +149,7 @@ module Jekyll
         year = context.registers[:page]['date'].year
 
         source_path = "#{src}/_images/#{year}/#{@filename}"
-        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, '.*')}".gsub('/./',
-                                                                                                               '/')
+        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, '.*')}".gsub('/./', '/')
       else
         source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
         dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, '.*')}".gsub('//', '/')
@@ -161,7 +157,7 @@ module Jekyll
 
       raise "Image #{source_path} does not exist" unless File.exist? source_path
 
-      image = run_pillow_script('get_image_info.py', source_path)
+      image = get_image_info(source_path)
 
       im_format = case image['format']
                   when 'PNG'
@@ -208,15 +204,15 @@ module Jekyll
                           [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
                         end
 
-      sources = prepare_images(image, desired_formats, dst_prefix, @width)
+      sources = create_images(image, desired_formats, dst_prefix, @width)
 
       dark_path = File.join(
         File.dirname(source_path),
         "#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
       )
 
-      if File.exist? dark_path
-        dark_image = run_pillow_script('get_image_info.py', dark_path)
+      if false #File.exist? dark_path
+        dark_image = get_image_info(dark_path)
 
         Rszr::Image.load(dark_path)
 
@@ -224,7 +220,7 @@ module Jekyll
           raise "Dark-variant #{File.basename(dark_path)} has different dimensions to #{File.basename(source_path)}"
         end
 
-        dark_sources = prepare_images(
+        dark_sources = create_images(
           dark_path, desired_formats, "#{dst_prefix}.dark", @width
         )
       else
@@ -363,7 +359,7 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(image, desired_formats, dst_prefix, width)
+    def create_images(image, desired_formats, dst_prefix, width)
       sources = Hash.new { [] }
 
       # Pick how many widths we're going to cut this image at.
@@ -374,6 +370,8 @@ module Jekyll
                .map { |pixel_density| pixel_density * width }
                .filter { |w| w <= image['width'] }
                .sort!
+
+      existing_files = Dir.glob("#{dst_prefix}*").to_set
 
       widths.each do |this_width|
         desired_formats.each do |out_format|
@@ -387,7 +385,7 @@ module Jekyll
                        "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
                      end
 
-          unless File.exist? out_path
+          unless existing_files.include? out_path
             resize_request = JSON.generate({
                             out_path:,
                             source_path: image['path'],
