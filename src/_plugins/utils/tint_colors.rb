@@ -17,12 +17,12 @@ end
 
 # Get the light color that will be used as the default colour if
 # no override tint color is specified.
-def get_default_light_color()
-  sass_source = File.read "src/static/style.scss"
+def get_default_light_color
+  sass_source = File.read 'src/static/style.scss'
 
   match = sass_source.match('^\$primary-color-light: (?<color>#[0-9a-f]{6});$')
 
-  match.named_captures["color"]
+  match.named_captures['color']
 end
 
 # Given a given hex colour as a string (e.g. '#123456') generate
@@ -67,7 +67,7 @@ end
 
 # Create the "speckled" header image for a given hex color.
 def create_header_image(tint_color)
-  FileUtils.mkdir_p "_site/headers"
+  FileUtils.mkdir_p '_site/headers'
 
   out_path = "_site/headers/specktre_#{tint_color.sub('#', '')}.png"
 
@@ -114,7 +114,7 @@ def colorise_image(image, tint_color)
 end
 
 def create_favicon(tint_color)
-  FileUtils.mkdir_p "_site/favicons"
+  FileUtils.mkdir_p '_site/favicons'
 
   hex_string = tint_color.gsub('#', '')
 
@@ -123,8 +123,8 @@ def create_favicon(tint_color)
 
   return if (File.exist? ico_path) && (File.exist? png_path)
 
-  image16 = ChunkyPNG::Image.from_file("src/theme/_favicons/template-16x16.png")
-  image32 = ChunkyPNG::Image.from_file("src/theme/_favicons/template-32x32.png")
+  image16 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-16x16.png')
+  image32 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-32x32.png')
 
   Dir.mktmpdir do |tmp_dir|
     Dir.chdir(tmp_dir) do

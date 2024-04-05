@@ -52,8 +52,8 @@ Jekyll::Hooks.register :site, :pre_render do
 
   hex_string = light_color.gsub('#', '')
 
-  FileUtils.cp("_site/favicons/#{hex_string}.png", "_site/favicon.png")
-  FileUtils.cp("_site/favicons/#{hex_string}.ico", "_site/favicon.ico")
+  FileUtils.cp("_site/favicons/#{hex_string}.png", '_site/favicon.png')
+  FileUtils.cp("_site/favicons/#{hex_string}.ico", '_site/favicon.ico')
 end
 
 Jekyll::Hooks.register :pages, :pre_render do |page|
