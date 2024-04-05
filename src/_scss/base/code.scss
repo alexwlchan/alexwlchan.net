@@ -1,7 +1,5 @@
-@use "sass:math";
-
 code, pre {
-  font-family: $mono-font-family;
+  font-family: var(--mono-font-family);
   overflow-x: auto;
 }
 

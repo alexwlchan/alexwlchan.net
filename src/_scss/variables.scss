@@ -1,16 +1,13 @@
-$main-font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-$mono-font-family: Menlo, Consolas, monospace;
-
-$default-font-size:   1em;
-$default-line-height: 1.5em;
-
 :root {
   /* ====================
    * Font and text styles
    * ==================== */
-  --font-size: #{$default-font-size};
+  --text-font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  --mono-font-family: Menlo, Consolas, monospace;
 
-  --line-height: #{$default-line-height};
+  --font-size: 1em;
+
+  --line-height: 1.5em;
 
   --meta-scaling-factor:     0.82;
   --footnote-scaling-factor: 0.95;
