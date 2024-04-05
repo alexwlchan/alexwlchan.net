@@ -16,7 +16,7 @@ require 'fileutils'
 
 require_relative 'utils/contrast'
 
-Jekyll::Hooks.register :site, :pre_render do |site|
+Jekyll::Hooks.register :site, :pre_render
   open('.header_colours.txt', 'w') do |f|
     f.puts '#d01c11'
   end
@@ -36,7 +36,7 @@ module Jekyll
       primary_color_light = get_page_color(context.registers[:page], 'css_light')
       primary_color_dark = get_page_color(context.registers[:page], 'css_dark')
 
-      if primary_color_light.nil? and primary_color_dark.nil?
+      if primary_color_light.nil? && primary_color_dark.nil?
         return
       end
 

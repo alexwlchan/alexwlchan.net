@@ -24,13 +24,13 @@ require 'digest/md5'
 
 # Before rendering the site, update the cached fingerprint of the CSS.
 Jekyll::Hooks.register :site, :pre_render do |site|
-  source = site.config["source"]
+  source = site.config['source']
 
   # Read the file that becomes /static/style.css
   sass_source = File.read "#{source}/static/style.scss"
 
   # Remove the front matter
-  sass_source = sass_source.split("---")[-1]
+  sass_source = sass_source.split('---')[-1]
 
   # Convert to CSS
   css = site.find_converter_instance(Jekyll::Converters::Scss)
@@ -40,13 +40,13 @@ Jekyll::Hooks.register :site, :pre_render do |site|
   fingerprint = Digest::MD5.hexdigest(css)
 
   # Store that fingerprint in the Jekyll cache, so we can access it later.
-  Jekyll::Cache.new("CssFingerprint")["style.scss"] = fingerprint
+  Jekyll::Cache.new('CssFingerprint')['style.scss'] = fingerprint
 end
 
 module Jekyll
   class CssFingerprintTag < Liquid::Tag
-    def render(context)
-      Jekyll::Cache.new("CssFingerprint")["style.scss"]
+    def render(_context)
+      Jekyll::Cache.new('CssFingerprint')['style.scss']
     end
   end
 end
