@@ -4,7 +4,7 @@ body {
 }
 
 body, .post_cards .card a .card_description {
-  color: $body-color-light;
+  color: var(--body-text);
 }
 
 h1, h2, h3, p.card_title {
@@ -114,10 +114,6 @@ sup {
 }
 
 @media (prefers-color-scheme: dark) {
-  body, .post_cards .card a .card_description {
-    color: $body-color-dark;
-  }
-
   .post_cards .card .card_posting_date p,
   .title.linkpost_title::after {
     color: $accent-grey-dark;

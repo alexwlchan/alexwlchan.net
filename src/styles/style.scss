@@ -19,6 +19,8 @@
 @import "base/pygments.scss";
 @import "base/tweets.scss";
 
+@import "components/pretty_hr.scss";
+
 // This is for the "Skip to main content" link at the top of the page
 //
 // See https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
@@ -59,14 +61,14 @@ a.download {
   }
 
   .post_cards .card .card_posting_date p {
-    color: $body-color-light;
+    color: var(--body-text);
   }
 
   .meta, figcaption {
-    color: $body-color-light;
+    color: var(--body-text);
 
     a {
-      color: $body-color-light;
+      color: var(--body-text);
     }
   }
 }

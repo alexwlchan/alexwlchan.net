@@ -1,0 +1,23 @@
+/* Styles for the "pretty hr", a line of squares I use in place of an <hr/>. */
+
+svg[role="separator"] {
+  display: block;
+  margin: 3.5em auto;
+
+  & + h2 {
+    margin-top: 0;
+  }
+
+  /* In light mode, these squares are lighter than the text.
+   * In dark mode, they're the same colour.
+   */
+  --fill-color: #{$midtone-grey-light};
+
+  @media (prefers-color-scheme: dark) {
+    --fill-color: var(--body-text);
+  }
+
+  rect {
+    fill: var(--fill-color);
+  }
+}
