@@ -9,10 +9,20 @@ $meta-font-size:      $meta-size * $default-font-size;
 $default-line-height: 1.5em;
 $meta-line-height:    $meta-size * $default-line-height * 1.15;
 
-$scaling-factor:      0.95;
-$code-scaling-factor: 0.88;
-
 :root {
+  /* ====================
+   * Font and text styles
+   * ==================== */
+  --font-size: #{$default-font-size};
+
+  --line-height: #{$default-line-height};
+
+  --footnote-scaling-factor: 0.95;
+  --code-scaling-factor:     0.88;
+
+  /* =============================
+   * Margins and page layout stuff
+   * ============================= */
   --max-width: 750px;
 
   --grid-gap: 10px;

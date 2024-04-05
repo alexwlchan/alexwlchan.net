@@ -53,8 +53,8 @@ sup {
 }
 
 .footnotes {
-  font-size:   $default-font-size   * $scaling-factor;
-  line-height: $default-line-height * $scaling-factor;
+  font-size:   calc(var(--font-size)   * var(--footnote-scaling-factor));
+  line-height: calc(var(--line-height) * var(--footnote-scaling-factor));
 }
 
 .title {
