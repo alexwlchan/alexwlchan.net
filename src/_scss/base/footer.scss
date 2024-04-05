@@ -18,7 +18,7 @@ footer {
     grid-template-columns: auto auto;
 
     #footer_social {
-      padding-top: $default-padding;
+      padding-top: var(--default-padding);
       text-align: right;
       margin-left: 1em;
     }

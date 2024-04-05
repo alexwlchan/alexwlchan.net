@@ -24,7 +24,7 @@ code {
 }
 
 pre {
-  padding: 2 * math.div($default-padding, 3) ($default-padding - $border-width);
+  padding: calc(2 * var(--default-padding) / 3) calc(var(--default-padding) - var(--border-width));
 
   line-height: $default-line-height * $code-scaling-factor * 1.08;
 

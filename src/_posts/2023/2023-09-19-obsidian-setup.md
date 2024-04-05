@@ -87,14 +87,15 @@ I use a similar set of colour-based themes to help me distinguish between Slack 
 
 ---
 
-<style type="x-text/scss">
+<style type="x-text/css">
   @media screen and (min-width: 500px) {
     #obsidian_tags {
       display: inline-block;
       float: right;
-      margin-left:    $default-padding;
-      margin-bottom:  $default-padding;
-      margin-top:    -$default-padding;
+
+      margin-left:   var(--default-padding);
+      margin-bottom: var(--default-padding);
+      margin-top:    calc(-1 * var(--default-padding));
     }
   }
 </style>

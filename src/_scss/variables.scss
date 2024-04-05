@@ -16,11 +16,19 @@ $max-width: 750px;
 
 $grid-gap: 10px;
 
-$default-padding: 20px;
+:root {
+  --max-width: #{$max-width};
 
-$border-radius: 10px;
-$border-style: solid;
-$border-width: 3px;
+  --grid-gap: #{$grid-gap};
+
+  --default-padding: 20px;
+
+  --border-radius: 10px;
+  --border-style:  solid;
+  --border-width:  3px;
+}
+
+/* Variables for colours */
 
 $accent-grey-light: #999;
 $accent-grey-dark:  #999;
