@@ -23,7 +23,10 @@
 
 @import "components/pretty_hr.scss";
 
-@include create_colour_variables(#d01c11, #ff4242);
+$primary-color-light: #d01c11;
+$primary-color-dark:  #ff4242;
+
+@include create_colour_variables($primary-color-light, $primary-color-dark);
 
 // This is for the "Skip to main content" link at the top of the page
 //

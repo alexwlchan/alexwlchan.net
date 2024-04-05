@@ -8,12 +8,15 @@
 #
 # == Usage ==
 #
-# There are two parts to this plugin:
+# There are three parts to this plugin:
 #
 #   1.  A pre-render hook that checks there's sufficient contrast between
 #       the chosen tint color and the background of the page.
 #
-#   2.  A tag you can use in the <head> of a page to get the custom CSS
+#   2.  A pre-render hook that creates the "speckled" header images and
+#       favicons for every tint color that I'm using.
+#
+#   3.  A tag you can use in the <head> of a page to get the custom CSS
 #       variables (if any) for this page:
 #
 #           {% tint_color_css %}
@@ -41,11 +44,25 @@ def ensure_sufficient_contrast(css_colors)
   end
 end
 
+Jekyll::Hooks.register :site, :pre_render do
+  light_color = get_default_light_color
+
+  create_header_image(light_color)
+  create_favicon(light_color)
+
+  hex_string = light_color.gsub('#', '')
+
+  FileUtils.cp("_site/favicons/#{hex_string}.png", "_site/favicon.png")
+  FileUtils.cp("_site/favicons/#{hex_string}.ico", "_site/favicon.ico")
+end
+
 Jekyll::Hooks.register :pages, :pre_render do |page|
   css_colors = get_css_colors(page.data)
 
   unless css_colors.nil?
     ensure_sufficient_contrast(css_colors)
+    create_header_image(css_colors['light'])
+    create_favicon(css_colors['light'])
   end
 end
 
@@ -54,6 +71,8 @@ Jekyll::Hooks.register :documents, :pre_render do |doc|
 
   unless css_colors.nil?
     ensure_sufficient_contrast(css_colors)
+    create_header_image(css_colors['light'])
+    create_favicon(css_colors['light'])
   end
 end
 
