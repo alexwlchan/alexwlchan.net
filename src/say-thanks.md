@@ -10,5 +10,5 @@ A nice email can really make my day!
 
 If you're feeling extra generous, you can [send me a coffee][kofi] on Ko-fi.
 
-[email]: {{ site.emails.personal | encode_mailto }}
+[email]: {{ site.email | encode_mailto }}
 [kofi]: https://ko-fi.com/alexwlchan
