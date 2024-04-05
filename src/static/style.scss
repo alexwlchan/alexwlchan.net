@@ -7,6 +7,8 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+@import "_main.scss";
+
 @import "base/layout.scss";
 @import "base/text.scss";
 
@@ -20,6 +22,8 @@
 @import "base/tweets.scss";
 
 @import "components/pretty_hr.scss";
+
+@include create_colour_variables(#d01c11, #ff4242);
 
 // This is for the "Skip to main content" link at the top of the page
 //

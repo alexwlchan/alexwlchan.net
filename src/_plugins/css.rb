@@ -5,10 +5,6 @@
 #
 #     - Setting a custom tint colour in the front matter.
 #
-#     - Adding extra CSS rules in `styles/${year}/${slug}.scss`.
-#       Note that this has access to all the mixins/functions/variables
-#       in the rest of the SCSS styles.
-#
 # This plugin will:
 #
 #     - Create an appropriate CSS file for the page
@@ -20,35 +16,29 @@ require 'fileutils'
 
 require_relative 'utils/contrast'
 
-def convert_css(site, css_string)
-  converter = site.find_converter_instance(Jekyll::Converters::Scss)
-  converter.convert(css_string)
-end
-
 Jekyll::Hooks.register :site, :pre_render do
-  FileUtils.rm_f('.header_colours.txt')
+  open('.header_colours.txt', 'w') do |f|
+    f.puts '#d01c11'
+  end
 end
 
-def get_page_color(page, name, default)
+def get_page_color(page, name)
   if page.nil?
-    default
+    nil
   else
-    (page['colors'] || {})[name] || default
+    (page['colors'] || {})[name]
   end
 end
 
 module Jekyll
   class CssStylesheet < Liquid::Tag
-    def initialize(tag_name, text, tokens)
-      super
-      @css_cache = {}
-    end
-
     def render(context)
-      site = context.registers[:site]
+      primary_color_light = get_page_color(context.registers[:page], 'css_light')
+      primary_color_dark = get_page_color(context.registers[:page], 'css_dark')
 
-      primary_color_light = get_page_color(context.registers[:page], 'css_light', '#d01c11')
-      primary_color_dark = get_page_color(context.registers[:page], 'css_dark', '#ff4242')
+      if primary_color_light.nil? && primary_color_dark.nil?
+        return
+      end
 
       if contrast(primary_color_light, '#ffffff') < 4.5
         throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 4.5"
@@ -62,22 +52,17 @@ module Jekyll
         f.puts primary_color_light
       end
 
-      # We only need to create and write the CSS file for this colour
-      # if one hasn't already
-      unless @css_cache.key? primary_color_light
-        @css_cache[primary_color_light] = convert_css(site, <<~SCSS
-          $primary-color-light: #{primary_color_light};
-          $primary-color-dark:  #{primary_color_dark};
+      sass = <<~SCSS
+        @import "variables.scss";
 
-          @import "_main.scss";
-        SCSS
-        )
-      end
+        @include create_colour_variables(#{primary_color_light}, #{primary_color_dark});
+      SCSS
 
-      css = @css_cache[primary_color_light]
+      css = context.registers[:site]
+                   .find_converter_instance(Jekyll::Converters::Scss)
+                   .convert(sass)
 
       <<~HTML
-        <link rel="stylesheet" href="/styles/style.css?md5=#{@base_css_md5}">
         <style>#{css}</style>
       HTML
     end

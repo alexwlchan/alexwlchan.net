@@ -3,14 +3,13 @@
 @import "variables.scss";
 
 @import "_settings.scss";
-@import "_functions.scss";
 @import "mixins.scss";
 
 h1, h2,
 .title a:visited,
 .post__permalink a,
 .post__permalink a:visited {
-  color: $primary-color-light;
+  color: var(--primary-color);
 }
 
 // Links should be coloured red, but darker if they've been visited (or
@@ -28,106 +27,47 @@ h1, h2,
 //        ~> will be coloured default red
 //
 a {
-  @include link_styles($primary-color-light, 0.2);
-
-  &:visited:not(.novisited) {
-    @include link_styles(darken($primary-color-light, 15%), 0.2);
-  }
+  &               { color: var(--link-color);                         }
+  &:visited       { color: var(--link-visited-color);                 }
+  &:hover         { background: var(--link-hover-background);         }
+  &:visited:hover { background: var(--link-visited-hover-background); }
 }
 
 a.download {
-  border-color: $primary-color-light;
+  border-color: var(--link-color);
 
   // We need to override the background styles
-  color: $primary-color-light !important;
+  color: var(--link-color) !important;
   background: rgba(white, 0.4) !important;
 
   // Although this is supplied by the link style, we need to set it again
   // here because the `background` rule above overrides the `a:hover` rule.
   &:hover {
-    background: rgba($primary-color-light, 0.2) !important;
+    background: var(--link-hover-background) !important;
   }
 }
 
 pre, blockquote {
-  border-color: rgba($primary-color-light, 0.1);
-  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 95%, 0.4);
-}
-
-#subscribe {
-  border-color: $primary-color-light;
-  background-color: hsla(hue($primary-color-light), saturation($primary-color-light), 80%, 0.4);
-
-  input[type="submit"] {
-    background-color: $primary-color-light;
-  }
+  border-color:     var(--block-border-color);
+  background-color: var(--block-background-color);
 }
 
 nav {
-  background: url('/headers/specktre_#{colorToHexString($primary-color-light)}.png') $primary-color-light;
+  background: var(--nav-background-url) var(--primary-color-light);
   background-size: auto 100%;
 }
 
 footer {
-  background: $primary-color-light;
-}
-
-@media (prefers-color-scheme: dark) {
-  a {
-    @include link_styles($primary-color-dark, 0.2);
-
-    &:visited:not(.novisited) {
-      @include link_styles(lighten($primary-color-dark, 15%), 0.1);
-    }
-  }
-
-  h1, h2,
-  .title a:visited,
-  .post__permalink a,
-  .post__permalink a:visited {
-    color: $primary-color-dark;
-  }
-
-  a.download {
-    border-color: $primary-color-dark;
-
-    // We need to override the background styles
-    color: $primary-color-dark !important;
-    background: rgba(black, 0.6) !important;
-
-    // Although this is supplied by the link style, we need to set it again
-    // here because the `background` rule above overrides the `a:hover` rule.
-    &:hover {
-      background: rgba($primary-color-dark, 0.4) !important;
-    }
-  }
-
-  pre, blockquote {
-    border-color: rgba($primary-color-dark, 0.3);
-    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 5%, 0.7);
-  }
-
-  #subscribe {
-    border-color: $primary-color-dark;
-    background-color: hsla(hue($primary-color-dark), saturation($primary-color-dark), 25%, 0.7);
-
-    input[type="submit"] {
-      background-color: $primary-color-dark;
-    }
-
-    a {
-      color: white;
-    }
-  }
+  background: var(--primary-color-light);
 }
 
 @media print {
   nav {
     background: none;
-    border-bottom: var(--border-width) solid $primary-color-light;
+    border-bottom: var(--border-width) solid var(--base-color);
   }
 
   #nav_inner {
-    color: $primary-color-light;
+    color: var(--base-color);
   }
 }
