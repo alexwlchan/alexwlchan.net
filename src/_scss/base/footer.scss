@@ -14,6 +14,11 @@ footer {
 
   display: grid;
 
+  /* Add some spacing between the icons */
+  .footer_link:not(:last-child) {
+    margin-right: 5px;
+  }
+
   @media screen and (min-width: 600px) {
     grid-template-columns: auto auto;
 
@@ -21,10 +26,6 @@ footer {
       padding-top: var(--default-padding);
       text-align: right;
       margin-left: 1em;
-    }
-
-    .footer_link:not(:last-child) {
-      margin-right: 5px;
     }
 
     .footer_link svg {
@@ -38,10 +39,6 @@ footer {
 
     #footer_social {
       text-align: left;
-
-      .footer_link:not(:first-child) {
-        margin-left:  5px;
-      }
     }
 
     .footer_link svg {

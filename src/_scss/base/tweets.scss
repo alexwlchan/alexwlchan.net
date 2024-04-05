@@ -7,14 +7,43 @@
   overflow: hidden;
   cursor: pointer;
 
+  /* ==============
+   * Colour palette
+   * ============== */
+  --background-color:       white;
+  --background-color-hover: #f7f9f9;
+  --border-color:           #e1e8ed;
+  --text-color:             #1c2022;
+  --link-color:             #2b7bb9;
+  --metadata-color:         #697882;
+
+  @media (prefers-color-scheme: dark) {
+    --background-color:       #15202b;
+    --background-color-hover: #202731;
+    --border-color:           #425364;
+    --text-color:             #e7e9ea;  /* v light white */
+    --link-color:             #6bc9fb;
+    --metadata-color:         #8b98a5;
+  }
+
+  &       { background: var(--background-color)        }
+  &:hover { background: var(--background-color-hover); }
+
   &, .quoted_tweet {
     border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid var(--border-color);
+  }
+
+  &, .quoted_tweet, .name {
+    color: var(--text-color);
   }
 
   // Eyeballed against a real tweet embed
   @include centred(496px);
+
+  a, a:visited {
+    color: var(--link-color) !important;
+  }
 
   a, a:visited, a:active, .author a:hover {
     text-decoration: none;
@@ -28,9 +57,11 @@
     background: none;
   }
 
-  .screen_name, .metadata {
+  .screen_name, .metadata, .metadata a {
     font-size: 14px;
+    color: var(--metadata-color);
   }
+
   .screen_name:before {
     white-space: pre;
     content: "\A"; /*\200e";*/
@@ -65,6 +96,12 @@
       img {
         height: 20px;
       }
+
+      @media (prefers-color-scheme: dark) {
+        .icon {
+          fill: white;
+        }
+      }
     }
   }
 
@@ -74,14 +111,8 @@
     padding-bottom: 14px;
   }
 
-  .media, .media-3 a:nth-child(2), img.media {
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-  }
-
-  .media-2 a:nth-child(1) {
-    border-right-width: 1px;
-    border-right-style: solid;
+  .media, img.media {
+    border-bottom: 1px solid var(--border-color);
   }
 
   .media-2, .media-3, .media-4 {
@@ -103,6 +134,10 @@
     a {
       aspect-ratio: 281.5 / 317.25;
     }
+
+    a:nth-child(1) {
+      border-right: 1px solid var(--border-color);
+    }
   }
 
   .media-3 {
@@ -113,8 +148,7 @@
     a:nth-child(1) {
       grid-column: 1 / 2;
       grid-row: 1 / span 2;
-      border-right-width: 1px;
-      border-right-style: solid;
+      border-right: 1px solid var(--border-color);
     }
 
     a:nth-child(2) {
@@ -125,6 +159,7 @@
     a:nth-child(3) {
       grid-column: 2 / 2;
       grid-row: 2 / 2;
+      border-bottom: 1px solid var(--border-color);
     }
   }
 
@@ -134,21 +169,16 @@
     aspect-ratio: 2 / 1;
 
     a:nth-child(1) {
-      border-right-width: 1px;
-      border-right-style: solid;
-
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
     a:nth-child(2) {
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
+      border-bottom: 1px solid var(--border-color);
     }
 
     a:nth-child(3) {
-      border-right-width: 1px;
-      border-right-style: solid;
+      border-right: 1px solid var(--border-color);
     }
   }
 
@@ -248,75 +278,4 @@
 
 blockquote .tweet {
   margin-bottom: 1em;
-}
-
-.tweet {
-  background-color: #fff;
-
-  $border-color: #e1e8ed;
-
-  &, .quoted_tweet, .name {
-    color: #1c2022;
-  }
-
-  &, .quoted_tweet {
-    border-color: $border-color;
-  }
-
-  &:hover {
-    background-color: #f7f9f9;
-  };
-
-  a, a:visited {
-    color: #2b7bb9 !important;
-  }
-  .screen_name, .metadata, .metadata a {
-    color: #697882;
-  }
-
-  .media, .media-3 a:nth-child(2), .media-4 a:nth-child(1), .media-4 a:nth-child(2), img.media {
-    border-bottom-color: $border-color;
-  }
-
-  .media-2 a:nth-child(1), .media-3 a:nth-child(1), .media-4 a:nth-child(1), .media-4 a:nth-child(3) {
-    border-right-color: $border-color;
-  };
-
-  @media (prefers-color-scheme: dark) {
-    background-color: #15202b;
-
-    &, .quoted_tweet, .name {
-      color: #e7e9ea;  // v light white
-    }
-
-    $border-color: #425364;
-
-    .twitter_birb .icon {
-      fill: white;
-    }
-
-    &:hover {
-      background-color: #202731;
-    };
-
-    &, .quoted_tweet {
-      border-color: $border-color;
-    }
-
-    a, a:visited {
-      color: #6bc9fb !important;
-    }
-
-    .screen_name, .metadata, .metadata a {
-      color: #8b98a5;
-    }
-
-    .media, .media-3 a:nth-child(2), img.media {
-      border-bottom-color: $border-color;
-    }
-
-    .media-2 a:nth-child(1), .media-3 a:nth-child(1) {
-      border-right-color: $border-color;
-    };
-  }
 }

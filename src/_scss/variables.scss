@@ -1,3 +1,5 @@
+@use "sass:math";
+
 :root {
   /* ====================
    * Font and text styles
@@ -47,5 +49,65 @@ $accent-grey-dark:  #999;
 
     --accent-grey:            #{$accent-grey-dark};
     --accent-grey-link-hover: #{rgba($accent-grey-dark, 0.2)};
+  }
+}
+
+/* ===================================================
+ * Colours which can vary with the page "tint" colours
+ * ===================================================
+ *
+ * Because there aren't functions like rgba() and darken() in CSS,
+ * I pre-bake all the different variants of a colour into a large set
+ * of CSS variables that can be used in the different rules.
+ */
+
+/* Convert a decimal number to a two-digit hex string. */
+@function decToHex($dec) {
+  $hex: "0123456789ABCDEF";
+  $first: math.div($dec - $dec % 16, 16) + 1;
+  $second: ($dec % 16) + 1;
+  @return str-slice($hex, $first, $first) + str-slice($hex, $second, $second);
+}
+
+/* Convert a color to a hex string, omitting the leading hash.
+ *
+ * For example, #d009dc would become 'd009dc'. */
+@function colorToHexString($color) {
+  $red_hex:   decToHex(red($color));
+  $green_hex: decToHex(green($color));
+  $blue_hex:  decToHex(blue($color));
+  @return to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
+}
+
+@mixin create_colour_variables($light-color, $dark-color) {
+  :root {
+    --primary-color-light: #{$light-color};
+    --primary-color-dark:  #{$dark-color};
+
+    --primary-color: #{$light-color};
+
+    --nav-background-url: url('/headers/specktre_#{colorToHexString($light-color)}.png');
+
+    --link-color:                    #{$light-color};
+    --link-visited-color:            #{darken($light-color, 15%)};
+    --link-hover-background:         #{rgba($light-color, 0.2)};
+    --link-visited-hover-background: #{rgba(darken($light-color, 15%), 0.2)};
+
+    --block-border-color:     #{rgba($light-color, 0.1)};
+    --block-background-color: #{hsla(hue($light-color), saturation($light-color), 95%, 0.4)};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary-color: #{$dark-color};
+
+      --link-color:                    #{$dark-color};
+      --link-visited-color:            #{lighten($dark-color, 15%)};
+      --link-hover-background:         #{rgba($dark-color, 0.2)};
+      --link-visited-hover-background: #{rgba(lighten($dark-color, 15%), 0.2)};
+
+      --block-border-color:     #{rgba($dark-color, 0.3)};
+      --block-background-color: #{hsla(hue($dark-color), saturation($dark-color), 5%, 0.7)};
+    }
   }
 }
