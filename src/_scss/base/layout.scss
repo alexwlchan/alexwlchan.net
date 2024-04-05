@@ -22,8 +22,8 @@ body {
 main, #footer_inner, nav > *, #editing-toolbar_inner {
   @include centred(var(--max-width));
 
-  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
-  padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
+  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left))  !important;
+  padding-right: calc(var(--default-padding) + env(safe-area-inset-right)) !important;
 }
 
 #footer_inner {
