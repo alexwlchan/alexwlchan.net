@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: til
 date: 2013-05-11 12:26:00 +0000
-summary: A barely advertised feature of Tumblr that lets you get an RSS feed of external
-  audio posts.
+summary: |
+  If you add `/podcast` to a Tumblr site, you get a podcast-like RSS feed for all the external audio posts on that site.
 tags:
   - podcasts
   - tumblr
-title: Podcast feeds on Tumblr
+title: Get an RSS feed of external audio posts on Tumblr
 ---
 
 On [episode&nbsp;12][atp12] of the [Accidental Tech Podcast][atp], Marco, Casey and John were discussing podcasts. They were comparing them to blogging, the way more people wanted to have their own podcast, and how the tools for making your own podcast compare to those for making your own blog. A little over an hour in, Marco mentioned a useful Easter egg in Tumblr for podcasters.
@@ -21,7 +21,7 @@ I went to have a play, and this feature still works. You want the first, rather 
 
 Handy!
 
-**A disclaimer:** I haven't tested any of this extensively, and I don't know anybody at Tumblr who'd be able to explain exactly how this feature works, but I thought it was useful enough to share with other people.
+I haven't tested any of this extensively, and I don't know anybody at Tumblr who'd be able to explain exactly how this feature works, but I thought it was useful enough to write down and make more discoverable.
 
 ## Notes
 

@@ -646,7 +646,7 @@
 /2013/03/candybar/                                                    	/2013/candybar/
 /2013/03/pinboard-backups/                                            	/2013/pinboard-backups/
 /2013/03/timezone-bug/                                                	/2013/timezone-bug/
-/2013/05/rss-podcasts-tumblr/                                         	/2013/rss-podcasts-tumblr/
+/2013/05/rss-podcasts-tumblr/                                         	/til/2013/rss-podcasts-tumblr/
 /2013/08/google-maps/                                                 	/2013/google-maps/
 /2013/08/untagged-tumblr-posts/                                       	/2013/untagged-tumblr-posts/
 /2013/11/textmate-quick-look/                                         	/2013/textmate-quick-look/
@@ -1164,6 +1164,20 @@
 /zb_system/*                                                    /400/ 400
 
 # === #
+
+
+
+
+
+# == Redirects for articles that became TILs == #
+#
+# In April 2024 I moved some of my old posts into the TIL section, so
+# their URLs changed.  Make sure they get redirected!
+
+/2013/rss-podcasts-tumblr/ /til/2013/rss-podcasts-tumblr/
+
+# === #
+
 
 
 
