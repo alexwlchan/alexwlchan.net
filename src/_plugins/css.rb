@@ -16,7 +16,7 @@ require 'fileutils'
 
 require_relative 'utils/contrast'
 
-Jekyll::Hooks.register :site, :pre_render
+Jekyll::Hooks.register :site, :pre_render do
   open('.header_colours.txt', 'w') do |f|
     f.puts '#d01c11'
   end
