@@ -48,8 +48,8 @@ sup {
 }
 
 .meta, figcaption, footer {
-  font-size:   $meta-font-size;
-  line-height: $meta-line-height;
+  font-size:   calc(var(--font-size)   * var(--meta-scaling-factor));
+  line-height: calc(var(--line-height) * var(--meta-scaling-factor) * 1.15);
 }
 
 .footnotes {
