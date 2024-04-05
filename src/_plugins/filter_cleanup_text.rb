@@ -98,8 +98,8 @@ module Jekyll
       )
 
       text = text.gsub(
-        'TeX',
-        '<span class="visually-hidden">TeK</span><span class="latex" aria-hidden="true">T<sub>e</sub>X</span>'
+        ' TeX',
+        ' <span class="visually-hidden">TeK</span><span class="latex" aria-hidden="true">T<sub>e</sub>X</span>'
       )
 
       # Make sure that footnote markers are rendered as a text
