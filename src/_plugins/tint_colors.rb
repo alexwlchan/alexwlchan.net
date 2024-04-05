@@ -45,7 +45,7 @@ def ensure_sufficient_contrast(css_colors)
 end
 
 Jekyll::Hooks.register :site, :pre_render do
-  light_color = get_default_light_color
+  light_color = read_default_light_color
 
   create_header_image(light_color)
   create_favicon(light_color)
