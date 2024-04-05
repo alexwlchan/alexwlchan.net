@@ -25,7 +25,7 @@ I had a lovely time, and this post has a few of my photos.
     display: grid;
     grid-template-columns: calc(33% - 5px) calc(33% - 5px) calc(33% - 5px);
     grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
-    grid-gap: $grid-gap;
+    grid-gap: var(--grid-gap);
   }
 
   .grid_4up .upper {

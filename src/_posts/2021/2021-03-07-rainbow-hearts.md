@@ -17,7 +17,7 @@ colors:
   #grid-container {
     display: grid;
     grid-template-columns: 66% 32%;
-    grid-gap: $grid-gap;
+    grid-gap: var(--grid-gap);
     height: 50%;
   }
 

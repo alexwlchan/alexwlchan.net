@@ -52,7 +52,7 @@ a.download {
 }
 
 .slide {
-  @include centred($max-width * 0.6);
+  @include centred(calc(var(--max-width) * 0.6));
 }
 
 @media print {

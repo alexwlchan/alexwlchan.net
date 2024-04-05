@@ -124,7 +124,7 @@ footer {
 @media print {
   nav {
     background: none;
-    border-bottom: $border-width solid $primary-color-light;
+    border-bottom: var(--border-width) solid $primary-color-light;
   }
 
   #nav_inner {

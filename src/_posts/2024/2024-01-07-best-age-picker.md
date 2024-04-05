@@ -20,9 +20,14 @@ I've done some thinking, and I've come up with a proposal.
 We all know the best way to tell somebody's age is to count the candles on their birthday cake, so I've built a cake-based interface.
 
 <style type="x-text/scss">
-  $width: calc(100vw - 3 * #{$default-padding} - env(safe-area-inset-left) - env(safe-area-inset-right) - 6px);
-
   #cakeInput {
+    --width: calc(
+      100vw
+      - 3 * var(--default-padding)
+      - env(safe-area-inset-left)
+      - env(safe-area-inset-right)
+      - 2 * var(--border-width)
+    );
 
     /* Imagine we want a layout like this, where W is the full width of
      * the window, T is the text, and C is the cake.
@@ -49,20 +54,20 @@ We all know the best way to tell somebody's age is to count the candles on their
      *
      *       CCCCCCCCCCC|CCCCCCCCCCC
      *       ^^^^^^^^^^^
-     *        = #{$width} / 2
+     *        = width / 2
      *
      */
 
-    width: $width;
-    margin-left:  calc(-1 * (#{$width} / 2 - 50%));
+    width: var(--width);
+    margin-left:  calc(-1 * (var(--width) / 2 - 50%));
     background: #ff00d022;
-    border: 3px solid #ff00d0;
+    border: var(--border-width) solid #ff00d0;
     border-radius: 10px;
     text-align: center;
     font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
     color: #ff00d0;
     padding-bottom: 1em;
-    padding-left: $default-padding;
+    padding-left: var(--default-padding);
     overflow: scroll;
 
     display: inline-block;
@@ -71,7 +76,7 @@ We all know the best way to tell somebody's age is to count the candles on their
       color: #ff00d0;
     }
 
-    @media screen and (max-width: $max-width + $default-padding * 2) {
+    @media screen and (max-width: calc(var(--max-width) + var(--default-padding) * 2)) {
       margin-left:  0;
       margin-right: 0;
     }
@@ -234,7 +239,7 @@ This is what I came up with:
   #two_columns {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: $grid-gap;
+    grid-gap: var(--grid-gap);
     align-items: center;
   }
 </style>

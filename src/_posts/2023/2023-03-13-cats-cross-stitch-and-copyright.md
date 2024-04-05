@@ -119,8 +119,11 @@ These issues aside, I really am thrilled with this latest piece – it was fun t
 <style type="x-text/scss">
   #school_project {
     display: grid;
-    grid-template-columns: calc(50% - $grid-gap * 2/3) calc(25% - $grid-gap * 2/3) calc(25% - $grid-gap * 2/3);
-    grid-gap: $grid-gap;
+    grid-template-columns: 
+      calc(50% - var(--grid-gap) * 2/3)
+      calc(25% - var(--grid-gap) * 2/3)
+      calc(25% - var(--grid-gap) * 2/3);
+    grid-gap: var(--grid-gap);
   }
 
   #school_project > div {

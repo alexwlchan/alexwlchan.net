@@ -26,10 +26,10 @@ h2 {
 }
 
 blockquote {
-  padding: 1px $default-padding;
+  padding: 1px var(--default-padding);
 
-  p:first-child { margin-top:    2 * math.div($default-padding, 3); }
-  p:last-child  { margin-bottom: 2 * math.div($default-padding, 3); }
+  p:first-child { margin-top:    calc(2 * var(--default-padding) / 3); }
+  p:last-child  { margin-bottom: calc(2 * var(--default-padding) / 3); }
 }
 
 // These rules help with the positioning of footnote markers, although

@@ -20,9 +20,9 @@ body {
 }
 
 main, #footer_inner, #nav_inner, #editing-toolbar_inner, #subscribe form {
-  max-width: $max-width;
-  padding-left:  calc(#{$default-padding} + env(safe-area-inset-left));
-  padding-right: calc(#{$default-padding} + env(safe-area-inset-right));
+  max-width: var(--max-width);
+  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
+  padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
 }
 
 #nav_inner {
@@ -49,9 +49,9 @@ figcaption {
 }
 
 pre, blockquote, img.screenshot, a.download {
-  border-radius: $border-radius;
-  border-style:  $border-style;
-  border-width:  $border-width;
+  border-radius: var(--border-radius);
+  border-style:  var(--border-style);
+  border-width:  var(--border-width);
 }
 
 article, main {
@@ -149,7 +149,7 @@ iframe {
 }
 
 #subscribe {
-  padding: $default-padding;
+  padding: var(--default-padding);
 
   p:first-child { margin-top: 0; }
   p:last-child  { margin-bottom: 0; }
@@ -177,10 +177,10 @@ iframe {
 blockquote,
 pre,
 a.download {
-  margin-left:  $default-padding;
-  margin-right: $default-padding;
+  margin-left:  var(--default-padding);
+  margin-right: var(--default-padding);
 
-  @media screen and (max-width: $max-width + $default-padding * 3) {
+  @media screen and (max-width: calc(var(--max-width) + var(--default-padding) * 3)) {
     margin-left:  0px;
     margin-right: 0px;
   }
