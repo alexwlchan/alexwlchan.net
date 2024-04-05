@@ -24,10 +24,9 @@
 
 require_relative 'utils/contrast'
 
-# Throws an error if the CSS colors on a given page don't have enough
-# contrast with the white/black backgrounds.
-def ensure_sufficient_contrast(page_data)
-  colors = page_data.fetch('colors', {})
+# Given the front matter from a page, get the CSS colors (if any).
+def get_css_colors(page)
+  colors = page.fetch('colors', {})
 
   primary_color_light = colors['css_light']
   primary_color_dark = colors['css_dark']
@@ -36,21 +35,39 @@ def ensure_sufficient_contrast(page_data)
     return
   end
 
-  if contrast(primary_color_light, '#ffffff') < 4.5
-    throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 4.5"
+  { 'light' => primary_color_light, 'dark' => primary_color_dark }
+end
+
+# Throws an error if the CSS colors on a given page don't have enough
+# contrast with the white/black backgrounds.
+def ensure_sufficient_contrast(css_colors)
+  contrast_with_white = contrast(css_colors['light'], '#ffffff')
+
+  if contrast_with_white < 4.5
+    throw "light color: insufficient contrast between white and #{css_colors['light']}: #{contrast_with_white} < 4.5"
   end
 
-  return unless contrast(primary_color_dark, '#000000') < 4.5
+  contrast_with_black = contrast(css_colors['dark'], '#000000')
 
-  throw "dark color: insufficient contrast between black and #{primary_color_dark}: #{contrast(primary_color_dark, '#000000')} < 4.5"
+  if contrast_with_black < 4.5
+    throw "dark color: insufficient contrast between black and #{css_colors['dark']}: #{contrast_with_black} < 4.5"
+  end
 end
 
 Jekyll::Hooks.register :pages, :pre_render do |page|
-  ensure_sufficient_contrast(page.data)
+  css_colors = get_css_colors(page.data)
+
+  unless css_colors.nil?
+    ensure_sufficient_contrast(css_colors)
+  end
 end
 
 Jekyll::Hooks.register :documents, :pre_render do |doc|
-  ensure_sufficient_contrast(doc.data)
+  css_colors = get_css_colors(doc.data)
+
+  unless css_colors.nil?
+    ensure_sufficient_contrast(css_colors)
+  end
 end
 
 module Jekyll
@@ -58,19 +75,16 @@ module Jekyll
     def render(context)
       page = context.registers[:page]
 
-      colors = page.fetch('colors', {})
+      css_colors = get_css_colors(page)
 
-      primary_color_light = colors['css_light']
-      primary_color_dark = colors['css_dark']
-
-      if primary_color_light.nil? && primary_color_dark.nil?
+      if css_colors.nil?
         return
       end
 
       sass = <<~SCSS
         @import "variables.scss";
 
-        @include create_colour_variables(#{primary_color_light}, #{primary_color_dark});
+        @include create_colour_variables(#{css_colors['light']}, #{css_colors['dark']});
       SCSS
 
       css = context.registers[:site]

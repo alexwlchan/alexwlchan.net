@@ -47,6 +47,10 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/GuardClause:
+  Exclude:
+    - src/_plugins/tint_colors.rb
+
 Style/IfUnlessModifier:
   Enabled: false
 
