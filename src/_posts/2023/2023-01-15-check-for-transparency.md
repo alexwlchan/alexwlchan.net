@@ -70,7 +70,7 @@ I had it all tested and working, so imagine my dismay when I opened [my latest p
     display: grid;
     grid-template-columns: auto auto;
     width: 600px;
-    grid-column-gap: $default-grid-gap;
+    grid-column-gap: $grid-gap;
 
     picture:nth-child(1) img {
       border-top-right-radius: 0;

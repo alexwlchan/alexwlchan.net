@@ -43,7 +43,7 @@ If I learn something which is generically useful and not specific to my employer
   #screenshots {
     display: grid;
     grid-template-columns: auto;
-    grid-gap: $default-grid-gap;
+    grid-gap: $grid-gap;
 
     /* This feels like it should be possible using the :nth-child selector,
      * but I couldn't get it working

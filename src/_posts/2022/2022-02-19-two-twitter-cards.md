@@ -59,7 +59,7 @@ This can give some unfortunate results:
     #images {
       display: grid;
       grid-template-columns: auto auto;
-      grid-gap: $default-grid-gap;
+      grid-gap: $grid-gap;
 
       img {
         display: inline-block;
