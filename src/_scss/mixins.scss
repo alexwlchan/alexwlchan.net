@@ -66,7 +66,7 @@
   display: grid;
   grid-template-columns: calc(66% - 5px) calc(34% - 5px);
   grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
-  grid-gap: $grid-gap;
+  grid-gap: var(--grid-gap);
 
   div:nth-child(1) {
     grid-column: 1 / 2;
@@ -100,8 +100,8 @@
     display: block;
 
     div:nth-child(2) {
-      margin-top:    $grid-gap;
-      margin-bottom: $grid-gap;
+      margin-top:    var(--grid-gap);
+      margin-bottom: var(--grid-gap);
     }
   }
 }

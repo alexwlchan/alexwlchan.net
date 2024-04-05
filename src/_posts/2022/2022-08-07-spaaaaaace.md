@@ -16,7 +16,7 @@ colors:
   .grid {
     display: grid;
     grid-template-columns: calc(66% - 5px) calc(34% - 5px);
-    grid-gap: $grid-gap;
+    grid-gap: var(--grid-gap);
     aspect-ratio: 2.05 / 1;
   }
 

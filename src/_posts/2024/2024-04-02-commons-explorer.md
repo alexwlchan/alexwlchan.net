@@ -30,7 +30,7 @@ You can try the new Commons Explorer at [commons.flickr.org](https://commons.fli
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: auto auto;
-    grid-gap: $grid-gap;
+    grid-gap: var(--grid-gap);
 
     img {
       width:  100%;

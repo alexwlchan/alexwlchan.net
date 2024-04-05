@@ -12,12 +12,10 @@ $meta-line-height:    $meta-size * $default-line-height * 1.15;
 $scaling-factor:      0.95;
 $code-scaling-factor: 0.88;
 
-$grid-gap: 10px;
-
 :root {
   --max-width: 750px;
 
-  --grid-gap: #{$grid-gap};
+  --grid-gap: 10px;
 
   --default-padding: 20px;
 

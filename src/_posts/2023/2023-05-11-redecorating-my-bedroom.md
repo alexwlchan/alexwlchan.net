@@ -50,7 +50,7 @@ I took great glee in disassembling something which has been a source of countles
   #wardrobe {
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: $grid-gap;
+    grid-gap: var(--grid-gap);
   }
 
   @media screen and (max-width: 500px) {

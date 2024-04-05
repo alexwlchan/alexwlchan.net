@@ -18,7 +18,7 @@ colors:
     #images {
       display: grid;
       grid-template-columns: auto auto;
-      grid-gap: $grid-gap;
+      grid-gap: var(--grid-gap);
 
       img {
         display: inline-block;
@@ -59,7 +59,7 @@ This can give some unfortunate results:
     #images {
       display: grid;
       grid-template-columns: auto auto;
-      grid-gap: $grid-gap;
+      grid-gap: var(--grid-gap);
 
       img {
         display: inline-block;
