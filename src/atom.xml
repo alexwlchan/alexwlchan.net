@@ -8,7 +8,7 @@ layout: default_xml
   <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" />
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ '/' | absolute_url | xml_escape }}</id>
-  <title type="html">{{ site.title | smartify | xml_escape }}</title>
+  <title type="html">{{ site.title | xml_escape }}</title>
   <subtitle>{{ site.description | xml_escape }}</subtitle>
 
   <author>

@@ -1,6 +1,6 @@
 {% assign safe_title = page.title | markdownify_oneline | smartify | strip_html %}
 
-<title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title | smartify }}</title>
+<title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title }}</title>
 
 <meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
