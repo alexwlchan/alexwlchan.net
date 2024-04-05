@@ -93,8 +93,8 @@ module Jekyll
 
       # Display "LaTeX" in a nice way, if you have CSS enabled
       text = text.gsub(
-        'LaTeX',
-        '<span class="visually-hidden">LaTeK</span><span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
+        ' LaTeX',
+        ' <span class="visually-hidden">LaTeK</span><span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
       )
 
       text = text.gsub(
