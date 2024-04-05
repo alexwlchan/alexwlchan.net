@@ -38,7 +38,7 @@ def pytest_collection_modifyitems(session, config, items):
         items[:] = random.sample(items, k=random_sample_size)
 ```
 
-I created [a file with 100 empty tests](test_truth.py), and tested this new flag was working correctly:
+I created a file with 100 empty tests, and tested this new flag was working correctly:
 
 ```console
 $ pytest --verbose --random-selection 5
