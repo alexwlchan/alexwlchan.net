@@ -6,7 +6,21 @@
     <li><a href="/writing/">writing</a></li>
     <li><a href="/projects/">projects</a></li>
     <li>
-      <a href="/contact/" {% if page.nav_section == "contact" %}selected{% endif %}>contact</a>
+      <a
+        href="/til/"
+        {% if page.url == "/til/" %}selected{% endif %}
+        {% if page.layout == "til" %}selected{% endif %}
+      >
+        today i learned
+      </a>
+    </li>
+    <li>
+      <a
+        href="/contact/"
+        {% if page.nav_section == "contact" %}selected{% endif %}
+      >
+        contact
+      </a>
     </li>
   </ul>
 </nav>

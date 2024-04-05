@@ -1,0 +1,32 @@
+article.til {
+  p.summary { font-weight: bold; }
+}
+
+#list_of_tils {
+  h4 {
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+
+  p.summary {
+    margin-left: 1.5em;
+  }
+
+  p#filter_status {
+    display: none;
+  }
+}
+
+#filter_status {
+  display: none;
+
+  .selected_tag {
+    font-weight: bold;
+  }
+
+  .clear_filters {
+    color: red;
+    text-decoration: none;
+    background: none;
+  }
+}

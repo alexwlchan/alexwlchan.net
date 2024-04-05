@@ -63,6 +63,18 @@ sass:
   style: "compressed"
 
 # ==================
+# Collections config
+# ==================
+#
+# I create two collections in the site: one of articles, one of TILs.
+# See https://jekyllrb.com/docs/collections/ for more info.
+
+collections:
+  til:
+    output: true
+    permalink: "/til/:year/:title/"
+
+# ==================
 # Template variables
 # ==================
 #
