@@ -35,7 +35,8 @@ nav {
     text-decoration-thickness: 4px;
   }
 
-  ul a:hover {
+  a:hover {
+    text-decoration: underline;
     text-decoration-skip-ink: none;
     background: none;
   }
