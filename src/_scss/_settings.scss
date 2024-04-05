@@ -1,19 +1,2 @@
 $primary-color-light: #d01c11 !default;
 $primary-color-dark:  #d01c11 !default;
-$primary-dark:  darken($primary-color-light, 15%);
-
-$midtone-gray: #ccc;
-
-//$primary-green: #0c9718;
-
-$default-font-size: 1em;
-$line-height:       1.5em;
-
-$meta-size: 0.82;
-$meta-font-size:   $meta-size * $default-font-size;
-$meta-line-height: $meta-size * $line-height * 1.15;
-
-$max-width:       750px !default;
-$default-padding: 20px !default;
-
-$default-grid-gap: 10px;

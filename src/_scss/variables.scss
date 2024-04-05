@@ -22,11 +22,21 @@ $border-radius: 10px;
 $border-style: solid;
 $border-width: 3px;
 
-$body-color-light: #202020;
-$body-color-dark:  #c7c7c7;
-
 $accent-grey-light: #999;
-$accent-grey-dark:  #878787;
+$accent-grey-dark:  #999;
 
-$midtone-grey-dark:  #333;
-$midtone-grey-light: #ccc;
+:root {
+  --body-text:   #202020;
+
+  --accent-grey:            #{$accent-grey-light};
+  --accent-grey-link-hover: #{rgba($accent-grey-light, 0.2)};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-text:   #c7c7c7;
+
+    --accent-grey:            #{$accent-grey-dark};
+    --accent-grey-link-hover: #{rgba($accent-grey-dark, 0.2)};
+  }
+}

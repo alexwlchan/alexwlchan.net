@@ -4,7 +4,7 @@ body {
 }
 
 body, .post_cards .card a .card_description {
-  color: $body-color-light;
+  color: var(--body-text);
 }
 
 h1, h2, h3, p.card_title {
@@ -99,38 +99,16 @@ sup {
 
 .post_cards .card .card_posting_date p,
 .title.linkpost_title::after {
-  color: $accent-grey-light;
+  color: var(--accent-grey);
 }
 
 .meta, figcaption {
-  color: $accent-grey-light;
+  color: var(--accent-grey);
 
   a, a:visited {
-    color: $accent-grey-light !important;
+    color: var(--accent-grey) !important;
     &:hover {
-      background: rgba($accent-grey-light, 0.2) !important;
-    }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body, .post_cards .card a .card_description {
-    color: $body-color-dark;
-  }
-
-  .post_cards .card .card_posting_date p,
-  .title.linkpost_title::after {
-    color: $accent-grey-dark;
-  }
-
-  .meta, figcaption {
-    color: $accent-grey-dark;
-
-    a, a:visited {
-      color: $accent-grey-dark !important;
-      &:hover {
-        background: rgba($accent-grey-dark, 0.2) !important;
-      }
+      background: var(--accent-grey-link-hover) !important;
     }
   }
 }

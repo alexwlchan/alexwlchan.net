@@ -234,7 +234,7 @@ This is what I came up with:
   #two_columns {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: $default-grid-gap;
+    grid-gap: $grid-gap;
     align-items: center;
   }
 </style>
