@@ -60,31 +60,6 @@ article, main {
   padding-bottom: 2em;
 }
 
-/* A dot_list is a <ul> that displays all the items in a horizontal line,
- * separated by dots, e.g.
- *
- *      apple · banana · cherry
- *
- * as opposed to the more traditional
- *
- *    · apple
- *    · banana
- *    · cherry
- *
- */
-.dot_list {
-  list-style-type: none;
-  padding-left: 0px !important;
-
-  // Ensure they all display in a line
-  li {
-    display: inline;
-    &:not(:first-child)::before {
-      content: " · ";
-    }
-  }
-}
-
 img.screenshot {
   border-color: var(--border-width) var(--border-style) var(--screenshot-border-color);
 }

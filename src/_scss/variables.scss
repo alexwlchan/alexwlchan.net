@@ -37,7 +37,8 @@ $accent-grey-light: #999;
 $accent-grey-dark:  #999;
 
 :root {
-  --body-text:   #202020;
+  --body-text:       #202020;
+  --body-text-light: #202020;
 
   --accent-grey:            #{$accent-grey-light};
   --accent-grey-link-hover: #{rgba($accent-grey-light, 0.2)};
