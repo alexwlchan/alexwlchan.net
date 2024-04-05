@@ -1,6 +1,6 @@
 require 'color'
 
-# Computes the WCAG contrast ratio, suing the procedure defined in
+# Computes the WCAG contrast ratio, using the procedure defined in
 # https://www.w3.org/TR/WCAG20-TECHS/G17.html
 def contrast(color1, color2)
   color1 = Color::RGB.by_hex(color1)
