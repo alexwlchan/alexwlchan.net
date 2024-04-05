@@ -11,7 +11,7 @@ svg[role="separator"] {
   /* In light mode, these squares are lighter than the text.
    * In dark mode, they're the same colour.
    */
-  --fill-color: #{$midtone-grey-light};
+  --fill-color: #ccc;
 
   @media (prefers-color-scheme: dark) {
     --fill-color: var(--body-text);
