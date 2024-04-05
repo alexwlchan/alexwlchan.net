@@ -1167,6 +1167,20 @@
 
 
 
+
+
+# == Redirects for articles that became TILs == #
+#
+# In April 2024 I moved some of my old posts into the TIL section, so
+# their URLs changed.  Make sure they get redirected!
+
+/2013/rss-podcasts-tumblr/ /til/2013/rss-podcasts-tumblr/
+
+# === #
+
+
+
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /*                                        /404/ 404
