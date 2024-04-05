@@ -45,8 +45,12 @@ livereload: true
 
 liquid:
   error_mode: strict
-  strict_variables: true
   strict_filters: true
+
+  # Note: I deliberately omit `strict_variables: true` here, because
+  # sometimes I want to be able to skip variables in the front matter
+  # (e.g. I don't want to set an empty `nav_section: ""` for every page
+  # which doesn't belong to a section).
 
 # ================
 # Remaining config
