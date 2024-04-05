@@ -1,0 +1,8 @@
+a {
+  text-underline-offset: 2px;
+
+  &               { color: var(--link-color);                         }
+  &:visited       { color: var(--link-visited-color);                 }
+  &:hover         { background: var(--link-hover-background);         }
+  &:visited:hover { background: var(--link-visited-hover-background); }
+}
