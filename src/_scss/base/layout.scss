@@ -14,7 +14,6 @@ body {
   min-height: 100vh;
 
   main {
-    width: 100vw;
     flex: 1;
   }
 }
@@ -22,8 +21,12 @@ body {
 main, #footer_inner, nav > *, #editing-toolbar_inner {
   @include centred(var(--max-width));
 
-  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
-  padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
+  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left))  !important;
+  padding-right: calc(var(--default-padding) + env(safe-area-inset-right)) !important;
+
+  /* This line ensures the component grows to fill the window, even if
+   * the content isn't as wide as the window. */
+  width: calc(100vw - 2 * var(--default-padding) - env(safe-area-inset-left) - env(safe-area-inset-right));
 }
 
 #footer_inner {
@@ -46,6 +49,7 @@ figcaption {
 
 pre, blockquote {
   border: var(--border-width) var(--border-style) var(--block-border-color);
+  border-radius: var(--border-radius);
   background-color: var(--block-background-color);
 }
 

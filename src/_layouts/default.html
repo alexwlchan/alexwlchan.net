@@ -8,14 +8,9 @@ layout: compress
   {% assign parsed_content = content | fix_kramdown | get_inline_styles %}
 
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-    <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
-    <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
-
     {% include head.html %}
+
+    <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
         
     {% if parsed_content.inline_styles != "" %}
       <style>{{ parsed_content.inline_styles }}</style>
@@ -25,7 +20,7 @@ layout: compress
   <body>
     <a class="skip-main" href="#main">Skip to main content</a>
 
-    {% include_cached nav.html %}
+    {% include nav.html %}
 
     <main id="main" tabindex="-1">
       {{ parsed_content.html }}

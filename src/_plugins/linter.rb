@@ -217,16 +217,17 @@ class RunLinting < Jekyll::Command
 
         errors[md_path] = md_errors unless md_errors.empty?
 
-        # This is to test some rules that can't easily be expressed
-        # in a JSON schema definition.
-        is_in_post_directory = (
-          md_path.start_with?('src/_posts/') or
-          md_path.start_with?('src/_drafts/')
-        )
-
-        errors[md_path] <<= "layout should be 'post'; got #{front_matter['layout']}" if is_in_post_directory && front_matter['layout'] != 'post'
-
-        errors[md_path] <<= "layout should be 'page'; got #{front_matter['layout']}" if !is_in_post_directory && front_matter['layout'] != 'page'
+        if md_path.start_with?('src/_posts/') || md_path.start_with?('src/_drafts')
+          if front_matter['layout'] != 'post'
+            errors[md_path] <<= "layout should be 'post'; got #{front_matter['layout']}"
+          end
+        elsif md_path.start_with?('src/_til/')
+          if front_matter['layout'] != 'til'
+            errors[md_path] <<= "layout should be 'til'; got #{front_matter['layout']}"
+          end
+        elsif front_matter['layout'] != 'page'
+          errors[md_path] <<= "layout should be 'page'; got #{front_matter['layout']}"
+        end
       end
 
       report_errors(errors)
