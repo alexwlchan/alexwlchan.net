@@ -1,6 +1,6 @@
 body {
-  font: 13pt $main-font-family;
-  line-height: $default-line-height;
+  font: 13pt var(--text-font-family);
+  line-height: var(--line-height);
 }
 
 body, .post_cards .card a .card_description {
@@ -48,13 +48,13 @@ sup {
 }
 
 .meta, figcaption, footer {
-  font-size:   $meta-font-size;
-  line-height: $meta-line-height;
+  font-size:   calc(var(--font-size)   * var(--meta-scaling-factor));
+  line-height: calc(var(--line-height) * var(--meta-scaling-factor) * 1.15);
 }
 
 .footnotes {
-  font-size:   $default-font-size   * $scaling-factor;
-  line-height: $default-line-height * $scaling-factor;
+  font-size:   calc(var(--font-size)   * var(--footnote-scaling-factor));
+  line-height: calc(var(--line-height) * var(--footnote-scaling-factor));
 }
 
 .title {

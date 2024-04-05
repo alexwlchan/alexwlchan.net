@@ -52,6 +52,16 @@ liquid:
   # (e.g. I don't want to set an empty `nav_section: ""` for every page
   # which doesn't belong to a section).
 
+# =============================
+# jekyll-sass-converter options
+# =============================
+#
+# See https://github.com/jekyll/jekyll-sass-converter
+
+sass:
+  sass_dir: "_scss"
+  style: "compressed"
+
 # ==================
 # Template variables
 # ==================
@@ -95,7 +105,3 @@ highlighter: "rouge"
 
 plugins:
   - "jekyll-include-cache"
-
-sass:
-  sass_dir: "_scss"
-  style: "compressed"

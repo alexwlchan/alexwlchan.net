@@ -5,11 +5,11 @@ footer {
 
 #footer_inner {
   p:not(:last-child) {
-    margin-bottom: $meta-size * 1em;
+    margin-bottom: calc(var(--meta-scaling-factor) * 1em);
   }
 
   p:not(:first-child) {
-    margin-top: $meta-size * 1em;
+    margin-top:    calc(var(--meta-scaling-factor) * 1em);
   }
 
   display: grid;

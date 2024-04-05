@@ -1,7 +1,5 @@
-@use "sass:math";
-
 code, pre {
-  font-family: $mono-font-family;
+  font-family: var(--mono-font-family);
   overflow-x: auto;
 }
 
@@ -12,7 +10,7 @@ pre code {
 code {
   margin: 2px;
   border-radius: 3px;
-  font-size: 1em * $code-scaling-factor;
+  font-size: calc(1em * var(--code-scaling-factor));
 }
 
 // Disable selecting the $ or the following space in ``console`` code blocks.
@@ -28,7 +26,7 @@ pre {
     calc(2 * var(--default-padding) / 3)
     calc(var(--default-padding) - var(--border-width));
 
-  line-height: $default-line-height * $code-scaling-factor * 1.08;
+  line-height: calc(var(--line-height) * var(--code-scaling-factor) * 1.08);
 
   // This ensures that code blocks don't get blown up to big sizes
   // on iPhone displays.
