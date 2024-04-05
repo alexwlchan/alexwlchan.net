@@ -32,12 +32,13 @@ nav {
 
   /* Add an extra thick underline so you know which part of the site
    * you're in. */
-  a[selected], a:hover {
+  a[selected] {
     text-decoration-thickness: 4px;
   }
 
   a:hover {
     text-decoration: underline;
+    text-decoration-thickness: 4px;
     text-decoration-skip-ink: none;
     background: none;
   }
