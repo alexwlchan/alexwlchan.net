@@ -6,6 +6,8 @@ nav_section: til
 TIL stands for **today I learned**.
 This is a collection of small, practical things I've learnt while writing software, which I thought were worth remembering and sharing with other people.
 
+These posts have [their own RSS feed](/til/atom.xml).
+
 <p>
   You can filter by tag:
 
