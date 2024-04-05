@@ -41,6 +41,8 @@ $accent-grey-dark:  #999;
 
   --accent-grey:            #{$accent-grey-light};
   --accent-grey-link-hover: #{rgba($accent-grey-light, 0.2)};
+
+  --screenshot-border-color: #f0f0f0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,6 +51,8 @@ $accent-grey-dark:  #999;
 
     --accent-grey:            #{$accent-grey-dark};
     --accent-grey-link-hover: #{rgba($accent-grey-dark, 0.2)};
+
+    --screenshot-border-color: #3f3f3f;
   }
 }
 
