@@ -31,8 +31,13 @@ nav {
 
   /* Add an extra thick underline so you know which part of the site
    * you're in. */
-  a[selected] {
-    text-decoration-thickness: 3.5px;
+  a[selected], a:hover {
+    text-decoration-thickness: 4px;
+  }
+
+  ul a:hover {
+    text-decoration-skip-ink: none;
+    background: none;
   }
 
   @media print {
