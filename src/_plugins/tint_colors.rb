@@ -8,12 +8,15 @@
 #
 # == Usage ==
 #
-# There are two parts to this plugin:
+# There are three parts to this plugin:
 #
 #   1.  A pre-render hook that checks there's sufficient contrast between
 #       the chosen tint color and the background of the page.
 #
-#   2.  A tag you can use in the <head> of a page to get the custom CSS
+#   2.  A pre-render hook that creates the "speckled" header images and
+#       favicons for every tint color that I'm using.
+#
+#   3.  A tag you can use in the <head> of a page to get the custom CSS
 #       variables (if any) for this page:
 #
 #           {% tint_color_css %}
@@ -23,34 +26,54 @@
 #
 
 require_relative 'utils/contrast'
+require_relative 'utils/tint_colors'
 
 # Throws an error if the CSS colors on a given page don't have enough
 # contrast with the white/black backgrounds.
-def ensure_sufficient_contrast(page_data)
-  colors = page_data.fetch('colors', {})
+def ensure_sufficient_contrast(css_colors)
+  contrast_with_white = contrast(css_colors['light'], '#ffffff')
 
-  primary_color_light = colors['css_light']
-  primary_color_dark = colors['css_dark']
-
-  if primary_color_light.nil? && primary_color_dark.nil?
-    return
+  if contrast_with_white < 4.5
+    throw "light color: insufficient contrast between white and #{css_colors['light']}: #{contrast_with_white} < 4.5"
   end
 
-  if contrast(primary_color_light, '#ffffff') < 4.5
-    throw "light color: insufficient contrast between white and #{primary_color_light}: #{contrast(primary_color_light, '#ffffff')} < 4.5"
+  contrast_with_black = contrast(css_colors['dark'], '#000000')
+
+  if contrast_with_black < 4.5
+    throw "dark color: insufficient contrast between black and #{css_colors['dark']}: #{contrast_with_black} < 4.5"
   end
+end
 
-  return unless contrast(primary_color_dark, '#000000') < 4.5
+Jekyll::Hooks.register :site, :pre_render do
+  light_color = read_default_light_color
 
-  throw "dark color: insufficient contrast between black and #{primary_color_dark}: #{contrast(primary_color_dark, '#000000')} < 4.5"
+  create_header_image(light_color)
+  create_favicon(light_color)
+
+  hex_string = light_color.gsub('#', '')
+
+  FileUtils.cp("_site/favicons/#{hex_string}.png", '_site/favicon.png')
+  FileUtils.cp("_site/favicons/#{hex_string}.ico", '_site/favicon.ico')
 end
 
 Jekyll::Hooks.register :pages, :pre_render do |page|
-  ensure_sufficient_contrast(page.data)
+  css_colors = get_css_colors(page.data)
+
+  unless css_colors.nil?
+    ensure_sufficient_contrast(css_colors)
+    create_header_image(css_colors['light'])
+    create_favicon(css_colors['light'])
+  end
 end
 
 Jekyll::Hooks.register :documents, :pre_render do |doc|
-  ensure_sufficient_contrast(doc.data)
+  css_colors = get_css_colors(doc.data)
+
+  unless css_colors.nil?
+    ensure_sufficient_contrast(css_colors)
+    create_header_image(css_colors['light'])
+    create_favicon(css_colors['light'])
+  end
 end
 
 module Jekyll
@@ -58,19 +81,16 @@ module Jekyll
     def render(context)
       page = context.registers[:page]
 
-      colors = page.fetch('colors', {})
+      css_colors = get_css_colors(page)
 
-      primary_color_light = colors['css_light']
-      primary_color_dark = colors['css_dark']
-
-      if primary_color_light.nil? && primary_color_dark.nil?
+      if css_colors.nil?
         return
       end
 
       sass = <<~SCSS
         @import "variables.scss";
 
-        @include create_colour_variables(#{primary_color_light}, #{primary_color_dark});
+        @include create_colour_variables(#{css_colors['light']}, #{css_colors['dark']});
       SCSS
 
       css = context.registers[:site]
