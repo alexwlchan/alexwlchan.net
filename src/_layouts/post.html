@@ -7,9 +7,7 @@ layout: default
 <article>
   <h1 class="title {% if post.link %}linkpost_title{% endif %}">
     {% if post.link %}
-      <a class="novisited" href="{{ post.link }}">
-    {% else %}
-      <a class="novisited" href="{{ post.url | relative_url }}">
+      <a href="{{ post.link }}">
     {% endif %}
     
         {% comment %}
@@ -22,7 +20,9 @@ layout: default
           {{ post.title | markdownify_oneline | cleanup_text | smartify }}
         </span>
 
+    {% if post.link %}
       </a>
+    {% endif %}
   </h1>
 
   <div class="meta">

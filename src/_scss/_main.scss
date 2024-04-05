@@ -10,27 +10,6 @@ h1, h2,
   color: var(--primary-color);
 }
 
-// Links should be coloured red, but darker if they've been visited (or
-// lighter in dark mode).
-//
-// However, I can override this in certain scenarios with the `novisited` class.
-//
-//      <a href="/example">new link</a>
-//        ~> will be coloured default red
-//
-//      <a href="/example">link I’ve visited</a>
-//        ~> will be coloured dark red
-//
-//      <a href="/example" class="novisited">link I’ve visited</a>
-//        ~> will be coloured default red
-//
-a {
-  &               { color: var(--link-color);                         }
-  &:visited       { color: var(--link-visited-color);                 }
-  &:hover         { background: var(--link-hover-background);         }
-  &:visited:hover { background: var(--link-visited-hover-background); }
-}
-
 a.download {
   border-color: var(--link-color);
 

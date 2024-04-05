@@ -98,7 +98,7 @@ If you want to hear about new posts, you can [subscribe to my RSS feed](/atom.xm
   Jump to:&nbsp;<ul id="jumpto_list">
   {% for year_entry in site.data["posts_by_year"] -%}
     <li data-jumpto-year="{{ year_entry[0] }}">
-      <a href="#year-{{ year_entry[0] }}" class="novisited">{{ year_entry[0] }}</a>
+      <a href="#year-{{ year_entry[0] }}">{{ year_entry[0] }}</a>
     </li>
   {%- endfor %}
   </ul>
