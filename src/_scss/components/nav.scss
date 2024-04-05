@@ -1,15 +1,8 @@
 nav {
-  background: var(--nav-background-url) var(--primary-color-light);
-  background-size: auto 100%;
-
-  color: white;
-
-  a, a:visited {
-    @include link_styles(white, 0.5);
-  }
+  padding-top: calc(1px + env(safe-area-inset-top));
+  padding-bottom: 1px;
 
   h1 {
-    padding-top: calc(1px + env(safe-area-inset-top));
     margin-bottom: -5px;
     font-size: 1.7em;
 
@@ -20,13 +13,32 @@ nav {
 
   ul {
     padding: 0;
-    padding-bottom: 1px;
-    margin-bottom:  10px;
+    margin-bottom: 14px;
+  }
+
+  /* The nav gets the primary accent colour as background, with white text.
+   *
+   * It looks the same in light/dark mode.
+   */
+  background: var(--nav-background-url) var(--primary-color-light);
+  background-size: auto 100%;
+
+  color: white;
+
+  a, a:visited {
+    @include link_styles(white, 0.5);
+  }
+
+  /* Add an extra thick underline so you know which part of the site
+   * you're in. */
+  a[selected] {
+    text-decoration-thickness: 3.5px;
   }
 
   @media print {
     background: none;
     border-bottom: var(--border-width) solid var(--primary-color-light);
-    color: var(--primary-color-light);
+
+    &, a, a:visited { color: var(--primary-color-light); }
   }
 }

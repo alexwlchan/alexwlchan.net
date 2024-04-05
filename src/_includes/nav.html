@@ -5,7 +5,8 @@
     <li><a href="/">about</a></li>
     <li><a href="/writing/">writing</a></li>
     <li><a href="/projects/">projects</a></li>
-    <li><a href="/contact/">contact</a></li>
-    <li><a href="/atom.xml">rss</a></li>
+    <li>
+      <a href="/contact/" {% if page.nav_section == "contact" %}selected{% endif %}>contact</a>
+    </li>
   </ul>
 </nav>
