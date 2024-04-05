@@ -16,12 +16,11 @@
 @import "base/footer.scss";
 @import "base/images_wide.scss";
 @import "base/latex.scss";
-@import "base/nav.scss";
 @import "base/post_cards.scss";
-@import "base/pygments.scss";
-@import "base/tweets.scss";
 
+@import "components/nav.scss";
 @import "components/pretty_hr.scss";
+@import "components/syntax_highlighting.scss";
 
 $primary-color-light: #d01c11;
 $primary-color-dark:  #ff4242;

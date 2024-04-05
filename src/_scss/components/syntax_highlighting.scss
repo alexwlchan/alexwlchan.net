@@ -186,3 +186,11 @@ pre {
     }
   }
 }
+
+// Disable selecting the $ or the following space in ``console`` code blocks.
+// See https://alexwlchan.net/2021/10/console-copying/
+.language-console {
+  .gp, .gp + .w  {
+    @include disable_select();
+  }
+}

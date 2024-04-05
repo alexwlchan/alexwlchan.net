@@ -19,15 +19,11 @@ body {
   }
 }
 
-main, #footer_inner, #nav_inner, #editing-toolbar_inner {
-  max-width: var(--max-width);
+main, #footer_inner, nav > *, #editing-toolbar_inner {
+  @include centred(var(--max-width));
+
   padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
   padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
-}
-
-#nav_inner {
-  padding-top: calc(1px + env(safe-area-inset-top));
-  padding-bottom: 1px;
 }
 
 #footer_inner {
@@ -35,7 +31,7 @@ main, #footer_inner, #nav_inner, #editing-toolbar_inner {
   padding-bottom: calc(1px + env(safe-area-inset-bottom));
 }
 
-img, video, svg, iframe, figure, article, main, #footer_inner, #nav_inner, #editing-toolbar_inner {
+img, video, svg, iframe, figure, article {
   margin-left: auto;
   margin-right: auto;
 }
@@ -48,7 +44,12 @@ figcaption {
   margin-top: 8px;
 }
 
-pre, blockquote, img.screenshot, a.download {
+pre, blockquote {
+  border: var(--border-width) var(--border-style) var(--block-border-color);
+  background-color: var(--block-background-color);
+}
+
+img.screenshot, a.download {
   border-radius: var(--border-radius);
   border-style:  var(--border-style);
   border-width:  var(--border-width);
@@ -84,10 +85,8 @@ article, main {
   }
 }
 
-
-
 img.screenshot {
-  border-color: #f0f0f0;
+  border-color: var(--border-width) var(--border-style) var(--screenshot-border-color);
 }
 
 .post_cards .card {
@@ -102,10 +101,6 @@ img.screenshot {
     /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
        then contrast dropped and colours flipped. */
     background-image: url('/theme/black-waves-transparent.png');
-  }
-
-  img.screenshot {
-    border-color: #3f3f3f;
   }
 
   .post_cards .card {

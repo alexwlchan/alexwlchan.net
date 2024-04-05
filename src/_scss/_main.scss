@@ -1,8 +1,6 @@
 @use "sass:math";
 
 @import "variables.scss";
-
-@import "_settings.scss";
 @import "mixins.scss";
 
 h1, h2,
@@ -44,30 +42,5 @@ a.download {
   // here because the `background` rule above overrides the `a:hover` rule.
   &:hover {
     background: var(--link-hover-background) !important;
-  }
-}
-
-pre, blockquote {
-  border-color:     var(--block-border-color);
-  background-color: var(--block-background-color);
-}
-
-nav {
-  background: var(--nav-background-url) var(--primary-color-light);
-  background-size: auto 100%;
-}
-
-footer {
-  background: var(--primary-color-light);
-}
-
-@media print {
-  nav {
-    background: none;
-    border-bottom: var(--border-width) solid var(--base-color);
-  }
-
-  #nav_inner {
-    color: var(--base-color);
   }
 }

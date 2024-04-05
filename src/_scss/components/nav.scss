@@ -1,0 +1,32 @@
+nav {
+  background: var(--nav-background-url) var(--primary-color-light);
+  background-size: auto 100%;
+
+  color: white;
+
+  a, a:visited {
+    @include link_styles(white, 0.5);
+  }
+
+  h1 {
+    padding-top: calc(1px + env(safe-area-inset-top));
+    margin-bottom: -5px;
+    font-size: 1.7em;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    padding: 0;
+    padding-bottom: 1px;
+    margin-bottom:  10px;
+  }
+
+  @media print {
+    background: none;
+    border-bottom: var(--border-width) solid var(--primary-color-light);
+    color: var(--primary-color-light);
+  }
+}
