@@ -4,6 +4,9 @@
 # Unlike Jekyll's `markdownify` filter, this won't wrap the output
 # in paragraph <p> tags.
 #
+# Note that `markdownify` will also run SmartyPants to do smart quotes
+# and the like, so calling `markdownify_oneline | smartify` is redundant.
+#
 # == Example ==
 #
 #     {{ "Five *shocking* facts" | markdownify }}
@@ -11,6 +14,9 @@
 #
 #     {{ "Five" *shocking* facts | markdownify_oneline }}
 #     Five <em>shocking</em> facts
+#
+#     {{ "Isn't this nice" | markdownify_oneline }}
+#     Isn’t this nice
 #
 
 module Jekyll
