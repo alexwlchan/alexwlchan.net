@@ -1,4 +1,4 @@
-.post_cards {
+.article_cards {
   list-style-type: none;
   padding-left: 0px !important;
   display: grid;
@@ -9,6 +9,7 @@
     border-style: solid;
     border-radius: 14px;
     overflow: hidden;
+    background: var(--article-card-background);
 
     @include card_light_styles(#d01c11);
 
@@ -48,6 +49,7 @@
   }
 
   .card_description {
+    color: var(--body-text);
     margin-top: 0.5em;
     font-size: 85%;
     line-height: 1.45em;
@@ -60,6 +62,7 @@
   }
 
   .card_posting_date p {
+    color: var(--accent-grey);
     margin-top: 0.5em;
     font-size: 75%;
   }

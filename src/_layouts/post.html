@@ -53,7 +53,7 @@ layout: default
             Tagged with
             {% assign tags = post.visible_tags | sort %}
             {% for t in tags %}
-              <a href="/all-posts?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
+              <a href="/articles/?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
             {% endfor %}
           </li>
         {% endunless %}

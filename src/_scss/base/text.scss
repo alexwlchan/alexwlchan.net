@@ -1,9 +1,6 @@
 body {
   font: 13pt var(--text-font-family);
   line-height: var(--line-height);
-}
-
-body, .post_cards .card a .card_description {
   color: var(--body-text);
 }
 
@@ -97,7 +94,6 @@ sup {
   }
 }
 
-.post_cards .card .card_posting_date p,
 .title.linkpost_title::after {
   color: var(--accent-grey);
 }

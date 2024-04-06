@@ -130,17 +130,18 @@
 /a-plumbers-guide-to-git/4                                      /a-plumbers-guide-to-git/4-refs-and-branches/
 /a-plumbers-guide-to-git/4/                                     /a-plumbers-guide-to-git/4-refs-and-branches/
 
-/archives                                                       /all-posts/
-/archives/                                                      /all-posts/
-/archive                                                        /all-posts/
-/archive/                                                       /all-posts/
-/all-posts-by-tag/                                              /all-posts/
+/archives                                                       /articles/
+/archives/                                                      /articles/
+/archive                                                        /articles/
+/archive/                                                       /articles/
+/all-posts-by-tag/                                              /articles/
+/all-posts/                                                     /articles/
 
 /about                                                          /
 /about/                                                         /
 /contact/                                                       /#contact
 
-/page/*                                                         /all-posts/
+/page/*                                                         /articles/
 
 /talks                                                          /projects/#talks-and-workshops
 
