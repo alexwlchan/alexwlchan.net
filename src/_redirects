@@ -1183,6 +1183,21 @@
 
 
 
+
+# == Ensure that dated posts are "hackable" == #
+#
+# i.e. that you can delete bits off the end of the URL and still get
+# somewhere useful.
+
+/til/2024/ /til/
+/til/2013/ /til/
+
+# === #
+
+
+
+
+
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
 /*                                        /404/ 404
