@@ -31,7 +31,7 @@ It's a fork of an older app called [Notational Velocity], and the icon is a grey
 </figure>
 
 For a while now I've wanted to create versions of the Notational Velocity icon in different colours.
-Adjusting the colour of an image with a single accent colour is [something I've done before]({% post_url 2020/2020-02-23-adjusting-the-dominant-colour-of-an-image %}), and it would be more exciting than a monochrome icon.
+Adjusting the colour of an image with a single accent colour is [something I've done before](/2020/adjusting-the-dominant-colour-of-an-image/), and it would be more exciting than a monochrome icon.
 Given the renewed [sense of fun] in Apple's icons for macOS 11, I spent a couple of hours trying to find a way to play with icon colours.
 
 [nvALT]: https://brettterpstra.com/projects/nvalt/

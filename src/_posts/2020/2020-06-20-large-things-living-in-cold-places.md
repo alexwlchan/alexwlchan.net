@@ -33,6 +33,6 @@ I also shared [a script for measuring the size of your S3 buckets][buckets], whi
 If you enjoy reading my blog, you might also enjoy the site whose name inspired the title of this post -- [Terrible things happening in cold places][coldplaces].
 
 [stacks]: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-66cbc3603e14
-[transitions]: {% post_url 2020/2020-05-01-illustrating-lifecycle-transitions-in-amazon-s3 %}
-[buckets]: {% post_url 2020/2020-03-02-finding-the-size-of-your-s3-buckets %}
+[transitions]: /2020/illustrating-lifecycle-transitions-in-amazon-s3/
+[buckets]: /2020/finding-the-size-of-your-s3-buckets/
 [coldplaces]: http://www.terriblethingshappeningincoldplaces.com/about

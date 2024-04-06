@@ -43,6 +43,6 @@ Mathmo is written with the AngularJS framework, and since that was the last time
 
 All of the source code is in [a GitHub repo][github], and the site itself is hosted (like this one) with GitHub Pages.
 
-[original_post]: {% post_url 2013/2013-08-06-untagged-tumblr-posts %}
+[original_post]: /2013/untagged-tumblr-posts/
 [privacy]: http://finduntaggedtumblrposts.com/privacy/
 [github]: https://github.com/alexwlchan/untagged-tumblr-posts

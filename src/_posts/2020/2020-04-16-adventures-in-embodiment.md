@@ -24,7 +24,7 @@ This came up in some recent conversations with friends about embodiment.
 They have better embodiment practices than me, and that makes it easier for them to notice these signals.
 Talking to them persuaded me that embodiment would be a useful skill to try to improve – until recently, I hadn't realised what I was missing.
 
-Alongside this, I've been continuing to explore my feelings [about gender]({% post_url 2019/2019-06-18-regenerating %}) -- experimenting with appearance, presentation, body shape, and so on.
+Alongside this, I've been continuing to explore my feelings [about gender](/2019/regenerating/) -- experimenting with appearance, presentation, body shape, and so on.
 Here's a funny thing I've noticed: when I do things that make my brain think "girl", it gets easier to listen to my body.
 Without trying, I become more aware of when I'm hungry, tired, and thirsty.
 

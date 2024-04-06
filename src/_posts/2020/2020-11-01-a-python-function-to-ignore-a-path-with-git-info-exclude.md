@@ -23,7 +23,7 @@ Nobody else needs to be ignoring these paths, because they haven't downloaded th
 
 I could save the images in a different directory, but that's slightly less convenient.
 
-**I realised this was a good use case [for `.git/info/exclude`]({% post_url 2015/2015-06-02-git-info-exclude %}) -- a place for gitignore rules that shouldn't tracked as part of the repo history.**
+**I realised this was a good use case [for `.git/info/exclude`](/2015/git-info-exclude/) -- a place for gitignore rules that shouldn't tracked as part of the repo history.**
 Each clone can have different rules in this file.
 If I ignore the downloaded images in this file, they won't show up in `git status`, but nor will the ignore rules be shared with anyone else.
 
@@ -41,7 +41,7 @@ def ignore_path_locally(path):
 
     This function instead adds paths to .git/info/exclude.
 
-    See https://alexwlchan.net{% post_url 2015/2015-06-02-git-info-exclude %}
+    See https://alexwlchan.net/2015/git-info-exclude/
     """
     # Get the absolute path to the root of the repo.
     # See https://git-scm.com/docs/git-rev-parse#Documentation/git-rev-parse.txt---show-toplevel

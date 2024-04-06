@@ -59,6 +59,6 @@ A few years ago, at a JavaScript meetup, I made a joke that *"my web development
 On days like today, it's clear that I still have more to learn.
 
 [mdn]: https://developer.mozilla.org/en-US/docs/Web/API/console#styling_console_output
-[bulb]: {% post_url 2023/2023-01-22-changing-the-bulb-in-a-meridian-lighting-cir100b-ceiling-light %}
+[bulb]: /2023/changing-the-bulb-in-a-meridian-lighting-cir100b-ceiling-light/
 [self-xss]: https://en.wikipedia.org/wiki/Self-XSS
 [printf]: https://en.wikipedia.org/wiki/Printf_format_string

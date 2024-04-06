@@ -6,7 +6,7 @@ title: Exam advice
 
 This is some advice that I originally gave to some [first-year maths students][1] while I was at university. But this advice isn't just useful for maths students at Cambridge: I believe this is applicable to technical subjects at many different levels. This is just a tidied-up version of my original advice.
 
-[1]: {% post_url 2014/2014-05-14-part-ia-exams %}
+[1]: /2014/part-ia-exams/
 
 This is my *personal* advice, and other people may say different things. Everybody learns and revises differently. Think about what will work best for you; don't just do something because I said so.
 

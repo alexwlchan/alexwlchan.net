@@ -151,7 +151,7 @@ I did the same thing when I redecorated my office last year, and it made a big d
 I've lived with the new wall colours and furniture layout for about six weeks, and I'm really enjoying it.
 My bedroom has gone from drab and uninspiring, to warm and inviting.
 
-This is how my bed looks now (and yes, those are [cheetahs on the bedding]({% post_url 2023/2023-03-13-cats-cross-stitch-and-copyright %})):
+This is how my bed looks now (and yes, those are [cheetahs on the bedding](/2023/cats-cross-stitch-and-copyright/)):
 
 {%
   picture
@@ -185,7 +185,7 @@ My clothes have a lot of bright colours, and I like having them on display, wher
 Next to it, the door is hiding my messy laundry basket and waste bin.
 I can still get to them in a jiffy, but they're invisible most of the time.
 
-You'll also notice my [cheetah cross-stitch]({% post_url 2023/2023-03-13-cats-cross-stitch-and-copyright %}) on the wall – the yellow frame is a perfect match for my feature wall, which was a happy coincidence.
+You'll also notice my [cheetah cross-stitch](/2023/cats-cross-stitch-and-copyright/) on the wall – the yellow frame is a perfect match for my feature wall, which was a happy coincidence.
 The picture was being framed while I was doing the painting, and I'd forgotten I had it on order.
 
 I'll keep tweaking, including some photos on the wall, but in the meantime this has been a nice improvement to the room where I spend every not-waking hour.

@@ -213,5 +213,5 @@ I doubt the Photos–AppleScript integration will ever change again, but PhotoKi
 This isn't the [first][appearance] [time][live_text] I've used Swift for scripting, and I doubt it'll be the last -- having easy access to Apple's frameworks makes it a very appealing choice.
 I haven't seen many other people using it yet, but I think Swift could be a big thing in Mac automation.
 
-[appearance]: {% post_url 2022/2022-11-17-changing-the-macos-accent-colour %}
-[live_text]: {% post_url 2022/2022-12-31-live-text-script %}
+[appearance]: /2022/changing-the-macos-accent-colour/
+[live_text]: /2022/live-text-script/

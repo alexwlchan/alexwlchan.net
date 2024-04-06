@@ -34,7 +34,7 @@ What I wanted was a dictionary where `pairs[('Alice', 'Bryony')]` and `pairs[('B
 
 As I tried to actually implement this, I learnt a couple of new things about the collections module.
 
-[groups]: {% post_url 2023/2023-03-02-balancing-act %}
+[groups]: /2023/balancing-act/
 
 ---
 

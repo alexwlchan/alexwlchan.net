@@ -78,7 +78,7 @@ Here's a few examples:
 This idea came from a [similar graphic I made for Valentine's Day](https://twitter.com/alexwlchan/status/1360919253738790915).
 I used several tools to make it, and I had to assemble the final result by hand -- I wanted to see if I could create a pair of interlocked hearts as a single SVG.
 
-Last year, I made an app for generating [rainbow Norse Valknuts]({% post_url 2020/2020-01-16-pride-valknuts %}), and I was able to reuse some of the code -- although those were easier to draw then hearts.
+Last year, I made an app for generating [rainbow Norse Valknuts](/2020/pride-valknuts/), and I was able to reuse some of the code -- although those were easier to draw then hearts.
 Valknuts use all straight lines, so I could calculate exactly where each stripe should start/end.
 Because hearts have curved sides, I had to do a bit more work to draw the overlaps.
 

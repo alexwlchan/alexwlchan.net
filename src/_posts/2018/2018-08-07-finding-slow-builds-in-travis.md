@@ -128,5 +128,5 @@ We haven't found a definite cause yet, but we're a lot closer than we were befor
 [session]: http://docs.python-requests.org/en/master/user/advanced/#session-objects
 [headers]: https://developer.travis-ci.com/gettingstarted
 [client]: https://developer.travis-ci.com/authentication
-[hooks]: {% post_url 2017/2017-10-20-requests-hooks %}
+[hooks]: /2017/requests-hooks/
 [builds]: https://developer.travis-ci.com/resource/builds#Builds

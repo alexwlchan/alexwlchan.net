@@ -11,7 +11,7 @@ colors:
   index_dark:  "#e5bcc9"
 ---
 
-I've written previously about how I [scan and organise my paperwork]({% post_url 2019/2019-11-27-my-scanning-setup %}).
+I've written previously about how I [scan and organise my paperwork](/2019/my-scanning-setup/).
 I have a paper-feed scanner to scan my paperwork as PDFs, and then I wrote a piece of software called *docstore* to store and organise the PDFs.
 docstore is built around the idea of [keyword tagging](https://en.wikipedia.org/wiki/Tag_(metadata)), because that's a system I find works well for me.
 
@@ -34,7 +34,7 @@ Since my paperwork has a lot of private information (including my address, healt
 I've recently done a complete rewrite.
 Part of it was fixing mistakes in the original version, part of it was taking advantage of the fact that I'm running locally.
 I used to run it on a Linux server; now I'm running it on macOS.
-That means that, for example, I can [use Quick Look to create thumbnails]({% post_url 2020/2020-09-26-using-qlmanage-to-create-thumbnails-on-macos %}).
+That means that, for example, I can [use Quick Look to create thumbnails](/2020/using-qlmanage-to-create-thumbnails-on-macos/).
 
 I don't expect that anybody apart from me will want to use docstore, because it's very specific to my personal context -- but the ideas might be useful elsewhere.
 

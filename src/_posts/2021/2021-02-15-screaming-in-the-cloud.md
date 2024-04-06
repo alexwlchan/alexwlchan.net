@@ -12,7 +12,7 @@ colors:
   index_dark:  "#4597b4"
 ---
 
-Early last year, in a fit of lockdown-induced ridiculousness, I wrote some [code that turned DynamoDB into a calculator]({% post_url 2020/2020-04-27-using-dynamodb-as-a-calculator %}).
+Early last year, in a fit of lockdown-induced ridiculousness, I wrote some [code that turned DynamoDB into a calculator](/2020/using-dynamodb-as-a-calculator/).
 
 This caught the attention of [Corey Quinn](https://twitter.com/quinnypig), another lover of ridiculous ideas, and he invited me on his podcast, *Screaming in the Cloud*, to talk about what I'd done.
 We had a fun conversation about how I wrote the calculator, some of the digital preservation work I do at Wellcome, and how the cloud factors into both of those.

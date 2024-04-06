@@ -35,7 +35,7 @@ A good internal map helps people find their way around an unfamiliar venue, and 
 Chloe runs the registration desk, and I think she spent half of last year's conference giving out directions.
 A map can also translate between venue room names and conference terminology, which don't always match.
 
-[conf]: {% post_url 2018/2018-08-13-inclusive-conferences %}#clear-internal-signage
+[conf]: /2018/inclusive-conferences/#clear-internal-signage
 
 Since a few people were asking, this is how I made the maps:
 

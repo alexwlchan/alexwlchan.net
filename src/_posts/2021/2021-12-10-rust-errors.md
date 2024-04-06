@@ -8,7 +8,7 @@ tags:
   - error-messages
 ---
 
-In [my last-but-one post]({% post_url 2021/2021-11-30-dominant-colours %}), I mentioned the quality of Rust's compiler errors.
+In [my last-but-one post](/2021/dominant-colours/), I mentioned the quality of Rust's compiler errors.
 I encountered another compiler error today that I thought was less-than-optimal, I was going to file an issue for it… then I discovered it's been fixed in a newer version of Rust.
 Nice!
 

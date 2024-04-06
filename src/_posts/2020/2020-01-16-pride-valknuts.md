@@ -15,7 +15,7 @@ colors:
   index_dark:  "#c8c8c8"
 ---
 
-You might remember a couple of months back, I was playing with [alternative coordinate systems in SVG]({% post_url 2019/2019-09-23-triangular-coordinates-in-svg %}).
+You might remember a couple of months back, I was playing with [alternative coordinate systems in SVG](/2019/triangular-coordinates-in-svg/).
 There are some shapes which are easier to define with triangular coordinates than regular (*x*,*y*)-coordinates, and I created some Python functions to let me switch between the two coordinate systems.
 
 One shape that's much easier to define in triangular coordinates is the [valknut], a symbol made from three interlocked triangles that appears on a lot of objects from ancient Germanic cultures:

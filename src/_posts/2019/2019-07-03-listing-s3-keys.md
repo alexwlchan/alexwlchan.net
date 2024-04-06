@@ -9,10 +9,10 @@ tags:
   - aws
 ---
 
-Two years ago, I wrote a Python function for [listing keys in an S3 bucket]({% post_url 2017/2017-07-18-listing-s3-keys %}).
+Two years ago, I wrote a Python function for [listing keys in an S3 bucket](/2017/listing-s3-keys/).
 At the time I was still very new to AWS and the boto3 library, and I thought this might be a useful snippet -- turns out it's by far the most popular post on the site!
 
-I added [a couple of bugfixes]({% post_url 2018/2018-01-20-listing-s3-keys-redux %}) a few months later, but otherwise I haven't touched it since.
+I added [a couple of bugfixes](/2018/listing-s3-keys-redux/) a few months later, but otherwise I haven't touched it since.
 
 Part of that code is handling pagination in the S3 API -- it makes a series of calls to the ListObjectsV2 API, fetching up to 1000 objects at a time.
 Every response includes a "continuation token", and you pass that token into your next API call to get the next page of results.

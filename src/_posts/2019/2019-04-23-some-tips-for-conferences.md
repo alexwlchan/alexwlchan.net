@@ -98,4 +98,4 @@ These are a few items that I find especially useful for conferences:
     I carry them all day, so I never lose conference time finding a pharmacy in a strange city.
 
 [anker]: https://www.amazon.co.uk/Anker-PowerCore-Aluminum-Portable-Lipstick-Sized-Black/dp/B005QI1A8C/ref=as_li_ss_tl?keywords=anker+battery+powercore&qid=1555965890&s=gateway&sr=8-9&linkCode=ll1&tag=alechasblo-21&linkId=def216483d182e2bcf208f5148faadf8&language=en_GB
-[tech_bag]: {% post_url 2016/2016-09-30-travelling-tech-bag %}
+[tech_bag]: /2016/travelling-tech-bag/

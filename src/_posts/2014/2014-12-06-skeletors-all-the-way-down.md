@@ -13,5 +13,5 @@ He's made an interactive chart which shows not only which episodes featured Skel
 
 And now, if you'll excuse me, I have to indulge in some Skeletor nostalgia.
 
-[me]: {% post_url 2014/2014-06-29-skeletor %}
+[me]: /2014/skeletor/
 [panel]: http://gouwens.net/people-of-the-incomparable

@@ -82,7 +82,7 @@ Once that's done, you just run the Python script (if you haven't done that befor
 
   You'll still need to use this method if you have a private blog, but anybody else should check out the new way.
 
-  [redux]: {% post_url 2014/2014-06-13-untagged-tumblr-posts-redux %}
+  [redux]: /2014/untagged-tumblr-posts-redux/
 {% endupdate %}
 
 {% update 2015-08-02 %}

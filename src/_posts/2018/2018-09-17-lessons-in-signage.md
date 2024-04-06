@@ -19,13 +19,13 @@ We got a lot of stuff right off the bat:
 *   A sign for every room where we were running sessions
 *   Laminated for durability
 *   Arrows highlighting the way to non-obvious rooms
-*   [Internal maps]({% post_url 2018/2018-08-26-maps-for-pyconuk %}) with red dots showing "you are here"
+*   [Internal maps](/2018/maps-for-pyconuk/) with red dots showing "you are here"
 
 But this was a first attempt, and inevitably I didn't get it all right -- for the benefit of my future self, and anybody else making venue signage, here's a few of the things I've learnt this year.
 
 {% tweet https://twitter.com/anabalica/status/1040947442735345664 %}
 
-[inclusivity]: {% post_url 2018/2018-08-13-inclusive-conferences %}#clear-internal-signage
+[inclusivity]: /2018/inclusive-conferences/#clear-internal-signage
 
 
 

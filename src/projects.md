@@ -228,7 +228,7 @@ If you'd like me to speak at your event, [get in touch](/#contact) for details.
 These are a few of my favourites:
 
 <dl>
-  <dt><a href="{% post_url 2019/2019-01-31-monki-gras-the-curb-cut-effect %}">The Curb Cut Effect</a></dt>
+  <dt><a href="/2019/monki-gras-the-curb-cut-effect/">The Curb Cut Effect</a></dt>
   <dd>
     A collection of stories about the “curb cut effect”: the idea that making something better for disabled people can make it better for everyone.
   </dd>
@@ -245,13 +245,13 @@ These are a few of my favourites:
     A fun lightning talk about the unexpected consequences of build automation.
   </dd>
 
-  <dt><a href="{% post_url 2018/2018-09-24-assume-worst-intent %}">Assume worst intent</a></dt>
+  <dt><a href="/2018/assume-worst-intent/">Assume worst intent</a></dt>
   <dd>
     If you’re designing services, it’s important to think about how they might be misused to hurt people.
     If you don’t think about this upfront, your users will find out the hard way.
   </dd>
 
-  <dt><a href="{% post_url 2019/2019-10-14-sans-io-programming %}">Sans I/O programming patterns: what, why, and how</a></dt>
+  <dt><a href="/2019/sans-io-programming/">Sans I/O programming patterns: what, why, and how</a></dt>
   <dd>
     I make my case for an approach to programming that gives you code which is dramatically simpler and easier to test.
   </dd>
@@ -405,7 +405,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dt>
       <dd>
         Create pairs of interlocking hearts in a variety of Pride flags.
-        They use some SVG masking techniques I wrote about <a href="{% post_url 2021/2021-03-12-inner-outer-strokes-svg %}">in a blog post</a>.
+        They use some SVG masking techniques I wrote about <a href="/2021/inner-outer-strokes-svg/">in a blog post</a>.
       </dd>
     </dl>
 
@@ -461,7 +461,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       <dd>
         Turning the fifteenth-century book <em>The Imitation of Christ</em> into a Twitter thread.
         This was my friend Jay’s idea.
-        You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="{% post_url 2021/2021-01-31-kempisbot %}">how we did it</a>.
+        You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="/2021/kempisbot/">how we did it</a>.
       </dd>
     </dl>
     
@@ -489,7 +489,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dt>
       <dd>
         Create sets of interlocking Valknuts in a variety of Pride flags.
-        This is based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>, and it uses some code I wrote for <a href="{% post_url 2019/2019-09-23-triangular-coordinates-in-svg %}">drawing in triangular coordinates</a>.
+        This is based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>, and it uses some code I wrote for <a href="/2019/triangular-coordinates-in-svg/">drawing in triangular coordinates</a>.
       </dd>
     </dl>
 
@@ -571,7 +571,7 @@ I'm not currently taking an active maintainer role in anything, but these are a 
       </dt>
       <dd>
         Create simple geometric wallpapers from regular tilings of the plane.
-        I’ve written <a href="{% post_url 2016/2016-10-21-tiling-the-plane-with-pillow %}">blog</a> <a href="{% post_url 2016/2016-10-22-wallpapers-with-pillow %}">posts</a> about how this works.
+        I’ve written <a href="/2016/tiling-the-plane-with-pillow/">blog</a> <a href="/2016/wallpapers-with-pillow/">posts</a> about how this works.
       </dd>
     </dl>
     

@@ -93,5 +93,5 @@ If you want to play with it yourself, it's at <https://uk-stations-map.glitch.me
 [the demo]: https://joshuajohnson.co.uk/Choices/
 [a list of stations]: https://github.com/trainline-eu/stations
 [from Wikipedia]: https://en.wikipedia.org/wiki/List_of_railway_stations_in_Ireland
-[Forth]: {% post_url 2019/2019-03-15-forth-bridge %}
+[Forth]: /2019/forth-bridge/
 [on GitHub]: https://github.com/alexwlchan/uk-station-map

@@ -36,7 +36,7 @@ I've recycled kilograms and kilograms of paper.
 
 What used to be six large crates is now four small boxes.
 
-[scanning and digitising]: {% post_url 2019/2019-11-27-my-scanning-setup %}
+[scanning and digitising]: /2019/my-scanning-setup/
 
 ---
 

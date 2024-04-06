@@ -174,7 +174,7 @@ $ python3 print_log_events.py platform/catalogue_api > catalogue_api.log
 This gives us a script that can download all the logs, and get them from any log group we have access to.
 
 [docopt]: http://docopt.org/
-[before]: {% post_url 2017/2017-09-11-ode-to-docopt %}
+[before]: /2017/ode-to-docopt/
 
 ## Filtering by date
 

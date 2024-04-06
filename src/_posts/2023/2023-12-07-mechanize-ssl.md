@@ -59,7 +59,7 @@ That seemed to work, and my mechanize browser was once again able to browse the 
 If you use popular HTTP libraries like [httpx] or [requests], they install and load SSL certificates from certifi automatically.
 I don't know why mechanize doesn't do the same, but it was just a one-line change to get it working correctly.
 
-[my library lookup tool]: {% post_url 2022/2022-10-10-library-lookup %}
+[my library lookup tool]: /2022/library-lookup/
 [mechanize]: https://pypi.org/project/mechanize/
 [about changing the certificates]: https://mechanize.readthedocs.io/en/latest/advanced.html#using-custom-ca-certificates
 [a quickstart example]: https://mechanize.readthedocs.io/en/latest/index.html
