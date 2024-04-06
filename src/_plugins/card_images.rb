@@ -34,7 +34,9 @@
 require 'rszr'
 
 Jekyll::Hooks.register :site, :post_read do |site|
-  site.posts.docs.each do |post|
+  site.collections['articles'].docs.each do |post|
+    puts post.data
+
     year = post.date.year
     slug = post.data['slug']
 
@@ -80,6 +82,8 @@ Jekyll::Hooks.register :site, :post_read do |site|
       'social' => File.basename(social_card),
       'index' => File.basename(index_card)
     }
+
+    puts post.data
   end
 end
 

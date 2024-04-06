@@ -7,6 +7,15 @@
     <li><a href="/projects/">projects</a></li>
     <li>
       <a
+        href="/articles/"
+        {% if page.url == "/articles/" %}selected{% endif %}
+        {% if page.layout == "article" %}selected{% endif %}
+      >
+        articles
+      </a>
+    </li>
+    <li>
+      <a
         href="/til/"
         {% if page.url == "/til/" %}selected{% endif %}
         {% if page.layout == "til" %}selected{% endif %}

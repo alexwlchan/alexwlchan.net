@@ -70,6 +70,10 @@ sass:
 # See https://jekyllrb.com/docs/collections/ for more info.
 
 collections:
+  articles:
+    output: true
+    permalink: "/:year/:title/"
+
   til:
     output: true
     permalink: "/til/:year/:title/"
