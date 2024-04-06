@@ -16,7 +16,7 @@ colors:
 
 This is a talk I gave last Sunday [at PyCon UK 2018](https://2018.hq.pyconuk.org/schedule/item/54DC/).
 
-Gail Ollis invited me to give a talk about [online harassment]({% post_url 2018/2018-04-18-anti-social-media %}) in April, based on my talk about [privilege and inclusion]({% post_url 2017/2017-11-03-pyconuk-2017-privilege-inclusion %}) at the previous year's conference.
+Gail Ollis invited me to give a talk about [online harassment](/2018/anti-social-media/) in April, based on my talk about [privilege and inclusion](/2017/pyconuk-2017-privilege-inclusion/) at the previous year's conference.
 We were chatting afterwards, and I realised with a bit of tidying, I could reuse it.
 This is a refined and shortened (and hopefully better!) version of the April talk.
 
@@ -41,7 +41,7 @@ The transcript is based on the captions on the YouTube video, with some light tw
   alt="Title slide."
 %}
 
-Since you've [already heard from me before]({% post_url 2018/2018-09-22-suspicious-minds %}), I'll skip the introduction and gets right into the talk.
+Since you've [already heard from me before](/2018/suspicious-minds/), I'll skip the introduction and gets right into the talk.
 
 This morning we're talking about online harassment, and specifically, how do we build systems to prevent it, reduce it, and reduce the risk of it.
 I'm going to show you some mechanisms and practical tips that I've found are most successful in reducing online harassment.
@@ -396,7 +396,7 @@ In the same way, there are lots of ways these techniques can make a service bett
 What's the first thing you can do?
 
 First of all, **diversify the team**.
-I [talked about this a lot last year]({% post_url 2017/2017-11-03-pyconuk-2017-privilege-inclusion %}), so I won't go into much detail -- the important thing to note is that we are all individuals.
+I [talked about this a lot last year](/2017/pyconuk-2017-privilege-inclusion/), so I won't go into much detail -- the important thing to note is that we are all individuals.
 We all have a single lived experience, and there are people who are different from us, who have to worry about different things, who have to worry about different forms of harassment.
 
 For example, I'm male.

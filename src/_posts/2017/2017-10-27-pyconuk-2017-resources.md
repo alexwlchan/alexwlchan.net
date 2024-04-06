@@ -10,12 +10,12 @@ index:
 This post is a signpost to useful resources for my PyCon UK talks/workshops.
 I'll update it as I post new resources/links.
 
-*   Talk: [**Using privilege to improve inclusion**]({% post_url 2017/2017-11-03-pyconuk-2017-privilege-inclusion %}), Friday at 10:30
+*   Talk: [**Using privilege to improve inclusion**](/2017/pyconuk-2017-privilege-inclusion/), Friday at 10:30
 
     I've posted my slides and notes.
     The official video isn't available yet, but I'll post a link on that page when it's up.
 
-*   Workshop: [**A plumber's guide to Git**]({% post_url 2017/2017-11-09-a-plumbers-guide-to-git %}), Friday at 14:30
+*   Workshop: [**A plumber's guide to Git**](/2017/a-plumbers-guide-to-git/), Friday at 14:30
 
     I've posted my exercises and cheat sheet, and the Git Book is a good reference if you want to work through the exercises at home.
 

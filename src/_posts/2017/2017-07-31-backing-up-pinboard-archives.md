@@ -11,7 +11,7 @@ title: Backing up full-page archives from Pinboard
 Several years ago, I blogged about [a Python script][python] I'd written to back up my Pinboard bookmarks.
 I've been using Pinboard since then -- a brief homebrew solution aside -- and recently, I wanted to turn my attention to my archival account.
 
-[python]: {% post_url 2013/2013-03-31-pinboard-backups %}
+[python]: /2013/pinboard-backups/
 
 As well as storing a list of pages you've saved, you can pay [a small annual fee][upgrade] and Pinboard will save a complete copy of the pages you bookmark.
 This helps keep your bookmarks useful in the face of link rot -- when pages change, or even disappear completely.

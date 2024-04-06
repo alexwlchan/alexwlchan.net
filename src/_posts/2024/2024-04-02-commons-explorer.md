@@ -91,7 +91,7 @@ You can try the new Commons Explorer at [commons.flickr.org](https://commons.fli
   %}
 </div>
 
-[Monki Gras talk]: {% post_url 2024/2024-03-15-step-step-step %}
+[Monki Gras talk]: /2024/step-step-step/
 [search]: https://commons.flickr.org/search?query=dance
 [Commons Explorer]: https://commons.flickr.org/
 [conversations page]: https://commons.flickr.org/conversations/

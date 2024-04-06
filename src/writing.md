@@ -5,7 +5,7 @@ summary: My posts cover a range of topics, from programming to photography, from
 card_image: /theme/all_posts_card.png
 ---
 
-I write posts about a variety of non-fiction topics, from [books]({% post_url 2022/2022-12-31-2022-in-reading %}) to [braille]({% post_url 2019/2019-07-01-ten-braille-facts %}), from programming to photography, from [colour theory]({% post_url 2019/2019-08-19-finding-tint-colours-with-k-means %}) to [Chinese dictionaries]({% post_url 2019/2019-06-12-reading-a-chinese-dictionary %}).
+I write posts about a variety of non-fiction topics, from [books](/2022/2022-in-reading/) to [braille](/2019/ten-braille-facts/), from programming to photography, from [colour theory](/2019/finding-tint-colours-with-k-means/) to [Chinese dictionaries](/2019/reading-a-chinese-dictionary/).
 
 If you're new to the site, this page should give you an idea of the sort of thing I write, and help you find posts you might like [in the full archive](/all-posts/).
 I've tried to pick out examples of each category of post -- I think you'll find more to like here than trying to browse the archive chronologically.

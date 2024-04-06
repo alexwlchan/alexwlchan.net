@@ -45,7 +45,7 @@ Feast your eyes on my evolving skills in web design.
 ## Mid 2022 to present: Cards for browsing the archive
 
 Most of the design is the same as in 2018, barring minor tweaks to spacing and text styles.
-I did add cards to the homepage to link to blog posts, as part of [a design refresh]({% post_url 2022/2022-06-03-new-archive %}) to make it easier for new visitors to find posts they might like in the backlog.
+I did add cards to the homepage to link to blog posts, as part of [a design refresh](/2022/new-archive/) to make it easier for new visitors to find posts they might like in the backlog.
 
 I also used this design on the "best of" posts page, because at nearly 350&nbsp;posts it was impossible for anybody who wasn't me to navigate the archive.
 

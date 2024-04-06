@@ -124,5 +124,5 @@ But it's useful to have in my back pocket for a rainy day.
 
 [drang]: https://leancrew.com/all-this/2013/07/parsing-my-apache-logs/
 [github]: https://github.com/alexwlchan/apache-utils
-[404help]: {% post_url 2014/2014-09-14-404-pages %}
+[404help]: /2014/404-pages/
 [ctr]: https://docs.python.org/3.5/library/collections.html?highlight=collections.counter

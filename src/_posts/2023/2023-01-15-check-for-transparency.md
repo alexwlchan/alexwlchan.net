@@ -35,7 +35,7 @@ But the big discovery for me was modern image formats like WebP and AVIF, which 
 WebP is good, AVIF is unbelievably good – literally.
 When I first enabled AVIF support, I thought I'd broken something, because a 5x compression ratio over WebP (which is what I'm seeing for some images) seemed impossible.
 
-I had it all tested and working, so imagine my dismay when I opened [my latest post]({% post_url 2023/2023-01-13-upward-assignment %}) on my phone and discovered the images were broken:
+I had it all tested and working, so imagine my dismay when I opened [my latest post](/2023/upward-assignment/) on my phone and discovered the images were broken:
 
 <style type="x-text/scss">
   #avif_comparison {

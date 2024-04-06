@@ -71,5 +71,5 @@ val futures: Seq[Future[_]] =
 Now I have five `Future`s running concurrently, each of which calls the `Try` function.
 It's a bit ugly, but it does the trick.
 
-[locking logic]: {% post_url 2019/2019-05-13-creating-a-locking-service-in-a-scala-type-class %}
+[locking logic]: /2019/creating-a-locking-service-in-a-scala-type-class/
 [`Future.fromTry`]: https://www.scala-lang.org/api/current/scala/concurrent/Future$.html#fromTry[T](result:scala.util.Try[T]):scala.concurrent.Future[T]

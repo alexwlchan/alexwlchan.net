@@ -36,7 +36,7 @@ Most of the comments I saw were constructive and thoughtful, and many people sha
 It was also relatively stress-free.
 These are a few notes on what it was like to be (briefly) popular.
 
-[screenshots]: {% post_url 2022/2022-07-23-screenshots %}
+[screenshots]: /2022/screenshots/
 
 ---
 

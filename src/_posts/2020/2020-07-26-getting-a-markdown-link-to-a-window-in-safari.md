@@ -30,5 +30,5 @@ I use it when the URL doesn't contain much useful information (say, an article I
 This is one of several automations that I have to get URLs from my browser.
 Each of them saves a few clicks, and it means I don't break my writing flow going to the browser to copy/paste a URL.
 
-I wrote about [an automation for getting tweets]({% post_url 2019/2019-11-17-saving-a-copy-of-a-tweet-by-typing-twurl %}) last year, and the original idea I got [from Dr. Drang](https://leancrew.com/all-this/2009/07/safari-tab-urls-via-textexpander/) over a decade ago.
+I wrote about [an automation for getting tweets](/2019/saving-a-copy-of-a-tweet-by-typing-twurl/) last year, and the original idea I got [from Dr. Drang](https://leancrew.com/all-this/2009/07/safari-tab-urls-via-textexpander/) over a decade ago.
 I have it bound to `;mdurl` using Keyboard Maestro, with `;md2url` for the second window (if I'm typing into a text box in Safari).

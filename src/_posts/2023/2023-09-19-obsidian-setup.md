@@ -173,4 +173,4 @@ At least to me, it's always obvious which of these folders a note belongs in.
 This has been a constant feature of all my folder setups – I want to be able to file notes immediately, without thinking.
 I don't want to be wondering where a particular note should be stored on a day-to-day basis.
 
-[image gallery plugin]: {% post_url 2022/2022-11-04-obsidian-plugin %}
+[image gallery plugin]: /2022/obsidian-plugin/

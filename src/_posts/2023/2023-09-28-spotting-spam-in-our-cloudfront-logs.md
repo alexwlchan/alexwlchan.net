@@ -32,8 +32,8 @@ Over time, the load from the spam was starting to add up, and starting to crowd 
 We wanted to find a way to identify the spam, so we could return a "no results page" ASAP, without actually sending the query to our Elasticsearch cluster.
 It was usually "obvious" if you read the queries as a human, but how could we teach the computer to make the same distinction?
 
-[python]: {% post_url 2023/2023-07-28-cloudfront-logs %}
-[wp]: {% post_url 2023/2023-03-05-filtering-netlify-analytics %}
+[python]: /2023/cloudfront-logs/
+[wp]: /2023/filtering-netlify-analytics/
 [catalogue API]: https://developers.wellcomecollection.org/docs/catalogue
 
 ---

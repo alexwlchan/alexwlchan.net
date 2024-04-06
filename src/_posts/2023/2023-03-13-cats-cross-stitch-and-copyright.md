@@ -50,7 +50,7 @@ Here are a few of the pages:
 
 I don't remember a lot else from this time, but this project and the fact about cheetahs have a distinctive black "tear mark" has always stuck in my brain.
 
-[some old papers]: {% post_url 2023/2023-02-15-school-stuff %}
+[some old papers]: /2023/school-stuff/
 
 ---
 

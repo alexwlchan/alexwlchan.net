@@ -31,7 +31,7 @@ This is the key message: *being a good user of AI is about both technical skills
 You need to know the mechanics of prompt engineering, what text you type in the box, yes.
 But you also need to know how much you trust the tool, and whether you can rely on its results -- if you don't, the output is useless.
 
-[curbcut]: {% post_url 2019/2019-01-31-monki-gras-the-curb-cut-effect %}
+[curbcut]: /2019/monki-gras-the-curb-cut-effect/
 
 ## What a lovely sense of ~gender~
 

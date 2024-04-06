@@ -112,7 +112,7 @@ Honestly, I think it's unlikely I'll ever watch these again -- I'm keeping them 
 I don't know if I'll use this exact script again, but it was a good opportunity to practice using Swift and PhotoKit.
 I'm gradually building a little collection of scripts and tools I can use to do stuff with photos, and this is another pebble on that pile.
 
-[blink]: {% post_url 2023/2023-06-18-blink %}
+[blink]: /2023/blink/
 [fetchAssets]: https://developer.apple.com/documentation/photokit/phasset/1624783-fetchassets
 [assetResources]: https://developer.apple.com/documentation/photokit/phassetresource/1623988-assetresources
 [head]: https://en.wikipedia.org/wiki/Head_(Unix)

@@ -235,7 +235,7 @@ When I first enabled AVIF support, I thought something was broken -- the files w
 
 [WebP]: https://en.wikipedia.org/wiki/WebP
 [AVIF]: https://en.wikipedia.org/wiki/AVIF
-[transparency]: {% post_url 2023/2023-01-15-check-for-transparency %}
+[transparency]: /2023/check-for-transparency/
 
 ---
 

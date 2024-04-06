@@ -55,6 +55,6 @@ $ qlmanage -t -o thumbnails -s 1000 ~/Downloads/IMG_5494.jpeg
 (Note: the size is "up to", not "exactly".
 My original image is 4032 pixels wide; if I request a thumbnail that's 5000 pixels wide, I only get a 4032px wide thumbnail.)
 
-I've spent a bunch of time writing my own code for generating file thumbnails, including [using pdftocairo for PDFs]({% post_url 2019/2019-07-08-creating-preview-thumbnails-of-pdf-documents %}) and [a Python script for MOBI ebooks]({% post_url 2019/2019-06-04-getting-cover-images-from-mobi-ebooks %}).
+I've spent a bunch of time writing my own code for generating file thumbnails, including [using pdftocairo for PDFs](/2019/creating-preview-thumbnails-of-pdf-documents/) and [a Python script for MOBI ebooks](/2019/getting-cover-images-from-mobi-ebooks/).
 It's a complex problem, and every so often I find a new file that needs some tweak to the code.
 I'm looking forward to replacing it all with some new code that shells out to `qlmanage`, and letting the OS handle thumbnailing for me.

@@ -8,7 +8,7 @@ tags:
   - macos:safari
 ---
 
-Last year, I wrote an AppleScript function that [opens a URL in a Private Browsing window in Safari]({% post_url 2020/2020-06-24-using-applescript-to-open-a-url-in-private-browsing-in-safari %}).
+Last year, I wrote an AppleScript function that [opens a URL in a Private Browsing window in Safari](/2020/using-applescript-to-open-a-url-in-private-browsing-in-safari/).
 I got an email from a reader asking if I knew how to open a URL in a Private Browsing *tab* – either adding it to an existing private window, or creating a new private window if not.
 
 The difficult part is working out if a given window is using Private Browsing.
@@ -64,7 +64,7 @@ on isFrontmostSafariWindowPrivateBrowsing()
 end isFrontmostSafariWindowPrivateBrowsing
 ```
 
-As I explained at the end of [my previous post]({% post_url 2020/2020-06-24-using-applescript-to-open-a-url-in-private-browsing-in-safari %}), you'll need to give *Accessibility* permissions to whatever app uses this code.
+As I explained at the end of [my previous post](/2020/using-applescript-to-open-a-url-in-private-browsing-in-safari/), you'll need to give *Accessibility* permissions to whatever app uses this code.
 Apps can't just inspect the menu items of other processes – that would open up all sorts of weird security holes.
 
 This code has a couple of limitations:

@@ -8,7 +8,7 @@ tags:
 title: Finding even more untagged posts on Tumblr
 ---
 
-When I wrote [my original script]({% post_url 2013/2013-08-06-untagged-tumblr-posts %}) for finding untagged Tumblr posts, I expected it to be a one-off. I never expected to write [a dedicated site]({% post_url 2014/2014-06-13-untagged-tumblr-posts-redux %}), or for that site to become the most popular thing I've ever made. I've been flattered by some of the emails and tweets I've received about the site.
+When I wrote [my original script](/2013/untagged-tumblr-posts/) for finding untagged Tumblr posts, I expected it to be a one-off. I never expected to write [a dedicated site](/2014/untagged-tumblr-posts-redux/), or for that site to become the most popular thing I've ever made. I've been flattered by some of the emails and tweets I've received about the site.
 
 But I've also been letting it stagnate. I've been putting off a steady trickle of bug reports and feature requests, and the site was getting rough around the edges. On Monday, I inadvertently broke the site completely with some changes on the blog, so I decided that it was finally time to fix it.
 

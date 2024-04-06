@@ -26,7 +26,7 @@ Here's an example with English and German:
 </figure>
 
 This is an efficient way to store the data, and it allows for fast lookups if there's a word you don't know.
-(Assuming you know how to [find a word in the list]({% post_url 2019/2019-06-12-reading-a-chinese-dictionary %}).)
+(Assuming you know how to [find a word in the list](/2019/reading-a-chinese-dictionary/).)
 It's how every dictionary and phrase book I've ever read has been laid out.
 
 A vocabulary list treats each word/translation pair as a discrete unit, to be learnt individually.

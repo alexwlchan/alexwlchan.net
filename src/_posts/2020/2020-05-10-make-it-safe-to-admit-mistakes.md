@@ -34,7 +34,7 @@ I was very apologetic and conciliatory and I felt like I screwed up.
 My coworkers reassured me that it wasn't my fault -- we all make mistakes, and I was just the unlucky one today.
 **They didn't try to blame me or make me feel worse for my mistake.**
 
-Part of this is because they recognise that [complex systems have complex failures]({% post_url 2020/2020-04-19-complex-failures %}), and it's never a single person at fault.
+Part of this is because they recognise that [complex systems have complex failures](/2020/complex-failures/), and it's never a single person at fault.
 Although I was the one who pushed the button, it would have been better if there hadn't been a button for me to press.
 (And indeed, we're changing how we handle bucket policies so at least two people review every future change, making this sort of mistake less likely.)
 

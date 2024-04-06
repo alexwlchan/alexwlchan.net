@@ -32,7 +32,7 @@ I include the compiled PDF, and a link to the source code on Github.
 
 I've written a handful of essays on maths at different levels. They're not all online yet.
 
-* <a href="{% post_url 2013/2013-01-10-zero %}"><strong>Zero</strong></a>: an essay for a Sixth Form discussion group about the historical and mathematical significance of the number zero, and why it took so long to be accepted as a "real" number.
+* <a href="/2013/zero/"><strong>Zero</strong></a>: an essay for a Sixth Form discussion group about the historical and mathematical significance of the number zero, and why it took so long to be accepted as a "real" number.
 
 [latex]: http://www.latex-project.org/
 [groj]: https://www.dpmms.cam.ac.uk/~groj/

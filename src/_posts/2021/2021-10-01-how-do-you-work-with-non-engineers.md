@@ -42,4 +42,4 @@ Those goals are what they actually care about; they're what should be driving ou
 Wellcome is a museum and library, not a software factory.
 Technology should be led by the organisation's needs, not the other way round.
 
-[non_technical]: {% post_url 2020/2020-11-24-non-technical-users %}
+[non_technical]: /2020/non-technical-users/

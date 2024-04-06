@@ -45,7 +45,7 @@ I've come up with an approach that seems to work fairly well, which uses [*k*-me
 I've tried my code with a few thousand images, and it picks reasonable colours each time -- not always optimal, but scanning the list I didn't see anything wildly inappropriate or unusable.
 
 [docstore]: https://github.com/alexwlchan/docstore
-[thumbnails]: {% post_url 2019/2019-07-08-creating-preview-thumbnails-of-pdf-documents %}
+[thumbnails]: /2019/creating-preview-thumbnails-of-pdf-documents/
 [bootstrap]: https://getbootstrap.com
 [k_means]: https://en.wikipedia.org/wiki/K-means_clustering
 

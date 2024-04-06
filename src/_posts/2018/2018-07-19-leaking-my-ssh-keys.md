@@ -78,4 +78,4 @@ Best I can hope is that I'll be similarly lucky, and whatever it is won't be an 
 [autoflake]: https://pypi.org/project/autoflake/
 [traviszip]: https://docs.travis-ci.com/user/encrypting-files/
 [tf_key]: https://www.terraform.io/docs/providers/github/r/repository_deploy_key.html
-[subprocess]: {% post_url 2018/2018-05-04-beware-logged-errors %}
+[subprocess]: /2018/beware-logged-errors/

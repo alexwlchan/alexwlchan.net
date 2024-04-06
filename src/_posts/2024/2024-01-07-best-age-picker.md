@@ -322,10 +322,10 @@ Animation is one of those topics that's always been just beyond what I can do â€
 Now I have!
 
 [animate]: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate
-[SVG masks]: {% post_url 2021/2021-03-12-inner-outer-strokes-svg %}
-[circular arcs]: {% post_url 2022/2022-08-10-circle-party %}
+[SVG masks]: /2021/inner-outer-strokes-svg/
+[circular arcs]: /2022/circle-party/
 [rx]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/rx
 [border-radius]: https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
 [oldest humans]: https://en.wikipedia.org/wiki/Oldest_people
 [calcMode]: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/calcMode
-[hyperfocus]: {% post_url 2023/2023-10-20-hyperfocus-and-hobbies %}
+[hyperfocus]: /2023/hyperfocus-and-hobbies/

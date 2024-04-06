@@ -10,7 +10,7 @@ tags:
 ---
 
 I didn't expect to be writing another post about S3 keys so soon, but life comes at you fast.
-Less than twenty-four hours after posting [S3 keys are not file paths]({% post_url 2020/2020-08-18-s3-keys-are-not-file-paths %}), I hit a *different bug* caused by poor handling of S3 keys.
+Less than twenty-four hours after posting [S3 keys are not file paths](/2020/s3-keys-are-not-file-paths/), I hit a *different bug* caused by poor handling of S3 keys.
 (Yes, really.)
 
 The storage service I work on has to store [different versions of a "bag"](https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184), and we want those versions to be human-readable.

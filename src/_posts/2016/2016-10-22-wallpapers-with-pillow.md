@@ -13,7 +13,7 @@ colors:
   index_dark:  "#ffd20b"
 ---
 
-In my [last post]({% post_url 2016/2016-10-21-tiling-the-plane-with-pillow %}), I explained how I'd been using Pillow to draw regular tilings of the plane.
+In my [last post](/2016/tiling-the-plane-with-pillow/), I explained how I'd been using Pillow to draw regular tilings of the plane.
 What I was actually trying to do was get some new desktop wallpapers, and getting to use a new Python library was just a nice bonus.
 
 A while back, the [Code Review Stack Exchange](http://codereview.stackexchange.com) got a fresh design that featured, among other things, a low-contrast background of coloured squares:

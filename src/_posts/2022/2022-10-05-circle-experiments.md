@@ -247,9 +247,9 @@ One of the things I enjoy about Python and its drawing libraries is how fast I c
 I thought about this on the walk home from the station, and within ten minutes of walking through my door I had the final set of images.
 It's a fun creative outlet -- and unlike other forms of computer-based art, my randomly generated graphics don't have any ethical quagmires.
 
-[screenshot library]: {% post_url 2022/2022-07-23-screenshots %}
+[screenshot library]: /2022/screenshots/
 [border-radius property]: https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
-[the blog post]: {% post_url 2016/2016-10-22-wallpapers-with-pillow %}
+[the blog post]: /2016/wallpapers-with-pillow/
 [Pillow]: https://python-pillow.org/
 [ImageDraw]: https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
 [kirsten]: https://twitter.com/Kirsten3531/status/1575789943565131776

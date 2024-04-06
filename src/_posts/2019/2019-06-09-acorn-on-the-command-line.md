@@ -277,7 +277,7 @@ This is the final script, including a comment at the top explaining how to use i
 -- is already open for editing, it uses that, otherwise it opens the file
 -- and then closes it afterward.
 --
--- Taken from https://alexwlchan.net{% post_url 2019/2019-06-09-acorn-on-the-command-line %}
+-- Taken from https://alexwlchan.net/2019/acorn-on-the-command-line/
 
 on run argv
   if (count of argv) is not 2

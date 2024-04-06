@@ -181,7 +181,7 @@ for log_entry in get_cloudfront_logs_from_dir("cf"):
     print(log_entry)
 ```
 
-[snake-walker]: {% post_url 2023/2023-07-26-snake-walker %}
+[snake-walker]: /2023/snake-walker/
 
 ---
 
@@ -245,4 +245,4 @@ I think the benefits of this abstraction will become apparent in another post I'
 The post will jump straight into a `for` loop of CloudFront log events, and it won't have to worry about exactly where those events come from.
 
 [Loop Like A Native]: https://nedbatchelder.com/text/iter.html
-[previous post]: {% post_url 2023/2023-07-26-snake-walker %}
+[previous post]: /2023/snake-walker/

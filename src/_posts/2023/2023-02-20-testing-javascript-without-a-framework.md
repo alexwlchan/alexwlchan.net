@@ -200,7 +200,7 @@ Here's an example of what a successful/failed test look like in the HTML it crea
 </p>
 ```
 
-The reason I'm inserting HTML instead of using console logging (even though I can do [formatting in the console]({% post_url 2023/2023-02-16-css-formatting-in-the-console %})) is that it's just a bit easier to see -- I only need a browser, I don't access to dev tools.
+The reason I'm inserting HTML instead of using console logging (even though I can do [formatting in the console](/2023/css-formatting-in-the-console/)) is that it's just a bit easier to see -- I only need a browser, I don't access to dev tools.
 I haven't written much JavaScript on my phone, but it is occasionally useful.
 
 I've also written a couple of assertion helpers, like you get in a proper test framework.
