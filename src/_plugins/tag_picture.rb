@@ -76,8 +76,8 @@ require 'fileutils'
 require 'json'
 require 'shell/executer'
 
-require 'rszr'
-
+require_relative 'pillow/convert_image'
+require_relative 'pillow/get_image_info'
 require_relative 'utils/attrs'
 
 class ImageFormat
@@ -87,21 +87,6 @@ class ImageFormat
 
   JPEG = { extension: '.jpg',  mime_type: 'image/jpeg' }
   PNG  = { extension: '.png',  mime_type: 'image/png' }
-end
-
-Jekyll::Hooks.register :site, :after_reset do
-  FileUtils.rm_f('.missing_images.json')
-end
-
-Jekyll::Hooks.register :site, :post_render do
-  if File.exist? '.missing_images.json'
-    image_count = `wc -l .missing_images.json`.strip.split[0].to_i
-    puts "Creating #{image_count} image#{image_count > 1 ? 's' : ''}..."
-
-    # Actually create the individual image files.  This is handled by
-    # a separate Docker image; see the comments in the `image_creator` folder.
-    Shell.execute!('docker-compose run image_creator')
-  end
 end
 
 module Jekyll
@@ -160,8 +145,8 @@ module Jekyll
 
       raise "Image #{source_path} does not exist" unless File.exist? source_path
 
-      image = Rszr::Image.load(source_path)
-      im_format = get_format(source_path)
+      image = get_single_image_info(source_path)
+      im_format = get_format(source_path, image)
 
       # Using the bounding box supplied, work out the target width based
       # on the actual image dimensions.
@@ -170,11 +155,11 @@ module Jekyll
       elsif !@bounding_box[:width].nil?
         @width = @bounding_box[:width]
       elsif !@bounding_box[:height].nil?
-        @width = (image.width * @bounding_box[:height] / image.height).to_i
+        @width = (image['width'] * @bounding_box[:height] / image['height']).to_i
       end
 
-      if image.width < @width
-        raise "Image #{File.basename(source_path)} is only #{image.width}px wide, less than visible width #{@width}px"
+      if image['width'] < @width
+        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{@width}px"
       end
 
       # These two attributes allow the browser to completely determine
@@ -184,7 +169,7 @@ module Jekyll
       #
       # See https://web.dev/optimize-cls/
       @attrs['width'] = @width
-      aspect_ratio = Rational(image.width, image.height)
+      aspect_ratio = Rational(image['width'], image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
       # I'm not a fan of the way AVIF and WebP introduce artefacts into
@@ -207,9 +192,9 @@ module Jekyll
       )
 
       if File.exist? dark_path
-        dark_image = Rszr::Image.load(dark_path)
+        dark_image = get_single_image_info(dark_path)
 
-        if (dark_image.width != image.width) || (dark_image.height != image.height)
+        if (dark_image['width'] != image['width']) || (dark_image['height'] != image['height'])
           raise "Dark-variant #{File.basename(dark_path)} has different dimensions to #{File.basename(source_path)}"
         end
 
@@ -355,7 +340,7 @@ module Jekyll
     def prepare_images(source_path, desired_formats, dst_prefix, width, max_width)
       sources = Hash.new { [] }
 
-      image = Rszr::Image.load(source_path)
+      image = get_single_image_info(source_path)
 
       # Pick how many widths we're going to cut this image at.
       #
@@ -363,7 +348,7 @@ module Jekyll
       # extra sizes and have them added to the list.
       widths = (1..3)
                .map { |pixel_density| pixel_density * width }
-               .filter { |w| w <= image.width }
+               .filter { |w| w <= image['width'] }
                .filter { |w| max_width.nil? || w <= max_width }
                .sort!
 
@@ -379,16 +364,8 @@ module Jekyll
                        "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
                      end
 
-          unless File.exist? out_path
-            open('.missing_images.json', 'a') do |f|
-              f.puts JSON.generate({
-                                     out_path:,
-                                     source_path:,
-                                     width: this_width,
-                                     height: (image.height * this_width / image.width).to_i
-                                   })
-            end
-          end
+          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
+          convert_image(request)
 
           sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
         end
@@ -398,14 +375,14 @@ module Jekyll
     end
 
     # Get some useful info about the file format
-    def get_format(path)
-      case File.extname(path)
-      when '.png'
+    def get_format(image_path, image)
+      case image['format']
+      when 'PNG'
         ImageFormat::PNG
-      when '.jpg'
+      when 'JPEG'
         ImageFormat::JPEG
       else
-        raise "Unrecognised image extension in #{path}"
+        raise "Unrecognised image extension in #{image_path} (#{image['format']})"
       end
     end
   end

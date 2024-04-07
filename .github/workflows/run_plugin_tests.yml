@@ -23,6 +23,27 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
-      - name: Run the tests
-        run: |
-          make plugin-tests
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          cache-version: 1
+
+        # nokogiri doesn't get installed properly for some reason, and
+        # I get errors like:
+        #
+        #     `require': cannot load such file -- nokogiri (LoadError)
+        #
+        # Try installing it manually instead.
+      - run: gem install nokogiri
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+
+      - name: "Run the plugin tests"
+        run: ruby src/_tests/tests.rb

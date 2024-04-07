@@ -10,9 +10,9 @@
 # and save the relevant images/metadata in `src/_tweets`.
 #
 
-require 'base64'
-require 'rszr'
+require 'json-schema'
 
+require_relative 'pillow/create_base64_tweet_avatar'
 require_relative 'utils/twitter'
 
 METADATA_SCHEMA = {
@@ -134,41 +134,22 @@ module Jekyll
     # so I capture the avatar as it looked at the time of the tweet,
     # similar to if I'd taken a tweet screenshot.
     def tweet_avatar_url(tweet_data)
-      screen_name = tweet_data['user']['screen_name']
       tweet_id = tweet_data['id']
 
-      # Find the matching avatar.  Each avatar should be labelled with
-      # the screen name and tweet ID, but may be one of several formats.
-      matching_avatars = Dir.glob("src/_tweets/avatars/#{screen_name}_#{tweet_id}.*")
+      Jekyll::Cache.new('TweetAvatars').getset(tweet_id) do
+        screen_name = tweet_data['user']['screen_name']
 
-      unless matching_avatars.length == 1
-        raise "Could not find avatar for tweet, expected #{screen_name}_#{tweet_id}.*"
-      end
+        # Find the matching avatar.  Each avatar should be labelled with
+        # the screen name and tweet ID, but may be one of several formats.
+        matching_avatars = Dir.glob("src/_tweets/avatars/#{screen_name}_#{tweet_id}.*")
 
-      path = matching_avatars[0]
-      extension = path.split('.').last # ick
+        unless matching_avatars.length == 1
+          raise "Could not find avatar for tweet, expected #{screen_name}_#{tweet_id}.*"
+        end
 
-      # Avatars are routinely quite large (e.g. 512x512), but they're
-      # only displayed in a 36x36 square (see _tweets.scss).
-      #
-      # Cutting a smaller thumbnail should reduce the page weight.
-      FileUtils.mkdir_p '.jekyll-cache/twitter/avatars'
-      thumbnail_path = ".jekyll-cache/twitter/avatars/#{File.basename(path)}"
+        path = matching_avatars[0]
 
-      unless File.exist? thumbnail_path
-        image = Rszr::Image.load(path)
-        image.resize(108, 108).save(thumbnail_path)
-      end
-
-      thumbnail_data = Base64.encode64(File.read(thumbnail_path))
-
-      case extension
-      when 'png'
-        "data:image/png;base64,#{thumbnail_data}"
-      when 'jpg', 'jpeg'
-        "data:image/jpeg;base64,#{thumbnail_data}"
-      else
-        raise "Unrecognised avatar extension: #{avatar_url} / #{extension}"
+        create_base64_tweet_avatar(path, 108)
       end
     end
 

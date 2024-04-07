@@ -35,6 +35,28 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          cache-version: 1
+
+        # Not all the gems get installed properly for some reason, and
+        # I get errors like:
+        #
+        #     `require': cannot load such file -- json-schema (LoadError)
+        #
+        # Try installing them manually instead.
+      - run: gem install html-proofer json-schema nokogiri
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+
       - name: "Cache site output"
         uses: "actions/cache@v4"
         with:
@@ -50,10 +72,10 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: make html-drafts
+        run: bundle exec jekyll build --drafts
 
       - name: "Run linting"
-        run: make lint
+        run: ruby scripts/linter.rb
 
       - name: "Publish drafts"
         if: github.ref == 'refs/heads/main'
@@ -67,17 +89,25 @@ jobs:
 
             git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
 
-            make publish-drafts
-            make html
+            ruby scripts/publish_drafts.rb
+            bundle exec jekyll build
           else
             echo "There is no _drafts folder, so nothing to publish!"
           fi
 
-      - name: "Deploy to Netlify"
-        if: github.ref == 'refs/heads/main'
-        run: make deploy-prod
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: "_site"
+          production-branch: main
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          overwrites-pull-request-comment: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: "da37a488-4df9-4cc2-b267-947179af20bd"
+        timeout-minutes: 1
 
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/main'

@@ -33,7 +33,9 @@ void(search_bar.style.display = (hidden == "none" ? "" : "none"));
 ```
 
 To use this code, drag this link to your bookmarks bar:
-<p><center><h1><a href="javascript:var%20search_bar%20=%20document.getElementById(%22yt-masthead-container%22);var%20hidden%20=%20(window.getComputedStyle(search_bar)).getPropertyValue(%22display%22);search_bar.style.display%20=%20(hidden%20==%20%22none%22%20?%20%22%22%20:%20%22none%22);console.log(%22%22);">Toggle the YouTube search bar</a></h1></center></p>
+
+<h1 style="text-align: center;"><a href="javascript:var%20search_bar%20=%20document.getElementById(%22yt-masthead-container%22);var%20hidden%20=%20(window.getComputedStyle(search_bar)).getPropertyValue(%22display%22);search_bar.style.display%20=%20(hidden%20==%20%22none%22%20?%20%22%22%20:%20%22none%22);console.log(%22%22);">Toggle the YouTube search bar</a></h1>
+
 Simply click it once to make the bar disappear, and click it again to bring it all back.
 
 Something that wasn't in my original Google Maps bookmarklet is that `void()` call.

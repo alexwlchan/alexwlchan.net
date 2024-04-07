@@ -31,7 +31,7 @@
 # This plugin means I can put the highest resolution card images in the
 # `src` directory, but the site doesn't pay a perf penalty.
 
-require 'rszr'
+require_relative 'pillow/convert_image'
 
 Jekyll::Hooks.register :site, :post_read do |site|
   site.collections['articles'].docs.each do |post|
@@ -56,22 +56,11 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
     # Make sure we save a copy of the social card at the right size; this
     # won't be sent with srcset or similar.
-    social_card_out = social_card.gsub('src/_images', '_site/images')
-
-    # Create an image which is at least 800px wide, and at most 1000px wide.
-    unless File.exist? social_card_out
-      image = Rszr::Image.load(social_card)
-
-      out_width = image.width.clamp(800, 1000)
-
-      open('.missing_images.json', 'a') do |f|
-        f.puts JSON.generate({
-                               out_path: social_card_out,
-                               source_path: social_card,
-                               width: out_width
-                             })
-      end
-    end
+    convert_image({
+                    'in_path' => social_card,
+                    'out_path' => social_card.gsub('src/_images', '_site/images'),
+                    'width' => 800
+                  })
 
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.

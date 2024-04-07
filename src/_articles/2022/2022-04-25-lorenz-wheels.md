@@ -54,20 +54,18 @@ I made some illustrations that show the wheels as coloured circles, with tick ma
   }
 </style>
 
-<p>
-  <figure>
-    <div class="grid">
-      <img src="/images/2022/wheels-1.png" alt="A blue wheel with the label psi-2.">
-      <img src="/images/2022/wheels-10.png" alt="A red wheel with the label mu-1.">
-      <img src="/images/2022/wheels-8.png" alt="A green wheel with the label chi-4.">
-    </div>
-    <figcaption>
-      The <em>ψ</em><sub>2</sub> wheel has 47&nbsp;cams,
-      the <em>μ</em><sub>1</sub> wheel has 37&nbsp;cams,
-      and the <em>χ</em><sub>4</sub> wheel has 26&nbsp;cams.
-    </figcaption>
-  </figure>
-</p>
+<figure>
+  <div class="grid">
+    <img src="/images/2022/wheels-1.png" alt="A blue wheel with the label psi-2.">
+    <img src="/images/2022/wheels-10.png" alt="A red wheel with the label mu-1.">
+    <img src="/images/2022/wheels-8.png" alt="A green wheel with the label chi-4.">
+  </div>
+  <figcaption>
+    The <em>ψ</em><sub>2</sub> wheel has 47&nbsp;cams,
+    the <em>μ</em><sub>1</sub> wheel has 37&nbsp;cams,
+    and the <em>χ</em><sub>4</sub> wheel has 26&nbsp;cams.
+  </figcaption>
+</figure>
 
 I meant to use them in a presentation about Lorenz and the British break of the cipher, but it never happened.
 They languished on a disk for years, until I found them yesterday.
