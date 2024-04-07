@@ -18,7 +18,6 @@ The site uses:
 
 *   [Jekyll][jekyll], which generates the HTML pages
 *   [Sass][sass], for building the CSS and stylesheets
-*   [Docker][docker], which wraps the local build process
 *   [GitHub Actions][github_actions], which builds and deploys the site
 *   [Netlify], which hosts the site
 
