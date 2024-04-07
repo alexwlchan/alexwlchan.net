@@ -57,9 +57,9 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # Make sure we save a copy of the social card at the right size; this
     # won't be sent with srcset or similar.
     convert_image({
-      in_path: social_card,
-      out_path: social_card.gsub('src/_images', '_site/images'),
-      width: 800
+      "in_path" => social_card,
+      "out_path" => social_card.gsub('src/_images', '_site/images'),
+      "width" => 800
     })
 
     # Now we attach enough data to the post that the downstream components
