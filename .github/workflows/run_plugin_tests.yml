@@ -29,11 +29,7 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
           cache-version: 1
-
-      - name: "Try to run Nokogiri"
-        run: |
-          gem install nokogiri
-          ruby greeting.rb
+      - run: gem install nokogiri
 
       - name: "Set up Python"
         uses: actions/setup-python@v5

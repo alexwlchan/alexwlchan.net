@@ -10,8 +10,8 @@ require 'rainbow'
 require 'uri'
 require 'yaml'
 
+require_relative 'pillow/get_color_profiles'
 require_relative 'pillow/get_image_info'
-require_relative 'utils/picture'
 
 class RunLinting < Jekyll::Command
   class << self
@@ -306,7 +306,7 @@ class RunLinting < Jekyll::Command
         'sRGB'
       ]
 
-      get_colour_profiles("#{dst_dir}/images").each do |path, profile|
+      get_color_profiles("#{dst_dir}/images").each do |path, profile|
         if profile.nil? || safe_colour_profiles.include?(profile)
           next
         end
