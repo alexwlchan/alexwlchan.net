@@ -16,11 +16,11 @@
 
     <div class="c_meta">
       <p class="c_title">
-        {{ article.title | markdownify_oneline }}
+        {{- article.title | markdownify_oneline -}}
       </p>
       {% if article.summary %}
         <p class="c_desc">
-          {{ article.summary | markdownify_oneline }}
+          {{- article.summary | markdownify_oneline -}}
         </p>
       {% endif %}
     </div>
@@ -28,7 +28,7 @@
     {% if include.hide_date != "true" %}
     <div class="c_date">
       <p>
-        {{ article.date | date: "%-d %B&nbsp;%Y" }}
+        {{- article.date | date: "%-d %B&nbsp;%Y" -}}
       </p>
     </div>
     {% endif %}
