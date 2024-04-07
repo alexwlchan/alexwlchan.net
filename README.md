@@ -18,7 +18,6 @@ The site uses:
 
 *   [Jekyll][jekyll], which generates the HTML pages
 *   [Sass][sass], for building the CSS and stylesheets
-*   [Docker][docker], which wraps the local build process
 *   [GitHub Actions][github_actions], which builds and deploys the site
 *   [Netlify], which hosts the site
 
@@ -30,7 +29,6 @@ If the site passes checks, it's [automatically merged][automerge], and the build
 
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
-[docker]: https://www.docker.com/
 [github_actions]: https://github.com/features/actions
 [Netlify]: https://www.netlify.com
 [HTMLProofer]: https://github.com/gjtorikian/html-proofer
@@ -40,13 +38,19 @@ If the site passes checks, it's [automatically merged][automerge], and the build
 
 ## Building the site
 
-You need Git, make and Docker installed.
+You need Git, Ruby, and Python installed.
 
 To run a local copy of the site:
 
 ```console
 $ git clone git@github.com:alexwlchan/alexwlchan.net.git
-$ make serve
+
+$ python3 -m venv .venv
+$ pip install -r requirements.txt
+
+$ bundle install
+
+$ jekyll serve
 ```
 
 The site should be running on <http://localhost:5757>.
@@ -55,7 +59,7 @@ If you make changes to the source files, it will automatically update.
 To build a one-off set of static HTML files:
 
 ```console
-$ make html
+$ jekyll build
 ```
 
 This creates a set of HTML files in `_site`.
@@ -67,9 +71,7 @@ This creates a set of HTML files in `_site`.
 I publish the source code so other people can see how the site works, and maybe use some of the ideas for their own sites.
 This is a list of things that I think are interesting or unusual:
 
-*   [Builds in Docker](docs/builds-in-docker.md)
 *   [Atom feed generation](docs/atom-feed-generation.md)
-*   [Month and year archives](docs/month-and-year-archives.md)
 *   [No-JavaScript Twitter embeds](docs/twitter-embeds.md)
 *   [Linking to my work on other sites](docs/linking-to-other-work.md)
 *   [Validating the front matter in Markdown files](docs/front_matter.md)

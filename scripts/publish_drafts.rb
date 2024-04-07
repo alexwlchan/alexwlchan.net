@@ -6,9 +6,6 @@
 #  * Creates a Git commit for the change
 #  * Pushes said Git commit to GitHub
 #
-# It gets copied directly into the Docker container, rather than being
-# installed as a gem, because installing local gems adds a whole extra layer
-# of complication that I don't want right now.
 
 require 'fileutils'
 require 'shell/executer'
