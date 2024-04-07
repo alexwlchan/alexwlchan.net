@@ -13,52 +13,39 @@
 require 'fileutils'
 require 'shell/executer'
 
-class PublishDrafts < Jekyll::Command
-  class << self
-    def init_with_program(prog)
-      prog.command(:publish_drafts) do |cmd|
-        cmd.action do |_, options|
-          options = configuration_from_options(options)
-          publish_drafts(options['source'])
-        end
-      end
-    end
+source_dir = "src"
 
-    def publish_drafts(source_dir)
-      puts '*** Publishing drafts'
-      Dir.chdir(source_dir) do
-        drafts_dir = '_drafts'
+puts '*** Publishing drafts'
+Dir.chdir(source_dir) do
+  drafts_dir = '_drafts'
 
-        tracked_drafts = `git ls-tree --name-only HEAD #{drafts_dir}/`.split("\n")
+  tracked_drafts = `git ls-tree --name-only HEAD #{drafts_dir}/`.split("\n")
 
-        puts '*** No drafts to publish!' if tracked_drafts.empty?
+  puts '*** No drafts to publish!' if tracked_drafts.empty?
 
-        now = Time.now
+  now = Time.now
 
-        tracked_drafts.each do |entry|
-          puts "*** Publishing draft post #{entry}"
+  tracked_drafts.each do |entry|
+    puts "*** Publishing draft post #{entry}"
 
-          name = File.basename(entry)
-          new_name = File.join('_posts', now.strftime('%Y'), "#{now.strftime('%Y-%m-%d')}-#{name}")
-          FileUtils.mkdir_p File.dirname(new_name)
-          File.rename(entry, new_name)
+    name = File.basename(entry)
+    new_name = File.join('_posts', now.strftime('%Y'), "#{now.strftime('%Y-%m-%d')}-#{name}")
+    FileUtils.mkdir_p File.dirname(new_name)
+    File.rename(entry, new_name)
 
-          # Now we write the exact date and time into the top of the file.
-          # This means that if I publish more than one post on the same day,
-          # they have an unambiguous ordering.
-          doc = File.read(new_name)
-          doc = doc.gsub(
-            /layout:\s+post\s*\n/,
-            "layout: post\ndate: #{now}\n"
-          )
-          File.write(new_name, doc)
+    # Now we write the exact date and time into the top of the file.
+    # This means that if I publish more than one post on the same day,
+    # they have an unambiguous ordering.
+    doc = File.read(new_name)
+    doc = doc.gsub(
+      /layout:\s+post\s*\n/,
+      "layout: post\ndate: #{now}\n"
+    )
+    File.write(new_name, doc)
 
-          puts "*** Creating Git commit for #{entry}"
-          Shell.execute!("git rm #{entry}")
-          Shell.execute!("git add #{new_name}")
-          Shell.execute!("git commit -m \"Publish new post #{name}\"")
-        end
-      end
-    end
+    puts "*** Creating Git commit for #{entry}"
+    Shell.execute!("git rm #{entry}")
+    Shell.execute!("git add #{new_name}")
+    Shell.execute!("git commit -m \"Publish new post #{name}\"")
   end
 end

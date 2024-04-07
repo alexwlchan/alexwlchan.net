@@ -16,7 +16,7 @@ class TestPillow < Test::Unit::TestCase
 
     expected = {
       'src/_tests/images/gradient-with-p3.png' => 'Display P3',
-      'src/_tests/images/gradient-with-srgb.png' => nil,
+      'src/_tests/images/gradient-with-srgb.png' => nil
     }
 
     assert_equal(actual, expected)
