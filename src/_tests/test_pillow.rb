@@ -4,14 +4,8 @@ require 'tmpdir'
 require 'test/unit'
 
 require_relative '../_plugins/pillow/convert_image'
-require_relative '../_plugins/pillow/get_image_info'
 
 class TestPillow < Test::Unit::TestCase
-  def test_get_image_info
-    output = get_image_info(['src/_tests/images/gradient.png'])
-    assert_equal(output, { 'src/_tests/images/gradient.png' => { 'width' => 250, 'height' => 250, 'format' => 'PNG' } })
-  end
-
   def test_convert_image
     Dir.mktmpdir do |d|
       convert_image({
