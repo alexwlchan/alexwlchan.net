@@ -11,6 +11,7 @@ Example:
 
 """
 
+import io
 import json
 import sys
 
