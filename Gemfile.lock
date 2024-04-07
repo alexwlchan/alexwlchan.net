@@ -157,7 +157,7 @@ DEPENDENCIES
   jekyll (~> 4)
   jekyll-include-cache (~> 0.2)
   json-schema (~> 4)
-  nokogiri (~> 1.12)
+  nokogiri (~> 1.16)
   rubocop (~> 1.62)
   shell-executer (~> 1.0)
 
