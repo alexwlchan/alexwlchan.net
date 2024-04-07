@@ -95,13 +95,7 @@ footer {
     &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_circle    { fill: #50aee4; };
   }
 
-  /* When you print the nav, remove the background and replace the white
-   * with the same black as the body text. */
   @media print {
-    background: none;
-    border-top: var(--border-width) solid var(--primary-color-light);
-
-    color: var(--body-text-light);
-    a, a:visited { color: var(--body-text-light); }
+    display: none;
   }
 }

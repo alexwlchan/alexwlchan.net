@@ -44,6 +44,11 @@ $accent-grey-dark:  #999;
   --accent-grey-link-hover: #{rgba($accent-grey-light, 0.2)};
 
   --screenshot-border-color: #f0f0f0;
+
+  /* This gives cards a v subtle solid background colour, to make them
+   * stand out from the textured background.
+   */
+  --article-card-background: #fafafa;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +59,14 @@ $accent-grey-dark:  #999;
     --accent-grey-link-hover: #{rgba($accent-grey-dark, 0.2)};
 
     --screenshot-border-color: #3f3f3f;
+
+    --article-card-background: #0d0d0d;
+  }
+}
+
+@media print {
+  :root {
+    --accent-grey: var(--body-text);
   }
 }
 

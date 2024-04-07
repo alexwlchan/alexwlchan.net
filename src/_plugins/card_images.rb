@@ -34,7 +34,7 @@
 require 'rszr'
 
 Jekyll::Hooks.register :site, :post_read do |site|
-  site.posts.docs.each do |post|
+  site.collections['articles'].docs.each do |post|
     year = post.date.year
     slug = post.data['slug']
 
@@ -95,8 +95,8 @@ module Jekyll
     # that checks images have alt text.
     # See https://github.com/gjtorikian/html-proofer#ignoring-content
     def render(context)
-      post = context['post']
-      card = post['card']
+      article = context['article']
+      card = article['card']
 
       if card.nil?
         <<~HTML
@@ -114,10 +114,12 @@ module Jekyll
           {%
             picture
             filename="#{card['index']}"
-            parent="/images/cards/#{post['date'].year}"
+            parent="/images/cards/#{article['date'].year}"
             width="400"
+            max_width="800"
             alt=""
             loading="lazy"
+            class="c_image"
             #{attribution_text}
             data-proofer-ignore
           %}

@@ -1,3 +1,5 @@
+# Can I do away with this?
+
 # This plugin provides a {% details %} block, which is mostly a thin wrapper
 # around the HTML 5 <details> tag.
 #

@@ -40,7 +40,7 @@ I'm also a keen writer, crafter, theatre-goer, and occasional dancer.
 
 I've put a bunch of things on the Internet, including:
 
-*   [**My personal writing**](/writing/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
+*   [**My personal writing**](/articles/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
     I've been writing at this domain for over a decade, and I post new articles several times a month.
 
 *   **A bunch of [open-source tools and utilities][oss]**.
@@ -58,7 +58,7 @@ I'm queer, trans, and I loosely describe as a genderfluid shapeshifter (which ma
 My pronouns vary; on the web, either "they" or "she" are safe choices. 🏳️‍🌈
 
 This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
-If you're new, you might want to start with [my writing](/writing/) or [my list of projects](/projects/).
+If you're new, you might want to start with [my writing](/articles/) or [my list of projects](/projects/).
 
 I hope you enjoy it.
 
@@ -75,28 +75,52 @@ I hope you enjoy it.
 ## My writing
 
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
-Here are some of my favourite posts:
+Here are some of my favourites:
 
-{%
-  include
-  eggbox.html
-  eggbox_posts="snapped-elastic bure-valley big-pdf graph-generative-art hyperfocus-and-hobbies 2023-in-reading"
-%}
+{% assign featured_articles = site.articles | where: "index.feature", true %}
+{% assign sample_of_articles = featured_articles | sample: 6 %}
 
-If you want to read more, I've got [plenty more](/writing/).
+{% include article_card_styles.html selected_articles=featured_articles %}
+
+<script>
+  const featuredArticles = [
+    {% for article in featured_articles %}
+      {% capture articleHtml %}
+        {% include article_card.html hide_date="true" %}
+      {% endcapture %}
+      {{ articleHtml | strip | jsonify }},
+    {% endfor %}
+  ];
+
+  console.log(featuredArticles.length);
+
+  window.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#featured_articles").innerHTML =
+      featuredArticles
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 6)
+        .join("");
+  });
+</script>
+
+<ul class="article_cards" id="featured_articles">
+{% for article in sample_of_articles %}
+  {% include article_card.html hide_date="true" %}
+{% endfor %}
+</ul>
+
+If you want to read more, I've got [plenty to look at](/articles/).
 
 
   {% separator "leaf.svg" %}
 
 
-## My newest posts
+## My newest articles
 
-I typically write three or four new posts a month.
-If you want to hear about them, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
+I typically write three or four new articles a month.
+If you want to find out when I post something new, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
 Here's what I've written recently:
-
-{% assign recent_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
 {% comment %}
   The styles in "article_cards.scss" will switch between three layouts:
@@ -114,31 +138,36 @@ Here's what I've written recently:
 
 <style>
   @media screen and (max-width: 500px) {
-    #recent_posts li:nth-child(4) {
+    #recent_articles li:nth-child(4) {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #recent_posts li:nth-child(4) {
+    #recent_articles li:nth-child(4) {
       display: none;
     }
   }
 </style>
 
+{% assign recent_articles = site.articles | sort: "date" | reverse | slice: 0, 4 %}
+
 {% comment %}
   For consistency with the "all posts" page, any blog posts that don't
   set an explicit colour get tinted the default red on the homepage.
 {% endcomment %}
+
 {% assign is_index = true %}
 
-<ul id="recent_posts" class="post_cards">
-{% for post in recent_posts %}
-  {% include post_card.html %}
+{% include article_card_styles.html selected_articles=recent_articles %}
+
+<ul id="recent_articles" class="article_cards">
+{% for article in recent_articles %}
+  {% include article_card.html %}
 {% endfor %}
 </ul>
 
-[Read more recent posts &rarr;](/all-posts/)
+[Read more articles &rarr;](/articles/)
 
 
 
@@ -149,17 +178,9 @@ Here's what I've written recently:
 
 
 
-<h2 id="contact">Get in touch</h2>
+## Get in touch
 
-The best way to get in touch with me is by email:
+The best way to get in touch with me is by email: **<{{ site.email }}>**.
 
-{% include contact/emails.html %}
-
-{% comment %}
-  You can also follow me on social media, where I often cross-post links to new articles and share shorter updates about my life:
-
-  {% include contact/socials.html %}
-{% endcomment %}
-
-If you enjoy something I've made, perhaps [say thanks](/say-thanks/)?
-I always love hearing from readers! ☺️
+If you like something I've made, perhaps [say thanks](/say-thanks/)?
+I love hearing from readers! ☺️

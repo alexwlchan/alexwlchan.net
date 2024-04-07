@@ -7,8 +7,12 @@ layout: rss_feed
 <title type="html">{{ site.title | xml_escape }}</title>
 <subtitle>{{ site.description | xml_escape }}</subtitle>
 
-{% assign all_posts = site.posts %}
-{% assign published_posts = all_posts | where_exp: "post", "post.draft != true" %}
+{% comment %}
+  TODO: Should this skip posts with 'index: exclude' perhaps?
+{% endcomment %}
+
+{% assign all_posts = site.articles %}
+{% assign published_posts = site.articles | where_exp: "post", "post.draft != true" %}
 {% assign sorted_posts = published_posts | sort: "date" | reverse %}
 
 {% for post in sorted_posts limit: 25 %}

@@ -1,3 +1,5 @@
+# Can I do away with this?
+
 # Inline a file as highlighted code.
 #
 # This expects to be used in the body of a post.  The original file

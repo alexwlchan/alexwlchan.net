@@ -5,7 +5,7 @@
         "layout": {
             "description": "Which layout template to use.",
             "type": "string",
-            "enum": ["page", "post", "til"]
+            "enum": ["article", "page", "post", "til"]
         },
         "title": {
             "description": "The title of the page or the post.",
@@ -65,6 +65,10 @@
                 "exclude": {
                     "description": "Whether to exclude this post from the site-wide index.",
                     "type": "boolean"
+                },
+                "feature": {
+                    "description": "Whether to feature this article on the homepage",
+                    "type": "boolean"
                 }
             },
             "additionalProperties": false
@@ -83,7 +87,7 @@
         "nav_section": {
             "description": "Which section of the site this page/post belongs to.",
             "type": "string",
-            "enum": ["til", "contact"]
+            "enum": ["articles", "til", "contact"]
         },
         "card_image": {
             "description": "Complete path to an image that should be used in link previews on social media, e.g. Twitter cards or OpenGraph metadata.",

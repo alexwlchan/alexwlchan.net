@@ -1,0 +1,36 @@
+{% comment %}
+  Note: in general I lean towards long, descriptive names for
+  my CSS classes and variables, but this is a "hot" component
+  which is used a lot, especially on the articles page.
+  
+  I'm going for shorter names here to reducde the overall size
+  of the page.
+{% endcomment %}
+<li
+  class="card"
+  id="a-{{ article.slug }}"
+  data-tags="{{ article.tags | join: ' ' }}"
+>
+  <a href="{{ article.url }}">
+    {% card_image %}
+
+    <div class="c_meta">
+      <p class="c_title">
+        {{- article.title | markdownify_oneline -}}
+      </p>
+      {% if article.summary %}
+        <p class="c_desc">
+          {{- article.summary | markdownify_oneline -}}
+        </p>
+      {% endif %}
+    </div>
+
+    {% if include.hide_date != "true" %}
+    <div class="c_date">
+      <p>
+        {{- article.date | date: "%-d %B&nbsp;%Y" -}}
+      </p>
+    </div>
+    {% endif %}
+  </a>
+</li>

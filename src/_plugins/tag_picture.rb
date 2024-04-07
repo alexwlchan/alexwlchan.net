@@ -129,6 +129,9 @@ module Jekyll
 
       @parent = @attrs.delete('parent')
 
+      @max_width = @attrs.delete('max_width')
+      @max_width = @max_width.to_i unless @max_width.nil?
+
       @link_to_original = @attrs.include? 'link_to_original'
       @attrs.delete('link_to_original')
 
@@ -196,7 +199,7 @@ module Jekyll
                           [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
                         end
 
-      sources = prepare_images(source_path, desired_formats, dst_prefix, @width)
+      sources = prepare_images(source_path, desired_formats, dst_prefix, @width, @max_width)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -211,7 +214,7 @@ module Jekyll
         end
 
         dark_sources = prepare_images(
-          dark_path, desired_formats, "#{dst_prefix}.dark", @width
+          dark_path, desired_formats, "#{dst_prefix}.dark", @width, @max_width
         )
       else
         dark_sources = nil
@@ -349,7 +352,7 @@ module Jekyll
       html.strip
     end
 
-    def prepare_images(source_path, desired_formats, dst_prefix, width)
+    def prepare_images(source_path, desired_formats, dst_prefix, width, max_width)
       sources = Hash.new { [] }
 
       image = Rszr::Image.load(source_path)
@@ -361,6 +364,7 @@ module Jekyll
       widths = (1..3)
                .map { |pixel_density| pixel_density * width }
                .filter { |w| w <= image.width }
+               .filter { |w| max_width.nil? || w <= max_width }
                .sort!
 
       widths.each do |this_width|

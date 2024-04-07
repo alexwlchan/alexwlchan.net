@@ -3,7 +3,16 @@
 
   <ul class="dot_list">
     <li><a href="/">about</a></li>
-    <li><a href="/writing/">writing</a></li>
+    <li>
+      <a
+        href="/articles/"
+        {% if page.url == "/articles/" %}selected{% endif %}
+        {% if page.layout == "article" %}selected{% endif %}
+        {% if page.layout == "post" %}selected{% endif %}
+      >
+        articles
+      </a>
+    </li>
     <li><a href="/projects/">projects</a></li>
     <li>
       <a
