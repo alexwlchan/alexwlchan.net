@@ -12,10 +12,6 @@
     background: var(--article-card-background);
     border: 2px var(--border-style) var(--card-color);
 
-    .card_title {
-      color: var(--card-color);
-    }
-
     a:hover {
       background: var(--card-hover-background);
     }
@@ -41,6 +37,7 @@
     flex-direction: column;
 
     .card_title {
+      color: var(--card-color);
       text-decoration: underline;
       margin-top: 1em;
       margin-bottom: 0.5em;
