@@ -9,7 +9,7 @@ Now I've graduated, this page serves as a collection of all my mathematical cont
 
 I was the Part II Student Rep to the [Faculty Teaching Committee][tc] for the academic year 2013&ndash;14.
 
-I've posted my [exam advice for maths students](/exams) (and indeed, any other technical subject).
+I've posted my [exam advice for maths students](/2015/technical-exams/) (and indeed, any other technical subject).
 
 ## Lecture notes
 

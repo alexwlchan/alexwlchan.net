@@ -1,9 +1,15 @@
 ---
-layout: page
+layout: post
+date: 2015-03-29
+summary: Some advice for students doing exams in technical subjects
+tags:
+  - cambridge
+  - maths
+title: Some Part IA exam advice
 summary: Some advice for students sitting technical exams.
-title: Exam advice
+index:
+  exclude: true
 ---
-
 This is some advice that I originally gave to some [first-year maths students][1] while I was at university. But this advice isn't just useful for maths students at Cambridge: I believe this is applicable to technical subjects at many different levels. This is just a tidied-up version of my original advice.
 
 [1]: /2014/part-ia-exams/
@@ -87,5 +93,3 @@ Your health is far more important than any exam revision. It's easy to just focu
 ## Finally…
 
 I wish you the best of luck in whatever exam you're taking.
-
-Comments and feedback [are welcome](/contact/).
