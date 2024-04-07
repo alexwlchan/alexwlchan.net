@@ -27,9 +27,6 @@ def get_info(path):
 
 
 if __name__ == "__main__":
-    result = {
-        path: get_info(path)
-        for path in json.loads(sys.argv[1])
-    }
+    result = {path: get_info(path) for path in json.loads(sys.argv[1])}
 
     print(json.dumps(result))

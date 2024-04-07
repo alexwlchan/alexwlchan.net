@@ -13,7 +13,7 @@
 require 'fileutils'
 require 'shell/executer'
 
-source_dir = "src"
+source_dir = 'src'
 
 puts '*** Publishing drafts'
 Dir.chdir(source_dir) do

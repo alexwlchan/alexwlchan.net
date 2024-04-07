@@ -15,6 +15,9 @@ import json
 import sys
 
 from PIL import Image
+import pillow_avif
+
+from get_color_profiles import get_profile_description
 
 
 if __name__ == "__main__":
@@ -22,14 +25,24 @@ if __name__ == "__main__":
         request = json.loads(argv)
 
         im = Image.open(request["in_path"])
+
+        profile_name = get_profile_description(im)
+        if profile_name is not None and profile_name not in {
+            "sRGB",
+            "sRGB built-in",
+            "sRGB IEC61966-2.1",
+            "Generic Gray Gamma 2.2 Profile",
+        }:
+            raise ValueError("Got image with non-sRGB profile: {request['in_path']}")
+
         im = im.resize(
             (
                 request["target_width"],
-                im.height * request["target_width"] / im.width,
+                int(im.height * request["target_width"] / im.width),
             )
         )
 
-        with open(request["out_path"], "x") as fp:
+        with open(request["out_path"], "xb") as fp:
             im.save(fp)
 
         print(request["out_path"])

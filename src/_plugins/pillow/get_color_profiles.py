@@ -7,6 +7,7 @@ import sys
 
 from PIL import Image
 from PIL import ImageCms
+import pillow_avif
 
 
 def get_file_paths_under(root=".", *, suffix=""):
@@ -32,9 +33,8 @@ def get_file_paths_under(root=".", *, suffix=""):
                 yield p
 
 
-def get_profile_description(path):
-    im = Image.open(path)
-    icc_profile = im.info.get('icc_profile')
+def get_profile_description(im):
+    icc_profile = im.info.get("icc_profile")
 
     if icc_profile is None:
         return None
@@ -44,9 +44,9 @@ def get_profile_description(path):
     return prf.profile.profile_description
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = {
-        str(p): get_profile_description(p)
+        str(p): get_profile_description(Image.open(p))
         for p in get_file_paths_under(sys.argv[1])
     }
     print(json.dumps(result))

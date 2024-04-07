@@ -76,6 +76,7 @@ require 'fileutils'
 require 'json'
 require 'shell/executer'
 
+require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
 require_relative 'utils/attrs'
 
@@ -363,15 +364,8 @@ module Jekyll
                        "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
                      end
 
-          unless File.exist? out_path
-            open('.missing_images.json', 'a') do |f|
-              f.puts JSON.generate({
-                                     out_path:,
-                                     source_path:,
-                                     width: this_width
-                                   })
-            end
-          end
+          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
+          convert_image(request)
 
           sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
         end

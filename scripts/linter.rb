@@ -10,7 +10,6 @@ require 'rainbow'
 require 'uri'
 require 'yaml'
 
-require_relative '../src/_plugins/pillow/get_color_profiles'
 require_relative '../src/_plugins/pillow/get_image_info'
 
 def run_html_linting(html_dir)
@@ -20,7 +19,7 @@ def run_html_linting(html_dir)
       check_img_http: true,
       check_opengraph: true,
       disable_external: true,
-      file_ignore: [/_site\/files\/.*/],
+      file_ignore: [%r{_site/files/.*}],
       report_invalid_tags: true
     }
   ).run
@@ -266,34 +265,6 @@ def check_no_html_in_titles(html_documents)
   report_errors(errors)
 end
 
-# Check every image uses an sRGB colour profile.
-#
-# This ensures images should display with consistent colour on all browsers
-# and devices; my iMac in particular uses a Display P3 colour profile for
-# screenshots and images which looks washed out on non-Apple displays.
-def check_all_images_are_srgb(dst_dir)
-  info('Checking image colour profiles...')
-
-  errors = Hash.new { [] }
-
-  safe_colour_profiles = Set[
-    'Generic Gray Gamma 2.2 Profile',
-    'sRGB built-in',
-    'sRGB IEC61966-2.1',
-    'sRGB'
-  ]
-
-  get_color_profiles("#{dst_dir}/images").each do |path, profile|
-    if profile.nil? || safe_colour_profiles.include?(profile)
-      next
-    end
-
-    errors[path] <<= "Image has an unrecognised colour profile: #{profile}"
-  end
-
-  report_errors(errors)
-end
-
 def parse_netlify_redirects(path)
   File.readlines(path).each_with_index
       .filter { |line, _i| !line.start_with? '#' }
@@ -468,6 +439,5 @@ check_card_images(html_dir, html_documents)
 check_yaml_front_matter(src_dir)
 check_no_localhost_links(html_documents)
 check_no_html_in_titles(html_documents)
-check_all_images_are_srgb(html_dir)
 check_netlify_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)
