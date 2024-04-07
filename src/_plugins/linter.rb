@@ -7,10 +7,10 @@ require 'json'
 require 'json-schema'
 require 'nokogiri'
 require 'rainbow'
-require 'rszr'
 require 'uri'
 require 'yaml'
 
+require_relative 'pillow/get_image_info'
 require_relative 'utils/picture'
 
 class RunLinting < Jekyll::Command
@@ -174,8 +174,8 @@ class RunLinting < Jekyll::Command
 
           next unless File.exist? local_image_path
 
-          image = Rszr::Image.load(local_image_path)
-          errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image.width != image.height * 2
+          image = get_single_image_info(local_image_path)
+          errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image["width"] != image["height"] * 2
         end
       end
 

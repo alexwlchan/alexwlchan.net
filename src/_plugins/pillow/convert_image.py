@@ -18,11 +18,6 @@ from PIL import Image
 
 
 if __name__ == "__main__":
-    try:
-        resize_request = json.loads(sys.argv[1])
-    except IndexError:
-        sys.exit(f"Usage: {__file__} <RESIZE_REQUEST>")
-
     for argv in sys.argv[1:]:
         request = json.loads(argv)
 
