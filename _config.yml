@@ -73,6 +73,14 @@ collections:
     output: true
     permalink: "/til/:year/:title/"
 
+# ================
+# Permalink config
+# ================
+#
+# Set the URL structure for permalinks on my posts.
+# See https://jekyllrb.com/docs/permalinks/#global
+permalink: "/:year/:title/"
+
 # ==================
 # Template variables
 # ==================
@@ -88,12 +96,10 @@ url: "https://alexwlchan.net"
 
 description: "Alex Chan's personal website"
 
-# ================
-# Remaining config
-
 date_format: "%-d %B %Y"
 
-permalink: "/:year/:title/"
+# ================
+# Remaining config
 
 keep_files: [
   # Managed by rsync outside the main Jekyll process

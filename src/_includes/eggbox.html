@@ -1,8 +1,0 @@
-{% assign eggbox_articles = include.articles | split: " " %}
-
-<ul class="article_cards eggbox-{{ eggbox_articles | size }}">
-{% for slug in eggbox_articles %}
-  {% assign article = site.articles | where: "slug", slug | first %}
-  {% include article_card.html hide_date="true" %}
-{% endfor %}
-</ul>
