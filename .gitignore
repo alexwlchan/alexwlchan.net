@@ -2,5 +2,6 @@
 .jekyll-metadata
 .sass-cache
 _site
+*.pyc
 
 .DS_Store

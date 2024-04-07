@@ -1,21 +1,18 @@
 #!/usr/bin/env python3
 """
-Get the information about one or more images.
+Get the information about an images.
 
-This takes one argument, which is a JSON-formatted list of image paths.
-It prints a JSON object whose keys are paths and values are image info.
+This takes a path to an image, prints the output as JSON.
 
 Example:
 
-    $ python3 convert_image.py '["cat.jpg", "dog.png"]'
-    {
-        "cat.jpg": {"width": 400, "height": 300, "format": "JPEG"},
-        "dog.png": {"width": 1600, "height": 900, "format": "PNG"}
-    }
+    $ python3 convert_image.py cat.jpg
+    {"width": 400, "height": 300, "format": "JPEG"}
 
 """
 
 import json
+import os
 import sys
 
 from PIL import Image
@@ -23,10 +20,13 @@ from PIL import Image
 
 def get_info(path):
     im = Image.open(path)
-    return {"width": im.width, "height": im.height, "format": im.format}
+    return {
+        "width": im.width,
+        "height": im.height,
+        "format": im.format,
+        "mtime": int(os.path.getmtime(path)),
+    }
 
 
 if __name__ == "__main__":
-    result = {path: get_info(path) for path in json.loads(sys.argv[1])}
-
-    print(json.dumps(result))
+    print(json.dumps(get_info(sys.argv[1])))
