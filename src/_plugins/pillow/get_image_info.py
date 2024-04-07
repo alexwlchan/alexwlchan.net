@@ -9,8 +9,8 @@ Example:
 
     $ python3 convert_image.py '["cat.jpg", "dog.png"]'
     {
-        "cat.jpg": {"width": 400, "height": 300},
-        "dog.png": {"width": 1600, "height": 900}
+        "cat.jpg": {"width": 400, "height": 300, "format": "JPEG"},
+        "dog.png": {"width": 1600, "height": 900, "format": "PNG"}
     }
 
 """
@@ -23,7 +23,7 @@ from PIL import Image
 
 def get_info(path):
     im = Image.open(path)
-    return {"width": im.width, "height": im.height}
+    return {"width": im.width, "height": im.height, "format": im.format}
 
 
 if __name__ == "__main__":
