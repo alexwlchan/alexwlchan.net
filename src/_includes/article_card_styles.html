@@ -1,11 +1,11 @@
 <style type="x-text/scss">
   {% for article in include.selected_articles %}
     {% if article.colors.index_light %}
-      #article-{{ article.slug }} {
+      #a-{{ article.slug }} {
         @include card_color_variables({{ article.colors.index_light }});
       }
     {% elsif article.colors.css_light %}
-      #article-{{ article.slug }} {
+      #a-{{ article.slug }} {
         @include card_color_variables({{ article.colors.css_light }});
       }
     {% endif %}
@@ -14,11 +14,11 @@
   @media (prefers-color-scheme: dark) {
     {% for article in include.selected_articles %}
       {% if article.colors.index_dark %}
-        #article-{{ article.slug }} {
+        #a-{{ article.slug }} {
           @include card_color_variables({{ article.colors.index_dark }});
         }
       {% elsif article.colors.css_dark %}
-        #article-{{ article.slug }} {
+        #a-{{ article.slug }} {
           @include card_color_variables({{ article.colors.css_dark }});
         }
       {% endif %}

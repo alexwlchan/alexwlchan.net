@@ -25,8 +25,8 @@
 }
 
 @mixin card_color_variables($color) {
-  --card-color:            #{$color};
-  --card-hover-background: #{rgba($color, 0.2)};
+  --c-color:    #{$color};
+  --c-hover-bg: #{rgba($color, 0.2)};
 }
 
 /* This displays a display of images that are one on the left, two on

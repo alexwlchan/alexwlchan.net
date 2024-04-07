@@ -10,10 +10,10 @@
     border-radius: 14px;
     overflow: hidden;
     background: var(--article-card-background);
-    border: 2px var(--border-style) var(--card-color);
+    border: 2px var(--border-style) var(--c-color);
 
     a:hover {
-      background: var(--card-hover-background);
+      background: var(--c-hover-bg);
     }
 
     @include card_color_variables(#d01c11);
@@ -36,25 +36,29 @@
     display: flex;
     flex-direction: column;
 
-    .card_title {
+    .c_title {
       color: var(--card-color);
       text-decoration: underline;
       margin-top: 1em;
       margin-bottom: 0.5em;
+      font-weight: normal;
+
+      /* See https://developer.chrome.com/blog/css-text-wrap-balance/ */
+      text-wrap: balance;
     }
   }
 
-  .card_image {
+  .c_image {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .card_metadata, .card_posting_date {
+  .c_meta, .c_date {
     padding-left:  1em;
     padding-right: 1em;
   }
 
-  .card_description {
+  .c_desc {
     color: var(--body-text);
     margin-top: 0.5em;
     font-size: 85%;
@@ -67,14 +71,14 @@
     }
   }
 
-  .card_posting_date p {
-    color: var(--accent-grey);
-    margin-top: 0.5em;
-    font-size: 75%;
-  }
-
-  .card_posting_date {
+  .c_date {
     margin-top: auto;
+
+    p {
+      color: var(--accent-grey);
+      margin-top: 0.5em;
+      font-size: 75%;
+    }
   }
 
   /* This changes the number of columns based on the width of the
