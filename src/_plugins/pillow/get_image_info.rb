@@ -8,6 +8,11 @@ def get_image_info(image_paths)
 end
 
 def get_single_image_info(path)
-  info = get_image_info([path])
-  info[path]
+  cache = Jekyll::Cache.new("ImageInfo")
+  mtime = File.mtime(path)
+
+  cache.getset("#{path}--#{mtime}") do
+    info = get_image_info([path])
+    info[path]
+  end
 end
