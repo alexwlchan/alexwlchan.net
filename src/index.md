@@ -77,11 +77,28 @@ I hope you enjoy it.
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
 Here are some of my favourite posts:
 
+{% assign featured_articles = site.articles | where: "index.feature", true %}
+
+{% for article in featured_articles %}
+  {{ article.slug }}
+{% endfor %}
+
+{%
+  include
+  eggbox.html
+  articles="
+    snapped-elastic
+    bure-valley
+  "
+%}
+
+{% comment %}
 {%
   include
   eggbox.html
   eggbox_posts="snapped-elastic bure-valley big-pdf graph-generative-art hyperfocus-and-hobbies 2023-in-reading"
 %}
+{% endcomment %}
 
 If you want to read more, I've got [plenty more](/writing/).
 
@@ -130,15 +147,16 @@ Here's what I've written recently:
   For consistency with the "all posts" page, any blog posts that don't
   set an explicit colour get tinted the default red on the homepage.
 {% endcomment %}
+  
 {% assign is_index = true %}
 
-<ul id="recent_posts" class="post_cards">
-{% for post in recent_posts %}
-  {% include post_card.html %}
+<ul id="recent_articles" class="article_cards">
+{% for article in recent_articles %}
+  {% include article_card.html %}
 {% endfor %}
 </ul>
 
-[Read more recent posts &rarr;](/all-posts/)
+[Read more articles &rarr;](/articles/)
 
 
 
@@ -149,17 +167,9 @@ Here's what I've written recently:
 
 
 
-<h2 id="contact">Get in touch</h2>
+## Get in touch
 
-The best way to get in touch with me is by email:
+The best way to get in touch with me is by email: **<{{ site.email }}>**.
 
-{% include contact/emails.html %}
-
-{% comment %}
-  You can also follow me on social media, where I often cross-post links to new articles and share shorter updates about my life:
-
-  {% include contact/socials.html %}
-{% endcomment %}
-
-If you enjoy something I've made, perhaps [say thanks](/say-thanks/)?
-I always love hearing from readers! ☺️
+If you like something I've made, perhaps [say thanks](/say-thanks/)?
+I love hearing from readers! ☺️
