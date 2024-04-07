@@ -31,7 +31,9 @@ jobs:
           cache-version: 1
 
       - name: "Try to run Nokogiri"
-        run: ruby greeting.rb
+        run: |
+          gem install nokogiri
+          ruby greeting.rb
 
       - name: "Set up Python"
         uses: actions/setup-python@v5
