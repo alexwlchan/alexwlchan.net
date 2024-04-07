@@ -89,14 +89,12 @@ If you want to read more, I've got [plenty more](/writing/).
   {% separator "leaf.svg" %}
 
 
-## My newest posts
+## My newest articles
 
-I typically write three or four new posts a month.
-If you want to hear about them, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
+I typically write three or four new articles a month.
+If you want to find out when I write something new, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
 Here's what I've written recently:
-
-{% assign recent_posts = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
 {% comment %}
   The styles in "article_cards.scss" will switch between three layouts:
@@ -114,17 +112,19 @@ Here's what I've written recently:
 
 <style>
   @media screen and (max-width: 500px) {
-    #recent_posts li:nth-child(4) {
+    #recent_articles li:nth-child(4) {
       display: none;
     }
   }
 
   @media screen and (min-width: 1000px) {
-    #recent_posts li:nth-child(4) {
+    #recent_articles li:nth-child(4) {
       display: none;
     }
   }
 </style>
+
+{% assign recent_articles = site.articles | sort: "date" | reverse | slice: 0, 4 %}
 
 {% comment %}
   For consistency with the "all posts" page, any blog posts that don't
