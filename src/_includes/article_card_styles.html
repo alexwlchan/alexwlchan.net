@@ -1,27 +1,31 @@
 <style type="x-text/scss">
   {% for article in include.selected_articles %}
-    {% if article.colors.index_light %}
-      #a-{{ article.slug }} {
-        @include card_color_variables({{ article.colors.index_light }});
-      }
-    {% elsif article.colors.css_light %}
-      #a-{{ article.slug }} {
-        @include card_color_variables({{ article.colors.css_light }});
-      }
-    {% endif %}
+    {% unless article.index.exclude %}
+      {% if article.colors.index_light %}
+        #a-{{ article.slug }} {
+          @include card_color_variables({{ article.colors.index_light }});
+        }
+      {% elsif article.colors.css_light %}
+        #a-{{ article.slug }} {
+          @include card_color_variables({{ article.colors.css_light }});
+        }
+      {% endif %}
+    {% endunless %}
   {% endfor %}
 
   @media (prefers-color-scheme: dark) {
     {% for article in include.selected_articles %}
-      {% if article.colors.index_dark %}
-        #a-{{ article.slug }} {
-          @include card_color_variables({{ article.colors.index_dark }});
-        }
-      {% elsif article.colors.css_dark %}
-        #a-{{ article.slug }} {
-          @include card_color_variables({{ article.colors.css_dark }});
-        }
-      {% endif %}
+      {% unless article.index.exclude %}
+        {% if article.colors.index_dark %}
+          #a-{{ article.slug }} {
+            @include card_color_variables({{ article.colors.index_dark }});
+          }
+        {% elsif article.colors.css_dark %}
+          #a-{{ article.slug }} {
+            @include card_color_variables({{ article.colors.css_dark }});
+          }
+        {% endif %}
+      {% endunless %}
     {% endfor %}
   }
 </style>
