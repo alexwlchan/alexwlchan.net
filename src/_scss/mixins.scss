@@ -24,28 +24,9 @@
   }
 }
 
-@mixin card_light_styles($color) {
-  border-color: $color;
-
-  .card_title {
-    color: $color;
-  }
-
-  a:hover {
-    background: rgba($color, 0.2) !important;
-  }
-}
-
-@mixin card_dark_styles($color) {
-  border-color: $color;
-
-  .card_title {
-    color: $color;
-  }
-
-  a:hover {
-    background: rgba($color, 0.3) !important;
-  }
+@mixin card_color_variables($color) {
+  --card-color:            #{$color};
+  --card-hover-background: #{rgba($color, 0.2)};
 }
 
 /* This displays a display of images that are one on the left, two on

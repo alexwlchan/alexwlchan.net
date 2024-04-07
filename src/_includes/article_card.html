@@ -1,31 +1,3 @@
-{% if article.colors.index_light %}
-  <style type="x-text/scss">
-    #article-{{ article.slug }} {
-      @include card_light_styles({{ article.colors.index_light }});
-    }
-  </style>
-{% elsif article.colors.css_light %}
-  <style type="x-text/scss">
-    #article-{{ article.slug }} {
-      @include card_light_styles({{ article.colors.css_light }});
-    }
-  </style>
-{% endif %}
-
-{% if article.colors.index_dark %}
-  <style type="x-text/scss" media="(prefers-color-scheme: dark)">
-    #article-{{ article.slug }} {
-      @include card_dark_styles({{ article.colors.index_dark }});
-    }
-  </style>
-{% elsif article.colors.css_dark %}
-  <style type="x-text/scss" media="(prefers-color-scheme: dark)">
-    #article-{{ article.slug }} {
-      @include card_dark_styles({{ article.colors.css_dark }});
-    }
-  </style>
-{% endif %}
-
 <li
   class="card"
   id="article-{{ article.slug }}"

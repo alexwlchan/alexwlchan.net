@@ -71,6 +71,8 @@ If you want to hear about new posts, you can [subscribe to my RSS feed](/atom.xm
 
 <p id="filter_status">These are the current filters.</p>
 
+{% include article_card_styles.html selected_articles=site.articles %}
+
 <ul id="list_of_articles" class="plain_list article_cards">
 {% for article in site.articles reversed %}
   {% unless article.index.exclude %}
