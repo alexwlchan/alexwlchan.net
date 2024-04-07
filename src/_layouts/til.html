@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="til">
-  <h1 class="title">TIL: {{ page.title | markdownify_oneline | cleanup_text }}</h1>
+  <h1 class="title">{{ page.title | markdownify_oneline | cleanup_text }}</h1>
 
   {% include post_meta.html index_page = "/til/" %}
   
