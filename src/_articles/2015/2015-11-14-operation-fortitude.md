@@ -2,6 +2,8 @@
 layout: post
 date: 2015-11-14 22:02:00 +0000
 title: Email with a purpose
+index:
+  exclude: true
 ---
 
 I've just finished reading [*Operation Fortitude*][az], by Joshua Levine.
@@ -10,7 +12,7 @@ I've just finished reading [*Operation Fortitude*][az], by Joshua Levine.
 I was particularly struck by an early passage:
 
 > This [failed operation] proved to be a valuable learning experience for Clarke. His response was to formulate his first rule of strategic deception: to make your opponent act as you want him to. It doesn't matter what he thinks. In this case the Italian commander was led to expect an attack on Somaliland, but Clarke hadn't considered what he would do as a result.
-
+>
 > The deceiver, he realised, had to get inside the mind of the enemy commander. On this occasion he had failed. In future Clarke would make a point of asking his commander: "What do you want the enemy to do?" And very often, to his surprise, the commander would be unable to answer.
 
 This rule comes up throughout the book, and things go poorly when it isn't followed.

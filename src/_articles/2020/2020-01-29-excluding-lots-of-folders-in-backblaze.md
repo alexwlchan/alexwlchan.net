@@ -6,6 +6,8 @@ summary: Backblaze lets you say “back up everything except these folders”. H
 tags:
   - macos
   - backblaze
+index:
+  exclude: true
 ---
 
 One of the services I rely on is [Backblaze].
