@@ -75,7 +75,7 @@ I hope you enjoy it.
 ## My writing
 
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
-Here are some of my favourite posts:
+Here are some of my favourite articles:
 
 {% assign featured_articles = site.articles | where: "index.feature", true %}
 

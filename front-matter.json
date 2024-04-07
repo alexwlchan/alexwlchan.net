@@ -65,6 +65,10 @@
                 "exclude": {
                     "description": "Whether to exclude this post from the site-wide index.",
                     "type": "boolean"
+                },
+                "feature": {
+                    "description": "Whether to feature this article on the homepage",
+                    "type": "boolean"
                 }
             },
             "additionalProperties": false

@@ -8,6 +8,8 @@ tags:
 colors:
   index_light: "#52a89f"
   index_dark:  "#4fd6ca"
+index:
+  feature: true
 ---
 
 <!-- Card image: https://wellcomecollection.org/works/r8t5urwh, public domain -->
