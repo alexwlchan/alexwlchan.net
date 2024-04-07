@@ -11,8 +11,8 @@ layout: rss_feed
   TODO: Should this skip posts with 'index: exclude' perhaps?
 {% endcomment %}
 
-{% assign all_posts = site.articles %}
-{% assign published_posts = site.articles | where_exp: "post", "post.draft != true" %}
+{% assign all_posts = site.posts %}
+{% assign published_posts = all_posts | where_exp: "post", "post.draft != true" %}
 {% assign sorted_posts = published_posts | sort: "date" | reverse %}
 
 {% for post in sorted_posts limit: 25 %}

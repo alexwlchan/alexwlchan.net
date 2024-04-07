@@ -34,7 +34,7 @@
 require_relative 'pillow/convert_image'
 
 Jekyll::Hooks.register :site, :post_read do |site|
-  site.collections['articles'].docs.each do |post|
+  site.posts.docs.each do |post|
     year = post.date.year
     slug = post.data['slug']
 
