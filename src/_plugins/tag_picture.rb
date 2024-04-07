@@ -88,21 +88,6 @@ class ImageFormat
   PNG  = { extension: '.png',  mime_type: 'image/png' }
 end
 
-Jekyll::Hooks.register :site, :after_reset do
-  FileUtils.rm_f('.missing_images.json')
-end
-
-Jekyll::Hooks.register :site, :post_render do
-  if File.exist? '.missing_images.json'
-    image_count = `wc -l .missing_images.json`.strip.split[0].to_i
-    puts "Creating #{image_count} image#{image_count > 1 ? 's' : ''}..."
-
-    # Actually create the individual image files.  This is handled by
-    # a separate Docker image; see the comments in the `image_creator` folder.
-    Shell.execute!('docker-compose run image_creator')
-  end
-end
-
 module Jekyll
   class PictureTag < Liquid::Tag
     def initialize(tag_name, params_string, tokens)

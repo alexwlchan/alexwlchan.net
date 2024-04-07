@@ -2,7 +2,6 @@
 .jekyll-metadata
 .sass-cache
 _site
-.missing_images.json
 .header_colours.txt
 
 .DS_Store
