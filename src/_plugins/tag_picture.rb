@@ -154,11 +154,11 @@ module Jekyll
       elsif !@bounding_box[:width].nil?
         @width = @bounding_box[:width]
       elsif !@bounding_box[:height].nil?
-        @width = (image["width"] * @bounding_box[:height] / image["height"]).to_i
+        @width = (image['width'] * @bounding_box[:height] / image['height']).to_i
       end
 
-      if image["width"] < @width
-        raise "Image #{File.basename(source_path)} is only #{image["width"]}px wide, less than visible width #{@width}px"
+      if image['width'] < @width
+        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{@width}px"
       end
 
       # These two attributes allow the browser to completely determine
@@ -168,7 +168,7 @@ module Jekyll
       #
       # See https://web.dev/optimize-cls/
       @attrs['width'] = @width
-      aspect_ratio = Rational(image["width"], image["height"])
+      aspect_ratio = Rational(image['width'], image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
       # I'm not a fan of the way AVIF and WebP introduce artefacts into
@@ -193,7 +193,7 @@ module Jekyll
       if File.exist? dark_path
         dark_image = get_single_image_info(dark_path)
 
-        if (dark_image["width"] != image["width"]) || (dark_image["height"] != image["height"])
+        if (dark_image['width'] != image['width']) || (dark_image['height'] != image['height'])
           raise "Dark-variant #{File.basename(dark_path)} has different dimensions to #{File.basename(source_path)}"
         end
 
@@ -347,7 +347,7 @@ module Jekyll
       # extra sizes and have them added to the list.
       widths = (1..3)
                .map { |pixel_density| pixel_density * width }
-               .filter { |w| w <= image["width"] }
+               .filter { |w| w <= image['width'] }
                .filter { |w| max_width.nil? || w <= max_width }
                .sort!
 
@@ -368,7 +368,7 @@ module Jekyll
               f.puts JSON.generate({
                                      out_path:,
                                      source_path:,
-                                     width: this_width,
+                                     width: this_width
                                    })
             end
           end
@@ -382,13 +382,13 @@ module Jekyll
 
     # Get some useful info about the file format
     def get_format(image_path, image)
-      case image["format"]
+      case image['format']
       when 'PNG'
         ImageFormat::PNG
       when 'JPEG'
         ImageFormat::JPEG
       else
-        raise "Unrecognised image extension in #{image_path} (#{image["format"]})"
+        raise "Unrecognised image extension in #{image_path} (#{image['format']})"
       end
     end
   end

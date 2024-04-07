@@ -175,7 +175,7 @@ class RunLinting < Jekyll::Command
           next unless File.exist? local_image_path
 
           image = get_single_image_info(local_image_path)
-          errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image["width"] != image["height"] * 2
+          errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image['width'] != image['height'] * 2
         end
       end
 
