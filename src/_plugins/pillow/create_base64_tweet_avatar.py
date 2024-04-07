@@ -20,7 +20,9 @@ if __name__ == '__main__':
     width = int(sys.argv[2])
 
     im = Image.open(path)
-    assert im.width == im.height
+    # Fun fact: not all avatars are square! But the old code would merrily
+    # squash/expand them to squares, so let's leave it as-is for now.
+    # assert im.width == im.height
     resized_im = im.resize((width, width))
 
     output = io.BytesIO()

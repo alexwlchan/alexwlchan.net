@@ -403,7 +403,7 @@ module Jekyll
       when 'JPEG'
         ImageFormat::JPEG
       else
-        raise "Unrecognised image extension in #{path}"
+        raise "Unrecognised image extension in #{image_path} (#{image["format"]})"
       end
     end
   end
