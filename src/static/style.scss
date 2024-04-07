@@ -64,21 +64,3 @@ a.download {
 .slide {
   @include centred(calc(var(--max-width) * 0.6));
 }
-
-@media print {
-  footer {
-    display: none;
-  }
-
-  .post_cards .card .card_posting_date p {
-    color: var(--body-text);
-  }
-
-  .meta, figcaption {
-    color: var(--body-text);
-
-    a {
-      color: var(--body-text);
-    }
-  }
-}

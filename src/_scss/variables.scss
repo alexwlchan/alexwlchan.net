@@ -64,6 +64,12 @@ $accent-grey-dark:  #999;
   }
 }
 
+@media print {
+  :root {
+    --accent-grey: var(--body-text);
+  }
+}
+
 /* ===================================================
  * Colours which can vary with the page "tint" colours
  * ===================================================
