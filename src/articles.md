@@ -17,7 +17,7 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
     {% endcomment %}
 
     {% assign all_tags = '' | split: '' %}
-    {% for article in site.articles %}
+    {% for article in site.posts %}
       {% unless article.index.exclude %}
         {% assign all_tags = all_tags | concat: article.visible_tags | uniq | sort %}
       {% endunless %}
@@ -71,10 +71,10 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
 
 <p id="filter_status">These are the current filters.</p>
 
-{% include article_card_styles.html selected_articles=site.articles %}
+{% include article_card_styles.html selected_articles=site.posts %}
 
 <ul id="list_of_articles" class="plain_list article_cards">
-{% for article in site.articles reversed %}
+{% for article in site.posts %}
   {% unless article.index.exclude %}
     {% include article_card.html %}
   {% endunless %}

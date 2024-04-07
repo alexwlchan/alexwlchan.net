@@ -66,14 +66,9 @@ sass:
 # Collections config
 # ==================
 #
-# I create two collections in the site: one of articles, one of TILs.
 # See https://jekyllrb.com/docs/collections/ for more info.
 
 collections:
-  articles:
-    output: true
-    permalink: "/:year/:title/"
-
   til:
     output: true
     permalink: "/til/:year/:title/"

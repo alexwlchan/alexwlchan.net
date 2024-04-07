@@ -77,7 +77,7 @@ I hope you enjoy it.
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
 Here are some of my favourites:
 
-{% assign featured_articles = site.articles | where: "index.feature", true %}
+{% assign featured_articles = site.posts | where: "index.feature", true %}
 {% assign sample_of_articles = featured_articles | sample: 6 %}
 
 {% include article_card_styles.html selected_articles=featured_articles %}
@@ -150,7 +150,7 @@ Here's what I've written recently:
   }
 </style>
 
-{% assign recent_articles = site.articles | sort: "date" | reverse | slice: 0, 4 %}
+{% assign recent_articles = site.posts | sort: "date" | reverse | slice: 0, 4 %}
 
 {% comment %}
   For consistency with the "all posts" page, any blog posts that don't

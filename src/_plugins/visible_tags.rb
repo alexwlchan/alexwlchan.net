@@ -10,17 +10,17 @@
 Jekyll::Hooks.register :site, :post_read do |site|
   tag_tally = Hash.new(0)
 
-  site.collections['articles'].docs.each do |article|
-    next if article.data.fetch('index', {}).fetch('exclude', false)
+  site.posts.docs.each do |post|
+    next if post.data.fetch('index', {}).fetch('exclude', false)
 
-    article.data['tags'].each do |tag|
+    post.data['tags'].each do |tag|
       tag_tally[tag] += 1
     end
   end
 
   visible_tags = tag_tally.select { |_, count| count > 1 }.keys.to_set
 
-  site.collections['articles'].docs.each do |article|
-    article.data['visible_tags'] = article.data['tags'].select { |t| visible_tags.include? t }
+  site.posts.docs.each do |post|
+    post.data['visible_tags'] = post.data['tags'].select { |t| visible_tags.include? t }
   end
 end
