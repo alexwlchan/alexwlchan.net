@@ -132,20 +132,21 @@ module Jekyll
     # so I capture the avatar as it looked at the time of the tweet,
     # similar to if I'd taken a tweet screenshot.
     def tweet_avatar_url(tweet_data)
-      screen_name = tweet_data['user']['screen_name']
       tweet_id = tweet_data['id']
 
-      # Find the matching avatar.  Each avatar should be labelled with
-      # the screen name and tweet ID, but may be one of several formats.
-      matching_avatars = Dir.glob("src/_tweets/avatars/#{screen_name}_#{tweet_id}.*")
+      Jekyll::Cache.new('TweetAvatars').getset(tweet_id) do
+        screen_name = tweet_data['user']['screen_name']
 
-      unless matching_avatars.length == 1
-        raise "Could not find avatar for tweet, expected #{screen_name}_#{tweet_id}.*"
-      end
+        # Find the matching avatar.  Each avatar should be labelled with
+        # the screen name and tweet ID, but may be one of several formats.
+        matching_avatars = Dir.glob("src/_tweets/avatars/#{screen_name}_#{tweet_id}.*")
 
-      path = matching_avatars[0]
+        unless matching_avatars.length == 1
+          raise "Could not find avatar for tweet, expected #{screen_name}_#{tweet_id}.*"
+        end
 
-      Jekyll::Cache.new('TweetAvatars').getset(path) do
+        path = matching_avatars[0]
+
         create_base64_tweet_avatar(path, 108)
       end
     end
