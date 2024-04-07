@@ -34,7 +34,6 @@ strict_front_matter: true
 # See https://jekyllrb.com/docs/configuration/options/#serve-command-options
 
 port: 5757
-host: "0.0.0.0"
 livereload: true
 
 # ==============
