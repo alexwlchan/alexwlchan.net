@@ -215,9 +215,9 @@ def check_yaml_front_matter(src_dir)
 
     errors[md_path] = md_errors unless md_errors.empty?
 
-    if md_path.start_with?('src/_articles/') || md_path.start_with?('src/_drafts')
-      if front_matter['layout'] != 'post' && front_matter['layout'] != 'article'
-        errors[md_path] <<= "layout should be 'article' or 'post'; got #{front_matter['layout']}"
+    if md_path.start_with?('src/_posts/') || md_path.start_with?('src/_drafts')
+      if front_matter['layout'] != 'post'
+        errors[md_path] <<= "layout should be 'post'; got #{front_matter['layout']}"
       end
     elsif md_path.start_with?('src/_til/')
       if front_matter['layout'] != 'til'

@@ -5,7 +5,7 @@
         "layout": {
             "description": "Which layout template to use.",
             "type": "string",
-            "enum": ["article", "page", "post", "til"]
+            "enum": ["page", "post", "til"]
         },
         "title": {
             "description": "The title of the page or the post.",
