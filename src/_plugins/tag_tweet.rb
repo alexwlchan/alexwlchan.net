@@ -10,9 +10,7 @@
 # and save the relevant images/metadata in `src/_tweets`.
 #
 
-require 'base64'
-require 'rszr'
-
+require_relative 'pillow/create_base64_tweet_avatar'
 require_relative 'utils/twitter'
 
 METADATA_SCHEMA = {
@@ -146,29 +144,9 @@ module Jekyll
       end
 
       path = matching_avatars[0]
-      extension = path.split('.').last # ick
 
-      # Avatars are routinely quite large (e.g. 512x512), but they're
-      # only displayed in a 36x36 square (see _tweets.scss).
-      #
-      # Cutting a smaller thumbnail should reduce the page weight.
-      FileUtils.mkdir_p '.jekyll-cache/twitter/avatars'
-      thumbnail_path = ".jekyll-cache/twitter/avatars/#{File.basename(path)}"
-
-      unless File.exist? thumbnail_path
-        image = Rszr::Image.load(path)
-        image.resize(108, 108).save(thumbnail_path)
-      end
-
-      thumbnail_data = Base64.encode64(File.read(thumbnail_path))
-
-      case extension
-      when 'png'
-        "data:image/png;base64,#{thumbnail_data}"
-      when 'jpg', 'jpeg'
-        "data:image/jpeg;base64,#{thumbnail_data}"
-      else
-        raise "Unrecognised avatar extension: #{avatar_url} / #{extension}"
+      Jekyll::Cache.new('TweetAvatars').getset(path) do
+        create_base64_tweet_avatar(path, 108)
       end
     end
 
