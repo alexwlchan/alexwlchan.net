@@ -116,6 +116,7 @@ module Jekyll
             filename="#{card['index']}"
             parent="/images/cards/#{article['date'].year}"
             width="400"
+            max_width="800"
             alt=""
             loading="lazy"
             class="c_image"
