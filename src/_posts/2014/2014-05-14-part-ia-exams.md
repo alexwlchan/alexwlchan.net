@@ -6,11 +6,10 @@ tags:
   - cambridge
   - maths
 title: Some Part IA exam advice
+index:
+  exclude: true
 ---
-
-{% update 2015-03-29 %}
-  A lot of this advice is applicable to people who aren't in the first-year Maths Tripos at Cambridge, so I've tidied it up, and made a <a href="/exams">new page</a> for my updated advice. Corrections, fixes and updates will go there, not here.
-{% endupdate %}
+[**Update, 29 March 2015:** A lot of this advice is applicable to people who aren't in the first-year Maths Tripos at Cambridge, so I've tidied it up, and made a <a href="/2015/technical-exams/">new page</a> for my updated advice.]
 
 About a fortnight ago, I gave a talk to the first-year maths students[^1] as part of a session about preparing for exams. For the benefit of anybody who missed the session, didn't take notes, or future students, I decided to post my notes here.
 
