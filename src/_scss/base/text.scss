@@ -4,6 +4,10 @@ body {
   color: var(--body-text);
 }
 
+h1, h2 {
+  color: var(--primary-color);
+}
+
 h1, h2, h3 {
   font-weight: normal;
 
@@ -84,14 +88,6 @@ sup {
   clip: rect(0,0,0,0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-}
-
-#footer_inner {
-  color: white;
-
-  a, a:visited {
-    @include link_styles(white, 0.5);
-  }
 }
 
 .title.linkpost_title::after {

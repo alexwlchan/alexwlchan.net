@@ -3,8 +3,6 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-h1, h2,
-.title a:visited,
 .post__permalink a,
 .post__permalink a:visited {
   color: var(--primary-color);

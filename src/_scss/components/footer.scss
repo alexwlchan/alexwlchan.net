@@ -23,7 +23,7 @@ footer {
    * bigger, because it's probably a mobile display and I want nice big
    * touch targets.
    */
-  div {
+  #footer_inner {
     display: grid;
 
     @media screen and (min-width: 720px) {
