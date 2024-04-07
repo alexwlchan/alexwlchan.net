@@ -27,20 +27,20 @@ class TestPillow < Test::Unit::TestCase
   def test_convert_image
     Dir.mktmpdir do |d|
       convert_image({
-        "in_path" => "src/_tests/images/gradient-with-p3.png",
-        "out_path" => "#{d}/gradient-with-p3.png",
-        "target_width" => 125,
-      })
+                      'in_path' => 'src/_tests/images/gradient-with-p3.png',
+                      'out_path' => "#{d}/gradient-with-p3.png",
+                      'target_width' => 125
+                    })
     end
   end
 
   def test_can_convert_image_to_avif
     Dir.mktmpdir do |d|
       convert_image({
-        "in_path" => "src/_tests/images/gradient-with-p3.png",
-        "out_path" => "#{d}/gradient-with-p3.avif",
-        "target_width" => 250,
-      })
+                      'in_path' => 'src/_tests/images/gradient-with-p3.png',
+                      'out_path' => "#{d}/gradient-with-p3.avif",
+                      'target_width' => 250
+                    })
     end
   end
 end
