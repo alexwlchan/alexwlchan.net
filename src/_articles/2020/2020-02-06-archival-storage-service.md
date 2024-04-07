@@ -10,6 +10,8 @@ colors:
 tags:
   - digital-preservation
   - wellcome-collection
+index:
+  feature: true
 ---
 
 Yesterday, I posted an article about the new cloud storage service I've been helping to build at Wellcome.

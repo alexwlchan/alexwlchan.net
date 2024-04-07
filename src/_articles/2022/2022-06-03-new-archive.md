@@ -17,7 +17,7 @@ On Twitter I teased it as a ["design refresh"][tease] but it might be more accur
 
 [tease]: https://twitter.com/alexwlchan/status/1532029536258465795
 
-If you click [the "posts" link in the header](/writing/), you'll see something quite different to yesterday:
+If you click [the "posts" link in the header](/articles/), you'll see something quite different to yesterday:
 
 <style>
   img {
@@ -87,7 +87,7 @@ They're just very difficult to find.
 
 (The long list of links is useful for me -- but I have a unique knowledge of my back catalogue.
 When I use it, I know exactly what I'm looking for.
-That list is [still there](/all-posts/), but now it's buried a lot deeper because it's not a good starting point.)
+That list is [still there](/articles/), but now it's buried a lot deeper because it's not a good starting point.)
 
 A while back, I started marking my favourite posts in the list of links.
 This was a half-hearted measure to improve discoverability, but clicking it only took you to a shorter list of text links.

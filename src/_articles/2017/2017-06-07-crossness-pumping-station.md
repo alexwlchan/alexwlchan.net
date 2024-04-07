@@ -10,6 +10,8 @@ tags:
 colors:
   css_light: "#2b5750"
   css_dark:  "#5da898"
+index:
+  feature: true
 ---
 
 In the early nineteenth century, the River Thames was heavily polluted.

@@ -24,7 +24,7 @@ And now, that exists:
 If you go to that URL, then you should get a nice list of all your untagged posts.
 I hope it's useful.
 
-If you find any bugs, or a page it doesn't seem to work for, then please [get in touch](/#contact).
+If you find any bugs, or a page it doesn't seem to work for, then please [get in touch](/contact/).
 
 ## The legal stuff
 

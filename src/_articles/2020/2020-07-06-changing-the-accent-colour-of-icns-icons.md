@@ -85,7 +85,7 @@ I started writing about how to work with ICNS files in Pillow, and it got quite 
 I remembered the [Zen of Python][zen] -- *"If the implementation is hard to explain, it's a bad idea"* -- and I went back to the drawing board.
 
 [Pillow]: https://pillow.readthedocs.io/
-[pillow_posts]: /all-posts/?tag=python-pillow
+[pillow_posts]: /articles/?tag=python-pillow
 [pillow_icns]: https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html?highlight=icns#icns
 [zen]: https://www.python.org/dev/peps/pep-0020/
 

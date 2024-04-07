@@ -26,7 +26,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
 - [Open-source software](#open-source-software)
 - [Fun stuff](#fun-stuff)
 
-**Interested in anything on this page? Want to know more? [Get in touch](/#contact)!**
+**Interested in anything on this page? Want to know more? [Get in touch](/contact/)!**
 
 <style type="x-text/scss">
   @mixin illustrated_image($color, $opacity) {
@@ -178,7 +178,7 @@ The projects I've worked on include:
 ## Writing
 
 <dl>
-  <dt><a href="/writing/" aria-label="alex w l chan dot net" aria-braillelabel="alexwlchan.net">alexwlchan.net</a></dt>
+  <dt><a href="/articles/" aria-label="alex w l chan dot net" aria-braillelabel="alexwlchan.net">alexwlchan.net</a></dt>
   <dd>
     This site started as a place where I could practice my writing; I’ve since written over 300 posts.
     There’s no consistent theme – I have a lot of posts about programming, but plenty for non-programmers as well.
@@ -223,7 +223,7 @@ The projects I've worked on include:
 </figure>
 
 I've given talks and workshops at a number of conferences.
-If you'd like me to speak at your event, [get in touch](/#contact) for details.
+If you'd like me to speak at your event, [get in touch](/contact/) for details.
 
 These are a few of my favourites:
 

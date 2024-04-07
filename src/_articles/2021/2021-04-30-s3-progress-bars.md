@@ -80,7 +80,6 @@ function runDemo() {
 I've got two functions: one that can download objects, another that can upload them.
 I've included the code for both below, and some examples of how to use them.
 I'm not going to walk through the code – hopefully the comments are sufficient to understand how it works.
-(If not, [get in touch](/#contact).)
 
 If this seems like something you'd find useful, copy it into your own scripts.
 Enjoy!

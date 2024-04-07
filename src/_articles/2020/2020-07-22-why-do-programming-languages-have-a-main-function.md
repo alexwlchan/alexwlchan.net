@@ -29,7 +29,7 @@ This post is half an attempt to answer the question, half some interesting thing
 I'm not a computer historian, and this is only the result of an evening spent on Google -- please judge accordingly.
 These are a few of the notes I made; not a complete answer.
 
-If you know of a proper answer to this question, please [send it my way](/#contact).
+If you know of a proper answer to this question, please [send it my way](/contact/).
 I'm unlikely to spend more time researching this, but I'd love to read about it if somebody else has.
 
 
@@ -364,7 +364,7 @@ Even if B was the first language to use this as a function name, "main" goes bac
 I found a page of [historical documents in computer science][historical], with lots of manuals which might have more clues, but I haven't read any of them yet.
 
 I hope you found some of this history interesting.
-I don't know if I'll spend more time on this question, but if somebody else has a better answer [please let me know](/#contact).
+I don't know if I'll spend more time on this question, but if somebody else has a better answer [please let me know](/contact/).
 I'm sure somebody must know where `main()` came from, even if I don't.
 
 [pymain]: https://utcc.utoronto.ca/~cks/space/blog/python/WhyNoMainFunction

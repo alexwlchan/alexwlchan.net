@@ -10,6 +10,8 @@ tags:
 colors:
   index_light: "#ba4220"
   index_dark:  "#eb7028"
+index:
+  feature: true
 ---
 
 <!-- Cover image:

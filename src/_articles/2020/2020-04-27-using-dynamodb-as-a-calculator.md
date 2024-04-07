@@ -11,6 +11,8 @@ tags:
 colors:
   index_light: "#234371"
   index_dark:  "#56abdf"
+index:
+  feature: true
 ---
 
 On a recent [AWS Cost Optimisation Q&A](https://www.youtube.com/watch?t=52m01s&v=Nmyxo68jM2s), Corey Quinn talked about his experiments with [DynamoDB][dynamodb]:

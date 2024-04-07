@@ -40,7 +40,7 @@ I'm also a keen writer, crafter, theatre-goer, and occasional dancer.
 
 I've put a bunch of things on the Internet, including:
 
-*   [**My personal writing**](/writing/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
+*   [**My personal writing**](/articles/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
     I've been writing at this domain for over a decade, and I post new articles several times a month.
 
 *   **A bunch of [open-source tools and utilities][oss]**.
@@ -58,7 +58,7 @@ I'm queer, trans, and I loosely describe as a genderfluid shapeshifter (which ma
 My pronouns vary; on the web, either "they" or "she" are safe choices. 🏳️‍🌈
 
 This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
-If you're new, you might want to start with [my writing](/writing/) or [my list of projects](/projects/).
+If you're new, you might want to start with [my writing](/articles/) or [my list of projects](/projects/).
 
 I hope you enjoy it.
 
@@ -75,7 +75,7 @@ I hope you enjoy it.
 ## My writing
 
 I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
-Here are some of my favourite articles:
+Here are some of my favourites:
 
 {% assign featured_articles = site.articles | where: "index.feature", true %}
 {% assign sample_of_articles = featured_articles | sample: 6 %}
@@ -84,13 +84,23 @@ Here are some of my favourite articles:
 
 <script>
   const featuredArticles = [
-    {% for article in sample_of_articles %}
+    {% for article in featured_articles %}
       {% capture articleHtml %}
         {% include article_card.html hide_date="true" %}
       {% endcapture %}
       {{ articleHtml | strip | jsonify }},
     {% endfor %}
-  ]
+  ];
+
+  console.log(featuredArticles.length);
+
+  window.addEventListener("DOMContentLoaded", function() {
+    document.querySelector("#featured_articles").innerHTML =
+      featuredArticles
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 6)
+        .join("");
+  });
 </script>
 
 <ul class="article_cards" id="featured_articles">
@@ -99,7 +109,7 @@ Here are some of my favourite articles:
 {% endfor %}
 </ul>
 
-If you want to read more, I've got [plenty more](/articles/).
+If you want to read more, I've got [plenty to look at](/articles/).
 
 
   {% separator "leaf.svg" %}
@@ -108,7 +118,7 @@ If you want to read more, I've got [plenty more](/articles/).
 ## My newest articles
 
 I typically write three or four new articles a month.
-If you want to find out when I write something new, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
+If you want to find out when I post something new, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
 Here's what I've written recently:
 

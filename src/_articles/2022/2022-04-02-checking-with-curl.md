@@ -64,8 +64,8 @@ It's a pretty simple format, with newlines and #-prefixed comments to keep it or
 ```
 # Some pages that definitely shouldn't break!
 /
-/all-posts/
-/projects/
+/articles/
+/contact/
 
 # A page that doesn't exist, to illustrate what errors look like
 /does-not-exist/
@@ -128,8 +128,8 @@ This is what the output looks like:
 
 <pre><code>
 Checking https://alexwlchan.net/... 200
-Checking https://alexwlchan.net/all-posts/... 200
-Checking https://alexwlchan.net/projects/... 200
+Checking https://alexwlchan.net/articles/... 200
+Checking https://alexwlchan.net/contact/... 200
 Checking https://alexwlchan.net/does-not-exist/... <span style="color: red;">404 !!!</span>
 </code></pre>
 
