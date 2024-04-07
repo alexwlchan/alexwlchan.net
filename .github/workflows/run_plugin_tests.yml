@@ -23,6 +23,19 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
-      - name: Run the tests
-        run: |
-          make plugin-tests
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          cache-version: 0
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+
+      - name: "Run the plugin tests"
+        run: ruby src/_tests/tests.rb

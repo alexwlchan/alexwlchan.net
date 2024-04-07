@@ -1,6 +1,6 @@
 require 'test/unit'
 
-require_relative '../_plugins/filter_inline_style'
+require_relative '../_plugins/inline_styles'
 
 class TestInlineStylesFilters < Test::Unit::TestCase
   def test_it_leaves_html_with_no_style_alone

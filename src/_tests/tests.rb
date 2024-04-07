@@ -17,6 +17,7 @@ end
 require_relative 'test_atom_feed_filters'
 require_relative 'test_attrs'
 require_relative 'test_filter_cleanup_text'
-require_relative 'test_filter_inline_style'
+require_relative 'test_inline_styles'
 require_relative 'test_picture'
+require_relative 'test_pillow'
 require_relative 'test_tag_tweet'
