@@ -1,6 +1,8 @@
 require 'chunky_png'
 require 'shell/executer'
 
+require_relative '../pillow/create_ico_image'
+
 # Given the front matter from a page, get the CSS colors (if any).
 def get_css_colors(page)
   colors = page.fetch('colors', {})
@@ -127,19 +129,19 @@ def create_favicon(tint_color)
   image32 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-32x32.png')
 
   Dir.mktmpdir do |tmp_dir|
-    Dir.chdir(tmp_dir) do
-      fill_color = Color::RGB.by_hex(tint_color)
+    fill_color = Color::RGB.by_hex(tint_color)
 
-      colorise_image(image16, fill_color)
-      image16.save('favicon-16x16.png', :best_compression)
+    colorise_image(image16, fill_color)
+    image16.save("#{tmp_dir}/favicon-16x16.png", :best_compression)
 
-      colorise_image(image32, fill_color)
-      image32.save('favicon-32x32.png', :best_compression)
+    colorise_image(image32, fill_color)
+    image32.save("#{tmp_dir}/favicon-32x32.png", :best_compression)
 
-      # Create an ICO favicon by packing the two PNG images.
-      # See https://superuser.com/a/1012535/243137
-      Shell.execute!('convert favicon-16x16.png favicon-32x32.png favicon.ico')
-    end
+    create_ico_image(
+      "#{tmp_dir}/favicon-16x16.png",
+      "#{tmp_dir}/favicon-32x32.png",
+      "#{tmp_dir}/favicon.ico"
+    )
 
     FileUtils.mv "#{tmp_dir}/favicon-32x32.png", png_path
     FileUtils.mv "#{tmp_dir}/favicon.ico", ico_path
