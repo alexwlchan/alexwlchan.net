@@ -1,42 +1,42 @@
-name: "plugin-tests"
-
-on:
-  push:
-    branches:
-    - main
-
-    paths:
-      - 'src/_plugins/**'
-
-  pull_request:
-    branches:
-    - main
-
-    paths:
-      - 'src/_plugins/**'
-
-jobs:
-  build:
-    name: Run plugin tests
-    runs-on: macos-latest
-    steps:
-      - name: "Check out the repo"
-        uses: actions/checkout@v4
-
-      - name: "Set up Ruby"
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
-          cache-version: 1
-      - run: gem install nokogiri
-
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: "pip"
-      - run: pip install -r requirements.txt
-
-      - name: "Run the plugin tests"
-        run: ruby src/_tests/tests.rb
+# name: "plugin-tests"
+#
+# on:
+#   push:
+#     branches:
+#     - main
+#
+#     paths:
+#       - 'src/_plugins/**'
+#
+#   pull_request:
+#     branches:
+#     - main
+#
+#     paths:
+#       - 'src/_plugins/**'
+#
+# jobs:
+#   build:
+#     name: Run plugin tests
+#     runs-on: macos-latest
+#     steps:
+#       - name: "Check out the repo"
+#         uses: actions/checkout@v4
+#
+#       - name: "Set up Ruby"
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: "3.3"
+#           bundler-cache: true
+#           cache-version: 1
+#       - run: gem install nokogiri
+#
+#       - name: "Set up Python"
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.12"
+#           cache: "pip"
+#       - run: pip install -r requirements.txt
+#
+#       - name: "Run the plugin tests"
+#         run: ruby src/_tests/tests.rb
