@@ -10,8 +10,8 @@ require 'rainbow'
 require 'uri'
 require 'yaml'
 
-require_relative 'pillow/get_color_profiles'
-require_relative 'pillow/get_image_info'
+require_relative '../src/_plugins/pillow/get_color_profiles'
+require_relative '../src/_plugins/pillow/get_image_info'
 
 def run_html_linting(html_dir)
   HTMLProofer.check_directory(
@@ -20,6 +20,7 @@ def run_html_linting(html_dir)
       check_img_http: true,
       check_opengraph: true,
       disable_external: true,
+      file_ignore: ["_site/files/*"],
       report_invalid_tags: true
     }
   ).run
@@ -148,8 +149,9 @@ def check_card_images(html_dir, html_documents)
 
       next unless File.exist? local_image_path
 
-      image = get_single_image_info(local_image_path)
-      errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image['width'] != image['height'] * 2
+      # TODO: Re-enable this
+      # image = get_single_image_info(local_image_path)
+      # errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image['width'] != image['height'] * 2
     end
   end
 

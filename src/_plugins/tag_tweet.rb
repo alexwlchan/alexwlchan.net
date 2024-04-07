@@ -10,6 +10,8 @@
 # and save the relevant images/metadata in `src/_tweets`.
 #
 
+require 'json-schema'
+
 require_relative 'pillow/create_base64_tweet_avatar'
 require_relative 'utils/twitter'
 

@@ -68,7 +68,7 @@ jobs:
         run: bundle exec jekyll build --drafts
 
       - name: "Run linting"
-        run: ruby src/_plugins/linter.rb
+        run: ruby scripts/linter.rb
 
       - name: "Publish drafts"
         if: github.ref == 'refs/heads/main'
@@ -82,7 +82,7 @@ jobs:
 
             git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
 
-            ruby src/_plugins/publish_drafts.rb
+            ruby scripts/publish_drafts.rb
             bundle exec jekyll build
           else
             echo "There is no _drafts folder, so nothing to publish!"

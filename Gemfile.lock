@@ -52,7 +52,7 @@ GEM
       sass-embedded (~> 1.54)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    json-schema (3.0.0)
+    json-schema (4.3.0)
       addressable (>= 2.8)
     kramdown (2.4.0)
       rexml
@@ -107,7 +107,7 @@ DEPENDENCIES
   html-proofer (~> 3.19)
   jekyll (~> 4)
   jekyll-include-cache (~> 0.2)
-  json-schema (~> 3.0)
+  json-schema (~> 4)
   nokogiri (~> 1.12)
   shell-executer (~> 1.0)
 
