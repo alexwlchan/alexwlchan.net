@@ -6,9 +6,11 @@ layout: default
 
   {% include post_meta.html index_page = "/til/" %}
   
-  <p class="summary">
-    {{ page.summary | markdownify_oneline }}
-  </p>
+  {% if page.summary %}
+    <p class="summary">
+      {{ page.summary | markdownify_oneline }}
+    </p>
+  {% endif %}
 
   {{ page.content | cleanup_text | smartify | pretty_hr }}
 </article>

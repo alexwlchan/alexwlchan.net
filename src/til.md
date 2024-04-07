@@ -92,7 +92,9 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
       {% endif %}
     </ul>
 
-    <p class="summary">{{ til.summary | markdownify_oneline }}</p>
+    {% if til.summary %}
+      <p class="summary">{{ til.summary | markdownify_oneline }}</p>
+    {% endif %}
   </li>
 {% endfor %}
 </ul>
