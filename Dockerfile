@@ -1,25 +1,46 @@
-# Note: I can't use Ruby 3.2 yet because Jekyll uses Liquid 4, and Liquid 4
-# throws an exception if you use it with Ruby 3.2:
-#
-#     Liquid Exception: undefined method `tainted?' for { ... post ...}
-#
-# The fix is available in Liquid 5, but that isn't supported by Jekyll yet.
-#
-# There are various bugs tracking this on the Jekyll repository, e.g. see
-# https://github.com/jekyll/jekyll/issues/9233
-# https://github.com/jekyll/jekyll/issues/8535
-#
-# If/when Jekyll allows a Liquid upgrade, then I can bump this to Ruby 3.2.
-FROM ruby:3.1-slim
+FROM ghcr.io/alexwlchan/alexwlchan.net:42
 
-LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
-LABEL description "Build image for alexwlchan.net"
-LABEL org.opencontainers.image.source https://github.com/alexwlchan/alexwlchan.net
+RUN apt-get update
+RUN apt-get install --yes python3
+RUN apt-get install --yes python3-pip
+RUN apt-get install --yes python3-venv
+COPY requirements.txt .
 
-COPY Gemfile .
-COPY Gemfile.lock .
+ENV VIRTUAL_ENV=/root/.venv
+RUN python3 -m venv "$VIRTUAL_ENV"
+RUN "$VIRTUAL_ENV/bin/pip" install -r requirements.txt
 
-COPY ./scripts/install_jekyll.sh .
-RUN ./install_jekyll.sh
+# RUN python3 -m venv /.venv
+# RUN
+#
+# RUN pip install -r requirements.txt
 
-ENTRYPOINT ["bundle", "exec", "jekyll"]
+
+
+# # Note: I can't use Ruby 3.2 yet because Jekyll uses Liquid 4, and Liquid 4
+# # throws an exception if you use it with Ruby 3.2:
+# #
+# #     Liquid Exception: undefined method `tainted?' for { ... post ...}
+# #
+# # The fix is available in Liquid 5, but that isn't supported by Jekyll yet.
+# #
+# # There are various bugs tracking this on the Jekyll repository, e.g. see
+# # https://github.com/jekyll/jekyll/issues/9233
+# # https://github.com/jekyll/jekyll/issues/8535
+# #
+# # If/when Jekyll allows a Liquid upgrade, then I can bump this to Ruby 3.2.
+# FROM ruby:3.1-slim
+#
+# LABEL maintainer "Alex Chan <alex@alexwlchan.net>"
+# LABEL description "Build image for alexwlchan.net"
+# LABEL org.opencontainers.image.source https://github.com/alexwlchan/alexwlchan.net
+#
+# COPY Gemfile .
+# COPY Gemfile.lock .
+#
+# COPY ./scripts/install_jekyll.sh .
+# RUN ./install_jekyll.sh
+#
+# RUN apt-get install --yes python3
+#
+# ENTRYPOINT ["bundle", "exec", "jekyll"]

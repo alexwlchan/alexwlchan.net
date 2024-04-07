@@ -1,5 +1,7 @@
-export DOCKER_IMAGE_NAME = ghcr.io/alexwlchan/alexwlchan.net
-export DOCKER_IMAGE_VERSION = 42
+# docker build -t alexwlchan.net:test-1 .
+
+export DOCKER_IMAGE_NAME = alexwlchan.net
+export DOCKER_IMAGE_VERSION = test-1
 DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
 
 ROOT = $(shell git rev-parse --show-toplevel)
