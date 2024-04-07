@@ -5,6 +5,8 @@ summary: A bookmarklet to hide some of the UI chrome in the new design of Google
 tags:
   - javascript
 title: Cleaning up Google Maps
+index:
+  exclude: true
 ---
 
 Earlier this morning, Fraser Speirs was bemoaning the design of the new Google&nbsp;Maps:

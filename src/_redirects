@@ -678,10 +678,10 @@
 /2014/12/mathis-cars/                                                 	/2014/mathis-cars/
 /2014/12/pelican-linkposts/                                           	/2014/pelican-linkposts/
 /2014/12/skeletors-all-the-way-down/                                  	/2014/skeletors-all-the-way-down/
-/2014/12/war-on-christmas/                                            	/2014/war-on-christmas/
-/2015/01/bbfc-podcast/                                                	/2015/bbfc-podcast/
-/2015/01/govuk/                                                       	/2015/govuk/
-/2015/01/kings-cross-problems/                                        	/2015/kings-cross-problems/
+/2014/12/war-on-christmas/                                            	/410/ 410
+/2015/01/bbfc-podcast/                                                	/410/ 410
+/2015/01/govuk/                                                       	/410/ 410
+/2015/01/kings-cross-problems/                                        	/410/ 410
 /2015/02/1password/                                                   	/2015/1password/
 /2015/02/flask-notes/                                                 	/2015/flask-notes/
 /2015/02/lists/                                                       	/2015/lists/
@@ -1172,12 +1172,20 @@
 
 
 
-# == Redirects for articles that became TILs == #
+# == Redirects for reshuffling in April 2024 == #
 #
 # In April 2024 I moved some of my old posts into the TIL section, so
 # their URLs changed.  Make sure they get redirected!
+#
+# I also removed some old posts which I didn't think were worth keeping
+# around, and want them to get a 410 Gone.
 
-/2013/rss-podcasts-tumblr/ /til/2013/rss-podcasts-tumblr/
+/2013/rss-podcasts-tumblr/                                      /til/2013/rss-podcasts-tumblr/
+
+/2015/bbfc-podcast/                                             /410/ 410
+/2015/govuk/                                                    /410/ 410
+/2015/kings-cross-problems/                                     /410/ 410
+/2014/war-on-christmas/                                         /410/ 410
 
 # === #
 
