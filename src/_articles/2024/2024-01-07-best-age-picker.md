@@ -98,7 +98,7 @@ We all know the best way to tell somebody's age is to count the candles on their
 </style>
 
 <p id="reducedMotionWarning">
-  (If these animations are distracting, you can <a onclick="script:toggleAllAnimations()" style="cursor: pointer; text-decoration: underline">toggle them off/on</a>.)
+  (If these animations are distracting, you can <a onclick="script:toggleAllAnimations()" style="cursor: pointer; text-decoration: underline" data-proofer-ignore>toggle them off/on</a>.)
 </p>
 
 <div id="cakeInput">
