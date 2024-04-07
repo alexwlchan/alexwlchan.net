@@ -81,7 +81,7 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
         </time>
       </li>
 
-      {% if til.tags %}
+      {% if til.tags.size > 0 %}
       <li>
         Tagged with
         {% assign tags = til.tags | sort %}
