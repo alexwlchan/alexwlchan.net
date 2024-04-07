@@ -1,18 +1,11 @@
 # docker build -t alexwlchan.net:test-1 .
 
-export DOCKER_IMAGE_NAME = alexwlchan.net
-export DOCKER_IMAGE_VERSION = test-1
-DOCKER_IMAGE = $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
-
 ROOT = $(shell git rev-parse --show-toplevel)
 
 JEKYLL_VERSION = 4.3.1
 JEKYLL_COMMAND_DIR = /usr/local/bundle/gems/jekyll-$(JEKYLL_VERSION)/lib/jekyll/commands
 
 SERVER_PORT = 5757
-
-publish-docker:
-	ruby scripts/publish_docker_image.rb
 
 html:
 	docker run --tty --rm \
