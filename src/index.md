@@ -92,8 +92,6 @@ Here are some of my favourites:
     {% endfor %}
   ];
 
-  console.log(featuredArticles.length);
-
   window.addEventListener("DOMContentLoaded", function() {
     document.querySelector("#featured_articles").innerHTML =
       featuredArticles
