@@ -22,7 +22,7 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
   {% endfor %}
 
   {% for tag in all_tags %}
-    <a href="/til/?tag={{ tag }}">{{ tag }}</a>
+    <a href="?tag={{ tag }}">{{ tag }}</a>
     {% unless forloop.last %} · {% endunless %}
   {% endfor %}
 </p>

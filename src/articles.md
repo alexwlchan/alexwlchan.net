@@ -24,7 +24,7 @@ If you want to hear about new posts, you can [subscribe to my RSS feed](/atom.xm
     {% endfor %}
 
     {% for tag in all_tags %}
-      <a href="/articles/?tag={{ tag }}">{{ tag }}</a>
+      <a href="?tag={{ tag }}">{{ tag }}</a>
       {% unless forloop.last %} · {% endunless %}
     {% endfor %}
   </p>
