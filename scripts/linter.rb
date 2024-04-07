@@ -174,6 +174,7 @@ def check_yaml_front_matter(src_dir)
     # Skip some Markdown files in the source directory that aren't
     # posts on the site and so don't need validating.
     next if md_path.end_with?('theme/_favicons/README.md')
+    next if md_path.end_with?('src/_plugins/pillow/README.md')
 
     # This page is a special case for crawlers and doesn't count for
     # the purposes of linting and the like.
