@@ -1,15 +1,13 @@
 ---
+layout: til
 title: How to set the clock on a Worcester 28CDi boiler
-layout: post
 date: 2016-10-08
-index:
-  exclude: true
 ---
 
 Every month or so, there's a power cut in my flat, and my boiler clock resets.
-My boiler is a Worcester 28CDi &ndash; these instructions explain how to change the clock on that boiler.
+My boiler is a Worcester 28CDi -- these instructions explain how to change the clock on that boiler.
 
-I'm writing these for the sake of my future self and to populate Google &ndash; if you don't have this boiler, this won't be of any interest.
+I'm writing these for the sake of my future self and to populate Google -- if you don't have this boiler, this won't be of any interest.
 These instructions are available in the boiler manual, but digging that out and finding the right page gets tedious if you do it regularly.
 
 _**Disclaimer:** I'm not a boiler technician, and you follow these instructions at your own risk.
@@ -42,7 +40,7 @@ I use the following steps to reset my clock:
 5.  The clock is now set.
     Press **SET** twice more to return to the standard date/time display.
 
-### Source
+## Source
 
 These instructions and the picture are based on a document published by Worcester, titled *Single-Channel Programmer Fitting and Operating Instructions*.
 The final page has a reference number: "Publication 8 716 102 484d 03/01".
