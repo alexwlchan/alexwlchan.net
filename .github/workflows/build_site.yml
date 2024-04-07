@@ -105,6 +105,7 @@ jobs:
           overwrites-pull-request-comment: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: "da37a488-4df9-4cc2-b267-947179af20bd"
         timeout-minutes: 1
 
       - name: "Push any commits to GitHub"
