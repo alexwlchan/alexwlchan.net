@@ -1,34 +1,34 @@
-# name: "rubocop"
-#
-# on:
-#   push:
-#     branches:
-#     - main
-#
-#     paths:
-#       - '**/*.rb'
-#
-#   pull_request:
-#     branches:
-#     - main
-#
-#     paths:
-#       - '**/*.rb'
-#
-# jobs:
-#   build:
-#     name: Lint the Ruby code
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: "Check out the repo"
-#         uses: actions/checkout@v4
-#
-#       - name: Set up Ruby
-#         uses: ruby/setup-ruby@v1
-#         with:
-#           ruby-version: "3.3"
-#
-#       - name: Run rubocop
-#         run: |
-#           gem install rubocop -v 1.62.1
-#           rubocop
+name: "rubocop"
+
+on:
+  push:
+    branches:
+    - main
+
+    paths:
+      - '**/*.rb'
+
+  pull_request:
+    branches:
+    - main
+
+    paths:
+      - '**/*.rb'
+
+jobs:
+  build:
+    name: Lint the Ruby code
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out the repo"
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Run rubocop
+        run: |
+          gem install rubocop -v 1.62.1
+          rubocop
