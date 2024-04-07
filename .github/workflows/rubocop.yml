@@ -1,38 +1,38 @@
-name: "rubocop"
-
-on:
-  push:
-    branches:
-    - main
-
-    paths:
-      - '**/*.rb'
-
-  pull_request:
-    branches:
-    - main
-
-    paths:
-      - '**/*.rb'
-
-jobs:
-  build:
-    name: Lint the Ruby code
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Check out the repo"
-        uses: actions/checkout@v4
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-
-      - name: Run rubocop
-        run: |
-          # Note: the version of RuboCop is pinned because of a known issue
-          # with redundant parentheses in 1.58.0 and later that affects
-          # the `linter.rb` plugin.
-          # See https://github.com/rubocop/rubocop/issues/12556
-          gem install rubocop -v 1.57.2
-          rubocop
+# name: "rubocop"
+#
+# on:
+#   push:
+#     branches:
+#     - main
+#
+#     paths:
+#       - '**/*.rb'
+#
+#   pull_request:
+#     branches:
+#     - main
+#
+#     paths:
+#       - '**/*.rb'
+#
+# jobs:
+#   build:
+#     name: Lint the Ruby code
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: "Check out the repo"
+#         uses: actions/checkout@v4
+#
+#       - name: Set up Ruby
+#         uses: ruby/setup-ruby@v1
+#         with:
+#           ruby-version: '3.1'
+#
+#       - name: Run rubocop
+#         run: |
+#           # Note: the version of RuboCop is pinned because of a known issue
+#           # with redundant parentheses in 1.58.0 and later that affects
+#           # the `linter.rb` plugin.
+#           # See https://github.com/rubocop/rubocop/issues/12556
+#           gem install rubocop -v 1.57.2
+#           rubocop

@@ -30,6 +30,9 @@ jobs:
           bundler-cache: true
           cache-version: 0
 
+      - name: "Try to run Nokogiri"
+        run: ruby greeting.rb
+
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
