@@ -78,29 +78,28 @@ I write about anything I find interesting or fun – there’s plenty of program
 Here are some of my favourite articles:
 
 {% assign featured_articles = site.articles | where: "index.feature", true %}
+{% assign sample_of_articles = featured_articles | sample: 6 %}
 
-{% for article in featured_articles %}
-  {{ article.slug }}
+{% include article_card_styles.html selected_articles=featured_articles %}
+
+<script>
+  const featuredArticles = [
+    {% for article in sample_of_articles %}
+      {% capture articleHtml %}
+        {% include article_card.html hide_date="true" %}
+      {% endcapture %}
+      {{ articleHtml | strip | jsonify }},
+    {% endfor %}
+  ]
+</script>
+
+<ul class="article_cards" id="featured_articles">
+{% for article in sample_of_articles %}
+  {% include article_card.html hide_date="true" %}
 {% endfor %}
+</ul>
 
-{%
-  include
-  eggbox.html
-  articles="
-    snapped-elastic
-    bure-valley
-  "
-%}
-
-{% comment %}
-{%
-  include
-  eggbox.html
-  eggbox_posts="snapped-elastic bure-valley big-pdf graph-generative-art hyperfocus-and-hobbies 2023-in-reading"
-%}
-{% endcomment %}
-
-If you want to read more, I've got [plenty more](/writing/).
+If you want to read more, I've got [plenty more](/articles/).
 
 
   {% separator "leaf.svg" %}
@@ -147,8 +146,10 @@ Here's what I've written recently:
   For consistency with the "all posts" page, any blog posts that don't
   set an explicit colour get tinted the default red on the homepage.
 {% endcomment %}
-  
+
 {% assign is_index = true %}
+
+{% include article_card_styles.html selected_articles=recent_articles %}
 
 <ul id="recent_articles" class="article_cards">
 {% for article in recent_articles %}
