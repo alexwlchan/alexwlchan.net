@@ -13,13 +13,9 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     .archive__date {
       width: 68px;
       font-size: 0.85em;
-      color: $accent-grey-light;
+      color: var(--accent-grey);
       text-align: right;
       vertical-align: top;
-
-      @media (prefers-color-scheme: dark) {
-        color: $accent-grey-dark;
-      }
     }
 
     .archive__bestof {

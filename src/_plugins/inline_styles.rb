@@ -39,7 +39,6 @@ class InlineStylesFilters
         converter = site.find_converter_instance(Jekyll::Converters::Scss)
         css = converter.convert(<<~SCSS
           @import "mixins.scss";
-          @import "variables.scss";
 
           #{style.text}
         SCSS

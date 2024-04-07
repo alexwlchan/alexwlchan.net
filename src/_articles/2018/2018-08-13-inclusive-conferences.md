@@ -30,11 +30,7 @@ colors:
     text-decoration: none;
 
     &, &:visited {
-      color: $accent-grey-light;
-
-      @media (prefers-color-scheme: dark) {
-        color: $accent-grey-dark;
-      }
+      color: var(--accent-grey);
     }
   }
 </style>
