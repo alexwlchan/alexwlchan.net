@@ -15,9 +15,19 @@ import json
 import sys
 
 from PIL import Image
+from PIL import ImageCms
 import pillow_avif
 
-from get_color_profiles import get_profile_description
+
+def get_profile_description(im):
+    icc_profile = im.info.get("icc_profile")
+
+    if icc_profile is None:
+        return None
+
+    f = io.BytesIO(icc_profile)
+    prf = ImageCms.ImageCmsProfile(f)
+    return prf.profile.profile_description
 
 
 if __name__ == "__main__":
