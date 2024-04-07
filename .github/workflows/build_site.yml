@@ -95,12 +95,18 @@ jobs:
             echo "There is no _drafts folder, so nothing to publish!"
           fi
 
-      # - name: "Deploy to Netlify"
-      #   if: github.ref == 'refs/heads/main'
-      #   run: make deploy-prod
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          production-branch: main
+          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        timeout-minutes: 1
+
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/main'
         run: |
