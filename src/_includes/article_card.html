@@ -4,9 +4,7 @@
   data-tags="{{ article.tags | join: ' ' }}"
 >
   <a href="{{ article.url }}">
-    <p class="card_image">
-      {% card_image %}
-    </p>
+    {% card_image %}
 
     <div class="card_metadata">
       <p class="card_title">

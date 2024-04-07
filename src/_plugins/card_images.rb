@@ -118,6 +118,7 @@ module Jekyll
             width="400"
             alt=""
             loading="lazy"
+            class="card_image"
             #{attribution_text}
             data-proofer-ignore
           %}
