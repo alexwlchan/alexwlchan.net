@@ -1,23 +1,32 @@
-/* Styles for the "pretty hr", a line of squares I use in place of an <hr/>. */
+/* This CSS replaces my <hr> with a short line of grey squares. */
 
-svg[role="separator"] {
-  display: block;
+@function create_svg($fill) {
+  $fill: str-replace("#{$fill}", '#', '%23');
+  $output: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 5" width=\"25px\" height=\"5px\">' +
+           "<rect width=\"5\" height=\"5\" fill=\"#{$fill}\"/>" +
+           '</svg>';
+  @return str-replace($output, '"', '%22');
+}
+
+hr {
+  width:  105px;
+  height: 5px;
+  border: 0;
   margin: 3.5em auto;
-
-  & + h2 {
-    margin-top: 0;
-  }
 
   /* In light mode, these squares are lighter than the text.
    * In dark mode, they're the same colour.
    */
-  --fill-color: #ccc;
+  $light-svg-url: create_svg(#ccc);
+  $dark-svg-url:  create_svg($body-text-dark);
+
+  --hr-background-image:   url("data:image/svg+xml;charset=UTF-8,#{$light-svg-url}");
 
   @media (prefers-color-scheme: dark) {
-    --fill-color: var(--body-text);
+    --hr-background-image: url("data:image/svg+xml;charset=UTF-8,#{$dark-svg-url}");
   }
 
-  rect {
-    fill: var(--fill-color);
-  }
+  background-image:  var(--hr-background-image);
+  background-size:   contain;
+  background-repeat: repeat-x;
 }
