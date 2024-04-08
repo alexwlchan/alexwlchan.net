@@ -7,75 +7,74 @@ colors:
 ---
 
 <style>
-  h2 {
-    margin-top: 1em;
-  }
-
-  @media screen and (min-width: 750px) {
-    img.rounded_corners {
-      border-radius: 10px;
-    }
+  main {
+    padding-top: calc(1.5 * var(--default-padding));
   }
 
   svg[role="separator"] {
     display: block;
   }
+
+  img#headshot {
+    border-radius: 50%;
+    margin-left:   var(--default-padding);
+    margin-bottom: var(--default-padding);
+  }
+
+  @media screen and (min-width: 500px) {
+    img#headshot {
+      float: right;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    img#headshot {
+      display: block;
+      margin-top: var(--default-padding);
+      margin-left:  auto;
+      margin-right: auto;
+    }
+  }
 </style>
 
-<p class="fullwidth_img">
-  {%
-    picture
-    filename="profile_green.jpg"
-    parent="/images"
-    width="750"
-    alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
-    class="rounded_corners"
-  %}
-</p>
+**My name is _Alex Chan_, but I usually go by _Alex_ or _Lexie_. I'm a software developer, writer, and hand crafter from the UK.**
 
-## Hi, I'm Alex (or Lexie).
+{%
+  picture
+  filename="profile_green_square.jpg"
+  id="headshot"
+  parent="/images"
+  width="230"
+  alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
+  class="rounded_corners"
+%}
 
-I'm a software developer with a particular interest in digital preservation.
-I'm also a keen writer, crafter, theatre-goer, and occasional dancer.
+I build systems for **digital preservation** -- making sure that digital archives remain safe and accessible into the far future.
+Currently I think about photos at <a href="https://www.flickr.org">the Flickr Foundation</a>, and before that I helped build services to store and search the museum and library collections at <a href="https://wellcomecollection.org/">Wellcome Collection</a>.
 
-I've put a bunch of things on the Internet, including:
+I enjoy **writing**, and I've been posting at this domain since 2012.
+I write about a variety of non-fiction topics, with a particular focus on software development.
+If you want to know what's on my mind, check out [the articles I've written](/articles/), [the talks I've given](/articles/?tag=talks), and [the lessons I've learned](/til/).
 
-*   [**My personal writing**](/articles/), which covers a range of topics, from programming to photography, from colour theory to Chinese dictionaries.
-    I've been writing at this domain for over a decade, and I post new articles several times a month.
+In my free time, I enjoy doing art and simple **hand crafts** to relax.
+I've had a lot of fun doing [cross stitch](/articles/?tag=cross-stitch), origami and paper craft, and doodling sketches of implausible sci-fi vehicles.
 
-*   **A bunch of [open-source tools and utilities][oss]**.
-    I've contributed fixes and patches to dozens of projects, and I've shared a few of my own, including my tool for [managing my scanned files](https://github.com/alexwlchan/docstore) and a way to find the [dominant colours in an image](https://github.com/alexwlchan/dominant_colours).
+I'm **queer** and **trans**.
+My pronouns are "they" or "she".
 
-*   **My work for the [Flickr Foundation](https://github.com/Flickr-Foundation) and [Wellcome Collection](/projects/#wellcome-collection)**, my current and previous employers.
-    I've worked on a number of different things, including a [unified catalogue search][search], a cloud-based [preservation storage service][storage], and [a toy for parsing Flickr URLs][flinumeratr].
+This website is a place to share stuff I find interesting or fun.
+I hope you like it!
 
-*   [**Fun and amusing art projects**][fun_stuff], like measuring data [by shelf space in floppy disks](https://howlongismydata.glitch.me/), or controlling a rocket [with the &lt;marquee&gt; tag](https://marquee-rocket.glitch.me/).
-
-When I'm not online, I can often be found with needle in hand, working on some cross-stitch or embroidery, or with shoes on feet, tapping away to a funky jazz number at a swing dance class.
-I have two left feet, but what I lack in skill I make up for in enthusiasm.
-
-I'm queer, trans, and I loosely describe as a genderfluid shapeshifter (which may mean more to me than anyone else).
-My pronouns vary; on the web, either "they" or "she" are safe choices. 🏳️‍🌈
-
-This site is a one-stop shop for everything I've put online -- it's either here, or linked to from here.
-If you're new, you might want to start with [my writing](/articles/) or [my list of projects](/projects/).
-
-I hope you enjoy it.
-
-[flinumeratr]: https://www.flickr.org/introducing-flinumeratr-our-first-toy/
-[search]: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
-[storage]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
-[oss]: /projects/#personal-tools
-[fun_stuff]: /projects/#fun-stuff
 
 
   {% separator "leaf.svg" %}
 
 
-## My writing
 
-I write about anything I find interesting or fun – there’s plenty of programming, but lots of other stuff too.
-Here are some of my favourites:
+## Favourite articles
+
+My [articles](/articles/) cover a variety of non-fiction topics.
+Here are a few of my favourites:
 
 {% assign featured_articles = site.posts | where: "index.feature", true %}
 {% assign sample_of_articles = featured_articles | sample: 6 %}
@@ -106,8 +105,6 @@ Here are some of my favourites:
   {% include article_card.html hide_date="true" %}
 {% endfor %}
 </ul>
-
-If you want to read more, I've got [plenty to look at](/articles/).
 
 
   {% separator "leaf.svg" %}

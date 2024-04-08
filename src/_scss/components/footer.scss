@@ -85,6 +85,7 @@ footer {
     }
 
     &[href="mailto:alex@alexwlchan.net"]:hover              .background { fill: #0067B9; }
+    &[href="https://books.alexwlchan.net"]:hover            .background { fill: #333; }
     &[href="https://alexwlchan.net/atom.xml"]:hover         .background { fill: #F99000; }
     &[href="https://twitter.com/alexwlchan"]:hover          .background { fill: #1DA1F2; }
     &[href="https://social.alexwlchan.net/@alex"]:hover     .background { fill: #563ACC; }
