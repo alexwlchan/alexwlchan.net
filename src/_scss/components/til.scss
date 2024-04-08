@@ -3,6 +3,10 @@ article.til {
 }
 
 #list_of_tils {
+  & > li {
+    width: 100%;
+  }
+
   h4 {
     font-weight: normal;
     margin-bottom: 5px;
