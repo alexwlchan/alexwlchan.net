@@ -37,7 +37,7 @@ colors:
   }
 </style>
 
-**My name is _Alex Chan_, but I usually go by _Alex_ or _Lexie_. I'm a software developer, writer, and hand crafter from the UK.**
+**My name is _Alex Chan_, but I often go by just *Alex* or _alexwlchan_ online. I'm a software developer, writer, and hand crafter from the UK.**
 
 {%
   picture
