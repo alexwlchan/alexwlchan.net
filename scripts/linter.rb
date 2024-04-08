@@ -317,7 +317,7 @@ def check_netlify_redirects(dst_dir)
 
     # ignore URL fragments when linting, the important thing is that
     # pages don't 404
-    target = redirect[:target].split('#')[0]
+    target = redirect[:target].split('#')[0].split('?')[0]
 
     lineno = redirect[:lineno]
     line = redirect[:line]

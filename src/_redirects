@@ -144,7 +144,7 @@
 
 /page/*                                                         /articles/
 
-/talks                                                          /projects/#talks-and-workshops
+/talks                                                          /articles/?tag=talks
 
 /tag                                                            /410/ 410
 /tag/                                                           /410/ 410
@@ -1198,6 +1198,8 @@
 #
 # i.e. that you can delete bits off the end of the URL and still get
 # somewhere useful.
+
+/projects/      /410/ 410
 
 /til/2024/      /til/
 /til/2016/      /til/
