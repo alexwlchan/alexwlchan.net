@@ -9,7 +9,7 @@ tags:
 I was writing some code to detect and replace emoji.
 
 Maybe you can do this using the builtin `re` module by defining character classes (*"all Unicode characters in range X–Y"*) but that looks tedious and fiddly.
-I had a vague memory of "named Unicode groups" – what I was thinking of were Unicode property escapes (which I've previously used [in JavaScript](../javascript/Use Unicode property escapes to detect emoji.md)).
+I had a vague memory of "named Unicode groups" – what I was thinking of were Unicode property escapes (which I've previously used [in JavaScript](/til/2023/use-unicode-property-escapes-to-find-emoji/)).
 
 You can use those with the [`regex` library][regex], which is a dropin replacement for the standard library `re` module.
 

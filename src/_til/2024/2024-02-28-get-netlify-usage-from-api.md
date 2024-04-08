@@ -8,7 +8,13 @@ tags:
 I wanted to add a little graph showing my Netlify usage to my analytics dashboard.
 You can see this in the Netlify dashboard, but I log in to that rarely so it's not helpful:
 
-<img src="/images/2024/netlify-usage.png" style="width: 204px;" class="screenshot" alt="A screenshot from the Netlify dashboard showing I've used 25GB of 100GB in the current period.">
+{%
+  picture
+  filename="netlify-usage.png"
+  width="204"
+  class="screenshot"
+  alt="A screenshot from the Netlify dashboard showing I've used 25GB of 100GB in the current period."
+%}
 
 I used the Netlify API to get the data and show it in another dashboard.
 
@@ -29,7 +35,7 @@ I used the Netlify API to get the data and show it in another dashboard.
       "period_end_date": "2024-03-17T00:00:00.000-07:00"
     }
     ```
-    
+
 A couple of observations on the data you get back:
 
 *   The `included`/`used` values are measured in gibibytes, not gigabytes.

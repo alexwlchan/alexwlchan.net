@@ -17,7 +17,6 @@ tags:
   .columns2 img {
     margin-top:    auto;
     margin-bottom: auto;
-    width: 305px;
   }
 </style>
 
@@ -36,7 +35,12 @@ But if I try that syntax in a table, the table breaks:
   <pre><code>| Internal link                    |
 | -------------------------------- |
 | [[Welcome|This is the new note]] |</code></pre>
-  <img src="/images/2024/obsidian-table-broken.png">
+  {%
+    picture
+    filename="obsidian-table-broken.png"
+    width="305"
+    alt="A table with two columns, because 'Welcome' and 'This is the new note' have been split into two columns."
+  %}
 </div>
 
 The trick is to escape the pipe in the middle of the internal link:
@@ -45,7 +49,12 @@ The trick is to escape the pipe in the middle of the internal link:
   <pre><code>| Internal link                     |
 | --------------------------------- |
 | [[Welcome\|This is the new note]] |</code></pre>
-  <img src="/images/2024/obsidian-table-fixed.png">
+  {%
+    picture
+    filename="obsidian-table-fixed.png"
+    width="305"
+    alt="A table with one columns, with 'This is the new note' correctly showing as the link text."
+  %}
 </div>
 
 You get this behaviour "for free" if you use the Obsidian editor, but for some of these repetitive tables I do the initial editing in an external editor, and then bring it back into Obsidian.
