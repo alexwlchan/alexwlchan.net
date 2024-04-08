@@ -87,11 +87,6 @@ img.screenshot {
   a.download img {
     background: none;
   }
-
-  // fix for the separator on the homepage
-  .separator svg[role="img"] {
-    background: none;
-  }
 }
 
 // Images never expand beyond the article bounds, and are centred when

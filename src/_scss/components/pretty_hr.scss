@@ -1,54 +1,32 @@
-/* This CSS replaces my <hr> with a short line of grey squares.
- *
- * The approach to doing a URL-encoded inline SVG comes from a Codepen
- * by Kevin Weber:
- * https://codepen.io/kevinweber/pen/dXWoRw
- */
+/* This CSS replaces my <hr> with a short line of grey squares. */
 
-@function str-replace($string, $old, $new) {
-  $index: str-index($string, $old);
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $new + str-replace(str-slice($string, $index + str-length($old)), $old, $new);
-  }
-  @return $string;
-}
-
-@mixin create_svg_background_style($fill) {
-  $encoding-reference: (
-    (' ','%20'),
-    ('"','%22'),
-    ('#','%23'),
-    ('.','%2E'),
-    ('/','%2F'),
-    (':','%3A'),
-    ('<','%3C'),
-    ('=','%3D'),
-    ('>','%3E'),
-  );
-
-  $svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 5\" width=\"25px\">" +
-        "<rect width=\"5\" height=\"5\" fill=\"#{$fill}\"/>" +
-        "</svg>";
-
-  @each $char, $encoded_char in $encoding-reference {
-    $svg: str-replace($svg, $char, $encoded_char);
-  }
-
-  background: url(data:image/svg+xml,#{$svg}) repeat-x 0 0;
+@function create_svg($fill) {
+  $fill: str-replace("#{$fill}", '#', '%23');
+  $output: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 5" width=\"25px\" height=\"5px\">' +
+           "<rect width=\"5\" height=\"5\" fill=\"#{$fill}\"/>" +
+           '</svg>';
+  @return str-replace($output, '"', '%22');
 }
 
 hr {
-   height: 6px;
-   width: 107px;
-   border: 0;
-   margin: 3.5em auto;
+  width:  105px;
+  height: 5px;
+  border: 0;
+  margin: 3.5em auto;
 
-   /* In light mode, these squares are lighter than the text.
-    * In dark mode, they're the same colour.
-    */
-   @include create_svg_background_style(#ccc);
+  /* In light mode, these squares are lighter than the text.
+   * In dark mode, they're the same colour.
+   */
+  $light-svg-url: create_svg(#ccc);
+  $dark-svg-url:  create_svg($body-text-dark);
 
-   @media (prefers-color-scheme: dark) {
-     @include create_svg_background_style($body-text-dark);
-   }
+  --hr-background-image:   url("data:image/svg+xml;charset=UTF-8,#{$light-svg-url}");
+
+  @media (prefers-color-scheme: dark) {
+    --hr-background-image: url("data:image/svg+xml;charset=UTF-8,#{$dark-svg-url}");
+  }
+
+  background-image:  var(--hr-background-image);
+  background-size:   contain;
+  background-repeat: repeat-x;
 }
