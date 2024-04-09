@@ -126,12 +126,6 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.31.2)
       parser (>= 3.3.0.4)
-    rubocop-minitest (0.35.0)
-      rubocop (>= 1.61, < 2.0)
-      rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-performance (1.21.0)
-      rubocop (>= 1.48.1, < 2.0)
-      rubocop-ast (>= 1.31.1, < 2.0)
     ruby-progressbar (1.13.0)
     ruby-rc4 (0.1.5)
     ruby2_keywords (0.0.5)
@@ -168,8 +162,6 @@ DEPENDENCIES
   json-schema (~> 4)
   nokogiri (~> 1.16)
   rubocop (~> 1.63)
-  rubocop-minitest
-  rubocop-performance
   shell-executer (~> 1.0)
   test-unit
 

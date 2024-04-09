@@ -13,15 +13,6 @@ end
 
 group :lint, optional: true do
   gem 'rubocop', '~> 1.63'
-
-  # These dependencies are specifically for CI in GitHub Actions; I don't
-  # need it when I'm running locally.  If I try to run `bundle exec rubocop`
-  # in CI without it, I get errors like:
-  #
-  #     cannot load such file -- rubocop-minitest
-  #
-  gem 'rubocop-minitest'
-  gem 'rubocop-performance'
 end
 
 group :test, optional: true do
