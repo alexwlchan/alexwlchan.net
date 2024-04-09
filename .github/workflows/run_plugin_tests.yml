@@ -7,6 +7,8 @@ on:
 
     paths:
       - 'src/_plugins/**'
+      - 'Gemfile'
+      - 'Gemfile.lock'
 
   pull_request:
     branches:
@@ -14,6 +16,8 @@ on:
 
     paths:
       - 'src/_plugins/**'
+      - 'Gemfile'
+      - 'Gemfile.lock'
 
 jobs:
   build:
