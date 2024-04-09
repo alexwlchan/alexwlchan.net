@@ -7,6 +7,9 @@ on:
 
     paths:
       - '**/*.rb'
+      - '.github/workflows/rubocop.yml'
+      - 'Gemfile'
+      - 'Gemfile.lock'
 
   pull_request:
     branches:
@@ -14,11 +17,16 @@ on:
 
     paths:
       - '**/*.rb'
+      - '.github/workflows/rubocop.yml'
+      - 'Gemfile'
+      - 'Gemfile.lock'
 
 jobs:
   build:
     name: Lint the Ruby code
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITH: lint
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
@@ -27,8 +35,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
+          bundler-cache: true
+          cache-version: 0
 
       - name: Run rubocop
-        run: |
-          gem install rubocop -v 1.62.1
-          rubocop
+        run: bundle exec rubocop

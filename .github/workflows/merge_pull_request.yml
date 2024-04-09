@@ -9,12 +9,12 @@ jobs:
   build:
     name: Merge pull request
     runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
       - name: Merge the pull request
-        if: github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
         run: |
           python3 -m pip install httpx
           python3 .github/workflows/merge_pull_request.py
