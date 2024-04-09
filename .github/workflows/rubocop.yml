@@ -39,4 +39,4 @@ jobs:
           cache-version: 0
 
       - name: Run rubocop
-        run: bundle exec rubocop --list-target-files
+        run: bundle exec rubocop
