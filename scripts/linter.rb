@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'set'
-
 require 'html-proofer'
 require 'json'
 require 'json-schema'

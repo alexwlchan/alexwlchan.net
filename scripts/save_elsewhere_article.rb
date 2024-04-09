@@ -17,7 +17,6 @@
 # [2]: https://www.stephaniemorillo.co/post/why-developers-should-archive-their-old-content
 
 require 'fileutils'
-require 'set'
 require 'yaml'
 
 require 'unidecode'
