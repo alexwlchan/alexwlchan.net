@@ -35,6 +35,8 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
           cache-version: 0
+        env:
+          BUNDLE_WITHOUT: build
 
       - name: Run rubocop
         run: bundle exec rubocop

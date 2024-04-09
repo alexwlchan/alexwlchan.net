@@ -33,6 +33,8 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
           cache-version: 1
+        env:
+          BUNDLE_WITHOUT: lint
 
         # nokogiri doesn't get installed properly for some reason, and
         # I get errors like:
