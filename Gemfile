@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-group :build do
+group :build, optional: true do
   gem 'chunky_png', '~> 1.4'
   gem 'color', '~> 1.8'
   gem 'html-proofer', '~> 5'
@@ -11,14 +11,19 @@ group :build do
   gem 'shell-executer', '~> 1.0'
 end
 
-group :lint do
+group :lint, optional: true do
   gem 'rubocop', '~> 1.63'
 
-  # This dependency is specifically for CI in GitHub Actions; I don't
+  # These dependencies are specifically for CI in GitHub Actions; I don't
   # need it when I'm running locally.  If I try to run `bundle exec rubocop`
-  # in CI without it, I get an error:
+  # in CI without it, I get errors like:
   #
   #     cannot load such file -- rubocop-minitest
   #
-  gem 'rubocop-minitest', '~> 0.35.0'
+  gem 'rubocop-minitest'
+  gem 'rubocop-performance'
+end
+
+group :test, optional: true do
+  gem 'test-unit'
 end
