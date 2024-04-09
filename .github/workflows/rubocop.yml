@@ -7,6 +7,9 @@ on:
 
     paths:
       - '**/*.rb'
+      - '.github/workflows/rubocop.yml'
+      - 'Gemfile'
+      - 'Gemfile.lock'
 
   pull_request:
     branches:
@@ -14,6 +17,9 @@ on:
 
     paths:
       - '**/*.rb'
+      - '.github/workflows/rubocop.yml'
+      - 'Gemfile'
+      - 'Gemfile.lock'
 
 jobs:
   build:
