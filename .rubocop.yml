@@ -11,7 +11,7 @@ AllCops:
     # This is to avoid RuboCop trying to lint too much stuff when running
     # in GitHub Actions.
     # See https://stackoverflow.com/a/69421161/1558022
-    - 'vendor/*/**'
+    - 'vendor/**/*'
 
 Layout/LineLength:
   Max: 200
