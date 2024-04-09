@@ -25,6 +25,8 @@ jobs:
   build:
     name: Lint the Ruby code
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITHOUT: build
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
