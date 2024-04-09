@@ -1,12 +1,17 @@
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.1
+  TargetRubyVersion: 3.3
 
   Exclude:
     - '_site/**/*'
     - 'src/_files/2022/division1.rb'
     - 'src/_files/2022/division2.rb'
     - 'src/_files/2023/uequals_operator.rb'
+
+    # This is to avoid RuboCop trying to lint too much stuff when running
+    # in GitHub Actions.
+    # See https://stackoverflow.com/a/69421161/1558022
+    - 'vendor/*/**'
 
 Layout/LineLength:
   Max: 200
