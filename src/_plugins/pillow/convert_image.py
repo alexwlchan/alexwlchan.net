@@ -44,7 +44,9 @@ if __name__ == "__main__":
             "sRGB IEC61966-2.1",
             "Generic Gray Gamma 2.2 Profile",
         }:
-            raise ValueError(f"Got image with non-sRGB profile: {request['in_path']}")
+            raise ValueError(
+                f"Got image with non-sRGB profile: {request['in_path']} ({profile_name})"
+            )
 
         im = im.resize(
             (
