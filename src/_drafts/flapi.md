@@ -1,0 +1,68 @@
+---
+layout: post
+title: "flapi.sh: a tiny command-line tool for experimenting with the Flickr API"
+summary: |
+  Combining several existing tools to make something that allows for quick experiments and exploration.
+tags:
+  - flickr
+colors:
+  index_dark:  "#dfe7f8"
+  index_light: "#444343"
+link: https://github.com/Flickr-Foundation/flapi.sh
+---
+I use [the Flickr API][api] pretty much every day in [my day job].
+Within the first week, I bashed together a couple of command-line tools to make a simple tool for exploring the API.
+They're not meant for building "proper" apps, more for quick experiments and seeing what API responses look like.
+
+The main tool is `flapi`, and you pass it two arguments: the name of the API method, and (optionally) any query parameters you want to include.
+Then it calls the Flickr API for you!
+
+For example:
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>flapi flickr.photos.getInfo photo_id=25260341744
+<span class="go">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><span class="w">
+</span><span class="go">&lt;rsp stat="ok"&gt;</span><span class="w">
+</span><span class="go">  &lt;photo id="25260341744" secret="3e30df4a20" server="1645" farm="2" dateuploaded="1458345230" isfavorite="0" license="7" safety_level="0" rotation="0" originalsecret="b473e4a3b0" originalformat="jpg" views="83654" media="photo"&gt;</span><span class="w">
+</span><span class="go">    …
+</span></code></pre></div></div>
+
+There are lots of ways to play with APIs -- colleagues at a previous job used Postman, and Flickr itself has an API Explorer where you can try requests in the browser.
+I like doing it with a command-line tool because I always have lots of terminal windows open, and it's easy to grab one and check something with `flapi`.
+
+Today I finally took the time to tidy up the script [and post it on GitHub][github].
+
+The code isn't complicated -- indeed, it was easy to cobble it together from a bunch of other tools.
+Even if you have no interest in the Flickr API, some of them might be useful for you.
+
+*   I'm using [keyring] to store and retrieve my Flickr API key in the macOS Keychain.
+    This is a Python library that makes it easy to manage passwords and other secrets, and to avoid hard-coding secrets in my code.
+
+*   I use [curl] to make the actual HTTP request.
+    I recently listened to an [interesting interview][readme] with Daniel Stenberg, curl's creator and maintainer, where he talked about how curl got started and how he keeps it going.
+
+*   I pipe the output to [`xmllint --format`][xmllint], which pretty-prints the XML.
+    I'm not sure how much of a difference it makes to Flickr's API responses, but it's nice to remember that macOS has a built in reformatter for XML.
+
+*   Finally, I pipe the reformatted XML to [Pygments] to add syntax highlighting.
+    For me, this makes the output a bit easier to read.
+
+Put together, the core logic of `flapi` is just four lines:
+
+```bash
+api_key=$(keyring get flickr_api key)
+
+curl --silent "https://api.flickr.com/services/rest/?api_key=${api_key}&method=${method}&${params}" \
+  | xmllint --format - \
+  | pygmentize -l xml
+```
+
+These four programs feel like an exemplar of the Unix Way: small tools that each do one task well, written so they can be combined in complex ways.
+
+[my day job]: https://www.flickr.org/
+[api]: https://www.flickr.com/services/api/
+[github]: https://github.com/Flickr-Foundation/flapi.sh
+[keyring]: https://github.com/jaraco/keyring
+[curl]: https://curl.se/
+[readme]: https://github.com/readme/podcast/curl-25-years
+[xmllint]: https://opensource.apple.com/source/libxml2/libxml2-7/libxml2/doc/xmllint.html
+[Pygments]: https://pygments.org/
