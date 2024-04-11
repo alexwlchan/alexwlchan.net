@@ -36,14 +36,6 @@ jobs:
           bundler-cache: true
           cache-version: 1
 
-        # nokogiri doesn't get installed properly for some reason, and
-        # I get errors like:
-        #
-        #     `require': cannot load such file -- nokogiri (LoadError)
-        #
-        # Try installing it manually instead.
-      - run: gem install nokogiri
-
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
@@ -52,4 +44,4 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: "Run the plugin tests"
-        run: ruby src/_tests/tests.rb
+        run: bundle exec ruby src/_tests/tests.rb
