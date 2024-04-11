@@ -13,6 +13,7 @@ Example:
 
 import io
 import json
+import os
 import sys
 
 from PIL import Image
@@ -54,6 +55,8 @@ if __name__ == "__main__":
                 int(im.height * request["target_width"] / im.width),
             )
         )
+
+        os.makedirs(os.path.dirname(request['out_path']), exist_ok=True)
 
         with open(request["out_path"], "xb") as fp:
             im.save(fp)
