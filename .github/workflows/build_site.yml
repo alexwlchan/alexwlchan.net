@@ -8,6 +8,8 @@ on:
     paths-ignore:
       - 'assets/**'
       - 'scripts/**'
+      - '.github/workflows/rubocop.yml'
+      - '.github/workflows/run_plugin_tests.yml'
 
   pull_request:
     branches:
@@ -16,6 +18,8 @@ on:
     paths-ignore:
       - 'assets/**'
       - 'scripts/**'
+      - '.github/workflows/rubocop.yml'
+      - '.github/workflows/run_plugin_tests.yml'
 
   # This daily rebuild is to avoid GitHub Actions purging the site cache,
   # because regenerating all the image thumbnails would be a PITA:

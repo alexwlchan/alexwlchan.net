@@ -9,6 +9,7 @@ on:
       - 'src/_plugins/**'
       - 'Gemfile'
       - 'Gemfile.lock'
+      - '.github/workflows/run_plugin_tests.yml'
 
   pull_request:
     branches:
@@ -18,6 +19,7 @@ on:
       - 'src/_plugins/**'
       - 'Gemfile'
       - 'Gemfile.lock'
+      - '.github/workflows/run_plugin_tests.yml'
 
 jobs:
   build:
