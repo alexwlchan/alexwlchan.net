@@ -50,7 +50,7 @@ jobs:
         #     `require': cannot load such file -- json-schema (LoadError)
         #
         # Try installing them manually instead.
-      - run: gem install html-proofer json-schema nokogiri
+      - run: gem install html-proofer json-schema
 
       - name: "Set up Python"
         uses: actions/setup-python@v5
