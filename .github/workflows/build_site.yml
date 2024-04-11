@@ -44,14 +44,6 @@ jobs:
           bundler-cache: true
           cache-version: 1
 
-        # Not all the gems get installed properly for some reason, and
-        # I get errors like:
-        #
-        #     `require': cannot load such file -- json-schema (LoadError)
-        #
-        # Try installing them manually instead.
-      - run: gem install html-proofer json-schema nokogiri
-
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
