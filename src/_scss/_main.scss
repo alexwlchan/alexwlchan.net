@@ -3,11 +3,6 @@
 @import "variables.scss";
 @import "mixins.scss";
 
-.post__permalink a,
-.post__permalink a:visited {
-  color: var(--primary-color);
-}
-
 a.download {
   border-color: var(--link-color);
 
