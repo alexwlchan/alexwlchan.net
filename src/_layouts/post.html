@@ -34,7 +34,7 @@ layout: default
         </time>
       </li>
       {% if post.date_updated %}
-      <li class="post__updated_date">Updated {{ post.date_updated | date: site.date_format }}</li>
+      <li>Updated {{ post.date_updated | date: site.date_format }}</li>
       {% endif %}
 
       {% comment %}
@@ -49,7 +49,7 @@ layout: default
 
       {% if post.visible_tags.size > 0 %}
         {% unless post.index.exclude %}
-          <li class="post__tags">
+          <li>
             Tagged with
             {% assign tags = post.visible_tags | sort %}
             {% for t in tags %}
