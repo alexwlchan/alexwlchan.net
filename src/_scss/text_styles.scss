@@ -3,6 +3,13 @@ a {
 
   &               { color: var(--link-color);                         }
   &:visited       { color: var(--link-visited-color);                 }
-  &:hover         { background: var(--link-hover-background);         }
+
+  &:hover         {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-decoration-skip-ink: none;
+    background: none;
+  }
+
   &:visited:hover { background: var(--link-visited-hover-background); }
 }

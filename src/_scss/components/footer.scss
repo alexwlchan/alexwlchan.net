@@ -10,10 +10,9 @@ footer {
    * It looks the same in light/dark mode.
    */
   background: var(--primary-color-light);
-  color: white;
 
-  a, a:visited {
-    @include link_styles(white, 0.5);
+  &, a, a:visited {
+    color: white;
   }
 
   /* There are two lines of text in the footer, then a row of icons.
