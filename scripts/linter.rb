@@ -340,10 +340,9 @@ def check_netlify_redirects(dst_dir)
   exit!
 end
 
-# Check I have redirects set up for every sub-URL of
-# a TIL/article URL -- e.g. if I have an article /2013/my-post,
-# there's something at /2013/ that redirects.
-# In the sense that "good URLs are hackable".
+# Check I have redirects set up for every sub-URL of a published URL
+# e.g. if I have an article /2013/my-post, there's something at /2013/
+# that redirects.  In the sense that "good URLs are hackable".
 #
 # Quoting the slightly formal language of Nielsen Norman [1]:
 #
