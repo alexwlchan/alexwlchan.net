@@ -18,7 +18,7 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
   {% assign all_tags = '' | split: '' %}
   {% for til in site.til %}
-    {% assign all_tags = all_tags | concat: til.tags | uniq | sort %}
+    {% assign all_tags = all_tags | concat: til.visible_tags | uniq | sort %}
   {% endfor %}
 
   {% for tag in all_tags %}
@@ -70,7 +70,7 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
 <ul id="list_of_tils" class="plain_list">
 {% for til in site.til reversed %}
-  <li data-tags="{{ til.tags | join }}">
+  <li data-tags="{{ til.visible_tags | join }}">
     <h4><a href="{{ til.url }}">{{ til.title | markdownify_oneline }}</a></h4>
 
     <ul class="dot_list meta">
