@@ -16,14 +16,6 @@
                                   supported by Chrome and Opera */
 }
 
-@mixin link_styles($color, $opacity) {
-  color: $color;
-
-  &:hover {
-    background: rgba($color, $opacity);
-  }
-}
-
 @mixin card_color_variables($color) {
   --c-color:    #{$color};
   --c-hover-bg: #{rgba($color, 0.2)};

@@ -9,10 +9,4 @@ a.download {
   // We need to override the background styles
   color: var(--link-color) !important;
   background: rgba(white, 0.4) !important;
-
-  // Although this is supplied by the link style, we need to set it again
-  // here because the `background` rule above overrides the `a:hover` rule.
-  &:hover {
-    background: var(--link-hover-background) !important;
-  }
 }
