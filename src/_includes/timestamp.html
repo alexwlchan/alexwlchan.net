@@ -1,0 +1,7 @@
+{% comment %}
+  Render a timestamp on the page.
+{% endcomment %}
+
+<time datetime="{{ include.date | date: "%Y-%m-%d" }}">
+  {{ include.date | date: site.date_format }}
+</time>
