@@ -81,10 +81,10 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
         </time>
       </li>
 
-      {% if til.tags.size > 0 %}
+      {% if til.visible_tags.size > 0 %}
       <li>
         Tagged with
-        {% assign tags = til.tags | sort %}
+        {% assign tags = til.visible_tags | sort %}
         {% for t in tags %}
           <a href="?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
