@@ -8,7 +8,7 @@
   {% if page.tags.size > 0 %}
   <li>
     Tagged with
-    {% assign tags = page.tags | sort %}
+    {% assign tags = page.visible_tags | sort %}
     {% for t in tags %}
       <a href="{{ include.index_page }}?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
     {% endfor %}

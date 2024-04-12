@@ -7,20 +7,25 @@
 # This plugin adds a `visible_tags` field to every article, which is
 # limited to tags with more than one use.
 
-Jekyll::Hooks.register :site, :post_read do |site|
+def create_visible_tags(collection_of_docs)
   tag_tally = Hash.new(0)
 
-  site.posts.docs.each do |post|
-    next if post.data.fetch('index', {}).fetch('exclude', false)
+  collection_of_docs.each do |doc|
+    next if doc.data.fetch('index', {}).fetch('exclude', false)
 
-    post.data['tags'].each do |tag|
+    doc.data['tags'].each do |tag|
       tag_tally[tag] += 1
     end
   end
 
   visible_tags = tag_tally.select { |_, count| count > 1 }.keys.to_set
 
-  site.posts.docs.each do |post|
-    post.data['visible_tags'] = post.data['tags'].select { |t| visible_tags.include? t }
+  collection_of_docs.each do |doc|
+    doc.data['visible_tags'] = doc.data['tags'].select { |t| visible_tags.include? t }
   end
+end
+
+Jekyll::Hooks.register :site, :post_read do |site|
+  create_visible_tags(site.posts.docs)
+  create_visible_tags(site.collections['til'].docs)
 end
