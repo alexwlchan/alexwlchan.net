@@ -98,9 +98,15 @@ sup {
   color: var(--accent-grey);
 
   a, a:visited {
-    color: var(--accent-grey) !important;
+    color: var(--accent-grey);
     &:hover {
-      background: var(--accent-grey-link-hover) !important;
+      background: var(--accent-grey-link-hover);
     }
   }
 }
+
+.permalink a,
+.permalink a:visited {
+  color: var(--primary-color);
+}
+

@@ -1,6 +1,6 @@
 <ul class="dot_list meta">
   <li>
-    Posted {% include "timestamp.html" date = page.date %}
+    Posted {% include timestamp.html date = page.date %}
   </li>
   
   {% comment %}
@@ -26,12 +26,12 @@
   
   {% if page.date_updated %}
   <li>
-    Updated {% include "timestamp.html" date = page.date_updated %}
+    Updated {% include timestamp.html date = page.date_updated %}
   </li>
   {% endif %}
   
   {% if page.link %}
-  <li class="post__permalink">
+  <li class="permalink">
     <a href="{{ page.url | relative_url }}" aria-label="permalink">&infin;</a>
   </li>
   {% endif %}
