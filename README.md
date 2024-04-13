@@ -50,7 +50,7 @@ $ pip install -r requirements.txt
 
 $ bundle install
 
-$ jekyll serve
+$ bundle exec jekyll serve
 ```
 
 The site should be running on <http://localhost:5757>.
@@ -59,7 +59,7 @@ If you make changes to the source files, it will automatically update.
 To build a one-off set of static HTML files:
 
 ```console
-$ jekyll build
+$ bundle exec jekyll build
 ```
 
 This creates a set of HTML files in `_site`.
