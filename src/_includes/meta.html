@@ -1,4 +1,4 @@
-{% if page.date or page.visible_tags.size > 0 or page.date_updated or page.link %}
+{% if page.date or page.visible_tags.size > 0 or page.meta or page.date_updated or page.link %}
   <li>
     Posted
     {% include timestamp.html date = page.date %}
@@ -13,6 +13,10 @@
     {% endfor %}
   </li>
   {% endif %}
+  
+  {% for m in page.meta %}
+  <li>{{ m }}</li>
+  {% endfor %}
   
   {% if page.date_updated %}
   <li>
