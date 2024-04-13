@@ -31,8 +31,8 @@ if __name__ == "__main__":
     b64_data = base64.b64encode(data).decode("ascii")
 
     if im.format == "PNG":
-        print(f"data:image/png;base64,#{b64_data}", end="")
+        print(f"data:image/png;base64,{b64_data}", end="")
     elif im.format == "JPEG":
-        print(f"data:image/jpeg;base64,#{b64_data}", end="")
+        print(f"data:image/jpeg;base64,{b64_data}", end="")
     else:
         raise ValueError(f"Unrecognised avatar extension: {path}")
