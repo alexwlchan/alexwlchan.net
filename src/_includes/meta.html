@@ -1,4 +1,4 @@
-{% if page.date or page.visible_tags.size > 0 or page.date_updated %}
+{% if page.date or page.visible_tags.size > 0 or page.date_updated or page.link %}
   <li>
     Posted
     {% include timestamp.html date = page.date %}
@@ -18,6 +18,12 @@
   <li>
     Last updated {% include timestamp.html date = page.date_updated %}
   </li>
+  {% endif %}
+  
+  {% if page.link %}
+    <li class="post__permalink">
+      <a href="{{ post.url | relative_url }}" aria-label="permalink">&infin;</a>
+    </li>
   {% endif %}
 
 {% endif %}
