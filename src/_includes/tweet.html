@@ -58,7 +58,9 @@
       {% endif %}
 
       <div class="metadata">
-        <a class="link_blend" href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">{{ tweet_data | render_date_created }}</a>
+        <a class="link_blend" href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">
+          {{ tweet_data.created_at | date: '%-I:%M&nbsp;%p - %-d %b %Y' }}
+        </a>
       </div>
     </div>
   </blockquote>
