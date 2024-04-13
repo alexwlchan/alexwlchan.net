@@ -27,7 +27,10 @@
   }
 
   &       { background: var(--background-color)        }
-  &:hover { background: var(--background-color-hover); }
+  &:hover {
+    background: var(--background-color-hover);
+    text-decoration-thickness: 1px;
+  }
 
   &, .quoted_tweet {
     border-radius: 4px;
