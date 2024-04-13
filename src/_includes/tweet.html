@@ -25,7 +25,7 @@
         </svg>
       </div>
       <div class="author">
-        <a class="link link_blend" href="https://twitter.com/{{ screen_name }}">
+        <a class="link" href="https://twitter.com/{{ screen_name }}">
           <span class="avatar">
             <img src="{{ tweet_data | tweet_avatar_url }}" alt="">
           </span>
@@ -58,7 +58,11 @@
       {% endif %}
 
       <div class="metadata">
-        <a class="link_blend" href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">{{ tweet_data | render_date_created }}</a>
+        <a href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">
+          <time datetime="{{ tweet_date.created_at | date: "%Y-%m-%d" }}">
+            {{ tweet_date.created_at | date: "%-I:%M&nbsp;%p - %-d %b %Y" }}
+          </time>
+        </a>
       </div>
     </div>
   </blockquote>

@@ -17,18 +17,6 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
       text-align: right;
       vertical-align: top;
     }
-
-    .archive__bestof {
-      padding-left:  5px;
-      padding-right: 5px;
-      width: 12px;
-      vertical-align: top;
-
-      img {
-        width: 12px;
-        display: inline-block;
-      }
-    }
   }
 </style>
 
@@ -63,9 +51,8 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 <table class="archive">
   {% for entry in writing_entries %}
     {% if entry.publication == "Last Week in AWS" %}
-      <tr class="archive__entry">
+      <tr>
         <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
-        <td class="archive__bestof"></td>
         <td>
           <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>
         </td>
@@ -79,9 +66,8 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 <table class="archive">
   {% for entry in writing_entries %}
     {% if entry.publication == "Wellcome Collection development blog" %}
-      <tr class="archive__entry">
+      <tr>
         <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
-        <td class="archive__bestof"></td>
         <td>
           <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>
         </td>
@@ -102,9 +88,8 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
       {% continue %}
     {% endif %}
 
-    <tr class="archive__entry">
+    <tr>
       <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
-      <td class="archive__bestof"></td>
       <td>
         <a href="{{ entry.url }}">{{ entry.title | smartify }}</a> – {{ entry.publication }}
       </td>
@@ -119,9 +104,8 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 <table class="archive" id="talks_archive">
   {% for talk in talk_entries %}
-    <tr class="archive__entry">
+    <tr>
       <td class="archive__date">{{ talk.date | date: "%b %Y" }}</td>
-      <td class="archive__bestof"></td>
       <td class="talk_description">
         {{ talk.title }}{% if talk.event %} @ {{ talk.event }}{% endif %}
         {% if talk.links %}
@@ -147,9 +131,8 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 <table class="archive">
   {% for entry in podcast_entries %}
-    <tr class="archive__entry">
+    <tr>
       <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
-      <td class="archive__bestof"></td>
       <td>
         <a href="{{ entry.url }}">{{ entry.podcast}}: {{ entry.title | smartify }}</a>
       </td>

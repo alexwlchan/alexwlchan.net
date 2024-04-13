@@ -7,17 +7,6 @@ layout: default
 </h1>
 {% endif %}
 
-{% if page.date_updated or page.meta %}
-<div class="meta">
-  <ul class="dot_list">
-    {% if page.date_updated %}
-    <li class="page__date">Last updated {{ page.date_updated | date: site.date_format }}</li>
-    {% endif %}
-    {% for m in page.meta %}
-    <li>{{ m }}</li>
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
+{% include meta.html %}
 
 {{ content | cleanup_text | smartify }}

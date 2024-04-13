@@ -20,7 +20,7 @@ class HtmlModifiersTest < Test::Unit::TestCase
               </svg>
             </div>
             <div class="author">
-              <a class="link link_blend" href="https://twitter.com/thingskatedid">
+              <a class="link" href="https://twitter.com/thingskatedid">
                 <span class="avatar">
                   <img src="/images/twitter/avatars/thingskatedid_1573017572022571009.jpg" alt="Profile picture for @thingskatedid">
                 </span>
@@ -32,7 +32,7 @@ class HtmlModifiersTest < Test::Unit::TestCase
           <div class="body">
             <p class="text">i don't *care* how maths works, half of zero should be 0.5</p>
             <div class="metadata">
-              <a class="link_blend" href="https://twitter.com/thingskatedid/status/1573017572022571009">6:33&nbsp;PM - 22 Sep 2022</a>
+              <a href="https://twitter.com/thingskatedid/status/1573017572022571009">6:33&nbsp;PM - 22 Sep 2022</a>
             </div>
           </div>
         </blockquote>
@@ -45,7 +45,7 @@ class HtmlModifiersTest < Test::Unit::TestCase
         <blockquote>
           <div class="header">
             <div class="author">
-              <a class="link link_blend" href="https://twitter.com/thingskatedid">
+              <a class="link" href="https://twitter.com/thingskatedid">
                 <span class="name" title="Kate">Kate</span>
                 <span class="screen_name" title="@thingskatedid">@thingskatedid</span>
               </a>
@@ -54,7 +54,7 @@ class HtmlModifiersTest < Test::Unit::TestCase
           <div class="body">
             <p class="text">i don't *care* how maths works, half of zero should be 0.5</p>
             <div class="metadata">
-              <a class="link_blend" href="https://twitter.com/thingskatedid/status/1573017572022571009">6:33&nbsp;PM - 22 Sep 2022</a>
+              <a href="https://twitter.com/thingskatedid/status/1573017572022571009">6:33&nbsp;PM - 22 Sep 2022</a>
             </div>
           </div>
         </blockquote>

@@ -110,12 +110,6 @@ METADATA_SCHEMA = {
 
 module Jekyll
   module TwitterFilters
-    def render_date_created(tweet_data)
-      DateTime
-        .parse(tweet_data['created_at'], '%a %b %d %H:%M:%S %z %Y')
-        .strftime('%-I:%M&nbsp;%p - %-d %b %Y')
-    end
-
     def _display_path(filename)
       "/images/twitter/#{filename}"
     end

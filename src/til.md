@@ -75,16 +75,13 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
     <ul class="dot_list meta">
       <li>
-        Posted
-        <time datetime="{{ til.date | date: "%Y-%m-%d" }}">
-          {{- til.date | date: site.date_format -}}
-        </time>
+        Posted {% include timestamp.html date = til.date %}
       </li>
 
       {% if til.tags.size > 0 %}
       <li>
         Tagged with
-        {% assign tags = til.tags | sort %}
+        {% assign tags = til.visible_tags | sort %}
         {% for t in tags %}
           <a href="?tag={{ t }}">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}

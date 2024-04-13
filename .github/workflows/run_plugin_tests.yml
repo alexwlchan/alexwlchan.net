@@ -26,7 +26,7 @@ jobs:
     name: Run plugin tests
     runs-on: ubuntu-latest
     env:
-      BUNDLE_WITH: build:test
+      BUNDLE_WITH: test
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4

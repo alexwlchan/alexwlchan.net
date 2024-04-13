@@ -1,15 +1,13 @@
 source 'https://rubygems.org'
 
-group :build, optional: true do
-  gem 'chunky_png', '~> 1.4'
-  gem 'color', '~> 1.8'
-  gem 'html-proofer', '~> 5'
-  gem 'jekyll', '~> 4'
-  gem 'jekyll-include-cache', '~> 0.2'
-  gem 'json-schema', '~> 4'
-  gem 'nokogiri', '~> 1.16'
-  gem 'shell-executer', '~> 1.0'
-end
+gem 'chunky_png', '~> 1.4'
+gem 'color', '~> 1.8'
+gem 'html-proofer', '~> 5'
+gem 'jekyll', '~> 4'
+gem 'jekyll-include-cache', '~> 0.2'
+gem 'json-schema', '~> 4'
+gem 'nokogiri', '~> 1.16'
+gem 'shell-executer', '~> 1.0'
 
 group :lint, optional: true do
   gem 'rubocop', '~> 1.63'
