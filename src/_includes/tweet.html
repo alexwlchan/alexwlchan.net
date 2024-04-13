@@ -59,7 +59,9 @@
 
       <div class="metadata">
         <a href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">
-          {{ tweet_data.created_at | date: '%-I:%M&nbsp;%p - %-d %b %Y' }}
+          <time datetime="{{ tweet_date.created_at | date: "%Y-%m-%d" }}">
+            {{ tweet_date.created_at | date: "%-I:%M&nbsp;%p - %-d %b %Y" }}
+          </time>
         </a>
       </div>
     </div>
