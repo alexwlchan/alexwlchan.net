@@ -28,12 +28,6 @@ layout: default
   <div class="meta">
     <ul class="dot_list">
       {% include meta.html %}
-      {% if post.date_updated %}
-      <li>
-        Updated
-        {% include timestamp.html date = post.date_updated %}
-      </li>
-      {% endif %}
 
       {% if post.link %}
       <li class="post__permalink"><a href="{{ post.url | relative_url }}" aria-label="permalink">&infin;</a></li>
