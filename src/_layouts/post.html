@@ -25,11 +25,7 @@ layout: default
     {% endif %}
   </h1>
 
-  <div class="meta">
-    <ul class="dot_list">
-      {% include meta.html %}
-    </ul>
-  </div>
+  {% include meta.html index_page = "/articles/" %}
 
   {{ post.content | cleanup_text }}
 </article>

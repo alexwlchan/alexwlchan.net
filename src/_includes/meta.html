@@ -1,4 +1,23 @@
-{% if page.date or page.visible_tags.size > 0 or page.meta or page.date_updated or page.link %}
+{% comment %}
+  Render the metadata at the top of each page.  This is shared across all
+  templates so it's rendered consistently.
+  
+  Rough thinking behind order:
+  
+  * Permalink is always the last item because it's a different colour
+  * Original date goes first on articles/TILs because it takes up roughly
+    the same amount of space, whereas tags are variable length
+  * Updated date goes last because it's only present on some articles and
+    similarly has very variable length
+
+{% endcomment %}
+
+{% if page.date or
+      page.visible_tags.size > 0 or
+      page.meta or
+      page.date_updated or
+      page.link %}
+<ul class="dot_list meta">
   <li>
     Posted
     {% include timestamp.html date = page.date %}
@@ -29,5 +48,5 @@
       <a href="{{ post.url | relative_url }}" aria-label="permalink">&infin;</a>
     </li>
   {% endif %}
-
+</ul>
 {% endif %}
