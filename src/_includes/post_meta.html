@@ -1,8 +1,5 @@
 <ul class="dot_list meta">
-  <li>
-    Posted
-    {% include timestamp.html date = page.date %}
-  </li>
+  {% include meta.html %}
   {% if page.tags.size > 0 %}
   <li>
     Tagged with
