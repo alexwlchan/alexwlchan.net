@@ -28,13 +28,13 @@ layout: default
   <div class="meta">
     <ul class="dot_list">
       <li>
-        Posted
-        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">
-          {{- post.date | date: site.date_format -}}
-        </time>
+        Posted {% include timestamp.html date = post.date %}
       </li>
       {% if post.date_updated %}
-      <li>Updated {{ post.date_updated | date: site.date_format }}</li>
+      <li>
+        Updated
+        {% include timestamp.html date = post.date_updated %}
+      </li>
       {% endif %}
 
       {% comment %}

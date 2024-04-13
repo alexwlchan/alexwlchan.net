@@ -95,8 +95,6 @@ url: "https://alexwlchan.net"
 
 description: "Alex Chan's personal website"
 
-date_format: "%-d %B %Y"
-
 # ================
 # Remaining config
 

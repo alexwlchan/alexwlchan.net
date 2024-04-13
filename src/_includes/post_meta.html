@@ -1,9 +1,7 @@
 <ul class="dot_list meta">
   <li>
     Posted
-    <time datetime="{{ page.date | date: "%Y-%m-%d" }}">
-      {{- page.date | date: site.date_format -}}
-    </time>
+    {% include timestamp.html date = page.date %}
   </li>
   {% if page.tags.size > 0 %}
   <li>
@@ -17,9 +15,7 @@
   {% if page.date_updated %}
   <li>
     Last updated
-    <time datetime="{{ page.date_updated | date: "%Y-%m-%d" }}">
-      {{- page.date_updated | date: site.date_format -}}
-    </time>
+    {% include timestamp.html date = page.date_updated %}
   </li>
   {% endif %}
 </ul>

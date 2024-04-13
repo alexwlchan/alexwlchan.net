@@ -11,7 +11,9 @@ layout: default
 <div class="meta">
   <ul class="dot_list">
     {% if page.date_updated %}
-    <li>Last updated {{ page.date_updated | date: site.date_format }}</li>
+    <li>
+      Last updated {% include timestamp.html date = page.date_updated %}
+    </li>
     {% endif %}
     {% for m in page.meta %}
     <li>{{ m }}</li>

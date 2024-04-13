@@ -75,10 +75,7 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
     <ul class="dot_list meta">
       <li>
-        Posted
-        <time datetime="{{ til.date | date: "%Y-%m-%d" }}">
-          {{- til.date | date: site.date_format -}}
-        </time>
+        Posted {% include timestamp.html date = til.date %}
       </li>
 
       {% if til.tags.size > 0 %}
