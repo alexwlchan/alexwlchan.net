@@ -8,24 +8,26 @@ This is a collection of small, practical things I've learnt while writing softwa
 
 If you want to follow along, these posts have [their own RSS feed](/til/atom.xml).
 
-<p>
-  You can filter by tag:
+<details>
+  <summary>Filter by tag</summary>
+  <ul class="dot_list">
+    {% comment %}
+      Get a list of all the tags in every article.
+      Based on https://stackoverflow.com/a/41266780/1558022
+    {% endcomment %}
 
-  {% comment %}
-    Get a list of all the tags in every TIL.
-    Based on https://stackoverflow.com/a/41266780/1558022
-  {% endcomment %}
+    {% assign all_tags = '' | split: '' %}
+    {% for til in site.til %}
+      {% assign all_tags = all_tags | concat: til.visible_tags | uniq | sort %}
+    {% endfor %}
 
-  {% assign all_tags = '' | split: '' %}
-  {% for til in site.til %}
-    {% assign all_tags = all_tags | concat: til.visible_tags | uniq | sort %}
-  {% endfor %}
+    {% for tag in all_tags %}
+      <li><a href="?tag={{ tag }}&details=open">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
 
-  {% for tag in all_tags %}
-    <a href="?tag={{ tag }}">{{ tag }}</a>
-    {% unless forloop.last %} · {% endunless %}
-  {% endfor %}
-</p>
+  <hr/>
+</details>
 
 <script>
   function filterByTag(selectedTag) {
@@ -48,13 +50,27 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
   }
 
   window.addEventListener("DOMContentLoaded", function() {
-    const selectedTag = new URLSearchParams(window.location.search).get("tag");
+    const params = new URLSearchParams(window.location.search);
+
+    const selectedTag = params.get("tag");
 
     if (selectedTag !== null) {
       filterByTag(selectedTag);
-    }
 
-    document.querySelector("#tag_cloud").style.display = "block";
+      /* If we see details=open in the query parameter, we know this
+       * was clicked from the tag cloud at the top of the page.
+       * Keep the <details> element open!
+       */
+      if (params.has("details")) {
+        document.querySelector("#tagList").open = true;
+
+        history.pushState(
+          {"tag": selectedTag},
+          "", /* unused */
+          `?tag=${selectedTag}`,
+        );
+      }
+    }
   });
 </script>
 
@@ -78,7 +94,7 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
         Posted {% include timestamp.html date = til.date %}
       </li>
 
-      {% if til.tags.size > 0 %}
+      {% if til.visible_tags.size > 0 %}
       <li>
         Tagged with
         {% assign tags = til.visible_tags | sort %}

@@ -5,7 +5,6 @@ title: Redecorating my bedroom
 summary: Splashing some sunshine in the space where I sleep.
 tags:
   - home
-  - domestic
 colors:
   css_light:   "#815701"
   index_light: "#815701"

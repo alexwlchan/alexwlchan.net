@@ -10,7 +10,7 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
 
 <details>
   <summary>Filter by tag</summary>
-  <p>
+  <ul class="dot_list">
     {% comment %}
       Get a list of all the tags in every article.
       Based on https://stackoverflow.com/a/41266780/1558022
@@ -24,11 +24,10 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
     {% endfor %}
 
     {% for tag in all_tags %}
-      <a href="?tag={{ tag }}">{{ tag }}</a>
-      {% unless forloop.last %} · {% endunless %}
+      <li><a href="?tag={{ tag }}&details=open">{{ tag }}</a></li>
     {% endfor %}
-  </p>
-  
+  </ul>
+
   <hr/>
 </details>
 
@@ -53,13 +52,27 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
   }
 
   window.addEventListener("DOMContentLoaded", function() {
-    const selectedTag = new URLSearchParams(window.location.search).get("tag");
+    const params = new URLSearchParams(window.location.search);
+
+    const selectedTag = params.get("tag");
 
     if (selectedTag !== null) {
       filterByTag(selectedTag);
-    }
 
-    document.querySelector("#tag_cloud").style.display = "block";
+      /* If we see details=open in the query parameter, we know this
+       * was clicked from the tag cloud at the top of the page.
+       * Keep the <details> element open!
+       */
+      if (params.has("details")) {
+        document.querySelector("#tagList").open = true;
+
+        history.pushState(
+          {"tag": selectedTag},
+          "", /* unused */
+          `?tag=${selectedTag}`,
+        );
+      }
+    }
   });
 </script>
 
