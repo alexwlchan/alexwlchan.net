@@ -3,12 +3,10 @@ layout: post
 date: 2023-12-29 07:46:33 +0000
 title: Getting the path to the note I have open in Obsidian
 summary: Although Obsidian doesn’t support AppleScript, I can use System Events to find out which note I have open.
-tags: 
+tags:
   - obsidian
   - applescript
-  - programming
 ---
-
 I have a bunch of Python scripts I use to clean up text files, and I call them by passing the path to the text file as an argument, for example:
 
 ```console
@@ -34,7 +32,7 @@ The crux of that script is a single line of AppleScript that controls Safari:
 
 ```applescript
 tell application "Safari" to get URL of document 1
-``` 
+```
 
 Unfortunately this isn't quite as simple in Obsidian – it doesn't have any AppleScript support, so you can't do anything with `tell application "Obsidian"`.
 
@@ -89,7 +87,7 @@ import subprocess
 def get_file_paths_under(root=".", *, suffix=""):
     """
     Generates the absolute paths to every matching file under ``root``.
-    
+
     See https://alexwlchan.net/2023/snake-walker/
     """
     if not os.path.isdir(root):
