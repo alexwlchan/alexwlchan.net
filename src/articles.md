@@ -24,7 +24,7 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
     {% endfor %}
 
     {% for tag in all_tags %}
-      <li><a href="?tag={{ tag }}">{{ tag }}</a></li>
+      <li><a href="?tag={{ tag }}&details=open">{{ tag }}</a></li>
     {% endfor %}
   </ul>
 
@@ -52,13 +52,27 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
   }
 
   window.addEventListener("DOMContentLoaded", function() {
-    const selectedTag = new URLSearchParams(window.location.search).get("tag");
+    const params = new URLSearchParams(window.location.search);
+
+    const selectedTag = params.get("tag");
 
     if (selectedTag !== null) {
       filterByTag(selectedTag);
-    }
 
-    document.querySelector("#tag_cloud").style.display = "block";
+      /* If we see details=open in the query parameter, we know this
+       * was clicked from the tag cloud at the top of the page.
+       * Keep the <details> element open!
+       */
+      if (params.has("details")) {
+        document.querySelector("#tagList").open = true;
+
+        history.pushState(
+          {"tag": selectedTag},
+          "", /* unused */
+          `?tag=${selectedTag}`,
+        );
+      }
+    }
   });
 </script>
 
