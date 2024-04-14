@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-# Tags are useful for finding other, similar articles.  If a tag is
-# only used on a single article, it's no good for that, so tags only
-# become visible when they're used at least twice.
+# I use colons for namespacing my tags (e.g. `python` and `python:pillow`).
+#
+# Whenever I tag an article with a namespaced tag, I always tag it with the
+# parent -- e.g. an article tagged `python:pillow` is always tagged with
+# `python` also.  But because those tags are less useful on their own,
+# I don't expose namespaced tags unless they're used at least three times.
 #
 # This plugin adds a `visible_tags` field to every article, which is
 # limited to tags with more than one use.
@@ -18,7 +21,7 @@ def create_visible_tags(collection_of_docs)
     end
   end
 
-  visible_tags = tag_tally.select { |_, count| count > 1 }.keys.to_set
+  visible_tags = tag_tally.select { |tag_name, count| !tag_name.include?(':') or count > 2 }.keys.to_set
 
   collection_of_docs.each do |doc|
     # I deliberately don't have visible tags from pages that are unlisted,
