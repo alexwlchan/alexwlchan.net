@@ -7,10 +7,6 @@ colors:
 ---
 
 <style type="x-text/scss">
-  main {
-    padding-top: calc(1.5 * var(--default-padding));
-  }
-
   @import "utils/functions.scss";
 
   @function create_leaf_svg($fill) {
@@ -43,6 +39,10 @@ colors:
   }
 
   @media screen and (min-width: 500px) {
+    main {
+      padding-top: calc(1.5 * var(--default-padding));
+    }
+
     img#headshot {
       float: right;
     }
