@@ -2,7 +2,7 @@
 layout: post
 title: The Star-Spangled Ballad
 summary: |
-  If you listen carefully to the <em>Ballad of Willie Watkins</em>, you might hear a national anthem peaking through.
+  If you listen carefully to the <em>Ballad of Willie Watkins</em>, you might hear another song peaking through.
 tags:
   - theatre
   - operation-mincemeat
