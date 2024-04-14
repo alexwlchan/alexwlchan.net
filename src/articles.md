@@ -8,9 +8,9 @@ I write articles about a variety of non-fiction topics, from [books](/2023/2023-
 This is a list of all the articles I've written, sorted by date.
 If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
-<details>
+<details id="tagList">
   <summary>Filter by tag</summary>
-  <p>
+  <ul class="dot_list">
     {% comment %}
       Get a list of all the tags in every article.
       Based on https://stackoverflow.com/a/41266780/1558022
@@ -24,11 +24,10 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
     {% endfor %}
 
     {% for tag in all_tags %}
-      <a href="?tag={{ tag }}">{{ tag }}</a>
-      {% unless forloop.last %} · {% endunless %}
+      <li><a href="?tag={{ tag }}">{{ tag }}</a></li>
     {% endfor %}
-  </p>
-  
+  </ul>
+
   <hr/>
 </details>
 

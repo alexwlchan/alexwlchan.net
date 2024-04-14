@@ -28,6 +28,6 @@ ul.dot_list li {
   display: inline-block;
 }
 
-ul.dot_list li:not(:first-child)::before {
+ul.dot_list li:not(:last-child)::after {
   content: " · ";
 }

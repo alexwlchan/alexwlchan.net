@@ -8,24 +8,26 @@ This is a collection of small, practical things I've learnt while writing softwa
 
 If you want to follow along, these posts have [their own RSS feed](/til/atom.xml).
 
-<p>
-  You can filter by tag:
+<details id="tagList">
+  <summary>Filter by tag</summary>
+  <ul class="dot_list">
+    {% comment %}
+      Get a list of all the tags in every article.
+      Based on https://stackoverflow.com/a/41266780/1558022
+    {% endcomment %}
 
-  {% comment %}
-    Get a list of all the tags in every TIL.
-    Based on https://stackoverflow.com/a/41266780/1558022
-  {% endcomment %}
+    {% assign all_tags = '' | split: '' %}
+    {% for til in site.til %}
+      {% assign all_tags = all_tags | concat: til.visible_tags | uniq | sort %}
+    {% endfor %}
 
-  {% assign all_tags = '' | split: '' %}
-  {% for til in site.til %}
-    {% assign all_tags = all_tags | concat: til.visible_tags | uniq | sort %}
-  {% endfor %}
+    {% for tag in all_tags %}
+      <li><a href="?tag={{ tag }}">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
 
-  {% for tag in all_tags %}
-    <a href="?tag={{ tag }}">{{ tag }}</a>
-    {% unless forloop.last %} · {% endunless %}
-  {% endfor %}
-</p>
+  <hr/>
+</details>
 
 <script>
   function filterByTag(selectedTag) {
