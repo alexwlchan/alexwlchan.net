@@ -24,8 +24,6 @@ def get_single_image_info(path)
   # the cache to speed up that initial build.
 
   unless cache.key?('-1')
-    puts 'Image info cache is empty, rebuilding...'
-
     stdout, status = Open3.capture2('python3', 'src/_plugins/pillow/get_all_image_info.py')
 
     if status.success?
