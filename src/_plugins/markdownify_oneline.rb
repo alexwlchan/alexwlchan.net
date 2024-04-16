@@ -21,11 +21,9 @@
 
 module Jekyll
   module MarkdownifyOnlineFilter
-    def cache
-      @@cache ||= Jekyll::Cache.new('MarkdownifyOnline')
-    end
-
     def markdownify_oneline(input)
+      cache = Jekyll::Cache.new('MarkdownifyOnline')
+
       cache.getset(input) do
         @context.registers[:site]
                 .find_converter_instance(Jekyll::Converters::Markdown)
