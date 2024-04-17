@@ -9,6 +9,8 @@
 #       HTML entities
 #
 # See: https://alexwlchan.net/2020/adding-non-breaking-spaces-with-jekyll/
+#
+# TODO: Push these into site config for caching purposes?
 
 class AddNonBreakingSpaces
   def self.add_non_breaking_spaces(input)
