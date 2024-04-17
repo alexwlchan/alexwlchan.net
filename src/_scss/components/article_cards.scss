@@ -12,14 +12,14 @@
     background: var(--article-card-background);
     border: 2px var(--border-style) var(--c-color);
 
-    a:hover {
-      background: var(--c-hover-bg);
+    &:hover .c_title {
+      text-decoration-thickness: 4px;
     }
 
-    @include card_color_variables(#d01c11);
+    --c-color: #d01c11;
 
     @media (prefers-color-scheme: dark) {
-      @include card_color_variables(#ff4242);
+      --c-color: #ff4242;
     }
   }
 

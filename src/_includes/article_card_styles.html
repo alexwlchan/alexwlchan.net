@@ -3,11 +3,11 @@
     {% unless article.index.exclude %}
       {% if article.colors.index_light %}
         #a-{{ article.slug }} {
-          @include card_color_variables({{ article.colors.index_light }});
+          --c-color: {{ article.colors.index_light }};
         }
       {% elsif article.colors.css_light %}
         #a-{{ article.slug }} {
-          @include card_color_variables({{ article.colors.css_light }});
+          --c-color: {{ article.colors.css_light }};
         }
       {% endif %}
     {% endunless %}
@@ -18,11 +18,11 @@
       {% unless article.index.exclude %}
         {% if article.colors.index_dark %}
           #a-{{ article.slug }} {
-            @include card_color_variables({{ article.colors.index_dark }});
+            --c-color: {{ article.colors.index_dark }};
           }
         {% elsif article.colors.css_dark %}
           #a-{{ article.slug }} {
-            @include card_color_variables({{ article.colors.css_dark }});
+            --c-color: {{ article.colors.css_dark }};
           }
         {% endif %}
       {% endunless %}
