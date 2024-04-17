@@ -29,12 +29,10 @@
 
 module Jekyll
   class DetailsBlock < Liquid::Block
-    def cache
-      @@cache ||= Jekyll::Cache.new('TagDetails')
-    end
-
     def render(context)
       ttext = super
+
+      cache = Jekyll::Cache.new('TagDetails')
 
       cache.getset(ttext) do
         markdown_converter = context.registers[:site].find_converter_instance(::Jekyll::Converters::Markdown)
