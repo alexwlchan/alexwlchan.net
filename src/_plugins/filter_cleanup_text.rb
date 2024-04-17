@@ -18,13 +18,14 @@ class AddNonBreakingSpaces
     # a number, e.g. 'Apollo 11' or 'RFC 456'
     prefix_words = %w[
       Apollo
+      Artemis
       HTTP
       ImageMagick
-      issue
       Issue
-      RFC
+      issue
       Part
       part
+      RFC
       Season
       season
     ].join('|')
@@ -34,17 +35,16 @@ class AddNonBreakingSpaces
     # Add a non-breaking space after words which are preceded by
     # a number, e.g. '1 second' or '5 bytes'
     countable_words = %w[
-      Artemis
-      second
-      minute
-      hour
-      character
       byte
+      character
       count
-      tags
+      hour
       inch
       kilometre
       million
+      minute
+      second
+      tags
       unit
     ].join('|')
 

@@ -95,6 +95,19 @@ url: "https://alexwlchan.net"
 
 description: "Alex Chan's personal website"
 
+# ===============
+# Kramdown config
+# ===============
+#
+# See https://jekyllrb.com/docs/configuration/markdown/
+# See https://kramdown.gettalong.org/options.html
+
+kramdown:
+
+  # Disabled so it doesn't interfere with MathJax
+  # TODO: Do I still need this?
+  math_engine: null
+
 # ================
 # Remaining config
 
@@ -105,15 +118,6 @@ keep_files: [
   # Managed by the theming plugin
   "favicons", "favicon.png", "favicon.ico", "headers",
 ]
-
-markdown: "kramdown"
-
-kramdown:
-  auto_ids: true
-  smart_quotes: "lsquo,rsquo,ldquo,rdquo"
-
-  # Disabled so it doesn't interfere with MathJax.
-  math_engine: null
 
 highlighter: "rouge"
 

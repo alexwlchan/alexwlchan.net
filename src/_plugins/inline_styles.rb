@@ -82,9 +82,15 @@ end
 
 module Jekyll
   module InlineStyles
+    def cache
+      @@cache ||= Jekyll::Cache.new('InlineStyles')
+    end
+
     def get_inline_styles(html)
-      site = @context.registers[:site]
-      InlineStylesFilters.get_inline_styles(html, site)
+      cache.getset(html) do
+        site = @context.registers[:site]
+        InlineStylesFilters.get_inline_styles(html, site)
+      end
     end
   end
 end

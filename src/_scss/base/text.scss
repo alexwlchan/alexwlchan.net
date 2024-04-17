@@ -51,6 +51,10 @@ sup {
 .meta, figcaption, footer {
   font-size:   calc(var(--font-size)   * var(--meta-scaling-factor));
   line-height: calc(var(--line-height) * var(--meta-scaling-factor) * 1.15);
+
+  a:hover {
+    text-decoration-thickness: 3px;
+  }
 }
 
 .footnotes {
