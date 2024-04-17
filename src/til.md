@@ -8,7 +8,7 @@ This is a collection of small, practical things I've learnt while writing softwa
 
 If you want to follow along, these posts have [their own RSS feed](/til/atom.xml).
 
-<details>
+<details id="tagList">
   <summary>Filter by tag</summary>
   <ul class="dot_list">
     {% comment %}

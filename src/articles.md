@@ -8,7 +8,7 @@ I write articles about a variety of non-fiction topics, from [books](/2023/2023-
 This is a list of all the articles I've written, sorted by date.
 If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
-<details>
+<details id="tagList">
   <summary>Filter by tag</summary>
   <ul class="dot_list">
     {% comment %}
