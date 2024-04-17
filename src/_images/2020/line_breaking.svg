@@ -2,7 +2,7 @@
   <defs>
     <style>
       text {
-        fill: black;
+        fill: currentColor;
         font-size: 16px;
         stroke: none;
         dominant-baseline: middle;

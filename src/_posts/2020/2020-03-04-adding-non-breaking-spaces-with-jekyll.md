@@ -34,6 +34,7 @@ It's a digital paper cut.
   inline_svg
   filename="line_breaking.svg"
   alt="Three examples of line breaking of the text “RFC 1234”, with a green tick next to two examples where the two words are on the same line, and a red cross where they're split across a line."
+  class="dark_aware"
 %}
 
 In HTML, you can use a [non-breaking space] to tell a browser "don't put a line break here".
