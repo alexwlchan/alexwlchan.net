@@ -1,36 +1,47 @@
 ---
 layout: post
-title: Adding caching to Jekyll's built-in filters
-summary:
+title: Getting faster Jekyll builds with caching in plugins
+summary: |
+  I was able to build my Jekyll site much faster by using the built-in caching API.
 tags:
   - jekyll
   - blogging-about-blogging
 ---
 
-https://pixabay.com/photos/filter-technology-metal-round-192936/
-https://pixabay.com/photos/highway-lights-night-road-2025863/
+<!-- Card image: https://www.pexels.com/photo/laboratory-test-tubes-2280549/ -->
 
-I rebuilt the site recently
-  - Why?
-  - I use Jekyll
-  - https://www.cs.cornell.edu/~asampson/blog/jekyll.html
-    > Jekyll is not better than the rest for any fundamental design reason; it’s better because it’s enormously popular and therefore excels in the long tail of details. It has great documentation, a thriving plugin and tool ecosystem, and frequent bug fixes. In my experience, it has much fewer frustrating corner cases compared to Nanoc and Pelican.
-  - But I'd built Jekyll into a weird corner case! "Don't do it like me"
-  - Lots of advantages of using a popular SSG, thrown away because set up in a weird way
-  - No more!
-  
-One thing I'm trying to do is make the site faster to build
-  - This site is relatively small
-  - Modern computers are silly fast!
-  - Why am I waiting close to a minute to build?
+This website is a static site built with [Jekyll], and recently I overhauled the process for generating the site.
+This should be invisible if you're just a reader, but it makes a big difference to me -- like any software project, I'd accumulated cruft and complexity, and it was time to sweep that all away.
+The new process is simpler and should be easier to debug when stuff breaks.
+Yay!
 
-Found two bits of low-hanging fruit that are widely applicable
+One of my goals was making the site faster to build.
+This site is pretty small, modern computers are silly fast, and yet I was still waiting at least a minute for builds with a warm cache.
+I was sure it could be faster!
+So I tried to find ways to speed up the build process.
 
-#1 Use the jekyll Cache API
+I found two bits of low-hanging fruit that could be useful additions to a lot of Jekyll sites.
+
+[Jekyll]: https://jekyllrb.com/
+
+## Use the Jekyll Cache API
+
+I've written [quite a few Jekyll plugins][plugins] which I keep in my `_plugins` folder.
+
+https://jekyllrb.com/tutorials/cache-api/
+
+[plugins]: https://github.com/alexwlchan/alexwlchan.net/tree/9e6a7db8ace9066fab09886e6bafa6b86c41ed4f/src/_plugins
+
+---
+
+# 1 Use the jekyll Cache API
 
 I have a lot of custom plugins
 
 Jekyll has a built-in cache API
+
+intro'd in Jekyll 4
+
 Slightly slower on initial build, but faster later
 Sprinkle caching everywhere
 
