@@ -55,9 +55,9 @@ module Jekyll
     def add_non_breaking_spaces(input)
       text = input
 
+      text = text.gsub("PyCon UK", "PyCon&nbsp;UK")
       text = text.gsub(/RFC (\d+)/, 'RFC&nbsp;\1')
       text = text.gsub(/([Pp]art) (\d+)/, '\1&nbsp;\2')
-      text = text.gsub("PyCon ", "PyCon&nbsp;")
 
       text
     end
