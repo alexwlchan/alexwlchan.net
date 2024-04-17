@@ -97,6 +97,17 @@ I hope you like it!
 My [articles](/articles/) cover a variety of non-fiction topics.
 Here are a few of my favourites:
 
+{% comment %}
+  This component shows 6 featured articles.
+  
+  To keep things somewhat interesting, I have more than 6 such articles
+  and I display a random selection.
+  
+  - The Jekyll build will pick a sample of 6 every time it's built
+  - JavaScript on the page will shuffle the list on page reloads
+
+{% endcomment %}
+
 {% assign featured_articles = site.posts | where: "index.feature", true %}
 {% assign sample_of_articles = featured_articles | sample: 6 %}
 
@@ -113,9 +124,33 @@ Here are a few of my favourites:
   ];
 
   window.addEventListener("DOMContentLoaded", function() {
+    const params = new URLSearchParams(window.location.search);
+
+    /* For the benefit of reproducible screenshots, we add a basic
+     * seeded random here.  You pass a number in ?seed=123.
+     *
+     * This code is from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
+     * It may not be a properly uniform RNG or cryptographically secure,
+     * but it's plenty good enough for my purposes.
+     */
+    const randomSeed = params.get("seed");
+
+    if (randomSeed !== null) {
+      Math.seed = Number(randomSeed);
+
+      Math.seededRandom = function() {
+        Math.seed = (Math.seed * 9301 + 49297) % 233280;
+        return Math.seed / 233280;
+      }
+    } else {
+      Math.seededRandom = function() {
+        return Math.random();
+      }
+    }
+
     document.querySelector("#featured_articles").innerHTML =
       featuredArticles
-        .sort(() => 0.5 - Math.random())
+        .sort(() => 0.5 - Math.seededRandom())
         .slice(0, 6)
         .join("");
   });
