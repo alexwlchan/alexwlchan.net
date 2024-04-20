@@ -124,33 +124,9 @@ Here are a few of my favourites:
   ];
 
   window.addEventListener("DOMContentLoaded", function() {
-    const params = new URLSearchParams(window.location.search);
-
-    /* For the benefit of reproducible screenshots, we add a basic
-     * seeded random here.  You pass a number in ?seed=123.
-     *
-     * This code is from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
-     * It may not be a properly uniform RNG or cryptographically secure,
-     * but it's plenty good enough for my purposes.
-     */
-    const randomSeed = params.get("seed");
-
-    if (randomSeed !== null) {
-      Math.seed = Number(randomSeed);
-
-      Math.seededRandom = function() {
-        Math.seed = (Math.seed * 9301 + 49297) % 233280;
-        return Math.seed / 233280;
-      }
-    } else {
-      Math.seededRandom = function() {
-        return Math.random();
-      }
-    }
-
     document.querySelector("#featured_articles").innerHTML =
       featuredArticles
-        .sort(() => 0.5 - Math.seededRandom())
+        .sort(() => 0.5 - Math.random())
         .slice(0, 6)
         .join("");
   });
