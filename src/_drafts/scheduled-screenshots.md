@@ -17,7 +17,7 @@ For example, Adobe Flash animations are "practically extinct", while emails are 
 
 [bitlist]: https://www.dpconline.org/digipres/champion-digital-preservation/bit-list
 
-Something that struck me is how the Bit List treats the content and interface of websites as two separate concerns.
+Something that struck me is how the Bit List treats the content and interface of online services as two separate concerns.
 Most preservation efforts have focused on saving the *content* -- the photos, videos, and text that we upload to the web.
 We don't have as many records of the *interfaces* -- the "look and feel" of these sites.
 But if you only save one and not the other, you're losing a lot of important context about how we used those sites, and how their design influenced the content.
@@ -26,30 +26,28 @@ One example that springs to mind is TikTok.
 It popularised the use of vertical swiping to move between videos, and that design makes it easy for users to watch a continuous stream of videos.
 It's very effective at keeping people in the app, and it's been copied by lots of other services.
 
-This user interface is at the heart of many concerns about the addictive nature of TikTok, because it makes it so low effort to stay in the app and watch another video.
-It's also affected how videos are made, because creators know they need to capture your attention incredibly quickly or you'll just swipe and watch something else.
-Popular videos on TikTok look different to those on YouTube or on television or in cinema.
+This user interface is behind concerns about the addictive nature of TikTok, because it requires minimal effort to stay in the app and watch another video.
+It's also affected how videos are made, because creators need to capture your attention quickly before you swipe to watch something else.
+Popular videos on TikTok look different to those on YouTube, on television, or in cinema.
 
 You can't understand TikTok or its effect on the world without understanding this interface.
 
+But preserving the interface of an app or website is hard, and there are no good options.
+
 ---
 
-obvious example that springs to mind is TikTok
-the vertical swiping has changed how we watch videos, and the sort of videos that are made
 
-preserving the videos without that context will make it harder for people to understand what's going on
-(I associate vertical swiping with TikTok, yet the word "swipe" doesn't appear in the Wkipedia page – or any otjher mention of vertcial video or desc of UI)
+Ideally you'd preserve a working copy of an app, but that's really hard -- you'd have to emulate the computing environment that the app runs in, including any remote services that it relies on.
+And then you have to decide what version you're preserving.
+Interfaces are constantly changing as companies tweak things, add new features, try to find ways to get even more of our attention.
+There is no "one" interface
 
+Preserving static files is comparatively easy and well-understood, and
 
-ChatGPT
+---
 
-> TikTok did not invent vertical swiping, but it certainly popularized the format for content consumption on mobile devices, particularly for video content. Vertical swiping as a navigation gesture has been around in mobile interfaces for a while, being used in various applications and operating systems to scroll through pages, lists, and other content.
->
-> However, TikTok, which started gaining international traction around 2017-2018, utilized vertical swiping in a novel way as the primary interaction method for moving between videos. This user interface design proved highly effective for keeping users engaged and making it easy for them to consume a continuous stream of video content. This approach has since been adopted and adapted by many other social media and content platforms, making vertical swiping a standard for browsing video content on mobile apps.
+Preserving the interface is a super interesting question for another time, because there is no “one” Flickr interface; it's changing all the time as the company tweak things, add new features, fix bugs, and so on.
 
-https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.932805/full
-
-> In the context of TikTok, it had a simple operating system. The interaction was designed for immersive experiences and aimed to keep users in an extremely passive state to accept the recommended videos. Users only needed to swipe up the screen with low effort to glance at short videos, therefore, indulging TikTok and extending the usage time unconsciously (Zhao, 2021). Besides, the convergence of functions (such as integrated music, video, social, etc.) made TikTok more attractive. Users are swallowed by the fun of watching or editing short videos and even lost track of time (Liang, 2021).
 
 ---
 
