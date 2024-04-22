@@ -17,24 +17,22 @@ For example, Adobe Flash animations are "practically extinct", while emails are 
 
 [bitlist]: https://www.dpconline.org/digipres/champion-digital-preservation/bit-list
 
-One thing that struck me is how the Bit List treats the content and interface of online services as two separate concerns.
+Something that struck me is how the Bit List treats the content and interface of websites as two separate concerns.
 Most preservation efforts have focused on saving the *content* -- the photos, videos, and text that we upload to the web.
 We don't have as many records of the *interfaces* -- the "look and feel" of these sites.
-But if you only save one and not the other, you're losing a lot of important context about how we used those services, and how their design influenced the content.
+But if you only save one and not the other, you're losing a lot of important context about how we used those sites, and how their design influenced the content.
+
+One example that springs to mind is TikTok.
+It popularised the use of vertical swiping to move between videos, and that design makes it easy for users to watch a continuous stream of videos.
+It's very effective at keeping people in the app, and it's been copied by lots of other services.
+
+This user interface is at the heart of many concerns about the addictive nature of TikTok, because it makes it so low effort to stay in the app and watch another video.
+It's also affected how videos are made, because creators know they need to capture your attention incredibly quickly or you'll just swipe and watch something else.
+Popular videos on TikTok look different to those on YouTube or on television or in cinema.
+
+You can't understand TikTok or its effect on the world without understanding this interface.
 
 ---
-
-Reading DPC Bit List
-
-> * **The Bit List splits out the interfaces and data in online services as separate concerns.** Data Lifeboat addresses one but not the other; we aren’t doing anything to save the “look and feel” of Flickr.com. Preserving the interface is a super interesting question for another time, because there is no “one” Flickr interface; it's changing all the time as the company tweak things, add new features, fix bugs, and so on.
-
-P21:
-
-> Without the interfaces and underlying software that enables social media platforms, it will be impossible to preserve the look and feel and even meaning of a large portion of content that depends on particular functionality or interface to be accurately or authentically interpreted, including for evidential uses, art works, design research, and historical / qualitative research. The loss of these interfaces (or lack of any indication of robust documentation by platforms) means a significant gap in the cultural heritage of many communities and even entire nations. For example, some content creators on YouTube may lose access to their content and accounts due to copyright infringement claims or reports of inappropriate content, which may or may not be supportable. The risk of loss is higher if the content is not stored anywhere else. Though some mitigation methods are available through the platform, this issue may only affect a small number of accounts.
->
-> Some of the content/iterations of these are likely preserved to an extent within existing web archives but not as targeted collection efforts. As we've seen with myspace and other platforms where the platform producers decide to remove content or shut down rather quickly, it can be too late if this content has not been preserved already.
->
-> The authenticity of displaying social media content from 2014 through modern interfaces is questionable, and without recording the interface at the time, it is not currently possible to recreate older interfaces. You'd think the platform owners would have the older versions saved, but these are not available at the moment, and it would be worth engaging in a conversation about making them available to cultural heritage institutions for display purposes.
 
 obvious example that springs to mind is TikTok
 the vertical swiping has changed how we watch videos, and the sort of videos that are made
