@@ -11,7 +11,7 @@ colors:
   index_dark:  "#d4d5d2"
 ---
 
-A few weeks ago I was reading the [DPC Bit List][bitlist], an inventory of digital materials and the risks associated with their long-term preservation.
+A few weeks ago I was reading the [<abbr title="Digital Preservation Coalition">DPC</abbr> Bit List][bitlist], an inventory of digital materials and the risks associated with their long-term preservation.
 What formats need urgent attention before they're lost forever, what mediums are already being well-preserved, and so on.
 For example, Adobe Flash animations are "practically extinct", while emails are merely "endangered".
 
