@@ -72,13 +72,6 @@ module Jekyll
         doc.xpath(doc[:xpath]).each { |t| HtmlModifiers.fix_relative_url(t, tag) }
       end
 
-      # Remove any elements that have data-rss-exclude="true"
-      #
-      # e.g. <img src="example.jpg" data-rss-exclude="true">
-      #
-      # This gives me a way to exclude elements from the RSS.
-      doc.xpath('.//*[@data-rss-exclude="true"]').remove
-
       # Removing elements may have left empty paragraphs; remove them.
       doc.to_s.gsub('<p></p>', '')
     end
