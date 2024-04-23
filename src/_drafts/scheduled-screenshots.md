@@ -37,6 +37,7 @@ Even if you put aside the technical issues, we can only really preserve snapshot
 One way to create these snapshots is with [screenshots or screen recordings][screenshots].
 I think these represent a good tradeoff of effort and preservation value.
 A static screenshot isn't as complete as a fully working copy of something, but it's much easier to create, to preserve, and to access later.
+They're a nice [archival sliver] of a service.
 
 I was mulling over this for a while, and I had an idea.
 I'd like a set of screenshots as a visual history of the stuff I've worked on (including this site), but I'm not very good at remembering to create them.
@@ -49,6 +50,7 @@ Or every month?
 
 [bitlist]: https://www.dpconline.org/digipres/champion-digital-preservation/bit-list
 [screenshots]: /2022/screenshots/
+[archival sliver]: https://inkdroid.org/2013/11/26/the-web-as-a-preservation-medium/
 
 ---
 
@@ -69,6 +71,7 @@ The `--full-page` flag ensures you get the entire scrollable page, as if you had
 
 Next I wanted to create screenshots on a regular schedule, and save them somewhere.
 There are lots of ways to do this; I decided to use [GitHub Actions] because it's what I'm familiar with.
+It will also send me emails if something stops working, which I find useful as a monitoring tool.
 
 The implementation is entirely contained in a single GitHub Actions workflow.
 It's in a file called [`.github/workflows/take_screenshots.yml`](https://github.com/alexwlchan/scheduled-screenshots/blob/a5c836cfcc6a3729fe53db97b34d116949fba377/.github/workflows/take_screenshots.yml), and it's only 76 lines:
@@ -171,13 +174,14 @@ This is my first time using Git LFS, and it was pleasantly easy to set up follow
 $ brew install git-lfs
 $ git lfs install
 
-$ # in the repo
+$ cd ~/repos/scheduled-screenshots
+
 $ git lfs track "*.png"
 $ git add .gitattributes
-$ git commit -m 
+$ git commit -m "Add .gitattributes file to store PNG images in Git LFS"
 ```
 
-If you want to see the repo in situ, or see the new collection of screenshots, the GitHub repo is [alexwlchan/scheduled-screenshots].
+If you want to see the code in a repo, or see the new collection of screenshots, the GitHub repo is [alexwlchan/scheduled-screenshots].
 
 [Playwright]: https://playwright.dev/
 [GitHub Actions]: https://github.com/features/actions
@@ -197,24 +201,34 @@ I had to adjust the timeouts to make sure everything loaded correctly, but I got
 One thing I was surprised by was how many issues I found.
 There were 116 captures of [my book tracker], and of those 13 were clearly broken -- the CSS or images hadn't been saved, and so the page was unstyled or had gaps where the images were meant to go.
 
-A further 7 were broken in subtle ways, where the HTML and CSS had been captured at different times.
-For example, I found one HTML capture from 2021 that was loading CSS from 2024.
-The Wayback Machine shows you a working page, but it's a hallucination -- if you got in a time machine and went back to 2021, that's not what the page looked like.
+A further 7 were broken in subtle ways, where the HTML and CSS didn't match.
+For example, I found one HTML capture [from 2021] that's loading CSS from 2024.
+The Wayback Machine shows you a working page, but it's a hallucination -- that's not what the page looked like in 2021.
 (The rounded corners are a dead giveaway -- I didn't add those until 2022.)
-
-<<-- add a link here
 
 I love the Wayback Machine and I think it's a great service, but you shouldn't rely on it to preserve your website.
 These captures are better than nothing, and I'm glad they exist, but they're a bit shaky as a preservation copy.
-If there's a website you care about, your preservation strategy can’t just rely on the Wayback Machine.
+If there's a website you care about, make sure you have it backed up properly -- don’t just rely on the Wayback Machine.
 
+[from 2021]: https://web.archive.org/web/20210625222812/https://books.alexwlchan.net/
 [cdx]: /til/2024/get-a-list-of-captures-from-the-wayback-machine/
 [used Playwright]: /til/2024/take-a-wayback-machine-screenshot/
 [my book tracker]: https://books.alexwlchan.net/
 
-https://twitter.com/dannybirchall/status/1628700356484952066 (23 Feb 2023):
+{%
+  picture
+  filename="scheduled-screenshots.png"
+  width="750"
+  alt="A graphic showing multiple screenshots arranged into a stack, as if they were in a timeline – older screenshots towards the back, newer screenshots towards the front"
+%}
 
----
+My scheduled screenshots are now up and running, and every Monday I'll get a new image to record the visual history of this site.
 
-where to get code?
-and template repo?
+If you want to set up something similar for your websites, here are the steps:
+
+1.  Create a new GitHub repository
+2.  Create a new file `.github/workflows/take_screenshots.yml` with the contents of the YAML file earlier in this post
+3.  Change the list of URLs/filename prefixes in the `matrix` block for the websites you want to screenshot
+
+The best time to start taking regular screenshots of my website was when I registered the domain name.
+The second best time is now.
