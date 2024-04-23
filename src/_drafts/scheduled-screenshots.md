@@ -206,7 +206,7 @@ The Wayback Machine shows you a working page, but it's a hallucination -- if you
 
 I love the Wayback Machine and I think it's a great service, but you shouldn't rely on it to preserve your website.
 These captures are better than nothing, and I'm glad they exist, but they're a bit shaky as a preservation copy.
-If there's a website you care about, you need a better preservation strategy than leaving it to the Wayback Machine.
+If there's a website you care about, your preservation strategy can’t just rely on the Wayback Machine.
 
 [cdx]: /til/2024/get-a-list-of-captures-from-the-wayback-machine/
 [used Playwright]: /til/2024/take-a-wayback-machine-screenshot/
