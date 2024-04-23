@@ -1,1 +1,8 @@
 src/_files/* linguist-vendored
+
+# This uses Git LFS for Keynote files.
+#
+# I don't use git-lfs for most of this repo because I have limited bandwidth
+# in GitHub, and GitHub Actions would quickly gobble that up -- but I don't
+# need to check out `assets/` in CI, so this is safe.
+*.key filter=lfs diff=lfs merge=lfs -text
