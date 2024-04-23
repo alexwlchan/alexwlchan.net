@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2024-04-23 08:16:35 +0000
-title: Taking scheduled screenshots of my website
+title: Taking regular screenshots of my website
 summary: |
   A screenshot a day keeps the bit rot at bay.
 tags:
