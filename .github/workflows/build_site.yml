@@ -68,9 +68,7 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: |
-          find _site/images -name '*star-spangled*' -delete
-          bundle exec jekyll build --drafts
+        run: bundle exec jekyll build --drafts
 
       - name: "Run linting"
         run: bundle exec ruby scripts/linter.rb
