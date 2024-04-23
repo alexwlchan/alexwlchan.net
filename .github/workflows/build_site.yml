@@ -68,7 +68,13 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: bundle exec jekyll build --drafts
+        run: |
+          if [[ -d "src/_drafts" ]]
+          then
+            bundle exec jekyll build --drafts
+          else
+            bundle exec jekyll build
+          fi
 
       - name: "Run linting"
         run: bundle exec ruby scripts/linter.rb
