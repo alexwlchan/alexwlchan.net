@@ -12,7 +12,7 @@ colors:
 ---
 
 A few weeks ago I was reading the [DPC Bit List][bitlist], an inventory of digital materials and the risks associated with their long-term preservation.
-What formats need urgent attention before they're lost forever, what mediums are already being well-preserved, that sort of thing.
+What formats need urgent attention before they're lost forever, what mediums are already being well-preserved, and so on.
 For example, Adobe Flash animations are "practically extinct", while emails are merely "endangered".
 
 Something that struck me is how the Bit List treats the content and interface of online services as two separate concerns.
@@ -20,7 +20,7 @@ Most preservation efforts focus on saving the *content* -- the photos, videos, a
 We don't have as many records of the *interfaces* -- the "look and feel" of these sites.
 But if you only save one and not the other, you're losing a lot of important context about how we used those sites, and the influence of their designs.
 
-One obvious example is TikTok.
+One present-day example is TikTok.
 It popularised the use of vertical swiping to move between videos, and that design makes it easy for users to watch a continuous stream of content.
 It's very effective at keeping people in the app, and it's been copied by lots of other services.
 
@@ -29,28 +29,28 @@ It's also affected how videos are made, because creators need to capture your at
 Popular videos on TikTok look different to those on YouTube, on television, or in cinema.
 
 You can't understand TikTok or its effect on the world without understanding this interface.
+Watching a single TikTok video in an isolated player isn't the same as experiencing it in the app.
 
 This got me thinking about how you preserve user interfaces, and one challenge is that there isn't really "one" version of a user interface.
-Designs are constantly changing as companies add new features, fix bugs, try to find new ways to get more of our attention.
+Designs are constantly changing as companies add features, fix bugs, try to find new ways to get more of our attention.
 Even if you put aside the technical issues, we can only really preserve snapshots of how a service looked at a particular time.
 
 One way to create these snapshots is with [screenshots or screen recordings][screenshots].
 I think these represent a good tradeoff of effort and preservation value.
 A static screenshot isn't as complete as a fully working copy of something, but it's much easier to create, to preserve, and to access later.
-They're a nice [archival sliver] of a service.
+You get a good record of the look, if not the feel.
 
 I was mulling over this for a while, and I had an idea.
 I'd like a set of screenshots as a visual history of the stuff I've worked on (including this site), but I'm not very good at remembering to create them.
-I just finished a bunch of design tweaking on this site, and I completely forgot to take a screenshot of what it looked like before I changed a bunch of stuff.
+I just finished a bunch of design tweaking on this site, and I completely forgot to take a screenshot of what it looked like before I started making changes.
 
-Computers are pretty good at doing things on a repetitive schedule -- wouldn't it be nice if I could automate a set of regular screenshots?
-What if you took a screenshot of a website every day?
+Computers are pretty good at doing things on a repetitive schedule -- wouldn't it be nice if I could automate taking these screenshots?
+What if a computer took a screenshot of a website every day?
 Or every week?
 Or every month?
 
 [bitlist]: https://www.dpconline.org/digipres/champion-digital-preservation/bit-list
 [screenshots]: /2022/screenshots/
-[archival sliver]: https://inkdroid.org/2013/11/26/the-web-as-a-preservation-medium/
 
 ---
 
@@ -69,11 +69,10 @@ $ npx playwright screenshot --full-page "alexwlchan.net" "screenshot.png"
 This installs Playwright, then opens my website in Chromium and takes a screenshot of the page.
 The `--full-page` flag ensures you get the entire scrollable page, as if you had a tall screen and could fit the whole page in view without scrolling.
 
-Next I wanted to create screenshots on a regular schedule, and save them somewhere.
-There are lots of ways to do this; I decided to use [GitHub Actions] because it's what I'm familiar with.
-It will also send me emails if something stops working, which I find useful as a monitoring tool.
+Once I knew how to take a screenshot once, I wanted to do it on a regular schedule, and save those images somewhere.
+There are lots of ways to run code on a schedule; I decided to use [GitHub Actions] because it's what I'm familiar with.
 
-The implementation is entirely contained in a single GitHub Actions workflow.
+My code for taking scheduled screenshots is entirely contained in a single GitHub Actions workflow.
 It's in a file called [`.github/workflows/take_screenshots.yml`](https://github.com/alexwlchan/scheduled-screenshots/blob/a5c836cfcc6a3729fe53db97b34d116949fba377/.github/workflows/take_screenshots.yml), and it's only 76 lines:
 
 ```yaml
@@ -142,6 +141,8 @@ jobs:
 
           mkdir -p "$(dirname "$screenshot_path")"
 
+          # If there's already a screenshot for today, don't
+          # bother overwriting it.
           if [[ -f "$screenshot_path" ]]; then exit 0; fi
 
           npx playwright screenshot \
@@ -158,16 +159,15 @@ jobs:
 
 This runs once a week on Monday mornings -- I don't update my websites that often, so I don't need more frequent screenshots.
 
+It takes screenshots of two websites: `alexwlchan.net` (this site) and `books.alexwlchan.net` (my book tracker).
 The images are saved in a folder called `screenshots`, and the filenames include both the name of the site and the date taken, e.g. `alexwlchan.net.2024-04-22.png` or `books.2024-03-21.png`.
-To avoid unnecessary churn, it won't replace a screenshot that already exists.
 
 I had to add a timeout to Playwright (`--wait-for-timeout 10000`) to ensure it downloads all the images correctly.
-Before I added that option, I'd sometimes get screenshots with holes where the images should be.
+Before I added that option, I'd sometimes get screenshots with holes where the images hadn't loaded in time.
 
 If I want to get screenshots of a different website, I can change the list in the `matrix` section.
-If you want to copy this workflow into your own repo, that's the section you need to customise.
 
-Because PNG files can get quite big and I have a lot of them, I decided to use [Git Large File Storage (LFS)][git_lfs] with this repo.
+Because PNG files can get quite big and I have a lot of them, I decided to use [Git Large File Storage (LFS)][git_lfs] with this repo -- vanilla Git can struggle with large binary files.
 This is my first time using Git LFS, and it was pleasantly easy to set up following the [Getting Started guide](https://git-lfs.com/):
 
 ```console
@@ -181,7 +181,8 @@ $ git add .gitattributes
 $ git commit -m "Add .gitattributes file to store PNG images in Git LFS"
 ```
 
-If you want to see the code in a repo, or see the new collection of screenshots, the GitHub repo is [alexwlchan/scheduled-screenshots].
+And that's all it took to set up scheduled screenshots.
+If you want to see the code in a repo, or see the growing collection of screenshots, the GitHub repo is [alexwlchan/scheduled-screenshots].
 
 [Playwright]: https://playwright.dev/
 [GitHub Actions]: https://github.com/features/actions
@@ -194,11 +195,11 @@ That's great for creating new screenshots, but what about everything that came b
 This site is nearly 12 years old, and it'd be nice for that to be reflected in the visual record.
 
 I dove into the Wayback Machine to backfill the old screenshots.
-My site isn't indexed that often -- 148 captures since April 2013 -- but I can fill in some of the gaps that way.
+My site isn't indexed that often -- on average about once a month -- but I can fill in some of the gaps this way.
 First I used [the CDX Server API][cdx] to get a list of captures, then I [used Playwright] to take screenshots.
-I had to adjust the timeouts to make sure everything loaded correctly, but I got there, and I got a hundred or so historical screenshots.
+I had to adjust the timeouts to make sure everything loaded correctly, but I got them all to work eventually, and I got a hundred or so historical screenshots.
 
-One thing I was surprised by was how many issues I found.
+I was surprised by was how many issues I found.
 There were 116 captures of [my book tracker], and of those 13 were clearly broken -- the CSS or images hadn't been saved, and so the page was unstyled or had gaps where the images were meant to go.
 
 A further 7 were broken in subtle ways, where the HTML and CSS didn't match.
@@ -214,6 +215,8 @@ If there's a website you care about, make sure you have it backed up properly --
 [cdx]: /til/2024/get-a-list-of-captures-from-the-wayback-machine/
 [used Playwright]: /til/2024/take-a-wayback-machine-screenshot/
 [my book tracker]: https://books.alexwlchan.net/
+
+---
 
 {%
   picture
