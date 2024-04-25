@@ -3,13 +3,7 @@ code, pre {
   overflow-x: auto;
 }
 
-pre code {
-  background: none;
-}
-
 code {
-  margin: 2px;
-  border-radius: 3px;
   font-size: calc(1em * var(--code-scaling-factor));
 }
 
@@ -20,11 +14,11 @@ pre {
 
   line-height: calc(var(--line-height) * var(--code-scaling-factor) * 1.08);
 
-  // This ensures that code blocks don't get blown up to big sizes
-  // on iPhone displays.
+  /* This ensures that code blocks don't get blown up to big sizes
+   * on iPhone displays. */
   -webkit-text-size-adjust: 100%;
 
-  // This ensures the first line of <pre> blocks doesn't have a funny indent
+  /* This ensures the first line of <pre> blocks doesn't have a funny indent */
   code {
     margin:       0px;
     padding-left: 0px;
