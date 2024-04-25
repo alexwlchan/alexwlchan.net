@@ -32,6 +32,10 @@ def get_wayback_machine_captures(url: str):
         "http://web.archive.org/cdx/search/cdx", params={"url": url, "output": "json"}
     )
     resp.raise_for_status()
+    
+    # What if we don't get any results?
+    if resp.json() == []:
+        return []
 
     fields, *remainder = resp.json()
 
