@@ -106,6 +106,7 @@ jobs:
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: true
           overwrites-pull-request-comment: true
+          netlify-config-path: netlify.toml
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: "da37a488-4df9-4cc2-b267-947179af20bd"
