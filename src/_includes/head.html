@@ -31,8 +31,9 @@
 
 <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 
-{% include analytics.html %}
 {% include socialgraph.html %}
 
 <link rel="stylesheet" href="/static/style.css?md5={% css_fingerprint %}">
 {% tint_color_css %}
+
+{% include_cached analytics.html %}
