@@ -73,10 +73,6 @@
             },
             "additionalProperties": false
         },
-        "canonical_url": {
-            "description": "The canonical URL for this page or post. Used for a <link rel=\"canonical\"> in the <head> of the HTML.",
-            "type": "string"
-        },
         "meta": {
             "description": "Used on pages for miscellaneous information. Deprecated; should be replaced by purpose-named fields.",
             "type": "array",

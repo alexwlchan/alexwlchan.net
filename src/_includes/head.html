@@ -4,18 +4,13 @@
 
 <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
 <link type="application/atom+xml" rel="alternate" href="{{ site.url }}/til/atom.xml">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
 {% assign safe_title = page.title | markdownify_oneline | strip_html %}
 
 <title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title }}</title>
 
 <meta name="description" content="{{ page.summary | default: site.description | escape }}">
-
-{% if page.canonical_url %}
-<link rel="canonical" href="{{ page.canonical_url | absolute_url }}">
-{% else %}
-<link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
-{% endif %}
 
 <meta name="page-source-path" content="{{ page.path }}">
 
