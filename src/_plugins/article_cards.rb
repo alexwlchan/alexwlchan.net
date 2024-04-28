@@ -32,6 +32,8 @@
 # `src` directory, but the site doesn't pay a perf penalty.
 
 require_relative 'pillow/convert_image'
+require_relative 'pillow/get_image_info'
+require_relative 'utils/pictures'
 
 Jekyll::Hooks.register :site, :post_read do |site|
   site.posts.docs.each do |post|
@@ -74,15 +76,6 @@ end
 
 module Jekyll
   class CardImageTag < Liquid::Tag
-    # Intentionally omit the alt text on promos, so screen reader users
-    # don't have to listen to the alt text before hearing the title
-    # of the item in the list.
-    #
-    # See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
-    #
-    # The data-proofer-ignore attribute will exclude this from the linting
-    # that checks images have alt text.
-    # See https://github.com/gjtorikian/html-proofer#ignoring-content
     def render(context)
       article = context['article']
       card = article['card']
@@ -97,25 +90,113 @@ module Jekyll
           />
         HTML
       else
-        attribution_text = card['attribution'].nil? ? '' : "data-attribution=\"#{card['attribution']}\""
 
-        input = <<~HTML
-          {%
-            picture
-            filename="#{card['index']}"
-            parent="/images/cards/#{article['date'].year}"
-            width="400"
-            max_width="800"
-            alt=""
-            loading="lazy"
-            class="c_image"
-            #{attribution_text}
-            data-proofer-ignore
-          %}
+        # What widths do I want to create cards at?
+        widths = [
+          302, 302 * 2,  # 3-up column => ~302px wide
+          365, 365 * 2,  # 2-up column => ~365px wide
+          405, 405 * 2,  # 1-up column => ~405px wide
+        ]
+
+        sizes_attribute = "(max-width: 450px) 405px, (max-width: 1000px) 365px, 302px"
+
+        year = article['date'].year
+
+        source_path = "src/_images/cards/#{year}/#{card['index']}"
+        dst_prefix = "_site/images/cards/#{year}/#{File.basename(card['index'], '.*')}"
+
+        image = get_single_image_info(source_path)
+        im_format = get_format(source_path, image)
+
+        if image['width'] != image['height'] * 2
+          raise "Card #{card['index']} doesn’t have a 2:1 aspect ratio"
+        end
+
+        sources = prepare_images(source_path, dst_prefix, im_format, widths)
+
+        dark_source_path = File.join(
+          File.dirname(source_path),
+          "#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
+        )
+
+        if File.exist? dark_source_path
+          dark_image = get_single_image_info(dark_source_path)
+
+          if dark_image['width'] != dark_image['height'] * 2
+            raise "Card #{File.basename(dark_source_path)} doesn’t have a 2:1 aspect ratio"
+          end
+
+          dark_sources = prepare_images(dark_source_path, "#{dst_prefix}.dark", im_format, widths)
+        else
+          dark_sources = Hash.new
+        end
+
+        default_image = sources[im_format]
+                        .map { |im| im.split[0] }
+                        .find { |path| path.include? "_365" }
+
+        dark_html = create_source_elements(
+          dark_sources, im_format, {
+            desired_formats:[im_format, ImageFormat::AVIF, ImageFormat::WEBP],
+            sizes: sizes_attribute,
+            dark_mode: true
+          }
+        )
+
+        light_html = create_source_elements(
+          sources, im_format, {
+            desired_formats:[im_format, ImageFormat::AVIF, ImageFormat::WEBP],
+            sizes: sizes_attribute,
+            dark_mode: false
+          }
+        )
+
+        # Make sure the CSS doesn't through a white background behind
+        # this dark-aware image.
+        if dark_sources.nil?
+          css_class="c_image dark_aware"
+        else
+          css_class = "c_image"
+        end
+
+        # Intentionally omit the alt text on promos, so screen reader users
+        # don't have to listen to the alt text before hearing the title
+        # of the item in the list.
+        #
+        # See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
+        <<~HTML
+          <picture>
+            #{dark_html}
+            #{light_html}
+            <img
+              src="#{default_image}"
+              class="#{css_class}"
+              alt=""
+              loading="lazy"
+              style="aspect-ratio: 2 / 1;"
+            >
+          </picture>
         HTML
-
-        Liquid::Template.parse(input).render!(context)
       end
+    end
+
+    def prepare_images(source_path, dst_prefix, im_format, widths)
+      sources = Hash.new { [] }
+
+      desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+
+      widths.each do |this_width|
+        desired_formats.each do |out_format|
+          out_path = "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
+
+          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
+          convert_image(request)
+
+          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
+        end
+      end
+
+      sources
     end
   end
 end

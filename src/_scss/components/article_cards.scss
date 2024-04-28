@@ -82,15 +82,18 @@
   }
 
   /* This changes the number of columns based on the width of the
-   * screen: one column on mobile devices, two on regular screens,
-   * three on wider screens (bleeding into the margins).
+   * screen:
+   *
+   *             width <=  450px   ~> one column, for mobile devices
+   *     450px < width <= 1000px   ~> two columns
+   *    1000px < width             ~> three columns, ultra-width screens
    *
    * I'm using minimax(0, 1fr) to ensure the columns are the exact
    * same width, even if there's only one card in a collection.
    * See https://stackoverflow.com/q/47601564/1558022
    */
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     & {
       grid-template-columns: auto;
     }

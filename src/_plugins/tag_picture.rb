@@ -167,7 +167,7 @@ module Jekyll
           dark_path, desired_formats, "#{dst_prefix}.dark", @width, @max_width
         )
       else
-        dark_sources = nil
+        dark_sources = Hash.new
       end
 
       default_image = sources[im_format]
@@ -186,17 +186,13 @@ module Jekyll
       # but it's good enough and better than relying on screen density alone.
       sizes_attribute = "(max-width: #{@width}px) 100vw, #{@width}px"
 
-      dark_html = if dark_sources.nil?
-                    ''
-                  else
-                    create_source_elements(
-                      dark_sources, im_format, {
-                        desired_formats:,
-                        sizes: sizes_attribute,
-                        dark_mode: true
-                      }
-                    )
-                  end
+      dark_html = create_source_elements(
+        dark_sources, im_format, {
+          desired_formats:,
+          sizes: sizes_attribute,
+          dark_mode: true
+        }
+      )
 
       light_html = create_source_elements(
         sources, im_format, {

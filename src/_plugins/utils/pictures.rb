@@ -22,6 +22,10 @@ def create_source_elements(sources, source_im_format, options)
   format_order = [ImageFormat::AVIF, ImageFormat::WEBP, source_im_format]
 
   source_elements = format_order.map do |im_format|
+    if sources[im_format].nil?
+      next
+    end
+
     if options[:desired_formats].include?(im_format) && options[:dark_mode]
       <<~HTML
         <source
