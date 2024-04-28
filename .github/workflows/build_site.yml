@@ -69,6 +69,10 @@ jobs:
 
       - name: "Build the site"
         run: |
+          find _site/images/cards -name '*1x*' -delete
+          find _site/images/cards -name '*2x*' -delete
+          find _site/images/cards -name '*3x*' -delete
+
           if [[ -d "src/_drafts" ]]
           then
             bundle exec jekyll build --drafts
@@ -110,7 +114,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: "da37a488-4df9-4cc2-b267-947179af20bd"
-        timeout-minutes: 1
+        timeout-minutes: 20
 
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/main'
