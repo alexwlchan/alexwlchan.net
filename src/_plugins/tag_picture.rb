@@ -125,10 +125,6 @@ module Jekyll
     end
 
     def render(context)
-      # This allows us to deduce the source path of the image
-      site = context.registers[:site]
-      dst = site.config['destination']
-
       source_path = get_source_path(context)
       dst_prefix = get_dst_prefix(context, source_path)
 
