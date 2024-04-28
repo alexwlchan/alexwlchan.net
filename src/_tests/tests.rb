@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Make sure every test file is correctly sourced in this file.
 Dir.glob('src/_tests/*.rb')
    .each do |f|

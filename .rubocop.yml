@@ -14,21 +14,9 @@ AllCops:
     - 'vendor/**/*'
 
 Layout/LineLength:
-  Max: 200
-
-Lint/MissingCopEnableDirective:
-  Enabled: false
-
-Lint/MissingSuper:
-  Enabled: false
-
-Lint/SuppressedException:
-  Enabled: false
+  Max: 180
 
 Metrics/AbcSize:
-  Enabled: false
-
-Metrics/BlockLength:
   Enabled: false
 
 Metrics/ClassLength:
