@@ -366,16 +366,16 @@ end
 #     - /blog/2013/
 #     - /blog/2013/01/
 #
-def get_hackable_urls_for(p)
+def get_hackable_urls_for(path)
   dirs = []
 
-  while (p = File.dirname(p))
+  while (path = File.dirname(path))
 
-    if p == dst_dir
+    if path == dst_dir
       break
     end
 
-    dirs << p.gsub(dst_dir, '')
+    dirs << path.gsub(dst_dir, '')
   end
 
   dirs
