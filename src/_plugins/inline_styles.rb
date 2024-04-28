@@ -58,13 +58,6 @@ class InlineStylesFilters
       html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
     end
 
-    if inline_styles.empty?
-      return {
-        'html' => html,
-        'inline_styles' => ''
-      }
-    end
-
     lines = inline_styles.map do |media, css|
       if media.nil?
         css
