@@ -354,6 +354,33 @@ end
 #     off the end of the URL
 #
 # Let's make sure I'm doing that!
+
+# Work out all the URLs that somebody could "hack" their way towards.
+#
+# e.g. if there's a file `/blog/2013/01/my-post/index.html` which will
+# be served from `/blog/2013/01/my-post`, then somebody could hack
+# their way to get to:
+#
+#     - /
+#     - /blog/
+#     - /blog/2013/
+#     - /blog/2013/01/
+#
+def get_hackable_urls_for(p)
+  dirs = []
+
+  while (p = File.dirname(p))
+
+    if p == dst_dir
+      break
+    end
+
+    dirs << p.gsub(dst_dir, '')
+  end
+
+  dirs
+end
+
 def check_all_urls_are_hackable(dst_dir)
   info('Checking all HTML pages are navigable...')
 
@@ -370,36 +397,10 @@ def check_all_urls_are_hackable(dst_dir)
   redirects = parse_netlify_redirects("#{dst_dir}/_redirects").to_set { |r| r[:source].chomp('/') }
   folders_with_index_html = Dir.glob("#{dst_dir}/**/index.html").map { |p| File.dirname(p).gsub(dst_dir, '') }
 
-  # Go through and work out all the URLs that somebody could
-  # "hack" their way towards.
-  #
-  # e.g. if there's a file `/blog/2013/01/my-post/index.html` which will
-  # be served from `/blog/2013/01/my-post`, then somebody could hack
-  # their way to get to:
-  #
-  #     - /
-  #     - /blog/
-  #     - /blog/2013/
-  #     - /blog/2013/01/
-  #
   hackable_urls = Dir.glob("#{dst_dir}/**/*.html")
-                     .filter { |p| !p.start_with?("#{dst_dir}/files/") }
-                     .flat_map do |p|
-    dirs = []
-
-    while (p = File.dirname(p))
-
-      if p == dst_dir
-        break
-      end
-
-      dirs << p.gsub(dst_dir, '')
-    end
-
-    dirs
-  end
-
-  hackable_urls = hackable_urls.to_set
+                     .reject { |p| p.start_with?("#{dst_dir}/files/") }
+                     .flat_map { |p| get_hackable_urls_for(p) }
+                     .to_set
 
   # Now go through and work out which URLs are unreachable.
   unreachable_urls = hackable_urls - (redirects + folders_with_index_html)
