@@ -80,15 +80,7 @@ require 'shell/executer'
 require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
 require_relative 'utils/attrs'
-
-class ImageFormat
-  AVIF = { extension: '.avif', mime_type: 'image/avif' }
-
-  WEBP = { extension: '.webp', mime_type: 'image/webp' }
-
-  JPEG = { extension: '.jpg',  mime_type: 'image/jpeg' }
-  PNG  = { extension: '.png',  mime_type: 'image/png' }
-end
+require_relative 'utils/pictures'
 
 module Jekyll
   class PictureTag < Liquid::Tag
@@ -192,50 +184,27 @@ module Jekyll
       #
       # This isn't perfect, e.g. it doesn't account for margins or wrapping,
       # but it's good enough and better than relying on screen density alone.
+      sizes_attribute = "(max-width: #{@width}px) 100vw, #{@width}px"
+
       dark_html = if dark_sources.nil?
                     ''
                   else
-                    avif_source = if desired_formats.include? ImageFormat::AVIF
-                                    <<~HTML
-                                      <source
-                                        srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
-                                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                                        type="image/avif"
-                                        media="(prefers-color-scheme: dark)"
-                                      >
-                                    HTML
-                                  else
-                                    ''
-                                  end
-
-                    webp_source = if desired_formats.include? ImageFormat::WEBP
-                                    <<~HTML
-                                      <source
-                                        srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
-                                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                                        type="image/webp"
-                                        media="(prefers-color-scheme: dark)"
-                                      >
-                                    HTML
-                                  else
-                                    ''
-                                  end
-
-                    original_source = <<~HTML
-                      <source
-                        srcset="#{dark_sources[im_format].join(', ')}"
-                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                        type="#{im_format[:mime_type]}"
-                        media="(prefers-color-scheme: dark)"
-                      >
-                    HTML
-
-                    <<~HTML
-                      #{avif_source}
-                      #{webp_source}
-                      #{original_source}
-                    HTML
+                    create_source_elements(
+                      dark_sources, im_format, {
+                        desired_formats:,
+                        sizes: sizes_attribute,
+                        dark_mode: true
+                      }
+                    )
                   end
+
+      light_html = create_source_elements(
+        sources, im_format, {
+          desired_formats:,
+          sizes: sizes_attribute,
+          dark_mode: false
+        }
+      )
 
       # Make sure the CSS doesn't through a white background behind
       # this dark-aware image.
@@ -245,44 +214,10 @@ module Jekyll
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
-      avif_source = if desired_formats.include? ImageFormat::AVIF
-                      <<~HTML
-                        <source
-                          srcset="#{sources[ImageFormat::AVIF].join(', ')}"
-                          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                          type="image/avif"
-                        >
-                      HTML
-                    else
-                      ''
-                    end
-
-      webp_source = if desired_formats.include? ImageFormat::WEBP
-                      <<~HTML
-                        <source
-                          srcset="#{sources[ImageFormat::WEBP].join(', ')}"
-                          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                          type="image/webp"
-                        >
-                      HTML
-                    else
-                      ''
-                    end
-
-      original_source = <<~HTML
-        <source
-          srcset="#{sources[im_format].join(', ')}"
-          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-          type="#{im_format[:mime_type]}"
-        >
-      HTML
-
       inner_html = <<~HTML
         <picture>
           #{dark_html}
-          #{avif_source}
-          #{webp_source}
-          #{original_source}
+          #{light_html}
           <img
             src="#{default_image}"
             #{extra_attributes}
@@ -415,18 +350,6 @@ module Jekyll
       end
 
       width
-    end
-
-    # Get some useful info about the file format
-    def get_format(image_path, image)
-      case image['format']
-      when 'PNG'
-        ImageFormat::PNG
-      when 'JPEG'
-        ImageFormat::JPEG
-      else
-        raise "Unrecognised image extension in #{image_path} (#{image['format']})"
-      end
     end
   end
 end
