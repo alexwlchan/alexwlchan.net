@@ -74,6 +74,7 @@
 
 require 'fileutils'
 require 'json'
+require 'pathname'
 require 'shell/executer'
 
 require_relative 'pillow/convert_image'
@@ -129,18 +130,7 @@ module Jekyll
       dst = site.config['destination']
 
       source_path = get_source_path(context)
-
-      if @parent.nil?
-        # If this tag is called in the context of a blog post, we have access
-        # to the post date -- and images are filed in per-year directories
-        # to match posts.
-        year = context.registers[:page]['date'].year
-
-        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, '.*')}".gsub('/./',
-                                                                                                               '/')
-      else
-        dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, '.*')}".gsub('//', '/')
-      end
+      dst_prefix = get_dst_prefix(context, source_path)
 
       raise "Image #{source_path} does not exist" unless File.exist? source_path
 
@@ -397,6 +387,26 @@ module Jekyll
       else
         "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
       end
+    end
+
+    # Choose the prefix for all the derivative images of a given source image.
+    #
+    # e.g. if an image is from `src/_images/2021/green.jpg`, all the derivatives
+    # will be of the form `_site/images/2021/green.*`
+    #
+    def get_dst_prefix(context, source_path)
+      site = context.registers[:site]
+      src = site.config['source']
+      dst = site.config['destination']
+
+      source_path = Pathname.new(source_path)
+      source_prefix = Pathname.new("#{src}/_images")
+
+      suffix = source_path.relative_path_from source_prefix
+
+      # Note that images in the top-level images directory get "/./"
+      # for `File.dirname(suffix)`, which we want to remove.
+      Pathname.new("#{dst}/images/#{File.dirname(suffix)}/#{File.basename(suffix, '.*')}").cleanpath.to_s
     end
 
     # Get some useful info about the file format
