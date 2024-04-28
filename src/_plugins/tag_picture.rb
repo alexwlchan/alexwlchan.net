@@ -74,20 +74,13 @@
 
 require 'fileutils'
 require 'json'
+require 'pathname'
 require 'shell/executer'
 
 require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
 require_relative 'utils/attrs'
-
-class ImageFormat
-  AVIF = { extension: '.avif', mime_type: 'image/avif' }
-
-  WEBP = { extension: '.webp', mime_type: 'image/webp' }
-
-  JPEG = { extension: '.jpg',  mime_type: 'image/jpeg' }
-  PNG  = { extension: '.png',  mime_type: 'image/png' }
-end
+require_relative 'utils/pictures'
 
 module Jekyll
   class PictureTag < Liquid::Tag
@@ -124,43 +117,15 @@ module Jekyll
     end
 
     def render(context)
-      # This allows us to deduce the source path of the image
-      site = context.registers[:site]
-      src = site.config['source']
-      dst = site.config['destination']
-
-      if @parent.nil?
-        # If this tag is called in the context of a blog post, we have access
-        # to the post date -- and images are filed in per-year directories
-        # to match posts.
-        year = context.registers[:page]['date'].year
-
-        source_path = "#{src}/_images/#{year}/#{@filename}"
-        dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, '.*')}".gsub('/./',
-                                                                                                               '/')
-      else
-        source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
-        dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, '.*')}".gsub('//', '/')
-      end
+      source_path = get_source_path(context)
+      dst_prefix = get_dst_prefix(context, source_path)
 
       raise "Image #{source_path} does not exist" unless File.exist? source_path
 
       image = get_single_image_info(source_path)
       im_format = get_format(source_path, image)
 
-      # Using the bounding box supplied, work out the target width based
-      # on the actual image dimensions.
-      if !@bounding_box[:width].nil? && !@bounding_box[:height].nil?
-        raise "Picture #{@filename} supplies both width/height; this is unsupported"
-      elsif !@bounding_box[:width].nil?
-        @width = @bounding_box[:width]
-      elsif !@bounding_box[:height].nil?
-        @width = (image['width'] * @bounding_box[:height] / image['height']).to_i
-      end
-
-      if image['width'] < @width
-        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{@width}px"
-      end
+      @width = get_target_width(image, @bounding_box)
 
       # These two attributes allow the browser to completely determine
       # the space that will be taken up by this image before it actually
@@ -202,7 +167,7 @@ module Jekyll
           dark_path, desired_formats, "#{dst_prefix}.dark", @width, @max_width
         )
       else
-        dark_sources = nil
+        dark_sources = {}
       end
 
       default_image = sources[im_format]
@@ -219,50 +184,23 @@ module Jekyll
       #
       # This isn't perfect, e.g. it doesn't account for margins or wrapping,
       # but it's good enough and better than relying on screen density alone.
-      dark_html = if dark_sources.nil?
-                    ''
-                  else
-                    avif_source = if desired_formats.include? ImageFormat::AVIF
-                                    <<~HTML
-                                      <source
-                                        srcset="#{dark_sources[ImageFormat::AVIF].join(', ')}"
-                                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                                        type="image/avif"
-                                        media="(prefers-color-scheme: dark)"
-                                      >
-                                    HTML
-                                  else
-                                    ''
-                                  end
+      sizes_attribute = "(max-width: #{@width}px) 100vw, #{@width}px"
 
-                    webp_source = if desired_formats.include? ImageFormat::WEBP
-                                    <<~HTML
-                                      <source
-                                        srcset="#{dark_sources[ImageFormat::WEBP].join(', ')}"
-                                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                                        type="image/webp"
-                                        media="(prefers-color-scheme: dark)"
-                                      >
-                                    HTML
-                                  else
-                                    ''
-                                  end
+      dark_html = create_source_elements(
+        dark_sources, im_format, {
+          desired_formats:,
+          sizes: sizes_attribute,
+          dark_mode: true
+        }
+      )
 
-                    original_source = <<~HTML
-                      <source
-                        srcset="#{dark_sources[im_format].join(', ')}"
-                        sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                        type="#{im_format[:mime_type]}"
-                        media="(prefers-color-scheme: dark)"
-                      >
-                    HTML
-
-                    <<~HTML
-                      #{avif_source}
-                      #{webp_source}
-                      #{original_source}
-                    HTML
-                  end
+      light_html = create_source_elements(
+        sources, im_format, {
+          desired_formats:,
+          sizes: sizes_attribute,
+          dark_mode: false
+        }
+      )
 
       # Make sure the CSS doesn't through a white background behind
       # this dark-aware image.
@@ -272,44 +210,10 @@ module Jekyll
 
       extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
 
-      avif_source = if desired_formats.include? ImageFormat::AVIF
-                      <<~HTML
-                        <source
-                          srcset="#{sources[ImageFormat::AVIF].join(', ')}"
-                          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                          type="image/avif"
-                        >
-                      HTML
-                    else
-                      ''
-                    end
-
-      webp_source = if desired_formats.include? ImageFormat::WEBP
-                      <<~HTML
-                        <source
-                          srcset="#{sources[ImageFormat::WEBP].join(', ')}"
-                          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-                          type="image/webp"
-                        >
-                      HTML
-                    else
-                      ''
-                    end
-
-      original_source = <<~HTML
-        <source
-          srcset="#{sources[im_format].join(', ')}"
-          sizes="(max-width: #{@width}px) 100vw, #{@width}px"
-          type="#{im_format[:mime_type]}"
-        >
-      HTML
-
       inner_html = <<~HTML
         <picture>
           #{dark_html}
-          #{avif_source}
-          #{webp_source}
-          #{original_source}
+          #{light_html}
           <img
             src="#{default_image}"
             #{extra_attributes}
@@ -374,16 +278,74 @@ module Jekyll
       sources
     end
 
-    # Get some useful info about the file format
-    def get_format(image_path, image)
-      case image['format']
-      when 'PNG'
-        ImageFormat::PNG
-      when 'JPEG'
-        ImageFormat::JPEG
+    # Find the path to the source image.
+    #
+    # This can happen in two ways:
+    #
+    #   - Setting the `parent` and `filename` attributes, in which case
+    #     look for an image with matching filename in the `parent` directory.
+    #   - Setting the `filename` attribute, in which case look for an image
+    #     in the per-year directory for this page.
+    #
+    def get_source_path(context)
+      site = context.registers[:site]
+      src = site.config['source']
+
+      if @parent.nil?
+        # If this tag is called in the context of a blog post, we have access
+        # to the post date -- and images are filed in per-year directories
+        # to match posts.
+        page = context.registers[:page]
+        year = page['date'].year
+
+        "#{src}/_images/#{year}/#{@filename}"
       else
-        raise "Unrecognised image extension in #{image_path} (#{image['format']})"
+        "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
       end
+    end
+
+    # Choose the prefix for all the derivative images of a given source image.
+    #
+    # e.g. if an image is from `src/_images/2021/green.jpg`, all the derivatives
+    # will be of the form `_site/images/2021/green.*`
+    #
+    def get_dst_prefix(context, source_path)
+      site = context.registers[:site]
+      src = site.config['source']
+      dst = site.config['destination']
+
+      source_path = Pathname.new(source_path)
+      source_prefix = Pathname.new("#{src}/_images")
+
+      suffix = source_path.relative_path_from source_prefix
+
+      # Note that images in the top-level images directory get "/./"
+      # for `File.dirname(suffix)`, which we want to remove.
+      Pathname.new("#{dst}/images/#{File.dirname(suffix)}/#{File.basename(suffix, '.*')}").cleanpath.to_s
+    end
+
+    # Using the bounding box supplied, work out the target width based
+    # on the actual image dimensions.
+    #
+    # This can happen in two ways:
+    #
+    #   - Setting the `width` attribute, which is used directly
+    #   - Setting the `height` attribute, and then the width is scaled to match
+    #
+    def get_target_width(image, bounding_box)
+      if !bounding_box[:width].nil? && !bounding_box[:height].nil?
+        raise "Picture #{@filename} supplies both width/height; this is unsupported"
+      elsif !bounding_box[:width].nil?
+        width = @bounding_box[:width]
+      elsif !bounding_box[:height].nil?
+        width = (image['width'] * bounding_box[:height] / image['height']).to_i
+      end
+
+      if image['width'] < width
+        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{width}px"
+      end
+
+      width
     end
   end
 end
