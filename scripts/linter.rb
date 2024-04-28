@@ -176,6 +176,17 @@ def check_card_images(html_dir, html_documents)
   report_errors(errors)
 end
 
+def get_markdown_paths(src_dir)
+  Dir["#{src_dir}/**/*.md"]
+    # Skip some Markdown files in the source directory that aren't
+    # posts on the site and so don't need validating.
+    .reject { |md_path| md_path == "#{src_dir}/theme/_favicons/README.md" }
+    .reject { |md_path| md_path == "#{src_dir}/_plugins/pillow/README.md" }
+    # This page is a special case for crawlers and doesn't count for
+    # the purposes of linting and the like.
+    .reject { |md_path| md_path == "#{src_dir}/400.md" }
+end
+
 # Validate the YAML front matter by checking that:
 #
 #   1. I'm not using undocumented fields
@@ -188,16 +199,7 @@ def check_yaml_front_matter(src_dir)
 
   schema = JSON.parse(File.read('front-matter.json'))
 
-  Dir["#{src_dir}/**/*.md"].each do |md_path|
-    # Skip some Markdown files in the source directory that aren't
-    # posts on the site and so don't need validating.
-    next if md_path.end_with?('theme/_favicons/README.md')
-    next if md_path.end_with?('src/_plugins/pillow/README.md')
-
-    # This page is a special case for crawlers and doesn't count for
-    # the purposes of linting and the like.
-    next if md_path == "#{src_dir}/400.md"
-
+  get_markdown_paths(src_dir).each do |md_path|
     # The YAML loader will try to be "smart" (e.g. reading dates as
     # proper Ruby date types), which is unhelpful for json-schema checking.
     #
@@ -213,16 +215,17 @@ def check_yaml_front_matter(src_dir)
 
     errors[md_path] = md_errors unless md_errors.empty?
 
-    if md_path.start_with?('src/_posts/') || md_path.start_with?('src/_drafts')
-      if front_matter['layout'] != 'post'
-        errors[md_path] <<= "layout should be 'post'; got #{front_matter['layout']}"
+    expected_layout =
+      if md_path.start_with?("#{src_dir}/_posts") || md_path.start_with?("#{src_dir}/_drafts")
+        'post'
+      elsif md_path.start_with?('src/_til')
+        'til'
+      else
+        'page'
       end
-    elsif md_path.start_with?('src/_til/')
-      if front_matter['layout'] != 'til'
-        errors[md_path] <<= "layout should be 'til'; got #{front_matter['layout']}"
-      end
-    elsif front_matter['layout'] != 'page'
-      errors[md_path] <<= "layout should be 'page'; got #{front_matter['layout']}"
+
+    if front_matter['layout'] != expected_layout
+      errors[md_path] <<= "layout should be '#{expected_layout}'; got #{front_matter['layout']}"
     end
   end
 
