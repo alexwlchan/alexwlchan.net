@@ -17,9 +17,6 @@ AllCops:
 Layout/LineLength:
   Max: 200
 
-Lint/MissingCopEnableDirective:
-  Enabled: false
-
 Metrics/AbcSize:
   Enabled: false
 
