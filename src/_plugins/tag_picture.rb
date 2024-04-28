@@ -126,8 +126,9 @@ module Jekyll
     def render(context)
       # This allows us to deduce the source path of the image
       site = context.registers[:site]
-      src = site.config['source']
       dst = site.config['destination']
+
+      source_path = get_source_path(context)
 
       if @parent.nil?
         # If this tag is called in the context of a blog post, we have access
@@ -135,11 +136,9 @@ module Jekyll
         # to match posts.
         year = context.registers[:page]['date'].year
 
-        source_path = "#{src}/_images/#{year}/#{@filename}"
         dst_prefix = "#{dst}/images/#{year}/#{File.dirname(@filename)}/#{File.basename(@filename, '.*')}".gsub('/./',
                                                                                                                '/')
       else
-        source_path = "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
         dst_prefix = "#{dst}/#{@parent}/#{File.basename(@filename, '.*')}".gsub('//', '/')
       end
 
@@ -372,6 +371,32 @@ module Jekyll
       end
 
       sources
+    end
+
+    # Find the path to the source image.
+    #
+    # This can happen in two ways:
+    #
+    #   - Setting the `parent` and `filename` attributes, in which case
+    #     look for an image with matching filename in the `parent` directory.
+    #   - Setting the `filename` attribute, in which case look for an image
+    #     in the per-year directory for this page.
+    #
+    def get_source_path(context)
+      site = context.registers[:site]
+      src = site.config['source']
+
+      if @parent.nil?
+        # If this tag is called in the context of a blog post, we have access
+        # to the post date -- and images are filed in per-year directories
+        # to match posts.
+        page = context.registers[:page]
+        year = page['date'].year
+
+        "#{src}/_images/#{year}/#{@filename}"
+      else
+        "#{src}/#{@parent}/#{@filename}".gsub('/images/', '/_images/').gsub('//', '/')
+      end
     end
 
     # Get some useful info about the file format
