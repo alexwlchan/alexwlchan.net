@@ -173,7 +173,6 @@ module Jekyll
               class="#{css_class}"
               alt=""
               loading="lazy"
-              style="aspect-ratio: 2 / 1;"
             >
           </picture>
         HTML
