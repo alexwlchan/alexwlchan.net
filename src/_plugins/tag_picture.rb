@@ -137,19 +137,7 @@ module Jekyll
       image = get_single_image_info(source_path)
       im_format = get_format(source_path, image)
 
-      # Using the bounding box supplied, work out the target width based
-      # on the actual image dimensions.
-      if !@bounding_box[:width].nil? && !@bounding_box[:height].nil?
-        raise "Picture #{@filename} supplies both width/height; this is unsupported"
-      elsif !@bounding_box[:width].nil?
-        @width = @bounding_box[:width]
-      elsif !@bounding_box[:height].nil?
-        @width = (image['width'] * @bounding_box[:height] / image['height']).to_i
-      end
-
-      if image['width'] < @width
-        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{@width}px"
-      end
+      @width = get_target_width(image, @bounding_box)
 
       # These two attributes allow the browser to completely determine
       # the space that will be taken up by this image before it actually
@@ -407,6 +395,30 @@ module Jekyll
       # Note that images in the top-level images directory get "/./"
       # for `File.dirname(suffix)`, which we want to remove.
       Pathname.new("#{dst}/images/#{File.dirname(suffix)}/#{File.basename(suffix, '.*')}").cleanpath.to_s
+    end
+
+    # Using the bounding box supplied, work out the target width based
+    # on the actual image dimensions.
+    #
+    # This can happen in two ways:
+    #
+    #   - Setting the `width` attribute, which is used directly
+    #   - Setting the `height` attribute, and then the width is scaled to match
+    #
+    def get_target_width(image, bounding_box)
+      if !bounding_box[:width].nil? && !bounding_box[:height].nil?
+        raise "Picture #{@filename} supplies both width/height; this is unsupported"
+      elsif !bounding_box[:width].nil?
+        width = @bounding_box[:width]
+      elsif !bounding_box[:height].nil?
+        width = (image['width'] * bounding_box[:height] / image['height']).to_i
+      end
+
+      if image['width'] < width
+        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{width}px"
+      end
+
+      width
     end
 
     # Get some useful info about the file format
