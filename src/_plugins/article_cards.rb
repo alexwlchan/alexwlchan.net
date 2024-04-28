@@ -95,10 +95,10 @@ module Jekyll
         widths = [
           302, 302 * 2,  # 3-up column => ~302px wide
           365, 365 * 2,  # 2-up column => ~365px wide
-          405, 405 * 2,  # 1-up column => ~405px wide
+          405, 405 * 2 # 1-up column => ~405px wide
         ]
 
-        sizes_attribute = "(max-width: 450px) 405px, (max-width: 1000px) 365px, 302px"
+        sizes_attribute = '(max-width: 450px) 405px, (max-width: 1000px) 365px, 302px'
 
         year = article['date'].year
 
@@ -128,16 +128,16 @@ module Jekyll
 
           dark_sources = prepare_images(dark_source_path, "#{dst_prefix}.dark", im_format, widths)
         else
-          dark_sources = Hash.new
+          dark_sources = {}
         end
 
         default_image = sources[im_format]
                         .map { |im| im.split[0] }
-                        .find { |path| path.include? "_365" }
+                        .find { |path| path.include? '_365' }
 
         dark_html = create_source_elements(
           dark_sources, im_format, {
-            desired_formats:[im_format, ImageFormat::AVIF, ImageFormat::WEBP],
+            desired_formats: [im_format, ImageFormat::AVIF, ImageFormat::WEBP],
             sizes: sizes_attribute,
             dark_mode: true
           }
@@ -145,7 +145,7 @@ module Jekyll
 
         light_html = create_source_elements(
           sources, im_format, {
-            desired_formats:[im_format, ImageFormat::AVIF, ImageFormat::WEBP],
+            desired_formats: [im_format, ImageFormat::AVIF, ImageFormat::WEBP],
             sizes: sizes_attribute,
             dark_mode: false
           }
@@ -153,11 +153,11 @@ module Jekyll
 
         # Make sure the CSS doesn't through a white background behind
         # this dark-aware image.
-        if dark_sources.nil?
-          css_class="c_image dark_aware"
-        else
-          css_class = "c_image"
-        end
+        css_class = if dark_sources.nil?
+                      'c_image dark_aware'
+                    else
+                      'c_image'
+                    end
 
         # Intentionally omit the alt text on promos, so screen reader users
         # don't have to listen to the alt text before hearing the title

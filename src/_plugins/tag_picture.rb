@@ -167,7 +167,7 @@ module Jekyll
           dark_path, desired_formats, "#{dst_prefix}.dark", @width, @max_width
         )
       else
-        dark_sources = Hash.new
+        dark_sources = {}
       end
 
       default_image = sources[im_format]
