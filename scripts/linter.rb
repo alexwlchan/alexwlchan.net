@@ -192,32 +192,6 @@ def check_yaml_front_matter(src_dir)
   report_errors(errors)
 end
 
-# Check I haven't got HTML in titles; this can break the formatting
-# of Google and social media previews.
-def check_no_html_in_titles(html_documents)
-  errors = Hash.new { [] }
-
-  info('Checking there isn’t any HTML in titles...')
-
-  html_documents.each do |html_doc|
-    # Look for HTML in the '<title>' element in the '<head>'.
-    #
-    # We can't just look for angle brackets, because at least one post
-    # does have HTML-looking stuff in its title
-    # (Remembering if a <details> element was opened).
-    #
-    # What we want to check is if there's any unescaped HTML that
-    # needs removing.
-    title = html_doc[:doc].xpath('//head/title').children
-
-    if title.children.length > 1
-      errors[html_doc[:display_path]] <<= "Title contains HTML: #{title}"
-    end
-  end
-
-  report_errors(errors)
-end
-
 # Check my Netlify redirects point to real pages.
 #
 # This ensures that any redirects I create are working.  It doesn't mean
@@ -303,6 +277,5 @@ html_documents = get_html_documents(html_dir)
 check_writing_has_been_archived(src_dir)
 check_card_images(html_dir, html_documents)
 check_yaml_front_matter(src_dir)
-check_no_html_in_titles(html_documents)
 check_netlify_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)

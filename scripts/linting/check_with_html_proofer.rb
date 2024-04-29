@@ -16,6 +16,16 @@ class LocalhostLinks < HTMLProofer::Check
   end
 end
 
+class NoHtmlInTitles < HTMLProofer::Check
+  def run
+    @html.css("title").each do |node|
+      @title = create_element(node)
+
+      return add_failure("Title contains HTML", elmement: @title) if node.children.length > 1
+    end
+  end
+end
+
 def check_with_html_proofer(html_dir)
   HTMLProofer.check_directory(
     html_dir, {
@@ -24,8 +34,9 @@ def check_with_html_proofer(html_dir)
         Links
         Scripts
         Favicon
-        OpenGraph,
+        OpenGraph
         LocalhostLinks
+        NoHtmlInTitles
       ],
       check_external_hash: false,
       check_html: true,
