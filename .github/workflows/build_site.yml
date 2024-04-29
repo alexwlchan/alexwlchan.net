@@ -67,13 +67,7 @@ jobs:
           restore-keys: "jekyll-cache-"
 
       - name: "Build the site"
-        run: |
-          if [[ -d "src/_drafts" ]]
-          then
-            bundle exec jekyll build --drafts
-          else
-            bundle exec jekyll build
-          fi
+        run: bundle exec jekyll build --drafts
 
       - name: "Run linting"
         run: bundle exec ruby scripts/linter.rb
@@ -91,7 +85,10 @@ jobs:
             git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
 
             bundle exec ruby scripts/publish_drafts.rb
-            bundle exec jekyll build
+
+            # Note: although there are no more drafts, we build with the
+            # flag to avoid Jekyll invalidating its cache
+            bundle exec jekyll build --drafts
           else
             echo "There is no _drafts folder, so nothing to publish!"
           fi
