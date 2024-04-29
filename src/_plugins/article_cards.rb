@@ -184,19 +184,16 @@ module Jekyll
 
       desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
 
-      requests = []
-
       widths.each do |this_width|
         desired_formats.each do |out_format|
           out_path = "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
 
-          requests.push({ 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width })
+          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
+          convert_image(request)
 
           sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
         end
       end
-
-      convert_multiple_images(requests)
 
       sources
     end
