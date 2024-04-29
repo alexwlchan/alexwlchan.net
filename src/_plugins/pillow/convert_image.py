@@ -47,6 +47,12 @@ def process_request(request):
             f"Got image with non-sRGB profile: {request['in_path']} ({profile_name})"
         )
 
+    # This is to work around a bug in the AVIF plugin, where opacity is
+    # lost when converting a P mode image.
+    # See https://github.com/bigcat88/pillow_heif/issues/235
+    if im.mode == "P" and im.info.get("transparency") and request['out_path'].endswith('.avif'):
+        im = im.convert("RGBA")
+
     im = im.resize(
         (
             request["target_width"],
