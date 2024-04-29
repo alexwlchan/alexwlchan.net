@@ -12,19 +12,12 @@ require 'json'
 require 'open3'
 
 def convert_image(request)
-  convert_multiple_images([request])
-end
-
-def convert_multiple_images(requests)
-  json_requests = requests.reject { |req| File.exist? req['out_path'] }
-                          .map { |req| JSON.generate(req) }
-
-  if json_requests.empty?
+  if File.exist? request['out_path']
     return
   end
 
   File.open('.image_requests.json', 'a') do |f|
-    f.write("#{json_requests.join("\n")}\n")
+    f.write("#{JSON.generate(request)}\n")
   end
 end
 
