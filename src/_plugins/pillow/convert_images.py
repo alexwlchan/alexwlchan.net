@@ -15,11 +15,11 @@ import concurrent.futures
 import io
 import json
 import os
-import sys
 
 from PIL import Image
 from PIL import ImageCms
 import pillow_avif
+import tqdm
 
 
 def get_profile_description(im):
@@ -50,7 +50,11 @@ def process_request(request):
     # This is to work around a bug in the AVIF plugin, where opacity is
     # lost when converting a P mode image.
     # See https://github.com/bigcat88/pillow_heif/issues/235
-    if im.mode == "P" and im.info.get("transparency") and request['out_path'].endswith('.avif'):
+    if (
+        im.mode == "P"
+        and im.info.get("transparency")
+        and request["out_path"].endswith(".avif")
+    ):
         im = im.convert("RGBA")
 
     im = im.resize(
@@ -69,9 +73,16 @@ def process_request(request):
 
 
 if __name__ == "__main__":
-    requests = [json.loads(argv) for argv in sys.argv[1:]]
+    with open(".image_requests.json") as in_file:
+        requests = [json.loads(line) for line in in_file if line.strip()]
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = {executor.submit(process_request, req) for req in requests}
 
-        concurrent.futures.wait(futures)
+        iterator = concurrent.futures.as_completed(futures)
+
+        if len(futures) > 20:
+            iterator = tqdm.tqdm(iterator, total=len(futures))
+
+        for _ in iterator:
+            pass

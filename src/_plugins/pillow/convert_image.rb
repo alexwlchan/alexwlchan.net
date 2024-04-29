@@ -1,3 +1,13 @@
+# frozen_string_literal: true
+
+# How this works:
+#
+#   - We write image requests to a file `.image_requests.json`
+#   - Once we've got all the requests for this build, we call a Python script
+#     that chews through all of them
+#
+# We use Jekyll hooks to reset this file before each build.
+
 require 'json'
 require 'open3'
 
@@ -13,6 +23,18 @@ def convert_multiple_images(requests)
     return
   end
 
-  _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_image.py', *json_requests)
-  raise "Unable to process requests #{json_requests}" unless status.success?
+  File.open(".image_requests.json", "a"){|f|
+    f.write(json_requests.join("\n") + "\n")
+  }
+end
+
+Jekyll::Hooks.register :site, :after_init do
+  File.delete('.image_requests.json') if File.exist?('.image_requests.json')
+end
+
+Jekyll::Hooks.register :site, :post_render do
+  if File.exist?('.image_requests.json')
+    _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_images.py')
+    raise "Unable to process image requests" unless status.success?
+  end
 end
