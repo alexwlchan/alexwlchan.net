@@ -39,7 +39,6 @@ def check_writing_has_been_archived(src_dir)
   exit!
 end
 
-
 def get_markdown_paths(src_dir)
   Dir["#{src_dir}/**/*.md"]
     # Skip some Markdown files in the source directory that aren't

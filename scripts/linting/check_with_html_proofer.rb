@@ -6,7 +6,7 @@ class LocalhostLinks < HTMLProofer::Check
   end
 
   def run
-    @html.css("a").each do |node|
+    @html.css('a').each do |node|
       @link = create_element(node)
 
       next if @link.ignore?
@@ -18,10 +18,10 @@ end
 
 class NoHtmlInTitles < HTMLProofer::Check
   def run
-    @html.css("title").each do |node|
+    @html.css('title').each do |node|
       @title = create_element(node)
 
-      return add_failure("Title contains HTML", elmement: @title) if node.children.length > 1
+      return add_failure('Title contains HTML', elmement: @title) if node.children.length > 1
     end
   end
 end
