@@ -36,6 +36,7 @@ and on my iPhone:
   filename="drangreader-iphone.png"
   width="250"
   alt="An iPhone browser screenshot with a single article, and purple stripe “drangReader” at the top of the window."
+  class="screenshot"
 %}
 
 My updated code is [in a Gist](https://gist.github.com/alexwlchan/01cec115a6f51d35ab26).
