@@ -23,18 +23,18 @@ def convert_multiple_images(requests)
     return
   end
 
-  File.open(".image_requests.json", "a"){|f|
-    f.write(json_requests.join("\n") + "\n")
-  }
+  File.open('.image_requests.json', 'a') do |f|
+    f.write("#{json_requests.join("\n")}\n")
+  end
 end
 
 Jekyll::Hooks.register :site, :after_init do
-  File.delete('.image_requests.json') if File.exist?('.image_requests.json')
+  FileUtils.rm_f('.image_requests.json')
 end
 
 Jekyll::Hooks.register :site, :post_render do
   if File.exist?('.image_requests.json')
     _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_images.py')
-    raise "Unable to process image requests" unless status.success?
+    raise 'Unable to process image requests' unless status.success?
   end
 end
