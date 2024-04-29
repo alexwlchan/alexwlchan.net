@@ -256,6 +256,8 @@ module Jekyll
                .filter { |w| max_width.nil? || w <= max_width }
                .sort!
 
+      requests = []
+
       widths.each do |this_width|
         desired_formats.each do |out_format|
           # I already have lots of images cut with the _1x, _2x, _3x names,
@@ -268,12 +270,13 @@ module Jekyll
                        "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
                      end
 
-          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
-          convert_image(request)
+          requests.push({ 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width })
 
           sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
         end
       end
+
+      convert_multiple_images(requests)
 
       sources
     end
