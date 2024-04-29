@@ -153,24 +153,6 @@ def report_errors(errors)
   exit!
 end
 
-def get_display_path(html_path, doc)
-  # Look up the Markdown file that was used to create this file.
-  #
-  # This means the error report can link to the source file, not
-  # the rendered HTML file.
-  #
-  # Note that we may fail to retrieve this value if for some reason
-  # the `<meta>` tag hasn't been written properly, in which case
-  # we show the HTML path instead.
-  md_path = doc.xpath("//meta[@name='page-source-path']").attribute('content')
-
-  if md_path == '' || md_path.nil?
-    html_path
-  else
-    "src/#{md_path}"
-  end
-end
-
 html_dir = '_site'
 src_dir = 'src'
 
