@@ -68,6 +68,11 @@ jobs:
 
       - name: "Build the site"
         run: |
+          # Temporary fix to remove bad AVIF images
+          find _site/images -name '*drangreader*' -delete
+          find _site/images -name '*tiling-the-plane*' -delete
+          find _site/images -name '*pillow-*' -delete
+
           if [[ -d "src/_drafts" ]]
           then
             bundle exec jekyll build --drafts
