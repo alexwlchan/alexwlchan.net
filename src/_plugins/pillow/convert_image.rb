@@ -27,7 +27,7 @@ end
 
 Jekyll::Hooks.register :site, :post_render do
   if File.exist?('.image_requests.json')
-    _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_images.py')
+    _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_images.py', '.image_requests.json')
     raise 'Unable to process image requests' unless status.success?
   end
 end

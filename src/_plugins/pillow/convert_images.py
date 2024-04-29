@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """
-Convert an image to a new image at a given size.
+Convert images to new image at a given size.
 
-This takes one or more arguments, each of which must be a JSON-formatted
-object with three keys: ``in_path``, ``out_path`` and ``width``.
+This takes a single argument, which is the path to a file.  Each line of
+that file must be a JSON-formatted object with three keys:
+``in_path``, ``out_path`` and ``width``.
 
 Example:
 
-    $ python3 convert_image.py '{"in_path": "cat.jpg", "out_path": "cat_500w.webp", "width": 500}'
+    $ cat requests.json
+    {"in_path": "cat.jpg", "out_path": "cat_500w.webp", "width": 500}
+
+    $ python3 convert_images.py requests.json
 
 """
 
@@ -15,6 +19,7 @@ import concurrent.futures
 import io
 import json
 import os
+import sys
 
 from PIL import Image
 from PIL import ImageCms
@@ -73,7 +78,7 @@ def process_request(request):
 
 
 if __name__ == "__main__":
-    with open(".image_requests.json") as in_file:
+    with open(sys.argv[1]) as in_file:
         requests = [json.loads(line) for line in in_file if line.strip()]
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
