@@ -5,7 +5,4 @@ src/_files/* linguist-vendored
 # I don't use git-lfs for most of this repo because I have limited bandwidth
 # in GitHub, and GitHub Actions would quickly gobble that up -- but I don't
 # need to check out `assets/` in CI, so this is safe.
-assets/*.key filter=lfs diff=lfs merge=lfs -text
-assets/**/*.key filter=lfs diff=lfs merge=lfs -text
-assets/*.tiff filter=lfs diff=lfs merge=lfs -text
-assets/**/*.tiff filter=lfs diff=lfs merge=lfs -text
+*.key filter=lfs diff=lfs merge=lfs -text
