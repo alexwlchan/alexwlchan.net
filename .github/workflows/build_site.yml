@@ -7,7 +7,6 @@ on:
 
     paths-ignore:
       - 'assets/**'
-      - 'scripts/**'
       - '.github/workflows/rubocop.yml'
       - '.github/workflows/run_plugin_tests.yml'
 
