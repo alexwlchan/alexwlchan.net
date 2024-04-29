@@ -4,11 +4,15 @@ require 'html-proofer'
 require 'json'
 require 'json-schema'
 require 'nokogiri'
-require 'rainbow'
 require 'uri'
 require 'yaml'
 
 require_relative '../src/_plugins/pillow/get_image_info'
+
+require_relative 'linting/netlify_redirects'
+require_relative 'linting/logging'
+
+require_relative 'linting/check_all_urls_are_hackable'
 
 def run_html_linting(html_dir)
   HTMLProofer.check_directory(
@@ -42,16 +46,6 @@ def run_html_linting(html_dir)
       enforce_https: false
     }
   ).run
-end
-
-# These commands are based on the logging in html-proofer; see
-# https://github.com/gjtorikian/html-proofer/blob/041bc94d4a029a64ecc1e48036e94eafbae6c4ad/lib/html_proofer/log.rb
-def info(message)
-  puts Rainbow(message).send(:blue)
-end
-
-def error(message)
-  puts Rainbow(message).send(:red)
 end
 
 # Parse all the generated HTML documents with Nokogiri.
@@ -287,20 +281,6 @@ def check_no_html_in_titles(html_documents)
   report_errors(errors)
 end
 
-def parse_netlify_redirects(path)
-  File.readlines(path).each_with_index
-      .filter { |line, _i| !line.start_with? '#' }
-      .filter { |line, _i| !line.strip.empty? }
-      .map do |line, i|
-        {
-          line:,
-          lineno: i + 1,
-          source: line.strip.split[0],
-          target: line.strip.split[1]
-        }
-      end
-end
-
 # Check my Netlify redirects point to real pages.
 #
 # This ensures that any redirects I create are working.  It doesn't mean
@@ -340,79 +320,6 @@ def check_netlify_redirects(dst_dir)
     lineno, line = ln
     error("  * L#{lineno}:\t#{line}")
   end
-  exit!
-end
-
-# Check I have redirects set up for every sub-URL of a published URL
-# e.g. if I have an article /2013/my-post, there's something at /2013/
-# that redirects.  In the sense that "good URLs are hackable".
-#
-# Quoting the slightly formal language of Nielsen Norman [1]:
-#
-#     A usable site requires […] URLs that are "hackable" to allow users
-#     to move to higher levels of the information architecture by hacking
-#     off the end of the URL
-#
-# Let's make sure I'm doing that!
-
-# Work out all the URLs that somebody could "hack" their way towards.
-#
-# e.g. if there's a file `/blog/2013/01/my-post/index.html` which will
-# be served from `/blog/2013/01/my-post`, then somebody could hack
-# their way to get to:
-#
-#     - /
-#     - /blog/
-#     - /blog/2013/
-#     - /blog/2013/01/
-#
-def get_hackable_urls_for(path)
-  dirs = []
-
-  while (path = File.dirname(path))
-
-    if path == dst_dir
-      break
-    end
-
-    dirs << path.gsub(dst_dir, '')
-  end
-
-  dirs
-end
-
-def check_all_urls_are_hackable(dst_dir)
-  info('Checking all HTML pages are navigable...')
-
-  # Get a list of which paths will return an HTML page.
-  #
-  # This means either:
-  #
-  #     - There's a Netlify redirect that takes you to another page, or
-  #     - There's a folder with an index.html file that will be served
-  #
-  # The goal is to have two sets of URLs without trailing slashes,
-  # e.g. {'/writing', '/til'}
-  #
-  redirects = parse_netlify_redirects("#{dst_dir}/_redirects").to_set { |r| r[:source].chomp('/') }
-  folders_with_index_html = Dir.glob("#{dst_dir}/**/index.html").map { |p| File.dirname(p).gsub(dst_dir, '') }
-
-  hackable_urls = Dir.glob("#{dst_dir}/**/*.html")
-                     .reject { |p| p.start_with?("#{dst_dir}/files/") }
-                     .flat_map { |p| get_hackable_urls_for(p) }
-                     .to_set
-
-  # Now go through and work out which URLs are unreachable.
-  unreachable_urls = hackable_urls - (redirects + folders_with_index_html)
-
-  return if unreachable_urls.empty?
-
-  error('- Missing pages/redirects!')
-  error('  The following URLs can be "hacked" but won’t resolve:')
-  unreachable_urls.sort.each do |url|
-    error("  * #{url}/")
-  end
-  error('  Considering adding an entry in src/_redirects')
   exit!
 end
 
