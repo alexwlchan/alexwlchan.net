@@ -1,5 +1,21 @@
 require 'html-proofer'
 
+class LocalhostLinks < HTMLProofer::Check
+  def localhost_link?
+    @link.url.raw_attribute.start_with?('http://localhost:5757')
+  end
+
+  def run
+    @html.css("a").each do |node|
+      @link = create_element(node)
+
+      next if @link.ignore?
+
+      return add_failure("Don't link to localhost!", element: @link) if localhost_link?
+    end
+  end
+end
+
 def check_with_html_proofer(html_dir)
   HTMLProofer.check_directory(
     html_dir, {
@@ -8,7 +24,8 @@ def check_with_html_proofer(html_dir)
         Links
         Scripts
         Favicon
-        OpenGraph
+        OpenGraph,
+        LocalhostLinks
       ],
       check_external_hash: false,
       check_html: true,

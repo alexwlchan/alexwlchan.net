@@ -192,35 +192,6 @@ def check_yaml_front_matter(src_dir)
   report_errors(errors)
 end
 
-def localhost_link?(anchor_tag)
-  !anchor_tag.attribute('href').nil? &&
-    anchor_tag.attribute('href').value.start_with?('http') &&
-    anchor_tag.attribute('href').value.include?('localhost:5757')
-end
-
-# Check I haven't used localhost URLs anywhere (in links or images)
-#
-# This is an error I've occasionally made while doing local development;
-# I'll use my ;furl snippet to get the front URL, and forget to remove
-# the localhost development prefix.
-def check_no_localhost_links(html_documents)
-  errors = Hash.new { [] }
-
-  info('Checking there aren’t any localhost links...')
-
-  html_documents.each do |html_doc|
-    localhost_links = html_doc[:doc].xpath('//a')
-                                    .select { |a| localhost_link?(a) }
-                                    .map { |a| a.attribute('href').value }
-
-    unless localhost_links.empty?
-      errors[html_doc[:display_path]] <<= "There are links to localhost: #{localhost_links.join('; ')}"
-    end
-  end
-
-  report_errors(errors)
-end
-
 # Check I haven't got HTML in titles; this can break the formatting
 # of Google and social media previews.
 def check_no_html_in_titles(html_documents)
@@ -332,7 +303,6 @@ html_documents = get_html_documents(html_dir)
 check_writing_has_been_archived(src_dir)
 check_card_images(html_dir, html_documents)
 check_yaml_front_matter(src_dir)
-check_no_localhost_links(html_documents)
 check_no_html_in_titles(html_documents)
 check_netlify_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)
