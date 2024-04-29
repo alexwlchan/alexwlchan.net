@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'html-proofer'
 require 'json'
 require 'json-schema'
 require 'nokogiri'
@@ -13,40 +12,7 @@ require_relative 'linting/netlify_redirects'
 require_relative 'linting/logging'
 
 require_relative 'linting/check_all_urls_are_hackable'
-
-def run_html_linting(html_dir)
-  HTMLProofer.check_directory(
-    html_dir, {
-      checks: %w[
-        Images
-        Links
-        Scripts
-        Favicon
-        OpenGraph
-      ],
-      check_external_hash: false,
-      check_html: true,
-      check_opengraph: true,
-      disable_external: true,
-
-      ignore_files: [
-        '_site/400/index.html',
-        %r{_site/files/.*},
-        # This is because of an overly slow regex in HTML-Proofer.
-        # See https://github.com/gjtorikian/html-proofer/issues/816
-        '_site/2013/google-maps/index.html'
-      ],
-      report_invalid_tags: true,
-      #
-      # As of April 2024, I have 334 links which don't use HTTPS.
-      # It might be nice to fix them all and/or whitelist them, but
-      # they're all external links -- I don't care that much.
-      #
-      # For now, skip HTTPS checking.
-      enforce_https: false
-    }
-  ).run
-end
+require_relative 'linting/check_with_html_proofer'
 
 # Parse all the generated HTML documents with Nokogiri.
 def get_html_documents(html_dir)
@@ -359,7 +325,7 @@ end
 html_dir = '_site'
 src_dir = 'src'
 
-run_html_linting(html_dir)
+check_with_html_proofer(html_dir)
 
 html_documents = get_html_documents(html_dir)
 
