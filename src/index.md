@@ -99,10 +99,10 @@ Here are a few of my favourites:
 
 {% comment %}
   This component shows 6 featured articles.
-  
+
   To keep things somewhat interesting, I have more than 6 such articles
   and I display a random selection.
-  
+
   - The Jekyll build will pick a sample of 6 every time it's built
   - JavaScript on the page will shuffle the list on page reloads
 
