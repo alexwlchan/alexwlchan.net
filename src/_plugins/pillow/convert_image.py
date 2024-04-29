@@ -11,6 +11,7 @@ Example:
 
 """
 
+import concurrent.futures
 import io
 import json
 import os
@@ -32,33 +33,39 @@ def get_profile_description(im):
     return prf.profile.profile_description
 
 
-if __name__ == "__main__":
-    for argv in sys.argv[1:]:
-        request = json.loads(argv)
+def process_request(request):
+    im = Image.open(request["in_path"])
 
-        im = Image.open(request["in_path"])
-
-        profile_name = get_profile_description(im)
-        if profile_name is not None and profile_name not in {
-            "sRGB",
-            "sRGB built-in",
-            "sRGB IEC61966-2.1",
-            "Generic Gray Gamma 2.2 Profile",
-        }:
-            raise ValueError(
-                f"Got image with non-sRGB profile: {request['in_path']} ({profile_name})"
-            )
-
-        im = im.resize(
-            (
-                request["target_width"],
-                int(im.height * request["target_width"] / im.width),
-            )
+    profile_name = get_profile_description(im)
+    if profile_name is not None and profile_name not in {
+        "sRGB",
+        "sRGB built-in",
+        "sRGB IEC61966-2.1",
+        "Generic Gray Gamma 2.2 Profile",
+    }:
+        raise ValueError(
+            f"Got image with non-sRGB profile: {request['in_path']} ({profile_name})"
         )
 
-        os.makedirs(os.path.dirname(request['out_path']), exist_ok=True)
+    im = im.resize(
+        (
+            request["target_width"],
+            int(im.height * request["target_width"] / im.width),
+        )
+    )
 
-        with open(request["out_path"], "xb") as fp:
-            im.save(fp)
+    os.makedirs(os.path.dirname(request["out_path"]), exist_ok=True)
 
-        print(request["out_path"])
+    with open(request["out_path"], "xb") as fp:
+        im.save(fp)
+
+    print(request["out_path"])
+
+
+if __name__ == "__main__":
+    requests = [json.loads(argv) for argv in sys.argv[1:]]
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = {executor.submit(process_request, req) for req in requests}
+
+        concurrent.futures.wait(futures)
