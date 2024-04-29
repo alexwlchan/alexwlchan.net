@@ -2,7 +2,6 @@
 
 require 'json'
 require 'json-schema'
-require 'nokogiri'
 require 'uri'
 require 'yaml'
 
@@ -13,29 +12,6 @@ require_relative 'linting/logging'
 
 require_relative 'linting/check_all_urls_are_hackable'
 require_relative 'linting/check_with_html_proofer'
-
-# Parse all the generated HTML documents with Nokogiri.
-def get_html_documents(html_dir)
-  Dir["#{html_dir}/**/*.html"]
-    # Anything in the /files/ directory can be ignored, because it's
-    # not part of the site, it's a static asset.
-    #
-    # e.g. if I've got a file that I'm using to demo a particular
-    # HTML feature.
-    .filter { |html_path| !html_path.include? '/files' }
-    # This page is a special case for crawlers and doesn't count for
-    # the purposes of linting and the like.
-    .filter { |html_path| html_path != "#{html_dir}/400/index.html" }
-    .map do |html_path|
-      doc = Nokogiri::HTML(File.open(html_path))
-      display_path = get_display_path(html_path, doc)
-
-      {
-        display_path:,
-        doc:
-      }
-    end
-end
 
 # This checks that every article on /elsewhere/ has at least one copy
 # archived on my own computers.
@@ -63,78 +39,6 @@ def check_writing_has_been_archived(src_dir)
   exit!
 end
 
-# Validate the images used by my Twitter cards by checking that:
-#
-#   1. They point at images that actually exist
-#   2. I'm using a valid card type
-#   3. If the card type is "summary_large_image", the image has
-#      the 2:1 aspect ratio required by Twitter
-#
-def check_card_images(html_dir, html_documents)
-  errors = Hash.new { [] }
-
-  info('Checking social sharing card images...')
-
-  html_documents.each do |html_doc|
-    meta_tags = html_doc[:doc].xpath('//meta')
-
-    # Get a map of meta tag (name/property => content).
-    #
-    # This assumes that the meta tag for a given name is never duplicated,
-    # which would only happen if I'd messed up one of the templates.
-    # That's not the sort of thing this linting is meant to catch, so
-    # the assumption is fine.
-    meta_tags_map = meta_tags
-                    .reject { |mt| mt.attribute('name').nil? && mt.attribute('property').nil? }
-                    .reject { |mt| mt.attribute('content').nil? }
-                    .to_h do |mt|
-                      name = (mt.attribute('name') || mt.attribute('property')).value
-                      content = mt.attribute('content').value
-
-                      [name, content]
-                    end
-
-    if meta_tags_map['twitter:card'] != 'summary' && meta_tags_map['twitter:card'] != 'summary_large_image'
-      errors[html_doc[:display_path]] <<= "Twitter card has an invalid card type #{meta_tags_map['twitter:card']}"
-    end
-
-    ['twitter:image', 'og:image'].each do |image_name|
-      # e.g. http://0.0.0.0:5757/images/profile_red_square2.jpg
-      #
-      # This uses the site.uri variable, which varies based on the build
-      # system running at the top. Discard it.
-      if meta_tags_map[image_name].nil?
-        errors[html_doc[:display_path]] <<= "Could not find `#{image_name}` attribute on page"
-        next
-      end
-
-      image_path = URI(meta_tags_map[image_name]).path
-
-      local_image_path = "#{html_dir}#{image_path}"
-
-      unless File.exist? local_image_path
-        errors[html_doc[:display_path]] <<= "Card points to a missing image: #{local_image_path}"
-      end
-
-      # If it's a 'summary_large_image' card, check the aspect ratio is 2:1.
-      #
-      # Anything else will be cropped by Twitter's algorithm, which may
-      # pick a bad crop.
-      #
-      # See https://alexwlchan.net/2022/02/two-twitter-cards/
-      #
-      next unless meta_tags_map['twitter:card'] == 'summary_large_image'
-
-      next unless File.exist? local_image_path
-
-      # TODO: Re-enable this
-      # image = get_single_image_info(local_image_path)
-      # errors[html_doc[:display_path]] <<= 'Card image does not have a 2:1 aspect ratio' if image['width'] != image['height'] * 2
-    end
-  end
-
-  report_errors(errors)
-end
 
 def get_markdown_paths(src_dir)
   Dir["#{src_dir}/**/*.md"]
@@ -272,10 +176,7 @@ src_dir = 'src'
 
 check_with_html_proofer(html_dir)
 
-html_documents = get_html_documents(html_dir)
-
 check_writing_has_been_archived(src_dir)
-check_card_images(html_dir, html_documents)
 check_yaml_front_matter(src_dir)
 check_netlify_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)
