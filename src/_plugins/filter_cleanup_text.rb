@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Provides a filter that "cleans up" text.
 #
 # In particular this inserts HTML entities to prevent text wrapping

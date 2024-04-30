@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rainbow'
 
 # These commands are based on the logging in html-proofer; see

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Parse the Netlify `_redirects` file.
 #
 # See https://docs.netlify.com/routing/redirects/#syntax-for-the-redirects-file

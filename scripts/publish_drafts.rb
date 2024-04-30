@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This command does some automation with the _drafts folder.  Specifically,
 # when run, it:
 #

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'html-proofer'
 
 class LocalhostLinks < HTMLProofer::Check
