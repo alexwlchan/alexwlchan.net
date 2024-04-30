@@ -7,6 +7,7 @@
 # in `_config.yml`.
 #
 
+require 'fileutils'
 require 'open3'
 
 module Jekyll
@@ -16,7 +17,7 @@ module Jekyll
       dst = site.config['destination']
 
       # We may be called before the destination directory exists
-      system("mkdir -p #{dst}")
+      FileUtils.mkdir_p dst
 
       site.keep_files.each do |dir|
         next unless File.directory? "#{src}/_#{dir}"
