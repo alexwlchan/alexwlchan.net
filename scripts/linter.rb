@@ -110,12 +110,9 @@ def check_netlify_redirects(dst_dir)
     next if redirect[:source] == '/ideas-for-inclusive-events/*'
     next if redirect[:target].start_with? 'https://social.alexwlchan.net/'
 
-    # ignore URL fragments when linting, the important thing is that
+    # Ignore query parameters when linting, the important thing is that
     # pages don't 404
-    target = redirect[:target].split('#')[0].split('?')[0]
-
-    lineno = redirect[:lineno]
-    line = redirect[:line]
+    target = redirect[:target].split('?')[0]
 
     expected_file =
       if target.end_with? '/'
@@ -123,6 +120,10 @@ def check_netlify_redirects(dst_dir)
       else
         "#{dst_dir}/#{target}"
       end
+
+    lineno = redirect[:lineno]
+    line = redirect[:line]
+
     bad_lines << [lineno, line.strip] unless File.exist? expected_file
   end
 
