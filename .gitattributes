@@ -6,3 +6,4 @@ src/_files/* linguist-vendored
 # in GitHub, and GitHub Actions would quickly gobble that up -- but I don't
 # need to check out `assets/` in CI, so this is safe.
 *.key filter=lfs diff=lfs merge=lfs -text
+src/_files/2017/tweet_templates.key !filter !diff !merge text
