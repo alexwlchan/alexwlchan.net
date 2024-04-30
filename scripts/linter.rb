@@ -114,15 +114,16 @@ def check_netlify_redirects(dst_dir)
     # pages don't 404
     target = redirect[:target].split('#')[0].split('?')[0]
 
-    lineno = redirect[:lineno]
-    line = redirect[:line]
-
     expected_file =
       if target.end_with? '/'
         "#{dst_dir}#{target}/index.html"
       else
         "#{dst_dir}/#{target}"
       end
+
+    lineno = redirect[:lineno]
+    line = redirect[:line]
+
     bad_lines << [lineno, line.strip] unless File.exist? expected_file
   end
 
