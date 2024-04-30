@@ -16,7 +16,6 @@ module Jekyll
       src = site.config['source']
       dst = site.config['destination']
 
-      # We may be called before the destination directory exists
       FileUtils.mkdir_p dst
 
       site.keep_files.each do |dir|
