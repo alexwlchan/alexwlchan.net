@@ -14,7 +14,7 @@ AllCops:
     - 'vendor/**/*'
 
 Layout/LineLength:
-  Max: 170
+  Max: 140
 
 Metrics/AbcSize:
   Enabled: false

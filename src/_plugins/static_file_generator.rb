@@ -7,6 +7,8 @@
 # in `_config.yml`.
 #
 
+require 'open3'
+
 module Jekyll
   class StaticFileGenerator < Generator
     def generate(site)
@@ -18,9 +20,10 @@ module Jekyll
 
       site.keep_files.each do |dir|
         next unless File.directory? "#{src}/_#{dir}"
-        unless system("rsync --archive #{src}/_#{dir}/ #{dst}/#{dir}/ --exclude=twitter/avatars --exclude=cards --exclude=icons --exclude=*.svg")
-          raise "Error running the static file rsync for #{dir}!"
-        end
+
+        _, status = Open3.capture2('rsync', '--archive', "#{src}/_#{dir}/", "#{dst}/#{dir}/", '--exclude=twitter/avatars',
+                                   '--exclude=cards', '--exclude=icons', '--exclude=*.svg')
+        raise 'Unable to run static file rsync' unless status.success?
       end
     end
   end
