@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This works around a few weirdnesses in Kramdown, where it "helpfully" adds
 # a closing slash to <img> and <source> tags in my <picture> blocks,
 # which get flagged as errors by HTML validators.

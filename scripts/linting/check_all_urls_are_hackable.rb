@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Check that every URL is "hackable".
 #
 # Quoting the slightly formal language of Nielsen Norman [1]:

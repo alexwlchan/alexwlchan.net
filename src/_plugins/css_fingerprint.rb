@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Create a "fingerprint" of the CSS files.
 #
 # We want to be able to cache the CSS file for a long time, but we need

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Creates the images used in the cards, which appear on the site-wide index
 # and in social media previews.
 #
