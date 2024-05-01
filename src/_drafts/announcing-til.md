@@ -9,19 +9,20 @@ colors:
   index_light: "#6d5648"
   index_dark:  "#c5b5a9"
 ---
-Today I'm splitting my site into two sections: [*articles*](/articles/) and [*today I learned (TIL)*](/til/).
-The articles section is where I'll write my longer, more in-depth posts, meant for a wide audience.
-The today I learned section is for shorter, how-to style posts, mostly read by people arriving from Google.
-I've already created separate indexes and RSS feeds, and over time I expect these sections will diverge further.
+Today I'm splitting my site into two sections: [*Articles*](/articles/) and [*Today I Learned (TIL)*](/til/).
+The articles section is where I'll write longer, in-depth posts meant to be interesting to a broad audience.
+The new TIL section will have shorter posts with quick, practical insights, ideal for people arriving from Google and looking for immediate solutions.
 
-The new TIL section already has [over 50 posts](/til/), because I've been working on it quietly for a while.
-I didn't want to talk about it until I thought it was likely to stick.
+The concept of a "today I learned" microblog isn't new -- [plenty][simonwillison] [of other][jbranchaud] [people][github] have been doing it for years.
+I felt like it might be useful for me as well, but I couldn't explain why.
+There are good reasons for having a TIL section, but "lots of other people are doing it" isn't one of them.
+It took a while before I could explain why I think it's a good idea for me. 
 
-The idea of a "today I learned" microblog is pretty popular -- [plenty][simonwillison] [of other][jbranchaud] [people][github] have already done it -- but that alone isn't a reason to do it.
-I had a vague sense that it was a good idea for me, but it was only vibes rather than a concrete reason.
+My new TIL section already has [over 50 posts](/til/), because I've been working on it quietly for a while.
+Writing it in private for several months has given me a better sense of what a TIL section is good for, why it should be separate, and how it will make the site better.
 
-Before I shared this more widely, I wanted to be able to articulate why I thought a separate TIL section was a good idea for *me*.
-It's taken a while, but now I think I can explain what it's for, why it should be separate, and how it will make the site better.
+My goal is simple: to help people find interesting, useful stuff that I've written.
+In this post, I'll explain what I've learnt from writing the TIL section, how I'm thinking about the structure of the site, and why I think this change will help my goal.
 
 [simonwillison]: https://til.simonwillison.net/
 [jbranchaud]: https://github.com/jbranchaud/til
@@ -32,12 +33,14 @@ It's taken a while, but now I think I can explain what it's for, why it should b
 Although I've been pondering this for a while, the trigger for actually making changes was a great article by Kori about [designing a personal website][melankorin].
 It's about planning the structure of your content, not the visual design.
 What sort of stuff do you want on your website?
-(I think the technical term is *content modelling*.)
+How is it laid out?
+How is it organised?
+(I've sometimes heard this referred to as *content modelling*.)
 
-Although the ideas isn't new to me, that article was the first time I'd seen anyone talk about content modelling on a personal site.
-Previously I'd only ever seen people do it for much large sites, typically owned by companies and with multiple contributors.
+Although the idea isn't new to me, that article was the first time I'd seen anyone talk about content modelling on a personal site.
+Previously I'd only ever seen people do it for much larger sites, typically owned by companies and with multiple contributors.
 
-The old content model for this site was pretty typical for blog-style sites: a list of dated posts, and then one-off pages for everything else.
+My old content model was pretty typical for personal blog-style sites: a list of dated posts, and then one-off pages for everything else.
 I hadn't thought much about it; it just comes from the default configuration of [Jekyll], the software I use to build this site.
 
 {%
@@ -53,6 +56,17 @@ I knew that if I thought about it, I could come up with a better structure, but 
 [melankorin]: https://melankorin.net/blog/2023/06/19/
 
 ## Who are you writing for?
+
+I've been avoiding this question for ages, because it feels a bit conceited to imagine I have an "audience" -- but like it or not, I do.
+This website gets about 10,000 unique visitors a month.
+
+
+**The main reason I write for this site is because I want to.**
+Nobody is paying me
+
+
+When I started this site, I didn't have any readers.
+I was doing it to practice my writing skills, and posting my work online gave me a vague sense of accountability.
 
 This is a question I've ignored for a long time
 
