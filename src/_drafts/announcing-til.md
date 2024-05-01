@@ -1,27 +1,67 @@
 ---
 layout: post
 title: 'Adding a new site section: Today I Learned'
-summary:
+summary: |
+  I'm splitting my site into longer-form articles and shorter how-to style posts, which I hope will make the site better for everyone.
 tags:
+  - blogging-about-blogging
 colors:
   index_light: "#6d5648"
   index_dark:  "#c5b5a9"
 ---
-split the site into articles/til
-  - articles are long-form stuff
-  - til are shorter posts, meant primarily for google
-  - have separate pages and RSS feeds
-  - this is a popular idea, but that alone isn't reason to do it
-  - rest of post: why?
+Today I'm splitting my site into two sections: [*articles*](/articles/) and [*today I learned (TIL)*](/til/).
+The articles section is where I'll write my longer, more in-depth posts, meant for a wide audience.
+The today I learned section is for shorter, how-to style posts, mostly read by people arriving from Google.
+I've already created separate indexes and RSS feeds, and over time I expect these sections will diverge further.
 
-## melankorin: what's your content model?
+The new TIL section already has [over 50 posts](/til/), because I've been working on it quietly for a while.
+I didn't want to talk about it until I thought it was likely to stick.
 
-doing default content model, works well enough
+The idea of a "today I learned" microblog is pretty popular -- [plenty][simonwillison] [of other][jbranchaud] [people][github] have already done it -- but that alone isn't a reason to do it.
+I had a vague sense that it was a good idea for me, but it was only vibes rather than a concrete reason.
 
-how to make better?
-first have to ask:
+Before I shared this more widely, I wanted to be able to articulate why I thought a separate TIL section was a good idea for *me*.
+It's taken a while, but now I think I can explain what it's for, why it should be separate, and how it will make the site better.
+
+[simonwillison]: https://til.simonwillison.net/
+[jbranchaud]: https://github.com/jbranchaud/til
+[github]: https://github.com/search?type=repositories&q=today+i+learned
+
+## What do I want on this site?
+
+Although I've been pondering this for a while, the trigger for actually making changes was a great article by Kori about [designing a personal website][melankorin].
+It's about planning the structure of your content, not the visual design.
+What sort of stuff do you want on your website?
+(I think the technical term is *content modelling*.)
+
+Although the ideas isn't new to me, that article was the first time I'd seen anyone talk about content modelling on a personal site.
+Previously I'd only ever seen people do it for much large sites, typically owned by companies and with multiple contributors.
+
+The old content model for this site was pretty typical for blog-style sites: a list of dated posts, and then one-off pages for everything else.
+I hadn't thought much about it; it just comes from the default configuration of [Jekyll], the software I use to build this site.
+
+{%
+  picture
+  filename="existing_model.png"
+  width="500"
+%}
+
+Once I thought about it, I could see this model was a bit creaky, and not a great fit for the site I've actually built.
+I knew that if I thought about it, I could come up with a better structure, but first I wanted to answer a different question:
+
+[Jekyll]: https://jekyllrb.com/
+[melankorin]: https://melankorin.net/blog/2023/06/19/
+
+## Who are you writing for?
+
+This is a question I've ignored for a long time
+
+10,000 unique visitors a month.
+That's small by web standards
 
 ## what's audience of this site?
+
+
 
   - bit late to ask, better late than never
   - 1/ me
@@ -43,6 +83,8 @@ how am I doing?
   1/ I'm fine
   2/ site works well
   3/ not convinced it works well -- content is too variable
+  
+chances are, if you're this far into this post, you're in bucket 3 (or I hope you'll be!)
   
 ## better content model!
 
@@ -105,3 +147,8 @@ Is some sort of miracle cure, But I do think it solves a bunch of My low-grade f
 Maybe it’s just confirmation bias, but this change feels right
 
 
+
+---
+
+articles will slow down
+TILs will speed up
