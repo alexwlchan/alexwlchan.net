@@ -30,18 +30,14 @@ In this post, I'll explain what I've learnt from writing the TIL section, how I'
 
 ## What do I want on this site?
 
-Although I've been pondering this for a while, the trigger for actually making changes was a great article by Kori about [designing a personal website][melankorin].
-It's about planning the structure of your content, not the visual design.
-What sort of stuff do you want on your website?
-How is it laid out?
-How is it organised?
-(I've sometimes heard this referred to as *content modelling*.)
+The impetus for these changes was an interesting article by Kori about [designing a personal website][melankorin].
+It talks about the structure of your content, not the aesthetic design -- what do you want to include, how do you organise it, how do you lay it out effectively.
 
-Although the idea isn't new to me, that article was the first time I'd seen anyone talk about content modelling on a personal site.
-Previously I'd only ever seen people do it for much larger sites, typically owned by companies and with multiple contributors.
+I've come across these ideas before, but never in the context of a personal site.
+I'm used to seeing content modelling applied to larger, corporate websites with multiple contributors.
 
-My old content model was pretty typical for personal blog-style sites: a list of dated posts, and then one-off pages for everything else.
-I hadn't thought much about it; it just comes from the default configuration of [Jekyll], the software I use to build this site.
+I'd never thought much about my own content model; I'd just used the default setup from [Jekyll], the software I use to build this site.
+Before I started this work, my site was a chronological list of posts, with tags for organisation, plus a collection of static pages for everything else.
 
 {%
   picture
@@ -49,8 +45,12 @@ I hadn't thought much about it; it just comes from the default configuration of 
   width="500"
 %}
 
-Once I thought about it, I could see this model was a bit creaky, and not a great fit for the site I've actually built.
-I knew that if I thought about it, I could come up with a better structure, but first I wanted to answer a different question:
+This is pretty typical for personal blog-style sites, and it's a good starting point -- but I was feeling the limits of this model.
+Once I drew it out on paper, I realised that I wanted something more granular.
+I was trying to put too much different stuff in the "posts" collection, and I wasn't keeping track of what I'd put in the "pages" collection.
+(As part of this work, I found one page that was at least a year out of date, and still talked in detail about a previous employer.)
+
+I wanted to think more carefully about how I organise this site, and what a better content model might look like, but first I had to answer a different question:
 
 [Jekyll]: https://jekyllrb.com/
 [melankorin]: https://melankorin.net/blog/2023/06/19/
