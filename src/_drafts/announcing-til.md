@@ -57,23 +57,37 @@ I wanted to think more carefully about how I organise this site, and what a bett
 
 ## Who are you writing for?
 
-I've been avoiding this question for ages, because it feels a bit conceited to imagine I have an "audience" -- but like it or not, I do.
-This website gets about 10,000 unique visitors a month.
+I've shied away from this question for ages, because it feels a bit conceited to imagine I have an "audience" -- but I do, even if it's only a small one.
+If I want to take my writing more seriously, I have to think about who I'm writing for.
 
+(This site gets about 10,000 unique visitors per month.
+Maybe that's not big in Internet terms, but if I imagine that many people gathered in one place to hear me speak, it's mildly terrifying.)
 
-**The main reason I write for this site is because I want to.**
-Nobody is paying me
+There are three groups I think about when I'm writing:
 
+1.  **Me!**
+    When I started this site, I was just writing for myself -- writing was fun and I wanted to get better at it.
+    I posted online because it gave me a vague sense of accountability, but I wasn't fussed about anybody was actually reading it.
+    
+    I also find writing a useful way to capture [periods of hyperfixation][hyperfixation].
+    I'll have an idea, spend a week or so thinking about it in great detail, and then my brain moves on to something else.
+    Writing it down is a way to make sure I don't forget everything when my hyperfocus goes elsewhere, and I refer back to old articles regularly.
+    
+    Everything I write here has to be something I think is fun, interesting, or that I'll want to look back on later.
 
-When I started this site, I didn't have any readers.
-I was doing it to practice my writing skills, and posting my work online gave me a vague sense of accountability.
+2.  **Casual searchers.**
+    A lot of people arrive on the site from Google or another search engine, looking for answers to a specific problem.
+    My posts do pretty well in Google, because they have descriptive titles and they contain practical information.
+    
+    These people land on the site, read one post to get the info they need, then disappear.
+    They're looking for a quick and easy fix to their current problem, and they're unlikely to look around.
+    
+    This group is the majority of traffic -- about two-thirds of my visitors come from a search engine, and almost all of that is from Google.
 
-This is a question I've ignored for a long time
+[hyperfixation]: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 
-10,000 unique visitors a month.
-That's small by web standards
+---
 
-## what's audience of this site?
 
 
 
