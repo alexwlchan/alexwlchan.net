@@ -67,53 +67,47 @@ There are three groups I think about when I'm writing:
 
 1.  **Me!**
     When I started this site, I was just writing for myself -- writing was fun and I wanted to get better at it.
-    I posted online because it gave me a vague sense of accountability, but I wasn't fussed about anybody was actually reading it.
+    I posted online because it gave me a vague sense of accountability, but I wasn't fussed about whether anybody was actually reading it.
     
     I also find writing a useful way to capture [periods of hyperfixation][hyperfixation].
     I'll have an idea, spend a week or so thinking about it in great detail, and then my brain moves on to something else.
-    Writing it down is a way to make sure I don't forget everything when my hyperfocus goes elsewhere, and I refer back to old articles regularly.
+    Writing an article gives me a sense of completion that makes it easier to move on, and ensures I don't forget all that thinking.
+    I refer back to old articles regularly.
     
-    Everything I write here has to be something I think is fun, interesting, or that I'll want to look back on later.
+    I want everything I write to be fun, interesting, or something I'll want to look back on later.
 
 2.  **Casual searchers.**
     A lot of people arrive on the site from Google or another search engine, looking for answers to a specific problem.
-    My posts do pretty well in Google, because they have descriptive titles and they contain practical information.
+    My posts do pretty well in search queries, because they have descriptive titles and they contain practical information.
     
     These people land on the site, read one post to get the info they need, then disappear.
-    They're looking for a quick and easy fix to their current problem, and they're unlikely to look around.
+    They want for a quick and easy fix to their current problem, and they're unlikely to look around at the rest of the site.
+    They usually only look at a single page.
     
     This group is the majority of traffic -- about two-thirds of my visitors come from a search engine, and almost all of that is from Google.
+
+3.  **Dedicated readers.**
+    These are people who know who I am and want to read something written by me, because they like me and what I write.
+    They aren't looking for specific information; they're looking for something interesting and engaging.
+    
+    I think this is mostly people who know me well -- friends, family, colleagues.
+    It's a smaller group, but I care about their opinions more than those of casual searchers. 
+
+So how am I doing?
+I'm pretty happy with how the site is going for me, and I think it works pretty well for casual searchers -- but I'm not sure how good it is for dedicated readers.
+(Which probably includes you, if you've read this far into the post!)
+
+I've spoken to people in the past who seemed genuinely interested, visited the site, and were turned off because they only saw posts with very specific titles that they didn't understand.
+I'm sure I have articles they'd have found interesting, but they was too difficult for them to find.
+This has been a long-standing problem with the site, and it's one I'm keen to solve.
+I want to do more of the sort of writing that appeals to dedicated readers, and I don't want it to get buried.
+
+This is the stuff that was on my mind as I was rethinking the content model.
 
 [hyperfixation]: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 
 ---
 
-
-
-
-  - bit late to ask, better late than never
-  - 1/ me
-      - initially no visitors
-      - writing to practice
-      - posting online gave sense of accountability
-  - 2/ casual searchers
-      - looking in google for answer to specific problem
-      - my posts do well here
-      - land on site, read one post, go away
-      - looking for something quick and easy
-      - v unlikely to look around
-  - 3/ dedicated readers
-      - friends, family, colleagues
-      - know who I am and want to read stuff I've written
-      - not looking for specific info
-
-how am I doing?
-  1/ I'm fine
-  2/ site works well
-  3/ not convinced it works well -- content is too variable
-  
-chances are, if you're this far into this post, you're in bucket 3 (or I hope you'll be!)
-  
 ## better content model!
 
 TILs
