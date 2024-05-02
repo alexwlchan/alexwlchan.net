@@ -16,7 +16,7 @@ The new TIL section will have shorter posts with quick, practical insights, idea
 The concept of a "today I learned" microblog isn't new -- [plenty][simonwillison] [of other][jbranchaud] [people][github] have been doing it for years.
 I felt like it might be useful for me as well, but I couldn't explain why.
 There are good reasons for having a TIL section, but "lots of other people are doing it" isn't one of them.
-It took a while before I could explain why I think it's a good idea for me. 
+It took a while before I could explain why I think it's a good idea for me.
 
 My new TIL section already has [over 50 posts](/til/), because I've been working on it quietly for a while.
 Writing it in private for several months has given me a better sense of what a TIL section is good for, why it should be separate, and how it will make the site better.
@@ -68,30 +68,30 @@ There are three groups I think about when I'm writing:
 1.  **Me!**
     When I started this site, I was just writing for myself -- writing was fun and I wanted to get better at it.
     I posted online because it gave me a vague sense of accountability, but I wasn't fussed about whether anybody was actually reading it.
-    
+
     I also find writing a useful way to capture [periods of hyperfixation][hyperfixation].
     I'll have an idea, spend a week or so thinking about it in great detail, and then my brain moves on to something else.
     Writing an article gives me a sense of completion that makes it easier to move on, and ensures I don't forget all that thinking.
     I refer back to old articles regularly.
-    
+
     I want everything I write to be fun, interesting, or something I'll want to look back on later.
 
 2.  **Casual searchers.**
     A lot of people arrive on the site from Google or another search engine, looking for answers to a specific problem.
     My posts do pretty well in search queries, because they have descriptive titles and they contain practical information.
-    
+
     These people land on the site, read one post to get the info they need, then disappear.
     They want for a quick and easy fix to their current problem, and they're unlikely to look around at the rest of the site.
     They usually only look at a single page.
-    
+
     This group is the majority of traffic -- about two-thirds of my visitors come from a search engine, and almost all of that is from Google.
 
 3.  **Dedicated readers.**
     These are people who know who I am and want to read something written by me, because they like me and what I write.
     They aren't looking for specific information; they're looking for something interesting and engaging.
-    
+
     I think this is mostly people who know me well -- friends, family, colleagues.
-    It's a smaller group, but I care about their opinions more than those of casual searchers. 
+    It's a smaller group, but I care about their opinions more than those of casual searchers.
 
 So how am I doing?
 I'm pretty happy with how the site is going for me, and I think it works pretty well for casual searchers -- but I'm not sure how good it is for dedicated readers.
@@ -107,6 +107,24 @@ This is the stuff that was on my mind as I was rethinking the content model.
 [hyperfixation]: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 
 ## Different posts for different audiences
+
+Once I'd thought about my audience, the problem with my content model became clear.
+I'd been trying to write all my posts as if they were going to be read by both casual searchers and dedicated readers, even though that rarely happens in practice.
+This made the posts worse for both audiences.
+
+For example, I'd be writing a practical how-to post for a specific problem, and I'd try to add some extra information or commentary that would be interesting to a dedicated reader.
+
+---
+
+Casual searchers and dedicated readers want different styles of writing, and my mistake was trying to write all my posts as if they were going to be read by both groups.
+In practice, I know my posts are mostly read by one or the other -- articles with specific
+
+
+Casual searchers and dedicated readers are separate groups, and they each need a different style of writing.
+I already have a sense of what those differences are, but I wasn't putting them into practice.
+Too often I was trying to write for both audiences at once, and the result
+
+If I'm writing something that I expect to end up in Google search results, I approach it differently to a post I want to reach a broad audience.
 
 {%
   picture
@@ -132,7 +150,7 @@ articles
   - more engaging for readers, broader appeal
   - but harder to write! no hook
   - but this is what I want to write more of
-  
+
 previously had them shoved into one bucket, neither was good
 
 splitting them out = many advantages
@@ -172,7 +190,7 @@ still a few rough edges, e.g. tags
 how do I show same tag across both post types. do I need to?
 
 
-I don’t want to pretend that splitting out TILd into their own section 
+I don’t want to pretend that splitting out TILd into their own section
 Is some sort of miracle cure, But I do think it solves a bunch of My low-grade frustrations about the site
 Maybe it’s just confirmation bias, but this change feels right
 
