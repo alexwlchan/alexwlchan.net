@@ -202,9 +202,13 @@ module Jekyll
         }
       )
 
-      # Make sure the CSS doesn't through a white background behind
-      # this dark-aware image.
-      unless dark_sources.nil?
+      # I have a CSS rule that adds a white background behind any
+      # images shown in dark mode, so e.g. diagrams in transparent PNGs
+      # will appear properly.
+      #
+      # We don't need to this this if there's a dark-mode variant of
+      # the image.
+      unless dark_sources.empty?
         @attrs['class'] = "#{@attrs['class']} dark_aware".strip
       end
 
