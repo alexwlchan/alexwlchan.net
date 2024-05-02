@@ -106,6 +106,14 @@ This is the stuff that was on my mind as I was rethinking the content model.
 
 [hyperfixation]: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 
+## Different posts for different audiences
+
+{%
+  picture
+  filename="new_content_model.png"
+  width="500"
+%}
+
 ---
 
 ## better content model!
