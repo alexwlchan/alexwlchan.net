@@ -29,6 +29,11 @@ This includes an early example of [ballot stuffing](https://en.wikipedia.org/wik
 
 He describes a scene on the [Douris cup](https://artsandculture.google.com/asset/douris-cup-douris/RgEQ3G5u78H7Zg?hl=en), in which men cast votes for Ajax and Odysseus using piles of pebbles -- a scene which appears in other, later artworks.
 One notable aspect is that there doesn't seem to be any secrecy involved in the voting; two men are in the middle of voting, and we can see who they're voting for.
+
+> The voting scene on the outside of a cup by Douris is the best known and most often reproduced of the paintings. Athena stands behind a low table (or altar?) which men approach from right and left. They are about to vote; two, in fact, are in the act of voting. That the others have already voted is clear from the two small piles of pebbles on the altar. The pebbles to the left appear to be about double the number of those on the right. They represent votes cast for Odysseus, the victor, while those to the right, fewer, have been cast for Ajax. The two heroes themselves appear at the extreme right and left. Athena, gesturing gracefully with her right hand, certifies Odysseus' victory, although the voting is not yet over. 
+
+feels like a paralle of modern politics, where result is often known before voting is concluded
+
 (Sorry Ajax.)
 
 He also describes the use of pebbles as a counting mechanism, when fingers weren't sufficient.
