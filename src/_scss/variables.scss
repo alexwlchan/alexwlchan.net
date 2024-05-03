@@ -1,5 +1,8 @@
 @use "sass:math";
 
+$max-width: 750px;
+$default-padding: 20px;
+
 :root {
   /* ====================
    * Font and text styles
@@ -18,11 +21,11 @@
   /* =============================
    * Margins and page layout stuff
    * ============================= */
-  --max-width: 750px;
+  --max-width: #{$max-width};
 
   --grid-gap: 10px;
 
-  --default-padding: 20px;
+  --default-padding: #{$default-padding};
 
   --border-radius: 10px;
   --border-style:  solid;

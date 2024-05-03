@@ -25,34 +25,26 @@
  *
  */
 
-:root {
-  --max-width-image-overflow: 200px;
+$max-width-image-overflow: 200px;
+$full-width-breakpoint: $max-width + $max-width-image-overflow + 2 * $default-padding;
+$gradual-width-breakpoint: $max-width + 2 * $default-padding;
 
-  --full-width-breakpoint: calc(
-    var(--max-width) + var(--max-width-image-overflow) + 2 * var(--default-padding)
-  );
-
-  --gradual-width-breakpoint: calc(
-    var(--max-width) + 2 * var(--default-padding)
-  );
-}
-
-@media screen and (min-width: var(--full-width-breakpoint)) {
+@media screen and (min-width: $full-width-breakpoint) {
   .wide_img {
-    max-width: calc(100% + var(--max-width-image-overflow));
-    margin-left:  calc(-1 * var(--max-width-image-overflow) / 2);
-    margin-right: calc(-1 * var(--max-width-image-overflow) / 2);
+    max-width: calc(100% + #{$max-width-image-overflow});
+    margin-left:  calc(-1 * #{$max-width-image-overflow} / 2);
+    margin-right: calc(-1 * #{$max-width-image-overflow} / 2);
   }
 
   .wide_img, .fullwidth_img {
     figcaption {
-      padding-left:  calc(var(--max-width-image-overflow) / 2 + env(safe-area-inset-left));
-      padding-right: calc(var(--max-width-image-overflow) / 2 + env(safe-area-inset-right));
+      padding-left:  calc(#{$max-width-image-overflow} / 2 + env(safe-area-inset-left));
+      padding-right: calc(#{$max-width-image-overflow} / 2 + env(safe-area-inset-right));
     }
   }
 }
 
-@media screen and (min-width: var(--gradual-width-breakpoint)) and (max-width: var(--full-width-breakpoint)) {
+@media screen and (min-width: $gradual-width-breakpoint) and (max-width: $full-width-breakpoint) {
   .wide_img {
     // Screen size less padding on either side
     max-width: calc(100vw - 2 * var(--default-padding));
@@ -81,7 +73,7 @@
 // The "photo" class is semantic-ish, it describes what the picture is
 // rather than how it should behave.  cf 'screenshot'.  I want to use it more!
 
-@media screen and (max-width: var(--max-width)) {
+@media screen and (max-width: $max-width) {
   .wide_img, .fullwidth_img, .photo {
     width:        calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
     max-width:    calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
