@@ -1,27 +1,32 @@
 ---
-layout: til
-date: 2024-05-03 02:25:59 +0100
-title: Psephology is the statistical study of elections
+layout: post
+title: What is psephology?
 summary: |
-  The prefix *pseph-* comes from the ancient Greek word *psephos* meaning "pebble", which was used to cast votes in Greek elections.
+  It's the scientific study of elections and voting, and it comes from the Greek word for "pebble", because pebbles were used for voting in ancient Greece.
 tags:
   - politics
   - naming-things
   - history
+colors:
+  index_light: "#c76a3a"
+  index_dark:  "#f59a53"
 ---
-I was reading the Guardian live blog for yesterday's local elections, and they used a word I didn't recognise (emphasis mine):
+Yesterday there were local elections in the UK, and this morning I've been catching up on the news.
+As I was reading Yohannes Lowe's live coverage in the Guardian, I [spotted a word I didn't recognise][guardian] (emphasis mine):
 
-https://www.theguardian.com/politics/live/2024/may/02/local-elections-2024-latest-results-live-tory-conservative-labour-lib-dem-green-south-blackpool-mayor-london-west-midlands-tees-valley?page=with:block-6633f9e98f08715725f7b79e#block-6633f9e98f08715725f7b79e
+> Labour and the Conservatives are each defending about 1,000 seats, and *psephologists* predict that the Tories may lose about 500.
 
-> Labour and the Conservatives are each defending about 1,000 seats, and **psephologists** predict that the Tories may lose about 500.
+A quick trip to Google cleared up my initial confusion: psephologists are experts in *psephology*, which is the scientific study of elections and voting behaviour.
 
-Apparently psephology is a field about applying scientific principles and statistical methods to elections, so it makes sense they'd make specific predictions about results.
-Pretty much everyone is predicting a bad night for the Tories, but not everybody is guessing exact numbers.
+I could have guessed that definition from the context, but not if I saw the word in isolation.
+Although I recognise the *-ology* suffix as "the study of something", I didn't recognise the *pseph-* prefix at all, and I was curious where it came from.
+
+[guardian]: https://www.theguardian.com/politics/live/2024/may/02/local-elections-2024-latest-results-live-tory-conservative-labour-lib-dem-green-south-blackpool-mayor-london-west-midlands-tees-valley?page=with:block-6633f9e98f08715725f7b79e#block-6633f9e98f08715725f7b79e
 
 ## Voting and counting in ancient Greece
 
-I've never come across *pseph-* as a prefix, so I've never have guessed this word.
-The Wikipedia entry refers to [an article by Annelisa Stephan](https://www.getty.edu/news/voting-with-the-ancient-greeks/) for the etymology -- it comes from ancient Greece:
+The [Wikipedia article][wikipedia] for psephology explains that *pseph-* comes from the Greek word for pebble, because they were used for voting in ancient Greece.
+It refers to [an article by Annelisa Stephan][getty]:
 
 > Voting with pebbles? Even allowing for artistic license, it seems the Greeks really did it this way. Voters deposited a pebble into one of two urns to mark their choice; after voting, the urns were emptied onto counting boards for tabulation. […] In ancient Greece a pebble was called a *psephos*, which gives us the dubious term psephology, the scientific study of elections.
 
@@ -30,7 +35,23 @@ It talks about voting using special bronze discs as ballots, and various mechani
 
 This includes an early example of [ballot stuffing](https://en.wikipedia.org/wiki/Electoral_fraud#Ballot_stuffing), when "thirty men somehow dropped a total of more than sixty ballots into [the urn]".
 
-He describes a scene on the [Douris cup](https://artsandculture.google.com/asset/douris-cup-douris/RgEQ3G5u78H7Zg?hl=en), in which men cast votes for Ajax and Odysseus using piles of pebbles -- a scene which appears in other, later artworks.
+<figure class="fullwidth_img">
+  {%
+    picture
+    filename="voting_on_vases.jpg"
+    width="750"
+    class="photo"
+  %}
+</figure>
+
+[wikipedia]: https://en.wikipedia.org/wiki/Psephology
+[getty]: https://www.getty.edu/news/voting-with-the-ancient-greeks/
+
+---
+
+
+
+He describes a scene from Greek vase paintings, in which men cast votes for Ajax and Odysseus using piles of pebbles.
 One notable aspect is that there doesn't seem to be any secrecy involved in the voting; two men are in the middle of voting, and we can see who they're voting for.
 
 > The voting scene on the outside of a cup by Douris is the best known and most often reproduced of the paintings. Athena stands behind a low table (or altar?) which men approach from right and left. They are about to vote; two, in fact, are in the act of voting. That the others have already voted is clear from the two small piles of pebbles on the altar. The pebbles to the left appear to be about double the number of those on the right. They represent votes cast for Odysseus, the victor, while those to the right, fewer, have been cast for Ajax. The two heroes themselves appear at the extreme right and left. Athena, gesturing gracefully with her right hand, certifies Odysseus' victory, although the voting is not yet over. 
