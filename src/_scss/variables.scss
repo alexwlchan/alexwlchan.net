@@ -105,9 +105,8 @@ $body-text-dark:  #c7c7c7;
 
     --nav-background-url: url('/headers/specktre_#{colorToHexString($light-color)}.png');
 
-    --link-color:                    #{$light-color};
-    --link-visited-color:            #{darken($light-color, 15%)};
-    --link-visited-hover-background: #{rgba(darken($light-color, 15%), 0.2)};
+    --link-color:         #{$light-color};
+    --link-visited-color: #{darken($light-color, 15%)};
 
     --block-border-color:     #{rgba($light-color, 0.1)};
     --block-background-color: #{hsla(hue($light-color), saturation($light-color), 95%, 0.4)};
@@ -117,9 +116,8 @@ $body-text-dark:  #c7c7c7;
     :root {
       --primary-color: #{$dark-color};
 
-      --link-color:                    #{$dark-color};
-      --link-visited-color:            #{lighten($dark-color, 15%)};
-      --link-visited-hover-background: #{rgba(lighten($dark-color, 15%), 0.2)};
+      --link-color:         #{$dark-color};
+      --link-visited-color: #{lighten($dark-color, 15%)};
 
       --block-border-color:     #{rgba($dark-color, 0.3)};
       --block-background-color: #{hsla(hue($dark-color), saturation($dark-color), 5%, 0.7)};

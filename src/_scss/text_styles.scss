@@ -1,15 +1,21 @@
 a {
   text-underline-offset: 2px;
+  color: var(--link-color);
 
-  &               { color: var(--link-color);                         }
-  &:visited       { color: var(--link-visited-color);                 }
+  &:visited { color: var(--link-visited-color); }
 
-  &:hover         {
+  &:hover {
     text-decoration: underline;
     text-decoration-thickness: 4px;
     text-decoration-skip-ink: none;
     background: none;
   }
 
-  &:visited:hover { background: var(--link-visited-hover-background); }
+  &.download {
+    border-color: var(--link-color);
+
+    // We need to override the background styles
+    color: var(--link-color) !important;
+    background: rgba(white, 0.4) !important;
+  }
 }
