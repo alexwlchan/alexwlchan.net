@@ -108,9 +108,9 @@ This is the stuff that was on my mind as I was rethinking the content model.
 
 ## Different posts for different audiences
 
-Once I had a proper description of my audience, the problem with my content model became clear.
+Once I'd thought about my audience, the limitations of my old content model became clear.
 
-I'd been writing all my posts as if they'd be read by both casual searchers and dedicated readers, even though that almost never happens.
+I'd been writing my posts as if they'd be read by both casual searchers and dedicated readers, even though that almost never happens.
 Most of my posts do well with one group, and get ignored by the other.
 Trying to serve both groups is a fool's errand, and it makes the posts worse for everyone.
 
@@ -119,7 +119,7 @@ I was trying to add colour; to make the post more interesting to a dedicated rea
 But this isn't helping anyone -- a casual searcher will skip that paragraph because it's not about their immediate problem, and a dedicated reader will skip the entire post because it's about a specific problem they don't have.
 They'll never see that extra info!
 
-I realised that the single "posts" collection was wrong -- I needed two different types of post, one for casual searchers and one for dedicated readers.
+I realised that having a single list of "posts" was wrong -- I needed two different types of post, one for casual searchers and one for dedicated readers.
 This led me to create separate Article and TIL types in the content model:
 
 {%
@@ -129,8 +129,15 @@ This led me to create separate Article and TIL types in the content model:
 %}
 
 The *Today I Learned (TIL)* posts are for casual searchers.
-They explain how to solve a specific problem in a particular circumstance.
-This means they're really useful if you have that exact problem, and fairly boring if you don't.
+They explain one thing: how to solve a specific problem in a particular circumstance.
+This makes them really useful if you have that exact problem, and fairly boring if you don't.
+
+I can write these posts quite quickly, and give them a descriptive title so they're easily discoverable from Google.
+
+Articles: These are in-depth explorations meant to engage dedicated readers. They include broader topics, personal reflections, and deeper insights that go beyond immediate problem-solving. This format is designed to foster a stronger connection and provide meaningful content that dedicated readers seek.
+Today I Learned (TIL): This category caters to casual searchers. Each TIL post is concise and focuses on providing immediate, actionable solutions to specific problems. This format ensures that casual searchers find exactly what they need quickly and efficiently.
+
+
 
 ## better content model!
 
