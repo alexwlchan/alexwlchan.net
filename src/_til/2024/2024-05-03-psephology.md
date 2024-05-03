@@ -7,8 +7,11 @@ summary: |
 tags:
   - politics
   - naming-things
+  - history
 ---
 I was reading the Guardian live blog for yesterday's local elections, and they used a word I didn't recognise (emphasis mine):
+
+https://www.theguardian.com/politics/live/2024/may/02/local-elections-2024-latest-results-live-tory-conservative-labour-lib-dem-green-south-blackpool-mayor-london-west-midlands-tees-valley?page=with:block-6633f9e98f08715725f7b79e#block-6633f9e98f08715725f7b79e
 
 > Labour and the Conservatives are each defending about 1,000 seats, and **psephologists** predict that the Tories may lose about 500.
 
