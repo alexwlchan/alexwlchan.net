@@ -8,8 +8,8 @@ tags:
   - naming-things
   - history
 colors:
-  index_light: "#c76a3a"
-  index_dark:  "#f59a53"
+  css_light: "#b26036"
+  css_dark:  "#f59a53"
 ---
 Yesterday there were local elections in the UK, and this morning I've been catching up on the news.
 As I was reading Yohannes Lowe's live coverage in the Guardian, I [spotted a word I didn't recognise][guardian] (emphasis mine):
@@ -35,26 +35,61 @@ It talks about voting using special bronze discs as ballots, and various mechani
 
 This includes an early example of [ballot stuffing](https://en.wikipedia.org/wiki/Electoral_fraud#Ballot_stuffing), when "thirty men somehow dropped a total of more than sixty ballots into [the urn]".
 
-<figure class="fullwidth_img">
-  {%
-    picture
-    filename="voting_on_vases.jpg"
-    width="750"
-    class="photo"
-  %}
-</figure>
-
 [wikipedia]: https://en.wikipedia.org/wiki/Psephology
 [getty]: https://www.getty.edu/news/voting-with-the-ancient-greeks/
 
----
+He also describes a scene from Greek vase paintings, in which men cast votes for Ajax and Odysseus using piles of pebbles.
+One notable aspect is that there doesn't seem to be any secrecy involved in the voting -- we can see who two of the men are voting for.
 
+<style>
+  @media screen and (min-width: 700px) {
+    #vases {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: var(--grid-gap);
+    }
 
+    #vases figure {
+      grid-row: 1 / 1;
+      grid-column: 2 / 2;
+      margin-top: 0;
+    }
 
-He describes a scene from Greek vase paintings, in which men cast votes for Ajax and Odysseus using piles of pebbles.
-One notable aspect is that there doesn't seem to be any secrecy involved in the voting; two men are in the middle of voting, and we can see who they're voting for.
+    #vases blockquote {
+      grid-row: 1 / 1;
+      grid-column: 1 / 2;
+      margin-top: 0;
+    }
+  }
 
-> The voting scene on the outside of a cup by Douris is the best known and most often reproduced of the paintings. Athena stands behind a low table (or altar?) which men approach from right and left. They are about to vote; two, in fact, are in the act of voting. That the others have already voted is clear from the two small piles of pebbles on the altar. The pebbles to the left appear to be about double the number of those on the right. They represent votes cast for Odysseus, the victor, while those to the right, fewer, have been cast for Ajax. The two heroes themselves appear at the extreme right and left. Athena, gesturing gracefully with her right hand, certifies Odysseus' victory, although the voting is not yet over. 
+  @media screen and (max-width: 700px) {
+    #vases figure {
+      width: calc(100% - 2 * var(--default-padding));
+    }
+  }
+
+</style>
+
+<div id="vases">
+  <figure>
+    {%
+      picture
+      filename="voting_on_vases.jpg"
+      width="700"
+      link_to="https://www.getty.edu/art/collection/object/103W7A?altImage=458e6e84-6c86-4b76-835a-670cfb3f416f"
+    %}
+    <figcaption>
+      Extract from the bottom of a red-figured kylix.
+      Photo from <a href="https://www.getty.edu/art/collection/object/103W7A?altImage=458e6e84-6c86-4b76-835a-670cfb3f416f">the J.&nbsp;Paul Getty Museum</a> website, 86.AE.286.
+      Public domain.
+    </figcaption>
+  </figure>
+  <blockquote>
+    <p>
+      Athena stands behind a low table (or altar?) which men approach from right and left. They are about to vote; two, in fact, are in the act of voting. That the others have already voted is clear from the two small piles of pebbles on the altar. The pebbles to the left appear to be about double the number of those on the right. They represent votes cast for Odysseus, the victor, while those to the right, fewer, have been cast for Ajax. The two heroes themselves appear at the extreme right and left. Athena, gesturing gracefully with her right hand, certifies Odysseus' victory, although the voting is not yet over.
+    </p>
+  </blockquote>
+</div>
 
 feels like a paralle of modern politics, where result is often known before voting is concluded
 
