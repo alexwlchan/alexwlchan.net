@@ -114,13 +114,13 @@ I'd been writing my posts as if they'd be read by both casual searchers and dedi
 Most of my posts do well with one group, and get ignored by the other.
 Trying to serve both groups is a fool's errand, and it makes the posts worse for everyone.
 
-For example, when I writing practical how-tos about specific problems, I'd add some extra information or commentary.
+For example, when writing practical how-tos about specific problems, I'd include some extra information or commentary.
 I was trying to add colour; to make the post more interesting to a dedicated reader.
-But this isn't helping anyone -- a casual searcher will skip that paragraph because it's not about their immediate problem, and a dedicated reader will skip the entire post because it's about a specific problem they don't have.
+But this isn't helping anyone -- a casual searcher will skip that paragraph because it's not about their immediate problem, and most dedicated readers will skip the entire post because it's about a problem they don't have.
 They'll never see that extra info!
 
 I realised that having a single list of "posts" was wrong -- I needed two different types of post, one for casual searchers and one for dedicated readers.
-This led me to create separate Article and TIL types in the content model:
+This led me to create split the post type in my content model, one for each group:
 
 {%
   picture
@@ -128,50 +128,37 @@ This led me to create separate Article and TIL types in the content model:
   width="500"
 %}
 
-The *Today I Learned (TIL)* posts are for casual searchers.
-They explain one thing: how to solve a specific problem in a particular circumstance.
-This makes them really useful if you have that exact problem, and fairly boring if you don't.
+Now I have two sub-types of post:
 
-I can write these posts quite quickly, and give them a descriptive title so they're easily discoverable from Google.
+1.  A *Today I Learned (TIL)* post is for casual searchers.
+    They explain one thing: how to solve a specific problem in a particular circumstance.
+    This makes them really useful if you have that exact problem, and fairly boring if you don't.
 
-Articles: These are in-depth explorations meant to engage dedicated readers. They include broader topics, personal reflections, and deeper insights that go beyond immediate problem-solving. This format is designed to foster a stronger connection and provide meaningful content that dedicated readers seek.
-Today I Learned (TIL): This category caters to casual searchers. Each TIL post is concise and focuses on providing immediate, actionable solutions to specific problems. This format ensures that casual searchers find exactly what they need quickly and efficiently.
+    I can write TIL posts pretty quickly, and give them descriptive titles so they're easily discoverable from Google.
 
+    Examples: [How to see the HTTP requests being made by pywikibot], [Why is Pillow rotating my image when I save it?]
 
+    [How to see the HTTP requests being made by pywikibot]: /til/2024/how-to-see-pywikibot-http-requests/
+    [Why is Pillow rotating my image when I save it?]: /til/2024/photos-can-have-orientation-in-exif/
 
-## better content model!
+2.  An *article* is an longer, in-depth piece of writing meant for dedicated readers.
+    It might include broader topic, personal reflections or deeper insights than an immediate "how-to".
+    This sort of writing is meant to be appealing to a wide audience.
 
-TILs
-  - these are for casual searchers
-  - typically explain one thing
-  - solve specific problem in particular circumstances
-  - v descriptive titles => good in google
-  - great if you have problem, boring if everything else
-  - pretty quick to write, can often write in an hour or so
-  - splitting out relives me of pressure of trying to be "interesting"
+    These posts take more time to write, and I need to work harder to keep readers engaged -- I don't have the easy hook of a promise to a pressing problem.
+    But I find these posts more satisfying to write, and I'm more proud of them when they're done.
 
-articles
-  - these are for dedicated readers
-  - longer prose, take more time
-  - more engaging for readers, broader appeal
-  - but harder to write! no hook
-  - but this is what I want to write more of
+    Examples: [Taking regular screenshots of my website](/2024/scheduled-screenshots/), [Making a PDF that’s larger than Germany](/2024/big-pdf/), [Hyperfocus and hobbies](/2023/hyperfocus-and-hobbies/)
 
-previously had them shoved into one bucket, neither was good
+With this structure, I could also think about how some of my pages fit into this model.
+The homepage is meant to help dedicated readers find interesting articles; the contact page is where they go afterward.
+Now these pages have a purpose, and aren't just free-floating.
 
-splitting them out = many advantages
+Splitting my posts allows the two types to diverge, and each type can be optimised for its strengths.
+TIL posts can be short, succinct, and I can ditch the lyrical prose -- making it faster for casual searchers to find the information they want.
+Articles can be longer, more detailed, and contain more stuff that dedicated readers find interesting about my style.
 
-TILs
-  - can be short, to the point
-  - no attempts at lyrical prose
-  - no pretence that will be read by anybody who isn't coming from google
-  - shorter, tighter, better for those readers
-
-articles
-  - can be longer, more spaced-out
-  - homepage only features articles, easier to find
-  - easier for dedicated readers to find articles
-  - no longer drowned out by TIL posts
+had a profound impact on how I think about my writing
 
 can also blend them with the magic of ~hyperlinks~
 e.g screenshots
@@ -202,6 +189,8 @@ In previous attempts, I’ve shoved them on site domains or side blogs and quick
 
 I’ve already written 54 TIL posts this year (about one every two days)
 This feels like it’s going to stick
+
+and pages still need work
 
 still a few rough edges, e.g. tags
 how do I show same tag across both post types. do I need to?
