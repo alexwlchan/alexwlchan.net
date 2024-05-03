@@ -79,6 +79,7 @@ One notable aspect is that there doesn't seem to be any secrecy involved in the 
       picture
       filename="voting_on_vases.jpg"
       width="700"
+      alt="A black and orange fragment of vase depicting a scene of two men voting at an altar. A woman stands on the altar, with a pile of small circles to represent pebbles on either side. On the right-hand side, a man is reaching down to put a pebble on one of the piles and cast his vote."
       link_to="https://www.getty.edu/art/collection/object/103W7A?altImage=458e6e84-6c86-4b76-835a-670cfb3f416f"
     %}
     <figcaption>
