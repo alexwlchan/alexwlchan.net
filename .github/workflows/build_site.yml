@@ -66,6 +66,15 @@ jobs:
           key: "jekyll-cache-${{ github.sha }}"
           restore-keys: "jekyll-cache-"
 
+      - name: "Set the JEKYLL_ENV variable"
+        run: |
+          if [[ "$GITHUB_REF" == "main" ]]
+          then
+            echo "JEKYLL_ENV=production" >> "$GITHUB_ENV"
+          else
+            echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
+          fi
+
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
 

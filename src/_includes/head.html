@@ -13,6 +13,7 @@
 <meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
 <meta name="page-source-path" content="{{ page.path }}">
+<meta name="jekyll-environment" content="{{ jekyll.environment}}" >
 
 {% if page.colors.css_light %}
   <link rel="shortcut icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
@@ -31,4 +32,6 @@
 <link rel="stylesheet" href="/static/style.css?md5={% css_fingerprint %}">
 {% tint_color_css %}
 
-{% include_cached analytics.html %}
+{% if jekyll.environment == "production" %}
+  {% include_cached analytics.html %}
+{% endif %}
