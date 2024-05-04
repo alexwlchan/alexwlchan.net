@@ -68,6 +68,8 @@ jobs:
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
+        env:
+          JEKYLL_ENV: production
 
       - name: "Run linting"
         run: bundle exec ruby scripts/linter.rb
@@ -92,6 +94,8 @@ jobs:
           else
             echo "There is no _drafts folder, so nothing to publish!"
           fi
+        env:
+          JEKYLL_ENV: production
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v3.0
