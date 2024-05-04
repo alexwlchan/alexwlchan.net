@@ -13,6 +13,7 @@
 <meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
 <meta name="page-source-path" content="{{ page.path }}">
+<meta name="jekyll-environment" content="{{ jekyll.environment}}" >
 
 {% if page.colors.css_light %}
   <link rel="shortcut icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
