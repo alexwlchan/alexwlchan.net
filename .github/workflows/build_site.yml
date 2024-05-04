@@ -68,7 +68,7 @@ jobs:
 
       - name: "Set the JEKYLL_ENV variable"
         run: |
-          if [[ "$GITHUB_REF" == "main" ]]
+          if [[ "$GITHUB_REF" == "refs/heads/main" ]]
           then
             echo "JEKYLL_ENV=production" >> "$GITHUB_ENV"
           else
