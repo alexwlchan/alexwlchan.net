@@ -183,6 +183,15 @@ but I got there in the end
 meta-goal for this site has been testing ground for new ideas and approaches
 writing, programming, and now content design
 
+## How's it going?
+
+really well!
+
+floor to posting has dropped to zero
+has filled gap left by twitter
+
+using it as a sort of public notes, seed stuff for google
+
 ---
 
 I actually started doing this in January, but I’m only talking about it now
