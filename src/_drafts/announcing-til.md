@@ -192,6 +192,8 @@ has filled gap left by twitter
 
 using it as a sort of public notes, seed stuff for google
 
+hyperlinks for the win
+
 ---
 
 I actually started doing this in January, but I’m only talking about it now
