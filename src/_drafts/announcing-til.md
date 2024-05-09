@@ -136,72 +136,71 @@ This is what led to *Today I Learned (TIL)* and *Articles*:
   width="500"
 %}
 
+As well as splitting the two types conceptually, I also wanted to split the way you get to them.
+I've created separate index pages and RSS feeds for the two types, and now the homepage only shows you recent articles.
+TIL posts are slightly harder to find on this site, because I know most people are finding them through Google instead.
+
 With this structure, I could also see how some of my pages fit into this model.
 The homepage helps dedicated readers find interesting articles; the contact page is where they go afterward.
 Now these pages have a purpose, and aren't just free-floating.
 
-As well as
+This distinction seems obvious in hindsight, but it took me a long time to see it.
+
+At the beginning of this year, I quietly created the new section and started writing my TIL posts there.
+Although this split sounds good in theory, I wanted to get some practice with this setup before sharing it more widely.
+
+## How's it going?
+
+I'm really pleased with how this has gone.
+Splitting my posts has allowed the two types to diverge, and I can really lean into the strengths of each style.
+
+I'm writing more Today I Learned posts than I did in the past (so far I've written one every other day).
+This is because I've lowered my threshold for posting, and I'd rather write a TIL that's short and simple than nothing at all.
+I'm treating it as a sort of public notebook.
+
+Here are some reflections:
+
+*   A common structure is "here’s what I tried, here’s what happened, and here's what I learnt".
+    This is pretty easy for me to write, so I can write more quickly.
+
+*   I've realised that in the past, I'd be hesitant to write a TIL-style post if it would push an article with broad appeal off the list of recent posts off the homepage.
+    Now TIL posts don't appear on the homepage, that hesitation is gone.
+
+*   I don't think this split has cannibalised my articles at all.
+    Looking over the list of TILs I've posted, I doubt any of them would have been written as longer articles if I hadn't made this split -- they just wouldn't have been written at all.
+
+*   I'm really leaning into TIL posts as a place to put reference links.
+    When I'm researching a problem, I open lots of browser tabs and dig through them to find the information I want.
+    Later I'd love to find one of those tabs again, but it can be surprisingly difficult to re-find websites.
+
+    I could use bookmarks (and I do pay for Pinboard), but a TIL post allows me to write a bit of extra context around the bookmark that I don't get with a standalone link.
 
 ---
 
-Splitting my posts allows the two types to diverge, and each type can be optimised for its strengths.
+I've been using the Today I Learned posts as a sort of public notebook.
+The newest posts are shorter and tighter, and often I write them as a stream of consciousness, rather than trying to invent a more sophisticated narrative.
+*"Here's what I tried, here's what I learnt, and here's what happened."*
+These changes mean I can write these posts faster and more often.
 
-Splitting my posts allows the two types to diverge, and each type can be optimised for its strengths. TIL posts can be short, succinct, and I can ditch the lyrical prose – making it faster for casual searchers to find the information they want. Articles can be longer, more detailed, and contain more stuff that dedicated readers find interesting about my style.
-
-
-
----
-
-These post types broadly map to casual searchers and dedicated readers
-
-But because I have a single collection called "posts", I was trying to write every post as it fell into both categories
+haven't cannabalised articles
 
 ---
 
-I’d been writing all my posts as if they’d be read by casual searchers and dedicated readers alike, even though that almost never happens. Most of my posts do well with one group, and get ignored by the other.
+With the Today I Learned posts, I no longer feel any requirement to make them interesting to a wide audience; I can just write about a specific nugget of information.
 
 
+, and I've essentially turned this section into a public notebook.
 
----
+easier to find
 
-It might include broader topic, personal reflections or deeper insights than an immediate “how-to”. This sort of writing is meant to be appealing to a wide audience.
-
-I'm only interested in
-
-They explain one thing: how to solve a specific problem in a particular circumstance.
-This makes them really useful if you have that exact problem, and fairly boring if you don't.
-
----
-
-Once I'd thought about my audience, the limitations of my old content model became obvious.
-I already knew that I had different styles of writing, depending on what I'm writing.
+TIL posts can be short, succinct, and I can ditch the lyrical prose – making it faster for casual searchers to find the information they want. Articles can be longer, more detailed, and contain more stuff that dedicated readers find interesting about my style.
 
 
-
-Posts for casual searchers tend to be short, succinct, neutral.
-Posts fo
-
-I'd been writing all my posts as if they'd be read by casual searchers and dedicated readers alike, even though that almost never happens.
-Most of my posts do well with one group, and get ignored by the other.
-
-I have different styles of writing depending on who I'm writing for.
-If I'm writing for a
+## What's next?
 
 ---
 
 ## Different posts for different audiences
-
-Once I'd thought about my audience, the limitations of my old content model became clear.
-
-I'd been writing my posts as if they'd be read by both casual searchers and dedicated readers, even though that almost never happens.
-Most of my posts do well with one group, and get ignored by the other.
-Trying to serve both groups is a fool's errand, and it makes the posts worse for everyone.
-
-For example, when writing practical how-tos about specific problems, I'd include some extra information or commentary.
-I was trying to add colour; to make the post more interesting to a dedicated reader.
-But this isn't helping anyone -- a casual searcher will skip that paragraph because it's not about their immediate problem, and most dedicated readers will skip the entire post because it's about a problem they don't have.
-They'll never see that extra info!
-
 
 
 Now I have two sub-types of post:
