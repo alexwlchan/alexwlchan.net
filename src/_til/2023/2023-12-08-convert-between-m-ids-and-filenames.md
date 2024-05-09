@@ -19,17 +19,16 @@ The APIs for searching/updating Wikimedia Commons typically accept both forms; s
 
     For example:
 
-    ```console
-    $ curl 'https://commons.wikimedia.org/w/api.php?action=query&format=xml&titles=File:Herestraat%20Groningen.JPG'
-    <?xml version="1.0"?>
-    <api batchcomplete="">
-      <query>
-        <pages>
-          <page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/>
-        </pages>
-      </query>
-    </api>
-    ```
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://commons.wikimedia.org/w/api.php?action=query&amp;format=xml&amp;titles=File:Herestraat%20Groningen.JPG'</span>
+<span class="go">&lt;?xml version="1.0"?&gt;</span>
+<span class="go">&lt;api batchcomplete=""&gt;</span><span class="w">
+</span><span class="go">  &lt;query&gt;</span><span class="w">
+</span><span class="go">    &lt;pages&gt;</span><span class="w">
+</span><span class="go">      &lt;page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/&gt;</span><span class="w">
+</span><span class="go">    &lt;/pages&gt;</span><span class="w">
+</span><span class="go">  &lt;/query&gt;</span><span class="w">
+</span><span class="go">&lt;/api&gt;</span><span class="w">
+</span></code></pre></div> </div>
 
 2.  To go from numeric ID to filename, go to `https://commons.wikimedia.org/?curid=[ID]`.
 
@@ -38,17 +37,16 @@ The APIs for searching/updating Wikimedia Commons typically accept both forms; s
     Alternatively, you can use the Query API with the `pageids` parameter.
     For example:
 
-    ```console
-    $ curl 'https://commons.wikimedia.org/w/api.php?action=query&format=xml&pageids=128'
-    <?xml version="1.0"?>
-    <api batchcomplete="">
-      <query>
-        <pages>
-          <page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/>
-        </pages>
-      </query>
-    </api>
-    ```
+    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://commons.wikimedia.org/w/api.php?action=query&amp;format=xml&amp;pageids=128'</span>
+<span class="go">&lt;?xml version="1.0"?&gt;</span><span class="w">
+</span><span class="go">&lt;api batchcomplete=""&gt;</span><span class="w">
+</span><span class="go">  &lt;query&gt;</span><span class="w">
+</span><span class="go">    &lt;pages&gt;</span><span class="w">
+</span><span class="go">      &lt;page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/&gt;</span><span class="w">
+</span><span class="go">    &lt;/pages&gt;</span><span class="w">
+</span><span class="go">  &lt;/query&gt;</span><span class="w">
+</span><span class="go">&lt;/api&gt;</span><span class="w">
+</span></code></pre></div> </div>
 
 [query]: https://www.mediawiki.org/wiki/API:Query
 [namespaces]: https://commons.wikimedia.org/wiki/Help:Namespaces
