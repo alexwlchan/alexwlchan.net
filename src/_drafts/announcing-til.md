@@ -45,6 +45,7 @@ I'd never really thought about this; I just used the default setup from [Jekyll]
   picture
   filename="existing_model.png"
   width="500"
+  alt="Hand-drawn sketch of a diagram with two boxes: 'posts' and 'pages'"
 %}
 
 It's an excellent default, but I was feeling the limits of this model.
@@ -134,6 +135,7 @@ This is what led to *Today I Learned (TIL)* and *Articles*:
   picture
   filename="new_content_model.png"
   width="500"
+  alt="Hand-drawn diagram with several more boxes: two labelled 'articles' and 'TILs' which are bracketed together as 'posts', plus a box called 'homepage' that points to 'articles', and another called 'contacts' pointed to by 'posts'."
 %}
 
 As well as splitting the two types conceptually, I also wanted to split the way you get to them.
