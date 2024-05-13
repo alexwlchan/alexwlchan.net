@@ -7,3 +7,10 @@ src/_files/* linguist-vendored
 # need to check out `assets/` in CI, so this is safe.
 *.key filter=lfs diff=lfs merge=lfs -text
 src/_files/2017/tweet_templates.key !filter !diff !merge text
+
+assets/2024/announcing-til/scrabble.001.jpeg filter=lfs diff=lfs merge=lfs -text
+assets/2024/announcing-til/family-2355697_1920.jpg filter=lfs diff=lfs merge=lfs -text
+assets/2024/announcing-til/mental-health-2019924_1920.jpg filter=lfs diff=lfs merge=lfs -text
+assets/2024/announcing-til/pexels-pixabay-326651.jpg filter=lfs diff=lfs merge=lfs -text
+assets/2024/announcing-til/thanks-1804597_1920.jpg filter=lfs diff=lfs merge=lfs -text
+assets/2024/announcing-til/win-1820037_1920.jpg filter=lfs diff=lfs merge=lfs -text
