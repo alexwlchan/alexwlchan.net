@@ -23,7 +23,27 @@ class NoHtmlInTitles < HTMLProofer::Check
     @html.css('title').each do |node|
       @title = create_element(node)
 
-      return add_failure('Title contains HTML', elmement: @title) if node.children.length > 1
+      return add_failure('Title contains HTML', element: @title) if node.children.length > 1
+    end
+  end
+end
+
+class CardImages < HTMLProofer::Check
+  def run
+    @html.css('meta[name="twitter:image"]').each do |node|
+      @meta = create_element(node)
+
+      path = node['content'].gsub('https://alexwlchan.net/', '')
+
+      return add_failure('Missing card image', element: @meta) unless File.file?("_site/#{path}")
+    end
+
+    @html.css('meta[name="og:image"]').each do |node|
+      @meta = create_element(node)
+
+      path = node['content'].gsub('https://alexwlchan.net/', '')
+
+      return add_failure('Missing card image', element: @meta) unless File.file?("_site/#{path}")
     end
   end
 end
@@ -32,6 +52,7 @@ def check_with_html_proofer(html_dir)
   HTMLProofer.check_directory(
     html_dir, {
       checks: %w[
+        CardImages
         Images
         Links
         Scripts

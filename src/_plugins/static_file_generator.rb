@@ -22,7 +22,7 @@ module Jekyll
         next unless File.directory? "#{src}/_#{dir}"
 
         _, status = Open3.capture2('rsync', '--archive', "#{src}/_#{dir}/", "#{dst}/#{dir}/", '--exclude=twitter/avatars',
-                                   '--exclude=cards', '--exclude=icons', '--exclude=*.svg')
+                                   '--exclude=icons', '--exclude=*.svg')
         raise 'Unable to run static file rsync' unless status.success?
       end
     end
