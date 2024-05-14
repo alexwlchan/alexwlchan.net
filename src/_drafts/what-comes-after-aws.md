@@ -36,13 +36,13 @@ Here are some guesses:
 AWS has [a *lot* of services](https://aws.amazon.com/products/).
 That flexibility is great, but it comes with challenges.
 
-It's not always obvious which service is best for a given task, and a lot of common use cases require combining core primitives with architecture digarams that resemble [Rube Goldberg machines].
+It's not always obvious which service is best for a given task, and a lot of common use cases require combining core primitives with architecture diagrams that resemble [Rube Goldberg machines].
 These complex setups put a lot of responsibility on the developer to get everything right, and open the door to subtle bugs.
 For example, setting up your IAM permissions so services can talk to each other is quite fiddly, and it's tempting to write a blanket "allow all" policy and be done with it.
 
-I think there's a big opportunity for higher-level services that streamline this experience.
+I think there's an opportunity for higher-level services that streamline this experience.
 Combine these core primitives and present a nicer interface for common use cases -- static sites, web apps, data pipelines.
-You give up some flexibility, but in return you get a simpler workflow, better guard rails, and the peace of mind that you haven't left a ticking time bomb in your config somewhere.
+Developers give up some flexibility, but in return they get a simpler workflow, better guard rails, and the peace of mind that they haven't left a ticking time bomb somewhere in their config.
 
 I already see some services in this area -- Vercel, Glitch, and Netlify spring to mind -- and I'm sure there more.
 They won't replace all use of AWS, and they're not trying to, but I think they can carve off big chunks if they're lucky.
@@ -59,20 +59,20 @@ There are a couple of AWS services that have a more global presence, like CloudF
 If this continues to grow in importance, I think AWS might struggle to catch up compared to newer players.
 
 I wrote those two paragraphs in January 2022, long before the current wave of generative AI and Large Language Models arrived.
-At the time I thought there might be applications that would benefit from running in an edge network, from being geographically close to users.
-I wonder if AI and LLMs are that application.
+At the time I thought there might be applications that would benefit from running in an edge network, but I wasn't sure what they were.
+I wonder if AI and LLMs are those applications.
 
-I haven't followed the field closely, but it feels like latency is still defined by the speed of the model rather than the network connection.
+I haven't followed the field closely, but it feels like LLM latency is still defined by the speed of the model rather than the network connection.
 Even if you're running a model locally, you're still waiting multiple seconds for results.
 How long will that last?
-How long before models are fast enough that there's a big benefit to running them close to your users?
+How long before models are fast enough that there's a perceptible benefit to running them close to your users?
 
 ### More presence in the Global South
 
 Like a lot of the tech industry, AWS is very US-centric.
 There are [more AWS regions on the west coast of the USA](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) than in all of South America and Africa.
 But there are a lot of users and developers in the rest of the world, and it feels like they're being underserved by a tech industry which is based in the Global North.
-(And which assumes, for example, reliable access to cutting-edge hardware and high-bandwidth Internet connections as standard.)
+(Which assumes, for example, reliable access to cutting-edge hardware and high-bandwidth Internet connections as standard.)
 
 I wonder what infrastructure that envisions the Global South as your primary users would look like.
 What if Silicon Valley isn't the centre of your universe?
@@ -92,13 +92,13 @@ The free tier isn't about making money -- it's about cultivating a community of 
 When those users later have money to spend, you hope they'll pick you as the thing they already know.
 But that can't happen if they're scared off before they can try the free tier.
 
-Making a better free tier is a long-term play, and somewhat risky -- you have to survive long enough for your free tier users to become paying customers.
+Making a better free tier is a long-term play for a competitor, and risky -- you have to survive long enough for your free tier users to become paying customers.
 But I think it could work, and you could undermine AWS by speaking to people who aren't CTOs yet, but will be in a couple of years.
 
 ### Better bills for big business
 
 Individual users want to get the most bang for their buck; companies have different priorities.
-They want something that's predictable, which can fit in their spreadsheets.
+They want something that's predictable, which can fit in their accounting spreadsheets.
 
 It's really hard to predict your AWS bill, because it follows a "pay-as-you-go" model and you can use different amounts each month.
 At my last job, we'd routinely see a 5–10% change in our month-to-month bill.
@@ -112,7 +112,7 @@ I don't think it'd be the sole reason to switch to a competitor, but it would sw
 
 ### The winds of politics
 
-Political sentiment towards big tech companies is changing, and not in a positive way.
+Public sentiment towards big tech companies is changing, and not in a positive way.
 I can imagine new legislation that would hamstring AWS and other big public clouds, and drive a shift towards a larger set of small clouds, like:
 
 *   Concerns about the environmental impact of large data centres might lead to restrictions on their construction or expansion.
@@ -120,11 +120,12 @@ I can imagine new legislation that would hamstring AWS and other big public clou
 *   More data locality laws that force companies to keep data inside national boundaries could lock AWS out of certain contracts, and drive business towards smaller, local clouds.
 
 I don't know how likely any of these are, but they seem more plausible now than they did, say, five years ago.
+I can imagine a future where AWS comes under more political scrutiny.
 
 ### Or maybe something completely different
 
-Take this with a pinch of salt.
-I'm no expert, and this is light speculation rather than in-depth analysis.
+Take all this with a pinch of salt.
+I'm no expert, and this is light-hearted speculation rather than in-depth analysis.
 
 When a company comes along that displaces AWS, it could do all of these, or none of them.
 There are plenty of other strategies that smarter people than me have thought of.
@@ -135,6 +136,7 @@ The bigger a company gets, the more work it takes to change direction -- and eve
 
 At a previous job I was designing a digital archive that was stored in AWS, and that archive is expected to last decades, if not centuries.
 That's why I was thinking about the long-term future of AWS -- that archive probably will outlast public cloud as a dominant model, and we designed the archive to make it easy to exit when that day comes.
+This article has sat in my drafts for years, and I'm glad James's tweet finally prompted me to finish it.
 
 I don't think AWS is going away any time soon, and if you're not an Amazon executive you probably don't need to think about it.
 We should all be more concerned with our own longevity, not AWS.
