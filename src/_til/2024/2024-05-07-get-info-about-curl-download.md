@@ -25,7 +25,16 @@ curl clearly knows both of these things because it uses them as part of the down
 *   To get the final size of the file that will be downloaded, use `--write-out` and log the [value of the Content-Length header](https://everything.curl.dev/usingcurl/verbose/writeout.html#http-headers):
 
     ```console
-    $curl --head --write-out '%header{content-length}' "$url"
+    $ curl --head --write-out '%header{content-length}' "$url"
     ```
 
 Obviously both of these rely on having a relatively well-behaved web server that doesn't change filenames and returns a true value in the `Content-Length` header -- which is sufficient for a lot of simple scripting and dealing with trusted downloads.
+
+---
+
+By default, the `--head` flag will print a complete list of headers.
+If you want to suppress this and just print the value of `--write-out`, you need to add `--silent` and `--output /dev/null`, for example:
+
+```console
+$ curl --head --silent --output /dev/null --write-out '%header{content-length}' "$url"
+```
