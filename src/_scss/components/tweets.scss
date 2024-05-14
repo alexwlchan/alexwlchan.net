@@ -26,7 +26,7 @@
     --metadata-color:         #8b98a5;
   }
 
-  &       { background: var(--background-color)        }
+  & { background: var(--background-color)        }
   &:hover {
     background: var(--background-color-hover);
     text-decoration-thickness: 1px;
@@ -45,14 +45,15 @@
   @include centred(496px);
 
   a, a:visited {
-    color: var(--link-color) !important;
+    color: var(--link-color);
   }
 
   a, a:visited, a:active, .author a:hover {
     text-decoration: none;
+    text-decoration-thickness: 1px;
   }
 
-  a:focus, a:hover {
+  a:focus, a:hover, .metadata a:hover {
     text-decoration: underline;
   }
 
@@ -60,7 +61,7 @@
     background: none;
   }
 
-  .screen_name, .metadata, .metadata a {
+  .screen_name, .metadata, .metadata a, .metadata a:visited {
     font-size: 14px;
     color: var(--metadata-color);
   }
