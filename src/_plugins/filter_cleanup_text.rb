@@ -28,6 +28,7 @@ class AddNonBreakingSpaces
       Part
       part
       RFC
+      Safari
       Season
       season
     ].join('|')
@@ -37,12 +38,14 @@ class AddNonBreakingSpaces
     # Add a non-breaking space after words which are preceded by
     # a number, e.g. '1 second' or '5 bytes'
     countable_words = %w[
+      bookmark
       byte
       character
       count
       hour
       inch
       kilometre
+      line
       million
       minute
       second
