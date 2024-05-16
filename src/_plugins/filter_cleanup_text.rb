@@ -68,6 +68,7 @@ class AddNonBreakingSpaces
       'CC BY-SA 4.0',
       'CC BY',
       'Git LFS',
+      'HTTP 200 OK',
       'iMac G3',
       'iPhone X',
       'IP address',
