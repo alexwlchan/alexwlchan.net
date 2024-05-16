@@ -137,7 +137,6 @@ I wrote another script which creates a `WKNavigationDelegate` that just logs whe
 import WebKit
 
 let url = URL(string: "https://www.example.com/")
-let savePath = URL(fileURLWithPath: "example.webarchive")
 
 let webView = WKWebView()
 let request = URLRequest(url: url!)
@@ -188,7 +187,8 @@ This made me wonder if my problem was that my script doesn't have "background op
 When I ask `WKWebView` to load my page, it's getting shoved in a queue of background tasks, but nothing is picking up that queue.
 I don't fully understand what I did next, but I think I've got the gist of the problem.
 
-I had another look at newzealandpaul's code, and I found [some lines](https://github.com/newzealandpaul/webarchiver/blob/4d04669a9cb3f8a7e5ab492e7c3a4175b5586ac5/KBWebArchiver.m#L214-L222) that look a bit like they're solving this problem:
+I had another look at newzealandpaul's code, and I found [some lines](https://github.com/newzealandpaul/webarchiver/blob/4d04669a9cb3f8a7e5ab492e7c3a4175b5586ac5/KBWebArchiver.m#L214-L222) that look a bit like they're solving the same problem.
+I think the `NSRunLoop` is doing work that's on that background queue, and it's waiting until the page has finished loading:
 
 ```objectivec
 // Wait until the site has finished loading.
@@ -202,7 +202,77 @@ while (isRunning && _finishedLoading == NO) {
 }
 ```
 
+I was able to take this idea, and adapt it to my script.
+My first attempt was just calling `RunLoop.main.run()` after I tell `WKWebView` to load a page:
+
+```swift
+print("Starting script!")
+webView.load(request)
+RunLoop.main.run()
+print("Finishing script!")
+```
+
+I could see my navigation delegate log the completed request, but the script never stopped running -- the `RunLoop` is just going to run forever, because I never told it to stop.
+
+The navigation delegate knows when my page has finished loading, so I added a boolean variable `isLoadingComplete`.
+Then I can use that to control the `RunLoop` -- like the code in webarchiver, I run the loop for 0.1 seconds at a time, and keep running until the web page is fully loaded:
+
+```swift
+import WebKit
+
+let url = URL(string: "https://www.example.com/")
+
+let webView = WKWebView()
+let request = URLRequest(url: url!)
+
+class LoggingDelegate: NSObject, WKNavigationDelegate {
+  var isLoadingComplete = false
+
+  func webView(_: WKWebView, didStartProvisionalNavigation: WKNavigation!) {
+    print("Started loading web page...")
+  }
+
+  func webView(_: WKWebView, didFinish: WKNavigation!) {
+    print("Web page loaded successfully!")
+    isLoadingComplete = true
+  }
+
+  func webView(_: WKWebView, didFailProvisionalNavigation: WKNavigation!, withError error: Error) {
+    print("Web page failed to load! \(error.localizedDescription)")
+    isLoadingComplete = true
+  }
+}
+
+let navigationDelegate = LoggingDelegate()
+webView.navigationDelegate = navigationDelegate
+
+print("Starting script!")
+webView.load(request)
+
+while !navigationDelegate.isLoadingComplete {
+  RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.1))
+}
+
+print("Finishing script!")
+```
+
+And now I see the script start, load the web page correctly, then finish:
+
+```console
+$ swift run_with_loop.swift
+Starting script!
+Started loading web page...
+Web page loaded successfully!
+Finishing script!
+```
+
 [WKNavigationDelegate]: https://developer.apple.com/documentation/webkit/wknavigationdelegate
+
+
+
+
+
+## Putting it together
 
 ---
 
