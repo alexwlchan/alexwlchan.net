@@ -16,8 +16,8 @@ colors:
 {% endcomment %}
 
 Recently I've been trying to create a local archive of my bookmarked web pages.
-I already have tools to [take screenshots] and I love them as a way to take quick snapshots and skim the history of a site, but bitmap images aren't a great archival representation of a website.
-What if I want to save the HTML, CSS, and JavaScript, and keep an interactive copy of the page?
+I already have tools to [take screenshots], and I love them as a way to take quick snapshots and skim the history of a site, but bitmap images aren't a great archival representation of a website.
+What if I also want to save the HTML, CSS, and JavaScript, and keep an interactive copy of the page?
 
 There are lots of tools in this space; for my personal stuff I've come to like [Safari webarchives].
 There are several reasons I find them appealing:
@@ -58,7 +58,7 @@ In the rest of this article I'll explain how it works, or you can [skip to the G
 I found an existing tool for creating Safari webarchives on the command line, [written by newzealandpaul][github].
 
 I did some brief testing and it seems to work okay, but I had a few issues.
-The error messages aren't very helpful -- some of my bookmarks failed to save with an error like "invalid URL", even though the URL worked just fine in Safari and other browsers.
+The error messages aren't very helpful -- some of my bookmarks failed to save with an error like "invalid URL", even though the URL opens just fine.
 I went to read the code to work out what was happening, but it's written in Objective-C and uses deprecated classes like [`WebView`](https://developer.apple.com/documentation/webkit/webview) and [`WebArchive`](https://developer.apple.com/documentation/webkit/webarchive).
 
 Given that it’s only about 350 lines, I wanted to see if I could rewrite it using Swift and the newest classes.
@@ -111,7 +111,7 @@ I was hoping that this would load `https://example.com/`, and save a webarchive 
 The script did run, but it only created an empty file.
 
 I did a little debugging, and I realised that my `WKWebView` was never actually loading the web page.
-I pointed it at a local web server, and I could see it wasn't fetching any data from the server.
+I pointed it at a local web server, and I could see it wasn't fetching any data.
 Hmm.
 
 [WKWebView]: https://developer.apple.com/documentation/webkit/wkwebview
@@ -148,8 +148,8 @@ while (isRunning && _finishedLoading == NO) {
 ```
 
 I was able to adapt this idea for my Swift script, using `RunLoop.main.run()`.
-I can track the progress of `WKWebView` with the `isLoading` attribute, so I kept running the main loop for short intervals until I could see this attribute is false.
-One thing I realised is that `createWebArchiveData` is also an asynchronous operation that needs to run in the background, so I also need to wait for that to finish.
+I can track the progress of `WKWebView` with the `isLoading` attribute, so I kept running the main loop for short intervals until I could see this attribute change.
+I realised that `createWebArchiveData` is also an asynchronous operation that runs in the background, so I need to wait for that to finish too.
 
 I added these two functions to `WKWebView`.
 Here's my updated script:
@@ -225,8 +225,8 @@ I'd rather the script threw an error, and prompted me to investigate.
 While I was reading more about `WKWebView`, I came across the [`WKNavigationDelegate`][WKNavigationDelegate] protocol.
 If you implement this protocol, you can track the progress of a page load, and get detailed events like "the page has started to load" and "the page failed to load with an error".
 
-There are [two methods][failures] you can implement to handle errors, which will be called if an error at different times during page load.
-Because I'm working in a standalone script, I just have those methods print an error message and then terminate the entire process -- I don't need more sophisticated error handling than that.
+There are [two methods][failures] you can implement, which will be called if an error at different times during page load.
+Because I'm working in a standalone script, I just have them print an error and then terminate the process -- I don't need more sophisticated error handling than that.
 
 I also wrote a method that checks the HTTP status code of the response, and terminates the script if it's not an HTTP 200 OK.
 This means that 404 pages and server errors won't be automatically archived -- I can do that manually in Safari if I think they're really important.
@@ -283,17 +283,17 @@ let delegate = ExitOnFailureDelegate()
 webView.navigationDelegate = delegate
 ```
 
-To check this error handling worked correctly, I tried loading a website while I was offline, a domain name that doesn't go anywhere, and a page that 404s on my own website.
+To check this error handling worked correctly, I tried loading a website while I was offline, loading a URL with a domain name that doesn't have DNS, and loading a page that 404s on my own website.
 All three failed as I want:
 
 ```console
-$ swift save_webarchive.swift
+$ swift create_webarchive.swift
 Failed to load web page: The Internet connection appears to be offline.
 
-$ swift save_webarchive.swift
+$ swift create_webarchive.swift
 Failed to load web page: A server with the specified hostname could not be found.
 
-$ swift save_webarchive.swift
+$ swift create_webarchive.swift
 Failed to load web page: got status code 404
 ```
 
@@ -319,6 +319,12 @@ let urlString = CommandLine.arguments[1]
 let savePath = URL(fileURLWithPath: CommandLine.arguments[2])
 ```
 
+And then I can call the script with my two arguments:
+
+```console
+$ swift create_webarchive.swift "https://www.example.com/" "example.webarchive"
+```
+
 For more complex command-line interfaces, Apple has an open-source [`ArgumentParser` library][ArgumentParser], but I'm not sure how I'd use that in a standalone script.
 
 [ArgumentParser]: https://www.swift.org/blog/argument-parser/
@@ -337,8 +343,8 @@ My script worked correctly in the happy path, but I went back and improved some 
 I saw a lot of different failures when archiving such a wide variety of URLs, including esoteric HTTP status codes, expired TLS certificates, and a couple of redirect loops.
 Now those errors are reported in a bit more detail and not just "something went wrong".
 
-I also made one final tweak to the code: it refuses to overwrite an existing webarchive file.
-I do this by [adding `WritingOptions.withoutOverwriting` to my `write()` call][til].
+I also tweaked the code so it won't replace an existing webarchive file.
+I do this by [adding `.withoutOverwriting` to my `write()` call][til].
 I don't want to risk overwriting a known-good archive of a page with a copy that's now broken.
 
 
@@ -352,6 +358,6 @@ I don't want to risk overwriting a known-good archive of a page with a copy that
 ## The finished script
 
 I've put the script in a new GitHub repository: [alexwlchan/safari-webarchiver](https://github.com/alexwlchan/safari-webarchiver).
-This repo will be the canonical home for this code, and where I post any updates.
+This repo will be the canonical home for this code, and I'll post any updates there.
 
 It includes the final copy of the code in this post, a small collection of tests, and some instructions on how to download and use the finished script.
