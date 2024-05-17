@@ -43,20 +43,25 @@ The one thing that's missing is a way to create webarchive files programatically
 Although I could open each page and save it in Safari individually, I have about 6000 bookmarks -- I'd like a way to automate this process.
 
 I was able to write a short script in Swift that does this for me.
+In the rest of this article I'll explain how it works, or you can [skip to the GitHub repo](https://github.com/alexwlchan/safari-webarchiver/).
 
 [take screenshots]: /2024/scheduled-screenshots/
 [Safari webarchives]: https://en.wikipedia.org/wiki/Webarchive
 [github]: https://github.com/newzealandpaul/webarchiver
 
+
+
+
+
 ## Prior art: newzealandpaul/webarchiver
 
 I found an existing tool for creating Safari webarchives on the command line, [written by newzealandpaul][github].
 
-I did some brief testing and it seems to work, but I had a few issues.
-Some of my bookmarks failed to archive with an error like "invalid URL", even though the URL worked just fine in Safari and other browsers.
+I did some brief testing and it seems to work okay, but I had a few issues.
+The error messages aren't very helpful -- some of my bookmarks failed to save with an error like "invalid URL", even though the URL worked just fine in Safari and other browsers.
 I went to read the code to work out what was happening, but it's written in Objective-C and uses deprecated classes like [`WebView`](https://developer.apple.com/documentation/webkit/webview) and [`WebArchive`](https://developer.apple.com/documentation/webkit/webarchive).
 
-Given that it’s only about 350 lines of code, I wanted to see if I could rewrite it using Swift and the newest classes.
+Given that it’s only about 350 lines, I wanted to see if I could rewrite it using Swift and the newest classes.
 I thought that might be easier than trying to understand a language and classes that I'm not super familiar with.
 
 
@@ -69,10 +74,10 @@ It didn't take much googling to learn that `WebView` has been replaced by [`WKWe
 Perfect!
 
 I watched a [WWDC session] by Brady Eison, a WebKit engineer, where the `createWebArchiveData` API was introduced.
-It gave me some useful context about the purpose of `WKWebView` -- it's for rendering web content inside Mac and iOS apps.
+It gave me some useful context about the purpose of `WKWebView` -- it's for showing web content inside Mac and iOS apps.
 If you've ever used an in-app browser, there was probably an instance of `WKWebView` somewhere underneath.
 
-There's some sample code for using this API, which I fashioned into an initial script:
+The session included some sample code for using this API, which I fashioned into an initial script:
 
 ```swift
 import WebKit
@@ -103,10 +108,10 @@ $ swift create_webarchive.swift
 ```
 
 I was hoping that this would load `https://example.com/`, and save a webarchive of the page to `example.webarchive`.
-The script completed successfully, but it only created an empty file.
+The script did run, but it only created an empty file.
 
 I did a little debugging, and I realised that my `WKWebView` was never actually loading the web page.
-I pointed it at a local web server, and even when I added a long sleep to the script, it never started fetching data from the server.
+I pointed it at a local web server, and I could see it wasn't fetching any data from the server.
 Hmm.
 
 [WKWebView]: https://developer.apple.com/documentation/webkit/wkwebview
@@ -211,123 +216,6 @@ Let's fix that next.
 
 
 
-## The final script
-
-```swift
-#!/usr/bin/env swift
-/// Save a web page as a Safari webarchive.
-///
-/// Usage: save_safari_webarchive [URL] [OUTPUT_PATH]
-///
-/// This will save the page to the desired file, but may fail for
-/// several reasons:
-///
-///   - the web page can't be loaded
-///   - the web page returns a non-200 status code
-///   - there's already a file at that path (it won't overwrite an existing
-///     webarchive)
-///
-
-import WebKit
-
-/// Print an error message and terminate the process if there are
-/// any errors while loading a page.
-class ExitOnFailureDelegate: NSObject, WKNavigationDelegate {
-  func webView(_: WKWebView, didFail: WKNavigation!, withError error: Error) {
-    fputs("Failed to load web page: \(error.localizedDescription)\n", stderr)
-    exit(1)
-  }
-
-  func webView(
-    _: WKWebView,
-    didFailProvisionalNavigation: WKNavigation!,
-    withError error: Error
-  ) {
-    fputs("Failed to load web page: \(error.localizedDescription)\n", stderr)
-    exit(1)
-  }
-
-  func webView(
-    _: WKWebView,
-    decidePolicyFor navigationResponse: WKNavigationResponse,
-    decisionHandler: (WKNavigationResponsePolicy) -> Void
-  ) {
-    if let httpUrlResponse = (navigationResponse.response as? HTTPURLResponse) {
-      if httpUrlResponse.statusCode != 200 {
-        fputs("Loading web page failed with status code \(httpUrlResponse.statusCode)\n", stderr)
-        exit(1)
-      }
-    }
-
-    decisionHandler(.allow)
-  }
-}
-
-let webView = WKWebView()
-
-let delegate = ExitOnFailureDelegate()
-webView.navigationDelegate = delegate
-
-extension WKWebView {
-
-  /// Load the given URL in the web view.
-  ///
-  /// This method will block until the URL has finished loading.
-  func load(_ urlString: String) {
-    if let url = URL(string: urlString) {
-      let request = URLRequest(url: url)
-      self.load(request)
-
-      while (self.isLoading) {
-        RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.1))
-      }
-    } else {
-      fputs("Unable to use \(urlString) as a URL\n", stderr)
-      exit(1)
-    }
-  }
-
-  /// Save a copy of the web view's contents as a webarchive file.
-  ///
-  /// This method will block until the webarchive has been saved,
-  /// or the save has failed for some reason.
-  func saveAsWebArchive(savePath: URL) {
-    var isSaving = true
-
-    self.createWebArchiveData(completionHandler: { result in
-      do {
-        let data = try result.get()
-        try data.write(
-          to: savePath,
-          options: [Data.WritingOptions.withoutOverwriting]
-        )
-        isSaving = false
-      } catch {
-        fputs("Unable to save webarchive file: \(error.localizedDescription)\n", stderr)
-        exit(1)
-      }
-    })
-
-    while (isSaving) {
-      RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.1))
-    }
-  }
-}
-
-guard CommandLine.arguments.count == 3 else {
-    print("Usage: \(CommandLine.arguments[0]) <URL> <OUTPUT_PATH>")
-    exit(1)
-}
-
-let urlString = CommandLine.arguments[1]
-let savePath = URL(fileURLWithPath: CommandLine.arguments[2])
-
-webView.load(urlString)
-webView.saveAsWebArchive(savePath: savePath)
-
-print("Saved webarchive to \(savePath)")
-```
-
 ## Checking the page loaded successfully with `WKNavigationDelegate`
 
 If there's some error getting the page -- say, my Internet connection is down or the remote server doesn't respond -- the `WKWebView` will still complete loading and set `isLoading = false`.
@@ -337,27 +225,39 @@ I'd rather the script threw an error, and prompted me to investigate.
 While I was reading more about `WKWebView`, I came across the [`WKNavigationDelegate`][WKNavigationDelegate] protocol.
 If you implement this protocol, you can track the progress of a page load, and get detailed events like "the page has started to load" and "the page failed to load with an error".
 
-Among other things, this lets you track the progress of a page load, and it gives you more fine-grained events like "started loading" and "loading failed with an error".
-
-There are [two methods][failures] you can implement to handle errors, which will be called if an error occurs during page load.
-Because I'm working in a standalone script, I simply wrote two methods that print an error message and then terminate the entire process -- I don't need more sophisticated error handling than that.
+There are [two methods][failures] you can implement to handle errors, which will be called if an error at different times during page load.
+Because I'm working in a standalone script, I just have those methods print an error message and then terminate the entire process -- I don't need more sophisticated error handling than that.
 
 I also wrote a method that checks the HTTP status code of the response, and terminates the script if it's not an HTTP 200 OK.
+This means that 404 pages and server errors won't be automatically archived -- I can do that manually in Safari if I think they're really important.
+
+Here's the delegate I wrote:
 
 ```swift
 /// Print an error message and terminate the process if there are
 /// any errors while loading a page.
 class ExitOnFailureDelegate: NSObject, WKNavigationDelegate {
-  func webView(_: WKWebView, didFail: WKNavigation!, withError error: Error) {
-    fputs("Failed to load web page: \(error.localizedDescription)\n", stderr)
+  var urlString: String
+
+  init(_ urlString: String) {
+    self.urlString = urlString
+  }
+
+  func webView(
+    _: WKWebView,
+    didFail: WKNavigation!,
+    withError error: Error
+  ) {
+    fputs("Failed to load \(self.urlString): \(error.localizedDescription)\n", stderr)
     exit(1)
   }
 
   func webView(
-    _: WKWebView, didFailProvisionalNavigation: WKNavigation!,
+    _: WKWebView,
+    didFailProvisionalNavigation: WKNavigation!,
     withError error: Error
   ) {
-    fputs("Failed to load web page: \(error.localizedDescription)\n", stderr)
+    fputs("Failed to load \(self.urlString): \(error.localizedDescription)\n", stderr)
     exit(1)
   }
 
@@ -368,7 +268,7 @@ class ExitOnFailureDelegate: NSObject, WKNavigationDelegate {
   ) {
     if let httpUrlResponse = (navigationResponse.response as? HTTPURLResponse) {
       if httpUrlResponse.statusCode != 200 {
-        fputs("Failed to load web page: got status code \(httpUrlResponse.statusCode)\n", stderr)
+        fputs("Failed to load \(self.urlString): got status code \(httpUrlResponse.statusCode)\n", stderr)
         exit(1)
       }
     }
@@ -397,6 +297,7 @@ $ swift save_webarchive.swift
 Failed to load web page: got status code 404
 ```
 
+[WKNavigationDelegate]: https://developer.apple.com/documentation/webkit/wknavigationdelegate
 [failures]: https://developer.apple.com/documentation/webkit/wknavigationdelegate#2172386
 
 
@@ -410,8 +311,8 @@ I can do this by inspecting `CommandLine.arguments`:
 
 ```swift
 guard CommandLine.arguments.count == 3 else {
-    print("Usage: \(CommandLine.arguments[0]) <URL> <OUTPUT_PATH>")
-    exit(1)
+  print("Usage: \(CommandLine.arguments[0]) <URL> <OUTPUT_PATH>")
+  exit(1)
 }
 
 let urlString = CommandLine.arguments[1]
@@ -420,52 +321,37 @@ let savePath = URL(fileURLWithPath: CommandLine.arguments[2])
 
 For more complex command-line interfaces, Apple has an open-source [`ArgumentParser` library][ArgumentParser], but I'm not sure how I'd use that in a standalone script.
 
-```console
-$ swift s.swift
-Usage: s.swift <URL> <OUTPUT_PATH>
-
-$ swift save_webarchive.swift https://example.com example.webarchive
-```
-
 [ArgumentParser]: https://www.swift.org/blog/argument-parser/
 
 
 
 
 
-## The final script
+## Running it over my bookmarks
 
-run over 6000 bookmarks, result?
-cleaned up about 30 or so bookmarks with bad or duplicate URLs
-(e.g. HTTP and HTTPS)
+Once I'd written the initial version of this script and put all the pieces together, I used it to create webarchives for 6000 or so bookmarks in my Pinboard account.
+It worked pretty well, and captured 85% of my bookmarks -- the remaining 15% are broken due to [link rot].
+I did a spot check of a few dozen archives that did get saved, and they all look good.
 
-* improved error messages
-* some web pages fail to load with timeout
-* HTTP 204?
+My script worked correctly in the happy path, but I went back and improved some of the error messages.
+I saw a lot of different failures when archiving such a wide variety of URLs, including esoteric HTTP status codes, expired TLS certificates, and a couple of redirect loops.
+Now those errors are reported in a bit more detail and not just "something went wrong".
 
-  3%|█▏                                    | 188/6153 [03:37<5:39:45,  3.42s/it]Failed to load https://authory.com/SwapnaKrishna/On-Star-Trek-Discovery-and-Michelle-Yeohs-accent-aa6d2eb01b3a24970abf406c39146df33: The request timed out.
+I also made one final tweak to the code: it refuses to overwrite an existing webarchive file.
+I do this by [adding `WritingOptions.withoutOverwriting` to my `write()` call][til].
+I don't want to risk overwriting a known-good archive of a page with a copy that's now broken.
 
- 13%|███████████████████████                                                                                                                                                             | 786/6145 [08:08<58:46,  1.52it/s] 13%|███████████████████████▎                                                                                                                                                          | 804/6145 [08:27<1:37:27,  1.09s/it]Failed to load https://www.thisishowtocode.com/blog/atomically-moving-files-to-a-network-drive-with-python/ (2): The certificate for this server is invalid. You might be connecting to a server that is pretending to be “www.thisishowtocode.com” which could put your confidential information at risk.
 
-
-
-  24%|███████████████████████████████████████████▌                                                                                                                                       | 1480/6085 [02:18<35:09,  2.18it/s]Failed to load https://filmcrithulk.blog/2017/12/15/the-force-belongs-to-us-the-last-jedis-beautiful-refocusing-of-star-wars/amp/?__twitter_impression=true (2): too many HTTP redirects
-
-AMP pages
-
- 29%|████████████████████████████████████████████████████                                                                                                                               | 1769/6085 [04:59<37:56,  1.90it/s]Failed to load https://jekyllthemes.dev/ (2): An SSL error has occurred and a secure connection to the server cannot be made.
-
- 56%|███████████████████████████████████████████████████████████████████████████████████████████████████▊                                                                               | 3357/6022 [12:25<45:45,  1.03s/it]Failed to load http://www.gaystarnews.com/article/youtube-stars-long-distance-relationship/: got status code 530
+[link rot]: https://en.wikipedia.org/wiki/Link_rot
+[til]: /til/2024/how-to-do-exclusive-file-write-in-swift/
 
 
 
-  51%|██████████████████████████████████████████████████████████████████████████████████████████▋                                                                                        | 3036/5990 [01:10<05:20,  9.21it/s]Failed to load http://www.weeklystandard.com/article/2540: got status code 522
 
 
+## The finished script
 
-The script will live [in my scripts repo](https://github.com/alexwlchan/scripts/blob/main/web/save_safari_webarchive).
+I've put the script in a new GitHub repository: [alexwlchan/safari-webarchiver](https://github.com/alexwlchan/safari-webarchiver).
+This repo will be the canonical home for this code, and where I post any updates.
 
-
-doesn't fully replictae webarchiver
-e.g. tools for overwriting webarchive data
-and fixes for particular sites
+It includes the final copy of the code in this post, a small collection of tests, and some instructions on how to download and use the finished script.
