@@ -8,19 +8,20 @@
 # This requires fzf (https://github.com/junegunn/fzf) to work,
 # which lets me search my tags.
 
+require 'date'
 require 'yaml'
 
 tally = Hash.new(0)
 
-Dir.glob('src/**/*.md') do |path|
-  next if path == 'src/theme/_favicons/README.md'
+Dir.glob('src/_posts/**/*.md') do |path|
+  next if File.basename(path) == 'README.md'
 
-  metadata = YAML.load_file(path)
+  metadata = YAML.load_file(path, permitted_classes: [Date, Time])
   tags = metadata['tags']
 
   next if tags.nil?
 
-  metadata['tags'].each do |t|
+  tags.each do |t|
     tally[t] += 1
   end
 end
