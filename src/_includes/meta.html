@@ -1,9 +1,9 @@
 {% comment %}
   Render the metadata at the top of each page.  This is shared across all
   templates so it's rendered consistently.
-  
+
   Rough thinking behind order:
-  
+
   * Permalink is always the last item because it's a different colour
   * Original date goes first on articles/TILs because it takes up roughly
     the same amount of space, whereas tags are variable length
@@ -34,17 +34,17 @@
     {% endfor %}
   </li>
   {% endif %}
-  
+
   {% for m in page.meta %}
   <li>{{ m }}</li>
   {% endfor %}
-  
+
   {% if page.date_updated %}
   <li>
     Last updated {% include timestamp.html date = page.date_updated %}
   </li>
   {% endif %}
-  
+
   {% if page.link %}
     <li class="permalink">
       <a href="{{ post.url | relative_url }}" aria-label="permalink">&infin;</a>
