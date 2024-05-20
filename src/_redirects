@@ -1228,6 +1228,17 @@
 
 
 
+# == Ensure that non-primary domains redirect to the main domain == #
+
+https://alexwlchan.com/login/* https://alexwlchan.net/:splat 200
+https://alexwlchan.co.uk/login/* https://alexwlchan.net/:splat 200
+https://www.alexwlchan.net/login/* https://alexwlchan.net/:splat 200
+
+# === #
+
+
+
+
 
 # This uses Netlify's custom 404 error page handling
 # See https://docs.netlify.com/routing/redirects/redirect-options/#custom-404-page-handling
