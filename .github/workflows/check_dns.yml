@@ -1,0 +1,42 @@
+name: Check DNS records
+
+on:
+  push:
+    branches:
+    - main
+
+    paths:
+      - 'dns/*'
+      - '.github/workflows/check_dns.yml'
+
+  pull_request:
+    branches:
+    - main
+
+    paths:
+      - 'dns/*'
+      - '.github/workflows/check_dns.yml'
+
+  schedule:
+    - cron: "30 8 * * *"
+
+jobs:
+  build:
+    name: Build the website
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out the repo"
+        uses: actions/checkout@v4
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache_dependency_path: "dns/requirements.txt"
+      - run: pip install -r dns/requirements.txt
+
+      - name: "Check the DNS records"
+        run: |
+          cd dns
+          python3 verify_dns_records.py
