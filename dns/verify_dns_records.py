@@ -10,12 +10,13 @@ I produced the initial list by looking through DNS records in my
 Hover dashboard.
 """
 
+import collections
 import datetime
-import filecmp
-import json
+import itertools
 import sys
 
 import dns.resolver
+import toml
 
 
 def get_dns_records():
@@ -32,6 +33,7 @@ def get_dns_records():
         ("fm1._domainkey.alexwlchan.net", ["CNAME"]),
         ("fm2._domainkey.alexwlchan.net", ["CNAME"]),
         ("fm3._domainkey.alexwlchan.net", ["CNAME"]),
+        ("_dmarc.alexwlchan.net", ["TXT"]),
         #
         # alexwlchan.com
         ("alexwlchan.com", ["NS", "A", "MX"]),
@@ -64,20 +66,28 @@ def get_dns_records():
 if __name__ == "__main__":
     now = datetime.datetime.now().strftime("%Y-%m-%d.%H-%M-%S")
 
-    with open(f"dns_records.{now}.json", "x") as out_file:
-        for domain, rdtype, server in get_dns_records():
-            line = {
-                "domain": domain,
-                "rdtype": rdtype,
-                "server_r": repr(server),
-                "server_s": str(server),
-            }
+    live_records = collections.defaultdict(list)
 
-            out_file.write(json.dumps(line) + "\n")
+    for domain, rdtype, server in get_dns_records():
+        live_records[f"{domain} {rdtype}"].append(str(server))
 
-    if filecmp.cmp(f"dns_records.{now}.json", "dns_records.json", shallow=False):
+    with open(f"dns_records.{now}.toml", "x") as out_file:
+        out_file.write(toml.dumps(live_records))
+
+    with open("dns_records.toml") as in_file:
+        saved_records = toml.load(in_file)
+
+    if saved_records == live_records:
         print("Saved DNS records are up-to-date :D")
         sys.exit(0)
     else:
         print("Saved DNS records don't match what's configured D:", file=sys.stderr)
+
+        for k in sorted(set(itertools.chain(saved_records, live_records))):
+            if saved_records.get(k) != live_records.get(k):
+                print("")
+                print(f"-- {k}:")
+                print(f"        saved: {saved_records.get(k)}")
+                print(f"        live:  {live_records.get(k)}")
+
         sys.exit(1)
