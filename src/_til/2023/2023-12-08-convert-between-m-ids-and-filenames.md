@@ -48,5 +48,8 @@ The APIs for searching/updating Wikimedia Commons typically accept both forms; s
 </span><span class="go">&lt;/api&gt;</span><span class="w">
 </span></code></pre></div> </div>
 
+There's a Python implementation of this code [in Flickypedia], which includes some tests.
+
 [query]: https://www.mediawiki.org/wiki/API:Query
 [namespaces]: https://commons.wikimedia.org/wiki/Help:Namespaces
+[in Flickypedia]: https://github.com/Flickr-Foundation/flickypedia/blob/11b6f675df851298b665940e9c378efdbd59de5d/src/flickypedia/apis/wikimedia/identifier_methods.py
