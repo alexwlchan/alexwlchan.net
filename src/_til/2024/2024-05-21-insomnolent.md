@@ -13,4 +13,4 @@ There are various definitions online that explain it’s to do with sleeping, in
 
 > insomnolent: characterized by an inability to sleep, experiencing insomnia.
 
-I assume the two words have the same root.
+Now I look at it, I can see that "insomnolent" and "insomnia" have a common root, which in this case is the Latin word "somnus" for sleep.
