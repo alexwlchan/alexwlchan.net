@@ -7,7 +7,13 @@ tags:
   - aws
   - amazon-dynamodb
   - python
+colors:
+  index_light: "#4b5254"
+  index_dark:  "#91c6fb"
 ---
+{% comment %}
+  Card image: https://pixabay.com/photos/solid-oak-table-2113987/
+{% endcomment %}
 
 At work, we use [DynamoDB] as our primary database.
 DynamoDB is a NoSQL database service hosted by Amazon, which we use as a persistent key-value store.
