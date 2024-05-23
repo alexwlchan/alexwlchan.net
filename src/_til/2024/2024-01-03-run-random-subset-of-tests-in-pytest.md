@@ -6,6 +6,7 @@ summary: |
   By reading the code for the `pytest-random-order` plugin, I was able to write a new plugin that runs a random subset of tests.
 tags:
   - python
+  - python:pytest
 ---
 This is a question asked [by Ned Batchelder][nedbat] on Mastodon.
 
