@@ -61,6 +61,7 @@ It includes a museum, which we got to look around before the reception:
     width="750"
     alt="A long, ornately decorated gallery with gold trim on the walls and colourful paintings on the ceiling. There are various display cases against the walls, and directly in front of me is the silhouette of a man standing in front of a large globe."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -77,6 +78,7 @@ It includes a museum, which we got to look around before the reception:
     width="750"
     alt="A close up of a book in a display case. The left-hand page is blank, while the right-hand page has a black-and-white line drawing of fantastical geometrical shapes, vaguely reminiscent of an Escher drawing."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -94,6 +96,7 @@ When you think of big and impressive libraries, this is the sort of room you thi
     width="750"
     alt="Looking up towards the ceiling. There's a large oval window at the very top of the ceiling, then smaller circular windows around it. Above each window is the name of a city; below it is an archway with bookshelves filling the archway. Each archway is wide, enough to hold six bookshelves."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -110,6 +113,7 @@ When you think of big and impressive libraries, this is the sort of room you thi
     width="750"
     alt="A large crowd of people looking towards a speaker at the far end of the room."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -134,6 +138,7 @@ I stumbled upon a lovely little park near the hotel:
   width="750"
   alt="A concrete path bisecting grass on either side, with various trees and hedges dotted around the park. The sky is blue and bright, but there aren’t many people visible – it’s too early for them to be up."
   class="photo"
+  loading="lazy"
   link_to_original
 %}
 
@@ -152,6 +157,7 @@ The base of the towers are joined by a rectangular building, and the middle of t
     width="750"
     alt="A densely-wooded area full of green trees, and in the background are two towers which are shaped bit like a capital L. The towers are mostly glass and metal, with shorter glass and metal buildings extending from the towers and into the foreground."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -167,6 +173,7 @@ The base of the towers are joined by a rectangular building, and the middle of t
     width="750"
     alt="A view from the top of one of the towers down into the courtyard. You can see the base of one tower, and the walkways that lead to the entrance. You can also see some of the trees in the wooded area, which is below ground level."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -184,6 +191,7 @@ I was simultaneously fascinated and vaguely creeped out, and I'm not sure whethe
     width="450"
     alt="A view from the top of one of the towers down into the courtyard. You can see the base of one tower, and the walkways that lead to the entrance. You can also see some of the trees in the wooded area, which is below ground level."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -207,6 +215,7 @@ It felt strangely appropriate, given the topic of the conference:
   width="750"
   alt="A window display with old video gear tastefully arranged -- including a VHS player, various tape cassettes, a large reel-to-reel film projector, and a few video cameras."
   class="photo"
+  loading="lazy"
   link_to_original
 %}
 
@@ -224,6 +233,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     width="750"
     alt="The entrance to the Bel-Air metro station. I’m standing on the opposite side of the road, looking across a pedestrian crossing into an open door on the other side. The interior of the station is lit up with a warm yellow light."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -238,6 +248,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     width="750"
     alt="The entrance to the Bel-Air metro station. I’m standing on the opposite side of the road, looking across a pedestrian crossing into an open door on the other side. The interior of the station is lit up with a warm yellow light."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -252,6 +263,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     width="750"
     alt="A nighttime photo of a large rail yard with many parallel and overlapping tracks. A long passenger train can be seen in the background of the shot, largely visible from the light coming from inside the windows."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -266,6 +278,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     width="750"
     alt="A water fountain in the middle of a roundabout, lit up in orange and purple lighting from below. Around the centre of the fountain are four creatures on pedestals (cats?) with water coming out of their mouths."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -281,6 +294,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     width="750"
     alt="An outdoor seating area, with open-air markets visible in the background, with bright and colourful lights."
     class="photo"
+    loading="lazy"
     link_to_original
   %}
   <figcaption>
@@ -303,6 +317,7 @@ This is the delicious croque monsieur I had for my final lunch:
   width="750"
   alt="A toasted sandwich on a plate with a salad and a cup of vegetable soup."
   class="photo"
+  loading="lazy"
   link_to_original
 %}
 
