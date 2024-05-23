@@ -35,7 +35,7 @@ I'd love to see more of a focus on that at future events.
 [richelieu]: https://www.bnf.fr/en/the-bnfs-richelieu-site
 
 
-
+---
 
 
 With those reflections done, here are a few photos.
@@ -111,10 +111,10 @@ When you think of big and impressive libraries, this is the sort of room you thi
 [salle Oval]: https://www.bnf.fr/en/oval-room
 
 
+---
 
 
-
-One of the nice things about going to a conference in France is that their clocks are only an hour ahead of the UK -- close enough that I can stick to my normal sleep schedule, and I get some extra time in the morning to enjoy the spring weather.
+One of the nice things about going to a conference in France is that their clocks are only an hour ahead of the UK -- close enough that I can sleep on my normal schedule, and I get some extra time in the morning.
 Before the first day of talks started properly, I went for a bit of a wander.
 
 The sun was shining, and I stumbled upon a lovely little park near the hotel:
@@ -128,48 +128,179 @@ The sun was shining, and I stumbled upon a lovely little park near the hotel:
   link_to_original
 %}
 
+
 ---
 
 
+The talks themselves took place at the [François-Mitterrand site][fms], which was built in the 1990s.
+It's a rather charming site, framed by four right-angled shaped towers at each corner of the site.
+The base of the towers are joined by a rectangular building, and the centre of the rectangle is filled with a dense wooded area.
+
+<figure>
+  {%
+    picture
+    filename="mitterand-rectangle.jpg"
+    width="750"
+    alt="A densely-wooded area full of green trees, and in the background are two towers which are shaped bit like a capital L. The towers are mostly glass and metal, with shorter glass and metal buildings extending from the towers and into the foreground."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    I think the wooded area might be closed to the public – I never saw any signs to it, nor did I see anybody wandering around down there.
+    But given the amount of greenery elsewhere in Paris, I don’t think anyone is missing out.
+  </figcaption>
+</figure>
+
+<figure>
+  {%
+    picture
+    filename="mitterand-down.jpg"
+    width="750"
+    alt="A view from the top of one of the towers down into the courtyard. You can see the base of one tower, and the walkways that lead to the entrance. You can also see some of the trees in the wooded area, which is below ground level."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    The conference dinner was in the top of one of the towers, and looking down is what helped me understand the layout of the site – it was a bit confusing from ground level.
+  </figcaption>
+</figure>
+
+You had to cross an interior bridge to get from the main library area to the auditorium where the talks took place, and the space in between felt reminiscent of [The Backrooms].
+I was simultaneously fascinated and vaguely creeped out, and I'm not sure whether to be glad or disappointed that I never found out how to get down there.
+
+<figure style="width: 450px;">
+  {%
+    picture
+    filename="backrooms.jpg"
+    width="450"
+    alt="A view from the top of one of the towers down into the courtyard. You can see the base of one tower, and the walkways that lead to the entrance. You can also see some of the trees in the wooded area, which is below ground level."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    Where do you think <a href="https://www.youtube.com/watch?v=DUHcGyshFJI">that escalator</a> goes?
+  </figcaption>
+</figure>
+
+[fms]: https://www.bnf.fr/en/francois-mitterrand
+[The Backrooms]: https://en.wikipedia.org/wiki/The_Backrooms
 
 
-Paris = clocks ahead = time for early morning walk
-Local park:
+---
 
 
+On one of the days we left the building for lunch, and stumbled across a window display full of old cameras and video tapes.
+It felt strangely appropriate, given the topic of the conference:
+
+{%
+  picture
+  filename="video-store.jpg"
+  width="750"
+  alt="A window display with old video gear tastefully arranged -- including a VHS player, various tape cassettes, a large reel-to-reel film projector, and a few video cameras."
+  class="photo"
+  link_to_original
+%}
 
 
-
-Conference itself was held in modern building
-Really cool
+---
 
 
+On my final evening, I went for a dusk walk around Paris.
+I enjpy walking around new cities as a way to get a feel of the place, and you get a very different vibe at twilight as midday.
+
+<figure>
+  {%
+    picture
+    filename="paris-metro-at-night.jpg"
+    width="750"
+    alt="The entrance to the Bel-Air metro station. I’m standing on the opposite side of the road, looking across a pedestrian crossing into an open door on the other side. The interior of the station is lit up with a warm yellow light."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    I love railway stations at night…
+  </figcaption>
+</figure>
+
+<figure>
+  {%
+    picture
+    filename="guimard-entrance.jpg"
+    width="750"
+    alt="The entrance to the Bel-Air metro station. I’m standing on the opposite side of the road, looking across a pedestrian crossing into an open door on the other side. The interior of the station is lit up with a warm yellow light."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    …and the elaborate <a href="https://en.wikipedia.org/wiki/Paris_Métro_entrances_by_Hector_Guimard">cast iron entrances</a> to the Paris Metro are really something.
+  </figcaption>
+</figure>
+
+<figure>
+  {%
+    picture
+    filename="railyard-at-night.jpg"
+    width="750"
+    alt="A nighttime photo of a large rail yard with many parallel and overlapping tracks. A long passenger train can be seen in the background of the shot, largely visible from the light coming from inside the windows."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    Most people would be disappointed that their hotel room overlooked a large rail yard, but I am not most people.
+  </figcaption>
+</figure>
+
+<figure>
+  {%
+    picture
+    filename="fountain-at-night.jpg"
+    width="750"
+    alt="A water fountain in the middle of a roundabout, lit up in orange and purple lighting from below. Around the centre of the fountain are four creatures on pedestals (cats?) with water coming out of their mouths."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    I promise I saw some things that weren’t transport related, like this fountain!
+    This is one of the things I enjoy about being out when it gets dark – all the fun coloured lights you can’t see during the daytime.
+  </figcaption>
+</figure>
+
+<figure>
+  {%
+    picture
+    filename="music-outdoors.jpg"
+    width="750"
+    alt="An outdoor seating area, with open-air markets visible in the background, with bright and colourful lights."
+    class="photo"
+    link_to_original
+  %}
+  <figcaption>
+    Towards the end of my walk, I walked past some sort of outdoor area with food stalls, upbeat music, and a bunch of people having a good time.
+    I walked past because I was excited to get home to bed, but I’m glad they were enjoying themselves and I got to soak up their vibes.
+  </figcaption>
+</figure>
 
 
+---
 
 
+And finally, it wouldn't be a collection of photos from Paris without at least a passing mention of food.
+Every culture has some variant of the ham and cheese sandwich, and I'm very partial to the French version.
+This is the delicious croque monsieur I had on my final day:
 
-Including liminal space
+{%
+  picture
+  filename="croque-monsieur.jpg"
+  width="750"
+  alt="A toasted sandwich on a plate with a salad and a cup of vegetable soup."
+  class="photo"
+  link_to_original
+%}
 
+I was only there for about four days -- long enough for the conference and a day or so of leisure, short enough that I only needed a small bag.
+It was a good length of trip, a refreshing break, and travel was easy thanks to the Eurostar.
 
+Every time I visit Paris I'm reminded of how convenient it is to get to from London, and I think I should visit more often.
+(And all of continental Europe; there are good onward trains from Paris.)
 
-Dinner up a tower, where we could look out over Paris
-Final night, went for wander round Paris in evening
-
-
-
-
-
-
-
-
-
-Cool fountain, metro stations in the dark, even passed some sort of music event
-And of course can’t go to Paris without food, om nom croque monsieur
-
-
-
-
-
-
-Until next time, Paris.
+I hope I can visit Paris again soon.
