@@ -16,16 +16,16 @@ It was my first time attending, and I was there with both a [professional](https
 This post has some thoughts and photos from the trip.
 
 I met a lot of smart people, and we had some thoughtful conversations about the challenges of web archiving.
-Most of my experience is limited to small scale projects -- single sites or personal archives -- and it was good to hear more about how larger organisations are trying to preserve this ever-growing chunk of our digital heritage.
-I tend to save specific, targeted chunks of the web, whereas larger archives take a more indiscriminate approach, just capturing as much as they can.
+Most of my experience is limited to small scale projects -- single sites or personal archives -- and it was good to hear more about how large organisations are trying to preserve this ever-growing chunk of our digital heritage.
+I tend to save specific, targeted chunks of the web, whereas larger archives try to capture as much as they can.
 
 Big tech was a running theme.
 An increasing chunk of the web is consolidating onto large, commercially-owned social media platforms.
-A few years ago, those companies would have freely-available APIs for downloading content en masse, but no more -- but they're all locked now, and several speakers talked about how their ability to archive social media has been severely curtailed.
+A few years ago, those companies would have freely-available APIs for downloading content en masse, but no more -- they're all locked down now, and several speakers talked about how their ability to archive social media has been severely curtailed.
 
-The other hot topic was AI.
-As web archives grow and grow and grow, you need a way to search and summarise their contents.
-Multiple people showed off experiments using AI to make these large archives more tractable, for example using AI to add more metadata to catalogue records.
+AI was also a hot topic, another product of big tech.
+As web archives grow and grow and grow, you need a way to search their contents and find the useful stuff.
+Multiple people showed off experiments using AI to make these large archives more tractable, like using AI to add more metadata to catalogue records, or creating automated summaries of archived TV footage.
 
 A lot of the focus was on saving web content and creating large web archives, but less on what we'll actually do with these archives.
 Who's using web archives?
@@ -38,6 +38,11 @@ I'd love to see more of a focus on that at future events.
 [bnf]: https://www.bnf.fr/
 [richelieu]: https://www.bnf.fr/en/the-bnfs-richelieu-site
 
+<style>
+  figure + figure {
+    margin-top: 3em;
+  }
+</style>
 
 ---
 
@@ -46,7 +51,7 @@ With those reflections done, here are a few photos.
 Paris is a very photogenic city.
 
 The conference took place at the [Bibliothèque nationale de France][bnf], which is split across two sites.
-The drinks reception was at the [Richelieu Site][richelieu], which was the home of the library for nearly 300 years.
+The drinks reception was at the [Richelieu site][richelieu], the home of the library for nearly 300 years.
 It includes a museum, which we got to look around before the reception:
 
 <figure>
@@ -61,7 +66,7 @@ It includes a museum, which we got to look around before the reception:
   <figcaption>
     This is the <a href="https://www.bnf.fr/en/mazarin-gallery">Galerie Mazarin</a>, named after the seventeenth-century <a href="https://en.wikipedia.org/wiki/Cardinal_Mazarin">cardinal of the same name</a>.
     In the foreground is a celestial globe made by <a href="https://en.wikipedia.org/wiki/Vincenzo_Coronelli">Vincenzo Coronelli</a>, an Italian cartographer well known for his maps and globes.
-    There were several other maps in the gallery, although it wasn’t always obvious which area they were showing.
+    There were several other maps in the gallery, although I couldn’t always tell where they were a map of.
   </figcaption>
 </figure>
 
@@ -118,10 +123,10 @@ When you think of big and impressive libraries, this is the sort of room you thi
 ---
 
 
-One of the nice things about going to a conference in France is that their clocks are only an hour ahead of the UK -- close enough that I can sleep on my normal schedule, and I get some extra time in the morning.
+One of the nice things about going to a conference in France is that their clocks are only an hour ahead of the UK -- close enough that I can sleep on my normal schedule, and get some extra time in the morning.
 Before the first day of talks started properly, I went for a bit of a wander.
 
-The sun was shining, and I stumbled upon a lovely little park near the hotel:
+I stumbled upon a lovely little park near the hotel:
 
 {%
   picture
@@ -137,8 +142,8 @@ The sun was shining, and I stumbled upon a lovely little park near the hotel:
 
 
 The talks themselves took place at the [François-Mitterrand site][fms], which was built in the 1990s.
-It's a rather charming site, framed by four right-angled shaped towers at each corner of the site.
-The base of the towers are joined by a rectangular building, and the centre of the rectangle is filled with a dense wooded area.
+It's a rather charming set of buildings, framed by four right-angled shaped towers at each corner of the site.
+The base of the towers are joined by a rectangular building, and the middle of the rectangle is filled with a dense wooded area.
 
 <figure>
   {%
@@ -150,7 +155,7 @@ The base of the towers are joined by a rectangular building, and the centre of t
     link_to_original
   %}
   <figcaption>
-    I think the wooded area might be closed to the public – I never saw any signs to it, nor did I see anybody wandering around down there.
+    I think the wooded area might be closed to the public – I never saw any directions for it, nor did I see anybody wandering around down there.
     But given the amount of greenery elsewhere in Paris, I don’t think anyone is missing out.
   </figcaption>
 </figure>
@@ -170,7 +175,7 @@ The base of the towers are joined by a rectangular building, and the centre of t
 </figure>
 
 You had to cross an interior bridge to get from the main library area to the auditorium where the talks took place, and the space in between felt reminiscent of [The Backrooms].
-I was simultaneously fascinated and vaguely creeped out, and I'm not sure whether to be glad or disappointed that I never found out how to get down there.
+I was simultaneously fascinated and vaguely creeped out, and I'm not sure whether to be glad or disappointed that I never found out how to get down to the area below.
 
 <figure style="width: 450px;">
   {%
@@ -182,7 +187,7 @@ I was simultaneously fascinated and vaguely creeped out, and I'm not sure whethe
     link_to_original
   %}
   <figcaption>
-    Where do you think <a href="https://www.youtube.com/watch?v=DUHcGyshFJI">that escalator</a> goes?
+    Where do you think <a href="https://www.youtube.com/watch?v=DUHcGyshFJI">those escalators</a> go?
   </figcaption>
 </figure>
 
@@ -210,7 +215,7 @@ It felt strangely appropriate, given the topic of the conference:
 
 
 On my final evening, I went for a dusk walk around Paris.
-I enjpy walking around new cities as a way to get a feel of the place, and you get a very different vibe at twilight as midday.
+I enjoy walking around new cities as a way to get a feel of the place, and you see a very different city at twilight than at midday.
 
 <figure>
   {%
@@ -289,8 +294,8 @@ I enjpy walking around new cities as a way to get a feel of the place, and you g
 
 
 And finally, it wouldn't be a collection of photos from Paris without at least a passing mention of food.
-Every culture has some variant of the ham and cheese sandwich, and I'm very partial to the French version.
-This is the delicious croque monsieur I had on my final day:
+I'm not much of a foodie, but I did enjoy what I ate on this trip.
+This is the delicious croque monsieur I had for my final lunch:
 
 {%
   picture
