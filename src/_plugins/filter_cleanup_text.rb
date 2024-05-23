@@ -51,6 +51,7 @@ class AddNonBreakingSpaces
       second
       tags
       unit
+      year
     ].join('|')
 
     text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\2')
