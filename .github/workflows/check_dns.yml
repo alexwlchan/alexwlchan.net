@@ -39,4 +39,8 @@ jobs:
       - name: "Check the DNS records"
         run: |
           cd dns
-          python3 verify_dns_records.py
+
+          saved_dns_records="dns_records.toml"
+          live_dns_records=$(python3 save_dns_records_as_toml.py)
+
+          python3 compare_dns_records.py "$saved_dns_records" "$live_dns_records"

@@ -1,9 +1,5 @@
 # dns
 
-split into two scripts
-
----
-
 This folder contains a crude way to check my DNS records are configured correctly, and track changes.
 
 The `verify_dns_records.py` script tries to create an exhaustive listing of my DNS records.

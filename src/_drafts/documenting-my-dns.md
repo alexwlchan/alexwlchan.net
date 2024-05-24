@@ -14,6 +14,10 @@ colors:
     Card photo from https://www.pexels.com/photo/close-up-shot-of-a-hummingbird-4838540/
 {% endcomment %}
 
+# https://stackoverflow.com/questions/1162230/how-can-i-get-dns-records-for-a-domain-in-python
+
+
+
 * I configure all my DNS in a web dashboard
     Always a bit wary of making changes
     What are all these records for?
