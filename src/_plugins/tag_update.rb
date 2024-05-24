@@ -21,7 +21,7 @@ module Jekyll
       update_string = "**Update, #{@date.strftime('%-d %B %Y')}:**"
       <<~HTML
         <blockquote class="update" id="update-#{@date.strftime('%Y-%m-%d')}">
-          #{converter.convert(update_string + super(context))}
+          #{converter.convert(update_string + super)}
         </blockquote>
       HTML
     end
