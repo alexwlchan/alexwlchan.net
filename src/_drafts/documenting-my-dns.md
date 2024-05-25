@@ -83,7 +83,7 @@ require 'dnsruby'
 def get_dns_records(domain, record_type)
   dns = Dnsruby::DNS.new
   records = dns.getresources(domain, record_type)
-  records.map(&:rdata_to_string)
+  records.map(&:rdata_to_string).sort
 end
 
 domains_to_check = {
