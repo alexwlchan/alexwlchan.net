@@ -11,25 +11,25 @@
 require 'yaml'
 
 unless ARGV.length == 2
-  warn "Usage: #{$PROGRAM_NAME} SAVED_RECORDS_YAML LIVE_RECORDS_YAML"
+  warn "Usage: #{$PROGRAM_NAME} EXPECTED_RECORDS_YAML ACTUAL_RECORDS_YAML"
   exit 1
 end
 
-saved_records = YAML.load_file(ARGV[0])
-live_records = YAML.load_file(ARGV[1])
+expected_records = YAML.load_file(ARGV[0])
+actual_records   = YAML.load_file(ARGV[1])
 
-if saved_records == live_records
+if expected_records == actual_records
   puts 'The DNS records match 🥳'
   exit 0
 else
   puts "The DNS records don't match! 😱"
 
-  (saved_records.keys + live_records.keys).uniq.each do |k|
-    next unless saved_records[k] != live_records[k]
+  (expected_records.keys + actual_records.keys).uniq.each do |k|
+    next unless expected_records[k] != actual_records[k]
 
     puts "#{k}:"
-    puts " - saved: #{saved_records[k].inspect}"
-    puts " - live:  #{live_records[k].inspect}"
+    puts " - expected: #{expected_records[k].inspect}"
+    puts " - actual:   #{actual_records[k].inspect}"
   end
 
   exit 1

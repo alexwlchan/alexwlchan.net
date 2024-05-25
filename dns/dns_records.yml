@@ -95,6 +95,20 @@ analytics.alexwlchan.net A: [ "178.79.134.59",]
 
 
 
+
+# == Let's Encrypt DNS records ==
+#
+# This record is used to verify I own the analytics.alexwlchan.net domain
+# when I create certificates with Let's Encrypt.
+
+_acme-challenge.analytics.alexwlchan.net TXT:
+- '"B8-yyuoSb9rKfpyvGVqURafrLlEF9xX-rbS2v3jjUIU"'
+- '"oTZJC2uoi7J8U8uGLatz1hOCM2r50CcjEgEHFYokHGw"'
+
+
+
+
+
 # == Masto.host DNS record ==
 #
 # This record allows me to use `social.alexwlchan.net` as the URL of my

@@ -25,11 +25,17 @@ require 'yaml'
 
 require 'dnsruby'
 
+def get_dns_records(domain, record_type)
+  dns = Dnsruby::DNS.new
+  records = dns.getresources(domain, record_type)
+  records.map(&:rdata_to_string)
+end
+
 domains_to_check = {
   #
   # alexwlchan.net
   'alexwlchan.net' => %w[NS MX A TXT],
-  # '_acme-.alexwlchan.net' => %w[TXT],
+  '_acme-challenge.analytics.alexwlchan.net' => %w[TXT],
   'analytics.alexwlchan.net' => %w[A],
   'books.alexwlchan.net' => ['CNAME'],
   'social.alexwlchan.net' => ['CNAME'],
@@ -63,15 +69,13 @@ domains_to_check = {
   'fm3._domainkey.bijouopera.co.uk' => ['CNAME']
 }
 
-dns_records = Dnsruby::DNS.open do |dns|
+dns_records =
   domains_to_check
-    .flat_map do |domain, record_types|
-      record_types.map do |rt|
-        resources = dns.getresources(domain, rt).map(&:rdata_to_string).sort
-        [domain, rt, resources]
-      end
+  .flat_map do |domain, record_types|
+    record_types.map do |rt|
+      [domain, rt, get_dns_records(domain, rt)]
     end
-end
+  end
 
 now = DateTime.now.strftime('%Y-%m-%d.%H-%M-%S')
 File.write(
