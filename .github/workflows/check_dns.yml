@@ -1,0 +1,47 @@
+name: Check DNS records
+
+on:
+  push:
+    branches:
+    - main
+
+    paths:
+      - 'dns/*'
+      - '.github/workflows/check_dns.yml'
+
+  pull_request:
+    branches:
+    - main
+
+    paths:
+      - 'dns/*'
+      - '.github/workflows/check_dns.yml'
+
+  schedule:
+    - cron: "30 8 * * *"
+
+jobs:
+  build:
+    name: Build the website
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITH: check_dns
+    steps:
+      - name: "Check out the repo"
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          cache-version: 0
+
+      - name: "Check the DNS records"
+        run: |
+          cd dns
+
+          saved_dns_records="dns_records.yml"
+          live_dns_records=$(bundle exec save_dns_records_as_yaml.rb)
+
+          bundle exec compare_dns_records.rb "$saved_dns_records" "$live_dns_records"
