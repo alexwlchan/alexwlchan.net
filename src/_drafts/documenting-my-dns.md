@@ -27,17 +27,19 @@ My current domain registrar is [Hover], and the only way I can manage my domains
   class="screenshot"
 %}
 
-It's easy to make a one-off change in this dashboard, but it's harder to manage a set of DNS records over a long period:
+It's easy to make a one-off change in this dashboard, but it's harder to manage a set of DNS records over a long period.
+There are two big things it's missing:
 
 *   No documentation – there's nowhere to keep notes or comments, so I can't write down why I created a particular record or if I still need it.
 
 *   No edit history – changes are immediate, and overwrite whatever was there before.
     If I break something, there's no button to rollback or revert -- I'm expected to just know what the old, working configuration was, and apply that as new.
 
-One way to solve that would be to use an infrastructure-as-code (IaC) tool to manage my DNS records, which is how I've managed DNS records at multiple jobs.
+One way to get both of these would be to use an infrastructure-as-code (IaC) tool to manage my DNS records, which is how I've managed DNS records at multiple jobs.
+I could define my DNS records in code, add inline comments, and track changes in Git.
 
 Unfortunately there are no IaC tools for Hover -- it doesn't even have a public API -- so that approach is out.
-(If I was starting from scratch, I'd pick a different domain registrar so I could use a proper IaC tool.)
+(If I was starting from scratch, one of the reasons I'd pick a different domain registrar is so I could use a proper IaC tool.)
 I could migrate my domains to another service, but that's a big change and I'm a bit nervous doing that without any sort of safety net.
 
 However, I've still found a way to add documentation and change history to my existing setup.
@@ -51,7 +53,7 @@ This adds a safety net that makes me feel more comfortable making changes, and o
 
 ## Getting a snapshot of my existing DNS records
 
-This mini-project started when I learnt about Alex Dalitz's gem [dnsruby], which lets you list DNS records in Ruby.
+This project started when I learnt about Alex Dalitz's gem [dnsruby], which lets you list DNS records in Ruby.
 Here's a simple example:
 
 ```ruby
@@ -69,8 +71,8 @@ puts records.map(&:rdata_to_string)
 You have to know exactly which domain name and record type you want to query -- I don't think there's an easy way to get all the DNS records for a particular domain, especially if you want to include all the subdomains.
 This is a limitation of DNS, not the dnsruby gem.
 
-That's fine for me, because I know what subdomains and record types I'm using -- I can read them out of my web dashboard.
-By iterating over the possible domains and record types, I wrote a short script that gets all my DNS records and saves them to a YAML file:
+But that's not an issue for me, because I know what subdomains and record types I'm using -- I can read them out of my web dashboard.
+By iterating over the possible domains and record types, I wrote a script that gets all my DNS records and saves them to a YAML file:
 
 ```ruby
 require 'date'
@@ -228,15 +230,13 @@ puts records.map(&:rdata_to_string).inspect
 # []
 ```
 
-I feel like this could give me a safety net for copying DNS records between providers.
+I feel like this could give me more reassurance when I copy DNS records between providers.
 First, I copy my existing DNS records into the new provider.
 Then, I use dnsruby to get snapshots of the DNS records being served by my old/new provider's nameservers.
 Finally, I compare the two snapshots to check they match.
 
-Crucially, I could do this *before I switch to the new provider's nameservers*.
-This gives me time to test, to iterate, to fix silly mistakes, and I can do so in a relaxed environment without worrying if my site/email are down.
-
-I'd need to do more work to check this would actually work, but I think there's something here.
+Crucially, I could do this *before I switch the domain to the new provider's nameservers*.
+This gives me time to test, to iterate, to fix silly mistakes, and I can do so at a relaxed pace without worrying if my site/email are down.
 
 
 
@@ -255,5 +255,5 @@ If the two have diverged, the job will fail and I'll get an alert, and I'll go t
 I can also run the check on demand, if I'm actively making changes.
 
 This doesn't change anything in Hover or the way I manage my DNS records, but it's done wonders for my peace of mind.
-I have an easy way to work out what each of my DNS records are for, and now I have an edit history so I can easily revert any breaking changes.
+I now have some written documentation about all of my DNS records are for, and I have an edit history so I can easily revert any breaking changes.
 
