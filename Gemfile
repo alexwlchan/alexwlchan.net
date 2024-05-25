@@ -16,3 +16,7 @@ end
 group :test, optional: true do
   gem 'test-unit'
 end
+
+group :check_dns, optional: true do
+  gem 'dnsruby', '~> 1.72'
+end

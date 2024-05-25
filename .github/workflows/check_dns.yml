@@ -24,23 +24,24 @@ jobs:
   build:
     name: Build the website
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITH: check_dns
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          python-version: "3.12"
-          cache: "pip"
-          cache_dependency_path: "dns/requirements.txt"
-      - run: pip install -r dns/requirements.txt
+          ruby-version: "3.3"
+          bundler-cache: true
+          cache-version: 0
 
       - name: "Check the DNS records"
         run: |
           cd dns
 
-          saved_dns_records="dns_records.toml"
-          live_dns_records=$(python3 save_dns_records_as_toml.py)
+          saved_dns_records="dns_records.yml"
+          live_dns_records=$(bundle exec save_dns_records_as_yaml.rb)
 
-          python3 compare_dns_records.py "$saved_dns_records" "$live_dns_records"
+          bundle exec compare_dns_records.rb "$saved_dns_records" "$live_dns_records"

@@ -6,6 +6,7 @@ summary: |
 tags:
   - dns
   - blogging-about-blogging
+  - ruby
 colors:
   index_light: "#c53f70"
   index_dark:  "#bbc660"
@@ -15,6 +16,8 @@ colors:
 {% endcomment %}
 
 # https://stackoverflow.com/questions/1162230/how-can-i-get-dns-records-for-a-domain-in-python
+
+# https://stackoverflow.com/questions/2913226/getting-a-dns-txt-record-in-ruby
 
 
 
