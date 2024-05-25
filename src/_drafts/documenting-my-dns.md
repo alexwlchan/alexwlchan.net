@@ -24,6 +24,7 @@ My current domain registrar is [Hover], and the only way I can manage my domains
   picture
   filename="dns_dashboard.png"
   width="739"
+  alt="Screenshot of a web dashboard. There's a table of records, one record per row, and an edit button on the right-hand side."
   class="screenshot"
 %}
 
