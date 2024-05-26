@@ -35,7 +35,7 @@ class CardImages < HTMLProofer::Check
 
       path = node['content'].gsub('https://alexwlchan.net/', '')
 
-      return add_failure('Missing card image', element: @meta) unless File.file?("_site/#{path}")
+      return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_site/#{path}")
     end
 
     @html.css('meta[name="og:image"]').each do |node|
@@ -43,7 +43,7 @@ class CardImages < HTMLProofer::Check
 
       path = node['content'].gsub('https://alexwlchan.net/', '')
 
-      return add_failure('Missing card image', element: @meta) unless File.file?("_site/#{path}")
+      return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_site/#{path}")
     end
   end
 end
