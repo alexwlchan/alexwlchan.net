@@ -1,12 +1,10 @@
 ---
-layout: post
+layout: til
 date: 2018-10-28 14:12:26 +0000
 title: How to set the clock on a Horstmann Electronic 7 water heater
 summary: Instructions for setting the time of day on my boiler clock.
 tags:
   - domestic
-index:
-  exclude: true
 ---
 
 The clocks went back last night, which means changing the clock on my appliances.
@@ -18,7 +16,12 @@ It turns out it selected the correct winter/summer setting itself, but it's drif
 This is the timer on my boiler:
 
 <figure>
-  <img src="/images/2018/boiler_front_plate.jpg" alt="A control panel with some white, green and blue buttons and a small, poorly-illuminated segment display reading “10:10”.">
+  {%
+    picture
+    filename="boiler_front_plate.jpg"
+    width="750"
+    alt="A control panel with some white, green and blue buttons and a small, poorly-illuminated segment display reading “10:10”."
+  %}
   <figcaption>
     My boiler is in a utility cupboard next to my front door.
     When I turn on the hot water boost, I put the post-it note on the cupboard door, so I don&rsquo;t leave it on when I go out.
