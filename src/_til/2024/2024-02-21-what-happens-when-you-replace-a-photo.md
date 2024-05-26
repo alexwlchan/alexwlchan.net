@@ -1,7 +1,7 @@
 ---
 layout: til
 date: 2024-02-21 12:33:15 +0000
-title: What happens when you replace a photo?
+title: What happens when you replace a photo on Flickr?
 tags:
   - flickr
 ---
@@ -32,7 +32,7 @@ Here's an example from one of my photos, using the flickr.photos.getInfo API:
 ```
 
 Note that this also bumps the `lastupdate` attribute in the `<dates>` element, e.g.:
-  
+
 ```diff
  <dates
    posted="1707315985"
