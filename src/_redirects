@@ -930,7 +930,7 @@
 /2020/10/a-sprinkling-of-azure/                                       	/2020/a-sprinkling-of-azure/
 /2020/10/how-do-i-use-my-iphone-cameras/                              	/2020/how-do-i-use-my-iphone-cameras/
 /2020/10/the-importance-of-good-error-messages/                       	/2020/the-importance-of-good-error-messages/
-/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/          	/2020/til-using-git-check-ignore-to-debug-your-gitignore/
+/2020/10/til-using-git-check-ignore-to-debug-your-gitignore/          	/til/2020/using-git-check-ignore-to-debug-your-gitignore/
 /2020/11/a-python-function-to-ignore-a-path-with-git-info-exclude/    	/2020/a-python-function-to-ignore-a-path-with-git-info-exclude/
 /2020/11/copying-images-from-docker-hub-to-amazon-ecr/                	/2020/copying-images-from-docker-hub-to-amazon-ecr/
 /2020/11/how-i-read-non-fiction-books/                                	/2020/how-i-read-non-fiction-books/
@@ -1186,6 +1186,7 @@
 
 /exams/                                                         /2015/technical-exams/
 
+/2020/til-using-git-check-ignore-to-debug-your-gitignore/       /til/2020/using-git-check-ignore-to-debug-your-gitignore/
 /2018/horstmann-electric-7/                                     /til/2018/horstmann-electric-7/
 /2016/worcester-28cdi-clock/                                    /til/2016/worcester-28cdi-clock/
 /2016/tricity-sie454-clock/                                     /til/2016/tricity-sie454-clock/
@@ -1207,6 +1208,7 @@
 /til/2023/      /til/
 /til/2022/      /til/
 /til/2021/      /til/
+/til/2020/      /til/
 /til/2018/      /til/
 /til/2016/      /til/
 /til/2013/      /til/
