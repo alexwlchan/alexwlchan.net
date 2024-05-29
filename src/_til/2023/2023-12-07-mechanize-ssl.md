@@ -1,12 +1,12 @@
 ---
-layout: post
+layout: til
 date: 2023-12-07 20:53:08 +0000
 title: Telling mechanize how to find local issuer certificates
-summary: Fixing the “unable to get local issuer certificate” error when using mechanize.Browser.
+summary: Calling `browser.set_ca_data(cafile=certifi.where())` will tell where mechanize can find some local SSL certificates.
 colors:
   index_light: "#554741"
   index_dark:  "#c3c6ca"
-tags: 
+tags:
   - python
   - "python:mechanize"
   - "python:certifi"
