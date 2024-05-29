@@ -56,7 +56,7 @@
     x-xss-protection = "1; mode=block"
 
 [[headers]]
-  for = "/2019/09/triangular-coordinates-in-svg/"
+  for = "/2019/triangular-coordinates-in-svg/"
 
   [headers.values]
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
