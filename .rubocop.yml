@@ -13,9 +13,6 @@ AllCops:
     # See https://stackoverflow.com/a/69421161/1558022
     - 'vendor/**/*'
 
-Layout/LineLength:
-  Max: 140
-
 Metrics/AbcSize:
   Enabled: false
 
@@ -51,4 +48,5 @@ Style/MutableConstant:
   Enabled: false
 
 Style/YodaCondition:
-  Enabled: false
+  Exclude:
+    - scripts/create_post.rb

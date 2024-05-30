@@ -19,9 +19,7 @@ def parse_attrs(input)
                     .filter { |_k, v| v.nil? }
                     .filter { |k| k != 'data-proofer-ignore' and k != 'link_to_original' }
 
-  unless bare_attributes.empty?
-    raise SyntaxError, "Unescaped attributes in #{input}"
-  end
+  raise SyntaxError, "Unescaped attributes in #{input}" unless bare_attributes.empty?
 
   result
 end

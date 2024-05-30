@@ -21,8 +21,10 @@ module Jekyll
       site.keep_files.each do |dir|
         next unless File.directory? "#{src}/_#{dir}"
 
-        _, status = Open3.capture2('rsync', '--archive', "#{src}/_#{dir}/", "#{dst}/#{dir}/", '--exclude=twitter/avatars',
-                                   '--exclude=icons', '--exclude=*.svg')
+        _, status = Open3.capture2('rsync', '--archive', "#{src}/_#{dir}/", "#{dst}/#{dir}/",
+                                   '--exclude=twitter/avatars',
+                                   '--exclude=icons',
+                                   '--exclude=*.svg')
         raise 'Unable to run static file rsync' unless status.success?
       end
     end

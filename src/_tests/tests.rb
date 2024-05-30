@@ -2,12 +2,9 @@
 
 # Make sure every test file is correctly sourced in this file.
 Dir.glob('src/_tests/*.rb')
+   .reject { |f| f == 'src/_tests/tests.rb' }
    .each do |f|
   name = File.basename(f, '.rb')
-
-  if f == 'src/_tests/tests.rb'
-    next
-  end
 
   next if File.open('src/_tests/tests.rb').readlines.include? "require_relative '#{name}'\n"
 
