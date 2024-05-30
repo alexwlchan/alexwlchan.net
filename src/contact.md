@@ -6,7 +6,7 @@ nav_section: contact
 I love it when people tell me they enjoyed something I made!
 A nice message can make my day!
 
-The best way to get in touch with me is by email: **<alex@alexwlchan.net>**.
+The best way to get in touch with me is by email: **<{{ site.email | encode_mailto }}>**.
 (I'm bad at replying to emails in a timely manner, but I'm trying to get better!)
 
 I use the handle **alexwlchan** fairly consistently on the rest of the web.
