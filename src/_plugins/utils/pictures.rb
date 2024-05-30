@@ -20,13 +20,11 @@ end
 
 def create_source_elements(sources, source_im_format, options)
   format_order = [ImageFormat::AVIF, ImageFormat::WEBP, source_im_format]
+                 .reject { |im_format| sources[im_format].nil? }
+                 .filter { |im_format| options[:desired_formats].include? im_format }
 
   source_elements = format_order.map do |im_format|
-    if sources[im_format].nil?
-      next
-    end
-
-    if options[:desired_formats].include?(im_format) && options[:dark_mode]
+    if options[:dark_mode]
       <<~HTML
         <source
           srcset="#{sources[im_format].join(', ')}"
@@ -35,7 +33,7 @@ def create_source_elements(sources, source_im_format, options)
           media="(prefers-color-scheme: dark)"
         >
       HTML
-    elsif options[:desired_formats].include? im_format
+    else
       <<~HTML
         <source
           srcset="#{sources[im_format].join(', ')}"
@@ -43,8 +41,6 @@ def create_source_elements(sources, source_im_format, options)
           type="#{im_format[:mime_type]}"
         >
       HTML
-    else
-      ''
     end
   end
 

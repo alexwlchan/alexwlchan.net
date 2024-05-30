@@ -10,9 +10,7 @@ def get_css_colors(page)
   primary_color_light = colors['css_light']
   primary_color_dark = colors['css_dark']
 
-  if primary_color_light.nil? && primary_color_dark.nil?
-    return
-  end
+  return if primary_color_light.nil? && primary_color_dark.nil?
 
   { 'light' => primary_color_light, 'dark' => primary_color_dark }
 end
