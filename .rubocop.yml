@@ -48,4 +48,5 @@ Style/MutableConstant:
   Enabled: false
 
 Style/YodaCondition:
-  Enabled: false
+  Exclude:
+    - scripts/create_post.rb
