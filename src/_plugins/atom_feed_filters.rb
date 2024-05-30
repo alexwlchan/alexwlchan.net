@@ -53,9 +53,14 @@ module Jekyll
     def fix_html_for_feed_readers(html)
       doc = Nokogiri::HTML.fragment(html)
 
+      # Remove all inline <style> tags
+      doc.xpath('style').remove
+
       # Remove inline attributes from an HTML string that aren't allowed in
       # an Atom feed, according to https://github.com/rubys/feedvalidator
-      doc.xpath('style|@style|.//@style|@data-lang|.//@data-lang|@controls|.//@controls|@aria-hidden|.//@aria-hidden').remove
+      attribute_names = %w[style data-lang controls aria-hidden]
+                        .flat_map { |name| ["@#{name}", ".//@#{name}"] }
+      doc.xpath(attribute_names.join('|')).remove
 
       HtmlModifiers.fix_tweets_for_rss(doc)
 

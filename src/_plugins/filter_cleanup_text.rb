@@ -105,12 +105,14 @@ module Jekyll
         # Display "LaTeX" in a nice way, if you have CSS enabled
         text = text.gsub(
           ' LaTeX',
-          ' <span class="visually-hidden">LaTeK</span><span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
+          ' <span class="visually-hidden">LaTeK</span>' \
+          '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
         )
 
         text = text.gsub(
           ' TeX',
-          ' <span class="visually-hidden">TeK</span><span class="latex" aria-hidden="true">T<sub>e</sub>X</span>'
+          ' <span class="visually-hidden">TeK</span>' \
+          '<span class="latex" aria-hidden="true">T<sub>e</sub>X</span>'
         )
 
         # Make sure that footnote markers are rendered as a text

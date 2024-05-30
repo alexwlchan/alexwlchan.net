@@ -13,9 +13,6 @@ AllCops:
     # See https://stackoverflow.com/a/69421161/1558022
     - 'vendor/**/*'
 
-Layout/LineLength:
-  Max: 130
-
 Metrics/AbcSize:
   Enabled: false
 
