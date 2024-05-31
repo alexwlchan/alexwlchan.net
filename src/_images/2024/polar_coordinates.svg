@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160">
+  <defs>
+    <style>
+      line {
+        stroke-linecap: round;
+      }
+      
+      .black_fill   { fill:   currentColor; }
+      .black_stroke { stroke: currentColor; }
+      .green_fill   { fill:   green;        }
+      .green_stroke { stroke: green;        }
+      .blue_fill    { fill:   blue;         }
+      .blue_stroke  { stroke: blue;         }
+      
+      .green_angle { fill:  rgba(0, 128, 0, 0.25); }
+      .blue_angle  { fill:  rgba(0, 0, 255, 0.25); }
+      
+      @media (prefers-color-scheme: dark) {
+        .green_fill   { fill:   lawngreen; }
+        .green_stroke { stroke: lawngreen; }
+        
+        .blue_fill   { fill:   deepskyblue; }
+        .blue_stroke { stroke: deepskyblue; }
+        
+        .green_angle { fill:  rgba(124, 252, 0, 0.25); }
+        .blue_angle  { fill:  rgba(0, 191, 255, 0.25); }
+      }
+      
+      text {
+        font-size: 11px;
+        stroke: none;
+      }
+      
+      text.italic {
+        font-style: italic;
+      }
+    </style>
+  </defs>
+  
+  <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
+    <polygon class="black_fill" points="0 0, 7 2.45, 0 4.9"/>
+  </marker>
+
+  <text x="15" y="17" text-anchor="end" dominant-baseline="middle" class="black_fill italic">R</text>
+  <text x="15" y="95" text-anchor="end" dominant-baseline="middle" class="black_fill">1</text>
+  
+  <text x="15" y="115" text-anchor="end" dominant-baseline="middle" class="black_fill">0</text>
+  
+  <line x1="20" y1="95" x2="30" y2="95"/>
+  <path d="M 25 115 L 25 15" class="black_stroke"
+stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <circle cx="25" cy="115" r="2.45" class="black_fill"/>
+
+  <!-- x = c_x + r sin(40), y = c_y - r cos(40) -->
+  <line x1="25" y1="115" x2="89.27876097" y2="38.39555569" class="green_stroke" style="stroke-width: 1.75;;"/>
+  <circle cx="89.27876097" cy="38.39555569" r="3" class="green_fill green_stroke"/>
+  
+  <text x="97.27876097" y="38.39555569" class="green_fill" font-size="12" text-anchor="start" dominant-baseline="middle">(9, 40°)</text>
+  
+  <!-- x = c_x + r sin(120), y = c_y - r cos(120) -->
+  <line x1="25" y1="115" x2="81.29" y2="147.5" class="blue_stroke" style="stroke-width: 1.75;"/>
+  <circle cx="81.29" cy="147.5" r="3" class="blue_fill blue_stroke"/>
+  <text x="90.29" y="147.5" class="blue_fill" font-size="12" text-anchor="start" dominant-baseline="middle">(6, 120°)</text>
+  
+  <text x="63" y="110" class="blue_fill" font-size="12" text-anchor="end">φ</text>
+
+  <svg x="-85" y="5">    
+    <!-- green -->
+    <!-- get_circular_arc_path_command(centre_x=110, centre_y=110, radius=35, start_angle=0, sweep_angle=40, angle_unit='degrees') -->
+    <path d="M 110.0 75.0 A 35 35 0 0 1 132.49756633902888 83.18844449083576 L 110 110 z" class="green_stroke green_angle" fill="none" stroke-linejoin="round" stroke-dasharray="2 2"/>
+    <text x="129" y="70" class="green_fill" font-size="12" text-anchor="end">θ</text>    
+    
+    <!-- blue -->
+    <!-- get_circular_arc_path_command(centre_x=110, centre_y=110, radius=25, start_angle=0, sweep_angle=120, angle_unit='degrees') -->
+    <path d="M 110.0 85.0 A 25 25 0 0 1 131.65063509461098 122.5 L 110 110 z" class="blue_stroke blue_angle" fill="none" stroke-linejoin="round" stroke-dasharray="2 2"/>
+  </svg>
+</svg>
