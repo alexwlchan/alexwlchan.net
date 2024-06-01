@@ -55,6 +55,7 @@ class InlineStylesFilters
       # a closing </source> tag which is redundant, so instead we operate
       # on the raw HTML and try to preserve the existing formatting as
       # much as possible.
+      html = html.gsub(%r{\s*<defs>\s*<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>\s*</defs>}, '')
       html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
     end
 
