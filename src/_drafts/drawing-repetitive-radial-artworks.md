@@ -15,7 +15,7 @@ These are a few of my doodles:
   picture
   filename="doodles.jpg"
   width="750"
-  style="filter: saturate(0%);"
+  alt="A couple of sheets of paper with various hand-drawn doodles showing simple geometric shapes and circles."
 %}
 
 I was trying to draw various patterns that could be repeated around a central point.
