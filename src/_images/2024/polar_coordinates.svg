@@ -46,7 +46,7 @@
   
   <text x="15" y="115" text-anchor="end" dominant-baseline="middle" class="black_fill">0</text>
   
-  <line x1="20" y1="95" x2="30" y2="95"/>
+  <line x1="20" y1="95" x2="30" y2="95" class="black_stroke"/>
   <path d="M 25 115 L 25 15" class="black_stroke"
 stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
   <circle cx="25" cy="115" r="2.45" class="black_fill"/>

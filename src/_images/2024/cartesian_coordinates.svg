@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+  <defs>
+    <style>
+      line {
+        stroke-linecap: round;
+      }
+      
+      .black_fill   { fill:   currentColor; }
+      .black_stroke { stroke: currentColor; }
+      .green_fill   { fill:   green;        }
+      .green_stroke { stroke: green;        }
+      .blue_fill    { fill:   blue;         }
+      .blue_stroke  { stroke: blue;         }
+      
+      .green_angle { fill:  rgba(0, 128, 0, 0.25); }
+      .blue_angle  { fill:  rgba(0, 0, 255, 0.25); }
+      
+      @media (prefers-color-scheme: dark) {
+        .green_fill   { fill:   lawngreen; }
+        .green_stroke { stroke: lawngreen; }
+        
+        .blue_fill   { fill:   deepskyblue; }
+        .blue_stroke { stroke: deepskyblue; }
+        
+        .green_angle { fill:  rgba(124, 252, 0, 0.25); }
+        .blue_angle  { fill:  rgba(0, 191, 255, 0.25); }
+      }
+      
+      text {
+        font-size: 11px;
+        stroke: none;
+      }
+      
+      text.italic {
+        font-style: italic;
+      }
+    </style>
+  </defs>
+  
+  <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
+    <polygon class="black_fill" points="0 0, 7 2.45, 0 4.9"/>
+  </marker>
+
+  <text x="29" y="110" text-anchor="end" dominant-baseline="middle" class="black_fill italic">y</text>
+  <text x="26.5" y="45" text-anchor="end" dominant-baseline="middle" class="black_fill">1</text>
+  
+  <text x="30" y="22" text-anchor="end" dominant-baseline="bottom" class="black_fill">(0, 0)</text>
+  
+  <line x1="30" y1="45" x2="40" y2="45" class="black_stroke"/>
+  <path d="M 35 25 L 35 115" class="black_stroke"
+stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <circle cx="35" cy="25" r="2.45" class="black_fill"/>
+  
+  <path d="M 35 25 L 115 25" class="black_stroke"
+stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="110" y="17" text-anchor="end" dominant-baseline="middle" class="black_fill italic">x</text>
+
+  <!-- (4, 2) -->
+  <path d="M 35 65 L 100 65 L 100 25" fill="none" class="green_stroke" stroke-dasharray="2 2"/>
+  <text x="105" y="75" class="green_fill" font-size="12" dominant-baseline="top" text-anchor="start">(4, 2)</text>
+  <circle cx="100" cy="65" r="3" class="green_fill green_stroke"/>
+  
+  <path d="M 35 85 L 55 85 L 55 25" fill="none" class="blue_stroke" stroke-dasharray="2 2"/>
+  <text x="60" y="95" class="blue_fill" font-size="12" dominant-baseline="top" text-anchor="start">(1, 3)</text>
+  <circle cx="55" cy="85" r="3" class="blue_fill blue_stroke"/>
+</svg>
