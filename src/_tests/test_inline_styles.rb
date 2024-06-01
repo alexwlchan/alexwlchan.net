@@ -57,4 +57,19 @@ class TestInlineStylesFilters < Test::Unit::TestCase
       { 'html' => output, 'inline_styles' => 'p { color: red; }' }
     )
   end
+
+  def test_it_deduplicates_style_tags
+    input = <<~HTML
+      <style> p { color: red; }</style>
+      <style> p { color: red; }</style>
+      <style> div { color: green; }</style>
+      <p>Hello world!</p>
+    HTML
+
+    result = InlineStylesFilters.get_inline_styles(input, nil)
+
+    assert_equal(
+    result['inline_styles'], 'p { color: red; } div { color: green; }'
+    )
+  end
 end
