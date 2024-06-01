@@ -77,12 +77,12 @@ class TestInlineStylesFilters < Test::Unit::TestCase
     # This <defs> tag will be empty when we remove the <style> tag, so
     # we can remove it also.  This is fairly common in inline SVGs.
     input = <<~HTML
-    <svg>
-      <defs>
-        <style> line { stroke: black; }</style>
-      </defs>
-      <line x1="0" y1="0" x2="10" y2="10"/>
-    </svg>
+      <svg>
+        <defs>
+          <style> line { stroke: black; }</style>
+        </defs>
+        <line x1="0" y1="0" x2="10" y2="10"/>
+      </svg>
     HTML
 
     output = <<~HTML
