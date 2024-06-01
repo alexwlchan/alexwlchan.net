@@ -57,4 +57,41 @@ class TestInlineStylesFilters < Test::Unit::TestCase
       { 'html' => output, 'inline_styles' => 'p { color: red; }' }
     )
   end
+
+  def test_it_deduplicates_style_tags
+    input = <<~HTML
+      <style> p { color: red; }</style>
+      <style> p { color: red; }</style>
+      <style> div { color: green; }</style>
+      <p>Hello world!</p>
+    HTML
+
+    result = InlineStylesFilters.get_inline_styles(input, nil)
+
+    assert_equal(
+      result['inline_styles'], 'p { color: red; } div { color: green; }'
+    )
+  end
+
+  def test_it_removes_empty_def_tags
+    # This <defs> tag will be empty when we remove the <style> tag, so
+    # we can remove it also.  This is fairly common in inline SVGs.
+    input = <<~HTML
+      <svg>
+        <defs>
+          <style> line { stroke: black; }</style>
+        </defs>
+        <line x1="0" y1="0" x2="10" y2="10"/>
+      </svg>
+    HTML
+
+    output = <<~HTML
+      <svg>
+        <line x1="0" y1="0" x2="10" y2="10"/>
+      </svg>
+    HTML
+
+    result = InlineStylesFilters.get_inline_styles(input, nil)
+    assert_equal(result['html'], output)
+  end
 end

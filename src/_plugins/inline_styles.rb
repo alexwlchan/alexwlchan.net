@@ -29,7 +29,7 @@ class InlineStylesFilters
 
     doc = Nokogiri::HTML(html)
 
-    inline_styles = Hash.new { [] }
+    inline_styles = Hash.new { Set.new([]) }
 
     doc.xpath('style|.//style').each do |style|
       style_type = style.get_attribute('type')
@@ -55,14 +55,15 @@ class InlineStylesFilters
       # a closing </source> tag which is redundant, so instead we operate
       # on the raw HTML and try to preserve the existing formatting as
       # much as possible.
+      html = html.gsub(%r{\s*<defs>\s*<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>\s*</defs>}, '')
       html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
     end
 
     lines = inline_styles.map do |media, css|
       if media.nil?
-        css
+        css.join(' ')
       else
-        "@media #{media} { #{css.join("\n")} }"
+        "@media #{media} { #{css.join(' ')} }"
       end
     end
 
