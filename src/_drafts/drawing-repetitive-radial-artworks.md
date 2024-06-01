@@ -437,6 +437,7 @@ And once I'd worked out the angles required to make a single curve work, I was a
   %}  
 </div>
 
+I like the ones with fewer segments, so you can really see the extra arcs.
 The eight-segment one reminds me of a citrus fruit.
 
 ---
@@ -461,7 +462,7 @@ In my first version of this code, I had a bug where I didn't join the extra-wide
   %}
   {%
     inline_svg
-    filename="petals/hooks_3.svg"
+    filename="petals/hooks_8.svg"
     class="dark_aware"
   %}
   {%
@@ -469,29 +470,9 @@ In my first version of this code, I had a bug where I didn't join the extra-wide
     filename="petals/hooks_4.svg"
     class="dark_aware"
   %}
-  {%
-    inline_svg
-    filename="petals/hooks_5.svg"
-    class="dark_aware"
-  %}
-  {%
-    inline_svg
-    filename="petals/hooks_6.svg"
-    class="dark_aware"
-  %}  
-  {%
-    inline_svg
-    filename="petals/hooks_7.svg"
-    class="dark_aware"
-  %}
-  {%
-    inline_svg
-    filename="petals/hooks_8.svg"
-    class="dark_aware"
-  %}
 </div>
 
-Fixed the bugs, got it working:
+After I fixed the bugs, I was able to get petals with different radii:
 
 <div class="grid_4up checkerboard">
   {%
@@ -541,24 +522,11 @@ Then play with the angles:
   %}
 </div>
 
-Took a couple of tries to work out how to partition 360° in a way that isn't very lopsided.
-Ended up on this algorithm:
-
-```python
-weights = [
-    random.uniform(0, 1)
-    for _ in range(number_of_spokes)
-]
-
-angles = [
-    360 * w / sum(weights)
-    for w in weights
-]
-```
+It took me a couple of tries to work out how to partition 360° in a way that isn't very lopsided -- I ended up picking a random float in [0,&nbsp;1] for each segment, then scaling those values up so their total was 360.
 
 ---
 
-Final set of pictures:
+Here's a final set of doodles, which are all "mistakes" where the code didn't do what I was expecting, but made something pretty anyway:
 
 <div class="grid_4up checkerboard">
   {%
@@ -603,6 +571,7 @@ Final set of pictures:
   %}
 </div>
 
-plenty more things I could try
-adding colour
-moving the centre
+There are more things I could try, like adding colour and moving the centre, but this is all I had time for.
+That's okay.
+I was only drawing to have fun and because I wanted to make some pretty pictures, and I did both of those.
+I like how far I was able to get from a single idea: "what if I repeated a pattern in a circle around a central point".
