@@ -59,7 +59,7 @@ I've tried and failed to install command-line OCR in the past; getting this work
 [ocr]: https://en.wikipedia.org/wiki/Optical_character_recognition
 [preview]: https://support.apple.com/en-gb/guide/preview/prvw625a5b2c/mac
 [docs]: https://developer.apple.com/documentation/vision/recognizing_text_in_images#3601255
-[script]: https://github.com/alexwlchan/pathscripts/blob/main/macos/get_live_text
+[script]: https://github.com/alexwlchan/get_live_text
 [screenshots]: /2022/screenshots/
 [second]: https://github.com/alexwlchan/pathscripts/blob/main/macos/get_all_live_text
 [Shortcuts app]: https://support.apple.com/en-gb/guide/shortcuts-mac/apdf22b0444c/mac
