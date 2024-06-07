@@ -2,6 +2,8 @@
 layout: til
 title: How to set the clock on a Worcester 28CDi boiler
 date: 2016-10-08
+tags:
+  - home
 ---
 
 Every month or so, there's a power cut in my flat, and my boiler clock resets.

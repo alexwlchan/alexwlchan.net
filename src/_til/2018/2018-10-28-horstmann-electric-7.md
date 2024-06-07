@@ -2,9 +2,8 @@
 layout: til
 date: 2018-10-28 14:12:26 +0000
 title: How to set the clock on a Horstmann Electronic 7 water heater
-summary: Instructions for setting the time of day on my boiler clock.
 tags:
-  - domestic
+  - home
 ---
 
 The clocks went back last night, which means changing the clock on my appliances.
