@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: til
 title: "How do Dreamwidth posts IDs work?"
 summary: |
   They were deliberately non-sequential as an anti-spam technique.
