@@ -103,10 +103,11 @@ analytics.alexwlchan.net A: [ "178.79.134.59",]
 
 _acme-challenge.analytics.alexwlchan.net TXT:
 - '"B8-yyuoSb9rKfpyvGVqURafrLlEF9xX-rbS2v3jjUIU"'
-- '"oTZJC2uoi7J8U8uGLatz1hOCM2r50CcjEgEHFYokHGw"'
 
   # Added when renewing the certificates on 9 June 2024
 - '"QBD8Yzz-tCRK8uYDOc35ep9ZSEzttsT49gwxEcVnA4Q"'
+
+- '"oTZJC2uoi7J8U8uGLatz1hOCM2r50CcjEgEHFYokHGw"'
 
 
 
