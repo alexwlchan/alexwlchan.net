@@ -50,7 +50,7 @@
     x-content-type-options = "nosniff"
 
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options
-    x-frame-options = "DENY"
+    x-frame-options = "ALLOW"
 
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
     x-xss-protection = "1; mode=block"
