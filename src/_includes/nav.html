@@ -23,6 +23,13 @@
     </li>
     <li>
       <a
+        href="/projects/"
+        {% if page.url == "/projects/" %}selected{% endif %}
+      >
+        projects</a>
+    </li>
+    <li>
+      <a
         href="/contact/"
         {% if page.nav_section == "contact" %}selected{% endif %}
       >
