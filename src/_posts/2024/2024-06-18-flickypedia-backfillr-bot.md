@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-06-18 11:21:31 +0000
+date: 2024-06-11 11:21:31 +0000
 title: Improving millions of files on Wikimedia Commons with Flickypedia Backfillr Bot
 summary: |
   The new bot improves metadata for Flickr photos on Wikimedia Commons, and makes it easier to find out which photos have been copied across.
