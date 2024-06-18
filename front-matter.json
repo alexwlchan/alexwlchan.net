@@ -36,6 +36,10 @@
             "description": "An external page that this page should link to, like a link blog. This is used on the HTML version of the page, and where clicking on the RSS feed entry will take the reader.",
             "type": "string"
         },
+        "link_direct": {
+            "description": "Whether the articles index should link directly to the external page.",
+            "type": "boolean"
+        },
         "colors": {
             "description": "Colours used to theme/style this individual page or post.",
             "type": "object",

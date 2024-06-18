@@ -11,7 +11,7 @@
   id="a-{{ article.slug }}"
   data-tags="{{ article.tags | join: ' ' }}"
 >
-  <a href="{{ article.url }}">
+  <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
     {% card_image %}
 
     <div class="c_meta">

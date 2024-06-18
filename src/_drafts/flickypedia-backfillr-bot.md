@@ -6,7 +6,10 @@ summary: |
 tags:
   - wikimedia-commons
   - flickr-foundation
+
 link: https://www.flickr.org/improving-millions-of-files-on-wikimedia-commons-with-flickypedia-backfillr-bot/
+link_direct: true
+
 colors:
   index_dark:  "#e4d186"
   index_light: "#c55c75"
