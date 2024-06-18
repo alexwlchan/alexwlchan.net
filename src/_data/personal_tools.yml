@@ -1,14 +1,26 @@
 ---
 - name: dominant_colours
-  date_updated: 2024-05-12
+  version: 1.2.0
+  date: 2021-11-30
   description: |
-    A command-line tool to find the dominant colours in an image.
-    It prints a palette of colours in your terminal.
+    A command-line tool that finds the dominant colours in an image, and print a palette in your terminal.
+    This uses [<em>k</em>-means clustering](/2019/finding-tint-colours-with-k-means/) to find the most commonly-used colours in a picture.
+
 - name: emptydir
-  date_updated: 2024-06-18
+  date: 2024-06-18
+  version: 1.0.0
   description:
-    Look for empty directories and delete them.
-- name: concurrently
-  date_updated: 2024-06-16
+    A command-line tool that looks for empty directories and delete them.
+
+- name: get_live_text
+  date: 2024-06-06
+  version: 1.0.0
   description:
-    A snippet for running multiple, concurrent invocations of a Python function.
+    A command-line tool that gets text from an image using Apple’s built-in "Live Text" feature.
+    This lets you OCR images programatically on macOS without installing any extra software.
+
+- name: safari-webarchiver
+  version: 1.0.1
+  date: 2024-06-05
+  description: |
+    A command-line tool that saves web pages as Safari webarchive files.
