@@ -331,18 +331,6 @@ Usually they solve a very specific problem and I don’t expect anybody else to 
     There’s a CLI to store files, and a web app to search for previously-stored files.
   </dd>
 
-  <dt><a href="https://github.com/alexwlchan/dominant_colours" aria-label="dominant colours">dominant_colours</a></dt>
-  <dd>
-    A command-line tool to find the dominant colours in an image.
-    It prints a palette of colours in your terminal.
-  </dd>
-
-  <dt><a href="https://github.com/alexwlchan/safari.rs" aria-label="safari dot rs" aria-braillelabel="safari.rs">safari.rs</a></dt>
-  <dd>
-    A command-line tool for getting data from Safari, like the URL of the frontmost window or the number of open tabs.
-    I also use it for a text expansion macro: I can type <code>;furl</code> in any app, and it gets replaced by the frontmost URL (with tracking parameters automatically removed).
-  </dd>
-
   <dt><a href="https://github.com/alexwlchan/highlight-twitter-alt-text">highlight-twitter-alt-text</a></dt>
   <dd>
     A collection of CSS and JavaScript snippets I use to show alt text in my Twitter timeline (or highlight its absence).
