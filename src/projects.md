@@ -27,7 +27,7 @@ This page lists some of my projects, so you can get an idea of what I've been up
 I enjoy writing little tools and scripts to make my life easier.
 If I use something enough that I think other people might find it useful, I add some documentation, tests, and I post the code [on GitHub](https://github.com/alexwlchan?tab=repositories).
 
-{% assign personal_tools = site.data["personal_tools"] | sort: "date" | reverse %}
+{% assign personal_tools = site.data["personal_tools"] | sort: "name" %}
 
 <dl>
   {% for tool in personal_tools %}
