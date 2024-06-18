@@ -13,33 +13,37 @@ title: Projects
     margin-left: 40px;
   }
 
-  .last_updated {
+  .date_created {
     color: var(--accent-grey);
   }
 </style>
 
 This page lists some of my projects, so you can get an idea of what I've been up to:
 
-- [Personal tools](#personal-tools)
+- [Personal tools and scripts](#personal-tools-and-scripts)
 
-## Personal tools
+## Personal tools and scripts
 
-These are tools I've written that make my life easier.
-All these tools are open-source and available on GitHub.
+I enjoy writing little tools and scripts to make my life easier.
+If I use something enough that I think other people might find it useful, I add some documentation, tests, and I post the code [on GitHub](https://github.com/alexwlchan?tab=repositories).
 
-{% assign personal_tools = site.data["personal_tools"] | sort: "date_updated" | reverse %}
+{% assign personal_tools = site.data["personal_tools"] | sort: "date" | reverse %}
 
 <dl>
   {% for tool in personal_tools %}
   <dt>
     <a href="https://github.com/alexwlchan/{{ tool.name }}">{{ tool.name }}</a>
+    <span class="date_created">(v{{ tool.version }}, <time datetime="{{ include.date | date: "%Y-%m-%d" }}">{{- tool.date | date: "%B %Y" -}}</time>)</span>
   </dt>
   <dd>
-    {{ tool.description }}
-    <span class="last_updated">(updated {% include timestamp.html date = tool.date_updated %})</span>
+    {{ tool.description | markdownify_oneline }}
   </dd>
   {% endfor %}
 </dl>
+
+---
+
+
 
 {% comment %}
 
