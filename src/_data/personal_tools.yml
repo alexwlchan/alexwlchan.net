@@ -1,7 +1,7 @@
 ---
 - name: dominant_colours
   version: 1.2.0
-  date: 2021-11-30
+  date: 2024-05-12
   description: |
     A command-line tool that finds the dominant colours in an image, and print a palette in your terminal.
     This uses [<em>k</em>-means clustering](/2019/finding-tint-colours-with-k-means/) to find the most commonly-used colours in a picture.
