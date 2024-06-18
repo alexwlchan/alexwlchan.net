@@ -1,0 +1,14 @@
+---
+- name: dominant_colours
+  date_updated: 2024-05-12
+  description: |
+    A command-line tool to find the dominant colours in an image.
+    It prints a palette of colours in your terminal.
+- name: emptydir
+  date_updated: 2024-06-18
+  description:
+    Look for empty directories and delete them.
+- name: concurrently
+  date_updated: 2024-06-16
+  description:
+    A snippet for running multiple, concurrent invocations of a Python function.
