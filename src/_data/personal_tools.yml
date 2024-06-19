@@ -24,3 +24,8 @@
   date: 2024-06-05
   description: |
     A command-line tool that saves web pages as Safari webarchive files.
+
+- name: nextjs-pageweight-analyser
+  date: 2022-11-15
+  description: |
+    A script to measure the page weight of a site built using [Next.js](https://nextjs.org/), and find ways to reduce the size of the data sent to the page using [`getServerSideProps`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props).

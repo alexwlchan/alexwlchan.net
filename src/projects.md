@@ -33,7 +33,7 @@ If I use something enough that I think other people might find it useful, I add 
   {% for tool in personal_tools %}
   <dt>
     <a href="https://github.com/alexwlchan/{{ tool.name }}">{{ tool.name }}</a>
-    <span class="date_created">(v{{ tool.version }}, <time datetime="{{ include.date | date: "%Y-%m-%d" }}">{{- tool.date | date: "%B %Y" -}}</time>)</span>
+    <span class="date_created">({% if tool.version %}v{{ tool.version }}, {% endif %}<time datetime="{{ include.date | date: "%Y-%m-%d" }}">{{- tool.date | date: "%B %Y" -}}</time>)</span>
   </dt>
   <dd>
     {{ tool.description | markdownify_oneline }}
