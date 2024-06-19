@@ -3,7 +3,7 @@ layout: page
 title: Projects
 ---
 
-<style>
+<style type="x-text/scss">
   dt:not(:first-child) {
     margin-top: 20px;
   }
@@ -13,14 +13,133 @@ title: Projects
     margin-left: 40px;
   }
 
+  dd p:first-child {
+    margin-top: 0;
+  }
+
   .date_created {
     color: var(--accent-grey);
   }
+
+  @mixin illustrated_image($color, $opacity) {
+    img     { border-color:    $color; }
+    &:hover { background: rgba($color, $opacity); }
+  }
+
+  /* Styles for lists that have an image hovering out to the right.
+   * When the screen is narrow, the image moves to be inline with the text.
+   */
+
+  .illustrated_list {
+    padding-left: 0;
+
+    .illustrated_item {
+      display: grid;
+      grid-column-gap: 1em;
+      grid-template-columns: auto auto;
+
+      &:not(:last-child) {
+        margin-bottom: 1em;
+      }
+
+      /* Vertically centre the text that appears alongside the image */
+      dl {
+        margin-top:    auto;
+        margin-bottom: auto;
+      }
+    }
+  }
+
+  /* Adding the border-radius to the `img` gets the visual effect; adding
+     it to the parent `a` adds it to the hovered background. */
+  .illustrated_item a, .illustrated_item a img {
+    border-radius: var(--border-radius);
+  }
+
+  .illustrated_item a:hover img {
+    opacity: 0.65;
+  }
+
+  /*
+    On desktop browsers, the image appears off to the right.  We use
+    max-height instead of height so it maintains the correct aspect
+    ratio on small screens.
+
+    On mobile browsers, the image appears vertically inline with the text.
+  */
+  .illustrated_item a img {
+    max-height: 150px;
+    border-width: var(--border-width);
+    border-style: solid;
+  }
+
+  @media screen and (min-width: 500px) {
+    .illustrated_item {
+      min-height: 150px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .illustrated_item {
+      grid-template-columns: auto;
+    }
+
+    .illustrated_item .img_wrapper {
+      background-opacity: 0;
+    }
+
+    .fun_image {
+      margin-top: 1em;
+
+      /* This ensures that the background colour doesn't span the full width
+       * of the page on a small device.
+       */
+      margin-left:  auto;
+      margin-right: auto;
+    }
+  }
+
+  #collections_search {
+    @include illustrated_image(#ffce3c, 0.2)
+  }
+
+  #howlongismydata {
+    @include illustrated_image(#ff47ff, 0.2)
+  }
+
+  #rainbowhearts {
+    @include illustrated_image(#222, 0.3)
+  }
+  #booktracker {
+    @include illustrated_image(#9d418d, 0.3)
+  }
+
+  #kempisbot {
+    @include illustrated_image(#1DA1F2, 0.3)
+  }
+
+  #rainbowvalknuts {
+    @include illustrated_image(#222, 0.3)
+  }
+
+  #finduntaggedtumblrposts {
+    @include illustrated_image(#2b6397, 0.3)
+  }
+
+  #ukstationsmap {
+    @include illustrated_image(#00c234, 0.2)
+  }
+  #marqueerocket { @include illustrated_image(#000000, 0.3) }
+
+  #happybackgrounds { @include illustrated_image(#c24400, 0.3) }
+
 </style>
 
-This page lists some of my projects, so you can get an idea of what I've been up to:
-
 - [Personal tools and scripts](#personal-tools-and-scripts)
+- [Wellcome Collection](#wellcome-collection)
+- [Fun stuff](#fun-stuff)
+
+---
 
 ## Personal tools and scripts
 
@@ -40,6 +159,277 @@ If I use something enough that I think other people might find it useful, I add 
   </dd>
   {% endfor %}
 </dl>
+
+---
+
+## Wellcome Collection
+
+I worked at [Wellcome Collection](https://wellcomecollection.org) from January 2017 to September 2023.
+Wellcome Collection is a museum and library in London, which focuses on health and human experience.
+I was one of the first developers on the Digital Platform, which powers the public website and provides access to the digital collections.
+I helped design and build key parts of the platform.
+
+Some personal highlights include:
+
+<dl>
+  <dt><a href="https://github.com/wellcomecollection/storage-service">Preservation storage service</a> <span class="date_created">(Sept 2019–Aug 2023)</span></dt>
+  <dd>
+    <p>
+      The storage service provides long-term, permanent storage of Wellcome’s digital archives.
+      It replicates files across Amazon S3 and Azure Blob, and provides fixity checking and indexing beyond that of the underlying storage.
+    </p>
+  </dd>
+
+  <dt>
+    <a href="https://wellcomecollection.org/collections">Unified collections search</a> <span class="date_created">(Jan 2017–Sept 2023)</span>
+  </dt>
+  <dd>
+    <p>
+      The unified search combines catalogue records from multiple source catalogues.
+      This allows researchers to find records in all of those catalogues with a single search box.
+    </p>
+  </dd>
+
+  <dt><a href="https://wellcome.org/news/our-trans-inclusion-policy-latest-step-making-wellcome-more-inclusive">Trans inclusion policy</a> <span class="date_created">(June 2020)</span></dt>
+  <dd>
+    I helped write the first version of Wellcome’s trans inclusion policy and guidance, which provides advice for trans staff, their managers, and their colleagues.
+  </dd>
+</dl>
+
+
+
+
+---
+
+
+
+
+## Fun stuff
+
+{% comment %}
+  All images should have the same ratio, so they look consistent.
+
+  Currently 503x444, which is an admittedly arbitrary choice.
+{% endcomment %}
+
+<ul class="illustrated_list">
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://howlongismydata.glitch.me">How long is my data?</a>
+      </dt>
+      <dd role="text">
+        Measure data in the shelving space you’d need if you stored it as a series of <span class="visually-hidden">3&frac12; inch</span><span aria-hidden="true">3&frac12;&Prime;</span> floppy disks.
+      </dd>
+    </dl>
+
+    <a href="https://howlongismydata.glitch.me" id="howlongismydata" class="fun_image">
+      {%
+        picture
+        filename="howlongismydata.png"
+        width="170"
+        parent="/images/projects"
+        alt="A white page with two rows of pink floppy disks and a title 'How long is my data?'"
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="http://rainbow-hearts.glitch.me/">Rainbow hearts</a>
+      </dt>
+      <dd>
+        Create pairs of interlocking hearts in a variety of Pride flags.
+        They use some SVG masking techniques I wrote about <a href="/2021/inner-outer-strokes-svg/">in a blog post</a>.
+      </dd>
+    </dl>
+
+    <a href="http://rainbow-hearts.glitch.me/" id="rainbowhearts" class="fun_image">
+      {%
+        picture
+        filename="rainbowhearts.png"
+        width="170"
+        parent="/images/projects"
+        alt="A grey web page with white and green text, with a large illustration of two interlocking hearts in rainbow and purple/black/grey/white colours. These are the colours of the rainbow pride flag and the asexual pride flag."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://books.alexwlchan.net/">my book tracker</a>
+      </dt>
+      <dd>
+        This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
+      </dd>
+    </dl>
+
+    <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
+      {%
+        picture
+        filename="booktracker.png"
+        width="170"
+        parent="/images/projects"
+        alt="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://twitter.com/KempisBot">KempisBot</a>
+      </dt>
+      <dd>
+        Turning the fifteenth-century book <em>The Imitation of Christ</em> into a Twitter thread.
+        This was my friend Jay’s idea.
+        You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="/2021/kempisbot/">how we did it</a>.
+      </dd>
+    </dl>
+
+    <a href="https://twitter.com/KempisBot" id="kempisbot" class="fun_image">
+      {%
+        picture
+        filename="kempisbot.png"
+        width="170"
+        parent="/images/projects"
+        alt="The Twitter page for KempisBot, with a header image showing an old manuscript with handwritten pages and the profile image an illustration of Thomas Kempis."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://rainbow-valknuts.glitch.me/">Rainbow valknuts</a>
+      </dt>
+      <dd>
+        Create sets of interlocking Valknuts in a variety of Pride flags.
+        This is based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>, and it uses some code I wrote for <a href="/2019/triangular-coordinates-in-svg/">drawing in triangular coordinates</a>.
+      </dd>
+    </dl>
+
+    <a href="https://rainbow-valknuts.glitch.me/" id="rainbowvalknuts" class="fun_image">
+      {%
+        picture
+        filename="rainbowvalknuts.png"
+        width="170"
+        parent="/images/projects"
+        alt="A dark-background web page with three interlocking triangles (a Valknut) in various stripes for different pride flags, and the caption 'Your cowardly bigotry is an affront to the Allfather'."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://finduntaggedtumblrposts.com/">Find Untagged Tumblr Posts</a>
+      </dt>
+      <dd>
+        I made this for a friend who was trying to be more consistent about tagging posts on her Tumblr, and was struggling to find posts she’d never tagged.
+      </dd>
+    </dl>
+
+    <a href="https://finduntaggedtumblrposts.com/" id="finduntaggedtumblrposts" class="fun_image">
+      {%
+        picture
+        filename="finduntaggedtumblrposts.png"
+        width="170"
+        parent="/images/projects"
+        alt="A web page with a blue header titled 'Find Untagged Tumblr Posts', a large text box for somebody to put in a URL, and a large blue button labelled 'Get my untagged posts!'."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="http://uk-stations-map.glitch.me">UK stations map</a>
+      </dt>
+      <dd>
+        An interactive map that lets you plot the railway stations you’ve visited in the UK and Ireland.
+      </dd>
+    </dl>
+
+    <a href="http://uk-stations-map.glitch.me" id="ukstationsmap" class="fun_image">
+      {%
+        picture
+        filename="ukstationsmap.png"
+        width="170"
+        parent="/images/projects"
+        alt="A greyscale map of the UK and Ireland with green dots overlaid at various points, representing the position of railway stations."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://github.com/alexwlchan/specktre">specktre</a>
+      </dt>
+      <dd>
+        Create simple geometric wallpapers from regular tilings of the plane.
+        I’ve written <a href="/2016/tiling-the-plane-with-pillow/">blog</a> <a href="/2016/wallpapers-with-pillow/">posts</a> about how this works.
+      </dd>
+    </dl>
+
+    <a href="https://github.com/alexwlchan/specktre" id="specktre" class="fun_image">
+      {%
+        picture
+        filename="specktre.png"
+        width="170"
+        parent="/images/projects"
+        alt="Three wallpapers. From left-to-right: blue hexagons, red squares, yellow triangles. Each wallpaper has tiling shapes in slightly different shades of the main colour."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://marquee-rocket.glitch.me" aria-label="marquee rocket">&lt;marquee&gt; rocket</a>
+      </dt>
+      <dd>
+        <span role="text">Controlling a tiny rocket using nothing but the <span aria-hidden="true">&lt;</span>marquee<span aria-hidden="true">&gt;</span> tag.
+        This came from</span> <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
+      </dd>
+    </dl>
+
+    <a href="https://github.com/alexwlchan/happybackgrounds" id="marqueerocket" class="fun_image">
+      {%
+        picture
+        filename="marqueerocket.png"
+        width="170"
+        parent="/images/projects"
+        alt="A black background with simple buttons for up/down/left/right direction controls, and some play/pause/faster/slower speed controls. There's also an emoji rocket moving around on the black background."
+      %}
+    </a>
+  </li>
+
+  <li class="illustrated_item">
+    <dl>
+      <dt>
+        <a href="https://github.com/alexwlchan/happybackgrounds">happybackgrounds</a>
+      </dt>
+      <dd>
+        Create simple wallpapers and background images using Font Awesome icons on solid colour background.
+      </dd>
+    </dl>
+
+    <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
+      {%
+        picture
+        filename="happybackgrounds.png"
+        width="170"
+        parent="/images/projects"
+        alt="An orange background with small rockets overlaid at various points at angles, meant to invoke imagery of Mars."
+      %}
+    </a>
+  </li>
+</ul>
+
 
 ---
 
@@ -80,136 +470,8 @@ This page lists some of my projects, so you can get an idea of what I've been up
 
 
 
-  /* Styles for lists that have an image hovering out to the right.
-   * When the screen is narrow, the image moves to be inline with the text.
-   */
 
-  .illustrated_list {
-    padding-left: 0;
-
-    .illustrated_item {
-      display: grid;
-      grid-column-gap: 1em;
-      grid-template-columns: auto auto;
-
-      &:not(:last-child) {
-        margin-bottom: 1em;
-      }
-
-      /* Vertically centre the text that appears alongside the image */
-      dl {
-        margin-top:    auto;
-        margin-bottom: auto;
-      }
-    }
-  }
-
-  /* Adding the border-radius to the `img` gets the visual effect; adding
-     it to the parent `a` adds it to the hovered background. */
-  .illustrated_item a, .illustrated_item a img {
-    border-radius: 9px;
-  }
-
-  .illustrated_item a:hover img {
-    opacity: 0.65;
-  }
-
-  /*
-    On desktop browsers, the image appears off to the right.  We use
-    max-height instead of height so it maintains the correct aspect
-    ratio on small screens.
-
-    On mobile browsers, the image appears vertically inline with the text.
-  */
-  .illustrated_item a img {
-    max-height: 150px;
-    border-width: 2px;
-    border-style: solid;
-  }
-
-  @media screen and (min-width: 500px) {
-    .illustrated_item {
-      min-height: 150px;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .illustrated_item {
-      grid-template-columns: auto;
-    }
-
-    .illustrated_item .img_wrapper {
-      background-opacity: 0;
-    }
-
-    .fun_image {
-      margin-top: 1em;
-
-      /* This ensures that the background colour doesn't span the full width
-       * of the page on a small device.
-       */
-      margin-left:  auto;
-      margin-right: auto;
-    }
-  }
 </style>
-
-
-## Wellcome Collection
-
-I've been a software developer at <a href="https://wellcomecollection.org/">Wellcome Collection</a> since 2017, which is a museum and library exploring health and human experience.
-I help to build digital services that present and preserve the collections, making them more accessible and discoverable.
-All of our work is in public GitHub repositories and available under an MIT licence.
-The projects I've worked on include:
-
-<ul class="illustrated_list">
-  <dt><a href="https://github.com/wellcomecollection/storage-service">Storage service</a></dt>
-  <dd>
-    The storage service is the preservation repository for Wellcome’s digital collections.
-    It uploads files to cloud storage providers like Amazon S3 and Azure Blob, and ensures the integrity and correctness of the files.
-    I was part of the team that built the original storage service, and I handle ongoing maintenance and debugging.
-    Recently I’ve been working on documentation and a demo, so that other institutions can try running the storage service.
-  </dd>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://wellcomecollection.org/collections">Unified collections search</a>
-      </dt>
-      <dd>
-        The unified search combines catalogue records from multiple source catalogues, which provides a single search box for users.
-        I helped build the initial version of this search, and the data pipeline that keeps it up-to-date with new catalogue records.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #collections_search {
-        @include illustrated_image(#ffce3c, 0.2)
-      }
-    </style>
-
-    <a href="https://wellcomecollection.org/search/images?query=botany" id="collections_search" class="fun_image">
-      {%
-        picture
-        filename="cataloguesearch.png"
-        width="170"
-        parent="/images/projects"
-        alt="Screenshot of a search interface showing search results for ‘botany’."
-      %}
-    </a>
-  </li>
-
-  <dt><a href="https://stacks.wellcomecollection.org">Stacks development blog</a></dt>
-  <dd>
-    I’ve written a number of articles for the development blog, explaining key pieces of work and sharing what we’ve learnt.
-    See a list of <a href="/elsewhere#stacks-development-blog-for-wellcome-collection">articles I’ve written</a>.
-  </dd>
-
-  <dt><a href="https://wellcome.org/news/our-trans-inclusion-policy-latest-step-making-wellcome-more-inclusive">Trans inclusion policy</a></dt>
-  <dd>
-    I helped write Wellcome’s trans inclusion policy and guidance, which provides advice for trans staff and their managers and colleagues.
-  </dd>
-</ul>
 
 
 
@@ -388,286 +650,6 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 
 
 
-## Fun stuff
 
-{% comment %}
-  All images should have the same ratio, so they look consistent.
-
-  Currently 503x444, which is an admittedly arbitrary choice.
-{% endcomment %}
-
-<ul class="illustrated_list">
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://howlongismydata.glitch.me">How long is my data?</a>
-      </dt>
-      <dd role="text">
-        Measure data in the shelving space you’d need if you stored it as a series of <span class="visually-hidden">3&frac12; inch</span><span aria-hidden="true">3&frac12;&Prime;</span> floppy disks.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #howlongismydata {
-        @include illustrated_image(#ff47ff, 0.2)
-      }
-    </style>
-
-    <a href="https://howlongismydata.glitch.me" id="howlongismydata" class="fun_image">
-      {%
-        picture
-        filename="howlongismydata.png"
-        width="170"
-        parent="/images/projects"
-        alt="A white page with two rows of pink floppy disks and a title 'How long is my data?'"
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="http://rainbow-hearts.glitch.me/">Rainbow hearts</a>
-      </dt>
-      <dd>
-        Create pairs of interlocking hearts in a variety of Pride flags.
-        They use some SVG masking techniques I wrote about <a href="/2021/inner-outer-strokes-svg/">in a blog post</a>.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #rainbowhearts {
-        @include illustrated_image(#222, 0.3)
-      }
-    </style>
-
-    <a href="http://rainbow-hearts.glitch.me/" id="rainbowhearts" class="fun_image">
-      {%
-        picture
-        filename="rainbowhearts.png"
-        width="170"
-        parent="/images/projects"
-        alt="A grey web page with white and green text, with a large illustration of two interlocking hearts in rainbow and purple/black/grey/white colours. These are the colours of the rainbow pride flag and the asexual pride flag."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://books.alexwlchan.net/">my book tracker</a>
-      </dt>
-      <dd>
-        This is a site where I track the books I’m reading, and try to write a few paragraphs about why I did or didn’t like each book.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #booktracker {
-        @include illustrated_image(#9d418d, 0.3)
-      }
-    </style>
-
-    <a href="https://books.alexwlchan.net/" id="booktracker" class="fun_image">
-      {%
-        picture
-        filename="booktracker.png"
-        width="170"
-        parent="/images/projects"
-        alt="A web page with a purple header, a purple-ish book cover in the top-right, and text on the page titled 'The Galaxy, and the Ground Within'."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://twitter.com/KempisBot">KempisBot</a>
-      </dt>
-      <dd>
-        Turning the fifteenth-century book <em>The Imitation of Christ</em> into a Twitter thread.
-        This was my friend Jay’s idea.
-        You can read his post about <a href="https://jayhulme.com/blog/kempisbot">why we did it</a>, and my post about <a href="/2021/kempisbot/">how we did it</a>.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #kempisbot {
-        @include illustrated_image(#1DA1F2, 0.3)
-      }
-    </style>
-
-    <a href="https://twitter.com/KempisBot" id="kempisbot" class="fun_image">
-      {%
-        picture
-        filename="kempisbot.png"
-        width="170"
-        parent="/images/projects"
-        alt="The Twitter page for KempisBot, with a header image showing an old manuscript with handwritten pages and the profile image an illustration of Thomas Kempis."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://rainbow-valknuts.glitch.me/">Rainbow valknuts</a>
-      </dt>
-      <dd>
-        Create sets of interlocking Valknuts in a variety of Pride flags.
-        This is based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>, and it uses some code I wrote for <a href="/2019/triangular-coordinates-in-svg/">drawing in triangular coordinates</a>.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #rainbowvalknuts {
-        @include illustrated_image(#222, 0.3)
-      }
-    </style>
-
-    <a href="https://rainbow-valknuts.glitch.me/" id="rainbowvalknuts" class="fun_image">
-      {%
-        picture
-        filename="rainbowvalknuts.png"
-        width="170"
-        parent="/images/projects"
-        alt="A dark-background web page with three interlocking triangles (a Valknut) in various stripes for different pride flags, and the caption 'Your cowardly bigotry is an affront to the Allfather'."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://finduntaggedtumblrposts.com/">Find Untagged Tumblr Posts</a>
-      </dt>
-      <dd>
-        I made this for a friend who was trying to be more consistent about tagging posts on her Tumblr, and was struggling to find posts she’d never tagged.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #finduntaggedtumblrposts {
-        @include illustrated_image(#2b6397, 0.3)
-      }
-    </style>
-
-    <a href="https://finduntaggedtumblrposts.com/" id="finduntaggedtumblrposts" class="fun_image">
-      {%
-        picture
-        filename="finduntaggedtumblrposts.png"
-        width="170"
-        parent="/images/projects"
-        alt="A web page with a blue header titled 'Find Untagged Tumblr Posts', a large text box for somebody to put in a URL, and a large blue button labelled 'Get my untagged posts!'."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="http://uk-stations-map.glitch.me">UK stations map</a>
-      </dt>
-      <dd>
-        An interactive map that lets you plot the railway stations you’ve visited in the UK and Ireland.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #ukstationsmap {
-        @include illustrated_image(#00c234, 0.2)
-      }
-    </style>
-
-    <a href="http://uk-stations-map.glitch.me" id="ukstationsmap" class="fun_image">
-      {%
-        picture
-        filename="ukstationsmap.png"
-        width="170"
-        parent="/images/projects"
-        alt="A greyscale map of the UK and Ireland with green dots overlaid at various points, representing the position of railway stations."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://github.com/alexwlchan/specktre">specktre</a>
-      </dt>
-      <dd>
-        Create simple geometric wallpapers from regular tilings of the plane.
-        I’ve written <a href="/2016/tiling-the-plane-with-pillow/">blog</a> <a href="/2016/wallpapers-with-pillow/">posts</a> about how this works.
-      </dd>
-    </dl>
-
-
-
-    <a href="https://github.com/alexwlchan/specktre" id="specktre" class="fun_image">
-      {%
-        picture
-        filename="specktre.png"
-        width="170"
-        parent="/images/projects"
-        alt="Three wallpapers. From left-to-right: blue hexagons, red squares, yellow triangles. Each wallpaper has tiling shapes in slightly different shades of the main colour."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://marquee-rocket.glitch.me" aria-label="marquee rocket">&lt;marquee&gt; rocket</a>
-      </dt>
-      <dd>
-        <span role="text">Controlling a tiny rocket using nothing but the <span aria-hidden="true">&lt;</span>marquee<span aria-hidden="true">&gt;</span> tag.
-        This came from</span> <a href="https://twitter.com/seldo/status/1461848209769197573">a tweet by Laurie Voss</a> about people building web apps with a minimal set of tags.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #marqueerocket {
-        @include illustrated_image(#000000, 0.3)
-      }
-    </style>
-
-    <a href="https://github.com/alexwlchan/happybackgrounds" id="marqueerocket" class="fun_image">
-      {%
-        picture
-        filename="marqueerocket.png"
-        width="170"
-        parent="/images/projects"
-        alt="A black background with simple buttons for up/down/left/right direction controls, and some play/pause/faster/slower speed controls. There's also an emoji rocket moving around on the black background."
-      %}
-    </a>
-  </li>
-
-  <li class="illustrated_item">
-    <dl>
-      <dt>
-        <a href="https://github.com/alexwlchan/happybackgrounds">happybackgrounds</a>
-      </dt>
-      <dd>
-        Create simple wallpapers and background images using Font Awesome icons on solid colour background.
-      </dd>
-    </dl>
-
-    <style type="x-text/scss">
-      #happybackgrounds {
-        @include illustrated_image(#c24400, 0.3)
-      }
-    </style>
-
-    <a href="https://github.com/alexwlchan/happybackgrounds" id="happybackgrounds" class="fun_image">
-      {%
-        picture
-        filename="happybackgrounds.png"
-        width="170"
-        parent="/images/projects"
-        alt="An orange background with small rockets overlaid at various points at angles, meant to invoke imagery of Mars."
-      %}
-    </a>
-  </li>
-</ul>
 
 {% endcomment %}
