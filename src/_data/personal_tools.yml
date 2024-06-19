@@ -10,7 +10,7 @@
   date: 2024-06-18
   version: 1.0.0
   description:
-    A command-line tool that looks for empty directories and delete them.
+    A command-line tool that looks for empty directories and deletes them.
 
 - name: get_live_text
   date: 2024-06-06
