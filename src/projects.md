@@ -137,7 +137,17 @@ title: Projects
 
 - [Personal tools and scripts](#personal-tools-and-scripts)
 - [Wellcome Collection](#wellcome-collection)
-- [Fun stuff](#fun-stuff)
+
+<!-- - [Fun stuff](#fun-stuff) -->
+
+## Writing
+
+articles
+today I learned
+AO3
+
+plumber's guide
+ideas for inclusive events
 
 ---
 
@@ -196,6 +206,7 @@ Some personal highlights include:
   </dd>
 </dl>
 
+{% comment %}
 
 
 
@@ -652,4 +663,5 @@ I'm not currently taking an active maintainer role in anything, but these are a 
 
 
 
+{% endcomment %}
 {% endcomment %}
