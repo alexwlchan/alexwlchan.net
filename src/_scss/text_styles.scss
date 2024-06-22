@@ -7,9 +7,6 @@ body {
 h1, h2, h3 {
   color: var(--primary-color);
   font-weight: normal;
-
-  /* See https://developer.chrome.com/blog/css-text-wrap-balance/ */
-  text-wrap: balance;
 }
 
 h1 {
