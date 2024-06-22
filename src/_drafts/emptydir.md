@@ -26,23 +26,24 @@ Finder tells us it has 0 items, so it must be empty, right?
   alt="A Finder window for a folder 'totally_empty' which doesn’t show any files, and the status bar says '0 items, 262.9 GB available'."
 %}
 
-What you don't see is the invisible [`.DS_Store` file][ds_store] created by Finder -- this is a file that keeps some information about how you want the folder to look.
+What you can't see is the invisible [`.DS_Store` file][ds_store] -- this is a file that keeps some information about how you want the folder to appear in Finder.
 For example, if you arrange the icons on your Desktop, their positions get stored in a `.DS_Store` file.
 If you delete the file and relaunch Finder, your Desktop icons will revert to the default grid layout.
 
 If there are files in the folder, the `.DS_Store` is a useful file to keep around.
 If the folder is empty, it's unlikely to be worth saving.
 
-Because I don't care about lonely `.DS_Store` files, I wrote the following rule in `emptydir`:
+Because I don't care about lonely `.DS_Store` files, I wrote `emptydir` with the following rules:
 
-> If a folder contains nothing but a `.DS_Store` file, delete the entire folder.
+> If a folder is completely empty, delete it.
+>
+> If the only thing in a folder is a `.DS_Store` file, delete the entire folder.
 >
 > If there's anything else in the folder, leave it as-is.
 
-This means that `emptydir` will clean up this apparently-empty folder and the hidden `.DS_Store` file it contains.
-Hooray!
+This means that `emptydir` will clean up this apparently-empty folder and the hidden `.DS_Store` file it contains -- but leave the `.DS_Store` file in place for folders where I want to keep it, like the Desktop.
 
-There are a couple of other folders which I'm similarly happy to delete if they're the only thing in their parent folder -- `.venv` (my Python virtual environment) and `__pycache__` (compiled Python byte code), both of which are transient folders I can easily recreate.
+There are a couple of other things which I'm similarly happy to delete if they're the only thing in a folder -- `.venv` (the name of my Python virtual environments) and `__pycache__` (compiled Python byte code), both of which are transient folders I can easily recreate.
 
 [emptydir]: https://github.com/alexwlchan/emptydir
 [ds_store]: https://en.wikipedia.org/wiki/.DS_Store
@@ -64,8 +65,8 @@ You could use `find` to delete all the `.DS_Store` files also:
 find . -type f -name .DS_Store -delete
 ```
 
-but this is too aggressive -- those files are actually useful in folders with visible files, and I'd be annoyed if all my view options were continually reset.
-If I've taken the time to arrange my icons carefully, I don't want them to be reset!
+but this is too aggressive -- it would also delete `.DS_Store` in non-empty folders where I've set some view options that I want to keep.
+If I've taken the time to arrange my icons carefully, I don't want to reset them!
 
 Maybe there's a way to do what I want with `find`, but I couldn't work out how to do it.
 
@@ -106,10 +107,15 @@ let directories = WalkDir::new(".")
     .into_iter()
     .filter_map(|e| e.ok())
     .filter(|e| e.file_type().is_dir());
+    
+// ./target/debug/.fingerprint/example-7dcfb8b698ea9da0
+// ./target/debug/.fingerprint
+// ./target/debug
+// …
 ```
 
 (It turns out that Python's `os.walk` has a similar argument `topdown`, which I'd never come across before writing this Rust code.
-Because I've been using `os.walk` for years and I "knew" how to use it, it's been a long time since I looked at the docs.)
+Because I've been using `os.walk` for years and I "knew" how to use it, it's been a long time since I looked at the Python docs.)
 
 This iterator generates every directory, but I only want to get directories which are safe to delete.
 How do I know if a directory only contains files/folders which are safe to delete?
@@ -153,7 +159,7 @@ let deletable_names = HashSet::from([
 ]);
 ```
 
-I can combine these to make a function that tells me whether a directory is safe to delete:
+Then I can compare these two sets, to tell me if a directory is same to delete:
 
 ```rust
 fn can_be_deleted(path: &Path) -> bool {
@@ -170,7 +176,9 @@ fn can_be_deleted(path: &Path) -> bool {
 }
 ```
 
-I can then add this function on the end of my iterator:
+If for some reason we can't get a list of entries in a directory, we leave it as-is -- we can't be sure that it's safe to delete, so err on the side of caution and don't do anything.
+
+I can add this new function on the end of my iterator:
 
 ```rust
 let directories_to_delete = WalkDir::new(".")
@@ -193,8 +201,8 @@ for dir in directories_to_delete {
 }
 ```
 
-To make this into a standalone tool, I added a stack of tests, and a basic command-line interface using the [clap crate].
-This allows me to choose which directory will be searched for empty directories -- either the working directory, or another directory of my choice:
+To make this into a standalone tool, I added some tests, documentation, and a basic command-line interface using the [clap crate].
+The CLI interface allows me to choose which directory will be searched for empty directories -- either the working directory, or another directory of my choice:
 
 ```console
 $ emptydir
@@ -225,17 +233,22 @@ I also gather reference links, and I often discover something new as I do -- lik
 
 This is particularly important right now, because:
 
-**I'm giving Rust another go.**
-I recently switched to `uv` and `ruff` for my Python work, and I was reminded of how much faster Rust can be than even a carefully-written Python script.
-Although I've tried Rust several times and I enjoy writing it, I'm still a novice and I have no experience working in large or shared Rust codebases.
+**I wanted to get more practice with Rust.**
+I like Rust as a way to write fast tools, and I want to use it more often.
+Informal benchmarking suggests this tool is 4–12&times; faster than a previous Python implementation -- but more than just clock speed, this new version *feels* much snappier.
+It's approaching the threshold where it feels instantaneous.
+
+Although I first wrote Rust in 2016, I'm still pretty much a novice.
+I have no experience working in large or shared Rust codebases, and a lot of my code is fragile or unidiomatic.
+I'm getting the speed of Rust, but not the safety.
 
 In this project, I tried to write more idiomatic Rust, and I'm proud of the result.
 For example, my older code makes liberal use of `unwrap()`, but this project uses proper `Result` types.
 This was a nice, small, self-contained task to get some Rust practice, and I learnt a lot.
-Python is still my go-to language, but I'm gradually feeling more confident in Rust.
 
----
+I wrote about my Python projects in some of the earliest articles on this site, and I wince at that code now.
+I was still a beginner, I was still learning, and my initial code was clumsy and verbose.
+Today I'm a confident Python programmer, and writing those articles helped me get here.
+I hope to do the same with Rust, albeit over a longer period.
 
-If you want to try `emptydir` for yourself or read the finished code, all the code is [on GitHub](https://github.com/alexwlchan/emptydir).
-
-This was a practice run for a slightly larger tool that I'm also building in Rust, and I'll write about that soon.
+Today, at least, I'm proud of this code and I think it's the best Rust I've written so far.
