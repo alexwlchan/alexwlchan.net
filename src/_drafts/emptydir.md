@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "emptydir: look for (nearly) empty directories and delete them"
-summary:
+summary: I've been writing tools in Rust again.
 tags:
   - rust
   - my-tools
