@@ -13,7 +13,7 @@ colors:
   Card image from https://www.pexels.com/photo/orange-crab-in-shallow-photo-584501/
 {% endcomment %}
 
-I've released a new command-line tool on GitHub: [emptydir], which looks for directories which are empty or nearly empty, and deletes them.
+I've posted a new command-line tool on GitHub: [emptydir], which looks for directories which are empty or nearly empty, and deletes them.
 
 This isn't a completely trivial problem, because emptiness is deceptive.
 Consider the following folder.
@@ -31,7 +31,7 @@ For example, if you arrange the icons on your Desktop, their positions get store
 If you delete the file and relaunch Finder, your Desktop icons will revert to the default grid layout.
 
 If there are files in the folder, the `.DS_Store` is a useful file to keep around.
-If the folder is empty, it's unlikely to be worth saving.
+If the folder is empty, it's not worth saving.
 
 Because I don't care about lonely `.DS_Store` files, I wrote `emptydir` with the following rules:
 
@@ -43,7 +43,7 @@ Because I don't care about lonely `.DS_Store` files, I wrote `emptydir` with the
 
 This means that `emptydir` will clean up this apparently-empty folder and the hidden `.DS_Store` file it contains -- but leave the `.DS_Store` file in place for folders where I want to keep it, like the Desktop.
 
-There are a couple of other things which I'm similarly happy to delete if they're the only thing in a folder -- `.venv` (the name of my Python virtual environments) and `__pycache__` (compiled Python byte code), both of which are transient folders I can easily recreate.
+There are a couple of other things which I'm similarly happy to delete if they're the only thing in a folder -- `.venv` (my Python virtual environments) and `__pycache__` (compiled Python byte code), both of which are transient folders I can easily recreate.
 
 [emptydir]: https://github.com/alexwlchan/emptydir
 [ds_store]: https://en.wikipedia.org/wiki/.DS_Store
@@ -118,7 +118,7 @@ let directories = WalkDir::new(".")
 Because I've been using `os.walk` for years and I "knew" how to use it, it's been a long time since I looked at the Python docs.)
 
 This iterator generates every directory, but I only want to get directories which are safe to delete.
-How do I know if a directory only contains files/folders which are safe to delete?
+How do I know if a directory is empty, or only contains files/folders which are safe to delete?
 
 I started with a function that lists all the entries in a given directory:
 
@@ -170,6 +170,7 @@ fn can_be_deleted(path: &Path) -> bool {
     ]);
 
     match get_names_in_directory(path) {
+        Ok(names) if names.is_empty() => true,
         Ok(names) => names.is_subset(&deletable_names),
         Err(_) => false,
     }
@@ -209,7 +210,7 @@ $ emptydir
 $ emptydir /path/to/other/directory
 ```
 
-If you want to see the full code or install it yourself, I've published all the code [on GitHub](https://github.com/alexwlchan/emptydir).
+If you want to see the full code or install it yourself, I've put everything [on GitHub](https://github.com/alexwlchan/emptydir).
 
 [os.walk]: https://docs.python.org/3/library/os.html#os.walk
 [walkdir]: https://crates.io/crates/walkdir
