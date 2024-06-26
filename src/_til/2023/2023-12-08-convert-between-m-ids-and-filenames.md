@@ -10,7 +10,7 @@ Every file on Wikimedia Commons has two identifiers:
 *   A filename, e.g. `File:Herestraat Groningen.JPG`.
     This always starts with `File:` because these are pages in the [File namespace][namespaces]
 *   A numeric identifier, e.g. `M128`.
-    This is a unique dientifier for each file on Commons, similar to Q IDs for entities on Wikidata.
+    This is a unique identifier for each file on Commons, similar to Q IDs for entities on Wikidata.
 
 The APIs for searching/updating Wikimedia Commons typically accept both forms; sometimes it's convenient to go between the two.
 
