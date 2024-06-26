@@ -55,28 +55,6 @@
     # https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
     x-xss-protection = "1; mode=block"
 
-[[headers]]
-  for = "/2019/triangular-coordinates-in-svg/"
-
-  [headers.values]
-    # https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
-    #
-    # These are specific overrides to allow MathJax to load on one page
-    # where I'm using it.  I don't allow it on the broader site because
-    # it's unnecessary and gets warnings on security header checks.
-    content-security-policy = """\
-      default-src 'self' 'unsafe-inline' \
-      script-src 'self' 'unsafe-inline' \
-      https://polyfill.io \
-      https://cdn.jsdelivr.net \
-      'unsafe-eval'; \
-      font-src \
-      https://polyfill.io \
-      https://cdn.jsdelivr.net; \
-      connect-src https://analytics.alexwlchan.net; \
-      img-src 'self' 'unsafe-inline' data: \
-    """
-
 # I can set long-lived caches on all these static assets because I treat
 # most files as immutable by filename -- if I modify a file, I'll upload a new
 # file with a different name, so it won't be a cache hit.
