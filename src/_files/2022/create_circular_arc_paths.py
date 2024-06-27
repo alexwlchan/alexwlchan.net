@@ -25,12 +25,12 @@ def get_circular_arc_path_command(*, centre_x, centre_y, radius, start_angle, sw
     # We need to work out the x-y coordinates of where the arc will end,
     # which we can do with trig identities.
     #
-    #                R cos Θ
+    #                R sin Θ
     #               +-------+
     #               |      /
     #               |     /
     #               |    /
-    #       R sin Θ |   / R = radius
+    #       R cos Θ |   / R = radius
     #               |  /
     #               |Θ/
     #               |/
