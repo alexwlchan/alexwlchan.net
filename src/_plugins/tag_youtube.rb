@@ -47,7 +47,7 @@ module Jekyll
       <<~HTML
         <iframe class="youtube"
                 id="youtube_#{@video_id}"
-                width="560" height="315"
+                style="aspect-ratio: 560 / 315; width: 100%; max-width: 560px;"
                 src="https://www.youtube-nocookie.com/embed/#{@video_id}"
                 frameborder="0" allowfullscreen></iframe>
       HTML
