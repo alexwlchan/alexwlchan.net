@@ -1,0 +1,14 @@
+<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82 82"><defs><style>
+        #loopedHook2c {
+          stroke: currentColor;
+          stroke-width: 1px;
+          fill: none;
+        }</style><path id="loopedHook2c" d="
+        M 36 30.61739301713832
+        L 46 30.61739301713832
+        L 51.778895425690344 30.61739301713832
+        A 12 12
+        0 1 0
+        42.39691763607399 26.09927063944312
+        L 46 30.61739301713832
+        "></path></defs><use href="#loopedHook2c" transform="rotate(59, 41, 41)"></use><use href="#loopedHook2c" transform="rotate(110.42857142857143, 41, 41)"></use><use href="#loopedHook2c" transform="rotate(161.85714285714286, 41, 41)"></use><use href="#loopedHook2c" transform="rotate(213.28571428571428, 41, 41)"></use><use href="#loopedHook2c" transform="rotate(264.7142857142857, 41, 41)"></use><use href="#loopedHook2c" transform="rotate(316.14285714285717, 41, 41)"></use><use href="#loopedHook2c" transform="rotate(367.57142857142856, 41, 41)"></use></svg>

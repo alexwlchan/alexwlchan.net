@@ -1,0 +1,10 @@
+<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41"><defs><path class="example" id="blooper3" d="
+        M 15.5 11.839745962155611
+        L 25.5 11.839745962155611
+        l 2.3094010767585025 0
+        A 4 4
+        0 1 0
+        27.8094010767585
+        9.839745962155611
+        L 25.5 11.839745962155611
+        "></path></defs><use href="#blooper3" transform="rotate(0, 20.5, 20.5)"></use><use href="#blooper3" transform="rotate(60, 20.5, 20.5)"></use><use href="#blooper3" transform="rotate(120, 20.5, 20.5)"></use><use href="#blooper3" transform="rotate(180, 20.5, 20.5)"></use><use href="#blooper3" transform="rotate(240, 20.5, 20.5)"></use><use href="#blooper3" transform="rotate(300, 20.5, 20.5)"></use></svg>

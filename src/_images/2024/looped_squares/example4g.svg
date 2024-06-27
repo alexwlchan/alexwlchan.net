@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 65"><!--numberOfSides = 10, lengthOfStraightEdge = -11, radiusOfLoop = 23, angleOfRotation = 22, color = #00ff37--><defs><path class="example" id="loopedHook4g" d="
+        M 38 49.42725945446389
+        L 27 49.42725945446389
+        L 34.47315301335684 49.42725945446389
+        A 23 23
+        0 1 0
+        20.954092210629955 45.03465032508768
+        L 27 49.42725945446389
+        "></path></defs><use href="#loopedHook4g" transform="rotate(22, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(58, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(94, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(130, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(166, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(202, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(238, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(274, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(310, 32.5, 32.5)"></use><use href="#loopedHook4g" transform="rotate(346, 32.5, 32.5)"></use></svg>

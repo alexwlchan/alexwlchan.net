@@ -1,0 +1,97 @@
+<svg id="square_lines_actual" viewBox="0.5 1.5 16 13" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>  
+      #square_lines_actual path {
+        stroke: currentColor;
+        stroke-width: 0.5;
+        fill: none;
+      }
+
+      #square_lines_actual path.length_marker {
+        stroke: var(--accent-grey);
+        stroke-width: 0.08;
+        fill: none;
+      }
+
+      #square_lines_actual path.dashed {
+        stroke: var(--accent-grey);
+        stroke-width: 0.08;
+        fill: none;
+        stroke-dasharray: 0.2 0.2;
+      }
+
+      #square_lines_actual circle {
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #square_lines_actual circle.center {
+        stroke: var(--primary-color);
+        stroke-width: 0.1;
+        fill: white;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        #square_lines_actual circle.center {
+          stroke: var(--primary-color);
+          stroke-width: 0.1;
+          fill: black;
+        }
+      }
+
+      #square_lines_actual path.angle {
+        fill: var(--primary-color);
+        opacity: 0.35;
+        stroke: none;
+      }
+
+      #square_lines_actual text.blue {
+        font-size: 0.75px;
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #square_lines_actual text.grey {
+        font-size: 0.75px;
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #square_lines_actual text.italic {
+        font-style: italic;
+      }
+    </style>
+  </defs>
+
+  <svg x="1.5" y="1.5">
+    <path class="length_marker"
+      d="M 3 1  L 3 0.65 L 3 1.35
+         M 3 1  L 3.3 0.7
+         M 3 1  L 3.3 1.3
+         M 3 1  L 11 1
+         M 11 1 L 11 0.65 L 11 1.35
+         M 11 1 L 10.7 0.7
+         M 11 1 L 10.7 1.3"
+      />
+    <text x="7" y="0.6" text-anchor="middle" dominant-baseline="middle" class="grey italic">L</text>
+  </svg>
+
+  <svg x="1.5" y="1.5">
+    <path d="M 3 3.5 L 7 7 L 11 3.5" class="dashed"/>
+    
+    <path d="M 3 3.5 L 11 3.5" transform="rotate(0, 7, 7)"/>
+    <path d="M 3 3.5 L 11 3.5" transform="rotate(72, 7, 7)"/>
+    <path d="M 3 3.5 L 11 3.5" transform="rotate(144, 7, 7)"/>
+    <path d="M 3 3.5 L 11 3.5" transform="rotate(216, 7, 7)"/>
+    <path d="M 3 3.5 L 11 3.5" transform="rotate(288, 7, 7)"/>
+    
+    
+
+    <!-- radius = sqrt(2) -->
+    <path d="M 7 7 L 5.6959630839634245 5.86004924596989 A 1.7320508075688772 1.7320508075688772 0 0 1 8.304036916036575 5.860049245969889 Z" class="angle"/>
+    <text x="7" y="5" text-anchor="middle" dominant-baseline="end" class="blue italic">θ</text>
+    
+    <circle cx="7" cy="7" r="0.5" class="center"/>
+    <text x="7" y="8.1" text-anchor="middle" dominant-baseline="middle" class="blue">centre</text>
+  </svg>
+</svg>

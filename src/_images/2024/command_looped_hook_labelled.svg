@@ -1,0 +1,18 @@
+<svg id="command_looped_hook_labelled" viewBox="0 0 13.7 7" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #command_looped_hook_labelled path {
+        stroke: currentColor;
+        stroke-width: 0.5;
+        fill: none;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  
+  <path d="M 1 6 L 8 6"/>
+  <path d="M 9 6 L 10 6"/>
+  <path d="M 8.25 5.5669873 L 7.75 4.7009619"/>
+
+  <path d="M 7.44139440414267 3.853074989541306 A 2.598076211353316 2.598076211353316 0 1 1 10.888594398178071 5.843316834048121"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><!--numberOfSides = 7, lengthOfStraightEdge = 10, radiusOfLoop = 15, angleOfRotation = 32, strokeColor = #ff8800, backgroundColor = #544d45--><defs><path class="example" id="blooper7" d="
+        M 35 37.59212690596236
+        L 45 37.59212690596236
+        L 52.22361928211293 37.59212690596236
+        A 15 15
+        0 1 0
+        63.95109151913338 13.23977987808136
+        L 45 37.59212690596236
+        "></path></defs><use href="#blooper7" transform="rotate(32, 40, 40)"></use><use href="#blooper7" transform="rotate(83.42857142857143, 40, 40)"></use><use href="#blooper7" transform="rotate(134.85714285714286, 40, 40)"></use><use href="#blooper7" transform="rotate(186.28571428571428, 40, 40)"></use><use href="#blooper7" transform="rotate(237.71428571428572, 40, 40)"></use><use href="#blooper7" transform="rotate(289.14285714285717, 40, 40)"></use><use href="#blooper7" transform="rotate(340.57142857142856, 40, 40)"></use></svg>

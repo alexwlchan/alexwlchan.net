@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><!--numberOfSides = 24, lengthOfStraightEdge = 1, radiusOfLoop = 3, angleOfRotation = 60, color = #ff4d00--><defs><style>
+        #loopedHook3b {
+          stroke: currentColor;
+          stroke-width: 1px;
+          fill: none;
+        }</style><path id="loopedHook3b" d="
+        M 10.5 7.202122943637424
+        L 11.5 7.202122943637424
+        L 11.894957492762188 7.202122943637424
+        A 3 3
+        0 1 0
+        11.118500357454627 7.099900422504629
+        L 11.5 7.202122943637424
+        "></path></defs><use href="#loopedHook3b" transform="rotate(60, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(75, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(90, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(105, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(120, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(135, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(150, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(165, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(180, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(195, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(210, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(225, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(240, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(255, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(270, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(285, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(300, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(315, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(330, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(345, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(360, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(375, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(390, 11, 11)"></use><use href="#loopedHook3b" transform="rotate(405, 11, 11)"></use></svg>

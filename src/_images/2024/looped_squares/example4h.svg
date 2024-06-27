@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34"><!--numberOfSides = 4, lengthOfStraightEdge = -6, radiusOfLoop = 8, angleOfRotation = 26, color = #1900ff--><defs><path class="example" id="loopedHook4h" d="
+        M 20 20
+        L 14 20
+        L 22 20
+        A 8 8
+        0 1 0
+        14 11.999999999999998
+        L 14 20
+        "></path></defs><use href="#loopedHook4h" transform="rotate(26, 17, 17)"></use><use href="#loopedHook4h" transform="rotate(116, 17, 17)"></use><use href="#loopedHook4h" transform="rotate(206, 17, 17)"></use><use href="#loopedHook4h" transform="rotate(296, 17, 17)"></use></svg>

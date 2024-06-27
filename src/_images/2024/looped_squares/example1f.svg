@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <style>
+        #loopedHook1f {
+          stroke: currentColor;
+          stroke-width: 1px;
+          fill: none;
+        }
+      </style>
+    <path id="loopedHook1f" d="         M 41.5 11.136668172484889         L 54.5 11.136668172484889         L 55.02898094212539 11.136668172484889         A 3 3         0 1 0         54.002920512148386 10.955746034842614         L 54.5 11.136668172484889         "/>
+  </defs>
+  <use href="#loopedHook1f" transform="rotate(82, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(102, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(122, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(142, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(162, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(182, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(202, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(222, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(242, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(262, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(282, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(302, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(322, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(342, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(362, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(382, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(402, 48, 48)"/>
+  <use href="#loopedHook1f" transform="rotate(422, 48, 48)"/>
+</svg>

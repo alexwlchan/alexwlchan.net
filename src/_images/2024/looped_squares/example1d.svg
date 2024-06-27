@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134 134">
+  <!--numberOfSides = 4, lengthOfStraightEdge = 11, radiusOfLoop = 22, angleOfRotation = 16, color = #ff00cc-->
+  <defs>
+    <style>
+        #loopedHook1d {
+          stroke: currentColor;
+          stroke-width: 1px;
+          fill: none;
+        }
+      </style>
+    <path id="loopedHook1d" d="         M 61.5 61.5         L 72.5 61.5         L 94.5 61.5         A 22 22         0 1 0         72.5 39.49999999999999         L 72.5 61.5         "/>
+  </defs>
+  <use href="#loopedHook1d" transform="rotate(16, 67, 67)"/>
+  <use href="#loopedHook1d" transform="rotate(106, 67, 67)"/>
+  <use href="#loopedHook1d" transform="rotate(196, 67, 67)"/>
+  <use href="#loopedHook1d" transform="rotate(286, 67, 67)"/>
+</svg>

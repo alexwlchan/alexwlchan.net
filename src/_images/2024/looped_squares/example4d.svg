@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><!--numberOfSides = 14, lengthOfStraightEdge = -22, radiusOfLoop = 16, angleOfRotation = 85, color = #1100ff--><defs><path class="example" id="loopedHook4d" d="
+        M 65 102.19414894288306
+        L 43 102.19414894288306
+        L 46.6518955902424 102.19414894288306
+        A 16 16
+        0 1 0
+        39.70975576436146 100.60965082932177
+        L 43 102.19414894288306
+        "></path></defs><use href="#loopedHook4d" transform="rotate(85, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(110.71428571428572, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(136.42857142857144, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(162.14285714285714, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(187.85714285714286, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(213.57142857142858, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(239.28571428571428, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(265, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(290.7142857142857, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(316.42857142857144, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(342.14285714285717, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(367.8571428571429, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(393.57142857142856, 54, 54)"></use><use href="#loopedHook4d" transform="rotate(419.2857142857143, 54, 54)"></use></svg>

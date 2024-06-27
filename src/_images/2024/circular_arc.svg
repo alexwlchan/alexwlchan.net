@@ -1,0 +1,90 @@
+<svg id="circular_arc" viewBox="0 0.5 12.5 9" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      :root {
+        --accent-grey: grey;
+        --primary-color: blue;
+      }
+
+      #circular_arc path {
+        stroke: currentColor;
+        stroke-width: 0.5;
+        fill: none;
+      }
+
+      #circular_arc path.length_marker {
+        stroke: var(--accent-grey);
+        stroke-width: 0.08;
+        fill: none;
+      }
+
+      #circular_arc path.dashed {
+        stroke: var(--accent-grey);
+        stroke-width: 0.08;
+        fill: none;
+        stroke-dasharray: 0.2 0.2;
+      }
+
+      #circular_arc circle {
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #circular_arc circle.grey {
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #circular_arc path.angle {
+        fill: var(--primary-color);
+        opacity: 0.35;
+        stroke: none;
+      }
+
+      #circular_arc text.blue {
+        font-size: 0.65px;
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #circular_arc text.grey {
+        font-size: 0.65px;
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #circular_arc text.italic {
+        font-style: italic;
+      }
+    </style>
+  </defs>
+
+  <path d="M 8.5 6 L 7.75 4.7009619 A 2.598076211353316 2.598076211353316 0 1 1 10.0 6.000000001353316"/>
+
+  <path d="M 7 9 A 4 4 0 1 0 4.17157288 7.82842712"/>
+
+  <!-- radius = sqrt(2) -->
+  <path d="M 7 5 L 7 6.41421356 A 1.41421356 1.41421356 0 1 0 6 6 Z" class="angle"/>
+  <text x="8.2" y="3.5" text-anchor="middle" dominant-baseline="end" class="blue italic">ψ</text>
+
+  <path d="M 7 9 L 7 5 L 4.17157288 7.82842712" class="dashed"/>
+  <circle cx="7" cy="5" r="0.25" class="grey"/>
+
+  <circle cx="7" cy="9" r="0.5"/>
+
+  <!-- d_x/d_y = sqrt(8) -->
+  <circle cx="4.17157288" cy="7.82842712" r="0.5"/>
+
+  <svg x="0.5">
+    <path class="length_marker"
+      d="M 1 5 L 0.65 5 L 1.35 5
+         M 1 5 L 0.7 5.35
+         M 1 5 L 1.3 5.35
+         M 1 5 L 1 9
+         M 1 9 L 0.65 9 L 1.35 9
+         M 1 9 L 0.7 8.65
+         M 1 9 L 1.3 8.65"
+    />
+  </svg>
+  <text x="1" y="7" text-anchor="middle" dominant-baseline="middle" class="grey italic">r</text>
+</svg>

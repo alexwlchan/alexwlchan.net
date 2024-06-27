@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <!--numberOfSides = 11, lengthOfStraightEdge = 13, radiusOfLoop = 2, angleOfRotation = 41, color = hsl(103, 100%, 50%)-->
+  <defs>
+    <style>
+        #loopedHook1h {
+          stroke: currentColor;
+          stroke-width: 1px;
+          fill: none;
+        }</style>
+    <path id="loopedHook1h" d="         M 23.5 7.863032947219871         L 36.5 7.863032947219871         L 37.08725298587673 7.863032947219871         A 2 2         0 1 0         36.00597135096553 7.545540012882233         L 36.5 7.863032947219871         "/>
+  </defs>
+  <use href="#loopedHook1h" transform="rotate(41, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(73.72727272727272, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(106.45454545454545, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(139.1818181818182, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(171.9090909090909, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(204.63636363636363, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(237.36363636363637, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(270.0909090909091, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(302.8181818181818, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(335.54545454545456, 30, 30)"/>
+  <use href="#loopedHook1h" transform="rotate(368.27272727272725, 30, 30)"/>
+</svg>
