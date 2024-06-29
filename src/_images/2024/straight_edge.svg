@@ -25,6 +25,20 @@
         fill: var(--primary-color);
       }
 
+      #straight_edge circle.center {
+        stroke: var(--primary-color);
+        stroke-width: 0.1;
+        fill: white;
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        #straight_edge circle.center {
+          stroke: var(--primary-color);
+          stroke-width: 0.1;
+          fill: black;
+        }
+      }
+
       #straight_edge path.angle {
         fill: var(--primary-color);
         opacity: 0.35;
@@ -86,6 +100,6 @@
 
     <circle cx="3" cy="1" r="0.5"/>
     <circle cx="11" cy="1" r="0.5"/>
-    <circle cx="7" cy="5" r="0.5"/>
+    <circle cx="7" cy="5" r="0.5" class="center"/>
   </svg>
 </svg>

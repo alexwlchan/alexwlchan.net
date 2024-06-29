@@ -106,7 +106,8 @@ MathJax = {
 };
 </script>
 
-<script id="MathJax-script" async src="/static/2019/tex-mml-chtml.js"></script>
+<!-- From https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js, retrieved 30 June 2024 -->
+<script id="MathJax-script" async src="/static/2024/tex-chtml.js"></script>
 
 
 
@@ -178,7 +179,7 @@ We have one of these circular arcs for each side in the shape, and after we've c
 That means the sum of the gaps in all the arcs sums to $360^\circ$, which allows us to calculate the angle $\psi$:
 
 $$
-\psi = 360^\circ\Biggl(1 - \frac{1}{\text{number of sides}}\Biggr)
+\psi = 360^\circ\left(1 - \frac{1}{\text{number of sides}}\right)
 $$
 
 We can also work out the centre of the circle:
@@ -204,3 +205,32 @@ The SVG syntax for drawing this circular arc is then
 The `0 1 0` are part of the [SVG arc syntax](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs).
 The first `0` is `x-axis-rotation`, which we leave at the default.
 Then we have to choose between the four possible arcs that connect the start/end points: in this case `large-arc-flag = 1` and `sweep-flag = 0` give us the arc we need.
+
+**Finally, let's work out the centre of rotation.**
+Everything is defined in relation to this point.
+Intuitively we're going to put it in the middle of our SVG canvas, but how big should that canvas be?
+This depends on how large our straight lines and circular arcs are going to be, because bigger shapes need more space.
+
+So let's ask a different question: what's the furthest point on the shape from the centre of rotation?
+
+I believe you can find this point by drawing a line from the centre of rotation to the centre of the circular arc, and then continuing until it intersects the arc:
+
+{%
+  inline_svg
+  filename="furthest_point.svg"
+  style="width: 400px;"
+%}
+
+What's the alternative?
+Any other point on the arc is closer to the centre of rotation (using the [triangle inequality](https://en.wikipedia.org/wiki/Triangle_inequality)).
+Any point on the line is closer to the centre of the rotation (the furthest points are at the ends, then the circular arc is further than that).
+
+[Pythagoras' theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) gets us the distance to the center of the circle, and then we add on the radius.
+This means the further point from the centre of rotation is:
+
+$$
+\text{max distance} = r + \sqrt{(L/2)^2 + (h+r)^2}
+$$
+
+Let's double that and add some padding, and use that as the width/height of our SVG canvas.
+This should give us enough space to draw our shape.
