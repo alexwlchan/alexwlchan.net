@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <style>
+    path {
+      stroke: black;
+      stroke-width: 1px;
+    }
+
+    svg {
+      border: 2px solid red;
+    }
+  </style>
+
+
+
+  <script>
+    function createSvgElement(name) {
+      return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+
+    function drawSymbol(N, L, r) {
+      const theta = 2 * Math.PI / N;
+      const h = L * Math.tan(theta / 2) / 2;
+
+      console.log(h);
+
+      const maxDistance = r + Math.sqrt((L / 2) ^ 2 + (h + r) ^ 2);
+      const width = height = Math.ceil(2.2 * maxDistance);
+
+      const centre_of_rotation_x = width / 2;
+      const centre_of_rotation_y = height / 2;
+
+      const svgElement = createSvgElement("svg");
+      svgElement.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      svgElement.setAttribute("width", "500");
+
+      for (i = 0; i < N; i++) {
+
+        // Draw the straight lines
+        const pathElement = createSvgElement("path");
+
+        const start_x = centre_of_rotation_x - L / 2;
+        const end_x = centre_of_rotation_x + L / 2;
+
+        const y = centre_of_rotation_y - h;
+
+        pathElement.setAttribute("d", `M ${start_x} ${y} L ${end_x} ${y}`);
+        pathElement.setAttribute(
+          "transform", `rotate(${360 / N * i}, ${centre_of_rotation_x}, ${centre_of_rotation_y})`
+        );
+        svgElement.appendChild(pathElement);
+      }
+
+
+      document.querySelector("#result").appendChild(svgElement);
+    }
+
+    window.addEventListener("DOMContentLoaded", (event) => {
+      drawSymbol(4, 10, 5);
+    });
+  </script>
+</head>
+
+<body>
+  <div id="result">
+  </div>
+</body>
+
+</html>

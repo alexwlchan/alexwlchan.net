@@ -80,15 +80,15 @@
 
   <svg y="11.5">
     <path class="length_marker"
-      d="M 7 1  L 7 0.65 L 7 1.35
-         M 7 1  L 7.3 0.7
-         M 7 1  L 7.3 1.3
-         M 7 1  L 11 1
+      d="M 7.5 1  L 7.5 0.65 L 7.5 1.35
+         M 7.5 1  L 7.8 0.7
+         M 7.5 1  L 7.8 1.3
+         M 7.5 1  L 11 1
          M 11 1 L 11 0.65 L 11 1.35
          M 11 1 L 10.7 0.7
          M 11 1 L 10.7 1.3"
       />
-    <text x="9.1" y="1.7" text-anchor="middle" dominant-baseline="middle" class="grey italic">L / 2</text>
+    <text x="9.25" y="1.7" text-anchor="middle" dominant-baseline="middle" class="grey italic">L / 2</text>
   </svg>
 
   <svg x="0.5" y="1">
