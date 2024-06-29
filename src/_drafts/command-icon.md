@@ -125,7 +125,7 @@ There are three variables we can change:
 We need to define the path for these hooks in terms of these three variables.
 
 **Let's start by working out how to draw the straight line.**
-We know the length of the straight edge (which I'll denote *L*) and the number of sides.
+We know the length of the straight edge (which I'll denote $L$) and the number of sides.
 Let's assume we also know the centre of rotation, which I'll mark with a blue dot.
 We need to work out the coordinates of start and end points, also marked with blue dots.
 
@@ -157,3 +157,46 @@ Using some right-angled triangle geometry, we can then work out the height $h$:
 $$
 h = \frac{L\tan(\theta/2)}{2}
 $$
+
+The SVG syntax for drawing this line is then
+
+```
+<path d="M {start_x} {start_y} L {end_x} {end_y}"/>
+```
+
+**Next let's draw the circular arc.**
+We know the radius of the arc (which I'll denote $r$) and the start point (which is the end point of the straight line).
+To draw this arc in SVG, we need to work out the end point.
+
+{%
+  inline_svg
+  filename="circular_arc.svg"
+  style="width: 400px;"
+%}
+
+We have one of these circular arcs for each side in the shape, and after we've changed directly through all of them, we should be facing the same direction we started.
+That means the sum of the gaps in all the arcs sums to $360^\circ$, which allows us to calculate the angle $\psi$:
+
+$$
+\psi = 360^\circ\Biggl(1 - \frac{1}{\text{number of sides}}\Biggr)
+$$
+
+We can also work out the centre of the circle:
+
+$$
+\text{centre of circle} =
+(\text{start of arc}_x, \; \text{start of arc}_y - r)
+$$
+
+We can then use trigonometry to work out the end of the arc:
+
+$$
+\text{end of circle} =
+(\text{start of arc}_x + r \sin(\psi), \; \text{start of arc}_y - r + r \cos(\psi))
+$$
+
+The SVG syntax for drawing this line is then
+
+```
+<path d="M {start_x} {start_y} A {r} {r} 0 1 0 {end_x} {end_y}"/>
+```
