@@ -195,8 +195,12 @@ $$
 (\text{start of arc}_x + r \sin(\psi), \; \text{start of arc}_y - r + r \cos(\psi))
 $$
 
-The SVG syntax for drawing this line is then
+The SVG syntax for drawing this circular arc is then
 
 ```
 <path d="M {start_x} {start_y} A {r} {r} 0 1 0 {end_x} {end_y}"/>
 ```
+
+The `0 1 0` are part of the [SVG arc syntax](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs).
+The first `0` is `x-axis-rotation`, which we leave at the default.
+Then we have to choose between the four possible arcs that connect the start/end points: in this case `large-arc-flag = 1` and `sweep-flag = 0` give us the arc we need.
