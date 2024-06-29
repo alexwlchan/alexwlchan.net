@@ -82,7 +82,8 @@ class AddNonBreakingSpaces
       'PDF 1.6',
       'PDF 1.7',
       'PyCon ',
-      'Route 53'
+      'Route 53',
+      'System 1'
     ]
 
     phrases.each do |p|
