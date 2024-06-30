@@ -125,12 +125,22 @@ There are three variables we can change:
 
 We need to define the path for these hooks in terms of these three variables.
 
-**Let's start by working out how to draw the straight line.**
-We know the length of the straight edge (which I'll denote $L$) and the number of sides.
-Let's assume we also know the centre of rotation, which I'll mark with a blue dot.
-We need to work out the coordinates of start and end points, also marked with blue dots.
+**Let's start by talking about a mistake I made twice.**
+Normally I'd omit dead ends, but I made this mistake in the initial calculation and the write-up and it's useful to understand how you actually work this out.
 
-We can draw an [isoceles triangle](https://en.wikipedia.org/wiki/Isosceles_triangle) with the centre of rotation at the intersection of the two legs, and the straight line as the base:
+Here's something I wrote in an earlier draft:
+
+<blockquote>
+<p>
+  <strong>Let’s start by working out how to draw the straight line.</strong>
+  We know the length of the straight edge (which I’ll denote $L$) and the number of sides.
+  Let’s assume we also know the centre of rotation, which I’ll mark with a blue dot.
+  We need to work out the coordinates of start and end points, also marked with blue dots.
+</p>
+
+<p>
+  We can draw an <a href="https://en.wikipedia.org/wiki/Isosceles_triangle">isoceles triangle</a> with the centre of rotation at the intersection of the two legs, and the straight line as the base:
+</p>
 
 {%
   inline_svg
@@ -138,7 +148,9 @@ We can draw an [isoceles triangle](https://en.wikipedia.org/wiki/Isosceles_trian
   style="width: 400px;"
 %}
 
-The interesting variable here is $h$, because we can use it to define the start/end points of the line:
+<p>
+  The interesting variable here is $h$, because we can use it to define the start/end points of the line:
+</p>
 
 $$
 \begin{align*}
@@ -147,17 +159,45 @@ $$
 \end{align*}
 $$
 
-Because we'll have one of these triangles for each side in the shape, we can work out the angle $\theta$:
+<p>
+  Because we’ll have one of these triangles for each side in the shape, we can work out the angle $\theta$:
+</p>
 
 $$
 \theta = \frac{360^\circ}{\text{number of sides}}
 $$
 
-Using some right-angled triangle geometry, we can then work out the height $h$:
+<p>
+  Using some right-angled triangle geometry, we can then work out the height $h$:
+</p>
 
 $$
 h = \frac{L\tan(\theta/2)}{2}
 $$
+</blockquote>
+
+Given the hooks as currently drawn, this has a mistake.
+In particular, there’s a flawed assumption in the calculation of $\theta$.
+I was imagining joining all the lines together into a regular polygon, and then $\theta$ is $360^\circ$ divided equally:
+
+{%
+  inline_svg
+  filename="square_lines_expected.svg"
+  style="width: 400px;"
+%}
+
+However, what actually happens is that the intersections of these lines form a regular polygon, but then they extend beyond it.
+If you add up all the $\theta$ angles, it has to be *greater* than $360^\circ$ because you're double-counting.
+
+{%
+  inline_svg
+  filename="square_lines_actual.svg"
+  style="width: 400px;"
+%}
+
+We actually need to consider the line as three separate line segments: 
+
+---
 
 The SVG syntax for drawing this line is then
 
