@@ -1,11 +1,6 @@
 <svg id="square_lines_expected" viewBox="0.5 0 16 16.5" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
   <defs>
     <style>  
-      :root {
-        --accent-grey: grey;
-        --primary-color: blue;
-      }
-          
       #square_lines_expected path {
         stroke: currentColor;
         stroke-width: 0.5;

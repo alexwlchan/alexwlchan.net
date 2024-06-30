@@ -176,8 +176,7 @@ h = \frac{L\tan(\theta/2)}{2}
 $$
 </blockquote>
 
-Given the hooks as currently drawn, this has a mistake.
-In particular, there’s a flawed assumption in the calculation of $\theta$.
+There's a flawed assumption in the calculation of $\theta$.
 I was imagining joining all the lines together into a regular polygon, and then $\theta$ is $360^\circ$ divided equally:
 
 {%
@@ -195,15 +194,44 @@ If you add up all the $\theta$ angles, it has to be *greater* than $360^\circ$ b
   style="width: 400px;"
 %}
 
-We actually need to consider the line as three separate line segments: 
+We actually need to consider the line as three separate line segments: up to the first intersection, between the intersections, and after the next intersection.
+This led me to revise my hook shape -- rather than an open-ended hook, I'm thinking about a looped hook instead:
 
----
+{%
+  inline_svg
+  filename="command_looped_hook.svg"
+  style="width: 400px;"
+%}
+
+Let's break this into a couple of segments that we can consider individually:
+
+{%
+  inline_svg
+  filename="command_looped_hook_labelled.svg"
+  style="width: 400px;"
+%}
+
+Now we need to find the geometries of this looped hook, relative to the centre of rotation.
+
+**First let's consider the line segment which isn't part of the loop.**
+We can choose the length of this line, which I'll denote $L'$.
+These lines do form a regular polygon when joined together, so now the steps from earlier do actually work: I can find variables $\theta'$ and $h'$ and thus deduce the start/end points of the line segment.
+
+{%
+  inline_svg
+  filename="straight_edge_revised.svg"
+  style="width: 400px;"
+%}
 
 The SVG syntax for drawing this line is then
 
 ```
 <path d="M {start_x} {start_y} L {end_x} {end_y}"/>
 ```
+
+---
+
+
 
 **Next let's draw the circular arc.**
 We know the radius of the arc (which I'll denote $r$) and the start point (which is the end point of the straight line).
