@@ -10,6 +10,7 @@
     path {
       stroke: black;
       stroke-width: 1px;
+      fill: none;
     }
 
     svg {
@@ -25,12 +26,17 @@
     }
 
     function drawSymbol(N, L, r) {
+      // Straight line up to the loop
       const theta = 2 * Math.PI / N;
-      const h = L * Math.tan(theta / 2) / 2;
+      const h = L / (2 * Math.tan(theta / 2));
 
-      console.log(h);
+      // Curved loop
+      const psi = 2 * Math.PI * (1 - 1 / N);
+      const s = r * Math.tan(Math.PI - psi / 2);
 
-      const maxDistance = r + Math.sqrt((L / 2) ^ 2 + (h + r) ^ 2);
+      // Centre of rotation
+      const maxDistance = r + Math.sqrt((L / 2 + s) ** 2 + (h + r) ** 2);
+
       const width = height = Math.ceil(2.2 * maxDistance);
 
       const centre_of_rotation_x = width / 2;
@@ -40,34 +46,69 @@
       svgElement.setAttribute("viewBox", `0 0 ${width} ${height}`);
       svgElement.setAttribute("width", "500");
 
-      for (i = 0; i < N; i++) {
-
-        // Draw the straight lines
-        const pathElement = createSvgElement("path");
-
-        const start_x = centre_of_rotation_x - L / 2;
-        const end_x = centre_of_rotation_x + L / 2;
-
-        const y = centre_of_rotation_y - h;
-
-        pathElement.setAttribute("d", `M ${start_x} ${y} L ${end_x} ${y}`);
-        pathElement.setAttribute(
-          "transform", `rotate(${360 / N * i}, ${centre_of_rotation_x}, ${centre_of_rotation_y})`
-        );
-        svgElement.appendChild(pathElement);
-      }
-
-
+      document.querySelector("#result").innerHTML = "";
       document.querySelector("#result").appendChild(svgElement);
+
+      const defs = createSvgElement("defs");
+      svgElement.appendChild(defs);
+
+      const start_x = centre_of_rotation_x - L / 2;
+      const end_x = centre_of_rotation_x + L / 2;
+      const y = centre_of_rotation_y - h;
+
+      const pathElement = createSvgElement("path");
+      pathElement.setAttribute("id", "loopedHook");
+      pathElement.setAttribute(
+        "d",
+        `
+        M ${start_x} ${y}
+        L ${end_x} ${y}
+        l ${s} 0
+        A ${r} ${r}
+        0 1 0
+        ${end_x + s + r * Math.sin(psi)}
+        ${y - r + r * Math.cos(psi)}
+        L ${end_x} ${y}
+        `
+      );
+      defs.appendChild(pathElement);
+
+      for (i = 0; i < N; i++) {
+        const useElement = createSvgElement("use");
+        useElement.setAttribute("href", "#loopedHook");
+        useElement.setAttribute("transform", `rotate(${360 / N * i}, ${centre_of_rotation_x}, ${centre_of_rotation_y})`);
+        svgElement.appendChild(useElement);
+      }
     }
 
     window.addEventListener("DOMContentLoaded", (event) => {
-      drawSymbol(4, 10, 5);
+      drawSymbol(10, 10, 4);
     });
+
+    function redraw() {
+      const numberOfSides = Number(document.querySelector("#numberOfSides").value || 10);
+      const lengthOfSide = Number(document.querySelector("#lengthOfSide").value || 10);
+      const sizeOfLoops = Number(document.querySelector("#sizeOfLoops").value || 4);
+
+      drawSymbol(
+        numberOfSides, lengthOfSide, sizeOfLoops
+      );
+    }
   </script>
 </head>
 
 <body>
+  <form>
+    <label for="numberOfSides">number of sides:</label>
+    <input type="number" min="3" id="numberOfSides" onChange="redraw();" default="5"/>
+
+    <label for="lengthOfSide">length of side:</label>
+    <input type="number" min="1" id="lengthOfSide" onChange="redraw();" default="10"/>
+
+    <label for="sizeOfLoops">size of loops:</label>
+    <input type="number" min="1" id="sizeOfLoops" onChange="redraw();" default="10"/>
+  </form>
+
   <div id="result">
   </div>
 </body>

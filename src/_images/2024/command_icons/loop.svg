@@ -1,11 +1,6 @@
 <svg id="loop" viewBox="4 0.25 7 7.5" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
   <defs>
     <style>
-      :root {
-        --accent-grey: grey;
-        --primary-color: blue;
-      }
-
       #loop path {
         stroke: currentColor;
         stroke-width: 0.25;
@@ -59,7 +54,7 @@
     </style>
   </defs>
 
-  <circle cx="8" cy="3.40192379" r="0.125" class="grey"/>
+
   <path d="M 5.75 4.7 L 8 3.40192379 L 8 6" class="dashed"/>
 
   <path d="M 6.5 6 L 5.75 4.7 A 2.598076211353316 2.598076211353316 0 1 1 8 6 Z"/>
@@ -94,24 +89,5 @@
   <text x="8.7" y="2.7" text-anchor="middle" dominant-baseline="end" class="blue italic">ψ</text>
   <path d="M 8 3.40192379 L 7.387627564304205 3.7554771805932736 A 0.7071067811865476 0.7071067811865476 0 1 1 8.0 4.109030571186548 Z" class="angle"/>
 
-
-
-  <!-- <path d="M 7 9 A 4 4 0 1 0 4.17157288 7.82842712"/>
-
-  radius = sqrt(2)
-
-
-
-
-
-
-
-
-  d_x/d_y = sqrt(8)
-  <circle cx="4.17157288" cy="7.82842712" r="0.5"/>
-
-  <svg x="0.5">
-
-  </svg>
-  <text x="1" y="7" text-anchor="middle" dominant-baseline="middle" class="grey italic">r</text> -->
+  <circle cx="8" cy="3.40192379" r="0.125" class="grey"/>
 </svg>

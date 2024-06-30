@@ -9,6 +9,9 @@ colors:
   css_light: "#014df4"
   css_dark:  "#67a7ff"
 ---
+20px
+black
+
 The command key (⌘) has been a ubiquitious part of the Mac for [over forty years][folklore].
 It was originally chosen by legendary icon designer Susan Kare, who picked it from a symbol dictionary -- it was used in Sweden to highlight an interesting feature on a map.
 It's an abstract and pleasant shape, and can still be seen today on road signs and keyboards alike.
@@ -165,7 +168,7 @@ $$
 Using some right-angled triangle geometry, we can then work out the height $h$:
 
 $$
-h = \frac{L\tan(\theta/2)}{2}
+h = \frac{L}{2\tan(\theta/2)}
 $$
 
 The SVG syntax for drawing this line is then
@@ -185,48 +188,51 @@ There are two unknowns here: the angle swept out by the loop (denoted $\psi$) an
   style="width: 400px;"
 %}
 
-The two straight line segments are tangents to the circular arc -- they form a right angle with the radii marked in dashed lines.
-
-How do we work out the angle $\psi$?
-
-
-
----
----
----
----
-
-
-
-**Next let's draw the circular arc.**
-We know the radius of the arc (which I'll denote $r$) and the start point (which is the end point of the straight line).
-To draw this arc in SVG, we need to work out the end point.
+First let's work out the angle $\psi$.
+Let's sketch out a bit more of the overall shape:
 
 {%
   inline_svg
-  filename="circular_arc.svg"
+  filename="command_icons/kite_angles.svg"
   style="width: 400px;"
 %}
 
-We have one of these circular arcs for each side in the shape, and after we've changed directly through all of them, we should be facing the same direction we started.
-That means the sum of the gaps in all the arcs sums to $360^\circ$, which allows us to calculate the angle $\psi$:
+The angle I've marked $\varphi$ is one of the interior angles of the regular polygon created by the line segments, and we can work out the interior angle of a regular polygon:
 
 $$
-\psi = 360^\circ\left(1 - \frac{1}{\text{number of sides}}\right)
+\varphi
+= \frac{180^\circ \times \left(\text{number of sides} - 2\right)}{\text{number of sides}}
+= 180^\circ \left(1 - \frac{2}{\text{number of sides}}\right)
 $$
 
-We can also work out the centre of the circle:
+Then a bit more straight line geometry and the interior angles of the kite (the line segments are at right angles to the radii) allow us to work out the angle $\psi$:
 
 $$
-\text{centre of circle} =
-(\text{start of arc}_x, \; \text{start of arc}_y - r)
+\psi
+= 180^\circ + \varphi
+= 360^\circ \left(1 - \frac{1}{\text{number of sides}}\right)
 $$
 
-We can then use trigonometry to work out the end of the arc:
+We can then work out the length $s$ using some trigonometry:
 
 $$
-\text{end of circle} =
-(\text{start of arc}_x + r \sin(\psi), \; \text{start of arc}_y - r + r \cos(\psi))
+s
+= r \tan\left(\frac{360^\circ - \psi}{2}\right)
+$$
+
+Then we can work out the centre of the circular arc:
+
+$$
+\text{centre of arc} = (\text{start of loop}_x + s, \text{start of loop}_y - r)
+$$
+
+And from this we can get the start and finish points of the circular arc:
+
+$$
+\begin{align*}
+\text{start} &= (\text{centre of arc}_x, \text{centre of arc}_y + r) \\[2pt]
+\text{end} &= (\text{centre of arc}_x + r \sin\psi, \text{centre of arc}_y + r \cos\psi)
+\end{align*}
 $$
 
 The SVG syntax for drawing this circular arc is then
@@ -250,7 +256,7 @@ I believe you can find this point by drawing a line from the centre of rotation 
 
 {%
   inline_svg
-  filename="furthest_point.svg"
+  filename="command_icons/furthest_point.svg"
   style="width: 400px;"
 %}
 
@@ -262,7 +268,7 @@ Any point on the line is closer to the centre of the rotation (the furthest poin
 This means the further point from the centre of rotation is:
 
 $$
-\text{max distance} = r + \sqrt{(L/2)^2 + (h+r)^2}
+\text{max distance} = r + \sqrt{(L/2 + s)^2 + (h+r)^2}
 $$
 
 Let's double that and add some padding, and use that as the width/height of our SVG canvas.
