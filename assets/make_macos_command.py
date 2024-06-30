@@ -4,9 +4,9 @@ import math
 
 # (50, 25, 4)
 
-L = 80
-circle_r = 20
-number_of_sides = 4
+L = 5
+circle_r = 1
+number_of_sides = 5
 
 # assert L > 2 * r
 
@@ -38,7 +38,7 @@ print(f"""<svg viewBox="0 0 {side} {side}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       path {{
-        stroke-width: 15;
+        stroke-width: 0.5;
         stroke-linecap: round;
       }}
     </style>
@@ -57,8 +57,8 @@ for i in range(number_of_sides):
           {center - L / 2} {center - inner_L / math.tan(math.pi / number_of_sides)}
         L {center + L / 2} {center - inner_L / math.tan(math.pi / number_of_sides)}"
         fill="none"
-        transform="rotate({-8 + 360 / number_of_sides * i}, {center}, {center})"
-        style="stroke: white;"
+        transform="rotate({360 / number_of_sides * i}, {center}, {center})"
+        style="stroke: black;"
         />
     ''')
     print(f'''
@@ -66,8 +66,8 @@ for i in range(number_of_sides):
         a {circle_r} {circle_r}, 0, 1, 0
         {circle_r * math.sin(theta * math.pi / 180)} {circle_r * math.cos(theta * math.pi / 180) - circle_r}
         " fill="none"
-        transform="rotate({-8 + 360 / number_of_sides * i}, {center}, {center})"
-        style="stroke: white;"
+        transform="rotate({360 / number_of_sides * i}, {center}, {center})"
+        style="stroke: black;"
         />
     ''')
 

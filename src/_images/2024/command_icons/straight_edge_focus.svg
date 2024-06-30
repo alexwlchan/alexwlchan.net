@@ -1,0 +1,14 @@
+<svg id="straight_edge_focus" viewBox="0 0 13.7 7" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #straight_edge_focus path {
+        stroke: currentColor;
+        stroke-width: 0.5;
+        fill: none;
+      }
+    </style>
+  </defs>
+
+  <path d="M 1 6 L 8.5 6"/>
+  <path d="M 8.5 6 L 7.75 4.7009619 A 2.598076211353316 2.598076211353316 0 1 1 10.0 6.000000001353316 Z" opacity="0.5"/>
+</svg>

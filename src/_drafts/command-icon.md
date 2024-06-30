@@ -72,21 +72,23 @@ This meant doing some trionometry, and it took a while to get the details right.
 
 ## The idea
 
-We can imagine this symbol as being made up of multiple "hooks", rotated around a central point.
-Each hook is made up of two parts: a straight line and a circular arc.
-Here's a single hook:
+One way to imagine symbols like this is being made of multiple "looped hooks".
 
 {%
   inline_svg
-  filename="command_hook.svg"
+  filename="command_looped_hook.svg"
   style="width: 400px;"
 %}
 
-Imagine taking four copies of that hook, and rotating them around then joining them together -- that would create the looped square in the previous illustrations.
+If you take a collection of these, rotate them around a central point, and join them together, you'd get the complete shape.
 
-If we can work out how to draw one of these hooks for an arbitrary size and loop count, we can take that hook and rotate it as many times as we need for the full shape.
+There are three variables we can change:
 
+*   How many sides/loops are there in the shape?
+*   How long are the straight edges?
+*   How big are the circular loops?
 
+Let's work out how to draw one of these hooks given these inputs.
 
 
 
@@ -116,6 +118,104 @@ MathJax = {
 ## Tackling the trigonometry
 
 *This next section features a walkthrough of the trigonometry involved in drawing these hook shapes. This is the bit I find most interesting and omitting it would feel like saying "draw the rest of the owl", but if it's not your cup of tea, you can skip to the pretty pictures.*
+
+**Let's start by considering the straight line, up to the loop.**
+This is the part I'm thinking about:
+
+{%
+  inline_svg
+  filename="command_icons/straight_edge_focus.svg"
+  style="width: 400px;"
+%}
+
+We know the length of this line (which I'll denote $L$) and the number of sides.
+Let's assume we also know the centre of rotation, which I'll mark with a blue circles.
+We need to work out the coordinates of the start and end points of this line, which I'll mark with blue dots.
+
+{%
+  inline_svg
+  filename="straight_edge.svg"
+  style="width: 400px;"
+%}
+
+The interesting variable here is $h$, because we can use it to define the start/end points of the line:
+
+$$
+\begin{align*}
+\text{start} &= (\text{centre}_x - L/2, \text{centre}_y - h) \\[2pt]
+\text{end} &= (\text{centre}_x + L/2, \text{centre}_y - h)
+\end{align*}
+$$
+
+How can we work out the angle $\theta$?
+Notice that in the final shape, these line segments form a regular polygon:
+
+{%
+  inline_svg
+  filename="command_icons/regular_polygon.svg"
+  style="width: 400px;"
+%}
+
+The angles around a point sum to $360^\circ$, and this angle will be the same for every side (by rotational symmetry), so we can calculate $\theta$:
+
+$$
+\theta = \frac{360^\circ}{\text{number of sides}}
+$$
+
+Using some right-angled triangle geometry, we can then work out the height $h$:
+
+$$
+h = \frac{L\tan(\theta/2)}{2}
+$$
+
+The SVG syntax for drawing this line is then
+
+```
+<path d="M {start_x} {start_y} L {end_x} {end_y}"/>
+```
+
+
+
+---
+---
+---
+---
+
+We can imagine this symbol as being made up of multiple "hooks", rotated around a central point.
+Each hook is made up of two parts: a straight line and a circular arc.
+Here's a single hook:
+
+{%
+  inline_svg
+  filename="command_hook.svg"
+  style="width: 400px;"
+%}
+
+Imagine taking four copies of that hook, and rotating them around then joining them together -- that would create the looped square in the previous illustrations.
+
+If we can work out how to draw one of these hooks for an arbitrary size and loop count, we can take that hook and rotate it as many times as we need for the full shape.
+
+
+
+{%
+  inline_svg
+  filename="command_looped_hook.svg"
+  style="width: 400px;"
+%}
+
+Let's break this into a couple of segments that we can consider individually:
+
+{%
+  inline_svg
+  filename="command_looped_hook_labelled.svg"
+  style="width: 400px;"
+%}
+
+
+
+
+
+
 
 There are three variables we can change:
 
@@ -179,11 +279,7 @@ $$
 There's a flawed assumption in the calculation of $\theta$.
 I was imagining joining all the lines together into a regular polygon, and then $\theta$ is $360^\circ$ divided equally:
 
-{%
-  inline_svg
-  filename="square_lines_expected.svg"
-  style="width: 400px;"
-%}
+
 
 However, what actually happens is that the intersections of these lines form a regular polygon, but then they extend beyond it.
 If you add up all the $\theta$ angles, it has to be *greater* than $360^\circ$ because you're double-counting.
@@ -197,20 +293,6 @@ If you add up all the $\theta$ angles, it has to be *greater* than $360^\circ$ b
 We actually need to consider the line as three separate line segments: up to the first intersection, between the intersections, and after the next intersection.
 This led me to revise my hook shape -- rather than an open-ended hook, I'm thinking about a looped hook instead:
 
-{%
-  inline_svg
-  filename="command_looped_hook.svg"
-  style="width: 400px;"
-%}
-
-Let's break this into a couple of segments that we can consider individually:
-
-{%
-  inline_svg
-  filename="command_looped_hook_labelled.svg"
-  style="width: 400px;"
-%}
-
 Now we need to find the geometries of this looped hook, relative to the centre of rotation.
 
 **First let's consider the line segment which isn't part of the loop.**
@@ -223,11 +305,7 @@ These lines do form a regular polygon when joined together, so now the steps fro
   style="width: 400px;"
 %}
 
-The SVG syntax for drawing this line is then
 
-```
-<path d="M {start_x} {start_y} L {end_x} {end_y}"/>
-```
 
 ---
 

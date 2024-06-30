@@ -52,6 +52,7 @@
         fill: var(--primary-color);
       }
 
+
       #regular_polygon text.grey {
         font-size: 0.75px;
         stroke: none;
