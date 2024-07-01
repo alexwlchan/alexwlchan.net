@@ -1,0 +1,93 @@
+<svg id="loop" viewBox="4 0.25 7 7.5" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #loop path {
+        stroke: currentColor;
+        stroke-width: 0.25;
+        fill: none;
+      }
+
+      #loop path.length_marker {
+        stroke: var(--accent-grey);
+        stroke-width: 0.04;
+        fill: none;
+      }
+
+      #loop path.dashed {
+        stroke: var(--accent-grey);
+        stroke-width: 0.04;
+        fill: none;
+        stroke-dasharray: 0.1 0.1;
+      }
+
+      #loop circle {
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #loop circle.grey {
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #loop path.angle {
+        fill: var(--primary-color);
+        opacity: 0.35;
+        stroke: none;
+      }
+
+      #loop text.blue {
+        font-size: 0.325px;
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #loop text.grey {
+        font-size: 0.325px;
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #loop text.italic {
+        font-style: italic;
+      }
+    </style>
+  </defs>
+
+
+  <path d="M 5.75 4.7 L 8 3.40192379 L 8 6" class="dashed"/>
+
+  <path d="M 6.5 6 L 5.75 4.7 A 2.598076211353316 2.598076211353316 0 1 1 8 6 Z"/>
+  <circle cx="5.75" cy="4.7" r="0.25"/>
+  <circle cx="8" cy="6" r="0.25"/>
+  <circle cx="6.5" cy="6" r="0.25"/>
+
+  <path class="length_marker"
+    d="M 6.5 7 L 6.5 6.825 L 6.5 7.175
+       M 6.5 7 L 6.675 6.825
+       M 6.5 7 L 6.675 7.175
+       M 6.5 7 L 8 7
+       M 8 7 L 8 6.825 L 8 7.175
+       M 8 7 L 7.825 6.825
+       M 8 7 L 7.825 7.175"
+  />
+  <text x="7.25" y="7.3" text-anchor="middle" dominant-baseline="middle" class="grey italic">s</text>
+
+  <path class="length_marker"
+    d="M 4.5 3.40192379 L 4.675 3.40192379
+       M 4.5 3.40192379 L 4.325 3.40192379
+       M 4.5 3.40192379 L 4.325 3.57692379
+       M 4.5 3.40192379 L 4.675 3.57692379
+       M 4.5 3.40192379 L 4.5 6
+       M 4.5 6 L 4.675 6
+       M 4.5 6 L 4.325 6
+       M 4.5 6 L 4.675 5.825
+       M 4.5 6 L 4.325 5.825"
+  />
+  <text x="4.2" y="4.7" text-anchor="middle" dominant-baseline="middle" class="grey italic">r</text>
+
+  <text x="8.7" y="2.7" text-anchor="middle" dominant-baseline="end" class="blue italic">ψ</text>
+  <path d="M 8 3.40192379 L 7.387627564304205 3.7554771805932736 A 0.7071067811865476 0.7071067811865476 0 1 1 8.0 4.109030571186548 Z" class="angle"/>
+
+  <circle cx="8" cy="3.40192379" r="0.125" class="grey"/>
+</svg>

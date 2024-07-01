@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>looped squares</title>
+
+  <style>
+    path {
+      stroke: black;
+      stroke-width: 1px;
+      fill: none;
+    }
+
+    svg {
+      background: white;
+      aspect-ratio: 1;
+      margin-top: 1em;
+      width: 600px;
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    a {
+      color: white;
+    }
+
+    body {
+      padding: 1em;
+      font-family: -apple-system, sans-serif;
+      color: white;
+      text-align: center;
+
+      /* Pattern from https://www.toptal.com/designers/subtlepatterns/double-bubble-dark-pattern/ */
+      background-image: url('double-bubble-dark.png');
+    }
+  </style>
+
+
+
+  <script>
+    function createSvgElement(name) {
+      return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+
+    function drawSymbol(numberOfSides, lengthOfStraightEdge, radiusOfLoop, angleOfRotation) {
+
+      // Angle theta in the straight line.
+      const theta = 2 * Math.PI / numberOfSides;
+
+      // Height h between the centre of rotation and the straight line.
+      const h = lengthOfStraightEdge / (2 * Math.tan(theta / 2));
+
+      // Angle swept out by the circular arc in the curved loop.
+      const psi = 2 * Math.PI * (1 - 1 / numberOfSides);
+
+      // Length s of the straight edges inside the loop.
+      const s = radiusOfLoop * Math.tan(Math.PI / numberOfSides);
+
+      // Max distance between the centre of rotation and the edge of the shape.
+      const maxDistance =
+        radiusOfLoop +
+        Math.sqrt(
+          (lengthOfStraightEdge / 2 + s) ** 2 + (h + radiusOfLoop) ** 2
+        );
+
+      // Add some padding for the total width of the canvas.
+      const width = height = Math.ceil(2.2 * maxDistance);
+
+      // The centre of rotation is the centre of the canvas.
+      const centreOfRotation = {'x': width / 2, 'y': height / 2};
+
+      // The start/end of the straight line segment.
+      const startOfLine = {
+        'x': centreOfRotation['x'] - lengthOfStraightEdge / 2,
+        'y': centreOfRotation['y'] - h
+      };
+
+      const endOfLine = {
+        'x': centreOfRotation['x'] + lengthOfStraightEdge / 2,
+        'y': centreOfRotation['y'] - h
+      };
+
+      // Centre of the circular arc in the loop
+      const startOfLoop = endOfLoop = endOfLine;
+
+      const centreOfCircularArc = {
+        'x': startOfLoop['x'] + s,
+        'y': startOfLoop['y'] - radiusOfLoop,
+      };
+
+      // Start/end points of the circular arc
+      const startOfArc = {
+        'x': centreOfCircularArc['x'],
+        'y': centreOfCircularArc['y'] + radiusOfLoop,
+      };
+
+      const endOfArc = {
+        'x': centreOfCircularArc['x'] + radiusOfLoop * Math.sin(psi),
+        'y': centreOfCircularArc['y'] + radiusOfLoop * Math.cos(psi),
+      };
+
+      // Create the initial <svg> element
+      const svgElement = createSvgElement("svg");
+      svgElement.setAttribute("viewBox", `0 0 ${width} ${height}`);
+
+      // Make this <svg> element the only element in div#result
+      document.querySelector("#result").innerHTML = "";
+      document.querySelector("#result").appendChild(svgElement);
+
+      const defs = createSvgElement("defs");
+      svgElement.appendChild(defs);
+
+      const pathElement = createSvgElement("path");
+      pathElement.setAttribute("id", "loopedHook");
+      pathElement.setAttribute(
+        "d",
+        `
+        M ${startOfLine['x']} ${startOfLine['y']}
+        L ${endOfLine['x']} ${endOfLine['y']}
+        L ${startOfArc['x']} ${startOfArc['y']}
+        A ${radiusOfLoop} ${radiusOfLoop}
+        0 1 0
+        ${endOfArc['x']} ${endOfArc['y']}
+        L ${endOfLoop['x']} ${endOfLoop['y']}
+        `
+      );
+      defs.appendChild(pathElement);
+
+      for (i = 0; i < numberOfSides; i++) {
+        const useElement = createSvgElement("use");
+        useElement.setAttribute("href", "#loopedHook");
+        useElement.setAttribute(
+          "transform",
+          `rotate(${angleOfRotation + 360 / numberOfSides * i}, ${centreOfRotation['x']}, ${centreOfRotation['y']})`
+        );
+        svgElement.appendChild(useElement);
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", (event) => {
+      drawSymbol(10, 10, 4, 15);
+    });
+
+    function redraw() {
+      const numberOfSides = Number(document.querySelector("#numberOfSides").value || 10);
+      const lengthOfSide = Number(document.querySelector("#lengthOfSide").value || 10);
+      const sizeOfLoops = Number(document.querySelector("#sizeOfLoops").value || 4);
+      const angleOfRotation = Number(document.querySelector("#angleOfRotation").value || 15);
+
+      drawSymbol(
+        numberOfSides, lengthOfSide, sizeOfLoops, angleOfRotation
+      );
+    }
+  </script>
+</head>
+
+<body>
+  <h1>looped squares</h1>
+
+  <form>
+    <label for="numberOfSides">number of sides:</label>
+    <input type="number" min="3" id="numberOfSides" onChange="redraw();" default="5"/>
+
+    <label for="lengthOfSide">length of side:</label>
+    <input type="number" min="1" id="lengthOfSide" onChange="redraw();" default="10"/>
+
+    <label for="sizeOfLoops">size of loops:</label>
+    <input type="number" min="1" id="sizeOfLoops" onChange="redraw();" default="10"/>
+
+    <label for="angleOfRotation">rotation:</label>
+    <input type="number" min="1" id="angleOfRotation" onChange="redraw();" default="15"/>
+  </form>
+
+  <div id="result">
+  </div>
+
+  <p>
+    <a href="">save as SVG</a> / <a href="">save as PNG</a>
+  </p>
+
+  <footer>
+    made with &lt;3 by alexwlchan
+  </footer>
+</body>
+
+</html>

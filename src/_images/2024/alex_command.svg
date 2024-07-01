@@ -1,0 +1,20 @@
+<svg id="alex_command" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #alex_command path {
+        stroke: currentColor;
+        stroke-width: 1;
+        fill: none;
+      }
+    </style>
+  </defs>
+  
+  <path d="M 3 4.5 L 8 4.5
+           A 1.5 1.5 0 1 0 6.5 3
+           L 6.5 8
+           A 1.5 1.5 0 1 0 8 6.5
+           L 3 6.5
+           A 1.5 1.5 0 1 0 4.5 8
+           L 4.5 3
+           A 1.5 1.5 0 1 0 3 4.5"/>
+</svg>
