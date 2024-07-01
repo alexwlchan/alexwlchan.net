@@ -1,0 +1,104 @@
+<svg viewBox="0 0 198 198" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      path {
+        stroke-width: 1.5;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+
+  <rect width="198" height="198" fill="yellow"/>
+
+
+
+    <path d="M
+          49.0 77.20372415983917
+        L 149.0 77.20372415983917"
+        fill="none"
+        transform="rotate(0.0, 99.0, 99.0)"
+        style="stroke: red;"
+        />
+    
+
+    <path d="M 149.0 69.0
+        a 20 20, 0, 1, 0
+        -19.021130325903073 -13.819660112501055
+        " fill="none"
+        transform="rotate(0.0, 99.0, 99.0)"
+        style="stroke: blue;"
+        />
+    
+
+    <path d="M
+          49.0 77.20372415983917
+        L 149.0 77.20372415983917"
+        fill="none"
+        transform="rotate(72.0, 99.0, 99.0)"
+        style="stroke: red;"
+        />
+    
+
+    <path d="M 149.0 69.0
+        a 20 20, 0, 1, 0
+        -19.021130325903073 -13.819660112501055
+        " fill="none"
+        transform="rotate(72.0, 99.0, 99.0)"
+        style="stroke: blue;"
+        />
+    
+
+    <path d="M
+          49.0 77.20372415983917
+        L 149.0 77.20372415983917"
+        fill="none"
+        transform="rotate(144.0, 99.0, 99.0)"
+        style="stroke: red;"
+        />
+    
+
+    <path d="M 149.0 69.0
+        a 20 20, 0, 1, 0
+        -19.021130325903073 -13.819660112501055
+        " fill="none"
+        transform="rotate(144.0, 99.0, 99.0)"
+        style="stroke: blue;"
+        />
+    
+
+    <path d="M
+          49.0 77.20372415983917
+        L 149.0 77.20372415983917"
+        fill="none"
+        transform="rotate(216.0, 99.0, 99.0)"
+        style="stroke: red;"
+        />
+    
+
+    <path d="M 149.0 69.0
+        a 20 20, 0, 1, 0
+        -19.021130325903073 -13.819660112501055
+        " fill="none"
+        transform="rotate(216.0, 99.0, 99.0)"
+        style="stroke: blue;"
+        />
+    
+
+    <path d="M
+          49.0 77.20372415983917
+        L 149.0 77.20372415983917"
+        fill="none"
+        transform="rotate(288.0, 99.0, 99.0)"
+        style="stroke: red;"
+        />
+    
+
+    <path d="M 149.0 69.0
+        a 20 20, 0, 1, 0
+        -19.021130325903073 -13.819660112501055
+        " fill="none"
+        transform="rotate(288.0, 99.0, 99.0)"
+        style="stroke: blue;"
+        />
+    
+</svg>
