@@ -218,6 +218,7 @@ We can then work out the length $s$ using some trigonometry:
 $$
 s
 = r \tan\left(\frac{360^\circ - \psi}{2}\right)
+= r \tan\left(\frac{180^\circ}{\text{number of sides}}\right)
 $$
 
 Then we can work out the centre of the circular arc:
