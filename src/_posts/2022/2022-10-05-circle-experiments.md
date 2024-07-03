@@ -12,8 +12,40 @@ colors:
   index_dark:  "#ea0000"
 ---
 
-<style type="x-text/scss">
-  @include checkerboard_styles();
+<style>
+  /*
+    By default, this is a grid that's four columns wide, but on narrow screens
+    (i.e. mobile), I shrink it to two columns so it remains readable.
+
+    I think I might do a checkerboard pattern on the 4-wide layout, and I want
+    to retain that on the 2-wide layout, so I need to swap the 3rd/4th in every row.
+
+    e.g. if I have
+
+        X1 .2 X3 .4
+        .5 X6 .7 X8
+
+    then on the mobile layout I want
+
+        X1 .2
+        .4 X3
+        X6 .5
+        .7 X8
+
+    I swap the orders with `grid-column` properties, then the `grid-auto-flow`
+    stops there being gaps in the grid.
+  */
+  .grid_4up {
+    display: grid;
+    grid-gap: var(--grid-gap);
+    grid-template-columns: auto auto auto auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    .grid_4up {
+      grid-template-columns: auto auto;
+    }
+  }
 </style>
 
 The header of this site is made of tiling squares in slightly varying shades of red.
