@@ -129,6 +129,110 @@ I wrote some scripts to generate SVG images -- I'm bashing lines and curves toge
   }
 </style>
 
+<style>
+  .hero_grid svg {
+    max-width: calc(100% - 10px);
+  }
+
+  .hero_grid {
+    grid-gap: 0;
+  }
+
+  .hero_grid svg:nth-child(1),
+  .hero_grid svg:nth-child(3),
+  .hero_grid svg:nth-child(6),
+  .hero_grid svg:nth-child(8) {
+    background: #d01c11;
+    border: 5px solid #d01c11;
+/*    padding: 5px;*/
+  }
+
+  .hero_grid svg:nth-child(1) path,
+  .hero_grid svg:nth-child(3) path,
+  .hero_grid svg:nth-child(6) path,
+  .hero_grid svg:nth-child(8) path,
+  .hero_grid svg:nth-child(1) line,
+  .hero_grid svg:nth-child(3) line,
+  .hero_grid svg:nth-child(6) line,
+  .hero_grid svg:nth-child(8) line {
+    stroke: #fcdbd9;
+  }
+
+  .hero_grid svg:nth-child(2),
+  .hero_grid svg:nth-child(4),
+  .hero_grid svg:nth-child(5),
+  .hero_grid svg:nth-child(7) {
+    background: #fcdbd9;
+    border: 5px solid #fcdbd9;
+/*    padding: 5px;*/
+  }
+
+  .hero_grid svg:nth-child(2) path,
+  .hero_grid svg:nth-child(4) path,
+  .hero_grid svg:nth-child(5) path,
+  .hero_grid svg:nth-child(7) path,
+  .hero_grid svg:nth-child(2) line,
+  .hero_grid svg:nth-child(4) line,
+  .hero_grid svg:nth-child(5) line,
+  .hero_grid svg:nth-child(7) line {
+    stroke: #d01c11;
+  }
+
+  .hero_grid svg:nth-child(1) path,
+  .hero_grid svg:nth-child(1) line,
+  .hero_grid svg:nth-child(7) path,
+  .hero_grid svg:nth-child(7) line {
+    stroke-width: 3px;
+  }
+</style>
+
+Here's a sample of some of the art I was able to create:
+
+<div class="hero_grid grid_4up checkerboard">
+  {%
+    inline_svg
+    filename="petals/angled_barely_poiny.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/remainder_4.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/round_petals_lots.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/random_radius_3.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/hooks_8.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/angled_few_pointy.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/hooks_4.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/angled_lots_of_outie.svg"
+    class="dark_aware"
+  %}
+</div>
+
+Read on to find out how I made it, and see more examples.
+
 ## Polar coordinates
 
 Normally when you draw shapes in SVG, you work in [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate_system), where points are determined by their horizontal (*x*) and vertical (*y*) distance from an origin.
@@ -185,10 +289,6 @@ def polar_to_cartesian(origin_x, origin_y, radius, angle):
 ```
 
 This helper function allows me to define my shapes with polar coordinates, then convert to Cartesian when I want to actually draw them in the SVG.
-
-
-
-
 
 ## The sketches
 
@@ -267,12 +367,12 @@ I went and manually added some colours to create the illusion of steps, and then
                 if (index === 0) {
                     animationElement.setAttribute('values', fillValues.join('; '));
                 } else if (index === fillValues.length - 1) {
-                    animationElement.setAttribute('values', 
+                    animationElement.setAttribute('values',
                         fillValues[fillValues.length - 1] + ';' +
                         fillValues.slice(0, index - 1).join('; ')
                     );
                 } else {
-                    animationElement.setAttribute('values', 
+                    animationElement.setAttribute('values',
                         fillValues.slice(index, fillValues.length).join('; ') + ';' +
                         fillValues.slice(0, index).join('; ')
                     );
@@ -383,7 +483,7 @@ This involved a bit of trigonometry to work out the angles, and my first few att
     inline_svg
     filename="petals/bad_petals3.svg"
     class="dark_aware"
-  %}  
+  %}
 </div>
 
 But eventually I got it all figured out, and I was able to reproduce my original idea: flower "petals" with circular ends.
@@ -410,7 +510,7 @@ Whatever your medium, a four-leafed clover is a tricksy and elusive thing.)
     inline_svg
     filename="petals/round_petals_lots.svg"
     class="dark_aware"
-  %}  
+  %}
 </div>
 
 And once I'd worked out the angles required to make a single curve work, I was able to stack them so there could be multiple arcs along the edge of each segment, like so:
@@ -435,7 +535,7 @@ And once I'd worked out the angles required to make a single curve work, I was a
     inline_svg
     filename="petals/multi_petals_5.svg"
     class="dark_aware"
-  %}  
+  %}
 </div>
 
 I like the ones with fewer segments, so you can really see the extra arcs.
