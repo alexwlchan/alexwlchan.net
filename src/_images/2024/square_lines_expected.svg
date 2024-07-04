@@ -1,0 +1,139 @@
+<svg id="regular_polygon" viewBox="1 0 19 19.5" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #regular_polygon path {
+        stroke: currentColor;
+        stroke-width: 0.5;
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      #regular_polygon path.length_marker {
+        stroke: var(--accent-grey);
+        stroke-width: 0.08;
+        fill: none;
+      }
+
+      #regular_polygon path.dashed {
+        stroke: var(--accent-grey);
+        stroke-width: 0.08;
+        fill: none;
+        stroke-dasharray: 0.2 0.2;
+      }
+
+      #regular_polygon circle {
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #regular_polygon circle.center {
+        stroke: var(--primary-color);
+        stroke-width: 0.1;
+        fill: white;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #regular_polygon circle.center {
+          stroke: var(--primary-color);
+          stroke-width: 0.1;
+          fill: black;
+        }
+      }
+
+      #regular_polygon path.angle {
+        fill: var(--primary-color);
+        opacity: 0.35;
+        stroke: none;
+      }
+
+      #regular_polygon text.blue {
+        font-size: 0.75px;
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #regular_polygon text.grey {
+        font-size: 0.75px;
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #regular_polygon text.italic {
+        font-style: italic;
+      }
+    </style>
+  </defs>
+
+  <svg x="1.5" y="0">
+    <path class="length_marker"
+      d="M 5 1  L 5 0.65 L 5 1.35
+         M 5 1  L 5.3 0.7
+         M 5 1  L 5.3 1.3
+         M 5 1  L 13 1
+         M 13 1 L 13 0.65 L 13 1.35
+         M 13 1 L 12.7 0.7
+         M 13 1 L 12.7 1.3"
+      />
+    <text x="9" y="0.5" text-anchor="middle" dominant-baseline="middle" class="grey italic">L</text>
+  </svg>
+
+  <svg x="1.5" y="1.5">
+    <path d="M 5 2.5 L 9 8 L 13 2.5" class="dashed"/>
+
+    <path d="M 5 2.5 L 13 2.5" transform="rotate(0, 9, 8)"/>
+    <path d="M 5 2.5 L 13 2.5" transform="rotate(72, 9, 8)"/>
+    <path d="M 5 2.5 L 13 2.5" transform="rotate(144, 9, 8)"/>
+    <path d="M 5 2.5 L 13 2.5" transform="rotate(216, 9, 8)"/>
+    <path d="M 5 2.5 L 13 2.5" transform="rotate(288, 9, 8)"/>
+
+    <path d="M 13 2.5 L 13.75 2.5
+        a 1 1, 0, 1, 0
+        -0.9510565162951536 -0.6909830056250528 Z
+        " fill="none"
+        transform="rotate(0, 9, 8)"
+        opacity="0.5"
+        />
+    <path d="M 13 2.5 L 13.75 2.5
+        a 1 1, 0, 1, 0
+        -0.9510565162951536 -0.6909830056250528 Z
+        " fill="none"
+        transform="rotate(72, 9, 8)"
+        opacity="0.5"
+        />
+    <path d="M 13 2.5 L 13.75 2.5
+        a 1 1, 0, 1, 0
+        -0.9510565162951536 -0.6909830056250528 Z
+        " fill="none"
+        transform="rotate(144, 9, 8)"
+        opacity="0.5"
+        />
+    <path d="M 13 2.5 L 13.75 2.5
+        a 1 1, 0, 1, 0
+        -0.9510565162951536 -0.6909830056250528 Z
+        " fill="none"
+        transform="rotate(216, 9, 8)"
+        opacity="0.5"
+        />
+    <path d="M 13 2.5 L 13.75 2.5
+        a 1 1, 0, 1, 0
+        -0.9510565162951536 -0.6909830056250528 Z
+        " fill="none"
+        transform="rotate(288, 9, 8)"
+        opacity="0.5"
+        />
+
+    <!-- get_circular_arc_path_command(
+        centre_x=7,
+        centre_y=7,
+        radius=math.sqrt(5),
+        start_angle=(360 - 36),
+        sweep_angle=72,
+        angle_unit="degrees"
+    ) -->
+    <path d="M 9 8 L 7.685672219702165 6.1909830056250525 A 2.23606797749979 2.23606797749979 0 0 1 10.314327780297834 6.190983005625052 Z" class="angle"/>
+    <text x="9" y="5.4" text-anchor="middle" dominant-baseline="end" class="blue italic">θ</text>
+
+    <circle cx="9" cy="8" r="0.5" class="center"/>
+    <text x="9" y="9.1" text-anchor="middle" dominant-baseline="middle" class="blue">centre</text>
+  </svg>
+</svg>

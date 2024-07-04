@@ -26,81 +26,10 @@ Fortunately, computers.
 After my meeting, I cracked out Python and started experimenting.
 I wrote some scripts to generate SVG images -- I'm bashing lines and curves together, and I've done [similar stuff before](/2022/graph-generative-art/).
 
-<style>
-  /*
-    By default, this is a grid that's four columns wide, but on narrow screens
-    (i.e. mobile), I shrink it to two columns so it remains readable.
-
-    I think I might do a checkerboard pattern on the 4-wide layout, and I want
-    to retain that on the 2-wide layout, so I need to swap the 3rd/4th in every row.
-
-    e.g. if I have
-
-        X1 .2 X3 .4
-        .5 X6 .7 X8
-
-    then on the mobile layout I want
-
-        X1 .2
-        .4 X3
-        X6 .5
-        .7 X8
-
-    I swap the orders with `grid-column` properties, then the `grid-auto-flow`
-    stops there being gaps in the grid.
-  */
-  .grid_4up {
-    max-width: 650px;
-    margin-left:  auto;
-    margin-right: auto;
-    display: grid;
-    grid-gap: calc(2 * var(--grid-gap));
-    grid-template-columns: auto auto auto auto;
-  }
-
-  .grid_4up a {
-    line-height: 0;
-  }
-
-  .grid_4up a:hover {
-    background: none;
-  }
-
-  .grid_4up svg {
-    max-width: 100%;
-  }
-
-  @media screen and (max-width: 500px) {
-    .grid_4up {
-      grid-template-columns: auto auto;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .checkerboard {
-      grid-auto-flow: dense;
-    }
-
-    .checkerboard svg:nth-child(8n+3),
-    .checkerboard a:nth-child(8n+3),
-    .checkerboard svg:nth-child(8n+5),
-    .checkerboard a:nth-child(8n+5),
-    .checkerboard svg:nth-child(8n),
-    .checkerboard a:nth-child(8n) {
-      grid-column: 2 / 2;
-    }
-
-    .checkerboard svg:nth-child(8n+6),
-    .checkerboard a:nth-child(8n+6),
-    .checkerboard svg:nth-child(8n+7),
-    .checkerboard a:nth-child(8n+7) {
-      grid-column: 1 / 2;
-    }
-  }
+<style type="x-text/scss">
+  @include checkerboard_styles();
+  @include hero_grid_styles(#fcdbd9, #d01c11);
 </style>
-
-
-
 
 <style>
   .coordinates {
@@ -127,7 +56,61 @@ I wrote some scripts to generate SVG images -- I'm bashing lines and curves toge
     margin-top:    auto;
     margin-bottom: auto;
   }
+
+  .hero_grid svg:nth-child(1) path,
+  .hero_grid svg:nth-child(1) line,
+  .hero_grid svg:nth-child(7) path,
+  .hero_grid svg:nth-child(7) line {
+    stroke-width: 3px;
+  }
 </style>
+
+Here's a sample of some of the art I was able to create:
+
+<div class="hero_grid grid_4up checkerboard">
+  {%
+    inline_svg
+    filename="petals/angled_barely_poiny.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/remainder_4.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/round_petals_lots.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/random_radius_3.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/hooks_8.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/angled_few_pointy.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/hooks_4.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="petals/angled_lots_of_outie.svg"
+    class="dark_aware"
+  %}
+</div>
+
+Read on to find out how I made it, and see more examples.
 
 ## Polar coordinates
 
@@ -185,10 +168,6 @@ def polar_to_cartesian(origin_x, origin_y, radius, angle):
 ```
 
 This helper function allows me to define my shapes with polar coordinates, then convert to Cartesian when I want to actually draw them in the SVG.
-
-
-
-
 
 ## The sketches
 
@@ -267,12 +246,12 @@ I went and manually added some colours to create the illusion of steps, and then
                 if (index === 0) {
                     animationElement.setAttribute('values', fillValues.join('; '));
                 } else if (index === fillValues.length - 1) {
-                    animationElement.setAttribute('values', 
+                    animationElement.setAttribute('values',
                         fillValues[fillValues.length - 1] + ';' +
                         fillValues.slice(0, index - 1).join('; ')
                     );
                 } else {
-                    animationElement.setAttribute('values', 
+                    animationElement.setAttribute('values',
                         fillValues.slice(index, fillValues.length).join('; ') + ';' +
                         fillValues.slice(0, index).join('; ')
                     );
@@ -383,7 +362,7 @@ This involved a bit of trigonometry to work out the angles, and my first few att
     inline_svg
     filename="petals/bad_petals3.svg"
     class="dark_aware"
-  %}  
+  %}
 </div>
 
 But eventually I got it all figured out, and I was able to reproduce my original idea: flower "petals" with circular ends.
@@ -410,7 +389,7 @@ Whatever your medium, a four-leafed clover is a tricksy and elusive thing.)
     inline_svg
     filename="petals/round_petals_lots.svg"
     class="dark_aware"
-  %}  
+  %}
 </div>
 
 And once I'd worked out the angles required to make a single curve work, I was able to stack them so there could be multiple arcs along the edge of each segment, like so:
@@ -435,7 +414,7 @@ And once I'd worked out the angles required to make a single curve work, I was a
     inline_svg
     filename="petals/multi_petals_5.svg"
     class="dark_aware"
-  %}  
+  %}
 </div>
 
 I like the ones with fewer segments, so you can really see the extra arcs.

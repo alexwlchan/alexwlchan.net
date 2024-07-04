@@ -1,0 +1,14 @@
+<svg id="command_hook" viewBox="0 0 11 6" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #command_hook path {
+        stroke: currentColor;
+        stroke-width: 0.5;
+        fill: none;
+      }
+    </style>
+  </defs>
+  
+  <path d="M 1 5 L 7.8 5"/>
+  <path d="M 8 5 A 2 2 0 1 0 6 3"/>
+</svg>

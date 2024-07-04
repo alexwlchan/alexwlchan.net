@@ -1,0 +1,9 @@
+<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71"><defs><path class="example" id="loopedHook1g" d="
+        M 31 29.30628135787972
+        L 40 29.30628135787972
+        L 47.99196780805897 29.30628135787972
+        A 11 11
+        0 1 0
+        37.53034612881228 21.70546829600414
+        L 40 29.30628135787972
+        "></path></defs><use href="#loopedHook1g" transform="rotate(65, 35.5, 35.5)"></use><use href="#loopedHook1g" transform="rotate(137, 35.5, 35.5)"></use><use href="#loopedHook1g" transform="rotate(209, 35.5, 35.5)"></use><use href="#loopedHook1g" transform="rotate(281, 35.5, 35.5)"></use><use href="#loopedHook1g" transform="rotate(353, 35.5, 35.5)"></use></svg>

@@ -1,0 +1,9 @@
+<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23"><defs><path id="blooper2" class="example" d="
+        M 11 11
+        L 12 11
+        l 3.9999999999999996 0
+        A 4 4
+        0 1 0
+        12 11
+        L 12 11
+        "></path></defs><use href="#blooper2" transform="rotate(0, 11.5, 11.5)"></use><use href="#blooper2" transform="rotate(90, 11.5, 11.5)"></use><use href="#blooper2" transform="rotate(180, 11.5, 11.5)"></use><use href="#blooper2" transform="rotate(270, 11.5, 11.5)"></use></svg>

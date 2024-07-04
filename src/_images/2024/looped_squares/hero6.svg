@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 53"><!--numberOfSides = 3, lengthOfStraightEdge = -21, radiusOfLoop = 12, angleOfRotation = 26, color = #1900ff--><defs><path class="example" id="hero6" d="
+        M 37 32.56217782649107
+        L 16 32.56217782649107
+        L 36.78460969082652 32.56217782649107
+        A 12 12
+        0 1 0
+        26.392304845413257 14.562177826491077
+        L 16 32.56217782649107
+        "></path></defs><use href="#hero6" transform="rotate(26, 26.5, 26.5)"></use><use href="#hero6" transform="rotate(146, 26.5, 26.5)"></use><use href="#hero6" transform="rotate(266, 26.5, 26.5)"></use></svg>

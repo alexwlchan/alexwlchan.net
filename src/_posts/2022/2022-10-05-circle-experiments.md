@@ -37,7 +37,7 @@ colors:
   */
   .grid_4up {
     display: grid;
-    grid-gap: 8px;
+    grid-gap: var(--grid-gap);
     grid-template-columns: auto auto auto auto;
   }
 

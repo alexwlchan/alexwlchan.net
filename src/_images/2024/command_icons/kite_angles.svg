@@ -1,0 +1,76 @@
+<svg id="kite_angles" viewBox="6 0.25 5.5 6" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      #kite_angles path {
+        stroke: currentColor;
+        stroke-width: 0.25;
+        fill: none;
+      }
+
+      #kite_angles path.dashed {
+        stroke: var(--accent-grey);
+        stroke-width: 0.04;
+        fill: none;
+        stroke-dasharray: 0.1 0.1;
+        opacity: 0.5;
+      }
+
+      #kite_angles circle {
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #kite_angles circle.grey {
+        stroke: none;
+        fill: var(--accent-grey);
+      }
+
+      #kite_angles path.angle {
+        fill: var(--primary-color);
+        opacity: 0.35;
+        stroke: none;
+      }
+
+      #kite_angles text.blue {
+        font-size: 0.325px;
+        stroke: none;
+        fill: var(--primary-color);
+      }
+
+      #kite_angles text.italic {
+        font-style: italic;
+      }
+
+      #kite_angles rect {
+        stroke: var(--accent-grey);
+        stroke-width: 0.04;
+        fill: none;
+      }
+    </style>
+  </defs>
+
+  <path d="M 7.75 2.7 L 10 1.40192379 L 10 4" class="dashed"/>
+
+  <path d="M 8.5 4 L 8.971404520791031 4.816496580927726 A 0.9428090415820635 0.9428090415820635 0 0 1 7.557190958417936 4.0 Z" class="angle"/>
+  <text x="7.85" y="5.15" text-anchor="middle" dominant-baseline="end" class="blue italic">φ</text>
+
+  <rect x="9.7" y="3.595" width="0.3" height="0.3"/>
+
+  <rect x="8.09" y="2.505" width="0.3" height="0.3"
+    transform="rotate(60, 8.09, 2.505)"/>
+
+
+
+  <path d="M 10.02 4 L 8.5 4 L 7.73 2.69"/>
+  <path d="M 6.5 4 L 8.5 4" stroke-linecap="round"/>
+  <path d="M 8.5 4 L 9.5 5.73333333" stroke-linecap="round"/>
+
+  <text x="10.7" y="0.7" text-anchor="middle" dominant-baseline="end" class="blue italic">ψ</text>
+  <path d="M 10 1.40192379 L 9.387627564304205 1.7554771805932736 A 0.7071067811865476 0.7071067811865476 0 1 1 10 2.109030571186548 Z" class="angle"/>
+
+
+
+
+
+  <circle cx="10" cy="1.40192379" r="0.125" class="grey"/>
+</svg>

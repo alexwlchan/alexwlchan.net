@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 121">
+  <!--numberOfSides = 9, lengthOfStraightEdge = 19, radiusOfLoop = 13, angleOfRotation = 29, color = #4f7a28-->
+  <defs>
+    <path class="example" id="loopedHook1a" d="         M 51 34.39896451518109         L 70 34.39896451518109         L 74.73161304546063 34.39896451518109         A 13 13         0 1 0         66.37537411953562 31.357542275727802         L 70 34.39896451518109         "/>
+  </defs>
+  <use href="#loopedHook1a" transform="rotate(29, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(69, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(109, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(149, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(189, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(229, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(269, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(309, 60.5, 60.5)"/>
+  <use href="#loopedHook1a" transform="rotate(349, 60.5, 60.5)"/>
+</svg>
