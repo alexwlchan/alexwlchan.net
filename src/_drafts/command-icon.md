@@ -19,7 +19,7 @@ It's an abstract and pleasant shape, and can still be seen today on road signs a
 <figure>
   {%
     picture
-    filename="Nähtävyys_liikennemerkki_20170523.jpg"
+    filename="Nahtavyys_liikennemerkki_20170523.jpg"
     alt="A large road sign in a forest, with a black symbol that looks like a square with a loop on each corner."
     width="750"
   %}
