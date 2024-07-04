@@ -80,10 +80,6 @@ jobs:
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
 
-      - name: "Temporary rebuild of changed assets"
-        run: |
-          rm _site/files/2024/looped_squares.html
-
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
 
