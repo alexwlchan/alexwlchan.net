@@ -108,8 +108,7 @@ def check_netlify_redirects(dst_dir)
   parse_netlify_redirects("#{dst_dir}/_redirects").each do |redirect|
     # A couple of special cases that I don't worry about.
     next if redirect[:source] == '/ideas-for-inclusive-events/*'
-    next if redirect[:target].start_with? 'https://social.alexwlchan.net/'
-    next if redirect[:target] == 'https://alexwlchan.net/:splat'
+    next if redirect[:target].start_with? 'https://'
 
     # Ignore query parameters when linting, the important thing is that
     # pages don't 404
