@@ -28,6 +28,7 @@ I wrote some scripts to generate SVG images -- I'm bashing lines and curves toge
 
 <style type="x-text/scss">
   @include checkerboard_styles();
+  @include hero_grid_styles(#fcdbd9, #d01c11);
 </style>
 
 <style>
@@ -54,56 +55,6 @@ I wrote some scripts to generate SVG images -- I'm bashing lines and curves toge
   .coordinates figcaption {
     margin-top:    auto;
     margin-bottom: auto;
-  }
-</style>
-
-<style>
-  .hero_grid svg {
-    max-width: calc(100% - 10px);
-  }
-
-  .hero_grid {
-    grid-gap: 0;
-  }
-
-  .hero_grid svg:nth-child(1),
-  .hero_grid svg:nth-child(3),
-  .hero_grid svg:nth-child(6),
-  .hero_grid svg:nth-child(8) {
-    background: #d01c11;
-    border: 5px solid #d01c11;
-/*    padding: 5px;*/
-  }
-
-  .hero_grid svg:nth-child(1) path,
-  .hero_grid svg:nth-child(3) path,
-  .hero_grid svg:nth-child(6) path,
-  .hero_grid svg:nth-child(8) path,
-  .hero_grid svg:nth-child(1) line,
-  .hero_grid svg:nth-child(3) line,
-  .hero_grid svg:nth-child(6) line,
-  .hero_grid svg:nth-child(8) line {
-    stroke: #fcdbd9;
-  }
-
-  .hero_grid svg:nth-child(2),
-  .hero_grid svg:nth-child(4),
-  .hero_grid svg:nth-child(5),
-  .hero_grid svg:nth-child(7) {
-    background: #fcdbd9;
-    border: 5px solid #fcdbd9;
-/*    padding: 5px;*/
-  }
-
-  .hero_grid svg:nth-child(2) path,
-  .hero_grid svg:nth-child(4) path,
-  .hero_grid svg:nth-child(5) path,
-  .hero_grid svg:nth-child(7) path,
-  .hero_grid svg:nth-child(2) line,
-  .hero_grid svg:nth-child(4) line,
-  .hero_grid svg:nth-child(5) line,
-  .hero_grid svg:nth-child(7) line {
-    stroke: #d01c11;
   }
 
   .hero_grid svg:nth-child(1) path,

@@ -66,3 +66,51 @@
     }
   }
 }
+
+@mixin hero_grid_styles($light-color, $dark-color) {
+  .hero_grid svg {
+    max-width: calc(100% - 10px);
+  }
+
+  .hero_grid {
+    grid-gap: 0;
+  }
+
+  .hero_grid svg:nth-child(1),
+  .hero_grid svg:nth-child(3),
+  .hero_grid svg:nth-child(6),
+  .hero_grid svg:nth-child(8) {
+    background: $dark-color;
+    border: 5px solid $dark-color;
+  }
+
+  .hero_grid svg:nth-child(1) path,
+  .hero_grid svg:nth-child(3) path,
+  .hero_grid svg:nth-child(6) path,
+  .hero_grid svg:nth-child(8) path,
+  .hero_grid svg:nth-child(1) line,
+  .hero_grid svg:nth-child(3) line,
+  .hero_grid svg:nth-child(6) line,
+  .hero_grid svg:nth-child(8) line {
+    stroke: $light-color;
+  }
+
+  .hero_grid svg:nth-child(2),
+  .hero_grid svg:nth-child(4),
+  .hero_grid svg:nth-child(5),
+  .hero_grid svg:nth-child(7) {
+    background: $light-color;
+    border: 5px solid $light-color;
+  }
+
+  .hero_grid svg:nth-child(2) path,
+  .hero_grid svg:nth-child(4) path,
+  .hero_grid svg:nth-child(5) path,
+  .hero_grid svg:nth-child(7) path,
+  .hero_grid svg:nth-child(2) line,
+  .hero_grid svg:nth-child(4) line,
+  .hero_grid svg:nth-child(5) line,
+  .hero_grid svg:nth-child(7) line {
+    stroke: $dark-color;
+  }
+}

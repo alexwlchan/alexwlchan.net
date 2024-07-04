@@ -9,9 +9,6 @@ colors:
   css_light: "#014df4"
   css_dark:  "#67a7ff"
 ---
-20px
-black
-
 The command key (⌘) has been a ubiquitious part of the Mac for [over forty years][folklore].
 It was originally chosen by legendary icon designer Susan Kare, who picked it from a symbol dictionary -- it was used in Sweden to highlight an interesting feature on a map.
 It's an abstract and pleasant shape, and can still be seen today on road signs and keyboards alike.
@@ -71,11 +68,61 @@ The 4-way symmetry and right angles make the geometries quite simple.
 
 What if I wanted to do something more complicated, like vary the number of loops or increase the distance between them?
 That's harder to write by hand, so I wanted to do that programatically.
-This meant doing some trionometry, and it took a while to get the details right.
+Despite this simple starting point, I was able to get quite a variety of shapes:
+
+<style type="x-text/scss">
+  @include checkerboard_styles();
+  @include hero_grid_styles(#a8ccff, #014df4);
+</style>
+
+<div class="hero_grid grid_4up checkerboard">
+  {%
+    inline_svg
+    filename="looped_squares/example1g.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/example3c.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/example2a.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/example3d.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/example4e.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/example4c.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/example5c.svg"
+    class="dark_aware"
+  %}
+  {%
+    inline_svg
+    filename="looped_squares/blooper3.svg"
+    class="dark_aware"
+  %}
+</div>
+
+Keep reading to find out how I made these pictures, and how you can make your own.
 
 ## The idea
 
-One way to imagine symbols like this is being made of multiple "looped hooks".
+One way to imagine the macOS Command icon is being made of multiple "looped hooks".
 
 {%
   inline_svg
@@ -318,10 +365,6 @@ Here's a template for what the SVG looks like:
   <use href="#loopedHook" transform="rotate({N * angle}, {centre of rotation})" />
 </svg>
 ```
-
-<style type="x-text/scss">
-  @include checkerboard_styles();
-</style>
 
 <style>
   path.example {

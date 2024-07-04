@@ -1,9 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 179 179"><defs><style>
-        #loopedHook3a {
-          stroke: currentColor;
-          stroke-width: 1px;
-          fill: none;
-        }</style><path id="loopedHook3a" d="
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 179 179"><defs><path class="example" id="loopedHook3a" d="
         M 86.5 50.424538219331424
         L 92.5 50.424538219331424
         L 94.11226501566688 50.424538219331424

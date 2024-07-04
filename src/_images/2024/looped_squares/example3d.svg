@@ -1,9 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><!--numberOfSides = 26, lengthOfStraightEdge = 2, radiusOfLoop = 3, angleOfRotation = 60, color = #ff4d00--><defs><style>
-        #loopedHook3d {
-          stroke: currentColor;
-          stroke-width: 1px;
-          fill: none;
-        }</style><path id="loopedHook3d" d="
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><!--numberOfSides = 26, lengthOfStraightEdge = 2, radiusOfLoop = 3, angleOfRotation = 60, color = #ff4d00--><defs><path class="example" id="loopedHook3d" d="
         M 15 7.764259045501506
         L 17 7.764259045501506
         L 17.36426594966678 7.764259045501506
