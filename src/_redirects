@@ -1249,6 +1249,8 @@ https://www.alexwlchan.net/login/* https://alexwlchan.net/:splat 200
 # == Misc redirects == #
 
 /files/2024/looped_squares.html https://looped-squares.glitch.me
+/files/2024/looped_squares/     https://looped-squares.glitch.me
+/files/2024/looped_squares      https://looped-squares.glitch.me
 
 # === #
 
