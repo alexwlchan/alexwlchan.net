@@ -10,7 +10,7 @@ colors:
   css_dark:  "#67a7ff"
 ---
 The command key (⌘) has been a ubiquitious part of the Mac for [over forty years][folklore].
-It was originally chosen by legendary icon designer Susan Kare, who picked it from a symbol dictionary -- it was used in Sweden to highlight an interesting feature on a map.
+It was chosen by legendary icon designer Susan Kare, who picked it from a symbol dictionary -- this shape was already being used in Sweden to highlight an interesting feature on a map.
 It's an abstract and pleasant shape, and can still be seen today on road signs and keyboards alike.
 
 [folklore]: https://www.folklore.org/Swedish_Campground.html
@@ -19,7 +19,7 @@ It's an abstract and pleasant shape, and can still be seen today on road signs a
   {%
     picture
     filename="Nähtävyys_liikennemerkki_20170523.jpg"
-    alt="Here is some alt text"
+    alt="A large road sign in a forest, with a black symbol that looks like a square with a loop on each corner."
     width="750"
   %}
   <figcaption>
@@ -29,14 +29,14 @@ It's an abstract and pleasant shape, and can still be seen today on road signs a
 </figure>
 
 I spend a lot of time doodling shapes that look like the command icon.
-The original shape is already quite pleasant, and then I try variations like making the loops bigger or smaller, or changing the number of loops in the shape.
-While I was bored and had a pen and paper, I've drawn dozens of little looped squares.
+The original shape is quite easy to draw, and then I try variations like making the loops bigger or smaller, or changing the number of loops in the shape.
+While I've been bored and had a pen and paper, I've drawn dozens of little looped squares.
 
-But part of the beauty of this symbol is the rotational symmetry, and that's hard to capture in a free-hand sketch – at least one of my loops or lines would look different to the others.
+But part of the beauty of this symbol is the rotational symmetry, and that's hard to capture that consistency in a free-hand sketch – at least one of my loops or lines would look different to the others.
 But computers are very good at drawing repetitive, symmetric shapes, so I wanted to see if I could draw the command icon and its variants in SVG.
 
 I started with Susan Kare's original pixel icon from System 1.0, and I tried to recreate that as an SVG path.
-I had to re-read the [MDN tutorial on SVG arcs](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs) several times, but I did eventually manage to write a `<path>` that reproduces the original icon as a smooth curve:
+I had to re-read the [MDN tutorial on SVG arcs](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#arcs) several times, but I did manage to write a `<path>` that reproduces the original icon as a smooth curve:
 
 <figure class="two_columns">
   {%
@@ -68,6 +68,8 @@ The 4-way symmetry and right angles make the geometries quite simple.
 
 What if I wanted to do something more complicated, like vary the number of loops or increase the distance between them?
 That's harder to write by hand, so I wanted to do that programatically.
+It required a bit of trigonometry, but I was able to get some working code.
+
 Despite this simple starting point, I was able to get quite a variety of shapes:
 
 <style type="x-text/scss">
@@ -167,7 +169,7 @@ MathJax = {
 
 ## Tackling the trigonometry
 
-*This next section features a walkthrough of the trigonometry involved in drawing these hook shapes. It's probably not 100% rigorous, but it's the bit I find most interesting and omitting it entirely would feel like saying ["and then draw the rest of the owl"](https://knowyourmeme.com/memes/how-to-draw-an-owl), but if it's not your cup of tea, you can skip to the pretty pictures.*
+*This next section features a walkthrough of the trigonometry involved in drawing these hook shapes. It's not 100% rigorous, but it's the bit I find most interesting and it would feel like cheating if I didn't even try to explain this -- but if trig isn't your cup of tea, you can [skip to the pretty pictures](#pretty-pictures).*
 
 **Let's start by considering the straight line, up to the loop.**
 This is the part I'm thinking about:
@@ -179,7 +181,7 @@ This is the part I'm thinking about:
 %}
 
 We know the length of this line (which I'll denote $L$) and the number of sides.
-Let's assume we also know the centre of rotation, which I'll mark with a blue circles.
+Let's assume we also know the centre of rotation, which I'll mark with a blue circle.
 We need to work out the coordinates of the start and end points of this line, which I'll mark with blue dots.
 
 {%
@@ -374,7 +376,7 @@ Here's a template for what the SVG looks like:
   }
 </style>
 
-## At last, some pretty pictures
+<h2 id="pretty-pictures">At last, some pretty pictures</h2>
 
 With all the geometry and programming done, I was able to implement this in JavaScript.
 Drawing an inspiration from [another bit of Apple history][calculator], I made [a web app] where you can change the variables, and it redraws the shape for you.
