@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><!--numberOfSides = 19, lengthOfStraightEdge = -4, radiusOfLoop = -12, angleOfRotation = 31, color = #ffc800--><defs><path class="example" id="hero7" d="
+        M 16 25.985342917046985
+        L 12 25.985342917046985
+        L 9.997554165441162 25.985342917046985
+        A -12 -12
+        0 1 0
+        13.893947795897367 26.63553601663937
+        L 12 25.985342917046985
+        "></path></defs><use href="#hero7" transform="rotate(31, 14, 14)"></use><use href="#hero7" transform="rotate(49.94736842105263, 14, 14)"></use><use href="#hero7" transform="rotate(68.89473684210526, 14, 14)"></use><use href="#hero7" transform="rotate(87.84210526315789, 14, 14)"></use><use href="#hero7" transform="rotate(106.78947368421052, 14, 14)"></use><use href="#hero7" transform="rotate(125.73684210526315, 14, 14)"></use><use href="#hero7" transform="rotate(144.68421052631578, 14, 14)"></use><use href="#hero7" transform="rotate(163.6315789473684, 14, 14)"></use><use href="#hero7" transform="rotate(182.57894736842104, 14, 14)"></use><use href="#hero7" transform="rotate(201.52631578947367, 14, 14)"></use><use href="#hero7" transform="rotate(220.4736842105263, 14, 14)"></use><use href="#hero7" transform="rotate(239.42105263157893, 14, 14)"></use><use href="#hero7" transform="rotate(258.36842105263156, 14, 14)"></use><use href="#hero7" transform="rotate(277.31578947368416, 14, 14)"></use><use href="#hero7" transform="rotate(296.2631578947368, 14, 14)"></use><use href="#hero7" transform="rotate(315.2105263157895, 14, 14)"></use><use href="#hero7" transform="rotate(334.1578947368421, 14, 14)"></use><use href="#hero7" transform="rotate(353.1052631578947, 14, 14)"></use><use href="#hero7" transform="rotate(372.05263157894734, 14, 14)"></use></svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 31"><!--numberOfSides = 11, lengthOfStraightEdge = -8, radiusOfLoop = 8, angleOfRotation = 66, color = #ff0059--><defs><path class="example" id="hero5" d="
+        M 19.5 29.122748955557
+        L 11.5 29.122748955557
+        L 13.849011943506934 29.122748955557
+        A 8 8
+        0 1 0
+        9.523885403862149 27.852777218206448
+        L 11.5 29.122748955557
+        "></path></defs><use href="#hero5" transform="rotate(66, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(98.72727272727272, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(131.45454545454544, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(164.1818181818182, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(196.9090909090909, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(229.63636363636363, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(262.3636363636364, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(295.0909090909091, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(327.8181818181818, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(360.54545454545456, 15.5, 15.5)"></use><use href="#hero5" transform="rotate(393.27272727272725, 15.5, 15.5)"></use></svg>

@@ -2,6 +2,7 @@
 layout: post
 title: Doodling with the Mac's command icon
 summary:
+  Rotating a looped hook around a central point creates a surprising variety of shapes.
 tags:
   - generative-art
   - drawing-things
@@ -80,42 +81,42 @@ Despite this simple starting point, I was able to get quite a variety of shapes:
 <div class="hero_grid grid_4up checkerboard">
   {%
     inline_svg
-    filename="looped_squares/example1g.svg"
+    filename="looped_squares/hero1.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/example3c.svg"
+    filename="looped_squares/hero2.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/example2a.svg"
+    filename="looped_squares/hero3.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/example3d.svg"
+    filename="looped_squares/hero4.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/example4e.svg"
+    filename="looped_squares/hero5.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/example4c.svg"
+    filename="looped_squares/hero6.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/example5c.svg"
+    filename="looped_squares/hero7.svg"
     class="dark_aware"
   %}
   {%
     inline_svg
-    filename="looped_squares/blooper3.svg"
+    filename="looped_squares/hero8.svg"
     class="dark_aware"
   %}
 </div>
@@ -246,7 +247,7 @@ Let's sketch out a bit more of the overall shape:
   style="width: 400px;"
 %}
 
-The angle I've marked $\varphi$ is one of the interior angles of the regular polygon created by the line segments, and we can work out the interior angle of a regular polygon:
+The angle I've marked $\varphi$ is one of the interior angles of the regular polygon created by the line segments, and we can work out the interior angle of such a polygon:
 
 $$
 \varphi
@@ -254,7 +255,7 @@ $$
 = 180^\circ \left(1 - \frac{2}{\text{number of sides}}\right)
 $$
 
-Then a bit more straight line geometry and the interior angles of the kite (the line segments are at right angles to the radii) allow us to work out the angle $\psi$:
+Then a bit more straight line geometry and the interior angles of the kite (the line segments are at right angles to the radii, to give a smooth transition from circular arc to straight line) allow us to work out the angle $\psi$:
 
 $$
 \psi
@@ -302,7 +303,7 @@ This depends on how large our straight lines and circular arcs are going to be, 
 
 So let's ask a different question: what's the furthest point on the shape from the centre of rotation?
 
-I believe you can find this point by drawing a line from the centre of rotation to the centre of the circular arc, and then continuing until it intersects the arc:
+You can find this point by drawing a line from the centre of rotation to the centre of the circular arc, and then continuing until it intersects the arc:
 
 {%
   inline_svg
@@ -310,9 +311,11 @@ I believe you can find this point by drawing a line from the centre of rotation 
   style="width: 400px;"
 %}
 
-What's the alternative?
-Any other point on the arc is closer to the centre of rotation (using the [triangle inequality](https://en.wikipedia.org/wiki/Triangle_inequality)).
-Any point on the line is closer to the centre of the rotation (the furthest points are at the ends, then the circular arc is further than that).
+Why is this the furthest point?
+Let's consider the alternatives.
+If you're at any point on the line, you can get further away from the centre by moving toward one of the ends.
+If you're at the end of the line, you can get further away by moving along the circular arc.
+If you're at any other point on the circular arc, you're closer to the centre of rotation than this intersection point (using the [triangle inequality](https://en.wikipedia.org/wiki/Triangle_inequality)).
 
 [Pythagoras' theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) gets us the distance to the center of the circle, and then we add on the radius.
 This means the further point from the centre of rotation is:
@@ -324,7 +327,7 @@ $$
 Let's double that and add some padding, and use that as the width/height of our SVG canvas.
 This should give us enough space to draw our shape.
 
-It took a while to work this all out, and iron out some silly mistakes -- but it paid off when I was implementing this in code.
+It took a while to work this all out, and iron out my silly mistakes, but it paid off when I was implementing the final version in code.
 I wasn't trying to write code and do geometry at the same time -- I could just take the already solved geometry problem, and translate the solution into JavaScript.
 It would have been harder to get right if I was trying to implement an incomplete idea.
 
@@ -379,8 +382,8 @@ Here's a template for what the SVG looks like:
 <h2 id="pretty-pictures">At last, some pretty pictures</h2>
 
 With all the geometry and programming done, I was able to implement this in JavaScript.
-Drawing an inspiration from [another bit of Apple history][calculator], I made [a web app] where you can change the variables, and it redraws the shape for you.
-I also included a colour picker and rotation, which adds a bit more variety.
+Drawing inspiration from [another bit of Apple history][calculator], I made [a web app] where you can change the variables, and it redraws the shape for you.
+I also included a colour picker and rotation, which adds a bit more variety and visual interest.
 
 {%
   picture
@@ -388,16 +391,17 @@ I also included a colour picker and rotation, which adds a bit more variety.
   width="350"
   class="screenshot dark_aware"
   link_to="/files/2024/looped_squares.html"
+  alt="Screenshot of a web app called ‘looped squares’. It shows "
 %}
 
 Every time you reload the page, it draws a shape with random values.
-You can also adjust the values manually and it'll redraw the shape.
+You can also adjust the values manually and it'll draw the specified shape.
 [Try it here](/files/2024/looped_squares.html).
 
 [calculator]: https://www.folklore.org/Calculator_Construction_Set.html
 [a web app]: /files/2024/looped_squares.html
 
-I started by drawing a couple of shapes which look like alien versions of the Mac's command icon, and which resemble my initial doodles:
+I started by drawing a couple of shapes which look like alien versions of the Mac's command icon:
 
 <div class="grid_4up checkerboard">
   {%
@@ -442,7 +446,7 @@ I started by drawing a couple of shapes which look like alien versions of the Ma
   %}
 </div>
 
-However, you can create more interesting shapes when you let the loops start to overlap -- by cranking down the length of the straight edges, and cranking up the radius of the loops.
+You can create more interesting shapes when you let the loops start to overlap -- by cranking down the length of the straight edges, and cranking up the radius of the loops.
 
 <div class="grid_4up checkerboard">
   {%
@@ -492,8 +496,8 @@ They get particularly fun as you make the length of the straight edge very small
   %}
 </div>
 
-At some point I had the bright idea of setting a negative length.
-This makes no sense mathematically, but the computer is happy to plug it into the formulas and draw the resulting shape.
+At some point I tried setting a negative length.
+This makes no sense mathematically, but the computer is happy to plug it into the formulas and draw a shape anyway.
 Some of these still bear a resemblance to the original icon, but others are getting further away -- in particular the straight edges on the outside are a new feature.
 
 <div class="grid_4up checkerboard">
@@ -567,7 +571,7 @@ These weren't quite as interesting -- in many cases the two negatives cancelled 
 
 What's actually happening here is that the shape extends beyond the expected boundary of the canvas -- there's still a big circular symbol around it, but we're only seeing the centre.
 
-And finally, here's the "blooper" reel for this post.
+And finally, here's the blooper reel for this post.
 It took a while to get all the maths right, and make sure I hadn't flipped a sign somewhere or made a simple logic error.
 Sometimes the most interesting pictures are the ones I made by mistake:
 
@@ -618,4 +622,6 @@ This variety is one of the things I enjoy about generative art: I can start with
 Many of these I wouldn't know how to draw if I started from a blank sheet of paper, but here I just stumbled into them.
 
 If you want to create some of these shapes yourself, the web app is available at [https://alexwlchan.net/files/2024/looped_squares.html](/files/2024/looped_squares.html).
-Send me pictures of your favourites!
+Send me your favourites!
+
+If you like this post, you might want to check out my other [generative art](/articles/?tag=generative-art).
