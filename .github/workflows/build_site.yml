@@ -80,6 +80,11 @@ jobs:
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
 
+      - name: "Temporary rebuild of changed assets"
+        run: |
+          find _site/images/cards/ -name '*generative*' -delete
+          find _site/images/cards/ -name '*repetitive*' -delete
+
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
 
