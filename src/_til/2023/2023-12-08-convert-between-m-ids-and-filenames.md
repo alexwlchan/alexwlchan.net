@@ -18,17 +18,24 @@ The APIs for searching/updating Wikimedia Commons typically accept both forms; s
     The M ID is included in the response.
 
     For example:
-
-    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://commons.wikimedia.org/w/api.php?action=query&amp;format=xml&amp;titles=File:Herestraat%20Groningen.JPG'</span>
-<span class="go">&lt;?xml version="1.0"?&gt;</span>
-<span class="go">&lt;api batchcomplete=""&gt;</span><span class="w">
-</span><span class="go">  &lt;query&gt;</span><span class="w">
-</span><span class="go">    &lt;pages&gt;</span><span class="w">
-</span><span class="go">      &lt;page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/&gt;</span><span class="w">
-</span><span class="go">    &lt;/pages&gt;</span><span class="w">
-</span><span class="go">  &lt;/query&gt;</span><span class="w">
-</span><span class="go">&lt;/api&gt;</span><span class="w">
-</span></code></pre></div> </div>
+    
+    ```shell
+    curl \
+      --get 'https://commons.wikimedia.org/w/api.php' \
+      --data 'action=query' \
+      --data 'format=xml' \
+      --data-urlencode 'titles=File:Herestraat Groningen.JPG'
+    ```
+    
+    ```
+    <api batchcomplete="">
+      <query>
+        <pages>
+          <page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/>
+        </pages>
+      </query>
+    </api>
+    ```
 
 2.  To go from numeric ID to filename, go to `https://commons.wikimedia.org/?curid=[ID]`.
 
@@ -36,17 +43,25 @@ The APIs for searching/updating Wikimedia Commons typically accept both forms; s
 
     Alternatively, you can use the Query API with the `pageids` parameter.
     For example:
-
-    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://commons.wikimedia.org/w/api.php?action=query&amp;format=xml&amp;pageids=128'</span>
-<span class="go">&lt;?xml version="1.0"?&gt;</span><span class="w">
-</span><span class="go">&lt;api batchcomplete=""&gt;</span><span class="w">
-</span><span class="go">  &lt;query&gt;</span><span class="w">
-</span><span class="go">    &lt;pages&gt;</span><span class="w">
-</span><span class="go">      &lt;page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/&gt;</span><span class="w">
-</span><span class="go">    &lt;/pages&gt;</span><span class="w">
-</span><span class="go">  &lt;/query&gt;</span><span class="w">
-</span><span class="go">&lt;/api&gt;</span><span class="w">
-</span></code></pre></div> </div>
+    
+    ```shell
+    curl \
+      --get 'https://commons.wikimedia.org/w/api.php' \
+      --data 'action=query' \
+      --data 'format=xml' \
+      --data 'pageids-128'
+    ```
+    
+    ```
+    <?xml version="1.0"?>
+    <api batchcomplete="">
+      <query>
+        <pages>
+          <page _idx="128" pageid="128" ns="6" title="File:Herestraat Groningen.JPG"/>
+        </pages>
+      </query>
+    </api>
+    ```
 
 There's a Python implementation of this code [in Flickypedia], which includes some tests.
 

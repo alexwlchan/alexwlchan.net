@@ -22,17 +22,18 @@ How can you tell if a file has been deleted using the API?
 You can use the [log events API](https://www.mediawiki.org/wiki/API:Logevents) to retrieve a list of log events for this page, and filter for log events with type `delete`:
 
 ```shell
-curl --get 'https://commons.wikimedia.org/w/api.php' \
-        --data 'action=query' \
-        --data 'list=logevents' \
-        --data-urlencode 'letitle=File:Mugeni Elijah.jpg' \
-        --data 'format=xml' \
-        --data 'letype=delete'
+curl \
+  --get 'https://commons.wikimedia.org/w/api.php' \
+  --data 'action=query' \
+  --data 'list=logevents' \
+  --data-urlencode 'letitle=File:Mugeni Elijah.jpg' \
+  --data 'format=xml' \
+  --data 'letype=delete'
 ```
 
 Here's the response for a file which has been deleted:
 
-```xml
+```
 <?xml version="1.0"?>
 <api batchcomplete="">
   <query>
@@ -52,7 +53,7 @@ Here's the response for a file which has been deleted:
 
 Here's the response for a file which hasn't been deleted (or which doesn't exist):
 
-```xml
+```
 <?xml version="1.0"?>
 <api batchcomplete="">
   <query>
