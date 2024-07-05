@@ -21,8 +21,8 @@ body {
 main, footer > *, nav > *, #editing-toolbar_inner {
   @include centred(var(--max-width));
 
-  padding-left:  calc(var(--default-padding) + env(safe-area-inset-left))  !important;
-  padding-right: calc(var(--default-padding) + env(safe-area-inset-right)) !important;
+  padding-left:  var(--default-padding);
+  padding-right: var(--default-padding);
 
   /* This line ensures the component grows to fill the window, even if
    * the content isn't as wide as the window. */
