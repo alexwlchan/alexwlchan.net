@@ -10,6 +10,8 @@ tags:
 colors:
   index_dark:  "#e9eaec"
   index_light: "#2076cc"
+index:
+  feature: true
 ---
 
 {% comment %}
