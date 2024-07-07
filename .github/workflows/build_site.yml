@@ -80,6 +80,9 @@ jobs:
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
 
+      - name: Remove outdated cards
+        run: find _site/images -name 'drawing-repetitive*' -delete
+
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
 
