@@ -20,7 +20,7 @@ GEM
       fiber-annotation
       fiber-local (~> 1.1)
       json
-    dnsruby (1.72.1)
+    dnsruby (1.72.2)
       simpleidn (~> 0.2.1)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
