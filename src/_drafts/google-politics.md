@@ -19,7 +19,7 @@ It was a rough night for every Conservative candidate, many of whom either lost 
 
 One of those Conservative candidates was Nigel Huddleston.
 First elected as the MP for Mid Worcestershire in 2015, he was re-elected with increased majorities in 2017 and 2019.
-On Thursday, he was standing in the reformed constituency of Droitwich and Evesham.
+On Thursday, he was standing in the replacement constituency of Droitwich and Evesham.
 
 I'd never heard of Nigel until yesterday, but when [one of his tweets] was heavily criticised in my timeline, I decided to look him up in Google.
 
@@ -41,8 +41,8 @@ I'd never heard of Nigel until yesterday, but when [one of his tweets] was heavi
 
 The subtitle describes him as a "former Member of Parliament", so I assumed he was one of the many Conservative MPs who lost their seat.
 
-There's just one issue: that's not true.
-He was re-elected.
+But that's not true.
+He was re-elected!
 
 Scrolling down the page further, I found two news articles about his victory, albeit with a reduced majority.
 (Specifically, the local papers in [Droitwich] and [Evesham].)
@@ -61,7 +61,7 @@ It's tempting to chalk it up to Google's [wayward experiments with AI], but I th
 
 There are no MPs in the run-up to a general election.
 Shortly after an election is called, Parliament comes to an end.
-The formal term is ["dissolution"][dissolved] -- every seat in the House of Commons becomes vacant and there's no more Parliamentary business until the election.
+The formal term is ["dissolution"][dissolved] -- every seat in the House of Commons becomes vacant and there's no more Parliamentary business until after the election.
 There are no Members of Parliament, because there is no Parliament for them to be part of.
 
 This year, Parliament was dissolved on May 30th.
@@ -77,7 +77,7 @@ MPs are given [specific guidance](https://www.parliament.uk/globalassets/about-p
     alt="Text. ‘Websites and social media accounts must carry a disclaimer to clarify that you are no longer a Member of Parliament. Social media accounts which include the handle 'Member of Parliament' or MP' may remain as they are, as long as a disclaimer is added. Example disclaimer: Parliament has been dissolved until after the General Election and I am no longer an MP.’"
   %}
   <figcaption>
-    <em>Dissolution Guidance: Members standing</em>, House of Commons, page 20.
+    From <a href="https://www.parliament.uk/globalassets/about-parliament/general-election/members_standing_redacted_-1.pdf"><em>Dissolution Guidance: Members standing</em></a>, House of Commons, page 20.
     This is part of a longer section <em>Use of the title ‘Member of Parliament’
 or ‘MP’</em>.
     Retrieved 10 July 2024.
@@ -95,16 +95,16 @@ Both Nigel's [Facebook page](https://www.facebook.com/NigelHuddlestonMP/) and th
     alt="Screenshot of two links in Google search. The first is to Nigel's Facebook page with the preview text ‘Parliament has been dissolved until after the general election. As a result, I am no longer the MP for Mid Worcestershire’. The second link is to a Register of Interests on the UK Parliament website. The preview text reads ‘Nigel Huddleston is no longer a member, but was most recently the Conservative MP for Mid Worcestershire, and left the Commons on 30 May 2024’."
   %}
   <figcaption>
-    Screenshot of Google search results, as retrieved 8 July 2024 at 17:21&nbsp;BST.
+    Screenshot of Google search results, as retrieved 8 July 2024.
   </figcaption>
 </figure>
 
 But if you actually visit either of those pages today, they now say he's a Member of Parliament.
 
-Presumably, Google crawled these pages sometime between now and the dissolution of Parliament, saw the phrase "no longer an MP", and updated their search summary.
-They haven't recrawled the pages since Thursday, so this is the newest information they have.
+Presumably, Google crawled these pages sometime after the dissolution of Parliament, saw the phrase "no longer an MP", and updated their search summary.
+They haven't recrawled the pages since Friday, so this is the newest information they have.
 
-With this idea in mind, I looked at the Google search results of 150 other MPs who were standing for re-election and held their seats.
+With this theory in mind, I looked at the Google search results of 150 other MPs who were standing for re-election and who held their seats.
 
 *   Two-thirds were described as "Member of Parliament", "politician", or some other term which looks correct.
     Google's search index is at least somewhat aware of the election results.
@@ -119,7 +119,8 @@ You can submit [search feedback] to Google, and that does tend to fix it pretty 
 I submitted a correction for Nigel's results, and it was fixed within the hour.
 I submitted corrections for two dozen more MPs, and they were fixed within the day.
 I included links to the [results on the BBC news site](https://www.bbc.co.uk/news/election/2024/uk/constituencies) as references.
-(That covers maybe a quarter of the affected MPs -- it's a long list.)
+(That covers maybe a quarter of the affected MPs -- it's a long list.
+I'm working through the rest, but it's a tedious process.)
 
 In the 48 hours since I started writing this post, a handful of other MPs have had their labels corrected independent of my corrections -- but plenty of outdated information still remains, and the lingering inaccuracy feels uncomfortable.
 
@@ -141,7 +142,7 @@ Although the truth was available further down the page, we know that lots of peo
 Google designs the results page to make those summaries prominent and to allow people to find key information quickly.
 It saves users from clicking extra links, but it also means Google takes on the responsibility of keeping those summaries accurate.
 
-It's concerning that a tech giant lags behind in updating such important information, when volunteer-run projects can manage much more effectively.
+It's concerning that a tech giant lags behind in updating such important information, especially when volunteer-run projects can manage much more effectively.
 Wikipedia, for example, already has [a complete list of newly-elected MPs][wikipedia].
 And pages for individual MPs have a notice indicating that election-based information may be outdated, so readers are aware of potential inaccuracies:
 
@@ -163,14 +164,14 @@ Hopefully this will all be fixed within a few days when Google recrawls the Parl
 But it's concerning that it happened in the first place.
 Accurate, timely updates aren't a nice-to-have; they're required if we want to have informed citizens and a healthy democracy.
 
-Given their pivotal role as an information provider, and the global sensitivity of political information, I'm surprised that Google don't have a team whose sole purpose is to follow elections and keep their search results up-to-date as election results are announced.
+Given their pivotal role as an information provider, and the global sensitivity of political news, I'm surprised that Google don't have a team whose sole purpose is to follow elections and keep their search results up-to-date as election results are announced.
 
 When Google tells us to [eat rocks and put glue on pizza], it's annoying but fairly harmless -- we all know to ignore it.
 When Google starts giving us outdated or incorrect information about political news, it's more concerning -- we're less likely to know what the truth actually is.
 
 It's tempting to dismiss this as an overreaction, and I almost spiked this article because I didn't think it was important enough.
 I'd be less concerned if this was just a theoretical issue, but I've seen multiple people who looked at Google and came to the wrong conclusion.
-It does matter, and we shouldn't be complacent about political misinformation.
+But it does matter, and we shouldn't be complacent about political misinformation.
 
 In sociology, the term [normalisation of deviance] describes how mistakes and issues can become normalised.
 If we make a mistake and nothing bad happens, we get used to it.
