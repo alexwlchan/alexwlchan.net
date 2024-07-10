@@ -170,9 +170,10 @@ When Google tells us to [eat rocks and put glue on pizza], it's annoying but fai
 When Google starts giving us outdated or incorrect information about political news, it's more concerning -- we're less likely to know what the truth actually is.
 
 It's tempting to dismiss this as an overreaction, and I almost spiked this article because I didn't think it was important enough.
+I'm still not sure if I'm making a fuss over nothing.
 I'd be less concerned if this was just a theoretical issue, but I've seen multiple people who looked at Google and came to the wrong conclusion.
 
-But it does matter, and we shouldn't be complacent about political misinformation.
+But I think it does matter, and we shouldn't be complacent about political misinformation.
 Bad actors thrive in a world where we can't trust what we read, and we shouldn't sweep mistakes under the carpet.
 
 [wikipedia]: https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_2024_United_Kingdom_general_election
