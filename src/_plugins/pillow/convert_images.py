@@ -71,8 +71,17 @@ def process_request(request):
 
     os.makedirs(os.path.dirname(request["out_path"]), exist_ok=True)
 
-    with open(request["out_path"], "xb") as fp:
-        im.save(fp)
+    # This can throw, even though we should have filtered for any images
+    # that already exists.
+    #
+    # See e.g. https://github.com/alexwlchan/alexwlchan.net/actions/runs/9870374449/job/27255972581
+    #
+    # TODO: Understand why this is throwing.
+    try:
+        with open(request["out_path"], "xb") as fp:
+            im.save(fp)
+    except FileExistsError:
+        pass
 
     print(request["out_path"])
 
