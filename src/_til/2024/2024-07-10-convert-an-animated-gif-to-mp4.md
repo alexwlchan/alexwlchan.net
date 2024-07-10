@@ -32,6 +32,16 @@ Here's what it's doing:
 *   `-vf scale=WIDTH:HEIGHT` set the dimensions of the final video.
     If I omit this, the MP4 is generated at the same dimensions as the original GIF.
 
+    There's some subtlety to this I don't understand yet.
+    I was converting a 600×660 GIF to a 363×400 MP4, and I got an error in the conversion process:
+
+    ```
+    width not divisible by 2 (363x400)
+    ```
+
+    According to [Stack Overflow](https://stackoverflow.com/a/20848224/1558022), this is because H.264 requires even dimensions.
+    Tweaking the desired width so it was even seems to fix this.
+
 *   `-y` tells ffmpeg to overwrite the existing file, if it already exists.
     If you don't provide this flag and the file already exists, it presents an interactive prompt:
 
