@@ -109,7 +109,7 @@ With this theory in mind, I looked at the Google search results of 150 other MPs
 *   Two-thirds were described as "Member of Parliament", "politician", or some other term which looks correct.
     Google's search index is at least somewhat aware of the election results.
 *   But the other third were described as "former Member of Parliament" -- mostly backbenchers or MPs who aren't as prominent on the national stage.
-    It's not just Nigel.
+    And they come from all the parties -- it's not just Nigel, and it's not some anti-Tory bias.
 
 Put another way, that's over 50 MPs who were incorrectly described as "former Member of Parliament" on Tuesday morning -- and I only got halfway through the list.
 
