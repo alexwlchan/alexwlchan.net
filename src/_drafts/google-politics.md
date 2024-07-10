@@ -6,8 +6,8 @@ summary: |
 tags:
   - politics
 colors:
-  index_light: "#905422"
-  index_dark:  "#bec8da"
+  css_light: "#13772f"
+  css_dark:  "#b4c492"
 ---
 
 {% comment %}
@@ -39,14 +39,19 @@ I'd never heard of Nigel until yesterday, but when [one of his tweets] was heavi
   </figcaption>
 </figure>
 
-The one-line summary describes him as a "former Member of Parliament", so I assumed he was one of the many Conservative MPs who lost their seat.
+The subtitle describes him as a "former Member of Parliament", so I assumed he was one of the many Conservative MPs who lost their seat.
 
-However, that wasn't true -- he was actually re-elected.
-Scrolling down the page further, I found several news articles about his victory, albeit with a reduced majority.
-Via Wikipedia, I even found the [official results] on the council website through Wikipedia as further proof.
+There's just one issue: that's not true.
+He was re-elected.
+
+Scrolling down the page further, I found two news articles about his victory, albeit with a reduced majority.
+(Specifically, the local papers in [Droitwich] and [Evesham].)
+And through Wikipedia, I found the [official results] on the council website as further proof.
 
 How many people will scroll down the page for the full story, and how many will stop at the one-line summary?
 
+[Droitwich]: https://droitwichstandard.co.uk/news/general-election-result-conservative-nigel-huddleston-re-elected-in-droitwich/
+[Evesham]: https://www.eveshamjournal.co.uk/news/24432254.conservative-nigel-huddleston-keeps-droitwich-evesham/
 [official results]: https://www.wychavon.gov.uk/residents/elections
 
 ## Why is this happening?
@@ -54,17 +59,38 @@ How many people will scroll down the page for the full story, and how many will 
 This feels like a problem.
 It's tempting to chalk it up to Google's [wayward experiments with AI], but I think there's a simpler explanation: they're working from stale data.
 
-In the run-up to any general election, Parliament gets dissolved.
-There are no Members of Parliament until after the election, because there is no Parliament.
-In 2024, Parliament was dissolved on May 30th.
+There are no MPs in the run-up to a general election.
+Shortly after an election is called, Parliament comes to an end.
+The formal term is ["dissolution"][dissolved] -- every seat in the House of Commons becomes vacant and there's no more Parliamentary business until the election.
+There are no Members of Parliament, because there is no Parliament for them to be part of.
 
-Both Nigel's social media pages and the Parliament website were updated to reflect this change, as we can see in Google's cached search results:
+This year, Parliament was dissolved on May 30th.
 
-<figure style="width: 600px;">
+MPs are given [specific guidance](https://www.parliament.uk/globalassets/about-parliament/general-election/members_standing_redacted_-1.pdf) about what to do when Parliament is dissolved, and that includes how they describe themselves on the Internet.
+
+<figure style="width: 581px;">
+  {%
+    picture
+    filename="mp_guidance.png"
+    width="581"
+    class="screenshot"
+    alt="Text. ‘Websites and social media accounts must carry a disclaimer to clarify that you are no longer a Member of Parliament. Social media accounts which include the handle 'Member of Parliament' or MP' may remain as they are, as long as a disclaimer is added. Example disclaimer: Parliament has been dissolved until after the General Election and I am no longer an MP.’"
+  %}
+  <figcaption>
+    <em>Dissolution Guidance: Members standing</em>, House of Commons, page 20.
+    This is part of a longer section <em>Use of the title ‘Member of Parliament’
+or ‘MP’</em>.
+    Retrieved 10 July 2024.
+  </figcaption>
+</figure>
+
+Both Nigel's [Facebook page](https://www.facebook.com/NigelHuddlestonMP/) and the [Parliament website](https://members.parliament.uk/member/4407/registeredinterests) were updated to reflect this change, as we can see in Google's cached search results:
+
+<figure style="width: 581px;">
   {%
     picture
     filename="cached_google_entries.png"
-    width="600px"
+    width="581"
     class="screenshot"
     alt="Screenshot of two links in Google search. The first is to Nigel's Facebook page with the preview text ‘Parliament has been dissolved until after the general election. As a result, I am no longer the MP for Mid Worcestershire’. The second link is to a Register of Interests on the UK Parliament website. The preview text reads ‘Nigel Huddleston is no longer a member, but was most recently the Conservative MP for Mid Worcestershire, and left the Commons on 30 May 2024’."
   %}
@@ -73,22 +99,31 @@ Both Nigel's social media pages and the Parliament website were updated to refle
   </figcaption>
 </figure>
 
-But if you actually click through to the pages today, both now say he's a Member of Parliament.
+But if you actually visit either of those pages today, they now say he's a Member of Parliament.
 
-Presumably, Google crawled these pages sometime in the last month, saw the phrase "no longer an MP", and updated their search summary.
+Presumably, Google crawled these pages sometime between now and the dissolution of Parliament, saw the phrase "no longer an MP", and updated their search summary.
 They haven't recrawled the pages since Thursday, so this is the newest information they have.
 
-With this idea in mind, I looked at the Google search results of about 100 other MPs who were standing for re-election and held their seats.
-Two-thirds were described as "Member of Parliament", "politician", or some other term which looks correct.
-But a third were described as "former Member of Parliament" -- mostly backbenchers or MPs who aren't as prominent on the national stage.
-It's not just Nigel.
+With this idea in mind, I looked at the Google search results of 150 other MPs who were standing for re-election and held their seats.
 
-Eventually, Google will update its data and notice that these people should now be described as "Member of Parliament".
-Alternatively, you can submit [search feedback] to Google, and they might fix it more quickly.
-(This is what I did for Nigel and several dozen other MPs, and several of the search results were fixed within the hour.)
+*   Two-thirds were described as "Member of Parliament", "politician", or some other term which looks correct.
+    Google's search index is at least somewhat aware of the election results.
+*   But the other third were described as "former Member of Parliament" -- mostly backbenchers or MPs who aren't as prominent on the national stage.
+    It's not just Nigel.
 
-In the 12 hours since I started writing this post, a handful of MPs have already had their labels corrected separate from my corrections -- but plenty still remain, and the lingering inaccuracy feels uncomfortable.
+Put another way, that's over 50 MPs who were incorrectly described as "former Member of Parliament" on Tuesday morning -- and I only got halfway through the list.
 
+Eventually, Google will update its data and notice that these people should now be described as "current MP", but who knows how long that will take?
+
+You can submit [search feedback] to Google, and that does tend to fix it pretty quickly.
+I submitted a correction for Nigel's results, and it was fixed within the hour.
+I submitted corrections for two dozen more MPs, and they were fixed within the day.
+I included links to the [results on the BBC news site](https://www.bbc.co.uk/news/election/2024/uk/constituencies) as references.
+(That covers maybe a quarter of the affected MPs -- it's a long list.)
+
+In the 48 hours since I started writing this post, a handful of other MPs have had their labels corrected independent of my corrections -- but plenty of outdated information still remains, and the lingering inaccuracy feels uncomfortable.
+
+[dissolved]: https://www.parliament.uk/about/how/elections-and-voting/general/dissolution/
 [wayward experiments with AI]: https://www.wired.com/story/google-ai-overview-search-issues/
 [search feedback]: https://support.google.com/websearch/answer/3338405?hl=en
 
@@ -104,37 +139,46 @@ They thought he had to change his title, not Google.
 
 Although the truth was available further down the page, we know that lots of people only read the one-line summary.
 Google designs the results page to make those summaries prominent and to allow people to find key information quickly.
-This saves users from clicking extra links, but it also means Google takes on the responsibility for keeping those summaries accurate.
+It saves users from clicking extra links, but it also means Google takes on the responsibility of keeping those summaries accurate.
 
 It's concerning that a tech giant lags behind in updating such important information, when volunteer-run projects can manage much more effectively.
 Wikipedia, for example, already has [a complete list of newly-elected MPs][wikipedia].
-Pages for individual MPs also have a notice indicating that election-based information may be outdated, so readers are aware of potential inaccuracies:
+And pages for individual MPs have a notice indicating that election-based information may be outdated, so readers are aware of potential inaccuracies:
 
-{%
-  picture
-  filename="wikipedia_entry.png"
-  width="567"
-  class="screenshot"
-%}
+<figure style="width: 581px;">
+  {%
+    picture
+    filename="wikipedia_entry.png"
+    width="581"
+    class="screenshot"
+    alt="Screenshot of a Wikipedia entry. At the top is a notice: ‘This article's subject stood for re-election to the British House of Etty Commons on 4 July. This article may be out of date during and after this period. Feel free to improve it (updates without reliable references will be removed) or discuss changes on the talk page. Remove this template once the article is no longer out of date.’"
+  %}
+  <figcaption>
+    Screenshot of <a href="https://en.wikipedia.org/wiki/Nigel_Huddleston">Nigel Huddleston’s Wikipedia page</a>.
+    Retrieved 8 July 2024.
+  </figcaption>
+</figure>
 
 Hopefully this will all be fixed within a few days when Google recrawls the Parliament website and updates the rest of their one-line summaries.
 But it's concerning that it happened in the first place.
 Accurate, timely updates aren't a nice-to-have; they're required if we want to have informed citizens and a healthy democracy.
 
-Given Google's pivotal role as an information provider, and the global sensitivity of political information, I'm surprised they don't have a team whose sole purpose is to follow elections and keep Google up-to-date as results are announced.
+Given their pivotal role as an information provider, and the global sensitivity of political information, I'm surprised that Google don't have a team whose sole purpose is to follow elections and keep their search results up-to-date as election results are announced.
 
 When Google tells us to [eat rocks and put glue on pizza], it's annoying but fairly harmless -- we all know to ignore it.
-When Google starts giving us outdated or incorrect information about politics, it's more concerning -- we're less likely to know what the truth actually is.
+When Google starts giving us outdated or incorrect information about political news, it's more concerning -- we're less likely to know what the truth actually is.
 
 It's tempting to dismiss this as an overreaction, and I almost spiked this article because I didn't think it was important enough.
-I'd be less concerned if this was just a hypothetical issue, but I've seen multiple people who looked at Google and came to the wrong conclusion.
+I'd be less concerned if this was just a theoretical issue, but I've seen multiple people who looked at Google and came to the wrong conclusion.
 It does matter, and we shouldn't be complacent about political misinformation.
 
-In sociology, there's a term [normalisation of deviance] which describes the way mistakes and issues can become culturally normalised.
-Those mistakes become the new baseline, and allow for more serious mistakes to occur.
-This repeats until there's a catastrophic failure.
+In sociology, the term [normalisation of deviance] describes how mistakes and issues can become normalised.
+If we make a mistake and nothing bad happens, we get used to it.
+We stop giving it any attention or thinking it's an issue, and it becomes the new normal.
+This allows more serious mistakes to occur, which in turn become normalised themselves.
+This repeats until there’s a catastrophic failure.
 
-It feels like something similar is happening with Google search, and information more broadly, and I don't know what to do about it.
+It feels like something similar is happening with the accuracy of Google search, and information more broadly, and I don't know what to do about it.
 
 [wikipedia]: https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_2024_United_Kingdom_general_election
 [eat rocks and put glue on pizza]: https://www.wired.com/story/google-ai-overview-search-issues/
