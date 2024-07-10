@@ -51,6 +51,7 @@ class AddNonBreakingSpaces
       second
       tags
       unit
+      vote
       year
     ].join('|')
 

@@ -89,5 +89,5 @@ if __name__ == "__main__":
         if len(futures) > 20:
             iterator = tqdm.tqdm(iterator, total=len(futures))
 
-        for _ in iterator:
-            pass
+        for fut in iterator:
+            fut.result()
