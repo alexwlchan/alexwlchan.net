@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Does Google know about the UK's election results?
+title: Google is showing outdated results from the UK's election
 summary: |
-  The UK elected a new round of MPs last week, but you might not know it if you asked Google.
+  Dozens of MPs who were re-elected to their seats are still labelled “former Member of Parliament”, days after the election results.
 tags:
   - politics
 colors:
