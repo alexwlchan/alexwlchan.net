@@ -12,7 +12,7 @@ colors:
 ---
 
 {% comment %}
-  Card image from https://commons.wikimedia.org/wiki/File:UK_Parliament_(Palace_of_Westminster)_(48982329356).jpg#%7B%7Bint%3Afiledesc%7D%7D, CC0
+  Card image from https://www.parliament.uk/globalassets/house-of-commons/hoc-digital/news-story-images/dsc_6286.jpg
 {% endcomment %}
 
 Last week, fourteen years of Tory government came to an end with a Labour landslide.
