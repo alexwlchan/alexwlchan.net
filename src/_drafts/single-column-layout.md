@@ -150,6 +150,13 @@ body {
 }
 ```
 
+The first line makes the `<body>` at least as tall as the window.
+The second line tells the `<body>` to display as a grid.
+The third line sets the height of the rows: the first and third row should be as short as they can be, and the middle row should take all the remaining space.
+
+If the page is shorter than the window, the middle row (`<main>`) will expand to take all the vertical space not taken by the header and footer.
+If the page is taller than the window, the middle row will be as tall as the main content, but no more.
+
 This pushes the footer [to the bottom](/files/2024/step3.html), but also expands the coloured regions:
 
 {%
@@ -168,17 +175,10 @@ When you have two vertically adjacent components, their top and bottom margins w
 For example, if one element has `10px` of margin and the other element has `20px` of margin, then margin collapsing will put a `20px` margin between them -- rather than `30px`.
 The two margins can overlap.
 
-In the previous example, the margins on the header `<h1>` and the footer `<p>` were being collapsed with elements outside the header/footer.
-
-
-This is caused by () -- or rather, the lack of it in a container with `display: grid;`.
-Margin collapsing is when the margins of two vertically adjacent components get combined into one.
-In the previous example
+In the previous example, the margins on the header `<h1>` and the footer `<p>` were being collapsed with elements outside the header/footer -- the margins were still there, but they were outside the coloured regions.
+But when you're inside a container with `display: grid`, margins don't collapse, so those margins are now *inside* the coloured regions.
 
 [margin collapsing]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing
-
-
-
 
 ---
 
