@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <script src="app.js"></script>
+
+  <link href="style.css" rel="stylesheet">
+  
+<!--
+  
+  ^
+  |
+  v
+  
+  <->
+  
+   -->
+
+  <style>
+    :root {
+      --padding: 1em;
+      --max-width: 800px;
+    }
+
+    body {
+      margin:  0;
+      padding: 0;
+    }
+
+    /* This causes the footer to be pushed to the bottom of the viewport,
+     * regardless of the size of the content.
+     * See https://stackoverflow.com/q/643879/1558022 */
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1; }
+
+    header > *,
+    main,
+    footer > * {
+      /* Isn't this being replaced soon? */
+      max-width: var(--max-width);
+      margin: 0 auto;
+
+      padding-left:  calc(var(--padding) + env(safe-area-inset-left));
+      padding-right: calc(var(--padding) + env(safe-area-inset-right));
+
+      width: calc(100vw - 2 * var(--padding) - env(safe-area-inset-left) - env(safe-area-inset-right));
+    }
+
+    header, main, footer {
+      padding: var(--padding);
+      padding-left:  calc(var(--padding) + env(safe-area-inset-left));
+      padding-right: calc(var(--padding) + env(safe-area-inset-right));
+    }
+
+    header { background: PaleGreen; }
+    footer { background: PaleGreen; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header This is the header
+    </div>
+  </header>
+
+  <main>
+    <div>
+      This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content This is the main content
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      This is the footer This is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footerThis is the footer
+    </div>
+  </footer>
+</body>
+
+</html>
