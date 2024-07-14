@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The CSS for my single-column layout web pages
+title: How I lay out a basic web page
 summary: |
   A deep dive on the CSS I use in my standard HTML template -- a single column with a header, main content, and a footer.
 tags:
@@ -11,7 +11,7 @@ tags:
   - css
   - web-development
 ---
-When I design web pages, I start with a pretty standard single-column layout:
+When I design web pages, I always start with a single-column layout:
 
 {%
   picture
@@ -19,10 +19,166 @@ When I design web pages, I start with a pretty standard single-column layout:
   width="400"
 %}
 
-This layout is a sandwich: a header/footer at the top/bottom of the page, and all the main content in the middle.
-I usually add a coloured background to the header and footer to make them stand out visually.
-Then everything is centred on the page, and I cap the width to maintain readability.
-(It's the layout I'm using in this very post!)
+It's a sandwich: I have a header/footer at the top/bottom of the page, and all the main content in the middle.
+I add a coloured background to the header and footer to make them stand out visually, and I centre everything on the page.
+I also cap the width to maintain readability.
+
+To get this layout in HTML, I have some CSS snippets that I copy from project to project.
+I recently pulled them out into a standalone template, and I wrote some notes to make sure I really understood how this all works.
+In this post, I'll explain what I've learnt.
+
+## Start with semantic HTML
+
+Here's a basic HTML template for this layout: [a `<header>`][header], [a `<main>`][main] and [a `<footer>`][footer].
+
+```
+<html>
+
+<body>
+  <header>
+    <h1>Welcome to my web page</h1>
+  </header>
+
+  <main>
+    <p>This is some text on my web page.</p>
+  </main>
+
+  <footer>
+    <p>This is some information about the web page.</p>
+  </footer>
+</body>
+
+</html>
+```
+
+I always try to use [semantic HTML elements][semantic].
+The more I lean on these standard components of the web, the more nice behaviour I get "for free".
+
+Here I mean things like default browser styles or screen reader descriptions.
+Other people have put a lot of time and thought into how these tools should behave when they encounter semantic HTML -- how a heading should appear, how a list should be described, how you navigate a series of paragraphs.
+By using semantic HTML and opting-in to these behaviours, my website will be familiar to readers -- it will look and feel like other websites.
+
+I can still add personality and flare, but I get all the key functionality of the web.
+
+This [unstyled HTML](/files/2024/step1.html) is a pretty boring page, but it's a start:
+
+{%
+  picture
+  filename="Screenshot1.png"
+  width="500"
+  class="screenshot"
+%}
+
+Let's jazz it up.
+
+[header]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
+[main]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
+[footer]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
+[semantic]: https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#good_semantics
+
+## Adding a dash of colour
+
+I like to add a coloured background to my header and footer, to distinguish them from the rest of the page.
+It's a good place to add a strong colour and give the page an identity, and then I can use more subtle colours in the main content.
+
+Here's the CSS:
+
+```
+:root {
+  --header-background-color: LightGreen;
+  --footer-background-color: PowderBlue;
+}
+
+header { background: var(--header-background-color); }
+footer { background: var(--footer-background-color); }
+```
+
+I'm using [CSS variables] to define my palette, and then setting the [`background` property][background] on the header and footer.
+
+I've only started using CSS variables quite recently, but I like them so far.
+Their behaviour feels very intuitive to me -- for example, the way I can define a default variable on `:root` but then override it on the styles of individual elements.
+(That's how I do the per-card colours on my [articles page](/articles), for example.)
+They've also allowed me to remove CSS preprocessors from some of my projects, and just write vanilla CSS.
+
+Here's what the [coloured header and footer](/files/2024/step2.html) look like:
+
+{%
+  picture
+  filename="step2.png"
+  width="500"
+  class="screenshot"
+%}
+
+[CSS variables]: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+[background]: https://developer.mozilla.org/en-US/docs/Web/CSS/background
+[Sass]: https://sass-lang.com/
+
+## Removing the default margins
+
+I don't like the whitespace around the edges of the coloured backgrounds -- I want them to extend all the way to the edge of the page, so let's fix that next.
+Using the web inspector, I can see that the whitespace comes from a margin on the `<body>` element, which is added by my browser's default stylesheet.
+I can override it:
+
+```
+body {
+  margin:  0;
+  padding: 0;
+}
+```
+
+Now the coloured sections touch the [left and right edges](/files/2024/step3.html), like I want:
+
+{%
+  picture
+  filename="step3.png"
+  width="500"
+  class="screenshot"
+%}
+
+## Putting the text in the middle
+
+As well as touching the sides of the window, I want the footer to touch the bottom -- I don't like having all that empty space below the footer if the content is too short.
+I want to push it all the way down, and have the main content fill the window.
+
+There are [several ways to get this effect](https://stackoverflow.com/q/643879/1558022); personally I like using CSS Grid because it's a tool I'm quite familiar with:
+
+```
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+```
+
+This pushes the footer [to the bottom](/files/2024/step3.html), but also expands the coloured regions:
+
+{%
+  picture
+  filename="step4.png"
+  width="500"
+  class="screenshot"
+%}
+
+Where did the extra space come from?
+I had a look at the page in the web inspector, and found out that this space is the default margins around an `<h1>` and a `<p>` element -- but why are they only appearing now?
+Why didn't we see them before?
+
+After some googling, I learnt that this is caused by a CSS behaviour called [margin collapsing].
+When you have two vertically adjacent components, their top and bottom margins will be combined into a single margin which is big enough to include both margins.
+For example, if one element has `10px` of margin and the other element has `20px` of margin, then margin collapsing will put a `20px` margin between them -- rather than `30px`.
+The two margins can overlap.
+
+In the previous example, the margins on the header `<h1>` and the footer `<p>` were being collapsed with elements outside the header/footer.
+
+
+This is caused by () -- or rather, the lack of it in a container with `display: grid;`.
+Margin collapsing is when the margins of two vertically adjacent components get combined into one.
+In the previous example
+
+[margin collapsing]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing
+
+
+
 
 ---
 
@@ -40,64 +196,7 @@ I'll include some comments and thoughts on how I approach HTML and CSS -- writin
 
 ## Starting with an HTML skeleton
 
-Here's a basic skeleton for the HTML of this page: [a `<header>`][header], [a `<main>`][main] and [a `<footer>`][footer].
 
-```html
-<html>
-
-<body>
-  <header>
-    <h1>Welcome to my web page</h1>
-  </header>
-
-  <main>
-    <p>This is the main content of the web page.</p>
-  </main>
-
-  <footer>
-    This is the bottom of the web page.
-  </footer>
-</body>
-
-</html>
-```
-
-There are [plenty of reasons][semantic] to use semantic HTML elements; what I like is that it gets me a lot of good behaviour "for free".
-
-For example, browsers and assistive technologies know how to interpret these elements, and will provide a good experience for readers.
-They know that `<h1>` is a heading, `<p>` is a paragraph, `<ul>` is a list, and so on.
-They can present my pages in a useful and consistent way, and that makes them easier for my readers to navigate.
-
-It might be possible to replicate or improve that experience with `<div>`s, the right styles, and `aria-*` attributes -- but it would require a lot of web expertise that I just don't have.
-  
-  listen to https://www.relay.fm/radar/282
-
----
-
-Two examples:
-
-*   Assistive technologies already know how to interpret this structure, and will provide a good experience for readers.
-
-    They can describe the structure and navigate in an efficient way.
-
-
-
-*   Browsers will apply some default styles to semantic elements, so they look good without any work from me.
-    If I don't apply any custom CSS, they'll have a consistent appearance with other websites that also use those default styles.
-
----
-
-    For example, this list is a `<ul>` and it pro
-
-       I'm not applying any custom styles -- I'm relying on your browser to render something that looks good.
-
-I recently read Patrick Weaver's [blog post with every HTML element], which illustrates just how many different HTML elements there are.
-
-[header]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
-[main]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
-[footer]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
-[semantic]: https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#good_semantics
-[blog post with every HTML element]: https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/
 
 ---
 
