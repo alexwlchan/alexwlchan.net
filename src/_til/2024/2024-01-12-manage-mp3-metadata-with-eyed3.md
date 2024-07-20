@@ -5,6 +5,7 @@ date: 2024-01-12 06:38:34 +0000
 tags:
   - python
   - macos
+  - python:eyeD3
 ---
 I have a couple of scripts that manipulate metadata in my iTunes library with the [eyed3 library][eyed3].
 The library isn't particularly well-documented; these are some notes on how iTunes features map into eyed3.
