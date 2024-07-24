@@ -8,7 +8,10 @@ tags:
 ---
 A fairly common pattern I use in my web pages is to have a solid colour placeholder that shows where the image will appear, and which is replaced by the image when it loads.
 
-Here's a recent example from the Commons Explorer, showing the page before and after an image loads:
+I like this because it avoids weird gaps in the web page before the image loads, and is minimally intrusive.
+(As opposed to low-resolution versions of the image, which I find slightly jarring.)
+
+Here's a recent example from the Commons Explorer, which shows how the page looks before and after an image loads:
 
 {%
   picture
