@@ -54,8 +54,6 @@ I didn't see any cars without front license plates while I was in Vermont, but I
   </figcaption>
 </figure>
 
-And the placement of plates isn't the only thing decided by states.
-
 ## US license plates are full of visual variety
 
 In the UK and Europe, the appearance of number plates is tightly regulated -- they don't quite specify a font, but [there are rules](https://www.gov.uk/displaying-number-plates/rules-number-plates) around letter shape, spacing, colour, and so on.
@@ -108,9 +106,21 @@ I didn't get good pictures from a moving car, but I found examples on Wikimedia 
     %}
     {%
       picture
+      filename="California_license_plate_(1994–1998).png"
+      width="300"
+      link_to="https://commons.wikimedia.org/wiki/File:California_license_plate_(1994%E2%80%931998).png"
+    %}
+    {%
+      picture
       filename="Florida_license_plate_In_God_We_Trust.jpg"
       width="300"
       link_to="https://commons.wikimedia.org/wiki/File:Florida_license_plate_In_God_We_Trust.jpg"
+    %}
+    {%
+      picture
+      filename="NY_Agriculture_16079GL.jpg"
+      width="300"
+      link_to="https://commons.wikimedia.org/wiki/File:NY_Agriculture_16079GL.jpg"
     %}
     {%
       picture
@@ -120,12 +130,19 @@ I didn't get good pictures from a moving car, but I found examples on Wikimedia 
     %}
   </div>
   <figcaption>
-    Examples of four styles of license plate that I saw a lot of.
+    Examples of some styles of license plate that I saw a lot of.
     We drove from Vermont into New Hampshire, and at times I saw a 50/50 split of plates -- I wasn't sure which state we were in.
   </figcaption>
 </figure>
 
 Personally I find the extra text and graphics distracting, and I think they make the license plates harder to read -- but I'm not used to this style.
+This is a visceral reaction against something different, not an objective assessment.
+
+I can definitely see how it adds a sense of personality and identity to a car, in a way that UK number plates are very generic and dull.
+I see the occasional bumper sticker when driving in the UK, but this is much bolder and brighter.
+
+I didn't realise this variety was a thing until I was on US roads -- although I'm sure I've seen different plates in US media, it wasn't until I saw dozens of cars next to each other that it jumped out at me.
+A standardised number plate design was another aspect of my life that I'd always thought was universal, and clearly isn't.
 
 ---
 
