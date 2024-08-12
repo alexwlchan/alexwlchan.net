@@ -78,7 +78,7 @@ The USA has no such consistency -- license plates are an explosion of colour, fo
 Every state has a different design, some multiple.
 Pretty much every license plate had the name of the state on it, and often there were additional text or graphics.
 
-A few that stood out to me: "In God We Trust" with an illustration of some oranges (Florida); "Live Free or Die" (New Hampshire); "The Garden State" (Vermont).
+A few that stood out to me: "In God We Trust" with an illustration of some oranges (Florida); "Live Free or Die" (New Hampshire); "Green Mountain State" (Vermont).
 The plates in Vermont were a distinctive shade of green with white text, which matched the scenery.
 I didn't get good pictures from a moving car, but I found examples on Wikimedia Commons:
 
@@ -142,7 +142,11 @@ I can definitely see how it adds a sense of personality and identity to a car, i
 I see the occasional bumper sticker when driving in the UK, but this is much bolder and brighter.
 
 I didn't realise this variety was a thing until I was on US roads -- although I'm sure I've seen different plates in US media, it wasn't until I saw dozens of cars next to each other that it jumped out at me.
-A standardised number plate design was another aspect of my life that I'd always thought was universal, and clearly isn't.
+Standardised number plate designs are another aspect of my life that felt universal, but were really just familiar.
+
+## Counting plates from differing states
+
+While I was driving with [Jessamyn](https://jessamyn.info) around Vermont, she pointed out a couple of more unusual license plates -- she was keeping a list
 
 ---
 
