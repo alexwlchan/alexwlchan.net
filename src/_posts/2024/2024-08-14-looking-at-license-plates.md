@@ -83,7 +83,7 @@ When I wander round London, it's rare for me to see a plate which doesn't match 
 
 There's no such consistency in the USA -- license plates are an explosion of colour, font, and shape.
 Every state has different designs, and every state has issued many different designs over history.
-Pretty much every license plate had the name of the state on it, but otherwise I couldn't see much consistency.
+Pretty much every license plate had the name of the state somewhere on it, but otherwise they didn't have much in common.
 
 A few designs that stood out to me: "In God We Trust" with an illustration of some oranges (Florida); "Live Free or Die" (New Hampshire); "Green Mountain State" (Vermont).
 The plates in Vermont were a distinctive shade of green with white text, which matched the verdant scenery.
