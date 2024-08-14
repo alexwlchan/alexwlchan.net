@@ -81,7 +81,7 @@ jobs:
           fi
 
       - name: Remove outdated cards
-        run: find _site/images -name 'drawing-repetitive*' -delete
+        run: find _site/images -name 'looking-at-*' -delete
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
