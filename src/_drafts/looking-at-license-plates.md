@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Looking at license plates
+title: License Plates in the Land of Liberty
 summary: |
   On a recent trip to the US, I learnt a surprising amount from watching the license plates on passing cars.
 tags:
