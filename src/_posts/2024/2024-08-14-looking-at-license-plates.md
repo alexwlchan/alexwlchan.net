@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2024-08-14 15:13:14 +0000
 title: License plates in the land of liberty
 summary: |
   On a recent trip to the US, I learnt a surprising amount from watching the license plates on passing cars.
