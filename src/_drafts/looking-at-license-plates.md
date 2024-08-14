@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Looking at license plates
+title: Learing about license plates in the land of liberty
 summary: |
   On a recent trip to the US, I spent a lot of time looking at the license plate of other cars as they drove by.
 tags:
@@ -146,41 +146,72 @@ Standardised number plate designs are another aspect of my life that felt univer
 
 ## Counting plates from differing states
 
-While I was driving with [Jessamyn](https://jessamyn.info) around Vermont, she pointed out a couple of more unusual license plates -- she was keeping a list
+While I was driving with [Jessamyn](https://jessamyn.info) around Vermont, she pointed out a couple of more unusual license plates -- she was keeping a list of out-of-state plates she saw while out driving.
+Because she lives in the US, she can recognise a lot of the plates from a distance -- I had to squint my eyes and read the text, because it's all new to me. 
+(I did all this from the passenger seat, don't worry!)
 
----
+On the drive back to the airport, from Vermont to Boston, I decided to start my own list.
+I was surprised by how many different states I spotted -- in three hours, I saw plates from two Canadian provinces (Ontario and Quebec) and twenty-six US states.
 
-e.g. how pedestrian crossings work in ireland
-post boxes in slovenia
-telephone booths in berlin
-that sort of thing
+<figure style="width: 21.875rem">
+  {%
+    picture
+    filename="writing_down_states.jpg"
+    width="350"
+  %}
+  <figcaption>
+    I took this photo while waiting in traffic at the airport.
+    I thought this would be my final list, then I got six more states within a few minutes.
+    Airports and rental car lots are probably hotspots for out-of-state cars.
+  </figcaption>
+</figure>
 
-US is land of the car
-after i got over the way parking meters work
-(one meter per space -- only ever seen Pay & Display in UK)
-noticed license plates
-(the fact that they call them that is weird, because in uk it's "number plate")
+My American geography is lousy and I have no intuition for where these states actually are, so when I got home I plotted them on a map.
+This helped me see the patterns more clearly.
 
-1. not always at front and back of car
-  seen on tv in past but thought it was a hollywood thing
+These are the states whose plates I spotted (with the states we drove through shown in green):
 
-  "front-plate state"
-  https://catatp.fm/2024/06/06/atp590.mp3/
-  saw a few cars without front plates, a few with political slogans like "vermont strong"
-  so unusual to me!
+<style>
+  svg {
+    max-width: 37.5rem;
+  }
+</style>
 
-2.  so many different license plates!
-    again in UK there is a very standard, regimented design
-    but dozens of different plate styles
+{%
+  inline_svg
+  filename="us_states_license_plates.svg"
+  class="dark_aware"
+%}
 
-while I was driving with Jessamyn she pointed out a couple of unusual designs from states far from Vermont
-she was keeping a list of them
+Drawing this map was another educational experience -- although I've seen a map of the US states lots of times, I'd never really looked at it properly.
 
-on the drive back to the airport, decided to keep them too
-~3 hours vermont to boston, saw 26 states and two canadian provinces
+Given that we were driving in the northeast, it makes sense that most of the states I saw are from the eastern part of the country.
+I'd never realised how much denser the states are in the east versus the west -- they really are packed in tight.
+Maybe this is because European colonists arrived on the east coast, and so those areas were more densely populated when the state lines were drawn?
 
-have no US geography so plotted on a map
-east coast fairly obvious
-several outliers: California (!),
-Washington DC instead of State, maybe?
-surprised not many central states
+California (far left) is a notable outlier, and I was surprised by just how many cars I saw with those plates -- by the end of the trip, I could spot the red faux-handwriting quite easily.
+Google tells me that California has the most people of any state, which might explain why I saw so many of their cars despite being on the far side of the country.
+
+Washington (top left) is another outlier, and I wonder if I made a mistake here -- I know I saw a plate labelled "Washington", but it turns out Washington DC has [its own license plates](https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Washington,_D.C.).
+Since DC is on the east coast, it's much more likely I saw a car from there than from a state on other end of the country.
+Unfortunately I don't remember what the plate looked like, so I can't be sure.
+
+While I was in the US, I assumed it was just states who got to issue license plates.
+Now I know that's wrong, I wonder if there are other exceptions.
+Are there any other federal districts or smaller-than-state entities who get to issue their own license plates, or is Washington DC special?
+
+I've left Alaska and Hawaii off the map because I didn't see any of their plates.
+It's a long way to drive a car from Alaska, and it's an expensive job to ship a car from Hawaii -- those cars must be pretty rare in the contiguous US.
+
+Drawing this single map has probably helped me internalise more about US geography than anything else.
+For the first time I'm an active participant in the map -- I'm drawing my own data and looking at patterns and causes, not just passively observing data drawn by somebody else.
+
+## License plates are fractally interesting
+
+This is only scratching the surface of the complexity of license plates.
+There's so much more history, and variety, and design, all of which would be fun to research and write about if I had more time -- but I have to stop somewhere.
+
+I describe topics like this as *"fractally interesting"*.
+However deep you dig, however much you learn, there's more to uncover.
+
+This is why I love looking for the seemingly insignificant details in which life in foreign places differs from mine -- it might seem small at first, but there's always something interesting to learn.
