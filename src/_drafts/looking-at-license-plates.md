@@ -1,44 +1,52 @@
 ---
 layout: post
-title: Learing about license plates in the land of liberty
+title: Learning about license plates in the land of liberty
 summary: |
   On a recent trip to the US, I spent a lot of time looking at the license plate of other cars as they drove by.
 tags:
   - travel
   - driving
 colors:
-  index_light: "#bb2c1a"
-  index_dark:  "#cdcdcd"
+  index_light: "#174077"
+  index_dark:  "#e1eff2"
 ---
-https://www.pexels.com/photo/wall-of-car-plate-12953608/
-
-https://www.pexels.com/photo/assorted-car-license-plates-533669/
+{% comment %}
+  Card image from https://www.pexels.com/photo/wall-of-car-plate-12953608/
+{% endcomment %}
 
 I was recently visiting Vermont for a work trip -- my first time in the USA since I was a child.
 I was drawn to the license plates on passing cars, and how they look different to the cars I'm used to.
 
 Whenever I visit new places, I enjoy looking for the tiny bits of infrastructure and design that make life different – stuff that everybody who lives there is used to, but which is novel or unusual to me.
-The shape of Berlin's telephone booths.
-How pedestrian crossings work in Dublin.
-The colour of Slovenian post boxes.
+The open-plan layout of a telephone booth in Berlin.
+Slovenian post boxes which are bright yellow.
+The variety of call buttons used on pedestrian crossings.
 
-These details are only small, but they add up to give every a place a unique feel.
+These details are only small, but they add up to give every place a unique feel.
 Often they don't get written down or recorded, because "everybody knows" how these things work, and they don't seem remarkable to somebody who experiences them every day.
-It's hard to know these things without visiting, because so few people think they're worth sharing -- and many of them are lost to time, forgotten as places change and evolve.
+It's hard to know these things without visiting, because so few people think they notable enough to share -- and many of them are lost to time, forgotten as places change and evolve.
 
 A few things struck me about license plates on American cars.
 (Aside from the phrase "license plate", which itself sounds odd to me -- in Britain, I'm used to calling them ["number plates"](https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_the_United_Kingdom).)
 
-## Some cars don't have a license plate on the front of the car
+## Not all states require both plates
 
 In the UK, every car must have a number plate on both the front and back of the car.
 In the US, it varies by state -- some states require both plates, other states only require a rear license plate.
 
 I'd seen US cars without a front license plate in TV shows and movies, and I thought maybe it was a Hollywood thing -- special cars used for filming -- but no, it turns out that's perfectly legal in 19 US states.
-I only realised this was a thing a few weeks ago, when Casey Liss mentioned "front plate states" in [ATP #590](https://atp.fm/590).
+I only realised this was a thing a few weeks ago, when I heard Casey Liss mention "front plate states" [in a podcast](https://atp.fm/590).
 Until then, I just took it for granted that all cars have plates on the front and back, because that was what seemed "normal" to me.
 
-I didn't see any cars without front license plates while I was in Vermont, but I did see some cars with ["Vermont Strong" commemorative plates](https://dmv.vermont.gov/vermontstrong23), plus a few with political slogans I didn't catch.
+I can see why you might prefer to have a car without a front license plate -- if it's a car with a striking design, it looks better without a plate.
+(The aesthetics are why I thought maybe it was a specific choice for film.)
+Google suggests cost is also a factor, although I wonder how much of a difference an extra plate actually makes.
+
+I didn't see any cars without any front license plates while I was in Vermont.
+I did see some cars with ["Vermont Strong" commemorative plates](https://dmv.vermont.gov/vermontstrong23), plus a few with political slogans I didn't catch.
+
+A bit more research suggests that the US is in a tiny minority -- almost everywhere other country in the world puts license plates on both the front and back of the car.
+I wonder if these 19 US states will continue to be outliers, or if they'll ever change to match the rest of the world.
 
 <figure style="width: 37.5rem">
   {%
@@ -54,7 +62,7 @@ I didn't see any cars without front license plates while I was in Vermont, but I
   </figcaption>
 </figure>
 
-## US license plates are full of visual variety
+## Different plates for different states
 
 In the UK and Europe, the appearance of number plates is tightly regulated -- they don't quite specify a font, but [there are rules](https://www.gov.uk/displaying-number-plates/rules-number-plates) around letter shape, spacing, colour, and so on.
 This creates a strong visual consistency, and don't tell you much about where a car comes from.
@@ -144,7 +152,7 @@ I see the occasional bumper sticker when driving in the UK, but this is much bol
 I didn't realise this variety was a thing until I was on US roads -- although I'm sure I've seen different plates in US media, it wasn't until I saw dozens of cars next to each other that it jumped out at me.
 Standardised number plate designs are another aspect of my life that felt universal, but were really just familiar.
 
-## Counting plates from differing states
+## What's the rate of all the plates?
 
 While I was driving with [Jessamyn](https://jessamyn.info) around Vermont, she pointed out a couple of more unusual license plates -- she was keeping a list of out-of-state plates she saw while out driving.
 Because she lives in the US, she can recognise a lot of the plates from a distance -- I had to squint my eyes and read the text, because it's all new to me. 
