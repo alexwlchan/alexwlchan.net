@@ -13,8 +13,8 @@
     This uses [<em>k</em>-means clustering](/2019/finding-tint-colours-with-k-means/) to find the most commonly-used colours in a picture.
 
 - name: emptydir
-  date: 2024-06-18
-  version: 1.0.0
+  date: 2024-08-16
+  version: 1.1.2
   description:
     A command-line tool that looks for empty directories and deletes them.
 
