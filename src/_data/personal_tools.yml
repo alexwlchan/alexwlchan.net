@@ -1,4 +1,10 @@
 ---
+- name: create_thumbnail
+  version: 1.0.1
+  date: 2024-08-20
+  description: |
+    A simple command-line tool for creating image thumbnails.
+
 - name: dominant_colours
   version: 1.2.0
   date: 2024-05-12
