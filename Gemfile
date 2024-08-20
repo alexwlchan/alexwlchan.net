@@ -5,7 +5,7 @@ gem 'color', '~> 1.8'
 gem 'html-proofer', '~> 5'
 gem 'jekyll', '~> 4'
 gem 'jekyll-include-cache', '~> 0.2'
-gem 'json-schema', '~> 4'
+gem 'json-schema', '~> 5'
 gem 'nokogiri', '~> 1.16'
 gem 'shell-executer', '~> 1.0'
 
