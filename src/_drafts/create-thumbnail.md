@@ -2,18 +2,26 @@
 layout: post
 title: "create_thumbnail: create smaller versions of images"
 summary:
+  I've made a new tool that allows me to reuse my thumbnailing code across all my projects.
 tags:
   - rust
   - my-tools
   - images
 colors:
-  css_light: "#1c8034"
-  css_dark:  "#94b960"
+  index_light: "#697c13"
+  index_dark:  "#b6b86c"
 ---
 I’ve made a new command-line tool: [create_thumbnail], which creates thumbnails of images.
+I need image thumbnails in a lot of projects, and I wanted a single tool I could use in all of them rather than having multiple copies of the same code.
 
-You tell it your original image, the directory where you're storing thumbnails, and the max width/height of the thumbnail you want to create.
-Then it prints the path to the newly-created thumbnail.
+It takes three arguments:
+
+*   Your original image;
+*   The directory where you're storing thumbnails;
+*   The max allowed height or width of the thumbnail you want.
+    You constrain in one dimension, and it resizes to fit, preserving the aspect ratio of the original image.
+
+The tool prints the path to the newly-created thumbnail.
 Here are two examples:
 
 ```console
@@ -68,11 +76,8 @@ My tool is a wrapper around these two snippets.
 It picks the correct dimensions for the final thumbnail based on the dimensions of the original image and the max width/height, then runs these two snippets to create the thumbnail.
 
 (This turns out to be not completely trivial: something in this ffmpeg command requires that the width/height be even numbers.
-If you try to create a file with an odd width/height, the command fails.
-This is something I have rediscovered multiple times, and now it's encoded in this tool.)
-
-My tool isn't especially flexible, but it doesn't need to be -- I have a simple use case.
-Max width/height is enough for me.
+If you try to create a video with an odd width/height, the command fails to create anything.
+This is something I've rediscovered multiple times, and now it's encoded in this tool.)
 
 [create_thumbnail]: https://github.com/alexwlchan/create_thumbnail
 [image crate]: https://crates.io/crates/image
@@ -82,15 +87,19 @@ Max width/height is enough for me.
 ## Why did I make this?
 
 I've written some version of a thumbnailer in at least a dozen projects.
+There's only one variable that differs between them: how big are the thumbnails?
+In one project I might want thumbnails that are 100 pixels wide, in another I need thumbnails that are no more than 250 pixels tall.
 
-In each of those projects, the code is of questionable quality.
-The thumbnailer was always a sub-feature, so I wrote something that was good enough for that project -- but now I have a bunch of variants, each with a different set of features and bugs.
+This is what informed the design of my new tool: you can choose the width/height of the thumbnails it creates, but nothing else.
 
-If I was following the [rule of three], I'd have pulled this out as a standalone component a long time ago.
-I'm pretty good at following that rule within a single project, but not across projects.
+Creating a single, standalone code means I can simplify all other these projects: they can just call my new tool, rather than having their own code for creating thumbnails.
+It also makes it easier to keep these projects up-to-date, if I ever change my preferred options for the image crate or ffmpeg.
 
-By pulling my thumbnailer out into a standalone tool, I get a single version of this code that I can use in all my other projects.
-And because this code just does thumbnailing, I gave it more attention and care -- this is better code than I ever wrote as a sub-component of another project, because this is just a thumbnailer.
-By narrowing my focus to a small amount of code, I spent more time with that code and I made it better.
+There's a popular ["rule of three"][three] that says if you write the same code three times, you should refactor it into a shared function.
+I'm pretty good at following this rule within a single project, but not so much across multiple projects.
+I should have created a standalone thumbnailer a long time ago, but better late than never.
 
-[rule of three]: https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)
+This tool is primarily intended for my projects -- you may prefer to use more flexible tools like image, ImageMagick, or ffmpeg.
+If you want to check out my tool, the instructions and source code are all on GitHub: <https://github.com/alexwlchan/create_thumbnail>
+
+[three]: https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)
