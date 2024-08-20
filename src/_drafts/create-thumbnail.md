@@ -19,17 +19,17 @@ It takes three arguments:
 *   Your original image;
 *   The directory where you're storing thumbnails;
 *   The max allowed height or width of the thumbnail you want.
-    You constrain in one dimension, and it resizes to fit, preserving the aspect ratio of the original image.
+    You constrain in one dimension, and it resizes the image to fit, preserving the aspect ratio of the original image.
 
 The tool prints the path to the newly-created thumbnail.
 Here are two examples:
 
 ```console
-$ create_thumbnail cat.jpg --out-dir=thumbnails --width=150
-./thumbnails/cat.jpg
+$ create_thumbnail clever_cat.jpg --out-dir=thumbnails --width=100
+./thumbnails/clever_cat.jpg
 
-$ create_thumbnail dog.png --out-dir=thumbnails --height=200
-./thumbnails/dog.png
+$ create_thumbnail dappy_dog.png --out-dir=thumbnails --height=250
+./thumbnails/dappy_dog.png
 ```
 
 It supports JPEG, PNG, TIFF, WEBP, and both static and animated GIFs.
@@ -75,7 +75,7 @@ ffmpeg \
 My tool is a wrapper around these two snippets.
 It picks the correct dimensions for the final thumbnail based on the dimensions of the original image and the max width/height, then runs these two snippets to create the thumbnail.
 
-(This turns out to be not completely trivial: something in this ffmpeg command requires that the width/height be even numbers.
+(This turns out to be not completely trivial: something in ffmpeg requires that the width/height be even numbers.
 If you try to create a video with an odd width/height, the command fails to create anything.
 This is something I've rediscovered multiple times, and now it's encoded in this tool.)
 
@@ -89,6 +89,7 @@ This is something I've rediscovered multiple times, and now it's encoded in this
 I've written some version of a thumbnailer in at least a dozen projects.
 There's only one variable that differs between them: how big are the thumbnails?
 In one project I might want thumbnails that are 100 pixels wide, in another I need thumbnails that are no more than 250 pixels tall.
+Although imaging libraries expose lots of options, the thumbnail dimensions are the only one that I change for each project.
 
 This is what informed the design of my new tool: you can choose the width/height of the thumbnails it creates, but nothing else.
 I take this approach with a lot of [my scripts and tools](https://github.com/alexwlchan/scripts): wrap a versatile, flexible interface with one that's more tightly constrained and exposes the few options I use.
@@ -101,7 +102,9 @@ There's a popular ["rule of three"][three] that says if you write the same code 
 I'm pretty good at following this rule within a single project, but not so much across multiple projects.
 I should have created a standalone thumbnailer a long time ago, but better late than never.
 
-This tool is primarily intended for my projects -- you may prefer to use more flexible tools like image, ImageMagick, or ffmpeg.
-If you want to check out my tool, the instructions and source code are all on GitHub: <https://github.com/alexwlchan/create_thumbnail>
+This tool is primarily intended for my projects, so it may not be exactly what you're looking for – it focuses on a single, specific task.
+You might prefer to start with more flexible tools like image, ImageMagick, or ffmpeg, which have more customisation to fit a wider variety of use cases.
+
+If you do want to check out my tool, the instructions and source code are all on GitHub: <https://github.com/alexwlchan/create_thumbnail>
 
 [three]: https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)
