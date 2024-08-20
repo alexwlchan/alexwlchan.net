@@ -91,8 +91,10 @@ There's only one variable that differs between them: how big are the thumbnails?
 In one project I might want thumbnails that are 100 pixels wide, in another I need thumbnails that are no more than 250 pixels tall.
 
 This is what informed the design of my new tool: you can choose the width/height of the thumbnails it creates, but nothing else.
+I take this approach with a lot of [my scripts and tools](https://github.com/alexwlchan/scripts): wrap a versatile, flexible interface with one that's more tightly constrained and exposes the few options I use.
+I find this easier to use because I have less to remember on a day-to-day basis.
 
-Creating a single, standalone code means I can simplify all other these projects: they can just call my new tool, rather than having their own code for creating thumbnails.
+Creating a single, standalone tool means I can simplify all other these projects: they can just call my new tool, rather than having their own code for creating thumbnails.
 It also makes it easier to keep these projects up-to-date, if I ever change my preferred options for the image crate or ffmpeg.
 
 There's a popular ["rule of three"][three] that says if you write the same code three times, you should refactor it into a shared function.
