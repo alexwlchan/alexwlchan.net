@@ -4,9 +4,17 @@ title: Mountaintop moments
 summary:
 tags:
 ---
-I’m in a bit of an emotional slump this week. After my work trip to Vermont and a personal trip to Edinburgh, I’m exhausted. I got to meet lots of new people, hang out with some Internet friends in-person, and see some provocative theatre. It was exciting and emotional, but now I’m worn out and I’m wishing I could go back.
+I'm in an emotional slump this week.
+After back-to-back trips to Vermont and the Edinburgh Fringe, I'm exhausted.
+They were good trips -- I got to meet new people, hang out with some Internet friends in-person, and see some great theatre -- but now I'm worn out.
+I'm glad to be home and getting some rest, but part of me also wishes I could go back.
 
-I call trips like these **mountaintop moments**. They may not involve a literal mountain, but they’re any event where we can temporarily step away from our normal lives. They could be a conference, or a holiday, or a trip.
+This is a pretty common pattern: I do something exciting, it tires me out and I want to go home, but when I'm home I'm sad that the exciting thing is over.
+
+I call these **mountaintop moments**.
+They may not involve a literal mountain, but they're any event or experience where we can temporarily step away from our normal lives.
+
+---
 
 We climb the mountain to escape our normal lives. The air is cleaner, the stars are closer, the view stretches further. The world feels bigger when we’re atop our metaphorical mountain. These are intense, exciting, transformational experiences.
 
