@@ -3,6 +3,9 @@ layout: post
 title: Mountaintop moments
 summary:
 tags:
+colors:
+  css_light: "#0c59c6"
+  css_dark:  "#599dfc"
 ---
 I'm in an emotional slump this week.
 I've just done back-to-back trips to Vermont and the Edinburgh Fringe, and I'm exhausted.
@@ -61,19 +64,37 @@ What comes next is focusing on the lessons we learned, the friendships we create
 
 Before COVID, I was a regular attendee at PyCon UK, and those events were always a mountaintop moment for me.
 I got to spend a week in Cardiff, hang out with friends I only saw once a year, and learn cool stuff about Python.
-It was great fun, but I was always worn out and emotionally drained by the end of the final day.
+It was great fun, but I was always worn out by the end of the final day.
+I'd often retreat to the quiet room or my hotel, sit quietly and rest.
 
 PyCon UK 2017 ended on October 30th, and just a day earlier Ash McAllan [tweeted a thread][twitter] about "mountaintop experiences".
 She was talking about a completely different conference, but it was the same pattern -- a big and exciting event, followed by an emotional crash.
 
-When I read the thread, I felt an instant resonance: it was how I was feeling.
-The idea stuck in my brain, and I've thought about it regularly ever since.
-Whenever i have an emotional slump after a big event, I remind myself that I've just had a mountaintop moment -- and ask what I want to do next.
+When I read her thread, there was an instant resonance.
+In the thread, she talks about the emotional crash, and also invites us to consider how we'll grow from the experience:
 
-I've also shared it with friends when they're in a tricky spot, and I'd like to think it's helped at least a few of them.
+> You go to the mountaintop to escape your life and to change.
+> If you don't go back down, and take that change, that growth, that development, those opportunities with you, what was the point?
 
-I've been retelling this idea for a long time, and it feels like time to write it in my own words.
-I also wanted to share some reflections on what mountaintop moments have meant for me.
+I'd felt this sort of emotional crash before, but I'd never thought "okay, what next?"
+That idea stuck in my brain, and I still think about it regularly.
+
+Before I read this thread, I'd wallow in sadness, and the memories would gradually fade.
+Now, I let myself grieve for the thing that's over -- then I ask myself what I want to change in my life, and what I want to learn from those feelings.
+
+I've been retelling this idea for a long time.
+I've discussed it with friends when they're struggling with post-event blues, and I'd like to think it's helped at least a few of them.
+
+My first trip to the Edinburgh Fringe was absolutely a mountaintop moment, and I came away wanting to do more "hard" writing.
+I saw theatre that was challenging, and heartbreaking, and made me feel heavy emotions.
+I want to do more writing like that, which is quite a departure from the more dry technical content I usually write.
+I'm pretty confident writing technical prose, but I struggle when talking about feelings and emotions.
+This sort of writing is scary!
+But I want to try.
+
+This is why I'm writing this post now -- I want to describe mountaintop moments in my own words, and reflect on what they meant to me.
+
+Now feels like the right time to describe it in my own words, and reflect on what mountaintop moments have meant for me.
 
 * "mountaintop experience" to "mountaintop moment"
 * harder to share tweet threads
