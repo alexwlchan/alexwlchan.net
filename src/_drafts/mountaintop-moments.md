@@ -7,7 +7,7 @@ colors:
   css_light: "#0c59c6"
   css_dark:  "#599dfc"
 ---
-I'm in an emotional slump this week.
+I'm in an emotional slump this weekend.
 I've just done back-to-back trips to Vermont and the Edinburgh Fringe, and I'm exhausted.
 It was fun -- I got to meet new people, hang out with some Internet friends in-person, and see some great theatre -- but now I'm worn out.
 I'm glad to be home and getting some rest, but another part of me also wishes I could go back.
@@ -25,9 +25,9 @@ The mountaintop is larger than life.
 
 The break in routine gives us space to grow.
 We have new adventures, we discover new ideas, we meet new friends -- and we learn more about ourselves.
-
 These intense, emotional events change us in ways we can't predict.
-But exciting as they are, we eventually have to come down from the mountain, and it hurts.
+
+But exciting as these moments are, we eventually have to come down from the mountain, and that hurts.
 All the energy and emotion is drained away as we return to our regular lives.
 
 After a mountaintop moment, normal life can feel dull and subdued.
@@ -38,16 +38,16 @@ In the immediate aftermath, it's tempting to wonder if we can stay on the mounta
 What if we didn’t come down?
 What if we made this our life?
 
-But that’s not the point of the mountain -- we have to come down and return to our normal lives, or the mountain becomes our normal life.
+But that’s not the point of the mountain -- we have to come down and return to our normal lives, or the mountain *becomes* our normal life.
 If we stayed, the mountain would stop seeming special and start to feel mundane.
 (How many people see less of their home than tourists, because it doesn't seem remarkable to them?)
 
 The mountaintop is a place to escape from our lives, yes, but also a place to learn and grow.
-We come back down, and we bring the changes with us.
-We use our experience on the mountaintop to find ways to make our normal life better.
+We come back down, and we need to bring the changes with us.
+We need to use our experience on the mountaintop to find ways to make our normal life better.
 
 We had an amazing moment, and eventually it's over, and that's sad.
-What comes next is focusing on the lessons we learned, the friendships we created, the experiences we had – and how we make those part of our lives, and use them to become a better person.
+What comes next is focusing on the lessons we learned, the friendships we built, the experiences we had – and how we bring those into our lives, and use them to become a better person.
 
 <figure style="width: 600px;">
   {%
@@ -57,7 +57,7 @@ What comes next is focusing on the lessons we learned, the friendships we create
   %}
   <figcaption>
     Mountains surrounding Lake Bohinj in Slovenia.
-    This was a metaphorical mountaintop moment, if not a literal one.
+    This was a metaphorical mountaintop moment, even if I didn't climb high enough to make it a literal one.
     I’ve visited Slovenia twice, and it’s such a beautiful and peaceful place that I’m always charmed and rested by its vibes.
   </figcaption>
 </figure>
@@ -65,66 +65,35 @@ What comes next is focusing on the lessons we learned, the friendships we create
 Before COVID, I was a regular attendee at PyCon UK, and those events were always a mountaintop moment for me.
 I got to spend a week in Cardiff, hang out with friends I only saw once a year, and learn cool stuff about Python.
 It was great fun, but I was always worn out by the end of the final day.
-I'd often retreat to the quiet room or my hotel, sit quietly and rest.
+I'd often retreat to the quiet room or my hotel, sit quietly, and just rest.
 
-PyCon UK 2017 ended on October 30th, and just a day earlier Ash McAllan [tweeted a thread][twitter] about "mountaintop experiences".
+PyCon UK 2017 ended on October 30th, and that same week Ash McAllan [tweeted a thread][twitter] about "mountaintop experiences".
 She was talking about a completely different conference, but it was the same pattern -- a big and exciting event, followed by an emotional crash.
 
-When I read her thread, there was an instant resonance.
-In the thread, she talks about the emotional crash, and also invites us to consider how we'll grow from the experience:
+When I read her thread, there was an instant resonance -- I was having the feelings that she described.
+She talked about post-conference depression, and invited us to consider how we'll grow from this sort of experience:
 
 > You go to the mountaintop to escape your life and to change.
 > If you don't go back down, and take that change, that growth, that development, those opportunities with you, what was the point?
 
-I'd felt this sort of emotional crash before, but I'd never thought "okay, what next?"
-That idea stuck in my brain, and I still think about it regularly.
+This framing stuck in my brain, and I still think about it regularly.
 
-Before I read this thread, I'd wallow in sadness, and the memories would gradually fade.
-Now, I let myself grieve for the thing that's over -- then I ask myself what I want to change in my life, and what I want to learn from those feelings.
+Before I read this thread, I'd wallow in sadness after a big event, and wait for the memories to fade.
+Now, I still let myself grieve for the thing that's over -- but I also ask myself what I want to change in my life, and what I want to learn from those feelings.
 
-I've been retelling this idea for a long time.
-I've discussed it with friends when they're struggling with post-event blues, and I'd like to think it's helped at least a few of them.
+My first trip to the Edinburgh Fringe was absolutely a mountaintop moment.
+Part of that was the shows I saw, including several plays that dealt with heavy topics like heartbreak and grief.
+They left me really emotional, and in three days I sobbed my way through a whole packet of tissues.
+I love that sort of theatre, and it makes me want to write something that makes people *feel* things.
 
-My first trip to the Edinburgh Fringe was absolutely a mountaintop moment, and I came away wanting to do more "hard" writing.
-I saw theatre that was challenging, and heartbreaking, and made me feel heavy emotions.
-I want to do more writing like that, which is quite a departure from the more dry technical content I usually write.
-I'm pretty confident writing technical prose, but I struggle when talking about feelings and emotions.
-This sort of writing is scary!
-But I want to try.
+That sort of writing is a daunting prospect, and seems much harder than the technical prose I usually wrote.
+I know how to be informative, but not evocative.
+I got better at technical prose by writing on this blog, so let's see if the same works for emotional writing.
+This article is practicing that style of writing.
 
-This is why I'm writing this post now -- I want to describe mountaintop moments in my own words, and reflect on what they meant to me.
-
-Now feels like the right time to describe it in my own words, and reflect on what mountaintop moments have meant for me.
-
-* "mountaintop experience" to "mountaintop moment"
-* harder to share tweet threads
+I want to describe the feeling of mountaintop moments my own words, and reflect on the general pattern of what they've meant to me.
 
 [twitter]: https://twitter.com/acegiak/status/924761539592065024
-
----
-
-I've been retelling this idea for a long time -- plenty of my friends have heard some
-
-The gradual decline of now-X has made it harder to find and share the original thread, and I wanted to 
-
-Plenty of my friends have heard some version of this idea already (although at some point it changed from .
-
-
-not an original idea
-got it from ash mcallan in a then-twitter thread years ago
-(a decent number of my friends have heard some of this already)
-but the gradual decline of now-X has made it harder to find and share the original thread
-
-i've been retellign this for so long, time to put in my own words
-and wanted to share some reflections on what mountaintop moments have meant for me
-
-big place I used to feel this is conferences
-first PyCon UK in 2016
-
-
-first read about this in 2017, after pycon uk
-stuck with me ever since, and the concept got stuck in my brain
-
 
 <figure>
   {%
