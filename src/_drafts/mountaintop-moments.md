@@ -3,25 +3,45 @@ layout: post
 title: Mountaintop moments
 summary:
 tags:
+  - personal
 colors:
   css_light: "#0c59c6"
   css_dark:  "#599dfc"
 ---
-I'm in an emotional slump this weekend.
-I've just done back-to-back trips to Vermont and the Edinburgh Fringe, and I'm exhausted.
-It was fun -- I got to meet new people, hang out with some Internet friends in-person, and see some great theatre -- but now I'm worn out.
-I'm glad to be home and getting some rest, but another part of me also wishes I could go back.
+Last weekend, I was in Edinburgh for the Fringe, and I'm so glad I went.
+I met new people, hung out with some Internet friends in-person, and saw some great theatre.
+It was fun, but also exhausting.
+By the final day, I was worn out and ready to sleep in my own bed -- but now I'm home, I feel a bit sad to have left it all behind.
+I've had a deliberately quiet week -- partly to rest, partly to give those happy memories time to sink in.
 
-This is a pretty common pattern: I do something exciting, it tires me out and I want to go home, but when I'm home I'm sad that the exciting thing is over.
+This happens to me a lot: I do something exciting, it tires me out and I want to go home.
+But once I'm back, I miss the excitement and I'm sad that it's over.
+
+---
 
 I call events like these **mountaintop moments**.
-They may not involve a literal mountain, but they're any event or experience where we can temporarily step away from our normal lives.
-For me, they include conferences, holidays to new places, and days out with friends.
+They may not involve a literal mountain, but they're any event or experience that takes us away from our normal lives.
+For me, they include new theatre, holidays to unfamiliar places, and days out with friends.
 
-Being on the mountain means putting aside some of the routine of our daily lives.
-With a bit of room to think and breathe, we can enjoy the view.
+We climb the mountain to get away from our regular routine, and that gives us some extra sp
+
+> We climb the mountaintop to escape our normal lives. The view is breathtaking, the stars are closer and clearer
+>
+> The mountaintop is larger than life, a more intense experience of the world, outside our normal reality.
+>
+> The mountaintop also changes us. We learn new things, make new friends, have new experiences, and learn about ourselves.
+>
+> Mountaintops are important as fuck. We NEED to have these transformative liminal spaces in our lives.
+>
+> But in order to serve that purpose they have to be set apart. We can't stay there, or else they stop being mountaintops.
+
+---
+
+We climb the mountain for a break in routine, and that gives us room to think and breathe.
 The air is cleaner, the sky and stars get closer, the world stretches out in front of us.
 The mountaintop is larger than life.
+
+
 
 The break in routine gives us space to grow.
 We have new adventures, we discover new ideas, we meet new friends -- and we learn more about ourselves.
@@ -95,15 +115,14 @@ I want to describe the feeling of mountaintop moments my own words, and reflect 
 
 [twitter]: https://twitter.com/acegiak/status/924761539592065024
 
-<figure>
+<figure style="width: 600px;">
   {%
     picture
     filename="zurich_mountain.jpg"
-    width="750"
+    width="600"
   %}
   <figcaption>
-    Mountaintop moments don’t have to involve literal mountains, but sometimes they do.
-    This is a photo taken at the top of the Uetliberg, at the end of a trip to Zurich to see my friends Rae and David.
+    A view from the top of the Uetliberg, at the end of a trip to Zurich to see my friends Rae and David.
     Fun fact: it was Rae who send me a link to Ash's Twitter thread back in 2017.
   </figcaption>
 </figure>
