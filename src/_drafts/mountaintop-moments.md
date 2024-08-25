@@ -106,6 +106,6 @@ I hope it can help you too.
   %}
   <figcaption>
     A view from the top of the Uetliberg, at the end of a trip to Zurich to see my friends Rae and David.
-    Fun fact: it was Rae who send me a link to Ash's Twitter thread back in 2017.
+    Fun fact: it was Rae who sent me a link to Ash's Twitter thread back in 2017.
   </figcaption>
 </figure>
