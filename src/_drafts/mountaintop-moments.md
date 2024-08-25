@@ -17,54 +17,36 @@ I've had a deliberately quiet week -- partly to rest, partly to give those happy
 This happens to me a lot: I do something exciting, it tires me out and I want to go home.
 But once I'm back, I miss the excitement and I'm sad that it's over.
 
----
-
 I call events like these **mountaintop moments**.
-They may not involve a literal mountain, but they're any event or experience that takes us away from our normal lives.
-For me, they include new theatre, holidays to unfamiliar places, and days out with friends.
+They're any event or experience that lets us escape from our normal lives.
+Atop the metaphorical mountain, the air is cleaner, the sky and stars get closer, and the view stretches out in front of us.
+Given a temporary break from our usual routine, the world seems larger and more intense.
 
-We climb the mountain to get away from our regular routine, and that gives us some extra sp
-
-> We climb the mountaintop to escape our normal lives. The view is breathtaking, the stars are closer and clearer
->
-> The mountaintop is larger than life, a more intense experience of the world, outside our normal reality.
->
-> The mountaintop also changes us. We learn new things, make new friends, have new experiences, and learn about ourselves.
->
-> Mountaintops are important as fuck. We NEED to have these transformative liminal spaces in our lives.
->
-> But in order to serve that purpose they have to be set apart. We can't stay there, or else they stop being mountaintops.
-
----
-
-We climb the mountain for a break in routine, and that gives us room to think and breathe.
-The air is cleaner, the sky and stars get closer, the world stretches out in front of us.
-The mountaintop is larger than life.
-
-
-
-The break in routine gives us space to grow.
+Being on the mountaintop gives us space to grow, and we can't help but be changed by the experience.
 We have new adventures, we discover new ideas, we meet new friends -- and we learn more about ourselves.
-These intense, emotional events change us in ways we can't predict.
+We *need* these sorts of transformative event in our lives.
 
-But exciting as these moments are, we eventually have to come down from the mountain, and that hurts.
+But exciting as they are, eventually we have to come down from the mountain, and that hurts.
 All the energy and emotion is drained away as we return to our regular lives.
 
 After a mountaintop moment, normal life can feel dull and subdued.
-I always feel a sense of melancholy after a big event, and it takes me a few days to readjust.
-I'm glad to return to the familiarity of my routine, and to have the opportunity to rest -- but I remember the emotional high, and nothing in my day-to-day can match it.
+I always feel a bit miserable after a big event, and it takes me a few days to readjust.
+I'm glad to return to the familiarity of my routine, and have a chance to rest -- but I remember the emotional high, and that's hard to match in my day-to-day.
 
 In the immediate aftermath, it's tempting to wonder if we can stay on the mountain.
-What if we didn’t come down?
+What if we didn't come down?
 What if we made this our life?
 
-But that’s not the point of the mountain -- we have to come down and return to our normal lives, or the mountain *becomes* our normal life.
-If we stayed, the mountain would stop seeming special and start to feel mundane.
+But we can't stay there -- if we want them to be intense, transformative, elevated experiences, they have to be set apart from our daily lives.
+If we stay on the top of the mountain, it stops being a mountaintop to us.
+It would stop feeling special, and start to feel mundane.
 (How many people see less of their home than tourists, because it doesn't seem remarkable to them?)
 
-The mountaintop is a place to escape from our lives, yes, but also a place to learn and grow.
-We come back down, and we need to bring the changes with us.
+The point of the mountaintop is that we come back down.
+It's a place to escape from our lives, yes, but it's also a place to learn and grow.
+We come down, and we bring everything we learnt with us.
 We need to use our experience on the mountaintop to find ways to make our normal life better.
+Otherwise, what was the point of going up there?
 
 We had an amazing moment, and eventually it's over, and that's sad.
 What comes next is focusing on the lessons we learned, the friendships we built, the experiences we had – and how we bring those into our lives, and use them to become a better person.
@@ -82,16 +64,15 @@ What comes next is focusing on the lessons we learned, the friendships we built,
   </figcaption>
 </figure>
 
-Before COVID, I was a regular attendee at PyCon UK, and those events were always a mountaintop moment for me.
+Before COVID, I was a regular attendee at PyCon UK, and those events were always a mountaintop moment.
 I got to spend a week in Cardiff, hang out with friends I only saw once a year, and learn cool stuff about Python.
 It was great fun, but I was always worn out by the end of the final day.
-I'd often retreat to the quiet room or my hotel, sit quietly, and just rest.
 
 PyCon UK 2017 ended on October 30th, and that same week Ash McAllan [tweeted a thread][twitter] about "mountaintop experiences".
 She was talking about a completely different conference, but it was the same pattern -- a big and exciting event, followed by an emotional crash.
 
 When I read her thread, there was an instant resonance -- I was having the feelings that she described.
-She talked about post-conference depression, and invited us to consider how we'll grow from this sort of experience:
+She talked about post-conference depression, and invited us to consider how we can grow from this sort of experience:
 
 > You go to the mountaintop to escape your life and to change.
 > If you don't go back down, and take that change, that growth, that development, those opportunities with you, what was the point?
@@ -101,17 +82,19 @@ This framing stuck in my brain, and I still think about it regularly.
 Before I read this thread, I'd wallow in sadness after a big event, and wait for the memories to fade.
 Now, I still let myself grieve for the thing that's over -- but I also ask myself what I want to change in my life, and what I want to learn from those feelings.
 
-My first trip to the Edinburgh Fringe was absolutely a mountaintop moment.
-Part of that was the shows I saw, including several plays that dealt with heavy topics like heartbreak and grief.
+This week I'm sad that I'm no longer in Edinburgh, because there were more shows I wanted to see.
+(I think everyone who goes to Fringe feels that.)
+While I was there, I saw several plays that dealt with heavy topics like heartbreak and grief.
 They left me really emotional, and in three days I sobbed my way through a whole packet of tissues.
+
 I love that sort of theatre, and it makes me want to write something that makes people *feel* things.
+That's a change from the technical prose I usually write -- which is meant to be informative, not evocative.
+Writing about feelings and emotions is daunting, which is why I keep shying away from it.
+I'm only going to get better if I practice, and that's part of why I'm writing this article.
 
-That sort of writing is a daunting prospect, and seems much harder than the technical prose I usually wrote.
-I know how to be informative, but not evocative.
-I got better at technical prose by writing on this blog, so let's see if the same works for emotional writing.
-This article is practicing that style of writing.
-
-I want to describe the feeling of mountaintop moments my own words, and reflect on the general pattern of what they've meant to me.
+I want to describe the feeling of mountaintop moments my own words, and reflect on what they’ve meant to me.
+I've shared this idea with friends when they're struggling with post-event blues, and I'd like to think it's helped at least a few of them.
+I hope it can help you too.
 
 [twitter]: https://twitter.com/acegiak/status/924761539592065024
 
