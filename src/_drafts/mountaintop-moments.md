@@ -110,12 +110,12 @@ I hope it can help you too.
   </figcaption>
 </figure>
 
-To round out this piece, I wanted to talk about a few of the things I've learnt from mountaintop moments.
-I've spotted some patterns that probably aren't unique to me.
+I've learnt lots of things from mountaintop moments, and I've definitely changed my behaviour as a result of them.
+It's hard to point to a single, major change -- it's more a series of small course corrections, gradually finding ways to improve my life.
 
----
+I wanted to share one example of these changes, to ground this discussion.
 
-**Mountaintop moments help me spot habits I should try to kick.**
+Mountaintop moments help me spot habits I should try to kick.
 Whenever I go on a trip, I'm more intentional about how I spend my time -- I'm trying to make good use of the limited time I have in a new place.
 This means I end up dropping a lot of my routines, and not all of them need to come back when I'm home.
 
@@ -127,108 +127,12 @@ I'm trying to be more intentional about how I use digital technology, and the ti
 I go away for a week, I stop looking at social media, and nothing bad happens.
 Do that enough times, and the message sinks in.
 
+When I went to Paris, I logged out of all social media on my phone, and I never logged back in.
+I haven't stopped using social media entirely, because there are still good things about it -- but I'm not the Twitter completionist I used to be.
+
 I have a complicated relationship with technology, and I'm still struggling to find the right balance.
 Whenever I go away, I'm reminded of how nice it feels not to fritter away my time, and it motivates me to keep trying to find a better balance in my daily life.
 
----
-
-**Mountaintop moments show me how I want to spend my time.**
-A break from routine is a good time to try new things.
-Some of those I'll be glad to leave as a one-off; others I realise
-
-I'm a software developer, and most of my work is digital.
-It's ephemeral and lacks any tangible representation.
-When I step away from my desk for an extended period, 
-
-2/ more time doing things in the world i’m a professional software dev and most of my work is digital, ephemeral essentially disappears when i step away from my desk
-
-want to do more things that actually manifest in the physical world could be making things, e.g. handcrafts or other actions that improve something in the world recently visited a dear friend and helped moved a few wardrobes, and that felt so good more exciting than a lot of work i do
-
-
-
----
-
-, and it's the first thing to go when I go on a trip -- when I'm being more conscious of how I spend my time, and I don't want to waste the time I have in the new place.
-I stop looking at social media, tinkering with my computer, mindlessly scrolling.
-When I come back from a mountaintop moment, I always try to avoid falling back into bad habits
-
-I have a complicated relationship with computers, and they're not wholly good or wholly bad.
-
-1/ more intentional use on digital technology, less time wasting i spend so much time looking at screens, and it’s the first thing to go when i go on a trip i stop looking at social media, tinkering with my computer, mindlessly scrolling i have a complicated relationship with these things, and trying to disentangle – whats helping me and what’s habit
-
-not going to pretend this is easy, and i still have a long way to go on two recent trips i tried to eschew tech as much as I could, and I think moderate success trying not to fall back into hold habits when i return
-
-
-
-
-
-
----
-
-**Mountaintop moments help me spot stuff I can get rid of.**
-There's always clutter in my life -- stuff that was useful once, but now it's stuck around because of inertia rather than because I still need it.
-The break in my routine forces me to do without those things, and makes it easier to spot 
-
-The break in my routine forces me to do without a lot of my things -- both physical objects and
-
-I always find physical and habitual clutter -- stuff that's stuck around because of inertia, rather than because I still need it.
-It may have been useful once, but no longer.
-The break in my routine forces me to do without those things, and I don't pick them back up on my return.
-
----
-
-For me, the return from a mountaintop moments is when I usually find things to cut out of my life.
-This includes physical possessions and 
-
-stuff that's stuck around because of inertia, rather than 
-
-my mountaintop moments usually occur after time spent away from home
-could be a week of holiday or just a long day trip
-I break from my routine, and I see what's working and what's not
-what am I doing because it's important, what because it's what I've always done
-whenever i return from the mountain, i always find things to cut out of my life, stuff that's stuck around from inertia -- both physical clutter and habitual clutter
-
-always find myself clinging to the moment, trying to hold on to it
-recently saw an amazing play, gave me so many feelings
-tried to avoid anything that would give me strong feelings, so I can hold onto it for a bit longer
-
-whenever i come back from a "mountaintop moment" can be a tricky time
-i'm emotionally drained, bad time to make decisions!
-but also want to take advantage of the intense feelings to make changes to improve my life
-
-three emergent themes
-
-1/ more intentional use on digital technology, less time wasting
-i spend so much time looking at screens, and it's the first thing to go when i go on a trip
-i stop looking at social media, tinkering with my computer, mindlessly scrolling
-i have a complicated relationship with these things, and trying to disentangle -- whats helping me and what's habit
-
-not going to pretend this is easy, and i still have a long way to go
-on two recent trips i tried to eschew tech as much as I could, and I think moderate success
-trying not to fall back into hold habits when i return
-
-2/ more time doing things in the world
-i'm a professional software dev and most of my work is digital, ephemeral
-essentially disappears when i step away from my desk
-
-want to do more things that actually manifest in the physical world
-could be making things, e.g. handcrafts
-or other actions that improve something in the world
-recently visited a dear friend and helped moved a few wardrobes, and that felt so good
-more exciting than a lot of work i do
-
-3/ more time spent with people I care about
-friendship is a precious thing, and wilts if not actively tended
-i am always delighted to spend time with people, but not good at setting it up
-
-going on trips when I get to spend time with people is always such a wonderful experience
-company of a friend can transform an otherwise unremarkable day into a wonderful memory
-and makes me want to do it more
-again this is hard and I can do a lot better here
-i know what i need to do, just need to do it
-
-these same themes keep emerging because they're hard
-because they're important
-and because backsliding is easy
-i think i can see small signs of progress, and have got better
-but none of these are things I can take for granted, and need active management to remember these lessons, and not forget what I learned on the mountain
+I think I can see small signs of progress.
+I think I'm getting better.
+But I can't take these changes for granted -- I need to remind myself of these lessons, and make sure I don't forget what I learned on the mountaintop.
