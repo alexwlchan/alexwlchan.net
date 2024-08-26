@@ -11,11 +11,27 @@ layout: compress
     {% include head.html %}
 
     <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
-        
+
     {% if parsed_content.inline_styles != "" %}
       <style>{{ parsed_content.inline_styles }}</style>
     {% endif %}
   </head>
+
+  {% comment %}
+    This snippet will help me review alt text I've written.
+  {% endcomment %}
+  {% if jekyll.environment == "development" %}
+    <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll("img").forEach(function(img) {
+          img.parentElement.innerHTML +=
+            img.getAttribute('alt') !== null
+              ? `<div style="background: yellow; font-family: monospace; padding: 5px;">Alt text: ${img.getAttribute("alt")}</div>`
+              : `<div style="background: red; font-family: monospace; color: white; padding: 5px;">No alt text!</div>`;
+        });
+      });
+    </script>
+  {% endif %}
 
   <body>
     <a class="skip-main" href="#main">Skip to main content</a>
@@ -25,7 +41,7 @@ layout: compress
     <main id="main" tabindex="-1">
       {{ parsed_content.html }}
     </main>
-    
+
     {% include_cached footer.html %}
   </body>
 </html>
