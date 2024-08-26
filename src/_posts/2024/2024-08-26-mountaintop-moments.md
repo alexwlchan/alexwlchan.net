@@ -3,7 +3,7 @@ layout: post
 date: 2024-08-26 10:06:14 +0000
 title: Mountaintop moments
 summary:
-  The amazing events that let us temporarily escape from our lives, and the emotional crash that comes afterward.
+  The amazing events that let us temporarily escape from our lives, and how to deal with the emotional crash that comes afterward.
 tags:
   - personal
 colors:
