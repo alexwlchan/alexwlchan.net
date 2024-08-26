@@ -2,6 +2,7 @@
 layout: post
 title: Mountaintop moments
 summary:
+  The amazing events that let us temporarily escape from our lives, and the emotional crash that comes afterward.
 tags:
   - personal
 colors:
