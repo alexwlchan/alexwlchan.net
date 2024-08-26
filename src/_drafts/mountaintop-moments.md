@@ -23,8 +23,8 @@ Atop the metaphorical mountain, the air is cleaner, the sky and stars get closer
 Given a temporary break from our usual routine, the world seems larger and more intense.
 
 Being on the mountaintop gives us space to grow, and we can't help but be changed by the experience.
-We have new adventures, we discover new ideas, we meet new friends -- and we learn more about ourselves.
-We *need* these sorts of transformative event in our lives.
+We have new adventures, we try new ideas, we meet new friends -- and we learn more about ourselves.
+We *need* these transformative events in our lives.
 
 But exciting as they are, eventually we have to come down from the mountain, and that hurts.
 All the energy and emotion is drained away as we return to our regular lives.
@@ -37,7 +37,7 @@ In the immediate aftermath, it's tempting to wonder if we can stay on the mounta
 What if we didn't come down?
 What if we made this our life?
 
-But we can't stay there -- if we want them to be intense, transformative, elevated experiences, they have to be set apart from our daily lives.
+But we can't stay there -- if we want them to be elevated, transformative experiences, they have to be set apart from our daily lives.
 If we stay on the top of the mountain, it stops being a mountaintop to us.
 It would stop feeling special, and start to feel mundane.
 (How many people see less of their home than tourists, because it doesn't seem remarkable to them?)
@@ -55,18 +55,20 @@ What comes next is focusing on the lessons we learned, the friendships we built,
   {%
     picture
     filename="slovenia_mountain.jpg"
+    alt="A peaceful mountain landscape with a grassy clearing in the foreground, surrounded by dense forest, and mountains in the distant background.
+    The top of the mountains is easily visible against the clear blue sky."
     width="600"
   %}
   <figcaption>
     Mountains surrounding Lake Bohinj in Slovenia.
-    This was a metaphorical mountaintop moment, even if I didn't climb high enough to make it a literal one.
+    This trip was a metaphorical mountaintop moment, even if I didn't climb high enough to make it a literal one.
     I’ve visited Slovenia twice, and it’s such a beautiful and peaceful place that I’m always charmed and rested by its vibes.
   </figcaption>
 </figure>
 
 Before COVID, I was a regular attendee at PyCon UK, and those events were always a mountaintop moment.
 I got to spend a week in Cardiff, hang out with friends I only saw once a year, and learn cool stuff about Python.
-It was great fun, but I was always worn out by the end of the final day.
+I always enjoyed myself, but I was worn out by the end of the final day.
 
 PyCon UK 2017 ended on October 30th, and that same week Ash McAllan [tweeted a thread][twitter] about "mountaintop experiences".
 She was talking about a completely different conference, but it was the same pattern -- a big and exciting event, followed by an emotional crash.
@@ -88,9 +90,9 @@ While I was there, I saw several plays that dealt with heavy topics like heartbr
 They left me really emotional, and in three days I sobbed my way through a whole packet of tissues.
 
 I love that sort of theatre, and it makes me want to write something that makes people *feel* things.
-That's a change from the technical prose I usually write -- which is meant to be informative, not evocative.
+That's a change from the technical prose I usually write, where I'm trying to be informative, not evocative.
 Writing about feelings and emotions is daunting, which is why I keep shying away from it.
-I'm only going to get better if I practice, and that's part of why I'm writing this article.
+I'm only going to get better if I practice, and that's why I'm writing this article.
 
 I want to describe the feeling of mountaintop moments my own words, and reflect on what they’ve meant to me.
 I've shared this idea with friends when they're struggling with post-event blues, and I'd like to think it's helped at least a few of them.
@@ -102,6 +104,7 @@ I hope it can help you too.
   {%
     picture
     filename="zurich_mountain.jpg"
+    alt="A panoramic view from a mountaintop, overlooking a rolling landscape of mountains and valleys. There are some trees in the foreground, and in the background are misty mountains that fade as far as the eye can see. The sun is in the top left-hand corner, casting a warm glow over the landscape."
     width="600"
   %}
   <figcaption>
@@ -120,7 +123,7 @@ Whenever I go on a trip, I'm more intentional about how I spend my time -- I'm t
 This means I end up dropping a lot of my routines, and not all of them need to come back when I'm home.
 
 For example, I've wasted a lot of time with screens, mindlessly scrolling on social media.
-I don't do any of that when I go away, because it feels like a poor use of my time.
+I don't do much of that when I go away, because I'm trying to make the most of the place I'm visiting.
 I still use my technology, but in a more pragmatic way -- for example, in Edinburgh, I opened Discord to arrange to meet friends, then closed it as soon as we agreed a time and place.
 
 I'm trying to be more intentional about how I use digital technology, and the times when I go without it have definitely helped.
