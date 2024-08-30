@@ -67,7 +67,7 @@ I run this manually, whenever I mistype a command or some other one-off thing I 
 function forget_last_command
     set last_typed_command (history --max 1)
     history delete --exact --case-sensitive "$last_typed_command"
-    true
+    history save
 end
 ```
 
