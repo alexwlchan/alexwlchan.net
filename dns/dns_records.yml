@@ -102,12 +102,9 @@ analytics.alexwlchan.net A: [ "178.79.134.59",]
 # when I create certificates with Let's Encrypt.
 
 _acme-challenge.analytics.alexwlchan.net TXT:
-- '"B8-yyuoSb9rKfpyvGVqURafrLlEF9xX-rbS2v3jjUIU"'
 
-  # Added when renewing the certificates on 9 June 2024
-- '"QBD8Yzz-tCRK8uYDOc35ep9ZSEzttsT49gwxEcVnA4Q"'
-
-- '"oTZJC2uoi7J8U8uGLatz1hOCM2r50CcjEgEHFYokHGw"'
+  # Added when renewing the certificate on 31 August 2024
+- '"BCRme-5n56EHhIpLTvNt2fb97kMJx_9nPqc9mKXnJMM"'
 
 
 
