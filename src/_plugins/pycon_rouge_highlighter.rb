@@ -16,6 +16,10 @@
 # (It took me years to notice these weren't rendering correctly -- this
 # is preferable to custom syntax I'd forget to add.)
 
-Jekyll::Hooks.register(%i[pages posts], :pre_render) do |p|
-  p.content = p.content.gsub("\n```pycon\n", "\n```console?lang=python&prompt=>>>,...\n")
+Jekyll::Hooks.register :documents, :pre_render do |doc|
+  doc.content = doc.content.gsub("\n```pycon\n", "\n```console?lang=python&prompt=>>>,...\n")
 end
+
+# Jekyll::Hooks.register(%i[pages posts], :pre_render) do |p|
+#   p.content = p.content.gsub("\n```pycon\n", "\n```console?lang=python&prompt=>>>,...\n")
+# end
