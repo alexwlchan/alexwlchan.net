@@ -6,13 +6,29 @@ tags:
 ---
 **I’ve accumulated a lot of data, and most of it is clutter. I’ve been taking steps to store less data, organise it better, and make it easier to find the things I care about.**
 
-# The Problem
+---
 
-The first computer I remember using was an iMac G3, in Bondi Blue. It had a 4GB hard drive, a fact I was only dimly aware of at the time. I didn’t know what hard drives were, and I was hardly filling the disk – I just had a few games and silly Word documents. I didn’t have to think about storage.
+---
 
-In the intervening two decades, storage has exploded.
+The first computer I remember using is an iMac G3.
+It had a 4GB hard drive, a fact I was only dimly aware of at the time.
+I was just using it to play games and make silly Word documents, so I was hardly filling the disk.
+I didn't know what hard drives were, and I didn't think about storage.
+As far as I was concerned, 4GB was plenty.
 
-I’m writing this on a MacBook Air with a 256GB SSD – 60 times more than that iMac, and many people would call this considered “small”.
+Fast forward two decades, and the world has changed.
+I'm writing this article on a MacBook Air with a 256GB SSD – 60 times more than that original iMac, and many people would call this "small".
+Storage has become much cheaper, and we use much more of it.
+
+The last time I bought an external hard drive, I paid just £83 for a 4TB disk – 1000 times more than the iMac.
+I picked the largest portable drive that was available, because more storage is always better, right?
+
+I've never experienced scarcity of digital storage.
+I've never had to delete files because I was running out of disk space.
+I've always been able to keep as much data as I wanted, for minimal cost.
+
+---
+
 
 When I bought my last external hard drive, I paid £83 for a 4TB disk – the largest portable drive I could buy at the time. You can always use more storage, right? Why not get the biggest disk I could? I actually bought three of those disks, for a total of 12TB – of which I’ve used maybe half.
 
