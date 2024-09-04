@@ -6,6 +6,55 @@ tags:
 ---
 **I’ve accumulated a lot of data, and most of it is clutter. I’ve been taking steps to store less data, organise it better, and make it easier to find the things I care about.**
 
+i spent a lot of my early internet days in fannish spaces
+fanfic, fan art, podfic
+if you spend time in those spaces, quickly learn to save stuff if you like it
+internet is notoriously fickle, stuff disappears
+i can still remember the disappointment of going to read a story i liked, only to find all traces of it had vanished from the internet
+every fan learns to be an amateur archivist
+
+this was not an uncommon experience
+youtube videos became private
+a formative podcast whose domain name lapsed
+articles that were deleted
+or stuff that got de-indexed by search
+
+(in hindsight unsurprising i have a career in digipres)
+
+and so at some point i started saving everything
+storage is abundant and cheap, and I could afford to keep copies of everything i looked at, in case I wanted to look at it again
+i saved web pages and videos and audio files, and i wrote scripts to suck down as much as possible, so I'd never lose anything again
+i always thought "what if i want to go back to this someday"
+
+the gigabytes stacked up and became terabytes
+at peak my collection spanned 15 years of links and over two million files
+
+in hindsight, i didn't need 90% of what i was saving, maybe less
+abundance of storage meant i didn't have to be picky
+
+all this data might have been cheap to store, but came with cognitive overload
+i was still losing stuff in the pile, because too difficult to find
+anything
+i was keeping the diamonds, but also keeping a mountain of coal
+some of this stuff i do want to look at again, but awful lot not
+
+i knew i wanted to reduce my storage
+i had nearly 6TB of data, spread over several external disks
+wanted to simplify, ideally enough to fit on a single internal drive
+
+As I save new material, I’,m trying to be more intentional about what I keep. Before I save something, I ask myself: *“when will you want to look at this again?* If I can’t imagine a scenario in which I’d want to look at it again, I don’t save it.
+
+That’s slowing the influx of new data, but there’s still the backlog of all the data I’ve collected over twenty years. I’ve been gradually pruning it, and building better tools to organise it. It’s slow going, because there’s no easy way to automate this – ultimately, I have to look at every item and decide if it’s worth keeping.
+
+[[ Emily Gorcenski ]]
+
+It took me twenty years to build this pile of data, so I’m not going to clear it in a day. I have to pace myself – this is precisely the sort of task that my hyperfocus could latch onto and while away endless time.
+
+I’ve already reviewed all of the photos I’ve taken, the videos I’ve saved, and the podcasts I’ve saved. I’ve shed thousands of files. I’ve saved a decent chunk of disk space, but more importantly, I can now find the items I actually care about.
+
+Many nerds treat it as inevitable that your data gets bigger over time; that you’ll always need more storage than you did in the past. It’s taking time to get there, but I’m trying to resist that.
+
+
 ---
 
 ---
@@ -98,7 +147,7 @@ will probably go to SSD, get rid of whirring mechanical sounds (and less risk of
 but for first time, might go smaller
 
 > I understand the general gist of your outline. It appears to be a personal reflection on digital clutter and storage habits over time. Here's a summary of the structure I've gleaned:
-> 
+>
 > 1. Introduction: Personal history with digital storage
 >     - First computer experience (iMac G3)
 >     - Evolution of storage capacity over time
@@ -125,18 +174,18 @@ but for first time, might go smaller
 >     - Applying the rule: "When will I want to look at this again?"
 > 8. Conclusion
 >     - Resisting the "storage gets bigger over time" mentality
-> 
+>
 > The structure seems logical and follows a natural progression from personal history to realization of the problem, then to action and a new mindset. It effectively tells a story while also providing insights and practical tips.
-> 
+>
 > A few suggestions to potentially enhance the structure:
-> 
+>
 > 1. Consider adding a clear thesis statement early on to set the tone for the entire piece.
 > 2. You might want to group some of the similar themes together more tightly, such as all the reasons for hoarding in one section.
 > 3. Consider adding a section on the benefits you've experienced since starting to declutter your digital life.
 > 4. You could potentially elaborate on your new organizational system and tools in a separate section.
-> 
+>
 > Overall, the structure provides a solid foundation for an engaging and relatable blog post about digital clutter and mindful data management. It balances personal anecdotes with broader observations and practical advice, which should resonate with many readers.
-> 
+>
 > Copy
 
 # part 2: organising my digital archives
@@ -185,7 +234,7 @@ lightweight data model, few fields, tags
 * been pretty successful
 
 > Your outline for part 2 looks good. It focuses on your approach to organizing digital archives and complements the first part well. Here's a summary of the structure I see:
-> 
+>
 > 1. New approach to digital storage
 >     - Being intentional about keeping items
 >     - Key questions: "When will I want to look at this again?" and "How will I find it when I want to?"
@@ -208,7 +257,7 @@ lightweight data model, few fields, tags
 > 7. Conclusion
 >     - Summary of the lightweight data model approach
 >     - Success across various projects
-> 
+>
 > This structure effectively builds upon the ideas introduced in part 1, moving from the problem of digital clutter to your solution for organizing digital archives. It provides a clear progression of ideas and practical insights into your organizational system.
 
 # part 3: tools for my digital archives
@@ -271,7 +320,7 @@ https://bytes.yingw787.com/posts/2020/01/13/50years
 > I may or may not be working on some personal projects this year that I intend on using for myself. One thing I _know_ I can't do for my personal projects is constantly dedicate time to working on it after I've "shipped". I want to build something once, and ideally use it for the rest of my life (or maybe 20-50 years to start off) without having to worry about having to update something or other or risk losing something important down the line. So thinking about what properties makes software age well is helpful for me in terms of deciding what fundamental technologies (e.g. SQL or REST) I want to incorporate into a system design, and perhaps as equally important, what things I'm willing to trade away.
 
 > Your outline for part 3 looks good and follows logically from the previous two parts. It focuses on the tools and technical approach you've developed for maintaining your digital archives over the long term. Here's a summary of the structure I see:
-> 
+>
 > 1. Introduction: Long-term preservation goals
 >     - Desire for longevity (15+ years)
 >     - Balancing maintenance with practicality
@@ -296,11 +345,11 @@ https://bytes.yingw787.com/posts/2020/01/13/50years
 > 8. Results and current state
 >     - Multiple small static websites for different archive types
 >     - Scalability considerations
-> 
+>
 > This structure effectively builds upon the ideas introduced in parts 1 and 2, moving from the problem of digital clutter and organization to the technical implementation of a long-term archival solution. It provides a clear progression of ideas and practical insights into your archival system.
-> 
+>
 > Some thoughts on the structure:
-> 
+>
 > 1. The flow is logical, moving from the challenges of long-term preservation to your specific solution.
 > 2. You've effectively explained the rationale behind your choices, particularly the move from plain text to static websites.
 > 3. The comparison with existing large-scale solutions helps contextualize your approach.
@@ -347,7 +396,7 @@ store metadata in git
 * local backup, easy way to see changes if making batch changes
 
 > Your outline for part 4 looks good and provides a detailed technical discussion of your HTML-based archival system. It serves as a practical extension of the concepts introduced in part 3. Here's a summary of the structure I see:
-> 
+>
 > 1. Metadata storage in JavaScript
 >     - Example of lightweight JS file
 >     - Rationale for using JS over JSON/XML
@@ -374,30 +423,30 @@ store metadata in git
 > 8. Version control with Git
 >     - Tracking changes to viewer and metadata
 >     - Local backup and change visualization
-> 
+>
 > This structure effectively delves into the technical details of your archival system, providing concrete examples and explanations for each aspect of the implementation.
-> 
+>
 > Some thoughts on the structure:
-> 
+>
 > 1. The flow is logical, moving from data storage to rendering, then to more advanced features like filtering and verification.
 > 2. You've balanced high-level explanations with specific code examples, which should be helpful for technically-inclined readers.
 > 3. The inclusion of verification and version control shows a comprehensive approach to maintaining the system's integrity.
-> 
+>
 > Potential enhancements:
-> 
+>
 > 1. Consider adding a brief introduction that ties this part to the previous three, explaining why you're now diving into technical details.
 > 2. You might want to include a section on potential limitations of this approach and how you address them.
 > 3. Adding a conclusion that summarizes the key technical points and how they relate to the overall goals of your archival system could be beneficial.
-> 
+>
 > Overall, this outline for part 4 complements the previous parts well by providing the technical depth that more advanced readers might be looking for. It gives a clear picture of how your theoretical approach to digital archiving is implemented in practice.
-> 
+>
 > To tie all four parts together, you might consider an overarching structure like this:
-> 
+>
 > 1. Part 1: The Problem (Digital Clutter)
 > 2. Part 2: The Organizational Approach
 > 3. Part 3: The Technical Solution (Overview)
 > 4. Part 4: The Technical Solution (Implementation Details)
-> 
+>
 > This structure takes the reader on a journey from recognizing the problem, through developing a solution, to implementing it in detail. It provides a comprehensive look at your approach to digital archiving that should be accessible and interesting to a wide range of readers.
 
 ## tools for reviewing new stuff
