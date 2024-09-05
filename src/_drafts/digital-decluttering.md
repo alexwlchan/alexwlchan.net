@@ -6,51 +6,81 @@ tags:
 ---
 **I’ve accumulated a lot of data, and most of it is clutter. I’ve been taking steps to store less data, organise it better, and make it easier to find the things I care about.**
 
-i spent a lot of my early internet days in fannish spaces
-fanfic, fan art, podfic
-if you spend time in those spaces, quickly learn to save stuff if you like it
-internet is notoriously fickle, stuff disappears
-i can still remember the disappointment of going to read a story i liked, only to find all traces of it had vanished from the internet
-every fan learns to be an amateur archivist
+I spent a lot of my formative Internet years in online fandom.
+I read novel-length stories about *Doctor Who* characters.
+I swooned over fan art of the *Lizzie Bennet Diaries*.
+I pored over in-depth analyses of each episode of *Carmilla*.
+It was surrounded by the creativity of strangers, sharing my own ideas, and taking the first steps towards my queer awakening.
 
-this was not an uncommon experience
-youtube videos became private
-a formative podcast whose domain name lapsed
-articles that were deleted
-or stuff that got de-indexed by search
+Most of that is gone now.
 
-(in hindsight unsurprising i have a career in digipres)
+Links rot at an extraordinary rate, and much of that early-2010s culture has now vanished from the Internet.
+Authors delete their work, or websites go down, or domain names lapse.
+We might think the Internet [is written in ink][ink], but really it's more like chalk on a pavement.
+Stuff is visible for a while, and over time it washes away.
 
-and so at some point i started saving everything
-storage is abundant and cheap, and I could afford to keep copies of everything i looked at, in case I wanted to look at it again
-i saved web pages and videos and audio files, and i wrote scripts to suck down as much as possible, so I'd never lose anything again
-i always thought "what if i want to go back to this someday"
+Every fan eventually learns that if there's something you love, you have to save your own copy.
+We all have things we remember from years ago that we can't see again, and that's sad.
 
-the gigabytes stacked up and became terabytes
-at peak my collection spanned 15 years of links and over two million files
+So I started saving, and I kept saving.
+Digital storage has become cheap and abundant, and I could afford to keep local copies of everything I looked at.
+I didn't have to be picky with what I was saving; I wanted all of it.
 
-in hindsight, i didn't need 90% of what i was saving, maybe less
-abundance of storage meant i didn't have to be picky
+I saved web pages and photos and PDFs and videos and audio files, and I wrote scripts to save as much as possible, all so I'd never lose anything again.
+I kept every photo I'd ever taken, every tweet I'd written, every email I'd sent.
+If you look at early posts on this site or my old GitHub repos, you'll see my excitement at code that could scrape down data and squirrel it away on my hard drive.
+I always thought "what if I want to go back to this someday?"
 
-all this data might have been cheap to store, but came with cognitive overload
-i was still losing stuff in the pile, because too difficult to find
-anything
-i was keeping the diamonds, but also keeping a mountain of coal
-some of this stuff i do want to look at again, but awful lot not
+<!-- At some point I had over 3 million files and I was juggling multiple hard drives to store it all. -->
 
-i knew i wanted to reduce my storage
-i had nearly 6TB of data, spread over several external disks
-wanted to simplify, ideally enough to fit on a single internal drive
+Looking back, I could skip 95% of this data and I'd be fine.
+There are some things that I'm glad I saved, but there's an awful lot of other stuff that I've never gone back to, and I know I'm never going to look at again.
+And because I have a big pile of poorly-organised files, it's difficult to find that 5% I actually care about.
 
-As I save new material, I’,m trying to be more intentional about what I keep. Before I save something, I ask myself: *“when will you want to look at this again?* If I can’t imagine a scenario in which I’d want to look at it again, I don’t save it.
+I'm trying to simplify.
+My data is currently split across my internal disk and several external hard drives, and those external drives need to be replaced soon.
+Ideally I'd like to shrink my data until it fits on a single, internal disk.
 
-That’s slowing the influx of new data, but there’s still the backlog of all the data I’ve collected over twenty years. I’ve been gradually pruning it, and building better tools to organise it. It’s slow going, because there’s no easy way to automate this – ultimately, I have to look at every item and decide if it’s worth keeping.
+As I save new stuff today, I'm trying to be more intentional about I keep.
+Before I save something, I ask myself "when will you want to look at this again?"
+If I can't imagine a scenario in which I'd be glad to have saved this particular thing, I don't save it.
+I've already been collecting for fifteen years, and I know what sort of stuff I go back to.
+Heartfelt stories and in-depth essays? Yes.
+Current affairs and political news? Not so much.
 
-[[ Emily Gorcenski ]]
+That's slowing the influx of new data, but there's still the data I've already collected.
+I've been gradually pruning it, deleting what I don't want and organising what I do.
+It's a slow and arduous process, because there's no easy way to automate this -- ultimately, I have to look at every item and decide if it's worth keeping.
 
-It took me twenty years to build this pile of data, so I’m not going to clear it in a day. I have to pace myself – this is precisely the sort of task that my hyperfocus could latch onto and while away endless time.
+It took me years to accumulate this data, so I'm not going to clear it in a week.
+I've spent months chipping away at it, reviewing a few items a day, and there's more to go.
+I've already reviewed all the photos I've taken, the videos I saved, the podcasts I kept.
+I've shed thousands of files and saved a chunk of disk space, but more importantly, I can now find the items I actually care about.
 
-I’ve already reviewed all of the photos I’ve taken, the videos I’ve saved, and the podcasts I’ve saved. I’ve shed thousands of files. I’ve saved a decent chunk of disk space, but more importantly, I can now find the items I actually care about.
+Many nerds treat it as inevitable that our data gets bigger over time; that we'll always need more storage than we did in the past.
+I think we need to resist that notion, and be more intentional about our data.
+Modern storage means we can keep everything, but that doesn't mean we should.
+"Anything goes" isn't a collecting strategy; it's hoarding.
+
+---
+
+Many nerds treat it as inevitable that your data gets bigger over time; that you’ll always need more storage than you did in the past. It’s taking time to get there, but I’m trying to resist that.
+
+
+> Cloud storage services make it all too easy to eagerly backup anything and everything without being intentional. Now we've all inadvertently become data hoarders.
+>
+> Just because we have easy access to near-infinite and increasingly more affordable storage doesn't mean we should be using all that space. The next generation of cloud-based services need to design for curation and control. It doesn't feel like an immediate concern, but it will only continue to increase.
+
+
+
+---
+
+so you learn to save your own stuff
+=> i saved too much
+=> i need to save less
+
+[ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32
+
 
 Many nerds treat it as inevitable that your data gets bigger over time; that you’ll always need more storage than you did in the past. It’s taking time to get there, but I’m trying to resist that.
 
