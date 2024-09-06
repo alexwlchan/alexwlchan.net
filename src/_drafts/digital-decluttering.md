@@ -10,21 +10,21 @@ I spent a lot of my formative Internet years in online fandom.
 I read novel-length stories about *Doctor Who* characters.
 I swooned over fan art of the *Lizzie Bennet Diaries*.
 I pored over in-depth analyses of each episode of *Carmilla*.
-It was surrounded by the creativity of strangers, sharing my own ideas, and taking the first steps towards my queer awakening.
+I was surrounded by the creativity of strangers, sharing my own ideas, and taking the first steps towards my queer awakening.
 
 Most of that is gone now.
 
-Links rot at an extraordinary rate, and much of that early-2010s culture has now vanished from the Internet.
+Links rot at an extraordinary rate, and much of that early-2010s fan culture has now vanished from the Internet.
 Authors delete their work, or websites go down, or domain names lapse.
 We might think the Internet [is written in ink][ink], but really it's more like chalk on a pavement.
 Stuff is visible for a while, and over time it washes away.
 
-Every fan eventually learns that if there's something you love, you have to save your own copy.
-We all have things we remember from years ago that we can't see again, and that's sad.
+If there's something you love, you have to save your own copy.
+Every fan eventually learns this lesson the hard way, when they go to find something they remember from years ago, and it's vanished off the face of the Internet.
 
 So I started saving, and I kept saving.
-Digital storage has become cheap and abundant, and I could afford to keep local copies of everything I looked at.
-I didn't have to be picky with what I was saving; I wanted all of it.
+Digital storage has become cheap and abundant, and I could afford to keep local copies of everything.
+I didn't have to be picky with what I was saving, and I didn't want to be; I wanted all of it.
 
 I saved web pages and photos and PDFs and videos and audio files, and I wrote scripts to save as much as possible, all so I'd never lose anything again.
 I kept every photo I'd ever taken, every tweet I'd written, every email I'd sent.
@@ -41,7 +41,7 @@ I'm trying to simplify.
 My data is currently split across my internal disk and several external hard drives, and those external drives need to be replaced soon.
 Ideally I'd like to shrink my data until it fits on a single, internal disk.
 
-As I save new stuff today, I'm trying to be more intentional about I keep.
+As I save new stuff today, I'm trying to be more intentional about what I keep.
 Before I save something, I ask myself "when will you want to look at this again?"
 If I can't imagine a scenario in which I'd be glad to have saved this particular thing, I don't save it.
 I've already been collecting for fifteen years, and I know what sort of stuff I go back to.
@@ -53,9 +53,10 @@ I've been gradually pruning it, deleting what I don't want and organising what I
 It's a slow and arduous process, because there's no easy way to automate this -- ultimately, I have to look at every item and decide if it's worth keeping.
 
 It took me years to accumulate this data, so I'm not going to clear it in a week.
-I've spent months chipping away at it, reviewing a few items a day, and there's more to go.
-I've already reviewed all the photos I've taken, the videos I saved, the podcasts I kept.
-I've shed thousands of files and saved a chunk of disk space, but more importantly, I can now find the items I actually care about.
+I've already spent months chipping away at it, reviewing a few items a day, and there's more to go.
+So far I've reviewed all the photos I've taken, the videos I saved, the podcasts I kept.
+I'm midway through cleaning up my bookmarks folder.
+I've shed thousands of files and tossed an entire hard drive, but more importantly, I can now find the items I actually care about.
 
 Many nerds treat it as inevitable that our data gets bigger over time; that we'll always need more storage than we did in the past.
 I think we need to resist that notion, and be more intentional about our data.
@@ -291,6 +292,8 @@ lightweight data model, few fields, tags
 > This structure effectively builds upon the ideas introduced in part 1, moving from the problem of digital clutter to your solution for organizing digital archives. It provides a clear progression of ideas and practical insights into your organizational system.
 
 # part 3: tools for my digital archives
+
+[[sucked down data, lots of machine-readable files but no human-readable interface]]
 
 have built these archives over 15 years
 * would like them to remain usable for at least as long, ideally longer – rest of my life
