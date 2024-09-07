@@ -4,8 +4,6 @@ title: Digital decluttering
 summary:
 tags:
 ---
-**I’ve accumulated a lot of data, and most of it is clutter. I’ve been taking steps to store less data, organise it better, and make it easier to find the things I care about.**
-
 I spent a lot of my formative Internet years in online fandom.
 I read novel-length stories about *Doctor Who* characters.
 I swooned over fan art of the *Lizzie Bennet Diaries*.
@@ -61,6 +59,10 @@ I don't think that's for certain, and I'm not sure it's sustainable -- we need t
 Modern storage means we can keep everything, but that doesn't mean we should.
 "As much as I can save" isn't a collecting strategy; it's hoarding.
 
+In the rest of this post, I'll talk about some steps I've taken to simplify and manage my digital collections.
+I still want to keep some of what I've saved, but I'm getting rid of a lot of the clutter.
+I'm gradually creating a more selective and well-organised archive.
+
 <!-- [ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32 -->
 
 ## Deciding what to keep
@@ -97,51 +99,50 @@ I've found a few questions which have helped me decide whether something is wort
     On the other hand, a lot of fannish and queer communities are quite hard to find online.
     I might struggle to find stuff again if I don't have a link, but I can find it easily if I save a copy in my personal, local archives.
 
+I'm now considering these questions whenever I save something new.
+I'm also applying them to my existing pile of data, and deleting items that pass muster.
+
+## Organising what's left
+
+Once I've decided to save something, there's a follow-up question: *"How will I find it later?"*
+This is the big problem with my previous systems, where data disappeared into a void, unable to be found again.
+I want to be able to find things that I've saved.
+
+I'm adding a small amount of metadata to everything I'm saving.
+This metadata allows me to record why I thought a file was important, and add some notes and keywords that I can search for later when I'm looking for it.
+
+Adding this metadata is a manual process, which adds a bit of friction to saving anything new.
+I'm okay with this -- taking a minute or so to write some notes will make files much easier to find later, and encourages me to be thoughtful about what I'm saving.
+This step is a moment to pause, reflect, and double check that this thing really is worth saving.
+
+It's also a lightweight process, and my metadata is more of a folksonomy than a rigidly-defined set of categories.
+This is to ensure that I always can add metadata, and I don't have to think too hard about it -- otherwise I put it off, and I end up with a desktop of unsorted files because they don't fit into the organisation system I've build.
+
+The metadata I'm adding varies by format -- for example, a photo I've taken needs different metadata to a web page I've saved -- but there are two fields I'm using pretty consistently:
+
+*   *The date when I created or saved this file.*
+    This is useful because it allows me to anchor data to the memory of what I was doing at the time.
+    ("Hey, where's that article I read on holiday last year?")
+    The level of granularity varies -- for some files I know exactly what day I created something, for others I only
+
+
 ---
 
-I'd saved a lot of basic reference material about programming, which I got rid of.
-There was nothing special about those particular files, and I'm confident I could find the same information again with a present-day Google search.
-(And it would be more up-to-date.)
 
-But there are other things I saved that I'm not sure I could find again later
+Different models for each type of thing
+* e.g. photo needs very different metadata to fanfiction, or screenshot
+* models are lightweight, only a handful of fields to fill in
+	* e.g. video = title, source URL, description, tags, duration, path to downloaded file, date saved
+* deliberately generic, not tied to particular service
 
-For example,I got rid of lots of links to basic reference material about programming -- if I need it again, I can find the same information
+two consistent themes emerging
 
-One reason I save stuff is if I'm not sure I could find it again later -- even if the site is still online, it may not be discoverable unless I have the exact URL.
-Lots of fannish and queer communities are quite hard to search for.
-Saving a file in my personal archives makes it much easier to find, because
-
-Basic reference information or answers to questions I could easily find with Google aren't.
-
----
+* organise by year
+* organise by keyword tags
 
 ## Organising my digital archive
 
 As I go through my data and choose what I want to keep, I'm gradually sorting it into a few different piles.
-
----
-
-I'm gradually building a couple of different collections, each for a different type of thing.
-I have
-
-For over a year, I've been tidying up my data.
-Every day I look at a handful of items, and I decide if I want to keep them.
-If I don't, I delete them and move on.
-If I do, I add some metadata that will help me remember why I thought it was worth keeping, and make it easier to find again in future.
-I also move it into a new, simpler organisational structure.
-
-It's a semi-manual process.
-I've written some scripts and tools to help me find stuff I haven't reviewed yet, but ultimately I' have to look at each item and make a "yes/no" decision.
-
-
-If it’s a treasured gift, keep it;
-If it’s unread and bought less than three months ago, keep it;
-If it’s a favourite you re-read often, keep it;
-Everything else, send to the charity shop;
-On March 1st every year, repeat the process.
-
-
----
 
 # part 2: organising my digital archives
 
