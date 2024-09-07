@@ -16,7 +16,7 @@ Most of that is gone now.
 
 Links rot at an extraordinary rate, and much of that early-2010s fan culture has now vanished from the Internet.
 Accounts get deleted, websites go down, domain names lapse.
-We might think the Internet [is written in ink][ink], but really it's more like chalk on a pavement.
+We might think the Internet is written in ink, but really it's more like chalk on a pavement.
 Stuff is visible for a while, and over time it washes away.
 
 Every fan eventually realises that if there's something they love, they have to save your own copy.
@@ -61,53 +61,59 @@ I don't think that's for certain, and I'm not sure it's sustainable -- we need t
 Modern storage means we can keep everything, but that doesn't mean we should.
 "As much as I can save" isn't a collecting strategy; it's hoarding.
 
-[ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32
+<!-- [ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32 -->
 
 ## Deciding what to keep
 
-Everybody will have different criteria for what they think is worth keeping.
-I haven't written a definitive set of rules, and I'm going more on instinct and intuition.
-I'm only keeping my digital files for my personal use, so I'm the only person who needs to be happy with what I pick.
+I've found a few questions which have helped me decide whether something is worth keeping.
 
-As well as asking myself *“when will you want to look at this again?”*, I've spotted a couple of other questions which have been useful to ask.
-Thinking about these questions helps me decide whether something is worth keeping.
+-   *When will you want to look at this again?*
+    If I can't imagine a scenario when I'd be glad to have this file, I can probably delete it.
 
 -   *Do I remember what this is?*
-    If I don't, I'm not going to look for it again or be sad that it's gone.
-    These are easy to deletion, and are probably the majority of what I'm pruning -- stuff I saved but have since forgotten.
+    As I go through my backlog, I'm finding a lot of files that I've completely forgotten saving.
+    If I don't remember them now, I'm unlikely to look for them in future or be sad that they're gone.
 
-    For example, as I was going through my photo library, I found lots of photos of places and buildings that I don't remember.
-    What is this blurry grey cuboid?
-    I have no idea what's in the photo, where it was taken, or why I thought it was important.
+    For example, I found lots of photos I'd taken of places and buildings that I don't remember.
+    I had no idea what the blurry grey rectangle was, where it was taken, or why I thought it was important.
+    I deleted all of those photos.
 
 -   *Did I keep any notes about it?*
-    I have some files where I wrote detailed notes and explanation of why I thought it was important.
-    There are others where I didn't write anything.
-    I usually want to keep the former, less so the latter.
+    If my past self wrote detailed notes and explanation of why I thought it was important, I can decide whether it's still worth keeping.
+    If I didn't write anything, it probably wasn't that important.
+    I've deleted hundreds of bookmarks which were just a URL, for which my past self didn't leave any other context.
 
-    For example, I started with about 6000 bookmarks.
-    Maybe half of those I'd written a short summary or other notes to remind me what the link was about; the other half I'd just saved a URL and title.
-    Most of the latter were links I was saving in a hurry, saving for the sake of saving rather than because I'd want to find them again.
-    I've deleted a lot of them.
+    This is a useful litmus test as I save new material -- if it's not worth taking a minute to write a sentence or two of description, is it really worth saving?
 
--   *Is this timeless or time-limited?*
-    If something is very tied to current affairs or the news, I'm unlikely to want it for the long-term.
+-   *Is it timeless or time-limited?*
+    If something is about current affairs or the news, I'm unlikely to want it for the long-term.
     It might be useful for a historian, but that's not me.
+    I've purged a lot of saved podcast episodes that were speculating about the Brexit vote, the Python 2 transition, and upcoming Apple events.
 
-    For instance, I listen to a lot of podcasts.
-    Some of them are discussing recent news, like politics are the latest tech announcements -- I listen once and never again.
-    I deleted a lot of podcast episodes speculating about the Brexit vote and the Python 2 transition.
-    Others have more evergreen content, like fiction podcasts or lifestyle advice.
-    I listen to some episodes multiple times, and I want local copies of my favourites.
+-   *If I didn't save it myself, would I struggle to find it again later?*
+    Some of my now-deleted bookmarks were links to basic reference material.
+    That's information I could easily find again through Google, and if I was looking for it I wouldn't think to look in my personal archives.
 
--   *If I wanted to find this again, would I look in my personal archives?*
+    On the other hand, a lot of fannish and queer communities are quite hard to find online.
+    I might struggle to find stuff again if I don't have a link, but I can find it easily if I save a copy in my personal, local archives.
 
-    One reason I save stuff is that I'm not sure I could find it again later -- even if the site is still online, it may not be findable unless you have the exact URL.
-    This is particularly true for some fan communities, which deliberately don't make themselves too easy to find.
+---
 
-    As I've gone through my bookmarks, I've found a lot of basic reference material I saved when I started programming.
-    I'd completely forgotten I had any of these links, and they don't contain any unique information -- for example, there are dozens of articles about how to save a file in Python.
-    If I wanted to find that information again, I wouldn't look in my personal archives, I'd ask Google.
+I'd saved a lot of basic reference material about programming, which I got rid of.
+There was nothing special about those particular files, and I'm confident I could find the same information again with a present-day Google search.
+(And it would be more up-to-date.)
+
+But there are other things I saved that I'm not sure I could find again later
+
+For example,I got rid of lots of links to basic reference material about programming -- if I need it again, I can find the same information
+
+One reason I save stuff is if I'm not sure I could find it again later -- even if the site is still online, it may not be discoverable unless I have the exact URL.
+Lots of fannish and queer communities are quite hard to search for.
+Saving a file in my personal archives makes it much easier to find, because
+
+Basic reference information or answers to questions I could easily find with Google aren't.
+
+---
 
 ## Organising my digital archive
 
