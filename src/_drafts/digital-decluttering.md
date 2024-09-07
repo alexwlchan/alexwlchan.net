@@ -15,27 +15,25 @@ I was surrounded by the creativity of strangers, sharing my own ideas, and takin
 Most of that is gone now.
 
 Links rot at an extraordinary rate, and much of that early-2010s fan culture has now vanished from the Internet.
-Authors delete their work, or websites go down, or domain names lapse.
+Accounts get deleted, websites go down, domain names lapse.
 We might think the Internet [is written in ink][ink], but really it's more like chalk on a pavement.
 Stuff is visible for a while, and over time it washes away.
 
-If there's something you love, you have to save your own copy.
-Every fan eventually learns this lesson the hard way, when they go to find something they remember from years ago, and it's vanished off the face of the Internet.
+Every fan eventually realises that if there's something they love, they have to save your own copy.
+We all learnt this lesson the hard way, when we went to find something we remembered from years ago, and it had vanished from the face of the Internet.
 
 So I started saving, and I kept saving.
 Digital storage has become cheap and abundant, and I could afford to keep local copies of everything.
-I didn't have to be picky with what I was saving, and I didn't want to be; I wanted all of it.
+I didn't have to be picky with what I was saving.
 
 I saved web pages and photos and PDFs and videos and audio files, and I wrote scripts to save as much as possible, all so I'd never lose anything again.
-I kept every photo I'd ever taken, every tweet I'd written, every email I'd sent.
+I kept every photo I'd ever taken, every tweet I'd written, every link I'd read.
 If you look at early posts on this site or my old GitHub repos, you'll see my excitement at code that could scrape down data and squirrel it away on my hard drive.
 I always thought "what if I want to go back to this someday?"
 
-<!-- At some point I had over 3 million files and I was juggling multiple hard drives to store it all. -->
-
 Looking back, I could skip 95% of this data and I'd be fine.
 There are some things that I'm glad I saved, but there's an awful lot of other stuff that I've never gone back to, and I know I'm never going to look at again.
-And because I have a big pile of poorly-organised files, it's difficult to find that 5% I actually care about.
+And because I was more interested in saving lots of files than organising what I had, it's difficult to find that 5% I actually care about.
 
 I'm trying to simplify.
 My data is currently split across my internal disk and several external hard drives, and those external drives need to be replaced soon.
@@ -44,7 +42,7 @@ Ideally I'd like to shrink my data until it fits on a single, internal disk.
 As I save new stuff today, I'm trying to be more intentional about what I keep.
 Before I save something, I ask myself "when will you want to look at this again?"
 If I can't imagine a scenario in which I'd be glad to have saved this particular thing, I don't save it.
-I've already been collecting for fifteen years, and I know what sort of stuff I go back to.
+I've been collecting for fifteen years, and I know what sort of stuff I go back to.
 Heartfelt stories and in-depth essays? Yes.
 Current affairs and political news? Not so much.
 
@@ -53,171 +51,91 @@ I've been gradually pruning it, deleting what I don't want and organising what I
 It's a slow and arduous process, because there's no easy way to automate this -- ultimately, I have to look at every item and decide if it's worth keeping.
 
 It took me years to accumulate this data, so I'm not going to clear it in a week.
-I've already spent months chipping away at it, reviewing a few items a day, and there's more to go.
+I've already spent months chipping away at it, reviewing a few items a day, and there's plenty more to go.
 So far I've reviewed all the photos I've taken, the videos I saved, the podcasts I kept.
-I'm midway through cleaning up my bookmarks folder.
+I'm midway through cleaning up my bookmarks folder, and after that are my tweets.
 I've shed thousands of files and tossed an entire hard drive, but more importantly, I can now find the items I actually care about.
 
 Many nerds treat it as inevitable that our data gets bigger over time; that we'll always need more storage than we did in the past.
-I think we need to resist that notion, and be more intentional about our data.
+I don't think that's for certain, and I'm not sure it's sustainable -- we need to be more intentional about our data.
 Modern storage means we can keep everything, but that doesn't mean we should.
-"Anything goes" isn't a collecting strategy; it's hoarding.
-
----
-
-Many nerds treat it as inevitable that your data gets bigger over time; that you’ll always need more storage than you did in the past. It’s taking time to get there, but I’m trying to resist that.
-
-
-> Cloud storage services make it all too easy to eagerly backup anything and everything without being intentional. Now we've all inadvertently become data hoarders.
->
-> Just because we have easy access to near-infinite and increasingly more affordable storage doesn't mean we should be using all that space. The next generation of cloud-based services need to design for curation and control. It doesn't feel like an immediate concern, but it will only continue to increase.
-
-
-
----
-
-so you learn to save your own stuff
-=> i saved too much
-=> i need to save less
+"As much as I can save" isn't a collecting strategy; it's hoarding.
 
 [ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32
 
+## Deciding what to keep
 
-Many nerds treat it as inevitable that your data gets bigger over time; that you’ll always need more storage than you did in the past. It’s taking time to get there, but I’m trying to resist that.
+Everybody will have different criteria for what they think is worth keeping.
+I haven't written a definitive set of rules, and I'm going more on instinct and intuition.
+I'm only keeping my digital files for my personal use, so I'm the only person who needs to be happy with what I pick.
 
+As well as asking myself *“when will you want to look at this again?”*, I've spotted a couple of other questions which have been useful to ask.
+Thinking about these questions helps me decide whether something is worth keeping.
 
----
+-   *Do I remember what this is?*
+    If I don't, I'm not going to look for it again or be sad that it's gone.
+    These are easy to deletion, and are probably the majority of what I'm pruning -- stuff I saved but have since forgotten.
 
----
+    For example, as I was going through my photo library, I found lots of photos of places and buildings that I don't remember.
+    What is this blurry grey cuboid?
+    I have no idea what's in the photo, where it was taken, or why I thought it was important.
 
-The first computer I remember using is an iMac G3.
-It had a 4GB hard drive, a fact I was only dimly aware of at the time.
-I was just using it to play games and make silly Word documents, so I was hardly filling the disk.
-I didn't know what hard drives were, and I didn't think about storage.
-As far as I was concerned, 4GB was plenty.
+-   *Did I keep any notes about it?*
+    I have some files where I wrote detailed notes and explanation of why I thought it was important.
+    There are others where I didn't write anything.
+    I usually want to keep the former, less so the latter.
 
-Fast forward two decades, and the world has changed.
-I'm writing this article on a MacBook Air with a 256GB SSD – 60 times more than that original iMac, and many people would call this "small".
-Storage has become much cheaper, and we use much more of it.
+    For example, I started with about 6000 bookmarks.
+    Maybe half of those I'd written a short summary or other notes to remind me what the link was about; the other half I'd just saved a URL and title.
+    Most of the latter were links I was saving in a hurry, saving for the sake of saving rather than because I'd want to find them again.
+    I've deleted a lot of them.
 
-The last time I bought an external hard drive, I paid just £83 for a 4TB disk – 1000 times more than the iMac.
-I picked the largest portable drive that was available, because more storage is always better, right?
+-   *Is this timeless or time-limited?*
+    If something is very tied to current affairs or the news, I'm unlikely to want it for the long-term.
+    It might be useful for a historian, but that's not me.
 
-I've never experienced scarcity of digital storage.
-I've never had to delete files because I was running out of disk space.
-I've always been able to keep as much data as I wanted, for minimal cost.
+    For instance, I listen to a lot of podcasts.
+    Some of them are discussing recent news, like politics are the latest tech announcements -- I listen once and never again.
+    I deleted a lot of podcast episodes speculating about the Brexit vote and the Python 2 transition.
+    Others have more evergreen content, like fiction podcasts or lifestyle advice.
+    I listen to some episodes multiple times, and I want local copies of my favourites.
 
----
+-   *If I wanted to find this again, would I look in my personal archives?*
 
+    One reason I save stuff is that I'm not sure I could find it again later -- even if the site is still online, it may not be findable unless you have the exact URL.
+    This is particularly true for some fan communities, which deliberately don't make themselves too easy to find.
 
-When I bought my last external hard drive, I paid £83 for a 4TB disk – the largest portable drive I could buy at the time. You can always use more storage, right? Why not get the biggest disk I could? I actually bought three of those disks, for a total of 12TB – of which I’ve used maybe half.
+    As I've gone through my bookmarks, I've found a lot of basic reference material I saved when I started programming.
+    I'd completely forgotten I had any of these links, and they don't contain any unique information -- for example, there are dozens of articles about how to save a file in Python.
+    If I wanted to find that information again, I wouldn't look in my personal archives, I'd ask Google.
 
-<!-- # part 1: clearing my digital clutter
+## Organising my digital archive
 
-when I bought my last external hard drive, I bought a 4TB disk -- largest portable drive I could buy
-I paid £83
-because you always use more storage right? why not get the biggest?
-
-then you go to the cloud, where storage is silly cheap
-at wellcome, we'd talk about $1/TB
-from a business PoV, that's close to free -->
-
-I’ve never experienced scarcity of my digital storage. I’ve never had to delete files because I was running out of disk space. I’ve always been able to keep as much data as I wanted for a near-trivial cost.
-
-But I have experienced data loss, especially of online content. I spent my early Internet years in fandom, and I learnt that if you like something, you have to save your own copy. Sites go down, works get removed, you can’t find stuff again. Every fan learns to be an amateur archivist, to preserve the things they care about.
-
-When I started saving stuff, I kept everything, because storage is cheap and easy, right? And because I had so much storage, I began looking for ways to fill it – downloading photos, videos, podcasts, web pages – all to use this massive disk I’d acquired.
-
-In hindsight, I didn’t need 90% of what I was saving – maybe less. Because I had storage in abundance, it was easy not to be picky with what I was saving, and just keep everything.
-
-The cost of storage isn’t money – it’s cognitive overload. I have hundreds of thousands of files. I saved things because I could save them, without any thought about whether I’d ever look at them again. Some of them I care about, but most of them I don’t! The collection is poorly organised, so it’s hard to find the stuff I actually care about.
-
-Here are examples of collections where I saved stuff for the sake of saving it, without thinking about whether I should save it:
-
-* I used to keep every photo I ever took, even though a lot of them were blurry, duplicates, or reminders of long-ago completed tasks. Whenever I looked through my photo library, I’d have to scroll past lots of bad photos to find the good ones.
-* I’ve been through phases where I bookmarked every article I read, with no thought about whether I’d ever want to read it again. Often I didn’t write any context, so I just have a link and no memory of if or why it’s significant. Or the article is about a very specific thing and I’d be unlikely to read it again – like speculation about the Brexit vote, or workflows for a specific version of Docker.
-* I saved every podcast episode I ever listened to, because it was easy and I could. Overcast can export an OPML file of every episode you’ve downloaded, and I wrote a script to download them all. There are some timeless podcast episodes I want to listen to again and again, but a lot of them are current affairs or news-related and I’m unlikely to listen to them again.
-
-This is hoarding, plain and simple. Archivists and collectors know a good collection isn’t “anything goes” – it’s a considered selection of material that follows a particular theme, and might be interesting to look at later.
-
-I listened to a great podcast recently [link], and the guest talked about how hoarding of physical clutter always has its roots in trauma. When it comes to my digital hoarding, “trauma” might be a strong word, but I can see parallels – I remember when I first went to read a fic and discovered the site had vanished, and I couldn’t find a copy anywhere else.
-
-This approach of “keep everything” is unhelpful. I’ve accumulated a big pile of data. Some of it is stuff I definitely want to look at again, but most of it is stuff I never need to see again.
-
-As I save new material, I’,m trying to be more intentional about what I keep. Before I save something, I ask myself: *“when will you want to look at this again?* If I can’t imagine a scenario in which I’d want to look at it again, I don’t save it.
-
-That’s slowing the influx of new data, but there’s still the backlog of all the data I’ve collected over twenty years. I’ve been gradually pruning it, and building better tools to organise it. It’s slow going, because there’s no easy way to automate this – ultimately, I have to look at every item and decide if it’s worth keeping.
-
-It took me twenty years to build this pile of data, so I’m not going to clear it in a day. I have to pace myself – this is precisely the sort of task that my hyperfocus could latch onto and while away endless time.
-
-I’ve already reviewed all of the photos I’ve taken, the videos I’ve saved, and the podcasts I’ve saved. I’ve shed thousands of files. I’ve saved a decent chunk of disk space, but more importantly, I can now find the items I actually care about.
-
-Many nerds treat it as inevitable that your data gets bigger over time; that you’ll always need more storage than you did in the past. It’s taking time to get there, but I’m trying to resist that.
+As I go through my data and choose what I want to keep, I'm gradually sorting it into a few different piles.
 
 ---
 
-have been gradually pruning material + building better tools to organise
-it's slow going, because there is no automating this – have to look at every item and decide if it's worth keeping
-can built tools to help me, but eventually I have to look at things
-(will write more about organisation in another post)
+I'm gradually building a couple of different collections, each for a different type of thing.
+I have
 
-easy thing to hyperfocus on, so have to limit self
-have already reviewed photos, videos, and podcasts
-slowly doing bookmarks
-i'm sure I have more folders of long-forgotten digital clutter I could clear out
+For over a year, I've been tidying up my data.
+Every day I look at a handful of items, and I decide if I want to keep them.
+If I don't, I delete them and move on.
+If I do, I add some metadata that will help me remember why I thought it was worth keeping, and make it easier to find again in future.
+I also move it into a new, simpler organisational structure.
 
-trying to be more intentional about what I keep, new stuff
-simple rule: "when will I want to look at this again"
-gradually applying to old stuff and culling stuff that doesn't meet rule
-long-held wisdom that "storage gets bigger over time"
-trying to resist that
+It's a semi-manual process.
+I've written some scripts and tools to help me find stuff I haven't reviewed yet, but ultimately I' have to look at each item and make a "yes/no" decision.
 
-those 4TB hard drives are approaching end-of-life
-had them for four years, want to get rid of before they break
-will probably go to SSD, get rid of whirring mechanical sounds (and less risk of breaking)
-but for first time, might go smaller
 
-> I understand the general gist of your outline. It appears to be a personal reflection on digital clutter and storage habits over time. Here's a summary of the structure I've gleaned:
->
-> 1. Introduction: Personal history with digital storage
->     - First computer experience (iMac G3)
->     - Evolution of storage capacity over time
-> 2. The abundance of storage
->     - Personal examples (MacBook Air, external hard drive)
->     - Cloud storage and its low cost
-> 3. Reasons for digital hoarding
->     - Preservation fears from early internet experiences
->     - Abundance mentality leading to saving everything
-> 4. The hidden costs of digital hoarding
->     - Financial costs
->     - Energy costs
->     - Cognitive overload
-> 5. Personal inventory of digital clutter
->     - Photos
->     - Bookmarks
->     - Podcast episodes
-> 6. Realizing the problem and taking action
->     - Comparing to proper archiving and collecting
->     - Gradual pruning and organization
->     - Building tools to assist in the process
-> 7. New approach to digital storage
->     - Being more intentional about keeping items
->     - Applying the rule: "When will I want to look at this again?"
-> 8. Conclusion
->     - Resisting the "storage gets bigger over time" mentality
->
-> The structure seems logical and follows a natural progression from personal history to realization of the problem, then to action and a new mindset. It effectively tells a story while also providing insights and practical tips.
->
-> A few suggestions to potentially enhance the structure:
->
-> 1. Consider adding a clear thesis statement early on to set the tone for the entire piece.
-> 2. You might want to group some of the similar themes together more tightly, such as all the reasons for hoarding in one section.
-> 3. Consider adding a section on the benefits you've experienced since starting to declutter your digital life.
-> 4. You could potentially elaborate on your new organizational system and tools in a separate section.
->
-> Overall, the structure provides a solid foundation for an engaging and relatable blog post about digital clutter and mindful data management. It balances personal anecdotes with broader observations and practical advice, which should resonate with many readers.
->
-> Copy
+If it’s a treasured gift, keep it;
+If it’s unread and bought less than three months ago, keep it;
+If it’s a favourite you re-read often, keep it;
+Everything else, send to the charity shop;
+On March 1st every year, repeat the process.
+
+
+---
 
 # part 2: organising my digital archives
 
