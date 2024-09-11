@@ -59,9 +59,156 @@ I don't think that's for certain, and I'm not sure it's sustainable -- we need t
 Modern storage means we can keep everything, but that doesn't mean we should.
 "As much as I can save" isn't a collecting strategy; it's hoarding.
 
-In the rest of this post, I'll talk about some steps I've taken to simplify and manage my digital collections.
-I still want to keep some of what I've saved, but I'm getting rid of a lot of the clutter.
-I'm gradually creating a more selective and well-organised archive.
+## Example 1: the photos I've taken
+
+I used to keep every photo I'd ever taken.
+I had a big disk and I was using iCloud Photo Library, so the incremental cost of each additional photo was essentially zero.
+I was snapping away on my iPhone, and there was no pressure to control the number of photos I was keeping.
+
+Some of those photos record important memories and life moments, and I'm so glad that I have them.
+But I was also had a lot of junk -- blurry pictures, or duplicates, or reminders to do something.
+I found *so* many photos of books I wanted to read.
+
+Last year I [wrote a Mac app called Blink][blink] to help me review my photos.
+It has a simple keyboard-driven interface, where I can step through my photo library and label each photo as "approved", "rejected", or "needs action".
+I can review most photos with one or two keystrokes, which minimises the impact on my wrists.
+
+A few times a week, I use Blink to review all my new photos.
+I'm keeping maybe a quarter of the photos I take, and deleting the rest.
+
+I've also been working backwards through my old photos.
+It's taken about eleven months, but I have now looked at every one of the 32,000 photos I started with, and pruned it down to 25,000.
+That still seems like an enormous number -- more than 2 photos for every day I've been alive -- but it's a start.
+
+There were a lot of photos that were easy to delete.
+Either because they were bad pictures (blurry or pictures of my feet) or because I'd completely forgotten what they represent.
+I pruned a lot of photos of generic landscapes and buildings that I don't recognise, and I don't have enough context to guess at what they are.
+And I'm not a very good photographer -- even if I had taken a photo of somewhere interesting, this isn't the photo you'd use to represent it.
+
+The photos of people were harder.
+My earliest digital photos are from 2003, and a lot has happened in that time.
+There are many happy memories in there, and I can see how much I've grown.
+I can see how much happier I am post-transition.
+But my photos are also a catalogue of errors.
+I was embarrased by the cringe things I did as a teenager, and reminded of the mistakes I've made as an adult.
+There are people in those photos I haven't spoken to in years; our lives drifted apart and we fell out of touch.
+I am, I suppose, glad that there isn't much acrimony -- there were very few people who I'm glad to have cut out of my life; who I'm happy not to be speaking to any more.
+But it wasn't an easy process, and I had to take it a few photos at a time.
+There's a lot of guilt in there.
+(Ghosts.)
+
+Difficult as it was, I'm glad I did this.
+Now when I look through my photo library, I see more photos that tell stories or trigger memories.
+
+[blink]: /2023/blink/
+
+## Example 2: the podcasts I listened to
+
+I used to keep every podcast episode I'd ever listened to.
+Why?
+Because it was easy.
+
+When I was younger I listened to a podcast called IRL Talk.
+I have some very fond memories of listening to it (and I still have the T-shirt, which is holding up amazingly well for a decade plus of wearing) -- but it fell off the Internet a few years later, after one of the hosts passed away.
+I was sad that I couldn't listen to it any more, and delighted when somebody gave the complete collection to the Internet Archive.
+
+I use Overcast to listen to podcasts, and it provides an OPML export of every episode you've ever listened to.
+(This is a non-standard format; different from the OPML file you use to move subscriptions from one app to another.)
+I had a big disk and I enjoyed writing Python scripts, so I wrote a script that downloaded every episode listed in that file.
+
+This gave me a folder of hundreds of MP3 files, most of which I never want to listen to again.
+I listen to a lot of podcasts about current affairs and news, which are interesting in the moment but I rarely go back to.
+Why was I keeping those?
+
+And because this folder was the output of a scrappy script rather than a polished podcast player, it was harder to find files than by using Overcast -- so this folder was filling up, but I'd never look in it.
+
+I threw the whole thing away, and I built a new podcast archive based on my starred playlist.
+This is a playlist I've been adding to for years, of episodes that are timeless and interesting and which I listen to over and over.
+I know that I'll want to listen to these episodes again, so I have been.
+
+I created a much smaller local archive, with just the hundred or so episodes from that starred playlist.
+I built a simple HTML interface on top of them, which I can browse locally and see just that subset of top-tier podcast episodes.
+Because it's so small, I was also able to hand-edit the metadata to add a couple of audio files I want to keep that aren't in Overcast, like private podcatss that I worked on.
+
+This curated collection uses 4% of the disk space of the folder that hoovered up everything, and I can go straight to those most-favoured episodes.
+
+## Example 3: The links I saved
+
+At my peak, I had around 6000 bookmarks split across various places.
+Some of them were links I've been back to many times, and others were links I had no reason to return to.
+
+I'm gradually going through my bookmarks, and trying to recuce it into a more focused collection - links I might actually want to visit again.
+I'm about halfway through so far.
+
+There are some patterns emerging in the links I'm deleting.
+There's a lot of current affairs, reference material I wouldn't think to look for in my bookmarks, fic I don't want to read again.
+I had a lot of bookmarks which were nothing more than a URL and a couple of tags -- if I hadn't bothered to leave even a shred of descriptive text, how impotant was it really?
+
+This has also been a good prompt to check my backups.
+I pay for Pinboard's archiving service, which has ostensibly backed up almost all oy my bookmarks -- but maybe a third of those archives were unusable.
+Some of them were backups of 404 pages because the original link had rotted (a dismaying number of pages which were still up on the site but not redirecting properly); others were paywalls or login screens.
+I can see the pages if I open them in my browser, but they're invisible to Pinboard's archiver.
+
+So as I decide which bookmarks to keep, I'm checking the archival copy -- either using the one from Pinboard if it's good, or creating my own manually.
+This takes longer, but now I know that all of my archived web pages are useful copies, and not useless backups of broken pages.
+
+I'm also adding proper descriptions and summaries to all my bookmarks, so I know why a link is important and worth keeping.
+
+These two steps add more friction to the process, certainly, but I don't think that's a bad thing.
+It means I can't save as many bookmarks as before, so I'm being more thoughtful about what I save -- do I really want to be able to find this link later, or am I just saving it because I've just read it?
+
+## Can we do better?
+
+I have too much digital stuff.
+I'm happier when I have less stuff, but the stuff I'm keeping is better described -- it's easier to manage, and easier to find the stuff I care about.
+
+Some of this is a problem of my own making -- present!me is having to clean up the pile of data collected by past!me -- but some of it is a culture that encourages us to be lavish with storage.
+For most people their biggest pile of data will be their photo collection, and smartphone makers have made it easy for us to snap away and save limitless photos to their cloud.
+(For a small fee, of course. Whether or not we ever look at them again. Plus it creates inertia and lock-in.)
+
+I keep saying storage is "cheap and abundant", but that's only half-true -- it's cheap for me to buy hard drives and cloud storage, but the cost is being paid elsewhere.
+The materials used to make hard drives; the electricity and water to power the cloud data centres; the cognitive load of owning so much data.
+It's not sustainable for us all to have an ever-growing pile of data.
+The planet can only hold a finite amount of data, and I think we're closer to that limit than we realise.
+
+We need to keep less data, but I don't know how we get there.
+
+I've managed to reduce my own digital footprint, but not everyone can copy my approach.
+It takes time and tools -- I've spent many hours working on this, and written a lot of bespoke tools and scripts.
+(And my brain is very happy to work on this sort of repetitive, slightly monotonous task -- my hyperfocus has had a field day.)
+Not everyone can do that.
+So what can they do?
+
+The big tech solution is to throw more technology at the problem.
+Use AI and machine learning to sift through our enormous piles of data, and extract the gems -- but this feels like throwing good money after bad.
+We're building bigger and bigger houses of cards, when what we really want is smaller, more carefully selected piles of data.
+(As I go about this process, I've been trying to embrace lower-tech solutions, which I'll write about in another post.)
+
+
+
+---
+
+common themes:
+
+* I have too much stuff
+* I'm happier when I have less stuff, but better described
+* The disk space is nice, higher signal-to-noise ratio is nicer
+* This is hard, takes tools and time
+  - I have spent many hours and built a small mountain of custom tooling to get to this point
+  - Not everyone can do that
+  - So what do they do?
+* The big tech solution is to throw more tech at the problem
+  - Use AI and ML to sift through our enormous piles of data
+  - Bigger and bigger house of cards
+  - But maybe we need smaller piles of data
+* As I go about this process, I've been trying to embrace lower-tech solutions
+  - Will write about in separate post
+
+
+
+
+
+
 
 <!-- [ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32 -->
 
@@ -115,52 +262,39 @@ Adding this metadata is a manual process, which adds a bit of friction to saving
 I'm okay with this -- taking a minute or so to write some notes will make files much easier to find later, and encourages me to be thoughtful about what I'm saving.
 This step is a moment to pause, reflect, and double check that this thing really is worth saving.
 
-It's also a lightweight process, and my metadata is more of a folksonomy than a rigidly-defined set of categories.
-This is to ensure that I always can add metadata, and I don't have to think too hard about it -- otherwise I put it off, and I end up with a desktop of unsorted files because they don't fit into the organisation system I've build.
+One of the key bits of metadata I add to everything is *keyword tags*.
+I'm a big fan of tagging as a way to categorise data.
+It's very flexible -- I can add multiple tags to a single file, and create tags as I need -- and it allows me to categorise something very quickly.
+Later when I'm trying to find something, I can remember or guess what tags I'd have added, and look for items with that tag -- that narrows it down pretty quickly.
+For example, all the fanfiction I've saved is tagged with `!fic`.
 
-The metadata I'm adding varies by format -- for example, a photo I've taken needs different metadata to a web page I've saved -- but there are two fields I'm using pretty consistently:
+The metadata is deliberately lightweight, just a handful of fields -- so I can get something useful without it becoming onerous.
+I've used this approach across a variety of projects, and it's been pretty successful.
 
-*   *The date when I created or saved this file.*
-    This is useful because it allows me to anchor data to the memory of what I was doing at the time.
-    ("Hey, where's that article I read on holiday last year?")
-    The level of granularity varies -- for some files I know exactly what day I created something, for others I only
+## Suggested reading
+
+Paul Stamiatou
+Fan is a tool-using
+Emily Gorcenski
+Rands (?)
+
+## Why I love keyword tags
+
+> Joshua explained to me that tagging was basically a search engine in reverse. > This was an incredibly powerful idea.
+>
+> When you wanted to save something for later, tags gave you a chance to enter the same words your future self would type into a search box months later.
 
 
----
+key is that I can tag quickly
+* never wondering how I should tag something; if I have to think about it I'll get indecision and it gets thrown in the great bucket of "uncategorised" never to be seen again
+* tags are v flexible, add as and when
+* don't always tag consistently
+* more folksonomy than taxonomy
+* taxonomy would take a long time to create! is hard! requires library skills! big arguments!
+* only person who has to understand these is me!
+* and gradually refine over time
+* (e.g. with fuzzy matching to find similar tags)
 
-
-Different models for each type of thing
-* e.g. photo needs very different metadata to fanfiction, or screenshot
-* models are lightweight, only a handful of fields to fill in
-	* e.g. video = title, source URL, description, tags, duration, path to downloaded file, date saved
-* deliberately generic, not tied to particular service
-
-two consistent themes emerging
-
-* organise by year
-* organise by keyword tags
-
-## Organising my digital archive
-
-As I go through my data and choose what I want to keep, I'm gradually sorting it into a few different piles.
-
-# part 2: organising my digital archives
-
-trying to be more intentional about what I keep, new stuff
-simple rule: "when will I want to look at this again"
-
-follow-up question: "how will i find it when I want to?"
-don't want to be creating stuff thrown into a void never to be seen again
-want some way to add metadata to items I'm saving, so I can find them again
-don't want to be onerous task
-
-Different models for each type of thing
-* e.g. photo needs very different metadata to fanfiction, or screenshot
-* models are lightweight, only a handful of fields to fill in
-	* e.g. video = title, source URL, description, tags, duration, path to downloaded file, date saved
-* deliberately generic, not tied to particular service
-
-two consistent themes: year and tag
 
 one consistent theme: I love keyword tags
 * not hierarchical folders, require single point of entry
@@ -183,38 +317,7 @@ tags are v flexible, allow namespacing
 * e.g. in my bookmarks I have `type:fic` `type:opinion` `type:howto` which create a layer of faceting within tags
 * could be a separate `type` field but can shoehorn into tags + more flexible to add new categories as and when
 
-then to retrieve? throw shuffle in the mix
-
-lightweight data model, few fields, tags
-* have used this approach across a variety of projects
-* been pretty successful
-
-> Your outline for part 2 looks good. It focuses on your approach to organizing digital archives and complements the first part well. Here's a summary of the structure I see:
->
-> 1. New approach to digital storage
->     - Being intentional about keeping items
->     - Key questions: "When will I want to look at this again?" and "How will I find it when I want to?"
-> 2. Importance of metadata
->     - Adding metadata to saved items for easy retrieval
->     - Balancing thoroughness with ease of use
-> 3. Different models for different types of content
->     - Examples of metadata fields for various content types
->     - Keeping models lightweight and generic
-> 4. Focus on keyword tags
->     - Advantages over hierarchical folder systems
->     - Flexibility and multiple points of entry
-> 5. Tagging strategy
->     - Quick and intuitive tagging
->     - Folksonomy approach
->     - Gradual refinement over time
-> 6. Advanced tagging techniques
->     - Namespacing within tags
->     - Creating facets within the tagging system
-> 7. Conclusion
->     - Summary of the lightweight data model approach
->     - Success across various projects
->
-> This structure effectively builds upon the ideas introduced in part 1, moving from the problem of digital clutter to your solution for organizing digital archives. It provides a clear progression of ideas and practical insights into your organizational system.
+---
 
 # part 3: tools for my digital archives
 
