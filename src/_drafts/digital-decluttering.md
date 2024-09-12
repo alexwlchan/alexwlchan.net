@@ -5,9 +5,7 @@ summary:
 tags:
 ---
 I spent a lot of my formative Internet years in online fandom.
-I read novel-length stories about *Doctor Who* characters.
-I swooned over fan art of the *Lizzie Bennet Diaries*.
-I pored over in-depth analyses of each episode of *Carmilla*.
+I read novel-length stories about *Doctor Who* characters; I swooned over fan art of the *Lizzie Bennet Diaries*; I pored over in-depth analyses of each episode of *Carmilla*.
 I was surrounded by the creativity of strangers, sharing my own ideas, and taking the first steps towards my queer awakening.
 
 Most of that is gone now.
@@ -48,128 +46,121 @@ That's slowing the influx of new data, but there's still the data I've already c
 I've been gradually pruning it, deleting what I don't want and organising what I do.
 It's a slow and arduous process, because there's no easy way to automate this -- ultimately, I have to look at every item and decide if it's worth keeping.
 
-It took me years to accumulate this data, so I'm not going to clear it in a week.
-I've already spent months chipping away at it, reviewing a few items a day, and there's plenty more to go.
-So far I've reviewed all the photos I've taken, the videos I saved, the podcasts I kept.
-I'm midway through cleaning up my bookmarks folder, and after that are my tweets.
-I've shed thousands of files and tossed an entire hard drive, but more importantly, I can now find the items I actually care about.
+---
 
-Many nerds treat it as inevitable that our data gets bigger over time; that we'll always need more storage than we did in the past.
-I don't think that's for certain, and I'm not sure it's sustainable -- we need to be more intentional about our data.
-Modern storage means we can keep everything, but that doesn't mean we should.
-"As much as I can save" isn't a collecting strategy; it's hoarding.
-
-## Example 1: the photos I've taken
+## Are you going to look at that photo again?
 
 I used to keep every photo I'd ever taken.
-I had a big disk and I was using iCloud Photo Library, so the incremental cost of each additional photo was essentially zero.
-I was snapping away on my iPhone, and there was no pressure to control the number of photos I was keeping.
+I was snapping away on my smartphone, and uploading each picture to iCloud Photo Library and my local hard drive.
 
 Some of those photos record important memories and life moments, and I'm so glad that I have them.
-But I was also had a lot of junk -- blurry pictures, or duplicates, or reminders to do something.
-I found *so* many photos of books I wanted to read.
+But a lot of them are complete junk -- blurry shots, duplicate pictures, long-passed reminders of something I had to do.
+(I had *so* many photos of books I wanted to read.)
 
-Last year I [wrote a Mac app called Blink][blink] to help me review my photos.
-It has a simple keyboard-driven interface, where I can step through my photo library and label each photo as "approved", "rejected", or "needs action".
+The junk photos were drowning out the ones I actually cared about, so I decided to prune my library of all the bad pictures.
+Last year I [wrote a Mac app called Blink][blink] to help me with this task.
+The app has a simple keyboard-driven interface, where I can step through my photo library and mark each photo as "approved", "rejected", or "needs action".
 I can review most photos with one or two keystrokes, which minimises the impact on my wrists.
 
 A few times a week, I use Blink to review all my new photos.
 I'm keeping maybe a quarter of the photos I take, and deleting the rest.
 
-I've also been working backwards through my old photos.
-It's taken about eleven months, but I have now looked at every one of the 32,000 photos I started with, and pruned it down to 25,000.
-That still seems like an enormous number -- more than 2 photos for every day I've been alive -- but it's a start.
+I also went through all of my old photos.
+I started with 32,000 photos, and after eleven months I'd looked at all of them, and reduced it to 25,000.
+That still feels like a lot -- more than 2 photos for every day I've been alive -- but it's an improvement.
 
-There were a lot of photos that were easy to delete.
-Either because they were bad pictures (blurry or pictures of my feet) or because I'd completely forgotten what they represent.
-I pruned a lot of photos of generic landscapes and buildings that I don't recognise, and I don't have enough context to guess at what they are.
-And I'm not a very good photographer -- even if I had taken a photo of somewhere interesting, this isn't the photo you'd use to represent it.
+The photos of places and objects were easy to review.
+It was pretty easy to work out whether I recognised the subject of the photo, and if not, I deleted it.
+I got rid of a lot of photos of generic landscapes and builings that I've just forgotten in the intervening years.
 
 The photos of people were harder.
-My earliest digital photos are from 2003, and a lot has happened in that time.
-There are many happy memories in there, and I can see how much I've grown.
-I can see how much happier I am post-transition.
-But my photos are also a catalogue of errors.
-I was embarrased by the cringe things I did as a teenager, and reminded of the mistakes I've made as an adult.
-There are people in those photos I haven't spoken to in years; our lives drifted apart and we fell out of touch.
-I am, I suppose, glad that there isn't much acrimony -- there were very few people who I'm glad to have cut out of my life; who I'm happy not to be speaking to any more.
-But it wasn't an easy process, and I had to take it a few photos at a time.
-There's a lot of guilt in there.
-(Ghosts.)
+My earliest digital photos are from 2003, and a lot has happened.
+I was reminded of good memories; I could see how much I've grown; I could see how much happier I became after I transitioned.
 
-Difficult as it was, I'm glad I did this.
-Now when I look through my photo library, I see more photos that tell stories or trigger memories.
+But my memories are also a catalogue of mistakes.
+I was embarrassed by the cringe things I did as a teenager, and reminded of the mistakes I've made as an adult.
+There are dear friends in those photos I haven't spoken to in years.
+We didn't fall out or break up or have any hard feelings; our lives just drifted apart and we fell out of touch.
+I felt a lot of guilt going through these photos.
+
+It wasn't an easy process, and some days I could only look at a few photos before I had to stop.
+
+Although this is an improvement, it stills feels like I have a *lot* of photos.
+There are probably hundreds that I'll never look at again.
+I'm thinking about ways to prune further, or highlight the photos I actually care about -- like putting them on my walls, or making some printed albums.
+I want to do more here.
 
 [blink]: /2023/blink/
 
-## Example 2: the podcasts I listened to
+## When will you have time to listen to all those podcasts?
 
 I used to keep every podcast episode I'd ever listened to.
-Why?
-Because it was easy.
 
-When I was younger I listened to a podcast called IRL Talk.
-I have some very fond memories of listening to it (and I still have the T-shirt, which is holding up amazingly well for a decade plus of wearing) -- but it fell off the Internet a few years later, after one of the hosts passed away.
-I was sad that I couldn't listen to it any more, and delighted when somebody gave the complete collection to the Internet Archive.
+I can trace this to a specific podcast called *IRL Talk*, which I listened to around 2012.
+It's associated with some very fond memories, but it fell off the Internet after one of the hosts passed away.
+I was sad when I couldn't listen to it any more, and delighted when somebody uploaded the complete collection to the Internet Archive.
 
-I use Overcast to listen to podcasts, and it provides an OPML export of every episode you've ever listened to.
-(This is a non-standard format; different from the OPML file you use to move subscriptions from one app to another.)
-I had a big disk and I enjoyed writing Python scripts, so I wrote a script that downloaded every episode listed in that file.
+At some point I discovered that Overcast (my podcast app of choice) could give me an export of every episode I'd played.
+I wrote a Python script that downloaded every episode in my exports, so I'd never have another *IRL Talk* moment.
 
-This gave me a folder of hundreds of MP3 files, most of which I never want to listen to again.
-I listen to a lot of podcasts about current affairs and news, which are interesting in the moment but I rarely go back to.
+This gave me a folder with hundreds of MP3 files, most of which I'll never want to play again.
+I listen to lots of podcasts about news and current affairs, whose value drops off quickly with age.
 Why was I keeping those?
 
-And because this folder was the output of a scrappy script rather than a polished podcast player, it was harder to find files than by using Overcast -- so this folder was filling up, but I'd never look in it.
+Further, the contents of this folder was the output of a scrappy script and not a polished podcast app.
+It was poorly organised, and it was easier to find podcasts by redownloading them in Overcast -- so I never looked in the folder.
+(The only time I looked in this folder was to find a podcast that had been deleted from the web, so I couldn't download it in Overcast any more.
+In some bizarre irony, it was a podcast about digital preservation and longevity.)
 
-I threw the whole thing away, and I built a new podcast archive based on my starred playlist.
-This is a playlist I've been adding to for years, of episodes that are timeless and interesting and which I listen to over and over.
-I know that I'll want to listen to these episodes again, so I have been.
+So I had a growing collection of MP3 files, which were poorly organised and most of which I didn't want to listen to.
+I threw the whole thing away.
 
-I created a much smaller local archive, with just the hundred or so episodes from that starred playlist.
-I built a simple HTML interface on top of them, which I can browse locally and see just that subset of top-tier podcast episodes.
-Because it's so small, I was also able to hand-edit the metadata to add a couple of audio files I want to keep that aren't in Overcast, like private podcatss that I worked on.
+As a replacement, I built a new podcast archive which just includes episodes I'd starred in Overcast.
+It's a much smaller list of episodes that are timeless and interesting, and which I've already listened to multiple times -- only a hundred or so episodes.
+I built a simple HTML interface on top of this archive, which I can browse locally.
 
 This curated collection uses 4% of the disk space of the folder that hoovered up everything, and I can go straight to those most-favoured episodes.
 
-## Example 3: The links I saved
+## Is that bookmark ever coming back?
 
-At my peak, I had around 6000 bookmarks split across various places.
-Some of them were links I've been back to many times, and others were links I had no reason to return to.
-
-I'm gradually going through my bookmarks, and trying to recuce it into a more focused collection - links I might actually want to visit again.
+At its peak, I had a collection of over 6000 bookmarks.
+Some of them were links I've returned to many times, and others were links I'm never going to go back to.
+I'm gradually going through them, and trying to reduce it to a more focused collection.
 I'm about halfway through so far.
 
-There are some patterns emerging in the links I'm deleting.
-There's a lot of current affairs, reference material I wouldn't think to look for in my bookmarks, fic I don't want to read again.
-I had a lot of bookmarks which were nothing more than a URL and a couple of tags -- if I hadn't bothered to leave even a shred of descriptive text, how impotant was it really?
+There are several common forms of clutter in my bookmarks -- current affairs and politics; reference material I'd re-find through Google and not my bookmarks; fic I don't want to read again.
+I've found a lot of bookmarks which were nothing more than a URL and a couple of tags -- if I hadn't bothered to leave even a shred of descriptive text, was it really that important?
 
-This has also been a good prompt to check my backups.
-I pay for Pinboard's archiving service, which has ostensibly backed up almost all oy my bookmarks -- but maybe a third of those archives were unusable.
-Some of them were backups of 404 pages because the original link had rotted (a dismaying number of pages which were still up on the site but not redirecting properly); others were paywalls or login screens.
-I can see the pages if I open them in my browser, but they're invisible to Pinboard's archiver.
+As I'm going through my bookmarks, I'm checking my backups.
+This has been a sobering experience.
+I pay for Pinboard's archiving service, which has ostensibly created a separate copy of every bookmark, in case the original site goes away -- but maybe a third of those copies are unusable.
+It's saved broken pages, 404 errors, paywalls and login screens.
+This is the risk of bulk, automated scraping of the web -- nobody is checking that the scraped page is a useful copy.
 
-So as I decide which bookmarks to keep, I'm checking the archival copy -- either using the one from Pinboard if it's good, or creating my own manually.
-This takes longer, but now I know that all of my archived web pages are useful copies, and not useless backups of broken pages.
+I've been creating a new archive of saved pages, where I'm checking each URl individually.
+I'm keeping the archive from Pinboard if it's good, and if not I'm creating my own.
+This takes longer, but now I know that all my archived web pages are useful copies, and not dead weight.
 
 I'm also adding proper descriptions and summaries to all my bookmarks, so I know why a link is important and worth keeping.
 
-These two steps add more friction to the process, certainly, but I don't think that's a bad thing.
-It means I can't save as many bookmarks as before, so I'm being more thoughtful about what I save -- do I really want to be able to find this link later, or am I just saving it because I've just read it?
+These two steps add more friction to the process, but I think that's a good thing.
+It's slowing me down, and making me more thoughtful about what I save -- do I really want to be able to find this link later, or am I just saving it for the sake of saving it?
+
+---
 
 ## Can we do better?
 
-I have too much digital stuff.
-I'm happier when I have less stuff, but the stuff I'm keeping is better described -- it's easier to manage, and easier to find the stuff I care about.
+It took me years to accumulate my data, so I'm not going to clear it in a week.
+I've spent months chipping away at it, reviewing a few items a day, and there's plenty more to go.
+I've already shed thousands of files and tossed an entire hard drive, but more importantly, I can now find the items I actually care about.
 
 Some of this is a problem of my own making -- present!me is having to clean up the pile of data collected by past!me -- but some of it is a culture that encourages us to be lavish with storage.
 For most people their biggest pile of data will be their photo collection, and smartphone makers have made it easy for us to snap away and save limitless photos to their cloud.
 (For a small fee, of course. Whether or not we ever look at them again. Plus it creates inertia and lock-in.)
 
-I keep saying storage is "cheap and abundant", but that's only half-true -- it's cheap for me to buy hard drives and cloud storage, but the cost is being paid elsewhere.
-The materials used to make hard drives; the electricity and water to power the cloud data centres; the cognitive load of owning so much data.
+I said earlier that storage is "cheap and abundant", but that's only half-true -- it's cheap for me to buy large hard drives or copious cloud storage, but the cost is being felt elsewhere.
+The material used to make hard drives; the electricity and water to power the data centres; the cognitive load of owning so much data.
 It's not sustainable for us all to have an ever-growing pile of data.
-The planet can only hold a finite amount of data, and I think we're closer to that limit than we realise.
 
 We need to keep less data, but I don't know how we get there.
 
@@ -182,339 +173,17 @@ So what can they do?
 The big tech solution is to throw more technology at the problem.
 Use AI and machine learning to sift through our enormous piles of data, and extract the gems -- but this feels like throwing good money after bad.
 We're building bigger and bigger houses of cards, when what we really want is smaller, more carefully selected piles of data.
+And the environmental impact just continues to grow; this is even less sustainable.
 (As I go about this process, I've been trying to embrace lower-tech solutions, which I'll write about in another post.)
 
-
-
----
-
-common themes:
-
-* I have too much stuff
-* I'm happier when I have less stuff, but better described
-* The disk space is nice, higher signal-to-noise ratio is nicer
-* This is hard, takes tools and time
-  - I have spent many hours and built a small mountain of custom tooling to get to this point
-  - Not everyone can do that
-  - So what do they do?
-* The big tech solution is to throw more tech at the problem
-  - Use AI and ML to sift through our enormous piles of data
-  - Bigger and bigger house of cards
-  - But maybe we need smaller piles of data
-* As I go about this process, I've been trying to embrace lower-tech solutions
-  - Will write about in separate post
-
-
-
-
-
-
-
-<!-- [ink]: https://youtu.be/6HbrQMgOUFw?si=n-j_yp7moS8YAx9L&t=32 -->
-
-## Deciding what to keep
-
-I've found a few questions which have helped me decide whether something is worth keeping.
-
--   *When will you want to look at this again?*
-    If I can't imagine a scenario when I'd be glad to have this file, I can probably delete it.
-
--   *Do I remember what this is?*
-    As I go through my backlog, I'm finding a lot of files that I've completely forgotten saving.
-    If I don't remember them now, I'm unlikely to look for them in future or be sad that they're gone.
-
-    For example, I found lots of photos I'd taken of places and buildings that I don't remember.
-    I had no idea what the blurry grey rectangle was, where it was taken, or why I thought it was important.
-    I deleted all of those photos.
-
--   *Did I keep any notes about it?*
-    If my past self wrote detailed notes and explanation of why I thought it was important, I can decide whether it's still worth keeping.
-    If I didn't write anything, it probably wasn't that important.
-    I've deleted hundreds of bookmarks which were just a URL, for which my past self didn't leave any other context.
-
-    This is a useful litmus test as I save new material -- if it's not worth taking a minute to write a sentence or two of description, is it really worth saving?
-
--   *Is it timeless or time-limited?*
-    If something is about current affairs or the news, I'm unlikely to want it for the long-term.
-    It might be useful for a historian, but that's not me.
-    I've purged a lot of saved podcast episodes that were speculating about the Brexit vote, the Python 2 transition, and upcoming Apple events.
-
--   *If I didn't save it myself, would I struggle to find it again later?*
-    Some of my now-deleted bookmarks were links to basic reference material.
-    That's information I could easily find again through Google, and if I was looking for it I wouldn't think to look in my personal archives.
-
-    On the other hand, a lot of fannish and queer communities are quite hard to find online.
-    I might struggle to find stuff again if I don't have a link, but I can find it easily if I save a copy in my personal, local archives.
-
-I'm now considering these questions whenever I save something new.
-I'm also applying them to my existing pile of data, and deleting items that pass muster.
-
-## Organising what's left
-
-Once I've decided to save something, there's a follow-up question: *"How will I find it later?"*
-This is the big problem with my previous systems, where data disappeared into a void, unable to be found again.
-I want to be able to find things that I've saved.
-
-I'm adding a small amount of metadata to everything I'm saving.
-This metadata allows me to record why I thought a file was important, and add some notes and keywords that I can search for later when I'm looking for it.
-
-Adding this metadata is a manual process, which adds a bit of friction to saving anything new.
-I'm okay with this -- taking a minute or so to write some notes will make files much easier to find later, and encourages me to be thoughtful about what I'm saving.
-This step is a moment to pause, reflect, and double check that this thing really is worth saving.
-
-One of the key bits of metadata I add to everything is *keyword tags*.
-I'm a big fan of tagging as a way to categorise data.
-It's very flexible -- I can add multiple tags to a single file, and create tags as I need -- and it allows me to categorise something very quickly.
-Later when I'm trying to find something, I can remember or guess what tags I'd have added, and look for items with that tag -- that narrows it down pretty quickly.
-For example, all the fanfiction I've saved is tagged with `!fic`.
-
-The metadata is deliberately lightweight, just a handful of fields -- so I can get something useful without it becoming onerous.
-I've used this approach across a variety of projects, and it's been pretty successful.
-
-## Suggested reading
-
-Paul Stamiatou
-Fan is a tool-using
-Emily Gorcenski
-Rands (?)
-
-## Why I love keyword tags
-
-> Joshua explained to me that tagging was basically a search engine in reverse. > This was an incredibly powerful idea.
->
-> When you wanted to save something for later, tags gave you a chance to enter the same words your future self would type into a search box months later.
-
-
-key is that I can tag quickly
-* never wondering how I should tag something; if I have to think about it I'll get indecision and it gets thrown in the great bucket of "uncategorised" never to be seen again
-* tags are v flexible, add as and when
-* don't always tag consistently
-* more folksonomy than taxonomy
-* taxonomy would take a long time to create! is hard! requires library skills! big arguments!
-* only person who has to understand these is me!
-* and gradually refine over time
-* (e.g. with fuzzy matching to find similar tags)
-
-
-one consistent theme: I love keyword tags
-* not hierarchical folders, require single point of entry
-* tags allow multiple points of entry
-* e.g. if I save a music video I like, am I going to search for "music" or the genre or the artist's name?
-* tagging: don't have to choice, apply to all
-* theoretically can even combine tags for more filtered queries -- in practice rare, with smaller collections (few thousand items) a single tag gets me close enough
-
-key is that I can tag quickly
-* never wondering how I should tag something; if I have to think about it I'll get indecision and it gets thrown in the great bucket of "uncategorised" never to be seen again
-* tags are v flexible, add as and when
-* don't always tag consistently
-* more folksonomy than taxonomy
-* taxonomy would take a long time to create! is hard! requires library skills! big arguments!
-* only person who has to understand these is me!
-* and gradually refine over time
-* (e.g. with fuzzy matching to find similar tags)
-
-tags are v flexible, allow namespacing
-* e.g. in my bookmarks I have `type:fic` `type:opinion` `type:howto` which create a layer of faceting within tags
-* could be a separate `type` field but can shoehorn into tags + more flexible to add new categories as and when
-
----
-
-# part 3: tools for my digital archives
-
-[[sucked down data, lots of machine-readable files but no human-readable interface]]
-
-have built these archives over 15 years
-* would like them to remain usable for at least as long, ideally longer – rest of my life
-* but don't want to be constantly maintaining and tinkering -- better things to do with my time
-* have been thinking about how to design system that lasts
-
-preserving software is always a challenge
-* need to maintain working environment
-* that's hard! world is changing
-* operating systems change, language versions go out of date, dependencies break
-* yuck
-
-need something static, unchanging
-* no environment required
-* nothing to break
-
-this is why plain text is so popular for taking notes
-* text file or Markdown
-* open file format, will remain readable
-* not tied to any software package or environment
-* highly likely to remain readable
-
-I already use plain text for a lot of stuff!
-* e.g. journal entries and reference notes
-* v good for linear text
-* less good for multimedia or interactivity, e.g. a list of videos
-
-hmm… how to do plain text with interactivity?
-* what about static websites?
-* this is tech that has been v stable in my life
-* not tied to any software package or environment
-* highly likely to remain readable
-* could open web pages on my 2003 iMac and still look broadly the same on my 2022 MacBook Air
-
-have been gradually building static sites as front-end to my archives
-* metadata in machine-readable JavaScript
-* low-tech viewer, HTML CSS and vanilla JS
-* allows presenting archive in more visual way, with a light sprinkling of interactivity for e.g. tag filters
-* opens in web browser on any device, so highly likely to remain readable
-* requires minimal tinkering
-* and easy to "hack" if I want new features later
-
-not a new idea
-* e.g. instagram or twitter archives
-* but those are big sprawling web apps!
-* 18MB of JavaScript
-* I build much simpler, smaller, by hand
-* few hundred lines of code at most, keep it simple
-
-this technique has worked well
-* now have handful of tiny static websites that provide views into different archives
-* e.g. different site for videos and podcasts
-* static sites don't scale forever, but that's okay, not looking for big scale solution
-* few thousand items at most
-
-https://bytes.yingw787.com/posts/2020/01/13/50years
-> I may or may not be working on some personal projects this year that I intend on using for myself. One thing I _know_ I can't do for my personal projects is constantly dedicate time to working on it after I've "shipped". I want to build something once, and ideally use it for the rest of my life (or maybe 20-50 years to start off) without having to worry about having to update something or other or risk losing something important down the line. So thinking about what properties makes software age well is helpful for me in terms of deciding what fundamental technologies (e.g. SQL or REST) I want to incorporate into a system design, and perhaps as equally important, what things I'm willing to trade away.
-
-> Your outline for part 3 looks good and follows logically from the previous two parts. It focuses on the tools and technical approach you've developed for maintaining your digital archives over the long term. Here's a summary of the structure I see:
->
-> 1. Introduction: Long-term preservation goals
->     - Desire for longevity (15+ years)
->     - Balancing maintenance with practicality
-> 2. Challenges of software preservation
->     - Difficulties with maintaining working environments
->     - Issues with changing technologies
-> 3. The appeal of static, unchanging solutions
->     - Benefits of environment-independent approaches
-> 4. Plain text as a solution
->     - Advantages for linear text content
->     - Limitations for multimedia and interactivity
-> 5. Static websites as a more versatile solution
->     - Stability and longevity of web technologies
->     - Compatibility across different devices and time periods
-> 6. Implementation of static sites for archives
->     - Use of machine-readable JavaScript for metadata
->     - Simple HTML, CSS, and vanilla JS for viewing
->     - Benefits of this approach (visual presentation, interactivity, readability, minimal maintenance)
-> 7. Comparison to existing solutions
->     - Contrast with large-scale archives (e.g., Instagram, Twitter)
->     - Emphasis on simplicity and hand-crafted approach
-> 8. Results and current state
->     - Multiple small static websites for different archive types
->     - Scalability considerations
->
-> This structure effectively builds upon the ideas introduced in parts 1 and 2, moving from the problem of digital clutter and organization to the technical implementation of a long-term archival solution. It provides a clear progression of ideas and practical insights into your archival system.
->
-> Some thoughts on the structure:
->
-> 1. The flow is logical, moving from the challenges of long-term preservation to your specific solution.
-> 2. You've effectively explained the rationale behind your choices, particularly the move from plain text to static websites.
-> 3. The comparison with existing large-scale solutions helps contextualize your approach.
-> 4. The structure allows for easy expansion of each point if needed.
-
-## part 4: specific HTML techniques
-
-metadata in JavaScript file
-* example of lightweight JS file
-* why JS? so can load in browser from `file://` URI, can't do with JSON/XML
-* have python library to manipulate
-
-use relative paths, be explicit
-* don't push logic for constructing files for paths to elsewhere, just put the path in the file
-
-HTML page example
-* script tag to load JavaScript, then window.addEventListener("DOMContentLoaded") to render as elements on page
-* simple example, see viewer loading metadata from machine-readable file
-
-React-like components to render page
-* example of `const Tweet = (props) => ```
-* use JavaScript template literals
-* not full React, data is immutable, doesn't react to state changes
-* but simple!
-
-URL query parameters for filtering
-* forces page reload, re-render of data
-* that's fine
-* example of how to get URL query params in modern JS
-
-can write by hand or build simple scripts to modify metadata
-* should be simple enough to write and edit by hand
-* virtues of plain text!
-* but scripts can be helpful for getting the fiddly bits right
-
-verify script
-* does every file pointed to by the metadata exist?
-* does the metadata point to every file stored locally?
-* enforce other rules, e.g. on HTML page linking to filename with `?` is problem
-
-store metadata in git
-* track changes to viewer and metadata
-* not pushed anywhere
-* local backup, easy way to see changes if making batch changes
-
-> Your outline for part 4 looks good and provides a detailed technical discussion of your HTML-based archival system. It serves as a practical extension of the concepts introduced in part 3. Here's a summary of the structure I see:
->
-> 1. Metadata storage in JavaScript
->     - Example of lightweight JS file
->     - Rationale for using JS over JSON/XML
->     - Python library for manipulation
-> 2. File path management
->     - Use of relative paths
->     - Explicit path declarations
-> 3. HTML page structure
->     - Loading JavaScript metadata
->     - Rendering elements on page load
-> 4. Component-based rendering
->     - React-like components using JavaScript template literals
->     - Simplicity of approach compared to full React implementation
-> 5. Filtering with URL query parameters
->     - Page reload approach for filtering
->     - Accessing URL query params in modern JS
-> 6. Metadata management
->     - Manual editing capabilities
->     - Use of scripts for bulk modifications
-> 7. Verification process
->     - Checking file existence
->     - Ensuring comprehensive metadata coverage
->     - Enforcing specific rules (e.g., URL formatting)
-> 8. Version control with Git
->     - Tracking changes to viewer and metadata
->     - Local backup and change visualization
->
-> This structure effectively delves into the technical details of your archival system, providing concrete examples and explanations for each aspect of the implementation.
->
-> Some thoughts on the structure:
->
-> 1. The flow is logical, moving from data storage to rendering, then to more advanced features like filtering and verification.
-> 2. You've balanced high-level explanations with specific code examples, which should be helpful for technically-inclined readers.
-> 3. The inclusion of verification and version control shows a comprehensive approach to maintaining the system's integrity.
->
-> Potential enhancements:
->
-> 1. Consider adding a brief introduction that ties this part to the previous three, explaining why you're now diving into technical details.
-> 2. You might want to include a section on potential limitations of this approach and how you address them.
-> 3. Adding a conclusion that summarizes the key technical points and how they relate to the overall goals of your archival system could be beneficial.
->
-> Overall, this outline for part 4 complements the previous parts well by providing the technical depth that more advanced readers might be looking for. It gives a clear picture of how your theoretical approach to digital archiving is implemented in practice.
->
-> To tie all four parts together, you might consider an overarching structure like this:
->
-> 1. Part 1: The Problem (Digital Clutter)
-> 2. Part 2: The Organizational Approach
-> 3. Part 3: The Technical Solution (Overview)
-> 4. Part 4: The Technical Solution (Implementation Details)
->
-> This structure takes the reader on a journey from recognizing the problem, through developing a solution, to implementing it in detail. It provides a comprehensive look at your approach to digital archiving that should be accessible and interesting to a wide range of readers.
-
-## tools for reviewing new stuff
-
-Build terminal applications
-* click.confirm()
-* Imgcat
-
-https://koralatov.com/post/140620880181/long-winded
-https://www.nayuki.io/page/designing-better-file-organization-around-tags-not-hierarchies
+Another fix would be to introduce more friction or constraints into our workflows.
+Part of why we all have so much data is because it's so easy to create and store it.
+If we made it harder, we might be more thoughtful about what we're storing, and not throw it into a limitless cloud.
+Unfortunately this runs counter to the goals of large tech companies, who enjoy the lock-in that comes from having a lot of data in their platforms.
+
+I don't know what the answer is.
+It feels like there's a real problem here of ever-growing data piles, and it's not something we can fix with individual action.
+We need the platforms we use to provide tools to make it easier for us to manage our data -- but that doesn't seem to be a priority.
+
+Modern storage has allowed us to keep everything, but that doesn't mean we should.
+"As much as I can save" isn't a collecting strategy; it's hoarding.
