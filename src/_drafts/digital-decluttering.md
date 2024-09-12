@@ -3,10 +3,12 @@ layout: post
 title: Digital decluttering
 summary:
 tags:
+  - personal
+  - digital-preservation
 ---
 I spent a lot of my formative Internet years in online fandom.
 I read novel-length stories about *Doctor Who* characters; I swooned over fan art of the *Lizzie Bennet Diaries*; I pored over in-depth analyses of each episode of *Carmilla*.
-I was surrounded by the creativity of strangers, sharing my own ideas, and taking the first steps towards my queer awakening.
+I was surrounded by the creativity of strangers, sharing my own thoughts and ideas, and taking the first steps towards my queer awakening.
 
 Most of that is gone now.
 
@@ -15,21 +17,21 @@ Accounts get deleted, websites go down, domain names lapse.
 We might think the Internet is written in ink, but really it's more like chalk on a pavement.
 Stuff is visible for a while, and over time it washes away.
 
-Every fan eventually realises that if there's something they love, they have to save your own copy.
+Every fan eventually realises that if there's something you love, you have to save your own copy.
 We all learnt this lesson the hard way, when we went to find something we remembered from years ago, and it had vanished from the face of the Internet.
 
 So I started saving, and I kept saving.
-Digital storage has become cheap and abundant, and I could afford to keep local copies of everything.
+Digital storage was cheap and abundant, and I could afford to keep local copies of everything.
 I didn't have to be picky with what I was saving.
 
-I saved web pages and photos and PDFs and videos and audio files, and I wrote scripts to save as much as possible, all so I'd never lose anything again.
+I saved web pages and pictures and PDFs and videos and podcasts, and I wrote scripts to save as much as possible, all so I'd never lose anything again.
 I kept every photo I'd ever taken, every tweet I'd written, every link I'd read.
 If you look at early posts on this site or my old GitHub repos, you'll see my excitement at code that could scrape down data and squirrel it away on my hard drive.
 I always thought "what if I want to go back to this someday?"
 
-Looking back, I could skip 95% of this data and I'd be fine.
+Looking back, I could throw away 95% of this data and I'd be fine.
 There are some things that I'm glad I saved, but there's an awful lot of other stuff that I've never gone back to, and I know I'm never going to look at again.
-And because I was more interested in saving lots of files than organising what I had, it's difficult to find that 5% I actually care about.
+And because I was more interested in saving lots of files than keeping it organising, it's difficult to find that 5% I actually care about.
 
 I'm trying to simplify.
 My data is currently split across my internal disk and several external hard drives, and those external drives need to be replaced soon.
@@ -48,80 +50,81 @@ It's a slow and arduous process, because there's no easy way to automate this --
 
 ---
 
-## Are you going to look at that photo again?
+## Three examples of digital clutter
+
+It took me years to accumulate my data, so I'm not going to clear it in a week.
+I've spent months chipping away at it, reviewing a few items a day, and there's plenty more to go.
+I've already shed thousands of files and tossed an entire hard drive, but more importantly, I can now find more of the items I actually care about.
+
+### 1. My photo library
 
 I used to keep every photo I'd ever taken.
-I was snapping away on my smartphone, and uploading each picture to iCloud Photo Library and my local hard drive.
+I was snapping away on my smartphone, and uploading everything to iCloud Photo Library and my local hard drive.
 
-Some of those photos record important memories and life moments, and I'm so glad that I have them.
+Some of those photos record precious memories and life moments, and I'm so glad that I have them.
 But a lot of them are complete junk -- blurry shots, duplicate pictures, long-passed reminders of something I had to do.
 (I had *so* many photos of books I wanted to read.)
 
-The junk photos were drowning out the ones I actually cared about, so I decided to prune my library of all the bad pictures.
-Last year I [wrote a Mac app called Blink][blink] to help me with this task.
-The app has a simple keyboard-driven interface, where I can step through my photo library and mark each photo as "approved", "rejected", or "needs action".
-I can review most photos with one or two keystrokes, which minimises the impact on my wrists.
-
-A few times a week, I use Blink to review all my new photos.
-I'm keeping maybe a quarter of the photos I take, and deleting the rest.
-
-I also went through all of my old photos.
-I started with 32,000 photos, and after eleven months I'd looked at all of them, and reduced it to 25,000.
-That still feels like a lot -- more than 2 photos for every day I've been alive -- but it's an improvement.
+The junk photos were drowning out the ones I actually cared about, so I decided to get rid of them.
+I wanted to go through every photo, and decide if it was worth keeping.
+I [wrote a small Mac app][blink] to help me out -- it lets me review each photo with a few keystrokes, so I can go through photos quickly and without hurting my wrists.
 
 The photos of places and objects were easy to review.
-It was pretty easy to work out whether I recognised the subject of the photo, and if not, I deleted it.
+If I didn't recognise the subject of the photo, I deleted it.
 I got rid of a lot of photos of generic landscapes and builings that I've just forgotten in the intervening years.
 
 The photos of people were harder.
-My earliest digital photos are from 2003, and a lot has happened.
-I was reminded of good memories; I could see how much I've grown; I could see how much happier I became after I transitioned.
+My earliest digital photos are from 2003, and a lot has happened in that time.
+I was reminded of good memories; I could see how much I've grown; I can see how much happier I became after I transitioned.
 
-But my memories are also a catalogue of mistakes.
+But those memories are also a source of guilt.
 I was embarrassed by the cringe things I did as a teenager, and reminded of the mistakes I've made as an adult.
 There are dear friends in those photos I haven't spoken to in years.
-We didn't fall out or break up or have any hard feelings; our lives just drifted apart and we fell out of touch.
-I felt a lot of guilt going through these photos.
+We didn't fall out or break up or end with hard feelings; our lives just drifted apart and we fell out of touch.
+It hurt to see all the good people I've let slip out of my life.
 
-It wasn't an easy process, and some days I could only look at a few photos before I had to stop.
+Reviewing my old photos wasn't an easy process, and some days I could only look at a few before I had to stop.
 
-Although this is an improvement, it stills feels like I have a *lot* of photos.
-There are probably hundreds that I'll never look at again.
+I cut my library from 32,000 photos to 25,000.
+That still feels like a lot -- more than 2 photos for every day I've been alive.
+There are probably still hundreds of photos that I'll never look at again.
+
 I'm thinking about ways to prune further, or highlight the photos I actually care about -- like putting them on my walls, or making some printed albums.
 I want to do more here.
 
 [blink]: /2023/blink/
 
-## When will you have time to listen to all those podcasts?
+### 2. My podcast collection
 
 I used to keep every podcast episode I'd ever listened to.
 
-I can trace this to a specific podcast called *IRL Talk*, which I listened to around 2012.
-It's associated with some very fond memories, but it fell off the Internet after one of the hosts passed away.
-I was sad when I couldn't listen to it any more, and delighted when somebody uploaded the complete collection to the Internet Archive.
+I can trace this behaviour to a specific podcast called *IRL Talk*, which I listened to around 2012.
+It came at a formative moment in my life, and it's associated with some very fond memories -- but it disappeared from the Internet after one of the hosts passed away.
+I was sad when I couldn't listen to it any more, and delighted when somebody uploaded the whole run to the Internet Archive.
 
-At some point I discovered that Overcast (my podcast app of choice) could give me an export of every episode I'd played.
-I wrote a Python script that downloaded every episode in my exports, so I'd never have another *IRL Talk* moment.
+Later I discovered that Overcast (my podcast app of choice) could give me an export of every episode I'd played.
+I wrote a Python script that downloaded every episode in my exports, so I'd never have that sadness again.
 
-This gave me a folder with hundreds of MP3 files, most of which I'll never want to play again.
-I listen to lots of podcasts about news and current affairs, whose value drops off quickly with age.
+This gave me a folder with hundreds of MP3 files, but I didn't actually want to listen to most of them.
+I subscribe to lots of podcasts about news and current affairs, so I liste to each episode once, but it's rare for me to go back to old episodes.
 Why was I keeping those?
 
-Further, the contents of this folder was the output of a scrappy script and not a polished podcast app.
-It was poorly organised, and it was easier to find podcasts by redownloading them in Overcast -- so I never looked in the folder.
-(The only time I looked in this folder was to find a podcast that had been deleted from the web, so I couldn't download it in Overcast any more.
-In some bizarre irony, it was a podcast about digital preservation and longevity.)
+Also, the contents of this folder was the output of a scrappy script and not a polished podcast app.
+It was poorly organised, and it was easier to find podcasts by redownloading them in Overcast.
+The only time I looked in this folder was to find a podcast that had been deleted from the web, which meant I couldn't download it in Overcast.
+(In some bizarre irony, it was a podcast about digital preservation and longevity.)
 
 So I had a growing collection of MP3 files, which were poorly organised and most of which I didn't want to listen to.
 I threw the whole thing away.
 
-As a replacement, I built a new podcast archive which just includes episodes I'd starred in Overcast.
-It's a much smaller list of episodes that are timeless and interesting, and which I've already listened to multiple times -- only a hundred or so episodes.
+In its place, I built a new podcast archive which just includes episodes I'd starred in Overcast.
+That's a much smaller list of episodes that are timeless and interesting, and which I've already listened to multiple times.
+It only contains a hundred or so episodes.
 I built a simple HTML interface on top of this archive, which I can browse locally.
 
-This curated collection uses 4% of the disk space of the folder that hoovered up everything, and I can go straight to those most-favoured episodes.
+This is a nicer collection -- it's much smaller, and I can go straight to my favourite episodes.
 
-## Is that bookmark ever coming back?
+### 3. My bundle of bookmarks
 
 At its peak, I had a collection of over 6000 bookmarks.
 Some of them were links I've returned to many times, and others were links I'm never going to go back to.
@@ -150,9 +153,6 @@ It's slowing me down, and making me more thoughtful about what I save -- do I re
 
 ## Can we do better?
 
-It took me years to accumulate my data, so I'm not going to clear it in a week.
-I've spent months chipping away at it, reviewing a few items a day, and there's plenty more to go.
-I've already shed thousands of files and tossed an entire hard drive, but more importantly, I can now find the items I actually care about.
 
 Some of this is a problem of my own making -- present!me is having to clean up the pile of data collected by past!me -- but some of it is a culture that encourages us to be lavish with storage.
 For most people their biggest pile of data will be their photo collection, and smartphone makers have made it easy for us to snap away and save limitless photos to their cloud.
