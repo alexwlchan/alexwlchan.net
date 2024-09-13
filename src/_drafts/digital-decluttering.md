@@ -1,11 +1,18 @@
 ---
 layout: post
 title: Digital decluttering
-summary:
+summary: I'm resisting my temptation towards digital hoarding, and reducing the amount of data I'm keeping.
 tags:
   - personal
   - digital-preservation
+colors:
+  css_dark:  "#78a2c2"
+  css_light: "#3351a3"
 ---
+{% comment %}
+  Cover image from https://www.pexels.com/photo/gray-and-yellow-gravel-stones-997704/
+{% endcomment %}
+
 I spent a lot of my formative Internet years in online fandom.
 I read novel-length stories about *Doctor Who* characters; I swooned over fan art of the *Lizzie Bennet Diaries*; I pored over in-depth analyses of each episode of *Carmilla*.
 
