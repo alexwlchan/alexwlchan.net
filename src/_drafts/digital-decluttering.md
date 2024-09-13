@@ -6,6 +6,8 @@ tags:
   - personal
   - digital-preservation
 ---
+ORGANISATION
+
 I spent a lot of my formative Internet years in online fandom, where I was surrounded by the creativity of strangers.
 I read novel-length stories about *Doctor Who* characters; I swooned over fan art of the *Lizzie Bennet Diaries*; I pored over in-depth analyses of each episode of *Carmilla*.
 
@@ -27,7 +29,7 @@ I always thought "what if I want to go back to this someday?"
 Looking back, I could throw away 95% of this data and I'd be fine.
 There are some things that I'm glad I saved, but there's an awful lot of other stuff that I don't actually care about.
 I've never gone back to it, and I know I'm never going to look at it again.
-It's just noise, and it makes it harder to find that 5% I actually care about.
+Plus, my younger self was more interested in downloading than organising, so it's difficult to find that 5% I actually care about.
 
 I'm trying to simplify.
 My data is currently split across my internal disk and several external hard drives, and those external drives need to be replaced soon.
@@ -40,9 +42,22 @@ I've been collecting for fifteen years, and I know what sort of stuff I go back 
 Heartfelt stories and in-depth essays? Yes.
 Current affairs and political news? Not so much.
 
-That's slowing the influx of new data, but there's still the data I've already collected.
-I've been gradually pruning it, deleting what I don't want and organising what I do.
+I've adopted a two-tier approach.
+The first time I see something I like, I use the site's built-in "like" function -- for example, a heart on Tumblr or a thumbs up on YouTube.
+I don't consider saving a local copy until I think about it a second or third time, and then I can find it in my list of likes.
+If I do save it, I make sure to add a brief description and notes on why I thought it was worth saving, and organise it properly so I can find it later.
+I'm saving less stuff, but it's all the stuff I really like.
+
+I've been retroactively applying a similar rule to old stuff -- have I thought about this since I saved it?
+I've been gradually going through all my old data, deleting what I don't want and organising what I do.
 It's a slow and arduous process, because there's no easy way to automate this -- ultimately, I have to look at every item and decide if it's worth keeping.
+
+Storage is only cheap at the point of purchase – the costs are felt elsewhere.
+The material used to make hard drives; the electricity and water to power the data centres; the cognitive load of owning so much stuff.
+I don't think it's sustainable for me to have an ever-growing pile of data.
+
+Modern storage has made it possible for me to keep everything, but that doesn't mean I should.
+"As much as I can save" isn't a collecting strategy; it's hoarding.
 
 ---
 
@@ -132,38 +147,21 @@ This takes longer, but now I know that all my archived web pages are useful copi
 These two steps add more friction to the process, but I think that's a good thing.
 It's slowing me down, and making me more thoughtful about what I save -- do I really want to save this link for later, or am I just saving it for the sake of saving it?
 
-## Can we do better?
+---
 
-Some of this is a problem of my own making -- present!me is having to clean up the pile of data collected by past!me -- but some of it is a culture that encourages us to be profligate with storage.
-For most people their biggest pile of data will be their photo collection, and smartphone makers have made it easy for us to snap away and save limitless photos to their cloud.
-(For a small fee, of course. Whether or not we ever look at them again. Plus it creates inertia and lock-in.)
+## Reflections
 
-I said earlier that storage is "cheap and abundant", but that's only half-true -- it's cheap for me to buy large hard drives or copious cloud storage, but the cost is being felt elsewhere.
-The material used to make hard drives; the electricity and water to power the data centres; the cognitive load of owning so much stuff.
-It's not sustainable for us all to have an ever-growing pile of data.
+I've substantially reduced my digital footprint, and I will be able to consolidate my data back onto my internal disk.
+I'm glad to put the days of juggling external hard drives behind me.
+(I'll still have a backup drive, but it will just be a backup drive -- much simpler.)
 
-We need to keep less data, but I don't know how we get there.
+The data I'm keeping is much better organised, so it's easier to find stuff I care about.
+An unexpected benefit is being able to give better recommendations -- when somebody asks me for links about a topic, or photos from a trip, it's easier to find the stuff that's worth sharing.
 
-I've managed to reduce my own digital footprint, but not everyone can copy my approach.
-It takes time and tools -- I've spent many hours working on this, and written a lot of bespoke tools and scripts.
-(And my brain is very happy to work on this sort of repetitive, slightly monotonous task -- my hyperfocus has had a field day.)
-Not everyone can do that.
-So what can they do?
+I have to be careful.
+Organising a collection of data is a boundless task -- there's always more you could do to tidy it up, to improve it.
+It would be easy to let my hyperfocus take over and spend all my time tidying data, but that's not the point.
+I've been doing this gradually, taking a few minutes at a time.
 
-The big tech solution is to throw more technology at the problem.
-Use AI and machine learning to sift through our enormous piles of data, and extract the gems -- but this feels like throwing good money after bad.
-We're building bigger and bigger houses of cards, when what we really want is smaller, more carefully selected piles of data.
-And the environmental impact just continues to grow; this is even less sustainable.
-(As I go about this process, I've been trying to embrace lower-tech solutions, which I'll write about in another post.)
-
-Another fix would be to introduce more friction or constraints into our workflows.
-Part of why we all have so much data is because it's so easy to create and store it.
-If we made it harder, we might be more thoughtful about what we're storing, and not throw it into a limitless cloud.
-Unfortunately this runs counter to the goals of large tech companies, who enjoy the lock-in that comes from having a lot of data in their platforms.
-
-I don't know what the answer is.
-It feels like there's a real problem here of ever-growing data piles, and it's not something we can fix with individual action.
-We need the platforms we use to provide tools to make it easier for us to manage our data -- but that doesn't seem to be a priority.
-
-Modern storage has allowed us to keep everything, but that doesn't mean we should.
-"As much as I can save" isn't a collecting strategy; it's hoarding.
+This is part of a broader goal to be more intentional about how I use technology, and I've found it useful to introduce more constraints.
+I'm not buying the most powerful computer, or the fastest Internet connection, or the biggest disk -- I'm reducing my scope, and that makes it easier to ignore the clutter and focus on what's really important.
