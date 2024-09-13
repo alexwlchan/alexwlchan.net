@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Digital decluttering
-summary: I'm resisting my temptation towards digital hoarding, and reducing the amount of data I'm keeping.
+summary: I'm resisting my temptation towards digital hoarding and "save everything", and trying to be more selective about the data I'm keeping.
 tags:
   - personal
   - digital-preservation
