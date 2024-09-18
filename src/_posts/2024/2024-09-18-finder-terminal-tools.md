@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2024-09-18 06:45:46 +0000
 title: Going between Finder and the Terminal
 summary: A few shell scripts I use to go between the Finder and the Terminal.
 tags:
