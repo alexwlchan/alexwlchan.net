@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Going between Finder and the Terminal
-summary: A few shell aliases I use to go between the Finder and the Terminal.
+summary: A few shell scripts I use to go between the Finder and the Terminal.
 tags:
   - macos
   - automation
