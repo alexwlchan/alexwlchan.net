@@ -8,15 +8,10 @@
   @return str-replace($output, '"', '%22');
 }
 
+/* In light mode, these squares are lighter than the text.
+ * In dark mode, they're the same colour.
+ */
 hr {
-  width:  105px;
-  height: 5px;
-  border: 0;
-  margin: 3.5em auto;
-
-  /* In light mode, these squares are lighter than the text.
-   * In dark mode, they're the same colour.
-   */
   $light-svg-url: create_svg(#ccc);
   $dark-svg-url:  create_svg($body-text-dark);
 
@@ -25,6 +20,13 @@ hr {
   @media (prefers-color-scheme: dark) {
     --hr-background-image: url("data:image/svg+xml;charset=UTF-8,#{$dark-svg-url}");
   }
+}
+
+hr {
+  width:  105px;
+  height: 5px;
+  border: 0;
+  margin: 3.5em auto;
 
   background-image:  var(--hr-background-image);
   background-size:   contain;

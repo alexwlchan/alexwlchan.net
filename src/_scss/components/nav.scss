@@ -1,6 +1,13 @@
 nav {
   padding-top: calc(1px + env(safe-area-inset-top));
   padding-bottom: 1px;
+  
+  /* The nav gets the primary accent colour as background, with white text.
+   *
+   * It looks the same in light/dark mode.
+   */
+  background: var(--nav-background-url) var(--primary-color-light);
+  background-size: auto 100%;
 
   h1 {
     margin-bottom: -5px;
@@ -16,13 +23,6 @@ nav {
     padding-bottom: 0;
     margin-bottom: 14px;
   }
-
-  /* The nav gets the primary accent colour as background, with white text.
-   *
-   * It looks the same in light/dark mode.
-   */
-  background: var(--nav-background-url) var(--primary-color-light);
-  background-size: auto 100%;
 
   &, a, a:visited {
     color: white;

@@ -76,12 +76,7 @@ footer {
     .background { fill: white; }
     .accent     { fill: none;  }
 
-    &:hover {
-      .accent { fill: white; }
-
-      /* Disable the default link hover styles */
-      background: none;
-    }
+    &:hover .accent { fill: white; }
 
     &[href="mailto:alex@alexwlchan.net"]:hover              .background { fill: #0067B9; }
     &[href="https://books.alexwlchan.net"]:hover            .background { fill: #333; }
