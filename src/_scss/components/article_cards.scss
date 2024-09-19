@@ -12,14 +12,14 @@
     background: var(--article-card-background);
     border: 2px var(--border-style) var(--c-color);
 
-    &:hover .c_title {
-      text-decoration-thickness: 4px;
-    }
-
     --c-color: #d01c11;
 
     @media (prefers-color-scheme: dark) {
       --c-color: #ff4242;
+    }
+
+    &:hover .c_title {
+      text-decoration-thickness: 4px;
     }
   }
 
@@ -78,32 +78,35 @@
       font-size: 75%;
     }
   }
+}
 
-  /* This changes the number of columns based on the width of the
-   * screen:
-   *
-   *             width <=  450px   ~> one column, for mobile devices
-   *     450px < width <= 1000px   ~> two columns
-   *    1000px < width             ~> three columns, ultra-width screens
-   *
-   * I'm using minimax(0, 1fr) to ensure the columns are the exact
-   * same width, even if there's only one card in a collection.
-   * See https://stackoverflow.com/q/47601564/1558022
-   */
-
-  @media screen and (max-width: 450px) {
-    & {
-      grid-template-columns: auto;
-    }
+/* This changes the number of columns based on the width of the
+ * screen:
+ *
+ *             width <=  450px   ~> one column, for mobile devices
+ *     450px < width <= 1000px   ~> two columns
+ *    1000px < width             ~> three columns, ultra-width screens
+ *
+ * I'm using minimax(0, 1fr) to ensure the columns are the exact
+ * same width, even if there's only one card in a collection.
+ * See https://stackoverflow.com/q/47601564/1558022
+ */
+@media screen and (max-width: 450px) {
+  .article_cards {
+    grid-template-columns: auto;
   }
+}
 
+.article_cards {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
-  @media screen and (min-width: 1000px) {
-    & {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-left: -100px;
-      margin-right: -100px;
-    }
+
+
+@media screen and (min-width: 1000px) {
+  .article_cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-left: -100px;
+    margin-right: -100px;
   }
 }

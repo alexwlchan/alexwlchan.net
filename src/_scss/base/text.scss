@@ -37,6 +37,7 @@ sup {
 .title {
   font-size: 1.9em;
   line-height: 1.45em;
+  margin-bottom: -6px;
   a {
     text-decoration: none;
   }
@@ -51,7 +52,6 @@ sup {
       content: "→";
     }
   }
-  margin-bottom: -6px;
 }
 
 .visually-hidden {
