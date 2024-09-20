@@ -6,6 +6,9 @@
 
   overflow: hidden;
   cursor: pointer;
+  
+  /* Eyeballed against a real tweet embed */
+  @include centred(496px);
 
   /* ==============
    * Colour palette
@@ -40,9 +43,6 @@
   &, .quoted_tweet, .name {
     color: var(--text-color);
   }
-
-  // Eyeballed against a real tweet embed
-  @include centred(496px);
 
   a, a:visited {
     color: var(--link-color);
