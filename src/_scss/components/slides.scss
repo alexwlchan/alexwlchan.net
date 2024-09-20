@@ -1,0 +1,3 @@
+.slide {
+  @include centred(calc(var(--max-width) * 0.6));
+}

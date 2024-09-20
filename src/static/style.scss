@@ -10,7 +10,7 @@
 @import "utils/functions.scss";
 
 @import "text_styles.scss";
-@import "utility_classes.scss";
+@import "utility_classes";
 
 @import "base/layout.scss";
 @import "base/text.scss";
@@ -18,11 +18,13 @@
 @import "base/images_wide.scss";
 
 @import "components/article_cards.scss";
-@import "components/code.scss";
+@import "components/code";
 @import "components/footer.scss";
-@import "components/latex.scss";
+@import "components/latex";
 @import "components/nav.scss";
 @import "components/pretty_hr.scss";
+@import "components/skip_to_main";
+@import "components/slides.scss";
 @import "components/syntax_highlighting.scss";
 @import "components/til.scss";
 
@@ -30,22 +32,6 @@ $primary-color-light: #d01c11;
 $primary-color-dark:  #ff4242;
 
 @include create_colour_variables($primary-color-light, $primary-color-dark);
-
-// This is for the "Skip to main content" link at the top of the page
-//
-// See https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
-a.skip-main {
-  position: absolute;
-  left:     -999px;
-  top:      auto;
-
-  width:  1px;
-  height: 1px;
-
-  overflow: hidden;
-
-  z-index: -999;
-}
 
 a.download {
   display: inline-block;
@@ -59,8 +45,4 @@ a.download {
     padding-bottom: 0;
     padding-right: 5px;
   }
-}
-
-.slide {
-  @include centred(calc(var(--max-width) * 0.6));
 }
