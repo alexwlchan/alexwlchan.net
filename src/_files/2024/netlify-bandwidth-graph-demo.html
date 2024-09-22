@@ -1,0 +1,172 @@
+<script>
+  /* This is hard-coded for the purposes of this demo file, but
+   * if you want to use it yourself, just replace this with
+   * `new Date()` in the one place where it's used.
+   */
+  function getNow() {
+    return new Date('2024-09-22 07:20:14');
+  }
+
+  /* Draw a bandwidth chart to show how much Netlify bandwidth
+   * I've used in my current billing period.
+   */
+  function createBandwidthChart(apiResponse) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+    // Set the dimensions of the SVG.
+    const width = height = 220;
+    const wedgeRadius = 90;
+    const arcRadius = 103;
+
+    const centreX = width / 2;
+    const centreY = height / 2;
+
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+
+    // Draw a circle that will show the complete space that
+    // could be taken up by the inner wedge.
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute("cx", centreX);
+    circle.setAttribute("cy", centreY);
+    circle.setAttribute("r", wedgeRadius);
+    circle.setAttribute("class", "background");
+    svg.appendChild(circle);
+
+    // Draw the inner wedge, which shows how much bandwidth
+    // I've used.
+    //
+    // First work out the angle we need to sweep, expressed
+    // in radians, then add a <path> element that draws it.
+    const { used, included, additional } = apiResponse;
+    const wedgeAngle = used / (included + additional) * 2 * Math.PI;
+
+    const innerWedge = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    innerWedge.setAttribute("class", "bandwidth");
+    innerWedge.setAttribute("d",
+      // start at the centre
+      `M ${centreX} ${centreY} ` +
+
+      // draw a straight line to the top of the wedge
+      `L ${centreX} ${centreY - wedgeRadius} ` +
+
+      // draw a circular arc with radius (105, 105)
+      `A ${wedgeRadius} ${wedgeRadius} 0 ${wedgeAngle > Math.PI ? 1 : 0} 1` +
+
+      // set the end points of the arc
+      `${centreX + wedgeRadius * Math.sin(wedgeAngle)} ` +
+      `${centreY - wedgeRadius * Math.cos(wedgeAngle)}` +
+
+      // draw a straight line back to the centre
+      "Z"
+    );
+    svg.appendChild(innerWedge);
+
+    // Draw the outer arc, which shows how much of the month
+    // has passed.
+    const { period_start_date, period_end_date } = apiResponse;
+    const elapsedSeconds = getNow() - new Date(period_start_date);
+    const totalSeconds = new Date(period_end_date) - new Date(period_start_date);
+    const arcAngle = elapsedSeconds / totalSeconds * 2 * Math.PI;
+
+    const outerArc = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    outerArc.setAttribute("class", "billing_period");
+    outerArc.setAttribute("d",
+      // start at the top
+      `M ${centreX} ${centreY - arcRadius} ` +
+
+      // draw a circular arc with radius (105, 105)
+      `A ${arcRadius} ${arcRadius} 0 ${arcAngle > Math.PI ? 1 : 0} 1` +
+
+      // set the end points of the arc
+      `${centreX + arcRadius * Math.sin(arcAngle)} ` +
+      `${centreY - arcRadius * Math.cos(arcAngle)}`
+    );
+    svg.appendChild(outerArc);
+
+    return svg;
+  }
+
+  const apiResponse1 = {
+    "used":                                 17783181573,
+    "included":                            107374182400,
+    "additional":                                     0,
+    "last_updated_at":   "2024-09-21T04:57:41.130+00:00",
+    "period_start_date": "2024-09-17T00:00:00.000-07:00",
+    "period_end_date":   "2024-10-17T00:00:00.000-07:00"
+  };
+
+  const apiResponse2 = {
+    "used":                                 97783181573,
+    "included":                            107374182400,
+    "additional":                                     0,
+    "last_updated_at":   "2024-09-21T04:57:41.130+00:00",
+    "period_start_date": "2024-09-03T00:00:00.000-07:00",
+    "period_end_date":   "2024-10-03T00:00:00.000-07:00"
+  };
+
+  const apiResponse3 = {
+    "used":                                 47783181573,
+    "included":                            107374182400,
+    "additional":                                     0,
+    "last_updated_at":   "2024-09-21T04:57:41.130+00:00",
+    "period_start_date": "2024-08-25T00:00:00.000-07:00",
+    "period_end_date":   "2024-10-01T00:00:00.000-07:00"
+  };
+
+  window.addEventListener("load", function() {
+    document
+      .querySelector('#netlifyBandwidthChart1')
+      .appendChild(createBandwidthChart(apiResponse1));
+  });
+
+  window.addEventListener("load", function() {
+    document
+      .querySelector('#netlifyBandwidthChart2')
+      .appendChild(createBandwidthChart(apiResponse2));
+  });
+
+  window.addEventListener("load", function() {
+    document
+      .querySelector('#netlifyBandwidthChart3')
+      .appendChild(createBandwidthChart(apiResponse3));
+  });
+</script>
+
+<head><title>Netlify Bandwidth Graph demo</title></head>
+
+<style>
+  body {
+    text-align: center;
+  }
+
+  svg {
+    width: 200px;
+    display: inline-block;
+  }
+
+  .background {
+    fill: #ddd;
+  }
+
+  .bandwidth {
+    fill: black;
+  }
+
+  .billing_period {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+  }
+</style>
+
+<h1>Netlify Bandwidth Graph demo</h1>
+
+<h3>This accompanies <a href="https://alexwlchan.net/2024/netlify-bandwidth-graph/">https://alexwlchan.net/2024/netlify-bandwidth-graph/</a></h3>
+
+<div style="display: inline-block;" id="netlifyBandwidthChart1"></div>
+
+<div style="display: inline-block;" id="netlifyBandwidthChart2"></div>
+
+<div style="display: inline-block;" id="netlifyBandwidthChart3"></div>
+
