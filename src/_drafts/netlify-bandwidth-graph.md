@@ -10,10 +10,14 @@ colors:
   index_light: "#464d3e"
   index_dark:  "#d9d9b9"
 ---
-I currently host this site on Netlify's Starter plan, which means I can serve 100GB of bandwidth per month.
-That's usually plenty, and I've only exceeded it a few times -- this site is mostly text, and I have a modest audience.
+{% comment %}
+  Card image based on https://www.pexels.com/photo/a-close-up-of-a-water-gauge-4744721/
+{% endcomment %}
 
-I can see how much bandwidth I'm using in the Netlify dashboard:
+I currently host this site on Netlify's Starter plan, which means I can serve 100GB of bandwidth per month.
+That's usually plenty, and I've only exceeded it a few times -- this site is mostly text, and I only have a modest audience.
+
+I can see how much bandwidth I've used in the Netlify dashboard:
 
 {%
   picture
@@ -29,19 +33,18 @@ This graph has a couple of issues:
     I log into this dashboard very rarely, because all of my day-to-day activity is automated using GitHub Actions.
 
 *   It's hard to tell if my bandwidth usage is on track.
-    If I've used half my bandwidth on the last day of the month, it's fine.
-    If I've used half my bandwidth on the first day, I have an issue.
+    I can't visually tell how likely I am to exceed my bandwidth allowance for the month.
 
-    I want to know if I'm on track to exceed my bandwidth allowance for the month, because there might be changes I can make to reduce the amount of bandwidth I'm using.
-    (For example, if I'm using a lot of bandwidth because a post has gone viral, I might be able to reduce the size of images in that post.)
+I want to know if I'm going to exceed my allowance, because there might be changes I can make to reduce the amount of bandwidth I'm using.
+(For example, if a post has gone viral, I might be able to reduce the size of images in that post.)
 
 Fortunately my Netlify bandwidth data is exposed through a Netlify API, so I was able to build my own version of this graph.
-My new graph makes it easier for me to see if I'm on track to exceed my bandwidth allowance, and it lives in my analytics dashboard where I'm more likely to see it.
+My new graph makes it easier for me to see if I'm likely to exceed my bandwidth allowance, and it lives in my analytics dashboard where I'm more likely to see it.
 
 ## Getting my bandwidth data
 
 Netlify exposes your bandwidth data through a seemingly-undocumented API endpoint.
-You need three things to use this API:
+There are three steps to use this API:
 
 1.  Create a personal access token [in your user settings](https://app.netlify.com/user/applications/personal).
 
@@ -64,7 +67,7 @@ You need three things to use this API:
 }</span></code></pre>
 
 The `used` value is how many bytes you've used, and `included` is how many bytes are available in your plan.
-Note that Netlify's limits are in gibibytes, not gigabytes -- so although their marketing page says "100&nbsp;GB", it's actually "100&nbsp;GiB", or 100&nbsp;&times;&nbsp;2<sup>30 bytes.
+Note that Netlify's limits are in gibibytes, not gigabytes -- so although their marketing page says "100&nbsp;GB", it's actually 100&nbsp;GiB, or 100&nbsp;&times;&nbsp;2<sup>30 bytes.
 
 I've never seen `additional` be anything other than `0` -- I suspect you'd see something there if you buy additional bandwidth packs, but at $55/100GB that's always been too pricey for me.
 (If I ever exceed my 100GB allowance, I pay $19 for a month of a Pro subscription which gets me 1TB bandwidth -- saving nearly $500.
@@ -129,7 +132,7 @@ Let's look at a few examples, which will make this clearer.
     <path class="billing_period" d="M 110 7 A 103 103 0 1 145.63980449908405 190.41620007861525"></path>
   </svg>
   <p>
-    Here I'm only just halfway through the month, but I’ve used nearly all my bandwidth allowance – I need to slow down, and maybe buy an extra bandwidth pack.
+    Here I'm only just halfway through the month, but I’ve used nearly all my allowance – I need to slow down, and maybe buy an extra bandwidth pack.
     Fortunately, this is rare.
   </p>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
@@ -139,11 +142,11 @@ Let's look at a few examples, which will make this clearer.
   </svg>
   <p>
     I’m three-quarters through the month, but I’ve only used about half my bandwidth allowance.
-    This is pretty normal, and I don’t need to do anything.
+    This is pretty normal, and there's nothing for me to do.
   </p>
 </figure>
 
-These charts aren’t meant to convey detailed information; just a quick glance to let me decide whether I need to do something.
+These charts aren’t meant to convey detailed information; just a quick glance to help me decide whether I need to do something.
 I have them embedded in my analytics dashboard, which I check at least once a week.
 
 Several years ago I wrote notes on [drawing circular arcs in SVG](/2022/circle-party/), which were useful when drawing these graphs.
