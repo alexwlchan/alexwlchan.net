@@ -27,23 +27,22 @@ I can see how much bandwidth I've used in the Netlify dashboard:
   class="screenshot"
 %}
 
-This graph has a couple of issues:
+Because this graph is only available in the Netlify dashboard, I don't see it very often.
+I log into this dashboard very rarely, because all of my day-to-day activity is automated using GitHub Actions.
 
-*   It's only available in the Netlify dashboard.
-    I log into this dashboard very rarely, because all of my day-to-day activity is automated using GitHub Actions.
+Even if I did log into the dashboard, I don't like this graph -- my billing periods start on the 17th of the month, and it's hard to make a quick assessment of how likely I am to exceed my bandwidth allowance for the month.
+If I've used 16GB on the last day of the month, I'm fine.
+If I've used 16GB on the first day of the month, I'm going to have issues.
 
-*   It's hard to tell if my bandwidth usage is on track.
-    I can't visually tell how likely I am to exceed my bandwidth allowance for the month.
+I want to know if I'm using too much bandwidth, because there might be changes I can make to reduce how much bandwidth I'm using.
+For example, if a post has gone viral, I might be able to make the images in that post smaller.
 
-I want to know if I'm going to exceed my allowance, because there might be changes I can make to reduce the amount of bandwidth I'm using.
-(For example, if a post has gone viral, I might be able to reduce the size of images in that post.)
-
-Fortunately my Netlify bandwidth data is exposed through a Netlify API, so I was able to build my own version of this graph.
+Fortunately my Netlify bandwidth data is exposed through an API, so I was able to build my own version of this graph.
 My new graph makes it easier for me to see if I'm likely to exceed my bandwidth allowance, and it lives in my analytics dashboard where I'm more likely to see it.
 
 ## Getting my bandwidth data
 
-Netlify exposes your bandwidth data through a seemingly-undocumented API endpoint.
+Netlify exposes your bandwidth data through an undocumented API endpoint.
 There are three steps to use this API:
 
 1.  Create a personal access token [in your user settings](https://app.netlify.com/user/applications/personal).
@@ -79,7 +78,7 @@ The API response includes a `Retry-After` header to help you avoid wasting time 
 ## Drawing this as a pie chart
 
 I wanted a chart that would show me how much of my bandwidth I'd used, and how much of the billing period had passed.
-I could do this with a pair of bars next to each other, but I prefer circular pie charts for this sort of data -- I find it easier go me to judge the proportions.
+I could do this with a pair of bars next to each other, but I prefer circular pie charts for this sort of data -- I find it easier for me to judge the proportions.
 Is it a quarter filled, a third, a half, and so on.
 
 I decided to draw the data as a two-part pie chart.
@@ -142,7 +141,7 @@ Let's look at a few examples, which will make this clearer.
   </svg>
   <p>
     I’m three-quarters through the month, but I’ve only used about half my bandwidth allowance.
-    This is pretty normal, and there's nothing for me to do.
+    This is pretty normal, and I don't need to make any changes.
   </p>
 </figure>
 
