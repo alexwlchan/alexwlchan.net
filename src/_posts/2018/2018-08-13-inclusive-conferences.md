@@ -22,12 +22,12 @@ colors:
   }
 
   a.anchor {
+    display: none;
+    text-decoration: none;
+
     &::after {
       content: "¶";
     }
-
-    display: none;
-    text-decoration: none;
 
     &, &:visited {
       color: var(--accent-grey);
