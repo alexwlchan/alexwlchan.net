@@ -62,12 +62,6 @@ img.screenshot {
 
 
 @media (prefers-color-scheme: dark) {
-  body {
-    /* Pattern from https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/,
-       then contrast dropped and colours flipped. */
-    background-image: url('/theme/black-waves-transparent.png');
-  }
-
   // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
   img:not([src*='.svg']):not(.dark_aware) {
     filter: grayscale(10%);

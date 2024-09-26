@@ -67,6 +67,13 @@ $body-text-dark:  #c7c7c7;
     --screenshot-border-color: #3f3f3f;
 
     --article-card-background: #0d0d0d;
+
+    /* Background image for the page.
+     * This is "White Waves Pattern" by Stas Pimenov, with the colours
+     * flipped -- it's the same as the light background, but inverted.
+     * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
+     */
+    --background: url('/theme/black-waves-transparent.png');
   }
 }
 
