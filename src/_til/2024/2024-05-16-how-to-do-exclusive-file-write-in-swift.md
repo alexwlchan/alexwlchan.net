@@ -3,7 +3,7 @@ layout: til
 date: 2024-05-16 14:49:57 +0100
 title: Writing a file in Swift, but only if it doesn't already exist
 summary: |
-  Adding `Data.WritingOptions.withoutOverwriting` to your `write()` call will prevent you from overwriting a file that already exists.
+  Adding `.withoutOverwriting` to your `write()` call will prevent you from overwriting a file that already exists.
 tags:
   - swift
 ---
@@ -53,10 +53,7 @@ One of the options is `withoutOverwriting`, which will fail if the file you're t
 
 ```swift
 do {
-  try data.write(
-    to: savePath,
-    options: [Data.WritingOptions.withoutOverwriting]
-  )
+  try data.write(to: savePath, options: [.withoutOverwriting])
 } catch {
   print("Unable to write data: \(error.localizedDescription)")
 }
