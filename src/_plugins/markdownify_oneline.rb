@@ -26,12 +26,16 @@ module Jekyll
     end
 
     def markdownify_oneline(input)
-      cache.getset(input) do
-        @context.registers[:site]
-                .find_converter_instance(Jekyll::Converters::Markdown)
-                .convert(input)
-                .sub('<p>', '')
-                .sub('</p>', '')
+      if input.nil?
+        nil
+      else
+        cache.getset(input) do
+          @context.registers[:site]
+                  .find_converter_instance(Jekyll::Converters::Markdown)
+                  .convert(input)
+                  .sub('<p>', '')
+                  .sub('</p>', '')
+        end
       end
     end
   end

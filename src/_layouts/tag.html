@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<style>
+  .title a {
+    text-decoration: underline;
+  }
+</style>
+
+<h1 class="title">
+  <a href="/tags/">Tags</a> » {{ page.tag }}
+</h1>
+
+{% if page.featured_posts %}
+  {% include article_card_styles.html selected_articles=page.featured_posts %}
+
+  <ul id="list_of_articles" class="plain_list article_cards">
+  {% for article in page.featured_posts %}
+    {% include article_card.html hide_date="true" %}
+  {% endfor %}
+  </ul>
+{% endif %}
+
+{% if page.remaining_posts %}
+  <ul id="list_of_tils" class="plain_list article_links">
+  {% for article in page.remaining_posts %}
+    {% include article_link.html %}
+  {% endfor %}
+  </ul>
+{% endif %}
