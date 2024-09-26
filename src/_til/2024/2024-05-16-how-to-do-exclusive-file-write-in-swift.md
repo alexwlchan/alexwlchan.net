@@ -18,7 +18,7 @@ with open("greeting.txt", "x") as f:
 
 How can I do the same in Swift?
 
-Let's start with a simple Swift script that runs the current date to a file:
+Let's start with a simple Swift script that writes the current date to a file:
 
 ```swift
 import Foundation
