@@ -9,6 +9,8 @@ tags:
 colors:
   css_dark:  "#78a2c2"
   css_light: "#3351a3"
+index:
+  feature: true
 ---
 {% comment %}
   Cover image from https://www.pexels.com/photo/gray-and-yellow-gravel-stones-997704/
