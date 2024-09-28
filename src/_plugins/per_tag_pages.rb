@@ -1,27 +1,35 @@
+Jekyll::Hooks.register :site, :post_read do |site|
+  visible_posts = (site.posts.docs + site.collections['til'].docs)
+    .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
+
+  site.data['tag_tally'] =
+    visible_posts
+      .flat_map { |doc| doc.data['tags'] }
+      .tally
+
+
+  site.data['visible_tags'] =
+    site.data['tag_tally']
+      .filter { |tag, count| count >= 3 }
+      .keys
+
+  visible_posts.each do |doc|
+    doc.data['visible_tags'] = doc.data['tags'].filter do |tag_name|
+      site.data['visible_tags'].include? tag_name
+    end
+  end
+end
+
 module TagNavigation
   class Generator < Jekyll::Generator
     def generate(site)
-
       # By default, the list of documents is sorted in chronological order,
       # with the oldest posts at the front, but I want the opposite.
       visible_posts = (site.posts.docs + site.collections['til'].docs)
         .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
         .reverse
 
-      # I deliberately don't have visible tags from posts that are unlisted,
-      # so you don't get a confusing navigation flow where:
-      #
-      # 1.  User lands on post
-      # 2.  They click on the tags to find similar posts
-      # 3.  The post they were just on isn't listed
-      #
-      visible_tags = visible_posts
-        .flat_map { |doc| doc.data['tags'] }
-        .tally
-        .filter { |tag, count| count >= 3 }
-        .keys
-
-      visible_tags.each do |tag|
+      site.data['visible_tags'].each do |tag|
         site.pages << TagPage.new(site, visible_posts, tag)
       end
     end
