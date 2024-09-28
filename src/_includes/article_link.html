@@ -1,7 +1,0 @@
-<li>
-  <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">{{ article.title | markdownify_oneline }}</a></h4>
-
-  {% if article.summary %}
-    <p class="summary">{{ article.summary | markdownify_oneline }}</p>
-  {% endif %}
-</li>

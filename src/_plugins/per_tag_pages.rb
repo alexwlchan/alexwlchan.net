@@ -1,17 +1,16 @@
 Jekyll::Hooks.register :site, :post_read do |site|
   visible_posts = (site.posts.docs + site.collections['til'].docs)
-    .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
+                  .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
 
   site.data['tag_tally'] =
     visible_posts
-      .flat_map { |doc| doc.data['tags'] }
-      .tally
-
+    .flat_map { |doc| doc.data['tags'] }
+    .tally
 
   site.data['visible_tags'] =
     site.data['tag_tally']
-      .filter { |tag, count| count >= 3 }
-      .keys
+        .filter { |_tag, count| count >= 3 }
+        .keys
 
   visible_posts.each do |doc|
     doc.data['visible_tags'] = doc.data['tags'].filter do |tag_name|
@@ -26,8 +25,8 @@ module TagNavigation
       # By default, the list of documents is sorted in chronological order,
       # with the oldest posts at the front, but I want the opposite.
       visible_posts = (site.posts.docs + site.collections['til'].docs)
-        .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
-        .reverse
+                      .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
+                      .reverse
 
       site.data['visible_tags'].each do |tag|
         site.pages << TagPage.new(site, visible_posts, tag)
@@ -46,20 +45,20 @@ module TagNavigation
       @name     = 'index.html'
 
       posts_with_tag = visible_posts
-        .filter { |doc| doc.data['tags'].include? tag }
+                       .filter { |doc| doc.data['tags'].include? tag }
 
       featured_posts = posts_with_tag
-        .filter { |d| d.data.fetch('index', {}).fetch('feature', false) }
+                       .filter { |d| d.data.fetch('index', {}).fetch('feature', false) }
 
       remaining_posts = posts_with_tag
-        .reject { |d| featured_posts.include? d }
+                        .reject { |d| featured_posts.include? d }
 
       @data = {
         'layout' => 'tag',
         'tag' => tag,
         'title' => "Tagged with ‘#{tag}’",
         'featured_posts' => featured_posts,
-        'remaining_posts' => remaining_posts,
+        'remaining_posts' => remaining_posts
       }
     end
   end

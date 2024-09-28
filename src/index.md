@@ -75,10 +75,10 @@ Currently I think about photos at <a href="https://www.flickr.org">the Flickr Fo
 
 I enjoy **writing**, and I've been posting at this domain since 2012.
 I write about a variety of non-fiction topics, with a particular focus on software development.
-If you want to know what's on my mind, check out [the articles I've written](/articles/), [the talks I've given](/articles/?tag=talks), and [the lessons I've learned](/til/).
+If you want to know what's on my mind, check out [the articles I've written](/articles/), [the talks I've given](/tags/talks/), and [the lessons I've learned](/til/).
 
 In my free time, I enjoy doing art and simple **hand crafts** to relax.
-I've had a lot of fun doing [cross stitch](/articles/?tag=cross-stitch), origami and paper craft, and doodling sketches of implausible sci-fi vehicles.
+I've had a lot of fun doing [cross stitch](/tags/cross-stitch/), origami and paper craft, and doodling sketches of implausible sci-fi vehicles.
 
 I'm **queer** and **trans**.
 My pronouns are "they" or "she".

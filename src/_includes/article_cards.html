@@ -1,0 +1,7 @@
+{% include article_card_styles.html selected_articles=include.articles %}
+
+<ul id="list_of_articles" class="plain_list article_cards article_cards--{{ include.articles.size }}">
+{% for article in include.articles %}
+  {% include article_card.html hide_date="true" %}
+{% endfor %}
+</ul>
