@@ -1,7 +1,7 @@
 nav {
   padding-top: calc(1px + env(safe-area-inset-top));
   padding-bottom: 1px;
-  
+
   /* The nav gets the primary accent colour as background, with white text.
    *
    * It looks the same in light/dark mode.
@@ -32,6 +32,7 @@ nav {
    * you're in. */
   a[selected] {
     text-decoration-thickness: 4px;
+    text-decoration-skip-ink: none;
   }
 
   @media print {

@@ -38,7 +38,7 @@ layout: default
   {% if page.featured_posts.size > 0 %}
     {% include article_card_styles.html selected_articles=page.featured_posts %}
 
-    <ul id="list_of_articles" class="plain_list article_cards">
+    <ul id="list_of_articles" class="plain_list article_cards article_cards--{{ page.featured_posts.size }}">
     {% for article in page.featured_posts %}
       {% include article_card.html hide_date="true" %}
     {% endfor %}
