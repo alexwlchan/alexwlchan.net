@@ -26,35 +26,24 @@
   .card a {
     text-decoration: none;
     height: 100%;
+  }
 
-    /* These styles ensure that the small "Posted" date on the bottom of the
-     * cards always sits at the bottom of each card, even if there's a
-     * different amount of text in each card.
-     *
-     * See https://stackoverflow.com/a/48406917/1558022
-     */
-    display: flex;
-    flex-direction: column;
+  .c_meta {
+    padding: 1em;
+  }
 
-    .c_title {
-      color: var(--c-color);
-      text-decoration: underline;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-      font-weight: normal;
-    }
+  .c_title {
+    color: var(--c-color);
+    text-decoration: underline;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: normal;
   }
 
   .c_image {
     margin-top: 0;
     margin-bottom: 0;
     aspect-ratio: 2 / 1;
-  }
-
-  .c_meta {
-    padding-left:   1em;
-    padding-right:  1em;
-    padding-bottom: 1em;
   }
 
   .c_desc {
