@@ -58,14 +58,16 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
     {% assign remaining_posts = remaining_posts | push: this_article %}
   {% endif %}
 
-  {% if featured_posts.size == 2 %}
-  {% if remaining_posts.size >= 3 %}
-    {%- include article_links.html articles=remaining_posts %}
-    {% assign remaining_posts = "" | split: ',' %}
-  {% endif %}
+  {% unless featured_posts.size == 2 %}
+    {% continue %}
+  {% endunless %}
 
   {%- include article_cards.html articles=featured_posts %}
   {% assign featured_posts = "" | split: ',' %}
+  
+  {% if remaining_posts.size >= 3 %}
+  {%- include article_links.html articles=remaining_posts %}
+  {% assign remaining_posts = "" | split: ',' %}
   {% endif %}
 {% endfor %}
 
