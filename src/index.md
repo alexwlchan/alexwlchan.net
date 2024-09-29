@@ -94,8 +94,7 @@ I hope you like it!
 
 ## Favourite articles
 
-My [articles](/articles/) cover a variety of non-fiction topics.
-Here are a few of my favourites:
+Here are some of my favourite things [that I've written](/articles/):
 
 {% comment %}
   This component shows 6 featured articles.
@@ -137,6 +136,15 @@ Here are a few of my favourites:
   {% include article_card.html %}
 {% endfor %}
 </ul>
+
+Here are some of the topics I write about:
+
+<ul class="dot_list">
+  {% for tag in site.data['popular_tags'] %}
+  <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
+  {% endfor %}
+</ul>
+
 
 
 ---
