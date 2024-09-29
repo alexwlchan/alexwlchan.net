@@ -10,6 +10,8 @@ colors:
   index_light: "#815701"
   css_dark:    "#c79d2b"
   index_dark:  "#c79d2b"
+index:
+  feature: true
 ---
 
 Back in March, I was visiting my sister and her newly-redecorated home, and it gave me the inspiration to finally redecorate my bedroom – something I've been thinking about for two years.

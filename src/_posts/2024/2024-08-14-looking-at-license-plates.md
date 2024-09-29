@@ -10,6 +10,8 @@ tags:
 colors:
   index_light: "#921b2a"
   index_dark:  "#97b7c8"
+index:
+  feature: true
 ---
 {% comment %}
   Card image from https://www.pexels.com/photo/wall-of-car-plate-12953608/

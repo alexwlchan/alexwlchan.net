@@ -9,6 +9,8 @@ tags:
 colors:
   css_light: "#075ba3"
   css_dark:  "#198ff5"
+index:
+  exclude: true
 ---
 
 I've been doing a bunch of testing with VoiceOver recently, helping to [prepare the digital guides for a new exhibition at work][ips].
