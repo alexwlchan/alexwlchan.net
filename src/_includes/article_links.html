@@ -21,7 +21,14 @@
 <ul class="plain_list article_links">
 {% for article in include.articles %}
   <li>
-    <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">{% if article.layout == 'til' %}TIL: {% endif %}{{ article.title | markdownify_oneline }}</a></h4>
+    <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
+      {%- if article.layout == 'til' -%}
+      {%- unless page.url == "/til/" -%}
+        TIL:&nbsp;
+      {%- endunless -%}
+      {%- endif -%}
+      {{ article.title | markdownify_oneline -}}
+    </a></h4>
 
     {% if article.summary %}
       <p class="summary">{{ article.summary | markdownify_oneline }}</p>
