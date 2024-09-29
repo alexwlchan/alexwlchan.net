@@ -51,32 +51,19 @@
     aspect-ratio: 2 / 1;
   }
 
-  .c_meta, .c_date {
-    padding-left:  1em;
-    padding-right: 1em;
+  .c_meta {
+    padding-left:   1em;
+    padding-right:  1em;
+    padding-bottom: 1em;
   }
 
   .c_desc {
     color: var(--body-text);
-    margin-top: 0.5em;
+    margin-top:    0.5em;
+    margin-bottom: 0;
+
     font-size: 85%;
     line-height: 1.45em;
-
-    // This means there's not too much of a gap between description/date,
-    // but in eggboxes the date gets hidden, so we skip this style.
-    &:not(:last-child) {
-      margin-bottom: 0;
-    }
-  }
-
-  .c_date {
-    margin-top: auto;
-
-    p {
-      color: var(--accent-grey);
-      margin-top: 0.5em;
-      font-size: 75%;
-    }
   }
 }
 

@@ -24,13 +24,5 @@
         </p>
       {% endif %}
     </div>
-
-    {% if include.hide_date != "true" %}
-    <div class="c_date">
-      <p>
-        {{- article.date | date: "%-d %B&nbsp;%Y" -}}
-      </p>
-    </div>
-    {% endif %}
   </a>
 </li>
