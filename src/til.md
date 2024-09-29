@@ -13,10 +13,3 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 {% assign tils = site.til | reverse %}
 
 {% include article_links.html articles=tils %}
-
-<style>
-  .article_links > li {
-    width: 100%;
-    padding-left: 0;
-  }
-</style>

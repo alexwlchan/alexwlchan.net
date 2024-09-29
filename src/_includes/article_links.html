@@ -1,7 +1,10 @@
 <style>
-  .article_links > li {
-    width: calc(100% - 1em - 2px);
-    padding-left: calc(1em + 2px);
+  /* If these article links are on the same page as article cards, add left/right
+   * margins so the text lines up vertically */
+  .article_cards + .article_links > li {
+    width: calc(100% - 2 * (1em - 2px));
+    padding-left:  calc(1em + 2px);
+    padding-right: calc(1em + 2px);
   }
 
   .article_links h4 {
