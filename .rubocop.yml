@@ -13,6 +13,10 @@ AllCops:
     # See https://stackoverflow.com/a/69421161/1558022
     - 'vendor/**/*'
 
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - 'src/_plugins/page_sizes_generator.rb'
+
 Metrics/AbcSize:
   Enabled: false
 
