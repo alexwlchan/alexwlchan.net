@@ -55,6 +55,10 @@
   }
 }
 
+.article_cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 /* This changes the number of columns based on the width of the
  * screen:
  *
@@ -71,12 +75,6 @@
     grid-template-columns: auto;
   }
 }
-
-.article_cards {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-
 
 @media screen and (min-width: 1000px) {
   .article_cards:not(.article_cards--1):not(.article_cards--2):not(.article_cards--4) {
