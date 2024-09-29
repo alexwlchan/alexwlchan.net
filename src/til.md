@@ -10,26 +10,13 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
 ---
 
-<ul id="list_of_tils" class="plain_list">
-{% for til in site.til reversed %}
-  <li data-tags="{{ til.visible_tags | join }}">
-    <h4><a href="{{ til.url }}">{{ til.title | markdownify_oneline }}</a></h4>
+{% assign tils = site.til | reverse %}
 
-    <ul class="dot_list meta">
-      {% if til.visible_tags.size > 0 %}
-      <li>
-        Tagged with
-        {% assign tags = til.visible_tags | sort %}
-        {% for t in tags %}
-          <a href="/tags/{{ t }}/">{{ t }}</a>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </li>
-      {% endif %}
-    </ul>
+{% include article_links.html articles=tils %}
 
-    {% if til.summary %}
-      <p class="summary">{{ til.summary | markdownify_oneline }}</p>
-    {% endif %}
-  </li>
-{% endfor %}
-</ul>
+<style>
+  .article_links > li {
+    width: 100%;
+    padding-left: 0;
+  }
+</style>
