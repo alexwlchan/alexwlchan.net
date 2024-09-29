@@ -62,10 +62,10 @@ Jekyll::Hooks.register :site, :post_read do |site|
                end
 
   site.data['popular_tags'] = tag_scores
-    .sort_by { |_, score| score }
-    .reverse[...25]
-    .map { |tag_name, _| tag_name }
-    .sort
+                              .sort_by { |_, score| score }
+                              .reverse[...25]
+                              .map { |tag_name, _| tag_name }
+                              .sort
 end
 
 # This generator creates the per-tag pages for the visible tags.
