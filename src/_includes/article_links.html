@@ -19,7 +19,11 @@
 
 <ul class="plain_list article_links">
 {% for article in include.articles %}
-  <li>
+  <li
+    {% if add_data_metadata %}
+    data-date="{{ article.date | date: '%s' }}"
+    {% endif %}
+  >
     <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
       {%- if article.layout == 'til' -%}
       {%- unless page.url == "/til/" -%}

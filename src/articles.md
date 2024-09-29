@@ -47,6 +47,8 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
 {% assign featured_posts  = "" | split: ',' %}
 {% assign remaining_posts = "" | split: ',' %}
 
+{% assign add_data_metadata = true %}
+
 {% for this_article in site.posts %}
   {% if this_article.index.exclude %}
     {% continue %}
