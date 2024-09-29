@@ -36,7 +36,7 @@
     color: var(--c-color);
     text-decoration: underline;
     margin-top: 0;
-    margin-bottom: 0.5em;
+    margin-bottom: 7px;
     font-weight: normal;
   }
 
@@ -50,7 +50,6 @@
     color: var(--body-text);
     margin-top:    0.5em;
     margin-bottom: 0;
-
     font-size: 85%;
     line-height: 1.45em;
   }
@@ -80,7 +79,7 @@
 
 
 @media screen and (min-width: 1000px) {
-  .article_cards {
+  .article_cards:not(.article_cards--1):not(.article_cards--2):not(.article_cards--4) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-left: -100px;
     margin-right: -100px;

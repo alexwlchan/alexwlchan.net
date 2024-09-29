@@ -21,17 +21,3 @@ article.til {
     display: none;
   }
 }
-
-#filter_status {
-  display: none;
-
-  .selected_tag {
-    font-weight: bold;
-  }
-
-  .clear_filters {
-    color: red;
-    text-decoration: none;
-    background: none;
-  }
-}

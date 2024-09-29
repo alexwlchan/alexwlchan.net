@@ -10,6 +10,9 @@
   class="card"
   id="a-{{ article.slug }}"
   data-tags="{{ article.tags | join: ' ' }}"
+  {% if add_data_metadata %}
+  data-date="{{ article.date | date: '%s' }}"
+  {% endif %}
 >
   <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
     {% card_image %}

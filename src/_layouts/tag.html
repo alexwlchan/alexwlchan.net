@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<style>
+  .title a {
+    text-decoration: underline;
+  }
+
+  .title + .article_cards {
+    margin-top: 2.5em;
+  }
+
+  article.til {
+    p.summary { font-weight: bold; }
+  }
+</style>
+
+<article>
+  <h1 class="title">
+    <a href="/tags/">Tags</a> » {{ page.tag }}
+  </h1>
+
+  {% if page.featured_posts.size > 0 %}
+    {% include article_cards.html articles=page.featured_posts %}
+  {% endif %}
+
+  {% if page.remaining_posts.size > 0 %}
+    {% include article_links.html articles=page.remaining_posts %}
+  {% endif %}
+</article>
+
+{% if page.featured_posts.size == 0 %}
+<style>
+  .article_links > li {
+    width: 100%;
+    padding-left: 0;
+  }
+</style>
+{% endif %}

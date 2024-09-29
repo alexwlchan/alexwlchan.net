@@ -1,0 +1,41 @@
+<style>
+  .article_links > li {
+    width: calc(100% - 1em - 2px);
+    padding-left: calc(1em + 2px);
+  }
+
+  .article_links h4 {
+    font-weight: normal;
+    margin-bottom: 7px;
+  }
+
+  .article_links p.summary {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 85%;
+    line-height: 1.45em;
+  }
+</style>
+
+<ul class="plain_list article_links">
+{% for article in include.articles %}
+  <li
+    {% if add_data_metadata %}
+    data-date="{{ article.date | date: '%s' }}"
+    {% endif %}
+  >
+    <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
+      {%- if article.layout == 'til' -%}
+      {%- unless page.url == "/til/" -%}
+        TIL:&nbsp;
+      {%- endunless -%}
+      {%- endif -%}
+      {{ article.title | markdownify_oneline -}}
+    </a></h4>
+
+    {% if article.summary %}
+      <p class="summary">{{ article.summary | markdownify_oneline }}</p>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>

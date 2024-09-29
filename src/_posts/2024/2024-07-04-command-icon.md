@@ -627,4 +627,4 @@ Many of these I wouldn't know how to draw if I started from a blank sheet of pap
 If you want to create some of these shapes yourself, the web app is available at [looped-squares.glitch.me](https://looped-squares.glitch.me).
 Send me your favourites!
 
-If you like this post, you might want to check out my other [generative art](/articles/?tag=generative-art).
+If you like this post, you might want to check out my other [generative art](/tags/generative-art/).

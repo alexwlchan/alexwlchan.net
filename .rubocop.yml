@@ -13,7 +13,13 @@ AllCops:
     # See https://stackoverflow.com/a/69421161/1558022
     - 'vendor/**/*'
 
+Lint/MissingSuper:
+  Enabled: false
+
 Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/ClassLength:

@@ -75,10 +75,10 @@ Currently I think about photos at <a href="https://www.flickr.org">the Flickr Fo
 
 I enjoy **writing**, and I've been posting at this domain since 2012.
 I write about a variety of non-fiction topics, with a particular focus on software development.
-If you want to know what's on my mind, check out [the articles I've written](/articles/), [the talks I've given](/articles/?tag=talks), and [the lessons I've learned](/til/).
+If you want to know what's on my mind, check out [the articles I've written](/articles/), [the talks I've given](/tags/talks/), and [the lessons I've learned](/til/).
 
 In my free time, I enjoy doing art and simple **hand crafts** to relax.
-I've had a lot of fun doing [cross stitch](/articles/?tag=cross-stitch), origami and paper craft, and doodling sketches of implausible sci-fi vehicles.
+I've had a lot of fun doing [cross stitch](/tags/cross-stitch/), origami and paper craft, and doodling sketches of implausible sci-fi vehicles.
 
 I'm **queer** and **trans**.
 My pronouns are "they" or "she".
@@ -94,8 +94,7 @@ I hope you like it!
 
 ## Favourite articles
 
-My [articles](/articles/) cover a variety of non-fiction topics.
-Here are a few of my favourites:
+Here are some of my favourite things [that I've written](/articles/):
 
 {% comment %}
   This component shows 6 featured articles.
@@ -138,63 +137,13 @@ Here are a few of my favourites:
 {% endfor %}
 </ul>
 
+Here are some of the topics I write about:
 
----
-
-
-## My newest articles
-
-I typically write three or four new articles a month.
-If you want to find out when I post something new, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
-
-Here's what I've written recently:
-
-{% comment %}
-  The styles in "article_cards.scss" will switch between three layouts:
-
-  *   a 1×3 column (mobile devices)
-  *   a 2×2 grid (regular screens)
-  *   a 3×1 row (wide screens)
-
-  This is meant to be a sample of posts, not a full list.  I don't want
-  too many on mobile devices, and I don't want a single item on its own
-  on the second row on a wide screen.
-
-  This CSS will hide the fourth post on mobile/wide screens.
-{% endcomment %}
-
-<style>
-  @media screen and (max-width: 500px) {
-    #recent_articles li:nth-child(4) {
-      display: none;
-    }
-  }
-
-  @media screen and (min-width: 1000px) {
-    #recent_articles li:nth-child(4) {
-      display: none;
-    }
-  }
-</style>
-
-{% assign recent_articles = site.posts | sort: "date" | reverse | slice: 0, 4 %}
-
-{% comment %}
-  For consistency with the "all posts" page, any blog posts that don't
-  set an explicit colour get tinted the default red on the homepage.
-{% endcomment %}
-
-{% assign is_index = true %}
-
-{% include article_card_styles.html selected_articles=recent_articles %}
-
-<ul id="recent_articles" class="article_cards">
-{% for article in recent_articles %}
-  {% include article_card.html %}
-{% endfor %}
+<ul class="dot_list">
+  {% for tag in site.data['popular_tags'] %}
+  <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
+  {% endfor %}
 </ul>
-
-[Read more articles &rarr;](/articles/)
 
 
 

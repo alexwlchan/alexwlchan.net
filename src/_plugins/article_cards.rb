@@ -100,7 +100,7 @@ module Jekyll
           405, 405 * 2 # 1-up column => ~405px wide
         ]
 
-        sizes_attribute = '(max-width: 450px) 405px, (max-width: 1000px) 365px, 302px'
+        sizes_attribute = '(max-width: 450px) 405px, 405px'
 
         year = article['date'].year
 

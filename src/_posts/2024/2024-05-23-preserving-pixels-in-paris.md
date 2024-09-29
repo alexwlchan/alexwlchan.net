@@ -13,7 +13,7 @@ colors:
   index_dark:  "#cba369"
 ---
 Last month, I was in Paris for the [IIPC Web Archiving Conference][conf], a two-day event to discuss the preservation of websites and social media.
-It was my first time attending, and I was there with both a [professional](https://www.flickr.org/) and a [personal](/articles/?tag=digital-preservation) interest.
+It was my first time attending, and I was there with both a [professional](https://www.flickr.org/) and a [personal](/tags/digital-preservation/) interest.
 This post has some thoughts and photos from the trip.
 
 I met a lot of smart people, and we had some thoughtful conversations about the challenges of web archiving.
