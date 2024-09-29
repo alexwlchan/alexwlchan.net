@@ -7,7 +7,7 @@ tags:
   - personal
   - digital-preservation
 colors:
-  css_dark:  "#78a2c2"
+  css_dark:  "#8ec0e6"
   css_light: "#3351a3"
 index:
   feature: true
