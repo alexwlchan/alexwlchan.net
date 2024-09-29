@@ -90,10 +90,6 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
     <h4><a href="{{ til.url }}">{{ til.title | markdownify_oneline }}</a></h4>
 
     <ul class="dot_list meta">
-      <li>
-        Posted {% include timestamp.html date = til.date %}
-      </li>
-
       {% if til.visible_tags.size > 0 %}
       <li>
         Tagged with

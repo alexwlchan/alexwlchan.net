@@ -117,7 +117,7 @@ Here are a few of my favourites:
   const featuredArticles = [
     {% for article in featured_articles %}
       {% capture articleHtml %}
-        {% include article_card.html hide_date="true" %}
+        {% include article_card.html %}
       {% endcapture %}
       {{ articleHtml | strip | jsonify }},
     {% endfor %}
@@ -134,7 +134,7 @@ Here are a few of my favourites:
 
 <ul class="article_cards" id="featured_articles">
 {% for article in sample_of_articles %}
-  {% include article_card.html hide_date="true" %}
+  {% include article_card.html %}
 {% endfor %}
 </ul>
 
