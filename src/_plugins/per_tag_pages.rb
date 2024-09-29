@@ -26,6 +26,7 @@ module TagNavigation
       # with the oldest posts at the front, but I want the opposite.
       visible_posts = (site.posts.docs + site.collections['til'].docs)
                       .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
+                      .sort_by { |d| d.data['date'] }
                       .reverse
 
       site.data['visible_tags'].each do |tag|
