@@ -142,7 +142,7 @@ If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml
       container.appendChild(articleCards);
       featuredPosts = [];
 
-      if (remainingPosts.length >= 3) {
+      if (remainingPosts.length >= 5) {
         var articleLinks = document.createElement("ul");
         articleLinks.setAttribute('class', 'plain_list article_links');
         remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
