@@ -7,6 +7,8 @@ tags:
   - travis
   - python
   - builds-and-ci
+index:
+  exclude: true
 ---
 
 For a while, I've been whinging on Twitter about Scala compile times -- mostly driven by the ever-increasing length of the Travis builds at work.
