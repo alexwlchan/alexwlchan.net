@@ -17,7 +17,11 @@ layout: default
 
 <article>
   <h1 class="title">
-    <a href="/tags/">Tags</a> » {{ page.tag }}
+    <a href="/tags/">Tags</a>
+    {% if page.namespace != "" %}
+    » <a href="/tags/{{ page.namespace }}/">{{ page.namespace }}</a>
+    {% endif %}
+    » {{ page.tag_name }}
   </h1>
 
   {% if page.featured_posts.size > 0 %}

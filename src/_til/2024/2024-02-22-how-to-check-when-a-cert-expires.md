@@ -3,7 +3,7 @@ layout: til
 date: 2024-02-22 12:33:03 +0000
 title: How to check when an HTTPS certificate expires
 tags:
-  - https
+  - http
   - curl
 ---
 You can check whether a certificate is about to expire using the following `openssl` command:

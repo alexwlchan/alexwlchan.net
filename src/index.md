@@ -140,8 +140,8 @@ Here are some of my favourite things [that I've written](/articles/):
 Here are some of the topics I write about:
 
 <ul class="dot_list">
-  {% for tag in site.data['popular_tags'] %}
-  <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
+  {% for tag_name in site.data['popular_tags'] %}
+    <li>{% include tag_link.html %}</li>
   {% endfor %}
 </ul>
 

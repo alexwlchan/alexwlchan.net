@@ -1,5 +1,13 @@
 # This plugin contains a bunch of logic for the way I do tagging.
 
+def visible?(tag_name, count)
+  if tag_name.include?(':') && (count >= 3)
+    true
+  else
+    !tag_name.include? ':'
+  end
+end
+
 Jekyll::Hooks.register :site, :post_read do |site|
   # This hook runs before the site is built, and adds the following fields
   # to the `site` object:
@@ -33,7 +41,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
   site.data['visible_tags'] =
     site.data['tag_tally']
-        .filter { |_, count| count >= 3 }
+        .filter { |tag_name, count| visible?(tag_name, count) }
         .keys
 
   visible_posts.each do |doc|
@@ -93,7 +101,15 @@ module TagNavigation
     def initialize(site, visible_posts, tag)
       @site = site
       @base = site.source
-      @dir  = "tags/#{tag}"
+
+      if tag.include? ':'
+        namespace, tag_name = tag.split(':')
+        @dir = "tags/#{namespace}/#{tag_name}"
+      else
+        namespace = ''
+        tag_name = tag
+        @dir = "tags/#{tag}"
+      end
 
       @basename = 'index'
       @ext      = '.html'
@@ -110,7 +126,8 @@ module TagNavigation
 
       @data = {
         'layout' => 'tag',
-        'tag' => tag,
+        'namespace' => namespace,
+        'tag_name' => tag_name,
         'title' => "Tagged with ‘#{tag}’",
         'featured_posts' => featured_posts,
         'remaining_posts' => remaining_posts

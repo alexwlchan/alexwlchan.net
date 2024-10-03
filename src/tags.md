@@ -28,7 +28,7 @@ title: Tags
 <ul id="tags">
   {% for tag_name in visible_tags %}
     <li>
-      <a href="/tags/{{ tag_name }}/">{{ tag_name }}</a>
+      {% include tag_link.html %}
       ({{ site.data['tag_tally'][tag_name] }})
     </li>
   {% endfor %}
