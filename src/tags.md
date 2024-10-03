@@ -28,7 +28,12 @@ title: Tags
 <ul id="tags">
   {% for tag_name in visible_tags %}
     <li>
-      <a href="/tags/{{ tag_name }}/">{{ tag_name }}</a>
+      {% if tag_name contains ":" %}
+        {% assign parts = tag_name | split: ":" %}
+        <a href="/tags/{{ parts[0] }}/{{ parts[1] }}/">{{ tag_name }}</a>
+      {% else %}
+        <a href="/tags/{{ tag_name }}/">{{ tag_name }}</a>
+      {% endif %}
       ({{ site.data['tag_tally'][tag_name] }})
     </li>
   {% endfor %}

@@ -105,7 +105,15 @@ module TagNavigation
     def initialize(site, visible_posts, tag)
       @site = site
       @base = site.source
-      @dir  = "tags/#{tag}"
+
+      if tag.include? ':'
+        namespace, tag_name = tag.split(':')
+        @dir = "tags/#{namespace}/#{tag_name}"
+      else
+        namespace = ''
+        tag_name = tag
+        @dir = "tags/#{tag}"
+      end
 
       @basename = 'index'
       @ext      = '.html'
@@ -122,7 +130,8 @@ module TagNavigation
 
       @data = {
         'layout' => 'tag',
-        'tag' => tag,
+        'namespace' => namespace,
+        'tag_name' => tag_name,
         'title' => "Tagged with ‘#{tag}’",
         'featured_posts' => featured_posts,
         'remaining_posts' => remaining_posts
