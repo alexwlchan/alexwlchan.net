@@ -3,9 +3,11 @@
 def visible?(tag_name, count)
   if tag_name.include?(':') && (count >= 3)
     true
+  elsif tag_name.include? ':'
+    false
+  else
+    true
   end
-
-  !tag_name.include? ':'
 end
 
 Jekyll::Hooks.register :site, :post_read do |site|
