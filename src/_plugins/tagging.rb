@@ -5,11 +5,11 @@ def visible?(tag_name, count)
     true
   end
 
-  unless tag_name.include? ':'
+  if tag_name.include? ':'
+    false
+  else
     true
   end
-
-  false
 end
 
 Jekyll::Hooks.register :site, :post_read do |site|
