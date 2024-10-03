@@ -3,10 +3,8 @@
 def visible?(tag_name, count)
   if tag_name.include?(':') && (count >= 3)
     true
-  elsif tag_name.include? ':'
-    false
   else
-    true
+    !tag_name.include? ':'
   end
 end
 
