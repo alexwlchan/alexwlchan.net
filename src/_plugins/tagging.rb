@@ -1,5 +1,17 @@
 # This plugin contains a bunch of logic for the way I do tagging.
 
+def visible?(tag_name, count)
+  if tag_name.include?(':') && (count >= 3)
+    true
+  end
+
+  unless tag_name.include? ':'
+    true
+  end
+
+  false
+end
+
 Jekyll::Hooks.register :site, :post_read do |site|
   # This hook runs before the site is built, and adds the following fields
   # to the `site` object:
@@ -33,7 +45,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
   site.data['visible_tags'] =
     site.data['tag_tally']
-        .filter { |_, count| count >= 3 }
+        .filter { |tag_name, count| visible?(tag_name, count) }
         .keys
 
   visible_posts.each do |doc|
