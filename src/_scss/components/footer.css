@@ -1,0 +1,24 @@
+footer {
+  padding-top:    15px;
+  padding-bottom: calc(15px + env(safe-area-inset-bottom));
+
+  font-size: calc(var(--meta-scaling-factor) * var(--font-size));
+
+  /* The footer gets the primary accent colour as background, with white text.
+   *
+   * It looks the same in light/dark mode.
+   */
+  background: var(--primary-color-light);
+}
+
+footer,
+footer a,
+footer a:visited {
+  color: white;
+}
+
+@media print {
+  footer {
+    display: none;
+  }
+}
