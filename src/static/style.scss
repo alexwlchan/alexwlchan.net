@@ -32,6 +32,7 @@
 $primary-color-light: #d01c11;
 $primary-color-dark:  #ff4242;
 
+@include create_default_variables();
 @include create_colour_variables($primary-color-light, $primary-color-dark);
 
 a.download {

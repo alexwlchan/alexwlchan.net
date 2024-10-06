@@ -1,116 +1,91 @@
-@use "sass:math";
+@import "utils/functions.scss";
 
 $max-width: 750px;
 $default-padding: 20px;
 
-:root {
-  /* ====================
-   * Font and text styles
-   * ==================== */
-  --text-font-family: Charter, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-  --mono-font-family: Menlo, Consolas, monospace;
-
-  --font-size: 1em;
-
-  --line-height: 1.5em;
-
-  --meta-scaling-factor:     0.82;
-  --footnote-scaling-factor: 0.95;
-  --code-scaling-factor:     0.88;
-
-  /* =============================
-   * Margins and page layout stuff
-   * ============================= */
-  --max-width: #{$max-width};
-
-  --grid-gap: 10px;
-
-  --default-padding: #{$default-padding};
-
-  --border-radius: 10px;
-  --border-style:  solid;
-  --border-width:  3px;
-
-  /* Background image for the page.
-   * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
-   * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
-   */
-  --background: url('/theme/white-waves-transparent.png');
-}
-
-/* =====================================
- * Colours which are the same everywhere
- * ===================================== */
-
 $body-text-light: #202020;
 $body-text-dark:  #c7c7c7;
 
-:root {
-  --body-text:       #{$body-text-light};
-  --body-text-light: #{$body-text-light};
-  --body-text-dark:  #{$body-text-dark};
-
-  --accent-grey: #999;
-
-  --screenshot-border-color: #f0f0f0;
-
-  /* This gives cards a v subtle solid background colour, to make them
-   * stand out from the textured background.
-   */
-  --article-card-background: #fafafa;
-}
-
-@media (prefers-color-scheme: dark) {
+@mixin create_default_variables() {
   :root {
-    --body-text:   #{$body-text-dark};
+    /* ====================
+     * Font and text styles
+     * ==================== */
+    --text-font-family: Charter, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    --mono-font-family: Menlo, Consolas, monospace;
 
-    --screenshot-border-color: #3f3f3f;
+    --font-size: 1em;
 
-    --article-card-background: #0d0d0d;
+    --line-height: 1.5em;
+
+    --meta-scaling-factor:     0.82;
+    --footnote-scaling-factor: 0.95;
+    --code-scaling-factor:     0.88;
+
+    /* =============================
+     * Margins and page layout stuff
+     * ============================= */
+    --max-width: #{$max-width};
+
+    --grid-gap: 10px;
+
+    --default-padding: #{$default-padding};
+
+    --border-radius: 10px;
+    --border-style:  solid;
+    --border-width:  3px;
 
     /* Background image for the page.
-     * This is "White Waves Pattern" by Stas Pimenov, with the colours
-     * flipped -- it's the same as the light background, but inverted.
+     * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
      * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
      */
-    --background: url('/theme/black-waves-transparent.png');
+    --background: url('/theme/white-waves-transparent.png');
   }
-}
 
-@media print {
+  /* =====================================
+   * Colours which are the same everywhere
+   * ===================================== */
+
   :root {
-    --accent-grey: var(--body-text);
+    --body-text:       #{$body-text-light};
+    --body-text-light: #{$body-text-light};
+    --body-text-dark:  #{$body-text-dark};
 
-    /* Don't show the background texture when printing; it's not important */
-    --background: none;
+    --accent-grey: #999;
+
+    --screenshot-border-color: #f0f0f0;
+
+    /* This gives cards a v subtle solid background colour, to make them
+     * stand out from the textured background.
+     */
+    --article-card-background: #fafafa;
   }
-}
 
-/* ===================================================
- * Colours which can vary with the page "tint" colours
- * ===================================================
- *
- * Because there aren't functions like rgba() and darken() in CSS,
- * I pre-bake all the different variants of a colour into a large set
- * of CSS variables that can be used in the different rules.
- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --body-text:   #{$body-text-dark};
 
-/* Convert a decimal number to a two-digit hex string. */
-@function decToHex($dec) {
-  $hex: "0123456789ABCDEF";
-  $first: math.div($dec - $dec % 16, 16) + 1;
-  $second: ($dec % 16) + 1;
-  @return str-slice($hex, $first, $first) + str-slice($hex, $second, $second);
-}
+      --screenshot-border-color: #3f3f3f;
 
-/* Convert a color to a hex string, omitting the leading hash.
- *
- * For example, #d009dc would become 'd009dc'. */
-@function colorToHexString($color) {
-  $red_hex:   decToHex(red($color));
-  $green_hex: decToHex(green($color));
-  $blue_hex:  decToHex(blue($color));
-  @return to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
+      --article-card-background: #0d0d0d;
+
+      /* Background image for the page.
+       * This is "White Waves Pattern" by Stas Pimenov, with the colours
+       * flipped -- it's the same as the light background, but inverted.
+       * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
+       */
+      --background: url('/theme/black-waves-transparent.png');
+    }
+  }
+
+  @media print {
+    :root {
+      --accent-grey: var(--body-text);
+
+      /* Don't show the background texture when printing; it's not important */
+      --background: none;
+    }
+  }
 }
 
 @mixin create_colour_variables($light-color, $dark-color) {
@@ -120,7 +95,7 @@ $body-text-dark:  #c7c7c7;
 
     --primary-color: #{$light-color};
 
-    --nav-background-url: url('/headers/specktre_#{colorToHexString($light-color)}.png');
+    --nav-background-url: url('/headers/specktre_#{color-to-hex-str($light-color)}.png');
 
     --link-color:         #{$light-color};
     --link-visited-color: #{darken($light-color, 15%)};
