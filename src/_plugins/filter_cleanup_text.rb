@@ -16,6 +16,10 @@ class AddNonBreakingSpaces
   def self.add_non_breaking_spaces(input)
     text = input
 
+    # "e.g." introduces an example; it's annoying when the example text has
+    # been bumped to another line, so don't let it.
+    text.gsub('e.g. ', 'e.g.&nbsp;')
+
     # Add a non-breaking space after words which are followed by
     # a number, e.g. 'Apollo 11' or 'RFC 456'
     prefix_words = %w[

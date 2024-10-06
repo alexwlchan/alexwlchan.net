@@ -12,16 +12,14 @@ A good hover style reminds me of how fast and responsive our computers can be, i
 For example, I add a thicker underline when you hover over a link on this site, and it appears/disappears almost instantly as I move my cursor around.
 It feels snappy; it makes me smile.
 
-I want to show you a couple of hover states I've been trying for images.
+I want to show you a pair of hover states I've been trying for images.
 
 [mdn]: https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
 
----
-
 ## Adding an image border on hover
 
-If I'm showing a small preview of an image that's a clickable link, I like to add a coloured border when you hover over it.
-It's a visual clue that *something* will happen when you click, and "see the big version of the image" is a pretty normal thing to happen.
+If I'm showing a small preview of an image that's a clickable link to the full-sized version, I like to add a coloured border when you hover over it.
+It's a visual clue that something will happen when you click, and "see the big version of the image" is a pretty normal thing to happen.
 
 Initially I implemented this by adding a `border` property on hover, for example:
 
@@ -31,11 +29,11 @@ a:hover img {
 }
 ```
 
-But a border takes up room on the page, which causes everything to move around it.
-Everything moves around to make space for the border that just appeared, which is precisely what I don't want.
+But a border takes up room on the page, which causes everything to get rearranged around it.
+Everything moves to make space for the border that just appeared, which is precisely what I don't want.
 I want a subtle hover, not a disruptive one!
 
-There are ways you can prevent this move, but I couldn't get them to work in a way I found satisfactory.
+There are ways you can prevent this movement, but I couldn't get them to work in a way I found satisfactory.
 For example, you could add a negative margin to offset the border, or an always-on transparent border that only changes colour when you hover -- but those can interfere with other CSS rules.
 It became a game of whack-a-mole to make all my margins work in a consistent way.
 
@@ -85,21 +83,21 @@ a:hover img {
 </style>
 
 Here's a demo of both approaches.
-Notice how the page moves around when you add a `border`, but not when you add a `box-shadow`:
+Notice how the rest of the page moves around when you add a `border`, but not when you add a `box-shadow`:
 
 <div id="examples">
   <div>
     <a href="https://www.pexels.com/photo/hummingbird-sitting-on-branch-16820102/" class="border_hover">
-      <img src="/images/2024/hummingbird.jpg" style="width: 200px;">
+      <img src="/images/2024/hummingbird.jpg" style="width: 200px;" alt="">
     </a>
-    <p><code>border</code> on hover</p>
+    <p><code>border</code></p>
   </div>
 
   <div>
     <a href="https://www.pexels.com/photo/hummingbird-sitting-on-branch-16820102/" class="shadow_hover">
-      <img src="/images/2024/hummingbird.jpg" style="width: 200px;">
+      <img src="/images/2024/hummingbird.jpg" style="width: 200px;" alt="">
     </a>
-    <p><code>box-shadow</code> on hover</p>
+    <p><code>box-shadow</code></p>
   </div>
 </div>
 
@@ -110,8 +108,9 @@ Notice how the page moves around when you add a `border`, but not when you add a
 
 ## Changing the colour of icons on hover
 
-A while ago I added social media icons to the footer of this website.
-I displayed them as subtle, monochrome icons -- to avoid overwhelming the footer with an explosion of different brand colours -- but I thought it would be fun to show the site's brand colour when you hovered over the icon.
+A while ago I added social media links to the footer of this website.
+I displayed them as subtle, monochrome icons, to avoid overwhelming the footer with an explosion of different brand colours.
+I thought it would be fun to show the site's brand colour when you hovered over the icon.
 If, say, you hover over the bird icon and see Twitter's shade of blue, it's a subtle confirmation that this is indeed a link to my Twitter profile.
 
 <style type="x-text/scss">
@@ -215,7 +214,7 @@ Here are all the icons I had in this system:
 (If you're on a device that doesn't support hovering, you can <a href="#social_icons" onclick="document.querySelector('#social_icons').classList.toggle('hover');">toggle the hover styles manually</a>.)
 
 The brand icons come from the websites themselves; the generic icons are from [the Noun Project](https://thenounproject.com).
-When I downloaded the icon, I typically got an SVG file with one or more `path` elements that defined the overall shape.
+When I downloaded the icon, I typically got an SVG file with one or more `path` elements that defined the icon's shape.
 
 For example, this is what I got in the SVG file for [the email icon](https://thenounproject.com/icon/email-1573175/):
 
@@ -226,7 +225,7 @@ For example, this is what I got in the SVG file for [the email icon](https://the
 </svg>
 ```
 
-To turn this into a nice hoverable icon, I wrapped the `path` in a slightly more complex SVG:
+To turn this into my footer icon, I wrapped the `path` in a slightly more complex SVG:
 
 ```xml
 <svg width="30px" height="30px" version="1.1" viewBox="0 0 950 950" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -252,12 +251,19 @@ To turn this into a nice hoverable icon, I wrapped the `path` in a slightly more
 </svg>
 ```
 
-First I define a shape `envelopeIcon` which contains the shape of the envelope from the original design.
+First I define a shape `envelopeIcon` which uses that original `path`, and defines the shape of the element as a reusable group.
 Then I define [an SVG mask](/2021/inner-outer-strokes-svg/) `envelope` that blocks out the envelope shape.
 Finally, I define two shapes that actually get drawn: a `foreground` and a `background`.
 
-Splitting the icon into two shapes gives me two elements that I can style independently.
+Here's a 3D view of the two shapes, so you can see more clearly how they form a set of layers:
 
+{%
+  inline_svg
+  filename="layers.svg"
+  class="dark_aware"
+%}
+
+Now I have two elements that I can style independently.
 For example:
 
 ```
@@ -268,23 +274,16 @@ a:hover .email .foreground { fill: blue;  }
 a:hover .email .background { fill: white; }
 ```
 
-Here's a 3D view of the two shapes, so you can see more clearly how they form a set of layers:
+This technique can be extended to more complex icons -- split it into multiple elements, and style each one independently.
 
-{%
-  inline_svg
-  filename="layers.svg"
-  class="dark_aware"
-%}
-
-This technique can be extended to more complex icons -- split the icon into multiple elements, and style each element independently.
-
-It took me a while to get these icons to work as I wanted, and I remember trying some quite fiddly hacks.
+It took me a while to get these icons working as I wanted, and I remember trying some quite fiddly hacks.
 As I was writing this post, I was pleasantly surprised to discover that the hover styles aren't as complicated as I thought.
+I just had to figure out the general approach.
 
-One thing I'm quite proud of is how readable this site is without CSS.
-I made these icons look good by adding inline `fill` attributes to the background/foreground elements (e.g. `<circle fill="white" …>`).
-If you declare a style attribute directly on an SVG element, that style is applied even if CSS is broken or disabled.
-I don't get the interactivity, but the icon is still legible.
+One thing I'm proud of is how readable this site is without CSS.
+I made these icons look good on a sans-CSS page by adding inline `fill` attributes to the background/foreground elements (e.g. `<circle fill="white" …>`).
+These inline styles get applied even if CSS is broken or disabled.
+I lose the interactivity, but the icon is still legible.
 
 By the time you read this, those icons will have vanished from the footer.
 They were fun for me to work on, but almost nobody used them and they added almost 8KB of HTML to every page.

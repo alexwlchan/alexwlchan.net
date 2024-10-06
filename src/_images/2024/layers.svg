@@ -15,10 +15,7 @@
       }
       
       #layers .foreground { fill: currentColor; }
-      #layers .background { fill: var(--foreground-grey); opacity: 0.2; }
-      
-      #layers:hover .foreground { fill: blue; }
-      #layers:hover .background { fill: currentColor; opacity: 1.0; }
+      #layers .background { fill: var(--accent-grey); }
     </style>
   </defs>
   
