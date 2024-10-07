@@ -1,0 +1,16 @@
+---
+layout: post
+title: Flickr Foundation at iPres 2024
+summary: In September, I went to Belgium for a digital preservation conference. I wrote about what I learnt and what I saw for the Flickr.org blog.
+tags:
+  - digital-preservation
+  - flickr-foundation
+  - conferences
+link: https://www.flickr.org/flickr-foundation-at-ipres-2024/
+link_direct: true
+---
+I wrote about a recent conference trip for the Flickr.org blog:
+
+> In September, Tori and I went to Belgium for iPres 2024. We were keen to chat about digital preservation and discuss some of our ideas for Data Lifeboat – and enjoy a few Belgian waffles, of course!
+>
+> We ran a workshop called “How do you preserve 50 billion photos?” to talk about the challenges of archiving social media at scale. We had about 30 people join us for a lively discussion. Sadly we don’t have any photos of the workshop, but we did come away with a lot to think about, and we wanted to share some of the ideas that emerged.
