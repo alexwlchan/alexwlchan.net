@@ -5,7 +5,7 @@ title: Saving your alt text from Twitter
 summary: Twitter's archives don't include the alt text you wrote on images, but you can save a copy with their API.
 tags:
   - twitter
-  - digital-preservation
+  - digital preservation
   - accessibility
 colors:
   index_light: "#235f88"

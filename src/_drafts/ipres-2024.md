@@ -3,8 +3,8 @@ layout: post
 title: Flickr Foundation at iPres 2024
 summary: In September, I went to Belgium for a digital preservation conference. I wrote about what I learnt and what I saw for the Flickr.org blog.
 tags:
-  - digital-preservation
-  - flickr-foundation
+  - digital preservation
+  - flickr foundation
   - conferences
 link: https://www.flickr.org/flickr-foundation-at-ipres-2024/
 link_direct: true

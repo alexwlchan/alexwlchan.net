@@ -5,7 +5,7 @@ title: Digital decluttering
 summary: I'm resisting my temptation towards digital hoarding and "save everything", and trying to be more selective about the data I'm keeping.
 tags:
   - personal
-  - digital-preservation
+  - digital preservation
 colors:
   css_dark:  "#8ec0e6"
   css_light: "#3351a3"

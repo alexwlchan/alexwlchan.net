@@ -5,7 +5,7 @@ title: Going through my old school papers
 summary: Digitising and pruning my boxes of paper from school. In which I have nostalgia, sadness, and the sense that everything old is new again.
 tags:
   - personal
-  - digital-preservation
+  - digital preservation
 ---
 
 I left school in 2011, and I graduated from university in 2014.

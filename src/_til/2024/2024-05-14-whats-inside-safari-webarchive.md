@@ -6,7 +6,7 @@ summary: |
   The inside of a `.webarchive` file is a binary property list with the complete responses and some request metadata.
 tags:
   - safari
-  - digital-preservation
+  - digital preservation
 ---
 I've been doing a bit of poking around in the Safari [webarchive file format][wiki], and one of the things I wanted to check is that the data isn't stored in some sort of proprietary, impossible-to-read format.
 I haven't written a complete piece of code to get the data out, but I've done enough to satisfy myself that if Safari somehow disappears, I could still read it.

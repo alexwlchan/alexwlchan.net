@@ -5,7 +5,7 @@ title: The new Flickr Commons Explorer
 summary: A new way to browse the photos in the Flickr Commons programme.
 tags:
   - flickr
-  - flickr-foundation
+  - flickr foundation
 colors:
   css_light: "#d0395a"
   css_dark:  "#DBD4D3"
