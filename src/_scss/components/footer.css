@@ -17,6 +17,29 @@ footer a:visited {
   color: white;
 }
 
+#footer_inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: var(--grid-gap);
+}
+
+footer #bd-email {
+  margin-top:    5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+@media screen and (max-width: 520px) {
+  #footer_inner {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
+
+  footer form p:first-child {
+    margin-top: 0;
+  }
+}
+
 @media print {
   footer {
     display: none;
