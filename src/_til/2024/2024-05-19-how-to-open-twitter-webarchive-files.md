@@ -6,7 +6,7 @@ summary: |
   Disabling JavaScript when you open the webarchive file will prevent you from redirecting you to twitter.com.
 tags:
   - safari
-  - digital-preservation
+  - digital preservation
 ---
 Suppose you save a Safari webarchive from Twitter/X.
 When you try to open it, the scripts on the page will detect that you're not logged in, and try to redirect you back to `twitter.com`/`x.com`.

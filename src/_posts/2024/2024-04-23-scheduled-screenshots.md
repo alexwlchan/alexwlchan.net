@@ -6,7 +6,7 @@ summary: |
   A screenshot a day keeps the bit rot at bay.
 tags:
   - screenshots
-  - digital-preservation
+  - digital preservation
 colors:
   index_light: "#3d3d36"
   index_dark:  "#d4d5d2"

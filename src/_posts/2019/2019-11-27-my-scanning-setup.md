@@ -6,7 +6,7 @@ summary: My procedure for scanning paper, and organising the scanned PDFs with k
 tags:
   - personal
   - productivity
-  - digital-preservation
+  - digital preservation
 colors:
   index_light: "#302d2b"
   index_dark:  "#c2904f"

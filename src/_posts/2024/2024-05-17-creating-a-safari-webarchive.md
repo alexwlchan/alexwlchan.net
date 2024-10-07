@@ -5,7 +5,7 @@ title: Creating a Safari webarchive from the command line
 summary: We can use the `createWebArchiveData` method on `WKWebView` to write a Swift script that creates Safari webarchive files.
 tags:
   - swift
-  - digital-preservation
+  - digital preservation
   - safari
 colors:
   index_dark:  "#e9eaec"

@@ -8,7 +8,7 @@ colors:
   index_light: "#223395"
   index_dark:  "#5c90f0"
 tags:
-  - digital-preservation
+  - digital preservation
   - wellcome-collection
 index:
   feature: true

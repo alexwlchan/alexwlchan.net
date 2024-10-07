@@ -104,11 +104,11 @@ module TagNavigation
 
       if tag.include? ':'
         namespace, tag_name = tag.split(':')
-        @dir = "tags/#{namespace}/#{tag_name}"
+        @dir = "tags/#{namespace}/#{tag_name.gsub(' ', '-')}"
       else
         namespace = ''
         tag_name = tag
-        @dir = "tags/#{tag}"
+        @dir = "tags/#{tag_name.gsub(' ', '-')}"
       end
 
       @basename = 'index'

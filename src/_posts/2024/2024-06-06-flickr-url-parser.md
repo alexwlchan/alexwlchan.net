@@ -6,7 +6,7 @@ summary: I made a library that knows how to read lots of different forms of Flic
 link: https://www.flickr.org/the-surprising-utility-of-a-flickr-url-parser/
 tags:
   - flickr
-  - flickr-foundation
+  - flickr foundation
   - python
 colors:
   index_light: "#785a28"

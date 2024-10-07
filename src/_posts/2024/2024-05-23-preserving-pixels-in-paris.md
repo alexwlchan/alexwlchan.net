@@ -6,7 +6,7 @@ summary: |
   I went to France for a conference about archiving the web, and I came back with thoughts and photos.
 tags:
   - conferences
-  - digital-preservation
+  - digital preservation
   - photography
 colors:
   index_light: "#7d5628"
