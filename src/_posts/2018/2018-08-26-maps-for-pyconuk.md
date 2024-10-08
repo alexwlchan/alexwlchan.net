@@ -5,7 +5,7 @@ title: Making the venue maps for PyCon UK
 summary: A quick braindump of my thoughts from drawing some venue maps for PyCon UK.
 tags:
   - pyconuk
-  - graphic-design
+  - graphic design
 colors:
   index_light: "#336EAF"
   index_dark:  "#fac126"

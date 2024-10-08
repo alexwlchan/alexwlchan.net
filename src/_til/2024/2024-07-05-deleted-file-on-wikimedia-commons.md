@@ -3,7 +3,7 @@ layout: til
 date: 2024-07-05 12:41:56 +0100
 title: Using the Wikimedia Commons API to tell if a file has been deleted
 tags:
-  - wikimedia-commons
+  - wikimedia commons
 ---
 Flickypedia Backfillr Bot will occasionally try to get structured data for files which have been deleted from Wikimedia Commons.
 You can see the deletion if you open the file in a web browser:

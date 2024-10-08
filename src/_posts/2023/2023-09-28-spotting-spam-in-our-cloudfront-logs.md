@@ -5,7 +5,7 @@ title: Spotting spam in our CloudFront logs
 summary: Looking for search queries that came from robots, not real people.
 tags: 
   - python
-  - aws:amazon-cloudfront
+  - aws:amazon cloudfront
 colors:
   index_light: "#236abc"
   index_dark:  "#2f90ff"

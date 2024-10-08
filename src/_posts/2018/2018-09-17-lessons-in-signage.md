@@ -6,7 +6,7 @@ summary: A few lessons I learned while doing the signage for this year's PyCon U
 tags:
   - pyconuk
   - conferences
-  - graphic-design
+  - graphic design
 ---
 
 One of the changes at this year's PyCon UK was that I printed a bunch of signs for the venue.
