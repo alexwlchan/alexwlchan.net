@@ -12,7 +12,7 @@ tags:
 ---
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.
-A lot of my scripts are a variant off the following:
+A lot of my scripts are a variant of the following:
 
 ```python
 for task in get_tasks_to_do():
