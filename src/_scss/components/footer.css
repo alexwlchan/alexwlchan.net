@@ -19,14 +19,18 @@ footer a:visited {
 
 #footer_inner {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: var(--grid-gap);
+  grid-template-columns: auto 280px;
+  grid-gap: calc(5 * var(--grid-gap));
 }
 
 footer #bd-email {
   margin-top:    5px;
   margin-bottom: 5px;
-  width: 100%;
+  
+  padding:      1px;
+  border-width: 2px;
+  
+  width: calc(100% - 6px);  /* offset the padding/border */
 }
 
 @media screen and (max-width: 520px) {
