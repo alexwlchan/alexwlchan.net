@@ -49,6 +49,23 @@ The concurrency was a key part of the script, and I realised it was worth diggin
 
 
 
+<style>
+  svg polygon {
+    fill: var(--primary-color);
+  }
+
+  svg #arrowhead polygon,
+  svg text {
+    fill: currentColor;
+  }
+
+  svg .axis {
+    stroke: currentColor;
+  }
+</style>
+
+
+
 ## Running a small, fixed number of tasks
 
 If I have a small number of tasks, I schedule them all in one go, and wait for them all to complete.
@@ -143,7 +160,8 @@ This graph shows the number of tasks available to the executor against time -- y
 We're getting some of the benefits of concurrency, but we could be doing better.
 
 <svg viewBox="0 0 850 320" xmlns="http://www.w3.org/2000/svg"
-     role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an inverse sawtooth curve -- it rises sharply, drops gradually to zero, then repeats.">
+     role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an inverse sawtooth curve -- it rises sharply, drops gradually to zero, then repeats."
+     class="dark_aware">
   <marker id="arrowhead" markerWidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
     <polygon fill="#000" points="0 0, 8 2.8, 0 5.6"/>
   </marker>
@@ -156,6 +174,7 @@ We're getting some of the benefits of concurrency, but we could be doing better.
         y2="300"
         stroke-width="3"
         stroke="black"
+        class="axis"
         marker-end="url(#arrowhead)" />
 
   <text x="830"
@@ -171,6 +190,7 @@ We're getting some of the benefits of concurrency, but we could be doing better.
         y2="80"
         stroke-width="3"
         stroke="black"
+        class="axis"
         marker-end="url(#arrowhead)" />
 
   <text x="75"
@@ -249,7 +269,8 @@ This is what the number of tasks available looks like:
 [islice]: https://docs.python.org/3/library/itertools.html#itertools.islice
 
 <svg viewBox="0 0 850 320" xmlns="http://www.w3.org/2000/svg"
-     role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an initial spike to the top, then a zigzag pattern, then declining back to zero.">
+     role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an initial spike to the top, then a zigzag pattern, then declining back to zero."
+     class="dark_aware">
   <marker id="arrowhead" markerWidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
     <polygon fill="#000" points="0 0, 8 2.8, 0 5.6"/>
   </marker>
@@ -262,6 +283,7 @@ This is what the number of tasks available looks like:
         y2="300"
         stroke-width="3"
         stroke="black"
+        class="axis"
         marker-end="url(#arrowhead)" />
 
   <text x="830"
@@ -277,6 +299,7 @@ This is what the number of tasks available looks like:
         y2="80"
         stroke-width="3"
         stroke="black"
+        class="axis"
         marker-end="url(#arrowhead)" />
 
   <text x="75"
