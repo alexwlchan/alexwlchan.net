@@ -7,7 +7,7 @@ tags:
   - aws
   - amazon-dynamodb
   - python
-  - code-crimes
+  - code crimes
 colors:
   index_light: "#234371"
   index_dark:  "#56abdf"

@@ -7,7 +7,7 @@ tags:
   - python
   - images
   - colour
-  - drawing-things
+  - drawing things
 summary: Adjusting the hue to get different colour variants of the same image.
 ---
 

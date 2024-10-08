@@ -6,7 +6,7 @@ summary: The power of ADHD-associated hyperfocus and how I’ve become wary of f
 tags:
   - personal
   - cross-stitch
-  - wellcome-collection
+  - wellcome collection
 link: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 colors:
   index_light: "#9e2d2e"

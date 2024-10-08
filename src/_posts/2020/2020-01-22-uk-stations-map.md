@@ -7,7 +7,7 @@ link: https://uk-stations-map.glitch.me/
 tags:
   - glitch
   - trains
-  - fun-stuff
+  - fun stuff
 colors:
   index_light: "#0b9e00"
   index_dark:  "#0b9e00"

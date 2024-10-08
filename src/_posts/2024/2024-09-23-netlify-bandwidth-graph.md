@@ -6,7 +6,7 @@ summary:
   A two-part pie chart lets me see how much bandwidth I've used this month, and whether I'm on track to exceed my bandwidth allowance.
 tags:
   - netlify
-  - drawing-things
+  - drawing things
 colors:
   index_light: "#464d3e"
   index_dark:  "#d9d9b9"

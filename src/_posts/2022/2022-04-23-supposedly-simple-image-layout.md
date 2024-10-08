@@ -6,7 +6,7 @@ summary: A step-by-step breakdown of how I made a one-left, two-right layout for
 tags:
   - css
   - css:grid
-  - web-development
+  - web development
 colors:
   index_light: "#4b536e"
   index_dark:  "#a7a7af"

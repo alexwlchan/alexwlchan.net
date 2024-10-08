@@ -7,7 +7,7 @@ tags:
   - python
   - maths
   - python:pillow
-  - drawing-things
+  - drawing things
 title: Tiling the plane with Pillow
 colors:
   index_light: "#444444"

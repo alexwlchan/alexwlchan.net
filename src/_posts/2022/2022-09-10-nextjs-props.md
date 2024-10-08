@@ -6,7 +6,7 @@ summary: A script that helps us optimise our `__NEXT_DATA__`, which in turn help
 tags:
   - javascript
   - javascript:next.js
-  - web-development
+  - web development
 colors:
   index_light: "#AE160E"
   index_dark:  "#f15850"

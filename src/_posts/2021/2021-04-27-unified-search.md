@@ -4,7 +4,7 @@ date: 2021-04-27 20:05:02 +0000
 title: Building Wellcome Collection's new unified catalogue search
 summary: Collaboration between our digital and collections teams helped to build a single search box for all of our catalogues.
 tags:
-  - wellcome-collection
+  - wellcome collection
   - search
 link: https://stacks.wellcomecollection.org/building-our-new-unified-collections-search-ed399c412b01
 colors:

@@ -6,7 +6,7 @@ summary: A picture speaks a thousand words, which is why I always have pen and p
 tags:
   - aws
   - amazon-s3
-  - drawing-things
+  - drawing things
 colors:
   index_light: "#118f63"
   index_dark:  "#09c385"

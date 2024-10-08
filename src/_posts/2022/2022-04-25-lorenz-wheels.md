@@ -4,7 +4,7 @@ date: 2022-04-25 21:10:40 +0000
 title: Illustrating the cipher wheels of a Lorenz machine
 summary: Some old code I wrote to draw cam-accurate illustrations of cipher wheels.
 tags:
-  - drawing-things
+  - drawing things
   - latex
   - history
 link: https://github.com/alexwlchan/lorenz-wheels

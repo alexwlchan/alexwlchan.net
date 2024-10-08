@@ -6,7 +6,7 @@ summary: Wrapping my CLI tool for finding dominant colours in a lightweight web 
 tags:
   - colour
   - glitch
-  - fun-stuff
+  - fun stuff
 link: https://dominant-colours.glitch.me/
 
 colors:

@@ -6,8 +6,8 @@ summary: "Take a regular tiling of the plane, apply a random colouring, and voil
 tags:
   - python
   - python:pillow
-  - drawing-things
-  - generative-art
+  - drawing things
+  - generative art
 colors:
   index_light: "#98291d"
   index_dark:  "#ffd20b"

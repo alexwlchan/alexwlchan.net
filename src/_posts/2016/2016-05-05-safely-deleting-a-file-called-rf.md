@@ -4,7 +4,7 @@ summary: If for some reason you create a file called `-rf *`, it’s possible to
 layout: post
 tags:
   - shell-scripting
-  - code-crimes
+  - code crimes
 title: Safely deleting a file called ‘-rf *’
 ---
 

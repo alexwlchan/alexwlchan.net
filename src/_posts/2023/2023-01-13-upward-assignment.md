@@ -5,7 +5,7 @@ title: Upward assignment in Ruby
 summary: A deep dive into the internals of Ruby and metaprogramming techniques, in a quest for a cursed operator.
 tags:
   - ruby
-  - code-crimes
+  - code crimes
 colors:
   css_light: "#c62229"
   css_dark:  "#dd363f"

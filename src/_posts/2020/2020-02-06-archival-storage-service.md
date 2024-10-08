@@ -9,7 +9,7 @@ colors:
   index_dark:  "#5c90f0"
 tags:
   - digital preservation
-  - wellcome-collection
+  - wellcome collection
 index:
   feature: true
 ---

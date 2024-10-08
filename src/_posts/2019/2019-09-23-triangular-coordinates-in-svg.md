@@ -9,7 +9,7 @@ colors:
   index_dark:  "#b6beb3"
 tags:
   - svg
-  - drawing-things
+  - drawing things
 ---
 
 If you've been paying close attention to my recent posts, you might have noticed that I've started to use [SVG images][svg] for some of my diagrams.
