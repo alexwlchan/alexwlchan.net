@@ -6,7 +6,7 @@ summary: A script that creates temporary credentials for an assumed IAM role, an
 tags:
   - python
   - aws
-  - aws-iam
+  - aws:aws-iam
 title: Getting credentials for an assumed IAM Role
 ---
 

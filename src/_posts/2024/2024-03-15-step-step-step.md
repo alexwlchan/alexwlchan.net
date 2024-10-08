@@ -5,7 +5,7 @@ title: "Monki Gras 2024: Step… Step… Step…"
 summary: Swing dancing and prompt engineering are pretty different. But could learning one help us learn the other?
 tags:
   - talks
-  - generative-ai
+  - generative ai
 colors:
   css_dark:  "#88FA4E"
   css_light: "#008500"

@@ -5,7 +5,7 @@ title: Your repo should be easy to build, and how
 tags:
   - make
   - docker
-  - builds-and-ci
+  - builds and ci
 summary: Making your repo easy to clone and build is very important. This post explains why, and how I'm using Make and Docker to achieve that goal.
 ---
 

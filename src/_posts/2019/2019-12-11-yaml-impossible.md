@@ -5,7 +5,7 @@ title: This YAML file will self-destruct in five seconds!
 summary: YAML allows you to execute arbitrary code in a parser, even if you really really shouldn't.
 tags:
   - python
-  - code-crimes
+  - code crimes
 
 colors:
   index_light: "#527ab2"

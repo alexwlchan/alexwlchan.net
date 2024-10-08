@@ -5,8 +5,8 @@ title: Creating animated GIFs from fruit and veg
 summary: Some Python code for turning MRI scans of fruit and veg into animated GIFs.
 tags:
   - python
-  - drawing-things
-  - wellcome-collection
+  - drawing things
+  - wellcome collection
 colors:
   index_light: "#5c5a30"
   index_dark:  "#cdca78"

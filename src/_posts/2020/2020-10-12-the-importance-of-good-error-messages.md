@@ -4,7 +4,7 @@ date: 2020-10-12 18:02:18 +0000
 title: The danger of bad error messages
 summary: An Excel mistake shows why learning to write good error messages is a critical skill for software developers.
 tags:
-  - error-messages
+  - error messages
 # I'd like to feature this when it has a better card image!
 # index:
 #   feature: true

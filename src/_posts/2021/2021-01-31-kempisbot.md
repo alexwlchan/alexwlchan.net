@@ -6,7 +6,7 @@ summary: How I reincarnated a fifteenth-century monk and taught him to use Twitt
 tags:
   - python
   - twitter
-  - fun-stuff
+  - fun stuff
 colors:
   index_light: "#624230"
   index_dark:  "#aa9f92"

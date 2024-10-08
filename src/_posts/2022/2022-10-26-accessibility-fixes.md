@@ -5,7 +5,7 @@ title: Some small accessibility fixes
 summary: Making the sites I work on sound a bit nicer for anyone who relies on screen readers.
 tags:
   - accessibility
-  - blogging-about-blogging
+  - blogging about blogging
 colors:
   css_light: "#075ba3"
   css_dark:  "#198ff5"

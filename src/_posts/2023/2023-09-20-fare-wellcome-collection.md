@@ -5,7 +5,7 @@ title: Fare-Wellcome Collection
 summary: After nearly seven years, it's time for something new.
 tags:
   - personal
-  - wellcome-collection
+  - wellcome collection
 ---
 I still remember the first time I visited Wellcome Collection -- just over seven years ago.
 I was living and working in the Cambridge at the time, and I'd come into London for the day to hang out with a friend who lived near King's Cross.

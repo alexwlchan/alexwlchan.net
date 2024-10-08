@@ -6,7 +6,7 @@ summary: Code for saving every message from an SQS queue, and then saving the me
 tags:
   - aws
   - python
-  - amazon-sqs
+  - aws:amazon-sqs
 title: Getting every message in an SQS queue
 ---
 

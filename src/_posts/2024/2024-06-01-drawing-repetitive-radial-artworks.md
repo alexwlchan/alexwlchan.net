@@ -5,8 +5,8 @@ title: Drawing repetitive radial artworks
 summary: |
   Using polar coordinates to draw leaf- and flower-like patterns that repeat in circles around a point.
 tags:
-  - generative-art
-  - drawing-things
+  - generative art
+  - drawing things
 index:
   feature: true
 ---

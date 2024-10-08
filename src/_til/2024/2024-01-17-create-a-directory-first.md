@@ -3,7 +3,7 @@ layout: til
 title: Create a directory before you `cp` or `mv` a file to it
 date: 2024-01-07 20:23:36 +0000
 tags:
-  - shell-scripting
+  - shell scripting
 ---
 Not an exciting snippet, but one I should remember – the bash builtins really aren't too bad for creating a directory before it exists when you `mv`/`cp`:
 

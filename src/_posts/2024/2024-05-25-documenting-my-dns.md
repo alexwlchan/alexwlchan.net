@@ -6,7 +6,7 @@ summary: |
   Exporting my DNS records as YAML gives me a plaintext file where I can track changes, add comments, and feel more confident about managing my DNS.
 tags:
   - dns
-  - blogging-about-blogging
+  - blogging about blogging
   - ruby
 colors:
   index_light: "#c53f70"

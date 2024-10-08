@@ -5,8 +5,8 @@ title: Doodling with the Mac's command icon
 summary:
   Rotating a looped hook around a central point creates a surprising variety of shapes.
 tags:
-  - generative-art
-  - drawing-things
+  - generative art
+  - drawing things
 colors:
   css_light: "#014df4"
   css_dark:  "#67a7ff"

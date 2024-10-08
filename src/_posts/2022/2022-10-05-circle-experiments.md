@@ -5,8 +5,8 @@ title: Some experiments with circle-based art
 summary: Casually covering a canvas with coloured circles.
 tags:
   - python:pillow
-  - drawing-things
-  - generative-art
+  - drawing things
+  - generative art
 colors:
   index_light: "#ae0000"
   index_dark:  "#ea0000"

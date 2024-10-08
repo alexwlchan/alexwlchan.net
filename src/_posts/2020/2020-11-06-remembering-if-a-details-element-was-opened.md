@@ -6,7 +6,7 @@ summary: A JavaScript function that remembers if a details element was reopened,
 tags:
   - javascript
   - html
-  - web-development
+  - web development
 ---
 
 A rather useful HTML feature is the [&lt;details&gt; disclosure element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).

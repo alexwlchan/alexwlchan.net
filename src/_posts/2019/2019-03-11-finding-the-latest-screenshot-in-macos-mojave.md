@@ -3,7 +3,7 @@ date: 2019-03-11 20:31:17 +0000
 layout: post
 tags:
   - macos
-  - shell-scripting
+  - shell scripting
   - screenshots
 title: Finding the latest screenshot in macOS Mojave
 ---

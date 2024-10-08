@@ -4,7 +4,7 @@ layout: post
 summary: A couple of Git commands that I find useful in builds and CI.
 tags:
   - git
-  - builds-and-ci
+  - builds and ci
 title: Some useful Git commands for CI
 ---
 

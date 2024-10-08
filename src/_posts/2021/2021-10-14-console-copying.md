@@ -6,7 +6,7 @@ summary: When I include console commands in a blog post, I don't want somebody t
 tags:
   - markdown
   - css
-  - blogging-about-blogging
+  - blogging about blogging
 ---
 
 My posts often include some commands to be run at a console, for example:

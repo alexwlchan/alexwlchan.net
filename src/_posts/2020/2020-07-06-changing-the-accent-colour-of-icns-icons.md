@@ -6,7 +6,7 @@ summary: Playing with macOS ICNS image files to create colourful new icons.
 tags:
   - macos
   - colour
-  - fun-stuff
+  - fun stuff
 ---
 
 One of my key tools is [nvALT], a notetaking app for macOS.

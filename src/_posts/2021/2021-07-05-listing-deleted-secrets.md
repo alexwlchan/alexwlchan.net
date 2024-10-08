@@ -6,7 +6,7 @@ summary: Diving into the internals of the AWS SDK to find deleted secrets.
 tags:
   - python
   - aws
-  - aws-secrets-manager
+  - aws:aws-secrets-manager
 colors:
   index_light: "#00A000"
   index_dark:  "#61ff61"

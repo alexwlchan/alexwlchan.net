@@ -5,7 +5,7 @@ title: Getting word count stats for my blog
 link: https://alexwlchan.net/stats/
 tags:
   - jekyll
-  - blogging-about-blogging
+  - blogging about blogging
 index:
   exclude: true
 ---

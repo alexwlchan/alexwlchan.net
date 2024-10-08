@@ -6,7 +6,7 @@ summary: A snippet to make it a bit easier to debug errors in AWS Lambda functio
 tags:
   - aws
   - python
-  - aws-lambda
+  - aws:aws-lambda
 title: A basic error logger for Python Lambdas
 ---
 

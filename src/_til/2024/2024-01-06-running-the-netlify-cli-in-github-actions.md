@@ -4,7 +4,7 @@ title: Running the Netlify CLI in GitHub Actions
 date: 2024-01-06 10:05:00 +0000
 tags:
   - netlify
-  - github-actions
+  - github actions
 ---
 Currently I run Netlify using [a Docker image provided by William Jackson](https://github.com/williamjacksn/docker-netlify-cli).
 This has worked well for a while, but occasionally something breaks when Netlify bumps their CLI version.

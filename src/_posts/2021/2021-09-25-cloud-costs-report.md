@@ -5,7 +5,7 @@ title: Getting a monthly cloud costs report in Slack
 summary: Sending the AWS bill to Slack, so everyone can be more informed and intentional about spending.
 tags:
   - aws
-  - aws-billing
+  - aws:aws-billing
 colors:
   index_light: "#403f40"
   index_dark:  "#d4d3d0"

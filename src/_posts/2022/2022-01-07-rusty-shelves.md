@@ -5,8 +5,8 @@ title: Creating coloured bookshelf graphics in Rust
 summary: Explaining some code that draws coloured rectangles in a way that looks a bit like an upside-down bookshelf.
 tags:
   - rust
-  - generative-art
-  - drawing-things
+  - generative art
+  - drawing things
 ---
 
 In my [last post], I mentioned I have a mini-site where I track the books I've been reading ([books.alexwlchan.net]).

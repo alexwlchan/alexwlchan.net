@@ -5,7 +5,7 @@ title: Testing JavaScript without a (third-party) framework
 summary: The browser can be a pretty good place to run your JavaScript tests.
 tags:
   - javascript
-  - web-development
+  - web development
 ---
 
 Last week Julia Evans posted [Writing Javascript without a build system], and it resonated with my own experience.

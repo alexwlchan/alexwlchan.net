@@ -7,7 +7,7 @@ tags:
   - images
   - colour
   - rust
-  - fun-stuff
+  - fun stuff
 colors:
   index_light: "#4576bb"
   index_dark:  "#88a7d3"

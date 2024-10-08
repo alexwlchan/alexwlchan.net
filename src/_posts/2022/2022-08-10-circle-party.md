@@ -5,7 +5,7 @@ title: Drawing a circular arc in an SVG
 summary: A Python function to help me draw circular arcs, as part of an upcoming project.
 tags:
   - svg
-  - drawing-things
+  - drawing things
 ---
 
 For an upcoming project, I need to draw some circular arcs in an SVG.

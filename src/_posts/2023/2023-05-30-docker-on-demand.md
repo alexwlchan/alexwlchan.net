@@ -5,7 +5,7 @@ title: Starting Docker just before I need it
 summary: I don’t keep Docker running all the time, but intercepting the `docker` command means it’s always running when I need it.
 tags:
   - docker
-  - shell-scripting
+  - shell scripting
 colors:
   index_light: "#3a5781"
   index_dark:  "#cfe7f7"

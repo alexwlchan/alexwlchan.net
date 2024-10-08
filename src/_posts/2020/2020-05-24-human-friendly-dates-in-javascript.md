@@ -6,7 +6,7 @@ summary: What's a nicer way to show a date than an ISO 8601 timestamp?
 tags:
   - javascript
   - datetime-shenanigans
-  - web-development
+  - web development
 ---
 
 At work, we have an API for tracking the state of ingests in [our digital archive].

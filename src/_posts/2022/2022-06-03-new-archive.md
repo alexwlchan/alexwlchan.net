@@ -4,7 +4,7 @@ date: 2022-06-03 12:29:46 +0000
 title: Redesigning my archive pages
 summary: Using coloured cards with images and descriptions to make it easier to find posts in my back catalogue.
 tags:
-  - blogging-about-blogging
+  - blogging about blogging
 colors:
   index_light: "#22201f"
   index_dark:  "#fbfafa"

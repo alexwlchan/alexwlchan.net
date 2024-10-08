@@ -3,7 +3,7 @@ layout: til
 date: 2024-02-25 02:15:49 +0000
 title: Use the `-n`/`-i` flags to avoid overwriting files with `cp` and `mv`
 tags:
-  - shell-scripting
+  - shell scripting
 ---
 The `mv` and `cp` builtins have a `-n` flag (no-clobber), and will prevent them from overwriting an existing file.
 They also have a `-i` flag (interactive)

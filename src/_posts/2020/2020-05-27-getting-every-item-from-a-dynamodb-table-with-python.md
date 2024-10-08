@@ -5,7 +5,7 @@ title: Getting every item from a DynamoDB table with Python
 summary: A Python function that generates every item in a DynamoDB table.
 tags:
   - aws
-  - amazon-dynamodb
+  - aws:amazon-dynamodb
   - python
 colors:
   index_light: "#4b5254"

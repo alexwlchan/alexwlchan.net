@@ -6,7 +6,7 @@ summary: |
   I was able to build my Jekyll site much faster by using the built-in caching API.
 tags:
   - jekyll
-  - blogging-about-blogging
+  - blogging about blogging
 ---
 
 <!-- Card image: https://www.pexels.com/photo/laboratory-test-tubes-2280549/ -->

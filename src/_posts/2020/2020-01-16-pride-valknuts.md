@@ -7,9 +7,9 @@ link: https://rainbow-valknuts.glitch.me/
 tags:
   - python
   - glitch
-  - generative-art
-  - fun-stuff
-  - drawing-things
+  - generative art
+  - fun stuff
+  - drawing things
 colors:
   index_light: "#e31b85"
   index_dark:  "#c8c8c8"

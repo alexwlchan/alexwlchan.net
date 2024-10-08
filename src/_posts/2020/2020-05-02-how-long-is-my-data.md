@@ -6,7 +6,7 @@ link: https://howlongismydata.glitch.me/
 tags:
   - digital preservation
   - glitch
-  - fun-stuff
+  - fun stuff
 summary: A fun app to calculate the size of your data in terms of floppy disks.
 colors:
   index_light: "#ff47ff"
