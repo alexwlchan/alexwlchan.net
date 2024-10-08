@@ -3,7 +3,7 @@ layout: til
 date: 2023-10-16 16:45:35 +0000
 title: Find files that use a particular SDC field
 tags:
-  - wikimedia-commons
+  - wikimedia commons
   - sparql
 ---
 ## Using Special:MediaSearch

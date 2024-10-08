@@ -3,7 +3,7 @@ layout: post
 date: 2014-07-11 07:43:00 +0000
 tags:
   - latex
-  - wolfram-alpha
+  - wolfram alpha
 title: Getting plaintext LaTeX from Wolfram Alpha
 colors:
   index_light: "#f35716"

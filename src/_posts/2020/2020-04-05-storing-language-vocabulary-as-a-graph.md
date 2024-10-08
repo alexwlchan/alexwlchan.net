@@ -6,7 +6,7 @@ summary: Experimenting with a way to store words and phrases that highlights the
 tags:
   - languages
   - python
-  - graph-theory
+  - graph theory
 colors:
   index_light: "#946800"
   index_dark:  "#ffb300"

@@ -4,7 +4,7 @@ date: 2023-10-10 15:42:27 +0000
 date_updated: 2024-06-24 07:30:47 +0100
 title: Why the term "snak" keeps appearing in the Wikidata API
 tags:
-  - wikimedia-commons
+  - wikimedia commons
   - naming-things
 ---
 This is one of those terms I kept seeing in API responses and documentation, but it wasn't immediately obvious to me what it means.
