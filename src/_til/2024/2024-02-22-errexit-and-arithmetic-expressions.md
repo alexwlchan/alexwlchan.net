@@ -4,7 +4,7 @@ date: 2024-02-22 18:40:37 +0000
 title: Using `errexit` and arithmetic expressions in bash
 tags:
   - bash
-  - shell-scripting
+  - shell scripting
 ---
 I was having some issues with a Bash script that used `set -o errexit` and arithmetic expressions to increment a value:
 

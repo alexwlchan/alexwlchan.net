@@ -6,7 +6,7 @@ summary: How I make images that load quickly and look good for readers, and whic
 tags:
   - web development
   - jekyll
-  - blogging-about-blogging
+  - blogging about blogging
 colors:
   css_light: "#df1b4a"
   css_dark:  "#fd96af"

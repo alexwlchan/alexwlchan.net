@@ -5,7 +5,7 @@ summary: Python functions for getting a list of keys and objects in an S3 bucket
 title: Listing even more keys in an S3 bucket with Python
 tags:
   - python
-  - amazon-s3
+  - aws:amazon-s3
   - aws
 ---
 

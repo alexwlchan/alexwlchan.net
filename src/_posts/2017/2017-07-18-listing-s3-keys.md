@@ -5,7 +5,7 @@ summary: A short Python function for getting a list of keys in an S3 bucket.
 tags:
   - aws
   - python
-  - amazon-s3
+  - aws:amazon-s3
 title: Listing keys in an S3 bucket with Python
 ---
 

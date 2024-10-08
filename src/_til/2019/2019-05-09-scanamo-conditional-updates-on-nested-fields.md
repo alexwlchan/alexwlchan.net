@@ -5,7 +5,7 @@ date: 2019-05-09 12:12:24 +0100
 tags:
   - java
   - aws
-  - amazon-dynamodb
+  - aws:amazon-dynamodb
   - scala
   - scala:scanamo
 ---

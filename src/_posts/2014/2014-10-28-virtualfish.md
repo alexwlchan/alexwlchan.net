@@ -3,7 +3,7 @@ layout: post
 date: 2014-10-28 20:06:00 +0000
 tags:
   - fish-shell
-  - shell-scripting
+  - shell scripting
 title: '"Missing argument at index 2" in fish'
 index:
   exclude: true

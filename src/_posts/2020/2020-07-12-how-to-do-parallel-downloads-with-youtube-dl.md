@@ -3,7 +3,7 @@ layout: post
 date: 2020-07-12 07:34:45 +0000
 title: How to do parallel downloads with youtube-dl
 tags:
-  - shell-scripting
+  - shell scripting
   - youtube
 ---
 

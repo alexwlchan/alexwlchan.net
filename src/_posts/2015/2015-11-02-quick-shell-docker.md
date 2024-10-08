@@ -4,7 +4,7 @@ layout: post
 summary: A Bash function for quickly getting shell access to Docker containers.
 tags:
   - docker
-  - shell-scripting
+  - shell scripting
 title: Quick shell access for Docker containers
 ---
 

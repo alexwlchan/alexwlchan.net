@@ -5,7 +5,7 @@ title: A Jekyll filter for adding non-breaking spaces
 summary: A way to avoid awkward line breaks in the middle of phrases.
 tags:
   - jekyll
-  - blogging-about-blogging
+  - blogging about blogging
 ---
 
 I've been using [Jekyll] to build this blog for about two and a half years.

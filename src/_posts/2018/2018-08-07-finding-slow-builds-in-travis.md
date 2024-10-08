@@ -6,7 +6,7 @@ summary: A Python snippet for using the Travis CI API to track build times.
 tags:
   - travis
   - python
-  - builds-and-ci
+  - builds and ci
 index:
   exclude: true
 ---

@@ -4,7 +4,7 @@ date: 2021-09-28 19:23:39 +0000
 title: An editing toolbar for alexwlchan.net
 summary: A bookmarklet that gives me a just-for-me toolbar to make changes to this site.
 tags:
-  - blogging-about-blogging
+  - blogging about blogging
   - javascript
   - bookmarklets
 ---

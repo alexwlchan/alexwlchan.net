@@ -6,7 +6,7 @@ summary: I wanted to learn jq's more powerful features, so I tried to filter som
 tags:
   - aws
   - jq
-  - aws-secrets-manager
+  - aws:aws-secrets-manager
 colors:
   index_light: "#c5121f"
   index_dark:  "#ef5258"

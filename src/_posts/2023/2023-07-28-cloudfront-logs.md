@@ -6,7 +6,7 @@ summary: A couple of functions I use to get access to CloudFront logs as easy-to
 tags:
   - python
   - aws
-  - amazon-cloudfront
+  - aws:amazon-cloudfront
 colors:
   css_light: "#673ABB"
   css_dark:  "#C9ABFF"

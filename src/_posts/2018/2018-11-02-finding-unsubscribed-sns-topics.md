@@ -6,7 +6,7 @@ summary: I'm trying out Go, and I wrote a tool to help me find SNS topics that d
 tags:
   - golang
   - aws
-  - amazon-sns
+  - aws:amazon-sns
 title: Finding SNS topics without any subscriptions
 ---
 

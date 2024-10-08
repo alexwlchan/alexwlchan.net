@@ -6,7 +6,7 @@ summary: A detailed breakdown of how I wrote a Python script to download logs fr
 tags:
   - aws
   - python
-  - amazon-cloudwatch
+  - aws:amazon-cloudwatch
 title: Downloading logs from Amazon CloudWatch
 ---
 

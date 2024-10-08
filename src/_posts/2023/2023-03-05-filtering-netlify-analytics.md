@@ -4,7 +4,7 @@ date: 2023-03-05 12:33:07 +0000
 title: Filtering out bogus requests from Netlify Analytics
 summary: Using redirects to filter out bots trying to hack my non-existent PHP installation.
 tags:
-  - blogging-about-blogging
+  - blogging about blogging
   - netlify
 colors:
   index_light: "#73714B"
