@@ -57,12 +57,14 @@ Jekyll::Hooks.register :site, :post_read do |site|
   #
   #   - only tags with featured posts
   #   - prioritise tags with lots of posts or lots of featured posts
+  #   - don't show namespaced tags, which are too granular for the homepage
   #
   featured_posts = site.posts.docs.filter { |d| d.data.fetch('index', {}).fetch('feature', false) }
   featured_tag_tally = featured_posts.flat_map { |doc| doc.data['tags'] }.tally
 
   tag_scores = featured_tag_tally
                .filter { |tag_name, _| site.data['visible_tags'].include? tag_name }
+               .reject { |tag_name, _| tag_name.include? ':' }
                .map do |tag_name, count|
                  total_uses = site.data['tag_tally'][tag_name]
 
