@@ -7,7 +7,7 @@ tags:
   - applescript
   - swift
   - macos
-  - photo-management
+  - photo management
 colors:
   index_light: "#4f4f4f"
   index_dark:  "#9da3a8"
