@@ -1,26 +1,327 @@
 ---
 layout: post
-title: Static websites for tiny archives
+title: Using static websites for tiny archives
 summary:
 tags:
+  - html
+  - digital preservation
+index:
+  feature: true
 ---
-For a while now I’ve been creating static websites to browse my local media archives. This includes podcast episodes I like, cool or meaningful tweets, my screenshots, and my bookmark collection.
+In [my previous post][decluttering], I talked about how I'm trying to be more intentional and deliberate with my digital data.
+I don't just want to keep everything -- I want to keep stuff that I'm actually going to look at again.
+As part of that process, I'm trying to be better about organising my files -- there's no point keeping something if I can't find it later.
 
-These mini-websites give me a nice interface to browse my media, which are better than just looking through a folder full of files.
-I can show metadata and media files next to each other in a single interface, and build more sophisticated ways to search and organise my media.
+Over the last year or so, I've been creating static websites to browse my local archives.
+I've used this for collections like:
+
+*   paperwork I've scanned
+*   documents I've created
+*   screenshots I've taken
+*   web pages I've bookmarked
+*   videos and audio files I've saved
+
+I create one website per collection, and each website has a different design, suited to the files in that collection.
+For example, my collection of screenshots is shown as a grid of images, whereas my bookmarks are a list of text links.
+
+[[screenshots]]
+
+These websites aren't complicated -- they're just meant to be a slightly nicer way of browsing files than I get in the macOS Finder.
+I can put more metadata on the page, and build my own ways to search and organise the files.
+
+Each collection is a folder on my local disk, and the website is a handful of HTML files in the root of that folder.
+To use the website, I open the HTML files in my web browser.
+
+I'm deliberately going low-scale, low-tech.
+There's no web server, no build system, no dependencies, and no JavaScript frameworks.
+I'm writing everything by hand, which is very manageable for small projects.
+Each website is a few hundred lines of code at most.
+
+Because this system has no moving parts, and it's just files on a disk, I hope it will last a long time.
+I've already migrated a lot of my files to this approach, and I'm pleased with how it's going.
+I get all the simplicity and portability of a file full of folders, with just a bit of extra functionality sprinkled on top.
+
+[decluttering]: /2024/digital-decluttering/
+
+---
+
+I've tried a variety of tools and apps for organising my files, but they always came unstuck.
+
+**I've made several attempts to use files and folders, the plain filesystem.**
+Where I always had issues is that folders require you to use hierarchical organisation, and everything has to be stored in exactly one place.
+That works well for some data -- all my code, for example -- but I struggle to use it for media.
+
+I much prefer the flexibility of keyword tagging.
+Rather than put a file in a single category, I can apply multiple labels and use any of them to find the file later.
+The macOS Finder does support tagging, but I've always found its implementation to be a bit lacklustre, and I don't want to use it for anything serious.
+
+**When I was younger, I tried a category of apps called "everything buckets".**
+Think of apps like [DEVONThink], [Evernote], and [Yojimbo]. 
+I know lots of people like these apps, but I was never been able to get into them.
+I always felt like I had to wrap my brain around the app's way of thinking -- I changed myself to fit the developer's mental model, not the other way round.
+This friction built up until I just stopped using the app.
+
+**Once I had some programming experience, I tried writing my own tools to organise my files.**
+The last of which was [docstore], which I initially created to manage my scanned paperwork.
+Now I could build something that worked exactly how I thought, but I was on the hook for ongoing maintenance.
+Every time I [upgraded Python][xkcd] or updated macOS, something would break and I'd have to do work to get it back into a usable state.
+These tools never required a lot of maintenance, but it was enough to be annoying.
+
+Every time I stopped using an app, I had another go at using plain files and folders.
+They're the only thing that's likely to last for the long-term.
+They're lightweight, portable, require minimal maintenance, and I expect to be able to read them for many years to come.
+But the limited support for custom metadata and keyword tags was always an issue.
+
+**At some point I realised I could solve these problems by turning folders into mini-websites.**
+I could create an HTML file in the top-level folder, which could be an index for that folder – a list of all the files, displayed with all the custom metadata and tags I wantd.
+
+HTML is low maintenance, it's flexible, and it will last a long time.
+The entire web runs on HTML, and pretty much every computer knows how to read HTML pages.
+These files will remain readable for a very long time – probably decades, if not more.
+
+(I still have the very first website I made, for a school class in 2006.
+It renders flawlessly in a modern browser.
+I feel safe betting on HTML.)
+
+[docstore]: /my-scanning-setup/#how-did-i-create-an-app-to-tag-my-pdfs
+[xkcd]: https://xkcd.com/1987/
+[Yojimbo]: https://www.barebones.com/products/yojimbo/
+[DEVONThink]: https://www.devontechnologies.com/apps/devonthink
+[Evernote]: https://evernote.com/
+
+---
+
+I'm doing a lot of this by hand -- organising the files, writing the metadata, building the viewer.
+It's a slow and manual process, so it doesn't scale to a large collection.
+Even storing a few hundred items this way takes a non-trivial amount of time -- but I actually like that.
+
+Introducing a bit of friction is helping me to decide what I really care about saving.
+What's worth taking the time to organise properly, and what can't I be bothered with?
+If I don't want to save it properly, am I going to look at it again?
+
+I used to have large, amorphous folders where I collected stuff en masse.
+I had thousands of poorly organised files and I couldn't find anything,, so I never looked at them.
+Now I have tiny websites with a hundred or so carefully selected items, and I look at them more often -- they're just the gems.
+
+Even though I love automation, I'm enjoying the constraints imposed by a more manual process.
+
+---
+
+I already have a lot of files, which are spread across my disk.
+I'd love to consolidate them all in this new approach, but that would be a tremendous amount of work.
+
+My colleague Jessamyn wrote about this [in a follow-up to my digital decluttering article][jessamyn]: *"no one is ever starting at the beginning, not in 2024"*.
+
+So rather than moving everything at once, I'm doing a little at a time.
+I'm organising all my new files with static websites, and moving over old files as I go to look for them.
+Whenever I find something in my old storage, I pull it out and move it into the appropriate static site folder.
+
+I'm really enjoying this approach, so I'm going to keep using it.
+Most of these websites are personal archives, so don’t expect to see them online any time soon – but individual snippets of code may escape [here][1] [and][2] [there][3].
+
+This website is a platform for my writing, but it’s also a place for me to try new ideas and techniques.
+HTML was one of those ideas -- when I started this website in 2012, I built it on HTML.
+It is and always has been a statically-generated site.
+
+In hindsight, it's surprising it’s taken me this long to use HTML in more parts of my life.
+
+[jessamyn]: https://www.librarian.net/stax/5585/be-organized-from-the-very-beginning/
+[1]: /til/2024/convert-an-animated-gif-to-mp4/
+[2]: /2024/hover-states/
+[3]: /til/2024/create-image-placeholders/
+
+
+
+
+
+
+
+
+
+
+
+---
+
+Eventually I came to wonder if I needed 
+
+
+
+
+
+
+
+
+
+
+
+
+## What are my goals?
+
+It's worth explaining what my goals are for organising my files:
+
+*   **Find stuff quickly.**
+    If I want a specific file, I should be able to find it in under a minute.
+*   **Require minimal maintenance**
+
+---
+
+*   **I want to organise my files with keyword tags.**
+    If I'm trying to choose whether something should be categorised as A or B or C, I can tag it with all three labels -- they're not mutually exclusive.
+    I find this easier that trying to come up with a precise set of rules for distinct categories.
+    This is an idea I [picked up from fandom][fandom] and it's a good fit for my brain.
+    
+    <!-- For example, if I'm using hierarchical folders, I'd have to choose whether a water bill goes in the `household` folder, the `utility bills` folder, or the `ACME Water Co` folder -- but with tags, I can apply all three as keywords and move on. -->
+
+*   **I want to do minimal maintenance.**
+    I don't want a system that requires continual attention and upkeep.
+    I have better things to do with my time.
+
+*   **I want something that will last for the long-term.**
+    I want a system that I can use for a good long while.
+    I don't want a system that will need replacing or overhauling every year.
+    <!-- This sort of long-term thinking is rare in software development, but I've worked in digital preservation for eight years -- I'm used to designing systems to last for decades. -->
+    (I may not be able to design a system that lasts the rest of my life, but I do like to think on a multi-decade timeline -- it forces me to think about sustainability and maintenance.)
+
+[fandom]: https://idlewords.com/talks/fan_is_a_tool_using_animal.htm#:~:text=One%20of%20his%20many%20innovations%20was%20a%20"tags"%20field%20on%20each%20bookmark
+
+## How did I end up at static websites?
+
+I already had a couple of approaches for organising my files:
+
+1.  **Not organising them at all.**
+    My Desktop is a mess of unorganised files -- stuff I'm currently working on, or need to work on, or which I haven't organised yet.
+    I try not to have too many files on my Desktop, or it becomes impossible to find anything.
+
+2.  **Using files and folders.**
+    Leaning on the filesystem is very appealing because it's simple and supported by the OS vendor, but it means I have to organise my files in a hierarchical way.
+    That works well for some data -- for example, all of my code -- but less so for media.
+    
+    In particular, I've never found a good implementation of keyword tags in the filesystem.
+    The macOS Finder does have support for tags, but I find it unsatisfactory so I don't use it.
+    (In particular, there's no easy way to see all my tags, nor all the tags used in a particular folder.)
+
+3.  **Using an app that manages my files with keyword tags.**
+    There are lots of apps that aim to manage your files, and I've tried 
+    
+    I know lots of people like these apps, but I've never been able to get into them -- I feel like I have to wrap my brain around the app's way of thinking, which doesn't match the way I want to organise files.
+    The only app like this which has really stuck for me is [Photos.app].
+    
+    When I have tried them, it's been annoying and time-consuming to extract my data from the app when I decide to stop using it.
+    I don't really want to do that again, so it's unlikely I'll try more apps in this vein.
+    
+4.  **Writing my own app to manage my files with keyword tags.**
+    Long-time readers may remember a project called [docstore], which I wrote to manage my scanned paperwork.
+    This was a Python web app that fit my mental model, because I could design it to match my exact way of thinking.
+    And I had all the code, so there was no lock-in to worry about.
+    
+    This worked initially, but it broke down over time.
+    In particular, I had to have the local Python web app running to be able to browse my files -- which would inevitably break when I [upgraded Python][xkcd] or macOS, and I'd have to do work to get it back into a usable state.
+    It didn't need a lot of maintenance, but it was enough to be annoying.
+    
+    I also made the mistake of using it for too many things.
+    I want to organise my scanned paperwork differently to my books, or my screenshots, or my downloaded videos.
+    Trying to fit everything into a single app created something bloated and messy.
+
+Of this list, only files and folders are likely to last for the long-term.
+They're lightweight, portable, require minimal maintenance, and I expect to be able to read them for many years to come.
+But they're not as flexible as I'd like -- they have limited metadata fields (filename, folder name, creation date) and they don't support keyword tags in a way I like.
+
+At some point I realised I could solve these problems by turning folders into mini-websites.
+I could create an HTML file in the top-level folder, which could be an index for that folder -- a list of all the files, displayed with more metadata fields.
+Now I can add keyword tags and other metadata I think is useful, and see it all in one place.
+
+This approach has a number of benefits:
+
+*   **HTML is low maintenance.**
+    I write all the HTML files by hand, with zero dependencies or build system.
+    Each file is a self-contained entity, so there's nothing to rot or break.
+    If I don't touch them for a year, they'll still open just fine when I look at them again.
+
+*   **HTML is flexible.**
+    I can create a custom index file for each folder, so my screenshots and scanned documents and saved podcasts can all get a bespoke interface.
+    It's easy for me to write different files for different folders, because each HTML file is small.
+
+    And because there's no build system, I can always pick up where I left off -- if I decide to change something in six months, I have everything I need to make changes in that single file.
+
+*   **HTML is portable.**
+    static web server -> iPhone
+
+*   **HTML will last a long time.**
+    The entire web runs on HTML, and pretty much every computer knows how to read HTML pages.
+    These files will remain usable for a very long time -- probably decades, if not more.
+    
+    I still have the very first website I made, for a school class in 2006.
+    It renders flawlessly in a modern browser.
+    I feel safe betting on HTML.
+
+Lots of people love to use plain text files for their notes, and HTML feels like a natural extension of that.
+Plain text is great for linear prose, and I use a lot of it, but a Markdown or text file struggles as a way to organise audiovisual media -- HTML gives me that extra oomph to build a nice interface for those collections.
+
+
+[Photos.app]: https://en.wikipedia.org/wiki/Photos_(Apple)
+[xkcd]: https://xkcd.com/1987/
+[docstore]: /2019/my-scanning-setup/#how-did-i-create-an-app-to-tag-my-pdfs
+[break over time]: https://en.wikipedia.org/wiki/Software_rot
+
+## Emphasis on "tiny"
+
+---
+
+## What's next?
+
+I'm going to keep building mini-websites this way, because I find it so useful.
+Most of them are my personal archives, so don't expect to see them online any time soon -- but individual snippets of code may escape [here][1] [and][2] [there][3].
+
+still migrating old stuff
+
+This website is a platform for my writing, but it's also a place for me to try new ideas and techniques.
+HTML was one of those ideas -- when I started this website in 2012, I built it on HTML.
+It is and always has been a statically-generated site.
+
+In hindsight, it's surprising it's taken me this long to use HTML in more parts of my life.
+
+---
+
+In 2012, I created this website, and I built it on HTML.
+
+As well as a writing platform
+
+[1]: /til/2024/convert-an-animated-gif-to-mp4/
+[2]: /2024/hover-states/
+[3]: /til/2024/create-image-placeholders/
+
+i’m going to keep doing this because I find it really useful mostly private archives so don’t expect to see them get published any time soon – saving media for personal copy, often in copyright and not suitable for distribution
+
+would love to hear about other people using this technique!
+
+
+
+https://www.pexels.com/photo/multi-colored-folders-piled-up-159519/
+
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+
+
+
+
 
 [[podcast viewer]]
 
-To build these websites, I’m putting metadata in JavaScript files, organising the media files by hand, and then writing a small HTML viewer that renders the metadata and files in a small and simple interface.
-There's a bit of interactivity for sort, search, and filtering.
-To use the website, I open the HTML viewer in my web browser, directly from my local disk.
 
 Each viewer is typically a few hundred lines of code.
 They’re self-contained files, with no build system, JavaScript framework, or dependencies – very manageable.
 
 This isn’t a new idea – Instagram and Twitter already give you a static website to browse your account exports, and we're doing something similar for Data Lifeboat at work. I think this could be a good approach for other “tiny archives”, not just my local media collections.
 
-This is part of my work to [declutter my digital life](/2024/digital-decluttering/).
+This is part of my work to [declutter my digital life]().
 As well as reducing the amount of data I store, I'm trying to better organise the stuff I'm keeping.
 Creating tiny websites that give me a nice way to browse these collections is helping me do that.
 
