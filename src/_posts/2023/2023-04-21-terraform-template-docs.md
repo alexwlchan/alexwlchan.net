@@ -45,7 +45,7 @@ The sort of stuff I put in these READMEs include:
 *   Example commands to test the app you've just spun up.
     This is normally some snippets using cURL, and it includes steps for fetching any credentials you need from Secrets Manager.
 
-To create this README, I have Terraform render a template file, and I pass in the
+To create this README, I have Terraform render a template file, and I pass in the variables:
 
 ```hcl
 resource "local_file" "readme" {
