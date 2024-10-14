@@ -5,7 +5,7 @@ title: Making the fish shell more forgetful
 summary: A few commands that help me keep unwanted entries out of my shell’s autocomplete.
 tags:
   - shell scripting
-  - fish-shell
+  - fish shell
 colors:
   index_light: "#c85b05"
   index_dark:  "#ff9306"

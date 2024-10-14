@@ -5,7 +5,7 @@ summary: Reliably reading a large object by stitching together multiple GetObjec
 title: Streaming large objects from S3 with ranged GET requests
 tags:
   - aws
-  - aws:amazon-s3
+  - aws:amazon s3
   - scala
 ---
 

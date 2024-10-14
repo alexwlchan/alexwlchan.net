@@ -6,7 +6,7 @@ summary: Prototype code for running a parallel scan against a DynamoDB table, an
 tags:
   - aws
   - scala
-  - aws:amazon-dynamodb
+  - aws:amazon dynamodb
 title: Implementing parallel scan in DynamoDB with Scanamo
 colors:
   index_light: "#2E27AD"

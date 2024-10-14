@@ -6,7 +6,7 @@ summary: Notes from a talk about inclusion in design and unconscious bias.
 tags:
   - inclusion
   - talks
-  - open-life-science
+  - open life science
 colors:
   css_light: "#20883f"
   css_dark:  "#2fc65d"

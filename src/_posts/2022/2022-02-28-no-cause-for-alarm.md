@@ -5,8 +5,8 @@ title: Beware delays in SQS metric delivery
 summary: A mysterious problem with SQS-based autoscaling and an over-eager CloudWatch Alarm.
 tags:
   - aws
-  - aws:amazon-cloudwatch
-  - aws:amazon-sqs
+  - aws:amazon cloudwatch
+  - aws:amazon sqs
 colors:
   index_light: "#B0084D"
   index_dark:  "#f75095"

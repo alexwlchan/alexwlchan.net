@@ -6,7 +6,7 @@ summary: Code for processing large objects in S3 without downloading the whole t
 tags:
   - python
   - aws
-  - aws:amazon-s3
+  - aws:amazon s3
 title: Working with really large objects in S3
 ---
 

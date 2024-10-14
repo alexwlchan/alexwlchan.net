@@ -3,7 +3,7 @@ layout: til
 date: 2024-05-21 22:42:56 +0100
 title: What does “insomnolent” mean?
 tags:
-  - interesting-words
+  - interesting words
 ---
 I came across a new word today, while reading *Wasteland*, by Oliver Franklin-Wallis (emphasis mine):
 

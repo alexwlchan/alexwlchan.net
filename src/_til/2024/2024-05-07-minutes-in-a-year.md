@@ -6,7 +6,7 @@ summary: |
   The song *Seasons of Love* from *Rent* starts with the line "Five hundred twenty-five thousand, six hundred minutes".
 tags:
   - theatre
-  - datetime-shenanigans
+  - datetime shenanigans
 ---
 I was doing some [date calculations](https://www.wolframalpha.com/input?i=12+million+%2F+%2834000+per+day%29) in Wolfram Alpha, and I was rather tickled by the comparison as time it suggested:
 

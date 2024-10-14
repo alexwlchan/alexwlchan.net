@@ -4,7 +4,7 @@ date: 2019-05-15 06:39:00 +0000
 title: Falsehoods programmers believe about Unix time
 summary: It's not quite the number of seconds since 1 January 1970.
 tags:
-  - datetime-shenanigans
+  - datetime shenanigans
 colors:
   index_light: "#8f743d"
   index_dark:  "#c5a96e"

@@ -5,7 +5,7 @@ summary: Two shell functions for editing and inspecting S3 objects as if they we
   local files.
 tags:
   - aws
-  - aws:amazon-s3
+  - aws:amazon s3
 title: Two shortcuts for using S3 in the shell
 ---
 
