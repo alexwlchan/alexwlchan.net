@@ -59,5 +59,7 @@ This means that I'm the only person who sees these labels -- they aren't shown o
 These labels make the alt text more visible to me, and remind me to write the alt text as part of writing the article.
 It also means that I can see the alt text when I'm editing the article.
 Previously the alt text was only visible in my Markdown source files, so once written I'd never review it or get a chance to improve it.
+This means that I'm spending more time on my alt text, I'm getting more practice at writing it, and hopefully it's improving as a result.
 
-This change means that I'm spending more time on my alt text, I'm getting more practice at writing it, and hopefully it's getting better as a result.
+Although I use Jekyll to build my site, there's nothing Jekyll-specific about it.
+You could use this snippet to add alt text labels to any site.
