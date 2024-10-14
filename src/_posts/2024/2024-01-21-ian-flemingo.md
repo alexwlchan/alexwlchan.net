@@ -6,6 +6,7 @@ summary: "A fledgling author uses a theatre trip to leave the nest. (Or: some pr
 tags:
   - books
   - theatre
+  - operation mincemeat
 colors:
   css_light: "#464646"
   css_dark:  "#adadad"
