@@ -6,7 +6,7 @@ summary: |
   If you listen carefully to the <em>Ballad of Willie Watkins</em>, you might hear another song peeking through.
 tags:
   - theatre
-  - operation-mincemeat
+  - operation mincemeat
   - music
 colors:
   index_light: "#6d5506"

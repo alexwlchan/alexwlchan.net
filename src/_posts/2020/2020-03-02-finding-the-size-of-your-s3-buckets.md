@@ -6,7 +6,7 @@ summary: A Python script that tells you how many objects and how many bytes ther
 link: https://github.com/alexwlchan/s3_summary_spreadsheet_script
 tags:
   - aws
-  - aws:amazon-s3
+  - aws:amazon s3
 index:
   exclude: true
 ---

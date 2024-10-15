@@ -7,7 +7,7 @@ tags:
   - talks
   - community management
   - inclusion
-  - trust-and-safety
+  - trust and safety
 summary: How do we design services and platforms to reduce the risk of harassment and abuse from other users?
 colors:
   index_light: "#531b93"

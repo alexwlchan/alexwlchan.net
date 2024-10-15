@@ -4,7 +4,7 @@ date: 2021-04-29 09:02:12 +0000
 title: Drawing coloured squares/text in my terminal with Python
 tags:
   - python
-  - terminal-tricks
+  - terminal tricks
   - colour
 ---
 

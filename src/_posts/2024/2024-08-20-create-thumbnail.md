@@ -6,7 +6,7 @@ summary:
   I've made a new tool that allows me to reuse my thumbnailing code across all my projects.
 tags:
   - rust
-  - my-tools
+  - my tools
   - images
 colors:
   index_light: "#697c13"

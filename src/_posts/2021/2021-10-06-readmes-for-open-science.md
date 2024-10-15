@@ -5,7 +5,7 @@ title: READMEs for Open Science
 summary: Slides for a short talk about READMEs, why they're important, and what they should contain.
 tags:
   - documentation
-  - open-life-science
+  - open life science
   - talks
 colors:
   css_light: "#20883f"

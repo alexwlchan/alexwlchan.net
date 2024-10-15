@@ -5,7 +5,7 @@ title: How do you work with non-engineers?
 summary: Building a relationship founded on trust and respect.
 tags:
   - work
-  - interpersonal-skills
+  - interpersonal skills
 colors:
   index_light: "#bf4646"
   index_dark:  "#ebb3af"

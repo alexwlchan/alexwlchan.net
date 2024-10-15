@@ -5,7 +5,7 @@ title: Finding misconfigured or dangling CloudWatch Alarms
 summary: A Python script that finds CloudWatch Alarms which are based on a now non-existent source.
 tags:
   - aws
-  - aws:amazon-cloudwatch
+  - aws:amazon cloudwatch
   - python
 colors:
   index_light: "#B0084D"

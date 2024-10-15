@@ -5,7 +5,7 @@ title: How to get a list of captures from the Wayback Machine
 summary: |
   Use the CDX Server API to get a list of captures for a particular URL.
 tags:
-  - wayback-machine
+  - wayback machine
 ---
 As part of my [daily screenshots project][daily_screenshots], I wanted to get a list of all the versions of my sites that are saved in the Wayback Machine.
 

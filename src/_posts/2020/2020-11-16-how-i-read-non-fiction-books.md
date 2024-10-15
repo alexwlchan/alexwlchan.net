@@ -6,7 +6,7 @@ summary: I take notes so I remember more of what I read.
 tags:
   - books
   - productivity
-  - taking-notes
+  - taking notes
 colors:
   index_light: "#4f391d"
   index_dark:  "#c1ae97"

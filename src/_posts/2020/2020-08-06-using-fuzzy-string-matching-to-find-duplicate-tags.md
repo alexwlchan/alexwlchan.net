@@ -15,7 +15,7 @@ Here's a few similar tags from my notes folder:
 
 ```
 Amazon S3
-aws:amazon-s3
+aws:amazon s3
 
 books I want to read
 books to read

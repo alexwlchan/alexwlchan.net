@@ -6,7 +6,7 @@ summary: Notes and slides from my PyCon UK 2018 keynote. In a world where people
 tags:
   - pyconuk
   - talks
-  - systems-thinking
+  - systems thinking
 colors:
   index_light: "#8b5023"
   index_dark:  "#f6d05b"

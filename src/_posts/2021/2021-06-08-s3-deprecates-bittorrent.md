@@ -4,7 +4,7 @@ date: 2021-06-08 06:21:15 +0000
 title: Amazon is discontinuing S3 BitTorrent
 summary: AWS quietly announced that S3 will stop supporting BitTorrent for downloads in April 2022.
 tags:
-  - aws:amazon-s3
+  - aws:amazon s3
 index:
   exclude: true
 ---

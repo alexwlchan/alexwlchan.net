@@ -5,7 +5,7 @@ title: Preserving Dates during JSON serialisation with vanilla JS
 summary: How to make sure you get a `Date` back when you call `JSON.parse` and `JSON.stringify`.
 tags:
   - javascript
-  - datetime-shenanigans
+  - datetime shenanigans
 colors:
   css_light: "#662c29"
   css_dark:  "#bda9a1"
