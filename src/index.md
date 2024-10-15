@@ -4,6 +4,8 @@ title: ""
 colors:
   css_light: "#17823e"
   css_dark:  "#26d967"
+footer:
+  exclude_newsletter: true
 ---
 
 <style type="x-text/scss">
@@ -149,11 +151,4 @@ Here are some of the topics I write about:
 
 ---
 
-
-
-## Get in touch
-
-The best way to get in touch with me is by email: **<{{ site.email }}>**, or you can [follow me on social media](/contact/).
-
-If you like something I've made, perhaps [say thanks](/say-thanks/)?
-I love hearing from readers! ☺️
+{% include newsletter.html %}
