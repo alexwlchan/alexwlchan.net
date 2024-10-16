@@ -77,6 +77,16 @@
             },
             "additionalProperties": false
         },
+        "footer": {
+            "type": "object",
+            "properties": {
+                "hide_newsletter": {
+                    "description": "Whether to hide the newsletter subscribe from in the footer",
+                    "type": "boolean"
+                }
+            },
+            "additionalProperties": false
+        },
         "meta": {
             "description": "Used on pages for miscellaneous information. Deprecated; should be replaced by purpose-named fields.",
             "type": "array",
@@ -87,7 +97,7 @@
         "nav_section": {
             "description": "Which section of the site this page/post belongs to.",
             "type": "string",
-            "enum": ["articles", "til", "contact"]
+            "enum": ["articles", "til", "contact", "subscribe"]
         },
         "card_image": {
             "description": "Complete path to an image that should be used in link previews on social media, e.g. Twitter cards or OpenGraph metadata.",

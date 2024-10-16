@@ -12,17 +12,27 @@
       </p>
     </div>
 
-    <form
-      action="https://buttondown.com/api/emails/embed-subscribe/alexwlchan"
-      method="post"
-      target="popupwindow"
-      onsubmit="window.open('https://buttondown.com/alexwlchan', 'popupwindow')"
-    >
-      <p>
-        <label for="bd-email">Want a monthly digest of what I’m up to?</label>
-        <input type="email" name="email" id="bd-email" placeholder="Email address" />
-        <input type="submit" value="Subscribe" />
-      </p>
-    </form>
+    {% if page.footer.hide_newsletter %}
+      <style>
+        #footer_inner {
+          grid-template-columns: auto;
+        }
+      </style>
+    {% endif %}
+
+    {% unless page.footer.hide_newsletter %}
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/alexwlchan"
+        method="post"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/alexwlchan', 'popupwindow')"
+      >
+        <p>
+          <label for="bd-email">Want a monthly digest of what I’m up to?</label>
+          <input type="email" name="email" id="bd-email" placeholder="Email address" required />
+          <input type="submit" value="Subscribe" />
+        </p>
+      </form>
+    {% endunless %}
   </div>
 </footer>
