@@ -48,6 +48,20 @@ footer #bd-email {
 
 @media print {
   footer {
+    background: none;
+    border-top: var(--border-width) solid var(--primary-color-light);
+  }
+  
+  footer, footer a, footer a:visited {
+    color: var(--primary-color-light);
+  }
+
+  #footer_inner {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
+  
+  footer form {
     display: none;
   }
 }
