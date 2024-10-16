@@ -12,7 +12,7 @@
       </p>
     </div>
 
-    {% if page.footer.exclude_newsletter %}
+    {% if page.footer.hide_newsletter %}
       <style>
         #footer_inner {
           grid-template-columns: auto;
@@ -20,7 +20,7 @@
       </style>
     {% endif %}
 
-    {% unless page.footer.exclude_newsletter %}
+    {% unless page.footer.hide_newsletter %}
       <form
         action="https://buttondown.com/api/emails/embed-subscribe/alexwlchan"
         method="post"

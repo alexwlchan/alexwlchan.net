@@ -3,7 +3,7 @@ layout: page
 title: Subscribe!
 nav_section: subscribe
 footer:
-  exclude_newsletter: true
+  hide_newsletter: true
 ---
 {% include newsletter.html %}
 
