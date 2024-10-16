@@ -145,7 +145,7 @@ These files will be usable for a very long time – probably decades, if not mor
 It renders flawlessly in a modern browser.
 I feel safe betting on HTML.)
 
-[docstore]: /my-scanning-setup/#how-did-i-create-an-app-to-tag-my-pdfs
+[docstore]: /2019/my-scanning-setup/#how-did-i-create-an-app-to-tag-my-pdfs
 [Yojimbo]: https://www.barebones.com/products/yojimbo/
 [DEVONThink]: https://www.devontechnologies.com/apps/devonthink
 [Evernote]: https://evernote.com/
