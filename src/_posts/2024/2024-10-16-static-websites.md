@@ -43,6 +43,7 @@ For example, my collection of screenshots is shown as a grid of images, my bookm
     class="screenshot"
     width="400"
     style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+    loading="lazy"
     link_to_original
   %}
   {%
@@ -52,6 +53,7 @@ For example, my collection of screenshots is shown as a grid of images, my bookm
     class="screenshot"
     width="400"
     style="border-radius: 0;"
+    loading="lazy"
     link_to_original
   %}
   {%
@@ -61,6 +63,7 @@ For example, my collection of screenshots is shown as a grid of images, my bookm
     class="screenshot"
     width="400"
     style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
+    loading="lazy"
     link_to_original
   %}
 </figure>
@@ -77,6 +80,7 @@ To use the website, I open the HTML files in my web browser.
     filename="finder_website.png"
     class="screenshot"
     width="450"
+    loading="lazy"
     link_to_original
     alt="My 'screenshots' folder in the macOS Finder. There's a series of per-year folders from 2010 to 2024, a JavaScript file 'metadata.js' and an HTML file 'index.html'."
   %}
