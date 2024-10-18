@@ -147,7 +147,11 @@ module Jekyll
       # 18 October 2024: I've excluded a few images, because they're on
       # a post that's going somewhat viral and I'm eating my bandwidth
       # pretty quickly.
-      desired_formats = if ((@attrs['class'] || '').include? 'screenshot') && (source_path != 'src/_images/2024/finder_website.png') && (source_path != 'src/_images/2024/static-screenshots.png') && (source_path != 'src/_images/2024/static-videos.png') && (source_path != 'src/_images/2024/static-bookmarks.png')
+      desired_formats = if ((@attrs['class'] || '').include? 'screenshot') &&
+                           (source_path != 'src/_images/2024/finder_website.png') &&
+                           (source_path != 'src/_images/2024/static-screenshots.png') &&
+                           (source_path != 'src/_images/2024/static-videos.png') &&
+                           (source_path != 'src/_images/2024/static-bookmarks.png')
                           [im_format]
                         else
                           [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
