@@ -23,8 +23,7 @@ ul.dot_list {
   padding: 0;
 }
 
-ul.plain_list li,
-ul.dot_list   li {
+ul.dot_list li {
   display: inline-block;
 }
 
