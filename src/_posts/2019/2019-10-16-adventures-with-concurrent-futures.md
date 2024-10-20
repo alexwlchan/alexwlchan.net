@@ -6,9 +6,8 @@ summary: Some examples of how I've been using concurrent.futures to speed up my 
 date_updated: 2020-05-02 20:29:25 +0100
 tags:
   - python
-# I'd like to feature this when it has a card image!
-# index:
-#   feature: true
+index:
+  feature: true
 ---
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.

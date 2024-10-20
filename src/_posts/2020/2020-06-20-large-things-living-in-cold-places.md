@@ -12,6 +12,8 @@ link: https://stacks.wellcomecollection.org/large-things-living-in-cold-places-6
 colors:
   index_light: "#704f35"
   index_dark:  "#aea6a2"
+index:
+  feature: true
 ---
 
 On Wednesday, I wrote about [some recent work we've been doing at Wellcome][stacks].
