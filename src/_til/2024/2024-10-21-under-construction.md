@@ -66,3 +66,5 @@ I don't really understand the relationsip between the `border-width` and the val
 I just tweak the values until they look right.
 
 It feels like there's a lot of powerful stuff I can do with that function, if I sit down and take the time to learn it properly.
+
+I couldn't work out how to add rounded corners to the hazard tape -- it seems like `border-radius` and `border-image` don't play nicely together. 🤷‍♀️
