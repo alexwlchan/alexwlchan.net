@@ -199,8 +199,8 @@ If, say, you hover over the bird icon and see Twitter's shade of blue, it's a su
     &[href="https://github.com/alexwlchan/"]          .background { fill: #24292f; }
     &[href="https://www.linkedin.com/in/alexwlchan/"] .background { fill: #007EBB; }
 
-    &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_heart     { fill: #f14255; };
-    &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_circle    { fill: #50aee4; };
+    &[href="https://ko-fi.com/alexwlchan"] #kofi_heart  { fill: #f14255; };
+    &[href="https://ko-fi.com/alexwlchan"] #kofi_circle { fill: #50aee4; };
   }
 
   #social_icons > li {
