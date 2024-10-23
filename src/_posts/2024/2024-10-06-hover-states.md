@@ -104,6 +104,25 @@ Notice how the rest of the page moves around when you add a `border`, but not wh
 
 (If you're on a device that doesn't support hovering, you can <a href="#examples" onclick="document.querySelector('#examples').classList.toggle('hover');">toggle the hover styles manually</a>.)
 
+<blockquote id="update_outline">
+  <p>
+    <strong>Update, 23 October 2024:</strong>
+    Several people wrote to me to tell me about CSS's <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/outline"><code>outline</code> property</a>, which takes the same arguments as <code>border</code> but doesn’t take up any space.
+  </p>
+  <p>
+    I had a vague memory of trying this and it not working, but I couldn’t remember why.
+  </p>
+  <p>
+    I did some investigating and discovered a bug in Safari/Webkit.
+    If you apply <code>text-decoration</code> styles on hover, they prevent any <code>outline</code> styles from appearing.
+    Given that Safari is my primary browser and I use a lot of <code>text-decoration</code> styles, I imagine I tried <code>outline</code> at some point, ran into this issue or something similar, and I never thought about the property again.
+  </p>
+  <p>
+    (This isn’t the first hover-related bug I’ve encountered in Safari.
+    I ran into <a href="https://bugs.webkit.org/show_bug.cgi?id=61697">another bug</a> in March, and I’ve filed this <code>outline</code>/<code>text-decoration</code> bug as <a href="https://bugs.webkit.org/show_bug.cgi?id=282009">bug&nbsp;282009</a>.)
+  </p>
+</blockquote>
+
 
 
 
