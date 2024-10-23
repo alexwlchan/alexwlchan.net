@@ -121,6 +121,11 @@ Notice how the rest of the page moves around when you add a `border`, but not wh
     (This isn’t the first hover-related bug I’ve encountered in Safari.
     I ran into <a href="https://bugs.webkit.org/show_bug.cgi?id=61697">another bug</a> in March, and I’ve filed this <code>outline</code>/<code>text-decoration</code> bug as <a href="https://bugs.webkit.org/show_bug.cgi?id=282009">bug&nbsp;282009</a>.)
   </p>
+  <p>
+    If you don’t use <code>text-decoration</code> or you don’t care about Safari/WebKit support, then you may find <code>outline</code> very handy.
+    It uses the same syntax as <code>border</code>, so it’s easier to remember than <code>box-shadow</code>.
+  </p>
+  <p><code style="white-space: pre;">a:hover img {<br/> <span></span> outline: 10px solid red;<br/>}</code></p>
 </blockquote>
 
 
