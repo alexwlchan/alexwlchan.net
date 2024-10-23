@@ -113,7 +113,7 @@ Notice how the rest of the page moves around when you add a `border`, but not wh
     I had a vague memory of trying this and it not working, but I couldn’t remember why.
   </p>
   <p>
-    I did some investigating and discovered a bug in Safari/Webkit.
+    I did some investigating and discovered what looks like a bug in Safari/Webkit.
     If you apply <code>text-decoration</code> styles on hover, they prevent any <code>outline</code> styles from appearing.
     Given that Safari is my primary browser and I use a lot of <code>text-decoration</code> styles, I imagine I tried <code>outline</code> at some point, ran into this issue or something similar, and I never thought about the property again.
   </p>
