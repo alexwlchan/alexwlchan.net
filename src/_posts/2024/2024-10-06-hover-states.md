@@ -59,7 +59,17 @@ a:hover img {
     max-width: 500px;
   }
 
-  #examples {
+  #rounded_examples {
+    display: grid;
+    grid-gap: var(--grid-gap);
+    grid-template-columns: repeat(3, 1fr);
+    margin-left:  auto;
+    margin-right: auto;
+    max-width: 500px;
+  }
+
+  #examples,
+  #rounded_examples {
     text-align: center;
   }
 
@@ -73,13 +83,20 @@ a:hover img {
   }
 
   .border_hover:hover img,
-  #examples.hover .border_hover img {
+  #examples.hover .border_hover img,
+  #rounded_examples.hover .border_hover img {
     border: 10px solid var(--primary-color);
   }
 
   .shadow_hover:hover img,
-  #examples.hover .shadow_hover img {
+  #examples.hover .shadow_hover img,
+  #rounded_examples.hover .shadow_hover img {
     box-shadow: 0 0 0 10px var(--primary-color);
+  }
+
+  .outline_hover:hover img,
+  #rounded_examples.hover .outline_hover img {
+    outline: 10px solid var(--primary-color);
   }
 </style>
 
@@ -89,14 +106,24 @@ Notice how the rest of the page moves around when you add a `border`, but not wh
 <div id="examples">
   <div>
     <a href="https://www.pexels.com/photo/hummingbird-sitting-on-branch-16820102/" class="border_hover">
-      <img src="/images/2024/hummingbird.jpg" style="width: 200px;" alt="">
+      {%
+        picture
+        filename="hummingbird.jpg"
+        alt=""
+        width="200"
+      %}
     </a>
     <p><code>border</code></p>
   </div>
 
   <div>
     <a href="https://www.pexels.com/photo/hummingbird-sitting-on-branch-16820102/" class="shadow_hover">
-      <img src="/images/2024/hummingbird.jpg" style="width: 200px;" alt="">
+      {%
+        picture
+        filename="hummingbird.jpg"
+        alt=""
+        width="200"
+      %}
     </a>
     <p><code>box-shadow</code></p>
   </div>
