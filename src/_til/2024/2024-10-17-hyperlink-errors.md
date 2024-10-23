@@ -4,6 +4,7 @@ title: What errors can you get from `hyperlink.parse`?
 summary: |
   Mostly you get `hyperlink.URLParseError`, but you can occasionally get a `ValueError` as well.
 date: 2024-10-17 10:32:56 +0100
+date_updated: 2024-10-23 09:02:57 +0100
 tags:
   - python
   - python:hyperlink
@@ -27,12 +28,16 @@ It throws a `URLParseError` for most invalid URLs:
 hyperlink._url.URLParseError: port must not be empty: 'http:'
 ```
 
-It throws a `ValueError` in a handful of cases, if you include whitespace in the scheme:
+It throws a `ValueError` in a handful of cases, if you give it in an invalid scheme, say by extra whitespace or invalid characters:
 
 ```pycon
 >>> hyperlink.parse(" http://")
 …
 ValueError: invalid scheme: ' http'. Only alphanumeric, "+", "-", and "." allowed. Did you meant to call URL.from_text()?
+
+>>> hyperlink.parse("h_t_t_p://")
+…
+ValueError: invalid scheme: 'h_t_t_p'. Only alphanumeric, "+", "-", and "." allowed. Did you meant to call URL.from_text()?
 ```
 
 It throws a `TypeError` if you pass a value that isn't a `str`:
