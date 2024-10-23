@@ -151,6 +151,10 @@ If, say, you hover over the bird icon and see Twitter's shade of blue, it's a su
     &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_heart     { fill: #f14255; };
     &[href="https://ko-fi.com/alexwlchan"]:hover #kofi_circle    { fill: #50aee4; };
   }
+
+  #social_icons > li {
+    display: inline-block;
+  }
 </style>
 
 Here are all the icons I had in this system:
