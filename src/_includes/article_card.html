@@ -9,17 +9,17 @@
 <li
   class="card"
   style="
-    {% if article.colors.index_light %}
+    {%- if article.colors.index_light -%}
       --c-lt: {{ article.colors.index_light }};
-    {% elsif article.colors.css_light %}
+    {%- elsif article.colors.css_light -%}
       --c-lt: {{ article.colors.css_light }};
-    {% endif %}
+    {%- endif -%}
 
-    {% if article.colors.index_dark %}
+    {%- if article.colors.index_dark -%}
       --c-dk: {{ article.colors.index_dark }};
-    {% elsif article.colors.css_dark %}
+    {%- elsif article.colors.css_dark -%}
       --c-dk: {{ article.colors.css_dark }};
-    {% endif %}
+    {%- endif -%}
   "
   {% if add_data_metadata %}
   data-date="{{ article.date | date: '%Y%m%d' }}"
