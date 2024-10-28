@@ -127,7 +127,7 @@ module Jekyll
         year = article['date'].year
 
         source_path = "src/_images/cards/#{year}/#{card['index']}"
-        dst_prefix = "_site/images/cards/#{year}/#{File.basename(card['index_prefix'], '.*')}"
+        dst_prefix = "_site/c/#{year - 2000}/#{File.basename(card['index_prefix'], '.*')}"
 
         image = get_single_image_info(source_path)
         im_format = get_format(source_path, image)
