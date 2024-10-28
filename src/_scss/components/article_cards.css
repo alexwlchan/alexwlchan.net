@@ -1,0 +1,105 @@
+/*
+ * Styles for the "article card" component.
+ *
+ * This is used on pages where I show a list of cards, which includes
+ * the homepage, the list of articles, and tag pages.
+ */
+
+.article_cards {
+  list-style-type: none;
+  padding-left: 0px !important;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: var(--grid-columns);
+}
+
+.article_cards .card {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--article-card-background);
+  border: 2px var(--border-style) var(--c-color);
+
+  /* An article card can declare two colour variables: --c-lt (light) and --c-dk (dark).
+   * These are used to tint the appearance of the card, if present. */
+  --c-lt: #d01c11;
+  --c-dk: #ff4242;
+
+  --c-color: var(--c-lt);
+}
+
+@media (prefer-color-scheme: dark) {
+  .article_cards .card {
+    --c-color: var(--c-dk);
+  }
+}
+
+.article_cards .card:hover .c_title {
+  text-decoration-thickness: 4px;
+}
+
+.article_cards .card a {
+  text-decoration: none;
+  height: 100%;
+}
+
+.c_meta {
+  padding: 1em;
+}
+
+.c_title {
+  color: var(--c-color);
+  text-decoration: underline;
+  margin-top: 0;
+  margin-bottom: 7px;
+  font-weight: normal;
+}
+
+.c_image_wrapper {
+  width: 100%;
+  background: var(--c-color);
+}
+
+.c_image_wrapper, .c_image {
+  margin-top: 0;
+  margin-bottom: 0;
+  aspect-ratio: 2 / 1;
+}
+
+.c_desc {
+  color: var(--body-text);
+  margin-top:    0.5em;
+  margin-bottom: 0;
+  font-size: 85%;
+  line-height: 1.45em;
+}
+
+.article_cards {
+  --grid-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* This changes the number of columns based on the width of the
+ * screen:
+ *
+ *             width <=  450px   ~> one column, for mobile devices
+ *     450px < width <= 1000px   ~> two columns
+ *    1000px < width             ~> three columns, ultra-width screens
+ *
+ * I'm using minimax(0, 1fr) to ensure the columns are the exact
+ * same width, even if there's only one card in a collection.
+ * See https://stackoverflow.com/q/47601564/1558022
+ */
+@media screen and (max-width: 450px) {
+  .article_cards {
+    --grid-columns: auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .article_cards:not(.article_cards--1):not(.article_cards--2):not(.article_cards--4) {
+    --grid-columns: repeat(3, minmax(0, 1fr));
+    margin-left: -100px;
+    margin-right: -100px;
+  }
+}

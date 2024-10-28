@@ -2,20 +2,33 @@
   Note: in general I lean towards long, descriptive names for
   my CSS classes and variables, but this is a "hot" component
   which is used a lot, especially on the articles page.
-  
+
   I'm going for shorter names here to reducde the overall size
   of the page.
 {% endcomment %}
 <li
   class="card"
-  id="a-{{ article.slug }}"
-  data-tags="{{ article.tags | join: ' ' }}"
+  style="
+    {%- if article.colors.index_light -%}
+      --c-lt: {{ article.colors.index_light }};
+    {%- elsif article.colors.css_light -%}
+      --c-lt: {{ article.colors.css_light }};
+    {%- endif -%}
+
+    {%- if article.colors.index_dark -%}
+      --c-dk: {{ article.colors.index_dark }};
+    {%- elsif article.colors.css_dark -%}
+      --c-dk: {{ article.colors.css_dark }};
+    {%- endif -%}
+  "
   {% if add_data_metadata %}
-  data-date="{{ article.date | date: '%s' }}"
+  data-date="{{ article.date | date: '%Y%m%d' }}"
   {% endif %}
 >
   <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
-    {% card_image %}
+    <div class="c_image_wrapper">
+      {% card_image %}
+    </div>
 
     <div class="c_meta">
       <p class="c_title">

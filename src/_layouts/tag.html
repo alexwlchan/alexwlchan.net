@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+{% if page.featured_posts.size > 0 %}
+  <style type="x-text/scss">
+    @import "components/article_cards";
+  </style>
+{% endif %}
+
 <style>
   .title a {
     text-decoration: underline;
@@ -32,12 +38,3 @@ layout: default
     {% include article_links.html articles=page.remaining_posts %}
   {% endif %}
 </article>
-
-{% if page.featured_posts.size == 0 %}
-<style>
-  .article_links > li {
-    width: 100%;
-    padding-left: 0;
-  }
-</style>
-{% endif %}

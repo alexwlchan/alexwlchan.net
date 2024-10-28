@@ -115,6 +115,9 @@ keep_files: [
   # Managed by rsync outside the main Jekyll process
   "files", "images",
 
+  # Managed by the article cards plugin
+  "c",
+
   # Managed by the theming plugin
   "favicons", "favicon.png", "favicon.ico", "headers",
 ]

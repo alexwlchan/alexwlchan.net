@@ -9,6 +9,7 @@ footer:
 ---
 
 <style type="x-text/scss">
+  @import "components/article_cards";
   @import "utils/functions.scss";
 
   @function create_leaf_svg($fill) {
@@ -111,8 +112,6 @@ Here are some of my favourite things [that I've written](/articles/):
 
 {% assign featured_articles = site.posts | where: "index.feature", true %}
 {% assign sample_of_articles = featured_articles | sample: 6 %}
-
-{% include article_card_styles.html selected_articles=featured_articles %}
 
 <script>
   const featuredArticles = [

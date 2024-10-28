@@ -33,6 +33,8 @@
 # This plugin means I can put the highest resolution card images in the
 # `src` directory, but the site doesn't pay a perf penalty.
 
+require 'abbrev'
+
 require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
 require_relative 'utils/pictures'
@@ -70,9 +72,29 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # can render the necessary HTML.
     post.data['card'] = {
       'attribution' => post.data['card_attribution'],
+      'year' => year,
       'social' => File.basename(social_card),
       'index' => File.basename(index_card)
     }
+  end
+
+  posts_with_cards = site.posts.docs.reject { |p| p.data['card'].nil? }
+
+  # Now work out unique abbrevations for the names of each card.
+  #
+  # Because these filenames will be used a lot on the global index page,
+  # we don't want them to be longer than necessary.
+  #
+  # We construct minimal prefixes that uniquely identify each card name,
+  # e.g. "digital-decluttering.jpg" might become "di", which is much shorter!
+  index_names = posts_with_cards.map { |p| "#{p.data['card']['year']}/#{p.data['card']['index']}" }
+  index_prefixes = Abbrev.abbrev(index_names)
+                         .group_by { |_, v| v }
+                         .transform_values { |v| v.flatten.min_by(&:length) }
+
+  posts_with_cards.each do |p|
+    p.data['card']['index_prefix'] =
+      index_prefixes["#{p.data['card']['year']}/#{p.data['card']['index']}"].gsub("#{p.data['card']['year']}/", '')
   end
 end
 
@@ -105,7 +127,7 @@ module Jekyll
         year = article['date'].year
 
         source_path = "src/_images/cards/#{year}/#{card['index']}"
-        dst_prefix = "_site/images/cards/#{year}/#{File.basename(card['index'], '.*')}"
+        dst_prefix = "_site/c/#{year - 2000}/#{File.basename(card['index_prefix'], '.*')}"
 
         image = get_single_image_info(source_path)
         im_format = get_format(source_path, image)
