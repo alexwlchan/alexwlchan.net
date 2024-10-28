@@ -15,7 +15,9 @@
   {% endif %}
 >
   <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
-    {% card_image %}
+    <div class="c_image_wrapper">
+      {% card_image %}
+    </div>
 
     <div class="c_meta">
       <p class="c_title">
