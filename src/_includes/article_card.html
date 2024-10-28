@@ -21,7 +21,6 @@
       --c-dk: {{ article.colors.css_dark }};
     {% endif %}
   "
-  data-tags="{{ article.tags | join: ' ' }}"
   {% if add_data_metadata %}
   data-date="{{ article.date | date: '%Y%m%d' }}"
   {% endif %}
