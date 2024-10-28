@@ -8,7 +8,9 @@ I write articles about a variety of non-fiction topics, from [books](/2023/2023-
 This is a list of all the articles I've written.
 If you want to hear about new ones, you can [subscribe to my RSS feed](/atom.xml) or [follow me on social media](/contact/).
 
-<style>
+<style type="x-text/scss">
+  @import "components/article_cards";
+
   .article_links + .article_cards {
     margin-top: 2em;
   }
