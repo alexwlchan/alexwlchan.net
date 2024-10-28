@@ -21,12 +21,17 @@
   background: var(--article-card-background);
   border: 2px var(--border-style) var(--c-color);
 
-  --c-color: #d01c11;
+  /* An article card can declare two colour variables: --c-lt (light) and --c-dk (dark).
+   * These are used to tint the appearance of the card, if present. */
+  --c-lt: #d01c11;
+  --c-dk: #ff4242;
+
+  --c-color: var(--c-lt);
 }
 
 @media (prefer-color-scheme: dark) {
   .article_cards .card {
-    --c-color: #ff4242;
+    --c-color: var(--c-dk);
   }
 }
 
