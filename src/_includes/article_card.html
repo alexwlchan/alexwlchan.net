@@ -23,7 +23,7 @@
   "
   data-tags="{{ article.tags | join: ' ' }}"
   {% if add_data_metadata %}
-  data-date="{{ article.date | date: '%s' }}"
+  data-date="{{ article.date | date: '%Y%m%d' }}"
   {% endif %}
 >
   <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
