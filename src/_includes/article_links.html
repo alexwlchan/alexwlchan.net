@@ -24,7 +24,7 @@
 {% for article in include.articles %}
   <li
     {% if add_data_metadata %}
-    data-date="{{ article.date | date: '%Y%m%d' }}"
+    data-date="{{ article.date | date: '%y%m%d' }}"
     {% endif %}
   >
     <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
