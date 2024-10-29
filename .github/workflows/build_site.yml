@@ -81,7 +81,7 @@ jobs:
           fi
 
       - name: Remove outdated cards
-        run: find _site/images -name 'finder-terminal-*' -delete
+        run: rm -rf _site/images/cards
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
