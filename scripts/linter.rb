@@ -110,15 +110,11 @@ def check_netlify_redirects(dst_dir)
     next if redirect[:source] == '/ideas-for-inclusive-events/*'
     next if redirect[:target].start_with? 'https://'
 
-    # Ignore query parameters when linting, the important thing is that
-    # pages don't 404
-    target = redirect[:target].split('?')[0]
-
     expected_file =
-      if target.end_with? '/'
-        "#{dst_dir}#{target}/index.html"
+      if redirect[:target].end_with? '/'
+        "#{dst_dir}/#{redirect[:target]}/index.html"
       else
-        "#{dst_dir}/#{target}"
+        "#{dst_dir}/#{redirect[:target]}"
       end
 
     lineno = redirect[:lineno]

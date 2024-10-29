@@ -142,7 +142,7 @@
 
 /page/*                                                         /articles/
 
-/talks                                                          /articles/?tag=talks
+/talks                                                          /tags/talks/
 
 /tag                                                            /410/ 410
 /tag/                                                           /410/ 410
