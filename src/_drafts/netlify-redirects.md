@@ -6,18 +6,20 @@ summary: |
 tags:
   - netlify
   - ruby
+  - blogging about blogging
 ---
 I've changed the URL design on this website a couple of times.
-The current design seems to be working fairly well, but I made some dubious decisions when I started out that really didn't scale.
+The current structure seems to be working fairly well, but I made some dubious decisions when I started out that really didn't scale.
 (Like having a single folder for all of my `/images/` -- of which there are now over 1600.
 I've divided it into per-year folders to make it easier to manage.)
 
-To [prevent link rot][link_rot], I always create redirects so that the old URLs keep working.
+I always create redirects when I change my URLs, so all the old URLs keep working.
+This [avoids link rot][link_rot], and I think it's generally a nice thing to do.
 
 Because the site is currently hosted on Netlify, I use their [redirect rules] to manage my redirects.
 In particular, I have a plain text file [called `_redirects`][_redirects] in the publish directory of my site.
 I write one redirection per line, with the old path followed by the new path.
-I can write comments by starting the line with a `#`, and leave empty lines to keep it readable.
+I can write comments by starting a line with `#`, and leave empty lines to make clear gaps between different types of redirect.
 
 Here are a few examples from my `_redirects` file:
 
@@ -67,12 +69,16 @@ end
 ```
 
 The `File.foreach(path).with_index(1)` gets me the lines of the file, with their line number as an index.
+I'm starting at `1` so the `lineno` variables match the line numbers I see in my text editor.
+
 The two `reject` lines are discarding comments and empty lines, respectively.
-The `map` block gets the old path and the new path from each line.
+
+The `map` block gets the source/target of the redirect from each line.
 
 This is only a basic parser -- the `_redirects` file has [more options](https://docs.netlify.com/routing/redirects/redirect-options/), like the ability to specify the status code of your redirect, or look for query parameters.
 This code doesn't handle any of that.
 But that's okay, because it only has to parse *my* `_redirects` file and extract a specific set of values.
+I know I have a fairly simple file and this basic implementation is plenty.
 
 Here's the output of this function on the example above:
 
@@ -101,9 +107,21 @@ So now we need to know: do all of those targets exist?
 ## Checking that my redirect targets exist
 
 I build this site with a static site generator that writes a collection of HTML files.
-These files are written to the same "publish directory" that contains the `_redirects` file, so I need to look inside that folder for the redirect targets.
+These files are written to the same folder that contains the `_redirects` file, so I need to look inside that folder for the redirect targets.
 
-This is the code that takes the list of redirects, and checks each of them points to a file that actually exists on my site:
+This is a small example of what my site folder looks like:
+
+```
+_site
+  ├─ _redirects
+  ├─ articles/
+  │    └─ index.html
+  └─ images/
+       └─ 2016/
+            └─ wiki-squares.png
+```
+
+This is the code that takes the list of redirects, and checks each of them points to a file that actually exists in that folder:
 
 ```ruby
 publish_dir = '_site'
