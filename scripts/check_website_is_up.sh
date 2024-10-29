@@ -73,7 +73,7 @@ check_url_text() {
 }
 
 check_url_text "https://alexwlchan.net/"          "Hi, I’m Alex"
-check_url_text "https://alexwlchan.net/articles/" "I write articles"
+check_url_text "https://alexwlchan.net/articles/" "Articles"
 
 for domain in "alexwlchan.net" "www.alexwlchan.net" "alexwlchan.co.uk" "alexwlchan.com"
 do
