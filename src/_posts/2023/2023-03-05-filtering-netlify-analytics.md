@@ -34,18 +34,18 @@ But a lot of the hits are from malicious bots, crawling the web for vulnerable P
 Since I don't run PHP, I'm not worried about them breaking anything; these errors are just noise.
 
 To filter these requests out of the table, I've created a bunch of redirects [in my `_redirects` file][redirects].
-I'm matching on a handful of these patterns using wildcards, and sending them all to [/400/](/400/) with an HTTP 400 status code:
+I'm matching on a handful of these patterns using wildcards, and sending them all to an HTTP 400 page with an HTTP 400 status code:
 
 ```
 /wp-*                       /400/ 400
-                            
+
 /blog/wp-*                  /400/ 400
 /cms/wp-*                   /400/ 400
 /site/wp-*                  /400/ 400
 /wordpress/wp-*             /400/ 400
 /wp/wp-*                    /400/ 400
 /wp2/wp-*                   /400/ 400
-                            
+
 /index.php*                 /400/ 400
 ```
 
