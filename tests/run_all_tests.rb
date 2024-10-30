@@ -17,3 +17,4 @@ end
 require_relative 'test_site_is_up'
 require_relative 'test_alternate_domains'
 require_relative 'test_analytics'
+require_relative 'test_https_certificate_expiry'
