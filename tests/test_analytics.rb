@@ -1,4 +1,6 @@
-# Tests for analytics.alexwlchan.net
+# I run a tracking pixel and analytics dashboard at analytics.alexwlchan.net
+#
+# This file has tests specific to this application.
 
 require 'test/unit'
 

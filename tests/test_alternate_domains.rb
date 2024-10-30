@@ -1,5 +1,10 @@
-# These tests check that alternative domains will redirect to my main website,
-# including over HTTP and variants of alexwlchan.net.
+# I have a variety of alternative domains and subdomains which all
+# redirect to my main website.
+#
+# e.g. www.alexwlchan.net and alexwlchan.com
+#
+# These tests check that all of these domains are redirecting to
+# my website correctly, including over HTTP and HTTPS.
 
 require 'test/unit'
 
@@ -10,7 +15,7 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_http_redirects_to_https
     resp = get_url('http://alexwlchan.net')
 
-    assert_equal resp.code, '301'
+    assert_equal resp.code, '308'
     assert_equal resp['location'], 'https://alexwlchan.net/'
   end
 
@@ -19,7 +24,7 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_http_redirects_to_https_with_path
     resp = get_url('http://alexwlchan.net/contact/')
 
-    assert_equal resp.code, '301'
+    assert_equal resp.code, '308'
     assert_equal resp['location'], 'https://alexwlchan.net/contact/'
   end
 
@@ -37,7 +42,7 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_www_http_redirects_to_apex
     resp = get_url('http://www.alexwlchan.net')
 
-    assert_equal resp.code, '301'
+    assert_equal resp.code, '308'
     assert_equal resp['location'], 'https://www.alexwlchan.net/'
   end
 

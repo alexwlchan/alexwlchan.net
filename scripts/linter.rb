@@ -7,7 +7,7 @@ require 'yaml'
 
 require_relative '../src/_plugins/pillow/get_image_info'
 
-require_relative 'linting/netlify_redirects'
+require_relative 'linting/caddy_redirects'
 require_relative 'linting/logging'
 
 require_relative 'linting/check_all_urls_are_hackable'
@@ -100,12 +100,12 @@ end
 # This ensures that any redirects I create are working.  It doesn't mean
 # I can't forget to create a redirect, but it does mean I won't create
 # a redirect that points to another broken page.
-def check_netlify_redirects(dst_dir)
-  info('Checking Netlify redirect rules...')
+def check_redirects(dst_dir)
+  info('Checking Caddy redirect config...')
 
   bad_lines = []
 
-  parse_netlify_redirects("#{dst_dir}/_redirects").each do |redirect|
+  parse_caddy_redirects.each do |redirect|
     # A couple of special cases that I don't worry about.
     next if redirect[:source] == '/ideas-for-inclusive-events/*'
     next if redirect[:target].start_with? 'https://'
@@ -156,5 +156,5 @@ check_with_html_proofer(html_dir)
 
 check_writing_has_been_archived(src_dir)
 check_yaml_front_matter(src_dir)
-check_netlify_redirects(html_dir)
+check_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)

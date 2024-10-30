@@ -1,8 +1,119 @@
+alexwlchan.net {  
+  import caddy/redirects.Caddyfile
+  import caddy/gone.Caddyfile
+
+  # Enable compression for responses
+	encode zstd gzip
+
+  # I can set long-lived caches on all these static assets because I treat
+  # most files as immutable by filename -- if I modify a file, I'll upload a new
+  # file with a different name, so it won't be a cache hit.
+  #
+  # The one exception is CSS files, but I cache-bust those by passing a query parameter
+  # that includes the hash of my CSS source.
+  @cached {
+  	path /favicons/* /files/* /headers/* /images/* /static/* /theme/*
+  }
+
+  header @cached {
+  	Cache-Control "public, max-age=31536000"
+  }
+  
+  # Add some security headers.
+	# I test my security headers with https://securityheaders.com/
+	header {
+		# https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
+		Content-Security-Policy "default-src 'self' 'unsafe-inline' https://youtube-nocookie.com https://www.youtube-nocookie.com; script-src 'self' 'unsafe-inline'; connect-src https://analytics.alexwlchan.net; img-src 'self' 'unsafe-inline' data:"
+
+		# https://scotthelme.co.uk/a-new-security-header-feature-policy/
+		# https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/
+		Permissions-Policy "geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), vibrate=(), payment=()"
+
+		# https://scotthelme.co.uk/a-new-security-header-referrer-policy/
+		Referrer-Policy "no-referrer-when-downgrade"
+
+		# https://scotthelme.co.uk/hardening-your-http-response-headers/#strict-transport-security
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options
+		X-Content-Type-Options "nosniff"
+
+		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options
+		X-Frame-Options "ALLOWALL"
+
+		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
+		X-Xss-Protection "1; mode=block"
+	}
+  
+  # If somebody gets a 4xx error, respond with my custom error pages.
+  handle_errors 404 {
+    root * /home/alexwlchan/repos/alexwlchan.net/_site
+    rewrite * 404/index.html
+    file_server
+  }
+  
+  handle_errors 410 {
+    root * /home/alexwlchan/repos/alexwlchan.net/_site
+    rewrite * 410/index.html
+    file_server
+  }
+    
+  # If somebody is trying to look for PHP pages on my site, and WordPress
+  # pages in particular, they probably have nefarious goals.
+  #
+  # This is mostly automated bots -- serve them my minimal 400 Bad Request
+  # error rather than the complete 404 Not Found page.
+  @spam {
+  	path /.env /index.php /xmlrpc.php /wp-* /blog/wp-* /cms/wp-* /shop/wp-* /site/wp-* /test/wp-*  /wordpress/wp-* /wp/wp-* /wp2/wp-* /zb_system/*
+  }
+
+  handle @spam {
+    respond "400 Bad Request" 400
+  }
+  
+  # This is a mini-site that was built separately and I've just uploaded
+  # the HTML files to my web server.
+  #
+  # Eventually I'd like to fold this into the main site build, but
+  # I'm not there yet.
+  # 
+  # See https://github.com/alexwlchan/ideas-for-inclusive-events/issues/9
+  handle /ideas-for-inclusive-events/* {
+		root * /home/alexwlchan/repos/ideas-for-inclusive-events
+		file_server
+	}
+  
+  # Run a static file server for anything not yet handled
+  root * /home/alexwlchan/repos/alexwlchan.net/_site
+	file_server
+
+	log {
+		output file /var/log/caddy/alexwlchan.log
+
+		# This removes personally identifiable information (PII) from the logs,
+		# in particular:
+		#
+		#    - IP addresses
+		#    - User-Agents
+		#
+		# They're not useful to me so I might as well discard them.
+		format filter {
+			wrap json
+			fields {
+				request>remote_ip delete
+				request>remote_port delete
+				request>client_ip delete
+				request>headers>User-Agent delete
+			}
+		}
+	}
+}
+
 # This redirects my other domain names to my primary domain name,
 # to avoid diluting traffic between them.
-alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk {
+alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk, www.alexwlchan.net {
 	redir https://alexwlchan.net{uri} permanent
-  
+
 	log {
 		output file /var/log/caddy/alexwlchan.log
 

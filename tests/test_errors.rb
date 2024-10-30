@@ -34,6 +34,6 @@ class TestErrors < Test::Unit::TestCase
     resp = get_url('https://alexwlchan.net/wp-login.php')
 
     assert_equal resp.code, '400'
-    assert_equal resp.body.strip, '<p>400 Bad Request</p>'
+    assert_equal resp.body.strip, '400 Bad Request'
   end
 end

@@ -1,0 +1,114 @@
+handle /analytics/a.js {
+    error 410
+}
+
+handle /theme/style-sample {
+    error 410
+}
+
+handle /images/talks/oxford_git.jpg {
+  error 410
+}
+
+handle /images/talks/suspicious_minds.jpg {
+  error 410
+}
+
+handle /images/talks/worst_intent.png {
+  error 410
+}
+
+handle /projects/ {
+  error 410
+}
+
+
+
+
+
+# == Posts which I've removed == #
+
+# I took this post down in June 2023
+handle /2019/removing-the-drm-from-my-kindle-books/ {
+  error 410
+}
+
+handle /2019/08/removing-the-drm-from-my-kindle-books/ {
+  error 410
+}
+
+# I removed these posts because they were short link posts of minimal value
+
+handle /2014/12/war-on-christmas/ {
+  error 410
+}
+
+handle /2014/war-on-christmas/ {
+  error 410
+}
+
+handle /2015/01/bbfc-podcast/ {
+  error 410
+}
+
+handle /2015/bbfc-podcast/ {
+  error 410
+}
+
+handle /2015/01/govuk/ {
+  error 410
+}
+
+handle /2015/govuk/ {
+  error 410
+}
+
+handle /2015/01/kings-cross-problems/ {
+  error 410
+}
+
+handle /2015/kings-cross-problems/ {
+  error 410
+}
+
+
+
+
+
+
+
+# == Files which I've removed == #
+
+handle /files/boiler_instructions.pdf {
+  error 410
+}
+
+handle /files/colossus.pdf {
+  error 410
+}
+
+handle /files/ga-privacy.txt {
+  error 410
+}
+
+handle /files/rock-crushers.txt {
+  error 410
+}
+
+handle /talks/campug_git.pdf {
+  error 410
+}
+
+handle /talks/colossus_operators.jpg {
+  error 410
+}
+
+handle /talks/hypothesis_cover.png {
+  error 410
+}
+
+handle /talks/pyconuk2016_cover.png {
+  error 410
+}
+
+# == #

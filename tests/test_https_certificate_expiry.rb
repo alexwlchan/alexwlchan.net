@@ -1,3 +1,6 @@
+# Check that all of my HTTPS certificates are valid and not about
+# to expire.
+
 require 'date'
 require 'net/http'
 require 'test/unit'
@@ -25,8 +28,6 @@ def days_to_expiry(hostname)
   seconds_until / (24 * 60 * 60)
 end
 
-# Check that all of my HTTPS certificates are valid and not about
-# to expire.
 class TestHttpsCertificateExpiry < Test::Unit::TestCase
   def test_apex
     assert days_to_expiry('alexwlchan.net') > 14
@@ -38,5 +39,25 @@ class TestHttpsCertificateExpiry < Test::Unit::TestCase
 
   def test_analytics
     assert days_to_expiry('analytics.alexwlchan.net') > 14
+  end
+
+  def test_www
+    assert days_to_expiry('www.alexwlchan.net') > 14
+  end
+
+  def test_dotcom
+    assert days_to_expiry('alexwlchan.com') > 14
+  end
+
+  def test_www_dotcom
+    assert days_to_expiry('www.alexwlchan.com') > 14
+  end
+
+  def test_dotcouk
+    assert days_to_expiry('alexwlchan.co.uk') > 14
+  end
+
+  def test_www_dotcouk
+    assert days_to_expiry('www.alexwlchan.co.uk') > 14
   end
 end
