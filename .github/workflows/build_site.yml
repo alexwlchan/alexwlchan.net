@@ -111,6 +111,7 @@ jobs:
           fi
 
       - name: Test you can see the Linode
+        if: github.ref == 'refs/heads/main'
         run:
           ping -c 1 178.79.134.59
 
