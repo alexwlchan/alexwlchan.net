@@ -16,7 +16,7 @@
 require 'pathname'
 
 require_relative 'logging'
-require_relative 'netlify_redirects'
+require_relative 'caddy_redirects'
 
 # Given a path, return a list of all its parent directories.
 #
@@ -57,7 +57,7 @@ def check_all_urls_are_hackable(dst_dir)
   # The goal is to have two sets of URLs without trailing slashes,
   # e.g. {'/writing', '/til'}
   #
-  redirects = parse_netlify_redirects("#{dst_dir}/_redirects").to_set { |r| r[:source].chomp('/') }
+  redirects = parse_caddy_redirects.to_set { |r| r[:source].chomp('/') }
   folders_with_index_html = Dir.glob("#{dst_dir}/**/index.html").map { |p| File.dirname(p).gsub(dst_dir, '') }
 
   # Work out all the URLs that somebody could "hack" their way towards.
