@@ -1,0 +1,5 @@
+# This redirects my other domain names to my primary domain name,
+# to avoid diluting traffic between them.
+alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk {
+	redir https://alexwlchan.net{uri} permanent
+}
