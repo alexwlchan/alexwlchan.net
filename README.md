@@ -19,18 +19,18 @@ The site uses:
 *   [Jekyll][jekyll], which generates the HTML pages
 *   [Sass][sass], for building the CSS and stylesheets
 *   [GitHub Actions][github_actions], which builds and deploys the site
-*   [Netlify], which hosts the site
+*   [Caddy], which is the web server
 
 When I want to make a change, I open a pull request.
 This triggers a build with GitHub Actions, and as part of the build it checks the HTML with [HTMLProofer].
 This checks for missing alt text, broken links, invalid HTML, and so on.
 
-If the site passes checks, it's [automatically merged][automerge], and the build on the `main` branch publishes the change to Netlify.
+If the site passes checks, it's [automatically merged][automerge], and the build on the `main` branch publishes the change to my web server.
 
 [jekyll]: https://jekyllrb.com/
 [sass]: https://sass-lang.com/
 [github_actions]: https://github.com/features/actions
-[Netlify]: https://www.netlify.com
+[Caddy]: https://caddyserver.com/
 [HTMLProofer]: https://github.com/gjtorikian/html-proofer
 [automerge]: https://github.com/alexwlchan/auto_merge_my_pull_requests
 
