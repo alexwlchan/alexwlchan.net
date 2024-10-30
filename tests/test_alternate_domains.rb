@@ -37,7 +37,7 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_www_http_redirects_to_apex
     resp = get_url('http://www.alexwlchan.net')
 
-    assert_equal resp.code, '301'
+    assert_equal resp.code, '308'
     assert_equal resp['location'], 'https://www.alexwlchan.net/'
   end
 
