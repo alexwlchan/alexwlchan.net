@@ -6,7 +6,7 @@ def get_url(url)
   Net::HTTP.get_response(uri)
 end
 
-# Basic tests for my website.
+# Basic tests for my websites.
 class TestSite < Test::Unit::TestCase
   # Load the alexwlchan.net homepage
   def test_load_homepage
@@ -29,5 +29,21 @@ class TestSite < Test::Unit::TestCase
     resp = get_url('https://alexwlchan.net/images/profile_green_square_1x.jpg')
 
     assert_equal resp.code, '200'
+  end
+
+  # Load the books.alexwlchan.net homepage
+  def test_load_books
+    resp = get_url('https://books.alexwlchan.net')
+
+    assert_equal resp.code, '200'
+    assert resp.body.include? 'Welcome to my book tracker!'
+  end
+
+  # Load the analytics.alexwlchan.net homepage
+  def test_load_analytics
+    resp = get_url('https://analytics.alexwlchan.net')
+
+    assert_equal resp.code, '200'
+    assert resp.body.include? 'This website hosts a tracking pixel for alexwlchan.net and its subdomains'
   end
 end
