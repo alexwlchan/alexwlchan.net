@@ -42,4 +42,12 @@ class TestSite < Test::Unit::TestCase
     assert_equal resp.code, '200'
     assert resp.body.include? 'This website hosts a tracking pixel for alexwlchan.net and its subdomains'
   end
+
+  # Load "Ideas for Inclusive Events"
+  def test_load_ideas_for_inclusive_events
+    resp = get_url('https://alexwlchan.net/ideas-for-inclusive-events/')
+
+    assert_equal resp.code, '200'
+    assert resp.body.include? 'ideas for inclusive/accessible events'
+  end
 end
