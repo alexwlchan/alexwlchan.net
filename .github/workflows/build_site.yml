@@ -110,27 +110,6 @@ jobs:
             echo "There is no _drafts folder, so nothing to publish!"
           fi
 
-      - name: Deploy to Netlify
-        id: deploy_to_netlify
-        uses: nwtgck/actions-netlify@v3.0
-        with:
-          publish-dir: "_site"
-          production-branch: main
-          github-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: true
-          overwrites-pull-request-comment: true
-          netlify-config-path: netlify.toml
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: "da37a488-4df9-4cc2-b267-947179af20bd"
-        timeout-minutes: 1
-
-      - name: Print Netlify Deploy URL
-        env:
-          SITE_URL: ${{steps.deploy_to_netlify.outputs.deploy-url}}
-        run: echo "$SITE_URL"
-
       - name: Deploy to Linode
         uses: burnett01/rsync-deployments@7.0.1
         # if: github.ref == 'refs/heads/main'
