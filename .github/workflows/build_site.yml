@@ -114,7 +114,7 @@ jobs:
         uses: burnett01/rsync-deployments@7.0.1
         # if: github.ref == 'refs/heads/main'
         with:
-          switches: -avzr --delete --exclude="" --include="" --filter=""
+          switches: -avzr --progress --delete --exclude="" --include="" --filter=""
           path: _site/
           remote_path: repos/alexwlchan.net/_site
           remote_host: "178.79.134.59"
