@@ -1,4 +1,4 @@
-www.alexwlchan.net {
+www.alexwlchan.net {  
   import caddy/redirects.Caddyfile
   import caddy/gone.Caddyfile
 
@@ -45,6 +45,19 @@ www.alexwlchan.net {
 		X-Xss-Protection "1; mode=block"
 	}
   
+  # If somebody gets a 404 or 410 error, respond with my custom error pages.
+  handle_errors 404 {
+    root * /home/alexwlchan/repos/alexwlchan.net/_site
+    rewrite * 404/index.html
+    file_server
+  }
+  
+  handle_errors 410 {
+    root * /home/alexwlchan/repos/alexwlchan.net/_site
+    rewrite * 410/index.html
+    file_server
+  }
+  
   # This is a mini-site that was built separately and I've just uploaded
   # the HTML files to my web server.
   #
@@ -56,7 +69,8 @@ www.alexwlchan.net {
 		root * /home/alexwlchan/repos/ideas-for-inclusive-events
 		file_server
 	}
-
+  
+  # Run a static file server for anything not yet handled
   root * /home/alexwlchan/repos/alexwlchan.net/_site
 	file_server
 
