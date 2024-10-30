@@ -39,4 +39,24 @@ class TestHttpsCertificateExpiry < Test::Unit::TestCase
   def test_analytics
     assert days_to_expiry('analytics.alexwlchan.net') > 14
   end
+
+  def test_www
+    assert days_to_expiry('www.alexwlchan.net') > 14
+  end
+
+  def test_dotcom
+    assert days_to_expiry('alexwlchan.com') > 14
+  end
+
+  def test_www_dotcom
+    assert days_to_expiry('www.alexwlchan.com') > 14
+  end
+
+  def test_dotcouk
+    assert days_to_expiry('alexwlchan.co.uk') > 14
+  end
+
+  def test_www_dotcouk
+    assert days_to_expiry('www.alexwlchan.co.uk') > 14
+  end
 end
