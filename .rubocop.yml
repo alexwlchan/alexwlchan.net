@@ -34,6 +34,9 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Enabled: false
 
+Naming/VariableNumber:
+  Enabled: false
+
 Style/ClassVars:
   Enabled: false
 
