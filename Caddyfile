@@ -1,4 +1,4 @@
-www.alexwlchan.net {  
+alexwlchan.net {  
   import caddy/redirects.Caddyfile
   import caddy/gone.Caddyfile
 
@@ -111,7 +111,7 @@ www.alexwlchan.net {
 
 # This redirects my other domain names to my primary domain name,
 # to avoid diluting traffic between them.
-alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk {
+alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk, www.alexwlchan.net {
 	redir https://alexwlchan.net{uri} permanent
 
 	log {
