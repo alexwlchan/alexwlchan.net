@@ -1,5 +1,10 @@
-# These tests check that alternative domains will redirect to my main website,
-# including over HTTP and variants of alexwlchan.net.
+# I have a variety of alternative domains and subdomains which all
+# redirect to my main website.
+#
+# e.g. www.alexwlchan.net and alexwlchan.com
+#
+# These tests check that all of these domains are redirecting to
+# my website correctly, including over HTTP and HTTPS.
 
 require 'test/unit'
 

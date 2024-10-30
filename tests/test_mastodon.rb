@@ -1,9 +1,13 @@
+# Tests for some routes that are used to find my Mastodon server,
+# which is at social.alexwlchan.net.
+#
+# My handle is "@alex@alexwlchan.net", so federating servers need
+# to be able to find their way to my actual server.
+
 require 'test/unit'
 
 require_relative 'utils'
 
-# Tests for some routes that are used by Mastodon to find
-# my social.alexwlchan.net server
 class TestMastodon < Test::Unit::TestCase
   def test_host_meta
     resp = get_url('https://alexwlchan.net/.well-known/host-meta')

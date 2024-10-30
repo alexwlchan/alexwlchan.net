@@ -1,8 +1,10 @@
+# These are vanilla uptime tests -- load a page and check that it
+# gets a 200 OK with some expected text.
+
 require 'test/unit'
 
 require_relative 'utils'
 
-# Basic tests for my websites.
 class TestSite < Test::Unit::TestCase
   # Load the alexwlchan.net homepage
   def test_load_homepage
