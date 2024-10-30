@@ -7,7 +7,7 @@ on:
 
     paths:
       - '.github/workflows/check_website_is_up.yml'
-      - 'scripts/check_website_is_up.sh'
+      - 'tests/*'
 
   pull_request:
     branches:
@@ -15,7 +15,7 @@ on:
 
     paths:
       - '.github/workflows/check_website_is_up.yml'
-      - 'scripts/check_website_is_up.sh'
+      - 'tests/*'
 
   schedule:
     - cron: "42 * * * *"
@@ -27,5 +27,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Check the website is up
-      run: bash scripts/check_website_is_up.sh
+    - name: "Set up Ruby"
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.3"
+        cache-version: 1
+
+    - name: "Run the website tests"
+      run: ruby tests/run_all_tests.rb

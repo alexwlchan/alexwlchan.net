@@ -131,6 +131,9 @@ jobs:
           SITE_URL: ${{steps.deploy_to_netlify.outputs.deploy-url}}
         run: echo "$SITE_URL"
 
+      - name: "Run the website tests"
+        run: ruby tests/run_all_tests.rb
+
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/main'
         run: |
