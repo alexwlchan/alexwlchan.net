@@ -7,17 +7,6 @@
 source: "src"
 destination: "_site"
 
-include:
-
-  # This file is used by Netlify to define redirects.  I also use it
-  # to create the custom 404 page.
-  #
-  # Jekyll ignores files that start with an underscore, so I need to
-  # include this explicitly.
-  #
-  # See https://docs.netlify.com/routing/redirects/
-  - "_redirects"
-
 # =====================
 # Build command options
 # =====================
