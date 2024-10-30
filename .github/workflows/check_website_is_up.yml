@@ -7,7 +7,6 @@ on:
 
     paths:
       - '.github/workflows/check_website_is_up.yml'
-      - 'scripts/check_website_is_up.sh'
       - 'tests/*'
 
   pull_request:
@@ -16,7 +15,6 @@ on:
 
     paths:
       - '.github/workflows/check_website_is_up.yml'
-      - 'scripts/check_website_is_up.sh'
       - 'tests/*'
 
   schedule:
@@ -28,9 +26,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Check the website is up
-      run: bash scripts/check_website_is_up.sh
 
     - name: "Set up Ruby"
       uses: ruby/setup-ruby@v1
