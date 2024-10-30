@@ -13,6 +13,10 @@ AllCops:
     # See https://stackoverflow.com/a/69421161/1558022
     - 'vendor/**/*'
 
+Layout/LineLength:
+  Exclude:
+    - tests/test_http_security_headers.rb
+
 Lint/MissingSuper:
   Enabled: false
 

@@ -17,6 +17,7 @@ end
 require_relative 'test_site_is_up'
 require_relative 'test_alternate_domains'
 require_relative 'test_analytics'
+require_relative 'test_http_security_headers'
 require_relative 'test_https_certificate_expiry'
 require_relative 'test_mastodon'
 require_relative 'test_errors'
