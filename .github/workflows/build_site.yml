@@ -116,7 +116,7 @@ jobs:
 
       - name: Deploy to Linode
         uses: burnett01/rsync-deployments@7.0.1
-        # if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         with:
           switches: -avzr --progress --delete --exclude="" --include="" --filter=""
           path: _site/
