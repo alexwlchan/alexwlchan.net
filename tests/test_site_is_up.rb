@@ -1,10 +1,6 @@
-require 'net/http'
 require 'test/unit'
 
-def get_url(url)
-  uri = URI(url)
-  Net::HTTP.get_response(uri)
-end
+require_relative 'utils'
 
 # Basic tests for my websites.
 class TestSite < Test::Unit::TestCase

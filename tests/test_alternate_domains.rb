@@ -1,13 +1,9 @@
 # These tests check that alternative domains will redirect to my main website,
 # including over HTTP and variants of alexwlchan.net.
 
-require 'net/http'
 require 'test/unit'
 
-def get_url(url)
-  uri = URI(url)
-  Net::HTTP.get_response(uri)
-end
+require_relative 'utils'
 
 class TestAlternateDomains < Test::Unit::TestCase
   # My website redirects from HTTP to HTTPS
@@ -56,8 +52,8 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_dotcom_http_redirects_to_apex
     resp = get_url('http://alexwlchan.com')
 
-    assert_equal resp.code, '301'
-    assert_equal resp['location'], 'https://alexwlchan.net/'
+    assert_equal resp.code, '308'
+    assert_equal resp['location'], 'https://alexwlchan.com/'
   end
 
   # alexwlchan.co.uk redirects to alexwlchan.net

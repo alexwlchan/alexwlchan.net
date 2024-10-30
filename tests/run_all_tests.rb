@@ -3,6 +3,7 @@
 # Make sure every test file is correctly sourced in this file.
 Dir.glob('tests/*.rb')
    .reject { |f| f == 'tests/run_all_tests.rb' }
+   .reject { |f| f == 'tests/utils.rb' }
    .each do |f|
   name = File.basename(f, '.rb')
 
@@ -15,3 +16,4 @@ end
 
 require_relative 'test_site_is_up'
 require_relative 'test_alternate_domains'
+require_relative 'test_analytics'
