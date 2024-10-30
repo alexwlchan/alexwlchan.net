@@ -44,6 +44,18 @@ www.alexwlchan.net {
 		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
 		X-Xss-Protection "1; mode=block"
 	}
+  
+  # This is a mini-site that was built separately and I've just uploaded
+  # the HTML files to my web server.
+  #
+  # Eventually I'd like to fold this into the main site build, but
+  # I'm not there yet.
+  # 
+  # See https://github.com/alexwlchan/ideas-for-inclusive-events/issues/9
+  handle /ideas-for-inclusive-events/* {
+		root * /home/alexwlchan/repos/ideas-for-inclusive-events
+		file_server
+	}
 
   root * /home/alexwlchan/repos/alexwlchan.net/_site
 	file_server
