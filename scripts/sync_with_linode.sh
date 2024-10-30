@@ -24,7 +24,7 @@ fi
 case $1 in
   "pull")
     SOURCE="alexwlchan@harmonia.linode:repos/alexwlchan.net/_site/"
-    TARGET="_site"
+    TARGET="_site/"
     ;;
 
   "push")
@@ -34,7 +34,7 @@ case $1 in
       exit 1
     fi
     
-    SOURCE="_site"
+    SOURCE="_site/"
     TARGET="alexwlchan@harmonia.linode:repos/alexwlchan.net/_site/"
     ;;
 
