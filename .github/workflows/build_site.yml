@@ -131,6 +131,17 @@ jobs:
           SITE_URL: ${{steps.deploy_to_netlify.outputs.deploy-url}}
         run: echo "$SITE_URL"
 
+      - name: Deploy to Linode
+        uses: burnett01/rsync-deployments@7.0.1
+        # if: github.ref == 'refs/heads/main'
+        with:
+          switches: -avzr --delete --exclude="" --include="" --filter=""
+          path: _site/
+          remote_path: repos/alexwlchan.net/_site
+          remote_host: "178.79.134.59"
+          remote_user: alexwlchan
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+
       - name: "Run the website tests"
         run: ruby tests/run_all_tests.rb
 
