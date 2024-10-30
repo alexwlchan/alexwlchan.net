@@ -44,20 +44,21 @@ finduntaggedtumblrposts.com TXT:                  [ "\"v=spf1 include:spf.messag
 
 
 
-# == Netlify DNS records ==
+# == Linode DNS records ==
 #
-# These are DNS records that allow me to use my own domains with my sites
-# hosted on Netlify.
-#
-# See https://docs.netlify.com/domains-https/custom-domains/configure-external-dns/
+# These are DNS records that point my domains at my Linode VPS, where
+# I can serve them with Caddy.
 
-alexwlchan.net A:              [ "75.2.60.5", ]
+alexwlchan.net A:              [ "178.79.134.59", ]
 
-alexwlchan.com A:              [ "75.2.60.5", ]
-"*.alexwlchan.com A":          [ "75.2.60.5", ]
+alexwlchan.com A:              [ "178.79.134.59", ]
+"*.alexwlchan.com A":          [ "178.79.134.59", ]
 
-alexwlchan.co.uk A:            [ "75.2.60.5", ]
-"*.alexwlchan.co.uk A":        [ "75.2.60.5", ]
+alexwlchan.co.uk A:            [ "178.79.134.59", ]
+"*.alexwlchan.co.uk A":        [ "178.79.134.59", ]
+
+books.alexwlchan.net A:        [ "178.79.134.59", ]
+www.alexwlchan.net A:          [ "178.79.134.59", ]
 
 finduntaggedtumblrposts.com A: [ "75.2.60.5", ]
 
@@ -78,9 +79,7 @@ mail.alexwlchan.com CNAME:   [ "mail.hover.com.cust.hostedemail.com.",  ]
 alexwlchan.co.uk MX:         [ "10 mx.hover.com.cust.hostedemail.com.", ]
 mail.alexwlchan.co.uk CNAME: [ "mail.hover.com.cust.hostedemail.com.",  ]
 
-books.alexwlchan.net CNAME:  [ "books-alexwlchan.netlify.app.", ]
 til.alexwlchan.net CNAME:    [ "til-alexwlchan.netlify.app.", ]
-www.alexwlchan.net CNAME:    [ "alexwlchan.netlify.app.", ]
 
 
 
