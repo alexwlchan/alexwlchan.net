@@ -15,7 +15,7 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_http_redirects_to_https
     resp = get_url('http://alexwlchan.net')
 
-    assert_equal resp.code, '301'
+    assert_equal resp.code, '308'
     assert_equal resp['location'], 'https://alexwlchan.net/'
   end
 
@@ -24,7 +24,7 @@ class TestAlternateDomains < Test::Unit::TestCase
   def test_http_redirects_to_https_with_path
     resp = get_url('http://alexwlchan.net/contact/')
 
-    assert_equal resp.code, '301'
+    assert_equal resp.code, '308'
     assert_equal resp['location'], 'https://alexwlchan.net/contact/'
   end
 
