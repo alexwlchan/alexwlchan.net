@@ -110,6 +110,10 @@ jobs:
             echo "There is no _drafts folder, so nothing to publish!"
           fi
 
+      - name: Test you can see the Linode
+        run:
+          ping -c 1 178.79.134.59
+
       - name: Deploy to Linode
         uses: burnett01/rsync-deployments@7.0.1
         # if: github.ref == 'refs/heads/main'
