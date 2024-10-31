@@ -38,7 +38,7 @@ on:
 jobs:
   build:
     name: Build the website
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
@@ -108,15 +108,33 @@ jobs:
           fi
 
       - name: Deploy to Linode
-        uses: burnett01/rsync-deployments@7.0.1
         if: github.ref == 'refs/heads/main'
-        with:
-          switches: -avzr --progress --delete --exclude="" --include="" --filter=""
-          path: _site/
-          remote_path: repos/alexwlchan.net/_site
-          remote_host: "178.79.134.59"
-          remote_user: alexwlchan
-          remote_key: ${{ secrets.DEPLOY_KEY }}
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          # Get the SSH host keys for my web server
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "alexwlchan.net" >> ~/.ssh/known_hosts
+
+          # Save the deploy key to a file, so it can be used by
+          # the SSH process
+          echo "$DEPLOY_KEY" > id_rsa
+          chmod 600 id_rsa
+
+          # Run the rsync command to upload the _site folder to
+          # my web server
+          rsync \
+            --rsh="ssh -i id_rsa -o IdentityAgent=none -o HostKeyAlgorithms=ssh-ed25519" \
+            --compress \
+            --archive \
+            --recursive \
+            --delete \
+            --exclude="" --include="" --filter="" \
+            "_site/" \
+            "alexwlchan@alexwlchan.net:repos/alexwlchan.net/_site/"
+            
+          # Clean up the SSH key
+          rm id_rsa
 
       - name: "Run the website tests"
         run: ruby tests/run_all_tests.rb
