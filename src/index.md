@@ -119,7 +119,7 @@ Here are some of my favourite things [that I've written](/articles/):
       {% capture articleHtml %}
         {% include article_card.html %}
       {% endcapture %}
-      {{ articleHtml | strip | jsonify }},
+      {{ articleHtml | strip | cleanup_text | jsonify }},
     {% endfor %}
   ];
 
