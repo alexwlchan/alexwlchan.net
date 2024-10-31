@@ -80,9 +80,6 @@ jobs:
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
 
-      - name: Remove outdated cards
-        run: rm -rf _site/images/cards
-
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
 
