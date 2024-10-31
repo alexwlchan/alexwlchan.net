@@ -4,7 +4,7 @@ title: Create solid-colour image placeholders to show before an image loads
 date: 2024-07-24 22:39:41 +0100
 tags:
   - images
-  - web development
+  - css
 ---
 A fairly common pattern I use in my web pages is to have a solid colour placeholder that shows where the image will appear, and which is replaced by the image when it loads.
 
