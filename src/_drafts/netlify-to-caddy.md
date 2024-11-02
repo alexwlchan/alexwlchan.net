@@ -51,6 +51,10 @@ I needed a cheaper host.
 [Using static websites for tiny archives]: /2024/static-websites/
 [linode]: https://techdocs.akamai.com/cloud-computing/docs/network-transfer-usage-and-costs#usage-costs
 
+## Why now?
+
+also why been writing about netlify stuff -- want to get it all out before I delete this code
+
 ## Why did I pick Caddy?
 
 Before Netlify, I ran this website on a Linux VPS with Nginx as the web server.
