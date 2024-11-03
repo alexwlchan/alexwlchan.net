@@ -8,7 +8,7 @@ tags:
   - caddy
   - netlify
 ---
-I had a long train journey on Tuesday, and I spent part of it moving this website from Netlify to a Linux server running [Caddy].
+I had a long train journey on Tuesday, and I spent the time moving this website from Netlify to a Linux server running [Caddy].
 (Yes, the Wi-Fi on European trains is reliable enough to make that possible, even pleasant.)
 
 Hopefully nobody noticed!
@@ -24,53 +24,49 @@ I wanted to write a few notes on the experience.
 
 I'm feeling the squeeze of Netlify's bandwidth pricing.
 
-I was on their [Starter plan], so I got 100GB of bandwidth per month, for free.
-If I exceeded that, I'd have to pay $55 for an extra 100GB of bandwidth.
-That was fine for several years because I was well under the limit, but my usage has been creeping up and I've been stung by a couple of overage charges.
-Maybe I've got more readers; maybe the site is getting crawled by AI bots.
+I was on their [Starter plan], so I could serve 100GB of bandwidth per month, for free.
+If I went over that, I had to buy extra bandwidth packs -- $55 for 100GB.
 
-I've tried to make this site as lightweight as possible, to minimise my bandwidth.
-I serve small HTML pages, I cache aggressively, and I compress all my images.
-But there's only so much I can do, and if a post gets popular, the bandwidth starts to stack up.
+The 100GB limit was fine for a while, but my bandwidth usage has been creeping up and I've already been stung by several overage charges.
+This is particularly pronounced when a post gets popular and I get a big influx of traffic.
+I try to make this site as small and lightweight as possible, but that only goes so far.
 
 This has been particularly pronounced in the last week – my recent post [Using static websites for tiny archives] was on the front page of Hacker News for about a day.
 The extra visitors pushed me close to the limit – 5 days into my 30-day billing period, and I'd used over 80% of my bandwidth allowance.
 The threat of another overage charge is what pushed me to make this change now.
 
-I don't object to paying for bandwidth -- it's using resources somewhere and I'm happy to pay my fair share.
-But Netlify's pricing is *egregious*.
+I don't object to paying for bandwidth, but Netlify's pricing is egregious.
 Charging $0.55/GB is far more than their competitors.
-Even AWS, who are notorious for their bandwidth pricing, typically charge less than a third of that.
-(My new web server is hosted on Linode, which charges [a mere $0.005/GB][linode].)
+Even AWS, who are notorious for their egress bandwidth pricing, charge [a fraction of that](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer).
+(My new web server is hosted at Linode, who charge [a mere $0.005/GB][linode].)
 
 I run this website for fun.
-I don't get any money from it, and I don't want to pay $55 every other month because something I wrote got popular.
+I don't make any money from it, and I don't want to pay $55 every other month because something I wrote got popular.
 I needed a cheaper host.
 
 [Starter plan]: https://www.netlify.com/pricing/#pricing-table
 [Using static websites for tiny archives]: /2024/static-websites/
 [linode]: https://techdocs.akamai.com/cloud-computing/docs/network-transfer-usage-and-costs#usage-costs
 
-## Why now?
+## Why did I pick Linux/Caddy?
 
-also why been writing about netlify stuff -- want to get it all out before I delete this code
+If I was ditching Netlify, I knew I wanted to go back to a web server on a Linux box.
+I ran this site that way for a number of years, I'm comfortable running my own servers, and it's nice not to be tied to a proprietary vendor.
 
-## Why did I pick Caddy?
+The web server I'm using is a Linode ["Nanode 1GB" virtual machine](https://www.linode.com/pricing/), which costs $5 a month, including 1TB of bandwidth.
+Even a tiny server has plenty of power to serve my website, and overall this should be cheaper than Netlify, and the cost will be more predictable too.
 
-Before Netlify, I ran this website on a Linux VPS with Nginx as the web server.
-That worked fine, but I remember it being fiddly to set up HTTPS certificates.
-I'm fairly sure I had some config bugs as well, because it was much slower than I expected.
-Nginx is a powerful web server that should have no issues running my dinky little site, but I'd done something to make it sluggish.
+In the past I used Nginx as my web server software, but it was fiddly to configure, especially the HTTPS certificates.
+I wanted to try something different.
 
-If I was replacing Netlify, I wanted to go back to running a web server on a Linux boox -- I'm fairly comfortable running my own servers, and I'd rather not go to a different proprietary vendor.
-Plus I was already paying for a web server for some other projects, so moving this site there wouldn't cost me anything extra.
-But I didn't fancy going back to Nginx.
+Several people had recommended [Caddy] to me on Twitter, so I gave it a look.
+It was easy to install and get a basic site running, and it claimed it could handle my HTTPS certificates.
+The first-run experience was good enough that I was happy to try getting the whole site on to Caddy.
 
-I'd had [Caddy] recommended to me on Twitter a couple of times, I knew it would manage my HTTPS certificates, and it was easy to install.
-I got a basic site up and running quickly, and that was enough to try doing the whole thing.
-
-Caddy seems fine for now, and I'm not too worried about finding issues later.
-If I do decide to siwtch to something different, I've just done a server-to-server migration and it was pretty smooth.
+I didn't look at any alternatives.
+Caddy is fine for now, and I'm not too worried about finding issues later.
+If I do find a deal-breaker and I need to switch to something different, I've just done a server-to-server migration.
+It was pretty smooth.
 I'm sure I could do the same again.
 
 [Caddy]: https://caddyserver.com/
@@ -84,49 +80,70 @@ My new tests check the behaviour of the live website -- they make requests to `a
 
 I wrote tests for things like:
 
-*   Are pages being served properly?
-*   Are images being served properly?
-*   If a page has been redirected, are you sent to the right place?
-*   If I've removed a page, does it get the correct HTTP [410 Gone](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410) response?
-*   Are my HTTPS certificates renewing correctly?
-*   Am I setting the right HTTP headers on responses? (e.g. for caching)
+* Content delivery:
+  * Are pages being served properly?
+  * Are images being served properly?
+
+* HTTP behaviour:
+  * If a page has been redirected, are you sent to the right place?
+  * If I'm removed a page, does it return the correct HTTP [410 Gone](/410/) response?
+  * If a page is missing, do you get my custom HTTP [404 Not Found](/404/) page?
+  * Am I setting the right HTTP headers to cache images and files?
+
+* Security:
+  * Are HTTPS certificates renewing correctly?
+  * Am I setting the right [HTTP security headers](https://securityheaders.com/)?
+
+These tests actually uncovered several mistakes in the way I'd set up the site on Netlify, which I fixed before moving on.
 
 If you're interested, you can see the complete test suite [on GitHub](https://github.com/alexwlchan/alexwlchan.net/tree/main/tests).
 
 Although I wrote these tests to be a safety net while I was making changes, I'm going to keep them around.
-I've created a GitHub Action to run them on a regular schedule, so I can be alerted if anything breaks in future.
+I've created [a GitHub Action][action] to run them on a regular schedule, so I can be alerted if anything breaks in future.
+
+[action]: https://github.com/alexwlchan/alexwlchan.net/blob/main/.github/workflows/check_website_is_up.yml
 
 ## How I did the migration
 
-I run this site at `alexwlchan.net`, but I have a couple of alternative domains and subdomains that I redirect to the same site, like `alexwlchan.co.uk` and `www.alexwlchan.net`.
+There's a common approach to big website migrations: run the new site at an alternative domain name, so you can make changes without breaking the existing site.
+You don't change your real domain name to point at the new site until you're sure the new setup is working correctly.
 
-I set up Caddy on my Linux server, and configured it to serve a basic copy of this website at `www.alexwlchan.net`.
-I used the [quick start] in the Caddy docs to write my initial configuration, and I updated the DNS record for `www.alexwlchan.net` to point at my web server.
+So that's what I did:
 
-Then I ran my new tests against this version of the site.
-Lots of the tests failed, because I only had a starter configuration.
-But then I started porting all my server config to Caddy, and gradually tests started passing.
-When all the config was ported and all the tests were passing, I knew I was ready to go.
+1.  I updated the DNS records for `www.alexwlchan.net` to point at my Linux server (rather than redirecting to `alexwlchan.net`).
 
-I updated my Caddyfile to start serving `alexwlchan.net`, and I changed the DNS records to point `alexwlchan.net` at my web server.
-It took a minute or so for Caddy to get an HTTPS certificate, and then everything was coming from the new domain.
+2.  I set up Caddy on my Linux server to serve a copy of my site at `www.alexwlchan.net`.
+    I used the [static files quick-start][quick start] in the Caddy docs to write this initial configuration.
 
-Bit more fiddling with GitHub Actions to deploy site
+3.  I ran my website tests against `www.alexwlchan.net`.
+    Lots of the tests failed at first, but as I ported all my server config to Caddy, the tests started passing.
+    
+    This step took the longest, but it was still straightforward -- it only took a few hours or so.
+    Caddy doesn't have the breadth of example config that's available for more popular web servers like Apache or Nginx, but the [Caddy docs] were detailed enough that I could work out everything I wanted to do.
+    
+    Eventually all the config was ported, and all the tests were passing.
 
+4.  I updated the DNS records for `alexwlchan.net` to point at my Linux server.
+
+5.  I updated Caddy to serve my website to `alexwlchan.net`.
+
+If you're interested, my Caddyfile [is on GitHub](https://github.com/alexwlchan/alexwlchan.net/blob/main/Caddyfile).
+
+There was a minute or so of downtime after I updated the DNS, while I was waiting for Caddy to get HTTPS certificates.
+I'm sure I could have avoided that downtime if I really cared, but it would have been more work and this website doesn't need 100% uptime.
+
+[Caddy docs]: https://caddyserver.com/docs
 [quick start]: https://caddyserver.com/docs/quick-starts/static-files
 
 ## Reflections
 
 Everything seems to have migrated correctly, and nothing is obviously broken.
 
-Caddy wasn't too tricky to set up.
-It definitely lacks the breadth of example config, compared to the more popular web servers like Apache or Nginx -- but the same was true when I was writing my Netlify config.
-The first-party docs were pretty detailed though, and I was able to work out everything I wanted to do.
-It's nice to be back writing complete web server configuration, and not trying to shoehorn everything into Netlify's more limited config.
+It's nice to be back running a proper web server, and not trying to shoehorn everything into Netlify's more limited config model.
 When it's more settled, I'll wrote some [today I learned](/til/) posts about my Caddy config.
 
-Running my own web server is definitely easier than the last time I tried it.
-The near-universal deployment of HTTPS is broadly a good thing, but it did introduce some friction for a while.
+This is definitely smoother than the last time I tried it.
+The near-universal deployment of HTTPS is broadly a good thing, but it introduced some friction for a while.
 
-Netlify is still easier, and it's what I'd recommend if you're getting started -- but I'm glad the DIY approach is improving.
-More ways for individuals to run their own websites is only a good thing for the open web.
+Netlify is still what I'd recommend if you're getting started, but I'm glad the DIY approach is improving.
+Making it easier for individuals to run their own websites can only be a good thing for the open web.
