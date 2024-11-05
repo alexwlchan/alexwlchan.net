@@ -125,6 +125,8 @@ I'm working through the rest, but it's a tedious process.)
 
 In the 48 hours since I started writing this post, a handful of other MPs have had their labels corrected independent of my corrections -- but plenty of outdated information still remains, and the lingering inaccuracy feels uncomfortable.
 
+> **Update, 18 July 2024:** I went through and submitted corrections for every incorrectly labelled MP, and Google's search results are finally correct. I love doing free data entry for one of the world's richest companies.
+
 [dissolved]: https://www.parliament.uk/about/how/elections-and-voting/general/dissolution/
 [wayward experiments with AI]: https://www.wired.com/story/google-ai-overview-search-issues/
 [search feedback]: https://support.google.com/websearch/answer/3338405?hl=en
