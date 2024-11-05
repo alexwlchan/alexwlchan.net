@@ -147,7 +147,7 @@ It saves users from clicking extra links, but it also means Google takes on the 
 
 It's concerning that a tech giant lags behind in updating such important information, especially when volunteer-run projects can manage much more effectively.
 Wikipedia, for example, already has [a complete list of newly-elected MPs][wikipedia].
-And pages for individual MPs have a notice indicating that election-based information may be outdated, so readers are aware of potential inaccuracies:
+And pages for individual MPs have a notice indicating that election-based information may be outdated, so readers are aware of the potential for inaccuraries:
 
 <figure style="width: 581px;">
   {%
