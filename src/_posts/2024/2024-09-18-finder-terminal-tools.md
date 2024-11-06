@@ -99,7 +99,7 @@ A couple of notes:
 Suppose I'm working in the Finder, and I want to run a script against a file.
 I structure a lot of my scripts so they take a path to a file as a command-line argument, then do some processing on that file.
 If it's easier to find the file in Finder than in the Terminal, I need a way to get the path of files I'm looking at into the Terminal.
-I could find the file manually, or drag the file's icon into the Terminal (which inserts the complete path for you), but I find both of those too slow.
+I could find the file manually, or drag the file's [proxy icon](https://leancrew.com/all-this/2016/07/intuitive-by-proxy/) into the Terminal (which inserts the complete path for you), but I find both of those too slow.
 
 I have an AppleScript `ffile` that prints the path of the file I have selected:
 
