@@ -4,7 +4,7 @@ title: Privacy policy
 date_updated: 2024-10-30 23:05:34 +0000
 nav_section: contact
 ---
-**tl;dr: I'm trying not to track you, and I'm trying to protect you from being tracked by others.**
+**tl;dr: I'm trying not to track individual people, and I'm trying to protect you from being tracked by others.**
 
 *   **I record basic, anonymised data about visits to the website.**
     Neither my server logs nor my visitor statistics record anything that might allow me to track or identify individuals.
