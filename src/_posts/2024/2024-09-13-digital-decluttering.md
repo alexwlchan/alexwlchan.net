@@ -34,7 +34,7 @@ I kept every photo I'd taken, every tweet I'd written, every link I'd read.
 If you look at my early posts or my old GitHub repos, you'll see my excitement at code that could scrape down data and squirrel it away on my hard drive.
 I always thought "what if I want to go back to this someday?"
 
-In hindsight, I was being was excessive.
+In hindsight, I was being excessive.
 I could throw away 95% of this data and I'd be fine.
 There are some things that I'm glad I saved, but there's an awful lot of other stuff that I don't actually care about.
 I've never gone back to it, and I know I'm not going to look at it again.
