@@ -148,7 +148,7 @@ Between my own scripts and [Pinboard's archiving service][archiving], I should h
 In practice, about a third of those backups are unusable -- what's saved is broken pages, 404 errors, paywalls and login screens.
 This is the risk of bulk, automated scraping of the web -- nobody is checking whether the scraped page is actually useful.
 I've been checking each offline copy, and replacing it if it's broken.
-It takes longer, but now I know that all of those files are useful backups, and not dead weight.
+It'll take longer, but eventually I'll know that all of those files are useful backups, and not dead weight.
 
 These two steps add more friction to the process, but I think that's a good thing.
 It's slowing me down, and making me more thoughtful about what I save -- will I really want to read this link later, or am I just saving it for the sake of saving it?
