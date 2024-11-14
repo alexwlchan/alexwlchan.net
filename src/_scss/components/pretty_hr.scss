@@ -24,11 +24,16 @@ hr {
 
 hr {
   width:  105px;
-  height: 5px;
-  border: 0;
   margin: 3.5em auto;
+}
 
-  background-image:  var(--hr-background-image);
-  background-size:   contain;
-  background-repeat: repeat-x;
+@media screen {
+  hr {
+    height: 5px;
+    border: 0;
+
+    background-image:  var(--hr-background-image);
+    background-size:   contain;
+    background-repeat: repeat-x;
+  }
 }
