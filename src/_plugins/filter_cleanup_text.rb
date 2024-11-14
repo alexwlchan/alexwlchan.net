@@ -84,6 +84,7 @@ class AddNonBreakingSpaces
       'IP address',
       'JPEG 2000',
       'Mac OS 9',
+      'Mac OS X',
       'Monki Gras',
       'MS Paint',
       'Objective-C',
