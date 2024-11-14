@@ -38,6 +38,7 @@ Fortunately, I enjoy trying to think of a name that fits the machine, and it bri
 
   @media screen and (max-width: 500px) {
     .photo_with_text {
+      grid-gap: 0;
       grid-template-columns: 1fr;
     }
   }
