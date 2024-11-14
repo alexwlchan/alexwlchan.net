@@ -30,6 +30,13 @@ require 'nokogiri'
 require_relative 'utils/attrs'
 
 def get_inline_svg(svg_path, alt_text, extra_attrs, dst_path)
+  # This plugin only works with SVG source files -- check that's what
+  # we're using, and that we haven't inadvertently copy/pasted
+  # a raster image into this plugin.
+  unless svg_path.end_with? '.svg'
+    raise "You can only use {% inline_svg %} with SVG images; got #{svg_path}"
+  end
+
   svg_doc = File.open(svg_path) { |f| Nokogiri::XML(f) }
 
   # Quoting "Accessible SVGs" § 2:

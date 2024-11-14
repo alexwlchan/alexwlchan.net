@@ -34,6 +34,7 @@ layout: compress
           img.parentElement.innerHTML +=
             img.getAttribute('alt') !== null
               ? `<div
+                   class="alt_text_debug"
                    style="background: lime;
                           font-family: monospace;
                           color: black;
@@ -41,6 +42,7 @@ layout: compress
                    Alt text: ${img.getAttribute("alt")}
                  </div>`
               : `<div
+                   class="alt_text_debug"
                    style="background: red;
                           font-family: monospace;
                           color: white;
