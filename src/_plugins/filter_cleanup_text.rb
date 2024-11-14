@@ -73,6 +73,7 @@ class AddNonBreakingSpaces
       'CC BY-NC 4.0',
       'CC BY-NC-ND',
       'CC BY-SA 2.0',
+      'CC BY-SA 3.0',
       'CC BY-SA 4.0',
       'CC BY',
       'Dr. Drang',
