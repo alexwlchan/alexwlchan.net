@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2024-11-14 09:55:58 +0000
 title: How I name my computers
 summary:
   Alliteration and Greek mythology are the keys to my heart.
