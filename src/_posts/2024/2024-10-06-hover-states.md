@@ -38,13 +38,13 @@ There are ways you can prevent this movement, but I couldn't get them to work in
 For example, you could add a negative margin to offset the border, or an always-on transparent border that only changes colour when you hover -- but those can interfere with other CSS rules.
 It became a game of whack-a-mole to make all my margins work in a consistent way.
 
-The better approach I've found is to add a `box-shadow` with no blur -- this looks like a border, but it's purely visual and doesn't take up any space on the page.
+The better approach I've found is to add a [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) with no blur -- this looks like a border, but it's purely visual and doesn't take up any space on the page.
 This is the rule I use:
 
 ```
 a:hover img {
-  /* Three length values and a colour */
-  /* <offset-x> | <offset-y> | <blur-radius> | <colour> */
+  /* Four length values and a color */
+  /* <offset-x> | <offset-y> | <blur-radius> | <spread-radius> | <color> */
   box-shadow: 0 0 0 10px red;
 }
 ```
