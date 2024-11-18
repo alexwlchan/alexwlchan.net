@@ -7,6 +7,7 @@ summary:
 tags:
   - flickr
 link: https://blog.flickr.net/en/2024/10/07/flickr-foundation-putting-history-on-the-map/
+link_direct: true
 ---
 Back in July, we built an [interactive map](https://commons.flickr.org/map/) for the [Flickr Commons Explorer](https://commons.flickr.org/).
 
