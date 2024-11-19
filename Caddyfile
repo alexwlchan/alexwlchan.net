@@ -1,4 +1,7 @@
-alexwlchan.net {  
+import /home/alexwlchan/repos/books.alexwlchan.net/Caddyfile
+import /home/alexwlchan/repos/analytics.alexwlchan.net/Caddyfile
+
+alexwlchan.net {
   import caddy/redirects.Caddyfile
   import caddy/gone.Caddyfile
 
@@ -18,7 +21,7 @@ alexwlchan.net {
   header @cached {
   	Cache-Control "public, max-age=31536000"
   }
-  
+
   # Add some security headers.
 	# I test my security headers with https://securityheaders.com/
 	header {
@@ -44,20 +47,20 @@ alexwlchan.net {
 		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
 		X-Xss-Protection "1; mode=block"
 	}
-  
+
   # If somebody gets a 4xx error, respond with my custom error pages.
   handle_errors 404 {
     root * /home/alexwlchan/repos/alexwlchan.net/_site
     rewrite * 404/index.html
     file_server
   }
-  
+
   handle_errors 410 {
     root * /home/alexwlchan/repos/alexwlchan.net/_site
     rewrite * 410/index.html
     file_server
   }
-    
+
   # If somebody is trying to look for PHP pages on my site, and WordPress
   # pages in particular, they probably have nefarious goals.
   #
@@ -70,19 +73,19 @@ alexwlchan.net {
   handle @spam {
     respond "400 Bad Request" 400
   }
-  
+
   # This is a mini-site that was built separately and I've just uploaded
   # the HTML files to my web server.
   #
   # Eventually I'd like to fold this into the main site build, but
   # I'm not there yet.
-  # 
+  #
   # See https://github.com/alexwlchan/ideas-for-inclusive-events/issues/9
   handle /ideas-for-inclusive-events/* {
 		root * /home/alexwlchan/repos/ideas-for-inclusive-events
 		file_server
 	}
-  
+
   # Run a static file server for anything not yet handled
   root * /home/alexwlchan/repos/alexwlchan.net/_site
 	file_server
