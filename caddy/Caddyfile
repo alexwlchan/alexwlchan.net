@@ -1,6 +1,6 @@
 alexwlchan.net {  
-  import caddy/redirects.Caddyfile
-  import caddy/gone.Caddyfile
+  import redirects.Caddyfile
+  import gone.Caddyfile
 
   # Enable compression for responses
 	encode zstd gzip
