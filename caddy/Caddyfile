@@ -1,3 +1,6 @@
+import /home/alexwlchan/repos/books.alexwlchan.net/Caddyfile
+import /home/alexwlchan/repos/analytics.alexwlchan.net/Caddyfile
+
 alexwlchan.net {
 	import redirects.Caddyfile
 	import gone.Caddyfile
@@ -76,7 +79,7 @@ alexwlchan.net {
 	#
 	# Eventually I'd like to fold this into the main site build, but
 	# I'm not there yet.
-	# 
+	#
 	# See https://github.com/alexwlchan/ideas-for-inclusive-events/issues/9
 	handle /ideas-for-inclusive-events/* {
 		root * /home/alexwlchan/repos/ideas-for-inclusive-events
