@@ -29,7 +29,7 @@
   --c-color: var(--c-lt);
 }
 
-@media (prefer-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   .article_cards .card {
     --c-color: var(--c-dk);
   }
