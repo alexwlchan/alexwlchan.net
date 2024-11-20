@@ -9,6 +9,8 @@ tags:
 colors:
   css_light: "#13772f"
   css_dark:  "#b4c492"
+index:
+  feature: true
 ---
 
 {% comment %}
