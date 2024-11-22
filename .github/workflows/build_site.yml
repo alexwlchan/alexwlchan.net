@@ -7,8 +7,10 @@ on:
 
     paths-ignore:
       - 'assets/**'
+      - 'caddy/**'
       - 'dns/**'
       - 'scripts/**'
+      - '.github/workflows/caddy_fmt.yml'
       - '.github/workflows/check_dns.yml'
       - '.github/workflows/rubocop.yml'
       - '.github/workflows/run_plugin_tests.yml'
@@ -19,8 +21,10 @@ on:
 
     paths-ignore:
       - 'assets/**'
+      - 'caddy/**'
       - 'dns/**'
       - 'scripts/**'
+      - '.github/workflows/caddy_fmt.yml'
       - '.github/workflows/check_dns.yml'
       - '.github/workflows/rubocop.yml'
       - '.github/workflows/run_plugin_tests.yml'
