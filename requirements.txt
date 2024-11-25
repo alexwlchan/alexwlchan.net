@@ -4,5 +4,5 @@ pillow==11.0.0
     # via -r requirements.in
 pillow-avif-plugin==1.4.6
     # via -r requirements.in
-tqdm==4.67.0
+tqdm==4.67.1
     # via -r requirements.in
