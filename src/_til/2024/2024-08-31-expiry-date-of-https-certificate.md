@@ -1,12 +1,13 @@
 ---
 layout: til
-title: How to get the expiry date of an HTTPS certificate
+title: How to get the expiry date of an HTTPS certificate with Python
 date: 2024-08-31 18:27:49 +0100
 tags:
   - python
+summary: Connect to the domain using the `socket` module, then use the `getpeercert()` method on the connection to get information about the HTTPS certificate.
 ---
 
-I was tinkering with some HTTPS certificates, and I wanted to write a scheduled test that would check the certiifcates weren't about to expire.
+I was tinkering with some HTTPS certificates, and I wanted to write a scheduled test that would check the certifcates weren't about to expire.
 This is the sort of thing that should be handled by a good certificate provider -- for example, Let's Encrypt sends me emails when my certificates are close to expiry -- but another check is a good belt-and-braces measure.
 
 With a bit of help from Stack Overflow, I wrote a Python function that works out when the HTTPS certificate for a domain expires:
