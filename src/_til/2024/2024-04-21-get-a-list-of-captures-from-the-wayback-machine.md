@@ -32,7 +32,7 @@ def get_wayback_machine_captures(url: str):
         "http://web.archive.org/cdx/search/cdx", params={"url": url, "output": "json"}
     )
     resp.raise_for_status()
-    
+
     # What if we don't get any results?
     if resp.json() == []:
         return []
@@ -57,8 +57,29 @@ for capture in get_wayback_machine_captures(url="alexwlchan.net"):
 
 You can use wildcards in the `url` parameter, e.g. `alexwlchan.net` just returns captures of the homepage, whereas `alexwlchan.net*` returns captures of any page.
 
+Here's what a single capture looks like:
+
+```python
+{'digest': '6UITANF4TVK33JJ55VT4CETNR5CLBWPN',
+ 'length': 5324,
+ 'mimetype': 'text/html',
+ 'original': 'http://www.alexwlchan.net:80/',
+ 'statuscode': '200',
+ 'time': datetime.datetime(2013, 4, 9, 4, 38, 52),
+ 'timestamp': '20130409043852',
+ 'urlkey': 'net,alexwlchan)/'}
+```
+
+You construct the URL to the actual resource in the Wayback Machine as follows:
+
+<pre class="wrap"><code>https://web.archive.org/web/{timestamp}/{original}</code></pre>
+
+For example, this capture points to:
+
+<pre class="wrap"><code>https://web.archive.org/web/20130409043852/http://www.alexwlchan.net:80/</code></pre>
+
 This is only based on the "Basic Usage" section of the API.
-There are things like pagination in the "Advanced Usage", which I'd want to read more carefully if I was using this for more than a one-off.
+There are things like pagination in the "Advanced Usage", which I should read more carefully if I was using this for more than a one-off.
 
 [daily_screenshots]: https://github.com/alexwlchan/daily-screenshots
 [api]: https://archive.org/developers/wayback-cdx-server.html
