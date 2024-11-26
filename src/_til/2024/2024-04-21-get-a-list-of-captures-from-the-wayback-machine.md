@@ -1,6 +1,7 @@
 ---
 layout: til
 date: 2024-04-21 10:11:02 +0100
+date_updated: 2024-11-26 07:26:14 +0000
 title: How to get a list of captures from the Wayback Machine
 summary: |
   Use the CDX Server API to get a list of captures for a particular URL.
@@ -29,7 +30,9 @@ def get_wayback_machine_captures(url: str):
     Get a list of all the captures for a given URL in the Wayback Machine.
     """
     resp = httpx.get(
-        "http://web.archive.org/cdx/search/cdx", params={"url": url, "output": "json"}
+        "http://web.archive.org/cdx/search/cdx",
+        params={"url": url, "output": "json"},
+        timeout=30
     )
     resp.raise_for_status()
 
@@ -50,7 +53,10 @@ def get_wayback_machine_captures(url: str):
 
         # The capture URL is of the format:
         # https://web.archive.org/web/{timestamp}/{original}
-        data["capture_url"] = f"https://web.archive.org/web/{data['timestamp']}/{data['original']}"
+        #
+        # TODO: What does the `if_` parameter mean?
+        data["raw_url"] = f"https://web.archive.org/web/{data['timestamp']}if_/{data['original']}"
+        data["web_url"] = f"https://web.archive.org/web/{data['timestamp']}/{data['original']}"
 
         yield data
 
@@ -64,15 +70,17 @@ You can use wildcards in the `url` parameter, e.g. `alexwlchan.net` just returns
 Here's what a single capture looks like:
 
 ```python
-{'capture_url': 'https://web.archive.org/web/20130409043852/http://www.alexwlchan.net:80/',
- 'digest': '6UITANF4TVK33JJ55VT4CETNR5CLBWPN',
+{'digest': '6UITANF4TVK33JJ55VT4CETNR5CLBWPN',
  'length': 5324,
  'mimetype': 'text/html',
  'original': 'http://www.alexwlchan.net:80/',
  'statuscode': '200',
  'time': datetime.datetime(2013, 4, 9, 4, 38, 52),
  'timestamp': '20130409043852',
- 'urlkey': 'net,alexwlchan)/'}
+ 'urlkey': 'net,alexwlchan)/',
+ 'raw_url': 'https://web.archive.org/web/20130409043852if_/http://www.alexwlchan.net:80/',
+ 'web_url': 'https://web.archive.org/web/20130409043852/http://www.alexwlchan.net:80/',
+}
 ```
 
 This is only based on the "Basic Usage" section of the API.
