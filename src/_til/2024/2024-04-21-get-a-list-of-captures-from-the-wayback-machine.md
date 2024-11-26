@@ -48,6 +48,10 @@ def get_wayback_machine_captures(url: str):
         # e.g. 20200814072506
         data["time"] = datetime.datetime.strptime(data["timestamp"], "%Y%m%d%H%M%S")
 
+        # The capture URL is of the format:
+        # https://web.archive.org/web/{timestamp}/{original}
+        data["capture_url"] = f"https://web.archive.org/web/{data['timestamp']}/{data['original']}"
+
         yield data
 
 
@@ -60,7 +64,8 @@ You can use wildcards in the `url` parameter, e.g. `alexwlchan.net` just returns
 Here's what a single capture looks like:
 
 ```python
-{'digest': '6UITANF4TVK33JJ55VT4CETNR5CLBWPN',
+{'capture_url': 'https://web.archive.org/web/20130409043852/http://www.alexwlchan.net:80/',
+ 'digest': '6UITANF4TVK33JJ55VT4CETNR5CLBWPN',
  'length': 5324,
  'mimetype': 'text/html',
  'original': 'http://www.alexwlchan.net:80/',
@@ -69,14 +74,6 @@ Here's what a single capture looks like:
  'timestamp': '20130409043852',
  'urlkey': 'net,alexwlchan)/'}
 ```
-
-You construct the URL to the actual resource in the Wayback Machine as follows:
-
-<pre class="wrap"><code>https://web.archive.org/web/{timestamp}/{original}</code></pre>
-
-For example, this capture points to:
-
-<pre class="wrap"><code>https://web.archive.org/web/20130409043852/http://www.alexwlchan.net:80/</code></pre>
 
 This is only based on the "Basic Usage" section of the API.
 There are things like pagination in the "Advanced Usage", which I should read more carefully if I was using this for more than a one-off.
