@@ -17,7 +17,6 @@
 # is preferable to custom syntax I'd forget to add.)
 
 Jekyll::Hooks.register :documents, :pre_render do |doc|
-  
   # How this works: you capture any whitespace up to the ```pycon,
   # which must include a newline, then the `\K` escape sequence
   # resets the starting point of the reported match.
