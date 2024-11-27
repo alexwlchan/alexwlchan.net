@@ -17,9 +17,15 @@
 # is preferable to custom syntax I'd forget to add.)
 
 Jekyll::Hooks.register :documents, :pre_render do |doc|
-  doc.content = doc.content.gsub("\n```pycon\n", "\n```console?lang=python&prompt=>>>,...\n")
+  
+  # How this works: you capture any whitespace up to the ```pycon,
+  # which must include a newline, then the `\K` escape sequence
+  # resets the starting point of the reported match.
+  #
+  # The whitespace is for places where the ```pycon block is indented,
+  # e.g. in a list.
+  doc.content = doc.content.gsub(
+    /\n\s*\K```pycon\n/,
+    "```console?lang=python&prompt=>>>,...\n"
+  )
 end
-
-# Jekyll::Hooks.register(%i[pages posts], :pre_render) do |p|
-#   p.content = p.content.gsub("\n```pycon\n", "\n```console?lang=python&prompt=>>>,...\n")
-# end
