@@ -1,6 +1,6 @@
 ---
 layout: til
-title: How cna I work out what program is keeping a disk open?
+title: How can I work out what program is keeping a disk open?
 date: 2024-12-02 08:46:34 +0000
 tags:
   - macos
