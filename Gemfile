@@ -6,7 +6,7 @@ gem 'html-proofer', '~> 5'
 gem 'jekyll', '~> 4'
 gem 'jekyll-include-cache', '~> 0.2'
 gem 'json-schema', '~> 5'
-gem 'nokogiri', '~> 1.16'
+gem 'nokogiri', '~> 1.17'
 gem 'shell-executer', '~> 1.0'
 
 group :lint, optional: true do
