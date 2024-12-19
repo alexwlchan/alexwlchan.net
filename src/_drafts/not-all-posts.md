@@ -39,8 +39,13 @@ if you wanted to go back further, had to paginate
 
 [[screenshot]]
 
-archives essentially invisible to humans
-feels more like a book
+alexwlchan.net.2013-09-22.png / forgot i had "read more" buttons in default octopress theme, which made this more usable
+
+alexwlchan.net.2016-04-19.png
+
+https://web.archive.org/web/20130821221620/http://www.alexwlchan.net/
+
+you'd see whatever the last thing i wrote was, whether or not it was the best thing I'd written
 
 not an issue
 i was mostly writing for practice and didn't have much of an audience
@@ -51,10 +56,16 @@ i was already using specific titles, which are great for search, but no stuff in
 
 ## Look! A list of links
 
+default octopress also came with archives page, list of links
+archives essentially invisible to humans
+feels more like a book
+
+Screenshot 2024-12-19 at 23.16.03
+
 As I kept writing, started to get articles I'd want to refer back to
 Hard to do in infinite scrolling!
 I added a proper landing page and a list of links
-Still very chronologically focused, e.g. had per-year headings
+Still very chronologically focused, e.g. had per-year and per-month headings
 
 [[screenshot]]
 
@@ -74,7 +85,9 @@ I have a distinct memory of her tweeting about thsi change, but I can't find it 
 
 [[screenshot]]
 
-I copied this with a pixel heart
+Screenshot 2024-12-19 at 23.17.07
+
+I copied her topic-based nav with a pixel heart
 but didn't last long -- non-obvious what it was, not prominent enough
 julia's been doing for eight years
 
@@ -98,7 +111,11 @@ each with picture, description and date
 
 [[screenshot]]
 
+Screenshot 2024-12-19 at 23.17.40
+
 recent posts were card on homepage
+
+Screenshot 2024-12-19 at 23.17.58
 
 writing description was good!
 first bit of pseudo-marketing -- trying to persuade people they might want to read something, not just letting them passively land on page
@@ -139,6 +156,8 @@ cards for good articles, list of links for rest
 
 hybrid approach
 
+Screenshot 2024-12-19 at 23.18.40
+
 [[screenshot]]
 
 the cards really draw your attention because they're the first thing you should look at
@@ -152,6 +171,8 @@ meanwhile homepage loses list of recent posts, and just a random selection of fa
 this is a componet called "eggbox" stolen from stories
 shows a random selection on each page load, 6 of 43
 so they're the first thing a new reader see, hope you'll see something you like
+
+Screenshot 2024-12-19 at 23.19.35
 
 [[screenshot]]
 
@@ -191,6 +212,8 @@ like to go to somebody's list of topics, and ctrl-click to open a bunch of topic
 
 [[screenshot]]
 
+Screenshot 2024-12-19 at 23.19.54
+
 so removed dates from primary nav, and replaced with list of tags/topics
 anecdotally, this is what i use now!
 previosuly would find article by going to article index, ⌘+F in page to find title, now use tags
@@ -203,6 +226,8 @@ maybe a tag cloud? but harder to read
 in meantime, list of popular tags on homepage
 
 [[screenshot]]
+
+Screenshot 2024-12-19 at 23.19.35
 
 this is all part of broader push to help people find good stuff
 
