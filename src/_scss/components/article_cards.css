@@ -99,7 +99,11 @@
 @media screen and (min-width: 1000px) {
   .article_cards:not(.article_cards--1):not(.article_cards--2):not(.article_cards--4) {
     --grid-columns: repeat(3, minmax(0, 1fr));
-    margin-left: -100px;
+    margin-left:  -100px;
     margin-right: -100px;
+
+    /* In Safari 18.2, the <ul> won't automatically expand to the width
+     * just because the margin is there -- we have to tell it to expand */
+    width: calc(100% + 200px);
   }
 }
