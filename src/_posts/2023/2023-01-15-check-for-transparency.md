@@ -111,6 +111,9 @@ If it finds a blatted background, it will raise an error for me to investigate.
 This is the downside of creating lots of image sizes/formats -- even a few images in a post can spiral into dozens of derivatives, more than I can check by hand.
 I think I've fixed the issues now, but if you spot any more broken images, please do [let me know](mailto:alex@alexwlchan.net).
 
+> **Update, 22 December 2024:** I had an email from Paulo Paracatu, who tells me this has been fixed in ImageMagick 6.9.12-68 with commit [cc4e5a6](https://github.com/ImageMagick/ImageMagick6/commit/cc4e5a6383961c03d340e0237feedfff83f9af0b).
+> I haven't been able to verify this myself, but it sounds like good news for anybody who has to use ImageMagick 6.
+
 [responsive images]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 [picture]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
 [plugin]: https://github.com/alexwlchan/alexwlchan.net/blob/live/src/_plugins/tag_picture.rb
