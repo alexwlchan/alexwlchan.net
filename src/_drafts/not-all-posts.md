@@ -6,27 +6,106 @@ tags:
 index:
   feature: true
 ---
-For a while now, something has felt off about this site.
-I was struggling to write even when I had ideas; I was reluctant to publish stuff that was perfectly good; I felt embarrassed if anybody said they'd looked at the site.
-I've been struggling with this feeling for a while, but I think I've finally solved it.
+For a while now, this website has been my own personal writer's block.
+I was struggling to write, even when I had good ideas; if I wrote something I liked, I was often reluctant to publish; if somebody asked to read the site, I'd wince before giving them the link.
+Something was wrong, but I couldn't put my finger on it.
 
-At the start of this year, I changed how I think about my writing.
-I used to think of everything I wrote as a "post", but now I have two distinct categories: articles and "today I learned".
+At the start of this year, I finally had a breakthrough: I split my writing into two distinct categories.
+"Articles" and "Today I Learned" are more than just headings -- they became permission to write differently.
+I no longer takes a "one size fits all" approach to my writing, and instead I let different posts have different strengths.
+It's made my writing better, and I'm doing more of it.
+(I've published as many posts in 2024 as in the prior three years *combined*.)
 
-Labelling these categories has helped me see the difference between the two types of post.
-This affects how I write them, and I think my writing has improved as a result -- plus I'm doing more of it.
-(I've published as many posts in 2024 as the prior three years *combined*.)
-I've also tweaked the visual design, so I can highlight the writing I'm most proud of.
+This is accompanied by a bit of a visual refresh, which lets me showcase my personal favourites among the things I've written.
 
-I wanted to live with these changes for a while before I wrote about them, so I'd know how well they actually work.
-Now the year is over, I can call this experiment a success.
-Let's go through what I've changed.
+I waited to write about this, because I wanted to be sure these changes weren't just a temporary fix.
+Now the year is over, I can call it a success.
+Let's go through what changed.
 
-## what i'm writing?
+## What do I write?
 
-two types of article
+After twelve years of writing this site, I've noticed something interesting: my posts fall pretty naturally into two categories.
+This wasn't a deliberate choice -- it's just emerged from the things I wanted to write.
 
-let's go through visual history of how they've appeared on site
+**The first category is the problem-solvers.**
+These are usually about programming, written when I figure something out and want to remember it for later.
+They're notes to my future self, and I publish them online so other people can find them.
+I've read a lot of these notes written by other people, and publishing my own is a way of "giving back".
+If you're struggling with the same problem, these posts are golden -- and if not, you'll scroll right past.
+
+These posts are easy to write -- they have a clear purpose and a captive audience.
+If I give them a specific title, they're easy to find, and they get a lot of traffic from search engines.
+
+**The second category is the reflections.**
+These posts aren't about solving technical problems -- they're about exploring ideas and sharing experiences.
+When I write about [Digital decluttering], [Mountaintop moments], or [Hyperfocus and hobbies], I'm trying to capture something more universal, something that isn't just for programmers.
+
+This is some of my favourite writing, and it's where I think new readers should start.
+They're much harder to write, because I don't have the easy hook of "here's your solution to keep you reading" -- but I think the extra time and effort is reflected in the quality of the final piece.
+
+These articles aren't as popular, but I'm more proud of them.
+Nobody has ever had an emotional breakthrough reading about command line arguments or Python function minutiae, but when I write about gender, or mental health, or the human experience?
+Those are the posts that resonate.
+
+## What was I doing wrong?
+
+My big mistake was trying to pretend this distinction didn't exist.
+This manifested in a couple of ways.
+
+**I tried to cram an unnecessary reflection into every problem-solving post.**
+I would try to find some nugget of wisdom, some universal idea that would benefit a reader who didn't have the same problem as me.
+Was this useful for anyone?
+
+If you do have the problem, you'll probably skip my broad generalisations and commentary.
+It's a big like online recipes that start with eight paragraphs of backstory.
+If you don't have the problem, how likely are you to read a post that promises to solve that exact problem?
+
+Trying to find the reflection would slow me down, and many posts never got past drafts because I couldn't think of a good angle.
+I wasted a lot of useful writing because I couldn't appeal to the imaginary reader who wanted to read reflections in my problem-solving posts.
+
+**I rushed my reflections, and compromised on quality.**
+I can write problem-solving posts pretty quickly, but it takes longer to write reflections.
+They need more editing and drafting, because they're more complex pieces, and because I have less experience with that style of writing.
+
+I'd berate myself for being so slow to write reflections, and publish them before they were ready.
+*"You finished that post in an hour, so why are you taking so long on this one?"*
+The pressure to publish quickly was entirely self-imposed.
+I have no external deadlines or commitments, but I felt like I was taking too long and wanted to get them done.
+
+There are reflections that I know I could have made better, if only I'd given myself more time.
+
+**If I published a good reflection, I was reluctant to post anything else.**
+Like many blogs, I had a list of recent posts on my homepage, and the last post I published would get top billing.
+It was the most prominent piece of writing for anybody arriving at the site.
+
+After I published a reflection I was proud of, I was excited to see it in that prominent position -- and then I'd be reluctant to publish something else that would make it less visible.
+This often meant that problem-solving posts would be delayed or cancelled, because I didn't want something with niche appeal to displace a reflection that could appeal to a wide audience.
+Because chronology was the only way I organised posts, there was nothing to stop a specific solution overshadowing a general reflection.
+
+This is completely backwards -- when I've written something good, I should be encouraged by the positive feedback to write something else!
+Not sit on my hands and give up on writing or a week.
+
+**New readers would often see nothing but the problem-solving posts.**
+I can't count how many times a friend has heard I have a website, got excited, and told me later "oh it all seemed too technical for me".
+They looked at the homepage when my recent posts were all problem-solving, thought I only wrote about programming, and bounced off.
+
+I always find this disappointing, and it's why I used to wince before giving somebody the link.
+I know I've written stuff they'd find interesting, but the design of the site makes it too difficult for them to find it -- and worse than that, it leaves them the bitter taste of "not being smart enough" to understand what I've written.
+
+I want this site to be something that I'm proud to share, not something that feels vaguely embarrassing.
+
+---
+
+I wanted every post to contain some nugget of wisdom, some universal truth that would benefit everybody who read it
+
+Mistake in past has been trying to conflate the two, in particular trying to give specific solutions appeal to broad audience
+* If you have same problem, you don't care about broad generalisations and commentary
+* Like finding a recipe which starts with eight paragraphs of backstory
+	* Sometimes you want the backstory
+	* Sometimes you don't
+* If you don't have problem, how likely are you to read?
+
+I have a pretty good sense
 
 ---
 
