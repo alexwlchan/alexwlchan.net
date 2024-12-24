@@ -1,11 +1,19 @@
 ---
 layout: post
 title: Not all blog posts are created equal
-summary:
-tags:
+summary: Splitting my work into "articles" and "today I learned" helped me overcome writer's block and improve my work.
 index:
   feature: true
+colors:
+  index_light: "#7b4ac8"
+  index_dark:  "#ccbde4"
+tags:
+  - blogging about blogging
 ---
+{% comment %}
+  Card image from https://pixabay.com/photos/bluebell-green-grass-purple-flower-5095581/
+{% endcomment %}
+
 For a while now, this website has been my own personal writer's block.
 I was struggling to write, even when I had good ideas; if I wrote something I liked, I was often reluctant to publish; if somebody asked to read the site, I'd wince before giving them the link.
 Something was wrong, but I couldn't put my finger on it.
