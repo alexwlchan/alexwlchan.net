@@ -49,293 +49,124 @@ Those are the posts that resonate.
 
 ## What was I doing wrong?
 
-My big mistake was trying to pretend this distinction didn't exist.
-This manifested in a couple of ways.
+My big mistake was trying to ignore this natural split.
+This caused several problems.
 
-**I tried to cram an unnecessary reflection into every problem-solving post.**
-I would try to find some nugget of wisdom, some universal idea that would benefit a reader who didn't have the same problem as me.
-Was this useful for anyone?
+**I forced unnecessary reflections into problem-solving posts.**
+I tried to find a deeper meaning in every technical solution -- a universal truth that would appeal to readers who didn't care about the original problem.
+But was this helping anyone?
 
-If you do have the problem, you'll probably skip my broad generalisations and commentary.
-It's a big like online recipes that start with eight paragraphs of backstory.
-If you don't have the problem, how likely are you to read a post that promises to solve that exact problem?
+If you have the problem and you're looking for an answer, you'll skip over my philosophical musings, just like you skip the backstory in an online recipe.
+And if you don't have the problem, are you really going to read a post whose title suggests it's about solving that exact problem?
 
-Trying to find the reflection would slow me down, and many posts never got past drafts because I couldn't think of a good angle.
-I wasted a lot of useful writing because I couldn't appeal to the imaginary reader who wanted to read reflections in my problem-solving posts.
+Lots of problem-solving posts never made it out of my drafts folder, because I couldn't find that "deeper meaning".
+I was chasing an imaginary reader who wanted philosophy with their bug fixes, and letting perfectly good writing go to waste.
 
-**I rushed my reflections, and compromised on quality.**
-I can write problem-solving posts pretty quickly, but it takes longer to write reflections.
-They need more editing and drafting, because they're more complex pieces, and because I have less experience with that style of writing.
+**I rushed my reflective pieces.**
+Since I could write problem-solving posts quickly, I beat myself up when reflections took longer.
+*"You finished that coding post in an hour, so why is this taking days?"*
+It makes sense that reflections would take longer -- they're more complex and nuanced, and they don't have the natural structure of a step-by-step list for solving a problem -- but I wasn't giving myself the space to do that work.
 
-I'd berate myself for being so slow to write reflections, and publish them before they were ready.
-*"You finished that post in an hour, so why are you taking so long on this one?"*
-The pressure to publish quickly was entirely self-imposed.
-I have no external deadlines or commitments, but I felt like I was taking too long and wanted to get them done.
+This pressure to publish quickly was self-imposed.
+Nobody else was waiting, but I still felt like I was taking too long.
 
-There are reflections that I know I could have made better, if only I'd given myself more time.
+Looking back, I can see posts that could have been improved if I'd given myself more time.
 
-**If I published a good reflection, I was reluctant to post anything else.**
-Like many blogs, I had a list of recent posts on my homepage, and the last post I published would get top billing.
-It was the most prominent piece of writing for anybody arriving at the site.
+**Good reflections became roadblocks.**
+Like many blogs, my homepage had a list of my most recent posts, and the latest post would get top billing.
+After publishing something I was proud of, I didn't want to knock it off the top spot.
+I'd hold back problem-solving posts with niche appeal, because I didn't want them to displace something more meaningful.
 
-After I published a reflection I was proud of, I was excited to see it in that prominent position -- and then I'd be reluctant to publish something else that would make it less visible.
-This often meant that problem-solving posts would be delayed or cancelled, because I didn't want something with niche appeal to displace a reflection that could appeal to a wide audience.
-Because chronology was the only way I organised posts, there was nothing to stop a specific solution overshadowing a general reflection.
+This is completely backwards: success was making me write less, not more.
+I wasn't using good feedback as motivation, I was trying to stretch it out for as long as possible.
 
-This is completely backwards -- when I've written something good, I should be encouraged by the positive feedback to write something else!
-Not sit on my hands and give up on writing or a week.
+**New readers got the wrong first impression.**
+I couldn't count the number of friends who've read the site and said "Oh, it seemed too technical for me".
+They came to the homepage during a streak of problem-solving posts, and assume that's all I wrote.
 
-**New readers would often see nothing but the problem-solving posts.**
-I can't count how many times a friend has heard I have a website, got excited, and told me later "oh it all seemed too technical for me".
-They looked at the homepage when my recent posts were all problem-solving, thought I only wrote about programming, and bounced off.
+I always found this disappointing, and it's why I'd wince before giving somebody the link.
+I knew I had writing they'd enjoy, but it was buried by the site's design.
+Worse, it left them feeling like they "weren't smart enough" to read my writing.
 
-I always find this disappointing, and it's why I used to wince before giving somebody the link.
-I know I've written stuff they'd find interesting, but the design of the site makes it too difficult for them to find it -- and worse than that, it leaves them the bitter taste of "not being smart enough" to understand what I've written.
+I want this site to be something that I'm proud to share, not something I'm embarrassed to mention.
 
-I want this site to be something that I'm proud to share, not something that feels vaguely embarrassing.
+## What have I changed?
 
----
+The most important change is simple but powerful: I stopped ignoring the natural split in my writing.
+I gave myself permission to write different types of post differently, and lean into the strengths of each style of writing.
 
-I wanted every post to contain some nugget of wisdom, some universal truth that would benefit everybody who read it
+I've improved the site's design to reflect this split.
 
-Mistake in past has been trying to conflate the two, in particular trying to give specific solutions appeal to broad audience
-* If you have same problem, you don't care about broad generalisations and commentary
-* Like finding a recipe which starts with eight paragraphs of backstory
-	* Sometimes you want the backstory
-	* Sometimes you don't
-* If you don't have problem, how likely are you to read?
+**I've split my writing into two sections: ["articles"][articles] and ["today I learned"][til] (TIL).**
+This replaces my old approach, which was a single stream of posts.
+The reflections and longer pieces are articles, while the TIL section is the purest form of problem-solving -- just solutions, no fluff.
 
-I have a pretty good sense
+I've seen other people who write great TIL blogs (like [Simon Willison] and [Julia Evans]), but I was hesitant to copy this approach -- I wanted to take time to understand how it would work for me.
+I've tried to write side blogs in the past, and they always failed because I couldn't decide what posts belonged where.
 
----
+Now I know exactly what my TIL section is for: it's where I write down solutions, aimed at my future self and for people searching Google.
+These posts are for people who arrive from a search, find what they need, and leave -- not for long-term fans of me or my writing.
 
-## Start by simply scrolling
+This clarity means I can write TILs very quickly, and now I feel comfortable taking more time to work on my reflective writing.
+This article was in draft for over two months -- it took me a long time to find a flow and structure that I liked, and it's improved so much from my first outline.
 
-I created this site in 2012 using a static site framework called Octopress
-chronological ordering
-homepage dropped you on my latest article, go backwards by scrolling through
-if you wanted to go back further, had to paginate
+[articles]: /articles/
+[til]: /til/
+[Simon Willison]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
+[Julia Evans]: https://jvns.ca/blog/2024/11/09/new-microblog/
 
-[[screenshot]]
+**I've rethought how my writing is organised: topics, not dates.**
+I was organising by date because that's the default in my blogging software, but that's not a good fit for my writing.
+Chronological ordering makes sense for journals or news sites, but that's not what I do.
+(For more on this, I recommend Amy Hoy's article [How the blog broke the web][hoy].)
 
-alexwlchan.net.2013-09-22.png / forgot i had "read more" buttons in default octopress theme, which made this more usable
-
-alexwlchan.net.2016-04-19.png
-
-https://web.archive.org/web/20130821221620/http://www.alexwlchan.net/
-
-you'd see whatever the last thing i wrote was, whether or not it was the best thing I'd written
-
-not an issue
-i was mostly writing for practice and didn't have much of an audience
-a lot of programming, tied to specific tools or frameworks
-i was already using specific titles, which are great for search, but no stuff in my archive
-
-(also good for SEO imo -- gets people to click)
-
-## Look! A list of links
-
-default octopress also came with archives page, list of links
-archives essentially invisible to humans
-feels more like a book
-
-Screenshot 2024-12-19 at 23.16.03
-
-As I kept writing, started to get articles I'd want to refer back to
-Hard to do in infinite scrolling!
-I added a proper landing page and a list of links
-Still very chronologically focused, e.g. had per-year and per-month headings
+I still have dates on individual posts, but they're not the main way you browse the site.
+Instead, I've created a new top-level page which is [a complete tag index][tags], and you can find the articles and TILs for each tag:
 
 [[screenshot]]
 
-Entire index fits on one page!
-I really like this -- imo anything on "page 2" might as well not exist
-So much less likely to be seen
+This matches how I actually read other people's sites -- I find the list of topics, open tabs for topics I care about, and then start reading.
+I never look to see what somebody wrote on a specific date.
+And I've started using these tag pages to find my own posts -- it's faster than scrolling through a chronological list.
 
-And relying on specific titles to help you know what to read
-Weirdly this made the programming posts more prominent
-Because titles easieer to understand in a list; broad posts get lost
+I've also added a list of my most-used tags to my homepage, giving you a quick sense of what I write about.
+There's plenty of programming, but you can see the non-programming topics as well:
 
-recent posts were list on homepage
+[[programming]]
 
-julia evans has an excellent site with a similar "list of links"
-and added a star to denote her favorites
-I have a distinct memory of her tweeting about thsi change, but I can't find it now (mayeb I imagine it? mandela effect)
+[tags]: /tags/
+[hoy]: https://stackingthebricks.com/how-blogs-broke-the-web/
 
-[[screenshot]]
-
-Screenshot 2024-12-19 at 23.17.07
-
-I copied her topic-based nav with a pixel heart
-but didn't last long -- non-obvious what it was, not prominent enough
-julia's been doing for eight years
-
-cargo culting
-useful lesson: don't copy ideas without understanding underlying reasoning
-
-## Cargo culting cards
-
-the next thing i did was copy ideas without understanding underlying reasoning
-
-around 2020 i started working on wellcome collection stories site
-light front-end stuff
-
-that site does a lot more long-form, timeless writing
-and articles are accompanied by gorgeous imagery
-that's cool!
-what if I did that
-
-replaced my list of links with article cards
-each with picture, description and date
+**I've made my favourite posts more visible.**
+These posts get special treatment in the list of articles -- they have a big card and a pretty picture, whereas other posts just get a text link:
 
 [[screenshot]]
 
-Screenshot 2024-12-19 at 23.17.40
+This draws your eye to the stuff I think is most deserving of your attention, and should make it easier for new readers to find my best work.
+I was inspired by online news sites.
+Their homepages aren't a collection of equal-sized links -- major international headlines get more visual weight than a minor local news story.
 
-recent posts were card on homepage
-
-Screenshot 2024-12-19 at 23.17.58
-
-writing description was good!
-first bit of pseudo-marketing -- trying to persuade people they might want to read something, not just letting them passively land on page
-
-fun with css flex
-one of the most complex web layouts to date
-(i build simple web pages)
-
-definitely felt fun for a while!
-
-## to heck with homogeneity
-
-was a good shot in the arm and i enjoyed picking out pictures and colours
-but problems with this approach:
-
-1. finding card images was a stretch sometimes
-  -> does it help anyone if i put a stock image of a fish on fish shell?
-
-2. disincentivised to write
-  -> good articles get prominent billing on homepage
-  -> posting something more niche makes it less prominent
-
-the cards felt novel and special at first but shine faded
-if everything is special, nothing is
-
-um
-
-the thing that finally prompted the solution was the sheer size of the articles page
-although images are lazy loaded, just the HTML markup was nearly half a megabyte
-oof
-and i don't want to paginate
-
-how do i make it smaller?
-do i need all these card images?
-
-then it hit me: different types of post should have a different visual appearance
-cards for good articles, list of links for rest
-
-hybrid approach
-
-Screenshot 2024-12-19 at 23.18.40
+This is also reflected on the homepage, where I've replaced the list of recent posts with a rotating selection of my favourites:
 
 [[screenshot]]
 
-the cards really draw your attention because they're the first thing you should look at
-then the list of links, if you already know you're looking for something specific
+Now the homepage is a better showcase of my work for new readers, and I don't have to worry about a quality post losing top billing.
+When I write something I'm proud of, I can give it the prominence it deserves -- it won't be buried by time.
 
-organised by date-ish, thumbing scales for cards
-cards will always be organised in nice-looking groups
-and cards will always be first
+((new banner?))
 
-meanwhile homepage loses list of recent posts, and just a random selection of favourites
-this is a componet called "eggbox" stolen from stories
-shows a random selection on each page load, 6 of 43
-so they're the first thing a new reader see, hope you'll see something you like
+## What's next?
 
-Screenshot 2024-12-19 at 23.19.35
+These changes have fixed my writer's block, and unlike previous attempts at a fix, this feels like a real improvement, not just a temporary boost.
+I've already been writing more this year, and I hope to keep that up in 2025.
+I'm also excited to write longer, more ambitious pieces -- like [Mountaintop moments], which was in a draft for years before I felt ready to publish.
 
-[[screenshot]]
+(Writing longer pieces is also why I haven't posted much in November or December.
+I've been quietly working on a project that I'll write a lot more about in the new year.)
 
-in hindsight this is _so obvious_
-anybody who's done design knows you use contrast to draw the reader's attention
-big or prominent elements are important, small or hidden elements less so
-example i thought of as i designed this was newspapers: headline story gets a big space on the page, small local news is much smaller
+Once I knew what I had to do, the visual changes were pretty quick, and it didn't take long to update my mental model either.
+I'm startled by how much a small design change has affected my work, and it makes me wonder where else I've made suboptimal choices that are holding me back.
 
-wellcome collection stories doesn't do my niche, specific stuff so all cards is appropriate for them
-i wanted to write more stuff like that but i didn't want to write just that
+For the first time in too long, I'm excited to write this site and tell other people about it.
 
-## today i learned
-
-and created a new site section "today i learned" for quick posts which are published with minimal editing
-get some of the most specific, niche google fodder out of main feed
-
-"if you open more than 10 pages in google"
-
-lowers bar to posting even further
-as long as it contains some useful info then worth posting!
-seeding future google results
-
-## down with dates, turn to tags
-
-one other change i made was removing all the dates from article list
-
-organising everything by date is holdover from default blog structure
-how blogs have been organised for years
-good for journals and news but that's not what I write!
-nobody is looking for "what alex wrote in 2021"
-
-(for more on this read amy hoy)
-
-i am primary user of this blog, and I know I almost never look by date on other personal blogs
-i do look at topics!
-like to go to somebody's list of topics, and ctrl-click to open a bunch of topics in tabs
-
-[[screenshot]]
-
-Screenshot 2024-12-19 at 23.19.54
-
-so removed dates from primary nav, and replaced with list of tags/topics
-anecdotally, this is what i use now!
-previosuly would find article by going to article index, ⌘+F in page to find title, now use tags
-
-dates still on individual pages -- useful to know if programming post is outdated
-
-this is the first iteration of tag page and might refine later -- for example, no way to see popular vs niche tags
-maybe a tag cloud? but harder to read
-
-in meantime, list of popular tags on homepage
-
-[[screenshot]]
-
-Screenshot 2024-12-19 at 23.19.35
-
-this is all part of broader push to help people find good stuff
-
----
-
-## So, how's it going?
-
-honestly really happy
-articles page looks great, no longer feel disincentive to post
-(haven't posted much in last month or so because working on another big project, but oh well)
-and feel breathing room to edit and write long articles properly
-
-love the new topic-based navigation which I use a lot
-(and have discovered stuff i forgot i wrote in there)
-
-love the today i learned
-am writing a lot of stuff that would otherwise have been lost
-
-one thing that's surprising is how much a few design choices were suppressing my writing
-i have so much to say!
-but was being disincentivised from doing it
-where else is that happening?
-
-have been withdrawing from social media and touching AI tentatively
-feels fun to have a place on the internet that's just mine, where i can experiment with design and appearance and do whatever i want
-
-this feels like the promise of the web -- an infinite canvas where we can build wherever we want
-fun to be breaking a few of the cultural conventions around what a blog is
-
-have one or two more things banked for 2024 and then want to double down in 2025
-goal is to write, not to build space for writing
-see you in 2025!
+[Mountaintop moments]: /2024/mountaintop-moments/
