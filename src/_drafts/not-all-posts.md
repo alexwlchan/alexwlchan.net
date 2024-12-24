@@ -5,8 +5,8 @@ summary: Splitting my work into "articles" and "today I learned" helped me overc
 index:
   feature: true
 colors:
-  index_light: "#7b4ac8"
-  index_dark:  "#ccbde4"
+  css_light: "#7b4ac8"
+  css_dark:  "#ccbde4"
 tags:
   - blogging about blogging
 ---
