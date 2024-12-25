@@ -125,7 +125,7 @@ module Jekyll
       image = get_single_image_info(source_path)
       im_format = get_format(source_path, image)
 
-      @width = get_target_width(image, @bounding_box)
+      @width = get_target_width(source_path, image, @bounding_box)
 
       # These two attributes allow the browser to completely determine
       # the space that will be taken up by this image before it actually
@@ -344,7 +344,7 @@ module Jekyll
     #   - Setting the `width` attribute, which is used directly
     #   - Setting the `height` attribute, and then the width is scaled to match
     #
-    def get_target_width(image, bounding_box)
+    def get_target_width(source_path, image, bounding_box)
       if !bounding_box[:width].nil? && !bounding_box[:height].nil?
         raise "Picture #{@filename} supplies both width/height; this is unsupported"
       elsif !bounding_box[:width].nil?
