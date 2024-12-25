@@ -36,7 +36,7 @@ a:hover {
 a.download {
   border-color: var(--link-color);
 
-  // We need to override the background styles
+  /* We need to override the background styles */
   color: var(--link-color) !important;
   background: rgba(white, 0.4) !important;
 }
