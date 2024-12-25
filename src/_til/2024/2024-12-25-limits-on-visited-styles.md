@@ -15,7 +15,7 @@ a:visited {
 }
 ```
 
-I thought it might be a browser bug, or maybe some bad interaction between other `text-decoration` rules, but it turns out to be an intentional choice.
+I thought it might be a browser bug, or maybe some bad interaction between other `text-decoration` rules, but it turns out to be an intentional choice by browser makers.
 
 A [Stack Overflow answer](https://stackoverflow.com/a/35037025/1558022) pointed to a page on MDN [Privacy and the :visited selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector#limits_to_visited_link_styles), which explains:
 
