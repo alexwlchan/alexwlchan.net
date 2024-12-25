@@ -4,7 +4,7 @@ code, pre {
 }
 
 code {
-  font-size: calc(1em * var(--code-scaling-factor));
+  font-size: calc(var(--font-size) * var(--code-scaling-factor));
 }
 
 pre {
