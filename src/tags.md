@@ -12,6 +12,10 @@ title: Tags
     line-height: 1.7em;
   }
 
+  #tags a:visited {
+    color: var(--link-color);
+  }
+
   @media screen and (min-width: 518px) {
     #tags {
       columns: 2;

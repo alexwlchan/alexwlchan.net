@@ -14,13 +14,12 @@ $body-text-dark:  #c7c7c7;
     --text-font-family: Charter, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
     --mono-font-family: Menlo, Consolas, monospace;
 
-    --font-size: 1em;
+    --font-size: 13pt;
 
     --line-height: 1.5em;
 
     --meta-scaling-factor:     0.82;
     --footnote-scaling-factor: 0.95;
-    --code-scaling-factor:     0.88;
 
     /* =============================
      * Margins and page layout stuff
@@ -97,8 +96,7 @@ $body-text-dark:  #c7c7c7;
 
     --nav-background-url: url('/headers/specktre_#{color-to-hex-str($light-color)}.png');
 
-    --link-color:         #{$light-color};
-    --link-visited-color: #{darken($light-color, 15%)};
+    --link-color: #{$light-color};
 
     --block-border-color:     #{rgba($light-color, 0.1)};
     --block-background-color: #{hsla(hue($light-color), saturation($light-color), 95%, 0.4)};
@@ -108,8 +106,7 @@ $body-text-dark:  #c7c7c7;
     :root {
       --primary-color: #{$dark-color};
 
-      --link-color:         #{$dark-color};
-      --link-visited-color: #{darken($dark-color, 20%)};
+      --link-color: #{$dark-color};
 
       --block-border-color:     #{rgba($dark-color, 0.3)};
       --block-background-color: #{hsla(hue($dark-color), saturation($dark-color), 5%, 0.7)};

@@ -1,0 +1,45 @@
+body {
+  font: var(--font-size) var(--text-font-family);
+  line-height: var(--line-height);
+  color: var(--body-text);
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  margin-top: 2em;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-bottom: 0;
+}
+
+a {
+  text-underline-offset: 2px;
+  color: var(--link-color);
+}
+
+a:visited {
+  color: var(--body-text);
+}
+
+a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-decoration-skip-ink: none;
+}
+
+a.download {
+  border-color: var(--link-color);
+
+  /* We need to override the background styles */
+  color: var(--link-color) !important;
+  background: rgba(white, 0.4) !important;
+}
