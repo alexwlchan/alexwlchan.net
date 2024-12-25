@@ -4,7 +4,7 @@ code, pre {
 }
 
 code {
-  font-size: calc(var(--font-size) * var(--code-scaling-factor));
+  font-size: 88%;
 }
 
 pre {
@@ -12,7 +12,7 @@ pre {
     calc(2 * var(--default-padding) / 3)
     calc(var(--default-padding) - var(--border-width));
 
-  line-height: calc(var(--line-height) * var(--code-scaling-factor) * 1.08);
+  line-height: calc(var(--line-height) * 0.95);
 
   /* This ensures that code blocks don't get blown up to big sizes
    * on iPhone displays. */
