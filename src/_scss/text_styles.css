@@ -25,9 +25,12 @@ a {
   color: var(--link-color);
 }
 
-a:visited { color: var(--link-visited-color); }
+a:visited {
+  color: var(--body-text);
+}
 
 a:hover {
+  color: var(--link-color);
   text-decoration: underline;
   text-decoration-thickness: 4px;
   text-decoration-skip-ink: none;
