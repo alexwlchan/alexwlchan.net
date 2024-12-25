@@ -134,7 +134,42 @@ Chronological ordering makes sense for journals or news sites, but nothing I wri
 I still have dates on individual posts, but they're not the main way you browse the site.
 Instead, I've created a new top-level page which is [a complete tag index][tags], and you can find the articles and TILs for each tag:
 
-[[screenshot]]
+<style>
+  #tag_screenshots {
+    display: grid;
+    grid-template-columns: 597fr 1678fr;
+    grid-gap: var(--grid-gap);
+  }
+
+  #tag_screenshots picture:nth-child(1) img {
+    border-top-right-radius:    0;
+    border-bottom-right-radius: 0;
+  }
+
+  #tag_screenshots picture:nth-child(2) img {
+    border-top-left-radius:    0;
+    border-bottom-left-radius: 0;
+  }
+</style>
+
+<figure class="wide_img">
+  <div id="tag_screenshots">
+    {%
+      picture
+      filename="list_of_tags.png"
+      width="260"
+      class="screenshot"
+      alt="A page titled ‘tags’ with a list of tags. Each tag is a text link, and the number of posts is shown in parentheses after the link, for example “aws (45)”."
+    %}
+    {%
+      picture
+      filename="tagged_with_rust.png"
+      width="700"
+      class="screenshot"
+      alt="A page showing my posts tagged with “rust”. At the top of the page is a title and two article cards for my favourite Rust articles, and below that is a list of links -- the article title, and a short description."
+    %}
+  </div>
+</figure>
 
 This matches how I read other people's sites -- I find the list of topics, open tabs for topics I care about, and then start reading.
 I never look to see what somebody wrote on a specific date.
@@ -142,7 +177,13 @@ I never look to see what somebody wrote on a specific date.
 I've also added a list of my most-used tags to my homepage, giving you a quick overview of what I write about.
 There's plenty of programming, but you can see the non-programming topics as well:
 
-[[programming]]
+{%
+  picture
+  filename="homepage_tags.png"
+  width="750"
+  class="screenshot"
+  alt="A paragraph titled “Here are some of the topics I write about” followed by a list of twenty or so links to key tags like “books”, “digital preservation” and “rust”."
+%}
 
 I hope this will help new visitors find something they're excited to read.
 
@@ -152,19 +193,30 @@ I hope this will help new visitors find something they're excited to read.
 **I've made my favourite posts more visible.**
 These posts get special treatment in the list of articles -- they have a big card and a pretty picture, whereas other posts just get a text link:
 
-[[screenshot]]
+{%
+  picture
+  filename="list_of_articles.png"
+  width="444"
+  style="max-width: calc(100vh - 2em);"
+  class="screenshot"
+  alt="A list of articles, with two cards at the top, then a list of four text links, then two more cards, then some more text links."
+%}
 
 This draws your eye to the posts I think are most deserving of your attention, and it was inspired by online news sites.
 Their homepages aren't a collection of equal-sized links -- major international headlines get more visual weight than a minor local news story.
 
 This is also reflected on the homepage, where I've replaced the list of recent posts with a rotating selection of my favourites:
 
-[[screenshot]]
+{%
+  picture
+  filename="homepage_features.png"
+  width="600"
+  class="screenshot"
+  alt="A snippet of my homepage, titled “Favourite articles” and then a 2×2 grid of cards that link to articles."
+%}
 
 Now the homepage is a better showcase of my work for new readers, and I don't have to worry about a quality post getting lost.
 When I write something I'm proud of, I can give it the prominence it deserves -- it won't be buried by time.
-
-((new banner?))
 
 ## What's next?
 
