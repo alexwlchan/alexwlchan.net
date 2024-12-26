@@ -23,7 +23,7 @@ At the start of this year, I finally had a breakthrough: I split my writing into
 I no longer takes a "one size fits all" approach to my writing, and instead I let different posts have different strengths.
 It's made my writing better, and I'm doing more of it.
 (I've published as many posts in 2024 as in the prior three years *combined*.)
-This is accompanied by some visual improvements, which lets me showcase my personal favourites.
+This is accompanied by some visual improvements, which let me showcase my personal favourites.
 
 I waited to write about this, because I wanted to be sure these changes weren't just a temporary fix.
 Now the year is over, I can call it a success.
@@ -36,8 +36,8 @@ This wasn't a deliberate choice -- it's just emerged from the things I wanted to
 
 **The first category is the problem-solvers.**
 These are usually about programming, written when I figure something out and want to remember it for later.
-They're notes to my future self, and I publish them online so other people can find them.
-I've read a lot of this sort of post written by other people, and publishing my own is a way of "giving back".
+They're notes to my future self, and I publish them online so other people can benefit.
+I've read a lot of this sort of post written by other people, and publishing my own is a way of giving back.
 If you're struggling with the same problem, these posts are golden -- and if not, you'll scroll right past.
 
 These posts are easy to write -- they have a clear purpose and a captive audience.
@@ -227,8 +227,13 @@ I'm also excited to write longer, more ambitious pieces -- like [Mountaintop mom
 (Writing longer pieces is also why I haven't posted much in November or December.
 I've been quietly working on a project that I'll write a lot more about in the new year.)
 
-Once I knew what I had to do, the visual changes were pretty quick, and it didn't take long to update my mental model either.
-I'm startled by how much a small design change has affected my work, and it makes me wonder where else I've made suboptimal choices that are holding me back.
+The web was promised as an infinite canvas, a space where we could build anything and we weren't confined by somebody else's rules or standards.
+But in practice, we've ended up with remarkably similar sites.
+Even if you escape the walled gardens of corporate social media, most blogs follow the same pattern: a collection of posts, all in one list, all ordered by date.
+A lot of the quirkiness and novelty of the early web has vanished.
+
+But this isn't inevitable, and I'm excited by the trend of "digital gardens" that I feel I'm seeing -- people trying new ways to organise their content, and resisting the siren call of the chronological timeline.
+So many people are trying fun and cool ideas with their personal websites, and these changes are my pebble on that pile.
 
 For the first time in too long, I'm excited to write this site and tell other people about it.
 
