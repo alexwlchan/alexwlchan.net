@@ -191,16 +191,22 @@ I hope this will help new visitors find something they're excited to read.
 [hoy]: https://stackingthebricks.com/how-blogs-broke-the-web/
 
 **I've made my favourite posts more visible.**
-These posts get special treatment in the list of articles -- they have a big card and a pretty picture, whereas other posts just get a text link:
+In the list of articles, these posts get special treatment -- they have a big card and a pretty picture, whereas other posts just get a text link:
 
-{%
-  picture
-  filename="list_of_articles.png"
-  width="444"
-  style="max-width: calc(100vh - 2em);"
-  class="screenshot"
-  alt="A list of articles, with two cards at the top, then a list of four text links, then two more cards, then some more text links."
-%}
+<figure style="width: 444px;">
+  {%
+    picture
+    filename="list_of_articles.png"
+    width="444"
+    style="max-width: calc(100vh - 2em);"
+    class="screenshot"
+    alt="A list of articles, with two cards at the top, then a list of four text links, then two more cards, then some more text links."
+  %}
+  <figcaption>
+    The list is still roughly in date order, but I’m putting aesthetics above strict ordering.
+    The list always starts with a couple of my favourites, and cards get grouped in a way that looks nice, even if that means the list is slightly out of order.
+  </figcaption>
+</figure>
 
 This draws your eye to the posts I think are most deserving of your attention, and it was inspired by online news sites.
 Their homepages aren't a collection of equal-sized links -- major international headlines get more visual weight than a minor local news story.
