@@ -15,6 +15,7 @@ AllCops:
 
 Layout/LineLength:
   Exclude:
+    - scripts/count_posts.rb
     - tests/test_http_security_headers.rb
 
 Lint/MissingSuper:
