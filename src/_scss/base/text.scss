@@ -66,16 +66,14 @@ sup {
   border: 0 !important;
 }
 
-.title.linkpost_title::after {
+.title.linkpost_title::after,
+.meta,
+.meta a,
+.meta a:visited,
+figcaption,
+figcaption a,
+figcaption a:visited {
   color: var(--accent-grey);
-}
-
-.meta, figcaption {
-  color: var(--accent-grey);
-
-  a, a:visited {
-    color: var(--accent-grey);
-  }
 }
 
 .permalink a,
