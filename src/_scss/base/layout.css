@@ -63,7 +63,7 @@ img.screenshot {
 
 
 @media (prefers-color-scheme: dark) {
-  // see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images
+  /* see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images */
   img:not([src*='.svg']):not(.dark_aware) {
     filter: grayscale(10%);
   }
@@ -79,11 +79,11 @@ img.screenshot {
   }
 }
 
-// Images never expand beyond the article bounds, and are centred when
-// they're too small.
-//
-// Note: the block might seem redundant, but if you remove it the post cards
-// get some extra space below the image.  TODO: Investigate.
+/* Images never expand beyond the article bounds, and are centred when
+ * they're too small.
+ *
+ * Note: the block might seem redundant, but if you remove it the post cards
+ * get some extra space below the image.  TODO: Investigate. */
 img, video, figure {
   max-width: 100%;
   display: block;
@@ -102,8 +102,13 @@ pre,
 a.download {
   margin-left:  var(--default-padding);
   margin-right: var(--default-padding);
+}
 
-  @media screen and (max-width: calc(var(--max-width) + var(--default-padding) * 3)) {
+@media screen and (max-width: calc(var(--max-width) + var(--default-padding) * 3)) {
+  .indented,
+  blockquote,
+  pre,
+  a.download {
     margin-left:  0px;
     margin-right: 0px;
   }
