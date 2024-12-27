@@ -36,11 +36,11 @@ Here's [a table from the MDN docs][sort_comparison] that explains what the custo
     <tbody>
       <tr>
         <td>&gt; 0</td>
-        <td>sort <code>a</code> after <code>b</code>, e.g. <code>[b, a]</code></td>
+        <td>sort <code>a</code> after <code>b</code>, i.e. <code>[b, a]</code></td>
       </tr>
       <tr>
         <td>&lt; 0</td>
-        <td>sort <code>a</code> before <code>b</code>, e.g. <code>[a, b]</code></td>
+        <td>sort <code>a</code> before <code>b</code>, i.e. <code>[a, b]</code></td>
       </tr>
       <tr>
         <td>=== 0</td>
