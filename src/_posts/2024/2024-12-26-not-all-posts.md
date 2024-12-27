@@ -199,7 +199,7 @@ In the list of articles, these posts get special treatment -- they have a big ca
     picture
     filename="list_of_articles.png"
     width="444"
-    style="max-width: calc(100vh - 2em);"
+    style="max-height: calc(100vh - 2em);"
     class="screenshot"
     alt="A list of articles, with two cards at the top, then a list of four text links, then two more cards, then some more text links."
   %}

@@ -74,7 +74,7 @@ $gradual-width-breakpoint: $max-width + 2 * $default-padding;
 // rather than how it should behave.  cf 'screenshot'.  I want to use it more!
 
 @media screen and (max-width: $max-width) {
-  .wide_img, .fullwidth_img, .photo {
+  .fullwidth_img, .photo {
     width:        calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
     max-width:    calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
     margin-left:  calc(-1 * (var(--default-padding) + env(safe-area-inset-left,  0px)));
