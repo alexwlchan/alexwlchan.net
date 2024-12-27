@@ -87,9 +87,7 @@ jobs:
           fi
 
       - name: "Build the site"
-        run: |
-          rm -rf _site/c
-          bundle exec jekyll build --drafts
+        run: bundle exec jekyll build --drafts
 
       - name: "Run linting"
         run: bundle exec ruby scripts/linter.rb
@@ -140,7 +138,7 @@ jobs:
             --exclude="" --include="" --filter="" \
             "_site/" \
             "alexwlchan@alexwlchan.net:repos/alexwlchan.net/_site/"
-
+            
           # Clean up the SSH key
           rm id_rsa
 
