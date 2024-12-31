@@ -1,0 +1,231 @@
+---
+layout: post
+title: My favourite books from 2024
+summary:
+  Fires and fighters, heroes and horrors, suicide and surgery – what I enjoyed reading this year.
+tags:
+  - books
+colors:
+  css_light: "#464646"
+  css_dark:  "#adadad"
+index:
+  feature: true
+---
+<style type="x-text/scss">
+  @import "posts/_end_of_year_books";
+</style>
+
+I read 58 books this year -- slightly down on last year, but I'm still happy with that number.
+I spent a lot of time this on my own writing and crafting, and I had less time for books.
+
+I returned to a couple of favourite authors and their latest releases -- including Toshikazu Kawaguchi, Darcie Little Badger, and Maureen Johnson -- but I also discovered some new-to-me authors who are on my "must read" list for anything they release in future.
+As well as the authors mentioned below, the books I read by Ravena Guron, Ashley Herring Blake and the late Jean-Paul Didierlaurent were highlights this year.
+
+Ashley Herring Blake is also the winner of this year's serendipity award: I was reading *Astrid Parker Doesn’t Fall*, and it mentions *Written in the Stars* -- my copy of which was literally within reach at the time.
+(That was [one of my favourites](/2021/2021-in-reading/#alexandria_bellefleur) in 2021.)
+
+I track the books I read at [books.alexwlchan.net], and I also write an annual round-up post of my favourites.
+This is the fourth year of that tradition.
+Previously: [2023](/2023/2023-in-reading/), [2022](/2022/2022-in-reading/), [2021](/2021/2021-in-reading/).
+
+Below are the best books I read in 2024, in the order I read them.
+
+[books.alexwlchan.net]: https://books.alexwlchan.net
+
+---
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #24bd4b;
+    --book-color-dk: #24bd4b;
+  ">
+  {%
+    picture
+    filename="show-me-the-bodies.jpg"
+    alt="The cover of “Show Me The Bodies”. It shows the title, the subtitle (“How We Let Grenfell Happen”) and the author’s name (“Peter Apps”) in green and white text on a black background."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Show Me The Bodies"
+    author="Peter Apps"
+    review_url="https://books.alexwlchan.net/2024/show-me-the-bodies/"
+    review_date="13 January 2024"
+    publication_year="2022"
+  %}
+</div>
+
+This is a thorough and damning description of the systemic failures that led to the [Grenfell Tower fire](https://en.wikipedia.org/wiki/Grenfell_Tower_fire), a high-rise fire in London in 2017 that killed 72 people.
+Major themes include repeated warnings about unsafe cladding, government and companies looking the other way because it was cheaper than doing the right thing, and multiple missed opportunities to avoid the tragedy.
+
+The chapters alternate between giving a timeline of the fire on the night (12.54&nbsp;a.m., 1.20&nbsp;a.m., 1.30&nbsp;a.m., …) and describing the longer-term events that led to the fire.
+It's a powerful if unsettling read.
+
+I don’t enjoy the events it described, but the writing is clear and thorough.
+The author has done plenty of research and spoken to a lot of Grenfell survivors, which creates a good mix of detail and human stories.
+There's so much good stuff in here ("good" with an asterisk), and if you like reading post-event analyses of disasters then you should read this.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #d10e15;
+    --book-color-dk: #ecddc7;
+  ">
+  {%
+    picture
+    filename="the-checklist-manifesto.jpg"
+    alt="The cover of “The Checklist Manifest”. The title and subtitle are stylised to form a tickmark made of text."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="The Checklist Manifesto"
+    author="Atul Gawande"
+    review_url="https://books.alexwlchan.net/2024/the-checklist-manifesto/"
+    review_date="10 April 2024"
+    publication_year="2009"
+  %}
+</div>
+
+A fascinating book about how checklists are used for quality assurance by industries like finance, construction, and aviation -- and the author is a surgeon trying to introduce them in medicine.
+
+It’s a mix of stories about people who are using already using checklists, and discussion of the ideas and theory behind them.
+It has a lot of practical information, and delivers it in a concise and easily readable package.
+It’s also upfront about limitations and risks; it doesn’t present checklists as some sort of panacea, but instead discusses the challenges of doing them properly.
+
+I've heard about the power of checklists and this book in particular for years, and I was glad to finally read it.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #2f8abc;
+    --book-color-dk: #d3e9e7;
+  ">
+  {%
+    picture
+    filename="herc.jpg"
+    alt="The cover of “Herc”. The four letters of “Herc” are shown in four white letters in a vertical line, with two blue lion-like creatures on either side."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Herc"
+    author="Phoenicia Rogerson"
+    review_url="https://books.alexwlchan.net/2024/herc/"
+    review_date="13 May 2024"
+    publication_year="2023"
+  %}
+</div>
+
+This is fun retelling of the myth of Hercules (or "Herc").
+It's told entirely in the first person, by the people who met him -- not by Hercules himself.
+The perspective shifts from chapter to chapter, as we hear the havoc he caused in their lives, before the story moves on to somebody else.
+Herc is traced entirely by the outline he leaves in the lives of people around him, and not as the hero of his own story.
+
+There’s some beautiful writing in here, especially around grief and trauma -- and where Hercules goes, both are bound to follow.
+
+I'm biased because the author is a dear friend, and I'm guilty that it took me so long to read it -- but I'm glad I finally did, and other friends who've read it have similarly enjoyed it.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #214252;
+    --book-color-dk: #e4f0d1;
+  ">
+  {%
+    picture
+    filename="wasteland.jpg"
+    alt="The cover of “Wasteland”. It’s a crumpled blue plastic bottle on a light green background, with red and blue text overlaid."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Wasteland"
+    author="Oliver Franklin-Wallis"
+    review_url="https://books.alexwlchan.net/2024/wasteland/"
+    review_date="24 May 2024"
+    publication_year="2023"
+  %}
+</div>
+
+This is a book about waste – where it goes, how it’s processed, and what really happens when you put something in the recycling bin. The author visited waste management sites all over the world, including tip sites in India, toxic mine spoil in the US, and nuclear waste storage in the UK.
+
+The conversations they retell present a more nuanced view than “waste bad, recycling good”, and explore the non-obvious side effects of certain attempts to make things better – for example, how EU laws prohibiting the export of broken electronics have affected the second-hand and repair market in Ghana. The book doesn’t try to evangelise too hard, and at multiple points the author freely admits they don’t know the answer.
+
+It’s obviously not a pleasant read, but I’m glad I read it and it’s given me a lot to think about.
+I want to think more about sustainability and my environmental impact in 2025, and this book set me on that path.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #c92529;
+    --book-color-dk: #dcd9d7;
+  ">
+  {%
+    picture
+    filename="silo-49-flying-season-for-the-mis-recorded.jpg"
+    alt="The cover of “Silo 49: Flying Season For the Mis-Recorded”. A woman with long flowing hair looks upward."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Silo 49: Flying Season for the Mis-Recorded"
+    author="Ann Christy"
+    review_url="https://books.alexwlchan.net/2024/silo-49-flying-season-for-the-mis-recorded/"
+    review_date="17 July 2024"
+    publication_year="2014"
+  %}
+</div>
+
+This is a darker entry: it's about a girl in a dystopian society who commits suicide.
+
+It's set in Hugh Howey's [*Silo* universe](https://en.wikipedia.org/wiki/Silo_(series)), now a television series on Apple TV+.
+The Earth has been destroyed by an apocalypse, the outside world is toxic, and humanity survives in underground silos -- giant self-sustaining cities.
+Most of the Silo residents know nothing about human history or how they came to live underground.
+
+This is the final novella in the Silo 49 tetralogy, a supposedly enlightened society where more people know the truth of Earth's history, and the dark forces that drove them underground.
+After three books showing how a society can improve, we see how the darker shades of humanity still survive -- judgement, prejudice, and discrimination.
+
+We see the final hours of Lizbet's life, the escape of dancing at the club, and the arrest of her father and her social ostracisation.
+I felt instant sympathy for her, and I cried when she went over the rails.
+The writing is as lyrical as the subject matter is grim.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #ea6da6;
+    --book-color-dk: #f7d51a;
+  ">
+  {%
+    picture
+    filename="lover-birds.jpg"
+    alt="The cover of “Lover Birds”. It's split vertically into pink/yellow, with an illustration of two women standing back-to-back."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Lover Birds"
+    author="Leanne Egan"
+    review_url="https://books.alexwlchan.net/2024/lover-birds/"
+    review_date="31 August 2024"
+    publication_year="2024"
+  %}
+</div>
+
+To the end the list on a happier note, this is my favourite romance of the year.
+It's a feel-good YA romcom that was exactly the sort of light-hearted, fun read I needed to round out my summer.
+It hits all of my favourite tropes: enemies-to-lovers, oblivious lesbians, girls standing up for each other, and showing somebody the place where you live.
+
+I love romance stories that have a strong sense of place and location.
+I completely missed the [pun in the title](https://en.wikipedia.org/wiki/Liver_bird) until it was pointed out to me, but it tickled me when I saw it.
+I can't remember the last time I went to Liverpool, but I got a feel for it as Lou shows Isabel her home.
+
+One of the main characters has ADHD, and it's a big part of the story.
+This meant a lot to me, as it's the first book I can recall reading with an explicitly ADHD character.
