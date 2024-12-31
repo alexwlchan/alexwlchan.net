@@ -66,6 +66,7 @@ class AddNonBreakingSpaces
     phrases = [
       '<em>k</em>-means',
       '26k items',
+      'Apple TV+',
       'CC0 1.0',
       'CC BY 2.0',
       'CC BY 3.0',
@@ -93,6 +94,7 @@ class AddNonBreakingSpaces
       'PDF 1.7',
       'PyCon ',
       'Route 53',
+      'Silo 49',
       'System 1'
     ]
 
