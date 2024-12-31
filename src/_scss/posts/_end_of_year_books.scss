@@ -1,8 +1,10 @@
-@mixin book_styles($color) {
-  h2.book_title, a { color: $color; }
+.book_review {
+  --book-color: var(--book-color-lt);
+}
 
-  img.book_cover {
-    box-shadow: 0px 0px 5px rgba($color, 1);
+@media screen and (prefers-color-scheme: dark) {
+  .book_review {
+    --book-color: var(--book-color-dk);
   }
 }
 
@@ -26,6 +28,11 @@
     margin: 0;
     margin-top: 13px;
     font-style: italic;
+    color: var(--book-color);
+  }
+  
+  a {
+    color: var(--book-color);
   }
 
   .book_meta {
@@ -36,6 +43,7 @@
 
   @media screen and (min-width: 500px) {
     img.book_cover {
+      box-shadow: 0px 0px 5px var(--book-color);
       margin-bottom: 1em;
     }
   }
