@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-01-04 11:02:13 +0000
 title: How I use the notes field in my password manager
 summary: |
   I use notes as a mini-changelog to track the context and history of my online accounts.
