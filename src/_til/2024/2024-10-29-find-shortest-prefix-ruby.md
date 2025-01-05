@@ -6,6 +6,7 @@ summary: |
   The built-in `Abbrev` module can calculate a set of unambiguous abbreviations for a set of strings, and then you can look for the shortest result for each string.
 tags:
   - ruby
+  - string processing
 ---
 I had a list of strings, and I wanted to find the shortest prefix that would unambiguously identify each string.
 
