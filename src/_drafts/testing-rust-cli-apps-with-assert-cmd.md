@@ -22,7 +22,7 @@ Here are some examples of how I'm using it in my refreshed test suites:
 
 [create_thumbnail]: /2024/create-thumbnail/
 [emptydir]: /2024/emptydir/
-[dominant_colours]: ~/2021/dominant-colours/
+[dominant_colours]: /2021/dominant-colours/
 [assert_cmd]: https://crates.io/crates/assert_cmd
 [assertion helpers]: https://docs.rs/assert_cmd/latest/assert_cmd/assert/struct.Assert.html
 
