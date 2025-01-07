@@ -6,147 +6,180 @@ tags:
   - rust
   - software testing
 ---
-have a small number of Rust CLI apps,
-including create_thumbnail, dominant_colours, and emptydir
+Rust has become my go-to for writing my personal toolbox -- small, standalone utilities like [create_thumbnail], [emptydir], and [dominant_colours].
+There's no place for Rust in my day job, so having some self-contained projects means I can still have fun playing with it.
 
-I like Rust, it's fun!
-it's become my go-to choice for small, standalone utilities
-CLI apps are nice self-contained projects to play with it
-because there isn't a good space for it in my day job right now
+I've been using the [`assert_cmd` crate][assert_cmd] to test my command line tools, but I wanted to review my testing approach before I write my next utility.
+My old code was *fine* and it *worked*, but that's about all you can say about it -- it wasn't clean or idiomatic Rust, and it could definitely be improved.
 
-thinking about another, and want to make sure testing setup is right
+My big mistake was trying to write Rust like Python.
+I'd written wrapper functions that would call `assert_cmd` and returned values, so I missed out on the nice [assertion helpers] in the crate.
+I'd skimmed just enough of the `assert_cmd` documentation to get something working, but I hadn't read it properly.
 
-I was already using `assert_cmd` crate, and had written a bunch of slightly different tests
-the code was fine and it worked but it wasn't good
-did a little review
+As I was writing this blog post, I went back and read the documentation in more detail, to understand the right way to use the crate.
+Here are some examples of how I'm using it in my refreshed test suites:
 
-my mistake was trying to write rust like python -- i'd written wrapper functions that would call assert_cmd and return a value, and wasn't taking advantage of nice assertion helpers in assert_cmd itself
-i'd read just enough of the assert_cmd docs, but nothing more
+[create_thumbnail]: /2024/create-thumbnail/
+[emptydir]: /2024/emptydir/
+[dominant_colours]: ~/2021/dominant-colours/
+[assert_cmd]: https://crates.io/crates/assert_cmd
+[assertion helpers]: https://docs.rs/assert_cmd/latest/assert_cmd/assert/struct.Assert.html
 
-finally sat down to read documentation and work out how to do it properly
+## Testing a basic command
 
-1.  call a CLI app with a single argument
-    check command works and produces expected stdout:
+This test calls `dominant_colours` with [a single argument][arg], then checks it succeeds and that a single line is printed to stdout:
 
-    ```rust
-    #[test]
-    fn it_prints_the_colour() {
-        Command::cargo_bin("dominant_colours")
-            .unwrap()
-            .args(&["./src/tests/red.png"])
-            .assert()
-            .success()
-            .stdout("#fe0000\n")
-            .stderr("");
-    }
-    ```
+```rust
+use assert_cmd::Command;
 
-2.  call a CLI app with multiple arguments/flags
-    check command works and produces expected stdout
+/// If every pixel in an image is the same colour, then the image
+/// has a single dominant colour.
+#[test]
+fn it_prints_the_colour() {
+    Command::cargo_bin("dominant_colours")
+        .unwrap()
+        .arg("./src/tests/red.png")
+        .assert()
+        .success()
+        .stdout("#fe0000\n")
+        .stderr("");
+}
+```
 
-    ```rust
-    #[test]
-    fn it_chooses_the_right_color_for_a_dark_background() {
-        Command::cargo_bin("dominant_colours")
-            .unwrap()
-            .args(&[
-                "src/tests/stripes.png",
-                "--max-colours=5",
-                "--best-against-bg=#222",
-            ])
-            .assert()
-            .success()
-            .stdout("#d4fb79\n")
-            .stderr("");
-    }
-    ```
+[arg]: https://docs.rs/assert_cmd/latest/assert_cmd/cmd/struct.Command.html#method.arg
 
-2.  check a command fails with a particular error message:
+If I want to pass more than one argument/flag, I can replace `.arg` with `.args` to [pass a list][args]:
 
-    ```
-    #[test]
-    fn it_fails_if_you_pass_an_nonexistent_file() {
-        assert_file_fails_with_error(
-            "./doesnotexist.jpg",
-            "No such file or directory (os error 2)\n",
-        );
-    }
+```rust
+use assert_cmd::Command;
+
+/// It picks the best colour from an image to go with a background --
+/// the colour with sufficient contrast and the most saturation.
+#[test]
+fn it_chooses_the_right_colour_for_a_light_background() {
+    Command::cargo_bin("dominant_colours")
+        .unwrap()
+        .args(&[
+            "src/tests/stripes.png",
+            "--max-colours=5",
+            "--best-against-bg=#fff",
+        ])
+        .assert()
+        .success()
+        .stdout("#693900\n")
+        .stderr("");
+}
+```
+
+[args]: https://docs.rs/assert_cmd/latest/assert_cmd/cmd/struct.Command.html#method.args
+
+Alternatively, I can omit `.arg` and `.args` if I don't need to pass any arguments.
+
+## Testing error cases
+
+Most of my tests are around my error handling -- call my tool with bad input, and check it returns a useful error message.
+I can check that the command failed, the exit code, and the error message printed to stderr:
+
+```rust
+use assert_cmd::Command;
+
+/// Getting the dominant colour of a file that doesn't exist is an error.
+#[test]
+fn it_chooses_the_right_colour_for_a_light_background() {
+    Command::cargo_bin("dominant_colours")
+        .unwrap()
+        .arg("doesnotexist.jpg")
+        .assert()
+        .failure()
+        .code(2)
+        .stdout("")
+        .stderr("No such file or directory (os error 2)\n");
+}
+```
+
+## Comparing output to a regular expression
+
+All the examples so far specify an exact match for the stdout/stderr, but sometimes I need something more flexible.
+I can use a predicate from the [`predicates` crate][predicates] and define a regular expression I want to match against.
+
+For exaple, in this test I want to check the behaviour of the `--version` flag, and make sure it prints something that looks like the version number:
+
+```rust
+use assert_cmd::Command;
+use predicates::prelude::*;
+
+#[test]
+fn it_prints_the_version() {
+    // Match strings like `dominant_colours 1.2.3`
+    let is_version_string =
+        predicate::str::is_match(r"^dominant_colours [0-9]+\.[0-9]+\.[0-9]+\n$").unwrap();
 
     Command::cargo_bin("dominant_colours")
         .unwrap()
-        .args(&[path])
+        .arg("--version")
+        .assert()
+        .success()
+        .stdout(is_version_string)
+        .stderr("");
+}
+```
+
+[predicates]: https://crates.io/crates/predicates
+
+## Creating focused helper functions
+
+I did create a couple of helper functions for specific test scenarios, for example:
+
+```rust
+use assert_cmd::Command;
+use predicates::prelude::*;
+
+/// Getting the dominant colour of a file that doesn't exist is an error.
+#[test]
+fn it_fails_if_you_pass_an_nonexistent_file() {
+    assert_file_fails_with_error(
+        "./doesnotexist.jpg",
+        "No such file or directory (os error 2)\n",
+    );
+}
+
+/// Try to get the dominant colours for a file, and check it fails
+/// with the given error message.
+fn assert_file_fails_with_error(
+    path: &str,
+    expected_stderr: &str,
+) -> assert_cmd::assert::Assert {
+    Command::cargo_bin("dominant_colours")
+        .unwrap()
+        .arg(path)
         .assert()
         .failure()
         .code(1)
         .stdout("")
         .stderr(predicate::eq(expected_stderr))
-    ```
+}
+```
 
-1.  check stdout matches a regex:
-
-    ```rust
-    use assert_cmd::Command;
-    use predicates::prelude::*;
-
-    #[test]
-    fn it_prints_the_version() {
-        // Match strings like `dominant_colours 1.2.3`
-        let is_version_string =
-            predicate::str::is_match(r"^dominant_colours [0-9]+\.[0-9]+\.[0-9]+\n$").unwrap();
-
-        Command::cargo_bin("dominant_colours")
-            .unwrap()
-            .args(&["--version"])
-            .assert()
-            .success()
-            .stdout(is_version_string)
-            .stderr("");
-    }
-    ```
-
-1.  create wrapper function for common case -- look up single file, check stderr
-
-    ```rust
-    /// Try to get the dominant colours for a file, and check it fails
-    /// with the given error message.
-    fn assert_file_fails_with_error(
-        path: &str,
-        expected_stderr: &str,
-    ) -> assert_cmd::assert::Assert {
-        Command::cargo_bin("dominant_colours")
-            .unwrap()
-            .args(&[path])
-            .assert()
-            .failure()
-            .code(1)
-            .stdout("")
-            .stderr(predicate::eq(expected_stderr))
-    }
-    ```
-
-always check both stdout/stderr
-might be overkill, but doesn't hurt
-
-at one point was substituting name of CLI app with `env!("CARGO_PKG_NAME")`
-no!
-too clever, isn't going to change and is fine to hard-code
+Initially I wrote this helper just calling `.stderr(expected_stderr)` to do an exact match, like in previous tests, but I got an error *"`expected_stderr` escapes the function body here"*.
+I'm not sure what that means -- something to do with borrowing -- but wrapping it in a predicate seems to fix the error, so I'm happy.
 
 ---
 
-reflections:
+## My test suite is a safety net, not a playground
 
-my initial approach was too clever, and favoured creating utility methods to hide a few lines of boilerplate over readability
-at one point was even writing a macro with variadic arguments to cover up a slight annoyance, which is at the far limit of my Rust knowledge
-bad!
-time and a place for "clever" code, but tests aren't it, want a reliable safety net
+Writing this blog post has helped me refactor my tests into something that's actually good.
+I'm sure there's still room for improvement, but this is the first iteration that I feel happy with.
+It's no coincidence that it looks very similar to other test suites using `assert_cmd`.
 
-the current tests are simple and readable, what good tests should be
+My earlier approaches were far too clever.
+I was over-abstracting to hide a few lines of boilerplate, which made the tests harder to understand, and at one point I was even writing a macro with [a variadic interface] because of a minor annoyance.
+I was stretching the limits of my Rust knowledge, which is a bad place to be.
 
-writing this blog post is how i went back and made it *good*
-got a lot shorter and simpler in the process
-something i'm realising is that if i want to write good code, i need to *slow down*
-it's easy to write code quickly, but writing it well means taking time and understanding all the tools and libraries i'm using
-that takes longer
+It's okay to have a bit of repetition in a test suite, if it makes them easier to read.
+I keep having to remind myself of this -- I'm easily tempted to create helper functions whose sole purpose is to remove boilerplate, or create some clever parametrisation which only made sense when I wrote it.
+I need to resist the urge to compact everything down.
 
-i'm not sure how to reconcile that with the drive to deliver quickly, esp with LLMs on the scene
-but that's a thought for another day
+The new tests are more simple and readable.
+There's a time and a place for clever code, but a test suite isn't it.
+
+[a variadic interface]: https://doc.rust-lang.org/rust-by-example/macros/variadics.html
