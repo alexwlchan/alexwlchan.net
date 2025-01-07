@@ -10,10 +10,10 @@ Rust has become my go-to language for my personal toolbox -- small, standalone u
 There's no place for Rust in my day job, so having some self-contained hobby projects means I can still have fun playing with it.
 
 I've been using the [`assert_cmd` crate][assert_cmd] to test my command line tools, but I wanted to review my testing approach before I write my next utility.
-My old code was *fine* and it *worked*, but that's about all you can say about it -- it wasn't clean or idiomatic Rust, and it wasn't especially readable.
+My old code was *fine* and it *worked*, but that's about all you could say about it -- it wasn't clean or idiomatic Rust, and it wasn't especially readable.
 
 My big mistake was trying to write Rust like Python.
-I'd written wrapper functions that would call `assert_cmd` and return values, then I wrote my own assertions.
+I'd written wrapper functions that would call `assert_cmd` and return values, then I wrote my own assertions a bit like I'd write a Python test.
 I missed out on the nice [assertion helpers] in the crate.
 I'd skimmed just enough of the `assert_cmd` documentation to get something working, but I hadn't read it properly.
 
@@ -103,7 +103,7 @@ fn it_fails_if_you_pass_an_nonexistent_file() {
 All the examples so far are doing an exact match for the stdout/stderr, but sometimes I need something more flexible.
 Maybe I only know what part of the output will look like, or I only care about checking how it starts.
 
-I can use the `predicate::str::is_match` predicate from the [`predicates` crate][predicates] and define a regular expression I want to match against.
+If so, I can use the `predicate::str::is_match` predicate from the [`predicates` crate][predicates] and define a regular expression I want to match against.
 
 Here's an example where I'm checking the output contains a version number, but not what the version number is:
 
@@ -135,7 +135,7 @@ fn it_prints_the_version() {
 I have a couple of helper functions for specific test scenarios.
 
 I try to group these by common purpose -- they should be testing similar behaviour.
-I'm trying to avoid creating helpers for the sake of reducing repetition.
+I'm trying to avoid creating helpers for the sake of reducing repetitive code.
 
 For example, I have a helper function that passes a single invalid file to `dominant_colours` and checks the error message is what I expect:
 
@@ -183,12 +183,13 @@ It's no coincidence that it looks very similar to other test suites using `asser
 My earlier approaches were far too clever.
 I was over-abstracting to hide a few lines of boilerplate, which made the tests harder to follow.
 I even wrote a macro with [a variadic interface] because of a minor annoyance, which is stretching the limits of my Rust knowledge.
+It was fun to write, but it would have been a pain to debug or edit later.
 
 It's okay to have a bit of repetition in a test suite, if it makes them easier to read.
-I keep having to remind myself of this -- I'm often tempted to create helper functions whose sole purpose is to remove boilerplate, or create some clever parametrisation which only made sense when I wrote it.
+I keep having to remind myself of this -- I'm often tempted to create helper functions whose sole purpose is to remove boilerplate, or create some clever parametrisation which only made sense as I'm writing it.
 I need to resist the urge to compress my test code.
 
 My new tests are more simple and more readable.
-There's a time and a place for clever code, but a test suite ain't it.
+There's a time and a place for clever code, but my test suite isn't it.
 
 [a variadic interface]: https://doc.rust-lang.org/rust-by-example/macros/variadics.html
