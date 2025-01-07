@@ -11,6 +11,8 @@ tags:
 colors:
   index_light: "#4576bb"
   index_dark:  "#88a7d3"
+index:
+  feature: true
 ---
 
 At the weekend, I published [dominant_colours], a command-line tool for finding the dominant colours of an image.
