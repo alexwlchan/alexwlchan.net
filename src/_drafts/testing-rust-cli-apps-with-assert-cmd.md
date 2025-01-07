@@ -1,19 +1,20 @@
 ---
 layout: post
-title: How I test Rust CLI apps with assert_cmd
-summary:
+title: How I test Rust command-line apps with `assert_cmd`
+summary: Some practical examples of how this handy crate lets me write clear, readable tests.
 tags:
   - rust
   - software testing
 ---
-Rust has become my go-to for writing my personal toolbox -- small, standalone utilities like [create_thumbnail], [emptydir], and [dominant_colours].
-There's no place for Rust in my day job, so having some self-contained projects means I can still have fun playing with it.
+Rust has become my go-to language for my personal toolbox -- small, standalone utilities like [create_thumbnail], [emptydir], and [dominant_colours].
+There's no place for Rust in my day job, so having some self-contained hobby projects means I can still have fun playing with it.
 
 I've been using the [`assert_cmd` crate][assert_cmd] to test my command line tools, but I wanted to review my testing approach before I write my next utility.
-My old code was *fine* and it *worked*, but that's about all you can say about it -- it wasn't clean or idiomatic Rust, and it could definitely be improved.
+My old code was *fine* and it *worked*, but that's about all you can say about it -- it wasn't clean or idiomatic Rust, and it wasn't especially readable.
 
 My big mistake was trying to write Rust like Python.
-I'd written wrapper functions that would call `assert_cmd` and returned values, so I missed out on the nice [assertion helpers] in the crate.
+I'd written wrapper functions that would call `assert_cmd` and return values, then I wrote my own assertions.
+I missed out on the nice [assertion helpers] in the crate.
 I'd skimmed just enough of the `assert_cmd` documentation to get something working, but I hadn't read it properly.
 
 As I was writing this blog post, I went back and read the documentation in more detail, to understand the right way to use the crate.
@@ -48,7 +49,7 @@ fn it_prints_the_colour() {
 
 [arg]: https://docs.rs/assert_cmd/latest/assert_cmd/cmd/struct.Command.html#method.arg
 
-If I want to pass more than one argument/flag, I can replace `.arg` with `.args` to [pass a list][args]:
+If I have more than one argument or flag, I can replace `.arg` with `.args` to [pass a list][args]:
 
 ```rust
 use assert_cmd::Command;
@@ -77,7 +78,7 @@ Alternatively, I can omit `.arg` and `.args` if I don't need to pass any argumen
 
 ## Testing error cases
 
-Most of my tests are around my error handling -- call my tool with bad input, and check it returns a useful error message.
+Most of my tests are around error handling -- call the tool with bad input, and check it returns a useful error message.
 I can check that the command failed, the exit code, and the error message printed to stderr:
 
 ```rust
@@ -85,13 +86,13 @@ use assert_cmd::Command;
 
 /// Getting the dominant colour of a file that doesn't exist is an error.
 #[test]
-fn it_chooses_the_right_colour_for_a_light_background() {
+fn it_fails_if_you_pass_an_nonexistent_file() {
     Command::cargo_bin("dominant_colours")
         .unwrap()
         .arg("doesnotexist.jpg")
         .assert()
         .failure()
-        .code(2)
+        .code(1)
         .stdout("")
         .stderr("No such file or directory (os error 2)\n");
 }
@@ -99,15 +100,18 @@ fn it_chooses_the_right_colour_for_a_light_background() {
 
 ## Comparing output to a regular expression
 
-All the examples so far specify an exact match for the stdout/stderr, but sometimes I need something more flexible.
-I can use a predicate from the [`predicates` crate][predicates] and define a regular expression I want to match against.
+All the examples so far are doing an exact match for the stdout/stderr, but sometimes I need something more flexible.
+Maybe I only know what part of the output will look like, or I only care about checking how it starts.
 
-For exaple, in this test I want to check the behaviour of the `--version` flag, and make sure it prints something that looks like the version number:
+I can use the `predicate::str::is_match` predicate from the [`predicates` crate][predicates] and define a regular expression I want to match against.
+
+Here's an example where I'm checking the output contains a version number, but not what the version number is:
 
 ```rust
 use assert_cmd::Command;
 use predicates::prelude::*;
 
+/// If I run `dominant_colours --version`, it prints the version number.
 #[test]
 fn it_prints_the_version() {
     // Match strings like `dominant_colours 1.2.3`
@@ -128,7 +132,12 @@ fn it_prints_the_version() {
 
 ## Creating focused helper functions
 
-I did create a couple of helper functions for specific test scenarios, for example:
+I have a couple of helper functions for specific test scenarios.
+
+I try to group these by common purpose -- they should be testing similar behaviour.
+I'm trying to avoid creating helpers for the sake of reducing repetition.
+
+For example, I have a helper function that passes a single invalid file to `dominant_colours` and checks the error message is what I expect:
 
 ```rust
 use assert_cmd::Command;
@@ -161,7 +170,7 @@ fn assert_file_fails_with_error(
 ```
 
 Initially I wrote this helper just calling `.stderr(expected_stderr)` to do an exact match, like in previous tests, but I got an error *"`expected_stderr` escapes the function body here"*.
-I'm not sure what that means -- something to do with borrowing -- but wrapping it in a predicate seems to fix the error, so I'm happy.
+I'm not sure what that means -- it's something to do with borrowing -- but wrapping it in a predicate seems to fix the error, so I'm happy.
 
 ---
 
@@ -172,14 +181,14 @@ I'm sure there's still room for improvement, but this is the first iteration tha
 It's no coincidence that it looks very similar to other test suites using `assert_cmd`.
 
 My earlier approaches were far too clever.
-I was over-abstracting to hide a few lines of boilerplate, which made the tests harder to understand, and at one point I was even writing a macro with [a variadic interface] because of a minor annoyance.
-I was stretching the limits of my Rust knowledge, which is a bad place to be.
+I was over-abstracting to hide a few lines of boilerplate, which made the tests harder to follow.
+I even wrote a macro with [a variadic interface] because of a minor annoyance, which is stretching the limits of my Rust knowledge.
 
 It's okay to have a bit of repetition in a test suite, if it makes them easier to read.
-I keep having to remind myself of this -- I'm easily tempted to create helper functions whose sole purpose is to remove boilerplate, or create some clever parametrisation which only made sense when I wrote it.
-I need to resist the urge to compact everything down.
+I keep having to remind myself of this -- I'm often tempted to create helper functions whose sole purpose is to remove boilerplate, or create some clever parametrisation which only made sense when I wrote it.
+I need to resist the urge to compress my test code.
 
-The new tests are more simple and readable.
-There's a time and a place for clever code, but a test suite isn't it.
+My new tests are more simple and more readable.
+There's a time and a place for clever code, but a test suite ain't it.
 
 [a variadic interface]: https://doc.rust-lang.org/rust-by-example/macros/variadics.html
