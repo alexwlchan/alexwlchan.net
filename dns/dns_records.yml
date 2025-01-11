@@ -59,6 +59,7 @@ alexwlchan.co.uk A:            [ "178.79.134.59", ]
 
 books.alexwlchan.net A:        [ "178.79.134.59", ]
 www.alexwlchan.net A:          [ "178.79.134.59", ]
+til.alexwlchan.net A:          [ "178.79.134.59", ]
 
 finduntaggedtumblrposts.com A: [ "75.2.60.5", ]
 
@@ -78,8 +79,6 @@ alexwlchan.com MX:           [ "10 mx.hover.com.cust.hostedemail.com.", ]
 mail.alexwlchan.com CNAME:   [ "mail.hover.com.cust.hostedemail.com.",  ]
 alexwlchan.co.uk MX:         [ "10 mx.hover.com.cust.hostedemail.com.", ]
 mail.alexwlchan.co.uk CNAME: [ "mail.hover.com.cust.hostedemail.com.",  ]
-
-til.alexwlchan.net CNAME:    [ "til-alexwlchan.netlify.app.", ]
 
 
 
