@@ -20,4 +20,19 @@ class TestRedirects < Test::Unit::TestCase
 
     assert_equal target, '/2021/s3-deprecates-bittorrent/'
   end
+
+  # The `til.alexwlchan.net` domain redirects to `alexwlchan.net`.
+  def test_til_redirect
+    target = get_redirect_target('https://til.alexwlchan.net/')
+
+    assert_equal target, 'https://alexwlchan.net/til/'
+  end
+
+  # A post on `til.alexwlchan.net` redirects to the appropriate page
+  # on `alexwlchan.net`
+  def test_til_post_redirect
+    target = get_redirect_target('https://til.alexwlchan.net/animate-svg-elements-with-animate/')
+
+    assert_equal target, 'https://alexwlchan.net/til/2024/animate-svg-elements-with-animate/'
+  end
 end
