@@ -10,6 +10,7 @@ on:
       - 'caddy/**'
       - 'dns/**'
       - 'scripts/**'
+      - 'tests/**'
       - 'Caddyfile'
       - '.github/workflows/caddy_fmt.yml'
       - '.github/workflows/check_dns.yml'
@@ -25,6 +26,7 @@ on:
       - 'caddy/**'
       - 'dns/**'
       - 'scripts/**'
+      - 'tests/**'
       - 'Caddyfile'
       - '.github/workflows/caddy_fmt.yml'
       - '.github/workflows/check_dns.yml'
@@ -85,7 +87,7 @@ jobs:
           else
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
-      
+
       - name: "Delete stale cards"
         run: find _site/c -name 'dominant-colours*' -delete
 
@@ -141,7 +143,7 @@ jobs:
             --exclude="" --include="" --filter="" \
             "_site/" \
             "alexwlchan@alexwlchan.net:repos/alexwlchan.net/_site/"
-            
+
           # Clean up the SSH key
           rm id_rsa
 
