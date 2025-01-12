@@ -11,7 +11,13 @@ This will throw a `FileExistsError` error if the destination file already exists
 
 Here's a minimal example:
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'hello world'</span> <span class="o">&gt;</span> src.txt
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>copy_file.py
+<span class="go">import shutil
+
+with open('src.txt', 'rb') as src, open('dst.txt', 'xb') as dst:
+    shutil.copyfileobj(src, dst)</span>
+
+<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'hello world'</span> <span class="o">&gt;</span> src.txt
 <span class="go">
 </span><span class="gp">$</span><span class="w"> </span>python3 copy_file.py
 <span class="go">
