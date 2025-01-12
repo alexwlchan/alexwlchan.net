@@ -161,6 +161,7 @@ Instead, I've created a new top-level page which is [a complete tag index][tags]
       width="260"
       class="screenshot"
       alt="A page titled ‘tags’ with a list of tags. Each tag is a text link, and the number of posts is shown in parentheses after the link, for example “aws (45)”."
+      style="object-fit: cover; height: 100% !important;"
     %}
     {%
       picture
@@ -168,6 +169,7 @@ Instead, I've created a new top-level page which is [a complete tag index][tags]
       width="700"
       class="screenshot"
       alt="A page showing my posts tagged with “rust”. At the top of the page is a title and two article cards for my favourite Rust articles, and below that is a list of links -- the article title, and a short description."
+      style="object-fit: cover; height: 100% !important;"
     %}
   </div>
 </figure>
