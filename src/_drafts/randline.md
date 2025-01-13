@@ -23,6 +23,10 @@ There are lots of ways to solve this problem; I wrote my own as a way to get som
 [randline]: https://github.com/alexwlchan/randline
 [reservoir sampling]: https://en.wikipedia.org/wiki/Reservoir_sampling
 
+
+
+
+
 ## Existing approaches
 
 There's a [`shuf` command][shuf] in coreutils which solves exactly this problem (and does a few more things besides):
@@ -67,6 +71,10 @@ Can we do better?
 [Stack Overflow]: https://stackoverflow.com/q/9245638/1558022
 [UL]: https://unix.stackexchange.com/q/108581/43183
 [random.sample]: https://docs.python.org/3/library/random.html#random.sample
+
+
+
+
 
 ## Reservoir sampling
 
@@ -120,7 +128,7 @@ MathJax = {
 The [Wikipedia article][reservoir sampling] describes several algorithms, including a simple Algorithm&nbsp;R and an optimal Algorithm&nbsp;L.
 The underlying principle of Algorithm&nbsp;L is pretty simple:
 
-> If we generate $n$ random numbers $u_1, \ldots, u_n ~ U[0,1]$ independently, then the indices of the smallest $k$ of them is a uniform sample of the $k$-subsets of $\\{1, \ldots, n\\}$.
+> If we generate $n$ random numbers $u_1, \ldots, u_n \~ U[0,1]$ independently, then the indices of the smallest $k$ of them is a uniform sample of the $k$-subsets of $\\{1, \ldots, n\\}$.
 
 There's no proof in the Wikipedia article, but I wanted to satisfy myself that this is true.
 Here's my brief attempt at a justification:
@@ -163,6 +171,10 @@ This is the same for every $k$-subset, so each one is equally likely -- which is
 
 That proof might not be watertight, but it was good enough to give me the confidence to try implementing Algorithm&nbsp;L.
 
+
+
+
+
 ## Implementing Algorithm L in an efficient way
 
 If we don't know $n$ upfront, we could save all the items and only then generate the random variables $u_1, \ldots, u_n ~ U[0,1]$ -- but that's precisely the sort of inefficient thinking I'm trying to fix!
@@ -185,41 +197,67 @@ Here's the approach I took:
     *   If the weight of this new item is smaller than the largest weight already in the resevoir, then add it to the reservoir and remove the previously-largest item.
         Recalculate the largest weight in the reservoir.
 
-This approach means we only have to hold $k+1$ items and $k+1$ weights in memory at a time -- much more efficident, and
+This approach means we only have to hold $k+1$ items and $k+1$ weights in memory at a time -- much more efficient, and it should scale to an arbitrarily large number of inputs.
+It's a bit too much code to include here, but you can read my Rust implementation [on GitHub](https://github.com/alexwlchan/randline/blob/66df6d72aafeacfb637ffdc1da3980271fc2b28b/src/sampling.rs).
+I wrote some tests, which include a statistical test -- I run the sampling code 10,000 times, and check the results are the uniform distribution I want.
 
-The Wikipedia article outlines some "simplifications"
+The Wikipedia article outlines some "simplifications", but I didn't implement any of them.
+
+
+
+
+
+## What did I learn about Rust?
+
+This is only about 250 lines of Rust, but it was still good practice, and I learnt a few new things.
+
+**This is the first time I used [generics](https://doc.rust-lang.org/book/ch10-01-syntax.html) in Rust.**
+I've used them in a few other languages, and read about them in Rust, but never written them.
+It was straightforward and there were no big surprises.
+
+**I better understand the difference between `Vec.iter()` and `Vec.into_iter().`**
+I knew that one is giving you a view over an array while the other consumes it, but I hadn't thought about how this affects the types.
+Consider the following example:
+
+```rust
+fn reservoir_sample<T>(
+    mut items: impl Iterator<Item = T>,
+    k: usize) -> Vec<T> { … }
+
+let letters = vec!["A", "A", "A"];
+
+let result1 = reservoir_sample(letters.iter(), 1);
+assert_eq!(result1, vec!["A"]);
+
+let result2 = reservoir_sample(letters.into_iter(), 1);
+assert_eq!(result2, vec!["A"]);
+```
+
+I started
 
 ---
 
-We only care about the ranked order of the <em>u</em><sub>1</sub>,&nbsp;…,&nbsp;<em>u</em><sub><em>n</em></sub>, not their actual values.
-Because they're all independent and identically distributed, all possible rankings are equally likely.
-This means that each permutation of {1,&nbsp;,…,*n*} is equally likely.
-In particular, each permutation will be selected with probability 1/*n*!.
+I could write Algorithm L in plenty
 
-For each *k*-subset of {1,&nbsp;,…,*n*}, there are the same number of permutations that start with those *k* numbers.
+type of `k` = `usize` or `u32`???
+followed `with_capacity`
 
+---
 
+testing was another useful exercise in Rust, and I understand `.iter()` and `.into_iter()`better now
+reference/value, but really grok it
+cf test what comes out?
 
-Because the
-u
-i
-u
-i
-​
- 's are i.i.d. uniform, all possible rankings of the
-n
-n values are equally likely (each permutation of
-{
-1
-,
-2
-,
-…
-,
-n
-}
-{1,2,…,n} is equally probable).
+```
+let a = vec!["a", "b", "c"];
 
+reservoir_sample(a.iter(), 5);       // Vec<&String>
+reservoir_sample(a.into_iter(), 5);  // Vec<String>
+```
+
+--- BinaryHeap
+
+---
 
 
 ---
@@ -249,16 +287,6 @@ is this idiomatic rust? idk but I can understand it which is more important
 added some tests and basic wrapper
 don't really understand why Algorithm L works, but did some testing and it does the right thing
 
-testing was another useful exercise in Rust, and I understand `.iter()` and `.into_iter()`better now
-reference/value, but really grok it
-cf test what comes out?
-
-```
-let a = vec!["a", "b", "c"];
-
-reservoir_sample(a.iter(), 5);       // Vec<&String>
-reservoir_sample(a.into_iter(), 5);  // Vec<String>
-```
 
 also why there's an f32 weight instead of i32
 
