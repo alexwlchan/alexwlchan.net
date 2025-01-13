@@ -100,6 +100,13 @@ Perfect!
 
 [secretary problem]: https://en.wikipedia.org/wiki/Secretary_problem
 
+## Actually implementing the algorithm
+
+The Wikipedia article describes several algorithms, including a simple Algorithm&nbsp;R and an optimal Algorithm&nbsp;L.
+The description is pretty simple:
+
+> If we generate *n* random numbers <em>u</em><sub>1</sub>,&nbsp;…,&nbsp;<em>u</em><sub><em>n</em></sub> ~&nbsp;*U*[0,1] independently, then the indices of the smallest *k* of them is a uniform sample of the *k*-subsets of {1,&nbsp;…,&nbsp;*n*}.
+
 
 ---
 
@@ -138,6 +145,8 @@ let a = vec!["a", "b", "c"];
 reservoir_sample(a.iter(), 5);       // Vec<&String>
 reservoir_sample(a.into_iter(), 5);  // Vec<String>
 ```
+
+also why there's an f32 weight instead of i32
 
 and continue to get a bit more practice writing Rust
 
