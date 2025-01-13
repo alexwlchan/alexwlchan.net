@@ -62,12 +62,12 @@ puts '===== ============== ============== =============='
   print pprint_number(article_words.flatten.length, 6)
   print "(#{article_words.length})".rjust(6)
 
-  print "   "
+  print '   '
 
   print pprint_number(til_words.flatten.length, 6)
   print "(#{til_words.length})".rjust(6)
 
-  print "   "
+  print '   '
 
   print pprint_number(article_words.flatten.length + til_words.flatten.length, 6)
   print "(#{article_words.length + til_words.length})".rjust(6)
@@ -75,24 +75,24 @@ puts '===== ============== ============== =============='
   puts
 end
 
-article_words = Dir["src/_posts/**/*.md"].map { |f| get_word_count(f) }
-til_words = Dir["src/_til/**/*.md"].map { |f| get_word_count(f) }
+article_words = Dir['src/_posts/**/*.md'].map { |f| get_word_count(f) }
+til_words = Dir['src/_til/**/*.md'].map { |f| get_word_count(f) }
 
 puts '===== ============== ============== =============='
 
-print "TOTAL  "
+print 'TOTAL  '
 
 print pprint_number(article_words.flatten.length, 6)
 print "(#{article_words.length})".rjust(6)
 
-print "  "
+print '  '
 
 print pprint_number(til_words.flatten.length, 7)
 print "(#{til_words.length})".rjust(6)
 
-print "  "
+print '  '
 
 print pprint_number(article_words.flatten.length + til_words.flatten.length, 6)
 print "(#{article_words.length + til_words.length})".rjust(6)
 
-puts 
+puts
