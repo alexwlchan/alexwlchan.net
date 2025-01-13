@@ -44,14 +44,14 @@ def get_word_count(path)
   words
 end
 
-def pprint_number(num)
-  num.to_s.gsub(/\B(?=(...)*\b)/, ',').rjust(6)
+def pprint_number(num, padding)
+  num.to_s.gsub(/\B(?=(...)*\b)/, ',').rjust(padding)
 end
 
 Date.today.year
 
-puts '            articles             TIL           total'
-puts '==== =============== =============== ==============='
+puts '            articles            TIL          total'
+puts '===== ============== ============== =============='
 
 (2012..Date.today.year).each do |year|
   article_words = Dir["src/_posts/#{year}/*.md"].map { |f| get_word_count(f) }
@@ -59,28 +59,40 @@ puts '==== =============== =============== ==============='
 
   print "#{year}\t"
 
-  print pprint_number(article_words.flatten.length)
-  print "(#{article_words.length})".rjust(5)
+  print pprint_number(article_words.flatten.length, 6)
+  print "(#{article_words.length})".rjust(6)
 
-  print "\t"
+  print "   "
 
-  print pprint_number(til_words.flatten.length)
+  print pprint_number(til_words.flatten.length, 6)
   print "(#{til_words.length})".rjust(6)
 
-  print "\t"
+  print "   "
 
-  print pprint_number(article_words.flatten.length + til_words.flatten.length)
+  print pprint_number(article_words.flatten.length + til_words.flatten.length, 6)
   print "(#{article_words.length + til_words.length})".rjust(6)
 
   puts
 end
 
-#
-#   puts "#{article_count.to_s.rjust(5)}\t#{til_count.to_s.rjust(6)}\t#{(article_count + til_count).to_s.rjust(7)}"
-#
-#   articles += article_count
-#   til += til_count
-# end
-#
-# puts '==== ======== ======== ========'
-# puts "    \t#{articles.to_s.rjust(5)}\t#{til.to_s.rjust(6)}\t#{(articles + til).to_s.rjust(7)}"
+article_words = Dir["src/_posts/**/*.md"].map { |f| get_word_count(f) }
+til_words = Dir["src/_til/**/*.md"].map { |f| get_word_count(f) }
+
+puts '===== ============== ============== =============='
+
+print "TOTAL  "
+
+print pprint_number(article_words.flatten.length, 6)
+print "(#{article_words.length})".rjust(6)
+
+print "  "
+
+print pprint_number(til_words.flatten.length, 7)
+print "(#{til_words.length})".rjust(6)
+
+print "  "
+
+print pprint_number(article_words.flatten.length + til_words.flatten.length, 6)
+print "(#{article_words.length + til_words.length})".rjust(6)
+
+puts 
