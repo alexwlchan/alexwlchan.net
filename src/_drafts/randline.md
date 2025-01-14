@@ -212,11 +212,11 @@ The Wikipedia article outlines some "simplifications", but I didn't implement an
 This is only about 250 lines of Rust, but it was still good practice, and I learnt a few new things.
 
 **This is the first time I used [generics](https://doc.rust-lang.org/book/ch10-01-syntax.html) in Rust.**
-I've used them in a few other languages, and read about them in Rust, but never written them.
-It was straightforward and there were no big surprises.
+I've used them in a few other languages, and read about them in Rust, but never written them myself.
+It was straightforward; there were no big surprises.
 
 **I better understand the difference between `Vec.iter()` and `Vec.into_iter().`**
-I knew that one is giving you a view over an array while the other consumes it, but I hadn't thought about how this affects the types.
+I knew that one is giving you a view over an array while the other consumes it, but I hadn't thought about how that affects the types.
 Consider the following example:
 
 ```rust
@@ -233,64 +233,64 @@ let result2 = reservoir_sample(letters.into_iter(), 1);
 assert_eq!(result2, vec!["A"]);
 ```
 
-I started
+This code doesn't compile.
 
----
+When I call `.iter()`, I get an iterator of *references* to the elements of the array, rather than the array itself.
+The array `letters` is `Vec<&str>`, and calling `.iter()` gives me an `Iterator<&&str>` -- then `result1` becomes a `Vec<&&str>`.
+This can't be compared to the expected result which is a `Vec<&str>`, so the code won't compile.
 
-I could write Algorithm L in plenty
+When I call `.into_iter()`, I get an iterator of *values* from the array.
+This means calling `.into_iter()` on `letters` gives me an `Iterator<&str>`, and `result2` is a `Vec<&str>`.
 
-type of `k` = `usize` or `u32`???
-followed `with_capacity`
+This distinction is described in the documentation, but I don't think I really understood it before.
+I'd read it, but I hadn't internalised it.
 
----
+**Rust arrays are indexed with `usize`.**
+I encountered this when trying to pick a type for `k`, the size of the random sample.
+This needs to be a positive integer, but what's the difference between a `u32` and `usize` in this scenario?
 
-testing was another useful exercise in Rust, and I understand `.iter()` and `.into_iter()`better now
-reference/value, but really grok it
-cf test what comes out?
+I looked to [`Vec::with_capacity`][with_capacity] for inspiration -- it takes a `capacity: usize`.
+I did a bit more reading, and it seems to be because Rust arrays are [indexed with `usize`][usize].
+This isn't mentioned in the [description of `usize`][desc], but it seems useful to know.
 
-```
-let a = vec!["a", "b", "c"];
+[with_capacity]: https://doc.rust-lang.org/std/vec/struct.Vec.html#method.with_capacity
+[usize]: https://doc.rust-lang.org/reference/expressions/array-expr.html#array-and-slice-indexing-expressions
+[desc]: https://doc.rust-lang.org/std/primitive.usize.html
 
-reservoir_sample(a.iter(), 5);       // Vec<&String>
-reservoir_sample(a.into_iter(), 5);  // Vec<String>
-```
+**There's a lot of cool stuff in [`std::collections`](https://doc.rust-lang.org/std/collections/index.html).**
+At the core of this tool, I'm holding a reservoir of weighted elements, and I want to be able to identify the element with the biggest weight when it gets replaced.
+This is a perfect fit for a [`BinaryHeap`][BinaryHeap], and using it out of the standard library saved me writing a bunch of fiddly code.
 
---- BinaryHeap
-
----
-
-
----
-
-but not particular efficient – load whole thing into memory.
-what if want to do it more efficiently?
-
-not sure what to do
-ask Claude, it suggested https://en.wikipedia.org/wiki/Reservoir_sampling
-
-aha!
-sounds perfect
-
-let's implement Algorithm L in Rust
-
-did ask Claude to generate some code, but too much for me to really understand
-and defeats point of exercise!
-
-here's the key algo:
+Here's the broad strokes:
 
 ```rust
-code goes here
+struct WeightedItem<T> {
+    item: T,
+    weight: f64,
+}
+
+let mut reservoir: BinaryHeap<WeightedItem<T>> =
+    BinaryHeap::with_capacity(k);
 ```
 
-is this idiomatic rust? idk but I can understand it which is more important
+I did have to implement `Eq` and `Ord` for my `WeightedItem` struct, but that wasn't difficult -- I was able to do it from the helpful compiler error messages telling me what to do next.
 
-added some tests and basic wrapper
-don't really understand why Algorithm L works, but did some testing and it does the right thing
+The `collections` module is a superpower in Python, and the same seems to be true in Rust.
+There's a handy [When should you use which collection?][which_collection] section at the top of the docs, so I should take a closer look at this library.
+I'm sure there are other useful things in here.
 
+[BinaryHeap]: https://doc.rust-lang.org/std/collections/binary_heap/struct.BinaryHeap.html
+[which_collection]: https://doc.rust-lang.org/std/collections/index.html#when-should-you-use-which-collection
 
-also why there's an f32 weight instead of i32
+---
 
-and continue to get a bit more practice writing Rust
+This whole tool is less than 250 lines of Rust, including tests.
+It's also pretty niche and I doubt anybody else will want to use it -- there are plenty of other tools that do it, including the venerable `shuf`, which learnt how to do reservoir sampling [nearly twelve years ago][shuf_reservoir].
+That's what most people should use.
+But just in case anybody is interested, I've put all the code [on GitHub][github].
 
-feels like a niche tool but published on GitHub anyway
-you want it? go check it out
+I've learnt every programming language in tiny steps -- a little at a time, growing slowly until I have something approximating "competence".
+It's over eight years since I wrote my first Rust, and I'm still a beginner, but I'm having fun learning, and I'm having fun writing it down as I go.
+
+[shuf_reservoir]: https://github.com/coreutils/coreutils/commit/20d7bce0f7e57d9a98f0ee811e31c757e9fedfff
+[github]: https://github.com/alexwlchan/randline
