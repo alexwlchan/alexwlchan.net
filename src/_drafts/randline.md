@@ -29,7 +29,7 @@ There are lots of ways to solve this problem; I wrote my own as a way to get som
 
 ## Existing approaches
 
-There's a [`shuf` command][shuf] in coreutils which solves exactly this problem (and does a few more things besides):
+There's a [`shuf` command][shuf] in coreutils which solves exactly this problem:
 
 ```console
 $ shuf -n 3 /usr/share/dict/words
@@ -38,9 +38,9 @@ melody's
 reimbursed
 ```
 
-I don't have coreutils on my Mac, so I can't use `shuf`.
+But I don't have coreutils on my Mac, so I can't use `shuf`.
 
-There are lots of other approaches, using tools like `awk`, `sort -R` and `perl`.
+There are lots of other approaches, using tools like `awk`, `sort` and `perl`.
 If you're interested, check out these [Stack Overflow] and [Unix & Linux Stack Exchange][UL] threads for some examples.
 
 For my needs, I wrote a tiny Python script called `randline` which I saved in my PATH years ago, and I haven't thought much about since:
@@ -79,25 +79,16 @@ Can we do better?
 ## Reservoir sampling
 
 In other Python scripts, I process files as a stream -- look at one line at a time, rather than loading the whole file at once.
-This doesn't do much for small files, but it pays off when you have really big files.
+This doesn't make much difference for small files, but it pays off when you have really big files.
 
-Taking a random sample of one or more lines feels like it could be done in a similar way.
-Why not create a "buffer" to hold the items I'm going to select, and on each line decide whether to (1) replace one of the items in the buffer or (2) discard the line?
-This has a smaller and more predictable memory footprint, and should scale to any size of file.
-
-But how do you decide whether to keep or discard an item?
-You can't change your mind and retrieve the item later.
-
-I explained the problem to ChatGPT, and it pointed me in the right direction: I was describing [reservoir sampling].
-It's exactly what I was thinking of, including the memory efficiency that started this line of thinking:
+I couldn't think of a good way to take a random sample of a file using streaming, but I did some reading and I found a technique called [reservoir sampling].
+From the description on Wikipedia, it sounds like a perfect fit:
 
 > Reservoir sampling is a family of randomized algorithms for choosing a simple random sample, without replacement, of *k* items from a population of unknown size *n* in a single pass over the items. The size of the population *n* is not known to the algorithm and is typically too large for all *n* items to fit into main memory. The population is revealed to the algorithm over time, and the algorithm cannot look back at previous items.
 
-The buffer I'd imagined is called the "reservoir", and there are various algorithms for getting a uniform sample of the input items.
-Perfect!
-
-This is something I've found generative AI quite useful for: I know smart people have already thought about a problem, but I don't know the right words to look up.
-Describing the problem to AI gives me the magic words I need to type into a traditional search engine.
+The basic idea is that rather than holding the whole file in memory at once, I can keep a fixed-sized buffer -- or "reservoir" -- of the items I've selected.
+As I go line-by-line through the file, I can add or remove items in this resevoir, and it will always use about the same amount of memory.
+I'm never holding more than the reservoir.
 
 
 
@@ -126,26 +117,28 @@ MathJax = {
 ## Algorithm L
 
 The [Wikipedia article][reservoir sampling] describes several algorithms, including a simple Algorithm&nbsp;R and an optimal Algorithm&nbsp;L.
-The underlying principle of Algorithm&nbsp;L is pretty simple:
+The underlying principle of Algorithm&nbsp;L is pretty concise:
 
-> If we generate $n$ random numbers $u_1, \ldots, u_n \~ U[0,1]$ independently, then the indices of the smallest $k$ of them is a uniform sample of the $k$-subsets of $\\{1, \ldots, n\\}$.
+> If we generate $n$ random numbers $u_1, \ldots, u_n \sim U[0,1]$ independently, then the indices of the smallest $k$ of them is a uniform sample of the $k$-subsets of $\\{1, \ldots, n\\}$.
 
 There's no proof in the Wikipedia article, but I wanted to satisfy myself that this is true.
+If you're happy to take it as read, you can skip the maths and go to the next section.
+
 Here's my brief attempt at a justification:
 
-What we really care about is the relative ranking of the $u_1, \ldots, u_n$, not their actual values -- we care whether, for example, $u_1 < u_2$, but not the exact difference.
-Because the variables are independent and identically distributed, all possible rankings are equally likely.
-(There's a symmetry here -- every variable is the same, so none of them can be "special" or favoured above the others.)
+What we really care about is the relative ranking of the $u_1, \ldots, u_n$, not their actual values -- we care whether, for example, $u_1 < u_2$, but not the exact difference between them.
 
-That is each permutation of the indices $\\{1, \ldots, n\\}$ is equally likely.
+The variables are independent and identically distributed, so all possible rankings are equally likely.
+(This is because of symmetry -- every variable is the same, so none of them can be "special" or favoured above the others.)
+
+This means that each permutation of the indices $\\{1, \ldots, n\\}$ is equally likely.
 There are $n!$ such permutations, so each occurs with probability $1/n!$.
+
+Because every permutation is equally likely, the probability that a particular $k$-subset will be selected is a simple fraction:
 
 $$
 \begin{equation*}
-\text{probability}
-\left(
-  \text{selecting this }k\text{-subset}
-\right)
+\text{probability of selecting this }k\text{-subset}
 =
 \frac{\text{# of permutations where this }k\text{-subset is smallest}}
 {\text{# of permutations}}
@@ -158,18 +151,15 @@ This means there are $k!\left(n-k\right)!$ permutations that match, and so:
 
 $$
 \begin{equation*}
-\text{probability}
-\left(
-  \text{selecting this }k\text{-subset}
-\right)
+\text{probability of selecting this }k\text{-subset}
 =
 \frac{k!\left(n-k\right)!}{n!}
 \end{equation*}
 $$
 
-This is the same for every $k$-subset, so each one is equally likely -- which is the thing we care about.
+This probability is the same for every $k$-subset, so each one is equally likely -- which is the thing we care about.
 
-That proof might not be watertight, but it was good enough to give me the confidence to try implementing Algorithm&nbsp;L.
+This was enough to give me the confidence to try implementing Algorithm&nbsp;L.
 
 
 
@@ -177,31 +167,34 @@ That proof might not be watertight, but it was good enough to give me the confid
 
 ## Implementing Algorithm L in an efficient way
 
-If we don't know $n$ upfront, we could save all the items and only then generate the random variables $u_1, \ldots, u_n ~ U[0,1]$ -- but that's precisely the sort of inefficient thinking I'm trying to fix!
+If we don't know $n$ upfront, we could save all the items and only then generate the random variables $u_1, \ldots, u_n \sim U[0,1]$ -- but that's precisely the sort of inefficiency I'm trying to avoid!
 
-But we don't need to: the nice thing about this algorithm is that we only need to track the $k$ smallest items we've seen so far.
+Fortunately, we don't need to: the nice thing about this algorithm is that we only need to track the $k$ smallest items we've seen so far.
 Once an item is larger than the $k$ smallest, we can safely discard it because we know it'll never be used.
 
 Here's the approach I took:
 
-1.  Create an empty "reservoir" of $k$ items
+1.  Create an empty "reservoir" of $k$ items.
 
 2.  As you get items, assign each one a "weight" and start filling the reservoir.
     If you run out of items before you fill the reservoir, you're done.
 
     Track the largest weight in the reservoir.
 
-3.  Once the reservoir is full, for each new item assign it a weight.
+3.  Once the reservoir is full, go through the remaining items one-by-one.
+
+    For each item, assign it a weight.
     *   If the weight of this new item is larger than the largest weight already in the reservoir, discard the item.
         It's not in the $k$ smallest so we don't care about it.
     *   If the weight of this new item is smaller than the largest weight already in the resevoir, then add it to the reservoir and remove the previously-largest item.
         Recalculate the largest weight in the reservoir.
 
-This approach means we only have to hold $k+1$ items and $k+1$ weights in memory at a time -- much more efficient, and it should scale to an arbitrarily large number of inputs.
+This approach means we only have to hold a fixed number of items/weights in memory at a time -- much more efficient, and it should scale to an arbitrarily large number of inputs.
 It's a bit too much code to include here, but you can read my Rust implementation [on GitHub](https://github.com/alexwlchan/randline/blob/66df6d72aafeacfb637ffdc1da3980271fc2b28b/src/sampling.rs).
 I wrote some tests, which include a statistical test -- I run the sampling code 10,000 times, and check the results are the uniform distribution I want.
 
 The Wikipedia article outlines some "simplifications", but I didn't implement any of them.
+(I thought the basic idea was simple enough, and they actually made it more complicated.)
 
 
 
@@ -210,6 +203,26 @@ The Wikipedia article outlines some "simplifications", but I didn't implement an
 ## What did I learn about Rust?
 
 This is only about 250 lines of Rust, but it was still good practice, and I learnt a few new things.
+
+
+
+### Working with generics
+
+I've used [generics] in other languages, and I'd read about them in the Rust Book, but I'd never written my own code using generics in Rust.
+I used a generic to write my sampling function:
+
+<pre><code>fn reservoir_sample<strong>&lt;T&gt;</strong>(
+    mut items: impl Iterator<strong>&lt;Item = T&gt;</strong>,
+    k: usize) -> Vec<strong>&lt;T&gt;</strong> { … }</code></pre>
+
+It was straightforward, and there were no big surprises.
+
+[generics]: https://doc.rust-lang.org/book/ch10-01-syntax.html
+
+
+
+### The difference between `.iter()` and `.into_iter()`
+
 
 **This is the first time I used [generics](https://doc.rust-lang.org/book/ch10-01-syntax.html) in Rust.**
 I've used them in a few other languages, and read about them in Rust, but never written them myself.
