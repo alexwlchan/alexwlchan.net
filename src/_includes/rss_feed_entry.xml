@@ -9,23 +9,7 @@
   <published>{{ post.date | date_to_xmlschema }}</published>
   <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
 
-  {% comment %}
-    This makes the post URL the permalink for new posts.
-    
-    Previously it was the post ID, which doesn't have the trailing slash.
-    
-    To avoid resending old posts to everyone's RSS readers, I'm preserving
-    the sans-slash IDs.  When all the posts without slashes fall off the end,
-    I can remove this workaround.
-    
-    See https://github.com/alexwlchan/alexwlchan.net/issues/787
-  {% endcomment %}
-  {% capture post_date %}{{ post.date | date: '%s' }}{% endcapture %}
-  {% if post_date > '1716643270' %}
   <id>{{ post.url | absolute_url | xml_escape }}</id>
-  {% else %}
-  <id>{{ post.id | absolute_url | xml_escape }}</id>
-  {% endif %}
 
   <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
     <![CDATA[
