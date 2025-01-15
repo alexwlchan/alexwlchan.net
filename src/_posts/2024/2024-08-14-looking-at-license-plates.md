@@ -45,7 +45,7 @@ The aesthetics are why I thought maybe it was a specific choice for film.
 Google suggests cost is also a factor, although I wonder how much of a difference an extra plate actually makes.
 
 I didn't see any cars without any front license plates while I was in Vermont.
-I did see some cars with ["Vermont Strong" commemorative plates](https://dmv.vermont.gov/vermontstrong23), plus a few with political slogans I didn't catch.
+I did see some cars with ["Vermont Strong" commemorative plates](https://dmv.vermont.gov/vermontstrong23), plus a few with political slogans I didn't catch -- rather than the registration number of the car.
 
 A bit more research suggests that the US is in a minority -- almost everywhere other country requires license plates on both the front and back of the car.
 I wonder if these 19 US states will continue to be outliers, or if they'll ever change to match the rest of the world.
