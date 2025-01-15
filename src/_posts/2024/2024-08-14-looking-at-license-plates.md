@@ -164,7 +164,7 @@ I wasn't in the US long enough to notice anything specific, but I wonder what in
 One thing I noticed is that the different plates mean that outsiders stand out.
 Our rental car was registered in Maine, and our black-on-white plate stood out from the sea of green Vermont plates.
 This feeling was exacerbated by visiting a small rural town where everyone knows each other, and I was the stranger who nobody knew.
-(My British accent marked me as an visitor as well.)
+(Of course, my British accent marked me as an visitor as well.)
 
 I didn't realise this variety of license plate designs was a thing until I was on US roads -- although I'm sure I've seen different plates in US media, it wasn't until I saw dozens of cars next to each other that it jumped out at me.
 Standardised number plate designs are another aspect of my life that felt universal, but were really just familiar.
