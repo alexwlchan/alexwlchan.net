@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "randline: get a random selection of lines in a file using reservoir sampling"
-summary: I wrote a tiny Rust tool that can get random samples in a memory-efficient way.
+summary: I wrote a tiny Rust tool to get random samples in a memory-efficient way, and I learnt a lot while doing it.
 tags:
   - my tools
   - rust
@@ -239,7 +239,7 @@ I hadn't thought about how this affects the types.
 
 When you call `.iter()`, you get an iterator of *references*.
 When you call `.into_iter()`, you get an iterator of *values*.
-Apparently I've never run into this distinction before, because it caused me some confusion when I was writing a test.
+This caused me some confusion when I was writing a test.
 
 Consider the following code:
 
