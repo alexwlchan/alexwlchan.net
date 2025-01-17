@@ -66,6 +66,8 @@ class AddNonBreakingSpaces
     phrases = [
       '<em>k</em>-means',
       '26k items',
+      'Algorithm L',
+      'Algorithm R',
       'Apple TV+',
       'CC0 1.0',
       'CC BY 2.0',
