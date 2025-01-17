@@ -10,12 +10,12 @@ I've posted another command-line tool on GitHub: [randline], which gives you a r
 
 ```console
 $ randline < /usr/share/dict/words
-Urania
+ultraluxurious
 
 $ randline 3 < /usr/share/dict/words
-foolhardiness
-rhinoscopic
-wormhood
+unexceptionably
+baselessness
+salinity
 ```
 
 There are lots of tools that solve this problem; I wrote my own as a way to get some more Rust practice and try a new-to-me algorithm called [reservoir sampling].
@@ -29,7 +29,7 @@ There are lots of tools that solve this problem; I wrote my own as a way to get 
 
 ## Existing approaches
 
-There's a [`shuf` command][shuf] in coreutils which is designed to solve this problem:
+There's a [`shuf` command][shuf] in coreutils which is designed to do this exact thing:
 
 ```console
 $ shuf -n 3 /usr/share/dict/words
@@ -82,7 +82,7 @@ Can we do better?
 In other Python scripts, I process files as a stream -- look at one line at a time, rather than loading the whole file at once.
 This doesn't make much difference for small files, but it pays off when you have really big files.
 
-I couldn't think of a good way to take a random sample of a file using streaming, and get a uniform distribution -- but smart people have already thought about this.
+I couldn't think of a good way to take a random sample of a file using streaming, and still get a uniform distribution -- but smart people have already thought about this.
 I did some reading and I found a technique called *reservoir sampling*.
 The introduction in [the Wikipedia article][wikipedia] makes it clear this is exactly what I want:
 
@@ -126,30 +126,30 @@ The underlying principle of Algorithm L is pretty concise:
 > If we generate $n$ random numbers $u_1, \ldots, u_n \sim U[0,1]$ independently, then the indices of the smallest $k$ of them is a uniform sample of the $k$-subsets of $\\{1, \ldots, n\\}$.
 
 There's no proof in the Wikipedia article, but I wanted to satisfy myself that this is true.
-If you're happy to take it as read, you can skip the maths and go to the next section.
+If you're happy to take it as given, you can skip the maths and go to the next section.
 
-Here's my brief attempt at a justification:
+Here's my attempt at a justification:
 
 What we really care about is the relative ranking of the $u_1, \ldots, u_n$, not their actual values -- we care whether, for example, $u_1 < u_2$, but not the exact difference between them.
 
 Because the variables are independent and they have the same distribution, every possible ranking is equally likely.
-(This is because of symmetry -- every variable is the same, so none of them can be "special" or favoured above the others.)
-
+Every variable is the same, so none of them can be "special" or favoured above the others.
 This means that each permutation of the indices $\\{1, \ldots, n\\}$ is equally likely.
 There are $n!$ such permutations, so each occurs with probability $1/n!$.
 
-Because every permutation is equally likely, the probability that a particular $k$-subset will be selected is a simple fraction:
+For a given $k$-subset, we're interested in permuations where this subset is the first $k$ items.
+This means the probability that a particular $k$-subset will be selected is a simple fraction:
 
 $$
 \begin{equation*}
 \text{probability of selecting this }k\text{-subset}
 =
-\frac{\text{# of permutations where this }k\text{-subset is smallest}}
+\frac{\text{# of permutations where this subset is the first }k\text{ items}}
 {\text{# of permutations}}
 \end{equation*}
 $$
 
-How many permutations are there where this $k$-subset is smallest?
+How many permutations are there where this $k$-subset is the first $k$ items?
 There are $k!$ ways to arrange this $k$-subset as the first $k$ digits, and $(n-k)!$ ways to arrange the remaining digits.
 This means there are $k!\left(n-k\right)!$ permutations that match, and so:
 
@@ -191,11 +191,13 @@ Here's the approach I took:
 
     For each item, assign it a weight.
     *   If the weight of this new item is larger than the largest weight already in the reservoir, discard the item.
-        The weight isn't in the $k$ smallest, so we don't care about it.
+        This weight isn't in the $k$ smallest, so we don't care about it.
     *   If the weight of this new item is smaller than the largest weight in the resevoir, then add the item to the reservoir and remove the item with the previously-largest weight.
         Recalculate the largest weight of the items in the reservoir.
 
-4.  Once you run out of items, return the items in the reservoir.
+    When you run out of items, go to step 4.
+
+4.  Return the items in the reservoir.
     This is your random sample.
 
 This approach means we only have to hold a fixed number of items/weights in memory at a time -- much more efficient, and it should scale to an arbitrarily large number of inputs.
@@ -254,10 +256,10 @@ assert_eq!(reservoir_sample(items, 1), vec!["A"]);
 ```
 
 I was trying to write a test that `reservoir_sample` would only return the number of items I asked for, and no more.
-I wrote the code above, but it doesn't compile.
+This was my first attempt, and it doesn't compile.
 
 When I call `letters.iter()`, I'm getting an iterator of string references, that is `Iterator<&&str>`.
-Then I'm comparing it to a `Vec<&str>`, but Rust doesn't know how to compare `&str` and `&&str`, so it refuses to compile this code.
+Then I'm comparing it to a `Vec<&str>`, but Rust doesn't know how to check equality of `&str` and `&&str`, so it refuses to compile this code.
 
 There are two ways I could fix this:
 
@@ -293,7 +295,7 @@ It takes a single argument `capacity: usize`.
 That gave me an example to follow, but I still wanted to understand why.
 
 I did some more reading, and I learned that Rust arrays are [indexed with `usize`][indexing].
-It makes sense that a pointer type is used for array indexing, but it's been a while since I used the language with pointers, and so it didn't occur to me.
+It makes sense that a pointer type is used for array indexing, but it's been a while since I used a language with pointers, and so it didn't occur to me.
 
 [u32]: https://doc.rust-lang.org/std/primitive.u32.html
 [usize]: https://doc.rust-lang.org/std/primitive.usize.html
