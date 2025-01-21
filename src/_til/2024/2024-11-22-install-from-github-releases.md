@@ -4,6 +4,7 @@ title: How to install an asset from a GitHub release
 date: 2024-11-22 11:35:50 +0000
 tags:
   - github
+  - github actions
 summary:
   Use `gh release download`, which includes a pattern matcher if you want to pick a specific asset.
 ---
