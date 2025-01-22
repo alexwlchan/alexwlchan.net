@@ -15,9 +15,9 @@ Follow me at:
 *   Mastodon: <https://social.alexwlchan.net/@alex>
 *   Bluesky: <https://bsky.app/profile/alexwlchan.bsky.social/>
 *   LinkedIn: <https://www.linkedin.com/in/alexwlchan/>
-*   Instagram: <https://www.instagram.com/alexwlchan/>
 
-(I used to have a Twitter account, but I no longer post there.)
+(I used to be active on Twitter, but I no longer post there.
+I also have an Instagram account that I use to follow my friends, but I never post anything.)
 
 ## RSS feeds
 
