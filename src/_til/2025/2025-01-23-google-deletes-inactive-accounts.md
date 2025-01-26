@@ -10,7 +10,7 @@ I have a couple of spare Google accounts I used for old testing, and I've been g
 
 Here's a final email I got from Google today:
 
-> **SYour Google Account is being deleted**
+> **Your Google Account is being deleted**
 >
 > Your Google Account [name]@gmail.com is being deleted because it hasn’t been used within a 2-year period.
 >
