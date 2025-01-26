@@ -55,6 +55,11 @@ Style/GuardClause:
   Exclude:
     - src/_plugins/tint_colors.rb
 
+# This lint appear in RuboCop 1.71.0, but it replaced a `filter()`
+# I understood with a `slice()` I didn't, so I disabled it.
+Style/HashSlice:
+  Enabled: false
+
 Style/IfUnlessModifier:
   Enabled: false
 
