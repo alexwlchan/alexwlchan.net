@@ -1,3 +1,5 @@
+@use "../variables";
+
 /* Images on the site are usually the same width as the accompanying text.
  *
  * The text has certain constraints on width: it can't be too wide or
@@ -26,8 +28,8 @@
  */
 
 $max-width-image-overflow: 200px;
-$full-width-breakpoint: $max-width + $max-width-image-overflow + 2 * $default-padding;
-$gradual-width-breakpoint: $max-width + 2 * $default-padding;
+$full-width-breakpoint: variables.$max-width + $max-width-image-overflow + 2 * variables.$default-padding;
+$gradual-width-breakpoint: variables.$max-width + 2 * variables.$default-padding;
 
 @media screen and (min-width: $full-width-breakpoint) {
   .wide_img {
@@ -73,7 +75,7 @@ $gradual-width-breakpoint: $max-width + 2 * $default-padding;
 // The "photo" class is semantic-ish, it describes what the picture is
 // rather than how it should behave.  cf 'screenshot'.  I want to use it more!
 
-@media screen and (max-width: $max-width) {
+@media screen and (max-width: variables.$max-width) {
   .fullwidth_img, .photo {
     width:        calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
     max-width:    calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));

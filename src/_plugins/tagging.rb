@@ -1,13 +1,5 @@
 # This plugin contains a bunch of logic for the way I do tagging.
 
-def visible?(tag_name, count)
-  if tag_name.include?(':') && (count >= 3)
-    true
-  else
-    !tag_name.include? ':'
-  end
-end
-
 Jekyll::Hooks.register :site, :post_read do |site|
   # This hook runs before the site is built, and adds the following fields
   # to the `site` object:
@@ -15,14 +7,13 @@ Jekyll::Hooks.register :site, :post_read do |site|
   #   - `tag_tally` is a count of how many times each tag is used, e.g.
   #       {"paris" => 1, "programming" => 3, "photography" => 5}
   #
-  #   - `visible_tags` is a list of tags which are used multiple times.
-  #     I don't show a tag if it's only used once -- to me, tags are only
-  #     useful as a way to find related posts.  If there are no other
-  #     posts on this topic, is it useful?
+  #   - `visible_tags` is a list of tags which are used on visible posts --
+  #     that is, posts which can be discovered from the global site index.
   #
-  #     Note: I made this decision back when I didn't have a global tag
-  #     index.  I should consider if this is still the case, and maybe
-  #     do some tag cleaing.
+  #     If a post is excluded from the global site index, I don't include
+  #     it in tagging or allow it to show any tags.  This is to avoid
+  #     weird interactions where you look at a post, click to see other
+  #     posts with that tag, but that post isn't in the list.
   #
   # It also adds a field to each article/TIL:
   #
@@ -39,10 +30,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     .flat_map { |doc| doc.data['tags'] }
     .tally
 
-  site.data['visible_tags'] =
-    site.data['tag_tally']
-        .filter { |tag_name, count| visible?(tag_name, count) }
-        .keys
+  site.data['visible_tags'] = site.data['tag_tally'].keys
 
   visible_posts.each do |doc|
     doc.data['visible_tags'] = doc.data['tags'].filter do |tag_name|

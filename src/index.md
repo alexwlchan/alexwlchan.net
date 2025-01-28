@@ -9,8 +9,8 @@ footer:
 ---
 
 <style type="x-text/scss">
-  @import "components/article_cards";
-  @import "utils/functions.scss";
+  @use "components/article_cards";
+  @use "utils/functions.scss" as *;
 
   @function create_leaf_svg($fill) {
     $fill: str-replace("#{$fill}", '#', '%23');

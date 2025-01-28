@@ -88,7 +88,7 @@ module Jekyll
       end
 
       sass = <<~SCSS
-        @import "variables.scss";
+        @use "variables.scss" as *;
 
         @include create_colour_variables(#{css_colors['light']}, #{css_colors['dark']});
       SCSS
