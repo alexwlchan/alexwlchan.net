@@ -22,6 +22,8 @@ I checked the website for a timetable, bought myself a ticket, and set out for a
 I had a lovely time, and this post has a few of my photos.
 
 <style type="x-text/scss">
+  @use "mixins.scss" as *;
+
   /* See https://alexwlchan.net/2022/04/supposedly-simple-image-layout/ */
   .grid_4up {
     display: grid;
