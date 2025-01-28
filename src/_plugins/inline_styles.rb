@@ -38,8 +38,7 @@ class InlineStylesFilters
       if style_type == 'x-text/scss'
         converter = site.find_converter_instance(Jekyll::Converters::Scss)
         css = converter.convert(<<~SCSS
-          @use "mixins.scss";
-          @use "components/checkerboard.scss";
+          @use "mixins.scss" as *;
 
           #{style.text}
         SCSS

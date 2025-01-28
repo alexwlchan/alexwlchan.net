@@ -77,6 +77,8 @@ It required a bit of trigonometry, but I was able to get some working code.
 Despite this simple starting point, I was able to get quite a variety of shapes:
 
 <style type="x-text/scss">
+  @use "components/checkerboard.scss" as *;
+
   @include checkerboard_styles();
   @include hero_grid_styles(#a8ccff, #014df4);
 </style>
