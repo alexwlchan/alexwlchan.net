@@ -4,35 +4,35 @@
 
 @use "sass:math";
 
-@import "variables.scss";
-@import "mixins.scss";
+@use "variables.scss";
+@use "mixins.scss";
 
-@import "utils/functions.scss";
+@use "utils/functions.scss";
 
-@import "text_styles";
-@import "utility_classes";
+@use "text_styles";
+@use "utility_classes";
 
-@import "base/layout";
-@import "base/text.scss";
+@use "base/layout";
+@use "base/text.scss";
 
-@import "base/images_wide.scss";
+@use "base/images_wide.scss";
 
-@import "components/code";
-@import "components/footer";
-@import "components/latex";
-@import "components/nav";
-@import "components/pretty_hr.scss";
-@import "components/skip_to_main";
-@import "components/slides";
-@import "components/syntax_highlighting.scss";
-@import "components/tags";
-@import "components/til";
+@use "components/code";
+@use "components/footer";
+@use "components/latex";
+@use "components/nav";
+@use "components/pretty_hr.scss";
+@use "components/skip_to_main";
+@use "components/slides";
+@use "components/syntax_highlighting.scss";
+@use "components/tags";
+@use "components/til";
 
 $primary-color-light: #d01c11;
 $primary-color-dark:  #ff4242;
 
-@include create_default_variables();
-@include create_colour_variables($primary-color-light, $primary-color-dark);
+@include variables.create_default_variables();
+@include variables.create_colour_variables($primary-color-light, $primary-color-dark);
 
 a.download {
   display: inline-block;
