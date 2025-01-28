@@ -48,8 +48,8 @@
  *
  */
 @function color-to-hex-str($color) {
-  $red_hex:   dec-to-hex(color.red($color));
-  $green_hex: dec-to-hex(color.green($color));
-  $blue_hex:  dec-to-hex(color.blue($color));
+  $red_hex:   dec-to-hex(color.channel($color, "red",   $space: rgb));
+  $green_hex: dec-to-hex(color.channel($color, "green", $space: rgb));
+  $blue_hex:  dec-to-hex(color.channel($color, "blue",  $space: rgb));
   @return string.to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
 }
