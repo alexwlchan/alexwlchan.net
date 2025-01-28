@@ -73,9 +73,9 @@ Fortunately, I enjoy trying to think of a name that fits the machine, and it bri
       (It was not.)
     </p>
     <p>
-      Every summer, Apple would preview the next version of Mac OS X at WWDC, and I ran the developer betas until it was released to the public in the autumn.
-      The early versions were very buggy and crashy (as you’d expect from beta software), and my machine was pretty unstable for several months.
-      Things improved when I could install the released version, and I always swore off installing the developer betas ever again – right until WWDC came round the next year.
+      Every summer, Apple would preview the next version of Mac OS X at WWDC, and I ran the developer previews until it was released to the public in the autumn.
+      The early versions were very buggy and crashy (as you’d expect from pre-release software), and my machine was pretty unstable for several months.
+      Things improved when I could install the released version, and I always swore off installing the developer previews ever again – right until WWDC came round the next year.
     </p>
     <p>
       I named this laptop <strong><a href="https://en.wikipedia.org/wiki/Persephone">Persephone</a></strong>, after the Greek goddess who would spend six months in the underworld, then six months on the surface, and repeat.
