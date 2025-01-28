@@ -11,6 +11,8 @@ index:
 ---
 
 <style type="x-text/scss">
+  @use "components/checkerboard.scss" as *;
+
   @include checkerboard_styles();
 </style>
 

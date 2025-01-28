@@ -1,11 +1,14 @@
+@use "../utils/functions";
+@use "../variables";
+
 /* This CSS replaces my <hr> with a short line of grey squares. */
 
 @function create_svg($fill) {
-  $fill: str-replace("#{$fill}", '#', '%23');
+  $fill: functions.str-replace("#{$fill}", '#', '%23');
   $output: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 5" width=\"25px\" height=\"5px\">' +
            "<rect width=\"5\" height=\"5\" fill=\"#{$fill}\"/>" +
            '</svg>';
-  @return str-replace($output, '"', '%22');
+  @return functions.str-replace($output, '"', '%22');
 }
 
 /* In light mode, these squares are lighter than the text.
@@ -13,7 +16,7 @@
  */
 hr {
   $light-svg-url: create_svg(#ccc);
-  $dark-svg-url:  create_svg($body-text-dark);
+  $dark-svg-url:  create_svg(variables.$body-text-dark);
 
   --hr-background-image:   url("data:image/svg+xml;charset=UTF-8,#{$light-svg-url}");
 

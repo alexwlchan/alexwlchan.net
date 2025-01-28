@@ -1,4 +1,5 @@
-@import "utils/functions.scss";
+@use "sass:color";
+@use "utils/functions.scss" as *;
 
 $max-width: 750px;
 $default-padding: 20px;
@@ -98,8 +99,8 @@ $body-text-dark:  #c7c7c7;
 
     --link-color: #{$light-color};
 
-    --block-border-color:     #{rgba($light-color, 0.1)};
-    --block-background-color: #{hsla(hue($light-color), saturation($light-color), 95%, 0.4)};
+    --block-border-color:     #{color.change($light-color, $alpha: 0.1)};
+    --block-background-color: #{color.change($light-color, $lightness: 95%, $alpha: 0.4)};
   }
 
   @media (prefers-color-scheme: dark) {
@@ -108,8 +109,8 @@ $body-text-dark:  #c7c7c7;
 
       --link-color: #{$dark-color};
 
-      --block-border-color:     #{rgba($dark-color, 0.3)};
-      --block-background-color: #{hsla(hue($dark-color), saturation($dark-color), 5%, 0.7)};
+      --block-border-color:     #{color.change($dark-color, $alpha: 0.3)};
+      --block-background-color: #{color.change($dark-color, $lightness: 5%, $alpha: 0.7)};
     }
   }
 }

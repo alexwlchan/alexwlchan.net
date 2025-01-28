@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "sass:color";
 @use "sass:math";
 
@@ -10,9 +11,9 @@
  *
  */
 @function str-replace($string, $old, $new) {
-  $index: str-index($string, $old);
+  $index: string.index($string, $old);
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $new + str-replace(str-slice($string, $index + str-length($old)), $old, $new);
+    @return string.slice($string, 1, $index - 1) + $new + str-replace(string.slice($string, $index + string.length($old)), $old, $new);
   }
   @return $string;
 }
@@ -33,7 +34,7 @@
   $hex: "0123456789ABCDEF";
   $first: math.div($dec - $dec % 16, 16) + 1;
   $second: ($dec % 16) + 1;
-  @return str-slice($hex, $first, $first) + str-slice($hex, $second, $second);
+  @return string.slice($hex, $first, $first) + string.slice($hex, $second, $second);
 }
 
 /* Convert a color to a hex string, omitting the leading hash.
@@ -47,8 +48,8 @@
  *
  */
 @function color-to-hex-str($color) {
-  $red_hex:   dec-to-hex(red($color));
-  $green_hex: dec-to-hex(green($color));
-  $blue_hex:  dec-to-hex(blue($color));
-  @return to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
+  $red_hex:   dec-to-hex(color.channel($color, "red",   $space: rgb));
+  $green_hex: dec-to-hex(color.channel($color, "green", $space: rgb));
+  $blue_hex:  dec-to-hex(color.channel($color, "blue",  $space: rgb));
+  @return string.to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
 }

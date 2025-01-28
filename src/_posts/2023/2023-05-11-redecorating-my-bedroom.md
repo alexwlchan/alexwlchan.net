@@ -94,6 +94,8 @@ I also redid the white on the ceiling, the skirting boards, and door frame, but 
 Dulux have more names for white than Eskimos have words for snow.
 
 <style type="x-text/scss">
+  @use "mixins.scss" as *;
+
   #painting {
     @include three_part_grid()
   }

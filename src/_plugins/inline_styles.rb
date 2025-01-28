@@ -37,13 +37,7 @@ class InlineStylesFilters
 
       if style_type == 'x-text/scss'
         converter = site.find_converter_instance(Jekyll::Converters::Scss)
-        css = converter.convert(<<~SCSS
-          @import "mixins.scss";
-          @import "components/checkerboard.scss";
-
-          #{style.text}
-        SCSS
-                               )
+        css = converter.convert(style.text)
         inline_styles[media] <<= css.strip
       else
         inline_styles[media] <<= style.text.strip

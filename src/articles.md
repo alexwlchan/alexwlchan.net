@@ -5,7 +5,7 @@ nav_section: articles
 ---
 
 <style type="x-text/scss">
-  @import "components/article_cards";
+  @use "components/article_cards";
 
   .article_links + .article_cards {
     margin-top: 2em;
