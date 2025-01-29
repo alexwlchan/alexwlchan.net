@@ -119,7 +119,7 @@ jobs:
           fi
 
       - name: Deploy to Linode
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
@@ -134,15 +134,8 @@ jobs:
 
           # Run the rsync command to upload the _site folder to
           # my web server
-          rsync \
-            --rsh="ssh -i id_rsa -o IdentityAgent=none -o HostKeyAlgorithms=ssh-ed25519" \
-            --compress \
-            --archive \
-            --recursive \
-            --delete \
-            --exclude="" --include="" --filter="" \
-            "_site/" \
-            "alexwlchan@alexwlchan.net:repos/alexwlchan.net/_site/"
+          bash scripts/upload_site.sh \
+            --rsh="ssh -i id_rsa -o IdentityAgent=none -o HostKeyAlgorithms=ssh-ed25519"
 
           # Clean up the SSH key
           rm id_rsa
