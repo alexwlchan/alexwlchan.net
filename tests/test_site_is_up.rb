@@ -52,4 +52,11 @@ class TestSite < Test::Unit::TestCase
     assert_equal resp.code, '200'
     assert resp.body.include? 'ideas for inclusive/accessible events'
   end
+
+  def test_add_cover_to_ao3_epubs
+    resp = get_url('https://alexwlchan.net/my-tools/add-cover-to-ao3-epubs/')
+
+    assert_equal resp.code, '200'
+    assert resp.body.include? 'Add cover images to EPUBs from AO3'
+  end
 end
