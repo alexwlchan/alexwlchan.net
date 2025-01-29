@@ -15,7 +15,9 @@ rsync \
   --recursive \
   --delete \
   --verbose \
-  --exclude="" --include="" --filter="" \
+  --exclude="my-tools/add-cover-to-ao3-epubs/index.html" \
+  --include="" \
+  --filter="" \
   "_site/" \
   "alexwlchan@alexwlchan.net:repos/alexwlchan.net/_site/" \
   "$@"
