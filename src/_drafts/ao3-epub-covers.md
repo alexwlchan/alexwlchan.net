@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Adding auto-generated cover images to EPUBs downloaded from AO3
-summary: I wrote a small tool to help a friend browse the fics she's downloaded from AO3. Adding colourful, readable covers makes it easier for her to find them in a grid.
+summary: I built a handy tool to generate cover images for stories downloaded from AO3, making them easier to browse. Along the way, I learnt about how EPUBs work, the power of static sites, and some gotchas of async JavaScript.
 tags:
   - ao3
   - epub
