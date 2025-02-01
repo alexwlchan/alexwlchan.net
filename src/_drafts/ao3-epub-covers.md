@@ -8,36 +8,38 @@ tags:
   - my tools
 ---
 I was chatting with a friend recently, and she mentioned an annoyance when reading fanfiction on her iPad.
-She [downloads fic from AO3][ao3_downloads] as an EPUB file, and reads it in the Kindle app -- but AO3 downloads don't have a cover image, and so the preview thumbnails aren't very readable:
+She [downloads fic from AO3][ao3_downloads] as EPUB files, and reads it in the Kindle app -- but the files don't have a cover image, and so the preview thumbnails aren't very readable:
 
 {%
   picture
   filename="kindle_grid.png"
   width="600"
   class="screenshot"
+  alt="A row of four document thumbnails, three of which are a preview of the text but too small to be readable, and the fourth is a generic ‘Doc’ icon with a short preview of the title ‘Whittled Down By…’."
 %}
 
-She's downloaded several hundred stories, and these thumbnails are too small to be readable -- it's difficult to find things in the app's "collections" view.
+She's downloaded several hundred stories, and these thumbnails make it difficult to find things in the app's "collections" view.
 
 This felt like a solvable problem.
-There are already sites that allow you to add cover images to EPUB files -- if you already have the image.
+There are tools to add cover images to EPUB files, if you already have the image.
 The EPUB file embeds some key metadata, like the title and author.
-What if you had a site that could extract that metadata, auto-generate the image, and add it as the cover?
+What if you had a tool that could extract that metadata, auto-generate an image, and use it as the cover?
 
 So I built that.
-It's a small site where you upload EPUB files you've downloaded from A3, and the site generates the cover image based on the metadata, and gives you a modified EPUB with the new cover image.
-The new covers show the title and author in large text on a coloured background, and are much easier to browse in a grid:
+It's a small site where you upload EPUB files you've downloaded from AO3, the site generates an image based on the metadata, and it gives you a modified EPUB with the new cover image.
+The new covers show the title and author in large text on a coloured background, so they're much easier to browse in the Kindle app:
 
 {%
   picture
   filename="kindle_thumbnails_improved.png"
   width="600"
   class="screenshot"
+  alt="Another row of four document thumbnails, each of which is a solid colour background with the title in large white text, and the author name in slightly lighter text."
 %}
 
 If you'd find this helpful, you can use it at [alexwlchan.net/my-tools/add-cover-to-ao3-epubs/](https://alexwlchan.net/my-tools/add-cover-to-ao3-epubs/)
+Otherwise, I'm going to explain how it works, and what I learnt from building it.
 
-Otherwise, I'm going to talk about how it works, and what I learnt from building it.
 There are three steps to this process:
 
 1.  Open the existing EPUB to get the title and author
@@ -62,8 +64,8 @@ My first instinct was to look for Python EPUB libraries [on PyPI][pypi], but the
 The results were either very specific tools (convert EPUB to format X) or very unmaintained (the top result was last updated in April 2014).
 This made me wonder if I could just write my own code to manipulate EPUBs, rather than using somebody else's library.
 
-I had a vague memory that EPUB files are zips, so I tried unzipping one -- and it turns out that yes, it is a zip file, and the internal structure is fairly simple.
-I found a file called `content.opf` which contains metadata, including the title and author I'm looking for:
+I had a vague memory that EPUB files are zips, so I changed the extension to `.zip` and tried unzipping one -- and it turns out that yes, it is a zip file, and the internal structure is fairly simple.
+I found a file called `content.opf` which contains metadata as XML, including the title and author I'm looking for:
 
 <pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
 &lt;package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="uuid_id"&gt;
@@ -85,6 +87,7 @@ I found a file called `content.opf` which contains metadata, including the title
   …</code></pre>
 
 That `dc:` prefix was instantly familiar from my time working at Wellcome Collection -- this is [Dublin Core][dc], a standard set of metadata fields used to describe books and other things.
+I'm unsurprised to see it in an EPUB; this is exactly how I'd expect it to be used.
 
 I found an article that explains the [structure of an EPUB file][structure], and that I can find the `content.opf` file by looking at the `root-path` element inside the mandatory `META-INF/container.xml` file which is every EPUB.
 I wrote some code to find the `content.opf` file, then a few [XPath] expressions to extract the key fields, and I had the metadata I needed.
@@ -92,16 +95,32 @@ I wrote some code to find the `content.opf` file, then a few [XPath] expressions
 [pypi]: https://pypi.org/search/?q=epub
 [dc]: https://en.wikipedia.org/wiki/Dublin_Core
 [structure]: https://www.edrlab.org/open-standards/anatomy-of-an-epub-3-file/
+[XPath]: https://developer.mozilla.org/en-US/docs/Web/XPath
 
 ## Generate a cover image
 
 I sketched a simple cover design which shows the title and author.
-I didn't realise until later, but this is very similar to the autogenerated book covers in the Apple Books app.
 
 I wrote the [first version of the drawing code][pydraw] in [Pillow], because that's what I'm familiar with.
 It was fine, but the code was quite flimsy -- it didn't wrap properly for long titles, and I couldn't get custom fonts to work.
 
-[[ image ]]
+<style>
+  .covers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 600px;
+    grid-gap: 1em;
+    margin-left:  auto;
+    margin-right: auto;
+  }
+</style>
+
+<div class="covers">
+  {% picture width="150" alt="" filename="py_LordOfTheFiles.png" %}
+  {% picture width="150" alt="" filename="py_PrideAndPlotBunnies.png" %}
+  {% picture width="150" alt="" filename="py_KudosOfMonteChristo.png" %}
+  {% picture width="150" alt="" filename="py_WaitingForGoncharov.png" %}
+</div>
 
 Later I rewrote the app in JavaScript, so I had access to the [HTML canvas element][canvas].
 This is another tool that I haven't worked with before, so a fun chance to learn something new.
@@ -115,7 +134,12 @@ I was also able to get fonts working, so I picked Georgia to match the font used
 
 Here are some examples:
 
-[[ image ]]
+<div class="covers">
+  {% picture width="150" alt="" filename="cv_FandomOfTheOpera.png" %}
+  {% picture width="150" alt="" filename="cv_LordOfTheFiles.png" %}
+  {% picture width="150" alt="" filename="cv_HuckleberryFan.png" %}
+  {% picture width="150" alt="" filename="cv_TenThings.png" %}
+</div>
 
 I had several ideas for choosing the background colour.
 I'm trying to help my friend browse her collection of fic, and colour would be a useful way to distinguish things -- but how to use it?
@@ -125,6 +149,21 @@ I use the fandom name as a seed to a random number generator, then I pick a rand
 This means that all the fics in the same fandom will get the same colour -- for example, all the Star Wars stories are a shade of red, while Star Trek are a bluey-green.
 
 This was a bit harder than I expected, because it turns out that JavaScript doesn't have a built-in seeded random number generator -- I ended up using some snippets from [a Stack Overflow answer][rng], where bryc has written several pseudorandom number generators in plain JavaScript.
+
+I didn't realise until later, but I designed something similar to the placeholder book covers in the Apple Books app.
+I don't use Apple Books that often so it wasn't a deliberate choice to mimic this style, but clearly it was somewhere in my subconscious.
+
+{%
+  picture
+  filename="apple_books.png"
+  width="600"
+  class="screenshot"
+  loading="lazy"
+  alt="A row of four books with placeholder covers. Each cover is a coloured gradient with the title and author shown in white sans serif text."
+%}
+
+One difference is that Apple's app seems to be picking from a small selection of background colours, whereas my code can pick a much nicer variety of colours.
+Apple's choices will have been pre-approved by a designer to look good, but I think mine is more fun.
 
 [pydraw]: /files/2025/draw_basic_cover.py
 [canvas]: https://developer.mozilla.org/en-US/docs/Glossary/Canvas
@@ -137,13 +176,44 @@ This was a bit harder than I expected, because it turns out that JavaScript does
 My first attempt to add a cover image used [pandoc]:
 
 ```
-pandoc input.epub -o output.epub --epub-cover-image cover.jpeg
+pandoc input.epub --output output.epub --epub-cover-image cover.jpeg
 ```
 
 This approach was no good: although it added the cover image, it destroyed the formatting in the rest of the EPUB.
 This made it easier to find the fic, but harder to read once you'd found it.
 
-[[ screenshots ]]
+<style>
+  #pandoc_comparison {
+    width: 400px;
+    margin-left:  auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+  }
+
+  #pandoc_comparison picture:nth-child(1) img {
+    border-top-right-radius:    0;
+    border-bottom-right-radius: 0;
+  }
+
+  #pandoc_comparison picture:nth-child(2) img {
+    border-top-left-radius:    0;
+    border-bottom-left-radius: 0;
+  }
+  
+  #pandoc_comparison figcaption {
+    grid-column: 1 / span 2;
+  }
+</style>
+
+<figure id="pandoc_comparison">
+  {% picture width="300" class="screenshot" alt="" filename="pre_pandoc.png" %}
+  {% picture width="300" class="screenshot" alt="" filename="post_pandoc.png" %}
+  <figcaption>
+    An EPUB file I downloaded from AO3, before/after it was processed by pandoc.
+  </figcaption>
+</figure>
 
 So I thought about if I could do it myself, and it turned out to be quite easy!
 I unzipped another EPUB I had on my computer which already had a cover image.
@@ -153,8 +223,8 @@ I found two elements that referred to cover images:
 <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="PrimaryID"&gt;
   &lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf"&gt;
-    …
     <strong>&lt;meta name="cover" content="cover-image"/&gt;</strong>
+    …
   &lt;/metadata&gt;
   &lt;manifest&gt;
     <strong>&lt;item id="cover-image" href="images/cover.jpg" media-type="image/jpeg" properties="cover-image"/&gt;</strong>
@@ -188,12 +258,14 @@ I just had to pick a different set of libraries:
 *   The [JSZip] library gives me the ability to process zips, and is the only third-party code
 *   Browsers include DOMParser for manipulating XML
 *   I've already mentioned the HTML `<canvas>` element for rendering the image
-  
+
 This took a bit longer because I'm not as familiar with JavaScript, but I got it working.
 
 As a bonus, this now makes the tool very portable.
 All the JavaScript is compiled into a single file, so if you download that file, you have the whole tool.
 If my friend finds this tool useful, she can save the HTML file and have a local copy of it -- she doesn't have to rely on my website to keep using it.
+
+[zipfile]: https://docs.python.org/3/library/zipfile.html
 
 ## What should it look like?
 
