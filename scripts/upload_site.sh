@@ -16,6 +16,7 @@ rsync \
   --delete \
   --verbose \
   --exclude="my-tools/add-cover-to-ao3-epubs/index.html" \
+  --exclude="my-tools/library-lookup/" \
   --exclude="ideas-for-inclusive-events/" \
   --include="" \
   --filter="" \
