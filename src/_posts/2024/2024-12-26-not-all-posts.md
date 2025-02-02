@@ -30,12 +30,15 @@ I waited to write about this, because I wanted to be sure these changes weren't 
 Now the year is over, I can call it a success.
 Let's go through what's new.
 
+---
+
 ## What do I write?
 
 After twelve years of writing this site, I've noticed something interesting: my posts fall pretty neatly into two categories.
 This wasn't a deliberate choice -- it's just emerged from the things I wanted to write.
 
-**The first category is the problem-solvers.**
+### The first category is the problem-solvers
+
 These are usually about programming, written when I figure something out and want to remember it for later.
 They're notes to my future self, and I publish them online so other people can benefit.
 I've read a lot of this sort of post written by other people, and publishing my own is a way of giving back.
@@ -44,7 +47,8 @@ If you're struggling with the same problem, these posts are golden -- and if not
 These posts are easy to write -- they have a clear purpose and a captive audience.
 If I give them a specific title, they're easy to find, and they get a lot of traffic from search engines.
 
-**The second category is the reflections.**
+### The second category is the reflections
+
 These posts aren't about solving technical problems -- they're about exploring ideas and sharing experiences.
 When I write about [Digital decluttering], [Mountaintop moments], or [Hyperfocus and hobbies], I'm trying to capture something more universal, something that isn't just for programmers.
 
@@ -58,12 +62,15 @@ Those are the posts that resonate.
 [Digital decluttering]: /2024/digital-decluttering/
 [Hyperfocus and hobbies]: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 
+---
+
 ## What was I doing wrong?
 
 My big mistake was trying to ignore this natural split.
 This caused several problems.
 
-**I forced unnecessary reflections into problem-solving posts.**
+### I forced unnecessary reflections into problem-solving posts
+
 I tried to find a deeper meaning in every technical solution -- a universal truth that would appeal to readers who didn't care about the original problem.
 But was this actually helping anyone?
 
@@ -73,7 +80,8 @@ And if you don't have the problem, are you really going to read a post that's ab
 Lots of problem-solving posts never made it out of my drafts folder, because I couldn't find that "deeper meaning".
 I was chasing an imaginary reader who wanted philosophy with their bug fixes, and letting perfectly good writing go to waste.
 
-**I rushed my reflective pieces.**
+### I rushed my reflective pieces
+
 Since I could write problem-solving posts quickly, I beat myself up when reflections took longer.
 *"You finished that coding post in an hour, so why is this taking days?"*
 It makes sense that reflections need more time -- they're more complex and nuanced, and they don't have the natural structure of a step-by-step list for solving a problem -- but I wasn't giving myself the space to do that work.
@@ -83,7 +91,8 @@ Nobody else was waiting, but I felt like I was taking too long.
 
 Looking back, I can see posts that could have been improved if I'd given myself more time.
 
-**Good reflections became roadblocks.**
+### Good reflections became roadblocks
+
 Like many blogs, my homepage had a list of my most recent posts, and the newest post would get top billing.
 After publishing something I was proud of, I didn't want to knock it off that prime spot.
 I'd hold back problem-solving posts with niche appeal, because I didn't want them to displace something more meaningful.
@@ -91,7 +100,8 @@ I'd hold back problem-solving posts with niche appeal, because I didn't want the
 This is completely backwards: success was making me write less, not more.
 I wasn't using good feedback as motivation, I was trying to stretch it out for as long as possible.
 
-**New readers got the wrong first impression.**
+### New readers got the wrong first impression
+
 I can't count the number of friends who've read the site and said "Oh, it seemed too technical for me".
 They came to the homepage during a streak of problem-solving posts, and assume that's all I wrote.
 Many of my friends aren't programmers, so the site feels daunting and inaccessible.
@@ -102,6 +112,8 @@ Worse, it left them feeling like they "weren't smart enough" to read my writing.
 
 I want this site to be something that I'm proud to share, not something I'm embarrassed to mention.
 
+---
+
 ## What have I changed?
 
 The most important change is simple but powerful: I stopped ignoring the split in my writing.
@@ -109,7 +121,14 @@ I gave myself permission to write different types of post differently, and lean 
 
 I've also improved the site's design to reflect this distinction.
 
-**I've split my writing into two sections: ["articles"][articles] and ["today I learned"][til] (TIL).**
+<style>
+  h3 a, h3 a:visited {
+    color: var(--tint-color);
+  }
+</style>
+
+### I've split my writing into two sections: ["articles"][articles] and ["today I learned"][til] (TIL)
+
 This replaces my old approach, which was to have a single stream of posts.
 The reflections and longer pieces are articles, while the TIL section is the purest form of problem-solving -- just solutions, no fluff.
 
@@ -127,7 +146,8 @@ This article was in draft for over two months -- it took me a long time to find 
 [Simon Willison]: https://simonwillison.net/2020/Apr/20/self-rewriting-readme/
 [Julia Evans]: https://jvns.ca/blog/2024/11/09/new-microblog/
 
-**I've rethought how my writing is organised: topics, not dates.**
+### I've rethought how my writing is organised: topics, not dates
+
 I was organising by date because that's the default in my blogging software, but that's not a good fit for my writing.
 Chronological ordering makes sense for journals or news sites, but nothing I write is that sort of time-sensitive.
 (For more on this, I recommend Amy Hoy's article [How the blog broke the web][hoy].)
@@ -193,7 +213,7 @@ I hope this will help new visitors find something they're excited to read.
 [tags]: /tags/
 [hoy]: https://stackingthebricks.com/how-blogs-broke-the-web/
 
-**I've made my favourite posts more visible.**
+### I've made my favourite posts more visible
 In the list of articles, these posts get special treatment -- they have a big card and a pretty picture, whereas other posts just get a text link:
 
 <figure style="width: 444px;">
@@ -226,6 +246,8 @@ This is also reflected on the homepage, where I've replaced the list of recent p
 
 Now the homepage is a better showcase of my work for new readers, and I don't have to worry about a quality post getting lost.
 When I write something I'm proud of, I can give it the prominence it deserves -- it won't be buried by time.
+
+---
 
 ## What's next?
 
