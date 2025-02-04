@@ -17,7 +17,7 @@ The best tool I've found is Google Sheets -- not something I usually associate w
 {%
   picture
   filename="lego_spreadsheet.png"
-  width="583"
+  width="582"
   alt="Screenshot of a spreadsheet showing a list of four Lego bricks, plus a count of how many I have/need. There are images showing an illustration of the four bricks."
   class="screenshot"
 %}
