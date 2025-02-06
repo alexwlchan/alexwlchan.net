@@ -5,7 +5,7 @@ date: 2024-12-25 23:28:50 +0000
 tags:
   - backblaze
 summary: |
-  Look at the file `/Library/Backblaze.bzpkg/bzdata/bzfilelists/bigfilelist.dat`.
+  Look at the file <code>/Library<wbr>/Backblaze.bzpkg<wbr>/bzdata<wbr>/bzfilelists<wbr>/bigfilelist.dat</code>.
 ---
 This is something I stumbled across in [a Reddit comment](https://www.reddit.com/r/backblaze/comments/gjah54/comment/fqlkoih/) by Brian Wilson, who was a co-founder and CTO at Backblaze.
 He shared some useful advice about debugging a backup:
