@@ -12,7 +12,7 @@
 
 require 'json-schema'
 
-require_relative 'pillow/create_base64_tweet_avatar'
+require_relative 'pillow/create_base64_avatar'
 require_relative 'utils/twitter'
 
 METADATA_SCHEMA = {
@@ -143,7 +143,7 @@ module Jekyll
 
         path = matching_avatars[0]
 
-        create_base64_tweet_avatar(path, 108)
+        create_base64_avatar(path, 108)
       end
     end
 

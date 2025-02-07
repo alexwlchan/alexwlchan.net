@@ -1,0 +1,146 @@
+.mastodon-embed {
+  --background: white;
+  --text:       black;
+  --border:     rgb(201, 196, 218);
+  --meta:       rgb(41, 41, 56);
+  --purple:     rgb(97, 97, 255);
+
+  @media screen and (prefers-color-scheme: dark) {
+    --background: rgb(24, 24, 33);
+    --text:       rgb(255, 255, 255);
+    --border:     rgb(49, 49, 68);
+    --meta:       rgb(96, 96, 133);
+    --purple:     rgb(140, 141, 255);
+  }
+
+  margin-left:  auto;
+  margin-right: auto;
+  background: var(--background);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  min-width: 270px;
+  max-width: 508px;  /* = 540px - 16px * 2 */
+  overflow: hidden;
+  padding: 16px;
+
+  font-family: mastodon-font-sans-serif, sans-serif;
+  font-feature-settings: kern;
+  font-weight: 400;
+  text-rendering: optimizelegibility;
+
+  .header {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 40px;
+    align-items: center;
+
+    margin-bottom: 16px;
+  }
+
+  .avatar {
+    width:  46px;
+    height: 46px;
+    border-radius: 8px;
+  }
+
+  a.name_header {
+    line-height: 22px;
+
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 46px 1fr;
+    align-items: center;
+  }
+
+  a.name_header {
+    text-decoration: none;
+  }
+
+  a.name_header:hover .display_name {
+    text-decoration: underline;
+    text-decoration-color: var(--text);
+  }
+
+  .name .display_name,
+  .name .account_name {
+    display: block;
+    font-size: 15px;
+  }
+
+  .name .display_name {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .name .account_name {
+    color: var(--meta);
+  }
+
+  .mastodon_logo {
+    width: 40px;
+  }
+
+  .text {
+    color: var(--text);
+    font-size: 19px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  .text a {
+    color: var(--purple);
+    text-decoration: none;
+  }
+
+  .text a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+  .media img {
+    margin-top: 16px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .meta {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
+  .meta a {
+    color: var(--meta);
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .meta a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+}
+
+@font-face {
+    font-display: swap;
+    font-family: mastodon-font-sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    src: local("Roboto Bold"), url(/static/fonts/roboto-bold-webfont-2c18fe4b97519d62a0d6aad8ada1004f.woff2) format("woff2")
+}
+
+
+@font-face {
+    font-display: swap;
+    font-family: mastodon-font-sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"), url(/static/fonts/roboto-medium-webfont-3ed000c35f7afb8bd4ad7f46da85abbf.woff2) format("woff2")
+}
+
+@font-face {
+    font-display: swap;
+    font-family: mastodon-font-sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"), url(/static/fonts/roboto-regular-webfont-e6505d5d85943244ec91d5e3002791f2.woff2) format("woff2")
+}

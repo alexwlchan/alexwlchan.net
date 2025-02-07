@@ -31,6 +31,10 @@ layout: compress
             return;
           }
 
+          if (img.classList.contains('avatar')) {
+            return;
+          }
+
           img.parentElement.innerHTML +=
             img.getAttribute('alt') !== null
               ? `<div
