@@ -49,11 +49,11 @@ alexwlchan.net {
 		X-Xss-Protection "1; mode=block"
 	}
 
-  # This is a path where I'm deliberately demo-ing the native Mastodon
-  # embed code, so I need to be able to run JavaScript from an external
-  # Mastodon server.  Plus fonts, and styles… just let it all run.
-  @mastodonDemo path /files/2025/native-mastodon-embed.html
-  header @mastodonDemo -Content-Security-Policy
+	# This is a path where I'm deliberately demo-ing the native Mastodon
+	# embed code, so I need to be able to run JavaScript from an external
+	# Mastodon server.  Plus fonts, and styles… just let it all run.
+	@mastodonDemo path /files/2025/native-mastodon-embed.html
+	header @mastodonDemo -Content-Security-Policy
 
 	# If somebody gets a 4xx error, respond with my custom error pages.
 	handle_errors 404 {
