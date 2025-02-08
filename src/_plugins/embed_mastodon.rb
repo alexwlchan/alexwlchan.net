@@ -39,9 +39,9 @@ MASTODON_METADATA_SCHEMA = {
           items: {
             type: 'string'
           }
-        },
+        }
       }
-    },
+    }
   },
   additionalProperties: false,
   required: %w[id text created_at user]
