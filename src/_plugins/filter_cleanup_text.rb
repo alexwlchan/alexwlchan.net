@@ -68,6 +68,7 @@ class AddNonBreakingSpaces
       '26k items',
       'Algorithm L',
       'Algorithm R',
+      'Amazon S3',
       'Apple TV+',
       'CC0 1.0',
       'CC BY 2.0',
