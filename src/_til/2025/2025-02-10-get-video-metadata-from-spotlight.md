@@ -6,6 +6,7 @@ summary: |
   If the video file is indexed by Spotlight, you can use `mdls` to get the width and `height` of a video file.
 tags:
   - macos
+  - video
 ---
 You can look up Spotlight metadata attributes with the [`mdls` command][mdls], which allows you to get the dimensions of video files:
 
