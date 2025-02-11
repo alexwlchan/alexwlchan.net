@@ -1,0 +1,36 @@
+<script>
+  const bookmarks = [
+    {
+      url: "https://estherschindler.medium.com/the-old-family-photos-project-lessons-in-creating-family-photos-that-people-want-to-keep-ea3909129943",
+      title: "Lessons in creating family photos that people want to keep, by Esther Schindler (2018)",
+      tags: ['c', 'd']
+    },
+    {
+      url: "https://www.theatlantic.com/technology/archive/2015/01/why-i-am-not-a-maker/384767/",
+      title: "Why I Am Not a Maker, by Debbie Chachra (The Atlantic, 2015)",
+      tags: ['a', 'b']
+    },
+    {
+      url: "https://meyerweb.com/eric/thoughts/2014/06/10/so-many-nevers/",
+      title: "So Many Nevers, by Eric Meyer (2014)",
+      tags: ['a', 'b', 'c']
+    }
+  ];
+
+  function Bookmark(bookmark) {
+    return `
+      <li>
+        <a href="${bookmark.url}">${bookmark.title}</a>
+      </li>
+    `;
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#listOfBookmarks").innerHTML =
+      bookmarks.map(Bookmark).join("");
+  });
+</script>
+
+<h1>Bookmarks</h1>
+
+<ul id="listOfBookmarks"></ul>

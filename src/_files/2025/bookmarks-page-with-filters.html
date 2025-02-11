@@ -1,0 +1,119 @@
+<script>
+  const bookmarks = [
+    {
+      url: "https://estherschindler.medium.com/the-old-family-photos-project-lessons-in-creating-family-photos-that-people-want-to-keep-ea3909129943",
+      title: "Lessons in creating family photos that people want to keep, by Esther Schindler (2018)",
+      tags: ['c', 'd']
+    },
+    {
+      url: "https://www.theatlantic.com/technology/archive/2015/01/why-i-am-not-a-maker/384767/",
+      title: "Why I Am Not a Maker, by Debbie Chachra (The Atlantic, 2015)",
+      tags: ['a', 'b']
+    },
+    {
+      url: "https://meyerweb.com/eric/thoughts/2014/06/10/so-many-nevers/",
+      title: "So Many Nevers, by Eric Meyer (2014)",
+      tags: ['a', 'b', 'c']
+    }
+  ];
+
+  const bookmarkFilters = [
+    {
+      key: 'tag',
+      label: 'tagged with',
+      filterFn: (bookmark, tagName) => bookmark.tags.includes(tagName),
+    },
+    {
+      key: 'publicationYear',
+      label: 'published in',
+      filterFn: (bookmark, year) => bookmark.publicationYear === year,
+    },
+  ];
+
+  /*
+   * Filter a list of items.
+   *
+   * It takes the list of items and available filters, and the
+   * URL query parameters passed to the page.
+   *
+   * It returns a list with the items that match these filters,
+   * and a list of filters that have been applied.
+   */
+  function filterItems({ items, filters, params }) {
+
+    // By default, all items match, and no filters are applied.
+    var matchingItems = items;
+    var appliedFilters = [];
+
+    // Go through the URL query params one by one, and look to
+    // see if there's a matching filter.
+    for (const [key, value] of params) {
+      console.debug(`Checking query parameter ${key}`);
+      const matchingFilter = filters.find(f => f.key === key);
+
+      if (typeof matchingFilter === 'undefined') {
+        continue;
+      }
+
+      // There's a matching filter!  Go ahead and filter the
+      // list of items to only those that match.
+      console.debug(`Detected filter ${JSON.stringify(matchingFilter)}`);
+
+      matchingItems = matchingItems.filter(
+        item => matchingFilter.filterFn(item, value)
+      );
+
+      // Construct a new query string that doesn't include
+      // this filter.
+      const altQuery = new URLSearchParams(params);
+      altQuery.delete(key, value);
+      const queryIfRemoved = altQuery.toString();
+
+      appliedFilters.push({
+        type: matchingFilter.key,
+        label: matchingFilter.label,
+        value,
+        queryIfRemoved,
+      })
+    }
+
+    return { matchingItems, appliedFilters };
+  }
+
+  function Bookmark(bookmark) {
+    return `
+      <li>
+        <a href="${bookmark.url}">${bookmark.title}</a>
+      </li>
+    `;
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+
+    const { matchingItems: matchingBookmarks, appliedFilters } =
+      filterItems({
+        items: bookmarks,
+        filters: bookmarkFilters,
+        params: params,
+      });
+
+    document.querySelector("#appliedFilters").innerHTML =
+      appliedFilters
+        .map(f => `<li>${f.label}: ${f.value} <a href="?${f.queryIfRemoved}">(remove)</a></li>`)
+        .join("");
+
+    document.querySelector("#listOfBookmarks").innerHTML =
+      matchingBookmarks.map(Bookmark).join("");
+  });
+</script>
+
+<h1>Bookmarks</h1>
+
+<p>Applied filters:</p>
+
+<ul id="appliedFilters"></ul>
+
+<p>Bookmarks:</p>
+
+<ul id="listOfBookmarks"></ul>
