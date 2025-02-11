@@ -15,14 +15,14 @@ A few examples:
 
 *   If a file is being ignored and you don't know why, it can show you which line of the .gitignore is causing it to be ignored.
 
-    ```
+    ```console
     $ git check-ignore --verbose pictures.zip
     .gitignore:116:*.zip	pictures.zip
     ```
 
 *   If a file isn't being ignored and you think it should be, it can show you which rule is negating your ignore rule:
 
-    ```
+    ```console
     $ git check-ignore --verbose pictures/cats.zip
     pictures/.gitignore:17:!cats.zip	pictures/cats.zip
     ```
@@ -31,7 +31,7 @@ A few examples:
 
 *   It can even look [in your `.git/info/exclude`](/2015/git-info-exclude/), a place for per-clone ignore rules that you don't want to keep in the repository:
 
-    ```
+    ```console
     $ git check-ignore --verbose scripts/alex/downloader.py
     .git/info/exclude:7:scripts/alex/*.py	scripts/alex/downloader.py
     ```
