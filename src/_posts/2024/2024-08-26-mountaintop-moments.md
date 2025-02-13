@@ -134,7 +134,7 @@ I'm trying to be more intentional about how I use digital technology, and the ti
 I go away for a week, I stop looking at social media, and nothing bad happens.
 Do that enough times, and the message sinks in.
 
-When I went to Paris, I logged out of all social media on my phone, and I never logged back in.
+When I went to Paris [this past spring](/2024/preserving-pixels-in-paris/) I logged out of all social media on my phone, and I never logged back in.
 I haven't stopped using social media entirely, because there are still good things about it -- but I'm not the Twitter completionist I used to be.
 
 I have a complicated relationship with technology, and I'm still struggling to find the right balance.
