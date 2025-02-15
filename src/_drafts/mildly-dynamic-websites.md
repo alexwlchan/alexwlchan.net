@@ -45,6 +45,9 @@ This is a long, code-heavy post, so grab a hot drink and let's dive in!
 * [Start with a hand-written HTML page](#hand-written-html) ([demo](/files/2025/static-site-demo.html?demoId=hand-written-html))
 * [Reduce repetition with JavaScript templates](#template-literals) ([demo](/files/2025/static-site-demo.html?demoId=template-literals))
 * [Add filtering to find specific items](#filtering) ([demo](/files/2025/static-site-demo.html?demoId=filtering))
+* [Introduce sorting to bring order to your data](#sorting)
+
+ADD DEMO PAGES to `<h2>`
 
 [static_sites]: /2024/static-websites/
 [a demo site]: /files/2025/static-site-demo.html
@@ -339,6 +342,52 @@ I've never implemented anything more like a search, where there are fuzzier rule
 
 If you want to see this in action, check out [the demo page](/files/2025/static-site-demo.html?demoId=hand-written-html).
 
+
+
+<h2 id="sorting">Introduce sorting to bring order to your data</h2>
+
+The next feature I usually implement is sorting.
+I build a little dropdown menu with all the options, and picking a new option triggers a page reload with the new sort order.
+Here's a quick design sketch:
+
+{%
+  picture
+  filename="js_sorting_sketch.png"
+  width="537"
+  alt="A crude sketch of a simple sorting interface. It's labelled “sort by” and then there’s a dropdown with four options: title (A to Z), title (Z to A), publication date (newest first), and random."
+%}
+
+For example, I often sort by the date I saved an item, so I can find an item I saved recently.
+Another common sort order I use is "random", which just shows items in a random order.
+This is a fun way to explore data, and find stuff I've forgotten about.
+
+As with filters, I put the current sort order in a query parameter, for example:
+
+```
+bookmarks.html?sortOrder=title-a-to-z
+```
+
+As with the filtering, I want to write this in a fairly generic way, so I can share as much code as possible between sites.
+Let's start by defining a list of sort options:
+
+```javascript
+const bookmarkSortOptions = [
+  {
+    id: 'titleAtoZ',
+    label: 'title (A to Z)',
+    compareFn: (a, b) => a.title > b.title ? 1 : -1,
+  },
+  {
+    id: 'publicationYear',
+    label: 'publication year (newest first)',
+    compareFn: (a, b) => a.publicationDate - b.publicationDate,
+  },
+];
+```
+
+The key is the `compareFn`, which gets passed directly to the JavaScript [`sort` function][array_sort].
+I confess I never remember how this works, and I have to look it up every time: if `compareFn(a, b)` returns `1`, does that sort `a` before or after `b`?
+
 ---
 
 * Filtering
@@ -350,21 +399,6 @@ If you want to see this in action, check out [the demo page](/files/2025/static-
 
 ## Sorting
 
-The next feature I usually implement is sorting.
-I build a little dropdown menu with all the options, and picking a new option triggers a page reload with the new sort order:
-
-{%
-  picture
-  filename="js_sorting_sketch.png"
-  width="537"
-  alt="A crude sketch of a simple sorting interface. It's labelled “sort by” and then there’s a dropdown with four options: title (A to Z), title (Z to A), publication date (newest first), and random."
-%}
-
-As with filters, I put the sort order in a query parameter, for example:
-
-```
-bookmarks.html?sortOrder=title-a-to-z
-```
 
 Here's an example of the code I use for sorting:
 
@@ -413,8 +447,6 @@ function sortItems({ items, sortOptions, sortOrderId }) {
 Once again this is written in a fairly generic way -- I have a list of sort orders that I define once, and then the rest of the code can be reused between sites.
 In the past I've made the mistake of not having a single source of truth for my sort orders, and then different bits of my codebase disagree on how things can be sorted.
 
-The key is the `compareFn`, which gets passed directly to the JavaScript [`sort` function][array_sort].
-I confess I never remember how this works, and I have to look it up every time: if `compareFn(a, b)` returns `1`, does that sort `a` before or after `b`?
 
 Having them defined once makes it easy to add new sort orders, and then I have a component that renders my dropdown menu:
 
