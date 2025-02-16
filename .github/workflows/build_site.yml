@@ -88,9 +88,6 @@ jobs:
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
 
-      - name: "Delete stale cards"
-        run: find _site/c -name 'dominant-colours*' -delete
-
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
 
