@@ -656,11 +656,7 @@ I leave this as an exercise for the reader.
 
 If you want to see this in action, check out [the updated demo page](/files/2025/static-site-demo.html?demoId=pagination).
 
----
-
-
-
-
+<h2 id="errors">Provide clarity with loading states and error handling</h2>
 
 ---
 
