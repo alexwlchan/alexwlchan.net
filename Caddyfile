@@ -86,23 +86,8 @@ alexwlchan.net {
 	file_server
 
 	log {
-		output file /var/log/caddy/alexwlchan.log
-
-		# This removes personally identifiable information (PII) from the logs,
-		# in particular:
-		#
-		#    - IP addresses
-		#    - User-Agents
-		#
-		# They're not useful to me so I might as well discard them.
-		format filter {
-			wrap json
-			fields {
-				request>remote_ip delete
-				request>remote_port delete
-				request>client_ip delete
-				request>headers>User-Agent delete
-			}
+		output net localhost:6064 {
+			soft_start
 		}
 	}
 }
@@ -113,23 +98,8 @@ alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk, www.
 	redir https://alexwlchan.net{uri} permanent
 
 	log {
-		output file /var/log/caddy/alexwlchan.log
-
-		# This removes personally identifiable information (PII) from the logs,
-		# in particular:
-		#
-		#    - IP addresses
-		#    - User-Agents
-		#
-		# They're not useful to me so I might as well discard them.
-		format filter {
-			wrap json
-			fields {
-				request>remote_ip delete
-				request>remote_port delete
-				request>client_ip delete
-				request>headers>User-Agent delete
-			}
+		output net localhost:6064 {
+			soft_start
 		}
 	}
 }
