@@ -29,6 +29,10 @@ I deliberately omitted any code from the original post, because I wanted to focu
 I was trying to persuade you that static websites are a good idea for storing small archives and data sets, and I didn't want to get distracted by implementation ideas or code snippets.
 
 There's also no single code base I could share – every site I build is different, and the code is often scrappy or poorly documented.
+
+NO ONE SITE THAT IMPLEMENTS EVERYTHING
+SOME SITES HAVE HARD-CODED DETAILS THAT WOULD DISTRACT FROM EGNERAL PICTURE
+
 It would be difficult to read or understand what's going on.
 
 However, there's clearly an appetite for that sort of explanation, so this follow-up post will discuss the "how" rather than the "why".
@@ -45,7 +49,7 @@ This is a long, code-heavy post, so grab a hot drink and let's dive in!
 * [Start with a hand-written HTML page](#hand-written-html) ([demo](/files/2025/static-site-demo.html?demoId=hand-written-html))
 * [Reduce repetition with JavaScript templates](#template-literals) ([demo](/files/2025/static-site-demo.html?demoId=template-literals))
 * [Add filtering to find specific items](#filtering) ([demo](/files/2025/static-site-demo.html?demoId=filtering))
-* [Introduce sorting to bring order to your data](#sorting)
+* [Introduce sorting to bring order to your data](#sorting) ([demo](/files/2025/static-site-demo.html?demoId=sorting))
 
 ADD DEMO PAGES to `<h2>`
 
@@ -126,7 +130,7 @@ It looks pretty close to the actual HTML, so I have a pretty good idea of what's
 Template literals are pretty risky if you're getting data from an untrusted source -- it could allow somebody to inject arbitrary HTML into your page -- but I'm writing all my metadata, so I trust it.
 
 I know there are other ways to do this sort of thing, like constructing DOM elements directly, the [`<template>` element][template_elem], or [Web Components] -- but template literals have always been sufficient for me, and I've never had a reason to explore other options.
-  
+
 Now we have to use this function to render the bookmarks on the page.
 Here's the rest of the code:
 
@@ -145,7 +149,7 @@ Here's the rest of the code:
 
 I'm listening for the [`DOMContentLoaded` event][DOMContentLoaded], which occurs when the HTML page has been fully parsed.
 When that event occurs, it looks for `<ul id="listOfBookmarks">` in the page, and inserts the HTML for the list of bookmarks.
-  
+
 We have to wait for this event so the `<ul>` actually exists.
 If we tried to run it immediately, it might run *before* the `<ul>` exists, and then it wouldn't know where to insert the HTML.
 
@@ -325,7 +329,7 @@ Here's the rough code:
       matchingBookmarks.map(Bookmark).join("");
   });
 </script>
-  
+
 <h1>Bookmarks</h1>
 
 <p>Applied filters:</p>
@@ -388,34 +392,9 @@ const bookmarkSortOptions = [
 The key is the `compareFn`, which gets passed directly to the JavaScript [`sort` function][array_sort].
 I confess I never remember how this works, and I have to look it up every time: if `compareFn(a, b)` returns `1`, does that sort `a` before or after `b`?
 
----
-
-* Filtering
-* Sorting
-
----
-
-
-
-## Sorting
-
-
-Here's an example of the code I use for sorting:
+Next, we can define a function that will sort a list of items:
 
 ```javascript
-const bookmarkSortOptions = [
-  {
-    id: 'titleAtoZ',
-    label: 'title (A to Z)',
-    compareFn: (a, b) => a.title > b.title ? 1 : -1,
-  },
-  {
-    id: 'publicationYear',
-    label: 'publication year (newest first)',
-    compareFn: (a, b) => a.publicationDate - b.publicationDate,
-  },
-];
-
 /*
  * Sort a list of items.
  *
@@ -425,12 +404,16 @@ const bookmarkSortOptions = [
  * It returns a list with the items in sorted order, and the
  * sort order that was applied.
  */
-function sortItems({ items, sortOptions, sortOrderId }) {
+function sortItems({ items, sortOptions, params }) {
+
+  // Did the user pass a sort order in the query parameters?
+  const sortOrderId = getSortOrder(params);
 
   // What sort order are we using?
   //
   // Look for a matching sort option, or use the default if the sort
-  // order is null/unrecognised.
+  // order is null/unrecognised.  For now, use the first defined
+  // sort order as the efault.
   const defaultSort = sortOptions[0];
   const selectedSort =
     sortOptions.find(s => s.id === sortOrderId) || defaultSort;
@@ -442,20 +425,25 @@ function sortItems({ items, sortOptions, sortOrderId }) {
 
   return { sortedItems, appliedSortOrder: selectedSort };
 }
+
+/* Get the current sort order from the URL query parameters. */
+function getSortOrder(params) {
+  return params.get("sortOrder");
+}
 ```
 
-Once again this is written in a fairly generic way -- I have a list of sort orders that I define once, and then the rest of the code can be reused between sites.
-In the past I've made the mistake of not having a single source of truth for my sort orders, and then different bits of my codebase disagree on how things can be sorted.
+Like the filtering code, this is written in a generic way -- it can be used for any list of items, and any list of sort orders.
+I only have to define the list of sort orders once.
+In the past I've made the mistake of not having a single source of truth for the ways I sort items, and then different bits of my codebase get out-of-sync.
 
-
-Having them defined once makes it easy to add new sort orders, and then I have a component that renders my dropdown menu:
+Having them defined once makes it easy to add new sort orders, and to write a component that creates a dropdown menu to pick the sort order:
 
 ```javascript
 /*
  * Create a dropdown control to choose the sort order.  When you pick
  * a different value, the page reloads with the new sort.
  */
-function sortOrderDropdown({ sortOptions, appliedSortOrder }) {
+function SortOrderDropdown({ sortOptions, appliedSortOrder }) {
   return `
     <select onchange="setSortOrder(this.value)">
       ${
@@ -471,10 +459,6 @@ function sortOrderDropdown({ sortOptions, appliedSortOrder }) {
   `;
 }
 
-function getSortOrder(params) {
-  return params.get("sortOrder");
-}
-
 function setSortOrder(sortOrderId) {
   const params = new URLSearchParams(window.location.search);
   params.set("sortOrder", sortOrderId);
@@ -482,7 +466,8 @@ function setSortOrder(sortOrderId) {
 }
 ```
 
-Finally, here's how the sorting code gets wired into the app:
+Finally, we can wire the sorting code into the rest of the app.
+We sort the list of items after we've filtered it, and show the sort controls on the page:
 
 ```html
 <script>
@@ -498,11 +483,11 @@ Finally, here's how the sorting code gets wired into the app:
       sortItems({
         items: matchingBookmarks,
         sortOptions: bookmarkSortOptions,
-        sortOrderId: getSortOrder(params),
+        params,
       });
 
     document.querySelector("#sortOrder").innerHTML +=
-      sortOrderDropdown({ sortOptions: bookmarkSortOptions, appliedSortOrder });
+      SortOrderDropdown({ sortOptions: bookmarkSortOptions, appliedSortOrder });
 
     document.querySelector("#listOfBookmarks").innerHTML =
       sortedBookmarks.map(Bookmark).join("");
@@ -512,16 +497,25 @@ Finally, here's how the sorting code gets wired into the app:
 <p id="sortOrder">Sort by:</p>
 ```
 
+If you want to see this in action, check out [the demo page](/files/2025/static-site-demo.html?demoId=sorting).
+
 [array_sort]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-## Pagination
 
+
+
+
+<h2 id="pagination">Use pagination to break up long lists</h2>
+
+If you have a really long list of items, you may want to break them into multiple pages.
+
+This isn't something I do very often.
 Modern web browsers are very performant, and you can put thousands of elements on the page without breaking a sweat.
-I've only had to add pagination in a couple of very image-heavy sites -- mostly text-based sites I just show everything, because my lists aren't that large.
+I've only had to add pagination in a couple of very image-heavy sites -- if it's a text-based site, I just show everything.
 (You may notice that, for example, there are no paginated lists anywhere on this site.
 By writing lean HTML, I can fit all my lists on a single page.)
 
-But on the rare occasions I want to add pagination, this doesn't require too much JavaScript.
+On the rare occasions I want to add pagination, this doesn't require too much more JavaScript.
 
 {%
   picture
@@ -530,13 +524,15 @@ But on the rare occasions I want to add pagination, this doesn't require too muc
   alt="A crude sketch of a simple pagination interface. The text says “Page 2 of 5”, and then there are prev/next arrow buttons."
 %}
 
-As with all the other features we've seen, I use a URL query parameter to track the current page number:
+As with other features, I use a URL query parameter to track the current page number:
 
 ```
-bookmarks.html?page=2
+bookmarks.html?pageNumber=2
 ```
 
-The first thing we need is a function that will select a page for us.
+This code can be written in a completely generic way -- it doesn't have to care what sort of items we're paginating.
+
+First, let's write a function that will select a page of items for us.
 If we're on page N, what items should we be showing?
 
 ```javascript
@@ -546,7 +542,7 @@ If we're on page N, what items should we be showing?
  * This function will reduce the list of items to the items that should
  * be shown on this particular page.
  */
-function getPageOfItems({ items, pageNumber, pageSize }) {
+function paginateItems({ items, pageNumber, pageSize }) {
 
   // Page numbers are 1-indexed, so page 1 corresponds to
   // the indices 0…(pageSize - 1).
@@ -563,9 +559,9 @@ function getPageOfItems({ items, pageNumber, pageSize }) {
 
 In some of my sites, the page size is a suggestion rather than a hard rule.
 If there are 27 items and the page size is 25, I think it's nicer to show all the items on one page than push a few items onto a second page which barely has anything on it.
-But that might reflect my general disinclination for pagination in my static sites, and it's definitely a nice-to-have rather than a required feature.
+But that might reflect my general dislike of pagination, and it's definitely a nice-to-have rather than a required feature.
 
-We can also create a component that gives us some pagination controls:
+Once we know what page we're on and how many pages there are, we can create a component to render some basic pagination controls:
 
 ```javascript
 /*
@@ -582,9 +578,8 @@ function PaginationControls({ pageNumber, totalPages, params }) {
 
   // Do we need a link to the previous page?  Only if we're past page 1.
   if (pageNumber > 1) {
-    const prevPageParams = new URLSearchParams(params);
-    prevPageParams.set("page", prevPageParams - 1);
-    prevPageLink = `<a href="?${prevPageParams.toString()}">&larr; prev</a>`;
+    const prevPageUrl = setPageNumber({ params, pageNumber: pageNumber - 1 });
+    prevPageLink = `<a href="${prevPageUrl}">&larr; prev</a>`;
   } else {
     prevPageLink = null;
   }
@@ -592,9 +587,8 @@ function PaginationControls({ pageNumber, totalPages, params }) {
   // Do we need a link to the previous page?  Only if we're before
   // the last page.
   if (pageNumber < totalPages) {
-    const nextPageParams = new URLSearchParams(params);
-    nextPageParams.set("page", nextPageParams + 1);
-    nextPageLink = `<a href="?${nextPageParams.toString()}">next &rarr;</a>`;
+    const nextPageUrl = setPageNumber({ params, pageNumber: pageNumber + 1 });
+    nextPageLink = `<a href="${nextPageUrl}">next &rarr;</a>`;
   } else {
     nextPageLink = null;
   }
@@ -606,15 +600,25 @@ function PaginationControls({ pageNumber, totalPages, params }) {
     .filter(p => p !== null)
     .join(" / ");
 }
+
+/* Returns a URL that points to the new page number. */
+function setPageNumber({ params, pageNumber }) {
+  const updatedParams = new URLSearchParams(params);
+  updatedParams.set("pageNumber", pageNumber);
+  return `?${updatedParams.toString()}`;
+}
 ```
 
-Let's wire this into our `DOMContentLoaded` event listener, so when the page loads we'll see pagination controls and
+Finally, let's wire this code into the rest of the app.
+We need to get the page number from the URL query parameters, paginate the list of filtered and sorted items, and show some pagination controls:
 
 ```html
-function getPageNumber() {
-}
-
 <script>
+  /* Get the current page number. */
+  function getPageNumber(params) {
+    return Number(params.get("pageNumber")) || 1;
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
 
@@ -624,25 +628,33 @@ function getPageNumber() {
     const { sortedItems: sortedBookmarks, appliedSortOrder } =
       sortItems(…);
 
+    const pageNumber = getPageNumber(params);
+
     const { thisPage: thisPageOfBookmarks, totalPages } =
-      getPageOfItems({
+      paginateItems({
         items: sortedBookmarks,
-        pageNumber: getPageNumber(),
-        pageSize: 25
+        pageNumber,
+        pageSize: 25,
       });
 
     document.querySelector("#paginationControls").innerHTML +=
-      PaginationControls({ pageNumber: getPageNumber(), totalPages, params });
+      PaginationControls({ pageNumber, totalPages, params });
 
     document.querySelector("#listOfBookmarks").innerHTML =
       thisPageOfBookmarks.map(Bookmark).join("");
   });
 </script>
 
-<p id="paginationControls">Pagination controls:</p>
+<p id="paginationControls">Pagination controls: </p>
 ```
 
-One thing that pagination makes a ltitel tricky is need to update sorting/filtering to reset to page 1
+One thing that makes pagination a little tricky is that it affects filtering and sorting as well -- when you change either of those, you probably want to reset to the first page.
+
+For example, if you're filtering for bookmarks tagged with `animals` and you're on page 3, then you add a second filter for `giraffes`, you should reset to page 1.
+If you stay on page 3, it might be confusing if there are less than 3 pages of results with the new filter.
+I leave this as an exercise for the reader.
+
+If you want to see this in action, check out [the updated demo page](/files/2025/static-site-demo.html?demoId=pagination).
 
 ---
 

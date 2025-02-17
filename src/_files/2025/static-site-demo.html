@@ -81,12 +81,18 @@
         description: 'This is a hand-written HTML, with no JavaScript or dynamic content. It’s the simplest, purest form of a website!'
       },
       'template-literals': {
-        description: 'This page uses JavaScript template literals to render the list, to reduce the copy/paste of HTML markup.'
+        description: 'This demo uses JavaScript template literals to render the list, to reduce the copy/paste of HTML markup.'
       },
       'filtering': {
-        description: 'This page adds filters that allow me to narrow down a long list of items, and find the exact items I’m looking for.'
-      }
-    }
+        description: 'This demo adds filters that allow me to narrow down a long list of items, and find the exact items I’m looking for.'
+      },
+      'sorting': {
+        description: 'This demo adds sorting, to bring order to a longer list of items.'
+      },
+      'pagination': {
+        description: 'This demo adds pagination, to break up the list into smaller pieces. The page size is very small to show off the feature.'
+      },
+    };
 
     async function setDemo(demoId) {
       const resp = await window.fetch(`static-site-demos/${demoId}.html`);
@@ -145,6 +151,14 @@
         <button
           data-demo-id="filtering"
           onclick="setDemo(this.getAttribute('data-demo-id'))">with filtering</button></li>
+      <li>
+        <button
+          data-demo-id="sorting"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with sorting</button></li>
+      <li>
+        <button
+          data-demo-id="pagination"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with pagination</button></li>
     </ul>
     <noscript>
       <p>You need to enable JavaScript for this demo.</p>
