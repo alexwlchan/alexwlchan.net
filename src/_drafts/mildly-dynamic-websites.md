@@ -23,16 +23,14 @@ HTML is flexible and lets me display data in a variety of ways; it's likely to r
 I'm converting more and more of my local data to be stored in static websites -- paperwork I've scanned, screenshots I've taken, and web pages I've bookmarked.
 I really like this approach.
 
-I got a lot of positive feedback on the post, but the most common reply was "can you give an example".
+I got a lot of positive feedback on the post, but the most common reply was "can you give an example or tutorial".
 People wanted to see examples of the HTML and JavaScript I was using, or for me to share my source code.
+
 I deliberately omitted any code from the original post, because I wanted to focus on the concept, not the detail.
 I was trying to persuade you that static websites are a good idea for storing small archives and data sets, and I didn't want to get distracted by implementation ideas or code snippets.
 
 There's also no single code base I could share – every site I build is different, and the code is often scrappy or poorly documented.
-
-NO ONE SITE THAT IMPLEMENTS EVERYTHING
-SOME SITES HAVE HARD-CODED DETAILS THAT WOULD DISTRACT FROM EGNERAL PICTURE
-
+I've built dozens of small sites this way, and there's no site that serves as a good exemplar -- they all implement a subset of my ideas, or have hard-coded details that would distract from the overall approach.
 It would be difficult to read or understand what's going on.
 
 However, there's clearly an appetite for that sort of explanation, so this follow-up post will discuss the "how" rather than the "why".
@@ -50,6 +48,12 @@ This is a long, code-heavy post, so grab a hot drink and let's dive in!
 * [Reduce repetition with JavaScript templates](#template-literals) ([demo](/files/2025/static-site-demo.html?demoId=template-literals))
 * [Add filtering to find specific items](#filtering) ([demo](/files/2025/static-site-demo.html?demoId=filtering))
 * [Introduce sorting to bring order to your data](#sorting) ([demo](/files/2025/static-site-demo.html?demoId=sorting))
+* [Use pagination to break up long lists](#pagination) ([demo](/files/2025/static-site-demo.html?demoId=pagination))
+* [Provide feedback with loading states and error handling](#errors)
+* [Store the website code in Git](#version-control)
+* [Test the code with QUnit and Playwright](#tests)
+* [Manipulate the metadata with Python](#python)
+* [Closing thoughts](#conclusion)
 
 ADD DEMO PAGES to `<h2>`
 
@@ -78,6 +82,10 @@ If you double-click this file to open it in your web browser, you'll see a list 
 
 This is an excellent way to build a website.
 If you stop here, you've got all the flexibility and portability of HTML, and this file will remain readable for a very long time.
+
+I have a lot of local sites I built this way.
+I like it for small, immutable data sets that I know are never going to change.
+I can write the HTML once, and the lack of moving parts mean it will remain readable for essentially forever.
 
 
 
@@ -656,6 +664,8 @@ I leave this as an exercise for the reader.
 
 If you want to see this in action, check out [the updated demo page](/files/2025/static-site-demo.html?demoId=pagination).
 
+
+
 <h2 id="errors">Provide feedback with loading states and error handling</h2>
 
 One problem with relying on JavaScript to render the page is that sometimes JavaScript goes wrong.
@@ -701,23 +711,104 @@ And I like to include a loading indicator, or some placeholder text that will be
 <ul id="listOfBookmarks">Loading…</ul>
 ```
 
+It's somewhat rare for me to add a loading indicator or error handling, just because I'm the only user of my static sites, and it's easier for me to use the developer tools when something breaks.
+But providing good mechanisms for the user to see what's going on is crucial if you want to build static sites like this for other people, and you should definitely follow these patterns if you do.
+
 [noscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 [error_event]: https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event
 
+
+
+<h2 id="version-control">Store the website code in Git</h2>
+
+I create Git repositories for all of my local websites.
+This allows me to track changes, and I can fiddle with impunity – I can always roll back if I break something, so I can just experiment and have fun.
+
+These Git repositories only live on my local machine.
+I run `git init .` in the folder, I create commits to record any changes, and that's it.
+I don't push the repository to GitHub or another remote Git server.
+(Although I do have backups of every site, of course.)
+
+I only track the text files in Git – the HTML, CSS, and JavaScript.
+I don't track binary files like images and videos.
+Git struggles with those larger files, and I don't edit those as much as the text files, so having them in version control is less useful.
+
+
+
+<h2 id="tests">Test the code with QUnit and Playwright</h2>
+
+If I'm writing a very sophisticated viewer, it may be helpful to have tests.
+I've found two test frameworks that I particularly like for this purpose.
+
+[QUnit] is a JavaScript testing framework that I can use for unit testing -- to me, that means testing individual functions and components.
+For example, QUnit was very helpful when I was writing the early iterations of the sorting and filtering code.
+It helped catch a number of mistakes and edge cases.
+You can [run it in the browser][qunit_browser], and it only requires two files, so it's easy to add to a project without creating a whole JavaScript build system or dependency tree.
+
+[Playwright] is a testing framework that opens a web app in a browser, and can check that the app behaves correctly.
+It can also test the behaviour of a static website -- for example, if you select a new sort order, does the page reload and show results in the correct order?
+This is a larger, more heavyweight framework.
+I typically use it through [Python][playwright_python].
+
+Both of these tools can give me a safety net, because they'll tell me if I break something when I make changes.
+
+I only write tests for a handful of my more complicated sites -- most sites are simple enough that I write them once, check they work, and then I know I'm not going to change them again.
+Tests are less useful if I know I'll never make changes.
+
+We're getting away from the idea of a self-contained static website, because now I'm relying on third-party code, and for Playwright I need to maintain a working Python environment.
+I'm okay with this, because the website is still usable even if I can no longer run the tests.
+These are useful sidecar tools, but I only need them if I'm making changes.
+If I've archived a site because it's "done", it doesn't matter if the tests stop working, because I don't need run them again.
+
+[QUnit]: https://qunitjs.com/
+[qunit_browser]: https://qunitjs.com/browser/
+[Playwright]: https://playwright.dev/
+[playwright_python]: https://playwright.dev/python/docs/intro
+
+
+
+<h2 id="python">Manipulate the metadata with Python</h2>
+
+We could write all this JavaScript within the <code>&lt;script&gt;</code> tags of an HTML page, or put it all in a single JavaScript file, but having metadata and application logic in the same place is a bit messy.
+
+One pattern I've adopted is to put all the item metadata in a single, standalon file that assigns a single variable, i.e.:
+
+```javascript
+const bookmarks = […];
+```
+
+and then load that file in the HTML page with a <code>&lt;script src="metadata.js"&gt;</code> element.
+
+Then I can modify this metadata file programatically, or write Python scripts that interact with it it.
+I wrote a small Python library [javascript-data-files] to interact with JSON stored this way.
+
+(I have to use JavaScript rather than pure JSON because you can't load JSON files programatically if you open your HTML file directly -- web pages with the `file://` scheme aren't allowed to fetch other files from your disk.)
+
+This allows me to write scripts that add data to the metadata file (like saving a new bookmark) or to verify the existing metadata (like checking that I have an archived copy of every bookmark).
+I'll write more about this in future posts, because this one is long enough already.
+
+This is stretching the definition of "static website" even further, because we're getting something akin to a static site generator.
+I can only use these scripts if I maintain a working Python environment.
+I consider this an acceptable tradeoff, because I don't need these scripts to use the website -- only when I'm changing something.
+If I stop making changes and the Python environment breaks, I can still see everything I've already saved.
+
+[javascript-data-files]: https://pypi.org/project/javascript-data-files/
+
 ---
 
-More features you could add:
-* sorting
-* filtering
-* pagination
-put all of those inside the `window.addEventListener` block to cut down the list of entries to the specific slice you want to show rn
+<h2 id="conclusion">Closing thoughts</h2>
 
-Noscript and errors
+There's a lot here.
+You don't need to do all of it -- and indeed, I rarely do.
+This is a collection of ideas that I use across many different sites.
+Every site uses some of these ideas, but only a handful of sites use all of them.
 
-Bonus features:
-* storing in Git
-* tests using QUnit/Playwright
-* manipulate JS using Python scripts, put metadata in separate file
-    -> why okay?
+If you want to build a static site for a tiny archive, begin with a simple HTML file.
+Add features like templates, sorting and filtering incrementally as they become useful.
+You don't need to add them all upfront; that's just adding complexity for its own sake.
 
-Will be posting an example of a site using this pattern soon
+This approach can scale from simple collections to sophisticated archives.
+Building static websites with HTML and JavaScript can give you a resource that's easy to maintain and modify, has no external dependencies, and is future-proof against a lot of technological changes.
+
+I've come to love using static websites to store my local data.
+I hope you'll consider it too, and that these ideas help you get started.
