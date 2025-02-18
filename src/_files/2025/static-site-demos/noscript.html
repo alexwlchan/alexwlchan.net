@@ -1,0 +1,328 @@
+<noscript>
+  <strong>You need to enable JavaScript to use this site!</strong>
+</noscript>
+
+<script>
+  const bookmarks = [
+    {
+      "url": "https://estherschindler.medium.com/the-old-family-photos-project-lessons-in-creating-family-photos-that-people-want-to-keep-ea3909129943",
+      "title": "Lessons in creating family photos that people want to keep, by Esther Schindler",
+      "tags": ["photography", "preservation"],
+      "publicationYear": "2018"
+    },
+    {
+      "url": "https://www.theatlantic.com/technology/archive/2015/01/why-i-am-not-a-maker/384767/",
+      "title": "Why I Am Not a Maker, by Debbie Chachra",
+      "tags": ["craft"],
+      "publicationYear": "2015"
+    },
+    {
+      "url": "https://meyerweb.com/eric/thoughts/2014/06/10/so-many-nevers/",
+      "title": "So Many Nevers, by Eric Meyer",
+      "tags": ["death", "grief"],
+      "publicationYear": "2014"
+    },
+    {
+      "url": "https://inkdroid.org/2013/11/26/the-web-as-a-preservation-medium/",
+      "title": "The Web as a Preservation Medium, by Ed Summers",
+      "tags": ["preservation"],
+      "publicationYear": "2013"
+    },
+    {
+      "url": "https://www.nytimes.com/2017/03/03/style/modern-love-you-may-want-to-marry-my-husband.html",
+      "title": "You May Want to Marry My Husband, by Amy Krouse Rosenthal",
+      "tags": ["love", "death"],
+      "publicationYear": "2017"
+    },
+    {
+      "url": "https://crookedtimber.org/2024/02/19/death-lonely-death/",
+      "title": "Death, Lonely Death, by Doug Muir",
+      "tags": ["space exploration"],
+      "publicationYear": "2024"
+    },
+    {
+      "url": "https://www.nylon.com/small-art-transgender-marginalized-artists",
+      "title": "On The Choice To Consume Small Art, by Gretchen Felker-Martin",
+      "tags": ["art"],
+      "publicationYear": "2019"
+    },
+    {
+      "url": "https://stackingthebricks.com/why-blacksmiths-are-better-at-startups-than-you/",
+      "title": "Why Blacksmiths are Better at Startups than You, by Amy Hoy",
+      "tags": ["craft"],
+      "publicationYear": "2012"
+    },
+  ];
+
+  const bookmarkFilters = [
+    {
+      key: 'tag',
+      label: 'tagged with',
+      filterFn: (bookmark, tagName) => bookmark.tags.includes(tagName),
+    },
+    {
+      key: 'publicationYear',
+      label: 'published in',
+      filterFn: (bookmark, year) => bookmark.publicationYear === year,
+    },
+  ];
+
+  const bookmarkSortOptions = [
+    {
+      id: 'titleAtoZ',
+      label: 'title (A to Z)',
+      compareFn: (a, b) => a.title > b.title ? 1 : -1,
+    },
+    {
+      id: 'publicationYear',
+      label: 'publication year (newest first)',
+      compareFn: (a, b) => a.publicationDate - b.publicationDate,
+    },
+  ];
+
+  /*
+   * Filter a list of items.
+   *
+   * It takes the list of items and available filters, and the
+   * URL query parameters passed to the page.
+   *
+   * It returns a list with the items that match these filters,
+   * and a list of filters that have been applied.
+   */
+  function filterItems({ items, filters, params }) {
+
+    // By default, all items match, and no filters are applied.
+    var matchingItems = items;
+    var appliedFilters = [];
+
+    // Go through the URL query params one by one, and look to
+    // see if there's a matching filter.
+    for (const [key, value] of params) {
+      console.debug(`Checking query parameter ${key}`);
+      const matchingFilter = filters.find(f => f.key === key);
+
+      if (typeof matchingFilter === 'undefined') {
+        continue;
+      }
+
+      // There's a matching filter!  Go ahead and filter the
+      // list of items to only those that match.
+      console.debug(`Detected filter ${JSON.stringify(matchingFilter)}`);
+
+      matchingItems = matchingItems.filter(
+        item => matchingFilter.filterFn(item, value)
+      );
+
+      // Construct a new query string that doesn't include
+      // this filter.
+      const altQuery = new URLSearchParams(params);
+      altQuery.delete(key, value);
+      const queryIfRemoved = altQuery.toString();
+
+      appliedFilters.push({
+        type: matchingFilter.key,
+        label: matchingFilter.label,
+        value,
+        queryIfRemoved,
+      })
+    }
+
+    return { matchingItems, appliedFilters };
+  }
+
+  /*
+   * Sort a list of items.
+   *
+   * It takes the list of items and available options, and the
+   * URL query parameters passed to the page.
+   *
+   * It returns a list with the items in sorted order, and the
+   * sort order that was applied.
+   */
+  function sortItems({ items, sortOptions, params }) {
+
+    // Did the user pass a sort order in the query parameters?
+    const sortOrderId = getSortOrder(params);
+
+    // What sort order are we using?
+    //
+    // Look for a matching sort option, or use the default if the sort
+    // order is null/unrecognised.  For now, use the first defined
+    // sort order as the efault.
+    const defaultSort = sortOptions[0];
+    const selectedSort =
+      sortOptions.find(s => s.id === sortOrderId) || defaultSort;
+
+    console.debug(`Selected sort: ${JSON.stringify(selectedSort)}`);
+
+    // Now apply the sort to the list of items.
+    const sortedItems = items.sort(selectedSort.compareFn);
+
+    return { sortedItems, appliedSortOrder: selectedSort };
+  }
+
+  /*
+   * Get a page of items.
+   *
+   * This function will reduce the list of items to the items that should
+   * be shown on this particular page.
+   */
+  function paginateItems({ items, pageNumber, pageSize }) {
+
+    // Page numbers are 1-indexed, so page 1 corresponds to
+    // the indices 0…(pageSize - 1).
+    const startOfPage = (pageNumber - 1) * pageSize;
+    const endOfPage = pageNumber * pageSize;
+    const thisPage = items.slice(startOfPage, endOfPage);
+
+    return {
+      thisPage,
+      totalPages: Math.ceil(items.length / pageSize),
+    };
+  }
+
+  /*
+   * Renders a list of pagination controls.
+   *
+   * This includes links to prev/next pages and the current page number.
+   */
+  function PaginationControls({ pageNumber, totalPages, params }) {
+
+    // If there are no pages, we don't need pagination controls.
+    if (totalPages === 1) {
+      return "";
+    }
+
+    // Do we need a link to the previous page?  Only if we're past page 1.
+    if (pageNumber > 1) {
+      const prevPageUrl = setPageNumber({ params, pageNumber: pageNumber - 1 });
+      prevPageLink = `<a href="${prevPageUrl}">&larr; prev</a>`;
+    } else {
+      prevPageLink = null;
+    }
+
+    // Do we need a link to the previous page?  Only if we're before
+    // the last page.
+    if (pageNumber < totalPages) {
+      const nextPageUrl = setPageNumber({ params, pageNumber: pageNumber + 1 });
+      nextPageLink = `<a href="${nextPageUrl}">next &rarr;</a>`;
+    } else {
+      nextPageLink = null;
+    }
+
+    const pageText = `Page ${pageNumber} of ${totalPages}`;
+
+    // Construct the final result.
+    return [prevPageLink, pageText, nextPageLink]
+      .filter(p => p !== null)
+      .join(" / ");
+  }
+
+  /* Returns a URL that points to the new page number. */
+  function setPageNumber({ params, pageNumber }) {
+    const updatedParams = new URLSearchParams(params);
+    updatedParams.set("pageNumber", pageNumber);
+    return `?${updatedParams.toString()}`;
+  }
+
+  /* Get the current page number. */
+  function getPageNumber(params) {
+    return Number(params.get("pageNumber")) || 1;
+  }
+
+  /* Get the current sort order from the URL query parameters. */
+  function getSortOrder(params) {
+    return params.get("sortOrder");
+  }
+
+  function Bookmark(bookmark) {
+    return `
+      <li>
+        <a href="${bookmark.url}">${bookmark.title} (${bookmark.publicationYear})</a> <br/>
+        Tags: ${bookmark.tags.join(", ")}
+      </li>
+    `;
+  }
+
+  /*
+   * Create a dropdown control to choose the sort order.  When you pick
+   * a different value, the page reloads with the new sort.
+   */
+  function SortOrderDropdown({ sortOptions, appliedSortOrder }) {
+    return `
+      <select onchange="setSortOrder(this.value)">
+        ${
+          sortOptions
+            .map(({ id, label }) => `
+              <option value="${id}" ${id === appliedSortOrder.id ? 'selected' : ''}>
+                ${label}
+              </option>
+            `)
+            .join("")
+        }
+      </select>
+    `;
+  }
+
+  function setSortOrder(sortOrderId) {
+    const params = new URLSearchParams(window.location.search);
+    params.set("sortOrder", sortOrderId);
+    params.delete("page");
+    window.location.search = params.toString();
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+
+    const { matchingItems: matchingBookmarks, appliedFilters } =
+      filterItems({
+        items: bookmarks,
+        filters: bookmarkFilters,
+        params: params,
+      });
+
+    document.querySelector("#appliedFilters").innerHTML =
+      appliedFilters
+        .map(f => `<li>${f.label}: ${f.value} <a href="?${f.queryIfRemoved}">(remove)</a></li>`)
+        .join("");
+
+    const { sortedItems: sortedBookmarks, appliedSortOrder } =
+      sortItems({
+        items: matchingBookmarks,
+        sortOptions: bookmarkSortOptions,
+        params,
+      });
+
+    document.querySelector("#sortOrder").innerHTML +=
+      SortOrderDropdown({ sortOptions: bookmarkSortOptions, appliedSortOrder });
+
+    const pageNumber = getPageNumber(params);
+
+    const { thisPage: thisPageOfBookmarks, totalPages } =
+      paginateItems({
+        items: sortedBookmarks,
+        pageNumber,
+        pageSize: 3,
+      });
+
+    document.querySelector("#paginationControls").innerHTML +=
+      " " + PaginationControls({ pageNumber, totalPages, params });
+
+    document.querySelector("#listOfBookmarks").innerHTML =
+      thisPageOfBookmarks.map(Bookmark).join("");
+  });
+</script>
+
+<h1>Bookmarks</h1>
+
+<p><em>Apply a filter <a href="?tag=preservation">by tag</a> or <a href="?publicationYear=2014">by publication year</a>.</em></p>
+
+<p id="sortOrder">Sort by:</p>
+
+<p>Applied filters:</p>
+<ul id="appliedFilters"></ul>
+
+<p id="paginationControls">Pagination controls:</p>
+
+<p>Bookmarks:</p>
+<ul id="listOfBookmarks"></ul>

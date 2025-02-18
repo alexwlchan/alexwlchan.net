@@ -92,11 +92,27 @@
       'pagination': {
         description: 'This demo adds pagination, to break up the list into smaller pieces. The page size is very small to show off the feature.'
       },
+      'noscript': {
+        description: 'This demo adds a <noscript> tag that tells users they need to enable JavaScript.'
+      },
+      'onerror': {
+        description: 'This demo adds an error handler and a deliberate JavaScript error.'
+      },
     };
 
     async function setDemo(demoId) {
       const resp = await window.fetch(`static-site-demos/${demoId}.html`);
       const html = await resp.text();
+
+      if (demoId === 'noscript') {
+        document
+          .querySelector('iframe')
+          .setAttribute('sandbox', '');
+      } else {
+        document
+          .querySelector('iframe')
+          .removeAttribute('sandbox');
+      }
 
       document
         .querySelector('iframe')
@@ -159,6 +175,14 @@
         <button
           data-demo-id="pagination"
           onclick="setDemo(this.getAttribute('data-demo-id'))">with pagination</button></li>
+      <li>
+        <button
+          data-demo-id="noscript"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with a noscript element</button></li>
+      <li>
+        <button
+          data-demo-id="onerror"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with an error handler</button></li>
     </ul>
     <noscript>
       <p>You need to enable JavaScript for this demo.</p>

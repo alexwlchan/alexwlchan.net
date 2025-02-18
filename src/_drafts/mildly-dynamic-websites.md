@@ -656,7 +656,53 @@ I leave this as an exercise for the reader.
 
 If you want to see this in action, check out [the updated demo page](/files/2025/static-site-demo.html?demoId=pagination).
 
-<h2 id="errors">Provide clarity with loading states and error handling</h2>
+<h2 id="errors">Provide feedback with loading states and error handling</h2>
+
+One problem with relying on JavaScript to render the page is that sometimes JavaScript goes wrong.
+For example, I write a lot of my metadata by hand, and a typo can make it invalid JSON and break the page.
+There are also people who disable JavaScript, or sometimes it doesn't work.
+
+If I'm using the site, I can open the Developer Tools in my web browser and start debugging there -- but that's not a great experience.
+If you're not expecting something to go wrong, it will just look like the page is taking a long time to load.
+We can do better.
+
+To begin with, we can add a [`<noscript>` element][noscript] that explains to the user that they need to enable JavaScript.
+This will only be shown if they've disabled JavaScript:
+
+```html
+<noscript>
+  <strong>You need to enable JavaScript to use this site!</strong>
+</noscript>
+```
+
+We can also listen for the [`error` event][error_event] on the window, and report an error to the user -- for example, if a script fails to load.
+
+```html
+<div id="errors"></div>
+
+<script>
+  window.addEventListener("error", function(event) {
+    document
+      .querySelector('#errors')
+      .innerHTML = `<strong>Something went wrong when loading the page!</strong>`;
+  });
+</script>
+```
+
+We can also attach an `onerror` handler to specific script tags, which allows us to customise the error message -- we can tell the user that a particular file failed to load.
+
+```html
+<script src="app.js" onerror="alert('Something went wrong while loading app.js')"></script>
+```
+
+And I like to include a loading indicator, or some placeholder text that will be replaced when the page will finish loading -- this tells the user where they can expect to see something load in.
+
+```html
+<ul id="listOfBookmarks">Loading…</ul>
+```
+
+[noscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
+[error_event]: https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event
 
 ---
 
