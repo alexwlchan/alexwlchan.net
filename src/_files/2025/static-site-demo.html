@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <style>
+    body {
+      background: #eee;
+    }
+
+    header {
+      background: yellow;
+      padding: 1em;
+      border: 2px solid black;
+    }
+
+    header p:first-child { margin-top:    0; }
+    header p:last-child  { margin-bottom: 0; }
+
+    button {
+      background: yellow;
+      font-size: 1em;
+    }
+
+    button.selected {
+      background: black;
+      color: yellow;
+    }
+
+    #demos {
+      list-style-type: none;
+      margin:  0;
+      padding: 0;
+      display: inline-block;
+    }
+
+    #demos > li {
+      display: inline-block;
+    }
+
+    #description, pre, iframe {
+      background: white;
+      border: 2px solid black;
+      padding: 1em;
+      padding: 1em;
+    }
+
+    #iframes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1em;
+    }
+
+    iframe {
+      width: calc(100% - 2.5em);
+      background: white;
+      border: 2px solid black;
+      min-height: 500px;
+    }
+
+    pre {
+      overflow-x: scroll;
+      margin: 0;
+      font-size: 1.25em;
+      line-height: 1.4em;
+    }
+
+    noscript p {
+      color: red;
+      font-weight: bold;
+      font-size: 2em;
+    }
+  </style>
+
+  <script>
+    const demos = {
+      'hand-written-html': {
+        description: 'This is a hand-written HTML, with no JavaScript or dynamic content. It’s the simplest, purest form of a website!'
+      },
+      'template-literals': {
+        description: 'This demo uses JavaScript template literals to render the list, to reduce the copy/paste of HTML markup.'
+      },
+      'filtering': {
+        description: 'This demo adds filters that allow me to narrow down a long list of items, and find the exact items I’m looking for.'
+      },
+      'sorting': {
+        description: 'This demo adds sorting, to bring order to a longer list of items.'
+      },
+      'pagination': {
+        description: 'This demo adds pagination, to break up the list into smaller pieces. The page size is very small to show off the feature.'
+      },
+      'noscript': {
+        description: 'This demo adds a <noscript> tag that tells users they need to enable JavaScript.'
+      },
+      'onerror': {
+        description: 'This demo adds an error handler and a deliberate JavaScript error.'
+      },
+      'qunit-test': {
+        description: 'This page runs a single unit test using QUnit.'
+      },
+    };
+
+    async function setDemo(demoId) {
+      const resp = await window.fetch(`static-site-demos/${demoId}.html`);
+      const html = await resp.text();
+
+      if (demoId === 'noscript') {
+        document
+          .querySelector('iframe')
+          .setAttribute('sandbox', '');
+      } else {
+        document
+          .querySelector('iframe')
+          .removeAttribute('sandbox');
+      }
+
+      document
+        .querySelector('iframe')
+        .setAttribute('src', `static-site-demos/${demoId}.html`);
+
+      document.querySelector('pre').innerText = html;
+
+      document
+        .querySelectorAll('button')
+        .forEach(btn => btn.classList.remove('selected'));
+
+      document
+        .querySelector(`button[data-demo-id="${demoId}"]`)
+        .classList.add('selected');
+
+      document
+        .querySelector('#description')
+        .innerText = demos[demoId].description;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+
+      if (params.get('demoId') !== null) {
+        setDemo(params.get('demoId'));
+      }
+    })
+  </script>
+</head>
+
+<body>
+  <header>
+    <p>
+      This is a demo of code for creating a static site in JavaScript.
+    </p>
+    <p>
+      It was written to accompany my article <a href="https://alexwlchan.net/2025/mildly-dynamic-websites/">https://alexwlchan.net/2025/mildly-dynamic-websites/</a>.
+    </p>
+    <p>
+      Select a demo page:
+    </p>
+    <ul id="demos">
+      <li>
+        <button
+          data-demo-id="hand-written-html"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">hand-written HTML</button></li>
+      <li>
+        <button
+          data-demo-id="template-literals"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with JavaScript template literals</button></li>
+      <li>
+        <button
+          data-demo-id="filtering"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with filtering</button></li>
+      <li>
+        <button
+          data-demo-id="sorting"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with sorting</button></li>
+      <li>
+        <button
+          data-demo-id="pagination"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with pagination</button></li>
+      <li>
+        <button
+          data-demo-id="noscript"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with a noscript element</button></li>
+      <li>
+        <button
+          data-demo-id="onerror"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">with an error handler</button></li>
+      <li>
+        <button
+          data-demo-id="qunit-test"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">unit tests with QUnit</button></li>
+    </ul>
+    <noscript>
+      <p>You need to enable JavaScript for this demo.</p>
+    </noscript>
+  </header>
+
+  <main>
+    <p id="description"></p>
+    <div id="iframes">
+      <iframe></iframe>
+      <pre></pre>
+    </div>
+  </main>
+</body>
+
+</html>
