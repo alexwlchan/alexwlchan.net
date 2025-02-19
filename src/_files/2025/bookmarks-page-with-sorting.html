@@ -21,14 +21,14 @@
     {
       id: 'publicationYear',
       label: 'publication year (newest first)',
-      compareFn: (a, b) => a.publicationDate - b.publicationDate,
+      compareFn: (a, b) => Number(b.publicationYear) - Number(a.publicationYear),
     },
   ];
 
  /*
   * Sort a list of items.
   *
-  * It takes the list of items and available options, and the
+  * This function takes the list of items and available options, and the
   * URL query parameters passed to the page.
   *
   * It returns a list with the items in sorted order, and the
@@ -102,12 +102,12 @@ function setSortOrder(sortOrderId) {
 
   const bookmarkFilters = [
     {
-      key: 'tag',
+      id: 'tag',
       label: 'tagged with',
       filterFn: (bookmark, tagName) => bookmark.tags.includes(tagName),
     },
     {
-      key: 'publicationYear',
+      id: 'publicationYear',
       label: 'published in',
       filterFn: (bookmark, year) => bookmark.publicationYear === year,
     },
@@ -116,7 +116,7 @@ function setSortOrder(sortOrderId) {
   /*
    * Filter a list of items.
    *
-   * It takes the list of items and available filters, and the
+   * This function takes the list of items and available filters, and the
    * URL query parameters passed to the page.
    *
    * It returns a list with the items that match these filters,
@@ -132,7 +132,7 @@ function setSortOrder(sortOrderId) {
     // see if there's a matching filter.
     for (const [key, value] of params) {
       console.debug(`Checking query parameter ${key}`);
-      const matchingFilter = filters.find(f => f.key === key);
+      const matchingFilter = filters.find(f => f.id === key);
 
       if (typeof matchingFilter === 'undefined') {
         continue;
@@ -150,13 +150,13 @@ function setSortOrder(sortOrderId) {
       // this filter.
       const altQuery = new URLSearchParams(params);
       altQuery.delete(key, value);
-      const queryIfRemoved = altQuery.toString();
+      const linkToRemove = "?" + altQuery.toString();
 
       appliedFilters.push({
-        type: matchingFilter.key,
+        type: matchingFilter.id,
         label: matchingFilter.label,
         value,
-        queryIfRemoved,
+        linkToRemove,
       })
     }
 
@@ -183,7 +183,7 @@ function setSortOrder(sortOrderId) {
 
     document.querySelector("#appliedFilters").innerHTML =
       appliedFilters
-        .map(f => `<li>${f.label}: ${f.value} <a href="?${f.queryIfRemoved}">(remove)</a></li>`)
+        .map(f => `<li>${f.label}: ${f.value} <a href="${f.linkToRemove}">(remove)</a></li>`)
         .join("");
 
     const { sortedItems: sortedBookmarks, appliedSortOrder } =

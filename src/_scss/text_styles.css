@@ -34,6 +34,11 @@ a:visited {
   color: var(--body-text);
 }
 
+h1 a:visited,
+h2 a:visited {
+  color: var(--link-color);
+}
+
 a:hover {
   color: var(--link-color);
   text-decoration: underline;

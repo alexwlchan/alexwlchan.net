@@ -1,13 +1,14 @@
 ---
 layout: post
-title: Creating static websites with JavaScript metadata and templating
+title: How I create static websites for tiny archives
 summary:
-tags:
 colors:
   index_light: "#535353"
   index_dark:  "#cecece"
 tags:
   - static sites
+  - web development
+  - javascript
 index:
   feature: true
 ---
@@ -18,31 +19,34 @@ index:
 
 Last year I wrote about [using static websites for tiny archives][static_sites].
 The idea is that I create tiny websites to store and describe my digital collections.
-HTML is flexible and lets me display data in a variety of ways; it's likely to remain readable for a long time; it lets me add more context than a folder full of files.
+There are several reasons I like this approach: HTML is flexible and lets me display data in a variety of ways; it's likely to remain readable for a long time; it lets me add more context than a folder full of files.
 
 I'm converting more and more of my local data to be stored in static websites -- paperwork I've scanned, screenshots I've taken, and web pages I've bookmarked.
 I really like this approach.
 
-I got a lot of positive feedback on the post, but the most common reply was "can you give an example or tutorial".
-People wanted to see examples of the HTML and JavaScript I was using, or for me to share my source code.
+I got a lot of positive feedback, but the most common reply was "please share some source code".
+People wanted to see examples of the HTML and JavaScript I was using
 
 I deliberately omitted any code from the original post, because I wanted to focus on the concept, not the detail.
-I was trying to persuade you that static websites are a good idea for storing small archives and data sets, and I didn't want to get distracted by implementation ideas or code snippets.
+I was trying to persuade you that static websites are a good idea for storing small archives and data sets, and I didn't want to get distracted by the implementation.
 
 There's also no single code base I could share – every site I build is different, and the code is often scrappy or poorly documented.
-I've built dozens of small sites this way, and there's no site that serves as a good exemplar -- they all implement a subset of my ideas, or have hard-coded details that would distract from the overall approach.
-It would be difficult to read or understand what's going on.
+I've built dozens of small sites this way, and there's no site that serves as a good example of this approach -- they're all built differently, implement a subset of my ideas, or have hard-coded details.
+Even if I shared some source code, it would be difficult to read or understand what's going on.
 
 However, there's clearly an appetite for that sort of explanation, so this follow-up post will discuss the "how" rather than the "why".
-There's a lot of code, especially JavaScript, which I'll be explaining in small digestible snippets.
-This requires more technical skill than writing plain HTML, which is another reason I didn't describe this in the original post -- there are much simpler ways to get started, and I don't want anyone to be overwhelmed or put off.
+There's a lot of code, especially JavaScript, which I'll explain in small digestible snippets.
+That's another reason I didn't describe this in the original post -- I didn't want anyone to feel overwhelmed or put off.
+A lot of what I'm describing here is nice-to-have, not essential.
+You can get started with something pretty simple.
 
 I'll go through a feature at a time, as if we were building a new static site.
-I'll use bookmarks as an example, but there's nothing in this post that's specific to bookmarking.
+I'll use [bookmarks] as an example, but there's nothing in this post that's specific to bookmarking.
 
-If you'd prefer to look at complete working examples, I've made [a demo site] where you can see everything in one place.
+If you'd like to see everything working together, check out [the demo site].
+It includes the full code for all the sections in this post.
 
-This is a long, code-heavy post, so grab a hot drink and let's dive in!
+Let's dive in!
 
 * [Start with a hand-written HTML page](#hand-written-html) ([demo](/files/2025/static-site-demo.html?demoId=hand-written-html))
 * [Reduce repetition with JavaScript templates](#template-literals) ([demo](/files/2025/static-site-demo.html?demoId=template-literals))
@@ -57,12 +61,16 @@ This is a long, code-heavy post, so grab a hot drink and let's dive in!
 
 ADD DEMO PAGES to `<h2>`
 
+[bookmarks]: https://en.wikipedia.org/wiki/Bookmark_(digital)
 [static_sites]: /2024/static-websites/
-[a demo site]: /files/2025/static-site-demo.html
+[the demo site]: /files/2025/static-site-demo.html
 
 ---
 
-<h2 id="hand-written-html">Start with a hand-written HTML page</h2>
+<h2 id="hand-written-html">
+  Start with a hand-written HTML page
+  (<a href="/files/2025/static-site-demo.html?demoId=hand-written-html">demo</a>)
+</h2>
 
 A website can be a single HTML file you edit by hand.
 Open a text editor like TextEdit or Notepad, copy-paste the following text, and save it in a file named `bookmarks.html`.
@@ -77,24 +85,27 @@ Open a text editor like TextEdit or Notepad, copy-paste the following text, and 
 </ul>
 ```
 
-If you double-click this file to open it in your web browser, you'll see a list of three links.
-(Or you can [look at my demo page](/files/2025/static-site-demo.html?demoId=hand-written-html).)
+If you open this file in your web browser, you'll see a list of three links.
+You can also [check out my demo page](/files/2025/static-site-demo.html?demoId=hand-written-html) to see this in action.
 
 This is an excellent way to build a website.
 If you stop here, you've got all the flexibility and portability of HTML, and this file will remain readable for a very long time.
 
-I have a lot of local sites I built this way.
-I like it for small, immutable data sets that I know are never going to change.
-I can write the HTML once, and the lack of moving parts mean it will remain readable for essentially forever.
+I build a lot of sites this way.
+I like it for small data sets that I know are never going to change, or which change very slowly.
+It's simple, future-proof, and easy to edit if I ever need to.
 
 
 
-<h2 id="template-literals">Reduce repetition with JavaScript templates</h2>
+<h2 id="template-literals">
+  Reduce repetition with JavaScript templates
+  (<a href="/files/2025/static-site-demo.html?demoId=template-literals">demo</a>)
+</h2>
 
 As you store more data, it gets a bit tedious to keep copying the HTML markup for each item.
-Wouldn't it be useful if we could push it into some sort of reusable template?
+Wouldn't it be useful if we could push it into a reusable template?
 
-When a site gets bigger, I move the metadata into [JSON][json], then I use JavaScript and template literals to render it on the page.
+When a site gets bigger, I convert the metadata into [JSON][json], then I use JavaScript and template literals to render it on the page.
 
 Let's start with a simple example of metadata in JSON.
 My real data has more fields, like date saved or a list of keyword tags, but this is enough to get the idea:
@@ -128,18 +139,21 @@ function Bookmark(bookmark) {
 }
 ```
 
-Having a function that returns HTML is inspired by React and Next.js, where code is split into "components" that renders part of the app.
-This function is simple and only renders the HTML once -- unlike React, it won't re-render if the data changes -- but that's okay, because my data isn't going to change.
-The HTML gets rendered once on page load, and that's enough.
+Having a function that returns HTML is inspired by React and Next.js, where code is split into "components" that each render part of the web app.
+
+This function is simpler than what you'd get in React.
+Part of React's behaviour is that it will re-render the page if the data changes, but my function won't do that.
+That's okay, because my data isn't going to change.
+The HTML gets rendered once when the page loads, and that's enough.
 
 I'm using a [template literal] because I find it simple and readable.
-It looks pretty close to the actual HTML, so I have a pretty good idea of what's going to render on the page.
+It looks pretty close to the actual HTML, so I have a pretty good idea of what's going to appear on the page.
 
-Template literals are pretty risky if you're getting data from an untrusted source -- it could allow somebody to inject arbitrary HTML into your page -- but I'm writing all my metadata, so I trust it.
+Template literals are dangerous if you're getting data from an untrusted source -- it could allow somebody to inject arbitrary HTML into your page -- but I'm writing all my metadata, so I trust it.
 
-I know there are other ways to do this sort of thing, like constructing DOM elements directly, the [`<template>` element][template_elem], or [Web Components] -- but template literals have always been sufficient for me, and I've never had a reason to explore other options.
+I know there are other ways to construct HTML in JavaScript, like [`document.createElement()`][createElement], the [`<template>` element][template_elem], or [Web Components] -- but template literals have always been sufficient for me, and I've never had a reason to explore other options.
 
-Now we have to use this function to render the bookmarks on the page.
+Now we have to call this function when the page loads, and render the list of bookmarks.
 Here's the rest of the code:
 
 ```html
@@ -159,23 +173,24 @@ I'm listening for the [`DOMContentLoaded` event][DOMContentLoaded], which occurs
 When that event occurs, it looks for `<ul id="listOfBookmarks">` in the page, and inserts the HTML for the list of bookmarks.
 
 We have to wait for this event so the `<ul>` actually exists.
-If we tried to run it immediately, it might run *before* the `<ul>` exists, and then it wouldn't know where to insert the HTML.
+If we tried to run it immediately, it might run before the `<ul>` exists, and then it wouldn't know where to insert the HTML.
 
 I'm using [`querySelector()`][querySelector] to find the `<ul>` I want to modify -- this is a newer alternative to functions like [`getElementById()`][getElementById].
 It's quite flexible, because I can target any CSS selector, and I find CSS rules easier to remember than the family of `getElementBy*` functions.
 Although it's slightly slower in benchmarks, the difference is negligible and it's easier for me to remember.
 
-If you want to see this in action, check out [the demo page][demo_template_literals].
+If you want to see this page working, check out [the demo page][demo_template_literals].
 
-This sort of design is how a lot of my static sites start -- metadata in JSON, some functions that render HTML, and an event listener that renders the whole page after it loads.
+I use this pattern as a starting point for a lot of my static sites -- metadata in JSON, some functions that render HTML, and an event listener that renders the whole page after it loads.
 
-Once I have the basic site working, I add more data, render more HTML, and add CSS styles to make it look pretty.
+Once I have the basic site, I add data, render more HTML, and write CSS styles to make it look pretty.
 This is where I can have fun, and really customise each site.
-There's no structure here -- I just keep tweaking until I have something I'm happy with.
-I'm ignoring CSS because this post is long enough already, and there's a certain vintage charm to unstyled HTML.
+I keep tweaking until I have something I like.
+I'm ignoring CSS because that could be a whole other post, and there's a vintage charm to unstyled HTML -- it's fine for what we're discussing today.
 
 What else can we do?
 
+[createElement]: https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
 [DOMContentLoaded]: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
 [querySelector]: https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelector
 [getElementById]: https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
@@ -187,10 +202,13 @@ What else can we do?
 
 
 
-<h2 id="filtering">Add filtering to find specific items</h2>
+<h2 id="filtering">
+  Add filtering to find specific items
+  (<a href="/files/2025/static-site-demo.html?demoId=filtering">demo</a>)
+</h2>
 
-As the list gets even longer, it's useful to have some way to find specific items in the list -- I don't want to scroll the whole list every time.
-I like adding keyword tags to my data, and then filtering the list for items with particular tags.
+As the list gets even longer, it's useful to have a way to find specific items in the list -- I don't want to scroll the whole thing every time.
+I like adding keyword tags to my data, and then filtering for items with particular tags.
 If I add other metadata fields, I could filter on those too.
 
 Here's a brief sketch of the sort of interface I like:
@@ -199,22 +217,20 @@ Here's a brief sketch of the sort of interface I like:
   picture
   filename="js_filters_sketch.png"
   width="550"
-  alt="A crude sketch of a simple app. At the top is a list of three filters (tagged with animals, tagged with wtf, published in 2025) and a red 'x' to dismiss them. Below that are three items, each with a list of tags below it."
+  alt="A crude sketch of a simple app. At the top is a list of three filters (tagged with animals, tagged with wtf, published in 2025) and a red 'x' to dismiss each of them. Below that are three items, each with a list of tags below it."
 %}
 
-I can define a series of filters, and apply them to focus on a specific subset of items.
-I can combine multiple filters to refine my search further, and I can see a list of applied filters with a way to remove them, if I've filtered too far.
-I can either apply a filter from a global menu, or using controls on each item to find similar items.
+I like to be able to define a series of filters, and apply them to focus on a specific subset of items.
+I like to combine multiple filters to refine my search, and to see a list of applied filters with a way to remove them, if I've filtered too far.
+I like to apply filters from a global menu, or to use controls on each item to find similar items.
 
 I use URL query parameters to store the list of currently-applied filters, for example:
 
-```
-bookmarks.html?tag=animals&tag=wtf&publicationYear=2025
-```
+<pre><code>bookmarks.html?<strong>tag=animals&tag=wtf&publicationYear=2025</strong></code></pre>
 
-Any UI element that adds or removes a filter is a link, so clicking it changes the URL, and triggers a complete re-render with the new filters.
+This means that any UI element that adds or removes a filter is a link to a new URL, so clicking it loads a new page, which triggers a complete re-render with the new filters.
 
-When I write filtering code today, I try to make it as easy as possible to define new filters.
+When I write filtering code, I try to make it as easy as possible to define new filters.
 Every site needs a slightly different set of filters, but the overall principle is always the same: here's a long list of items, find the items that match these rules.
 
 Let's start by expanding our data model to include a couple of new fields:
@@ -236,35 +252,37 @@ Then we can define some filters we might use to narrow the list:
 ```javascript
 const bookmarkFilters = [
   {
-    key: 'tag',
+    id: 'tag',
     label: 'tagged with',
     filterFn: (bookmark, tagName) => bookmark.tags.includes(tagName),
   },
   {
-    key: 'publicationYear',
+    id: 'publicationYear',
     label: 'published in',
     filterFn: (bookmark, year) => bookmark.publicationYear === year,
   },
 ];
 ```
 
-The `key` is the name of the filter used in the URL query parameter.
-The `label` is how the filter will be described in the list of applied filters (along with the value we're filtering for).
-The `filterFn` is a function that takes two arguments: a bookmark, and a filter value, and returns true/false depending on whether the bookmark matches this filter.
+Each filter has three fields:
+
+* `id` matches the name of the associated URL query parameter
+* `label` is how the filter will be described in the list of applied filters
+* `filterFn` is a function that takes two arguments: a bookmark, and a filter value, and returns true/false depending on whether the bookmark matches this filter
 
 This list is the only place where I need to customise the filters for a particular site; the rest of the filtering code is completely generic.
 This means there's only one place I need to make changes if I want to add or remove filters.
 
-The next piece of the filtering code is a generic function that filters a list of items, and takes the list of possible filters as an argument:
+The next piece of the filtering code is a generic function that filters a list of items, and takes the list of filters as an argument:
 
 ```javascript
 /*
  * Filter a list of items.
  *
- * It takes the list of items and available filters, and the
+ * This function takes the list of items and available filters, and the
  * URL query parameters passed to the page.
  *
- * It returns a list with the items that match these filters,
+ * This function returns a list with the items that match these filters,
  * and a list of filters that have been applied.
  */
 function filterItems({ items, filters, params }) {
@@ -277,7 +295,7 @@ function filterItems({ items, filters, params }) {
   // see if there's a matching filter.
   for (const [key, value] of params) {
     console.debug(`Checking query parameter ${key}`);
-    const matchingFilter = filters.find(f => f.key === key);
+    const matchingFilter = filters.find(f => f.id === key);
 
     if (typeof matchingFilter === 'undefined') {
       continue;
@@ -295,13 +313,13 @@ function filterItems({ items, filters, params }) {
     // this filter.
     const altQuery = new URLSearchParams(params);
     altQuery.delete(key, value);
-    const queryIfRemoved = altQuery.toString();
+    const linkToRemove = "?" + altQuery.toString();
 
     appliedFilters.push({
-      type: matchingFilter.key,
+      type: matchingFilter.id,
       label: matchingFilter.label,
       value,
-      queryIfRemoved,
+      linkToRemove,
     })
   }
 
@@ -309,12 +327,16 @@ function filterItems({ items, filters, params }) {
 }
 ```
 
-This function doesn't care what sort of items I'm passing, or what the actual filters are -- so I can reuse it between different sites.
+This function doesn't care what sort of items I'm passing, or what the actual filters are, so I can reuse it between different sites.
 It returns the list of matching items, and the list of applied filters.
 The latter allows me to show that list on the page.
 
-The final step is to wire this filtering into the page render -- we need to actually filter the list of displayed items, and show the list of applied filters.
-Here's the rough code:
+`linkToRemove` is a link to the same page with this filter removed, but keeping any other filters.
+This lets us provide a button that removes the filter.
+
+The final step is to wire this filtering into the page render.
+We need to make sure we only show items that match the filter, and show the user a list of applied filters.
+Here's the new code:
 
 ```html
 <script>
@@ -330,7 +352,7 @@ Here's the rough code:
 
     document.querySelector("#appliedFilters").innerHTML =
       appliedFilters
-        .map(f => `<li>${f.label}: ${f.value} <a href="?${f.queryIfRemoved}">(remove)</a></li>`)
+        .map(f => `<li>${f.label}: ${f.value} <a href="${f.linkToRemove}">(remove)</a></li>`)
         .join("");
 
     document.querySelector("#listOfBookmarks").innerHTML =
@@ -347,19 +369,20 @@ Here's the rough code:
 <ul id="listOfBookmarks"></ul>
 ```
 
-I usually stick to "simple" filters that can be phrased as a yes/no question.
-I rely on my past self to provide sufficiently useful metadata that I can find stuff again later.
+I stick to simple filters that can be phrased as a yes/no question, and I rely on my past self to have written sufficiently useful metadata.
+At least in static sites, I've never implemented anything like a fuzzy text search, where it's less obvious whether a particular item should match.
 
-I've never implemented anything more like a search, where there are fuzzier rules about whether a particular item is a match.
-
-If you want to see this in action, check out [the demo page](/files/2025/static-site-demo.html?demoId=hand-written-html).
+You can check out the filtering code on [the demo page](/files/2025/static-site-demo.html?demoId=hand-written-html).
 
 
 
-<h2 id="sorting">Introduce sorting to bring order to your data</h2>
+<h2 id="sorting">
+  Introduce sorting to bring order to your data
+  (<a href="/files/2025/static-site-demo.html?demoId=sorting">demo</a>)
+</h2>
 
 The next feature I usually implement is sorting.
-I build a little dropdown menu with all the options, and picking a new option triggers a page reload with the new sort order.
+I build a dropdown menu with all the options, and picking one reloads the page with the new sort order.
 Here's a quick design sketch:
 
 {%
@@ -370,16 +393,13 @@ Here's a quick design sketch:
 %}
 
 For example, I often sort by the date I saved an item, so I can find an item I saved recently.
-Another common sort order I use is "random", which just shows items in a random order.
-This is a fun way to explore data, and find stuff I've forgotten about.
+Another sort order I often use is "random", which shuffles the items and is a fun way to explore the data.
 
 As with filters, I put the current sort order in a query parameter, for example:
 
-```
-bookmarks.html?sortOrder=title-a-to-z
-```
+<pre><code>bookmarks.html?<strong>sortOrder=titleAtoZ</strong></code></pre>
 
-As with the filtering, I want to write this in a fairly generic way, so I can share as much code as possible between sites.
+As before, I want to write this in a generic way and share code between different sites.
 Let's start by defining a list of sort options:
 
 ```javascript
@@ -392,13 +412,18 @@ const bookmarkSortOptions = [
   {
     id: 'publicationYear',
     label: 'publication year (newest first)',
-    compareFn: (a, b) => a.publicationDate - b.publicationDate,
+    compareFn: (a, b) => Number(b.publicationYear) - Number(a.publicationYear),
   },
 ];
 ```
 
-The key is the `compareFn`, which gets passed directly to the JavaScript [`sort` function][array_sort].
-I confess I never remember how this works, and I have to look it up every time: if `compareFn(a, b)` returns `1`, does that sort `a` before or after `b`?
+Each sort option has three fields:
+
+*   `id` is the value that will appear in the URL query parameter
+*   `label` is the human-readable label that will appear in the dropdown
+*   `compareFn(a, b)` is a function that compares two items, and will be passed directly to the JavaScript [`sort` function][array_sort].
+    If it returns a negative value, then `a` sorts before `b`.
+    If it returns a positve value, then `a` sorts after `b`.
 
 Next, we can define a function that will sort a list of items:
 
@@ -406,7 +431,7 @@ Next, we can define a function that will sort a list of items:
 /*
  * Sort a list of items.
  *
- * It takes the list of items and available options, and the
+ * This function takes the list of items and available options, and the
  * URL query parameters passed to the page.
  *
  * It returns a list with the items in sorted order, and the
@@ -421,7 +446,7 @@ function sortItems({ items, sortOptions, params }) {
   //
   // Look for a matching sort option, or use the default if the sort
   // order is null/unrecognised.  For now, use the first defined
-  // sort order as the efault.
+  // sort order as the default.
   const defaultSort = sortOptions[0];
   const selectedSort =
     sortOptions.find(s => s.id === sortOrderId) || defaultSort;
@@ -440,11 +465,10 @@ function getSortOrder(params) {
 }
 ```
 
-Like the filtering code, this is written in a generic way -- it can be used for any list of items, and any list of sort orders.
+This function works with any list of items and sort orders, making it easy to reuse across different sites.
 I only have to define the list of sort orders once.
-In the past I've made the mistake of not having a single source of truth for the ways I sort items, and then different bits of my codebase get out-of-sync.
 
-Having them defined once makes it easy to add new sort orders, and to write a component that creates a dropdown menu to pick the sort order:
+This approach makes it easy to add new sort orders, and to write a component that renders a dropdown menu to pick the sort order:
 
 ```javascript
 /*
@@ -475,7 +499,8 @@ function setSortOrder(sortOrderId) {
 ```
 
 Finally, we can wire the sorting code into the rest of the app.
-We sort the list of items after we've filtered it, and show the sort controls on the page:
+After filtering, we sort the items and then render the sorted list.
+We also show the sort controls on the page:
 
 ```html
 <script>
@@ -505,7 +530,7 @@ We sort the list of items after we've filtered it, and show the sort controls on
 <p id="sortOrder">Sort by:</p>
 ```
 
-If you want to see this in action, check out [the demo page](/files/2025/static-site-demo.html?demoId=sorting).
+You can check out the sorting code on [the demo page](/files/2025/static-site-demo.html?demoId=sorting).
 
 [array_sort]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
@@ -513,7 +538,10 @@ If you want to see this in action, check out [the demo page](/files/2025/static-
 
 
 
-<h2 id="pagination">Use pagination to break up long lists</h2>
+<h2 id="pagination">
+  Use pagination to break up long lists
+  (<a href="/files/2025/static-site-demo.html?demoId=pagination">demo</a>)
+</h2>
 
 If you have a really long list of items, you may want to break them into multiple pages.
 
@@ -523,7 +551,7 @@ I've only had to add pagination in a couple of very image-heavy sites -- if it's
 (You may notice that, for example, there are no paginated lists anywhere on this site.
 By writing lean HTML, I can fit all my lists on a single page.)
 
-On the rare occasions I want to add pagination, this doesn't require too much more JavaScript.
+If I do want pagination, I stick to a classic design:
 
 {%
   picture
@@ -534,9 +562,7 @@ On the rare occasions I want to add pagination, this doesn't require too much mo
 
 As with other features, I use a URL query parameter to track the current page number:
 
-```
-bookmarks.html?pageNumber=2
-```
+<pre><code>bookmarks.html?<strong>pageNumber=2</strong></code></pre>
 
 This code can be written in a completely generic way -- it doesn't have to care what sort of items we're paginating.
 
@@ -592,7 +618,7 @@ function PaginationControls({ pageNumber, totalPages, params }) {
     prevPageLink = null;
   }
 
-  // Do we need a link to the previous page?  Only if we're before
+  // Do we need a link to the next page?  Only if we're before
   // the last page.
   if (pageNumber < totalPages) {
     const nextPageUrl = setPageNumber({ params, pageNumber: pageNumber + 1 });
@@ -618,7 +644,7 @@ function setPageNumber({ params, pageNumber }) {
 ```
 
 Finally, let's wire this code into the rest of the app.
-We need to get the page number from the URL query parameters, paginate the list of filtered and sorted items, and show some pagination controls:
+We get the page number from the URL query parameters, paginate the list of filtered and sorted items, and show some pagination controls:
 
 ```html
 <script>
@@ -658,11 +684,12 @@ We need to get the page number from the URL query parameters, paginate the list 
 
 One thing that makes pagination a little tricky is that it affects filtering and sorting as well -- when you change either of those, you probably want to reset to the first page.
 
-For example, if you're filtering for bookmarks tagged with `animals` and you're on page 3, then you add a second filter for `giraffes`, you should reset to page 1.
+For example, if you're filtering for `animals` and you're on page 3, then you add a second filter for `giraffes`, you should reset to page 1.
 If you stay on page 3, it might be confusing if there are less than 3 pages of results with the new filter.
-I leave this as an exercise for the reader.
 
-If you want to see this in action, check out [the updated demo page](/files/2025/static-site-demo.html?demoId=pagination).
+The key to this is calling `params.delete("pageNumber")` when you update the URL query parameters.
+
+You can play with the pagination on [the demo page](/files/2025/static-site-demo.html?demoId=pagination).
 
 
 

@@ -52,12 +52,12 @@
 
   const bookmarkFilters = [
     {
-      key: 'tag',
+      id: 'tag',
       label: 'tagged with',
       filterFn: (bookmark, tagName) => bookmark.tags.includes(tagName),
     },
     {
-      key: 'publicationYear',
+      id: 'publicationYear',
       label: 'published in',
       filterFn: (bookmark, year) => bookmark.publicationYear === year,
     },
@@ -72,17 +72,17 @@
     {
       id: 'publicationYear',
       label: 'publication year (newest first)',
-      compareFn: (a, b) => a.publicationDate - b.publicationDate,
+      compareFn: (a, b) => Number(b.publicationYear) - Number(a.publicationYear),
     },
   ];
 
   /*
    * Filter a list of items.
    *
-   * It takes the list of items and available filters, and the
+   * This function takes the list of items and available filters, and the
    * URL query parameters passed to the page.
    *
-   * It returns a list with the items that match these filters,
+   * This function returns a list with the items that match these filters,
    * and a list of filters that have been applied.
    */
   function filterItems({ items, filters, params }) {
@@ -95,7 +95,7 @@
     // see if there's a matching filter.
     for (const [key, value] of params) {
       console.debug(`Checking query parameter ${key}`);
-      const matchingFilter = filters.find(f => f.key === key);
+      const matchingFilter = filters.find(f => f.id === key);
 
       if (typeof matchingFilter === 'undefined') {
         continue;
@@ -113,13 +113,13 @@
       // this filter.
       const altQuery = new URLSearchParams(params);
       altQuery.delete(key, value);
-      const queryIfRemoved = altQuery.toString();
+      const linkToRemove = "?" + altQuery.toString();
 
       appliedFilters.push({
-        type: matchingFilter.key,
+        type: matchingFilter.id,
         label: matchingFilter.label,
         value,
-        queryIfRemoved,
+        linkToRemove,
       })
     }
 
@@ -129,7 +129,7 @@
   /*
    * Sort a list of items.
    *
-   * It takes the list of items and available options, and the
+   * This function takes the list of items and available options, and the
    * URL query parameters passed to the page.
    *
    * It returns a list with the items in sorted order, and the
@@ -144,7 +144,7 @@
     //
     // Look for a matching sort option, or use the default if the sort
     // order is null/unrecognised.  For now, use the first defined
-    // sort order as the efault.
+    // sort order as the default.
     const defaultSort = sortOptions[0];
     const selectedSort =
       sortOptions.find(s => s.id === sortOrderId) || defaultSort;
@@ -197,7 +197,7 @@
       prevPageLink = null;
     }
 
-    // Do we need a link to the previous page?  Only if we're before
+    // Do we need a link to the next page?  Only if we're before
     // the last page.
     if (pageNumber < totalPages) {
       const nextPageUrl = setPageNumber({ params, pageNumber: pageNumber + 1 });
@@ -279,7 +279,7 @@
 
     document.querySelector("#appliedFilters").innerHTML =
       appliedFilters
-        .map(f => `<li>${f.label}: ${f.value} <a href="?${f.queryIfRemoved}">(remove)</a></li>`)
+        .map(f => `<li>${f.label}: ${f.value} <a href="${f.linkToRemove}">(remove)</a></li>`)
         .join("");
 
     const { sortedItems: sortedBookmarks, appliedSortOrder } =
