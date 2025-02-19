@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How I create static websites for tiny archives
-summary:
+summary: Start with a simple HTML file, then add features like templates, sorting, and filtering as they become useful.
 colors:
   index_light: "#535353"
   index_dark:  "#cecece"
@@ -12,11 +12,6 @@ tags:
 index:
   feature: true
 ---
-✨ Splitting data and presentation
-✨ Pagination, filtering and sorting
-✨ User-visible errors when things go wrong
-✨ And tests, if you really want them
-
 Last year I wrote about [using static websites for tiny archives][static_sites].
 The idea is that I create tiny websites to store and describe my digital collections.
 There are several reasons I like this approach: HTML is flexible and lets me display data in a variety of ways; it's likely to remain readable for a long time; it lets me add more context than a folder full of files.
