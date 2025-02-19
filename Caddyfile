@@ -54,6 +54,9 @@ alexwlchan.net {
 	# Mastodon server.  Plus fonts, and styles… just let it all run.
 	@mastodonDemo path /files/2025/native-mastodon-embed.html
 	header @mastodonDemo -Content-Security-Policy
+  
+  @staticSiteDemo path /files/2025/static-site-demo.html
+  header @staticSiteDemo -Content-Security-Policy
 
 	# If somebody gets a 4xx error, respond with my custom error pages.
 	handle_errors 404 {
