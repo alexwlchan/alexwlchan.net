@@ -98,6 +98,9 @@
       'onerror': {
         description: 'This demo adds an error handler and a deliberate JavaScript error.'
       },
+      'qunit-test': {
+        description: 'This page runs a single unit test using QUnit.'
+      },
     };
 
     async function setDemo(demoId) {
@@ -183,6 +186,10 @@
         <button
           data-demo-id="onerror"
           onclick="setDemo(this.getAttribute('data-demo-id'))">with an error handler</button></li>
+      <li>
+        <button
+          data-demo-id="qunit-test"
+          onclick="setDemo(this.getAttribute('data-demo-id'))">unit tests with QUnit</button></li>
     </ul>
     <noscript>
       <p>You need to enable JavaScript for this demo.</p>

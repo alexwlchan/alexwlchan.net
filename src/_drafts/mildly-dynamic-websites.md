@@ -53,13 +53,11 @@ Let's dive in!
 * [Add filtering to find specific items](#filtering) ([demo](/files/2025/static-site-demo.html?demoId=filtering))
 * [Introduce sorting to bring order to your data](#sorting) ([demo](/files/2025/static-site-demo.html?demoId=sorting))
 * [Use pagination to break up long lists](#pagination) ([demo](/files/2025/static-site-demo.html?demoId=pagination))
-* [Provide feedback with loading states and error handling](#errors)
-* [Store the website code in Git](#version-control)
+* [Provide feedback with loading states and error handling](#errors) (<a href="/files/2025/static-site-demo.html?demoId=noscript">demo 1</a>, <a href="/files/2025/static-site-demo.html?demoId=onerror">demo 2</a>)
 * [Test the code with QUnit and Playwright](#tests)
 * [Manipulate the metadata with Python](#python)
+* [Store the website code in Git](#version-control)
 * [Closing thoughts](#conclusion)
-
-ADD DEMO PAGES to `<h2>`
 
 [bookmarks]: https://en.wikipedia.org/wiki/Bookmark_(digital)
 [static_sites]: /2024/static-websites/
@@ -693,17 +691,20 @@ You can play with the pagination on [the demo page](/files/2025/static-site-demo
 
 
 
-<h2 id="errors">Provide feedback with loading states and error handling</h2>
+<h2 id="errors">
+  Provide feedback with loading states and error handling
+  (<a href="/files/2025/static-site-demo.html?demoId=noscript">demo 1</a>, <a href="/files/2025/static-site-demo.html?demoId=onerror">demo 2</a>)
+</h2>
 
 One problem with relying on JavaScript to render the page is that sometimes JavaScript goes wrong.
-For example, I write a lot of my metadata by hand, and a typo can make it invalid JSON and break the page.
-There are also people who disable JavaScript, or sometimes it doesn't work.
+For example, I write a lot of my metadata by hand, and a typo can create invalid JSON and break the page.
+There are also people who disable JavaScript, or sometimes it just doesn't work.
 
 If I'm using the site, I can open the Developer Tools in my web browser and start debugging there -- but that's not a great experience.
 If you're not expecting something to go wrong, it will just look like the page is taking a long time to load.
 We can do better.
 
-To begin with, we can add a [`<noscript>` element][noscript] that explains to the user that they need to enable JavaScript.
+To start, we can add a [`<noscript>` element][noscript] that explains to users that they need to enable JavaScript.
 This will only be shown if they've disabled JavaScript:
 
 ```html
@@ -712,7 +713,10 @@ This will only be shown if they've disabled JavaScript:
 </noscript>
 ```
 
-We can also listen for the [`error` event][error_event] on the window, and report an error to the user -- for example, if a script fails to load.
+I have [a demo page](/files/2025/static-site-demo.html?demoId=noscript) which disables JavaScript, so you can see how the `noscript` tag behaves.
+
+This won't help if JavaScript is broken rather than disabled, so we also need to add error handling.
+We can listen for the [`error` event][error_event] on the window, and report an error to the user -- for example, if a script fails to load.
 
 ```html
 <div id="errors"></div>
@@ -732,60 +736,92 @@ We can also attach an `onerror` handler to specific script tags, which allows us
 <script src="app.js" onerror="alert('Something went wrong while loading app.js')"></script>
 ```
 
-And I like to include a loading indicator, or some placeholder text that will be replaced when the page will finish loading -- this tells the user where they can expect to see something load in.
+I have [another demo page](/files/2025/static-site-demo.html?demoId=onerror) which has a basic `error` handler.
+
+Finally, I like to include a loading indicator, or some placeholder text that will be replaced when the page will finish loading -- this tells the user where they can expect to see something load in.
 
 ```html
 <ul id="listOfBookmarks">Loading…</ul>
 ```
 
 It's somewhat rare for me to add a loading indicator or error handling, just because I'm the only user of my static sites, and it's easier for me to use the developer tools when something breaks.
-But providing good mechanisms for the user to see what's going on is crucial if you want to build static sites like this for other people, and you should definitely follow these patterns if you do.
+But providing mechanisms for the user to understand what's going on is crucial if you want to build static sites like this that other people will use.
 
 [noscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
 [error_event]: https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event
 
 
 
-<h2 id="version-control">Store the website code in Git</h2>
-
-I create Git repositories for all of my local websites.
-This allows me to track changes, and I can fiddle with impunity – I can always roll back if I break something, so I can just experiment and have fun.
-
-These Git repositories only live on my local machine.
-I run `git init .` in the folder, I create commits to record any changes, and that's it.
-I don't push the repository to GitHub or another remote Git server.
-(Although I do have backups of every site, of course.)
-
-I only track the text files in Git – the HTML, CSS, and JavaScript.
-I don't track binary files like images and videos.
-Git struggles with those larger files, and I don't edit those as much as the text files, so having them in version control is less useful.
-
-
-
 <h2 id="tests">Test the code with QUnit and Playwright</h2>
 
-If I'm writing a very sophisticated viewer, it may be helpful to have tests.
+If I'm writing a very complicated viewer, it's helpful to have tests.
 I've found two test frameworks that I particularly like for this purpose.
 
-[QUnit] is a JavaScript testing framework that I can use for unit testing -- to me, that means testing individual functions and components.
-For example, QUnit was very helpful when I was writing the early iterations of the sorting and filtering code.
-It helped catch a number of mistakes and edge cases.
-You can [run it in the browser][qunit_browser], and it only requires two files, so it's easy to add to a project without creating a whole JavaScript build system or dependency tree.
+[QUnit] is a JavaScript library that I use for unit testing -- to me, that means testing individual functions and components.
+For example, QUnit was very helpful when I was writing the early iterations of the sorting and filtering code, and writing tests caught a number of mistakes.
 
-[Playwright] is a testing framework that opens a web app in a browser, and can check that the app behaves correctly.
-It can also test the behaviour of a static website -- for example, if you select a new sort order, does the page reload and show results in the correct order?
-This is a larger, more heavyweight framework.
-I typically use it through [Python][playwright_python].
+You can [run QUnit in the browser][qunit_browser], and it only requires two files, so I can test a project without creating a whole JavaScript build system or dependency tree.
 
-Both of these tools can give me a safety net, because they'll tell me if I break something when I make changes.
+Here's an example of a QUnit test:
 
-I only write tests for a handful of my more complicated sites -- most sites are simple enough that I write them once, check they work, and then I know I'm not going to change them again.
+```javascript
+QUnit.test("sorts bookmarks by title", function(assert) {
+  // Create three bookmarks with different titles
+  const bookmarkA = { title: "Almanac for apples" };
+  const bookmarkC = { title: "Compendium of coconuts" };
+  const bookmarkP = { title: "Page about papayas" };
+
+  const params = new URLSearchParams("sortOrder=titleAtoZ");
+
+  // Pass the bookmarks in the wrong order, so they can't be sorted
+  // correctly "by accident"
+  const { sortedItems, appliedSortOrder } = sortItems({
+    items: [bookmarkC, bookmarkA, bookmarkP],
+    sortOptions: bookmarkSortOptions,
+    params,
+  });
+
+  // Check the bookmarks have been sorted in the right order
+  assert.deepEqual(sortedItems, [bookmarkA, bookmarkC, bookmarkP]);
+});
+```
+
+You can see this test running in the browser in [my demo page](/files/2025/static-site-demo.html?demoId=qunit-test).
+
+[Playwright] is a testing library that can open a web app in a real web browser, interact with the page, and check that the app behaves correctly.
+It's often used for dynamic web apps, but it works just as well for static pages.
+For example, it can test that if you select a new sort order, the page reloads and show results in the correct order.
+
+Here's an example of a simple test written with Playwright in [Python][playwright_python]:
+
+```python
+from playwright.sync_api import expect, sync_playwright
+
+with sync_playwright() as p:
+    browser = p.webkit.launch()
+
+    # Open the HTML file in the browser
+    page = browser.new_page()
+    page.goto('file:///Users/alexwlchan/Sites/sorting.html')
+
+    # Look for an <li> element with one of the bookmarks -- this will
+    # only appear if the page has rendered correctly.
+    expect(page.get_by_text("So Many Nevers")).to_be_visible()
+
+    browser.close()
+```
+
+These tools are a great safety net for catching mistakes, but I don't always need them.
+
+I only write tests for my more complicated sites -- when the sorting/filtering code is particularly complex, there's a lot of rendering code, or I anticipate making major changes in future.
+I don't bother with tests when the site is simple and unlikely to change, and I can just do manual checks when I write it the first time.
 Tests are less useful if I know I'll never make changes.
 
-We're getting away from the idea of a self-contained static website, because now I'm relying on third-party code, and for Playwright I need to maintain a working Python environment.
+This is getting away from the idea of a self-contained static website, because now I'm relying on third-party code, and for Playwright I need to maintain a working Python environment.
 I'm okay with this, because the website is still usable even if I can no longer run the tests.
 These are useful sidecar tools, but I only need them if I'm making changes.
-If I've archived a site because it's "done", it doesn't matter if the tests stop working, because I don't need run them again.
+
+If I finish a site and I know I won't change it again, I don't need to worry about whether the tests will still work years later.
 
 [QUnit]: https://qunitjs.com/
 [qunit_browser]: https://qunitjs.com/browser/
@@ -796,9 +832,10 @@ If I've archived a site because it's "done", it doesn't matter if the tests stop
 
 <h2 id="python">Manipulate the metadata with Python</h2>
 
-We could write all this JavaScript within the <code>&lt;script&gt;</code> tags of an HTML page, or put it all in a single JavaScript file, but having metadata and application logic in the same place is a bit messy.
+For small sites, we could write all this JavaScript directly in <code>&lt;script&gt;</code> tags or in a single file.
+As we get more data, splitting the metadata and application logic makes everything easier to manage.
 
-One pattern I've adopted is to put all the item metadata in a single, standalon file that assigns a single variable, i.e.:
+One pattern I've adopted is to put all the item metadata into a single, standalone JavaScript file that assigns a single variable:
 
 ```javascript
 const bookmarks = […];
@@ -806,36 +843,80 @@ const bookmarks = […];
 
 and then load that file in the HTML page with a <code>&lt;script src="metadata.js"&gt;</code> element.
 
-Then I can modify this metadata file programatically, or write Python scripts that interact with it it.
-I wrote a small Python library [javascript-data-files] to interact with JSON stored this way.
+I use JavaScript rather than pure JSON because browsers don't allow fetching local JSON files via `file://`.
+If you open an HTML page without a web server, the browser will block requests to fetch a JSON file because of security restrictions.
+By storing data in a JavaScript file instead, I can load it with a simple <code>&lt;script&gt;</code> tag.
 
-(I have to use JavaScript rather than pure JSON because you can't load JSON files programatically if you open your HTML file directly -- web pages with the `file://` scheme aren't allowed to fetch other files from your disk.)
-
+I wrote a small Python library [javascript-data-files] that lets me interact with JSON stored this way.
 This allows me to write scripts that add data to the metadata file (like saving a new bookmark) or to verify the existing metadata (like checking that I have an archived copy of every bookmark).
 I'll write more about this in future posts, because this one is long enough already.
 
-This is stretching the definition of "static website" even further, because we're getting something akin to a static site generator.
-I can only use these scripts if I maintain a working Python environment.
-I consider this an acceptable tradeoff, because I don't need these scripts to use the website -- only when I'm changing something.
-If I stop making changes and the Python environment breaks, I can still see everything I've already saved.
+For example, let's add a new bookmark to the `metadata.js` file:
+
+```python
+from javascript_data_files import read_js, write_js
+
+bookmarks = read_js("metadata.js", varname="bookmarks")
+
+bookmarks.append({
+  "url": "https://www.theguardian.com/lifeandstyle/2019/jan/13/ella-risbridger-john-underwood-friendship-life-new-family",
+  "title": "When my world fell apart, my friends became my family, by Ella Risbridger (2019)"
+})
+
+write_js("metadata.js", varname="bookmarks", value=bookmarks)
+```
+
+We're starting to blur the line between a static site and a static site generator.
+These scripts only work if I have a working Python environment, which is less future-proof than pure HTML.
+I'm happy with this compromise, because the website is fully functional without them -- I only need to run these scripts if I'm modifying the metadata.
+
+If I stop making changes and the Python environment breaks, I can still read everything I've already saved.
 
 [javascript-data-files]: https://pypi.org/project/javascript-data-files/
+
+
+
+<h2 id="version-control">Store the website code in Git</h2>
+
+I create Git repositories for all of my local websites.
+This allows me to track changes, and it means I can experiment freely – I can always roll back if I break something.
+
+These Git repositories only live on my local machine.
+I run `git init .` in the folder, I create commits to record any changes, and that's it.
+I don't push the repository to GitHub or another remote Git server.
+(Although I do have backups of every site, of course.)
+
+Git has a lot of features for writing code in a collaborative environment, but I don't need any of those here -- I'm the only person working on these sites.
+Most of the time, I just use two commands:
+
+```console
+$ git add bookmarks.html
+$ git commit -m "Add filtering by author"
+```
+
+This creates a labelled snapshot of my latest changes to `bookmarks.html`.
+
+I only track the text files in Git -- the HTML, CSS, and JavaScript.
+I don't track binary files like images and videos.
+Git struggles with those larger files, and I don't edit those as much as the text files, so having them in version control is less useful.
+I write a [gitignore file] to ignore all of them.
+
+[gitignore file]: https://git-scm.com/docs/gitignore
 
 ---
 
 <h2 id="conclusion">Closing thoughts</h2>
 
-There's a lot here.
-You don't need to do all of it -- and indeed, I rarely do.
-This is a collection of ideas that I use across many different sites.
-Every site uses some of these ideas, but only a handful of sites use all of them.
+There are lots of ideas here, but you don't need to use all of them -- most of my sites only use a few.
+Every site is different, and you can pick what makes most sense for your project.
 
-If you want to build a static site for a tiny archive, begin with a simple HTML file.
-Add features like templates, sorting and filtering incrementally as they become useful.
-You don't need to add them all upfront; that's just adding complexity for its own sake.
+If you're building a static site for a tiny archive, start with a simple HTML file.
+Add features like templates, sorting, and filtering incrementally as they become useful.
+You don't need to add them all upfront -- that can make things more complicated than they need to be.
 
 This approach can scale from simple collections to sophisticated archives.
-Building static websites with HTML and JavaScript can give you a resource that's easy to maintain and modify, has no external dependencies, and is future-proof against a lot of technological changes.
+A static website built with HTML and JavaScript is easy to maintain and modify, has no external dependencies, and is future-proof against a lot of technological changes.
 
 I've come to love using static websites to store my local data.
+They're flexible, resilient, and surprisingly powerful.
 I hope you'll consider it too, and that these ideas help you get started.

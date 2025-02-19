@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>QUnit</title>
+<link rel="stylesheet" href="qunit/qunit-2.24.1.css">
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="qunit/qunit-2.24.1.js"></script>
+
+  <script>
+    const bookmarkSortOptions = [
+      {
+        id: 'titleAtoZ',
+        label: 'title (A to Z)',
+        compareFn: (a, b) => a.title > b.title ? 1 : -1,
+      },
+      {
+        id: 'publicationYear',
+        label: 'publication year (newest first)',
+        compareFn: (a, b) => Number(b.publicationYear) - Number(a.publicationYear),
+      },
+    ];
+
+    /*
+     * Sort a list of items.
+     *
+     * This function takes the list of items and available options, and the
+     * URL query parameters passed to the page.
+     *
+     * It returns a list with the items in sorted order, and the
+     * sort order that was applied.
+     */
+    function sortItems({ items, sortOptions, params }) {
+
+      // Did the user pass a sort order in the query parameters?
+      const sortOrderId = getSortOrder(params);
+
+      // What sort order are we using?
+      //
+      // Look for a matching sort option, or use the default if the sort
+      // order is null/unrecognised.  For now, use the first defined
+      // sort order as the default.
+      const defaultSort = sortOptions[0];
+      const selectedSort =
+        sortOptions.find(s => s.id === sortOrderId) || defaultSort;
+
+      console.debug(`Selected sort: ${JSON.stringify(selectedSort)}`);
+
+      // Now apply the sort to the list of items.
+      const sortedItems = items.sort(selectedSort.compareFn);
+
+      return { sortedItems, appliedSortOrder: selectedSort };
+    }
+
+    /* Get the current sort order from the URL query parameters. */
+    function getSortOrder(params) {
+      return params.get("sortOrder");
+    }
+  </script>
+
+  <script>
+    QUnit.test("sorts bookmarks by title", function(assert) {
+      // Create three bookmarks with different titles
+      const bookmarkA = { title: "Almanac for apples" };
+      const bookmarkC = { title: "Compendium of coconuts" };
+      const bookmarkP = { title: "Page about papayas" };
+
+      const params = new URLSearchParams("sortOrder=titleAtoZ");
+
+      // Pass the bookmarks in the wrong order, so they can't be sorted
+      // correctly "by accident"
+      const { sortedItems, appliedSortOrder } = sortItems({
+        items: [bookmarkC, bookmarkA, bookmarkP],
+        sortOptions: bookmarkSortOptions,
+        params,
+      });
+
+      // Check the bookmarks have been sorted in the right order
+      assert.deepEqual(sortedItems, [bookmarkA, bookmarkC, bookmarkP]);
+    });
+  </script>
+</body>
+</html>
