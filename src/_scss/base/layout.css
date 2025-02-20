@@ -57,7 +57,7 @@ article, main {
 
 .screenshot {
   border-radius: var(--border-radius);
-  border: var(--border-width) var(--border-style) var(--screenshot-border-color);
+  border: var(--border-width) var(--border-style) var(--block-border);
   max-width: calc(100% - 2 * var(--border-width));
 }
 
