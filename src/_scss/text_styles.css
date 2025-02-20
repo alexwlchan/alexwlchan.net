@@ -53,3 +53,13 @@ a.download {
   color: var(--link-color) !important;
   background: rgba(white, 0.4) !important;
 }
+
+blockquote {
+  margin-left:  0;
+  margin-right: 0;
+}
+
+blockquote.action_bar {
+  margin-top: 2em;
+  --block-border: var(--primary-color);
+}

@@ -112,7 +112,7 @@ Let's look at a few examples, which will make this clearer.
   }
 
   circle {
-    fill: var(--screenshot-border-color);
+    fill: var(--block-border);
   }
 </style>
 
