@@ -53,6 +53,9 @@ $body-text-dark:  #c7c7c7;
 
     --accent-grey: #999;
 
+    --block-border:     #f0f0f0;
+    --block-background: #fafafa;
+
     --screenshot-border-color: #f0f0f0;
 
     /* This gives cards a v subtle solid background colour, to make them
@@ -64,6 +67,9 @@ $body-text-dark:  #c7c7c7;
   @media (prefers-color-scheme: dark) {
     :root {
       --body-text:   #{$body-text-dark};
+
+      --block-border:     #3f3f3f;
+      --block-background: #0d0d0d;
 
       --screenshot-border-color: #3f3f3f;
 
@@ -95,12 +101,9 @@ $body-text-dark:  #c7c7c7;
 
     --primary-color: #{$light-color};
 
-    --nav-background-url: url('/headers/specktre_#{color-to-hex-str($light-color)}.png');
-
     --link-color: #{$light-color};
 
-    --block-border-color:     #{color.change($light-color, $alpha: 0.1)};
-    --block-background-color: #{color.change($light-color, $lightness: 95%, $alpha: 0.4)};
+    --nav-background-url: url('/headers/specktre_#{color-to-hex-str($light-color)}.png');
   }
 
   @media (prefers-color-scheme: dark) {
@@ -108,9 +111,6 @@ $body-text-dark:  #c7c7c7;
       --primary-color: #{$dark-color};
 
       --link-color: #{$dark-color};
-
-      --block-border-color:     #{color.change($dark-color, $alpha: 0.3)};
-      --block-background-color: #{color.change($dark-color, $lightness: 5%, $alpha: 0.7)};
     }
   }
 }
