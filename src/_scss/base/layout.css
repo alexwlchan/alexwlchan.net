@@ -44,6 +44,12 @@ pre, blockquote {
   background-color: var(--block-background);
 }
 
+blockquote pre {
+  border:     none;
+  background: none;
+  padding: 0;
+}
+
 a.download {
   border-radius: var(--border-radius);
   border-style:  var(--border-style);

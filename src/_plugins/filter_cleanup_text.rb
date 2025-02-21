@@ -29,6 +29,7 @@ class AddNonBreakingSpaces
       ImageMagick
       Issue
       issue
+      No.
       Part
       part
       RFC
