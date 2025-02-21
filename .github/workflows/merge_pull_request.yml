@@ -17,16 +17,14 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
+      - name: "Set up Ruby"
+        uses: ruby/setup-ruby@v1
         with:
-          python-version: 3.12
-          cache: pip
+          ruby-version: "3.3"
+          cache-version: 1
 
       - name: Merge the pull request
-        run: |
-          python3 -m pip install httpx
-          python3 .github/workflows/merge_pull_request.py
+        run: ruby scripts/merge_pull_request.rb
 
         # Note: this uses a personal access token, not the default GitHub token;
         # this is so that GitHub will build the resulting merged commit to main.
