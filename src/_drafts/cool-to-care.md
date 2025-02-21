@@ -1,10 +1,16 @@
 ---
 layout: post
 title: It’s cool to care
-summary:
+summary: |
+  Caring deeply – about art, friends, and shared experiences – has brought me so much joy in my life.
 tags:
   - personal
   - operation mincemeat
+colors:
+  index_light: "#594438"
+  index_dark:  "#d1d8db"
+index:
+  feature: true
 ---
 I'm sitting in a small coffee shop in Brooklyn.
 I have a warm drink, and it's just started to snow outside.
@@ -13,19 +19,18 @@ I've seen this show more times than I care to count, and I hope US theater-goers
 
 The people who make the show will tell you that it's about a bunch of misfits who thought they could do something ridiculous, who had the audacity to believe in something unlikely.
 
-That's one way to see it.
+That's certainly one way to see it.
 The musical tells the [true story] of a group of British spies who tried to fool Hitler with a dead body, fake papers, and an outrageous plan that could easily have failed.
 Decades later, the show's creators would mirror that same spirit of unlikely ambition.
 [Four friends][SpitLip], armed with their creativity, determination, and a wardrobe full of hats, created a new musical in a small London theatre.
-And after a series of London transfers, they're about to open the show under the bright lights of Broadway.
+And after a series of transfers, they're about to open the show under the bright lights of Broadway.
 
-But it's not the only way to see it.
-When I watch the show, I see a story about friendship.
+But when I watch the show, I see a story about friendship.
 It's about how we need our friends to help us, to inspire us, to push us to be the best versions of ourselves.
 
 I see the swaggering leader who needs a team to help him truly achieve.
 The nervous scientist who stands up for himself with the support of his friends.
-The excitable secretary who learns wisdom and resilience from her elder.
+The enthusiastic secretary who learns wisdom and resilience from her elder.
 
 And so, I suppose, it's fitting that I'm not in New York on my own.
 I'm here with friends -- dozens of wonderful people who I met through this ridiculous show.
@@ -44,23 +49,23 @@ Then I came to see the show a second time.
 And a third.
 And a fourth.
 After a few trips, I started to see familiar faces waiting with me at stage door.
-So while we waited for the cast, we started chatting.
+So before the cast came out, we started chatting.
 
 Those conversations became a Twitter community, then a Discord, then a WhatsApp.
-We swapped stories our favourite moments, we went to shows together, we made fan art and merch.
+We swapped fan art, merch, and stories of our favourite moments.
+We went to other shows together, and we hung out outside the theatre.
 I spent New Year's Eve with a few of these friends, sitting on somebody's floor and laughing about a bowl of limes like it was the funniest thing in the world.
 
-And now we're all here in New York.
+And now we're together in New York.
 
-Believing that I could meet such a group of kind, funny, and creative people might seem as unlikely as the premise of *Mincemeat* itself.
-But I believed it in anyway, and here we are.
+Meeting this kind, funny, and creative group of people might seem as unlikely as the premise of *Mincemeat* itself.
+But I believed it was possible, and here we are.
 
 I feel so lucky to have met these people, to take this ridiculous trip, to share these precious days with them.
-How many people can gather a dozen friends for one evening, let alone a trip halfway round the world?
 I know what a privilege this is -- the time, the money, the ability to say *let's do this* and make it happen.
-And I hope that long after this trip, we'll still be part of each other's lives.
+How many people can gather a dozen friends for even a single evening, let alone a trip halfway round the world?
 
-You might think it's silly to do travel this for a theatre show, especially one we've seen plenty of times in London.
+You might think it's silly to travel this far for a theatre show, especially one we've seen plenty of times in London.
 Some people would never see the same show twice, and most of us are comfortably into double or triple-figures.
 
 Whenever somebody asks *why*, I don't have a good answer.
@@ -80,10 +85,10 @@ So much of our culture tells us that it's not cool to care.
 It's better to be detached, dismissive, disinterested.
 Enthusiasm is cringe.
 Sincerity is weakness.
-I've felt that pressure -- the urge to play it cool, to pretend I'm above it all.
+I've certainly felt that pressure -- the urge to play it cool, to pretend I'm above it all.
 To act as if I only enjoy something a "normal" amount.
 
-Fuck that.
+Well, fuck that.
 
 I don’t know where the drive to be detached comes from.
 Maybe it's to protect ourselves, a way to guard against disappointment.
@@ -92,11 +97,11 @@ Or perhaps it's about control -- if we stay detached, we never have to depend on
 Being detached means you can't get hurt -- but you'll also miss out on so much joy.
 
 I'm a big fan of being a big fan of things.
-So many of the best things in my life have come from caring deeply, from letting myself be involved, from finding people who are a big fan of the same things as me.
-If I pretended not to care, I wouldn't have nay of that.
+So many of the best things in my life have come from caring, from letting myself be involved, from finding people who are a big fan of the same things as me.
+If I pretended not to care, I wouldn't have any of that.
 
 Caring -- deeply, foolishly, vulnerably -- is how I connect with people.
-My friends and I care about this show, and we care about each other, and we care about our joy.
+My friends and I care about this show, we care about each other, and we care about our joy.
 
 That care and love for each other is what brought us together, and without it we wouldn't be here in this city.
 I know this is a once-in-a-lifetime trip.
@@ -104,20 +109,36 @@ So many stars had to align -- for us to meet, for the show we love to be success
 But if we didn't care, none of those stars would have aligned.
 
 I know so many other friends who would have loved to be here but can’t be, for all kinds of reasons.
-I also know their absence isn't for lack of caring, and they want the show to do well whether or not they’re here.
+Their absence isn't for lack of caring, and they want the show to do well whether or not they’re here.
+I know they care, and that's the important thing.
 To butcher Tennyson: I think it's better to care about something you cannot affect, than to care about nothing at all.
 In a world that's full of cynicism and spite and hatred, I feel that now more than ever.
 
-Maybe you saw *Operation Mincemeat* and it wasn't for you.
+I'd recommend you go to the show if you haven't already, but that's not really the point of this post.
+Maybe you've already seen *Operation Mincemeat*, and it wasn't for you.
 Maybe you’re not a theatre kid.
 Maybe you aren't into musicals, or history, or war stories.
 That’s okay.
 I don't mind if you care about different things to me.
-(Imagine how boring that would be!)
+(Imagine how boring the world would be if we all cared about the same things!)
 
 But I want you to care about *something*.
+I want you to find it, find people who care about it too, and hold on to them.
+Because right now, in this city, with these people, at this show?
+I'm so glad I did.
+And I hope you find that sort of happiness too.
 
-My hot chocolate is getting cold, and the snow is clearing.
-It's time to drink up, head out, and find my friends.
-Because in this city, in this moment, with these people?
-I'm so glad that I cared.
+<figure>
+  {%
+    picture
+    filename="mince_stage_door.jpg"
+    width="750"
+    alt="A group selfie, with people wrapped up warm in front of a New York shop, smiling at the camera and clutching Mincemeat yellow playbills."
+  %}
+  <figcaption>
+    Some of the people who made this trip special.
+    Photo by Chloe, and taken from <a href="https://x.com/chlxe29/status/1892079101873140102">her Twitter</a>.
+  </figcaption>
+</figure>
+
+*Timing note: I wrote this on February 15th, but I delayed posting it because I didn't want to highlight the fact I was away from home.*
