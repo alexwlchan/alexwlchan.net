@@ -3,7 +3,7 @@ layout: post
 date: 2025-02-21 13:19:30 +0000
 title: It’s cool to care
 summary: |
-  Caring deeply – about art, friends, and shared experiences – has brought me so much joy in my life.
+  Caring deeply – about art, my friends, and shared experiences – has brought me so much joy.
 tags:
   - personal
   - operation mincemeat
