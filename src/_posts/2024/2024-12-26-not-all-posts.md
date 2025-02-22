@@ -7,7 +7,7 @@ index:
   feature: true
 colors:
   css_light: "#7b4ac8"
-  css_dark:  "#ccbde4"
+  css_dark:  "#bd94ff"
 tags:
   - blogging about blogging
 ---
