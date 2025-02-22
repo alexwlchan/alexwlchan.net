@@ -341,7 +341,7 @@ Here's the new code:
       filterItems({
         items: bookmarks,
         filters: bookmarkFilters,
-        params: params,
+        params,
       });
 
     document.querySelector("#appliedFilters").innerHTML =
