@@ -10,6 +10,7 @@ colors:
   css_light: "#235b99"
   css_dark:  "#82baf3"
 summary: How and why we keep copies of Wellcome's digital collections in multiple cloud storage providers.
+canonical_url: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
 ---
 *This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
