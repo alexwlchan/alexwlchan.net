@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-02-06 21:27:03 +0000
+date: 2020-02-05T22:07:39.872Z
 title: Building Wellcome Collection’s new archival storage service
 summary: How we built the new cloud-based storage system for holding an ever-growing digital archive.
 canonical_url: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
