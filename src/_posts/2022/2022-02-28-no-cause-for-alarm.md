@@ -39,7 +39,7 @@ There's plenty of work at 11am on a Tuesday, less so at midnight on a Sunday.
 
 To make our pipelines more efficient, we adjust the number of tasks in our ECS services to match the available work.
 If there's lots of work to do, we run lots of tasks.
-If there's nothing to do, we don't run any the tasks.
+If there's nothing to do, we don't run any tasks.
 This introduces some latency (if the pipeline is scaled down and new work arrives, we have to wait for the pipeline to scale up), but we don't need real-time processing so the efficiency gains are worth it.
 
 We use CloudWatch to automatically adjust the number of tasks.
