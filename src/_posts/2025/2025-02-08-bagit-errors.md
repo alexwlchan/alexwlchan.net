@@ -147,7 +147,7 @@ It's worth understanding the filename rules of any filesystem where you will be 
 For example, Azure Blob Storage has a [number of rules][azure_rules] around how you can name files, and Amazon S3 has [different rules][s3_rules].
 We stored files in both at Wellcome Collection, and so the storage service had to enforce the superset of these rules.
 
-I've listed some edge cases of filenames you might want to consider, but it's not a comlpete list.
+I've listed some edge cases of filenames you might want to consider, but it's not a complete list.
 There are lots of ways that unexpected filenames could cause you issues, but whether you care depends on the source of your bags.
 If you control the bags and you know you're not going to include any weird filenames, you can probably skip most of these.
 
