@@ -3,20 +3,18 @@
 require 'date'
 require 'yaml'
 
-
 def print_uri(path)
   metadata = YAML.load_file(path, permitted_classes: [Date, Time])
   title = metadata['title']
   slug = File.basename(path).gsub(/^[0-9]{4}-[0-9]{2}-[0-9]{2}-/, '').gsub(/\.md$/, '')
-  year = File.basename(path).split("-")[0]
+  year = File.basename(path).split('-')[0]
 
   url = "https://alexwlchan.net/#{year}/#{slug}/"
   puts "* [#{title}](#{url})"
 end
 
-
-if ARGV.length == 0
-  yyyy_mm = Date.today.strftime("%Y-%m")
+if ARGV.empty?
+  yyyy_mm = Date.today.strftime('%Y-%m')
 elsif ARGV.length == 1
   yyyy_mm = ARGV[0]
 else
@@ -24,12 +22,12 @@ else
   exit 1
 end
 
-puts "== Articles =="
+puts '== Articles =='
 
 Dir["src/_posts/**/#{yyyy_mm}*.md"].each { |p| print_uri(p) }
 
-puts ""
+puts ''
 
-puts "== Today I Learned =="
+puts '== Today I Learned =='
 
 Dir["src/_til/**/#{yyyy_mm}*.md"].each { |p| print_uri(p) }
