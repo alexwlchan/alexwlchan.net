@@ -15,7 +15,7 @@ index:
   feature: true
 ---
 
-A couple of weeks ago, I wrote [a post on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7) about how we do verification of our digital collections.
+A couple of weeks ago, I wrote [a post on their Stacks blog](https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7) about how we do verification of our digital collections.
 This is an aspect of [our cloud storage service](https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e) that I wanted to explain in more detail.
 
 This started as a post about the simple mechanics -- what steps does our verification code run -- but I realised that would be of limited use.

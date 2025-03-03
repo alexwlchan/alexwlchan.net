@@ -11,7 +11,7 @@ colors:
   css_light: "#64573f"
   css_dark:  "#eeeab4"
 ---
-*This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
+*I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/digital-preservation-at-wellcome-3f86b423047) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
 <p><em>This is the text version of a talk I gave at </em><a href="https://www.eventbrite.co.uk/e/glam-digital-champions-digital-lunch-october-tickets-73928130027"><em>a GLAM Digital Champions event</em></a><em> on 18th October 2019.</em></p><p><em>GLAM Digital Champions is a Cambridge-based community of practitioners for sharing ideas about the use of digital technologies in Gardens, Galleries, Libraries, Archives and Museums. It was set up by </em><a href="https://twitter.com/georgeopteryx"><em>George Doji</em></a><em> and </em><a href="https://twitter.com/marycktech"><em>Mary Chester-Kadwell</em></a><em>. I met Mary at PyCon UK this year, and she invited me to come and give a brief overview of how we’re doing digital preservation at Wellcome.</em></p><p><em>You can also </em><a href="/files/2019/2019-10-18-glam-cam-digipres-slides.pdf"><em>download my slides</em></a><em> as a PDF.</em></p>
 

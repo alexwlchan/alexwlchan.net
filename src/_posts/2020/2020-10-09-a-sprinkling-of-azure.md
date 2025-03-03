@@ -12,7 +12,7 @@ colors:
 summary: How and why we keep copies of Wellcome's digital collections in multiple cloud storage providers.
 canonical_url: https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2
 ---
-*This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
+*I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/a-sprinkling-of-azure-6cef6e150fb2) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
 <p>Our cloud storage service is designed to ensure the <a href="/2020/archival-storage-service/#long_term_preservation">long-term preservation</a> of our digital collections. As an archive, we have an obligation to ourselves and to our depositors to keep our collections safe. We’ve spent millions of pounds digitising our physical objects, and some of our born-digital and audiovisual material is irreplaceable.</p><p>One way we do this is by storing multiple copies of every file. If one copy were to be corrupted or deleted, we’d still have other copies that we could use to construct the complete archive.</p><p>In the initial iteration of our storage service, we kept two copies of every file in a pair of Amazon S3 buckets. We’ve recently upgraded the storage service to keep a third copy of every file in Azure Blob Storage, and in a different geographic location. In this post, I’m going to explain why this change was important, and how we made it.</p>
 

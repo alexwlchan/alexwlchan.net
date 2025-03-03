@@ -8,7 +8,7 @@ tags:
   - digital preservation
   - wellcome collection
 ---
-*This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
+*I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
 *We made fetch.txt happen.*
 

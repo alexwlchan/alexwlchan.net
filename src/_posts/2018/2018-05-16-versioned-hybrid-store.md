@@ -9,7 +9,7 @@ tags:
   - aws:amazon s3
   - aws:amazon dynamodb
 ---
-*This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
+*I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/creating-a-data-store-from-s3-and-dynamodb-8bb9ecce8fc1) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
 <p>In this post, I’m going to explain one of the storage layers in our catalogue pipeline.</p><p>Our Catalogue API provides information about works in Wellcome Collection. This information is combined from multiple sources — our library catalogue, archive records, image collections, and so on. Data from each of these sources is ingested in the <a href="https://stacks.wellcomecollection.org/whats-in-the-box-addfe6ae16d4">catalogue pipeline</a>, transformed into a shared domain model, and presented in the API.</p><p>The first step of the ingest process is an <em>adapter</em> — a service that copies all the records from a source system into our own database. We have several source systems, and one adapter for each.</p>
 

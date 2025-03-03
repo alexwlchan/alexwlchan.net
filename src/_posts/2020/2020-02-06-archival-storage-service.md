@@ -13,7 +13,7 @@ tags:
 index:
   feature: true
 ---
-*This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
+*I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
 <p>For the last year or so, we’ve been building a cloud-based storage service to hold Wellcome Collection’s ever-growing digital archive. This is a brand new system, designed to cope with our storage needs both now and into the future.</p><p>In this post, I’m going to explain how we built the new service, and how we migrated our existing archive from our old storage provider.</p>
 

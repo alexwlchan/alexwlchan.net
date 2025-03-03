@@ -8,7 +8,7 @@ tags:
   - wellcome collection
   - slack
 ---
-*This article was originally published [on the Wellcome Collection development blog](https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
+*I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 
 <p>In the <a href="https://wellcomecollection.org/sites/default/files/Wellcome%20Collection%20Who%20we%20are%20and%20what%20we%20do.pdf">digital platform team</a>, we make heavy use of Slack for our monitoring. As soon as something goes wrong, we get a message telling us about the problem. Here’s an example:</p>
 
