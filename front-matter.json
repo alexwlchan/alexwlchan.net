@@ -40,6 +40,10 @@
             "description": "Whether the articles index should link directly to the external page.",
             "type": "boolean"
         },
+        "canonical_url": {
+            "description": "An external URL that is the canonical copy of this page, used for external posts I've copied to this site.",
+            "type": "string"
+        },
         "colors": {
             "description": "Colours used to theme/style this individual page or post.",
             "type": "object",
