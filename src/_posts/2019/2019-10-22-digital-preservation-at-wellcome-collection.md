@@ -117,12 +117,13 @@ colors:
   <figcaption>An illustration of two Lorises. “The Slender Loris, in waking and sleeping posture.” Taken from <a href="https://commons.wikimedia.org/wiki/File:SlenderLorisLyd2.png">Royal Natural History volume 1, page 230</a>. Public domain.</figcaption>
 </figure>
 
-<p><a href="https://github.com/loris-imageserver/loris"><em>Loris</em></a><em> </em>is an open-source IIIF Image API server that we use to serve the other images on our website (a handful of catalogue images, and editorial images for events and exhibitions).</p><p>Presenting all the images on the site through IIIF gives them a consistent interface — the same code can be used to retrieve images everywhere.</p><p>(I previously wrote about <a href="/using-loris-for-iiif-at-wellcome-6ed1fefaf801">our use of Loris</a> in 2017.)</p><p>So that’s how we get the images —but what about the metadata that goes with them?</p>
+<p><a href="https://github.com/loris-imageserver/loris"><em>Loris</em></a><em> </em>is an open-source IIIF Image API server that we use to serve the other images on our website (a handful of catalogue images, and editorial images for events and exhibitions).</p><p>Presenting all the images on the site through IIIF gives them a consistent interface — the same code can be used to retrieve images everywhere.</p><p>(I previously wrote about <a href="/2017/loris-for-iiif/">our use of Loris</a> in 2017.)</p><p>So that’s how we get the images —but what about the metadata that goes with them?</p>
 
 {%
   picture
   filename="1*ur1I7fXRMlk2kzIsxHZSXQ.png"
   width="750"
+  alt=""
 %}
 
 <p>A lot of our metadata is split across different databases: Sierra for our library catalogue, Calm for our archives, Miro for our image collections, and so on. The same object is split across multiple places, and it’s hard for users to find it. It’s not clear which search box to use, and you only get a partial record.</p><p>We’ve been building a unified catalogue search that combines records from multiple databases, transforms them into a unified model, and presents all the data in one place. There’s also an open API that lets you get the search results as JSON, so other people can build their own tools on top of it.</p>
@@ -132,6 +133,7 @@ colors:
     picture
     filename="1*qzr8XlrC5gmo3LqY4eNGhA.png"
     width="750"
+    alt=""
     class="screenshot"
   %}
   <figcaption>Screenshot from <a href="https://wellcomecollection.org/works/ptnfbubj">https://wellcomecollection.org/works/ptnfbubj</a></figcaption>

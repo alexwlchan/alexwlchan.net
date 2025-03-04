@@ -40,7 +40,7 @@ colors:
   <figcaption>You won’t find this page on our new website.</figcaption>
 </figure>
 
-<p>Like many institutions, our collections data is split across multiple systems — including Calm for our archives, <a href="https://www.iii.com/products/sierra-ils/">Sierra</a> for our library catalogue, an image asset catalogue called Miro, and our <a href="/building-wellcome-collections-new-archival-storage-service-3f68ff21927e">cloud storage</a> for digitised material. Each system is designed to store a particular kind of data, and there’s no one-size-fits-all system that could record all our collections in the level of detail we want.</p><p>The different search boxes were for searching different systems, and a user had to know how and where we might have recorded something. The different systems are important to our collections team, but we didn’t want online visitors to have to worry about this distinction.</p>
+<p>Like many institutions, our collections data is split across multiple systems — including Calm for our archives, <a href="https://www.iii.com/products/sierra-ils/">Sierra</a> for our library catalogue, an image asset catalogue called Miro, and our <a href="/2020/archival-storage-service/">cloud storage</a> for digitised material. Each system is designed to store a particular kind of data, and there’s no one-size-fits-all system that could record all our collections in the level of detail we want.</p><p>The different search boxes were for searching different systems, and a user had to know how and where we might have recorded something. The different systems are important to our collections team, but we didn’t want online visitors to have to worry about this distinction.</p>
 
 ---
 
