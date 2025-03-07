@@ -19,6 +19,8 @@
 #     Isn’t this nice
 #
 
+require_relative 'utils/markdownify_oneline'
+
 module Jekyll
   module MarkdownifyOnlineFilter
     def cache
@@ -30,11 +32,8 @@ module Jekyll
         nil
       else
         cache.getset(input) do
-          @context.registers[:site]
-                  .find_converter_instance(Jekyll::Converters::Markdown)
-                  .convert(input)
-                  .sub('<p>', '')
-                  .sub('</p>', '')
+          site = @context.registers[:site]
+          apply_markdownify_oneline(site, input)
         end
       end
     end

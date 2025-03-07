@@ -37,6 +37,7 @@ require 'abbrev'
 
 require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
+require_relative 'utils/markdownify_oneline'
 require_relative 'utils/pictures'
 
 Jekyll::Hooks.register :site, :post_read do |site|
@@ -72,6 +73,13 @@ Jekyll::Hooks.register :site, :post_read do |site|
     post_colors = post.data.fetch('colors', {})
     color_lt = post_colors.fetch('index_light', post_colors.fetch('css_light', nil))
     color_dk = post_colors.fetch('index_dark', post_colors.fetch('css_dark', nil))
+    
+    title = apply_markdownify_oneline(site, post.data['title'])
+    if post.data['summary'].nil?
+      summary = nil
+    else
+      summary = apply_markdownify_oneline(site, post.data['summary'])
+    end
 
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
@@ -83,6 +91,8 @@ Jekyll::Hooks.register :site, :post_read do |site|
       
       'color_lt' => color_lt,
       'color_dk' => color_dk,
+      'title' => title,
+      'summary' => summary,
     }
   end
 

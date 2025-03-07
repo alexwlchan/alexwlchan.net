@@ -30,13 +30,13 @@
 
     <div class="c_meta">
       <p class="c_title">
-        {{- article.title | markdownify_oneline -}}
+        {{- article.card.title -}}
       </p>
-      {% if article.summary %}
+      {%- if article.card.summary -%}
         <p class="c_desc">
-          {{- article.summary | markdownify_oneline -}}
+          {{- article.card.summary -}}
         </p>
-      {% endif %}
+      {%- endif -%}
     </div>
   </a>
 </li>
