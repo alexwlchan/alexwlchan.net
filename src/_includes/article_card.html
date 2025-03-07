@@ -25,7 +25,29 @@
 >
   <a href="{{ article.url }}">
     <div class="c_im_w">
-      {% card_image %}
+      {% if article.card.index %}
+        <picture>
+          {% for src in article.card.index_image_template_params.sources %}
+          <source
+            srcset="{{ src.srcset }}"
+            sizes="(max-width: 450px) 405px, 405px"
+            type="{{ src.type }}"
+          >
+          {% endfor %}
+          <img
+            src="{{ article.card.index_image_template_params.default_image }}"
+            alt=""
+            loading="lazy"
+          >
+        </picture>
+      {% else %}
+        <img
+          src="/images/default-card.png"
+          alt=""
+          loading="lazy"
+          data-proofer-ignore
+        />
+      {% endif %}
     </div>
 
     <div class="c_meta">

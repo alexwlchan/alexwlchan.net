@@ -86,8 +86,11 @@ Jekyll::Hooks.register :site, :post_read do |site|
     post.data['card'] = {
       'attribution' => post.data['card_attribution'],
       'year' => year,
+
       'social' => File.basename(social_card),
+      'social_path' => social_card,
       'index' => File.basename(index_card),
+      'index_path' => index_card,
 
       'color_lt' => color_lt,
       'color_dk' => color_dk,
@@ -125,102 +128,81 @@ Jekyll::Hooks.register :site, :post_read do |site|
     index = p.data['card']['index']
     key = "#{year}/#{index}"
 
-    p.data['card']['index_prefix'] = index_prefixes[key].gsub("#{year}/", '')
+    p.data['card']['index_prefix'] = File.basename(
+      index_prefixes[key].gsub("#{year}/", ''), '.*'
+    )
   end
-end
-
-module Jekyll
-  class CardImageTag < Liquid::Tag
-    def render(context)
-      article = context['article']
-      card = article['card']
-
-      if card.nil?
-        <<~HTML
-          <img
-            src="/images/default-card.png"
-            alt=""
-            loading="lazy"
-            data-proofer-ignore
-          />
-        HTML
-      else
-
-        # What widths do I want to create cards at?
-        widths = [
-          302, 302 * 2,  # 3-up column => ~302px wide
-          365, 365 * 2,  # 2-up column => ~365px wide
-          405, 405 * 2 # 1-up column => ~405px wide
-        ]
-
-        sizes_attribute = '(max-width: 450px) 405px, 405px'
-
-        year = article['date'].year
-
-        source_path = "src/_images/cards/#{year}/#{card['index']}"
-        dst_prefix = "_site/c/#{year - 2000}/#{File.basename(card['index_prefix'], '.*')}"
-
-        image = get_single_image_info(source_path)
-        im_format = get_format(source_path, image)
-
-        if image['width'] != image['height'] * 2
-          raise "Card #{card['index']} doesn’t have a 2:1 aspect ratio"
-        end
-
-        sources = prepare_images(source_path, dst_prefix, im_format, widths)
-
-        default_image = sources[im_format]
-                        .map { |im| im.split[0] }
-                        .find { |path| path.include? '_365' }
-
-        light_html = create_source_elements(
-          sources, im_format, {
-            desired_formats: [im_format, ImageFormat::AVIF, ImageFormat::WEBP],
-            sizes: sizes_attribute,
-            dark_mode: false
-          }
-        )
-
-        css_class = 'c_image'
-
-        # Intentionally omit the alt text on promos, so screen reader users
-        # don't have to listen to the alt text before hearing the title
-        # of the item in the list.
-        #
-        # See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
-        <<~HTML
-          <picture>
-            #{light_html}
-            <img
-              src="#{default_image}"
-              class="#{css_class}"
-              alt=""
-              loading="lazy"
-            >
-          </picture>
-        HTML
-      end
+  
+  # Go ahead and verify that all of the cards have a 2:1 aspect ratio.
+  #
+  # The "article card" component assumes that all these images have a 2:1
+  # ratio, and I use the same -- different social media networks want
+  # a slightly different ratio, but it's good enough.
+  posts_with_cards.each do |post|
+    card = post.data["card"]
+    
+    index_im = get_single_image_info(card['index_path'])
+    if index_im['width'] != index_im['height'] * 2
+      raise "Card #{card['index_path']} doesn’t have a 2:1 aspect ratio"
     end
-
-    def prepare_images(source_path, dst_prefix, im_format, widths)
-      sources = Hash.new { [] }
-
-      desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-
-      widths.each do |this_width|
-        desired_formats.each do |out_format|
-          out_path = "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
-
-          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
-          convert_image(request)
-
-          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
-        end
-      end
-
-      sources
+    
+    social_im = get_single_image_info(card['social_path'])
+    if social_im['width'] != social_im['height'] * 2
+      raise "Card #{card['social_path']} doesn’t have a 2:1 aspect ratio"
     end
   end
+  
+  # Create/queue resized versions of the index image.
+  #
+  # Save the metadata in the format to be passed into the <picture> template.
+  posts_with_cards.each do |post|
+    card = post.data["card"]
+    
+    # Where will this card be written?
+    # e.g. _site/c/25/cool-to-care
+    year = post.data["date"].year
+    dst_prefix = "_site/c/#{year - 2000}/#{card['index_prefix']}"
+    
+    # What format do we want to create this card in?
+    #
+    # All three formats are fine.
+    image = get_single_image_info(card["index_path"])
+    im_format = get_format(card["index_path"], image)
+    desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+    
+    # What widths do I want to create cards at?
+    desired_widths = [
+      365, 365 * 2,  # 2-up column => ~365px wide
+      302, 302 * 2,  # 3-up column => ~302px wide
+      405, 405 * 2 # 1-up column => ~405px wide
+    ]
+    target_width = nil
+    
+    # Create the various image sizes
+    sources = create_image_sizes(
+      card["index_path"],
+      dst_prefix,
+      desired_formats,
+      desired_widths,
+      target_width
+    )
+    
+    # Choose the default/fallback image -- we use the 1x version of
+    # the light image.  If you're running a browser which doesn't
+    # know about the <picture> tag, you're unlikely to be on a
+    # device with a hi-res screen or dark mode.
+    default_image = sources[im_format[:mime_type]].split[0]
+    
+    sources = sources.map do |media_type, srcset|
+      {
+        'srcset' => srcset,
+        'type' => media_type
+      }
+    end
+    
+    card['index_image_template_params'] = {
+      'sources' => sources,
+      'default_image' => default_image,
+    }
+  end
 end
-
-Liquid::Template.register_tag('card_image', Jekyll::CardImageTag)

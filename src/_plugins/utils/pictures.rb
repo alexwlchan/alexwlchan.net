@@ -151,15 +151,10 @@ end
 #       "image/jpeg"=>"/images/2013/example_925.jpg 925w"
 #     }
 #
-def create_image_sizes(source_path, dst_prefix, desired_formats, target_width)
+def create_image_sizes(source_path, dst_prefix, desired_formats, desired_widths, target_width)
   image = get_single_image_info(source_path)
 
   sources = Hash.new { [] }
-
-  desired_widths = (1..3)
-                   .map { |pixel_density| pixel_density * target_width }
-                   .filter { |w| w <= image['width'] }
-                   .sort!
 
   desired_widths.each do |this_width|
     desired_formats.each do |out_format|
@@ -170,7 +165,7 @@ def create_image_sizes(source_path, dst_prefix, desired_formats, target_width)
       #
       # This is also used downstream to choose the default image --
       # the 1x image is the default.
-      suffix = if (this_width % target_width).zero?
+      suffix = if !target_width.nil? && (this_width % target_width).zero?
                  "#{this_width / target_width}x"
                else
                  "#{this_width}w"
@@ -185,5 +180,5 @@ def create_image_sizes(source_path, dst_prefix, desired_formats, target_width)
     end
   end
 
-  sources.to_h { |fmt, srcset_values| [fmt[:mime_type], srcset_values.join(', ')] }
+  sources.to_h { |fmt, srcset_values| [fmt[:mime_type], srcset_values.join(',')] }
 end

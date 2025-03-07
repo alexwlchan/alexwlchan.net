@@ -178,14 +178,20 @@ module Jekyll
         @attrs['class'] = "#{@attrs['class']} dark_aware".strip
       end
 
+      # How large do we want all the images to be?
+      desired_widths = (1..3)
+                       .map { |pixel_density| pixel_density * target_width }
+                       .filter { |w| w <= lt_image['width'] }
+                       .sort!
+
       # Now we have all the information about the images, go ahead and
       # create the different sizes of them.
-      lt_sources = create_image_sizes(lt_source_path, lt_dst_prefix, desired_formats, target_width)
+      lt_sources = create_image_sizes(lt_source_path, lt_dst_prefix, desired_formats, desired_widths, target_width)
 
       if dk_image.nil?
         dk_sources = {}
       else
-        dk_sources = create_image_sizes(dk_source_path, dk_dst_prefix, desired_formats, target_width)
+        dk_sources = create_image_sizes(dk_source_path, dk_dst_prefix, desired_formats, desired_widths, target_width)
       end
 
       # Choose the default/fallback image -- we use the 1x version of
