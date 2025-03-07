@@ -152,7 +152,7 @@ end
 #     }
 #
 def create_image_sizes(source_path, dst_prefix, desired_formats, desired_widths, target_width)
-  image = get_single_image_info(source_path)
+  get_single_image_info(source_path)
 
   sources = Hash.new { [] }
 

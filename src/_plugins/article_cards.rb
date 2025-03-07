@@ -95,16 +95,16 @@ Jekyll::Hooks.register :site, :post_read do |site|
       'color_lt' => color_lt,
       'color_dk' => color_dk,
       'title' => title,
-      'summary' => summary,
+      'summary' => summary
     }
   end
 
   posts_with_cards = site.posts.docs.reject { |p| p.data['card'].nil? }
-  
+
   # Set the "is_new" attribute on any posts which were published
   # in the last 15 days or so.
   site.posts.docs.each do |post|
-    post.data["is_new"] = Time.now - post.data["date"] < 15 * 24 * 60 * 60
+    post.data['is_new'] = Time.now - post.data['date'] < 15 * 24 * 60 * 60
   end
 
   # Now work out unique abbrevations for the names of each card.
@@ -138,44 +138,42 @@ Jekyll::Hooks.register :site, :post_read do |site|
       index_prefixes[key].gsub("#{year}/", ''), '.*'
     )
   end
-  
+
   # Go ahead and verify that all of the cards have a 2:1 aspect ratio.
   #
   # The "article card" component assumes that all these images have a 2:1
   # ratio, and I use the same -- different social media networks want
   # a slightly different ratio, but it's good enough.
   posts_with_cards.each do |post|
-    card = post.data["card"]
-    
+    card = post.data['card']
+
     index_im = get_single_image_info(card['index_path'])
     if index_im['width'] != index_im['height'] * 2
       raise "Card #{card['index_path']} doesn’t have a 2:1 aspect ratio"
     end
-    
+
     social_im = get_single_image_info(card['social_path'])
     if social_im['width'] != social_im['height'] * 2
       raise "Card #{card['social_path']} doesn’t have a 2:1 aspect ratio"
     end
-  end
-  
-  # Create/queue resized versions of the index image.
-  #
-  # Save the metadata in the format to be passed into the <picture> template.
-  posts_with_cards.each do |post|
-    card = post.data["card"]
-    
+
+    # Create/queue resized versions of the index image.
+    #
+    # Save the metadata in the format to be passed into the <picture> template.
+    card = post.data['card']
+
     # Where will this card be written?
     # e.g. _site/c/25/cool-to-care
-    year = post.data["date"].year
+    year = post.data['date'].year
     dst_prefix = "_site/c/#{year - 2000}/#{card['index_prefix']}"
-    
+
     # What format do we want to create this card in?
     #
     # All three formats are fine.
-    image = get_single_image_info(card["index_path"])
-    im_format = get_format(card["index_path"], image)
+    image = get_single_image_info(card['index_path'])
+    im_format = get_format(card['index_path'], image)
     desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-    
+
     # What widths do I want to create cards at?
     desired_widths = [
       365, 365 * 2,  # 2-up column => ~365px wide
@@ -183,34 +181,34 @@ Jekyll::Hooks.register :site, :post_read do |site|
       405, 405 * 2 # 1-up column => ~405px wide
     ]
     target_width = nil
-    
+
     # Create the various image sizes
     sources = create_image_sizes(
-      card["index_path"],
+      card['index_path'],
       dst_prefix,
       desired_formats,
       desired_widths,
       target_width
     )
-    
+
     # Choose the default/fallback image -- we use the 1x version of
     # the light image.  If you're running a browser which doesn't
     # know about the <picture> tag, you're unlikely to be on a
     # device with a hi-res screen or dark mode.
     default_image = sources[im_format[:mime_type]].split[0]
-    
+
     sources = sources.map do |media_type, srcset|
       {
         'srcset' => srcset,
         'type' => media_type
       }
     end
-    
+
     card['index_image'] = image
-    
+
     card['index_image_template_params'] = {
       'sources' => sources,
-      'default_image' => default_image,
+      'default_image' => default_image
     }
   end
 end
