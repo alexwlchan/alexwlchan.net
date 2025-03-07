@@ -71,3 +71,8 @@ class TestGetTargetWidth < Test::Unit::TestCase
     assert_equal 'Picture "example.png" must define one of width/height', error.message
   end
 end
+
+def test_choose_dk_path
+  dk_path = choose_dk_path('src/_images/2025/example.png')
+  assert_equal dk_path, 'src/_images/2025/example.dark.png'
+end

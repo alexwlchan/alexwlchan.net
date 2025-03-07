@@ -14,8 +14,7 @@ AllCops:
     - 'vendor/**/*'
 
 Lint/DuplicateBranch:
-  Exclude:
-    - src/_plugins/tag_picture.rb
+  Enabled: false
 
 Layout/LineLength:
   Exclude:
@@ -42,6 +41,9 @@ Metrics/MethodLength:
   Enabled: false
 
 Metrics/PerceivedComplexity:
+  Enabled: false
+
+Naming/AccessorMethodName:
   Enabled: false
 
 Naming/VariableNumber:

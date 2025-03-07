@@ -25,8 +25,8 @@
   {% endfor %}
   <img
     src="{{ default_image }}"
-    {% for name, value in extra_attributes %}
-    {{ name }}="{{ value }}"
+    {% for name_value in extra_attributes %}
+    {{ name_value[0] }}="{{ name_value[1] }}"
     {% endfor %}
   >
 </picture>

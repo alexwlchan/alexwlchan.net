@@ -107,15 +107,32 @@ module Jekyll
     end
 
     def render(context)
-      source_path = get_source_path(context)
-      dst_prefix = get_dst_prefix(context, source_path)
+      template_args = get_template_args(context)
 
-      raise "Image #{source_path} does not exist" unless File.exist? source_path
+      tpl = Liquid::Template.parse(File.read('src/_includes/picture.html'))
+      tpl.render!(
+        'sources' => template_args[:sources],
+        'default_image' => template_args[:default_image],
+        'extra_attributes' => template_args[:extra_attributes],
+        'link_target' => template_args[:link_target]
+      )
+    end
 
-      image = get_single_image_info(source_path)
-      im_format = get_format(source_path, image)
+    def get_template_args(context)
+      @context = context
 
-      @target_width = get_target_width(@filename, image, @bbox_dims)
+      lt_source_path = get_source_path
+
+      raise "Image #{lt_source_path} does not exist" unless File.exist? lt_source_path
+
+      lt_image = get_single_image_info(lt_source_path)
+      im_format = get_format(lt_source_path, lt_image)
+
+      # Pick how many widths we're going to cut this image at.
+      #
+      # Generally 1x/2x/3x is fine, but for specific images I can pick
+      # extra sizes and have them added to the list.
+      target_width = get_target_width(@filename, lt_image, @bbox_dims)
 
       # These two attributes allow the browser to completely determine
       # the space that will be taken up by this image before it actually
@@ -124,39 +141,56 @@ module Jekyll
       #
       # See https://web.dev/optimize-cls/
       @attrs['width'] = @target_width
-      aspect_ratio = Rational(image['width'], image['height'])
+      aspect_ratio = Rational(lt_image['width'], lt_image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
       # Choose what formats I want images to be served in, and the order
       # I'd like them to be offered.
       desired_formats = choose_desired_formats(
-        im_format, @attrs['class'], source_path
+        im_format, @attrs['class'], lt_source_path
       )
 
-      sources = prepare_images(source_path, desired_formats, dst_prefix, @target_width)
+      # Is there a dark-mode version of this image?
+      #
+      # Check it exists and that it has the same dimensions as the light
+      # variant of the image.
+      dk_source_path = choose_dk_path(lt_source_path)
 
-      dark_path = File.join(
-        File.dirname(source_path),
-        "#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
-      )
+      if File.exist? dk_source_path
+        dk_image = get_single_image_info(dk_source_path)
 
-      if File.exist? dark_path
-        dark_image = get_single_image_info(dark_path)
-
-        if (dark_image['width'] != image['width']) || (dark_image['height'] != image['height'])
-          raise "Dark-variant #{File.basename(dark_path)} has different dimensions to #{File.basename(source_path)}"
+        if (dk_image['width'] != lt_image['width']) || (dk_image['height'] != lt_image['height'])
+          raise "Dark-variant #{dk_source_path} has different dimensions to #{lt_source_path}"
         end
-
-        dark_sources = prepare_images(
-          dark_path, desired_formats, "#{dst_prefix}.dark", @target_width
-        )
       else
-        dark_sources = {}
+        dk_image = nil
       end
 
-      default_image = sources[im_format]
-                      .map { |im| im.split[0] }
-                      .find { |path| path.end_with? "_1x#{im_format[:extension]}" }
+      # I have a CSS rule that adds a white background behind any
+      # images shown in dark mode, so e.g. diagrams in transparent PNGs
+      # will appear properly.
+      #
+      # We don't need to this this if there's a dark-mode variant of
+      # the image.
+      unless dk_image.nil?
+        @attrs['class'] = "#{@attrs['class']} dark_aware".strip
+      end
+
+      # Now we have all the information about the images, go ahead and
+      # create the different sizes of them.
+      lt_sources = create_image_sizes(lt_source_path, desired_formats, target_width)
+
+      if dk_image.nil?
+        dk_sources = {}
+      else
+        dk_sources = create_image_sizes(dk_source_path, desired_formats, target_width)
+      end
+
+      # Choose the default/fallback image -- we use the 1x version of
+      # the light image.  If you're running a browser which doesn't
+      # know about the <picture> tag, you're unlikely to be on a
+      # device with a hi-res screen or dark mode.
+      default_image = lt_sources[im_format[:mime_type]].split[0]
 
       # This creates a `sizes` attribute like
       #
@@ -168,92 +202,82 @@ module Jekyll
       #
       # This isn't perfect, e.g. it doesn't account for margins or wrapping,
       # but it's good enough and better than relying on screen density alone.
-      sizes_attribute = "(max-width: #{@target_width}px) 100vw, #{@target_width}px"
+      sizes_attribute = "(max-width: #{target_width}px) 100vw, #{target_width}px"
 
-      dark_html = create_source_elements(
-        dark_sources, im_format, {
-          desired_formats:,
-          sizes: sizes_attribute,
-          dark_mode: true
+      # Now create the arguments for the picture template.
+      lt_sources = lt_sources.map do |media_type, srcset|
+        {
+          'srcset' => srcset,
+          'sizes' => sizes_attribute,
+          'type' => media_type
         }
-      )
-
-      light_html = create_source_elements(
-        sources, im_format, {
-          desired_formats:,
-          sizes: sizes_attribute,
-          dark_mode: false
-        }
-      )
-
-      # I have a CSS rule that adds a white background behind any
-      # images shown in dark mode, so e.g. diagrams in transparent PNGs
-      # will appear properly.
-      #
-      # We don't need to this this if there's a dark-mode variant of
-      # the image.
-      unless dark_sources.empty?
-        @attrs['class'] = "#{@attrs['class']} dark_aware".strip
       end
 
-      extra_attributes = @attrs.map { |k, v| "#{k}=\"#{v}\"" }.join(' ')
+      dk_sources = dk_sources.map do |media_type, srcset|
+        {
+          'srcset' => srcset,
+          'sizes' => sizes_attribute,
+          'type' => media_type,
+          'media' => '(prefers-color-scheme: dark)'
+        }
+      end
 
-      inner_html = <<~HTML
-        <picture>
-          #{dark_html}
-          #{light_html}
-          <img
-            src="#{default_image}"
-            #{extra_attributes}
-          >
-        </picture>
-      HTML
+      if @link_to_original
+        dst_prefix = get_dst_prefix(lt_source_path)
+        link_target = "#{dst_prefix.gsub('_site', '')}#{im_format[:extension]}"
+      elsif @link_to
+        link_target = @link_to
+      else
+        link_target = nil
+      end
 
-      # Be careful about whitespace here; if you're not careful Kramdown
-      # will interpret the indentation as a literal source block, and then
-      # HTML markup appears in the page instead of the image!
-      #
-      # e.g. /2022/egyptian-mixtape/
-      html = if @link_to_original
-               <<~HTML
-                 <a href="#{dst_prefix.gsub('_site', '')}#{im_format[:extension]}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
-               HTML
-             elsif @link_to
-               <<~HTML
-                 <a href="#{@link_to}">#{inner_html.split("\n").map(&:strip).join(' ')}</a>
-               HTML
-             else
-               inner_html
-             end
-
-      html.strip
+      {
+        sources: lt_sources + dk_sources,
+        default_image: default_image,
+        extra_attributes: @attrs,
+        link_target: link_target
+      }
     end
 
-    def prepare_images(source_path, desired_formats, dst_prefix, width)
+    # Create all the different sizes of an image.
+    #
+    # This returns a map (format) -> (srcset values).
+    #
+    # For example:
+    #
+    #     {
+    #       "image/avif"=>"/images/2013/example_925w.avif 925w",
+    #       "image/webp"=>"/images/2013/example_925.webp 925w",
+    #       "image/jpeg"=>"/images/2013/example_925.jpg 925w"
+    #     }
+    #
+    def create_image_sizes(source_path, desired_formats, target_width)
+      image = get_single_image_info(source_path)
+      dst_prefix = get_dst_prefix(source_path)
+
       sources = Hash.new { [] }
 
-      image = get_single_image_info(source_path)
+      desired_widths = (1..3)
+                       .map { |pixel_density| pixel_density * target_width }
+                       .filter { |w| w <= image['width'] }
+                       .sort!
 
-      # Pick how many widths we're going to cut this image at.
-      #
-      # Generally 1x/2x/3x is fine, but for specific images I can pick
-      # extra sizes and have them added to the list.
-      widths = (1..3)
-               .map { |pixel_density| pixel_density * width }
-               .filter { |w| w <= image['width'] }
-               .sort!
-
-      widths.each do |this_width|
+      desired_widths.each do |this_width|
         desired_formats.each do |out_format|
           # I already have lots of images cut with the _1x, _2x, _3x names,
           # so I retain those when picking names to avoid breaking links or
           # losing Google juice, then switch to _500w, _640w, and so on
           # for larger sizes.
-          out_path = if (this_width % width).zero?
-                       "#{dst_prefix}_#{this_width / width}x#{out_format[:extension]}"
-                     else
-                       "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
-                     end
+          #
+          # This is also used downstream to choose the default image --
+          # the 1x image is the default.
+          suffix = if (this_width % target_width).zero?
+                     "#{this_width / target_width}x"
+                   else
+                     "#{this_width}w"
+                   end
+
+          out_path = "#{dst_prefix}_#{suffix}#{out_format[:extension]}"
 
           request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
           convert_image(request)
@@ -262,7 +286,7 @@ module Jekyll
         end
       end
 
-      sources
+      sources.to_h { |fmt, srcset_values| [fmt[:mime_type], srcset_values.join(', ')] }
     end
 
     # Find the path to the source image.
@@ -274,15 +298,15 @@ module Jekyll
     #   - Setting the `filename` attribute, in which case look for an image
     #     in the per-year directory for this page.
     #
-    def get_source_path(context)
-      site = context.registers[:site]
+    def get_source_path
+      site = @context.registers[:site]
       src = site.config['source']
 
       if @parent.nil?
         # If this tag is called in the context of a blog post, we have access
         # to the post date -- and images are filed in per-year directories
         # to match posts.
-        page = context.registers[:page]
+        page = @context.registers[:page]
         year = page['date'].year
 
         "#{src}/_images/#{year}/#{@filename}"
@@ -296,8 +320,8 @@ module Jekyll
     # e.g. if an image is from `src/_images/2021/green.jpg`, all the derivatives
     # will be of the form `_site/images/2021/green.*`
     #
-    def get_dst_prefix(context, source_path)
-      site = context.registers[:site]
+    def get_dst_prefix(source_path)
+      site = @context.registers[:site]
       src = site.config['source']
       dst = site.config['destination']
 

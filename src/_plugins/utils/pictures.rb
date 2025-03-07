@@ -119,11 +119,19 @@ def choose_desired_formats(im_format, css_class, source_path)
     'src/_images/2024/static-bookmarks.png'
   ]
 
-  if (@attrs['class'] || '').include? 'screenshot'
+  if (css_class || '').include? 'screenshot'
     [im_format]
   elsif png_only_images.include? source_path
     [im_format]
   else
     [ImageFormat::AVIF, ImageFormat::WEBP, im_format]
   end
+end
+
+# Returns the path where a dark variant of an image should be saved.
+def choose_dk_path(lt_source_path)
+  File.join(
+    File.dirname(lt_source_path),
+    "#{File.basename(lt_source_path, File.extname(lt_source_path))}.dark#{File.extname(lt_source_path)}"
+  )
 end
