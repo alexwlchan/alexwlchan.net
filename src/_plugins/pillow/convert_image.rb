@@ -21,13 +21,15 @@ def convert_image(request)
   end
 end
 
-Jekyll::Hooks.register :site, :after_reset do
-  FileUtils.rm_f('.image_requests.json')
-end
+if defined? Jekyll
+  Jekyll::Hooks.register :site, :after_reset do
+    FileUtils.rm_f('.image_requests.json')
+  end
 
-Jekyll::Hooks.register :site, :post_render do
-  if File.exist?('.image_requests.json')
-    _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_images.py', '.image_requests.json')
-    raise 'Unable to process image requests' unless status.success?
+  Jekyll::Hooks.register :site, :post_render do
+    if File.exist?('.image_requests.json')
+      _, status = Open3.capture2('python3', 'src/_plugins/pillow/convert_images.py', '.image_requests.json')
+      raise 'Unable to process image requests' unless status.success?
+    end
   end
 end

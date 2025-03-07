@@ -52,6 +52,9 @@ Naming/VariableNumber:
 Style/ClassVars:
   Enabled: false
 
+Style/CombinableLoops:
+  Enabled: false
+
 Style/ConditionalAssignment:
   Enabled: false
 
