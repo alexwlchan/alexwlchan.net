@@ -67,6 +67,11 @@ Jekyll::Hooks.register :site, :post_read do |site|
                     'out_path' => social_card.gsub('src/_images', '_site/images'),
                     'target_width' => 800
                   })
+    
+    # Fetch the card colours to use on the index card.
+    post_colors = post.data.fetch('colors', {})
+    color_lt = post_colors.fetch('index_light', post_colors.fetch('css_light', nil))
+    color_dk = post_colors.fetch('index_dark', post_colors.fetch('css_dark', nil))
 
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
@@ -74,7 +79,10 @@ Jekyll::Hooks.register :site, :post_read do |site|
       'attribution' => post.data['card_attribution'],
       'year' => year,
       'social' => File.basename(social_card),
-      'index' => File.basename(index_card)
+      'index' => File.basename(index_card),
+      
+      'color_lt' => color_lt,
+      'color_dk' => color_dk,
     }
   end
 

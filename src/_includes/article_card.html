@@ -8,19 +8,17 @@
 {% endcomment %}
 <li
   class="card"
-  style="
-    {%- if article.colors.index_light -%}
-      --c-lt: {{ article.colors.index_light }};
-    {%- elsif article.colors.css_light -%}
-      --c-lt: {{ article.colors.css_light }};
-    {%- endif -%}
+  {% if article.card.color_lt or article.card.color_dk %}
+    style="
+      {%- if article.card.color_lt -%}
+        --c-lt: {{- article.card.color_lt -}};
+      {%- endif -%}
 
-    {%- if article.colors.index_dark -%}
-      --c-dk: {{ article.colors.index_dark }};
-    {%- elsif article.colors.css_dark -%}
-      --c-dk: {{ article.colors.css_dark }};
-    {%- endif -%}
-  "
+      {%- if article.card.color_dk -%}
+        --c-dk: {{- article.card.color_dk -}}
+      {%- endif -%}
+    "
+  {% endif %}
   {% if add_data_metadata %}
   data-date="{{ article.date | date: '%y%m%d' }}"
   {% endif %}
