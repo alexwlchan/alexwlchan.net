@@ -123,7 +123,7 @@ Here are some of my favourite things [that I've written](/articles/):
 
 <script>
   function CardImage(card) {
-    if (card.image_fmt === null) {
+    if (card.im_fmt === null) {
       return `
         <div class="c_im_w">
           <img
@@ -138,7 +138,7 @@ Here are some of my favourite things [that I've written](/articles/):
 
     const yr = card.year - 2000;
 
-    if (card.image_fmt === 'JPEG') {
+    if (card.im_fmt === 'JPEG') {
       var suffix = '.jpg';
       var mimeType = 'image/jpg';
     } else {
@@ -212,29 +212,32 @@ Here are some of my favourite things [that I've written](/articles/):
     `;
   }
 
-  const featuredArticles = [
-    {% for article in featured_articles %}
-      {% capture articleHtml %}
-        {% include article_card.html %}
-      {% endcapture %}
-      {
-        "c_lt": {{ article.card.color_lt | jsonify }},
-        "c_dk": {{ article.card.color_dk | jsonify }},
-        "is_new": {{ article.is_new }},
-        "title": {{ article.title | cleanup_text | jsonify }},
-        "year": {{ article.date | date: "%Y" }},
-        "slug": {{ article.slug | jsonify }},
-        "prefix": {{ article.card.index_prefix | jsonify }},
-        "image_w": {{ article.card.index_image.width | jsonify }},
-        "image_fmt": {{ article.card.index_image.format | jsonify }},
-        {% if article.summary %}
-          "desc": {{ article.summary|cleanup_text|jsonify }},
-        {% else %}
-          "desc": null,
-        {% endif %}
-      },
-    {% endfor %}
-  ];
+  {%- capture featuredArticlesJson -%}
+    [
+      {% for article in featured_articles %}
+        {
+          "c_lt": {{ article.card.color_lt | jsonify }},
+          "c_dk": {{ article.card.color_dk | jsonify }},
+          {% if article.is_new %}
+          "is_new": {{ article.is_new }},
+          {% endif %}
+          "title": {{ article.title | cleanup_text | jsonify }},
+          "year": {{ article.date | date: "%Y" }},
+          "slug": {{ article.slug | jsonify }},
+          "prefix": {{ article.card.index_prefix | jsonify }},
+          "im_fmt": {{ article.card.index_image.format | jsonify }},
+          {% if article.summary %}
+            "desc": {{ article.summary|cleanup_text|jsonify }}
+          {% else %}
+            "desc": null
+          {% endif %}
+        }
+        {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  {%- endcapture -%}
+
+  const featuredArticles = {{ featuredArticlesJson | compact_json }};
 
   window.addEventListener("DOMContentLoaded", function() {
     const newArticles = featuredArticles.filter(card => card.is_new);
@@ -252,12 +255,12 @@ Here are some of my favourite things [that I've written](/articles/):
 </script>
 
 <ul class="article_cards" id="featured_articles">
-  <!-- {% for article in new_articles %}
+  {% for article in new_articles %}
     {% include article_card.html %}
   {% endfor %}
   {% for article in sample_of_articles %}
     {% include article_card.html %}
-  {% endfor %} -->
+  {% endfor %}
 </ul>
 
 Here are some of the topics I write about:
