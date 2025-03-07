@@ -56,12 +56,13 @@
   font-weight: normal;
 }
 
-.c_image_wrapper {
+/* c_im_w = card_image_wrapper */
+.c_im_w {
   width: 100%;
   background: var(--c-color);
 }
 
-.c_image_wrapper, .c_image {
+.c_im_w, .c_image {
   margin-top: 0;
   margin-bottom: 0;
   aspect-ratio: 2 / 1;
