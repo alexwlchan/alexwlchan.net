@@ -38,8 +38,8 @@
 #       the same per-year directory as the post.
 #     * `alt` is the alt text for the image, which must be supplied on
 #       all posts (which is checked by the linter plugin).
-#     * `width`, which is used to pick the sizes for the different
-#       resolutions.  This is a rough guide.
+#     * `width` or `height`, which is used to pick the sizes for the
+#       different resolutions.  This is a rough guide.
 #
 # It will look for the image in `/images/#{year}/#{filename}`, so if this
 # was a post from 2022, it will look in `/images/2022/IMG_5744.jpg`.
@@ -136,7 +136,10 @@ module Jekyll
       @attrs['width'] = @width
       aspect_ratio = Rational(image['width'], image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
-
+      
+      # Choose what formats I want images to be served in, and the order
+      # I'd like them to be offered.
+      #
       # I'm not a fan of the way AVIF and WebP introduce artefacts into
       # PNG screenshots -- it makes text look mucky and pixellated.  Boo!
       #
@@ -147,15 +150,20 @@ module Jekyll
       # 18 October 2024: I've excluded a few images, because they're on
       # a post that's going somewhat viral and I'm eating my bandwidth
       # pretty quickly.
-      desired_formats = if ((@attrs['class'] || '').include? 'screenshot') &&
-                           (source_path != 'src/_images/2024/finder_website.png') &&
-                           (source_path != 'src/_images/2024/static-screenshots.png') &&
-                           (source_path != 'src/_images/2024/static-videos.png') &&
-                           (source_path != 'src/_images/2024/static-bookmarks.png')
-                          [im_format]
-                        else
-                          [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-                        end
+      png_only_images = [
+        'src/_images/2024/finder_website.png',
+        'src/_images/2024/static-screenshots.png',
+        'src/_images/2024/static-videos.png',
+        'src/_images/2024/static-bookmarks.png'
+      ]
+      
+      if ((@attrs['class'] || '').include? 'screenshot')
+        desired_formats = [im_format]
+      elsif png_only_images.include? source_path
+        desired_formats = [im_format]
+      else
+        desired_formats = [ImageFormat::AVIF, ImageFormat::WEBP, im_format]
+      end
 
       sources = prepare_images(source_path, desired_formats, dst_prefix, @width, @max_width)
 
