@@ -123,22 +123,10 @@ Here are some of my favourite things [that I've written](/articles/):
 
 <script>
   function CardImage(card) {
-    if (card.im_fmt === null) {
-      return `
-        <div class="c_im_w">
-          <img
-            src="/images/default-card.png"
-            alt=""
-            loading="lazy"
-            data-proofer-ignore
-          />
-        </div>
-      `;
-    }
+    const yr = card.y - 2000;
+    const prefix = card.p;
 
-    const yr = card.year - 2000;
-
-    if (card.im_fmt === 'JPEG') {
+    if (card.fm === 'JPEG') {
       var suffix = '.jpg';
       var mimeType = 'image/jpg';
     } else {
@@ -148,39 +136,39 @@ Here are some of my favourite things [that I've written](/articles/):
 
     return `
       <div class="c_im_w">
-        ${card.is_new ? '<div class="new_banner">NEW</div>' : ''}
+        ${card.new ? '<div class="new_banner">NEW</div>' : ''}
         <picture>
           <source
-            srcset="/c/${yr}/${card.prefix}_365w${suffix} 365w,
-                    /c/${yr}/${card.prefix}_730w${suffix} 730w,
-                    /c/${yr}/${card.prefix}_302w${suffix} 302w,
-                    /c/${yr}/${card.prefix}_604w${suffix} 604w,
-                    /c/${yr}/${card.prefix}_405w${suffix} 405w,
-                    /c/${yr}/${card.prefix}_810w${suffix} 810w"
+            srcset="/c/${yr}/${prefix}_365w${suffix} 365w,
+                    /c/${yr}/${prefix}_730w${suffix} 730w,
+                    /c/${yr}/${prefix}_302w${suffix} 302w,
+                    /c/${yr}/${prefix}_604w${suffix} 604w,
+                    /c/${yr}/${prefix}_405w${suffix} 405w,
+                    /c/${yr}/${prefix}_810w${suffix} 810w"
             sizes="(max-width: 450px) 405px, 405px"
             type="${mimeType}"
           >
           <source
-            srcset="/c/${yr}/${card.prefix}_365w.avif 365w,
-                    /c/${yr}/${card.prefix}_730w.avif 730w,
-                    /c/${yr}/${card.prefix}_302w.avif 302w,
-                    /c/${yr}/${card.prefix}_604w.avif 604w,
-                    /c/${yr}/${card.prefix}_405w.avif 405w,
-                    /c/${yr}/${card.prefix}_810w.avif 810w"
+            srcset="/c/${yr}/${prefix}_365w.avif 365w,
+                    /c/${yr}/${prefix}_730w.avif 730w,
+                    /c/${yr}/${prefix}_302w.avif 302w,
+                    /c/${yr}/${prefix}_604w.avif 604w,
+                    /c/${yr}/${prefix}_405w.avif 405w,
+                    /c/${yr}/${prefix}_810w.avif 810w"
             sizes="(max-width: 450px) 405px, 405px"
             type="image/avif"
           >
           <source
-            srcset="/c/${yr}/${card.prefix}_365w.webp 365w,
-                    /c/${yr}/${card.prefix}_730w.webp 730w,
-                    /c/${yr}/${card.prefix}_302w.webp 302w,
-                    /c/${yr}/${card.prefix}_604w.webp 604w,
-                    /c/${yr}/${card.prefix}_405w.webp 405w,
-                    /c/${yr}/${card.prefix}_810w.webp 810w"
+            srcset="/c/${yr}/${prefix}_365w.webp 365w,
+                    /c/${yr}/${prefix}_730w.webp 730w,
+                    /c/${yr}/${prefix}_302w.webp 302w,
+                    /c/${yr}/${prefix}_604w.webp 604w,
+                    /c/${yr}/${prefix}_405w.webp 405w,
+                    /c/${yr}/${prefix}_810w.webp 810w"
             sizes="(max-width: 450px) 405px, 405px"
             type="image/webp"
           >
-          <img src="/c/${yr}/${card.prefix}_365w.jpg" alt="" loading="lazy">
+          <img src="/c/${yr}/${prefix}_365w.jpg" alt="" loading="lazy">
         </picture>
       </div>
     `;
@@ -191,19 +179,19 @@ Here are some of my favourite things [that I've written](/articles/):
       <li
         class="card"
         style="
-          ${card.c_lt ? `--c-lt: ${card.c_lt}` : ''};
-          ${card.c_dk ? `--c-dk: ${card.c_dk}` : ''};
+          ${card.cl ? `--c-lt: #${card.cl}` : ''};
+          ${card.cd ? `--c-dk: #${card.cd}` : ''};
         "
       >
-        <a href="/${card.year}/${card.slug}/">
+        <a href="/${card.y}/${card.s}/">
           ${CardImage(card)}
           <div class="c_meta">
             <p class="c_title">
-              ${card.title}
+              ${card.t}
             </p>
             ${
-              card.desc
-                ? `<p class="c_desc">${card.desc}</p>`
+              typeof card.d !== 'undefined'
+                ? `<p class="c_desc">${card.d}</p>`
                 : ''
             }
           </div>
@@ -214,22 +202,31 @@ Here are some of my favourite things [that I've written](/articles/):
 
   {%- capture featuredArticlesJson -%}
     [
+      {% comment %}
+        cl = color light
+        cd = color dark
+        new = is new?
+        t = title
+        y = year
+        s = slug
+        p = prefix
+        fm = image format
+        d = descritpion
+      {% endcomment %}
       {% for article in featured_articles %}
         {
-          "c_lt": {{ article.card.color_lt | jsonify }},
-          "c_dk": {{ article.card.color_dk | jsonify }},
+          "cl": {{ article.card.color_lt | replace: "#", "" | jsonify }},
+          "cd": {{ article.card.color_dk | replace: "#", "" | jsonify }},
           {% if article.is_new %}
-          "is_new": {{ article.is_new }},
+          "new": {{ article.is_new }},
           {% endif %}
-          "title": {{ article.title | cleanup_text | jsonify }},
-          "year": {{ article.date | date: "%Y" }},
-          "slug": {{ article.slug | jsonify }},
-          "prefix": {{ article.card.index_prefix | jsonify }},
-          "im_fmt": {{ article.card.index_image.format | jsonify }},
+          "t": {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
+          "y": {{ article.date | date: "%Y" }},
+          "s": {{ article.slug | jsonify }},
+          "p": {{ article.card.index_prefix | jsonify }},
+          "fm": {{ article.card.index_image.format | jsonify }},
           {% if article.summary %}
-            "desc": {{ article.summary|cleanup_text|jsonify }}
-          {% else %}
-            "desc": null
+            "d": {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
           {% endif %}
         }
         {% unless forloop.last %},{% endunless %}

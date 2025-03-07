@@ -8,7 +8,13 @@ tags:
   - python
 index:
   feature: true
+colors:
+  index_light: "#367a92"
+  index_dark:  "#99c7cf"
 ---
+{% comment %}
+  Card image: https://www.pexels.com/photo/close-up-photo-of-blue-background-2441454/
+{% endcomment %}
 
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.
 A lot of my scripts are a variant of the following:
