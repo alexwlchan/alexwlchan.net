@@ -99,12 +99,14 @@ Jekyll::Hooks.register :site, :post_read do |site|
     }
   end
 
-  posts_with_cards = site.posts.docs.reject { |p| p.data['card'].nil? }
+  posts_with_index_cards = site.posts.docs
+    .reject { |p| p.data['card'].nil? }
+    .filter { |post| post.data.fetch('index', {}).fetch('feature', false) }
 
   # Set the "is_new" attribute on any posts which were published
-  # in the last 15 days or so.
-  site.posts.docs.each do |post|
-    post.data['is_new'] = Time.now - post.data['date'] < 15 * 24 * 60 * 60
+  # in the last few weeks.
+  posts_with_index_cards.each do |post|
+    post.data['is_new'] = Time.now - post.data['date'] < 21 * 24 * 60 * 60
   end
 
   # Now work out unique abbrevations for the names of each card.
@@ -116,7 +118,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
   # e.g. "digital-decluttering.jpg" might become "di", which is much shorter!
 
   # A list of card names e.g. "2025/cool-to-care.jpg", "2024/in-reading.png"
-  index_names = posts_with_cards.map do |p|
+  index_names = posts_with_index_cards.map do |p|
     year = p.data['card']['year']
     index = p.data['card']['index']
     "#{year}/#{index}"
@@ -129,7 +131,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
                          .transform_values { |v| v.flatten.min_by(&:length) }
 
   # Add the prefix to each card object, without the year.
-  posts_with_cards.each do |p|
+  posts_with_index_cards.each do |p|
     year = p.data['card']['year']
     index = p.data['card']['index']
     key = "#{year}/#{index}"
@@ -144,7 +146,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
   # The "article card" component assumes that all these images have a 2:1
   # ratio, and I use the same -- different social media networks want
   # a slightly different ratio, but it's good enough.
-  posts_with_cards.each do |post|
+  posts_with_index_cards.each do |post|
     card = post.data['card']
 
     index_im = get_single_image_info(card['index_path'])

@@ -136,7 +136,7 @@ Here are some of my favourite things [that I've written](/articles/):
 
     return `
       <div class="c_im_w">
-        ${card.new ? '<div class="new_banner">NEW</div>' : ''}
+        ${card.n ? '<div class="new_banner">NEW</div>' : ''}
         <picture>
           <source
             srcset="/c/${yr}/${prefix}_365w${suffix} 365w,
@@ -218,7 +218,7 @@ Here are some of my favourite things [that I've written](/articles/):
           "cl": {{ article.card.color_lt | replace: "#", "" | jsonify }},
           "cd": {{ article.card.color_dk | replace: "#", "" | jsonify }},
           {% if article.is_new %}
-          "new": {{ article.is_new }},
+          "n": {{ article.is_new }},
           {% endif %}
           "t": {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
           "y": {{ article.date | date: "%Y" }},
@@ -237,7 +237,8 @@ Here are some of my favourite things [that I've written](/articles/):
   const featuredArticles = {{ featuredArticlesJson | compact_json }};
 
   window.addEventListener("DOMContentLoaded", function() {
-    const newArticles = featuredArticles.filter(card => card.is_new);
+    const newArticles = featuredArticles
+      .filter(card => typeof card.n !== 'undefined');
     const randomArticles = featuredArticles
       .filter(art => !newArticles.includes(art))
       .sort(() => 0.5 - Math.random())
