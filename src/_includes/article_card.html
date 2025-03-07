@@ -8,37 +8,60 @@
 {% endcomment %}
 <li
   class="card"
-  style="
-    {%- if article.colors.index_light -%}
-      --c-lt: {{ article.colors.index_light }};
-    {%- elsif article.colors.css_light -%}
-      --c-lt: {{ article.colors.css_light }};
-    {%- endif -%}
+  {% if article.card.color_lt or article.card.color_dk %}
+    style="
+      {%- if article.card.color_lt -%}
+        --c-lt: {{- article.card.color_lt -}};
+      {%- endif -%}
 
-    {%- if article.colors.index_dark -%}
-      --c-dk: {{ article.colors.index_dark }};
-    {%- elsif article.colors.css_dark -%}
-      --c-dk: {{ article.colors.css_dark }};
-    {%- endif -%}
-  "
+      {%- if article.card.color_dk -%}
+        --c-dk: {{- article.card.color_dk -}}
+      {%- endif -%}
+    "
+  {% endif %}
   {% if add_data_metadata %}
   data-date="{{ article.date | date: '%y%m%d' }}"
   {% endif %}
 >
-  <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
-    <div class="c_image_wrapper">
-      {% card_image %}
+  <a href="{{ article.url }}">
+    <div class="c_im_w">
+      {% if article.card.index %}
+        {% if article.is_new %}
+          <div class="new_banner">NEW</div>
+        {% endif %}
+        <picture>
+          {% for src in article.card.index_image_template_params.sources %}
+          <source
+            srcset="{{ src.srcset }}"
+            sizes="(max-width: 450px) 405px, 405px"
+            type="{{ src.type }}"
+          >
+          {% endfor %}
+          <img
+            src="{{ article.card.index_image_template_params.default_image }}"
+            alt=""
+            loading="lazy"
+          >
+        </picture>
+      {% else %}
+        <img
+          src="/images/default-card.png"
+          alt=""
+          loading="lazy"
+          data-proofer-ignore
+        />
+      {% endif %}
     </div>
 
     <div class="c_meta">
       <p class="c_title">
-        {{- article.title | markdownify_oneline -}}
+        {{- article.card.title -}}
       </p>
-      {% if article.summary %}
+      {%- if article.card.summary -%}
         <p class="c_desc">
-          {{- article.summary | markdownify_oneline -}}
+          {{- article.card.summary -}}
         </p>
-      {% endif %}
+      {%- endif -%}
     </div>
   </a>
 </li>

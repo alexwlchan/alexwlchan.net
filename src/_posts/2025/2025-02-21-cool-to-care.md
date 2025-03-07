@@ -9,7 +9,7 @@ tags:
   - operation mincemeat
 colors:
   index_light: "#594438"
-  index_dark:  "#d1d8db"
+  index_dark:  "#f5db6e"
 index:
   feature: true
 ---

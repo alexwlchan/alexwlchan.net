@@ -37,6 +37,7 @@ require 'abbrev'
 
 require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
+require_relative 'utils/markdownify_oneline'
 require_relative 'utils/pictures'
 
 Jekyll::Hooks.register :site, :post_read do |site|
@@ -68,17 +69,45 @@ Jekyll::Hooks.register :site, :post_read do |site|
                     'target_width' => 800
                   })
 
+    # Fetch the card colours to use on the index card.
+    post_colors = post.data.fetch('colors', {})
+    color_lt = post_colors.fetch('index_light', post_colors.fetch('css_light', nil))
+    color_dk = post_colors.fetch('index_dark', post_colors.fetch('css_dark', nil))
+
+    title = apply_markdownify_oneline(site, post.data['title'])
+    if post.data['summary'].nil?
+      summary = nil
+    else
+      summary = apply_markdownify_oneline(site, post.data['summary'])
+    end
+
     # Now we attach enough data to the post that the downstream components
     # can render the necessary HTML.
     post.data['card'] = {
       'attribution' => post.data['card_attribution'],
       'year' => year,
+
       'social' => File.basename(social_card),
-      'index' => File.basename(index_card)
+      'social_path' => social_card,
+      'index' => File.basename(index_card),
+      'index_path' => index_card,
+
+      'color_lt' => color_lt,
+      'color_dk' => color_dk,
+      'title' => title,
+      'summary' => summary
     }
   end
 
-  posts_with_cards = site.posts.docs.reject { |p| p.data['card'].nil? }
+  posts_with_index_cards = site.posts.docs
+                               .reject { |p| p.data['card'].nil? }
+                               .filter { |post| post.data.fetch('index', {}).fetch('feature', false) }
+
+  # Set the "is_new" attribute on any posts which were published
+  # in the last few weeks.
+  posts_with_index_cards.each do |post|
+    post.data['is_new'] = Time.now - post.data['date'] < 21 * 24 * 60 * 60
+  end
 
   # Now work out unique abbrevations for the names of each card.
   #
@@ -87,141 +116,101 @@ Jekyll::Hooks.register :site, :post_read do |site|
   #
   # We construct minimal prefixes that uniquely identify each card name,
   # e.g. "digital-decluttering.jpg" might become "di", which is much shorter!
-  index_names = posts_with_cards.map { |p| "#{p.data['card']['year']}/#{p.data['card']['index']}" }
+
+  # A list of card names e.g. "2025/cool-to-care.jpg", "2024/in-reading.png"
+  index_names = posts_with_index_cards.map do |p|
+    year = p.data['card']['year']
+    index = p.data['card']['index']
+    "#{year}/#{index}"
+  end
+
+  # A map from full card name to unique prefix,
+  # e.g. "2025/cool-to-care.jpg" => "2025/c"
   index_prefixes = Abbrev.abbrev(index_names)
                          .group_by { |_, v| v }
                          .transform_values { |v| v.flatten.min_by(&:length) }
 
-  posts_with_cards.each do |p|
-    p.data['card']['index_prefix'] =
-      index_prefixes["#{p.data['card']['year']}/#{p.data['card']['index']}"].gsub("#{p.data['card']['year']}/", '')
+  # Add the prefix to each card object, without the year.
+  posts_with_index_cards.each do |p|
+    year = p.data['card']['year']
+    index = p.data['card']['index']
+    key = "#{year}/#{index}"
+
+    p.data['card']['index_prefix'] = File.basename(
+      index_prefixes[key].gsub("#{year}/", ''), '.*'
+    )
   end
-end
 
-module Jekyll
-  class CardImageTag < Liquid::Tag
-    def render(context)
-      article = context['article']
-      card = article['card']
+  # Go ahead and verify that all of the cards have a 2:1 aspect ratio.
+  #
+  # The "article card" component assumes that all these images have a 2:1
+  # ratio, and I use the same -- different social media networks want
+  # a slightly different ratio, but it's good enough.
+  posts_with_index_cards.each do |post|
+    card = post.data['card']
 
-      if card.nil?
-        <<~HTML
-          <img
-            src="/images/default-card.png"
-            alt=""
-            loading="lazy"
-            data-proofer-ignore
-          />
-        HTML
-      else
-
-        # What widths do I want to create cards at?
-        widths = [
-          302, 302 * 2,  # 3-up column => ~302px wide
-          365, 365 * 2,  # 2-up column => ~365px wide
-          405, 405 * 2 # 1-up column => ~405px wide
-        ]
-
-        sizes_attribute = '(max-width: 450px) 405px, 405px'
-
-        year = article['date'].year
-
-        source_path = "src/_images/cards/#{year}/#{card['index']}"
-        dst_prefix = "_site/c/#{year - 2000}/#{File.basename(card['index_prefix'], '.*')}"
-
-        image = get_single_image_info(source_path)
-        im_format = get_format(source_path, image)
-
-        if image['width'] != image['height'] * 2
-          raise "Card #{card['index']} doesn’t have a 2:1 aspect ratio"
-        end
-
-        sources = prepare_images(source_path, dst_prefix, im_format, widths)
-
-        dark_source_path = File.join(
-          File.dirname(source_path),
-          "#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
-        )
-
-        if File.exist? dark_source_path
-          dark_image = get_single_image_info(dark_source_path)
-
-          if dark_image['width'] != dark_image['height'] * 2
-            raise "Card #{File.basename(dark_source_path)} doesn’t have a 2:1 aspect ratio"
-          end
-
-          dark_sources = prepare_images(dark_source_path, "#{dst_prefix}.dark", im_format, widths)
-        else
-          dark_sources = {}
-        end
-
-        default_image = sources[im_format]
-                        .map { |im| im.split[0] }
-                        .find { |path| path.include? '_365' }
-
-        dark_html = create_source_elements(
-          dark_sources, im_format, {
-            desired_formats: [im_format, ImageFormat::AVIF, ImageFormat::WEBP],
-            sizes: sizes_attribute,
-            dark_mode: true
-          }
-        )
-
-        light_html = create_source_elements(
-          sources, im_format, {
-            desired_formats: [im_format, ImageFormat::AVIF, ImageFormat::WEBP],
-            sizes: sizes_attribute,
-            dark_mode: false
-          }
-        )
-
-        # Make sure the CSS doesn't through a white background behind
-        # this dark-aware image.
-        css_class = if dark_sources.nil?
-                      'c_image dark_aware'
-                    else
-                      'c_image'
-                    end
-
-        # Intentionally omit the alt text on promos, so screen reader users
-        # don't have to listen to the alt text before hearing the title
-        # of the item in the list.
-        #
-        # See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
-        <<~HTML
-          <picture>
-            #{dark_html}
-            #{light_html}
-            <img
-              src="#{default_image}"
-              class="#{css_class}"
-              alt=""
-              loading="lazy"
-            >
-          </picture>
-        HTML
-      end
+    index_im = get_single_image_info(card['index_path'])
+    if index_im['width'] != index_im['height'] * 2
+      raise "Card #{card['index_path']} doesn’t have a 2:1 aspect ratio"
     end
 
-    def prepare_images(source_path, dst_prefix, im_format, widths)
-      sources = Hash.new { [] }
-
-      desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
-
-      widths.each do |this_width|
-        desired_formats.each do |out_format|
-          out_path = "#{dst_prefix}_#{this_width}w#{out_format[:extension]}"
-
-          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
-          convert_image(request)
-
-          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
-        end
-      end
-
-      sources
+    social_im = get_single_image_info(card['social_path'])
+    if social_im['width'] != social_im['height'] * 2
+      raise "Card #{card['social_path']} doesn’t have a 2:1 aspect ratio"
     end
+
+    # Create/queue resized versions of the index image.
+    #
+    # Save the metadata in the format to be passed into the <picture> template.
+    card = post.data['card']
+
+    # Where will this card be written?
+    # e.g. _site/c/25/cool-to-care
+    year = post.data['date'].year
+    dst_prefix = "_site/c/#{year - 2000}/#{card['index_prefix']}"
+
+    # What format do we want to create this card in?
+    #
+    # All three formats are fine.
+    image = get_single_image_info(card['index_path'])
+    im_format = get_format(card['index_path'], image)
+    desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+
+    # What widths do I want to create cards at?
+    desired_widths = [
+      365, 365 * 2,  # 2-up column => ~365px wide
+      302, 302 * 2,  # 3-up column => ~302px wide
+      405, 405 * 2 # 1-up column => ~405px wide
+    ]
+    target_width = nil
+
+    # Create the various image sizes
+    sources = create_image_sizes(
+      card['index_path'],
+      dst_prefix,
+      desired_formats,
+      desired_widths,
+      target_width
+    )
+
+    # Choose the default/fallback image -- we use the 1x version of
+    # the light image.  If you're running a browser which doesn't
+    # know about the <picture> tag, you're unlikely to be on a
+    # device with a hi-res screen or dark mode.
+    default_image = sources[im_format[:mime_type]].split[0]
+
+    sources = sources.map do |media_type, srcset|
+      {
+        'srcset' => srcset,
+        'type' => media_type
+      }
+    end
+
+    card['index_image'] = image
+
+    card['index_image_template_params'] = {
+      'sources' => sources,
+      'default_image' => default_image
+    }
   end
 end
-
-Liquid::Template.register_tag('card_image', Jekyll::CardImageTag)
