@@ -108,34 +108,156 @@ Here are some of my favourite things [that I've written](/articles/):
   - The Jekyll build will pick a sample of 6 every time it's built
   - JavaScript on the page will shuffle the list on page reloads
 
+  New articles always appear in the top left, but other articles can
+  rotate around them.
+
 {% endcomment %}
 
 {% assign featured_articles = site.posts | where: "index.feature", true %}
-{% assign sample_of_articles = featured_articles | sample: 6 %}
+
+{% assign new_articles = featured_articles | where: "is_new", true %}
+
+{% assign new_count = new_articles | size %}
+{% assign sample_size = 6 | minus: new_count %}
+{% assign sample_of_articles = featured_articles | sample: sample_size %}
 
 <script>
+  function CardImage(card) {
+    if (card.image_fmt === null) {
+      return `
+        <div class="c_im_w">
+          <img
+            src="/images/default-card.png"
+            alt=""
+            loading="lazy"
+            data-proofer-ignore
+          />
+        </div>
+      `;
+    }
+
+    const yr = card.year - 2000;
+
+    if (card.image_fmt === 'JPEG') {
+      var suffix = '.jpg';
+      var mimeType = 'image/jpg';
+    } else {
+      var suffix = '.png';
+      var mimeType = 'image/png';
+    }
+
+    return `
+      <div class="c_im_w">
+        ${card.is_new ? '<div class="new_banner">NEW</div>' : ''}
+        <picture>
+          <source
+            srcset="/c/${yr}/${card.prefix}_365w${suffix} 365w,
+                    /c/${yr}/${card.prefix}_730w${suffix} 730w,
+                    /c/${yr}/${card.prefix}_302w${suffix} 302w,
+                    /c/${yr}/${card.prefix}_604w${suffix} 604w,
+                    /c/${yr}/${card.prefix}_405w${suffix} 405w,
+                    /c/${yr}/${card.prefix}_810w${suffix} 810w"
+            sizes="(max-width: 450px) 405px, 405px"
+            type="${mimeType}"
+          >
+          <source
+            srcset="/c/${yr}/${card.prefix}_365w.avif 365w,
+                    /c/${yr}/${card.prefix}_730w.avif 730w,
+                    /c/${yr}/${card.prefix}_302w.avif 302w,
+                    /c/${yr}/${card.prefix}_604w.avif 604w,
+                    /c/${yr}/${card.prefix}_405w.avif 405w,
+                    /c/${yr}/${card.prefix}_810w.avif 810w"
+            sizes="(max-width: 450px) 405px, 405px"
+            type="image/avif"
+          >
+          <source
+            srcset="/c/${yr}/${card.prefix}_365w.webp 365w,
+                    /c/${yr}/${card.prefix}_730w.webp 730w,
+                    /c/${yr}/${card.prefix}_302w.webp 302w,
+                    /c/${yr}/${card.prefix}_604w.webp 604w,
+                    /c/${yr}/${card.prefix}_405w.webp 405w,
+                    /c/${yr}/${card.prefix}_810w.webp 810w"
+            sizes="(max-width: 450px) 405px, 405px"
+            type="image/webp"
+          >
+          <img src="/c/${yr}/${card.prefix}_365w.jpg" alt="" loading="lazy">
+        </picture>
+      </div>
+    `;
+  }
+
+  function ArticleCard(card) {
+    return `
+      <li
+        class="card"
+        style="
+          ${card.c_lt ? `--c-lt: ${card.c_lt}` : ''};
+          ${card.c_dk ? `--c-dk: ${card.c_dk}` : ''};
+        "
+      >
+        <a href="/${card.year}/${card.slug}/">
+          ${CardImage(card)}
+          <div class="c_meta">
+            <p class="c_title">
+              ${card.title}
+            </p>
+            ${
+              card.desc
+                ? `<p class="c_desc">${card.desc}</p>`
+                : ''
+            }
+          </div>
+        </a>
+      </li>
+    `;
+  }
+
   const featuredArticles = [
     {% for article in featured_articles %}
       {% capture articleHtml %}
         {% include article_card.html %}
       {% endcapture %}
-      {{ articleHtml | strip | cleanup_text | jsonify }},
+      {
+        "c_lt": {{ article.card.color_lt | jsonify }},
+        "c_dk": {{ article.card.color_dk | jsonify }},
+        "is_new": {{ article.is_new }},
+        "title": {{ article.title | cleanup_text | jsonify }},
+        "year": {{ article.date | date: "%Y" }},
+        "slug": {{ article.slug | jsonify }},
+        "prefix": {{ article.card.index_prefix | jsonify }},
+        "image_w": {{ article.card.index_image.width | jsonify }},
+        "image_fmt": {{ article.card.index_image.format | jsonify }},
+        {% if article.summary %}
+          "desc": {{ article.summary|cleanup_text|jsonify }},
+        {% else %}
+          "desc": null,
+        {% endif %}
+      },
     {% endfor %}
   ];
 
   window.addEventListener("DOMContentLoaded", function() {
+    const newArticles = featuredArticles.filter(card => card.is_new);
+    const randomArticles = featuredArticles
+      .filter(art => !newArticles.includes(art))
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 6);
+
     document.querySelector("#featured_articles").innerHTML =
-      featuredArticles
-        .sort(() => 0.5 - Math.random())
+      newArticles.concat(randomArticles)
         .slice(0, 6)
+        .map(ArticleCard)
         .join("");
   });
 </script>
 
 <ul class="article_cards" id="featured_articles">
-{% for article in sample_of_articles %}
-  {% include article_card.html %}
-{% endfor %}
+  <!-- {% for article in new_articles %}
+    {% include article_card.html %}
+  {% endfor %}
+  {% for article in sample_of_articles %}
+    {% include article_card.html %}
+  {% endfor %} -->
 </ul>
 
 Here are some of the topics I write about:

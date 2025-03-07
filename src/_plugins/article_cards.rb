@@ -100,6 +100,12 @@ Jekyll::Hooks.register :site, :post_read do |site|
   end
 
   posts_with_cards = site.posts.docs.reject { |p| p.data['card'].nil? }
+  
+  # Set the "is_new" attribute on any posts which were published
+  # in the last 15 days or so.
+  site.posts.docs.each do |post|
+    post.data["is_new"] = Time.now - post.data["date"] < 15 * 24 * 60 * 60
+  end
 
   # Now work out unique abbrevations for the names of each card.
   #
@@ -199,6 +205,8 @@ Jekyll::Hooks.register :site, :post_read do |site|
         'type' => media_type
       }
     end
+    
+    card['index_image'] = image
     
     card['index_image_template_params'] = {
       'sources' => sources,

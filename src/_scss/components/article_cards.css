@@ -60,12 +60,40 @@
 .c_im_w {
   width: 100%;
   background: var(--c-color);
+  position: relative;
+    overflow: hidden;
 }
 
 .c_im_w, .c_image {
   margin-top: 0;
   margin-bottom: 0;
   aspect-ratio: 2 / 1;
+}
+
+.new_banner {
+  position: absolute;
+
+  transform: rotate(45deg);
+
+  right:   -35px;
+  top:      22px;
+  padding: 2px 50px;
+
+  background: var(--c-color);
+  color:      white;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* The filter() applied to images in dark mode messes with layering,
+   * and causes the banner to disappear, so we need to raise the banner
+   * to make it still visible. */
+  .new_banner {
+    z-index: 100;
+
+    color: black;
+  }
 }
 
 .c_desc {
