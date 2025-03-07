@@ -21,7 +21,7 @@ def convert_image(request)
   end
 end
 
-Jekyll::Hooks.register :site, :pre_render do
+Jekyll::Hooks.register :site, :after_reset do
   FileUtils.rm_f('.image_requests.json')
 end
 
