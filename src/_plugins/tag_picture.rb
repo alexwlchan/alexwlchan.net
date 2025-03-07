@@ -93,17 +93,10 @@ module Jekyll
         @attrs, { tag: 'picture', attribute: 'filename' }
       )
 
-      width = @attrs.delete('width')
-      height = @attrs.delete('height')
-
-      if width.nil? && height.nil?
-        raise "Picture #{@filename} does not specify a width or a height"
-      end
-
-      width = width.to_i unless width.nil?
-      height = height.to_i unless height.nil?
-
-      @bounding_box = { width:, height: }
+      @bbox_dims = {
+        'width' => @attrs.delete('width')&.to_i,
+        'height' => @attrs.delete('height')&.to_i
+      }
 
       @parent = @attrs.delete('parent')
 
@@ -122,7 +115,7 @@ module Jekyll
       image = get_single_image_info(source_path)
       im_format = get_format(source_path, image)
 
-      @width = get_target_width(source_path, image, @bounding_box)
+      @target_width = get_target_width(@filename, image, @bbox_dims)
 
       # These two attributes allow the browser to completely determine
       # the space that will be taken up by this image before it actually
@@ -130,10 +123,10 @@ module Jekyll
       # term for this is "Cumulative Layout Shift".
       #
       # See https://web.dev/optimize-cls/
-      @attrs['width'] = @width
+      @attrs['width'] = @target_width
       aspect_ratio = Rational(image['width'], image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
-      
+
       # Choose what formats I want images to be served in, and the order
       # I'd like them to be offered.
       #
@@ -153,8 +146,8 @@ module Jekyll
         'src/_images/2024/static-videos.png',
         'src/_images/2024/static-bookmarks.png'
       ]
-      
-      if ((@attrs['class'] || '').include? 'screenshot')
+
+      if (@attrs['class'] || '').include? 'screenshot'
         desired_formats = [im_format]
       elsif png_only_images.include? source_path
         desired_formats = [im_format]
@@ -162,7 +155,7 @@ module Jekyll
         desired_formats = [ImageFormat::AVIF, ImageFormat::WEBP, im_format]
       end
 
-      sources = prepare_images(source_path, desired_formats, dst_prefix, @width)
+      sources = prepare_images(source_path, desired_formats, dst_prefix, @target_width)
 
       dark_path = File.join(
         File.dirname(source_path),
@@ -177,7 +170,7 @@ module Jekyll
         end
 
         dark_sources = prepare_images(
-          dark_path, desired_formats, "#{dst_prefix}.dark", @width
+          dark_path, desired_formats, "#{dst_prefix}.dark", @target_width
         )
       else
         dark_sources = {}
@@ -197,7 +190,7 @@ module Jekyll
       #
       # This isn't perfect, e.g. it doesn't account for margins or wrapping,
       # but it's good enough and better than relying on screen density alone.
-      sizes_attribute = "(max-width: #{@width}px) 100vw, #{@width}px"
+      sizes_attribute = "(max-width: #{@target_width}px) 100vw, #{@target_width}px"
 
       dark_html = create_source_elements(
         dark_sources, im_format, {
@@ -338,30 +331,6 @@ module Jekyll
       # Note that images in the top-level images directory get "/./"
       # for `File.dirname(suffix)`, which we want to remove.
       Pathname.new("#{dst}/images/#{File.dirname(suffix)}/#{File.basename(suffix, '.*')}").cleanpath.to_s
-    end
-
-    # Using the bounding box supplied, work out the target width based
-    # on the actual image dimensions.
-    #
-    # This can happen in two ways:
-    #
-    #   - Setting the `width` attribute, which is used directly
-    #   - Setting the `height` attribute, and then the width is scaled to match
-    #
-    def get_target_width(source_path, image, bounding_box)
-      if !bounding_box[:width].nil? && !bounding_box[:height].nil?
-        raise "Picture #{@filename} supplies both width/height; this is unsupported"
-      elsif !bounding_box[:width].nil?
-        width = @bounding_box[:width]
-      elsif !bounding_box[:height].nil?
-        width = (image['width'] * bounding_box[:height] / image['height']).to_i
-      end
-
-      if image['width'] < width
-        raise "Image #{File.basename(source_path)} is only #{image['width']}px wide, less than visible width #{width}px"
-      end
-
-      width
     end
   end
 end

@@ -46,3 +46,54 @@ def create_source_elements(sources, source_im_format, options)
 
   source_elements.join
 end
+
+# Using the bounding box supplied, work out the target width based
+# on the actual image dimensions.
+#
+# Parameters:
+#
+#   - filename: str, used for error messages only
+#   - im_dims and bbox_dims are a set of dimensions, both should
+#     be objects with integer width/height attributes
+#
+# This can happen in two ways:
+#
+#   - Setting the `width` attribute, which is used directly
+#   - Setting the `height` attribute, and then the width is scaled to match
+#
+def get_target_width(filename, im_dims, bbox_dims)
+  # The bounding box has to specify exactly one of width/height.
+  if !bbox_dims['width'].nil? && !bbox_dims['height'].nil?
+    raise "Picture \"#{filename}\" cannot define both width and height"
+  end
+
+  if bbox_dims['width'].nil? & bbox_dims['height'].nil?
+    raise "Picture \"#{filename}\" must define one of width/height"
+  end
+
+  has_width = !bbox_dims['width'].nil?
+  has_height = !bbox_dims['height'].nil?
+
+  # If the bounding box specifies a width, use that directly.
+  if has_width
+    if im_dims['width'] < bbox_dims['width']
+      raise "Picture \"#{filename}\" cannot have target width #{bbox_dims['width']} greater than source width #{im_dims['width']}"
+    end
+
+    return bbox_dims['width']
+  end
+
+  # If the bounding box specifies a height, scale the width of the
+  # source image based on the target height.
+  if has_height
+    if im_dims['height'] < bbox_dims['height']
+      raise "Picture \"#{filename}\" cannot have target height #{bbox_dims['height']} greater than source height #{im_dims['height']}"
+    end
+
+    return (im_dims['width'] * bbox_dims['height'] / im_dims['height']).to_i
+  end
+
+  # Every image should have a width/height or already be rejected, so
+  # this should be unreachable.
+  raise 'Unreachable'
+end
