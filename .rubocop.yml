@@ -13,9 +13,14 @@ AllCops:
     # See https://stackoverflow.com/a/69421161/1558022
     - 'vendor/**/*'
 
+Lint/DuplicateBranch:
+  Exclude:
+    - src/_plugins/tag_picture.rb
+
 Layout/LineLength:
   Exclude:
     - scripts/count_posts.rb
+    - src/_plugins/utils/pictures.rb
     - tests/test_http_security_headers.rb
 
 Lint/MissingSuper:
@@ -43,6 +48,9 @@ Naming/VariableNumber:
   Enabled: false
 
 Style/ClassVars:
+  Enabled: false
+
+Style/ConditionalAssignment:
   Enabled: false
 
 Style/Documentation:
