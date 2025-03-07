@@ -23,7 +23,7 @@
   data-date="{{ article.date | date: '%y%m%d' }}"
   {% endif %}
 >
-  <a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
+  <a href="{{ article.url }}">
     <div class="c_im_w">
       {% card_image %}
     </div>
