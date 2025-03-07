@@ -68,12 +68,12 @@ Jekyll::Hooks.register :site, :post_read do |site|
                     'out_path' => social_card.gsub('src/_images', '_site/images'),
                     'target_width' => 800
                   })
-    
+
     # Fetch the card colours to use on the index card.
     post_colors = post.data.fetch('colors', {})
     color_lt = post_colors.fetch('index_light', post_colors.fetch('css_light', nil))
     color_dk = post_colors.fetch('index_dark', post_colors.fetch('css_dark', nil))
-    
+
     title = apply_markdownify_oneline(site, post.data['title'])
     if post.data['summary'].nil?
       summary = nil
@@ -88,7 +88,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
       'year' => year,
       'social' => File.basename(social_card),
       'index' => File.basename(index_card),
-      
+
       'color_lt' => color_lt,
       'color_dk' => color_dk,
       'title' => title,
@@ -105,14 +105,27 @@ Jekyll::Hooks.register :site, :post_read do |site|
   #
   # We construct minimal prefixes that uniquely identify each card name,
   # e.g. "digital-decluttering.jpg" might become "di", which is much shorter!
-  index_names = posts_with_cards.map { |p| "#{p.data['card']['year']}/#{p.data['card']['index']}" }
+
+  # A list of card names e.g. "2025/cool-to-care.jpg", "2024/in-reading.png"
+  index_names = posts_with_cards.map do |p|
+    year = p.data['card']['year']
+    index = p.data['card']['index']
+    "#{year}/#{index}"
+  end
+
+  # A map from full card name to unique prefix,
+  # e.g. "2025/cool-to-care.jpg" => "2025/c"
   index_prefixes = Abbrev.abbrev(index_names)
                          .group_by { |_, v| v }
                          .transform_values { |v| v.flatten.min_by(&:length) }
 
+  # Add the prefix to each card object, without the year.
   posts_with_cards.each do |p|
-    p.data['card']['index_prefix'] =
-      index_prefixes["#{p.data['card']['year']}/#{p.data['card']['index']}"].gsub("#{p.data['card']['year']}/", '')
+    year = p.data['card']['year']
+    index = p.data['card']['index']
+    key = "#{year}/#{index}"
+
+    p.data['card']['index_prefix'] = index_prefixes[key].gsub("#{year}/", '')
   end
 end
 
@@ -156,34 +169,9 @@ module Jekyll
 
         sources = prepare_images(source_path, dst_prefix, im_format, widths)
 
-        dark_source_path = File.join(
-          File.dirname(source_path),
-          "#{File.basename(source_path, File.extname(source_path))}.dark#{File.extname(source_path)}"
-        )
-
-        if File.exist? dark_source_path
-          dark_image = get_single_image_info(dark_source_path)
-
-          if dark_image['width'] != dark_image['height'] * 2
-            raise "Card #{File.basename(dark_source_path)} doesn’t have a 2:1 aspect ratio"
-          end
-
-          dark_sources = prepare_images(dark_source_path, "#{dst_prefix}.dark", im_format, widths)
-        else
-          dark_sources = {}
-        end
-
         default_image = sources[im_format]
                         .map { |im| im.split[0] }
                         .find { |path| path.include? '_365' }
-
-        dark_html = create_source_elements(
-          dark_sources, im_format, {
-            desired_formats: [im_format, ImageFormat::AVIF, ImageFormat::WEBP],
-            sizes: sizes_attribute,
-            dark_mode: true
-          }
-        )
 
         light_html = create_source_elements(
           sources, im_format, {
@@ -193,13 +181,7 @@ module Jekyll
           }
         )
 
-        # Make sure the CSS doesn't through a white background behind
-        # this dark-aware image.
-        css_class = if dark_sources.nil?
-                      'c_image dark_aware'
-                    else
-                      'c_image'
-                    end
+        css_class = 'c_image'
 
         # Intentionally omit the alt text on promos, so screen reader users
         # don't have to listen to the alt text before hearing the title
@@ -208,7 +190,6 @@ module Jekyll
         # See https://github.com/wellcomecollection/wellcomecollection.org/issues/6007
         <<~HTML
           <picture>
-            #{dark_html}
             #{light_html}
             <img
               src="#{default_image}"

@@ -122,6 +122,7 @@ module Jekyll
       @context = context
 
       lt_source_path = get_source_path
+      lt_dst_prefix = get_dst_prefix(lt_source_path)
 
       raise "Image #{lt_source_path} does not exist" unless File.exist? lt_source_path
 
@@ -157,6 +158,7 @@ module Jekyll
       dk_source_path = choose_dk_path(lt_source_path)
 
       if File.exist? dk_source_path
+        dk_dst_prefix = get_dst_prefix(dk_source_path)
         dk_image = get_single_image_info(dk_source_path)
 
         if (dk_image['width'] != lt_image['width']) || (dk_image['height'] != lt_image['height'])
@@ -178,12 +180,12 @@ module Jekyll
 
       # Now we have all the information about the images, go ahead and
       # create the different sizes of them.
-      lt_sources = create_image_sizes(lt_source_path, desired_formats, target_width)
+      lt_sources = create_image_sizes(lt_source_path, lt_dst_prefix, desired_formats, target_width)
 
       if dk_image.nil?
         dk_sources = {}
       else
-        dk_sources = create_image_sizes(dk_source_path, desired_formats, target_width)
+        dk_sources = create_image_sizes(dk_source_path, dk_dst_prefix, desired_formats, target_width)
       end
 
       # Choose the default/fallback image -- we use the 1x version of
@@ -237,56 +239,6 @@ module Jekyll
         extra_attributes: @attrs,
         link_target: link_target
       }
-    end
-
-    # Create all the different sizes of an image.
-    #
-    # This returns a map (format) -> (srcset values).
-    #
-    # For example:
-    #
-    #     {
-    #       "image/avif"=>"/images/2013/example_925w.avif 925w",
-    #       "image/webp"=>"/images/2013/example_925.webp 925w",
-    #       "image/jpeg"=>"/images/2013/example_925.jpg 925w"
-    #     }
-    #
-    def create_image_sizes(source_path, desired_formats, target_width)
-      image = get_single_image_info(source_path)
-      dst_prefix = get_dst_prefix(source_path)
-
-      sources = Hash.new { [] }
-
-      desired_widths = (1..3)
-                       .map { |pixel_density| pixel_density * target_width }
-                       .filter { |w| w <= image['width'] }
-                       .sort!
-
-      desired_widths.each do |this_width|
-        desired_formats.each do |out_format|
-          # I already have lots of images cut with the _1x, _2x, _3x names,
-          # so I retain those when picking names to avoid breaking links or
-          # losing Google juice, then switch to _500w, _640w, and so on
-          # for larger sizes.
-          #
-          # This is also used downstream to choose the default image --
-          # the 1x image is the default.
-          suffix = if (this_width % target_width).zero?
-                     "#{this_width / target_width}x"
-                   else
-                     "#{this_width}w"
-                   end
-
-          out_path = "#{dst_prefix}_#{suffix}#{out_format[:extension]}"
-
-          request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
-          convert_image(request)
-
-          sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
-        end
-      end
-
-      sources.to_h { |fmt, srcset_values| [fmt[:mime_type], srcset_values.join(', ')] }
     end
 
     # Find the path to the source image.

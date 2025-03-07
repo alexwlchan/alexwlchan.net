@@ -1,3 +1,6 @@
+require_relative '../pillow/get_image_info'
+require_relative '../pillow/convert_image'
+
 class ImageFormat
   AVIF = { extension: '.avif', mime_type: 'image/avif' }
 
@@ -134,4 +137,53 @@ def choose_dk_path(lt_source_path)
     File.dirname(lt_source_path),
     "#{File.basename(lt_source_path, File.extname(lt_source_path))}.dark#{File.extname(lt_source_path)}"
   )
+end
+
+# Create all the different sizes of an image.
+#
+# This returns a map (format) -> (srcset values).
+#
+# For example:
+#
+#     {
+#       "image/avif"=>"/images/2013/example_925w.avif 925w",
+#       "image/webp"=>"/images/2013/example_925.webp 925w",
+#       "image/jpeg"=>"/images/2013/example_925.jpg 925w"
+#     }
+#
+def create_image_sizes(source_path, dst_prefix, desired_formats, target_width)
+  image = get_single_image_info(source_path)
+
+  sources = Hash.new { [] }
+
+  desired_widths = (1..3)
+                   .map { |pixel_density| pixel_density * target_width }
+                   .filter { |w| w <= image['width'] }
+                   .sort!
+
+  desired_widths.each do |this_width|
+    desired_formats.each do |out_format|
+      # I already have lots of images cut with the _1x, _2x, _3x names,
+      # so I retain those when picking names to avoid breaking links or
+      # losing Google juice, then switch to _500w, _640w, and so on
+      # for larger sizes.
+      #
+      # This is also used downstream to choose the default image --
+      # the 1x image is the default.
+      suffix = if (this_width % target_width).zero?
+                 "#{this_width / target_width}x"
+               else
+                 "#{this_width}w"
+               end
+
+      out_path = "#{dst_prefix}_#{suffix}#{out_format[:extension]}"
+
+      request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
+      convert_image(request)
+
+      sources[out_format] <<= "#{out_path.gsub('_site', '')} #{this_width}w"
+    end
+  end
+
+  sources.to_h { |fmt, srcset_values| [fmt[:mime_type], srcset_values.join(', ')] }
 end
