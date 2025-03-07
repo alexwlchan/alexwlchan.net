@@ -21,7 +21,7 @@ def convert_image(request)
   end
 end
 
-if defined? Jekyll
+if defined? Jekyll::Hooks
   Jekyll::Hooks.register :site, :after_reset do
     FileUtils.rm_f('.image_requests.json')
   end
