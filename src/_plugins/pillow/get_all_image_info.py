@@ -26,7 +26,7 @@ def get_file_paths_under(root=".", *, suffix=""):
             if f == ".DS_Store":
                 continue
 
-            if f.endswith((".svg", ".mov")):
+            if f.endswith((".svg", ".mov", ".mp4")):
                 continue
 
             p = dirpath / f
