@@ -129,31 +129,9 @@ module Jekyll
 
       # Choose what formats I want images to be served in, and the order
       # I'd like them to be offered.
-      #
-      # I'm not a fan of the way AVIF and WebP introduce artefacts into
-      # PNG screenshots -- it makes text look mucky and pixellated.  Boo!
-      #
-      # Since screenshots are typically text files that are small, it's
-      # okay not to serve them in the optimised formats -- I'll sacrifice
-      # a bit of bandwidth for quality.
-      #
-      # 18 October 2024: I've excluded a few images, because they're on
-      # a post that's going somewhat viral and I'm eating my bandwidth
-      # pretty quickly.
-      png_only_images = [
-        'src/_images/2024/finder_website.png',
-        'src/_images/2024/static-screenshots.png',
-        'src/_images/2024/static-videos.png',
-        'src/_images/2024/static-bookmarks.png'
-      ]
-
-      if (@attrs['class'] || '').include? 'screenshot'
-        desired_formats = [im_format]
-      elsif png_only_images.include? source_path
-        desired_formats = [im_format]
-      else
-        desired_formats = [ImageFormat::AVIF, ImageFormat::WEBP, im_format]
-      end
+      desired_formats = choose_desired_formats(
+        im_format, @attrs['class'], source_path
+      )
 
       sources = prepare_images(source_path, desired_formats, dst_prefix, @target_width)
 
