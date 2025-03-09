@@ -14,6 +14,7 @@ Sometimes when I go to eject a disk on macOS, I can't and the computer won't tel
   filename="cant_eject_disk.png"
   width="507"
   alt="A dialog box 'The disk “Media (Saffron)” wasn't ejected because one or more programs may be using it."
+  class="screenshot"
 %}
 
 I've wrecked an APFS volume by force ejecting it so I'd rather avoid that if I can, but how do I know what programs are using it?
