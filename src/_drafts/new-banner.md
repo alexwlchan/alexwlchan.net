@@ -100,7 +100,7 @@ Let's step through it in detail.
   position: absolute;
 }{% endhighlight %}
     <p>
-      This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the text from the normal document flow and allows it to be placed anywhee on the page.
+      This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the text from the normal document flow and allows it to be placed anywhere on the page.
       Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for the text.
     </p>
   </div>
@@ -340,7 +340,7 @@ In light mode, the banner and the image are both part of the same stacking conte
 This means that both elements can be rendered together, and the positioning rules are applied together -- so the banner appears on top of the image.
 
 **In dark mode, my `filter` rule creates a new stacking context.**
-A `filter` property is one of several things that can create a new stacking context, and it means the image and the banner will be rendered separately.
+Applying a `filter` to an element forces it into a new stacking context, and in this case that means the image and the banner will be rendered separately.
 Browsers render elements in DOM order, and because the banner appears before the image in the HTML, the banner is rendered first, then the image is rendered separately and covers it up.
 
 The correct fix is not to set a `z-index`, but swap the order of DOM elements so the banner is rendered after the image:
@@ -354,10 +354,23 @@ The correct fix is not to set a `z-index`, but swap the order of DOM elements so
 
 This is the code I'm using now, and now the banner looks correct in dark mode.
 
+In hindsight, this ordering makes more sense -- the banner is an overlay on the image, so I want it to be rendered later.
+It feels right to me that it should appear later in the HTML.
+
+One example is nowhere near enough for me to properly understand stacking contexts or rendering order, but now I know it's a thing I need to consider.
+I have a vague recollection that I made another mistake with `filter` and rendering order in the past, but I didn't investigate properly -- this time, I wanted to make sure I understood what was happening.
+
 [steiner]: https://web.dev/articles/prefers-color-scheme#re-colorize-and-darken-photographic-images
 [z_index]: https://developer.mozilla.org/en-US/docs/Web/CSS/z-index
 [stacking context]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context
 
 ---
 
-A lot of CSS feels like "try it until it works"
+I'm still not done -- now I have the main layout working, I'm chasing a hairline crack that's started appering in the cards, but only on WebKit.
+There's an interaction between relative positioning and `border-radius` that's throwing everything off.
+CSS is hard.
+
+I stick to a small subset of CSS properties, but that doesn't mean I can avoid the complexity of the web.
+There are lots of moving parts that interact in non-obvious ways, and my understanding is rudimentary at best.
+I have a lot of respect for front-end developers who work on much larger and more complex CSS code bases.
+I'm getting better, but I know I still have a lot to learn.
