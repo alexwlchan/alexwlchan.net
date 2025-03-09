@@ -264,15 +264,70 @@ The code I described above breaks if you're using this site in dark mode.
 What.
 
 I started poking around in my browser's developer tools, and I could see that the banner was being rendered, but it was *under* the image instead of on top of it.
-All of my positioning code that worked in light mode
+All of my positioning code that worked in light mode was breaking in dark mode.
+I was baffled.
 
-{%
-  picture
-  filename="dark_mode_wtf.png"
-  width="293"
-  class="screenshot dark_aware"
-%}
+<style>
+  #dark_mode_wtf {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+  }
+</style>
 
+<figure style="width: calc(620px)">
+  <div id="dark_mode_wtf">
+    {%
+      picture
+      filename="dark_mode_wtf1.png"
+      width="200"
+      class="screenshot dark_aware"
+      style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+    %}
+    {%
+      picture
+      filename="dark_mode_wtf2.png"
+      width="200"
+      class="screenshot dark_aware"
+      style="border-radius: 0;"
+    %}
+    {%
+      picture
+      filename="dark_mode_wtf3.png"
+      width="200"
+      class="screenshot dark_aware"
+      style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
+    %}
+  </div>
+  <figcaption>
+    The same component in light mode, dark mode, and using the web inspector to highlight the banner in dark mode.
+    Like a goth ninja in a cave at midnight, you can't see the banner.
+  </figcaption>
+</figure>
+
+I had no idea what would cause this behaviour, but I knew it was an issue with my CSS.
+I could see the issue if I tried my code in this site, but not if I copied it to a standalone HTML file.
+(Before you keep reading, you might ask yourself whether you know what's causing this issue.
+If you do, congratulations, you know CSS better than I do!)
+
+To find the issue, I created a local branch of the site, and I started deleting CSS until I could no longer reproduce the issue.
+I eventually tracked it down to the following rule:
+
+```css
+@media (prefers-color-scheme: dark) {
+  /* see https://web.dev/articles/prefers-color-scheme#re-colorize_and_darken_photographic_images */
+  img:not([src*='.svg']):not(.dark_aware) {
+    filter: grayscale(10%);
+  }
+}
+```
+
+This rule will apply a slight darkening to any images when dark mode is enabled -- unless they're an SVG, or I've added the `dark_aware` class that means an image look okay in dark mode.
+This is a suggestion from Thomas Steiner, from [an article][steiner] with a lot of useful advice about supporting dark mode.
+When this rule is present, the banner vanishes.
+When I delete it, the banner looks fine.
+
+[steiner]: https://web.dev/articles/prefers-color-scheme#re-colorize-and-darken-photographic-images
 
 ---
 

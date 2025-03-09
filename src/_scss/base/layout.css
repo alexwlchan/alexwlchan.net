@@ -69,7 +69,7 @@ article, main {
 
 
 @media (prefers-color-scheme: dark) {
-  /* see https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images */
+  /* see https://web.dev/articles/prefers-color-scheme#re-colorize_and_darken_photographic_images */
   img:not([src*='.svg']):not(.dark_aware) {
     filter: grayscale(10%);
   }
