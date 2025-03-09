@@ -26,9 +26,6 @@
   <a href="{{ article.url }}">
     <div class="c_im_w">
       {% if article.card.index %}
-        {% if article.is_new %}
-          <div class="new_banner">NEW</div>
-        {% endif %}
         <picture>
           {% for src in article.card.index_image_template_params.sources %}
           <source
@@ -50,6 +47,9 @@
           loading="lazy"
           data-proofer-ignore
         />
+      {% endif %}
+      {% if article.is_new %}
+        <div class="new_banner">NEW</div>
       {% endif %}
     </div>
 

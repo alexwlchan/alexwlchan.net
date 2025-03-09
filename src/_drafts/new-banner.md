@@ -305,6 +305,11 @@ I was baffled.
   </figcaption>
 </figure>
 
+I discovered that by adding a [`z-index`][z_index] to the banner, I could make it appear again.
+My vague understanding was that `z-index` affects the layering of images on the page, and elements with a higher `z-index` will appear above an element with a lower `z-index`.
+So I had a fix, but it felt hacky because I didn't understand why it worked.
+I wanted to go deeper.
+
 I had no idea what would cause this behaviour, but I knew it was an issue with my CSS.
 I could see the issue if I tried my code in this site, but not if I copied it to a standalone HTML file.
 (Before you keep reading, you might ask yourself whether you know what's causing this issue.
@@ -327,31 +332,32 @@ This is a suggestion from Thomas Steiner, from [an article][steiner] with a lot 
 When this rule is present, the banner vanishes.
 When I delete it, the banner looks fine.
 
+**Eventually I found the answer: I'd misunderstood a web feature called the [stacking context]**.
+This is a way of thinking about HTML elements in three dimensions, where there's a z-axis that affects which elements appear above or below each other.
+There are a number of rules that affect where elements appear in the stacking context -- `z-index` is one (which seems obvious), and `filter` is another (which is less obvious).
+
+In light mode, the banner and the image are both part of the same stacking context.
+This means that both elements can be rendered together, and the positioning rules are applied together -- so the banner appears on top of the image.
+
+**In dark mode, my `filter` rule creates a new stacking context.**
+A `filter` property is one of several things that can create a new stacking context, and it means the image and the banner will be rendered separately.
+Browsers render elements in DOM order, and because the banner appears before the image in the HTML, the banner is rendered first, then the image is rendered separately and covers it up.
+
+The correct fix is not to set a `z-index`, but swap the order of DOM elements so the banner is rendered after the image:
+
+```html
+<div class="container">
+  <img src="computer.jpg">
+  <div class="banner">NEW</div>
+</div>
+```
+
+This is the code I'm using now, and now the banner looks correct in dark mode.
+
 [steiner]: https://web.dev/articles/prefers-color-scheme#re-colorize-and-darken-photographic-images
+[z_index]: https://developer.mozilla.org/en-US/docs/Web/CSS/z-index
+[stacking context]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context
 
 ---
 
-```css
-.container {
-  position: relative;
-  overflow: hidden;
-}
-
-.banner {
-  position: absolute;
-
-  transform: rotate(45deg);
-
-  right:   -35px;
-  top:      22px;
-  padding: 2px 50px;
-
-  background: red;
-  color:      white;
-}
-```
-
-<div class="container" style="width:200px; margin: 0 auto;">
-  <div class="banner">NEW</div>
-  <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
-</div>
+A lot of CSS feels like "try it until it works"

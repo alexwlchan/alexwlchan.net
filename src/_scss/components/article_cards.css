@@ -86,12 +86,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  /* The filter() applied to images in dark mode messes with layering,
-   * and causes the banner to disappear, so we need to raise the banner
-   * to make it still visible. */
   .new_banner {
-    z-index: 100;
-
     color: black;
   }
 }
