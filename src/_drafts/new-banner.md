@@ -299,6 +299,7 @@ I was baffled.
       width="200"
       class="screenshot dark_aware"
       style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+      alt="Screenshot of the site with a light background, an image of a computer with a red banner across it."
     %}
     {%
       picture
@@ -306,6 +307,7 @@ I was baffled.
       width="200"
       class="screenshot dark_aware"
       style="border-radius: 0;"
+      alt="Screenshot of the site with a dark background, an image of a computer but no banner."
     %}
     {%
       picture
@@ -313,6 +315,7 @@ I was baffled.
       width="200"
       class="screenshot dark_aware"
       style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
+      alt="Screenshot of the site with a dark background, with a translucent overlay showing the area where the banner is being rendered, but not visible."
     %}
   </div>
   <figcaption>
