@@ -6,18 +6,19 @@ tags:
   - css
   - blogging about blogging
 ---
-I made a small tweak to the site this week -- I've added "new" banners to articles I've written recently, and any post marked as "new" will always appear on the homepage.
-Previously, the homepage was just a random selection of six articles I've written, from any time.
+I made a small tweak to the site this week -- I've added "new" banners to articles I've written recently, and any post marked as "new" will be pinned to the homepage.
+Previously, the homepage was just a random selection of six articles I'd written at any time.
 
 {%
   picture
   filename="new_banners.png"
   width="600"
+  alt="A pair of cards. Each card has a big image and some descriptive text underneath, and the word “new” on a coloured background set across the top right-hand corner of the image."
 %}
 
-Last year I [made some changes][not_all_equal] to de-emphasise sorting by date, and while I stand by that decision, I think I went too far.
-Nobody comes to my site asking *"what did Alex write on a specific date"*, but there are people who come to the site asking *"what did Alex write recently"*.
-I'd made it more difficult to find my newest writing, and I want to fix that.
+Last year I [made some changes][not_all_equal] to de-emphasise sorting by date, and while I stand by that decision, I went too far.
+Nobody comes to my site asking *"what did Alex write on a specific date"*, but there are people who ask *"what did Alex write recently"*.
+I'd made it more difficult to find my newest writing, so I'm giving it a subtle visual treatment and more prominence on the homepage.
 
 This should have been a simple change, but it became a lesson about the inner workings of CSS.
 
@@ -53,17 +54,20 @@ This should have been a simple change, but it became a lesson about the inner wo
   #wrapper2 .banner,
   #wrapper3 .banner,
   #wrapper4 .banner,
+  #wrapper4a .banner,
   #wrapper5 .banner {
     position: absolute;
   }
 
   #wrapper3.container,
   #wrapper4.container,
+  #wrapper4a.container,
   #wrapper5.container {
     position: relative;
   }
 
-  #wrapper3 .banner {
+  #wrapper3 .banner,
+  #wrapper4a .banner {
     transform: rotate(45deg);
     right:     16px;
     top:       20px;
@@ -83,8 +87,7 @@ Let's step through it in detail.
   <img src="computer.jpg">
 </div>{% endhighlight %}
     <p>
-      Notice how they appear as two separate elements – they both have separate space in the layout.
-      Giving every element its own space is the default behaviour in HTML.
+      Notice how the banner and image appear separately – they both have their own space in the layout.
     </p>
   </div>
   <div class="container" id="wrapper1" style="width:200px;">
@@ -100,18 +103,17 @@ Let's step through it in detail.
   position: absolute;
 }{% endhighlight %}
     <p>
-      This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the text from the normal document flow and allows it to be placed anywhere on the page.
-      Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for the text.
+      This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the banner from the normal document flow and allows it to be placed anywhere on the page.
+      Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for it.
     </p>
   </div>
   <div class="container" id="wrapper2" style="width:200px;">
     <div class="banner">NEW</div>
     <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
   </div>
-
   <div class="explanation">
     <p>
-      Right now the text is in the top left corner of the image, but we can add some more CSS rules to make it appear diagonally in the top right-hand corner:
+      Right now the text is in the top left corner of the image, but some more CSS will move it to the top right-hand corner:
     </p>
     {% highlight css %}
 .container {
@@ -130,17 +132,17 @@ Let's step through it in detail.
   </div>
 </div>
 
-I chose the `transform`, `right`, and `top` values by tweaking until I got something that looked right.
-They move the banner to the right place on the image.
+I chose the `transform`, `right`, and `top` values by tweaking until I got something that looked correct.
+They move the banner to the corner, and then the `transform` rotates it diagonally.
 
 The relative position of the container element is vital.
-The absolutely positioned banner still needs a reference point, and it uses the closest ancestor with an explicit <code>position</code> – or if it doesn’t find one, the root <code>&lt;html&gt;</code> element.
-Setting `position: relative;` means the `top` and `right` are measured against the sides of the container, not the entire HTML document.
+The absolutely positioned banner still needs a reference point for the `top` and `right`, and it uses the closest ancestor with an explicit <code>position</code> – or if it doesn’t find one, the root <code>&lt;html&gt;</code> element.
+Setting `position: relative;` means the offsets are measured against the sides of the container, not the entire HTML document.
 
 This is a CSS feature called <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#positioning_contexts">positioning context</a>, which I’d never heard of until I started writing this blog post.
 I’d been copying the <code>position: relative;</code> line without really understanding what it did, or why it was necessary.
 
-(What made this particularly confusing to me is that adding `position: absolute` to the banner makes it *seem* like it's positioned inside the image -- until you set <code>top</code> or <code>right</code>, and then it jumps to the edge of the entire page.
+(What made this particularly confusing to me is that adding `position: absolute` to the banner makes it *seem* like the image is the reference point -- until you set <code>top</code> or <code>right</code>, and then it jumps to the edge of the entire page.
 This is because an absolutely positioned element takes its initial position from where it would be in the normal flow, and doesn't look for a positioned ancestor until you set an offset.)
 
 <style>
@@ -159,34 +161,48 @@ This is because an absolutely positioned element takes its initial position from
 
     transform: rotate(45deg);
   }
-</style>
 
+  #wrapper4a .banner {
+    background: red;
+    color:      white;
+  }
+</style>
 <div class="worked_example">
   <div class="explanation">
     <p>
-      Finally, let's apply a colour to make this banner easier to read – the text is disappearing into the image.
+      Let's apply a colour to make this banner easier to read – the text is disappearing into the image.
     </p>
     {% highlight css %}.banner {
   background: red;
   color:      white;
-
+}{% endhighlight %}
+    <p>
+      Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to add some to make it wider, so it covers the whole corner.
+    </p>
+  </div>
+  <div class="container" id="wrapper4a" style="width:200px;">
+    <div class="banner">NEW</div>
+    <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
+  </div>
+  <div class="explanation">
+    <p>
+      We can make it wider by adding some padding.
+      Because this changes the size of the element, I had to adjust the position offsets to keep it in the right place.
+    </p>
+    {% highlight css %}.banner {
   right:   -34px;
   top:     18px;
   padding: 2px 50px;
 }{% endhighlight %}
-    <p>
-      The padding means the banner covers the whole corner, not just the tight rectangle around the word "NEW".
-      I had to adjust the position offsets to get the text in the right place.
-    </p>
   </div>
   <div class="container" id="wrapper4" style="width:200px;">
     <div class="banner">NEW</div>
     <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
   </div>
-
   <div class="explanation">
-    <p>
-      Let’s clip the edges off the banner, so it fits within the image:
+    <p style="margin-top: 1em;">
+      Now the banner is too wide, and extending off the end of the image.
+      Let’s clip the edges, so it fits neatly within the square:
     </p>
     {% highlight css %}.container {
   overflow: hidden;
@@ -244,7 +260,7 @@ Here's the complete CSS:
 It's only nine CSS rules, but it contains a surprising amount of complexity.
 I had this CSS and I knew it worked, but I didn't really understand it -- and especially the way absolute positioning worked -- until I wrote this post.
 
-This worked when I tested it, and then I deployed it on this site, and I found a bug.
+This worked when I wrote it as a standalone snippet, and then I deployed it on this site, and I found a bug.
 
 (The photo I used in the examples is from [Viktorya Sergeeva on Pexels](https://www.pexels.com/photo/a-person-using-an-old-computer-9140591/).)
 
@@ -264,7 +280,7 @@ The code I described above breaks if you're using this site in dark mode.
 What.
 
 I started poking around in my browser's developer tools, and I could see that the banner was being rendered, but it was *under* the image instead of on top of it.
-All of my positioning code that worked in light mode was breaking in dark mode.
+All my positioning code that worked in light mode was broken in dark mode.
 I was baffled.
 
 <style>
@@ -310,10 +326,8 @@ My vague understanding was that `z-index` affects the layering of images on the 
 So I had a fix, but it felt hacky because I didn't understand why it worked.
 I wanted to go deeper.
 
-I had no idea what would cause this behaviour, but I knew it was an issue with my CSS.
+I knew the culprit was in the CSS I'd written.
 I could see the issue if I tried my code in this site, but not if I copied it to a standalone HTML file.
-(Before you keep reading, you might ask yourself whether you know what's causing this issue.
-If you do, congratulations, you know CSS better than I do!)
 
 To find the issue, I created a local branch of the site, and I started deleting CSS until I could no longer reproduce the issue.
 I eventually tracked it down to the following rule:
@@ -327,13 +341,15 @@ I eventually tracked it down to the following rule:
 }
 ```
 
-This rule will apply a slight darkening to any images when dark mode is enabled -- unless they're an SVG, or I've added the `dark_aware` class that means an image look okay in dark mode.
+This applies a slight darkening to any images when dark mode is enabled -- unless they're an SVG, or I've added the `dark_aware` class that means an image look okay in dark mode.
+This makes images a bit less vibrant in dark mode, so they're not too visually loud.
 This is a suggestion from Thomas Steiner, from [an article][steiner] with a lot of useful advice about supporting dark mode.
 When this rule is present, the banner vanishes.
+
 When I delete it, the banner looks fine.
 
-**Eventually I found the answer: I'd misunderstood a web feature called the [stacking context]**.
-This is a way of thinking about HTML elements in three dimensions, where there's a z-axis that affects which elements appear above or below each other.
+**Eventually I found the answer: I'd not thought about (or heard of!) the [stacking context]**.
+The stacking context is a way of thinking about HTML elements in three dimensions, where there's a z-axis that affects which elements appear above or below each other.
 There are a number of rules that affect where elements appear in the stacking context -- `z-index` is one (which seems obvious), and `filter` is another (which is less obvious).
 
 In light mode, the banner and the image are both part of the same stacking context.
@@ -341,7 +357,7 @@ This means that both elements can be rendered together, and the positioning rule
 
 **In dark mode, my `filter` rule creates a new stacking context.**
 Applying a `filter` to an element forces it into a new stacking context, and in this case that means the image and the banner will be rendered separately.
-Browsers render elements in DOM order, and because the banner appears before the image in the HTML, the banner is rendered first, then the image is rendered separately and covers it up.
+Browsers render elements in DOM order, and because the banner appears before the image in the HTML, the stack context with the banner is rendered first, then the stacking context with the image is rendered separately and covers it up.
 
 The correct fix is not to set a `z-index`, but swap the order of DOM elements so the banner is rendered after the image:
 
@@ -354,11 +370,11 @@ The correct fix is not to set a `z-index`, but swap the order of DOM elements so
 
 This is the code I'm using now, and now the banner looks correct in dark mode.
 
-In hindsight, this ordering makes more sense -- the banner is an overlay on the image, so I want it to be rendered later.
+In hindsight, this ordering makes more sense anyway -- the banner is an overlay on the image, so I want it to be rendered later.
 It feels right to me that it should appear later in the HTML.
 
 One example is nowhere near enough for me to properly understand stacking contexts or rendering order, but now I know it's a thing I need to consider.
-I have a vague recollection that I made another mistake with `filter` and rendering order in the past, but I didn't investigate properly -- this time, I wanted to make sure I understood what was happening.
+I have a vague recollection that I made another mistake with `filter` and rendering order in the past, but I didn't investigate properly -- this time, I wanted to understand what was happening.
 
 [steiner]: https://web.dev/articles/prefers-color-scheme#re-colorize-and-darken-photographic-images
 [z_index]: https://developer.mozilla.org/en-US/docs/Web/CSS/z-index
@@ -366,7 +382,7 @@ I have a vague recollection that I made another mistake with `filter` and render
 
 ---
 
-I'm still not done -- now I have the main layout working, I'm chasing a hairline crack that's started appering in the cards, but only on WebKit.
+I'm still not done -- now I have the main layout working, I'm chasing a hairline crack that's started appearing in the cards, but only on WebKit.
 There's an interaction between relative positioning and `border-radius` that's throwing everything off.
 CSS is hard.
 
