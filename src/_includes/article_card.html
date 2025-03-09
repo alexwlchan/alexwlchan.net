@@ -24,7 +24,7 @@
   {% endif %}
 >
   <a href="{{ article.url }}">
-    <div class="c_im_w">
+    <div class="c_im_w{% if article.is_new %} n{% endif %}">
       {% if article.card.index %}
         <picture>
           {% for src in article.card.index_image_template_params.sources %}

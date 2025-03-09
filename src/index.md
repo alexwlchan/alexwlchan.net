@@ -135,7 +135,7 @@ Here are some of my favourite things [that I've written](/articles/):
     }
 
     return `
-      <div class="c_im_w">
+      <div class="c_im_w${card.n ? ' n' : ''}">
         <picture>
           <source
             srcset="/c/${yr}/${prefix}_365w${suffix} 365w,

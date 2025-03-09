@@ -14,8 +14,6 @@
 }
 
 .article_cards .card {
-  border-width: 2px;
-  border-style: solid;
   border-radius: var(--border-radius);
   overflow: hidden;
   background: var(--article-card-background);
@@ -60,8 +58,12 @@
 .c_im_w {
   width: 100%;
   background: var(--c-color);
+}
+
+/* cards with a "new" banner need extra rules */
+.c_im_w.n {
   position: relative;
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .c_im_w, .c_image {
@@ -128,6 +130,10 @@
 
     /* In Safari 18.2, the <ul> won't automatically expand to the width
      * just because the margin is there -- we have to tell it to expand */
-    width: calc(100% + 200px);
+  
+    /* Why 199px and not 200px? To work around a subpixel bug in WebKit,
+     * where I get a hairline crack on the right-hand side of my cards
+     * in the three column view. :( */
+    width: calc(100% + 199px);
   }
 }

@@ -1,7 +1,10 @@
 @use "sass:color";
 @use "utils/functions.scss" as *;
 
-$max-width: 750px;
+/* Why 751px and not 750px? To work around a subpixel bug in WebKit,
+ * where I get a hairline crack on the right-hand side of my cards
+ * in the two column view. :( */
+$max-width: 751px;
 $default-padding: 20px;
 
 $body-text-light: #202020;
