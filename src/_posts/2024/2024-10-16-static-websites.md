@@ -214,6 +214,8 @@ For a long time, I thought of HTML as a tool for publishing on the web, a way to
 But all these websites I'm creating are my local, personal archives -- just for me.
 I'm surprised it took me this long to realise HTML isn't just for sharing on the web.
 
+***Edit, 19 February 2025:** Like this idea? You might want to check out my follow-up article [How I create static websites for tiny archives](/2025/mildly-dynamic-websites/) which explains the code in much more detail.*
+
 [jessamyn]: https://www.librarian.net/stax/5585/be-organized-from-the-very-beginning/
 [1]: /til/2024/convert-an-animated-gif-to-mp4/
 [2]: /2024/hover-states/
