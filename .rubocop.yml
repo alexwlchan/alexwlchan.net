@@ -87,6 +87,10 @@ Style/NegatedIf:
   Exclude:
     - scripts/merge_pull_request.rb
 
+Style/TrailingCommaInArrayLiteral:
+  Exclude:
+    - src/_plugins/filter_cleanup_text.rb
+
 Style/YodaCondition:
   Exclude:
     - scripts/create_post.rb

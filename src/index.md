@@ -135,8 +135,7 @@ Here are some of my favourite things [that I've written](/articles/):
     }
 
     return `
-      <div class="c_im_w">
-        ${card.n ? '<div class="new_banner">NEW</div>' : ''}
+      <div class="c_im_w${card.n ? ' n' : ''}">
         <picture>
           <source
             srcset="/c/${yr}/${prefix}_365w${suffix} 365w,
@@ -170,6 +169,7 @@ Here are some of my favourite things [that I've written](/articles/):
           >
           <img src="/c/${yr}/${prefix}_365w.jpg" alt="" loading="lazy">
         </picture>
+        ${card.n ? '<div class="new_banner">NEW</div>' : ''}
       </div>
     `;
   }

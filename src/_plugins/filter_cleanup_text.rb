@@ -99,7 +99,8 @@ class AddNonBreakingSpaces
       'PyCon ',
       'Route 53',
       'Silo 49',
-      'System 1'
+      'System 1',
+      'z-axis',
     ]
 
     phrases.each do |p|
