@@ -316,6 +316,7 @@ I sat down and made up a bunch of amusing titles for fanfic and fanfic authors, 
   filename="epub_design2.png"
   width="600"
   alt="Screenshot of the app. There are some a few lines of instruction on a white background, then a grey rectangle where you upload files. There are four grayscale covers to show what they’ll look like."
+  class="screenshot"
 %}
 
 This makes it clearer what the app will do, and was a fun way to wrap up the project.
