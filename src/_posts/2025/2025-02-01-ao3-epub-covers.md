@@ -163,7 +163,7 @@ I don't use Apple Books that often so it wasn't a deliberate choice to mimic thi
   alt="A row of four books with placeholder covers. Each cover is a coloured gradient with the title and author shown in white sans serif text."
 %}
 
-One difference is that Apple's app seems to be picking from a small selection of background colours, whereas my code can pick a much nicer variety of colours.
+One difference is that Apple's app seems to be picking from a small selection of background colours, whereas my code can pick a much wider variety of colours.
 Apple's choices will have been pre-approved by a designer to look good, but I think mine is more fun.
 
 [pydraw]: /files/2025/draw_basic_cover.py
