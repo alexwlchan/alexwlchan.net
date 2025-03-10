@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-03-10 07:48:39 +0000
 title: An unexpected lesson in CSS stack contexts
 summary: While trying to add some simple overlay labels, I stumbled into a sharp edge of a complex CSS feature called "stack contexts".
 tags:
