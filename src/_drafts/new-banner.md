@@ -6,7 +6,7 @@ tags:
   - css
   - blogging about blogging
 ---
-I made a small tweak to the site this week -- I've added "new" banners to articles I've written recently, and any post marked as "new" will be pinned to the homepage.
+I've made another small tweak to the site -- I've added "new" banners to articles I've written recently, and any post marked as "new" will be pinned to the homepage.
 Previously, the homepage was just a random selection of six articles I'd written at any time.
 
 {%
@@ -16,9 +16,10 @@ Previously, the homepage was just a random selection of six articles I'd written
   alt="A pair of cards. Each card has a big image and some descriptive text underneath, and the word “new” on a coloured background set across the top right-hand corner of the image."
 %}
 
-Last year I [made some changes][not_all_equal] to de-emphasise sorting by date, and while I stand by that decision, I went too far.
+Last year I [made some changes][not_all_equal] to de-emphasise sorting by date and reduce recency bias.
+I stand by that decision, but now I see I went too far.
 Nobody comes to my site asking *"what did Alex write on a specific date"*, but there are people who ask *"what did Alex write recently"*.
-I'd made it more difficult to find my newest writing, so I'm giving it a subtle visual treatment and more prominence on the homepage.
+I'd made it too difficult to find my newest writing, and that's what this tweak is trying to fix.
 
 This should have been a simple change, but it became a lesson about the inner workings of CSS.
 
@@ -113,7 +114,7 @@ Let's step through it in detail.
   </div>
   <div class="explanation">
     <p>
-      Right now the text is in the top left corner of the image, but some more CSS will move it to the top right-hand corner:
+      The text is in the top left corner of the image, but we can move it to the top right-hand instead:
     </p>
     {% highlight css %}
 .container {
@@ -140,9 +141,10 @@ The absolutely positioned banner still needs a reference point for the `top` and
 Setting `position: relative;` means the offsets are measured against the sides of the container, not the entire HTML document.
 
 This is a CSS feature called <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#positioning_contexts">positioning context</a>, which I’d never heard of until I started writing this blog post.
-I’d been copying the <code>position: relative;</code> line without really understanding what it did, or why it was necessary.
+I’d been copying the <code>position: relative;</code> line from other examples without really understanding what it did, or why it was necessary.
 
-(What made this particularly confusing to me is that adding `position: absolute` to the banner makes it *seem* like the image is the reference point -- until you set <code>top</code> or <code>right</code>, and then it jumps to the edge of the entire page.
+(What made this particularly confusing to me is that if you only add `position: absolute` to the banner, it *seems* like the image is the reference point -- notice how, with just that property, the text is in the top left-hand corner of the image.
+It's not until you set <code>top</code> or <code>right</code> that the banner starts using the entire page as a reference point.
 This is because an absolutely positioned element takes its initial position from where it would be in the normal flow, and doesn't look for a positioned ancestor until you set an offset.)
 
 <style>
@@ -177,7 +179,7 @@ This is because an absolutely positioned element takes its initial position from
   color:      white;
 }{% endhighlight %}
     <p>
-      Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to add some to make it wider, so it covers the whole corner.
+      Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to make it wider, so it covers the whole corner.
     </p>
   </div>
   <div class="container" id="wrapper4a" style="width:200px;">
@@ -186,7 +188,7 @@ This is because an absolutely positioned element takes its initial position from
   </div>
   <div class="explanation">
     <p>
-      We can make it wider by adding some padding.
+      We can make it wider by adding padding.
       Because this changes the size of the element, I had to adjust the position offsets to keep it in the right place.
     </p>
     {% highlight css %}.banner {
@@ -235,7 +237,7 @@ As a reminder, here's the HTML:
 </div>
 ```
 
-Here's the complete CSS:
+and here's the complete CSS:
 
 ```css
 .container {
@@ -257,7 +259,7 @@ Here's the complete CSS:
 }
 ```
 
-It's only nine CSS rules, but it contains a surprising amount of complexity.
+It's only nine CSS properties, but it contains a surprising amount of complexity.
 I had this CSS and I knew it worked, but I didn't really understand it -- and especially the way absolute positioning worked -- until I wrote this post.
 
 This worked when I wrote it as a standalone snippet, and then I deployed it on this site, and I found a bug.
@@ -324,9 +326,9 @@ I was baffled.
   </figcaption>
 </figure>
 
-I discovered that by adding a [`z-index`][z_index] to the banner, I could make it appear again.
-My vague understanding was that `z-index` affects the layering of images on the page, and elements with a higher `z-index` will appear above an element with a lower `z-index`.
-So I had a fix, but it felt hacky because I didn't understand why it worked.
+I discovered that by adding a [`z-index`][z_index] property to the banner, I could make it reappear.
+I knew that elements with a higher `z-index` will appear above an element with a lower `z-index` -- so I was moving my banner back out from under the image.
+I had a fix, but it felt uncomfortable because I couldn't explain why it worked, or why it was only necessary in dark mode.
 I wanted to go deeper.
 
 I knew the culprit was in the CSS I'd written.
@@ -347,22 +349,23 @@ I eventually tracked it down to the following rule:
 This applies a slight darkening to any images when dark mode is enabled -- unless they're an SVG, or I've added the `dark_aware` class that means an image look okay in dark mode.
 This makes images a bit less vibrant in dark mode, so they're not too visually loud.
 This is a suggestion from Thomas Steiner, from [an article][steiner] with a lot of useful advice about supporting dark mode.
-When this rule is present, the banner vanishes.
 
+When this rule is present, the banner vanishes.
 When I delete it, the banner looks fine.
 
 **Eventually I found the answer: I'd not thought about (or heard of!) the [stacking context]**.
-The stacking context is a way of thinking about HTML elements in three dimensions, where there's a z-axis that affects which elements appear above or below each other.
-There are a number of rules that affect where elements appear in the stacking context -- `z-index` is one (which seems obvious), and `filter` is another (which is less obvious).
+The stacking context is a way of thinking about HTML elements in three dimensions.
+It introduces a z-axis that determines which elements appear above or below each other.
+It's affected by properties like `z-index`, but also less obvious ones like `filter`.
 
 In light mode, the banner and the image are both part of the same stacking context.
 This means that both elements can be rendered together, and the positioning rules are applied together -- so the banner appears on top of the image.
 
-**In dark mode, my `filter` rule creates a new stacking context.**
+**In dark mode, my `filter` property creates a new stacking context.**
 Applying a `filter` to an element forces it into a new stacking context, and in this case that means the image and the banner will be rendered separately.
-Browsers render elements in DOM order, and because the banner appears before the image in the HTML, the stack context with the banner is rendered first, then the stacking context with the image is rendered separately and covers it up.
+Browsers render elements in DOM order, and because the banner appears before the image in the HTML, the stacking context with the banner is rendered first, then the stacking context with the image is rendered separately and covers it up.
 
-The correct fix is not to set a `z-index`, but swap the order of DOM elements so the banner is rendered after the image:
+The correct fix is not to set a `z-index`, but to swap the order of DOM elements so the banner is rendered after the image:
 
 ```html
 <div class="container">
@@ -373,8 +376,8 @@ The correct fix is not to set a `z-index`, but swap the order of DOM elements so
 
 This is the code I'm using now, and now the banner looks correct in dark mode.
 
-In hindsight, this ordering makes more sense anyway -- the banner is an overlay on the image, so I want it to be rendered later.
-It feels right to me that it should appear later in the HTML.
+In hindsight, this ordering makes more sense anyway -- the banner is an overlay on the image, and it feels right to me that it should appear later in the HTML.
+If I was laying this out with bits of paper, I'd put down the image, then the banner.
 
 One example is nowhere near enough for me to properly understand stacking contexts or rendering order, but now I know it's a thing I need to consider.
 I have a vague recollection that I made another mistake with `filter` and rendering order in the past, but I didn't investigate properly -- this time, I wanted to understand what was happening.
@@ -391,5 +394,5 @@ CSS is hard.
 
 I stick to a small subset of CSS properties, but that doesn't mean I can avoid the complexity of the web.
 There are lots of moving parts that interact in non-obvious ways, and my understanding is rudimentary at best.
-I have a lot of respect for front-end developers who work on much larger and more complex CSS code bases.
-I'm getting better, but I know I still have a lot to learn.
+I have a lot of respect for front-end developers who work on much larger and more complex code bases.
+I'm getting better, but CSS keeps reminding me how much more I have to learn.
