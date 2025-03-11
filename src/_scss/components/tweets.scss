@@ -58,6 +58,10 @@
   a:focus, a:hover, .metadata a:hover {
     text-decoration: underline;
   }
+  
+  a.quote:hover {
+    text-decoration: none;
+  }
 
   a:hover {
     background: none;

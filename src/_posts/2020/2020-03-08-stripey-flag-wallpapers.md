@@ -46,9 +46,9 @@ I'm not going to walk through the code in detail, but you can read it below.
 You can choose the background colour and the colours of the different stripes.
 It always draws the stripes are roughly the same height and position on the screen, and you can double or triple a stripe colour if you want extra thickness.
 
-{% details %}
+<details>
   <summary>create_stripey_wallpapers.py</summary>
-```python
+{% highlight python %}
 from PIL import Image, ImageDraw
 
 
@@ -121,8 +121,8 @@ if __name__ == '__main__':
     ]:
         im = create_wallpaper(stripes=stripes)
         im.save(f"wallpaper_{name}.jpg")
-```
-{% enddetails %}
+{% endhighlight %}
+</details>
 
 I've used it to create four mystery wallpapers, based on different flags with horizontal stripes:
 

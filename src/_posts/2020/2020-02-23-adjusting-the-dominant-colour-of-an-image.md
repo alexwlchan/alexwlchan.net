@@ -63,10 +63,10 @@ A couple of people saw me doing it on Thursday, and asked me how, so here's my t
       If that sounds useful, this is the code:
     </p>
 
-  {% details %}
+  <details>
   <summary>adjust_hue_in_svg.py</summary>
 
-  ```python
+{% highlight python %}
 #!/usr/bin/env python3
 
 import colorsys
@@ -124,8 +124,8 @@ if __name__ == '__main__':
         )
 
         out_path.write_text(new_svg_text)
-  ```
-  {% enddetails %}
+{% endhighlight %}
+  </details>
   </li>
 </ul>
 

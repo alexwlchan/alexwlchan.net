@@ -28,7 +28,14 @@ Because I don't have much upload bandwidth at home, I like to exclude those from
 
 The Backblaze settings allow you to [choose the folders you want to exclude](https://help.backblaze.com/hc/en-us/articles/217664948-How-do-I-exclude-folders-file-types-or-file-sizes-), using a point-and-click interface:
 
-<img src="/images/2020/backblaze_settings.png" alt="A settings panel. There's a tab bar at the top, with the item “exclusions” highlighted in pink. Within the panel, there's a list of folders titled “These folders will not be backed up”">
+{%
+  picture
+  filename="backblaze_settings.png"
+  width="750"
+  alt="A settings panel. There's a tab bar at the top, with the item “exclusions” highlighted in pink. Within the panel, there's a list of folders titled “These folders will not be backed up”"
+  class="screenshot"
+  style="border: none;"
+%}
 
 But I have a lot of these folders, and I don't really want to click through this panel dozens of times.
 
@@ -55,10 +62,10 @@ I wrote a Python script to automate this for me -- I pass the script a list of p
 It also saves a backup copy of the rules, so if anything goes wrong, I can always roll back to an old version.
 If you'd like to use the script, you can find it below:
 
-{% details %}
+<details>
 <summary>add_backblaze_exclusions.py</summary>
 
-```python
+{% highlight python %}
 #!/usr/bin/env python3
 """
 Script for adding one-off folder exclusions to BackBlaze.
@@ -195,7 +202,8 @@ if __name__ == "__main__":
     restart_backblaze()
 ```
 
-{% enddetails %}
+{% endhighlight %}
+</details>
 
 Since this is messing with your backup config, you should double-check when it's done -- does the list of folder exclusions in the settings look correct?
 

@@ -18,10 +18,10 @@ Which application was at fault?
 
 Each API call is a single CloudTrail event, which includes lots of information:
 
-{% details %}
+<details>
 <summary>Example CloudTrail event for a HeadObject call</summary>
 
-```json
+{% highlight json %}
 {
   "additionalEventData": {
     "AuthenticationMethod": "AuthHeader",
@@ -84,8 +84,8 @@ Each API call is a single CloudTrail event, which includes lots of information:
   },
   "vpcEndpointId": "vpce-0d4aa186edac65a21"
 }
-```
-{% enddetails %}
+{% endhighlight %}
+</details>
 
 CloudTrail events can be written to objects in an S3 bucket, and they typically appear within 15 minutes of the API call.
 The logs are written as gzip-compressed JSON files, with all the events for the 15 minute period in one file.
