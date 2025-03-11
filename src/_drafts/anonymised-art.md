@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What we lose when art is anonymised
+title: We all lose when art is anonymised
 summary: |
   When art loses its creator, we lose the story behind the image -- a plea for attribution in our endless scroll culture.
 tags:
