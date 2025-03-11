@@ -61,7 +61,7 @@ module Jekyll
       src_code = File.read("#{src}/_files/#{year}/#{@filename}").strip
       language = @attrs['language'] || guess_language(@filename)
 
-      "```#{language}\n#{src_code}\n```\n"
+      "{% highlight #{language} %}\n#{src_code}\n{% endhighlight %}\n"
     end
   end
 end

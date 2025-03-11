@@ -53,7 +53,7 @@ I've made a couple of changes based on feedback from Twitter and Dreamwidth:
 
 {% endupdate %}
 
-{% details %}
+<details>
 <summary>download_ao3_bookmarks_from_pinboard.py</summary>
 {% inline_code filename="download_ao3_bookmarks_from_pinboard.py" %}
-{% enddetails %}
+</details>

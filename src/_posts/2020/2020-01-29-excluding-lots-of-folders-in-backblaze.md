@@ -62,10 +62,10 @@ I wrote a Python script to automate this for me -- I pass the script a list of p
 It also saves a backup copy of the rules, so if anything goes wrong, I can always roll back to an old version.
 If you'd like to use the script, you can find it below:
 
-{% details %}
+<details>
 <summary>add_backblaze_exclusions.py</summary>
 
-```python
+{% highlight python %}
 #!/usr/bin/env python3
 """
 Script for adding one-off folder exclusions to BackBlaze.
@@ -202,7 +202,8 @@ if __name__ == "__main__":
     restart_backblaze()
 ```
 
-{% enddetails %}
+{% endhighlight %}
+</details>
 
 Since this is messing with your backup config, you should double-check when it's done -- does the list of folder exclusions in the settings look correct?
 

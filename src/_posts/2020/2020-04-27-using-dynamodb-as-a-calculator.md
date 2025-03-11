@@ -634,10 +634,10 @@ Partly for fun, partly as a way to get some practice with the gnarly bits of the
 **Can I get all the code you've written?**
 Sure, it's all here:
 
-{% details %}
+<details>
 <summary>dynamo_calculator.py</summary>
 
-```python
+{% highlight python %}
 #!/usr/bin/env python
 """
 What happens if you try to use DynamoDB as an integer calculator?
@@ -963,9 +963,9 @@ if __name__ == "__main__":
                 f"{display(calculator.or_(p, q))}        | "
                 f"{display(calculator.nand(p, q))}"
             )
-```
+{% endhighlight %}
 
-{% enddetails %}
+</details>
 
 If you want extra fun, turn on your tracing tool of choice (I like [the q module](https://pypi.org/project/q/)) and watch how deep the recursion goes when you divide 36 by 4.
 
