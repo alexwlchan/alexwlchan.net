@@ -71,7 +71,13 @@ def check_with_html_proofer(html_dir)
         %r{_site/files/.*},
         # This is because of an overly slow regex in HTML-Proofer.
         # See https://github.com/gjtorikian/html-proofer/issues/816
-        '_site/2013/google-maps/index.html'
+        '_site/2013/google-maps/index.html',
+        # This is a weird bug where HTML-Proofer is detecting a link
+        # in the JavaScript that isn't there:
+        #
+        #     internally linking to ${altUrl}, which does not exist
+        #
+        '_site/2021/editing-toolbar/index.html'
       ],
       report_invalid_tags: true,
       #
