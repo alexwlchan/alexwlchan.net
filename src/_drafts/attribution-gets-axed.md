@@ -2,7 +2,7 @@
 layout: post
 title: What we lose when art is anonymised
 summary: |
-  A lot of art is posted online with the attribution deliberately removed or hidden. But we all lose something when art becomes just another piece of disposable content.
+  When art loses its creator, we lose the story behind the image -- a plea for attribution in our endless scroll culture.
 tags:
 ---
 One rabbit hole I can never resist going down is finding the original creator of a piece of art.
@@ -84,8 +84,10 @@ We can't learn how it was made, find their other work, or discover how to make s
 The Internet has done many wonderful things for art, but it's also a machine for endless copyright infringement.
 It's not just about generative AI and content scraping -- those are serious issues, but this problem existed long before any of us had heard of ChatGPT.
 It's a thousand tiny paper cuts.
+
 How many of us have used an image from the Internet because it showed up in a search, without a second thought for its creator?
 When Google Images says "images may be subject to copyright", how many of us have really thought about what that means?
+Next time you want to use an image from the web, look to see if it's shared under a license that allows reuse, and make sure you include the appropriate attribution -- and if not, look for a different image.
 
 Finding the original creator is hard, sometimes impossible.
 The Internet is full of shadows: copies of things that went offline years ago.
@@ -94,3 +96,8 @@ But when I succeed, it feels worth the effort -- both for the original artist an
 When I read a book or watch a TV show, the credits guide me to the artists, and I can appreciate both them and the rest of their work.
 I wish the Internet was more like that.
 I wish the platforms we rely on put more emphasis on credit and attribution, and the people behind art.
+
+The next time an image catches your eye, take a moment.
+Who made this?
+What does it mean?
+What's their story?
