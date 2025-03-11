@@ -28,7 +28,14 @@ Because I don't have much upload bandwidth at home, I like to exclude those from
 
 The Backblaze settings allow you to [choose the folders you want to exclude](https://help.backblaze.com/hc/en-us/articles/217664948-How-do-I-exclude-folders-file-types-or-file-sizes-), using a point-and-click interface:
 
-<img src="/images/2020/backblaze_settings.png" alt="A settings panel. There's a tab bar at the top, with the item “exclusions” highlighted in pink. Within the panel, there's a list of folders titled “These folders will not be backed up”">
+{%
+  picture
+  filename="backblaze_settings.png"
+  width="750"
+  alt="A settings panel. There's a tab bar at the top, with the item “exclusions” highlighted in pink. Within the panel, there's a list of folders titled “These folders will not be backed up”"
+  class="screenshot"
+  style="border: none;"
+%}
 
 But I have a lot of these folders, and I don't really want to click through this panel dozens of times.
 
