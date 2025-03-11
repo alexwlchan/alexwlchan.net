@@ -20,7 +20,11 @@ This isn't an original idea or term: I first encountered it a couple of years ag
 
 The talk was recorded, and you can watch it [on YouTube](https://www.youtube.com/watch?v=qwTWqy0uPbY):
 
-{% youtube https://www.youtube.com/watch?v=qwTWqy0uPbY %}
+{%
+  include embeds/youtube.html
+  url="https://www.youtube.com/watch?v=qwTWqy0uPbY"
+  title="Sans I/O programming patterns: what, why, and how"
+%}
 
 You can read the slides and my notes on this page, or download the slides [as a PDF](/files/2019/pyconuk_2019_sans_io.pdf).
 

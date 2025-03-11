@@ -32,7 +32,11 @@ My spoken and written voice are quite different, but it gets the general gist ac
 
 If you'd prefer, you can watch the conference video on YouTube:
 
-{% youtube https://www.youtube.com/watch?v=Ej2EJVMkTKw %}
+{%
+  include embeds/youtube.html
+  url="https://www.youtube.com/watch?v=Ej2EJVMkTKw"
+  title="Using privilege to improve inclusion"
+%}
 
 [pycon]: http://2017.pyconuk.org/sessions/talks/using-privilege-to-help-not-hurt-diversity/
 
