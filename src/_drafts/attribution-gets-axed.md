@@ -1,7 +1,8 @@
 ---
 layout: post
-title: We all lose when credit is cut
-summary:
+title: What we lose when art is anonymised
+summary: |
+  A lot of art is posted online with the attribution deliberately removed or hidden. But we all lose something when art becomes just another piece of disposable content.
 tags:
 ---
 One rabbit hole I can never resist going down is finding the original creator of a piece of art.
@@ -63,9 +64,9 @@ The second example was a silent video of somebody making tiny chess pieces, just
 It was clearly an edit of another video, with fast-paced cuts to make it accommodate a short attention span -- and again with no attribution.
 This was a little harder to find -- I had to search several frames in Google Lens before I found [a summary on a Russian website][summary], which had a link to [a YouTube video][chess_yt] by metalworker and woodworker Левша (Levsha).
 
-This video is four times longer than the cut-up version I found, in higher resolution, and with commentary.
+This video is four times longer than the cut-up version I found, in higher resolution, and with commentary from the original creator.
 I don't speak Russian, but YouTube has auto-translated subtitles.
-Now I know how this amazing set was made, in the words of its creator, and I have a much better understanding of the materials and techniques involved.
+Now I know how this amazing set was made, and I have a much better understanding of the materials and techniques involved.
 (This includes the delightful name [Wenge wood][wenge], which I'd never heard before.)
 
 {% youtube https://www.youtube.com/watch?v=QoKdDK3y-mQ %}
@@ -86,15 +87,10 @@ It's a thousand tiny paper cuts.
 How many of us have used an image from the Internet because it showed up in a search, without a second thought for its creator?
 When Google Images says "images may be subject to copyright", how many of us have really thought about what that means?
 
-Finding the original creator is hard.
+Finding the original creator is hard, sometimes impossible.
 The Internet is full of shadows: copies of things that went offline years ago.
-But I think it's worth the effort -- both for the original artist and ourselves.
-When I read a book or watch a TV show, the credits guide me to more work by artists I've come to appreciate.
-I wish the Internet was more like that.
-I wisht he platforms we rely on put more emphasis on credit and attribution, and the people behind art.
+But when I succeed, it feels worth the effort -- both for the original artist and myself.
 
-We all lose something when art becomes just another piece of disposable content.
-The next time an image catches your eye, take a moment.
-Who made this?
-What does it mean?
-What's their story?
+When I read a book or watch a TV show, the credits guide me to the artists, and I can appreciate both them and the rest of their work.
+I wish the Internet was more like that.
+I wish the platforms we rely on put more emphasis on credit and attribution, and the people behind art.
