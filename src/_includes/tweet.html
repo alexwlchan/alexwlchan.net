@@ -42,7 +42,7 @@
         {% assign quoted_name = tweet_data["quoted_status"]["user"]["name"] %}
         {% assign quoted_screen_name = tweet_data["quoted_status"]["user"]["screen_name"] %}
 
-        <a href="https://twitter.com/{{ quoted_screen_name }}/status/{{ quoted_id }}">
+        <a href="https://twitter.com/{{ quoted_screen_name }}/status/{{ quoted_id }}" class="quote">
           <div class="quoted_tweet">
             <div class="header">
               <div class="author">
