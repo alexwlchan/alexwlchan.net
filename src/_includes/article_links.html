@@ -28,8 +28,8 @@
 <ul class="plain_list article_links">
 {% for article in include.articles %}
   <li
-    {% if add_data_metadata %}
-    data-date="{{ article.date | date: '%y%m%d' }}"
+    {% if add_article_order %}
+    data-ord="{{ article.order }}"
     {% endif %}
   >
     <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
