@@ -18,7 +18,7 @@
     margin-bottom: 7px;
   }
 
-  .article_links p.summary {
+  .article_links p {  /* description */
     margin-top: 0;
     margin-bottom: 0;
     font-size: 85%;
@@ -47,7 +47,7 @@
     </a></h4>
 
     {% if article.summary %}
-      <p class="summary">{{ article.summary | markdownify_oneline }}</p>
+      <p>{{ article.summary | markdownify_oneline }}</p>
     {% endif %}
   </li>
 {% endfor %}
