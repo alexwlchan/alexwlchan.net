@@ -8,12 +8,17 @@
     padding-right: calc(1em + 2px);
   }
 
+  .article_links {
+    list-style-type: none;
+    padding: 0;
+  }
+
   .article_links h4 {
     font-weight: normal;
     margin-bottom: 7px;
   }
 
-  .article_links p.summary {
+  .article_links p {  /* description */
     margin-top: 0;
     margin-bottom: 0;
     font-size: 85%;
@@ -25,11 +30,11 @@
   }
 </style>
 
-<ul class="plain_list article_links">
+<ul class="article_links">
 {% for article in include.articles %}
   <li
-    {% if add_data_metadata %}
-    data-date="{{ article.date | date: '%y%m%d' }}"
+    {% if add_article_order %}
+    data-ord="{{ article.order }}"
     {% endif %}
   >
     <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
@@ -42,7 +47,7 @@
     </a></h4>
 
     {% if article.summary %}
-      <p class="summary">{{ article.summary | markdownify_oneline }}</p>
+      <p>{{ article.summary | markdownify_oneline }}</p>
     {% endif %}
   </li>
 {% endfor %}

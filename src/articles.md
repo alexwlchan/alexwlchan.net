@@ -47,7 +47,7 @@ nav_section: articles
 {% assign featured_posts  = "" | split: ',' %}
 {% assign remaining_posts = "" | split: ',' %}
 
-{% assign add_data_metadata = true %}
+{% assign add_article_order = true %}
 
 <div id="articles">
 {% for this_article in site.posts %}
@@ -103,7 +103,7 @@ nav_section: articles
         return {
           'elem': elem,
           'type': 'featured',
-          'date': elem.getAttribute('data-date')
+          'order': Number(elem.getAttribute('data-ord'))
         };
       });
     const allRemainingPosts = Array.from(document.querySelectorAll('.article_links li'))
@@ -111,12 +111,12 @@ nav_section: articles
         return {
           'elem': elem,
           'type': 'remaining',
-          'date': elem.getAttribute('data-date')
+          'order': Number(elem.getAttribute('data-ord'))
         };
       });
 
     const posts = allFeaturedPosts.concat(allRemainingPosts)
-      .sort((a, b) => a.date > b.date ? -1 : 1);
+      .sort((a, b) => b.order - a.order);
 
     /* Now re-implement the sorting logic. */
     const container = document.createElement("div");
@@ -137,14 +137,14 @@ nav_section: articles
       }
 
       var articleCards = document.createElement("ul");
-      articleCards.setAttribute('class', 'plain_list article_cards');
+      articleCards.setAttribute('class', 'article_cards');
       featuredPosts.forEach(p => articleCards.appendChild(p.elem));
       container.appendChild(articleCards);
       featuredPosts = [];
 
       if (remainingPosts.length >= 5) {
         var articleLinks = document.createElement("ul");
-        articleLinks.setAttribute('class', 'plain_list article_links');
+        articleLinks.setAttribute('class', 'article_links');
         remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
         container.appendChild(articleLinks);
         remainingPosts = [];
@@ -153,14 +153,14 @@ nav_section: articles
 
     if (featuredPosts.length > 0) {
       var articleCards = document.createElement("ul");
-      articleCards.setAttribute('class', 'plain_list article_cards');
+      articleCards.setAttribute('class', 'article_cards');
       featuredPosts.forEach(p => articleCards.appendChild(p.elem));
       container.appendChild(articleCards);
     }
 
     if (remainingPosts.length > 0) {
       var articleLinks = document.createElement("ul");
-      articleLinks.setAttribute('class', 'plain_list article_links');
+      articleLinks.setAttribute('class', 'article_links');
       remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
       container.appendChild(articleLinks);
     }
