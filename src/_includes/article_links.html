@@ -8,6 +8,11 @@
     padding-right: calc(1em + 2px);
   }
 
+  .article_links {
+    list-style-type: none;
+    padding: 0;
+  }
+
   .article_links h4 {
     font-weight: normal;
     margin-bottom: 7px;
@@ -25,7 +30,7 @@
   }
 </style>
 
-<ul class="plain_list article_links">
+<ul class="article_links">
 {% for article in include.articles %}
   <li
     {% if add_article_order %}

@@ -137,14 +137,14 @@ nav_section: articles
       }
 
       var articleCards = document.createElement("ul");
-      articleCards.setAttribute('class', 'plain_list article_cards');
+      articleCards.setAttribute('class', 'article_cards');
       featuredPosts.forEach(p => articleCards.appendChild(p.elem));
       container.appendChild(articleCards);
       featuredPosts = [];
 
       if (remainingPosts.length >= 5) {
         var articleLinks = document.createElement("ul");
-        articleLinks.setAttribute('class', 'plain_list article_links');
+        articleLinks.setAttribute('class', 'article_links');
         remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
         container.appendChild(articleLinks);
         remainingPosts = [];
@@ -153,14 +153,14 @@ nav_section: articles
 
     if (featuredPosts.length > 0) {
       var articleCards = document.createElement("ul");
-      articleCards.setAttribute('class', 'plain_list article_cards');
+      articleCards.setAttribute('class', 'article_cards');
       featuredPosts.forEach(p => articleCards.appendChild(p.elem));
       container.appendChild(articleCards);
     }
 
     if (remainingPosts.length > 0) {
       var articleLinks = document.createElement("ul");
-      articleLinks.setAttribute('class', 'plain_list article_links');
+      articleLinks.setAttribute('class', 'article_links');
       remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
       container.appendChild(articleLinks);
     }
