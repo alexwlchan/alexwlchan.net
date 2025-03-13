@@ -152,10 +152,6 @@ Once a row is written, it sticks around, and over 97% of the possible `rowid` va
   table#results tr > td:nth-child(2) {
     padding-left: 1em;
   }
-
-  table#results td > code {
-    white-space: nowrap;
-  }
 </style>
 
 ## Summary
