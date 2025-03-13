@@ -49,7 +49,7 @@ nav_section: articles
 
 {% assign add_article_order = true %}
 
-<div id="articles">
+<div id="articles" data-card-count="2">
 {% for this_article in site.posts %}
   {% if this_article.index.exclude %}
     {% continue %}
@@ -83,88 +83,105 @@ nav_section: articles
 </div>
 
 <script>
-  window.addEventListener("DOMContentLoaded", function() {
+  function arrangeCards() {
+    console.debug("Calling arrangeCards()");
+
     /* https://stackoverflow.com/a/11744120/1558022 */
-    const width  = window.innerWidth || document.documentElement.clientWidth ||
+    const width = window.innerWidth || document.documentElement.clientWidth ||
     document.body.clientWidth;
 
-    if (width < 1000) {
-      console.log(`Leaving article cards as 2-column layout (width=${width})`);
+    const cardCount = width < 1000 ? 2 : 3;
+    console.debug(`Based on window width, show ${cardCount} cards in a row`);
+
+    if (Number(document.querySelector("#articles").getAttribute("data-card-count")) === cardCount) {
+      console.debug("This is the same as the existing layout; do nothing");
       return;
     }
 
-    console.log(`Switching article cards to 3-column layout (width=${width})`);
+    console.debug("This is different to the existing layout; do nothing");
 
-    /* First reconstruct the "site.posts" array based on the HTML already
-     * on the page.  We're going to just shuffle the HTML elements around;
-     * not rearrange the whole thing. */
-    const allFeaturedPosts = Array.from(document.querySelectorAll('.card'))
-      .map(function(elem) {
-        return {
-          'elem': elem,
-          'type': 'featured',
-          'order': Number(elem.getAttribute('data-ord'))
-        };
-      });
-    const allRemainingPosts = Array.from(document.querySelectorAll('.article_links li'))
-      .map(function(elem) {
-        return {
-          'elem': elem,
-          'type': 'remaining',
-          'order': Number(elem.getAttribute('data-ord'))
-        };
-      });
+   /* First reconstruct the "site.posts" array based on the HTML already
+    * on the page.  We're going to just shuffle the HTML elements around;
+    * not rearrange the whole thing. */
+   const allFeaturedPosts = Array.from(document.querySelectorAll('.card'))
+     .map(function(elem) {
+       return {
+         'elem': elem,
+         'type': 'featured',
+         'order': Number(elem.getAttribute('data-ord'))
+       };
+     });
+   const allRemainingPosts = Array.from(document.querySelectorAll('.article_links li'))
+     .map(function(elem) {
+       return {
+         'elem': elem,
+         'type': 'remaining',
+         'order': Number(elem.getAttribute('data-ord'))
+       };
+     });
 
-    const posts = allFeaturedPosts.concat(allRemainingPosts)
-      .sort((a, b) => b.order - a.order);
+   const posts = allFeaturedPosts.concat(allRemainingPosts)
+     .sort((a, b) => b.order - a.order);
 
-    /* Now re-implement the sorting logic. */
-    const container = document.createElement("div");
-    container.setAttribute("id", "articles");
+   /* Now re-implement the sorting logic. */
+   const container = document.createElement("div");
+   container.setAttribute("id", "articles");
 
-    var featuredPosts = [];
-    var remainingPosts = [];
+   var featuredPosts = [];
+   var remainingPosts = [];
 
-    posts.forEach(function(thisArticle) {
-      if (thisArticle.type === 'featured') {
-        featuredPosts.push(thisArticle);
-      } else {
-        remainingPosts.push(thisArticle);
-      }
+   posts.forEach(function(thisArticle) {
+     if (thisArticle.type === 'featured') {
+       featuredPosts.push(thisArticle);
+     } else {
+       remainingPosts.push(thisArticle);
+     }
 
-      if (featuredPosts.length !== 3) {
-        return;
-      }
+     if (featuredPosts.length !== cardCount) {
+       return;
+     }
 
-      var articleCards = document.createElement("ul");
-      articleCards.setAttribute('class', 'article_cards');
-      featuredPosts.forEach(p => articleCards.appendChild(p.elem));
-      container.appendChild(articleCards);
-      featuredPosts = [];
+     var articleCards = document.createElement("ul");
+     articleCards.setAttribute('class', 'article_cards');
+     featuredPosts.forEach(p => articleCards.appendChild(p.elem));
+     container.appendChild(articleCards);
+     featuredPosts = [];
 
-      if (remainingPosts.length >= 5) {
-        var articleLinks = document.createElement("ul");
-        articleLinks.setAttribute('class', 'article_links');
-        remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
-        container.appendChild(articleLinks);
-        remainingPosts = [];
-      }
-    });
+     /* If we display three cards horizontally, we want at least five links
+      * between them.
+      *
+      * If we display two cards horizontally, we only need three links
+      * between a row of cards.
+      */
+     const linksBetweenCards = cardCount === 3 ? 5 : 3;
 
-    if (featuredPosts.length > 0) {
-      var articleCards = document.createElement("ul");
-      articleCards.setAttribute('class', 'article_cards');
-      featuredPosts.forEach(p => articleCards.appendChild(p.elem));
-      container.appendChild(articleCards);
-    }
+     if (remainingPosts.length >= linksBetweenCards) {
+       var articleLinks = document.createElement("ul");
+       articleLinks.setAttribute('class', 'article_links');
+       remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
+       container.appendChild(articleLinks);
+       remainingPosts = [];
+     }
+   });
 
-    if (remainingPosts.length > 0) {
-      var articleLinks = document.createElement("ul");
-      articleLinks.setAttribute('class', 'article_links');
-      remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
-      container.appendChild(articleLinks);
-    }
+   if (featuredPosts.length > 0) {
+     var articleCards = document.createElement("ul");
+     articleCards.setAttribute('class', 'article_cards');
+     featuredPosts.forEach(p => articleCards.appendChild(p.elem));
+     container.appendChild(articleCards);
+   }
 
-    document.querySelector('#articles').replaceWith(container);
-  });
+   if (remainingPosts.length > 0) {
+     var articleLinks = document.createElement("ul");
+     articleLinks.setAttribute('class', 'article_links');
+     remainingPosts.forEach(p => articleLinks.appendChild(p.elem));
+     container.appendChild(articleLinks);
+   }
+
+   document.querySelector('#articles').replaceWith(container);
+   document.querySelector('#articles').setAttribute("data-card-count", cardCount);
+  }
+
+  window.addEventListener("DOMContentLoaded", arrangeCards);
+  window.addEventListener("resize", arrangeCards);
 </script>
