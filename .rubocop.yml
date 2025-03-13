@@ -55,6 +55,9 @@ Style/ClassVars:
 Style/CombinableLoops:
   Enabled: false
 
+Style/ComparableBetween:
+  Enabled: false
+
 Style/ConditionalAssignment:
   Enabled: false
 
