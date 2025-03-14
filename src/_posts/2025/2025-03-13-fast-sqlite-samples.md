@@ -182,7 +182,7 @@ Here are the four approaches I tried:
   <tr>
     <td>Random <code>rowid</code> in Python</td>
     <td>~0.001s</td>
-    <td>Fast and returns varied results, requires code outside SQL</td>
+    <td>Fast and returns varied results, requires code outside SQL, may be slower with sparsely populated <code>rowid</code></td>
   </tr>
 </table>
 
