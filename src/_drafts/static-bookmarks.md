@@ -4,8 +4,8 @@ title: Building a static website for all my bookmarks
 summary:
 tags:
 ---
-I'm storing more and more of my data [as static websites][static_sites], and about a year ago I created a local, static site to manage my bookmarks.
-It's replaced Pinboard as a way to track links and web pages.
+I'm storing more and more of my data [as static websites][static_sites], and about a year ago I created a static site to manage my bookmarks.
+It's replaced Pinboard as my way to track links and web pages.
 
 {%
   picture
@@ -14,9 +14,10 @@ It's replaced Pinboard as a way to track links and web pages.
   class="screenshot"
 %}
 
-{{screenshot}}
-
-It’s taken hundreds of hours to get all my data and saved web pages into this new site, and along the way I learnt a lot about archiving and building the web.
+All the data is stored locally, with no external services or dependencies, and I have an offline copy of every web page I've saved.
+It took hundreds of hours to migrate all my data and saved web pages into this new site, but I'm really happy with the result.
+It was also a chance to learn more about how the web is archived and built, because I looked at each web page individually.
+I put in a lot of effort, and now I have a very high-quality archive.
 
 This post is the first of a three-part series about my new approach to bookmarks.
 This first post will explain how the site works, and the second and third posts will share what I've learnt about archiving and building the web.
@@ -26,6 +27,10 @@ This first post will explain how the site works, and the second and third posts 
 ## Why do I bookmark?
 
 I bookmark because I want to be able to find links later.
+
+I read a lot of web pages, and 
+
+---
 
 Having my own list is easier than trying to find a remembered web page on the entire Internet – web pages rot, links break, and a lot of the pages I read aren’t indexed by Google. (Paywalled content and fanfiction are the two big examples.)
 
