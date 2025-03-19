@@ -7,6 +7,7 @@ tags:
   - python
   - pinboard
   - ao3
+  - bookmarks
 ---
 
 A couple of days ago, I tweeted about one of my scripts:

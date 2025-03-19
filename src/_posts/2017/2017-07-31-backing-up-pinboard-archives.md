@@ -5,6 +5,7 @@ summary: A Rust utility for saving local copies of my full-page archives from Pi
 tags:
   - rust
   - pinboard
+  - bookmarks
 title: Backing up full-page archives from Pinboard
 ---
 

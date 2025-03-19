@@ -5,27 +5,29 @@ layout: default
 {% assign post = page %}
 
 <article>
-  <h1 class="title {% if post.link %}linkpost_title{% endif %}">
-    {% if post.link %}
-      <a href="{{ post.link }}">
-    {% endif %}
+  <hgroup>
+    <h1 class="title {% if post.link %}linkpost_title{% endif %}">
+      {% if post.link %}
+        <a href="{{ post.link }}">
+      {% endif %}
 
-        {% comment %}
-          This unofficial 'role="text"' attribute means that the title will
-          be read as a continuous block of text, even if it contains formatting.
+          {% comment %}
+            This unofficial 'role="text"' attribute means that the title will
+            be read as a continuous block of text, even if it contains formatting.
 
-          See https://tinytip.co/tips/a11y-voiceover-text-role/
-        {% endcomment %}
-        <span role="text">
-          {{ post.title | markdownify_oneline | cleanup_text }}
-        </span>
+            See https://tinytip.co/tips/a11y-voiceover-text-role/
+          {% endcomment %}
+          <span role="text">
+            {{ post.title | markdownify_oneline | cleanup_text }}
+          </span>
 
-    {% if post.link %}
-      </a>
-    {% endif %}
-  </h1>
+      {% if post.link %}
+        </a>
+      {% endif %}
+    </h1>
 
-  {% include meta.html index_page = "/articles/" %}
+    {% include meta.html index_page = "/articles/" %}
+  </hgroup>
 
   {{ post.content | cleanup_text }}
 </article>
