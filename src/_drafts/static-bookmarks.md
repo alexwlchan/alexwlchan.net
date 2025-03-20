@@ -28,7 +28,12 @@ This first post will explain how the site works, and the second and third posts 
 
 I bookmark because I want to be able to find links later.
 
-I read a lot of web pages, and 
+I open a lot of web pages, and it's not always easy to find something later.
+Web pages rot, links break, and a lot of the pages I read aren't indexed by search engines -- paywalled content and fanfiction are the two big examples.
+Creating a bookmark of the most interesting pages makes it easier for me to find them later, and I can write down why I thought I'd want to find it later.
+
+I don't have a well-defined rule of whether to bookmark a link -- it's some mix of whether the page is fun, interesting, or the sort of thing I know I'll come back to.
+Those are all subjective measures
 
 ---
 
@@ -44,7 +49,7 @@ I was a happy [Pinboard] customer for over a decade, but the site feels a bit ab
 
 I can write my own static bookmarks site because my needs are pretty simple – I just want a list of links, some basic filtering and search, and a saved copy of all my links. Pinboard has a lot of social features and external integrations that I never used, so I don’t miss them with my local site.
 
-I’ve been using static sites for all sorts of data, and I’m enjoying the flexibility and portability of vanilla HTML and JavaScript. They need minimal maintenance and there’s no lock-in, and I’ve made enough of them that I can create new ones pretty quickly. 
+I’ve been using static sites for all sorts of data, and I’m enjoying the flexibility and portability of vanilla HTML and JavaScript. They need minimal maintenance and there’s no lock-in, and I’ve made enough of them that I can create new ones pretty quickly.
 
 ## A guided tour
 
