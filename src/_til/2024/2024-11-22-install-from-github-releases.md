@@ -29,7 +29,7 @@ Here's how I packaged this as a step in a GitHub Action:
 ```yml
 - name: Install Caddy
   env:
-    GH_TOKEN: ${{ github.token }}
+    GH_TOKEN: {% raw %}${{ github.token }}{% endraw %}
   run: |
     gh release download \
       --repo caddyserver/caddy \
