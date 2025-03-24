@@ -24,7 +24,7 @@ ul.dot_list {
 }
 
 ul.dot_list li {
-  display: inline-block;
+  display: inline;
 }
 
 ul.dot_list li:not(:last-child)::after {
