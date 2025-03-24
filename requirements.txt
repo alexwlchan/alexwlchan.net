@@ -2,7 +2,7 @@
 #    uv pip compile requirements.in --output-file requirements.txt
 pillow==11.1.0
     # via -r requirements.in
-pillow-avif-plugin==1.5.0
+pillow-avif-plugin==1.5.1
     # via -r requirements.in
 tqdm==4.67.1
     # via -r requirements.in
