@@ -25,7 +25,7 @@ This attack was possible because it's common practice to refer to tags in a GitH
       ...</code></pre>
 
 At a glance, this looks like an immutable reference to an already-released "version 2" of this action, but actually this is a mutable Git tag.
-If somebody changes the `v2` tag in the `tj-actions/changed-files` repo to point to a different commit, it'll change the code that runs in this action.
+If somebody changes the `v2` tag in the `tj-actions/changed-files` repo to point to a different commit, this action will run different code the next time it runs.
 
 If you specify a Git commit ID instead (e.g. `a5b3abf`), that's an immutable reference that will run the same code every time.
 
@@ -39,8 +39,8 @@ Specifying an exact commit ID means the code won't change unexpectedly, but tags
 
 ## Do I have any mutable references?
 
-I wasn't worried about this particular attack because I don't use tj-actions, but I was curious about what other GitHub Actions I'm using.
-I ran a short shell script in the folder where I keep my repos checked out:
+I wasn't worried about this particular attack because I don't use `tj-actions`, but I was curious about what other GitHub Actions I'm using.
+I ran a short shell script in the folder where I have local clones of all my repos:
 
 ```shell
 find . -path '*/.github/workflows/*' -type f -name '*.yml' -print0 \
@@ -115,14 +115,14 @@ find . -path '*/.github/workflows/*' -type f -name '*.yml' -print0
 </code></p>
   <p>
     It prints them with a null byte (<code>\0</code>) between them, which makes it possible to split the filenames in the next step.
-    By default it uses a newline, but a null byte is a bit safer, in case you encounter filenames which include newline characters.
+    By default it uses a newline, but a null byte is a bit safer, in case you have filenames which include newline characters.
   </p>
   <p>
     I know that I always use <code>.yml</code> as a file extension, but if you sometimes use <code>.yaml</code>, you can replace <code>-name '*.yml'</code> with <code>\( -name '*.yml' -o -name '*.yaml' \)</code>
   </p>
   <p>
     I have a bunch of local repos that are clones of open-source projects, and not my code, so I care less about what GitHub Actions they’re using.
-    I could exclude them by adding extra <code>-path</code> rules, like <code>-not -path './cpython/*'</code>.
+    I excluded them by adding extra <code>-path</code> rules, like <code>-not -path './cpython/*'</code>.
   </p>
 </dd>
 <dt>
@@ -132,11 +132,12 @@ xargs -0 grep --no-filename "uses:"
 </dt>
 <dd>
   <p>
-    Then we use <code>xargs</code> to go through the filenames one-by-one, and run <code>grep</code> to look for lines that include <code>uses:</code> – this is how you use an action in your workflow file.
+    Then we use <code>xargs</code> to go through the filenames one-by-one.
+    The `-0` flag tells it to split on the null byte, and then it runs <code>grep</code> to look for lines that include <code>"uses:"</code> – this is how you use an action in your workflow file.
   </p>
   <p>
     The <code>--no-filename</code> option means this just prints the matching line, and not the name of the file it comes from.
-    Not all of my files are formatted consistently, so the output isn’t all consistent:
+    Not all of my files are formatted or indented consistently, so the output is quite messy:
   </p>
   <p><code>&nbsp;&nbsp;&nbsp;&nbsp;- uses: actions/checkout@v4<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: "actions/cache@v4"<br/>
@@ -150,7 +151,7 @@ sed 's/\- uses:/uses:/g' \
 <dd>
   <p>
     Sometimes there's a leading hyphen, sometimes there isn’t – it depends on whether <code>uses:</code> is the first key in the YAML dictionary.
-    This <code>sed</code> command replaces <code>"- uses:"</code> with <code>"uses:"</code>, to make everything more consistent.
+    This <code>sed</code> command replaces <code>"- uses:"</code> with <code>"uses:"</code> to start tidying up the data.
   </p>
   <p><code>&nbsp;&nbsp;&nbsp;&nbsp;uses: actions/checkout@v4<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: "actions/cache@v4"<br/>
@@ -174,7 +175,7 @@ tr '"' ' '
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: ruby/setup-ruby@v1</code></p>
   <p>
     Now I’m writing this post, it occurs to me I could use <code>sed</code> to make this substitution as well.
-    I reached for <code>tr</code> because I've been using it for longer, and the syntax is simpler for doing single character substitutions: <code>tr '&lt;oldchar&gt;' '&gt;newchar&gt;'</code>.
+    I reached for <code>tr</code> because I've been using it for longer, and the syntax is simpler for doing single character substitutions: <code>tr '&lt;oldchar&gt;' '&lt;newchar&gt;'</code>
   </p>
 </dd>
 <dt>
@@ -190,8 +191,8 @@ awk '{print $2}'
 actions/cache@v4<br/>
 ruby/setup-ruby@v1</code></p>
   <p>
-    <code>awk</code> is another powerful text utility that I’ve never learnt properly – I only know how to do this one thing.
-    It has a lot of pattern-matching features I’ve never needed.
+    <code>awk</code> is another powerful text utility that I’ve never learnt properly – I only know how to print the nth word in a string.
+    It has a lot of pattern-matching features I’ve never tried.
   </p>
 </dd>
 <dt>
@@ -224,4 +225,7 @@ sort | uniq --count | sort --numeric-sort
 </dl>
 
 This step-by-step approach is how I build Unix text pipelines: I can write a step at a time, and gradually refine and tweak the output until I get the result I want.
-There are lots of ways to do it, and because this is a script I'll use once and then discard, I don't have to worry too much about doing it the "correct" way -- as long as it gets the right result, that's good enough.
+There are lots of ways to do it, and because this is a script I'll use once and then discard, I don't have to worry too much about doing it in the "purest" way -- as long as it gets the right result, that's good enough.
+
+If you use GitHub Actions, you might want to use this script to check your own actions, and see what you're using.
+But more than that, I recommend becoming familiar with the Unix text processing tools and pipelines -- even in the age of AI, they're still a powerful and flexible way to cobble together one-off scripts for processing data.
