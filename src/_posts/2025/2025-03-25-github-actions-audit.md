@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-03-25 16:53:43 +0000
 title: Whose code am I running in GitHub Actions?
 summary: I wanted to know what third-party code I was using in my GitHub Actions. I was able to use standard text processing tools and shell pipelines to get a quick tally.
 tags:
