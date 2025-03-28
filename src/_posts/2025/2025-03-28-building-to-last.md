@@ -2,7 +2,7 @@
 layout: post
 date: 2025-03-28 08:43:57 +0000
 title: "Monki Gras 2025: What I've Learned by Building to Last"
-summary: Notes from my talk at Monki Gras 2025.
+summary: There are patterns in what lasts; people skills matter more than technical skills; long-lasting systems cannot grow forever.
 tags:
   - talks
   - digital preservation
