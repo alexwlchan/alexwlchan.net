@@ -33,7 +33,7 @@ class CardImages < HTMLProofer::Check
     @html.css('meta[name="twitter:image"]').each do |node|
       @meta = create_element(node)
 
-      path = node['content'].gsub('https://alexwlchan.net/', '')
+      path = node['content'].gsub('http://localhost:5757/', '').gsub('https://alexwlchan.net/', '')
 
       return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_site/#{path}")
     end
@@ -41,7 +41,7 @@ class CardImages < HTMLProofer::Check
     @html.css('meta[name="og:image"]').each do |node|
       @meta = create_element(node)
 
-      path = node['content'].gsub('https://alexwlchan.net/', '')
+      path = node['content'].gsub('http://localhost:5757/', '').gsub('https://alexwlchan.net/', '')
 
       return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_site/#{path}")
     end
