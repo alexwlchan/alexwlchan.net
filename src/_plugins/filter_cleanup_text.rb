@@ -29,6 +29,7 @@ class AddNonBreakingSpaces
       ImageMagick
       Issue
       issue
+      iPres
       No.
       Part
       part
@@ -75,12 +76,16 @@ class AddNonBreakingSpaces
       'CC BY 2.0',
       'CC BY 3.0',
       'CC BY 4.0',
+      'CC BY-NC 2.0',
       'CC BY-NC 4.0',
+      'CC BY-ND 2.0',
       'CC BY-NC-ND',
       'CC BY-SA 2.0',
       'CC BY-SA 3.0',
       'CC BY-SA 4.0',
+      'CC BY-NC-SA 4.0',
       'CC BY',
+      'DjangoCon US',
       'Dr. Drang',
       'Git LFS',
       'HTTP 200 OK',
