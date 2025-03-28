@@ -27,8 +27,8 @@ def get_single_image_info(path)
     stdout, status = Open3.capture2('python3', 'src/_plugins/pillow/get_all_image_info.py')
 
     if status.success?
-      JSON.parse(stdout).each do |path, info|
-        cache["#{path}--#{info['mtime']}"] = info
+      JSON.parse(stdout).each do |im_path, info|
+        cache["#{im_path}--#{info['mtime']}"] = info
       end
 
       cache['-1'] = -1
