@@ -9,7 +9,12 @@ def print_uri(path)
   slug = File.basename(path).gsub(/^[0-9]{4}-[0-9]{2}-[0-9]{2}-/, '').gsub(/\.md$/, '')
   year = File.basename(path).split('-')[0]
 
-  url = "https://alexwlchan.net/#{year}/#{slug}/"
+  if path.include? '_til'
+    url = "https://alexwlchan.net/til/#{year}/#{slug}/"
+  else
+    url = "https://alexwlchan.net/#{year}/#{slug}/"
+  end
+
   puts "* [#{title}](#{url})"
 end
 
