@@ -33,10 +33,12 @@ class AddNonBreakingSpaces
       No.
       Part
       part
+      Python
       RFC
       Safari
       Season
       season
+      SQLite
     ].join('|')
 
     text = text.gsub(/(#{prefix_words}) (\d+)/, '\1&nbsp;\2')
