@@ -141,7 +141,7 @@ module Jekyll
       # term for this is "Cumulative Layout Shift".
       #
       # See https://web.dev/optimize-cls/
-      @attrs['width'] = @target_width
+      @attrs['width'] = target_width
       aspect_ratio = Rational(lt_image['width'], lt_image['height'])
       @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
