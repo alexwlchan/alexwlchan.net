@@ -111,6 +111,9 @@ module Jekyll
 
       tpl = Liquid::Template.parse(File.read('src/_includes/picture.html'))
       tpl.render!(
+        'target_width' => template_args[:target_width],
+        'width' => template_args[:width],
+        'height' => template_args[:height],
         'sources' => template_args[:sources],
         'default_image' => template_args[:default_image],
         'extra_attributes' => template_args[:extra_attributes],
@@ -134,16 +137,6 @@ module Jekyll
       # Generally 1x/2x/3x is fine, but for specific images I can pick
       # extra sizes and have them added to the list.
       target_width = get_target_width(@filename, lt_image, @bbox_dims)
-
-      # These two attributes allow the browser to completely determine
-      # the space that will be taken up by this image before it actually
-      # loads, so it won't have to rearrange the page later.  The fancy
-      # term for this is "Cumulative Layout Shift".
-      #
-      # See https://web.dev/optimize-cls/
-      @attrs['width'] = @target_width
-      aspect_ratio = Rational(lt_image['width'], lt_image['height'])
-      @attrs['style'] = "aspect-ratio: #{aspect_ratio}; #{@attrs['style'] || ''}".strip
 
       # Choose what formats I want images to be served in, and the order
       # I'd like them to be offered.
@@ -240,6 +233,9 @@ module Jekyll
       end
 
       {
+        target_width: target_width,
+        width: lt_image["width"],
+        height: lt_image["height"],
         sources: lt_sources + dk_sources,
         default_image: default_image,
         extra_attributes: @attrs,

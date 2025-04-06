@@ -47,24 +47,21 @@ I had a lovely time, and this post has a few of my photos.
   }
 
   @media screen and (min-width: 750px) {
-    .grid_4up .left.upper img {
-      border-radius: 10px 0 0 0;
-    }
+    .grid_4up .left.upper .picture_wrapper  { border-radius: 11px 0 0 0; }
+    .grid_4up .left.upper img               { border-radius: 10px 0 0 0; }
 
-    .grid_4up .right.upper img {
-      border-radius: 0 10px 0 0;
-    }
+    .grid_4up .right.upper .picture_wrapper { border-radius: 0 11px 0 0; }
+    .grid_4up .right.upper img              { border-radius: 0 10px 0 0; }
 
-    .grid_4up .right.lower img {
-      border-radius: 0 0 10px 0;
-    }
+    .grid_4up .right.lower .picture_wrapper { border-radius: 0 0 11px 0; }
+    .grid_4up .right.lower img              { border-radius: 0 0 10px 0; }
 
-    .grid_4up .left.lower img {
-      border-radius: 0 0 0 10px;
-    }
+    .grid_4up .left.lower .picture_wrapper  { border-radius: 0 0 0 11px; }
+    .grid_4up .left.lower img               { border-radius: 0 0 0 10px; }
 
-    .rounded_corners img {
-      border-radius: 10px;
+    .rounded_corners {
+      .picture_wrapper { border-radius: 11px; }
+      img              { border-radius: 10px; }
     }
   }
 
@@ -90,9 +87,14 @@ I had a lovely time, and this post has a few of my photos.
 
   @media screen and (min-width: 750px) {
     .grid_3up {
-      div:nth-child(1) img { border-radius: 10px 0 0 10px; }
-      div:nth-child(2) img { border-radius: 0 10px 0 0;    }
-      div:nth-child(3) img { border-radius: 0 0 10px 0;    }
+      div:nth-child(1) .picture_wrapper { border-radius: 11px 0 0 11px; }
+      div:nth-child(1) img              { border-radius: 10px 0 0 10px; }
+
+      div:nth-child(2) .picture_wrapper { border-radius: 0 11px 0 0;    }
+      div:nth-child(2) img              { border-radius: 0 10px 0 0;    }
+
+      div:nth-child(3) .picture_wrapper { border-radius: 0 0 11px 0;    }
+      div:nth-child(3) img              { border-radius: 0 0 10px 0;    }
     }
   }
 </style>

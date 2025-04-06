@@ -3,33 +3,53 @@
 
   It takes a number of arguments; this is the structure of data it expects:
 
+      target_width     => int
+      width            => int
+      height           => int
       sources          => list[srcset: str, sizes: str, type: str, media: str?]
       default_image    => str
       extra_attributes => map[str, str]
       link_target      => str?
 
+  We have enough information for the browser to predetermine how much
+  space this image needs, even if it hasn't loaded yet:
+
+  *   We set an aspect ratio in CSS based on the `--width`/`--height`
+      properties (see `picture.css`)
+  *   We set a target width with the `width` attribute on the `<img>`
+
+  This means the browser won't have to rearrange the page once the image
+  loads; the fancy term for this is "Cumulative Layout Shift".
+  See https://web.dev/optimize-cls/
 {% endcomment %}
 
 {% if link_target %}
 <a href="{{ link_target }}">
 {% endif %}
 
-<picture>
-  {% for src in sources %}
-  <source
-    srcset="{{ src.srcset }}"
-    sizes="{{ src.sizes }}"
-    type="{{ src.type }}"
-    {% if src.media %}media="{{ src.media }}"{% endif %}
-  >
-  {% endfor %}
-  <img
-    src="{{ default_image }}"
-    {% for name_value in extra_attributes %}
-    {{ name_value[0] }}="{{ name_value[1] }}"
+<div
+  class="picture_wrapper {{ extra_attributes["class"] }}"
+  style="--target-width: {{ target_width }}px;
+         --width:  {{ width }};
+         --height: {{ height }};"
+>
+  <picture>
+    {% for src in sources %}
+    <source
+      srcset="{{ src.srcset }}"
+      sizes="{{ src.sizes }}"
+      type="{{ src.type }}"
+      {% if src.media %}media="{{ src.media }}"{% endif %}
+    >
     {% endfor %}
-  >
-</picture>
+    <img
+      src="{{ default_image }}"
+      {% for name_value in extra_attributes %}
+      {{ name_value[0] }}="{{ name_value[1] }}"
+      {% endfor %}
+    >
+  </picture>
+</div>
 
 {% if link_target %}
 </a>
