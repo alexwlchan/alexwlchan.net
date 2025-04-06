@@ -20,12 +20,12 @@
   background: var(--primary-color);
 }
 
-img.screenshot {
+.screenshot {
   border-radius: var(--border-radius);
   border: var(--border-width) var(--border-style) var(--screenshot-border);
   max-width: calc(100% - 2 * var(--border-width));
 }
 
-.picture_wrapper.screenshot {
+.picture_wrapper.has_screenshot {
   border-radius: calc(var(--border-radius) + 1px);
 }

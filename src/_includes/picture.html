@@ -28,7 +28,10 @@
 {% endif %}
 
 <div
-  class="picture_wrapper {{ extra_attributes["class"] }}"
+  class="
+    picture_wrapper
+    {% if extra_attributes["class"] contains "screenshot" %}has_screenshot{% endif -%}
+  "
   style="--target-width: {{ target_width }}px;
          --width:  {{ width }};
          --height: {{ height }};"
