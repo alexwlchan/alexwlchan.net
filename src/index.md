@@ -35,10 +35,14 @@ footer:
     }
   }
 
-  img#headshot {
-    border-radius: 50%;
+  #headshot {
     margin-left:   var(--default-padding);
     margin-bottom: var(--default-padding);
+  }
+
+  #headshot .picture_wrapper,
+  #headshot img {
+    border-radius: 50%;
   }
 
   @media screen and (min-width: 500px) {
@@ -46,13 +50,13 @@ footer:
       padding-top: calc(1.5 * var(--default-padding));
     }
 
-    img#headshot {
+    #headshot {
       float: right;
     }
   }
 
   @media screen and (max-width: 500px) {
-    img#headshot {
+    #headshot {
       display: block;
       margin-top: var(--default-padding);
       margin-left:  auto;
@@ -63,15 +67,16 @@ footer:
 
 **Hi, I’m Alex. I'm a software developer, writer, and hand crafter from the UK.**
 
+<div id="headshot">
 {%
   picture
   filename="profile_green_square.jpg"
-  id="headshot"
   parent="/images"
   width="230"
   alt="A selfie! I’m smiling at the camera, wearing a green dress, and sitting in front of a large amount of green foliage. It’s a sunny day and shining both on the side of my face and the plants."
   class="rounded_corners"
 %}
+</div>
 
 I build systems for **digital preservation** -- making sure that digital archives remain safe and accessible into the far future.
 Currently I think about photos at <a href="https://www.flickr.org">the Flickr Foundation</a>, and before that I helped build services to store and search the museum and library collections at <a href="https://wellcomecollection.org/">Wellcome Collection</a>.

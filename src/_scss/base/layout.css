@@ -61,12 +61,6 @@ article, main {
   padding-bottom: 2em;
 }
 
-.screenshot {
-  border-radius: var(--border-radius);
-  border: var(--border-width) var(--border-style) var(--screenshot-border);
-  max-width: calc(100% - 2 * var(--border-width));
-}
-
 
 @media (prefers-color-scheme: dark) {
   /* see https://web.dev/articles/prefers-color-scheme#re-colorize_and_darken_photographic_images */
