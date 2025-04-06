@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Always running
-summary: When the fire starts, somebody is running for the exit. A short story.
+summary: When the fire starts, I am already running for the exit. I run because somebody must show the way.
 tags:
   - fiction
+index:
+  feature: true
 ---
 *I'm trying something a bit different today -- fiction. I had an idea for a short story the other evening, and I decided to flesh it out into a proper piece. I want to get better at writing fiction, and the only way to do that is with practice. I hope you like what I've written!*
 
