@@ -35,7 +35,7 @@ This is the HTML and CSS I use to achieve this effect:
 --color:  …;
 
 .thumbnail_wrapper {
-  aspect-ratio: var(--width) / var(--height);
+  aspect-ratio: calc(var(--width) / var(--height));
   background:   var(--color);
 }
 
@@ -48,3 +48,6 @@ This is the HTML and CSS I use to achieve this effect:
 The `thumbnail_wrapper` div is set to the right size with the `aspect-ratio` property, and then I add the solid colour background.
 
 The `img` is set to fill the container div, and `display: block` is to avoid any space between the bottom of the image and the bottom of the div -- by default, an `img` element is `display: inline`, which adds a small gap as part of the line height.
+
+**Note:** If your `--width` and `--height` are pure numeric values (e.g. `--width: 1024`) then you can remove the `calc()`.
+If they specify a dimension (e.g. `--width: 1024px`) then you need the `calc()`.
