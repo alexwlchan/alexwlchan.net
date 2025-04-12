@@ -21,7 +21,7 @@ I'm converting more and more of my local data to be stored in static websites --
 I really like this approach.
 
 I got a lot of positive feedback, but the most common reply was "please share some source code".
-People wanted to see examples of the HTML and JavaScript I was using
+People wanted to see examples of the HTML and JavaScript I was using.
 
 I deliberately omitted any code from the original post, because I wanted to focus on the concept, not the detail.
 I was trying to persuade you that static websites are a good idea for storing small archives and data sets, and I didn't want to get distracted by the implementation.
