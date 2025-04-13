@@ -61,7 +61,12 @@ module Jekyll
       src_code = File.read("#{src}/_files/#{year}/#{@filename}").strip
       language = @attrs['language'] || guess_language(@filename)
 
-      "{% highlight #{language} %}\n#{src_code}\n{% endhighlight %}\n"
+      input = "```#{language}\n" \
+              "#{src_code}\n" \
+              "```\n"
+
+      site.find_converter_instance(Jekyll::Converters::Markdown)
+          .convert(input)
     end
   end
 end
