@@ -63,7 +63,7 @@ domains_to_check = {
   'fm3._domainkey.finduntaggedtumblrposts.com' => ['CNAME'],
 
   # bijouopera.co.uk
-  'bijouopera.co.uk' => %w[NS MX A TXT],
+  'bijouopera.co.uk' => %w[NS MX TXT],
   'fm1._domainkey.bijouopera.co.uk' => ['CNAME'],
   'fm2._domainkey.bijouopera.co.uk' => ['CNAME'],
   'fm3._domainkey.bijouopera.co.uk' => ['CNAME']
