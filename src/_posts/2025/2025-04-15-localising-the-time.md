@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-04-15 21:23:24 +0000
 title: Localising the `<time>` with JavaScript
 summary:
   I'm using the `<time>` element and some JavaScript to display timestamps as human-readable, localised timestamps. Something like `Tue, 15 Apr 2025 at 20:45 BST` is easier to read than `2025-04-15T19:45:00Z`.
