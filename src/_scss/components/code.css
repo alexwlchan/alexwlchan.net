@@ -7,6 +7,12 @@ code {
   font-size: 88%;
 }
 
+/* When I use <code> in post titles, I need to make sure it doesn't
+ * throw off the line spacing. */
+h1 code {
+  line-height: 88%;
+}
+
 pre {
   padding:
     calc(2 * var(--default-padding) / 3)
@@ -19,7 +25,7 @@ pre {
   -webkit-text-size-adjust: 100%;
 }
 
-  /* This ensures the first line of <pre> blocks doesn't have a funny indent */
+/* This ensures the first line of <pre> blocks doesn't have a funny indent */
 pre code {
   margin:       0px;
   padding-left: 0px;
