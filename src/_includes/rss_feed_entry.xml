@@ -4,7 +4,7 @@
     href="{% if post.link %}{{ post.link | add_utm_source }}{% else %}{{ post.url | absolute_url }}?utm_source=rss{% endif %}"
     rel="alternate"
     type="text/html"
-    title="{{ post.title | strip_html | xml_escape }}"
+    title="{{ post.title | xml_escape }}"
   />
   <published>{{ post.date | date_to_xmlschema }}</published>
   <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
