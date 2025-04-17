@@ -1,7 +1,7 @@
 ---
 layout: post
-title: My wrapper around `keyring.get_password()`
-summary: If `get_password()` can't find a password, I throw an exception with an error that explains how to set the password, and what password you should choose.
+title: "Beyond `None`: actionable error messages for `keyring.get_password()`"
+summary: I have a wrapper for `get_password()` so that if it can't find a password, you get an error that explains how to set the password, and what password you should choose.
 tags:
   - python
   - error messages
