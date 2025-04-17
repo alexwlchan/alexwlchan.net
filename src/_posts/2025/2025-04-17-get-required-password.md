@@ -7,6 +7,10 @@ tags:
   - python
   - error messages
 ---
+{% comment %}
+  Social media card image from https://www.pexels.com/photo/close-up-of-keys-333837/
+{% endcomment %}
+
 I'm a big fan of [keyring][pypi], a Python module made by [Jason R. Coombs][jaraco] for storing secrets in the system keyring.
 It works on multiple operating systems, and it knows what password store to use for each of them.
 For example, if you're using macOS it puts secrets in the [Keychain], but if you're on Windows it uses [Credential Locker].
