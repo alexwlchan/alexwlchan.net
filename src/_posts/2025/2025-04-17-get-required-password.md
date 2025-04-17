@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-04-17 06:51:06 +0000
 title: "Beyond `None`: actionable error messages for `keyring.get_password()`"
 summary: I have a wrapper for `get_password()` so that if it can't find a password, you get an error that explains how to set the password, and what password you should choose.
 tags:
