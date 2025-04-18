@@ -13,6 +13,7 @@ footer {
 
 footer,
 footer a,
+footer a:hover,
 footer a:visited {
   color: white;
 }
