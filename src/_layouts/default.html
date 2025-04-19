@@ -27,7 +27,7 @@ layout: compress
 
           /* We don't need to show the alt text wrapper on card images, which
            * never have alt text, and intentionally so. */
-          if (img.classList.contains('c_im_w')) {
+          if (img.parent.parent.classList.contains('c_im_w')) {
             return;
           }
 
