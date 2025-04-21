@@ -119,6 +119,8 @@ I've made two changes to prevent this happening again.
 This whole "bug" reminds me of a phenomenon called [flash of unstyled text][fout], where web pages would briefly appear with the default font before custom fonts finished loading.
 I rarely use custom fonts on the web so I never encountered this issue in the font context, but it's still affecting me in dark mode!
 
+In these dark times for the web, old problems are new again.
+
 [white_waves]: https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
 [prefers_dark]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
 [fout]: https://en.wikipedia.org/wiki/Flash_of_unstyled_content
