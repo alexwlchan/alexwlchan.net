@@ -16,7 +16,7 @@
 .article_cards .card {
   border-radius: var(--border-radius);
   overflow: hidden;
-  background: var(--article-card-background);
+  background: var(--background-color);
   border: var(--border-width) var(--border-style) var(--c-color);
 
   /* An article card can declare two colour variables: --c-lt (light) and --c-dk (dark).

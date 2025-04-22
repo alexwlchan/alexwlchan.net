@@ -37,12 +37,6 @@ $body-text-dark:  #c7c7c7;
     --border-radius: 10px;
     --border-style:  solid;
     --border-width:  3px;
-
-    /* Background image for the page.
-     * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
-     * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
-     */
-    --background: url('/theme/white-waves-transparent.png');
   }
 
   /* =====================================
@@ -61,10 +55,12 @@ $body-text-dark:  #c7c7c7;
     
     --screenshot-border: #f0f0f0;
 
-    /* This gives cards a v subtle solid background colour, to make them
-     * stand out from the textured background.
+    /* Background image for the page.
+     * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
+     * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
      */
-    --article-card-background: #fafafa;
+    --background-image: url("https://alexwlchan.net/theme/white-waves-transparent.png");
+    --background-color: #fafafa;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -78,14 +74,13 @@ $body-text-dark:  #c7c7c7;
       
       --screenshot-border: #3f3f3f;
 
-      --article-card-background: #0d0d0d;
-
       /* Background image for the page.
        * This is "White Waves Pattern" by Stas Pimenov, with the colours
        * flipped -- it's the same as the light background, but inverted.
        * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
        */
-      --background: url('/theme/black-waves-transparent.png');
+      --background-color: #0d0d0d;
+      --background-image: url("https://alexwlchan.net/theme/black-waves-transparent.png");
     }
   }
 
