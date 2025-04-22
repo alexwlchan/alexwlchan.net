@@ -1,13 +1,14 @@
 ---
 layout: post
-title: Fixing the background of my site in dark mode
-summary: If you're using an image as your background, remember to set a fallback colour as well.
+title: A flash of light in the darkness
+summary: If you're using an image as your background, remember to set a fallback colour as well, especially if you're in dark mode.
 tags:
   - css
   - blogging about blogging
 ---
-I support dark mode on this site, even though I don't use it myself.
-As part of my dark theme, I have a colour-inverted copy of the background texture I use on the light mode of the site, which is the ["White Waves" pattern][white_waves] made by Stas Pimenov.
+I support dark mode on this site, and as part of the dark theme, I have a colour-inverted copy of the default background texture.
+I like giving my website a subtle bit of texture, which I think makes it stand out from a web which is mostly solid-colour backgrounds.
+Both my textures are based on the ["White Waves" pattern][white_waves] made by Stas Pimenov.
 
 <style type="text/css">
   #comparison {
@@ -34,15 +35,15 @@ As part of my dark theme, I have a colour-inverted copy of the background textur
 
 <figure style="width: 500px;">
   <div id="comparison">
-    <img src="/theme/white-waves-transparent.png" alt="">
-    <img src="/theme/black-waves-transparent.png" alt="">
+    <img src="/theme/white-waves-transparent.png" alt="" class="dark_aware">
+    <img src="/theme/black-waves-transparent.png" alt="" class="dark_aware">
   </div>
   <figcaption>
-    If you don't switch between light and dark mode, odds are good that you've only ever seen one of these background textures.
+    If you don’t switch between light and dark mode, you’ve probably only seen one of these background textures.
   </figcaption>
 </figure>
 
-I was setting these images as the background with two CSS rules, using the [`prefers-color-scheme: dark`][prefers_dark] media feature to swap out the image in dark mode:
+I was setting these images as my background with two CSS rules, using the [`prefers-color-scheme: dark`][prefers_dark] media feature to use the alternate image in dark mode:
 
 ```
 body {
@@ -56,25 +57,39 @@ body {
 }
 ```
 
-And this works… mostly.
+This works, mostly.
 
-But I mostly use light mode, so while I wrote this CSS and I do some brief testing whenever I make changes, I'm not *using* the site in dark mode.
-I know how it works in my local development environment, not how it feels as a day-to-day user.
+But I prefer light mode, so while I wrote this CSS and I do some brief testing whenever I make changes, I'm not *using* the site in dark mode.
+I know how dark mode works in my local development environment, not how it feels as a day-to-day user.
 
-Late last night I had my phone in dark mode to avoid waking the other people in the house, and I opened my site.
+Late last night I was using my phone in dark mode to avoid waking the other people in the house, and I opened my site.
 I saw a brief flash of white, and then the dark background texture appeared.
 That flash of bright white is precisely what you *don't* want when you're using dark mode, but it happened anyway.
 I made a note to work it out in the morning, then I went to bed.
 
 Now I'm fully awake, it's obvious what happened.
-Because I'm only setting the image URL as the `background` property, there's a brief gap between the CSS being parsed and the background image being loaded.
+Because my only `background` is the image URL, there's a brief gap between the CSS being parsed and the background image being loaded.
 In that time, the browser doesn't have anything to put in the background, so you just get pure white.
+
+This was briefly annoying in the moment, but it would be even more worse if the background texture never loaded.
+I have light text on black in dark mode, but without the background image it's just light text on white, which is barely readable:
+
+{%
+  picture
+  filename="dark_mode_sans_background.png"
+  width="374"
+  class="screenshot dark_aware"
+  alt="Screenshot of light grey text on a white background. The text is difficult to read because it has barely any contrast with the background."
+%}
+
+I never noticed this in local development, because I'm usually working in a well-lit room where that white flash would be far less obvious.
+I'm also using a local version of the site, which loads near-instantly and where the background image is almost certainly saved in my browser cache.
 
 I've made two changes to prevent this happening again.
 
 1.  **I've added a colour to use as a fallback until the image loads.**
-    You can add a colour to your `background` property, and it's used until the image loads, or as a fallback if it doesn't.
-    I already use this in a few places, and I'd just forgotten to add it for my background textures.
+    The CSS `background` property supports adding a colour, which is used until the image loads, or as a fallback if it doesn't.
+    I already use this in a few places, and now I've added it to my `body` background.
 
     <pre><code>body {
       background: url('https://…/white-waves-transparent.png') <mark>#fafafa</mark>;
@@ -116,10 +131,12 @@ I've made two changes to prevent this happening again.
 
     I've seen a lot of sites using `<link rel="preload">` and I've only half-understood what it is and why it's useful -- I'm glad to have a chance to use it myself, so I can understand it better.
 
-This whole "bug" reminds me of a phenomenon called [flash of unstyled text][fout], where web pages would briefly appear with the default font before custom fonts finished loading.
-I rarely use custom fonts on the web so I never encountered this issue in the font context, but it's still affecting me in dark mode!
+This bug reminds me of a phenomenon called [flash of unstyled text][fout].
+Back when custom fonts were fairly new, you'd often see web pages appear briefly with the default font before custom fonts finished loading.
+There are well-understood techniques for preventing this, so it's unusual to see that brief unstyled text on modern web pages -- but the same issue is affecting me in dark mode
+I avoided using custom fonts on the web to avoid tackling this issue, but it got me anyway!
 
-In these dark times for the web, old problems are new again.
+In these dark times for the web, old bugs are new again.
 
 [white_waves]: https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
 [prefers_dark]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
