@@ -76,8 +76,12 @@ The documentation also explains why, when I wasn't using `StrictUndefined`, I ha
 > `class jinja2.Undefined` – The default undefined type. This can be printed, iterated, and treated as a boolean. **Any other operation will raise an UndefinedError.**
 
 This is an interesting idea that I don't think I've come across before.
-It's an empty value like `None` or `undefined` in other languages, but it includes an error message that can be helpful for debugging. 
+It's an empty value like `None` or `undefined` in other languages, but it includes an error message that can be helpful for debugging.
 
 [_min_or_max]: https://github.com/pallets/jinja/blob/220e67ae999c24e4077d7bf5bdc932757b65a338/src/jinja2/filters.py#L486-L503]
 [Undefined]: https://jinja.palletsprojects.com/en/stable/api/#jinja2.Undefined
 [search]: https://github.com/search?q=repo%3Apallets%2Fjinja%20environment.undefined&type=code
+
+Sort of similar to Optional
+I guess it's sort of like an Err type?
+But not necessarily an Err
