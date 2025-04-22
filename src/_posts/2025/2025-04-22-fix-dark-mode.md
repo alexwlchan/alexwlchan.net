@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-04-22 06:40:55 +0000
 title: A flash of light in the darkness
 summary: If you're using an image as your background, remember to set a fallback colour as well, especially if you're in dark mode.
 tags:
