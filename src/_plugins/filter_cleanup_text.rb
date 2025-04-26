@@ -95,6 +95,7 @@ class AddNonBreakingSpaces
       'iPhone X',
       'IP address',
       'JPEG 2000',
+      'Latin-1',
       'Mac OS 9',
       'Mac OS X',
       'Monki Gras',
@@ -107,6 +108,7 @@ class AddNonBreakingSpaces
       'Route 53',
       'Silo 49',
       'System 1',
+      'Windows-1252',
       'z-axis',
     ]
 
