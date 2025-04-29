@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2025-04-29 21:47:09 +0000
-title: Copying SQLite databases between computers
+title: A faster way to copy SQLite databases between computers
 summary:
   Dumping a SQLite database to a text file can make it much smaller, which means you can download it faster.
 tags:
