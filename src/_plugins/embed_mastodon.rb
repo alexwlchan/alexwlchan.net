@@ -39,6 +39,30 @@ MASTODON_METADATA_SCHEMA = {
           items: {
             type: 'string'
           }
+        },
+        user_mentions: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              label: { type: 'string' },
+              profile_url: { type: 'string' }
+            },
+            required: %w[label profile_url],
+            additionalProperties: false
+          }
+        },
+        urls: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              url: { type: 'string' },
+              display_url: { type: 'string' }
+            },
+            required: %w[url display_url],
+            additionalProperties: false
+          }
         }
       }
     }
@@ -102,6 +126,20 @@ module Jekyll
         text = text.sub(
           "##{h}",
           "<a href=\"https://#{server}/tags/#{h}\">##{h}</a>"
+        )
+      end
+
+      toot_data['entities'].fetch('urls', []).each do |u|
+        text = text.sub(
+          u['url'],
+          "<a href=\"#{u['url']}\">#{u['display_url']}</a>"
+        )
+      end
+
+      toot_data['entities'].fetch('user_mentions', []).each do |u|
+        text = text.sub(
+          "@#{u['label']}",
+          "<a href=\"#{u['profile_url']}\">@#{u['label']}</a>"
         )
       end
 
