@@ -40,7 +40,6 @@ footer form input[type="submit"] {
   border: 2px solid white;
   border-radius: 5px;
   color: white;
-  font-family: var(--text-font-family);
   font-size: 1em;
   background: var(--primary-color-light);
   margin-top: 3px;
