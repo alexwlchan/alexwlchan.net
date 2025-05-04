@@ -27,6 +27,7 @@ class AddNonBreakingSpaces
       Artemis
       HTTP
       ImageMagick
+      ISO/IEC
       Issue
       issue
       iPres
@@ -89,6 +90,7 @@ class AddNonBreakingSpaces
       'CC BY',
       'DjangoCon US',
       'Dr. Drang',
+      'ECMA-404',
       'Git LFS',
       'HTTP 200 OK',
       'iMac G3',
