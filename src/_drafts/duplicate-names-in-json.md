@@ -6,21 +6,25 @@ tags:
   - python
   - json
 ---
+
 Consider the following JSON object:
 
 ```
 {
-  "sides": 4,
+  "sides":  4,
   "colour": "red",
-  "sides": 5,
+  "sides":  5,
   "colour": "blue"
 }
 ```
 
-Notice that the `sides` and `colour` names both appear twice!
-This looks like it should be invalid, but I was surprised to learn recently that this is considered valid JSON -- there's nothing in the spec that forbids you doing this.
+Notice that `sides` and `colour` both appear twice.
+This looks invalid, but I learnt recently that this is actually legal JSON syntax!
+It's unusual and discouraged, but it's not completely forbidden.
 
-I recently encountered this in a Python project, and it got me thinking about how to handle it.
+This was a big surprise to me.
+I think of JSON objects as key/value pairs, and I associate them with data structures like a `dict` in Python or a `Hash` in Ruby -- both of which only allow unique keys.
+JSON has no such restriction, and I started thinking about how to handle it.
 
 
 
@@ -36,9 +40,9 @@ JSON is described by several standards, which [Wikipedia][standards] helpfully e
 >
 > The ECMA and ISO/IEC standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.
 
-All three of these standards explicitly allow the use of non-unique keys.
+All three of these standards explicitly allow the use of duplicate names in objects.
 
-ECMA-404 and ISO/IEC 21778:2017 have identical text to describe the syntax of JSON objects, which says (emphasis mine):
+ECMA-404 and ISO/IEC 21778:2017 have identical text to describe the syntax of JSON objects, and they say (emphasis mine):
 
 > An object structure is represented as a pair of curly bracket tokens surrounding zero or more name/value pairs.
 > […]
@@ -49,17 +53,20 @@ RFC 8259 goes further and strongly recommends against duplicate names, but the u
 
 > The names within an object SHOULD be unique.
 
-The same document describes the consequences of ignoring this recommendation, and creating an object with non-unique keys:
+The same document warns about the consequences of ignoring this recommendation:
 
 > An object whose names are all unique is interoperable in the sense that all software implementations receiving that object will agree on the name-value mappings.
 > When the names within an object are not unique, the behavior of software that receives such an object is unpredictable.
 > Many implementations report the last name/value pair only.
 > Other implementations report an error or fail to parse the object, and some implementations report all of the name/value pairs, including duplicates.
 
-So it's technically valid, but it's unusual.
+So it's technically valid, but it's unusual and discouraged.
 
-I've never seen a use case for JSON objects with non-unique names, and I've never seen JSON objects where this was the expected syntax, as opposed to a mistake.
-Most JSON parsers will silently discard all but the last instance of a duplicate name, including jq, JavaScript, and Python:
+I've never heard of a use case for JSON objects with duplicate names.
+I'm sure there was a good reason for it being allowed by the spec, but I can't think of it.
+
+Most JSON parsers -- including jq, JavaScript, and Python -- will silently discard all but the last instance of a duplicate name.
+Here's an example in Python:
 
 ```pycon
 >>> import json
@@ -67,13 +74,13 @@ Most JSON parsers will silently discard all but the last instance of a duplicate
 {'colour': 'blue', 'sides': 5}
 ```
 
-What if I wanted to decode the whole object, or throw an exception if I see non-unique names?
+What if I wanted to decode the whole object, or throw an exception if I see duplicate names?
 
 This happened to me recently.
-I had a handwritten JSON file, and I'd copy/paste objects to update the data.
-I also had scripts which would read the file, make modifications, and write back the updated file.
+I was editing a JSON file by hand, and I'd copy/paste objects to update the data.
+I also had scripts which could update the file.
 I forgot to update the name on one of the JSON objects, so there were two name/value pairs with the same name.
-When the script ran, it silently erased the first value.
+When I ran the script, it silently erased the first value.
 
 I was able to recover the deleted value from the Git history, but I wondered how I could prevent this happening again.
 How could I make the script fail, rather than silently delete data?
@@ -85,28 +92,28 @@ How could I make the script fail, rather than silently delete data?
 
 
 
-## Decoding non-unique names in Python
+## Decoding duplicate names in Python
 
 When Python decodes a JSON object, it first parses the object as a list of name/value pairs, then it turns that list of name value pairs into a dictionary.
 
 We can see this by looking at the [JSONObject function][JSONObject] in the CPython source code: it builds a list `pairs`, and at the end of the function, it calls `dict(pairs)` to turn the list into a dictionary.
-This relies on the fact that `dict()` can take an iterable of key/value tuples and creates a dictionary:
+This relies on the fact that `dict()` can take an iterable of key/value tuples and create a dictionary:
 
 ```python
 >>> dict([('sides', 4), ('colour', 'red')])
 {'colour': 'red', 'sides': 4}
 ```
 
-The docs tell us that `dict()` will [discard duplicate keys](https://docs.python.org/3/library/stdtypes.html#dict): "if a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary".
-For example:
+The docs for `dict()` tell us that it` will [discard duplicate keys](https://docs.python.org/3/library/stdtypes.html#dict): "if a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary".
 
 ```python
 >>> dict([('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')])
 {'colour': 'blue', 'sides': 5}
 ```
 
-However, we can tell Python to skip `dict()` and unpack the list of name/value pairs by defining a function `object_pairs_hook`, and passing it to `json.loads()`.
-This function will be called with the list of name/value pairs, and can treat them in a different way.
+We can customise what Python does with the list of name/value pairs.
+Rather than calling `dict()`, we can pass our own function to the `object_pairs_hook` parameter of `json.loads()`, and Python will call that function on the list of pairs.
+This allows us to parse objects in a different way.
 
 For example, we can just return the literal list of name/value pairs:
 
@@ -120,7 +127,7 @@ For example, we can just return the literal list of name/value pairs:
 [('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')]
 ```
 
-We could also use the [multidict library][multidict] to get a dict-like data structure, but which supports multiple values per key.
+We could also use the [multidict library][multidict] to get a dict-like data structure which supports multiple values per key.
 This is based on HTTP headers and URL query strings, two environments where it's common to have multiple values for a single key:
 
 ```pycon
@@ -138,7 +145,11 @@ This is based on HTTP headers and URL query strings, two environments where it's
 [4, 5]
 ```
 
-If we want to throw an error when we see duplicate names, we need a slightly longer function.
+
+
+## Preventing silent data loss
+
+If we want to throw an exception when we see duplicate names, we need a longer function.
 Here's the code I wrote:
 
 ```python
@@ -176,7 +187,7 @@ def dict_with_unique_names(pairs: list[tuple[str, typing.Any]]) -> dict[str, typ
         )
 ```
 
-If I use this as my `object_pairs_hook` when parsing an object which has unique names, it returns the normal `dict` I'd expect:
+If I use this as my `object_pairs_hook` when parsing an object which has all unique names, it returns the normal `dict` I'd expect:
 
 ```pycon
 >>> json.loads(
@@ -187,7 +198,7 @@ If I use this as my `object_pairs_hook` when parsing an object which has unique 
 {'colour': 'red', 'sides': 4}
 ```
 
-But if I use this as my `object_pairs_hook` when parsing an object with one or more repeated names, the parsing fails and I get a `ValueError`:
+But if I'm parsing an object with one or more repeated names, the parsing fails and throws a `ValueError`:
 
 ```pycon
 >>> json.loads(
@@ -216,9 +227,9 @@ This is precisely the behaviour I want -- throwing an exception, not silently dr
 
 ## Encoding non-unique names in Python
 
-Admittedly, I can't think of a time when I'd want to do this, but this post feels incomplete without at least a brief mention.
+It's hard to think of a use case, but this post feels incomplete without at least a brief mention.
 
-If you want to encode custom data structures with Python's JSON library, you can subclass [`JSONEncoder`][JSONEncoder] and implement JSON serialisation for your custom structures.
+If you want to encode custom data structures with Python's JSON library, you can subclass [`JSONEncoder`][JSONEncoder] and define how those structures should be serialised.
 Here's a rudimentary attempt at doing that for a `MultiDict`:
 
 ```python
@@ -247,9 +258,11 @@ and here's how you use it:
 {"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}
 ```
 
-This code doesn't handle indentation and there are probably bugs in the way I'm constructing the JSON string by hand, but it gives you an idea of how something like this could work.
+This is rough code, and you shouldn't use it -- it's only an example.
+I'm constructing the JSON string manually, so it doesn't handle edge cases like indentation or special characters.
+There are almost certainly bugs, and you'd need to be more careful if you wanted to use this for real.
 
-In practice, if I had to encode a multi-dict as JSON, I'd be more likely to encode it as a list of objects with a `key` and a `value` field.
+In practice, if I had to encode a multi-dict as JSON, I'd encode it as a list of objects which each have a `key` and a `value` field.
 For example:
 
 ```
@@ -261,30 +274,29 @@ For example:
 ]
 ```
 
-This is a much more common pattern, and is unlikely to trip up JSON parsers which aren't expecting non-unique names.
+This is a pretty standard pattern, and it won't trip up JSON parsers which aren't expecting duplicate names.
 
 [JSONEncoder]: https://docs.python.org/3/library/json.html#json.JSONEncoder
 
 
 
-## When will I use this code?
+## Do you need to worry about this?
 
-JSON objects with non-unique names are fairly unusual -- this is the first time I've ever encountered one, and it was a copy/paste error.
-Trying to account for this edge case in every project that uses JSON feels like overkill.
+This isn't a big deal.
+JSON objects with duplicate names are pretty unusual -- this is the first time I've ever encountered one, and it was a mistake.
+
+Trying to account for this edge case in every project that uses JSON would be overkill.
 It would add complexity to my code and probably never catch a single error.
 
-I've been thinking about how this problem occurred and why it was a problem.
-A human making a copy/paste error introduced the initial duplicated keys, and a program modifying the JSON file turned that into a data loss bug.
+This started when I made a copy/paste error that introduced the initial duplication, and then a script modified the JSON file and caused some data loss.
+That's a somewhat unusual workflow, because most JSON files are exclusively modified by computers, and this wouldn't be an issue.
 
-If a JSON file is exclusively modified by computers, this won't be an issue.
-Most JSON libraries won't write objects with repeated names unless you explicitly tell them to do so (like writing a custom encoder), and then it would be very obvious this needs to be handled in the decoder also.
-
-If a JSON file is exclusively modified by humans, this won't be an issue.
-They're more likely to make a mistake that introduces a repeated name, but they won't delete data just because it has a duplicate name.
-They'll stop, think, and work out what the right thing is to do with this data.
-
-This is only likely to be an issue if you have a JSON file which is modified by humans and computers alike.
-
-That's the case for some of my [static website archives](/2025/mildly-dynamic-websites/), which store metadata as JSON in JavaScript files, and it's where I made the original mistake.
 I've added this error handling to my [javascript-data-files library](https://github.com/alexwlchan/javascript-data-files), but I don't anticipate adding it to other projects.
-It's useful to know that JSON supports this in theory, but it's so rare in practice that I'm not overly concerned.
+I use that library for my [static website archives](/2025/mildly-dynamic-websites/), which is where I had this issue.
+
+Although I won't use this code exactly, it's been good practice at writing custom encoders/decoders in Python.
+That *is* something I do all the time -- I'm often encoding native Python types as JSON, and I want to get the same type back when I decode later.
+
+I've been writing my own subclasses of `JSONEncoder` and `JSONDecoder` for a while.
+Now I know a bit more about how Python decodes JSON, and `object_pairs_hook` is another tool I can consider using.
+This was a fun deep dive for me, and I hope you found it helpful too.
