@@ -5,12 +5,102 @@ summary:
 tags:
   - bookmarking
   - digital preservation
+colors:
+  css_light: "#0000ff"
+  css_dark:  "#00ddff"
 ---
-In my previous post, I described how I’ve created a static website for all my bookmarks. A key part of this setup is that I have a local copy of every page I’ve bookmarked.
+In [my previous post](/2025/bookmarks-static-site/), I described how I've created a static website for all my bookmarks.
+A key part of this setup is that I have a local copy of every page that I've bookmarked.
 
-Websites break or go offline, and these are the web pages I really care about, so I want to keep my own copy that’s protected from deletion. I don’t want to rely on a page it being saved by a Pinboard archiving account or the Wayback Machine – I want my own copy, which I can know is safe.
+My bookmarks are the links I really care about, so I want to keep my own copy that’s protected from deletion -- websites can easily break or go offline.
+I want my own copy, saved locally, which I can know is safe.
+I don't want to rely on a page being archived by a third-party service like Pinboard or the Wayback Machine.
 
-(( mention static websites ))
+In this second post, I'll talk about how I created a local copy of every link I've bookmarked, the tools I chose, and how I ensured the quality of my archive.
+
+<blockquote class="toc">
+  <p>This article is the second in a four part bookmarking mini-series:</p>
+  <ol>
+    <li>
+      <a href="/2025/bookmarks-static-site/"><strong>Creating a static site for all my bookmarks</strong></a> – why do I bookmark, why use a static site, and how does it work.
+    </li>
+    <li>
+      <strong>Creating a local archive of all my bookmarks</strong> (this article)
+    </li>
+    <li>
+      <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 19 May) – everything I learnt from reading the source code of the web pages I saved.
+    </li>
+    <li>
+      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 26 May) – some websites which are doing especially fun or clever things with the web.
+    </li>
+  </ol>
+</blockquote>
+
+<style>
+  .toc {
+    background: var(--background-color);
+    border-color: var(--primary-color);
+  }
+
+  .toc ol > li:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  .toc a:visited {
+    color: var(--primary-color);
+  }
+</style>
+
+
+
+---
+
+
+
+## Thoughts on web archiving
+
+### What have I tried in the past?
+
+### Automated scraping vs manual creation
+
+### Preserving the content, not the container
+
+
+
+---
+
+
+
+## How I created my web archives
+
+
+
+---
+
+
+
+## What I learnt about archiving the web
+
+### Lots of the web is built on now-defunct services
+
+### Links rot faster than web pages
+
+### Lazy loading is a headache for preservation
+
+### There's no clearly-defined boundary of what to collect
+
+### So many websites are a bloated mess
+
+
+
+---
+
+
+
+## Should you do this?
+
+
+---
 
 ## Preserve the content, not the container
 
