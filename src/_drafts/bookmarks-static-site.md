@@ -2,9 +2,15 @@
 layout: post
 title: Creating a static website for all my bookmarks
 summary:
+  To help me keep track of interesting links, I created a static website that keeps all my data locally. Why do I care about bookmarks, and how does my new site work?
 tags:
   - bookmarking
   - static sites
+index:
+  feature: true
+colors:
+  css_light: "#0000ff"
+  css_dark:  "#00ddff"
 ---
 I'm storing more and more of my data [as static websites][static_sites], and about a year ago I switched to using a local, static site to manage my bookmarks.
 It's replaced [Pinboard] as my way to track interesting links and cool web pages.
@@ -20,6 +26,11 @@ I save articles I've read, talks I've watched, fanfiction I've enjoyed.
 
 It’s taken hundreds of hours to get all my data and saved web pages into this new site, and I’ve learnt a lot about archiving and building the web.
 This post is the first of a four-part series about my bookmarks, and I'll publish the rest of the series over the next three weeks.
+
+[static_sites]: /2024/static-websites/
+[Pinboard]: https://pinboard.in
+
+
 
 <blockquote class="toc">
   <p>This article is the first in a four part bookmarking mini-series:</p>
@@ -54,10 +65,11 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
   .toc ol > li:not(:last-child) {
     margin-bottom: 1em;
   }
-</style>
 
-[static_sites]: /2024/static-websites/
-[Pinboard]: https://pinboard.in
+  .toc a:visited {
+    color: var(--primary-color);
+  }
+</style>
 
 
 
