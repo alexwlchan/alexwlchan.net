@@ -57,9 +57,46 @@ In this second post, I'll talk about how I created a local copy of every link I'
 
 
 
+## What do I want in a web archive of my bookmarks?
+
+* completely offline, including linked resources
+* easy to save new pages
+* supports private or paywalled pages
+* possible to edit pages
+
+
+
+
+
+
+---
+
+
+
 ## Thoughts on web archiving
 
-### What have I tried in the past?
+I've spent a lot of time thinking about how to preserve web pages, both personally and professionally.
+Before I talk about what I did for this project, I want to share some general thoughts about web archiving, where were on my mind as I thought about how to preserve my bookmarks.
+
+### What have I used in the past?
+
+I've tried so many different tools, it's hard to remember them all.
+They've all relied on some degree of automation, including:
+
+*   [wget] with [recursive retrieval], which downloads both a web page and the resources it refers to, including images and CSS.
+*   A Pinboard [archiving account], which automatically crawls bookmarks you save in Pinboard, and which I suspect uses wget under the hood
+*   The [Wayback Machine], which is a large collection of preserved web pages that's assembled using a variety of tools
+*   Last year I wrote a command-line tool to [create Safari webarchives][safari_webarchives], similar to the files you get with the "Save&nbsp;As…" menu item in Safari
+*   I've also written my own Python scripts
+
+[wget]: https://www.gnu.org/software/wget/
+[recursive retrieval]: https://www.gnu.org/software/wget/manual/wget.html#Recursive-Download
+[archiving account]: https://pinboard.in/faq/#archiving
+[Wayback Machine]: https://web.archive.org
+[safari_webarchives]: /2024/creating-a-safari-webarchive/
+
+### What do I want?
+
 
 ### Automated scraping vs manual creation
 
