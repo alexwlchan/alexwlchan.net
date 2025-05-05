@@ -21,14 +21,40 @@ I save articles I've read, talks I've watched, fanfiction I've enjoyed.
 It’s taken hundreds of hours to get all my data and saved web pages into this new site, and I’ve learnt a lot about archiving and building the web.
 This post is the first of a four-part series about my bookmarks, and I'll publish the rest of the series over the next three weeks.
 
-> **1. Creating a static site for all my bookmarks** -- what the site is
+<blockquote class="toc">
+  <p>This article is the first in a four part bookmarking mini-series:</p>
+  <ol>
+    <li>
+      <strong>Creating a static site for all my bookmarks</strong> (this article)
+      <ul>
+        <li><a href="#why_bookmark">Why do I bookmark?</a></li>
+        <li><a href="#why_static">Why use a static website?</a></li>
+        <li><a href="#how_it_looks">What does it look like?</a></li>
+        <li><a href="#how_it_works">How does it work?</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#"><strong>Creating a local archive of all my bookmarks</strong></a> (coming 12 May) – web archiving, automated vs manual, what I learnt about saving web pages.
+    </li>
+    <li>
+      <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 19 May) – everything I learnt from reading the source code of the web pages I saved.
+    </li>
+    <li>
+      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 26 May) – some websites which are doing especially fun or clever things with the web.
+    </li>
+  </ol>
+</blockquote>
 
-explaining how this site worked.
+<style>
+  .toc {
+    background: var(--background-color);
+    border-color: var(--primary-color);
+  }
 
-1.  Creating a static website for all my bookmarks
-2.  Creating a local archive of all my bookmarks
-3.  Learning how to make websites by reading two thousand web pages
-4.  Some cool websites from my bookmark collection
+  .toc ol > li:not(:last-child) {
+    margin-bottom: 1em;
+  }
+</style>
 
 [static_sites]: /2024/static-websites/
 [Pinboard]: https://pinboard.in
@@ -39,7 +65,7 @@ explaining how this site worked.
 
 
 
-## Why do I bookmark?
+<h2 id="why_bookmark">Why do I bookmark?</h2>
 
 ### I bookmark because I want to find links later
 
@@ -83,7 +109,7 @@ It's slower, but I find it much more useful.
 
 
 
-## Why use a static website?
+<h2 id="why_static">Why use a static website?</h2>
 
 I was a happy [Pinboard] customer for over a decade, but the site [feels abandoned][abandoned].
 I've not had catastrophic errors, but I kept running into broken features or rough edges -- search timeouts, unreliable archiving, unexpected outages.
@@ -113,7 +139,7 @@ They need minimal maintenance and there's no lock-in, and I've made enough of th
 
 
 
-## What does it look like?
+<h2 id="how_it_looks">What does it look like?</h2>
 
 The main page is a scrolling list of all my bookmarks.
 This is a single page that shows every link, because my collection is small enough that I don't need pagination.
@@ -160,7 +186,7 @@ Creating these archival copies took months, and I'll discuss it more in parts 2 
 
 
 
-## How does it work?
+<h2 id="how_it_works">How does it work?</h2>
 
 This is a static website building using the pattern I described in [How I create static websites for tiny archives].
 I have my metadata in a JavaScript file, and a small viewer that renders the metadata as an HTML page I can view in my browser.
