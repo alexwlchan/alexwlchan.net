@@ -184,7 +184,7 @@ Call me old-fashioned, but I still care about URL design, I think it's cool to u
 
 If I click the URL in grey, I go to the page live on the web.
 But if I click the title, I go to a local snapshot of the page.
-Because links can rot, and these are the links I care about most, I've saved a local copy of every page as a mini-website -- an HTML file and supporting assets.
+Because these are the links I care about most, and links can rot, I've saved a local copy of every page as a mini-website -- an HTML file and supporting assets.
 The title link is to these local snapshots, because they're guaranteed to be present, and they work offline.
 
 This is something I can only do because this is a personal tool.
