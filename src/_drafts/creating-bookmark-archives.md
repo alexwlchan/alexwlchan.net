@@ -29,7 +29,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
       <ul>
         <li><a href="#requirements">What do I want in a web page archive?</a></li>
         <li><a href="#manual_archiving">Why I chose a manual approach</a></li>
-        <li><a href="#howto">How I created my local web archive</a></li>
+        <li><a href="#howto">How I create my local web archives</a></li>
       </ul>
     </li>
     <li>
@@ -178,7 +178,7 @@ Let's go through the process in more detail.
 
 
 
-<h2 id="howto">How I created my local web archive</h2>
+<h2 id="howto">How I create my local web archives</h2>
 
 ### Saving a single web page
 
@@ -189,7 +189,7 @@ I open each file in my web browser and my text editor, then I use the developer 
 I save additional files and make changes in my text editor, then I reload the page in my browser and check the result.
 I gradually iterate towards my desired result -- a self-contained, offline copy of the original web page.
 
-When I'm in my browser's developer tools, I look at three tabs:
+When I'm in my browser's developer tools, I spend most of my time in tabs:
 
 The *network* tab tells me about the resources the page is requesting -- is it loading files from my local disk, or a remote server?
 The goal is that everything should be coming from a local disk.
@@ -225,24 +225,38 @@ For example, here's the console for an HTML file where I have yet to archive the
   </figcaption>
 </figure>
 
+I keep downloading files or editing the HTML file until I have a self-contained, local copy of the page with all the supporting resources.
+Everything is being loaded from my local disk, and the HTML page is making no external requests.
+
+That means removing stuff I don't care about (like ads and tracking) and changing links to stuff I am keeping (like editing the `src` attribute of `<img>` tags).
+I spent a lot of time reading and writing HTML.
+
+### Templates for repeatedly-bookmarked sites
+
+For large and complex websites that I bookmark regularly, I've created my own HTML templates that I can add content into.
+I can copy/paste the words and pictures, but I don't need to unpick the complex HTML every time I want to save the page.
+This includes sites like Medium, Tumblr, and the New York Times.
+
+[[ comparison ]]
+
+I was inspired by downloads on AO3, a popular fanfiction website.
+They allow you to [download anything on the site](https://archiveofourown.org/faq/downloading-fanworks?language_id=en) in several different formats, and they believe in it so strongly that individual authors can't disable downloads of their work (although they can restrict visibility).
+
+An HTML file downloaded from AO3 looks quite different to how it looks in the browser:
+
+{comparison}
+
+But I'm very happy with that HTML file as a backup -- it has all the words of the story, which is what I really care about.
+I realised I could create similar templates for other sites.
+**I'm preserving the content, not the container.**
+
+### Backfilling my existing bookmarks
+
+When I decided I wanted to a low-fi collection of static website archives, I already had partial collections from several sources, including Pinboard the Wayback Machine.
+It took almost a year to go through and migrated those old pages to the new structure -- fixing errors,
 
 
 ---
-
-I started with my existing archive, which was cobbled together from a collection of automated tools, like Pinboard and Safari webarchiver.
-
-I unpack that into files on disk -- an HTML file and supporting resources -- then open it in my web browser.
-
-I spent a lot of time looking in two tabs:
-
-* The "network" tab would show me if a web page was making any external requests, a clue that I needed to save more files to my archive
-* The "console" tab would show me any errors, to show me if a web page was trying to load any resources that I didn’t have saved yet
-
-I kept downloading files or editing the HTML file until I had a "clean" archive – a file that had everything I thought was worth saving, loading everything from my local disk and making no external requests. This meant removing stuff I didn't care about (like ads and tracking) and changing links to the stuff I did (like changing `<img>` tags to point to a local file rather than a server). I spent a lot of time reading and writing HTML.
-
-When I save new bookmarks today, I start by saving the page source as an HTML file, then I repeat the process – look for external resources being loaded, save them locally, update the page to fetch the file from the disk.
-
-For large and complex websites that came up repeatedly, I created my own HTML templates that I could drop content into – somewhere to put the words and pictures, but without keeping the entire page. These sites include Medium, Tumblr, and the New York Times.
 
 This took me about a year, doing a few pages a day – and now I have a complete, local archive of (almost) every web page I care about, and I know that every page has a high-quality, useful snapshot.
 
@@ -294,19 +308,6 @@ I built this collection from a variety sources, including live pages, the Waybac
 
 
 ---
-
-## Preserve the content, not the container
-
-I was inspired by downloads on AO3, a popular fanfiction website. They allow you to [download anything in the archive](https://archiveofourown.org/faq/downloading-fanworks?language_id=en) in several different formats, and they believe in it so strongly that individual authors can’t disable downloads of their work (although they can restrict visibility).
-
-When you download a work from AO3, you get a single HTML file that looks quite different to how it looks in the browser:
-
-{comparison}
-
-I’m very happy with that HTML file as a backup – I still have all the words of the story, which is what I really care about.
-
-I was thinking about this at the same time as I wrote {Using static websites}. What if I created a micro-website for each web page I archived – an HTML file with supporting CSS, JavaScript and image files that just sits in a folder? So that’s what I ended up doing.
-
 
 ## What I learnt about archiving the web
 
