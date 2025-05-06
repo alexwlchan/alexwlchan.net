@@ -14,6 +14,44 @@ colors:
   index_light: "#2f2f2f"
   index_dark:  "#66b8e8"
 ---
+
+* lots of web page archives swell because of avatars in comments
+		* I often just deleted the comments
+* remove banners
+  	* e.g. Stack Overflow AI
+  	* museum closures
+  	* ads
+  	* related content, news article distractions
+  	* compare two CNN pages [[Screenshot 2024-11-23 at 08.23.51.png]] / [[Screenshot 2024-11-23 at 08.23.49.png]]
+  	* purge fc (?) and onetrust
+* pages that embed Silverlight plugins = sad :'(
+* could say so much crap on web
+	* so many ads
+  * wordads, new ad between every paragraph
+	* wordpress sites with an ad element between every paragraph
+	* onetrust sdk, so big, up to a quarter of page on TeX.SE
+	* wordpress action bar
+	* routinely achived 10x–20x compression
+		* Most egregious: Jay’s “The Weight”
+		* 20MB of Squarespace JS
+		* Reduced to 1.2MB of fonts + CSS + HTML, just 45KB of HTML
+		* 2000 words*
+  * csswizardry.com ~> was measuring performance of page load with dozens of inline `<script>` tags
+* look for iframe and script
+* twitter following widgets
+* next.js apps are the worst
+* replace inline video playes, e.g. JWPlayer with `<video>`
+see Tommy Dorfman
+
+*purge fc and onetrust
+
+```
+<div class="wordads-ad-wrapper"><div class="wordads-ad"><div class="wordads-ad-title">Advertisement</div><div class="wordads-ad-content" id="wordads-ad-\d+"></div><div class="wordads-ad-controls"><span onclick="__tcfapi\( 'showUi' \)">Privacy Settings</span></div></div></div>
+```
+
+
+---
+
 In [my previous post](/2025/bookmarks-static-site/), I described how I've created a static website for all my bookmarks.
 A key part of this setup is that I have a local copy of every page that I've bookmarked.
 
