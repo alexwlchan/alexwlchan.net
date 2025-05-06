@@ -1,14 +1,18 @@
 ---
 layout: post
-title: Creating a local archive of all my bookmarks
+title: How I built a personal archive of the web
 summary: |
-  How I built my web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
+  How I built a web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
 tags:
   - bookmarking
   - digital preservation
+index:
+  feature: true
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
+  index_light: "#2f2f2f"
+  index_dark:  "#66b8e8"
 ---
 In [my previous post](/2025/bookmarks-static-site/), I described how I've created a static website for all my bookmarks.
 A key part of this setup is that I have a local copy of every page that I've bookmarked.
@@ -32,6 +36,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
         <li><a href="#manual_archiving">Why I chose a manual approach</a></li>
         <li><a href="#howto">How I create my local web archives</a></li>
         <li><a href="#what_i_learnt">What I learnt about archiving the web</a></li>
+        <li><a href="#conclusion">Should you do this?</a></li>
       </ul>
     </li>
     <li>
@@ -421,7 +426,7 @@ After deleting the 200th copy of Google Analytics from my archive, I got curious
 
 
 
-## Should you do this?
+<h2 id="conclusion">Should you do this?</h2>
 
 Creating a web archive is always a tradeoff between speed and quality.
 Automated tools are fast but imperfect.
