@@ -116,33 +116,37 @@ I want to be able to trim what I save, and just keep the useful parts.
 
 I'm a big fan of automated tools for archiving the web, and I've used them a lot over the years.
 
-Tools like [ArchiveBox], [Webrecorder], and the [Wayback Machine] have preserved enormous chunks of the web, pages that would otherwise be lost.
-I paid for a Pinboard [archiving account] for a decade, and I look for a page in the Internet Archive at least once a week.
-I've used tools like [wget], and last year I wrote a command-line tool to [create Safari webarchives][safari_webarchives].
-The size and scale of our existing web archives is entirely due to automation.
+Tools like [ArchiveBox], [Webrecorder], and the [Wayback Machine] have preserved enormous chunks of the web -- pages that would otherwise be lost.
+I paid for a Pinboard [archiving account] for a decade, and I search the Internet Archive at least once a week.
+I've used tools like [wget], and last year I even wrote a command-line tool to [create Safari webarchives][safari_webarchives].
+The size and scale of today's web archives are only possible because of automation.
 
-But automation isn't a panacea, it's a trade-off.
-You trade speed for accuracy -- nobody is reviewing pages when they're archived, so they may have mistakes or missing files.
+But automation isn't a panacea -- it's a trade-off.
+You trade speed for accuracy.
+Nobody is reviewing pages as they're archived, so they can contains mistakes or be missing essential files.
 
-When I reviewed my Pinboard archive, I found a lot of gaps and broken pages.
-These were web pages I really care about, and I thought I had a backup, but it was false sense of security.
+When I reviewed my old Pinboard archive, I found a lot of broken pages and missing content.
+These were web I really care about, and I thought I had them backed up, but that turned out to be a false sense of security.
 
 People often say "a backup isn't a backup unless you test it".
-What would it mean to test a backup of over two thousand web pages--reviewing every page by hand?
+What would it mean to test a backup of over two thousand web pages?
+Reviewing every page by hand?
 Opening each one in a web browser?
-Checking for the text and images I actually care about?
+Checking they include the text and images I actually care about?
 
 That would be ridiculous, right?
 
 Right?
 
-I don't need a general purpose web archiving tool; I only care about creating an archive of a particular set of pages.
-Once I know I have a good snapshot on a pages, I don't need to save it again -- I just need to keep that copy safe.
-It would take a long time to create and review an archive by hand, but once it's done, it won't need much maintenance.
+I don't need a general purpose web archiving tool -- I just need an archive of a particular set of pages.
+Once I know I have a good snapshot on a pages, I don't need to save it again; I just need to keep that copy safe.
+Create and checking an archive by hand takes time, but once it's done, it's low maintenance.
 
 So I decided to create my archive manually.
 
-I saved a static copy of every bookmark -- a folder with the HTML, stylesheets, images, and other linked resources.
+### A static folder for every page
+
+For every bookmark, I saved a static copy: a folder containing the HTML, stylesheets, images, and other linked files.
 Each one is a self-contained "mini-website" that I can open in a browser, even if the original page disappears.
 
 <figure style="width: 550px;">
@@ -155,13 +159,15 @@ Each one is a self-contained "mini-website" that I can open in a browser, even i
   %}
   <figcaption>
     The files for <a href="https://preshing.com/20110926/high-resolution-mandelbrot-in-obfuscated-python/">a single web page</a>, saved in a folder in my archive.
-    I flatten the structure of each website into a couple of top-level folders like <code>images</code> and <code>static</code>, to keep the archive simple and readable.
-    I don’t care about the exact URLs used on the original site.
   </figcaption>
 </figure>
 
-This is the same approach I'm using for the bookmarks site itself, leaning on standards-based web technology to create something simple, reliable ,and likely to last.
-For every page, I'd open it in my web browser and visually verify that everything saved correctly.
+Each page lives in its own folder.
+I flatten the structure of each website into top-level folders like <code>images</code> and <code>static</code>, which keeps things simple and readable.
+I don’t care about the exact URL paths from the original site.
+
+This is the same approach I'm using for the bookmarks site itself, leaning on standards-based web technology to create something simple, durable, and easo to maintain.
+For every page, I open it in my web browser and verify that everything loads correctly.
 
 Let's go through the process in more detail.
 
@@ -182,17 +188,18 @@ Let's go through the process in more detail.
 
 ### Saving a single web page
 
-I start by saving an HTML file.
-I usually use the "Save As" button my web browser.
+I start by saving the HTML file, usually using the "Save As" button my web browser.
 
-I open each file in my web browser and my text editor, then I use the developer tools to look for supporting resources that I should save.
-I save additional files and make changes in my text editor, then I reload the page in my browser and check the result.
-I gradually iterate towards my desired result -- a self-contained, offline copy of the original web page.
+Then I open that file in a web browser and my text editor.
+Using the browser's developer tools, I look for supporting resources that I need to save locally -- stylesheets, fonts, images.
+I download any missing files, edit the HTML in my text editor to point at the local copy, then reload the page in the browser to see the result.
+I keep going until I have a self-contained, offline copy of the page.
 
-When I'm in my browser's developer tools, I spend most of my time in tabs:
+Most of my time in the developer tools is spent in two tabs.
 
-The *network* tab tells me about the resources the page is requesting -- is it loading files from my local disk, or a remote server?
-The goal is that everything should be coming from a local disk.
+**Network** show me what resources the page is loading.
+Are they being served from my local disk, or fetched from the Internet?
+The goal is that *everything* comes from disk.
 
 <figure style="width: 600px;">
   {%
@@ -207,10 +214,9 @@ The goal is that everything should be coming from a local disk.
   </figcaption>
 </figure>
 
-The *console* tab tells me about errors loading the page -- a lot of red is usually a sign that there's a supporting resource I haven't saved yet.
-The goal is to get to no errors.
-
-For example, here's the console for an HTML file where I have yet to archive the fonts or images:
+**Console** tells me about errors loading the page -- some image that can't be found, or a JavaScript file that didn't load properly.
+A wall of red means I've missed something, like a font or image I haven't downloaded yet.
+My goal is to get to zero errors.
 
 <figure style="width: 600px;">
   {%
@@ -225,58 +231,88 @@ For example, here's the console for an HTML file where I have yet to archive the
   </figcaption>
 </figure>
 
-I keep downloading files or editing the HTML file until I have a self-contained, local copy of the page with all the supporting resources.
-Everything is being loaded from my local disk, and the HTML page is making no external requests.
+As I'm editing the page, I remove stuff I don't care about (ads, banners, tracking) and update references to things I'm keeping (like changing the `src` on `<img>` tags).
+I spent a lot of time reading and editing HTML by hand.
 
-That means removing stuff I don't care about (like ads and tracking) and changing links to stuff I am keeping (like editing the `src` attribute of `<img>` tags).
-I spent a lot of time reading and writing HTML.
+Once I've downloaded everything the page needs and eliminated external requests, I have a self-contained local copy.
 
 ### Templates for repeatedly-bookmarked sites
 
-For large and complex websites that I bookmark regularly, I've created my own HTML templates that I can add content into.
-I can copy/paste the words and pictures, but I don't need to unpick the complex HTML every time I want to save the page.
-This includes sites like Medium, Tumblr, and the New York Times.
+For big, complex websites that I bookmark often -- like Medium, Wired, or the New York Times -- I've created simple HTML templates.
+I drop in the text and images, but I don't need to unpick the site's HTML every time.
+These templates save me a lot of effort.
 
-[[ comparison ]]
+<figure style="width: 600px;">
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 0.5em;">
+    {%
+      picture
+      filename="bookmarks/nytimes_theirs.png"
+      width="300"
+      class="screenshot"
+      style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+    %}
+    {%
+      picture
+      filename="bookmarks/nytimes_mine.png"
+      width="300"
+      class="screenshot"
+      style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
+    %}
+  </div>
+  <figcaption>
+    You can tell which one is the <a href="https://www.nytimes.com/2016/03/27/opinion/sunday/my-mothers-garden.html">real article</a>, because you have to click through two dialogs and scroll past an ad before you see any text.
+  </figcaption>
+</figure>
 
-I was inspired by downloads on AO3, a popular fanfiction website.
-They allow you to [download anything on the site](https://archiveofourown.org/faq/downloading-fanworks?language_id=en) in several different formats, and they believe in it so strongly that individual authors can't disable downloads of their work (although they can restrict visibility).
+This approach was inspired by AO3 (the Archive of Our Own), a popular fanfiction site.
+They offer [downloadable versions](https://archiveofourown.org/faq/downloading-fanworks?language_id=en) of every story in multiple formats, and they believe in it so strongly that individual authors *can't* disable downloads of their work -- though they can restrict visibility.
 
-An HTML file downloaded from AO3 looks quite different to how it looks in the browser:
+An HTML download from AO3 looks different to the styled version you'd see browsing the web:
 
-{comparison}
+<figure style="width: 600px;">
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 0.5em;">
+    {%
+      picture
+      filename="bookmarks/ao3_theirs.png"
+      width="300"
+      class="screenshot"
+      style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+    %}
+    {%
+      picture
+      filename="bookmarks/ao3_mine.png"
+      width="300"
+      class="screenshot"
+      style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
+    %}
+  </div>
+</figure>
 
-But I'm very happy with that HTML file as a backup -- it has all the words of the story, which is what I really care about.
-I realised I could create similar templates for other sites.
-**I'm preserving the content, not the container.**
+That unstyled HTML file may not look the same, but it's still a meaningful backup.
+It has the story, which is what I really care about.
+That helped me realise I could do something similar for other sites: **I want to preserve the content, not the container.**
 
 ### Backfilling my existing bookmarks
 
-When I decided I wanted to a low-fi collection of static website archives, I already had partial collections from several sources, including Pinboard the Wayback Machine.
-It took almost a year to go through and migrated those old pages to the new structure -- fixing errors,
+When I decided I wanted to a lo-fi collection of static web archives, I already had partial collections from several sources -- Pinboard, the Wayback Machine, and some local backups.
 
+It took almost a year to go through and migrate those into the new structure: fixing broken pages, downloading missing files, deleting ads and tracking scripts.
+Now I have a collection where I've checked every bookmark, and I know I have a complete set of local copies.
 
----
+There's only one bookmark that seems conclusively lost -- a review of *Rogue One* on Dreamwidth, where the only surviving capture is a content warning interstitial.
 
-This took me about a year, doing a few pages a day – and now I have a complete, local archive of (almost) every web page I care about, and I know that every page has a high-quality, useful snapshot.
+I consider this a big success, but it's also a reminder of how fragmented our internet archives are.
+Many of my archived pages are "franken-archives" -- stitched together from multiple sources, combining pieces that were saved years apart.
 
-I built this collection from a variety sources, including live pages, the Wayback Machine, and my Pinboard archiving account. There’s only one page that seems conclusively lost – a review of *Rogue One* whose only preserved copy is a content warning interstitial. I consider that a big success, but it’s also a sign of how fragmented our Internet archives are – some pages I had to cobble together with a whole mixture of sources.
+### How I backup the backups
 
+Once I have a website saved as static files on my local machine, those files get backed up like everything else.
 
-### What do I want?
+I use [Time Machine] and [Carbon Copy Cloner] to back up to a pair of external SSDs, and [Backblaze] to create a cloud backup that lives somewhere other than my house.
 
-
-### Automated scraping vs manual creation
-
-
-
-
-
----
-
-
-
-## How I created my web archives
+[Time Machine]: https://en.wikipedia.org/wiki/Time_Machine_(macOS)
+[Carbon Copy Cloner]: https://bombich.com/
+[Backblaze]: https://secure.backblaze.com/r/01h8yj
 
 
 
