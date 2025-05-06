@@ -29,6 +29,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
       <ul>
         <li><a href="#requirements">What do I want in a web page archive?</a></li>
         <li><a href="#manual_archiving">Why I chose a manual approach</a></li>
+        <li><a href="#howto">How I created my local web archive</a></li>
       </ul>
     </li>
     <li>
@@ -63,9 +64,12 @@ In this second post, I'll talk about how I created a local copy of every link I'
 
 <h2 id="requirements">What do I want in a web page archive?</h2>
 
-It's worth describing my requirements, because I'm building a *personal* web archive.
+It's worth describing my requirements, because I'm building a *personal* web archive -- something I'll maintain myself, tailored to my own needs.
+I can also lean on my skills as a web developer to shape how it works.
 
-This is quite different to what I'd do if I was in a professional or institutional setting -- where automation, immutability, and public content are a higher priority.
+This is quite different to what I'd do if I was in a professional or institutional setting.
+There, the priorities are usually different: automation over manual effort, immutability over editability, and a strong focus on public-facing content.
+You also can't assume everyone involved knows how to dig into HTML or browser dev tools.
 
 ### I want a high-quality copy of every web page I save
 
@@ -161,16 +165,6 @@ For every page, I'd open it in my web browser and visually verify that everythin
 
 Let's go through the process in more detail.
 
----
-
-A common saying is “a backup isn’t a backup unless you test it” – what would it mean to test a web archive of 2,500 pages? Would it mean reviewing every archived page by hand? Opening it and checking it has the text and images I care about? That would be ridiculous, right?
-
-Would it?
-
-I’m not interested in building a general-purpose web archiving tool – I only care about a (relatively) short list of particular pages. Once I know I have a good snapshot of that page, I don’t need to do it again – I just need to keep those files around.
-
-So that’s what I did.
-
 [ArchiveBox]: https://archivebox.io/
 [Webrecorder]: https://webrecorder.net/
 [Wayback Machine]: https://web.archive.org/
@@ -180,39 +174,87 @@ So that’s what I did.
 
 
 
-
 ---
 
 
 
-## Thoughts on web archiving
+<h2 id="howto">How I created my local web archive</h2>
 
-I've spent a lot of time thinking about how to preserve web pages, both personally and professionally.
-Before I talk about what I did for this project, I want to share some general thoughts about web archiving, where were on my mind as I thought about how to preserve my bookmarks.
+### Saving a single web page
 
-### What have I used in the past?
+I start by saving an HTML file.
+I usually use the "Save As" button my web browser.
 
-I've tried so many different tools, it's hard to remember them all.
-They've all relied on some degree of automation, including:
+I open each file in my web browser and my text editor, then I use the developer tools to look for supporting resources that I should save.
+I save additional files and make changes in my text editor, then I reload the page in my browser and check the result.
+I gradually iterate towards my desired result -- a self-contained, offline copy of the original web page.
 
-*   [wget] with [recursive retrieval], which downloads both a web page and the resources it refers to, including images and CSS.
-*   A Pinboard [archiving account], which automatically crawls bookmarks you save in Pinboard, and which I suspect uses wget under the hood
-*   The [Wayback Machine], which is a large collection of preserved web pages that's assembled using a variety of tools
-*   Last year I wrote a command-line tool to [create Safari webarchives][safari_webarchives], similar to the files you get with the "Save&nbsp;As…" menu item in Safari
-*   I've also written my own Python scripts
+When I'm in my browser's developer tools, I look at three tabs:
 
-[wget]: https://www.gnu.org/software/wget/
-[recursive retrieval]: https://www.gnu.org/software/wget/manual/wget.html#Recursive-Download
-[archiving account]: https://pinboard.in/faq/#archiving
-[Wayback Machine]: https://web.archive.org
-[safari_webarchives]: /2024/creating-a-safari-webarchive/
+The *network* tab tells me about the resources the page is requesting -- is it loading files from my local disk, or a remote server?
+The goal is that everything should be coming from a local disk.
+
+<figure style="width: 600px;">
+  {%
+    picture
+    filename="bookmarks/network_tab.png"
+    width="600"
+    class="screenshot"
+    alt="The network tab in my browser developer tools, which has a list of files loaded by the page, and the domain they were loaded from. A lot of these files were loaded from remote servers."
+  %}
+  <figcaption>
+    This HTML file is making a lot of external network requests – I have more work to do!
+  </figcaption>
+</figure>
+
+The *console* tab tells me about errors loading the page -- a lot of red is usually a sign that there's a supporting resource I haven't saved yet.
+The goal is to get to no errors.
+
+For example, here's the console for an HTML file where I have yet to archive the fonts or images:
+
+<figure style="width: 600px;">
+  {%
+    picture
+    filename="bookmarks/console_errors.png"
+    width="600"
+    class="screenshot"
+    alt="The console tab in my browser developer tools, which has a lot of messages highlighted in red about resources that weren't loaded properly."
+  %}
+  <figcaption>
+    So much red!
+  </figcaption>
+</figure>
+
+
+
+---
+
+I started with my existing archive, which was cobbled together from a collection of automated tools, like Pinboard and Safari webarchiver.
+
+I unpack that into files on disk -- an HTML file and supporting resources -- then open it in my web browser.
+
+I spent a lot of time looking in two tabs:
+
+* The "network" tab would show me if a web page was making any external requests, a clue that I needed to save more files to my archive
+* The "console" tab would show me any errors, to show me if a web page was trying to load any resources that I didn’t have saved yet
+
+I kept downloading files or editing the HTML file until I had a "clean" archive – a file that had everything I thought was worth saving, loading everything from my local disk and making no external requests. This meant removing stuff I didn't care about (like ads and tracking) and changing links to the stuff I did (like changing `<img>` tags to point to a local file rather than a server). I spent a lot of time reading and writing HTML.
+
+When I save new bookmarks today, I start by saving the page source as an HTML file, then I repeat the process – look for external resources being loaded, save them locally, update the page to fetch the file from the disk.
+
+For large and complex websites that came up repeatedly, I created my own HTML templates that I could drop content into – somewhere to put the words and pictures, but without keeping the entire page. These sites include Medium, Tumblr, and the New York Times.
+
+This took me about a year, doing a few pages a day – and now I have a complete, local archive of (almost) every web page I care about, and I know that every page has a high-quality, useful snapshot.
+
+I built this collection from a variety sources, including live pages, the Wayback Machine, and my Pinboard archiving account. There’s only one page that seems conclusively lost – a review of *Rogue One* whose only preserved copy is a content warning interstitial. I consider that a big success, but it’s also a sign of how fragmented our Internet archives are – some pages I had to cobble together with a whole mixture of sources.
+
 
 ### What do I want?
 
 
 ### Automated scraping vs manual creation
 
-### Preserving the content, not the container
+
 
 
 
@@ -229,6 +271,8 @@ They've all relied on some degree of automation, including:
 
 
 ## What I learnt about archiving the web
+
+### Preserving the content, not the container
 
 ### Lots of the web is built on now-defunct services
 
@@ -263,26 +307,6 @@ I’m very happy with that HTML file as a backup – I still have all the words 
 
 I was thinking about this at the same time as I wrote {Using static websites}. What if I created a micro-website for each web page I archived – an HTML file with supporting CSS, JavaScript and image files that just sits in a folder? So that’s what I ended up doing.
 
-
-
-## How I did it
-
-I started with my existing archive, which was cobbled together from a collection of automated tools, like Pinboard and Safari webarchiver.
-
-I’ve unpack that into files on disk – an HTML file and supporting resources – then open it in my web browser. I spent a lot of time looking in two tabs:
-
-* The "network" tab would show me if a web page was making any external requests, a clue that I needed to save more files to my archive
-* The "console" tab would show me any errors, to show me if a web page was trying to load any resources that I didn’t have saved yet
-
-I kept downloading files or editing the HTML file until I had a "clean" archive – a file that had everything I thought was worth saving, loading everything from my local disk and making no external requests. This meant removing stuff I didn't care about (like ads and tracking) and changing links to the stuff I did (like changing `<img>` tags to point to a local file rather than a server). I spent a lot of time reading and writing HTML.
-
-When I save new bookmarks today, I start by saving the page source as an HTML file, then I repeat the process – look for external resources being loaded, save them locally, update the page to fetch the file from the disk.
-
-For large and complex websites that came up repeatedly, I created my own HTML templates that I could drop content into – somewhere to put the words and pictures, but without keeping the entire page. These sites include Medium, Tumblr, and the New York Times.
-
-This took me about a year, doing a few pages a day – and now I have a complete, local archive of (almost) every web page I care about, and I know that every page has a high-quality, useful snapshot.
-
-I built this collection from a variety sources, including live pages, the Wayback Machine, and my Pinboard archiving account. There’s only one page that seems conclusively lost – a review of *Rogue One* whose only preserved copy is a content warning interstitial. I consider that a big success, but it’s also a sign of how fragmented our Internet archives are – some pages I had to cobble together with a whole mixture of sources.
 
 ## What I learnt about archiving the web
 
