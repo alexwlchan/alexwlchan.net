@@ -26,6 +26,9 @@ In this second post, I'll talk about how I created a local copy of every link I'
     </li>
     <li>
       <strong>Creating a local archive of all my bookmarks</strong> (this article)
+      <ul>
+        <li><a href="#requirements">What do I want in a web page archive?</a></li>
+      </ul>
     </li>
     <li>
       <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 19 May) – everything I learnt from reading the source code of the web pages I saved.
@@ -57,14 +60,46 @@ In this second post, I'll talk about how I created a local copy of every link I'
 
 
 
-## What do I want in a web archive of my bookmarks?
+<h2 id="requirements">What do I want in a web page archive?</h2>
 
-* completely offline, including linked resources
-* easy to save new pages
-* supports private or paywalled pages
-* possible to edit pages
+It's worth describing my requirements, because I'm building a *personal* web archive.
 
+This is quite different to what I'd do if I was in a professional or institutional setting -- where automation, immutability, and public content tend to be the priority.
 
+### I want a high-quality copy of every web page I save
+
+If the original page goes away, my archive should still be useful.
+That means I need to keep the "essential" parts -- not just the text, but also any illustrations, images, or layout elements that are key to understand the page.
+
+In the past, I've relied too heavily on automation, and ended up with incomplete archives: missing images, broken styles, or partial content.
+This time, I'm aiming for a much higher-quality archive.
+
+### I want the archive to live on my local computer
+
+I don't want to rely on a third party service, which could break, change, or be shut down.
+
+I learnt this the hard way with Pinboard.
+I was paying for an [archiving account], which promised to keep an archived copy of all my bookmarks.
+But in recent years it's become unreliable -- sometimes it would fail to archive a page, and sometimes it couldn't retrieve a supposedly saved page.
+
+### It should be easy to save new pages
+
+I save a couple of bookmarks a new week.
+I want to keep this archive up-to-date, and I don't want it to become a chore.
+
+### It should support private or paywalled pages
+
+I read a lot of pages behind paywalls or login screens, which are invisible to public web archives like the Wayback Machine.
+I still want to keep a local copy -- indeed, the fact that the pages are private makes it more important that I keep my own copy, because I may not  another.
+
+### It should be possible to edit pages
+
+This is something I discovered as I was creating my new archive.
+Web pages contain a lot of junk that I don't care to preserve -- ads, tracking, pop-ups.
+It's like saving clippings from a magazine: I want the article, not the ads wrapped around it.
+I want to be able to trim what I save, and just keep the useful parts.
+
+[archiving account]: https://pinboard.in/faq/#archiving
 
 
 
