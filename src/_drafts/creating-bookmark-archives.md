@@ -28,6 +28,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
       <strong>Creating a local archive of all my bookmarks</strong> (this article)
       <ul>
         <li><a href="#requirements">What do I want in a web page archive?</a></li>
+        <li><a href="#manual_archiving">Why I chose a manual approach</a></li>
       </ul>
     </li>
     <li>
@@ -64,7 +65,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
 
 It's worth describing my requirements, because I'm building a *personal* web archive.
 
-This is quite different to what I'd do if I was in a professional or institutional setting -- where automation, immutability, and public content tend to be the priority.
+This is quite different to what I'd do if I was in a professional or institutional setting -- where automation, immutability, and public content are a higher priority.
 
 ### I want a high-quality copy of every web page I save
 
@@ -100,6 +101,82 @@ It's like saving clippings from a magazine: I want the article, not the ads wrap
 I want to be able to trim what I save, and just keep the useful parts.
 
 [archiving account]: https://pinboard.in/faq/#archiving
+
+
+
+---
+
+
+
+<h2 id="manual_archiving">Why I chose a manual approach</h2>
+
+I'm a big fan of automated tools for archiving the web, and I've used them a lot over the years.
+
+Tools like [ArchiveBox], [Webrecorder], and the [Wayback Machine] have preserved enormous chunks of the web, pages that would otherwise be lost.
+I paid for a Pinboard [archiving account] for a decade, and I look for a page in the Internet Archive at least once a week.
+I've used tools like [wget], and last year I wrote a command-line tool to [create Safari webarchives][safari_webarchives].
+The size and scale of our existing web archives is entirely due to automation.
+
+But automation isn't a panacea, it's a trade-off.
+You trade speed for accuracy -- nobody is reviewing pages when they're archived, so they may have mistakes or missing files.
+
+When I reviewed my Pinboard archive, I found a lot of gaps and broken pages.
+These were web pages I really care about, and I thought I had a backup, but it was false sense of security.
+
+People often say "a backup isn't a backup unless you test it".
+What would it mean to test a backup of over two thousand web pages--reviewing every page by hand?
+Opening each one in a web browser?
+Checking for the text and images I actually care about?
+
+That would be ridiculous, right?
+
+Right?
+
+I don't need a general purpose web archiving tool; I only care about creating an archive of a particular set of pages.
+Once I know I have a good snapshot on a pages, I don't need to save it again -- I just need to keep that copy safe.
+It would take a long time to create and review an archive by hand, but once it's done, it won't need much maintenance.
+
+So I decided to create my archive manually.
+
+I saved a static copy of every bookmark -- a folder with the HTML, stylesheets, images, and other linked resources.
+Each one is a self-contained "mini-website" that I can open in a browser, even if the original page disappears.
+
+<figure style="width: 550px;">
+  {%
+    picture
+    filename="bookmarks/mini_website.png"
+    width="550"
+    class="screenshot"
+    alt="Screnshot of a folder containing an HTML page, and two folders with linked resources: images and static."
+  %}
+  <figcaption>
+    The files for <a href="https://preshing.com/20110926/high-resolution-mandelbrot-in-obfuscated-python/">a single web page</a>, saved in a folder in my archive.
+    I flatten the structure of each website into a couple of top-level folders like <code>images</code> and <code>static</code>, to keep the archive simple and readable.
+    I don’t care about the exact URLs used on the original site.
+  </figcaption>
+</figure>
+
+This is the same approach I'm using for the bookmarks site itself, leaning on standards-based web technology to create something simple, reliable ,and likely to last.
+For every page, I'd open it in my web browser and visually verify that everything saved correctly.
+
+Let's go through the process in more detail.
+
+---
+
+A common saying is “a backup isn’t a backup unless you test it” – what would it mean to test a web archive of 2,500 pages? Would it mean reviewing every archived page by hand? Opening it and checking it has the text and images I care about? That would be ridiculous, right?
+
+Would it?
+
+I’m not interested in building a general-purpose web archiving tool – I only care about a (relatively) short list of particular pages. Once I know I have a good snapshot of that page, I don’t need to do it again – I just need to keep those files around.
+
+So that’s what I did.
+
+[ArchiveBox]: https://archivebox.io/
+[Webrecorder]: https://webrecorder.net/
+[Wayback Machine]: https://web.archive.org/
+[archiving account]: https://pinboard.in/faq/#archiving
+[wget]: https://www.gnu.org/software/wget/manual/wget.html#Recursive-Download
+[safari_webarchives]: http://localhost:5757/2024/creating-a-safari-webarchive/
 
 
 
@@ -186,19 +263,7 @@ I’m very happy with that HTML file as a backup – I still have all the words 
 
 I was thinking about this at the same time as I wrote {Using static websites}. What if I created a micro-website for each web page I archived – an HTML file with supporting CSS, JavaScript and image files that just sits in a folder? So that’s what I ended up doing.
 
-## Automated scraping vs manual creation
 
-I’m a big fan of automated tools for archiving the web – tools like ArchiveBox, Web Recorder, and the Wayback Machine have allowed the preservation of enormous chunks of the web, pages that would otherwise be lost. I paid for a Pinboard archiving account for a decade, and I probably look for a page in the Internet Archive at least once a week. I’ve used tools like wget, and last year I wrote a command-line tool to automate the creation of Safari webarchives. The size and value of our large web archives is entirely due to automation.
-
-But automation isn’t a panacea – it’s a trade-off. You trade speed for accuracy – archived pages aren’t looked at the point of saving, so they may have mistakes or missing files. When I reviewed my Pinboard archive, I sometimes found gaps and broken pages. These were web pages I really cared about, and I thought I had a backup, but it was false hope.
-
-A common saying is “a backup isn’t a backup unless you test it” – what would it mean to test a web archive of 2,500 pages? Would it mean reviewing every archived page by hand? Opening it and checking it has the text and images I care about? That would be ridiculous, right?
-
-Would it?
-
-I’m not interested in building a general-purpose web archiving tool – I only care about a (relatively) short list of particular pages. Once I know I have a good snapshot of that page, I don’t need to do it again – I just need to keep those files around.
-
-So that’s what I did.
 
 ## How I did it
 
