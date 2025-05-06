@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Creating a local archive of all my bookmarks
-summary:
+summary: |
+  How I built my web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
 tags:
   - bookmarking
   - digital preservation
@@ -30,6 +31,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
         <li><a href="#requirements">What do I want in a web page archive?</a></li>
         <li><a href="#manual_archiving">Why I chose a manual approach</a></li>
         <li><a href="#howto">How I create my local web archives</a></li>
+        <li><a href="#what_i_learnt">What I learnt about archiving the web</a></li>
       </ul>
     </li>
     <li>
@@ -320,89 +322,120 @@ I use [Time Machine] and [Carbon Copy Cloner] to back up to a pair of external S
 
 
 
-## What I learnt about archiving the web
-
-### Preserving the content, not the container
+<h2 id="what_i_learnt">What I learnt about archiving the web</h2>
 
 ### Lots of the web is built on now-defunct services
 
-### Links rot faster than web pages
+Link rot is everywhere on the web, and I saw a lot of it on web pages that relied on third-party services that no longer exist, like:
 
-### Lazy loading is a headache for preservation
+*   Photo sharing services -- some I'd heard of (Twitpic, Yfrog) and others that were new to me (like phto.ch)
+*   Link redirection services -- both URL shorteners and sponsored redirects
+*   Social media sharing buttons and embeds
 
-### There's no clearly-defined boundary of what to collect
+The main page loads, but key resources like images and scripts are broken or missing.
 
-### So many websites are a bloated mess
+One particularly insidious kind of breakage is when the service still exists, but the content has changed.
+Here's an example: a screenshot from an iTunes tutorial on LiveJournal that's been replaced with an "18+ warning":
 
+<figure style="width: calc(450px);">
+  <div style="display: grid; grid-template-columns: auto auto; grid-gap: 0.5em; align-items: center;">
+    {%
+      picture
+      filename="bookmarks/001akef1.png"
+      width="78"
+      class="screenshot"
+    %}
+    {%
+      picture
+      filename="bookmarks/122942_original.png"
+      width="300"
+    %}
+  </div>
+  <figcaption>
+    A modern day horror story: a computer user interface that wasn't designed for touch screens.
+  </figcaption>
+</figure>
 
+This kind of failure is harder for automated crawlers to detect -- the server returns a valid response, just not the one you expect.
+This is the sort of thing I was trying to catch by looking at every web page with my eyes.
 
----
-
-
-
-## Should you do this?
-
-
----
-
-## What I learnt about archiving the web
-
-### Lots of the web is built on now-defunct services
-
-Link rot is a big part of the web, and I saw a lot of it on web pages that relied on third-party services that no longer exist, like:
-
-* Photo sharing services, some of which I’d heard of (Twitpic or Yfrog) and others that were new to me (like phto.ch)
-* Link redirection services, both URL shorteners and sponsored redirects
-* Social media sharing buttons and embeds
-
-The main web page is there, but some of the resources it relies on are just broken.
-
-One particularly insidious flavour of breakage I saw is when the service still exists, but the content has changed. Here’s one example, where an image on LiveJournal has been replaced with an “18+ warning”:
-
-{before/after comparison}
-
-This is harder for automated crawlers to detect – it’s returning a response, it’s just the wrong one. This is the sort of thing I was trying to catch by looking at every web page with my yes.
-
-I deliberately build websites with minimal third-party dependencies to avoid this sort of breakage, and seeing the number of once-reliable services that have vanished makes me feel better about that.
+I deliberately build websites with minimal third-party dependencies to avoid this sort of breakage -- and seeing how many once-reliable services have vanished makes me feel even better about that decision.
 
 ### Links rot faster than web pages
 
-I was quite disappointed by the number of web pages that had stayed up, but the URLs had changed without redirects.
+I was surprised by how many web pages still exist, but the original URLs no longer work -- especially on large news sites.
+A link I saved in 2015 might now return a 404, but if I search the headline, I'll often find the story at a completely different URL.
 
-This was particularly common on large news websites. I saved a link sometime in 2015, and the URL returns a 404 – but if I search for the headline, I find the story available on their site at a completely different URL.
+I find this frustrating and disappointing.
+Whenever I've restructured this site, I always set up redirects because I'm an old-school web nerd and I [think URLs are cool][urls] -- but redirects aren't just about making me feel good.
+Keeping links alive makes your back catalogue more visible, and makes pages easier to find -- without them, most people who encounter a broken link will assume the article was deleted, and won't dig further.
 
-I care about maintaining redirects because I think URLs are meaningful, but this also hurts website owners. This makes the back catalogue less visible, because it breaks any incoming URLs, and most people will assume it’s just deleted, and not spend the time to find the new URL.
+[urls]: https://www.w3.org/Provider/Style/URI.html
 
 ### Lazy loading is a headache for backups
 
-If you want lazy loaded images on the web today, you can use `<img>` with `loading="lazy>`, but I found a lot of DIY implementations that predate that attribute being widely supported.
+Modern lazy loading is easy with [`<img loading="lazy">`][lazy_loading], but I found a lot of DIY implementations that predate that attribute.
 
-For example, a common pattern is to load a low-res image by default, then use JavaScript to replace it with a high-res image later. I want the high-res image for my archive, but it wasn’t always captured by automated tools – sometimes I had to go digging around to find the proper image.
+A common pattern: load a low-res image first, then swap it out for a high-res version with JavaScript.
+But those high-res images weren't always captured by automated tools -- sometimes I had to go digging.
 
-Another pattern I found is JavaScript pages that start with a style that blocks most of the page – `opacity: 0` or `overflow: hidden` – and then remove that style once the page loaded. This is fine if the JavaScript works correctly, but it often left me with a blank page when archived. I had to remove all those styles.
+Another common pattern: a page that starts with a style like `opacity: 0` or `overflow: hidden`, and then runs JavaScript to remove those styles once the page has loaded.
+But if that script breaks, the archive page is just… blank.
+I had to remove all those styles manually.
 
-A lot of this feels like an over-reliance on custom JavaScript, and a failure to think about {progressive enhancement}. It works when everything loads correctly, but makes for brittle web pages. I feel good about my reluctance to use client-side JavaScript unless I absolutely have to.
+This feels like an over-reliance on custom JavaScript, and a failure to think about [progressive enhancement] -- the idea that a site should work even if JavaScript doesn’t.
+It's fragile design, and I feel good about my own reluctance to use client-side JS unless I absolutely have to.
+
+[lazy_loading]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img#loading
+[progressive enhancement]: https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement
 
 ### There’s no clearly-defined boundary of what to collect
 
-One thing I found myself doing several times was grabbing linked resources, but it wasn’t always clear what to get.
+Several times I found myself unsure of how much to archive.
 
-For example, I was saving [Molly White’s talk about fighting for our web](https://www.citationneeded.news/fighting-for-our-web/), which includes an embedded YouTube video. I consider the video of her actually giving the talk to be a key part of the page, so I want to download it alongside the web page – but “download all embeds and links” would be an expensive rule, because those files can be very large. I made decisions about what to download on a case-by-case basis.
+For example: Molly White's talk [*Fighting for our web*][fighting] includes an embedded YouTube video.
+I think the video is a key part of the page, so I wanted to download it -- but “download all embeds and links” would be a very expensive rule.
 
-Another example: I have some bookmarks which are commentary on scientific papers, and they link to the original paper. I saved a copy of the PDF (and changed the page link to point to the archived version), but I don’t want to save everything that’s linked from a web page.
+Another example: I've bookmarked blog posts that comment on scientific papers.
+I saved a local copy of the blog post and a PDF of the original paper, but I didn't try to download everything the post links to.
+
+I made decisions about what to download on a case-by-case basis.
+There's no hard rule -- it depends on the content and the context.
+
+[fighting]: https://www.citationneeded.news/fighting-for-our-web/
 
 ### So many websites are a bloated mess
 
-I deleted so many things that were loaded by my saved web pages, but I’m not interested in saving, including ads, tracking, and cookie notices. This makes the saved web pages nicer to read, and reduces my storage cost – web pages routinely got 10–20× smaller when I stripped out the junk.
+I deleted a *lot* of junk from my saved web pages -- ads, trackers, cookie notices.
+That made the saved copies smaller and easier to read.
+Pages often shrank by 10--20&times; after I stripped out the junk.
 
-My “favourite” was a Squarespace site that loaded over 25MB of JavaScript to render a 400 word essay with no pictures.
+My "favourite" was a Squarespace site that loaded over 25MB of JavaScript to render a 400-word essay with no images.
 
-After deleting the 200th copy of Google Analytics from my local archive, I decided to see how many copies of it exist in the Wayback Machine – [over 11 million](https://web.archive.org/web/20240000000000*/https://ssl.google-analytics.com/ga.js)!
+After deleting the 200th copy of Google Analytics from my archive, I got curious and checked how many times it's been saved in the Wayback Machine.
+[Over 11 million](https://web.archive.org/web/20240000000000*/https://ssl.google-analytics.com/ga.js)!
+
+
+
+---
+
+
 
 ## Should you do this?
 
-How you create web archives is a tradeoff between speed and quality. Automated tools can gather a lot of pages very quickly, but there may be gaps or broken pages in the archive. Doing it manually is much slower and requires much more confidence with HTML, CSS and JavaScript, but then you know you've got everything you think is worth saving.
+Creating a web archive is always a tradeoff between speed and quality.
+Automated tools are fast but imperfect.
+Manual archiving is slow, picky work that demands comfort with HTML, CSS, and JavaScript -- but it gives you the confident that you've saved what matters.
 
-It took me hundreds of hours to create my local web archive, and now I have a collection of 2,500 saved web pages in a long-term format, with all their key resources, and which I have checked for quality. I'm very glad to have this, but it's difficult to recommend anybody follow in my footsteps. It's a big time commitment!
+It took me hundreds of hours to build my archive.
+Now I have over 2000 web pages saved in a stable format, with the key resources intact and quality-checked by hand.
+That's no small achievement -- and I'm very glad to have it -- but I won't pretend I can recommend the process.
+It was a big time commitment.
 
-As I started doing this, I discovered this wasn’t a pure slog – by reading hundreds of websites, I was learning a lot about how websites are built. In the {final articles in this series}, I'll share everything I learnt about making websites.
+And yet, I found something unexpected in the process.
+By archiving all these pages, I wasn't just saving the web -- I was learning how it's built.
+Reading hundreds of sites taught me lessons about semantic HTML, modern CSS, and other web technologies.
+
+In part 3 of this series, I'll share what I learnt about making better websites by trying to save them.
+
+If you'd like to know when that article goes live, [subscribe to my RSS feed or newsletter](/subscribe/)!
