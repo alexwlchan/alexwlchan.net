@@ -14,44 +14,6 @@ colors:
   index_light: "#2f2f2f"
   index_dark:  "#66b8e8"
 ---
-
-* lots of web page archives swell because of avatars in comments
-		* I often just deleted the comments
-* remove banners
-  	* e.g. Stack Overflow AI
-  	* museum closures
-  	* ads
-  	* related content, news article distractions
-  	* compare two CNN pages [[Screenshot 2024-11-23 at 08.23.51.png]] / [[Screenshot 2024-11-23 at 08.23.49.png]]
-  	* purge fc (?) and onetrust
-* pages that embed Silverlight plugins = sad :'(
-* could say so much crap on web
-	* so many ads
-  * wordads, new ad between every paragraph
-	* wordpress sites with an ad element between every paragraph
-	* onetrust sdk, so big, up to a quarter of page on TeX.SE
-	* wordpress action bar
-	* routinely achived 10x–20x compression
-		* Most egregious: Jay’s “The Weight”
-		* 20MB of Squarespace JS
-		* Reduced to 1.2MB of fonts + CSS + HTML, just 45KB of HTML
-		* 2000 words*
-  * csswizardry.com ~> was measuring performance of page load with dozens of inline `<script>` tags
-* look for iframe and script
-* twitter following widgets
-* next.js apps are the worst
-* replace inline video playes, e.g. JWPlayer with `<video>`
-see Tommy Dorfman
-
-*purge fc and onetrust
-
-```
-<div class="wordads-ad-wrapper"><div class="wordads-ad"><div class="wordads-ad-title">Advertisement</div><div class="wordads-ad-content" id="wordads-ad-\d+"></div><div class="wordads-ad-controls"><span onclick="__tcfapi\( 'showUi' \)">Privacy Settings</span></div></div></div>
-```
-
-
----
-
 In [my previous post](/2025/bookmarks-static-site/), I described how I've created a static website for all my bookmarks.
 A key part of this setup is that I have a local copy of every page that I've bookmarked.
 
@@ -73,6 +35,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
         <li><a href="#requirements">What do I want in a web page archive?</a></li>
         <li><a href="#manual_archiving">Why I chose a manual approach</a></li>
         <li><a href="#howto">How I create my local web archives</a></li>
+        <li><a href="#deleting_the_junk">Creating a junk-free web archive</a></li>
         <li><a href="#what_i_learnt">What I learnt about archiving the web</a></li>
         <li><a href="#conclusion">Should you do this?</a></li>
       </ul>
@@ -365,6 +328,50 @@ I use [Time Machine] and [Carbon Copy Cloner] to back up to a pair of external S
 
 
 
+<h2 id="deleting_the_junk">Creating a junk-free web archive</h2>
+
+As I was saving web pages, I deleted all the stuff I didn’t care about.
+This made the saved copies smaller and easier to read, and pages often shrank by 10--20&times; after I removed all the junk.
+
+My "favourite" was a Squarespace site that loaded over 25MB of JavaScript to render a 400-word essay with no images.
+
+The junk I deleted includes:
+
+*   **Ads.**
+    So many ads.
+    I found one especially aggressive plugin inserted an advertising `<div>` between every single paragraph.
+
+*   **Banners for time-sensitive events.**
+    News tickers, announcements, limited-time promotions, and in one case, a museum's bank holiday opening hours.
+
+*   **Inline links to related content.**
+    There's an annoying trend in online publications where every few paragraphs you get a promo for a different article.
+    I'm already reading -- stop trying to distract me!
+    I deleted all those, so now saved articles are just the text, as the author intended.
+
+*   **Cookie notices, analytics, tracking, and other services for gathering "consent".**
+    These are large and completely unnecessary to me -- I care about the content of a web page, not what it was tracking about me.
+
+    After deleting the 200th copy of Google Analytics from my archive, I got curious and checked how many times it's been saved in the Wayback Machine.
+    [Over 11 million copies](https://web.archive.org/web/20240000000000*/https://ssl.google-analytics.com/ga.js)!
+
+While I was editing the page in my text editor, I'd look for `<script>` and `<iframe>` elements -- good indicators of external junk I could remove.
+This didn't just shrink the page; it also removed external dependencies that might break in future.
+That makes the archive easier to preserve.
+
+This sort of editing only works because this is a *personal* archive, not an *institutional* one.
+Public archives prioritise provenance and immutability -- making sure the original files are preserved exactly as they were, or keeping detailed records when there are changes.
+That helps avoid personal bias creeping into the archive, and builds trust in what's being kept.
+
+I haven’t kept detailed records of what I deleted, because I'm not preserving history for the public.
+I'm preserving the web for me.
+
+
+
+---
+
+
+
 <h2 id="what_i_learnt">What I learnt about archiving the web</h2>
 
 ### Lots of the web is built on now-defunct services
@@ -446,17 +453,6 @@ I made decisions about what to download on a case-by-case basis.
 There's no hard rule -- it depends on the content and the context.
 
 [fighting]: https://www.citationneeded.news/fighting-for-our-web/
-
-### So many websites are a bloated mess
-
-I deleted a *lot* of junk from my saved web pages -- ads, trackers, cookie notices.
-That made the saved copies smaller and easier to read.
-Pages often shrank by 10--20&times; after I stripped out the junk.
-
-My "favourite" was a Squarespace site that loaded over 25MB of JavaScript to render a 400-word essay with no images.
-
-After deleting the 200th copy of Google Analytics from my archive, I got curious and checked how many times it's been saved in the Wayback Machine.
-[Over 11 million](https://web.archive.org/web/20240000000000*/https://ssl.google-analytics.com/ga.js)!
 
 
 
