@@ -45,7 +45,7 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
       </ul>
     </li>
     <li>
-      <a href="#"><strong>Creating a local archive of all my bookmarks</strong></a> (coming 12 May) – web archiving, automated vs manual, what I learnt about saving web pages.
+      <a href="#"><strong>Creating a local archive of all my bookmarks</strong></a> (coming 12 May) – web archiving, automated vs manual, what I learnt about preserving web pages.
     </li>
     <li>
       <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 19 May) – everything I learnt from reading the source code of the web pages I saved.
