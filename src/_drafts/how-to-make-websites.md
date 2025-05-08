@@ -17,6 +17,7 @@ Zeldman ~> WebKit bug: https://bugs.webkit.org/show_bug.cgi?id=283428
 also Zeldman
 
 ```
+{% raw %}
 <script type="text/template" id="tmpl-subscriber-only-message">
 	<div class="coil-message-inner">
 		<div class="coil-message-header">
@@ -35,6 +36,7 @@ also Zeldman
 		</div>
 	</div>
 </script>
+{% endraw %}
 ```
 
 
