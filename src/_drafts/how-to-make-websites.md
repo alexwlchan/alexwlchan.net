@@ -179,33 +179,117 @@ I didn't see `<base>` very often, but it's a good reminder that it exists.
 
 ---
 
-## misc HTML
+## Other HTML stuff
+
+### Comments to mark the end of HTML tags
+
+I saw a lot of websites (mostly WordPress) that used HTML comments to mark the end of containers with a lot of content.
+For example:
+
+```html
+<div id="primary">
+  <main id="main">
+    …
+  </main><!-- #main -->
+</div><!-- #primary -->
+```
+
+These comments made the HTML much easier to read -- I could see exactly where each component started and ended.
+
+I like this idea, and I'm tempted to use it in my more complex projects.
+I can imagine this being especially helpful in template files, where HTML is mixed with template markup in a way that might confuse [code folding], or make the structure harder to follow.
+
+[code folding]: https://en.wikipedia.org/wiki/Code_folding
+
+### Translated pages with `rel="alternate"` and `hreflang`
+
+I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
+Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
+
+```html
+<link rel="alternate" hreflang="en-us" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
+<link rel="alternate" hreflang="ja"    href="https://blog.panic.com/ja/firewatch-demo-day-at-gdc-j/">
+```
+
+This seems to be for the benefit of search engines and other automated tools, not web browsers.
+If your web browser is configured to prefer Japanese, you'd see a link to the Japanese version in search results -- but if you open the English URL directly, you won't be redirected.
+
+This makes sense to me -- translations can differ in content, and some information might only be available in one language.
+It would be annoying if you couldn't choose which version you wanted.
+
+Panic's article includes a third `<link rel="alternate">` tag:
+
+```html
+<link rel="alternate" hreflang="x-default" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
+```
+
+This [`x-default` value][x-default] is a fallback, used when there's no better match for the user's language.
+For example, if you used a French search engine, you'd be directed to this URL because there isn't a French translation.
+
+Almost every website I've worked has been English-only, so internationalisation is a part of the web I know very little about.
+
+[hreflang]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#values
+[gdc]: https://blog.panic.com/firewatch-demo-day-at-gdc/
+[x-default]: https://developers.google.com/search/blog/2013/04/x-default-hreflang-for-international-pages
+
+### What's does GPT stand for in attributes?
+
+Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
+
+So I was quite surprised to see "GPT" crop up on web pages that predate the widespread use of generative AI.
+It showed up in HTML attributes like this:
+
+```html
+<div id="div-gpt-ad-1481124643331-2">
+```
+
+In this context, "GPT" stands for [*Google Publisher Tag*][gpt_google], part of Google's ad infrastructure.
+I'm not sure exactly what these tags were doing -- and since I stripped all the ads out of my web archive, they're not doing anything now -- but it was clearly ad-related.
+
+[gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
+[gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
+
+### What's the "instapaper_ignore" class?
+
+I found some pages that use the `instapaper_ignore` CSS class to hide certain content.
+Here's an example from an [Atlantic article][torching] I saved in 2017:
+
+```html
+<aside class="pullquote instapaper_ignore">
+  Somewhere at Google there is a database containing 25 million books and nobody is allowed to read them.
+</aside>
+```
+
+Instapaper is a "read later" service -- you save an article that looks interesting, and later you can read it in the Instapaper app.
+It includes a text parser that extract the article's text, stripping away junk or clutter.
+
+The `instapaper_ignore` class is a way for publishers to control what that parser includes.
+From [a blog post in 2010][instapaper_ignore]:
+
+> Additionally, the Instapaper text parser will support some standard CSS class names to instruct it:
+>
+> * `instapaper_body`: This element is the body container.
+> * `instapaper_ignore`: These elements, when inside the body container, should be removed from the text parser’s output.
+
+In this example, the element is a pull quote -- a repeated line from the article, styled to stand out.
+On the full web page, it works.
+But in the unstyled Instapaper view, it would just look like a duplicate sentence.
+It makes sense that the Atlantic wouldn't want it to appear in that context.
+
+Only a handful of pages I've saved ever used `instapaper_ignore`, and even fewer are still using it today.
+I don't even know if Instapaper's parser still looks atfor it
+
+This stood out to me because I was an avid Instapaper user for many years.
+I deleted my Instapaper account years ago, and I don't hear much about "read later" apps these days -- but then I stumble across a quiet little relic like this, buried in the HTML.
+
+[torching]: https://www.theatlantic.com/technology/archive/2017/04/the-tragedy-of-google-books/523320/
+[instapaper_ignore]: https://blog.instapaper.com/post/730281947
+
+---
 
 ### ordering elements in the page
 
 * footer/sidebar goes after main content, and then rearranged to the right place
-
-### comments to close HTML tags
-
-```
-		</main><!-- #main -->
-	</div><!-- #primary -->
-```
-
-
-### instapaper_ignore
-
-* The `instapaper_ignore` attribute, e.g. Atlantic `<aside class="pullquote instapaper_ignore">Computers had doubled in power every 18 months for the last 40 years. Why hadn’t programming changed?</aside>`
-
-https://blog.instapaper.com/post/730281947
-
-### link rel="alternate"
-
-* `link rel="alternate"` for other languages, e.g. Panic
-	* ```
-```
-<link rel="alternate" hreflang="en-us" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
-<link rel="alternate" hreflang="ja" href="https://blog.panic.com/ja/firewatch-demo-day-at-gdc-j/">
 
 ### link rel="preload"
 
@@ -367,23 +451,6 @@ people doing security in web console, e.g. tumblr
 ---
 
 ## Grab bag
-
-### What does GPT mean on a web page?
-
-Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
-
-So I was quite surprised to see "GPT" crop up on web pages that predate the widespread use of generative AI.
-It showed up in HTML attributes like this:
-
-```html
-<div id="div-gpt-ad-1481124643331-2">
-```
-
-In this context, "GPT" stands for [*Google Publisher Tag*][gpt_google], part of Google's ad infrastructure.
-I'm not sure exactly what these tags were doing -- and since I stripped all the ads out of my web archive, they're not doing anything now -- but it was clearly ad-related.
-
-[gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
-[gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
 
 ### Browsers won't load external `file://` resources from `file://` pages
 
