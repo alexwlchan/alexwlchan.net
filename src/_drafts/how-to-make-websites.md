@@ -55,91 +55,129 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
 
 ---
 
-## Interetsing HTML tags
+## Interesting HTML tags
 
-I'm loosely aware of semantic HTML exists -- using HTML tags that describe the meaning of your content, not their visual appearance. For example, using a heading tag `<h1>` rather than a bold tag `<b>`. I know the theory and I've read a list of available elements once, but I found it really helpful to see what tags are popular, and how people are actually using them in practice:
+I know I've read a list of HTML tags in reference documents (and in [this blog post][weaver] by Patrick Weaver), but there are some tags I'm forgotten, misunderstood, or never seen used in the wild.
+Reading thousands of real-world pages gave me a better sense of how these tags are actually used, and when they're useful.
 
+[weaver]: https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/
 
-### what is `<aside>` for?
+### The `<aside>` element
 
-<details>
-* `\<aside\>` is a tag I was aware of, but I didn't know when I'd use it. I saw lots of examples where it was used to embed content in the middle of the article, like ads, newsletter sign-up forms, pull quotes, links to related or popular articles.
+MDN describes [`<aside>`][aside] as "a portion of a document whose content is only indirectly related to the document's main content".
+That's probably true, but it's vague enough that I was never quite sure when to use it.
+For a while I used `<aside>` for the header on this site, but I eventually swapped it out for `<header>`, which felt more semantically correct.
 
-Using `\<aside\>` for related articles is cool!
-* also ads
-* or see more
-* or related comments
-* or sidebars
-</details>
+On other websites, I saw `<aside>` used in the middle of larger articles -- often for things like ads, newsletter sign ups, pull quotes, or links to related articles.
+I don't have any of those elements here, but now I have a stronger mental model of where to use `<aside>`.
 
-### the `<mark>` tag
+I saw a couple of sites using the [`<ins>` (inserted text) element][ins] for ads, but I think `<aside>` is a better semantic fit.
 
-<details>
-* `\<mark\>` is a tag for marking or highlighting text, which is used for highlights on Medium articles and pull quotes on other sites. I haven't used it myself yet, but I can imagine using it in code snippets in future.
+[aside]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/aside
+[ins]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ins
 
-{Example from MDN; replace with my own}
+### The `<mark>` element
+
+The [`<mark> element`][mark] highlights text, typically with a yellow background.
+It's useful for drawing visual attention to a phrase, and I suspect it's helpful or screen readers and parsing tools as well.
+
+I saw it used in Medium to show reader highlights, and I've started using it in code samples when I want to call out specific lines.
+
+[mark]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/mark
+
+### The section element `<section>`
+
+The [`<section>` tag][section] is a useful way to group content on a page -- more meaningful than a generic `<div>`.
+I'd forgotten about it, although I use similar tags like `<article>` and `<main>`.
+Seeing it used across different sites reminded me it exists, and I've since added it to a few projects.
+
+[section]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/section
+
+### The heading group element `<hgroup>`
+
+The [`<hgroup>` tag][hgroup] is for grouping a heading with related metadata -- like a title and a publication date:
 
 ```html
-<p>Search results for "salamander":</p>
-
-<hr />
-
-<p>
-  Several species of <mark>salamander</mark> inhabit the temperate rainforest of
-  the Pacific Northwest.
-</p>
-
-<p>
-  Most <mark>salamander</mark>s are nocturnal, and hunt for insects, worms, and
-  other small creatures.
-</p>
+<hgroup>
+    <h1>All about web bookmarking</h1>
+    <p>Posted 16 March 2025</p>
+</hgroup>
 ```
-</details>
 
-### the `<section>` tag
+This is another tag I'd forgotten, which I've started using on this site.
 
-* `<section>` is a standalone section of a document, and a tag I'd completely forgotten. I've already started using it in several places in the Flickr Commons Explorer, in place of a more generic `<div>`.
+[hgroup]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/hgroup
 
-### `<ins>`
+### The `<video>` element
 
-	I also saw `<ins>` used for ads on a few sites, which is novel but doesn't feel semantically correct.
+The [`<video>` tag][video] is used to embed videos in a web page.
+It's a tag I've used for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the web.
 
-`ins` used for ads: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
+While building my web archive, I replaced a lot of custom video players with `<video>` elements and local copies of the videos.
+One mistake I kept making was forgetting to close the tag, or trying to make it self-closing:
 
+```html
+<!-- this is wrong -->
+<video controls src="videos/Big_Buck_Bunny.mp4"/>
+```
 
-### `<hgroup>`
+It looks like `<img>`, which is self-closing, but `<video>` can have child elements, you have to explicitly close it with `</video>`.
 
-* `<hgroup>` is a tag for grouping a heading and related content, like a title and a subtitle, for example:
-	```html
-	<hgroup>
-		<h1>All about web bookmarking</h1>
-		<p>Posted 16 March 2025</p>
-	</hgroup>
-	```
-	This is another tag I didn’t know about, and I’ve started using it on this site.
+[video]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video
+[everybody]: https://camendesign.com/code/video_for_everybody
 
-### `<video>`
+### The `<progress>` indicator element
 
-* I replaced a lot of embedded videos with the `<video>` element pointing to a locally downloaded copy of the video, which is the first time I've used this tag in earnest. I still remember reading Kroc Camen’s article [Video is for Everybody](https://camendesign.com/code/video_for_everybody), and it’s nice to finally put that knowledge to use.
+The [`<progress>` element][progress] shows a progress indicator.
+I saw it on a number of sites that specialise in longer articles -- they used a progress bar to show you how far you'd read.
 
-  One mistake I kept making was forgetting to close the tag:
+<style>
+  #progress_example {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+    align-items: center;
+  }
 
-  ```html
-	<!-- this is wrong -->
-	<video controls src="videos/Big_Buck_Bunny.mp4"/>
-	```
+  @media screen and (max-width: 750px) {
+    #progress_example {
+      grid-template-columns: auto;
+      padding-bottom: 1em;
+    }
+  }
+</style>
 
-	This feels like `<img>` which is a self-closing tag, but that's not how `<video>` works. Because it can take child elements, you have to explicitly close it with `</video>`
+<blockquote id="progress_example">
+  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"file"</span><span class="nt">&gt;</span>Progress:<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;progress</span> <span class="na">id=</span><span class="s">"file"</span> <span class="na">max=</span><span class="s">"100"</span> <span class="na">value=</span><span class="s">"70"</span><span class="nt">&gt;</span>70%<span class="nt">&lt;/progress&gt;</span></code></pre></div></div>
 
-### `<progress>`
+  <div>
+    <label for="file">File progress:</label>
+    <progress id="file" max="100" value="70">70%</progress>
+  </div>
+</blockquote>
 
-  used by Business insider/Denali to track reading progress
+I don't have a use for it right now, but I like the idea of getting OS-native progress bars in HTML -- no custom JavaScript or CSS required.
 
-  ```
-  <progress class="theme_back-to-home-progress-bar" value="0" data-component-type="progress-bar"></progress>
-  ```
+[progress]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/progress
 
-### `<base>`
+### The document `<base>` element
+
+The [`<base>` element][base] specifies the base URL to use for any relative URLs in a document.
+For example, in this document:
+
+```html
+<base href="https://example.com/">
+
+<img src="/pictures/cat.jpg">
+```
+
+The image will be loaded from `https://example.com/pictures/cat.jpg`.
+I didn't see `<base>` very often, but it's a good reminder that it exists.
+
+[base]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/base
+
+---
 
 ## misc HTML
 
