@@ -126,6 +126,68 @@ It looks like `<img>`, which is self-closing, but `<video>` can have child eleme
 [video]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video
 [everybody]: https://camendesign.com/code/video_for_everybody
 
+### Translated pages with `<link rel="alternate">` and `hreflang`
+
+I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
+Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
+
+```html
+<link rel="alternate" hreflang="en-us" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
+<link rel="alternate" hreflang="ja"    href="https://blog.panic.com/ja/firewatch-demo-day-at-gdc-j/">
+```
+
+This seems to be for the benefit of search engines and other automated tools, not web browsers.
+If your web browser is configured to prefer Japanese, you'd see a link to the Japanese version in search results -- but if you open the English URL directly, you won't be redirected.
+
+This makes sense to me -- translations can differ in content, and some information might only be available in one language.
+It would be annoying if you couldn't choose which version you wanted.
+
+Panic's article includes a third `<link rel="alternate">` tag:
+
+```html
+<link rel="alternate" hreflang="x-default" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
+```
+
+This [`x-default` value][x-default] is a fallback, used when there's no better match for the user's language.
+For example, if you used a French search engine, you'd be directed to this URL because there isn't a French translation.
+
+Almost every website I've worked has been English-only, so internationalisation is a part of the web I know very little about.
+
+[hreflang]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#values
+[gdc]: https://blog.panic.com/firewatch-demo-day-at-gdc/
+[x-default]: https://developers.google.com/search/blog/2013/04/x-default-hreflang-for-international-pages
+
+### Fetching resources faster with `<link rel="preload">`
+
+I saw a lot of websites that with `<link rel="preload">` tags in their `<head>`.
+This tells the browser about resources that will be needed soon, so it should start fetching them immediately.
+
+Here's an example from this site:
+
+```html
+<link rel="preload" href="https://alexwlchan.net/theme/white-waves-transparent.png" as="image" type="image/png"/>
+```
+
+That image is used as a background texture in my CSS file.
+Normally, the browser would have to download and parse the CSS before it even knows about the image -- which means a delay before it starts loading it.
+By preloading the image, the browser can begin downloading the image in parallel with the CSS file, so it's already in progress when the browser reads the CSS.
+
+The difference is probably imperceptible on a fast connection, but it is a performance improvement -- and as long as you scope the preloads correctly, there's little downside. (You just don't want to preload resources that aren't used).
+
+I saw some sites use [DNS prefetching], which is a similar idea.
+The `rel="dns-prefetch"` attribute tells the browser about domains it'll fetch resources from soon, so it should begin DNS resolution early.
+The most common example was websites using Google Fonts:
+
+```html
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+```
+
+I only added `preload` tags to my site [a few weeks ago][flash].
+I'd seen them in other web pages, but I didn't appreciate the value until I wrote one of my own.
+
+[flash]: /2025/fix-dark-mode/
+[DNS prefetching]: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/dns-prefetch
+
 ### The `<progress>` indicator element
 
 The [`<progress>` element][progress] shows a progress indicator.
@@ -181,7 +243,7 @@ I didn't see `<base>` very often, but it's a good reminder that it exists.
 
 ## Other HTML stuff
 
-### Comments to mark the end of HTML tags
+### Comments to mark the end of large containers
 
 I saw a lot of websites (mostly WordPress) that used HTML comments to mark the end of containers with a lot of content.
 For example:
@@ -201,36 +263,20 @@ I can imagine this being especially helpful in template files, where HTML is mix
 
 [code folding]: https://en.wikipedia.org/wiki/Code_folding
 
-### Translated pages with `rel="alternate"` and `hreflang`
+### What order do elements go in your HTML?
 
-I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
-Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
+My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom. 
+I mirror that order in my HTML, because it feels like the natural structure. 
 
-```html
-<link rel="alternate" hreflang="en-us" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
-<link rel="alternate" hreflang="ja"    href="https://blog.panic.com/ja/firewatch-demo-day-at-gdc-j/">
-```
+I'd never thought about how to order the HTML elements in more complex layouts, when there isn't such a clear visual flow.
+For example, many websites have a sidebar that sits alongside the main content.
+Which comes first in the HTML?
 
-This seems to be for the benefit of search engines and other automated tools, not web browsers.
-If your web browser is configured to prefer Japanese, you'd see a link to the Japanese version in search results -- but if you open the English URL directly, you won't be redirected.
+I don't have a firm answers, but reading how other people structure their HTML got me thinking.
+I noticed several pages that put the sidebar at the very end of the HTML, then used CSS to position it visually alongside the content.
+That way, the main content appears earlier in the HTML file, which means it can load and become readable sooner.
 
-This makes sense to me -- translations can differ in content, and some information might only be available in one language.
-It would be annoying if you couldn't choose which version you wanted.
-
-Panic's article includes a third `<link rel="alternate">` tag:
-
-```html
-<link rel="alternate" hreflang="x-default" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
-```
-
-This [`x-default` value][x-default] is a fallback, used when there's no better match for the user's language.
-For example, if you used a French search engine, you'd be directed to this URL because there isn't a French translation.
-
-Almost every website I've worked has been English-only, so internationalisation is a part of the web I know very little about.
-
-[hreflang]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#values
-[gdc]: https://blog.panic.com/firewatch-demo-day-at-gdc/
-[x-default]: https://developers.google.com/search/blog/2013/04/x-default-hreflang-for-international-pages
+It's something I want to think more carefully about next time I'm building a more complex page. 
 
 ### What's does GPT stand for in attributes?
 
@@ -249,7 +295,7 @@ I'm not sure exactly what these tags were doing -- and since I stripped all the 
 [gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
 [gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
 
-### What's the "instapaper_ignore" class?
+### What's the `instapaper_ignore` class?
 
 I found some pages that use the `instapaper_ignore` CSS class to hide certain content.
 Here's an example from an [Atlantic article][torching] I saved in 2017:
@@ -286,22 +332,6 @@ I deleted my Instapaper account years ago, and I don't hear much about "read lat
 [instapaper_ignore]: https://blog.instapaper.com/post/730281947
 
 ---
-
-### ordering elements in the page
-
-* footer/sidebar goes after main content, and then rearranged to the right place
-
-### link rel="preload"
-
-link rel="preload"
-dns preload
-
-hey, I used this recently!
-
-
-
-
-
 
 
 
