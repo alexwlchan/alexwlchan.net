@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning how to make websites by reading two thousand web pages
+title: What I learnt about web development by reading two thousand web pages
 summary:
 tags:
   - bookmarking
@@ -9,15 +9,16 @@ colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
 ---
-I've [built a web archive](/2025/creating-bookmark-archives/) of over two thousand web pages -- I wanted to save my own copy of everything I've bookmarked over the past 15 years.
-I created these archive copies by hand, reading and editing HTML by hand to build a self-contained, standalone copy of each web page.
+Over the past year, I [built a web archive](/2025/creating-bookmark-archives/) of over two thousand web pages -- my own copy of everything I've bookmarked in the last fifteen years.
+I saved each one by hand, reading and editing the HTML to build a self-contained, standalone copy of each web page.
 
-I was reading web pages written by other people, using tools I'm unfamiliar with.
-I learnt a lot about how the web works, which is what sustained me through this year-long effort.
-I was learning about new aspects of web development that I'd never encountered before, and seeing how they were used in practice.
+These web pages were made by other people, many using tools and techniques I didn't recognise.
+That's what kept me going: I wasn't just archiving, I was learning.
+This project became a crash course in how the web is built, and how people actually use it.
 
-There's a lot of bloat on the web, of course, but that's not news,and you don't need to read thousands of web pages to know it.
-Instead, let's talk about all the cool and useful stuff I learned!
+Yes, there's plenty of bloat on the web, but that's not news.
+You don't need to read thousands of pages to know that.
+What *is* worth sharing is all the clever, thoughtful, and surprising stuff I learned along the way.
 
 <blockquote class="toc">
   <p>This article is the second in a four part bookmarking mini-series:</p>
@@ -325,28 +326,99 @@ people doing security in web console, e.g. tumblr
 
 * other script types `<script type="text/x-handlebars-template" id="loading_animation"><div class="loading_animation pulsing <%= extra_class %> {{ extra_class }}"><div></div></div></script>`
 
+---
+
 ## Grab bag
 
 ### What does GPT mean on a web page?
 
-Thanks to the rise of ChatGPT, I'm used to "GPT" being associated with generative AI – so I was surprised to see it cropping up on web pages that predate the widespread use of LLMs. For example:
+Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
+
+So I was quite surprised to see "GPT" crop up on web pages that predate the widespread use of generative AI.
+It showed up in HTML attributes like this:
 
 ```html
-<div id="div-gpt-ad-1481124643331-2"
+<div id="div-gpt-ad-1481124643331-2">
 ```
 
-It turns out GPT also stands for "Google Publisher Tag", an ad tagging library used by Google Ad Manager.
+In this context, "GPT" stands for [*Google Publisher Tag*][gpt_google], part of Google's ad infrastructure.
+I'm not sure exactly what these tags were doing -- and since I stripped all the ads out of my web archive, they're not doing anything now -- but it was clearly ad-related.
 
-(General Purpose Transformer)
+[gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
+[gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
 
-(What does "ad tagging" mean? / https://developers.google.com/publisher-tag/guides/get-started)
+### Browsers won't load external `file://` resources from `file://` pages
 
-### SVG
+Because my static archives are saved as plain HTML files on disk, I often open them directly using the `file://` protocol, rather than serving them over HTTP.
+This mostly works fine -- but I ran into a few cases where pages behave differently depending on how they're loaded.
 
-* `<use href="/sprite.svg#mastodon>` doesn't work off local FS
-* Kottke circle masks don't work over `file://`
+One example is the [SVG `<use>` element][svg_use].
+Some sites I saved use SVG sprite sheets for social media icons, with markup like:
 
-### Finding a bug in WebKit
+```xml
+<use href="sprite.svg#logo-icon"></use>
+```
 
+This works over `http://`, but when loaded via `file://`, it silently fails -- the icons don't show up.
 
-Zeldman ~> WebKit bug: https://bugs.webkit.org/show_bug.cgi?id=283428
+It turns out this is a security restriction.
+When a `file://` page tries to load another `file://` resource, modern browsers treat it as a [cross-origin request][cross_origin] and block it.
+That wasn't always the case, but today it helps prevent a malicious downloaded HTML file from [snooping around your hard drive][cors_file_security].
+
+At first, all I got was a missing icon.
+I could see an error in my browser console, but it was a bit vague -- it just said I couldn't load the file for "security reasons".
+
+Eventually, I dropped this into my dev tools console:
+
+```javascript
+fetch("sprite.svg")
+  .then(response => console.log("Fetch succeeded:", response))
+  .catch(error => console.error("Fetch failed:", error));
+```
+
+This gave me a different error message, one that explicitly mentioned cross-origin requesting sharing: *"CORS request not http"*.
+This gave me something I could look up, to better understand what's going on.
+
+This is easy to work around -- if I spin up a local web server (like Python's [`http.server`][http.server]), I can open the page over HTTP and everything loads correctly.
+
+[svg_use]: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/use
+[cross_origin]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+[cors_file_security]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors/CORSRequestNotHttp#loading_a_local_file
+[http.server]: https://docs.python.org/3/library/http.server.html#module-http.server
+
+### I found a bug in the WebKit developer tools
+
+Safari is my regular browser, and I was using it to preview pages as I saved them to my archive.
+While I was archiving one of [Jeffrey Zeldman's posts][zeldman], I was struggling to understand how some of his CSS worked.
+I could see the rule in my developer tools, but I couldn't figure out why it was behaving the way it was.
+
+Eventually, I discovered the problem: [a bug in WebKit's developer tools][webkit_283428] was introducing whitespace that changed the meaning of the CSS.
+
+For example, suppose the server sends this minifed CSS rule:
+
+```
+body>*:not(.black){color:green;}
+```
+
+WebKit's dev tools prettify it like this:
+
+```
+body > * :not(.black) {
+    color: green;
+}
+```
+
+But these aren't equivalent!
+
+* The original rule matches [direct children] of `<body>` that don't have the `black` class.
+* The prettified version matches any descendant of `<body>` that doesn't have the `black` class and that isn't a direct child.
+
+The CSS renders correctly on the page, but the bug means the Web Inspector can show something subtly wrong.
+It's a formatting bug that sent me on a proper wild goose chase.
+
+This bug remains unfixed -- but interestingly, a year later, that particular CSS rule has disappeared from Zeldman's site.
+I wonder if it caused any other problems?
+
+[zeldman]: https://zeldman.com/2009/08/05/past-blast/
+[webkit_283428]: https://bugs.webkit.org/show_bug.cgi?id=283428
+[direct children]: https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator
