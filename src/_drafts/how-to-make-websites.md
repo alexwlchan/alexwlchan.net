@@ -40,10 +40,31 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
             <li><a href="#html_section">The <code>&lt;section&gt;</code> element</a></li>
             <li><a href="#html_hgroup">The <code>&lt;hroup&gt;</code> (heading group) element</a></li>
             <li><a href="#html_video">The <code>&lt;video&gt;</code> element</a></li>
-            <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
-            <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
+            <li><a href="#html_progress">The <code>&lt;progress&gt;</code> indicator element</a></li>
+            <li><a href="#html_base">The <code>&lt;base&gt;</code> element</a></li>
           </ul>
         </li>
+        <li>
+          <a href="#css">Clever corners of CSS</a>
+          <ul>
+            <li><a href="#css_import">The CSS <code>@import</code> statement</a></li>
+            <li><a href="#css_suffix"><code>[attr$=value]</code> is a CSS selector for suffix values</a></li>
+            <li><a href="#inset_box_shadows">You can create inner box shadows with <code>inset</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
+        <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
+        <li><a href="#end_comments">Comments to mark the end of large containers</a></li>
+        <li><a href="#css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</a></li>
+        <li><a href="#html_element_order">What order do elements go in your HTML?</a></li>
+        <li><a href="#gpt">What does GPT stand for in attributes?</a></li>
+        <li><a href="#instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</a></li>
+        <li><a href="#html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</a></li>
+
+
+        <li>…</li>
+        <li><a href="#file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</a></li>
+        <li><a href="#webkit_bug">I found a bug in the WebKit developer tools</a></li>
       </ul>
     </li>
     <li>
@@ -133,7 +154,7 @@ This is another tag I'd forgotten, which I've started using on this site.
 <h3 id="html_video">The <code>&lt;video&gt;</code> element</h3>
 
 The [`<video>` tag][video] is used to embed videos in a web page.
-It's a tag I've used for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the web.
+It's a tag I've used for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the(typing) (keyboard clacking)  web.
 
 While building my web archive, I replaced a lot of custom video players with `<video>` elements and local copies of the videos.
 One mistake I kept making was forgetting to close the tag, or trying to make it self-closing:
@@ -148,69 +169,7 @@ It looks like `<img>`, which is self-closing, but `<video>` can have child eleme
 [video]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video
 [everybody]: https://camendesign.com/code/video_for_everybody
 
-<h3 id="html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></h3>
-
-I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
-Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
-
-```html
-<link rel="alternate" hreflang="en-us" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
-<link rel="alternate" hreflang="ja"    href="https://blog.panic.com/ja/firewatch-demo-day-at-gdc-j/">
-```
-
-This seems to be for the benefit of search engines and other automated tools, not web browsers.
-If your web browser is configured to prefer Japanese, you'd see a link to the Japanese version in search results -- but if you open the English URL directly, you won't be redirected.
-
-This makes sense to me -- translations can differ in content, and some information might only be available in one language.
-It would be annoying if you couldn't choose which version you wanted.
-
-Panic's article includes a third `<link rel="alternate">` tag:
-
-```html
-<link rel="alternate" hreflang="x-default" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
-```
-
-This [`x-default` value][x-default] is a fallback, used when there's no better match for the user's language.
-For example, if you used a French search engine, you'd be directed to this URL because there isn't a French translation.
-
-Almost every website I've worked has been English-only, so internationalisation is a part of the web I know very little about.
-
-[hreflang]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#values
-[gdc]: https://blog.panic.com/firewatch-demo-day-at-gdc/
-[x-default]: https://developers.google.com/search/blog/2013/04/x-default-hreflang-for-international-pages
-
-<h3 id="html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></h3>
-
-I saw a lot of websites that with `<link rel="preload">` tags in their `<head>`.
-This tells the browser about resources that will be needed soon, so it should start fetching them immediately.
-
-Here's an example from this site:
-
-```html
-<link rel="preload" href="https://alexwlchan.net/theme/white-waves-transparent.png" as="image" type="image/png"/>
-```
-
-That image is used as a background texture in my CSS file.
-Normally, the browser would have to download and parse the CSS before it even knows about the image -- which means a delay before it starts loading it.
-By preloading the image, the browser can begin downloading the image in parallel with the CSS file, so it's already in progress when the browser reads the CSS.
-
-The difference is probably imperceptible on a fast connection, but it is a performance improvement -- and as long as you scope the preloads correctly, there's little downside. (You just don't want to preload resources that aren't used).
-
-I saw some sites use [DNS prefetching], which is a similar idea.
-The `rel="dns-prefetch"` attribute tells the browser about domains it'll fetch resources from soon, so it should begin DNS resolution early.
-The most common example was websites using Google Fonts:
-
-```html
-<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
-```
-
-I only added `preload` tags to my site [a few weeks ago][flash].
-I'd seen them in other web pages, but I didn't appreciate the value until I wrote one of my own.
-
-[flash]: /2025/fix-dark-mode/
-[DNS prefetching]: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/dns-prefetch
-
-### The `<progress>` indicator element
+<h3 id="html_progress">The <code>&lt;progress&gt;</code> indicator element</h3>
 
 The [`<progress>` element][progress] shows a progress indicator.
 I saw it on a number of sites that specialise in longer articles -- they used a progress bar to show you how far you'd read.
@@ -245,7 +204,7 @@ I don't have a use for it right now, but I like the idea of getting OS-native pr
 
 [progress]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/progress
 
-### The document `<base>` element
+<h3 id="html_base">The <code>&lt;base&gt;</code> element</h3>
 
 The [`<base>` element][base] specifies the base URL to use for any relative URLs in a document.
 For example, in this document:
@@ -261,11 +220,208 @@ I didn't see `<base>` very often, but it's a good reminder that it exists.
 
 [base]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/base
 
+
+
 ---
 
-## Other HTML stuff
 
-### Comments to mark the end of large containers
+
+<h2 id="css">Clever corners of CSS</h2>
+
+<h3 id="css_import">The CSS <code>@import</code> statement</h3>
+
+CSS has `@import` statements, which allow one stylesheet to load another:
+
+```css
+@import "fonts.css";
+```
+I've used `@import` statement in Sass, but I didn't realise it's now a feature of vanilla CSS now -- and one that's widely used.
+My CSS is small enough that I bundle it into a single file for serving over HTTP (the CSS for this website is only 13KB), but I've started using `@import` for static websites I load from my local filesystem.
+
+One feature I'd like -- although I don't think CSS supports it yet -- is conditional imports based on selectors.
+That is, only load a stylesheet if a particular element or class is used on the page.
+
+You can already do conditional imports based on a media query ("only load these styles on a narrow screen") and something similar for selectors would be useful too -- for example, "only load these styles if a particular class is visible".
+I have some longer rules that aren't needed on every page, like styles for syntax highlighting, and it would be nice to load them only when required.
+
+
+
+
+
+<h3 id="css_suffix"><code>[attr$=value]</code> is a CSS selector for suffix values</h3>
+
+While reading the [Home Sweet Homepage][hsh], I found a CSS selector I didn't recognise:
+
+```css
+img[src$="page01/image2.png"] {
+  left: 713px;
+  top:  902px;
+}
+```
+
+This `$=` syntax is a bit of CSS that selects elements whose `src` attribute ends with `page01/image2.png`.
+It's one of a several [attribute selectors] that I hadn't seen before -- you can also match exact values, prefixes, or words in space-separated lists.
+You can also control whether you want case-sensitive or -insensitive matching.
+
+[hsh]: https://sailorhg.com/home_sweet_homepage/
+[attribute selectors]: https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors#attrvalue_5
+
+
+
+
+
+<h3 id="inset_box_shadows">You can create inner box shadows with <code>inset</code></h3>
+
+Here's a link style from an old copy of the *Entertainment Weekly* website:
+
+<style>
+  #underline_example {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+    align-items: center;
+  }
+
+  #underline_example div:nth-child(2) {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 600px) {
+    #underline_example {
+      grid-template-columns: auto;
+      padding-bottom: 1em;
+    }
+
+    #underline_example div:nth-child(2) {
+      text-align: left;
+    }
+  }
+</style>
+
+<blockquote id="underline_example">
+  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span> <span class="nl">box-shadow</span><span class="p">:</span> <span class="nb">inset</span> <span class="m">0</span> <span class="m">-6px</span> <span class="m">0</span> <span class="m">#b0e3fb</span><span class="p">;</span> <span class="p">}</span></code></pre></div></div>
+
+  <div>
+    <span style="box-shadow: inset 0 -6px 0 #b0e3fb;">
+      A link on EW.com
+    </span>
+  </div>
+</blockquote>
+
+The [`inset` keyword][inset] was new to me: it draws the shadow *inside* the box, rather than outside.
+In this case, they're setting `offset-x=0`, `offset-y=-6px` and `blur-radius=0` to create a solid stripe that appears behind the link text -- like a highlighter running underneath it.
+
+If you want something that looks more shadow-like, here are two boxes that show what the inner/outer shadow looks like with a blur radius:
+
+<style>
+  #shadow_examples {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 1em;
+  }
+
+  #shadow_examples > div {
+    width: 150px;
+    padding: 0.25em;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+    background: var(--background-color);
+  }
+</style>
+
+<div id="shadow_examples">
+  <div style="box-shadow: inset 0 0 10px var(--primary-color);">
+    inner shadow
+  </div>
+  <div style="box-shadow: 0 0 10px var(--primary-color);">
+    outer shadow
+  </div>
+</div>
+
+I don't have an immediate use for this, but I like the effect, and the subtle sense of depth it creates.
+
+[inset]: https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#inset
+
+
+
+---
+
+
+
+
+
+<h2 id="html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></h2>
+
+I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
+Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
+
+```html
+<link rel="alternate" hreflang="en-us" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
+<link rel="alternate" hreflang="ja"    href="https://blog.panic.com/ja/firewatch-demo-day-at-gdc-j/">
+```
+
+This seems to be for the benefit of search engines and other automated tools, not web browsers.
+If your web browser is configured to prefer Japanese, you'd see a link to the Japanese version in search results -- but if you open the English URL directly, you won't be redirected.
+
+This makes sense to me -- translations can differ in content, and some information might only be available in one language.
+It would be annoying if you couldn't choose which version you wanted.
+
+Panic's article includes a third `<link rel="alternate">` tag:
+
+```html
+<link rel="alternate" hreflang="x-default" href="https://blog.panic.com/firewatch-demo-day-at-gdc/">
+```
+
+This [`x-default` value][x-default] is a fallback, used when there's no better match for the user's language.
+For example, if you used a French search engine, you'd be directed to this URL because there isn't a French translation.
+
+Almost every website I've worked has been English-only, so internationalisation is a part of the web I know very little about.
+
+[hreflang]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel#values
+[gdc]: https://blog.panic.com/firewatch-demo-day-at-gdc/
+[x-default]: https://developers.google.com/search/blog/2013/04/x-default-hreflang-for-international-pages
+
+
+
+
+
+<h2 id="html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></h2>
+
+I saw a lot of websites that with `<link rel="preload">` tags in their `<head>`.
+This tells the browser about resources that will be needed soon, so it should start fetching them immediately.
+
+Here's an example from this site:
+
+```html
+<link rel="preload" href="https://alexwlchan.net/theme/white-waves-transparent.png" as="image" type="image/png"/>
+```
+
+That image is used as a background texture in my CSS file.
+Normally, the browser would have to download and parse the CSS before it even knows about the image -- which means a delay before it starts loading it.
+By preloading the image, the browser can begin downloading the image in parallel with the CSS file, so it's already in progress when the browser reads the CSS.
+
+The difference is probably imperceptible on a fast connection, but it is a performance improvement -- and as long as you scope the preloads correctly, there's little downside. (You just don't want to preload resources that aren't used).
+
+I saw some sites use [DNS prefetching], which is a similar idea.
+The `rel="dns-prefetch"` attribute tells the browser about domains it'll fetch resources from soon, so it should begin DNS resolution early.
+The most common example was websites using Google Fonts:
+
+```html
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+```
+
+I only added `preload` tags to my site [a few weeks ago][flash].
+I'd seen them in other web pages, but I didn't appreciate the value until I wrote one of my own.
+
+[flash]: /2025/fix-dark-mode/
+[DNS prefetching]: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/dns-prefetch
+
+
+
+
+
+<h2 id="end_comments">Comments to mark the end of large containers</h2>
 
 I saw a lot of websites (mostly WordPress) that used HTML comments to mark the end of containers with a lot of content.
 For example:
@@ -285,7 +441,24 @@ I can imagine this being especially helpful in template files, where HTML is mix
 
 [code folding]: https://en.wikipedia.org/wiki/Code_folding
 
-### What order do elements go in your HTML?
+
+
+
+<h2 id="css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</h2>
+
+Here's a similar idea: I saw a number of sites set a `data-href` attribute on their `<style>` tags, as a way to indicate the source of the CSS.
+Something like:
+
+```html
+<style data-href="https://example.com/style.css">{% comment %}</style>{% endcomment %}
+```
+
+It's a neat idea that I imagine could be useful for developers working on that web page.
+
+
+
+
+<h2 id="html_element_order">What order do elements go in your HTML?</h2>
 
 My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom.
 I mirror that order in my HTML, because it feels like the natural structure.
@@ -300,7 +473,11 @@ That way, the main content appears earlier in the HTML file, which means it can 
 
 It's something I want to think more carefully about next time I'm building a more complex page.
 
-### What's does GPT stand for in attributes?
+
+
+
+
+<h2 id="gpt">What does GPT stand for in attributes?</h2>
 
 Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
 
@@ -317,7 +494,11 @@ I'm not sure exactly what these tags were doing -- and since I stripped all the 
 [gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
 [gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
 
-### What's the `instapaper_ignore` class?
+
+
+
+
+<h2 id="instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</h2>
 
 I found some pages that use the `instapaper_ignore` CSS class to hide certain content.
 Here's an example from an [Atlantic article][torching] I saved in 2017:
@@ -353,13 +534,17 @@ I deleted my Instapaper account years ago, and I don't hear much about "read lat
 [torching]: https://www.theatlantic.com/technology/archive/2017/04/the-tragedy-of-google-books/523320/
 [instapaper_ignore]: https://blog.instapaper.com/post/730281947
 
-<h3 id="html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</h3>
+
+
+
+
+<h2 id="html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</h2>
 
 Old versions of Internet Explorer supported [conditional comments], which allowed developers to add IE-specific behaviour to their pages.
 Internet Explorer would render the contents of the comment as HTML, while other browsers ignored it.
 This was a common workaround for deficiencies in IE, when pages needed specific markup or styles to render correctly.
 
-Here's an example, where the developer adds an IE-specific style to fix a layout issue: 
+Here's an example, where the developer adds an IE-specific style to fix a layout issue:
 
 ```html
 <!--[if IE]>
@@ -397,97 +582,9 @@ Most websites have removed them, but they live on in web archives -- and in the 
 [conditional comments]: https://en.wikipedia.org/wiki/Conditional_comment
 
 
----
-
-<h2 id="css">CSS and styles</h2>
-
-<h3 id="css_import">The <code>@import</code> statement</h3>
-
-CSS has `@import` statements, which allow one stylesheet to load another:
-
-```css
-@import "fonts.css";
-```
-I've used `@import` statement in Sass, but I didn't realise it's now a feature of vanilla CSS now -- and one that's widely used.
-My CSS is small enough that I bundle it into a single file for serving over HTTP (the CSS for this website is only 13KB), but I've started using `@import` for static websites I load from my local filesystem.
-
-One feature I'd like -- although I don't think CSS supports it yet -- is conditional imports based on selectors.
-That is, only load a stylesheet if a particular element or class is used on the page.
-
-You can already do conditional imports based on a media query ("only load these styles on a narrow screen") and something similar for selectors would be useful too -- for example, "only load these styles if a particular class is visible".
-I have some longer rules that aren't needed on every page, like styles for syntax highlighting, and it would be nice to load them only when required.
-
-
----
-
-## CSS
-
-### $= for elements whose
-
-<details>
-The [attribute$="value"] selector is used to select elements whose attribute value ends with a specified value.
-
-
-Home Sweet Homepage:
-
-```
-img[src$="page01/image2.png"] {
-  left: 713px;
-  top: 902px;
-}
-```
-</details>
-
-
-
-### Lots of `<!--[if IE]>`
-
-```
-
-
-
-```
-style data-href=
-or style id="
-
-somthing someting path
-```
-
-```html
-<style data-href="https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_bootstrap.77c2044d.min.css"></style>
-```
-
-EW: what is `box-shadow: inset`?
-
-```
-      box-shadow: inset 0 -6px 0 #b0e3fb;
-
-```
-
-
-
-### Misc features
-
-I'm a CSS novice at best – I can lay out a basic web page, but nothing fancy. I wrote down a lot of notes on CSS features that caught my eye as I was reading.
-
-* A lot of sites have a "reset" or "normalize" stylesheet, which removes all the browser styles and gives you a blank slate. I’d seen these names but never understood their purpose before; it’s not my preference but now I’ve seen them in action.
 
 
 * `cursor: zoom-in` is a common rule for images which link to a larger size, for example in photo galleries. I knew about `cursor` but I'd never thought to use it that way.
-* I saw the `data-href` attribute used on `<style>` tags on a number of sites, for example `<style data-href="https://example.com/style.css">` – a way of indicating where the CSS defined in that `<style>` tag comes from. I thought that was a neat idea.
-* I have a better understanding of `@font-face`, which is used all over the web but I've mostly ignored – I prefer web-safe fonts because they look "good enough" to my eyes and are much simpler to implement.
-* Entertainment Weekly (?) uses `box-shadow: inset` to get a fancy-looking underline in their links.
-	```html
-	<style>
-	  div {
-	    box-shadow: inset 0 -6px 0 #b0e3fb;
-	  }
-	</style>
-
-	<div>hello world</div>
-	```
-
-{cursor: zoom-in} – I should use this
 
 ## JavaScript
 
@@ -539,11 +636,11 @@ people doing security in web console, e.g. tumblr
 
 * other script types `<script type="text/x-handlebars-template" id="loading_animation"><div class="loading_animation pulsing <%= extra_class %> {{ extra_class }}"><div></div></div></script>`
 
----
 
-## Grab bag
 
-### Browsers won't load external `file://` resources from `file://` pages
+
+
+<h2 id="file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</h2>
 
 Because my static archives are saved as plain HTML files on disk, I often open them directly using the `file://` protocol, rather than serving them over HTTP.
 This mostly works fine -- but I ran into a few cases where pages behave differently depending on how they're loaded.
@@ -582,7 +679,11 @@ This is easy to work around -- if I spin up a local web server (like Python's [`
 [cors_file_security]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors/CORSRequestNotHttp#loading_a_local_file
 [http.server]: https://docs.python.org/3/library/http.server.html#module-http.server
 
-### I found a bug in the WebKit developer tools
+
+
+
+
+<h2 id="webkit_bug">I found a bug in the WebKit developer tools</h2>
 
 Safari is my regular browser, and I was using it to preview pages as I saved them to my archive.
 While I was archiving one of [Jeffrey Zeldman's posts][zeldman], I was struggling to understand how some of his CSS worked.
@@ -592,13 +693,13 @@ Eventually, I discovered the problem: [a bug in WebKit's developer tools][webkit
 
 For example, suppose the server sends this minifed CSS rule:
 
-```
+```css
 body>*:not(.black){color:green;}
 ```
 
 WebKit's dev tools prettify it like this:
 
-```
+```css
 body > * :not(.black) {
     color: green;
 }
