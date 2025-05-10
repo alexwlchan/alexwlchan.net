@@ -343,6 +343,62 @@ I don't have an immediate use for this, but I like the effect, and the subtle se
 
 [inset]: https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#inset
 
+<h3 id="css_zoom_in"><code>cursor: zoom-in</code> shows a magnifying glass</h3>
+
+On gallery websites, I often saw this CSS rule used for images that link to a larger version:
+
+```css
+cursor: zoom-in;
+```
+
+Instead of using `cursor: pointer;` (the typical hand icon for links), this shows a magnifying glass icon -- a subtle cue that clicking will zoom or expand the image.
+
+Here's a quick comparison:
+
+<table>
+  <tr>
+    <td style="cursor: default; padding-right: 0.5em;">
+      <picture>
+        <source srcset="/images/2025/bookmarks/default.dark.gif" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/default.gif" type="image/gif" media="(prefers-color-scheme: light)">
+        <img src="/images/2025/bookmarks/default.gif" alt="A small icon of an arrow">
+      </picture>
+    </td>
+    <td>
+      the <code>default</code> cursor is typically an arrow
+    </td>
+  </tr>
+  <tr>
+    <td style="cursor: pointer; padding-right: 0.5em;">
+      <picture>
+        <source srcset="/images/2025/bookmarks/pointer.dark.gif" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/pointer.gif" type="image/gif" media="(prefers-color-scheme: light)">
+        <img src="/images/2025/bookmarks/pointer.gif" alt="A small icon of a hand with a raised pointer finger">
+      </picture>
+    </td>
+    <td>
+      the <code>pointer</code> cursor is typically a hand, used to indicate links
+    </td>
+  </tr>
+  <tr>
+    <td style="cursor: zoom-in; padding-right: 0.5em;">
+      <picture>
+        <source srcset="/images/2025/bookmarks/zoom-in.dark.gif" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/zoom-in.gif" type="image/gif" media="(prefers-color-scheme: light)">
+        <img src="/images/2025/bookmarks/zoom-in.gif" alt="A small icon of a magnifying sign with a plus symbol">
+      </picture>
+    </td>
+    <td>
+      the <code>zoom-in</code> cursor is a magnifying glass with a plus sign, suggesting “click to enlarge”
+    </td>
+  </tr>
+</table>
+
+I knew about the [`cursor` property][cursor], but I'd never thought to use it that way.
+It's a nice touch, and I want to remember it for the next time I build a gallery.
+
+[cursor]: https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
+
 
 
 ---
@@ -582,10 +638,6 @@ Most websites have removed them, but they live on in web archives -- and in the 
 [conditional comments]: https://en.wikipedia.org/wiki/Conditional_comment
 
 
-
-
-* `cursor: zoom-in` is a common rule for images which link to a larger size, for example in photo galleries. I knew about `cursor` but I'd never thought to use it that way.
-
 ## JavaScript
 
 ### script type=text/template
@@ -595,9 +647,8 @@ Most websites have removed them, but they live on in web archives -- and in the 
 
   zeldman
 
-  ```
-  {% raw %}
-  <script type="text/template" id="tmpl-subscriber-only-message">
+  ```html
+  {% raw %}<script type="text/template" id="tmpl-subscriber-only-message">
   	<div class="coil-message-inner">
   		<div class="coil-message-header">
   			<# if ( data.headerLogo ) { #>
@@ -619,18 +670,6 @@ Most websites have removed them, but they live on in web archives -- and in the 
   ```
 
 </details>
-
-### Developers like to leave messages in the JavaScript console
-
-I always smiled at sites that left a message for people looking in the developer console – often a wave to fellow web developers, or a link to a jobs page.
-
-A couple of sites also used this as a place to leave security warnings for non-developers – apparently there are scammers who send people snippets of JavaScript to run in their web console, which can potentially do a lot of damage. Sites would print scary looking messages "don't trust people who tell you to run code here", but it doesn't seem especially widespread.
-
-people doing security in web console, e.g. tumblr
-
-```
-<script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="pre_tumblelog.js%3F_v=83e88e0d61213141a74383bf5d31425e"></script>
-```
 
 ### Alternative script types
 
