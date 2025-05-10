@@ -66,6 +66,10 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
     margin-bottom: 1em;
   }
 
+  .toc ol > li > ul {
+    list-style-type: disc;
+  }
+
   .toc a:visited {
     color: var(--primary-color);
   }
