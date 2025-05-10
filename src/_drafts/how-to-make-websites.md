@@ -50,21 +50,30 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
             <li><a href="#css_import">The CSS <code>@import</code> statement</a></li>
             <li><a href="#css_suffix"><code>[attr$=value]</code> is a CSS selector for suffix values</a></li>
             <li><a href="#inset_box_shadows">You can create inner box shadows with <code>inset</code></a></li>
+            <li><a href="#css_zoom_in">For images that get bigger, <code>cursor: zoom-in</code> can show a magnifying glass</a></li>
           </ul>
         </li>
-        <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
-        <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
-        <li><a href="#end_comments">Comments to mark the end of large containers</a></li>
-        <li><a href="#css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</a></li>
-        <li><a href="#html_element_order">What order do elements go in your HTML?</a></li>
-        <li><a href="#gpt">What does GPT stand for in attributes?</a></li>
-        <li><a href="#instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</a></li>
-        <li><a href="#html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</a></li>
-
-
-        <li>…</li>
-        <li><a href="#file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</a></li>
-        <li><a href="#webkit_bug">I found a bug in the WebKit developer tools</a></li>
+        <li>
+          <a href="#thoughtful_html">Writing thoughtful HTML</a>
+          <ul>
+            <li><a href="#html_element_order">What order do elements go in your HTML?</a></li>
+            <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
+            <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
+            <li><a href="#end_comments">Comments to mark the end of large containers</a></li>
+            <li><a href="#css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#quirks">Quirks and relics</a>
+          <ul>        
+            <li><a href="#gpt">What does GPT stand for in attributes?</a></li>
+            <li><a href="#instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</a></li>
+            <li><a href="#html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</a></li>
+            <li><a href="#js_templates">Templates in <code>&lt;script&gt;</code> tags with a non-standard <code>type</code> attribute</a></li>
+            <li><a href="#file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</a></li>
+            <li><a href="#webkit_bug">I found a bug in the WebKit developer tools</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li>
@@ -343,7 +352,7 @@ I don't have an immediate use for this, but I like the effect, and the subtle se
 
 [inset]: https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#inset
 
-<h3 id="css_zoom_in"><code>cursor: zoom-in</code> shows a magnifying glass</h3>
+<h3 id="css_zoom_in">For images that get bigger, <code>cursor: zoom-in</code> can show a magnifying glass</h3>
 
 On gallery websites, I often saw this CSS rule used for images that link to a larger version:
 
@@ -405,9 +414,28 @@ It's a nice touch, and I want to remember it for the next time I build a gallery
 
 
 
+<h2 id="thoughtful_html">Writing thoughtful HTML</h2>
+
+<h3 id="html_element_order">What order do elements go in your HTML?</h3>
+
+My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom.
+I mirror that order in my HTML, because it feels like the natural structure.
+
+I'd never thought about how to order the HTML elements in more complex layouts, when there isn't such a clear visual flow.
+For example, many websites have a sidebar that sits alongside the main content.
+Which comes first in the HTML?
+
+I don't have a firm answers, but reading how other people structure their HTML got me thinking.
+I noticed several pages that put the sidebar at the very end of the HTML, then used CSS to position it visually alongside the content.
+That way, the main content appears earlier in the HTML file, which means it can load and become readable sooner.
+
+It's something I want to think more carefully about next time I'm building a more complex page.
 
 
-<h2 id="html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></h2>
+
+
+
+<h3 id="html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></h3>
 
 I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
 Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
@@ -442,7 +470,7 @@ Almost every website I've worked has been English-only, so internationalisation 
 
 
 
-<h2 id="html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></h2>
+<h3 id="html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></h3>
 
 I saw a lot of websites that with `<link rel="preload">` tags in their `<head>`.
 This tells the browser about resources that will be needed soon, so it should start fetching them immediately.
@@ -477,7 +505,7 @@ I'd seen them in other web pages, but I didn't appreciate the value until I wrot
 
 
 
-<h2 id="end_comments">Comments to mark the end of large containers</h2>
+<h3 id="end_comments">Comments to mark the end of large containers</h3>
 
 I saw a lot of websites (mostly WordPress) that used HTML comments to mark the end of containers with a lot of content.
 For example:
@@ -500,7 +528,7 @@ I can imagine this being especially helpful in template files, where HTML is mix
 
 
 
-<h2 id="css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</h2>
+<h3 id="css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</h3>
 
 Here's a similar idea: I saw a number of sites set a `data-href` attribute on their `<style>` tags, as a way to indicate the source of the CSS.
 Something like:
@@ -514,26 +542,16 @@ It's a neat idea that I imagine could be useful for developers working on that w
 
 
 
-<h2 id="html_element_order">What order do elements go in your HTML?</h2>
 
-My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom.
-I mirror that order in my HTML, because it feels like the natural structure.
-
-I'd never thought about how to order the HTML elements in more complex layouts, when there isn't such a clear visual flow.
-For example, many websites have a sidebar that sits alongside the main content.
-Which comes first in the HTML?
-
-I don't have a firm answers, but reading how other people structure their HTML got me thinking.
-I noticed several pages that put the sidebar at the very end of the HTML, then used CSS to position it visually alongside the content.
-That way, the main content appears earlier in the HTML file, which means it can load and become readable sooner.
-
-It's something I want to think more carefully about next time I'm building a more complex page.
+---
 
 
 
 
 
-<h2 id="gpt">What does GPT stand for in attributes?</h2>
+<h2 id="quirks">Quirks and relics</h2>
+
+<h3 id="gpt">What does GPT stand for in attributes?</h3>
 
 Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
 
@@ -554,7 +572,7 @@ I'm not sure exactly what these tags were doing -- and since I stripped all the 
 
 
 
-<h2 id="instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</h2>
+<h3 id="instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</h3>
 
 I found some pages that use the `instapaper_ignore` CSS class to hide certain content.
 Here's an example from an [Atlantic article][torching] I saved in 2017:
@@ -594,7 +612,7 @@ I deleted my Instapaper account years ago, and I don't hear much about "read lat
 
 
 
-<h2 id="html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</h2>
+<h3 id="html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</h3>
 
 Old versions of Internet Explorer supported [conditional comments], which allowed developers to add IE-specific behaviour to their pages.
 Internet Explorer would render the contents of the comment as HTML, while other browsers ignored it.
@@ -638,48 +656,33 @@ Most websites have removed them, but they live on in web archives -- and in the 
 [conditional comments]: https://en.wikipedia.org/wiki/Conditional_comment
 
 
-## JavaScript
 
-### script type=text/template
+<h3 id="js_templates">Templates in <code>&lt;script&gt;</code> tags with a non-standard <code>type</code> attribute</h3>
 
-<details>
-  https://stackoverflow.com/questions/4912586/explanation-of-script-type-text-template-script
+I came across a few pages using `<script>` tags with a `type` attribute that I didn't recognise.
+Here's a simple example:
 
-  zeldman
+```html
+<script type="text/x-handlebars-template" id="loading_animation">
+  <div class="loading_animation pulsing <%= extra_class %> {{ extra_class }}"><div></div></div>
+</script>
+```
 
-  ```html
-  {% raw %}<script type="text/template" id="tmpl-subscriber-only-message">
-  	<div class="coil-message-inner">
-  		<div class="coil-message-header">
-  			<# if ( data.headerLogo ) { #>
-  				{{{data.headerLogo}}}
-  			<# } #>
-  			<# if ( data.title ) { #>
-  				<p class="coil-message-title">{{data.title}}</p>
-  			<# } #>
-  			<# if ( data.content ) { #>
-  				<p class="coil-message-content">{{data.content}}</p>
-  			<# } #>
-  			<# if ( data.button.href ) { #>
-  				<a target="_blank" href="{{data.button.href}}" class="coil-message-button">{{data.button.text}}</a>
-  			<# } #>
-  		</div>
-  	</div>
-  </script>
-  {% endraw %}
-  ```
+Browsers ignore `<script>` tags [an unrecognised `type`][script_unknown_type] -- they don't run them, and they don't render their contents.
+Developers used this as a way to [include HTML templates][old_template] in their pages, which JavaScript could extract and use later.
 
-</details>
+This trick was so widespread that HTML introduced a dedicated [`<template>` tag][template] element for the same purpose.
+It's been in all the major browsers for years, but there are still instances of this old technique floating around the web.
 
-### Alternative script types
-
-* other script types `<script type="text/x-handlebars-template" id="loading_animation"><div class="loading_animation pulsing <%= extra_class %> {{ extra_class }}"><div></div></div></script>`
+[script_unknown_type]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type#any_other_value
+[old_template]: https://stackoverflow.com/a/4912608/1558022
+[template]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/template
 
 
 
 
 
-<h2 id="file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</h2>
+<h3 id="file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</h3>
 
 Because my static archives are saved as plain HTML files on disk, I often open them directly using the `file://` protocol, rather than serving them over HTTP.
 This mostly works fine -- but I ran into a few cases where pages behave differently depending on how they're loaded.
@@ -722,7 +725,7 @@ This is easy to work around -- if I spin up a local web server (like Python's [`
 
 
 
-<h2 id="webkit_bug">I found a bug in the WebKit developer tools</h2>
+<h3 id="webkit_bug">I found a bug in the WebKit developer tools</h3>
 
 Safari is my regular browser, and I was using it to preview pages as I saved them to my archive.
 While I was archiving one of [Jeffrey Zeldman's posts][zeldman], I was struggling to understand how some of his CSS worked.
