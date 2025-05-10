@@ -31,6 +31,20 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
     </li>
     <li>
       <strong>Learning how to make websites by reading two thousand web pages</strong> (this article)
+      <ul>
+        <li>
+          <a href="#html_tags">Interesting HTML tags</a>
+          <ul>
+            <li><a href="#html_aside">The <code>&lt;aside&gt;</code> element</a></li>
+            <li><a href="#html_mark">The <code>&lt;mark&gt;</code> element</a></li>
+            <li><a href="#html_section">The <code>&lt;section&gt;</code> element</a></li>
+            <li><a href="#html_hgroup">The <code>&lt;hroup&gt;</code> (heading group) element</a></li>
+            <li><a href="#html_video">The <code>&lt;video&gt;</code> element</a></li>
+            <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
+            <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
+          </ul>
+        </li>
+      </ul>
     </li>
     <li>
       <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 26 May) – some websites which are doing especially fun or clever things with the web.
@@ -48,6 +62,14 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
     margin-bottom: 1em;
   }
 
+  .toc ol > li > ul {
+    list-style-type: disc;
+  }
+
+  .toc ol > li > ul > li > ul {
+    list-style-type: circle;
+  }
+
   .toc a:visited {
     color: var(--primary-color);
   }
@@ -55,14 +77,14 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
 
 ---
 
-## Interesting HTML tags
+<h2 id="html_tags">Interesting HTML tags</h2>
 
 I know I've read a list of HTML tags in reference documents (and in [this blog post][weaver] by Patrick Weaver), but there are some tags I'm forgotten, misunderstood, or never seen used in the wild.
 Reading thousands of real-world pages gave me a better sense of how these tags are actually used, and when they're useful.
 
 [weaver]: https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/
 
-### The `<aside>` element
+<h3 id="html_aside">The <code>&lt;aside&gt;</code> element</h3>
 
 MDN describes [`<aside>`][aside] as "a portion of a document whose content is only indirectly related to the document's main content".
 That's probably true, but it's vague enough that I was never quite sure when to use it.
@@ -76,7 +98,7 @@ I saw a couple of sites using the [`<ins>` (inserted text) element][ins] for ads
 [aside]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/aside
 [ins]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ins
 
-### The `<mark>` element
+<h3 id="html_mark">The <code>&lt;mark&gt;</code> element</h3>
 
 The [`<mark> element`][mark] highlights text, typically with a yellow background.
 It's useful for drawing visual attention to a phrase, and I suspect it's helpful or screen readers and parsing tools as well.
@@ -85,7 +107,7 @@ I saw it used in Medium to show reader highlights, and I've started using it in 
 
 [mark]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/mark
 
-### The section element `<section>`
+<h3 id="html_section">The <code>&lt;section&gt;</code> element</h3>
 
 The [`<section>` tag][section] is a useful way to group content on a page -- more meaningful than a generic `<div>`.
 I'd forgotten about it, although I use similar tags like `<article>` and `<main>`.
@@ -93,7 +115,7 @@ Seeing it used across different sites reminded me it exists, and I've since adde
 
 [section]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/section
 
-### The heading group element `<hgroup>`
+<h3 id="html_hgroup">The <code>&lt;hroup&gt;</code> (heading group) element</h3>
 
 The [`<hgroup>` tag][hgroup] is for grouping a heading with related metadata -- like a title and a publication date:
 
@@ -108,7 +130,7 @@ This is another tag I'd forgotten, which I've started using on this site.
 
 [hgroup]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/hgroup
 
-### The `<video>` element
+<h3 id="html_video">The <code>&lt;video&gt;</code> element</h3>
 
 The [`<video>` tag][video] is used to embed videos in a web page.
 It's a tag I've used for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the web.
@@ -126,7 +148,7 @@ It looks like `<img>`, which is self-closing, but `<video>` can have child eleme
 [video]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video
 [everybody]: https://camendesign.com/code/video_for_everybody
 
-### Translated pages with `<link rel="alternate">` and `hreflang`
+<h3 id="html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></h3>
 
 I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
 Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
@@ -157,7 +179,7 @@ Almost every website I've worked has been English-only, so internationalisation 
 [gdc]: https://blog.panic.com/firewatch-demo-day-at-gdc/
 [x-default]: https://developers.google.com/search/blog/2013/04/x-default-hreflang-for-international-pages
 
-### Fetching resources faster with `<link rel="preload">`
+<h3 id="html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></h3>
 
 I saw a lot of websites that with `<link rel="preload">` tags in their `<head>`.
 This tells the browser about resources that will be needed soon, so it should start fetching them immediately.
@@ -265,8 +287,8 @@ I can imagine this being especially helpful in template files, where HTML is mix
 
 ### What order do elements go in your HTML?
 
-My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom. 
-I mirror that order in my HTML, because it feels like the natural structure. 
+My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom.
+I mirror that order in my HTML, because it feels like the natural structure.
 
 I'd never thought about how to order the HTML elements in more complex layouts, when there isn't such a clear visual flow.
 For example, many websites have a sidebar that sits alongside the main content.
@@ -276,7 +298,7 @@ I don't have a firm answers, but reading how other people structure their HTML g
 I noticed several pages that put the sidebar at the very end of the HTML, then used CSS to position it visually alongside the content.
 That way, the main content appears earlier in the HTML file, which means it can load and become readable sooner.
 
-It's something I want to think more carefully about next time I'm building a more complex page. 
+It's something I want to think more carefully about next time I'm building a more complex page.
 
 ### What's does GPT stand for in attributes?
 
@@ -331,9 +353,72 @@ I deleted my Instapaper account years ago, and I don't hear much about "read lat
 [torching]: https://www.theatlantic.com/technology/archive/2017/04/the-tragedy-of-google-books/523320/
 [instapaper_ignore]: https://blog.instapaper.com/post/730281947
 
+<h3 id="html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</h3>
+
+Old versions of Internet Explorer supported [conditional comments], which allowed developers to add IE-specific behaviour to their pages.
+Internet Explorer would render the contents of the comment as HTML, while other browsers ignored it.
+This was a common workaround for deficiencies in IE, when pages needed specific markup or styles to render correctly.
+
+Here's an example, where the developer adds an IE-specific style to fix a layout issue: 
+
+```html
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+  </style>
+<![endif]-->
+```
+
+Developers could also target specific versions of IE:
+
+```html
+<!--[if lte IE 7]><link rel="stylesheet" href="/css/ie.css"><![endif]-->
+```
+
+Some websites even used conditional comments to display warnings and encourage users to upgrade, like this message which that's still present on [the RedMonk website](https://redmonk.com) today:
+
+```html
+<!--[if IE]>
+  <div class="alert alert-warning">
+    You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+  </div>
+<![endif]-->
+```
+
+This syntax was already disappearing by the time I started building websites -- support for conditional comments was removed in Internet Explorer 10, released in 2012, the same year that Google Chrome became the most-used browser worldwide.
+I've never written one of these comments, and they were a reminder of how much harder it used to be to make websites.
+
+Like the `instapaper_ignore` class, these comments are a relic of an earlier web.
+Most websites have removed them, but they live on in web archives -- and in the memories of developers who had to make things work in IE, one way or another.
+
+[conditional comments]: https://en.wikipedia.org/wiki/Conditional_comment
+
+
 ---
 
+<h2 id="css">CSS and styles</h2>
 
+<h3 id="css_import">The <code>@import</code> statement</h3>
+
+CSS has `@import` statements, which allow one stylesheet to load another:
+
+```css
+@import "fonts.css";
+```
+I've used `@import` statement in Sass, but I didn't realise it's now a feature of vanilla CSS now -- and one that's widely used.
+My CSS is small enough that I bundle it into a single file for serving over HTTP (the CSS for this website is only 13KB), but I've started using `@import` for static websites I load from my local filesystem.
+
+One feature I'd like -- although I don't think CSS supports it yet -- is conditional imports based on selectors.
+That is, only load a stylesheet if a particular element or class is used on the page.
+
+You can already do conditional imports based on a media query ("only load these styles on a narrow screen") and something similar for selectors would be useful too -- for example, "only load these styles if a particular class is visible".
+I have some longer rules that aren't needed on every page, like styles for syntax highlighting, and it would be nice to load them only when required.
+
+
+---
 
 ## CSS
 
@@ -353,36 +438,12 @@ img[src$="page01/image2.png"] {
 ```
 </details>
 
-### The `@import` statement
 
-CSS has `@import` statements, so one stylesheet can load another stylesheet:
-```css
-@import "fonts.css";
-```
-I've used the import statement in Sass, and I didn't know this was a feature of vanilla CSS now – but it was in fairly common use.
-
-My CSS is small enough that I package it into a single file for websites served over HTTP (the CSS for this website is only 13KB) – but I've started to use this for static websites I load from my local filesystem.
-
-I don't think CSS supports this yet, but I think imports conditional on a selector might be useful – you can already do conditional imports based on a media query ("only load these styles on a narrow screen") and I think conditional imports based on the presence of a selector would be useful too ("only load these styles if a particular class is use"). I have some longer CSS rules that I don't need on every page, and might be nice to load conditionally (like my styles for good embedded toots).
 
 ### Lots of `<!--[if IE]>`
 
 ```
-<!--[if IE]>
-  <style>
-    /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
-      padding-right: 3em;
-    }
-    .greedy-nav button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-  </style>
-<![endif]-->
-```
+
 
 
 ```
