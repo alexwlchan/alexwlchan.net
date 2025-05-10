@@ -59,6 +59,10 @@ In this second post, I'll talk about how I created a local copy of every link I'
     margin-bottom: 1em;
   }
 
+  .toc ol > li > ul {
+    list-style-type: disc;
+  }
+
   .toc a:visited {
     color: var(--primary-color);
   }
