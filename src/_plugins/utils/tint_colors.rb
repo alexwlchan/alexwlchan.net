@@ -20,7 +20,7 @@ end
 def read_default_light_color
   sass_source = File.read 'src/static/style.scss'
 
-  match = sass_source.match('^\$primary-color-light: (?<color>#[0-9a-f]{6});$')
+  match = sass_source.match('\-\-primary\-color\-light: (?<color>#[0-9a-f]{6});')
 
   match.named_captures['color']
 end
