@@ -10,9 +10,8 @@ colors:
   css_dark:  "#00ddff"
 ---
 Over the last three weeks, I've been writing about how I manage my bookmarks.
-I wrote about how I use a static site to store them, how I built a personal web archive by hand, and what I learnt about web development.
-In the final post of this series, I want something a bit more light-hearted.
-I want to show you some of my favorite web sites that I found in my bookmarks – people who do really fun or creative stuff with the web.
+how I use a static site to store them, how I built a personal web archive by hand, and what I learnt about web development along the way.
+I wanted to end this series on a lighter note, so here's a handful of my favorite sites I rediscovered while reviewing my bookmarks – fun, creative corners of the web that make me smile.
 
 <blockquote class="toc">
   <p>This article is the final part of a four part bookmarking mini-series:</p>
@@ -57,26 +56,77 @@ I want to show you some of my favorite web sites that I found in my bookmarks �
 
 ---
 
-## The ever-changing "planets" of Kottke.org
+## The ever-changing "planets" of panic.org
 
-Jason Kottke's website [kottke.org] has a sidebar which shows four circles.
-Every visitor sees [a different set of circles][redesign], and there are nearly a trillion possible combinations.
+Jason Kottke's website, [kottke.org], has a sidebar that shows four coloured circles, [different for every visitor][redesign].
+There are nearly a trillion possible combinations, which feels fun and whimsical -- everyone gets their own unique version of the page.
 
-{%
-  picture
-  filename="bookmarks/kottke.png"
-  width="750"
-  class="screenshot"
-%}
+<figure style="width: 600px;">
+  {%
+    picture
+    filename="bookmarks/kottke.png"
+    width="600"
+    class="screenshot"
+    alt="A web page with black text on a white background, and down the left hand side are four circles showing different textures in a variety of pink/red shades."
+  %}
+  <figcaption>
+    I happened to capture a particularly aesthetically pleasing collection of reds and pinks in this preserved snapshot.
+    They add a pop of colour to the page, but they don’t overwhelm it.
+  </figcaption>
+</figure>
+
+I've tried adding this sort of randomness to my own sites, but it's easy to get wrong.
+My experiments often failed because they lacked constraints -- for example, I'd pick random tint colours, but some combinations were unreadable.
+The Kottke "planets" strike a nice balance: the randomness stands out, but it's reined in so it will always look good.
+
+There are thousands of snapshots of kottke.org in the Wayback Machine, many saved automatically and never seen by a person.
+That means there are unique combinations of circles already archived -- frozen moments that may only be seen by a future reader, long after this design has gone.
+I rather like that: a tiny, quiet, time capsule on the web.
 
 [kottke.org]: https://kottke.org/
 [redesign]: https://kottke.org/24/03/kottkeorg-redesigns-with-2024-vibes#:~:text=Billions%20and%20Billions.
 
-* The many circles of Kottke
+
+
+
+
+## Physical meets digital on panic.org
+
+The software company [Panic] has a circular logo: [a stylised "P"][logo] on a two-tone blue background.
+But for years, if you visited their website, you might see that logo in a different colour, like this:
+
+<figure style="width: calc(600px + 10px); display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 10px;">
+  {%
+    picture
+    filename="bookmarks/panic_blue.png"
+    width="300"
+    class="screenshot"
+    alt="A screenshot of the Panic blog, with a dark blue P logo in the top left-hand corner."
+    style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
+  %}
+  {%
+    picture
+    filename="bookmarks/panic_green.png"
+    width="300"
+    class="screenshot"
+    alt="A screenshot of the Panic blog, with a red/green P logo in the top left-hand corner."
+    style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
+  %}
+</figure>
+
+Where did those colours come from?
+The logo image was loaded from `signserver.panic.com`, which makes me think it reflected the current colours of [the physical sign on their building][panic_sign].
+They even had a website where anybody could change the colours of the sign (though it's offline now -- they took the sign down when they moved offices).
+
+I love this detail: a tiny bit of the physical world seeping into the digital.
+
+[Panic]: https://panic.com
+[logo]: https://commons.wikimedia.org/wiki/File:Panic_Inc_Logo.svg
+[panic_sign]: https://panic.com/blog/the-panic-sign/
+
+
 
 * backgrounds that follow the sun / [[Screenshot 2024-11-07 at 21.59.20.png]] / [[Screenshot 2024-11-07 at 21.59.22.png]] / https://three--rings.tumblr.com/post/625948601747636224/when-i-was-15-i-spent-a-month-working-on-an
-
-* Panic's sign: briding the physical and the digital
 
 * owltastic
 
