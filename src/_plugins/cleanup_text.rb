@@ -126,9 +126,7 @@ class AddNonBreakingSpaces
     #  ~> <a href="https://example.com">an&nbsp;example</a>
     #
     text = text.gsub(/<a ([^>]+)>a /, '<a \1>a&nbsp;')
-    text = text.gsub(/<a ([^>]+)>an /, '<a \1>an&nbsp;')
-    
-    text
+    text.gsub(/<a ([^>]+)>an /, '<a \1>an&nbsp;')
   end
 end
 
