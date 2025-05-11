@@ -1,7 +1,7 @@
 ---
 layout: post
-title: What I learnt about web development by reading two thousand web pages
-summary:
+title: What I learnt about building websites by reading two thousand web pages
+summary: How to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive
 tags:
   - bookmarking
   - web development
