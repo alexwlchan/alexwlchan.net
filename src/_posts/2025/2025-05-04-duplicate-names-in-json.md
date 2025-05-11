@@ -105,7 +105,7 @@ This relies on the fact that `dict()` can take an iterable of key/value tuples a
 {'colour': 'red', 'sides': 4}
 ```
 
-The docs for `dict()` tell us that it` will [discard duplicate keys](https://docs.python.org/3/library/stdtypes.html#dict): "if a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary".
+The docs for `dict()` tell us that it will [discard duplicate keys](https://docs.python.org/3/library/stdtypes.html#dict): "if a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary".
 
 ```python
 >>> dict([('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')])
