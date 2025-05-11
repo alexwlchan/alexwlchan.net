@@ -28,11 +28,12 @@
 @use "components/tags";
 @use "components/til";
 
-$primary-color-light: #d01c11;
-$primary-color-dark:  #ff4242;
+:root {
+  --primary-color-light: #d01c11;
+  --primary-color-dark:  #ff4242;
 
-@include variables.create_default_variables();
-@include variables.create_colour_variables($primary-color-light, $primary-color-dark);
+  --nav-background-url: url('/headers/specktre_d01c11.png');
+}
 
 a.download {
   display: inline-block;

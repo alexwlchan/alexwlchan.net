@@ -16,7 +16,7 @@
  */
 hr {
   $light-svg-url: create_svg(#ccc);
-  $dark-svg-url:  create_svg(variables.$body-text-dark);
+  $dark-svg-url:  create_svg(#c7c7c7);
 
   --hr-background-image:   url("data:image/svg+xml;charset=UTF-8,#{$light-svg-url}");
 
