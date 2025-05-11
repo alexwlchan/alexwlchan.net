@@ -87,15 +87,14 @@ module Jekyll
         return
       end
 
-      sass = <<~SCSS
-        @use "variables.scss" as *;
+      css = <<~CSS
+        :root {
+          --primary-color-light: #{css_colors['light']};
+          --primary-color-dark:  #{css_colors['dark']};
 
-        @include create_colour_variables(#{css_colors['light']}, #{css_colors['dark']});
-      SCSS
-
-      css = context.registers[:site]
-                   .find_converter_instance(Jekyll::Converters::Scss)
-                   .convert(sass)
+          --nav-background-url: url('/headers/specktre_#{css_colors['light'].delete_prefix('#')}.png');
+        }
+      CSS
 
       <<~HTML
         <style>#{css}</style>

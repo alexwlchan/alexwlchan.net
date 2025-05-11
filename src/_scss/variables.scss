@@ -7,110 +7,88 @@
 $max-width: 751px;
 $default-padding: 20px;
 
-$body-text-light: #202020;
-$body-text-dark:  #c7c7c7;
+:root {
+  /* ====================
+   * Font and text styles
+   * ==================== */
+  --text-font-family: Charter, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  --mono-font-family: Menlo, Consolas, monospace;
 
-@mixin create_default_variables() {
+  --font-size: 13pt;
+
+  --line-height: 1.5em;
+
+  --meta-scaling-factor:     0.82;
+  --footnote-scaling-factor: 0.95;
+
+  /* =============================
+   * Margins and page layout stuff
+   * ============================= */
+  --max-width: #{$max-width};
+
+  --grid-gap: 10px;
+
+  --default-padding: #{$default-padding};
+
+  --border-radius: 10px;
+  --border-style:  solid;
+  --border-width:  3px;
+}
+
+/* =====================================
+ * Colours which are the same everywhere
+ * ===================================== */
+
+:root {
+  --body-text-light: #202020;
+  --body-text-dark:  #c7c7c7;
+  
+  --body-text:       var(--body-text-light);
+  --primary-color:   var(--primary-color-light);
+  --link-color:      var(--primary-color);
+
+  --accent-grey: #999;
+
+  --block-border:     #dfdfdf;
+  --block-background: #f3f3f3;
+  
+  --screenshot-border: #f0f0f0;
+
+  /* Background image for the page.
+   * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
+   * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
+   */
+  --background-image: url("https://alexwlchan.net/theme/white-waves-transparent.png");
+  --background-color: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    /* ====================
-     * Font and text styles
-     * ==================== */
-    --text-font-family: Charter, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-    --mono-font-family: Menlo, Consolas, monospace;
+    --body-text:     var(--body-text-dark);
+    --primary-color: var(--primary-color-dark);
 
-    --font-size: 13pt;
+    --accent-grey: #9a9a9a;
 
-    --line-height: 1.5em;
-
-    --meta-scaling-factor:     0.82;
-    --footnote-scaling-factor: 0.95;
-
-    /* =============================
-     * Margins and page layout stuff
-     * ============================= */
-    --max-width: #{$max-width};
-
-    --grid-gap: 10px;
-
-    --default-padding: #{$default-padding};
-
-    --border-radius: 10px;
-    --border-style:  solid;
-    --border-width:  3px;
-  }
-
-  /* =====================================
-   * Colours which are the same everywhere
-   * ===================================== */
-
-  :root {
-    --body-text:       #{$body-text-light};
-    --body-text-light: #{$body-text-light};
-    --body-text-dark:  #{$body-text-dark};
-
-    --accent-grey: #999;
-
-    --block-border:     #dfdfdf;
-    --block-background: #f3f3f3;
+    --block-border:     #434343;
+    --block-background: #1d1d1d;
     
-    --screenshot-border: #f0f0f0;
+    --screenshot-border: #3f3f3f;
 
     /* Background image for the page.
-     * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
+     * This is "White Waves Pattern" by Stas Pimenov, with the colours
+     * flipped -- it's the same as the light background, but inverted.
      * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
      */
-    --background-image: url("https://alexwlchan.net/theme/white-waves-transparent.png");
-    --background-color: #fafafa;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-text:   #{$body-text-dark};
-
-      --accent-grey: #9a9a9a;
-
-      --block-border:     #434343;
-      --block-background: #1d1d1d;
-      
-      --screenshot-border: #3f3f3f;
-
-      /* Background image for the page.
-       * This is "White Waves Pattern" by Stas Pimenov, with the colours
-       * flipped -- it's the same as the light background, but inverted.
-       * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
-       */
-      --background-color: #0d0d0d;
-      --background-image: url("https://alexwlchan.net/theme/black-waves-transparent.png");
-    }
-  }
-
-  @media print {
-    :root {
-      --accent-grey: var(--body-text);
-
-      /* Don't show the background texture when printing; it's not important */
-      --background: none;
-    }
+    --background-color: #0d0d0d;
+    --background-image: url("https://alexwlchan.net/theme/black-waves-transparent.png");
   }
 }
 
-@mixin create_colour_variables($light-color, $dark-color) {
+@media print {
   :root {
-    --primary-color-light: #{$light-color};
-    --primary-color-dark:  #{$dark-color};
+    --accent-grey: var(--body-text);
 
-    --primary-color: #{$light-color};
-
-    --link-color: #{$light-color};
-
-    --nav-background-url: url('/headers/specktre_#{color-to-hex-str($light-color)}.png');
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --primary-color: #{$dark-color};
-
-      --link-color: #{$dark-color};
-    }
+    /* Don't show the background texture when printing; it's not important */
+    --background: none;
   }
 }

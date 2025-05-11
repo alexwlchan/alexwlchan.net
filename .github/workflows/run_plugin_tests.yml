@@ -46,4 +46,4 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: "Run the plugin tests"
-        run: bundle exec ruby src/_tests/tests.rb
+        run: bundle exec ruby src/_plugin_tests/tests.rb
