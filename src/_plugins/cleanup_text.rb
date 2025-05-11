@@ -111,7 +111,7 @@ class AddNonBreakingSpaces
       'Silo 49',
       'System 1',
       'Windows-1252',
-      'z-axis',
+      'z-axis'
     ]
 
     phrases.each do |p|
@@ -119,6 +119,15 @@ class AddNonBreakingSpaces
       text = text.gsub(p, replacement)
     end
 
+    # If there's an <a> that starts with the word "a", make sure we
+    # add a non-breaking space to it.
+    #
+    #     <a href="https://example.com">an example</a>
+    #  ~> <a href="https://example.com">an&nbsp;example</a>
+    #
+    text = text.gsub(/<a ([^>]+)>a /, '<a \1>a&nbsp;')
+    text = text.gsub(/<a ([^>]+)>an /, '<a \1>an&nbsp;')
+    
     text
   end
 end
