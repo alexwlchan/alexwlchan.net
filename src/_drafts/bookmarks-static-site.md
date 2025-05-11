@@ -13,7 +13,7 @@ colors:
   css_dark:  "#00ddff"
 ---
 I'm storing more and more of my data [as static websites][static_sites], and about a year ago I switched to using a local, static site to manage my bookmarks.
-It's replaced [Pinboard] as my way to track interesting links and cool web pages.
+It's replaced [Pinboard] as the way I track interesting links and cool web pages.
 I save articles I've read, talks I've watched, fanfiction I've enjoyed.
 
 {%
@@ -24,7 +24,7 @@ I save articles I've read, talks I've watched, fanfiction I've enjoyed.
   alt="Screenshot of a web page titled ‘bookmarks’, and a list of three bookmarks below it. Each bookmark has a blue link as the title, a grey URL below the title, and some descriptive text below it."
 %}
 
-It’s taken hundreds of hours to get all my data and saved web pages into this new site, and I’ve learnt a lot about archiving and building the web.
+It’s taken hundreds of hours to get all my bookmarks and saved web pages into this new site, and I’ve learnt a lot about archiving and building the web.
 This post is the first of a four-part series about my bookmarks, and I'll publish the rest of the series over the next three weeks.
 
 [static_sites]: /2024/static-websites/
@@ -33,7 +33,7 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
 
 
 <blockquote class="toc">
-  <p>This article is the first in a four part bookmarking mini-series:</p>
+  <h3>Bookmarking mini-series</h3>
   <ol>
     <li>
       <strong>Creating a static site for all my bookmarks</strong> (this article)
@@ -45,13 +45,13 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
       </ul>
     </li>
     <li>
-      <a href="#"><strong>Creating a local archive of all my bookmarks</strong></a> (coming 12 May) – web archiving, automated vs manual, what I learnt about preserving web pages.
+      <strong>Creating a local archive of all my bookmarks</strong> (coming 19 May) – web archiving, automated vs manual, what I learnt about preserving web pages.
     </li>
     <li>
-      <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 19 May) – everything I learnt from reading the source code of the web pages I saved.
+      <strong>Learning how to make websites by reading two thousand web pages</strong> (coming 26 May) – everything I learnt from reading the source code of the web pages I saved.
     </li>
     <li>
-      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 26 May) – some websites which are doing especially fun or clever things with the web.
+      <strong>Some cool websites from my bookmark collection</strong> (coming 2 June) – some websites which are doing especially fun or clever things with the web.
     </li>
   </ol>
 </blockquote>
