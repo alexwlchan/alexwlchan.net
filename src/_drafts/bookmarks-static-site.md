@@ -24,7 +24,7 @@ I save articles I've read, talks I've watched, fanfiction I've enjoyed.
   alt="Screenshot of a web page titled ‘bookmarks’, and a list of three bookmarks below it. Each bookmark has a blue link as the title, a grey URL below the title, and some descriptive text below it."
 %}
 
-It’s taken hundreds of hours to get all my bookmarks and saved web pages into this new site, and I’ve learnt a lot about archiving and building the web.
+It’s taken hundreds of hours to get all my bookmarks and saved web pages into this new site, and it's taught me a lot about archiving and building the web.
 This post is the first of a four-part series about my bookmarks, and I'll publish the rest of the series over the next three weeks.
 
 [static_sites]: /2024/static-websites/
@@ -191,7 +191,7 @@ Because these are the links I care about most, and links can rot, I've saved a l
 These local snapshots will always be present, and they work offline -- that's why I link to them from the title.
 
 This is something I can only do because this is a personal tool.
-If a commercial bookmarking website tried to direct users to their self-hosted snapshots rather than the original site, they'd be hit with a lawsuit about "stealing traffic".
+If a commercial bookmarking website tried to direct users to their self-hosted snapshots rather than the original site, they'd be accused of stealing traffic.
 
 Creating these archival copies took months, and I'll discuss it more in the rest of this series.
 
