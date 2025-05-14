@@ -204,7 +204,7 @@ Creating these archival copies took months, and I'll discuss it more in the rest
 
 <h2 id="how_it_works">How does it work?</h2>
 
-This is a static website buildt using the pattern I described in [How I create static websites for tiny archives].
+This is a static website built using the pattern I described in [How I create static websites for tiny archives].
 I have my metadata in a JavaScript file, and a small viewer that renders the metadata as an HTML page I can view in my browser.
 
 I'm not sharing the code because it's deeply personalised and tied to my specific bookmarks, but if you're interested, that tutorial is a good starting point.
