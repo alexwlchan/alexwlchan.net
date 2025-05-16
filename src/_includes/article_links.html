@@ -31,13 +31,12 @@
 </style>
 
 <ul class="article_links">
-{% for article in include.articles %}
+{%- for article in include.articles -%}
   <li
     {% if add_article_order %}
     data-ord="{{ article.order }}"
     {% endif %}
-  >
-    <h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
+  ><h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
       {%- if article.layout == 'til' -%}
       {%- unless page.url == "/til/" -%}
         TIL:&nbsp;
@@ -46,9 +45,9 @@
       {{ article.title | markdownify_oneline -}}
     </a></h4>
 
-    {% if article.summary %}
-      <p>{{ article.summary | markdownify_oneline }}</p>
-    {% endif %}
+    {%- if article.summary -%}
+      <p>{{- article.summary | markdownify_oneline -}}</p>
+    {%- endif -%}
   </li>
-{% endfor %}
+{%- endfor -%}
 </ul>
