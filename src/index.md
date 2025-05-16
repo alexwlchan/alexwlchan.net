@@ -61,7 +61,7 @@ footer:
   }
 </style>
 
-**Hi, I’m Alex. I'm a software developer, writer, and hand crafter from the UK.**
+**Hi, I’m Alex. Welcome to my website!**
 
 {%
   picture
@@ -73,20 +73,14 @@ footer:
   class="rounded_corners"
 %}
 
-I build systems for **digital preservation** -- making sure that digital archives remain safe and accessible into the far future.
-Currently I think about photos at <a href="https://www.flickr.org">the Flickr Foundation</a>, and before that I helped build services to store and search the museum and library collections at <a href="https://wellcomecollection.org/">Wellcome Collection</a>.
+I'm a software developer, writer, and a hand crafter, and I live in the UK.
+In my day job I build software for digital preservation, and I think a lot about archiving and long-term systems.
 
-I enjoy **writing**, and I've been posting at this domain since 2012.
-I write about a variety of non-fiction topics, with a particular focus on software development.
-If you want to know what's on my mind, check out [the articles I've written](/articles/), [the talks I've given](/tags/talks/), and [the lessons I've learned](/til/).
+This website is where I share stuff I find interesting or fun.
+That includes notes on technical problems I've solved, personal reflections or thoughts, and fun toys that I've built.
 
-In my free time, I enjoy doing art and simple **hand crafts** to relax.
-I've had a lot of fun doing [cross stitch](/tags/cross-stitch/), origami and paper craft, and doodling sketches of implausible sci-fi vehicles.
+I'm queer and trans, and my pronouns are "they" or "she".
 
-I'm **queer** and **trans**.
-My pronouns are "they" or "she".
-
-This website is a place to share stuff I find interesting or fun.
 I hope you like it!
 
 
