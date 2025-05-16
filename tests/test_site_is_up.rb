@@ -11,7 +11,7 @@ class TestSite < Test::Unit::TestCase
     resp = get_url('https://alexwlchan.net')
 
     assert_equal resp.code, '200'
-    assert resp.body.include? 'This website is a place to share stuff I find interesting or fun.'
+    assert resp.body.include? 'This website is where I share stuff I find interesting or fun'
   end
 
   # Load my articles page
