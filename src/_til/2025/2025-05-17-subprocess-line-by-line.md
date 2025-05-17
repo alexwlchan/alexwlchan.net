@@ -6,15 +6,15 @@ date: 2025-05-17 14:50:11 +0100
 tags:
   - python
 ---
-I was writing a Python script that shells out to external tool, and the external tool prints output line-by-line to stdout.
-I wanted my script to read those lines, and then do some follow-up work.
+I was writing a Python script that shells out to external tool which prints output line-by-line to stdout.
+I wanted my script to read those lines, and then do some follow-up work for each line.
 
-I know several ways to run an external process and capture the stdout with the [`subprocess` module][subprocess], but they're all blocking -- I have to wait for the process to complete.
-This is annoying if the external tool is slow, because I can't start any follow-up work until it completes.
-Ideally I'd like to stream lines from the external tool; to start my follow-up work as soon as I have a line.
+I know several ways to run an external process and capture the stdout with the [`subprocess` module][subprocess], but they're all blocking -- I have to wait for the entire process to complete.
+This is annoying and inefficient if the external tool is slow.
+Ideally I'd like to stream lines from the external tool; to start my follow-up work as soon as there's a line available.
 
 Today I discovered that if you start a process with [`subprocess.Popen()`][popen], and you pass `bufsize=1` and `text=True`, then the stdout will be line-buffered.
-This allows you to iterate over lines as they're written to stdout, rather than waiting for all of them.
+This allows you to iterate over lines as they're written, rather than waiting for all of them.
 
 Here's an example:
 
