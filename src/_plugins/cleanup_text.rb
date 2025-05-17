@@ -25,6 +25,7 @@ class AddNonBreakingSpaces
     prefix_words = %w[
       Apollo
       Artemis
+      chapter
       HTTP
       ImageMagick
       ISO/IEC
