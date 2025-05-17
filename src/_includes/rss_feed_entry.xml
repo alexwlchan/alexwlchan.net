@@ -13,6 +13,9 @@
 
   <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
     <![CDATA[
+    {%- if post.layout == "til" and post.summary -%}
+      <p><strong>{{ post.summary | markdownify_oneline | fix_html_for_feed_readers }}</strong></p>
+    {%- endif -%}
     {{- post.content | cleanup_text | strip | fix_html_for_feed_readers | fix_youtube_iframes }}
 
     <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.url | absolute_url | xml_escape }}">visit the original article</a>]</p>
