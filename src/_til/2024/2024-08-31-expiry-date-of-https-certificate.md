@@ -14,12 +14,12 @@ With a bit of help from Stack Overflow, I wrote a Python function that works out
 
 ```python
 import contextlib
-import datetime
+from datetime import datetime
 import socket
 import ssl
 
 
-def get_https_expiry_date(hostname: str) -> datetime.datetime:
+def get_https_expiry_date(hostname: str) -> datetime:
     """
     Get the expiry date of the HTTPS certificate for a domain.
     """
@@ -34,9 +34,7 @@ def get_https_expiry_date(hostname: str) -> datetime.datetime:
 
         # Example date: "Oct 17 12:32:16 2024 GMT"
         expiry_date_str = ssl_info["notAfter"]
-        expiry_date = datetime.datetime.strptime(
-            expiry_date_str, "%b %d %H:%M:%S %Y %Z"
-        )
+        expiry_date = datetime.strptime(expiry_date_str, "%b %d %H:%M:%S %Y %Z")
 
     return expiry_date
 
