@@ -187,7 +187,7 @@ If I want to look at a saved page, I can just open the HTML file in my web brows
 Any time the HTML refers to an external file, I've changed it to fetch the file from the local folder rather than the original website.
 For example, the original HTML might have an `<img>` tag that loads an image from `https://preshing.com/~img/poster-wall.jpg`, but in my local copy I'd change the `<img>` tag to load from `images/poster-wall.jpg`.
 
-I like this approach because it's using open, standards-based web technology, and this structure is simple, durable and easy to maintain.
+I like this approach because it's using open, standards-based web technology, and this structure is simple, durable, and easy to maintain.
 
 <h3 id="warc_or_wacz">Why not WARC or WACZ?</h3>
 
