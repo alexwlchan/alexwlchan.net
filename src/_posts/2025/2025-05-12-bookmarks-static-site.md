@@ -46,7 +46,7 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
       </ul>
     </li>
     <li>
-      <a href="/2025/web-archiving-my-bookmarks/"><strong>Building a personal archive of the web, the slow way</strong></a> – how I built a web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
+      <a href="/2025/personal-archive-of-the-web/"><strong>Building a personal archive of the web, the slow way</strong></a> – how I built a web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
     </li>
     <li>
       <strong>What I learnt about building websites by reading two thousand web pages</strong> (coming 26 May) – how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
