@@ -378,7 +378,10 @@ When I decided to build a new web archive by hand, I already had partial collect
 It took about a year to migrate everything into my new structure: fixing broken pages, downloading missing files, deleting ads and tracking scripts.
 Now I have a collection where I've checked every bookmark, and I know I have a complete set of local copies.
 
-There's only one bookmark that seems conclusively lost -- a review of *Rogue One* on Dreamwidth, where the only capture I can find is a content warning interstitial.
+I wrote a lot of Python scripts to automate common cleanup tasks, and I wrote a lot of regular expressions to help me clean up the mass of HTML.
+This code is too scrappy and specific to be worth sharing, but I did want to acknowledge that I used some automation, it was just at a lower level than most archiving tools.
+
+Now I'm done, there's only one bookmark that seems conclusively lost -- a review of *Rogue One* on Dreamwidth, where the only capture I can find is a content warning interstitial.
 
 I consider this a big success, but it's also a reminder of how fragmented our internet archives are.
 Many of the pages in my new archive are "franken-archives" -- stitched together from multiple sources, combining files that were saved years apart.
