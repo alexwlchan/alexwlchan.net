@@ -14,14 +14,14 @@ colors:
   index_light: "#2f2f2f"
   index_dark:  "#66b8e8"
 ---
-In [my previous post](/2025/bookmarks-static-site/), I described how I've created a static website to manage my bookmarks.
-A key part of this setup is that I have a local archive of every page that I've bookmarked.
+In [my previous post](/2025/bookmarks-static-site/), I described how I'm using a static website to manage my bookmarks.
+A key part of this approach is that I have a personal archive of every page that I've bookmarked.
 
-My bookmarks are the links I really care about, so I want to keep my own copy that’s protected from deletion or loss -- websites can easily break or go offline.
-I want my own copy, which I control and know is safe.
-I don't want to rely on a page being archived by an online service like Pinboard or the Wayback Machine.
+My bookmarks are the links I really care about, so I want my own copy that’s protected from deletion or loss.
+Websites can break or go offline, and I don't want to rely on a page being archived by an online service like Pinboard or the Wayback Machine.
 
-In this second post, I'll talk about how I created a local copy of every link I've bookmarked, why I chose a manual approach, and how I ensured the quality of my archive.
+In this post, I'll tell you how I created this archive.
+I'll explain how I save web pages, why I chose to do this by hand, and how I ensure that every page is archived properly.
 
 <blockquote class="toc">
   <p>This article is the second in a four part bookmarking mini-series:</p>
@@ -32,7 +32,7 @@ In this second post, I'll talk about how I created a local copy of every link I'
     <li>
       <strong>Creating a local archive of all my bookmarks</strong> (this article)
       <ul>
-        <li><a href="#requirements">What do I want in a web page archive?</a></li>
+        <li><a href="#requirements">What do I want from a web archive?</a></li>
         <li>
           <a href="#what_it_looks_like">What does my web archive look like?</a>
           <ul>
@@ -103,23 +103,24 @@ In this second post, I'll talk about how I created a local copy of every link I'
 
 
 
-<h2 id="requirements">What do I want in a web page archive?</h2>
+<h2 id="requirements">What do I want from a web archive?</h2>
 
-I'm building a *personal* web archive -- it's just for me, and I'll maintain it myself.
-It's not a public resource, and nobody else will be working on it.
-I can shape it to my needs, and I can lean on my skills as a web developer when I build it.
+I'm building a *personal* web archive -- it's just for me, and I'll be saving all the pages myself.
+I can be very picky about what it contains and how it works, because I'm the only reader and contributor.
+It’s not a public resource, and nobody else will ever see it.
 
-This is quite different to what I'd do if I was in a professional or institutional setting.
-There, the priorities are different: automation over manual effort, immutability over editability, and a strong focus on content that can be shared or made public.
+This means it's quite different to what I'd do in a professional or institutional setting.
+There, the priorities are different: automation over manual effort, immutability over editability, and a strong preference for content that can be shared or made public.
 
-### I want a high-quality copy of every web page I save
+Institutions also have to think about copyright law, and whether they can legally store or distribute an archived copy of somebody else's web page.
+I don't know the nuances of UK copyright law, but I figure that since my archive is only for my personal reference, I'm unlikely to get into trouble.
 
-If the original page goes away, I want my archived copy to be a good substitute.
-It should include text, images, styles, and anything else that's key to understanding the page.
+### I want a complete copy of every web page
 
-Many web archives focus on volume over quality.
-They'd rather save partial copies of a lot of web pages, rather than complete copies of a few web pages.
-I'm the opposite -- I'm saving a fairly small number of web pages, so I want each saved page to be a complete copy.
+I want my archive to have a copy of every page I've bookmarked, and for each copy to be a complete substitute for the original.
+It should include everything I need to render the page -- text, images, videos, styles, and so on.
+
+If the original site changes or goes offline, I should still be able to see the page as I saved it.
 
 ### I want the archive to live on my computer
 
@@ -131,15 +132,15 @@ But in recent years it's become unreliable -- sometimes it would fail to archive
 
 ### It should be easy to save new pages
 
-I save a couple of bookmarks a week.
-I want to keep this archive up-to-date, and I don't want adding new pages to be a chore.
+I save a couple of new bookmarks a week.
+I want to keep this archive up-to-date, and I don't want adding pages to be a chore.
 
 ### It should support private or paywalled pages
 
 I read a lot of pages which aren't on the public web, stuff behind paywalls or login screens.
 I want to include these in my web archive.
 
-Many web archives only save public content -- because they can't access private content to save, and they couldn't share if it they did.
+Many web archives only save public content -- either because they can't access private content to save, and they couldn't share if it they did.
 For example, pages behind login screens aren't captured in the Wayback Machine.
 This makes it even more important that I keep my own copy of private pages, because I may not find another.
 
@@ -164,7 +165,7 @@ I decided to treat my archived bookmarks like the bookmarks site itself: as stat
 
 <h3 id="static_folders">A static folder for every page</h3>
 
-For every bookmark, I have a folder containing the HTML, stylesheets, images, and other linked files.
+For every page, I have a folder with the HTML, stylesheets, images, and other linked files.
 Each folder is a self-contained "mini-website".
 If I want to look at a saved page, I can just open the HTML file in my web browser.
 
@@ -178,30 +179,28 @@ If I want to look at a saved page, I can just open the HTML file in my web brows
   %}
   <figcaption>
     The files for <a href="https://preshing.com/20110926/high-resolution-mandelbrot-in-obfuscated-python/">a single web page</a>, saved in a folder in my archive.
+    I flatten the structure of each website into top-level folders like <code>images</code> and <code>static</code>, which keeps things simple and readable.
+    I don’t care about the exact URL paths from the original site.
   </figcaption>
 </figure>
 
-Each page lives in its own folder.
-I flatten the structure of each website into top-level folders like <code>images</code> and <code>static</code>, which keeps things simple and readable.
-I don’t care about the exact URL paths from the original site.
+Any time the HTML refers to an external file, I've changed it to fetch the file from the local folder rather than the original website.
+For example, the original HTML might have an `<img>` tag that loads an image from `https://preshing.com/~img/poster-wall.jpg`, but in my local copy I'd change the `<img>` tag to load from `images/poster-wall.jpg`.
 
-Any time the HTML file refers to an external file, I've changed it to fetch the file from the local folder rather than the original website.
-For example, the original HTML might have an `<img>` tag that loads an image from `https://preshing.com/~img/poster-wall.jpg`, but in my local copy I'd change the `<img>` tag to load the image from `images/poster-wall.jpg`.
-
-I like this approach because it's using open, standards-based web technology to create something simple, durable and easy to maintain.
+I like this approach because it's using open, standards-based web technology, and this structure is simple, durable and easy to maintain.
 
 <h3 id="warc_or_wacz">Why not WARC or WACZ?</h3>
 
-Many institutions store their web archives in the [WARC] or [WACZ] formats, which are file formats specifically designed to store preserved web pages.
+Many institutions store their web archives as [WARC] or [WACZ], which are file formats specifically designed to store preserved web pages.
 
-These files contain the saved page, and information about how the archive was created.
-This might include the HTTP headers, the IP address, or the name and version of the software that was used.
-This extra information helps researchers understand the history of this archive.
+These files contain the saved page, and also information about how the archive was created.
+This could include the HTTP headers, the IP address, or the name of the software that created the archive.
+This extra information helps researchers understand the history of the archive.
 
 You can only open WARC or WACZ files with specialist "playback" software, or by unpacking the files from the archive.
-Both file formats are open standards, so you could also write your own software to read them -- archives saved this way aren't trapped in a proprietary format.
+Both file formats are open standards, so theoretically you could write your own software to read them -- archives saved this way aren't trapped in a proprietary format -- but in practice you're picking from a small set of tools.
 
-In my personal archive, I don't need the extra context, and I don't want to rely on a limited set of tools for browsing my archive.
+In my personal archive, I don't need the extra context, and I don't want to rely on a limited set of tools for browsing.
 I prefer the flexibility of files and folders -- I can open them in any web browser, and use whatever tools I like.
 
 [WARC]: https://en.wikipedia.org/wiki/WARC_(file_format)
@@ -215,8 +214,7 @@ I prefer the flexibility of files and folders -- I can open them in any web brow
 
 <h2 id="howto">How do I save a local copy of each web page?</h2>
 
-I'm saving web pages by hand.
-I save every page individually, then I check it looks good -- that I've saved all the external resources like images and stylesheets.
+I save every page by hand, then I check it looks good -- that I've saved all the external resources like images and stylesheets.
 
 This manual inspection gives me the peace of mind to know that I really have saved each web page, and that it's a high quality copy.
 I'm not going to open a page in two years time only to discover that I'm missing a key image or illustration.
@@ -227,16 +225,16 @@ Let's go through that process in more detail.
 
 I start by saving the HTML file, using the "Save As" button in my web browser.
 
-Then I open that file in a web browser and my text editor.
-Using the browser's developer tools, I look for supporting files that I need to save locally -- stylesheets, fonts, images.
+Then I open that file in my web browser and my text editor.
+Using the browser's developer tools, I look for external files that I need to save locally -- stylesheets, fonts, images.
 I download the missing files, edit the HTML in my text editor to point at the local copy, then reload the page in the browser to see the result.
 I keep going until I have a self-contained, offline copy of the page.
 
 Most of my time in the developer tools is spent in two tabs.
 
-**Network** show me what files the page is loading.
+I look at the *Network tab* to see what files the page is loading.
 Are they being served from my local disk, or fetched from the Internet?
-My goal is that everything comes from my disk.
+I want everything to come from disk.
 
 <figure style="width: 600px;">
   {%
@@ -251,9 +249,8 @@ My goal is that everything comes from my disk.
   </figcaption>
 </figure>
 
-**Console** tells me about errors loading the page -- some image that can't be found, or a JavaScript file that didn't load properly.
-A wall of red means I've missed something, like a font or image I haven't downloaded yet.
-My goal is to get to zero errors.
+I check the *Console tab* for any errors loading the page -- some image that can't be found, or a JavaScript file that didn't load properly.
+I want to fix all these errors.
 
 <figure style="width: 600px;">
   {%
@@ -268,16 +265,16 @@ My goal is to get to zero errors.
   </figcaption>
 </figure>
 
-As I'm editing the page, I remove stuff I don't care about (ads, banners, tracking) and update references to external files I'm downloading (like changing the `src` on `<img>` tags).
 I spend a lot of time reading and editing HTML by hand.
+I'm fairly comfortable working with other people's code, and it typically takes me a few minutes to save a page.
+This is fine for the handful of new pages I save every week, but it wouldn't scale for a larger archive.
 
 Once I've downloaded everything the page needs and eliminated external requests, I have a self-contained local copy.
 
 <h3 id="deleting_the_junk">Deleting all the junk</h3>
 
-Deleting the junk from web pages makes them smaller and faster to load, and pages often shrank by 10--20&times; after I removed all the junk.
-My "favourite" was a Squarespace site that loaded over 25MB of JavaScript to render a 400-word essay with no images.
-
+As I'm saving a page, I cut away all the stuff I don't want.
+This makes web pages smaller and faster to load, and pages often shrank by 10--20&times;.
 The junk I deleted includes:
 
 *   **Ads.**
@@ -296,19 +293,21 @@ The junk I deleted includes:
     These are large and completely unnecessary to me -- I don't care what tracking tools a web page was using.
     They're a complete waste of space in my personal archive.
 
-While I was editing the page in my text editor, I'd look for `<script>` and `<iframe>` elements -- good indicators of external junk I could remove.
-This didn't just shrink the page; it also removed external dependencies that might break in future.
+<!-- My "favourite" was a Squarespace site that loaded over 25MB of JavaScript to render a 400-word essay with no images. -->
 
-This sort of editing only works because this is a personal archive, not an institutional one.
-Institutions tend to prioritise provenance and immutability -- making sure pages are preserved exactly as they were, or keeping detailed records when there are changes.
+As I was editing the page in my text editor, I'd look for `<script>` and `<iframe>` elements -- these are good indicators of the stuff I want to remove.
+For example, most ads are loaded in iframes.
+
+This sort of editing is possible because this is a personal archive, not an institutional one.
+Institutions tend to prioritise provenance and immutability -- making sure pages are preserved exactly as they were, and keeping detailed records when there are changes.
 That helps avoid personal bias creeping into the archive, and builds trust in what's being kept.
 
 I haven’t kept detailed records of what I deleted, because I'm not preserving history for an institution or the public.
-I'm preserving the web for me.
+I'm preserving the web for me, and I trust the judgment of my past self.
 
 <h3 id="templates">Using templates for repeatedly-bookmarked sites</h3>
 
-For big, complex websites that I bookmark often -- like Medium, Wired, or the New York Times -- I've created simple HTML templates.
+For big, complex websites that I bookmark often, I've created simple HTML templates.
 
 When I want to save a new page, I discard the original HTML, and I just drop the text and images into the template.
 It's a lot faster than unpicking the site's HTML every time, and I'm saving the content of the article, which is what I really care about.
@@ -333,12 +332,13 @@ It's a lot faster than unpicking the site's HTML every time, and I'm saving the 
     %}
   </div>
   <figcaption>
-    You can tell which one is the <a href="https://www.nytimes.com/2016/03/27/opinion/sunday/my-mothers-garden.html">real article</a>, because you have to click through two dialogs and scroll past an ad before you see any text.
+    Here’s an example from the New York Times.
+    You can tell which page is the <a href="https://www.nytimes.com/2016/03/27/opinion/sunday/my-mothers-garden.html">real article</a>, because you have to click through two dialogs and scroll past an ad before you see any text.
   </figcaption>
 </figure>
 
 I was inspired by AO3 (the Archive of Our Own), a popular fanfiction site.
-They offer [downloadable versions](https://archiveofourown.org/faq/downloading-fanworks?language_id=en) of every story in multiple formats, and they believe in it so strongly that *everything* published on their site can be downloaded.
+You can [download copies](https://archiveofourown.org/faq/downloading-fanworks?language_id=en) of every story in multiple formats, and they believe in it so strongly that *everything* published on their site can be downloaded.
 Authors don't get to opt out.
 
 An HTML download from AO3 looks different to the styled version you'd see browsing the web:
@@ -364,17 +364,18 @@ An HTML download from AO3 looks different to the styled version you'd see browsi
   </div>
 </figure>
 
-This difference is only cosmetic -- both files contain the full text of the story, which is what I really care about.
-I don't care about saving a visual snapshot of exactly what AO3 looked like that day.
+But the difference is only cosmetic -- both files contain the full text of the story, which is what I really care about.
+I don't care about saving a visual snapshot of what AO3 looks like.
 
 Most sites don't offer a plain HTML download of their content, but I know enough HTML and CSS to create my own templates.
-For these sites I save often, it's made it much faster to save new pages.
+I have about templates for a dozen or so sites, including Medium, Wired, and the New York Times.
+This makes it quick and easy to archive those sites.
 
 <h3 id="backfilling">Backfilling my existing bookmarks</h3>
 
-When I decided to build a new web archive by hand, I already had partial collections from several sources -- Pinboard, the Wayback Machine, and some local backups.
+When I decided to build a new web archive by hand, I already had partial collections from several sources -- Pinboard, the Wayback Machine, and some personal scripts.
 
-It took almost a year to migrate them into the new structure: fixing broken pages, downloading missing files, deleting ads and tracking scripts.
+It took about a year to migrate everything into my new structure: fixing broken pages, downloading missing files, deleting ads and tracking scripts.
 Now I have a collection where I've checked every bookmark, and I know I have a complete set of local copies.
 
 There's only one bookmark that seems conclusively lost -- a review of *Rogue One* on Dreamwidth, where the only capture I can find is a content warning interstitial.
@@ -400,20 +401,21 @@ I use [Time Machine] and [Carbon Copy Cloner] to back up to a pair of external S
 
 <h2 id="why_not_automation">Why not use automated tools?</h2>
 
-I'm a big fan of automated tools for archiving the web, I think they're an essential part of web preservation, and I've used many of them.
+I'm a big fan of automated tools for archiving the web, I think they're an essential part of web preservation, and I've used many of them in the past.
 
 Tools like [ArchiveBox], [Webrecorder], and the [Wayback Machine] have preserved enormous chunks of the web -- pages that would otherwise be lost.
 I paid for a Pinboard [archiving account] for a decade, and I search the Internet Archive at least once a week.
 I've used command-line tools like [wget], and last year I wrote my own tool to [create Safari webarchives][safari_webarchives].
+
 The size and scale of today's web archives are only possible because of automation.
 
 But automation isn't a panacea, it's a trade-off.
 You're giving up accuracy for speed and volume.
 If nobody is reviewing pages as they're archived, it's more likely that they'll contain mistakes or be missing essential files.
 
-When I reviewed my old Pinboard archive, I found a lot of pages that were missing, broken, or incomplete.
-These were web pages I really care about, and I thought I had them backed up, but that turned out to be a false sense of security.
-I've found this sort of mistake whenever I've relied on automated tools to archive the web.
+When I reviewed my old Pinboard archive, I found a lot of pages that [weren't archived properly][archival_quality] -- they had missing images, or broken styles, or relied on JavaScript from the original site.
+These were web pages I really care about, and I thought I had them saved, but that was a false sense of security.
+I've found issues like this whenever I've used automated tools to archive the web.
 
 That's why I decided to create my archive manually -- it's slower, but it gives me the comfort of knowing that I have a good copy of every page.
 
@@ -423,6 +425,7 @@ That's why I decided to create my archive manually -- it's slower, but it gives 
 [archiving account]: https://pinboard.in/faq/#archiving
 [wget]: https://www.gnu.org/software/wget/manual/wget.html#Recursive-Download
 [safari_webarchives]: /2024/creating-a-safari-webarchive/
+[archival_quality]: https://pinboard.in/faq/#archival_quality
 
 
 
@@ -434,7 +437,7 @@ That's why I decided to create my archive manually -- it's slower, but it gives 
 
 <h3 id="defunct_services">Lots of the web is built on now-defunct services</h3>
 
-Link rot is everywhere on the web, and I found many web pages that rely on third-party services that no longer exist, like:
+Link rot is everywhere on the web, and I found many pages that rely on third-party services that no longer exist, like:
 
 *   Photo sharing sites -- some I'd heard of (Twitpic, Yfrog), others that were new to me (phto.ch)
 *   Link redirection services -- URL shorteners and sponsored redirects
@@ -442,7 +445,7 @@ Link rot is everywhere on the web, and I found many web pages that rely on third
 
 For many of my bookmarks, if you load the live site, the main page loads, but key resources like images and scripts are broken or missing.
 
-One particularly insidious kind of breakage is when the service still exists, but the content has changed.
+One particularly insidious form of breakage is when the page still exists, but the content has changed.
 Here's an example: a screenshot from an iTunes tutorial on LiveJournal that's been replaced with an "18+ warning":
 
 <figure style="width: calc(450px);">
@@ -469,11 +472,11 @@ That's why I wanted to look at every web page with my eyes, and not rely on a co
 <h3 id="link_rot">Links rot faster than web pages</h3>
 
 I was surprised by how many web pages still exist, but the original URLs no longer work, especially on large news sites.
-Many of my old bookmarks now return a 404, but if I search for the headline, I find the story at a completely different URL.
+Many of my old bookmarks now return a 404, but if you search for the headline, you can find the story at a completely different URL.
 
 I find this frustrating and disappointing.
 Whenever I've restructured this site, I always set up redirects because I'm an old-school web nerd and I [think URLs are cool][urls] -- but redirects aren't just about making me feel good.
-Keeping links alive makes your back catalogue more visible, and makes pages easier to find -- without them, most people who encounter a broken link will assume the page was deleted, and won't dig further.
+Keeping links alive makes it easier to find stuff in your back catalogue -- without redirects, most people who encounter a broken link will assume the page was deleted, and won't dig further.
 
 [urls]: https://www.w3.org/Provider/Style/URI.html
 
@@ -490,18 +493,18 @@ For example, a page might load a low-res image first, then swap it out for a hig
 But automated tools can't always run that JavaScript, so they only capture the low-res image.
 
 The [*`<picture>` tag*][picture_tag] allows pages to specify multiple versions of an image.
-Here are two examples:
+For example:
 
 *   A page could send a high-res image to laptops and tablets, and a low-res images to phones.
     This is more efficient; you're not sending an unnecessarily large image to a small screen.
 *   A page could send different images depending on your colour scheme.
     You could see a graph on a white background if you use light mode, or on a black background if you use dark mode.
 
-If you preserve this page, which images should you get?
+If you preserve a page, which images should you get?
 All of them?
 Just one?
 If so, which one?
-For my personal archive, I just saved the highest resolution copy of each image, but I'm not sure that's the best answer in every case.
+For my personal archive, I always saved the highest resolution copy of each image, but I'm not sure that's the best answer in every case.
 
 On the modern web, pages may not look the same for everyone -- different people can see different things.
 When you're preserving a page, you need to decide which version of it you want to save.
@@ -520,8 +523,8 @@ Here are two examples:
 *   I've bookmarked blog posts that comment on scientific papers.
     I saved a local copy of the blog post and a PDF of the original paper, but I didn't try to download everything the post links to.
 
-I made decisions about what to download on a case-by-case basis.
-There's no hard rule -- it depends on the content and the context.
+This is another case where I'm really glad I build my archive by hand -- I could make decisions about what to download on a case-by-case basis.
+I don't have any definitive rules -- it depends on the content and the context.
 
 [fighting]: https://www.citationneeded.news/fighting-for-our-web/
 
@@ -534,17 +537,17 @@ There's no hard rule -- it depends on the content and the context.
 <h2 id="conclusion">Should you do this?</h2>
 
 Creating a web archive is a tradeoff between speed and quality.
-Automated tools are fast but imperfect.
-Manual archiving is slow, picky work that demands comfort with HTML, CSS, and JavaScript -- but it gives you the confidence that you've saved what matters.
+Automated tools let you collect a lot of material quickly, but may not save everything you need.
+Manual archiving is slow and picky, and you need to be comfortable with HTML, CSS, and JavaScript, but it gives you the confidence that you've saved what matters.
 
 It took me hundreds of hours to build my archive by hand.
-Now I have over 2000 web pages saved in a stable format, and the comfort of knowing that I have a good copy of every page.
+Now I have over 2000 web pages saved in a stable format, and I know that I have a good copy of every page.
 I'm very glad to have done it, but it's such a time commitment that I can't recommend that everybody do this.
 
-Instead, I'd suggest you look at automated tools.
+I can recommend having a personal web archive, and having control over your own data -- but if you're just getting started, look at automated tools.
 For most people, they're a better balance of cost and reward.
 
-As I was building my archive, and reading all these web pages, I learnt a lot about how it's built.
-In part 3 of this series, I'll share what I learnt about making better websites by trying to save them.
+As I was building my archive and reading all these web pages, I learnt a lot about how the web is built.
+In part 3 of this series, I'll share what I learnt about making websites.
 
 If you'd like to know when that article goes live, [subscribe to my RSS feed or newsletter](/subscribe/)!
