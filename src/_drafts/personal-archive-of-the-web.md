@@ -98,7 +98,7 @@ In this post, I'll show you how I built this personal archive of the web: how I 
           <a href="#what_i_learnt">What I learnt about archiving the web</a>
           <ul>
             <li><a href="#defunct_services">Lots of the web is built on now-defunct services</a></li>
-            <li><a href="silent_changes">Just because the site is up, doesn’t mean it’s right</a></li>
+            <li><a href="#silent_changes">Just because the site is up, doesn’t mean it’s right</a></li>
             <li><a href="#link_rot">Many sites do a poor job of redirects</a></li>
             <li><a href="#lazy_loading">Images are becoming more efficient, but harder to preserve</a></li>
             <li><a href="#boundary">There’s no clearly-defined boundary of what to collect</a></li>
