@@ -109,10 +109,10 @@ In this post, I'll show you how I built this personal archive of the web: how I 
       </ul>
     </li>
     <li>
-      <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 19 May) – everything I learnt from reading the source code of the web pages I saved.
+      <a href="#"><strong>Learning how to make websites by reading two thousand web pages</strong></a> (coming 26 May) – everything I learnt from reading the source code of the web pages I saved.
     </li>
     <li>
-      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 26 May) – some websites which are doing especially fun or clever things with the web.
+      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 2 June) – some websites which are doing especially fun or clever things with the web.
     </li>
   </ol>
 </blockquote>
