@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-05-19 06:51:21 +0000
 title: Building a personal archive of the web, the&nbsp;slow&nbsp;way
 summary: |
   How I built a web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
