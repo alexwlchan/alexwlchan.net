@@ -5,7 +5,22 @@ nav_section: subscribe
 footer:
   hide_newsletter: true
 ---
+<style>
+  h1 + h2 {
+    margin-top: 1em;
+  }
+</style>
+
+## By email
+
 {% include newsletter.html %}
+
+## By RSS
+
+If you're an old-school nerd like me, you can subscribe to an RSS feed of my writing on this site:
+
+*   Articles: <https://alexwlchan.net/atom.xml>
+*   Today I Learned posts: <https://alexwlchan.net/til/atom.xml>
 
 ## Social media
 
@@ -18,10 +33,3 @@ Follow me at:
 
 (I used to be active on Twitter, but I no longer post there.
 I also have an Instagram account that I use to follow my friends, but I never post anything.)
-
-## RSS feeds
-
-If you're an old-school nerd like me, you can subscribe to an RSS feed of my writing on this site:
-
-*   Articles: <https://alexwlchan.net/atom.xml>
-*   Today I Learned posts: <https://alexwlchan.net/til/atom.xml>
