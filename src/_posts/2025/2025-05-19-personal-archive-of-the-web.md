@@ -605,14 +605,17 @@ Just like I keep paper copies of my favourite books, I now keep local copies of 
 I know that I'll always be able to read them, even if the original website goes away.
 
 It's harder to recommend following my exact approach.
-Building my archive by hand took nearly a year -- probably hundreds of hours of my free time.
+Building my archive by hand took nearly a year, probably hundreds of hours of my free time.
 I'm very glad I did it, I enjoyed doing it, and I like the result -- but it's a big time commitment, and it was only possible because I have a lot of experience building websites.
 
-A web archive doesn't have to be fancy.
-Even a few screenshots or saved PDFs are useful, and you'll have something if the original web page goes away.
+Don't let that discourage you -- a web archive doesn't have to be fancy or extreme.
 
-If you want to go further, look at automated tools.
-For most people, they're a better balance of cost and reward than editing HTML by hand.
+If you take a few screenshots, save some PDFs, or download HTML copies of your favourite fic, that's a useful backup.
+You'll have something to look at if the original web page goes away.
+
+If you want to scale up your archive, look at automated tools.
+For most people, they're a better balance of cost and reward than saving and editing HTML by hand.
+But you don't need to, and even a folder with just a few files is better than nothing.
 
 When I was building my archive -- and reading all those web pages -- I learnt a lot about how the web is built.
 In part 3 of this series, I'll share what that process taught me about making websites.
