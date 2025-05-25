@@ -62,14 +62,17 @@
 #
 # == How it works ==
 #
-# Creating images is slow, so rather than doing it one-at-a-time, we batch
-# up all the images and then process them all at once.
+# The code in this file will create the different variants of each image,
+# based on:
 #
-#   1.  Remove the file `.missing_images.json` (if it exists)
-#   2.  Render the site.  Add any missing images to this file.
-#   3.  Call the external script `create_resized_images.py`, which does the
-#       image resizing concurrently.  I'm sure it's possible to do concurrent
-#       stuff in Ruby, but I can't work out how.
+#     * dimensions, e.g. if the image is going to be shown at 300px wide,
+#       it might resize to 300px, 600px and 900px wide versions, to be
+#       shown on screens with 1x, 2x, 3px pixel density, respectively
+#     * light/dark mode -- if I have an image "cat.jpg" and a second file
+#       "cat.dark.jpg", then the latter is used for dark mode
+#
+# Then it passes all of those variants into my `picture.html` component,
+# which actually renders the <picture> tag.
 #
 
 require 'fileutils'
