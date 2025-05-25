@@ -787,3 +787,5 @@ I know this post has been particularly dry and technical, so next week I'll end 
 I'll show you some of my favourite websites from my bookmarks -- the fun, the whimsical, the joyous -- the people who use the web as a creative canvas, and who inspire me to make my web presence better.
 
 Stay tuned!
+
+<!-- spirit of "view source" -->
