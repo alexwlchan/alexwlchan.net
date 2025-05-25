@@ -9,25 +9,25 @@ colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
 ---
+<!-- Social sharing image from https://pixabay.com/photos/iceberg-antarctica-cold-arctic-5163649/ -->
+
 Over the past year, I [built a web archive](/2025/creating-bookmark-archives/) of over two thousand web pages -- my own copy of everything I've bookmarked in the last fifteen years.
 I saved each one by hand, reading and editing the HTML to build a self-contained, standalone copy of each web page.
 
 These web pages were made by other people, many using tools and techniques I didn't recognise.
 That's what kept me going: I wasn't just archiving, I was learning.
-This project became a crash course in how the web is built, and how people actually use it.
+The project became an unexpected crash course in how the web is actually built.
 
-Yes, there's plenty of bloat on the web, but that's not news.
-You don't need to read thousands of pages to know that.
-What *is* worth sharing is all the clever, thoughtful, and surprising stuff I learned along the way.
+In this post, I'll show you what I learnt: how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics of the web.
 
 <blockquote class="toc">
-  <p>This article is the second in a four part bookmarking mini-series:</p>
+  <p>This article is the third in a four part bookmarking mini-series:</p>
   <ol>
     <li>
-      <a href="/2025/bookmarks-static-site/"><strong>Creating a static site for all my bookmarks</strong></a> – why do I bookmark, why use a static site, and how does it work.
+      <a href="/2025/bookmarks-static-site/"><strong>Creating a static site for all my bookmarks</strong></a> – why I bookmark, why I use a static site, and how it works.
     </li>
     <li>
-      <a href="/2025/creating-bookmark-archives"><strong>Creating a local archive of all my bookmarks</strong></a> – web archiving, automated vs manual, what I learnt about preserving web pages.
+      <a href="/2025/personal-archive-of-the-web/"><strong>Building a personal archive of the web, the slow way</strong></a> – how I built a web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
     </li>
     <li>
       <strong>Learning how to make websites by reading two thousand web pages</strong> (this article)
@@ -47,7 +47,7 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
         <li>
           <a href="#css">Clever corners of CSS</a>
           <ul>
-            <li><a href="#css_import">The CSS <code>@import</code> statement</a></li>
+            <li><a href="#css_import">The CSS <code>@import</code> rule</a></li>
             <li><a href="#css_suffix"><code>[attr$=value]</code> is a CSS selector for suffix values</a></li>
             <li><a href="#inset_box_shadows">You can create inner box shadows with <code>inset</code></a></li>
             <li><a href="#css_zoom_in">For images that get bigger, <code>cursor: zoom-in</code> can show a magnifying glass</a></li>
@@ -56,24 +56,25 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
         <li>
           <a href="#thoughtful_html">Writing thoughtful HTML</a>
           <ul>
-            <li><a href="#html_element_order">What order do elements go in your HTML?</a></li>
-            <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
-            <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
+            <li><a href="#html_element_order">The order of elements</a></li>
             <li><a href="#end_comments">Comments to mark the end of large containers</a></li>
             <li><a href="#css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</a></li>
+            <li><a href="#html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></a></li>
+            <li><a href="#html_preload">Fetching resources faster with <code>&lt;link rel="preload"&gt;</code></a></li>
           </ul>
         </li>
         <li>
           <a href="#quirks">Quirks and relics</a>
-          <ul>        
-            <li><a href="#gpt">What does GPT stand for in attributes?</a></li>
-            <li><a href="#instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</a></li>
+          <ul>
             <li><a href="#html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</a></li>
             <li><a href="#js_templates">Templates in <code>&lt;script&gt;</code> tags with a non-standard <code>type</code> attribute</a></li>
             <li><a href="#file_uris">Browsers won’t load external <code>file://</code> resources from <code>file://</code> pages</a></li>
+            <li><a href="#gpt">What does GPT stand for in attributes?</a></li>
+            <li><a href="#instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</a></li>
             <li><a href="#webkit_bug">I found a bug in the WebKit developer tools</a></li>
           </ul>
         </li>
+        <li><a href="#conclusion">Closing thoughts</a></li>
       </ul>
     </li>
     <li>
@@ -109,7 +110,7 @@ What *is* worth sharing is all the clever, thoughtful, and surprising stuff I le
 
 <h2 id="html_tags">Interesting HTML tags</h2>
 
-I know I've read a list of HTML tags in reference documents (and in [this blog post][weaver] by Patrick Weaver), but there are some tags I'm forgotten, misunderstood, or never seen used in the wild.
+I know I've read a list of HTML tags in reference documents (and in [this blog post][weaver] by Patrick Weaver), but there are some tags I'd forgotten, misunderstood, or never seen used in the wild.
 Reading thousands of real-world pages gave me a better sense of how these tags are actually used, and when they're useful.
 
 [weaver]: https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/
@@ -117,11 +118,11 @@ Reading thousands of real-world pages gave me a better sense of how these tags a
 <h3 id="html_aside">The <code>&lt;aside&gt;</code> element</h3>
 
 MDN describes [`<aside>`][aside] as "a portion of a document whose content is only indirectly related to the document's main content".
-That's probably true, but it's vague enough that I was never quite sure when to use it.
-For a while I used `<aside>` for the header on this site, but I eventually swapped it out for `<header>`, which felt more semantically correct.
+That's vague enough that I was never quite sure when to use it.
 
-On other websites, I saw `<aside>` used in the middle of larger articles -- often for things like ads, newsletter sign ups, pull quotes, or links to related articles.
-I don't have any of those elements here, but now I have a stronger mental model of where to use `<aside>`.
+In the web pages I read, I saw `<aside>` used in the middle of larger articles, for things like ads, newsletter sign ups, pull quotes, or links to related articles.
+I don't have any of those elements on my site, but now I have a stronger mental model of where to use `<aside>`.
+I find concrete examples more useful than abstract definitions.
 
 I saw a couple of sites using the [`<ins>` (inserted text) element][ins] for ads, but I think `<aside>` is a better semantic fit.
 
@@ -131,7 +132,7 @@ I saw a couple of sites using the [`<ins>` (inserted text) element][ins] for ads
 <h3 id="html_mark">The <code>&lt;mark&gt;</code> element</h3>
 
 The [`<mark> element`][mark] highlights text, typically with a yellow background.
-It's useful for drawing visual attention to a phrase, and I suspect it's helpful or screen readers and parsing tools as well.
+It's useful for drawing visual attention to a phrase, and I suspect it's helpful for screen readers and parsing tools as well.
 
 I saw it used in Medium to show reader highlights, and I've started using it in code samples when I want to call out specific lines.
 
@@ -151,21 +152,23 @@ The [`<hgroup>` tag][hgroup] is for grouping a heading with related metadata -- 
 
 ```html
 <hgroup>
-    <h1>All about web bookmarking</h1>
-    <p>Posted 16 March 2025</p>
+  <h1>All about web bookmarking</h1>
+  <p>Posted 16 March 2025</p>
 </hgroup>
 ```
 
-This is another tag I'd forgotten, which I've started using on this site.
+This is another tag I'd forgotten, which I've started using for the headings on this site.
 
 [hgroup]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/hgroup
 
 <h3 id="html_video">The <code>&lt;video&gt;</code> element</h3>
 
 The [`<video>` tag][video] is used to embed videos in a web page.
-It's a tag I've used for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the(typing) (keyboard clacking)  web.
+It's a tag I've know about for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the web.
 
 While building my web archive, I replaced a lot of custom video players with `<video>` elements and local copies of the videos.
+This my first time using the tag in anger, not just in examples.
+
 One mistake I kept making was forgetting to close the tag, or trying to make it self-closing:
 
 ```html
@@ -181,7 +184,7 @@ It looks like `<img>`, which is self-closing, but `<video>` can have child eleme
 <h3 id="html_progress">The <code>&lt;progress&gt;</code> indicator element</h3>
 
 The [`<progress>` element][progress] shows a progress indicator.
-I saw it on a number of sites that specialise in longer articles -- they used a progress bar to show you how far you'd read.
+I saw it on a number of sites that publish longer articles -- they used a progress bar to show you how far you'd read.
 
 <style>
   #progress_example {
@@ -225,7 +228,8 @@ For example, in this document:
 ```
 
 The image will be loaded from `https://example.com/pictures/cat.jpg`.
-I didn't see `<base>` very often, but it's a good reminder that it exists.
+
+It's still not clear to me when you should use `<base>`, or what the benefits are (aside from making your URLs more concise), but it's something I'll keep an eye out for in future projects.
 
 [base]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/base
 
@@ -237,20 +241,18 @@ I didn't see `<base>` very often, but it's a good reminder that it exists.
 
 <h2 id="css">Clever corners of CSS</h2>
 
-<h3 id="css_import">The CSS <code>@import</code> statement</h3>
+<h3 id="css_import">The CSS <code>@import</code> rule</h3>
 
-CSS has `@import` statements, which allow one stylesheet to load another:
+CSS has [`@import` rules](https://developer.mozilla.org/en-US/docs/Web/CSS/@import), which allow one stylesheet to load another:
 
 ```css
 @import "fonts.css";
 ```
-I've used `@import` statement in Sass, but I didn't realise it's now a feature of vanilla CSS now -- and one that's widely used.
-My CSS is small enough that I bundle it into a single file for serving over HTTP (the CSS for this website is only 13KB), but I've started using `@import` for static websites I load from my local filesystem.
+I've used `@import` in Sass, but I only just realised it's now a feature of vanilla CSS -- and one that's widely used.
+The CSS for this website is small enough that I bundle it into a single file for serving over HTTP (a mere 13KB), but I've started using `@import` for static websites I load from my local filesystem, and I can imagine it being useful for larger projects.
 
-One feature I'd like -- although I don't think CSS supports it yet -- is conditional imports based on selectors.
-That is, only load a stylesheet if a particular element or class is used on the page.
-
-You can already do conditional imports based on a media query ("only load these styles on a narrow screen") and something similar for selectors would be useful too -- for example, "only load these styles if a particular class is visible".
+One feature I'd find useful is conditional imports based on selectors.
+You can already do conditional imports based on a media query ("only load these styles on a narrow screen") and something similar for selectors would be useful too (for example, "only load these styles if a particular class is visible").
 I have some longer rules that aren't needed on every page, like styles for syntax highlighting, and it would be nice to load them only when required.
 
 
@@ -259,7 +261,7 @@ I have some longer rules that aren't needed on every page, like styles for synta
 
 <h3 id="css_suffix"><code>[attr$=value]</code> is a CSS selector for suffix values</h3>
 
-While reading the [Home Sweet Homepage][hsh], I found a CSS selector I didn't recognise:
+While reading [Home Sweet Homepage][hsh], I found a CSS selector I didn't understand:
 
 ```css
 img[src$="page01/image2.png"] {
@@ -349,6 +351,7 @@ If you want something that looks more shadow-like, here are two boxes that show 
 </div>
 
 I don't have an immediate use for this, but I like the effect, and the subtle sense of depth it creates.
+The contents of the box with `inner-shadow` looks like it's below the page, while the box with `outer-shadow` floats above it.
 
 [inset]: https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow#inset
 
@@ -368,9 +371,9 @@ Here's a quick comparison:
   <tr>
     <td style="cursor: default; padding-right: 0.5em;">
       <picture>
-        <source srcset="/images/2025/bookmarks/default.dark.gif" type="image/gif" media="(prefers-color-scheme: dark)">
-        <source srcset="/images/2025/bookmarks/default.gif" type="image/gif" media="(prefers-color-scheme: light)">
-        <img src="/images/2025/bookmarks/default.gif" alt="A small icon of an arrow">
+        <source srcset="/images/2025/bookmarks/default.dark.png" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/default.png" type="image/png" media="(prefers-color-scheme: light)">
+        <img src="/images/2025/bookmarks/default.png" alt="A small icon of an arrow">
       </picture>
     </td>
     <td>
@@ -380,9 +383,9 @@ Here's a quick comparison:
   <tr>
     <td style="cursor: pointer; padding-right: 0.5em;">
       <picture>
-        <source srcset="/images/2025/bookmarks/pointer.dark.gif" type="image/gif" media="(prefers-color-scheme: dark)">
-        <source srcset="/images/2025/bookmarks/pointer.gif" type="image/gif" media="(prefers-color-scheme: light)">
-        <img src="/images/2025/bookmarks/pointer.gif" alt="A small icon of a hand with a raised pointer finger">
+        <source srcset="/images/2025/bookmarks/pointer.dark.png" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/pointer.png" type="image/png" media="(prefers-color-scheme: light)">
+        <img src="/images/2025/bookmarks/pointer.png" alt="A small icon of a hand with a raised pointer finger">
       </picture>
     </td>
     <td>
@@ -392,9 +395,9 @@ Here's a quick comparison:
   <tr>
     <td style="cursor: zoom-in; padding-right: 0.5em;">
       <picture>
-        <source srcset="/images/2025/bookmarks/zoom-in.dark.gif" type="image/gif" media="(prefers-color-scheme: dark)">
-        <source srcset="/images/2025/bookmarks/zoom-in.gif" type="image/gif" media="(prefers-color-scheme: light)">
-        <img src="/images/2025/bookmarks/zoom-in.gif" alt="A small icon of a magnifying sign with a plus symbol">
+        <source srcset="/images/2025/bookmarks/zoom-in.dark.png" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/zoom-in.png" type="image/png" media="(prefers-color-scheme: light)">
+        <img src="/images/2025/bookmarks/zoom-in.png" alt="A small icon of a magnifying sign with a plus symbol">
       </picture>
     </td>
     <td>
@@ -404,7 +407,7 @@ Here's a quick comparison:
 </table>
 
 I knew about the [`cursor` property][cursor], but I'd never thought to use it that way.
-It's a nice touch, and I want to remember it for the next time I build a gallery.
+It's a nice touch, and I want to use it the next time I build a gallery.
 
 [cursor]: https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
 
@@ -416,12 +419,12 @@ It's a nice touch, and I want to remember it for the next time I build a gallery
 
 <h2 id="thoughtful_html">Writing thoughtful HTML</h2>
 
-<h3 id="html_element_order">What order do elements go in your HTML?</h3>
+<h3 id="html_element_order">The order of elements</h3>
 
-My web pages follow a simple one column design: a header at the top, content in the middle, a footer at the bottom.
-I mirror that order in my HTML, because it feels like the natural structure.
+My web pages have a simple one column design: a header at the top, content in the middle, a footer at the bottom.
+I mirror that order in my HTML, because it feels a natural structure.
 
-I'd never thought about how to order the HTML elements in more complex layouts, when there isn't such a clear visual flow.
+I'd never thought about how to order the HTML elements in more complex layouts, when there isn't such a clear direction.
 For example, many websites have a sidebar that sits alongside the main content.
 Which comes first in the HTML?
 
@@ -429,7 +432,46 @@ I don't have a firm answers, but reading how other people structure their HTML g
 I noticed several pages that put the sidebar at the very end of the HTML, then used CSS to position it visually alongside the content.
 That way, the main content appears earlier in the HTML file, which means it can load and become readable sooner.
 
-It's something I want to think more carefully about next time I'm building a more complex page.
+It's something I want to think carefully about next time I'm building a more complex page.
+
+
+
+
+
+<h3 id="end_comments">Comments to mark the end of large containers</h3>
+
+I saw a lot of websites (mostly WordPress) that used HTML comments to mark the end of containers with a lot of content.
+For example:
+
+```html
+<div id="primary">
+  <main id="main">
+    …
+  </main><!-- #main -->
+</div><!-- #primary -->
+```
+
+These comments made the HTML much easier to read -- I could see exactly where each component started and ended.
+
+I like this idea, and I'm tempted to use it in my more complex projects.
+I can imagine this being especially helpful in template files, where HTML is mixed with template markup in a way that might confuse [code folding], or make the structure harder to follow.
+
+[code folding]: https://en.wikipedia.org/wiki/Code_folding
+
+
+
+
+
+<h3 id="css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</h3>
+
+Here's a similar idea: I saw a number of sites set a `data-href` attribute on their `<style>` tags, as a way to indicate the source of the CSS.
+Something like:
+
+```html
+<style data-href="https://example.com/style.css">{% comment %}</style>{% endcomment %}
+```
+
+I imagine this could be useful for developers working on that page, to help them find where they need to make changes to that `<style>` tag.
 
 
 
@@ -437,7 +479,7 @@ It's something I want to think more carefully about next time I'm building a mor
 
 <h3 id="html_translations">Translated pages with <code>&lt;link rel="alternate"&gt;</code> and <code>hreflang</code></h3>
 
-I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate">` and an `hreflang` attribute][hreflang] to point to those translations.
+I saw a few web pages with translated versions, and they used `<link>` tags with [`rel="alternate"` and an `hreflang` attribute][hreflang] to point to those translations.
 Here's an example from [a Panic article][gdc], which is available in both US English and Japanese:
 
 ```html
@@ -485,7 +527,8 @@ That image is used as a background texture in my CSS file.
 Normally, the browser would have to download and parse the CSS before it even knows about the image -- which means a delay before it starts loading it.
 By preloading the image, the browser can begin downloading the image in parallel with the CSS file, so it's already in progress when the browser reads the CSS.
 
-The difference is probably imperceptible on a fast connection, but it is a performance improvement -- and as long as you scope the preloads correctly, there's little downside. (You just don't want to preload resources that aren't used).
+The difference is probably imperceptible on a fast connection, but it is a performance improvement -- and as long as you scope the preloads correctly, there's little downside.
+(Scoping means ensuring you don't preload resources that aren't used).
 
 I saw some sites use [DNS prefetching], which is a similar idea.
 The `rel="dns-prefetch"` attribute tells the browser about domains it'll fetch resources from soon, so it should begin DNS resolution early.
@@ -505,44 +548,6 @@ I'd seen them in other web pages, but I didn't appreciate the value until I wrot
 
 
 
-<h3 id="end_comments">Comments to mark the end of large containers</h3>
-
-I saw a lot of websites (mostly WordPress) that used HTML comments to mark the end of containers with a lot of content.
-For example:
-
-```html
-<div id="primary">
-  <main id="main">
-    …
-  </main><!-- #main -->
-</div><!-- #primary -->
-```
-
-These comments made the HTML much easier to read -- I could see exactly where each component started and ended.
-
-I like this idea, and I'm tempted to use it in my more complex projects.
-I can imagine this being especially helpful in template files, where HTML is mixed with template markup in a way that might confuse [code folding], or make the structure harder to follow.
-
-[code folding]: https://en.wikipedia.org/wiki/Code_folding
-
-
-
-
-<h3 id="css_href">The <code>data-href</code> attribute in <code>&lt;style&gt;</code> tags</h3>
-
-Here's a similar idea: I saw a number of sites set a `data-href` attribute on their `<style>` tags, as a way to indicate the source of the CSS.
-Something like:
-
-```html
-<style data-href="https://example.com/style.css">{% comment %}</style>{% endcomment %}
-```
-
-It's a neat idea that I imagine could be useful for developers working on that web page.
-
-
-
-
-
 ---
 
 
@@ -550,67 +555,6 @@ It's a neat idea that I imagine could be useful for developers working on that w
 
 
 <h2 id="quirks">Quirks and relics</h2>
-
-<h3 id="gpt">What does GPT stand for in attributes?</h3>
-
-Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
-
-So I was quite surprised to see "GPT" crop up on web pages that predate the widespread use of generative AI.
-It showed up in HTML attributes like this:
-
-```html
-<div id="div-gpt-ad-1481124643331-2">
-```
-
-In this context, "GPT" stands for [*Google Publisher Tag*][gpt_google], part of Google's ad infrastructure.
-I'm not sure exactly what these tags were doing -- and since I stripped all the ads out of my web archive, they're not doing anything now -- but it was clearly ad-related.
-
-[gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
-[gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
-
-
-
-
-
-<h3 id="instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</h3>
-
-I found some pages that use the `instapaper_ignore` CSS class to hide certain content.
-Here's an example from an [Atlantic article][torching] I saved in 2017:
-
-```html
-<aside class="pullquote instapaper_ignore">
-  Somewhere at Google there is a database containing 25 million books and nobody is allowed to read them.
-</aside>
-```
-
-Instapaper is a "read later" service -- you save an article that looks interesting, and later you can read it in the Instapaper app.
-It includes a text parser that extract the article's text, stripping away junk or clutter.
-
-The `instapaper_ignore` class is a way for publishers to control what that parser includes.
-From [a blog post in 2010][instapaper_ignore]:
-
-> Additionally, the Instapaper text parser will support some standard CSS class names to instruct it:
->
-> * `instapaper_body`: This element is the body container.
-> * `instapaper_ignore`: These elements, when inside the body container, should be removed from the text parser’s output.
-
-In this example, the element is a pull quote -- a repeated line from the article, styled to stand out.
-On the full web page, it works.
-But in the unstyled Instapaper view, it would just look like a duplicate sentence.
-It makes sense that the Atlantic wouldn't want it to appear in that context.
-
-Only a handful of pages I've saved ever used `instapaper_ignore`, and even fewer are still using it today.
-I don't even know if Instapaper's parser still looks atfor it
-
-This stood out to me because I was an avid Instapaper user for many years.
-I deleted my Instapaper account years ago, and I don't hear much about "read later" apps these days -- but then I stumble across a quiet little relic like this, buried in the HTML.
-
-[torching]: https://www.theatlantic.com/technology/archive/2017/04/the-tragedy-of-google-books/523320/
-[instapaper_ignore]: https://blog.instapaper.com/post/730281947
-
-
-
-
 
 <h3 id="html_conditional">There are still lots of <code>&lt;!--[if IE]&gt;</code> comments</h3>
 
@@ -648,10 +592,10 @@ Some websites even used conditional comments to display warnings and encourage u
 ```
 
 This syntax was already disappearing by the time I started building websites -- support for conditional comments was removed in Internet Explorer 10, released in 2012, the same year that Google Chrome became the most-used browser worldwide.
-I've never written one of these comments, and they were a reminder of how much harder it used to be to make websites.
+I never wrote one of these comments, but I saw lots of them in archived web pages.
 
-Like the `instapaper_ignore` class, these comments are a relic of an earlier web.
-Most websites have removed them, but they live on in web archives -- and in the memories of developers who had to make things work in IE, one way or another.
+These comments are a relic of an earlier web.
+Most websites have removed them, but they live on in web archives, and in the memories of web developers who remember the bad old days of IE6.
 
 [conditional comments]: https://en.wikipedia.org/wiki/Conditional_comment
 
@@ -668,8 +612,8 @@ Here's a simple example:
 </script>
 ```
 
-Browsers ignore `<script>` tags [an unrecognised `type`][script_unknown_type] -- they don't run them, and they don't render their contents.
-Developers used this as a way to [include HTML templates][old_template] in their pages, which JavaScript could extract and use later.
+Browsers ignore `<script>` tags with [an unrecognised `type`][script_unknown_type] -- they don't run them, and they don't render their contents.
+Developers have used this as a way to [include HTML templates][old_template] in their pages, which JavaScript could extract and use later.
 
 This trick was so widespread that HTML introduced a dedicated [`<template>` tag][template] element for the same purpose.
 It's been in all the major browsers for years, but there are still instances of this old technique floating around the web.
@@ -696,14 +640,15 @@ Some sites I saved use SVG sprite sheets for social media icons, with markup lik
 
 This works over `http://`, but when loaded via `file://`, it silently fails -- the icons don't show up.
 
-It turns out this is a security restriction.
+This turns out to be a security restriction.
 When a `file://` page tries to load another `file://` resource, modern browsers treat it as a [cross-origin request][cross_origin] and block it.
-That wasn't always the case, but today it helps prevent a malicious downloaded HTML file from [snooping around your hard drive][cors_file_security].
+This is to prevent a malicious downloaded HTML file from [snooping around your local disk][cors_file_security].
 
+It took me a while to figure this out.
 At first, all I got was a missing icon.
 I could see an error in my browser console, but it was a bit vague -- it just said I couldn't load the file for "security reasons".
 
-Eventually, I dropped this into my dev tools console:
+Then I dropped this snippet into my dev tools console:
 
 ```javascript
 fetch("sprite.svg")
@@ -711,8 +656,8 @@ fetch("sprite.svg")
   .catch(error => console.error("Fetch failed:", error));
 ```
 
-This gave me a different error message, one that explicitly mentioned cross-origin requesting sharing: *"CORS request not http"*.
-This gave me something I could look up, to better understand what's going on.
+It gave me a different error message, one that explicitly mentioned cross-origin requesting sharing: *"CORS request not http"*.
+This gave me something I could look up, and led me to the answer.
 
 This is easy to work around -- if I spin up a local web server (like Python's [`http.server`][http.server]), I can open the page over HTTP and everything loads correctly.
 
@@ -720,6 +665,63 @@ This is easy to work around -- if I spin up a local web server (like Python's [`
 [cross_origin]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
 [cors_file_security]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors/CORSRequestNotHttp#loading_a_local_file
 [http.server]: https://docs.python.org/3/library/http.server.html#module-http.server
+
+<h3 id="gpt">What does GPT stand for in attributes?</h3>
+
+Thanks to the meteoric rise of ChatGPT, I've come to associate the acronym "GPT" with large language models (LLMs) -- it stands for [*Generative Pre-trained Transformer*][gpt_wiki].
+
+That means I was quite surprised to see "GPT" crop up on web pages that predate the widespread use of generative AI.
+It showed up in HTML attributes like this:
+
+```html
+<div id="div-gpt-ad-1481124643331-2">
+```
+
+I discovered that "GPT" also stands for [*Google Publisher Tag*][gpt_google], part of Google's ad infrastructure.
+I'm not sure exactly what these tags were doing -- and since I stripped all the ads out of my web archive, they're not doing anything now -- but it was clearly ad-related.
+
+[gpt_wiki]: https://en.wikipedia.org/wiki/Generative_pre-trained_transformer
+[gpt_google]: https://developers.google.com/publisher-tag/guides/get-started
+
+
+
+
+
+<h3 id="instapaper_ignore">What’s the <code>instapaper_ignore</code> class?</h3>
+
+I found some pages that use the `instapaper_ignore` CSS class to hide certain content.
+Here's an example from an [Atlantic article][torching] I saved in 2017:
+
+```html
+<aside class="pullquote instapaper_ignore">
+  Somewhere at Google there is a database containing 25 million books and nobody is allowed to read them.
+</aside>
+```
+
+Instapaper is a "read later" service -- you save an article that looks interesting, and later you can read it in the Instapaper app.
+Part of the app is a text parser that tries to extract the article's text, stripping away junk or clutter.
+
+The `instapaper_ignore` class is a way for publishers to control what that parser includes.
+From [a blog post in 2010][instapaper_ignore]:
+
+> Additionally, the Instapaper text parser will support some standard CSS class names to instruct it:
+>
+> * `instapaper_body`: This element is the body container.
+> * `instapaper_ignore`: These elements, when inside the body container, should be removed from the text parser’s output.
+
+In this example, the element is a pull quote -- a repeated line from the article, styled to stand out.
+On the full web page, it works.
+But in the unstyled Instapaper view, it would just look like a duplicate sentence.
+It makes sense that the Atlantic wouldn't want it to appear in that context.
+
+Only a handful of pages I've saved ever used `instapaper_ignore`, and even fewer are still using it today.
+I don't even know if Instapaper's parser still looks atfor it
+
+This stood out to me because I was an avid Instapaper user for a long time.
+I deleted my account years ago, and I don't hear much about "read later" apps these days -- but then I stumble across a quiet little relic like this, buried in the HTML.
+
+[torching]: https://www.theatlantic.com/technology/archive/2017/04/the-tragedy-of-google-books/523320/
+[instapaper_ignore]: https://blog.instapaper.com/post/730281947
 
 
 
@@ -761,3 +763,27 @@ I wonder if it caused any other problems?
 [zeldman]: https://zeldman.com/2009/08/05/past-blast/
 [webkit_283428]: https://bugs.webkit.org/show_bug.cgi?id=283428
 [direct children]: https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator
+
+
+
+
+
+---
+
+
+
+
+
+<h2 id="conclusion">Closing thoughts</h2>
+
+The web is big and messy and bloated, and there are lots of reasons to be pessimistic about the state of modern web development -- but there are also lots of people doing cool and interesting stuff with it.
+As I was reading this mass of HTML and CSS, I had so many moments where I thought "ooh, that's clever!" or "neat!" or "I wonder how that works?".
+
+When I set out to redo my bookmarks, I was only trying to get my personal data under control.
+Learning more about front-end web development was a nice bonus.
+It's a massive field, and my knowledge is still the tiny tip of an iceberg -- but now it's a little bit bigger.
+
+I know this post has been particularly dry and technical, so next week I'll end this series on a lighter note.
+I'll show you some of my favourite websites from my bookmarks -- the fun, the whimsical, the joyous -- the people who use the web as a creative canvas, and who inspire me to make my web presence better.
+
+Stay tuned!
