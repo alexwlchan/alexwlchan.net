@@ -7,8 +7,10 @@ tags:
   - bookmarking
   - web development
 colors:
-  css_light: "#0000ff"
-  css_dark:  "#00ddff"
+  css_light:   "#0000ff"
+  css_dark:    "#00ddff"
+  index_light: "#2c5360"
+  index_dark:  "#a9c1ca"
 index:
   feature: true
 ---
