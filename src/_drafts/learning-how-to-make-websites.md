@@ -8,6 +8,8 @@ tags:
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"
+index:
+  feature: true
 ---
 <!-- Social sharing image from https://pixabay.com/photos/iceberg-antarctica-cold-arctic-5163649/ -->
 
