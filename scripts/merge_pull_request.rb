@@ -35,6 +35,11 @@ end
 
 def other_checks_are_running(branch_name)
   checks_resp = api_request(:get, "/commits/#{branch_name}/check-runs")
+
+  if checks_resp['check_runs'].nil?
+    abort "!!! check-runs API returned an unexpected response: #{checks_resp}"
+  end
+
   checks = checks_resp['check_runs'].reject { |cr| cr['name'] == 'Merge pull request' }
 
   checks.each do |cr|
