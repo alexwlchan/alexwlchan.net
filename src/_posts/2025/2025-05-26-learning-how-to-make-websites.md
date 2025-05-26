@@ -43,7 +43,7 @@ In this post, I'll show you some of what I learnt about making websites: how to 
             <li><a href="#html_aside">The <code>&lt;aside&gt;</code> element</a></li>
             <li><a href="#html_mark">The <code>&lt;mark&gt;</code> element</a></li>
             <li><a href="#html_section">The <code>&lt;section&gt;</code> element</a></li>
-            <li><a href="#html_hgroup">The <code>&lt;hroup&gt;</code> (heading group) element</a></li>
+            <li><a href="#html_hgroup">The <code>&lt;hgroup&gt;</code> (heading group) element</a></li>
             <li><a href="#html_video">The <code>&lt;video&gt;</code> element</a></li>
             <li><a href="#html_progress">The <code>&lt;progress&gt;</code> indicator element</a></li>
             <li><a href="#html_base">The <code>&lt;base&gt;</code> element</a></li>
@@ -149,7 +149,7 @@ Seeing it used across different sites reminded me it exists, and I've since adde
 
 [section]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/section
 
-<h3 id="html_hgroup">The <code>&lt;hroup&gt;</code> (heading group) element</h3>
+<h3 id="html_hgroup">The <code>&lt;hgroup&gt;</code> (heading group) element</h3>
 
 The [`<hgroup>` tag][hgroup] is for grouping a heading with related metadata, like a title and a publication date:
 
@@ -170,7 +170,7 @@ The [`<video>` tag][video] is used to embed videos in a web page.
 It's a tag I've known about for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was being replaced as dominant way to watch video on the web.
 
 While building my web archive, I replaced a lot of custom video players with `<video>` elements and local copies of the videos.
-This my first time using the tag in anger, not just in examples.
+This was my first time using the tag in anger, not just in examples.
 
 One mistake I kept making was forgetting to close the tag, or trying to make it self-closing:
 
