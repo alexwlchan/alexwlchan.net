@@ -93,6 +93,38 @@ I hope you like it!
 
 Here are some of my favourite things [that I've written](/articles/):
 
+<ul class="article_cards" id="featured_articles">
+  {% for article in new_articles %}
+    {% include article_card.html %}
+  {% endfor %}
+  {% for article in sample_of_articles %}
+    {% include article_card.html %}
+  {% endfor %}
+</ul>
+
+Here are some of the topics I write about:
+
+<ul class="dot_list" id="popular_tags">
+  {% for tag_name in site.data['popular_tags'] %}
+    <li>{% include tag_link.html %}</li>
+  {% endfor %}
+</ul>
+
+<style>
+  #popular_tags a:visited {
+    color: var(--link-color);
+  }
+</style>
+
+
+
+---
+
+{% include newsletter.html %}
+
+
+
+
 {% comment %}
   This component shows 6 featured articles.
 
@@ -245,32 +277,3 @@ Here are some of my favourite things [that I've written](/articles/):
         .join("");
   });
 </script>
-
-<ul class="article_cards" id="featured_articles">
-  {% for article in new_articles %}
-    {% include article_card.html %}
-  {% endfor %}
-  {% for article in sample_of_articles %}
-    {% include article_card.html %}
-  {% endfor %}
-</ul>
-
-Here are some of the topics I write about:
-
-<ul class="dot_list" id="popular_tags">
-  {% for tag_name in site.data['popular_tags'] %}
-    <li>{% include tag_link.html %}</li>
-  {% endfor %}
-</ul>
-
-<style>
-  #popular_tags a:visited {
-    color: var(--link-color);
-  }
-</style>
-
-
-
----
-
-{% include newsletter.html %}
