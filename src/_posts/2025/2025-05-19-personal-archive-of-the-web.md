@@ -109,7 +109,7 @@ In this post, I'll show you how I built this personal archive of the web: how I 
       </ul>
     </li>
     <li>
-      <a href="/2025/learning-how-to-make-websites/"><strong>What I learnt about building websites by reading two thousand web pages</strong></a> – how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
+      <a href="/2025/learning-how-to-make-websites/"><strong>What I learnt about making websites by reading two thousand web pages</strong></a> – how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
     </li>
     <li>
       <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 2 June) – some websites which are doing especially fun or clever things with the web.

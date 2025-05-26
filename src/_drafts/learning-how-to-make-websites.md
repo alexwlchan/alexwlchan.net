@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What I learnt about building websites by reading two thousand web pages
+title: What I learnt about making websites by reading two thousand web pages
 summary: How to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive
 tags:
   - bookmarking
@@ -11,14 +11,14 @@ colors:
 ---
 <!-- Social sharing image from https://pixabay.com/photos/iceberg-antarctica-cold-arctic-5163649/ -->
 
-Over the past year, I [built a web archive](/2025/creating-bookmark-archives/) of over two thousand web pages -- my own copy of everything I've bookmarked in the last fifteen years.
+Over the past year, I [built a web archive](/2025/personal-archive-of-the-web/) of over two thousand web pages -- my own copy of everything I've bookmarked in the last fifteen years.
 I saved each one by hand, reading and editing the HTML to build a self-contained, standalone copy of each web page.
 
 These web pages were made by other people, many using tools and techniques I didn't recognise.
-That's what kept me going: I wasn't just archiving, I was learning.
-The project became an unexpected crash course in how the web is actually built.
+What started as an exercise in preservation became an unexpected lesson in coding: I was getting a crash course in how the web is made.
+Reading somebody else's code is a great way to learn, and I was reading a *lot* of somebody else's code.
 
-In this post, I'll show you what I learnt: how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics of the web.
+In this post, I'll show you some of what I learnt about making websites: how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics of the web.
 
 <blockquote class="toc">
   <p>This article is the third in a four part bookmarking mini-series:</p>
@@ -110,10 +110,8 @@ In this post, I'll show you what I learnt: how to write thoughtful HTML, new-to-
 
 <h2 id="html_tags">Interesting HTML tags</h2>
 
-I know I've read a list of HTML tags in reference documents (and in [this blog post][weaver] by Patrick Weaver), but there are some tags I'd forgotten, misunderstood, or never seen used in the wild.
+I know I've read a list of HTML tags in reference documents and blog posts, but there are some tags I'd forgotten, misunderstood, or never seen used in the wild.
 Reading thousands of real-world pages gave me a better sense of how these tags are actually used, and when they're useful.
-
-[weaver]: https://www.patrickweaver.net/blog/a-blog-post-with-every-html-element/
 
 <h3 id="html_aside">The <code>&lt;aside&gt;</code> element</h3>
 
@@ -124,14 +122,14 @@ In the web pages I read, I saw `<aside>` used in the middle of larger articles, 
 I don't have any of those elements on my site, but now I have a stronger mental model of where to use `<aside>`.
 I find concrete examples more useful than abstract definitions.
 
-I saw a couple of sites using the [`<ins>` (inserted text) element][ins] for ads, but I think `<aside>` is a better semantic fit.
+I also saw a couple of sites using the [`<ins>` (inserted text) element][ins] for ads, but I think `<aside>` is a better semantic fit.
 
 [aside]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/aside
 [ins]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ins
 
 <h3 id="html_mark">The <code>&lt;mark&gt;</code> element</h3>
 
-The [`<mark> element`][mark] highlights text, typically with a yellow background.
+The [`<mark> element`][mark] highlights text, typically with <mark>a yellow background</mark>.
 It's useful for drawing visual attention to a phrase, and I suspect it's helpful for screen readers and parsing tools as well.
 
 I saw it used in Medium to show reader highlights, and I've started using it in code samples when I want to call out specific lines.
@@ -148,7 +146,7 @@ Seeing it used across different sites reminded me it exists, and I've since adde
 
 <h3 id="html_hgroup">The <code>&lt;hroup&gt;</code> (heading group) element</h3>
 
-The [`<hgroup>` tag][hgroup] is for grouping a heading with related metadata -- like a title and a publication date:
+The [`<hgroup>` tag][hgroup] is for grouping a heading with related metadata, like a title and a publication date:
 
 ```html
 <hgroup>
@@ -164,7 +162,7 @@ This is another tag I'd forgotten, which I've started using for the headings on 
 <h3 id="html_video">The <code>&lt;video&gt;</code> element</h3>
 
 The [`<video>` tag][video] is used to embed videos in a web page.
-It's a tag I've know about for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was still the dominant way to watch video on the web.
+It's a tag I've known about for a long time -- I still remember reading Kroc Camen's article [Video is for Everybody][everybody] in 2010, back when Flash was being replaced as dominant way to watch video on the web.
 
 While building my web archive, I replaced a lot of custom video players with `<video>` elements and local copies of the videos.
 This my first time using the tag in anger, not just in examples.
@@ -176,7 +174,7 @@ One mistake I kept making was forgetting to close the tag, or trying to make it 
 <video controls src="videos/Big_Buck_Bunny.mp4"/>
 ```
 
-It looks like `<img>`, which is self-closing, but `<video>` can have child elements, you have to explicitly close it with `</video>`.
+It looks like `<img>`, which is self-closing, but `<video>` can have child elements, so you have to explicitly close it with `</video>`.
 
 [video]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video
 [everybody]: https://camendesign.com/code/video_for_everybody
@@ -227,9 +225,9 @@ For example, in this document:
 <img src="/pictures/cat.jpg">
 ```
 
-The image will be loaded from `https://example.com/pictures/cat.jpg`.
+the image will be loaded from `https://example.com/pictures/cat.jpg`.
 
-It's still not clear to me when you should use `<base>`, or what the benefits are (aside from making your URLs more concise), but it's something I'll keep an eye out for in future projects.
+It's still not clear to me when you should use `<base>`, or what the benefits are (aside from making your URLs a bit shorter), but it's something I'll keep an eye out for in future projects.
 
 [base]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/base
 
@@ -322,7 +320,7 @@ Here's a link style from an old copy of the *Entertainment Weekly* website:
 The [`inset` keyword][inset] was new to me: it draws the shadow *inside* the box, rather than outside.
 In this case, they're setting `offset-x=0`, `offset-y=-6px` and `blur-radius=0` to create a solid stripe that appears behind the link text -- like a highlighter running underneath it.
 
-If you want something that looks more shadow-like, here are two boxes that show what the inner/outer shadow looks like with a blur radius:
+If you want something that looks more shadow-like, here are two boxes that show the inner/outer shadow with a blur radius:
 
 <style>
   #shadow_examples {
@@ -371,9 +369,9 @@ Here's a quick comparison:
   <tr>
     <td style="cursor: default; padding-right: 0.5em;">
       <picture>
-        <source srcset="/images/2025/bookmarks/default.dark.png" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/default.dark.png" type="image/png" media="(prefers-color-scheme: dark)">
         <source srcset="/images/2025/bookmarks/default.png" type="image/png" media="(prefers-color-scheme: light)">
-        <img src="/images/2025/bookmarks/default.png" alt="A small icon of an arrow">
+        <img src="/images/2025/bookmarks/default.png" alt="A small icon of an arrow" class="dark_aware">
       </picture>
     </td>
     <td>
@@ -383,9 +381,9 @@ Here's a quick comparison:
   <tr>
     <td style="cursor: pointer; padding-right: 0.5em;">
       <picture>
-        <source srcset="/images/2025/bookmarks/pointer.dark.png" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/pointer.dark.png" type="image/png" media="(prefers-color-scheme: dark)">
         <source srcset="/images/2025/bookmarks/pointer.png" type="image/png" media="(prefers-color-scheme: light)">
-        <img src="/images/2025/bookmarks/pointer.png" alt="A small icon of a hand with a raised pointer finger">
+        <img src="/images/2025/bookmarks/pointer.png" alt="A small icon of a hand with a raised pointer finger" class="dark_aware">
       </picture>
     </td>
     <td>
@@ -395,9 +393,9 @@ Here's a quick comparison:
   <tr>
     <td style="cursor: zoom-in; padding-right: 0.5em;">
       <picture>
-        <source srcset="/images/2025/bookmarks/zoom-in.dark.png" type="image/gif" media="(prefers-color-scheme: dark)">
+        <source srcset="/images/2025/bookmarks/zoom-in.dark.png" type="image/png" media="(prefers-color-scheme: dark)">
         <source srcset="/images/2025/bookmarks/zoom-in.png" type="image/png" media="(prefers-color-scheme: light)">
-        <img src="/images/2025/bookmarks/zoom-in.png" alt="A small icon of a magnifying sign with a plus symbol">
+        <img src="/images/2025/bookmarks/zoom-in.png" alt="A small icon of a magnifying sign with a plus symbol" class="dark_aware">
       </picture>
     </td>
     <td>
@@ -432,7 +430,7 @@ I don't have a firm answers, but reading how other people structure their HTML g
 I noticed several pages that put the sidebar at the very end of the HTML, then used CSS to position it visually alongside the content.
 That way, the main content appears earlier in the HTML file, which means it can load and become readable sooner.
 
-It's something I want to think carefully about next time I'm building a more complex page.
+It's something I want to consider next time I'm building a more complex page.
 
 
 
@@ -715,7 +713,7 @@ But in the unstyled Instapaper view, it would just look like a duplicate sentenc
 It makes sense that the Atlantic wouldn't want it to appear in that context.
 
 Only a handful of pages I've saved ever used `instapaper_ignore`, and even fewer are still using it today.
-I don't even know if Instapaper's parser still looks atfor it
+I don't even know if Instapaper's parser still looks for it.
 
 This stood out to me because I was an avid Instapaper user for a long time.
 I deleted my account years ago, and I don't hear much about "read later" apps these days -- but then I stumble across a quiet little relic like this, buried in the HTML.
@@ -778,14 +776,15 @@ I wonder if it caused any other problems?
 
 The web is big and messy and bloated, and there are lots of reasons to be pessimistic about the state of modern web development -- but there are also lots of people doing cool and interesting stuff with it.
 As I was reading this mass of HTML and CSS, I had so many moments where I thought "ooh, that's clever!" or "neat!" or "I wonder how that works?".
+I hope that as you've read this post, you've learnt something too.
+
+I've always believed in the spirit of "view source", the idea that you can look at the source code of any web page and see how it works.
+Although that's become harder as more of the web is created by frameworks and machines, this exercise shows that it's clinging on.
+We can still learn from reading other people's source code.
 
 When I set out to redo my bookmarks, I was only trying to get my personal data under control.
-Learning more about front-end web development was a nice bonus.
-It's a massive field, and my knowledge is still the tiny tip of an iceberg -- but now it's a little bit bigger.
+Learning more about front-end web development has been a nice bonus.
+My knowledge is still a tiny tip of an iceberg, but now it's a little bit bigger.
 
 I know this post has been particularly dry and technical, so next week I'll end this series on a lighter note.
 I'll show you some of my favourite websites from my bookmarks -- the fun, the whimsical, the joyous -- the people who use the web as a creative canvas, and who inspire me to make my web presence better.
-
-Stay tuned!
-
-<!-- spirit of "view source" -->
