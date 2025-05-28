@@ -170,7 +170,7 @@ module Jekyll
         text = text.gsub(' class="language-console highlighter-rouge"', 'class="language-console"')
         text = text.gsub(/ class="language-[a-z]+ highlighter-rouge"/, '')
 
-        text
+        text.strip
       end
     end
   end
