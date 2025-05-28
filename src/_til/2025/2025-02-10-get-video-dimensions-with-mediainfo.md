@@ -3,7 +3,6 @@ layout: til
 title: Get the dimensions of a video file with `mediainfo`
 date: 2025-02-10 10:10:51 +0000
 tags:
-  - macos
   - video
 ---
 Here are two examples:
