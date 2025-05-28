@@ -59,7 +59,7 @@
       </p>
       {%- if article.card.summary -%}
         <p class="c_desc">
-          {{- article.card.summary -}}
+          {{- article.card.summary | strip -}}
         </p>
       {%- endif -%}
     </div>

@@ -147,8 +147,7 @@ Here are some of the topics I write about:
 
 <script>
   function CardImage(card) {
-    const yr = card.y - 2000;
-    const prefix = card.p;
+    const yr = card.y;
 
     if (card.fm === 'JPEG') {
       var suffix = '.jpg';
@@ -158,40 +157,20 @@ Here are some of the topics I write about:
       var mimeType = 'image/png';
     }
 
+    const widths = [365,730,302,504,405,810];
+    const primary = widths.map(s => `/c/${yr}/${card.p}_${s}w${suffix} ${s}w`).join(", ");
+    const avif = widths.map(s => `/c/${yr}/${card.p}_${s}w.avif ${s}w`).join(", ");
+    const webp = widths.map(s => `/c/${yr}/${card.p}_${s}w.webp ${s}w`).join(", ");
+    
+    const sizes = "(max-width: 450px) 405px, 405px";
+
     return `
       <div class="c_im_w${card.n ? ' n' : ''}">
         <picture>
-          <source
-            srcset="/c/${yr}/${prefix}_365w${suffix} 365w,
-                    /c/${yr}/${prefix}_730w${suffix} 730w,
-                    /c/${yr}/${prefix}_302w${suffix} 302w,
-                    /c/${yr}/${prefix}_604w${suffix} 604w,
-                    /c/${yr}/${prefix}_405w${suffix} 405w,
-                    /c/${yr}/${prefix}_810w${suffix} 810w"
-            sizes="(max-width: 450px) 405px, 405px"
-            type="${mimeType}"
-          >
-          <source
-            srcset="/c/${yr}/${prefix}_365w.avif 365w,
-                    /c/${yr}/${prefix}_730w.avif 730w,
-                    /c/${yr}/${prefix}_302w.avif 302w,
-                    /c/${yr}/${prefix}_604w.avif 604w,
-                    /c/${yr}/${prefix}_405w.avif 405w,
-                    /c/${yr}/${prefix}_810w.avif 810w"
-            sizes="(max-width: 450px) 405px, 405px"
-            type="image/avif"
-          >
-          <source
-            srcset="/c/${yr}/${prefix}_365w.webp 365w,
-                    /c/${yr}/${prefix}_730w.webp 730w,
-                    /c/${yr}/${prefix}_302w.webp 302w,
-                    /c/${yr}/${prefix}_604w.webp 604w,
-                    /c/${yr}/${prefix}_405w.webp 405w,
-                    /c/${yr}/${prefix}_810w.webp 810w"
-            sizes="(max-width: 450px) 405px, 405px"
-            type="image/webp"
-          >
-          <img src="/c/${yr}/${prefix}_365w.jpg" alt="" loading="lazy">
+          <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
+          <source srcset="${avif}"    sizes="${sizes}" type="image/avif">
+          <source srcset="${webp}"    sizes="${sizes}" type="image/webp">
+          <img src="/c/${yr}/${card.p}_365w.jpg" alt="" loading="lazy">
         </picture>
         ${card.n ? '<div class="new_banner">NEW</div>' : ''}
       </div>
@@ -207,62 +186,63 @@ Here are some of the topics I write about:
           ${card.cd ? `--c-dk: #${card.cd}` : ''};
         "
       >
-        <a href="/${card.y}/${card.s}/">
+        <a href="/${card.y + 2000}/${card.s}/">
           ${CardImage(card)}
           <div class="c_meta">
-            <p class="c_title">
-              ${card.t}
-            </p>
-            ${
-              typeof card.d !== 'undefined'
-                ? `<p class="c_desc">${card.d}</p>`
-                : ''
-            }
+            <p class="c_title">${card.t}</p>
+            ${typeof card.d !== 'undefined' ? `<p class="c_desc">${card.d}</p>` : ''}
           </div>
         </a>
       </li>
     `;
   }
 
+  {% comment %}
+    cl = color light
+    cd = color dark
+    n = is new?
+    t = title
+    y = year - 2000
+    s = slug
+    p = prefix
+    fm = image format
+    d = description
+  {% endcomment %}
+  const keys = ["cl", "cd", "n", "t", "y", "s", "p", "fm", "d"];
+
   {%- capture featuredArticlesJson -%}
     [
-      {% comment %}
-        cl = color light
-        cd = color dark
-        new = is new?
-        t = title
-        y = year
-        s = slug
-        p = prefix
-        fm = image format
-        d = descritpion
-      {% endcomment %}
       {% for article in featured_articles %}
-        {
-          "cl": {{ article.card.color_lt | replace: "#", "" | jsonify }},
-          "cd": {{ article.card.color_dk | replace: "#", "" | jsonify }},
-          {% if article.is_new %}
-          "n": {{ article.is_new }},
-          {% endif %}
-          "t": {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
-          "y": {{ article.date | date: "%Y" }},
-          "s": {{ article.slug | jsonify }},
-          "p": {{ article.card.index_prefix | jsonify }},
-          "fm": {{ article.card.index_image.format | jsonify }},
+        [
+          {{ article.card.color_lt | replace: "#", "" | jsonify }},
+          {{ article.card.color_dk | replace: "#", "" | jsonify }},
+          {% if article.is_new %}1{% else %}0{% endif %},
+          {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
+          {{ article.date | date: "%Y" | minus: 2000 }},
+          {{ article.slug | jsonify }},
+          {{ article.card.index_prefix | jsonify }},
+          {{ article.card.index_image.format | jsonify }},
           {% if article.summary %}
-            "d": {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
+            {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
+          {% else %}
+            ""
           {% endif %}
-        }
+        ]
         {% unless forloop.last %},{% endunless %}
       {% endfor %}
     ]
   {%- endcapture -%}
 
-  const featuredArticles = {{ featuredArticlesJson | compact_json }};
+  const featuredArticlesList = {{ featuredArticlesJson | compact_json }};
+
+  const featuredArticles = featuredArticlesList.map(values =>
+    keys.reduce((obj, key, index) => ({ ...obj, [key]: values[index] }), {})
+  );
 
   window.addEventListener("DOMContentLoaded", function() {
     const newArticles = featuredArticles
-      .filter(card => typeof card.n !== 'undefined');
+      .filter(art => art.n === 1);
+
     const randomArticles = featuredArticles
       .filter(art => !newArticles.includes(art))
       .sort(() => 0.5 - Math.random())

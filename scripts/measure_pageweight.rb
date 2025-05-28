@@ -2,6 +2,7 @@
 
 puts format('Homepage (/):           %2.1f KiB', File.size('_site/index.html') / 1024.0)
 puts format('Articles (/articles/): %3.1f KiB', File.size('_site/articles/index.html') / 1024.0)
+puts format('TIL      (/til/):       %2.1f KiB', File.size('_site/til/index.html') / 1024.0)
 
 sizes = []
 

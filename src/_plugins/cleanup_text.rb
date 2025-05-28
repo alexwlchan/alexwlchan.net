@@ -158,6 +158,19 @@ module Jekyll
         text
           .gsub('&#8617;', '&#8617;&#xFE0E;')
           .gsub('↩', '&#8617;&#xFE0E;')
+
+        # The syntax highlighter adds a couple of classes to my HTML,
+        # but I don't have any CSS that targets those classes.
+        #
+        # Removing them reduces the size of the final HTML, especially
+        # in the TIL index.
+        #
+        # The one class I leave behind is `language-console`, which I
+        # have some special styles for.
+        text = text.gsub(' class="language-console highlighter-rouge"', 'class="language-console"')
+        text = text.gsub(/ class="language-[a-z]+ highlighter-rouge"/, '')
+
+        text.strip
       end
     end
   end

@@ -8,7 +8,7 @@ layout: default
   
   {% if page.summary %}
     <p class="summary">
-      {{ page.summary | markdownify_oneline }}
+      {{ page.summary | markdownify_oneline | cleanup_text }}
     </p>
   {% endif %}
 
