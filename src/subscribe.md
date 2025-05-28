@@ -2,8 +2,6 @@
 layout: page
 title: Subscribe!
 nav_section: subscribe
-footer:
-  hide_newsletter: true
 ---
 <style>
   h1 + h2 {
