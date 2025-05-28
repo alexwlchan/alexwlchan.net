@@ -4,8 +4,6 @@ title: ""
 colors:
   css_light: "#17823e"
   css_dark:  "#26d967"
-footer:
-  hide_newsletter: true
 ---
 
 <style type="x-text/scss">

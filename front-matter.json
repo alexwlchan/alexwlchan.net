@@ -81,16 +81,6 @@
             },
             "additionalProperties": false
         },
-        "footer": {
-            "type": "object",
-            "properties": {
-                "hide_newsletter": {
-                    "description": "Whether to hide the newsletter subscribe from in the footer",
-                    "type": "boolean"
-                }
-            },
-            "additionalProperties": false
-        },
         "meta": {
             "description": "Used on pages for miscellaneous information. Deprecated; should be replaced by purpose-named fields.",
             "type": "array",
