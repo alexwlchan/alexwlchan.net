@@ -3,4 +3,5 @@ def apply_markdownify_oneline(site, input)
       .convert(input)
       .sub('<p>', '')
       .sub('</p>', '')
+      .strip
 end
