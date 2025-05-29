@@ -5,7 +5,7 @@ layout: default
   <hgroup>
     <h1 class="title">{{ page.title | markdownify_oneline | cleanup_text }}</h1>
 
-    {% include meta.html index_page = "/til/" %}
+    {%- include meta.html index_page = "/til/" -%}
   </hgroup>
   
   {% if page.summary %}
