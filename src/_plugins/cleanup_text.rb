@@ -129,18 +129,40 @@ def add_non_breaking_spaces(input)
   text.gsub(/<a ([^>]+)>an /, '<a \1>an&nbsp;')
 end
 
-# The syntax highlighter adds a couple of classes to my HTML,
-# but I don't have any CSS that targets those classes.
+# The syntax highlighter wraps highlighted code blocks in:
 #
-# Removing them reduces the size of the final HTML, especially
-# in the TIL index.
+#     <div class="language-{language} highlighter-rouge">
+#       <div class="highlight">
+#         <pre>
+#           …
+#
+# We can strip out some of these CSS classes and HTML tags.
+#
 def cleanup_syntax_highlighter_classes(html)
-  # I leave behind a couple of langauges that I have special
-  # styles for.
+
+  # I never use the `highlighter-rouge` class, and I only have styles
+  # for a couple of the `language-*` classes.
   html = html.gsub(' class="language-console highlighter-rouge"', ' class="language-console"')
   html = html.gsub(' class="language-go highlighter-rouge"', ' class="language-go"')
 
   html = html.gsub(/ class="language-[a-z]+ highlighter-rouge"/, '')
+
+  # I never use the `highlight` class.
+  #
+  # If there's a `language-tag` on the outer `<div>`, move it to the `<pre>`.
+  html = html.gsub(
+    /<div class="language-(?<language>[a-z]+)"><div class="highlight"><pre class="highlight">/,
+    '<pre class="language-\k<language>">'
+  )
+  html = html.gsub(
+    '<div><div class="highlight"><pre class="highlight">',
+    '<pre>'
+  )
+  html = html.gsub('</pre></div></div>', '</pre>')
+
+  # Remove any whitespace before/after `<pre>` blocks
+  html = html.gsub(/\s+<pre>/, '<pre>')
+  html = html.gsub(/<\/pre>\s+/, '</pre>')
 
   html
 end

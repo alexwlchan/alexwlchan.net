@@ -26,18 +26,24 @@ class TextCleanupText < Test::Unit::TestCase
   def test_preserves_language_console
     text = '<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>youtube-dl <span class="nt">--write-auto-sub</span> <span class="nt">--skip-download</span> <span class="s2">"https://www.youtube.com/watch?v=XyGVRlRyT-E"</span>
 </code></pre></div></div>'
-    expected = '<div class="language-console"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>youtube-dl <span class="nt">--write-auto-sub</span> <span class="nt">--skip-download</span> <span class="s2">"https://www.youtube.com/watch?v=XyGVRlRyT-E"</span>
-</code></pre></div></div>'
+    expected = '<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>youtube-dl <span class="nt">--write-auto-sub</span> <span class="nt">--skip-download</span> <span class="s2">"https://www.youtube.com/watch?v=XyGVRlRyT-E"</span>
+</code></pre>'
     assert_equal(cleanup_syntax_highlighter_classes(text), expected)
   end
 
   def test_preserves_language_go
     text = '<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span></code></pre></div></div>'
-    expected = '<div class="language-go"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span></code></pre></div></div>'
+    expected = '<pre class="language-go"><code><span class="k">package</span> <span class="n">main</span></code></pre>'
     assert_equal(cleanup_syntax_highlighter_classes(text), expected)
   end
 
-  def test_discards_other_language_tags
+  def test_discards_other_language_tags_in_pre
+    text = '<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span> <span class="s2">"important_bukkit"</span> <span class="p">{</span></pre></div></div>'
+    expected = '<pre><code><span class="nx">module</span> <span class="s2">"important_bukkit"</span> <span class="p">{</span></pre>'
+    assert_equal(cleanup_syntax_highlighter_classes(text), expected)
+  end
+
+  def test_discards_other_language_tags_in_code
     text = '<code class="language-plaintext highlighter-rouge">number_of_sides</code>'
     expected = '<code>number_of_sides</code>'
     assert_equal(cleanup_syntax_highlighter_classes(text), expected)
