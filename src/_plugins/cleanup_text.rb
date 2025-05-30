@@ -139,7 +139,6 @@ end
 # We can strip out some of these CSS classes and HTML tags.
 #
 def cleanup_syntax_highlighter_classes(html)
-
   # I never use the `highlighter-rouge` class, and I only have styles
   # for a couple of the `language-*` classes.
   html = html.gsub(' class="language-console highlighter-rouge"', ' class="language-console"')
@@ -162,11 +161,8 @@ def cleanup_syntax_highlighter_classes(html)
 
   # Remove any whitespace before/after `<pre>` blocks
   html = html.gsub(/\s+<pre>/, '<pre>')
-  html = html.gsub(/<\/pre>\s+/, '</pre>')
-
-  html
+  html.gsub(%r{</pre>\s+}, '</pre>')
 end
-
 
 module Jekyll
   module CleanupsFilter
