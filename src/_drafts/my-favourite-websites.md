@@ -126,6 +126,15 @@ I love this detail: a tiny bit of the physical world seeping into the digital.
 
 
 
+## A Tumblr theme that follows the sun
+
+One of my [bookmarked Tumblr posts][vonnegut] has a remarkable theme by a Tumblr Laighlin called [Circadium 2.0][circadium].
+Forget a binary light and dark mode, this is a theme that gradually changes the appearance through the entire day.
+It cycles through noon, twilight, and dusk, before starting the same thing over again.
+
+[vonnegut]: https://three--rings.tumblr.com/post/625948601747636224/when-i-was-15-i-spent-a-month-working-on-an
+[circadium]: https://linthm.tumblr.com/post/626279447390257152/theme-28-circadium-20-yes-sweet-baby-jesus
+
 * backgrounds that follow the sun / [[Screenshot 2024-11-07 at 21.59.20.png]] / [[Screenshot 2024-11-07 at 21.59.22.png]] / https://three--rings.tumblr.com/post/625948601747636224/when-i-was-15-i-spent-a-month-working-on-an
 
 * owltastic
