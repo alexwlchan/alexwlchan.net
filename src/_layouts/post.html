@@ -26,7 +26,7 @@ layout: default
       {% endif %}
     </h1>
 
-    {% include meta.html index_page = "/articles/" %}
+    {%- include meta.html index_page = "/articles/" -%}
   </hgroup>
 
   {{ post.content | cleanup_text }}

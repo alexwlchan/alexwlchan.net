@@ -8,18 +8,44 @@ class TextCleanupText < Test::Unit::TestCase
   def test_it_adds_non_breaking_spaces_after_words
     text = 'Apollo 11 launched in 1969'
     expected = 'Apollo&nbsp;11 launched in 1969'
-    assert_equal(AddNonBreakingSpaces.add_non_breaking_spaces(text), expected)
+    assert_equal(add_non_breaking_spaces(text), expected)
   end
 
   def test_it_adds_non_breaking_spaces_before_words
     text = 'It takes 2 minutes'
     expected = 'It takes 2&nbsp;minutes'
-    assert_equal(AddNonBreakingSpaces.add_non_breaking_spaces(text), expected)
+    assert_equal(add_non_breaking_spaces(text), expected)
   end
 
   def test_non_breaking_space_at_start_of_anchor
     text = '<a href="https://kottke.org/">a different set of circles</a>'
     expected = '<a href="https://kottke.org/">a&nbsp;different set of circles</a>'
-    assert_equal(AddNonBreakingSpaces.add_non_breaking_spaces(text), expected)
+    assert_equal(add_non_breaking_spaces(text), expected)
+  end
+
+  def test_preserves_language_console
+    text = '<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>youtube-dl <span class="nt">--write-auto-sub</span> <span class="nt">--skip-download</span> <span class="s2">"https://www.youtube.com/watch?v=XyGVRlRyT-E"</span>
+</code></pre></div></div>'
+    expected = '<pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>youtube-dl <span class="nt">--write-auto-sub</span> <span class="nt">--skip-download</span> <span class="s2">"https://www.youtube.com/watch?v=XyGVRlRyT-E"</span>
+</code></pre>'
+    assert_equal(cleanup_syntax_highlighter_classes(text), expected)
+  end
+
+  def test_preserves_language_go
+    text = '<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span></code></pre></div></div>'
+    expected = '<pre class="language-go"><code><span class="k">package</span> <span class="n">main</span></code></pre>'
+    assert_equal(cleanup_syntax_highlighter_classes(text), expected)
+  end
+
+  def test_discards_other_language_tags_in_pre
+    text = '<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span> <span class="s2">"important_bukkit"</span> <span class="p">{</span></pre></div></div>'
+    expected = '<pre><code><span class="nx">module</span> <span class="s2">"important_bukkit"</span> <span class="p">{</span></pre>'
+    assert_equal(cleanup_syntax_highlighter_classes(text), expected)
+  end
+
+  def test_discards_other_language_tags_in_code
+    text = '<code class="language-plaintext highlighter-rouge">number_of_sides</code>'
+    expected = '<code>number_of_sides</code>'
+    assert_equal(cleanup_syntax_highlighter_classes(text), expected)
   end
 end

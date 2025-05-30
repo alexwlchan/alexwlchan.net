@@ -9,12 +9,6 @@ tags:
 I've been doing a bit of work with Go recently, in particular writing some code to parse JSON.
 Here's an example program that demonstrates what I learnt, where I'm parsing a JSON string as an instance of a Go struct:
 
-<style>
-  pre {
-    tab-size: 4;
-  }
-</style>
-
 ```go
 package main
 

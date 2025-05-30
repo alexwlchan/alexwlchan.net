@@ -6,8 +6,8 @@
   
     {% include timestamp.html date = page.date %}
 
-{% endcomment %}
+{% endcomment -%}
 
 <time datetime="{{ include.date | date: "%Y-%m-%d" }}">
-  {{ include.date | date: "%-d %B %Y" }}
+  {{- include.date | date: "%-d %B %Y" -}}
 </time>

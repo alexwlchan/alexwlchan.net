@@ -196,3 +196,9 @@ pre {
     @include mixins.disable_select();
   }
 }
+
+// All my Go-formatted code uses tabs; ensure it's a 4-wide tab rather
+// than 8-wide, which is the default stylesheet in Safari
+.language-go {
+  tab-size: 4;
+}
