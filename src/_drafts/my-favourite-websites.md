@@ -128,12 +128,75 @@ I love this detail: a tiny bit of the physical world seeping into the digital.
 
 ## A Tumblr theme that follows the sun
 
-One of my [bookmarked Tumblr posts][vonnegut] has a remarkable theme by a Tumblr Laighlin called [Circadium 2.0][circadium].
-Forget a binary light and dark mode, this is a theme that gradually changes the appearance through the entire day.
+One of my [bookmarked Tumblr posts][vonnegut] has a remarkable theme by Tumblr user Laighlin called [Circadium&nbsp;2.0][circadium].
+Forget a binary switch between light and dark mode, this is a theme that gradually changes the appearance through the entire day.
+
+The background changes colour, stars fade in and out, and the moon and the sun gradually rise and set.
 It cycles through noon, twilight, and dusk, before starting the same thing over again.
+It's hard to describe it in words, so here's a screen recording [of the demo site][circadium_demo] for a 24 hour cycle:
+
+<video controls loop poster="/images/2025/bookmarks/circadium_loop.png" src="/images/2025/bookmarks/circadium_loop.mp4" class="screenshot" style="width: 600px;"></video>
+
+This effect is very subtle, because the appearance is set based on the time you loaded the page, and it doesn't change after that.
+Unless you reload the same page repeatedly, you may even not notice the background is changing.
+
+This is the sort of creativity I love about sites like Tumblr and LiveJournal, where users can *really* customise the appearance of their sites -- not just pick a profile picture and a tint colour.
 
 [vonnegut]: https://three--rings.tumblr.com/post/625948601747636224/when-i-was-15-i-spent-a-month-working-on-an
 [circadium]: https://linthm.tumblr.com/post/626279447390257152/theme-28-circadium-20-yes-sweet-baby-jesus
+[circadium_demo]: https://circadium-theme.tumblr.com/page/3
+
+
+
+## Subtle transitions at Campo Santo
+
+The [Campo Santo blog][Campo Santo] has a more restrained design, but still makes fun use of shifting colours -- the tint colour of the page gradually switches from a reddish orange to brown, to green, to a dark yellow, and back to orange.
+This tint colour affects multiple elements on the page: the header, the sidebar promo, headings and social media links.
+
+Here's what it looks like:
+
+<figure style="width: 600px;">
+  <video controls loop poster="/images/2025/bookmarks/campo_santo_loop.png" src="/images/2025/bookmarks/campo_santo_loop.mp4" class="screenshot"></video>
+  <figcaption>
+    I so enjoyed <em>Firewatch</em>, and I’m still a little bitter that <a href="https://www.youtube.com/watch?v=UFOXIGzdMv8"><em>In the Valley of Gods</em></a> got <a href="https://www.polygon.com/2019/12/3/20994257/valve-in-the-valley-of-gods-campo-santo-half-life-alyx">cancelled</a>.
+    I would have loved another first-person exploration game from that team.
+  </figcaption>
+</figure>
+
+Sadly, this animation only lives on in web archives and in memory -- something has broken in the JavaScript that means it no longer works on the live site.
+The fragility of the web isn't just entire pages or sites going offline, it's also the gradual breaking of pages that remain online.
+
+[Campo Santo]: http://blog.camposanto.com/post/162685206999/love-at-first-site-a-few-months-ago-we-got-a
+
+
+
+
+## The hand-drawn aesthetic of Owltastic
+
+By far my favourite website is the old design of [Meagan Fisher Couldwell's](https://owltastic.com) website.
+It has a beautiful, hand-drawn aesthetic, and it's full of subtle texture and round corners -- no straight lines, no hard edges.
+It has a soft and gentle appearance, and a friendly owl mascot to boot.
+
+I bookmarked this particular page in 2013, before iOS 7 when loud textures and skeuomorphism were still in fashion -- but unlike many designs from that era which now look dated, I think this site still looks good today.
+
+<figure style="width: 600px;">
+  {%
+    picture
+    filename="bookmarks/owltastic.png"
+    width="600"
+    class="screenshot"
+  %}
+  <figcaption>
+    I just know that owl and I would be friends.
+  </figcaption>
+</figure>
+
+Undoubtedly, some of this is nostalgia.
+Owltastic is the first site I remember seeing and thinking "wow", and wanting to build something that looked that good.
+
+---
+
+
 
 * backgrounds that follow the sun / [[Screenshot 2024-11-07 at 21.59.20.png]] / [[Screenshot 2024-11-07 at 21.59.22.png]] / https://three--rings.tumblr.com/post/625948601747636224/when-i-was-15-i-spent-a-month-working-on-an
 
