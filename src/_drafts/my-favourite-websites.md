@@ -68,7 +68,7 @@ I wanted to end this series on a lighter note, so here's a handful of my favorit
 <h2 id="kottke">The ever-changing “planets” of kottke.org</h2>
 
 Jason Kottke's website, [kottke.org], has a sidebar that shows four coloured circles, [different for every visitor][redesign].
-There are nearly a trillion possible combinations, which feels fun and whimsical -- everyone gets their own unique version of the page.
+There are nearly a trillion possible combinations, which means everyone gets their own unique version of the page.
 
 <figure style="width: 600px;">
   {%
@@ -84,12 +84,12 @@ There are nearly a trillion possible combinations, which feels fun and whimsical
   </figcaption>
 </figure>
 
-I've tried adding this sort of randomness to my own sites, but it's easy to get wrong.
-My experiments often failed because they lacked constraints -- for example, I'd pick random tint colours, but some combinations were unreadable.
-The Kottke "planets" strike a nice balance: the randomness stands out, but it's reined in so it will always look good.
+I think this adds a dash of fun whimsy, and I've tried adding something similar to my own sites, but it's easy to get wrong.
+My experiments in randomness often failed because they lacked constraints -- for example, I'd pick random tint colours, but some combinations were unreadable.
+The Kottke "planets" strike a nice balance: the randomness stands out, but it's reined in so the overall page will always look good.
 
-There are thousands of snapshots of kottke.org in the Wayback Machine, many saved automatically and never seen by a person.
-That means there are unique combinations of circles already archived -- frozen moments that may only be seen by a future reader, long after this design has gone.
+There are thousands of snapshots of kottke.org in the Wayback Machine, many saved automatically.
+That means there are unique combinations of circles already archived that have yet to be seen by a person -- frozen moments that may only be seen by a future reader, long after this design has gone.
 I rather like that: a tiny, quiet, time capsule on the web.
 
 [kottke.org]: https://kottke.org/
@@ -124,7 +124,7 @@ But for years, if you visited their website, you might see that logo in a differ
 </figure>
 
 Where did those colours come from?
-The logo image was loaded from `signserver.panic.com`, which makes me think it reflected the current colours of [the physical sign on their building][panic_sign].
+The logo image gets loaded from `signserver.panic.com`, which makes me think it reflected the current colours of [the physical sign on their building][panic_sign].
 They even had a website where anybody could change the colours of the sign (though it's offline now -- they took the sign down when they moved offices).
 
 I love this detail: a tiny bit of the physical world seeping into the digital.
@@ -137,8 +137,8 @@ I love this detail: a tiny bit of the physical world seeping into the digital.
 
 <h2 id="circadium">A Tumblr theme that follows the sun</h2>
 
-One of my [bookmarked Tumblr posts][vonnegut] has a remarkable theme by Tumblr user Laighlin called [Circadium&nbsp;2.0][circadium].
-Forget a binary switch between light and dark mode, this is a theme that gradually changes the appearance through the entire day.
+Another instance of the physical world affecting the digital comes from one of my [bookmarked Tumblr posts][vonnegut], which has a remarkable theme [Circadium&nbsp;2.0][circadium], made by Tumblr user Laighlin.
+Forget a binary switch between light and dark mode, this is a theme that slowly changes the appearance through the entire day.
 
 The background changes colour, stars fade in and out, and the moon and the sun gradually rise and set.
 It cycles through noon, twilight, and dusk, before starting the same thing over again.
@@ -146,7 +146,7 @@ It's hard to describe it in words, so here's a screen recording [of the demo sit
 
 <video controls loop poster="/images/2025/bookmarks/circadium_loop.png" src="/images/2025/bookmarks/circadium_loop.mp4" class="screenshot" style="width: 600px;"></video>
 
-This effect is very subtle, because the appearance is set based on the time you loaded the page, and it doesn't change after that.
+This effect is very subtle, because the appearance is set based on the time you loaded the page, and doesn't change after that.
 Unless you reload the same page repeatedly, you may even not notice the background is changing.
 
 This is the sort of creativity I love about sites like Tumblr and LiveJournal, where users can *really* customise the appearance of their sites -- not just pick a profile picture and a tint colour.
@@ -182,7 +182,7 @@ The fragility of the web isn't just entire pages or sites going offline, it's al
 
 <h2 id="owltastic">The hand-drawn aesthetic of Owltastic</h2>
 
-By far my favourite website is the old design of [Meagan Fisher Couldwell's](https://owltastic.com) website.
+My favourite website is the old design of [Meagan Fisher Couldwell's](https://owltastic.com) website.
 It has a beautiful, hand-drawn aesthetic, and it's full of subtle texture and round corners -- no straight lines, no hard edges.
 It has a soft and gentle appearance, and a friendly owl mascot to boot.
 
@@ -194,6 +194,7 @@ I bookmarked this particular page in 2013, before iOS 7 when loud textures and s
     filename="bookmarks/owltastic.png"
     width="600"
     class="screenshot"
+    alt="Screenshot of a website with a light turquoise background, with various similar shades of teal, with a light brown as an accent colour. In the top left is a hand-drawn illustration of an owl, which is smiling and gesturing towards an article titled ‘Writign and publishing are important’."
   %}
   <figcaption>
     I just know that owl and I would be friends.
@@ -224,7 +225,7 @@ Lots of people are doing interesting stuff on the web, and my bookmarks are a wa
 
 Revamping the way I organise my bookmarks has taken a lot of work, but I'm so pleased with the result.
 Now I have a list of my most important web pages in an open format, saved locally, with an archived copy of each page as well.
-I can browse them in a simple web interface, and see very page as I remember it, even if the original website has disappeared.
+I can browse them in a simple web interface, and see every page as I remember it, even if the original website has disappeared.
 
 I don't like making predictions, but this feels like a system that should last a long time.
 There are no third-party dependencies, nothing that will need upgrading, no external service that could be abandoned or enshittified.
@@ -233,6 +234,7 @@ I feel like I could manage my bookmarks this way for the rest of my life -- stay
 Writing this four-part series has been the capstone to this year-long project.
 I had a lot of time to think about bookmarks and web archiving, and I didn't want those thoughts to disappear.
 I hope you've enjoyed it, and that I've given you some new ideas.
+Thank you for reading this far.
 
 My favourite parts of the web are the spaces where people share interesting ideas.
-This mini-series, and this blog, are my way of adding a few pebbles to that pile.
+This mini-series -- and this entire blog -- is my contribution to that collective work.
