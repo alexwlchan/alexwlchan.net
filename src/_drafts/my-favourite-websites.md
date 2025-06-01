@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Some cool websites from my bookmark collection
-summary:
+title: My favourite websites from my bookmark collection
+summary: Websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
 tags:
   - bookmarking
   - web development
@@ -10,7 +10,8 @@ colors:
   css_dark:  "#00ddff"
 ---
 Over the last three weeks, I've been writing about how I manage my bookmarks.
-how I use a static site to store them, how I built a personal web archive by hand, and what I learnt about web development along the way.
+how I [use a static site to store them](/2025/bookmarks-static-site/), how I [built a personal web archive by hand](/2025/personal-archive-of-the-web/), and [what I learnt about web development along the way](/2025/learning-how-to-make-websites/).
+
 I wanted to end this series on a lighter note, so here's a handful of my favorite sites I rediscovered while reviewing my bookmarks – fun, creative corners of the web that make me smile.
 
 <blockquote class="toc">
@@ -26,7 +27,15 @@ I wanted to end this series on a lighter note, so here's a handful of my favorit
       <a href="/2025/learning-how-to-make-websites/"><strong>What I learnt about making websites by reading two thousand web pages</strong></a> – how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
     </li>
     <li>
-      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (this article)
+      <strong>My favourite websites from my bookmark collection</strong> (this article) – websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
+      <ul>
+        <li><a href="#kottke">The ever-changing “planets” of kottke.org</a></li>
+        <li><a href="#panic">Physical meets digital on panic.org</a></li>
+        <li><a href="#circadium">A Tumblr theme that follows the sun</a></li>
+        <li><a href="#campsanto">Subtle transitions at Campo Santo</a></li>
+        <li><a href="#owltastic">The hand-drawn aesthetic of Owltastic</a></li>
+        <li><a href="#final_thoughts">Final thoughts</a></li>
+      </ul>
     </li>
   </ol>
 </blockquote>
@@ -56,7 +65,7 @@ I wanted to end this series on a lighter note, so here's a handful of my favorit
 
 ---
 
-## The ever-changing "planets" of kottke.org
+<h2 id="kottke">The ever-changing “planets” of kottke.org</h2>
 
 Jason Kottke's website, [kottke.org], has a sidebar that shows four coloured circles, [different for every visitor][redesign].
 There are nearly a trillion possible combinations, which feels fun and whimsical -- everyone gets their own unique version of the page.
@@ -90,7 +99,7 @@ I rather like that: a tiny, quiet, time capsule on the web.
 
 
 
-## Physical meets digital on panic.org
+<h2 id="panic">Physical meets digital on panic.org</h2>
 
 The software company [Panic] has a circular logo: [a stylised "P"][logo] on a two-tone blue background.
 But for years, if you visited their website, you might see that logo in a different colour, like this:
@@ -126,7 +135,7 @@ I love this detail: a tiny bit of the physical world seeping into the digital.
 
 
 
-## A Tumblr theme that follows the sun
+<h2 id="circadium">A Tumblr theme that follows the sun</h2>
 
 One of my [bookmarked Tumblr posts][vonnegut] has a remarkable theme by Tumblr user Laighlin called [Circadium&nbsp;2.0][circadium].
 Forget a binary switch between light and dark mode, this is a theme that gradually changes the appearance through the entire day.
@@ -148,7 +157,7 @@ This is the sort of creativity I love about sites like Tumblr and LiveJournal, w
 
 
 
-## Subtle transitions at Campo Santo
+<h2 id="campsanto">Subtle transitions at Campo Santo</h2>
 
 The [Campo Santo blog][Campo Santo] has a more restrained design, but still makes fun use of shifting colours -- the tint colour of the page gradually switches from a reddish orange to brown, to green, to a dark yellow, and back to orange.
 This tint colour affects multiple elements on the page: the header, the sidebar promo, headings and social media links.
@@ -171,7 +180,7 @@ The fragility of the web isn't just entire pages or sites going offline, it's al
 
 
 
-## The hand-drawn aesthetic of Owltastic
+<h2 id="owltastic">The hand-drawn aesthetic of Owltastic</h2>
 
 By far my favourite website is the old design of [Meagan Fisher Couldwell's](https://owltastic.com) website.
 It has a beautiful, hand-drawn aesthetic, and it's full of subtle texture and round corners -- no straight lines, no hard edges.
@@ -194,9 +203,17 @@ I bookmarked this particular page in 2013, before iOS 7 when loud textures and s
 Owltastic is the first site I remember seeing and thinking "wow", and wanting to build something that looked that good.
 Meagan has since redesigned her site, but I have a lot of nostalgia for that hand-drawn look.
 
+
+
+
+
 ---
 
-## Final thoughts
+
+
+
+
+<h2 id="final_thoughts">Final thoughts</h2>
 
 A lot of the creativity has been squeezed out of the web.
 I've been working on a separate social media archiving project recently, and it's depressing how many sites look essentially the same -- black sans serif text on a white background.
