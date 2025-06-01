@@ -17,13 +17,13 @@ I wanted to end this series on a lighter note, so here's a handful of my favorit
   <p>This article is the final part of a four part bookmarking mini-series:</p>
   <ol>
     <li>
-      <a href="/2025/bookmarks-static-site/"><strong>Creating a static site for all my bookmarks</strong></a> – why do I bookmark, why use a static site, and how does it work.
+      <a href="/2025/bookmarks-static-site/"><strong>Creating a static site for all my bookmarks</strong></a> – why I bookmark, why I use a static site, and how it works.
     </li>
     <li>
-      <a href="/2025/creating-bookmark-archives"><strong>Creating a local archive of all my bookmarks</strong></a> – web archiving, automated vs manual, what I learnt about preserving web pages.
+      <a href="/2025/personal-archive-of-the-web/"><strong>Building a personal archive of the web, the slow way</strong></a> – how I built a web archive by hand, the tradeoffs between manual and automated archiving, and what I learnt about preserving the web.
     </li>
     <li>
-      <strong><a href="http://localhost:5757/2025/how-to-make-websites/">Learning how to make websites by reading two thousand web pages</a></strong>
+      <a href="/2025/learning-how-to-make-websites/"><strong>What I learnt about making websites by reading two thousand web pages</strong></a> – how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
     </li>
     <li>
       <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (this article)
@@ -56,7 +56,7 @@ I wanted to end this series on a lighter note, so here's a handful of my favorit
 
 ---
 
-## The ever-changing "planets" of panic.org
+## The ever-changing "planets" of kottke.org
 
 Jason Kottke's website, [kottke.org], has a sidebar that shows four coloured circles, [different for every visitor][redesign].
 There are nearly a trillion possible combinations, which feels fun and whimsical -- everyone gets their own unique version of the page.
@@ -191,39 +191,31 @@ I bookmarked this particular page in 2013, before iOS 7 when loud textures and s
   </figcaption>
 </figure>
 
-Undoubtedly, some of this is nostalgia.
 Owltastic is the first site I remember seeing and thinking "wow", and wanting to build something that looked that good.
+Meagan has since redesigned her site, but I have a lot of nostalgia for that hand-drawn look.
 
 ---
 
+## Final thoughts
 
+A lot of the creativity has been squeezed out of the web.
+I've been working on a separate social media archiving project recently, and it's depressing how many sites look essentially the same -- black sans serif text on a white background.
+(Many of them even use the default system font, because heaven forbid a site have *any* personality.)
 
-* backgrounds that follow the sun / [[Screenshot 2024-11-07 at 21.59.20.png]] / [[Screenshot 2024-11-07 at 21.59.22.png]] / https://three--rings.tumblr.com/post/625948601747636224/when-i-was-15-i-spent-a-month-working-on-an
+Going through my bookmarks has been a fun reminder that the web is still a creative, colourful, and diverse space -- the variety is there, even if it's getting harder to find.
+Lots of people are doing interesting stuff on the web, and my bookmarks are a way to remember and celebrate that.
 
-* owltastic
+Revamping the way I organise my bookmarks has taken a lot of work, but I'm so pleased with the result.
+Now I have a list of my most important web pages in an open format, saved locally, with an archived copy of each page as well.
+I can browse them in a simple web interface, and see very page as I remember it, even if the original website has disappeared.
 
-* The changing colours of Campo Santo
+I don't like making predictions, but this feels like a system that should last a long time.
+There are no third-party dependencies, nothing that will need upgrading, no external service that could be abandoned or enshittified.
+I feel like I could manage my bookmarks this way for the rest of my life -- stay tuned to see if that holds true!
 
-* Reblog graphs on Tumblr
+Writing this four-part series has been the capstone to this year-long project.
+I had a lot of time to think about bookmarks and web archiving, and I didn't want those thoughts to disappear.
+I hope you've enjoyed it, and that I've given you some new ideas.
 
-* Stacking the bricks, literally
-
-* The Obsidian icon picker
-
-* fun comments
-
-    mango.zone:
-
-    ```
-        <!-- NSA has been very good this year so let's give them a little treat -->
-        <script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZMYRY9GN5C"></script>
-
-    ```
-
-
-
-    Carl Flax:
-
-    ```
-    <!-- If you're reading this, go for a walk. :) -->
-    ```
+My favourite parts of the web are the spaces where people share interesting ideas.
+This mini-series, and this blog, are my way of adding a few pebbles to that pile.
