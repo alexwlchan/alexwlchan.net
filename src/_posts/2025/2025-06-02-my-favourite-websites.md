@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-06-02 08:18:27 +0000
 title: My favourite websites from my bookmark collection
 summary: Websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
 tags:
