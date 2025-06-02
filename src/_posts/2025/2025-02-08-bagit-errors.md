@@ -5,6 +5,7 @@ title: Unexpected errors in the BagIt area
 summary: |
   Exploring the many ways a BagIt bag can be invalid, and how you might want to build a process for validating bags to ensure the quality of your digital archive.
 tags:
+  - bagit
   - digital preservation
 index:
   feature: true
@@ -55,9 +56,33 @@ You won't need to check for everything on this list, and this list isn't exhaust
 [tests]: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
 [tests]: https://github.com/wellcomecollection/storage-service/tree/main/bag_verifier/src/test/scala/weco/storage_service/bag_verifier
 
+<blockquote class="toc">
+  <p>Table of contents:</p>
+  <ul>
+    <li><a href="#bagit">The Bag Declaration <code>bagit.txt</code></a></li>
+    <li><a href="#payload_manifest">The Payload Files and Payload Manifest</a></li>
+    <li><a href="#payload_filenames">Payload filenames</a></li>
+    <li><a href="#tag_manifest">The Tag Manifest <code>tagmanifest-algorithm.txt</code></a></li>
+    <li><a href="#bag_info">The Bag Metadata <code>bag-info.txt</code></a></li>
+    <li><a href="#fetch">The Fetch File <code>fetch.txt</code></a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</blockquote>
+
+<style>
+  .toc {
+    background: var(--background-color);
+    border-color: var(--primary-color);
+  }
+
+  .toc a:visited {
+    color: var(--primary-color);
+  }
+</style>
+
 ---
 
-## The Bag Declaration `bagit.txt`
+<h2 id="bagit">The Bag Declaration <code>bagit.txt</code></h2>
 
 This file declares that this is a BagIt bag, and the version of BagIt you're using ([RFC 8493 §2.1.1](https://datatracker.ietf.org/doc/html/rfc8493#section-2.1.1)).
 It looks the same in almost every bag, for example:
@@ -78,7 +103,7 @@ This tightly prescribed format means it can only be invalid in a few ways:
 *   **What if the bag declaration has an unexpected version number?**
     If you see a BagIt version that you've not seen before, the bag might have a different structure than what you expect.
 
-## The Payload Files and Payload Manifest
+<h2 id="payload_manifest">The Payload Files and Payload Manifest</h2>
 
 The payload files are the actual content you want to save and preserve.
 They get saved in the payload directory `data/` ([RFC 8493 §2.1.2](https://datatracker.ietf.org/doc/html/rfc8493#section-2.1.2)), and there's a payload manifest `manifest-algorithm.txt` that lists them, along with their checksums ([RFC 8493 §2.1.3](https://datatracker.ietf.org/doc/html/rfc8493#section-2.1.3)).
@@ -138,7 +163,7 @@ There are lots of ways a payload manifest could be invalid:
 A bag can contain multiple payload manifests -- for example, it might contain both MD5 and SHA1 checksums.
 Every payload manifest must be valid for the overall bag to be valid.
 
-## Payload filenames
+<h2 id="payload_filenames">Payload filenames</h2>
 
 There are lots of gotchas around filenames and paths.
 It's a complicated problem, and I definitely don't understand all of it.
@@ -204,7 +229,7 @@ However, the normalisation was only designed for one filesystem, and produced fi
 [s3_rules]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html
 [s3_keys]: /2020/s3-keys-are-not-file-paths/
 
-## The Tag Manifest `tagmanifest-algorithm.txt`
+<h2 id="tag_manifest">The Tag Manifest <code>tagmanifest-algorithm.txt</code></h2>
 
 Similar to the payload manifest, the tag manifest lists the tag files and their checksums.
 A "tag file" is the BagIt term for any metadata file that isn't part of the payload ([RFC 8493 §2.2.1](https://datatracker.ietf.org/doc/html/rfc8493#section-2.2.1)).
@@ -227,7 +252,7 @@ There are some additional things to consider:
 Although the tag manifest is optional in the BagIt spec, at Wellcome Collection we made it a required file.
 Every bag had to have at least one tag manifest file, or our storage service would refuse to ingest it.
 
-## The Bag Metadata `bag-info.txt`
+<h2 id="bag_info">The Bag Metadata <code>bag-info.txt</code></h2>
 
 This is an optional metadata file that describes the bag and its contents ([RFC 8493 §2.2.2](https://datatracker.ietf.org/doc/html/rfc8493#section-2.2.2)).
 It's a list of metadata elements, as simple label-value pairs, one per line.
@@ -271,7 +296,7 @@ Although the bag metadata file is optional in a general BagIt bag, you may want 
 For example, at Wellcome Collection, we required all bags to have an `External-Identifier` value, that matched a specific schema.
 This allowed us to link bags to records in other databases, and our bag verifier would reject bags that didn't include it.
 
-## The Fetch File `fetch.txt`
+<h2 id="fetch">The Fetch File <code>fetch.txt</code></h2>
 
 This is an optional element that allows you to reference files stored elsewhere ([RFC 8493 §2.2.3](https://datatracker.ietf.org/doc/html/rfc8493#section-2.2.3)).
 
@@ -324,6 +349,8 @@ The bag verifier would reject a fetch file entry that pointed elsewhere.
 [versioning]: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
 
 ---
+
+<div id="conclusion"></div>
 
 These examples illustrate just how many ways a BagIt bag can be invalid, from simple structural issues to complex edge cases.
 

@@ -8,6 +8,7 @@ colors:
   css_light: "#223395"
   css_dark:  "#5c90f0"
 tags:
+  - bagit
   - digital preservation
   - wellcome collection
 index:

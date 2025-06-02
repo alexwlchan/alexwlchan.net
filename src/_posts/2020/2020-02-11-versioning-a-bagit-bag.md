@@ -5,6 +5,7 @@ title: Storing multiple, human-readable versions of BagIt bags
 summary: How we use the fetch.txt file in a bag to track multiple copies of an object in our digital archive.
 canonical_url: https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184
 tags:
+  - bagit
   - digital preservation
   - wellcome collection
 ---
