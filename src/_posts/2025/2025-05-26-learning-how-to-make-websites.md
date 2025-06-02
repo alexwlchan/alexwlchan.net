@@ -83,7 +83,7 @@ In this post, I'll show you some of what I learnt about making websites: how to 
       </ul>
     </li>
     <li>
-      <a href="#"><strong>Some cool websites from my bookmark collection</strong></a> (coming 26 May) – some websites which are doing especially fun or clever things with the web.
+      <a href="/2025/my-favourite-websites"><strong>My favourite websites from my bookmark collection</strong></a> – websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
     </li>
   </ol>
 </blockquote>

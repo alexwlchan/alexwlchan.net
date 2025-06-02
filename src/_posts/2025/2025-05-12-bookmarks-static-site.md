@@ -52,7 +52,7 @@ This post is the first of a four-part series about my bookmarks, and I'll publis
       <a href="/2025/learning-how-to-make-websites/"><strong>What I learnt about making websites by reading two thousand web pages</strong></a> – how to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
     </li>
     <li>
-      <strong>Some cool websites from my bookmark collection</strong> (coming 2 June) – my favorite sites I rediscovered while reviewing my bookmarks. Fun, creative corners of the web that make me smile.
+      <a href="/2025/my-favourite-websites"><strong>My favourite websites from my bookmark collection</strong></a> – websites that change randomly, that mirror the real world, or even follow the moon and the sun, plus my all-time favourite website design.
     </li>
   </ol>
 </blockquote>
@@ -252,12 +252,9 @@ When I want to add a bookmark or make changes, I open the JSON in my text editor
 I have a script that checks the file is properly formatted and the archive paths are all correct, and I track changes in Git.
 
 Now you know what my new bookmarking site looks like, and how it works.
-Over the next three weeks, I'll publish the remaining parts in this series.
-In part 2, I'll explain how I created local snapshots of every web page.
-In part 3, I'll tell you what that process taught me about building web pages.
-In the final part, I'll highlight some fun stuff I found as I went through my bookmarks.
-
-If you'd like to know when those articles go live, [subscribe to my RSS feed or newsletter](/subscribe/)!
+In part 2, I explain [how I created local snapshots of every web page](/2025/personal-archive-of-the-web/).
+In part 3, I tell you [what that process taught me about building web pages](/2025/learning-how-to-make-websites/).
+In the final part, I'll highlight some [fun stuff I found as I went through my bookmarks](/2025/my-favourite-websites/).
 
 [How I create static websites for tiny archives]: /2025/mildly-dynamic-websites/
 [Pinboard API]: https://pinboard.in/api/

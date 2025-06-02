@@ -57,6 +57,10 @@ colors:
       margin-right: auto;
     }
   }
+
+  #popular_tags a {
+    white-space: nowrap;
+  }
 </style>
 
 **Hi, I’m Alex. Welcome to my website!**
@@ -161,7 +165,7 @@ Here are some of the topics I write about:
     const primary = widths.map(s => `/c/${yr}/${card.p}_${s}w${suffix} ${s}w`).join(", ");
     const avif = widths.map(s => `/c/${yr}/${card.p}_${s}w.avif ${s}w`).join(", ");
     const webp = widths.map(s => `/c/${yr}/${card.p}_${s}w.webp ${s}w`).join(", ");
-    
+
     const sizes = "(max-width: 450px) 405px, 405px";
 
     return `
