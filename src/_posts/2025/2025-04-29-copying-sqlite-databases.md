@@ -81,7 +81,7 @@ To give you an idea of the potential savings, here's the relative disk size for 
 <style>
   table#sizes {
     width: 100%;
-    border: var(--border-width) var(--border-style) var(--block-border);
+    border: var(--border-width) var(--border-style) var(--block-border-color);
     border-radius: var(--border-radius);
     background-color: var(--block-background);
     padding: var(--default-padding);
@@ -89,7 +89,7 @@ To give you an idea of the potential savings, here's the relative disk size for 
 
   table#sizes tr:not(:last-of-type) > th,
   table#sizes tr:not(:last-of-type) > td {
-    border-bottom: 2px solid var(--block-border);
+    border-bottom: 2px solid var(--block-border-color);
   }
 
   table#sizes td:not(:first-child) {

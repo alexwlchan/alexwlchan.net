@@ -39,7 +39,7 @@ figcaption {
 }
 
 pre, blockquote {
-  border: var(--border-width) var(--border-style) var(--block-border);
+  border: var(--border-width) var(--border-style) var(--block-border-color);
   border-radius: var(--border-radius);
   background-color: var(--block-background);
 }

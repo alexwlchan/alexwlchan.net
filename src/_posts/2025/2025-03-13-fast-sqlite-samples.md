@@ -138,7 +138,7 @@ Once a row is written, it sticks around, and over 97% of the possible `rowid` va
 
 <style>
   table#results {
-    border: var(--border-width) var(--border-style) var(--block-border);
+    border: var(--border-width) var(--border-style) var(--block-border-color);
     border-radius: var(--border-radius);
     background-color: var(--block-background);
     padding: var(--default-padding);
@@ -146,7 +146,7 @@ Once a row is written, it sticks around, and over 97% of the possible `rowid` va
 
   table#results tr:not(:last-of-type) > th,
   table#results tr:not(:last-of-type) > td {
-    border-bottom: 2px solid var(--block-border);
+    border-bottom: 2px solid var(--block-border-color);
   }
 
   table#results tr > td:nth-child(2) {
