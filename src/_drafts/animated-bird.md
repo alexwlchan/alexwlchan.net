@@ -50,16 +50,61 @@ There's a shiny animation with the bird logo:
   </figcaption>
 </figure>
 
-I was idly curious how the animation worked.
+I was curious how the animation worked.
 I thought maybe it was an autoplaying video with no controls, but no, it's much cooler than that!
 
-I started reading the code to understand how it works; here are my notes.
+I started reading the code to understand how it works, and I learnt several things about using the HTML5 canvas element and writing animations in the browser.
+I'm not going to walk through the code in step-by-step detail, but I do want to show you some of what I learnt.
 
 [redesign]: https://www.swift.org/blog/redesigned-swift-org-is-now-live/
 
+<blockquote class="toc">
+  <h3>Table of contents</h3>
+
+  <ul>
+    <li><a href="#where">Where should I be looking?</a></li>
+    <li>
+      <a href="#mutationobserver">The animation is triggered by a <code>MutationObserver</code></a>
+      <ul>
+        <li><a href="#domcontentloaded">What about the <code>DOMContentLoaded</code> event?</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#dashoffset">Making a path gradually appear by setting <code>lineDashOffset</code></a>
+    </li>
+  </ul>
+</blockquote>
+
+<style>
+  .toc {
+    background: var(--background-color);
+    border-color: var(--primary-color);
+  }
+
+  .toc h3 {
+    color: var(--body-text);
+  }
+
+  .toc ol > li:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  .toc ol > li > ul {
+    list-style-type: disc;
+  }
+
+  .toc ol > li > ul > li > ul {
+    list-style-type: circle;
+  }
+
+  .toc a:visited {
+    color: var(--primary-color);
+  }
+</style>
+
 ---
 
-## Where should I be looking?
+<h2 id="where">Where should I be looking?</h2>
 
 I started by poking around in the development tools in my browser, and I quickly found some images named "swoop" that are part of the animation:
 
@@ -102,7 +147,7 @@ const heroSwoops = [
     pathLength: 2776,
     anchorPoints: [558, 480.5],
     position: [558, 640.5],
-    imagePath: 'images/purple-swoop.png',
+    imagePath: '/assets/images/landing-page/hero/purple-swoop.png',
     lineWidth: 210,
     debugColor: 'purple',
     image: null,
@@ -110,6 +155,34 @@ const heroSwoops = [
   },
   …
 {% endannotatedhighlight %}
+
+The most interesting variable here is what looks like an SVG [`path` attribute][svg_path].
+I can't read this natively, but I can plug it into Mathieu Dutour's excellent [SVG Path Visualizer tool][pathviz] and it looks very similar to the purple swoop image:
+
+<style>
+  #swoop_comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+  }
+
+  @media screen and (max-width: 500px) {
+    #swoop_comparison {
+      grid-template-columns: auto;
+    }
+  }
+</style>
+
+<figure id="swoop_comparison">
+  <img src="/images/2025/purple-swoop.png" alt="A purple brush stroke that goes up and down several times in a fancy swoop">
+  {%
+    picture
+    filename="svg_pathviz.png"
+    width="500"
+    class="screenshot"
+    alt="Screenshot of the path visualizer, with a breakdown of how the path works and an annotated swoop that matches the purple swoop."
+  %}
+</figure>
 
 I don't know what this file does yet, but most of `hero.js` is a function called `heroAnimation`.
 That sounds promising!
@@ -151,6 +224,7 @@ These are the files I ended up saving locally:
 ```
 
 This gave a [static copy of the site][zip] which I could hack on locally, add my own debugging code, and generally try to pick apart.
+If you want to step through the animation in detail, this gives you a self-contained example you can play with.
 
 [canvas]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas
 [anime_js]: https://animejs.com
@@ -162,7 +236,7 @@ This gave a [static copy of the site][zip] which I could hack on locally, add my
 
 
 
-## What triggers the animation?
+<h2 id="mutationobserver">The animation is triggered by a <code>MutationObserver</code></h2>
 
 In the `hero.js` file, there's a function `heroAnimation`.
 I don't know what it does yet, but that must be what actually runs the animation.
@@ -206,7 +280,7 @@ This feels like the inversion of that: where React watches for changes in the in
 
 [MutationObserver]: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 
-### What about the `DOMContentLoaded` event?
+<h3 id="domcontentloaded">What about the <code>DOMContentLoaded</code> event?</h3>
 
 Because the animation starts when the page loads, I was expecting something like:
 
@@ -221,14 +295,172 @@ I suspect the `MutationObserver` approach may also be slightly faster -- I added
 If the animation container exists on the first call, you can start the animation immediately, rather than waiting for the rest of the DOM to load.
 I'm not sure if that's a perceptible difference though, except for very large and complex web pages.
 
+
+
 ---
 
-## What's happening in `heroAnimation()`?
+
+<style>
+  canvas {
+    border: var(--border-width) var(--border-style) var(--block-border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--block-background);
+    width: calc(100% - 6px);
+    margin: 0 auto;
+  }
+
+  pre:has( + canvas) {
+    border-bottom-left-radius:  0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 5px;
+  }
+
+  pre + canvas {
+    border-top-left-radius:  0;
+    border-top-right-radius: 0;
+  }
+</style>
+
+
+
+<h2 id="animating">Animating the painted strokes</h2>
+
+
+
+<h3 id="dashoffset">Making a path gradually appear by setting <code>lineDashOffset</code></h3>
+
+If you draw a stroke in an HTML5 canvas, it appears as a solid line.
+
+```javascript
+const canvas = document.querySelector('#zigzag');
+const ctx = canvas.getContext('2d');
+
+ctx.lineWidth = 10;
+
+const path = new Path2D("M0,25 500,25");
+ctx.stroke(path);
+```
+
+<canvas id="zigzag" width="500" height="50"></canvas>
+
+You can set a line dash pattern with the [`setLineDash()` function](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash).
+You pass an array of values, which specify the alternating length of lines and gaps.
+Here are three examples:
+
+```javascript
+const path1 = new Path2D("M0,25 500,25");
+ctx.setLineDash([50]);
+ctx.stroke(path1);
+
+const path2 = new Path2D("M0,50 500,50");
+ctx.setLineDash([60, 30]);
+ctx.stroke(path2);
+
+const path3 = new Path2D("M0,75 500,75");
+ctx.setLineDash([40, 30, 20, 10]);
+ctx.stroke(path3);
+```
+
+<canvas id="linedash" width="500" height="100"></canvas>
+
+You can apply a line dash to any path -- I'm using straight lines for simplicity, but you can also apply it to more complex paths:
+
+```javascript
+const path = new Path2D(
+  "M 20,50 " +
+  "Q 70,0 120,50 Q 170,100 220,50 " +
+  "Q 270,0 320,50 Q 370,100 420,50 " +
+  "Q 470,0 520,50 Q 570,100 620,50"
+);
+ctx.setLineDash([25]);
+ctx.stroke(path);
+```
+
+<canvas id="curvedash" width="500" height="100"></canvas>
+
+
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    const bodyText =
+      window
+        .getComputedStyle(document.body)
+        .getPropertyValue('--body-text');
+
+    const canvas = document.querySelector('#zigzag');
+    const ctx = canvas.getContext('2d');
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = bodyText;
+
+    const pathInstance = new Path2D("M0,25 500,25");
+    ctx.stroke(pathInstance);
+  })
+
+  window.addEventListener("DOMContentLoaded", function() {
+    const bodyText =
+      window
+        .getComputedStyle(document.body)
+        .getPropertyValue('--body-text');
+
+    const canvas = document.querySelector('#linedash');
+    const ctx = canvas.getContext('2d');
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = bodyText;
+
+    const pathInstance1 = new Path2D("M0,25 500,25");
+    ctx.setLineDash([50]);
+    ctx.stroke(pathInstance1);
+
+    const pathInstance2 = new Path2D("M0,50 500,50");
+    ctx.setLineDash([60, 30]);
+    ctx.stroke(pathInstance2);
+
+    const pathInstance3 = new Path2D("M0,75 500,75");
+    ctx.setLineDash([40, 30, 20, 10]);
+    ctx.stroke(pathInstance3);
+  })
+
+  window.addEventListener("DOMContentLoaded", function() {
+    const bodyText =
+      window
+        .getComputedStyle(document.body)
+        .getPropertyValue('--body-text');
+
+    const canvas = document.querySelector('#curvedash');
+    const ctx = canvas.getContext('2d');
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = bodyText;
+
+    const pathInstance = new Path2D(
+      "M 20,50 " +
+      "Q 70,0 120,50 Q 170,100 220,50 " +
+      "Q 270,0 320,50 Q 370,100 420,50 " +
+      "Q 470,0 520,50 Q 570,100 620,50"
+    );
+    ctx.setLineDash([25]);
+    ctx.stroke(pathInstance);
+  })
+</script>
+
+
+
+
+
+
+
+
+{% comment %}
+
+---
+
+<h2 id="heroanimation">What's happening in <code>heroAnimation()</code>?</h2>
 
 This function is doing a bunch of stuff, and now I can see it being called when the page loads.
 What's it actually doing?
 
-### Setting up the initial variables
+<h3 id="initvar">Setting up the initial variables</h3>
 
 The first chunk of the function is just setting up some variables.
 
@@ -306,7 +538,7 @@ const heroSwoops = [
     pathLength: 2776,
     anchorPoints: [558, 480.5],
     position: [558, 640.5],
-    imagePath: 'images/purple-swoop.png',
+    imagePath: '/assets/images/landing-page/hero/purple-swoop.png',
     lineWidth: 210,
     debugColor: 'purple',
     image: null,
@@ -318,38 +550,106 @@ const heroSwoops = [
 This is an array with five entries that correspond to the five "swoop" images in the animation.
 I don't really understand what all the values do yet, but I'm guessing they're something to do with the geometry of the swoop.
 
-The most interesting variable here is what looks like an SVG [`path` attribute][svg_path].
-I can't read this natively, but I can plug it into Mathieu Dutour's excellent [SVG Path Visualizer tool][pathviz] and it looks very similar to the purple swoop image:
-
-<style>
-  #swoop_comparison {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1em;
-  }
-
-  @media screen and (max-width: 500px) {
-    #swoop_comparison {
-      grid-template-columns: auto;
-    }
-  }
-</style>
-
-<figure id="swoop_comparison">
-  <img src="/images/2025/purple-swoop.png" alt="A purple brush stroke that goes up and down several times in a fancy swoop">
-  {%
-    picture
-    filename="svg_pathviz.png"
-    width="500"
-    class="screenshot"
-    alt="Screenshot of the path visualizer, with a breakdown of how the path works and an annotated swoop that matches the purple swoop."
-  %}
-</figure>
-
 I imagine it'll become clear what these variables are for as I read the rest of the code.
+
+There's a similar variable for the bird logo, which doesn't have an SVG path but does have some geometry variables I assume will make sense later:
+
+{% annotatedhighlight
+  lang="javascript"
+  start_line="83"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L83C3-L92C4"
+%}
+const logo = {
+  canvas: document.querySelector('#bird'),
+  positionStart: [899.2, 202.5],
+  positionEnd: [1084, 388],
+  anchorPoints: [304, 268.5],
+  position: [610, 672.5],
+  imagePath: '/assets/images/landing-page/hero/bird.png',
+  image: null,
+  state: { progress: offScreenDelta },
+}
+{% endannotatedhighlight %}
 
 [svg_path]: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/path
 [pathviz]: https://svg-path-visualizer.netlify.app/#M-34%20860C-34%20860%2042%20912%20102%20854C162%20796%2098%20658%2050%20556C2%20454%2018%2048%20142%2088C272%20130%20290%20678%20432%20682C574%20686%20434%20102%20794%2090C1009%2083%201028%20280%201028%20280
+
+<h3 id="initswoops">Even more setup in the <code>initSwoops()</code> and <code>initLogo()</code> functions</h3>
+
+After setting up all the variables, there's an [`initSwoops()` function][initSwoops] that takes a bunch of variables from the `heroSwoops` array, and returns two values:
+
+1.  A [canvas drawing context][getContext], with a couple of properties like the thickness of lines and the line dash pattern.
+    Here's what happens in the default case:
+
+    ```javascript
+    const ctx = canvas.getContext('2d')
+
+    // The reference animation's transform origin is in the center of the canvas
+    // We're not going to reset this as it will make pulling values directly from AE easier
+    ctx.translate(posX - image.naturalWidth / 2, posY - image.naturalHeight / 2)
+
+    // Set mask styles
+    ctx.lineWidth = lineWidth
+    ctx.lineCap = 'round'
+
+    ctx.setLineDash([pathLength])
+    ctx.lineDashOffset = pathLength
+    ```
+
+    That mention of mask styles is intriguing -- I've played with [masks for SVG](/2021/inner-outer-strokes-svg/), but never in an HTML canvas.
+
+2.  A [`Path2D` object][Path2D] that follows the `path` defined in `heroSwoops`.
+    This is only a single line:
+
+    ```javascript
+    let pathInstance = new Path2D(path)
+    ```
+
+By default, this function still isn't drawing anything, just setting up more objects.
+
+It includes the code for handling the "prefer reduced motion" setting -- it draws the PNG image in the drawing context, which makes it appear immediately.
+It also doesn't set the line dash pattern, which makes me think that must be important for the animation.
+
+This function also includes some debugging code, but when I set add `?debug=true` to my URL, nothing seems to happen.
+I can see the debugging branch is activated, but I can't seee any effect.
+
+There's also an [`initLogo()` function][initLogo], which looks very similar.
+It sets up a drawing context and handles "prefer reduced motion", but doesn't actually draw anything.
+
+I can see these functions get called almost immediately, and then they attach these new contexts and `Path2D` instance to the `heroSwoops` and `logo` variables:
+
+{% annotatedhighlight
+  lang="javascript"
+  start_line="148"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L148C5-L164C30"
+%}
+// Load swoop images
+const swoopImages = await Promise.all(
+  heroSwoops.map((swoop) => loadImage(swoop.imagePath)),
+)
+// Load logo
+const logoImage = await loadImage(logo.imagePath)
+
+logo.image = logoImage
+// Init canvas for each swoop layer
+heroSwoops.forEach((swoop, i) => {
+  swoop.image = swoopImages[i]
+  const canvasData = initSwoops(swoop)
+  swoop.ctx = canvasData.ctx
+  swoop.pathInstance = canvasData.pathInstance
+})
+// Init logo canvas
+logo.ctx = initLogo(logo)
+{% endannotatedhighlight %}
+
+So now we've set the initial state of the animation -- but how does it actually move?
+
+[initSwoops]: https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L94
+[initLogo]: https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L127-L145
+[getContext]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
+[Path2D]: https://developer.mozilla.org/en-US/docs/Web/API/Path2D/Path2D
+
+<h3 id="globalCompositeOperation">Actually animating the strokes with <code>globalCompositeOperation</code></h3>
 
 ---
 ---
@@ -577,3 +877,5 @@ I can see a path to creating my own animations this way
 
 (will i? questionable, have many ideas that never go anywhere!)
 but it feels a bit easier than it did before
+
+{% endcomment %}

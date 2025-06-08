@@ -90,7 +90,7 @@ article, main {
  *
  * Note: the block might seem redundant, but if you remove it the post cards
  * get some extra space below the image.  TODO: Investigate. */
-img, video, figure {
+img, video, figure:not(.highlight) {
   max-width: 100%;
   display: block;
 }

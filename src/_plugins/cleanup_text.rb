@@ -158,6 +158,10 @@ def cleanup_syntax_highlighter_classes(html)
     '<pre>'
   )
   html = html.gsub('</pre></div></div>', '</pre>')
+  html = html.gsub(
+    /<code class="language-(?<language>[a-z]+)" data-lang="[a-z]+">/,
+    '<code>'
+  )
 
   # Remove any whitespace before/after `<pre>` blocks
   html = html.gsub(/\s+<pre>/, '<pre>')
