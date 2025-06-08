@@ -68,6 +68,11 @@ pre.wrap {
   margin-right:  12px;
 }
 
+/* If a line is ellipsis at the end of a code block, don't show any text. */
+.annotated_highlight .ln.ellipsis:last-child::before {
+  content: "";
+}
+
 .annotated_highlight figcaption {
   text-align: center;
 }

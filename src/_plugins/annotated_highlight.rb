@@ -51,17 +51,32 @@ module Jekyll
       #         print("hello world!")
       #     </pre>
       #
+      # We look for lines which are just ellipsis, which I often use
+      # in code snippets to indicate there's more text that I omitted.
       prefix, code_open, code_post = code_pre.partition('<code>')
       inner_code, code_close, suffix = code_post.partition('</code>')
 
-      inner_code = inner_code.split("\n").map { |ln| "<span class=\"ln\">#{ln}</span>" }.join("\n")
+      inner_code = inner_code.split("\n")
+        .each_with_index
+        .map do |ln, idx| 
+          if code_snippet.split("\n")[idx].strip == "…"
+            "<span class=\"ln ellipsis\">#{ln}</span>"
+          else
+            "<span class=\"ln\">#{ln}</span>"
+          end
+        end
+        .join("\n")
 
       code_pre = "#{prefix}#{code_open}#{inner_code}#{code_close}#{suffix}"
 
       # Work out what the start/end line for this annotated code block is;
       # if we don't have an explicit start line, start at 1.
       start_line = @attrs.fetch('start_line', '1').to_i
-      end_line = start_line + inner_code.split("\n").length
+      end_line = start_line + inner_code.split("\n").length - 1
+      
+      if code_snippet.split("\n")[-1].strip == "…"
+        end_line -= 1
+      end
 
       # Work out how many digits there are in the line numbers.
       lineno_digits = end_line.to_s.length

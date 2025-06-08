@@ -12,8 +12,6 @@ I don't write much Swift at the moment, but I glanced at the new website to see 
 
 There's a shiny animation with the bird logo:
 
-a
-
 <style>
   .light-video, .dark-video {
     aspect-ratio: 1652 / 1080;
@@ -92,7 +90,11 @@ I searched for the word "swoop" in the source code, and I found a collection of 
 
 Then I found a file `hero.js` which is referencing these `canvas` elements and the associated images, in an array called `heroSwoops`:
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="21"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L21-L34"
+%}
 const heroSwoops = [
   {
     canvas: document.querySelector('#purple-swoop'),
@@ -107,7 +109,7 @@ const heroSwoops = [
     state: { progress: offScreenDelta },
   },
   …
-```
+{% endannotatedhighlight %}
 
 I don't know what this file does yet, but most of `hero.js` is a function called `heroAnimation`.
 That sounds promising!
@@ -116,11 +118,15 @@ I did a quick skim, and it has code for loading images, and something to do with
 Then I saved the HTML, images, and `hero.js` locally.
 When I tried to load the site, I got an error about an undefined variable `anime`, coming from this line:
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="177"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L177-L179"
+%}
 const tl = anime.createTimeline({
   defaults: { duration: DURATION, ease: 'in(1.8)' },
 })
-```
+{% endannotatedhighlight %}
 
 To get past this error, I also needed to save a file `anime.js`, which is a copy of Julian Garnier's [Anime.js library][anime_js].
 
@@ -164,7 +170,10 @@ When I open the page in my browser, I can see the animation starts shortly after
 
 Looking for `heroAnimation`, I found it being called at the end of `hero.js`:
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="282"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L282-L294" %}
 // Start animation when container is mounted
 const observer = new MutationObserver(() => {
   const animContainer = document.querySelector('.animation-container')
@@ -178,7 +187,7 @@ observer.observe(document.documentElement, {
   childList: true,
   subtree: true,
 })
-```
+{% endannotatedhighlight %}
 
 This is all new to me; I've never seen `MutationObserver` before.
 But I can guess what it means from the name, and the [MDN documentation][MutationObserver] confirms my guess:
@@ -223,11 +232,14 @@ What's it actually doing?
 
 The first chunk of the function is just setting up some variables.
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="2"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L2-L4" %}
 const isReduceMotionEnabled = window.matchMedia(
   '(prefers-reduced-motion: reduce)',
 ).matches
-```
+{% endannotatedhighlight %}
 
 This detects whether the user has the ["prefer reduced motion" preference][prefers-reduced-motion], and is used later to disable the animation if so.
 If you set this preference, the bird never animates, it just appears.
@@ -236,10 +248,13 @@ This is an important accessibility feature, and I wish more sites paid attention
 
 [prefers-reduced-motion]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="5"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L5-L6" %}
 const urlParams = new URLSearchParams(location.search)
 const hasDebugParam = urlParams.has('debug')
-```
+{% endannotatedhighlight %}
 
 This checks if there's a `debug` parameter in the URL query string.
 There is code that uses this variable, but I can't see any effect when I set it?
@@ -247,7 +262,10 @@ Weird.
 
 I wonder if I need to do something extra in my browser to enable the debug behaviour, or if it's a broken leftover from when this code was being written.
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="8"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L8-L15" %}
 async function loadImage(url) {
   const el = new Image()
   return new Promise((resolve, reject) => {
@@ -256,16 +274,19 @@ async function loadImage(url) {
     el.src = url
   })
 }
-```
+{% endannotatedhighlight %}
 
 This function loads an image from a URL, then the Promise completes.
 I'm not sure what this is for yet; I guess I'll find out later.
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="17"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L17-L19" %}
 // Skip to visible portion of animation when cropped on small screens
 const { left, width } = animContainer.getClientRects()[0]
 const offScreenDelta = Math.abs(left) / width
-```
+{% endannotatedhighlight %}
 
 These variables are something to do with the geometry of the animation container.
 In particular, [`getClientRects()`][getClientRects] tells us the dimensions of its bounding box.
@@ -273,7 +294,11 @@ I'm not sure what these variables are used for yet.
 
 [getClientRects]: https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects
 
-```javascript
+{% annotatedhighlight
+  lang="javascript"
+  start_line="21"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L21-L34"
+%}
 const heroSwoops = [
   {
     canvas: document.querySelector('#purple-swoop'),
@@ -281,15 +306,14 @@ const heroSwoops = [
     pathLength: 2776,
     anchorPoints: [558, 480.5],
     position: [558, 640.5],
-    imagePath: '/assets/images/landing-page/hero/purple-swoop.png',
+    imagePath: 'images/purple-swoop.png',
     lineWidth: 210,
     debugColor: 'purple',
     image: null,
     state: { progress: offScreenDelta },
   },
   …
-]
-```
+{% endannotatedhighlight %}
 
 This is an array with five entries that correspond to the five "swoop" images in the animation.
 I don't really understand what all the values do yet, but I'm guessing they're something to do with the geometry of the swoop.
