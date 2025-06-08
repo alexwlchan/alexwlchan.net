@@ -1,0 +1,77 @@
+@use "../mixins";
+
+code, pre {
+  font-family: var(--mono-font-family);
+  overflow-x: auto;
+}
+
+code {
+  font-size:   88%;
+  line-height: 88%;
+}
+
+
+pre {
+  padding:
+    calc(2 * var(--default-padding) / 3)
+    calc(var(--default-padding) - var(--border-width));
+
+  /* This ensures that code blocks don't get blown up to big sizes
+   * on iPhone displays. */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* This ensures the first line of <pre> blocks doesn't have a funny indent */
+pre code {
+  margin:       0px;
+  padding-left: 0px;
+}
+
+/* By default my <pre> blocks will scroll horizontally if they're very
+ * long, but this allows me to force line wrapping instead. */
+pre.wrap {
+  text-wrap: wrap;
+}
+
+/* These styles are for code blocks with line numbers, which are created
+ * by my `annotated_highlight` plugin. */
+.annotated_highlight {
+  counter-reset: line-counter calc(var(--start-line) - 1);
+}
+
+.annotated_highlight .ln {
+  counter-increment: line-counter;
+  position: relative;
+  white-space: pre;
+
+  padding-left: calc((var(--lineno-digits) + 1) * 9px + 18px);
+}
+
+.annotated_highlight .ln::before {
+  content: counter(line-counter);
+  position: absolute;
+  left: 0;
+  text-align: right;
+  width: calc(var(--lineno-digits) * 9px);
+  color: var(--body-text);
+  
+  @include mixins.disable_select();
+
+  /* These three properties create a solid horizontal line between
+   * the line numbers and the code. */
+  top:    -8px;
+  height: 21px;
+  border-right: var(--border-width) solid var(--block-border-color);
+  padding-top: 11px;
+
+  padding-right: 12px;
+  margin-right:  12px;
+}
+
+.annotated_highlight figcaption {
+  text-align: center;
+}
+
+.annotated_highlight pre:has( + figcaption) {
+  margin-bottom: 4px;
+}

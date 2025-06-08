@@ -12,6 +12,8 @@ I don't write much Swift at the moment, but I glanced at the new website to see 
 
 There's a shiny animation with the bird logo:
 
+a
+
 <style>
   .light-video, .dark-video {
     aspect-ratio: 1652 / 1080;
@@ -73,16 +75,20 @@ I started by poking around in the development tools in my browser, and I quickly
 
 I searched for the word "swoop" in the source code, and I found a collection of [`canvas` elements][canvas], one for each component of the animation:
 
-```html
+{% annotatedhighlight
+  lang="html"
+  start_line="7"
+  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/index.md?plain=1#L7"
+%}
 <div class="animation-container">
-    <canvas id="purple-swoop" width="1248" height="1116"></canvas>
+    <canvas id="purple-swoop" width="1248" height="1116"></canvas> <canvas id="purple-swoop" width="1248" height="1116"></canvas>
     <canvas id="white-swoop-1" width="1248" height="1116"></canvas>
     <canvas id="orange-swoop-top" width="1248" height="1116"></canvas>
     <canvas id="orange-swoop-bottom" width="1248" height="1116"></canvas>
     <canvas id="white-swoop-2" width="1248" height="1116"></canvas>
     <canvas id="bird" width="1248" height="1116"></canvas>
 </div>
-```
+{% endannotatedhighlight %}
 
 Then I found a file `hero.js` which is referencing these `canvas` elements and the associated images, in an array called `heroSwoops`:
 
