@@ -52,11 +52,208 @@ There's a shiny animation with the bird logo:
 
 I was curious how the animation worked.
 I thought maybe it was an autoplaying video with no controls, but no, it's much cooler than that!
+The animation is implemented entirely in code -- there are a few images, but all the dynamic parts all use JavaScript and the HTML5 canvas element.
 
-I started reading the code to understand how it works, and I learnt several things about using the HTML5 canvas element and writing animations in the browser.
-I'm not going to walk through the code in step-by-step detail, but I do want to show you some of what I learnt.
+I've never done anything with animation, so I started reading the code to understand how it works.
+I'm not going to walk through it in detail, but I do want to show you some of what I learnt.
+
+All the code from the Swift.org website is [open source on GitHub](https://github.com/swiftlang/swift-org-website/), and the JavaScript file that implements this animation was written by three engineers: [Federico Bucchi](https://github.com/federicobucchi), [Jesse Borden](https://github.com/jesseaborden), and [Nicholas Krambousanos](https://github.com/nkrambo).
 
 [redesign]: https://www.swift.org/blog/redesigned-swift-org-is-now-live/
+
+
+
+
+## Using a mask to gradually reveal the image
+
+Most of the animation is made up of five "swoop" images, which look like strokes of a paintbrush.
+These were clearly made by an artist in a design app like Photoshop.
+
+<figure style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 1em;">
+  <img src="/images/2025/orange-swoop-top.png" alt="" style="aspect-ratio: 1220 / 911;">
+  <img src="/images/2025/purple-swoop.png" alt="" style="aspect-ratio: 1116 / 961;">
+  <img src="/images/2025/orange-swoop-bottom.png" alt="" style="aspect-ratio: 1220 / 911;">
+</figure>
+
+These images are gradually revealed, so it looks like somebody actually painting with a brush.
+This is more complex than a simple horizontal wipe, the sort of animation you might do in PowerPoint.
+Notice how, for example, the purple swoop doubles back on itself -- if you did a simple left-to-right wipe, it would start as two separate swoops before joining into one.
+It would look very strange!
+
+Each swoop is animated in the same way, so let's focus on the purple one, just because it's the most visually interesting.
+
+The technique is similar to something I've described on this blog before -- the animation is [applying a mask][masking] to the underlying image, and the mask gradually expands to show more and more of the image.
+In particular, the mask matches the general shape of the brush stroke, so as it expands, it reveals more of the image.
+
+The best way to explain this is with a quick demo: as you drag the slider back and forth, you can see the mask include more or less of the brush stroke, and that's reflected in the final image.
+
+<style>
+  #demo {
+    display: grid;
+    grid-template-columns: 1fr 20px 1fr 20px 1fr;
+    grid-gap: 10px;
+    align-items: center;
+  }
+
+  #demo > .cell > *:not(.label) {
+    background: var(--background-color-light);
+    border: 1px solid var(--body-text-light);
+    text-align: center;
+    display: block;
+  }
+
+  #demo > .cell .label {
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  #demo .operator {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  #demo canvas {
+    width: 100%;
+  }
+</style>
+
+<script>
+  async function loadImage(url) {
+    const el = new Image()
+    return new Promise((resolve, reject) => {
+      el.onload = () => resolve(el)
+      el.onerror = (err) => reject(err)
+      el.src = url
+    })
+  }
+
+  const swoop = {
+    path: 'M-34 860C-34 860 42 912 102 854C162 796 98 658 50 556C2 454 18 48 142 88C272 130 290 678 432 682C574 686 434 102 794 90C1009 83 1028 280 1028 280',
+    pathLength: 2776,
+    lineWidth: 210,
+    debugColor: 'purple',
+    image: null,
+    pathInstance: null,
+  };
+
+  function setMaskProgress(progress) {
+    const canvas = document.querySelector('#plain-swoop');
+
+    const ctx = canvas.getContext('2d');
+    ctx.lineWidth = swoop.lineWidth * 1.1;
+    ctx.lineCap = 'round';
+
+    const pathInstance = new Path2D(swoop.path);
+
+    ctx.strokeStyle = 'black';
+    ctx.stroke(pathInstance);
+
+    ctx.lineWidth = swoop.lineWidth;
+
+    ctx.setLineDash([swoop.pathLength])
+    ctx.lineDashOffset = swoop.pathLength * (1 - progress)
+    ctx.strokeStyle = '#ddd';
+    ctx.stroke(pathInstance);
+  }
+
+  function setResultProgress(progress) {
+    const canvas = document.querySelector('#purple-swoop');
+
+    const ctx = canvas.getContext('2d');
+    ctx.lineWidth = swoop.lineWidth;
+    ctx.lineCap = 'round';
+
+    ctx.setLineDash([swoop.pathLength])
+    ctx.lineDashOffset = swoop.pathLength
+
+    const pathInstance = new Path2D(swoop.path);
+
+    // Clear canvas before next draw
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    // Progress line dash offset
+    ctx.lineDashOffset = swoop.pathLength * (1 - progress)
+    // Draw stroke
+    ctx.stroke(pathInstance)
+    // Source-in will allow us to only draw as far as the stroke
+    ctx.globalCompositeOperation = 'source-in'
+    ctx.drawImage(swoop.image, 0, 0)
+    // Reset to default for our next stroke paint
+    ctx.globalCompositeOperation = 'source-out';
+  }
+
+  window.addEventListener("DOMContentLoaded", async function() {
+    const image = await loadImage("/images/2025/purple-swoop.png");
+    swoop.image = image;
+
+    const pathInstance = new Path2D(swoop.path);
+    swoop.pathInstance = pathInstance;
+
+    setMaskProgress(0.5);
+    setResultProgress(0.5);
+  })
+
+  function redrawDemo(value) {
+    setMaskProgress(value);
+    setResultProgress(value);
+  }
+</script>
+
+<blockquote style="
+  --body-text:          var(--body-text-light);
+  --primary-color:      var(--primary-color-light);
+  --accent-grey:        var(--accent-grey-light);
+  --block-border-color: var(--block-border-color-light);
+  --block-background:   var(--block-background-light);
+  color: var(--body-text-light);
+  padding: 1em;">
+  <div id="demo">
+    <div class="cell">
+      <img src="/images/2025/purple-swoop.png" alt="" style="aspect-ratio: 1116 / 961;">
+      <div class="label">original image</div>
+    </div>
+    <div class="operator">+</div>
+    <div class="cell">
+      <canvas id="plain-swoop" width="1116" height="961"></canvas>
+      <div class="label">mask</div>
+    </div>
+    <div class="operator">=</div>
+    <div class="cell">
+      <canvas id="purple-swoop" width="1116" height="961"></canvas>
+      <div class="label">final image</div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 1em;">
+    <em>animation progress:</em><br/>
+    <input type="range" min="0" max="1" value="0.5" step="0.01" oninput="redrawDemo(this.value)" style="width: 300px; max-width: 100%; margin-top: 5px">
+  </div>
+</blockquote>
+
+We can break this down into a couple of steps:
+
+*   Take a curved path, and only draw part of it (drawing the mask)
+*   Combine the partially-draw path with the original image (applying the mask)
+*   Gradually increasing the amount of the path that we draw (animating the path)
+*   Starting the animation when the page loads
+
+Let's go through each of these in turn.
+
+[masking]: /2021/inner-outer-strokes-svg/
+
+
+
+
+
+
+
+
+---
+---
+---
+---
+---
+--------
 
 <blockquote class="toc">
   <h3>Table of contents</h3>
@@ -74,6 +271,12 @@ I'm not going to walk through the code in step-by-step detail, but I do want to 
     </li>
   </ul>
 </blockquote>
+
+
+
+
+
+
 
 <style>
   .toc {
@@ -301,13 +504,13 @@ I'm not sure if that's a perceptible difference though, except for very large an
 
 
 <style>
-  canvas {
+/*  canvas {
     border: var(--border-width) var(--border-style) var(--block-border-color);
     border-radius: var(--border-radius);
     background-color: var(--block-background);
     width: calc(100% - 6px);
     margin: 0 auto;
-  }
+  }*/
 
   pre:has( + canvas) {
     border-bottom-left-radius:  0;
@@ -864,11 +1067,6 @@ takeaways
 
 this is super cool!
 
-realised swift.org website is open source, so can also see evolution of it on GitHub https://github.com/swiftlang/swift-org-website/blame/07ccea102272213684fbc6452533032f95d3bfff/assets/javascripts/new-javascripts/hero.js
-
-and the authors: Jesse Borden (https://github.com/jesseaborden),
-Federico Bucchi (https://github.com/federicobucchi)
-and Nicholas Krambousanos (https://github.com/nkrambo)
 
 animation is one of those topics that's always felt daunting to me, esp because involves graphics programs, ooh scary
 not all of this is code -- somebody had to create those graphic assets
