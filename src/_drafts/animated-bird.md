@@ -90,32 +90,32 @@ I wrote about [masking with SVG][masking] four years ago, and the principle is s
 The best way to explain this is with a quick demo: as you drag the slider back and forth, you can see the mask include more or less of the brush stroke, and that's reflected in the final image.
 
 <style>
-  #demo {
+  .demo {
     display: grid;
     grid-template-columns: 1fr 20px 1fr 20px 1fr;
     grid-gap: 10px;
     align-items: center;
   }
 
-  #demo > .cell > *:not(.label) {
+  .cell > *:not(.label) {
     background: var(--background-color-light);
     border: 1px solid var(--body-text-light);
     text-align: center;
     display: block;
   }
 
-  #demo > .cell .label {
+  .demo > .cell .label {
     text-align: center;
     margin-top: 8px;
   }
 
-  #demo .operator {
+  .demo .operator {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 1.5em;
   }
 
-  #demo canvas {
+  .demo canvas {
     width: 100%;
   }
 </style>
@@ -139,44 +139,63 @@ The best way to explain this is with a quick demo: as you drag the slider back a
     pathInstance: null,
   };
 
+  function drawStroke({
+    canvas,
+    lineWidth,
+    color,
+    isRound = false,
+    progress = 1,
+    modifyCtx = null,
+  }) {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.lineWidth = lineWidth;
+
+    if (isRound) { ctx.lineCap = 'round'; }
+
+    const path = new Path2D(swoop.path);
+
+    ctx.setLineDash([swoop.pathLength]);
+    ctx.lineDashOffset = swoop.pathLength * (1 - progress);
+
+    if (modifyCtx !== null) {
+      modifyCtx(ctx);
+    }
+
+    ctx.strokeStyle = color;
+    ctx.stroke(path);
+  }
+
   function setMaskProgress(progress) {
     const canvas = document.querySelector('#plain-swoop');
 
-    const ctx = canvas.getContext('2d');
-    ctx.lineWidth = swoop.lineWidth * 1.1;
-    ctx.lineCap = 'round';
+    drawStroke({
+      canvas,
+      lineWidth: swoop.lineWidth * 1.1,
+      color: 'black',
+      isRound: true,
+    });
 
-    const pathInstance = new Path2D(swoop.path);
-
-    ctx.strokeStyle = 'black';
-    ctx.stroke(pathInstance);
-
-    ctx.lineWidth = swoop.lineWidth;
-
-    ctx.setLineDash([swoop.pathLength])
-    ctx.lineDashOffset = swoop.pathLength * (1 - progress)
-    ctx.strokeStyle = '#ddd';
-    ctx.stroke(pathInstance);
+    drawStroke({
+      canvas,
+      lineWidth: swoop.lineWidth,
+      color: '#ddd',
+      isRound: true,
+      progress,
+    });
   }
 
   function setResultProgress(progress) {
     const canvas = document.querySelector('#purple-swoop');
 
+    drawStroke({
+      canvas,
+      lineWidth: swoop.lineWidth,
+      isRound: true,
+      progress,
+    });
+
     const ctx = canvas.getContext('2d');
-    ctx.lineWidth = swoop.lineWidth;
-    ctx.lineCap = 'round';
-
-    ctx.setLineDash([swoop.pathLength])
-    ctx.lineDashOffset = swoop.pathLength
-
-    const pathInstance = new Path2D(swoop.path);
-
-    // Clear canvas before next draw
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    // Progress line dash offset
-    ctx.lineDashOffset = swoop.pathLength * (1 - progress)
-    // Draw stroke
-    ctx.stroke(pathInstance)
     // Source-in will allow us to only draw as far as the stroke
     ctx.globalCompositeOperation = 'source-in'
     ctx.drawImage(swoop.image, 0, 0)
@@ -201,15 +220,20 @@ The best way to explain this is with a quick demo: as you drag the slider back a
   }
 </script>
 
-<blockquote style="
-  --body-text:          var(--body-text-light);
-  --primary-color:      var(--primary-color-light);
-  --accent-grey:        var(--accent-grey-light);
-  --block-border-color: var(--block-border-color-light);
-  --block-background:   var(--block-background-light);
-  color: var(--body-text-light);
-  padding: 1em;">
-  <div id="demo">
+<style>
+  .light_block {
+    --body-text:          var(--body-text-light);
+    --primary-color:      var(--primary-color-light);
+    --accent-grey:        var(--accent-grey-light);
+    --block-border-color: var(--block-border-color-light);
+    --block-background:   var(--block-background-light);
+    color: var(--body-text-light);
+    padding: 1em;
+  }
+</style>
+
+<blockquote class="light_block">
+  <div class="demo">
     <div class="cell">
       <img src="/images/2025/purple-swoop.png" alt="" style="aspect-ratio: 1116 / 961;">
       <div class="label">original image</div>
@@ -225,10 +249,9 @@ The best way to explain this is with a quick demo: as you drag the slider back a
       <div class="label">final image</div>
     </div>
   </div>
-
   <div style="text-align: center; margin-top: 1em;">
     <em>animation progress:</em><br/>
-    <input type="range" min="0" max="1" value="0.5" step="0.01" oninput="redrawDemo(this.value)" style="width: 300px; max-width: 100%; margin-top: 5px">
+    <input type="range" min="0" max="1" value="0.5" step="0.01" oninput="redrawDemo(this.value)" style="width: 300px; max-width: 100%; margin-top: 5px"/>
   </div>
 </blockquote>
 
@@ -284,6 +307,306 @@ const path = new Path2D(
 
 ctx.stroke(path);
 ```
+
+The way Swift.org draws a partial path is a really neat trick: they're using a line dash pattern with a variableoffset.
+It took me a moment to figure out what their code was doing, but then it all clicked into place.
+
+First they set a line dash pattern, which specifies alternating lengths of lines and gaps to draw the line.
+You can use the [`setLineDash()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash) to set the pattern.
+Here's a quick demo:
+
+<style>
+  #lineDashDemo,
+  #lineDashOffsetDemo,
+  #progressDemo {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1em;
+    align-items: center;
+  }
+
+  canvas {
+    width: 100%;
+  }
+
+  #lineDashDemo pre,
+  #lineDashOffsetDemo pre {
+    margin: 0;
+  }
+</style>
+
+<blockquote id="lineDashDemo" class="light_block">
+  <div>
+    <pre><code><span class="nx">ctx</span><span class="p">.</span><span class="nf">setLineDash</span><span class="p">([<span class="mi">100</span>])</span></code></pre>
+    <input type="range" min="0" max="3000" value="100" step="1" oninput="setLineDashDemo(this.value)" style="width: 300px; max-width: 100%; margin-top: 0.5em;">
+  </div>
+
+  <div class="cell">
+    <canvas width="1116" height="961"></canvas>
+  </div>
+</blockquote>
+
+<script>
+  function setLineDashDemo(dashLength) {
+    const demo = document.querySelector("#lineDashDemo");
+    const canvas = demo.querySelector('canvas');
+
+    drawStroke({
+      canvas,
+      lineWidth: 20,
+      color: 'black',
+      modifyCtx: (ctx) => ctx.setLineDash([dashLength]),
+    });
+
+    demo.querySelector(".mi").innerText = dashLength;
+  }
+
+  window.addEventListener("DOMContentLoaded", function() {
+    setLineDashDemo(
+      Number(document.querySelector('#lineDashDemo input[type="range"]').value)
+    );
+  });
+</script>
+
+Notice that the path always starts with a dash, not a gap.
+You can adjust the starting position by setting the [`lineDashOffset` property][lineDashOffset].
+I find the behaviour slightly counter-intuitive: as I increase the offset, it looks like the path is moving backward.
+I'm sure it makes sense, but moving the slider does the opposite of what I expect.
+
+Here's a demo where you can set both variables at once:
+
+<blockquote id="lineDashOffsetDemo" class="light_block">
+  <div>
+    <div class="lineDash">
+      <pre><code><span class="nx">ctx</span><span class="p">.</span><span class="nf">setLineDash</span><span class="p">([<span class="mi">75</span>])</span></code></pre>
+      <input type="range" min="0" max="3000" value="75" step="1" oninput="drawLineDashOffsetDemo()" style="width: 300px; max-width: 100%; margin-top:0.5em;">
+    </div>
+
+    <div class="lineDashOffset" style="margin-top: 1.5em;">
+      <pre><code><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineDashOffset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span></code></pre>
+      <input type="range" min="-3000" max="3000" value="0" step="1" oninput="drawLineDashOffsetDemo()" style="width: 300px; max-width: 100%; margin-top: 0.5em;">
+    </div>
+  </div>
+
+  <div class="cell">
+    <canvas width="1116" height="961"></canvas>
+  </div>
+</blockquote>
+
+<script>
+  function drawLineDashOffsetDemo() {
+    const demo = document.querySelector("#lineDashOffsetDemo");
+
+    const canvas = demo.querySelector('canvas');
+
+    const lineDash = Number(
+      demo.querySelector('.lineDash input[type="range"]').value
+    );
+    const lineDashOffset = Number(
+      demo.querySelector('.lineDashOffset input[type="range"]').value
+    );
+
+    drawStroke({
+      canvas,
+      lineWidth: 20,
+      color: 'black',
+      modifyCtx: (ctx) => {
+        ctx.setLineDash([lineDash]);
+        ctx.lineDashOffset = lineDashOffset;
+      },
+    });
+
+    demo.querySelector(".lineDash .mi").innerText = lineDash;
+    demo.querySelector(".lineDashOffset .mi").innerText = lineDashOffset;
+  }
+
+  window.addEventListener("DOMContentLoaded", drawLineDashOffsetDemo);
+</script>
+
+If you play around with these two variables, you might work out how to animate the path as if it's being drawn from the start.
+
+1.  Set the dash length to the exact length of the path.
+    This means every dash and every gap is the same length as the entire path.
+
+    (The length is 2776, a number I got from the Swift.org source code.
+    This must have been calculated with an external tool; I can't find a way to calculate this length in a canvas.)
+
+2.  Set the dash offset to the exact length of the path.
+    This means the entire path is just a gap, which makes it look like there's nothing there.
+
+3.  Gradually reduce the dash offset to zero.
+    The dash becomes visible at the beginning of the path, and the closer the offset gets to zero, the more of the dash is visible.
+    Eventually it fills the entire path.
+
+Here's one more demo, where you can adjust the progress:
+
+<blockquote id="progressDemo" class="light_block">
+  <div>
+    <pre><code><span class="kd">const</span> <span class="nx">progress</span> <span class="o">=</span> <span class="mi">0.0</span><span class="p">;</span></code></pre>
+    <input type="range" min="0.0" max="1.0" value="0.0" step="0.01" oninput="drawProgressDemo(this.value)" style="width: 300px; max-width: 100%; margin-top:0.5em;">
+
+    <pre style="margin-top: 1.5em;"><code><span class="kd">const</span> <span class="nx">pathLength</span> <span class="o">=</span> <span class="mi">2776</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nf">setLineDash</span><span class="p">([</span><span class="nx">pathLength</span><span class="p">]);</span>
+<span class="nx">ctx</span><span class="p">.</span><span class="nx">lineDashOffset</span> <span class="o">=</span> <span class="nx">pathLength</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nx">progress</span><span class="p">);</span></code></pre>
+  </div>
+
+  <div class="cell">
+    <canvas width="1116" height="961"></canvas>
+  </div>
+</blockquote>
+
+<script>
+  function drawProgressDemo(progress) {
+    const demo = document.querySelector("#progressDemo");
+    const canvas = demo.querySelector('canvas');
+
+    drawStroke({
+      canvas,
+      lineWidth: 20,
+      color: 'black',
+      progress,
+    });
+
+    demo.querySelector(".mi").innerText = progress;
+  }
+
+  window.addEventListener("DOMContentLoaded", function() {
+    drawProgressDemo(0);
+  });
+</script>
+
+So now we have a way to draw a path from the start, as if it was being painted as a brush stroke.
+The real code has a couple of extra styles -- in particular, it sets a stroke width and a [line cap][lineCap] -- but it's the way the animation uses the dash pattern that really stood out to me.
+
+Once we have our brush stroke, how do we use it to mask an image?
+
+[setLineDash]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
+[lineDashOffset]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
+[lineCap]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap
+
+
+
+---
+
+
+
+## Masking an image with a `globalCompositeOperation`
+
+The masking uses a property of HTML5 canvas called `globalCompositeOperation`.
+If you've already drawn some shapes on a canvas, you can control how new shapes will appear on top of them -- for example, which one appears on top, or whether to clip one to fit inside the other.
+
+I'm familiar with the basic idea -- I wrote an article about [clips and masks in SVG][svg_masks] in 2021 that I still look back on fondly -- but I find this feature a bit confusing.
+I think the terminology is the real sticking point.
+Rather than talking about clips or masks, this property is defined using *sources* (shapes you're about to draw on the canvas) and *destinations* (shapes that are already on the canvas).
+I'm sure that naming makes sense to somebody, but it's not immediately obvious to me.
+
+In the Swift.org animation, it's using the [value `source-in`][source_in] -- the new shape is only drawn where the new shape and the old shape overlap, and the old shape becomes transparent.
+Here's the code:
+
+```javascript
+// The thick black stroke is the "destination"
+ctx.stroke(path)
+
+// The "source-in" mode means only the part of the source that is
+// inside the destination will be shown, and the destination will
+// be transparent.
+ctx.globalCompositeOperation = 'source-in'
+
+// The bitmap image is the "source"
+ctx.drawImage(image, 0, 0)
+```
+
+and here's what the result looks like, when the animation is halfway complete:
+
+<blockquote class="light_block">
+  <div class="demo">
+    <div class="cell">
+      <canvas id="destination" width="1116" height="961"></canvas>
+      <div class="label">destination</div>
+    </div>
+    <div class="operator">+</div>
+    <div class="cell">
+      <img src="/images/2025/purple-swoop.png" alt="" style="aspect-ratio: 1116 / 961;">
+      <div class="label">source</div>
+    </div>
+    <div class="operator">&rarr;</div>
+    <div class="cell">
+      <canvas id="globalCompositeOperationDemoResult" width="1116" height="961"></canvas>
+      <div class="label">final image</div>
+    </div>
+  </div>
+</blockquote>
+
+There are many different composite operations, including ones that combine colours or blend pixels from both shapes.
+If you're interested, you can read the [docs on MDN][mdn_composite], which includes a demo of all the different blending modes.
+
+This is a bit of code where I can definitely understand what it does when I read it, but I wouldn't feel confident writing something like this myself.
+It's too complex a feature to wrap my head around with a single example, and the other examples I found are too simple and unmotivating.
+(The standard example seems to be combining a solid red circle with a solid blue rectangle, which I find completely unhelpful because I can produce the final result in a dozen other ways.
+What's the use case for this poperty?
+What can I only do if I use `globalCompositeOperation`?)
+
+Then again, perhaps I'm not the target audience for this feature.
+I tend to stick to simple illustrations, and this is a more powerful graphics operation.
+I'm still glad to know it's there, even if I'm not sure when I'll use it.
+
+[svg_masks]: /2021/inner-outer-strokes-svg/
+[mdn_composite]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
+[source_in]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation#source-in
+
+<script>
+  window.addEventListener("DOMContentLoaded", async function() {
+    const image = await loadImage("/images/2025/purple-swoop.png");
+    swoop.image = image;
+
+    drawStroke({
+      canvas: document.querySelector("#destination"),
+      lineWidth: swoop.lineWidth,
+      isRound: true,
+      progress: 0.5,
+    });
+
+    const resultCanvas = document.querySelector(
+      "canvas#globalCompositeOperationDemoResult"
+    );
+
+    drawStroke({
+      canvas: resultCanvas,
+      lineWidth: swoop.lineWidth,
+      isRound: true,
+      progress: 0.5,
+    });
+
+    ctx = resultCanvas.getContext("2d");
+    // Source-in will allow us to only draw as far as the stroke
+    ctx.globalCompositeOperation = 'source-in'
+    ctx.drawImage(swoop.image, 0, 0)
+    // Reset to default for our next stroke paint
+    ctx.globalCompositeOperation = 'source-out';
+  })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
