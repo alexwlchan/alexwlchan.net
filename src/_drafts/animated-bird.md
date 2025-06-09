@@ -64,7 +64,8 @@ All the code from the Swift.org website is [open source on GitHub](https://githu
 
 
 
-## Using a mask to gradually reveal the image
+
+## What are the key steps in this animation?
 
 Most of the animation is made up of five "swoop" images, which look like strokes of a paintbrush.
 These were clearly made by an artist in a design app like Photoshop.
@@ -82,8 +83,9 @@ It would look very strange!
 
 Each swoop is animated in the same way, so let's focus on the purple one, just because it's the most visually interesting.
 
-The technique is similar to something I've described on this blog before -- the animation is [applying a mask][masking] to the underlying image, and the mask gradually expands to show more and more of the image.
-In particular, the mask matches the general shape of the brush stroke, so as it expands, it reveals more of the image.
+The animation is applying a mask to the underlying image, and the mask gradually expands to show more and more of the image.
+The mask matches the general shape of the brush stroke, so as it expands, it reveals more of the image.
+I wrote about [masking with SVG][masking] four years ago, and the principle is similar here -- but the Swift.org animation uses HTML5 canvas, not SVG.
 
 The best way to explain this is with a quick demo: as you drag the slider back and forth, you can see the mask include more or less of the brush stroke, and that's reflected in the final image.
 
@@ -217,7 +219,7 @@ The best way to explain this is with a quick demo: as you drag the slider back a
       <canvas id="plain-swoop" width="1116" height="961"></canvas>
       <div class="label">mask</div>
     </div>
-    <div class="operator">=</div>
+    <div class="operator">&rarr;</div>
     <div class="cell">
       <canvas id="purple-swoop" width="1116" height="961"></canvas>
       <div class="label">final image</div>
@@ -233,13 +235,55 @@ The best way to explain this is with a quick demo: as you drag the slider back a
 We can break this down into a couple of steps:
 
 *   Take a curved path, and only draw part of it (drawing the mask)
-*   Combine the partially-draw path with the original image (applying the mask)
-*   Gradually increasing the amount of the path that we draw (animating the path)
-*   Starting the animation when the page loads
+*   Combine the partially-drawn path with the original image (applying the mask)
+*   Gradually increase the amount of the path that we draw (animating the path)
+*   Start the animation when the page loads
 
 Let's go through each of these in turn.
 
 [masking]: /2021/inner-outer-strokes-svg/
+
+
+
+
+## Take a curved path, and only draw part of it
+
+Alongside the graphical image of a brush stroke, the artist supplied an SVG path for the shape:
+
+```
+M-34 860C-34 860 42 912 102 854C162 796 98 658 50 556C2 454 18 48 142 88C272 130 290 678 432 682C574 686 434 102 794 90C1009 83 1028 280 1028 280
+```
+
+If you're not familiar with SVG path syntax, I really recommend Mathieu Dutour's excellent [SVG Path Visualizer tool][pathviz].
+You give it a path definition, and it gives you a step-by-step explanation of what it's doing, and you can see where each part of the path appears in the final shape.
+
+[pathviz]: https://svg-path-visualizer.netlify.app/#M-34%20860C-34%20860%2042%20912%20102%20854C162%20796%2098%20658%2050%20556C2%20454%2018%2048%20142%2088C272%20130%20290%20678%20432%20682C574%20686%20434%20102%20794%2090C1009%2083%201028%20280%201028%20280
+
+{%
+  picture
+  filename="svg_pathviz.png"
+  width="600"
+  class="screenshot"
+  alt="Screenshot of the path visualizer, with a breakdown of how the path works and an annotated swoop that matches the purple swoop."
+  link_to="https://svg-path-visualizer.netlify.app/#M-34%20860C-34%20860%2042%20912%20102%20854C162%20796%2098%20658%2050%20556C2%20454%2018%2048%20142%2088C272%20130%20290%20678%20432%20682C574%20686%20434%20102%20794%2090C1009%2083%201028%20280%201028%20280"
+%}
+
+We can draw this path on an HTML5 canvas like so:
+
+```javascript
+const canvas = document.querySelector('canvas');
+
+const ctx = canvas.getContext('2d');
+ctx.lineWidth = 100;
+ctx.lineCap = 'round';
+ctx.strokeStyle = 'black';
+
+const path = new Path2D(
+  "M-34 860C-34 860 42 912 102 854C162 796 98 658 50 556C2 454 18 48 142 88C272 130 290 678 432 682C574 686 434 102 794 90C1009 83 1028 280 1028 280"
+);
+
+ctx.stroke(path);
+```
 
 
 
@@ -361,20 +405,6 @@ const heroSwoops = [
 
 The most interesting variable here is what looks like an SVG [`path` attribute][svg_path].
 I can't read this natively, but I can plug it into Mathieu Dutour's excellent [SVG Path Visualizer tool][pathviz] and it looks very similar to the purple swoop image:
-
-<style>
-  #swoop_comparison {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1em;
-  }
-
-  @media screen and (max-width: 500px) {
-    #swoop_comparison {
-      grid-template-columns: auto;
-    }
-  }
-</style>
 
 <figure id="swoop_comparison">
   <img src="/images/2025/purple-swoop.png" alt="A purple brush stroke that goes up and down several times in a fancy swoop">
@@ -775,7 +805,6 @@ const logo = {
 {% endannotatedhighlight %}
 
 [svg_path]: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/path
-[pathviz]: https://svg-path-visualizer.netlify.app/#M-34%20860C-34%20860%2042%20912%20102%20854C162%20796%2098%20658%2050%20556C2%20454%2018%2048%20142%2088C272%20130%20290%20678%20432%20682C574%20686%20434%20102%20794%2090C1009%2083%201028%20280%201028%20280
 
 <h3 id="initswoops">Even more setup in the <code>initSwoops()</code> and <code>initLogo()</code> functions</h3>
 
