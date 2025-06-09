@@ -147,7 +147,7 @@ The best way to explain this is with a quick demo: as you drag the slider back a
     progress = 1,
     modifyCtx = null,
   }) {
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.lineWidth = lineWidth;
 
@@ -169,20 +169,26 @@ The best way to explain this is with a quick demo: as you drag the slider back a
   function setMaskProgress(progress) {
     const canvas = document.querySelector('#plain-swoop');
 
-    drawStroke({
-      canvas,
-      lineWidth: swoop.lineWidth * 1.1,
-      color: 'black',
-      isRound: true,
-    });
+    const ctx = canvas.getContext("2d");
 
-    drawStroke({
-      canvas,
-      lineWidth: swoop.lineWidth,
-      color: '#ddd',
-      isRound: true,
-      progress,
-    });
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.lineCap = 'round';
+
+    const path = new Path2D(swoop.path);
+
+    ctx.setLineDash([swoop.pathLength]);
+    ctx.lineDashOffset = 0;
+
+    ctx.lineWidth = swoop.lineWidth * 1.1;
+    ctx.strokeStyle = 'black';
+    ctx.stroke(path);
+
+    ctx.setLineDash([swoop.pathLength]);
+    ctx.lineDashOffset = swoop.pathLength * (1 - progress);
+
+    ctx.lineWidth = swoop.lineWidth;
+    ctx.strokeStyle = '#ddd';
+    ctx.stroke(path);
   }
 
   function setResultProgress(progress) {
@@ -585,6 +591,10 @@ I'm still glad to know it's there, even if I'm not sure when I'll use it.
     ctx.globalCompositeOperation = 'source-out';
   })
 </script>
+
+
+
+
 
 
 
