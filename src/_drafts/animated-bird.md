@@ -729,6 +729,20 @@ const heroSwoops = [
 The most interesting variable here is what looks like an SVG [`path` attribute][svg_path].
 I can't read this natively, but I can plug it into Mathieu Dutour's excellent [SVG Path Visualizer tool][pathviz] and it looks very similar to the purple swoop image:
 
+<style>
+  #swoop_comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+  }
+
+  @media screen and (max-width: 500px) {
+    #swoop_comparison {
+      grid-template-columns: auto;
+    }
+  }
+</style>
+
 <figure id="swoop_comparison">
   <img src="/images/2025/purple-swoop.png" alt="A purple brush stroke that goes up and down several times in a fancy swoop">
   {%
