@@ -5,7 +5,6 @@ summary: Trying
 tags:
   - drawing things
   - web development
-  - reading code
 ---
 On Wednesday, the Swift.org website [got a redesign][redesign].
 I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH!
@@ -120,14 +119,11 @@ The best way to explain this is with a quick demo: as you drag the slider back a
   }
 </style>
 
-<script>
-  async function loadImage(url) {
-    const el = new Image()
-    return new Promise((resolve, reject) => {
-      el.onload = () => resolve(el)
-      el.onerror = (err) => reject(err)
-      el.src = url
-    })
+<script type="text/javascript">
+  function loadImage(url) {
+    const img = document.createElement("img");
+    img.src = url;
+    return img;
   }
 
   const swoop = {
@@ -209,8 +205,8 @@ The best way to explain this is with a quick demo: as you drag the slider back a
     ctx.globalCompositeOperation = 'source-out';
   }
 
-  window.addEventListener("DOMContentLoaded", async function() {
-    const image = await loadImage("/images/2025/purple-swoop.png");
+  window.addEventListener("DOMContentLoaded", function() {
+    const image = loadImage("/images/2025/purple-swoop.png");
     swoop.image = image;
 
     const pathInstance = new Path2D(swoop.path);
@@ -218,7 +214,7 @@ The best way to explain this is with a quick demo: as you drag the slider back a
 
     setMaskProgress(0.5);
     setResultProgress(0.5);
-  })
+  });
 
   function redrawDemo(value) {
     setMaskProgress(value);
@@ -235,6 +231,10 @@ The best way to explain this is with a quick demo: as you drag the slider back a
     --block-background:   var(--block-background-light);
     color: var(--body-text-light);
     padding: 1em;
+
+    .nf { color: #0000FF } /* Name.Function */
+    /* Operator, Literal.Number.Integer */
+    .o, .mi { color: #585858 }
   }
 </style>
 
@@ -506,7 +506,16 @@ I think the terminology is the real sticking point.
 Rather than talking about clips or masks, this property is defined using *sources* (shapes you're about to draw on the canvas) and *destinations* (shapes that are already on the canvas).
 I'm sure that naming makes sense to somebody, but it's not immediately obvious to me.
 
-In the Swift.org animation, it's using the [value `source-in`][source_in] -- the new shape is only drawn where the new shape and the old shape overlap, and the old shape becomes transparent.
+First we need to load the bitmap image which will be our "source".
+We can create a new `img` element with `document.createElement("img")`, then load the image by setting the `src` attribute:
+
+```javascript
+const img = document.createElement("img");
+img.src = url;
+```
+
+In the Swift.org animation, the value of `globalCompositeOperation` is [`source-in`][source_in] -- the new shape is only drawn where the new shape and the old shape overlap, and the old shape becomes transparent.
+
 Here's the code:
 
 ```javascript
@@ -519,7 +528,7 @@ ctx.stroke(path)
 ctx.globalCompositeOperation = 'source-in'
 
 // The bitmap image is the "source"
-ctx.drawImage(image, 0, 0)
+ctx.drawImage(img, 0, 0)
 ```
 
 and here's what the result looks like, when the animation is halfway complete:
@@ -556,14 +565,15 @@ Then again, perhaps I'm not the target audience for this feature.
 I tend to stick to simple illustrations, and this is a more powerful graphics operation.
 I'm still glad to know it's there, even if I'm not sure when I'll use it.
 
+Now we can draw a partial stroke and apply it to our bitmap image, how do we animate it?
+
 [svg_masks]: /2021/inner-outer-strokes-svg/
 [mdn_composite]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
 [source_in]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation#source-in
 
 <script>
   window.addEventListener("DOMContentLoaded", async function() {
-    const image = await loadImage("/images/2025/purple-swoop.png");
-    swoop.image = image;
+    swoop.image = loadImage("/images/2025/purple-swoop.png");
 
     drawStroke({
       canvas: document.querySelector("#destination"),
@@ -595,114 +605,108 @@ I'm still glad to know it's there, even if I'm not sure when I'll use it.
 
 
 
+## Animating the brush stroke with Anime.js
+
+Before I started reading the code in detail, I tried to work out how I might create an animation like this myself.
+
+I haven't done much animation, so the only thing I could think of was JavaScript's [`setTimeout()`][setTimeout] and [`setInterval()`][setInterval] functions.
+Using those repeatedly to update a progress value would gradually draw the stroke.
+I tried it, and that does work!
+But I can think of some good reasons why it's not what's used for the animation on Swift.org.
+
+The timing of `setTimeout()` and `setInterval()` isn't guaranteed -- the browser may [delay longer than expected][unexpected_delays] if the system is under load or you'll updating too often.
+That could make the animation jerky or stuttery.
+Even if the delays fire correctly, it could still look a bit jerky -- you're stepping between a series of discrete frames, rather than smoothly animating a shape.
+If there's too much of a change between each frame, it could still look strange.
+
+Swift.org is using Julian Garnier's [Anime.js animation library][anime_js].
+Under the hood, this library uses web technologies I've only heard of to create animations, like [`requestAnimationFrame()`][requestAnimationFrame] and [hardware acceleration].
+I assume these browser features are better optimised for doing smooth and efficient animations -- for example, they must sync to the screen refresh rate, only drawing frames as necessary, whereas using `setInterval()` might draw lots of unused frames and waste CPU.
+
+Anime.js has a lot of different options, but the way Swift.org uses it is fairly straightforward.
+
+First it creates an object to track the state of the animation:
+
+```javascript
+const state = { progress: 0 };
+```
+
+Then there's a function that redraws the swoop based on the current progress:
+
+```javascript
+function updateSwoop() {
+  // Clear canvas before next draw
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the part of the stroke that we want to display
+  // at this point in the animation
+  ctx.lineDashOffset = swoop.pathLength * (1 - state.progress);
+  ctx.stroke(new Path2D(swoop.path));
+
+  // Draw the image, using "source-in" to apply a mask
+  ctx.globalCompositeOperation = 'source-in'
+  ctx.drawImage(img, 0, 0);
+
+  // Reset to default for our next stroke paint
+  ctx.globalCompositeOperation = 'source-out';
+}
+```
+
+Finally, it creates [a timeline][timeline], and [adds an animation][timeline_add] for each swoop.
+
+When it adds the animation, it passes five things:
+
+*   the `state` object
+*   the desired end state (`progress: 1`)
+*   the duration of the animation (1000ms = 1s)
+*   an [easing function][ease]; in this case `in(1.8)` means the animation will start slowly and gradually speed up
+*   the `updateSwoop` function as a callback for every time the animation updates
+
+```javascript
+const tl = anime.createTimeline()
+
+tl.add(
+  state,
+  { progress: 1, duration: 1000, ease: 'in(1.8)', onUpdate: updateSwoop }
+);
+```
+
+This function is why `state` is an object, even though it only has a single value.
+
+If we passed a primitive value like `const progress = 0` to `tl.add()`, JavaScript would pass it by value, and any changes wouldn't be visible to the `updateSwoop()` function.
+By wrapping the `progress` value in an object, JavaScript will pass by reference instead, so changes made inside `tl.add()` will be visible when `updateSwoop()` is called.
+
+So now we can animate our swoop, as if it was a brush stroke.
+There's one final piece: how do we start the animation?
+
+[setTimeout]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
+[setInterval]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval
+[unexpected_delays]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout#reasons_for_delays_longer_than_specified
+[anime_js]: https://animejs.com/
+[requestAnimationFrame]: https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
+[hardware acceleration]: https://animejs.com/documentation/web-animation-api/hardware-accelerated-animations/
+[timeline]: https://animejs.com/documentation/timeline
+[ease]: https://animejs.com/documentation/animation/tween-parameters/ease
+[timeline_add]: https://animejs.com/documentation/timeline/timeline-methods/add
 
 
 
 
+## Starting the animation with a `MutationObserver`
 
+If I want to do something when a page loads, I normally watch for the [`DOMContentLoaded` event][DOMContentLoaded], for example:
 
+```javascript
+window.addEventListener("DOMContentLoaded", () => {
+  runAnimation();
+});
+```
 
+But the Swift.org animation has one more thing to teach me, because it does something different.
 
+In the HTML, it has a `<div>` that wraps the canvas elements where it draws all the animations:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
----
----
----
----
---------
-
-<blockquote class="toc">
-  <h3>Table of contents</h3>
-
-  <ul>
-    <li><a href="#where">Where should I be looking?</a></li>
-    <li>
-      <a href="#mutationobserver">The animation is triggered by a <code>MutationObserver</code></a>
-      <ul>
-        <li><a href="#domcontentloaded">What about the <code>DOMContentLoaded</code> event?</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#dashoffset">Making a path gradually appear by setting <code>lineDashOffset</code></a>
-    </li>
-  </ul>
-</blockquote>
-
-
-
-
-
-
-
-<style>
-  .toc {
-    background: var(--background-color);
-    border-color: var(--primary-color);
-  }
-
-  .toc h3 {
-    color: var(--body-text);
-  }
-
-  .toc ol > li:not(:last-child) {
-    margin-bottom: 1em;
-  }
-
-  .toc ol > li > ul {
-    list-style-type: disc;
-  }
-
-  .toc ol > li > ul > li > ul {
-    list-style-type: circle;
-  }
-
-  .toc a:visited {
-    color: var(--primary-color);
-  }
-</style>
-
----
-
-<h2 id="where">Where should I be looking?</h2>
-
-I started by poking around in the development tools in my browser, and I quickly found some images named "swoop" that are part of the animation:
-
-{%
-  picture
-  filename="swoop.png"
-  width="600"
-  class="screenshot"
-  alt="Screenshot of my web inspector showing an image of an orange swoop, which looks a bit like an orange painted brush stroke"
-%}
-
-I searched for the word "swoop" in the source code, and I found a collection of [`canvas` elements][canvas], one for each component of the animation:
-
-{% annotatedhighlight
-  lang="html"
-  start_line="7"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/index.md?plain=1#L7"
-%}
+```html
 <div class="animation-container">
     <canvas id="purple-swoop" width="1248" height="1116"></canvas> <canvas id="purple-swoop" width="1248" height="1116"></canvas>
     <canvas id="white-swoop-1" width="1248" height="1116"></canvas>
@@ -711,123 +715,11 @@ I searched for the word "swoop" in the source code, and I found a collection of 
     <canvas id="white-swoop-2" width="1248" height="1116"></canvas>
     <canvas id="bird" width="1248" height="1116"></canvas>
 </div>
-{% endannotatedhighlight %}
-
-Then I found a file `hero.js` which is referencing these `canvas` elements and the associated images, in an array called `heroSwoops`:
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="21"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L21-L34"
-%}
-const heroSwoops = [
-  {
-    canvas: document.querySelector('#purple-swoop'),
-    path: 'M-34 860C-34 860 42 912 102 854C162 796 98 658 50 556C2 454 18 48 142 88C272 130 290 678 432 682C574 686 434 102 794 90C1009 83 1028 280 1028 280',
-    pathLength: 2776,
-    anchorPoints: [558, 480.5],
-    position: [558, 640.5],
-    imagePath: '/assets/images/landing-page/hero/purple-swoop.png',
-    lineWidth: 210,
-    debugColor: 'purple',
-    image: null,
-    state: { progress: offScreenDelta },
-  },
-  …
-{% endannotatedhighlight %}
-
-The most interesting variable here is what looks like an SVG [`path` attribute][svg_path].
-I can't read this natively, but I can plug it into Mathieu Dutour's excellent [SVG Path Visualizer tool][pathviz] and it looks very similar to the purple swoop image:
-
-<style>
-  #swoop_comparison {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1em;
-  }
-
-  @media screen and (max-width: 500px) {
-    #swoop_comparison {
-      grid-template-columns: auto;
-    }
-  }
-</style>
-
-<figure id="swoop_comparison">
-  <img src="/images/2025/purple-swoop.png" alt="A purple brush stroke that goes up and down several times in a fancy swoop">
-  {%
-    picture
-    filename="svg_pathviz.png"
-    width="500"
-    class="screenshot"
-    alt="Screenshot of the path visualizer, with a breakdown of how the path works and an annotated swoop that matches the purple swoop."
-  %}
-</figure>
-
-I don't know what this file does yet, but most of `hero.js` is a function called `heroAnimation`.
-That sounds promising!
-I did a quick skim, and it has code for loading images, and something to do with HTML canvas -- presumably that's manipulating the canvas elements I found in the HTML.
-
-Then I saved the HTML, images, and `hero.js` locally.
-When I tried to load the site, I got an error about an undefined variable `anime`, coming from this line:
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="177"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L177-L179"
-%}
-const tl = anime.createTimeline({
-  defaults: { duration: DURATION, ease: 'in(1.8)' },
-})
-{% endannotatedhighlight %}
-
-To get past this error, I also needed to save a file `anime.js`, which is a copy of Julian Garnier's [Anime.js library][anime_js].
-
-These are the files I ended up saving locally:
-
-```
-{root}
- ├─ swift.html
- ├─ static/
- │   ├─ anime.iife.min.js       (vendored copy of Anime.js
- │   ├─ application.css         (styles for the page)
- │   ├─ color-scheme-toggle.js  (controls light/dark mode)
- │   ├─ hero.js                 (has the heroAnimation() function)
- │   └─ noise.png               (background texture)
- └─ images/
-     ├─ bird.png
-     ├─ orange-swoop-bottom.png
-     ├─ orange-swoop-top.png
-     ├─ purple-swoop.png
-     ├─ white-swoop-1.png
-     └─ white-swoop-2.png
 ```
 
-This gave a [static copy of the site][zip] which I could hack on locally, add my own debugging code, and generally try to pick apart.
-If you want to step through the animation in detail, this gives you a self-contained example you can play with.
+And then it uses a [`MutationObserver`][MutationObserver] to watch the entire page for changes, and start the animation once it finds this wrapper `<div>`:
 
-[canvas]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas
-[anime_js]: https://animejs.com
-[zip]: /files/2025/swift_animation.zip
-
-
-
----
-
-
-
-<h2 id="mutationobserver">The animation is triggered by a <code>MutationObserver</code></h2>
-
-In the `hero.js` file, there's a function `heroAnimation`.
-I don't know what it does yet, but that must be what actually runs the animation.
-When I open the page in my browser, I can see the animation starts shortly afterward, but what's calling the `heroAnimation` function?
-
-Looking for `heroAnimation`, I found it being called at the end of `hero.js`:
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="282"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L282-L294" %}
+```javascript
 // Start animation when container is mounted
 const observer = new MutationObserver(() => {
   const animContainer = document.querySelector('.animation-container')
@@ -841,615 +733,63 @@ observer.observe(document.documentElement, {
   childList: true,
   subtree: true,
 })
-{% endannotatedhighlight %}
-
-This is all new to me; I've never seen `MutationObserver` before.
-But I can guess what it means from the name, and the [MDN documentation][MutationObserver] confirms my guess:
-
-> The `MutationObserver` interface provides the ability to watch for changes being made to the DOM tree.
-
-When this code calls `observer.observe()`, it starts watching for elements made to `document.documentElement` -- which in practice, any changes to the DOM of the entire page -- and when it sees a change, it runs the callback function.
-
-That callback starts by looking for an element with the `animation-container` class, which is the collection of canvas elements I found earlier.
-If it finds a matching element, it stops the observer and starts the hero animation.
-This means the animation will only be started once, the first time the container appears on the page.
-
-Although I've never used MutationObserver, it feels vaguely familiar.
-It reminds me of React and Next.js, which would push changes to the DOM whenever the input changes.
-This feels like the inversion of that: where React watches for changes in the input, a MutationObserver watches for changes in the DOM.
-
-[MutationObserver]: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
-
-<h3 id="domcontentloaded">What about the <code>DOMContentLoaded</code> event?</h3>
-
-Because the animation starts when the page loads, I was expecting something like:
-
-```javascript
-document.addEventListener("DOMContentLoaded", heroAnimation)
 ```
 
-I don't think there's much difference in this particular case, but I can see that `MutationObserver` is much more flexible for the general case.
+Although I've never used `MutationObserver`, it feels vaguely familiar.
+It reminds me of React and Next.js, which would push changes to the DOM whenever the input changes.
+This feels like the inversion of that: where React watches for changes in the input, a `MutationObserver` watches for changes in the DOM.
+
+I don't think there's much difference between `DOMContentLoaded` and `MutationObserver` in this particular case, but I can see that `MutationObserver` is much more flexible for the general case.
 You can target a more precise element than "the entire document", and you can look for changes beyond just the initial load.
 
-I suspect the `MutationObserver` approach may also be slightly faster -- I added a bit of console logging, and I can see the `MutationObserver` callback is called three times when loading the Swift.org homepage.
+I suspect the `MutationObserver` approach may also be slightly faster -- I added a bit of console logging, and if you don't disconnect the observer, it gets called three times when loading the Swift.org homepage.
 If the animation container exists on the first call, you can start the animation immediately, rather than waiting for the rest of the DOM to load.
 I'm not sure if that's a perceptible difference though, except for very large and complex web pages.
 
+This step completes the animation.
+When the page loads, we can start an animation that draws the brush stroke as a path.
+As the animation continues, we draw more and more of that path, and the path is used as a mask for a bitmap image, gradually unveiling the purple swoop.
 
-
----
-
-
-<style>
-/*  canvas {
-    border: var(--border-width) var(--border-style) var(--block-border-color);
-    border-radius: var(--border-radius);
-    background-color: var(--block-background);
-    width: calc(100% - 6px);
-    margin: 0 auto;
-  }*/
-
-  pre:has( + canvas) {
-    border-bottom-left-radius:  0;
-    border-bottom-right-radius: 0;
-    margin-bottom: 5px;
-  }
-
-  pre + canvas {
-    border-top-left-radius:  0;
-    border-top-right-radius: 0;
-  }
-</style>
+[DOMContentLoaded]: https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+[MutationObserver]: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver/MutationObserver
 
 
 
-<h2 id="animating">Animating the painted strokes</h2>
 
+## The animation skips if you have `(prefers-reduced-motion: reduce)`
 
-
-<h3 id="dashoffset">Making a path gradually appear by setting <code>lineDashOffset</code></h3>
-
-If you draw a stroke in an HTML5 canvas, it appears as a solid line.
+There's one other aspect of the animation on Swift.org that I want to highlight.
+At the beginning of the animation sequence, it checks to see if you have the ["prefers reduced motion" preference][prefers-reduced-motion].
+This is an accessibility setting that allows somebody to minimise non-essential animations.
 
 ```javascript
-const canvas = document.querySelector('#zigzag');
-const ctx = canvas.getContext('2d');
-
-ctx.lineWidth = 10;
-
-const path = new Path2D("M0,25 500,25");
-ctx.stroke(path);
-```
-
-<canvas id="zigzag" width="500" height="50"></canvas>
-
-You can set a line dash pattern with the [`setLineDash()` function](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash).
-You pass an array of values, which specify the alternating length of lines and gaps.
-Here are three examples:
-
-```javascript
-const path1 = new Path2D("M0,25 500,25");
-ctx.setLineDash([50]);
-ctx.stroke(path1);
-
-const path2 = new Path2D("M0,50 500,50");
-ctx.setLineDash([60, 30]);
-ctx.stroke(path2);
-
-const path3 = new Path2D("M0,75 500,75");
-ctx.setLineDash([40, 30, 20, 10]);
-ctx.stroke(path3);
-```
-
-<canvas id="linedash" width="500" height="100"></canvas>
-
-You can apply a line dash to any path -- I'm using straight lines for simplicity, but you can also apply it to more complex paths:
-
-```javascript
-const path = new Path2D(
-  "M 20,50 " +
-  "Q 70,0 120,50 Q 170,100 220,50 " +
-  "Q 270,0 320,50 Q 370,100 420,50 " +
-  "Q 470,0 520,50 Q 570,100 620,50"
-);
-ctx.setLineDash([25]);
-ctx.stroke(path);
-```
-
-<canvas id="curvedash" width="500" height="100"></canvas>
-
-
-<script>
-  window.addEventListener("DOMContentLoaded", function() {
-    const bodyText =
-      window
-        .getComputedStyle(document.body)
-        .getPropertyValue('--body-text');
-
-    const canvas = document.querySelector('#zigzag');
-    const ctx = canvas.getContext('2d');
-
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = bodyText;
-
-    const pathInstance = new Path2D("M0,25 500,25");
-    ctx.stroke(pathInstance);
-  })
-
-  window.addEventListener("DOMContentLoaded", function() {
-    const bodyText =
-      window
-        .getComputedStyle(document.body)
-        .getPropertyValue('--body-text');
-
-    const canvas = document.querySelector('#linedash');
-    const ctx = canvas.getContext('2d');
-
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = bodyText;
-
-    const pathInstance1 = new Path2D("M0,25 500,25");
-    ctx.setLineDash([50]);
-    ctx.stroke(pathInstance1);
-
-    const pathInstance2 = new Path2D("M0,50 500,50");
-    ctx.setLineDash([60, 30]);
-    ctx.stroke(pathInstance2);
-
-    const pathInstance3 = new Path2D("M0,75 500,75");
-    ctx.setLineDash([40, 30, 20, 10]);
-    ctx.stroke(pathInstance3);
-  })
-
-  window.addEventListener("DOMContentLoaded", function() {
-    const bodyText =
-      window
-        .getComputedStyle(document.body)
-        .getPropertyValue('--body-text');
-
-    const canvas = document.querySelector('#curvedash');
-    const ctx = canvas.getContext('2d');
-
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = bodyText;
-
-    const pathInstance = new Path2D(
-      "M 20,50 " +
-      "Q 70,0 120,50 Q 170,100 220,50 " +
-      "Q 270,0 320,50 Q 370,100 420,50 " +
-      "Q 470,0 520,50 Q 570,100 620,50"
-    );
-    ctx.setLineDash([25]);
-    ctx.stroke(pathInstance);
-  })
-</script>
-
-
-
-
-
-
-
-
-{% comment %}
-
----
-
-<h2 id="heroanimation">What's happening in <code>heroAnimation()</code>?</h2>
-
-This function is doing a bunch of stuff, and now I can see it being called when the page loads.
-What's it actually doing?
-
-<h3 id="initvar">Setting up the initial variables</h3>
-
-The first chunk of the function is just setting up some variables.
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="2"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L2-L4" %}
 const isReduceMotionEnabled = window.matchMedia(
   '(prefers-reduced-motion: reduce)',
 ).matches
-{% endannotatedhighlight %}
+```
 
-This detects whether the user has the ["prefer reduced motion" preference][prefers-reduced-motion], and is used later to disable the animation if so.
-If you set this preference, the bird never animates, it just appears.
+Further down, the code checks for this preference, and if it's set, it skips the animation and just renders the final image.
 
 This is an important accessibility feature, and I wish more sites paid attention to it.
 
 [prefers-reduced-motion]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
-{% annotatedhighlight
-  lang="javascript"
-  start_line="5"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L5-L6" %}
-const urlParams = new URLSearchParams(location.search)
-const hasDebugParam = urlParams.has('debug')
-{% endannotatedhighlight %}
 
-This checks if there's a `debug` parameter in the URL query string.
-There is code that uses this variable, but I can't see any effect when I set it?
-Weird.
 
-I wonder if I need to do something extra in my browser to enable the debug behaviour, or if it's a broken leftover from when this code was being written.
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="8"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L8-L15" %}
-async function loadImage(url) {
-  const el = new Image()
-  return new Promise((resolve, reject) => {
-    el.onload = () => resolve(el)
-    el.onerror = (err) => reject(err)
-    el.src = url
-  })
-}
-{% endannotatedhighlight %}
-
-This function loads an image from a URL, then the Promise completes.
-I'm not sure what this is for yet; I guess I'll find out later.
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="17"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L17-L19" %}
-// Skip to visible portion of animation when cropped on small screens
-const { left, width } = animContainer.getClientRects()[0]
-const offScreenDelta = Math.abs(left) / width
-{% endannotatedhighlight %}
-
-These variables are something to do with the geometry of the animation container.
-In particular, [`getClientRects()`][getClientRects] tells us the dimensions of its bounding box.
-I'm not sure what these variables are used for yet.
-
-[getClientRects]: https://developer.mozilla.org/en-US/docs/Web/API/Element/getClientRects
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="21"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L21-L34"
-%}
-const heroSwoops = [
-  {
-    canvas: document.querySelector('#purple-swoop'),
-    path: 'M-34 860C-34 860 42 912 102 854C162 796 98 658 50 556C2 454 18 48 142 88C272 130 290 678 432 682C574 686 434 102 794 90C1009 83 1028 280 1028 280',
-    pathLength: 2776,
-    anchorPoints: [558, 480.5],
-    position: [558, 640.5],
-    imagePath: '/assets/images/landing-page/hero/purple-swoop.png',
-    lineWidth: 210,
-    debugColor: 'purple',
-    image: null,
-    state: { progress: offScreenDelta },
-  },
-  …
-{% endannotatedhighlight %}
-
-This is an array with five entries that correspond to the five "swoop" images in the animation.
-I don't really understand what all the values do yet, but I'm guessing they're something to do with the geometry of the swoop.
-
-I imagine it'll become clear what these variables are for as I read the rest of the code.
-
-There's a similar variable for the bird logo, which doesn't have an SVG path but does have some geometry variables I assume will make sense later:
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="83"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L83C3-L92C4"
-%}
-const logo = {
-  canvas: document.querySelector('#bird'),
-  positionStart: [899.2, 202.5],
-  positionEnd: [1084, 388],
-  anchorPoints: [304, 268.5],
-  position: [610, 672.5],
-  imagePath: '/assets/images/landing-page/hero/bird.png',
-  image: null,
-  state: { progress: offScreenDelta },
-}
-{% endannotatedhighlight %}
-
-[svg_path]: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/path
-
-<h3 id="initswoops">Even more setup in the <code>initSwoops()</code> and <code>initLogo()</code> functions</h3>
-
-After setting up all the variables, there's an [`initSwoops()` function][initSwoops] that takes a bunch of variables from the `heroSwoops` array, and returns two values:
-
-1.  A [canvas drawing context][getContext], with a couple of properties like the thickness of lines and the line dash pattern.
-    Here's what happens in the default case:
-
-    ```javascript
-    const ctx = canvas.getContext('2d')
-
-    // The reference animation's transform origin is in the center of the canvas
-    // We're not going to reset this as it will make pulling values directly from AE easier
-    ctx.translate(posX - image.naturalWidth / 2, posY - image.naturalHeight / 2)
-
-    // Set mask styles
-    ctx.lineWidth = lineWidth
-    ctx.lineCap = 'round'
-
-    ctx.setLineDash([pathLength])
-    ctx.lineDashOffset = pathLength
-    ```
-
-    That mention of mask styles is intriguing -- I've played with [masks for SVG](/2021/inner-outer-strokes-svg/), but never in an HTML canvas.
-
-2.  A [`Path2D` object][Path2D] that follows the `path` defined in `heroSwoops`.
-    This is only a single line:
-
-    ```javascript
-    let pathInstance = new Path2D(path)
-    ```
-
-By default, this function still isn't drawing anything, just setting up more objects.
-
-It includes the code for handling the "prefer reduced motion" setting -- it draws the PNG image in the drawing context, which makes it appear immediately.
-It also doesn't set the line dash pattern, which makes me think that must be important for the animation.
-
-This function also includes some debugging code, but when I set add `?debug=true` to my URL, nothing seems to happen.
-I can see the debugging branch is activated, but I can't seee any effect.
-
-There's also an [`initLogo()` function][initLogo], which looks very similar.
-It sets up a drawing context and handles "prefer reduced motion", but doesn't actually draw anything.
-
-I can see these functions get called almost immediately, and then they attach these new contexts and `Path2D` instance to the `heroSwoops` and `logo` variables:
-
-{% annotatedhighlight
-  lang="javascript"
-  start_line="148"
-  src="https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L148C5-L164C30"
-%}
-// Load swoop images
-const swoopImages = await Promise.all(
-  heroSwoops.map((swoop) => loadImage(swoop.imagePath)),
-)
-// Load logo
-const logoImage = await loadImage(logo.imagePath)
-
-logo.image = logoImage
-// Init canvas for each swoop layer
-heroSwoops.forEach((swoop, i) => {
-  swoop.image = swoopImages[i]
-  const canvasData = initSwoops(swoop)
-  swoop.ctx = canvasData.ctx
-  swoop.pathInstance = canvasData.pathInstance
-})
-// Init logo canvas
-logo.ctx = initLogo(logo)
-{% endannotatedhighlight %}
-
-So now we've set the initial state of the animation -- but how does it actually move?
-
-[initSwoops]: https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L94
-[initLogo]: https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js#L127-L145
-[getContext]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
-[Path2D]: https://developer.mozilla.org/en-US/docs/Web/API/Path2D/Path2D
-
-<h3 id="globalCompositeOperation">Actually animating the strokes with <code>globalCompositeOperation</code></h3>
-
----
----
----
-a couple of geometry variables
-
-
-
-what's that path?
-let's plug into SVG path visualizer
-
-https://svg-path-visualizer.netlify.app/#M-34%20860C-34%20860%2042%20912%20102%20854C162%20796%2098%20658%2050%20556C2%20454%2018%2048%20142%2088C272%20130%20290%20678%20432%20682C574%20686%20434%20102%20794%2090C1009%2083%201028%20280%201028%20280
-
-looks familiar!
-
-then a function `initSwoops` and `initLogo`
-
-* initSwoops creates a drawing context on a canvas https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext
-
-    ```javascript
-    const ctx = canvas.getContext('2d')
-    ```
-
-    if reduce motion: just draw image immediately, `ctx.drawImage(image, 0, 0)`
-
-    otherwise, adds a path to the canvas
-    this stroke follows the path we got above
-    doesn't appear visually, just a Path2D object https://developer.mozilla.org/en-US/docs/Web/API/Path2D/Path2D
-
-    looks like debug code to actually draw the path visually, but adding `?debug=true` to the URL didn't work
-    I wonder if I'm doing something wrong, or if it's leftover debugging code that's since broken
-
-*   initLogo creates another drawing context
-
-    if reduce motion, adds image immediately
-    presumably this is for the bird logo
-
-then some code which loads all the images, and calls initSwoops and initLogo:
-
-```javascript
-try {
-  // Load swoop images
-  const swoopImages = await Promise.all(
-    heroSwoops.map((swoop) => loadImage(swoop.imagePath)),
-  )
-  // Load logo
-  const logoImage = await loadImage(logo.imagePath)
-
-  logo.image = logoImage
-  // Init canvas for each swoop layer
-  heroSwoops.forEach((swoop, i) => {
-    swoop.image = swoopImages[i]
-    const canvasData = initSwoops(swoop)
-    swoop.ctx = canvasData.ctx
-    swoop.pathInstance = canvasData.pathInstance
-  })
-  // Init logo canvas
-  logo.ctx = initLogo(logo)
-} catch (error) {
-  console.error('Error loading images:', error)
-  throw error
-}
-```
-
-then we bail out if reduce motion:
-
-```
-  // Skip animation if reduced motion is enabled
-  if (isReduceMotionEnabled) {
-    return
-  }
-```
-
-## actually running the animation
-
-okay, it's a timeline in Anime.js: https://animejs.com/documentation/timeline/
-
-```
-  const tl = anime.createTimeline({
-    defaults: { duration: DURATION, ease: 'in(1.8)' },
-  })
-```
-
-and a swoopUpdate function:
-
-```
-  const swoopUpdate = ({
-    state,
-    ctx,
-    pathLength,
-    pathInstance,
-    image,
-    canvas,
-  }) => {
-    // Clear canvas before next draw
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    // Progress line dash offset
-    ctx.lineDashOffset = pathLength * (1 - state.progress)
-    // Draw stroke
-    ctx.stroke(pathInstance)
-    // Source-in will allow us to only draw as far as the stroke
-    ctx.globalCompositeOperation = 'source-in'
-    ctx.drawImage(image, 0, 0)
-    // Reset to default for our next stroke paint
-    ctx.globalCompositeOperation = 'source-out'
-  }
-```
-
-this looks like a function which is called to update the state of the animation
-
-`globalCompositeOperation` is interesting!
-https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
-so only see stuff that's inside the stroke
-AHA
-so that's how it works
-cannot just animate left to right, would look wrong -- animates along the stroke
-
-break it down into minimal example
-
-## start the stroke animations
-
-https://animejs.com/documentation/timeline/timeline-methods/add
-
-here's an animation for the stroke:
-
-```
-  tl.add(
-    heroSwoops[1].state,
-    {
-      progress: 1,
-      duration: 950 - 950 * offScreenDelta,
-      onUpdate: () => swoopUpdate(heroSwoops[1]),
-    },
-    'start',
-  )
-```
-
-heroSwoops[1].state = `{ progress: offScreenDelta }`, which is 0
-
-then set of animation parameters:
-
-* `progress: 1` means it will animate this progress variable from 0 to 1
-    -> bit confused, no parameter named this in anime.js docs
-    -> realised it's from the state parameter in `heroSwoops`
-* duration = how long it will take, 950 = 950ms, just under a second
-* onUpdate = every time the animation updates, it calls the swoopUpdate function
-
-final param is position, tells us when it will begin = begins from start of animation
-
-let's comment out all but one of these, and slow down the animation:
-
-```
-  tl.add(
-    heroSwoops[0].state,
-    {
-      progress: 1,
-      duration: 9500 - 9500 * offScreenDelta,
-      onUpdate: () => swoopUpdate(heroSwoops[0]),
-    },
-    'start',
-  )
-```
-
-can see it more clearly -- image is following stroke
-
-## animate the logo
-
-```
-  tl.add(
-    logo.state,
-    {
-      ease: 'out(1.2)',
-      duration: 2000 - 2000 * offScreenDelta,
-      delay: 7500 - 7500 * offScreenDelta,
-      progress: 1,
-      onUpdate: () => {
-        const {
-          state: { progress },
-          ctx,
-          image,
-          canvas,
-          positionStart: [startX, startY],
-          positionEnd: [endX, endY],
-        } = logo
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        // Progresses logo opacity from 0 to 1
-        ctx.globalAlpha = progress
-        const deltaX = (endX - startX) * progress
-        const deltaY = (endY - startY) * progress
-        ctx.drawImage(image, deltaX, deltaY)
-      },
-    },
-    'start',
-  )
-```
-
-wasn't sure what it was doing -- slow it down, becomes v obvious
-fades in and translates diagonally
-with that in mind, X/Y variables are obvious -- dictate current position
-
-https://animejs.com/documentation/animatable/animatable-settings/ease
-
-* ease is interesting
 
 ---
 
-takeaways
-
-* anime.js library and timelines
-* MutationObserver
-* globalCompositeOperation
-
-this is super cool!
 
 
-animation is one of those topics that's always felt daunting to me, esp because involves graphics programs, ooh scary
-not all of this is code -- somebody had to create those graphic assets
-first time I've thought "oh, I get it"
-I can see a path to creating my own animations this way
 
-(will i? questionable, have many ideas that never go anywhere!)
-but it feels a bit easier than it did before
+## Closing thoughts
 
-{% endcomment %}
+Thanks again to the three people who wrote this animation code: Federico Bucchi, Jesse Borden, and Nicholas Krambousanos.
+They wrote some [very readable JavaScript][hero_js], so I could understand how it worked.
+The ability to "view source" and see how a page works is an amazing feature of the web, and finding the commit history as open source is the cherry on the cake.
+
+I really enjoyed writing this post, and getting to understand how this animation works.
+I don't know that I could write something similar -- in particular, I don't have the graphics skills to create the bitmap images of brush strokes -- but I'd feel a lot more confident trying than I would before.
+I hope you've learned something as well.
+
+[hero_js]: https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js
