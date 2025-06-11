@@ -44,6 +44,24 @@ def ensure_sufficient_contrast(css_colors)
   end
 end
 
+# This hooks assigns CSS colors to every page.
+#
+# The colors are either:
+#
+#   - from the YAML front matter in the Markdown file, or
+#   - the default values
+#
+# def ensure_has_css_colors(doc)
+# end
+
+Jekyll::Hooks.register :pages, :pre_render do |page|
+  create_asset_images(page)
+end
+
+Jekyll::Hooks.register :documents, :pre_render do |doc|
+  create_asset_images(doc)
+end
+
 # This hook creates a header image and favicon for the default
 # light/dark colours.
 Jekyll::Hooks.register :site, :pre_render do
