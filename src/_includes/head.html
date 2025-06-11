@@ -21,13 +21,15 @@
 <meta name="jekyll-environment" content="{{ jekyll.environment}}" >
 
 {% if page.colors.css_light %}
-  <link rel="icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
-  <link rel="icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
-  <meta name="theme-color" content="{{ page.colors.css_light }}">
+  <link rel="shortcut icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
+  <meta name="theme-color" content="{{ page.colors.css_light }}" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="{{ page.colors.css_dark }}"  media="(prefers-color-scheme: dark)">
 {% else %}
-  <link rel="icon" type="image/png"    href="/favicon.png" sizes="32x32">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
-  <meta name="theme-color" content="#d01c11">
+  <link rel="shortcut icon" type="image/png"    href="/favicon.png" sizes="32x32">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+  <meta name="theme-color" content="#d01c11" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#ff4242" media="(prefers-color-scheme: dark)">
 {% endif %}
 
 <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
