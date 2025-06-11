@@ -27,6 +27,16 @@ def read_default_light_color
   match.named_captures['color']
 end
 
+# Get the dark color that will be used as the default colour if
+# no override tint color is specified.
+def read_default_dark_color
+  sass_source = File.read 'src/_scss/variables.scss'
+
+  match = sass_source.match('\-\-default-primary\-color\-dark:\s+(?<color>#[0-9a-f]{6});')
+
+  match.named_captures['color']
+end
+
 # Given a given hex colour as a string (e.g. '#123456') generate
 # an infinite sequence of colours which vary only in brightness.
 def get_colors_like(hex_color)

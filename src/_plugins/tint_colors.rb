@@ -44,34 +44,44 @@ def ensure_sufficient_contrast(css_colors)
   end
 end
 
+# This hook creates a header image and favicon for the default
+# light/dark colours.
 Jekyll::Hooks.register :site, :pre_render do
-  light_color = read_default_light_color
+  default_light_color = read_default_light_color
+  default_dark_color = read_default_dark_color
 
-  create_header_image(light_color)
-  create_favicon(light_color)
+  create_header_image(default_light_color)
+  create_header_image(default_dark_color)
 
-  hex_string = light_color.gsub('#', '')
+  create_favicon(default_light_color)
+  create_favicon(default_dark_color)
+
+  hex_string = default_light_color.gsub('#', '')
 
   FileUtils.cp("_site/favicons/#{hex_string}.png", '_site/favicon.png')
   FileUtils.cp("_site/favicons/#{hex_string}.ico", '_site/favicon.ico')
 end
 
-Jekyll::Hooks.register :pages, :pre_render do |page|
-  css_colors = get_css_colors(page.data)
-
-  unless css_colors.nil?
-    ensure_sufficient_contrast(css_colors)
-    create_header_image(css_colors['light'])
-    create_favicon(css_colors['light'])
-  end
-end
-
-Jekyll::Hooks.register :documents, :pre_render do |doc|
+# These hooks create the asset images for the custom CSS colors
+# on each post, page, and TIL.
+def create_asset_images(doc)
   css_colors = get_css_colors(doc.data)
 
   unless css_colors.nil?
     ensure_sufficient_contrast(css_colors)
+
     create_header_image(css_colors['light'])
+    create_header_image(css_colors['dark'])
+
     create_favicon(css_colors['light'])
+    create_favicon(css_colors['dark'])
   end
+end
+
+Jekyll::Hooks.register :pages, :pre_render do |page|
+  create_asset_images(page)
+end
+
+Jekyll::Hooks.register :documents, :pre_render do |doc|
+  create_asset_images(doc)
 end
