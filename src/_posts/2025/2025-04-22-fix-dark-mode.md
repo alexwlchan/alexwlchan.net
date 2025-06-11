@@ -19,7 +19,7 @@ Both my textures are based on the ["White Waves" pattern][white_waves] made by S
   }
 
   #comparison img {
-    border: var(--border-width) var(--border-style) var(--block-border);
+    border: var(--border-width) var(--border-style) var(--block-border-color);
     object-fit: none;
   }
 

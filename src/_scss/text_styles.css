@@ -57,8 +57,3 @@ blockquote {
   margin-left:  0;
   margin-right: 0;
 }
-
-blockquote.action_bar {
-  margin-top: 2em;
-  --block-border: var(--primary-color);
-}

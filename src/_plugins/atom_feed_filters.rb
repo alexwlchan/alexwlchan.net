@@ -7,6 +7,14 @@
 require 'nokogiri'
 
 module HtmlModifiers
+  # Remove any elements that have `data-norss`.
+  #
+  # This is a way I can signal in my markup that a particular element is
+  # for the website only, and should not be included in the RSS.
+  def self.remove_norss_elements(doc)
+    doc.xpath('.//*[@data-norss]').remove
+  end
+
   def self.fix_tweets_for_rss(doc)
     # Remove the small blue bird I add to tweet blockquotes; it's only there
     # so that my faux tweet embeds look more like real tweets.
@@ -30,6 +38,21 @@ module HtmlModifiers
   # That works fine if you're looking at the site in a web browser, but
   # if you're in an RSS feed all the links will be broken.  Add the hostname
   # to the feed URLs.
+  def self.fix_tags_with_relative_urls(doc)
+    tags_with_relative_attributes = [
+      { xpath: './/img', attribute: 'src' },
+      { xpath: './/a', attribute: 'href' },
+      { xpath: './/source', attribute: 'srcset' },
+
+      # NOTE: <image> tags appear in inline SVGs, not HTML.
+      { xpath: './/image', attribute: 'src' }
+    ]
+
+    tags_with_relative_attributes.each do |tag|
+      doc.xpath(doc[:xpath]).each { |t| fix_relative_url(t, tag) }
+    end
+  end
+
   def self.fix_relative_url(tag, options)
     attribute_name = options[:attribute]
     existing_value = tag.get_attribute(attribute_name)
@@ -62,20 +85,9 @@ module Jekyll
                         .flat_map { |name| ["@#{name}", ".//@#{name}"] }
       doc.xpath(attribute_names.join('|')).remove
 
+      HtmlModifiers.remove_norss_elements(doc)
       HtmlModifiers.fix_tweets_for_rss(doc)
-
-      tags_with_relative_attributes = [
-        { xpath: './/img', attribute: 'src' },
-        { xpath: './/a', attribute: 'href' },
-        { xpath: './/source', attribute: 'srcset' },
-
-        # NOTE: <image> tags appear in inline SVGs, not HTML.
-        { xpath: './/image', attribute: 'src' }
-      ]
-
-      tags_with_relative_attributes.each do |tag|
-        doc.xpath(doc[:xpath]).each { |t| HtmlModifiers.fix_relative_url(t, tag) }
-      end
+      HtmlModifiers.fix_tags_with_relative_urls(doc)
 
       # Removing elements may have left empty paragraphs; remove them.
       doc.to_s.gsub('<p></p>', '')
