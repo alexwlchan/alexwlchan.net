@@ -57,14 +57,14 @@ module Jekyll
       inner_code, code_close, suffix = code_post.partition('</code>')
 
       inner_code = inner_code.split("\n")
-        .each_with_index
-        .map do |ln, idx| 
-          if code_snippet.split("\n")[idx].strip == "…"
-            "<span class=\"ln ellipsis\">#{ln}</span>"
-          else
-            "<span class=\"ln\">#{ln}</span>"
-          end
+                             .each_with_index
+                             .map do |ln, idx|
+        if code_snippet.split("\n")[idx].strip == '…'
+          "<span class=\"ln ellipsis\">#{ln}</span>"
+        else
+          "<span class=\"ln\">#{ln}</span>"
         end
+      end
         .join("\n")
 
       code_pre = "#{prefix}#{code_open}#{inner_code}#{code_close}#{suffix}"
@@ -73,8 +73,8 @@ module Jekyll
       # if we don't have an explicit start line, start at 1.
       start_line = @attrs.fetch('start_line', '1').to_i
       end_line = start_line + inner_code.split("\n").length - 1
-      
-      if code_snippet.split("\n")[-1].strip == "…"
+
+      if code_snippet.split("\n")[-1].strip == '…'
         end_line -= 1
       end
 
@@ -99,15 +99,15 @@ module Jekyll
         # e.g. "index.md"
         filename = File.basename(path)
 
-        figcaption = <<EOF
+        figcaption = <<HTML
           <figcaption>
             From <a href="#{@attrs['src']}">#{filename}</a>, lines #{start_line}–#{end_line}, in <a href="https://github.com/#{organization}/#{repository}/">#{organization}/#{repository}</a>
           </figcaption>
-EOF
+HTML
       end
 
       # Now construct a <figure> element which wraps the two <pre> elements.
-      <<~EOF
+      <<~HTML
         <figure
           class="annotated_highlight"
           style="--start-line: #{start_line};
@@ -115,7 +115,7 @@ EOF
             #{code_pre}
             #{figcaption}
         </figure>
-      EOF
+      HTML
     end
   end
 end
