@@ -65,11 +65,11 @@ All the code from the Swift.org website is [open source on GitHub](https://githu
   <h3>Table of contents</h3>
   <ul>
     <li><a href="#key_steps">What are the key steps in this animation?</a></li>
-    <li><a href="#partial_path">Only draw part of a curved path</a></li>
-    <li><a href="#masking">Masking an image with a <code>globalCompositeOperation</code></a></li>
-    <li><a href="#animejs">Animating the brush stroke with Anime.js</a></li>
-    <li><a href="#mutationobserver">Starting the animation with a <code>MutationObserver</code></a></li>
-    <li><a href="#reduce_motion">The animation skips if you have <code>(prefers-reduced-motion: reduce)</code></a></li>
+    <li><a href="#partial_path">Only draw part of a curved path with a dash pattern</a></li>
+    <li><a href="#masking">Mask an image with a <code>globalCompositeOperation</code></a></li>
+    <li><a href="#animejs">Animate the brush stroke with Anime.js</a></li>
+    <li><a href="#mutationobserver">Start the animation with a <code>MutationObserver</code></a></li>
+    <li><a href="#reduce_motion">Skip the animation if you have <code>(prefers-reduced-motion: reduce)</code></a></li>
     <li><a href="#closing_thoughts">Closing thoughts</a></li>
   </ul>
 </blockquote>
@@ -304,7 +304,7 @@ Let's go through each of these in turn.
 
 
 
-<h2 id="partial_path">Only draw part of a curved path</h2>
+<h2 id="partial_path">Only draw part of a curved path with a dash pattern</h2>
 
 Alongside the graphical image of a brush stroke, the artist supplied an SVG path for the mask:
 
@@ -523,7 +523,7 @@ Once we have our path, how do we use it to mask an image?
 
 
 
-<h2 id="masking">Masking an image with a <code>globalCompositeOperation</code></h2>
+<h2 id="masking">Mask an image with a <code>globalCompositeOperation</code></h2>
 
 The masking uses a property of HTML5 canvas called `globalCompositeOperation`.
 If you've already drawn some shapes on a canvas, you can control how new shapes will appear on top of them -- for example, which one appears on top, or whether to clip one to fit inside the other.
@@ -631,7 +631,7 @@ Now we can draw a partial stroke and use it as a mask, how do we animate it?
 
 
 
-<h2 id="animejs">Animating the brush stroke with Anime.js</h2>
+<h2 id="animejs">Animate the brush stroke with Anime.js</h2>
 
 Before I started reading the code in detail, I tried to work out how I might create an animation like this myself.
 
@@ -718,7 +718,7 @@ There's one final piece: how do we start the animation?
 
 
 
-<h2 id="mutationobserver">Starting the animation with a <code>MutationObserver</code></h2>
+<h2 id="mutationobserver">Start the animation with a <code>MutationObserver</code></h2>
 
 If I want to do something when a page loads, I normally watch for the [`DOMContentLoaded` event][DOMContentLoaded], for example:
 
@@ -780,7 +780,7 @@ As the animation continues, we draw more and more of that path, and the path is 
 
 
 
-<h2 id="reduce_motion">The animation skips if you have <code>(prefers-reduced-motion: reduce)</code></h2>
+<h2 id="reduce_motion">Skip the animation if you have <code>(prefers-reduced-motion: reduce)</code></h2>
 
 There's one other aspect of the animation on Swift.org that I want to highlight.
 At the beginning of the animation sequence, it checks to see if you have the ["prefers reduced motion" preference][prefers-reduced-motion].
