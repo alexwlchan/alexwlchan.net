@@ -10,8 +10,6 @@ index:
 colors:
   index_light: "#f8631e"
   index_dark:  "#f4c790"
-  css_light:   "#d83d09"
-  css_dark:    "#f5a77d"
 ---
 Last week, the Swift.org website [got a redesign][redesign].
 I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH COOL BIRD!
@@ -39,39 +37,62 @@ When you load the page, there's a swooping animation as the bird appears:
   }
 </style>
 
-<figure>
-  <video
-    controls
-    class="light-video"
-    poster="/images/2025/swift_bird_light.jpg"
-    src="/images/2025/swift_bird_light.mp4"></video>
-  <video
-    controls
-    class="dark-video"
-    poster="/images/2025/swift_bird_dark.jpg"
-    src="/images/2025/swift_bird_dark.mp4"
-    data-norss></video>
-  <figcaption>
-    Anybody who’s been out for a walk with me in the last month has watched me be transfixed by <a href="https://buttondown.com/alexwlchan/archive/may-2025-fluffy-birds-and-fancy-bookmarks/">cute and fluffy birds</a>, and now I get to bring that energy to my blog.
-  </figcaption>
-</figure>
+<video
+  controls
+  class="light-video"
+  poster="/images/2025/swift_bird_light.jpg"
+  src="/images/2025/swift_bird_light.mp4"></video>
+<video
+  controls
+  class="dark-video"
+  poster="/images/2025/swift_bird_dark.jpg"
+  src="/images/2025/swift_bird_dark.mp4"
+  data-norss></video>
 
 I was curious how the animation worked.
 I thought maybe it was an autoplaying video with no controls, but no, it's much cooler than that!
-The animation is implemented entirely in code -- there are a few images, but all the dynamic parts all use JavaScript and the HTML5 canvas element.
+The animation is implemented entirely in code -- there are a few image assets, and then the motion uses JavaScript and the HTML5 canvas element.
 
 I've never done anything with animation, so I started reading the code to understand how it works.
-I'm not going to walk through it in detail, but I do want to show you some of what I learnt.
+I'm not going to walk through it in detail, but I do want to show you what I learnt.
 
 All the code from the Swift.org website is [open source on GitHub](https://github.com/swiftlang/swift-org-website/), and the JavaScript file that implements this animation was written by three engineers: [Federico Bucchi](https://github.com/federicobucchi), [Jesse Borden](https://github.com/jesseaborden), and [Nicholas Krambousanos](https://github.com/nkrambo).
 
 [redesign]: https://www.swift.org/blog/redesigned-swift-org-is-now-live/
 
+<blockquote class="toc">
+  <h3>Table of contents</h3>
+  <ul>
+    <li><a href="#key_steps">What are the key steps in this animation?</a></li>
+    <li><a href="#partial_path">Only draw part of a curved path</a></li>
+    <li><a href="#masking">Masking an image with a <code>globalCompositeOperation</code></a></li>
+    <li><a href="#animejs">Animating the brush stroke with Anime.js</a></li>
+    <li><a href="#mutationobserver">Starting the animation with a <code>MutationObserver</code></a></li>
+    <li><a href="#reduce_motion">The animation skips if you have <code>(prefers-reduced-motion: reduce)</code></a></li>
+    <li><a href="#closing_thoughts">Closing thoughts</a></li>
+  </ul>
+</blockquote>
+
+<style>
+  .toc {
+    background: var(--background-color);
+    border-color: var(--primary-color);
+  }
+
+  .toc h3 {
+    margin-bottom: 0.5em;
+  }
+
+  .toc a:visited {
+    color: var(--primary-color);
+  }
+</style>
 
 
 
 
-## What are the key steps in this animation?
+
+<h2 id="key_steps">What are the key steps in this animation?</h2>
 
 Most of the animation is made up of five "swoop" images, which look like strokes of a paintbrush.
 These were clearly made by an artist in a design app like Photoshop.
@@ -93,7 +114,7 @@ The animation is applying a mask to the underlying image, and the mask gradually
 The mask matches the general shape of the brush stroke, so as it expands, it reveals more of the image.
 I wrote about [masking with SVG][masking] four years ago, and the principle is similar here -- but the Swift.org animation uses HTML5 canvas, not SVG.
 
-The best way to explain this is with a quick demo: as you drag the slider back and forth, you can see the mask include more or less of the brush stroke, and that's reflected in the final image.
+The best way to explain this is with a quick demo: as you drag the slider back and forth, you can see the mask get longer and shorter, and that's reflected in the final image.
 
 <style>
   .demo {
@@ -270,7 +291,7 @@ The best way to explain this is with a quick demo: as you drag the slider back a
 
 We can break this down into a couple of steps:
 
-*   Take a curved path, and only draw part of it (drawing the mask)
+*   Only draw part of a curved path (drawing the mask)
 *   Combine the partially-drawn path with the original image (applying the mask)
 *   Gradually increase the amount of the path that we draw (animating the path)
 *   Start the animation when the page loads
@@ -282,9 +303,9 @@ Let's go through each of these in turn.
 
 
 
-## Take a curved path, and only draw part of it
+<h2 id="partial_path">Only draw part of a curved path</h2>
 
-Alongside the graphical image of a brush stroke, the artist supplied an SVG path for the shape:
+Alongside the graphical image of a brush stroke, the artist supplied an SVG path for the mask:
 
 ```
 M-34 860C-34 860 42 912 102 854C162 796 98 658 50 556C2 454 18 48 142 88C272 130 290 678 432 682C574 686 434 102 794 90C1009 83 1028 280 1028 280
@@ -321,11 +342,10 @@ const path = new Path2D(
 ctx.stroke(path);
 ```
 
-The way Swift.org draws a partial path is a really neat trick: they're using a line dash pattern with a variableoffset.
+The way Swift.org draws a partial path is a really neat trick: they're using a line dash pattern with a variable offset.
 It took me a moment to figure out what their code was doing, but then it all clicked into place.
 
-First they set a line dash pattern, which specifies alternating lengths of lines and gaps to draw the line.
-You can use the [`setLineDash()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash) to set the pattern.
+First they set a line dash pattern using [`setLineDash()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash), which specifies alternating lengths of lines and gaps to draw the line.
 Here's a quick demo:
 
 <style>
@@ -381,11 +401,8 @@ Here's a quick demo:
   });
 </script>
 
-Notice that the path always starts with a dash, not a gap.
-You can adjust the starting position by setting the [`lineDashOffset` property][lineDashOffset].
-I find the behaviour slightly counter-intuitive: as I increase the offset, it looks like the path is moving backward.
-I'm sure it makes sense, but moving the slider does the opposite of what I expect.
-
+The path starts in the lower left-hand corner, and notice how it always starts with a complete dash, not a gap.
+You can change this by setting the [`lineDashOffset` property][lineDashOffset], which causes the patern to start on a gap, or halfway through a dash.
 Here's a demo where you can set both variables at once:
 
 <blockquote id="lineDashOffsetDemo" class="light_block">
@@ -436,22 +453,28 @@ Here's a demo where you can set both variables at once:
   window.addEventListener("DOMContentLoaded", drawLineDashOffsetDemo);
 </script>
 
-If you play around with these two variables, you might work out how to animate the path as if it's being drawn from the start.
+I find the behaviour of `lineDashOffset` a bit counter-intuitive: as I increase the offset, it looks like the path is moving backward.
+I was expecting increasing the offset to increase the start of the first dash, so the line would move in the other direction.
+I'm sure it makes sense if you have the right mental model, but I'm not sure what it is.
+
+If you play around with these two variables, you might start to see how you can animate the path as if it's being drawn from the start.
+Here are the steps:
 
 1.  Set the dash length to the exact length of the path.
     This means every dash and every gap is the same length as the entire path.
 
-    (The length is 2776, a number I got from the Swift.org source code.
+    (The length of the purple swoop path is 2776, a number I got from the Swift.org source code.
     This must have been calculated with an external tool; I can't find a way to calculate this length in a canvas.)
 
 2.  Set the dash offset to the exact length of the path.
     This means the entire path is just a gap, which makes it look like there's nothing there.
 
 3.  Gradually reduce the dash offset to zero.
-    The dash becomes visible at the beginning of the path, and the closer the offset gets to zero, the more of the dash is visible.
+    A dash becomes visible at the beginning of the path, and the closer the offset gets to zero, the more of that dash is visible.
     Eventually it fills the entire path.
 
-Here's one more demo, where you can adjust the progress:
+Here's one more demo, where I've set up the line dash pattern, and you can adjust the progress.
+Notice how the line gradually appears:
 
 <blockquote id="progressDemo" class="light_block">
   <div>
@@ -488,10 +511,10 @@ Here's one more demo, where you can adjust the progress:
   });
 </script>
 
-So now we have a way to draw a path from the start, as if it was being painted as a brush stroke.
+Now we have a way to draw part of a path, and as we advance the progress, it looks it's being drawn with a brush.
 The real code has a couple of extra styles -- in particular, it sets a stroke width and a [line cap][lineCap] -- but it's the way the animation uses the dash pattern that really stood out to me.
 
-Once we have our brush stroke, how do we use it to mask an image?
+Once we have our path, how do we use it to mask an image?
 
 [setLineDash]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash
 [lineDashOffset]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset
@@ -499,17 +522,12 @@ Once we have our brush stroke, how do we use it to mask an image?
 
 
 
----
-
-
-
-## Masking an image with a `globalCompositeOperation`
+<h2 id="masking">Masking an image with a <code>globalCompositeOperation</code></h2>
 
 The masking uses a property of HTML5 canvas called `globalCompositeOperation`.
 If you've already drawn some shapes on a canvas, you can control how new shapes will appear on top of them -- for example, which one appears on top, or whether to clip one to fit inside the other.
 
-I'm familiar with the basic idea -- I wrote an article about [clips and masks in SVG][svg_masks] in 2021 that I still look back on fondly -- but I find this feature a bit confusing.
-I think the terminology is the real sticking point.
+I'm familiar with the basic idea -- I wrote an article about [clips and masks in SVG][svg_masks] in 2021 that I still look back on fondly -- but I find this feature a bit confusing, especially the terminology.
 Rather than talking about clips or masks, this property is defined using *sources* (shapes you're about to draw on the canvas) and *destinations* (shapes that are already on the canvas).
 I'm sure that naming makes sense to somebody, but it's not immediately obvious to me.
 
@@ -564,15 +582,15 @@ If you're interested, you can read the [docs on MDN][mdn_composite], which inclu
 
 This is a bit of code where I can definitely understand what it does when I read it, but I wouldn't feel confident writing something like this myself.
 It's too complex a feature to wrap my head around with a single example, and the other examples I found are too simple and unmotivating.
-(The standard example seems to be combining a solid red circle with a solid blue rectangle, which I find completely unhelpful because I can produce the final result in a dozen other ways.
-What's the use case for this poperty?
+(Many sites use the example of a solid red circle and a solid blue rectangle, which I find completely unhelpful because I can produce the final result in a dozen other ways.
+What's the real use case for this property?
 What can I only do if I use `globalCompositeOperation`?)
 
 Then again, perhaps I'm not the target audience for this feature.
-I tend to stick to simple illustrations, and this is a more powerful graphics operation.
-I'm still glad to know it's there, even if I'm not sure when I'll use it.
+I mostly do simple illustrations, and this is a more powerful graphics operation.
+I'm glad to know it's there, even if I'm not sure when I'll use it.
 
-Now we can draw a partial stroke and apply it to our bitmap image, how do we animate it?
+Now we can draw a partial stroke and use it as a mask, how do we animate it?
 
 [svg_masks]: /2021/inner-outer-strokes-svg/
 [mdn_composite]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
@@ -612,7 +630,7 @@ Now we can draw a partial stroke and apply it to our bitmap image, how do we ani
 
 
 
-## Animating the brush stroke with Anime.js
+<h2 id="animejs">Animating the brush stroke with Anime.js</h2>
 
 Before I started reading the code in detail, I tried to work out how I might create an animation like this myself.
 
@@ -621,14 +639,14 @@ Using those repeatedly to update a progress value would gradually draw the strok
 I tried it, and that does work!
 But I can think of some good reasons why it's not what's used for the animation on Swift.org.
 
-The timing of `setTimeout()` and `setInterval()` isn't guaranteed -- the browser may [delay longer than expected][unexpected_delays] if the system is under load or you'll updating too often.
+The timing of `setTimeout()` and `setInterval()` isn't guaranteed -- the browser may [delay longer than expected][unexpected_delays] if the system is under load or you're updating too often.
 That could make the animation jerky or stuttery.
-Even if the delays fire correctly, it could still look a bit jerky -- you're stepping between a series of discrete frames, rather than smoothly animating a shape.
-If there's too much of a change between each frame, it could still look strange.
+Even if the delays fire correctly, it could still look a bit janky -- you're stepping between a series of discrete frames, rather than smoothly animating a shape.
+If there's too much of a change between each frame, it would ruin the illusion.
 
 Swift.org is using Julian Garnier's [Anime.js animation library][anime_js].
-Under the hood, this library uses web technologies I've only heard of to create animations, like [`requestAnimationFrame()`][requestAnimationFrame] and [hardware acceleration].
-I assume these browser features are better optimised for doing smooth and efficient animations -- for example, they must sync to the screen refresh rate, only drawing frames as necessary, whereas using `setInterval()` might draw lots of unused frames and waste CPU.
+Under the hood, this library uses web technologies like [`requestAnimationFrame()`][requestAnimationFrame] and [hardware acceleration] -- stuff I've heard of, but never used.
+I assume these browser features are optimised for doing smooth and efficient animations -- for example, they must sync to the screen refresh rate, only drawing frames as necessary, whereas using `setInterval()` might draw lots of unused frames and waste CPU.
 
 Anime.js has a lot of different options, but the way Swift.org uses it is fairly straightforward.
 
@@ -638,7 +656,8 @@ First it creates an object to track the state of the animation:
 const state = { progress: 0 };
 ```
 
-Then there's a function that redraws the swoop based on the current progress:
+Then there's a function that redraws the swoop based on the current progress.
+It clears the canvas, then redraws the partial path and the mask:
 
 ```javascript
 function updateSwoop() {
@@ -678,12 +697,11 @@ tl.add(
 );
 ```
 
-This function is why `state` is an object, even though it only has a single value.
-
-If we passed a primitive value like `const progress = 0` to `tl.add()`, JavaScript would pass it by value, and any changes wouldn't be visible to the `updateSwoop()` function.
+You may have wondered why the `state` is an object, and not a single value like `const progress = 0`.
+If we passed a numeric value to `tl.add()`, JavaScript would pass it by value, and any changes wouldn't be visible to the `updateSwoop()` function.
 By wrapping the `progress` value in an object, JavaScript will pass by reference instead, so changes made inside `tl.add()` will be visible when `updateSwoop()` is called.
 
-So now we can animate our swoop, as if it was a brush stroke.
+Now we can animate our swoop, as if it was a brush stroke.
 There's one final piece: how do we start the animation?
 
 [setTimeout]: https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout
@@ -699,7 +717,7 @@ There's one final piece: how do we start the animation?
 
 
 
-## Starting the animation with a `MutationObserver`
+<h2 id="mutationobserver">Starting the animation with a <code>MutationObserver</code></h2>
 
 If I want to do something when a page loads, I normally watch for the [`DOMContentLoaded` event][DOMContentLoaded], for example:
 
@@ -724,7 +742,7 @@ In the HTML, it has a `<div>` that wraps the canvas elements where it draws all 
 </div>
 ```
 
-And then it uses a [`MutationObserver`][MutationObserver] to watch the entire page for changes, and start the animation once it finds this wrapper `<div>`:
+Then it uses a [`MutationObserver`][MutationObserver] to watch the entire page for changes, and start the animation once it finds this wrapper `<div>`:
 
 ```javascript
 // Start animation when container is mounted
@@ -742,11 +760,9 @@ observer.observe(document.documentElement, {
 })
 ```
 
-Although I've never used `MutationObserver`, it feels vaguely familiar.
-It reminds me of React and Next.js, which would push changes to the DOM whenever the input changes.
-This feels like the inversion of that: where React watches for changes in the input, a `MutationObserver` watches for changes in the DOM.
+It achieves the same effect as watching for `DOMContentLoaded`, but in a different way.
 
-I don't think there's much difference between `DOMContentLoaded` and `MutationObserver` in this particular case, but I can see that `MutationObserver` is much more flexible for the general case.
+I don't think there's much difference between `DOMContentLoaded` and `MutationObserver` in this particular case, but I can see that `MutationObserver` is more flexible for the general case.
 You can target a more precise element than "the entire document", and you can look for changes beyond just the initial load.
 
 I suspect the `MutationObserver` approach may also be slightly faster -- I added a bit of console logging, and if you don't disconnect the observer, it gets called three times when loading the Swift.org homepage.
@@ -763,7 +779,7 @@ As the animation continues, we draw more and more of that path, and the path is 
 
 
 
-## The animation skips if you have `(prefers-reduced-motion: reduce)`
+<h2 id="reduce_motion">The animation skips if you have <code>(prefers-reduced-motion: reduce)</code></h2>
 
 There's one other aspect of the animation on Swift.org that I want to highlight.
 At the beginning of the animation sequence, it checks to see if you have the ["prefers reduced motion" preference][prefers-reduced-motion].
@@ -777,7 +793,7 @@ const isReduceMotionEnabled = window.matchMedia(
 
 Further down, the code checks for this preference, and if it's set, it skips the animation and just renders the final image.
 
-This is an important accessibility feature, and I wish more sites paid attention to it.
+I'm already familiar with this preference and I use it on a number of websites. sites, but it's still cool to see.
 
 [prefers-reduced-motion]: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
 
@@ -789,14 +805,14 @@ This is an important accessibility feature, and I wish more sites paid attention
 
 
 
-## Closing thoughts
+<h2 id="closing_thoughts">Closing thoughts</h2>
 
 Thanks again to the three people who wrote this animation code: Federico Bucchi, Jesse Borden, and Nicholas Krambousanos.
 They wrote some [very readable JavaScript][hero_js], so I could understand how it worked.
 The ability to "view source" and see how a page works is an amazing feature of the web, and finding the commit history as open source is the cherry on the cake.
 
 I really enjoyed writing this post, and getting to understand how this animation works.
-I don't know that I could write something similar -- in particular, I don't have the graphics skills to create the bitmap images of brush strokes -- but I'd feel a lot more confident trying than I would before.
-I hope you've learned something as well.
+I don't know that I could create something similar -- in particular, I don't have the graphics skills to create the bitmap images of brush strokes -- but I'd feel a lot more confident trying than I would before.
+I've learned a lot from reading this code, and I hope you've learned something as well.
 
 [hero_js]: https://github.com/swiftlang/swift-org-website/blob/10539c474bea9a084bd90daac387fde6b62bd0c4/assets/javascripts/new-javascripts/hero.js
