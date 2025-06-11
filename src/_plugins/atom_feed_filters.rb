@@ -49,11 +49,11 @@ module HtmlModifiers
     ]
 
     tags_with_relative_attributes.each do |tag|
-      doc.xpath(doc[:xpath]).each { |t| fix_single_relative_url(t, tag) }
+      doc.xpath(doc[:xpath]).each { |t| fix_relative_url(t, tag) }
     end
   end
 
-  def self.fix_single_relative_url(tag, options)
+  def self.fix_relative_url(tag, options)
     attribute_name = options[:attribute]
     existing_value = tag.get_attribute(attribute_name)
 
