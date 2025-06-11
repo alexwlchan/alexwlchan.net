@@ -8,6 +8,7 @@ tags:
   - youtube
 colors:
   index_light: "#ff0000"
+  index_dark:  "#ff4242"
 ---
 I used to have two YouTube accounts, and I wanted to consolidate them into one.
 

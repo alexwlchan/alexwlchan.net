@@ -24,25 +24,65 @@ def check_yaml_front_matter(src_dir)
     )
     front_matter = JSON.parse(JSON.dump(front_matter))
 
-    md_errors = JSON::Validator.fully_validate(schema, front_matter)
+    md_errors = [
+      validate_json_schema(front_matter, schema),
+      validate_layout(front_matter, md_path),
+      validate_color_pairs(front_matter)
+    ].flatten
 
     errors[md_path] = md_errors unless md_errors.empty?
-  
-    expected_layout =
-      if md_path.start_with?("#{src_dir}/_posts") || md_path.start_with?("#{src_dir}/_drafts")
-        'post'
-      elsif md_path.start_with?('src/_til')
-        'til'
-      else
-        'page'
-      end
-
-    if front_matter['layout'] != expected_layout
-      errors[md_path] <<= "layout should be '#{expected_layout}'; got #{front_matter['layout']}"
-    end
   end
 
   report_errors(errors)
+end
+
+def validate_json_schema(front_matter, schema)
+  JSON::Validator.fully_validate(schema, front_matter)
+end
+
+# Check whether the `layout` matches the location in the directory tree.
+#
+# e.g. every Markdown file which is under `src/_posts` should have the
+# layout `post`, and seeing an unexpected layout there would be an error.
+def validate_layout(front_matter, md_path)
+  expected_layout =
+    if md_path.start_with?('src/_posts') || md_path.start_with?('src/_drafts')
+      'post'
+    elsif md_path.start_with?('src/_til')
+      'til'
+    else
+      'page'
+    end
+
+  if front_matter['layout'] == expected_layout
+    []
+  else
+    ["layout should be '#{expected_layout}'; got #{front_matter['layout']}"]
+  end
+end
+
+# Check the `colors` always appear in light/dark pairs.
+#
+# e.g. if a file specifies an `index_light`, it must also specify
+# an `index_dark`.  Only specifying one color is an error.
+def validate_color_pairs(front_matter)
+  errors = []
+
+  has_css_light = front_matter.fetch('colors', {}).key?('css_light')
+  has_css_dark = front_matter.fetch('colors', {}).key?('css_dark')
+
+  if (has_css_light && !has_css_dark) || (!has_css_light && has_css_dark)
+    errors <<= 'css colors must have both light and dark variants'
+  end
+
+  has_index_light = front_matter.fetch('colors', {}).key?('index_light')
+  has_index_dark = front_matter.fetch('colors', {}).key?('index_dark')
+
+  if (has_index_light && !has_index_dark) || (!has_index_light && has_index_dark)
+    errors <<= 'index colors must have both light and dark variants'
+  end
+
+  errors
 end
 
 def report_errors(errors)
