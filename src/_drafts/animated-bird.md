@@ -1,15 +1,15 @@
 ---
 layout: post
-title: The new bird animation on Swift.org
-summary: Trying
+title: Recreating the bird animation on Swift.org
+summary: The Swift.org website got a redesign, including an animation of a swooping bird, and I read the source code to understand how it works.
 tags:
   - drawing things
   - web development
 ---
-On Wednesday, the Swift.org website [got a redesign][redesign].
-I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH!
+Last week, the Swift.org website [got a redesign][redesign].
+I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH COOL BIRD!
 
-There's a shiny animation with the bird logo:
+When you load the page, there's a swooping animation as the bird appears:
 
 <style>
   .light-video, .dark-video {
