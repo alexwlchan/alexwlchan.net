@@ -32,7 +32,7 @@ nav ul {
   margin-bottom: 14px;
 }
 
-nav, nav a, nav a:visited {
+nav, nav a, nav a:visited, nav a:hover {
   color: white;
 }
 
