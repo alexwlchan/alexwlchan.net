@@ -108,7 +108,7 @@ keep_files: [
   # Managed by the article cards plugin
   "c",
 
-  # Managed by the theming plugin
+  # Managed by the tint colors plugin
   "favicons", "favicon.png", "favicon.ico", "headers",
 ]
 
