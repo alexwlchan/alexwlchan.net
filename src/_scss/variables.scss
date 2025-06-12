@@ -33,6 +33,20 @@ $default-padding: 20px;
   --border-radius: 10px;
   --border-style:  solid;
   --border-width:  3px;
+  
+  /* Every page has a tint color that affects the nav, links, headings,
+   * and so on.
+   *
+   * Set a default color for every page, which may be overwritten by CSS
+   * appended to the <head>.
+   */
+  --default-primary-color-light: #d01c11;
+  --default-primary-color-dark:  #ff4242;
+  
+  --primary-color-light: var(--default-primary-color-light);
+  --primary-color-dark:  var(--default-primary-color-dark);
+  
+  --link-color: var(--primary-color);
 
   /* A collection of light/dark greys tones.
    *
@@ -64,9 +78,6 @@ $default-padding: 20px;
   
   --background-texture-dark:  url("https://alexwlchan.net/theme/black-waves-transparent.png");
   --background-color-dark:    #0d0d0d;
-  
-  /* Misc colour-related styles. */
-  --link-color: var(--primary-color);
 }
 
 /* Select the appropriate light/dark shades depending on the user's theme.

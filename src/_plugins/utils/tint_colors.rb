@@ -17,10 +17,12 @@ end
 
 # Get the light color that will be used as the default colour if
 # no override tint color is specified.
+#
+# This looks for the `--default-primary-color-light` variable.
 def read_default_light_color
-  sass_source = File.read 'src/static/style.scss'
+  sass_source = File.read 'src/_scss/variables.scss'
 
-  match = sass_source.match('\-\-primary\-color\-light: (?<color>#[0-9a-f]{6});')
+  match = sass_source.match('\-\-default-primary\-color\-light: (?<color>#[0-9a-f]{6});')
 
   match.named_captures['color']
 end
