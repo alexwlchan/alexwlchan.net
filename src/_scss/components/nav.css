@@ -9,12 +9,6 @@ nav {
   padding-top: calc(1px + env(safe-area-inset-top));
   padding-bottom: 1px;
 
-  /* The nav gets the primary accent colour as background, with white text.
-   *
-   * It looks the same in light/dark mode.
-   *
-   * TODO: Should I have light/dark mode for the nav?
-   */
   background: var(--nav-background-image) var(--primary-color);
   background-size: auto 100%;
 }
