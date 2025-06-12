@@ -76,10 +76,10 @@ $default-padding: 20px;
    *
    * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
    */
-  --background-texture-light: url("https://alexwlchan.net/theme/white-waves-transparent.png");
+  --background-texture-light: url("/static/white-waves.png");
   --background-color-light:   #fafafa;  
   
-  --background-texture-dark:  url("https://alexwlchan.net/theme/black-waves-transparent.png");
+  --background-texture-dark:  url("/static/black-waves.png");
   --background-color-dark:    #0d0d0d;
 }
 
