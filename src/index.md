@@ -216,7 +216,7 @@ Here are some of the topics I write about:
     fm = image format (J = JPEG, P = PNG)
     d = description
   {% endcomment %}
-  const keys = ["cl", "cd", "n", "t", "y", "s", "p", "fm", "d"];
+  const keys = ["cl","cd","n","t","y","s","p","fm","d"];
 
   {%- capture featuredArticlesJson -%}
     [
