@@ -163,11 +163,12 @@ Here are some of the topics I write about:
     }
 
     const prefix = card.s.slice(0, card.p);
+    const imPrefix = `/c/${yr}/${prefix}`;
 
-    const widths = [365,730,302,504,405,810];
-    const primary = widths.map(s => `/c/${yr}/${prefix}_${s}w${suffix} ${s}w`).join(", ");
-    const avif = widths.map(s => `/c/${yr}/${prefix}_${s}w.avif ${s}w`).join(", ");
-    const webp = widths.map(s => `/c/${yr}/${prefix}_${s}w.webp ${s}w`).join(", ");
+    const ws = [365,730,302,504,405,810];
+    const primary = ws.map(s => `${imPrefix}${suffix}_${s}w ${s}w`).join(", ");
+    const avif    = ws.map(s => `${imPrefix}_${s}w.avif ${s}w`).join(", ");
+    const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
 
     const sizes = "(max-width: 450px) 405px, 405px";
 
