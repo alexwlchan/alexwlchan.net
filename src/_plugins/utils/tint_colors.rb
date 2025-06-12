@@ -79,9 +79,9 @@ end
 
 # Create the "speckled" header image for a given hex color.
 def create_header_image(tint_color)
-  FileUtils.mkdir_p '_site/headers'
+  FileUtils.mkdir_p '_site/h'
 
-  out_path = "_site/headers/specktre_#{tint_color.sub('#', '')}.png"
+  out_path = "_site/h/#{tint_color.sub('#', '')}.png"
 
   return if File.file?(out_path)
 
