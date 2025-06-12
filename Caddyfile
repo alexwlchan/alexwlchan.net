@@ -17,7 +17,7 @@ alexwlchan.net {
 	# The one exception is CSS files, but I cache-bust those by passing a query parameter
 	# that includes the hash of my CSS source.
 	@cached {
-		path /c/* /favicons/* /files/* /h/* /images/* /static/* /theme/*
+		path /c/* /f/* /h/* /files/* /images/* /static/* /theme/*
 	}
 
 	header @cached {
