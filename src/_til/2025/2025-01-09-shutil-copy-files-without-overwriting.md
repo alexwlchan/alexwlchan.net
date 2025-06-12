@@ -11,26 +11,27 @@ This will throw a `FileExistsError` error if the destination file already exists
 
 Here's a minimal example:
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>copy_file.py
-<span class="go">import shutil
+```console?prompt=$
+$ cat copy_file.py
+import shutil
 
 with open("src.txt", "rb") as src, open("dst.txt", "xb") as dst:
-    shutil.copyfileobj(src, dst)</span>
+    shutil.copyfileobj(src, dst)
 
-<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'hello world'</span> <span class="o">&gt;</span> src.txt
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span>python3 copy_file.py
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span><span class="nb">cat </span>dst.txt
-<span class="go">hello world
+$ echo 'hello world' > src.txt
 
-</span><span class="gp">$</span><span class="w"> </span>python3 copy_file.py
-<span class="go">Traceback (most recent call last):
-</span><span class="go">  File "copy_file.py", line 6, in &lt;module&gt;</span><span class="w">
-</span><span class="go">    open("dst.txt", "xb") as dst
+$ python3 copy_file.py
+
+$ cat dst.txt
+hello world
+
+$ python3 copy_file.py
+Traceback (most recent call last):
+  File "copy_file.py", line 6, in <module>
+    open("dst.txt", "xb") as dst
     ~~~~^^^^^^^^^^^^^^^^^
 FileExistsError: [Errno 17] File exists: 'dst.txt'
-</span></code></pre></div></div>
+```
 
 {% comment %}
 ```python

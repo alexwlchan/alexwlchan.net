@@ -215,23 +215,18 @@ Same with the contour length, I just try it until it looks nice.
 
 Here's the code I ultimately settled on:
 
-{% comment %}
-  This is declared as literal HTML and not a code block because I get
-  Liquid syntax errors if I insert the code block directly.
-{% endcomment %}
+```latex
+{% raw %}\usepackage{contour}
+\usepackage{ulem}
 
-<div class="highlight"><pre><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>contour<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>ulem<span class="nb">}</span>
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
 
-<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\ULdepth</span><span class="nb">}{</span>1.8pt<span class="nb">}</span>
-<span class="k">\contourlength</span><span class="nb">{</span>0.8pt<span class="nb">}</span>
-
-<span class="k">\newcommand</span><span class="nb">{</span><span class="k">\myuline</span><span class="nb">}</span>[1]<span class="nb">{</span><span class="c">%</span>
-  <span class="k">\uline</span><span class="nb">{</span><span class="k">\phantom</span><span class="nb">{</span>#1<span class="nb">}}</span><span class="c">%</span>
-  <span class="k">\llap</span><span class="nb">{</span><span class="k">\contour</span><span class="nb">{</span>white<span class="nb">}{</span>#1<span class="nb">}}</span><span class="c">%</span>
-<span class="nb">}</span>
-</code></pre></div>
-
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}{% endraw %}
+```
 
 This gives me a really nice underline.
 It's drawn on a consistent level, flush against the bottom of the text, with gaps as appropriate for descenders.

@@ -130,23 +130,24 @@ If I wanted to find out which directories contain the most files &ndash; not nec
 This isn't about saving disk space, it's about reducing the sheer number of unsorted files I keep.
 There were two commands I kept using:
 
-<ul>
-    <li>Count all the files below the current directory: both files in this directory, and all of its subdirectories.
+*   Count all the files below the current directory: both files in this directory, and all of its subdirectories.
 
-    <div class="highlight"><pre><span class="gp">$</span> find . <span class="p">|</span> wc -l
-    <span class="go">    2443</span></pre></div>
-    </li>
+    ```console
+    $ find . | wc -l
+       2443
+    ```
 
-    <li>Find out which of the subdirectories of the current directory contain the most files.
+*   Find out which of the subdirectories of the current directory contain the most files.
 
-    <div class="highlight"><pre><span class="gp">$</span> <span class="k">for</span> l in <span class="o">(</span>ls<span class="o">)</span><span class="p">;</span> <span class="k">if</span> <span class="o">[</span> -d <span class="nv">$l</span> <span class="o">]</span><span class="p">;</span> <span class="nb">echo</span> <span class="o">(</span>find <span class="nv">$l</span> <span class="p">|</span> wc -l<span class="o">)</span><span class="s2">"  </span><span class="nv">$l</span><span class="s2">"</span><span class="p">;</span> end<span class="p">;</span> end
-    <span class="go">     627  _output</span>
-    <span class="go">     262  content</span>
-    <span class="go">      31  screenshots</span>
-    <span class="go">       3  talks</span>
-    <span class="go">      33  theme</span>
-    <span class="go">      11  util</span></pre></div></li>
-</ul>
+    ```console
+    for l in (ls); if [ -d $l ]; echo (find $l | wc -l)"  $l"; end; end
+         627  _output
+         262  content
+          31  screenshots
+           3  talks
+          33  theme
+          11  util
+    ```
 
 These two commands let me focus on processing directories that had a lot of files.
 It's nice to clear away a large chunk of these unsorted files, so that I don't have to worry about what they might contain.

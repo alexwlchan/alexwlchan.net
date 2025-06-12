@@ -54,7 +54,7 @@ There are three steps to use this API:
 3.  Call the Netlify API to get the data.
     You should get a 200 OK and a JSON response:
 
-    <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="se">\</span>
+    <pre class="language-console"><code><span class="gp">$</span><span class="w"> </span>curl <span class="se">\</span>
     <span class="gp"></span><span class="w">  </span><span class="nt">  --header</span> <span class="s2">"Authorization: Bearer </span><span class="nv">$NETLIFY_TOKEN</span><span class="s2">"</span> <span class="se">\</span>
     <span class="gp"></span><span class="w">  </span><span class="s2">  "https://api.netlify.com/api/v1/accounts/</span><span class="nv">$TEAM_ACCOUNT_SLUG</span><span class="s2">/bandwidth"</span>
 <span class="go">{

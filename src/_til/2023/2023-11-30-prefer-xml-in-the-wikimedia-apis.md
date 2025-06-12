@@ -19,8 +19,9 @@ This is a useful example of automated XML-to-JSON risks in general.
 
 First let's go ahead and use then [Languagesearch API](https://www.mediawiki.org/wiki/API:Languagesearch) to find a list of languages which match the query "english":
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://en.wikipedia.org/w/api.php?action=languagesearch&amp;search=english&amp;format=json'</span> | jq <span class="nb">.</span>
-<span class="go">{
+```console?prompt=$
+$ curl 'https://en.wikipedia.org/w/api.php?action=languagesearch&search=english&format=json' | jq .
+{
   "languagesearch": {
     "en": "english",
     "en-us": "english sa america",
@@ -29,34 +30,35 @@ First let's go ahead and use then [Languagesearch API](https://www.mediawiki.org
   }
 }
 
-</span><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://en.wikipedia.org/w/api.php?action=languagesearch&amp;search=english&amp;format=xml'</span> | xmllint <span class="nt">--format</span> -
-<span class="go">&lt;?xml version="1.0"?&gt;</span><span class="w">
-</span><span class="go">&lt;api&gt;</span><span class="w">
-</span><span class="go">  &lt;
+$ curl 'https://en.wikipedia.org/w/api.php?action=languagesearch&search=english&format=xml' | xmllint --format -
+<?xml version="1.0"?>
+<api>
+  <
     languagesearch
     en="english"
     en-us="english sa america"
     en-au="english sa australia"
     …
-</span><span class="go">  /&gt;</span><span class="w">
-</span><span class="go">&lt;/api&gt;</span><span class="w">
-</span></code></pre></div></div>
+  />
+</api>
+```
 
-The JSON contains an object which maps language ID to name; the XML uses language IDs as attributes and names as values. 
+The JSON contains an object which maps language ID to name; the XML uses language IDs as attributes and names as values.
 
 Now let's try that query again, with a query that won't return any results;
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://en.wikipedia.org/w/api.php?action=languagesearch&amp;search=doesnotexist&amp;format=json'</span> | jq <span class="nb">.</span>
-<span class="go">{
+```console?prompt=$
+$ curl 'https://en.wikipedia.org/w/api.php?action=languagesearch&search=doesnotexist&format=json' | jq .
+{
   "languagesearch": []
 }
 
-</span><span class="gp">$</span><span class="w"> </span>curl <span class="s1">'https://en.wikipedia.org/w/api.php?action=languagesearch&amp;search=doesnotexist&amp;format=xml'</span> | xmllint <span class="nt">--format</span> -
-<span class="go">&lt;?xml version="1.0"?&gt;</span><span class="w">
-</span><span class="go">&lt;api&gt;</span><span class="w">
-</span><span class="go">  &lt;languagesearch/&gt;</span><span class="w">
-</span><span class="go">&lt;/api&gt;</span><span class="w">
-</span></code></pre></div></div>
+$ curl 'https://en.wikipedia.org/w/api.php?action=languagesearch&search=doesnotexist&format=xml' | xmllint --format -
+<?xml version="1.0"?>
+<api>
+  <languagesearch/>
+</api>
+```
 
 Notice that the structure of the JSON response has changed slightly -- where previously it returned an object, now it returns an array.
 Meanwhile the XML response looks just as before, just without any attributes.

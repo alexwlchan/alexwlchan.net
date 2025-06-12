@@ -24,6 +24,7 @@ For example:
     #lighthouse_example {
       display: grid;
       grid-template-columns: 150px auto;
+      grid-gap: 1em;
     }
 
     #lighthouse_example img {
@@ -114,9 +115,7 @@ It feels like these errors get better each time I go back to Rust.
 This approach to error checking permeates other parts of the Rust ecosystem.
 This is the error you get from Clap if you misspell an argument:
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
+<pre class="language-console">
 <code><span class="gp">$</span> dominant_colours lighthouse.jpg --max-colors=3</code>
 <code><span class="go"><span class="rustc_error">error:</span> Found argument '<span class="rustc_value">--max-colors</span>' which wasn't expected, or isn't valid in this context
       Did you mean <span class="rustc_warning">--max-colours</span>?
@@ -125,8 +124,6 @@ USAGE:
     dominant_colours &lt;PATH&gt; --max-colours &lt;MAX-COLOURS&gt;
 
 For more information try --help</span></code></pre>
-</div>
-</div>
 
 That's more helpful than any other tool I've seen, and it's the default behaviour in Clap.
 I didn't have to opt-in or do anything special; I didn't realise it was there until I made a genuine typo.
