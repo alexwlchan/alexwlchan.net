@@ -21,22 +21,23 @@
 <meta name="jekyll-environment" content="{{ jekyll.environment}}" >
 
 {% if page.colors.css_light %}
-  <link rel="shortcut icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
+  <link rel="icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
+  <link rel="icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
   <meta name="theme-color" content="{{ page.colors.css_light }}">
 {% else %}
-  <link rel="shortcut icon" type="image/png"    href="/favicon.png" sizes="32x32">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png"    href="/favicon.png" sizes="32x32">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
   <meta name="theme-color" content="#d01c11">
 {% endif %}
 
 <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 
-{% include preload.html %}
-{% include socialgraph.html %}
+{% include head/preload.html %}
+{% include head/socialgraph.html %}
 
 <link rel="stylesheet" href="/static/style.css?md5={% css_fingerprint %}">
-{% tint_color_css %}
+{% include head/css_variables.html %}
+
 <meta name="color-scheme" content="light dark"/>
 
 {% if jekyll.environment == "production" %}
