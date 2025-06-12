@@ -154,7 +154,7 @@ Here are some of the topics I write about:
   function CardImage(card) {
     const yr = card.y;
 
-    if (card.fm === 'JPEG') {
+    if (card.fm === 'J') {
       var suffix = '.jpg';
       var mimeType = 'image/jpg';
     } else {
@@ -210,7 +210,7 @@ Here are some of the topics I write about:
     y = year - 2000
     s = slug
     p = prefix
-    fm = image format
+    fm = image format (J = JPEG, P = PNG)
     d = description
   {% endcomment %}
   const keys = ["cl", "cd", "n", "t", "y", "s", "p", "fm", "d"];
@@ -226,7 +226,7 @@ Here are some of the topics I write about:
           {{ article.date | date: "%Y" | minus: 2000 }},
           {{ article.slug | jsonify }},
           {{ article.card.index_prefix | jsonify }},
-          {{ article.card.index_image.format | jsonify }},
+          {{ article.card.index_image.format | slice: "0" | jsonify }},
           {% if article.summary %}
             {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
           {% else %}
