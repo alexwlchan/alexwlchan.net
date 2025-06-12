@@ -10,7 +10,9 @@ index:
   feature: true
 colors:
   index_light: "#f8631e"
-  index_dark:  "#f4c790"
+  index_dark:  "#f7c057"
+  css_light:   "#cd4506"
+  css_dark:    "#f7c057"
 ---
 Last week, the Swift.org website [got a redesign][redesign].
 I don't write much Swift at the moment, but I glanced at the new website to see what's up and OOH COOL BIRD!
