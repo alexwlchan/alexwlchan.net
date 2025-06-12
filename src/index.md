@@ -68,7 +68,7 @@ colors:
 
 {%
   picture
-  filename="profile_green_square.jpg"
+  filename="profile_green_sq.jpg"
   id="headshot"
   parent="/images"
   width="230"
