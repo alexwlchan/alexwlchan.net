@@ -15,7 +15,7 @@ nav {
    *
    * TODO: Should I have light/dark mode for the nav?
    */
-  background: var(--nav-background-url) var(--primary-color-light);
+  background: var(--nav-background-image) var(--primary-color-light);
   background-size: auto 100%;
 }
 

@@ -92,7 +92,8 @@ module Jekyll
           --primary-color-light: #{css_colors['light']};
           --primary-color-dark:  #{css_colors['dark']};
 
-          --nav-background-url: url('/headers/specktre_#{css_colors['light'].delete_prefix('#')}.png');
+          --nav-background-image-light: url('/headers/specktre_#{css_colors['light'].delete_prefix('#')}.png');
+          --nav-background-image-dark:  url('/headers/specktre_#{css_colors['light'].delete_prefix('#')}.png');
         }
       CSS
 

@@ -28,10 +28,6 @@
 @use "components/tags";
 @use "components/til";
 
-:root {
-  --nav-background-url: url('/headers/specktre_d01c11.png');
-}
-
 a.download {
   display: inline-block;
   text-decoration: none;

@@ -46,6 +46,9 @@ $default-padding: 20px;
   --primary-color-light: var(--default-primary-color-light);
   --primary-color-dark:  var(--default-primary-color-dark);
   
+  --nav-background-image-light: url('/headers/specktre_d01c11.png');
+  --nav-background-image-dark:  url('/headers/specktre_d01c11.png');
+  
   --link-color: var(--primary-color);
 
   /* A collection of light/dark greys tones.
@@ -87,26 +90,28 @@ $default-padding: 20px;
  * See https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark
  */
 :root {
-    --body-text:          var(--body-text-light);
-    --primary-color:      var(--primary-color-light);
-    --accent-grey:        var(--accent-grey-light);
-    --block-border-color: var(--block-border-color-light);
-    --block-background:   var(--block-background-light);
-    --screenshot-border:  var(--screenshot-border-light);
-    --background-image:   var(--background-texture-light);
-    --background-color:   var(--background-color-light);
+    --body-text:            var(--body-text-light);
+    --primary-color:        var(--primary-color-light);
+    --accent-grey:          var(--accent-grey-light);
+    --block-border-color:   var(--block-border-color-light);
+    --block-background:     var(--block-background-light);
+    --screenshot-border:    var(--screenshot-border-light);
+    --background-image:     var(--background-texture-light);
+    --background-color:     var(--background-color-light);
+    --nav-background-image: var(--nav-background-image-light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-text:          var(--body-text-dark);
-    --primary-color:      var(--primary-color-dark);
-    --accent-grey:        var(--accent-grey-dark);
-    --block-border-color: var(--block-border-color-dark);
-    --block-background:   var(--block-background-dark);
-    --screenshot-border:  var(--screenshot-border-dark);
-    --background-image:   var(--background-texture-dark);
-    --background-color:   var(--background-color-dark);
+    --body-text:            var(--body-text-dark);
+    --primary-color:        var(--primary-color-dark);
+    --accent-grey:          var(--accent-grey-dark);
+    --block-border-color:   var(--block-border-color-dark);
+    --block-background:     var(--block-background-dark);
+    --screenshot-border:    var(--screenshot-border-dark);
+    --background-image:     var(--background-texture-dark);
+    --background-color:     var(--background-color-dark);
+    --nav-background-image: var(--nav-background-image-dark);
   }
 }
 
