@@ -20,18 +20,21 @@
 <meta name="jekyll-environment" content="{{ jekyll.environment}}" >
 
 {% if page.colors.css_light %}
-  <meta name="theme-color" content="{{ page.colors.css_light }}" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="{{ page.colors.css_dark }}"  media="(prefers-color-scheme: dark)">
-
-  <link rel="shortcut icon" type="image/png"    href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.png">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicons/{{ page.colors.css_light | replace: "#", "" }}.ico">
+  {% assign primary_color_light = page.colors.css_light | replace: "#", "" %}
+  {% assign primary_color_dark  = page.colors.css_dark  | replace: "#", "" %}
 {% else %}
-  <meta name="theme-color" content="#d01c11" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#ff4242" media="(prefers-color-scheme: dark)">
-
-  <link rel="shortcut icon" type="image/png"    href="/favicon.png" sizes="32x32">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" sizes="32x32">
+  {% assign primary_color_light = "d01c11" %}
+  {% assign primary_color_dark  = "ff4242" %}
 {% endif %}
+
+<meta name="theme-color" content="#{{ primary_color_light }}" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#{{ primary_color_dark  }}" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" type="image/png"    href="/favicons/{{ primary_color_light }}.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/x-icon" href="/favicons/{{ primary_color_light }}.ico" media="(prefers-color-scheme: light)">
+
+<link rel="icon" type="image/png"    href="/favicons/{{ primary_color_dark }}.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/x-icon" href="/favicons/{{ primary_color_dark }}.ico" media="(prefers-color-scheme: dark)">
 
 <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 
