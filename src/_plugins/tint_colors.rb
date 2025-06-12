@@ -75,33 +75,3 @@ Jekyll::Hooks.register :documents, :pre_render do |doc|
     create_favicon(css_colors['light'])
   end
 end
-
-module Jekyll
-  class TintColorCssTag < Liquid::Tag
-    def render(context)
-      page = context.registers[:page]
-
-      css_colors = get_css_colors(page)
-
-      if css_colors.nil?
-        return
-      end
-
-      css = <<~CSS
-        :root {
-          --primary-color-light: #{css_colors['light']};
-          --primary-color-dark:  #{css_colors['dark']};
-
-          --nav-background-image-light: url('/headers/specktre_#{css_colors['light'].delete_prefix('#')}.png');
-          --nav-background-image-dark:  url('/headers/specktre_#{css_colors['light'].delete_prefix('#')}.png');
-        }
-      CSS
-
-      <<~HTML
-        <style>#{css}</style>
-      HTML
-    end
-  end
-end
-
-Liquid::Template.register_tag('tint_color_css', Jekyll::TintColorCssTag)
