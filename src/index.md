@@ -166,18 +166,18 @@ Here are some of the topics I write about:
     const imPrefix = `/c/${yr}/${prefix}`;
 
     const ws = [365,730,302,504,405,810];
-    const primary = ws.map(s => `${imPrefix}${suffix}_${s}w ${s}w`).join(", ");
     const avif    = ws.map(s => `${imPrefix}_${s}w.avif ${s}w`).join(", ");
     const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
+    const primary = ws.map(s => `${imPrefix}_${s}w${suffix} ${s}w`).join(", ");
 
     const sizes = "(max-width: 450px) 405px, 405px";
 
     return `
       <div class="c_im_w${card.n ? ' n' : ''}">
         <picture>
-          <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
           <source srcset="${avif}"    sizes="${sizes}" type="image/avif">
           <source srcset="${webp}"    sizes="${sizes}" type="image/webp">
+          <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
           <img src="/c/${yr}/${card.p}_365w.jpg" alt="" loading="lazy">
         </picture>
         ${card.n ? '<div class="new_banner">NEW</div>' : ''}
