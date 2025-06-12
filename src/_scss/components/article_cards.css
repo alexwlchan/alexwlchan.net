@@ -13,7 +13,7 @@
   grid-template-columns: var(--grid-columns);
 }
 
-.article_cards .card {
+.article_cards > li {
   border-radius: var(--border-radius);
   overflow: hidden;
   background: var(--background-color);
@@ -28,16 +28,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .article_cards .card {
+  .article_cards > li {
     --c-color: var(--c-dk);
   }
 }
 
-.article_cards .card:hover .c_title {
+.article_cards > li:hover .c_title {
   text-decoration-thickness: 4px;
 }
 
-.article_cards .card a {
+.article_cards > li a {
   text-decoration: none;
   height: 100%;
 }

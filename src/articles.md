@@ -103,7 +103,7 @@ nav_section: articles
    /* First reconstruct the "site.posts" array based on the HTML already
     * on the page.  We're going to just shuffle the HTML elements around;
     * not rearrange the whole thing. */
-   const allFeaturedPosts = Array.from(document.querySelectorAll('.card'))
+   const allFeaturedPosts = Array.from(document.querySelectorAll('.article_cards > li'))
      .map(function(elem) {
        return {
          'elem': elem,
@@ -111,7 +111,7 @@ nav_section: articles
          'order': Number(elem.getAttribute('data-ord'))
        };
      });
-   const allRemainingPosts = Array.from(document.querySelectorAll('.article_links li'))
+   const allRemainingPosts = Array.from(document.querySelectorAll('.article_links > li'))
      .map(function(elem) {
        return {
          'elem': elem,

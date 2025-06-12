@@ -188,7 +188,6 @@ Here are some of the topics I write about:
   function ArticleCard(card) {
     return `
       <li
-        class="card"
         style="
           ${card.cl ? `--c-lt: #${card.cl}` : ''};
           ${card.cd ? `--c-dk: #${card.cd}` : ''};
