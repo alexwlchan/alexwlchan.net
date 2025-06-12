@@ -162,10 +162,12 @@ Here are some of the topics I write about:
       var mimeType = 'image/png';
     }
 
+    const prefix = card.s.slice(0, card.p);
+
     const widths = [365,730,302,504,405,810];
-    const primary = widths.map(s => `/c/${yr}/${card.p}_${s}w${suffix} ${s}w`).join(", ");
-    const avif = widths.map(s => `/c/${yr}/${card.p}_${s}w.avif ${s}w`).join(", ");
-    const webp = widths.map(s => `/c/${yr}/${card.p}_${s}w.webp ${s}w`).join(", ");
+    const primary = widths.map(s => `/c/${yr}/${prefix}_${s}w${suffix} ${s}w`).join(", ");
+    const avif = widths.map(s => `/c/${yr}/${prefix}_${s}w.avif ${s}w`).join(", ");
+    const webp = widths.map(s => `/c/${yr}/${prefix}_${s}w.webp ${s}w`).join(", ");
 
     const sizes = "(max-width: 450px) 405px, 405px";
 
@@ -209,7 +211,7 @@ Here are some of the topics I write about:
     t = title
     y = year - 2000
     s = slug
-    p = prefix
+    p = length of prefix
     fm = image format (J = JPEG, P = PNG)
     d = description
   {% endcomment %}
@@ -225,7 +227,7 @@ Here are some of the topics I write about:
           {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
           {{ article.date | date: "%Y" | minus: 2000 }},
           {{ article.slug | jsonify }},
-          {{ article.card.index_prefix | jsonify }},
+          {{ article.card.index_prefix | size }},
           {{ article.card.index_image.format | slice: "0" | jsonify }},
           {% if article.summary %}
             {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
