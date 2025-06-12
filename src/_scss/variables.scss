@@ -33,13 +33,12 @@ $default-padding: 20px;
   --border-radius: 10px;
   --border-style:  solid;
   --border-width:  3px;
-}
 
-/* =====================================
- * Colours which are the same everywhere
- * ===================================== */
-
-:root {
+  /* A collection of light/dark greys tones.
+   *
+   * Every so often I wonder about rationalising the number of grey tones that
+   * I'm using, but I haven't found a selection that I like yet. 
+   */
   --body-text-light: #202020;
   --body-text-dark:  #c7c7c7;
   
@@ -55,31 +54,36 @@ $default-padding: 20px;
   --screenshot-border-light: #f0f0f0;
   --screenshot-border-dark:  #3f3f3f;
   
-  /* Background image for the page.
-   * This is "White Waves Pattern" by Stas Pimenov, with reduced contrast
+  /* My background texture image is "White Waves Pattern" by Stas Pimenov,
+   * with reduced contrast.  The dark variant has inverted colours.
+   *
    * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
    */
-  --background-image-light: url("https://alexwlchan.net/theme/white-waves-transparent.png");
-  --background-color-light: #fafafa;
+  --background-texture-light: url("https://alexwlchan.net/theme/white-waves-transparent.png");
+  --background-color-light:   #fafafa;  
   
-  /* This is "White Waves Pattern" by Stas Pimenov, with the colours
-   * flipped -- it's the same as the light background, but inverted.
-   * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
-   */
-  --background-color-dark: #0d0d0d;
-  --background-image-dark: url("https://alexwlchan.net/theme/black-waves-transparent.png");
+  --background-texture-dark:  url("https://alexwlchan.net/theme/black-waves-transparent.png");
+  --background-color-dark:    #0d0d0d;
   
-  
-  --body-text:          var(--body-text-light);
-  --primary-color:      var(--primary-color-light);
-  --accent-grey:        var(--accent-grey-light);
-  --block-border-color: var(--block-border-color-light);
-  --block-background:   var(--block-background-light);
-  --screenshot-border:  var(--screenshot-border-light);
-  --background-image:   var(--background-image-light);
-  --background-color:   var(--background-color-light);
-  
+  /* Misc colour-related styles. */
   --link-color: var(--primary-color);
+}
+
+/* Select the appropriate light/dark shades depending on the user's theme.
+ *
+ * I could use the `light-dark()` CSS function, but it's fairly new and
+ * this approach is fine, so I'm sticking with media queries for now.
+ * See https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark
+ */
+:root {
+    --body-text:          var(--body-text-light);
+    --primary-color:      var(--primary-color-light);
+    --accent-grey:        var(--accent-grey-light);
+    --block-border-color: var(--block-border-color-light);
+    --block-background:   var(--block-background-light);
+    --screenshot-border:  var(--screenshot-border-light);
+    --background-image:   var(--background-texture-light);
+    --background-color:   var(--background-color-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -90,7 +94,7 @@ $default-padding: 20px;
     --block-border-color: var(--block-border-color-dark);
     --block-background:   var(--block-background-dark);
     --screenshot-border:  var(--screenshot-border-dark);
-    --background-image:   var(--background-image-dark);
+    --background-image:   var(--background-texture-dark);
     --background-color:   var(--background-color-dark);
   }
 }
@@ -100,6 +104,7 @@ $default-padding: 20px;
     --accent-grey: var(--body-text);
 
     /* Don't show the background texture when printing; it's not important */
-    --background: none;
+    --background-image: none;
+    --background-color: none;
   }
 }
