@@ -7,9 +7,10 @@ module Jekyll
 
       cache.getset(html) do
         compressor = HtmlCompressor::Compressor.new({
-          :compress_css => true,
-          :css_compressor => CssCompressor.new(@context),
-        })
+                                                      compress_css: true,
+                                                      css_compressor: CssCompressor.new(@context),
+                                                      remove_intertag_spaces: true
+                                                    })
         compressor.compress(html)
       end
     end
@@ -26,7 +27,7 @@ class CssCompressor
     site = context.registers[:site]
     @converter = site.find_converter_instance(Jekyll::Converters::Scss)
   end
-  
+
   def compress(source)
     @converter.convert(source)
   end
