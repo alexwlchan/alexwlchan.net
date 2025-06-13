@@ -34,11 +34,16 @@ nav, nav a, nav a:visited, nav a:hover {
 @media (prefers-color-scheme: dark) {
   /* These styles create a solid colour region behind the text, which gives
    * it a more consistent background than the header image. */
-  nav a,
-  nav ul.dot_list li:not(:last-child)::after {
+  nav a {
     background: var(--primary-color);
     padding: 10px  5px;
     margin: -10px -5px;
+  }
+  
+  nav ul.dot_list li:not(:last-child)::after {
+    background: var(--primary-color);
+    padding: 10px 0px;
+    margin: -10px 0px;
   }
 
   nav h1 a,
