@@ -45,6 +45,7 @@ colors:
     }
 
     img#headshot {
+      margin-top: -3em;
       float: right;
     }
   }
