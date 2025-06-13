@@ -16,50 +16,6 @@ layout: compress
       <style>{{ parsed_content.inline_styles }}</style>
     {% endif %}
   </head>
-
-  {% comment %}
-    This snippet will help me review alt text I've written.
-  {% endcomment %}
-  {% if jekyll.environment == "development" %}
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("img").forEach(function(img) {
-
-          /* We don't need to show the alt text wrapper on card images, which
-           * never have alt text, and intentionally so. */
-          if (typeof img.parent !== 'undefined' &&
-              typeof img.parent.parent !== 'undefined' &&
-              img.parent.parent.classList.contains('c_im_w')) {
-            return;
-          }
-
-          if (img.classList.contains('avatar')) {
-            return;
-          }
-
-          img.parentElement.innerHTML +=
-            img.getAttribute('alt') !== null
-              ? `<div
-                   class="alt_text_debug"
-                   style="background: lime;
-                          font-family: monospace;
-                          color: black;
-                          padding: 5px;">
-                   Alt text: ${img.getAttribute("alt")}
-                 </div>`
-              : `<div
-                   class="alt_text_debug"
-                   style="background: red;
-                          font-family: monospace;
-                          color: white;
-                          padding: 5px;">
-                   No alt text!
-                 </div>`;
-        });
-      });
-    </script>
-  {% endif %}
-
   <body>
     <a class="skip-main" href="#main">Skip to main content</a>
 
