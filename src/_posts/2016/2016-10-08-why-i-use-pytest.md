@@ -106,13 +106,13 @@ def test_the_answer():
 
 This is the sort of error output you get:
 
-<div class="highlight"><pre>    def test_the_answer():
+<pre><code>    def test_the_answer():
 &gt;       assert the_answer() == 42
 <span style="color: #d01c11">E       assert 54 == 42</span>
 <span style="color: #d01c11">E        +  where 54 = the_answer()</span>
 
 hitchhikers.py:14: AssertionError
-</pre></div>
+</code></pre>
 
 I much prefer this error output, and I didn't even have to remember any special methods.
 
@@ -125,14 +125,14 @@ Even better, this can be used for more complex conditions that can't be easily c
 Here's the output from another test failure:
 
 <!-- And this!! -->
-<div class="highlight"><pre>    def test_some_more():
+<pre><code>    def test_some_more():
 &gt;       assert (the_purpose_of(life) is not None) or (the_answer() == 42)
 <span style="color: #d01c11">E       assert (None is not None or 54 == 42)</span>
 <span style="color: #d01c11">E        +  where None = the_purpose_of('life')</span>
 <span style="color: #d01c11">E        +  and   54 = the_answer()</span>
 
 arthur.py:16: AssertionError
-</pre></div>
+</code></pre>
 
 I have no idea how py.test is handling asserts under the hood, but it's really helpful.
 

@@ -91,23 +91,21 @@ There are several reasons:
     It's not something I use myself, but I know it's important to a lot of people and it was a fun little project.
     The native Mastodon embeds [always show toots in light mode][light_mode_issue], whereas my embeds will adapt to your preference:
 
-<figure style="margin-left: 40px">
-  <div class="comparison">
-    {%
-      picture
-      filename="mastodon_custom_embed.png"
-      class="dark_aware"
-      alt="Screenshot of a custom Mastodon toot in light mode."
-      width="541"
-    %}
-    {%
-      picture
-      filename="mastodon_dark_embed.png"
-      class="dark_aware"
-      alt="Screenshot of a custom Mastodon toot in dark mode."
-      width="541"
-    %}
-  </div>
+<figure class="comparison" style="margin-left: 40px">
+  {%
+    picture
+    filename="mastodon_custom_embed.png"
+    class="dark_aware"
+    alt="Screenshot of a custom Mastodon toot in light mode."
+    width="541"
+  %}
+  {%
+    picture
+    filename="mastodon_dark_embed.png"
+    class="dark_aware"
+    alt="Screenshot of a custom Mastodon toot in dark mode."
+    width="541"
+  %}
 </figure>
 
 On the other hand, the argument in favour of native embeds is that they need minimal effort, they should always work, and they support more features.

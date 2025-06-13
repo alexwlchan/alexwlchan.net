@@ -154,19 +154,12 @@ We can check that it works by wrapping it in a quick loop, and checking that we 
 
 I threw that in a script, and used a couple of Unix text utilities to check the statistics:
 
-<!-- Direct code block because the hashes throw off the parsing -->
-
-<!-- ```console
+```console?prompt=$
 $ ruby run.rb | sort | uniq -c
   49 &#97;
   42 &#x61;
    9 a
-``` -->
-
-<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span>ruby run.rb | <span class="nb">sort</span> | <span class="nb">uniq</span> <span class="nt">-c</span>
-<span class="go">  49 &amp;#97;</span>
-<span class="go">  42 &amp;#x61;</span>
-<span class="go">   9 a</span></code></pre></div>
+```
 
 Now we can create a function to apply that to an entire string:
 

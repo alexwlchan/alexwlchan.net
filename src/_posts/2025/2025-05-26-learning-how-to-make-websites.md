@@ -192,7 +192,7 @@ I saw it on a number of sites that publish longer articles -- they used a progre
 <style>
   #progress_example {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 3fr 2fr;
     grid-column-gap: 1em;
     align-items: center;
   }
@@ -206,8 +206,10 @@ I saw it on a number of sites that publish longer articles -- they used a progre
 </style>
 
 <blockquote id="progress_example">
-  <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"file"</span><span class="nt">&gt;</span>Progress:<span class="nt">&lt;/label&gt;</span>
-<span class="nt">&lt;progress</span> <span class="na">id=</span><span class="s">"file"</span> <span class="na">max=</span><span class="s">"100"</span> <span class="na">value=</span><span class="s">"70"</span><span class="nt">&gt;</span>70%<span class="nt">&lt;/progress&gt;</span></code></pre></div></div>
+  {% highlight html -%}
+<label for="file">Progress:</label>
+<progress id="file" max="100" value="70">70%</progress>
+  {%- endhighlight %}
 
   <div>
     <label for="file">File progress:</label>
@@ -291,7 +293,7 @@ Here's a link style from an old copy of the *Entertainment Weekly* website:
 <style>
   #underline_example {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     grid-column-gap: 1em;
     align-items: center;
   }
@@ -310,10 +312,16 @@ Here's a link style from an old copy of the *Entertainment Weekly* website:
       text-align: left;
     }
   }
+
+  #underline_example figure.highlight {
+    margin: 0;
+  }
 </style>
 
 <blockquote id="underline_example">
-  <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span> <span class="nl">box-shadow</span><span class="p">:</span> <span class="nb">inset</span> <span class="m">0</span> <span class="m">-6px</span> <span class="m">0</span> <span class="m">#b0e3fb</span><span class="p">;</span> <span class="p">}</span></code></pre></div></div>
+{% highlight css -%}
+a { box-shadow: inset 0 -6px 0 #b0e3fb; }
+{%- endhighlight %}
 
   <div>
     <span style="box-shadow: inset 0 -6px 0 #b0e3fb;">

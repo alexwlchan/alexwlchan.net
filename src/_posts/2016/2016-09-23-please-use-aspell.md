@@ -42,17 +42,23 @@ In practice, I've found that it's simpler to install aspell using a package mana
 
 *   If you're using OS X, you can install aspell through [Homebrew](http://brew.sh):
 
-    <div class="highlight"><pre><span class="gp">$</span> brew install aspell</pre></div>
+    ```console
+    $ brew install aspell
+    ```
 
-* If you're using Ubuntu or Debian, try `apt-get`:
+*   If you're using Ubuntu or Debian, try `apt-get`:
 
-    <div class="highlight"><pre><span class="gp">$</span> apt-get install aspell</pre></div>
+    ```console
+    $ apt-get install aspell
+    ```
 
-* On CentOS or RHEL, try `yum`:
+*   On CentOS or RHEL, try `yum`:
 
-    <div class="highlight"><pre><span class="gp">$</span> yum install aspell</pre></div>
+    ```console
+    $ yum install aspell
+    ```
 
-* For Windows users, there are [pre-built binaries](http://aspell.net/win32/) on the aspell site, although I haven't tried those myself.
+*   For Windows users, there are [pre-built binaries](http://aspell.net/win32/) on the aspell site, although I haven't tried those myself.
 
 ## Using aspell
 
