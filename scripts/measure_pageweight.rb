@@ -1,8 +1,12 @@
 #!/usr/bin/env ruby
 
-puts format('Homepage (/):           %2.1f KiB', File.size('_site/index.html') / 1024.0)
-puts format('Articles (/articles/): %3.1f KiB', File.size('_site/articles/index.html') / 1024.0)
-puts format('TIL      (/til/):       %2.1f KiB', File.size('_site/til/index.html') / 1024.0)
+def pprint_size(size)
+  format('%6.1f KiB (%7s B)', size / 1024.0, size.to_s.gsub(/\B(?=(...)*\b)/, ','))
+end
+
+puts format('Homepage (/):            %s', pprint_size(File.size('_site/index.html')))
+puts format('Articles (/articles/):   %s', pprint_size(File.size('_site/articles/index.html')))
+puts format('TIL      (/til/):        %s', pprint_size(File.size('_site/til/index.html')))
 
 sizes = []
 
@@ -14,4 +18,8 @@ Dir.glob('_site/**/*.html').each do |f|
   sizes.push(File.size(f))
 end
 
-puts format('Global average:         %2.1f KiB', sizes.sum / sizes.length / 1024.0)
+puts format('Global average:          %s', pprint_size(sizes.sum / sizes.length))
+
+puts ''
+
+puts format('CSS (/static/style.css): %s', pprint_size(File.size('_site/static/style.css')))

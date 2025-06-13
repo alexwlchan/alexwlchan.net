@@ -68,6 +68,9 @@ Style/FetchEnvVar:
   Exclude:
     - scripts/merge_pull_request.rb
 
+Style/FormatStringToken:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 
