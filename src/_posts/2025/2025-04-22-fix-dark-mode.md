@@ -36,8 +36,8 @@ Both my textures are based on the ["White Waves" pattern][white_waves] made by S
 
 <figure style="width: 500px;">
   <div id="comparison">
-    <img src="/theme/white-waves-transparent.png" alt="" class="dark_aware">
-    <img src="/theme/black-waves-transparent.png" alt="" class="dark_aware">
+    <img src="/static/white-waves.png" alt="" class="dark_aware">
+    <img src="/static/black-waves.png" alt="" class="dark_aware">
   </div>
   <figcaption>
     If you don’t switch between light and dark mode, you’ve probably only seen one of these background textures.
