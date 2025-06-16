@@ -79,9 +79,9 @@ end
 
 # Create the "speckled" header image for a given hex color.
 def create_header_image(tint_color)
-  FileUtils.mkdir_p '_site/headers'
+  FileUtils.mkdir_p '_site/h'
 
-  out_path = "_site/headers/specktre_#{tint_color.sub('#', '')}.png"
+  out_path = "_site/h/#{tint_color.sub('#', '')}.png"
 
   return if File.file?(out_path)
 
@@ -126,12 +126,12 @@ def colorise_image(image, tint_color)
 end
 
 def create_favicon(tint_color)
-  FileUtils.mkdir_p '_site/favicons'
+  FileUtils.mkdir_p '_site/f'
 
   hex_string = tint_color.gsub('#', '')
 
-  ico_path = "_site/favicons/#{hex_string}.ico"
-  png_path = "_site/favicons/#{hex_string}.png"
+  ico_path = "_site/f/#{hex_string}.ico"
+  png_path = "_site/f/#{hex_string}.png"
 
   return if (File.exist? ico_path) && (File.exist? png_path)
 

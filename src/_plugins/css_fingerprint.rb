@@ -48,7 +48,9 @@ end
 module Jekyll
   class CssFingerprintTag < Liquid::Tag
     def render(_context)
-      Jekyll::Cache.new('CssFingerprint')['style.scss']
+      # We only grab the first few characters of the hash; we don't
+      # need all of it.
+      Jekyll::Cache.new('CssFingerprint')['style.scss'][..6]
     end
   end
 end

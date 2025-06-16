@@ -37,11 +37,6 @@ footer a:visited {
     color: var(--primary-color-light);
   }
 
-  #footer_inner {
-    grid-template-columns: 1fr;
-    grid-gap: 0;
-  }
-
   footer form {
     display: none;
   }

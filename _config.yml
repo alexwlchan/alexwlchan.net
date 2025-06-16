@@ -109,7 +109,7 @@ keep_files: [
   "c",
 
   # Managed by the tint colors plugin
-  "favicons", "favicon.png", "favicon.ico", "headers",
+  "f", "favicon.png", "favicon.ico", "h",
 ]
 
 highlighter: "rouge"

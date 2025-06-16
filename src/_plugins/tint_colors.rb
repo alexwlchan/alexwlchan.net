@@ -76,8 +76,8 @@ Jekyll::Hooks.register :site, :pre_render do
 
   hex_string = default_light_color.gsub('#', '')
 
-  FileUtils.cp("_site/favicons/#{hex_string}.png", '_site/favicon.png')
-  FileUtils.cp("_site/favicons/#{hex_string}.ico", '_site/favicon.ico')
+  FileUtils.cp("_site/f/#{hex_string}.png", '_site/favicon.png')
+  FileUtils.cp("_site/f/#{hex_string}.ico", '_site/favicon.ico')
 end
 
 # These hooks create the asset images for the custom CSS colors

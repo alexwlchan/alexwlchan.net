@@ -16,9 +16,6 @@
 
 <meta name="description" content="{{ page.summary | default: site.description | escape }}">
 
-<meta name="page-source-path" content="{{ page.path }}">
-<meta name="jekyll-environment" content="{{ jekyll.environment}}" >
-
 {% if page.colors.css_light %}
   {% assign primary_color_light = page.colors.css_light | replace: "#", "" %}
   {% assign primary_color_dark  = page.colors.css_dark  | replace: "#", "" %}
@@ -30,11 +27,11 @@
 <meta name="theme-color" content="#{{ primary_color_light }}" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#{{ primary_color_dark  }}" media="(prefers-color-scheme: dark)">
 
-<link rel="icon" type="image/png"    href="/favicons/{{ primary_color_light }}.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/x-icon" href="/favicons/{{ primary_color_light }}.ico" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png"    href="/f/{{ primary_color_light }}.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/x-icon" href="/f/{{ primary_color_light }}.ico" media="(prefers-color-scheme: light)">
 
-<link rel="icon" type="image/png"    href="/favicons/{{ primary_color_dark }}.png" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/x-icon" href="/favicons/{{ primary_color_dark }}.ico" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png"    href="/f/{{ primary_color_dark }}.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/x-icon" href="/f/{{ primary_color_dark }}.ico" media="(prefers-color-scheme: dark)">
 
 <link rel="apple-touch-icon" href="/theme/apple-touch-icon.png">
 

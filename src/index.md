@@ -68,7 +68,7 @@ colors:
 
 {%
   picture
-  filename="profile_green_square.jpg"
+  filename="profile_green_sq.jpg"
   id="headshot"
   parent="/images"
   width="230"
@@ -154,7 +154,7 @@ Here are some of the topics I write about:
   function CardImage(card) {
     const yr = card.y;
 
-    if (card.fm === 'JPEG') {
+    if (card.fm === 'J') {
       var suffix = '.jpg';
       var mimeType = 'image/jpg';
     } else {
@@ -162,19 +162,22 @@ Here are some of the topics I write about:
       var mimeType = 'image/png';
     }
 
-    const widths = [365,730,302,504,405,810];
-    const primary = widths.map(s => `/c/${yr}/${card.p}_${s}w${suffix} ${s}w`).join(", ");
-    const avif = widths.map(s => `/c/${yr}/${card.p}_${s}w.avif ${s}w`).join(", ");
-    const webp = widths.map(s => `/c/${yr}/${card.p}_${s}w.webp ${s}w`).join(", ");
+    const prefix = card.s.slice(0, card.p);
+    const imPrefix = `/c/${yr}/${prefix}`;
+
+    const ws = [365,730,302,504,405,810];
+    const avif    = ws.map(s => `${imPrefix}_${s}w.avif ${s}w`).join(", ");
+    const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
+    const primary = ws.map(s => `${imPrefix}_${s}w${suffix} ${s}w`).join(", ");
 
     const sizes = "(max-width: 450px) 405px, 405px";
 
     return `
       <div class="c_im_w${card.n ? ' n' : ''}">
         <picture>
-          <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
           <source srcset="${avif}"    sizes="${sizes}" type="image/avif">
           <source srcset="${webp}"    sizes="${sizes}" type="image/webp">
+          <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
           <img src="/c/${yr}/${card.p}_365w.jpg" alt="" loading="lazy">
         </picture>
         ${card.n ? '<div class="new_banner">NEW</div>' : ''}
@@ -185,7 +188,6 @@ Here are some of the topics I write about:
   function ArticleCard(card) {
     return `
       <li
-        class="card"
         style="
           ${card.cl ? `--c-lt: #${card.cl}` : ''};
           ${card.cd ? `--c-dk: #${card.cd}` : ''};
@@ -209,11 +211,11 @@ Here are some of the topics I write about:
     t = title
     y = year - 2000
     s = slug
-    p = prefix
-    fm = image format
+    p = length of prefix
+    fm = image format (J = JPEG, P = PNG)
     d = description
   {% endcomment %}
-  const keys = ["cl", "cd", "n", "t", "y", "s", "p", "fm", "d"];
+  const keys = ["cl","cd","n","t","y","s","p","fm","d"];
 
   {%- capture featuredArticlesJson -%}
     [
@@ -225,8 +227,8 @@ Here are some of the topics I write about:
           {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
           {{ article.date | date: "%Y" | minus: 2000 }},
           {{ article.slug | jsonify }},
-          {{ article.card.index_prefix | jsonify }},
-          {{ article.card.index_image.format | jsonify }},
+          {{ article.card.index_prefix | size }},
+          {{ article.card.index_image.format | slice: "0" | jsonify }},
           {% if article.summary %}
             {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
           {% else %}
