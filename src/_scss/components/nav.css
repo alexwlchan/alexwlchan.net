@@ -9,13 +9,7 @@ nav {
   padding-top: calc(1px + env(safe-area-inset-top));
   padding-bottom: 1px;
 
-  /* The nav gets the primary accent colour as background, with white text.
-   *
-   * It looks the same in light/dark mode.
-   *
-   * TODO: Should I have light/dark mode for the nav?
-   */
-  background: var(--nav-background-image) var(--primary-color-light);
+  background: var(--nav-background-image) var(--primary-color);
   background-size: auto 100%;
 }
 
@@ -26,6 +20,7 @@ nav h1 {
 
 nav h1 a {
   text-decoration: none;
+  display: inline-block;
 }
 
 nav ul {
@@ -34,6 +29,38 @@ nav ul {
 
 nav, nav a, nav a:visited, nav a:hover {
   color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* These styles create a solid colour region behind the text, which gives
+   * it a more consistent background than the header image. */
+  nav a {
+    background: var(--primary-color);
+    padding: 10px  5px;
+    margin: -10px -5px;
+  }
+  
+  nav ul.dot_list li:not(:last-child)::after {
+    background: var(--primary-color);
+    padding: 10px 0px;
+    margin: -10px 0px;
+  }
+
+  nav h1 a,
+  nav ul li:first-child a {
+    padding-left: 9px;
+    margin-left: -9px;
+  }
+
+  nav h1 a,
+  nav ul li:last-child a {
+    padding-right: 9px;
+    margin-right: -9px;
+  }
+  
+  nav, nav a, nav a:visited {
+    color: black;
+  }
 }
 
 /* Add an extra thick underline so you know which part of the site

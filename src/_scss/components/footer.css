@@ -8,7 +8,7 @@ footer {
    *
    * It looks the same in light/dark mode.
    */
-  background: var(--primary-color-light);
+  background: var(--primary-color);
 }
 
 footer,
@@ -16,6 +16,15 @@ footer a,
 footer a:hover,
 footer a:visited {
   color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  footer,
+  footer a,
+  footer a:hover,
+  footer a:visited {
+    color: black;
+  }
 }
 
 @media print {
