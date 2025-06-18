@@ -35,12 +35,7 @@ pre.wrap {
 
 /* These styles are for code blocks with line numbers, which are created
  * by my `annotated_highlight` plugin. */
-.annotated_highlight {
-  counter-reset: line-counter calc(var(--start-line) - 1);
-}
-
 .annotated_highlight .ln {
-  counter-increment: line-counter;
   position: relative;
   white-space: pre;
 
@@ -48,7 +43,8 @@ pre.wrap {
 }
 
 .annotated_highlight .ln::before {
-  content: counter(line-counter);
+  counter-reset: line-number var(--ln);
+  content: counter(line-number);
   position: absolute;
   left: 0;
   text-align: right;
@@ -68,8 +64,7 @@ pre.wrap {
   margin-right:  12px;
 }
 
-/* If a line is ellipsis at the end of a code block, don't show any text. */
-.annotated_highlight .ln.ellipsis:last-child::before {
+.annotated_highlight .ln.empty::before {
   content: "";
 }
 
