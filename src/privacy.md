@@ -12,7 +12,7 @@ nav_section: contact
 
     I don't share this data with anybody, and I don't use analytics services like Google Analytics.
 
-*   **Newsletter subscribers:** your email goes only to [Buttondown](https://docs.buttondown.com/privacy-and-security#gdpr-compliance) (my email service) so they can send newsletters on my behalf.
+*   **Newsletter subscribers:** your email address only goes to [Buttondown](https://docs.buttondown.com/privacy-and-security#gdpr-compliance) (my email service) so they can send newsletters on my behalf.
     I won't share it or use it for anything else.
     You can unsubscribe whenever you like.
 
