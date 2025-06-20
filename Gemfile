@@ -11,7 +11,7 @@ gem 'nokogiri', '~> 1.18'
 gem 'shell-executer', '~> 1.0'
 
 group :lint, optional: true do
-  gem 'rubocop', '~> 1.76'
+  gem 'rubocop', '~> 1.77'
 end
 
 group :test, optional: true do
