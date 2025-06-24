@@ -189,16 +189,17 @@ pre {
   }
 }
 
-// Disable selecting the $ or the following space in ``console`` code blocks.
-// See https://alexwlchan.net/2021/10/console-copying/
-.language-console {
-  .gp, .gp + .w  {
-    @include mixins.disable_select();
-  }
+/* Disable selecting the $ or the following space in ``console`` code blocks.
+ * See https://alexwlchan.net/2021/10/console-copying/ */
+.language-console .gp,
+.language-console .gp + .w,
+.language-irb .gp,
+.language-irb .gp + .w {
+  @include mixins.disable_select();
 }
 
-// All my Go-formatted code uses tabs; ensure it's a 4-wide tab rather
-// than 8-wide, which is the default stylesheet in Safari
+/* All my Go-formatted code uses tabs; ensure it's a 4-wide tab rather
+ * than 8-wide, which is the default stylesheet in Safari */
 .language-go {
   tab-size: 4;
 }

@@ -141,10 +141,9 @@ end
 def cleanup_syntax_highlighter_classes(html)
   # I never use the `highlighter-rouge` class, and I only have styles
   # for a couple of the `language-*` classes.
-  html = html.gsub(' class="language-console highlighter-rouge"', ' class="language-console"')
-  html = html.gsub(' class="language-go highlighter-rouge"', ' class="language-go"')
-
-  html = html.gsub(/ class="language-[a-z]+ highlighter-rouge"/, '')
+  ["console", "go", "irb"].each do |lang|
+    html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"language-#{lang}\"")
+  end
 
   # I never use the `highlight` class.
   #
