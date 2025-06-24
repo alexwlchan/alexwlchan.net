@@ -144,6 +144,8 @@ def cleanup_syntax_highlighter_classes(html)
   %w[console go irb].each do |lang|
     html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"language-#{lang}\"")
   end
+  
+  html = html.gsub(/ class="language-[a-z]+ highlighter-rouge"/, '')
 
   # I never use the `highlight` class.
   #
