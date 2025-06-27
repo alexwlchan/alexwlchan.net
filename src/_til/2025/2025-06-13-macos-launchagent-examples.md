@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to run a task on a schedule on macOS
-summary: Create a `LaunchAgent` with a `StartCalendarInterval` that defines how often you want the task to run.
+summary: Create a `LaunchAgent` with a `StartCalendarInterval` or `StartInterval` that defines how often you want the task to run.
 date: 2025-06-13 16:59:56 +0100
 tags:
   - macos
@@ -89,19 +89,6 @@ I've used this to run basic queues, where the queue worker wakes up every second
     <string>/Users/alexwlchan/logs/poll_every_second.stdout.log</string>
     <key>StandardErrorPath</key>
     <string>/Users/alexwlchan/logs/poll_every_second.stderr.log</string>
-    <key>StartCalendarInterval</key>
-    <dict>
-      <key>Minute</key>
-      <integer>0</integer>
-      <key>Hour</key>
-      <integer>*</integer>
-      <key>Day</key>
-      <integer>*</integer>
-      <key>Month</key>
-      <integer>*</integer>
-      <key>Weekday</key>
-      <integer>*</integer>
-    </dict>
     <key>StartInterval</key>
     <integer>1</integer>
     <key>KeepAlive</key>
