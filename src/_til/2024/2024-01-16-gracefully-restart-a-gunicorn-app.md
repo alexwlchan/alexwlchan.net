@@ -4,6 +4,7 @@ title: How to gracefully restart a gunicorn app
 date: 2024-01-16 14:11:51 +0000
 tags:
   - python
+  - python:gunicorn
 ---
 Suppose I have a Flask app:
 
