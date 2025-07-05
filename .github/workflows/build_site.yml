@@ -129,6 +129,8 @@ jobs:
         run: |
           mkdir -p _site
           tailscale status
+          
+          tailscale ssh linode-vps echo "hello world!"
         
           # Run the rsync command to upload the _site folder to
           # my web server
