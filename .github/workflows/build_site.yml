@@ -46,8 +46,8 @@ jobs:
     name: Build the website
     runs-on: macos-latest
     steps:
-      - name: "Check out the repo"
-        uses: actions/checkout@v4
+      # - name: "Check out the repo"
+      #   uses: actions/checkout@v4
 
       # - name: "Set up Ruby"
       #   uses: ruby/setup-ruby@v1
