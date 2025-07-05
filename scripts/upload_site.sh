@@ -7,7 +7,8 @@
 
 set -o errexit
 set -o nounset
-set -o xtrace
+
+LINODE_IP=$(tailscale ip --4 linode-vps)
 
 rsync \
   --compress \
@@ -22,5 +23,5 @@ rsync \
   --include="" \
   --filter="" \
   "_site/" \
-  "alexwlchan@alexwlchan-net:repos/alexwlchan.net/_site/" \
+  "alexwlchan@$LINODE_IP:repos/alexwlchan.net/_site/" \
   "$@"
