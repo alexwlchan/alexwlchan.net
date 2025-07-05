@@ -49,69 +49,69 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v4
 
-      - name: "Set up Ruby"
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3"
-          bundler-cache: true
-          cache-version: 1
-
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: "pip"
-      - run: pip install -r requirements.txt
-
-      - name: "Cache site output"
-        uses: "actions/cache@v4"
-        with:
-          path: _site
-          key: "site-${{ github.sha }}"
-          restore-keys: "site-"
-
-      - name: "Cache the .jekyll-cache folder"
-        uses: "actions/cache@v4"
-        with:
-          path: src/.jekyll-cache
-          key: "jekyll-cache-${{ github.sha }}"
-          restore-keys: "jekyll-cache-"
-
-      - name: "Set the JEKYLL_ENV variable"
-        run: |
-          if [[ "$GITHUB_REF" == "refs/heads/main" ]]
-          then
-            echo "JEKYLL_ENV=production" >> "$GITHUB_ENV"
-          else
-            echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
-          fi
-
-      - name: "Build the site"
-        run: bundle exec jekyll build --drafts
-
-      - name: "Run linting"
-        run: bundle exec ruby scripts/linter.rb
-
-      - name: "Publish drafts"
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [[ -d "src/_drafts" ]]
-          then
-            touch ~/.gitconfig
-
-            git config user.name "GitHub Actions on behalf of Alex Chan"
-            git config user.email "githubactions@alexwlchan.net"
-
-            git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
-
-            bundle exec ruby scripts/publish_drafts.rb
-
-            # Note: although there are no more drafts, we build with the
-            # flag to avoid Jekyll invalidating its cache
-            bundle exec jekyll build --drafts
-          else
-            echo "There is no _drafts folder, so nothing to publish!"
-          fi
+      # - name: "Set up Ruby"
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: "3.3"
+      #     bundler-cache: true
+      #     cache-version: 1
+      #
+      # - name: "Set up Python"
+      #   uses: actions/setup-python@v5
+      #   with:
+      #     python-version: "3.12"
+      #     cache: "pip"
+      # - run: pip install -r requirements.txt
+      #
+      # - name: "Cache site output"
+      #   uses: "actions/cache@v4"
+      #   with:
+      #     path: _site
+      #     key: "site-${{ github.sha }}"
+      #     restore-keys: "site-"
+      #
+      # - name: "Cache the .jekyll-cache folder"
+      #   uses: "actions/cache@v4"
+      #   with:
+      #     path: src/.jekyll-cache
+      #     key: "jekyll-cache-${{ github.sha }}"
+      #     restore-keys: "jekyll-cache-"
+      #
+      # - name: "Set the JEKYLL_ENV variable"
+      #   run: |
+      #     if [[ "$GITHUB_REF" == "refs/heads/main" ]]
+      #     then
+      #       echo "JEKYLL_ENV=production" >> "$GITHUB_ENV"
+      #     else
+      #       echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
+      #     fi
+      #
+      # - name: "Build the site"
+      #   run: bundle exec jekyll build --drafts
+      #
+      # - name: "Run linting"
+      #   run: bundle exec ruby scripts/linter.rb
+      #
+      # - name: "Publish drafts"
+      #   if: github.ref == 'refs/heads/main'
+      #   run: |
+      #     if [[ -d "src/_drafts" ]]
+      #     then
+      #       touch ~/.gitconfig
+      #
+      #       git config user.name "GitHub Actions on behalf of Alex Chan"
+      #       git config user.email "githubactions@alexwlchan.net"
+      #
+      #       git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
+      #
+      #       bundle exec ruby scripts/publish_drafts.rb
+      #
+      #       # Note: although there are no more drafts, we build with the
+      #       # flag to avoid Jekyll invalidating its cache
+      #       bundle exec jekyll build --drafts
+      #     else
+      #       echo "There is no _drafts folder, so nothing to publish!"
+      #     fi
     
       - name: Tailscale
         uses: tailscale/github-action@v3
@@ -119,26 +119,27 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
+          use-cache: 'true'
 
       - name: Deploy to Linode
         # if: github.ref == 'refs/heads/main'
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
+          mkdir -p _site
+          tailscale status
+        
           # Run the rsync command to upload the _site folder to
           # my web server
-          bash scripts/upload_site.sh
+          bash scripts/upload_site.sh --dry-run
 
-          # Clean up the SSH key
-          rm id_rsa
-
-      - name: "Run the website tests"
-        run: ruby tests/run_all_tests.rb
-
-      - name: "Push any commits to GitHub"
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [[ $(git log -1 --pretty=format:'%an') == "GitHub Actions on behalf of Alex Chan" ]]
-          then
-            git push --verbose origin main
-          fi
+      # - name: "Run the website tests"
+      #   run: ruby tests/run_all_tests.rb
+      #
+      # - name: "Push any commits to GitHub"
+      #   if: github.ref == 'refs/heads/main'
+      #   run: |
+      #     if [[ $(git log -1 --pretty=format:'%an') == "GitHub Actions on behalf of Alex Chan" ]]
+      #     then
+      #       git push --verbose origin main
+      #     fi
