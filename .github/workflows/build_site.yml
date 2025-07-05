@@ -132,6 +132,8 @@ jobs:
           
           echo "===="
           
+          tailscale ip --4 linode-vps
+          
           tailscale ssh linode-vps echo "hello world!"
           
           echo "===="
