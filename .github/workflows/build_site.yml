@@ -134,7 +134,7 @@ jobs:
           
           tailscale ip --4 linode-vps
           
-          tailscale ssh linode-vps echo "hello world!"
+          tailscale ssh alexwlchan@linode-vps echo "hello world!"
           
           echo "===="
         
