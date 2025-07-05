@@ -137,13 +137,32 @@ jobs:
           
           echo "===="
           
+          LINODE_IP=$(tailscale ip --4 linode-vps)
+          
+          rsync \
+            --compress \
+            --archive \
+            --recursive \
+            --delete \
+            --verbose \
+            --exclude="my-tools/add-cover-to-ao3-epubs/index.html" \
+            --exclude="my-tools/list-youtube-likes/" \
+            --exclude="my-tools/library-lookup/" \
+            --exclude="ideas-for-inclusive-events/" \
+            --include="" \
+            --filter="" \
+            "_site/" \
+            "alexwlchan@$LINODE_IP:repos/alexwlchan.net/_site/" \
+            "--dry-run"
+          
+          
           # tailscale ssh alexwlchan@$(tailscale ip --4 linode-vps) echo "hello world!"
           
           echo "===="
         
           # Run the rsync command to upload the _site folder to
           # my web server
-          bash scripts/upload_site.sh --dry-run
+          # bash scripts/upload_site.sh --dry-run
 
       # - name: "Run the website tests"
       #   run: ruby tests/run_all_tests.rb
