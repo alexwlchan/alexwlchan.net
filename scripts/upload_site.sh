@@ -22,5 +22,5 @@ rsync \
   --include="" \
   --filter="" \
   "_site/" \
-  "alexwlchan@alexwlchan.net:repos/alexwlchan.net/_site/" \
+  "alexwlchan-net:repos/alexwlchan.net/_site/" \
   "$@"

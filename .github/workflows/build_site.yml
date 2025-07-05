@@ -112,25 +112,22 @@ jobs:
           else
             echo "There is no _drafts folder, so nothing to publish!"
           fi
+    
+      - name: Tailscale
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
 
       - name: Deploy to Linode
         if: github.ref == 'refs/heads/main'
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          # Get the SSH host keys for my web server
-          mkdir -p ~/.ssh
-          ssh-keyscan -H "alexwlchan.net" >> ~/.ssh/known_hosts
-
-          # Save the deploy key to a file, so it can be used by
-          # the SSH process
-          echo "$DEPLOY_KEY" > id_rsa
-          chmod 600 id_rsa
-
           # Run the rsync command to upload the _site folder to
           # my web server
-          bash scripts/upload_site.sh \
-            --rsh="ssh -i id_rsa -o IdentityAgent=none -o HostKeyAlgorithms=ssh-ed25519"
+          bash scripts/upload_site.sh
 
           # Clean up the SSH key
           rm id_rsa
