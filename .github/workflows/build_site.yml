@@ -85,10 +85,6 @@ jobs:
           else
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
-      
-      - name: "Clean up any cached data"
-        run: |
-          find _site -name 'cant_eject_disk*' -delete
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
