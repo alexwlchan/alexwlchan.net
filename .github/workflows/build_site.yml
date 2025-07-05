@@ -129,6 +129,7 @@ jobs:
         run: |
           mkdir -p _site
           tailscale status
+          tailscale dns status
           
           echo "===="
           
