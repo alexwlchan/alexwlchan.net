@@ -62,7 +62,11 @@ def get_inline_svg(svg_path, alt_text, extra_attrs, dst_path)
 
   # Add any extra attributes on the SVG
   extra_attrs.each do |k, v|
-    svg_doc.root.set_attribute(k, v)
+    if k == 'class'
+      svg_doc.root.append_class(v)
+    else
+      svg_doc.root.set_attribute(k, v)
+    end
   end
 
   # Remove all the comments, they're not needed

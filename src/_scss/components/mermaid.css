@@ -1,13 +1,6 @@
 .mermaid {
-	font-family: "trebuchet ms", verdana, arial, sans-serif;
 	font-size: 16px;
 	fill: #c7c7c7;
-}
-
-@keyframes edge-animation-frame {
-	from {
-		stroke-dashoffset: 0;
-	}
 }
 
 @keyframes dash {
@@ -65,12 +58,12 @@
 }
 
 .mermaid .marker {
-	fill: #c7c7c7;
-	stroke: #c7c7c7;
+	fill:   currentColor;
+	stroke: currentColor;
 }
 
 .mermaid .marker.cross {
-	stroke: #c7c7c7;
+	stroke: currentColor;
 }
 
 .mermaid svg {
@@ -87,16 +80,15 @@
 }
 
 .mermaid .label {
-	font-family: "trebuchet ms", verdana, arial, sans-serif;
-	color: #c7c7c7;
+	color: currentColor;
 }
 
 .mermaid .cluster-label text {
-	fill: rgb(229.25, 229.25, 229.25);
+/*  fill: rgb(229.25, 229.25, 229.25);*/
 }
 
 .mermaid .cluster-label span {
-	color: rgb(229.25, 229.25, 229.25);
+/*  color: rgb(229.25, 229.25, 229.25);*/
 }
 
 .mermaid .cluster-label span p {
@@ -105,8 +97,8 @@
 
 .mermaid .label text,
 .mermaid span {
-	fill: #c7c7c7;
-	color: #c7c7c7;
+	fill:  currentColor;
+	color: currentColor;
 }
 
 .mermaid .node rect,
@@ -114,8 +106,8 @@
 .mermaid .node ellipse,
 .mermaid .node polygon,
 .mermaid .node path {
-	fill: #0d0d0d;
-	stroke: #c7c7c7;
+	fill:   var(--background-color);
+	stroke: currentColor;
 	stroke-width: 1px;
 }
 
@@ -144,9 +136,9 @@
 }
 
 .mermaid .root .anchor path {
-	fill: #c7c7c7 !important;
+	fill: currentColor !important;
 	stroke-width: 0;
-	stroke: #c7c7c7;
+	stroke: currentColor;
 }
 
 .mermaid .arrowheadPath {
@@ -154,12 +146,12 @@
 }
 
 .mermaid .edgePath .path {
-	stroke: #c7c7c7;
+	stroke: currentColor;
 	stroke-width: 2.0px;
 }
 
 .mermaid .flowchart-link {
-	stroke: #c7c7c7;
+	stroke: currentColor;
 	fill: none;
 }
 
@@ -251,8 +243,4 @@
 	fill: currentColor;
 	stroke: revert;
 	stroke-width: revert;
-}
-
-.mermaid :root {
-	--mermaid-font-family: "trebuchet ms", verdana, arial, sans-serif;
 }
