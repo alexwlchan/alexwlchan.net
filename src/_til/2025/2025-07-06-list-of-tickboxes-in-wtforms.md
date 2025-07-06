@@ -9,7 +9,7 @@ tags:
 I was working on a Flask app, which had a [web form](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iii-web-forms) using WTForms.
 I wanted one of the form fields to be a list of items, from which the user could select one or more.
 
-The basic functionality isn't tricky to write -- here's a simple example, using a [`SelectMultipleField`](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectMultipleField) to keep the list of options:
+The basic functionality isn't tricky to write -- here's an example, using a [`SelectMultipleField`](https://wtforms.readthedocs.io/en/2.3.x/fields/#wtforms.fields.SelectMultipleField) to keep the list of options:
 
 ```python
 from flask import Flask
