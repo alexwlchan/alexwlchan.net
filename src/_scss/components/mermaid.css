@@ -66,11 +66,6 @@
 	stroke: currentColor;
 }
 
-.mermaid svg {
-	font-family: "trebuchet ms", verdana, arial, sans-serif;
-	font-size: 16px;
-}
-
 /* These :child selectors are to override some other styles in the
  * blockquote styles */
 .mermaid p,
@@ -175,17 +170,17 @@
 }
 
 .mermaid .cluster rect {
-	fill: hsl(180, 0%, 10.0980392157%);
-	stroke: hsl(180, 0%, 0.0980392157%);
+	fill: var(--block-background);
+	stroke: var(--block-border-color);
 	stroke-width: 1px;
 }
 
 .mermaid .cluster text {
-	fill: rgb(229.25, 229.25, 229.25);
+	fill: currentColor;
 }
 
 .mermaid .cluster span {
-	color: rgb(229.25, 229.25, 229.25);
+	color: currentColor;
 }
 
 .mermaid div.mermaidTooltip {
