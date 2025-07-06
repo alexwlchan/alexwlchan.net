@@ -4,9 +4,8 @@ title: Combine arrows in Mermaid by using an invisible node
 date: 2025-07-06 09:37:21 +0100
 tags:
   - mermaid
+  - drawing things
 ---
-<!-- I normally use mermaid.live to edit my Mermaid charts, but the SVG it generates doesn't look good in HTML pages -- I used https://mermaid.ink instead -->
-
 <style>
   @media screen and (min-width: 500px) {
     .demo {
