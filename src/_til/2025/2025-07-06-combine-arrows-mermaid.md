@@ -14,14 +14,6 @@ tags:
       grid-gap: 1em;
       align-items: center;
     }
-
-    .demo img {
-      margin-top:    1em;
-    }
-  }
-
-  .demo img {
-    margin-bottom: 1em;
   }
 </style>
 
