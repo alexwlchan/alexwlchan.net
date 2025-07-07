@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'chunky_png', '~> 1.4'
-gem 'color', '~> 1.8'
+gem 'color', '~> 2.0'
 gem 'htmlcompressor', '~> 0.4.0'
 gem 'html-proofer', '~> 5'
 gem 'jekyll', '~> 4'
