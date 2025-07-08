@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>How long is my data?</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- import the webpage's javascript file -->
+    <script src="script.js" defer></script>
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@alexwlchan"/>
+    <meta name="twitter:title" content="How long is my data?"/>
+    <meta name="twitter:description" content="Measure your data in the shelving it would require if stored as 3.5-inch floppy disks.">
+    <meta name="twitter:image" content="https://alexwlchan.net/fun-stuff/howlongismydata/floppy-disk-computer-163161.png"/>
+
+    <meta property="og:image" content="https://alexwlchan.net/fun-stuff/howlongismydata/floppy-disk-computer-163161.png"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://alexwlchan.net/fun-stuff/howlongismydata/">
+    <meta property="og:title" content="How long is my data?">
+    <meta property="og:description" content="Measure your data in the shelving it would require if stored as 3.5-inch floppy disks." />
+
+  </head>
+  <body>
+    <div class="images">
+    </div>
+
+    <main>
+    <h1>How long is my data?</h1>
+
+    <p>
+      Yes, you read that right. How <em>long</em>.
+    </p>
+
+    <p>
+      Programmers measure data in bits and bytes, but if you work in a library you know there are better units.
+      We measure things by length &ndash; as in, how long are the shelves you need to store something.
+    </p>
+
+    <p>
+      <strong>If you wrote all your data to a series of 3&half;&Prime; floppy disks, how many shelves would you need?</strong>
+    </p>
+
+    <p>
+      <strong>
+        I have <input id="value" type="number" onchange="recompute()"/>
+        <select id="unit" onchange="recompute()">
+          <option value="MB">MB</option>
+          <option value="GB">GB</option>
+          <option value="TB">TB</option>
+          <option value="PB">PB</option>
+          <option value="EB">EB</option>
+        </select>
+        <span id="reaction"></span>
+      </strong>
+    </p>
+
+    <p id="results"></p>
+    </main>
+
+    <div class="images">
+    </div>
+
+    <footer>
+      <p>
+        made with 💖 by <a href="https://alexwlchan.net">alexwlchan</a>, who'd love to hear about your favourite library book
+      </p>
+    </footer>
+  </body>
+</html>
