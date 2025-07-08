@@ -1,7 +1,7 @@
 <entry>
   <title type="html">{{ post.title | markdownify_oneline | smartify | strip_html | normalize_whitespace | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
   <link
-    href="{% if post.link %}{{ post.link | add_utm_source }}{% else %}{{ post.url | absolute_url }}?utm_source=rss{% endif %}"
+    href="{% if post.link %}{{ post.link | add_utm_source }}{% else %}{{ post.url | absolute_url }}?ref=rss{% endif %}"
     rel="alternate"
     type="text/html"
     title="{{ post.title | xml_escape }}"
@@ -18,7 +18,7 @@
     {%- endif -%}
     {{- post.content | cleanup_text | strip | fix_html_for_feed_readers | fix_youtube_iframes }}
 
-    <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.url | absolute_url | xml_escape }}">visit the original article</a>]</p>
+    <p>[If the formatting of this post looks odd in your feed reader, <a href="{{ post.url | absolute_url | xml_escape }}?ref=rss">visit the original article</a>]</p>
     ]]>
   </content>
 
