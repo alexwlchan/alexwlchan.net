@@ -1,0 +1,25 @@
+#flag_image {
+/*  border: 3px solid white;*/
+
+  /* Pattern from https://www.toptal.com/designers/subtlepatterns/ */
+  background: url('so-white.png') #fdfdfd;
+}
+
+body {
+  background: #222;
+}
+
+p {
+  text-align: center;
+  color: white;
+  font: 1.4em monospace;
+  line-height: 1.35em;
+}
+
+a, .heart {
+  color: #00ffa2;
+}
+
+a:hover {
+  background: rgba(0, 255, 162, 0.4);
+}

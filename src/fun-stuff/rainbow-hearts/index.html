@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/hearts.js"></script>
+
+    <title>rainbow hearts</title>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        const params = new URLSearchParams(window.location.search);
+
+        const leftFlagId =
+          Array.from(Object.keys(FLAGS)).includes(params.get("left_flag"))
+            ? params.get("left_flag")
+            : randomFlagId();
+
+        const rightFlagId =
+          Array.from(Object.keys(FLAGS)).includes(params.get("right_flag"))
+            ? params.get("right_flag")
+            : randomFlagId();
+
+        const leftFlag = FLAGS[leftFlagId];
+        const rightFlag = FLAGS[rightFlagId];
+
+        document.querySelector("#mashup").innerHTML =
+          leftFlagId === rightFlagId
+            ? `a mashup of the <a href="${leftFlag.url}">${leftFlag.name || leftFlagId}</a> flag`
+            : `a mashup of the <a href="${leftFlag.url}">${leftFlag.name || leftFlagId}</a> and <a href="${rightFlag.url}">${rightFlag.name || rightFlagId}</a> flags`;
+
+        document.querySelector("#permalink").setAttribute(
+          "href",
+          `?left_flag=${leftFlagId}&right_flag=${rightFlagId}`
+        );
+
+        const svgXml = renderHeart(
+          { leftFlagId, leftFlag },
+          { rightFlagId, rightFlag },
+          { strokeWidth: 24 }
+        );
+
+        document.querySelector("#flag_image").innerHTML = svgXml;
+
+        document.querySelector("#download").setAttribute(
+          "href",
+          `data:image/svg+xml,${svgXml}`
+        );
+        document.querySelector("#download").setAttribute(
+          "download",
+          `hearts_${leftFlagId}_${rightFlagId}.svg`
+        );
+      })
+    </script>
+  </head>
+  <body>
+    <p>
+      made with <span class="heart">♡</span> by <a href="https://twitter.com/alexwlchan">@alexwlchan</a>, who loves how you look today
+    </p>
+
+    <div id="flag_image"></div>
+
+    <p id="mashup"></p>
+
+    <p>
+      <a href="#" onclick="window.location.search = '';">surprise me!</a> •
+      <a id="permalink" href="#">permalink</a> •
+      <a id="download" href="#" download="hearts.svg">download as svg</a>
+    </p>
+    <p>
+      see also: <a href="http://rainbow-valknuts.glitch.me">rainbow valknuts</a>
+    </p>
+  </body>
+</html>
