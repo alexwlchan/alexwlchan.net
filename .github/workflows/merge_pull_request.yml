@@ -24,7 +24,8 @@ jobs:
           cache-version: 1
 
       - name: Merge the pull request
-        run: ruby scripts/merge_pull_request.rb
+        # run: ruby scripts/merge_pull_request.rb
+        run: echo "do nothing!"
 
         # Note: this uses a personal access token, not the default GitHub token;
         # this is so that GitHub will build the resulting merged commit to main.
