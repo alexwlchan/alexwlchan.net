@@ -54,7 +54,11 @@ def get_colors_like(hex_color)
 
   Enumerator.new do |enum|
     loop do
-      hsl_color.luminosity = min_luminosity + (seeded_random.rand * luminosity_diff)
+      hsl_color = Color::HSL.from_values(
+        hsl_color.hue,
+        hsl_color.saturation,
+        min_luminosity + (seeded_random.rand * luminosity_diff)
+      )
       enum.yield hsl_color.to_rgb
     end
   end
