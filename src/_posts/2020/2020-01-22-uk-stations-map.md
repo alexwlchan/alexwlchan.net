@@ -3,7 +3,7 @@ layout: post
 date: 2020-01-22 07:50:23 +0000
 title: An interactive map of British railway stations 🚂
 summary: A map I use to plot which railway stations I've visited.
-link: https://uk-stations-map.glitch.me/
+link: https://alexwlchan.net/fun-stuff/uk-stations-map/
 tags:
   - glitch
   - trains
@@ -83,7 +83,7 @@ A map tells you much more than a flat list:
 The app isn't wonderfully fast – it preloads all the station data as a JSON blob, and that takes time to download and render.
 I'm sure it could be made faster, but this was only a bit of fun, and not something I want to sink lots of time into.
 
-If you want to play with it yourself, it's at <https://uk-stations-map.glitch.me/>, or the code is [on GitHub].
+If you want to play with it yourself, it's at [alexwlchan.net/fun-stuff/uk-stations-map/](/fun-stuff/uk-stations-map/).
 
 [Letchworth Garden City]: https://en.wikipedia.org/wiki/Letchworth_Garden_City_railway_station
 [Leaflet.js]: https://leafletjs.com/

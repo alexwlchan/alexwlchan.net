@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="static/leaflet.css"/>
+    <script src="static/leaflet.js"></script>
+
+    <!-- See https://github.com/jshjohnson/Choices -->
+    <script src="static/choices.min.js"></script>
+
+    <link rel="stylesheet" href="static/stations.min.css"/>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@alexwlchan">
+    <meta name="twitter:title" content="uk stations map 🚂">
+    <meta name="twitter:description" content="create a map of train stations you’ve visited">
+    <meta name="twitter:image" content="https://alexwlchan.net/fun-stuff/uk-stations-map/static/social_preview.png">
+
+    <meta property="og:image" content="https://alexwlchan.net/fun-stuff/uk-stations-map/static/social_preview.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://alexwlchan.net/fun-stuff/uk-stations-map/">
+    <meta property="og:title" content="uk stations map 🚂">
+    <meta property="og:description" content="create a map of train stations you’ve visited">
+
+    <script src="static/stations.min.js"></script>
+
+    <title>uk stations map 🚂</title>
+
+     <label for="station-picker">
+        <p>This is an map I created to see which train stations I&rsquo;ve visited.</p>
+        How many have <em>you</em> been to?
+      </label>
+
+      <div id="mapid" style="z-index: 0;"></div>
+
+      <div id="picker">
+        <select
+          class="form-control"
+          name="station-picker"
+          id="station-picker"
+          placeholder="Start typing the name of a station"
+          multiple
+        ></select>
+      </div>
+
+      <p id="counter"></p>
+
+      <script>
+        const mapManager = new MapManager("mapid");
+
+        const stateManager = new StateManager(stations);
+
+        const pickerManager = new PickerManager("station-picker", mapManager, stateManager, stations);
+      </script>
+    </main>
+    <footer>
+      <div style="display: flex;">
+        <div style="margin-bottom: auto; margin-top: auto; margin-right: 1em;">
+          created with 💖 by <a href="https://alexwlchan.net">alexwlchan</a>, who thinks trains are pretty cool
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
