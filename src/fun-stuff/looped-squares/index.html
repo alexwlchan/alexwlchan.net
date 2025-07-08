@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <link rel="shortcut icon" type="image/png"    href="looped_squares.png" sizes="32x32">
+  <link rel="shortcut icon" type="image/x-icon" href="looped_squares.ico" sizes="32x32">
+  <meta name="theme-color" content="#000000">
+
+  <title>looped “squares”</title>
+
+  <style>
+    svg {
+      background: white;
+      margin-top: 1em;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    @media screen and (min-width: 500px) {
+      svg {
+        height: calc(100vh - 300px);
+      }
+    }
+
+    a {
+      color: white;
+    }
+
+    body {
+      padding: 1em;
+      font-family: -apple-system, sans-serif;
+      color: white;
+      text-align: center;
+
+      /* Pattern from https://www.toptal.com/designers/subtlepatterns/double-bubble-dark-pattern/ */
+      background-image: url('double-bubble-dark.png');
+    }
+
+    input[type="number"] {
+      font-size: 1.2em;
+      width: 3em;
+    }
+
+    #strokeColor, #backgroundColor {
+      width: 3em;
+      height: 2.6em;
+      border: 0.25px solid white;
+      padding: 0;
+      margin-bottom: -3px;
+    }
+
+    form {
+      margin-top: 1em;
+    }
+
+    div.numericControl {
+      display: inline-block;
+      margin: 0.5em;
+    }
+
+    noscript {
+      border-radius: 15px;
+      border: 5px solid gold;
+      background: rgba(255, 215, 0, 0.2);
+      font-weight: bold;
+      font-size: 1.2em;
+      width: calc(100% - 2em);
+      padding: 1em;
+      display: block;
+    }
+  </style>
+
+
+
+  <script>
+    function createSvgElement(name) {
+      return document.createElementNS('http://www.w3.org/2000/svg', name);
+    }
+
+    function drawSymbol(numberOfSides, lengthOfStraightEdge, radiusOfLoop, angleOfRotation, strokeColor, backgroundColor) {
+
+      // Angle theta in the straight line.
+      const theta = 2 * Math.PI / numberOfSides;
+
+      // Height h between the centre of rotation and the straight line.
+      const h = lengthOfStraightEdge / (2 * Math.tan(theta / 2));
+
+      // Angle swept out by the circular arc in the curved loop.
+      const psi = 2 * Math.PI * (1 - 1 / numberOfSides);
+
+      // Length s of the straight edges inside the loop.
+      const s = radiusOfLoop * Math.tan(Math.PI / numberOfSides);
+
+      // Max distance between the centre of rotation and the edge of the shape.
+      const maxDistance =
+        radiusOfLoop +
+        Math.sqrt(
+          (lengthOfStraightEdge / 2 + s) ** 2 + (h + radiusOfLoop) ** 2
+        );
+
+      // Add some padding for the total width of the canvas.
+      const width = height = Math.ceil(2.2 * maxDistance);
+
+      // The centre of rotation is the centre of the canvas.
+      const centreOfRotation = {'x': width / 2, 'y': height / 2};
+
+      // The start/end of the straight line segment.
+      const startOfLine = {
+        'x': centreOfRotation['x'] - lengthOfStraightEdge / 2,
+        'y': centreOfRotation['y'] - h
+      };
+
+      const endOfLine = {
+        'x': centreOfRotation['x'] + lengthOfStraightEdge / 2,
+        'y': centreOfRotation['y'] - h
+      };
+
+      // Centre of the circular arc in the loop
+      const startOfLoop = endOfLoop = endOfLine;
+
+      const centreOfCircularArc = {
+        'x': startOfLoop['x'] + s,
+        'y': startOfLoop['y'] - radiusOfLoop,
+      };
+
+      // Start/end points of the circular arc
+      const startOfArc = {
+        'x': centreOfCircularArc['x'],
+        'y': centreOfCircularArc['y'] + radiusOfLoop,
+      };
+
+      const endOfArc = {
+        'x': centreOfCircularArc['x'] + radiusOfLoop * Math.sin(psi),
+        'y': centreOfCircularArc['y'] + radiusOfLoop * Math.cos(psi),
+      };
+
+      // Create the initial <svg> element
+      const svgElement = createSvgElement("svg");
+      svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      svgElement.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      svgElement.setAttribute("style", `background-color: ${backgroundColor}`)
+
+      // Insert a comment that describes the parameters
+      const comment = document.createComment(
+        `numberOfSides = ${numberOfSides}, lengthOfStraightEdge = ${lengthOfStraightEdge}, radiusOfLoop = ${radiusOfLoop}, angleOfRotation = ${angleOfRotation}, strokeColor = ${strokeColor}, backgroundColor = ${backgroundColor}`
+      );
+      svgElement.appendChild(comment);
+
+      // Make this <svg> element the only element in div#result
+      document.querySelector("#result").innerHTML = "";
+      document.querySelector("#result").appendChild(svgElement);
+
+      const defs = createSvgElement("defs");
+      svgElement.appendChild(defs);
+
+      // Create a unique ID for this path.  This isn't strictly necessary,
+      // but makes it much easier for me to add examples!
+      const pathId = `loopedHook_${getRandomHex()}`
+
+      const styleElement = createSvgElement("style");
+      defs.appendChild(styleElement);
+      styleElement.innerHTML = `
+        #${pathId} {
+          stroke: ${strokeColor};
+          stroke-width: 1px;
+          fill: none;
+        }`;
+
+      const pathElement = createSvgElement("path");
+      pathElement.setAttribute("id", pathId);
+      pathElement.setAttribute(
+        "d",
+        `
+        M ${startOfLine['x']} ${startOfLine['y']}
+        L ${endOfLine['x']} ${endOfLine['y']}
+        L ${startOfArc['x']} ${startOfArc['y']}
+        A ${radiusOfLoop} ${radiusOfLoop}
+        0 1 0
+        ${endOfArc['x']} ${endOfArc['y']}
+        L ${endOfLoop['x']} ${endOfLoop['y']}
+        `
+      );
+      defs.appendChild(pathElement);
+
+      for (i = 0; i < numberOfSides; i++) {
+        const useElement = createSvgElement("use");
+        useElement.setAttribute("href", `#${pathId}`);
+        useElement.setAttribute(
+          "transform",
+          `rotate(${angleOfRotation + 360 / numberOfSides * i}, ${centreOfRotation['x']}, ${centreOfRotation['y']})`
+        );
+        svgElement.appendChild(useElement);
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", (event) => {
+      const numberOfSides = getRandomInt(3, 50);
+      const lengthOfSide = getRandomInt(1, 25);
+      const radiusOfLoop = getRandomInt(1, 25);
+      const angleOfRotation = getRandomInt(0, 90);
+      const hue = getRandomInt(0, 360);
+
+      document.querySelector("#numberOfSides").setAttribute('value', numberOfSides);
+      document.querySelector("#lengthOfSide").value = lengthOfSide;
+      document.querySelector("#radiusOfLoop").value = radiusOfLoop;
+      document.querySelector("#angleOfRotation").value = angleOfRotation;
+
+      const mode = Math.random() > 0.5 ? 'light' : 'dark';
+      const lightColor = hslToRgb(hue / 360, 1.0, 0.5);
+
+      const strokeColor =
+        mode === 'light'
+          ? hslToRgb(hue / 360, 1.0, 0.5)
+          : hslToRgb(hue / 360, 1.0, 0.3);
+      const backgroundColor =
+        mode === 'light'
+          ? hslToRgb(hue / 360, 0.1, 0.3)
+          : hslToRgb(hue / 360, 1.0, 0.9);
+
+      document.querySelector("#strokeColor").value = strokeColor;
+      document.querySelector("#backgroundColor").value = backgroundColor;
+
+      drawSymbol(numberOfSides, lengthOfSide, radiusOfLoop, angleOfRotation, strokeColor, backgroundColor);
+
+      document.querySelector("a#download").addEventListener('click', e => {
+        let svg = document.querySelector('svg').outerHTML;
+        let blob = new Blob([svg], {type : 'image/svg+xml'});
+        e.target.href = URL.createObjectURL(blob);
+      });
+    });
+    
+    // Note: this should be unnecessary, but it fixes a bug with the Glitch button,
+    // where the styles in macOS Safari don't load -- the shape is just black and
+    // blocky with no colours or lines.
+    window.addEventListener("load", (event) => {
+      redraw();
+    });
+
+    function redraw() {
+      const numberOfSides = Number(document.querySelector("#numberOfSides").value);
+      const lengthOfSide = Number(document.querySelector("#lengthOfSide").value);
+      const radiusOfLoop = Number(document.querySelector("#radiusOfLoop").value);
+      const angleOfRotation = Number(document.querySelector("#angleOfRotation").value);
+      const color = document.querySelector("#strokeColor").value;
+      const backgroundColor = document.querySelector("#backgroundColor").value;
+
+      drawSymbol(
+        numberOfSides, lengthOfSide, radiusOfLoop, angleOfRotation, color, backgroundColor
+      );
+    }
+    
+   /**
+    * Converts an HSL color value to RGB. Conversion formula
+    * adapted from https://en.wikipedia.org/wiki/HSL_color_space.
+    * Assumes h, s, and l are contained in the set [0, 1] and
+    * returns r, g, and b in the set [0, 255].
+    *
+    * @param   {number}  h       The hue
+    * @param   {number}  s       The saturation
+    * @param   {number}  l       The lightness
+    * @return  {Array}           The RGB representation
+    *
+    * From https://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
+    */
+   function hslToRgb(h, s, l) {
+     let r, g, b;
+
+     if (s === 0) {
+       r = g = b = l; // achromatic
+     } else {
+       const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+       const p = 2 * l - q;
+       r = hueToRgb(p, q, h + 1/3);
+       g = hueToRgb(p, q, h);
+       b = hueToRgb(p, q, h - 1/3);
+     }
+
+     return `#${numToHex(Math.round(r * 255))}${numToHex(Math.round(g * 255))}${numToHex(Math.round(b * 255))}`;
+   }
+
+   function hueToRgb(p, q, t) {
+     if (t < 0) t += 1;
+     if (t > 1) t -= 1;
+     if (t < 1/6) return p + (q - p) * 6 * t;
+     if (t < 1/2) return q;
+     if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+     return p;
+   }
+
+   function numToHex(n) {
+     if (n.toString(16).length == 1) {
+       return `0${n.toString(16)}`;
+     } else {
+       return n.toString(16);
+     }
+   }
+
+   function getRandomInt(min, max) {
+     return Math.floor(Math.random() * (max - min) + min);
+   }
+
+  /* Return a random hex string */
+  function getRandomHex() {
+    return Array
+      .from(
+        { length: 16 },
+        () => "0123456789ABCDEF".charAt(getRandomInt(0, 15))
+      )
+      .join('');
+  }
+  </script>
+</head>
+
+<body>
+  <h1>looped “squares”</h1>
+
+  <noscript>
+    You need JavaScript for this to work!
+  </noscript>
+
+  <div id="result">
+  </div>
+
+  <form>
+    <div class="numericControl">
+      <label for="numberOfSides">number of sides:</label>
+      <input type="number" min="3" id="numberOfSides" onchange="redraw();" default="5"/>
+    </div>
+
+    <div class="numericControl">
+      <label for="lengthOfSide">length of side:</label>
+      <input type="number" id="lengthOfSide" onchange="redraw();" default="10"/>
+    </div>
+
+    <div class="numericControl">
+      <label for="radiusOfLoop">size of loops:</label>
+      <input type="number" id="radiusOfLoop" onchange="redraw();" default="10"/>
+    </div>
+
+    <div class="numericControl">
+      <label for="angleOfRotation">rotation:</label>
+      <input type="number" min="1" id="angleOfRotation" onchange="redraw();" default="15"/>
+    </div>
+
+    <div class="numericControl">
+      <label for="strokeColor">colour:</label>
+      <input type="color" id="strokeColor" onchange="redraw();"/>
+    </div>
+
+    <div class="numericControl">
+      <label for="backgroundColor">background:</label>
+      <input type="color" id="backgroundColor" onchange="redraw();"/>
+    </div>
+  </form>
+
+  <p>
+    <a id="download" download="looped_square.svg" href="">save as SVG</a>
+    ·
+    <a href="/2024/command-icon/">how does this work?</a>
+    ·
+    made with &lt;3 by <a href="https://alexwlchan.net/">alexwlchan</a>
+  </p>
+
+  <div class="glitchButton position-y-top"></div>
+  <script src="https://button.glitch.me/button.js"></script>
+</body>
+
+</html>
