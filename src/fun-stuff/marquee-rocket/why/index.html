@@ -1,0 +1,128 @@
+<html style="background: black; font-size: 100%; font-family: sans-serif; color: white;">
+  <marquee style="font-size: 4em; margin-bottom: 15px; display: block;">&#128640; &lt;marquee&gt; rocket &#128640;</marquee>
+  
+  <marquee style="margin-left: auto; margin-right: auto; max-width: 720px; padding: 1em; display: block;" scrollamount="0">    
+    <marquee style="font-size: 2em; display: block; font-style: italic; margin-bottom: 10px;" scrollamount="0">what is this?</marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 10px;" scrollamount="0">
+      it&rsquo;s a rocket that you control only using the &lt;marquee&gt; tag.
+      <marquee style="color: yellow; text-decoration: underline; cursor: hand; margin-bottom: -6px;" scrollamount="0" onclick="document.location = '/fun-stuff/marquee-rocket/'">whoosh!</marquee>
+    </marquee>
+
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 10px;" scrollamount="0">
+      You can:
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 10px;" scrollamount="0">
+      &#8597;&#65039; Change Course! Send your rocket in all four directions
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 10px;" scrollamount="0">
+      &#x1F40C; Slow Down! Or speed up, as the situation warrants
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 40px;" scrollamount="0">
+      &#x23ef; Full Stop! Hold in place until the danger has passed
+    </marquee>
+    
+    <marquee style="font-size: 2em; display: block; font-style: italic; margin-bottom: 10px;" scrollamount="0">seriously?</marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 40px;" scrollamount="0">
+      yup. everything (including this explainer) is done in &lt;marquee&gt;.</marquee>
+    
+    <marquee style="font-size: 2em; display: block; font-style: italic; margin-bottom: 10px;" scrollamount="0">it doesn&rsquo;t work :(</marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      unsurprising, alas.
+      The &lt;marquee&gt; tag has been deprecated for
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      a long time and browser support is patchy.
+    </marquee>
+    
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      I wrote it in Safari and it works best there.
+      It kinda works in Chrome
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      (but direction/speed changes only apply on the next scroll).
+      Something
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 40px;" scrollamount="0">
+      weird is happening with text labels in Firefox that I don&rsquo;t care to fix.
+    </marquee>
+    
+
+    <marquee style="font-size: 2em; display: block; font-style: italic; margin-bottom: 10px;" scrollamount="0">why?</marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      so Laurie Voss is running a Twitter poll/<marquee style="color: yellow; text-decoration: underline; cursor: hand; margin-bottom: -6px;" scrollamount="0" onclick="document.location = 'https://twitter.com/seldo/status/1461787400070438914'">Angle Bracket bracket</marquee>,
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      and the &lt;marquee&gt; tag is doing pretty well (as it should).</marquee>
+    
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      and then he posted this:</marquee>
+    
+    <marquee style="font-size: 1.5em; display: block; margin-left: 20px; margin-bottom: 5px;" scrollamount="0">
+      An unexpected side effect of this tournament has been watching
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-left: 20px; margin-bottom: 5px;" scrollamount="0">
+      people come up with ways to write complete web apps using 
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-left: 20px; margin-bottom: 15px;" scrollamount="0">
+      fewer and fewer tags.
+    </marquee>
+    
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      then I asked myself: what could I do with &lt;marquee&gt;?
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 40px;" scrollamount="0">
+      turns out: quite a bit!
+    </marquee>
+    
+    <marquee style="font-size: 2em; display: block; font-style: italic; margin-bottom: 10px;" scrollamount="0">how does it work?</marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      it&rsquo;s been a while, so I started by reading the 
+      <marquee style="color: yellow; text-decoration: underline; cursor: hand; margin-bottom: -6px;" scrollamount="0" onclick="document.location = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee#attr-truespeed'">MDN docs for &lt;marquee&gt;</marquee>
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      I learn that it&rsquo;s quite configurable.
+      you can set the scroll direction,
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      the speed, whether it bounces off or moves through walls, etc.
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      this page makes heavy use of scrollamount="0", which turns the
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      scrolling &lt;marquee&gt; into a static element.
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      so I got playing, then realised it responds to standard HTML
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      DOM handlers like onclick, and now I can run JavaScript.
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      from that I could build buttons and links, and we&rsquo;re off to the races.
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 20px;" scrollamount="0">
+      (or space, in this case.)
+    </marquee>
+    
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      you can see how it works by using &ldquo;View Source&rdquo; in your browser
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 40px;" scrollamount="0">
+      or reading the source code
+      <marquee style="color: yellow; text-decoration: underline; cursor: hand; margin-bottom: -6px;" scrollamount="0" onclick="document.location = 'https://glitch.com/~marquee-rocket'">on Glitch</marquee>
+    </marquee>
+    
+    <marquee style="font-size: 2em; display: block; font-style: italic; margin-bottom: 10px;" scrollamount="0">who are you?</marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 15px;" scrollamount="0">
+      in most places, I&rsquo;m <marquee style="color: yellow; text-decoration: underline; cursor: hand; margin-bottom: -6px;" scrollamount="0" onclick="document.location = 'https://twitter.com/alexwlchan'">@alexwlchan</marquee>
+    </marquee>
+    
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 5px;" scrollamount="0">
+      if you enjoyed this this, you may like to look at <marquee style="color: yellow; text-decoration: underline; cursor: hand; margin-bottom: -6px;" scrollamount="0" onclick="document.location = 'https://alexwlchan.net/projects/#fun-stuff'">my other projects</marquee>
+    </marquee>
+    <marquee style="font-size: 1.5em; display: block; margin-bottom: 15px;" scrollamount="0">
+      including a tool to calculate storage space in 3.5&Prime; disks.
+    </marquee>
+  </marquee>
+</html>

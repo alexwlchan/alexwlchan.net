@@ -134,7 +134,7 @@ Last month, NASA made headlines as they (finally) launched their SLS rocket as p
 The long and expensive development of SLS has been the subject of much debate, and caused a lot of online rage.
 I will now induce similar rage at a fraction of the cost.
 
-NASA's rocket reminded me of [a little website][glitch] I made last year, where you can control a rocket in the browser -- all using web technology from the 1990s.
+NASA's rocket reminded me of [a little website][rocket] I made last year, where you can control a rocket in the browser -- all using web technology from the 1990s.
 You can fly in different directions, change speed, and even do a mid-space stop!
 In this post, we'll peek under the covers and see how it works.
 
@@ -152,7 +152,7 @@ In this post, we'll peek under the covers and see how it works.
 </p>
 
 [shuttle]: https://www.space.com/artemis-1-space-shuttle-hardware
-[glitch]: http://marquee-rocket.glitch.me/
+[rocket]: /fun-stuff/marquee-rocket/
 
 
 
@@ -519,7 +519,7 @@ The four finalists were &lt;a&gt;, &lt;div&gt;, &lt;marquee&gt; and &lt;script&g
 
 How far could I get with just &lt;marquee&gt;?
 
-I built the [&lt;marquee&gt; rocket][glitch] as a small website with a bit of interactivity that only uses the marquee tag -- and to prove that you don't need &lt;script&gt; to do JavaScript shenanigans.
+I built the [&lt;marquee&gt; rocket](/fun-stuff/marquee-rocket/) as a small website with a bit of interactivity that only uses the marquee tag -- and to prove that you don't need &lt;script&gt; to do JavaScript shenanigans.
 
 It was a useful reminder that HTML is enormous, and I only know a tiny fraction of it.
 I'd been aware of the marquee tag for over a decade, but I thought it was just for horizontally scrolling text.

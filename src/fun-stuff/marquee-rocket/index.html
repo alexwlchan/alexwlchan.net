@@ -1,0 +1,25 @@
+<html style="background: black; font-size: 200%; font-family: sans-serif;">
+  <marquee id="rocket" direction="left" style="font-size: 200%; height: 100%;" height="100%" is-moving="yes" scrollamount="6">&#128640;</marquee>
+
+  <marquee scrollamount="0" style="position: absolute; top: 10; left: 35; color: white;">direction</marquee>
+  <marquee id="up" scrollamount="0" style="position: absolute; top: 60; left: 70; background: white; padding-left: 15px; width: 35px; height: 44px; padding-top: 6px; border-radius: 5px; cursor: hand;" onclick="document.getElementById('rocket').direction = 'up';">&#8593;</marquee>
+  <marquee id="down" scrollamount="0" style="position: absolute; top: 120; left: 70; background: white; padding-left: 15px; width: 35px; height: 44px; padding-top: 6px; border-radius: 5px; cursor: hand;" onclick="document.getElementById('rocket').direction = 'down';">&#8595;</marquee>
+  <marquee id="left" scrollamount="0" style="position: absolute; top: 120; left: 10; background: white; padding-left: 10px; width: 40px; height: 45px; padding-top: 5px; border-radius: 5px; cursor: hand;" onclick="document.getElementById('rocket').direction = 'left';">&#8592;</marquee>
+  <marquee id="right" scrollamount="0" style="position: absolute; top: 120; left: 130; background: white; padding-left: 10px; width: 40px; height: 45px; padding-top: 5px; border-radius: 5px; cursor: hand;" onclick="document.getElementById('rocket').direction = 'right';">&#8594;</marquee>
+
+  <marquee scrollamount="0" style="position: absolute; top: 210; left: 50; color: white;">speed</marquee>
+
+  <!-- For reasons I don't fully understand, if you look for "yes" in
+       the attribute, i.e. write this as
+
+            if (rocket.attributes['is-moving'] === 'yes')
+
+       you have to click twice for the rocket to actually stop.  I'm not
+       sure why and I haven't looked into it.
+    -->
+  <marquee id="playpause" scrollamount="0" style="position: absolute; top: 260; left: 10; background: white; padding-left: 10px; width: 40px; height: 45px; padding-top: 5px; border-radius: 5px; cursor: hand;" onclick="rocket = document.getElementById('rocket'); if (rocket.attributes['is-moving'] === 'no') { rocket.start();  rocket.attributes['is-moving'] = 'yes'; } else { rocket.stop(); rocket.attributes['is-moving'] = 'no'; };">&#x23ef;</marquee>
+  <marquee id="slowdown" scrollamount="0" style="position: absolute; top: 260; left: 70; background: white; padding-left: 10px; width: 40px; height: 45px; padding-top: 5px; border-radius: 5px; cursor: hand;" onclick="document.getElementById('rocket').scrollAmount = Math.max(0, document.getElementById('rocket').scrollAmount - 2);">&#128694;</marquee>
+  <marquee id="speedup" scrollamount="0" style="position: absolute; top: 260; left: 130; background: white; padding-left: 10px; width: 40px; height: 45px; padding-top: 5px; border-radius: 5px; cursor: hand;" onclick="document.getElementById('rocket').scrollAmount += 2">&#127939;</marquee>
+
+  <marquee scrollamount="0" style="position: absolute; top: 350; left: 50; color: yellow; text-decoration: underline; cursor: hand;" onclick="document.location = '/fun-stuff/marquee-rocket/why/'">why???</marquee>
+</html>
