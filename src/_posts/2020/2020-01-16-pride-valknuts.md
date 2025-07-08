@@ -3,7 +3,7 @@ layout: post
 date: 2020-01-16 22:56:51 +0000
 title: Generating pride-themed Norse valknuts with Python 🌈
 summary: A web app to generate mashups of Norse valknuts and Pride flags.
-link: https://rainbow-valknuts.glitch.me/
+link: https://alexwlchan.net/fun-stuff/rainbow-valknuts/
 tags:
   - python
   - glitch
@@ -51,14 +51,16 @@ This is what it looks like:
 
 [Flask]: https://flask.palletsprojects.com/en/1.1.x/
 
-<a href="https://rainbow-valknuts.glitch.me/?flag_0=aromantic&flag_1=non-binary&flag_2=pansexual">
-  <img src="/images/2020/rainbow_valknuts_screenshot.png" alt="Three interlocking triangles, made from the stripes of the non-binary (yellow, white, purple, black), pansexual (pink, yellow, blue) and aromantic (green, grey, white, black) pride flags.">
-</a>
+{%
+  picture
+  filename="rainbow_valknuts_screenshot.png"
+  width="652"
+  alt="Three interlocking triangles, made from the stripes of the non-binary (yellow, white, purple, black), pansexual (pink, yellow, blue) and aromantic (green, grey, white, black) pride flags."
+  link_to="/fun-stuff/rainbow-valknuts/?flag_0=aromantic&flag_1=non-binary&flag_2=pansexual"
+  class="dark_aware screenshot"
+%}
 
 It picks a random selection of three flags every time you reload the page, or you can get a permalink to save that particular image.
 The list of flags comes from the [QueerJS website](https://queerjs.com/flags).
 
-If you're interested, you can play with the app at <https://rainbow-valknuts.glitch.me/>, or browse the source code [on GitHub](https://github.com/alexwlchan/rainbow-valknuts).
-
-This was a fun little project to work on, and I'm hoping to do more fun things like this in 2020.
-I'm especially enjoying [Glitch](https://glitch.com) as a place to host these one-off, whimsical bits of code – I'll hopefully write more about it soon.
+If you're interested, you can play with the app at [alexwlchan.net/fun-stuff/rainbow-valknuts/](/fun-stuff/rainbow-valknuts/).
