@@ -26,7 +26,7 @@ and I run the app using gunicorn:
 $ gunicorn app:app --workers 4 --bind 127.0.0.1:8008 --daemon
 ```
 
-In this example, I've started four workers, which means five proceeses: one master and four workers.
+In this example, I've started four workers, which means five processes: one master and four workers.
 Here's an example list of processes, slightly tidied for readability:
 
 ```console
