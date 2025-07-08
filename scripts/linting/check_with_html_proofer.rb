@@ -77,7 +77,18 @@ def check_with_html_proofer(html_dir)
         #
         #     internally linking to ${altUrl}, which does not exist
         #
-        '_site/2021/editing-toolbar/index.html'
+        '_site/2021/editing-toolbar/index.html',
+        #
+        # These are some standalone sites that I'm willing to ignore
+        # for the sake of linting.
+        '_site/fun-stuff/checkbox-text-adventure/index.html',
+        '_site/fun-stuff/howlongismydata/index.html',
+        '_site/fun-stuff/looped-squares/index.html',
+        '_site/fun-stuff/marquee-rocket/index.html',
+        '_site/fun-stuff/marquee-rocket/why/index.html',
+        '_site/fun-stuff/rainbow-hearts/index.html',
+        '_site/fun-stuff/rainbow-valknuts/index.html',
+        '_site/fun-stuff/uk-stations-map/index.html'
       ],
       report_invalid_tags: true,
       #
