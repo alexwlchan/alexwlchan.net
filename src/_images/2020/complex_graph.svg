@@ -1,13 +1,13 @@
-<svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
   <defs>
     <style>
       circle {
-        fill: #222;
+        fill: currentColor;
         stroke: none;
       }
 
       line.complex {
-        stroke: #aaa;
+        stroke: var(--accent-grey);
         stroke-width: 1;
         stroke-linecap: round;
       }
@@ -74,7 +74,7 @@
   <line class="complex" x1="69.96138938356833" y1="40.620173672946045" x2="100.03861061643167" y2="44.379826327053955"/>
 
 <!-- Add a white line for the line crossing -->
-  <line x1="29.47213595499958" y1="57.763932022500214" x2="60.52786404500042" y2="42.236067977499786" style="stroke: white; stroke-width: 3.5"/>
+  <line x1="29.47213595499958" y1="57.763932022500214" x2="60.52786404500042" y2="42.236067977499786" style="stroke: var(--background-color); stroke-width: 3.5"/>
 
   <line class="complex" x1="29.47213595499958" y1="57.763932022500214" x2="60.52786404500042" y2="42.236067977499786"/>
 

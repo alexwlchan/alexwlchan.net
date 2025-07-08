@@ -1,12 +1,11 @@
-<svg viewBox="0 0 300 215" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 300 215" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
   <defs>
     <style>
       text.level_0, text.level_1 {
-        fill: black;
+        fill: currentColor;
         stroke: none;
         text-anchor: middle;
         dominant-baseline: middle;
-        font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', 'Kaiti SC', serif;
       }
 
       text.level_0 {
@@ -18,7 +17,7 @@
       }
 
       line.dian_words {
-        stroke: #aaa;
+        stroke: var(--accent-grey);
         stroke-linecap: round;
         stroke-width: 2;
       }
