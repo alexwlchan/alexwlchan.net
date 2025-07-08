@@ -1,0 +1,74 @@
+body {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 1.25em;
+  line-height: 1.45em;
+  padding: 1em;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* From https://www.toptal.com/designers/subtlepatterns/so-white-pattern/ */
+  background-image: url('so-white.png')
+}
+
+#results {
+  font-weight: bold;
+}
+
+input, select {
+  font-size: 1.25em;
+}
+
+input[type=number]{
+    width: 110px;
+}
+
+input {
+  border: 2px solid #ff47ff;
+  background: rgba(255, 71, 255, 0.15);
+}
+
+h1 {
+  line-height: 1.25em;
+}
+
+.displayHeight, h1 {
+  color: #ff47ff;
+}
+
+.images {
+  background: url('floppy-disk-computer-163161.png');
+  height: 160px;
+  background-repeat: space;
+  background-size: auto 100%;
+}
+
+main {
+  margin-top:    3em;
+  margin-bottom: 3em;
+}
+
+footer {
+  margin-top: 5em;
+  font-size: small;
+  color: #aaa;
+}
+
+footer a {
+  color: #777;
+}
+
+footer a:hover {
+  background: rgba(119, 119, 119, 0.3);
+}
+
+@media screen and (max-width: 500px) {
+  .images {
+    height: 80px;
+  }
+
+  main {
+    margin-top:    1em;
+    margin-bottom: 1em;
+  }
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="static/style.css">
+    <script src="static/valknuts.js"></script>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        const params = new URLSearchParams(window.location.search);
+
+        const flagId1 =
+          Array.from(Object.keys(FLAGS)).includes(params.get("flag_1"))
+            ? params.get("flag_1")
+            : randomFlagId();
+
+        const flagId2 =
+          Array.from(Object.keys(FLAGS)).includes(params.get("flag_2"))
+            ? params.get("flag_2")
+            : randomFlagId();
+
+        const flagId3 =
+          Array.from(Object.keys(FLAGS)).includes(params.get("flag_3"))
+            ? params.get("flag_3")
+            : randomFlagId();
+
+        const flag1 = FLAGS[flagId1];
+        const flag2 = FLAGS[flagId2];
+        const flag3 = FLAGS[flagId3];
+
+        document.querySelector("#mashup").innerHTML =
+          `a mashup of the <a href="${flag1.url}">${flag1.name || flagId1}</a>, <a href="${flag2.url}">${flag2.name || flagId2}</a> and <a href="${flag3.url}">${flag3.name || flagId3}</a> flags`;
+
+        document.querySelector("#permalink").setAttribute(
+          "href",
+          `?flag_1=${flagId1}&flag_2=${flagId2}&flag_3=${flagId3}`
+        );
+
+        const svgXml = renderValknuts(
+          flagId1, flagId2, flagId3,
+          { strokeWidth: 24 }
+        );
+
+        document.querySelector("#flag_image").innerHTML = svgXml;
+
+        document.querySelector("#download").setAttribute(
+          "href",
+          `data:image/svg+xml,${svgXml}`
+        );
+        document.querySelector("#download").setAttribute(
+          "download",
+          `valknuts_${flagId1}_${flagId2}_${flagId3}.svg`
+        );
+      })
+    </script>
+
+    <title>rainbow valknuts</title>
+  </head>
+  <body>
+    <p>
+      made with 💖 by <a href="https://twitter.com/alexwlchan">@alexwlchan</a>, who loves how you look today
+      •
+      based on an idea by <a href="https://twitter.com/KlezmerGryphon/status/1173897515843735553">@KlezmerGryphon</a>
+    </p>
+
+    <div id="flag_image"></div>
+
+    <p id="mashup"></p>
+    <p>
+      <a href="#" onclick="window.location.search = '';">surprise me!</a> •
+      <a id="permalink" href="#">permalink</a> •
+      <a id="download" href="#" download="valknuts.svg">download as svg</a>
+    </p>
+    <p>
+      see also: <a href="/fun-stuff/rainbow-hearts/">rainbow hearts</a>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+svg {
+  border: 3px solid white;
+}
+
+body {
+  background: #222;
+}
+
+p {
+  text-align: center;
+  color: white;
+  font: 1.4em monospace;
+  line-height: 1.35em;
+}
+
+a {
+  color: #f0e800;
+}
+
+a:hover {
+  background: rgba(240, 232, 0, 0.4);
+}

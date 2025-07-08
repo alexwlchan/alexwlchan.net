@@ -7,7 +7,7 @@ tags:
   - glitch
   - generative art
   - fun stuff
-link: https://rainbow-hearts.glitch.me/
+link: https://alexwlchan.net/fun-stuff/rainbow-hearts/
 colors:
   index_light: "#870788"
   index_dark:  "#a86da8"
@@ -43,7 +43,7 @@ colors:
   }
 </style>
 
-Here's a fun project I made today: create pairs of interlocking rainbow hearts: <http://rainbow-hearts.glitch.me>
+Here's a fun project I made today: create pairs of interlocking rainbow hearts: [alexwlchan.net/fun-stuff/rainbow-hearts/](/fun-stuff/rainbow-hearts/)
 
 The app makes transparent SVGs based on pride flags, which you can resize and drop on top of any background.
 Here's a few examples:
@@ -86,7 +86,7 @@ I experimented with a combination of SVG clips and masks to get the final effect
 I write SVGs by hand, rather than using an app like Inkscape or Illustrator -- so understanding the core primitives is really useful.
 I did learn a few useful things, which I'll write about as a separate blog post.
 
-You can create your own hearts at <http://rainbow-hearts.glitch.me>, and you can read the source code [on GitHub](https://github.com/alexwlchan/rainbow-hearts).
+You can create your own hearts at [alexwlchan.net/fun-stuff/rainbow-hearts/](/fun-stuff/rainbow-hearts/).
 
 There is more that unites the LGBTQ+ community than divides us, and I like these hearts as a visual reminder of that.
 

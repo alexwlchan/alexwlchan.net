@@ -395,16 +395,16 @@ I also included a colour picker and rotation, which adds a bit more variety and 
   filename="looped_square_webapp.png"
   width="350"
   class="screenshot dark_aware"
-  link_to="https://looped-squares.glitch.me"
+  link_to="/fun-stuff/looped-squares/"
   alt="Screenshot of a web app called ‘looped squares’. It shows "
 %}
 
 Every time you reload the page, it draws a shape with random values.
 You can also adjust the values manually and it'll draw the specified shape.
-[Try it here](https://looped-squares.glitch.me).
+[Try it here](/fun-stuff/looped-squares/).
 
 [calculator]: https://www.folklore.org/Calculator_Construction_Set.html
-[a web app]: https://looped-squares.glitch.me
+[a web app]: /fun-stuff/looped-squares/
 
 I started by drawing a couple of shapes which look like alien versions of the Mac's command icon:
 
@@ -626,7 +626,7 @@ Sometimes the most interesting pictures are the ones I made by mistake:
 This variety is one of the things I enjoy about generative art: I can start with a simple idea or doodle, and create a whole variety of shapes and pictures.
 Many of these I wouldn't know how to draw if I started from a blank sheet of paper, but here I just stumbled into them.
 
-If you want to create some of these shapes yourself, the web app is available at [looped-squares.glitch.me](https://looped-squares.glitch.me).
+If you want to create some of these shapes yourself, the web app is available at [alexwlchan.net/fun-stuff/looped-squares/](/fun-stuff/looped-squares/).
 Send me your favourites!
 
 If you like this post, you might want to check out my other [generative art](/tags/generative-art/).

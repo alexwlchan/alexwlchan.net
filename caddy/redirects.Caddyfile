@@ -1145,9 +1145,9 @@ redir /2012/          /articles/ permanent
 
 # == Misc redirects == #
 
-redir /files/2024/looped_squares.html https://looped-squares.glitch.me
-redir /files/2024/looped_squares/     https://looped-squares.glitch.me
-redir /files/2024/looped_squares      https://looped-squares.glitch.me
+redir /files/2024/looped_squares.html /fun-stuff/looped-squares/
+redir /files/2024/looped_squares/     /fun-stuff/looped-squares/
+redir /files/2024/looped_squares      /fun-stuff/looped-squares/
 
 redir /2022/print-sbt/                /til/2022/print-sbt/
 
