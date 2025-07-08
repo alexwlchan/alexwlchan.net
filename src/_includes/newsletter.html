@@ -1,26 +1,29 @@
 <style>
   #buttondown {
     text-align: center;
-  }
 
-  #buttondown input[type="email"] {
-    padding: 10px;
-    font-size: 1.5em;
-    border-radius: 5px;
-    border: 3px solid var(--primary-color);
-  }
+    input[type="email"] {
+      padding: 10px;
+      font-size: 1.5em;
+      border-radius: var(--border-radius);
+      border: var(--border-width) var(--border-style) var(--primary-color);
+      max-width: calc(100% - 20px - 2 * var(--border-width));
+    }
 
-  #buttondown input[type="submit"] {
-    background: var(--primary-color);
-    font-size: 1.2em;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 5px;
-    border: none;
-  }
+    input[type="submit"] {
+      background: var(--primary-color);
+      font-size: 1.2em;
+      color: white;
+      padding: 10px 10px;
+      border-radius: calc(var(--border-radius) / 2);
+      border: none;
+      margin: 10px;
+      cursor: pointer;
+    }
 
-  #buttondown input[type="submit"]:active {
-    transform: translate(0, 2px);
+    input[type="submit"]:active {
+      transform: translate(0, 2px);
+    }
   }
 </style>
 
