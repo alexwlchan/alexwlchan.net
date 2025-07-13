@@ -55,13 +55,22 @@ jobs:
           ruby-version: "3.4"
           bundler-cache: true
           cache-version: 1
+        
+        # I manually installed Ruby 3.4 on my self-hosted runner,
+        # and I struggled to get the `setup-ruby` action to recognise it --
+        # but I only have a single self-hosted runner (my web server),
+        # so skipping this step is fine.
+        if: runner.name != 'linode-harmonia'
 
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: "pip"
-      - run: pip install -r requirements.txt
+        
+        # I installed Python on my self-hosted runner, so skipping this
+        # step is fine.
+        if: runner.name != 'linode-harmonia'
 
       - name: "Install Python dependencies"
         run: pip install -r requirements.txt
@@ -72,6 +81,10 @@ jobs:
           path: _site
           key: "site-${{ github.sha }}"
           restore-keys: "site-"
+        
+        # I don't need to use the GitHub cache on my self-hosted runner,
+        # because I don't get a clean checkout each time.
+        if: runner.name != 'linode-harmonia'
 
       - name: "Cache the .jekyll-cache folder"
         uses: "actions/cache@v4"
@@ -79,6 +92,10 @@ jobs:
           path: src/.jekyll-cache
           key: "jekyll-cache-${{ github.sha }}"
           restore-keys: "jekyll-cache-"
+        
+        # I don't need to use the GitHub cache on my self-hosted runner,
+        # because I don't get a clean checkout each time.
+        if: runner.name != 'linode-harmonia'
 
       - name: "Set the JEKYLL_ENV variable"
         run: |
@@ -88,10 +105,6 @@ jobs:
           else
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
-      
-      - name: "Clean up any cached data"
-        run: |
-          find _site -name 'cant_eject_disk*' -delete
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
