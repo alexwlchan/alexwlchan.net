@@ -44,7 +44,7 @@ on:
 jobs:
   build:
     name: Build the website
-    runs-on: macos-latest
+    runs-on: self-hosted
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
