@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'abbrev', '~> 0.1.2'
 gem 'chunky_png', '~> 1.4'
 gem 'color', '~> 1.8'
 gem 'htmlcompressor', '~> 0.4.0'

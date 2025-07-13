@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (2.0.1)
+    abbrev (0.1.2)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     afm (0.2.2)
@@ -175,6 +176,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  abbrev (~> 0.1.2)
   chunky_png (~> 1.4)
   color (~> 1.8)
   dnsruby (~> 1.72)
