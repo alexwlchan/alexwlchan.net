@@ -73,7 +73,7 @@ Thus recreating the experience of many people and school-level maths.
 
 {%
   picture
-  filename="headache.1.png"
+  filename="headache.png"
   alt="A Moomin with scrunched up eyes, clutching his hands to his head, saying “Long division makes my head hurt”."
   width="300"
 %}
