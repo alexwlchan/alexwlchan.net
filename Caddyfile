@@ -96,22 +96,10 @@ alexwlchan.net {
 	# Run a static file server for anything not yet handled
 	root * /home/alexwlchan/repos/alexwlchan.net/_site
 	file_server
-
-	log {
-		output net localhost:6064 {
-			soft_start
-		}
-	}
 }
 
 # This redirects my other domain names to my primary domain name,
 # to avoid diluting traffic between them.
 alexwlchan.com, www.alexwlchan.com, alexwlchan.co.uk, www.alexwlchan.co.uk, www.alexwlchan.net {
 	redir https://alexwlchan.net{uri} permanent
-
-	log {
-		output net localhost:6064 {
-			soft_start
-		}
-	}
 }
