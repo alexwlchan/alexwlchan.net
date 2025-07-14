@@ -53,15 +53,11 @@ alexwlchan.net {
 	# This is a path where I'm deliberately demo-ing the native Mastodon
 	# embed code, so I need to be able to run JavaScript from an external
 	# Mastodon server.  Plus fonts, and styles… just let it all run.
-	@mastodonDemo path /files/2025/native-mastodon-embed.html
-	header @mastodonDemo -Content-Security-Policy
+	header /files/2025/native-mastodon-embed.html -Content-Security-Policy
+	header /files/2025/static-site-demo.html -Content-Security-Policy
 
-	@staticSiteDemo path /files/2025/static-site-demo.html
-	header @staticSiteDemo -Content-Security-Policy
-
-	@listYouTubeLikes path /my-tools/list-youtube-likes/
-	header @listYouTubeLikes -Content-Security-Policy
-	header @listYouTubeLikes {
+	header /my-tools/list-youtube-likes/ -Content-Security-Policy
+	header /my-tools/list-youtube-likes/ {
 		Content-Security-Policy: "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'https://accounts.google.com/' 'https://apis.google.com/js/api.js/'; img-src 'self' 'unsafe-inline' data:"
 	}
 
