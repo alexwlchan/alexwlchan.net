@@ -24,44 +24,7 @@ alexwlchan.net {
 		Cache-Control "public, max-age=31536000"
 	}
 
-	# Add some security headers.
-	# I test my security headers with https://securityheaders.com/
-	header {
-		# https://scotthelme.co.uk/hardening-your-http-response-headers/#content-security-policy
-		Content-Security-Policy "default-src 'self' 'unsafe-inline' https://youtube-nocookie.com https://www.youtube-nocookie.com; script-src 'self' 'unsafe-inline'; connect-src https://analytics.alexwlchan.net; img-src 'self' 'unsafe-inline' data:"
-
-		# https://scotthelme.co.uk/a-new-security-header-feature-policy/
-		# https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/
-		Permissions-Policy "geolocation=(), midi=(), notifications=(), push=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), vibrate=(), payment=()"
-
-		# https://scotthelme.co.uk/a-new-security-header-referrer-policy/
-		Referrer-Policy "no-referrer-when-downgrade"
-
-		# https://scotthelme.co.uk/hardening-your-http-response-headers/#strict-transport-security
-		Strict-Transport-Security "max-age=31536000; includeSubDomains"
-
-		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options
-		X-Content-Type-Options "nosniff"
-
-		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options
-		X-Frame-Options "ALLOWALL"
-
-		# https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection
-		X-Xss-Protection "1; mode=block"
-	}
-
-	# This is a path where I'm deliberately demo-ing the native Mastodon
-	# embed code, so I need to be able to run JavaScript from an external
-	# Mastodon server.  Plus fonts, and styles… just let it all run.
-	header /files/2025/native-mastodon-embed.html -Content-Security-Policy
-	header /files/2025/static-site-demo.html -Content-Security-Policy
-
-	header /my-tools/list-youtube-likes/ -Content-Security-Policy
-	header /my-tools/list-youtube-likes/ {
-		Content-Security-Policy: "default-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'https://accounts.google.com/' 'https://apis.google.com/js/api.js/'; img-src 'self' 'unsafe-inline' data:"
-	}
-
-	header /fun-stuff/checkbox-text-adventure/ -Content-Security-Policy
+	import caddy/security_headers.Caddyfile
 
 	# If somebody gets a 4xx error, respond with my custom error pages.
 	handle_errors 404 {
