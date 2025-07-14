@@ -45,6 +45,12 @@ jobs:
   build:
     name: Build the website
     runs-on: self-hosted
+
+    env:
+      # This tells `bundle install` to install gems in a user-owned directory,
+      # so it doesn't need sudo permissions.
+      GEM_HOME: /home/alexwlchan/.gems
+
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
