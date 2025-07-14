@@ -61,6 +61,10 @@ jobs:
         # but I only have a single self-hosted runner (my web server),
         # so skipping this step is fine.
         if: runner.name != 'linode-harmonia'
+      
+      - name: "Install Ruby dependencies"
+        run: bundle install
+        if: runner.name == 'linode-harmonia'
 
       - name: "Set up Python"
         uses: actions/setup-python@v5
