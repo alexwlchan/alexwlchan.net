@@ -248,7 +248,10 @@ module Jekyll
       end
 
       {
-        sources: lt_sources + dk_sources,
+        # We have to put dark images before light images, otherwise
+        # when you load the page in dark mode, the page will load the
+        # first matching light image and you won't get the nice dark variant.
+        sources: dk_sources + lt_sources,
         default_image: default_image,
         extra_attributes: @attrs,
         link_target: link_target
