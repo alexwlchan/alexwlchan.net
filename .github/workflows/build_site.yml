@@ -120,7 +120,9 @@ jobs:
           fi
 
       - name: "Build the site"
-        run: bundle exec jekyll build --drafts
+        run: |
+          source .venv/bin/activate
+          bundle exec jekyll build --drafts
 
       - name: "Run linting"
         run: bundle exec ruby scripts/linter.rb
