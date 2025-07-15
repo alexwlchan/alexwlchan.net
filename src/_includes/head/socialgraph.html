@@ -18,7 +18,7 @@
 {% endif %}
 
 {% if page.card.social %}
-  {% assign year = page.date | date: "%Y" %}
+  {% assign year = page.date | slice: 0, 4 %}
   {% assign card_image = page.card.social %}
 
   <meta name="twitter:card" content="summary_large_image">
