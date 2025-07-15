@@ -63,6 +63,16 @@ jobs:
           cache: "pip"
       - run: pip install -r requirements.txt
 
+      - name: "Cache vips"
+        uses: "actions/cache@v4"
+        with:
+          path: ~/Library/Caches/Homebrew
+          key: "brew-${{ github.sha }}"
+          restore-keys: brew-
+    
+      - name: "Install vips"
+        run: env HOMEBREW_NO_AUTO_UPDATE=1 brew install vips
+
       - name: "Cache site output"
         uses: "actions/cache@v4"
         with:
