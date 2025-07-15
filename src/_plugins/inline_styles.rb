@@ -22,6 +22,7 @@
 require 'nokogiri'
 
 class InlineStylesFilters
+  EMPTY_DEFS_REGEX = %r{\s*<defs>\s*</defs>\s*}
   SCSS_TYPE = 'x-text/scss'
 
   def self.get_inline_styles(html, site)
@@ -68,7 +69,7 @@ class InlineStylesFilters
     # If removing the <style> tags has rendered a set of <defs> empty,
     # just remove them.
     if html.include? '<defs>'
-      html = html.gsub(%r{\s*<defs>\s*</defs>}, '')
+      html = html.gsub(EMPTY_DEFS_REGEX, '')
     end
 
     lines = inline_styles.map do |media, css|
