@@ -10,9 +10,15 @@ module Jekyll
       cache = Jekyll::Cache.new('FixKramdown')
 
       cache.getset(html) do
+        if html.include? '<img'
+          html = html.gsub(%r{<img (src=".+[^\s])\s*/>}, '<img \1>')
+        end
+
+        if html.include? '<source'
+          html = html.gsub(%r{<source (srcset=".+[^\s])\s*/>}, '<source \1>')
+        end
+
         html
-          .gsub(%r{<img (src=".+[^\s])\s*/>}, '<img \1>')
-          .gsub(%r{<source (srcset=".+[^\s])\s*/>}, '<source \1>')
       end
     end
   end

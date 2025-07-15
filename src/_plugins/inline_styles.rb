@@ -27,9 +27,13 @@ class InlineStylesFilters
       return { 'html' => html, 'inline_styles' => '' }
     end
 
-    doc = Nokogiri::HTML(html)
-
+    # Map from (media query) -> (CSS fragments)
     inline_styles = Hash.new { Set.new([]) }
+
+    # Does this HTML include any <defs> tags we might want to remove later?
+    has_defs = html.include? '<defs>'
+
+    doc = Nokogiri::HTML(html)
 
     doc.xpath('style|.//style').each do |style|
       style_type = style.get_attribute('type')
@@ -50,8 +54,13 @@ class InlineStylesFilters
       # a closing </source> tag which is redundant, so instead we operate
       # on the raw HTML and try to preserve the existing formatting as
       # much as possible.
-      html = html.gsub(%r{\s*<defs>\s*<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>\s*</defs>}, '')
       html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
+
+      # If removing the <style> tags has rendered a set of <defs> empty,
+      # just remove them.
+      if has_defs
+        html = html.gsub(%r{\s*<defs>\s*</defs>}, '')
+      end
     end
 
     lines = inline_styles.map do |media, css|
