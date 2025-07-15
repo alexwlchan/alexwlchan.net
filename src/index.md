@@ -165,7 +165,7 @@ Here are some of the topics I write about:
     const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
     const primary = ws.map(s => `${imPrefix}_${s}w${suffix} ${s}w`).join(", ");
 
-    const sizes = "(max-width: 450px) 405px, 405px";
+    const sizes = "(max-width: 450px) 405px,405px";
 
     return `
       <div class="c_im_w${card.n ? ' n' : ''}">
