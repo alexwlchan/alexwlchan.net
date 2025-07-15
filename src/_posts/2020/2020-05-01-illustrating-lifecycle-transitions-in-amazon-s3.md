@@ -27,7 +27,7 @@ How much you pay is generally determined by three questions:
 -   *How quickly do you need to get the data out?*
     If you always need immediate access to your data, that costs more than if you're willing to push it into cold storage, where retrieval might take minutes or hours.
 
-[stacks]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+[stacks]: /2020/archival-storage-service/
 
 You select how much redundancy and access you want by selecting a *storage class*.
 Each class has a price per GB stored, and that price is smaller for classes with less redundancy or slower access.

@@ -51,9 +51,9 @@ You won't need to check for everything on this list, and this list isn't exhaust
 
 [BagIt]: https://en.wikipedia.org/wiki/BagIt
 [rfc]: https://tools.ietf.org/html/rfc8493
-[storage_service]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+[storage_service]: /2020/archival-storage-service/
 [github]: https://github.com/wellcomecollection/storage-service
-[tests]: https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7
+[tests]: /2021/digital-verification/
 [tests]: https://github.com/wellcomecollection/storage-service/tree/main/bag_verifier/src/test/scala/weco/storage_service/bag_verifier
 
 <blockquote class="toc">

@@ -49,7 +49,7 @@ If you want to use it yourself, you can [download the file](/files/2020/human_fr
 
 {% inline_code filename="human_friendly_dates.js" %}
 
-[our digital archive]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+[our digital archive]: /2020/archival-storage-service/
 [UTC]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time
 [ISO 8601 strings]: https://en.wikipedia.org/wiki/ISO_8601
 

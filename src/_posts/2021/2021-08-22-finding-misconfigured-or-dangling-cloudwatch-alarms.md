@@ -37,4 +37,4 @@ I was doing it to make it easier to review the alarms we are using, rather than 
 [alarms]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html
 [dynamodb]: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html
 [gateway]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-metrics-and-dimensions.html
-[slack_alarms]: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31
+[slack_alarms]: /2018/cloudwatch-alarms-in-slack/

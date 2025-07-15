@@ -143,7 +143,7 @@ You can download all the code from this post in this file:
 And if you haven't looked already, I really recommend getting a big monitor and reading [my original post][stacks].
 There are pumpkins, parsimmons, passion fruit, and all sorts of other mesmerising images made entirely from MRI scans.
 
-[stacks]: https://stacks.wellcomecollection.org/peering-through-mri-scans-of-fruit-and-veg-part-1-a2e8b07bde6f
+[stacks]: /2022/animated-artichokes/
 [artichoke]: https://wellcomecollection.org/works/b9g485fs
 [Pillow]: https://pypi.org/project/Pillow/
 [collection]: https://wellcomecollection.org/works/b9g485fs

@@ -21,7 +21,7 @@ That's not a surprise -- our account holds, among other things, two copies of We
 If we ever got a bill and there *wasn't* a big number next to S3, that's a reason to to panic.
 
 [our AWS bill]: /2019/aws-costs-graph/
-[entire digital archive]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+[entire digital archive]: /2020/archival-storage-service/
 
 We spend about $25,000 on S3 storage every year.
 That's not nothing, but it's also not exorbitant in the context of a large organisation.

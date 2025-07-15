@@ -13,7 +13,7 @@ I didn't expect to be writing another post about S3 keys so soon, but life comes
 Less than twenty-four hours after posting [S3 keys are not file paths](/2020/s3-keys-are-not-file-paths/), I hit a *different bug* caused by poor handling of S3 keys.
 (Yes, really.)
 
-The storage service I work on has to store [different versions of a "bag"](https://stacks.wellcomecollection.org/how-we-store-multiple-versions-of-bagit-bags-e68499815184), and we want those versions to be human-readable.
+The storage service I work on has to store [different versions of a "bag"](/2020/versioning-a-bagit-bag/), and we want those versions to be human-readable.
 We number those versions `v1`, `v2`, `v3`, and we include that version as part of the S3 key for each object in the archive.
 
 If we want to list the files in a directory on a filesystem (say, all the files in v1), we can use something like [the `ls` command](https://en.wikipedia.org/wiki/Ls):

@@ -346,7 +346,7 @@ I don't often get a chance to do deep debugging, especially in an unfamiliar sys
 
 [online collections]: https://wellcomecollection.org/collections
 [catalogue]: https://developers.wellcomecollection.org/docs/catalogue
-[slack_alerts]: https://stacks.wellcomecollection.org/getting-helpful-cloudwatch-alarms-in-slack-ba98fcbe6d31
+[slack_alerts]: /2018/cloudwatch-alarms-in-slack/
 [repro]: https://github.com/elastic/elasticsearch/issues/90275
 [843]: https://www.elastic.co/guide/en/elasticsearch/reference/8.4/release-notes-8.4.2.html#known-issues-8.4.2
 [fe_app]: https://wellcomecollection.org/works

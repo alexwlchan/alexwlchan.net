@@ -10,7 +10,7 @@ Back in February, I wrote about the [new storage service][storage] I've been hel
 Since then, we've migrated almost everything from the old system into the new service.
 Before we can decommission the old system, we need to check that every one of the 42&nbsp;million files it was storing was either been migrated successfully, or we're happy to delete it (for example, material that was ingested as part of a system test).
 
-[storage]: https://stacks.wellcomecollection.org/building-wellcome-collections-new-archival-storage-service-3f68ff21927e
+[storage]: /2020/archival-storage-service/
 
 We've verified about 99.5% of the files so far, and it's just the remaining half a percent that need to be checked.
 The best way to process the last few files is to download them and do some manual inspection, to understand whether a given set of files should be saved or deleted.
