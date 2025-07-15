@@ -14,8 +14,6 @@ colors:
   index_dark:  "#FF4242"
 index:
   feature: true
-index:
-  feature: true
 ---
 
 <!-- Card image from https://www.publicdomainpictures.net/en/view-image.php?image=82122&picture=vintage-office-calculator-keypad -->
