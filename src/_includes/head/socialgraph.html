@@ -4,30 +4,44 @@
   {% assign xml_summary = page.summary | xml_escape %}
 {% endif %}
 
+{% if page.card.social %}
+  {% assign year = page.date | slice: 0, 4 %}
+  {% assign card_image = page.card.social %}
+
+  {% capture card_image_url -%}
+    {{ site.url }}/images/cards/{{ year }}/{{ card_image }}
+  {%- endcapture %}
+{% else %}
+  {% capture card_image_url -%}
+    {{ site.url }}/images/profile_green_sq.jpg
+  {%- endcapture %}
+{% endif %}
+
+
+
 <meta name="twitter:site" content="@alexwlchan">
 <meta name="twitter:title" content="{{ xml_title }}">
 {% if page.summary %}
-<meta name="twitter:description" content="{{ xml_summary }}">
+  <meta name="twitter:description" content="{{ xml_summary }}">
 {% endif %}
+{% if page.card.social %}
+  <meta name="twitter:card" content="summary_large_image">
+  {% else %}
+  <meta name="twitter:card" content="summary">
+{% endif %}
+<meta name="twitter:image" content="{{ card_image_url }}">
+
+
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ xml_title }}">
 {% if page.summary %}
-<meta property="og:description" content="{{ xml_summary }}">
+  <meta property="og:description" content="{{ xml_summary }}">
 {% endif %}
+<meta property="og:image" content="{{ card_image_url }}">
 
-{% if page.card.social %}
-  {% assign year = page.date | slice: 0, 4 %}
-  {% assign card_image = page.card.social %}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ site.url }}/images/cards/{{ year }}/{{ card_image }}">
-  <meta property="og:image" content="{{ site.url }}/images/cards/{{ year }}/{{ card_image }}">
-{% else %}
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="{{ site.url }}/images/profile_green_sq.jpg">
-  <meta property="og:image" content="{{ site.url }}/images/profile_green_sq.jpg">
-{% endif %}
+
 
 <meta name="fediverse:creator" content="@alex@alexwlchan.net">
