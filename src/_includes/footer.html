@@ -11,7 +11,11 @@
   <ul class="dot_list">
     <li><a href="/subscribe/">Subscribe</a></li>
     <li><a href="/contact/">Contact</a></li>
+    {% if jekyll.environment == "production" %}
     <li><a href="https://github.com/alexwlchan/alexwlchan.net/blob/main/src/{{ page.path }}">Edit this page</a></li>
+    {% else %}
+    <li><a href="txmt://open?url=file:///Users/alexwlchan/repos/alexwlchan.net/src/{{ page.path }}">Edit this page</a></li>
+    {% endif %}
     <li><a href="/about-the-site/">About the site</a></li>
     <li><a href="/privacy/">Privacy policy</a></li>
   </ul>
