@@ -1,13 +1,20 @@
+{% assign xml_title = safe_title | xml_escape | strip %}
+
+{% if page.summary %}
+  {% assign xml_summary = page.summary | xml_escape %}
+{% endif %}
+
 <meta name="twitter:site" content="@alexwlchan">
-<meta name="twitter:title" content="{{ safe_title | xml_escape | strip }}">
+<meta name="twitter:title" content="{{ xml_title }}">
+{% if page.summary %}
+<meta name="twitter:description" content="{{ xml_summary }}">
+{% endif %}
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:title" content="{{ safe_title | xml_escape | strip }}">
-
+<meta property="og:title" content="{{ xml_title }}">
 {% if page.summary %}
-  <meta name="twitter:description" content="{{ page.summary | xml_escape }}">
-  <meta property="og:description" content="{{ page.summary | xml_escape }}">
+<meta property="og:description" content="{{ xml_summary }}">
 {% endif %}
 
 {% if page.card.social %}
