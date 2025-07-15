@@ -36,13 +36,17 @@ GEM
     eventmachine (1.2.7)
     expectations (2.0.0)
       mocha (>= 0.5.5)
-    ffi (1.17.1)
+    ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x86_64-linux-gnu)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
     fiber-storage (1.0.0)
     forwardable-extended (2.6.0)
-    google-protobuf (4.29.3)
+    google-protobuf (4.29.3-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
     hashery (2.1.2)
@@ -55,7 +59,6 @@ GEM
       typhoeus (~> 1.3)
       yell (~> 2.0)
       zeitwerk (~> 2.5)
-    htmlcompressor (0.4.0)
     http_parser.rb (0.8.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
@@ -102,11 +105,13 @@ GEM
     logger (1.6.6)
     mercenary (0.4.0)
     metrics (0.12.1)
-    mini_portile2 (2.8.8)
+    minify_html (0.16.4-arm64-darwin)
+    minify_html (0.16.4-x86_64-linux)
     mocha (2.7.1)
       ruby2_keywords (>= 0.0.5)
-    nokogiri (1.18.8)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.18.8-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.8-x86_64-linux-gnu)
       racc (~> 1.4)
     open4 (1.3.4)
     parallel (1.27.0)
@@ -151,9 +156,10 @@ GEM
     ruby-rc4 (0.1.5)
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
-    sass-embedded (1.83.4)
+    sass-embedded (1.83.4-arm64-darwin)
       google-protobuf (~> 4.29)
-      rake (>= 13)
+    sass-embedded (1.83.4-x86_64-linux-gnu)
+      google-protobuf (~> 4.29)
     shell-executer (1.0.1)
       expectations
       open4
@@ -173,7 +179,9 @@ GEM
     zeitwerk (2.7.2)
 
 PLATFORMS
-  ruby
+  arm64-darwin
+  arm64-darwin-24
+  x86_64-linux
 
 DEPENDENCIES
   abbrev (~> 0.1.2)
@@ -181,10 +189,10 @@ DEPENDENCIES
   color (~> 2.0)
   dnsruby (~> 1.72)
   html-proofer (~> 5)
-  htmlcompressor (~> 0.4.0)
   jekyll (~> 4)
   jekyll-include-cache (~> 0.2)
   json-schema (~> 5)
+  minify_html (~> 0.16)
   nokogiri (~> 1.18)
   rubocop (~> 1.78)
   shell-executer (~> 1.0)

@@ -26,13 +26,12 @@ You can try a simple blink diff by tapping the image below: you'll switch betwee
   /* Ideally I'd send multiple sizes of image in srcset, but that doesn't seem to update -- since these are only ~750kB total, I think it's okay. */
   function switchImages() {
     const image = document.getElementById("switchableImage");
-    if (image.src.indexOf("P7160890") !== -1) {
-      image.src = image.src.replace("P7160890", "P7160891");
-    } else if (image.src.indexOf("P7160891") !== -1) {
-      image.src = image.src.replace("P7160891", "P7160889");
-    } else {
-      image.src = image.src.replace("P7160889", "P7160890");
-    }
+
+    image.src = image.src.indexOf("P7160890") !== -1
+      ? image.src.replace("P7160890", "P7160891")
+      : image.src.indexOf("P7160891") !== -1
+      ? image.src.replace("P7160891", "P7160889")
+      : image.src.replace("P7160889", "P7160890");
   }
 </script>
 

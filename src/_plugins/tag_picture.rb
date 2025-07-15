@@ -80,8 +80,6 @@ require 'json'
 require 'pathname'
 require 'shell/executer'
 
-require 'htmlcompressor'
-
 require_relative 'pillow/convert_image'
 require_relative 'pillow/get_image_info'
 require_relative 'utils/attrs'
@@ -115,15 +113,12 @@ module Jekyll
       template_args = get_template_args(context)
 
       tpl = Liquid::Template.parse(File.read('src/_includes/picture.html'))
-      html = tpl.render!(
+      tpl.render!(
         'sources' => template_args[:sources],
         'default_image' => template_args[:default_image],
         'extra_attributes' => template_args[:extra_attributes],
         'link_target' => template_args[:link_target]
       )
-
-      compressor = HtmlCompressor::Compressor.new
-      compressor.compress(html)
     end
 
     def get_template_args(context)

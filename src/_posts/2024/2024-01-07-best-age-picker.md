@@ -143,11 +143,10 @@ We all know the best way to tell somebody's age is to count the candles on their
 
     const candleCount = Math.floor((pixels - 50) / 2 / 10) - 2;
 
-    if (candleCount <= 1) {
-      document.querySelector("#age").innerHTML = "You were only just born!";
-    } else {
-      document.querySelector("#age").innerHTML = `You are ${candleCount} years old!`;
-    }
+    document.querySelector("#age").innerHTML =
+      candleCount <= 1
+        ? "You were only just born!"
+        : `You are ${candleCount} years old!`;
   }
 
   function toggleAllAnimations() {
