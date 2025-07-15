@@ -1,4 +1,5 @@
-require_relative '../pillow/get_image_info'
+require 'vips'
+
 require_relative '../pillow/convert_image'
 
 class ImageFormat
@@ -10,14 +11,31 @@ class ImageFormat
   PNG  = { extension: '.png',  mime_type: 'image/png' }
 end
 
-def get_format(image_path, image)
-  case image['format']
-  when 'PNG'
-    ImageFormat::PNG
-  when 'JPEG'
-    ImageFormat::JPEG
-  else
-    raise "Unrecognised image extension in #{image_path} (#{image['format']})"
+# Get basic information about a single image
+def get_single_image_info(path)
+  cache = Jekyll::Cache.new('ImageInfo')
+
+  mtime = File.mtime(path).to_i
+
+  cache.getset("#{path}--#{mtime}") do
+    require 'vips'
+
+    im = Vips::Image.new_from_file path
+
+    im_format = case im.get 'vips-loader'
+                when 'jpegload'
+                  ImageFormat::JPEG
+                when 'pngload'
+                  ImageFormat::PNG
+                else
+                  raise "Unrecognised vips loader for #{path}: #{im.get 'vips-loader'}"
+                end
+
+    {
+      'width' => im.width,
+      'height' => im.height,
+      'format' => im_format
+    }
   end
 end
 

@@ -36,7 +36,6 @@
 require 'abbrev'
 
 require_relative 'pillow/convert_image'
-require_relative 'pillow/get_image_info'
 require_relative 'utils/markdownify_oneline'
 require_relative 'utils/pictures'
 
@@ -173,8 +172,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     #
     # All three formats are fine.
     image = get_single_image_info(card['index_path'])
-    im_format = get_format(card['index_path'], image)
-    desired_formats = [im_format, ImageFormat::AVIF, ImageFormat::WEBP]
+    desired_formats = [image['format'], ImageFormat::AVIF, ImageFormat::WEBP]
 
     # What widths do I want to create cards at?
     desired_widths = [
@@ -197,7 +195,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # the light image.  If you're running a browser which doesn't
     # know about the <picture> tag, you're unlikely to be on a
     # device with a hi-res screen or dark mode.
-    default_image = sources[im_format[:mime_type]].split[0]
+    default_image = sources[image['format'][:mime_type]].split[0]
 
     sources = sources.map do |media_type, srcset|
       {
