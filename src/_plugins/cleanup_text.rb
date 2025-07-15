@@ -115,8 +115,10 @@ def add_non_breaking_spaces(input)
   ]
 
   phrases.each do |p|
-    replacement = p.gsub(' ', '&nbsp;').gsub('-', '&#8209;')
-    text = text.gsub(p, replacement)
+    if text.include? p
+      replacement = p.gsub(' ', '&nbsp;').gsub('-', '&#8209;')
+      text = text.gsub(p, replacement)
+    end
   end
 
   # If there's an <a> that starts with the word "a", make sure we
@@ -176,20 +178,25 @@ module Jekyll
 
       cache.getset(input) do
         text = add_non_breaking_spaces(input)
-        text = cleanup_syntax_highlighter_classes(text)
+
+        if text.include? '<pre'
+          text = cleanup_syntax_highlighter_classes(text)
+        end
 
         # Display "LaTeX" in a nice way, if you have CSS enabled
-        text = text.gsub(
-          ' LaTeX',
-          ' <span class="visually-hidden">LaTeK</span>' \
-          '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
-        )
+        if text.include? 'TeX'
+          text = text.gsub(
+            ' LaTeX',
+            ' <span class="visually-hidden">LaTeK</span>' \
+            '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>'
+          )
 
-        text = text.gsub(
-          ' TeX',
-          ' <span class="visually-hidden">TeK</span>' \
-          '<span class="latex" aria-hidden="true">T<sub>e</sub>X</span>'
-        )
+          text = text.gsub(
+            ' TeX',
+            ' <span class="visually-hidden">TeK</span>' \
+            '<span class="latex" aria-hidden="true">T<sub>e</sub>X</span>'
+          )
+        end
 
         # Make sure that footnote markers are rendered as a text
         # arrow on iOS devices, not emoji.  For more info:
