@@ -85,11 +85,7 @@ class TestInlineStylesFilters < Test::Unit::TestCase
       </svg>
     HTML
 
-    output = <<~HTML
-      <svg>
-        <line x1="0" y1="0" x2="10" y2="10"/>
-      </svg>
-    HTML
+    output = "<svg><line x1=\"0\" y1=\"0\" x2=\"10\" y2=\"10\"/>\n</svg>\n"
 
     result = InlineStylesFilters.get_inline_styles(input, nil)
     assert_equal(result['html'], output)
