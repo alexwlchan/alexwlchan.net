@@ -1,7 +1,7 @@
 require 'chunky_png'
 require 'shell/executer'
 
-require_relative '../pillow/create_ico_image'
+require_relative '../vendored/ico'
 
 # Given the front matter from a page, get the CSS colors (if any).
 def get_css_colors(page)
@@ -109,55 +109,4 @@ def create_header_image(tint_color)
   end
 
   image.save(out_path, :best_compression)
-end
-
-# Given a ChunkyPNG image with grayscale pixels and a tint colour, create
-# a colourised version of that image.
-def colorise_image(image, tint_color)
-  0.upto(image.width - 1) do |x|
-    0.upto(image.height - 1) do |y|
-      image.set_pixel(
-        x, y,
-        ChunkyPNG::Color.rgba(
-          tint_color.red.to_i,
-          tint_color.green.to_i,
-          tint_color.blue.to_i,
-          image.get_pixel(x, y)
-        )
-      )
-    end
-  end
-end
-
-def create_favicon(tint_color)
-  FileUtils.mkdir_p '_site/f'
-
-  hex_string = tint_color.gsub('#', '')
-
-  ico_path = "_site/f/#{hex_string}.ico"
-  png_path = "_site/f/#{hex_string}.png"
-
-  return if (File.exist? ico_path) && (File.exist? png_path)
-
-  image16 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-16x16.png')
-  image32 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-32x32.png')
-
-  Dir.mktmpdir do |tmp_dir|
-    fill_color = Color::RGB.by_hex(tint_color)
-
-    colorise_image(image16, fill_color)
-    image16.save("#{tmp_dir}/favicon-16x16.png", :best_compression)
-
-    colorise_image(image32, fill_color)
-    image32.save("#{tmp_dir}/favicon-32x32.png", :best_compression)
-
-    create_ico_image(
-      "#{tmp_dir}/favicon-16x16.png",
-      "#{tmp_dir}/favicon-32x32.png",
-      "#{tmp_dir}/favicon.ico"
-    )
-
-    FileUtils.mv "#{tmp_dir}/favicon-32x32.png", png_path
-    FileUtils.mv "#{tmp_dir}/favicon.ico", ico_path
-  end
 end

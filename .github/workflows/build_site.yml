@@ -69,6 +69,9 @@ jobs:
           path: _site
           key: "site-${{ github.sha }}"
           restore-keys: "site-"
+      
+      - name: "Remove cached favicons"
+        run: rm -rf _site/f
 
       - name: "Cache the .jekyll-cache folder"
         uses: "actions/cache@v4"
