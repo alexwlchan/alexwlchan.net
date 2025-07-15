@@ -80,7 +80,6 @@ require 'json'
 require 'pathname'
 require 'shell/executer'
 
-require_relative 'pillow/convert_image'
 require_relative 'utils/attrs'
 require_relative 'utils/pictures'
 

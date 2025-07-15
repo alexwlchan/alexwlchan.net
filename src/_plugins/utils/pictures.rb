@@ -1,5 +1,3 @@
-require_relative '../pillow/convert_image'
-
 class ImageFormat
   AVIF = { extension: '.avif', mime_type: 'image/avif' }
 
@@ -70,6 +68,26 @@ def verify_icc_color_profile(path, image)
   end
 
   raise "Got image with non-sRGB profile: #{path} (#{icc_profile_name})"
+end
+
+def convert_image(request)
+  if File.exist? request['out_path']
+    return
+  end
+
+  require 'vips'
+
+  im = Vips::Image.new_from_file request['in_path']
+
+  # Resize the image to match the target width
+  scale = request['target_width'].to_f / im.width
+  resized_im = im.resize(scale)
+
+  # Create the parent directory, if it doesn't exist already
+  FileUtils.mkdir_p File.dirname(request['out_path'])
+
+  # Actually resize the image
+  resized_im.write_to_file request['out_path']
 end
 
 def create_source_elements(sources, source_im_format, options)

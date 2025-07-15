@@ -35,7 +35,6 @@
 
 require 'abbrev'
 
-require_relative 'pillow/convert_image'
 require_relative 'utils/markdownify_oneline'
 require_relative 'utils/pictures'
 
