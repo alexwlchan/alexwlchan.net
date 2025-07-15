@@ -93,10 +93,6 @@
             "type": "string",
             "enum": ["articles", "til", "contact", "subscribe", "tags"]
         },
-        "card_image": {
-            "description": "Complete path to an image that should be used in link previews on social media, e.g. Twitter cards or OpenGraph metadata.",
-            "type": "string"
-        },
         "card_attribution": {
             "description": "Any attribution information about the photo used for the card.",
             "type": "string"
