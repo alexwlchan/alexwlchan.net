@@ -5,7 +5,7 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en">
 
-  {% assign parsed_content = content | fix_kramdown | get_inline_styles %}
+  {% assign parsed_content = content | get_inline_styles %}
 
   <head>
     {% include head.html %}

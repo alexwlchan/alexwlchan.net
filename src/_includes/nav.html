@@ -5,22 +5,19 @@
     <li>
       <a
         href="/articles/"
-        {% if page.url == "/articles/" %}selected{% endif %}
-        {% if page.layout == "post" %}selected{% endif %}
+        {% if page.layout == "post" or page.nav_section == "articles" %}selected{% endif %}
       >articles</a>
     </li>
     <li>
       <a
         href="/til/"
-        {% if page.url == "/til/" %}selected{% endif %}
-        {% if page.layout == "til" %}selected{% endif %}
+        {% if page.layout == "til" or page.nav_section == "til" %}selected{% endif %}
       >today i learned</a>
     </li>
     <li>
       <a
         href="/tags/"
-        {% if page.url == "/tags/" %}selected{% endif %}
-        {% if page.layout == "tag" %}selected{% endif %}
+        {% if page.layout == "tag" or page.nav_section == "tags" %}selected{% endif %}
       >tags</a>
     </li>
     <li>

@@ -22,36 +22,53 @@
 require 'nokogiri'
 
 class InlineStylesFilters
-  def self.get_inline_styles(html, site)
+  EMPTY_DEFS_REGEX = %r{\s*<defs>\s*</defs>\s*}
+  SCSS_TYPE = 'x-text/scss'
+
+  def self.get_inline_styles(html, scss_converter)
     unless html.include? '<style'
       return { 'html' => html, 'inline_styles' => '' }
     end
 
-    doc = Nokogiri::HTML(html)
+    # Map from (media query) -> (CSS fragments)
+    inline_styles = Hash.new { |h, k| h[k] = Set.new }
 
-    inline_styles = Hash.new { Set.new([]) }
+    # Contents of style tags we need to remove
+    styles_to_remove = Set.new
 
-    doc.xpath('style|.//style').each do |style|
-      style_type = style.get_attribute('type')
-      media = style.get_attribute('media')
+    doc = Nokogiri::HTML5.fragment(html)
 
-      if style_type == 'x-text/scss'
-        converter = site.find_converter_instance(Jekyll::Converters::Scss)
-        css = converter.convert(style.text)
-        inline_styles[media] <<= css.strip
-      else
-        inline_styles[media] <<= style.text.strip
-      end
+    doc.css('style').each do |style|
+      style_type = style['type']
+      media = style['media']
+      content = style.text
 
-      # NOTE: this deliberately bypasses the Nokogiri HTML rendering,
-      # and just does a regex-esque find and replace.
-      #
-      # There are certain issues where, e.g. Nokogiri will try to insert
-      # a closing </source> tag which is redundant, so instead we operate
-      # on the raw HTML and try to preserve the existing formatting as
-      # much as possible.
-      html = html.gsub(%r{\s*<defs>\s*<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>\s*</defs>}, '')
-      html = html.gsub(%r{<style[^>]*>\s*#{Regexp.escape(style.text)}\s*</style>}, '')
+      processed_css = if style_type == SCSS_TYPE
+                        scss_converter.convert(content).strip
+                      else
+                        content.strip
+                      end
+
+      inline_styles[media] << processed_css
+      styles_to_remove << content
+    end
+
+    # NOTE: this deliberately bypasses the Nokogiri HTML rendering,
+    # and just does a regex-esque find and replace.
+    #
+    # There are certain issues where, e.g. Nokogiri will try to insert
+    # a closing </source> tag which is redundant, so instead we operate
+    # on the raw HTML and try to preserve the existing formatting as
+    # much as possible.
+    styles_to_remove.each do |style_content|
+      escaped_content = Regexp.escape(style_content)
+      html = html.gsub(%r{<style[^>]*>\s*#{escaped_content}\s*</style>}, '')
+    end
+
+    # If removing the <style> tags has rendered a set of <defs> empty,
+    # just remove them.
+    if html.include? '<defs>'
+      html = html.gsub(EMPTY_DEFS_REGEX, '')
     end
 
     lines = inline_styles.map do |media, css|
@@ -75,10 +92,13 @@ module Jekyll
       @@cache ||= Jekyll::Cache.new('InlineStyles')
     end
 
+    def scss_converter
+      @@scss_converter = @context.registers[:site].find_converter_instance(Jekyll::Converters::Scss)
+    end
+
     def get_inline_styles(html)
       cache.getset(html) do
-        site = @context.registers[:site]
-        InlineStylesFilters.get_inline_styles(html, site)
+        InlineStylesFilters.get_inline_styles(html, scss_converter)
       end
     end
   end

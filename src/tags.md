@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Tags
+nav_section: tags
 ---
 {% assign visible_tags = site.data['visible_tags']|sort %}
 
@@ -115,7 +116,7 @@ title: Tags
       compareFn: (a, b) => {
         const aName = a.getAttribute("data-tag-name");
         const bName = b.getAttribute("data-tag-name");
-        
+
         randomWeights[aName] ??= Math.random();
         randomWeights[bName] ??= Math.random();
 

@@ -24,9 +24,8 @@ GEM
       fiber-local (~> 1.1)
       json
     csv (3.3.2)
-    dnsruby (1.72.4)
+    dnsruby (1.72.3)
       base64 (~> 0.2.0)
-      logger (~> 1.6.5)
       simpleidn (~> 0.2.1)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
@@ -102,7 +101,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.6)
+    logger (1.7.0)
     mercenary (0.4.0)
     metrics (0.12.1)
     minify_html (0.16.4-arm64-darwin)
@@ -192,6 +191,7 @@ DEPENDENCIES
   jekyll (~> 4)
   jekyll-include-cache (~> 0.2)
   json-schema (~> 5)
+  logger (~> 1.7)
   minify_html (~> 0.16)
   nokogiri (~> 1.18)
   rubocop (~> 1.78)
@@ -199,4 +199,4 @@ DEPENDENCIES
   test-unit
 
 BUNDLED WITH
-   2.3.26
+   2.6.9
