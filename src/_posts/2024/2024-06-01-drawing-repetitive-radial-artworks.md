@@ -247,19 +247,21 @@ I went and manually added some colours to create the illusion of steps, and then
                 animationElement.setAttribute('attributeName', 'fill');
                 animationElement.setAttribute('dur', '5s');
                 animationElement.setAttribute('repeatCount', 'indefinite');
-                if (index === 0) {
-                    animationElement.setAttribute('values', fillValues.join('; '));
-                } else if (index === fillValues.length - 1) {
-                    animationElement.setAttribute('values',
+
+                const newValues =
+                  index === 0
+                    ? fillValues.join('; ')
+                    : index === fillValues.length - 1
+                    ? (
                         fillValues[fillValues.length - 1] + ';' +
                         fillValues.slice(0, index - 1).join('; ')
-                    );
-                } else {
-                    animationElement.setAttribute('values',
+                    )
+                    : (
                         fillValues.slice(index, fillValues.length).join('; ') + ';' +
                         fillValues.slice(0, index).join('; ')
                     );
-                }
+
+                animationElement.setAttribute('values', newValues);
                 path.appendChild(animationElement);
             });
         });

@@ -25,13 +25,16 @@ That post has dozens of examples, but my favourite is this view [of an artichoke
 
     console.log(img.src);
 
-    if (img.src.endsWith(".jpg")) {
-      img.src = "/images/2022/artichoke.gif";
-      toggleControl.innerHTML = "&#x23EF;&#xFE0E; pause";
-    } else {
-      img.src = "/images/2022/artichoke.jpg";
-      toggleControl.innerHTML = "&#x23EF;&#xFE0E; play";
-    }
+    const newSrc = img.src.endsWith(".jpg")
+      ? "/images/2022/artichoke.gif"
+      : "/images/2022/artichoke.jpg";
+
+    const newControls = img.src.endsWith(".jpg")
+      ? "&#x23EF;&#xFE0E; pause"
+      : "&#x23EF;&#xFE0E; play";
+
+    img.src = newSrc;
+    toggleControl.innerHTML = newControls;
   }
 </script>
 

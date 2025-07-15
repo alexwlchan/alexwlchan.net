@@ -131,9 +131,14 @@ nav_section: articles
    var remainingPosts = [];
 
    posts.forEach(function(thisArticle) {
+     // note: why am I not using an elif here?
+     // to satisfy `minify_html`
+     // see https://github.com/wilsonzlin/minify-html/issues/242
      if (thisArticle.type === 'featured') {
        featuredPosts.push(thisArticle);
-     } else {
+     }
+
+     if (thisArticle.type !== 'featured') {
        remainingPosts.push(thisArticle);
      }
 

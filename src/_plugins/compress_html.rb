@@ -6,7 +6,7 @@ module Jekyll
       cache = Jekyll::Cache.new('CompressHtml')
 
       cache.getset(html) do
-        minify_html(html, { minify_css: true })
+        minify_html(html, { minify_css: true, minify_js: true })
       end
     end
   end

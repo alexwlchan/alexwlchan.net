@@ -154,13 +154,8 @@ Here are some of the topics I write about:
   function CardImage(card) {
     const yr = card.y;
 
-    if (card.fm === 'J') {
-      var suffix = '.jpg';
-      var mimeType = 'image/jpg';
-    } else {
-      var suffix = '.png';
-      var mimeType = 'image/png';
-    }
+    const suffix = card.fm === 'J' ? '.jpg' : '.png';
+    const mimeType = card.fm === 'J' ? 'image/jpg' : 'image/png';
 
     const prefix = card.s.slice(0, card.p);
     const imPrefix = `/c/${yr}/${prefix}`;

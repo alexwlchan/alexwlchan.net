@@ -559,8 +559,10 @@ NASA aren't the only ones who can send a rocket to the Moon.
     document.querySelectorAll('.marquee_example').forEach(elem => {
       if (isAllMarqueeScrolling) {
         stopMarqueeFor(elem);
+        return;
       } else {
         startMarqueeFor(elem);
+        return;
       }
     });
 
@@ -586,8 +588,10 @@ NASA aren't the only ones who can send a rocket to the Moon.
 
     if (elem.hasAttribute('stop-scrolling')) {
       startMarqueeFor(elem);
+      return;
     } else {
       stopMarqueeFor(elem);
+      return;
     }
   }
 
