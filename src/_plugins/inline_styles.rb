@@ -25,7 +25,7 @@ class InlineStylesFilters
   EMPTY_DEFS_REGEX = %r{\s*<defs>\s*</defs>\s*}
   SCSS_TYPE = 'x-text/scss'
 
-  def self.get_inline_styles(html, site)
+  def self.get_inline_styles(html, scss_converter)
     unless html.include? '<style'
       return { 'html' => html, 'inline_styles' => '' }
     end
@@ -44,7 +44,6 @@ class InlineStylesFilters
       content = style.text
 
       processed_css = if style_type == SCSS_TYPE
-                        scss_converter = site.find_converter_instance(Jekyll::Converters::Scss)
                         scss_converter.convert(content).strip
                       else
                         content.strip
@@ -93,10 +92,13 @@ module Jekyll
       @@cache ||= Jekyll::Cache.new('InlineStyles')
     end
 
+    def scss_converter
+      @@scss_converter = @context.registers[:site].find_converter_instance(Jekyll::Converters::Scss)
+    end
+
     def get_inline_styles(html)
       cache.getset(html) do
-        site = @context.registers[:site]
-        InlineStylesFilters.get_inline_styles(html, site)
+        InlineStylesFilters.get_inline_styles(html, scss_converter)
       end
     end
   end
