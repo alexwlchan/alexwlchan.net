@@ -1,5 +1,3 @@
-require 'vips'
-
 require_relative '../pillow/convert_image'
 
 class ImageFormat
@@ -22,6 +20,8 @@ def get_single_image_info(path)
 
     im = Vips::Image.new_from_file path
 
+    verify_icc_color_profile(path, im)
+
     im_format = case im.get 'vips-loader'
                 when 'jpegload'
                   ImageFormat::JPEG
@@ -37,6 +37,39 @@ def get_single_image_info(path)
       'format' => im_format
     }
   end
+end
+
+# Verify the ICC colour profile.
+#
+# We want to stick to standard sRGB or grayscale colour profiles
+# that will render uniformly in all browsers; "interesting" profiles
+# like Display P3 may look washed out or incorrect on non-Apple displays.
+def verify_icc_color_profile(path, image)
+  require 'icc_parser'
+
+  if image.get_typeof('icc-profile-data').zero?
+    return
+  end
+
+  icc_profile = ICCParser.parse(image.get('icc-profile-data'))
+  icc_profile_name = icc_profile[:tags][:desc]
+
+  if icc_profile_name == ''
+    return
+  end
+
+  allowed_profile_names = Set[
+    'sRGB',
+    'sRGB built-in',
+    'sRGB IEC61966-2.1',
+    'Generic Gray Gamma 2.2 Profile'
+  ]
+
+  if allowed_profile_names.include? icc_profile_name
+    return
+  end
+
+  raise "Got image with non-sRGB profile: #{path} (#{icc_profile_name})"
 end
 
 def create_source_elements(sources, source_im_format, options)
