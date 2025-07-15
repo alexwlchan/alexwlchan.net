@@ -7,6 +7,7 @@ AllCops:
     - 'src/_files/2022/division1.rb'
     - 'src/_files/2022/division2.rb'
     - 'src/_files/2023/uequals_operator.rb'
+    - 'src/_plugins/vendored/**/*'
 
     # This is to avoid RuboCop trying to lint too much stuff when running
     # in GitHub Actions.

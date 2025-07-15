@@ -13,6 +13,10 @@ def check_yaml_front_matter(src_dir)
   schema = JSON.parse(File.read('front-matter.json'))
 
   get_markdown_paths(src_dir).each do |md_path|
+    if md_path.start_with?('src/_plugins/')
+      next
+    end
+
     # The YAML loader will try to be "smart" (e.g. reading dates as
     # proper Ruby date types), which is unhelpful for json-schema checking.
     #

@@ -26,6 +26,7 @@
 #
 
 require_relative 'utils/contrast'
+require_relative 'utils/favicons'
 require_relative 'utils/tint_colors'
 
 # Throws an error if the CSS colors on a given page don't have enough
@@ -76,7 +77,7 @@ Jekyll::Hooks.register :site, :pre_render do
 
   hex_string = default_light_color.gsub('#', '')
 
-  FileUtils.cp("_site/f/#{hex_string}.png", '_site/favicon.png')
+  FileUtils.cp("_site/f/#{hex_string}-32x32.png", '_site/favicon.png')
   FileUtils.cp("_site/f/#{hex_string}.ico", '_site/favicon.ico')
 end
 

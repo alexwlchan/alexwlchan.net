@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'abbrev', '~> 0.1.2'
+gem 'bit-struct', '~> 0.17'
 gem 'chunky_png', '~> 1.4'
 gem 'color', '~> 2.0'
 gem 'html-proofer', '~> 5'
