@@ -7,11 +7,11 @@ module Jekyll
 
       cache.getset(html) do
         minify_html(html, {
-          keep_html_and_head_opening_tags: true,
-          keep_closing_tags: true,
-          minify_css: true,
-          minify_js: true
-        })
+                      keep_html_and_head_opening_tags: true,
+                      keep_closing_tags: true,
+                      minify_css: true,
+                      minify_js: true
+                    })
       end
     end
   end
