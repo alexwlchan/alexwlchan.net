@@ -98,19 +98,16 @@ jobs:
         run: |
           rsync \
             --compress \
-            --archive \
             --recursive \
             --delete \
             --verbose \
-            --ignore-times \
-            --exclude="my-tools/add-cover-to-ao3-epubs/index.html" \
+            --checksum \
+            --exclude="my-tools/add-cover-to-ao3-epubs/" \
             --exclude="my-tools/list-youtube-likes/" \
             --exclude="my-tools/library-lookup/" \
             --exclude="ideas-for-inclusive-events/" \
-            --include="" \
-            --filter="" \
-            _site \
-            ~/repos/alexwlchan.net/_site
+            _site/ \
+            ~/repos/alexwlchan.net/_site/
 
       - name: "Run the website tests"
         if: github.ref == 'refs/heads/main'
