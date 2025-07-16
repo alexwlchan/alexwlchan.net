@@ -12,7 +12,7 @@
 
 require 'json-schema'
 
-require_relative 'pillow/create_base64_avatar'
+require_relative 'utils/create_base64_avatar'
 
 MASTODON_METADATA_SCHEMA = {
   type: 'object',
