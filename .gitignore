@@ -5,6 +5,3 @@ _site
 *.pyc
 .bundle
 .DS_Store
-
-# This is used by the picture resizing plugin -- see `convert_image.rb`
-.image_requests.json
