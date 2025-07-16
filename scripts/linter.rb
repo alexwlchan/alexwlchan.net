@@ -5,8 +5,6 @@ require 'json-schema'
 require 'uri'
 require 'yaml'
 
-require_relative '../src/_plugins/pillow/get_image_info'
-
 require_relative 'linting/caddy_redirects'
 require_relative 'linting/logging'
 
