@@ -31,54 +31,31 @@ on:
       - '.github/workflows/rubocop.yml'
       - '.github/workflows/run_plugin_tests.yml'
 
-  # This daily rebuild is to avoid GitHub Actions purging the site cache,
-  # because regenerating all the image thumbnails would be a PITA:
-  #
-  #     GitHub will remove any cache entries that have not been
-  #     accessed in over 7 days.
-  #
-  # See https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
   schedule:
     - cron: "30 7 * * *"
 
 jobs:
   build:
     name: Build the website
-    runs-on: macos-latest
+    runs-on: self-hosted
+
+    env:
+      # This tells `bundle install` to install gems in a user-owned directory,
+      # so it doesn't need sudo permissions.
+      GEM_HOME: /home/alexwlchan/.gems
+
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v4
-
-      - name: "Set up Ruby"
-        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.4"
-          bundler-cache: true
-          cache-version: 1
+          # Don't run `git clean/reset` when checking out the repo.
+          #
+          # This means the existing copy of the `_site` folder is preserved,
+          # so the site doesn't have to be rebuilt from scratch every time.
+          clean: false
 
-      - name: "Cache vips"
-        uses: "actions/cache@v4"
-        with:
-          path: ~/Library/Caches/Homebrew
-          key: "brew-${{ github.sha }}"
-          restore-keys: brew-
-    
-      - name: "Install vips"
-        run: env HOMEBREW_NO_AUTO_UPDATE=1 brew install vips
-
-      - name: "Cache site output"
-        uses: "actions/cache@v4"
-        with:
-          path: _site
-          key: "site-${{ github.sha }}"
-          restore-keys: "site-"
-
-      - name: "Cache the .jekyll-cache folder"
-        uses: "actions/cache@v4"
-        with:
-          path: src/.jekyll-cache
-          key: "jekyll-cache-${{ github.sha }}"
-          restore-keys: "jekyll-cache-"
+      - name: "Install Ruby dependencies"
+        run: bundle install
 
       - name: "Set the JEKYLL_ENV variable"
         run: |
@@ -88,10 +65,6 @@ jobs:
           else
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
-      
-      - name: "Clean up any cached data"
-        run: |
-          find _site -name 'cant_eject_disk*' -delete
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
@@ -109,7 +82,7 @@ jobs:
             git config user.name "GitHub Actions on behalf of Alex Chan"
             git config user.email "githubactions@alexwlchan.net"
 
-            git config --global --add safe.directory /home/runner/work/alexwlchan.net/alexwlchan.net
+            git config --global --add safe.directory .
 
             bundle exec ruby scripts/publish_drafts.rb
 
@@ -120,29 +93,26 @@ jobs:
             echo "There is no _drafts folder, so nothing to publish!"
           fi
 
-      - name: Deploy to Linode
+      - name: Copy to the public directory
         if: github.ref == 'refs/heads/main'
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
-          # Get the SSH host keys for my web server
-          mkdir -p ~/.ssh
-          ssh-keyscan -H "alexwlchan.net" >> ~/.ssh/known_hosts
-
-          # Save the deploy key to a file, so it can be used by
-          # the SSH process
-          echo "$DEPLOY_KEY" > id_rsa
-          chmod 600 id_rsa
-
-          # Run the rsync command to upload the _site folder to
-          # my web server
-          bash scripts/upload_site.sh \
-            --rsh="ssh -i id_rsa -o IdentityAgent=none -o HostKeyAlgorithms=ssh-ed25519"
-
-          # Clean up the SSH key
-          rm id_rsa
+          rsync \
+            --compress \
+            --archive \
+            --recursive \
+            --delete \
+            --verbose \
+            --exclude="my-tools/add-cover-to-ao3-epubs/index.html" \
+            --exclude="my-tools/list-youtube-likes/" \
+            --exclude="my-tools/library-lookup/" \
+            --exclude="ideas-for-inclusive-events/" \
+            --include="" \
+            --filter="" \
+            _site \
+            ~/repos/alexwlchan.net/_site
 
       - name: "Run the website tests"
+        if: github.ref == 'refs/heads/main'
         run: ruby tests/run_all_tests.rb
 
       - name: "Push any commits to GitHub"
