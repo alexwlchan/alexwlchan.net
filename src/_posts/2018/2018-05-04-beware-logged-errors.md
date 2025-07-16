@@ -35,17 +35,17 @@ def ecr_login():
 ```
 
 This is part of a script that builds a Docker image, then pushes that image to ECR, a container registry in AWS.
-Using [*aws ecr get-login*][get-login] gives us a *docker login* command we can use to authenticate with ECR.
+Using [`aws ecr get-login`][get-login] gives us a `docker login` command we can use to authenticate with ECR.
 We run that command, and then we can push images to ECR.
 
-The *docker login* command we're about to run includes a password, so we don't want to log that anywhere -- but we aren't logging it, right?
+The `docker login` command we're about to run includes a password, so we don't want to log that anywhere -- but we aren't logging it, right?
 
 Right?
 
-But I'd forgotten that when the command run by *check_call* or *check_output* fails, you get a CalledProcessError -- **and tracebacks for CalledProcessError include the command you were trying to run**.
+But I'd forgotten that when the command run by `check_call()` or `check_output()` fails, you get a `CalledProcessError` -- **and tracebacks for `CalledProcessError` include the command you were trying to run**.
 This is helpful if you're trying to debug something, but risky if your command contains something sensitive.
 
-So when the *docker login* call flaked out, we got the following traceback in our [public CI logs][cilog]:
+So when the `docker login` call flaked out, we got the following traceback in our [public CI logs][cilog]:
 
 ```
 *** Authenticating for `docker push` with ECR
@@ -73,9 +73,9 @@ There are two approaches you could use to prevent making the same mistake.
 
 ## Use low-level subprocess APIs
 
-One approach is to eschew the *check_call* and *check_output* APIs, use lower-level subprocess features, and do the error checking yourself.
+One approach is to eschew the `check_call()` and `check_output()` APIs, use lower-level subprocess features, and do the error checking yourself.
 
-For example, for *check_call*:
+For example, for `check_call()`:
 
 ```python
 rc = subprocess.call(sensitive_command)
@@ -83,7 +83,7 @@ if rc != 0:
     raise RuntimeError('The sensitive command failed!')
 ```
 
-And to replicate *check_output*:
+And to replicate `check_output()`:
 
 ```python
 proc = subprocess.Popen(sensitive_command, stdout=subprocess.PIPE)
@@ -95,7 +95,7 @@ if proc.returncode != 0:
 
 ## Catch the CalledProcessError
 
-You could use `try … except` to catch the CalledProcessError, and raise a different exception:
+You could use `try … except` to catch the `CalledProcessError`, and raise a different exception:
 
 ```python
 # Python 2 only
@@ -106,11 +106,11 @@ except subprocess.CalledProcessError:
 ```
 
 If you run this code in Python 3, you'll get a nasty surprise.
-Because of the new [exception chaining][chaining], the traceback for the RuntimeError includes both exceptions -- including the CalledProcessError we're trying to hide:
+Because of the new [exception chaining][chaining], the traceback for the `RuntimeError` includes both exceptions -- including the `CalledProcessError` we're trying to hide:
 
 ```
 Traceback (most recent call last):
-  File "foo.py", line 4, in <module>
+  File "exceptions.py", line 4, in <module>
     subprocess.check_call(['less', '/dev/null'])
   File "/usr/local/Cellar/python/3.6.4_4/Frameworks/Python.framework/Versions/3.6/lib/python3.6/subprocess.py", line 291, in check_call
     raise CalledProcessError(retcode, cmd)
@@ -119,7 +119,7 @@ subprocess.CalledProcessError: Command '['less', '/dev/null']' returned non-zero
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "foo.py", line 6, in <module>
+  File "exceptions.py", line 6, in <module>
     raise RuntimeError("The sensitive command failed!")
 RuntimeError: The sensitive command failed!
 ```
@@ -134,7 +134,7 @@ except subprocess.CalledProcessError:
     raise RuntimeError("The sensitive command failed!") from None
 ```
 
-And now only the RuntimeError will be printed.
+And now only the `RuntimeError` will be printed.
 
 [suppress]: https://stackoverflow.com/a/33822606/1558022
 [chaining]: https://www.python.org/dev/peps/pep-3134/
