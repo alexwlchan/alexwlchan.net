@@ -1,6 +1,3 @@
-require_relative '../pillow/get_image_info'
-require_relative '../pillow/convert_image'
-
 class ImageFormat
   AVIF = { extension: '.avif', mime_type: 'image/avif' }
 
@@ -10,15 +7,87 @@ class ImageFormat
   PNG  = { extension: '.png',  mime_type: 'image/png' }
 end
 
-def get_format(image_path, image)
-  case image['format']
-  when 'PNG'
-    ImageFormat::PNG
-  when 'JPEG'
-    ImageFormat::JPEG
-  else
-    raise "Unrecognised image extension in #{image_path} (#{image['format']})"
+# Get basic information about a single image
+def get_single_image_info(path)
+  cache = Jekyll::Cache.new('ImageInfo')
+
+  mtime = File.mtime(path).to_i
+
+  cache.getset("#{path}--#{mtime}") do
+    require 'vips'
+
+    im = Vips::Image.new_from_file path
+
+    verify_icc_color_profile(path, im)
+
+    im_format = case im.get 'vips-loader'
+                when 'jpegload'
+                  ImageFormat::JPEG
+                when 'pngload'
+                  ImageFormat::PNG
+                else
+                  raise "Unrecognised vips loader for #{path}: #{im.get 'vips-loader'}"
+                end
+
+    {
+      'width' => im.width,
+      'height' => im.height,
+      'format' => im_format
+    }
   end
+end
+
+# Verify the ICC colour profile.
+#
+# We want to stick to standard sRGB or grayscale colour profiles
+# that will render uniformly in all browsers; "interesting" profiles
+# like Display P3 may look washed out or incorrect on non-Apple displays.
+def verify_icc_color_profile(path, image)
+  require 'icc_parser'
+
+  if image.get_typeof('icc-profile-data').zero?
+    return
+  end
+
+  icc_profile = ICCParser.parse(image.get('icc-profile-data'))
+  icc_profile_name = icc_profile[:tags][:desc]
+
+  if icc_profile_name == ''
+    return
+  end
+
+  allowed_profile_names = Set[
+    'sRGB',
+    'sRGB built-in',
+    'sRGB IEC61966-2.1',
+    'Generic Gray Gamma 2.2 Profile'
+  ]
+
+  if allowed_profile_names.include? icc_profile_name
+    return
+  end
+
+  raise "Got image with non-sRGB profile: #{path} (#{icc_profile_name})"
+end
+
+def convert_image(request)
+  if File.exist? request['out_path']
+    return
+  end
+
+  require 'vips'
+
+  im = Vips::Image.new_from_file request['in_path']
+
+  # Resize the image to match the target width
+  scale = request['target_width'].to_f / im.width
+  resized_im = im.resize(scale)
+
+  # Create the parent directory, if it doesn't exist already
+  FileUtils.mkdir_p File.dirname(request['out_path'])
+
+  # Actually resize the image
+  resized_im.write_to_file request['out_path']
 end
 
 def create_source_elements(sources, source_im_format, options)

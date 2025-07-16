@@ -80,8 +80,6 @@ require 'json'
 require 'pathname'
 require 'shell/executer'
 
-require_relative 'pillow/convert_image'
-require_relative 'pillow/get_image_info'
 require_relative 'utils/attrs'
 require_relative 'utils/pictures'
 
@@ -130,7 +128,7 @@ module Jekyll
       raise "Image #{lt_source_path} does not exist" unless File.exist? lt_source_path
 
       lt_image = get_single_image_info(lt_source_path)
-      im_format = get_format(lt_source_path, lt_image)
+      im_format = lt_image['format']
 
       # Pick how many widths we're going to cut this image at.
       #

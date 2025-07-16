@@ -56,12 +56,15 @@ jobs:
           bundler-cache: true
           cache-version: 1
 
-      - name: "Set up Python"
-        uses: actions/setup-python@v5
+      - name: "Cache vips"
+        uses: "actions/cache@v4"
         with:
-          python-version: "3.12"
-          cache: "pip"
-      - run: pip install -r requirements.txt
+          path: ~/Library/Caches/Homebrew
+          key: "brew-${{ github.sha }}"
+          restore-keys: brew-
+    
+      - name: "Install vips"
+        run: env HOMEBREW_NO_AUTO_UPDATE=1 brew install vips
 
       - name: "Cache site output"
         uses: "actions/cache@v4"

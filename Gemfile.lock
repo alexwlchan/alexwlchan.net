@@ -62,6 +62,7 @@ GEM
     http_parser.rb (0.8.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    icc_parser (0.1)
     io-event (1.9.0)
     jekyll (4.4.1)
       addressable (~> 2.4)
@@ -154,6 +155,9 @@ GEM
       prism (~> 1.4)
     ruby-progressbar (1.13.0)
     ruby-rc4 (0.1.5)
+    ruby-vips (2.2.4)
+      ffi (~> 1.12)
+      logger
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sass-embedded (1.83.4-arm64-darwin)
@@ -190,6 +194,7 @@ DEPENDENCIES
   color (~> 2.0)
   dnsruby (~> 1.72)
   html-proofer (~> 5)
+  icc_parser (~> 0.1)
   jekyll (~> 4)
   jekyll-include-cache (~> 0.2)
   json-schema (~> 5)
@@ -197,6 +202,7 @@ DEPENDENCIES
   minify_html (~> 0.16)
   nokogiri (~> 1.18)
   rubocop (~> 1.78)
+  ruby-vips (~> 2.2, >= 2.2.4)
   shell-executer (~> 1.0)
   test-unit
 
