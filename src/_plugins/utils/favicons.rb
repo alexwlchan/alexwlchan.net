@@ -23,12 +23,12 @@ def colorise_image(image, tint_color)
 end
 
 # Create PNG, SVG and ICO variants of the favicon for this tint colour.
-def create_favicon(tint_color)
+def create_favicon(favicon_dir, tint_color)
   FileUtils.mkdir_p '_site/f'
 
   hex_string = tint_color.gsub('#', '')
 
-  ico_path = "_site/f/#{hex_string}.ico"
+  ico_path = "#{favicon_dir}/#{hex_string}.ico"
 
   return if File.exist? ico_path
 
@@ -36,20 +36,20 @@ def create_favicon(tint_color)
   svg16 = File.read('src/theme/_favicons/favicon-16x16.svg').gsub('#000000', tint_color)
   svg32 = File.read('src/theme/_favicons/favicon-32x32.svg').gsub('#000000', tint_color)
 
-  File.write("_site/f/#{hex_string}-16x16.svg", svg16)
-  File.write("_site/f/#{hex_string}-32x32.svg", svg32)
+  File.write("#{favicon_dir}/#{hex_string}-16x16.svg", svg16)
+  File.write("#{favicon_dir}/#{hex_string}-32x32.svg", svg32)
 
   # Create colorised versions of the PNG icon at 32x32 and 16x16 sizes
   png16 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-16x16.png')
   png32 = ChunkyPNG::Image.from_file('src/theme/_favicons/template-32x32.png')
 
   colorise_image(png16, tint_color)
-  png16.save("_site/f/#{hex_string}-16x16.png", :best_compression)
+  png16.save("#{favicon_dir}/#{hex_string}-16x16.png", :best_compression)
 
   colorise_image(png32, tint_color)
-  png32.save("_site/f/#{hex_string}-32x32.png", :best_compression)
+  png32.save("#{favicon_dir}/#{hex_string}-32x32.png", :best_compression)
 
   # Create an ico favicon file from the two PNG sizes
-  ico = ICO.new(["_site/f/#{hex_string}-16x16.png", "_site/f/#{hex_string}-32x32.png"])
+  ico = ICO.new(["#{favicon_dir}/#{hex_string}-16x16.png", "#{favicon_dir}/#{hex_string}-32x32.png"])
   File.write(ico_path, ico)
 end

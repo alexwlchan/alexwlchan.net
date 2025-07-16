@@ -72,8 +72,8 @@ Jekyll::Hooks.register :site, :pre_render do
   create_header_image(default_light_color)
   create_header_image(default_dark_color)
 
-  create_favicon(default_light_color)
-  create_favicon(default_dark_color)
+  create_favicon('_site/f', default_light_color)
+  create_favicon('_site/f', default_dark_color)
 
   hex_string = default_light_color.gsub('#', '')
 
@@ -92,8 +92,8 @@ def create_asset_images(doc)
     create_header_image(css_colors['light'])
     create_header_image(css_colors['dark'])
 
-    create_favicon(css_colors['light'])
-    create_favicon(css_colors['dark'])
+    create_favicon('_site/f', css_colors['light'])
+    create_favicon('_site/f', css_colors['dark'])
   end
 end
 
