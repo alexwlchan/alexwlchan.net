@@ -37,7 +37,7 @@ footer a:visited {
     color: var(--primary-color-light);
   }
 
-  footer form {
+  footer #footer_links {
     display: none;
   }
 }

@@ -7,7 +7,7 @@ layout: default
 
     {%- include meta.html index_page = "/til/" -%}
   </hgroup>
-  
+
   {% if page.summary %}
     <p class="summary">
       {{ page.summary | markdownify_oneline | cleanup_text }}
