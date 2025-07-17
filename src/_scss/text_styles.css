@@ -53,6 +53,19 @@ a.download {
   background: rgba(white, 0.4) !important;
 }
 
+/* Add the URL after links when printing them */
+@media print {
+  main a[href]:after {
+    content: " (" attr(href) ")"
+  }
+  
+  .meta a[href]:after,
+  .article_cards a[href]:after,
+  .article_links a[href]:after {
+    content: "";
+  }
+}
+
 blockquote {
   margin-left:  0;
   margin-right: 0;
