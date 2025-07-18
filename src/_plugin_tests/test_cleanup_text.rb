@@ -48,4 +48,25 @@ class TextCleanupText < Test::Unit::TestCase
     expected = '<code>number_of_sides</code>'
     assert_equal(cleanup_syntax_highlighter_classes(text), expected)
   end
+
+  def test_handles_highlight_inside_list
+    text = <<HTML
+    <ul>
+      <li>
+        <p>To get the filename that curl will write a file to, use <code class="language-plaintext highlighter-rouge">--write-out</code> with the <code class="language-plaintext highlighter-rouge">filename_effective</code> variable:</p>
+
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">--head</span> <span class="nt">--remote-name</span> <span class="nt">--write-out</span> <span class="s1">'%{filename_effective}'</span> <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>
+    </code></pre></div>    </div>
+      </li>
+      <li>
+        <p>To get the final size of the file that will be downloaded, use <code class="language-plaintext highlighter-rouge">--write-out</code> and log the <a href="https://everything.curl.dev/usingcurl/verbose/writeout.html#http-headers">value of the Content-Length header</a>:</p>
+
+        <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>curl <span class="nt">--head</span> <span class="nt">--write-out</span> <span class="s1">'%header{content-length}'</span> <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>
+    </code></pre></div>    </div>
+      </li>
+    </ul>
+HTML
+    actual = cleanup_syntax_highlighter_classes(text)
+    refute(actual.include?('</div>'))
+  end
 end

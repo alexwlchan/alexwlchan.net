@@ -143,7 +143,7 @@ end
 def cleanup_syntax_highlighter_classes(html)
   # I never use the `highlighter-rouge` class, and I only have styles
   # for a couple of the `language-*` classes.
-  %w[console go irb].each do |lang|
+  %w[caddy console go irb].each do |lang|
     html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"language-#{lang}\"")
   end
 
@@ -160,7 +160,7 @@ def cleanup_syntax_highlighter_classes(html)
     '<div><div class="highlight"><pre class="highlight">',
     '<pre>'
   )
-  html = html.gsub('</pre></div></div>', '</pre>')
+  html = html.gsub(%r{</pre></div>\s*</div>}, '</pre>')
   html = html.gsub(
     /<code class="language-(?<language>[a-z]+)" data-lang="[a-z]+">/,
     '<code>'
