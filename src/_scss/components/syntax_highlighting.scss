@@ -198,8 +198,9 @@ pre {
   @include mixins.disable_select();
 }
 
-/* All my Go-formatted code uses tabs; ensure it's a 4-wide tab rather
- * than 8-wide, which is the default stylesheet in Safari */
+/* All my Caddy and Go-formatted code uses tabs; ensure it's a 4-wide tab
+ * rather than 8-wide, which is the default stylesheet in Safari */
+.language-caddy,
 .language-go {
   tab-size: 4;
 }
