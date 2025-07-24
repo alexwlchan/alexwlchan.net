@@ -56,6 +56,7 @@ def add_non_breaking_spaces(input)
     inch
     kilometre
     line
+    MiB
     million
     minute
     second

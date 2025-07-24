@@ -45,6 +45,7 @@ liquid:
 # jekyll-sass-converter options
 # =============================
 #
+# See https://jekyllrb.com/docs/configuration/sass/
 # See https://github.com/jekyll/jekyll-sass-converter
 
 sass:
