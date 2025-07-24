@@ -51,6 +51,7 @@ def add_non_breaking_spaces(input)
     byte
     character
     count
+    GB
     hour
     inch
     kilometre
