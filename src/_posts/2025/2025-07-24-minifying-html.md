@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-07-24 21:59:10 +0000
 title: Minifying HTML on my Jekyll website
 summary: I compare three different approaches to minifying HTML.
 tags:
