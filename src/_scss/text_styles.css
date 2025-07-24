@@ -34,7 +34,8 @@ a:visited {
 }
 
 h1 a:visited,
-h2 a:visited {
+h2 a:visited,
+h3 a:visited {
   color: var(--link-color);
 }
 
@@ -58,7 +59,7 @@ a.download {
   main a[href]:after {
     content: " (" attr(href) ")"
   }
-  
+
   .meta a[href]:after,
   .article_cards a[href]:after,
   .article_links a[href]:after {
