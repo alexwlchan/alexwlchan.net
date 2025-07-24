@@ -26,8 +26,8 @@ But why was it failing on their machine, and not mine?
 
 We started comparing environments to work out what was different.
 
-We quickly realised that we were running different versions of Python -- I had Python 3.12, but they had Python 3.13.
-I started looking for SQLite changes in [What's new in Python 3.13](https://docs.python.org/3/whatsnew/3.13.html#sqlite3), and quickly found a relevant change:
+We realised that we were running different versions of Python -- I had Python 3.12, but they had Python 3.13.
+I started looking for SQLite changes in [What's new in Python 3.13](https://docs.python.org/3/whatsnew/3.13.html#sqlite3), and found a relevant change:
 
 > sqlite3: A ResourceWarning is now emitted if a Connection object is not closed explicitly. (Contributed by Erlend E. Aasland in gh-105539.)
 
