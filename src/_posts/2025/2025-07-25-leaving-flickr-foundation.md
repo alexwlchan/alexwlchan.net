@@ -11,7 +11,7 @@ Today was my last day at the [Flickr Foundation](https://www.flickr.org).
 At 5pm I closed my laptop, left the office for the last time, and took a quiet walk along Regent's Canal.
 I saw an adorable family of baby coots, and a teenage coot who was still a bit fluffy and raggedy around the edges.
 
-I've got another job lined up, but I'm taking a short break first.
+I've got another job lined up, but I'm taking a short break before I start.
 
 My new role is still in software engineering, but in a completely different field.
 I'm stepping away from the world of libraries, archives, and photography.
