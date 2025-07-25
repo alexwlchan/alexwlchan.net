@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-07-25 20:12:14 +0000
 title: Today was my last day at the Flickr Foundation
 summary: I already have a new job lined up, but I'm taking a bit of a break first.
 tags:
