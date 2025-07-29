@@ -27,9 +27,20 @@
       {% if article.card.index %}
         <picture>
           {% for src in article.card.index_image_template_params.sources %}
+          {% comment %}
+            There are two breakpoints for cards:
+            
+            * If the screen is 450px or narrower, there's only a single column
+              of cards -- which take up almost all the screen width.
+            * If the screen is 1000px or narrower, there are two columns of
+              cards, each of which takes up about half the screen
+            * If the screen is wider, there are three columns of cards,
+              which all have a fixed width of ~300px
+
+          {% endcomment %}
           <source
             srcset="{{ src.srcset }}"
-            sizes="(max-width: 450px) 405px,405px"
+            sizes="(max-width: 450px) 100vw,(max-width:1000px) 50vw,300px"
             type="{{ src.type }}"
           >
           {% endfor %}
