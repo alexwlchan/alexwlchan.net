@@ -199,7 +199,7 @@ module Jekyll
       # the light image.  If you're running a browser which doesn't
       # know about the <picture> tag, you're unlikely to be on a
       # device with a hi-res screen or dark mode.
-      default_image = lt_sources[im_format[:mime_type]].split[0]
+      default_image = lt_sources[im_format['mime_type']].split[0]
 
       # This creates a `sizes` attribute like
       #
@@ -233,7 +233,7 @@ module Jekyll
 
       if @link_to_original
         dst_prefix = get_dst_prefix(lt_source_path)
-        link_target = "#{dst_prefix.gsub('_site', '')}#{im_format[:extension]}"
+        link_target = "#{dst_prefix.gsub('_site', '')}#{im_format['extension']}"
       elsif @link_to
         link_target = @link_to
       else

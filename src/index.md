@@ -154,8 +154,11 @@ Here are some of the topics I write about:
   function CardImage(card) {
     const yr = card.y;
 
-    const suffix = card.fm === 'J' ? '.jpg' : '.png';
-    const mimeType = card.fm === 'J' ? 'image/jpg' : 'image/png';
+    const suffix = card.fm === 0 ? '.jpg' : '.png';
+    const mimeType = card.fm === 0 ? 'image/jpg' : 'image/png';
+
+    console.log(card);
+    console.log(suffix);
 
     const prefix = card.s.slice(0, card.p);
     const imPrefix = `/c/${yr}/${prefix}`;
@@ -212,7 +215,7 @@ Here are some of the topics I write about:
     y = year - 2000
     s = slug
     p = length of prefix
-    fm = image format (J = JPEG, P = PNG)
+    fm = image format (0 = JPEG, 1 = PNG)
     d = description
   {% endcomment %}
   const keys = ["cl","cd","n","t","y","s","p","fm","d"];
@@ -228,9 +231,13 @@ Here are some of the topics I write about:
           {{ article.date | date: "%Y" | minus: 2000 }},
           {{ article.slug | jsonify }},
           {{ article.card.index_prefix | size }},
-          {{ article.card.index_image.format | slice: "0" | jsonify }},
+          {% if article.card.index_image.format.mime_type == "image/jpeg" %}
+            0
+          {% else %}
+            1
+          {% endif %},
           {% if article.summary %}
-            {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
+            {{ article.summary | markdownify_oneline | cleanup_text | replace: ' class="language-plaintext highlighter-rouge"', "" | jsonify }}
           {% else %}
             ""
           {% endif %}
