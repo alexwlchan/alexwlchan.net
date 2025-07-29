@@ -160,7 +160,11 @@ Here are some of the topics I write about:
     const prefix = card.s.slice(0, card.p);
     const imPrefix = `/c/${yr}/${prefix}`;
 
-    const ws = [365,730,302,504,405,810];
+    const ws = [
+      365, 365 * 2,  /* 2-up column => ~365px wide */
+      302, 302 * 2,  /* 3-up column => ~302px wide */
+      405, 405 * 2   /* 1-up column => ~405px wide */
+    ];
     const avif    = ws.map(s => `${imPrefix}_${s}w.avif ${s}w`).join(", ");
     const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
     const primary = ws.map(s => `${imPrefix}_${s}w${suffix} ${s}w`).join(", ");
