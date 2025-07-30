@@ -128,7 +128,7 @@ The shop was the busiest I've ever seen it, and it was lovely to see so many peo
 I'm sure Queer Craft and our friendships will continue in some shape or form, but sitting here now, I can't help but be a little upset about what we've lost.
 Of course, there are other haberdasheries, and there are other queer craft groups -- it's hardly a unique idea -- but Slipstitch was the haberdashery where *I* shopped, it's where *our* group met, and I'm sad to know it's gone.
 
-In [her final newsletter](/files/2025/so-long-slipstitch/) before the closure, Rosie wrote "\[Slipstitch\] never wanted for community".
+In [her final newsletter](/files/2025/so-long-slipstitch.html) before the closure, Rosie wrote "\[Slipstitch\] never wanted for community".
 I think that's a lovely sentiment, and one that rung true in my experience -- it always felt like such a friendly, welcoming space, and I'm glad I found it.
 I hope the friendships forged in Queer Craft will survive a long time after the physical shop is gone.
 I know that Rosie wants Slipstitch to continue as an idea, if not a physical venue, and I'm excited to see what happens next.
