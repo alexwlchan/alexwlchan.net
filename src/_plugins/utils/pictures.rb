@@ -1,10 +1,10 @@
 class ImageFormat
-  AVIF = { extension: '.avif', mime_type: 'image/avif' }
+  AVIF = { 'extension' => '.avif', 'mime_type' => 'image/avif' }
 
-  WEBP = { extension: '.webp', mime_type: 'image/webp' }
+  WEBP = { 'extension' => '.webp', 'mime_type' => 'image/webp' }
 
-  JPEG = { extension: '.jpg',  mime_type: 'image/jpeg' }
-  PNG  = { extension: '.png',  mime_type: 'image/png' }
+  JPEG = { 'extension' => '.jpg',  'mime_type' => 'image/jpeg' }
+  PNG  = { 'extension' => '.png',  'mime_type' => 'image/png' }
 end
 
 # Get basic information about a single image
@@ -101,7 +101,7 @@ def create_source_elements(sources, source_im_format, options)
         <source
           srcset="#{sources[im_format].join(', ')}"
           sizes="#{options[:sizes]}"
-          type="#{im_format[:mime_type]}"
+          type="#{im_format['mime_type']}"
           media="(prefers-color-scheme: dark)"
         >
       HTML
@@ -110,7 +110,7 @@ def create_source_elements(sources, source_im_format, options)
         <source
           srcset="#{sources[im_format].join(', ')}"
           sizes="#{options[:sizes]}"
-          type="#{im_format[:mime_type]}"
+          type="#{im_format['mime_type']}"
         >
       HTML
     end
@@ -240,7 +240,7 @@ def create_image_sizes(source_path, dst_prefix, desired_formats, desired_widths,
                  "#{this_width}w"
                end
 
-      out_path = "#{dst_prefix}_#{suffix}#{out_format[:extension]}"
+      out_path = "#{dst_prefix}_#{suffix}#{out_format['extension']}"
 
       request = { 'in_path' => source_path, 'out_path' => out_path, 'target_width' => this_width }
       convert_image(request)
@@ -249,5 +249,5 @@ def create_image_sizes(source_path, dst_prefix, desired_formats, desired_widths,
     end
   end
 
-  sources.to_h { |fmt, srcset_values| [fmt[:mime_type], srcset_values.join(',')] }
+  sources.to_h { |fmt, srcset_values| [fmt['mime_type'], srcset_values.join(',')] }
 end

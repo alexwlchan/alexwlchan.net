@@ -154,18 +154,26 @@ Here are some of the topics I write about:
   function CardImage(card) {
     const yr = card.y;
 
-    const suffix = card.fm === 'J' ? '.jpg' : '.png';
-    const mimeType = card.fm === 'J' ? 'image/jpg' : 'image/png';
+    const suffix = card.fm === 0 ? '.jpg' : '.png';
+    const mimeType = card.fm === 0 ? 'image/jpg' : 'image/png';
+
+    console.log(card);
+    console.log(suffix);
 
     const prefix = card.s.slice(0, card.p);
     const imPrefix = `/c/${yr}/${prefix}`;
 
-    const ws = [365,730,302,504,405,810];
+    const ws = [
+      365, 365 * 2,  /* 2-up column => ~365px wide */
+      302, 302 * 2,  /* 3-up column => ~302px wide */
+      405, 405 * 2   /* 1-up column => ~405px wide */
+    ];
     const avif    = ws.map(s => `${imPrefix}_${s}w.avif ${s}w`).join(", ");
     const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
     const primary = ws.map(s => `${imPrefix}_${s}w${suffix} ${s}w`).join(", ");
 
-    const sizes = "(max-width: 450px) 405px,405px";
+    // See comment in `article_card.html`
+    const sizes = "(max-width: 450px) 100vw,(max-width:1000px) 50vw,300px";
 
     return `
       <div class="c_im_w${card.n ? ' n' : ''}">
@@ -207,7 +215,7 @@ Here are some of the topics I write about:
     y = year - 2000
     s = slug
     p = length of prefix
-    fm = image format (J = JPEG, P = PNG)
+    fm = image format (0 = JPEG, 1 = PNG)
     d = description
   {% endcomment %}
   const keys = ["cl","cd","n","t","y","s","p","fm","d"];
@@ -223,9 +231,13 @@ Here are some of the topics I write about:
           {{ article.date | date: "%Y" | minus: 2000 }},
           {{ article.slug | jsonify }},
           {{ article.card.index_prefix | size }},
-          {{ article.card.index_image.format | slice: "0" | jsonify }},
+          {% if article.card.index_image.format.mime_type == "image/jpeg" %}
+            0
+          {% else %}
+            1
+          {% endif %},
           {% if article.summary %}
-            {{ article.summary | markdownify_oneline | cleanup_text | jsonify }}
+            {{ article.summary | markdownify_oneline | cleanup_text | replace: ' class="language-plaintext highlighter-rouge"', "" | jsonify }}
           {% else %}
             ""
           {% endif %}

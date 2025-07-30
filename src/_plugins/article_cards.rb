@@ -194,7 +194,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # the light image.  If you're running a browser which doesn't
     # know about the <picture> tag, you're unlikely to be on a
     # device with a hi-res screen or dark mode.
-    default_image = sources[image['format'][:mime_type]].split[0]
+    default_image = sources[image['format']['mime_type']].split[0]
 
     sources = sources.map do |media_type, srcset|
       {
