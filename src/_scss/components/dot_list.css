@@ -1,11 +1,3 @@
-/* ===============
- * Utility classes
- * ===============
- *
- * This is a collection of styles that are used across the site, but aren't
- * tied to a particular page or template.
- */
-
 /* A plain_list is a <ul> that displays all the items in a horizontal line,
  * not separated by anything, e.g.
  *
@@ -17,16 +9,15 @@
  *      apple · banana · cherry
  *
  */
-ul.plain_list,
 ul.dot_list {
   list-style-type: none;
   padding: 0;
-}
-
-ul.dot_list li {
-  display: inline;
-}
-
-ul.dot_list li:not(:last-child)::after {
-  content: " · ";
+  
+  li {
+    display: inline;
+  }
+  
+  li:not(:last-child)::after {
+    content: " · ";
+  }  
 }

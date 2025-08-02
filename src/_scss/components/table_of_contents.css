@@ -1,0 +1,12 @@
+.table_of_contents {
+  background: var(--background-color);
+  border-color: var(--primary-color);
+  
+  h3 {
+    margin-bottom: 0.5em;
+  }
+  
+  a:visited {
+    color: var(--primary-color);
+  }
+}

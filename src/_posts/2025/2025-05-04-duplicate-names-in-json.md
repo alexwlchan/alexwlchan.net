@@ -27,6 +27,8 @@ This was a big surprise to me.
 I think of JSON objects as key/value pairs, and I associate them with data structures like a `dict` in Python or a `Hash` in Ruby -- both of which only allow unique keys.
 JSON has no such restriction, and I started thinking about how to handle it.
 
+{% table_of_contents %}
+
 
 
 ## What does the JSON spec say about duplicate names?

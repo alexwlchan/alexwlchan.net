@@ -1,0 +1,15 @@
+<blockquote class="table_of_contents">
+  <h3>Table of contents</h3>
+
+  <ul>
+    {% for entry in toc_entries %}
+      <li>
+        <a href="#{{ entry.id }}">{{ entry.label }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</blockquote>
+
+<style type="x-text/scss">
+  @use "components/table_of_contents";
+</style>

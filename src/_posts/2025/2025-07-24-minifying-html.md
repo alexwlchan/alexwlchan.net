@@ -21,31 +21,7 @@ I recently changed the way I'm minifying HTML, and I thought this would be a goo
 
 I build this website using [Jekyll](https://jekyllrb.com), so I've looked for Jekyll or Ruby-based solutions.
 
-<blockquote class="toc">
-  <h3>Table of contents</h3>
-  <ul>
-    <li><a href="#layout">Approach #1: Compress HTML in Jekyll, by Anatol Broder</a></li>
-    <li><a href="#htmlcompressor">Approach #2: The htmlcompressor gem, by Paolo Chiodi</a></li>
-    <li><a href="#minifyhtml">Approach #3: The minify-html library, by Wilson Lin</a></li>
-    <li><a href="#verify">Minify, but verify</a></li>
-    <li><a href="#comparison">Comparing the three approaches</a></li>
-  </ul>
-</blockquote>
-
-<style>
-  .toc {
-    background: var(--background-color);
-    border-color: var(--primary-color);
-  }
-
-  .toc h3 {
-    margin-bottom: 0.5em;
-  }
-
-  .toc a:visited {
-    color: var(--primary-color);
-  }
-</style>
+{% table_of_contents %}
 
 <h2 id="layout">Approach #1: <a href="http://jch.penibelst.de/">Compress HTML in Jekyll</a>, by Anatol Broder</h2>
 

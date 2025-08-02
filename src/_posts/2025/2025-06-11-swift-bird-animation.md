@@ -63,33 +63,7 @@ All the code from the Swift.org website is [open source on GitHub](https://githu
 
 [redesign]: https://www.swift.org/blog/redesigned-swift-org-is-now-live/
 
-<blockquote class="toc">
-  <h3>Table of contents</h3>
-  <ul>
-    <li><a href="#key_steps">What are the key steps in this animation?</a></li>
-    <li><a href="#partial_path">Only draw part of a curved path with a dash pattern</a></li>
-    <li><a href="#masking">Mask an image with a <code>globalCompositeOperation</code></a></li>
-    <li><a href="#animejs">Animate the brush stroke with Anime.js</a></li>
-    <li><a href="#mutationobserver">Start the animation with a <code>MutationObserver</code></a></li>
-    <li><a href="#reduce_motion">Skip the animation if you have <code>(prefers-reduced-motion: reduce)</code></a></li>
-    <li><a href="#closing_thoughts">Closing thoughts</a></li>
-  </ul>
-</blockquote>
-
-<style>
-  .toc {
-    background: var(--background-color);
-    border-color: var(--primary-color);
-  }
-
-  .toc h3 {
-    margin-bottom: 0.5em;
-  }
-
-  .toc a:visited {
-    color: var(--primary-color);
-  }
-</style>
+{% table_of_contents %}
 
 
 

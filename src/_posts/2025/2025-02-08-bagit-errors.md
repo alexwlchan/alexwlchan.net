@@ -56,29 +56,7 @@ You won't need to check for everything on this list, and this list isn't exhaust
 [tests]: /2021/digital-verification/
 [tests]: https://github.com/wellcomecollection/storage-service/tree/main/bag_verifier/src/test/scala/weco/storage_service/bag_verifier
 
-<blockquote class="toc">
-  <p>Table of contents:</p>
-  <ul>
-    <li><a href="#bagit">The Bag Declaration <code>bagit.txt</code></a></li>
-    <li><a href="#payload_manifest">The Payload Files and Payload Manifest</a></li>
-    <li><a href="#payload_filenames">Payload filenames</a></li>
-    <li><a href="#tag_manifest">The Tag Manifest <code>tagmanifest-algorithm.txt</code></a></li>
-    <li><a href="#bag_info">The Bag Metadata <code>bag-info.txt</code></a></li>
-    <li><a href="#fetch">The Fetch File <code>fetch.txt</code></a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ul>
-</blockquote>
-
-<style>
-  .toc {
-    background: var(--background-color);
-    border-color: var(--primary-color);
-  }
-
-  .toc a:visited {
-    color: var(--primary-color);
-  }
-</style>
+{% table_of_contents %}
 
 ---
 

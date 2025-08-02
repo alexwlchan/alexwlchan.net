@@ -17,10 +17,8 @@ This lets me shred or recycle the originals (if I don't need the physical copy),
 I organise the PDFs in a Python app I wrote called *docstore*.
 
 People have asked me how I do my scanning, so in this post I'm going to explain how I got to my current setup.
-It's a long post, so here's a table of contents:
 
-* TOC
-{:toc}
+{% table_of_contents %}
 
 
 

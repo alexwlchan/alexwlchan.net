@@ -46,6 +46,9 @@ module Jekyll
       ).render!(context).gsub("\n", '')
 
       <<~HTML
+        <style type="x-text/scss">
+          @use "components/download";
+        </style>
         <a href="/files/#{year}/#{@filename}" class="download">#{icon} #{@filename} </a>
       HTML
     end

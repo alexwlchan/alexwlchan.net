@@ -10,7 +10,6 @@
 @use "utils/functions.scss";
 
 @use "text_styles";
-@use "utility_classes";
 
 @use "base/layout";
 @use "base/text.scss";
@@ -18,26 +17,12 @@
 @use "base/images_wide.scss";
 
 @use "components/code.scss";
+@use "components/dot_list";
 @use "components/footer";
 @use "components/latex";
 @use "components/nav";
 @use "components/pretty_hr.scss";
 @use "components/skip_to_main";
-@use "components/slides";
 @use "components/syntax_highlighting.scss";
 @use "components/tags";
 @use "components/til";
-
-a.download {
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px 15px 25px 0.5em;
-
-  img {
-    height: 64px;
-    display: inline-block;
-    margin: -8px 0 -25px 0;
-    padding-bottom: 0;
-    padding-right: 5px;
-  }
-}
