@@ -182,6 +182,8 @@ If, say, you hover over the bird icon and see Twitter's shade of blue, it's a su
   #social_icons {
     text-align: center;
     line-height: 0;
+    list-style-type: none;
+    padding: 0;
   }
 
   #social_icons a .background { fill: var(--accent-grey); }
@@ -206,11 +208,15 @@ If, say, you hover over the bird icon and see Twitter's shade of blue, it's a su
   #social_icons > li {
     display: inline-block;
   }
+
+  #social_icons > li:not(:last-child) {
+    margin-right: 10px;
+  }
 </style>
 
 Here are all the icons I had in this system:
 
-<ul id="social_icons" class="plain_list">
+<ul id="social_icons">
   {% comment %}
     Be careful about tweaking the whitespace here; the included SVGs
     are quite sensitive to linebreaks and the like.
