@@ -47,6 +47,9 @@ module Jekyll
                 end
 
       input = <<~HTML
+        <style type="x-text/scss">
+          @use "components/slides";
+        </style>
         <figure class="slide">
           {%
             picture
