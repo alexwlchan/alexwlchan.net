@@ -62,10 +62,19 @@ index:
   .marquee_example {
     display: grid;
     grid-gap: 10px;
+    margin-left:  var(--default-padding);
+    margin-right: var(--default-padding);
+
+    code {
+      background: none;
+    }
   }
 
-  .marquee_example code {
-    background: none;
+  @media screen and (max-width: 500px) {
+    .marquee_example {
+      margin-left:  0px;
+      margin-right: 0px;
+    }
   }
 
   #truespeed {
@@ -181,7 +190,7 @@ Old-school web nerds know the best way to move text in a web page: the unjustly-
 If you've never come across it, the marquee tag causes text to scroll across a page.
 It makes our rocket move from right to left:
 
-<div id="first_example" class="marquee_example indented">
+<div id="first_example" class="marquee_example">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('first_example')">pause</button>
     <marquee>🚀</marquee>
@@ -211,7 +220,7 @@ We need to find a steering wheel.
 You can steer a marquee tag with the [direction attribute][direction], which lets you pick one of four directions.
 The scroll will go in whatever direction you pick:
 
-<div id="directions" class="marquee_example indented example_4up">
+<div id="directions" class="marquee_example example_4up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('directions')">pause</button>
     <code>&lt;marquee direction="up"&gt;</code>
@@ -237,7 +246,7 @@ This is probably for the best, as it avoids an inexperienced operator trying to 
 
 The marquee tag is also aware of non-English languages -- it scrolls from right-to-left in my posts, but if you specify a [right-to-left script][rtl] with the [dir attribute][dir], it scrolls from left-to-right (opposite to the direction of the text).
 
-<div id="rtl_text" class="marquee_example indented example_2up">
+<div id="rtl_text" class="marquee_example example_2up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('rtl_text')">pause</button>
     <code>&lt;marquee dir="ltr"&gt;</code>
@@ -273,7 +282,7 @@ Can we go faster?
 Text in the marquee tag doesn't scroll as continuous motion; instead it gets updated at discrete intervals.
 The time between intervals is controlled by the [scrolldelay attribute][scrolldelay] (which counts in milliseconds), and if we crank it up the discrete motion becomes more obvious:
 
-<div id="scrolldelay" class="marquee_example indented example_2up">
+<div id="scrolldelay" class="marquee_example example_2up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('scrolldelay')">pause</button>
     <code>&lt;marquee scrolldelay="1000"&gt; (1s)</code>
@@ -294,7 +303,7 @@ If you want to crank down the interval below 60&nbsp;milliseconds, you have to a
 That feels like another sign that maybe this is designed to avoid over-taxing the computer, by clamping the refresh rate unless you explicitly opt in.
 Notice that `scrolldelay="1"` makes no difference until I add this attribute:
 
-<div id="truespeed" class="marquee_example indented example_3up">
+<div id="truespeed" class="marquee_example example_3up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('truespeed')">pause</button>
     <code>&lt;marquee scrolldelay="60"&gt;</code>
@@ -312,7 +321,7 @@ Notice that `scrolldelay="1"` makes no difference until I add this attribute:
 
 If you want to change how far the text scrolls at each interval, use the [scrollamount attribute][scrollamount].
 
-<div id="scrollamount" class="marquee_example indented example_3up">
+<div id="scrollamount" class="marquee_example example_3up">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('scrollamount')">pause</button>
     <code>&lt;marquee scrollamount="6"&gt;</code> (default)
@@ -336,7 +345,7 @@ In my browser (Safari), the rocket below just flips between two positions, offse
 If I shrink my window to less than 300 pixels wide, it disappears entirely.
 It reminds me of the [wagon-wheel effect][wagon].
 
-<div id="wagonwheel" class="marquee_example indented">
+<div id="wagonwheel" class="marquee_example">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('wagonwheel')">pause</button>
     <code>&lt;marquee scrollamount="300"&gt;</code>
@@ -479,7 +488,7 @@ While I was writing this blog post, I discovered that we can also do multistage 
 
 This looks about as good as you'd expect:
 
-<div id="nested" class="marquee_example indented">
+<div id="nested" class="marquee_example">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('nested')">pause</button>
     <marquee style="color: #ef4239;">
@@ -529,7 +538,7 @@ And although I'm never going to use my newfound knowledge of the marquee tag, I 
 
 I'll end with a final example, which brings together all our new marquee knowledge:
 
-<div id="to_the_moon" class="marquee_example indented">
+<div id="to_the_moon" class="marquee_example">
   <div class="wrapper">
     <button onclick="toggleMarqueFor('to_the_moon')">pause</button>
     <code>&lt;marquee direction="right" scrollamount="1" scrolldelay="30" truespeed&gt;</code><br/>

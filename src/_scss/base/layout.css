@@ -102,14 +102,12 @@ iframe {
 /* Elements that should have a left/right indent on wide screens (so they're
  * narrower than the rest of the content), but snap to the edge on narrow
  * screens. */
-.indented,
 a.download {
   margin-left:  var(--default-padding);
   margin-right: var(--default-padding);
 }
 
 @media screen and (max-width: calc(var(--max-width) + var(--default-padding) * 3)) {
-  .indented,
   blockquote,
   pre,
   a.download {
