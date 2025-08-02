@@ -1,6 +1,4 @@
 @use "sass:string";
-@use "sass:color";
-@use "sass:math";
 
 /* Replace text in a string.
  *
@@ -16,40 +14,4 @@
     @return string.slice($string, 1, $index - 1) + $new + str-replace(string.slice($string, $index + string.length($old)), $old, $new);
   }
   @return $string;
-}
-
-/* Convert a decimal number to a two-digit hex string.
- *
- * Examples:
- *
- *     dec-to-hex(0)   ~> 00
- *     dec-to-hex(5)   ~> 05
- *     dec-to-hex(31)  ~> 1F
- *     dec-to-hex(255) ~> FF
- *
- * This function is only safe to use for numbers between 0 and 255.
- *
- */
-@function dec-to-hex($dec) {
-  $hex: "0123456789ABCDEF";
-  $first: math.div($dec - $dec % 16, 16) + 1;
-  $second: ($dec % 16) + 1;
-  @return string.slice($hex, $first, $first) + string.slice($hex, $second, $second);
-}
-
-/* Convert a color to a hex string, omitting the leading hash.
- *
- * This supports colors in any space supported by the Sass color functions.
- *
- * Examples:
- *
- *     color-to-hex-str(rgb(1, 2, 3)) ~> '010203'
- *     color-to-hex-str(#010203)      ~> '010203'
- *
- */
-@function color-to-hex-str($color) {
-  $red_hex:   dec-to-hex(color.channel($color, "red",   $space: rgb));
-  $green_hex: dec-to-hex(color.channel($color, "green", $space: rgb));
-  $blue_hex:  dec-to-hex(color.channel($color, "blue",  $space: rgb));
-  @return string.to-lower-case('#{$red_hex}#{$green_hex}#{$blue_hex}');
 }
