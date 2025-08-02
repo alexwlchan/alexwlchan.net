@@ -50,12 +50,6 @@ blockquote pre {
   padding: 0;
 }
 
-a.download {
-  border-radius: var(--border-radius);
-  border-style:  var(--border-style);
-  border-width:  var(--border-width);
-}
-
 article, main {
   padding-top:    3px;
   padding-bottom: 2em;
@@ -79,10 +73,6 @@ article, main {
   img:not(.twemoji):not(.dark_aware), svg[role="img"]:not(.dark_aware) {
     background: white;
   }
-
-  a.download img {
-    background: none;
-  }
 }
 
 /* Images never expand beyond the article bounds, and are centred when
@@ -97,21 +87,4 @@ img, video, figure {
 
 iframe {
   display: block;
-}
-
-/* Elements that should have a left/right indent on wide screens (so they're
- * narrower than the rest of the content), but snap to the edge on narrow
- * screens. */
-a.download {
-  margin-left:  var(--default-padding);
-  margin-right: var(--default-padding);
-}
-
-@media screen and (max-width: calc(var(--max-width) + var(--default-padding) * 3)) {
-  blockquote,
-  pre,
-  a.download {
-    margin-left:  0px;
-    margin-right: 0px;
-  }
 }

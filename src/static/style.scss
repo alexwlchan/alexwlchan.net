@@ -27,17 +27,3 @@
 @use "components/syntax_highlighting.scss";
 @use "components/tags";
 @use "components/til";
-
-a.download {
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px 15px 25px 0.5em;
-
-  img {
-    height: 64px;
-    display: inline-block;
-    margin: -8px 0 -25px 0;
-    padding-bottom: 0;
-    padding-right: 5px;
-  }
-}
