@@ -106,6 +106,7 @@ jobs:
             --exclude="my-tools/list-youtube-likes/" \
             --exclude="my-tools/library-lookup/" \
             --exclude="ideas-for-inclusive-events/" \
+            --exclude="man/" \
             _site/ \
             ~/repos/alexwlchan.net/_site/
 

@@ -60,7 +60,7 @@ I can edit the file as much as I like, then I save and close it.
 Once the file is closed, it checks to see if I’ve changed anything with [cmp(1)][cmp].
 If I’ve made changes, it uploads a new copy of the file to the original key.
 
-[cmp]: https://linux.die.net/man/1/cmp
+[cmp]: https://alexwlchan.net/man/man1/cmp.html
 
 If lots of people were editing this file at once, this approach wouldn’t be safe – I could download and start editing, and somebody else could change the file at the same time.
 When I uploaded my new version, I’d delete their changes.
@@ -86,7 +86,7 @@ end
 
 The name is to match [cat(1)][cat].
 
-[cat]: https://linux.die.net/man/1/cat
+[cat]: https://alexwlchan.net/man/man1/cat.html
 
 I’ve had both of these in my shell config for a while now, and they’ve been quite useful.
 Neither is a massive time saver, but they save me a few seconds each time I use them.

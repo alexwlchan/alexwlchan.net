@@ -1,1 +1,2 @@
-# blank file allows all
+User-agent: *
+Disallow: /man/*

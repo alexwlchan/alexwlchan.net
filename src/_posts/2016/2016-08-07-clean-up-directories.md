@@ -21,7 +21,7 @@ As I rearrange, delete or de-duplicate old files, I can often end up with empty 
 When they're not holding anything, they only clutter up my disk.
 I'd like to get rid of them, but they're often nested quite heavily &ndash; I'd like to delete them automatically where possible.
 
-In my last post, I mentioned the Unix [`find` utility](http://linux.die.net/man/1/find).
+In my last post, I mentioned the Unix [`find` utility](https://alexwlchan.net/man/man1/find.html).
 It's possible to use `find` to delete empty directories like so:
 
 ```console
