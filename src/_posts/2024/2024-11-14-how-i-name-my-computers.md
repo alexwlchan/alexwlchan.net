@@ -106,13 +106,13 @@ Fortunately, I enjoy trying to think of a name that fits the machine, and it bri
   <div>
     <p>
       My next machine was an iMac, which I named <strong><a href="https://en.wikipedia.org/wiki/Poseidon">Poseidon</a></strong>, the Greek god of the sea.
-      I never used this for any developer betas – I wanted a computer that was more stable, which wasn't crashing half the time.
+      I never used this for any developer betas – I wanted a computer that was more stable, which wasn’t crashing half the time.
       In my head, Poseidon felt like a metaphor of stability.
     </p>
     <p>
       In hindsight, this is nonsense – Poseidon is hardly depicted as a stable character in myth.
-      He's unpredictable, volatile, and has a wicked temper.
-      I'd been reading about lighthouses and lifeboats at the time, which <em>are</em> pillars of stability, and somehow that got conflated into“sea equals stable”.
+      He’s unpredictable, volatile, and has a wicked temper.
+      I’d been reading about lighthouses and lifeboats at the time, which <em>are</em> pillars of stability, and somehow that got conflated into “sea equals stable”.
     </p>
   </div>
 </section>
