@@ -11,7 +11,7 @@ tags:
 
 I have a bunch of automations that open URLs.
 
-If I want to open a regular window in Safari (my default browser), I have a variety of options -- I can use [open(1)](https://linux.die.net/man/1/open) on the command-line, or the [webbrowser module](https://docs.python.org/3/library/webbrowser.html) in Python, or with AppleScript, or probably half a dozen other methods I haven't thought of.
+If I want to open a regular window in Safari (my default browser), I have a variety of options -- I can use [open(1)](https://alexwlchan.net/man/man1/open.html) on the command-line, or the [webbrowser module](https://docs.python.org/3/library/webbrowser.html) in Python, or with AppleScript, or probably half a dozen other methods I haven't thought of.
 
 If I want to open a private browsing window, my options are more limited.
 The Safari AppleScript dictionary doesn't know about private browsing, and all the other approaches I've seen are just passing Safari the URL to open.

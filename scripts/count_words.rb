@@ -7,7 +7,7 @@ def get_word_count(path)
   contents = File.read(path)
 
   md = contents.split('---', 3)[2]
-  md = md.lines.map(&:strip).reject { |line| line.start_with?('>') }.join
+  md = md.lines.map(&:strip).reject { |line| line.start_with?('>') }.join("\n")
 
   char_sequences = md.scan(/\S+/)
                      .reject { |w| w == '-' }

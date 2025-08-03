@@ -29,4 +29,4 @@ $ mdls -name kMDItemPixelHeight -raw /tmp/speech.mp4
 (null)⏎
 ```
 
-[mdls]: https://www.manpagez.com/man/1/mdls/
+[mdls]: https://alexwlchan.net/man/man1/mdls.html

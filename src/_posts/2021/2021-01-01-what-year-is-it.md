@@ -50,8 +50,8 @@ I almost never work with ICU date formatting; I'm more used to the format used b
 The format specifier looked correct to me, but clearly something was wrong.
 
 [kmaestro]: https://wiki.keyboardmaestro.com/token/ICUDateTime
-[strftime]: https://linux.die.net/man/3/strftime
-[strptime]: https://linux.die.net/man/3/strptime
+[strftime]: https://alexwlchan.net/man/man3/strftime.html
+[strptime]: https://alexwlchan.net/man/man3/strptime.html
 [datetime]: https://docs.python.org/3/library/datetime.html
 
 

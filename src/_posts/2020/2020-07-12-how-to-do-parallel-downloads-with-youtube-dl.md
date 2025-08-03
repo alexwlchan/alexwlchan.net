@@ -19,9 +19,11 @@ youtube-dl --get-id "$PLAYLIST_URL" \
 ```
 
 The first command (`--get-id`) gets a list of video IDs in the playlist, one per line.
-Those IDs get piped to [xargs](https://linux.die.net/man/1/xargs), which calls individual instances of youtube-dl to download each video.
+Those IDs get piped to [xargs], which calls individual instances of youtube-dl to download each video.
 Because I'm passing `-P 5` to xargs, it runs up to 5&nbsp;parallel instances of youtube-dl at a time.
 
 In some informal testing as I was writing this post, I downloaded the same 10 video playlist twice.
 One-by-one: 3m&nbsp;30s.
 In parallel: 35s.
+
+[xargs]: https://alexwlchan.net/man/man1/xargs.html

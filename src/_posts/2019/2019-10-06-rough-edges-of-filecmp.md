@@ -52,7 +52,7 @@ The problem is that "the same file" could mean at least three different things:
 *   *Do the files have the same byte-for-byte contents?*
 
     This is the comparison you get by passing shallow=True, and what I was originally expecting.
-    It's also what the [cmp command-line tool](https://linux.die.net/man/1/cmp) will check.
+    It's also what the [cmp command-line tool](https://alexwlchan.net/man/man1/cmp.html) will check.
 
 *   *Are the files the same underlying file on disk, modulo hard links?*
     (h/t [@kapellosaur](https://twitter.com/kapellosaur))
