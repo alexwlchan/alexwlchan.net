@@ -28,12 +28,23 @@ module Jekyll
 
       doc = Nokogiri::HTML5.fragment(html)
 
-      toc_entries = doc.xpath('.//h2|h3').map do |heading|
-        {
-          'heading_level' => heading.node_name, # e.g. "h2", "h3"
-          'label' => heading.inner_text,
-          'id' => heading.attribute('id').value
-        }
+      toc_entries = []
+
+      doc.xpath('.//h2|h3').each do |heading|
+        if heading.node_name == 'h2'
+          toc_entries.append({
+                               'label' => heading.inner_html,
+                               'id' => heading.attribute('id').value,
+                               'sub_headings' => []
+                             })
+        elsif heading.node_name == 'h3'
+          toc_entries.last['sub_headings'].append({
+                                                    'label' => heading.inner_html,
+                                                    'id' => heading.attribute('id').value
+                                                  })
+        else
+          raise "Unrecognised heading level: #{heading.node_name}"
+        end
       end
 
       tpl = Liquid::Template.parse(File.read('src/_includes/table_of_contents.html'))
