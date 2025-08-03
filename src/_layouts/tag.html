@@ -19,20 +19,33 @@ layout: default
   .title + .article_cards {
     margin-top: 2.5em;
   }
-
-  article.til {
-    p.summary { font-weight: bold; }
+  
+  .tag_description {
+    font-weight: bold;
   }
 </style>
 
 <article>
-  <h1 class="title">
-    <a href="/tags/">Tags</a>
-    {% if page.namespace != "" %}
-    » <a href="/tags/{{ page.namespace }}/">{{ page.namespace }}</a>
-    {% endif %}
-    » {{ page.tag_name }}
-  </h1>
+  <hgroup>
+    <h1 class="title">
+      <a href="/tags/">Tags</a>
+      {% if page.namespace != "" %}
+      » <a href="/tags/{{ page.namespace }}/">{{ page.namespace }}</a>
+      {% endif %}
+      » {{ page.tag_name }}
+    </h1>
+
+    <p class="meta">
+      {% assign total_posts = page.featured_posts.size | plus: page.remaining_posts.size %}
+      {{ total_posts }} post{% if total_posts > 1 %}s{% endif %}
+    </p>
+  </hgroup>
+  
+  {% if site.data.tag_descriptions[page.tag_name] %}
+  <p class="tag_description">
+    {{ site.data.tag_descriptions[page.tag_name] }}
+  </p>
+  {% endif %}
 
   {% if page.featured_posts.size > 0 %}
     {% include article_cards.html articles=page.featured_posts %}
@@ -42,3 +55,4 @@ layout: default
     {% include article_links.html articles=page.remaining_posts %}
   {% endif %}
 </article>
+
