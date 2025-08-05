@@ -65,6 +65,17 @@ jobs:
           else
             echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
           fi
+      
+        # The Jekyll cache makes builds faster, but can hold on to stale
+        # data, e.g. if it's caching the output of a plugin and I've
+        # changed the plugin behaviour.
+        #
+        # I don't want to clear the cache on every build, because I'd lose
+        # the benefits of caching, but the daily scheduled builds can be
+        # a bit slower and ensure the cache stays fairly fresh.
+      - if: ${{ github.event_name == 'schedule' }}
+        name: "Clear the Jekyll cache"
+        run: rm -rf src/.jekyll-cache/
 
       - name: "Build the site"
         run: bundle exec jekyll build --drafts
