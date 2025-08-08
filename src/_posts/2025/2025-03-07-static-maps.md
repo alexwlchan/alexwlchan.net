@@ -263,7 +263,7 @@ I'm sure more sophisticated data visualisation libraries can do all this, and mo
 The downside is that if I need more advanced features, I'll have to write them myself.
 I'm okay with that -- trading sophistication for simplicity.
 I didn't need to learn a complex visualization library -- I was able to write code I can read and understand.
-In a world full of AI-generating code, writing something I know I understand feels more important than ever.
+In a world full of AI-generated code, writing something I know I understand feels more important than ever.
 
 [Leaflet.js]: https://leafletjs.com/
 [OpenStreetMap]: https://www.openstreetmap.org/
