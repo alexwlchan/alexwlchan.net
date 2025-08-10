@@ -31,17 +31,15 @@ module Jekyll
       toc_entries = []
 
       doc.xpath('.//h2|h3').each do |heading|
+        id = heading.attribute('id').value
+
+        # Remove any inline links from labels
+        label = heading.inner_html.gsub(/<a[^>]+>/, '').gsub('</a>', '')
+
         if heading.node_name == 'h2'
-          toc_entries.append({
-                               'label' => heading.inner_html,
-                               'id' => heading.attribute('id').value,
-                               'sub_headings' => []
-                             })
+          toc_entries.append({ 'label' => label, 'id' => id, 'sub_headings' => [] })
         elsif heading.node_name == 'h3'
-          toc_entries.last['sub_headings'].append({
-                                                    'label' => heading.inner_html,
-                                                    'id' => heading.attribute('id').value
-                                                  })
+          toc_entries.last['sub_headings'].append({ 'label' => label, 'id' => id })
         else
           raise "Unrecognised heading level: #{heading.node_name}"
         end

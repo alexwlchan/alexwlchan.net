@@ -30,6 +30,8 @@ I waited to write about this, because I wanted to be sure these changes weren't 
 Now the year is over, I can call it a success.
 Let's go through what's new.
 
+{% table_of_contents %}
+
 ---
 
 ## What do I write?
