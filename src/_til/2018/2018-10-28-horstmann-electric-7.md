@@ -37,8 +37,9 @@ This is a diagram showing the front of the timer:
 {%
   picture
   filename="boiler_controls.png"
-  width="750"
+  width="512"
   alt="A control panel with white, green and blue buttons and a small segment display reading “03:04”."
+  class="screenshot"
 %}
 
 To set the clock:
