@@ -19,7 +19,7 @@ layout: default
   .title + .article_cards {
     margin-top: 2.5em;
   }
-  
+
   .tag_description {
     font-weight: bold;
   }
@@ -40,10 +40,10 @@ layout: default
       {{ total_posts }} post{% if total_posts > 1 %}s{% endif %}
     </p>
   </hgroup>
-  
+
   {% if site.data.tag_descriptions[page.tag_name] %}
   <p class="tag_description">
-    {{ site.data.tag_descriptions[page.tag_name] }}
+    {{ site.data.tag_descriptions[page.tag_name] | markdownify_oneline }}
   </p>
   {% endif %}
 
