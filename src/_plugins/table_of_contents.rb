@@ -31,6 +31,10 @@ module Jekyll
       toc_entries = []
 
       doc.xpath('.//h2|h3').each do |heading|
+        if heading.attribute('id').nil?
+          raise "Heading has no `id` attribute: #{heading}"
+        end
+
         id = heading.attribute('id').value
 
         # Remove any inline links from labels
