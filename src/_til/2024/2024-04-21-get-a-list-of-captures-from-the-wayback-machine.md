@@ -1,7 +1,7 @@
 ---
 layout: til
 date: 2024-04-21 10:11:02 +0100
-date_updated: 2024-11-26 07:26:14 +0000
+date_updated: 2025-08-11 20:07:57 +0100
 title: How to get a list of captures from the Wayback Machine
 summary: |
   Use the CDX Server API to get a list of captures for a particular URL.
@@ -89,3 +89,49 @@ There are things like pagination in the "Advanced Usage", which I should read mo
 [daily_screenshots]: https://github.com/alexwlchan/daily-screenshots
 [api]: https://archive.org/developers/wayback-cdx-server.html
 [cdx]: https://archive.org/web/researcher/cdx_file_format.php
+
+## Saving the results to a spreadsheet
+
+**Update, 11 August 2025:**
+When I wrote this code, I was looking at URLs which only had one or two captures, so the verbose output format wasn't a big deal.
+Here's a snippet that will save the results to a spreadsheet rather than stdout, which is easier to deal with for pages with a lot of captures:
+
+```python
+import csv
+
+
+if __name__ == "__main__":
+    with open("captures.csv", "w") as out_file:
+        writer = csv.DictWriter(
+            out_file,
+            fieldnames=[
+                "original",
+                "time",
+                "statuscode",
+                "mimetype",
+                "length",
+                "digest",
+                "urlkey",
+                "raw_url",
+                "web_url",
+            ],
+        )
+
+        writer.writeheader()
+
+        for capture in get_wayback_machine_captures(url="alexwlchan.net"):
+            writer.writerow(
+                {
+                    "original": capture["original"],
+                    "time": capture["time"].isoformat(),
+                    "statuscode": capture["statuscode"],
+                    "mimetype": capture["mimetype"],
+                    "length": capture["length"],
+                    "digest": capture["digest"],
+                    "urlkey": capture["urlkey"],
+                    "raw_url": capture["raw_url"],
+                    "web_url": capture["web_url"],
+                }
+            )
+```
+
