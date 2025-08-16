@@ -2,6 +2,7 @@
 layout: til
 title: Downloading avatars from Tumblr
 date: 2025-02-09 22:19:32 +0000
+date_updated: 2025-08-16 21:24:13 +0100
 summary: |
   There's an API endpoint that lets you download avatars in a variety of sizes.
 tags:
@@ -30,7 +31,7 @@ The Tumblr API has [an endpoint](https://www.tumblr.com/docs/en/api/v2#avatar--r
 
 This URL will redirect you to the location of the actual image file -- the avatar URL in the example above redirects to `https://64.media.tumblr.com/avatar_fdf0635a9d74_512.png`.
 
-Most avatars seem to be PNG, but I have seen a handful of JPEG images go past as well.
+Most avatars seem to be PNG, but I have seen JPEG and GIFs go past as well.
 
 Here's a Python snippet I wrote which will download the avatars to a filename with the appropriate extension:
 
@@ -53,8 +54,14 @@ def download_tumblr_avatar(blog_identifier: str) -> Path:
 
     content_type = resp.headers["content-type"]
 
+    ext_mapping = {
+        "image/jpeg": "jpg",
+        "image/png": "png",
+        "image/gif": "gif",
+    }
+
     try:
-        ext = {"image/jpeg": "jpg", "image/png": "png"}[content_type]
+        ext = ext_mapping[content_type]
     except KeyError:
         raise RuntimeError(f"Unexpected Content-Type: {content_type!r}")
 
