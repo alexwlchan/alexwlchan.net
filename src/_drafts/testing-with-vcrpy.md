@@ -80,7 +80,7 @@ Here are two examples:
     Does my code handle photos with emoji in the title?
 
     When I'm writing the test, I pick an example photo, and then the photo title is changed so it no longer contains emoji.
-    My test keeps passing, but it's no longer verifying this edge case, and I could introduce a regression without realising.
+    I could introduce a regression and never realise, because the test is no longer verifying this edge case, and it would keep passing.
 
 ### It makes my tests harder to debug
 
