@@ -2,7 +2,7 @@
 layout: til
 title: Downloading avatars from Tumblr
 date: 2025-02-09 22:19:32 +0000
-date_updated: 2025-08-16 21:24:13 +0100
+date_updated: 2025-08-18 21:25:55 +0100
 summary: |
   There's an API endpoint that lets you download avatars in a variety of sizes.
 tags:
@@ -31,7 +31,7 @@ The Tumblr API has [an endpoint](https://www.tumblr.com/docs/en/api/v2#avatar--r
 
 This URL will redirect you to the location of the actual image file -- the avatar URL in the example above redirects to `https://64.media.tumblr.com/avatar_fdf0635a9d74_512.png`.
 
-Most avatars seem to be PNG, but I have seen JPEG and GIFs go past as well.
+Most avatars are PNG, but I've seen a handful of avatars in other formats.
 
 Here's a Python snippet I wrote which will download the avatars to a filename with the appropriate extension:
 
@@ -58,6 +58,7 @@ def download_tumblr_avatar(blog_identifier: str) -> Path:
         "image/jpeg": "jpg",
         "image/png": "png",
         "image/gif": "gif",
+        "image/webp": "webp",
     }
 
     try:
