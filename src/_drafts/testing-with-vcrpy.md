@@ -201,7 +201,7 @@ if a developer is unsure of what's going on, the replacement value gives them so
 
 [filters]: https://vcrpy.readthedocs.io/en/latest/advanced.html#filter-sensitive-data-from-the-request
 
-## Decoding compressed responses for human-readability
+## Improving the human readability of cassettes
 
 If you look at the first two responses, you'll notice that the response body is a chunk of base64-encoded binary data:
 
