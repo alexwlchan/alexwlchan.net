@@ -121,41 +121,28 @@ I don't like test frameworks that require me to rewrite my code to fit -- the te
 [compatibility]: https://vcrpy.readthedocs.io/en/latest/installation.html#compatibility
 
 
----
 
-*   I don't need to change my code to use vcrpy, whereas betamax requires the use of the requests [Session API], and I need to pass sessions from betamax into the code I'm testing.
+## Using vcrpy: a basic example
 
-[Session API]: https://requests.readthedocs.io/en/latest/user/advanced/#session-objects
+Here's a test that uses vcrpy to fetch `www.example.com`, and look for some text in the response:
 
-
----
-
-for several reasons:
-
-*   **It would make my tests much slower.**
-*   **It would make my tests less reliable.**
-    The tests would fail if I'm offline or if the server is having temporary issues.
-*   **It would make my tests harder to debug.**
-    If a test starts failing, it could be because I've introduced a bug in my code, or because
-*   **It means passing around more secrets.**
+```python
+import httpx
+import vcr
 
 
-This mocking happens entirely in my test suite, so I don't need to change my code to fit the tests.
+@vcr.use_cassette("fixtures/vcr_cassettes/test_example_domain.yml")
+def test_example_domain():
+    resp = httpx.get("https://www.example.com/")
+    assert "<h1>Example Domain</h1>" in resp.text
+```
 
-Another Python implementation of this is betamax
--> only works with requests, but I use httpx
--> requires the Sessions API, so may need to update my code to fit tests
+The `use_cassette()` decorator tells vcrpy to record any HTTP requests in the specified YAML file.
 
----
-
-While I was working at the [Flickr Foundation],
-
-filter response headers to keep cassettes readable
-
----
-
-I wrote a lot of Python to call the [Flickr API].
-It's a pretty standard REST API.
+When I run this test using pytest (`python3 -m pytest test_example.py`), vcrpy will check if that YAML file exists.
+If the file is missing, it makes a real HTTP call and saves it to the file.
+If the file exists, it replays the HTTP call from the YAML file.
+You can see what the YAML file looks like here: [test_example_domain.yml](/files/2025/test_example_domain.yml).
 
 ---
 
