@@ -146,6 +146,8 @@ You can see what the YAML file looks like here: [test_example_domain.yml](/files
 
 ---
 
+What if you make a different request?
+
 You make a GET or POST request to the Flickr API URL, passing an API key and URL query parameters.
 Here's
 
