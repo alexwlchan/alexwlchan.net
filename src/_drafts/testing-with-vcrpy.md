@@ -24,13 +24,11 @@ When I run the test again, the HTTP call is replayed from that cassette, rather 
 I first came across this idea in [Ruby's VCR library][ruby_vcr], and vcrpy brings the concept to Python.
 
 In this post, I'll show you how I use vcrpy in a production codebase -- not just the basics, but also how I structure and configure it so that other developers can understand and extend the tests.
-I'll use the [Flickr API] as an example, but these techniques could be used with any HTTP calls.
 
 [ruby_vcr]: https://github.com/vcr/vcr
 [vcrpy]: https://vcrpy.readthedocs.io/en/latest/
-[Flickr API]: https://www.flickr.com/services/developer/api/
 
-{% table_of_contents level="h2" %}
+{% table_of_contents %}
 
 <figure>
   {%
@@ -99,7 +97,7 @@ I'm not making real network calls, I'm not dependent on the behaviour of a serve
 
 There are a variety of ways to define this sort of test mock; I like to record real responses because it ensures I'm getting a high-fidelity mock, and it makes it easier to add new mocks.
 
-
+---
 
 ## Why do you like vcrpy?
 
@@ -120,9 +118,9 @@ I don't like test frameworks that require me to rewrite my code to fit -- the te
 [betamax]: https://github.com/betamaxpy/betamax
 [compatibility]: https://vcrpy.readthedocs.io/en/latest/installation.html#compatibility
 
+---
 
-
-## Using vcrpy: a basic example
+## A basic example of using vcrpy
 
 Here's a test that uses vcrpy to fetch `www.example.com`, and look for some text in the response:
 
@@ -143,6 +141,114 @@ When I run this test using pytest (`python3 -m pytest test_example.py`), vcrpy w
 If the file is missing, it makes a real HTTP call and saves it to the file.
 If the file exists, it replays the HTTP call from the YAML file.
 You can see what the YAML file looks like here: [test_example_domain.yml](/files/2025/test_example_domain.yml).
+
+If your test makes more than one HTTP call, vcrpy records all of the requests and responses in the same YAML file.
+
+
+
+## Keeping secrets out of my cassettes
+
+The cassette files contain the complete HTTP request and response, which includes the URL, form data, and HTTP headers.
+They're a text file that I check into my repo, alongside my code and tests.
+
+If I'm testing an API that requires authentication, the HTTP request could include secrets like an API key or OAuth token.
+I don't want to save those secrets in the cassette file!
+
+Fortunately, vcrpy can [filter sensitive data][filters] from the cassette file.
+In particular, you can redact HTTP headers, the URL query parameters, or form data.
+
+Here's an example of a test where I'm using `filter_query_parameters` to remove an API key from the query parameters.
+
+```python
+import httpx
+import keyring
+import vcr
+
+
+@vcr.use_cassette(
+    "fixtures/vcr_cassettes/test_flickr_api.yml",
+    filter_query_parameters=[("api_key", "REDACTED_API_KEY")],
+)
+def test_flickr_api():
+    api_key = keyring.get_password("flickr_api", "key")
+
+    resp = httpx.get(
+        "https://api.flickr.com/services/rest/",
+        params={
+            "api_key": api_key,
+            "method": "flickr.urls.lookupUser",
+            "url": "https://www.flickr.com/photos/alexwlchan/",
+        },
+    )
+
+    assert '<user id="199258389@N04">' in resp.text
+```
+
+You can see the complete YAML file in [test_flickr_api.yml](/files/2025/test_flickr_api.yml).
+Notice how the `api_key` query parameter has been replaced with `REDACTED_API_KEY` in the recorded request:
+
+```yaml
+interactions:
+- request:
+    …
+    uri: https://api.flickr.com/services/rest/?api_key=REDACTED_API_KEY&method=flickr.urls.lookupUser&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Falexwlchan%2F
+    …
+```
+
+When you filter out sensitive information, you can choose to just omit it, or replace it with a new value -- in general, I prefer the latter.
+This makes it clearer that a value was passed, and it was redacted -- rather than never being passed at all.
+if a developer is unsure of what's going on, the replacement value gives them something they can search for in the rest of the codebase.
+
+[filters]: https://vcrpy.readthedocs.io/en/latest/advanced.html#filter-sensitive-data-from-the-request
+
+## Decoding compressed responses for human-readability
+
+If you look at the first two responses, you'll notice that the response body is a chunk of base64-encoded binary data:
+
+```yaml
+response:
+  body:
+    string: !!binary |
+      H4sIAAAAAAAAAH1UTXPbIBC9+1ds1UsyIyQnaRqPLWn6mWkPaQ9pDz0SsbKYCFAByfZ08t+7Qo4j
+      N5makYFdeLvvsZC9Eqb0uxah9qopZtljh1wUM6Bf5qVvsPi85aptED4ZxaXO0tE6G5co9BzKmluH
+      Po86X7FFBGkxcdbetwx/d7LPo49Ge9SeDWEjKMdZHnnc+nQIvzpAvYSkucI86iVuWmP9ZP9GCl/n
+```
+
+This is because the `example.com` and `api.flickr.com` servers are both [gzip compressing][gzip] their responses, is, and vcrpy is preserving that compression.
+But gzip compression is handled by the HTTP libraries I use libraries -- my code never needs to worry about compression; it just gets the uncompressed response.
+
+Where possible, I prefer to store responses in their uncompressed form.
+It makes the cassettes easier to read if somebody is looking for an example of a server response, and you can see if secrets are included in the saved response data.
+
+Here's an example where we pass the [`decode_compressed_response` parameter][decode_compressed_response], which tells vcrpy to decompress responses before saving them to the cassette.
+
+```python
+import httpx
+import vcr
+
+
+@vcr.use_cassette(
+    "fixtures/vcr_cassettes/test_example_domain_with_decode.yml",
+    decode_compressed_response=True,
+)
+def test_example_domain_with_decode():
+    resp = httpx.get("https://www.example.com/")
+    assert "<h1>Example Domain</h1>" in resp.text
+```
+
+You can see the complete YAML file in [test_example_domain_with_decode.yml](/files/2025/test_example_domain_with_decode.yml).
+Notice how the response body now contains an HTML string:
+
+```yaml
+response:
+  body:
+    string: "<!doctype html>\n<html>\n<head>\n    <title>Example Domain</title>\n\n
+      \   <meta charset=\"utf-8\" />\n    <meta http-equiv=\"Content-type\" content=\"text/html;
+      charset=utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width,
+```
+
+[gzip]: https://developer.mozilla.org/en-US/docs/Glossary/gzip_compression
+[decode_compressed_response]: https://vcrpy.readthedocs.io/en/latest/advanced.html#decode-compressed-response
 
 ---
 

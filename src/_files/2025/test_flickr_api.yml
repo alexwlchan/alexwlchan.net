@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - api.flickr.com
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://api.flickr.com/services/rest/?api_key=API_KEY&method=flickr.urls.lookupUser&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Falexwlchan%2F
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7Oxr8jNUShLLSrOzM+zVTLUM1BSSM1Lzk/JzEu3VSotSdO1UFKwt+OyKSouUCgu
+        SSyxVcrPVgLyS4tTixQyU4BaLC2NTC2MLSwd/AxMgDKcYKm8xNxUu8Sc1IrynOSMxDwbfbggF4QN
+        NEIfaKYdFwApoKp8ggAAAA==
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - text/xml; charset=utf-8
+      Date:
+      - Mon, 18 Aug 2025 21:05:14 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 40b76fea3127a1d583fbc11b2e091fc2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - VTMb5DcV6ybiNmbqsYzQQKuOjCKDdHygvZ5w7ZHOBDqVM8F3StcN2Q==
+      X-Amz-Cf-Pop:
+      - LHR5-P1
+      X-Cache:
+      - Miss from cloudfront
+      content-encoding:
+      - gzip
+      server:
+      - openresty
+      set-cookie:
+      - ccc=%7B%22needsConsent%22%3Atrue%2C%22managed%22%3A0%2C%22changed%22%3A0%2C%22info%22%3A%7B%22cookieBlock%22%3A%7B%22level%22%3A0%2C%22blockRan%22%3A0%7D%7D%7D;
+        expires=Wed, 17-Sep-2025 21:05:13 GMT; Max-Age=2592000; path=/; domain=.flickr.com
+      - ccc=%7B%22needsConsent%22%3Atrue%2C%22managed%22%3A0%2C%22changed%22%3A0%2C%22info%22%3A%7B%22cookieBlock%22%3A%7B%22level%22%3A0%2C%22blockRan%22%3A1%7D%7D%7D;
+        expires=Wed, 17-Sep-2025 21:05:13 GMT; Max-Age=2592000; path=/; domain=.flickr.com
+      vary:
+      - Accept-Encoding
+      x-flickr-api-request:
+      - Root=1-68a39589-77704a803c5288ad31c15c5a
+      x-robots-tag:
+      - noindex
+      x-server:
+      - serverless-proxy-10.78.14.170
+    status:
+      code: 200
+      message: OK
+version: 1
