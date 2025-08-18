@@ -48,7 +48,7 @@ I'll use the [Flickr API] as an example, but these techniques could be used with
 
 <h2 id="why_not_real_requests">Why not make real HTTP calls in tests?</h2>
 
-There are several reasons I avoid real HTTP calls in my tests:
+There are several reasons why I avoid real HTTP calls in my tests:
 
 ### It makes my tests slower
 
@@ -91,6 +91,42 @@ If there are more reasons why a test could fail, then it takes longer to work ou
 A lot of my HTTP calls require secrets, like API keys or OAuth tokens.
 If the tests made real HTTP calls, I'd need to copy those secrets to every environment where I'm running the tests.
 That means there are more copies of the secrets floating around (e.g. developer laptops, GitHub Actions), which increases the risk of a leak.
+
+### Mocking solves all of these problems
+
+If my test suite is returning consistent responses for HTTP calls, and those responses are defined within the test suite itself, then my tests get faster and more reliable.
+I'm not making real network calls, I'm not dependent on the behaviour of a server, and I don't need real secrets to run the tests.
+
+There are a variety of ways to define this sort of test mock; I like to record real responses because it ensures I'm getting a high-fidelity mock, and it makes it easier to add new mocks.
+
+
+
+## Why do you like vcrpy?
+
+I know two Python libraries that record real HTTP responses: [vcrpy] and [betamax].
+They behave in a similar way, I've used both and they work well.
+
+I use vcrpy because it supports a [wide variety of HTTP libraries][compatibility], whereas betamax only works with requests.
+I currently use a mixture of httpx and urllib3, and it's convenient to be able to test them both with the same library.
+
+I like the flexibility of vcrpy.
+It has a lot of options and hooks for configuring what it records, and I'll show you the ones I use below.
+
+I also like that it works without needing any changes to the code I'm testing.
+I can write HTTP code as I normally would, then I add a vcrpy decorator in my test and the responses get recorded.
+I don't like test frameworks that require me to rewrite my code to fit -- the tests should follow the code, not the other way round.
+
+[vcrpy]: https://vcrpy.readthedocs.io/
+[betamax]: https://github.com/betamaxpy/betamax
+[compatibility]: https://vcrpy.readthedocs.io/en/latest/installation.html#compatibility
+
+
+---
+
+*   I don't need to change my code to use vcrpy, whereas betamax requires the use of the requests [Session API], and I need to pass sessions from betamax into the code I'm testing.
+
+[Session API]: https://requests.readthedocs.io/en/latest/user/advanced/#session-objects
+
 
 ---
 
