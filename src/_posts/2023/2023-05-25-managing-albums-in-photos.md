@@ -16,7 +16,7 @@ colors:
 Recently I've been building some tools to help me manage my photo collection, and part of that involves moving photos in and out of albums.
 The [tool I've built](https://github.com/alexwlchan/photo-reviewer) is very specific to my workflow and unlikely to be immediately useful to anyone else, but I thought some of the code for managing albums might be of wider use.
 
----
+{% table_of_contents %}
 
 ## Local identifiers: unambiguously specify photos and albums
 
@@ -42,8 +42,6 @@ You can see above how to get the local identifier for a photo or an album if you
 Note that these properties may be ambiguous, whereas local identifiers are unambiguous -- for example, my library might have two photos called IMG_3912.HEIC, but it only has one photo with that local identifier.
 
 In the snippets below, I'm going to assume you already know the local identifier, but if not you can adapt the code to find it first.
-
----
 
 ## Add photos to an album with AppleScript
 
@@ -78,9 +76,7 @@ So far, so simple.
 
 [continuation]: https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_lexical_conventions.html#//apple_ref/doc/uid/TP40000983-CH214-SW9
 
----
-
-## Removing photos from an album with AppleScript
+## Remove photos from an album with AppleScript
 
 AppleScript has the `add` verb for adding items to an album, so it must have a `remove` verb for removing them, right?
 
@@ -95,8 +91,6 @@ It feels quite fragile, and I imagine it might be quite slow with larger albums.
 Instead, I decided to look beyond AppleScript.
 
 [iphoto]: https://stackoverflow.com/a/943106/1558022
-
----
 
 ## To PhotoKit, via Swift
 
@@ -131,8 +125,6 @@ There are 25760 items in your Photos library
 Now let's put it to work!
 
 [PhotoKit]: https://developer.apple.com/documentation/photokit
-
----
 
 ## Add photos to an album with Swift
 
@@ -188,9 +180,7 @@ This method blocks, and it won't complete until the photo has been added to the 
 [fetchAssetCollections]: https://developer.apple.com/documentation/photokit/phassetcollection/1618510-fetchassetcollections
 [performChangesAndWait]: https://developer.apple.com/documentation/photokit/phphotolibrary/1620747-performchangesandwait
 
----
-
-## Removing photos from an album with Swift
+## Remove photos from an album with Swift
 
 This is almost identical to the code above, with just a single change: we call removeAssets instead of addAssets.
 
@@ -205,7 +195,7 @@ try PHPhotoLibrary.shared().performChangesAndWait {
 }
 ```
 
----
+## Final thoughts
 
 Unlike the AppleScript I started with, PhotoKit and Swift means I have access to a Photos API which Apple cares about -- and it'll be maintained accordingly.
 I doubt the Photos–AppleScript integration will ever change again, but PhotoKit is being actively developed and improved.
