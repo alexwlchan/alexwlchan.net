@@ -129,13 +129,31 @@ import httpx
 import vcr
 
 
-@vcr.use_cassette("fixtures/vcr_cassettes/test_example_domain.yml")
 def test_example_domain():
-    resp = httpx.get("https://www.example.com/")
-    assert "<h1>Example Domain</h1>" in resp.text
+    with vcr.use_cassette("fixtures/vcr_cassettes/test_example_domain.yml"):
+        resp = httpx.get("https://www.example.com/")
+        assert "<h1>Example Domain</h1>" in resp.text
 ```
 
-The `use_cassette()` decorator tells vcrpy to record any HTTP requests in the specified YAML file.
+Alternatively, you can use `vcr.use_cassette` as a decorator:
+
+```python
+@vcr.use_cassette("fixtures/vcr_cassettes/test_example_domain.yml")
+def test_example_domain():
+      resp = httpx.get("https://www.example.com/")
+      assert "<h1>Example Domain</h1>" in resp.text
+```
+
+With the decorator, you can also omit the path to the cassette file, and vcrpy will name the cassette file after the function:
+
+```python
+@vcr.use_cassette()
+def test_example_domain():
+      resp = httpx.get("https://www.example.com/")
+      assert "<h1>Example Domain</h1>" in resp.text
+```
+
+However you use it, vcrpy will record any HTTP requests in the specified YAML file.
 
 When I run this test using pytest (`python3 -m pytest test_example.py`), vcrpy will check if that YAML file exists.
 If the file is missing, it makes a real HTTP call and saves it to the file.
@@ -165,11 +183,11 @@ import keyring
 import vcr
 
 
-@vcr.use_cassette(
-    "fixtures/vcr_cassettes/test_flickr_api.yml",
-    filter_query_parameters=[("api_key", "REDACTED_API_KEY")],
-)
 def test_flickr_api():
+    with vcr.use_cassette(
+        "fixtures/vcr_cassettes/test_flickr_api.yml",
+        filter_query_parameters=[("api_key", "REDACTED_API_KEY")],
+    ):
     api_key = keyring.get_password("flickr_api", "key")
 
     resp = httpx.get(
@@ -227,13 +245,13 @@ import httpx
 import vcr
 
 
-@vcr.use_cassette(
-    "fixtures/vcr_cassettes/test_example_domain_with_decode.yml",
-    decode_compressed_response=True,
-)
 def test_example_domain_with_decode():
-    resp = httpx.get("https://www.example.com/")
-    assert "<h1>Example Domain</h1>" in resp.text
+    with vcr.use_cassette(
+        "fixtures/vcr_cassettes/test_example_domain_with_decode.yml",
+        decode_compressed_response=True,
+    ):
+        resp = httpx.get("https://www.example.com/")
+        assert "<h1>Example Domain</h1>" in resp.text
 ```
 
 You can see the complete YAML file in [test_example_domain_with_decode.yml](/files/2025/test_example_domain_with_decode.yml).
@@ -250,65 +268,117 @@ response:
 [gzip]: https://developer.mozilla.org/en-US/docs/Glossary/gzip_compression
 [decode_compressed_response]: https://vcrpy.readthedocs.io/en/latest/advanced.html#decode-compressed-response
 
----
+## Naming my cassettes to make sense later
 
-What if you make a different request?
+If you write a lot of tests that use vcrpy, you'll soon end up with a fixtures directory that is full of cassettes.
+I find it useful to be able to match cassettes to their test function, so I can easily see which cassettes are no longer in use.
 
-You make a GET or POST request to the Flickr API URL, passing an API key and URL query parameters.
-Here's
+I could specify a cassette name explicitly in every test, but it would be easy for these filenames to get out of sync with the names of test functions.
+
+Alternatively, if I'm using the decorator, I could allow vcrpy to automatically choose a cassette name -- it uses the name of the test function.
+Unfortunately, that's also insufficient, because the name of the function doesn't always distinguish my tests.
+In particular, I sometimes group tests into classes, and I often use [parametrized tests] to run the same test with different values.
+
+Consider the following example:
 
 ```python
 import httpx
-import keyring
+import pytest
+import vcr
 
-api_key = keyring.get_password("flickr_api", "key")
 
-resp = httpx.get(
-    "https://api.flickr.com/services/rest/",
-    params={
-        "api_key": api_key,
-        "method": "flickr.urls.lookupUser",
-        "url": "https://www.flickr.com/photos/alexwlchan/",
-    }
+class TestExampleDotCom:
+    def test_status_code(self):
+        resp = httpx.get("https://example.com")
+        assert resp.status_code == 200
+
+
+@vcr.use_cassette()
+@pytest.mark.parametrize(
+    "url, status_code",
+    [
+        ("https://httpbin.org/status/200", 200),
+        ("https://httpbin.org/status/404", 404),
+        ("https://httpbin.org/status/500", 500),
+    ],
 )
-
-print(resp.text)
-# <?xml version="1.0" encoding="utf-8" ?>
-# <rsp stat="ok">
-# <user id="199258389@N04">
-# 	<username>alexwlchan</username>
-# </user>
-# </rsp>
+def test_status_code(url, status_code):
+    resp = httpx.get(url)
+    assert resp.status_code == status_code
 ```
 
-[Flickr Foundation]: https://www.flickr.org
+This is actually four different tests, but vcrpy gives all of them the same automatic cassette name: `test_status_code`.
+This means the tests will fail if you try to run them -- vcrpy will record a cassette for the first test that runs, and then try to replay that cassette for the second test.
+The second test makes a different HTTP request, so vcrpy will throw an error -- it can't find a matching request.
+
+I wrote a pytest fixture to choose cassette names, which includes the name of the test class (if any) and the ID of the parametrized test case.
+Here's the decorator:
+
+```python
+@pytest.fixture
+def cassette_name(request: pytest.FixtureRequest) -> str:
+    """
+    Returns the filename of a VCR cassette to use in tests.
+
+    The name can be made up of (up to) three parts:
+
+    -   the name of the test class
+    -   the name of the test function
+    -   the ID of the test case in @pytest.mark.parametrize
+
+    """
+    name = request.node.name
+
+    # This is to catch cases where e.g. we try to include a complete
+    # HTTP URL in a cassette name, which creates very messy folders in
+    # the fixtures directory.
+    if any(char in name for char in ":/"):
+        raise ValueError(
+            "Illegal characters in VCR cassette name - "
+            "please set a test ID with pytest.param(…, id='…')"
+        )
+
+    if request.cls is not None:
+        return f"{request.cls.__name__}.{name}.yml"
+    else:
+        return f"{name}.yml"
+```
+
+And here's my test rewritten to use that new decorator:
+
+```python
+class TestExampleDotCom:
+    def test_status_code(self, cassette_name):
+        with vcr.use_cassette(cassette_name):
+            resp = httpx.get("https://example.com")
+            assert resp.status_code == 200
+
+
+@vcr.use_cassette()
+@pytest.mark.parametrize(
+    "url, status_code",
+    [
+        pytest.param("https://httpbin.org/status/200", 200, id="ok"),
+        pytest.param("https://httpbin.org/status/404", 404, id="not_found"),
+        pytest.param("https://httpbin.org/status/500", 500, id="server_error"),
+    ],
+)
+def test_status_code(url, status_code, cassette_name):
+    with vcr.use_cassette(cassette_name):
+        resp = httpx.get(url)
+        assert resp.status_code == status_code
+```
+
+The four tests now get cassette with distinct filenames, which are easy to match to the original test:
+
+*   `TestExampleDotCom.test_status_code`
+*   `test_status_code[ok]`
+*   `test_status_code[not_found]`
+*   `test_status_code[server_error]`
+
+[parametrized tests]: https://nedbatchelder.com/blog/202508/starting_with_pytests_parametrize.html
 
 ---
-
-Suppose we have code that makes HTTP calls
-* e.g. Flickr API call
-
-Want to test the code works correctly
-* libraries to "record" HTTP interactions as YAML/JSON so they can be replayed later
-* so we don't have to make real HTTP calls in our CI
-* inspired by Ruby library of same name
-
-Simple example:
-* record single API call
-* get YAML file, yay!
-* but includes our secret API key, which we don't want to commit
-
-force_decode_responses
-
-Redacting info
-* filter_headers and filter_query_params
-* can remove value entirely, but I prefer to replace with redacted value – makes it easier to distinguish between "no value passed" and "value passed, but redacted"
-
-Naming cassettes
-* by default, cassette name is name of test
-* if you have a lot of cassettes, can be tricky to work out what's going on
-* better: pytest fixture for cassette name
-* esp for parametrized tests with URLs in
 
 Explaining how to use cassettes
 * in our example, pass Flickr API key as env var
