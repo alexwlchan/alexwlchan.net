@@ -162,7 +162,7 @@ module Jekyll
       #
       # Note also that the `username` regex may be incomplete.
       #
-      pattern = %r{^https://(?<server>[a-z0-9\.]+)/@(?<username>[A-Za-z0-9_]+)/(?<id>[0-9]+)$}
+      pattern = %r{^https://(?<server>[a-z0-9.]+)/@(?<username>[A-Za-z0-9_]+)/(?<id>[0-9]+)$}
       m = text.strip.match(pattern)
 
       if m.nil?
