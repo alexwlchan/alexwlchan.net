@@ -30,6 +30,7 @@ In this post, I'll show you how I use vcrpy in a production codebase -- not just
     picture
     filename="pexels-inspiredimages-157541.jpg"
     width="750"
+    alt="A pile of three black video cassette tapes stacked on a wooden table."
   %}
   <figcaption>
     Three black <a href="https://en.wikipedia.org/wiki/Compact_Video_Cassette">compact video cassette</a> tapes.
