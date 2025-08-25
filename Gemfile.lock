@@ -36,8 +36,8 @@ GEM
     eventmachine (1.2.7)
     expectations (2.0.0)
       mocha (>= 0.5.5)
-    ffi (1.17.1-arm64-darwin)
-    ffi (1.17.1-x86_64-linux-gnu)
+    ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
@@ -155,7 +155,7 @@ GEM
       prism (~> 1.4)
     ruby-progressbar (1.13.0)
     ruby-rc4 (0.1.5)
-    ruby-vips (2.2.4)
+    ruby-vips (2.2.5)
       ffi (~> 1.12)
       logger
     ruby2_keywords (0.0.5)
@@ -202,7 +202,7 @@ DEPENDENCIES
   minify_html (~> 0.16)
   nokogiri (~> 1.18)
   rubocop (~> 1.79)
-  ruby-vips (~> 2.2, >= 2.2.4)
+  ruby-vips (~> 2.2)
   shell-executer (~> 1.0)
   test-unit
 
