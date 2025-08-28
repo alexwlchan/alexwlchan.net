@@ -1,7 +1,7 @@
 ---
 layout: til
 title: The @ symbol was added to Morse code in 2004
-summary: It was added in May 2004, it's the first new symbol since the Second World War, and the French have a cute name for it.
+summary: It was added in May 2004, it's the first new symbol since the Second World War, and the French have a cute name for it. The rest of Morse code has some surprising omissions.
 date: 2025-08-28 22:48:59 +0100
 tags:
   - history
