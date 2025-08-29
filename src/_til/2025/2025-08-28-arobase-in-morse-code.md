@@ -80,4 +80,4 @@ Here's the end of the AP story:
 >
 > "I was hoping they'd add a character for the exclamation point," said Yocanovich, who is active in the International Morse Preservation Society. "It expresses an emotion that's difficult to get across any other way."
 
-I'm surprised that it wasn't covered already!
+I'm surprised that it wasn't included already!
