@@ -26,7 +26,7 @@ I have a limited presence on social media, where I post my "edited highlights" -
 Follow me at:
 
 *   Mastodon: <https://social.alexwlchan.net/@alex>
-*   Bluesky: <https://bsky.app/profile/alexwlchan.bsky.social/>
+*   Bluesky: <https://bsky.app/profile/alexwlchan.net>
 *   LinkedIn: <https://www.linkedin.com/in/alexwlchan/>
 
 (I used to be active on Twitter, but I no longer post there.
