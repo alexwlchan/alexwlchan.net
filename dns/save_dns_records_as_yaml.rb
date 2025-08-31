@@ -45,6 +45,7 @@ domains_to_check = {
   'fm2._domainkey.alexwlchan.net' => ['CNAME'],
   'fm3._domainkey.alexwlchan.net' => ['CNAME'],
   '_dmarc.alexwlchan.net' => ['TXT'],
+  '_atproto.alexwlchan.net' => ['TXT'],
 
   # alexwlchan.com
   'alexwlchan.com' => %w[NS A MX],

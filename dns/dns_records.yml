@@ -117,6 +117,16 @@ social.alexwlchan.net CNAME: [ "vip.masto.host.", ]
 
 
 
+# == Bluesky DNS record ==
+#
+# This record allows me to use `alexwlchan.net` as my handle on Bluesky.
+
+_atproto.alexwlchan.net TXT: [ "\"did=did:plc:tovvvx4o53qazoourf5u7yig\"", ]
+
+
+
+
+
 # == TXT verification records ==
 #
 # These are used to prove that I own the site.  As I add more of these or
