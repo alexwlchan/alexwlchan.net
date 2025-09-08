@@ -1,0 +1,74 @@
+<svg viewBox="0 0 540 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="dark_aware">
+  <defs>
+    <style>
+      line, path {
+        stroke: currentColor;
+        stroke-width: 4;
+        stroke-linecap: round;
+        fill: none;
+      }
+
+      circle {
+        stroke-width: 3;
+        stroke: var(--accent-grey);
+        fill: none;
+      }
+
+      #baseImage rect {
+        stroke: currentColor;
+        fill: var(--background-color);
+      }
+
+      text {
+        stroke: none;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: currentColor;
+      }
+    </style>
+
+    <g id="baseImage">
+      <rect width="68.75" height="34.375"/>
+
+      <path d="M 10 7.638888888888889
+               l 12.5 0 m -12.5 0
+               l 0 19.09722222222222 m 0 -9.54861111111111
+               l 10 0"/>
+      <path d="M 31.25 7.638888888888889
+               l 0 19.09722222222222
+               m 12.5 0
+               l -12.5 0"/>
+      <path d="M 47.5 7.638888888888889
+               l 6.25 9.54861111111111
+               l 6.25 -9.54861111111111
+               m -6.25 9.54861111111111
+               l 0 9.54861111111111"/>
+    </g>
+  </defs>
+
+  <circle cx="120" cy="120" r="75"  stroke-dasharray="3,3" />
+
+  <text x="120" y="15.535714285714285">1</text>
+  <text x="15.535714285714285" y="120">6</text>
+  <text x="224.46428571428572" y="120">8</text>
+  <text x="120" y="229.375">3</text>
+
+  <use xlink:href="#baseImage" transform="translate(85.625 27.8125)" />
+  <use xlink:href="#baseImage" transform="translate(160.625 102.8125) rotate(90 34.375 17.1875) " />
+  <use xlink:href="#baseImage" transform="translate(85.625 177.8125) rotate(180 34.375 17.1875)" />
+  <use xlink:href="#baseImage" transform="translate(10.625 102.8125) rotate(270 34.375 17.1875)" />
+
+  <text x="420" y="15.535714285714288">2</text>
+  <text x="315.5357142857143" y="120">5</text>
+  <text x="524.4642857142857" y="120">7</text>
+  <text x="420" y="229.375">4</text>
+
+  <circle cx="420" cy="120" r="75" stroke-dasharray="3,3" />
+
+  <use xlink:href="#baseImage" transform="translate(454.375 27.8125) scale(-1 1)" />
+  <use xlink:href="#baseImage" transform="translate(460.625 171.5625) rotate(90 34.375 17.1875)  scale(-1 1)" />
+  <use xlink:href="#baseImage" transform="translate(316.875 177.8125) rotate(180 34.375 17.1875) scale(-1 1)" />
+  <use xlink:href="#baseImage" transform="translate(310.625 34.0625) rotate(270 34.375 17.1875) scale(-1 1)" />
+
+
+</svg>
