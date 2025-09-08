@@ -24,5 +24,5 @@ group :test, optional: true do
 end
 
 group :check_dns, optional: true do
-  gem 'dnsruby', '~> 1.72'
+  gem 'dnsruby', '~> 1.73'
 end
