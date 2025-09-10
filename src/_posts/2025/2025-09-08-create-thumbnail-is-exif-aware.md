@@ -113,7 +113,7 @@ Notice how the thumbnail from the old code looks upside down:
   }
 
   #examples img {
-    max-width: 180px;
+    width: 180px;
     margin-bottom: 8px;
   }
 </style>
