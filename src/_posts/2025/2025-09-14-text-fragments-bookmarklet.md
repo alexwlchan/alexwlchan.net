@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-09-14 21:44:01 +0000
 title: Linking to text fragments with a bookmarklet
 summary: I've written a bookmarklet that lets me link to specific text on a web page.
 tags:
