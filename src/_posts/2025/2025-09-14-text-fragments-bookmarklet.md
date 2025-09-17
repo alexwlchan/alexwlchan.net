@@ -54,6 +54,12 @@ It's a small tool, but it's made my link sharing much easier.
 
 [text fragments]: https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Fragment/Text_fragments
 
+> **Update, 16 September 2025:** [Smoljaguar](https://spacey.space/@Smoljaguar/115207596961573171) on Mastodon pointed out that Firefox, Chrome, and Safari all have menu items for "Copy Link with Highlight" which does something very similar.
+> The reason I don't use these is because I didn't know they exist!
+>
+> I use Safari as my main browser, and this item is only available in the right-click menu.
+> One reason I like bookmarklets is that they become items in the Bookmarks menu, and then it's easy for me to assign keyboard shortcuts.
+
 ## Bookmarklet source code
 
 This is the JavaScript that gets triggered when you run the bookmarklet:
