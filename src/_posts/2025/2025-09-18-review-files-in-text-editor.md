@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-09-18 21:14:29 +0000
 title: Opening all the files that have been modified in a Git branch
 summary: You can use Git to find where a branch diverged from `main`, what files have changed, then open those files in your editor.
 tags:
