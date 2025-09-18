@@ -113,6 +113,7 @@ def add_non_breaking_spaces(input)
     'Route 53',
     'Silo 49',
     'System 1',
+    'VS Code',
     'Windows-1252',
     'z-axis'
   ]

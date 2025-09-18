@@ -1,0 +1,117 @@
+<svg viewBox="0 0 205 68" xmlns="http://www.w3.org/2000/svg" class="dark_aware">
+  <defs>
+    <style>
+      circle {
+        fill: currentColor;
+        stroke: none;
+      }
+
+      .commit {
+        stroke: var(--accent-grey);
+        stroke-width: 1;
+        stroke-linecap: round;
+      }
+
+      .interesting {
+        fill: var(--primary-color);
+      }
+
+      .interesting_outline {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: 1;
+      }
+
+      text {
+        stroke: none;
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: currentColor;
+        font-size: 5px;
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(0 -6)">
+    <circle cx="3" cy="50" r="3"/>
+
+    <svg x="0">
+      <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+      <circle cx="30" cy="50" r="3"/>
+    </svg>
+
+    <svg x="27">
+      <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+      <circle cx="30" cy="50" r="3"/>
+    </svg>
+
+    <svg x="54">
+      <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+      <circle class="interesting" cx="32" cy="50" r="3"/>
+      <circle class="interesting_outline" cx="32" cy="50" r="4.3"/>
+      <text x="32.3" y="60" class="interesting">common</text>
+      <text x="32.3" y="66.4" class="interesting">ancestor</text>
+    </svg>
+
+    <g transform="translate(3.6 0)">
+      <svg x="81">
+        <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+        <circle cx="30" cy="50" r="3"/>
+      </svg>
+
+      <svg x="108">
+        <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+        <circle cx="30" cy="50" r="3"/>
+      </svg>
+
+      <svg x="135">
+        <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+        <circle cx="30" cy="50" r="3"/>
+      </svg>
+
+      <svg x="162">
+        <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+        <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+        <circle cx="30" cy="50" r="3"/>
+        <text x="31" y="35.6">main</text>
+        <text x="31" y="42">branch</text>
+      </svg>
+    </g>
+
+    <g transform="translate(83 0) rotate(-60 3 50) translate(1.8 0)">
+      <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+      <circle cx="30" cy="50" r="3"/>
+    </g>
+
+    <g transform="translate(83 0) rotate(-60 3 50) translate(28.8 0) rotate(60 3 50)">
+      <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+      <circle cx="30" cy="50" r="3"/>
+    </g>
+
+    <g transform="translate(110 0) rotate(-60 3 50) translate(28.8 0) rotate(60 3 50)">
+      <line class="commit" x1="9" y1="50" x2="24" y2="50"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="47.8"/>
+      <line class="commit" x1="9" y1="50" x2="12.5" y2="52.2"/>
+      <circle cx="30" cy="50" r="3"/>
+      <text x="31" y="35.6">dev</text>
+      <text x="31" y="42">branch</text>
+    </g>
+  </g>
+</svg>
