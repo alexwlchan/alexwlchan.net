@@ -114,7 +114,7 @@ If/when I do, I'll have to write the code to support that.
 I'll find that fun, but most people would find that annoying.
 
 I don't know what accessibility is like for native embeds.
-My custom embeds only use a handful of semantic HTML elements, so they get a lot of good behaviour "by default from the browser.
+My custom embeds only use a handful of semantic HTML elements, so they get a lot of good behaviour "by default" from the browser.
 I hope native embeds are good for accessibility, but I don't know enough to say whether my approach is better or worse in that regard.
 
 [pyramid]: https://www.gov.uk/service-manual/technology/using-progressive-enhancement
