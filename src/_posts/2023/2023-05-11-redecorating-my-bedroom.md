@@ -91,11 +91,49 @@ I love having bright feature walls in my rooms; I think they really make a space
 I also redid the white on the ceiling, the skirting boards, and door frame, but do not ask me what shades they are.
 Dulux have more names for white than Eskimos have words for snow.
 
-<style type="x-text/scss">
-  @use "mixins.scss" as *;
-
+<style>
   #painting {
-    @include three_part_grid()
+    display: grid;
+    grid-template-columns: calc(66% - 5px) calc(34% - 5px);
+    grid-template-rows:    calc(50% - 5px) calc(50% - 5px);
+    grid-gap: var(--grid-gap);
+
+    div:nth-child(1) {
+      grid-column: 1 / 2;
+      grid-row:    1 / span 2;
+    }
+
+    div:nth-child(2) {
+      grid-column: 2 / 2;
+      grid-row:    1 / 2;
+    }
+
+    div:nth-child(3) {
+      grid-column: 2 / 2;
+      grid-row:    2 / 2;
+    }
+
+    img {
+      width:  100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 500px) {
+      aspect-ratio: 16 / 9;
+    }
+
+    @media screen and (max-width: 500px) {
+      /* Disabling `display: grid;` fixes a weird bug where the first/second
+       * photos end up overlapping entirely.
+       */
+      display: block;
+
+      div:nth-child(2) {
+        margin-top:    var(--grid-gap);
+        margin-bottom: var(--grid-gap);
+      }
+    }
   }
 </style>
 

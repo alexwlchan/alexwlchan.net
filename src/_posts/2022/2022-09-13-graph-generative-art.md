@@ -11,9 +11,7 @@ index:
 ---
 
 <style type="x-text/scss">
-  @use "components/checkerboard.scss" as *;
-
-  @include checkerboard_styles();
+  @use "components/checkerboard";
 </style>
 
 A couple of weeks ago, I went to see my sister playing percussion in a brass band [at the Proms][late_prom].
