@@ -20,26 +20,8 @@ But I don't find the syntax especially intuitive -- I can never remember exactly
 
 To help me out, I've written a small bookmarklet to generate these URLs:
 
-<style>
-  .bookmarklet {
-    background: var(--primary-color);
-    border-radius: var(--border-radius);
-    color: white;
-    padding: calc(var(--border-radius) * 0.5) var(--border-radius);
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .bookmarklet:hover {
-    color: white;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .bookmarklet,
-    .bookmarklet:hover {
-      color: black;
-    }
-  }
+<style type="x-text/scss">
+  @use "components/bookmarklets";
 </style>
 
 <a class="bookmarklet" href="javascript:(function()%7Bconst%20selectedText%20%3D%20window.getSelection().toString().trim()%3B%0A%0Aif%20(!selectedText)%20%7B%0A%20%20alert(%22You%20need%20to%20select%20some%20text!%22)%3B%0A%20%20return%3B%0A%7D%0A%0Aconst%20url%20%3D%20new%20URL(window.location)%3B%0Aurl.hash%20%3D%20%60%3A~%3Atext%3D%24%7BencodeURIComponent(selectedText)%7D%60%3B%0A%0Aalert(url.toString())%3B%7D)()%3B">Create link to selected text</a>
