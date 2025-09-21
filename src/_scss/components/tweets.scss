@@ -31,11 +31,8 @@
     --metadata-color:         #8b98a5;
   }
 
-  & { background: var(--background-color)        }
-  &:hover {
-    background: var(--background-color-hover);
-    text-decoration-thickness: 1px;
-  }
+  & {       background: var(--background-color)        }
+  &:hover { background: var(--background-color-hover); }
 
   &, .quoted_tweet {
     border-radius: 4px;
@@ -50,13 +47,13 @@
     color: var(--link-color);
   }
 
-  a, a:visited, a:active, .author a:hover {
+  a, a:visited, a:active {
     text-decoration: none;
-    text-decoration-thickness: 1px;
   }
 
-  a:focus, a:hover, .metadata a:hover {
-    text-decoration: underline;
+  a:focus, a:not(.link):hover, .metadata a:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
   }
   
   a.quote:hover {
