@@ -133,7 +133,7 @@
     grid-template-columns: 50% 50%;
     aspect-ratio: 564 / 317.25;
 
-    // 564 - 1px for the border = 56
+    /* 564 - 1px for the border = 56 */
     a {
       aspect-ratio: 281.5 / 317.25;
     }
@@ -272,8 +272,8 @@
     max-width: calc(100% + 40px);
   }
 
-  // This overrides the coloured background applied to blockquotes elsewhere
-  // on the site.
+  /* This overrides the coloured background applied to blockquotes elsewhere
+   * on the site. */
   blockquote {
     background: none;
   }
