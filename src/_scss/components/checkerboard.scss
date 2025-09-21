@@ -1,116 +1,66 @@
-@mixin checkerboard_styles() {
-  /*
-    By default, this is a grid that's four columns wide, but on narrow screens
-    (i.e. mobile), I shrink it to two columns so it remains readable.
+/*
+  By default, this is a grid that's four columns wide, but on narrow screens
+  (i.e. mobile), I shrink it to two columns so it remains readable.
 
-    I think I might do a checkerboard pattern on the 4-wide layout, and I want
-    to retain that on the 2-wide layout, so I need to swap the 3rd/4th in every row.
+  I think I might do a checkerboard pattern on the 4-wide layout, and I want
+  to retain that on the 2-wide layout, so I need to swap the 3rd/4th in every row.
 
-    e.g. if I have
+  e.g. if I have
 
-        X1 .2 X3 .4
-        .5 X6 .7 X8
+      X1 .2 X3 .4
+      .5 X6 .7 X8
 
-    then on the mobile layout I want
+  then on the mobile layout I want
 
-        X1 .2
-        .4 X3
-        X6 .5
-        .7 X8
+      X1 .2
+      .4 X3
+      X6 .5
+      .7 X8
 
-    I swap the orders with `grid-column` properties, then the `grid-auto-flow`
-    stops there being gaps in the grid.
-  */
+  I swap the orders with `grid-column` properties, then the `grid-auto-flow`
+  stops there being gaps in the grid.
+*/
+.grid_4up {
+  max-width: 650px;
+  margin-left:  auto;
+  margin-right: auto;
+  display: grid;
+  grid-gap: calc(2 * var(--grid-gap));
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid_4up a {
+  line-height: 0;
+}
+
+.grid_4up svg {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 500px) {
   .grid_4up {
-    max-width: 650px;
-    margin-left:  auto;
-    margin-right: auto;
-    display: grid;
-    grid-gap: calc(2 * var(--grid-gap));
-    grid-template-columns: auto auto auto auto;
-  }
-
-  .grid_4up a {
-    line-height: 0;
-  }
-
-  .grid_4up svg {
-    max-width: 100%;
-  }
-
-  @media screen and (max-width: 500px) {
-    .grid_4up {
-      grid-template-columns: auto auto;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .checkerboard {
-      grid-auto-flow: dense;
-    }
-
-    .checkerboard svg:nth-child(8n+3),
-    .checkerboard a:nth-child(8n+3),
-    .checkerboard svg:nth-child(8n+5),
-    .checkerboard a:nth-child(8n+5),
-    .checkerboard svg:nth-child(8n),
-    .checkerboard a:nth-child(8n) {
-      grid-column: 2 / 2;
-    }
-
-    .checkerboard svg:nth-child(8n+6),
-    .checkerboard a:nth-child(8n+6),
-    .checkerboard svg:nth-child(8n+7),
-    .checkerboard a:nth-child(8n+7) {
-      grid-column: 1 / 2;
-    }
+    grid-template-columns: auto auto;
   }
 }
 
-@mixin hero_grid_styles($light-color, $dark-color) {
-  .hero_grid svg {
-    max-width: calc(100% - 10px);
+@media screen and (max-width: 500px) {
+  .checkerboard {
+    grid-auto-flow: dense;
   }
 
-  .hero_grid {
-    grid-gap: 0;
+  .checkerboard svg:nth-child(8n+3),
+  .checkerboard a:nth-child(8n+3),
+  .checkerboard svg:nth-child(8n+5),
+  .checkerboard a:nth-child(8n+5),
+  .checkerboard svg:nth-child(8n),
+  .checkerboard a:nth-child(8n) {
+    grid-column: 2 / 2;
   }
 
-  .hero_grid svg:nth-child(1),
-  .hero_grid svg:nth-child(3),
-  .hero_grid svg:nth-child(6),
-  .hero_grid svg:nth-child(8) {
-    background: $dark-color;
-    border: 5px solid $dark-color;
-  }
-
-  .hero_grid svg:nth-child(1) path,
-  .hero_grid svg:nth-child(3) path,
-  .hero_grid svg:nth-child(6) path,
-  .hero_grid svg:nth-child(8) path,
-  .hero_grid svg:nth-child(1) line,
-  .hero_grid svg:nth-child(3) line,
-  .hero_grid svg:nth-child(6) line,
-  .hero_grid svg:nth-child(8) line {
-    stroke: $light-color;
-  }
-
-  .hero_grid svg:nth-child(2),
-  .hero_grid svg:nth-child(4),
-  .hero_grid svg:nth-child(5),
-  .hero_grid svg:nth-child(7) {
-    background: $light-color;
-    border: 5px solid $light-color;
-  }
-
-  .hero_grid svg:nth-child(2) path,
-  .hero_grid svg:nth-child(4) path,
-  .hero_grid svg:nth-child(5) path,
-  .hero_grid svg:nth-child(7) path,
-  .hero_grid svg:nth-child(2) line,
-  .hero_grid svg:nth-child(4) line,
-  .hero_grid svg:nth-child(5) line,
-  .hero_grid svg:nth-child(7) line {
-    stroke: $dark-color;
+  .checkerboard svg:nth-child(8n+6),
+  .checkerboard a:nth-child(8n+6),
+  .checkerboard svg:nth-child(8n+7),
+  .checkerboard a:nth-child(8n+7) {
+    grid-column: 1 / 2;
   }
 }

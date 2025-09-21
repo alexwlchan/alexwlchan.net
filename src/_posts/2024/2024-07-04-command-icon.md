@@ -77,10 +77,13 @@ It required a bit of trigonometry, but I was able to get some working code.
 Despite this simple starting point, I was able to get quite a variety of shapes:
 
 <style type="x-text/scss">
-  @use "components/checkerboard.scss" as *;
+  @use "components/checkerboard";
+  @use "components/hero_grid";
 
-  @include checkerboard_styles();
-  @include hero_grid_styles(#a8ccff, #014df4);
+  .hero_grid {
+    --grid-light-color: #fcdbd9;
+    --grid-dark-color:  #d01c11;
+  }
 </style>
 
 <div class="hero_grid grid_4up checkerboard">
