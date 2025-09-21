@@ -5,8 +5,8 @@ blockquote {
   p:last-child  { margin-bottom: calc(2 * var(--default-padding) / 3); }
 }
 
-// These rules help with the positioning of footnote markers, although
-// I'm not entirely sure how they work.
+/* These rules help with the positioning of footnote markers, although
+ * I'm not entirely sure how they work. */
 sup, sub {
   vertical-align: 0ex;
   position: relative;
@@ -81,4 +81,3 @@ figcaption a:visited {
 .permalink a:visited {
   color: var(--primary-color);
 }
-
