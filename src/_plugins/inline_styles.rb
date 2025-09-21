@@ -97,8 +97,15 @@ module Jekyll
     end
 
     def get_inline_styles(html)
-      cache.getset(html) do
+      # If an inline style references an external stylesheet with
+      # a Sass @use rule, then we need to pick up changes to the
+      # external styles -- don't cache this.
+      if html.include? '@use'
         InlineStylesFilters.get_inline_styles(html, scss_converter)
+      else
+        cache.getset(html) do
+          InlineStylesFilters.get_inline_styles(html, scss_converter)
+        end
       end
     end
   end
