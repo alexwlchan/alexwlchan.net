@@ -50,7 +50,7 @@ This makes the responses substantially easier to read for a human.
 
 *   To tidy up XML, pipe the output to `xmlint --format -`:
 
-    ```console
+    ```console?prompt=$
     $ curl "http://xkcd.com/rss.xml"
     <?xml version="1.0" encoding="utf-8"?>
     <rss version="2.0"><channel><title>xkcd.com</title><link>http://xkcd.com/</link><description>xkcd.com: A webcomic of romance and math humor.</link></description><language>en</language><item><title>Red Car</title> ...
