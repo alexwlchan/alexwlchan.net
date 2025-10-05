@@ -20,5 +20,5 @@ https://instagram.flhr1-1.fna.fbcdn.net/v/t51.2885-19/319337386_1…
 The result is a long URL with a bunch of query parameters; it looks like it's signed and the URL will only last a short time.
 I haven't tested how long it remains valid for.
 
-Note also that this avatar isn't the highest-resolution available -- for example, my avatar is 700&times;700 pixels in my web browser, but gallery-dl only finds an avatar that's 320&times;320 pixels.
+Note that this avatar isn't the highest-resolution available -- for example, my avatar is 700&times;700 pixels in my web browser, but gallery-dl only finds an avatar that's 320&times;320 pixels.
 That's fine for my project, but may be unsuitable if you're displaying the images at large size.
