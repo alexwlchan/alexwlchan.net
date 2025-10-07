@@ -4,7 +4,7 @@ date: 2024-03-23 07:03:19 +0000
 title: My config for running youtube-dl
 summary: The flags and arguments I find useful when I’m using youtube-dl.
 tags:
-  - youtube
+  - yt-dlp
 ---
 
 youtube-dl has a lot of options, and I only use a small subset of them.
