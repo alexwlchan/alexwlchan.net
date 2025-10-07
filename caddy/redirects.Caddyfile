@@ -108,6 +108,7 @@ redir /archive                                                        /articles/
 redir /archive/                                                       /articles/ permanent
 redir /all-posts-by-tag/                                              /articles/ permanent
 redir /all-posts/                                                     /articles/ permanent
+redir /all-posts                                                      /articles/ permanent
 redir /posts/                                                         /articles/ permanent
 redir /writing/                                                       /articles/ permanent
 
