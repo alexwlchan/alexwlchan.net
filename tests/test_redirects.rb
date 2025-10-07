@@ -35,4 +35,15 @@ class TestRedirects < Test::Unit::TestCase
 
     assert_equal target, 'https://alexwlchan.net/til/2024/animate-svg-elements-with-animate/'
   end
+  
+  # The old /all-posts URL redirects to /articles
+  def test_all_posts_redirect
+    target = get_redirect_target('https://alexwlchan.net/all-posts')
+    
+    assert_equal target, 'https://alexwlchan.net/articles/'
+    
+    target = get_redirect_target('https://alexwlchan.net/all-posts/')
+    
+    assert_equal target, 'https://alexwlchan.net/articles/'
+  end
 end
