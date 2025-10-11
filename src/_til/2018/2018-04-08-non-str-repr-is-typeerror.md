@@ -51,4 +51,4 @@ Traceback (most recent call last):
 TypeError: __str__ returned non-string (type int)
 ```
 
-(I originally posted this [on Twitter](https://www.twitter.com/alexwlchan/status/983015490720288768).)
+(I originally wrote about this [on Twitter](https://www.twitter.com/alexwlchan/status/983015490720288768), and copied it to this site in October 2025.)
