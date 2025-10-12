@@ -15,14 +15,14 @@ Nice!
 I've been writing a lot of Scala this week, and Scala uses s-prefixed strings for [string interpolation].
 For example:
 
-```
+```scala
 val name = "Alex"
 println(s"Hello, $name")  // Hello, Alex
 ```
 
 And so when I came to write some Rust, that s-prefix crept into my strings:
 
-```
+```rust
 let name = "Alex";
 println!(s"Hello, {}!", name);
 ```
