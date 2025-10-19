@@ -19,7 +19,7 @@ Running `go test` with the `-v` flag (verbose) means it prints log messages imme
 
 Here's an example of a test which prints a bunch of logs, and has a long hang halfway through:
 
-```go
+{% code lang="go" names="0:chatty 1:TestChatty 2:t 7:i" %}
 package chatty
 
 import (
@@ -37,7 +37,7 @@ func TestChatty(t *testing.T) {
 	}
 	t.Log("finishing the test")
 }
-```
+{% endcode %}
 
 Here's the output of different `go test` commands, slightly elided for readability:
 
@@ -45,7 +45,6 @@ Here's the output of different `go test` commands, slightly elided for readabili
 $ go test chatty_test.go
 ok  	command-line-arguments	10.142s
 
-/v/f/0/3/T/tmp.riG57zTZGF
 $ go test -v chatty_test.go
 === RUN   TestChatty
     chatty_test.go:9: starting the test
@@ -59,7 +58,6 @@ $ go test -v chatty_test.go
 PASS
 ok  	command-line-arguments	10.141s
 
-/v/f/0/3/T/tmp.riG57zTZGF
 $ go test -timeout 1s chatty_test.go
 panic: test timed out after 1s
 	running tests:
@@ -79,7 +77,6 @@ time.Sleep(0x2540be400)
 FAIL	command-line-arguments	1.140s
 FAIL
 
-/v/f/0/3/T/tmp.riG57zTZGF
 $ go test -v -timeout 1s chatty_test.go
 === RUN   TestChatty
     chatty_test.go:9: starting the test

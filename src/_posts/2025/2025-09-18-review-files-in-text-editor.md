@@ -12,10 +12,10 @@ You can see the whole file, run tests or local builds, and get more context than
 
 This is the snippet I suggested:
 
-```shell
+{% code lang="shell" %}
 git diff --name-only "$BRANCH_NAME" $(git merge-base origin/main "$BRANCH_NAME") \
   | xargs open -a "Visual Studio Code"
-```
+{% endcode %}
 
 It uses a couple of nifty Git features, so let's break it down.
 
@@ -30,10 +30,10 @@ There are three parts to this command:
       We can use <a href="https://git-scm.com/docs/git-merge-base"><code>git-merge-base</code></a>:
     </p>
 
-{% highlight console %}
+{% code lang="console" %}
 $ git merge-base origin/main "$BRANCH_NAME"
 9ac371754d220fd4f8340dc0398d5448332676c3
-{% endhighlight %}
+{% endcode %}
 
     <p>
       This command gives us the common ancestor of our main branch and our dev branch – this is the tip of main when the developer created their branch.
@@ -65,12 +65,12 @@ $ git merge-base origin/main "$BRANCH_NAME"
       If we add the <code>--name-only</code> flag, it only prints a list of filenames with changes, not the full diffs.
     </p>
 
-{% highlight console %}
+{% code lang="console" %}
 $ git diff --name-only "$BRANCH_NAME" $(git merge-base …)
 assets/2025/exif_orientation.py
 src/_drafts/create-thumbnail-is-exif-aware.md
 src/_images/2025/exif_orientation.svg
-{% endhighlight %}
+{% endcode %}
 
     <p>
       Because we're diffing between the tip of our dev branch, and the point where our dev branch diverged from main, this prints a list of files that have changed in the dev branch.
@@ -88,21 +88,21 @@ src/_images/2025/exif_orientation.svg
       I suggested piping to <code>xargs</code> and <code>open</code>, but there are many ways to do this:
     </p>
 
-{% highlight console %}
+{% code lang="console" %}
 $ git diff … | xargs open -a "Visual Studio Code"
-{% endhighlight %}
+{% endcode %}
 
     <p>
       The <a href="https://alexwlchan.net/man/man1/xargs.html"><code>xargs</code> command</a> is super useful for doing the same thing repeatedly – in this case, opening a bunch of files in VS Code.
       You feed it a space-delimited string, it splits the string into different pieces, and runs the same command on each of them, one-by-one.
-      It’s equivalent to running:
+      It’s equivalent to running: AAA
     </p>
 
-{% highlight shell %}
+{% code lang="shell" %}
 open -a "Visual Studio Code" "assets/2025/exif_orientation.py"
 open -a "Visual Studio Code" "src/_drafts/create-thumbnail-is-exif-aware.md"
 open -a "Visual Studio Code" "src/_images/2025/exif_orientation.svg"
-{% endhighlight %}
+{% endcode %}
 
     <p>
       The <a href="https://alexwlchan.net/man/man1/open.html"><code>open</code> command</a> opens files, and the <code>-a</code> flag tells it which application to use.

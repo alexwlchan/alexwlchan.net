@@ -19,10 +19,10 @@ colors:
 I use a lot of Python for scripting, and in particular to perform repetitive tasks.
 A lot of my scripts are a variant of the following:
 
-```python
+{% code lang="python" %}
 for task in get_tasks_to_do():
     perform(task)
-```
+{% endcode %}
 
 This is a *sequential* programming pattern -- the tasks run one after another, with only one task running at a time.
 It keeps the code simple, and because it's only ever doing one task at a time, it's easy to follow the script as it's running.
@@ -76,7 +76,7 @@ The concurrency was a key part of the script, and I realised it was worth diggin
 If I have a small number of tasks, I schedule them all in one go, and wait for them all to complete.
 Here's a simple example:
 
-```python
+{% code lang="python" names="0:concurrent 1:futures 5:executor 6:futures 11:task 13:fut" %}
 import concurrent.futures
 
 
@@ -87,7 +87,7 @@ with concurrent.futures.Executor() as executor:
 
     for fut in concurrent.futures.as_completed(futures):
         print(f"The outcome is {fut.result()}")
-```
+{% endcode %}
 
 We start by creating an Executor, which manages all the tasks that are running -- either in separate processes or threads.
 Using the `with` statement creates a *context manager*, which ensures any stray threads or processes get cleaned up properly when we're done.
@@ -107,7 +107,7 @@ The `.result()` method gives me the return value of `perform(task)`, or throws a
 
 The Future object doesn't hold any context, so if you want to match the results to the original task, you need to track that yourself:
 
-```python
+{% code lang="python" names="0:concurrent 1:futures 5:executor 6:futures 12:task 14:fut 19:original_task" %}
 import concurrent.futures
 
 
@@ -120,7 +120,7 @@ with concurrent.futures.Executor() as executor:
     for fut in concurrent.futures.as_completed(futures):
         original_task = futures[fut]
         print(f"The outcome of {original_task} is {fut.result()}")
-```
+{% endcode %}
 
 Rather than creating a set, we're creating a dict that maps each Future to its original task.
 When the Future completes, we look in the dict to find the task.
@@ -146,7 +146,7 @@ It would be nicer if it was only keeping a small number of tasks in memory -- th
 One approach to handle a very large number of tasks would be to break them into small chunks, and process each chunk in turn using the pattern above.
 Using my chunked_iterable() method [from a previous post](/2018/iterating-in-fixed-size-chunks/), we could do something like:
 
-```python
+{% code lang="python" names="0:task_set 7:executor 8:futures 13:task 15:fut" %}
 for task_set in chunked_iterable(get_tasks_to_do(), HOW_MANY_TASKS_AT_ONCE):
     with concurrent.futures.Executor() as executor:
         futures = {
@@ -156,7 +156,7 @@ for task_set in chunked_iterable(get_tasks_to_do(), HOW_MANY_TASKS_AT_ONCE):
 
         for fut in concurrent.futures.as_completed(futures):
             print(f"The outcome is {fut.result()}")
-```
+{% endcode %}
 
 This code is fairly simple, but we're losing some of the efficiency gains -- it queues up N pieces of work, gets through them all, then loads another N pieces of work.
 When it's near the end of a chunk, it's only processing a few pieces of work concurrently.
@@ -217,11 +217,11 @@ It returns a 2-tuple of finished and unfinished futures:
 
 [wait]: https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.wait
 
-```python
+{% code lang="python" names="0:finished 1:unfinished" %}
 finished, unfinished = concurrent.futures.wait(
     futures, return_when=concurrent.futures.FIRST_COMPLETED
 )
-```
+{% endcode %}
 
 The `return_when` parameter lets us choose to wait for the first Future to complete, to throw an exception, or for everything to complete (which is equivalent to `as_completed`).
 In this case, I'm waiting for the first Future.
@@ -229,7 +229,7 @@ When it's done, we'll go ahead and schedule the next one.
 
 Here's what it looks like:
 
-```python
+{% code lang="python" names="0:concurrent 1:futures 2:itertools 3:tasks_to_do 8:executor 9:futures 14:task 20:done 21:futures 30:fut 35:task" %}
 import concurrent.futures
 import itertools
 
@@ -260,7 +260,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
             futures.add(
                 executor.submit(perform, task)
             )
-```
+{% endcode %}
 
 A lot of heavy lifting is being done by [`itertools.islice(iterable, N)`][islice], which generates the first *N* elements of an iterable (or the whole thing, if there are less than *N* elements left).
 
@@ -325,7 +325,7 @@ In practice, the exact shape will be less regular, but it gives the general idea
 This pattern makes it a little harder to track the task a future was associated with, because `concurrenct.futures.wait()` always returns a set, regardless of what iterable was passed in.
 But it's still possible, like so:
 
-```python
+{% code lang="python" names="3:executor 4:futures 9:task 16:done 26:fut 28:original_task 36:task 42:fut" %}
 with concurrent.futures.ThreadPoolExecutor() as executor:
 
     # Schedule the first N futures.  We don't want to schedule them all
@@ -350,7 +350,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         for task in itertools.islice(tasks_to_do, len(done)):
             fut = executor.submit(perform, task)
             futures[fut] = task
-```
+{% endcode %}
 
 As before, we're storing the context in a dict `futures`.
 When a Future completes, we `.pop()` from the dict to delete the entry and retrieve the original task.
@@ -374,7 +374,7 @@ I had to try a simpler problem (running large, fixed number of tasks, above) to 
 
 We can make a small modification to the `for fut in done:` loop in the example above:
 
-```python
+{% code lang="python" names="0:fut 1:done 8:new_task" %}
 for fut in done:
     print(f"The outcome is {fut.result()}")
 
@@ -383,7 +383,7 @@ for fut in done:
         futures.add(
             executor.submit(perform, new_task)
         )
-```
+{% endcode %}
 
 If there's a follow-up task to run, it schedules that task as another Future.
 It's now in the pool of running Futures, and it will get checked the next time we call `concurrent.futures.wait()`.
@@ -397,7 +397,7 @@ Eventually your process should stop scheduling follow-up tasks, or it'll get stu
 If there's a follow-up task, we also need to skip scheduling a task from the initial batch of tasks -- otherwise `futures`, the pool of currently running Futures, will keep growing.
 Here's how that works:
 
-```python
+{% code lang="python" names="0:concurrent 1:futures 2:itertools 6:executor 7:futures 12:task 18:done 19:futures 28:new_tasks_to_schedule 29:fut 37:new_task 48:task" %}
 import concurrent.futures
 import itertools
 
@@ -439,11 +439,11 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
             futures.add(
                 executor.submit(perform, task)
             )
-```
+{% endcode %}
 
 And as before, we can use a dict to track the task a future was started from:
 
-```python
+{% code lang="python" names="0:concurrent 1:futures 2:itertools 6:executor 7:futures 13:task 19:done 29:new_tasks_to_schedule 30:fut 32:original_task 43:new_task 47:fut 56:task 61:fut" %}
 import concurrent.futures
 import itertools
 
@@ -484,7 +484,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         for task in itertools.islice(initial_tasks, new_tasks_to_schedule):
             fut = executor.submit(perform, task)
             futures[fut] = task
-```
+{% endcode %}
 
 
 
@@ -514,40 +514,41 @@ Once again, a detailed walkthrough of code is as useful as me as for the reader.
   That means that when you call it more than once, it doesn’t know you’ve already gone through some elements of the list, so it starts from the first element again.
   You can see this in the interactive console:
 
-  ```pycon
-  >>> import itertools
-  >>> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  >>> list(itertools.islice(numbers, 3))
-  [1, 2, 3]
-  >>> list(itertools.islice(numbers, 3))
-  [1, 2, 3]
-  >>> list(itertools.islice(numbers, 3))
-  [1, 2, 3]
-  ```
+{% code lang="pycon" names="1:numbers" %}
+>>> import itertools
+>>> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> list(itertools.islice(numbers, 3))
+[1, 2, 3]
+>>> list(itertools.islice(numbers, 3))
+[1, 2, 3]
+>>> list(itertools.islice(numbers, 3))
+[1, 2, 3]
+{% endcode %}
 
   The fix is to create an iterator for the list, and pass that around -- it holds the state of "how many elements have I already been through".
   Observe:
 
-  ```pycon
-  >>> iterator = iter(numbers)
-  >>> list(itertools.islice(iterator, 3))
-  [1, 2, 3]
-  >>> list(itertools.islice(iterator, 3))
-  [4, 5, 6]
-  >>> list(itertools.islice(iterator, 3))
-  [7, 8, 9]
-  ```
+{% code lang="pycon" names="0:iterator" %}
+>>> iterator = iter(numbers)
+>>> list(itertools.islice(iterator, 3))
+[1, 2, 3]
+>>> list(itertools.islice(iterator, 3))
+[4, 5, 6]
+>>> list(itertools.islice(iterator, 3))
+[7, 8, 9]
+{% endcode %}
+
 {% endupdate %}
 
 {% update 2022-01-04 %}
   I've created a GitHub repo which has a nicer version of this code, which allows you to call a single function, rather than interspersing your function/inputs with the concurrency code:
 
-```python
+{% code lang="python" names="0:concurrently 1:concurrently 3:input 4:output 7:perform 9:get_tasks_to_do" %}
 from concurrently import concurrently
 
 for (input, output) in concurrently(fn=perform, inputs=get_tasks_to_do()):
     print(input, output)
-```
+{% endcode %}
 
   I'd recommend using this instead of the code above (although the above still serves as a valuable explanation of how it works).
   See [alexwlchan/concurrently](https://github.com/alexwlchan/concurrently).

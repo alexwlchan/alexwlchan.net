@@ -141,7 +141,7 @@ I don't think I've ever made a syscall directly -- I've used wrappers like the P
 
 Here's a rudimentary C program that uses `clonefile()` to clone a file:
 
-```c
+{% code lang="c" names="0:main 1:src 2:dst 3:flags" %}
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/clonefile.h>
@@ -164,7 +164,7 @@ int main(void) {
 
     return EXIT_SUCCESS;
 }
-```
+{% endcode %}
 
 You can compile and run this program like so:
 
@@ -193,13 +193,13 @@ But I don't use C in any of my projects -- can I call this function from Python 
 The easiest way to clone a file in Python is by shelling out to `cp -c` with the [`subprocess` module][subprocess].
 Here's a short example:
 
-```python
+{% code lang="python" %}
 import subprocess
 
 # Adding the `-c` flag means the file is cloned rather than copied,
 # if possible.  See the man page for `cp`.
 subprocess.check_call(["cp", "-c", "1GB.bin", "clone.bin"])
-```
+{% endcode %}
 
 I think this snippet is pretty simple, and a new reader could understand what it's doing.
 If they're unfamiliar with file cloning on APFS, they might not immediately understand why this is different from [`shutil.copyfile`][shutil.copyfile], but they could work it out quickly.
@@ -214,7 +214,7 @@ In my project, I wrapped this `cp` call in a function which had some additional 
 Any remaining errors get thrown as a generic `subprocess.CalledProcessError`.
 Here's an example:
 
-```python
+{% code lang="python" names="3:clonefile 4:src 6:dst" %}
 from pathlib import Path
 import subprocess
 
@@ -234,7 +234,7 @@ def clonefile(src: Path, dst: Path):
     subprocess.check_call(["cp", "-c", str(src), str(dst)])
 
     assert dst.exists()
-```
+{% endcode %}
 
 For me, this code strikes a nice balance between being readable and returning good errors.
 
@@ -251,12 +251,12 @@ Following the documentation for `ctypes`, these are the steps:
 
 1.  **Import `ctypes` and [load a dynamic link library][cdll].**
     This is the first thing we need to do -- in this case, we're loading the macOS link library that contains the `clonefile()` function.
-
-    ```python
+    
+    {% code lang="python" names="1:libSystem" %}
     import ctypes
 
     libSystem = ctypes.CDLL("libSystem.B.dylib")
-    ```
+    {% endcode %}
 
     I worked out that I need to load `libSystem.B.dylib` by looking at other examples of `ctypes` code on GitHub.
     I couldn't find an explanation of it in Apple's documentation.
@@ -276,17 +276,17 @@ Following the documentation for `ctypes`, these are the steps:
 2.  **Tell `ctypes` about the function signature.**
     If we look at the [man page for `clonefile()`][clonefile2], we see the signature of the C function:
 
-    ```c
+    {% code lang="c" names="0:clonefile 1:src 2:dst 3:flags" %}
     int clonefile(const char * src, const char * dst, int flags);
-    ```
+    {% endcode %}
 
     We need to tell `ctypes` to find this function inside `libSystem.B.dylib`, then describe the arguments and return type of the function:
 
-    ```python
+    {% code lang="python" names="0:clonefile" %}
     clonefile = libSystem.clonefile
     clonefile.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
     clonefile.restype = ctypes.c_int
-    ```
+    {% endcode %}
 
     Although `ctypes` can call C functions if you don't describe the signature, it's a good practice and gives you some safety rails.
 
@@ -315,7 +315,7 @@ Following the documentation for `ctypes`, these are the steps:
 4.  **Call the function.**
     Now we have the function available in Python, and the inputs in C-compatible types, we can call the function:
     
-    ```python
+    {% code lang="python" names="5:errno" %}
     import os
     
     if clonefile(src, dst, flags) != 0:
@@ -323,7 +323,7 @@ Following the documentation for `ctypes`, these are the steps:
         raise OSError(errno, os.strerror(errno))
     
     print(f"clonefile succeeded: {src} ~> {dst}")
-    ```
+    {% endcode %}
     
     If the clone succeeds, this program runs successfully.
     But if the clone fails, we get an unhelpful error: *OSError: [Errno 0] Undefined error: 0*.
@@ -331,9 +331,9 @@ Following the documentation for `ctypes`, these are the steps:
     The point of calling the C function is to get useful error codes, but we need to opt-in to receiving them.
     In particular, we need to add the `use_errno` parameter to our `CDLL` call:
     
-    ```python
+    {% code lang="python" names="0:libSystem" %}
     libSystem = ctypes.CDLL("libSystem.B.dylib", use_errno=True)
-    ```
+    {% endcode %}
     
     Now, when the clone fails, we get different errors depending on the type of failure.
     The exception includes the numeric error code, and Python will throw named subclasses of `OSError` like `FileNotFoundError`, `FileExistsError`, or `PermissionError`.
@@ -341,7 +341,7 @@ Following the documentation for `ctypes`, these are the steps:
 
 Here's the complete script, which clones a single file:
 
-```python
+{% code lang="python" names="2:libSystem 6:clonefile 21:src 22:dst 23:flags 28:errno" %}
 import ctypes
 import os
 
@@ -369,7 +369,7 @@ if clonefile(src, dst, flags) != 0:
     raise OSError(errno, os.strerror(errno))
     
 print(f"clonefile succeeded: {src} ~> {dst}")
-```
+{% endcode %}
 
 I wrote this code for my own learning, and it's definitely not production-ready.
 It works in the happy case and helped me understand `ctypes`, but if you actually wanted to use this, you'd want proper error handling and testing.

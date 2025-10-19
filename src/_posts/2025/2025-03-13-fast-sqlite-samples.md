@@ -6,6 +6,12 @@ summary: I tested four approaches, from `ORDER BY RANDOM()` to picking random `r
 tags:
   - sqlite
 ---
+<style>
+  pre {
+    --literals: var(--body-text);
+  }
+</style>
+
 I was building a small feature for the [Flickr Commons Explorer] today: show a random selection of photos from the entire collection.
 I wanted a fast and varied set of photos.
 
@@ -19,10 +25,10 @@ I'm happy with the code I settled on, but it took several attempts to get right.
 
 My first attempt was pretty naïve – I used an `ORDER BY RANDOM()` clause to sort the table, then limit the results:
 
-```sql
+```
 SELECT *
 FROM photos
-ORDER BY random()
+ORDER BY RANDOM()
 LIMIT 10
 ```
 
@@ -34,7 +40,7 @@ SQLite is fast, but there's only so fast you can sort millions of values.
 
 I found a suggestion from [Stack Overflow user Ali][stackoverflow] to do a random sort on the `id` column first, pick my IDs from that, and only fetch the whole row for the photos I'm selecting:
 
-```sql
+```
 SELECT *
 FROM photos
 WHERE id IN (
@@ -54,7 +60,7 @@ This query was over three times faster -- about 0.15s -- but that's still slower
 
 Scrolling down the Stack Overflow page, I found [an answer by Max Shenfield][shenfield] with a different approach:
 
-```sql
+```
 SELECT * FROM photos
 WHERE rowid > (
   ABS(RANDOM()) % (SELECT max(rowid) FROM photos)
@@ -95,18 +101,18 @@ Here's the procedure I came up with:
 
 2.  Find the highest `rowid` that's currently in use:
 
-    ```sql
+    ```console?prompt=sqlite>
     sqlite> SELECT MAX(rowid) FROM photos;
     1913389
     ```
 
 3.  Use a random number generator to pick a `rowid` between 1 and the highest `rowid`:
 
-    ```pycon
+    {% code lang="pycon" names="0:random 3:max_rowid" %}
     >>> import random
     >>> random.randint(1, max_rowid)
     196476
-    ```
+    {% endcode %}
 
     If we've already got this `rowid`, discard it and generate a new one.
 
@@ -114,11 +120,11 @@ Here's the procedure I came up with:
 
 4.  Look for a row with that `rowid`:
 
-    ```sql
+    {% code lang="sql" %}
     SELECT *
     FROM photos
     WHERE rowid = 196476
-    ```
+    {% endcode %}
 
     If such a row exists, add it to our sample.
     If we have enough items in our sample, we're done.
