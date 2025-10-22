@@ -48,9 +48,9 @@ Other people have done more sophisticated analysis of the Photos database, but f
 While working on a different project, I discovered another way to do this using AppleScript.
 The scripting dictionary for Photos.app allows you to address media items by UUID, so you can do something like:
 
-```applescript
+{% code lang="applescript" wrap="true" %}
 tell application "Photos" to get filename of media item {id: "682DB554-618E-42D6-92A1-3695CFF10D3B"}
-```
+{% endcode %}
 
 This is quite a bit slower than accessing the SQLite database directly, but it's less likely to break in future versions of Photos.
 Depending on what you're doing, this might be more convenient.
