@@ -12,11 +12,11 @@ I could just capture it and not use it, but it might be flagged as an unused var
 
 Here's a simple example, where I capture the `name` variable and discard `lastRoll`:
 
-```javascript
+{% code lang="javascript" names="0:shape 5:name 6:lastRoll 8:diceProps" %}
 const shape = {
-  name: 'd20',
-  sides: 20,
-  color: 'red',
+  name:     'd20',
+  sides:    20,
+  color:    'red',
   lastRoll: 7,
 };
 
@@ -27,6 +27,6 @@ console.log(name);
 
 console.log(diceProps);
 // { sides: 20, color: "red" }
-```
+{% endcode %}
 
 [spread syntax]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
