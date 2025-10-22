@@ -8,7 +8,7 @@ tags:
 ---
 Here's a TypedDict from my code:
 
-```python
+{% code lang="python" names="0:MicroblogPost 2:site 5:body" %}
 class MicroblogPost(PostBase):
     """
     A post from a microblogging service.
@@ -16,7 +16,7 @@ class MicroblogPost(PostBase):
 
     site: typing.Literal["bluesky", "mastodon", "threads", "twitter", "x"]
     body: list[MicroblogData]
-```
+{% endcode %}
 
 I wanted to get the list of `Literal` values in the `site` attribute.
 I know I can use `typing.get_args()` to [get a list of `typing.Literal[…]`][getargs] values, but how do I get the `Literal[…]` value here?
@@ -25,7 +25,7 @@ I know I can use `typing.get_args()` to [get a list of `typing.Literal[…]`][ge
 
 ## Option 1: Extract the `Literal` as a separate type
 
-```python
+{% code lang="python" names="0:MicroblogSites 3:MicroblogPost 5:site 7:body" %}
 MicroblogSites = typing.Literal["bluesky", "mastodon", "threads", "twitter", "x"]
 
 
@@ -36,7 +36,7 @@ class MicroblogPost(PostBase):
 
     site: MicroblogSites
     body: list[MicroblogData]
-```
+{% endcode %}
 
 and then I can use `typing.get_args()` on `MicroblogSites`.
 This is the approach I ended up using, but I wondered if there's another way (say, if I don't control the type).
@@ -45,7 +45,7 @@ This is the approach I ended up using, but I wondered if there's another way (sa
 
 This allows me to extract the `Literal` value, and then I could inspect it as I wish:
 
-```pycon
+{% code lang="pycon" %}
 >>> MicroblogPost.__annotations__
 {'body': list[models.post.MicroblogData],
  'id': <class 'str'>,
@@ -53,7 +53,7 @@ This allows me to extract the `Literal` value, and then I could inspect it as I 
  'site': typing.Literal['bluesky', 'mastodon', 'threads', 'twitter', 'x']}
 >>> MicroblogPost.__annotations__['site']
 typing.Literal['bluesky', 'mastodon', 'threads', 'twitter', 'x']
-```
+{% endcode %}
 
 This definitely works, but I'm not sure i should be using `__annotations__` directly.
 In particular, the [Python docs for `type.__annotations__`][datadocs] say:

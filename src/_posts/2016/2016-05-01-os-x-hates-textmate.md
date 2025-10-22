@@ -51,19 +51,21 @@ I still don't fully understand what caused the problem, but this is what I tried
 *   **Delete the quarantine attribute.**
 
     My newly downloaded version of TextMate had quarantine attribute, because I'd downloaded it via Safari:
-
-    <div class="codehilite"><pre><span></span><span class="gp">$</span> xattr -l TextMate.app
-    <span class="go">com.apple.quarantine: 0062;57264649;Safari;EB7AAA88-11E1-42E8-9D88-D90B03E5973E</span>
-    </pre></div>
+    
+    ```console?prompt=$
+    $ xattr -l TextMate.app
+    com.apple.quarantine: 0062;57264649;Safari;EB7AAA88-11E1-42E8-9D88-D90B03E5973E
+    ```
 
     Usually this attribute is used by the Finder to warn you about the dangers of opening files saved from the Internet.
     Perhaps OS X thought that TextMate was too dangerous to be allowed write privileges?
 
     Deleting this attribute is potentially risky, but I'd downloaded the file directly from GitHub over HTTPS.
     I threw caution to the wind:
-
-    <div class="codehilite"><pre><span></span><span class="gp">$</span> xattr -r -d com.apple.quarantine TextMate.app
-    </pre></div>
+    
+    ```console
+    $ xattr -r -d com.apple.quarantine TextMate.app
+    ```
 
     But the app persisted in its stubbornness.
 

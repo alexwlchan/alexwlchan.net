@@ -46,7 +46,7 @@ It's a small tool, but it's made my link sharing much easier.
 
 This is the JavaScript that gets triggered when you run the bookmarklet:
 
-```javascript
+{% code lang="javascript" names="0:selectedText 7:url" %}
 const selectedText = window.getSelection().toString().trim();
 
 if (!selectedText) {
@@ -58,5 +58,4 @@ const url = new URL(window.location);
 url.hash = `:~:text=${encodeURIComponent(selectedText)}`;
 
 alert(url.toString());
-```
-
+{% endcode %}

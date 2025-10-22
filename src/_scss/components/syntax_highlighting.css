@@ -1,0 +1,129 @@
+/* Syntax highlighting styles. */
+pre {
+  --red:     var(--default-primary-color-light);
+  --green:   #1bad0e;
+  --blue:    #115bda;
+  --magenta: #c311d0;
+  --yellow:  #c8a711;
+
+  --comments:    var(--red);
+  --literals:    var(--magenta);
+  --strings:     var(--green);
+  --names:       var(--blue);
+  --punctuation: var(--accent-grey);
+  --mark:        rgb(255, 235, 18, 0.7);
+
+  @media (prefers-color-scheme: dark) {
+    --red:     var(--default-primary-color-dark);
+    --green:   #5ff042;
+    --blue:    #40c3ff;
+    --magenta: #ff42fc;
+    --yellow:  #fffc42;
+    --mark:    rgb(255, 252, 66, 0.8);
+  }
+
+  /* Comment, Comment.{Hash, Multiline, Single, Special} */
+  .c, .ch, .cm, .c1, .cs {
+    color: var(--comments);
+  }
+
+  /* Numbers and booleans:
+   *   Literal.Number, Literal.Number.{Bin, Float, Hex, Integer, Oct},
+   *   Integer.Long,
+   *   Keyword.{Constant, Reserved}
+   *   Name.Constant
+   */
+  .m, .mb, .mf, .mh, .mi, .mo, .il, .kc, .bp, .no {
+    color: var(--literals);
+  }
+
+  /* Strings:
+   *   Literal.String, Literal.String.{Affix, Backtick, Char, Delimiter,
+   *   …, Doc, Escape, Double, Heredoc, Interpol, Other, Regex, Single,
+   *   …, Symbol} */
+  .s, .sa, .sb, .sc, .dl, .sd, .se, .s2, .sh, .si, .sx, .sr, .s1, .ss {
+    color: var(--strings);
+  }
+
+  /* Name */
+  .n { color: var(--names); }
+
+  /* Punctuation, Generic.Output */
+  .p, .go {
+    color: var(--punctuation);
+  }
+
+  /* Rust-specific errors */
+  .rustc_error   { color: var(--red); font-weight: bold; }
+  .rustc_warning { color: var(--green); }
+  .rustc_value   { color: var(--yellow); }
+  .rustc_lineno  { color: var(--blue); }
+
+  mark {
+    background-color: var(--mark);
+    padding:       2px 0;
+    margin:       -2px 0;
+    border-radius: 2px;
+  }
+}
+
+/* In console snippets:
+ *
+ *    - don't allow selecting the $ or the following space
+ *      See https://alexwlchan.net/2021/10/console-copying/
+ *      See https://stackoverflow.com/a/4407335/1558022
+ *    - color the prompt blue
+ *
+ * gp = Generic.Prompt, w = Whitespace
+ */
+.language-console .gp,
+.language-console .gp + .w,
+.language-irb .gp,
+.language-irb .gp + .w {
+  color: var(--blue);
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/* Don't highlight the XML declaration at the top of an XML snippet.
+ * cp = Comment.Preproc*/
+.language-xml .cp {
+  color: var(--punctuation);
+}
+
+/* All my Caddy and Go-formatted code uses tabs; ensure it's a 4-wide tab
+ * rather than 8-wide, which is the default stylesheet in Safari */
+.language-caddy,
+.language-go {
+  tab-size: 4;
+}
+
+/* Highlight HTML tags in blue.
+ * Name.{Tag, Attribute} */
+.language-html {
+  .nt, .na {
+    color: var(--names);
+  }
+}
+
+.language-css {
+  /* Don't highlight media queries. */
+  .n {
+    color: var(--body-text);
+  }
+
+  /* Highlight CSS colours in magenta. Name.Constant */
+  .no {
+    color: var(--literals);
+  }
+
+  /* Highlight selectors and properties in blue. Name.{Class, Tag, Literal} */
+  .nc, .nt, .nl {
+    color: var(--names)
+  };
+}

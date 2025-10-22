@@ -33,7 +33,7 @@ $default-padding: 20px;
   --border-radius: 10px;
   --border-style:  solid;
   --border-width:  3px;
-  
+
   /* Every page has a tint color that affects the nav, links, headings,
    * and so on.
    *
@@ -41,44 +41,44 @@ $default-padding: 20px;
    * appended to the <head>.
    */
   --default-primary-color-light: #d01c11;
-  --default-primary-color-dark:  #ff4242;
-  
+  --default-primary-color-dark:  #f45858;
+
   --primary-color-light: var(--default-primary-color-light);
   --primary-color-dark:  var(--default-primary-color-dark);
-  
+
   --nav-bg-image-light: url('/h/d01c11.png');
   --nav-bg-image-dark:  url('/h/ff4242.png');
-  
+
   --link-color: var(--primary-color);
 
   /* A collection of light/dark greys tones.
    *
    * Every so often I wonder about rationalising the number of grey tones that
-   * I'm using, but I haven't found a selection that I like yet. 
+   * I'm using, but I haven't found a selection that I like yet.
    */
   --body-text-light: #202020;
   --body-text-dark:  #c7c7c7;
-  
+
   --accent-grey-light: #999;
   --accent-grey-dark:  #9a9a9a;
-  
+
   --block-border-color-light: #dfdfdf;
   --block-background-light:   #f3f3f3;
-  
+
   --block-border-color-dark: #434343;
   --block-background-dark:   #1d1d1d;
-  
+
   --screenshot-border-light: #f0f0f0;
   --screenshot-border-dark:  #3f3f3f;
-  
+
   /* My background texture image is "White Waves Pattern" by Stas Pimenov,
    * with reduced contrast.  The dark variant has inverted colours.
    *
    * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
    */
   --background-texture-light: url("/static/white-waves.png");
-  --background-color-light:   #fafafa;  
-  
+  --background-color-light:   #fafafa;
+
   --background-texture-dark:  url("/static/black-waves.png");
   --background-color-dark:    #0d0d0d;
 }
@@ -117,7 +117,7 @@ $default-padding: 20px;
 
 @media print {
   :root {
-    --accent-grey: var(--body-text);
+    --accent-grey: #555;
 
     /* Don't show the background texture when printing; it's not important */
     --background-image: none;

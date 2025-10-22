@@ -54,7 +54,7 @@ I use the [`image` crate](https://crates.io/crates/image) to resize images in Ru
 My old code for resizing images would open the image, resize it, then save it back to disk.
 Here's a short example:
 
-```rust
+{% code lang="rust" names="0:image 1:imageops 2:FilterType 3:std 4:error 5:Error 6:main 10:img" %}
 use image::imageops::FilterType;
 use std::error::Error;
 
@@ -66,7 +66,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
-```
+{% endcode %}
 
 The thumbnail will keep the resized pixels in the same order as the original image, but the thumbnail doesn't have the EXIF orientation metadata.
 This means that if the original image had an EXIF orientation, the thumbnail could look different, because it's no longer being rotated/reflected properly.
@@ -74,7 +74,7 @@ This means that if the original image had an EXIF orientation, the thumbnail cou
 When I wrote `create_thumbnail`, the `image` crate didn't know anything about EXIF orientation -- but last week's [v0.25.8 release](https://github.com/image-rs/image/releases/tag/v0.25.8) added several functions related to EXIF orientation.
 In particular, I can now read the orientation and apply it to an image:
 
-```rust
+{% code lang="rust" names="0:image 1:imageops 2:FilterType 3:image 4:DynamicImage 5:ImageDecoder 6:ImageReader 7:std 8:error 9:Error 10:main 14:decoder 18:orientation 21:img" %}
 use image::imageops::FilterType;
 use image::{DynamicImage, ImageDecoder, ImageReader};
 use std::error::Error;
@@ -92,7 +92,7 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
-```
+{% endcode %}
 
 The thumbnail still doesn't have any EXIF orientation data, but the pixels have been rearranged so the resized image looks similar to the original.
 That's what I want.

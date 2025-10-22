@@ -147,7 +147,7 @@ end
 def cleanup_syntax_highlighter_classes(html)
   # I never use the `highlighter-rouge` class, and I only have styles
   # for a couple of the `language-*` classes.
-  %w[caddy console go irb].each do |lang|
+  %w[caddy console css go html irb shell xml].each do |lang|
     html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"language-#{lang}\"")
   end
 
@@ -161,8 +161,8 @@ def cleanup_syntax_highlighter_classes(html)
     '<pre class="language-\k<language>">'
   )
   html = html.gsub(
-    '<div><div class="highlight"><pre class="highlight">',
-    '<pre>'
+    '<div><div class="highlight"><pre class="highlight"',
+    '<pre'
   )
   html = html.gsub(%r{</pre></div>\s*</div>}, '</pre>')
   html = html.gsub(
@@ -208,6 +208,9 @@ module Jekyll
         text = text
                .gsub('&#8617;', '&#8617;&#xFE0E;')
                .gsub('↩', '&#8617;&#xFE0E;')
+
+        # Clean up the `n0` pseudo-class added by the code highlighting plugin.
+        text = text.gsub(%r{<span class="n0">([^>]+)</span>}, '\\1')
 
         text.strip
       end

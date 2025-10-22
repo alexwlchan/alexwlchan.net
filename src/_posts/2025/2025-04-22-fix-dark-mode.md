@@ -46,7 +46,7 @@ Both my textures are based on the ["White Waves" pattern][white_waves] made by S
 
 I was setting these images as my background with two CSS rules, using the [`prefers-color-scheme: dark`][prefers_dark] media feature to use the alternate image in dark mode:
 
-```
+{% code lang="css" %}
 body {
   background: url('https://alexwlchan.net/theme/white-waves-transparent.png');
 }
@@ -56,7 +56,7 @@ body {
     background: url('https://alexwlchan.net/theme/black-waves-transparent.png');
   }
 }
-```
+{% endcode %}
 
 This works, mostly.
 
@@ -91,23 +91,25 @@ I've made two changes to prevent this happening again.
 1.  **I've added a colour to use as a fallback until the image loads.**
     The CSS `background` property supports adding a colour, which is used until the image loads, or as a fallback if it doesn't.
     I already use this in a few places, and now I've added it to my `body` background.
-
-    <pre><code>body {
-      background: url('https://…/white-waves-transparent.png') <mark>#fafafa</mark>;
+    
+    {% code lang="css" %}
+    body {
+      background: url('https://…/white-waves-transparent.png') #fafafa;
     }
 
     @media (prefers-color-scheme: dark) {
       body {
-        background: url('https://…/black-waves-transparent.png') <mark>#0d0d0d</mark>;
+        background: url('https://…/black-waves-transparent.png') #0d0d0d;
       }
-    }</code></pre>
+    }
+    {% endcode %}
 
     This avoids the flash of unstyled background before the image loads -- the browser will use a solid dark background until it gets the texture.
 
 2.  **I've added [`rel="preload"` elements][preload] to the `head` of the page, so the browser will start loading the background textures faster.**
     These elements are a clue to the browser that these resources are going to be useful when it renders the page, so it should start loading them as soon as possible:
 
-    ```
+    ```html
     <link
       rel="preload"
       href="https://alexwlchan.net/theme/white-waves-transparent.png"

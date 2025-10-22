@@ -19,6 +19,7 @@ Lint/DuplicateBranch:
 
 Layout/LineLength:
   Exclude:
+    - src/_plugins/code.rb
     - src/_plugins/utils/pictures.rb
     - src/_plugin_tests/test_cleanup_text.rb
     - tests/test_http_security_headers.rb

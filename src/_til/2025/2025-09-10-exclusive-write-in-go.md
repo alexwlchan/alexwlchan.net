@@ -8,9 +8,9 @@ tags:
 ---
 In Go, if you want to write to a file, but only if it doesn't exist (an "exclusive write"), you can call [`os.OpenFile`](https://pkg.go.dev/os#OpenFile) with a couple of flags:
 
-```go
+{% code lang="go" names="0:f 1:err" %}
 f, err := os.OpenFile(fname, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0666)
-```
+{% endcode %}
 
 *   [`O_CREATE`](https://pkg.go.dev/os#O_CREATE) will create a new file if one doesn't exist already
 *   [`O_EXCL`](https://pkg.go.dev/os#O_EXCL) means the file must not exist already
@@ -18,7 +18,7 @@ f, err := os.OpenFile(fname, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0666)
 
 Here's an example program:
 
-```go
+{% code lang="go" names="0:main 1:main 2:fname 3:f 4:err 28:err" %}
 package main
 
 import (
@@ -46,7 +46,7 @@ func main() {
 
 	log.Printf("Created file successfully: %s\n", fname)
 }
-```
+{% endcode %}
 
 Here's what happens when you run it:
 
