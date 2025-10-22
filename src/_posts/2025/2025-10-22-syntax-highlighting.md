@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-10-22 12:55:42 +0000
 title: Doing my own syntax highlighting (finally)
 summary: I've redesigned my syntax highlighting scheme to use a smaller colour palette. Here's what I've changed, how it works, and why I think it's better.
 tags:
