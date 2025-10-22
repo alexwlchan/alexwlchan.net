@@ -44,7 +44,7 @@ Here's a snippet of Rust code with the old syntax highlighting:
 {%
   picture
   filename="old_code.png"
-  width="600"
+  width="626"
   class="screenshot"
   alt="Screenshot of some Rust code. Most of the code is coloured either blue, red, or green, with some bold and italicised text. The one comment is in a dull bluish-grey."
 %}
@@ -54,7 +54,7 @@ Here's the same code in my new design:
 {%
   picture
   filename="new_code.png"
-  width="600"
+  width="626"
   class="screenshot"
   alt="Screenshot of the same Rust code. Now the code is mostly black, with blue highlights for the import/function/variable name, strings in green, and the comment is bright red."
 %}
