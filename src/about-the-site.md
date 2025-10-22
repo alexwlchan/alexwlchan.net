@@ -146,7 +146,7 @@ I've never been sure what to put in my sidebar -- it seems a waste of space not 
 ## 2013: A big name redesign
 
 The first new design switched to a red-and-white theme which is very similar to the palette I'm still using.
-I'm sure this was using somebody else's theme, but I don't remember what it was called.
+This was based on [Lucas Lew's Whitespace theme](https://github.com/lucaslew/whitespace).
 
 I wrote my name in very large text, which looks faintly ridiculous in hindsight.
 
