@@ -24,11 +24,11 @@ It's a visual clue that something will happen when you click, and "see the big v
 
 Initially I implemented this by adding a `border` property on hover, for example:
 
-```
+{% code lang="css" %}
 a:hover img {
   border: 10px solid red;  /* don't do this */
 }
-```
+{% endcode %}
 
 But a border takes up room on the page, which causes everything to get rearranged around it.
 Everything moves to make space for the border that just appeared, which is precisely what I don't want.
@@ -41,13 +41,13 @@ It became a game of whack-a-mole to make all my margins work in a consistent way
 The better approach I've found is to add a [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) with no blur -- this looks like a border, but it's purely visual and doesn't take up any space on the page.
 This is the rule I use:
 
-```
+{% code lang="css" %}
 a:hover img {
   /* Four length values and a color */
   /* <offset-x> | <offset-y> | <blur-radius> | <spread-radius> | <color> */
   box-shadow: 0 0 0 10px red;
 }
-```
+{% endcode %}
 
 <style>
   #examples {
@@ -328,13 +328,13 @@ Here's a 3D view of the two shapes, so you can see more clearly how they form a 
 Now I have two elements that I can style independently.
 For example:
 
-```
+{% code lang="css" %}
 .email .foreground { fill: gray; }
 .email .background { fill: none; }
 
 a:hover .email .foreground { fill: blue;  }
 a:hover .email .background { fill: white; }
-```
+{% endcode %}
 
 This technique can be extended to more complex icons -- split it into multiple elements, and style each one independently.
 

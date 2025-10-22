@@ -31,7 +31,7 @@ At the heart of the project is a Python library called [hyperlink](https://hyper
 This is a URL parsing library that I first came across several years ago, when I made a few contributions to the python-hyper library.
 It has quite a nice API for breaking apart URLs:
 
-```pycon
+{% code lang="pycon" names="0:hyperlink 1:url" %}
 >>> import hyperlink
 >>> url = hyperlink.parse("https://www.flickr.com/photo_exif.gne?id=4727552068")
 >>> url.host
@@ -40,24 +40,24 @@ It has quite a nice API for breaking apart URLs:
 ('photo_exif.gne',)
 >>> url.fragment
 ''
-```
+{% endcode %}
 
 There is a [`urlparse` module](https://docs.python.org/3/library/urllib.parse.html) in the standard library, but I prefer Hyperlink because of how it handles query strings.
 It does the work of parsing query strings and reversing any URL decoding in a single step, whereas it's several steps with the standard library.
 
 Compare:
 
-```pycon
+{% code lang="pycon" names="0:url" %}
 >>> url = hyperlink.parse('https://example.com/?greeting=hello%20world&place=caf%c3%a9')
 >>> url.query
 (('greeting', 'hello world'), ('place', 'café'))
 >>> url.get('place')
 ['café']
-```
+{% endcode %}
 
 with:
 
-```pycon
+{% code lang="pycon" names="0:url" %}
 >>> url = urllib.parse.urlparse('https://example.com/?greeting=hello%20world&place=caf%c3%a9')
 >>> url.query
 'greeting=hello%20world&place=caf%c3%a9'
@@ -65,7 +65,7 @@ with:
 {'greeting': ['hello world'], 'place': ['café']}
 >>> urllib.parse.parse_qs(url.query)['place']
 ['café']
-```
+{% endcode %}
 
 I find the former easier to write and to read.
 It also has a nice API for [manipulating query parameters](https://hyperlink.readthedocs.io/en/latest/api.html#query-parameters), which I use in a lot of projects.
