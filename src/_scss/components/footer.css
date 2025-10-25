@@ -9,6 +9,11 @@ footer {
    * It looks the same in light/dark mode.
    */
   background: var(--primary-color);
+
+  /* Don't allow line breaking in the footer links. */
+  li a {
+    white-space: nowrap;
+  }
 }
 
 footer,
