@@ -45,20 +45,20 @@ from itertools import combinations_with_replacement
 When we call this function, we have to tell it the length of the combination.
 For example, we can find all the combinations of three boards:
 
-```python
+{% code lang="python" names="0:board_lengths 1:combo" %}
 board_lengths = [40, 50, 60, 70, 75, 90, 170, 180]
 
 for combo in combinations_with_replacement(board_lengths, 3):
     print(combo)
-```
+{% endcode %}
 
 Here's a sample of the output:
 
-```
+```python
 (40, 40, 40)
 (40, 40, 50)
 (40, 40, 60)
-…
+...
 (170, 170, 180)
 (170, 180, 180)
 (180, 180, 180)
@@ -68,17 +68,17 @@ You can see it's working through the combinations in order -- this is the sort o
 
 Then we can filter these combinations to find the ones that sum to the total we want:
 
-```python
+{% code lang="python" names="0:target_length 1:combo" %}
 target_length = 360
 
 for combo in combinations_with_replacement(board_lengths, 3):
     if sum(combo) == target_length:
         print(combo)
-```
+{% endcode %}
 
 and we learn that there's just one combination of length 3:
 
-```
+```python
 (90, 90, 180)
 ```
 
@@ -107,7 +107,7 @@ from itertools import count
 
 We'll keep increasing the number of boards until the shortest possible combination is too long:
 
-```python
+{% code lang="python" names="0:number_of_boards 2:shortest_possible_total 8:combo" %}
 for number_of_boards in count():
     shortest_possible_total = number_of_boards * min(board_lengths)
 
@@ -115,12 +115,12 @@ for number_of_boards in count():
         break
 
     for combo in combinations_with_replacement(board_lengths, number_of_boards):
-        # ...
-```
+        ...
+{% endcode %}
 
 We can put this together for our final solution:
 
-```python
+{% code lang="python" names="0:itertools 1:count 2:combinations_with_replacement 3:board_lengths 4:target_length 5:number_of_boards 7:shortest_possible_total 13:combo" %}
 from itertools import count, combinations_with_replacement
 
 board_lengths = [40, 50, 60, 70, 75, 90, 170, 180]
@@ -135,7 +135,7 @@ for number_of_boards in count():
     for combo in combinations_with_replacement(board_lengths, number_of_boards):
         if sum(combo) == target_length:
                 print(combo)
-```
+{% endcode %}
 
 and we discover that there are 64 possible combinations that sum to 360.
 

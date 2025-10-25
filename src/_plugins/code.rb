@@ -139,6 +139,14 @@ module Jekyll
         )
       end
 
+      # Python: highlight ellipsis as punctuation, not a builtin keyword.
+      if lang == 'python'
+        html = html.gsub(
+          '<span class="bp">...</span>',
+          '<span class="p">...</span>'
+        )
+      end
+
       html = html.gsub(%r{<span class="k">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="kn">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="o">([^>]+)</span>}, '\\1')
