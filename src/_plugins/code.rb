@@ -155,6 +155,22 @@ module Jekyll
         )
       end
 
+      # Ruby: double colon between parts of a class name are punctuation.
+      if lang == 'ruby'
+        html = html.gsub(
+          '<span class="o">::</span>',
+          '<span class="p">::</span>'
+        )
+      end
+
+      # Ruby: class names are not constants.
+      if lang == 'ruby'
+        html = html.gsub(
+          %r{<span class="no">([A-Z][a-zA-Z_]+)</span>},
+          '\\1'
+        )
+      end
+
       html = html.gsub(%r{<span class="k">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="kn">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="o">([^>]+)</span>}, '\\1')
