@@ -147,6 +147,14 @@ module Jekyll
         )
       end
 
+      # Shell: line continuation characters are punctuation, not escapes.
+      if lang == 'shell'
+        html = html.gsub(
+          %r{<span class="se">\\</span>\n},
+          "<span class=\"p\">\\</span>\n"
+        )
+      end
+
       html = html.gsub(%r{<span class="k">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="kn">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="o">([^>]+)</span>}, '\\1')
