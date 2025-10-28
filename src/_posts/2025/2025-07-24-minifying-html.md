@@ -62,7 +62,7 @@ I start by changing my `compress.html` layout to pass the page content to a `com
 
 This filter is defined as [a custom plugin](https://jekyllrb.com/docs/plugins/filters/); I save the following code in `_plugins/compress_html.rb`:
 
-```ruby
+{% code lang="ruby" names="0:run_compress_html 1:html 3:options 4:compressor 12:Jekyll 13:CompressHtmlFilter 14:compress_html 15:html 16:cache" %}
 def run_compress_html(html)
   require 'htmlcompressor'
 
@@ -86,7 +86,7 @@ module Jekyll
 end
 
 Liquid::Template.register_filter(Jekyll::CompressHtmlFilter)
-```
+{% endcode %}
 
 I mostly stick with the default options; the only extra rule I enabled was to remove inter-tag spaces.
 Consider the following example:
@@ -110,7 +110,7 @@ It's very fast, and even more aggressive than other minifiers.
 I use it in a very similar way to `htmlcompressor`.
 I call the same `compress_html` filter in `_layouts/compress.html`, and then my `run_compress_html` in `_plugins/compress_html.rb` is a bit different:
 
-```ruby
+{% code lang="ruby" names="0:run_compress_html 1:html 3:options" %}
 def run_compress_html(html)
   require 'minify_html'
 
@@ -123,7 +123,7 @@ def run_compress_html(html)
 
   minify_html(html, options)
 end
-```
+{% endcode %}
 
 This is a much more aggressive minifier.
 For example, it turns out that the `<html>` and `<head>` elements are optional in an HTML5 document, so this minifier removes them if it can.
