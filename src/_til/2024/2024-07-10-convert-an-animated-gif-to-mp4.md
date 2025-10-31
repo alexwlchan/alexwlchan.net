@@ -9,7 +9,7 @@ I sometimes need to convert animated GIFs into MP4 movie files -- this can often
 
 This is the `ffmpeg` command I use:
 
-```shell
+{% code lang="shell" %}
 ffmpeg \
   -i INPUT_GIF_PATH \
   -movflags faststart \
@@ -17,7 +17,7 @@ ffmpeg \
   [-vf scale=WIDTH:HEIGHT] \
   [-y] \
   OUTPUT_MP4_PATH
-```
+{% endcode %}
 
 Here's what it's doing:
 
