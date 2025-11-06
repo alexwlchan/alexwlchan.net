@@ -1,7 +1,6 @@
 .mastodon-embed {
   --background: white;
   --text:       black;
-  --border:     rgb(201, 196, 218);
   --meta:       #45455f;
   --purple:     rgb(97, 97, 255);
 }
@@ -10,7 +9,6 @@
   .mastodon-embed {
     --background: rgb(24, 24, 33);
     --text:       rgb(255, 255, 255);
-    --border:     rgb(49, 49, 68);
     --meta:       #606085;
     --purple:     rgb(140, 141, 255);
   }
@@ -20,8 +18,9 @@
   margin-left:  auto;
   margin-right: auto;
   background: var(--background);
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  border: var(--border-width) var(--border-style) var(--purple);
+  
   min-width: 270px;
   max-width: 508px;  /* = 540px - 16px * 2 */
   overflow: hidden;
