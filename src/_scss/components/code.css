@@ -1,5 +1,3 @@
-@use "../mixins";
-
 code, pre {
   font-family: var(--mono-font-family);
   overflow-x: auto;
@@ -50,8 +48,6 @@ pre.wrap {
   text-align: right;
   width: calc(var(--lineno-digits) * 9px);
   color: var(--body-text);
-
-  @include mixins.disable_select();
 
   /* These three properties create a solid horizontal line between
    * the line numbers and the code. */
