@@ -90,8 +90,14 @@ module Jekyll
         idx = name_matches.length - idx - 1
         varname = m.named_captures['varname']
 
-        unless @attrs['debug'].nil?
-          html[m.begin(0)..(m.end(0) - 1)] = m[0] + "[#{idx}]"
+        # If we're in debug mode, add a checkbox and a <label> that can
+        # be used to opt names in-and-out.
+        #
+        # This allows me to build the colouring interactively.
+        if @attrs['debug'] == 'true'
+          form_id = "#{idx}:#{varname}"
+          html[m.begin(0)..(m.end(0) - 1)] = "<label for=\"#{form_id}\">#{varname}<input class=\"codeName\" type=\"checkbox\" id=\"#{form_id}\" onChange=\"recalculateVariables()\"/></label>"
+          next
         end
 
         # If this isn't one of the names we want to highlight, remove the
@@ -122,6 +128,52 @@ module Jekyll
         # Re-wrap in <span class="n">, so any previously ignored names
         # come back.
         html[m.begin(0)..(m.end(0) - 1)] = "<span class=\"n\">#{varname}</span>"
+      end
+      
+      # If we're in debug mode, append the debugging snippet.
+      #
+      # This gives me a tool that lets my dynamically choose which names
+      # to highlight, and constructs the `names` string I should add
+      # to my code.
+      if @attrs['debug'] == 'true'
+        debug_snippet = <<HTML
+<p id="debug">DEBUG: <code id=\"debugNames\">names=""</code></p>
+<style>
+  pre input[type="checkbox"] {
+    display: none;
+  }
+
+  pre label {
+    text-decoration: underline;
+    -webkit-text-decoration-style: dashed;
+  }
+  
+  pre label:has(input[type="checkbox"]:checked) {
+    color: var(--blue);
+  }
+  
+  #debug {
+    color: red;
+  }
+</style>
+<script>
+  function recalculateVariables() {
+    debugNames = document.querySelector("code#debugNames");
+    
+    var selectedNames = [];
+    
+    document.querySelectorAll("input.codeName")
+      .forEach(checkbox => {
+        if (checkbox.checked) {
+          selectedNames.push(checkbox.id);
+        }
+      });
+    
+    debugNames.innerText = `names="${selectedNames.join(" ")}"`;
+  }
+</script>
+HTML
+        html += debug_snippet
       end
 
       # Highlight Rust booleans as .kc (keyword-constant) rather than
