@@ -129,50 +129,50 @@ module Jekyll
         # come back.
         html[m.begin(0)..(m.end(0) - 1)] = "<span class=\"n\">#{varname}</span>"
       end
-      
+
       # If we're in debug mode, append the debugging snippet.
       #
       # This gives me a tool that lets my dynamically choose which names
       # to highlight, and constructs the `names` string I should add
       # to my code.
       if @attrs['debug'] == 'true'
-        debug_snippet = <<HTML
-<p id="debug">DEBUG: <code id=\"debugNames\">names=""</code></p>
-<style>
-  pre input[type="checkbox"] {
-    display: none;
-  }
+        debug_snippet = <<~HTML
+          <p id="debug">DEBUG: <code id="debugNames">names=""</code></p>
+          <style>
+            pre input[type="checkbox"] {
+              display: none;
+            }
 
-  pre label {
-    text-decoration: underline;
-    -webkit-text-decoration-style: dashed;
-  }
-  
-  pre label:has(input[type="checkbox"]:checked) {
-    color: var(--blue);
-  }
-  
-  #debug {
-    color: red;
-  }
-</style>
-<script>
-  function recalculateVariables() {
-    debugNames = document.querySelector("code#debugNames");
-    
-    var selectedNames = [];
-    
-    document.querySelectorAll("input.codeName")
-      .forEach(checkbox => {
-        if (checkbox.checked) {
-          selectedNames.push(checkbox.id);
-        }
-      });
-    
-    debugNames.innerText = `names="${selectedNames.join(" ")}"`;
-  }
-</script>
-HTML
+            pre label {
+              text-decoration: underline;
+              -webkit-text-decoration-style: dashed;
+            }
+          #{'  '}
+            pre label:has(input[type="checkbox"]:checked) {
+              color: var(--blue);
+            }
+          #{'  '}
+            #debug {
+              color: red;
+            }
+          </style>
+          <script>
+            function recalculateVariables() {
+              debugNames = document.querySelector("code#debugNames");
+          #{'    '}
+              var selectedNames = [];
+          #{'    '}
+              document.querySelectorAll("input.codeName")
+                .forEach(checkbox => {
+                  if (checkbox.checked) {
+                    selectedNames.push(checkbox.id);
+                  }
+                });
+          #{'    '}
+              debugNames.innerText = `names="${selectedNames.join(" ")}"`;
+            }
+          </script>
+        HTML
         html += debug_snippet
       end
 
@@ -200,7 +200,7 @@ HTML
       end
 
       # Shell: line continuation characters are punctuation, not escapes.
-      if lang == 'shell'
+      if %w[shell console].include?(lang)
         html = html.gsub(
           %r{<span class="se">\\</span>\n},
           "<span class=\"p\">\\</span>\n"
