@@ -163,7 +163,7 @@ I chose to work in a polar coordinate system where angles are measured clockwise
 
 This choice of coordinates gives you a straightforward conversion between polar and Cartesian:
 
-```python
+{% code lang="python" names="0:math 1:polar_to_cartesian 2:origin_x 3:origin_y 4:radius 5:angle" %}
 import math
 
 
@@ -172,7 +172,7 @@ def polar_to_cartesian(origin_x, origin_y, radius, angle):
         "x": origin_x + radius * math.cos(angle),
         "y": origin_y + radius * math.sin(angle),
     }
-```
+{% endcode %}
 
 This helper function allows me to define my shapes with polar coordinates, then convert to Cartesian when I want to actually draw them in the SVG.
 
