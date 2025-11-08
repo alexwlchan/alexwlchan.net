@@ -17,7 +17,7 @@ One of our longest-standing issues has been around sending `Date` values via JSO
 This TypeScript program illustrates the issue: we create an object that includes some `Date`s, encodes it as JSON, then decode it back into an object.
 It calls a function that expects to use some `Date` values -- once before the JSON round-trip, once after.
 
-```typescript
+{% code lang="typescript" names="0:ScheduledEvent 1:start 3:end 5:getDuration 6:ev 8:milliseconds 18:ev 26:jsonifiedEvent 30:parsedEvent" %}
 type ScheduledEvent = {
   start: Date;
   end: Date;
@@ -39,14 +39,14 @@ const jsonifiedEvent: string = JSON.stringify(ev);
 const parsedEvent: ScheduledEvent = JSON.parse(jsonifiedEvent);
 
 getDuration(parsedEvent);
-```
+{% endcode %}
 
 This program passes type checking, but if you actually run it, you get an error:
 
 ```
-[LOG]: "The event is 7200 seconds long" 
-[ERR]: "Executed JavaScript Failed:" 
-[ERR]: ev.end.getTime is not a function. (In 'ev.end.getTime()', 'ev.end.getTime' is undefined) 
+[LOG]: "The event is 7200 seconds long"
+[ERR]: "Executed JavaScript Failed:"
+[ERR]: ev.end.getTime is not a function. (In 'ev.end.getTime()', 'ev.end.getTime' is undefined)
 ```
 
 Before the JSON round-trip, the `ev.start` and `ev.end` variables are both `Date` values.
@@ -66,7 +66,7 @@ That worked, but it was confusing -- the type system tells us this value is a `D
 Later we tried writing functions to coerce the string-ified values back to `Date`.
 Something like:
 
-```typescript
+{% code lang="typescript" names="0:fixDatesInScheduledEvent 1:ev 12:jsonifiedEvent 16:parsedEvent 21:fixedEvent" %}
 function fixDatesInScheduledEvent(ev: ScheduledEvent): ScheduledEvent {
   return {
     start: new Date(ev.start),
@@ -77,7 +77,7 @@ function fixDatesInScheduledEvent(ev: ScheduledEvent): ScheduledEvent {
 const jsonifiedEvent: string = JSON.stringify(ev);
 const parsedEvent: ScheduledEvent = JSON.parse(jsonifiedEvent);
 const fixedEvent: ScheduledEvent = fixDatesInScheduledEvent(parsedEvent);
-```
+{% endcode %}
 
 This kept all the date fixing in a single place, but for increasingly large and complex types it was tricky to be sure that we'd fixed all the `Date` values.
 We'd only discover we'd forgotten to fix a field when something broke.
@@ -85,7 +85,7 @@ And it's still confusing if you look at the type system -- it's another conversi
 
 At one point I considered adding generic parameters to all our types, so we could track whether a given date value was a `Date` or a `string`:
 
-```typescript
+{% code lang="typescript" names="0:ScheduledEvent 1:DateType 2:start 4:end 6:jsonifiedEvent 10:parsedEvent 15:fixedEvent" %}
 type ScheduledEvent<DateType> = {
   start: DateType;
   end:   DateType;
@@ -94,7 +94,7 @@ type ScheduledEvent<DateType> = {
 const jsonifiedEvent: string = JSON.stringify(ev);
 const parsedEvent: ScheduledEvent<string> = JSON.parse(jsonifiedEvent);
 const fixedEvent: ScheduledEvent<Date> = fixDatesInScheduledEvent(parsedEvent);
-```
+{% endcode %}
 
 but this would involve adding hundreds of type parameters to functions in our codebase, and spreading this JSON mess over lots more files.
 I had an experimental branch, but it didn't last long.
@@ -113,7 +113,7 @@ Looking for a superjson alternative is what led to our current approach.
 
 If you look at how superjson serialises Date values, it's keeping a list of all the places in the JSON that were originally a Date:
 
-```
+```json
 {
   "articles": [
     {
@@ -139,7 +139,7 @@ It's clear this approach could be made more flexible if you wanted to handle oth
 
 We decided to take a different route: rather than keep a list of fields that we need to de-stringify, we encode instances of `Date` as a JSON object with a `type` parameter:
 
-```
+```json
 {
   "value": "2022-12-15T10:00:01.000Z",
   "type": "Date"
@@ -152,7 +152,7 @@ I thought this might involve recursively modifying the objects, which tends to b
 With [JSON.stringify()][JSON.stringify], we can pass an optional *replacer* method that takes a key and a value, and replaces the value before it's encoded as JSON.
 This allows us to replace any instances of `Date` with our custom object:
 
-```typescript
+{% code lang="typescript" names="0:replacer 2:key 3:value" %}
 const replacer = function (key: string, value: any) {
   return this[key] instanceof Date
     ? {
@@ -163,12 +163,12 @@ const replacer = function (key: string, value: any) {
 };
 
 JSON.stringify(…, replacer);
-```
+{% endcode %}
 
 With [JSON.parse()][JSON.parse], we can pass an optional *reviver* function that takes a key and a JSON value, and modifies the value before it's returned.
 This allows us to detect our custom object, and replace any instances of it with a `Date`:
 
-```typescript
+{% code lang="typescript" names="0:reviver 2:key 3:value" %}
 const reviver = function (key: string, value: any) {
   if (
     value !== null &&
@@ -185,7 +185,7 @@ const reviver = function (key: string, value: any) {
 };
 
 JSON.parse(…, reviver);
-```
+{% endcode %}
 
 We use this code in our JSON encoder/decoder functions, and it's been working pretty well so far.
 We get to shed a dependency and rely on vanilla JavaScript features, and it reduces the number of confusing interactions with the type system.
