@@ -32,8 +32,9 @@ GEM
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
-    ethon (0.17.0)
+    ethon (0.18.0)
       ffi (>= 1.15.0)
+      logger
     eventmachine (1.2.7)
     expectations (2.0.0)
       mocha (>= 0.5.5)
@@ -51,7 +52,7 @@ GEM
       bigdecimal
       rake (>= 13)
     hashery (2.1.2)
-    html-proofer (5.0.10)
+    html-proofer (5.1.0)
       addressable (~> 2.3)
       async (~> 2.1)
       nokogiri (~> 1.13)
