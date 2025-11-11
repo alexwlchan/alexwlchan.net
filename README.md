@@ -80,7 +80,10 @@ This is a list of things that I think are interesting or unusual:
 
 ## Contributing
 
-Fixes for typos are welcome, but otherwise contributions will be ignored.
+This is my personal website, so I'm not looking for feature requests or major contributions.
+
+I'd love to get bug reports, especially about accessibility issues, browser rendering inconsistencies, and general usability feedback.
+I'm also happy to receive pull requests with typo fixes.
 
 If you want to use any of the components in your own projects – plugins, layouts, stylesheets – feel free to do so.
 
