@@ -74,6 +74,7 @@ module Jekyll
       # namespace, so the dots get grey punctuation
       ['concurrent.futures', 'collections.abc'].each do |import|
         next unless html.include?(import) && (lang == 'python')
+
         part0, part1 = import.split('.')
         html = html.gsub(
           "<span class=\"kn\">import</span> <span class=\"n\">#{import}</span>",
