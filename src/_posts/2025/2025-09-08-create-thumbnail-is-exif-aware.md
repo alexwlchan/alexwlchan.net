@@ -45,6 +45,9 @@ $ exiftool -n -orientation my_picture.jpg
 Orientation                     : 8
 ```
 
+This means that when a program renders `my_picture.jpg`, it should rotate it 270&deg; clockwise.
+Compare to the diagram above, and we see that this would rotate the word "FLY" back to the correct upright position.
+
 [exiftool]: https://exiftool.org/
 
 ## Resizing images in Rust
