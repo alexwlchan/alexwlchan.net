@@ -72,10 +72,17 @@ module Jekyll
 
       # Replace dotted imports in Python with names broken down by
       # namespace, so the dots get grey punctuation
-      if html.include?('concurrent.futures') && (lang == 'python')
+      ['concurrent.futures', 'collections.abc'].each do |import|
+        next unless html.include?(import) && (lang == 'python')
+
+        part0, part1 = import.split('.')
         html = html.gsub(
-          '<span class="kn">import</span> <span class="n">concurrent.futures</span>',
-          '<span class="kn">import</span> <span class="n">concurrent</span><span class="p">.</span><span class="n">futures</span>'
+          "<span class=\"kn\">import</span> <span class=\"n\">#{import}</span>",
+          "<span class=\"kn\">import</span> <span class=\"n\">#{part0}</span><span class=\"p\">.</span><span class=\"n\">#{part1}</span>"
+        )
+        html = html.gsub(
+          "<span class=\"kn\">from</span> <span class=\"n\">#{import}</span>",
+          "<span class=\"kn\">from</span> <span class=\"n\">#{part0}</span><span class=\"p\">.</span><span class=\"n\">#{part1}</span>"
         )
       end
 
@@ -196,6 +203,15 @@ module Jekyll
         html = html.gsub(
           '<span class="bp">...</span>',
           '<span class="p">...</span>'
+        )
+      end
+
+      # Python console: don't highlight the last continuation ellipsis
+      # in red, just make it blue like the rest.
+      if lang == 'console?lang=python&prompt=>>>,...'
+        html = html.gsub(
+          "<span class=\"c\">...\n</span>",
+          "<span class=\"gp\">...\n</span>"
         )
       end
 
