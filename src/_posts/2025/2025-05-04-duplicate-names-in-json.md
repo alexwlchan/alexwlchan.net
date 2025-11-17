@@ -10,7 +10,7 @@ tags:
 
 Consider the following JSON object:
 
-```
+```json
 {
   "sides":  4,
   "colour": "red",
@@ -71,11 +71,11 @@ I'm sure there was a good reason for it being allowed by the spec, but I can't t
 Most JSON parsers -- including jq, JavaScript, and Python -- will silently discard all but the last instance of a duplicate name.
 Here's an example in Python:
 
-```pycon
+{% code lang="pycon" names="0:json" %}
 >>> import json
 >>> json.loads('{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}')
 {'colour': 'blue', 'sides': 5}
-```
+{% endcode %}
 
 What if I wanted to decode the whole object, or throw an exception if I see duplicate names?
 
@@ -120,7 +120,7 @@ This allows us to parse objects in a different way.
 
 For example, we can just return the literal list of name/value pairs:
 
-```pycon
+{% code lang="pycon" names="0:json 4:pairs" %}
 >>> import json
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}',
@@ -128,12 +128,12 @@ For example, we can just return the literal list of name/value pairs:
 ... )
 ...
 [('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')]
-```
+{% endcode %}
 
 We could also use the [multidict library][multidict] to get a dict-like data structure which supports multiple values per key.
 This is based on HTTP headers and URL query strings, two environments where it's common to have multiple values for a single key:
 
-```pycon
+{% code lang="pycon" names="0:multidict 1:MultiDict 2:md 6:pairs" %}
 >>> from multidict import MultiDict
 >>> md = json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}',
@@ -146,7 +146,7 @@ This is based on HTTP headers and URL query strings, two environments where it's
 4
 >>> md.getall('sides')
 [4, 5]
-```
+{% endcode %}
 
 
 
@@ -155,7 +155,7 @@ This is based on HTTP headers and URL query strings, two environments where it's
 If we want to throw an exception when we see duplicate names, we need a longer function.
 Here's the code I wrote:
 
-```python
+{% code lang="python" names="0:collections 1:typing 2:dict_with_unique_names 3:pairs 13:pairs_as_dict 21:name_tally 28:repeated_names"%}
 import collections
 import typing
 
@@ -188,22 +188,22 @@ def dict_with_unique_names(pairs: list[tuple[str, typing.Any]]) -> dict[str, typ
         raise ValueError(
             f"Found repeated names in JSON object: {', '.join(repeated_names)}"
         )
-```
+{% endcode %}
 
 If I use this as my `object_pairs_hook` when parsing an object which has all unique names, it returns the normal `dict` I'd expect:
 
-```pycon
+{% code lang="pycon" %}
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red"}',
 ...     object_pairs_hook=dict_with_unique_names
 ... )
 ...
 {'colour': 'red', 'sides': 4}
-```
+{% endcode %}
 
 But if I'm parsing an object with one or more repeated names, the parsing fails and throws a `ValueError`:
 
-```pycon
+{% code lang="pycon" %}
 >>> json.loads(
 ...     '{"sides": 4, "colour": "red", "sides": 5}',
 ...      object_pairs_hook=dict_with_unique_names
@@ -219,7 +219,7 @@ ValueError: Found repeated name in JSON object: sides
 Traceback (most recent call last):
 […]
 ValueError: Found repeated names in JSON object: sides, colour
-```
+{% endcode %}
 
 This is precisely the behaviour I want -- throwing an exception, not silently dropping data.
 
@@ -235,7 +235,7 @@ It's hard to think of a use case, but this post feels incomplete without at leas
 If you want to encode custom data structures with Python's JSON library, you can subclass [`JSONEncoder`][JSONEncoder] and define how those structures should be serialised.
 Here's a rudimentary attempt at doing that for a `MultiDict`:
 
-```python
+{% code lang="python" names="0:MultiDictEncoder 3:encode 5:o 12:name_value_pairs" %}
 class MultiDictEncoder(json.JSONEncoder):
 
     def encode(self, o: typing.Any) -> str:
@@ -251,15 +251,15 @@ class MultiDictEncoder(json.JSONEncoder):
             return '{' + ', '.join(name_value_pairs) + '}'
 
         return super().encode(o)
-```
+{% endcode %}
 
 and here's how you use it:
 
-```pycon
+{% code lang="pycon" names="0:md" %}
 >>> md = MultiDict([('sides', 4), ('colour', 'red'), ('sides', 5), ('colour', 'blue')])
 >>> json.dumps(md, cls=MultiDictEncoder)
 {"sides": 4, "colour": "red", "sides": 5, "colour": "blue"}
-```
+{% endcode %}
 
 This is rough code, and you shouldn't use it -- it's only an example.
 I'm constructing the JSON string manually, so it doesn't handle edge cases like indentation or special characters.
@@ -268,7 +268,7 @@ There are almost certainly bugs, and you'd need to be more careful if you wanted
 In practice, if I had to encode a multi-dict as JSON, I'd encode it as a list of objects which each have a `key` and a `value` field.
 For example:
 
-```
+```json
 [
   {"key": "sides",  "value": 4     },
   {"key": "colour", "value": "red" },

@@ -206,6 +206,15 @@ module Jekyll
         )
       end
 
+      # Python console: don't highlight the last continuation ellipsis
+      # in red, just make it blue like the rest.
+      if lang == 'console?lang=python&prompt=>>>,...'
+        html = html.gsub(
+          "<span class=\"c\">...\n</span>",
+          "<span class=\"gp\">...\n</span>"
+        )
+      end
+
       # Shell: line continuation characters are punctuation, not escapes.
       if %w[shell console].include?(lang)
         html = html.gsub(
