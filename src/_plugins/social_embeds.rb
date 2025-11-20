@@ -98,7 +98,7 @@ module Jekyll
       alt_text = media['ext_alt_text']
 
       <<~HTML
-        <a href="#{media['expanded_url']}">
+        <a href="#{media['url']}">
           {%
             picture
             filename="#{media['filename']}"
