@@ -112,11 +112,15 @@
     "id": "848188958567800832",
     "text": "One of the many signs of a great conference. #inclusivity #alterconf",
     "entities": {
-      "hashtags": ["inclusivity", "alterconf"],
+      "hashtags": [
+        "inclusivity",
+        "alterconf"
+      ],
       "media": [
         {
           "filename": "C8VfWJyXkAIWboG.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/iamkimiam/status/848188958567800832/photo/1"
         }
       ],
       "urls": []
@@ -139,7 +143,8 @@
       "media": [
         {
           "filename": "DCscTh5W0AIX9yO.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/BrookeCottrell_/status/876825684202663937/photo/1"
         }
       ],
       "urls": []
@@ -277,7 +282,8 @@
       "media": [
         {
           "filename": "Fz4iNokXwAAv2hD.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/TerribleMaps/status/1674813732260655106/photo/1"
         }
       ],
       "urls": [
@@ -300,11 +306,14 @@
     "id": "1040947442735345664",
     "text": "#PyConUK \"Help me, I'm trapped in a sign printing factory!\"",
     "entities": {
-      "hashtags": ["PyConUK"],
+      "hashtags": [
+        "PyConUK"
+      ],
       "media": [
         {
           "filename": "DnIwLcCXsAYmcfH.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/anabalica/status/1040947442735345664/photo/1"
         }
       ],
       "urls": []
@@ -318,26 +327,34 @@
   "https://twitter.com/SpyForSpyPlay/status/1675112286103429123": {
     "date_posted": "2023-07-01T01:01:00+01:00",
     "entities": {
-      "hashtags": ["SpyForSpyPlay"],
+      "hashtags": [
+        "SpyForSpyPlay"
+      ],
       "media": [
         {
           "filename": "Fz8xvJBWIAEOB5j.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/1"
         },
         {
           "filename": "Fz8xvJZXgAAJdF5.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/2"
         },
         {
           "filename": "Fz8xvIVWIAI92V9.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/3"
         },
         {
           "filename": "Fz8xvIVXwAAiUCU.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/4"
         }
       ],
-      "user_mentions": ["RiversideLondon"]
+      "user_mentions": [
+        "RiversideLondon"
+      ]
     },
     "text": "💞 Love 💞\n\nThank you for experiencing Molly & Sarah’s journey with us.\n\nOur limited run at @RiversideLondon ends tomorrow and we've had a blast.\n\n#SpyForSpyPlay",
     "id": "1675112286103429123",
@@ -375,7 +392,8 @@
       "media": [
         {
           "filename": "DQwXlPKVAAAhdNN.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/CambsCops/status/940152354627874818/photo/1"
         }
       ],
       "urls": [
@@ -396,7 +414,9 @@
     "id": "1258147811851460608",
     "text": "Who wants to see some cursed #Python? \n\nVariable-length tuple unpacking. I want to assign a bunch of variables to True, but I don’t know how many there are. Reflection to the rescue!\n\na, b = Trues()\na, b, c, d = Trues()\n\na, b, \\\nc, d = Trues()\n\n(a, b,\nc,\nd) = Trues() https://twitter.com/alexwlchan/status/1258147811851460608/photo/1",
     "entities": {
-      "hashtags": ["Python"],
+      "hashtags": [
+        "Python"
+      ],
       "urls": [
         {
           "url": "https://twitter.com/alexwlchan/status/1258147811851460608/photo/1",
@@ -429,7 +449,8 @@
         {
           "filename": "FUlx_twWYAAOta9.jpg",
           "ext_alt_text": "White-on-blue cross stitch showing line art of the full lunar lander, plus part of the command module attached to it. There’s also a black iPhone sitting off to one side, covering the other stitches.",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/alexwlchan/status/1533882908770983943/photo/1"
         }
       ],
       "urls": []
@@ -455,7 +476,9 @@
     "id": "1150143170287587328",
     "text": "SOCIAL EXPERIMENT: If you come across this tweet, reply with the grade you were in when you had your first LGBTQ+ teacher. #edchat",
     "entities": {
-      "hashtags": ["edchat"]
+      "hashtags": [
+        "edchat"
+      ]
     },
     "author": {
       "name": "Patrick 🏄🏻‍♂️",
@@ -469,19 +492,24 @@
     "text": "Another lost transport world in @BrittenOfficial’s papers: the ferry over the Forth at Queensferry, which operated until the Forth Road Bridge opened in 1964.  Here are 3 passenger tickets plus what I think is a counterfoil from a ticket for a car, from 1950.",
     "entities": {
       "urls": [],
-      "user_mentions": ["BrittenOfficial"],
+      "user_mentions": [
+        "BrittenOfficial"
+      ],
       "media": [
         {
           "filename": "D18824AWoAEdrSd.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/1"
         },
         {
           "filename": "D1884yaXcAIgYP_.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/2"
         },
         {
           "filename": "D1887JfWkAAokaU.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/3"
         }
       ]
     },
@@ -506,11 +534,14 @@
     "id": "924569032170397696",
     "text": "Tweaked wording on the lightning talk buckets at #PyConUK.",
     "entities": {
-      "hashtags": ["PyConUK"],
+      "hashtags": [
+        "PyConUK"
+      ],
       "media": [
         {
           "filename": "DNS6ocAX4AA7UYD.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/alexwlchan/status/924569032170397696/photo/1"
         }
       ],
       "urls": []
@@ -529,7 +560,8 @@
       "media": [
         {
           "filename": "E4IC6vBX0AEWTiz.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1"
         }
       ],
       "urls": []
@@ -612,11 +644,15 @@
     "id": "1255825450485628928",
     "text": "Ever wondered what a petabye of storage looks like these days? This...! These have just been delivered and are destined to be installed next week in the @natlibscot preservation storage system (96 x 14TB 7.2K SATA drives --&gt; geo replicated @scality system)",
     "entities": {
-      "user_mentions": ["natlibscot", "scality"],
+      "user_mentions": [
+        "natlibscot",
+        "scality"
+      ],
       "media": [
         {
           "filename": "EW2WlhNXsAALuAR.jpg",
-          "type": "photo"
+          "type": "photo",
+          "url": "https://twitter.com/stuartlewis/status/1255825450485628928/photo/1"
         }
       ],
       "urls": []
@@ -632,7 +668,9 @@
     "id": "516449552102993920",
     "text": "@alexwlchan Find Untagged Tumblr Posts is great! Is it possible to develop a tool that finds original Tumblr posts? (Everything but reblogs)",
     "entities": {
-      "user_mentions": ["alexwlchan"]
+      "user_mentions": [
+        "alexwlchan"
+      ]
     },
     "author": {
       "name": "Ash Raj 📈",
