@@ -23,6 +23,7 @@ module Jekyll
 
         _, status = Open3.capture2('rsync', '--archive', "#{src}/_#{dir}/", "#{dst}/#{dir}/",
                                    '--exclude=twitter/avatars',
+                                   '--exclude=social_embeds/avatars',
                                    '--exclude=icons',
                                    '--exclude=*.svg')
         raise 'Unable to run static file rsync' unless status.success?

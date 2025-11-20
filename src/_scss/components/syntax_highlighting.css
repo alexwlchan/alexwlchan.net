@@ -11,7 +11,7 @@ pre {
   --strings:     var(--green);
   --names:       var(--blue);
   --punctuation: var(--accent-grey);
-  --mark:        rgb(255, 235, 18, 0.7);
+  --mark:        rgba(255, 235, 18, 0.7);
 
   @media (prefers-color-scheme: dark) {
     --red:     var(--default-primary-color-dark);
@@ -19,7 +19,7 @@ pre {
     --blue:    #40c3ff;
     --magenta: #ff42fc;
     --yellow:  #fffc42;
-    --mark:    rgb(255, 252, 66, 0.8);
+    --mark:    rgba(255, 252, 66, 0.8);
   }
 
   /* Comment, Comment.{Hash, Multiline, Single, Special} */
