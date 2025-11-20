@@ -639,5 +639,25 @@
       "screen_name": "A5HRAJ"
     },
     "site": "twitter"
+  },
+  "https://bsky.app/profile/oldenoughtosay.com/post/3m62qe3jrac2e": {
+    "site": "bluesky",
+    "id": "3m62qe3jrac2e",
+    "author": {
+      "name": "madeline odent",
+      "handle": "oldenoughtosay.com"
+    },
+    "text": "i need one of the city councillors following me to advise whether an oxen-driven cart would be chargeable under the congestion charge",
+    "date_posted": "2025-11-20T12:10:00Z",
+    "quoted_post": {
+      "url": "https://bsky.app/profile/oldenoughtosay.com/post/3m62qckpquc2e",
+      "id": "3m62qckpquc2e",
+      "author": {
+        "name": "madeline odent",
+        "handle": "oldenoughtosay.com"
+      },
+      "text": "i mean they are technically zero emissions i guess so you could probably make an argument for driving one down the cornmarket",
+      "date_posted": "2025-11-20T12:09:00Z"
+    }
   }
 }

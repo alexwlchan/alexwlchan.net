@@ -30,6 +30,10 @@
   </p>
 
   <p class="meta">
-    <a href="https://{{ author.server }}/@{{ author.username }}/{{ post_data.id }}">{{ post_data.date_posted | date: "%d %b %Y at %H:%M" }}</a>
+    <a href="https://{{ author.server }}/@{{ author.username }}/{{ post_data.id }}">
+      <time datetime="{{ post_data.date_posted | date: "%Y-%m-%d" }}">
+        {{- post_data.date_posted | date: "%d %b %Y at %H:%M" -}}
+      </time>
+    </a>
   </p>
 </blockquote>

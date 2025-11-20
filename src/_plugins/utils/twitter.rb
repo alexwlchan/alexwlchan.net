@@ -21,7 +21,7 @@ def replace_twemoji_with_images(text)
 
   twemoji.each do |orig, svg_name|
     base64_string = Base64.encode64(
-      File.binread("src/_tweets/twemoji/#{svg_name}")
+      File.binread("src/_images/social_embeds/twemoji/#{svg_name}")
     ).strip
     data_uri = "data:image/svg+xml;base64,#{base64_string}"
 

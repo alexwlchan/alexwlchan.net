@@ -7,6 +7,8 @@
 #     {% mastodon https://code4lib.social/@linguistory/113924700205617006 %}
 #
 
+require_relative 'utils/twitter'
+
 module Jekyll
   module SocialEmbedFilters
     # Create a data URI for the avatar.
@@ -15,36 +17,40 @@ module Jekyll
     # so it's faster to embed them as base64-encoded images than serve
     # them as a separate network request.
     def avatar_url(post_data)
-      
       # Avatars are stored in the _images/social_embeds/avatars directory,
       # combining the site, user ID, and post ID.
-      if post_data["site"] == "mastodon"
-        user_id = post_data["author"]["username"]
-        post_id = post_data["id"]
+      case post_data['site']
+      when 'mastodon'
+        user_id = post_data['author']['username']
+        post_id = post_data['id']
         size = 92
-      elsif post_data["site"] == "twitter"
-        user_id = post_data["author"]["screen_name"]
-        post_id = post_data["id"]
+      when 'twitter'
+        user_id = post_data['author']['screen_name']
+        post_id = post_data['id']
         size = 72
+      when 'bluesky'
+        user_id = post_data['author']['handle']
+        post_id = post_data['id']
+        size = 80
       else
         raise "Unrecognised site: #{post_data['site']}"
       end
-      
+
       avatar_id = "#{user_id}_#{post_id}"
-      
+
       Jekyll::Cache.new('SocialEmbedAvatars').getset(avatar_id) do
         # Find the matching avatar, which may be one of several formats.
         matching_avatars = Dir.glob("src/_images/social_embeds/avatars/#{avatar_id}*")
-        
+
         unless matching_avatars.length == 1
           raise "Could not find avatar for #{avatar_id}"
         end
-        
+
         avatar_path = matching_avatars[0]
         create_base64_avatar(avatar_path, size)
       end
     end
-    
+
     # render_mastodon_text renders the text of a Mastodon post as HTML.
     #
     # This includes:
@@ -54,11 +60,11 @@ module Jekyll
     #
     def render_mastodon_text(post_data)
       # Newlines aren't significant in HTML; convert them to <br> tags.
-      text = post_data["text"]
+      text = post_data['text']
       text = text.gsub("\n", '<br>')
-      
+
       # Replace any hashtags with links to the server.
-      server = post_data["author"]["server"]
+      server = post_data['author']['server']
       entities = post_data.fetch('entities', {})
       entities.fetch('hashtags', []).each do |h|
         text = text.sub(
@@ -66,7 +72,7 @@ module Jekyll
           "<a href=\"https://#{server}/tags/#{h}\">##{h}</a>"
         )
       end
-      
+
       # Replace any URLs with their display versions.
       entities.fetch('urls', []).each do |u|
         text = text.sub(
@@ -74,7 +80,7 @@ module Jekyll
           "<a href=\"#{u['url']}\">#{u['display_url']}</a>"
         )
       end
-      
+
       # Replace any user mentions with links to the username.
       entities.fetch('user_mentions', []).each do |u|
         text = text.sub(
@@ -82,10 +88,10 @@ module Jekyll
           "<a href=\"#{u['profile_url']}\">@#{u['label']}</a>"
         )
       end
-      
+
       text.strip
     end
-    
+
     # tweet_image creates a {% picture %} tag to show a media item
     # on a tweet.
     def tweet_image(media)
@@ -103,7 +109,7 @@ module Jekyll
         </a>
       HTML
     end
-    
+
     # render_tweet_text renders the text of a tweet as HTML.
     #
     # This includes:
@@ -148,6 +154,10 @@ module Jekyll
 
       text.strip
     end
+
+    def replace_twemoji(text)
+      replace_twemoji_with_images(text)
+    end
   end
 end
 
@@ -183,29 +193,31 @@ def create_base64_avatar(path, size)
   end
 end
 
-
 class SocialMedia < Liquid::Tag
-  def initialize(tag_name, text, tokens)
+  def initialize(_tag_name, text, _tokens)
     # The `text` variable should contain the URL of the post.
     @post_url = text.strip
   end
-  
+
   def render(context)
     # Look up the data for this post in `src/_data/social_embeds.json`,
     # which is keyed by the URL.
     site = context.registers[:site]
-    post_data = site.data["social_embeds"][@post_url]
-    
+    post_data = site.data['social_embeds'][@post_url]
+
     if post_data.nil?
       raise "Could not find data for URL: #{@post_url}"
     end
-    
+
     tpl = Liquid::Template.parse(
       File.read("src/_includes/embeds/#{post_data['site']}.html")
     )
-    
-    input = tpl.render!('post_data' => post_data)
-    
+
+    input = tpl.render!(
+      'post_url' => @post_url,
+      'post_data' => post_data
+    )
+
     # Run it through the site's Markdown converter after rendering
     # the initial HTML, so we have access to the picture plugin.
     Liquid::Template.parse(input).render!(context)
@@ -213,5 +225,6 @@ class SocialMedia < Liquid::Tag
 end
 
 Liquid::Template.register_filter(Jekyll::SocialEmbedFilters)
+Liquid::Template.register_tag('bluesky', SocialMedia)
 Liquid::Template.register_tag('mastodon', SocialMedia)
 Liquid::Template.register_tag('tweet', SocialMedia)
