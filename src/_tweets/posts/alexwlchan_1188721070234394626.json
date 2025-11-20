@@ -1,9 +1,0 @@
-{
-  "created_at": "2019-10-28T07:36:03+00:00",
-  "id": "1188721070234394626",
-  "text": "Today’s tiny automation win: if I’m looking at a tweet in my browser, I can type “;twurl” and get a link and blockquote with the text of the tweet wherever I’m typing.\n\nAs a bonus, it automatically replaces t.​co URLs with the original URLs.\n\n🐦 + 💻 + 🥳",
-  "user": {
-    "name": "Alex Chan",
-    "screen_name": "alexwlchan"
-  }
-}

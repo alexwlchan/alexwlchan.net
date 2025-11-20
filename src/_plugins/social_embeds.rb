@@ -19,9 +19,13 @@ module Jekyll
       # Avatars are stored in the _images/social_embeds/avatars directory,
       # combining the site, user ID, and post ID.
       if post_data["site"] == "mastodon"
-        user_id = post_data["user"]["username"]
+        user_id = post_data["author"]["username"]
         post_id = post_data["id"]
         size = 92
+      elsif post_data["site"] == "twitter"
+        user_id = post_data["author"]["screen_name"]
+        post_id = post_data["id"]
+        size = 72
       else
         raise "Unrecognised site: #{post_data['site']}"
       end
@@ -41,21 +45,21 @@ module Jekyll
       end
     end
     
-    # Render the text of a Mastodon post as HTML.
+    # render_mastodon_text renders the text of a Mastodon post as HTML.
     #
     # This includes:
     #
     #   - Expanding newlines
     #   - Adding hashtags
     #
-    def render_mastodon_text(toot_data)
+    def render_mastodon_text(post_data)
       # Newlines aren't significant in HTML; convert them to <br> tags.
-      text = toot_data["text"]
+      text = post_data["text"]
       text = text.gsub("\n", '<br>')
       
       # Replace any hashtags with links to the server.
-      server = toot_data["user"]["server"]
-      entities = toot_data.fetch('entities', {})
+      server = post_data["author"]["server"]
+      entities = post_data.fetch('entities', {})
       entities.fetch('hashtags', []).each do |h|
         text = text.sub(
           "##{h}",
@@ -79,6 +83,69 @@ module Jekyll
         )
       end
       
+      text.strip
+    end
+    
+    # tweet_image creates a {% picture %} tag to show a media item
+    # on a tweet.
+    def tweet_image(media)
+      alt_text = media['ext_alt_text']
+
+      <<~HTML
+        <a href="#{media['expanded_url']}">
+          {%
+            picture
+            filename="#{media['filename']}"
+            parent="/images/social_embeds/twitter"
+            #{alt_text.nil? ? 'data-proofer-ignore' : "alt=\"#{alt_text}\""}
+            width="496"
+          %}
+        </a>
+      HTML
+    end
+    
+    # render_tweet_text renders the text of a tweet as HTML.
+    #
+    # This includes:
+    #
+    #     * Expanding any newlines
+    #     * Replacing URLs and @-mentions
+    #     * Replacing native emoji with Twitter's "twemoji" SVGs
+    #
+    def render_tweet_text(post_data)
+      text = post_data['text']
+
+      entities = post_data.fetch('entities', {})
+
+      # Expand any t.co URLs in the text with the actual link, which means
+      # those links don't rely on Twitter or their link shortener.
+      entities.fetch('urls', []).each do |u|
+        text = text.sub(
+          u['url'],
+          "<a href=\"#{u['url']}\">#{u['display_url']}</a>"
+        )
+      end
+
+      # Because newlines aren't significant in HTML, we convert them to
+      # <br> tags so they render correctly.
+      text = text.gsub("\n", '<br>')
+
+      # Ensure user mentions (e.g. @alexwlchan) in the body of the tweet
+      # are correctly rendered as links to the user page.
+      entities.fetch('user_mentions', []).each do |um|
+        text = text.sub(
+          "@#{um}",
+          "<a href=\"https://twitter.com/#{um}\">@#{um}</a>"
+        )
+      end
+
+      entities.fetch('hashtags', []).each do |h|
+        text = text.sub(
+          "##{h}",
+          "<a href=\"https://twitter.com/hashtag/#{h}\">##{h}</a>"
+        )
+      end
+
       text.strip
     end
   end
@@ -134,7 +201,7 @@ class SocialMedia < Liquid::Tag
     end
     
     tpl = Liquid::Template.parse(
-      File.read("src/_includes/social_embeds/#{post_data['site']}.html")
+      File.read("src/_includes/embeds/#{post_data['site']}.html")
     )
     
     input = tpl.render!('post_data' => post_data)
@@ -147,3 +214,4 @@ end
 
 Liquid::Template.register_filter(Jekyll::SocialEmbedFilters)
 Liquid::Template.register_tag('mastodon', SocialMedia)
+Liquid::Template.register_tag('tweet', SocialMedia)
