@@ -589,6 +589,7 @@
       "screen_name": "alexwlchan"
     },
     "quoted_status": {
+      "site": "twitter",
       "date_posted": "Tue May 12 14:30:56 +0000 2020",
       "id": "1260215889816780800",
       "text": "If you use Pinboard and archive AO3 links, I'm recrawling a bunch that didn't get stored right. There was a nasty silent bug where a Ubuntu update made the crawler unable to speak the same dialect of SSL as AO3's server. This will also retroactively fix adult content warnings.",
