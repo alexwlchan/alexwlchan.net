@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2025-11-21 00:02:28 +0000
-title: Can I take an ox to Oxford?
+title: Can you take an ox to Oxford?
 summary: Let's work out exactly when you need to pay Oxford's new congestion charge.
 tags:
   - transport
