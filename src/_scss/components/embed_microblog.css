@@ -14,7 +14,7 @@
   margin-left:  auto;
   margin-right: auto;
   padding:        var(--padding);
-  padding-bottom: calc(0.8 * var(--padding));
+  padding-bottom: calc(0.7 * var(--padding));
   overflow: hidden;
   
   background:    var(--background);
