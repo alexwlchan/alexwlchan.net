@@ -23,15 +23,12 @@ module Jekyll
       when 'mastodon'
         user_id = post_data['author']['username']
         post_id = post_data['id']
-        size = 92
       when 'twitter'
         user_id = post_data['author']['screen_name']
         post_id = post_data['id']
-        size = 72
       when 'bluesky'
         user_id = post_data['author']['handle']
         post_id = post_data['id']
-        size = 80
       else
         raise "Unrecognised site: #{post_data['site']}"
       end
@@ -47,7 +44,7 @@ module Jekyll
         end
 
         avatar_path = matching_avatars[0]
-        create_base64_avatar(avatar_path, size)
+        create_base64_avatar(avatar_path, 92)
       end
     end
 
@@ -104,7 +101,7 @@ module Jekyll
             filename="#{media['filename']}"
             parent="/images/social_embeds/twitter"
             #{alt_text.nil? ? 'data-proofer-ignore' : "alt=\"#{alt_text}\""}
-            width="496"
+            width="585"
           %}
         </a>
       HTML

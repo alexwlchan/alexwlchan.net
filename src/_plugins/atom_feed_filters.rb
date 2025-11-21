@@ -15,18 +15,15 @@ module HtmlModifiers
     doc.xpath('.//*[@data-norss]').remove
   end
 
-  def self.fix_tweets_for_rss(doc)
-    # Remove the small blue bird I add to tweet blockquotes; it's only there
-    # so that my faux tweet embeds look more like real tweets.
-    doc.xpath('.//div[@class="twitter_birb"]').remove
-
-    # Remove the avatar from tweets; the RSS feed should just include the
-    # plaintext blockquote.
-    doc.xpath('.//span[@class="avatar"]').remove
+  def self.fix_social_embeds_for_rss(doc)
+    doc.css('blockquote.embed').each do |embed|
+      embed.css('svg.logo').remove
+      embed.css('img.avatar').remove
+    end
 
     # Replace twemoji SVG images with the plaintext emoji counterparts; these
     # render better in RSS readers.
-    doc.xpath('.//img[@class="twemoji"]').each do |img|
+    doc.css('img.twemoji').each do |img|
       emoji = img.get_attribute('alt')
       img.replace Nokogiri::HTML.fragment(emoji)
     end
@@ -40,16 +37,16 @@ module HtmlModifiers
   # to the feed URLs.
   def self.fix_tags_with_relative_urls(doc)
     tags_with_relative_attributes = [
-      { xpath: './/img', attribute: 'src' },
-      { xpath: './/a', attribute: 'href' },
-      { xpath: './/source', attribute: 'srcset' },
+      { css: 'img', attribute: 'src' },
+      { css: 'a', attribute: 'href' },
+      { css: 'source', attribute: 'srcset' },
 
       # NOTE: <image> tags appear in inline SVGs, not HTML.
-      { xpath: './/image', attribute: 'src' }
+      { css: 'image', attribute: 'src' }
     ]
 
     tags_with_relative_attributes.each do |tag|
-      doc.xpath(doc[:xpath]).each { |t| fix_relative_url(t, tag) }
+      doc.css(tag[:css]).each { |t| fix_relative_url(t, tag) }
     end
   end
 
@@ -57,7 +54,7 @@ module HtmlModifiers
     attribute_name = options[:attribute]
     existing_value = tag.get_attribute(attribute_name)
 
-    values = existing_value.split(', ')
+    values = existing_value.split(',').map(&:strip)
 
     new_values = values.map do |v|
       if (v.start_with? '/images') || (v.start_with? '/files')
@@ -86,7 +83,7 @@ module Jekyll
       doc.xpath(attribute_names.join('|')).remove
 
       HtmlModifiers.remove_norss_elements(doc)
-      HtmlModifiers.fix_tweets_for_rss(doc)
+      HtmlModifiers.fix_social_embeds_for_rss(doc)
       HtmlModifiers.fix_tags_with_relative_urls(doc)
 
       # Removing elements may have left empty paragraphs; remove them.
