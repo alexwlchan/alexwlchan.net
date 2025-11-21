@@ -1,0 +1,701 @@
+{
+  "https://code4lib.social/@linguistory/113924700205617006": {
+    "site": "mastodon",
+    "id": "113924700205617006",
+    "author": {
+      "server": "code4lib.social",
+      "display_name": "James Truitt (he/him)",
+      "username": "linguistory"
+    },
+    "date_posted": "2025-01-31T19:49:29Z",
+    "text": "Do any #digipres folks happen to have a handy repo of small invalid bags for testing purposes?\n\nI'm trying to automate our ingest process, and want to make sure I'm accounting for as many broken expectations as possible.",
+    "entities": {
+      "hashtags": [
+        "digipres"
+      ],
+      "media": [],
+      "urls": [],
+      "user_mentions": []
+    }
+  },
+  "https://fedi.simonwillison.net/@simon/112100279854237102": {
+    "site": "mastodon",
+    "id": "112100279854237102",
+    "author": {
+      "server": "fedi.simonwillison.net",
+      "display_name": "Simon Willison",
+      "username": "simon"
+    },
+    "date_posted": "2024-03-15T14:55:24Z",
+    "text": "I wonder how much of an impact this had on the invisible Mastodon infrastructure...\n\nEvery time someone I follow posted in the past 24 hours their instance would have tried and failed to deliver to my instance - how hard do these things get retried?\n\nAm I about to see a massive flood of incoming deliveries that finally work?"
+  },
+  "https://flipboard.social/@JsonCulverhouse/112101163947801880": {
+    "site": "mastodon",
+    "id": "112101163947801880",
+    "author": {
+      "server": "flipboard.social",
+      "display_name": "Jason Culverhouse",
+      "username": "JsonCulverhouse"
+    },
+    "date_posted": "2024-03-15T18:40:14Z",
+    "text": "@clifff @simon \n\nHere is the retry algorithm, if you were down a day.  They will trickle in vs a massive flood\n\n(0..16).each do |count|\n&nbsp;&nbsp;delay = (count**4) + 15\n&nbsp;&nbsp;jitter = rand(0.5 * (count**4))\n&nbsp;&nbsp;total_delay = delay + jitter\n&nbsp;&nbsp;puts \"Retry #{count}: #{total_delay} seconds\"\nend\n\nRetry 0: 15.713002155688077 seconds\nRetry 1: 16.48915648567112 seconds\nRetry 2: 31 seconds\nRetry 3: 124 seconds\nRetry 4: 382 seconds\nRetry 5: 938 seconds\nRetry 6: 1319 seconds\nRetry 7: 2617 seconds\nRetry 8: 6006 seconds\nRetry 9: 9468 seconds\nRetry 10: 12612 seconds\nRetry 11: 19804 seconds\nRetry 12: 26167 seconds\nRetry 13: 31795 seconds\nRetry 14: 55286 seconds\nRetry 15: 67782 seconds\nRetry 16: 89823 seconds\n\nhttps://github.com/mastodon/mastodon/blob/71e5f0f48c3bc95a894fa3ad2c5a34f05c584482/app/workers/activitypub/delivery_worker.rb/#L13-L21",
+    "entities": {
+      "hashtags": [],
+      "media": [],
+      "urls": [
+        {
+          "url": "https://github.com/mastodon/mastodon/blob/71e5f0f48c3bc95a894fa3ad2c5a34f05c584482/app/workers/activitypub/delivery_worker.rb/#L13-L21",
+          "display_url": "github.com/mastodon/mastodon/b…"
+        }
+      ],
+      "user_mentions": [
+        {
+          "label": "clifff",
+          "profile_url": "https://shakedown.social/@clifff"
+        },
+        {
+          "label": "simon",
+          "profile_url": "https://fedi.simonwillison.net/@simon"
+        }
+      ]
+    }
+  },
+  "https://shakedown.social/@clifff/112100294144816566": {
+    "site": "mastodon",
+    "id": "112100294144816566",
+    "author": {
+      "server": "shakedown.social",
+      "display_name": "clifff",
+      "username": "clifff"
+    },
+    "date_posted": "2024-03-15T14:59:02Z",
+    "text": "@simon by default, sidekiq jobs that throw an error will be retried 25 times over the course of 20 days https://github.com/sidekiq/sidekiq/wiki/Error-Handling#automatic-job-retry\n\nit's possible mastodon has customized this but I haven't specifically looked. would expect you'll get more traffic than usual but shouldn't be all at once",
+    "entities": {
+      "hashtags": [],
+      "media": [],
+      "urls": [
+        {
+          "url": "https://github.com/sidekiq/sidekiq/wiki/Error-Handling#automatic-job-retry",
+          "display_url": "github.com/sidekiq/sidekiq/wik…"
+        }
+      ],
+      "user_mentions": [
+        {
+          "label": "simon",
+          "profile_url": "https://fedi.simonwillison.net/@simon"
+        }
+      ]
+    }
+  },
+  "https://twitter.com/AsexualAndProud/status/790853542466564096": {
+    "date_posted": "2016-10-25T09:52:32+00:00",
+    "id": "790853542466564096",
+    "text": "WE ARE GOING TO LIST OUR ROMANTIC PREFERENCE THEN OUR SEXUAL PREFERENCE THEN EXPLAIN A LIL BIT FOR ASEXUAL AWARENESS WEEK",
+    "author": {
+      "name": "Asexual Problems",
+      "screen_name": "AsexualAndProud"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/milkbutnotsugar/status/301278574533554176": {
+    "date_posted": "2013-12-02T10:36:00+00:00",
+    "text": "It's Darwin's birthday apparently. Do you think he was ever like \"can I have a birthday cake?\" and everyone else was like NO ONLY PANCAKES.",
+    "id": "301278574533554176",
+    "author": {
+      "name": "she-hulk.",
+      "screen_name": "milkbutnotsugar"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/iamkimiam/status/848188958567800832": {
+    "date_posted": "2017-04-01T15:03:00+00:00",
+    "id": "848188958567800832",
+    "text": "One of the many signs of a great conference. #inclusivity #alterconf",
+    "entities": {
+      "hashtags": [
+        "inclusivity",
+        "alterconf"
+      ],
+      "media": [
+        {
+          "filename": "C8VfWJyXkAIWboG.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/iamkimiam/status/848188958567800832/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "author": {
+      "name": "Kim Witten",
+      "screen_name": "iamkimiam"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/BrookeCottrell_/status/876825684202663937": {
+    "date_posted": "2017-06-19T15:35:08+00:00",
+    "id": "876825684202663937",
+    "text": "@wwbookclub @pottermore These are my Braille copies of the Harry Potter books. Four of these volumes make up the Sorcerer's Stone.",
+    "entities": {
+      "user_mentions": [
+        "wwbookclub",
+        "pottermore"
+      ],
+      "media": [
+        {
+          "filename": "DCscTh5W0AIX9yO.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/BrookeCottrell_/status/876825684202663937/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "author": {
+      "name": "Brooke Cottrell",
+      "screen_name": "BrookeCottrell_"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/seldo/status/1461848209769197573": {
+    "date_posted": "2021-11-20T00:05:47+00:00",
+    "text": "An unexpected side effect of this tournament has been watching people come up with ways to write complete web apps using fewer and fewer tags.",
+    "id": "1461848209769197573",
+    "author": {
+      "name": "Laurie Voss",
+      "screen_name": "seldo"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/mattgemmell/status/565967532608487427": {
+    "date_posted": "2015-02-12T20:15:49+00:00",
+    "id": "565967532608487427",
+    "text": "Thought of a useful Safari extension: change any UL/OL elements on the page into checkboxes, for when you're working through a tutorial.",
+    "author": {
+      "name": "Matt Gemmell",
+      "screen_name": "mattgemmell"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/1126802445517099008": {
+    "date_posted": "2019-05-10T10:53:32+00:00",
+    "id": "1126802445517099008",
+    "text": "Trans friends: we’re trying to improve Wellcome’s policies around trans inclusion and support for employees who are transitioning at work.\n\nTell me about companies that have good policies for this? (The more detail, the better.)\n\nRT for reach?",
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/938694360681590791": {
+    "date_posted": "2017-12-07T08:59:10+00:00",
+    "id": "938694360681590791",
+    "text": "Starting work on a freshly installed Mac: I clone our main repo, type \"make id_minter-build\", and it starts fetching dependencies.\n\nTen minutes later, with nothing else from me, I've got a complete build.\n\n👌",
+    "entities": {
+      "urls": [
+        {
+          "url": "https://twitter.com/i/web/status/938694360681590791",
+          "display_url": "twitter.com/i/web/status/9…"
+        }
+      ]
+    },
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/DRMacIver/status/803223621439102976": {
+    "date_posted": "2016-11-28T13:06:49+00:00",
+    "id": "803223621439102976",
+    "text": "What are some good low tech devices for intelligence expansion? Current list I have:\n\n* Pencil and paper\n* Cards/dice\n* A second person",
+    "author": {
+      "name": "David R. MacIver",
+      "screen_name": "DRMacIver"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/OvercastFM/status/490968328723116032": {
+    "date_posted": "2014-07-20T21:15:45+00:00",
+    "id": "490968328723116032",
+    "text": "@alexwlchan I’m also stripping common prefixes from episode titles within a feed, so:\n\nEpisode 1: A\nEpisode 2: B\n-&gt;\n1: A\n2: B",
+    "entities": {
+      "user_mentions": [
+        "alexwlchan"
+      ]
+    },
+    "author": {
+      "name": "Overcast",
+      "screen_name": "OvercastFM"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/Lukasaoz/status/644243079445221376": {
+    "date_posted": "2015-09-16T20:14:54+00:00",
+    "entities": {
+      "urls": [
+        {
+          "display_url": "http2bin.org",
+          "url": "http://http2bin.org"
+        }
+      ]
+    },
+    "text": "There is nothing cooler than seeing my iOS9 devices report HTTP/2 from Safari @ http://http2bin.org. Welcome to the HTTP/2 future!",
+    "id": "644243079445221376",
+    "author": {
+      "name": "Cory Benfield",
+      "screen_name": "Lukasaoz"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/mspowahs/status/1091409665290788864": {
+    "date_posted": "2019-02-01T18:55:16+00:00",
+    "id": "1091409665290788864",
+    "text": "If you have the spoons, tell me about the conference accessibility fails you've witnessed or experienced. Can cover disability, MH, and related concerns. (Name names if you want, but I'm primarily soliciting feedback to help others from making the same mistakes.)",
+    "author": {
+      "name": "Ada Powers",
+      "screen_name": "mspowahs"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/thingskatedid/status/1573017572022571009": {
+    "date_posted": "2022-09-22T18:33:09+00:00",
+    "text": "i don't *care* how maths works, half of zero should be 0.5",
+    "id": "1573017572022571009",
+    "author": {
+      "name": "Kate",
+      "screen_name": "thingskatedid"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/clamhead/status/701816106030239744": {
+    "date_posted": "2016-02-22T17:09:33+00:00",
+    "id": "701816106030239744",
+    "text": "I'm on my own personal quest to banish the word \"simply\" from all instructional content. Saying \"simply\" doesn't make it simple.",
+    "author": {
+      "name": "Keri Maijala",
+      "screen_name": "clamhead"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/TerribleMaps/status/1674813732260655106": {
+    "date_posted": "2023-06-30T17:14:00+01:00",
+    "entities": {
+      "media": [
+        {
+          "filename": "Fz4iNokXwAAv2hD.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/TerribleMaps/status/1674813732260655106/photo/1"
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://commons.m.wikimedia.org/wiki/File:Seitengröße_PDF_7.svg",
+          "display_url": "https://commons.m.wikimedia.org/wiki/File:Seit…"
+        }
+      ]
+    },
+    "text": "Maximum size of a PDF, version 7: 381 km × 381 km.\n\nhttps://commons.m.wikimedia.org/wiki/File:Seitengröße_PDF_7.svg",
+    "id": "1674813732260655106",
+    "author": {
+      "name": "Terrible Maps",
+      "screen_name": "TerribleMaps"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/anabalica/status/1040947442735345664": {
+    "date_posted": "2018-09-15T12:56:24+00:00",
+    "id": "1040947442735345664",
+    "text": "#PyConUK \"Help me, I'm trapped in a sign printing factory!\"",
+    "entities": {
+      "hashtags": [
+        "PyConUK"
+      ],
+      "media": [
+        {
+          "filename": "DnIwLcCXsAYmcfH.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/anabalica/status/1040947442735345664/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "author": {
+      "name": "Ana Balica",
+      "screen_name": "anabalica"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/SpyForSpyPlay/status/1675112286103429123": {
+    "date_posted": "2023-07-01T01:01:00+01:00",
+    "entities": {
+      "hashtags": [
+        "SpyForSpyPlay"
+      ],
+      "media": [
+        {
+          "filename": "Fz8xvJBWIAEOB5j.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/1"
+        },
+        {
+          "filename": "Fz8xvJZXgAAJdF5.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/2"
+        },
+        {
+          "filename": "Fz8xvIVWIAI92V9.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/3"
+        },
+        {
+          "filename": "Fz8xvIVXwAAiUCU.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/SpyForSpyPlay/status/1675112286103429123/photo/4"
+        }
+      ],
+      "user_mentions": [
+        "RiversideLondon"
+      ]
+    },
+    "text": "💞 Love 💞\n\nThank you for experiencing Molly & Sarah’s journey with us.\n\nOur limited run at @RiversideLondon ends tomorrow and we've had a blast.\n\n#SpyForSpyPlay",
+    "id": "1675112286103429123",
+    "author": {
+      "name": "Spy For Spy",
+      "screen_name": "SpyForSpyPlay"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/oldenoughtosay/status/1434281850709610498": {
+    "date_posted": "2021-09-04T22:26:55+00:00",
+    "id": "1434281850709610498",
+    "text": "Okay Twitter who wants to help me with some floor maths? \n\nI have boards in lengths of: 40, 50, 60, 70, 75, 90, 170, and 180. \n\nHow many combinations can you come up with to equal 360? (Can use multiple of the same length)",
+    "author": {
+      "name": "madeline odent",
+      "screen_name": "oldenoughtosay"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/thingskatedid/status/1588790271940395008": {
+    "date_posted": "2022-11-05T07:08:13+00:00",
+    "text": "my twitter archive doesn't include any of the alt text i wrote",
+    "id": "1588790271940395008",
+    "author": {
+      "name": "Kate",
+      "screen_name": "thingskatedid"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/CambsCops/status/940152354627874818": {
+    "date_posted": "2017-12-11T09:32:43+00:00",
+    "id": "940152354627874818",
+    "text": "From this week our armed officers will be carrying out more visible and proactive patrols at key sites across the county. This is not as a result of any specific intelligence or threats, but is designed to help keep you as safe as possible. Read more here https://www.cambs.police.uk/news-and-appeals/Christmas-Action-Counters-Terrorism-Campaign",
+    "entities": {
+      "media": [
+        {
+          "filename": "DQwXlPKVAAAhdNN.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/CambsCops/status/940152354627874818/photo/1"
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://www.cambs.police.uk/news-and-appeals/Christmas-Action-Counters-Terrorism-Campaign",
+          "display_url": "cambs.police.uk/news-and-appea…"
+        }
+      ]
+    },
+    "author": {
+      "name": "Cambs police",
+      "screen_name": "CambsCops"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/1258147811851460608": {
+    "date_posted": "2020-05-06T21:33:08+00:00",
+    "id": "1258147811851460608",
+    "text": "Who wants to see some cursed #Python? \n\nVariable-length tuple unpacking. I want to assign a bunch of variables to True, but I don’t know how many there are. Reflection to the rescue!\n\na, b = Trues()\na, b, c, d = Trues()\n\na, b, \\\nc, d = Trues()\n\n(a, b,\nc,\nd) = Trues() https://twitter.com/alexwlchan/status/1258147811851460608/photo/1",
+    "entities": {
+      "hashtags": [
+        "Python"
+      ],
+      "urls": [
+        {
+          "url": "https://twitter.com/alexwlchan/status/1258147811851460608/photo/1",
+          "display_url": "pic.twitter.com/oLKnmuUpai"
+        }
+      ]
+    },
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/KempisBot/status/1355611529325015041": {
+    "date_posted": "2021-01-30T20:19:09+00:00",
+    "id": "1355611529325015041",
+    "text": "We must rather seek for what is profitable in Scripture, than for what ministereth to subtlety in discourse. Therefore we ought to read books which are devotional and simple, as well as those which are deep and difficult.",
+    "author": {
+      "name": "Thomas Kempis",
+      "screen_name": "KempisBot"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/1533882908770983943": {
+    "site": "twitter",
+    "id": "1533882908770983943",
+    "date_posted": "2022-06-06T18:45:58+00:00",
+    "entities": {
+      "media": [
+        {
+          "filename": "FUlx_twWYAAOta9.jpg",
+          "ext_alt_text": "White-on-blue cross stitch showing line art of the full lunar lander, plus part of the command module attached to it. There’s also a black iPhone sitting off to one side, covering the other stitches.",
+          "type": "photo",
+          "url": "https://twitter.com/alexwlchan/status/1533882908770983943/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "text": "iPhone: ”I’m more powerful than the computers that put man on the Moon!”\n\nApollo Guidance Computer: ”So you keep saying, but remind me—of the two of us, who has actually put a man on the Moon?”\n\niPhone: …\n\nAGC: 😎",
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    }
+  },
+  "https://twitter.com/alexwlchan/status/1188721070234394626": {
+    "date_posted": "2019-10-28T07:36:03+00:00",
+    "id": "1188721070234394626",
+    "text": "Today’s tiny automation win: if I’m looking at a tweet in my browser, I can type ”;twurl” and get a link and blockquote with the text of the tweet wherever I’m typing.\n\nAs a bonus, it automatically replaces t.co URLs with the original URLs.\n\n🐦 + 💻 + 🥳",
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/pomarawrites/status/1150143170287587328": {
+    "date_posted": "2019-07-13T20:41:15+00:00",
+    "id": "1150143170287587328",
+    "text": "SOCIAL EXPERIMENT: If you come across this tweet, reply with the grade you were in when you had your first LGBTQ+ teacher. #edchat",
+    "entities": {
+      "hashtags": [
+        "edchat"
+      ]
+    },
+    "author": {
+      "name": "Patrick 🏄🏻‍♂️",
+      "screen_name": "pomarawrites"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/CHilton_BB/status/1107671088950063107": {
+    "date_posted": "2019-03-18T15:52:21+00:00",
+    "id": "1107671088950063107",
+    "text": "Another lost transport world in @BrittenOfficial’s papers: the ferry over the Forth at Queensferry, which operated until the Forth Road Bridge opened in 1964.  Here are 3 passenger tickets plus what I think is a counterfoil from a ticket for a car, from 1950.",
+    "entities": {
+      "urls": [],
+      "user_mentions": [
+        "BrittenOfficial"
+      ],
+      "media": [
+        {
+          "filename": "D18824AWoAEdrSd.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/1"
+        },
+        {
+          "filename": "D1884yaXcAIgYP_.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/2"
+        },
+        {
+          "filename": "D1887JfWkAAokaU.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/CHilton_BB/status/1107671088950063107/photo/3"
+        }
+      ]
+    },
+    "author": {
+      "name": "Christopher Hilton",
+      "screen_name": "CHilton_BB"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/fraserspeirs/status/369736232546631680": {
+    "date_posted": "2013-08-20T08:22:41+00:00",
+    "id": "369736232546631680",
+    "text": "I hate the new Google Maps so much. Get that stupid search box off my map.",
+    "author": {
+      "name": "Fraser Speirs",
+      "screen_name": "fraserspeirs"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/924569032170397696": {
+    "date_posted": "2017-10-29T09:30:09+00:00",
+    "id": "924569032170397696",
+    "text": "Tweaked wording on the lightning talk buckets at #PyConUK.",
+    "entities": {
+      "hashtags": [
+        "PyConUK"
+      ],
+      "media": [
+        {
+          "filename": "DNS6ocAX4AA7UYD.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/alexwlchan/status/924569032170397696/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/juliehubs/status/1405689243393986561": {
+    "date_posted": "2021-06-18T00:50:06+00:00",
+    "id": "1405689243393986561",
+    "text": "Shout out to the HBO Max Engineer who is currently having a full blown panic attack",
+    "entities": {
+      "media": [
+        {
+          "filename": "E4IC6vBX0AEWTiz.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/juliehubs/status/1405689243393986561/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "author": {
+      "name": "Julie Hubschman",
+      "screen_name": "juliehubs"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/1260225157672697858": {
+    "date_posted": "2020-05-12T15:07:46+00:00",
+    "id": "1260225157672697858",
+    "text": "1. Yay better archiving!\n\n2. Fellow Pinboard users: I have a script that looks at your Pinboard bookmarks, and saves the nicely formatted AO3 downloads for everything you’ve saved (ebook, HTML, PDF, etc.).\n\nAnybody interested in that? https://twitter.com/Pinboard/status/1260215889816780800",
+    "entities": {
+      "urls": [
+        {
+          "url": "https://twitter.com/Pinboard/status/1260215889816780800",
+          "display_url": "twitter.com/Pinboard/statu…"
+        }
+      ]
+    },
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "quoted_status": {
+      "date_posted": "Tue May 12 14:30:56 +0000 2020",
+      "id": "1260215889816780800",
+      "text": "If you use Pinboard and archive AO3 links, I'm recrawling a bunch that didn't get stored right. There was a nasty silent bug where a Ubuntu update made the crawler unable to speak the same dialect of SSL as AO3's server. This will also retroactively fix adult content warnings.",
+      "author": {
+        "name": "Pinboard",
+        "screen_name": "Pinboard"
+      }
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/monkchips/status/1790018203478876243": {
+    "date_posted": "2024-05-13T14:56:00+00:00",
+    "id": "1790018203478876243",
+    "text": "what are the core primitives developers need for building and deploying modern applications? what platform services does the underlying infrastructure need to provide?\n\nwhat's essential and what's nice to have? what might an AWS alternative look like?",
+    "author": {
+      "name": "Grumble Bundle",
+      "screen_name": "monkchips"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/alexwlchan/status/1101601909310439429": {
+    "date_posted": "2019-03-01T21:55:36+00:00",
+    "id": "1101601909310439429",
+    "text": "I really like the idea of GitHub Actions, but every time I try to use it I feel like an idiot.\n\nI don’t know if it’s me or the UI, but I cannot understand what it’s doing, and things seem to be happening at random.\n\nIf something makes me feel stupid, I’m not going to use it.",
+    "author": {
+      "name": "Alex Chan",
+      "screen_name": "alexwlchan"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/KempisBot/status/1355428494264721409": {
+    "date_posted": "2021-01-30T08:11:50+00:00",
+    "id": "1355428494264721409",
+    "text": "CHAPTER V: Of the reading of Holy Scriptures",
+    "author": {
+      "name": "Thomas Kempis",
+      "screen_name": "KempisBot"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/KempisBot/status/1355552988199325696": {
+    "date_posted": "2021-01-30T16:26:32+00:00",
+    "id": "1355552988199325696",
+    "text": "All Scripture ought to be read in the spirit in which it was written.",
+    "author": {
+      "name": "Thomas Kempis",
+      "screen_name": "KempisBot"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/stuartlewis/status/1255825450485628928": {
+    "date_posted": "2020-04-30T11:44:54+00:00",
+    "id": "1255825450485628928",
+    "text": "Ever wondered what a petabye of storage looks like these days? This...! These have just been delivered and are destined to be installed next week in the @natlibscot preservation storage system (96 x 14TB 7.2K SATA drives --&gt; geo replicated @scality system)",
+    "entities": {
+      "user_mentions": [
+        "natlibscot",
+        "scality"
+      ],
+      "media": [
+        {
+          "filename": "EW2WlhNXsAALuAR.jpg",
+          "type": "photo",
+          "url": "https://twitter.com/stuartlewis/status/1255825450485628928/photo/1"
+        }
+      ],
+      "urls": []
+    },
+    "author": {
+      "name": "Stuart Lewis",
+      "screen_name": "stuartlewis"
+    },
+    "site": "twitter"
+  },
+  "https://twitter.com/A5HRAJ/status/516449552102993920": {
+    "date_posted": "2014-09-29T04:49:03+00:00",
+    "id": "516449552102993920",
+    "text": "@alexwlchan Find Untagged Tumblr Posts is great! Is it possible to develop a tool that finds original Tumblr posts? (Everything but reblogs)",
+    "entities": {
+      "user_mentions": [
+        "alexwlchan"
+      ]
+    },
+    "author": {
+      "name": "Ash Raj 📈",
+      "screen_name": "A5HRAJ"
+    },
+    "site": "twitter"
+  },
+  "https://bsky.app/profile/oldenoughtosay.com/post/3m62qe3jrac2e": {
+    "site": "bluesky",
+    "id": "3m62qe3jrac2e",
+    "author": {
+      "name": "madeline odent",
+      "handle": "oldenoughtosay.com"
+    },
+    "text": "i need one of the city councillors following me to advise whether an oxen-driven cart would be chargeable under the congestion charge",
+    "date_posted": "2025-11-20T12:10:00Z",
+    "quoted_post": {
+      "url": "https://bsky.app/profile/oldenoughtosay.com/post/3m62qckpquc2e",
+      "id": "3m62qckpquc2e",
+      "author": {
+        "name": "madeline odent",
+        "handle": "oldenoughtosay.com"
+      },
+      "text": "i mean they are technically zero emissions i guess so you could probably make an argument for driving one down the cornmarket",
+      "date_posted": "2025-11-20T12:09:00Z"
+    }
+  }
+}

@@ -2,16 +2,16 @@
   @use "components/mastodon";
 </style>
 
-{% assign user = toot_data.user %}
+{% assign author = post_data.author %}
 
 <blockquote class="mastodon-embed">
   <div class="header">
-    <a class="name_header" href="https://{{ user.server }}/@{{ user.username }}">
-      <img class="avatar" src="{{ toot_data | toot_avatar_url }}" alt="">
+    <a class="name_header" href="https://{{ author.server }}/@{{ author.username }}">
+      <img class="avatar" src="{{ post_data | avatar_url }}" alt="">
 
       <div class="name">
-        <span class="display_name">{{ user.display_name }}</span>
-        <span class="account_name">@{{ user.username }}@{{ user.server }}</span>
+        <span class="display_name">{{ author.display_name }}</span>
+        <span class="account_name">@{{ author.username }}@{{ author.server }}</span>
       </div>
     </a>
 
@@ -26,10 +26,14 @@
   </div>
 
   <p class="text">
-    {{ toot_data|render_toot_text }}
+    {{ post_data | render_mastodon_text }}
   </p>
 
   <p class="meta">
-    <a href="https://{{ user.server }}/@{{ user.username }}/{{ toot_data.id }}">{{ toot_data.created_at | date: "%d %b %Y at %H:%M" }}</a>
+    <a href="https://{{ author.server }}/@{{ author.username }}/{{ post_data.id }}">
+      <time datetime="{{ post_data.date_posted | date: "%Y-%m-%d" }}">
+        {{- post_data.date_posted | date: "%d %b %Y at %H:%M" -}}
+      </time>
+    </a>
   </p>
 </blockquote>

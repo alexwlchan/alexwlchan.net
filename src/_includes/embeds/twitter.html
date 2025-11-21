@@ -2,16 +2,16 @@
   @use "components/tweets.css";
 </style>
 
-{% assign tweet_id = tweet_data["id"] %}
-{% assign name = tweet_data["user"]["name"] %}
-{% assign screen_name = tweet_data["user"]["screen_name"] %}
+{% assign tweet_id = post_data["id"] %}
+{% assign name = post_data["author"]["name"] %}
+{% assign screen_name = post_data["author"]["screen_name"] %}
 
 <div class="tweet">
   <blockquote>
 
-  {% if tweet_data["entities"]["media"].size > 0 %}
-  <div class="media media-{{ tweet_data["entities"]["media"]|size }}">
-    {% for media in tweet_data["entities"]["media"] %}
+  {% if post_data["entities"]["media"].size > 0 %}
+  <div class="media media-{{ post_data["entities"]["media"]|size }}">
+    {% for media in post_data["entities"]["media"] %}
       {{ media | tweet_image }}
     {% endfor %}
   </div>
@@ -27,7 +27,7 @@
       <div class="author">
         <a class="link" href="https://twitter.com/{{ screen_name }}">
           <span class="avatar">
-            <img src="{{ tweet_data | tweet_avatar_url }}" alt="">
+            <img src="{{ post_data | avatar_url }}" alt="">
           </span>
           <span class="name" title="{{ name }}">{{ name | replace_twemoji }}</span>
           <span class="screen_name" title="@{{ screen_name }}">@{{ screen_name }}</span>
@@ -35,12 +35,12 @@
       </div>
     </div>
     <div class="body">
-      <p class="text">{{ tweet_data | render_tweet_text | replace_twemoji }}</p>
+      <p class="text">{{ post_data | render_tweet_text | replace_twemoji }}</p>
 
-      {% if tweet_data["quoted_status"] %}
-        {% assign quoted_id = tweet_data["quoted_status"]["id"] %}
-        {% assign quoted_name = tweet_data["quoted_status"]["user"]["name"] %}
-        {% assign quoted_screen_name = tweet_data["quoted_status"]["user"]["screen_name"] %}
+      {% if post_data["quoted_status"] %}
+        {% assign quoted_id = post_data["quoted_status"]["id"] %}
+        {% assign quoted_name = post_data["quoted_status"]["author"]["name"] %}
+        {% assign quoted_screen_name = post_data["quoted_status"]["author"]["screen_name"] %}
 
         <a href="https://twitter.com/{{ quoted_screen_name }}/status/{{ quoted_id }}" class="quote">
           <div class="quoted_tweet">
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="body">
-              <p class="text">{{ tweet_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
+              <p class="text">{{ post_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
             </div>
           </div>
         </a>
@@ -59,8 +59,8 @@
 
       <div class="metadata">
         <a href="https://twitter.com/{{ screen_name }}/status/{{ tweet_id }}">
-          <time datetime="{{ tweet_data.created_at | date: "%Y-%m-%d" }}">
-            {{ tweet_data.created_at | date: "%-I:%M&nbsp;%p · %-d %b %Y" }}
+          <time datetime="{{ post_data.date_posted | date: "%Y-%m-%d" }}">
+            {{ post_data.date_posted | date: "%-I:%M&nbsp;%p · %-d %b %Y" }}
           </time>
         </a>
       </div>
