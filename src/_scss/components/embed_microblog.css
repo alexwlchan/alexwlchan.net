@@ -117,27 +117,41 @@
     padding:       calc(0.7 * var(--padding)) calc(0.8 * var(--padding));
     font-size: calc(0.92 * 16px);
     
+    /* The author byline has `display: flex` and some styles that ensure
+     * it gets truncated properly if it's too long on a narrow screen */
     .author {
-      display: grid;
-      grid-template-columns: 20px auto 1fr;
-      grid-gap: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
       margin-bottom: 2px;
       margin-top: -2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     .avatar {
       height: 20px;
       width:  20px;
-      border-radius: 50%;
-      margin-top: 2px;
+      flex-shrink: 0;
     }
     
     .display_name {
       font-weight: bold;
+      flex-shrink: 0;
     }
     
     .handle {
       color: var(--meta);
+      
+      /* If the handle means the author name is too large, truncate it
+       * and show ellipsis */
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      flex: 1;
+      min-width: 0;
     }
     
     .text {
