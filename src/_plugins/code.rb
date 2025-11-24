@@ -206,6 +206,15 @@ module Jekyll
         )
       end
 
+      # Python: the shebang at the top of the file is punctuation, not
+      # a comment.
+      if lang == 'python'
+        html = html.gsub(
+          "<span class=\"c1\">#!/usr/bin/env python3\n</span>",
+          "<span class=\"p\">#!/usr/bin/env python3\n</span>"
+        )
+      end
+
       # Python console: don't highlight the last continuation ellipsis
       # in red, just make it blue like the rest.
       if lang == 'console?lang=python&prompt=>>>,...'
@@ -252,7 +261,11 @@ module Jekyll
       # If wrap="true", add some CSS to wrap at the screen edge, rather
       # than on the line breaks.
       if @attrs['wrap'] == 'true'
-        html = html.sub('<pre', '<pre style="white-space: pre-wrap;"')
+        if html.include? '<pre class="'
+          html = html.sub('<pre class="', '<pre class="wrap ')
+        else
+          html = html.sub('<pre', '<pre class="wrap"')
+        end
       end
 
       # Restore the dedent to every line except the first.  This is
