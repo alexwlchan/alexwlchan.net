@@ -41,13 +41,13 @@ $default-padding: 20px;
    * appended to the <head>.
    */
   --default-primary-color-light: #d01c11;
-  --default-primary-color-dark:  #f45858;
+  --default-primary-color-dark:  #ff4a4a;
 
   --primary-color-light: var(--default-primary-color-light);
   --primary-color-dark:  var(--default-primary-color-dark);
 
   --nav-bg-image-light: url('/h/d01c11.png');
-  --nav-bg-image-dark:  url('/h/ff4242.png');
+  --nav-bg-image-dark:  url('/h/ff4a4a.png');
 
   --link-color: var(--primary-color);
 
