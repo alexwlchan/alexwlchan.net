@@ -1,0 +1,57 @@
+<svg viewBox="0 0 503 103" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      line {
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+      }
+      
+      text {
+        text-anchor: middle;
+        dominant-baseline: middle;
+        fill: currentColor;
+        font-size: 15;
+      }
+      
+      rect {
+        fill: var(--background-color);
+        stroke: currentColor;
+        stroke-width: 1.5;
+      }
+      
+      #arrowhead {
+        fill: currentColor;
+      }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="7" markerHeight="4.9" refX="0" refY="2.45" orient="auto">
+      <polygon points="0 0, 7 2.45, 0 4.9"/>
+    </marker>
+  </defs>
+  
+  <g transform="translate(0 30)">
+    <rect x="1.5" y="1.5" width="100" height="40"/>
+    <text x="51.5" y="21.5">posts.js</text>
+  </g>
+  
+  <line x1="101.5" y1="51.5" x2="185" y2="21.5" marker-end="url(#arrowhead)"/>
+  <line x1="101.5" y1="51.5" x2="185" y2="81.5" marker-end="url(#arrowhead)"/>
+  
+  <line x1="201.5" y1="81.5" x2="386.5" y2="81.5" marker-end="url(#arrowhead)"/>
+  
+  <g transform="translate(200 0)">
+    <rect x="1.5" y="1.5" width="100" height="40"/>
+    <text x="51.5" y="21.5">media</text>
+  </g>
+  
+  <g transform="translate(200 60)">
+    <rect x="1.5" y="1.5" width="100" height="40"/>
+    <text x="51.5" y="21.5">users.js</text>
+  </g>
+  
+  <g transform="translate(400 60)">
+    <rect x="1.5" y="1.5" width="100" height="40"/>
+    <text x="51.5" y="21.5">avatars</text>
+  </g>
+</svg>
