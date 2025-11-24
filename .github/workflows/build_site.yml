@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: "Check out the repo"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           # Don't run `git clean/reset` when checking out the repo.
           #
