@@ -15,7 +15,7 @@ jobs:
     if: github.event.pull_request.user.login == 'alexwlchan' && !github.event.pull_request.draft
     steps:
       - name: "Check out the repo"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: "Set up Ruby"
         uses: ruby/setup-ruby@v1
