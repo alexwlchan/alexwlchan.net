@@ -6,7 +6,29 @@ tags:
   - digital preservation
   - social media
 ---
+In my [previous post][social-media-scrapbook], I wrote about my new scrapbook of social media -- a place where I can save social media posts that are important to me.
+This is a strictly personal archive, which will only ever be updated or accessed by me.
+What about larger archives?
+
+Heritage institutions are very interested in archiving social media, given its ever-growing impact on our lives, but it's a nascent field.
+I worked in cultural heritage for eight years, including nearly two years at the [Flickr Foundation][flickr-fdn]
+
+[social-media-scrapbook]: /2025/social-media-scrapbook/
+[flickr-fdn]: https://www.flickr.org/
+
+
+
 {% table_of_contents %}
+
+
+
+## The flood: there's too much to save
+## The boundary: where to cut off the social graph
+## The walled garden: platforms don't want to be preserved
+## The ethics: consent, privacy, and the creep factor
+## The rot: formats, viewers, and digital decay
+
+---
 
 ## Why Social Media Archiving Is Hard (And Why I Can Cheat)
 
