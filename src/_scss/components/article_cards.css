@@ -42,7 +42,7 @@
   height: 100%;
 }
 
-.c_meta {
+.c_title, .c_desc {
   padding: 1em;
 }
 
@@ -50,8 +50,17 @@
   color: var(--c-color);
   text-decoration: underline;
   margin-top: 0;
+  padding-bottom: 0;
   margin-bottom: 7px;
   font-weight: normal;
+}
+
+.c_desc {
+  color: var(--body-text);
+  margin: 0;
+  padding-top: 0;
+  font-size: 85%;
+  line-height: 1.45em;
 }
 
 /* c_im_w = card_image_wrapper */
@@ -91,14 +100,6 @@
   .new_banner {
     color: black;
   }
-}
-
-.c_desc {
-  color: var(--body-text);
-  margin-top:    0.5em;
-  margin-bottom: 0;
-  font-size: 85%;
-  line-height: 1.45em;
 }
 
 .article_cards {

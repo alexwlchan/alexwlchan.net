@@ -65,16 +65,12 @@
         <div class="new_banner">NEW</div>
       {% endif %}
     </div>
-
-    <div class="c_meta">
-      <p class="c_title">
-        {{- article.card.title -}}
-      </p>
-      {%- if article.card.summary -%}
-        <p class="c_desc">
-          {{- article.card.summary | strip -}}
-        </p>
-      {%- endif -%}
-    </div>
+    
+    <p class="c_title">
+      {{- article.card.title -}}
+    </p>
+    <p class="c_desc">
+      {{- article.card.summary | strip -}}
+    </p>
   </a>
 </li>
