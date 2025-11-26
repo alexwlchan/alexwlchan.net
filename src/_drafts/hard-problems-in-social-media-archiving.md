@@ -11,7 +11,11 @@ This is a strictly personal archive, which will only ever be updated or accessed
 What about larger archives?
 
 Heritage institutions are very interested in archiving social media, given its ever-growing impact on our lives, but it's a nascent field.
-I worked in cultural heritage for eight years, including nearly two years at the [Flickr Foundation][flickr-fdn]
+I worked in cultural heritage for eight years, including nearly two years at the [Flickr Foundation][flickr-fdn], and I talked to a lot of people about preserving social media.
+Everybody I spoke to understood its importance, but the process and tools are still relatively young.
+A lot of institutions have a good digital preservation strategy, but comparatively few have a mature approach for preserving social media.
+
+In this post, I'm going to talk about why this is a difficult problem, and how I've approached it in my personal archive.
 
 [social-media-scrapbook]: /2025/social-media-scrapbook/
 [flickr-fdn]: https://www.flickr.org/
@@ -23,9 +27,99 @@ I worked in cultural heritage for eight years, including nearly two years at the
 
 
 ## The flood: there's too much to save
-## The boundary: where to cut off the social graph
+
+How do you choose what parts of social media to save?
+Do you filter by topic, or by author, or by geographic location? 
+What's most important?
+Who decides? 
+
+These questions of curation are tricky, and I understand why many people would would prefer to collect everything -- it reduces bias in the selection process. 
+The problem is social media operates at a scale where collecting everything is simply impossible. 
+Social media is orders of magnitude bigger than even the most well-resourced institution can store.
+(YouTube alone gets [over 20 million new videos a day][youtube-scale], which would blow the storage budget for most institutions.)
+
+There's a big tension between "collect everything" and "collect sustainably".
+
+One approach is to treat social media as a graph and try to collect connected subsets of that graph. For example, if you save one post in a conversation, Save the other posts in the conversation so you have all the context in one place. 
+This is a limitation of more traditional web archiving tools which typically save a page at a time. They aren't aware of the networked context of social media, and may only save part of a conversation.
+
+In my personal archive, I'm only collecting posts that are important to me, and so the scale is inevitably capped by the rate at which I can consume social media.
+I can also choose whether or not to include something based entirely on vibes and personal preference, whereas institutions like to have a set of well-defined rules for what is in scope for their collections.
+I can be more loosey-goosey with what I collect. 
+
+(Social graph context?)
+
+[youtube-scale]: https://blog.youtube/press/#:~:text=On average, there are over 20 million videos uploaded daily to YouTube.
+
+## The fog: you can save it, but you can't find it
+
+Accumulating a large social media archive is no good if you can't find anything in it later.
+
+A common approach to social media archiving is web archiving, where you save the web page for each post.
+Putting aside the inefficiency of capturing an entire web page for a single post, which which may be only a few hundred characters, this approach can make it difficult to search across the archive.
+You can look up a single post if you know its URL, but you can't find all the posts about a particular topic or by a particular author. 
+The Internet Archive has saved millions of tweets, but try finding saved tweets about cats.
+
+With physical objects or smaller digital archives, this problem is solved by cataloguing.
+Archivists write a description of the contents of an item and then researchers can search the catalogue to find items they might be interested in.
+This approach doesn't scale to social media posts, where you can save a thousand posts in the time it takes a human cataloguer to write a single description. 
+
+In my personal archive, I'm adding keyword tags to every conversation I save. 
+This is a good balance of description and time taken for me -- but this is harder to pull off in an institutional context. Among other things, I don't need to coordinate the meaning or usage of my tags with anybody else. 
+And my archive is already narrowed to my fairly specific set of interests, so my tags are filtering in a very small pool. 
+It's unlikely an institution would have such a niche dataset.
+(Is niche the right word?)
+
 ## The walled garden: platforms don't want to be preserved
-## The ethics: consent, privacy, and the creep factor
+
+In the early 2000s, many social media sites had publicly accessible APIs for getting their content. 
+Twitter is the poster child for this access. their API allowed a flourishing ecosystem of third party clients. And the API was easy enough to use that many researchers used it to collect large amounts of Twitter data for preservation and other research. 
+(The accessibility of Twitter's API is one of the reasons until we have such extensive Twitter archives.)
+
+This is largely a relic of the past.
+Social media platforms are no longer keen on their content being downloaded en masse -- they don't have public APIs, and they aggressively block attempts to scrape or crawl this content. 
+These efforts have been exacerbated by companies trying to stop large language models being trained on their data, and preservation tools have been blocked as well.
+(And there are instances of AI companies using web archives to [circumvent blocks on their scrapers][ia-blocked-by-reddit].)
+
+The lack of programmatic access makes it much harder for institutions to collect social media at any sort of scale. 
+Especially if you want to collect a wide variety of fields, you need to be able to use an API or automated tools. 
+
+In my personal archive, I have a small and simple data model that I can fit in by hand. 
+Although I've written scripts to automate the process for websites that have APIs, it's not essential. 
+If I can see a post in my web browser or in an app, I can see enough to fill in the data to save it in my scrapbook. 
+
+[ia-blocked-by-reddit]: https://www.theverge.com/news/757538/reddit-internet-archive-wayback-machine-block-limit
+
+## The ethics: do people want to be preserved?
+
+Many web archives have largely ignored issues of consent.
+If something is available on the public internet, it's fair game to be scraped and downloaded into an archive, whether or not the original author wants their content to be preserved. 
+Once preserved, this deprives the original author the ability to delete their posts from the internet. 
+If somebody posts an embarrassing thought, or a personal picture, and it gets sucked into a web archive, it's much harder for them to remove it from the internet. 
+
+This problem has been bubbling under the surface for years. But people have a renewed interest in how their data is used thanks to generative AI. 
+Now that people are aware their data is being sucked up to train large language models, tools, they're much more careful and cautious about where their data is copied. I think we could see a big retreat from open access, Creative Commons, and public by default.
+
+If you take a hard-line ethical stance, you should only collect material where authors have explicitly agreed to have their material collected. Institutions typically govern this with some sort of collection agreement where you allow the institution to keep a copy of your material and sign away the right to remove it afterwards.
+This is squeaky clean, but it's hard to scale. 
+
+It also comes with preservation risks. What about people who can no longer consent? There are social media websites that have been around for decades, with lots of users who have abandoned the site, lost their password, or have just died. made. If you need their explicit consent to save their material, and you have no way of contacting them or their next of kin, then their posts will never be preserved. 
+
+How do people feel about their social media posts being preserved? Many people seem to be broadly supportive of web archives and the Internet Archive and web archives in general but what if it's their posts on the line? do they feel the same?
+
+Anecdotally, I see a lot more people trying to protect their social media posts. Hiding their posts from public view, you, restricting them to private friends, using disappearing media like one-time messages or expiring stories.
+There is an intent here:I want you to see this, but I don't want you to have a copy of it forever. 
+
+One project I'm following with interest is BlueSky's user intents, where they plan to ask users how they feel about their posts being reused for a variety of purposes, including training machining learning models and digital preservation. It's only a draft, but if accepted I'd really like to see what sort of response it gets. 
+
+In my personal archive, I'm largely ignoring issues of privacy and consent. 
+This is only an archive for my personal views which I'm never going to share with anybody else. There's no risk of me sharing something beyond its original intended audience. I can only save a post if it was visible to me once, and I'm not going to make it visible to anybody else. 
+
+I feel like it's fine for me to have these posts, but not to share them. 
+
+When I'm deciding what to save, I consider how somebody might feel if they knew I'd saved a copy of their posts. 
+Would I feel comfortable telling them? them. For example, I think it's fine for me to save a conversation I was a part of or or posts about a topic I'm interested in, but it would be creepy if I downloaded every post somebody had made, including posts from conversations that didn't include me. 
+
 ## The rot: formats, viewers, and digital decay
 
 ---
@@ -55,9 +149,6 @@ problem of storage, and also discoverability
 - Why institutional-scale solutions are blocked by rate limits, disappearing APIs, paywalls, and hostile platforms.
 - You can just… type.
 
-Another challenge for institutions is that many social media websites are not keen on being archived. They don't have a public accessible API, and they aggressively block attempts to scrape or crawl their content. Difficult to automated tools for archiving these sites, which prevents collecting the source of scale preferred by big institutions.
-
-That's not an issue for me, because I have a small and simple data model that I can fill in my hand. Although I prefer to write scripts to automate the process dash and I do, for some websites – it's not essential. If I can see a post on my web browser, I can see enough to fill in the data to preserve it.
 
 ### nobody else decides what goes in
 
