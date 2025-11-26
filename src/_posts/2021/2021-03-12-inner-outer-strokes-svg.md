@@ -167,7 +167,7 @@ For example, if I had [an illustration of the Earth] and I wanted to remove the 
 
 Here's how the clipped image works:
 
-```
+```xml
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <clipPath id="insideCircleOnly">
@@ -198,7 +198,7 @@ Thus, we get an inner stroke:
 
 And here's what the SVG looks like:
 
-```
+```xml
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <!-- Based on the heart from https://thenounproject.com/search/?q=heart&i=585522 -->
@@ -212,7 +212,7 @@ And here's what the SVG looks like:
   <use
     xlink:href="#heart"
     stroke-width="10" stroke="red" fill="none"
-clip-path="url(#insideHeartOnly)"/>
+    clip-path="url(#insideHeartOnly)"/>
 </svg>
 ```
 
@@ -276,7 +276,7 @@ For example, we can remove the globe by putting a black circle in the middle of 
 
 Here's how this SVG works:
 
-```
+```xml
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <mask id="globeOuterOnly">
@@ -324,7 +324,7 @@ By creating a mask with a white background and a black shape, we can discard the
 
 And here's some more SVG:
 
-```
+```xml
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <!-- Based on the heart from https://thenounproject.com/search/?q=heart&i=585522 -->
