@@ -11,6 +11,8 @@ colors:
   index_light: "#5366ac"
   index_dark:  "#607db9"
 ---
+<!-- Social media card image: martin-fisher-5577331_1920.jpg -->
+
 In my [previous post][social-media-scrapbook], I wrote about my new scrapbook of social media -- a place where I can save social media posts that are important to me.
 This is a strictly personal archive, which will only ever be updated or accessed by me.
 What about larger archives?
