@@ -283,14 +283,15 @@ They're quick to run, so I run them every time I make a change, which means I ca
 
 ---
 
-## Inspirations and ideas
+## Inspirations and influences
 
-When I look at this project, I can see all the places where the ideas came from.
-These are the influences that helped me get to the current design.
+### Static website in Twitter's first-party archives
 
-### Static website in Twitter archive
+Pretty much every social media website has a way to export your data, but some exports are better than others.
+Some 
 
-Pretty much every social media website gives you a way to download your data, but some downloads are better than others.
+---
+
 On some sites it's obviously offered reluctantly -- a zip archive full of JSON files, with minimal documentation or explanation.
 Enough to comply with data export laws, but nothing more than that.
 
