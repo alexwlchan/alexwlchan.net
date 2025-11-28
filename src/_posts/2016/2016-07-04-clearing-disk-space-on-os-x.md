@@ -58,7 +58,7 @@ For example, running it over a selection of my virtualenvs:
 {%
   picture
   filename="gemini_screenshot.png"
-  width="750"
+  width="638"
   alt="A screenshot of the Gemini interface"
 %}
 
