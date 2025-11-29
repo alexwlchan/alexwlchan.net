@@ -183,7 +183,7 @@ module Jekyll
       cache.getset(input) do
         text = add_non_breaking_spaces(input)
 
-        if text.include? '<pre'
+        if text.include? '<code'
           text = cleanup_syntax_highlighter_classes(text)
         end
 
