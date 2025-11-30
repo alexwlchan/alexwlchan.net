@@ -110,6 +110,46 @@ Only one way to find out!
 
 [wiki-spinal-tap]: https://en.wikipedia.org/wiki/Up_to_eleven
 
+### The experience of social media
+
+We've looked at the content itself — the posts, the words, the images.
+But social media isn't just what’s posted; it’s how we *experience* it.
+The interface, interaction design, and the algorithms that shape our feeds are rarely captured in archives.
+
+Consider TikTok and the rise of vertical-swipe video.
+Because the next video is just a swipe away, creators structure their content to hook you immediately, and keep your attention throughout.
+If you only capture the video file, and not the mechanics of the swipe experience, you miss something about how it was consumed.
+
+Screenshots and screen recordings can preserve a static snapshot, but they can't capture the dynamism of scrolling, swiping, or live interactions.
+
+Even more elusive is the "algorithm", the black box that decide what posts appear in our timeline, when, and to whom.
+These algorithms shape culture itself -- amplifying some voices, suppressing others, deciding which ideas can spread -- but their inner workings are deliberately opaque and impossible to archive.
+
+We can preserve the content of social media, but not the experience.
+Without the interface and the algorithmic context, the way we encountered and engaged with posts is lost to history.
+
+---
+
+> Alex writes frequently about presentation, formats, rendering, and UX.
+> In institutional preservation, capturing what the user actually saw is an unsolved challenge:
+> * Infinite scroll vs. paginated captures
+> * Algorithmic timelines (which are not reproducible)
+> * Hidden replies, blocks, algorithmic ranking, “For You” tabs
+> * Ephemeral UI elements (live counts, badges, tooltips, quote-tweet previews)
+> * “Dark mode,” “light mode,” custom themes
+> Institutions can capture objects, but often not the experience, which means they may misrepresent how information was encountered at the time.
+> Alex’s scrapbook gets around this by designing its own stable representation.
+> Institutions don’t have that luxury.
+> Where it fits: as a subsection under “the rot” (format + interaction preservation), or as an additional major section (“The illusion of reproducibility”).
+
+You discuss timelines but not the systems behind them.
+Algorithms determine:
+what you see
+when you see it
+what gets buried
+what trends
+Preserving posts isn’t the same as preserving the algorithmic environment.
+
 ---
 
 ## Rules and responsibility
@@ -292,34 +332,6 @@ Nearly all of the conversations it contains are with friends I know well, so I c
 
 > I can even collapse typo-correction follow-ups into a single cleaned-up note.
 
-## The Feed: do you preserve the experience?
-
-> Alex writes frequently about presentation, formats, rendering, and UX.
-> In institutional preservation, capturing what the user actually saw is an unsolved challenge:
-> * Infinite scroll vs. paginated captures
-> * Algorithmic timelines (which are not reproducible)
-> * Hidden replies, blocks, algorithmic ranking, “For You” tabs
-> * Ephemeral UI elements (live counts, badges, tooltips, quote-tweet previews)
-> * “Dark mode,” “light mode,” custom themes
-> Institutions can capture objects, but often not the experience, which means they may misrepresent how information was encountered at the time.
-> Alex’s scrapbook gets around this by designing its own stable representation.
-> Institutions don’t have that luxury.
-> Where it fits: as a subsection under “the rot” (format + interaction preservation), or as an additional major section (“The illusion of reproducibility”).
-
-You discuss timelines but not the systems behind them.
-Algorithms determine:
-what you see
-when you see it
-what gets buried
-what trends
-Preserving posts isn’t the same as preserving the algorithmic environment.
-
-## 3. The Ephemera: what about stories, live streams, or disappearing content?
-
-Ephemeral formats are increasingly central to social life, but are the least preservable.
-Stories, TikTok Lives, Twitch VODs, Spaces, Fleets… all vanish by design.
-Perfectly fits the theme of “you experience it, but do you preserve it?”
-
 ## The Ledger: can you prove a post is what it claims to be?
 
 > 1. The problem of verifying authenticity (provenance, integrity, and trust)
@@ -331,17 +343,6 @@ Perfectly fits the theme of “you experience it, but do you preserve it?”
 > * What do you do when platforms retroactively edit, delete, or “shadow-update” content?
 > This matters for scholarship, journalism, and legal evidence, and it ties directly to alex’s interest in metadata validation and test suites.
 > It’s not mentioned in your draft, but institutions care about it a lot.
-
-## The Veil: how do you preserve private spaces?
-
-what about posts that aren't public?
-
-This complements “The Shade,” but expands to private groups, Discord servers, patron-only posts, members-only forums.
-Institutional archivists often want to preserve community knowledge but legally and ethically cannot even access it.
-
-7. The Context Collapse: how do you preserve the surrounding culture?
-A post from 2011 referencing Tumblr memes, Twitter etiquette, or niche fandom drama is meaningless without context.
-Archivists can save the post, but can they preserve the ambient culture in which it made sense?
 
 ## The Rot: how do you prevent digital decay in your archive?
 
