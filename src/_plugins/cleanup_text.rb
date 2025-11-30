@@ -20,7 +20,7 @@ def add_non_breaking_spaces(input)
   text.gsub('e.g. ', 'e.g.&nbsp;')
 
   # Add a non-breaking space after words which are followed by
-  # a number, e.g. 'Apollo 11' or 'RFC 456'
+  # a number or word, e.g. 'Apollo 11' or 'RFC 456'
   prefix_words = %w[
     Apollo
     Artemis
@@ -31,6 +31,7 @@ def add_non_breaking_spaces(input)
     Issue
     issue
     iPres
+    Mrs.
     No.
     Part
     part
@@ -68,6 +69,13 @@ def add_non_breaking_spaces(input)
   ].join('|')
 
   text = text.gsub(/(\d+) (#{countable_words})/, '\1&nbsp;\2')
+
+  # Add a non-breaking space after short words if they're the first word
+  # in a sentence.
+  ['A', 'An', 'I'].each do |w|
+    text = text.gsub(". #{w} ", ". #{w}&nbsp;")
+    text = text.gsub(".\n#{w} ", ".\n#{w}&nbsp;")
+  end
 
   # Other phrases which needed non-breaking spaces or non-breaking
   # dashes.

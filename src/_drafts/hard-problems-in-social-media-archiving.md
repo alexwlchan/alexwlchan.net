@@ -1,110 +1,86 @@
 ---
 layout: post
 title: Hard problems in social media archiving
-summary: 
+summary: Preserving social media is easier said than done. Why is it so diffcult for institutions face when they want to back up the Internet?
 tags:
   - digital preservation
   - social media
 index:
   feature: true
 colors:
-  index_light: "#5366ac"
-  index_dark:  "#607db9"
+  css_light: "#5366ac"
+  css_dark:  "#607db9"
 ---
 <!-- Social media card image: martin-fisher-5577331_1920.jpg -->
 
-In my [previous post][social-media-scrapbook], I wrote about my new scrapbook of social media -- a place where I can save social media posts that are important to me.
-This is a strictly personal archive, which will only ever be updated or accessed by me.
-What about larger archives?
+In my [previous post][social-media-scrapbook], I wrote about my scrapbook of social media posts -- a tiny, private archive where I can save conversations that I care about.
+What happens when larger institutions try to preserve social media?
 
-Heritage institutions are very interested in archiving social media, given its ever-growing impact on our lives, but it's a nascent field.
-I worked in cultural heritage for eight years, including nearly two years at the [Flickr Foundation][flickr-fdn], and I talked to a lot of people about preserving social media.
-Everybody I spoke to understood its importance, but the process and tools are still relatively young.
-A lot of institutions have a good digital preservation strategy, but comparatively few have a mature approach for preserving social media.
+Cultural heritage institutions know the historical importance of social media, and everyone I've worked with understands the urgency -- including when I worked at the [Flickr Foundation][flickr-fdn].
+But preserving social media is difficult, and it's not a well-developed area of practice.
+The enthusiasm is there, but the processes and tools are still relatively young.
+Many institutions have a mature strategy for digital preservation, but few have a strategy for social media.
 
-In this post, I'm going to talk about why this is a difficult problem, and how I've approached it in my personal archive.
+In this post, I'm going to explain why preserving social media is so hard, and how I've approached it in my scrapbook.
 
 [social-media-scrapbook]: /2025/social-media-scrapbook/
 [flickr-fdn]: https://www.flickr.org/
 
-
-
 {% table_of_contents %}
 
-
+---
 
 ## The Flood: how do you decide what to save?
 
-How do you choose what parts of social media to save?
-Do you filter by topic, or by author, or by geographic location? 
-What's most important?
-Who decides? 
+The sheer size of social media is the first problem.
+It exists at a scale that's hard to comprehend: billions of posts, with millions more being added each day.
+Any person's view of social media is a tiny sliver of the whole.
 
-These questions of curation are tricky, and I understand why many people would would prefer to collect everything -- it reduces bias in the selection process. 
-The problem is social media operates at a scale where collecting everything is simply impossible. 
-Social media is orders of magnitude bigger than even the most well-resourced institution can store.
-(YouTube alone gets [over 20 million new videos a day][youtube-scale], which would blow the storage budget for most institutions.)
+This makes it difficult for anybody to select a subset of social media to preserve, because the vast majority of it is invisible to them.
+Making a choice introduces selection bias, and I've talked to many people who want to avoid that bias by "collecting everything".
+But that's impossible -- collecting everything is beyond the technical or financial scope of any heritage institution.
 
-There's a big tension between "collect everything" and "collect sustainably".
+Since they can't collect everything, institutions create rules -- collection policies that define what's in-scope.
+These rules are meant to ensure consistency and reduce individual bias, but they force archivists to draw boundaries in a medium that inherently resists boundaries.
 
-One approach is to treat social media as a graph and try to collect connected subsets of that graph. For example, if you save one post in a conversation, Save the other posts in the conversation so you have all the context in one place. 
-This is a limitation of more traditional web archiving tools which typically save a page at a time. They aren't aware of the networked context of social media, and may only save part of a conversation.
+Social media isn't a sequence of isolated pages; it's a dense, interconnected graph.
+A single post only makes sense in context -- the replies, the people, the topic du jour.
+How much of this context do you gather?
+How many hops out do you follow?
+Do you save the whole thread, every reply, every linked account?
+How do you prevent scope creep from sucking in everything?
 
-In my personal archive, I'm only collecting posts that are important to me, and so the scale is inevitably capped by the rate at which I can consume social media.
-I can also choose whether or not to include something based entirely on vibes and personal preference, whereas institutions like to have a set of well-defined rules for what is in scope for their collections.
-I can be more loosey-goosey with what I collect. 
+In my personal scrapbook, I'm only interested in saving the sliver of social media that I see, and only a subset of that.
+I save threads I think are interesting; I keep posts that I find moving; I prune replies that are embarrassing or unhelpful.
+My "collection policy" is pure vibes.
+My archive is subjective and inconsistent, because the only audience is me.
 
-(Social graph context?)
-
-[youtube-scale]: https://blog.youtube/press/#:~:text=On average, there are over 20 million videos uploaded daily to YouTube.
-
-> and boundary of what gets collected
->
-> Social media posts exist in a network context. Most posts are not isolated entities, but part of a large tapestry conversation. Makes it difficult to understand and interpret later
-> If you only preserve one posted at a time, they can be hard to understand.
-> 
-> Because I am choosing what to collect by hand, I can decide which posts I think I'll worth keeping. I might keep a single tweet, or a whole thread, awesome tweets from the middle of the thread and a few replies.
->
-> Because this is a personal archive, I only need contact to myself. I was involved in many of the conversations I'm saving, and I don't remember some of the context. I knew who is involved, and what their expertise is there's context I don't save, because I know it outside the archive.
->
-> This is a problem with traditional when having tools like the Wayback machine, which typically focus on saving single pages. Although the machine to save as much as possible, individual posts are individual captures, and it's not always easier possible to zoom out and see the rest of the context.
->
-> The risk of saying context is important and worth saying is that it becomes an argument for everything. On some level, everything is context, but trying to preserve an entire social media site is not useful nor practical.
->
-> Because this isn't archive only for me, I can decide where to draw that boundary. I can decide based on vibes and personal preference, which likes the required by professional institutions. I can also choose editorialise.
->
-> For example, if somebody posted a tweet and then an immediate follow-up with a typo correction, I just save the original tweet and fold in the typo fix. I don't care about preserving the fact that there were two separate tweets. Or if a conversation includes something that I wrote which I now find embarrassing and cringeworthy, I can just admit it.
-
-> Institutions often struggle with:
-> * how many hops out in a conversation?
-> * do you preserve the whole thread or just the post?
-> * do you preserve all replies or only “relevant” ones?
-> * do you preserve linked posts? linked accounts?
-> * how do you contain scope creep?
-> Your “vibes-based boundary” is the personal solution.
-> Institutions need a rule — and making one is incredibly hard.
+Institutions can't be that casual.
+They need durable, defensible rules about where their collection starts and ends.
+And on social media -- where every post is context to a larger tangle of conversation -- drawing that boundary is the hardest part.
 
 ## The Fog: how do you search what you've saved?
 
-Accumulating a large social media archive is no good if you can't find anything in it later.
+We collect things so we can look at them later.
+This means we need organisation, some way to reach into our collection and find specific items.
+This can be a problem in social media archives, there the collections are too large and sparsely-described to be easily searchable.
 
-A common approach to social media archiving is web archiving, where you save the web page for each post.
-Putting aside the inefficiency of capturing an entire web page for a single post, which which may be only a few hundred characters, this approach can make it difficult to search across the archive.
-You can look up a single post if you know its URL, but you can't find all the posts about a particular topic or by a particular author. 
-The Internet Archive has saved millions of tweets, but try finding saved tweets about cats.
+A common approach to preserving social media is web archiving, where you save a copy of the web page for each post.
+The largest example of this is the Wayback Machine.
+This approach is easy to automate, but the archive is inefficient and difficult to earch.
+You can find a single post if you know its URL, but it's hard to search for posts about a particular topic or by a particular author.
 
-With physical objects or smaller digital archives, this problem is solved by cataloguing.
-Archivists write a description of the contents of an item and then researchers can search the catalogue to find items they might be interested in.
-This approach doesn't scale to social media posts, where you can save a thousand posts in the time it takes a human cataloguer to write a single description. 
+With physical objects or smaller digital archives, we solve this problem with cataloguing.
+Archivists write a description of an item, and researchers can search the catalogue descriptions to find items they might be interested in.
+This doesn't scale to social media posts, where a machine can save a thousand posts in the time it takes an archivist to write a single free-text description.
 
-In my personal archive, I'm adding keyword tags to every conversation I save. 
-This is a good balance of description and time taken for me -- but this is harder to pull off in an institutional context. Among other things, I don't need to coordinate the meaning or usage of my tags with anybody else. 
-And my archive is already narrowed to my fairly specific set of interests, so my tags are filtering in a very small pool. 
-It's unlikely an institution would have such a niche dataset.
-(Is niche the right word?)
+In my scrapbook, I'm adding keyword tags to every conversation.
+It's a good balance of description and time -- I can add tags quickly, and it makes it easier for me to find stuff later.
+These tags are loosier than a controlled vocabulary like [LCSH] or [MeSH] -- only I have to understand what the tags mean, and I don't need to agree on definitions with anybody else.
+This feels like an approach that could work in institutions.
 
-> so much stuff!
-> problem of storage, and also discoverability
+> I can even collapse typo-correction follow-ups into a single cleaned-up note.
+> Traditional web-archiving tools, designed around page-by-page capture, often miss this surrounding networked context.
 
 ## The Self: who's really talking?
 
@@ -124,26 +100,26 @@ It's unlikely an institution would have such a niche dataset.
 
 ## The Walled Garden: what if a platform resists being preserved?
 
-In the early 2000s, many social media sites had publicly accessible APIs for getting their content. 
-Twitter is the poster child for this access. their API allowed a flourishing ecosystem of third party clients. And the API was easy enough to use that many researchers used it to collect large amounts of Twitter data for preservation and other research. 
-(The accessibility of Twitter's API is one of the reasons until we have such extensive Twitter archives.)
+In the early 2000s, many social media sites had publicly accessible APIs for getting their content.
+Twitter is the poster child of this approach -- their API allowed a flourishing ecosystem of third-party clients, and it was easy enough to use that many researchers used it to collect large amounts of Twitter data for preservation and other research. 
+(The accessibility of Twitter's API is one reason we have such extensive Twitter archives.)
 
 This is largely a relic of the past.
 Social media platforms are no longer keen on their content being downloaded en masse -- they don't have public APIs, and they aggressively block attempts to scrape or crawl this content. 
-These efforts have been exacerbated by companies trying to stop large language models being trained on their data, and preservation tools have been blocked as well.
-(And there are instances of AI companies using web archives to [circumvent blocks on their scrapers][ia-blocked-by-reddit].)
+This has intensified as companies try to stop large language models being trained on their data, and preservation tools get blocked at the same time.
+(Especially as there are instances of AI companies using web archives to [circumvent blocks on their scrapers][ia-blocked-by-reddit].)
 
-The lack of programmatic access makes it much harder for institutions to collect social media at any sort of scale. 
-Especially if you want to collect a wide variety of fields, you need to be able to use an API or automated tools. 
+The lack of programmatic access makes it hard for institutions to collect social media at scale. 
 
-In my personal archive, I have a small and simple data model that I can fit in by hand. 
+In my scrapbook, I can just type.
+I have a small and simple data model that I can fill in by hand. 
 Although I've written scripts to automate the process for websites that have APIs, it's not essential. 
-If I can see a post in my web browser or in an app, I can see enough to fill in the data to save it in my scrapbook. 
+If I can see a post in my web browser or in an app, I can see enough to fill in the data to save it. 
+
+This works for me because I'm only saving a small number of posts, and I'll accept the small possibility of human error during manual data entry.
+The lack of scale and risk of mistakes means this is probably less appealing to institutions.
 
 [ia-blocked-by-reddit]: https://www.theverge.com/news/757538/reddit-internet-archive-wayback-machine-block-limit
-
-> - Why institutional-scale solutions are blocked by rate limits, disappearing APIs, paywalls, and hostile platforms.
-> - You can just… type.
 
 ## The Ethics: do people want to be preserved?
 
