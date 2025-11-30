@@ -59,28 +59,29 @@ Institutions can't be that casual.
 They need durable, defensible rules about where their collection starts and ends.
 And on social media -- where every post is context to a larger tangle of conversation -- drawing that boundary is the hardest part.
 
-## The Fog: how do you search what you've saved?
+## The Fog: how do you find what you've saved?
 
-We collect things so we can look at them later.
-This means we need organisation, some way to reach into our collection and find specific items.
-This can be a problem in social media archives, there the collections are too large and sparsely-described to be easily searchable.
+An archive is useless if you can't find what you've saved.
+This is often a problem in social media archives: we can save posts at incredible speeds, but we can't search them in any meaningful way.
 
-A common approach to preserving social media is web archiving, where you save a copy of the web page for each post.
-The largest example of this is the Wayback Machine.
-This approach is easy to automate, but the archive is inefficient and difficult to earch.
-You can find a single post if you know its URL, but it's hard to search for posts about a particular topic or by a particular author.
+The default solution is web archiving -- saving each post as a web page, like the Wayback Machine.
+This approach scales beautifully for capture, but terribly for discovery.
+You can retrieve a post if you know a URL, but not “everything about X” or “posts written by Y”.
 
-With physical objects or smaller digital archives, we solve this problem with cataloguing.
-Archivists write a description of an item, and researchers can search the catalogue descriptions to find items they might be interested in.
-This doesn't scale to social media posts, where a machine can save a thousand posts in the time it takes an archivist to write a single free-text description.
+Traditional archives solve this with cataloguing: humans write descriptions, and researchers use those to find what they need.
+But that model collapses at social media scale: machines can save thousands of posts in the time it takes a human to describe just one.
 
-In my scrapbook, I'm adding keyword tags to every conversation.
-It's a good balance of description and time -- I can add tags quickly, and it makes it easier for me to find stuff later.
-These tags are loosier than a controlled vocabulary like [LCSH] or [MeSH] -- only I have to understand what the tags mean, and I don't need to agree on definitions with anybody else.
-This feels like an approach that could work in institutions.
+In my personal scrapbook, I add keyword tags to every conversation.
+They're fast, informal, and effective.
+If I want something specific, I can filter by tag and find it instantly.
+Since I'm the only person who uses these tags, I can define them in a way I like and change them when I decide.
+If I was in an institutional context, I'd use a controlled vocabulary like [wiki-LCSH] or [MeSH][wiki-MeSH].
 
-> I can even collapse typo-correction follow-ups into a single cleaned-up note.
-> Traditional web-archiving tools, designed around page-by-page capture, often miss this surrounding networked context.
+These light-touch keywords feel like a realistic middle ground: human-scale data that's quick to apply, but rich enough to cut through the fog.
+This might be the approach that institutions need.
+
+[wiki-LCSH]: https://en.wikipedia.org/wiki/Library_of_Congress_Subject_Headings
+[wiki-MeSH]: https://en.wikipedia.org/wiki/Medical_Subject_Headings
 
 ## The Self: who's really talking?
 
@@ -97,6 +98,9 @@ This feels like an approach that could work in institutions.
 > * record external context (“this is an official account”)
 > This is barely mentioned in your draft but is one of the hardest challenges for researchers using archival social-media datasets.
 > Your personal archive sidesteps this because you know who you’re looking at.
+
+> I can even collapse typo-correction follow-ups into a single cleaned-up note.
+
 
 ## The Walled Garden: what if a platform resists being preserved?
 
