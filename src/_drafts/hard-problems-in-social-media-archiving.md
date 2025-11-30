@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hard problems in social media archiving
-summary: Preserving social media is easier said than done. Why is it so diffcult for institutions face when they want to back up the Internet?
+summary: Preserving social media is easier said than done. What makes it so diffcult for institutions to back up the Internet?
 tags:
   - digital preservation
   - social media
@@ -28,20 +28,21 @@ In this post, I'm going to explain why preserving social media is so hard, and h
 
 {% table_of_contents %}
 
+
 ---
 
-## The Flood: how do you decide what to save?
+## Deciding what to preserve
 
-The sheer size of social media is the first problem.
-It exists at a scale that's hard to comprehend: billions of posts, with millions more being added each day.
+### The scale of social media is overwhelming
+
+Social media exists at a scale that's hard to comprehend: billions of posts, with millions more being added each day.
 Any person's view of social media is a tiny sliver of the whole.
 
 This makes it difficult for anybody to select a subset of social media to preserve, because the vast majority of it is invisible to them.
-Making a choice introduces selection bias, and I've talked to many people who want to avoid that bias by "collecting everything".
-But that's impossible -- collecting everything is beyond the technical or financial scope of any heritage institution.
+Making a choice introduces selection bias, and I've talked to many people who want to avoid that bias by "collecting everything" -- but that's far beyond the capacity of any institution.
 
 Since they can't collect everything, institutions create rules -- collection policies that define what's in-scope.
-These rules are meant to ensure consistency and reduce individual bias, but they force archivists to draw boundaries in a medium that inherently resists boundaries.
+These rules are meant to ensure consistency and reduce individual bias, but they force archivists to draw boundaries in a medium that inherently resists them.
 
 Social media isn't a sequence of isolated pages; it's a dense, interconnected graph.
 A single post only makes sense in context -- the replies, the people, the topic du jour.
@@ -50,14 +51,147 @@ How many hops out do you follow?
 Do you save the whole thread, every reply, every linked account?
 How do you prevent scope creep from sucking in everything?
 
-In my personal scrapbook, I'm only interested in saving the sliver of social media that I see, and only a subset of that.
-I save threads I think are interesting; I keep posts that I find moving; I prune replies that are embarrassing or unhelpful.
-My "collection policy" is pure vibes.
-My archive is subjective and inconsistent, because the only audience is me.
+My personal scrapbook is subject and inconsistent, because the only audience is me.
+My "collection policy" is pure vibes -- I save threads I think are interesting; I keep posts that I find moving; I prune replies that are embarrassing or unhelpful.
 
 Institutions can't be that casual.
 They need durable, defensible rules about where their collection starts and ends.
-And on social media -- where every post is context to a larger tangle of conversation -- drawing that boundary is the hardest part.
+On social media -- where every post is context to a larger tangle of conversation -- drawing that boundary is the hardest part.
+
+### Private and disappearing content
+
+Most social media archiving efforts focus on publicly available, long-lasting content.
+This excludes other types of material which make up an ever-growing proportion of social media.
+
+Two major categories stand out:
+
+1.  Private social media -- direct messages, private accounts, closed groups, paywalled forums.
+2.  Ephemeral features -- content that deliberately disappears or expires -- think Snapchat, Instagram Stories, or one-time messages.
+
+Collecting this material is difficult.
+Technically, much of it is behind authentication walls or interfaces that most web archiving tools can't reach.
+Ethically, archivists have to be careful not to violate social norms or user expectations -- many people would be surprised if their private or temporary posts were copied to a public, permanent archive.
+
+It isn't impossible, and I've seen a handful of projects capture private and ephemeral media -- for example, researchers analysing Instagram Stories and their use in political campaigns.
+These efforts rely on a patchwork of methods: accessing content through user logins, browser plugins, even taking screenshots.
+They tend to be small, targeted, and short-lived.
+
+My scrapbook has a small amount of private content, mostly conversations between me and locked accounts on Twitter.
+I'm comfortable with that because I was part of those conversations, and my archive is entirely private.
+(For more on the ethics, see "Rules and responsibilities" below.)
+I haven't saved any ephemeral content.
+
+Private and ephemeral posts have a different dynamic from public timelines.
+People can be more personal, vulnerable, and candid when they know their posts can't be seen by anyone, forever.
+Maybe those moments won't appear in institutional social media archives -- but if so, we should acknowledge that limitation, and what stories it leaves out.
+
+### Implicit knowledge, cultural context, and memes
+
+Social media relies on shared knowledge: current events, in-jokes, and memes.
+Without this context, the meaning of a post can fade -- or an entirely new meaning can take its place.
+
+It's impossible to preserve all this background information.
+People rarely link to the thing they're referring to; they rely on their audience to already know.
+A key part of any creative work is deciding how much to explain and how much to leave implied.
+Sometimes it's a tiny in-joke for a handful of fans, other times it's essential to understanding the point.
+
+This isn't a new problem -- all human communication requires context -- but social media [takes it to eleven][wiki-spinal-tap].
+The pace and brevity are a fertile breeding ground for memes whose origins disappear almost immediately.
+Log off for a day, and you'll miss the moment that makes a whole thread make sense.
+Imagine how much harder it is to understand if you arrive years -- or decades -- later.
+
+Institutions try to fill in the gap with catalogue descriptions, but that's only possible if somebody understands the references well enough to describe them.
+With social media's scale and speed, it's impossible for anybody to know all the jokes, memes, and ideas that might affect a post.
+
+In my personal scrapbook, I rely on my memory to provide that context.
+I don't write longer explanations, and I don't know how much I'll remember.
+What seemed obvious in 2020 may be baffling in 2030.
+Only one way to find out!
+
+[wiki-spinal-tap]: https://en.wikipedia.org/wiki/Up_to_eleven
+
+---
+
+## Rules and responsibility
+
+## Maintaining what you have
+
+1. the flood
+    2. the subtext: what’s written between the lines?
+      -> most important links are often implicit, not explicit
+    3. the veil: veil
+    4. the ephemera
+
+the fog
+the ethics -> the law -> the self
+
+walled garden -> the feed -> the fog -> the ledger -> the rot/long haul
+
+
+
+
+---
+
+
+Start with volume — the overwhelming scale of the social-media universe.
+This sets the stage: before anything else, you must choose what’s even eligible.
+2. The Veil: what about posts that aren't public?
+Once you know what exists, confront what you can’t see (privacy, DMs, private groups, paywalls).
+This pairs naturally with the flood: the visible sliver versus the hidden whole.
+3. The Ephemera: what about disappearing or time-limited content?
+A second category of “stuff you can’t rely on seeing,” but for temporal rather than access reasons.
+This gives you the two kinds of “unseen” content back to back.
+4. The Walled Garden: what if platforms resist preservation?
+Moves from content-based visibility to platform-based accessibility.
+You now know what exists and what’s visible—this covers what’s technically capturable.
+5. The Feed: do you preserve the experience?
+Once capture becomes possible, the next question is:
+What is the representation?
+Algorithmic timelines, UI, interaction.
+6. The Fog: how do you find what you've saved?
+After capture and representation, move to discovery.
+This mirrors archival workflow: ingest → describe → retrieve.
+7. The Ethics: do people want to be preserved?
+Now shift from technical questions to human ones.
+Ethics comes naturally after “fog” because discovery raises questions of exposure and consent.
+8. The Law: how does policy shape preservation?
+Follow ethics with legal constraints—what you must do regardless of what you want or can do.
+9. The Self: who's the person behind the profile?
+Identity fits well after ethics + law:
+consent depends on identity
+context and reliability depend on knowing the speaker
+legal obligations can depend on who the subject is
+10. The Ledger: can you prove a post is what it claims to be?
+Once you know who wrote something, the next issue is whether it’s authentic.
+This is a natural deepening of the identity-and-context problem.
+11. The Rot: how do you prevent digital decay in your archive?
+Now shift from capture/ethics/identity into preservation stability.
+Formats, rendering, infrastructure.
+12. The Long Haul: how do you keep the archive going?
+End with stewardship—budget, staffing, maintenance.
+This is the natural closing chapter: the long-term responsibility that outlives all previous decisions.
+
+
+---
+
+
+
+## The Walled Garden: what if platforms resist preservation?
+
+In the early 2000s, many platforms had public APIs.
+Twitter is the poster child of this approach -- their API allows a flourishing ecosystem of third-party clients and research projects.
+
+That time is over.
+Companies take a dim view of their content being downloaded en masse -- they don't have public APIs, and they aggressively block attempts to scrape or crawl their content.
+This has intensified in the era of AI, as companies try to monetise their data for model training.
+Preservation tools have been caught in the same net.
+
+This makes institutional archiving difficult.
+
+It's less of an issue in my scrapbook, where I can just enter data by hand.
+I prefer to use APIs to save content, but I don't require it -- If I can see a post, I can save it.
+But this only works because I'm working at a small scale, and I can accept the small risk of human error in my date entry.
+That's a harder sell for institutions.
 
 ## The Fog: how do you find what you've saved?
 
@@ -83,127 +217,80 @@ This might be the approach that institutions need.
 [wiki-LCSH]: https://en.wikipedia.org/wiki/Library_of_Congress_Subject_Headings
 [wiki-MeSH]: https://en.wikipedia.org/wiki/Medical_Subject_Headings
 
-## The Self: who's really talking?
 
-> Identity on social media is:
-> * mutable (people change handles)
-> * fragile (names are reused after account deletion)
-> * cross-platform (one human, many accounts)
-> * ambiguous (“which JohnSmith42 is this?”)
-> Institutions often need to:
-> * track identity over time
-> * distinguish between accounts with the same username
-> * express uncertainty (e.g., “likely same user”)
-> * deal with impersonation or parody accounts
-> * record external context (“this is an official account”)
-> This is barely mentioned in your draft but is one of the hardest challenges for researchers using archival social-media datasets.
-> Your personal archive sidesteps this because you know who you’re looking at.
-
-> I can even collapse typo-correction follow-ups into a single cleaned-up note.
-
-
-## The Walled Garden: what if a platform resists being preserved?
-
-In the early 2000s, many social media sites had publicly accessible APIs for getting their content.
-Twitter is the poster child of this approach -- their API allowed a flourishing ecosystem of third-party clients, and it was easy enough to use that many researchers used it to collect large amounts of Twitter data for preservation and other research. 
-(The accessibility of Twitter's API is one reason we have such extensive Twitter archives.)
-
-This is largely a relic of the past.
-Social media platforms are no longer keen on their content being downloaded en masse -- they don't have public APIs, and they aggressively block attempts to scrape or crawl this content. 
-This has intensified as companies try to stop large language models being trained on their data, and preservation tools get blocked at the same time.
-(Especially as there are instances of AI companies using web archives to [circumvent blocks on their scrapers][ia-blocked-by-reddit].)
-
-The lack of programmatic access makes it hard for institutions to collect social media at scale. 
-
-In my scrapbook, I can just type.
-I have a small and simple data model that I can fill in by hand. 
-Although I've written scripts to automate the process for websites that have APIs, it's not essential. 
-If I can see a post in my web browser or in an app, I can see enough to fill in the data to save it. 
-
-This works for me because I'm only saving a small number of posts, and I'll accept the small possibility of human error during manual data entry.
-The lack of scale and risk of mistakes means this is probably less appealing to institutions.
-
-[ia-blocked-by-reddit]: https://www.theverge.com/news/757538/reddit-internet-archive-wayback-machine-block-limit
 
 ## The Ethics: do people want to be preserved?
 
-Many web archives have largely ignored issues of consent.
-If something is available on the public internet, it's fair game to be scraped and downloaded into an archive, whether or not the original author wants their content to be preserved. 
-Once preserved, this deprives the original author the ability to delete their posts from the internet. 
-If somebody posts an embarrassing thought, or a personal picture, and it gets sucked into a web archive, it's much harder for them to remove it from the internet. 
+Web archiving has long ignored consent.
+If something is on the public web, most archives consider it eligible for capture -- but preserving a post means it's preserved *forever*.
+If somebody posts an embarrassing thought or a personal picture, and it gets sucked into a web archive, it's much harder to remove it from the Internet.
 
-This problem has been bubbling under the surface for years. But people have a renewed interest in how their data is used thanks to generative AI. 
-Now that people are aware their data is being sucked up to train large language models, tools, they're much more careful and cautious about where their data is copied. I think we could see a big retreat from open access, Creative Commons, and public by default.
+If you asked, I don't think everyone would agree to their posts being preserved forever (even if they're fans of services like the Wayback Machine).
+Some would, but others would prefer to retain control over how and when their posts can be seen.
+We can see this in the popularity of features like private accounts, closed forums, and disappearing posts.
+The era of generative AI and the use of social media for model training has made people even more sensitive to how their data is used.
 
-If you take a hard-line ethical stance, you should only collect material where authors have explicitly agreed to have their material collected. Institutions typically govern this with some sort of collection agreement where you allow the institution to keep a copy of your material and sign away the right to remove it afterwards.
-This is squeaky clean, but it's hard to scale. 
+The general public's attitude to copyright and privacy is pretty laissez-faire.
+Many people are happy to download pictures from the Internet, with no regard for the original creator -- but it feels different when it's your data on the line.
 
-It also comes with preservation risks. What about people who can no longer consent? There are social media websites that have been around for decades, with lots of users who have abandoned the site, lost their password, or have just died. made. If you need their explicit consent to save their material, and you have no way of contacting them or their next of kin, then their posts will never be preserved. 
+A strict ethical stance would require explicit consent from every creator.
+Institutions typically govern this with some a donor agreement, where you allow the institution to keep a copy of your material, and sign away the right to remove it afterwards.
+This is squeaky clean, but it's hard to scale, and it would exclude orphaned accounts, abandoned platforms, and users who have died or lost their password.
+We'd lose huge amounts of historically valuable material.
 
-How do people feel about their social media posts being preserved? Many people seem to be broadly supportive of web archives and the Internet Archive and web archives in general but what if it's their posts on the line? do they feel the same?
+Web archives have already proved their worth in the preservation of material from companies, politicians, and public figures.
+Keeping a permanent record of their statements helps keep them accountable, but they'd never consent to being collected by an archive they don't control.
 
-Anecdotally, I see a lot more people trying to protect their social media posts. Hiding their posts from public view, you, restricting them to private friends, using disappearing media like one-time messages or expiring stories.
-There is an intent here:I want you to see this, but I don't want you to have a copy of it forever. 
+One idea I'm following is Bluesky's proposal [User Intents for Data Reuse][bsky-proposal], which would allow users to declare how they want their posts to be reused.
+For example, you could say whether your posts can be used for generative AI model training, or preserved by a web archive.
+Technology alone is not the solution -- you also need an enforcement mechanism so that everyone respects these settings -- but I like the idea of having more granular, per-user preferences.
 
-One project I'm following with interest is BlueSky's user intents, where they plan to ask users how they feel about their posts being reused for a variety of purposes, including training machining learning models and digital preservation. It's only a draft, but if accepted I'd really like to see what sort of response it gets. 
+I feel like the correct approach is something in the middle -- collecting material from public figures is fair game, from private citizens needs explicit consent.
+Of course, that's easier said than done, and it would be tricky for institutions to write rules that draw that line.
+But the attitude that anything publicly available is okay to archive feels increasingly insensitive and untenable.
 
-In my personal archive, I'm largely ignoring issues of privacy and consent. 
-This is only an archive for my personal views which I'm never going to share with anybody else. There's no risk of me sharing something beyond its original intended audience. I can only save a post if it was visible to me once, and I'm not going to make it visible to anybody else. 
-
+In my scrapbook, I'm also ignoring consent.
+I feel okay about this because it's private, never shared, and limited to posts I could see at the time.
 I feel like it's fine for me to have these posts, but not to share them. 
+My guiding rule is "don't be a creep" -- don't save something if it would creep out the original author to know I kept a copy.
 
-When I'm deciding what to save, I consider how somebody might feel if they knew I'd saved a copy of their posts. 
-Would I feel comfortable telling them? them. For example, I think it's fine for me to save a conversation I was a part of or or posts about a topic I'm interested in, but it would be creepy if I downloaded every post somebody had made, including posts from conversations that didn't include me. 
-
-> - You’re exempt from institutional ethics problems.
-> - “This archive is for me, not for the world.”
->
-> * Ignore issues of privacy/consent
-> 	* This is only an archive for personal use, never going to share
-> 	* So less issue with me sharing stuff beyond intended bubble
-> 	* Analogue: me tcopying something into a diary
->
-> creepy factor
-> 
-> Another big issue for social media preservation is consent.
-> 
-> I’m sure many of you will be familiar with the CARE and FAIR principles for Data Integrity
-> Asking for consent is our way of encoding those in software
-> 
-> In particular “authority to control”
-> A lot of people have found their data sucked up into systems, and then they have no way of controlling it
-> For example
-> 
-> And consent is hard, it comes at a price; what about people who can no longer consent?
-> Flickr is over 20 years old – there are lots of users who’ve abandoned the site, lost their password, or have just died
-> If we need their consent to put their photos in a DL, then their photos can never go in a DL!!!
-> Which undermines our ability to preserve them!
-> 
-> This is a fast-moving topic
-> GenAI has sucked up all our stuff, people wondering how they feel about its
-> I think we’re seeing a real retreat from open access, Creative Commons licenses, public by default
-> 
-> Many people now protect their social media posts for example only making them available to logged in users, unknown friends. Can that post be reserved? What if a poster was initially public, but later made private or deleted? (Established rules for this in a creative comments context, but social media websites rarely have such explicit licensing. That's a tricky question for big institutions.
-> 
-> I can mostly ignore this, because my only criteria is that a post was visible to me at some point. I never going to share my archive with anybody else, so I'm never going to share a post with somebody who the original author didn't want to see it. Of course, a post author might sense of decided they no longer want me to see it, but that's harder to force.
-> 
-> I feel like my archive is a kin to a folder of screenshots of social media.
-> 
-> It's fine for me to have these posts, but it's not okay to share them.
-> 
-> cf disappearing social media
+[bsky-proposal]: https://github.com/bluesky-social/proposals/blob/main/0008-user-intents/README.md
 
 ## The Law: how does policy shape preservation?
 
-> Institutions run into:
-> * GDPR and the “right to erasure”
-> * CCPA, COPPA, and privacy laws
-> * national restrictions (e.g., German hate-speech rules)
-> * takedown requests and DMCA
-> * subpoenas (archives can be compelled to produce data)
-> * conflicts between “preserve” vs “delete on request”
-> This is generally a big part of institutional practice, especially for social-media harvesting, and you're not covering it yet. It’s distinct from “consent” — it’s about law, not preference.
-> You might want to at least nod to it.
+Consent is a preference, but legislation is a hard boundary.
+Digital collections are affected by a patchwork of laws -- copyright, privacy, data protection rules like the [right to erasure][ico-right-to-erasure], and even content-related restrictions.
+
+In one example, I heard of an archive which had legal trouble after digitising a century-old book that contained photographs now classified as [child sexual abuse material (CSAM)][csam-law].
+The digital files were swiftly deleted to comply with the law.
+(I'm not sure what happened to the physical copy.)
+
+Institutions must ensure their collections comply with all relevant laws, even if those obligations conflict with the goals of long-term preservation.
+Social media archiving faces the same pressure -- often more intensely, because the material is user-generated and fast-moving.
+
+By constrast, my personal scrapbook is entirely private and offline, so it avoids most of these institutional and regulatory constraints.
+
+[ico-right-to-erasure]: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/right-to-erasure/
+[dmca]: https://en.wikipedia.org/wiki/Dmca
+[csam-law]: https://en.wikipedia.org/wiki/Child_pornography
+
+## The Self: who's the person behind the profile?
+
+Identity on social media is a hard problem.
+Many accounts are anonymous or pseudonymous, and most people have accounts scattered across multiple platforms.
+This makes it tricky to track somebody's presence on social media, because there's rarely a mapping between a person's legal identity and the accounts they use online.
+Often, this anonymity is intentional.
+
+This ambiguity creates a big headache for support teams.
+When somebody asks for help regaining access to an account because they've lost the password or been hacked, how can the platform be sure they're the real owner?
+
+Institutions and researchers care about identity because it provides context and authority: *who wrote this, and how much can we trust their words?*
+Social media makes this hard, because many usernames don't tell you anything about the person behind them.
+
+My personal scrapbook sidesteps this complexity.
+Nearly all of the conversations it contains are with friends I know well, so I can easily connect their identities across different services.
+
+> I can even collapse typo-correction follow-ups into a single cleaned-up note.
 
 ## The Feed: do you preserve the experience?
 
@@ -219,6 +306,20 @@ Would I feel comfortable telling them? them. For example, I think it's fine for 
 > Institutions don’t have that luxury.
 > Where it fits: as a subsection under “the rot” (format + interaction preservation), or as an additional major section (“The illusion of reproducibility”).
 
+You discuss timelines but not the systems behind them.
+Algorithms determine:
+what you see
+when you see it
+what gets buried
+what trends
+Preserving posts isn’t the same as preserving the algorithmic environment.
+
+## 3. The Ephemera: what about stories, live streams, or disappearing content?
+
+Ephemeral formats are increasingly central to social life, but are the least preservable.
+Stories, TikTok Lives, Twitch VODs, Spaces, Fleets… all vanish by design.
+Perfectly fits the theme of “you experience it, but do you preserve it?”
+
 ## The Ledger: can you prove a post is what it claims to be?
 
 > 1. The problem of verifying authenticity (provenance, integrity, and trust)
@@ -231,6 +332,16 @@ Would I feel comfortable telling them? them. For example, I think it's fine for 
 > This matters for scholarship, journalism, and legal evidence, and it ties directly to alex’s interest in metadata validation and test suites.
 > It’s not mentioned in your draft, but institutions care about it a lot.
 
+## The Veil: how do you preserve private spaces?
+
+what about posts that aren't public?
+
+This complements “The Shade,” but expands to private groups, Discord servers, patron-only posts, members-only forums.
+Institutional archivists often want to preserve community knowledge but legally and ethically cannot even access it.
+
+7. The Context Collapse: how do you preserve the surrounding culture?
+A post from 2011 referencing Tumblr memes, Twitter etiquette, or niche fandom drama is meaningless without context.
+Archivists can save the post, but can they preserve the ambient culture in which it made sense?
 
 ## The Rot: how do you prevent digital decay in your archive?
 
