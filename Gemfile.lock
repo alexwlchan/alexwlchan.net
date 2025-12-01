@@ -174,7 +174,7 @@ GEM
     simpleidn (0.2.3)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
-    test-unit (3.7.1)
+    test-unit (3.7.3)
       power_assert
     traces (0.18.2)
     ttfunk (1.8.0)
