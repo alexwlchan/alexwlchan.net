@@ -99,6 +99,7 @@ def add_non_breaking_spaces(input)
     'CC BY-SA 4.0',
     'CC BY-NC-SA 4.0',
     'CC BY',
+    'C.S. Lewis',
     'DjangoCon US',
     'Dr. Drang',
     'ECMA-404',

@@ -34,128 +34,117 @@ I saved stuff because it was easy, but I didn't give much thought to if I'd ever
 Those snapshots are a bit of a black hole -- inconsistent, poorly organised, and difficult to search.
 My scrapbook adds that layer of discoverability, so I can actually find what I saved.
 
----
-
-I wanted to consolidate those old archives into my my social media scrapbook, and review what I'd saved at the same time.
-The important part isn't the mechanical process -- I've written plenty of code to move data from one place to another -- it was about the human-centred review.
-
-I wanted to look at everything I'd saved and decide if it was actually worth keeping.
+I wanted to consolidate those old archives into my scrapbook.
+But a bulk export would just be moving bad data around -- I wanted to curate the data I was saving, and only keep the good bits.
+I looked at every posted individually, and decided whether to migrate it.
 Is it something I look back on fondly, or has it long since faded from my memory?
-If I do want to remember it, 
-
-{% table_of_contents %}
-
-## Why I Reviewed 15 Years of Posts
-
-As part of this project, I wanted to consolidate those  This wasn't about the mechanical process -- I know how to write a script that moves data from one format to another -- It was about the review process.
-
-(And if I'm saving it, how to tag it so I can find it later)
-
-* Motivation (beyond data consolidation).
-* The difference between saving data and reviewing memories.
-* The choice to curate rather than bulk-import.
-
-## The audit
-
-* The scale of the process.
-* The emotional tone (“speed run of 15 years”).
-* The validation that social media is worth preserving.
-
-could write a fire+forget script, but could pollute new site with old data
-let's review!
-slow and manual
-
-I had something like 150,000 posts scattered across a dozen directories. I've gone through them all and boiled that down to about 4,000 conversations I thought were worth keeping. 
-This has been almost a speed run of 15 years of my life. 
-I'm very glad I did it. it, and it validates my belief that social media is an important part of my life that that I should preserve properly, but there was also quite a lot of embarrassment and cringe moments in there 
-It was a sobering experience. 
-
-In this final post in the series, I'm going to talk about what I learnt by reading 15 years of social media posts. 
- You can see my own posting and what I valued. I could see my own growth, and some of my rough edges get sanded off over the years.
- 
-* The scale of the process.
-* The emotional tone (“speed run of 15 years”).
-* The validation that social media is worth preserving.
+If I do want to remember it, how should I tag it so I can find it later?
 
 ## I was annoying and rude (but I grew up)
 
-* Early moralising, tone policing, overeagerness.
-* Learning healthier boundaries.
-* Recognizing unhealthy usage patterns.
-* Relief and intention in deleting the old arguments.
+I'm embarrassed by a lot of my older posts, and I can see how annoying I was when I was younger.
+There's nothing rude or scandalous -- I doubt any of my old tweets will ever be splashed in a public newspaper -- but there's a lot of stuff I wouldn't post today.
 
-I'm embarrassed by a lot of my older posts, and I can see how annoying I was when I was younger. 
-That's embarrassing, but I can also look back and see how much I've grown in that time. 
+I spent a lot of time on self-indulgent moralising and tone policing that didn't actually help anybody.
+I got into arguments that didn't matter.
+I had heated debates with people about trivial details, people with whom I'd probably get along with very well and agree on almost everything else.
+I wanted to prove that I was right, and I wasn't interested in listening to other people or making friends along the way.
 
-There was nothing rude or scandalous. I doubt any of my tweets will ever be splashed in a public newspaper -- But there's a lot of stuff I wouldn't post today. 
+Those arguments were worthless at the time, and they're even more worthless all these years later.
+They only ever caused annoyance and anger, and discarding them into the void is a great relief.
 
-I avoided being the main character
+One small victory is that I was only the "main character" of Twitter once, and in a niche tech-related corner of it.
+If you're fortunate enough not to know the phrase, the main character is somebody who inadvertently goes viral and has to deal with the world's opinions and criticism.
+It's a tiny taste of how horrible it is to be famous.
+I had a few friends who were the main character and it was awful.
 
-Like many people on Twitter, my early years were dominated by a lot of self-indulgent moralising and tone policing that didn't actually help anybody. 
-I was also learning how to interact with people in a text-based medium And I had to learn a lot of lessons about how to be a respectful and interesting participant in social media. 
+At some point I heard the phrase [parasocial relationships][parasocial], and that improved how I talked to people online -- especially people I didn't already know.
+Although Twitter allowed anybody to talk to anybody else, that doesn't mean it's a good idea.
+Over time, the ratio of time talking to friends/strangers tilted heavily towards my friends.
+When I did talk to strangers, I tried to have something constructive or positive to say -- not show off how smart of funny I thought I was.
+And of course, I learnt to read the replies before posting my own.
 
-I can see an inflection point where I start to learn about parasocial relationships and and how to talk to people I don't know personally. The appeal of Twitter was that anybody could talk to anybody, body, but that doesn't mean that they should. 
-Over time, the ratio of my posts between friends/strangers tilted heavily towards friends. And when I did talk to strangers, I was trying harder to have something constructive or positive to say.
-And of course, learning to read the replies before posting my own. 
+I came to value kindness and empathy over intelligence intelligence and nitpicking.
+When I joined Twitter, I was impressed by people who were clever.
+Today, I look up to people who are kind.
 
-I can also see signs of my unhealthy relationship with social media, which was probably worse than I wanted to admit at the time. Addiction is a strong word and I don't know if it applies here, but I can see traces of of it. Social media appealed to aspects of my personality that love having something to hyper-focus on. And I definitely spent more time on it than I should. Since I stopped using Twitter, and social media became a largely read-only medium for me, the amount of time I spend on it has dropped dramatically, and that energy has been diverted elsewhere. 
+[parasocial]: https://en.wikipedia.org/wiki/Parasocial_relationships
 
-I deleetd all of that, and I was glad to do so.
+## Do you think you might be queer?
 
-> These arguments weren’t worth having at the time, they’re certainly not worth keeping all these years later. Nothing edifying ever came of them, only ruin, and my responsible and self-defensive act is to evaporate them for all time.
+A lot of my time online has been spent in fannish spaces, and once I started listening, I learnt so much.
+Twitter and fandom were a global melting pot, and the variety of people made it a crash course in cultural awareness.
 
-## I learned to be kinder, and queerer
+I learnt about feminism, consent, and rape culture.
+I read experiences of disability and the barriers of the build world.
+I got a far more nuanced understanding of racism and how it affects people.
+I heard the word "neurodivergence" and the different ways we think about the world.
+It was an education far more diverse and thorough than anything I got in school (where my enduring memory is a prolonged discussion of the difference between pre-marital and extra-marital sex, and Christian attiudes toward them both).
 
-It's not all cringe posting and regret. There are also good things I miss. 
+Some of this became part of my aforementioned moralising and preachiness, as I clumsily tried to teach other people the same things.
+I felt good and self-righteous, but I don't think it was useful.
+Today I'm much more careful when discussing social issues or other people's experiences.
 
-I can see myself change and grow,And the degree of cringe I feel about my early post is a sign of how much I've changed. 
-I've come to value kindness and empathy over intelligence intelligence and nitpicking. When I joined Twitter I was impressed by people who were clever. However, today I'm more impressed by people who are kind. 
+But of course, the big thing I learnt about was queer culture.
+Looking back, I smiled at how naïve and clueless my younger self was.
+I followed a familar arc -- meeting some queer people, becoming a staunch queer ally, then realising there might be a reason I was so enthusiastic.
+I gradually realised I might not be straight, and then that I might not be cis -- a journey that seems obvious in hindsight, but my younger self was oblivious.
 
-I can also see my queer journey following an all too familiar arc of being a staunch and over-eager queer ally. Realizing I might not be straight. And then gradually realizing I might not be cis as well. Rather than being cringe, it makes me smile to see my younger self Heading on a journey that has a direction that has it seems obvious in hindsight sight. But my younger self was oblivious too. 
+One thing I really miss about Twitter is how good it was as a place to listen.
+I could follow people with completely different life experience, and reading their tweets I'd learn about a life quite unlike my own.
+I have yet to replicate that experience on other social media sites, which don't attract the same sort of global audience.
 
-I spoke to a lot of trans people on Twitter, people who became close friends and you supported me and others through their transition. One small regret is that I've fallen out of touch with these people. 
+## The ghosts in the archive
 
-SELFIE CULTURE
+Looking through my old posts, I see the ghosts of old friendships and relationships -- people I used to be close to, who I've since fallen out of touch with.
+Some of those relationships could recover if either of us reached out, but others not.
+(Some of the people involved have since passed away.)
+I don't know what happened to my old friends, but I hope life has been kind to them.
 
-One thing I miss about Twitter is that it was a supposed to "listen" on the life experience is other people. Once I learnt how to listen, without replying and reacting, Twitter became an amazing space for me to learn about new ideas and experiences. It's an aspect of Twitter that has yet to be replicated by other social media networks, and I missed that.
+There are many groups I could point to.
+The community around PyCon UK, a conference I used to run but have been unable to attend for years.
+Fellow fans like the Marmfish, Creampuffs (fans of *Carmilla*) or people in the *Lizzie Bennet Diaries* fandom.
+The trans elders who supported me and others through our transitions.
+The small but loyal group of followers who read my blog and always had thoughtful comments.
+Some of them I drifted away from while I was on Twitter; others I left behind when I left Twitter.
 
-* Maturity of tone and empathy.
-* Queer self-discovery arc.
-* Friendships and community influences.
-* Regrets about falling out of touch.
+As well as my own tweets, I saved my mentions.
+Here's one that made me cry: *"One of the things I miss the most from my pre-pandemic Twitter timeline is seeing @alexwlchan traveling on trains and taking train selfies 💜"*.
+I miss that selfie culture too!
+Especially in the queer and trans community, selfies were an incredibly positive and uplifting space.
+I miss seeing pretty pictures of my friends, and getting to share my pictures in return.
 
-## There are ghosts in the archive
+Looking back over these old friendships reminded me of [an essay by C.S. Lewis][inner-ring]: *"I must not assume that you have ever first neglected, and finally shaken off, friends whom you really loved and who might have lasted you a lifetime, in order to court the friendship of those who appeared to you more important, more esoteric."*
+I definitely neglected friendships through social media, and my life is lesser for it.
+I'm trying to do better.
 
-* Lost relationships and digital ghosts.
-* CS Lewis quote ties beautifully here.
-* How platform collapse scattered communities.
-* How your blog presence is different: professional vs personal.
+Elon Musk's purchase of Twitter shattered a lot of those relationships.
+Friendships were scattered to the wind.
+Some people left for alternative sites, but others took the opportunity to step out of the internet. 
+I was one of them.
+Although I maintain a public presence on this blog this is a much more professional presence presence, there's less of the personal stuff. 
+I miss the friendships I had, and the friendships that might have been.
 
-I can see ghosts of other friendships and relationships, people are used to be close to life since fall out of touch with. Some of those relationships might be recovered, but others not. (Some of the people involved have probably passed away in the interim). I don't know what happens to those people, but I hope life has been coming to it.
-
-I was reminded of a quote from an essay by CS Lewis:
-
-> I must not assume that you have ever first neglected, and finally shaken off, friends whom you really loved and who might have lasted you a lifetime, in order to court the friendship of those who appeared to you more important, more esoteric.
-
-Elon Musk's purchase of Twitter shattered a lot of those relationships. and while some people left for alternative sites, others took the opportunity to step out of the internet. 
-I was one of them although I maintain a public presence on this blog this is a much more professional presence presence. There's less of the personal stuff. 
+[inner-ring]: https://www.lewissociety.org/innerring/
 
 ## What comes next?
 
-* Scrapbook is working; long tail remains.
-* Mixed feelings about current “cold turkey” approach.
-* Social media’s influence: neither good nor bad, but formative.
-* Holding space for uncertainty—and using the scrapbook as an anchor.
+I boiled 150,000 frgaments of social media down to about 4,000 conversations I thought were worth keeping.
+A lot of it I was glad to forget, but there were gems I want to remember.
+I'm glad I did it, and it validates my belief that social media is an important part of my life that that I should preserve properly.
 
-The system is up and running, and I can save new stuff by script or my hand editing data file. There is more old to the system, as I continue to find social media equipment around my hard drive. It will take a long time to clean up the long tail, but I've tackled the bulk of the data.
+This project has helped me reflect on my relationship with social media.
+Twitter and Tumblr filled a specific gap, and a lot of good things in my life today started as a conversation on those platforms.
+I went cold turkey when Elon Musk bought Twitter, and today my posting is limited to cross-posting links to this site.
+I do wonder how much I've missed out on.
 
-This project has forced another reflection on my relationship with social media. Twitter and tumblr filled a specific gap and I can try a lot of good things in my life today to those platforms. So so much of my current life trying to indirectly just interaction I have on social media, and I don't get the same energy from blue sky, master Don, . Today, my social media post is limited to cross posting length of this block and newsletter.
+But let's not pretend it was a unanimous good; far from it.
+Looking back, there were times I had an unhealth relationship wiht social media, which was probably worse than I wanted to admit at the time.
+Addiction is a strong word and I don't know if it applies there, but I can see traces of of it.
+I spent more time there than I should, and since I stopped using Twitter, that energy has gone elsewhere.
 
-I can also see the Twitter and tumblr have very harmful aspects, and probably made me a very annoying person to know. They weren't a holy good or holy bad thing in my life, but they were very influential thing. Could I Humble them better? Maybe, but I don't know. Something something added.
-
-I don't know what my future relationship with social media looks like. I don't want to attempt of being all consuming, but I'm also not in love with with my current call Turkey approach. I'm still thinking about it, and while I decide, I can use my scrapbook to look back on the good times.
-
-* Scrapbook is working; long tail remains.
-* Mixed feelings about current “cold turkey” approach.
-* Social media’s influence: neither good nor bad, but formative.
-* Holding space for uncertainty—and using the scrapbook as an anchor.
+I don't know what my future relationship with social media looks like.
+I know what I miss and what I'd like to bring back to my life, and I know what's best left in the past.
+I'd like to think I've grown up a bit, and I'd use social media to be a better friend if I started using it again.
+I don't know if the current platforms offer what I'm looking for, but this exercise has me thinking about it again.
+I'm still thinking about it, and while I decide, I can use my scrapbook to look back on the good times.
