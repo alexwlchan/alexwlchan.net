@@ -9,7 +9,7 @@ tags:
 index:
   feature: true
 colors:
-  css_light: "#293d56"
+  css_light: "#366fa5"
   css_dark:  "#41a5ed"
 ---
 I grew up alongside social media, as it was changing from nerd curiosity to mainstream culture.
@@ -181,7 +181,12 @@ I've been thinking about this for over a decade, so I have a good idea of what f
 For example, many social media websites provide metrics -- how many times was a post was viewed, or starred, or retweeted -- but I don't keep them.
 I remember posts because they were fun, thoughtful, or interesting, not because they hit a big number.
 
-Although there are lots of different sites, I try to reuse data structures where appropriate.
+Writing my own data model means I know exactly when it changes.
+In previous tools, I only storing the raw API response I received from each site.
+That sounds nice -- I'm saving as much information as I possibly can! -- but APIs change and the model would subtly shift over time.
+The variation made searching tricky, and in practice I only looked at a small fraction of the saved data.
+
+I try to reuse data structures where appropriate.
 Conversations from every site have the same `meta` scheme; conversations from microblogging services are all the same (Twitter, Mastodon, Bluesky, Threads); I have a common data structure for images and videos.
 
 Each data model is accompanied by a rendering function, which reads this data and returns a snippet of HTML that can appear in one of the "cards" in my web browser.

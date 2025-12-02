@@ -4,35 +4,51 @@ title: Meeting my younger self
 summary: I reviewed 150,000 fragments of my online life, and I got to reflect on a decade of life spent online -- the friendships I lost, the communities I found, and the ways I grew.
 tags:
   - social media
+  - personal
 index:
   feature: true
 colors:
   index_light: "#596750"
   index_dark:  "#b86748"
 ---
-aaa
+I've been building a [scrapbook of social media][scrapbook], a place where I can save posts and conversations that I want to remember.
+It's a lightweight static site that stores metadata in JSON I can edit by hand.
+It gives me a place to save new conversations -- but what about everything I'd already saved?
 
-> After building a social media scrapbook to preserve the posts that still matter to me, I decided to review the 150,000 fragments of my online life I’d accumulated over the last fifteen years. What began as a data-cleaning project became something more personal: a chance to meet my younger self, to cringe and to smile, to see the friendships I’ve lost, the community that shaped me, and the ways I’ve grown. This final post in the series is about what I learned from that encounter.
+Across past projects, I'd saved at least 150,000 posts, and I wanted to fold them into my scrapbook.
+I went through each of them individually to decide if it was worth keeping.
+Do I still want to keep them, or is it time to let those memories fade?
+This gave me the chance to reflect on nearly 15 years of posting, and how I've grown and changed in that time.
+
+[scrapbook]: /2025/social-media-scrapbook/
 
 https://emilygorcenski.com/post/to-forget-is-an-ethical-act/
 
-In my last two posts I've written about my social media scrapbook, a personal archive I can use to save social media posts that mean a lot to me. 
-I also wrote about why social media archiving is such a hard problem, especially in an institutional context. 
+## The long tail of personal history
 
-My scrapbook gives me a place to save new posts, but what about all the posts I've already saved?
+I joined Twitter in August 2009, and I was lurking on other sites before that -- over 16 years of posting.
+I knew from early on that I was making important memories I didn't want to lose, and I began looking at ways to preserve the conversations I was having.
+
+I had lots of fun writing scripts to back up my social media, and my hard drive is littered with partial and incomplete snapshots.
+I saved stuff because it was easy, but I didn't give much thought to if I'd ever look at it again, or how I'd find it if I wanted to.
+Those snapshots are a bit of a black hole -- inconsistent, poorly organised, and difficult to search.
+My scrapbook adds that layer of discoverability, so I can actually find what I saved.
+
+---
+
+I wanted to consolidate those old archives into my my social media scrapbook, and review what I'd saved at the same time.
+The important part isn't the mechanical process -- I've written plenty of code to move data from one place to another -- it was about the human-centred review.
+
+I wanted to look at everything I'd saved and decide if it was actually worth keeping.
+Is it something I look back on fondly, or has it long since faded from my memory?
+If I do want to remember it, 
 
 {% table_of_contents %}
 
 ## Why I Reviewed 15 Years of Posts
 
-I've been on the internet for over 15 years, and I've written a lot of scripts to save posts and conversations -- not necessarily in a readable format.
-I have a lot of folders full of JSON files, partial and incomplete snapshots of my social media history where I'd captured stuff because it was easy, not because it was something I necessarily want to look at again. 
-I had a lot of fun writing those scripts, and I don't regret the time, but I know I'm never going to search through those folders for a conversation I've forgotten.
-It might be in there!
-But my old archives were too scrappy to be useful.
+As part of this project, I wanted to consolidate those  This wasn't about the mechanical process -- I know how to write a script that moves data from one format to another -- It was about the review process.
 
-As part of this project, I wanted to consolidate those old archives into my my social media scrapbook, and review what I'd saved at the same time. This wasn't about the mechanical process -- I know how to write a script that moves data from one format to another -- It was about the review process.
-I wanted to look at what I'd saved and decide if it was actually worth keeping. Is it something I look back on fondly that I'm likely to want to see again? Or is it a post that starred as it passed my timeline, but I'm never going to look at again?
 (And if I'm saving it, how to tag it so I can find it later)
 
 * Motivation (beyond data consolidation).
@@ -108,7 +124,7 @@ One thing I miss about Twitter is that it was a supposed to "listen" on the life
 * Friendships and community influences.
 * Regrets about falling out of touch.
 
-## The ghosts in the archive
+## There are ghosts in the archive
 
 * Lost relationships and digital ghosts.
 * CS Lewis quote ties beautifully here.
