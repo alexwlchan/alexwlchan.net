@@ -20,10 +20,10 @@ Across various disks, I'd accumulated over 150,000 posts from Twitter, Tumblr, a
 These sites were so important to me that I kept trying to design better backups, hoping not to lost those memories.
 The archives were chaotic, devoid of context, and impossible to search -- but they were *there*.
 
-After so many aborted attempts, my scrapbook finally feels sustainable.
-I wanted to bring my older fragments into it, but importing everything wholesale would just reproduce the same problem.
+After so many failed attempts, my scrapbook finally feels sustainable.
+I wanted to bring in my older backups, but importing everything wholesale would just reproduce the problems of the past.
 I'd be polluting a clean space with a decade of disordered history.
-So instead of a bulk import, I chose to curate.
+It was finally time to do some curation.
 
 I went through each post, one-by-one, and asked: *is this worth keeping?*
 *Do I want this in the story of my life, or should I let it fade?*
