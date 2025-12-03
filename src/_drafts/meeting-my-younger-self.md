@@ -16,11 +16,12 @@ It has a nice web-based interface for browsing, and a carefully-designed data mo
 
 But what about everything I'd saved before?
 
-Across various disks, I'd accumulated over 150,000 posts from old backup attempts -- preserved with more enthusiasm than organisation.
-I saved so much because it was easy, not because it was meaningful.
-The data was chaotic, devoid of context, and impossible to search -- but it was *there*.
+Across various disks, I'd accumulated over 150,000 posts from Twitter, Tumblr, and other platforms -- snapshots preserved with more enthusiasm than organisation.
+These sites were so important to me that I kept trying to design better backups, hoping not to lost those memories.
+The archives were chaotic, devoid of context, and impossible to search -- but they were *there*.
 
-I wanted to consolidate these fragments into my new scrapbook, but importing everything wholesale would just reproduce the same problem.
+After so many aborted attempts, my scrapbook finally feels sustainable.
+I wanted to bring my older fragments into it, but importing everything wholesale would just reproduce the same problem.
 I'd be polluting a clean space with a decade of disordered history.
 So instead of a bulk import, I chose to curate.
 
@@ -121,9 +122,11 @@ The mess of JSON files scattered across disks has been replaced by a meaningful,
 
 ## What comes next?
 
-This project has made me reflect on my relationship with social media.
-Twitter and Tumblr filled a specific gap, and a lot of good things in my life today started as conversations on those platforms.
-I left when Elon Musk bought Twitter, and today my posting is mostly cross-posting links to this site.
+My use of Tumblr fell away gradually, and I stopped tweeting when Elon Musk bought Twitter.
+Today my social media is mostly just cross-posting links to this site.
+I wanted to pause and reflect on my relationship with social media before jumping to another platform.
+
+Those sites filled a specific gap, and a lot of good things in my life today started as conversations on those platforms.
 I do wonder how much I've missed out on.
 
 It wasn't all good.
@@ -131,8 +134,8 @@ There were definitely times when my relationship with social media was unhealthy
 I spent more time there than I should, and since I stopped, that energy has gone elsewhere.
 
 I don’t know what my future with social media will look like.
-I've learnt what I miss, and 's best left in the past.
+I've learnt what I miss, and what's best left in the past.
 I'd like to think I've grown up a bit, that I'd be a better friend if I started using it again.
-I don't know if I'll return to social media, or in what form, but this project has me wondering.
+I don't know if I'll return, or in what form, but this project has me wondering.
 
 Whatever I do next, my scrapbook lets me see the best of what's already been -- the friendships, the joy, and the moments that mattered.
