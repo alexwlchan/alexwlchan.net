@@ -18,12 +18,14 @@ module Jekyll
       # https://stackoverflow.com/q/19169849/1558022
       site = context.registers[:site]
       converter = site.find_converter_instance(::Jekyll::Converters::Markdown)
-      update_string = "**Update, #{@date.strftime('%-d %B %Y')}:**"
-      <<~HTML
-        <blockquote class="update" id="update-#{@date.strftime('%Y-%m-%d')}">
-          #{converter.convert(update_string + super)}
-        </blockquote>
-      HTML
+
+      timestamp_tpl = Liquid::Template.parse(File.read('src/_includes/timestamp.html'))
+      timestamp_html = timestamp_tpl.render!('include' => { 'date' => @date })
+
+      md = "**Update, #{timestamp_html}:** #{super}"
+
+      update_tpl = Liquid::Template.parse(File.read('src/_includes/update.html'))
+      update_tpl.render!('date' => @date, 'text' => converter.convert(md))
     end
   end
 end
