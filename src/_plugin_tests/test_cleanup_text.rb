@@ -8,19 +8,25 @@ class TextCleanupText < Test::Unit::TestCase
   def test_it_adds_non_breaking_spaces_after_words
     text = 'Apollo 11 launched in 1969'
     expected = 'Apollo&nbsp;11 launched in 1969'
-    assert_equal(add_non_breaking_spaces(text), expected)
+    assert_equal(cleanup_whitespace(text), expected)
   end
 
   def test_it_adds_non_breaking_spaces_before_words
     text = 'It takes 2 minutes'
     expected = 'It takes 2&nbsp;minutes'
-    assert_equal(add_non_breaking_spaces(text), expected)
+    assert_equal(cleanup_whitespace(text), expected)
   end
 
   def test_non_breaking_space_at_start_of_anchor
     text = '<a href="https://kottke.org/">a different set of circles</a>'
     expected = '<a href="https://kottke.org/">a&nbsp;different set of circles</a>'
-    assert_equal(add_non_breaking_spaces(text), expected)
+    assert_equal(cleanup_whitespace(text), expected)
+  end
+
+  def test_thinsp_around_times
+    text = '100×200'
+    expected = '100&#8239;×&#8239;200'
+    assert_equal(cleanup_whitespace(text), expected)
   end
 
   def test_preserves_language_console

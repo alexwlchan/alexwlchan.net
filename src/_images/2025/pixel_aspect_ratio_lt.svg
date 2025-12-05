@@ -1,0 +1,21 @@
+<svg viewBox="0 0 95 170" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      rect {
+          fill: currentColor;
+      }
+    </style>
+  </defs>
+  
+  <rect x="0"  y="0" width="25" height="50"/>
+  <rect x="35" y="0" width="25" height="50"/>
+  <rect x="70" y="0" width="25" height="50"/>
+  
+  <rect x="0"  y="60" width="25" height="50"/>
+  <rect x="35" y="60" width="25" height="50"/>
+  <rect x="70" y="60" width="25" height="50"/>
+  
+  <rect x="0"  y="120" width="25" height="50"/>
+  <rect x="35" y="120" width="25" height="50"/>
+  <rect x="70" y="120" width="25" height="50"/>
+</svg>

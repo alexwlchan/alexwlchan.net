@@ -12,7 +12,7 @@
 #
 # See: https://alexwlchan.net/2020/adding-non-breaking-spaces-with-jekyll/
 
-def add_non_breaking_spaces(input)
+def cleanup_whitespace(input)
   text = input
 
   # "e.g." introduces an example; it's annoying when the example text has
@@ -132,7 +132,11 @@ def add_non_breaking_spaces(input)
   #  ~> <a href="https://example.com">an&nbsp;example</a>
   #
   text = text.gsub(/<a ([^>]+)>a /, '<a \1>a&nbsp;')
-  text.gsub(/<a ([^>]+)>an /, '<a \1>an&nbsp;')
+  text = text.gsub(/<a ([^>]+)>an /, '<a \1>an&nbsp;')
+
+  # If there's a multiplication symbol (×) surrounded by numbers,
+  # add a narrow non-breaking space either side.
+  text.gsub(/([0-9])×([0-9])/, '\1&#8239;×&#8239;\2')
 end
 
 # The syntax highlighter wraps highlighted code blocks in:
@@ -181,7 +185,7 @@ module Jekyll
       cache = Jekyll::Cache.new('CleanupText')
 
       cache.getset(input) do
-        text = add_non_breaking_spaces(input)
+        text = cleanup_whitespace(input)
 
         if text.include? '<code'
           text = cleanup_syntax_highlighter_classes(text)
