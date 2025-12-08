@@ -26,7 +26,10 @@ pre code {
 }
 
 /* By default my <pre> blocks will scroll horizontally if they're very
- * long, but this allows me to force line wrapping instead. */
+ * long, but this allows me to force line wrapping instead.
+ *
+ * This is applied by my {% code %} plugin when I pass wrap="true".
+ */
 pre.wrap {
   text-wrap: wrap;
 }
