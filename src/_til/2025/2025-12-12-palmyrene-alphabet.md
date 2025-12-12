@@ -24,6 +24,7 @@ One of the cool things about Unicode
 https://en.wikipedia.org/wiki/Palmyrene_(Unicode_block)
 
 Michael Everson / https://www.nytimes.com/2003/09/25/technology/for-the-world-s-abc-s-he-makes-1-s-and-0-s.html
+https://en.wikipedia.org/wiki/Michael_Everson
 
 https://www.unicode.org/L2/L2010/10003-n3749-palmyrene.pdf
 
