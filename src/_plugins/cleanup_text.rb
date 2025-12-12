@@ -31,6 +31,7 @@ def cleanup_whitespace(input)
     Issue
     issue
     iPres
+    Mr.
     Mrs.
     No.
     Part

@@ -1,0 +1,24 @@
+table.block {
+  width: 100%;
+  border: var(--border-width) var(--border-style) var(--block-border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--block-background);
+  padding: var(--default-padding);
+  
+  tbody:not(:last-of-type) tr:last-child > th,
+  tbody:not(:last-of-type) tr:last-child > td {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--block-border-color);
+  }
+
+  tbody:not(:first-child) tr:first-child th,
+  tbody:not(:first-child) tr:first-child td {
+    padding-top: 10px;
+  }
+
+  pre {
+    border:  none;
+    padding: 0;
+    margin: 0;
+  }
+}
