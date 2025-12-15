@@ -12,7 +12,7 @@ gem 'json-schema', '~> 6'
 gem 'logger', '~> 1.7'
 gem 'minify_html', '~> 0.18'
 gem 'nokogiri', '~> 1.18'
-gem 'ruby-vips', '~> 2.2'
+gem 'ruby-vips', '~> 2.3'
 gem 'shell-executer', '~> 1.0'
 
 group :lint, optional: true do
