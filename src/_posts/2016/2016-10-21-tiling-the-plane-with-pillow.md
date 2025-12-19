@@ -69,7 +69,7 @@ In Pillow, an image is represented by an instance of [the `Image` class](http://
 We can draw shapes on the image using [the `ImageDraw` module](http://pillow.readthedocs.io/en/3.4.x/reference/ImageDraw.html), passing it a list of coordinate points.
 For example, to draw this rectangle on a blank canvas:
 
-```python
+{% code lang="python" names="0:PIL 1:Image 2:ImageDraw 3:im" %}
 from PIL import Image, ImageDraw
 
 # Create a blank 500x500 pixel image
@@ -80,15 +80,15 @@ ImageDraw.draw(im).polygon(rectangle)
 
 # Save the image to disk
 im.save('rectangle.png')
-```
+{% endcode %}
 
 We can call this `draw(im)` function as many times as we like.
 So if we had an iterable that gave us coordinates, we could draw multiple shapes on the canvas:
 
-```python
+{% code lang="python" names="0:coords 1:coordinates" %}
 for coords in coordinates:
     ImageDraw.draw(im).polygon(coords)
-```
+{% endcode %}
 
 So now we need to write some code that provides us with these coordinates.
 
@@ -101,13 +101,13 @@ Let's start by thinking about a single point (*x*, *y*): suppose this is the top
 
 We can get these points (*x*, *y*) by iterating over the integer coordinates of the canvas, like so:
 
-```python
+{% code lang="python" names="0:generate_unit_squares 1:image_width 2:image_height 3:x 6:y" %}
 def generate_unit_squares(image_width, image_height):
     """Generate coordinates for a tiling of unit squares."""
     for x in range(image_width):
         for y in range(image_height):
             yield [(x, y), (x + 1, y), (x + 1, y + 1), (x, y + 1)]
-```
+{% endcode %}
 
 I'm using `yield` to make this function into a [generator](https://wiki.python.org/moin/Generators).
 This allows me to efficiently compute all the coordinates required, even when I have many shapes.
@@ -115,14 +115,14 @@ Iteration is a very powerful feature in Python, and if you're not familiar with 
 
 To create bigger squares, we scale the coordinates in both directions:
 
-```python
+{% code lang="python" names="0:generate_squares 1:image_width 2:image_height 3:side_length 4:scaled_width 8:scaled_height 12:coords" %}
 def generate_squares(image_width, image_height, side_length=1):
     """Generate coordinates for a tiling of squares."""
     scaled_width = int(image_width / side_length) + 2
     scaled_height = int(image_height / side_length) + 2
     for coords in generate_unit_squares(scaled_width, scaled_height):
         yield [(x * side_length, y * side_length) for (x, y) in coords]
-```
+{% endcode %}
 
 If we drop this generator into the code in the previous section, we get a nice tiling of black and white squares:
 
@@ -151,7 +151,7 @@ Here *h* is the height of the rhombus, which is sin(60&deg;).
 
 With this in hand, we have enough to start writing a second generator:
 
-```python
+{% code lang="python" names="0:math 1:generate_unit_triangles 2:image_width 3:image_height 4:h 9:x 12:y" %}
 import math
 
 def generate_unit_triangles(image_width, image_height):
@@ -164,7 +164,7 @@ def generate_unit_triangles(image_width, image_height):
         for y in range(int(image_height / h)):
             yield [(x, y * h), (x+1, y * h), (x+0.5, (y+1) * h)]
             yield [(x+1, y * h), (x+1.5, (y+1) * h), (x+0.5, (y+1) * h)]
-```
+{% endcode %}
 
 The problem with this code is that the triangles it generates are the same on each row, so the edges don't line up nicely.
 Here's what that looks like:
@@ -180,7 +180,7 @@ What we need to do is add a horizontal offset on every other row.
 By shifting all the triangles along by a half unit, we can get them to line up nicely.
 Like so:
 
-```python
+{% code lang="python" names="0:math 1:generate_unit_triangles 2:image_width 3:image_height 4:h 9:x 12:y 17:x_" %}
 import math
 
 def generate_unit_triangles(image_width, image_height):
@@ -198,11 +198,11 @@ def generate_unit_triangles(image_width, image_height):
 
             yield [(x_, y * h), (x_+1, y * h), (x_+0.5, (y+1) * h)]
             yield [(x_+1, y * h), (x_+1.5, (y+1) * h), (x_+0.5, (y+1) * h)]
-```
+{% endcode %}
 
 Finally, to create bigger triangles, we add a scaling factor:
 
-```python
+{% code lang="python" names="0:generate_triangles 1:image_width 2:image_height 3:side_length 4:scaled_width 8:scaled_height 12:coords" %}
 def generate_triangles(image_width, image_height, side_length=1):
     """Generate coordinates for a regular tiling of triangles."""
     scaled_width = int(image_width / side_length) + 2
@@ -210,11 +210,11 @@ def generate_triangles(image_width, image_height, side_length=1):
 
     for coords in generate_unit_triangles(scaled_width, scaled_height):
         yield [(x * side_length, y * side_length) for (x, y) in coords]
-```
+{% endcode %}
 
 Notice that this is very similar for our code for scaling the square grid, so let's pull that out into a common function:
 
-```python
+{% code lang="python" names="0:_scale_coordinates 1:generator 2:image_width 3:image_height 4:side_length 5:scaled_width 9:scaled_height 13:coords 25:generate_squares 26:args 27:kwargs 32:generate_triangles 33:args 34:kwargs" %}
 def _scale_coordinates(generator, image_width, image_height, side_length=1):
     scaled_width = int(image_width / side_length) + 2
     scaled_height = int(image_height / side_length) + 2
@@ -229,7 +229,7 @@ def generate_squares(*args, **kwargs):
 def generate_triangles(*args, **kwargs):
     """Generate coordinates for a tiling of triangles."""
     return _scale_coordinates(generate_unit_triangles, *args, **kwargs)
-```
+{% endcode %}
 
 And voila, a triangle party:
 
@@ -265,7 +265,7 @@ Note also that we need to have that half-width offset on alternate rows, as we d
 
 This is a bit fiddlier, but comes out like so:
 
-```python
+{% code lang="python" names="0:generate_unit_hexagons 1:image_width 2:image_height 3:h 8:x 11:y 16:x_" %}
 def generate_unit_hexagons(image_width, image_height):
     """Generate coordinates for a tiling of unit hexagons."""
     # Half the height of the hexagon
@@ -285,15 +285,15 @@ def generate_unit_hexagons(image_width, image_height):
                 (x_,       (y + 2) * h),
                 (x_ - 0.5, (y + 1) * h),
             ]
-```
+{% endcode %}
 
 And with our scaling function, we can easily extend this to draw hexagons of arbitrary size:
 
-```python
+{% code lang="python" names="0:generate_hexagons 1:args 2:kwargs" %}
 def generate_hexagons(*args, **kwargs):
     """Generate coordinates for a tiling of hexagons."""
     return _scale_coordinates(generate_unit_hexagons, *args, **kwargs)
-```
+{% endcode %}
 
 Which this gives us the honeycomb:
 
