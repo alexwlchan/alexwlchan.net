@@ -72,7 +72,7 @@ The API has changed since my post in 2016 -- I don't remember what I was using b
 
 I started with a single red circle, to get the hang of [the new `ImageDraw` API][ImageDraw]:
 
-```python
+{% code lang="python" names="0:PIL 1:Image 2:ImageDraw 3:im 7:draw" %}
 from PIL import Image, ImageDraw
 
 im = Image.new('RGB', size=(500, 500))
@@ -81,7 +81,7 @@ draw = ImageDraw.Draw(im)
 draw.ellipse([(100, 100), (200, 200)], fill=(255, 0, 0))
 
 im.save('red_circle.png')
-```
+{% endcode %}
 
 Not especially exciting:
 
@@ -92,7 +92,7 @@ Because the bounding box is a square, the ellipse becomes a circle -- this took 
 
 I extended this code to draw circles in a grid, with a random shade of red in each circle:
 
-```python
+{% code lang="python" names="0:random 1:PIL 2:Image 3:ImageDraw 4:im 8:draw 12:x 14:y" %}
 import random
 from PIL import Image, ImageDraw
 
@@ -107,7 +107,7 @@ for x in range(-100, 600, 70):
         )
 
 im.save('grid_of_circles.png')
-```
+{% endcode %}
 
 The circles are drawn left-to-right, top-to-bottom.
 In one prototype, I accidentally saved an image on every iteration of the xy loop, so you can see how it's created:
@@ -143,7 +143,7 @@ But these shapes have a sense of direction -- because the circles always overlap
 
 I tried shuffling the order in which the circles were drawn:
 
-```python
+{% code lang="python" names="0:random 1:PIL 2:Image 3:ImageDraw 4:coords 7:x 9:y 14:im 18:draw 23:x 24:y" %}
 import random
 from PIL import Image, ImageDraw
 
@@ -165,7 +165,7 @@ for (x, y) in coords:
     )
 
 im.save('grid_of_random_circles.png')
-```
+{% endcode %}
 
 These images don't have a sense of direction, but they're a bit busy to my eye.
 Although there's no pattern, I can feel my brain trying to find one in the various curves:
@@ -182,7 +182,7 @@ Rather than drawing equal-sized circles on a fixed grid, what if I drew circles 
 
 This is what I came up with:
 
-```python
+{% code lang="python" names="0:random 1:PIL 2:Image 3:ImageDraw 4:im 8:draw 12:circle_count 16:x 19:y 22:r" %}
 import random
 from PIL import Image, ImageDraw
 
@@ -208,7 +208,7 @@ while (0, 0, 0) in im.getdata():
 print(circle_count)
 
 im.save('random_circles.png')
-```
+{% endcode %}
 
 This draws circles of different radii, centred anywhere on the grid.
 It will stop after there are no more black pixels (which means circles cover the entire image), or after 100 circles (I wasn't sure if it this would cover the image in a sensible amount of time).
