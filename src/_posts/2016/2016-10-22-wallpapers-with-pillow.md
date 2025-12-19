@@ -47,7 +47,7 @@ One way to represent a colour in Pillow is to use the RGB colour space, and then
 For convenience, I've defined a [namedtuple][namedtuple] for storing colour data.
 So a generator of random colours from anywhere in the RGB space looks like this:
 
-```python
+{% code lang="python" names="0:collections 1:namedtuple 2:random 3:randint 4:Color 6:random_colors" %}
 from collections import namedtuple
 from random import randint
 
@@ -56,7 +56,7 @@ Color = namedtuple('Color', ['red', 'green', 'blue'])
 def random_colors():
     while True:
         yield Color(randint(0, 255), randint(0, 255), randint(0, 255))
-```
+{% endcode %}
 
 [namedtuple]: https://docs.python.org/3.5/library/collections.html?highlight=namedtuple#collections.namedtuple
 
@@ -68,7 +68,7 @@ For my wallpapers, I typically want a few shades of the same colour, so I like t
 If you imagine the two colours as being points in 3-dimensional space, let's draw a line between them and just pick colours along that line.
 Here's what that looks like:
 
-```python
+{% code lang="python" names="0:random_colors 1:color1 2:color2 3:d_red 8:d_green 13:d_blue 18:proportion" %}
 def random_colors(color1, color2):
     """
     Generate random colors between ``color1`` and ``color2``.
@@ -88,17 +88,18 @@ def random_colors(color1, color2):
             green=color1.green - int(d_green * proportion),
             blue=color1.blue - int(d_blue * proportion)
         )
-```
+{% endcode %}
 
 So now we have a generator of colours, and a generator of shapes, we need to put them both together on a Pillow canvas.
 Python provides the [`zip` function][zip] for combining two iterables, and we can use that to great effect:
 
-```python
+{% code lang="python" names="0:shapes 3:colors" %}
 shapes = generate_shapes(500, 500, side_length=25)
 colors = random_colors(color1, color2)
+
 for shape, color in zip(shapes, colors):
     ...
-```
+{% endcode %}
 
 (Here `generate_shapes` is one of the generators we defined in the last post.)
 
@@ -110,7 +111,7 @@ The `zip` function runs until one of the iterables is exhausted, so this will ru
 Finally, we need to actually use Pillow to draw these shapes!
 We can use the `ImageDraw` module, this time passing a `fill` argument to fill in the shapes we're drawing:
 
-```python
+{% code lang="python" names="0:PIL 1:Image 2:ImageDraw 3:im 8:shapes 10:colors 14:shape 15:color" %}
 from PIL import Image, ImageDraw
 
 # Create a blank 500x500 pixel image
@@ -119,12 +120,13 @@ im = Image.new(mode='RGB', size=(500, 500))
 # Generate the shapes and colors, and draw them on the canvas
 shapes = generate_shapes(500, 500)
 colors = random_colors(color1, color2)
+
 for shape, color in zip(shapes, colors):
     ImageDraw.Draw(im).polygon(shape, fill=color)
 
 # Save the image to disk
 im.save('wallpaper.png')
-```
+{% endcode %}
 
 And voila, we now have a nice, low-contrast wallpaper made from tiling the plane.
 And because the colours are generated at random, each wallpaper is unique — not a useful feature per se, but it gives me warm fuzzy feelings.
