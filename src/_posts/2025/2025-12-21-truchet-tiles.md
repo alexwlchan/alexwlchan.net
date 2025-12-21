@@ -348,7 +348,6 @@ These can be arranged in a regular pattern, but they also look nice when arrange
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 1em;
-    }
     
     figcaption {
       grid-column: 1 / span 2;
