@@ -70,6 +70,15 @@ $default-padding: 20px;
 
   --screenshot-border-light: #f0f0f0;
   --screenshot-border-dark:  #3f3f3f;
+  
+  /* A collection of named colours I can use. */
+  --white:   #fafafa;
+  --black:   #0d0d0d;
+  --red:     var(--default-primary-color-light);
+  --green:   #1bad0e;
+  --blue:    #115bda;
+  --magenta: #c311d0;
+  --yellow:  #c8a711;
 
   /* My background texture image is "White Waves Pattern" by Stas Pimenov,
    * with reduced contrast.  The dark variant has inverted colours.
@@ -77,10 +86,10 @@ $default-padding: 20px;
    * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
    */
   --background-texture-light: url("/static/white-waves.png");
-  --background-color-light:   #fafafa;
+  --background-color-light:   var(--white);
 
   --background-texture-dark:  url("/static/black-waves.png");
-  --background-color-dark:    #0d0d0d;
+  --background-color-dark:    var(--black);
 }
 
 /* Select the appropriate light/dark shades depending on the user's theme.
@@ -103,6 +112,12 @@ $default-padding: 20px;
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --red:     var(--default-primary-color-dark);
+    --green:   #5ff042;
+    --blue:    #40c3ff;
+    --magenta: #ff42fc;
+    --yellow:  #fffc42;
+    
     --body-text:           var(--body-text-dark);
     --primary-color:       var(--primary-color-dark);
     --accent-grey:         var(--accent-grey-dark);
