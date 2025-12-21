@@ -317,16 +317,6 @@ One of the simplest Truchet tiles is a square made of two colours:
         stroke-dasharray: 0.25, 0.25;
       }
       
-      figure.columns_2 {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 1em;
-      }
-      
-      figure.columns_2 figcaption {
-        grid-column: 1 / span 2;
-      }
-      
       figure.columns_4 {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -334,18 +324,6 @@ One of the simplest Truchet tiles is a square made of two colours:
       }
       
       @media screen and (max-width: 500px) {
-        figure.columns_2 {
-          grid-template-columns: 1fr;
-        }
-        
-        figure.columns_2 figcaption {
-          grid-column: 1;
-        }
-        
-        figure.columns_2 > svg:first-child {
-          margin-bottom: 1em;
-        }
-        
         figure.columns_4 {
           grid-template-columns: repeat(2, 1fr);
         }
@@ -365,7 +343,20 @@ One of the simplest Truchet tiles is a square made of two colours:
 
 These can be arranged in a regular pattern, but they also look nice when arranged randomly:
 
-<figure style="width: 500px;" class="columns_2">
+<style>
+  #square_tiles_demo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+    }
+    
+    figcaption {
+      grid-column: 1 / span 2;
+    }
+  }
+</style>
+
+<figure style="width: 500px;" id="square_tiles_demo">
   <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" class="border">  
     <use href="#truchetSquare"/>
     <use href="#truchetSquare" x="100"/>
