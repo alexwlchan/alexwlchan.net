@@ -629,7 +629,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
       <circle cx="9" cy="6" r="0.25" class="blue"/>
     </g>
     
-    <text x="6.5" y="2" fill="black" font-size="1px" dominant-baseline="middle" text-anchor="end">outer radius</text>
+    <text x="6.5" y="2" font-size="1px" dominant-baseline="middle" text-anchor="end">outer radius</text>
     <path class="dimensions"
       d="M 6.8 3
          l 0.6 0 l -0.3 0
@@ -649,7 +649,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
          l -0.3 0
          l 0 1
          l -0.3 0"/>
-    <text x="21.5" y="5.5" fill="black" font-size="1px" dominant-baseline="middle" text-anchor="start">inner radius</text>
+    <text x="21.5" y="5.5" font-size="1px" dominant-baseline="middle" text-anchor="start">inner radius</text>
     
     <path class="dimensions"
       d="M 11 12.6
@@ -660,7 +660,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
          l 0 -0.3
          l -6 0
          l 0 -0.3"/>
-    <text x="14" y="14.2" fill="black" font-size="1px" dominant-baseline="text-top" text-anchor="middle">tile size</text>
+    <text x="14" y="14.2" font-size="1px" dominant-baseline="text-top" text-anchor="middle">tile size</text>
   
     <path class="dimensions"
       d="M 9 14.8
@@ -671,7 +671,7 @@ This diagram shows the two variables, plus two variables I compute in the templa
          l 0 -0.3
          l -2 0
          l 0 -0.3"/>
-    <text x="10" y="16.6" fill="black" font-size="1px" dominant-baseline="text-top" text-anchor="middle">padding</text>
+    <text x="10" y="16.6" font-size="1px" dominant-baseline="text-top" text-anchor="middle">padding</text>
   </svg>
 </figure>
 
