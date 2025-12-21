@@ -12,4 +12,9 @@ jxa: JavaScript for Automation, a way to control Mac apps with JavaScript.
 liquid: Liquid is a template language made by Shopify, and I use it for the HTML templates that create this website.
 macos: The Mac operating system, previously known as “Mac OS X”. All of my computers are Macs, and these posts are about Mac-specific stuff.
 python: the Python programming language.
+swift: the programming language for Apple devices.
+"swift:swiftui": the declarative UI framework for Apple devices.
 tailscale: "Tailscale is a mesh VPN service based on WireGuard, that allows devices to connect securely regardless of their physical location. Disclosure: I started working for Tailscale in August 2025, and my compensation includes stock options."
+terraform: the infrastructure-as-code tool made by HashiCorp.
+tnmoc: the National Museum of Computing.
+wales: the UK country with the coolest flag.
