@@ -96,7 +96,7 @@ I hope you like it!
 
 Here are some of my favourite things [that I've written](/articles/):
 
-<ul class="article_cards" id="featured_articles">
+<ul class="acards" id="featured_articles">
   {% for article in new_articles %}
     {% include article_card.html %}
   {% endfor %}
@@ -176,7 +176,7 @@ Here are some of the topics I write about:
     const sizes = "(max-width: 450px) 100vw,(max-width:1000px) 50vw,300px";
 
     return `
-      <div class="c_im_w${card.n ? ' n' : ''}">
+      <div class="c_im${card.n ? ' n' : ''}">
         <picture>
           <source srcset="${avif}"    sizes="${sizes}" type="image/avif">
           <source srcset="${webp}"    sizes="${sizes}" type="image/webp">
@@ -192,15 +192,15 @@ Here are some of the topics I write about:
     return `
       <li
         style="
-          ${card.cl ? `--c-lt: #${card.cl}` : ''};
-          ${card.cd ? `--c-dk: #${card.cd}` : ''};
+          ${card.cl ? `--lt: #${card.cl}` : ''};
+          ${card.cd ? `--dk: #${card.cd}` : ''};
         "
       >
         <a href="/${card.y + 2000}/${card.s}/">
           ${CardImage(card)}
           <div class="c_meta">
-            <p class="c_title">${card.t}</p>
-            ${typeof card.d !== 'undefined' ? `<p class="c_desc">${card.d}</p>` : ''}
+            <p class="c_t">${card.t}</p>
+            ${typeof card.d !== 'undefined' ? `<p class="c_d">${card.d}</p>` : ''}
           </div>
         </a>
       </li>

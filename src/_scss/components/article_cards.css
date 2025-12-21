@@ -5,7 +5,7 @@
  * the homepage, the list of articles, and tag pages.
  */
 
-.article_cards {
+.acards {
   list-style-type: none;
   padding-left: 0px !important;
   display: grid;
@@ -13,40 +13,40 @@
   grid-template-columns: var(--grid-columns);
 }
 
-.article_cards > li {
+.acards > li {
   border-radius: var(--border-radius);
   overflow: hidden;
   background: var(--background-color);
   border: var(--border-width) var(--border-style) var(--c-color);
 
-  /* An article card can declare two colour variables: --c-lt (light) and --c-dk (dark).
+  /* An article card can declare two colour variables: --lt (light) and --dk (dark).
    * These are used to tint the appearance of the card, if present. */
-  --c-lt: #d01c11;
-  --c-dk: #ff4242;
+  --lt: #d01c11;
+  --dk: #ff4242;
 
-  --c-color: var(--c-lt);
+  --c-color: var(--lt);
 }
 
 @media (prefers-color-scheme: dark) {
-  .article_cards > li {
-    --c-color: var(--c-dk);
+  .acards > li {
+    --c-color: var(--dk);
   }
 }
 
-.article_cards > li:hover .c_title {
+.acards > li:hover .c_t {
   text-decoration-thickness: 4px;
 }
 
-.article_cards > li a {
+.acards > li a {
   text-decoration: none;
   height: 100%;
 }
 
-.c_title, .c_desc {
+.c_t, .c_d {
   padding: 1em;
 }
 
-.c_title {
+.c_t {
   color: var(--c-color);
   text-decoration: underline;
   margin-top: 0;
@@ -55,7 +55,7 @@
   font-weight: normal;
 }
 
-.c_desc {
+.c_d {
   color: var(--body-text);
   margin: 0;
   padding-top: 0;
@@ -63,22 +63,19 @@
   line-height: 1.45em;
 }
 
-/* c_im_w = card_image_wrapper */
-.c_im_w {
+/* c_im = card_image_wrapper */
+.c_im {
   width: 100%;
   background: var(--c-color);
-}
-
-/* cards with a "new" banner need extra rules */
-.c_im_w.n {
-  position: relative;
-  overflow: hidden;
-}
-
-.c_im_w, .c_image {
   margin-top: 0;
   margin-bottom: 0;
   aspect-ratio: 2 / 1;
+}
+
+/* cards with a "new" banner need extra rules */
+.c_im.n {
+  position: relative;
+  overflow: hidden;
 }
 
 .new_banner {
@@ -102,7 +99,7 @@
   }
 }
 
-.article_cards {
+.acards {
   --grid-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -118,13 +115,13 @@
  * See https://stackoverflow.com/q/47601564/1558022
  */
 @media screen and (max-width: 450px) {
-  .article_cards {
+  .acards {
     --grid-columns: auto;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .article_cards:not(.article_cards--1):not(.article_cards--2):not(.article_cards--4) {
+  .acards:not(.acards--1):not(.acards--2):not(.acards--4) {
     --grid-columns: repeat(3, minmax(0, 1fr));
     margin-left:  -100px;
     margin-right: -100px;

@@ -10,23 +10,23 @@
   {% if article.card.color_lt or article.card.color_dk %}
     style="
       {%- if article.card.color_lt -%}
-        --c-lt: {{- article.card.color_lt -}};
+        --lt: {{- article.card.color_lt -}};
       {%- endif -%}
 
       {%- if article.card.color_dk -%}
-        --c-dk: {{- article.card.color_dk -}}
+        --dk: {{- article.card.color_dk -}}
       {%- endif -%}
     "
   {% endif %}
   {% if add_article_order %}
-  data-ord="{{ article.order }}"
+  data-o="{{ article.order }}"
   {% endif %}
 >
   <a href="{{ article.url }}">
 
     {{- "" -}}
 
-    <div class="c_im_w{% if article.is_new %} n{% endif %}">
+    <div class="c_im{% if article.is_new %} n{% endif %}">
       {% if article.card.index %}
         <picture>
           {% for src in article.card.index_image_template_params.sources %}
@@ -71,13 +71,13 @@
 
     {{- "" -}}
 
-    <p class="c_title">
+    <p class="c_t">
       {{- article.card.title -}}
     </p>
 
     {{- "" -}}
 
-    <p class="c_desc">
+    <p class="c_d">
       {{- article.card.summary | strip -}}
     </p>
 

@@ -1,40 +1,40 @@
 <style>
   /* If these article links are on the same page as article cards, add left/right
    * margins so the text lines up vertically */
-  .article_cards + .article_links > li,
-  #articles .article_links > li {
+  .acards + .alinks > li,
+  #articles .alinks > li {
     width: calc(100% - 2 * (1em - 2px));
     padding-left:  calc(1em + 2px);
     padding-right: calc(1em + 2px);
   }
 
-  .article_links {
+  .alinks {
     list-style-type: none;
     padding: 0;
-  }
-
-  .article_links h4 {
-    font-weight: normal;
-    margin-bottom: 7px;
-  }
-
-  .article_links p {  /* description */
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 85%;
-    line-height: 1.45em;
-  }
-
-  .article_links a:visited {
-    color: var(--link-color);
+    
+    h4 {
+      font-weight: normal;
+      margin-bottom: 7px;
+    }
+    
+    p {  /* description */
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 85%;
+      line-height: 1.45em;
+    }
+    
+    a:visited {
+      color: var(--link-color);
+    }
   }
 </style>
 
-<ul class="article_links">
+<ul class="alinks">
 {%- for article in include.articles -%}
   <li
     {% if add_article_order %}
-    data-ord="{{ article.order }}"
+    data-o="{{ article.order }}"
     {% endif %}
   ><h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
       {%- if article.layout == 'til' -%}

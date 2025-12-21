@@ -53,8 +53,8 @@ a:hover {
   }
 
   .meta a[href]:after,
-  .article_cards a[href]:after,
-  .article_links a[href]:after {
+  .acards a[href]:after,
+  .alinks a[href]:after {
     content: "";
   }
 }
