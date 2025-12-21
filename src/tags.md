@@ -7,10 +7,9 @@ nav_section: tags
 
 <style>
   #tags {
-    list-style-type: none;
-    padding: 0;
-    columns: 1;
-    line-height: 1.7em;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: var(--grid-gap);
   }
 
   #tags a:visited {
@@ -21,18 +20,6 @@ nav_section: tags
     display: none;
   }
 
-  @media screen and (min-width: 518px) {
-    #tags {
-      columns: 2;
-    }
-  }
-
-  @media screen and (min-width: 747px) {
-    #tags {
-      columns: 3;
-    }
-  }
-
   select {
     font-size: 1em;
   }
@@ -40,7 +27,21 @@ nav_section: tags
 
 <p id="tagSortingControls"></p>
 
-<ul id="tags">
+<dl id="tags">
+  {% for tag_name in visible_tags %}
+    {% assign tag_count = site.data['tag_tally'][tag_name] %}
+    <dt data-name="{{ tag_name }}" data-count="{{ tag_count }}">
+      {% include tag_link.html %}
+    </dt>
+    <dd data-name="{{ tag_name }}" data-count="{{ tag_count }}">
+      {{ tag_count }} post{% if tag_count > 1 %}s{% endif %}
+      about
+      {{ site.data['tag_descriptions'][tag_name] }}
+    </dd>
+  {% endfor %}
+</dl>
+
+<!-- <ul id="tags">
   {% for tag_name in visible_tags %}
     <li
       data-tag-name="{{ tag_name }}"
@@ -48,9 +49,10 @@ nav_section: tags
     >
       {% include tag_link.html %}
       ({{ site.data['tag_tally'][tag_name] }})
+      {{ site.data['tag_descriptions'][tag_name] }}
     </li>
   {% endfor %}
-</ul>
+</ul> -->
 
 <script>
   const tagSortOptions = [
@@ -58,8 +60,8 @@ nav_section: tags
       id: 'nameAtoZ',
       label: 'tag name (A to Z)',
       compareFn: (a, b) => {
-        const aName = a.getAttribute("data-tag-name");
-        const bName = b.getAttribute("data-tag-name");
+        const aName = a.getAttribute("data-name");
+        const bName = b.getAttribute("data-name");
         return aName > bName ? 1 : -1;
       },
     },
@@ -67,8 +69,8 @@ nav_section: tags
       id: 'nameZtoA',
       label: 'tag name (Z to A)',
       compareFn: (a, b) => {
-        const aName = a.getAttribute("data-tag-name");
-        const bName = b.getAttribute("data-tag-name");
+        const aName = a.getAttribute("data-name");
+        const bName = b.getAttribute("data-name");
         return aName < bName ? 1 : -1;
       },
     },
@@ -78,11 +80,11 @@ nav_section: tags
       id: 'countMostToLeast',
       label: '# of uses (most to least)',
       compareFn: (a, b) => {
-        const aName = a.getAttribute("data-tag-name");
-        const bName = b.getAttribute("data-tag-name");
+        const aName = a.getAttribute("data-name");
+        const bName = b.getAttribute("data-name");
 
-        const aCount = Number(a.getAttribute("data-tag-count"));
-        const bCount = Number(b.getAttribute("data-tag-count"));
+        const aCount = Number(a.getAttribute("data-count"));
+        const bCount = Number(b.getAttribute("data-count"));
 
         return aCount !== bCount
           ? bCount - aCount
@@ -93,11 +95,11 @@ nav_section: tags
       id: 'countLeastToMost',
       label: '# of uses (least to most)',
       compareFn: (a, b) => {
-        const aName = a.getAttribute("data-tag-name");
-        const bName = b.getAttribute("data-tag-name");
+        const aName = a.getAttribute("data-name");
+        const bName = b.getAttribute("data-name");
 
-        const aCount = Number(a.getAttribute("data-tag-count"));
-        const bCount = Number(b.getAttribute("data-tag-count"));
+        const aCount = Number(a.getAttribute("data-count"));
+        const bCount = Number(b.getAttribute("data-count"));
 
         return aCount !== bCount
           ? aCount - bCount
@@ -114,8 +116,8 @@ nav_section: tags
       id: 'random',
       label: 'random',
       compareFn: (a, b) => {
-        const aName = a.getAttribute("data-tag-name");
-        const bName = b.getAttribute("data-tag-name");
+        const aName = a.getAttribute("data-name");
+        const bName = b.getAttribute("data-name");
 
         randomWeights[aName] ??= Math.random();
         randomWeights[bName] ??= Math.random();
@@ -211,6 +213,7 @@ nav_section: tags
   }
 
   window.addEventListener("DOMContentLoaded", function() {
+    const tagsElem = document.querySelector("#tags");
     const params = new URLSearchParams(window.location.search);
 
     // Apply sorting, e.g. by name or number of uses.
@@ -219,15 +222,19 @@ nav_section: tags
     // sort options to the page.
     const sortOrderId = params.get("sortOrder");
 
-    const tagElements = Array.from([...document.querySelectorAll("#tags > li")]);
+    const tagElements = [...tagsElem.querySelectorAll("dt")];
 
     const { sortedItems, appliedSortOrder } = sortItems({
       items: tagElements, sortOptions: tagSortOptions, sortOrderId
     });
 
-    sortedItems.forEach(elem =>
-      document.querySelector("#tags").appendChild(elem)
-    );
+    sortedItems.forEach(dtElem => {
+      const ddElem = tagsElem.querySelector(
+        `dd[data-name="${dtElem.getAttribute('data-name')}"]`
+      );
+      tagsElem.appendChild(dtElem);
+      tagsElem.appendChild(ddElem);
+    });
 
     document.querySelector('#tagSortingControls').innerHTML =
       SortControls(tagSortOptions, appliedSortOrder.id);
