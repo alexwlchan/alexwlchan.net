@@ -23,20 +23,20 @@ def get_word_count(path)
                      .reject { |w| w.start_with? '```' }
 
   words = []
-  in_liquid_statement = false
+  in_block_statement = 0
 
   char_sequences.each do |c|
-    if c == '{%'
-      in_liquid_statement = true
+    if ['{%', '<svg'].include?(c)
+      in_block_statement += 1
       next
     end
 
-    if c == '%}'
-      in_liquid_statement = false
+    if ['%}', '</svg>'].include?(c)
+      in_block_statement -= 1
       next
     end
 
-    unless in_liquid_statement
+    if in_block_statement.zero?
       words.push(c)
     end
   end

@@ -1,10 +1,5 @@
 /* Syntax highlighting styles. */
 pre {
-  --red:       var(--default-primary-color-light);
-  --green:     #1bad0e;
-  --blue:      #115bda;
-  --magenta:   #c311d0;
-  --yellow:    #c8a711;
   --highlight: #ffeb12b3;
 
   --comments:    var(--red);
@@ -15,11 +10,6 @@ pre {
   --mark:        var(--highlight);
 
   @media (prefers-color-scheme: dark) {
-    --red:       var(--default-primary-color-dark);
-    --green:     #5ff042;
-    --blue:      #40c3ff;
-    --magenta:   #ff42fc;
-    --yellow:    #fffc42;
     --highlight: #fffc42cc;
   }
 

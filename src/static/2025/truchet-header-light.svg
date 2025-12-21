@@ -1,0 +1,341 @@
+<svg viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .bg { fill: #d01c11; }
+          .fg { fill: #e51e13; }
+        </style>
+        <symbol id="truchetSquare"><rect class="bg" height="100" width="100"></rect><path d="M 0 0 l 100 100 l -100 0 Z" class="fg"></path></symbol><symbol id="truchetSquare90"><use transform="rotate(90 50 50)" href="#truchetSquare"></use></symbol><symbol id="truchetSquare180"><use transform="rotate(180 50 50)" href="#truchetSquare"></use></symbol><symbol id="truchetSquare270"><use transform="rotate(270 50 50)" href="#truchetSquare"></use></symbol><svg id="base_background"><rect height="6" width="6" x="2" y="2"></rect><circle cx="2" cy="2" r="2"></circle><circle cx="8" cy="2" r="2"></circle><circle cx="2" cy="8" r="2"></circle><circle cx="8" cy="8" r="2"></circle></svg><svg id="base_foreground"><circle cx="2" cy="5" r="1"></circle><circle cx="8" cy="5" r="1"></circle><circle cx="5" cy="2" r="1"></circle><circle cx="5" cy="8" r="1"></circle></svg><symbol id="base"><use class="bg" href="#base_background"></use><use class="fg" href="#base_foreground"></use></symbol><symbol id="base-inverted"><use class="fg" href="#base_background"></use><use class="bg" href="#base_foreground"></use></symbol><path d="M 4 2 l 2 0 a 2 2 0 0 0 2 2 l 0 2 a 4 4 0 0 1 -4 -4" id="slash"></path><path d="M 4 2 l 2 0 a 2 2 0 0 0 2 2 l 0 2 l -4 0" id="wedge"></path><rect height="2" id="bar" width="6" x="2" y="4"></rect><symbol id="carlsonFour"><use href="#base"></use></symbol><symbol id="carlsonFour-inverted"><use href="#base-inverted"></use></symbol><symbol id="carlsonX"><use href="#base"></use><g class="fg"><use href="#wedge"></use><use transform="rotate(90 5 5)" href="#wedge"></use><use transform="rotate(180 5 5)" href="#wedge"></use><use transform="rotate(270 5 5)" href="#wedge"></use></g></symbol><symbol id="carlsonX-inverted"><use href="#base-inverted"></use><g class="bg"><use href="#wedge"></use><use transform="rotate(90 5 5)" href="#wedge"></use><use transform="rotate(180 5 5)" href="#wedge"></use><use transform="rotate(270 5 5)" href="#wedge"></use></g></symbol><symbol id="carlsonT"><use href="#base"></use><g class="fg"><use href="#wedge"></use><use transform="rotate(90 5 5)" href="#wedge"></use></g></symbol><symbol id="carlsonT-inverted"><use href="#base-inverted"></use><g class="bg"><use href="#wedge"></use><use transform="rotate(90 5 5)" href="#wedge"></use></g></symbol><symbol id="carlsonT-r90"><use transform="rotate(90 5 5)" href="#carlsonT"></use></symbol><symbol id="carlsonT-r90-inverted"><use transform="rotate(90 5 5)" href="#carlsonT-inverted"></use></symbol><symbol id="carlsonT-r180"><use transform="rotate(180 5 5)" href="#carlsonT"></use></symbol><symbol id="carlsonT-r180-inverted"><use transform="rotate(180 5 5)" href="#carlsonT-inverted"></use></symbol><symbol id="carlsonT-r270"><use transform="rotate(270 5 5)" href="#carlsonT"></use></symbol><symbol id="carlsonT-r270-inverted"><use transform="rotate(270 5 5)" href="#carlsonT-inverted"></use></symbol><symbol id="carlsonPlus"><use href="#base"></use><g class="fg"><use href="#bar"></use><use transform="rotate(90 5 5)" href="#bar"></use></g></symbol><symbol id="carlsonPlus-inverted"><use href="#base-inverted"></use><g class="bg"><use href="#bar"></use><use transform="rotate(90 5 5)" href="#bar"></use></g></symbol><symbol id="carlsonSlash"><use href="#base"></use><g class="fg"><use href="#slash"></use><use transform="rotate(180 5 5)" href="#slash"></use></g></symbol><symbol id="carlsonSlash-inverted"><use href="#base-inverted"></use><g class="bg"><use href="#slash"></use><use transform="rotate(180 5 5)" href="#slash"></use></g></symbol><symbol id="carlsonSlash-r90"><use transform="rotate(90 5 5)" href="#carlsonSlash"></use></symbol><symbol id="carlsonSlash-r90-inverted"><use transform="rotate(90 5 5)" href="#carlsonSlash-inverted"></use></symbol><symbol id="carlsonMinus"><use href="#base"></use><use class="fg" href="#bar"></use></symbol><symbol id="carlsonMinus-inverted"><use href="#base-inverted"></use><use class="bg" href="#bar"></use></symbol><symbol id="carlsonMinus-r90"><use transform="rotate(90 5 5)" href="#carlsonMinus"></use></symbol><symbol id="carlsonMinus-r90-inverted"><use transform="rotate(90 5 5)" href="#carlsonMinus-inverted"></use></symbol><symbol id="carlsonFrown"><use href="#base"></use><use class="fg" href="#slash"></use></symbol><symbol id="carlsonFrown-inverted"><use href="#base-inverted"></use><use class="bg" href="#slash"></use></symbol><symbol id="carlsonFrown-r90"><use transform="rotate(90 5 5)" href="#carlsonFrown"></use></symbol><symbol id="carlsonFrown-r90-inverted"><use transform="rotate(90 5 5)" href="#carlsonFrown-inverted"></use></symbol><symbol id="carlsonFrown-r180"><use transform="rotate(180 5 5)" href="#carlsonFrown"></use></symbol><symbol id="carlsonFrown-r180-inverted"><use transform="rotate(180 5 5)" href="#carlsonFrown-inverted"></use></symbol><symbol id="carlsonFrown-r270"><use transform="rotate(270 5 5)" href="#carlsonFrown"></use></symbol><symbol id="carlsonFrown-r270-inverted"><use transform="rotate(270 5 5)" href="#carlsonFrown-inverted"></use></symbol>
+      </defs>
+        
+        <use
+          href="#carlsonPlus"
+          x="0"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT"
+          x="0"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="6"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash-r90"
+          x="6"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonMinus-r90"
+          x="12"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash-r90"
+          x="12"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r90"
+          x="18"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash-r90"
+          x="18"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="24"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="24"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="30"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown"
+          x="30"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown"
+          x="36"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="36"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFour"
+          x="42"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r90"
+          x="42"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonMinus-r90"
+          x="48"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r90"
+          x="48"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash-r90"
+          x="54"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFour"
+          x="54"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown"
+          x="60"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash-r90"
+          x="60"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="66"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFour"
+          x="66"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r90"
+          x="72"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown-r180"
+          x="72"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r180"
+          x="78"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown-r90"
+          x="78"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown-r90"
+          x="84"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r270"
+          x="84"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown-r270"
+          x="90"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash"
+          x="90"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonSlash-r90"
+          x="96"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown-r270"
+          x="96"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonMinus"
+          x="102"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonPlus"
+          x="102"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r90"
+          x="108"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFour"
+          x="108"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonFrown-r180"
+          x="114"
+          y="0"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonT-r270"
+          x="114"
+          y="6"
+          transform="translate(-2 -2) scale(1)"/>
+        <use
+          href="#carlsonMinus-inverted"
+          x="0"
+          y="0"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFrown-r90-inverted"
+          x="6"
+          y="0"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-r90-inverted"
+          x="0"
+          y="6"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonSlash-r90-inverted"
+          x="6"
+          y="6"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonSlash-inverted"
+          x="36"
+          y="12"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-r90-inverted"
+          x="42"
+          y="12"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonSlash-inverted"
+          x="36"
+          y="18"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-r180-inverted"
+          x="42"
+          y="18"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-r270-inverted"
+          x="48"
+          y="0"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonPlus-inverted"
+          x="54"
+          y="0"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-inverted"
+          x="48"
+          y="6"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonSlash-inverted"
+          x="54"
+          y="6"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-r90-inverted"
+          x="96"
+          y="0"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonSlash-r90-inverted"
+          x="102"
+          y="0"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFour-inverted"
+          x="96"
+          y="6"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonX-inverted"
+          x="102"
+          y="6"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFrown-r180-inverted"
+          x="108"
+          y="12"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFrown-inverted"
+          x="114"
+          y="12"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-r90-inverted"
+          x="108"
+          y="18"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonPlus-inverted"
+          x="114"
+          y="18"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFrown-inverted"
+          x="132"
+          y="12"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonT-inverted"
+          x="138"
+          y="12"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFrown-inverted"
+          x="132"
+          y="18"
+          transform="translate(-1 -1) scale(0.5)"/>
+        <use
+          href="#carlsonFour-inverted"
+          x="138"
+          y="18"
+          transform="translate(-1 -1) scale(0.5)"/>
+      <line x1="6" y1="0" x2="6" y2="24" class="carlson_grid"/>
+      <line x1="12" y1="0" x2="12" y2="24" class="carlson_grid"/>
+      <line x1="18" y1="0" x2="18" y2="24" class="carlson_grid"/>
+      <line x1="24" y1="0" x2="24" y2="24" class="carlson_grid"/>
+      <line x1="30" y1="0" x2="30" y2="24" class="carlson_grid"/>
+      <line x1="36" y1="0" x2="36" y2="24" class="carlson_grid"/>
+      <line x1="42" y1="0" x2="42" y2="24" class="carlson_grid"/>
+    
+      <line x1="0" y1="6" x2="48" y2="6" class="carlson_grid"/>
+      <line x1="0" y1="12" x2="48" y2="12" class="carlson_grid"/>
+      <line x1="0" y1="18" x2="48" y2="18" class="carlson_grid"/>
+    </svg>
