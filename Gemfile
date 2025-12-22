@@ -16,7 +16,7 @@ gem 'ruby-vips', '~> 2.3'
 gem 'shell-executer', '~> 1.0'
 
 group :lint, optional: true do
-  gem 'rubocop', '~> 1.81'
+  gem 'rubocop', '~> 1.82'
 end
 
 group :test, optional: true do
