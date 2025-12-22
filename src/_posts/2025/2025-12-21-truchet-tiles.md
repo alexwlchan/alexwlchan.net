@@ -1068,6 +1068,9 @@ Here's a drawing that uses this code to draw Carlson truchet tiles:
     <label for="foreground" style="margin-right: auto;">foreground</label>
     <input type="color" id="background" name="background" value="#ffffff" style="margin-left: auto;" onchange="setDemoColours()">
     <label for="background" style="margin-right: auto;">background</label>
+    <div style="grid-column: 1 / span 2; text-align: center;">
+      <button onclick="redrawRandomCarlson()">draw new shapes</button>
+    </div>
   </figcaption>
   <script>
     function setDemoColours() {
