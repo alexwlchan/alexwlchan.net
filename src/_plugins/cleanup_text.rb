@@ -161,8 +161,12 @@ end
 def cleanup_syntax_highlighter_classes(html)
   # I never use the `highlighter-rouge` class, and I only have styles
   # for a couple of the `language-*` classes.
+  #
+  # Note (2025-12-23): the 1Password browser extension has enabled
+  # Prism.js syntax highlighting in web pages, and it looks for
+  # any <pre> elements with a language-* class, so rename it to lng.
   %w[caddy console css go html irb shell xml].each do |lang|
-    html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"language-#{lang}\"")
+    html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"lng-#{lang}\"")
   end
 
   html = html.gsub(/ class="language-[a-z]+ highlighter-rouge"/, '')
@@ -171,8 +175,8 @@ def cleanup_syntax_highlighter_classes(html)
   #
   # If there's a `language-tag` on the outer `<div>`, move it to the `<pre>`.
   html = html.gsub(
-    /<div class="language-(?<language>[a-z]+)"><div class="highlight"><pre class="highlight">/,
-    '<pre class="language-\k<language>">'
+    /<div class="lng-(?<lang_code>[a-z]+)"><div class="highlight"><pre class="highlight">/,
+    '<pre class="lng-\k<lang_code>">'
   )
   html = html.gsub(
     '<div><div class="highlight"><pre class="highlight"',

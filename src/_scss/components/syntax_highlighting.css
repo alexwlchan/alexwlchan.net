@@ -67,10 +67,10 @@ pre {
  *
  * gp = Generic.Prompt, w = Whitespace
  */
-.language-console .gp,
-.language-console .gp + .w,
-.language-irb .gp,
-.language-irb .gp + .w {
+.lng-console .gp,
+.lng-console .gp + .w,
+.lng-irb .gp,
+.lng-irb .gp + .w {
   color: var(--blue);
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -83,26 +83,26 @@ pre {
 
 /* Don't highlight the XML declaration at the top of an XML snippet.
  * cp = Comment.Preproc*/
-.language-xml .cp {
+.lng-xml .cp {
   color: var(--punctuation);
 }
 
 /* All my Caddy and Go-formatted code uses tabs; ensure it's a 4-wide tab
  * rather than 8-wide, which is the default stylesheet in Safari */
-.language-caddy,
-.language-go {
+.lng-caddy,
+.lng-go {
   tab-size: 4;
 }
 
 /* Highlight HTML tags in blue.
  * Name.{Tag, Attribute} */
-.language-html {
+.lng-html {
   .nt, .na {
     color: var(--names);
   }
 }
 
-.language-css {
+.lng-css {
   /* Don't highlight media queries. */
   .n {
     color: var(--body-text);
