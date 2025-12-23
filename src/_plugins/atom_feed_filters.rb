@@ -78,7 +78,7 @@ module Jekyll
 
       # Remove inline attributes from an HTML string that aren't allowed in
       # an Atom feed, according to https://github.com/rubys/feedvalidator
-      attribute_names = %w[style data-lang controls aria-hidden]
+      attribute_names = %w[style controls aria-hidden]
                         .flat_map { |name| ["@#{name}", ".//@#{name}"] }
       doc.xpath(attribute_names.join('|')).remove
 
