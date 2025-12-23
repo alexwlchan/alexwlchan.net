@@ -1,3 +1,6 @@
+require 'fileutils'
+
+require 'color'
 require 'chunky_png'
 require 'shell/executer'
 
@@ -38,28 +41,134 @@ def read_default_dark_color
 end
 
 # Given a given hex colour as a string (e.g. '#123456') generate
-# an infinite sequence of colours which vary only in brightness.
-def get_colors_like(hex_color)
-  # Seed the random to get consistent outputs
-  seeded_random = Random.new(hex_color[1..].to_i(16))
+# an infinite sequence of colours which vary only in lightness.
+def get_colours_like(hex_colour)
+  # 1. Seed the random to get consistent outputs.  This ensures the
+  #    images created in local builds are the same as ones on the
+  #    server, and I can delete the folder and regenerate without
+  #    changing the appearance of already-published pages.
+  seeded_random = Random.new(hex_colour[1..].to_i(16))
 
-  hsl_color = Color::RGB.by_hex(hex_color).to_hsl
+  # 2. Convert the hex colour to RGB, then to CIELAB.
+  rgb = Color::RGB.by_hex(hex_colour)
+  lab = rgb.to_lab
 
-  luminosity = hsl_color.luminosity
+  # 3. Work out the min/max lightness that gets us a fixed delta
+  #    away from the original color.
+  #
+  #    Note(2025-12-24): although it's currently the same +/- in
+  #    both directions, but maybe it should be different and depend
+  #    on whether you're in light/dark mode?
+  min_lightness = get_lightness_for_delta(lab, 'darker', 6)
+  max_lightness = get_lightness_for_delta(lab, 'lighter', 6)
 
-  min_luminosity = luminosity * 7 / 8
-  max_luminosity = luminosity * 8 / 7
+  lightness_diff = max_lightness - min_lightness
 
-  luminosity_diff = max_luminosity - min_luminosity
+  if lightness_diff.zero?
+    raise "No lightness diff for hex colour: #{hex_colour}"
+  end
 
+  # 4. Generate random CIELAB colours in this (min, max) lightness range,
+  #    then convert them to RGB.
   Enumerator.new do |enum|
     loop do
-      hsl_color = Color::HSL.from_values(
-        hsl_color.hue,
-        hsl_color.saturation,
-        min_luminosity + (seeded_random.rand * luminosity_diff)
+      next_color = Color::CIELAB.from_values(
+        min_lightness + (seeded_random.rand * lightness_diff),
+        lab.a,
+        lab.b
       )
-      enum.yield hsl_color.to_rgb
+      enum.yield next_color.to_rgb
+    end
+  end
+end
+
+# Find the lightness of a CIELAB colour that gets a specific perceptual
+# difference (target_delta) from the original colour, while maintaining
+# the original chromaticity.
+def get_lightness_for_delta(original_lab, direction, target_delta)
+  # 1. Define the search range for L*
+  if direction == 'lighter'
+    low_l = original_lab.l
+    high_l = 100
+  else
+    low_l = 0
+    high_l = original_lab.l
+  end
+
+  # 2. Run a binary search on L*
+  best_lab = original_lab
+  best_delta = 0
+
+  15.times do
+    mid_l = (low_l + high_l) / 2.0
+
+    candidate_lab = Color::CIELAB.from_values(mid_l, original_lab.a, original_lab.b)
+    candidate_delta = original_lab.delta_e2000(candidate_lab)
+
+    # Are we closer than the current best colour? If so, replace it.
+    if (candidate_delta - target_delta).abs < (best_delta - target_delta).abs
+      best_lab = candidate_lab
+      best_delta = candidate_delta
+    end
+
+    if candidate_delta < target_delta
+      # We need more distance, move away from the original L*
+      direction == 'lighter' ? (low_l = mid_l) : (high_l = mid_l)
+    else
+      # We've gone too far, move back toward the original L*
+      direction == 'lighter' ? (high_l = mid_l) : (low_l = mid_l)
+    end
+  end
+
+  best_lab.l
+end
+
+# Note(2025-12-24): this is a monkey-patched fix for an issue in the
+# color gem, described here: https://github.com/halostatue/color/issues/92
+#
+# When this fix is available in the published version of the gem, delete
+# this monkey-patch.
+module Color
+  class XYZ
+    def to_rgb(...)
+      # sRGB companding from linear values
+      linear = [
+        (x * 3.2406255) + (y * -1.5372080) + (z * -0.4986286),
+        (x * -0.9689307) + (y * 1.8757561) + (z * 0.0415175),
+        (x * 0.0557101) + (y * -0.2040211) + (z * 1.0569959)
+      ].map do |v|
+        if v <= 0.0031308
+          v * 12.92
+        else
+          (1.055 * (v**(1 / 2.4))) - 0.055
+        end
+      end
+
+      Color::RGB.from_fraction(*linear)
+    end
+  end
+end
+
+# Note(2025-12-24): this is a monkey-patched fix for an issue in the
+# color gem, described here: https://github.com/halostatue/color/issues/95
+#
+# When this fix is available in the published version of the gem, delete
+# this monkey-patch.
+module Color
+  class CIELAB
+    def to_xyz(*args, **kwargs)
+      fy = (l + 16.0) / 116
+      fz = fy - (b / 200.0)
+      fx = (a / 500.0) + fy
+
+      xr = (fx3 = fx**3) > Color::XYZ::E ? fx3 : ((116.0 * fx) - 16) / Color::XYZ::K
+      yr = l > Color::XYZ::EK ? ((l + 16.0) / 116)**3 : (l / Color::XYZ::K)
+      zr = (fz3 = fz**3) > Color::XYZ::E ? fz3 : ((116.0 * fz) - 16) / Color::XYZ::K
+
+      ref = kwargs[:white] || args.first
+      ref = Color::XYZ::D65 unless ref.is_a?(Color::XYZ)
+
+      ref.scale(xr, yr, zr)
     end
   end
 end
@@ -89,7 +198,7 @@ def create_header_image(tint_color)
 
   return if File.file?(out_path)
 
-  colors = get_colors_like(tint_color)
+  colors = get_colours_like(tint_color)
   squares = squares_for(2500, 250, 50)
 
   image = ChunkyPNG::Image.new(2500, 250)
