@@ -125,7 +125,6 @@ def cleanup_whitespace(input)
     'System 1',
     'VS Code',
     'Windows-1252',
-    'yt-dlp',
     'z-axis'
   ]
 
@@ -135,6 +134,9 @@ def cleanup_whitespace(input)
       text = text.gsub(p, replacement)
     end
   end
+
+  # Add non-breaking hyphens to "yt-dlp", but only if it's not part of a URL
+  text = text.gsub(%r{([^\-/])yt-dlp}, '\1yt&#8209;dlp')
 
   # If there's an <a> that starts with the word "a", make sure we
   # add a non-breaking space to it.
