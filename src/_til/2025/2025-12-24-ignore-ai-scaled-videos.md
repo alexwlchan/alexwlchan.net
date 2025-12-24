@@ -27,7 +27,7 @@ sb2    mhtml 48x27        1    │                  mhtml │ images            
 399-sr mp4   1440x1080   30    │   18.46MiB  931k https │ av01.0.08M.08  931k video only          1080p, AI-upscaled, mp4_dash
 ```
 
-Because yt-dlp helpfully includes that `-sr` in the format ID, you can exclude these videos by [filtering by format][yt-dlp-filtering].
+Because yt-dlp helpfully [includes `-sr` in the format ID][yt-dlp-sr] of AI upscaled videos, you can exclude them by [adding a format filter][yt-dlp-filtering].
 
 *   If you're using the CLI, add the `--format` flag.
     For example:
@@ -54,3 +54,4 @@ I've added the latter to my [personal wrapper around yt-dlp][yt-dlp-wrapper].
 [yt-announcement]: https://blog.youtube/news-and-events/new-features-to-help-creators/
 [yt-dlp-filtering]: https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#filtering-formats
 [yt-dlp-wrapper]: /2025/yt-dlp-wrapper/
+[yt-dlp-sr]: https://github.com/yt-dlp/yt-dlp/issues/14923#issuecomment-3539437820
