@@ -125,6 +125,7 @@ def cleanup_whitespace(input)
     'System 1',
     'VS Code',
     'Windows-1252',
+    'yt-dlp',
     'z-axis'
   ]
 
