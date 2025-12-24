@@ -39,7 +39,7 @@ require_relative 'utils/markdownify_oneline'
 require_relative 'utils/pictures'
 
 Jekyll::Hooks.register :site, :post_read do |site|
-  site.posts.docs.each do |post|
+  (site.posts.docs + site.collections['til'].docs).each do |post|
     year = post.date.year
     slug = post.data['slug']
 
