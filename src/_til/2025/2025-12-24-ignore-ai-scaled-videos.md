@@ -49,6 +49,8 @@ Because yt-dlp helpfully includes that `-sr` in the format ID, you can exclude t
         ydl.download(["https://www.youtube.com/watch?v=0N1_0SUGlDQ"])
     {% endcode %}
 
+I've added the latter to my [personal wrapper around yt-dlp][yt-dlp-wrapper].
 
 [yt-announcement]: https://blog.youtube/news-and-events/new-features-to-help-creators/
 [yt-dlp-filtering]: https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#filtering-formats
+[yt-dlp-wrapper]: /2025/yt-dlp-wrapper/
