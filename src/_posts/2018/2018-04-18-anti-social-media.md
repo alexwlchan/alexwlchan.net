@@ -406,7 +406,7 @@ Examples:
 
 {%
   slide
-  filename="slide25.png",
+  filename="slide25.png"
   alt="An image of a bedroom with the overlaid text “Sharing intimate photos without permission”."
   caption="Image: bedroom in blue and brown, by [Digital Buggu](https://www.pexels.com/photo/bed-bedroom-blue-brown-172872/). Used under CC0."
 %}

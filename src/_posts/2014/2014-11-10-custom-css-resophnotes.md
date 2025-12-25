@@ -1,5 +1,5 @@
 ---
-date: 2014-11-10 18:41
+date: 2014-11-10T18:41:00Z
 layout: post
 title: Custom CSS in ResophNotes
 index:

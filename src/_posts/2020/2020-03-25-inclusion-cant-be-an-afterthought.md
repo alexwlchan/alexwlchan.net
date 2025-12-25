@@ -146,7 +146,7 @@ It wasn't until they had left-handed users that they realised the mistake.
 {%
   slide
   filename="slide5.png"
-  alt="Output from a `git log` command.",
+  alt="Output from a `git log` command."
 %}
 
 Let's look at another example.
@@ -198,7 +198,7 @@ A more racially diverse team might have caught that before it shipped to custome
 {%
   slide
   filename="slide8.jpg"
-  alt="A red car (left) crashing into the back of a yellow car (right).",
+  alt="A red car (left) crashing into the back of a yellow car (right)."
   caption="Image by [Pixel-mixer](https://pixabay.com/users/Pixel-mixer-1197643/) on [Pixabay](https://pixabay.com/photos/crash-test-collision-60-km-h-1620592/). Used under CC0."
 %}
 

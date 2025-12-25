@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-02-09T13:12:26.002Z
+date: 2023-02-09T13:12:26Z
 title: How moving to the cloud took Wellcome’s digital collections to new heights
 summary: Building our own platform allowed us to make decisions based on what’s best for the collections, and not the limitations of our digital infrastructure.
 tags:
