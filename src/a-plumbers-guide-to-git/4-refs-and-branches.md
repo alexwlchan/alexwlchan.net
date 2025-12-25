@@ -1,6 +1,6 @@
 ---
 layout: page
-date_updated: 2018-03-13 08:20:53 GMT
+date_updated: 2018-03-13T08:20:53Z
 title: "Part 4: Refs and branches"
 meta:
   - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>

@@ -1,6 +1,6 @@
 ---
 layout: page
-date_updated: 2018-03-13 08:20:51 GMT
+date_updated: 2018-03-13T08:20:51Z
 title: "Part 3: Context from commits"
 meta:
   - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>

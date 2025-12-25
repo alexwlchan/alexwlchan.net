@@ -12,7 +12,7 @@ If I try to open the videos or embed them in a webpage, I get a broken video pla
 
 {%
   picture
-  filename="broken-video.png"}
+  filename="broken-video.png"
   width="400"
   class="screenshot dark_aware"
   alt="A black box with a play triangle in the middle, and a line striking it out."

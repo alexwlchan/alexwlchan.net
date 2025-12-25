@@ -12,5 +12,4 @@ Alternatively, there's a list of my social media accounts on [my contact page](/
 
 If you're feeling extra generous, you can [send me a coffee][kofi] on Ko-fi.
 
-[email]: mailto:{{ site.email | encode_mailto }}
 [kofi]: https://ko-fi.com/alexwlchan

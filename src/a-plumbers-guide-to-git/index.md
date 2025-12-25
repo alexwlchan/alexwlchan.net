@@ -1,6 +1,6 @@
 ---
 layout: page
-date_updated: 2018-03-13 08:20:58 GMT
+date_updated: 2018-03-13T08:20:58Z
 title: A Plumber's Guide to Git
 summary: Git is a fundamental part of many modern developer workflows -- but how does it really work under the hood?  In this workshop, we'll learn about the internals of Git.
 ---

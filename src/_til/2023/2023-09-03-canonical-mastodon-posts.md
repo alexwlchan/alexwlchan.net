@@ -25,7 +25,7 @@ If I'm looking at the post in the Mastodon web app, I can get this URL with the 
 {%
   picture
   filename="mastodon-copy-link.png"
-  width="474px"
+  width="474"
   class="screenshot"
   alt="Screenshot of a Mastodon post with the menu open, showing the 'Copy link to status' command highlighted."
 %}
