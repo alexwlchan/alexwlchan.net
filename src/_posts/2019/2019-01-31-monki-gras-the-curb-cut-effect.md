@@ -307,7 +307,7 @@ This is one of the captioners at PyCon UK, and our experience is that lots of pe
 {%
   slide
   filename="slide15.jpg"
-  alt="A printed page titled “Optical character recognition”, being scanned with a handheld OCR scanner with a red light.""
+  alt="A printed page titled “Optical character recognition”, being scanned with a handheld OCR scanner with a red light."
   caption="A photo of a handheld OCR scanner, from [Wikipedia](https://en.wikipedia.org/wiki/Optical_character_recognition)."
 %}
 
@@ -331,7 +331,7 @@ These have become widely-used technologies: for making textual versions of scann
 {%
   slide
   filename="slide17.jpg"
-  alt="A room with a row of shelves, with the spines of some large books visible on the nearest shelves.""
+  alt="A room with a row of shelves, with the spines of some large books visible on the nearest shelves."
   caption="A room full of grey shelves, with books visible on the nearest shelves. Image credit: Wellcome Collection."
 %}
 
@@ -343,7 +343,7 @@ This is one of our "data centres"...
 {%
   slide
   filename="slide18.jpg"
-  alt="A close-up photo of some shelves, with the spines of large and old books closest to the camera.""
+  alt="A close-up photo of some shelves, with the spines of large and old books closest to the camera."
   caption="Four shelves, each with a couple of large books on each shelf. Image credit: Wellcome Collection."
 %}
 
@@ -354,7 +354,7 @@ Like many institutions, we're scanning our archives to make them more easily ava
 {%
   slide
   filename="slide19.jpg"
-  alt="A screenshot of an ebook viewer, with a page titled “Die Radioaktivität”.""
+  alt="A screenshot of an ebook viewer, with a page titled “Die Radioaktivität”."
   caption="A page from [the notebooks of Marie Curie](https://wellcomelibrary.org/item/b28120991#?c=0&m=0&s=0&cv=6&z=-1.0491%2C0%2C3.0982%2C1.5908), with a search highlighting instances of the word “radioaktiv”. Image credit: Wellcome Collection."
 %}
 
@@ -367,7 +367,7 @@ This so cool, but it wouldn't exist without the pioneering work done into OCR to
 {%
   slide
   filename="slide20.jpg"
-  alt="A purple door with a silver handle.""
+  alt="A purple door with a silver handle."
   caption="A silver door handle set against a purple door, with raindrops on the door's surface. Image credit: [MabelAmber on Pixabay](https://pixabay.com/en/door-handle-doorknob-lock-door-3633943/), and recoloured by me."
 %}
 

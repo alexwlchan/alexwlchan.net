@@ -65,7 +65,7 @@ I'm going to talk about what a README file is, why it's important for your proje
 
 {%
   slide
-  filename="slide2.jpg",
+  filename="slide2.jpg"
   alt="Photograph of the front elevation of the Wellcome Collection building at dusk. The building is illuminated with a series of up-lighters, flooding the facade with green light. In the foreground at ground level are blurred streaks of red and yellow from the headlights and tail lights of passing vehicles. The leaves of trees to the left and right of the image frame the building and are themselves blurred as a result of the wind and long photographic exposure."
   caption="Photo by Thomas Farnetti, Wellcome Collection. Used under CC BY 4.0."
 %}

@@ -422,7 +422,7 @@ It's an intrusion of privacy for their ex, and incredibly distressing to have th
 
 {%
   slide
-  filename="slide26.png",
+  filename="slide26.png"
   alt="A photo of the back seat of a car with the overlaid text “Grooming young children”."
   caption="Image: rear seats of an Audi RS4, by [The Car Spy](https://commons.wikimedia.org/wiki/File:Audi_B5_RS4_Avant_-_Flickr_-_The_Car_Spy_%286%29.jpg). Used under CC BY."
 %}
@@ -497,7 +497,7 @@ Minority groups tend to come in for disproportionate levels of abuse and harassm
 
 {%
   slide
-  filename="slide34.png",
+  filename="slide34.png"
   alt="A picture of Diane Abbott, with a quote about how she received almost a third of abusive tweets in one study."
   caption="Image: Official portrait of Diane Abbott MP, from the [UK Parliament website](https://beta.parliament.uk/media/S3bGSTqn). Used under CC BY."
 %}
@@ -771,7 +771,7 @@ And can you build it with safety in mind?
 
 {%
   slide
-  filename="slide64.png",
+  filename="slide64.png"
   alt="A screenshot from the game Journey; orange characters in a desert with a green sky."
   caption="Image: a marketing screenshot from *Journey*, by [thatgamecompany](http://thatgamecompany.com/journey/)."
 %}

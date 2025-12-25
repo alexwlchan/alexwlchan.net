@@ -617,11 +617,13 @@ Most websites have removed them, but they live on in web archives, and in the me
 I came across a few pages using `<script>` tags with a `type` attribute that I didn't recognise.
 Here's a simple example:
 
+{% raw %}
 ```html
 <script type="text/x-handlebars-template" id="loading_animation">
   <div class="loading_animation pulsing <%= extra_class %> {{ extra_class }}"><div></div></div>
 </script>
 ```
+{% endraw %}
 
 Browsers ignore `<script>` tags with [an unrecognised `type`][script_unknown_type] -- they don't run them, and they don't render their contents.
 Developers have used this as a way to [include HTML templates][old_template] in their pages, which JavaScript could extract and use later.
