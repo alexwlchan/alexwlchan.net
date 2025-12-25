@@ -206,10 +206,10 @@ I saw it on a number of sites that publish longer articles -- they used a progre
 </style>
 
 <blockquote id="progress_example">
-  {% highlight html -%}
+  {% code lang="html" wrap="true" %}
 <label for="file">Progress:</label>
 <progress id="file" max="100" value="70">70%</progress>
-  {%- endhighlight %}
+  {% endcode %}
 
   <div>
     <label for="file">File progress:</label>
@@ -319,9 +319,9 @@ Here's a link style from an old copy of the *Entertainment Weekly* website:
 </style>
 
 <blockquote id="underline_example">
-{% highlight css -%}
+{% code lang="css" %}
 a { box-shadow: inset 0 -6px 0 #b0e3fb; }
-{%- endhighlight %}
+{% endcode %}
 
   <div>
     <span style="box-shadow: inset 0 -6px 0 #b0e3fb;">

@@ -101,9 +101,9 @@ Let's step through how it works.
 
 <dl>
 <dt>
-  {% highlight shell %}
+  {% code lang="shell" %}
 find . -path '*/.github/workflows/*' -type f -name '*.yml' -print0
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>
@@ -127,9 +127,9 @@ find . -path '*/.github/workflows/*' -type f -name '*.yml' -print0
   </p>
 </dd>
 <dt>
-{% highlight shell %}
+{% code lang="shell" %}
 xargs -0 grep --no-filename "uses:"
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>
@@ -145,9 +145,9 @@ xargs -0 grep --no-filename "uses:"
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uses: ruby/setup-ruby@v1</code></p>
 </dd>
 <dt>
-{% highlight shell %}
+{% code lang="shell" %}
 sed 's/\- uses:/uses:/g' \
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>
@@ -162,9 +162,9 @@ sed 's/\- uses:/uses:/g' \
   </p>
 </dd>
 <dt>
-{% highlight shell %}
+{% code lang="shell" %}
 tr '"' ' '
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>
@@ -180,9 +180,9 @@ tr '"' ' '
   </p>
 </dd>
 <dt>
-{% highlight shell %}
+{% code lang="shell" %}
 awk '{print $2}'
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>
@@ -197,9 +197,9 @@ ruby/setup-ruby@v1</code></p>
   </p>
 </dd>
 <dt>
-{% highlight shell %}
+{% code lang="shell" %}
 sed 's/\r//g'
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>
@@ -208,9 +208,9 @@ sed 's/\r//g'
   </p>
 </dd>
 <dt>
-{% highlight shell %}
+{% code lang="shell" %}
 sort | uniq --count | sort --numeric-sort
-{% endhighlight %}
+{% endcode %}
 </dt>
 <dd>
   <p>

@@ -65,8 +65,7 @@ If you'd like to use the script, you can find it below:
 <details>
 <summary>add_backblaze_exclusions.py</summary>
 
-{% highlight python %}
-#!/usr/bin/env python3
+{% code lang="python" names="0:datetime 1:os 2:pathlib 3:shutil 4:subprocess 5:sys 6:typing 7:Iterator 8:List 9:lxml 10:etree 11:get_dirs_to_exclude 18:dirname 19:argv 20:path 35:add_exclusion 36:root 39:exclude_dir 42:do_backup_elements 48:do_backup 50:already_excluded 62:dirfilter 81:save_backup_copy 82:bzinfo_path 85:today 90:backup_path 97:restart_backblaze 98:cmd 106:dirs_to_exclude 110:bzinfo_path 111:backup_path 116:root 120:exclude_dir 130:outfile" %}
 """
 Script for adding one-off folder exclusions to BackBlaze.
 
@@ -200,9 +199,7 @@ if __name__ == "__main__":
 
     print("*** Restarting BackBlaze")
     restart_backblaze()
-```
-
-{% endhighlight %}
+{% endcode %}
 </details>
 
 Since this is messing with your backup config, you should double-check when it's done -- does the list of folder exclusions in the settings look correct?

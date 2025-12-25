@@ -66,9 +66,7 @@ A couple of people saw me doing it on Thursday, and asked me how, so here's my t
   <details>
   <summary>adjust_hue_in_svg.py</summary>
 
-{% highlight python %}
-#!/usr/bin/env python3
-
+{% code lang="python" names="0:colorsys 1:functools 2:pathlib 3:re 4:sys 5:adjust_hue 6:match 7:adjustment 8:hex_color_str 12:red 15:green 18:blue 21:hue 22:saturation 23:value 46:svg_path 55:svg_text 58:out_dir 66:color_matches 71:degrees_adjustment 73:new_svg_text 75:out_path" %}
 import colorsys
 import functools
 import pathlib
@@ -124,7 +122,7 @@ if __name__ == '__main__':
         )
 
         out_path.write_text(new_svg_text)
-{% endhighlight %}
+{% endcode %}
   </details>
   </li>
 </ul>

@@ -84,10 +84,10 @@ Let's step through it in detail.
     <p>
       First, create a container that includes both the image and the banner.
     </p>
-    {% highlight html %}<div class="container">
+    {% code lang="html" %}<div class="container">
   <div class="banner">NEW</div>
   <img src="computer.jpg">
-</div>{% endhighlight %}
+</div>{% endcode %}
     <p>
       Notice how the banner and image appear separately – they both have their own space in the layout.
     </p>
@@ -101,9 +101,9 @@ Let's step through it in detail.
     <p>
       I can add a CSS rule that makes the text appear on top of the image:
     </p>
-    {% highlight css %}.banner {
+    {% code lang="css" %}.banner {
   position: absolute;
-}{% endhighlight %}
+}{% endcode %}
     <p>
       This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the banner from the normal document flow and allows it to be placed anywhere on the page.
       Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for it.
@@ -117,7 +117,7 @@ Let's step through it in detail.
     <p>
       The text is in the top left corner of the image, but we can move it to the top right-hand instead:
     </p>
-    {% highlight css %}
+    {% code lang="css" %}
 .container {
   position: relative;
 }
@@ -126,7 +126,7 @@ Let's step through it in detail.
   transform: rotate(45deg);
   right:     16px;
   top:       20px;
-}{% endhighlight %}
+}{% endcode %}
   </div>
   <div class="container" id="wrapper3" style="width:200px;">
     <div class="banner">NEW</div>
@@ -175,10 +175,12 @@ This is because an absolutely positioned element takes its initial position from
     <p>
       Let's apply a colour to make this banner easier to read – the text is disappearing into the image.
     </p>
-    {% highlight css %}.banner {
+    {% code lang="css" %}
+.banner {
   background: red;
   color:      white;
-}{% endhighlight %}
+}
+    {% endcode %}
     <p>
       Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to make it wider, so it covers the whole corner.
     </p>
@@ -192,11 +194,13 @@ This is because an absolutely positioned element takes its initial position from
       We can make it wider by adding padding.
       Because this changes the size of the element, I had to adjust the position offsets to keep it in the right place.
     </p>
-    {% highlight css %}.banner {
+    {% code lang="css" %}
+.banner {
   right:   -34px;
   top:     18px;
   padding: 2px 50px;
-}{% endhighlight %}
+}
+    {% endcode %}
   </div>
   <div class="container" id="wrapper4" style="width:200px;">
     <div class="banner">NEW</div>
@@ -207,9 +211,11 @@ This is because an absolutely positioned element takes its initial position from
       Now the banner is too wide, and extending off the end of the image.
       Let’s clip the edges, so it fits neatly within the square:
     </p>
-    {% highlight css %}.container {
+    {% code lang="css" %}
+.container {
   overflow: hidden;
-}{% endhighlight %}
+}
+    {% endcode %}
     <p id="final_para">
       This is the banner effect I’m looking for – the text is clear and prominent on the image.
       I’ve added a <code>box-shadow</code> on my homepage to make it stand out further, but cosmetic details like that aren’t important for the rest of this post.
