@@ -637,8 +637,7 @@ Sure, it's all here:
 <details>
 <summary>dynamo_calculator.py</summary>
 
-{% highlight python %}
-#!/usr/bin/env python
+{% code lang="python" names="0:contextlib 1:typing 2:Callable 3:uuid 4:boto3 5:dynamodb 8:DynamoCalculator 9:__enter__ 10:self 11:table_name 30:__exit__ 31:self 32:exc_type 33:exc_value 34:traceback 42:row_id 43:self 44:calculation_id 54:__repr__ 55:self 59:add 60:self 61:x 63:y 68:calculation_id 83:subtract 84:self 85:x 87:y 92:calculation_id 107:eq 108:self 109:x 111:y 116:calculation_id 127:exc 128:if_ 129:self 130:condition 132:if_true 135:if_false 141:calculation_id 151:exc 154:lt 155:self 156:x 158:y 163:calculation_id 174:exc 175:multiply 176:self 177:x 179:y 182:if_y_non_negative 192:if_y_negative 219:divide 220:self 221:x 223:y 226:if_y_negative 235:if_y_positive 262:not_ 263:self 264:condition 272:ne 273:self 274:x 276:y 285:or_ 286:self 287:condition1 289:condition2 310:le 311:self 312:x 314:y 327:gt 328:self 329:x 331:y 340:ge 342:x 344:y 353:and_ 354:self 355:condition1 357:condition2 378:nand 379:self 380:condition1 382:condition2 393:calculator 506:p 507:q" %}
 """
 What happens if you try to use DynamoDB as an integer calculator?
 """
@@ -963,7 +962,7 @@ if __name__ == "__main__":
                 f"{display(calculator.or_(p, q))}        | "
                 f"{display(calculator.nand(p, q))}"
             )
-{% endhighlight %}
+{% endcode %}
 
 </details>
 

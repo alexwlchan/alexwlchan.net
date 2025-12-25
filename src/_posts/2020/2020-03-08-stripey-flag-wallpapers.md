@@ -48,7 +48,7 @@ It always draws the stripes are roughly the same height and position on the scre
 
 <details>
   <summary>create_stripey_wallpapers.py</summary>
-{% highlight python %}
+{% code lang="python" names="0:PIL 1:Image 2:ImageDraw 3:create_wallpaper 4:stripes 5:background_color 6:im 12:draw 16:stripe_height 17:left_hand_midpoint 18:right_hand_midpoint 19:total_stripe_height 23:left_hand_top 25:right_hand_top 27:i 28:color 49:name 50:stripes 51:im" %}
 from PIL import Image, ImageDraw
 
 
@@ -121,7 +121,7 @@ if __name__ == '__main__':
     ]:
         im = create_wallpaper(stripes=stripes)
         im.save(f"wallpaper_{name}.jpg")
-{% endhighlight %}
+{% endcode %}
 </details>
 
 I've used it to create four mystery wallpapers, based on different flags with horizontal stripes:
