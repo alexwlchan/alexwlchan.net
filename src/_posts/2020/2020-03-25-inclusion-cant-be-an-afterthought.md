@@ -217,7 +217,7 @@ The car industry does now use a wider variety of crash test dummies, but it'll b
 {%
   slide
   filename="slide9.png"
-  alt="Text slide: Inclusion has to be part of our design process.",
+  alt="Text slide: Inclusion has to be part of our design process."
 %}
 
 So what's the message here?
