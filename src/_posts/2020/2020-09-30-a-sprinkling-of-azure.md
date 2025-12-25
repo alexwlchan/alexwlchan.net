@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-09-30T12:57:47.376Z
+date: 2020-09-30T12:57:47Z
 title: Replicating Wellcome Collection's digital archive to Azure Blob Storage
 tags:
   - wellcome collection

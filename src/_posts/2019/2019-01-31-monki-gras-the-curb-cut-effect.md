@@ -316,7 +316,7 @@ Let's look at another bit of early technology: [optical character recognition](h
 {%
   slide
   filename="slide16.jpg"
-  alt="A sepia drawing of a machine with a scanning frame and a pair of headphones on a cord.""
+  alt="A sepia drawing of a machine with a scanning frame and a pair of headphones on a cord."
   caption="A scanned image of an optophone, taken from [Wikipedia](https://commons.wikimedia.org/wiki/File:Optophone_in_detail.jpg)."
 %}
 

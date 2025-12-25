@@ -39,9 +39,11 @@ The raw blocks are to stop Jekyll expanding the {{ page.path }} variable in this
 This is a <a href="https://jekyllrb.com/docs/variables/#page-variables">Jekyll page variable</a> that contains the path to the source code for a page.
 For example, on this page this renders as:
 
+{% raw %}
 ```html
 <meta name="page-source-path" content="{{ page.path }}">
 ```
+{% endraw %}
 
 Adding it to the template means it gets baked into every page, and I can read the value with JavaScript.
 

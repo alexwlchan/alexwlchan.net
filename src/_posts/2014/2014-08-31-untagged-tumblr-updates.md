@@ -30,6 +30,7 @@ The Tumblr API returns a single blog post as a JSON object. This object includes
 
 I was naïvely saving each of these objects into an array called `all_posts`, and displaying them on the page as follows:
 
+{% raw %}
 ```html
 <ol class="untagged_posts">
   <li ng-repeat="post in all_posts" ng-hide="{{post.tags.length}}">
@@ -37,6 +38,7 @@ I was naïvely saving each of these objects into an array called `all_posts`, an
   </li>
 </ol>
 ```
+{% endraw %}
 
 The `ng-repeat` loop goes through every post, and hides it if the length of the `tags` attribute is non-zero (that is, if the post is tagged). The untagged posts are shown as list items with the appropriate link.
 
@@ -56,6 +58,7 @@ var filter_untagged_posts = function(posts) {
 
 which are applied to all the post objects I receive from the Tumblr API. Then I renamed the array to `untagged_posts`, and slightly simplified the HTML:
 
+{% raw %}
 ```html
 <ol class="untagged_posts">
   <li ng-repeat="post in untagged_posts">
@@ -63,6 +66,7 @@ which are applied to all the post objects I receive from the Tumblr API. Then I 
   </li>
 </ol>
 ```
+{% endraw %}
 
 ## Trim the information saved in `untagged_posts`
 
@@ -85,6 +89,7 @@ var filter_untagged_posts = function(posts) {
 
 Now the `untagged_posts` array only includes URLs, and the HTML can be simplified even further:
 
+{% raw %}
 ```html
 <ol class="untagged_posts">
   <li ng-repeat="url in untagged_posts">
@@ -92,6 +97,7 @@ Now the `untagged_posts` array only includes URLs, and the HTML can be simplifie
   </li>
 </ol>
 ```
+{% endraw %}
 
 An array of thousands of URLs is still quite large, but nowhere near as large as if I was still storing the body of each post. I think this should make a big difference to performance.
 
