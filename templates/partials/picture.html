@@ -1,0 +1,40 @@
+{% if link_target is defined and link_target %}
+<a href="{{ link_target }}">
+{%- endif -%}
+
+<picture>
+  {#
+    Put dark images before light images, otherwise when you load the page
+    in dark mode, the page will load the first matching light image and
+    you won't get the nice dark variant.
+  #}
+  {%- if dk_derivatives is defined -%}
+    {%- for mime_type, srcset in dk_derivatives.items() -%}
+      <source
+        srcset="{{ ', '.join(srcset) }}"
+        sizes="{{ sizes_attribute }}"
+        type="{{ mime_type }}"
+        media="(prefers-color-scheme: dark)"
+      >
+    {%- endfor -%}
+  {%- endif -%}
+  {%- for mime_type, srcset in lt_derivatives.items() -%}
+    <source
+      srcset="{{ ', '.join(srcset) }}"
+      sizes="{{ sizes_attribute }}"
+      type="{{ mime_type }}"
+    >
+  {%- endfor -%}
+  <img
+    src="{{ default_image }}"
+    {%- if extra_attributes is defined -%}
+      {%- for name, value in extra_attributes.items() %}
+      {{ name }}="{{ value }}"
+      {%- endfor -%}
+    {%- endif -%}
+  >
+</picture>
+
+{%- if link_target is defined and link_target -%}
+</a>
+{% endif %}

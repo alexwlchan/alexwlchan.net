@@ -1,0 +1,9 @@
+<style type="x-text/scss">
+    @use "components/slides"
+</style>
+<figure class="slide">
+  {{ picture_tag }}
+  {% if caption %}
+    <figcaption>{{ caption|markdownify }}</figcaption>
+  {% endif %}
+</figure>

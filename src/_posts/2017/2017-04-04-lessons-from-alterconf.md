@@ -48,7 +48,7 @@ During one of the talks, a speaker inadvertently used some ableist language. Aft
 
 All the bathrooms at AlterConf are gender-neutral, and it's a staple of the conference tweets to see several pictures of the sign. Saturday was no exception:
 
-{% tweet https://twitter.com/iamkimiam/status/848188958567800832 %}
+{% tweet "https://twitter.com/iamkimiam/status/848188958567800832" %}
 
 ### A quiet room
 

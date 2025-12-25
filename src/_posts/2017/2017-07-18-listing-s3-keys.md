@@ -9,7 +9,7 @@ tags:
 title: Listing keys in an S3 bucket with Python
 ---
 
-{% update 2019-07-03 %}
+{% update "2019-07-03" %}
   In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
   If you want to use it, I'd recommend using the [updated version](/2019/listing-s3-keys/).
 {% endupdate %}
@@ -223,7 +223,7 @@ for key in get_matching_s3_keys(bucket='bukkit', suffix=('.jpg', '.JPG')):
 This function absorbs all the messiness of dealing with the S3 API, and I can focus on actually using the keys.
 Although S3 isn't actually a traditional filesystem, it behaves in very similar ways -- and this function helps close the gap.
 
-{% update 2019-07-03 %}
+{% update "2019-07-03" %}
   In the two years since I wrote this post, I've fixed a couple of bugs, made the code more efficient, and started using [paginators](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/paginators.html) to make it simpler.
   If you want to use it, I'd recommend using the [updated version](/2019/listing-s3-keys/).
 {% endupdate %}

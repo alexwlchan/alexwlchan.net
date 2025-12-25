@@ -167,7 +167,7 @@ We're getting some of the benefits of concurrency, but we could be doing better.
 <svg viewBox="0 0 850 320" xmlns="http://www.w3.org/2000/svg"
      role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an inverse sawtooth curve -- it rises sharply, drops gradually to zero, then repeats."
      class="dark_aware">
-  <marker id="arrowhead" markerWidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
+  <marker id="arrowhead" markerwidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
     <polygon fill="#000" points="0 0, 8 2.8, 0 5.6"/>
   </marker>
 
@@ -276,7 +276,7 @@ This is what the number of tasks available looks like:
 <svg viewBox="0 0 850 320" xmlns="http://www.w3.org/2000/svg"
      role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an initial spike to the top, then a zigzag pattern, then declining back to zero."
      class="dark_aware">
-  <marker id="arrowhead" markerWidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
+  <marker id="arrowhead" markerwidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
     <polygon fill="#000" points="0 0, 8 2.8, 0 5.6"/>
   </marker>
 
@@ -503,9 +503,9 @@ Now I have these templates and a write-up, I hope I'll be able to use this concu
 As well as being easier to find, I'm more confident that I understand how the code works, and where the rough edges are.
 Once again, a detailed walkthrough of code is as useful as me as for the reader.
 
+{#
 
-
-{% update 2020-05-02 %}
+{% update "2020-05-02" %}
   A common problem with this code is when your list of tasks is a list.
   If `tasks_to_do` is a list, you'll see it run the same tasks repeatedly.
 
@@ -540,7 +540,7 @@ Once again, a detailed walkthrough of code is as useful as me as for the reader.
 
 {% endupdate %}
 
-{% update 2022-01-04 %}
+{% update "2022-01-04" %}
   I've created a GitHub repo which has a nicer version of this code, which allows you to call a single function, rather than interspersing your function/inputs with the concurrency code:
 
 {% code lang="python" names="0:concurrently 1:concurrently 3:input 4:output 7:perform 9:get_tasks_to_do" %}
@@ -553,3 +553,5 @@ for (input, output) in concurrently(fn=perform, inputs=get_tasks_to_do()):
   I'd recommend using this instead of the code above (although the above still serves as a valuable explanation of how it works).
   See [alexwlchan/concurrently](https://github.com/alexwlchan/concurrently).
 {% endupdate %}
+
+#}

@@ -3,6 +3,7 @@ layout: page
 title: Elsewhere
 ---
 
+{#
 This is a list of articles I've written, talks I've given, and podcasts I've been a guest on.
 I sometimes link to these in the main blog feed; this page is meant to be a convenient reference.
 
@@ -139,3 +140,4 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     </tr>
   {% endfor %}
 </table>
+#}

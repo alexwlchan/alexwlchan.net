@@ -11,7 +11,6 @@ colors:
 index:
   exclude: true
 ---
-
 Last night, I updated the archive pages for my blog.
 On Twitter I teased it as a ["design refresh"][tease] but it might be more accurate to call it a "first design" -- the scrolling list of text links I had previously barely counts as a design.
 
@@ -153,7 +152,7 @@ The "posts" link in the header now goes to this list of cards, and it's only my 
 Your first impression of the blog is now these rich, colourful cards -- not a monotonous list of text links.
 It's a smaller list of posts to read, and there's more information to help you choose where to go next.
 
-{% update 2022-06-20 %}
+{% update "2022-06-20" %}
   I disliked this almost immediately, and I rolled it back.
   The "posts" link now goes to the "all posts" page, but the "best of" cards are more prominent, and there's a clear instruction at the top of the page directing new readers to the list of favourites.
 {% endupdate %}

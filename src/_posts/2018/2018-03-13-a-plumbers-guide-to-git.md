@@ -1,5 +1,5 @@
 ---
-date: 2018-03-13 10:08:04 +0000
+date: 2018-03-13T10:08:04Z
 layout: post
 link: https://alexwlchan.net/a-plumbers-guide-to-git/
 summary: Git is a fundamental part of many modern developer workflows -- but how does

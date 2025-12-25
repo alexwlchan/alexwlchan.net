@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if page.featured_posts|count > 0 %}
+    <style type="x-text/scss">
+      @use "components/article_cards";
+    </style>
+  {% endif %}
+
+  <style>
+    .title a {
+      text-decoration: underline;
+    }
+
+    .title a:visited {
+      color: var(--link-color);
+    }
+
+    .title + .acards {
+      margin-top: 2.5em;
+    }
+
+    .tag_description {
+      font-weight: bold;
+    }
+  </style>
+
+  <article>
+    <hgroup>
+      <h1 class="title">
+        <a href="/tags/">Tags</a>
+        {% if page.namespace != "" %}
+        » <a href="/tags/{{ page.namespace }}/">{{ page.namespace }}</a>
+        {% endif %}
+        » {{ page.tag_name }}
+      </h1>
+
+      <p class="meta">
+        {% set total_posts = (page.featured_posts|count) + (page.remaining_posts|count) %}
+        {{ total_posts }} post{% if total_posts > 1 %}s{% endif %}
+      </p>
+    </hgroup>
+
+    {% if page.tag_description %}
+    <p class="tag_description">
+      {{ page.tag_description | markdownify_oneline }}
+    </p>
+    {% endif %}
+
+    {% if page.featured_posts|count > 0 %}
+      {% with articles = page.featured_posts %}
+        {% include "partials/article_cards.html" %}
+      {% endwith %}
+    {% endif %}
+
+    {% if page.remaining_posts|count > 0 %}
+      {% with articles = page.remaining_posts %}
+        {% include "partials/article_links.html" %}
+      {% endwith %}
+    {% endif %}
+  </article>
+{% endblock %}

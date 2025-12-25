@@ -18,7 +18,7 @@ If you’ve not looked at Actions yet, the [awesome-actions repo](https://github
 I love playing with build systems, so I wanted to try it out -- but I had a lot of problems getting started.
 At the start of March, I tweeted in frustration:
 
-{% tweet https://twitter.com/alexwlchan/status/1101601909310439429 %}
+{% tweet "https://twitter.com/alexwlchan/status/1101601909310439429" %}
 
 A few days later, I got a DM from [Angie Rivera][angie], the Product Manager for GitHub Actions.
 We arranged a three-way call with [Phani Rajuyn][phani], one of GitHub's software engineers, and together we spent an hour talking about Actions.

@@ -23,11 +23,7 @@ It was a lot of fun to write and present.
 
 The talk was recorded, and you can watch it on YouTube:
 
-{%
-  include embeds/youtube.html
-  url="https://www.youtube.com/watch?v=6Yf3iukx3tQ"
-  title="The Curb Cut Effect"
-%}
+{% youtube "https://www.youtube.com/watch?v=6Yf3iukx3tQ" %}
 
 You can read the slides and my notes on this page, or download the slides [as a PDF](/files/2019/curbcut-monkigras.pdf).
 

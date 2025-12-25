@@ -1,0 +1,18 @@
+2097 lines of Ruby
+
+
+# -> Site
+#
+# read() ->
+#     config
+#     articles
+#     tils
+#     pages
+#     static_files
+#     images
+#
+# create_images() ->
+# copy_static_files() ->
+# build_html() ->
+# cleanup_site() ->
+# validate_html() ->

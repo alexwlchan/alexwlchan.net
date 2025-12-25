@@ -88,7 +88,7 @@ def check_redirects(dst_dir)
   exit!
 end
 
-html_dir = '_site'
+html_dir = '_site.2'
 src_dir = 'src'
 
 check_with_html_proofer(html_dir)

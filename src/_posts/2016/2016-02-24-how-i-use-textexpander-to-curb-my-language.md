@@ -12,7 +12,7 @@ title: How I use TextExpander to curb my language
 
 I saw a tweet yesterday that I really liked:
 
-{% tweet https://twitter.com/clamhead/status/701816106030239744 %}
+{% tweet "https://twitter.com/clamhead/status/701816106030239744" %}
 
 I’ve been making a concerted effort to cut down on this sort of phrasing as well.
 

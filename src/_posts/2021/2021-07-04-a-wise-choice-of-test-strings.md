@@ -8,7 +8,7 @@ index:
 
 A few weeks ago, somebody at HBO Max had a bad day, when a mysterious email went out to their subscribers:
 
-{% tweet https://twitter.com/juliehubs/status/1405689243393986561 %}
+{% tweet "https://twitter.com/juliehubs/status/1405689243393986561" %}
 
 As the subject line suggests and was later confirmed, this was an email [sent from their test system](https://twitter.com/HBOMaxHelp/status/1405712235108917249).
 

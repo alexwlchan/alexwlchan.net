@@ -118,7 +118,7 @@ $ ffprobe -v error \
       -show_entries stream=width,height,sample_aspect_ratio \
       "Mars 2020 EDL Remastered [HHhyznZ2u4E].mp4"
 [STREAM]
-width=1920
+width="1920"
 height=1080
 sample_aspect_ratio=45:64
 [/STREAM]

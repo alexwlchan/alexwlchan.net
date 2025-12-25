@@ -1,0 +1,46 @@
+{% set xml_title = safe_title | escape | trim %}
+
+{% if page.summary is defined %}
+  {% set xml_summary = page.summary | escape %}
+{% endif %}
+
+{% if page.card %}
+  {% set year = page.date.year %}
+
+  {% set card_image_url -%}
+    {{ site.url }}/{{ page.card.path | replace("_images", "images") }}
+  {%- endset %}
+{% else %}
+  {% set card_image_url -%}
+    {{ site.url }}/images/profile_green_sq.jpg
+  {%- endset %}
+{% endif %}
+
+
+
+<meta name="twitter:site" content="@alexwlchan">
+<meta name="twitter:title" content="{{ xml_title }}">
+{% if page.summary is defined %}
+  <meta name="twitter:description" content="{{ xml_summary }}">
+{% endif %}
+{% if page.card is defined and page.card %}
+  <meta name="twitter:card" content="summary_large_image">
+  {% else %}
+  <meta name="twitter:card" content="summary">
+{% endif %}
+<meta name="twitter:image" content="{{ card_image_url }}">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ xml_title }}">
+{% if page.summary is defined %}
+  <meta property="og:description" content="{{ xml_summary }}">
+{% endif %}
+<meta property="og:image" content="{{ card_image_url }}">
+
+
+
+
+<meta name="fediverse:creator" content="@alex@alexwlchan.net">

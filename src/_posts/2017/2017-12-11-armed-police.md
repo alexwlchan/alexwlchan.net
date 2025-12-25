@@ -41,7 +41,7 @@ Unfortunately, it's followed me home.
 
 Today I saw this tweet on my timeline:
 
-{% tweet https://twitter.com/CambsCops/status/940152354627874818 %}
+{% tweet "https://twitter.com/CambsCops/status/940152354627874818" %}
 
 The text of the tweet tries to be reassuring: it's just a precaution, about our safety, not a response to a specific threat.
 (This doesn't reassure me, but at least they're trying!)

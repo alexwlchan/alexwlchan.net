@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% set content %}
+      {% block content %}
+      {% endblock %}
+  {% endset %}
+
+  {% set parsed_content = content | get_inline_styles %}
+
+  <head>
+    {% include "partials/head.html" %}
+
+    {% if parsed_content.inline_styles != "" %}
+      <style>{{ parsed_content.inline_styles }}</style>
+    {% endif %}
+  </head>
+  <body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+
+    {% include "partials/nav.html" %}
+
+    <main id="main" tabindex="-1">
+      {{ parsed_content.html }}
+    </main>
+
+    {% include "partials/footer.html" %}
+  </body>
+</html>

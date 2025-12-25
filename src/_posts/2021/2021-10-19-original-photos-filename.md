@@ -44,7 +44,7 @@ WHERE ZGENERICASSET.ZFILENAME = "682DB554-618E-42D6-92A1-3695CFF10D3B.orf";
 I found this by getting a list of all SQL tables in the database, then looking at the column names for interesting-sounding fields.
 Other people have done more sophisticated analysis of the Photos database, but for what I was doing this was plenty.
 
-{% update 2022-11-25 %}
+{% update "2022-11-25" %}
 While working on a different project, I discovered another way to do this using AppleScript.
 The scripting dictionary for Photos.app allows you to address media items by UUID, so you can do something like:
 

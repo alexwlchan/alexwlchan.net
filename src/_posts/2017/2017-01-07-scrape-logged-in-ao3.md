@@ -85,7 +85,7 @@ With that restriction lifted, there's a lot more you can potentially do.
 I have a few ideas about what to do next, but I don't have much free time coming up.
 I'm not promising anything &ndash; but you might want to watch this space.
 
-{% update 2019-05-28 %}
+{% update "2019-05-28" %}
   There's a slightly fresher version of this code [on GitHub](https://github.com/alexwlchan/ao3).
 
   It's not actively maintained, but it does have a fix that isn't in the code above -- in particular, you need to pass an `authenticity_token` in the POST request, or the login fails.

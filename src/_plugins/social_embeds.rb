@@ -4,7 +4,7 @@
 #
 # To embed a post, use a Liquid tag of the form:
 #
-#     {% mastodon https://code4lib.social/@linguistory/113924700205617006 %}
+#     {% mastodon "https://code4lib.social/@linguistory/113924700205617006" %}
 #
 
 require_relative 'utils/twitter'
@@ -193,7 +193,7 @@ end
 class SocialMedia < Liquid::Tag
   def initialize(_tag_name, text, _tokens)
     # The `text` variable should contain the URL of the post.
-    @post_url = text.strip
+    @post_url = text.strip.delete_prefix('"').delete_suffix('"')
   end
 
   def render(context)

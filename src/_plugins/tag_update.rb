@@ -1,6 +1,6 @@
 # This plugin allows me to put an update on a post, e.g.
 #
-#    {% update 2020-05-02 %}
+#    {% update "2020-05-02" %}
 #      Here is some new information
 #    {% endupdate %}
 #
@@ -9,7 +9,7 @@ module Jekyll
   class UpdateBlock < Liquid::Block
     def initialize(tag_name, markup, options)
       super
-      @date = Date.parse(markup, '%Y-%m-%d')
+      @date = Date.parse(markup.delete_prefix('"').delete_suffix('"'), '%Y-%m-%d')
     end
 
     def render(context)

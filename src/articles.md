@@ -16,7 +16,7 @@ nav_section: articles
   }
 </style>
 
-{% comment %}
+{#
   The logic here is quite fiddly and took a lot of thought.  It may also be
   implementing a bad design.
 
@@ -42,44 +42,52 @@ nav_section: articles
     - if ≥3, show those first
     - if <3, keep them and wait for a later opportunity to display them
   * at the end, display anything not yet displayed
-{% endcomment %}
+#}
 
-{% assign featured_posts  = "" | split: ',' %}
-{% assign remaining_posts = "" | split: ',' %}
+{% set ns = namespace(featured_posts=[], remaining_posts=[]) %}
 
-{% assign add_article_order = true %}
+{% set add_article_order = true %}
 
 <div id="articles" data-card-count="2">
-{% for this_article in site.posts %}
-  {% if this_article.index.exclude %}
+{% for this_article in site.articles|sort(attribute="date")|reverse %}
+  {% if this_article.is_excluded_from_index %}
     {% continue %}
   {% endif %}
 
-  {% if this_article.index.feature %}
-    {% assign featured_posts = featured_posts | push: this_article %}
+  {% if this_article.is_featured %}
+    {% set ns.featured_posts = ns.featured_posts + [this_article] %}
   {% else %}
-    {% assign remaining_posts = remaining_posts | push: this_article %}
+    {% set ns.remaining_posts = ns.remaining_posts + [this_article] %}
   {% endif %}
 
-  {% unless featured_posts.size == 2 %}
+  {% if ns.featured_posts|count != 2 %}
     {% continue %}
-  {% endunless %}
+  {% endif %}
 
-  {%- include article_cards.html articles=featured_posts %}
-  {% assign featured_posts = "" | split: ',' %}
+  {%- with articles = ns.featured_posts -%}
+    {%- include "partials/article_cards.html" %}
+  {%- endwith -%}
+  {% set ns.featured_posts = [] %}
 
-  {% if remaining_posts.size >= 3 %}
-  {%- include article_links.html articles=remaining_posts %}
-  {% assign remaining_posts = "" | split: ',' %}
+  {% if ns.remaining_posts|count >= 3 %}
+    {%- with articles = ns.remaining_posts -%}
+      {%- include "partials/article_links.html" %}
+    {% endwith %}
+    {% set ns.remaining_posts = [] %}
   {% endif %}
 {% endfor %}
 
-{% comment %}
+{#
   At the end, display anything not yet displayed
-{% endcomment %}
+#}
 
-{% include article_cards.html articles=featured_posts %}
-{% include article_links.html articles=remaining_posts %}
+{%- with articles = ns.featured_posts -%}
+  {%- include "partials/article_cards.html" %}
+{%- endwith -%}
+
+{%- with articles = ns.remaining_posts -%}
+  {%- include "partials/article_links.html" %}
+{% endwith %}
 </div>
 
 <script>

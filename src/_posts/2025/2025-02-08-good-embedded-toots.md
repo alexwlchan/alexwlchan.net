@@ -158,7 +158,7 @@ I used the developer tools to get key values from the native embed, like colours
 When I want to embed a toot now, I write a line like:
 
 ```
-{% raw %}{% mastodon https://code4lib.social/@linguistory/113924700205617006 %}{% endraw %}
+{% raw %}{% mastodon "https://code4lib.social/@linguistory/113924700205617006" %}{% endraw %}
 ```
 
 This calls a [Jekyll plugin] that replaces this line with an embedded toot.

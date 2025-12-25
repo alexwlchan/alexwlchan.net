@@ -25,7 +25,7 @@ This bookmarklet pops up a dialog with the exact date a post was published.
 {%
   picture
   filename="tumblr_published_date.png"
-  parent="_images/bookmarklets/"
+  images_subdir="bookmarklets"
   class="screenshot"
   alt="Screenshot of a Tumblr page with a modal alert dialog on top. The modal alert reads ‘This post was published on 24 September 2024’."
   width="532"

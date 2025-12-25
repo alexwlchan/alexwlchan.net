@@ -37,7 +37,6 @@ You can see how these cards first looked on the homepage:
   picture
   filename="site_cards_on_the_homepage.jpg"
   alt="A homepage with three coloured cards linking to articles at the bottom of the page. The cards have a title, a picture, and a short description, plus a coloured border."
-  parent="/images"
   width="478"
   class="screenshot"
 %}
@@ -58,7 +57,7 @@ I replaced the homepage with a bio and a profile picture, with links out to blog
   picture
   filename="site_bio_homepage.jpg"
   alt="A red stripe along the top of the site, with a large picture of a face on the right and a bio in the body of the page."
-  parent="/images/about-the-site"
+  images_subdir="about-the-site"
   width="478"
   class="screenshot"
 %}
@@ -69,7 +68,7 @@ I also added a way to customise the tint colour of pages, for example, here's on
   picture
   filename="site_purplestripe.png"
   alt="An article with a purple stripe across the top, and purple text in the title."
-  parent="/images/about-the-site"
+  images_subdir="about-the-site"
   width="478"
   class="screenshot"
 %}
@@ -88,7 +87,7 @@ I'm still using them on the site today!
   picture
   filename="site_bloglist.png"
   alt="A red stripe with speckled squares at the top of the page, with an article below it."
-  parent="/images"
+  images_subdir="about-the-site"
   width="478"
   class="screenshot"
 %}
@@ -104,7 +103,7 @@ I ditched the sidebars in favour of a bold red header at the top of the page.
   picture
   filename="site_redstripe.png"
   alt="A tall reddish-orange strip with the name “alexwlchan” and a bio line, with an article below it."
-  parent="/images"
+  images_subdir="about-the-site"
   width="478"
   class="screenshot"
 %}
@@ -125,7 +124,7 @@ I've never been sure what to put in my sidebar -- it seems a waste of space not 
     picture
     filename="site_redwhite2a.png"
     alt="A white background site with a sidebar on the left and an article in the main area."
-    parent="/images/about-the-site"
+    images_subdir="about-the-site"
     width="400"
     class="screenshot"
     style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
@@ -134,7 +133,7 @@ I've never been sure what to put in my sidebar -- it seems a waste of space not 
     picture
     filename="site_redwhite2b.png"
     alt="The same design, but with a slightly different font."
-    parent="/images/about-the-site"
+    images_subdir="about-the-site"
     width="400"
     class="screenshot"
     style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
@@ -154,7 +153,7 @@ I wrote my name in very large text, which looks faintly ridiculous in hindsight.
   picture
   filename="site_redwhite1.png"
   alt="The name “Alex Chan” in big red letters at the top, then an article below it."
-  parent="/images/about-the-site"
+  images_subdir="about-the-site"
   width="478"
   class="screenshot"
 %}
@@ -170,7 +169,7 @@ It was in blue for a while, and I'm pretty sure it was in red too, but I didn't 
   picture
   filename="site_octopress.png"
   alt="The name “Alex Chan” at the top, set against a dark blue background, then an article below it."
-  parent="/images/about-the-site"
+  images_subdir="about-the-site"
   width="478"
   class="screenshot"
 %}

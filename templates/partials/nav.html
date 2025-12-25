@@ -1,0 +1,30 @@
+<nav>
+  <h1><a href="/">alexwlchan</a></h1>
+
+  <ul class="dot_list">
+    <li>
+      <a
+        href="/articles/"
+        {% if page.nav_section == "articles" %}selected{% endif %}
+      >articles</a>
+    </li>
+    <li>
+      <a
+        href="/til/"
+        {% if page.nav_section == "til" %}selected{% endif %}
+      >today i learned</a>
+    </li>
+    <li>
+      <a
+        href="/tags/"
+        {% if page.nav_section == "tags" %}selected{% endif %}
+      >tags</a>
+    </li>
+    <li>
+      <a
+        href="/contact/"
+        {% if page.nav_section == "contact" %}selected{% endif %}
+      >contact</a>
+    </li>
+  </ul>
+</nav>

@@ -13,7 +13,7 @@ It saves me a few clicks, and it's an idea I originally stole [from Dr. Drang][d
 
 I have a couple of variations on this snippet, and I recently added another one to the mix:
 
-{% tweet https://twitter.com/alexwlchan/status/1188721070234394626 %}
+{% tweet "https://twitter.com/alexwlchan/status/1188721070234394626" %}
 
 [km]: https://www.keyboardmaestro.com/main/
 [drang]: https://leancrew.com/all-this/2010/10/textexpander-snippets-for-google-chrome/
@@ -246,7 +246,7 @@ Handily, the Twitter API response includes both the t.co URL and the URL that it
 We can add them to the text like so:
 
 {% code lang="python" names="0:render_tweet 1:tweet 2:width 3:all_entities 10:entity 17:tweet_line" %}
-def render_tweet(tweet, width=72):
+def render_tweet(tweet, width="72"):
     ...
 
     all_entities = (
@@ -349,7 +349,7 @@ def get_tweet_id(url):
     return tweet_id
 
 
-def render_tweet(tweet, width=72):
+def render_tweet(tweet, width="72"):
     """
     Given a tweet from the Twitter API, render it in Markdown.
     """

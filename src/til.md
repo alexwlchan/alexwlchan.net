@@ -10,6 +10,6 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
 ---
 
-{% assign tils = site.til | reverse %}
-
-{% include article_links.html articles=tils %}
+{% with articles = site.tils | reverse %}
+  {% include "partials/article_links.html" %}
+{% endwith %}

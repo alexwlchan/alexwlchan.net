@@ -25,6 +25,7 @@ While I was waiting for her to start, I had some time to revisit those ideas, an
 
 These are a few of the pictures I was able to make:
 
+{#
 <div class="grid_4up checkerboard">
   {%
     inline_svg
@@ -619,3 +620,5 @@ They don't serve a purpose, and that's okay.
 I spend a lot of time doing work on the computer, and it's nice to use it for fun things too.
 
 [github]: https://github.com/alexwlchan/art-from-spanning-trees
+
+#}

@@ -21,11 +21,7 @@ From a [2008 BBC News article](http://news.bbc.co.uk/1/hi/sci/tech/7219803.stm):
 That article links to a now-broken video, but I think I found the clip on a BBC YouTube account.
 You can see the movements quite clearly -- calling it semaphore might be a stretch, but there's some form of non-audible communication going on here.
 
-{%
-  include embeds/youtube.html
-  url="https://www.youtube.com/watch?v=A1FWQvaBoRg"
-  title="Attenborough: Golden Frog: Fighting & Mating | Life in Cold Blood | BBC Studios"
-%}
+{% youtube "https://www.youtube.com/watch?v=A1FWQvaBoRg" %}
 
 For reasons I won't put in a blog post, this idea is particularly amusing to me.
 If you want to know why, ask about it when you see me in person. 😉

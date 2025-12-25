@@ -17,6 +17,6 @@ $ mediainfo '--Inform=Video;%Height%' speech.mp4
 360
 ```
 
-{% update 2025-12-05 %}
+{% update "2025-12-05" %}
    This doesn't account for videos which have a non-trivial pixel aspect ratio. For a more reliable way to get the dimensions of a video, see [The square pixels that aren't square](/2025/square-pixels).
 {% endupdate %}

@@ -332,6 +332,7 @@ One of the simplest Truchet tiles is a square made of two colours:
   </defs>
 </svg>
 
+{#
 <figure style="width: 500px;" class="columns_4">
   {% assign squares = "#truchetSquare #truchetSquare90 #truchetSquare180 #truchetSquare270" | split: " " %}
   {% for tile in squares %}
@@ -340,6 +341,7 @@ One of the simplest Truchet tiles is a square made of two colours:
   </svg>
   {% endfor %}
 </figure>
+#}
 
 These can be arranged in a regular pattern, but they also look nice when arranged randomly:
 
@@ -355,6 +357,7 @@ These can be arranged in a regular pattern, but they also look nice when arrange
   }
 </style>
 
+{#
 <figure style="width: 500px;" id="square_tiles_demo">
   <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" class="border">  
     <use href="#truchetSquare"/>
@@ -393,6 +396,7 @@ These can be arranged in a regular pattern, but they also look nice when arrange
     <use href="{{ squares | sample }}" x="300" y="300"/>
   </svg>
 </figure>
+#}
 
 The tiles that really caught my eye were [Christopher Carlson's][carlson].
 He created a collection of "winged tiles" that can be arranged with multiple sizes in the same grid.
@@ -415,6 +419,7 @@ He defined fifteen tiles, which are seven distinct patterns and then various rot
   }
 </style>
 
+{#
 <figure id="carlsonTiles">
   {% assign carlson_tiles = "#carlsonFour #carlsonT #carlsonT-r90 #carlsonT-r180 #carlsonT-r270 #carlsonPlus #carlsonSlash #carlsonSlash-r90 #carlsonMinus #carlsonMinus-r90 #carlsonX #carlsonFrown #carlsonFrown-r90 #carlsonFrown-r180 #carlsonFrown-r270" | split: " " %}
   {% for tile in carlson_tiles %}
@@ -425,6 +430,7 @@ He defined fifteen tiles, which are seven distinct patterns and then various rot
     </svg>
   {% endfor %}
 </figure>
+#}
 
 The important thing to notice here is that every tile only really "owns" the red square in the middle.
 When laid down, you add the "wings" that extend outside the tile -- this is what allows smaller tiles to seamlessly flow into the larger pattern.
@@ -566,6 +572,7 @@ I'm assuming you're familiar with SVG and JavaScript, but I'll explain the geome
 
 Although Carlson's set has fifteen different tiles, they're made of just four primitives, which I call the base, the slash, the wedge, and the bar.
 
+{#
 <figure class="columns_4" style="width: 600px;">
   {% assign primitives = "#base #slash #wedge #bar" | split: " " %}
   {% for tile in primitives %}
@@ -576,6 +583,7 @@ Although Carlson's set has fifteen different tiles, they're made of just four pr
     </svg>
   {% endfor %}
 </figure>
+#}
 
 The first step is to write SVG definitions for each of these primitives that we can reuse.
 

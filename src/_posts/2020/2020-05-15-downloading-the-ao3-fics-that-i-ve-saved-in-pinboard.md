@@ -11,7 +11,7 @@ tags:
 
 A couple of days ago, I tweeted about one of my scripts:
 
-{% tweet https://twitter.com/alexwlchan/status/1260225157672697858 %}
+{% tweet "https://twitter.com/alexwlchan/status/1260225157672697858" %}
 
 The tweet got a fair amount of interest, so in this post I'm going to share that script.
 
@@ -40,7 +40,7 @@ Run the file with Python in a terminal (for example, `python download_bookmarks.
 
 If you have issues running this code, get in touch [on Twitter](https://twitter.com/alexwlchan).
 
-{% update 2020-05-17 %}
+{% update "2020-05-17" %}
 Thanks for all the kind comments!
 It's really nice to know that people find my code useful.
 

@@ -28,7 +28,7 @@ The tool prints the path to the newly-created thumbnail.
 Here are two examples:
 
 ```console
-$ create_thumbnail clever_cat.jpg --out-dir=thumbnails --width=100
+$ create_thumbnail clever_cat.jpg --out-dir=thumbnails --width="100"
 ./thumbnails/clever_cat.jpg
 
 $ create_thumbnail dappy_dog.png --out-dir=thumbnails --height=250

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16" version="1.1">
+  <line x1="1" y1="1.5" x2="4" y2="1.5" stroke-width="1" stroke="{{ tint_colour }}"/>
+  <line x1="1.5" y1="1" x2="1.5" y2="15" stroke-width="1" stroke="{{ tint_colour }}"/>
+  <line x1="1" y1="14.5" x2="4" y2="14.5" stroke-width="1" stroke="{{ tint_colour }}"/>
+
+  <text x="8.5" y="8.5" font-family="Georgia" font-size="13" text-anchor="middle" dominant-baseline="middle" fill="{{ tint_colour }}">a</text>
+
+  <line x1="15" y1="1.5" x2="12" y2="1.5" stroke-width="1" stroke="{{ tint_colour }}"/>
+  <line x1="14.5" y1="1" x2="14.5" y2="15" stroke-width="1" stroke="{{ tint_colour }}"/>
+  <line x1="15" y1="14.5" x2="12" y2="14.5" stroke-width="1" stroke="{{ tint_colour }}"/>
+</svg>

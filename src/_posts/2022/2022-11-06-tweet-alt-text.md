@@ -17,7 +17,7 @@ colors:
 It seems like Twitter might be circling a drain, and so a lot of people are [downloading a copy of their archive][download] in case the site goes down unexpectedly.
 But large as it is, the archive doesn't contain everything:
 
-{% tweet https://twitter.com/thingskatedid/status/1588790271940395008 %}
+{% tweet "https://twitter.com/thingskatedid/status/1588790271940395008" %}
 
 And since Twitter's [Accessibility Experience team have just been laid off][a11y], it seems unlikely this omission is going to be fixed any time soon.
 

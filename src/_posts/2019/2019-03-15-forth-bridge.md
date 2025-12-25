@@ -73,11 +73,11 @@ You can still see a handful of small boats in the harbour, but I'm sure it used 
   %}
 </figure>
 
-{% update 2019-03-21 %}
+{% update "2019-03-21" %}
   It turns out the lighthouse isn't the only reminder of the ferry service!
   Chris, an ex-Wellcome colleague and archivist extraordinaire, found some pictures from the Britten-Pears foundation (whose archive and library he runs), including a ticket from the ferry service:
 
-  {% tweet https://twitter.com/CHilton_BB/status/1107671088950063107 %}
+  {% tweet "https://twitter.com/CHilton_BB/status/1107671088950063107" %}
 {% endupdate %}
 
 Although most of the boats are gone, one part of the ferry service survives -- the lighthouse!
