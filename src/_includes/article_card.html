@@ -72,13 +72,13 @@
     {{- "" -}}
 
     <p class="c_t">
-      {{- article.card.title -}}
+      {{- article.title | markdownify_oneline -}}
     </p>
 
     {{- "" -}}
 
     <p class="c_d">
-      {{- article.card.summary | strip -}}
+      {{- article.summary | markdownify_oneline -}}
     </p>
 
     {{- "" -}}
