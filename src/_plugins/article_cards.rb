@@ -45,25 +45,15 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
     matching_images = Dir["src/_images/cards/#{year}/#{slug}.*"]
 
-    # If there are no cards, then both the social and index card should
-    # use the default image.  Note that the social cards behave slightly
-    # different in this case, so we defer the default to the template.
-    next if matching_images.empty?
+    next unless matching_images.length == 1
 
-    # Now work out which image is which the card for social media, which is
-    # the card for the site-wide index (which may be different).
-    if matching_images.length == 2
-      index_card = matching_images.find { |p| p.include? '.index.' }
-      social_card = matching_images.find { |p| p.include? '.social.' }
-    else
-      index_card = social_card = matching_images[0]
-    end
+    card_path = matching_images[0]
 
     # Make sure we save a copy of the social card at the right size; this
     # won't be sent with srcset or similar.
     convert_image({
-                    'in_path' => social_card,
-                    'out_path' => social_card.gsub('src/_images', '_site/images'),
+                    'in_path' => card_path,
+                    'out_path' => card_path.gsub('src/_images', '_site/images'),
                     'target_width' => 800
                   })
 
@@ -85,10 +75,8 @@ Jekyll::Hooks.register :site, :post_read do |site|
       'attribution' => post.data['card_attribution'],
       'year' => year,
 
-      'social' => File.basename(social_card),
-      'social_path' => social_card,
-      'index' => File.basename(index_card),
-      'index_path' => index_card,
+      'name' => File.basename(card_path),
+      'path' => card_path,
 
       'color_lt' => color_lt,
       'color_dk' => color_dk,
@@ -118,8 +106,8 @@ Jekyll::Hooks.register :site, :post_read do |site|
   # A list of card names e.g. "2025/cool-to-care.jpg", "2024/in-reading.png"
   index_names = posts_with_index_cards.map do |p|
     year = p.data['card']['year']
-    index = p.data['card']['index']
-    "#{year}/#{index}"
+    name = p.data['card']['name']
+    "#{year}/#{name}"
   end
 
   # A map from full card name to unique prefix,
@@ -131,8 +119,8 @@ Jekyll::Hooks.register :site, :post_read do |site|
   # Add the prefix to each card object, without the year.
   posts_with_index_cards.each do |p|
     year = p.data['card']['year']
-    index = p.data['card']['index']
-    key = "#{year}/#{index}"
+    name = p.data['card']['name']
+    key = "#{year}/#{name}"
 
     p.data['card']['index_prefix'] = File.basename(
       index_prefixes[key].gsub("#{year}/", ''), '.*'
@@ -147,14 +135,9 @@ Jekyll::Hooks.register :site, :post_read do |site|
   posts_with_index_cards.each do |post|
     card = post.data['card']
 
-    index_im = get_single_image_info(card['index_path'])
+    index_im = get_single_image_info(card['path'])
     if index_im['width'] != index_im['height'] * 2
-      raise "Card #{card['index_path']} doesn’t have a 2:1 aspect ratio"
-    end
-
-    social_im = get_single_image_info(card['social_path'])
-    if social_im['width'] != social_im['height'] * 2
-      raise "Card #{card['social_path']} doesn’t have a 2:1 aspect ratio"
+      raise "Card #{card['path']} doesn’t have a 2:1 aspect ratio"
     end
 
     # Create/queue resized versions of the index image.
@@ -170,7 +153,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # What format do we want to create this card in?
     #
     # All three formats are fine.
-    image = get_single_image_info(card['index_path'])
+    image = get_single_image_info(card['path'])
     desired_formats = [image['format'], ImageFormat::AVIF, ImageFormat::WEBP]
 
     # What widths do I want to create cards at?
@@ -183,7 +166,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
     # Create the various image sizes
     sources = create_image_sizes(
-      card['index_path'],
+      card['path'],
       dst_prefix,
       desired_formats,
       desired_widths,
@@ -203,9 +186,9 @@ Jekyll::Hooks.register :site, :post_read do |site|
       }
     end
 
-    card['index_image'] = image
+    card['card_image'] = image
 
-    card['index_image_template_params'] = {
+    card['card_image_template_params'] = {
       'sources' => sources,
       'default_image' => default_image
     }
