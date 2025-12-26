@@ -63,7 +63,7 @@ It includes a museum, which we got to look around before the reception:
     alt="A long, ornately decorated gallery with gold trim on the walls and colourful paintings on the ceiling. There are various display cases against the walls, and directly in front of me is the silhouette of a man standing in front of a large globe."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     This is the <a href="https://www.bnf.fr/en/mazarin-gallery">Galerie Mazarin</a>, named after the seventeenth-century <a href="https://en.wikipedia.org/wiki/Cardinal_Mazarin">cardinal of the same name</a>.
@@ -80,7 +80,7 @@ It includes a museum, which we got to look around before the reception:
     alt="A close up of a book in a display case. The left-hand page is blank, while the right-hand page has a black-and-white line drawing of fantastical geometrical shapes, vaguely reminiscent of an Escher drawing."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     This unusual geometric design is the work of the German artist Lorenz Stöer, one of a series of <a href="http://bibliodyssey.blogspot.com/2009/09/geometric-landscape.html">eleven illustrations</a> he published in <em>Geometria et Perspectiva</em> in 1567.
@@ -98,7 +98,7 @@ When you think of big and impressive libraries, this is the sort of room you thi
     alt="Looking up towards the ceiling. There's a large oval window at the very top of the ceiling, then smaller circular windows around it. Above each window is the name of a city; below it is an archway with bookshelves filling the archway. Each archway is wide, enough to hold six bookshelves."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     There are sixteen circular windows around the ceiling, and above each is the name of a city <a href="https://gallica.bnf.fr/html/und/histoire/la-salle-ovale">famous for its contributions to civilisation and libraries</a>.
@@ -115,7 +115,7 @@ When you think of big and impressive libraries, this is the sort of room you thi
     alt="A large crowd of people looking towards a speaker at the far end of the room."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     Even in a room this photogenic, the speaker had little trouble getting everyone's attention.
@@ -140,7 +140,7 @@ I stumbled upon a lovely little park near the hotel:
   alt="A concrete path bisecting grass on either side, with various trees and hedges dotted around the park. The sky is blue and bright, but there aren’t many people visible – it’s too early for them to be up."
   class="photo"
   loading="lazy"
-  link_to_original
+  link_to="original"
 %}
 
 
@@ -159,7 +159,7 @@ The base of the towers are joined by a rectangular building, and the middle of t
     alt="A densely-wooded area full of green trees, and in the background are two towers which are shaped bit like a capital L. The towers are mostly glass and metal, with shorter glass and metal buildings extending from the towers and into the foreground."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     I think the wooded area might be closed to the public – I never saw any directions for it, nor did I see anybody wandering around down there.
@@ -175,7 +175,7 @@ The base of the towers are joined by a rectangular building, and the middle of t
     alt="A view from the top of one of the towers down into the courtyard. You can see the base of one tower, and the walkways that lead to the entrance. You can also see some of the trees in the wooded area, which is below ground level."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     The conference dinner was in the top of one of the towers, and looking down is what helped me understand the layout of the site – it was a bit confusing from ground level.
@@ -193,7 +193,7 @@ I was simultaneously fascinated and vaguely creeped out, and I'm not sure whethe
     alt="A view from the top of one of the towers down into the courtyard. You can see the base of one tower, and the walkways that lead to the entrance. You can also see some of the trees in the wooded area, which is below ground level."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     Where do you think <a href="https://www.youtube.com/watch?v=DUHcGyshFJI">those escalators</a> go?
@@ -217,7 +217,7 @@ It felt strangely appropriate, given the topic of the conference:
   alt="A window display with old video gear tastefully arranged -- including a VHS player, various tape cassettes, a large reel-to-reel film projector, and a few video cameras."
   class="photo"
   loading="lazy"
-  link_to_original
+  link_to="original"
 %}
 
 
@@ -235,7 +235,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     alt="The entrance to the Bel-Air metro station. I’m standing on the opposite side of the road, looking across a pedestrian crossing into an open door on the other side. The interior of the station is lit up with a warm yellow light."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     I love railway stations at night…
@@ -250,7 +250,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     alt="The entrance to the Bel-Air metro station. I’m standing on the opposite side of the road, looking across a pedestrian crossing into an open door on the other side. The interior of the station is lit up with a warm yellow light."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     …and the elaborate <a href="https://en.wikipedia.org/wiki/Paris_Métro_entrances_by_Hector_Guimard">cast iron entrances</a> to the Paris Metro are really something.
@@ -265,7 +265,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     alt="A nighttime photo of a large rail yard with many parallel and overlapping tracks. A long passenger train can be seen in the background of the shot, largely visible from the light coming from inside the windows."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     Most people would be disappointed that their hotel room overlooked a large rail yard, but I am not most people.
@@ -280,7 +280,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     alt="A water fountain in the middle of a roundabout, lit up in orange and purple lighting from below. Around the centre of the fountain are four creatures on pedestals (cats?) with water coming out of their mouths."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     I promise I saw some things that weren’t transport related, like this fountain!
@@ -296,7 +296,7 @@ I enjoy walking around new cities as a way to get a feel of the place, and you s
     alt="An outdoor seating area, with open-air markets visible in the background, with bright and colourful lights."
     class="photo"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     Towards the end of my walk, I walked past some sort of outdoor area with food stalls, upbeat music, and a bunch of people having a good time.
@@ -319,7 +319,7 @@ This is the delicious croque monsieur I had for my final lunch:
   alt="A toasted sandwich on a plate with a salad and a cup of vegetable soup."
   class="photo"
   loading="lazy"
-  link_to_original
+  link_to="original"
 %}
 
 I was only there for about four days -- long enough for the conference and a day or so of leisure, short enough that I only needed a small bag.

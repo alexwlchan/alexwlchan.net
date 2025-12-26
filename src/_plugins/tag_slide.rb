@@ -56,7 +56,7 @@ module Jekyll
             filename="#{deck}/#{@filename}"
             width="450"
             loading="lazy"
-            link_to_original
+            link_to="original"
             #{extra_attributes}
           %}
           #{caption}

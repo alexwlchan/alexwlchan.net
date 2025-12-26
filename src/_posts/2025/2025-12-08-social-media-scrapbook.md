@@ -328,7 +328,7 @@ Opening this would launch a static website where you could browse your data, inc
     width="375"
     class="screenshot"
     alt="Homepage of the Twitter archive. It says ‘Hi @alexwlchan. Here is the information from your archive which may be most useful to you.’ Below that are summary metrics – 40.3K tweets, 54.2K likes, 2,727 blocked accounts, and so on – which link to a page where I can see the tweets/likes/blocked accounts."
-    link_to_original
+    link_to="original"
   %}
   {%
     picture
@@ -336,7 +336,7 @@ Opening this would launch a static website where you could browse your data, inc
     width="375"
     class="screenshot"
     alt="Search results in the Twitter archive. I’ve searched for the hashtag #digipres and it’s showing me three of my tweets, which more beyond the end of the page. I can also filter by replies or retweets, and there are controls for more sophisticated filtering."
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     Fun fact: although Elon Musk has <a href="https://www.theverge.com/2023/7/23/23804629/twitters-rebrand-to-x-may-actually-be-happening-soon">rebranded Twitter as X</a>, the old name survives in these archive exports.

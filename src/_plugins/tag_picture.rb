@@ -46,7 +46,7 @@
 #
 # Other parameters:
 #
-#     * `link_to_original` -- if added, the final <picture> tag will be
+#     * `link_to="original"` -- if added, the final <picture> tag will be
 #       wrapped in an <a> that links to the full-sized image.  Useful for
 #       gallery-type posts.
 #
@@ -101,10 +101,8 @@ module Jekyll
 
       @parent = @attrs.delete('parent')
 
-      @link_to_original = @attrs.include? 'link_to_original'
-      @attrs.delete('link_to_original')
-
       @link_to = @attrs.delete('link_to')
+      @link_to_original = @link_to == 'original'
     end
 
     def render(context)

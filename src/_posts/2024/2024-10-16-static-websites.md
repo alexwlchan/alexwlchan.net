@@ -44,7 +44,7 @@ For example, my collection of screenshots is shown as a grid of images, my bookm
     width="400"
     style="border-top-right-radius: 0; border-bottom-right-radius: 0;"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   {%
     picture
@@ -54,7 +54,7 @@ For example, my collection of screenshots is shown as a grid of images, my bookm
     width="400"
     style="border-radius: 0;"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
   {%
     picture
@@ -64,7 +64,7 @@ For example, my collection of screenshots is shown as a grid of images, my bookm
     width="400"
     style="border-top-left-radius: 0; border-bottom-left-radius: 0;"
     loading="lazy"
-    link_to_original
+    link_to="original"
   %}
 </figure>
 
@@ -81,7 +81,7 @@ To use the website, I open the HTML files in my web browser.
     class="screenshot"
     width="450"
     loading="lazy"
-    link_to_original
+    link_to="original"
     alt="My 'screenshots' folder in the macOS Finder. There's a series of per-year folders from 2010 to 2024, a JavaScript file 'metadata.js' and an HTML file 'index.html'."
   %}
   <figcaption>

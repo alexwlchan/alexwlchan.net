@@ -58,7 +58,7 @@ This is the image he published:
     filename="artichoke_frames.jpg"
     alt="A grid of different views of the artichoke in yellow-green, arranged in rows and columns against a black background."
     width="750"
-    link_to_original
+    link_to="original"
   %}
   <figcaption>
     Artichoke, axial view, MRI.

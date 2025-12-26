@@ -19,7 +19,7 @@ It's a collection of brightly coloured squares, each with its own geometric patt
   class="fullwidth_img"
   alt="A cross-stitch piece embroided on a brown fabric, with twenty brightly-coloured squares laid out in a grid. Each square uses a couple of colours (red, blue, green, yellow, white, or black) and has a simple repeating pattern. For example, one square is yellow with repeating black and red vertical lines; another has a red background with concentric white diamonds."
   width="750"
-  link_to_original
+  link_to="original"
 %}
 
 I got the pattern from [issue 6 of Xstitch Magazine][issue6], and it was made by Arlene Cohen, who goes by the handle [WorksByABC].
@@ -42,21 +42,21 @@ I found a [digitised copy of the book][digitised], which has several plates feat
     filename="h1380-513ce.jpg"
     alt="A printed page with a grid of squares, each showing a repetitive pattern. The details are smaller than on cross-stitch -- some of the lines are very fine."
     width="244"
-    link_to_original
+    link_to="original"
   %}
   {%
     picture
     filename="h1380-91708.jpg"
     alt="Another printed page with a grid of squares"
     width="244"
-    link_to_original
+    link_to="original"
   %}
   {%
     picture
     filename="h1380-2c6c6.jpg"
     alt="Another printed page with a grid of squares"
     width="244"
-    link_to_original
+    link_to="original"
   %}
 </div>
 

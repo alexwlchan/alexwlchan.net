@@ -110,8 +110,7 @@ module Jekyll
       src_path = "#{src}/_images/#{year}/#{@filename}"
       alt_text = @attrs.delete('alt')
 
-      link_to_original = @attrs.include? 'link_to_original'
-      @attrs.delete('link_to_original')
+      link_to_original = @attrs.delete('link_to') == 'original'
 
       if link_to_original
         dst_path = "/images/#{year}/#{@filename}"

@@ -17,7 +17,7 @@ def parse_attrs(input)
   # have a value.  If I find any unexpected examples, throw an error.
   bare_attributes = result
                     .filter { |_k, v| v.nil? }
-                    .filter { |k| k != 'data-proofer-ignore' and k != 'link_to_original' }
+                    .filter { |k| k != 'data-proofer-ignore' }
 
   raise SyntaxError, "Unescaped attributes in #{input}" unless bare_attributes.empty?
 
