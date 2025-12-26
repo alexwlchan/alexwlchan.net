@@ -1,12 +1,3 @@
-@use "sass:color";
-@use "utils/functions.scss" as *;
-
-/* Why 751px and not 750px? To work around a subpixel bug in WebKit,
- * where I get a hairline crack on the right-hand side of my cards
- * in the two column view. :( */
-$max-width: 751px;
-$default-padding: 20px;
-
 :root {
   /* ====================
    * Font and text styles
@@ -24,11 +15,15 @@ $default-padding: 20px;
   /* =============================
    * Margins and page layout stuff
    * ============================= */
-  --max-width: #{$max-width};
+
+  /* Why 751px and not 750px? To work around a subpixel bug in WebKit,
+   * where I get a hairline crack on the right-hand side of my cards
+   * in the two column view. :( */
+  --max-width: 751px;
 
   --grid-gap: 10px;
 
-  --default-padding: #{$default-padding};
+  --default-padding: 20px;
 
   --border-radius: 10px;
   --border-style:  solid;
@@ -70,7 +65,7 @@ $default-padding: 20px;
 
   --screenshot-border-light: #f0f0f0;
   --screenshot-border-dark:  #3f3f3f;
-  
+
   /* A collection of named colours I can use. */
   --white:   #fafafa;
   --black:   #0d0d0d;
@@ -117,7 +112,7 @@ $default-padding: 20px;
     --blue:    #40c3ff;
     --magenta: #ff42fc;
     --yellow:  #fffc42;
-    
+
     --body-text:           var(--body-text-dark);
     --primary-color:       var(--primary-color-dark);
     --accent-grey:         var(--accent-grey-dark);
