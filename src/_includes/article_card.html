@@ -27,9 +27,9 @@
     {{- "" -}}
 
     <div class="c_im{% if article.is_new %} n{% endif %}">
-      {% if article.card.index %}
+      {% if article.card %}
         <picture>
-          {% for src in article.card.index_image_template_params.sources %}
+          {% for src in article.card.card_image_template_params.sources %}
           {% comment %}
             There are two breakpoints for cards:
             
