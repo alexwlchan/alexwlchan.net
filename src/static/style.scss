@@ -2,25 +2,20 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@use "sass:math";
-
-@use "variables.scss";
-
-@use "utils/functions.scss";
+@use "variables";
 
 @use "text_styles";
 
 @use "base/layout";
 @use "base/text";
 
-@use "base/images_wide.scss";
-
 @use "components/code";
 @use "components/dot_list";
 @use "components/footer";
+@use "components/images_wide";
 @use "components/latex";
 @use "components/nav";
-@use "components/pretty_hr.scss";
+@use "components/pretty_hr";
 @use "components/skip_to_main";
 @use "components/syntax_highlighting";
 @use "components/tags";

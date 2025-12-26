@@ -1,5 +1,3 @@
-@use "../variables";
-
 /* Images on the site are usually the same width as the accompanying text.
  *
  * The text has certain constraints on width: it can't be too wide or
@@ -27,31 +25,27 @@
  *
  */
 
-$max-width-image-overflow: 200px;
-$full-width-breakpoint: variables.$max-width + $max-width-image-overflow + 2 * variables.$default-padding;
-$gradual-width-breakpoint: variables.$max-width + 2 * variables.$default-padding;
-
-@media screen and (min-width: $full-width-breakpoint) {
+@media screen and (min-width: 991px) {
   .wide_img {
-    max-width: calc(100% + #{$max-width-image-overflow});
-    margin-left:  calc(-1 * #{$max-width-image-overflow} / 2);
-    margin-right: calc(-1 * #{$max-width-image-overflow} / 2);
+    max-width: calc(100% + 200px);
+    margin-left:  -100px;
+    margin-right: -100px;
   }
 
   .wide_img, .fullwidth_img {
     figcaption {
-      padding-left:  calc(#{$max-width-image-overflow} / 2 + env(safe-area-inset-left));
-      padding-right: calc(#{$max-width-image-overflow} / 2 + env(safe-area-inset-right));
+      padding-left:  calc(100px + env(safe-area-inset-left));
+      padding-right: calc(100px + env(safe-area-inset-right));
     }
   }
 }
 
-@media screen and (min-width: $gradual-width-breakpoint) and (max-width: $full-width-breakpoint) {
+@media screen and (min-width: 791px) and (max-width: 991px) {
   .wide_img {
-    // Screen size less padding on either side
+    /* Screen size less padding on either side */
     max-width: calc(100vw - 2 * var(--default-padding));
 
-    // 50% of the screen width, less the width of the text, less the padding
+    /* 50% of the screen width, less the width of the text, less the padding */
     margin-left:  calc(var(--default-padding) + var(--max-width) / 2 - 50vw);
     margin-right: calc(var(--default-padding) + var(--max-width) / 2 - 50vw);
   }
@@ -64,18 +58,18 @@ $gradual-width-breakpoint: variables.$max-width + 2 * variables.$default-padding
   }
 }
 
-// This allows me to mark images as "full-width", in which case, they'll
-// fill the whole screen on narrow devices (e.g. mobile screens).
-//
-// There's a slight weirdness when the screen is exactly max-width; images
-// suddenly jump from having full margin to zero margin.  Ideally it would
-// gradually decrease as the screen narrows, but I'm going to leave it as-is
-// rather than worry too much about this edge case.
-//
-// The "photo" class is semantic-ish, it describes what the picture is
-// rather than how it should behave.  cf 'screenshot'.  I want to use it more!
+/* This allows me to mark images as "full-width", in which case, they'll
+ * fill the whole screen on narrow devices (e.g. mobile screens).
+ *
+ * There's a slight weirdness when the screen is exactly max-width; images
+ * suddenly jump from having full margin to zero margin.  Ideally it would
+ * gradually decrease as the screen narrows, but I'm going to leave it as-is
+ * rather than worry too much about this edge case.
+ *
+ * The "photo" class is semantic-ish, it describes what the picture is
+ * rather than how it should behave.  cf 'screenshot'.  I want to use it more! */
 
-@media screen and (max-width: variables.$max-width) {
+@media screen and (max-width: 751px) {
   .fullwidth_img, .photo {
     width:        calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
     max-width:    calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
@@ -88,4 +82,3 @@ $gradual-width-breakpoint: variables.$max-width + 2 * variables.$default-padding
     }
   }
 }
-
