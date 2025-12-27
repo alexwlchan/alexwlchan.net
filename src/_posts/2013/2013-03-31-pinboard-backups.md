@@ -24,7 +24,7 @@ Finally, I drew inspiration from Dr. Drang's series of posts on [archiving tweet
 
 So without further ado, here's the script:
 
-```python
+{% code lang="python" linenos="true" names="0:os 1:pytz 2:datetime 3:datetime 4:urllib2 5:bookmarkdir 8:pinboard_api 9:yearfmt 10:datefmt 11:homeTZ 14:y 21:t 31:credentials 32:line 34:me 35:token 47:bookmarkfile 52:u" %}
 import os
 import pytz
 from datetime import datetime
@@ -42,11 +42,11 @@ t = datetime.now(pytz.utc).strftime(datefmt)
 
 # Get the user's authentication token
 with open(os.environ['HOME'] + '/.pinboard-credentials') as credentials:
-	for line in credentials:
-		me, token = line.split(':')
+    for line in credentials:
+        me, token = line.split(':')
 
 if not os.path.exists(bookmarkdir + y):
-	os.makedirs(bookmarkdir + y)
+    os.makedirs(bookmarkdir + y)
 
 # Set up a new bookmarks file
 bookmarkfile = open(bookmarkdir + y + '/pinboard-backup.' + t + '.xml', 'w')
@@ -55,7 +55,7 @@ bookmarkfile = open(bookmarkdir + y + '/pinboard-backup.' + t + '.xml', 'w')
 u = urllib2.urlopen(pinboard_api + 'posts/all?auth_token=' + me + ':' + token)
 bookmarkfile.write(u.read())
 bookmarkfile.close()
-```
+{% endcode %}
 
 The first section defines the parameters for the script: where the bookmarks are stored and the version of the Pinboard API that I'm using. The `datetime` code to get strings of the date are used later to set up the particular structure I wanted for my backups.
 
@@ -69,7 +69,7 @@ With this structure, there's no reason you couldn't then extend the script to ba
 
 Next we set up a directory for the backups. I just have a folder called `pinboard`, and I'll keep a separate folder for each year. These are created by line 22, which looks for the folder for the current year, and creates one if it doesn't already exist. Within that folder, I then name the bookmark files `pinboard-backup.%M-%d.xml`, which matches the structure I use for my IRC logs. I don't think I'll ever be saving a copy of my bookmarks more than once a day.
 
-Finally, lines 30-33 call the Pinboard API, download a copy of all of my posts and save it to the appropriate file. It gets the authentication token which was extracted from `.pinboard-credentials` previously. Each new backup is saved to a new file. Since the files involved are so small, I didn't see the point in throwing away old backups unnecessarily.
+Finally, lines 28–30 call the Pinboard API, download a copy of all of my posts and save it to the appropriate file. It gets the authentication token which was extracted from `.pinboard-credentials` previously. Each new backup is saved to a new file. Since the files involved are so small, I didn't see the point in throwing away old backups unnecessarily.
 
 Of course, I don't want to run this script by hand, so I used [Lingon](http://www.peterborgapps.com/lingon/) to create a Launch Agent that runs the script once a week, every Sunday morning. My laptop is usually switched on at this time, and if I miss a week, then it's not a great disaster. But this seems regular enough for me.
 
@@ -78,8 +78,9 @@ I also keep both the script and the archive files in Dropbox, so I could always 
 {%
   picture
   filename="pinboard_launchd.jpg"
-  width="925"
+  width="600"
   alt="Screenshot of a Launchd action to run my Pinboard backup."
+  class="screenshot"
 %}
 
 (The "What" field is slightly truncated in the image; it ends `archive-bookmarks.py`.)

@@ -13,7 +13,7 @@ Doing a Google search for this topic, it seems that this is a fairly common prob
 
 The script itself is fairly simple:
 
-{% code lang="python" names="0:urllib2 1:json 2:hostname 3:api_key 4:url 10:api_response 11:url 12:req 20:jsonresponse 23:post_count 25:increments 27:i" %}
+{% code lang="python" names="0:urllib2 1:json 2:hostname 3:api_key 4:url 10:api_response 11:url 12:req 20:jsonresponse 23:post_count 25:increments 27:i 30:jsonresponse 39:i" %}
 import urllib2
 import json
 

@@ -17,7 +17,11 @@ I decided to take him at his word, and spent an hour or so finding a way to de-c
 
 Drag this bookmark to your bookmarks bar:
 
-<center><h1><a href="javascript:var%20ids%20=%20[%22omnibox%22,%20%22cards%22,%20%22welcome%22];var%20classes%20=%20[%22widget-viewcard%22,%20%22widget-zoom%22,%20%22watermark%22];var%20hidden%20=%20(window.getComputedStyle(document.getElementById(ids[0]))).getPropertyValue(%22display%22);if%20(hidden%20!==%20%22none%22)%20{var%20disp%20=%20%22none%22;}%20else%20{var%20disp%20=%20%22%22;}for%20(var%20i%20=%200;%20i%20<%20ids.length;%20i++)%20{document.getElementById(ids[i]).style.display%20=%20disp;}for%20(var%20i%20=%200;%20i%20<%20classes.length;%20i++)%20{var%20div%20=%20document.getElementsByClassName(classes[i]);for%20(var%20j%20=%200;%20j%20<%20div.length;%20j++)%20{div[j].style.display%20=%20disp;}}">Toggle Google Maps</a></h1></center>
+<style type="x-text/scss">
+  @use "components/bookmarklets";
+</style>
+
+<a class="bookmarklet" href="javascript:var%20ids%20=%20[%22omnibox%22,%20%22cards%22,%20%22welcome%22];var%20classes%20=%20[%22widget-viewcard%22,%20%22widget-zoom%22,%20%22watermark%22];var%20hidden%20=%20(window.getComputedStyle(document.getElementById(ids[0]))).getPropertyValue(%22display%22);if%20(hidden%20!==%20%22none%22)%20{var%20disp%20=%20%22none%22;}%20else%20{var%20disp%20=%20%22%22;}for%20(var%20i%20=%200;%20i%20<%20ids.length;%20i++)%20{document.getElementById(ids[i]).style.display%20=%20disp;}for%20(var%20i%20=%200;%20i%20<%20classes.length;%20i++)%20{var%20div%20=%20document.getElementsByClassName(classes[i]);for%20(var%20j%20=%200;%20j%20<%20div.length;%20j++)%20{div[j].style.display%20=%20disp;}}">Toggle Google Maps</a>
 
 Click it once to make everything disappear, and click it again to bring it all back.
 
@@ -35,15 +39,15 @@ Since Google Maps is a web app, adding a `display: none` attribute to the offend
 
 So the following CSS is all we need:
 
-```css
+{% code lang="css" %}
 #omnibox #welcome .widget-viewcard .widget-zoom .watermark {
-	display: none;
+    display: none;
 }
-```
+{% endcode %}
 
 However, that might not be exactly what we want. The search box is a useful feature; we just don't want it all the time. What we really want is a toggle: we can use the search box when we need to, and hide it once we're done. The following JavaScript is sufficient:
 
-```javascript
+{% code lang="javascript" names="0:ids 1:classes 2:hidden 10:disp 11:disp 12:i 24:i 29:div 34:j" %}
 var ids = ["omnibox", "cards", "welcome"];
 var classes = ["widget-viewcard", "widget-zoom", "watermark"];
 var hidden = (window.getComputedStyle(document.getElementById(ids[0]))).getPropertyValue("display");
@@ -64,7 +68,7 @@ for (var i = 0; i < classes.length; i++) {
     div[j].style.display = disp;
   }
 }
-```
+{% endcode %}
 
 We can then bind this to a bookmarklet, and make that our toggle. (John Gruber's [JavaScript bookmarklet builder](http://daringfireball.net/2007/03/javascript_bookmarklet_builder) made this very easy.)
 
