@@ -21,6 +21,7 @@
 require 'uri'
 
 require_relative 'utils/attrs'
+require_relative 'utils/code'
 require_relative 'utils/text'
 
 module Jekyll
@@ -66,18 +67,24 @@ module Jekyll
 
       # Replace dotted imports in Python with names broken down by
       # namespace, so the dots get grey punctuation
-      ['concurrent.futures', 'collections.abc'].each do |import|
-        next unless html.include?(import) && (lang == 'python')
+      if lang == 'python'
+        dotted_imports = [
+          'concurrent.futures', 'collections.abc', 'gunicorn.glogging', 'gunicorn.http.message', 'gunicorn.http.wsgi'
+        ]
 
-        part0, part1 = import.split('.')
-        html = html.gsub(
-          "<span class=\"kn\">import</span> <span class=\"n\">#{import}</span>",
-          "<span class=\"kn\">import</span> <span class=\"n\">#{part0}</span><span class=\"p\">.</span><span class=\"n\">#{part1}</span>"
-        )
-        html = html.gsub(
-          "<span class=\"kn\">from</span> <span class=\"n\">#{import}</span>",
-          "<span class=\"kn\">from</span> <span class=\"n\">#{part0}</span><span class=\"p\">.</span><span class=\"n\">#{part1}</span>"
-        )
+        dotted_imports.each do |import|
+          next unless html.include?(import)
+
+          part0, part1 = import.split('.')
+          html = html.gsub(
+            "<span class=\"kn\">import</span> <span class=\"n\">#{import}</span>",
+            "<span class=\"kn\">import</span> <span class=\"n\">#{part0}</span><span class=\"p\">.</span><span class=\"n\">#{part1}</span>"
+          )
+          html = html.gsub(
+            "<span class=\"kn\">from</span> <span class=\"n\">#{import}</span>",
+            "<span class=\"kn\">from</span> <span class=\"n\">#{part0}</span><span class=\"p\">.</span><span class=\"n\">#{part1}</span>"
+          )
+        end
       end
 
       # Find all the names which are highlighted as part of this code
@@ -262,9 +269,118 @@ module Jekyll
         end
       end
 
-      # Restore the dedent to every line except the first.  This is
-      # important when we're in indented Markdown
-      html.gsub("\n", "\n#{dedent}")
+      # Optionally add line numbers to the snippet.
+      if @attrs['linenos'] == 'true' || @attrs['line_numbers']
+        html, first_lineno, last_lineno, lineno_digits = add_line_numbers(html, code_snippet)
+      else
+        lineno_digits = 0
+      end
+
+      # Optionally create a <figcaption> to indicate the source of
+      # this code, if a source URL was specified.
+      #
+      # This assumes this is a GitHub link.
+      #
+      # Note: this assumes a line range because it assumes sourced code
+      # will always be accompanied by line numbers.
+      if @attrs['src'].nil?
+        figcaption = ''
+      else
+
+        # e.g. /swiftlang/swift-org-website/blob/10539c47/index.md
+        path = URI.parse(@attrs['src']).path
+
+        # e.g. swiftlang, swift-org-website
+        organization = path.split('/')[1]
+        repository = path.split('/')[2]
+
+        # e.g. "index.md"
+        filename = File.basename(path)
+
+        figcaption = <<HTML
+          <figcaption>
+            From <a href="#{@attrs['src']}">#{filename}</a>, lines #{first_lineno}–#{last_lineno}, in <a href="https://github.com/#{organization}/#{repository}/">#{organization}/#{repository}</a>
+          </figcaption>
+HTML
+      end
+
+      # If we have line numbers or attribution, wrap everything in a <figure>
+      # element that includes them both.
+      if lineno_digits.positive? || figcaption != ''
+        html = <<~HTML
+          <figure
+            class="annotated_code"
+            style="--lineno-digits: #{lineno_digits}">
+            #{html}
+            #{figcaption}
+          </figure>
+        HTML
+      end
+
+      html
+    end
+
+    def add_line_numbers(html, code_snippet)
+      line_count = code_snippet.split("\n").length
+
+      # If we passed linenos=true but didn't set any line numbers
+      # explicitly, default the line numbers to 1–N, where N is the
+      # number of lines.
+      if @attrs['line_numbers'].nil?
+        @attrs['line_numbers'] = "1-#{line_count}"
+      end
+
+      # Parse the line numbers attribute.
+      line_numbers = Alexwlchan::CodeUtils.parse_line_numbers(
+        @attrs['line_numbers']
+      )
+
+      # Check we have the correct number of line numbers to pair with
+      # each line in the snippet.
+      if line_numbers.length != line_count
+        raise "mismatched line numbers: got #{line_numbers.length}, want #{line_count}"
+      end
+
+      # Wrap each line in a <span class="ln"> (for "line") element
+      #
+      # e.g. if the input is
+      #
+      #     <pre>
+      #     def greet():
+      #         print("hello world!")
+      #     </pre>
+      #
+      # then it becomes
+      #
+      #     <pre>
+      #     <span class="ln">def greet():</span>
+      #     <span class="ln">    print("hello world!")</span>
+      #     </pre>
+      #
+      # We look for lines which are just ellipsis, which I often use
+      # in code snippets to indicate there's more text that I omitted.
+      prefix, code_open, code_post = html.partition('<code>')
+      inner_code, code_close, suffix = code_post.partition('</code>')
+
+      inner_code_lines = inner_code.split("\n")
+      inner_code = inner_code_lines.zip(line_numbers).map do |line, lineno|
+        if lineno == '_'
+          "<span class=\"ln empty\">#{line}</span>"
+        else
+          "<span class=\"ln\" style=\"--ln: #{lineno}\">#{line}</span>"
+        end
+      end
+                  .join("\n")
+
+      html = "#{prefix}#{code_open}#{inner_code}#{code_close}#{suffix}"
+
+      # Work out how many digits there are in the line numbers.
+      lineno_digits = line_numbers.map { |ln| ln.to_s.length }.max
+
+      first_lineno = line_numbers[0]
+      last_lineno = line_numbers.filter { |ln| ln != '_' }[-1]
+
+      [html, first_lineno, last_lineno, lineno_digits]
     end
   end
 end

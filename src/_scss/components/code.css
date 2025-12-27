@@ -35,15 +35,15 @@ pre.wrap {
 }
 
 /* These styles are for code blocks with line numbers, which are created
- * by my `annotated_highlight` plugin. */
-.annotated_highlight .ln {
+ * by my `annotated_code` plugin. */
+.annotated_code .ln {
   position: relative;
   white-space: pre;
 
   padding-left: calc((var(--lineno-digits) + 1) * 9px + 18px);
 }
 
-.annotated_highlight .ln::before {
+.annotated_code .ln::before {
   counter-reset: line-number var(--ln);
   content: counter(line-number);
   position: absolute;
@@ -73,14 +73,14 @@ pre.wrap {
                                   supported by Chrome and Opera */
 }
 
-.annotated_highlight .ln.empty::before {
+.annotated_code .ln.empty::before {
   content: "";
 }
 
-.annotated_highlight figcaption {
+.annotated_code figcaption {
   text-align: center;
 }
 
-.annotated_highlight pre:has( + figcaption) {
+.annotated_code pre:has( + figcaption) {
   margin-bottom: 4px;
 }

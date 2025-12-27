@@ -28,7 +28,7 @@ Normally I'm running gunicorn with Flask apps, but gunicorn's logging is complet
 
 The gunicorn documentation [includes a simple test app](https://docs.gunicorn.org/en/stable/run.html#gunicorn), which I'll save to `test.py`:
 
-```python
+{% code lang="python" names="0:app 1:environ 2:start_response 3:data 4:status 5:response_headers" %}
 def app(environ, start_response):
     """Simplest possible application object"""
     data = b'Hello, World!\n'
@@ -39,7 +39,7 @@ def app(environ, start_response):
     ]
     start_response(status, response_headers)
     return iter([data])
-```
+{% endcode %}
 
 I can start the app and save the access logs to a file:
 
@@ -79,7 +79,8 @@ This returns "atoms for log formatting", which are the different tokens you can 
 
 Here's a subclass of `Logger` which replaces sensitive query parameters with `[redacted]`, which I've saved to `mylogging.py`:
 
-{% annotatedhighlight lang="python" %}
+{% code lang="python"
+   names="0:datetime 1:timedelta 2:typing 3:urllib.parse 4:gunicorn 5:glogging 6:Logger 7:gunicorn 8:http 9:Request 10:gunicorn 11:http 12:Response 13:SENSITIVE_QUERY_PARAMS 14:redact_uri 15:uri 18:u 34:redact_query 35:query 39:qsl 44:idx 45:name 63:RedactingLogger 65:atoms 66:self 67:resp 69:req 71:environ 76:request_time 80:atoms" %}
 from datetime import timedelta
 import typing
 import urllib.parse
@@ -145,7 +146,7 @@ class RedactingLogger(Logger):
         atoms["q"] = redact_query(environ.get("QUERY_STRING"))
 
         return atoms
-{% endannotatedhighlight %}
+{% endcode %}
 
 I can restart my gunicorn app and tell it to use this logger class:
 
