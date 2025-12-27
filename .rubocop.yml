@@ -9,6 +9,10 @@ AllCops:
     - 'src/_files/2023/uequals_operator.rb'
     - 'src/_plugins/vendored/**/*'
 
+    # This is carefully formatted to match the reference equations, and
+    # I don't want RuboCop causing the code/reference to drift.
+    - 'src/_plugins/utils/colour.rb'
+
     # This is to avoid RuboCop trying to lint too much stuff when running
     # in GitHub Actions.
     # See https://stackoverflow.com/a/69421161/1558022
