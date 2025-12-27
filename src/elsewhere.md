@@ -54,7 +54,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
       <tr>
         <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
         <td>
-          <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
         </td>
       </tr>
     {% endif %}
@@ -69,7 +69,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
       <tr>
         <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
         <td>
-          <a href="{{ entry.url }}">{{ entry.title | smartify }}</a>
+          <a href="{{ entry.url }}">{{ entry.title }}</a>
         </td>
       </tr>
     {% endif %}
@@ -91,7 +91,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     <tr>
       <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
       <td>
-        <a href="{{ entry.url }}">{{ entry.title | smartify }}</a> – {{ entry.publication }}
+        <a href="{{ entry.url }}">{{ entry.title }}</a> – {{ entry.publication }}
       </td>
     </tr>
   {% endfor %}
@@ -116,7 +116,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
         </ul>
         {% endif %}
         {% if talk.description %}
-        {{ talk.description | smartify | markdownify }}
+        {{ talk.description | markdownify }}
         {% endif %}
       </td>
     </tr>
@@ -134,7 +134,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     <tr>
       <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
       <td>
-        <a href="{{ entry.url }}">{{ entry.podcast}}: {{ entry.title | smartify }}</a>
+        <a href="{{ entry.url }}">{{ entry.podcast}}: {{ entry.title }}</a>
       </td>
     </tr>
   {% endfor %}
