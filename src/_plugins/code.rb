@@ -20,8 +20,8 @@
 
 require 'uri'
 
-require_relative 'cleanup_text'
 require_relative 'utils/attrs'
+require_relative 'utils/text'
 
 def dedent(str)
   # Find the smallest common indentation (excluding empty lines)
@@ -256,7 +256,7 @@ module Jekyll
       html = html.gsub("<!-- t=#{now} -->\n", '')
 
       # Clean up the syntax highlighter classes, remove the wrapper <div>
-      html = cleanup_syntax_highlighter_classes(html)
+      html = Alexwlchan::TextUtils.cleanup_syntax_highlighter_classes(html)
 
       # If wrap="true", add some CSS to wrap at the screen edge, rather
       # than on the line breaks.

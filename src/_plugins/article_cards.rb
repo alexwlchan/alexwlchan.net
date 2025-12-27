@@ -35,7 +35,6 @@
 
 require 'abbrev'
 
-require_relative 'utils/markdownify_oneline'
 require_relative 'utils/pictures'
 
 Jekyll::Hooks.register :site, :post_read do |site|

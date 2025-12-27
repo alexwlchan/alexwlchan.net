@@ -234,7 +234,7 @@ Here are some of the topics I write about:
     ]
   {%- endcapture -%}
 
-  const featuredArticlesList = {{ featuredArticlesJson | compact_json }};
+  const featuredArticlesList = {{ featuredArticlesJson | minify_json }};
 
   const featuredArticles = featuredArticlesList.map(values =>
     keys.reduce((obj, key, index) => ({ ...obj, [key]: values[index] }), {})

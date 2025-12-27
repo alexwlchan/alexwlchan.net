@@ -21,7 +21,7 @@ Layout/LineLength:
   Exclude:
     - src/_plugins/code.rb
     - src/_plugins/utils/pictures.rb
-    - src/_plugin_tests/test_cleanup_text.rb
+    - src/_plugin_tests/test_text_utils.rb
     - tests/test_http_security_headers.rb
 
 Lint/MissingSuper:
@@ -40,6 +40,9 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
   Enabled: false
 
 Metrics/PerceivedComplexity:
