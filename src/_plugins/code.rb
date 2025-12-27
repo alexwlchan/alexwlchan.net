@@ -23,12 +23,6 @@ require 'uri'
 require_relative 'utils/attrs'
 require_relative 'utils/text'
 
-def dedent(str)
-  # Find the smallest common indentation (excluding empty lines)
-  indent = str.scan(/^[ \t]*(?=\S)/).min_by(&:length)
-  str.gsub(/^#{indent}/, '')
-end
-
 module Jekyll
   class CodeBlock < Liquid::Block
     def initialize(tag_name, params_string, tokens)
