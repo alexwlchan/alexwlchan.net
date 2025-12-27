@@ -65,7 +65,7 @@ But this code is pretty mucky: we have to set up parsers, subparsers, all thatâ€
 
 Parsing arguments like this is hard, because you have to define your own parsing rules.
 Code like this is hard to read -- it's not obvious what it's doing, or how to use the program, unless you actually run it.
-If you hae to edit code like this, it can be tricky to know exactly where to make a change, and be sure you haven't inadvertently broken something elsewhere.
+If you have to edit code like this, it can be tricky to know exactly where to make a change, and be sure you haven't inadvertently broken something elsewhere.
 
 And argparse is complicated -- I never get it right first time.
 
