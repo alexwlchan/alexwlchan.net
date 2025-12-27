@@ -1,5 +1,5 @@
 <entry>
-  <title type="html">{{ post.title | markdownify_oneline | smartify | strip_html | normalize_whitespace | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
+  <title type="html">{{ post.title | markdownify_oneline | strip_html | normalize_whitespace | xml_escape }}{% if post.link %} &amp;rarr;{% endif %}</title>
   <link
     href="{% if post.link %}{{ post.link | add_utm_source }}{% else %}{{ post.url | absolute_url }}?ref=rss{% endif %}"
     rel="alternate"
