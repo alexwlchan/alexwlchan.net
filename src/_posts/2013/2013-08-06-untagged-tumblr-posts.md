@@ -13,7 +13,7 @@ Doing a Google search for this topic, it seems that this is a fairly common prob
 
 The script itself is fairly simple:
 
-```python
+{% code lang="python" names="0:urllib2 1:json 2:hostname 3:api_key 4:url 10:api_response 11:url 12:req 20:jsonresponse 23:post_count 25:increments 27:i" %}
 import urllib2
 import json
 
@@ -39,7 +39,7 @@ for i in range(0, increments):
             print posts[i]["post_url"]
 
 print "All finished!"
-```
+{% endcode %}
 
 The only notable feature of the script is that it gets posts in batches of 20, because the Tumblr API only returns up to 20 posts at a time. Everything else is either standard Python or follows from the way that Tumblr structure their API responses.
 
