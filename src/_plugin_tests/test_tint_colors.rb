@@ -16,8 +16,6 @@ class TestTintColors < Test::Unit::TestCase
     colours = get_colours_like('#292929')
     100.times do
       c = colours.next
-      puts "c = #{c}, saturation = #{c.to_hsl.saturation}, lightness = #{c.to_hsl.lightness}"
-      # puts
       assert_equal(c.to_hsl.saturation, 0)
     end
   end

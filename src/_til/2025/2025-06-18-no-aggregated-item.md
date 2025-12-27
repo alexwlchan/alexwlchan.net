@@ -24,26 +24,26 @@ I did some debugging and I worked out where it came from -- here are my notes.
 In my traceback, I could see this was coming from Jinja2's `min()` and `max()` filters.
 If you try to get the min and max of an empty list, that causes the error:
 
-```python
+{% code lang="python" names="0:jinja2 1:t" %}
 import jinja2
 
 t = jinja2.Template("{% raw %}{{ 1 + (my_list|max) }}{% endraw %}")
 
 print(t.render(my_list=[]))
-```
+{% endcode %}
 
 Note that the `1 +` is required to cause the error -- you have to interact with the `my_list|max` value, otherwise it's undefined and gets rendered as an empty string.
 
 If I'd [enabled `StrictUndefined`][StrictUndefined], the error would be thrown even if I just rendered the value in the template, and didn't try to modify it.
 Here's another example:
 
-```python
+{% code lang="python" names="0:jinja2 1:t" %}
 import jinja2
 
 t = jinja2.Template("{% raw %}{{ my_list|max }}{% endraw %}", undefined=jinja2.StrictUndefined)
 
 print(t.render(my_list=[]))
-```
+{% endcode %}
 
 The fix is to ensure you're not trying to get the `min()` or `max()` of an empty list -- if you're not certain the input list will be non-empty, add a check beforehand.
 
@@ -54,10 +54,11 @@ The fix is to ensure you're not trying to get the `min()` or `max()` of an empty
 Once I knew this error came from Jinja2, I was able to search the Jinja2 codebase and [find the function][_min_or_max] where this error is being returned:
 
 {%
-  annotatedhighlight
+  code
   lang="python"
-  line_numbers="486-488,492-498"
+  line_numbers="486-488,_,492-498,_,_"
   src="https://github.com/pallets/jinja/blob/220e67ae999c24e4077d7bf5bdc932757b65a338/src/jinja2/filters.py#L486-L503"
+  names="0:_min_or_max 1:environment 2:value 3:it 6:first"
 %}
 def _min_or_max(
     environment: "Environment",
@@ -72,7 +73,7 @@ def _min_or_max(
         return environment.undefined("No aggregated item, sequence was empty.")
 
     ...
-{% endannotatedhighlight %}
+{% endcode %}
 
 Until I saw this code, I didn't realise `Undefined` was an actual type -- I've only ever encountered it in the sense of "undefined variable", which is a fairly common programming error, and not necessarily associated with a type.
 
