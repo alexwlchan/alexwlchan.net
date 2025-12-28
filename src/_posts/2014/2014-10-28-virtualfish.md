@@ -37,11 +37,11 @@ These scripts are loading [Adam Brenecki's virtualfish][vf] to integrate virtual
 
 But peeking inside `auto_activation.fish` turned up the instance of `test` that was throwing this error, and why it was upset:
 
-<pre>
+```fish
 new_virtualenv_name (cat "$activation_root/$VIRTUALFISH_ACTIVATION_FILE")
 […]
 if test $new_virtualenv_name != ""
-</pre>
+```
 
 The `new_virtualenv_name` is reading a `.venv` file in the current tree. This file normally contains the name of a virtualenv, and when you enter that directory, virtualfish automatically activates it (and deactivates it when you leave). This is usually set up with the `vf connect` command, and it's incredibly convenient.
 
