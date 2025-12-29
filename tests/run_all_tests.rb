@@ -5,13 +5,13 @@ Dir.glob('tests/*.rb')
    .reject { |f| f == 'tests/run_all_tests.rb' }
    .reject { |f| f == 'tests/utils.rb' }
    .each do |f|
-  name = File.basename(f, '.rb')
+     name = File.basename(f, '.rb')
 
-  next if File.open('tests/run_all_tests.rb').readlines.include? "require_relative '#{name}'\n"
+     next if File.open('tests/run_all_tests.rb').readlines.include? "require_relative '#{name}'\n"
 
-  open('tests/run_all_tests.rb', 'a') do |out_file|
-    out_file.puts "require_relative '#{name}'\n"
-  end
+     open('tests/run_all_tests.rb', 'a') do |out_file|
+       out_file.puts "require_relative '#{name}'\n"
+     end
 end
 
 require_relative 'test_site_is_up'

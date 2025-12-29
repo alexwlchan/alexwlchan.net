@@ -4,13 +4,13 @@
 Dir.glob('src/_plugin_tests/*.rb')
    .reject { |f| f == 'src/_plugin_tests/tests.rb' }
    .each do |f|
-  name = File.basename(f, '.rb')
+     name = File.basename(f, '.rb')
 
-  next if File.open('src/_plugin_tests/tests.rb').readlines.include? "require_relative '#{name}'\n"
+     next if File.open('src/_plugin_tests/tests.rb').readlines.include? "require_relative '#{name}'\n"
 
-  open('src/_plugin_tests/tests.rb', 'a') do |out_file|
-    out_file.puts "require_relative '#{name}'\n"
-  end
+     open('src/_plugin_tests/tests.rb', 'a') do |out_file|
+       out_file.puts "require_relative '#{name}'\n"
+     end
 end
 
 require_relative 'test_add_utm_source'
