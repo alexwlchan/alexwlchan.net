@@ -3,7 +3,7 @@ layout: page
 title: Tags
 nav_section: tags
 ---
-{% assign visible_tags = site.data['visible_tags']|sort %}
+{% assign site_tags = site.data['tag_tally'] | sort %}
 
 <style>
   #tags {
@@ -41,13 +41,15 @@ nav_section: tags
 <p id="tagSortingControls"></p>
 
 <ul id="tags">
-  {% for tag_name in visible_tags %}
+  {% for tag_info in site_tags %}
+    {% assign tag_name = tag_info[0] %}
+    {% assign tag_count = tag_info[1]['posts'].size %}
     <li
       data-tag-name="{{ tag_name }}"
-      data-tag-count="{{ site.data['tag_tally'][tag_name] }}"
+      data-tag-count="{{ tag_count }}"
     >
       {% include tag_link.html %}
-      ({{ site.data['tag_tally'][tag_name] }})
+      ({{ tag_count }})
     </li>
   {% endfor %}
 </ul>

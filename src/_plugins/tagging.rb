@@ -1,58 +1,34 @@
 # This plugin contains a bunch of logic for the way I do tagging.
 
-# This hook runs before the site is built, and runs the following steps:
-#
-#   1. Delete tags from unlisted posts. Unlisted posts don't appear in
-#      the site index, and don't contribute to tags.
-#
-#   2. Add a `tag_tally` field to the data object, which counts all the
-#      tags which are used.
-#
 Jekyll::Hooks.register :site, :post_read do |site|
-  
+  posts = site.posts.docs + site.collections['til'].docs
 
-
-
-Jekyll::Hooks.register :site, :post_read do |site|
-  # This hook runs before the site is built, and adds the following fields
-  # to the `site` object:
-  #
-  #   - `tag_tally` is a count of how many times each tag is used, e.g.
-  #       {"paris" => 1, "programming" => 3, "photography" => 5}
-  #
-  #   - `visible_tags` is a list of tags which are used on visible posts --
-  #     that is, posts which can be discovered from the global site index.
-  #
-  #     If a post is excluded from the global site index, I don't include
-  #     it in tagging or allow it to show any tags.  This is to avoid
-  #     weird interactions where you look at a post, click to see other
-  #     posts with that tag, but that post isn't in the list.
-  #
-  # It also adds a field to each article/TIL:
-  #
-  #   - `visible_tags` is a list of tags, filtered to those which appear
-  #     in the global site index.
-  #
-  # Note: posts which are hidden from index pages have no visible tags.
-  #
-  visible_posts = (site.posts.docs + site.collections['til'].docs)
-                  .reject { |d| d.data.fetch('is_unlisted', false) }
-
-  site.data['tag_tally'] =
-    visible_posts
-    .flat_map { |doc| doc.data['tags'] }
-    .tally
-
-  site.data['visible_tags'] = site.data['tag_tally'].keys
-
-  visible_posts.each do |doc|
-    doc.data['visible_tags'] = doc.data['tags'].filter do |tag_name|
-      site.data['visible_tags'].include? tag_name
+  # Delete tags from unlisted posts. Unlisted posts don't appear in
+  # the site index, and don't contribute to tags.
+  posts.each do |p|
+    if p.data['is_unlisted']
+      p.data['tags'] = []
     end
   end
 
-  # This hook adds a `popular_tags` field, which is used for the selection
-  # of tags on the homepage.
+  # Add a `tag_tally` field to site.data, which counts all the tags
+  # which are used on visible posts.
+  site.data['tag_tally'] = Hash.new do |h, k|
+    h[k] = {
+      'posts' => [],
+      'description' => site.data['tag_descriptions'][h]
+    }
+  end
+
+  posts.each do |p|
+    p.data['tags'].each do |t|
+      tag_info = site.data['tag_tally'][t]
+      tag_info['posts'].append(p)
+    end
+  end
+
+  # Add a `popular_tags` field to site.data, which selects the tags used
+  # on the homepage.
   #
   # The rules are a bit fuzzy here; the rough thinking is:
   #
@@ -60,14 +36,12 @@ Jekyll::Hooks.register :site, :post_read do |site|
   #   - prioritise tags with lots of posts or lots of featured posts
   #   - don't show namespaced tags, which are too granular for the homepage
   #
-  featured_posts = site.posts.docs.filter { |d| d.data.fetch('is_featured', false) }
-  featured_tag_tally = featured_posts.flat_map { |doc| doc.data['tags'] }.tally
+  featured_tag_tally = posts.filter { |d| d.data['is_featured'] }.flat_map { |doc| doc.data['tags'] }.tally
 
   tag_scores = featured_tag_tally
-               .filter { |tag_name, _| site.data['visible_tags'].include? tag_name }
                .reject { |tag_name, _| tag_name.include? ':' }
                .map do |tag_name, count|
-                 total_uses = site.data['tag_tally'][tag_name]
+                 total_uses = site.data['tag_tally'][tag_name].length
 
                  [tag_name, ((count * 5.0) + (total_uses - count))]
                end
@@ -89,19 +63,19 @@ module TagNavigation
     def generate(site)
       # By default, the list of documents is sorted in chronological order,
       # with the oldest posts at the front, but I want the opposite.
-      visible_posts = (site.posts.docs + site.collections['til'].docs)
-                      .reject { |d| d.data.fetch('is_unlisted', false) }
-                      .sort_by { |d| d.data['date'] }
-                      .reverse
+      (site.posts.docs + site.collections['til'].docs)
+        .reject { |d| d.data['is_unlisted'] }
+        .sort_by { |d| d.data['date'] }
+        .reverse
 
-      site.data['visible_tags'].each do |tag|
-        site.pages << TagPage.new(site, visible_posts, tag)
+      site.data['tag_tally'].each do |tag, tag_info|
+        site.pages << TagPage.new(site, tag_info['posts'], tag)
       end
     end
   end
 
   class TagPage < Jekyll::Page
-    def initialize(site, visible_posts, tag)
+    def initialize(site, tagged_posts, tag)
       @site = site
       @base = site.source
 
@@ -118,22 +92,13 @@ module TagNavigation
       @ext      = '.html'
       @name     = 'index.html'
 
-      posts_with_tag = visible_posts
-                       .filter { |doc| doc.data['tags'].include? tag }
-
-      featured_posts = posts_with_tag
-                       .filter { |d| d.data.fetch('is_featured', false) }
-
-      remaining_posts = posts_with_tag
-                        .reject { |d| featured_posts.include? d }
-
       @data = {
         'layout' => 'tag',
         'namespace' => namespace,
         'tag_name' => tag_name,
         'title' => "Tagged with ‘#{tag}’",
-        'featured_posts' => featured_posts,
-        'remaining_posts' => remaining_posts
+        'featured_posts' => tagged_posts.filter { |d| d.data['is_featured'] },
+        'remaining_posts' => tagged_posts.reject { |d| d.data['is_featured'] }
       }
     end
   end

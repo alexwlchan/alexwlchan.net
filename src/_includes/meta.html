@@ -13,14 +13,14 @@
 {% endcomment %}
 
 {%- if page.date or
-      page.visible_tags.size > 0 or
+      page.tags.size > 0 or
       page.part_of or
       page.date_updated or
       page.link -%}
 <ul class="dot_list meta">
-  {%- if page.visible_tags.size > 0 -%}
+  {%- if page.tags.size > 0 -%}
   <li class="tags">Tagged with
-    {% assign tags = page.visible_tags | sort %}
+    {% assign tags = page.tags | sort %}
     {%- for tag_name in tags -%}
       {% include tag_link.html -%}
 {%- unless forloop.last %}, {% endunless -%}
