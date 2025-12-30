@@ -2,8 +2,9 @@
 layout: page
 date_updated: 2018-03-13T08:20:51Z
 title: "Part 3: Context from commits"
-meta:
-  - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
+part_of:
+  url: /a-plumbers-guide-to-git/
+  label: "A Plumber's Guide to Git"
 ---
 
 If you've got this far, you should have finished [part 1][part 1] and [part 2] -- if not, return to those first.

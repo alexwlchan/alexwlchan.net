@@ -81,12 +81,20 @@
             },
             "additionalProperties": false
         },
-        "meta": {
-            "description": "Used on pages for miscellaneous information. Deprecated; should be replaced by purpose-named fields.",
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
+        "part_of": {
+            "description": "An anchor tag that describes what section of the site this is part of",
+            "type": "object",
+            "properties": {
+                "url": {
+                    "description": "The URL of the site section",
+                    "type": "string"
+                },
+                "label": {
+                    "description": "The description of this section",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
         },
         "nav_section": {
             "description": "Which section of the site this page/post belongs to.",
