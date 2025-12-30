@@ -21,13 +21,15 @@ excerpt_separator: "???"
 This is a problem I had when trying to write my TIL about [the `{% raw %}{% capture %}{% endraw %}` tag](/til/2024/use-the-capture-tag-for-complex-strings/).
 I'd written an example in my Markdown source code:
 
+{% raw %}
 <pre><code>You can use the [capture tag] to create a new variable:
 
 ```liquid
-{% raw %}{% capture variable %}
+{% capture variable %}
   value
-{% endcapture %}{% endraw %}
+{% endcapture %}
 ```</code></pre>
+{% endraw %}
 
 but the rendered `<pre>` block was empty -- Liquid ran before the Markdown processor, so it had captured the variable and left empty space.
 

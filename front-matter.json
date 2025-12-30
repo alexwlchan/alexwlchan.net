@@ -104,10 +104,6 @@
         "card_attribution": {
             "description": "Any attribution information about the photo used for the card.",
             "type": "string"
-        },
-        "excerpt_separator": {
-            "description": "Unused except to suppress a Jekyll warning",
-            "type": "string"
         }
     },
     "additionalProperties": false
