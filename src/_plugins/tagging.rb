@@ -12,11 +12,11 @@ Jekyll::Hooks.register :site, :post_read do |site|
   end
 
   # Add a `tag_tally` field to site.data, which counts all the tags
-  # which are used on visible posts.
-  site.data['tag_tally'] = Hash.new do |h, k|
-    h[k] = {
+  # which are used on visible posts.  
+  site.data['tag_tally'] = Hash.new do |h, tag_name|
+    h[tag_name] = {
       'posts' => [],
-      'description' => site.data['tag_descriptions'][h]
+      'description' => site.data['tag_descriptions'][tag_name]
     }
   end
 

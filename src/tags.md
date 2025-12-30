@@ -7,30 +7,28 @@ nav_section: tags
 
 <style>
   #tags {
-    list-style-type: none;
-    padding: 0;
-    columns: 1;
-    line-height: 1.7em;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: var(--grid-gap);
+  }
+  
+  #tags dt {
+    text-align: right;
+  }
+  
+  #tags dd {
+    margin: 0;
   }
 
   #tags a:visited {
     color: var(--link-color);
   }
 
+  /* These controls are hidden by default, and only appear when the
+   * JavaScript loads on the page -- if the JavaScript doesn't work,
+   * you won't see any controls. */
   #tagSortingControls {
     display: none;
-  }
-
-  @media screen and (min-width: 518px) {
-    #tags {
-      columns: 2;
-    }
-  }
-
-  @media screen and (min-width: 747px) {
-    #tags {
-      columns: 3;
-    }
   }
 
   select {
@@ -40,19 +38,27 @@ nav_section: tags
 
 <p id="tagSortingControls"></p>
 
-<ul id="tags">
+<dl id="tags">
   {% for tag_info in site_tags %}
     {% assign tag_name = tag_info[0] %}
     {% assign tag_count = tag_info[1]['posts'].size %}
-    <li
+    <dt
       data-tag-name="{{ tag_name }}"
       data-tag-count="{{ tag_count }}"
     >
       {% include tag_link.html %}
-      ({{ tag_count }})
-    </li>
+    </dt>
+    <dd
+      data-tag-name="{{ tag_name }}"
+      data-tag-count="{{ tag_count }}"
+    >
+      {{- tag_count }} post{% if tag_count > 1 %}s{% endif -%}
+      {% if tag_info[1]['description'] %}
+      about {{ tag_info[1]['description'] -}}
+      {%- endif -%}
+    </dd>
   {% endfor %}
-</ul>
+</dl>
 
 <script>
   const tagSortOptions = [
@@ -220,16 +226,22 @@ nav_section: tags
     // This means actually sorting the tags, and adding the list of
     // sort options to the page.
     const sortOrderId = params.get("sortOrder");
+    
+    const tagsElem = document.querySelector("#tags");
 
-    const tagElements = Array.from([...document.querySelectorAll("#tags > li")]);
+    const tagElements = [...tagsElem.querySelectorAll("dt")];
 
     const { sortedItems, appliedSortOrder } = sortItems({
       items: tagElements, sortOptions: tagSortOptions, sortOrderId
     });
 
-    sortedItems.forEach(elem =>
-      document.querySelector("#tags").appendChild(elem)
-    );
+    sortedItems.forEach(dtElem => {
+      const ddElem = [...tagsElem.querySelectorAll("dd")].filter(
+        dd => dd.getAttribute("data-tag-name") === dtElem.getAttribute("data-tag-name")
+      )[0];
+      tagsElem.appendChild(dtElem);
+      tagsElem.appendChild(ddElem);
+    });
 
     document.querySelector('#tagSortingControls').innerHTML =
       SortControls(tagSortOptions, appliedSortOrder.id);

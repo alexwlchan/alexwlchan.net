@@ -1,6 +1,15 @@
 ---
-bluesky: Bluesky is a microblogging social network, which got popular in 2024 after Elon Musk bought Twitter. My Bluesky handle is [alexwlchan.net](https://bsky.app/profile/alexwlchan.net), although I rarely use it.
-liquid: Liquid is a template language made by Shopify, and I use it for the HTML templates that create this website.
-macos: The Mac operating system, previously known as “Mac OS X”. All of my computers are Macs, and these posts are about Mac-specific stuff.
-python: Python is a programming language that I use for scripting, automation and writing web apps. It’s the language I’m most familiar with, and my go-to language for new projects.
-tailscale: "Tailscale is a mesh VPN service based on WireGuard, that allows devices to connect securely regardless of their physical location. Disclosure: I started working for Tailscale in August 2025, and my compensation includes stock options."
+acorn: the Mac photo editor app
+alfred: the Mac productivity tool and app launcher
+alpine: the Linux distro often used in Docker containers
+apache: the open-source HTTP server that isn’t nginx
+backblaze: the cloud backup service
+bluesky: the microblogging social media site that isn’t Twitter
+flask: the web app framework written in Python
+liquid: the template language I use on this site
+london: the capital city of the UK
+macos: the Mac operating system
+naming things: one of the hard problems in computer science
+nginx: the open-source HTTP server that isn’t Apache
+python: the Python programming language
+tailscale: the mesh VPN and my current employer
