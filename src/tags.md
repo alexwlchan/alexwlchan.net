@@ -38,7 +38,7 @@ nav_section: tags
 
 <p id="tagSortingControls"></p>
 
-TODO: Add a heading, add remaining descripitons, highlight popular tags
+TODO: Add a heading, add remaining descripitons, highlight popular tags, remove namespaced tags that aren't used much
 
 <dl id="tags">
   {% for tag_info in site_tags %}
