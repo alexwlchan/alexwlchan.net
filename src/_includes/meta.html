@@ -14,7 +14,7 @@
 
 {%- if page.date or
       page.visible_tags.size > 0 or
-      page.meta or
+      page.part_of or
       page.date_updated or
       page.link -%}
 <ul class="dot_list meta">
@@ -31,10 +31,10 @@
   {%- if page.date -%}
   <li>Posted {% include timestamp.html date = page.date -%}</li>
   {%- endif -%}
-
-  {%- for m in page.meta -%}
-  <li>{{- m -}}</li>
-  {%- endfor -%}
+  
+  {%- if page.part_of -%}
+  <li>Part of <a href="{{ page.part_of.url }}">{{ page.part_of.label|smartify }}</a></li>
+  {%- endif -%}
 
   {%- if page.date_updated -%}
   <li>Last updated {% include timestamp.html date = page.date_updated -%}</li>

@@ -2,8 +2,9 @@
 layout: page
 date_updated: 2018-03-13T08:20:49Z
 title: "Part 2: Blobs and trees"
-meta:
-  - Part of <a href="/a-plumbers-guide-to-git/">A Plumber&rsquo;s Guide to Git</a>
+part_of:
+  url: /a-plumbers-guide-to-git/
+  label: "A Plumber's Guide to Git"
 ---
 
 I'm assuming you've already read and completed [part 1][part 1], which explains how to store and retrieve single files.
