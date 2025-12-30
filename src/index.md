@@ -129,7 +129,7 @@ Here are some of the topics I write about:
 
 {% endcomment %}
 
-{% assign featured_articles = site.posts | where: "index.feature", true %}
+{% assign featured_articles = site.posts | where: "is_featured", true %}
 
 {% assign new_articles = featured_articles | where: "is_new", true %}
 

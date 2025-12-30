@@ -4,8 +4,7 @@ date: 2020-05-11 18:30:07 +0000
 title: The friends I lost along the way
 tags:
   - personal
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I've lived a lot of my life on the internet.

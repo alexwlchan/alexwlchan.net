@@ -6,8 +6,7 @@ summary: Preserving social media is easier said than done. What makes it so diff
 tags:
   - digital preservation
   - social media
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#5366ac"
   css_dark:  "#607db9"

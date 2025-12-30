@@ -11,8 +11,7 @@ summary: A fun app to calculate the size of your data in terms of floppy disks.
 colors:
   index_light: "#ff47ff"
   index_dark:  "#fbabfa"
-index:
-  feature: true
+is_featured: true
 ---
 
 Yesterday, Stuart Lewis posted a photo of his [latest hardware](https://twitter.com/stuartlewis/status/1255825450485628928):

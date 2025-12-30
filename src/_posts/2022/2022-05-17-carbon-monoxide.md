@@ -5,8 +5,7 @@ title: Changing my carbon monoxide detectors
 summary: Keeping my home safe from deadly gases.
 tags:
   - domestic
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Yesterday was the roughly sexennial ritual of replacing all my carbon monoxide detectors.

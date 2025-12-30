@@ -51,11 +51,11 @@ nav_section: articles
 
 <div id="articles" data-card-count="2">
 {% for this_article in site.posts %}
-  {% if this_article.index.exclude %}
+  {% if this_article.is_unlisted %}
     {% continue %}
   {% endif %}
 
-  {% if this_article.index.feature %}
+  {% if this_article.is_featured %}
     {% assign featured_posts = featured_posts | push: this_article %}
   {% else %}
     {% assign remaining_posts = remaining_posts | push: this_article %}

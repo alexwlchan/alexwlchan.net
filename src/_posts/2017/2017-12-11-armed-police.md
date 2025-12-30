@@ -5,8 +5,7 @@ title: Armed police officers don't make me feel safer
 tags:
   - politics
 summary: Why guns make me jumpy, how armed police don't reassure me, and why you need to be careful about the images you use in tweets.
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 **Content warning:** discussion of guns, police violence, and images of armed police.

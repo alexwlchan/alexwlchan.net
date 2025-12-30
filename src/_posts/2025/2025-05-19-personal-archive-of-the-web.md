@@ -7,8 +7,7 @@ summary: |
 tags:
   - bookmarking
   - digital preservation
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#0000ff"
   css_dark:  "#00ddff"

@@ -4,8 +4,7 @@ title: Get the dimensions of a video file with `mediainfo`
 date: 2025-02-10 10:10:51 +0000
 tags:
   - video
-index:
-  exclude: true
+is_unlisted: true
 ---
 Here are two examples:
 

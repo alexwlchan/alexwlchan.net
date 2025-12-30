@@ -5,8 +5,7 @@ tags:
   - instapaper
   - applescript
 title: Catching instapaper:// URLs from ReadKit
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I use [ReadKit][rk] to manage my Instapaper queue on my Mac.

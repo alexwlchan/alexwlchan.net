@@ -3,8 +3,7 @@ layout: post
 date: 2014-12-06 09:08:00 +0000
 link: http://ignorethecode.net/blog/2014/12/04/apple_carplay_android_auto/
 title: Lukas Mathis on iOS CarPlay and Android Auto
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Lukas Mathis watched [the video comparison of CarPlay and Android Auto][yt], and didn't like what he saw:

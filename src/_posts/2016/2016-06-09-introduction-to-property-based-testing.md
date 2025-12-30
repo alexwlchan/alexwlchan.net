@@ -7,8 +7,7 @@ tags:
   - python
   - slides
 title: Introduction to property-based testing
-index:
-  exclude: true
+is_unlisted: true
 
 ---
 

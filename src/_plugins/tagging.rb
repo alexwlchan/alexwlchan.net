@@ -23,7 +23,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
   # Note: posts which are hidden from index pages have no visible tags.
   #
   visible_posts = (site.posts.docs + site.collections['til'].docs)
-                  .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
+                  .reject { |d| d.data.fetch('is_unlisted', false) }
 
   site.data['tag_tally'] =
     visible_posts
@@ -47,7 +47,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
   #   - prioritise tags with lots of posts or lots of featured posts
   #   - don't show namespaced tags, which are too granular for the homepage
   #
-  featured_posts = site.posts.docs.filter { |d| d.data.fetch('index', {}).fetch('feature', false) }
+  featured_posts = site.posts.docs.filter { |d| d.data.fetch('is_featured', false) }
   featured_tag_tally = featured_posts.flat_map { |doc| doc.data['tags'] }.tally
 
   tag_scores = featured_tag_tally
@@ -77,7 +77,7 @@ module TagNavigation
       # By default, the list of documents is sorted in chronological order,
       # with the oldest posts at the front, but I want the opposite.
       visible_posts = (site.posts.docs + site.collections['til'].docs)
-                      .reject { |d| d.data.fetch('index', {}).fetch('exclude', false) }
+                      .reject { |d| d.data.fetch('is_unlisted', false) }
                       .sort_by { |d| d.data['date'] }
                       .reverse
 
@@ -109,7 +109,7 @@ module TagNavigation
                        .filter { |doc| doc.data['tags'].include? tag }
 
       featured_posts = posts_with_tag
-                       .filter { |d| d.data.fetch('index', {}).fetch('feature', false) }
+                       .filter { |d| d.data.fetch('is_featured', false) }
 
       remaining_posts = posts_with_tag
                         .reject { |d| featured_posts.include? d }

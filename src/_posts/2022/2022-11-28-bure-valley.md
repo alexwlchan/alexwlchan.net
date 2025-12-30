@@ -9,8 +9,7 @@ tags:
 colors:
   css_light: "#101c75"
   css_dark:  "#238fd1"
-index:
-  feature: true
+is_featured: true
 ---
 
 <!-- https://twitter.com/alexwlchan/status/1448052181886722053 -->

@@ -6,8 +6,7 @@ summary: I've been using Apple Maps for a lot of navigation recently, and run in
 tags:
   - ui-design
   - ios
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Here's a screen I encounter while driving in Apple Maps, with worrying regularity:

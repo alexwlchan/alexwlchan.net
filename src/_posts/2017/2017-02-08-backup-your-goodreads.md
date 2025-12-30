@@ -6,8 +6,7 @@ tags:
   - python
   - goodreads
 title: A script for backing up your Goodreads reviews
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Last year, I started using Goodreads to track my reading.

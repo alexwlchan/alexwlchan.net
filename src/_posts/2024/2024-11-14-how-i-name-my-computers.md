@@ -7,8 +7,7 @@ summary:
 tags:
   - personal
   - naming things
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#4d3c1b"
   index_dark:  "#b7b0a4"

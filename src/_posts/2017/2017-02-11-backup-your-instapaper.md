@@ -6,8 +6,7 @@ tags:
   - python
   - instapaper
 title: A script for backing up your Instapaper bookmarks
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 About three days ago, there was [an extended outage][outage] at Instapaper.

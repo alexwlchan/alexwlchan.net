@@ -9,8 +9,7 @@ tags:
 colors:
   css_light: "#c62229"
   css_dark:  "#dd363f"
-index:
-  feature: true
+is_featured: true
 ---
 
 Ruby has had leftward assignment (`x = 4`) since its [first public release][first], and a few years ago it added [rightward assignment][ruby3] (`4 => x`).

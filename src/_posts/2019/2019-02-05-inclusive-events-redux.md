@@ -7,8 +7,7 @@ summary: An updated version of my list of ideas for running inclusive and welcom
 tags:
   - conferences
   - inclusion
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Last year, I wrote [a blog post](/2018/inclusive-conferences/) with my ideas for running inclusive conferences.

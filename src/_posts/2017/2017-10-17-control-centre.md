@@ -6,8 +6,7 @@ summary: I like aspects of Control Centre in iOS 11, but WiFi/Bluetooth and audi
 tags:
   - ios
   - frustrations
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I'm not much of an iOS power user, and these days, most new features go straight over my head.

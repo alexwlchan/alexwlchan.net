@@ -6,8 +6,7 @@ summary: How I record HTTP requests to get fast, reliable, and consistent tests,
 tags:
   - python
   - software testing
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#ab5326"
   css_dark:  "#f49d61"

@@ -9,8 +9,7 @@ tags:
 colors:
   index_light: "#8f6434"
   index_dark:  "#e7a355"
-index:
-  feature: true
+is_featured: true
 ---
 
 I make a lot of box-and-arrow diagrams, and I typically make them as [SVGs].

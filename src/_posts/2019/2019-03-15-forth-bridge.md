@@ -10,8 +10,7 @@ tags:
 colors:
   index_light: "#3063a4"
   index_dark:  "#629de4"
-index:
-  feature: true
+is_featured: true
 ---
 
 While clearing out some boxes recently, I found a leaflet from an old holiday.

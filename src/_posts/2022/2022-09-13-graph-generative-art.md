@@ -6,8 +6,7 @@ summary: Randomly selecting a subset of edge from a graph can make pretty pictur
 tags:
   - generative art
   - drawing things
-index:
-  feature: true
+is_featured: true
 ---
 
 <style type="x-text/scss">

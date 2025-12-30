@@ -6,8 +6,7 @@ tags:
   - dates
   - os-x
 title: Strange clock bug in OS X
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Tomorrow's switch to British Summer Time seems to have uncovered quite an unusual bug in my mum's MacBook Pro. I haven't been able to reproduce it, but it was so strange that I thought it worth briefly documenting here (in addition to filing a bug report, of course). I haven't managed to find anybody else who's had this problem, although I'm really not sure what to type into Google for this.

@@ -6,8 +6,7 @@ summary: I reviewed 150,000 fragments of my online life, and I was reminded of t
 tags:
   - social media
   - personal
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#446d8d"
   css_dark:  "#b86748"

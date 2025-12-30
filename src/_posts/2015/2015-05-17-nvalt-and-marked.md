@@ -5,8 +5,7 @@ summary: A Python script that takes a note from nvALT and opens it in Marked.
 tags:
   - python
 title: Previewing notes from nvALT in Marked
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I find [nvALT][nv] to be an indispensable note-taking application. I have thousands of plain-text notes, but it's still incredibly fast and easy to look up a specific note. I also lean heavily on [Marked][marked] for previewing notes &ndash; particularly complex notes with lots of links and images.

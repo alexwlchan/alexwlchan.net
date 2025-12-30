@@ -7,8 +7,7 @@ tags:
   - uk-politics
 summary: The Government has launched a consultation on the Gender Recognition Act 2004, and it's an opportunity to improve rights and legal recognition for trans/non-binary people.
 link: https://www.gov.uk/government/consultations/reform-of-the-gender-recognition-act-2004
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 In July, the UK Government launched a consultation on reforming the [Gender Recognition Act 2004](https://en.wikipedia.org/wiki/Gender_recognition_act).

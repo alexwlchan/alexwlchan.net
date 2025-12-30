@@ -10,8 +10,7 @@ tags:
 colors:
   index_light: "#594438"
   index_dark:  "#f5db6e"
-index:
-  feature: true
+is_featured: true
 ---
 I'm sitting in a small coffee shop in Brooklyn.
 I have a warm drink, and it's just started to snow outside.

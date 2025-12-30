@@ -6,8 +6,7 @@ tags:
   - jekyll
 date: 2017-10-03 22:23:38 +0100
 summary: I switched back to Jekyll, and posted all the source code for my blog on GitHub.
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 When I started this site, I was using Jekyll (well, Octopress).

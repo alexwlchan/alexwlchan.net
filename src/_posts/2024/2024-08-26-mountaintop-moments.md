@@ -9,8 +9,7 @@ tags:
 colors:
   css_light: "#0c59c6"
   css_dark:  "#599dfc"
-index:
-  feature: true
+is_featured: true
 ---
 Last weekend, I was in Edinburgh for the Fringe, and I'm so glad I went.
 I met new people, hung out with some Internet friends in-person, and saw some great theatre.

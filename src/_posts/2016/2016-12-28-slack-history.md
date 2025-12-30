@@ -6,8 +6,7 @@ link: https://pypi.org/project/slack-history/
 tags:
   - python
   - slack
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I've just pushed a small tool to PyPI for backing up message history from Slack.

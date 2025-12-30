@@ -7,8 +7,7 @@ tags:
   - personal
   - asexuality
 title:      The A stands for Asexual
-index:
-  exclude: true
+is_unlisted: true
 colors:
   css_light: "#6c006c"
   css_dark:  "#cb52ff"

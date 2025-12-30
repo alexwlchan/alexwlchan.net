@@ -7,8 +7,7 @@ tags:
   - photography
   - ios
   - ipad
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 When I'm taking a photo, I like to take several shots every time.

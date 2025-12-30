@@ -10,8 +10,7 @@ canonical_url: https://stacks.wellcomecollection.org/our-approach-to-digital-ver
 colors:
   index_light: "#4c4c4c"
   index_dark:  "#aaaaaa"
-index:
-  feature: true
+is_featured: true
 ---
 *I wrote this article while I was working at Wellcome Collection. It was originally published [on their Stacks blog](https://stacks.wellcomecollection.org/our-approach-to-digital-verification-79da59da4ab7) under a CC BY 4.0 license, and is reposted here in accordance with that license.*
 

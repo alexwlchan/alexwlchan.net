@@ -7,8 +7,7 @@ tags:
   - harry-potter
 title: The Harry Potter Collector's iPod
 summary: A rare and unusual iPod variant I'd never heard of before.
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I like to think of myself as [a Harry Potter geek](http://scifi.stackexchange.com/search?q=user:3567+[harry-potter]), and I follow Apple as well.

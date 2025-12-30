@@ -6,8 +6,7 @@ link: https://github.com/alexwlchan/tex-dockerfile
 tags:
   - latex
   - docker
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 These days, I do less and less writing that needs to be printed, but when I do, my tool of choice is still LaTeX.

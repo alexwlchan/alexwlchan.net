@@ -7,8 +7,7 @@ tags:
   - os-x
   - http-2
 title: Apple quietly adopts HTTP/2
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Amongst all the new features in iOS 9, I spotted one on Twitter that I hadn't seen before:

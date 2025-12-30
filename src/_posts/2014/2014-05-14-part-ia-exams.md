@@ -6,8 +6,7 @@ tags:
   - cambridge
   - maths
 title: Some Part IA exam advice
-index:
-  exclude: true
+is_unlisted: true
 ---
 [**Update, 29 March 2015:** A lot of this advice is applicable to people who aren't in the first-year Maths Tripos at Cambridge, so I've tidied it up, and made a <a href="/2015/technical-exams/">new page</a> for my updated advice.]
 

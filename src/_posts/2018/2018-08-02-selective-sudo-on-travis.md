@@ -6,8 +6,7 @@ tags:
   - travis
   - build-automation
 summary: I recently learnt how to set up Travis with a mixture of VMs and containers – not just all of one or the other.
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I'm a heavy user of [Travis CI][travis].

@@ -6,8 +6,7 @@ summary: If you do any sort of creative digital work, screenshots and screen rec
 tags:
   - digital preservation
   - screenshots
-index:
-  feature: true
+is_featured: true
 ---
 
 I've been using computers for about two decades.

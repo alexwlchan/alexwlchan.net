@@ -6,8 +6,7 @@ summary: Some examples of how I've been using concurrent.futures to speed up my 
 date_updated: 2020-05-02 20:29:25 +0100
 tags:
   - python
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#367a92"
   index_dark:  "#99c7cf"

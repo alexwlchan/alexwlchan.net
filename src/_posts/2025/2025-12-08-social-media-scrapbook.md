@@ -7,8 +7,7 @@ tags:
   - digital preservation
   - social media
   - static sites
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#366fa5"
   css_dark:  "#41a5ed"

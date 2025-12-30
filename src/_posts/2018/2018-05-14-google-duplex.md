@@ -7,8 +7,7 @@ tags:
   - accessibility
   - ableism
   - inclusion
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Last week was Google I/O, and there was a lot of discussion around one of their keynote demos: Google Duplex.

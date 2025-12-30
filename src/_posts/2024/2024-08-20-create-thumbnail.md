@@ -11,8 +11,7 @@ tags:
 colors:
   index_light: "#697c13"
   index_dark:  "#b6b86c"
-index:
-  feature: true
+is_featured: true
 ---
 I’ve made a new command-line tool: [create_thumbnail], which creates thumbnails of images.
 I need image thumbnails in a lot of projects, and I wanted a single tool I could use in all of them rather than having multiple copies of the same code.

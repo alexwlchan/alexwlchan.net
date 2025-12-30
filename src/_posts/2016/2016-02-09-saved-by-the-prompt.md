@@ -5,8 +5,7 @@ summary: It turns out that an SSH client on your iPhone can be really handy.
 tags:
   - ios
 title: Saved by the Prompt
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 One of the most-used apps on my iPhone is [Prompt][prompt], an SSH client by [Panic][panic].

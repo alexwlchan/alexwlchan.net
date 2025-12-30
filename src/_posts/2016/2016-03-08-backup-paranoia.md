@@ -5,8 +5,7 @@ title: Backup paranoia
 summary: Running a backup is good protection against data loss, but it's not perfect.  I take extra measures to ensure I have really safe backups.
 tags:
   - backups
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 By now, you've probably read about the [KeRanger ransomware](http://arstechnica.co.uk/security/2016/03/first-mac-targeting-ransomware-hits-transmission-users-researchers-say/).

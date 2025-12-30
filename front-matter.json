@@ -66,20 +66,13 @@
                 }
             }
         },
-        "index": {
-            "description": "Affects how an individual page or post appears in the site-wide indexes.",
-            "type": "object",
-            "properties": {
-                "exclude": {
-                    "description": "Whether to exclude this post from the site-wide index.",
-                    "type": "boolean"
-                },
-                "feature": {
-                    "description": "Whether to feature this article on the homepage",
-                    "type": "boolean"
-                }
-            },
-            "additionalProperties": false
+        "is_unlisted": {
+            "description": "Whether to exclude this post from the site-wide index",
+            "type": "boolean"
+        },
+        "is_featured": {
+            "description": "Whether to feature this post on the homepage and with a large card",
+            "type": "boolean"
         },
         "part_of": {
             "description": "An anchor tag that describes what section of the site this is part of",

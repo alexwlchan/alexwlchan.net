@@ -12,8 +12,7 @@ tags:
 colors:
   index_light: "#4A653A"
   index_dark:  "#70a15a"
-index:
-  feature: true
+is_featured: true
 ---
 
 As [part of my app][docstore] for storing my electronic documents, there's a grid view that displays big thumbnails of all my files.

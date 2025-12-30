@@ -2,8 +2,7 @@
 layout: post
 date: 2021-07-04 12:24:36 +0000
 title: A wise choice of test strings
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 A few weeks ago, somebody at HBO Max had a bad day, when a mysterious email went out to their subscribers:

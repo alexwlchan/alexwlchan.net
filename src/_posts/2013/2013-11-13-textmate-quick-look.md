@@ -6,8 +6,7 @@ tags:
   - textmate
   - os-x
 title: TextMate 2 and Quick Look
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 [Several][1] [people][2] [were][3] talking about TextMate 2 again this evening, so I decided to [download the alpha][4] and give it another spin.

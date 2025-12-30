@@ -7,8 +7,7 @@ link: https://github.com/alexwlchan/s3_summary_spreadsheet_script
 tags:
   - aws
   - aws:amazon s3
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 {% update 2021-08-22 %}

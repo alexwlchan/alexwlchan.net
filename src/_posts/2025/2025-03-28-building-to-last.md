@@ -6,8 +6,7 @@ summary: There are patterns in what lasts; people skills matter more than techni
 tags:
   - talks
   - digital preservation
-index:
-  feature: true
+is_featured: true
 colors:
   css_light: "#408074"
   css_dark:  "#7CF6DF"

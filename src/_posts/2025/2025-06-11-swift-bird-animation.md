@@ -6,8 +6,7 @@ summary: The Swift.org website got a redesign, including an animation of a swoop
 tags:
   - drawing things
   - web development
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#f8631e"
   index_dark:  "#f7c057"

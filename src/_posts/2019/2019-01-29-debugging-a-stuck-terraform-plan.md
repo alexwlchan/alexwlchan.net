@@ -7,8 +7,7 @@ tags:
   - terraform
   - aws
 title: Debugging a stuck Terraform plan
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 While working on some Terraform today, I had a problem that it would hang in the `plan` stage.

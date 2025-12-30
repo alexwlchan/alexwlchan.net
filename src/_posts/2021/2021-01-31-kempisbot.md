@@ -10,8 +10,7 @@ tags:
 colors:
   index_light: "#624230"
   index_dark:  "#aa9f92"
-index:
-  feature: true
+is_featured: true
 ---
 
 A couple of weeks ago, I got a message from my friend Jay, asking if I'd help him build a Twitter bot to tweet [*The Imitation of Christ*](https://en.wikipedia.org/wiki/The_Imitation_of_Christ) as a long Twitter thread:

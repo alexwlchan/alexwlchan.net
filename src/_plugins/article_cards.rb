@@ -77,7 +77,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 
   posts_with_index_cards = site.posts.docs
                                .reject { |p| p.data['card'].nil? }
-                               .filter { |post| post.data.fetch('index', {}).fetch('feature', false) }
+                               .filter { |post| post.data.fetch('is_featured', false) }
 
   # Set the "is_new" attribute on any posts which were published
   # in the last few weeks.

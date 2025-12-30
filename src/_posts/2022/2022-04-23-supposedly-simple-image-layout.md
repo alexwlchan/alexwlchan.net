@@ -10,8 +10,7 @@ tags:
 colors:
   index_light: "#4b536e"
   index_dark:  "#a7a7af"
-index:
-  feature: true
+is_featured: true
 ---
 
 I've been toying with a new layout for an upcoming post: a three-up display of images, with one big image on the left and two smaller images on the right.

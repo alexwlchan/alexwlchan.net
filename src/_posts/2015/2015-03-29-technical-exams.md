@@ -7,8 +7,7 @@ tags:
   - maths
 title: Some Part IA exam advice
 summary: Some advice for students sitting technical exams.
-index:
-  exclude: true
+is_unlisted: true
 ---
 This is some advice that I originally gave to some [first-year maths students][1] while I was at university. But this advice isn't just useful for maths students at Cambridge: I believe this is applicable to technical subjects at many different levels. This is just a tidied-up version of my original advice.
 

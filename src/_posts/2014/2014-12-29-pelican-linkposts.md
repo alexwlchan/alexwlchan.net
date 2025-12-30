@@ -5,8 +5,7 @@ tags:
   - pelican
   - python
 title: RSS linkposts in Pelican
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 You may have noticed that linkposts have started appearing on the blog. This is, of course, [not an original idea][df].

@@ -11,8 +11,7 @@ link: https://wellcomecollection.org/articles/ZRrH3RIAACIAALP5
 colors:
   index_light: "#9e2d2e"
   index_dark:  "#d7a102"
-index:
-  feature: true
+is_featured: true
 ---
 
 One of the last things I did at Wellcome Collection was writing a story about hyperfocus and how it affects my cross-stitch.

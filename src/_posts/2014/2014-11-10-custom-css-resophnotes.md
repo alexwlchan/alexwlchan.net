@@ -2,8 +2,7 @@
 date: 2014-11-10T18:41:00Z
 layout: post
 title: Custom CSS in ResophNotes
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 My note-taking app of choice is [nvALT][nv], but since I have to use Windows at work, I've also been using [ResophNotes][resoph], which seems to be the closest alternative you can get. I have a *lot* of notes: any error code, bugfix or useful titbit gets saved there, because trying to remember what a cryptic error message that you saw two weeks ago actually meant gets boring really fast.

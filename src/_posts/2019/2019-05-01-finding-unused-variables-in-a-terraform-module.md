@@ -4,8 +4,7 @@ layout: post
 title: Finding unused variables in a Terraform module
 tags:
   - terraform
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 {% update 2023-08-17 %}

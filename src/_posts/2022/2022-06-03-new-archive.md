@@ -8,8 +8,7 @@ tags:
 colors:
   index_light: "#22201f"
   index_dark:  "#fbfafa"
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 Last night, I updated the archive pages for my blog.

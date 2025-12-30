@@ -10,8 +10,7 @@ tags:
 colors:
   index_light: "#118f63"
   index_dark:  "#09c385"
-index:
-  feature: true
+is_featured: true
 ---
 
 Because I work on a digital archive that's [hosted in the cloud][stacks], I have to think about the cost of cloud storage.

@@ -5,8 +5,7 @@ tags:
   - tumblr
   - python
 title: 'Python snippets: Is a URL from a Tumblr post?'
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I've been writing some code recently that takes a URL, and performs some special actions if that URL is a Tumblr post.

@@ -4,8 +4,7 @@ layout: post
 tags:
   - python
 title: 'Python snippet: dealing with query strings in URLs'
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I spend a lot of time dealing with URLs: in particular, with URL [query strings][wiki_qs].

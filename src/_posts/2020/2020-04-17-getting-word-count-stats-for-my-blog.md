@@ -6,8 +6,7 @@ link: https://alexwlchan.net/stats/
 tags:
   - jekyll
   - blogging about blogging
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 For a while I've wanted to see how much I'm writing -- not for anything in particular, just idle curiosity.

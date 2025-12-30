@@ -7,8 +7,7 @@ summary: |
 tags:
   - bagit
   - digital preservation
-index:
-  feature: true
+is_featured: true
 colors:
   index_light: "#8b623b"
   index_dark:  "#f0d0af"

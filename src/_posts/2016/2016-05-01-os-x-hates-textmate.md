@@ -6,8 +6,7 @@ summary: "Debugging a strange interaction between TextMate and OS X\u2019s secur
 tags:
   - os-x
   - textmate
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 I try not to make unreasonable complaints about the quality of software.

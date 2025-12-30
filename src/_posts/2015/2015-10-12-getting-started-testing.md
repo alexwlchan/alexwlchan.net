@@ -6,8 +6,7 @@ tags:
   - python
 title: Getting Started Testing, by Ned Batchelder
 
-index:
-  exclude: true
+is_unlisted: true
 ---
 
 This PyCon talk is a great introduction to unit tests and mocking.
