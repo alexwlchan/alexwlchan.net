@@ -38,6 +38,8 @@ nav_section: tags
 
 <p id="tagSortingControls"></p>
 
+TODO: Add a heading, add remaining descripitons, highlight popular tags
+
 <dl id="tags">
   {% for tag_info in site_tags %}
     {% assign tag_name = tag_info[0] %}
