@@ -1,5 +1,18 @@
 # This plugin contains a bunch of logic for the way I do tagging.
 
+# This hook runs before the site is built, and runs the following steps:
+#
+#   1. Delete tags from unlisted posts. Unlisted posts don't appear in
+#      the site index, and don't contribute to tags.
+#
+#   2. Add a `tag_tally` field to the data object, which counts all the
+#      tags which are used.
+#
+Jekyll::Hooks.register :site, :post_read do |site|
+  
+
+
+
 Jekyll::Hooks.register :site, :post_read do |site|
   # This hook runs before the site is built, and adds the following fields
   # to the `site` object:
