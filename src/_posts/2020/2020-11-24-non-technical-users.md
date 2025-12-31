@@ -3,7 +3,7 @@ layout: post
 date: 2020-11-24 11:53:34 +0000
 title: “Non-technical users”
 tags:
-  - writing
+  - naming things
 ---
 
 I was talking about some of my work tonight, and some of the writing I've done to make my work comprehensible to colleagues who aren't software developers.

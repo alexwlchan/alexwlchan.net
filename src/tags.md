@@ -3,8 +3,6 @@ layout: page
 title: Tags
 nav_section: tags
 ---
-{% assign site_tags = site.data['tag_tally'] | sort %}
-
 <style>
   #tags {
     display: grid;
@@ -38,7 +36,9 @@ nav_section: tags
 
 <p id="tagSortingControls"></p>
 
-TODO: Add a heading, add remaining descripitons, highlight popular tags, remove namespaced tags that aren't used much
+{% assign site_tags = site.data['tag_tally'] | sort %}
+
+TODO: Add a heading, add remaining descriptions, highlight popular tags, remove namespaced tags that aren't used much
 
 <dl id="tags">
   {% for tag_info in site_tags %}
@@ -56,7 +56,7 @@ TODO: Add a heading, add remaining descripitons, highlight popular tags, remove 
     >
       {{- tag_count }} post{% if tag_count > 1 %}s{% endif -%}
       {% if tag_info[1]['description'] %}
-      about {{ tag_info[1]['description'] -}}
+      about {{ tag_info[1]['description'] | smartify -}}
       {%- endif -%}
     </dd>
   {% endfor %}

@@ -10,20 +10,40 @@ Jekyll::Hooks.register :site, :post_read do |site|
       p.data['tags'] = []
     end
   end
+  
+  # Find namespaced tags (tags with a {namespace}: prefix) that are
+  # only used once, and delete them.
+  namespaced_tags = posts.flat_map { |p| p.data['tags']}.filter{|t| t.include? ':' }.tally
+  hidden_tags = namespaced_tags.filter { |t, count| count <= 2 }.keys
+  
+  posts.each do |p|
+    p.data['tags'] = p.data['tags'].reject do |tag_name|
+      hidden_tags.include? tag_name
+    end
+  end
 
   # Add a `tag_tally` field to site.data, which counts all the tags
   # which are used on visible posts.  
-  site.data['tag_tally'] = Hash.new do |h, tag_name|
+  site.data['tag_tally'] = {}
+  
+  Hash.new do |h, tag_name|
     h[tag_name] = {
+      'tag_name': tag_name.split(':').last,
       'posts' => [],
       'description' => site.data['tag_descriptions'][tag_name]
     }
   end
 
   posts.each do |p|
-    p.data['tags'].each do |t|
-      tag_info = site.data['tag_tally'][t]
+    p.data['tags'].each do |tag_name|
+      label = tag_name.split(':').last
+      tag_info = site.data['tag_tally'].fetch(label, {
+        'tag_name' => tag_name,
+        'posts' => [],
+        'description' => site.data['tag_descriptions'][tag_name]
+      })
       tag_info['posts'].append(p)
+      site.data['tag_tally'][label] = tag_info
     end
   end
 
@@ -61,15 +81,13 @@ end
 module TagNavigation
   class Generator < Jekyll::Generator
     def generate(site)
-      # By default, the list of documents is sorted in chronological order,
-      # with the oldest posts at the front, but I want the opposite.
-      (site.posts.docs + site.collections['til'].docs)
-        .reject { |d| d.data['is_unlisted'] }
-        .sort_by { |d| d.data['date'] }
+      site.data['tag_tally'].each do |tag, tag_info|
+        # By default, the list of documents is sorted in chronological order,
+        # with the oldest posts at the front, but I want the opposite.
+        tagged_posts = tag_info['posts'].sort_by { |d| d.data['date'] }
         .reverse
 
-      site.data['tag_tally'].each do |tag, tag_info|
-        site.pages << TagPage.new(site, tag_info['posts'], tag)
+        site.pages << TagPage.new(site, tagged_posts, tag)
       end
     end
   end

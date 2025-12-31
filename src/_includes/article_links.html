@@ -37,11 +37,6 @@
     data-o="{{ article.order }}"
     {% endif %}
   ><h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
-      {%- if article.layout == 'til' -%}
-      {%- unless page.url == "/til/" -%}
-        TIL:&nbsp;
-      {%- endunless -%}
-      {%- endif -%}
       {{ article.title | markdownify_oneline -}}
     </a></h4>
 

@@ -10,13 +10,22 @@ applescript: the programming language for automating the Mac
 archivematica: the suite of digital preservation tools
 automation: making computers do boring stuff
 aws: Amazon Web Services
+"aws:amazon s3": Amazon's storage service that holds half the world's data
+"aws:amazon sqs": Amazon's message queue service
+"aws:iam": Amazon's security service that decides who can do what in AWS
 backblaze: the cloud backup service
 bluesky: the microblogging social media site that isn’t Twitter
+css: Cascading Style Sheets, the makeup of the Internet
+dns: the Domain Name System, the phone book of the Internet
 flask: the web app framework written in Python
 liquid: the template language I use on this site
 london: the capital city of the UK
 macos: the Mac operating system
+mastodon: the federated social media network
 naming things: one of the hard problems in computer science
 nginx: the open-source HTTP server that isn’t Apache
 python: the Python programming language
 tailscale: the mesh VPN and my current employer
+tnmoc: the National Museum of Computing
+youtube: the giant video sharing site
+yt-dlp: the tool for downloading video from the web
