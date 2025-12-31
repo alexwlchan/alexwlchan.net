@@ -34,7 +34,7 @@ I had a slightly different syntax in mind (simpler, and with more double bracket
 
 It supports the same syntax as the cURL counterpart. Here's a simple example:
 
-```python
+{% code lang="pycon" names="0:urls" %}
 >>> urls = curlparser.parse_string("http://site.{one,two,three}.com")
 >>> urls.next()
 "http://site.one.com"
@@ -42,7 +42,7 @@ It supports the same syntax as the cURL counterpart. Here's a simple example:
 "http://site.two.com"
 >>> urls.next()
 "http://site.three.com"
-```
+{% endcode %}
 
 It can also be invoked from the shell:
 
