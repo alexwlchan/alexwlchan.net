@@ -4,6 +4,8 @@ date: 2014-08-29 22:06:00 +0000
 tags:
   - textexpander
 title: A TextExpander snippet for Amazon affiliate links
+index:
+  exclude: true
 ---
 
 Earlier this evening, Casey Liss [tweeted a link][tweet] to a post by
@@ -31,8 +33,8 @@ the rest. We can then use this to construct an affiliate URL.
 
 I've wrapped this idea in a Python script, which I can use in TextExpander:
 
-```python
-#!/usr/bin/env python
+{% code lang="python" names="0:re 1:sys 2:FRONT_URL 3:AFFILIATE_CODE 10:components 13:amazon_site 19:asin_code 24:idx 29:asin_code 32:asin_code 35:aff_link" %}
+#!/usr/bin/env python2
 
 import re
 import sys
@@ -62,7 +64,7 @@ aff_link = 'http://{amazon}/dp/{asin}/?tag={aff_code}'.format(
 )
 
 print aff_link
-```
+{% endcode %}
 
 This is saved as a shell script snippet in TextExpander, and I have it
 bound to the abbreviation `;az`. Of course, I replace the `AFFILIATE_CODE` with my actual affiliate code.

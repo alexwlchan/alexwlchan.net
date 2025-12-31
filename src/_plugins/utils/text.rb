@@ -248,7 +248,7 @@ module Alexwlchan
       # Note (2025-12-23): the 1Password browser extension has enabled
       # Prism.js syntax highlighting in web pages, and it looks for
       # any <pre> elements with a language-* class, so rename it to lng.
-      %w[caddy console css go html irb shell xml].each do |lang|
+      %w[caddy console css diff go html irb shell xml].each do |lang|
         html = html.gsub(" class=\"language-#{lang} highlighter-rouge\"", " class=\"lng-#{lang}\"")
       end
 
