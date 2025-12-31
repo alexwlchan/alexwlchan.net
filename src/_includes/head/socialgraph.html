@@ -4,12 +4,9 @@
   {% assign xml_summary = page.summary | xml_escape %}
 {% endif %}
 
-{% if page.card.social %}
-  {% assign year = page.date | slice: 0, 4 %}
-  {% assign card_image = page.card.social %}
-
+{% if page.card %}
   {% capture card_image_url -%}
-    {{ site.url }}/images/cards/{{ year }}/{{ card_image }}
+    {{ site.url }}{{ page.card.path | replace: 'src/_images', '/images' }}
   {%- endcapture %}
 {% else %}
   {% capture card_image_url -%}
