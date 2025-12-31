@@ -46,7 +46,7 @@ This means that the `all_posts` array includes an object for every post on a blo
 
 In the update, the `all_posts` array is filtered to only include untagged posts. Objects for tagged posts are discarded immediately. I have two utility functions:
 
-```javascript
+{% code lang="javascript" names="0:post_is_untagged 1:post 5:filter_untagged_posts 6:posts" %}
 var post_is_untagged = function(post) {
     return !post.tags.length;
 }
@@ -54,7 +54,7 @@ var post_is_untagged = function(post) {
 var filter_untagged_posts = function(posts) {
     return posts.filter(post_is_untagged);
 }
-```
+{% endcode %}
 
 which are applied to all the post objects I receive from the Tumblr API. Then I renamed the array to `untagged_posts`, and slightly simplified the HTML:
 
@@ -74,7 +74,7 @@ Discarding all the tagged posts reduces memory usage, but I was still populating
 
 So I refined `filter_untagged_posts` so that all I save is the URL, and every other attribute gets discarded:
 
-```javascript
+{% code lang="javascript" names="0:filter_untagged_posts 1:posts 2:untagged_posts 6:trimmed_urls 7:p" %}
 var filter_untagged_posts = function(posts) {
     untagged_posts   = posts.filter(post_is_untagged);
     var trimmed_urls = [];
@@ -85,7 +85,7 @@ var filter_untagged_posts = function(posts) {
 
     return trimmed_urls
 }
-```
+{% endcode %}
 
 Now the `untagged_posts` array only includes URLs, and the HTML can be simplified even further:
 
