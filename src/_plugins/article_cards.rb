@@ -53,7 +53,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     convert_image({
                     'in_path' => card_path,
                     'out_path' => card_path.gsub('src/_images', '_site/images'),
-                    'target_width' => 800
+                    'target_width' => 1200
                   })
 
     # Fetch the card colours to use on the index card.
