@@ -1,0 +1,193 @@
+---
+layout: post
+title: My favourite books from 2025
+summary: Sapphics and spies, butlers and basketball, prophecy and purpose – what I enjoyed reading this year.
+tags:
+  - books
+colors:
+  css_light: "#464646"
+  css_dark:  "#adadad"
+index:
+  feature: true
+---
+<style type="x-text/scss">
+  @use "posts/_end_of_year_books";
+</style>
+
+I've read 54 books this year -- a slight dip from last year, but still at least one book a week.
+I try not to set myself rigid targets, but I hope to reverse the downward trend in 2026.
+
+I'm a bit disappointed in the books I read this year; compared to previous years, there were only a few books that I feel compelled to recommend.
+I'm not sure if it was bad luck or sticking too close to familiar favouites -- but I can't help notice that all of this year's favourites are from new authors.
+That feels like a sign to look further afield in 2026.
+
+What saved the reading year was community and connection.
+My [a book club][ace-book-club] just passed its third anniversary, and the discussions are always a highlight of my month.
+In particularly enjoy the conversation if it's a book we all liked -- it's more fun to celebrate what works than to tear a book to shreds.
+Two of my top picks below come from the book club list.
+
+I also found some unexpected serendipity: Lizzie Huxley-Jones's festive romance *Make You Mine This Christmas* has a meetcute in [a bookshop in St Pancras station][hatchards-stp].
+I use the station regularly so I know the shop well, and it's where my partner and I took our first photo together as a couple, at the beginning of our second date.
+
+I track the books I read at [books.alexwlchan.net], and writing the annual round-up post has become a fun tradition.
+You can see how my tastes have changed in [2024], [2023], [2022], and [2021].
+
+Here are my favourite books from 2025, in the order I read them.
+
+
+[ace-book-club]: https://aceandarolondon.org.uk/bookclub/
+[hatchards-stp]: https://www.hatchards.co.uk/shop/stpancras
+[books.alexwlchan.net]: https://books.alexwlchan.net/
+[2024]: /2024/2024-in-reading/
+[2023]: /2023/2023-in-reading/
+[2022]: /2022/2022-in-reading/
+[2021]: /2021/2021-in-reading/
+
+---
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #304570;
+    --book-color-dk: #df6e6b;
+  ">
+  {%
+    picture
+    filename="service-model.jpg"
+    alt="The cover of “Service Model”. A white robotic hand holds a teacup, while a devastated landscape lit in dark blue and red is visible in the background."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Service Model"
+    author="Adrian Tchaikovsky"
+    review_url="https://books.alexwlchan.net/2025/service-model/"
+    review_date="8 January 2025"
+    publication_year="2024"
+  %}
+</div>
+
+What if the robot apocalypse happened, but nobody told the robots?
+
+We follow Charles, a robot butler who finds himself unexpectedly unemployed, and he travels through an apocalyptic wasteland to find a new purpose.
+In a world mostly devoid of humans, he struggles to find another household to serve.
+It's a dark and absurd journey which I very much enjoyed, and the style reminds me of Douglas Adams.
+This world isn't tragic, but absurd.
+
+Beneath the lyrical and humorous style are messages about automation, class division, and our attitude towards work.
+The world is full of robots who are doing things because that's Their Purpose, with no thought for who the automation is serving or whether it's still necessary.
+
+If you enjoy this, you should follow up by reading *Human Resources*, the prequel short story about a "human resources" department that only exists to fire all the humans.
+
+I'd also recommend *The Incomparable* podcast's [Book Club episodes](https://www.theincomparable.com/theincomparable/bookclub/); I read *Service Model* on the strength of Jason Snell's recommendation.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #e14f32;
+    --book-color-dk: #1dabd2;
+  ">
+  {%
+    picture
+    filename="how-you-get-the-girl.jpg"
+    alt="The cover of “How You Get the Girl”. Two women are holding hands and walking towards a basketball hoop. One of them has long red hair and a turquoise jacket, while the other has short dark hair, a black jacket, and is spinning a basketball."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="How You Get the Girl"
+    author="Anita Kelly"
+    review_url="https://books.alexwlchan.net/2025/how-you-get-the-girl/"
+    review_date="24 June 2025"
+    publication_year="2024"
+  %}
+</div>
+
+A charming sapphic romance between a basketball teacher and a professional player.
+
+Elle is a famous basketball player who's proud and confident about being queer, but she struggles to be a foster parent to her niece, Vanessa.
+Julie is a capable high school coach who bonds well with her team, but feels unsure and uncertain about her queer identity.
+They both look up to the other, and are looked up to in return.
+
+It felt like a very balanced romance, and I enjoyed our discussion of it at Ace Book Club.
+It hits all the classic sapphic tropes, and it has a feel-good ending.
+
+My particular reading was enhanced by the annotations -- my partner read this book first, and she highlighted passages with comments like *"this seems familiar"* or *"remind you of anyone?"*.
+Sadly that's not a transferable experience, but I can tell you that *I* enjoyed it.
+
+Surprisingly, I didn't enjoy Anita Kelly's other books.
+This book is the third in the trilogy, and I tried to read the other two -- one of them was so-so, and the other I gave up on.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #0789f4;
+    --book-color-dk: #4eaaf0;
+  ">
+  {%
+    picture
+    filename="the-end-crowns-all.jpg"
+    alt="The cover of “The End Crowns All”. It's an abstract blue design mostly taken up by the title and author name, but at the base of the cover is a series of ships sailing away from a bright yellow sun."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="The End Crowns All"
+    author="Bea Fitzgerald"
+    review_url="https://books.alexwlchan.net/2025/the-end-crowns-all/"
+    review_date="9 September 2025"
+    publication_year="2024"
+  %}
+</div>
+
+A sapphic retelling of the Trojan War, in which Cassandra's curse is cast by a petty Apollo who just wants sex, and an enemies-to-lovers romance between Cassandra and Helen.
+
+I really enjoyed this.
+It's a well-written story and I enjoyed the first-person perspective of the two protagonists.
+It builds well towards its conclusion -- a lot of stuff that becomes relevant later is established early and builds towards the end.
+Apollo's curses on Cassandra, the gods forcing a narrative on Troy, how the story eventually deviates from the conventional myth.
+
+The book has modern sensibilities, but retrofits them in a thoughtful way.
+It discusses consent, rape culture, and asexuality -- in particular, Cassandra is implied to be ace -- but never uses those words explicitly.
+These themes fit into the narrative, and don't stand out as twenty-first century terminology or ideas shoved into Greek myth.
+
+This was another book club pick, and I'm planning to read Bea Fitzgerald's other books next year.
+
+<div
+  class="book_review"
+  style="
+    --book-color-lt: #8a7952;
+    --book-color-dk: #b89c65;
+  ">
+  {%
+    picture
+    filename="finding-hester.jpg"
+    alt="The cover of “Finding Hester”. A photograph of a young woman is placed on a brown file with a British government crest, with several red annotations drawn in pen."
+    height="140"
+    class="book_cover"
+  %}
+  {%
+    include book_info.html
+    title="Finding Hester"
+    author="Erin Edwards, Greg Callus, Rose Crossgrove, and others"
+    review_url="https://books.alexwlchan.net/2025/finding-hester/"
+    review_date="17 November 2025"
+    publication_year="2025"
+  %}
+</div>
+
+This is the true story of Hester Leggatt, a woman who wrote fake love letters for Operation Mincemeat during World War II, then became a character in a hit musical.
+
+Unlike the men in the story, almost nothing was known of Hester when SpitLip wrote the musical version of *Operation Mincemeat*, except that she wrote the fake love letters.
+Her character has the most emotional song in the show, but the fictional version had to be invented from scratch.
+
+A group of fans were dissatisfied with this gap in history, and tracked down the real Hester.
+They traced the initial mistake to an interview that misspelt her name as Legg<em>e</em>tt instead of Legg<em>a</em>tt.
+Once they knew the correct surname, they went through paper archives, old school records, even contacted MI5 -- all to reconstruct her life story.
+
+The book weaves this discovered history into a narrative, which is organised it into a coherent and readable story of Hester's life -- her place of birth, her career before and after the war, her love life, and even coincidental similarities to her fictional depiction.
+
+I'm biased because several of those fans are dear friends, and I enjoyed watching their work from the sidelines -- but I enjoyed reading the details even more so.
