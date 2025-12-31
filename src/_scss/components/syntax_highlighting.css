@@ -119,3 +119,9 @@ pre {
     color: var(--names)
   };
 }
+
+.lng-diff {
+  .gh { color: var(--blue);  }  /* Generic.Heading  */
+  .gd { color: var(--red);   }  /* Generic.Deleted  */
+  .gi { color: var(--green); }  /* Generic.Inserted */
+}
