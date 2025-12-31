@@ -9,9 +9,9 @@ tags:
 When I embed videos in web pages, I specify an [aspect ratio][mdn-aspect-ratio].
 For example, if my video is 1920×1080 pixels, I'd write:
 
-```html
+{% code lang="html" wrap="true" %}
 <video style="aspect-ratio: 1920 / 1080">
-```
+{% endcode %}
 
 If I also set a width or a height, the browser now knows exactly how much space this video will take up on the page -- even if it hasn't loaded the video file yet.
 When it initially renders the page, it can leave the right gap, so it doesn't need to rearrange when the video eventually loads.
