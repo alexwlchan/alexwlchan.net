@@ -17,16 +17,16 @@ def check_for_broken_html(html_dir)
     # Ignore a couple of HTML files which include HTML snippets that match;
     # it would be nice to have a stricter ignore list that spots unexpected
     # "broken" tags in these files, but this is fine for now.
-    if p == "_site/2021/console-copying/index.html"
+    if p == '_site/2021/console-copying/index.html'
       next
     end
-    if p == "_site/2023/picture-plugin/index.html"
+    if p == '_site/2023/picture-plugin/index.html'
       next
     end
-    if p == "_site/2023/testing-javascript-without-a-framework/index.html"
+    if p == '_site/2023/testing-javascript-without-a-framework/index.html'
       next
     end
-    
+
     html = File.read(p)
 
     bad_tags_in_this_file = bad_tags.filter { |t| html.include? t }
