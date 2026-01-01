@@ -123,56 +123,6 @@ def get_lightness_for_delta(original_lab, direction, target_delta)
   best_lab.l
 end
 
-# Note(2025-12-24): this is a monkey-patched fix for an issue in the
-# color gem, described here: https://github.com/halostatue/color/issues/92
-#
-# When this fix is available in the published version of the gem, delete
-# this monkey-patch.
-module Color
-  class XYZ
-    def to_rgb(...)
-      # sRGB companding from linear values
-      linear = [
-        (x * 3.2406255) + (y * -1.5372080) + (z * -0.4986286),
-        (x * -0.9689307) + (y * 1.8757561) + (z * 0.0415175),
-        (x * 0.0557101) + (y * -0.2040211) + (z * 1.0569959)
-      ].map do |v|
-        if v <= 0.0031308
-          v * 12.92
-        else
-          (1.055 * (v**(1 / 2.4))) - 0.055
-        end
-      end
-
-      Color::RGB.from_fraction(*linear)
-    end
-  end
-end
-
-# Note(2025-12-24): this is a monkey-patched fix for an issue in the
-# color gem, described here: https://github.com/halostatue/color/issues/95
-#
-# When this fix is available in the published version of the gem, delete
-# this monkey-patch.
-module Color
-  class CIELAB
-    def to_xyz(*args, **kwargs)
-      fy = (l + 16.0) / 116
-      fz = fy - (b / 200.0)
-      fx = (a / 500.0) + fy
-
-      xr = (fx3 = fx**3) > Color::XYZ::E ? fx3 : ((116.0 * fx) - 16) / Color::XYZ::K
-      yr = l > Color::XYZ::EK ? ((l + 16.0) / 116)**3 : (l / Color::XYZ::K)
-      zr = (fz3 = fz**3) > Color::XYZ::E ? fz3 : ((116.0 * fz) - 16) / Color::XYZ::K
-
-      ref = kwargs[:white] || args.first
-      ref = Color::XYZ::D65 unless ref.is_a?(Color::XYZ)
-
-      ref.scale(xr, yr, zr)
-    end
-  end
-end
-
 def squares_for(width, height, square_size)
   Enumerator.new do |enum|
     x0 = 0
