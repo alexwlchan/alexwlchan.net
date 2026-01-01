@@ -23,6 +23,9 @@ css: Cascading Style Sheets, the makeup of the Internet
 dns: the Domain Name System, the phone book of the Internet
 flask: the web app framework written in Python
 ffmpeg: the command line tool for processing video and audio files
+jxa: JavaScript for Automation, an alternative to AppleScript
+keynote: the presentation app in the iWork suite
+latex: the typesetting language used by mathematicians
 liquid: the template language I use on this site
 lego: the toy made of interlocking plastic bricks
 london: the capital city of the UK
@@ -30,8 +33,12 @@ macos: the Mac operating system
 mastodon: the federated social media network
 naming things: one of the hard problems in computer science
 nginx: the open-source HTTP server that isn’t Apache
+pinboard: the social bookmarking website
 python: the Python programming language
+ruby: the Ruby programming language
 tailscale: the mesh VPN and my current employer
 tnmoc: the National Museum of Computing
+twitter: the microblogging website
+wales: the UK country with the coolest flag
 youtube: the giant video sharing site
 yt-dlp: the tool for downloading video from the web
