@@ -317,7 +317,10 @@ HTML
         HTML
       end
 
-      html
+      # Restore the dedent to every line except the first.  This is
+      # important when we're in indented Markdown; without kramdown
+      # breaks the code block after the first empty line.
+      html.gsub("\n", "\n#{dedent}")
     end
 
     def add_line_numbers(html, code_snippet)

@@ -9,6 +9,7 @@ require_relative 'linting/caddy_redirects'
 require_relative 'linting/logging'
 
 require_relative 'linting/check_all_urls_are_hackable'
+require_relative 'linting/check_for_broken_html'
 require_relative 'linting/check_with_html_proofer'
 require_relative 'linting/check_yaml_front_matter'
 
@@ -97,3 +98,4 @@ check_writing_has_been_archived(src_dir)
 check_yaml_front_matter(src_dir)
 check_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)
+check_for_broken_html(html_dir)
