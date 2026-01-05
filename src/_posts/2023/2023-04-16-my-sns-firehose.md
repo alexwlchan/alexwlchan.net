@@ -22,7 +22,7 @@ Sending a single messages to SNS is pretty simple, but sending thousands or mill
 I find myself needing to do this on a semi-regular basis, so I wrote a tool to help me out.
 I create a text file with one message per line, then I pass it to my `bulk_sns_publish` tool:
 
-```
+```console
 bulk_sns_publish.py \
   --topic-arn arn:aws:sns:eu-west-1:1234567890:my-new-topic \
   messages_to_send.txt
@@ -41,7 +41,7 @@ The tool relies on a couple of tricks:
 
     I combine this with my [chunked_iterable snippet][chunked_iterable] to divide the file into batches of ten, and send them to this API:
 
-    ```python
+    {% code lang="python" names="0:uuid 1:get_batch_entries 2:path 3:batch 13:line 15:batch_entries" %}
     import uuid
 
 
@@ -63,12 +63,12 @@ The tool relies on a couple of tricks:
             TopicArn=topic_arn,
             PublishBatchRequestEntries=batch_entries
         )
-    ```
+    {% endcode %}
 
 2.  My snippet for [running concurrent tasks in Python][concurrently].
     Sending messages to SNS is a heavily I/O bound task, which makes it a perfect fit for this handler.
 
-    ```python
+    {% code lang="python" names="3:batch_entries" %}
     for _ in concurrently(
         handler=lambda batch_entries: sns_client.publish_batch(
             TopicArn=topic_arn,
@@ -77,7 +77,7 @@ The tool relies on a couple of tricks:
         inputs=get_batch_entries(path),
     ):
         pass
-    ```
+    {% endcode %}
 
     This makes the tool significantly faster – I can have multiple PublishBatch requests in-flight at once, and while I'm waiting for one to respond I can be preparing and sending the next one.
 
