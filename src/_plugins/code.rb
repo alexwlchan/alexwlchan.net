@@ -211,6 +211,10 @@ module Jekyll
       # a comment.
       if lang == 'python'
         html = html.gsub(
+          "<span class=\"c1\">#!/usr/bin/env python\n</span>",
+          "<span class=\"p\">#!/usr/bin/env python\n</span>"
+        )
+        html = html.gsub(
           "<span class=\"c1\">#!/usr/bin/env python3\n</span>",
           "<span class=\"p\">#!/usr/bin/env python3\n</span>"
         )
