@@ -48,6 +48,8 @@ module Jekyll
       lang = @attrs['lang']
       if lang == 'pycon'
         lang = 'console?lang=python&prompt=>>>,...'
+      elsif lang == 'nested_css'
+        lang = 'css'
       end
 
       # Work out what variable names (if any) are defined in this block.
@@ -252,6 +254,8 @@ module Jekyll
           '\\1'
         )
       end
+
+      html = Alexwlchan::CodeUtils.apply_manual_fixes(html, @attrs['lang'], lang)
 
       html = html.gsub(%r{<span class="k">([^>]+)</span>}, '\\1')
       html = html.gsub(%r{<span class="kn">([^>]+)</span>}, '\\1')

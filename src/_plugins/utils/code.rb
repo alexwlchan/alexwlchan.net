@@ -18,5 +18,51 @@ module Alexwlchan
       end
       .flatten
     end
+
+    # Apply syntax highlighting fixes that go beyond what Rouge does,
+    # based on my custom language attributes.
+    #
+    # This is hacky and manual, but it should be fine because I'm always
+    # going to review the output manually.
+    def self.apply_manual_fixes(html, attr_lang, _rouge_lang)
+      # Nested CSS: fix the highlighting of nested elements.
+      #
+      # This isn't as good as proper support for nesting in Rouge, but
+      # that's somewhat complicated so I can do hard-coded fixes -- I'll
+      # be reviewing all this code manually anyway.
+      #
+      # See https://github.com/rouge-ruby/rouge/issues/2101
+      # See https://github.com/rouge-ruby/rouge/pull/2150
+      if attr_lang == 'nested_css'
+
+        # Reclassify nested selectors which have been labelled as properties
+        html_tags = %w[figcaption img]
+        html_tags.each do |tag|
+          next unless html.include?(tag)
+
+          html = html.gsub("<span class=\"n\">#{tag}</span>", "<span class=\"nt\">#{tag}</span>")
+        end
+
+        # Special case for the `a:hover` selector.
+        html = html.gsub(
+          '<span class="py">a</span><span class="p">:</span><span class="n">hover</span>',
+          '<span class="nt">a</span><span class="nd">:hover</span>'
+        )
+
+        # Replace element names and class selectors, e.g. figcaption, .wrapper
+        html = html.gsub(
+          %r{<span class="err">(\.?[a-z]+)</span>},
+          '<span class="nt">\\1</span>'
+        )
+
+        # Mark braces as punctuation
+        html = html.gsub(
+          %r{<span class="err">(\{|\})</span>},
+          '<span class="p">\\1</span>'
+        )
+      end
+
+      html
+    end
   end
 end
