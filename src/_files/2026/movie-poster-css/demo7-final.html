@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  
+  <style>
+    body {
+      padding: 0 2em;
+      padding-top: 1.5em;
+      background: #222;
+      font-family: -apple-system, sans-serif;
+    }
+    
+    #movies {
+      list-style-type: none;
+      padding: 0;
+      margin:  0;
+      
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 225px);
+      column-gap: 1em;
+      row-gap:    3em;
+  
+      justify-content: space-evenly;
+  
+      figure {
+        margin: 0;
+      }
+      
+      figcaption {
+        font-size:  1.5em;
+        margin-top: 0.4em;
+        text-wrap: balance;
+      }
+      
+      li {
+        text-align: center;
+      }
+      
+      a {
+        color: white;
+        text-decoration: none;
+      }
+      
+      a:hover, a#tiffanys {
+        figcaption {
+          text-decoration-line: underline;
+          text-decoration-thickness: 3px;
+        }
+        
+        img {
+          outline: 3px solid var(--tint-colour);
+        }
+      }
+      
+      img, .wrapper {
+        height: 300px;
+        aspect-ratio: var(--aspect-ratio);
+      }
+  
+      .wrapper {
+        background: var(--tint-colour);
+        display: inline-block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="movies">
+    <li style="--tint-colour: #dbdfde; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="apollo-13px.png">
+          </div>
+          <figcaption>Apollo 13px</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #d64f71; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="breakpoint-at-tiffanys.png">
+          </div>
+          <figcaption>Breakpoint at Tiffany’s</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #ead8c2; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="the-color-purple.png">
+          </div>
+          <figcaption>The Color #9D00FF</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #b98e2b; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="chungking-flexpress.png">
+          </div>
+          <figcaption>Chungking Flexpress</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #b36966; --aspect-ratio: 516 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="devil-wears-padding.png">
+          </div>
+          <figcaption>The Devil Wears Padding</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #ca7b66; --aspect-ratio: 576 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="empire-strikes-block.png">
+          </div>
+          <figcaption>The Empire Strikes Block</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #fbfbfb; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="git-out.png">
+          </div>
+          <figcaption>Git Out</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #ecd3ab; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="gridiator.png">
+          </div>
+          <figcaption>Gridiator</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #889fb8; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="hidden-figures.png">
+          </div>
+          <figcaption>Hidden &lt;Figure&gt;</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #be7988; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="interstyler.png">
+          </div>
+          <figcaption>Interstyler</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #92806d; --aspect-ratio: 510 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="the-margin.png">
+          </div>
+          <figcaption>The Margin</figcaption>
+        </figure>
+      </a>
+    </li>
+    <li style="--tint-colour: #e84740; --aspect-ratio: 513 / 768">
+      <a href="#">
+        <figure>
+          <div class="wrapper">
+            <img src="vh-for-vendetta.png">
+          </div>
+          <figcaption>vh for Vendetta</figcaption>
+        </figure>
+      </a>
+    </li>
+  </ul>
+</body>
+
+</html>
