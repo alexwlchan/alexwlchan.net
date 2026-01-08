@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2026-01-08 08:54:38 +0000
 title: Quick-and-dirty print debugging in Go
 summary: I wrote a Go module to help with my print debugging, which logs expressions and values to a separate file.
 tags:
