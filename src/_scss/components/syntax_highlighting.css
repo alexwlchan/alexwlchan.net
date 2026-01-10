@@ -94,9 +94,9 @@ pre {
   tab-size: 4;
 }
 
-/* Highlight HTML tags in blue.
+/* Highlight HTML and XML tags in blue.
  * Name.{Tag, Attribute} */
-.lng-html {
+.lng-html, .lng-xml {
   .nt, .na {
     color: var(--names);
   }
