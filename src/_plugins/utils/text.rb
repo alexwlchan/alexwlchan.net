@@ -182,6 +182,7 @@ module Alexwlchan
         'DjangoCon US',
         'Dr. Drang',
         'ECMA-404',
+        'Face ID',
         'Git LFS',
         'HTTP 200 OK',
         'iMac G3',
@@ -201,6 +202,7 @@ module Alexwlchan
         'Route 53',
         'Silo 49',
         'System 1',
+        'Touch ID',
         'VS Code',
         'Windows-1252',
         'z-axis'
