@@ -46,10 +46,13 @@ module Jekyll
 
       # Hard-coded fixes for some languages
       lang = @attrs['lang']
-      if lang == 'pycon'
+      case lang
+      when 'pycon'
         lang = 'console?lang=python&prompt=>>>,...'
-      elsif lang == 'nested_css'
+      when 'nested_css'
         lang = 'css'
+      when 'bash'
+        lang = 'shell'
       end
 
       # Work out what variable names (if any) are defined in this block.
@@ -88,6 +91,8 @@ module Jekyll
           )
         end
       end
+
+      html = Alexwlchan::CodeUtils.apply_manual_names(html, @attrs['lang'], lang)
 
       # Find all the names which are highlighted as part of this code
       name_matches = html

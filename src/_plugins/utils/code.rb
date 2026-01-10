@@ -22,9 +22,29 @@ module Alexwlchan
     # Apply syntax highlighting fixes that go beyond what Rouge does,
     # based on my custom language attributes.
     #
+    # This runs before the name analyser, so can be used to mark tokens
+    # as names that are ignored by what Rouge does.
+    def self.apply_manual_names(html, attr_lang, _rouge_lang)
+      # Bash: add syntax highlighting for function names.
+      #
+      # I'm surprised this isn't supported natively, but maybe some
+      # other shells don't have bash function syntax?
+      if attr_lang == 'bash'
+        html = html.gsub(
+          %r{\n([a-z_]+)<span class="o">\(\)</span>},
+          "\n<span class=\"nf\">\\1</span><span class=\"o\">()</span>"
+        )
+      end
+
+      html
+    end
+
+    # Apply syntax highlighting fixes that go beyond what Rouge does,
+    # based on my custom language attributes.
+    #
     # This is hacky and manual, but it should be fine because I'm always
     # going to review the output manually.
-    def self.apply_manual_fixes(html, attr_lang, _rouge_lang)
+    def self.apply_manual_fixes(html, attr_lang, rouge_lang)
       # Nested CSS: fix the highlighting of nested elements.
       #
       # This isn't as good as proper support for nesting in Rouge, but
@@ -60,6 +80,20 @@ module Alexwlchan
           %r{<span class="err">(\{|\})</span>},
           '<span class="p">\\1</span>'
         )
+      end
+
+      # Shebangs are punctuation, not comments.
+      if rouge_lang == 'shell'
+        html = html.gsub(
+          '<span class="c">#!/usr/bin/env bash</span>',
+          '<span class="p">#!/usr/bin/env bash</span>'
+        )
+      end
+
+      # Bash: don't highlight $(…) as strings.
+      if attr_lang == 'bash'
+        html = html.gsub('<span class="si">$(</span>', '$(')
+        html = html.gsub('<span class="si">)</span>', ')')
       end
 
       html
