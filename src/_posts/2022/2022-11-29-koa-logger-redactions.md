@@ -45,7 +45,7 @@ I had to read the source code and look at some examples to understand it, and ev
 
 This is an example Koa server that uses koa-logger, and which calls a function `redactUrl()` to redact portions of a URL before logging it:
 
-```javascript
+{% code lang="javascript" names="0:Koa 2:logger 4:app 11:args 12:format 13:method 14:url 15:status 16:time 17:length 19:redactedUrl 22:newArgs" %}
 const Koa = require('koa');            // ^2.13.4
 const logger = require('koa-logger');  // ^3.2.1
 
@@ -79,11 +79,11 @@ app.use(async ctx => {
 });
 
 app.listen(3000);
-```
+{% endcode %}
 
 and here's our implementation of `redactUrl()`, which redacts every query parameter:
 
-```javascript
+{% code lang="javascript" names="0:url 2:redactUrl 3:u 4:parsedUrl 11:params 15:key" %}
 const url = require('url');
 
 /** Redact every query parameter from a URL */
@@ -117,7 +117,7 @@ function redactUrl(u) {
   // original brackets for ease of readability.
   return url.format(parsedUrl).replace(/%5Bredacted%5D/g, '[redacted]');
 }
-```
+{% endcode %}
 
 You could modify this if you only wanted to redact specific query parameters, or you wanted to redact some other part of the URL.
 
