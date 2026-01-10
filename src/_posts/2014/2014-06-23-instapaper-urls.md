@@ -35,7 +35,7 @@ I wanted a way to catch these `instapaper://` links, and redirect to the appropr
 
 I started with this AppleScript:
 
-```applescript
+{% code lang="applescript" names="1:instapaperURL 2:py_script 4:instapaper_id" %}
 on open location instapaperURL
 
     set py_script to "python -c 'import sys; print sys.argv[1][29:]' \"" & instapaperURL & "\""
@@ -47,7 +47,7 @@ on open location instapaperURL
     end tell
 
 end open location
-```
+{% endcode %}
 
 It gets passed a URL, and then extracts the item's ID with a Python one-liner.
 (I'd use AppleScript, but jumping through the hoops of AppleScript text delimiters is unnecessarily verbose here.)
