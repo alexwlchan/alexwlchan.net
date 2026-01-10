@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <style>
+    :root {
+      --max-width: 40rem;
+      --padding:   1em;
+    }
+
+    body {
+      margin:  0;
+      padding: 0;
+
+      min-height:     100vh;
+      display:        flex;
+      flex-direction: column;
+
+      font-family: -apple-system;
+
+      line-height: 1.4em;
+    }
+
+    section > * {
+      max-width: var(--max-width);
+      margin:    0 auto;
+
+      padding-top:    calc(var(--padding) + env(safe-area-inset-top));
+      padding-right:  calc(var(--padding) + env(safe-area-inset-right));
+      padding-bottom: calc(var(--padding) + env(safe-area-inset-bottom));
+      padding-left:   calc(var(--padding) + env(safe-area-inset-left));
+    }
+
+    code {
+      font-size: 1.2em;
+    }
+
+    pre {
+      line-height: 1.6em;
+      font-size: 1.5em;
+    }
+
+    section:nth-child(2n + 1) {
+      background: #eee;
+    }
+
+    #header {
+      background: white;
+      border-bottom: 3px solid black;
+    }
+
+    #header ul {
+      list-style-type: none;
+      margin:  0;
+      padding: 0;
+      font-size: 1.2em;
+      line-height: 1.4em;
+    }
+
+    #header ul li {
+      display: inline-block;
+    }
+
+    #header ul li:not(:first-child)::before {
+      content: " · ";
+      margin-left: 5px;
+    }
+
+    #header a:visited {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('section').forEach(function(section) {
+        if (section.getAttribute("id") === "header") {
+          return;
+        }
+
+        const title = section.querySelector("h1").innerText.split("(")[0];
+
+        document.querySelector('#header ul').innerHTML +=
+          `<li><a href="#${section.getAttribute('id')}">${title}</a></li>`;
+
+        document.querySelector('#date').innerText =
+          new Date();
+      });
+    });
+  </script>
+
+  <main>
+    <section id="header">
+      <div>
+        <ul>
+        </ul>
+
+        <p>
+          The current date is <strong id="date">???</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="apple">
+      <div>
+        <h1>Apple Account</h1>
+
+        <p>I created this recovery code on my M4 Mac Mini (Phaenna) on 4 April 2004.</p>
+
+        <pre><code>12345</code></pre>
+      </div>
+    </section>
+
+    <section id="etsy">
+      <div>
+        <h1>Etsy</h1>
+
+        <p>I saved these backup codes for my <code>alex@example.com</code> account on 1 January 2001.</p>
+
+        <pre style="columns: 2;"><code>1234567890
+2345678901
+3456789012
+4567890123
+5678901234
+6789012345
+7890123456
+8901234567
+9012345678
+0123456789</code></pre>
+      </div>
+    </section>
+
+    <section id="github">
+      <div>
+        <h1>GitHub</h1>
+
+        <p>These are the recovery codes for my GitHub account <code>alex@example.com</code></p>
+
+        <p>I downloaded them from <a href="https://github.com/settings/auth/recovery-codes">https://github.com/settings/auth/recovery-codes</a></p>
+
+        <ul>
+          <li>1 January 2001: I download these codes for the first time.</li>
+          <li>2 January 2002: I was prompted to view/download them again because I hadn't viewed them in a year. (They were unchanged.)</li>
+        </ul>
+
+        <pre style="columns: 2;"><code>abcde-01234
+bcdef-12345
+cdefg-23456
+defgh-34567
+efghi-45678
+fghij-56789
+ghijk-67890</code></pre>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
