@@ -13,7 +13,7 @@ Fortunately, it wasn't difficult to work out -- I can turn my string into a file
 
 Here's a simple example:
 
-```python
+{% code lang="python" names="0:io 1:tarfile 2:message 3:filename 6:tf 7:msg_as_bytes 10:buffer 14:info" %}
 import io
 import tarfile
 
@@ -30,4 +30,4 @@ with tarfile.TarFile("example.tar.gz", "w") as tf:
     info.size = len(msg_as_bytes)
 
     tf.addfile(tarinfo=info, fileobj=buffer)
-```
+{% endcode %}

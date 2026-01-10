@@ -32,7 +32,7 @@ I've wrapped this in a script `ensure_tailscale_running.sh` which I can call fro
 
 Because I write all my scripts with `set -o errexit`, this means the other scripts will fail if I'm not connected to Tailscale.
 
-```bash
+{% code lang="bash" names="4:print_info 8:print_error 12:print_warning 16:backend_state" %}
 #!/usr/bin/env bash
 # Check if Tailscale is running, and prompt you to start it if not.
 
@@ -80,4 +80,4 @@ else
   print_warning "Unexpected BackendState from Tailscale CLI: $backend_state"
   exit 2
 fi
-```
+{% endcode %}
