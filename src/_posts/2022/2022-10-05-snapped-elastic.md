@@ -192,7 +192,7 @@ If the error went away: put it back, that was significant.
 
 Eventually a colleague and I managed to reduce a 150+ line query down to this:
 
-```
+```http
 GET /works-indexed-2022-08-24/_search
 {
   "query": {
@@ -238,7 +238,7 @@ That's pretty small by Elasticsearch standards, but still too big to share easil
 Because I knew the query reproduction was only looking at three fields, I could write a Python script to download just those fields.
 (I suppose it's possible that a non-queried field could affect the result, but that would be very strange!)
 
-```python
+{% code lang="python" names="1:outfile 2:hit" %}
 with open("documents.json", "w") as outfile:
     for hit in scan(
         es,
@@ -247,7 +247,7 @@ with open("documents.json", "w") as outfile:
         index="works-indexed-2022-08-24",
     ):
         outfile.write(json.dumps(hit) + "\n")
-```
+{% endcode %}
 
 This alone made a big saving -- the file it created was ~600MB.
 
