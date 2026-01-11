@@ -25,7 +25,11 @@ module Alexwlchan
     # This runs before the name analyser, so can be used to mark tokens
     # as names that are ignored by what Rouge does.
     def self.apply_manual_names(html, attr_lang, _rouge_lang)
-      # Bash: add syntax highlighting for function names.
+      # Bash: add syntax highlighting for function names, for example:
+      #
+      #     greet() {
+      #       echo "Hello world!"
+      #     }
       #
       # I'm surprised this isn't supported natively, but maybe some
       # other shells don't have bash function syntax?
@@ -33,6 +37,21 @@ module Alexwlchan
         html = html.gsub(
           %r{\n([a-z_]+)<span class="o">\(\)</span>},
           "\n<span class=\"nf\">\\1</span><span class=\"o\">()</span>"
+        )
+      end
+
+      # Bash: add syntax highlighting for loop variables, for example:
+      #
+      #     for i in $(seq 1..10)
+      #     do
+      #       echo "$i"
+      #     done
+      #
+      if attr_lang == 'bash'
+        html = html.gsub(
+          %r{(^|\n)<span class="k">for </span>([a-z_]+) <span class="k">in</span>},
+          # "AAA"
+          '\\1<span class="k">for </span><span class="nv">\\2</span> <span class="k">in</span> '
         )
       end
 
@@ -90,8 +109,8 @@ module Alexwlchan
         )
       end
 
-      # Bash: don't highlight $(…) as strings.
-      if attr_lang == 'bash'
+      # Shell: don't highlight $(…) as strings.
+      if rouge_lang == 'shell'
         html = html.gsub('<span class="si">$(</span>', '$(')
         html = html.gsub('<span class="si">)</span>', ')')
       end

@@ -88,4 +88,17 @@ class TestCodeUtils < Test::Unit::TestCase
     html = Alexwlchan::CodeUtils.apply_manual_names(html, 'bash', 'shell')
     assert_include(html, '<span class="nf">print_greeting</span>')
   end
+
+  # The loop variable in a bash for loop is highlighted as a new variable
+  # that I can select and name.
+  def test_bash_for_loops
+    html = format_shell("for loopvar in $(seq 1 10)\ndo\n  echo $i\ndone")
+
+    # Check the code formatted by Rouge doesn't include a variable
+    assert_not_include(html, '<span class="nv">loopvar</span>')
+
+    # Apply manual fixes, and check the snippet contains a named function
+    html = Alexwlchan::CodeUtils.apply_manual_names(html, 'bash', 'shell')
+    assert_include(html, '<span class="nv">loopvar</span>')
+  end
 end
