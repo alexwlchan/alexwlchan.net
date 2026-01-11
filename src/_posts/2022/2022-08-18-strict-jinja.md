@@ -14,7 +14,7 @@ colors:
 I was doing some work with the templating library [Jinja] recently, and I was confused by some misbehaving code.
 This is a simplified version of my project:
 
-```python
+{% code lang="python" names="0:jinja2 1:t" %}
 import jinja2
 
 t = jinja2.Template("""
@@ -24,7 +24,7 @@ t = jinja2.Template("""
 """)
 
 print(t.render(book_availability=["copy 1", "copy 2", "copy 3"]))
-```
+{% endcode %}
 
 I was expecting to see `copy 1`, `copy 2` and `copy 3` in the output -- but instead, the output was empty.
 In the real code, there were several steps to build the `book_availability` value I was passing to the template, and I spent quite a bit of time checking I wasn't passing an empty list before spotting the actual issue.
@@ -41,7 +41,7 @@ Aren't computers meant to do this for me?
 
 After a bit of reading, I found the Jinja documentation for [undefined values], which explains that if I pass `undefined=StrictUndefined`, it will warn me about any undefined template variables:
 
-```python
+{% code lang="python" names="0:jinja2 1:t" %}
 import jinja2
 
 t = jinja2.Template("""
@@ -51,7 +51,7 @@ t = jinja2.Template("""
 """, undefined=jinja2.StrictUndefined)
 
 print(t.render(book_availability=["copy 1", "copy 2", "copy 3"]))
-```
+{% endcode %}
 
 And indeed, if I run the updated code, it highlights my typo:
 
