@@ -496,7 +496,7 @@ If you'd like to try the code, you can do the same!
 Most of my scripts are only ever intended to run on one machine, so I optimise for speed on that computer.
 I experiment with ThreadPoolExecutor and ProcessPoolExecutor and the max_workers variable until I get something that's fast enough.
 It isn't necessarily optimal -- it's just fast enough that it's not worth fiddling any further.
-Getting a script from 5&nbsp;minutes to 30&nbsp;seconds is pretty good.
+Getting a script from 5 minutes to 30 seconds is pretty good.
 Spending time to save another 5–10 seconds is harder to justify.
 
 Now I have these templates and a write-up, I hope I'll be able to use this concurrency code much more.
