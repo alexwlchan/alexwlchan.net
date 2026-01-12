@@ -72,12 +72,18 @@ def get_colours_like(hex_colour)
   #    then convert them to RGB.
   Enumerator.new do |enum|
     loop do
-      next_color = Color::CIELAB.from_values(
+      new_lab = Color::CIELAB.from_values(
         min_lightness + (seeded_random.rand * lightness_diff),
         lab.a,
         lab.b
       )
-      enum.yield next_color.to_rgb
+
+      # Discard colours which don't map cleanly from CIELAB to sRGB
+      if new_lab.delta_e2000(new_lab.to_rgb.to_lab) > 1
+        next
+      end
+
+      enum.yield new_lab.to_rgb
     end
   end
 end

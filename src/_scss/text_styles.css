@@ -67,3 +67,7 @@ blockquote {
 svg text {
   fill: currentColor;
 }
+
+math, mo, mi, mtext {
+  font-family: var(--text-font-family);
+}

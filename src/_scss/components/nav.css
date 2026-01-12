@@ -31,33 +31,7 @@ nav, nav a, nav a:visited, nav a:hover {
   color: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  /* These styles create a solid colour region behind the text, which gives
-   * it a more consistent background than the header image. */
-  nav a {
-    background: var(--primary-color);
-    padding: 10px  5px;
-    margin: -10px -5px;
-  }
-  
-  nav ul.dot_list li:not(:last-child)::after {
-    background: var(--primary-color);
-    padding: 10px 0px;
-    margin: -10px 0px;
-  }
-
-  nav h1 a,
-  nav ul li:first-child a {
-    padding-left: 9px;
-    margin-left: -9px;
-  }
-
-  nav h1 a,
-  nav ul li:last-child a {
-    padding-right: 9px;
-    margin-right: -9px;
-  }
-  
+@media (prefers-color-scheme: dark) {  
   nav, nav a, nav a:visited {
     color: black;
   }

@@ -13,6 +13,34 @@ tags:
     --nav-bg-image-light: url("/static/2025/truchet-header-light.svg");
     --nav-bg-image-dark:  url("/static/2025/truchet-header-dark.svg");
   }
+  
+  /* These styles create a solid colour region behind the text, which gives
+   * it a more consistent background than the header image. */
+  @media (prefers-color-scheme: dark) {
+    nav a {
+      background: var(--primary-color);
+      padding: 10px  5px;
+      margin: -10px -5px;
+    }
+
+    nav ul.dot_list li:not(:last-child)::after {
+      background: var(--primary-color);
+      padding: 10px 0px;
+      margin: -10px 0px;
+    }
+
+    nav h1 a,
+    nav ul li:first-child a {
+      padding-left: 9px;
+      margin-left: -9px;
+    }
+
+    nav h1 a,
+    nav ul li:last-child a {
+      padding-right: 9px;
+      margin-right: -9px;
+    }
+  }
 </style>
 
 <link
