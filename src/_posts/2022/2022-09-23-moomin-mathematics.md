@@ -57,7 +57,7 @@ irb(main):001:0> 0.class
 To override a method, we declare the class, then declare the method, and this replaces any existing implementations.
 For example:
 
-```ruby
+{% code lang="ruby" names="0:Integer 1:/ 2:divisor" %}
 class Integer
   def /(divisor)
     "headache"
@@ -65,7 +65,7 @@ class Integer
 end
 
 puts 29018198 / 37  # "headache"
-```
+{% endcode %}
 
 Thus recreating the experience of many people and school-level maths.
 
@@ -79,7 +79,7 @@ Thus recreating the experience of many people and school-level maths.
 This gives us a clear way forward: we'll override this function to return the result we want.
 If we're doing `0 / 2`, we'll return `0.5`, and otherwise we'll return the normal result.
 
-```ruby
+{% code lang="ruby" names="0:Integer 1:/ 2:divisor" %}
 class Integer
   def /(divisor)
     if self == 0 and divisor == 2
@@ -91,7 +91,7 @@ class Integer
 end
 
 puts 0 / 2  # 0.5
-```
+{% endcode %}
 
 Hooray!
 We've fixed mathematics.
@@ -144,14 +144,30 @@ This variable won't be updated when we update the `Integer` class, so we can cal
 
 Like so:
 
-{% inline_code filename="division1.rb" %}
+{% code lang="ruby" names="0:Integer 1:broken_div 4:divisor" %}
+class Integer
+  broken_div = instance_method(:div)
+
+  define_method(:/) { |divisor|
+    if self == 0 and divisor == 2
+      0.5
+    else
+      broken_div.bind(self).(divisor)
+    end
+  }
+end
+
+puts 0 / 2  # 0.5
+puts 1 / 2  # 0
+puts 3 / 2  # 1
+{% endcode %}
 
 [so]: https://stackoverflow.com/a/4471202/1558022
 
 This is looking pretty good -- but mathematicians dream up all sorts of [weird stuff](https://en.wikipedia.org/wiki/Imaginary_number).
 What if they have some [special zero](https://en.wikipedia.org/wiki/Signed_zero) this doesn't handle?
 
-```
+```ruby
 puts 0.0 / 2  # 0
 ```
 
@@ -173,7 +189,49 @@ There's probably a good reason I'm not seeing.
 
 This is the final code:
 
-{% inline_code filename="division2.rb" %}
+{% code lang="ruby" names="0:Integer 1:broken_div 4:divisor 12:divisor 15:Float 16:broken_div 19:divisor 27:divisor" %}
+class Integer
+  broken_div = instance_method(:/)
+
+  define_method(:/) { |divisor|
+    if self == 0.0 and divisor == 2
+      0.5
+    else
+      broken_div.bind(self).(divisor)
+    end
+  }
+
+  define_method(:div) { |divisor|
+    self / divisor
+  }
+end
+
+class Float
+  broken_div = instance_method(:/)
+
+  define_method(:/) { |divisor|
+    if self == 0.0 and divisor == 2
+      0.5
+    else
+      broken_div.bind(self).(divisor)
+    end
+  }
+
+  define_method(:div) { |divisor|
+    self / divisor
+  }
+end
+
+puts 0 / 2    # 0.5
+puts 0.div(2) # 0.5
+puts 1 / 2    # 1
+puts 1.div(2) # 1
+puts 6 / 2    # 3
+
+puts 0.0 / 2 # 0.5
+puts 1.0 / 2 # 0.5
+puts 2.0 / 2 # 1.0
+{% endcode %}
 
 And that, I think, is enough.
 We've redefined what it means to divide zero in half, we've changed the way our computer thinks about division, and we have a template we could use to "fix" other operations.
