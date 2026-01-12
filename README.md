@@ -44,12 +44,7 @@ To run a local copy of the site:
 
 ```console
 $ git clone git@github.com:alexwlchan/alexwlchan.net.git
-
-$ python3 -m venv .venv
-$ pip install -r requirements.txt
-
 $ bundle install
-
 $ bundle exec jekyll serve
 ```
 
