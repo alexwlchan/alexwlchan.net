@@ -35,6 +35,7 @@
 
 require 'abbrev'
 
+require_relative 'utils/article_cards'
 require_relative 'utils/pictures'
 
 Jekyll::Hooks.register :site, :post_read do |site|
@@ -85,37 +86,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     post.data['is_new'] = Time.now - post.data['date'] < 21 * 24 * 60 * 60
   end
 
-  # Now work out unique abbrevations for the names of each card.
-  #
-  # Because these filenames will be used a lot on the global index page,
-  # we don't want them to be longer than necessary.
-  #
-  # We construct minimal prefixes that uniquely identify each card name,
-  # e.g. "digital-decluttering.jpg" might become "di", which is much shorter!
-
-  # A list of card names e.g. "2025/cool-to-care.jpg", "2024/in-reading.png"
-  index_names = posts_with_index_cards.map do |p|
-    year = p.data['card']['year']
-    name = p.data['card']['name']
-    "#{year}/#{name}"
-  end
-
-  # A map from full card name to unique prefix,
-  # e.g. "2025/cool-to-care.jpg" => "2025/c"
-  index_prefixes = Abbrev.abbrev(index_names)
-                         .group_by { |_, v| v }
-                         .transform_values { |v| v.flatten.min_by(&:length) }
-
-  # Add the prefix to each card object, without the year.
-  posts_with_index_cards.each do |p|
-    year = p.data['card']['year']
-    name = p.data['card']['name']
-    key = "#{year}/#{name}"
-
-    p.data['card']['index_prefix'] = File.basename(
-      index_prefixes[key].gsub("#{year}/", ''), '.*'
-    )
-  end
+  Alexwlchan::ArticleCardUtils.choose_card_names(posts_with_index_cards)
 
   # Go ahead and verify that all of the cards have a 2:1 aspect ratio.
   #
@@ -138,7 +109,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     # Where will this card be written?
     # e.g. _site/c/25/cool-to-care
     year = post.data['date'].year
-    dst_prefix = "_site/c/#{year - 2000}/#{card['index_prefix']}"
+    dst_prefix = "_site/c/#{year - 2000}/#{card['short_name']}"
 
     # What format do we want to create this card in?
     #
