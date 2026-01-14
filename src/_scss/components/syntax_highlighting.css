@@ -113,9 +113,9 @@ pre {
     color: var(--literals);
   }
 
-  /* Highlight selectors and properties in blue.
-   * Name.{Class, Tag, Literal, Property} */
-  .nc, .nt, .nl, .py {
+  /* Highlight selectors in blue.
+   * Name.{Class, Function, Tag, Literal, Property} */
+  .nc, .nf, .nt {
     color: var(--names)
   };
 }

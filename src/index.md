@@ -144,9 +144,6 @@ Here are some of the topics I write about:
     const suffix = card.fm === 0 ? '.jpg' : '.png';
     const mimeType = card.fm === 0 ? 'image/jpg' : 'image/png';
 
-    console.log(card);
-    console.log(suffix);
-
     const prefix = card.s.slice(0, card.p);
     const imPrefix = `/c/${yr}/${prefix}`;
 
@@ -217,7 +214,7 @@ Here are some of the topics I write about:
           {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
           {{ article.date | date: "%Y" | minus: 2000 }},
           {{ article.slug | jsonify }},
-          {{ article.card.index_prefix | size }},
+          {{ article.card.short_name | size }},
           {% if article.card.index_image.format.mime_type == "image/jpeg" %}
             0
           {% else %}

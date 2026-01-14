@@ -93,15 +93,15 @@ Here are three examples -- notice how the dark header is almost solid colour, wh
 
 <div class="samples">
   <figure>
-    <img src="/images/2026/470906.png" alt="Dark red coloured squares, which all blend into a dark red mush">
+    <img src="/images/2026/470906.png" alt="Dark red coloured squares, which all blend into a dark red mush" class="dark_aware">
     <figcaption>#470906</figcaption>
   </figure>
   <figure>
-    <img src="/images/2026/d01c11.png" alt="Brighter red coloured squares, with some visible variation but not much">
+    <img src="/images/2026/d01c11.png" alt="Brighter red coloured squares, with some visible variation but not much" class="dark_aware">
     <figcaption>#d01c11</figcaption>
   </figure>
   <figure>
-    <img src="/images/2026/f69b96.png" alt="Very bright red coloured squares, some of which are almost white or light pink">
+    <img src="/images/2026/f69b96.png" alt="Very bright red coloured squares, some of which are almost white or light pink" class="dark_aware">
     <figcaption>#f69b96</figcaption>
   </figure>
 </div>
@@ -116,22 +116,26 @@ Let's look at another example, where I'll fix the hue and saturation, and step t
 These differences don't feel the same:
 
 <style>
-  #white_square {
-    outline: var(--border-width) solid var(--accent-grey);
+  /* Ensure the white square can be distinguished from the background
+   * in light mode */
+  @media (prefers-color-scheme: light) {
+    #white_square {
+      outline: var(--border-width) solid var(--accent-grey);
+    }
   }
 </style>
 
 <div class="samples">
   <figure>
-    <img src="/images/2026/blue-50.png" alt="A deep blue square which is highly saturated">
+    <img src="/images/2026/blue-50.png" alt="A deep blue square which is highly saturated" class="dark_aware">
     <figcaption>hsl(240, 100%, 50%)</figcaption>
   </figure>
   <figure>
-    <img src="/images/2026/blue-75.png" alt="A lavender-coloured square">
+    <img src="/images/2026/blue-75.png" alt="A lavender-coloured square" class="dark_aware">
     <figcaption>hsl(240, 100%, 75%)</figcaption>
   </figure>
   <figure>
-    <img src="/images/2026/blue-100.png" alt="A square of pure white" id="white_square">
+    <img src="/images/2026/blue-100.png" alt="A square of pure white" id="white_square" class="dark_aware">
     <figcaption>hsl(240, 100%, 100%)</figcaption>
   </figure>
 </div>
@@ -273,15 +277,15 @@ Let's look at the results, which compare the HSL heuristic (top), the original t
 
 <div class="samples">
   <figure>
-    <img src="/images/2026/470906_combo.png" alt="Dark red coloured squares with a horizontal dark red stripe. The squares on the bottom have slightly more variety than the top.">
+    <img src="/images/2026/470906_combo.png" alt="Dark red coloured squares with a horizontal dark red stripe. The squares on the bottom have slightly more variety than the top." class="dark_aware">
     <figcaption>#470906</figcaption>
   </figure>
   <figure>
-    <img src="/images/2026/d01c11_combo.png" alt="Brighter red coloured squares, with the top and bottom looking about the same">
+    <img src="/images/2026/d01c11_combo.png" alt="Brighter red coloured squares, with the top and bottom looking about the same" class="dark_aware">
     <figcaption>#d01c11</figcaption>
   </figure>
   <figure>
-    <img src="/images/2026/f69b96_combo.png" alt="Very bright red coloured squares on the top, more muted squares which match the salmon pink tint colour">
+    <img src="/images/2026/f69b96_combo.png" alt="Very bright red coloured squares on the top, more muted squares which match the salmon pink tint colour" class="dark_aware">
     <figcaption>#f69b96</figcaption>
   </figure>
 </div>
