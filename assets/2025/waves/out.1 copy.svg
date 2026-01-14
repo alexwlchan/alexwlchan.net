@@ -1,0 +1,502 @@
+<svg viewBox="0 0 2500 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      path {
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+      }
+    </style>
+
+
+    <path id="shape1"
+          d="M 0 250
+             a 250 250
+             0 0 0
+             124.99999999999999 -33.49364905389032
+             a 250 250
+             0 0 1
+             124.99999999999999 -33.49364905389032
+             a 250 250
+             0 0 1
+             124.99999999999999 33.49364905389032
+             a 250 250
+             0 0 0
+             124.99999999999999 33.49364905389032
+             l 0 100
+             a 350 350
+             0 0 1
+             -124.99999999999999 -33.49364905389032
+             a 350 350
+             0 0 0
+             -124.99999999999999 -33.49364905389032
+             a 350 350
+             0 0 0
+             -124.99999999999999 33.49364905389032
+             a 350 350
+             0 0 1
+             -124.99999999999999 33.49364905389032
+             Z"/>
+  </defs>
+
+  <rect width="2500" height="550" fill="yellow"/>
+
+
+<circle cx="100" cy="100" r="1" fill="black" />
+
+
+<circle cx="100" cy="100" r="250" stroke="red" fill="none" />
+
+<svg y="-200">
+
+        <use x="0.0" href="#shape1" fill="rgb(66, 66, 66)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(165, 165, 165)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(71, 71, 71)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(65, 65, 65)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(140, 140, 140)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(93, 93, 93)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(168, 168, 168)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(88, 88, 88)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(184, 184, 184)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(78, 78, 78)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(136, 136, 136)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(103, 103, 103)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(148, 148, 148)"/>
+        
+</svg>
+<svg y="-100">
+
+        <use x="0.0" href="#shape1" fill="rgb(164, 164, 164)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(79, 79, 79)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(65, 65, 65)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(76, 76, 76)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(85, 85, 85)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(112, 112, 112)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(186, 186, 186)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(187, 187, 187)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(123, 123, 123)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(77, 77, 77)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(133, 133, 133)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(151, 151, 151)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(103, 103, 103)"/>
+        
+</svg>
+<svg y="0">
+
+        <use x="0.0" href="#shape1" fill="rgb(81, 81, 81)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(157, 157, 157)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(156, 156, 156)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(84, 84, 84)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(168, 168, 168)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(72, 72, 72)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(184, 184, 184)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(121, 121, 121)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(115, 115, 115)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(166, 166, 166)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(139, 139, 139)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(161, 161, 161)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(144, 144, 144)"/>
+        
+</svg>
+<svg y="100">
+
+        <use x="0.0" href="#shape1" fill="rgb(189, 189, 189)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(137, 137, 137)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(108, 108, 108)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(97, 97, 97)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(122, 122, 122)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(120, 120, 120)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(118, 118, 118)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(190, 190, 190)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(90, 90, 90)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(191, 191, 191)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(91, 91, 91)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(115, 115, 115)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(77, 77, 77)"/>
+        
+</svg>
+<svg y="200">
+
+        <use x="0.0" href="#shape1" fill="rgb(157, 157, 157)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(68, 68, 68)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(164, 164, 164)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(114, 114, 114)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(88, 88, 88)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(64, 64, 64)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(130, 130, 130)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(120, 120, 120)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(175, 175, 175)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(182, 182, 182)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(163, 163, 163)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(145, 145, 145)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(156, 156, 156)"/>
+        
+</svg>
+<svg y="300">
+
+        <use x="0.0" href="#shape1" fill="rgb(188, 188, 188)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(147, 147, 147)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(160, 160, 160)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(178, 178, 178)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(130, 130, 130)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(165, 165, 165)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(159, 159, 159)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(76, 76, 76)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(72, 72, 72)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(191, 191, 191)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(183, 183, 183)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(160, 160, 160)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(143, 143, 143)"/>
+        
+</svg>
+<svg y="400">
+
+        <use x="0.0" href="#shape1" fill="rgb(184, 184, 184)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(157, 157, 157)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(165, 165, 165)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(171, 171, 171)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(86, 86, 86)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(118, 118, 118)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(76, 76, 76)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(92, 92, 92)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(117, 117, 117)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(178, 178, 178)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(90, 90, 90)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(184, 184, 184)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(188, 188, 188)"/>
+        
+</svg>
+<svg y="500">
+
+        <use x="0.0" href="#shape1" fill="rgb(93, 93, 93)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(156, 156, 156)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(96, 96, 96)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(121, 121, 121)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(107, 107, 107)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(134, 134, 134)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(134, 134, 134)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(138, 138, 138)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(84, 84, 84)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(72, 72, 72)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(75, 75, 75)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(82, 82, 82)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(175, 175, 175)"/>
+        
+</svg>
+<svg y="600">
+
+        <use x="0.0" href="#shape1" fill="rgb(79, 79, 79)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(110, 110, 110)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(189, 189, 189)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(118, 118, 118)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(174, 174, 174)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(172, 172, 172)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(120, 120, 120)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(77, 77, 77)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(133, 133, 133)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(146, 146, 146)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(113, 113, 113)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(189, 189, 189)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(158, 158, 158)"/>
+        
+</svg>
+<svg y="700">
+
+        <use x="0.0" href="#shape1" fill="rgb(185, 185, 185)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(150, 150, 150)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(164, 164, 164)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(183, 183, 183)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(85, 85, 85)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(111, 111, 111)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(92, 92, 92)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(125, 125, 125)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(119, 119, 119)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(88, 88, 88)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(190, 190, 190)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(125, 125, 125)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(148, 148, 148)"/>
+        
+</svg>
+<svg y="800">
+
+        <use x="0.0" href="#shape1" fill="rgb(126, 126, 126)"/>
+        
+
+        <use x="499.99999999999994" href="#shape1" fill="rgb(133, 133, 133)"/>
+        
+
+        <use x="999.9999999999999" href="#shape1" fill="rgb(186, 186, 186)"/>
+        
+
+        <use x="1499.9999999999998" href="#shape1" fill="rgb(137, 137, 137)"/>
+        
+
+        <use x="1999.9999999999998" href="#shape1" fill="rgb(169, 169, 169)"/>
+        
+
+        <use x="2499.9999999999995" href="#shape1" fill="rgb(188, 188, 188)"/>
+        
+
+        <use x="2999.9999999999995" href="#shape1" fill="rgb(167, 167, 167)"/>
+        
+
+        <use x="3499.9999999999995" href="#shape1" fill="rgb(131, 131, 131)"/>
+        
+
+        <use x="3999.9999999999995" href="#shape1" fill="rgb(67, 67, 67)"/>
+        
+
+        <use x="4499.999999999999" href="#shape1" fill="rgb(93, 93, 93)"/>
+        
+
+        <use x="4999.999999999999" href="#shape1" fill="rgb(186, 186, 186)"/>
+        
+
+        <use x="5499.999999999999" href="#shape1" fill="rgb(123, 123, 123)"/>
+        
+
+        <use x="5999.999999999999" href="#shape1" fill="rgb(143, 143, 143)"/>
+        
+</svg>
+<rect width="2500" height="550" fill="none" stroke="yellow"/>
+</svg>
