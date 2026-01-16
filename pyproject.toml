@@ -1,0 +1,21 @@
+[project]
+name = "alexwlchan.net"
+version = "1.0"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 100
+
+[tool.pytest.ini_options]
+filterwarnings = ["error"]
+
+[tool.mypy]
+strict = true
+
+[tool.ruff.lint]
+select = ["D", "E", "F"]
+ignore = ["D200", "D203", "D204", "D205", "D212", "D401"]

@@ -5,3 +5,5 @@ _site
 *.pyc
 .bundle
 .DS_Store
+
+.coverage*

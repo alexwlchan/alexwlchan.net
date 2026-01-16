@@ -1,0 +1,5 @@
+certifi
+httpx
+mypy
+pytest-cov
+ruff
