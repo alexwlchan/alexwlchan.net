@@ -2,6 +2,8 @@
 #    uv pip compile requirements.in --output-file requirements.txt
 anyio==4.12.1
     # via httpx
+beautifulsoup4==4.14.3
+    # via -r requirements.in
 certifi==2026.1.4
     # via
     #   -r requirements.in
@@ -15,10 +17,13 @@ httpcore==1.0.9
     # via httpx
 httpx==0.28.1
     # via -r requirements.in
+hyperlink==21.0.0
+    # via -r requirements.in
 idna==3.11
     # via
     #   anyio
     #   httpx
+    #   hyperlink
 iniconfig==2.3.0
     # via pytest
 librt==0.7.8
@@ -43,5 +48,19 @@ pytest-cov==7.0.0
     # via -r requirements.in
 ruff==0.14.13
     # via -r requirements.in
+soupsieve==2.8.1
+    # via beautifulsoup4
+termcolor==3.3.0
+    # via -r requirements.in
+tqdm==4.67.1
+    # via -r requirements.in
+types-requests==2.32.4.20260107
+    # via types-tqdm
+types-tqdm==4.67.0.20250809
+    # via -r requirements.in
 typing-extensions==4.15.0
-    # via mypy
+    # via
+    #   beautifulsoup4
+    #   mypy
+urllib3==2.6.3
+    # via types-requests

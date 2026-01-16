@@ -1,0 +1,38 @@
+name: Run Mosaic tests
+
+on:
+  push:
+    branches:
+    - main
+
+  pull_request:
+    branches:
+    - main
+
+    paths:
+      - '.github/workflows/run_mosaic_tests.yml'
+      - 'mosaic/**'
+      - 'scripts/**'
+      - 'tests/**'
+
+jobs:
+  mosaic_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.14"]
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: "Set up Python"
+      uses: actions/setup-python@v6
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: pip
+
+    - name: Install Python dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run tests
+      run: bash scripts/run_mosaic_tests.sh
