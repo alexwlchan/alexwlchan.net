@@ -2,10 +2,7 @@
 # Front matter comment to ensure Jekyll properly reads file.
 ---
 
-@use "variables";
-
-@use "text_styles";
-
+@use "base/variables";
 @use "base/layout";
 @use "base/text";
 
