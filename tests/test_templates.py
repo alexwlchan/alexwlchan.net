@@ -36,3 +36,17 @@ def test_get_inline_styles(html: str, parsed_styles: t.ParsedStyles) -> None:
     Tests for get_inline_styles().
     """
     assert t.get_inline_styles(html) == parsed_styles
+
+
+def test_liquid_comments_are_ignored() -> None:
+    """
+    Test that Liquid style comments get removed.
+    """
+    env = t.get_jinja_environment()
+    tmpl = env.from_string(
+        "Hello world!\n"
+        "{% comment %}don’t show this{% endcomment %}\n"
+        "Blue and yellow makes green\n"
+    )
+
+    assert tmpl.render() == ("Hello world!\n\nBlue and yellow makes green")

@@ -9,10 +9,11 @@ from typing import TypedDict
 import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from .comments import LiquidCommentExtension
 from .text import cleanup_text, markdownify, markdownify_oneline, strip_html
 
 
-def get_jinja_environment() -> Environment:  # pragma: no cover
+def get_jinja_environment() -> Environment:
     """
     Create a Jinja2 environment which looks in the "templates" directory.
     """
@@ -20,7 +21,7 @@ def get_jinja_environment() -> Environment:  # pragma: no cover
         loader=FileSystemLoader("templates"),
         autoescape=False,
         undefined=StrictUndefined,
-        extensions=["jinja2.ext.loopcontrols"],
+        extensions=["jinja2.ext.loopcontrols", LiquidCommentExtension],
     )
 
     env.filters.update(
