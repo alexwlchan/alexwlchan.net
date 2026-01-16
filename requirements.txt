@@ -27,12 +27,16 @@ idna==3.11
     #   hyperlink
 iniconfig==2.3.0
     # via pytest
+jinja2==3.1.6
+    # via -r requirements.in
 librt==0.7.8
     # via mypy
 lightningcss==0.3.1
     # via -r requirements.in
 markdown==3.10
     # via -r requirements.in
+markupsafe==3.0.3
+    # via jinja2
 mypy==1.19.1
     # via -r requirements.in
 mypy-extensions==1.1.0

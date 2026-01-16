@@ -7,6 +7,33 @@ import re
 from typing import TypedDict
 
 import bs4
+from jinja2 import Environment, FileSystemLoader, StrictUndefined
+
+from .text import cleanup_text, markdownify, markdownify_oneline, strip_html
+
+
+def get_jinja_environment() -> Environment:  # pragma: no cover
+    """
+    Create a Jinja2 environment which looks in the "templates" directory.
+    """
+    env = Environment(
+        loader=FileSystemLoader("templates"),
+        autoescape=False,
+        undefined=StrictUndefined,
+        extensions=["jinja2.ext.loopcontrols"],
+    )
+
+    env.filters.update(
+        {
+            "cleanup_text": cleanup_text,
+            "get_inline_styles": get_inline_styles,
+            "markdownify": markdownify,
+            "markdownify_oneline": markdownify_oneline,
+            "strip_html": strip_html,
+        }
+    )
+
+    return env
 
 
 ParsedStyles = TypedDict("ParsedStyles", {"html": str, "styles": str})

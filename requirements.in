@@ -1,6 +1,7 @@
 beautifulsoup4
 httpx
 hyperlink
+jinja2
 lightningcss
 markdown
 PyYAML
