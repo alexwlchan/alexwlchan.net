@@ -6,7 +6,7 @@ import collections
 from pathlib import Path
 import sys
 
-import bs4
+from bs4 import BeautifulSoup
 import termcolor
 from tqdm import tqdm
 
@@ -14,6 +14,13 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.fs import find_paths_under
 from mosaic.linters import check_no_localhost_links
+
+
+def read_single_html_file(p: Path) -> BeautifulSoup:
+    """
+    Parse a single HTML file with beautifulsoup.
+    """
+    return BeautifulSoup(p.read_text(), "html.parser")
 
 
 if __name__ == "__main__":
@@ -26,25 +33,24 @@ if __name__ == "__main__":
 
     html_paths = list(find_paths_under(out_dir, suffix=".html"))
 
-    html_file_soup = {
-        p: bs4.BeautifulSoup(p.read_text(), "html.parser")
-        for p in tqdm(html_paths, desc="parsing html")
+    html_files = {
+        p: read_single_html_file(p) for p in tqdm(html_paths, desc="parsing html")
     }
 
-    for p, soup in tqdm(html_file_soup.items(), desc="linting html"):
+    for p, soup in tqdm(html_files.items(), desc="linting html"):
         try:
             for err in check_no_localhost_links(soup):
                 all_errors[p].append(err)
         except Exception:
             print(p)
             raise
-    
+
     if not all_errors:
         print(termcolor.colored("no errors found!", "green"))
     else:
         print("")
         print(termcolor.colored(f"found errors in {len(all_errors)} file(s):", "red"))
-        
+
         for p, errors in all_errors.items():
             print("")
             print(f"{p}:")
