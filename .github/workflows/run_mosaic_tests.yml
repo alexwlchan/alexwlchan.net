@@ -35,4 +35,6 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Run tests
-      run: bash scripts/run_mosaic_tests.sh
+      run: |
+        bash scripts/run_mosaic_tests.sh
+        git diff --exit-code
