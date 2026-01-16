@@ -1,4 +1,4 @@
-name: build_site
+name: Build the website
 
 on:
   push:
@@ -36,7 +36,6 @@ on:
 
 jobs:
   build:
-    name: Build the website
     runs-on: self-hosted
 
     env:

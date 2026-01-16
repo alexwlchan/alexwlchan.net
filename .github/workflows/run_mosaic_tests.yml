@@ -1,4 +1,4 @@
-name: Check website is up
+name: Run Mosaic tests
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
       - 'mosaic/*'
 
 jobs:
-  check_website:
+  mosaic_tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
