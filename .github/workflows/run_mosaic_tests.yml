@@ -11,7 +11,9 @@ on:
 
     paths:
       - '.github/workflows/run_mosaic_tests.yml'
-      - 'mosaic/*'
+      - 'mosaic/**'
+      - 'scripts/**'
+      - 'tests/**'
 
 jobs:
   mosaic_tests:
