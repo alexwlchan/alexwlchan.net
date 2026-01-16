@@ -31,6 +31,8 @@ librt==0.7.8
     # via mypy
 lightningcss==0.3.1
     # via -r requirements.in
+markdown==3.10
+    # via -r requirements.in
 mypy==1.19.1
     # via -r requirements.in
 mypy-extensions==1.1.0
@@ -58,6 +60,8 @@ soupsieve==2.8.1
 termcolor==3.3.0
     # via -r requirements.in
 tqdm==4.67.1
+    # via -r requirements.in
+types-markdown==3.10.0.20251106
     # via -r requirements.in
 types-pyyaml==6.0.12.20250915
     # via -r requirements.in
