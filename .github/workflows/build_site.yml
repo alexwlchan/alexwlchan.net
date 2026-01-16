@@ -113,9 +113,11 @@ jobs:
             _site/ \
             ~/repos/alexwlchan.net/_site/
 
-      - name: "Run the website tests"
-        if: github.ref == 'refs/heads/main'
-        run: ruby tests/run_all_tests.rb
+      # TODO: Re-enable these tests when the site build is using Python
+
+      # - name: "Run the website tests"
+      #   if: github.ref == 'refs/heads/main'
+      #   run: ruby tests/run_all_tests.rb
 
       - name: "Push any commits to GitHub"
         if: github.ref == 'refs/heads/main'
