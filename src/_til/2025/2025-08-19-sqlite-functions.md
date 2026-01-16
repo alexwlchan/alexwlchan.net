@@ -2,7 +2,7 @@
 layout: til
 title: How to play with SQLite functions without real data
 summary: You can run a `SELECT function(…);` query without any tables.
-date: 2025-08-19 18:56:33 +0100
+date: 2025-08-19 18:56:33 +01:00
 tags:
   - sqlite
 ---

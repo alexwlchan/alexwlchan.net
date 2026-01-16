@@ -2,7 +2,7 @@
 layout: til
 title: How do you write ratios in the `aspect-ratio` property?
 summary: When you define an aspect ratio as `x/y`, you can only use numbers for `x` and `y`.
-date: 2025-04-04 06:57:36 +0100
+date: 2025-04-04 06:57:36 +01:00
 tags:
   - css
 ---

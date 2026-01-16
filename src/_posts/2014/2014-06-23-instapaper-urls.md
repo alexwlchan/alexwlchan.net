@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-06-23 13:04:00 +0000
+date: 2014-06-23 13:04:00 +00:00
 tags:
   - instapaper
   - applescript

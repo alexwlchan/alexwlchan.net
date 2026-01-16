@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to move files when you need sudo on the remote server
-date: 2024-01-17 10:54:23 +0000
+date: 2024-01-17 10:54:23 +00:00
 tags:
   - rsync
 ---

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "Manipulating URL query parameters in JavaScript"
-date: 2019-04-20 21:24:30 +0100
+date: 2019-04-20 21:24:30 +01:00
 tags:
   - javascript
 ---

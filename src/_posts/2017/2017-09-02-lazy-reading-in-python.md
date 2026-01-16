@@ -1,5 +1,5 @@
 ---
-date: 2017-09-02 17:34:00 +0000
+date: 2017-09-02 17:34:00 +00:00
 layout: post
 link: https://github.com/alexwlchan/lazyreader
 summary: I wrote a small Python module for lazy file reading, ideal for efficient

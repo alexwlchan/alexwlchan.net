@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Get video dimensions on macOS with built-in tools
-date: 2025-02-10 09:43:42 +0000
+date: 2025-02-10 09:43:42 +00:00
 summary: |
   If the video file is indexed by Spotlight, you can use `mdls` to get the width and `height` of a video file.
 tags:

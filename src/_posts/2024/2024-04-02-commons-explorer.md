@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-04-02 15:40:35 +0000
+date: 2024-04-02 15:40:35 +00:00
 title: The new Flickr Commons Explorer
 summary: A new way to browse the photos in the Flickr Commons programme.
 tags:

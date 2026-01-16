@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-08-28 00:32:00 +0000
+date: 2014-08-28 00:32:00 +00:00
 tags:
   - alfred
   - applescript

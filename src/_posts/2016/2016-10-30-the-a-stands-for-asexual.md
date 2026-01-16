@@ -1,6 +1,6 @@
 ---
 layout: post
-date:       2016-10-30 09:12:00 +0000
+date:       2016-10-30 09:12:00 +00:00
 layout:     post
 summary:    A brief introduction to asexuality, what it means, and why it matters.
 tags:

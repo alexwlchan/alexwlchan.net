@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2020-10-30 18:25:23 +0000
+date: 2020-10-30 18:25:23 +00:00
 title: 'Use `git check-ignore` to debug your `.gitignore`'
 summary: |
   Running `git check-ignore --verbose <PATH>` will tell you which rule applies to a given path, and where that rule is defined.

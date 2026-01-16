@@ -2,7 +2,7 @@
 layout: til
 title: Print a comma-separated number in Python with `{num:,}`
 summary: You can use `{num:,}` to insert a comma every three digits, `{num:_}` to insert an underscore every three digits, and `{num:n}` to insert a locale-aware digit separator.
-date: 2025-05-28 17:39:19 +0100
+date: 2025-05-28 17:39:19 +01:00
 tags:
   - python
 ---

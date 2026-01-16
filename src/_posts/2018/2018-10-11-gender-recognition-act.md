@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-10-11 07:32:20 +0000
+date: 2018-10-11 07:32:20 +00:00
 title: Open consultation on the Gender Recognition Act
 tags:
   - gender

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-29 08:26:00 +0000
+date: 2014-12-29 08:26:00 +00:00
 tags:
   - pelican
   - python

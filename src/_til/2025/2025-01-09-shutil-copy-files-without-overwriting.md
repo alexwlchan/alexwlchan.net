@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use `shutil.copyfileobj` and `xb` to avoid overwriting files when copying in Python
-date: 2025-01-09 16:30:03 +0000
+date: 2025-01-09 16:30:03 +00:00
 tags:
   - python
 ---

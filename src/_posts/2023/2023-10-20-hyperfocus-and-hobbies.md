@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-10-20 09:16:15 +0000
+date: 2023-10-20 09:16:15 +00:00
 title: Hyperfocus and hobbies
 summary: The power of ADHD-associated hyperfocus and how I’ve become wary of feeding it too often.
 tags:

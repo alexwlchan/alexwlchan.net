@@ -2,7 +2,7 @@
 layout: til
 title: Use `std::io::IsTerminal` to detect if you're running in the terminal in Rust
 summary: This allows me to suppress ANSI escape codes if the output is going somewhere other than the terminal.
-date: 2024-10-06 10:58:31 +0100
+date: 2024-10-06 10:58:31 +01:00
 tags:
   - rust
 ---

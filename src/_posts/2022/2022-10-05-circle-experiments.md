@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-10-05 22:35:11 +0000
+date: 2022-10-05 22:35:11 +00:00
 title: Some experiments with circle-based art
 summary: Casually covering a canvas with coloured circles.
 tags:

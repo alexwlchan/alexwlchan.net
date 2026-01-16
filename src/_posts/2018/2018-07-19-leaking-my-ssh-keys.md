@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-07-19 07:38:10 +0000
+date: 2018-07-19 07:38:10 +00:00
 title: A robot leaked my SSH keys
 tags:
   - github

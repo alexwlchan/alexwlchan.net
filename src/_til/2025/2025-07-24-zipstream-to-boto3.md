@@ -2,7 +2,7 @@
 layout: til
 title: Using zipstream to stream new zip files to object storage with boto3
 summary: You can construct a `zipstream.ZipFile`, add files, then wrap it in a file-like object to upload it with `S3.upload_fileobj`.
-date: 2025-07-24 11:42:15 +0100
+date: 2025-07-24 11:42:15 +01:00
 tags:
   - python
   - python:boto3

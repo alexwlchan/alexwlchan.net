@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use shlex.split() to parse log files quickly
-date: 2024-01-05 12:09:22 +0000
+date: 2024-01-05 12:09:22 +00:00
 tags:
   - python
   - nginx

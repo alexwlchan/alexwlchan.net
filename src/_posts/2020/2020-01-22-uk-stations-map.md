@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-01-22 07:50:23 +0000
+date: 2020-01-22 07:50:23 +00:00
 title: An interactive map of British railway stations 🚂
 summary: A map I use to plot which railway stations I've visited.
 link: https://alexwlchan.net/fun-stuff/uk-stations-map/

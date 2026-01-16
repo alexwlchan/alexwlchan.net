@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How can I work out what program is keeping a disk open?
-date: 2024-12-02 08:46:34 +0000
+date: 2024-12-02 08:46:34 +00:00
 tags:
   - macos
 summary: |

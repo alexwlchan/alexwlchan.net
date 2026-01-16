@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-06 20:17:11 +0000
+date: 2024-02-06 20:17:11 +00:00
 title: Exclude files from Time Machine with `tmutil addexclusion`
 tags:
   - macos

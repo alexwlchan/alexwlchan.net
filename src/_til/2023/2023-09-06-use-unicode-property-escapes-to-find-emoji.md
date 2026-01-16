@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use Unicode property escapes to detect emoji in JavaScript
-date: 2023-09-06 23:46:15 +0000
+date: 2023-09-06 23:46:15 +00:00
 tags:
   - javascript
   - unicode

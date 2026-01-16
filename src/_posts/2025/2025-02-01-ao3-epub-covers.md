@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-02-01 22:28:59 +0000
+date: 2025-02-01 22:28:59 +00:00
 title: Adding auto-generated cover images to EPUBs downloaded from AO3
 summary: I built a handy tool to generate cover images for stories downloaded from AO3, making them easier to browse. Along the way, I learnt about how EPUBs work, the power of static sites, and some gotchas of async JavaScript.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-06-09 06:40:48 +0000
+date: 2022-06-09 06:40:48 +00:00
 title: Experimenting with jq as a tool for filtering JSON
 summary: I wanted to learn jq's more powerful features, so I tried to filter some JSON from the AWS Secrets Manager CLI.
 tags:

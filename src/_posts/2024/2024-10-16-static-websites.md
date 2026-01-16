@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-10-16 18:26:52 +0000
+date: 2024-10-16 18:26:52 +00:00
 title: Using static websites for tiny archives
 summary: |
   I've been creating small, hand-written websites to organise my files.

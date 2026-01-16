@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-05 13:44:19 +0000
+date: 2024-02-05 13:44:19 +00:00
 title: You need to call `resp.close()` to close the file opened by `send_file()`
 tags:
   - python

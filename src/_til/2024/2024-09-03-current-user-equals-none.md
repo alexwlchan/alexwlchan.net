@@ -2,7 +2,7 @@
 layout: til
 title: With Flask-Login, you want `current_user == None`, not `current_user is None`
 summary: "`current_user` is a proxy object that happens to be wrapping `None`, but isn't actually `None`."
-date: 2024-09-03 10:23:25 +0100
+date: 2024-09-03 10:23:25 +01:00
 tags:
   - python
   - flask

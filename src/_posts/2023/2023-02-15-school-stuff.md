@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-02-15 07:37:34 +0000
+date: 2023-02-15 07:37:34 +00:00
 title: Going through my old school papers
 summary: Digitising and pruning my boxes of paper from school. In which I have nostalgia, sadness, and the sense that everything old is new again.
 tags:

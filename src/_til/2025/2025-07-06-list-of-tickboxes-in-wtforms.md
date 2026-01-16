@@ -2,7 +2,7 @@
 layout: til
 title: Show a list of checkboxes in a WTForms form
 summary: Subclass `SelectMultipleField` and override the `widget` and `option_widget` fields.
-date: 2025-07-06 17:55:56 +0100
+date: 2025-07-06 17:55:56 +01:00
 tags:
   - python
 ---

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to find all of Apple's system icons
-date: 2024-11-18 22:06:41 +0000
+date: 2024-11-18 22:06:41 +00:00
 tags:
   - macos
 summary:

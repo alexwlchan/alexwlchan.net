@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Convert an animated GIF to an MP4 with ffmpeg
-date: 2024-07-10 22:30:08 +0100
+date: 2024-07-10 22:30:08 +01:00
 tags:
   - ffmpeg
 ---

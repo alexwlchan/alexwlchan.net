@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-02-11 23:04:30 +0000
+date: 2024-02-11 23:04:30 +00:00
 title: Moving my YouTube Likes from one account to another
 summary: Some experimenting with the YouTube API to merge two accounts into one.
 tags:

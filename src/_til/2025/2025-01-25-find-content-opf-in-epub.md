@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to find the `content.opf` in an EPUB file
-date: 2025-01-25 23:21:22 +0000
+date: 2025-01-25 23:21:22 +00:00
 tags:
   - epub
 ---

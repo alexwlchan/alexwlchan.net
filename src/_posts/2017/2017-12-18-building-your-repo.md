@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-12-18 08:40:30 +0000
+date: 2017-12-18 08:40:30 +00:00
 title: Your repo should be easy to build, and how
 tags:
   - make

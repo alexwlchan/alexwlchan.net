@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-04-23 23:03:46 +0000
+date: 2022-04-23 23:03:46 +00:00
 title: Creating a “simple” three-up image layout in CSS
 summary: A step-by-step breakdown of how I made a one-left, two-right layout for my images.
 tags:

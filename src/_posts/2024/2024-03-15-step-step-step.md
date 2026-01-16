@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-03-15 12:56:46 +0000
+date: 2024-03-15 12:56:46 +00:00
 title: "Monki Gras 2024: Step… Step… Step…"
 summary: Swing dancing and prompt engineering are pretty different. But could learning one help us learn the other?
 tags:

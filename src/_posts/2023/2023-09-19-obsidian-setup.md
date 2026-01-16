@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-09-19 21:30:59 +0000
+date: 2023-09-19 21:30:59 +00:00
 title: How I set up my Obsidian vaults
 summary: The tags, folders, and themes I use to manage information in my Obsidian vaults.
 tags:

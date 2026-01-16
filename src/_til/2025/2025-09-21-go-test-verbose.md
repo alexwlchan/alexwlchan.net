@@ -2,7 +2,7 @@
 layout: til
 title: Use the `-v` flag to get verbose output from Go tests
 summary: This prints all `t.Log` and `t.Logf` calls, even if the test succeeds or times out.
-date: 2025-09-21 22:23:42 +0100
+date: 2025-09-21 22:23:42 +01:00
 tags:
   - golang
   - software testing

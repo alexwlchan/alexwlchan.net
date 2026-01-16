@@ -3,8 +3,8 @@ layout: til
 title: What errors can you get from `hyperlink.parse`?
 summary: |
   Mostly you get `hyperlink.URLParseError`, but you can occasionally get a `ValueError` as well.
-date: 2024-10-17 10:32:56 +0100
-date_updated: 2024-11-27 11:24:15 +0000
+date: 2024-10-17 10:32:56 +01:00
+date_updated: 2024-11-27 11:24:15 +00:00
 tags:
   - python
   - python:hyperlink

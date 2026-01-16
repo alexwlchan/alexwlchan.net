@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to get the IP address of a device in my Tailnet
-date: 2024-12-26 22:06:45 +0000
+date: 2024-12-26 22:06:45 +00:00
 tags:
   - tailscale
   - jq

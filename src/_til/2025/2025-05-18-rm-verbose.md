@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use `rm -v` to see which files are being removed
-date: 2025-05-18 18:52:40 +0100
+date: 2025-05-18 18:52:40 +01:00
 tags:
   - shell scripting
 ---

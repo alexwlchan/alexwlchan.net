@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-03-05 12:33:07 +0000
+date: 2023-03-05 12:33:07 +00:00
 title: Filtering out bogus requests from Netlify Analytics
 summary: Using redirects to filter out bots trying to hack my non-existent PHP installation.
 tags:

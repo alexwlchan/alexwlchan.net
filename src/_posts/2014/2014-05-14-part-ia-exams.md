@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-05-14 21:10:00 +0000
+date: 2014-05-14 21:10:00 +00:00
 summary: Some advice for IA Mathmos sitting Tripos
 tags:
   - cambridge

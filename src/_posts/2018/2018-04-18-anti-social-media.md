@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-04-18 12:00:33 +0000
+date: 2018-04-18 12:00:33 +00:00
 title: (Anti) Social Media
 tags:
   - talks

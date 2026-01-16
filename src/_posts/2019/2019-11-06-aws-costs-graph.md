@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-11-06 07:54:27 +0000
+date: 2019-11-06 07:54:27 +00:00
 title: An AWS costs graph that works for me
 summary: How I get a Cost Explorer graph for the last 30 days of spending, broken down by service.
 tags:

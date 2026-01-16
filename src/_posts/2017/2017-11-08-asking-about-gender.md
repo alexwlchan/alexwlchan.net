@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-11-08 22:27:28 +0000
+date: 2017-11-08 22:27:28 +00:00
 title: How I ask about gender
 summary: "If you're asking for someone's gender, a simple 'Female/Male' isn't good enough. Here's what I use instead."
 tags:

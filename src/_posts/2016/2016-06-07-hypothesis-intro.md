@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-06-07 12:00:00 +0000
+date: 2016-06-07 12:00:00 +00:00
 tags:
   - python
   - python:hypothesis

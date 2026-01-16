@@ -1,7 +1,7 @@
 ---
 layout: til
 title: The person who runs the Cambridge NTP servers has an excellent email address
-date: 2025-08-29 09:09:11 +0100
+date: 2025-08-29 09:09:11 +01:00
 tags:
   - naming things
   - datetime shenanigans

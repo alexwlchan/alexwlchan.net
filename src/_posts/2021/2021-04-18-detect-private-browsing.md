@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-04-18 12:35:57 +0000
+date: 2021-04-18 12:35:57 +00:00
 title: Using AppleScript to detect if a Safari window uses Private Browsing
 tags:
   - applescript

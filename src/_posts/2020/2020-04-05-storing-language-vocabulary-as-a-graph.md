@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-04-05 08:09:36 +0000
+date: 2020-04-05 08:09:36 +00:00
 title: Storing language vocabulary as a graph
 summary: Experimenting with a way to store words and phrases that highlights the connections between them.
 tags:

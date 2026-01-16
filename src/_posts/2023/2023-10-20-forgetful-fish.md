@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-10-20 23:08:51 +0000
+date: 2023-10-20 23:08:51 +00:00
 title: Making the fish shell more forgetful
 summary: A few commands that help me keep unwanted entries out of my shell’s autocomplete.
 tags:

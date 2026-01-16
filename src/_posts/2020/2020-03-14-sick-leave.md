@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-03-14 09:27:10 +0000
+date: 2020-03-14 09:27:10 +00:00
 title: Sick leave while working from home
 summary: It's okay to take sick leave if you're working from home.
 tags:

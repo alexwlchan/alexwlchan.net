@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Bitly will delete your account if you don't use it for three years
-date: 2025-02-06 23:35:49 +0000
+date: 2025-02-06 23:35:49 +00:00
 ---
 A fortnight after Google [told me they were about to delete an old account](/til/2025/google-deletes-inactive-accounts/), it's time for Bitly to do something similar.
 I got an email today:

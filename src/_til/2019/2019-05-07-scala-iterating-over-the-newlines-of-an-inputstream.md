@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "How to iterate over the lines of an InputStream in Scala"
-date: 2019-05-07 17:38:01 +0100
+date: 2019-05-07 17:38:01 +01:00
 tags:
   - scala
 ---

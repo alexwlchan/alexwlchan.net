@@ -1,5 +1,5 @@
 ---
-date: 2016-05-05 21:03:00 +0000
+date: 2016-05-05 21:03:00 +00:00
 summary: If for some reason you create a file called `-rf *`, it’s possible to delete it safely. But really, don’t create it in the first place.
 layout: post
 tags:

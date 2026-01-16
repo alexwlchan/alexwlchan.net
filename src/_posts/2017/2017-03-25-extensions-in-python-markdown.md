@@ -1,5 +1,5 @@
 ---
-date: 2017-03-25 11:27:00 +0000
+date: 2017-03-25 11:27:00 +00:00
 index:
   exclude: true
 layout: post

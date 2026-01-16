@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-01-04 10:03:53 +0000
+date: 2020-01-04 10:03:53 +00:00
 title: Finding the CPU and memory bottlenecks in an ECS cluster
 tags:
   - aws

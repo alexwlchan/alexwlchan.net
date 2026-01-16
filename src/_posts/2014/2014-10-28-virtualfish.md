@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-10-28 20:06:00 +0000
+date: 2014-10-28 20:06:00 +00:00
 tags:
   - fish shell
   - shell scripting

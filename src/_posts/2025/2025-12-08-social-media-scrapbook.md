@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-12-08 09:46:34 +0000
+date: 2025-12-08 09:46:34 +00:00
 title: The Internet forgets, but I don't want to
 summary: I don't trust platforms to preserve my memories, so I built my own scrapbook of social media.
 tags:

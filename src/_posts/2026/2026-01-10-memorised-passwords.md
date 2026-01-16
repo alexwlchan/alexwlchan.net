@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2026-01-10 20:31:10 +0000
+date: 2026-01-10 20:31:10 +00:00
 title: The passwords I actually memorise
 summary: Password managers promise you only need to remember one password, but I keep eight of them in my head to avoid a single point of failure.
 tags:

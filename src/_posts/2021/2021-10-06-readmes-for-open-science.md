@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-10-06 21:39:30 +0000
+date: 2021-10-06 21:39:30 +00:00
 title: READMEs for Open Science
 summary: Slides for a short talk about READMEs, why they're important, and what they should contain.
 tags:

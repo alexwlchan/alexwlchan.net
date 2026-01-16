@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-01-07 21:30:31 +0000
+date: 2025-01-07 21:30:31 +00:00
 title: How I test Rust command-line apps with `assert_cmd`
 summary: Some practical examples of how this handy crate lets me write clear, readable tests.
 tags:

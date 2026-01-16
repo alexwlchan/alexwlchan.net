@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-05-16 21:02:00 +0000
+date: 2016-05-16 21:02:00 +00:00
 summary: A Python script for finding 404 errors in my Apache web logs - and by extension,
   broken pages.
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use `text=true` with `subprocess` functions to get stdout/stderr as str, not bytes
-date: 2025-05-28 20:12:29 +0100
+date: 2025-05-28 20:12:29 +01:00
 tags:
   - python
 ---

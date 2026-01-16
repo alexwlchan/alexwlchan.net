@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-05-23 20:52:42 +0000
+date: 2024-05-23 20:52:42 +00:00
 title: Preserving pixels in Paris
 summary: |
   I went to France for a conference about archiving the web, and I came back with thoughts and photos.

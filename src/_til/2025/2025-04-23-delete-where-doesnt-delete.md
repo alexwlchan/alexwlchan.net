@@ -3,7 +3,7 @@ layout: til
 title: Why isn't `delete_where()` deleting rows in sqlite-utils?
 summary: |
   The `delete_where()` function doesn't auto-commit, so you need to wrap it `with db.conn` or something else to trigger the commit.
-date: 2025-04-23 09:45:02 +0100
+date: 2025-04-23 09:45:02 +01:00
 tags:
   - python
   - sqlite

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Running the Netlify CLI in GitHub Actions
-date: 2024-01-06 10:05:00 +0000
+date: 2024-01-06 10:05:00 +00:00
 tags:
   - netlify
   - github actions

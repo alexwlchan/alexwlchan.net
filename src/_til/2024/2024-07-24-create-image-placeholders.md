@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Create solid-colour image placeholders to show before an image loads
-date: 2024-07-24 22:39:41 +0100
+date: 2024-07-24 22:39:41 +01:00
 tags:
   - images
   - css

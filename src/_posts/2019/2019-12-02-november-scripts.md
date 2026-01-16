@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-12-02 23:21:41 +0000
+date: 2019-12-02 23:21:41 +00:00
 title: "November 2019 scripts: downloading podcasts, retrying flaky errors, Azure and AWS"
 tags:
   - python

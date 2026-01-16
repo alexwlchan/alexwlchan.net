@@ -1,7 +1,7 @@
 ---
 layout: til
-date: 2024-01-04 22:59:15 +0000
-date_updated: 2024-01-20 11:48:34 +0000
+date: 2024-01-04 22:59:15 +00:00
+date_updated: 2024-01-20 11:48:34 +00:00
 title: "Get and manipulate the contents of a page in Safari with `\"do JavaScript\"`"
 tags:
   - safari

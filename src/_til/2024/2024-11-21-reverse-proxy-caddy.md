@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Creating a reverse proxy to a multi-site server with Caddy
-date: 2024-11-21 11:29:02 +0000
+date: 2024-11-21 11:29:02 +00:00
 tags:
   - caddy
 summary:

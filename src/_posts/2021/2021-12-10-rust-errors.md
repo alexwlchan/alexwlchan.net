@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-12-10 21:36:55 +0000
+date: 2021-12-10 21:36:55 +00:00
 title: The ever-improving error messages of Rust
 summary: An improvement to Rust's error handling that I almost reported, until I realised it was fixed.
 tags:

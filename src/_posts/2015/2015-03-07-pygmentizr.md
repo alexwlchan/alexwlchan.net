@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-03-07 10:44:00 +0000
+date: 2015-03-07 10:44:00 +00:00
 summary: A web app for applying syntax highlighting to code using the Pygments library.
 tags:
   - python

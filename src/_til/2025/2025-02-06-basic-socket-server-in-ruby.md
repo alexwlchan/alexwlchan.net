@@ -2,7 +2,7 @@
 layout: til
 title: A basic socket server in Ruby
 summary: My first bit of socket programming is a Ruby server that reads lines from the socket, and prints them. Not useful on its own, but a stepping stone to more exciting things!
-date: 2025-02-06 09:13:10 +0000
+date: 2025-02-06 09:13:10 +00:00
 tags:
   - ruby
 ---

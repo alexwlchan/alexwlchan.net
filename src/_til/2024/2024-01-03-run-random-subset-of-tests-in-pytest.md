@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Run a randomly selected subset of tests with pytest
-date: 2024-01-03 17:22:34 +0000
+date: 2024-01-03 17:22:34 +00:00
 summary: |
   By reading the code for the `pytest-random-order` plugin, I was able to write a new plugin that runs a random subset of tests.
 tags:

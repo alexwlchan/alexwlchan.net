@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-05-10 12:41:00 +0000
+date: 2016-05-10 12:41:00 +00:00
 title: A Python smtplib wrapper for Fastmail
 summary: A quick python-smtplib wrapper for sending emails through Fastmail.
 tags:

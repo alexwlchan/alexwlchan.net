@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-04-07 08:01:50 +0100
+date: 2024-04-07 08:01:50 +01:00
 title: How to shuffle an array in a Jekyll template
 summary: |
   If you want an array in random order, you can use the `sample` filter to get a random sample of the same size as the original array.

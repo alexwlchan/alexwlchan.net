@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-01-21 09:33:48 +0000
+date: 2025-01-21 09:33:48 +00:00
 title: Looking at images in a spreadsheet
 summary: The `IMAGE` and `HYPERLINK` functions allow me to use a spreadsheet as a lightweight, collaborative space for dealing with images.
 tags:

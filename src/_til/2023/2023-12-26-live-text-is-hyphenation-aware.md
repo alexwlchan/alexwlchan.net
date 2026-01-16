@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Live Text is aware of how hyphenation works (kinda)
-date: 2023-12-26 12:26:12 +0000
+date: 2023-12-26 12:26:12 +00:00
 tags:
   - live-text
 ---

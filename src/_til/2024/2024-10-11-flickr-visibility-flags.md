@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How do the `ispublic`, `isfriend` and `isfamily` flags work in the Flickr API?
-date: 2024-10-11 13:14:21 +0100
+date: 2024-10-11 13:14:21 +01:00
 tags:
   - flickr
 ---

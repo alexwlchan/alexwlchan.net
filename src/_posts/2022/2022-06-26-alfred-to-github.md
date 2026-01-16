@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-06-26 20:53:03 +0000
+date: 2022-06-26 20:53:03 +00:00
 title: Creating an Alfred Workflow to open GitHub repos
 summary: Automations for my automations.
 tags:

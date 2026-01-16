@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-06-23 22:44:00 +0000
+date: 2016-06-23 22:44:00 +00:00
 link: https://www.amazon.co.uk/Subscribe-Save-Health-Beauty-Grocery/b?ie=UTF8&node=423139031
 title: A subscription for my toothbrush
 index:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-02-24 06:51:45 +0000
+date: 2018-02-24 06:51:45 +00:00
 title: A working from home experiment
 tags:
   - personal

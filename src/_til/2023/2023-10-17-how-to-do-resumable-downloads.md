@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to do resumable downloads with curl
-date: 2023-10-17 20:10:10 +0000
+date: 2023-10-17 20:10:10 +00:00
 tags:
   - curl
 ---

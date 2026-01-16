@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "The Content-Disposition header can be used to name a downloaded file"
-date: 2019-04-20 21:24:30 +0100
+date: 2019-04-20 21:24:30 +01:00
 tags:
   - http
 ---

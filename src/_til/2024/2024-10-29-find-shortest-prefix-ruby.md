@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Find the shortest prefix to identify a string in Ruby
-date: 2024-10-29 16:07:36 +0100
+date: 2024-10-29 16:07:36 +01:00
 summary: |
   The built-in `Abbrev` module can calculate a set of unambiguous abbreviations for a set of strings, and then you can look for the shortest result for each string.
 tags:

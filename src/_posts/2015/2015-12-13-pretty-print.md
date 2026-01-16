@@ -1,5 +1,5 @@
 ---
-date: 2015-12-13 17:15:00 +0000
+date: 2015-12-13 17:15:00 +00:00
 layout: post
 tags:
   - shell scripting

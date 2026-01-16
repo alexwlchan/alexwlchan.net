@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-04 09:29:22 +0100
+date: 2024-05-04 09:29:22 +01:00
 title: How to get a tally of tally counts in SQLite
 summary: |
   Using a nested query allows me to perform a two-level aggregation of the values in a column – how many values appear once, how many twice, and so on.

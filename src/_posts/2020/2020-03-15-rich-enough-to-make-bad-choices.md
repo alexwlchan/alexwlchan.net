@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-03-15 08:30:18 +0000
+date: 2020-03-15 08:30:18 +00:00
 title: Rich enough to make bad choices
 summary: If you're rich, not only can you invest in good boots, you can also invest in experimental boot-making startups.
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "The acronym \"woe\" in the Flickr API stands for \"Where On Earth\""
-date: 2023-10-02 17:29:30 +0000
+date: 2023-10-02 17:29:30 +00:00
 tags:
   - flickr
   - naming things

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-02-11 12:00:00 +0000
+date: 2017-02-11 12:00:00 +00:00
 link: https://github.com/alexwlchan/backup-instapaper
 tags:
   - python

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use `typing.getargs()` to get a list of `typing.Literal[…]` values
-date: 2025-06-25 14:20:15 +0100
+date: 2025-06-25 14:20:15 +01:00
 tags:
   - python
   - python:typing

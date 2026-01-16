@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-05-13 10:17:13 +0000
+date: 2019-05-13 10:17:13 +00:00
 summary: Breaking down some tricky code that allows us to lock over concurrent operations.
 tags:
   - scala

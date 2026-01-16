@@ -3,7 +3,7 @@ layout: til
 title: How to get a user's email address with the Flickr&nbsp;API
 summary: |
   The `flickr.profile.getProfile` API returns somebody's email address, but only if you're allowed to see it.
-date: 2024-10-23 09:29:15 +0100
+date: 2024-10-23 09:29:15 +01:00
 tags:
   - flickr
 ---

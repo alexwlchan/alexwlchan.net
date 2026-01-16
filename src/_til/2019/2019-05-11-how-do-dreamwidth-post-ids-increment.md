@@ -4,7 +4,7 @@ title: "How do Dreamwidth posts IDs work?"
 summary: |
   They were deliberately non-sequential as an anti-spam technique.
   It's no longer required, but it's in the codebase now and hasn't been changed since it was written.
-date: 2019-05-11 23:26:38 +0100
+date: 2019-05-11 23:26:38 +01:00
 tags:
   - dreamwidth
 ---

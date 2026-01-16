@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-02-09 12:49:00 +0000
+date: 2016-02-09 12:49:00 +00:00
 summary: It turns out that an SSH client on your iPhone can be really handy.
 tags:
   - ios

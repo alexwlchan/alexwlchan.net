@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-03-13 20:24:51 +0000
+date: 2025-03-13 20:24:51 +00:00
 title: Fast and random sampling in SQLite
 summary: I tested four approaches, from `ORDER BY RANDOM()` to picking random `rowid` values in Python, and found one that's both fast and diverse.
 tags:

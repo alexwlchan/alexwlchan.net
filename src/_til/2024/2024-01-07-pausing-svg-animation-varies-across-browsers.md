@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "Pausing the animation of &lt;svg&gt; elements can affect child &lt;svg&gt; elements differently in different browsers"
-date: 2024-01-07 20:49:46 +0000
+date: 2024-01-07 20:49:46 +00:00
 tags:
   - svg
 ---

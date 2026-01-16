@@ -1,5 +1,5 @@
 ---
-date: 2019-04-28 09:13:06 +0000
+date: 2019-04-28 09:13:06 +00:00
 layout: post
 summary: Twitter uses t.co to shorten links in tweets, so I wrote some Python to take
   a t.co URL and find the original tweet.

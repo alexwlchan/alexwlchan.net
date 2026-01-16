@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-01-03 10:57:21 +0000
+date: 2024-01-03 10:57:21 +00:00
 title: Getting a tally of SQLite values as a CSV
 tags:
   - sqlite

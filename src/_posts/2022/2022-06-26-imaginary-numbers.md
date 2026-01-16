@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-06-26 23:04:52 +0000
+date: 2022-06-26 23:04:52 +00:00
 title: Fictional phone numbers in *For All Mankind*
 summary: Where did this UK phone number come from?
 tags:

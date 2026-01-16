@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2018-05-26 18:57:07 +0000
-date_updated: 2018-06-02 13:03:03 +0100
+date: 2018-05-26 18:57:07 +00:00
+date_updated: 2018-06-02 13:03:03 +01:00
 summary: A Python snippets for drawing bar charts in command-line applications.
 tags:
   - terminal tricks

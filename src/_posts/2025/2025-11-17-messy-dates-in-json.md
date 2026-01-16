@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-11-17 08:52:48 +0000
+date: 2025-11-17 08:52:48 +00:00
 title: Cleaning up messy dates in JSON
 summary: I wrote a Python script to help me get timestamps in a consistent format in my JSON.
 tags:

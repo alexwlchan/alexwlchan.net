@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-05-12 15:53:00 +0000
+date: 2014-05-12 15:53:00 +00:00
 summary: Some suggestions for second year Cambridge maths students looking for workover the summer.
 tags:
   - maths

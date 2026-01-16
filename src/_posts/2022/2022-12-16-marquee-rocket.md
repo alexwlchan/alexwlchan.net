@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-12-16 10:01:11 +0000
+date: 2022-12-16 10:01:11 +00:00
 title: Launching a rocket in the worst possible way
 summary: Taking the humble &lt;marquee&gt; tag where no HTML tag has gone before.
 tags:

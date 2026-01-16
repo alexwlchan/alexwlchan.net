@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-07-08 06:35:17 +0000
+date: 2023-07-08 06:35:17 +00:00
 title: "*Spy for Spy*"
 summary: A two-handed sapphic romance with a clever narrative twist makes for a compelling and thoughtful new play.
 tags:

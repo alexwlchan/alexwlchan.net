@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-01-01 11:11:48 +0000
+date: 2021-01-01 11:11:48 +00:00
 title: What year is it? (A tale of ISO week dates)
 summary: If you use ICU date formatting, make sure you use the right format specifier for year.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-06 09:08:00 +0000
+date: 2014-12-06 09:08:00 +00:00
 link: http://ignorethecode.net/blog/2014/12/04/apple_carplay_android_auto/
 title: Lukas Mathis on iOS CarPlay and Android Auto
 index:

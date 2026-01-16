@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-06-13 00:03:00 +0000
+date: 2014-06-13 00:03:00 +00:00
 title: Some site updates
 index:
   exclude: true

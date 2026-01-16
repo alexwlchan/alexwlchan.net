@@ -1,8 +1,8 @@
 ---
 layout: til
 title: Downloading avatars from Tumblr
-date: 2025-02-09 22:19:32 +0000
-date_updated: 2025-08-18 21:25:55 +0100
+date: 2025-02-09 22:19:32 +00:00
+date_updated: 2025-08-18 21:25:55 +01:00
 summary: |
   There's an API endpoint that lets you download avatars in a variety of sizes.
 tags:

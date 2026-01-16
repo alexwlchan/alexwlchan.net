@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2023-11-30 00:27:25 +0100
+date: 2023-11-30 00:27:25 +01:00
 title: Why I prefer XML to JSON in the Wikimedia Commons APIs
 summary: |
   The XML-to-JSON conversion leads to some inconsistent behaviour, especially in corner cases of the API.

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-04-16 18:37:04 +0000
+date: 2023-04-16 18:37:04 +00:00
 title: Publishing lots and lots of messages to SNS
 summary: Careful use of the `PublishBatch` API makes it quick and easy for me to send thousands of messages into SNS.
 tags:

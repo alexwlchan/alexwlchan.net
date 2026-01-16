@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-12-06 09:02:20 +0000
+date: 2019-12-06 09:02:20 +00:00
 title: "Some useful spreadsheet functions: FORMULATEXT, MATCH, CONCATENATE and INDIRECT"
 tags:
   - spreadsheets

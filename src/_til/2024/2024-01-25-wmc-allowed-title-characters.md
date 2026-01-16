@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-01-25 12:34:09 +0000
+date: 2024-01-25 12:34:09 +00:00
 title: What characters are allowed in titles on Wikimedia Commons?
 tags:
   - wikimedia commons

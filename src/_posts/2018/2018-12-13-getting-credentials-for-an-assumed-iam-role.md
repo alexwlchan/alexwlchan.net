@@ -1,5 +1,5 @@
 ---
-date: 2018-12-13 08:57:16 +0000
+date: 2018-12-13 08:57:16 +00:00
 layout: post
 summary: A script that creates temporary credentials for an assumed IAM role, and
   stores them in ~/.aws/credentials.

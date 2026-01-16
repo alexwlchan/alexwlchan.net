@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-25 02:15:49 +0000
+date: 2024-02-25 02:15:49 +00:00
 title: Use the `-n`/`-i` flags to avoid overwriting files with `cp` and `mv`
 tags:
   - shell scripting

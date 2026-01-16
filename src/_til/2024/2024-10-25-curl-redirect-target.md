@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to get the target of an HTTP redirect with curl
-date: 2024-10-25 07:39:04 +0100
+date: 2024-10-25 07:39:04 +01:00
 tags:
   - curl
 ---

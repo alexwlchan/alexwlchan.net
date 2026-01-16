@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-16 14:49:57 +0100
+date: 2024-05-16 14:49:57 +01:00
 title: Writing a file in Swift, but only if it doesn't already exist
 summary: |
   Adding `.withoutOverwriting` to your `write()` call will prevent you from overwriting a file that already exists.

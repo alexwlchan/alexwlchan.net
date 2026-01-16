@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-11-28 19:57:52 +0000
+date: 2022-11-28 19:57:52 +00:00
 title: A day out at the Bure Valley Railway
 summary: My photos from a delightful day on a steam railway with smol trains.
 tags:

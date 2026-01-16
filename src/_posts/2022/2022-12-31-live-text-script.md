@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-12-31 12:42:13 +0000
+date: 2022-12-31 12:42:13 +00:00
 title: A script to get Live Text from images
 summary: Using Apple's built-in tools to get OCR text from an image, but without going through a GUI.
 tags:

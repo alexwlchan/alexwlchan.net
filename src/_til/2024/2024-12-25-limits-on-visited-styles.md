@@ -1,7 +1,7 @@
 ---
 layout: til
 title: There are limits on the styles you can apply with `:visited`
-date: 2024-12-25 20:04:39 +0000
+date: 2024-12-25 20:04:39 +00:00
 tags:
   - css
 summary: |

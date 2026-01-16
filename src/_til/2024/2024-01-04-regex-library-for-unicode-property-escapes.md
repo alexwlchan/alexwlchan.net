@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use the regex library to get Unicode property escapes in Python
-date: 2024-01-04 23:47:49 +0000
+date: 2024-01-04 23:47:49 +00:00
 tags:
   - python
   - unicode

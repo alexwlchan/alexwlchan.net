@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-03-02 15:51:47 +0000
+date: 2023-03-02 15:51:47 +00:00
 title: Creating a Python dictionary with multiple, equivalent keys
 summary: Using collections.UserDict, we can create a dictionary where dict[key1] and dict[key2] always point to the same value.
 tags:

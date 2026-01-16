@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-10-07 06:19:18 +0000
+date: 2025-10-07 06:19:18 +00:00
 title: Creating a personal wrapper around yt-dlp
 summary: I've written a new script which calls yt-dlp with my preferred options, so I don't have to copy my configuration across different projects.
 tags:

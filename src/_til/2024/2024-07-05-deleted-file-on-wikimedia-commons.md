@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-07-05 12:41:56 +0100
+date: 2024-07-05 12:41:56 +01:00
 title: Using the Wikimedia Commons API to tell if a file has been deleted
 tags:
   - wikimedia commons

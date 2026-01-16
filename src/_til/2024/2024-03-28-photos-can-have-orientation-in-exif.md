@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-03-28 06:51:55 +0000
+date: 2024-03-28 06:51:55 +00:00
 title: Why is Pillow rotating my image when I save it?
 summary: Images can have orientation specified in their EXIF metadata, which isn't preserved when you open and save an image with Pillow.
 tags:

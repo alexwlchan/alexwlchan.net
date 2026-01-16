@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-12-21 18:06:56 +0000
+date: 2025-12-21 18:06:56 +00:00
 title: Drawing Truchet tiles in SVG
 summary: Using parametric templates to draw Truchet tiles, then placing them randomly to create generative patterns.
 tags:

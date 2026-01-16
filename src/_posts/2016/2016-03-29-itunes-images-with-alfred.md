@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-03-29 07:56:00 +0000
+date: 2016-03-29 07:56:00 +00:00
 summary: Using Alfred and a Python script to retrieve artwork from the iTunes, App
   and Mac App Stores.
 tags:

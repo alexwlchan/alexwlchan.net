@@ -1,5 +1,5 @@
 ---
-date: 2016-07-28 21:03:00 +0000
+date: 2016-07-28 21:03:00 +00:00
 layout: post
 summary: A quick Python function to follow a redirect to its eventual conclusion.
 tags:

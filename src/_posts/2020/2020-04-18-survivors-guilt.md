@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-04-18 07:02:18 +0000
+date: 2020-04-18 07:02:18 +00:00
 title: Look out for survivor's guilt
 tags:
   - pandemic

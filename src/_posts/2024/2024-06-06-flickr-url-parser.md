@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-06-06 16:14:24 +0000
+date: 2024-06-06 16:14:24 +00:00
 title: The surprising utility of a Flickr URL parser
 summary: I made a library that knows how to read lots of different forms of Flickr.com URL, and I used `hyperlink` to do it.
 link: https://www.flickr.org/the-surprising-utility-of-a-flickr-url-parser/

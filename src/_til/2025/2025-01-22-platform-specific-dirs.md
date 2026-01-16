@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to find platform-specific directories
-date: 2025-01-22 10:37:05 +0000
+date: 2025-01-22 10:37:05 +00:00
 summary: |
   Two Python libraries for this task are appdirs and platformdirs, which tell you the location of the platform-specific cache directory and other similar directories.
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Redacting sensitive information from gunicorn access logs
-date: 2025-07-04 12:56:59 +0100
+date: 2025-07-04 12:56:59 +01:00
 summary: Create a subclass of `gunicorn.glogging.Logger`, and redact information in the `atoms()` method.
 tags:
   - python

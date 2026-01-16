@@ -1,5 +1,5 @@
 ---
-date: 2019-09-05 23:16:04 +0000
+date: 2019-09-05 23:16:04 +00:00
 layout: post
 summary: Code to turn an InputStream into an Iterator of entries from a tar.gz file
   or similar compressed archive in Java/Scala.

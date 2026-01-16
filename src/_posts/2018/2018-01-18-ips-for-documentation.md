@@ -1,7 +1,7 @@
 ---
 layout: post
 title: IP and DNS addresses for documentation
-date: 2018-01-18 23:26:28 +0000
+date: 2018-01-18 23:26:28 +00:00
 summary: If you're writing technical docs and need placeholder IP addresses or DNS hostnames, there are some special values just for you!
 tags:
   - documentation

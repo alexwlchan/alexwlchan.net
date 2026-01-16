@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-02-24 08:16:00 +0000
+date: 2016-02-24 08:16:00 +00:00
 summary: "I have some TextExpander snippets that I use to cut out words I don\u2019\
   t want to write."
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-09-23 07:40:00 +0000
+date: 2016-09-23 07:40:00 +00:00
 title: aspell, a command-line spell checker
 tags:
   - writethedocs

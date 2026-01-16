@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-07-30 09:26:41 +0000
+date: 2025-07-30 09:26:41 +00:00
 title: Slipstitch, Queer Craft, and community spaces
 summary: Remembering Slipstitch, a queer-friendly yarn shop and the fortnightly crafting meet-ups that were a highlight of my week.
   

@@ -3,7 +3,7 @@ layout: til
 title: The error "No aggregated item, sequence was empty" comes from Jinja2
 summary: |
   You get this error message if you try to use Jinja2's filters to get the min/max of an empty sequence.
-date: 2025-06-18 07:42:59 +0100
+date: 2025-06-18 07:42:59 +01:00
 tags:
   - python
   - python:jinja

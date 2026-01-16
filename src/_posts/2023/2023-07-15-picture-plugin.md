@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-07-15 06:46:12 +0000
+date: 2023-07-15 06:46:12 +00:00
 title: "My custom &lt;picture&gt; plugin for Jekyll"
 summary: How I make images that load quickly and look good for readers, and which are easy for me to manage.
 tags:

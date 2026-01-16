@@ -3,7 +3,7 @@ layout: til
 title: Python throws a TypeError if you return a non-string from a custom `__repr__` or `__str__` method
 summary: |
   It fails with the error "`__repr__`/`__str__` returned non-string".
-date: 2018-04-08 16:15:31 +0000
+date: 2018-04-08 16:15:31 +00:00
 tags:
   - python
 ---

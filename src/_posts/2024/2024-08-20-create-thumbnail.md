@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-08-20 17:16:50 +0000
+date: 2024-08-20 17:16:50 +00:00
 title: "create_thumbnail: create smaller versions of images"
 summary:
   I've made a new tool that allows me to reuse my thumbnailing code across all my projects.

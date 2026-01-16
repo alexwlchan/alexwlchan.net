@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-10-11 20:34:14 +0000
+date: 2019-10-11 20:34:14 +00:00
 title: Adding religious holidays to my calendar
 tags:
   - inclusion

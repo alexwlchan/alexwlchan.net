@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Create a directory before you `cp` or `mv` a file to it
-date: 2024-01-07 20:23:36 +0000
+date: 2024-01-07 20:23:36 +00:00
 tags:
   - shell scripting
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-04-17 19:44:35 +0000
+date: 2024-04-17 19:44:35 +00:00
 title: Getting faster Jekyll builds with caching in plugins
 summary: |
   I was able to build my Jekyll site much faster by using the built-in caching API.

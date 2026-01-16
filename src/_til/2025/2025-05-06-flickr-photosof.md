@@ -3,7 +3,7 @@ layout: til
 title: How do I find photos of a person on Flickr?
 summary: |
   `https://www.flickr.com/people/{path_identifier}/photosof`
-date: 2025-05-06 10:29:43 +0100
+date: 2025-05-06 10:29:43 +01:00
 tags:
   - flickr
 ---

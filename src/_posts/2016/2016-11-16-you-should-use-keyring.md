@@ -1,5 +1,5 @@
 ---
-date: 2016-11-16 07:48:00 +0000
+date: 2016-11-16 07:48:00 +00:00
 layout: post
 summary: If you need to store passwords in a Python application, use the keyring module
   to keep them safe.

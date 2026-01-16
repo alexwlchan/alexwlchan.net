@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-04-14 23:10:28 +0100
+date: 2024-04-14 23:10:28 +01:00
 title: How to count how many Discord messages were sent on a given day
 summary: |
   Using the `During` filter gives me a count of how many messages were being sent.

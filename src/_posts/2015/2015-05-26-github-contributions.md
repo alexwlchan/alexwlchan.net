@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-05-26 19:13:00 +0000
+date: 2015-05-26 19:13:00 +00:00
 summary: I made a clone of GitHub's Contributions graph to use as a motivational tool.
 title: Cloning GitHub's Contributions chart
 tags:

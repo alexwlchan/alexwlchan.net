@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-08-18 07:22:44 +0000
+date: 2022-08-18 07:22:44 +00:00
 title: I always want StrictUndefined in Jinja
 summary: When I'm writing templates with Jinja, strict behaviour is what I want, even if it's not the default.
 tags:

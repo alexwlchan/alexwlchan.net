@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-07-04 10:23:15 +0000
+date: 2024-07-04 10:23:15 +00:00
 title: Doodling with the Mac's command icon
 summary:
   Rotating a looped hook around a central point creates a surprising variety of shapes.

@@ -3,7 +3,7 @@ layout: til
 title: What is the `author_name` in the list of tags on a Flickr photo?
 summary: |
   When you call the `flickr.photos.getInfo` API, each tag is attributed to an author. The `author_name` is their username, not their realname.
-date: 2024-10-24 10:00:15 +0100
+date: 2024-10-24 10:00:15 +01:00
 tags:
   - flickr
 ---

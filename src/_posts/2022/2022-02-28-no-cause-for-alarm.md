@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-02-28 10:23:14 +0000
+date: 2022-02-28 10:23:14 +00:00
 title: Beware delays in SQS metric delivery
 summary: A mysterious problem with SQS-based autoscaling and an over-eager CloudWatch Alarm.
 tags:

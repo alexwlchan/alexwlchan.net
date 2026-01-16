@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to install exiftool in GitHub Actions
-date: 2025-03-30 23:02:55 +0100
+date: 2025-03-30 23:02:55 +01:00
 tags:
   - swift
 ---

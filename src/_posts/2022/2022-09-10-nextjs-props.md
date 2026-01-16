@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-09-10 17:04:31 +0000
+date: 2022-09-10 17:04:31 +00:00
 title: Finding redundant data in our Next.js props
 summary: A script that helps us optimise our `__NEXT_DATA__`, which in turn helps reduce page size.
 tags:

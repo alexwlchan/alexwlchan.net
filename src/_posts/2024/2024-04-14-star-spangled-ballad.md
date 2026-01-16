@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-04-14 15:52:57 +0000
+date: 2024-04-14 15:52:57 +00:00
 title: The Star-Spangled Ballad
 summary: |
   If you listen carefully to the <em>Ballad of Willie Watkins</em>, you might hear another song peeking through.

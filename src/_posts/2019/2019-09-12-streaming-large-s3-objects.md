@@ -1,5 +1,5 @@
 ---
-date: 2019-09-12 19:53:53 +0000
+date: 2019-09-12 19:53:53 +00:00
 layout: post
 summary: Reliably reading a large object by stitching together multiple GetObject requests into a single Java InputStream.
 title: Streaming large objects from S3 with ranged GET requests

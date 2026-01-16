@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-07-01 07:51:11 +0000
+date: 2019-07-01 07:51:11 +00:00
 title: Ten braille facts / ⠼⠁⠚⠀⠃⠗⠁⠊⠇⠇⠑⠀⠋⠁⠉⠞⠎
 summary: Where does braille come from? How was braille originally written? What can you write in braille today? And more.
 tags:

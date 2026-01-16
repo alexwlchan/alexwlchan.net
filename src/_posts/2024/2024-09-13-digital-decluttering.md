@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-09-13 17:38:59 +0000
+date: 2024-09-13 17:38:59 +00:00
 title: Digital decluttering
 summary: I'm resisting my temptation towards digital hoarding and "save everything", and trying to be more selective about the data I'm keeping.
 tags:

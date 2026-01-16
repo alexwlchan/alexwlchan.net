@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to find the longest common suffix in a list of strings in Python
-date: 2024-01-14 09:27:19 +0000
+date: 2024-01-14 09:27:19 +00:00
 tags:
   - python
 ---

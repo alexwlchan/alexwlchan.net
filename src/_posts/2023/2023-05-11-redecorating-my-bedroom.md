@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-05-11 20:21:18 +0000
+date: 2023-05-11 20:21:18 +00:00
 title: Redecorating my bedroom
 summary: Splashing some sunshine in the space where I sleep.
 tags:

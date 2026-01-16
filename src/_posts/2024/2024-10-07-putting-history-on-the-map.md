@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-10-07 14:07:24 +0000
+date: 2024-10-07 14:07:24 +00:00
 title: "Putting history on the map"
 summary:
   Antarctic explorers, northern factories, and Hawaiian industry -- I wrote about some of the photos I found using the interactive map in the Flickr Commons Explorer.

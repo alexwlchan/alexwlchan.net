@@ -2,7 +2,7 @@
 layout: til
 title: Get the avatar URL for an Instagram page
 summary: Use `gallery-dl --get-urls "https://www.instagram.com/{page_name}/avatar".`
-date: 2025-10-05 14:53:42 +0100
+date: 2025-10-05 14:53:42 +01:00
 tags:
   - gallery-dl
   - instagram

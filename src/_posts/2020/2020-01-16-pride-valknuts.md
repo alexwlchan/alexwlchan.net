@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-01-16 22:56:51 +0000
+date: 2020-01-16 22:56:51 +00:00
 title: Generating pride-themed Norse valknuts with Python 🌈
 summary: A web app to generate mashups of Norse valknuts and Pride flags.
 link: https://alexwlchan.net/fun-stuff/rainbow-valknuts/

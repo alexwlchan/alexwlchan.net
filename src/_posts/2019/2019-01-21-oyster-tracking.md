@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Thoughts on privacy and Oyster cards"
-date: 2019-01-21 08:29:00 +0000
+date: 2019-01-21 08:29:00 +00:00
 tags:
   - privacy
 index:

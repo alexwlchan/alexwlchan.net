@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Get an image from a video with ffmpeg
-date: 2024-07-24 21:17:35 +0100
+date: 2024-07-24 21:17:35 +01:00
 tags:
   - ffmpeg
 ---

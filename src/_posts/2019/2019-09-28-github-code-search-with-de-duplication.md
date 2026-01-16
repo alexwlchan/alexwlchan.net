@@ -1,5 +1,5 @@
 ---
-date: 2019-09-28 19:26:39 +0000
+date: 2019-09-28 19:26:39 +00:00
 layout: post
 link: https://github.com/alexwlchan/github-code-search
 title: 'Experiment: GitHub code search with de-duplication'

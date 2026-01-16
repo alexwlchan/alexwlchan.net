@@ -2,7 +2,7 @@
 layout: til
 title: My preferred options for SmartyPants in Python
 summary: "`smartypants.smartypants(…, Attr.default | Attr.u)`"
-date: 2025-08-15 09:43:00 +0100
+date: 2025-08-15 09:43:00 +01:00
 tags:
   - python
 ---

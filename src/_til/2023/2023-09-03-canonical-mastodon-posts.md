@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2023-09-03 22:39:29 +0100
+date: 2023-09-03 22:39:29 +01:00
 title: Finding the original page for a post on Mastodon
 summary: Following the logged-out 302 Redirect takes you to the original post.
 tags:

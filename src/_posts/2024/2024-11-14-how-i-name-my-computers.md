@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-11-14 09:55:58 +0000
+date: 2024-11-14 09:55:58 +00:00
 title: How I name my computers
 summary:
   What do flaming birds, man-eating giants, and obscure deities have in common?

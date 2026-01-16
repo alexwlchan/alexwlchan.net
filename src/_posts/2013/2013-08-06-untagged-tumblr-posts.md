@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2013-08-06 09:52:00 +0000
+date: 2013-08-06 09:52:00 +00:00
 tags:
   - tumblr
   - python

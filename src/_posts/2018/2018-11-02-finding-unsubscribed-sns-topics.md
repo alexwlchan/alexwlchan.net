@@ -1,5 +1,5 @@
 ---
-date: 2018-11-02 10:42:04 +0000
+date: 2018-11-02 10:42:04 +00:00
 layout: post
 summary: I'm trying out Go, and I wrote a tool to help me find SNS topics that don't
   have any subscriptions.

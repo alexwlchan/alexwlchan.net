@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-01-15 21:46:18 +0000
+date: 2023-01-15 21:46:18 +00:00
 title: Beware of transparent backgrounds when using AVIF with ImageMagick 6
 summary: You probably want to use version 7.
 tags:

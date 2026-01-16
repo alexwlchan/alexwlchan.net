@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-07-09 06:27:58 +0000
+date: 2021-07-09 06:27:58 +00:00
 title: A few useful GitHub searches
 summary: I have hotkeys to search GitHub in several ways, including by user, by repo, and within the work organisation.
 tags:

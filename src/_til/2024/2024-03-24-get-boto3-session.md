@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-03-24 11:34:05 +0000
+date: 2024-03-24 11:34:05 +00:00
 title: Getting a boto3 Session for an IAM role using Python
 summary: Why I use Sessions in boto3, and the Python function I use to create them.
 tags:

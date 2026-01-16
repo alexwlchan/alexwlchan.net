@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-09-30 08:04:00 +0000
+date: 2016-09-30 08:04:00 +00:00
 title: My travelling tech bag
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-07-11 07:43:00 +0000
+date: 2014-07-11 07:43:00 +00:00
 tags:
   - latex
   - wolfram alpha

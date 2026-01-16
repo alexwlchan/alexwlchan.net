@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-05-25 13:21:10 +0000
+date: 2024-05-25 13:21:10 +00:00
 title: Documenting my DNS records
 summary: |
   Exporting my DNS records as YAML gives me a plaintext file where I can track changes, add comments, and feel more confident about managing my DNS.

@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-22 18:40:37 +0000
+date: 2024-02-22 18:40:37 +00:00
 title: Using `errexit` and arithmetic expressions in bash
 tags:
   - bash

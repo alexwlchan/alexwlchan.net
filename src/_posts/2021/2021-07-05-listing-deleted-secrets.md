@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-07-05 11:46:23 +0000
+date: 2021-07-05 11:46:23 +00:00
 title: Listing deleted secrets in AWS Secrets Manager with boto3 and the AWS CLI
 summary: Diving into the internals of the AWS SDK to find deleted secrets.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-12-29 07:46:33 +0000
+date: 2023-12-29 07:46:33 +00:00
 title: Getting the path to the note I have open in Obsidian
 summary: Although Obsidian doesn’t support AppleScript, I can use System Events to find out which note I have open.
 tags:

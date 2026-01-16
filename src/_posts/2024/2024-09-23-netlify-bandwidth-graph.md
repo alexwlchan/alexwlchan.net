@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-09-23 08:37:05 +0000
+date: 2024-09-23 08:37:05 +00:00
 title: Drawing a better bandwidth graph for Netlify
 summary:
   A two-part pie chart lets me see how much bandwidth I've used this month, and whether I'm on track to exceed my bandwidth allowance.

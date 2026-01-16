@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-11-17 11:38:06 +0000
+date: 2019-11-17 11:38:06 +00:00
 title: Saving a copy of a tweet by typing ;twurl
 tags:
   - twitter

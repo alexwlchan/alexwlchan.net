@@ -3,7 +3,7 @@ layout: til
 title: How to check if Tailscale is running
 summary:
   Use `tailscale status` and look for the `BackendState` key.
-date: 2025-04-28 11:38:50 +0100
+date: 2025-04-28 11:38:50 +01:00
 tags:
   - tailscale
 ---

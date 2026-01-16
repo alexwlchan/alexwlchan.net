@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-12-19 22:57:16 +0000
+date: 2025-12-19 22:57:16 +00:00
 title: Adding a README to S3 buckets with Terraform
 summary: If you create an S3 bucket in Terraform, you can also create a README to help a future sysadmin understand what the bucket is for.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-10-17 16:58:18 +0000
+date: 2020-10-17 16:58:18 +00:00
 title: How do I use my iPhone cameras?
 summary: A script to work out which camera I use most often on my iPhone, and whether I'd miss a telephoto lens.
 tags:

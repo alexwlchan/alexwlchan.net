@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-04-08 13:03:00 +0000
+date: 2016-04-08 13:03:00 +00:00
 summary: Regexes have a reputation for being unreadable monsters, but it doesn't have
   to be that way.
 tags:

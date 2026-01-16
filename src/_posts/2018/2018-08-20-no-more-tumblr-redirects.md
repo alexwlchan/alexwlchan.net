@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-08-20 07:17:19 +0000
+date: 2018-08-20 07:17:19 +00:00
 title: Avoiding the automatic redirect on Tumblr posts
 tags:
   - tumblr

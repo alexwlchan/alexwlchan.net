@@ -2,7 +2,7 @@
 layout: page
 title: Disclosure
 nav_section: contact
-date_updated: 2025-10-25 12:16:38 +0100
+date_updated: 2025-10-25 12:16:38 +01:00
 ---
 Everything on this site is my personal opinion and writing, and not approved or endorsed by an employer, past or present.
 

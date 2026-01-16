@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-04-02 18:55:13 +0100
+date: 2024-04-02 18:55:13 +01:00
 title: Checking if a URL has changed when you fetch it over HTTP
 summary: |
   When you make an HTTP request, you can use the `If-Modified-Since` header to get a 304 Not Modified if nothing has changed since your last request.

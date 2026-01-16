@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-05-11 18:30:07 +0000
+date: 2020-05-11 18:30:07 +00:00
 title: The friends I lost along the way
 tags:
   - personal

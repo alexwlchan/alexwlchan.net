@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Group nodes in a Mermaid flowchart by putting them in a subgraph
-date: 2025-07-06 19:54:31 +0100
+date: 2025-07-06 19:54:31 +01:00
 tags:
   - mermaid
   - drawing things

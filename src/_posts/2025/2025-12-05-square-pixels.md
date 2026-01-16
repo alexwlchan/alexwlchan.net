@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-12-05 07:54:32 +0000
+date: 2025-12-05 07:54:32 +00:00
 title: When square pixels aren't square
 summary: "When you want to get the dimensions of a video file, you probably want the display aspect ratio. Using the dimensions of a stored frame may result in a stretched or squashed video."
 tags:

@@ -2,7 +2,7 @@
 layout: til
 title: Get the avatar URL for a Bluesky user
 summary: Make a request to the `app.bsky.actor.getProfile` endpoint, passing their handle as the `actor` parameter.
-date: 2025-08-11 09:06:46 +0100
+date: 2025-08-11 09:06:46 +01:00
 tags:
   - bluesky
 ---

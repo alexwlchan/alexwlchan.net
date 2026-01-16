@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-12-12 10:30:02 +0000
+date: 2025-12-12 10:30:02 +00:00
 title: Meeting my younger self
 summary: I reviewed 150,000 fragments of my online life, and I was reminded of the friends I found, the mistakes I made, and the growth I gained.
 tags:

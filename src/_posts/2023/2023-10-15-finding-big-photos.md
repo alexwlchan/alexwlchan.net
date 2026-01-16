@@ -1,7 +1,7 @@
 ---
-date: 2023-10-14 11:27:00 +0000
+date: 2023-10-14 11:27:00 +00:00
 layout: post
-date: 2023-10-15 16:12:21 +0000
+date: 2023-10-15 16:12:21 +00:00
 title: Finding the biggest items in my Photos Library
 summary: A quick script to help move the biggest items out of my main Photos Library.
 tags:

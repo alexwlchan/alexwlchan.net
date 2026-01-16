@@ -1,5 +1,5 @@
 ---
-date: 2019-10-06 17:32:56 +0000
+date: 2019-10-06 17:32:56 +00:00
 layout: post
 summary: The filecmp module has a confusing API, and it just caught me out.
 title: The rough edges of filecmp

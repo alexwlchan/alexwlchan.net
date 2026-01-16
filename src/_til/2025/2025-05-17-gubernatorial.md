@@ -2,7 +2,7 @@
 layout: til
 title: What does the word “gubernatorial” mean?
 summary: It’s anything related to a governor, and mostly used for the governors of US states.
-date: 2025-05-17 10:48:44 +0100
+date: 2025-05-17 10:48:44 +01:00
 tags:
   - politics
   - interesting words

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-06-12 07:45:43 +0000
+date: 2019-06-12 07:45:43 +00:00
 title: Reading a Chinese dictionary / 读一本中文字典
 summary: Although paper dictionaries are mostly a thing of the past, knowing how to use a Chinese dictionary helps me learn the rest of the language.
 colors:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-02-26 20:27:45 +0000
+date: 2019-02-26 20:27:45 +00:00
 title: "Checking Jekyll sites with HTMLProofer"
 tags:
   - jekyll

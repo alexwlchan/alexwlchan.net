@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-01-28 10:30:50 +0000
+date: 2023-01-28 10:30:50 +00:00
 title: A bookmarklet to show which responsive image was chosen
 summary: "Debugging my &lt;picture> and &lt;source> tags."
 tags:

@@ -2,7 +2,7 @@
 layout: til
 title: Adding a string to a tarfile in Python
 summary: Wrap the string in an `io.BytesIO` first, then create a `TarInfo` object and pass them both to `addfile()` to add the string to your tarfile.
-date: 2025-07-22 17:35:06 +0100
+date: 2025-07-22 17:35:06 +01:00
 tags:
   - python
 ---

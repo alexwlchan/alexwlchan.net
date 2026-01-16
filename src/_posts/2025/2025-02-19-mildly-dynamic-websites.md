@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-02-19 13:25:45 +0000
+date: 2025-02-19 13:25:45 +00:00
 title: How I create static websites for tiny archives
 summary: Start with a simple HTML file, then add features like templates, sorting, and filtering as they become useful.
 colors:

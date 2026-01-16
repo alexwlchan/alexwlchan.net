@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-10-12 18:02:18 +0000
+date: 2020-10-12 18:02:18 +00:00
 title: The danger of bad error messages
 summary: An Excel mistake shows why learning to write good error messages is a critical skill for software developers.
 tags:

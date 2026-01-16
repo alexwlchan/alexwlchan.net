@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-09-26 10:14:58 +0000
+date: 2020-09-26 10:14:58 +00:00
 title: Using qlmanage to create thumbnails on macOS
 summary: How you can invoke Quick Look on the command-line to generate high-quality thumbnails.
 tags:

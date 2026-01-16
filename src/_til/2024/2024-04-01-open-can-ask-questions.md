@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-04-01 20:14:30 +0100
+date: 2024-04-01 20:14:30 +01:00
 title: The `open` command can ask questions
 summary: |
   If you pass an argument that can't be easily identified as a file or a URL, `open` will ask you what to do next.

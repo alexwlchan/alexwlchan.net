@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-10-29 07:48:12 +0000
+date: 2018-10-29 07:48:12 +00:00
 title: How do you hide a coin for 400 years?
 tags:
   - misc

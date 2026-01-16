@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-09-17 22:08:00 +0000
+date: 2016-09-17 22:08:00 +00:00
 summary: Live captioning of conference talks was an unexpected bonus at this year's
   PyCon UK.
 tags:

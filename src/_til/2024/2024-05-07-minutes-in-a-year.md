@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-07 20:06:15 +0100
+date: 2024-05-07 20:06:15 +01:00
 title: There’s a musical that tells you the number of minutes in a year
 summary: |
   The song *Seasons of Love* from *Rent* starts with the line "Five hundred twenty-five thousand, six hundred minutes".

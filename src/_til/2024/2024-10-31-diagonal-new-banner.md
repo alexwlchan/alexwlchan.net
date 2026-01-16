@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Drawing a diagonal banner over the corner of an image
-date: 2024-10-31 15:26:21 +0000
+date: 2024-10-31 15:26:21 +00:00
 tags:
   - css
 ---

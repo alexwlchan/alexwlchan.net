@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2023-12-08 20:58:33 +0000
+date: 2023-12-08 20:58:33 +00:00
 title: Go between M-IDs and filenames on Wikimedia Commons
 tags:
   - wikimedia commons

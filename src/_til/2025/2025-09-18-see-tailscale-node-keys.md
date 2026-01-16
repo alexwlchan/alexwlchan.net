@@ -2,7 +2,7 @@
 layout: til
 title: Seeing the public node key of a Tailscale node
 summary: Use `tailscale status --self --json` or `tailscale debug netmap`.
-date: 2025-09-18 13:27:49 +0100
+date: 2025-09-18 13:27:49 +01:00
 tags:
   - tailscale
 ---

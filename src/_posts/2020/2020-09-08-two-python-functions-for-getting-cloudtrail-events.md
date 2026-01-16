@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-09-08 07:06:07 +0000
+date: 2020-09-08 07:06:07 +00:00
 title: Two Python functions for getting CloudTrail events
 tags:
   - aws

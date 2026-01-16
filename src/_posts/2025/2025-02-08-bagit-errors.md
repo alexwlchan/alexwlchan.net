@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-02-08 10:04:12 +0000
+date: 2025-02-08 10:04:12 +00:00
 title: Unexpected errors in the BagIt area
 summary: |
   Exploring the many ways a BagIt bag can be invalid, and how you might want to build a process for validating bags to ensure the quality of your digital archive.

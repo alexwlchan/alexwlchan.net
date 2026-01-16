@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "DynamoDB: Conditional updates on nested fields"
-date: 2019-05-09 12:12:24 +0100
+date: 2019-05-09 12:12:24 +01:00
 tags:
   - java
   - aws

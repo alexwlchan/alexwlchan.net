@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "Add a Git co-author credit with “Co-authored-by” in your commit message"
-date: 2019-05-09 08:54:03 +0100
+date: 2019-05-09 08:54:03 +01:00
 tags:
   - git
   - github

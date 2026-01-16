@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-05-17 09:12:01 +0000
+date: 2024-05-17 09:12:01 +00:00
 title: Creating a Safari webarchive from the command line
 summary: We can use the `createWebArchiveData` method on `WKWebView` to write a Swift script that creates Safari webarchive files.
 tags:

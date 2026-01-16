@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-11-30 22:39:00 +0000
+date: 2015-11-30 22:39:00 +00:00
 summary: The Docker folder on your computer can quickly fill up space. Don't forget
   to exclude it from backups.
 tags:

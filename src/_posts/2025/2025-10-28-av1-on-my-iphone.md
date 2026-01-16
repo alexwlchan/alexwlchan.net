@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-10-28 09:59:45 +0000
+date: 2025-10-28 09:59:45 +00:00
 title: Why can't my iPhone play that video?
 summary: The answer involves the AV1 video codec, Apple's chips, and several new web APIs I learnt along the way.
 tags:

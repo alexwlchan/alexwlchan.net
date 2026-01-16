@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Python 3.13 throws a `ResourceWarning` for SQLite databases that aren't explicitly closed
-date: 2025-04-03 21:37:24 +0100
+date: 2025-04-03 21:37:24 +01:00
 tags:
   - sqlite
   - python

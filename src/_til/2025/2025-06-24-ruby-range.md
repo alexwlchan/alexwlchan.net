@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Ruby's range can iterate over more than just numbers
-date: 2025-06-24 04:50:58 +0100
+date: 2025-06-24 04:50:58 +01:00
 summary: You can iterate over a range between two `String` values, because Ruby's `String` does intelligent increments of alphanumeric strings.
 tags:
   - ruby

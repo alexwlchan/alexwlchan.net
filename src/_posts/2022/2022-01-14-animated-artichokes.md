@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-01-14 10:58:15 +0000
+date: 2022-01-14 10:58:15 +00:00
 title: Creating animated GIFs from fruit and veg
 summary: Some Python code for turning MRI scans of fruit and veg into animated GIFs.
 tags:

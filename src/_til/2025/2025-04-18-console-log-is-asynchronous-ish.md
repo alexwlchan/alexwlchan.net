@@ -2,7 +2,7 @@
 layout: til
 title: "`console.log()` holds a reference to an object, not a copy of it"
 summary: When you view an array/object with `console.log()`, you see the contents at the time you expand it, not as it existed when you called `console.log()`.
-date: 2025-04-18 10:34:25 +0100
+date: 2025-04-18 10:34:25 +01:00
 tags:
   - javascript
 ---

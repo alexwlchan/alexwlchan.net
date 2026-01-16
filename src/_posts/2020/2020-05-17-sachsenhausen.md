@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-05-17 13:13:12 +0000
+date: 2020-05-17 13:13:12 +00:00
 title: The Sachsenhausen concentration camp
 summary: Feeling the weight of death in a former concentration camp.
 tags:

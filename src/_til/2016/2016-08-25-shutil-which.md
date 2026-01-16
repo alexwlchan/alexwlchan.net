@@ -2,7 +2,7 @@
 layout: til
 title: You can use `shutil.which` to check if an executable is in your PATH
 summary: This is useful for checking if something's installed.
-date: 2016-08-25 05:49:52 +0000
+date: 2016-08-25 05:49:52 +00:00
 tags:
   - python
 ---

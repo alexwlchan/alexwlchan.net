@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-05-01 19:55:00 +0000
+date: 2016-05-01 19:55:00 +00:00
 title: "\u201CThe document could not be saved\u201D"
 summary: "Debugging a strange interaction between TextMate and OS X\u2019s security system."
 tags:

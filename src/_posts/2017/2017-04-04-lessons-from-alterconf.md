@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-04-04 17:46:00 +0000
+date: 2017-04-04 17:46:00 +00:00
 summary: For accessibility and inclusion, AlterConf sets a high bar to beat.
 tags:
   - alterconf

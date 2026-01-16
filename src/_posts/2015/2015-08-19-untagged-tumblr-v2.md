@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-08-19 22:55:00 +0000
+date: 2015-08-19 22:55:00 +00:00
 link: http://finduntaggedtumblrposts.com
 summary: A new version of my site for finding untagged Tumblr posts.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-05-17 07:25:05 +0000
+date: 2022-05-17 07:25:05 +00:00
 title: Changing my carbon monoxide detectors
 summary: Keeping my home safe from deadly gases.
 tags:

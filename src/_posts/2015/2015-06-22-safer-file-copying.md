@@ -1,5 +1,5 @@
 ---
-date: 2015-06-22 23:20:00 +0000
+date: 2015-06-22 23:20:00 +00:00
 layout: post
 summary: A Python script for non-destructive file copying/moving.
 tags:

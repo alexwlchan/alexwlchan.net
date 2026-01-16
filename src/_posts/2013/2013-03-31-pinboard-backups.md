@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2013-03-31 11:13:00 +0000
+date: 2013-03-31 11:13:00 +00:00
 summary: A script for automatically backing up bookmarks from Pinboard
 tags:
   - pinboard

@@ -1,5 +1,5 @@
 ---
-date: 2017-10-20 17:11:59 +0000
+date: 2017-10-20 17:11:59 +00:00
 layout: post
 summary: I often have code I want to run against every HTTP response (logging, error
   checking) --- event hooks give me a nice way to do that without repetition.

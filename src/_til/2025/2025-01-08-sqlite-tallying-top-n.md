@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to tally the attributes of the top N rows in a SQLite table
-date: 2025-01-08 10:17:07 +0000
+date: 2025-01-08 10:17:07 +00:00
 tags:
   - sqlite
 summary: |

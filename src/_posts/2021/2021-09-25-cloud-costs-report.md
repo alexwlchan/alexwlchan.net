@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-09-25 15:41:44 +0000
+date: 2021-09-25 15:41:44 +00:00
 title: Getting a monthly cloud costs report in Slack
 summary: Sending the AWS bill to Slack, so everyone can be more informed and intentional about spending.
 tags:

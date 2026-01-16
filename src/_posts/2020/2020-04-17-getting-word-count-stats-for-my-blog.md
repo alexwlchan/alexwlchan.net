@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-04-17 20:23:19 +0000
+date: 2020-04-17 20:23:19 +00:00
 title: Getting word count stats for my blog
 link: https://alexwlchan.net/stats/
 tags:

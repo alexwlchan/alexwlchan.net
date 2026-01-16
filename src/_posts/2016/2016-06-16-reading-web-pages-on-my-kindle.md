@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-06-16 08:50:00 +0000
+date: 2016-06-16 08:50:00 +00:00
 summary: A Python script I wrote that let me sends web pages from my Mac and my iPhone
   to my Kindle.
 tags:

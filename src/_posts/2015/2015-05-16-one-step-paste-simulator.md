@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-05-16 11:51:00 +0000
+date: 2015-05-16 11:51:00 +00:00
 summary: How to paste text directly from OS X into the iOS Simulator.
 tags:
   - os-x

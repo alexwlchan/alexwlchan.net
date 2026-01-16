@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "How to style a `<details>` element differently depending on whether it’s open or closed"
-date: 2024-01-07 22:46:43 +0000
+date: 2024-01-07 22:46:43 +00:00
 tags:
   - css
 ---

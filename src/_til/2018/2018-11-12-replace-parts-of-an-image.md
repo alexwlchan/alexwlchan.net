@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "Replace black/white parts of an image with ImageMagick"
-date: 2018-11-12 09:09:23 +0000
+date: 2018-11-12 09:09:23 +00:00
 tags:
   - imagemagick
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-07-08 15:51:22 +0000
+date: 2025-07-08 15:51:22 +00:00
 title: Moving my Glitch apps to my own web server
 summary: I've moved almost all of my Glitch apps to websites running on my own web server, on this domain.
 tags:

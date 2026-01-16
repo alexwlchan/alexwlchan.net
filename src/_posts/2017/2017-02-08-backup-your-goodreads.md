@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-02-08 20:41:00 +0000
+date: 2017-02-08 20:41:00 +00:00
 link: https://github.com/alexwlchan/backup-goodreads
 tags:
   - python

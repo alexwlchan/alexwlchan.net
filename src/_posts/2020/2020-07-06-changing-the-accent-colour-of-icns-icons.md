@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-07-06 21:31:32 +0000
+date: 2020-07-06 21:31:32 +00:00
 title: Changing the accent colour of ICNS icons
 summary: Playing with macOS ICNS image files to create colourful new icons.
 tags:

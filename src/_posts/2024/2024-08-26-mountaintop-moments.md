@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-08-26 10:06:14 +0000
+date: 2024-08-26 10:06:14 +00:00
 title: Mountaintop moments
 summary:
   The amazing events that let us temporarily escape from our lives, and how to deal with the emotional crash that comes afterward.

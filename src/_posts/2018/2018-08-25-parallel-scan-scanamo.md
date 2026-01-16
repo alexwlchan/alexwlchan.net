@@ -1,5 +1,5 @@
 ---
-date: 2018-08-25 08:20:24 +0000
+date: 2018-08-25 08:20:24 +00:00
 layout: post
 summary: Prototype code for running a parallel scan against a DynamoDB table, and
   using Scanamo to serialise rows as Scala case classes.

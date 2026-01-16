@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-06-26 09:29:09 +0100
+date: 2024-06-26 09:29:09 +01:00
 title: How to get the selected item in Finder using AppleScript
 tags:
   - applescript

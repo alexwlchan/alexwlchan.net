@@ -1,7 +1,7 @@
 ---
 layout: til
 title: The LastModified date of an S3 multipart upload is when the upload started, not when it finished
-date: 2025-11-27 21:59:35 +0000
+date: 2025-11-27 21:59:35 +00:00
 tags:
   - aws:amazon s3
 ---

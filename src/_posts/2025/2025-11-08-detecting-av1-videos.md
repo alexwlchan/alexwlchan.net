@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-11-08 23:13:56 +0000
+date: 2025-11-08 23:13:56 +00:00
 title: Detecting AV1-encoded videos with Python
 summary: I wrote a Python test to find videos that are encoded with AV1, so I can convert them to a codec my iPhone can play.
 tags:

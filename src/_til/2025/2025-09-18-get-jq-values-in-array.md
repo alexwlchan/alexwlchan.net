@@ -2,7 +2,7 @@
 layout: til
 title: Get a list of values in a JSON object with jq
 summary: The equivalent to Python's `dict.values()` is `jq '[.[]]'`.
-date: 2025-09-18 13:51:08 +0100
+date: 2025-09-18 13:51:08 +01:00
 tags:
   - jq
 ---

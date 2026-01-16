@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Sort a list of DOM elements by sorting and calling `appendChild()`
-date: 2024-01-11 21:52:57 +0000
+date: 2024-01-11 21:52:57 +00:00
 tags:
   - javascript
 ---

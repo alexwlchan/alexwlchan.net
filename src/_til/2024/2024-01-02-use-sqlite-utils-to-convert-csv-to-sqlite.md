@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Using sqlite-utils to convert a CSV into a SQLite database
-date: 2024-01-02 10:54:18 +0000
+date: 2024-01-02 10:54:18 +00:00
 summary: |
   You can use sqlite-utils on the command line to create a SQLite database from a CSV file.
 tags:

@@ -1,5 +1,5 @@
 ---
-date: 2018-12-27 17:38:55 +0000
+date: 2018-12-27 17:38:55 +00:00
 layout: post
 summary: Some notes on trying to do this in a way that supports both Python 2 and
   3, and the frustration of doing so.

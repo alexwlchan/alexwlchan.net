@@ -2,7 +2,7 @@
 layout: til
 title: How to list the tests that will be run by a `go test` command
 summary: "Use `go test -list={pattern}`."
-date: 2025-08-18 11:06:00 +0100
+date: 2025-08-18 11:06:00 +01:00
 tags:
   - golang
 ---

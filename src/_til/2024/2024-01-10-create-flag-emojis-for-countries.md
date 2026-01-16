@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to create flag emojis for countries in Python
-date: 2024-01-10 10:31:11 +0000
+date: 2024-01-10 10:31:11 +00:00
 tags:
   - python
   - unicode

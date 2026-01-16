@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-05-02 08:07:18 +0000
+date: 2020-05-02 08:07:18 +00:00
 title: How long is my data? 💾
 link: https://howlongismydata.glitch.me/
 tags:

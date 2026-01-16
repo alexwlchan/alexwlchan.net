@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-06-13 07:50:00 +0000
+date: 2014-06-13 07:50:00 +00:00
 tags:
   - tumblr
 title: Finding untagged posts on Tumblr, redux

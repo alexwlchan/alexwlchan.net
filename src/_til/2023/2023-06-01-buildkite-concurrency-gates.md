@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use concurrency gates to prevent concurrent deployments
-date: 2023-06-01 20:37:05 +0000
+date: 2023-06-01 20:37:05 +00:00
 tags:
   - buildkite
 ---

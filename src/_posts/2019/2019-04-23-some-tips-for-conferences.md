@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-04-23 09:27:31 +0000
+date: 2019-04-23 09:27:31 +00:00
 title: Some tips for conferences
 tags:
   - conferences

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-10-14 19:26:43 +0000
+date: 2024-10-14 19:26:43 +00:00
 title: Making alt text more visible
 summary: |
   I wrote a JavaScript snippet that shows alt text below all of my images, so I can see when it's missing, and review it while I'm editing.

@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2023-12-07 20:53:08 +0000
+date: 2023-12-07 20:53:08 +00:00
 title: Telling mechanize how to find local issuer certificates
 summary: Calling `browser.set_ca_data(cafile=certifi.where())` will tell where mechanize can find some local SSL certificates.
 colors:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-02-08 22:32:46 +0000
+date: 2025-02-08 22:32:46 +00:00
 title: Good embedded toots
 summary: |
   I replaced Mastodon's native post embeds with lightweight HTML and CSS snippets that are faster to load, more resilient to outages, and support dark mode -- and I had fun doing it.

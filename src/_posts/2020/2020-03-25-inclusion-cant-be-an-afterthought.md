@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-03-25 13:03:10 +0000
+date: 2020-03-25 13:03:10 +00:00
 title: Inclusion can't be an afterthought
 summary: Notes from a talk about inclusion in design and unconscious bias.
 tags:

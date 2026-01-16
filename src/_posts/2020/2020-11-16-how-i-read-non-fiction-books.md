@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-11-16 09:16:47 +0000
+date: 2020-11-16 09:16:47 +00:00
 title: How I read non-fiction books
 summary: I take notes so I remember more of what I read.
 tags:

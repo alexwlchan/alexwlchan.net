@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-03-01 19:05:00 +0000
+date: 2018-03-01 19:05:00 +00:00
 title: Keep an overnight bag in the office
 tags:
   - work

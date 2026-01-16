@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Look at the `__annotations__` to learn about the definition of a TypedDict
-date: 2025-10-07 21:52:13 +0100
+date: 2025-10-07 21:52:13 +01:00
 tags:
   - python
   - python:typing

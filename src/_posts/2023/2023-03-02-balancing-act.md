@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-03-02 14:03:08 +0000
+date: 2023-03-02 14:03:08 +00:00
 title: Splitting a class into balanced groups
 summary: How do you make sure everyone gets to work with everyone else?
 tags:

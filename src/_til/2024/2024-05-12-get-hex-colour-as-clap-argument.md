@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-12 11:46:34 +0100
+date: 2024-05-12 11:46:34 +01:00
 title: Get a Palette colour as a command-line argument with Clap
 summary: |
   Wrapping a `Palette:Srgb` in a struct and implementing `FromStr` for the struct allows you to take hexadecimal colours as command-line inputs.

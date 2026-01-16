@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-11-18 09:41:32 +0000
+date: 2020-11-18 09:41:32 +00:00
 title: A script to copy images from Docker Hub to Amazon ECR
 tags:
   - docker

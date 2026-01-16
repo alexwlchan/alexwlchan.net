@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-08-02 07:31:35 +0000
+date: 2018-08-02 07:31:35 +00:00
 title: Selective sudo on Travis
 tags:
   - travis

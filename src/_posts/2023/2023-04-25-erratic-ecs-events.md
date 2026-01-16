@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-04-25 13:40:02 +0000
+date: 2023-04-25 13:40:02 +00:00
 title: Getting alerts about flaky ECS tasks in Slack
 summary: |
   When ECS is "unable to consistently start tasks successfully", we get a Slack alert that tells us to investigate.

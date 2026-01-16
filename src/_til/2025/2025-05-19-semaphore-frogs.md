@@ -1,7 +1,7 @@
 ---
 layout: til
 title: The Panamanian Golden Frog communicates by semaphore
-date: 2025-05-19 22:37:00 +0100
+date: 2025-05-19 22:37:00 +01:00
 tags:
   - animals
 ---

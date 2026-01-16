@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-08-10 22:10:42 +0000
+date: 2022-08-10 22:10:42 +00:00
 title: Drawing a circular arc in an SVG
 summary: A Python function to help me draw circular arcs, as part of an upcoming project.
 tags:

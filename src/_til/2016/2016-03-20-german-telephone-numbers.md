@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Germany has longer telephone numbers than the rest of the world
-date: 2016-03-20 15:09:55 +0000
+date: 2016-03-20 15:09:55 +00:00
 tags:
   - trivia
 ---

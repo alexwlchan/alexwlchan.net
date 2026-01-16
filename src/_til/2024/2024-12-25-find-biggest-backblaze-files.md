@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to find the biggest files backed up by Backblaze
-date: 2024-12-25 23:28:50 +0000
+date: 2024-12-25 23:28:50 +00:00
 tags:
   - backblaze
 summary: |

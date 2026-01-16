@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2023-05-23 21:05:27 +0000
+date: 2023-05-23 21:05:27 +00:00
 title: How to profile Swift code
 tags:
   - swift

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Python's f-strings support `=` for self-documenting expressions
-date: 2025-06-30 15:52:12 +0100
+date: 2025-06-30 15:52:12 +01:00
 summary: The f-string `f"{x=}"` expands to `f"x={x}"`.
 tags:
   - python

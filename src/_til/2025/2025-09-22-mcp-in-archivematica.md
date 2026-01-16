@@ -3,7 +3,7 @@ layout: til
 title: |
     The "MCP" in Archivematica stands for "Master Control Program"
 summary: It's nothing to do with generative AI.
-date: 2025-09-22 09:28:04 +0100
+date: 2025-09-22 09:28:04 +01:00
 tags:
   - digital preservation
   - archivematica

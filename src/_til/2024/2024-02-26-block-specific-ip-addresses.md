@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-26 10:15:24 +0000
+date: 2024-02-26 10:15:24 +00:00
 title: How to restrict a page to specific IP addresses
 tags:
   - nginx

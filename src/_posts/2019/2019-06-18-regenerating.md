@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-06-18 12:48:49 +0000
+date: 2019-06-18 12:48:49 +00:00
 title: An inescapable conclusion
 summary: After months of introspection and soul-searching, I've had some big realisations about my identity.
 tags:

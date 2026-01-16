@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-04-17 22:43:30 +0100
+date: 2024-04-17 22:43:30 +01:00
 title: How to take a screenshot of a page in the Wayback Machine
 summary: |
   Using Playwright to take screenshots and adding some custom styles gets a screenshot of a page without the Wayback Machine overlay.

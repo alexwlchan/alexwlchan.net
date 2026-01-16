@@ -1,7 +1,7 @@
 ---
 layout: til
 title: You can change the size of tabs on web pages with the `tab-size` property
-date: 2025-07-08 19:50:29 +0100
+date: 2025-07-08 19:50:29 +01:00
 tags:
   - css
   - golang

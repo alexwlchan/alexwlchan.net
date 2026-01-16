@@ -3,7 +3,7 @@ layout: til
 title: HTML strings may not be equivalent if you minify them
 summary: |
   There's a lot of whitespace in HTML which looks irrelevant at first glance, but may be significant and cause the document to render differently.
-date: 2024-10-17 09:54:59 +0100
+date: 2024-10-17 09:54:59 +01:00
 tags:
   - html
 ---

@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-06-07 10:26:31 +0100
+date: 2024-06-07 10:26:31 +01:00
 title: How to check the quality of a network connection
 summary: |
   Using an `NWPathMonitor` and inspecting the value of `NWPath.status`, `NWPath.isExpensive` and `NWPath.isConstrained` can tell you what sort of connection you're running on.

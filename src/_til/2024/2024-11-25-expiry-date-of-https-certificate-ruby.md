@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to get the expiry date of an HTTPS certificate with Ruby
-date: 2024-11-25 10:26:42 +0000
+date: 2024-11-25 10:26:42 +00:00
 tags:
   - ruby
 summary: Connect to the domain using `net/http`, then you can inspect the `peer_cert`/`not_after` property on the response.

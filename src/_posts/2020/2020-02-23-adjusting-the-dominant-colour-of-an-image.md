@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-02-23 20:58:34 +0000
+date: 2020-02-23 20:58:34 +00:00
 title: Adjusting the dominant colour of an image
 tags:
   - acorn

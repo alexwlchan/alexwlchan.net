@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Parsing JSON in Go with a required field
-date: 2025-05-29 17:14:31 +0100
+date: 2025-05-29 17:14:31 +01:00
 tags:
   - golang
   - json

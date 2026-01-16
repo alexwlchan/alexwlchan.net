@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Python's sqlite3 context manager doesn’t close connections
-date: 2024-01-02 07:18:04 +0000
+date: 2024-01-02 07:18:04 +00:00
 summary: |
   The `sqlite3.connect(…)` context manager will hold connections open, so you need to remember to close it manually or write your own context manager.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-22 12:33:03 +0000
+date: 2024-02-22 12:33:03 +00:00
 title: How to check when an HTTPS certificate expires
 tags:
   - http

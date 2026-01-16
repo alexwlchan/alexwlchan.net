@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-07-01 20:12:48 +0000
+date: 2018-07-01 20:12:48 +00:00
 title: My favourite iMac accessory
 tags:
   - imac

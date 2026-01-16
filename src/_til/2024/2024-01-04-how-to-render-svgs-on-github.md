@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "SVGs are only rendered on GitHub if you use an `<img>` that points to another file"
-date: 2024-01-04 22:07:01 +0000
+date: 2024-01-04 22:07:01 +00:00
 tags:
   - svg
   - github

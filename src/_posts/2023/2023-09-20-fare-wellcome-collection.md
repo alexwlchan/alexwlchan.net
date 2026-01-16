@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-09-20 07:12:54 +0000
+date: 2023-09-20 07:12:54 +00:00
 title: Fare-Wellcome Collection
 summary: After nearly seven years, it's time for something new.
 tags:

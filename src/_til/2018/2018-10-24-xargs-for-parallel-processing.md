@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to use xargs for parallel processing
-date: 2018-10-24 08:55:00 +0000
+date: 2018-10-24 08:55:00 +00:00
 tags:
   - shell scripting
 ---

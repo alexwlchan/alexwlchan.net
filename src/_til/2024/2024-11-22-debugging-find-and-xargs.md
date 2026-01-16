@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Debugging some confusing behaviour with `find` and `xargs`
-date: 2024-11-22 16:35:11 +0000
+date: 2024-11-22 16:35:11 +00:00
 tags:
   - shell scripting
 summary:

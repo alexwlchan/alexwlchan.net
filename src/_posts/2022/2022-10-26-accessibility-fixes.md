@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-10-26 18:58:54 +0000
+date: 2022-10-26 18:58:54 +00:00
 title: Some small accessibility fixes
 summary: Making the sites I work on sound a bit nicer for anyone who relies on screen readers.
 tags:

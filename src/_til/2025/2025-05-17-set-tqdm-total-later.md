@@ -2,7 +2,7 @@
 layout: til
 title: You can set/update the `total` of a progress bar `tqdm` after it starts
 summary: Update the `.total` attribute, then call `.refresh()`.
-date: 2025-05-17 16:00:18 +0100
+date: 2025-05-17 16:00:18 +01:00
 tags:
   - python
 ---

@@ -1,7 +1,7 @@
 ---
 layout: til
-date: 2024-04-21 10:11:02 +0100
-date_updated: 2025-08-11 20:07:57 +0100
+date: 2024-04-21 10:11:02 +01:00
+date_updated: 2025-08-11 20:07:57 +01:00
 title: How to get a list of captures from the Wayback Machine
 summary: |
   Use the CDX Server API to get a list of captures for a particular URL.

@@ -1,5 +1,5 @@
 ---
-date: 2017-11-09 18:18:05 +0000
+date: 2017-11-09 18:18:05 +00:00
 layout: post
 summary: How does Git work under the hood? How does it store information, and what's really behind a branch?
 tags:

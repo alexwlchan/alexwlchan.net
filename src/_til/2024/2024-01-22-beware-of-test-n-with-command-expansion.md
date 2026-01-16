@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "Beware of using `test -n` with command expansion"
-date: 2024-01-22 10:16:06 +0000
+date: 2024-01-22 10:16:06 +00:00
 tags:
   - fish shell
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-07-18 09:30:00 +0000
+date: 2017-07-18 09:30:00 +00:00
 title: Backing up content from SoundCloud
 tags:
   - soundcloud

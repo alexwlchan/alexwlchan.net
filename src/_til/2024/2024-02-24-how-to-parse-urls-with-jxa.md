@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-02-24 06:55:47 +0000
+date: 2024-02-24 06:55:47 +00:00
 title: How to parse URLs in JXA
 tags:
   - jxa

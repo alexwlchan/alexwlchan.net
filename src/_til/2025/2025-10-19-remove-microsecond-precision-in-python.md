@@ -3,7 +3,7 @@ layout: til
 title: Remove the microsecond precision from a `datetime` in Python
 summary: |
   Call `datetime.replace(microsecond=0)`.
-date: 2025-10-19 10:16:27 +0100
+date: 2025-10-19 10:16:27 +01:00
 tags:
   - python
   - datetime shenanigans

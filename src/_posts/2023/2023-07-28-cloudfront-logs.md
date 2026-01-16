@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-07-28 05:13:02 +0000
+date: 2023-07-28 05:13:02 +00:00
 title: Parsing CloudFront logs with Python
 summary: A couple of functions I use to get access to CloudFront logs as easy-to-use iterators.
 tags:

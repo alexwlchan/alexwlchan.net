@@ -2,7 +2,7 @@
 layout: til
 title: Python has a builtin tool to do rot13 (among other things)
 summary: Look in the codecs module.
-date: 2025-11-01 20:15:28 +0000
+date: 2025-11-01 20:15:28 +00:00
 tags:
   - python
 ---

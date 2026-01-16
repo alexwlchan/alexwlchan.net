@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Comparing two files in a bash script
-date: 2025-06-27 14:00:21 +0100
+date: 2025-06-27 14:00:21 +01:00
 summary: Inspect the exit value of `cmp --silent`.
 tags:
   - shell scripting

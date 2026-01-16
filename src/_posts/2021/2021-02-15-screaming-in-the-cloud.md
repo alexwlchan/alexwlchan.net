@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-02-15 19:15:19 +0000
+date: 2021-02-15 19:15:19 +00:00
 title: '<em>Screaming in the Cloud</em>: Using the Cloud to Preserve the Future'
 summary: I joined Corey Quinn to discuss my DynamoDB calculator and using the cloud to preserve digital collections.
 tags:

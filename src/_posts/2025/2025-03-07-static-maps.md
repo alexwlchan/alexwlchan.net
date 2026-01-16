@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-03-07 13:04:17 +0000
+date: 2025-03-07 13:04:17 +00:00
 title: Creating static map images with OpenStreetMap, Web Mercator, and Pillow
 summary: I made some simple map visualisations by downloading tiles from OpenStreetMap, then annotating the tiles with Pillow.
 tags:

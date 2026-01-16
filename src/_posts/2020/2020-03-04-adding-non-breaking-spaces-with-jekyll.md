@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-03-04 09:42:35 +0000
+date: 2020-03-04 09:42:35 +00:00
 title: A Jekyll filter for adding non-breaking spaces
 summary: A way to avoid awkward line breaks in the middle of phrases.
 tags:

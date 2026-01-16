@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Get the embedded artwork from an MP3 file
-date: 2024-07-20 21:30:02 +0100
+date: 2024-07-20 21:30:02 +01:00
 summary: |
   Use the command `eyeD3 [MP3_FILE] --write-images [FOLDER]`.
 tags:

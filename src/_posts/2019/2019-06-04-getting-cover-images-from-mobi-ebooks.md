@@ -1,5 +1,5 @@
 ---
-date: 2019-06-04 19:43:14 +0000
+date: 2019-06-04 19:43:14 +00:00
 layout: post
 link: https://github.com/alexwlchan/get-mobi-cover-image
 title: A script for getting cover images from mobi ebooks

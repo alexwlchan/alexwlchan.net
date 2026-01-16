@@ -1,5 +1,5 @@
 ---
-date: 2019-07-29 20:34:53 +0000
+date: 2019-07-29 20:34:53 +00:00
 layout: post
 summary: Using unique prime factorisations and itertools to find all the divisors
   of a number.

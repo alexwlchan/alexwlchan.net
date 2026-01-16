@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-06-06 17:41:39 +0100
+date: 2024-06-06 17:41:39 +01:00
 title: How to highlight Python console sessions in Jekyll
 summary: |
   Adding a couple of options to the `console` lexer (`console?lang=python&prompt=>>>`) gets you syntax highlighting for a Python console session.

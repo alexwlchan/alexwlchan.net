@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Use the IMAGE function to insert an image into a spreadsheet
-date: 2024-01-09 12:17:28 +0000
+date: 2024-01-09 12:17:28 +00:00
 tags:
   - spreadsheets
 ---

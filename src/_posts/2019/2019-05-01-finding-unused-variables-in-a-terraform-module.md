@@ -1,5 +1,5 @@
 ---
-date: 2019-05-01 20:59:07 +0000
+date: 2019-05-01 20:59:07 +00:00
 layout: post
 title: Finding unused variables in a Terraform module
 tags:

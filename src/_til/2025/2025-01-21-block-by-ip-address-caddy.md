@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Restricting routes to pre-approved IP addresses in Caddy
-date: 2025-01-21 14:28:43 +0000
+date: 2025-01-21 14:28:43 +00:00
 tags:
   - caddy
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-12-28 10:29:00 +0000
+date: 2016-12-28 10:29:00 +00:00
 title: A tool for backing up your message history from Slack
 link: https://pypi.org/project/slack-history/
 tags:

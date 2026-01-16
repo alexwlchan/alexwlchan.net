@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-01-25 21:55:11 +0000
+date: 2024-01-25 21:55:11 +00:00
 title: Use the `{% raw %}` tag to describe Liquid in Liquid
 summary: |
   If you're trying to write about using Liquid tags in a Liquid-based site, wrapping your tags in the `{% raw %}` tag will prevent them being rendered.

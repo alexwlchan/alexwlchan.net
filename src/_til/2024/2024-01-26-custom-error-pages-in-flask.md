@@ -1,7 +1,7 @@
 ---
 layout: til
-date: 2024-01-26 15:58:51 +0000
-date_updated: 2024-08-07 10:51:48 +0100
+date: 2024-01-26 15:58:51 +00:00
+date_updated: 2024-08-07 10:51:48 +01:00
 title: Custom error pages in Flask
 summary:
   You can use `app.error_handler` to add custom responses for HTTP status codes, so the errors match the look and feel of the rest of the site.

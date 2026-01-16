@@ -3,7 +3,7 @@ layout: til
 title: How to do offline geo-lookups of IP addresses
 summary: |
   MaxMind offer databases you can do to look up IP addresses without sending the address off to a remote service.
-date: 2024-01-19 10:25:34 +0000
+date: 2024-01-19 10:25:34 +00:00
 tags:
   - python
   - networking

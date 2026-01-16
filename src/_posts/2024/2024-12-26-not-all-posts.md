@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-12-26 09:54:55 +0000
+date: 2024-12-26 09:54:55 +00:00
 title: Not all blog posts are created equal
 summary: Splitting my site into "articles" and "today I learned" helped me overcome writer's block and improve my writing.
 index:

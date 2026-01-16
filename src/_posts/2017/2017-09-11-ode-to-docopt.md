@@ -6,7 +6,7 @@ tags:
   - python
   - python:docopt
   - talks
-date: 2017-09-11 12:01:13 +0100
+date: 2017-09-11 12:01:13 +01:00
 colors:
   css_light: "#008000"
   css_dark:  "#00b300"

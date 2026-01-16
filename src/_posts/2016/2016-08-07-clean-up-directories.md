@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-08-07 22:46:00 +0000
+date: 2016-08-07 22:46:00 +00:00
 title: 'Python snippets: Cleaning up empty/nearly empty directories'
 summary: A pair of Python scripts I've been using to clean up my mess of directories.
 tags:

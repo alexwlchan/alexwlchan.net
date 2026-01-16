@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Write to the middle of a file with Python
-date: 2024-08-09 00:42:31 +0100
+date: 2024-08-09 00:42:31 +01:00
 summary: Open the file with mode `r+` to be able to seek around the file and write to it.
 tags:
   - python

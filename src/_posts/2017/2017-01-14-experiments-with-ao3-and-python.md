@@ -1,5 +1,5 @@
 ---
-date: 2017-01-14 16:09:00 +0000
+date: 2017-01-14 16:09:00 +00:00
 layout: post
 link: https://github.com/alexwlchan/ao3
 summary: AO3 doesn't have an official API for scraping data - but with a bit of Python,

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-06-15 06:57:51 +0000
+date: 2020-06-15 06:57:51 +00:00
 title: Archive monocultures considered harmful
 summary: We are better off when the same topic is represented in multiple, different archives.
 tags:

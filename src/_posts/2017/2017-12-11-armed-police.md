@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-12-11 12:19:24 +0000
+date: 2017-12-11 12:19:24 +00:00
 title: Armed police officers don't make me feel safer
 tags:
   - politics

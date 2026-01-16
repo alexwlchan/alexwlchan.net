@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2016-12-01 07:43:00 +0000
+date: 2016-12-01 07:43:00 +00:00
 title: Another example of why strings are terrible
 summary: "Pop quiz: if I lowercase a string, does it still have the same length as the original string?"
 tags:

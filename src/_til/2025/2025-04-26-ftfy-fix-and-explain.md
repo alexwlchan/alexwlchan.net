@@ -1,7 +1,7 @@
 ---
 layout: til
 title: When fixing mojibake, use `ftfy.fix_and_explain()` to understand how it's fixing a piece of text
-date: 2025-04-26 08:29:22 +0100
+date: 2025-04-26 08:29:22 +01:00
 tags:
   - python
   - unicode

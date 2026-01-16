@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to create a footer that’s always at the bottom of the page
-date: 2024-01-12 10:36:02 +0000
+date: 2024-01-12 10:36:02 +00:00
 tags:
   - css
 ---

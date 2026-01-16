@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Manage MP3 metadata from iTunes with eyed3
-date: 2024-01-12 06:38:34 +0000
+date: 2024-01-12 06:38:34 +00:00
 tags:
   - python
   - macos

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-09-24 06:56:21 +0000
+date: 2018-09-24 06:56:21 +00:00
 title: Assume worst intent (designing against the abusive ex)
 tags:
   - pyconuk

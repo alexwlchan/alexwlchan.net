@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Editing a filename in Finder will convert it to NFD
-date: 2024-12-21 21:10:06 +0000
+date: 2024-12-21 21:10:06 +00:00
 tags:
   - macos
   - unicode shenanigans

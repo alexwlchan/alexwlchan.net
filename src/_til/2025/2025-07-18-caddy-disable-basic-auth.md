@@ -2,7 +2,7 @@
 layout: til
 title: Disable HTTP Basic Auth for certain pages in Caddy
 summary: Define a matcher that negates the routes you want to be public, then use that with your `basic_auth` directive.
-date: 2025-07-18 10:20:52 +0100
+date: 2025-07-18 10:20:52 +01:00
 tags:
   - caddy
 ---

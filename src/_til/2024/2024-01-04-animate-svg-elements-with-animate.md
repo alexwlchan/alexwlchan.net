@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-01-04 21:53:05 +0000
+date: 2024-01-04 21:53:05 +00:00
 title: "Animate an attribute of an element with &lt;animate&gt;"
 tags:
   - svg

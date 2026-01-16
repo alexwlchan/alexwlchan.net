@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-06-06 06:38:11 +0000
+date: 2020-06-06 06:38:11 +00:00
 title: Finding the months between two dates in Python
 tags:
   - python

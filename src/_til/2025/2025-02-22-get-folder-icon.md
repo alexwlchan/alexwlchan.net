@@ -3,7 +3,7 @@ layout: til
 title: How to get a macOS file/folder icon in Swift
 summary:
   Use `NSWorkspace.shared.icon` to get the icon as an `NSImage`, then you can save it to disk or do something else with it.
-date: 2025-02-22 00:10:03 +0000
+date: 2025-02-22 00:10:03 +00:00
 tags:
   - swift
 ---

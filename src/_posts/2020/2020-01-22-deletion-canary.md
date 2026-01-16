@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-01-22 08:23:50 +0000
+date: 2020-01-22 08:23:50 +00:00
 title: "A deletion canary: testing your S3 bucket permissions"
 summary: If you've tried to disable deletions in your S3 buckets, how do you know they're working?
 tags:

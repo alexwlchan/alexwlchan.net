@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-06-08 11:11:25 +0100
+date: 2024-06-08 11:11:25 +01:00
 title: Removing letterboxing from a video screenshot with ImageMagick
 summary: |
   Using `-trim` will remove the black portions and leave you the unletterboxed image.

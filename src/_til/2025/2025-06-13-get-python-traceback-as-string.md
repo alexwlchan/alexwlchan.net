@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Get a string representation of a Python traceback with `traceback.format_exc()`
-date: 2025-06-13 09:05:29 +0100
+date: 2025-06-13 09:05:29 +01:00
 tags:
   - python
 ---

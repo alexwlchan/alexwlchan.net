@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-19 22:24:10 +0100
+date: 2024-05-19 22:24:10 +01:00
 title: Open a Safari webarchive from Twitter/X without being redirected
 summary: |
   Disabling JavaScript when you open the webarchive file will prevent you from redirecting you to twitter.com.

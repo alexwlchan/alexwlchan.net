@@ -1,7 +1,7 @@
 ---
 layout: til
-date: 2024-02-21 12:33:15 +0000
-date_updated: 2024-06-25 23:32:55 +0100
+date: 2024-02-21 12:33:15 +00:00
+date_updated: 2024-06-25 23:32:55 +01:00
 title: What happens when you replace a photo on Flickr?
 tags:
   - flickr

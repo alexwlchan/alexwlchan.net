@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-01-17 13:09:57 +0000
+date: 2024-01-17 13:09:57 +00:00
 title: How to tally combinations of values across multiple columns
 tags:
   - sqlite

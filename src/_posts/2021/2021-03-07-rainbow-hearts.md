@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-03-07 10:53:24 +0000
+date: 2021-03-07 10:53:24 +00:00
 title: Creating pairs of interlocking rainbow hearts 🌈
 summary: A web app for creating pairs of hearts based on Pride flags.
 tags:

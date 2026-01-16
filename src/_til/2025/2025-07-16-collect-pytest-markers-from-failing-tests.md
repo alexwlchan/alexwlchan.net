@@ -2,7 +2,7 @@
 layout: til
 title: Collecting pytest markers from failing tests
 summary: You can annotate tests with markers, and using the `pytest_collection_modifyitems` and `pytest_terminal_summary` hooks you can get a list of markers for tests that failed.
-date: 2025-07-16 11:14:50 +0100
+date: 2025-07-16 11:14:50 +01:00
 tags:
   - python
   - python:pytest

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-04-23 08:16:35 +0000
+date: 2024-04-23 08:16:35 +00:00
 title: Taking regular screenshots of my website
 summary: |
   A screenshot a day keeps the bit rot at bay.

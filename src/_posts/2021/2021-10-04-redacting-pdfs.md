@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-10-04 14:48:36 +0000
+date: 2021-10-04 14:48:36 +00:00
 title: Beware of incomplete PDF redactions
 summary: If you're not careful when redacting PDFs, it's possible to share more information than you intended.
 tags:

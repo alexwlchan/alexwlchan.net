@@ -1,5 +1,5 @@
 ---
-date: 2018-01-20 20:25:33 +0000
+date: 2018-01-20 20:25:33 +00:00
 layout: post
 summary: Python functions for getting a list of keys and objects in an S3 bucket.
 tags:

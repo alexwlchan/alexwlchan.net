@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How does Flickr's getLicenseHistory handle photos with no license changes?
-date: 2025-05-01 11:32:47 +0100
+date: 2025-05-01 11:32:47 +01:00
 tags:
   - flickr
 ---

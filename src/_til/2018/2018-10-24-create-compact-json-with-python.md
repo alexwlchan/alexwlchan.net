@@ -3,7 +3,7 @@ layout: til
 title: Create compact JSON with Python
 summary: |
   Calling `json.dumps(…, separators=(',', ':'))` will reduce the amount of whitespace in the final string.
-date: 2018-10-24 08:18:00 +0000
+date: 2018-10-24 08:18:00 +00:00
 tags:
   - python
   - json

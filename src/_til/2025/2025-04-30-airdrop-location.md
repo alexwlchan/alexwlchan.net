@@ -2,7 +2,7 @@
 layout: til
 title: Where does AirDrop save files on macOS?
 summary: Look in `/private/tmp`.
-date: 2025-04-30 07:17:20 +0100
+date: 2025-04-30 07:17:20 +01:00
 tags:
   - macos
 ---

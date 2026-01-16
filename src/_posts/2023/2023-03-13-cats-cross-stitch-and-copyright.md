@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-03-13 13:24:57 +0000
+date: 2023-03-13 13:24:57 +00:00
 title: Cats, cross-stitch, and copyright
 summary: In celebration of my favourite apex predator.
 tags:

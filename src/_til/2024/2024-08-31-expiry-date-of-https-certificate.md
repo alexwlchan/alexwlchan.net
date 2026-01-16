@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to get the expiry date of an HTTPS certificate with Python
-date: 2024-08-31 18:27:49 +0100
+date: 2024-08-31 18:27:49 +01:00
 tags:
   - python
 summary: Connect to the domain using the `socket` module, then use the `getpeercert()` method on the connection to get information about the HTTPS certificate.

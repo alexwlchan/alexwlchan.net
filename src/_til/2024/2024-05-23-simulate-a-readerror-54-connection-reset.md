@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-23 09:30:27 +0100
+date: 2024-05-23 09:30:27 +01:00
 title: How to simulate an `[Errno 54] Connection reset by peer` when using pytest
 summary: |
   You can run a TCP server in the background using a fixture, and using the `SO_LINGER` socket option can reset the connection.

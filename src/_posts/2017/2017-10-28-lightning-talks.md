@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-10-28 10:20:29 +0000
+date: 2017-10-28 10:20:29 +00:00
 title: Lightning talks
 tags:
   - conferences

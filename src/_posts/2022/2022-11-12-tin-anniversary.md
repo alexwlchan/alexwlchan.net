@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-11-12 07:13:02 +0000
+date: 2022-11-12 07:13:02 +00:00
 title: Ten years of blogging
 summary: A decade ago, I registered a domain and started writing.
 tags:

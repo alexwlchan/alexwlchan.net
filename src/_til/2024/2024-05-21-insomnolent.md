@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-21 22:42:56 +0100
+date: 2024-05-21 22:42:56 +01:00
 title: What does “insomnolent” mean?
 tags:
   - interesting words

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2019-01-31 10:03:33 +0000
+date: 2019-01-31 10:03:33 +00:00
 title: "Monki Gras 2019: The Curb Cut Effect"
 summary: Slides and notes for my talk 'The Curb Cut Effect'. Making something better for disabled people can make it better for everybody.
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2017-10-25 13:14:54 +0000
+date: 2017-10-25 13:14:54 +00:00
 title: Displaying tweets in Keynote
 tags:
   - keynote

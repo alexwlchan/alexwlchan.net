@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-12-10 08:15:00 +0000
+date: 2015-12-10 08:15:00 +00:00
 link: http://leancrew.com/all-this/2015/11/simpler-syndication/
 tags:
   - python

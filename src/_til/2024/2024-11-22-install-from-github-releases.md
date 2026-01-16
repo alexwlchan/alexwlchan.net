@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to install an asset from a GitHub release
-date: 2024-11-22 11:35:50 +0000
+date: 2024-11-22 11:35:50 +00:00
 tags:
   - github
   - github actions

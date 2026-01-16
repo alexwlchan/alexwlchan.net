@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Discard a variable in a JavaScript object spread by assigning it to `_`
-date: 2025-08-28 10:55:29 +0100
+date: 2025-08-28 10:55:29 +01:00
 tags:
   - javascript
 ---

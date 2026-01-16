@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2013-03-30 19:57:00 +0000
+date: 2013-03-30 19:57:00 +00:00
 summary: A strange bug with OS X's timezone handling
 tags:
   - dates

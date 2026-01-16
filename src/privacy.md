@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Privacy policy
-date_updated: 2025-05-28 18:29:21 +0100
+date_updated: 2025-05-28 18:29:21 +01:00
 nav_section: contact
 ---
 **I'm trying not to track you, and I'm trying to protect you from being tracked by others.**

@@ -1,5 +1,5 @@
 ---
-date: 2017-11-27 22:41:36 +0000
+date: 2017-11-27 22:41:36 +00:00
 layout: post
 summary: 'Two commands for managing Git branches: one for deleting branches which
   have already been merged, one for deleting branches which were deleted on a remote.'

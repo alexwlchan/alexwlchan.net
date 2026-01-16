@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2014-12-28 13:00:00 +0000
+date: 2014-12-28 13:00:00 +00:00
 link: https://github.com/alexwlchan/imessage-archive
 tags:
   - macos

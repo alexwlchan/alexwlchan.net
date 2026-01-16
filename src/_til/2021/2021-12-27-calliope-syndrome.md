@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Calley-ope (calliope) Syndrome is pronouncing a word wrong because you’ve only ever read it on the page
-date: 2021-12-27 08:45:38 +0000
+date: 2021-12-27 08:45:38 +00:00
 tags:
   - interesting words
 ---

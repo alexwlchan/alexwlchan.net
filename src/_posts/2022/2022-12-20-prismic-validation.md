@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-12-20 08:31:16 +0000
+date: 2022-12-20 08:31:16 +00:00
 title: How we do bulk analysis of our Prismic content
 summary: By downloading all our Prismic documents, we can run validation rules, fix broken links, and find interesting examples.
 tags:

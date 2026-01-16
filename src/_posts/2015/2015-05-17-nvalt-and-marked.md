@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-05-17 20:16:00 +0000
+date: 2015-05-17 20:16:00 +00:00
 summary: A Python script that takes a note from nvALT and opens it in Marked.
 tags:
   - python

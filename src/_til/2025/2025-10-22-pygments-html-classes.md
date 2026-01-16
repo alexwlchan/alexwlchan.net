@@ -2,7 +2,7 @@
 layout: til
 title: How to find the Pygments token type for a short name
 summary: Look at the source code of `pygments.token`.
-date: 2025-10-22 19:37:54 +0100
+date: 2025-10-22 19:37:54 +01:00
 tags:
   - python
   - datetime shenanigans

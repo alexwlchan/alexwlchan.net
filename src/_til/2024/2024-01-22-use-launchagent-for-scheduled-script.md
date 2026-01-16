@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Run a script on macOS on a schedule using a LaunchAgent
-date: 2024-01-22 11:54:52 +0000
+date: 2024-01-22 11:54:52 +00:00
 tags:
   - macos
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-10-06 21:22:28 +0000
+date: 2024-10-06 21:22:28 +00:00
 title: Two examples of hover styles on images
 summary: When I hover over an image, I can add a border to a link, or change the colours of an SVG icon.
 tags:

@@ -2,7 +2,7 @@
 layout: til
 title: Ignore AI upscaled YouTube videos with yt-dlp
 summary: Filter for formats that don't include `-sr` ("super resolution") in their format ID.
-date: 2025-12-24 15:16:54 +0000
+date: 2025-12-24 15:16:54 +00:00
 tags:
   - yt-dlp
 ---

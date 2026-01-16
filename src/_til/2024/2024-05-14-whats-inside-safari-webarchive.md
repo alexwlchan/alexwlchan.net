@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-14 18:41:25 +0100
+date: 2024-05-14 18:41:25 +01:00
 title: What's inside a Safari webarchive?
 summary: |
   The inside of a `.webarchive` file is a binary property list with the complete responses and some request metadata.

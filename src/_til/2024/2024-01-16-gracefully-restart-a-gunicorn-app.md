@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to gracefully restart a gunicorn app
-date: 2024-01-16 14:11:51 +0000
+date: 2024-01-16 14:11:51 +00:00
 tags:
   - python
   - python:gunicorn

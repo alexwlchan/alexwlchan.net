@@ -2,7 +2,7 @@
 layout: til
 title: How to stream lines from stdout with `subprocess`
 summary: Use `subprocess.Popen()` with `bufsize=1` and `text=True`, then you can interate over the lines with `proc.stdout`.
-date: 2025-05-17 14:50:11 +0100
+date: 2025-05-17 14:50:11 +01:00
 tags:
   - python
 ---

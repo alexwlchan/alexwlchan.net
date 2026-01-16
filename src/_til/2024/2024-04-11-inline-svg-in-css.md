@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-04-11 18:28:43 +0100
+date: 2024-04-11 18:28:43 +01:00
 title: How to embed an inline SVG in a CSS rule
 summary: |
   Modern browsers allow you to embed the SVG almost as-is, with just a couple of characters that need escaping – no base64 required!

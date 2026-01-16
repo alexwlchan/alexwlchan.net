@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2023-04-21 15:40:25 +0000
+date: 2023-04-21 15:40:25 +00:00
 title: Using templates in Terraform to document a deployment
 summary: Terraform can fill in placeholders with exact values from your deployment, for easy copy/paste instructions.
 tags:

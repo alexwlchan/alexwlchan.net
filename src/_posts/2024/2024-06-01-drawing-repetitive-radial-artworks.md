@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-06-01 10:20:51 +0000
+date: 2024-06-01 10:20:51 +00:00
 title: Drawing repetitive radial artworks
 summary: |
   Using polar coordinates to draw leaf- and flower-like patterns that repeat in circles around a point.

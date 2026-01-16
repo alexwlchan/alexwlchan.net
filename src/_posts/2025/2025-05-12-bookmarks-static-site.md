@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-05-12 06:52:08 +0000
+date: 2025-05-12 06:52:08 +00:00
 title: Creating a static website for all my bookmarks
 summary:
   To help me keep track of interesting links, I created a static website that keeps all my data locally. Why do I care about bookmarks, and how does my new site work?

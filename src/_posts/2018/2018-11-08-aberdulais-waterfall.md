@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-11-08 12:37:19 +0000
+date: 2018-11-08 12:37:19 +00:00
 title: My visit to the Aberdulais Falls
 tags:
   - personal

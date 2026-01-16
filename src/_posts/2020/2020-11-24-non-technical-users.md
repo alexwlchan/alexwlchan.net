@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-11-24 11:53:34 +0000
+date: 2020-11-24 11:53:34 +00:00
 title: “Non-technical users”
 tags:
   - writing

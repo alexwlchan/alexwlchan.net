@@ -1,7 +1,7 @@
 ---
 layout: til
 title: You can reset the start of a regex in Ruby
-date: 2024-11-27 11:37:36 +0000
+date: 2024-11-27 11:37:36 +00:00
 tags:
   - ruby
   - regex

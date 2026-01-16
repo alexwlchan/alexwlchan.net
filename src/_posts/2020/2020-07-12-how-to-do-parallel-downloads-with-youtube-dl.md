@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-07-12 07:34:45 +0000
+date: 2020-07-12 07:34:45 +00:00
 title: How to do parallel downloads with youtube-dl
 tags:
   - shell scripting

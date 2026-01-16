@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2020-04-12 14:27:01 +0000
+date: 2020-04-12 14:27:01 +00:00
 title: A snippet for downloading files with Python
 tags:
   - python

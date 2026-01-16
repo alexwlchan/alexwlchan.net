@@ -1,7 +1,7 @@
 ---
 layout: til
 title: How to simulate shell pipes with the subprocess module
-date: 2024-01-13 10:57:17 +0000
+date: 2024-01-13 10:57:17 +00:00
 tags:
   - python
 ---

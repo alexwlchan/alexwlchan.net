@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-03-11 22:37:26 +0000
+date: 2025-03-11 22:37:26 +00:00
 title: We all lose when art is anonymised
 summary: |
   When art loses its creator, we lose the story behind the image -- a plea for attribution in our endless scroll culture.

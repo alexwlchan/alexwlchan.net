@@ -1,5 +1,5 @@
 ---
-date: 2015-03-05 08:24:00 +0000
+date: 2015-03-05 08:24:00 +00:00
 layout: post
 link: http://stackoverflow.com/q/19688841/1558022
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: List all Git object IDs and their type
-date: 2018-09-17 12:39:00 +0000
+date: 2018-09-17 12:39:00 +00:00
 tags:
   - git
 ---

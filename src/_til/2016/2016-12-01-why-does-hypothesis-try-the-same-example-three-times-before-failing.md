@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Why does Hypothesis try the same example three times before failing?
-date: 2016-12-01 21:50:00 +0000
+date: 2016-12-01 21:50:00 +00:00
 tags:
   - python
   - python:hypothesis

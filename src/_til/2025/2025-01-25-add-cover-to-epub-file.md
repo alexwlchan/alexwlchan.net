@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Getting and setting the cover image from an EPUB file
-date: 2025-01-25 23:23:52 +0000
+date: 2025-01-25 23:23:52 +00:00
 tags:
   - epub
 ---

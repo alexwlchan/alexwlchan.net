@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-05-27 20:18:39 +0100
+date: 2024-05-27 20:18:39 +01:00
 title: Not all coal is the same
 tags:
   - trains

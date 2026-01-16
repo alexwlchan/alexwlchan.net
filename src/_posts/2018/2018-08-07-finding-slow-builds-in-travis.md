@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2018-08-07 15:48:53 +0000
+date: 2018-08-07 15:48:53 +00:00
 title: Finding slow builds in Travis
 summary: A Python snippet for using the Travis CI API to track build times.
 tags:

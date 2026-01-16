@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Combine arrows in Mermaid by using an invisible node
-date: 2025-07-06 09:37:21 +0100
+date: 2025-07-06 09:37:21 +01:00
 tags:
   - mermaid
   - drawing things

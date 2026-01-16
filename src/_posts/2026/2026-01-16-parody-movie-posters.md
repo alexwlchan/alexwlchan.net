@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2026-01-16 08:29:53 +0000
+date: 2026-01-16 08:29:53 +00:00
 title: Parody posters for made-up movies
 summary: I rented movies from Blockbuster, HBO Max-Width and Netflex.
 tags:

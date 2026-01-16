@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2024-10-29 07:17:02 +0000
+date: 2024-10-29 07:17:02 +00:00
 title: A script to verify my Netlify redirects
 summary: |
   I wrote a script that reads my redirect rules, and checks that every redirect takes you to a page that actually exists on my site.

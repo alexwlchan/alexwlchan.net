@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2013-08-20 10:47:00 +0000
+date: 2013-08-20 10:47:00 +00:00
 summary: A bookmarklet to hide some of the UI chrome in the new design of Google Maps.
 tags:
   - javascript

@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2023-10-16 16:45:35 +0000
+date: 2023-10-16 16:45:35 +00:00
 title: Find files that use a particular SDC field
 tags:
   - wikimedia commons

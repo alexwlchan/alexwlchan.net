@@ -1,7 +1,7 @@
 ---
 layout: til
 title: WordPress URLs that get hammered by spammers
-date: 2024-01-12 10:31:11 +0000
+date: 2024-01-12 10:31:11 +00:00
 tags:
   - wordpress
 ---

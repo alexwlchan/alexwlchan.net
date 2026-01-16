@@ -2,7 +2,7 @@
 layout: til
 title: Looking up posts in the Bluesky API
 summary: Install the `atproto` package, construct a client with your username/password, then call the `get_post_thread` method with your `at://` URI.
-date: 2025-08-10 22:53:18 +0100
+date: 2025-08-10 22:53:18 +01:00
 tags:
   - bluesky
   - python

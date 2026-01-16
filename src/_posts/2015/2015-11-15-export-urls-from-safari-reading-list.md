@@ -1,5 +1,5 @@
 ---
-date: 2015-11-15 21:50:00 +0000
+date: 2015-11-15 21:50:00 +00:00
 layout: post
 summary: A Python script for getting a list of URLs from Safari Reading List.
 tags:

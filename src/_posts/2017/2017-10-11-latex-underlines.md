@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2017-10-11 22:09:25 +0000
-date_updated: 2018-11-13 20:54:44 +0000
+date: 2017-10-11 22:09:25 +00:00
+date_updated: 2018-11-13 20:54:44 +00:00
 summary: I'm very picky about the way underlines look, and have spent a lot of time
   trying to get the perfect underline in LaTeX.
 tags:

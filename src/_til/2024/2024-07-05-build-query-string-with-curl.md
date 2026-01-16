@@ -1,6 +1,6 @@
 ---
 layout: til
-date: 2024-07-05 12:29:09 +0100
+date: 2024-07-05 12:29:09 +01:00
 title: Build a URL with query string parameters with curl
 summary: |
   A combination of `--get` and `--data`/`--data-urlencode` allows you to write curl commands which are readable and expressive.

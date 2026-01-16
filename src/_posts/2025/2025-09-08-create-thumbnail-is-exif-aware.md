@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-09-08 22:42:48 +0000
+date: 2025-09-08 22:42:48 +00:00
 title: "Resizing images in Rust, now with EXIF orientation support"
 summary: A new version of Rust's image crate has support for EXIF orientation, which allows me to resize images without mangling their rotation.
 tags:

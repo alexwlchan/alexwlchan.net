@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-10-14 18:09:09 +0000
+date: 2021-10-14 18:09:09 +00:00
 title: Prevent accidentally copying the prompt character in console code snippets
 summary: When I include console commands in a blog post, I don't want somebody to accidentally copy the command prompt. CSS lets me avoid that.
 tags:

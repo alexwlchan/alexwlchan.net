@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2022-11-04 22:27:35 +0000
+date: 2022-11-04 22:27:35 +00:00
 title: A simple gallery plugin for Obsidian
 summary: Making it easier to find all the images in my Obsidian vault.
 tags:

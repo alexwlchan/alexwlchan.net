@@ -1,7 +1,7 @@
 ---
 layout: til
 title: The caret anchor (`^`) matches differently in Python and Ruby
-date: 2026-01-11 10:16:27 +0000
+date: 2026-01-11 10:16:27 +00:00
 tags:
   - regex
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-06-11 13:52:05 +0000
+date: 2025-06-11 13:52:05 +00:00
 title: Recreating the bird animation from Swift.org
 summary: The Swift.org website got a redesign, including an animation of a swooping bird, and I read the source code to understand how it works.
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: til
 title: "Installing mimetype on Alpine Linux"
-date: 2019-08-28 13:49:55 +0100
+date: 2019-08-28 13:49:55 +01:00
 tags:
   - alpine
 ---
