@@ -7,7 +7,7 @@ on:
 
     paths:
       - '.github/workflows/check_website_is_up.yml'
-      - 'tests/*'
+      - 'uptime_tests/*'
 
   pull_request:
     branches:
@@ -15,7 +15,7 @@ on:
 
     paths:
       - '.github/workflows/check_website_is_up.yml'
-      - 'tests/*'
+      - 'uptime_tests/*'
 
   schedule:
     - cron: "42 * * * *"
@@ -23,15 +23,32 @@ on:
 jobs:
   check_website:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.14"]
 
     steps:
     - uses: actions/checkout@v6
 
-    - name: "Set up Ruby"
-      uses: ruby/setup-ruby@v1
+    - name: "Set up Python"
+      uses: actions/setup-python@v6
       with:
-        ruby-version: "3.4"
-        cache-version: 1
+        python-version: ${{ matrix.python-version }}
+        cache: pip
 
-    - name: "Run the website tests"
-      run: ruby tests/run_all_tests.rb
+    - name: Install Python dependencies
+      run: pip install -r requirements.txt
+
+    - name: Check formatting
+      run: |
+        ruff check uptime_tests
+        ruff format --check uptime_tests
+
+    - name: Check types
+      run: mypy uptime_tests
+
+    - name: Run tests
+      run: |
+        coverage run -m pytest uptime_tests
+        coverage report
+

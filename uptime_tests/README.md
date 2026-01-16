@@ -1,3 +1,5 @@
+# uptime_tests
+
 These are some tests for the behaviour of the live website.
 They check things like:
 
@@ -13,7 +15,5 @@ These tests can be run manually, or they run on a regular schedule in GitHub Act
 ## Running the tests
 
 ```console
-$ ruby run_all_tests.rb
+$ python3 -m pytest uptime_tests/
 ```
-
-(No dependencies; I was using Ruby 3.3 when I wrote the first set of tests.)
