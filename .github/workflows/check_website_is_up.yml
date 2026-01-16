@@ -23,17 +23,13 @@ on:
 jobs:
   check_website:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.14"]
-
     steps:
     - uses: actions/checkout@v6
 
     - name: "Set up Python"
       uses: actions/setup-python@v6
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.14
         cache: pip
 
     - name: Install Python dependencies
