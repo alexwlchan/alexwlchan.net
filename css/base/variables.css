@@ -1,0 +1,136 @@
+:root {
+  /* ====================
+   * Font and text styles
+   * ==================== */
+  --text-font-family: Charter, Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  --mono-font-family: Menlo, Consolas, monospace;
+
+  --font-size: 13pt;
+
+  --line-height: 1.5em;
+
+  --meta-scaling-factor:     0.82;
+  --footnote-scaling-factor: 0.95;
+
+  /* =============================
+   * Margins and page layout stuff
+   * ============================= */
+
+  /* Why 751px and not 750px? To work around a subpixel bug in WebKit,
+   * where I get a hairline crack on the right-hand side of my cards
+   * in the two column view. :( */
+  --max-width: 751px;
+
+  --grid-gap: 10px;
+
+  --default-padding: 20px;
+
+  --border-radius: 10px;
+  --border-style:  solid;
+  --border-width:  3px;
+
+  /* Every page has a tint color that affects the nav, links, headings,
+   * and so on.
+   *
+   * Set a default color for every page, which may be overwritten by CSS
+   * appended to the <head>.
+   */
+  --default-primary-color-light: #d01c11;
+  --default-primary-color-dark:  #ff4a4a;
+
+  --primary-color-light: var(--default-primary-color-light);
+  --primary-color-dark:  var(--default-primary-color-dark);
+
+  --nav-bg-image-light: url('/h/d01c11.png');
+  --nav-bg-image-dark:  url('/h/ff4a4a.png');
+
+  --link-color: var(--primary-color);
+
+  /* A collection of light/dark greys tones.
+   *
+   * Every so often I wonder about rationalising the number of grey tones that
+   * I'm using, but I haven't found a selection that I like yet.
+   */
+  --body-text-light: #202020;
+  --body-text-dark:  #c7c7c7;
+
+  --accent-grey-light: #999;
+  --accent-grey-dark:  #9a9a9a;
+
+  --block-border-color-light: #dfdfdf;
+  --block-background-light:   #f3f3f3;
+
+  --block-border-color-dark: #434343;
+  --block-background-dark:   #1d1d1d;
+
+  --screenshot-border-light: #f0f0f0;
+  --screenshot-border-dark:  #3f3f3f;
+
+  /* A collection of named colours I can use. */
+  --white:   #fafafa;
+  --black:   #0d0d0d;
+  --red:     var(--default-primary-color-light);
+  --green:   #1bad0e;
+  --blue:    #115bda;
+  --magenta: #c311d0;
+  --yellow:  #c8a711;
+
+  /* My background texture image is "White Waves Pattern" by Stas Pimenov,
+   * with reduced contrast.  The dark variant has inverted colours.
+   *
+   * From https://www.toptal.com/designers/subtlepatterns/white-waves-pattern/
+   */
+  --background-texture-light: url("/static/white-waves.png");
+  --background-color-light:   var(--white);
+
+  --background-texture-dark:  url("/static/black-waves.png");
+  --background-color-dark:    var(--black);
+}
+
+/* Select the appropriate light/dark shades depending on the user's theme.
+ *
+ * I could use the `light-dark()` CSS function, but it's fairly new and
+ * this approach is fine, so I'm sticking with media queries for now.
+ * See https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark
+ */
+:root {
+    --body-text:          var(--body-text-light);
+    --primary-color:      var(--primary-color-light);
+    --accent-grey:        var(--accent-grey-light);
+    --block-border-color: var(--block-border-color-light);
+    --block-background:   var(--block-background-light);
+    --screenshot-border:  var(--screenshot-border-light);
+    --background-image:   var(--background-texture-light);
+    --background-color:   var(--background-color-light);
+    --nav-bg-image:       var(--nav-bg-image-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --red:     var(--default-primary-color-dark);
+    --green:   #5ff042;
+    --blue:    #40c3ff;
+    --magenta: #ff42fc;
+    --yellow:  #fffc42;
+
+    --body-text:           var(--body-text-dark);
+    --primary-color:       var(--primary-color-dark);
+    --accent-grey:         var(--accent-grey-dark);
+    --block-border-color:  var(--block-border-color-dark);
+    --block-background:    var(--block-background-dark);
+    --screenshot-border:   var(--screenshot-border-dark);
+    --background-image:    var(--background-texture-dark);
+    --background-color:    var(--background-color-dark);
+    --nav-bg-image:        var(--nav-bg-image-dark);
+  }
+}
+
+@media print {
+  :root {
+    --accent-grey: #555;
+
+    /* Don't show the background texture when printing; it's not important */
+    --background-image: none;
+    --background-color: none;
+  }
+}

@@ -1,6 +1,7 @@
 beautifulsoup4
 httpx
 hyperlink
+lightningcss
 PyYAML
 termcolor
 tqdm

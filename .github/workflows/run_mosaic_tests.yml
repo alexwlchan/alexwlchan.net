@@ -38,3 +38,6 @@ jobs:
       run: |
         bash scripts/run_mosaic_tests.sh
         git diff --exit-code
+      
+    - name: Build the site
+      run: python3 scripts/build_site.py

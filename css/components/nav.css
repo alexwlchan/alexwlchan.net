@@ -1,0 +1,56 @@
+/*
+ * Styles for the "nav" component.
+ *
+ * This is the global header shown at the top of every page, with my name
+ * and a list of links to the main site sections.
+ */
+
+nav {
+  padding-top: calc(1px + env(safe-area-inset-top));
+  padding-bottom: 1px;
+
+  background: var(--nav-bg-image) var(--primary-color);
+  background-size: auto 100%;
+}
+
+nav h1 {
+  margin-bottom: -5px;
+  font-size: 1.7em;
+}
+
+nav h1 a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav ul {
+  margin-bottom: 14px;
+}
+
+nav, nav a, nav a:visited, nav a:hover {
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {  
+  nav, nav a, nav a:visited {
+    color: black;
+  }
+}
+
+/* Add an extra thick underline so you know which part of the site
+ * you're in. */
+nav a[selected] {
+  text-decoration-thickness: 4px;
+  text-decoration-skip-ink: none;
+}
+
+@media print {
+  nav {
+    background: none;
+    border-bottom: var(--border-width) solid var(--primary-color-light);
+  }
+
+  nav, nav a, nav a:visited {
+    color: var(--primary-color-light);
+  }
+}

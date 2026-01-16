@@ -1,0 +1,24 @@
+p:has(> .bookmarklet) {
+  text-align: center;
+}
+
+.bookmarklet {
+  background: var(--primary-color);
+  border-radius: var(--border-radius);
+  color: white;
+  padding: calc(var(--border-radius) * 0.5) var(--border-radius);
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.bookmarklet:hover {
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bookmarklet,
+  .bookmarklet:hover {
+    color: black;
+  }
+}

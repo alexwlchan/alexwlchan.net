@@ -7,3 +7,4 @@ _site
 .DS_Store
 
 .coverage*
+_out

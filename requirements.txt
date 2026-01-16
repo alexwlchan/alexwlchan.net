@@ -6,7 +6,6 @@ beautifulsoup4==4.14.3
     # via -r requirements.in
 certifi==2026.1.4
     # via
-    #   -r requirements.in
     #   httpcore
     #   httpx
 coverage==7.13.1
@@ -30,6 +29,8 @@ iniconfig==2.3.0
     # via pytest
 librt==0.7.8
     # via mypy
+lightningcss==0.3.1
+    # via -r requirements.in
 mypy==1.19.1
     # via -r requirements.in
 mypy-extensions==1.1.0
