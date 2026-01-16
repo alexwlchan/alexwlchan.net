@@ -1,0 +1,68 @@
+/*
+  Draw tables which have similar highlighting and borders to
+  blockquotes and pre.
+
+  To use:
+
+  1.  Import the stylesheet in your Markdown file:
+
+      <style type="x-text/scss">
+        @use "components/tables";
+      </style>
+
+  2.  Write a table with the block class. Wrap distinct elements with
+      a <tbody>, which inserts a border:
+
+      <table class="block">
+        <tbody>
+          <tr>
+            <th>Anchor</th>
+            <th>Python (re)</th>
+            <th>Ruby</th>
+          </tr>
+        </tbody>
+        <tbody>  
+          <tr>
+            <td>^</td>
+            <td>Start of string</td>
+            <td>Start of line (always)</td>
+          </tr>
+          <tr>
+            <td>\A</td>
+            <td>Start of string</td>
+            <td>Start of string</td>
+          </tr>
+        </tbody>
+      </table>
+
+*/
+
+table.block {
+  width: 100%;
+  border: var(--border-width) var(--border-style) var(--block-border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--block-background);
+  padding: var(--default-padding);
+  
+  tbody:not(:last-of-type) tr:last-child > th,
+  tbody:not(:last-of-type) tr:last-child > td {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--block-border-color);
+  }
+
+  tbody:not(:first-child) tr:first-child th,
+  tbody:not(:first-child) tr:first-child td {
+    padding-top: 10px;
+  }
+  
+  th, td {
+    padding-right: 1em;
+    vertical-align: top;
+  }
+
+  pre {
+    border:  none;
+    padding: 0;
+    margin: 0;
+  }
+}

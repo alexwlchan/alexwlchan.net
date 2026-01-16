@@ -1,0 +1,84 @@
+/* Images on the site are usually the same width as the accompanying text.
+ *
+ * The text has certain constraints on width: it can't be too wide or
+ * it becomes unreadable, and you want some left/right margins so it's
+ * not pressed against the edge of the screen.
+ *
+ * This file contains two sets of styles to allow images to extend
+ * beyond the width of the text:
+ *
+ *    - A `wide_img` can be wider than the text, so the image appears
+ *      bigger on large screens.
+ *
+ *      This is useful on photography posts, where the images are the
+ *      main focus.
+ *
+ *    - A `fullwidth_img` or `wide_img` can go edge-to-edge on small screens,
+ *      i.e. phones.
+ *
+ *      This is applicable to any image, but images have to opt-in by using
+ *      one of the two CSS classes.  It could be applied to any image in
+ *      theory (e.g. a 500px wide image could extend into the margin when
+ *      the screen is narrower than 500px), but that's more complicated.
+ *
+ *      For now, I'm happy for it to be opt-in on newer posts.
+ *
+ */
+
+@media screen and (min-width: 991px) {
+  .wide_img {
+    max-width: calc(100% + 200px);
+    margin-left:  -100px;
+    margin-right: -100px;
+  }
+
+  .wide_img, .fullwidth_img {
+    figcaption {
+      padding-left:  calc(100px + env(safe-area-inset-left));
+      padding-right: calc(100px + env(safe-area-inset-right));
+    }
+  }
+}
+
+@media screen and (min-width: 791px) and (max-width: 991px) {
+  .wide_img {
+    /* Screen size less padding on either side */
+    max-width: calc(100vw - 2 * var(--default-padding));
+
+    /* 50% of the screen width, less the width of the text, less the padding */
+    margin-left:  calc(var(--default-padding) + var(--max-width) / 2 - 50vw);
+    margin-right: calc(var(--default-padding) + var(--max-width) / 2 - 50vw);
+  }
+
+  .wide_img, .fullwidth_img {
+    figcaption {
+      padding-left:  calc(50vw - var(--default-padding) - var(--max-width) / 2 + env(safe-area-inset-left));
+      padding-right: calc(50vw - var(--default-padding) - var(--max-width) / 2 + env(safe-area-inset-right));
+    }
+  }
+}
+
+/* This allows me to mark images as "full-width", in which case, they'll
+ * fill the whole screen on narrow devices (e.g. mobile screens).
+ *
+ * There's a slight weirdness when the screen is exactly max-width; images
+ * suddenly jump from having full margin to zero margin.  Ideally it would
+ * gradually decrease as the screen narrows, but I'm going to leave it as-is
+ * rather than worry too much about this edge case.
+ *
+ * The "photo" class is semantic-ish, it describes what the picture is
+ * rather than how it should behave.  cf 'screenshot'.  I want to use it more! */
+
+@media screen and (max-width: 751px) {
+  .fullwidth_img, .photo {
+    width:        calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+    max-width:    calc(100% + var(--default-padding) * 2 + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+    margin-left:  calc(-1 * (var(--default-padding) + env(safe-area-inset-left,  0px)));
+    margin-right: calc(-1 * (var(--default-padding) + env(safe-area-inset-right, 0px)));
+
+    figcaption {
+      padding-left:  calc(var(--default-padding) + env(safe-area-inset-left));
+      padding-right: calc(var(--default-padding) + env(safe-area-inset-right));
+    }
+  }
+}

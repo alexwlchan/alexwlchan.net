@@ -1,0 +1,5 @@
+.slide {
+  max-width:    calc(var(--max-width) * 0.6);
+  margin-left:  auto;
+  margin-right: auto;
+}

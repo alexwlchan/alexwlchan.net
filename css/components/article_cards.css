@@ -1,0 +1,138 @@
+/*
+ * Styles for the "article card" component.
+ *
+ * This is used on pages where I show a list of cards, which includes
+ * the homepage, the list of articles, and tag pages.
+ */
+
+.acards {
+  list-style-type: none;
+  padding-left: 0px !important;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: var(--grid-columns);
+}
+
+.acards > li {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: var(--background-color);
+  border: var(--border-width) var(--border-style) var(--c-color);
+
+  /* An article card can declare two colour variables: --lt (light) and --dk (dark).
+   * These are used to tint the appearance of the card, if present. */
+  --lt: #d01c11;
+  --dk: #ff4242;
+
+  --c-color: var(--lt);
+}
+
+@media (prefers-color-scheme: dark) {
+  .acards > li {
+    --c-color: var(--dk);
+  }
+}
+
+.acards > li:hover .c_t {
+  text-decoration-thickness: 4px;
+}
+
+.acards > li a {
+  text-decoration: none;
+  height: 100%;
+}
+
+.c_t, .c_d {
+  padding: 16px;
+}
+
+.c_t {
+  color: var(--c-color);
+  text-decoration: underline;
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 7px;
+  font-weight: normal;
+  text-wrap: balance;
+}
+
+.c_d {
+  color: var(--body-text);
+  margin: 0;
+  padding-top: 0;
+  font-size: 85%;
+  line-height: 1.45em;
+}
+
+/* c_im = card_image_wrapper */
+.c_im {
+  width: 100%;
+  background: var(--c-color);
+  margin-top: 0;
+  margin-bottom: 0;
+  aspect-ratio: 2 / 1;
+}
+
+/* cards with a "new" banner need extra rules */
+.c_im.n {
+  position: relative;
+  overflow: hidden;
+}
+
+.new_banner {
+  position: absolute;
+
+  transform: rotate(45deg);
+
+  right:   -35px;
+  top:      22px;
+  padding: 2px 50px;
+
+  background: var(--c-color);
+  color:      white;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .new_banner {
+    color: black;
+  }
+}
+
+.acards {
+  --grid-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* This changes the number of columns based on the width of the
+ * screen:
+ *
+ *             width <=  450px   ~> one column, for mobile devices
+ *     450px < width <= 1000px   ~> two columns
+ *    1000px < width             ~> three columns, ultra-width screens
+ *
+ * I'm using minimax(0, 1fr) to ensure the columns are the exact
+ * same width, even if there's only one card in a collection.
+ * See https://stackoverflow.com/q/47601564/1558022
+ */
+@media screen and (max-width: 450px) {
+  .acards {
+    --grid-columns: auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .acards:not(.acards--1):not(.acards--2):not(.acards--4) {
+    --grid-columns: repeat(3, minmax(0, 1fr));
+    margin-left:  -100px;
+    margin-right: -100px;
+
+    /* In Safari 18.2, the <ul> won't automatically expand to the width
+     * just because the margin is there -- we have to tell it to expand */
+  
+    /* Why 199px and not 200px? To work around a subpixel bug in WebKit,
+     * where I get a hairline crack on the right-hand side of my cards
+     * in the three column view. :( */
+    width: calc(100% + 199px);
+  }
+}
