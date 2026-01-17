@@ -4,6 +4,7 @@ hyperlink
 jinja2
 lightningcss
 markdown
+minify-html
 Pillow
 PyYAML
 termcolor
