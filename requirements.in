@@ -4,6 +4,7 @@ hyperlink
 jinja2
 lightningcss
 markdown
+Pillow
 PyYAML
 termcolor
 tqdm
