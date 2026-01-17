@@ -84,7 +84,7 @@ class TestPictureExtension:
             '400px" srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
             '/images/2026/truchet-tiles-800x400_2x.png 800w" type=image/png>'
             '<img alt="Geometrically-drawn tiles in red and black" '
-            'style="aspect-ratio: 2/1" '
+            'style="aspect-ratio: 2" '
             "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
         )
 
@@ -151,7 +151,7 @@ class TestPictureExtension:
             'type=image/webp><source sizes="(max-width: 400px) 100vw, '
             '400px" srcset="/images/truchet-tiles-800x400_1x.png 400w,'
             '/images/truchet-tiles-800x400_2x.png 800w" type=image/png>'
-            '<img style="aspect-ratio: 2/1" '
+            '<img style="aspect-ratio: 2" '
             "src=/images/truchet-tiles-800x400_1x.png width=400></picture>"
         )
 
@@ -212,7 +212,7 @@ class TestPictureExtension:
             '<source sizes="(max-width: 400px) 100vw, '
             '400px" srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
             '/images/2026/truchet-tiles-800x400_2x.png 800w" type=image/png>'
-            '<img style="aspect-ratio: 2/1" class=screenshot '
+            '<img style="aspect-ratio: 2" class=screenshot '
             "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
         )
 
@@ -355,7 +355,7 @@ class TestPictureExtension:
             '<source sizes="(max-width: 400px) 100vw, 400px" '
             'srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
             '/images/2026/truchet-tiles-800x400_2x.png 800w" type=image/png>'
-            '<img style="aspect-ratio: 2/1" class=dark_aware '
+            '<img style="aspect-ratio: 2" class=dark_aware '
             "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
         )
 
@@ -457,15 +457,16 @@ class TestChooseTargetWidth:
                 target_height=height,
             )
 
-    def test_rounding_matches_ruby(self) -> None:
+    def test_rounding_width(self) -> None:
         """
-        Rounding goes down to match the Ruby behaviour, rather than
-        to the closest integer.
+        Rounding is to the nearest integer.
         """
+        # The source image is 373 × 480 pixels, so the target width is
+        # 373 × 140 / 480 = 108.79, which rounds to 109.
         width = tp.choose_target_width(
             src_path=Path("src/_images/2021/your-computer-is-on-fire.jpg"),
             target_width=None,
             target_height=140,
         )
 
-        assert width == 108
+        assert width == 109

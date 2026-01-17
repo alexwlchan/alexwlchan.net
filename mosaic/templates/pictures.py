@@ -252,11 +252,12 @@ def render_picture(
     with Image.open(lt_src_path) as im:
         aspect_ratio = Fraction(im.width, im.height)
 
-    # TODO(2026-01-17): If the aspect ratio is an integer, just use that,
-    # don't write 2/1 or 1/1.
-    aspect_ratio_style = "aspect-ratio: " + "/".join(
-        str(s) for s in aspect_ratio.as_integer_ratio()
-    )
+    if aspect_ratio.is_integer():
+        aspect_ratio_style = f"aspect-ratio: {aspect_ratio.numerator}"
+    else:
+        aspect_ratio_style = "aspect-ratio: " + "/".join(
+            str(s) for s in aspect_ratio.as_integer_ratio()
+        )
 
     try:
         kwargs["style"] = f"{aspect_ratio_style}; {kwargs['style']}"
@@ -265,12 +266,7 @@ def render_picture(
     kwargs["width"] = target_width
 
     # Render the <picture> tag.
-    # TODO(2026-01-17): The try … except is so I can use this code from
-    # my Jekyll plugins, but I can ditch it once I'm all in on Python.
-    try:
-        env = context["environment"]
-    except KeyError:
-        env = context.environment
+    env = context.environment
     template = env.get_template("partials/picture.html")
 
     html: str = template.render(
@@ -320,10 +316,7 @@ def choose_target_width(
                 f"path={src_path}, height={im_height}, target_height={target_height}"
             )
         else:
-            # TODO(2026-01-17): This should use round() instead of int(),
-            # but it's int() temporarily to match the Jekyll implementation.
-            # Fix this before deploying.
-            return int(im_width * target_height / im_height)
+            return round(im_width * target_height / im_height)
 
     assert False, "unreachable"  # pragma: no cover
 
