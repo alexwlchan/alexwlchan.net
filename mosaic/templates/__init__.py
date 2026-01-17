@@ -3,6 +3,7 @@ Code for dealing with HTML and XML templates.
 """
 
 import collections
+from pathlib import Path
 import re
 from typing import TypedDict
 
@@ -10,10 +11,11 @@ import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from .comments import LiquidCommentExtension
+from .pictures import PictureExtension
 from .text import cleanup_text, markdownify, markdownify_oneline, strip_html
 
 
-def get_jinja_environment() -> Environment:
+def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
     """
     Create a Jinja2 environment which looks in the "templates" directory.
     """
@@ -21,7 +23,11 @@ def get_jinja_environment() -> Environment:
         loader=FileSystemLoader("templates"),
         autoescape=False,
         undefined=StrictUndefined,
-        extensions=["jinja2.ext.loopcontrols", LiquidCommentExtension],
+        extensions=[
+            "jinja2.ext.loopcontrols",
+            LiquidCommentExtension,
+            PictureExtension,
+        ],
     )
 
     env.filters.update(
@@ -33,6 +39,7 @@ def get_jinja_environment() -> Environment:
             "strip_html": strip_html,
         }
     )
+    env.globals.update({"src_dir": src_dir, "out_dir": out_dir})
 
     return env
 

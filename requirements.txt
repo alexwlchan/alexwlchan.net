@@ -37,6 +37,8 @@ markdown==3.10
     # via -r requirements.in
 markupsafe==3.0.3
     # via jinja2
+minify-html==0.18.1
+    # via -r requirements.in
 mypy==1.19.1
     # via -r requirements.in
 mypy-extensions==1.1.0
@@ -77,6 +79,7 @@ types-tqdm==4.67.0.20250809
     # via -r requirements.in
 typing-extensions==4.15.0
     # via
+    #   anyio
     #   beautifulsoup4
     #   mypy
 urllib3==2.6.3
