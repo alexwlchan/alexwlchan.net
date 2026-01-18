@@ -126,7 +126,7 @@ class PictureExtension(KwargsExtensionBase):
 def render_picture(
     context: Context,
     filename: str,
-    width: str | None = None,
+    width: int | str | None = None,
     height: str | None = None,
     parent: str | None = None,
     link_to: str | None = None,
