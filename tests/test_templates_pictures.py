@@ -12,7 +12,6 @@ import minify_html
 from PIL import UnidentifiedImageError
 import pytest
 
-from mosaic import templates as t
 from mosaic.templates import pictures as tp
 
 
@@ -21,30 +20,6 @@ class StubPage:
     """Stub entry for a page."""
 
     date: datetime | None
-
-
-@pytest.fixture
-def src_dir(tmp_path: Path) -> Path:
-    """
-    Returns a source directory for the site.
-    """
-    return tmp_path / "src"
-
-
-@pytest.fixture
-def out_dir(tmp_path: Path) -> Path:
-    """
-    Returns an output directory for the site.
-    """
-    return tmp_path / "out"
-
-
-@pytest.fixture
-def env(src_dir: Path, out_dir: Path) -> Environment:
-    """
-    Creates a basic instance of the Jinja2 environment.
-    """
-    return t.get_jinja_environment(src_dir, out_dir)
 
 
 class TestPictureExtension:

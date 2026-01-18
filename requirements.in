@@ -3,6 +3,7 @@ httpx
 hyperlink
 jinja2
 lightningcss
+lxml
 markdown
 minify-html
 Pillow
