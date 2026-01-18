@@ -13,7 +13,6 @@ Dir.glob('src/_plugin_tests/*.rb')
      end
 end
 
-require_relative 'test_add_utm_source'
 require_relative 'test_atom_feed_filters'
 require_relative 'test_attrs'
 require_relative 'test_inline_styles'
