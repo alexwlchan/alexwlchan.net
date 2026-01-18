@@ -11,7 +11,7 @@ import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic import templates as t
-from mosaic.templates import slides as ts
+from mosaic.templates import downloads as td
 
 
 @dataclass
@@ -19,14 +19,12 @@ class StubPage:
     """Stub entry for a page."""
 
     date: datetime | None
-    slug: str
 
 
 if __name__ == "__main__":
     try:
         post_date: datetime | None = datetime.strptime(sys.argv[1], "%Y-%m-%d")
-        slug = sys.argv[2]
-        plugin_args = json.loads(sys.argv[3])
+        plugin_args = json.loads(sys.argv[2])
     except (IndexError, ValueError):
         raise
         sys.exit(f"Usage: {__file__} POST_DATE PLUGIN_ARGS_JSON")
@@ -35,8 +33,8 @@ if __name__ == "__main__":
     out_dir = Path("_site")
 
     env = t.get_jinja_environment(src_dir, out_dir)
-    page = StubPage(post_date, slug)
+    page = StubPage(post_date)
 
     context = {"page": page, "src_dir": src_dir, "out_dir": out_dir, "environment": env}
 
-    print(ts.render_slide(context, **plugin_args), end="")  # type: ignore
+    print(td.render_download(context, **plugin_args), end="")  # type: ignore

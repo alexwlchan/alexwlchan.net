@@ -11,6 +11,7 @@ import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from .comments import LiquidCommentExtension
+from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .pictures import PictureExtension
 from .slides import SlideExtension
@@ -27,6 +28,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
         undefined=StrictUndefined,
         extensions=[
             "jinja2.ext.loopcontrols",
+            DownloadExtension,
             InlineSvgExtension,
             LiquidCommentExtension,
             PictureExtension,
