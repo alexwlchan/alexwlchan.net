@@ -80,7 +80,24 @@ I don't love the idea of putting a workaround for my development process in the 
 I started by looking at [the boto3 documentation for `list_secrets()`][list_secrets].
 The response schema includes a `DeletedDate` field which is only present on secrets that are scheduled for deletion, so I thought something like this would work:
 
-{% inline_code filename="list_deleted_secrets.py" %}
+```python
+import boto3
+
+
+def list_secrets(session):
+    client = session.client("secretsmanager")
+
+    for page in client.get_paginator("list_secrets").paginate():
+        yield from page["SecretList"]
+
+
+if __name__ == "__main__":
+    session = boto3.Session()
+
+    for secret in list_secrets(session):
+        if "DeletedDate" in secret:
+            print(secret)
+```
 
 But when I ran it, I didn't see anything, even though I knew I had deleted secrets -- the `list_secrets()` method was only finding active secrets.
 Hmm.
@@ -357,11 +374,44 @@ Instead, I find myself knee-deep in rabbit holes -- but I learnt a lot, and I go
 
 First, save [the following file](/files/2021/service-2.sdk-extras.json) to `~/.aws/models/secretsmanager/2017-10-17/service-2.sdk-extras.json`:
 
-{% inline_code filename="service-2.sdk-extras.json" language="text" %}
+```
+{
+  "version": 1.0,
+  "merge": {
+    "shapes": {
+      "ListSecretsRequest": {
+        "members": {
+          "IncludeDeleted": {
+            "shape": "BooleanType",
+            "documentation": "<p>If set, includes secrets that are disabled.</p>"
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 Then use the following script:
 
-{% inline_code filename="list_deleted_secrets_working.py" %}
+```python
+import boto3
+
+
+def list_secrets(session, **kwargs):
+    client = session.client("secretsmanager")
+
+    for page in client.get_paginator("list_secrets").paginate(**kwargs):
+        yield from page["SecretList"]
+
+
+if __name__ == "__main__":
+    session = boto3.Session()
+
+    for secret in list_secrets(session, IncludeDeleted=True):
+        if "DeletedDate" in secret:
+            print(secret)
+```
 
 Or run the following CLI command:
 
