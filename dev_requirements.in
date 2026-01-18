@@ -1,0 +1,9 @@
+-r requirements.txt
+
+hypothesis
+mypy
+pytest-cov
+ruff
+types-Markdown
+types-PyYAML
+types-tqdm

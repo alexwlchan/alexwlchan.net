@@ -11,13 +11,11 @@ PyYAML
 termcolor
 tqdm
 
+# For colormath
+numpy
+
 # For checking DNS records
 dnspython
 
-# For tests and CI
-mypy
-pytest-cov
-ruff
-types-Markdown
-types-PyYAML
-types-tqdm
+# For uptime tests
+pytest
