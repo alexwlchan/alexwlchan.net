@@ -1,15 +1,5 @@
 """
-Use the picture plugin from Mosaic.
-
-This is intended as a shim so I can call my new picture code from Jekyll,
-and gradually migrate all the "interesting code" into Python.
-
-It takes two arguments:
-
-*   The date of the parent post (if any)
-*   The key-value pairs passed to the {% picture %} plugin, as JSON
-
-It prints an HTML string.
+Use the inline_svg plugin from Mosaic.
 """
 
 from dataclasses import dataclass
@@ -21,7 +11,7 @@ import sys
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic import templates as t
-from mosaic.templates import pictures as tp
+from mosaic.templates import inline_svg as ti
 
 
 @dataclass
@@ -33,10 +23,7 @@ class StubPage:
 
 if __name__ == "__main__":
     try:
-        if sys.argv[1]:
-            post_date: datetime | None = datetime.strptime(sys.argv[1], "%Y-%m-%d")
-        else:
-            post_date = None
+        post_date: datetime | None = datetime.strptime(sys.argv[1], "%Y-%m-%d")
         plugin_args = json.loads(sys.argv[2])
     except (IndexError, ValueError):
         sys.exit(f"Usage: {__file__} POST_DATE PLUGIN_ARGS_JSON")
@@ -49,4 +36,4 @@ if __name__ == "__main__":
 
     context = {"page": page, "src_dir": src_dir, "out_dir": out_dir, "environment": env}
 
-    print(tp.render_picture(context, **plugin_args), end="")  # type: ignore
+    print(ti.render_inline_svg(context, **plugin_args), end="")  # type: ignore

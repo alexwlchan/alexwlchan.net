@@ -82,12 +82,9 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Any, Literal
 
-from PIL import Image
-
-
 from jinja2 import pass_context
 from jinja2.runtime import Context
-
+from PIL import Image
 
 from .jinja_extensions import KwargsExtensionBase
 
@@ -113,17 +110,17 @@ FORMAT_TO_MIME_TYPE: dict[ImageFormat, MimeType] = {
 
 class PictureExtension(KwargsExtensionBase):
     """
-    Allow me to use the {% picture %} tag to render images with Jekyll.
+    Defines the {% picture %} tag to render images.
     """
 
     tags = {"picture"}
 
     @pass_context
-    def render_html(self, *args: Any, **kwargs: dict[str, Any]) -> str:
+    def render_html(self, *args: Any, **kwargs: Any) -> str:
         """
         Render the picture tag.
         """
-        return render_picture(*args, **kwargs)  # type: ignore
+        return render_picture(*args, **kwargs)
 
 
 def render_picture(

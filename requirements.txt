@@ -33,6 +33,8 @@ librt==0.7.8
     # via mypy
 lightningcss==0.3.1
     # via -r requirements.in
+lxml==6.0.2
+    # via -r requirements.in
 markdown==3.10
     # via -r requirements.in
 markupsafe==3.0.3
