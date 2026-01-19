@@ -7,4 +7,5 @@ _site
 .DS_Store
 
 .coverage*
+.hypothesis
 _out
