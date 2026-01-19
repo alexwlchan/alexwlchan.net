@@ -13,7 +13,7 @@ It saves me a few clicks, and it's an idea I originally stole [from Dr. Drang][d
 
 I have a couple of variations on this snippet, and I recently added another one to the mix:
 
-{% tweet https://twitter.com/alexwlchan/status/1188721070234394626 %}
+{% tweet "https://twitter.com/alexwlchan/status/1188721070234394626" %}
 
 [km]: https://www.keyboardmaestro.com/main/
 [drang]: https://leancrew.com/all-this/2010/10/textexpander-snippets-for-google-chrome/

@@ -224,7 +224,7 @@ Compared to a printed alphabet, braille takes up much more space on the page -- 
 You think your copy of *Harry Potter and the Order of the Phoenix* is big?
 It's nothing compared to the braille editions, ["each of which amounts to a 13-volume stack of paper more than a foot high"](https://www.csmonitor.com/2003/0701/p12s01-lecl.html).
 
-{% tweet https://twitter.com/BrookeCottrell_/status/876825684202663937 %}
+{% tweet "https://twitter.com/BrookeCottrell_/status/876825684202663937" %}
 
 
 

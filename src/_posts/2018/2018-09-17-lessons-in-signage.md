@@ -23,7 +23,7 @@ We got a lot of stuff right off the bat:
 
 But this was a first attempt, and inevitably I didn't get it all right -- for the benefit of my future self, and anybody else making venue signage, here's a few of the things I've learnt this year.
 
-{% tweet https://twitter.com/anabalica/status/1040947442735345664 %}
+{% tweet "https://twitter.com/anabalica/status/1040947442735345664" %}
 
 [inclusivity]: /2018/inclusive-conferences/#clear-internal-signage
 

@@ -70,11 +70,7 @@ I don't speak Russian, but YouTube has auto-translated subtitles.
 Now I know how this amazing set was made, and I have a much better understanding of the materials and techniques involved.
 (This includes the delightful name [Wenge wood][wenge], which I'd never heard before.)
 
-{%
-  include embeds/youtube.html
-  url="https://www.youtube.com/watch?v=QoKdDK3y-mQ"
-  title="ШАХМАТЫ в которые трудно играть даже ПРОфессионалам !"
-%}
+{% youtube "https://www.youtube.com/watch?v=QoKdDK3y-mQ" %}
 
 [summary]: https://usamodelkina.ru/11041-miniatyurnye-shahmaty-svoimi-rukami.html
 [chess_yt]: https://www.youtube.com/watch?v=QoKdDK3y-mQ

@@ -10,7 +10,7 @@ title: Some low-tech ways to get more ideas
 
 So on Tuesday, I saw [this tweet](https://twitter.com/DRMacIver/status/803223621439102976) from David MacIver:
 
-{% tweet https://twitter.com/DRMacIver/status/803223621439102976 %}
+{% tweet "https://twitter.com/DRMacIver/status/803223621439102976" %}
 
 "Intelligence expansion" is a phrase [that here means](https://twitter.com/DRMacIver/status/803223723549474820) "anything you can use to understand things or solve problems that would be hard with an unaided brain".
 

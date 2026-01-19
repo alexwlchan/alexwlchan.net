@@ -44,7 +44,7 @@ It's not perfect, but I'm very pleased with the results.
 
 In this post, I'll explain my typical setup, and how I use Make and Docker to get fast and reliable builds.
 
-{% tweet https://twitter.com/alexwlchan/status/938694360681590791 %}
+{% tweet "https://twitter.com/alexwlchan/status/938694360681590791" %}
 
 I really felt the benefits last Monday.
 Normally I commute to London on the train, but there was snow and ice at the weekend, and cold weather wreaks havoc on the railways.

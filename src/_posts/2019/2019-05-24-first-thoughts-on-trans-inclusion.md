@@ -11,7 +11,7 @@ tags:
 
 A fortnight ago, I tweeted a question:
 
-{% tweet https://twitter.com/alexwlchan/status/1126802445517099008 %}
+{% tweet "https://twitter.com/alexwlchan/status/1126802445517099008" %}
 
 Doing more to help our trans colleagues is a big focus for the LGBTQ+ Staff network and the [Diversity & Inclusion team][d&i] this year.
 Part of that is a proper policy that affirms our support for them, and setting some expectations for how trans people should be treated as Wellcome.

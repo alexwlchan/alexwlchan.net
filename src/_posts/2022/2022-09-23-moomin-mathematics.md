@@ -20,7 +20,7 @@ index:
 
 Yesterday evening, Kate posted this tweet:
 
-{% tweet https://twitter.com/thingskatedid/status/1573017572022571009 %}
+{% tweet "https://twitter.com/thingskatedid/status/1573017572022571009" %}
 
 This tweet promptly crawled inside my brain and sat there until I figured out how to make it work.
 I did, and because I'm so generous, now I'm going to share this secret with you.

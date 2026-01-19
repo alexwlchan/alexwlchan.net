@@ -22,7 +22,7 @@ It's a romantic comedy with a clever narrative twist – it’s being told in th
 Unfortunately it only had a limited run, and it's already closed.
 I don't know if or when it will be staged again, but I wanted to capture a bit of why I enjoyed it so much.
 
-{% tweet https://twitter.com/SpyForSpyPlay/status/1675112286103429123 %}
+{% tweet "https://twitter.com/SpyForSpyPlay/status/1675112286103429123" %}
 
 The play is a [two-hander], and it stars two women -- a bit of a rarity in theatre -- and it's a romance story.
 I'm not sure I've ever seen a sapphic romance on stage, and that itself was quite refreshing.

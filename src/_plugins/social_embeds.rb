@@ -193,7 +193,7 @@ end
 class SocialMedia < Liquid::Tag
   def initialize(_tag_name, text, _tokens)
     # The `text` variable should contain the URL of the post.
-    @post_url = text.strip
+    @post_url = text.strip.delete_prefix('"').delete_suffix('"')
   end
 
   def render(context)
@@ -225,3 +225,4 @@ Liquid::Template.register_filter(Jekyll::SocialEmbedFilters)
 Liquid::Template.register_tag('bluesky', SocialMedia)
 Liquid::Template.register_tag('mastodon', SocialMedia)
 Liquid::Template.register_tag('tweet', SocialMedia)
+Liquid::Template.register_tag('youtube', SocialMedia)

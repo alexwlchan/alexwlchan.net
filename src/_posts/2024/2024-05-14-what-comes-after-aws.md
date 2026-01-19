@@ -17,7 +17,7 @@ colors:
 
 James Governor posed some interesting questions yesterday:
 
-{% tweet https://twitter.com/monkchips/status/1790018203478876243 %}
+{% tweet "https://twitter.com/monkchips/status/1790018203478876243" %}
 
 I started writing a reply, but it was too long for Twitter, so I'm posting it here.
 

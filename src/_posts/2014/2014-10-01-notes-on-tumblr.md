@@ -16,7 +16,7 @@ I'll start with the small stuff:
 
 Then there's a new filter tool, under "Do you have lots of posts?". You can choose whether to include reblogs, or just show posts that you wrote. This wasn't my idea; it came from a tweet:
 
-{% tweet https://twitter.com/A5HRAJ/status/516449552102993920 %}
+{% tweet "https://twitter.com/A5HRAJ/status/516449552102993920" %}
 
 and after initially misunderstanding what they meant, I put something together pretty quickly. I'm not particularly keen on adding more options like this, because I don't want it to be too complicated: if you want really granular control, just play around with the API yourself.
 

@@ -10,7 +10,7 @@ tags:
 
 A week ago, I posted [a snippet of code on Twitter](https://twitter.com/alexwlchan/status/1258147811851460608) that has upset people:
 
-{% tweet https://twitter.com/alexwlchan/status/1258147811851460608 %}
+{% tweet "https://twitter.com/alexwlchan/status/1258147811851460608" %}
 
 Making that tweet work requires a horrific misuse of tuple unpacking, a feature that is usually used for sensible things.
 It needs reflection and the `exec()` function to work, and should never be used for anything serious.
