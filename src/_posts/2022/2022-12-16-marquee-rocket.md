@@ -524,7 +524,7 @@ I was following [Danielle Leong][leong], who was a fearless cheerleader of the m
 
 The four finalists were &lt;a&gt;, &lt;div&gt;, &lt;marquee&gt; and &lt;script&gt;, and Laurie tweeted what could only be read as a challenge:
 
-{% tweet https://twitter.com/seldo/status/1461848209769197573 %}
+{% tweet "https://twitter.com/seldo/status/1461848209769197573" %}
 
 How far could I get with just &lt;marquee&gt;?
 

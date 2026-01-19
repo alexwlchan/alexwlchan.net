@@ -15,7 +15,7 @@ colors:
 ---
 Last week, James Truitt asked a question on Mastodon:
 
-{% mastodon https://code4lib.social/@linguistory/113924700205617006 %}
+{% mastodon "https://code4lib.social/@linguistory/113924700205617006" %}
 
 The "bags" he's referring to are BagIt bags.
 BagIt is [an open format][rfc] developed by the Library of Congress for packaging digital files.

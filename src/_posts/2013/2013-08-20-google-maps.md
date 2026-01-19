@@ -11,7 +11,7 @@ index:
 
 Earlier this morning, Fraser Speirs was bemoaning the design of the new Google&nbsp;Maps:
 
-{% tweet https://twitter.com/fraserspeirs/status/369736232546631680 %}
+{% tweet "https://twitter.com/fraserspeirs/status/369736232546631680" %}
 
 I decided to take him at his word, and spent an hour or so finding a way to de-clutter the interface. I've written a short bookmarklet which toggles the offending elements (the search box, and the other map overlays).
 

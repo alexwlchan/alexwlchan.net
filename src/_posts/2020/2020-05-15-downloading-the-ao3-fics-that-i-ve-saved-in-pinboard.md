@@ -11,7 +11,7 @@ tags:
 
 A couple of days ago, I tweeted about one of my scripts:
 
-{% tweet https://twitter.com/alexwlchan/status/1260225157672697858 %}
+{% tweet "https://twitter.com/alexwlchan/status/1260225157672697858" %}
 
 The tweet got a fair amount of interest, so in this post I'm going to share that script.
 

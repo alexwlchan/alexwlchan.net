@@ -52,11 +52,11 @@ Seasoned tweeters will know that's more than you can fit in a single tweet, so w
 You could try to do this programatically, but the results probably wouldn't be very good.
 In some cases, a sentence works well as a standalone tweet:
 
-{% tweet https://twitter.com/KempisBot/status/1355552988199325696 %}
+{% tweet "https://twitter.com/KempisBot/status/1355552988199325696" %}
 
 In others, it makes more sense to put adjacent sentences together:
 
-{% tweet https://twitter.com/KempisBot/status/1355611529325015041 %}
+{% tweet "https://twitter.com/KempisBot/status/1355611529325015041" %}
 
 It's non-trivial for a computer to even recognise sentences, let alone decide which ones belong in the same tweet.
 (This is the topic of an entire field, called [*natural language processing*](https://en.wikipedia.org/wiki/Natural_language_processing).)

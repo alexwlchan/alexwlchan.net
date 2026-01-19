@@ -13,7 +13,7 @@ tags:
 At the [end of last month][news-intro], Oxford introduced a [£5 congestion charge][ox-cc]  for passenger cars driving through the city centre.
 Some vehicles are exempt, like taxis, emergency vehicles, and delivery vans -- but what about animals?
 
-{% bluesky https://bsky.app/profile/oldenoughtosay.com/post/3m62qe3jrac2e %}
+{% bluesky "https://bsky.app/profile/oldenoughtosay.com/post/3m62qe3jrac2e" %}
 
 I’m not a city councillor or a lawyer, but I tried to work out the answer anyway.
 

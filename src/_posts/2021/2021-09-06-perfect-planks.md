@@ -16,7 +16,7 @@ colors:
 
 My friend Madeline is busy renovating her new house, and two nights ago she posted an interesting combinatorics problem:
 
-{% tweet https://twitter.com/oldenoughtosay/status/1434281850709610498 %}
+{% tweet "https://twitter.com/oldenoughtosay/status/1434281850709610498" %}
 
 If you start with a pencil and paper, you can start to find some valid combinations.
 Here's a few:

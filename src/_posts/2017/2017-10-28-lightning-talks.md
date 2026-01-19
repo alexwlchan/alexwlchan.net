@@ -50,7 +50,7 @@ I think this system has been a resounding success, and I'd love to see it spread
 
   On Sunday, we changed the wording to be clearer: now, rather than saying "experienced speakers", we just have a bucket labelled "everyone else".
 
-  {% tweet https://twitter.com/alexwlchan/status/924569032170397696 %}
+  {% tweet "https://twitter.com/alexwlchan/status/924569032170397696" %}
 {% endupdate %}
 
 [youtube]: https://www.youtube.com/results?search_query=pycon%20uk%20lightning%20talks

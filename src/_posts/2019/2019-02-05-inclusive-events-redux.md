@@ -17,7 +17,7 @@ I kept all the suggestions in a text file, but I never quite got around to writi
 
 Just before the weekend, I sent a link to the post in a reply to this tweet by Ada Powers:
 
-{% tweet https://twitter.com/mspowahs/status/1091409665290788864 %}
+{% tweet "https://twitter.com/mspowahs/status/1091409665290788864" %}
 
 Her original tweet got a huge response (so many good replies), and sent a spike of traffic to my old blog post.
 I realised it was time to update it properly, so I dusted it off and wrote a new version.
