@@ -9,7 +9,6 @@ on:
       - 'dns/*'
       - '.github/workflows/check_dns.yml'
       - 'scripts/run_dns_tests.sh'
-      - 'requirements.txt'
 
   pull_request:
     branches:
@@ -19,7 +18,6 @@ on:
       - 'dns/*'
       - '.github/workflows/check_dns.yml'
       - 'scripts/run_dns_tests.sh'
-      - 'requirements.txt'
 
   schedule:
     - cron: "30 8 * * *"
@@ -39,7 +37,7 @@ jobs:
           cache: pip
 
       - name: Install Python dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r dns/requirements.txt
 
       - name: "Check the DNS records"
         run: bash scripts/run_dns_tests.sh

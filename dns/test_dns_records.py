@@ -5,7 +5,7 @@ Compare my current DNS records to a checked-in TOML file.
 from pathlib import Path
 
 import dns.resolver
-import yaml
+import tomllib
 
 
 DOMAINS_TO_CHECK = {
@@ -66,7 +66,7 @@ def test_dns_records_match_expected() -> None:
     }
 
     dns_dir = Path(__file__).parent
-    with open(dns_dir / "dns_records.yml") as f:
-        expected = {key: set(val) for key, val in yaml.safe_load(f).items()}
+    with open(dns_dir / "dns_records.toml", "rb") as f:
+        expected = {key: set(val) for key, val in tomllib.load(f).items()}
 
     assert actual == expected

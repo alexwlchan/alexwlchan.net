@@ -12,8 +12,6 @@ certifi==2026.1.4
     #   httpx
 coverage==7.13.1
     # via pytest-cov
-dnspython==2.8.0
-    # via -r requirements.in
 h11==0.16.0
     # via httpcore
 httpcore==1.0.9
