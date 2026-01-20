@@ -141,7 +141,7 @@ Drop me [a tweet](https://twitter.com/alexwlchan) or [an email](mailto:alex@alex
 
 
 
-{% update 2020-08-18 %}
+{% update date="2020-08-18" %}
   [Thomas Grainger](https://twitter.com/graingert/) pointed out a few issues:
 
   *   Path normalisation is platform-dependent -- if you use `os.path.normpath()` on Windows, it converts slashes to backslashes.

@@ -34,7 +34,7 @@ def test_changing_case_preserves_length(xs):
     assert len(xs) == len(xs.lower())
 ```
 
-{% update 2016-12-02 %}
+{% update date="2016-12-02" %}
   [David MacIver asked](https://twitter.com/DRMacIver/status/804236463516844037) whether this affects Python 2, 3, or both, which I forgot to mention.
   The behaviour is different: Python 2 lowercases `İ` to an ASCII `i`, whereas Python 3 adds a double dot: `i̇`.
 

@@ -44,7 +44,7 @@ There's no penalty for hesitation --- you have the same chance of being drawn, n
 So far, we've used the buckets for two days, and they're already filling up for day three.
 I think this system has been a resounding success, and I'd love to see it spread to other conferences.
 
-{% update 2017-10-31 %}
+{% update date="2017-10-31" %}
   There were a handful of comments --- both on Twitter and at the conference --- about the wording on the buckets.
   If you've done one or two talks (maybe a lightning talk at another conference!), but you wouldn't describe yourself as "experienced", where do you put your card?
 

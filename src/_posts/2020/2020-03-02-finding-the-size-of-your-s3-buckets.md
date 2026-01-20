@@ -11,7 +11,7 @@ index:
   exclude: true
 ---
 
-{% update 2021-08-22 %}
+{% update date="2021-08-22" %}
   Nine months after I wrote this, Amazon introduced [S3 Storage Lens](https://aws.amazon.com/blogs/aws/s3-storage-lens/), which is a much better way to solve this problem.
   You should probably use that instead.
 {% endupdate %}

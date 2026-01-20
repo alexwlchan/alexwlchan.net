@@ -40,7 +40,7 @@ Run the file with Python in a terminal (for example, `python download_bookmarks.
 
 If you have issues running this code, get in touch [on Twitter](https://twitter.com/alexwlchan).
 
-{% update 2020-05-17 %}
+{% update date="2020-05-17" %}
 Thanks for all the kind comments!
 It's really nice to know that people find my code useful.
 

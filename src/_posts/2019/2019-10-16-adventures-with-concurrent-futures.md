@@ -505,7 +505,7 @@ Once again, a detailed walkthrough of code is as useful as me as for the reader.
 
 
 
-{% update 2020-05-02 %}
+{% update date="2020-05-02" %}
   A common problem with this code is when your list of tasks is a list.
   If `tasks_to_do` is a list, you'll see it run the same tasks repeatedly.
 
@@ -540,7 +540,7 @@ Once again, a detailed walkthrough of code is as useful as me as for the reader.
 
 {% endupdate %}
 
-{% update 2022-01-04 %}
+{% update date="2022-01-04" %}
   I've created a GitHub repo which has a nicer version of this code, which allows you to call a single function, rather than interspersing your function/inputs with the concurrency code:
 
 {% code lang="python" names="0:concurrently 1:concurrently 3:input 4:output 7:perform 9:get_tasks_to_do" %}

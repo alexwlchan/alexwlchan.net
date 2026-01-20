@@ -73,11 +73,11 @@ Copy and paste the **OAuth Consumer Key** into line 7 of the script, and remembe
 
 Once that's done, you just run the Python script (if you haven't done that before, then there are plenty of helpful guides on Google), and you will shortly have a list of all your posts which don't have tags. This isn't quite a “one-click” solution to the problem, but I think it’s better than searching through your posts by hand.
 
-{% update 2014-05-20 %}
+{% update date="2014-05-20" %}
   I ran across a [Stack Overflow](http://stackoverflow.com/q/21743112) question asking about this script. One thing I should have made clear is that this is a **Python 2** script, not Python 3. If you want to use Python 3, then the answer to that question has a version of the script compatible with Python 3.
 {% endupdate %}
 
-{% update 2014-06-13 %}
+{% update date="2014-06-13" %}
   This has been superceded by a much cleaner, turnkey solution. For most people, my new [one-page, one-click solution][redux] should be much easier and simpler.
 
   You'll still need to use this method if you have a private blog, but anybody else should check out the new way.
@@ -85,7 +85,7 @@ Once that's done, you just run the Python script (if you haven't done that befor
   [redux]: /2014/untagged-tumblr-posts-redux/
 {% endupdate %}
 
-{% update 2015-08-02 %}
+{% update date="2015-08-02" %}
   This script is almost two years old, and it continues to get a lot of hits.
   Normally I try not to revisit old code, but since this is so popular, I've posted a slightly improved version [as a Gist](https://gist.github.com/alexwlchan/4502860fd9ff014dc178).
 {% endupdate %}

@@ -8,7 +8,7 @@ index:
   exclude: true
 ---
 
-{% update 2023-08-17 %}
+{% update date="2023-08-17" %}
   Between writing this post and now, I've discovered [tflint], which can do all this and much more besides.
   This was a useful exercise in parsing Terraform with Python (which I still do occasionally), but I've completely switched to tflint for this sort of thing.
   

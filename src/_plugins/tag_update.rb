@@ -1,15 +1,18 @@
 # This plugin allows me to put an update on a post, e.g.
 #
-#    {% update 2020-05-02 %}
+#    {% update date="2020-05-02" %}
 #      Here is some new information
 #    {% endupdate %}
 #
 
+require_relative 'utils/attrs'
+
 module Jekyll
   class UpdateBlock < Liquid::Block
-    def initialize(tag_name, markup, options)
+    def initialize(tag_name, params_string, options)
       super
-      @date = Date.parse(markup, '%Y-%m-%d')
+      attrs = parse_attrs(params_string)
+      @date = Date.parse(attrs['date'], '%Y-%m-%d')
     end
 
     def render(context)

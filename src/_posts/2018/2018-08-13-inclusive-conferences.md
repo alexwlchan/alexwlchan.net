@@ -35,7 +35,7 @@ colors:
   }
 </style>
 
-{% update "2019-02-05" %}
+{% update date="2019-02-05" %}
 Thank you to everyone who's read, shared, or given feedback on this post.
 I've been thrilled by the number of people who've said they found it useful.
 I got a lot of suggestions for new ideas to add to the list, and I had some thoughts on how to make it more readable.

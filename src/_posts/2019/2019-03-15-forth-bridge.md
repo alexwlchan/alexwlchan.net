@@ -73,7 +73,7 @@ You can still see a handful of small boats in the harbour, but I'm sure it used 
   %}
 </figure>
 
-{% update 2019-03-21 %}
+{% update date="2019-03-21" %}
   It turns out the lighthouse isn't the only reminder of the ferry service!
   Chris, an ex-Wellcome colleague and archivist extraordinaire, found some pictures from the Britten-Pears foundation (whose archive and library he runs), including a ticket from the ferry service:
 
