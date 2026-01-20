@@ -1,1 +1,4 @@
 src/_files/* linguist-vendored
+
+requirements.txt linguist-generated=true
+dev_requirements.txt linguist-generated=true
