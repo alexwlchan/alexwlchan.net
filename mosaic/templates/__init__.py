@@ -18,6 +18,7 @@ from .pictures import PictureExtension
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
 from .text import cleanup_text, markdownify, markdownify_oneline, strip_html
+from .updates import UpdateExtension
 
 
 def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
@@ -36,6 +37,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             PictureExtension,
             SlideExtension,
             SocialExtension,
+            UpdateExtension,
         ],
     )
 

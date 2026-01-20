@@ -1,0 +1,17 @@
+{#-
+  Render a timestamp on the page.  This will wrap dates in a <time> tag
+  and print them in my preferred format (e.g. 1 February 2003).
+  
+  Usage:
+  
+    {% with date = page.date %}
+      {% include "partials/timestamp.html" %}
+    {% endwith %}
+
+-#}
+
+<time datetime="{{ date.strftime('%Y-%m-%d') }}">
+  {{- date.strftime('%-d %B %Y') -}}
+</time>
+
+{{- "" -}}

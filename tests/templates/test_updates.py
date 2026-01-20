@@ -1,0 +1,42 @@
+"""
+Tests for `mosaic.templates.updates`.
+"""
+
+from dataclasses import dataclass
+from datetime import datetime
+
+import minify_html
+from jinja2 import Environment
+
+
+@dataclass
+class StubPage:
+    """Stub entry for a page."""
+
+    date: datetime | None
+    slug: str
+
+
+class TestUpdateExtension:
+    """
+    Tests for UpdateExtension.
+    """
+
+    def test_render_update(self, env: Environment) -> None:
+        """
+        Test the basic usage of the {% update %} tag.
+        """
+        md = (
+            '{% update date="2001-02-03" %}\n'
+            "  I am *really* excited about this chnage.\n"
+            "{% endupdate %}\n"
+        )
+
+        html = env.from_string(md).render().strip()
+        assert minify_html.minify(html) == (
+            '<style type=x-text/scss>@use "components/updates";</style>'
+            "<blockquote class=update id=update-2001-02-03>"
+            "<p><strong>Update, "
+            "<time datetime=2001-02-03>3 February 2001</time>:</strong> "
+            "I am <em>really</em> excited about this chnage.</blockquote>"
+        )

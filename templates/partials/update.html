@@ -2,6 +2,6 @@
   @use "components/updates";
 </style>
 
-<blockquote class="update" id="update-{{ date | date: "%Y-%m-%d" }}">
+<blockquote class="update" id="update-{{ date.strftime('%Y-%m-%d') }}">
   {{ text }}
 </blockquote>
