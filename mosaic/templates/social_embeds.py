@@ -30,15 +30,14 @@ from jinja2.parser import Parser
 from jinja2.runtime import Context
 from PIL import Image
 
-from mosaic.models import (
+from .pictures import render_picture
+from .social_embed_models import (
     MastodonEmbed,
     MediaEntity,
     SocialEmbedData,
     TwitterEmbed,
     parse_social_embed_data,
 )
-
-from .pictures import render_picture
 
 
 with open("src/_data/social_embeds.json") as in_file:
