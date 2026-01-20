@@ -4,6 +4,7 @@ The model for an HTML page which is going to be rendered in the site.
 
 from datetime import datetime
 from pathlib import Path
+import re
 from typing import Literal, NotRequired, TypedDict
 
 from pydantic import BaseModel
@@ -125,3 +126,38 @@ class HtmlPage(BaseModel):
             )
         except Exception as exc:
             raise RuntimeError(f"error reading md file {md_path!r}: {exc}")
+
+    @property
+    def url(self) -> str:
+        """
+        Returns the URL of this page, relative to the root domain.
+        """
+        if self.layout == "page" and self.md_path == self.src_dir / "index.md":
+            return "/"
+        elif self.layout == "page":
+            relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
+            return f"/{relative_path}/"
+        elif self.layout == "post":
+            assert self.date is not None
+            year = self.date.year
+
+            # Remove the YYYY-MM-DD prefix which is required by Jekyll.
+            # TODO(2026-01-20): Get rid of the requirement for this prefix.
+            slug = re.sub(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}\-", "", self.md_path.stem)
+            return f"/{year}/{slug}/"
+        elif self.layout == "til":
+            assert self.date is not None
+            year = self.date.year
+
+            # Remove the YYYY-MM-DD prefix which is required by Jekyll.
+            # TODO(2026-01-20): Get rid of the requirement for this prefix.
+            slug = re.sub(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}\-", "", self.md_path.stem)
+            return f"/til/{year}/{slug}/"
+        else:  # pragma: no cover
+            raise ValueError(f"unrecognised layout: {self.layout!r}")
+
+    def out_path(self, out_dir: Path) -> Path:
+        """
+        Returns the path where this HTML file should be written.
+        """
+        return out_dir / self.url.strip("/") / "index.html"

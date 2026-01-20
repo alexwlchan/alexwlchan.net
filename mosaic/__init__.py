@@ -27,6 +27,7 @@ class Site:
         """
         self.build_base_css_file()
 
+        # Read all the Markdown source files.
         pages: list[HtmlPage] = []
         for md_path in find_paths_under(self.src_dir, suffix=".md"):
             if "_favicons" in str(md_path):
@@ -35,6 +36,14 @@ class Site:
                 continue
 
             pages.append(HtmlPage.from_path(self.src_dir, md_path))
+
+        # Write all the HTML files to the output directory.
+        for p in pages:
+            out_path = p.out_path(self.out_dir)
+            out_path.parent.mkdir(exist_ok=True, parents=True)
+            out_path.write_text(str(p))
+
+        # TODO: Clean up dangling HTML files.
 
         print(len(pages))
 
