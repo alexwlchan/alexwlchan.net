@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Disable JavaScript in an `<iframe>` by setting the `sandbox` attribute
-date: 2025-02-17 19:03:33 -0500
+date: 2025-02-17 19:03:33 -05:00
 tags:
   - javascript
 ---

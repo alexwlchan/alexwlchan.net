@@ -6,7 +6,11 @@ from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 
+import yaml
+
 from mosaic.css import create_base_css
+from mosaic.fs import find_paths_under
+from mosaic.models import HtmlPage
 
 
 @dataclass
@@ -16,6 +20,7 @@ class Site:
     """
 
     css_path: Path
+    src_dir: Path
     out_dir: Path
 
     def build_site(self) -> None:  # pragma: no cover
@@ -23,6 +28,20 @@ class Site:
         Build a complete copy of the site.
         """
         self.build_base_css_file()
+
+        pages: list[HtmlPage] = []
+        for md_path in find_paths_under(self.src_dir, suffix=".md"):
+            if "_favicons" in str(md_path):
+                continue
+            if "_plugins" in str(md_path):
+                continue
+
+            try:
+                pages.append(read_markdown_file(md_path))
+            except Exception as exc:
+                raise RuntimeError(f"read error for {md_path!r}: {exc}")
+
+        print(len(pages))
 
     @property
     def static_dir(self) -> Path:
@@ -54,3 +73,14 @@ class Site:
         for f in self.static_dir.iterdir():
             if f.suffix == ".css" and f.name != out_path.name:
                 f.unlink()
+
+
+def read_markdown_file(p: Path) -> HtmlPage:
+    """
+    Read a Markdown file and parse the YAML front matter.
+
+    Returns a tuple (front matter, content).
+    """
+    raw = p.read_text()
+    _, front_matter, content = raw.split("---\n", 2)
+    return HtmlPage(md_path=p, content=content, **yaml.safe_load(front_matter))

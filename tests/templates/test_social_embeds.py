@@ -62,6 +62,15 @@ class TestSocialExtension:
             "src=https://www.youtube-nocookie.com/embed/Ej2EJVMkTKw></iframe>"
         )
 
+    def test_twitter_includes_media(self, env: Environment) -> None:
+        """
+        Twitter embeds with media include the pictures.
+        """
+        md = '{% tweet "https://twitter.com/iamkimiam/status/848188958567800832" %}'
+        html = env.from_string(md).render().strip()
+
+        assert "C8VfWJyXkAIWboG_1x.jpg" in html
+
     @pytest.mark.parametrize("url", SOCIAL_EMBEDS.keys())
     def test_all_social_embeds(self, env: Environment, url: str) -> None:
         """

@@ -23,8 +23,8 @@
       {{ post_data | render_bluesky_text }}
     </p>
 
-    {% if post_data["quoted_post"] %}
-      {% set quoted_post = post_data["quoted_post"] %}
+    {% if post_data.quoted_post %}
+      {% set quoted_post = post_data.quoted_post %}
 
       <blockquote class="quoted_post">
         <div class="author">
