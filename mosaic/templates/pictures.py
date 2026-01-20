@@ -79,12 +79,13 @@ which actually renders the <picture> tag.
 
 import collections
 from fractions import Fraction
+from io import BytesIO
 from pathlib import Path
 from typing import Any, Literal
 
 from jinja2 import pass_context
 from jinja2.runtime import Context
-from PIL import Image
+from PIL import Image, ImageCms
 
 from .jinja_extensions import KwargsExtensionBase
 
@@ -184,6 +185,14 @@ def render_picture(
                 )
     else:
         dk_src_path = None
+    
+    # Check the colour profile on the image -- browsers don't do well
+    # with non-standard colour profiles, so only sRGB is allowed.
+    lt_profile_name = get_colour_profile_name(lt_src_path)
+    print(lt_profile_name)
+    # if lt_profile_name and 'sRGB' not in lt_profile_name:
+        # raise ValueError()
+    
 
     # Work out how wide we're going to draw the image.
     target_width = choose_target_width(
@@ -433,3 +442,20 @@ def create_image_sizes(
             sources[out_mime_type].append(out_srcset)
 
     return dict(sources)
+
+
+def get_colour_profile_name(path: Path | None) -> str | None:
+    """
+    Read the ICC colour profile name for an image (if any).
+    """
+    if path is None:
+        return
+    
+    with Image.open(path) as im:
+        icc = im.info.get('icc_profile')
+        
+        if not icc:
+            return
+        
+        profile = ImageCms.getOpenProfile(BytesIO(icc))
+        return ImageCms.getProfileDescription(profile)
