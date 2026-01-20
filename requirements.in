@@ -23,6 +23,7 @@ pytest
 hypothesis
 mypy
 pytest-cov
+pytest-xdist
 ruff
 types-Markdown
 types-Pygments

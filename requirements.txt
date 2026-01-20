@@ -12,6 +12,8 @@ certifi==2026.1.4
     #   httpx
 coverage==7.13.1
     # via pytest-cov
+execnet==2.1.2
+    # via pytest-xdist
 h11==0.16.0
     # via httpcore
 httpcore==1.0.9
@@ -71,7 +73,10 @@ pytest==9.0.2
     # via
     #   -r requirements.in
     #   pytest-cov
+    #   pytest-xdist
 pytest-cov==7.0.0
+    # via -r requirements.in
+pytest-xdist==3.8.0
     # via -r requirements.in
 pyyaml==6.0.3
     # via -r requirements.in
