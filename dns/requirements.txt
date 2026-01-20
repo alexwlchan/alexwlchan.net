@@ -26,8 +26,6 @@ pytest==9.0.2
     # via pytest-cov
 pytest-cov==7.0.0
     # via -r requirements.in
-pyyaml==6.0.3
-    # via -r requirements.in
 ruff==0.14.13
     # via -r requirements.in
 typing-extensions==4.15.0
