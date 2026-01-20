@@ -4,14 +4,13 @@ Use the inline_svg plugin from Mosaic.
 
 from dataclasses import dataclass
 from datetime import datetime
-import json
 from pathlib import Path
 import sys
 
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic import templates as t
-from mosaic.templates import downloads as td
+from mosaic.templates import social_embeds as ts
 
 
 @dataclass
@@ -23,8 +22,9 @@ class StubPage:
 
 if __name__ == "__main__":
     try:
-        post_date: datetime | None = datetime.strptime(sys.argv[1], "%Y-%m-%d")
-        plugin_args = json.loads(sys.argv[2])
+        # post_date: datetime | None = datetime.strptime(sys.argv[1], "%Y-%m-%d")
+        # plugin_args = json.loads(sys.argv[1])
+        url = sys.argv[1]
     except (IndexError, ValueError):
         raise
         sys.exit(f"Usage: {__file__} POST_DATE PLUGIN_ARGS_JSON")
@@ -33,8 +33,8 @@ if __name__ == "__main__":
     out_dir = Path("_site")
 
     env = t.get_jinja_environment(src_dir, out_dir)
-    page = StubPage(post_date)
+    # page = StubPage(post_date)
 
-    context = {"page": page, "src_dir": src_dir, "out_dir": out_dir, "environment": env}
+    context = {"environment": env}
 
-    print(td.render_download(context, **plugin_args), end="")  # type: ignore
+    print(ts.render_social_embed(context, url), end="")  # type: ignore

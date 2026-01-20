@@ -3,6 +3,7 @@ Code for dealing with HTML and XML templates.
 """
 
 import collections
+from datetime import datetime
 from pathlib import Path
 import re
 from typing import TypedDict
@@ -15,6 +16,7 @@ from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .pictures import PictureExtension
 from .slides import SlideExtension
+from .social_embeds import SocialExtension
 from .text import cleanup_text, markdownify, markdownify_oneline, strip_html
 
 
@@ -33,12 +35,14 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             LiquidCommentExtension,
             PictureExtension,
             SlideExtension,
+            SocialExtension,
         ],
     )
 
     env.filters.update(
         {
             "cleanup_text": cleanup_text,
+            "format_date": format_date,
             "get_inline_styles": get_inline_styles,
             "markdownify": markdownify,
             "markdownify_oneline": markdownify_oneline,
@@ -81,3 +85,10 @@ def get_inline_styles(html: str) -> ParsedStyles:
         html = re.sub(r"\s*<defs>\s*</defs>\s*", "", html)
 
     return {"html": html, "styles": "".join(styles)}
+
+
+def format_date(date_string: str, format: str) -> str:
+    """
+    Reads an ISO-formatted date, and reformats it in the specified format.
+    """
+    return datetime.fromisoformat(date_string).strftime(format)
