@@ -8,6 +8,7 @@ markdown
 minify-html
 Pillow
 pydantic
+Pygments
 PyYAML
 termcolor
 tqdm
@@ -27,5 +28,6 @@ mypy
 pytest-cov
 ruff
 types-Markdown
+types-Pygments
 types-PyYAML
 types-tqdm

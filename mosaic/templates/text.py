@@ -7,6 +7,8 @@ import re
 from markdown import markdown
 from markdown.extensions.toc import TocExtension
 
+from mosaic.syntax_highlighting import SyntaxHighlighterExtension
+
 
 STRIP_HTML_RE = re.compile(r"<[^<]+?>")
 
@@ -29,8 +31,8 @@ def markdownify(text: str) -> str:
         text,
         extensions=[
             "codehilite",
-            "fenced_code",
             "smarty",
+            SyntaxHighlighterExtension(),
             TocExtension(
                 marker="{% table_of_contents %}",
                 title="Table of Contents",
