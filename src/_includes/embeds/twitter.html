@@ -3,15 +3,17 @@
   @use "components/embed_tweets";
 </style>
 
-{% assign tweet_id = post_data["id"] %}
-{% assign name = post_data["author"]["name"] %}
-{% assign screen_name = post_data["author"]["screen_name"] %}
+{% assign tweet_id = post_data.id %}
+{% assign name = post_data.author.name %}
+{% assign screen_name = post_data.author.screen_name %}
 
 <blockquote class="embed embed_tweet">
 
-{% if post_data["entities"]["media"].size > 0 %}
-<div class="media media-{{ post_data["entities"]["media"]|size }}">
-  {%- for media in post_data["entities"]["media"] -%}
+ENTITIES=({{ post_data.entities }})
+
+{% if post_data.entities and post_data.entities.media.size > 0 %}
+<div class="media media-{{ post_data.entities.media|size }}">
+  {%- for media in post_data.entities.media -%}
     {{- media | tweet_image -}}
   {%- endfor -%}
 </div>
@@ -32,18 +34,18 @@
   <div class="body">
     <p class="text">{{ post_data | render_tweet_text | replace_twemoji }}</p>
 
-    {% if post_data["quoted_status"] %}
-      {% assign quoted_id = post_data["quoted_status"]["id"] %}
-      {% assign quoted_name = post_data["quoted_status"]["author"]["name"] %}
-      {% assign quoted_screen_name = post_data["quoted_status"]["author"]["screen_name"] %}
+    {% if post_data.quoted_status %}
+      {% assign quoted_id = post_data.quoted_status.id %}
+      {% assign quoted_name = post_data.quoted_status.author.name %}
+      {% assign quoted_screen_name = post_data.quoted_status.author.screen_name %}
 
       <blockquote class="quoted_post">
         <div class="author">
-          <img class="avatar" src="{{ post_data["quoted_status"] | avatar_url }}" alt="">
+          <img class="avatar" src="{{ post_data.quoted_status | avatar_url }}" alt="">
           <span class="display_name">{{ quoted_name }}</span>
           <span class="handle">@{{ quoted_screen_name }}</span>
         </div>
-        <p class="text">{{ post_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
+        <p class="text">{{ post_data.quoted_status | render_tweet_text | replace_twemoji }}</p>
       </blockquote>
     {% endif %}
   </div>

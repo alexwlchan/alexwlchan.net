@@ -3,15 +3,15 @@
   @use "components/embed_tweets";
 </style>
 
-{% set tweet_id = post_data["id"] %}
-{% set name = post_data["author"]["name"] %}
-{% set screen_name = post_data["author"]["screen_name"] %}
+{% set tweet_id = post_data.id %}
+{% set name = post_data.author.name %}
+{% set screen_name = post_data.author.screen_name %}
 
 <blockquote class="embed embed_tweet">
 
-{% if "entities" in post_data and post_data["entities"]["media"]|count > 0 %}
-<div class="media media-{{ post_data["entities"]["media"]|count }}">
-  {% for media in post_data["entities"]["media"] %}
+{% if post_data.entities and post_data.entities.media|count > 0 %}
+<div class="media media-{{ post_data.entities.media|count }}">
+  {% for media in post_data.entities.media %}
     {{- media|tweet_image -}}
   {% endfor %}
 </div>
@@ -33,17 +33,17 @@
     <p class="text">{{ post_data | render_tweet_text | replace_twemoji }}</p>
 
     {% if "quoted_status" in post_data %}
-      {% set quoted_id = post_data["quoted_status"]["id"] %}
-      {% set quoted_name = post_data["quoted_status"]["author"]["name"] %}
-      {% set quoted_screen_name = post_data["quoted_status"]["author"]["screen_name"] %}
+      {% set quoted_id = post_data.quoted_status.id %}
+      {% set quoted_name = post_data.quoted_status.author.name %}
+      {% set quoted_screen_name = post_data.quoted_status.author.screen_name %}
 
       <blockquote class="quoted_post">
         <div class="author">
-          <img class="avatar" src="{{ post_data["quoted_status"] | avatar_url }}" alt="">
+          <img class="avatar" src="{{ post_data.quoted_status | avatar_url }}" alt="">
           <span class="display_name">{{ quoted_name }}</span>
           <span class="handle">@{{ quoted_screen_name }}</span>
         </div>
-        <p class="text">{{ post_data["quoted_status"] | render_tweet_text | replace_twemoji }}</p>
+        <p class="text">{{ post_data.quoted_status | render_tweet_text | replace_twemoji }}</p>
       </blockquote>
     {% endif %}
   </div>

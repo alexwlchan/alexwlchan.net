@@ -20,19 +20,19 @@
 
   <div class="body">
     <p class="text">
-      {{ post_data["text"] }}
+      {{ post_data.text | render_bluesky_text }}
     </p>
   
-    {% if post_data["quoted_post"] %}
-      {% assign quoted_post = post_data["quoted_post"] %}
+    {% if post_data.quoted_post %}
+      {% assign quoted_post = post_data.quoted_post %}
 
       <blockquote class="quoted_post">
         <div class="author">
-          <img class="avatar" src="{{ post_data | avatar_url }}" alt="">
+          <img class="avatar" src="{{ quoted_post | avatar_url }}" alt="">
           <span class="display_name">{{ quoted_post.author.name }}</span>
           <span class="handle">@{{ quoted_post.author.handle }}</span>
         </div>
-        <p class="text">{{ quoted_post | render_tweet_text }}</p>
+        <p class="text">{{ quoted_post | render_bluesky_text }}</p>
       </blockquote>
     {% endif %}
   </div>

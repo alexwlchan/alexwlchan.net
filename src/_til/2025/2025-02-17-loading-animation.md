@@ -1,7 +1,7 @@
 ---
 layout: til
 title: Create an animated placeholder box with CSS
-date: 2025-02-17 18:34:04 -0500
+date: 2025-02-17 18:34:04 -05:00
 tags:
   - css
 ---

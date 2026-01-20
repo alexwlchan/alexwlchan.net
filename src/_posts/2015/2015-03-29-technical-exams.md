@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2015-03-29
+date: 2015-03-29 01:01:01 +00:00
 summary: Some advice for students doing exams in technical subjects
 tags:
   - cambridge

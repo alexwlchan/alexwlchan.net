@@ -35,16 +35,16 @@ from mosaic.models import (
     MediaEntity,
     SocialEmbedData,
     TwitterEmbed,
+    parse_social_embed_data,
 )
-from mosaic.validate_type import validate_type
 
 from .pictures import render_picture
 
 
 with open("src/_data/social_embeds.json") as in_file:
-    SOCIAL_EMBEDS_DATA = validate_type(
-        json.load(in_file), model=dict[str, SocialEmbedData]
-    )
+    SOCIAL_EMBEDS_DATA = {
+        url: parse_social_embed_data(data) for url, data in json.load(in_file).items()
+    }
 
 
 class SocialExtension(Extension):
@@ -92,8 +92,7 @@ class SocialExtension(Extension):
             }
         )
 
-        site = post_data["site"]
-        template = env.get_template(f"embeds/{site}.html")
+        template = env.get_template(f"embeds/{post_data.site}.html")
         html = template.render(post_url=post_url, post_data=post_data)
 
         return html
@@ -106,11 +105,11 @@ def tweet_image(context: Context, media: MediaEntity) -> str:
     """
     html = render_picture(
         context,
-        filename=media["filename"],
+        filename=media.filename,
         parent="/images/social_embeds/twitter",
-        alt=media.get("ext_alt_text", ""),
+        alt=media.ext_alt_text or "",
         width=585,
-        link_to=media["url"],
+        link_to=media.url,
     )
 
     html = html.replace('alt=""', "data-proofer-ignore")
@@ -126,18 +125,18 @@ def avatar_url(post_data: SocialEmbedData) -> str:
     so it's faster to embed them as base64-encoded images than serve
     them as a separate network request.
     """
-    match post_data["site"]:
+    match post_data.site:
         case "mastodon":
-            user_id = post_data["author"]["username"]
-            post_id = post_data["id"]
+            user_id = post_data.author.username
+            post_id = post_data.id
         case "twitter":
-            user_id = post_data["author"]["screen_name"]
-            post_id = post_data["id"]
+            user_id = post_data.author.screen_name
+            post_id = post_data.id
         case "bluesky":
-            user_id = post_data["author"]["handle"]
-            post_id = post_data["id"]
+            user_id = post_data.author.handle
+            post_id = post_data.id
         case _:  # pragma: no cover
-            raise ValueError(f"Unrecognised site: {post_data['site']}")
+            raise ValueError(f"Unrecognised site: {post_data.site}")
 
     avatar_id = f"{user_id}_{post_id}"
 
@@ -180,7 +179,7 @@ def render_bluesky_text(post_data: TwitterEmbed) -> str:
     """
     Render the text of a Bluesky post as HTML.
     """
-    text = post_data["text"]
+    text = post_data.text
 
     # Newlines aren't significant in HTML; convert them to <br> tags
     # so they render correctly.
@@ -193,29 +192,27 @@ def render_mastodon_text(post_data: MastodonEmbed) -> str:
     """
     Render the text of a Mastodon post as HTML.
     """
-    text = post_data["text"]
+    text = post_data.text
 
     # Newlines aren't significant in HTML; convert them to <br> tags
     # so they render correctly.
     text = text.replace("\n", "<br>")
 
-    try:
-        entities = post_data["entities"]
-    except KeyError:
+    if post_data.entities is None:
         return text
 
-    server = post_data["author"]["server"]
+    server = post_data.author.server
 
-    for h in entities["hashtags"]:
+    for h in post_data.entities.hashtags:
         text = text.replace(f"#{h}", f'<a href="https://{server}/tags/{h}">#{h}</a>')
 
-    for um in entities["user_mentions"]:
+    for um in post_data.entities.user_mentions:
         text = text.replace(
-            f"@{um['label']}", f'<a href="{um["profile_url"]}">@{um["label"]}</a>'
+            f"@{um.label}", f'<a href="{um.profile_url}">@{um.label}</a>'
         )
 
-    for u in entities["urls"]:
-        text = text.replace(u["url"], f'<a href="{u["url"]}">{u["display_url"]}</a>')
+    for u in post_data.entities.urls:
+        text = text.replace(u.url, f'<a href="{u.url}">{u.display_url}</a>')
 
     return text
 
@@ -224,27 +221,25 @@ def render_tweet_text(post_data: TwitterEmbed) -> str:
     """
     Render the text of a tweet as HTML.
     """
-    text = post_data["text"]
+    text = post_data.text
 
     # Newlines aren't significant in HTML; convert them to <br> tags
     # so they render correctly.
     text = text.replace("\n", "<br>")
 
-    try:
-        entities = post_data["entities"]
-    except KeyError:
+    if post_data.entities is None:
         return text
 
-    for h in entities["hashtags"]:
+    for h in post_data.entities.hashtags:
         text = text.replace(
             f"#{h}", f'<a href="https://twitter.com/hashtag/{h}">#{h}</a>'
         )
 
-    for um in entities["user_mentions"]:
+    for um in post_data.entities.user_mentions:
         text = text.replace(f"@{um}", f'<a href="https://twitter.com/{um}">@{um}</a>')
 
-    for u in entities["urls"]:
-        text = text.replace(u["url"], f'<a href="{u["url"]}">{u["display_url"]}</a>')
+    for u in post_data.entities.urls:
+        text = text.replace(u.url, f'<a href="{u.url}">{u.display_url}</a>')
 
     return text
 

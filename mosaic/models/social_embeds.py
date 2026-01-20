@@ -2,7 +2,9 @@
 Models for the social media embed data in `social_embeds.json`.
 """
 
-from typing import Literal, NotRequired, TypedDict
+from typing import Any, Literal, Optional
+
+from pydantic import BaseModel
 
 
 __all__ = [
@@ -11,10 +13,11 @@ __all__ = [
     "MediaEntity",
     "SocialEmbedData",
     "TwitterEmbed",
+    "parse_social_embed_data",
 ]
 
 
-class MediaEntity(TypedDict):
+class MediaEntity(BaseModel):
     """
     A media entity on a microblog post.
     """
@@ -24,10 +27,10 @@ class MediaEntity(TypedDict):
     type: Literal["photo"]
 
     # TODO: This should just be `alt_text` or similar
-    ext_alt_text: NotRequired[str]
+    ext_alt_text: str | None = None
 
 
-class UrlEntity(TypedDict):
+class UrlEntity(BaseModel):
     """
     A URL entity on a microblog post.
     """
@@ -36,7 +39,7 @@ class UrlEntity(TypedDict):
     display_url: str
 
 
-class Entities(TypedDict):
+class Entities(BaseModel):
     """
     Entities on a microblog post.
     """
@@ -47,7 +50,7 @@ class Entities(TypedDict):
     user_mentions: list[str]
 
 
-class BlueskyUser(TypedDict):
+class BlueskyUser(BaseModel):
     """
     Information about a user on Bluesky.
     """
@@ -56,7 +59,7 @@ class BlueskyUser(TypedDict):
     handle: str
 
 
-class BlueskyEmbed(TypedDict):
+class BlueskyEmbed(BaseModel):
     """
     Post data for an embedded Bluesky skeet.
     """
@@ -66,10 +69,10 @@ class BlueskyEmbed(TypedDict):
     author: BlueskyUser
     date_posted: str
     text: str
-    quoted_post: NotRequired["BlueskyEmbed"]
+    quoted_post: Optional["BlueskyEmbed"] = None
 
 
-class MastodonUser(TypedDict):
+class MastodonUser(BaseModel):
     """
     Information about a user on Mastodon.
     """
@@ -79,12 +82,16 @@ class MastodonUser(TypedDict):
     username: str
 
 
-MastodonUserMention = TypedDict(
-    "MastodonUserMention", {"label": str, "profile_url": str}
-)
+class MastodonUserMention(BaseModel):
+    """
+    A user who's @-mentioned in a Mastodon post.
+    """
+
+    label: str
+    profile_url: str
 
 
-class MastodonEntities(TypedDict):
+class MastodonEntities(BaseModel):
     """
     Entities on a Mastodon post.
     """
@@ -95,7 +102,7 @@ class MastodonEntities(TypedDict):
     user_mentions: list[MastodonUserMention]
 
 
-class MastodonEmbed(TypedDict):
+class MastodonEmbed(BaseModel):
     """
     Post data for an embedded Mastodon toot.
     """
@@ -105,10 +112,10 @@ class MastodonEmbed(TypedDict):
     author: MastodonUser
     date_posted: str
     text: str
-    entities: NotRequired[MastodonEntities]
+    entities: MastodonEntities | None = None
 
 
-class TwitterUser(TypedDict):
+class TwitterUser(BaseModel):
     """
     Information about a user on Twitter.
     """
@@ -117,7 +124,7 @@ class TwitterUser(TypedDict):
     screen_name: str
 
 
-class TwitterEmbed(TypedDict):
+class TwitterEmbed(BaseModel):
     """
     Post data for an embedded tweet.
     """
@@ -127,11 +134,11 @@ class TwitterEmbed(TypedDict):
     author: TwitterUser
     date_posted: str
     text: str
-    entities: NotRequired[Entities]
-    quoted_status: NotRequired["TwitterEmbed"]
+    entities: Entities | None = None
+    quoted_status: Optional["TwitterEmbed"] = None
 
 
-class YouTubeEmbed(TypedDict):
+class YouTubeEmbed(BaseModel):
     """
     Post data for an embedded YouTube video.
     """
@@ -141,3 +148,20 @@ class YouTubeEmbed(TypedDict):
 
 
 SocialEmbedData = BlueskyEmbed | MastodonEmbed | TwitterEmbed | YouTubeEmbed
+
+
+def parse_social_embed_data(data: Any) -> SocialEmbedData:
+    """
+    Parse a blob of social embed data from JSON.
+    """
+    match data["site"]:
+        case "bluesky":
+            return BlueskyEmbed(**data)
+        case "mastodon":
+            return MastodonEmbed(**data)
+        case "twitter":
+            return TwitterEmbed(**data)
+        case "youtube":
+            return YouTubeEmbed(**data)
+        case _:  # pragma: no cover
+            raise ValueError(f"unrecognised site: {data['site']!r}")
