@@ -74,7 +74,7 @@ class SocialExtension(Extension):
         return nodes.Output([call], lineno=lineno)
 
     @pass_context
-    def _render_social(self, context: Context, url: str) -> str:
+    def _render_social(self, context: Context, post_url: str) -> str:
         """
         Render the social embed.
         """
