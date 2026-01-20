@@ -90,7 +90,7 @@ This should continue to run indefinitely and keep a copy of my bookmarks stored 
 *The script can be downloaded from [my GitHub page](http://github.com/alexwlchan/archive-pinboard).*
 
 {% update 2013-04-01 %}
-  Thanks to [Stephen H&#252;gel](https://github.com/urschrei) for tidying up some of the script; his changes have been merged with the repo at GitHub. The basic functionality is unchanged, so most of what I wrote above still stands. The GitHub repo will have the most up-to-date copy of the script.
+  Thanks to [Stephen Hügel](https://github.com/urschrei) for tidying up some of the script; his changes have been merged with the repo at GitHub. The basic functionality is unchanged, so most of what I wrote above still stands. The GitHub repo will have the most up-to-date copy of the script.
 {% endupdate %}
 
 {% update 2013-04-02 %}
