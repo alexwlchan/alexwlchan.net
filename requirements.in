@@ -16,9 +16,6 @@ tqdm
 # For colormath
 numpy
 
-# For checking DNS records
-dnspython
-
 # For uptime tests
 pytest
 

@@ -1,0 +1,5 @@
+dnspython
+mypy
+pytest-cov
+PyYAML
+ruff
