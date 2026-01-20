@@ -78,7 +78,25 @@ class SocialExtension(Extension):
         """
         Render the social embed.
         """
-        return render_social_embed(context, url)
+        post_data = SOCIAL_EMBEDS_DATA[post_url]
+        env = context.environment
+
+        env.filters.update(
+            {
+                "avatar_url": avatar_url,
+                "render_bluesky_text": render_bluesky_text,
+                "render_mastodon_text": render_mastodon_text,
+                "render_tweet_text": render_tweet_text,
+                "replace_twemoji": replace_twemoji,
+                "tweet_image": tweet_image,
+            }
+        )
+
+        site = post_data["site"]
+        template = env.get_template(f"embeds/{site}.html")
+        html = template.render(post_url=post_url, post_data=post_data)
+
+        return html
 
 
 @pass_context
@@ -274,28 +292,3 @@ def replace_twemoji(text: str) -> str:
         )
 
     return text
-
-
-def render_social_embed(context: Context, post_url: str) -> str:
-    """
-    Todo.
-    """
-    post_data = SOCIAL_EMBEDS_DATA[post_url]
-    env = context.environment
-
-    env.filters.update(
-        {
-            "avatar_url": avatar_url,
-            "render_bluesky_text": render_bluesky_text,
-            "render_mastodon_text": render_mastodon_text,
-            "render_tweet_text": render_tweet_text,
-            "replace_twemoji": replace_twemoji,
-            "tweet_image": tweet_image,
-        }
-    )
-
-    site = post_data["site"]
-    template = env.get_template(f"embeds/{site}.html")
-    html = template.render(post_url=post_url, post_data=post_data)
-
-    return html
