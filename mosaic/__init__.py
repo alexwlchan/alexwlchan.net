@@ -6,11 +6,9 @@ from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 
-import yaml
-
-from mosaic.css import create_base_css
-from mosaic.fs import find_paths_under
-from mosaic.models import HtmlPage
+from .css import create_base_css
+from .fs import find_paths_under
+from .html_page import HtmlPage
 
 
 @dataclass
@@ -36,10 +34,7 @@ class Site:
             if "_plugins" in str(md_path):
                 continue
 
-            try:
-                pages.append(read_markdown_file(md_path))
-            except Exception as exc:
-                raise RuntimeError(f"read error for {md_path!r}: {exc}")
+            pages.append(HtmlPage.from_path(self.src_dir, md_path))
 
         print(len(pages))
 
@@ -73,14 +68,3 @@ class Site:
         for f in self.static_dir.iterdir():
             if f.suffix == ".css" and f.name != out_path.name:
                 f.unlink()
-
-
-def read_markdown_file(p: Path) -> HtmlPage:
-    """
-    Read a Markdown file and parse the YAML front matter.
-
-    Returns a tuple (front matter, content).
-    """
-    raw = p.read_text()
-    _, front_matter, content = raw.split("---\n", 2)
-    return HtmlPage(md_path=p, content=content, **yaml.safe_load(front_matter))

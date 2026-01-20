@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Literal, NotRequired, TypedDict
 
 from pydantic import BaseModel
+import yaml
 
 
 class TintColours(TypedDict):
@@ -42,6 +43,9 @@ class HtmlPage(BaseModel):
     """
     An HTML page which is going to be rendered in the site.
     """
+
+    # The source directory to the Markdown source file.
+    src_dir: Path
 
     # The path to the Markdown source file.
     md_path: Path
@@ -104,3 +108,20 @@ class HtmlPage(BaseModel):
     # Unused except to suppress a Jekyll warning
     # TODO(2026-01-20): Remove this once I've gotten rid of Jekyll.
     excerpt_separator: str | None = None
+
+    @classmethod
+    def from_path(cls, src_dir: Path, md_path: Path) -> "HtmlPage":
+        """
+        Read a Markdown file and parse the YAML front matter.
+        """
+        try:
+            raw = md_path.read_text()
+            _, front_matter, content = raw.split("---\n", 2)
+            return HtmlPage(
+                src_dir=src_dir,
+                md_path=md_path,
+                content=content,
+                **yaml.safe_load(front_matter),
+            )
+        except Exception as exc:
+            raise RuntimeError(f"error reading md file {md_path!r}: {exc}")
