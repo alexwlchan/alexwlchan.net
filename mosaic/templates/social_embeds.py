@@ -23,7 +23,6 @@ import glob
 from io import BytesIO
 import json
 from pathlib import Path
-from typing import cast
 
 from jinja2 import nodes, pass_context
 from jinja2.ext import Extension
@@ -282,11 +281,7 @@ def render_social_embed(context: Context, post_url: str) -> str:
     Todo.
     """
     post_data = SOCIAL_EMBEDS_DATA[post_url]
-
-    try:
-        env = context["environment"]
-    except KeyError:
-        env = context.environment
+    env = context.environment
 
     env.filters.update(
         {
@@ -303,4 +298,4 @@ def render_social_embed(context: Context, post_url: str) -> str:
     template = env.get_template(f"embeds/{site}.html")
     html = template.render(post_url=post_url, post_data=post_data)
 
-    return cast(str, html)
+    return html
