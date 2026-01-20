@@ -5,6 +5,7 @@ Template utilities for dealing with text.
 import re
 
 from markdown import markdown
+from markdown.extensions.toc import TocExtension
 
 
 STRIP_HTML_RE = re.compile(r"<[^<]+?>")
@@ -24,7 +25,23 @@ def markdownify(text: str) -> str:
     """
     Format text using Markdown.
     """
-    return markdown(text, extensions=["codehilite", "fenced_code", "smarty"])
+    html = markdown(
+        text,
+        extensions=[
+            "codehilite",
+            "fenced_code",
+            "smarty",
+            TocExtension(
+                marker="{% table_of_contents %}",
+                title="Table of Contents",
+                toc_class="table_of_contents",
+            ),
+        ],
+    )
+    html = html.replace(
+        '<span class="toctitle">Table of Contents</span>', "<h3>Table of contents</h3>"
+    )
+    return html
 
 
 def markdownify_oneline(text: str) -> str:

@@ -10,5 +10,6 @@
 @import "components/pretty_hr.css";
 @import "components/skip_to_main.css";
 @import "components/syntax_highlighting.css";
+@import "components/table_of_contents.css";
 @import "components/tags.css";
 @import "components/til.css";
