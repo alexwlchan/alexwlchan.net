@@ -9,6 +9,7 @@ on:
       - 'dns/*'
       - '.github/workflows/check_dns.yml'
       - 'scripts/run_dns_tests.sh'
+      - 'requirements.txt'
 
   pull_request:
     branches:
@@ -18,6 +19,7 @@ on:
       - 'dns/*'
       - '.github/workflows/check_dns.yml'
       - 'scripts/run_dns_tests.sh'
+      - 'requirements.txt'
 
   schedule:
     - cron: "30 8 * * *"

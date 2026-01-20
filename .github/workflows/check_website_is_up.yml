@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/check_website_is_up.yml'
       - 'uptime_tests/*'
+      - 'requirements.txt'
 
   pull_request:
     branches:
@@ -16,6 +17,7 @@ on:
     paths:
       - '.github/workflows/check_website_is_up.yml'
       - 'uptime_tests/*'
+      - 'requirements.txt'
 
   schedule:
     - cron: "42 * * * *"
@@ -33,7 +35,7 @@ jobs:
         cache: pip
 
     - name: Install Python dependencies
-      run: pip install -r dev_requirements.txt
+      run: pip install -r requirements.txt
 
     - name: Check formatting
       run: |
