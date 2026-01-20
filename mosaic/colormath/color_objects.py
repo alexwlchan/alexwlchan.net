@@ -4,8 +4,6 @@ Classes to represent various color spaces.
 
 from dataclasses import dataclass
 
-import numpy
-
 
 @dataclass
 class LabColor:
@@ -59,30 +57,11 @@ class RGBColor:
         """
         return (self.rgb_r, self.rgb_g, self.rgb_b)
 
-    conversion_matrices = {
-        "xyz_to_rgb": numpy.array(
-            (
-                (3.24071, -1.53726, -0.498571),
-                (-0.969258, 1.87599, 0.0415557),
-                (0.0556352, -0.203996, 1.05707),
-            )
-        ),
-        "rgb_to_xyz": numpy.array(
-            (
-                (0.412424, 0.357579, 0.180464),
-                (0.212656, 0.715158, 0.0721856),
-                (0.0193324, 0.119193, 0.950444),
-            )
-        ),
-    }
-
     @classmethod
     def new_from_rgb_hex(cls, hex_str: str) -> "RGBColor":
         """
         Converts an RGB hex string like #RRGGBB and assigns the values to
         this RGBColor object.
-
-        :rtype: RGBColor
         """
         colorstring = hex_str.strip()
         if colorstring and colorstring[0] == "#":
