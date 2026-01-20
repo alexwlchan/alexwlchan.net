@@ -38,7 +38,7 @@ figcaption {
   margin-top: 8px;
 }
 
-pre, blockquote {
+pre, blockquote, .table_of_contents {
   border: var(--border-width) var(--border-style) var(--block-border-color);
   border-radius: var(--border-radius);
   background-color: var(--block-background);

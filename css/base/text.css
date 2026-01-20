@@ -59,7 +59,7 @@ a:hover {
   }
 }
 
-blockquote {
+blockquote, .table_of_contents {
   margin-left:  0;
   margin-right: 0;
   padding: 1px var(--default-padding);
