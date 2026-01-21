@@ -1,5 +1,6 @@
+-r uptime_tests/requirements.txt
+
 beautifulsoup4
-httpx
 hyperlink
 jinja2
 lightningcss
@@ -15,9 +16,6 @@ tqdm
 
 # For colormath
 numpy
-
-# For uptime tests
-pytest
 
 # For Mosaic tests
 hypothesis

@@ -2,3 +2,6 @@ src/_files/* linguist-vendored
 
 requirements.txt linguist-generated=true
 dev_requirements.txt linguist-generated=true
+
+dns/requirements.txt linguist-generated=true
+uptime_tests/requirements.txt linguist-generated=true

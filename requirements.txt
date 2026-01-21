@@ -3,38 +3,52 @@
 annotated-types==0.7.0
     # via pydantic
 anyio==4.12.1
-    # via httpx
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   httpx
 beautifulsoup4==4.14.3
     # via -r requirements.in
 certifi==2026.1.4
     # via
+    #   -r uptime_tests/requirements.txt
     #   httpcore
     #   httpx
 coverage==7.13.1
-    # via pytest-cov
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   pytest-cov
 execnet==2.1.2
     # via pytest-xdist
 h11==0.16.0
-    # via httpcore
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   httpcore
 httpcore==1.0.9
-    # via httpx
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   httpx
 httpx==0.28.1
-    # via -r requirements.in
+    # via -r uptime_tests/requirements.txt
 hyperlink==21.0.0
     # via -r requirements.in
 hypothesis==6.150.2
     # via -r requirements.in
 idna==3.11
     # via
+    #   -r uptime_tests/requirements.txt
     #   anyio
     #   httpx
     #   hyperlink
 iniconfig==2.3.0
-    # via pytest
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   pytest
 jinja2==3.1.6
     # via -r requirements.in
 librt==0.7.8
-    # via mypy
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   mypy
 lightningcss==0.3.1
     # via -r requirements.in
 lxml==6.0.2
@@ -46,19 +60,28 @@ markupsafe==3.0.3
 minify-html==0.18.1
     # via -r requirements.in
 mypy==1.19.1
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   -r uptime_tests/requirements.txt
 mypy-extensions==1.1.0
-    # via mypy
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   mypy
 numpy==2.4.1
     # via -r requirements.in
 packaging==25.0
-    # via pytest
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   pytest
 pathspec==1.0.3
-    # via mypy
+    # via
+    #   -r uptime_tests/requirements.txt
+    #   mypy
 pillow==12.1.0
     # via -r requirements.in
 pluggy==1.6.0
     # via
+    #   -r uptime_tests/requirements.txt
     #   pytest
     #   pytest-cov
 pydantic==2.12.5
@@ -68,20 +91,25 @@ pydantic-core==2.41.5
 pygments==2.19.2
     # via
     #   -r requirements.in
+    #   -r uptime_tests/requirements.txt
     #   pytest
 pytest==9.0.2
     # via
-    #   -r requirements.in
+    #   -r uptime_tests/requirements.txt
     #   pytest-cov
     #   pytest-xdist
 pytest-cov==7.0.0
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   -r uptime_tests/requirements.txt
 pytest-xdist==3.8.0
     # via -r requirements.in
 pyyaml==6.0.3
     # via -r requirements.in
 ruff==0.14.13
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   -r uptime_tests/requirements.txt
 sortedcontainers==2.4.0
     # via hypothesis
 soupsieve==2.8.3
@@ -104,6 +132,7 @@ types-tqdm==4.67.0.20250809
     # via -r requirements.in
 typing-extensions==4.15.0
     # via
+    #   -r uptime_tests/requirements.txt
     #   beautifulsoup4
     #   mypy
     #   pydantic
