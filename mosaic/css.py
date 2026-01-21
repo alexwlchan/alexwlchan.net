@@ -29,6 +29,7 @@ def create_base_css(css_path: str | Path) -> str:
 
     return css
 
+
 ParsedStyles = TypedDict("ParsedStyles", {"html": str, "styles": str})
 
 
@@ -53,13 +54,13 @@ def get_inline_styles(html: str) -> ParsedStyles:
     soup = BeautifulSoup(html, "html.parser")
     for style_tag in soup.find_all("style"):
         css = style_tag.text.strip()
-        
+
         # Remove this <style> tag. We do this as a string manipulation
         # to avoid bs4 changing the meaning or behaviour of our HTML.
         html = re.sub(
             r"\s*<style[^>]*>\s*" + re.escape(css) + r"\s*</style>\s*", "", html
         )
-        
+
         # TODO(2026-01-21): This looks for the x-text/scss and @use statements
         # I wrote with Jekyll. The better fix would be to replace this
         # with @import statements and use lightningcss to bundle everything.
@@ -67,7 +68,7 @@ def get_inline_styles(html: str) -> ParsedStyles:
             use_path = Path("css") / (m.group("name") + ".css")
             use_css = use_path.read_text()
             css = css.replace(m.group(0), use_css)
-        
+
         styles[css] = None
 
     # If removing the <style> tags has rendered a set of <defs> empty,

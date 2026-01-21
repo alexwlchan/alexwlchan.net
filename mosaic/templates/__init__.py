@@ -2,13 +2,10 @@
 Code for dealing with HTML and XML templates.
 """
 
-import collections
 from datetime import datetime
 from pathlib import Path
-import re
-from typing import TypedDict, TypeVar
+from typing import TypeVar
 
-import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from mosaic.css import get_inline_styles

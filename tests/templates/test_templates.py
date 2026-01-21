@@ -4,7 +4,6 @@ Tests for `mosaic.templates`.
 
 from pathlib import Path
 
-import pytest
 
 from mosaic import templates as t
 

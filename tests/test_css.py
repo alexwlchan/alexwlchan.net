@@ -39,7 +39,8 @@ def test_css_has_no_imports() -> None:
             },
         ),
         (
-            '<p>Hello world!</p>\n<style type="x-text/scss">@use "components/dot_list";</style>',
+            "<p>Hello world!</p>\n"
+            '<style type="x-text/scss">@use "components/dot_list";</style>',
             {
                 "html": "<p>Hello world!</p>",
                 "styles": Path("css/components/dot_list.css").read_text(),
