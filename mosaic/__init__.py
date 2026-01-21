@@ -9,6 +9,7 @@ from pathlib import Path
 from .css import create_base_css
 from .fs import find_paths_under
 from .html_page import HtmlPage
+from .tint_colours import get_default_tint_colours, TintColours
 
 
 @dataclass
@@ -21,7 +22,7 @@ class Site:
     src_dir: Path
     out_dir: Path
 
-    def build_site(self) -> None:  # pragma: no cover
+    def build_site(self) -> None:
         """
         Build a complete copy of the site.
         """
@@ -36,6 +37,18 @@ class Site:
                 continue
 
             pages.append(HtmlPage.from_path(self.src_dir, md_path))
+
+        # Work out all the tint colours being used.
+        tint_colours: list[TintColours] = [
+            get_default_tint_colours(css_dir=self.css_path.parent)
+        ]
+        for p in pages:
+            if p.colors is not None:
+                tint_colours.append(p.colors)
+
+        # Create all the tint colour assets
+        for tc in tint_colours:
+            tc.create_assets(self.out_dir)
 
         # Write all the HTML files to the output directory.
         for p in pages:
