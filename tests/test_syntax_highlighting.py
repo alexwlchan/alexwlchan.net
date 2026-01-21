@@ -76,3 +76,27 @@ def test_syntax_highlighting() -> None:
         '<span class="o">+</span> <span class="n">y</span>\n</code></pre>'
         "</p>\n</li>\n</ul>"
     )
+
+
+def test_syntax_highlighting_is_not_greedy() -> None:
+    """
+    Syntax highlighting does a non-greedy match on the code.
+    """
+    html = markdown(
+        "This is some text\n"
+        "\n"
+        '```python {"debug": true}\n'
+        "def greeting(name: str) -> None:\n"
+        '    print(f"Hello {name}!")\n'
+        "```\n"
+        "\n"
+        "This is some more text\n"
+        "\n"
+        "```python\n"
+        "def add(x: int, y: int) -> int:\n"
+        "    return x + y\n"
+        "```",
+        extensions=[SyntaxHighlighterExtension()],
+    )
+
+    assert "<p>This is some more text</p>" in html

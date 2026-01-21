@@ -76,7 +76,7 @@ class SyntaxHighlighterPreprocessor(Preprocessor):
         r"(?P<lang>[a-z\-]+)"             # language name
         r"(?:[ ](?P<attrs>\{[^\n]+\}))?"  # JSON attributes (optional)
         r"\n"                             # newline (end of opening fence)
-        r"(?P<src>.*)"                    # code content (non-greedy)
+        r"(?P<src>.*?)"                   # code content (non-greedy)
         r"(?<=\n)(?P=indent)```",         # closing fence (match opening indent)
         re.MULTILINE | re.DOTALL,
     )
