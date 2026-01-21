@@ -30,6 +30,8 @@ from bs4 import BeautifulSoup, Comment
 from jinja2 import pass_context
 from jinja2.runtime import Context
 
+from mosaic.text import assert_is_invariant_under_markdown
+
 from .jinja_extensions import KwargsExtensionBase
 
 
@@ -45,7 +47,9 @@ class InlineSvgExtension(KwargsExtensionBase):
         """
         Render the inline_svg tag.
         """
-        return render_inline_svg(*args, **kwargs)
+        html = render_inline_svg(*args, **kwargs)
+        assert_is_invariant_under_markdown(html)
+        return html
 
 
 def render_inline_svg(

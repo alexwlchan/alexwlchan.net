@@ -4,6 +4,7 @@ Utilities for dealing with text.
 
 import re
 
+import minify_html
 from markdown import markdown
 from markdown.extensions.toc import TocExtension
 
@@ -227,3 +228,27 @@ def force_text_footnote_markers(html: str) -> str:
     """
     # See https://mts.io/2015/04/21/unicode-symbol-render-text-emoji/
     return html.replace("&#8617;", "&#8617;&#xFE0E;").replace("↩", "&#8617;&#xFE0E;")
+
+
+def assert_is_invariant_under_markdown(html: str) -> None:
+    """
+    Check if an HTML string is unmodified by Markdown.
+
+    This is to catch edge cases where an attribute on a Jinja2 tag
+    is incorrectly interpreted as Markdown, e.g. arrows (~>) in alt text.
+    """
+    markdownified = markdownify(html)
+
+    # The Markdown plugin adds leading/trailing <p> tags; remove them
+    # before doing the comparison.
+    if (
+        '<blockquote class="update"' not in html
+        and '<figure class="slide">' not in html
+    ):
+        markdownified = markdownified.replace("<p>", "", 1)
+        markdownified = re.sub(r"</p>$", "", markdownified)
+
+    assert minify_html.minify(markdownified) == minify_html.minify(html), (
+        markdownified,
+        html,
+    )

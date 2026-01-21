@@ -28,15 +28,16 @@ class TestUpdateExtension:
         """
         md = (
             '{% update date="2001-02-03" %}\n'
-            "  I am *really* excited about this chnage.\n"
+            "  I am *really* excited about this change.\n"
             "{% endupdate %}\n"
         )
 
         html = env.from_string(md).render().strip()
+        print(repr(html))
         assert minify_html.minify(html) == (
             '<style type=x-text/scss>@use "components/updates";</style>'
             "<blockquote class=update id=update-2001-02-03>"
             "<p><strong>Update, "
             "<time datetime=2001-02-03>3 February 2001</time>:</strong> "
-            "I am <em>really</em> excited about this chnage.</blockquote>"
+            "I am <em>really</em> excited about this change.</blockquote>"
         )

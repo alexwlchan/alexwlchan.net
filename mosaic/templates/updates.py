@@ -9,7 +9,7 @@ from jinja2.ext import Extension
 from jinja2.parser import Parser
 from jinja2.runtime import Context, Macro
 
-from mosaic.text import markdownify
+from mosaic.text import assert_is_invariant_under_markdown, markdownify
 
 
 class UpdateExtension(Extension):
@@ -54,9 +54,12 @@ class UpdateExtension(Extension):
         date_obj = datetime.strptime(date, "%Y-%m-%d")
         timestamp = timestamp_template.render(date=date_obj)
 
-        md = caller()
+        md = caller().strip()
 
-        return update_template.render(
+        html = update_template.render(
             date=date_obj,
             text=markdownify(f"<strong>Update, {timestamp}:</strong> {md}"),
         )
+
+        assert_is_invariant_under_markdown(html)
+        return html
