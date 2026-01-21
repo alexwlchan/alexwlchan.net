@@ -52,7 +52,7 @@ class HtmlPage(BaseModel):
     layout: Literal["page", "post", "til"] | None = None
 
     # What template should I use?
-    template: str = ""
+    template_name: str = ""
 
     # The title of the page or post
     title: str
@@ -110,7 +110,10 @@ class HtmlPage(BaseModel):
     # Extra variables which are specific to this page or template.
     extra_variables: dict[str, Any] = Field(default_factory=lambda: dict())
 
-    def __repr__(self) -> str:
+    def __repr__(self) -> str:  # pragma: no cover
+        """
+        Returns a debugging representation of this page.
+        """
         if self.md_path is not None:
             return f"<{type(self).__name__} md_path={self.md_path!r}>"
         else:
@@ -123,15 +126,22 @@ class HtmlPage(BaseModel):
         """
         try:
             raw = md_path.read_text()
-            _, front_matter, content = raw.split("---\n", 2)
+            _, front_matter_str, content = raw.split("---\n", 2)
+            front_matter = yaml.safe_load(front_matter_str)
+        except Exception as exc:
+            raise RuntimeError(f"error reading md file {md_path!r}: {exc}")
+
+        if front_matter["layout"] == "post":
+            return Article(
+                src_dir=src_dir, md_path=md_path, content=content, **front_matter
+            )
+        else:
             return HtmlPage(
                 src_dir=src_dir,
                 md_path=md_path,
                 content=content,
-                **yaml.safe_load(front_matter),
+                **front_matter,
             )
-        except Exception as exc:
-            raise RuntimeError(f"error reading md file {md_path!r}: {exc}")
 
     def out_path(self, out_dir: Path) -> Path:
         """
@@ -187,3 +197,19 @@ class HtmlPage(BaseModel):
         if self.index.exclude:
             self.tags = []
         return self
+
+
+class Article(HtmlPage):
+    """
+    An article is a long-form piece of writing, usually with original thought.
+    """
+
+    # When this article was first written. All articles must have a date.
+    date: datetime
+
+    # What order is this in the list of all articles?
+    order: int = -1
+
+    # Articles always use the `post.html` template
+    # TODO: Rename this to `article.html` for consistency.
+    template_name: str = "post.html"
