@@ -6,7 +6,7 @@ import collections
 from datetime import datetime
 from pathlib import Path
 import re
-from typing import TypedDict
+from typing import TypedDict, TypeVar
 
 import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -45,6 +45,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
     env.filters.update(
         {
             "cleanup_text": cleanup_text,
+            "escape_attribute_value": escape_attribute_value,
             "format_date": format_date,
             "get_inline_styles": get_inline_styles,
             "markdownify": markdownify,
@@ -95,3 +96,28 @@ def format_date(date_string: str, format: str) -> str:
     Reads an ISO-formatted date, and reformats it in the specified format.
     """
     return datetime.fromisoformat(date_string).strftime(format)
+
+
+T = TypeVar("T")
+
+
+def escape_attribute_value(value: T) -> T:
+    """
+    Escape an attribute value, especially in alt text.
+
+    Ensure characters that might be interpreted as HTML or Markdown
+    don't get included in their raw form.
+    """
+    if not isinstance(value, str):
+        return value
+
+    for old, new in [
+        ("<", "&lt;"),
+        (">", "&gt;"),
+        ("`", "&grave;"),
+        ("*", "&ast;"),
+        ("_", "&lowbar;"),
+    ]:
+        value = value.replace(old, new)  # type: ignore
+
+    return value
