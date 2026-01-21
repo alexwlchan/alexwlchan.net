@@ -22,6 +22,10 @@ coverage==7.13.1
     #   pytest-cov
 dnspython==2.8.0
     # via -r dns/requirements.txt
+execnet==2.1.2
+    # via
+    #   -r requirements.txt
+    #   pytest-xdist
 h11==0.16.0
     # via
     #   -r requirements.txt
@@ -111,14 +115,15 @@ pytest==9.0.2
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   pytest-cov
+    #   pytest-xdist
 pytest-cov==7.0.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+pytest-xdist==3.8.0
+    # via -r requirements.txt
 pyyaml==6.0.3
-    # via
-    #   -r dns/requirements.txt
-    #   -r requirements.txt
+    # via -r requirements.txt
 ruff==0.14.13
     # via
     #   -r dns/requirements.txt

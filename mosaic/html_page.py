@@ -5,30 +5,21 @@ The model for an HTML page which is going to be rendered in the site.
 from datetime import datetime
 from pathlib import Path
 import re
-from typing import Literal, NotRequired, TypedDict
+from typing import Literal, TypedDict
 
 from pydantic import BaseModel
 import yaml
 
-
-class TintColours(TypedDict):
-    """
-    A set of tint colours for a page.
-    """
-
-    css_light: NotRequired[str]
-    css_dark: NotRequired[str]
-    index_light: NotRequired[str]
-    index_dark: NotRequired[str]
+from .tint_colours import TintColours
 
 
-class IndexInfo(TypedDict):
+class IndexInfo(BaseModel):
     """
     Toggles for how this page appears in the site-wide indexes.
     """
 
-    exclude: NotRequired[Literal[True]]
-    feature: NotRequired[Literal[True]]
+    exclude: bool = False
+    feature: bool = False
 
 
 class PartOf(TypedDict):
