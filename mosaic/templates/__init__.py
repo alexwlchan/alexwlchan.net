@@ -11,6 +11,7 @@ from typing import TypedDict, TypeVar
 import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from mosaic.css import get_inline_styles
 from mosaic.text import cleanup_text, markdownify, markdownify_oneline, strip_html
 
 from .comments import LiquidCommentExtension
@@ -56,39 +57,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
     env.globals.update({"src_dir": src_dir, "out_dir": out_dir})
 
     return env
-
-
-ParsedStyles = TypedDict("ParsedStyles", {"html": str, "styles": str})
-
-
-def get_inline_styles(html: str) -> ParsedStyles:
-    """
-    Find inline <style> tags in an HTML document, and extract them.
-    """
-    if "<style" not in html:
-        return {"html": html, "styles": ""}
-
-    # Contents of <style> tags we've discovered
-    styles = collections.OrderedDict[str, None]()
-
-    # Parse the document as HTML, and look for <style> tags.
-    soup = bs4.BeautifulSoup(html, "html.parser")
-    for style_tag in soup.find_all("style"):
-        styles[style_tag.text.strip()] = None
-
-    # Remove all the <style> tags. We do this as a string manipulation
-    # to avoid bs4 changing the meaning or behaviour of our HTML.
-    for css in styles:
-        html = re.sub(
-            r"\s*<style[^>]*>\s*" + re.escape(css) + r"\s*</style>\s*", "", html
-        )
-
-    # If removing the <style> tags has rendered a set of <defs> empty,
-    # just remove them.
-    if "<defs>" in html:
-        html = re.sub(r"\s*<defs>\s*</defs>\s*", "", html)
-
-    return {"html": html, "styles": "".join(styles)}
 
 
 def format_date(date_string: str, format: str) -> str:
