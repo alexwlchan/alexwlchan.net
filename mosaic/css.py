@@ -13,4 +13,13 @@ def create_base_css(css_path: str | Path) -> str:
 
     This resolves all @import rules into a single stylesheet.
     """
-    return lightningcss.bundle_css(str(css_path), minify=True)
+    css = lightningcss.bundle_css(str(css_path), minify=True)
+
+    # The lightningcss minifier collapses these text-decoration styles
+    # together, which looks wrong in WebKit. Undo this minification.
+    css = css.replace(
+        "text-decoration:underline 4px",
+        "text-decoration:underline;text-decoration-thickness:4px",
+    )
+
+    return css
