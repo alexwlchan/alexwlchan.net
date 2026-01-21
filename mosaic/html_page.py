@@ -110,6 +110,12 @@ class HtmlPage(BaseModel):
     # Extra variables which are specific to this page or template.
     extra_variables: dict[str, Any] = Field(default_factory=lambda: dict())
 
+    def __repr__(self) -> str:
+        if self.md_path is not None:
+            return f"<{type(self).__name__} md_path={self.md_path!r}>"
+        else:
+            return f"<{type(self).__name__} url={self.url!r}>"
+
     @classmethod
     def from_path(cls, src_dir: Path, md_path: Path) -> "HtmlPage":
         """
