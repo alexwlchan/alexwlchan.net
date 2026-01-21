@@ -7,18 +7,21 @@ annotated-types==0.7.0
 anyio==4.12.1
     # via
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   httpx
 beautifulsoup4==4.14.3
     # via -r requirements.txt
 certifi==2026.1.4
     # via
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   httpcore
     #   httpx
 coverage==7.13.1
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   pytest-cov
 dnspython==2.8.0
     # via -r dns/requirements.txt
@@ -29,13 +32,17 @@ execnet==2.1.2
 h11==0.16.0
     # via
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   httpcore
 httpcore==1.0.9
     # via
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   httpx
 httpx==0.28.1
-    # via -r requirements.txt
+    # via
+    #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
 hyperlink==21.0.0
     # via -r requirements.txt
 hypothesis==6.150.2
@@ -43,6 +50,7 @@ hypothesis==6.150.2
 idna==3.11
     # via
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   anyio
     #   httpx
     #   hyperlink
@@ -50,6 +58,7 @@ iniconfig==2.3.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   pytest
 jinja2==3.1.6
     # via -r requirements.txt
@@ -57,6 +66,7 @@ librt==0.7.8
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   mypy
 lightningcss==0.3.1
     # via -r requirements.txt
@@ -74,10 +84,12 @@ mypy==1.19.1
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
 mypy-extensions==1.1.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   mypy
 numpy==2.4.1
     # via -r requirements.txt
@@ -85,11 +97,13 @@ packaging==25.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   pytest
 pathspec==1.0.3
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   mypy
 pillow==12.1.0
     # via -r requirements.txt
@@ -97,6 +111,7 @@ pluggy==1.6.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   pytest
     #   pytest-cov
 pydantic==2.12.5
@@ -109,17 +124,20 @@ pygments==2.19.2
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   pytest
 pytest==9.0.2
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   pytest-cov
     #   pytest-xdist
 pytest-cov==7.0.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
 pytest-xdist==3.8.0
     # via -r requirements.txt
 pyyaml==6.0.3
@@ -128,6 +146,7 @@ ruff==0.14.13
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
 sortedcontainers==2.4.0
     # via
     #   -r requirements.txt
@@ -160,6 +179,7 @@ typing-extensions==4.15.0
     # via
     #   -r dns/requirements.txt
     #   -r requirements.txt
+    #   -r uptime_tests/requirements.txt
     #   beautifulsoup4
     #   mypy
     #   pydantic
