@@ -165,9 +165,8 @@ def render_picture(
     if parent is not None:
         lt_src_path = src_dir / str(parent).replace("/images", "_images") / filename
     else:
-        page = context["page"]
-        if hasattr(page, "date") and page.date:
-            lt_src_path = images_dir / str(page.date.year) / filename
+        if context["page"].date:
+            lt_src_path = images_dir / str(context["page"].date.year) / filename
         else:
             lt_src_path = images_dir / filename
 
@@ -195,22 +194,14 @@ def render_picture(
     )
     desired_widths = [pixel_density * target_width for pixel_density in (1, 2, 3)]
 
+    is_screenshot = "screenshot" in kwargs.get("class", "")
+
     lt_derivatives, default_image = create_image_derivatives(
-        lt_src_path,
-        src_dir,
-        out_dir,
-        desired_widths,
-        target_width,
-        is_screenshot="screenshot" in kwargs.get("class", ""),
+        lt_src_path, src_dir, out_dir, desired_widths, target_width, is_screenshot
     )
     if dk_src_path is not None:
         dk_derivatives, _ = create_image_derivatives(
-            dk_src_path,
-            src_dir,
-            out_dir,
-            desired_widths,
-            target_width,
-            is_screenshot="screenshot" in kwargs.get("class", ""),
+            dk_src_path, src_dir, out_dir, desired_widths, target_width, is_screenshot
         )
     else:
         dk_derivatives = {}
