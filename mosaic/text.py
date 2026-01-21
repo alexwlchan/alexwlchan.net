@@ -1,5 +1,5 @@
 """
-Template utilities for dealing with text.
+Utilities for dealing with text.
 """
 
 import re
@@ -7,7 +7,7 @@ import re
 from markdown import markdown
 from markdown.extensions.toc import TocExtension
 
-from mosaic.syntax_highlighting import SyntaxHighlighterExtension
+from .syntax_highlighting import SyntaxHighlighterExtension
 
 
 STRIP_HTML_RE = re.compile(r"<[^<]+?>")

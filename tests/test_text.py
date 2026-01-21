@@ -4,7 +4,7 @@ Tests for `mosaic.templates`.
 
 import pytest
 
-from mosaic.templates import text as t
+from mosaic import text as t
 
 
 def test_markdownify() -> None:

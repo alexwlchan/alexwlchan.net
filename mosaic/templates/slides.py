@@ -30,9 +30,10 @@ from typing import Any
 from jinja2 import pass_context
 from jinja2.runtime import Context
 
+from mosaic.text import markdownify
+
 from .jinja_extensions import KwargsExtensionBase
 from .pictures import render_picture
-from .text import markdownify
 
 
 class SlideExtension(KwargsExtensionBase):

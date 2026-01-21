@@ -9,7 +9,7 @@ from jinja2.ext import Extension
 from jinja2.parser import Parser
 from jinja2.runtime import Context, Macro
 
-from .text import markdownify
+from mosaic.text import markdownify
 
 
 class UpdateExtension(Extension):
