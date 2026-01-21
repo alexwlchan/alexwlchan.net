@@ -9,8 +9,6 @@
 
 <blockquote class="embed embed_tweet">
 
-ENTITIES=({{ post_data.entities }})
-
 {% if post_data.entities and post_data.entities.media.size > 0 %}
 <div class="media media-{{ post_data.entities.media|size }}">
   {%- for media in post_data.entities.media -%}
