@@ -350,6 +350,37 @@ class TestPictureExtension:
         ):
             assert (out_dir / "images/2026" / name).exists()
 
+    @pytest.mark.parametrize(
+        "alt, rendered_alt",
+        [
+            ("This node goes A ~> B", "This node goes A ~&gt; B"),
+            ("This node goes A <~ B", "This node goes A &lt;~ B"),
+            ("This `code` is in backticks", "This &grave;code&grave; is in backticks"),
+            ("This text is *important*", "This text is &ast;important&ast;"),
+            ("This text is _underlined_", "This text is &lowbar;underlined&lowbar;"),
+        ],
+    )
+    def test_markdown_chars_are_escaped_in_alt_text(
+        self, alt: str, rendered_alt: str, src_dir: Path, env: Environment
+    ) -> None:
+        """
+        Characters that look like HTML or Markdown get escaped in the alt text.
+        """
+        (src_dir / "_images/2026").mkdir(parents=True)
+        shutil.copyfile(
+            "tests/fixtures/truchet-tiles-800x400.png",
+            src_dir / "_images/2026/truchet-tiles-800x400.png",
+        )
+        page = StubPage(date=datetime(2026, 1, 1))
+
+        md = (
+            '{% picture filename="truchet-tiles-800x400.png" width="400" alt="'
+            + alt
+            + '" %}'
+        )
+        html = env.from_string(md).render(page=page)
+        assert rendered_alt in html
+
 
 class TestChooseTargetWidth:
     """

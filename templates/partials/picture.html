@@ -29,7 +29,7 @@
     src="{{ default_image }}"
     {%- if extra_attributes is defined -%}
       {%- for name, value in extra_attributes.items() %}
-      {{ name }}="{{ value }}"
+      {{ name }}="{{ value | escape_attribute_value }}"
       {%- endfor -%}
     {%- endif -%}
   >
