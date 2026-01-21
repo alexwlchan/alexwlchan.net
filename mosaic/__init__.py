@@ -2,6 +2,7 @@
 Build system for alexwlchan.net.
 """
 
+import collections
 from dataclasses import dataclass
 import hashlib
 from pathlib import Path
@@ -45,6 +46,26 @@ class Site:
         for p in pages:
             if p.colors is not None:
                 tint_colours.append(p.colors)
+
+        # Tags:
+        #
+        #   - Work out all the tags being used
+        #   - Create an HtmlPage that should be written for each page
+        #
+        tag_tally = collections.defaultdict(list)
+        for p in pages:
+            for t in p.tags:
+                tag_tally[t].append(p)
+
+        for tag_name, tagged_pages in tag_tally.items():
+            pages.append(
+                HtmlPage(
+                    url=f"/tags/{tag_name}/".replace(":", "/"),
+                    template="tag.html",
+                    title=f"Tagged with “{tag_name}”",
+                    extra_variables={"tagged_pages": tagged_pages},
+                )
+            )
 
         # Create all the tint colour assets
         for tc in tint_colours:
