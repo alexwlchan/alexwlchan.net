@@ -2,24 +2,18 @@
 Code for dealing with tint colours.
 """
 
-from collections.abc import Iterator
-import random
+from pathlib import Path
 import re
-from typing import Literal, Self, TypeAlias
+from typing import Self
 
 from pydantic import BaseModel, field_validator, model_validator
 
-from .colormath import (
-    LabColor,
-    RGBColor,
-    RGB_to_Lab,
-    Lab_to_RGB,
-    delta_e_cie2000,
-    get_contrast_ratio,
-)
+from .colormath import get_contrast_ratio
+from .favicons import create_favicon
+from .header_images import draw_header_image
 
 
-__all__ = ["generate_colours_like", "TintColours"]
+__all__ = ["get_default_tint_colours", "TintColours"]
 
 
 class TintColours(BaseModel):
@@ -95,82 +89,58 @@ class TintColours(BaseModel):
 
         return self
 
+    def create_assets(self, out_dir: Path) -> None:
+        """
+        Create all of the assets based on this tint colour.
+        """
+        self._create_header_image(out_dir, tint_colour=self.css_light)
+        self._create_header_image(out_dir, tint_colour=self.css_dark)
+        self._create_favicon(out_dir, tint_colour=self.css_light)
+        self._create_favicon(out_dir, tint_colour=self.css_dark)
 
-# An RGB colour whose components are in the range [0, 255].
-ColourRGB_255: TypeAlias = tuple[int, int, int]
+    def _create_favicon(self, out_dir: Path, tint_colour: str | None) -> None:
+        """
+        Create the favicon for this tint colour.
+        """
+        if tint_colour is None:
+            return
+
+        create_favicon(favicon_dir=out_dir / "f", tint_colour=tint_colour)
+
+    def _create_header_image(self, out_dir: Path, tint_colour: str | None) -> None:
+        """
+        Create the header image for this tint colour.
+        """
+        if tint_colour is None:
+            return
+
+        hex_string = tint_colour.strip("#")
+        out_path = out_dir / "h" / f"{hex_string}.png"
+        out_path.parent.mkdir(exist_ok=True, parents=True)
+
+        if out_path.exists():
+            return
+
+        im = draw_header_image(tint_colour)
+        im.save(out_path)
 
 
-def generate_colours_like(hex_colour: str) -> Iterator[ColourRGB_255]:
+def get_default_tint_colours(css_dir: Path) -> TintColours:
     """
-    Generate an infinite sequence of colours varying only in lightness.
-
-    Returns a sequence of RGB colours, where each component is in the
-    range [0, 255].
+    Return the default tint colours used by pages that don't set their own.
     """
-    # Seed from the hex integer value. This ensures the random lightness
-    # is consistent across builds and devices.
-    seed = int(hex_colour.lstrip("#"), 16)
-    rand = random.Random(seed)
+    variables_css = (css_dir / "base/variables.css").read_text()
 
-    # Convert to CIELAB.
-    rgb = RGBColor.new_from_rgb_hex(hex_colour)
-    lab = RGB_to_Lab(rgb)
+    m = re.search(
+        "--default-primary-color-light:[ ]+(?P<colour>#[0-9a-f]{6});", variables_css
+    )
+    assert m is not None
+    css_light = m.group("colour")
 
-    # Find the bounds for random values of L*
-    min_l: float = get_lightness_for_delta(lab, "darker", 6.0)
-    max_l: float = get_lightness_for_delta(lab, "lighter", 6.0)
-    l_range: float = max_l - min_l
+    m = re.search(
+        "--default-primary-color-dark:[ ]+(?P<colour>#[0-9a-f]{6});", variables_css
+    )
+    assert m is not None
+    css_dark = m.group("colour")
 
-    # Generate infinite colours in this range
-    while True:
-        new_l = min_l + (rand.random() * l_range)
-        new_lab = LabColor(new_l, lab.lab_a, lab.lab_b)
-
-        # Discard colours which don't map cleanly from CIELAB to sRGB.
-        round_trip_lab = RGB_to_Lab(Lab_to_RGB(new_lab))
-        if delta_e_cie2000(new_lab, round_trip_lab) > 1.0:
-            continue
-
-        rgb = Lab_to_RGB(new_lab)
-        yield (round(rgb.rgb_r * 255), round(rgb.rgb_g * 255), round(rgb.rgb_b * 255))
-
-
-def get_lightness_for_delta(
-    original_lab: LabColor,
-    direction: Literal["lighter", "darker"],
-    target_delta: float,
-) -> float:
-    """
-    Find the lightness of a CIELAB colour that gets the target CIELAB ΔE* 2000
-    perceptual distance from the original colour, while preserving the
-    original chromacity.
-    """
-    l_orig = original_lab.lab_l
-
-    # Define the search range for L*
-    low_l = l_orig if direction == "lighter" else 0.0
-    high_l = 100.0 if direction == "lighter" else l_orig
-
-    # Run a binary search on L*
-    best_l: float = l_orig
-
-    for _ in range(15):
-        mid_l = (low_l + high_l) / 2.0
-        candidate_lab = LabColor(mid_l, original_lab.lab_a, original_lab.lab_b)
-
-        # Calculate the perceptual difference
-        candidate_delta = delta_e_cie2000(original_lab, candidate_lab)
-
-        if candidate_delta < target_delta:
-            if direction == "lighter":
-                low_l = mid_l
-            else:
-                high_l = mid_l
-        else:
-            if direction == "lighter":
-                high_l = mid_l
-            else:
-                low_l = mid_l
-        best_l = mid_l
-
-    return best_l
+    return TintColours(css_light=css_light, css_dark=css_dark)
