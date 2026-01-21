@@ -11,13 +11,14 @@ from typing import TypedDict
 import bs4
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from mosaic.text import cleanup_text, markdownify, markdownify_oneline, strip_html
+
 from .comments import LiquidCommentExtension
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .pictures import PictureExtension
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
-from .text import cleanup_text, markdownify, markdownify_oneline, strip_html
 from .updates import UpdateExtension
 
 

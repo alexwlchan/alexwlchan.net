@@ -30,9 +30,10 @@ from typing import Any
 from jinja2 import pass_context
 from jinja2.runtime import Context
 
+from mosaic.text import assert_is_invariant_under_markdown, markdownify
+
 from .jinja_extensions import KwargsExtensionBase
 from .pictures import render_picture
-from .text import markdownify
 
 
 class SlideExtension(KwargsExtensionBase):
@@ -47,7 +48,9 @@ class SlideExtension(KwargsExtensionBase):
         """
         Render the slide tag.
         """
-        return render_slide(*args, **kwargs)
+        html = render_slide(*args, **kwargs)
+        assert_is_invariant_under_markdown(html)
+        return html
 
 
 def render_slide(

@@ -30,6 +30,8 @@ from jinja2.parser import Parser
 from jinja2.runtime import Context
 from PIL import Image
 
+from mosaic.text import assert_is_invariant_under_markdown
+
 from .pictures import render_picture
 from .social_embed_models import (
     MastodonEmbed,
@@ -94,6 +96,7 @@ class SocialExtension(Extension):
         template = env.get_template(f"embeds/{post_data.site}.html")
         html = template.render(post_url=post_url, post_data=post_data)
 
+        assert_is_invariant_under_markdown(html)
         return html
 
 

@@ -86,6 +86,8 @@ from jinja2 import pass_context
 from jinja2.runtime import Context
 from PIL import Image
 
+from mosaic.text import assert_is_invariant_under_markdown
+
 from .jinja_extensions import KwargsExtensionBase
 
 
@@ -120,7 +122,9 @@ class PictureExtension(KwargsExtensionBase):
         """
         Render the picture tag.
         """
-        return render_picture(*args, **kwargs)
+        html = render_picture(*args, **kwargs)
+        assert_is_invariant_under_markdown(html)
+        return html
 
 
 def render_picture(
