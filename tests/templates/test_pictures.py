@@ -27,17 +27,20 @@ class TestPictureExtension:
     Tests for PictureExtension.
     """
 
+    def copy_fixture_image(self, path: Path) -> None:
+        """
+        Copy a fixture image into `src_subdir`.
+        """
+        path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(Path("tests/fixtures") / path.name, path)
+
     def test_render_picture(
         self, src_dir: Path, out_dir: Path, env: Environment
     ) -> None:
         """
         Test the basic usage of the {% picture %} tag.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -79,11 +82,7 @@ class TestPictureExtension:
         """
         Picking an equivalent target width/height returns the same HTML.
         """
-        (src_dir / "_images").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/truchet-tiles-800x400.png")
 
         md_width = (
             '{% picture filename="truchet-tiles-800x400.png" width="400" '
@@ -104,11 +103,7 @@ class TestPictureExtension:
         """
         Test a picture on a page without a date.
         """
-        (src_dir / "_images").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/truchet-tiles-800x400.png")
         page = StubPage(date=None)
 
         md = '{% picture filename="truchet-tiles-800x400.png" width="400" %}'
@@ -169,11 +164,7 @@ class TestPictureExtension:
         """
         If the image is a PNG screenshot, there's only a PNG derivative.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -197,11 +188,7 @@ class TestPictureExtension:
         """
         If the image is a JPEG screenshot, there's only a JPEG derivative.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/palymyra-500x525.jpg",
-            src_dir / "_images/2026/palymyra-500x525.jpg",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/palymyra-500x525.jpg")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -223,11 +210,7 @@ class TestPictureExtension:
         """
         An image can link to the original version.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -243,11 +226,7 @@ class TestPictureExtension:
         """
         An image can link to a different page.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -263,11 +242,7 @@ class TestPictureExtension:
         """
         Test when the source image is a JPEG.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/palymyra-500x525.jpg",
-            src_dir / "_images/2026/palymyra-500x525.jpg",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/palymyra-500x525.jpg")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = '{% picture filename="palymyra-500x525.jpg" width="250" %}'
@@ -293,15 +268,8 @@ class TestPictureExtension:
         """
         Test a picture with light and dark variants.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.png",
-        )
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.dark.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.dark.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.dark.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = '{% picture filename="truchet-tiles-800x400.png" width="400" %}'
@@ -366,11 +334,7 @@ class TestPictureExtension:
         """
         Characters that look like HTML or Markdown get escaped in the alt text.
         """
-        (src_dir / "_images/2026").mkdir(parents=True)
-        shutil.copyfile(
-            "tests/fixtures/truchet-tiles-800x400.png",
-            src_dir / "_images/2026/truchet-tiles-800x400.png",
-        )
+        self.copy_fixture_image(src_dir / "_images/2026/truchet-tiles-800x400.png")
         page = StubPage(date=datetime(2026, 1, 1))
 
         md = (
@@ -380,6 +344,20 @@ class TestPictureExtension:
         )
         html = env.from_string(md).render(page=page)
         assert rendered_alt in html
+
+    def test_non_srgb_colour_profile_is_rejected(
+        self, src_dir: Path, env: Environment
+    ) -> None:
+        """
+        Pictures with an unrecognised colour profile are rejected.
+        """
+        self.copy_fixture_image(src_dir / "_images/2026/Webkit-logo-P3.png")
+        page = StubPage(date=datetime(2026, 1, 1))
+
+        md = '{% picture filename="Webkit-logo-P3.png" width="250" %}'
+
+        with pytest.raises(AssertionError, match="non-sRGB profile"):
+            env.from_string(md).render(page=page)
 
 
 class TestChooseTargetWidth:

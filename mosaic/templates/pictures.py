@@ -79,12 +79,14 @@ which actually renders the <picture> tag.
 
 import collections
 from fractions import Fraction
+from io import BytesIO
 from pathlib import Path
 from typing import Any, Literal
 
 from jinja2 import pass_context
 from jinja2.runtime import Context
-from PIL import Image
+from PIL import Image, ImageCms
+import termcolor
 
 from mosaic.text import assert_is_invariant_under_markdown
 
@@ -187,6 +189,12 @@ def render_picture(
                 )
     else:
         dk_src_path = None
+
+    # Check the source images have an sRGB colour profile.
+    assert has_srgb_colour_profile(lt_src_path), f"non-sRGB profile in {lt_src_path}"
+    assert dk_src_path is None or has_srgb_colour_profile(dk_src_path), (
+        f"non-sRGB profile in {dk_src_path}"
+    )
 
     # Work out how wide we're going to draw the image.
     target_width = choose_target_width(
@@ -428,3 +436,39 @@ def create_image_sizes(
             sources[out_mime_type].append(out_srcset)
 
     return dict(sources)
+
+
+def has_srgb_colour_profile(path: Path) -> bool:
+    """
+    Returns True if this image has an sRGB colour profile.
+
+    I block using images with non-standard colour profiles because they
+    render inconsistently in web browsers, and I'm not doing anything
+    where I'd benefit from the expanded colour gamuts.
+    """
+    allowed_colour_profiles = [
+        None,
+        "sRGB",
+        "sRGB built-in",
+        "sRGB IEC61966-2.1",
+        "Generic Gray Gamma 2.2 Profile",
+    ]
+
+    with Image.open(path) as im:
+        icc = im.info.get("icc_profile")
+
+        if not icc:
+            return True
+
+        profile = ImageCms.getOpenProfile(BytesIO(icc))
+        profile_name = ImageCms.getProfileDescription(profile).strip()
+
+        if profile_name in allowed_colour_profiles:
+            return True
+        else:
+            print(
+                termcolor.colored(
+                    f"unexpected colour profile on {path!r}: {profile_name!r}", "yellow"
+                )
+            )
+            return False
