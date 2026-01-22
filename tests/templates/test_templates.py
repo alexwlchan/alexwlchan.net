@@ -17,6 +17,10 @@ def test_liquid_comments_are_ignored(tmp_path: Path) -> None:
         "Hello world!\n"
         "{% comment %}don’t show this{% endcomment %}\n"
         "Blue and yellow makes green\n"
+        "{% comment %}don't show this either{% endcomment %}\n\n"
+        "Red and yellow makes orange"
     )
 
-    assert tmpl.render() == ("Hello world!\n\nBlue and yellow makes green")
+    assert tmpl.render() == (
+        "Hello world!\nBlue and yellow makes green\n\nRed and yellow makes orange"
+    )

@@ -71,10 +71,10 @@ class TestInlineSvgExtension:
         assert html == (
             '<a href="/images/2026/rect_red.svg">'
             '<svg role="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
-            '<rect fill="red" height="200" width="200"/>\n</svg></a>\n'
+            '<rect fill="red" height="200" width="200"/>\n</svg></a>'
             '<a href="/images/2026/rect_green.svg">'
             '<svg role="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
-            '<rect fill="green" height="200" width="200"/>\n</svg></a>\n'
+            '<rect fill="green" height="200" width="200"/>\n</svg></a>'
             '<a href="/images/2026/rect_blue.svg">'
             '<svg role="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
             '<rect fill="blue" height="200" width="200"/>\n</svg></a>'
