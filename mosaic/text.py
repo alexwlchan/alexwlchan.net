@@ -30,7 +30,6 @@ def markdownify(text: str) -> str:
     html = markdown(
         text,
         extensions=[
-            "codehilite",
             "smarty",
             SyntaxHighlighterExtension(),
             #

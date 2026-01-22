@@ -50,7 +50,7 @@ def apply_syntax_highlighting(
 
     # Insert an inner <code> block inside the <pre> tag
     html = re.sub(r"^<pre>", f'<pre class="lng-{lang}"><code>', html)
-    html = re.sub("</pre>$", "</code></pre>", html)
+    html = re.sub(r"\s*</pre>$", "</code></pre>", html)
 
     html = html.replace("<span></span>", "")
 
@@ -114,10 +114,17 @@ class SyntaxHighlighterPreprocessor(Preprocessor):
                 **highlighter_args,
             )
 
+            # If the original Markdown was indented, collapse all the
+            # newlines into <br/> tags.
+            #
+            # This means Python-Markdown will treat it as a single HTML
+            # element, and won't break it into separate paragraphs.
             if m.group("indent"):
-                html = "\n".join(m.group("indent") + line for line in html.splitlines())
+                assert html.endswith("\n")
+                html = html.rstrip().replace("\n", "<br/>")
+                assert not html.endswith("\n")
 
-            text = text.replace(m.group(0), html)
+            text = text.replace(m.group(0), m.group("indent") + html)
 
         return text.split("\n")
 

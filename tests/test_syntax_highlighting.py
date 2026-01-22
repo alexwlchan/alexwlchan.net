@@ -49,7 +49,7 @@ def test_syntax_highlighting() -> None:
         # {name}
         '<span class="si">{</span><span class="n">name</span><span class="si">}</span>'
         # !")
-        '<span class="s2">!&quot;</span><span class="p">)</span>\n'
+        '<span class="s2">!&quot;</span><span class="p">)</span>'
         "</code></pre>\n\n"
         # This is some more text
         "<p>This is some more text</p>\n<ul>\n<li>\n"
@@ -69,11 +69,11 @@ def test_syntax_highlighting() -> None:
         # ->
         '<span class="o">-&gt;</span> '
         # int:
-        '<span class="nb">int</span><span class="p">:</span>\n    '
+        '<span class="nb">int</span><span class="p">:</span><br/>    '
         # return x +
         '<span class="k">return</span> <span class="n">x</span> '
         # + y
-        '<span class="o">+</span> <span class="n">y</span>\n</code></pre>'
+        '<span class="o">+</span> <span class="n">y</span></code></pre>'
         "</p>\n</li>\n</ul>"
     )
 
@@ -121,10 +121,83 @@ def test_fenced_code_block_without_lang_is_still_pre() -> None:
         extensions=[SyntaxHighlighterExtension()],
     )
 
-    print(repr(html))
     assert html == (
         "<p>This is some text</p>\n"
-        '<pre class="lng-text"><code>line 1\nline 2\n</code></pre>\n\n'
+        '<pre class="lng-text"><code>line 1\nline 2</code></pre>\n\n'
         "<p>This is some more text</p>\n"
-        '<pre class="lng-text"><code>line 3\nline 4\n</code></pre>'
+        '<pre class="lng-text"><code>line 3\nline 4</code></pre>'
+    )
+
+
+def test_syntax_highlighting_with_indent() -> None:
+    """
+    We handle empty lines in indented code blocks.
+    """
+    html = markdown(
+        "This is some text\n"
+        "\n"
+        "```python\n"
+        "def add(x, y):\n"
+        "    return x + y\n"
+        "\n"
+        "def greeting(name)\n"
+        '    print(f"Hello {name}!")\n'
+        "```\n"
+        "\n"
+        "*   This is a bulleted list\n"
+        "\n"
+        "    ```python\n"
+        "    def add(x, y)\n"
+        "        return x + y\n"
+        "\n"
+        "    def greeting(name)\n"
+        '        print(f"Hello {name}!")\n'
+        "    ```",
+        extensions=[SyntaxHighlighterExtension()],
+    )
+
+    assert html == (
+        "<p>This is some text</p>\n"
+        '<pre class="lng-python"><code>'
+        # def add(x, y):
+        '<span class="k">def</span><span class="w"> </span><span class="nf">add</span>'
+        '<span class="p">(</span><span class="n">x</span><span class="p">,</span> '
+        '<span class="n">y</span><span class="p">):</span>\n'
+        # return x + y
+        '    <span class="k">return</span> <span class="n">x</span> '
+        '<span class="o">+</span> <span class="n">y</span>\n'
+        "\n"
+        # def greeting(name)
+        '<span class="k">def</span><span class="w"> </span>'
+        '<span class="nf">greeting</span><span class="p">(</span>'
+        '<span class="n">name</span><span class="p">)</span>\n'
+        # print(f"Hello {name}!")
+        '    <span class="nb">print</span><span class="p">(</span>'
+        '<span class="sa">f</span><span class="s2">&quot;Hello </span>'
+        '<span class="si">{</span><span class="n">name</span><span class="si">}</span>'
+        '<span class="s2">!&quot;</span><span class="p">)</span>'
+        "</code></pre>\n"
+        "\n"
+        "<ul>\n<li>\n"
+        "<p>This is a bulleted list</p>\n"
+        '<p><pre class="lng-python"><code>'
+        # Notice this second block uses <br/> instead of \n
+        # def add(x, y):
+        '<span class="k">def</span><span class="w"> </span><span class="nf">add</span>'
+        '<span class="p">(</span><span class="n">x</span><span class="p">,</span> '
+        '<span class="n">y</span><span class="p">)</span><br/>'
+        # return x + y
+        '    <span class="k">return</span> <span class="n">x</span> '
+        '<span class="o">+</span> <span class="n">y</span><br/>'
+        "<br/>"
+        # def greeting(name):
+        '<span class="k">def</span><span class="w"> </span>'
+        '<span class="nf">greeting</span><span class="p">(</span>'
+        '<span class="n">name</span><span class="p">)</span><br/>'
+        # print(f"Hello {name}!")
+        '    <span class="nb">print</span><span class="p">(</span>'
+        '<span class="sa">f</span><span class="s2">&quot;Hello </span>'
+        '<span class="si">{</span><span class="n">name</span><span class="si">}</span>'
+        '<span class="s2">!&quot;</span><span class="p">)</span>'
+        "</code></pre></p>\n</li>\n</ul>"
     )
