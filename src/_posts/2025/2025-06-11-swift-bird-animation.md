@@ -49,8 +49,7 @@ When you load the page, there's a swooping animation as the bird appears:
   controls
   class="dark-video"
   poster="/images/2025/swift_bird_dark.jpg"
-  src="/images/2025/swift_bird_dark.mp4"
-  data-norss></video>
+  src="/images/2025/swift_bird_dark.mp4"></video>
 
 I was curious how the animation worked.
 I thought maybe it was an autoplaying video with no controls, but no, it's much cooler than that!

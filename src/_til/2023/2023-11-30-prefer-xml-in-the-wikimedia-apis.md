@@ -19,7 +19,7 @@ This is a useful example of automated XML-to-JSON risks in general.
 
 First let's go ahead and use then [Languagesearch API](https://www.mediawiki.org/wiki/API:Languagesearch) to find a list of languages which match the query "english":
 
-```console?prompt=$
+```console
 $ curl 'https://en.wikipedia.org/w/api.php?action=languagesearch&search=english&format=json' | jq .
 {
   "languagesearch": {
@@ -47,7 +47,7 @@ The JSON contains an object which maps language ID to name; the XML uses languag
 
 Now let's try that query again, with a query that won't return any results;
 
-```console?prompt=$
+```console
 $ curl 'https://en.wikipedia.org/w/api.php?action=languagesearch&search=doesnotexist&format=json' | jq .
 {
   "languagesearch": []

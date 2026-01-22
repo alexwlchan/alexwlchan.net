@@ -35,7 +35,7 @@ My headers are PNG images, which are usually saved as sRGB, which is I why I con
 
 Here's what the old code looked like:
 
-{% code lang="ruby" names="1:get_colours_like 2:hex 3:seeded_random 8:hsl 14:min_luminosity 17:max_luminosity 20:luminosity_diff 25:enum 26:new_hsl" %}
+```ruby {"names":{"2":"get_colours_like","3":"hex","4":"seeded_random","9":"hsl","15":"min_luminosity","18":"max_luminosity","21":"luminosity_diff","26":"enum","27":"new_hsl"}}
 require 'color'
 
 # Given a hex colour as a string (e.g. '#123456') generate
@@ -60,7 +60,7 @@ def get_colours_like(hex)
     end
   end
 end
-{% endcode %}
+```
 
 I [seeded][wiki-seeding] the random generator so it always returned the same colours -- this meant my local dev environment and web server would always generate identical header images.
 Note that it's seeded based on the colour, so different tint colours will have light/dark squares in different places.
@@ -183,12 +183,14 @@ Here's my new heuristic:
     Pair this new lightness with the original *a\** and *b\** components, and convert back to sRGB.
 
 To find the bounds, I do a binary search on the possible lightness values to find the perceptual lightness which gets me closest to the target distance.
-If I'm looking for the lighter shade, I search the range <math><mo>(</mo></mo><mi>L</mi><mi>*</mi><mo>,</mo><mn>100</mn><mo>)</mo></ml></math>.
-If I'm looking for the darker shade, I search the range <math><mo>(</mo><mn>0</mn><mo>,</mo><mi>L</mi><mi>*</mi><mo>)</mo></ml>.
+
+If I'm looking for the lighter shade, I search the range <math><mo>(</mo><mi>L</mi><mi>*</mi><mo>,</mo><mn>100</mn><mo>)</mo></math>.
+
+If I'm looking for the darker shade, I search the range <math><mo>(</mo><mn>0</mn><mo>,</mo><mi>L</mi><mi>*</mi><mo>)</mo></math>.
 
 Here's the code:
 
-{% code lang="ruby" names="1:lightness_at_distance 2:original_lab 3:direction 4:target_distance 6:low_l 9:high_l 10:low_l 11:high_l 14:best_lab 16:best_delta 18:mid_l 21:candidate_lab 30:candidate_delta" %}
+```ruby {"names":{"2":"lightness_at_distance","3":"original_lab","4":"direction","5":"target_distance","7":"low_l","10":"high_l","11":"low_l","12":"high_l","15":"best_lab","17":"best_delta","19":"mid_l","22":"candidate_lab","31":"candidate_delta"}}
 require 'color'
 
 # Find the perceptual lightness of a CIELAB colour that's a specific
@@ -231,11 +233,11 @@ def lightness_at_distance(original_lab, direction, target_distance)
 
   best_lab.l
 end
-{% endcode %}
+```
 
 Then I can write a very similar function to what I wrote for HSL:
 
-{% code lang="ruby" names="0:get_colours_like 1:hex 2:seeded_random 7:lab 13:min_lightness 16:max_lightness 19:lightness_diff 24:enum 25:new_lab" %}
+```ruby {"names":{"1":"get_colours_like","2":"hex","3":"seeded_random","8":"lab","14":"min_lightness","17":"max_lightness","20":"lightness_diff","25":"enum","26":"new_lab"}}
 # Given a hex colour as a string (e.g. '#123456') generate
 # an infinite sequence of colours which vary only in lightness.
 def get_colours_like(hex)
@@ -264,7 +266,7 @@ def get_colours_like(hex)
     end
   end
 end
-{% endcode %}
+```
 
 One gotcha is that CIELAB is a wider range than sRGB, so CIELAB colours don't always map cleanly into sRGB.
 For example, certain bright colours like neon green may lose their vibrancy when converted from CIELAB to sRGB.

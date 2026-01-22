@@ -44,7 +44,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 ## Writing
 
-{% assign writing_entries = site.data["elsewhere"]["writing"] | sort: "date" | reverse %}
+{% set writing_entries = site.data["elsewhere"]["writing"] | sort(attribute="date", reverse=True) %}
 
 ### Last Week in AWS
 
@@ -52,7 +52,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
   {% for entry in writing_entries %}
     {% if entry.publication == "Last Week in AWS" %}
       <tr>
-        <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
+        <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
         <td>
           <a href="{{ entry.url }}">{{ entry.title }}</a>
         </td>
@@ -67,7 +67,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
   {% for entry in writing_entries %}
     {% if entry.publication == "Wellcome Collection development blog" %}
       <tr>
-        <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
+        <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
         <td>
           <a href="{{ entry.url }}">{{ entry.title }}</a>
         </td>
@@ -89,7 +89,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
     {% endif %}
 
     <tr>
-      <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
+      <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
       <td>
         <a href="{{ entry.url }}">{{ entry.title }}</a> – {{ entry.publication }}
       </td>
@@ -100,22 +100,22 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 ## Talks and workshops
 
-{% assign talk_entries = site.data["elsewhere"]["talks"] | sort: "date" | reverse %}
+{% set talk_entries = site.data["elsewhere"]["talks"] | sort(attribute="date", reverse=True) %}
 
 <table class="archive" id="talks_archive">
   {% for talk in talk_entries %}
     <tr>
-      <td class="archive__date">{{ talk.date | date: "%b %Y" }}</td>
+      <td class="archive__date">{{ talk.date.strftime("%b %Y") }}</td>
       <td class="talk_description">
         {{ talk.title }}{% if talk.event %} @ {{ talk.event }}{% endif %}
-        {% if talk.links %}
+        {% if "links" in talk %}
         <ul class="dot_list">
-          {% for talk_link in talk.links %}
-          <li><a href="{{ talk_link[1] }}">{{ talk_link[0] }}</a></li>
+          {% for label, link in talk.links.items() %}
+          <li><a href="{{ link }}">{{ label }}</a></li>
           {% endfor %}
         </ul>
         {% endif %}
-        {% if talk.description %}
+        {% if "description" in talk %}
         {{ talk.description | markdownify }}
         {% endif %}
       </td>
@@ -127,12 +127,12 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 
 ## Podcasts
 
-{% assign podcast_entries = site.data["elsewhere"]["podcasts"] | sort: "date" | reverse %}
+{% set podcast_entries = site.data["elsewhere"]["podcasts"] | sort(attribute="date", reverse=True) %}
 
 <table class="archive">
   {% for entry in podcast_entries %}
     <tr>
-      <td class="archive__date">{{ entry.date | date: "%b %Y" }}</td>
+      <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
       <td>
         <a href="{{ entry.url }}">{{ entry.podcast}}: {{ entry.title }}</a>
       </td>

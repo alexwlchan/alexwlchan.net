@@ -479,7 +479,7 @@ Here's a similar idea: I saw a number of sites set a `data-href` attribute on th
 Something like:
 
 ```html
-<style data-href="https://example.com/style.css">{% comment %}</style>{% endcomment %}
+<style data-href="https://example.com/style.css"></style>
 ```
 
 I imagine this could be useful for developers working on that page, to help them find where they need to make changes to that `<style>` tag.

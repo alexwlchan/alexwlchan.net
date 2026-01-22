@@ -16,15 +16,17 @@ One of the things I did over my Christmas break was redo all the image handling 
 Mostly I'm catching up on the current "best practices" for images on the web.
 I've written a [Jekyll plugin][plugin] which allows me to use an image in a post like so:
 
+{% raw %}
 ```liquid
-{% raw %}{%
+{%
   picture
   filename="wc_500_error.png"
   alt="An 'Internal Server Error' page."
   width="582"
   class="screenshot"
-%}{% endraw %}
+%}
 ```
+{% endraw %}
 
 This creates multiple copies of the image, in different sizes, which are sent to the browser in the [`<picture>` tag][picture] -- so browsers can pick the best size for your device, which often makes pages smaller and faster than they were before.
 

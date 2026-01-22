@@ -12,7 +12,7 @@ def test_build_base_css_file(tmp_path: Path) -> None:
     """
     Tests for `build_base_css_file`.
     """
-    # Create a new site, check it generates a CSS file
+    # Generate a new CSS file
     out_dir = tmp_path / "_out"
     s = Site(css_path=Path("css/style.css"), src_dir=Path("src"), out_dir=out_dir)
     s.build_base_css_file()

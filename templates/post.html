@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    <hgroup>
+      <h1 class="title {% if page.link %}linkpost_title{% endif %}">
+        {% if page.link %}
+          <a href="{{ page.link }}">
+        {% endif %}
+
+        {#
+          This unofficial 'role="text"' attribute means that the title will
+          be read as a continuous block of text, even if it contains formatting.
+
+          See https://tinytip.co/tips/a11y-voiceover-text-role/
+        #}
+        <span role="text">
+          {{ page.title | markdownify_oneline | cleanup_text }}
+        </span>
+
+        {% if page.link %}
+          </a>
+        {% endif %}
+      </h1>
+
+      {%- with index_page = "/articles/" -%}
+        {%- include "partials/meta.html" -%}
+      {%- endwith -%}
+    </hgroup>
+
+    {{ content | cleanup_text }}
+  </article>
+{% endblock %}

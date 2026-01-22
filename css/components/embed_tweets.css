@@ -9,6 +9,8 @@
   --meta:       #697882;
   --border:     #e1e8ed;
   
+  --tint-color: var(--twitter-blue);  
+  
   @media (prefers-color-scheme: dark) {
     --background: #15202b;
     --text:       #e7e9ea;
@@ -16,8 +18,6 @@
     --meta:       #8b98a5;
     --border:     #425364;
   };
-  
-  --tint-color: var(--twitter-blue);  
   
   .avatar {
     border-radius: 50%;

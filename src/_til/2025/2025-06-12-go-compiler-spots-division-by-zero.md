@@ -23,7 +23,7 @@ func main() {
 
 But surprisingly, Go won't let me compile this program:
 
-```console?prompt=$
+```console
 $ go run division.go
 # command-line-arguments
 ./division.go:6:19: invalid operation: division by zero

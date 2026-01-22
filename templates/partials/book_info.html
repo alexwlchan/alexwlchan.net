@@ -1,0 +1,11 @@
+<div class="book_info">
+  <h2 class="book_title">{{ book.title }}</h2>
+  <p class="book_attribution">
+    {% if book.author is defined %}by {{ book.author }}{% endif %}
+    {% if book.editor is defined %}edited by {{ book.editor }}{% endif %}
+    ({{ book.publication_year }})
+  </p>
+  <p class="book_meta">
+    read <a href="{{ book.review_url }}">{{ book.review_date }}</a>
+  </p>
+</div>

@@ -212,16 +212,18 @@ For example, here I'm animating a rectangle by increasing the `width` it from 0 
 
 which looks like:
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 10" width="100%">
-  <rect width="100" height="100" fill="black">
-    <animate
-      attributeName="width"
-      values="0;100;0"
-      dur="20s"
-      repeatCount="indefinite"
-    />
-  </rect>
-</svg>
+<figure>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 10" width="100%">
+    <rect width="100" height="100" fill="black">
+      <animate
+        attributeName="width"
+        values="0;100;0"
+        dur="20s"
+        repeatCount="indefinite"
+      />
+    </rect>
+  </svg>
+</figure>
 
 It's pretty flexible – you can animate multiple properties on the same element; you can change non-numeric attributes like `fill` or `stroke`; you have a lot of control over how the animation behaves.
 I did some brief experiments with simple shapes, enough to get a sense of how I could use it.

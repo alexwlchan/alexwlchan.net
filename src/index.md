@@ -8,7 +8,7 @@ colors:
 
 <style type="x-text/scss">
   @use "components/article_cards";
-
+  
   hr {
     height: 50px;
     width:  50px;
@@ -79,24 +79,31 @@ I hope you like it!
 
 
 
+{% set posts = site.pages               | selectattr("layout", "eq", "post") | list %}
+{% set featured_articles = posts        | selectattr("is_featured") | list %}
+{% set new_articles = featured_articles | selectattr("is_new" )     | list %}
+
+{% set new_count = new_articles | count %}
+{% set sample_of_articles = featured_articles | sample(6 - new_count) %}
+
 ## Favourite articles
 
 Here are some of my favourite things [that I've written](/articles/):
 
 <ul class="acards" id="featured_articles">
   {% for article in new_articles %}
-    {% include article_card.html %}
+    {% include "partials/article_card.html" %}
   {% endfor %}
   {% for article in sample_of_articles %}
-    {% include article_card.html %}
+    {% include "partials/article_card.html" %}
   {% endfor %}
 </ul>
 
 Here are some of the topics I write about:
 
 <ul class="dot_list" id="popular_tags">
-  {% for tag_name in site.data['popular_tags'] %}
-    <li>{% include tag_link.html %}</li>
+  {% for tag_name in site.data['popular_tags'] | sort %}
+    <li>{% include "partials/tag_link.html" %}</li>
   {% endfor %}
 </ul>
 
@@ -110,7 +117,7 @@ Here are some of the topics I write about:
 
 ---
 
-{% include newsletter.html %}
+{% include "partials/newsletter.html" %}
 
 
 
@@ -129,14 +136,6 @@ Here are some of the topics I write about:
 
 {% endcomment %}
 
-{% assign featured_articles = site.posts | where: "index.feature", true %}
-
-{% assign new_articles = featured_articles | where: "is_new", true %}
-
-{% assign new_count = new_articles | size %}
-{% assign sample_size = 6 | minus: new_count %}
-{% assign sample_of_articles = featured_articles | sample: sample_size %}
-
 <script>
   function CardImage(card) {
     const yr = card.y;
@@ -147,17 +146,13 @@ Here are some of the topics I write about:
     const prefix = card.s.slice(0, card.p);
     const imPrefix = `/c/${yr}/${prefix}`;
 
-    const ws = [
-      365, 365 * 2,  /* 2-up column => ~365px wide */
-      302, 302 * 2,  /* 3-up column => ~302px wide */
-      405, 405 * 2   /* 1-up column => ~405px wide */
-    ];
-    const avif    = ws.map(s => `${imPrefix}_${s}w.avif ${s}w`).join(", ");
-    const webp    = ws.map(s => `${imPrefix}_${s}w.webp ${s}w`).join(", ");
-    const primary = ws.map(s => `${imPrefix}_${s}w${suffix} ${s}w`).join(", ");
+    const ws = [1, 2, 3];
+    const avif    = ws.map(s => `${imPrefix}_${s}x.avif ${s * 450}w`).join(", ");
+    const webp    = ws.map(s => `${imPrefix}_${s}x.webp ${s * 450}w`).join(", ");
+    const primary = ws.map(s => `${imPrefix}_${s}x${suffix} ${s * 450w`).join(", ");
 
     // See comment in `article_card.html`
-    const sizes = "(max-width: 450px) 100vw,(max-width:1000px) 50vw,300px";
+    const sizes = "(max-width: 450px) 100vw,450px";
 
     return `
       <div class="c_im${card.n ? ' n' : ''}">
@@ -165,7 +160,7 @@ Here are some of the topics I write about:
           <source srcset="${avif}"    sizes="${sizes}" type="image/avif">
           <source srcset="${webp}"    sizes="${sizes}" type="image/webp">
           <source srcset="${primary}" sizes="${sizes}" type="${mimeType}">
-          <img src="/c/${yr}/${card.p}_365w.jpg" alt="" loading="lazy">
+          <img src="/c/${yr}/${card.p}_1x.${suffix}" alt="" loading="lazy">
         </picture>
         ${card.n ? '<div class="new_banner">NEW</div>' : ''}
       </div>
@@ -191,7 +186,7 @@ Here are some of the topics I write about:
     `;
   }
 
-  {% comment %}
+  {#
     cl = color light
     cd = color dark
     n = is new?
@@ -201,35 +196,39 @@ Here are some of the topics I write about:
     p = length of prefix
     fm = image format (0 = JPEG, 1 = PNG)
     d = description
-  {% endcomment %}
+  #}
   const keys = ["cl","cd","n","t","y","s","p","fm","d"];
 
-  {%- capture featuredArticlesJson -%}
+  {%- set featuredArticlesJson -%}
     [
       {% for article in featured_articles %}
         [
-          {{ article.card.color_lt | replace: "#", "" | jsonify }},
-          {{ article.card.color_dk | replace: "#", "" | jsonify }},
+          {% if article.colors %}
+            {{ article.colors.index_light | replace("#", "") | jsonify }},
+            {{ article.colors.index_dark  | replace("#", "") | jsonify }},
+          {% else %}
+            "", "",
+          {% endif %}
           {% if article.is_new %}1{% else %}0{% endif %},
           {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
-          {{ article.date | date: "%Y" | minus: 2000 }},
+          {{ article.date.year - 2000 }},
           {{ article.slug | jsonify }},
-          {{ article.card.short_name | size }},
-          {% if article.card.index_image.format.mime_type == "image/jpeg" %}
+          {{ article.card_path.stem | count }},
+          {% if article.card_path.suffix == ".jpg" %}
             0
           {% else %}
             1
           {% endif %},
           {% if article.summary %}
-            {{ article.summary | markdownify_oneline | cleanup_text | replace: ' class="language-plaintext highlighter-rouge"', "" | jsonify }}
+            {{ article.summary | markdownify_oneline | cleanup_text | replace(' class="language-plaintext highlighter-rouge"', "") | jsonify }}
           {% else %}
             ""
           {% endif %}
         ]
-        {% unless forloop.last %},{% endunless %}
+        {% if not loop.last %},{% endif %}
       {% endfor %}
     ]
-  {%- endcapture -%}
+  {%- endset -%}
 
   const featuredArticlesList = {{ featuredArticlesJson | minify_json }};
 

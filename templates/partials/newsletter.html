@@ -1,0 +1,46 @@
+<style>
+  #buttondown {
+    text-align: center;
+
+    input[type="email"] {
+      padding: 10px;
+      font-size: 1.5em;
+      border-radius: var(--border-radius);
+      border: var(--border-width) var(--border-style) var(--primary-color);
+      max-width: calc(100% - 20px - 2 * var(--border-width));
+    }
+
+    input[type="submit"] {
+      background: var(--primary-color);
+      font-size: 1.2em;
+      color: white;
+      padding: 10px 10px;
+      border-radius: calc(var(--border-radius) / 2);
+      border: none;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:active {
+      transform: translate(0, 2px);
+    }
+  }
+</style>
+
+If you want to stay up-to-date with what I'm doing, you can subscribe to my monthly newsletter:
+
+<form
+  id="buttondown"
+  action="https://buttondown.com/api/emails/embed-subscribe/alexwlchan"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/alexwlchan', 'popupwindow')"
+>
+  <input type="email" name="email" id="bd-email" placeholder="Email address" required />
+  <input type="submit" value="Subscribe" />
+</form>
+
+I'll send you one email a month, telling you what I've been up to, links to stuff I've written, and a list of things I've enjoyed recently.
+Check out [the archives](https://buttondown.com/alexwlchan/archive/) to see what you'll be getting.
+
+I won't spam you, I won't sell your email address, and you can unsubscribe whenever you like.

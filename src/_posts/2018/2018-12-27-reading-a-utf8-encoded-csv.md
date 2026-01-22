@@ -18,7 +18,7 @@ This proved to be non-trivial, so this blog post is a quick brain dump of what I
 
 Consider the following minimal example of a CSV file:
 
-```csv
+```
 1,alïce
 2,bøb
 3,cárol

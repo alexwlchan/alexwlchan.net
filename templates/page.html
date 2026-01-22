@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    {% if page.title != "" %}
+    <h1 class="title">
+      {{ page.title | markdownify_oneline }}
+    </h1>
+    {% endif %}
+
+    {% include "partials/meta.html" %}
+
+    {{ content | cleanup_text }}
+  </article>
+{% endblock %}

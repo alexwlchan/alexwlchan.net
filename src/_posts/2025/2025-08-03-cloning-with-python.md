@@ -168,7 +168,7 @@ int main(void) {
 
 You can compile and run this program like so:
 
-```console?prompt=$
+```console
 $ gcc clone.c
 
 $ ./a.out
@@ -249,57 +249,82 @@ This is my chance to learn!
 
 Following the documentation for `ctypes`, these are the steps:
 
-1.  **Import `ctypes` and [load a dynamic link library][cdll].**
-    This is the first thing we need to do -- in this case, we're loading the macOS link library that contains the `clonefile()` function.
+<ol>
+<li>
+  <p>
+    <strong>Import <code>ctypes</code> and <a href="https://docs.python.org/3/library/ctypes.html#loading-dynamic-link-libraries">load a dynamic link library</a>.</strong>
+    This is the first thing we need to do – in this case, we’re loading the macOS link library that contains the <code>clonefile()</code> function.
+  </p>
     
-    {% code lang="python" names="1:libSystem" %}
-    import ctypes
+{% code lang="python" names="1:libSystem" %}
+import ctypes
 
-    libSystem = ctypes.CDLL("libSystem.B.dylib")
-    {% endcode %}
+libSystem = ctypes.CDLL("libSystem.B.dylib")
+{% endcode %}
 
-    I worked out that I need to load `libSystem.B.dylib` by looking at other examples of `ctypes` code on GitHub.
+  <p>
+    I worked out that I need to load <code>libSystem.B.dylib</code> by looking at other examples of <code>ctypes</code> code on GitHub.
     I couldn't find an explanation of it in Apple's documentation.
+  </p>
+  <p>
+    I later discovered that I can use <a href="https://alexwlchan.net/man/man1/otool.html"><code>otool</code></a> to see the shared libraries that a compiled executable is linking to.
+    For example, I can see that <code>cp</code> is linking to the same <code>libSystem.B.dylib</code>:
+  </p>
 
-    I later discovered that I can use [`otool`][otool] to see the shared libraries that a compiled executable is linking to.
-    For example, I can see that `cp` is linking to the same `libSystem.B.dylib`:
+  ```console
+  $ otool -L /bin/cp
+  /bin/cp:
+      /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)
+  ```
 
-    ```console
-    $ otool -L /bin/cp
-    /bin/cp:
-        /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1351.0.0)
-    ```
+  <p>
+    This <code>CDLL()</code> call only works on macOS, which makes sense – it’s loading macOS libraries.
+    If I run this code on my Debian web server, I get an error: <em>OSError: libSystem.B.dylib: cannot open shared object file: No such file or directory</em>.
+  </p>
+</li>
 
-    This `CDLL()` call only works on macOS, which makes sense -- it's loading macOS libraries.
-    If I run this code on my Debian web server, I get an error: *OSError: libSystem.B.dylib: cannot open shared object file: No such file or directory*.
+<li>
+  <p>
+    <strong>Tell <code>ctypes</code> about the function signature.</strong>
+    If we look at the [man page for <a href="https://alexwlchan.net/man/man2/clonefile.html"><code>clonefile()</code></a>, we see the signature of the C function:
+  </p>
 
-2.  **Tell `ctypes` about the function signature.**
-    If we look at the [man page for `clonefile()`][clonefile2], we see the signature of the C function:
+{% code lang="c" names="0:clonefile 1:src 2:dst 3:flags" %}
+int clonefile(const char * src, const char * dst, int flags);
+{% endcode %}
 
-    {% code lang="c" names="0:clonefile 1:src 2:dst 3:flags" %}
-    int clonefile(const char * src, const char * dst, int flags);
-    {% endcode %}
+  <p>
+    We need to tell <code>ctypes</code> to find this function inside <code>libSystem.B.dylib</code>, then describe the arguments and return type of the function:
+  </p>
 
-    We need to tell `ctypes` to find this function inside `libSystem.B.dylib`, then describe the arguments and return type of the function:
+{% code lang="python" names="0:clonefile" %}
+clonefile = libSystem.clonefile
+clonefile.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+clonefile.restype = ctypes.c_int
+{% endcode %}
 
-    {% code lang="python" names="0:clonefile" %}
-    clonefile = libSystem.clonefile
-    clonefile.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
-    clonefile.restype = ctypes.c_int
-    {% endcode %}
+  <p>
+    Although <code>ctypes</code> can call C functions if you don’t describe the signature, it’s a good practice and gives you some safety rails.
+  </p>
 
-    Although `ctypes` can call C functions if you don't describe the signature, it's a good practice and gives you some safety rails.
+  <p>
+    For example, now <code>ctypes</code> knows that the <code>clonefile()</code> function takes three arguments.
+    If I try to call the function with one or two arguments, I get a <code>TypeError</code>.
+    If I didn’t specify the signature, I could call it with any number of arguments, but it might behave in weird or unexpected ways.
+  </p>
+</li>
 
-    For example, now `ctypes` knows that the `clonefile()` function takes three arguments.
-    If I try to call the function with one or two arguments, I get a `TypeError`.
-    If I didn't specify the signature, I could call it with any number of arguments, but it might behave in weird or unexpected ways.
-
-3.  **Define the inputs for the function.**
+<li>
+  <p>
+    <strong>Define the inputs for the function.</strong>
     This function needs three arguments.
+  </p>
   
-    In the original C function, `src` and `dst` are `char*` -- pointers to a null-terminated string of `char` values.
-    In Python, this means the inputs need to be `bytes` values.
-    Then `flags` is a regular Python `int`.
+  <p>
+    In the original C function, <code>src</code> and <code>dst</code> are <code>char*</code> – pointers to a null-terminated string of <code>char</code> values.
+    In Python, this means the inputs need to be <code>bytes</code> values.
+    Then <code>flags</code> is a regular Python <code>int</code>.
+  </p>
 
     ```python
     # Source and destination files
@@ -311,33 +336,45 @@ Following the documentation for `ctypes`, these are the steps:
     # the default behaviour
     flags = 0
     ```
+</li>
 
-4.  **Call the function.**
+<li>
+  <p>
+    <strong>Call the function.</strong>
     Now we have the function available in Python, and the inputs in C-compatible types, we can call the function:
+  </p>
     
-    {% code lang="python" names="5:errno" %}
-    import os
-    
-    if clonefile(src, dst, flags) != 0:
-        errno = ctypes.get_errno()
-        raise OSError(errno, os.strerror(errno))
-    
-    print(f"clonefile succeeded: {src} ~> {dst}")
-    {% endcode %}
-    
+{% code lang="python" names="5:errno" %}
+import os
+
+if clonefile(src, dst, flags) != 0:
+    errno = ctypes.get_errno()
+    raise OSError(errno, os.strerror(errno))
+
+print(f"clonefile succeeded: {src} ~> {dst}")
+{% endcode %}
+  
+  <p>
     If the clone succeeds, this program runs successfully.
-    But if the clone fails, we get an unhelpful error: *OSError: [Errno 0] Undefined error: 0*.
-    
+    But if the clone fails, we get an unhelpful error: <em>OSError: [Errno 0] Undefined error: 0</em>.
+  </p>
+  
+  <p>
     The point of calling the C function is to get useful error codes, but we need to opt-in to receiving them.
-    In particular, we need to add the `use_errno` parameter to our `CDLL` call:
+    In particular, we need to add the <code>use_errno</code> parameter to our <code>CDLL</code> call:
+  </p>
     
-    {% code lang="python" names="0:libSystem" %}
-    libSystem = ctypes.CDLL("libSystem.B.dylib", use_errno=True)
-    {% endcode %}
-    
+{% code lang="python" names="0:libSystem" %}
+libSystem = ctypes.CDLL("libSystem.B.dylib", use_errno=True)
+{% endcode %}
+
+  <p>
     Now, when the clone fails, we get different errors depending on the type of failure.
-    The exception includes the numeric error code, and Python will throw named subclasses of `OSError` like `FileNotFoundError`, `FileExistsError`, or `PermissionError`.
-    This makes it easier to write `try … except` blocks for specific failures.
+    The exception includes the numeric error code, and Python will throw named subclasses of <code>OSError</code> like <code>FileNotFoundError</code>, <code>FileExistsError</code>, or <code>PermissionError</code>.
+    This makes it easier to write <code>try … except</code> blocks for specific failures.
+  </p>
+</li>
+</ol>
 
 Here's the complete script, which clones a single file:
 
@@ -378,8 +415,6 @@ In particular, there are cases where you'd want to fall back to [`shutil.copyfil
 Both those cases are handled by `cp -c`, but not the `clonefile()` syscall.
 
 [ctypes]: https://docs.python.org/3/library/ctypes.html
-[cdll]: https://docs.python.org/3/library/ctypes.html#loading-dynamic-link-libraries
-[otool]: https://alexwlchan.net/man/man1/otool.html
 [c_char_p]: https://docs.python.org/3/library/ctypes.html#ctypes.c_char_p
 
 <h2 id="in-practice">In practice, how am I cloning files in Python?</h2>

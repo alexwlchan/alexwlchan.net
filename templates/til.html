@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="til">
+    <hgroup>
+      <h1 class="title">{{ page.title | markdownify_oneline | cleanup_text }}</h1>
+      
+      {%- with index_page = "/til/" -%}
+        {%- include "partials/meta.html" -%}
+      {%- endwith -%}
+    </hgroup>
+
+    {% if page.summary %}
+      <p class="summary">
+        {{ page.summary | markdownify_oneline | cleanup_text }}
+      </p>
+    {% endif %}
+
+    {{ content | cleanup_text }}
+  </article>
+{% endblock %}

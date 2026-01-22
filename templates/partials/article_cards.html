@@ -1,0 +1,9 @@
+<style type="x-text/scss">
+  @use "components/article_cards";
+</style>
+
+<ul class="acards acards--{{ articles|count }}">
+{% for article in articles %}
+  {% include "partials/article_card.html" %}
+{% endfor %}
+</ul>

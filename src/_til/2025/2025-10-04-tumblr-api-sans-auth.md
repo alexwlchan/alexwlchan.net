@@ -15,7 +15,7 @@ The [v1 API](https://www.tumblr.com/docs/en/api/v1) is still around and (mostly)
 You can make a single GET request to get information about a blog, or by passing the `id` query parameter, a single post.
 The API can return XML or JSON:
 
-```console?prompt=$
+```console
 $ curl 'https://staff.tumblr.com/api/read' --get --data 'id=769680688183164928' | xmllint --format -
 <?xml version="1.0" encoding="UTF-8"?>
 <tumblr version="1.0">

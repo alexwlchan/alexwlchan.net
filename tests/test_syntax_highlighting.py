@@ -13,7 +13,7 @@ def test_syntax_highlighting() -> None:
     """
     html = markdown(
         "This is some text\n\n"
-        '```python {"debug": true}\n'
+        '```python {"debug": false}\n'
         "def greeting(name: str) -> None:\n"
         '    print(f"Hello {name}!")\n'
         "```\n\n"
@@ -33,21 +33,21 @@ def test_syntax_highlighting() -> None:
         # def
         '<span class="k">def</span><span class="w"> </span>'
         # greeting
-        '<span class="nf">greeting</span>'
+        "greeting"
         # (name
-        '<span class="p">(</span><span class="n">name</span>'
+        '<span class="p">(</span>name'
         # : str)
-        '<span class="p">:</span> <span class="nb">str</span><span class="p">)</span> '
+        '<span class="p">:</span> str<span class="p">)</span> '
         # -> None
         '<span class="o">-&gt;</span> <span class="kc">None</span>'
         # :
         '<span class="p">:</span>\n    '
         # print(
-        '<span class="nb">print</span><span class="p">(</span>'
+        'print<span class="p">(</span>'
         # "Hello
         '<span class="sa">f</span><span class="s2">&quot;Hello </span>'
         # {name}
-        '<span class="si">{</span><span class="n">name</span><span class="si">}</span>'
+        '<span class="si">{</span>name<span class="si">}</span>'
         # !")
         '<span class="s2">!&quot;</span><span class="p">)</span>'
         "</code></pre>\n\n"
@@ -59,21 +59,21 @@ def test_syntax_highlighting() -> None:
         # def
         '<span class="k">def</span><span class="w"> </span>'
         # add(
-        '<span class="nf">add</span><span class="p">(</span>'
+        'add<span class="p">(</span>'
         # x: int
-        '<span class="n">x</span><span class="p">:</span> <span class="nb">int</span>'
+        'x<span class="p">:</span> int'
         # , y:
-        '<span class="p">,</span> <span class="n">y</span><span class="p">:</span> '
+        '<span class="p">,</span> y<span class="p">:</span> '
         # int)
-        '<span class="nb">int</span><span class="p">)</span> '
+        'int<span class="p">)</span> '
         # ->
         '<span class="o">-&gt;</span> '
         # int:
-        '<span class="nb">int</span><span class="p">:</span><br/>    '
+        'int<span class="p">:</span><br/>    '
         # return x +
-        '<span class="k">return</span> <span class="n">x</span> '
+        '<span class="k">return</span> x '
         # + y
-        '<span class="o">+</span> <span class="n">y</span></code></pre>'
+        '<span class="o">+</span> y</code></pre>'
         "</p>\n</li>\n</ul>"
     )
 
@@ -160,21 +160,20 @@ def test_syntax_highlighting_with_indent() -> None:
         "<p>This is some text</p>\n"
         '<pre class="lng-python"><code>'
         # def add(x, y):
-        '<span class="k">def</span><span class="w"> </span><span class="nf">add</span>'
-        '<span class="p">(</span><span class="n">x</span><span class="p">,</span> '
-        '<span class="n">y</span><span class="p">):</span>\n'
+        '<span class="k">def</span><span class="w"> </span>add'
+        '<span class="p">(</span>x<span class="p">,</span> '
+        'y<span class="p">):</span>\n'
         # return x + y
-        '    <span class="k">return</span> <span class="n">x</span> '
-        '<span class="o">+</span> <span class="n">y</span>\n'
+        '    <span class="k">return</span> x <span class="o">+</span> y\n'
         "\n"
         # def greeting(name)
         '<span class="k">def</span><span class="w"> </span>'
-        '<span class="nf">greeting</span><span class="p">(</span>'
-        '<span class="n">name</span><span class="p">)</span>\n'
+        'greeting<span class="p">(</span>'
+        'name<span class="p">)</span>\n'
         # print(f"Hello {name}!")
-        '    <span class="nb">print</span><span class="p">(</span>'
+        '    print<span class="p">(</span>'
         '<span class="sa">f</span><span class="s2">&quot;Hello </span>'
-        '<span class="si">{</span><span class="n">name</span><span class="si">}</span>'
+        '<span class="si">{</span>name<span class="si">}</span>'
         '<span class="s2">!&quot;</span><span class="p">)</span>'
         "</code></pre>\n"
         "\n"
@@ -183,21 +182,20 @@ def test_syntax_highlighting_with_indent() -> None:
         '<p><pre class="lng-python"><code>'
         # Notice this second block uses <br/> instead of \n
         # def add(x, y):
-        '<span class="k">def</span><span class="w"> </span><span class="nf">add</span>'
-        '<span class="p">(</span><span class="n">x</span><span class="p">,</span> '
-        '<span class="n">y</span><span class="p">)</span><br/>'
+        '<span class="k">def</span><span class="w"> </span>add'
+        '<span class="p">(</span>x<span class="p">,</span> '
+        'y<span class="p">)</span><br/>'
         # return x + y
-        '    <span class="k">return</span> <span class="n">x</span> '
-        '<span class="o">+</span> <span class="n">y</span><br/>'
+        '    <span class="k">return</span> x <span class="o">+</span> y<br/>'
         "<br/>"
         # def greeting(name):
         '<span class="k">def</span><span class="w"> </span>'
-        '<span class="nf">greeting</span><span class="p">(</span>'
-        '<span class="n">name</span><span class="p">)</span><br/>'
+        'greeting<span class="p">(</span>'
+        'name<span class="p">)</span><br/>'
         # print(f"Hello {name}!")
-        '    <span class="nb">print</span><span class="p">(</span>'
+        '    print<span class="p">(</span>'
         '<span class="sa">f</span><span class="s2">&quot;Hello </span>'
-        '<span class="si">{</span><span class="n">name</span><span class="si">}</span>'
+        '<span class="si">{</span>name<span class="si">}</span>'
         '<span class="s2">!&quot;</span><span class="p">)</span>'
         "</code></pre></p>\n</li>\n</ul>"
     )

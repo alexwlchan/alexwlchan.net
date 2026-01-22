@@ -353,7 +353,7 @@ My camera struggled a bit with the low light, but I got a few pictures:
     alt="A piston-like machine, with the top painted in red and green."
     width="750"
   %}
-<figure>
+</figure>
 
 <figure>
   {%
@@ -362,7 +362,7 @@ My camera struggled a bit with the low light, but I got a few pictures:
     alt="Looking down on some circular machinery, covered in dirt and rust. The top of the machinery has some red and green paint."
     width="750"
   %}
-<figure>
+</figure>
 
 <figure>
   {%
@@ -396,7 +396,7 @@ At the centre of the site is the Octagon, where light entered the building:
   alt="Dark arch, an octagonal gap in the ceiling looking up to the next level. The gap is decorated in gold, red and green metalwork."
   width="750"
 %}
-<figure>
+</figure>
 
 <figure>
   {%

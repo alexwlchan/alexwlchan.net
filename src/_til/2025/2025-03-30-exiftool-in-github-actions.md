@@ -9,7 +9,7 @@ I wanted to run some tests in GitHub Actions that used [exiftool](https://exifto
 
 It took me a few tries to install exiftool on Ubuntu (first I used `apt install`, then I forgot `sudo`), so here's a minimal working workflow for both Ubuntu and macOS:
 
-```yml
+```yaml
 name: Install exiftool
 
 on:
