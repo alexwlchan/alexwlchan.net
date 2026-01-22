@@ -59,6 +59,7 @@ jobs:
         
       - name: "Install Python dependencies"
         run: |
+          uv venv --allow-existing .venv
           source .venv/bin/activate
           uv pip sync requirements.txt
 

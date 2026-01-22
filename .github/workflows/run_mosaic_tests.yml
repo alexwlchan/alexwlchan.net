@@ -17,27 +17,35 @@ on:
 
 jobs:
   mosaic_tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.14"]
+    runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v6
+      - name: "Check out the repo"
+        uses: actions/checkout@v6
+        with:
+          # Don't run `git clean/reset` when checking out the repo.
+          #
+          # This means the existing copy of the `_site` folder is preserved,
+          # so the site doesn't have to be rebuilt from scratch every time.
+          clean: false
 
-    - name: "Set up Python"
-      uses: actions/setup-python@v6
-      with:
-        python-version: ${{ matrix.python-version }}
-        cache: pip
+      # Tell GitHub Actions where to find `uv`
+      - name: Add ~/.local/bin to the PATH
+        run: echo "/home/alexwlchan/.local/bin" >> $GITHUB_PATH
 
-    - name: Install Python dependencies
-      run: pip install -r requirements.txt
+      - name: "Install Python dependencies"
+        run: |
+          uv venv --allow-existing .venv
+          source .venv/bin/activate
+          uv pip sync requirements.txt
 
-    - name: Run tests
-      run: |
-        bash scripts/run_mosaic_tests.sh
-        git diff --exit-code
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          bash scripts/run_mosaic_tests.sh
+          git diff --exit-code
       
-    - name: Build the site
-      run: python3 scripts/build_site.py
+      - name: Build the site
+        run: |
+          source .venv/bin/activate
+          python3 scripts/build_site.py
