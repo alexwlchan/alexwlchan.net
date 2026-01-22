@@ -100,3 +100,31 @@ def test_syntax_highlighting_is_not_greedy() -> None:
     )
 
     assert "<p>This is some more text</p>" in html
+
+
+def test_fenced_code_block_without_lang_is_still_pre() -> None:
+    """
+    A fenced code block without a language is still wrapped in <pre> tags.
+    """
+    html = markdown(
+        "This is some text\n"
+        "\n"
+        "```\n"
+        "line 1\n"
+        "line 2\n"
+        "```\n\n"
+        "This is some more text\n\n"
+        "```\n"
+        "line 3\n"
+        "line 4\n"
+        "```",
+        extensions=[SyntaxHighlighterExtension()],
+    )
+
+    print(repr(html))
+    assert html == (
+        "<p>This is some text</p>\n"
+        '<pre class="lng-text"><code>line 1\nline 2\n</code></pre>\n\n'
+        "<p>This is some more text</p>\n"
+        '<pre class="lng-text"><code>line 3\nline 4\n</code></pre>'
+    )

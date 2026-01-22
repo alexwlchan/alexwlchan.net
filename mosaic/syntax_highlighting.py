@@ -73,7 +73,7 @@ class SyntaxHighlighterPreprocessor(Preprocessor):
     FENCED_BLOCK_RE = re.compile(
         r"^(?P<indent>[ ]*)"              # leading indent
         r"```"                            # opening fence
-        r"(?P<lang>[a-z\-]+)"             # language name
+        r"(?P<lang>[a-z\-]+)?"             # language name
         r"(?:[ ](?P<attrs>\{[^\n]+\}))?"  # JSON attributes (optional)
         r"\n"                             # newline (end of opening fence)
         r"(?P<src>.*?)"                   # code content (non-greedy)
@@ -110,7 +110,7 @@ class SyntaxHighlighterPreprocessor(Preprocessor):
 
             html = apply_syntax_highlighting(
                 src,
-                lang=m.group("lang"),
+                lang=m.group("lang") or "text",
                 **highlighter_args,
             )
 
