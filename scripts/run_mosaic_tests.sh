@@ -12,6 +12,14 @@ ruff format mosaic scripts tests
 
 echo ""
 
+if [[ "${CI:-}" == "true" ]]
+then
+  print_info "-> git diff --exit-code"
+  git diff --exit-code
+  
+  echo ""
+fi
+
 print_info "-> ruff check --fix mosaic scripts tests"
 ruff check --fix mosaic scripts tests
 
