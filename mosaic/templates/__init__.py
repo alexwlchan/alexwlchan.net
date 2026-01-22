@@ -40,6 +40,8 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             TableOfContentsExtension,
             UpdateExtension,
         ],
+        trim_blocks=True,
+        lstrip_blocks=True,
     )
 
     env.filters.update(

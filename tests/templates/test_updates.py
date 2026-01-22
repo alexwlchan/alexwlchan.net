@@ -2,7 +2,6 @@
 Tests for `mosaic.templates.updates`.
 """
 
-import minify_html
 from jinja2 import Environment
 
 
@@ -22,10 +21,14 @@ class TestUpdateExtension:
         )
 
         html = env.from_string(md).render().strip()
-        assert minify_html.minify(html) == (
-            '<style type=x-text/scss>@use "components/updates";</style>'
-            "<blockquote class=update id=update-2001-02-03>"
-            "<p><strong>Update, "
-            "<time datetime=2001-02-03>3 February 2001</time>:</strong> "
-            "I am <em>really</em> excited about this change.</blockquote>"
+        assert html == (
+            '<style type="x-text/scss">\n'
+            '  @use "components/updates";\n'
+            "</style>\n"
+            "\n"
+            '<blockquote class="update" id="update-2001-02-03">\n'
+            '  <p><strong>Update, <time datetime="2001-02-03">'
+            "3 February 2001</time>:</strong> "
+            "I am <em>really</em> excited about this change.</p>\n"
+            "</blockquote>"
         )
