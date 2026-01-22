@@ -112,8 +112,15 @@ def render_inline_svg(
             else:
                 svg_tag[k] = v
 
-    # 6. Remove comments
+    # 6. Remove comments, including any whitespace that was immediately
+    # before or after.
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
+        for sibling in (comment.previous_sibling, comment.next_sibling):
+            if sibling and isinstance(sibling, str) and not sibling.strip():
+                sibling.extract()
+            else:  # pragma: no cover
+                pass
+
         comment.extract()
 
     # 7. Minify/Clean XML declaration

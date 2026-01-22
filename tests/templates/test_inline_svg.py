@@ -116,6 +116,7 @@ class TestInlineSvgExtension:
         (src_dir / "_images/2026").mkdir(parents=True)
         (src_dir / "_images/2026/example.svg").write_text(
             '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
+            '  <rect width="200" height="200" fill="blue"/>\n'
             "  <!-- This is a comment -->"
             '  <rect width="200" height="200" fill="yellow"/>\n'
             "</svg>"
@@ -128,7 +129,8 @@ class TestInlineSvgExtension:
         assert html == (
             '<figure><svg aria-labelledby="svg_example" role="img" '
             'viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'
-            '<title id="svg_example">A yellow rectangle</title>\n '
+            '<title id="svg_example">A yellow rectangle</title>\n'
+            '<rect fill="blue" height="200" width="200"/>'
             '<rect fill="yellow" height="200" width="200"/>\n</svg></figure>'
         )
 
