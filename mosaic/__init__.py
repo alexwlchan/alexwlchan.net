@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .css import create_base_css
 from .fs import find_paths_under
-from .html_page import HtmlPage
+from .html_page import Article, HtmlPage
 from .tint_colours import get_default_tint_colours, TintColours
 
 
@@ -47,6 +47,14 @@ class Site:
             if p.colors is not None:
                 tint_colours.append(p.colors)
 
+        # Ordering: add a numeric "order" attribute to every article,
+        # which is used for sorting on /articles/.
+        articles = [p for p in pages if isinstance(p, Article)]
+        for order, art in enumerate(
+            sorted(articles, key=lambda art: art.date), start=1
+        ):
+            art.order = order
+
         # Tags:
         #
         #   - Work out all the tags being used
@@ -61,7 +69,7 @@ class Site:
             pages.append(
                 HtmlPage(
                     url=f"/tags/{tag_name}/".replace(":", "/"),
-                    template="tag.html",
+                    template_name="tag.html",
                     title=f"Tagged with “{tag_name}”",
                     extra_variables={"tagged_pages": tagged_pages},
                 )
