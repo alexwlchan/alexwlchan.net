@@ -5,7 +5,27 @@ Tests for `mosaic.linters`.
 import bs4
 import pytest
 
-from mosaic.linters import check_no_localhost_links
+from mosaic.linters import check_no_broken_html, check_no_localhost_links
+
+
+class TestCheckNoBrokenHtml:
+    """
+    Tests for `check_no_broken_html`.
+    """
+
+    @pytest.mark.parametrize("html", ["<p><table>", "<p>&lt;pre&gt;", "<p><p>"])
+    def test_spots_bad_tag_after_p(self, html: str) -> None:
+        """
+        The lint catches a <p> tag followed by a block element.
+        """
+        assert check_no_broken_html(html)
+
+    @pytest.mark.parametrize("html", ["<p><em>", "<p>Abc"])
+    def test_allows_inline_tag_after_p(self, html: str) -> None:
+        """
+        The lint catches a <p> tag followed by a block element.
+        """
+        assert check_no_broken_html(html) == []
 
 
 class TestCheckNoLocalhostLinks:

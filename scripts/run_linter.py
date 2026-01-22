@@ -13,7 +13,7 @@ from tqdm import tqdm
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.fs import find_paths_under
-from mosaic.linters import check_no_localhost_links
+from mosaic.linters import check_no_broken_html, check_no_localhost_links
 
 
 def read_single_html_file(p: Path) -> BeautifulSoup:
@@ -34,11 +34,14 @@ if __name__ == "__main__":
     html_paths = list(find_paths_under(out_dir, suffix=".html"))
 
     html_files = {
-        p: read_single_html_file(p) for p in tqdm(html_paths, desc="parsing html")
+        p: (p.read_text(), read_single_html_file(p))
+        for p in tqdm(html_paths, desc="parsing html")
     }
 
-    for p, soup in tqdm(html_files.items(), desc="linting html"):
+    for p, (html_str, soup) in tqdm(html_files.items(), desc="linting html"):
         try:
+            for err in check_no_broken_html(html_str):
+                all_errors[p].append(err)
             for err in check_no_localhost_links(soup):
                 all_errors[p].append(err)
         except Exception:

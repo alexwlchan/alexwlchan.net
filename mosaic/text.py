@@ -44,6 +44,13 @@ def markdownify(text: str) -> str:
     html = html.replace(
         '<span class="toctitle">Table of Contents</span>', "<h3>Table of contents</h3>"
     )
+
+    # Fix a couple of block elements which Python-Markdown will wrap
+    # in <p> tags if it sees them in a list.
+    for tag in ("dl", "pre", "table", "ul"):
+        html = html.replace(f"<p><{tag}", f"<{tag}")
+        html = html.replace(f"</{tag}></p>", f"</{tag}>")
+
     return html
 
 

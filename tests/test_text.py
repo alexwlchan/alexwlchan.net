@@ -7,14 +7,29 @@ import pytest
 from mosaic import text as t
 
 
-def test_markdownify() -> None:
+@pytest.mark.parametrize(
+    "md, expected",
+    [
+        (
+            "This is some text.\n\nThis is *emphasised* text.",
+            "<p>This is some text.</p>\n<p>This is <em>emphasised</em> text.</p>",
+        ),
+        (
+            "*   This is a list item\n\n"
+            "    <table><tr><td>Hello</td><td>World</td></tr></table>\n\n"
+            "*   This is another list item",
+            "<ul>\n<li>\n<p>This is a list item</p>\n"
+            "<table><tr><td>Hello</td><td>World</td></tr></table>\n</li>\n"
+            "<li>\n<p>This is another list item</p>\n</li>\n</ul>",
+        ),
+    ],
+)
+def test_markdownify(md: str, expected: str) -> None:
     """
     Test markdownify().
     """
-    md = "This is some text.\n\nThis is *emphasised* text."
-    expected = "<p>This is some text.</p>\n<p>This is <em>emphasised</em> text.</p>"
     actual = t.markdownify(md)
-
+    print(repr(actual))
     assert actual == expected
 
 
