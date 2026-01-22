@@ -164,51 +164,7 @@ When it's near the end of a chunk, it's only processing a few pieces of work con
 This graph shows the number of tasks available to the executor against time -- you can see when each chunk starts and ends.
 We're getting some of the benefits of concurrency, but we could be doing better.
 
-<svg viewBox="0 0 850 320" xmlns="http://www.w3.org/2000/svg"
-     role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an inverse sawtooth curve -- it rises sharply, drops gradually to zero, then repeats."
-     class="dark_aware">
-  <marker id="arrowhead" markerWidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
-    <polygon fill="#000" points="0 0, 8 2.8, 0 5.6"/>
-  </marker>
-
-  <polygon points="75,300 100,100 300,300 325,100 525,300 550,100 750,300" style="fill: #d01c11" />
-
-  <line x1="75"
-        x2="770"
-        y1="300"
-        y2="300"
-        stroke-width="3"
-        stroke="black"
-        class="axis"
-        marker-end="url(#arrowhead)" />
-
-  <text x="830"
-        y="300"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="20px">time</text>
-
-  <!-- y-axis -->
-  <line x1="75"
-        x2="75"
-        y1="300"
-        y2="80"
-        stroke-width="3"
-        stroke="black"
-        class="axis"
-        marker-end="url(#arrowhead)" />
-
-  <text x="75"
-        y="11"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="20px">tasks in</text>
-  <text x="75"
-        y="38"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="20px">the pool</text>
-</svg>
+{% inline_svg filename="concurrent_futures_graph.svg" %}
 
 It would be better if we could keep the pool "topped up" -- as one task finishes, we schedule the next one.
 
@@ -273,51 +229,7 @@ This is what the number of tasks available looks like:
 
 [islice]: https://docs.python.org/3/library/itertools.html#itertools.islice
 
-<svg viewBox="0 0 850 320" xmlns="http://www.w3.org/2000/svg"
-     role="img" aria-label="A graph showing time on the horizontal axis, tasks in progress on the vertical axis.  There is a red area, showing an initial spike to the top, then a zigzag pattern, then declining back to zero."
-     class="dark_aware">
-  <marker id="arrowhead" markerWidth="8" markerHeight="5.6" refX="0" refY="2.8" orient="auto">
-    <polygon fill="#000" points="0 0, 8 2.8, 0 5.6"/>
-  </marker>
-
-  <polygon points="75,300 100,100 125,125 128.125,100 153.125,125 156.25,100 181.25,125 184.375,100 209.375,125 212.5,100 237.5,125 240.625,100 265.625,125 268.75,100 293.75,125 296.875,100 321.875,125 325.0,100 350.0,125 353.125,100 378.125,125 381.25,100 406.25,125 409.375,100 434.375,125 437.5,100 462.5,125 465.625,100 665.625,300" style="fill: #d01c11" />
-
-  <line x1="75"
-        x2="770"
-        y1="300"
-        y2="300"
-        stroke-width="3"
-        stroke="black"
-        class="axis"
-        marker-end="url(#arrowhead)" />
-
-  <text x="830"
-        y="300"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="20px">time</text>
-
-  <!-- y-axis -->
-  <line x1="75"
-        x2="75"
-        y1="300"
-        y2="80"
-        stroke-width="3"
-        stroke="black"
-        class="axis"
-        marker-end="url(#arrowhead)" />
-
-  <text x="75"
-        y="11"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="20px">tasks in</text>
-  <text x="75"
-        y="38"
-        text-anchor="middle"
-        dominant-baseline="middle"
-        font-size="20px">the pool</text>
-</svg>
+{% inline_svg filename="tasks_in_the_pool.svg" %}
 
 The pool is kept topped up with new tasks to start, until we run out of tasks and it gradually runs down to zero.
 In practice, the exact shape will be less regular, but it gives the general idea.
