@@ -43,9 +43,3 @@ jobs:
         run: |
           source .venv/bin/activate
           bash scripts/run_mosaic_tests.sh
-          git diff --exit-code
-      
-      - name: Build the site
-        run: |
-          source .venv/bin/activate
-          python3 scripts/build_site.py

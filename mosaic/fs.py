@@ -20,5 +20,8 @@ def find_paths_under(root: Path, *, suffix: str = "") -> Iterator[Path]:
         for f in filenames:
             p = dirpath / f
 
+            if p.name.startswith("."):
+                continue
+
             if p.is_file() and (suffix == "" or p.suffix.lower() == suffix.lower()):
                 yield p

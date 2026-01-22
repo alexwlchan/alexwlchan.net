@@ -4,8 +4,12 @@ Build system for alexwlchan.net.
 
 import collections
 from dataclasses import dataclass
+import filecmp
 import hashlib
 from pathlib import Path
+import shutil
+
+from tqdm import tqdm
 
 from .css import create_base_css
 from .fs import find_paths_under
@@ -75,6 +79,8 @@ class Site:
                 )
             )
 
+        self.copy_static_files()
+
         # Create all the tint colour assets
         for tc in tint_colours:
             tc.create_assets(self.out_dir)
@@ -119,3 +125,49 @@ class Site:
         for f in self.static_dir.iterdir():
             if f.suffix == ".css" and f.name != out_path.name:
                 f.unlink()
+
+    def copy_static_files(self) -> None:
+        """
+        Copy all the static files from the src to the dst directory.
+        """
+        static_files = []
+
+        for src_p in find_paths_under(self.src_dir):
+            if src_p.suffix == ".md" and "_files" not in src_p.parts:
+                continue
+
+            if src_p.name.endswith("atom.xml"):
+                continue
+
+            if src_p.is_relative_to(self.src_dir / "_images"):
+                static_files.append(
+                    (
+                        src_p,
+                        self.out_dir
+                        / "images"
+                        / src_p.relative_to(self.src_dir / "_images"),
+                    )
+                )
+            elif src_p.is_relative_to(self.src_dir / "_files"):
+                static_files.append(
+                    (
+                        src_p,
+                        self.out_dir
+                        / "files"
+                        / src_p.relative_to(self.src_dir / "_files"),
+                    )
+                )
+            else:
+                static_files.append(
+                    (src_p, self.out_dir / src_p.relative_to(self.src_dir))
+                )
+
+        with tqdm(desc="static files", total=len(static_files)) as pbar:
+            for src_p, out_p in static_files:
+                pbar.set_postfix_str(src_p.name)
+
+                if not out_p.exists() or not filecmp.cmp(src_p, out_p, shallow=False):
+                    out_p.parent.mkdir(exist_ok=True, parents=True)
+                    shutil.copyfile(src_p, out_p)
+
+                pbar.update(1)
