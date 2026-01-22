@@ -21,10 +21,34 @@ class TintColours(BaseModel):
     A set of tint colours for a page.
     """
 
-    css_light: str | None = None
-    css_dark: str | None = None
-    index_light: str | None = None
-    index_dark: str | None = None
+    css_light: str | None
+    css_dark: str | None
+    index_light: str
+    index_dark: str
+
+    def __init__(
+        self,
+        css_light: str | None = None,
+        css_dark: str | None = None,
+        index_light: str | None = None,
+        index_dark: str | None = None,
+    ):
+        """
+        Create a new instance of TintColours.
+
+        If only CSS colours are set, copy them to the index colours.
+        """
+        if index_light is None:
+            index_light = css_light
+        if index_dark is None:
+            index_dark = css_dark
+
+        super().__init__(
+            css_light=css_light,
+            css_dark=css_dark,
+            index_light=index_light,
+            index_dark=index_dark,
+        )
 
     @field_validator("*", mode="before")
     @classmethod
