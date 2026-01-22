@@ -6,7 +6,6 @@ import re
 
 import minify_html
 from markdown import markdown
-from markdown.extensions.toc import TocExtension
 
 from .syntax_highlighting import SyntaxHighlighterExtension
 
@@ -34,11 +33,13 @@ def markdownify(text: str) -> str:
             "codehilite",
             "smarty",
             SyntaxHighlighterExtension(),
-            TocExtension(
-                marker="{% table_of_contents %}",
-                title="Table of Contents",
-                toc_class="table_of_contents",
-            ),
+            #
+            # I enable this plugin so that Python-Markdown will automatically
+            # add an `id` attribute to headings that don't have one.
+            #
+            # I don't use the TOC it generates because it misses any headings
+            # where I've added my own `id` attribute.
+            "toc",
         ],
     )
     html = html.replace(

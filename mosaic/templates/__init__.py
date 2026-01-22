@@ -17,6 +17,7 @@ from .inline_svg import InlineSvgExtension
 from .pictures import PictureExtension
 from .slides import SlideExtension
 from .social_embeds import SocialExtension
+from .table_of_contents import TableOfContentsExtension
 from .updates import UpdateExtension
 
 
@@ -36,6 +37,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             PictureExtension,
             SlideExtension,
             SocialExtension,
+            TableOfContentsExtension,
             UpdateExtension,
         ],
     )

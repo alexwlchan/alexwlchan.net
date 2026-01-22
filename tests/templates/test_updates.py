@@ -2,19 +2,8 @@
 Tests for `mosaic.templates.updates`.
 """
 
-from dataclasses import dataclass
-from datetime import datetime
-
 import minify_html
 from jinja2 import Environment
-
-
-@dataclass
-class StubPage:
-    """Stub entry for a page."""
-
-    date: datetime | None
-    slug: str
 
 
 class TestUpdateExtension:
@@ -33,7 +22,6 @@ class TestUpdateExtension:
         )
 
         html = env.from_string(md).render().strip()
-        print(repr(html))
         assert minify_html.minify(html) == (
             '<style type=x-text/scss>@use "components/updates";</style>'
             "<blockquote class=update id=update-2001-02-03>"

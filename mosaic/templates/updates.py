@@ -36,7 +36,7 @@ class UpdateExtension(Extension):
         # 2. Capture everything until {% endupdate %}
         body = parser.parse_statements(("name:endupdate",), drop_needle=True)
 
-        # 3. Call our helper method _render_code
+        # 3. Call our helper method _render_update
         return nodes.CallBlock(
             self.call_method("_render_update", kwargs=kwargs), [], [], body
         ).set_lineno(lineno)
