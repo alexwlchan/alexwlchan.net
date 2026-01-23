@@ -2,19 +2,96 @@
 Tests for `mosaic.html_page`.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pytest
 
-from mosaic.html_page import HtmlPage
+from mosaic.html_page import Article, HtmlPage
 
 
-def test_read_error_includes_filename(tmp_path: Path) -> None:
+def test_read_page_from_file(src_dir: Path) -> None:
+    """
+    Read a file from Markdown.
+    """
+    src_dir.mkdir()
+    md_path = src_dir / "example.md"
+
+    md_path.write_text(
+        "---\n"
+        "layout: page\n"
+        "title: Contact\n"
+        "nav_section: contact\n"
+        "---\n"
+        "This is my contact page"
+    )
+
+    page = HtmlPage.from_path(src_dir, md_path)
+
+    assert page.md_path == md_path
+    assert page.layout == "page"
+    assert page.title == "Contact"
+    assert page.content == "This is my contact page"
+
+
+def test_read_article(src_dir: Path) -> None:
+    """
+    Read an article from Markdown.
+    """
+    src_dir.mkdir()
+    md_path = src_dir / "example.md"
+
+    md_path.write_text(
+        "---\n"
+        "layout: post\n"
+        "title: My first post\n"
+        "date: 2001-02-03 04:05:06 +00:00\n"
+        "tags:\n"
+        "  - writing\n"
+        "  - programming\n"
+        "---\n"
+        "This is my first blog post"
+    )
+
+    page = HtmlPage.from_path(src_dir, md_path)
+
+    assert isinstance(page, Article)
+    assert page.md_path == md_path
+    assert page.layout == "post"
+    assert page.title == "My first post"
+    assert page.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
+    assert page.tags == ["writing", "programming"]
+
+
+def test_hidden_article_has_no_tags(src_dir: Path) -> None:
+    """
+    An article which is excluded from the sitewide index doesn't have tags.
+    """
+    src_dir.mkdir()
+    md_path = src_dir / "hidden.md"
+
+    md_path.write_text(
+        "---\n"
+        "layout: post\n"
+        "title: My first post\n"
+        "date: 2001-02-03 04:05:06 +00:00\n"
+        "tags:\n"
+        "  - writing\n"
+        "  - programming\n"
+        "index:\n"
+        "  exclude: true\n"
+        "---\n"
+        "This post doesn't appear in the indexes"
+    )
+
+    page = HtmlPage.from_path(src_dir, md_path)
+    assert page.tags == []
+
+
+def test_read_error_includes_filename(src_dir: Path) -> None:
     """
     An error reading the Markdown file includes the filename.
     """
-    src_dir = tmp_path / "src"
     md_path = src_dir / "example.md"
 
     with pytest.raises(RuntimeError, match=str(md_path)):
@@ -65,6 +142,12 @@ def test_read_error_includes_filename(tmp_path: Path) -> None:
                 content="This is a post about Tumblr",
             ),
             "/til/2013/rss-podcasts-tumblr/",
+        ),
+        (
+            HtmlPage(
+                layout="page", title="Posts tagged with ‘python’", url="/tags/python/"
+            ),
+            "/tags/python/",
         ),
     ],
 )

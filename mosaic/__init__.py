@@ -27,7 +27,7 @@ class Site:
     src_dir: Path
     out_dir: Path
 
-    def build_site(self) -> None:
+    def build_site(self) -> None:  # pragma: no cover
         """
         Build a complete copy of the site.
         """
@@ -126,7 +126,7 @@ class Site:
             if f.suffix == ".css" and f.name != out_path.name:
                 f.unlink()
 
-    def copy_static_files(self) -> None:
+    def copy_static_files(self) -> None:  # pragma: no cover
         """
         Copy all the static files from the src to the dst directory.
         """
@@ -164,8 +164,6 @@ class Site:
 
         with tqdm(desc="static files", total=len(static_files)) as pbar:
             for src_p, out_p in static_files:
-                pbar.set_postfix_str(src_p.name)
-
                 if not out_p.exists() or not filecmp.cmp(src_p, out_p, shallow=False):
                     out_p.parent.mkdir(exist_ok=True, parents=True)
                     shutil.copyfile(src_p, out_p)
