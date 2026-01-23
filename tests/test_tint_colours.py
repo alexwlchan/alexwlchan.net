@@ -2,10 +2,22 @@
 Tests for `mosaic.tint_colours`.
 """
 
+from pathlib import Path
+
+from PIL import Image
 from pydantic import ValidationError
 import pytest
 
-from mosaic.tint_colours import TintColours
+from mosaic.tint_colours import TintColours, get_default_tint_colours
+
+
+def test_get_default_tint_colours() -> None:
+    """
+    Test for get_default_tint_colours.
+    """
+    c = get_default_tint_colours(css_dir=Path("css"))
+    assert c.css_light == "#d01c11"
+    assert c.css_dark == "#ff4a4a"
 
 
 class TestTintColours:
@@ -56,3 +68,34 @@ class TestTintColours:
         """
         with pytest.raises(ValidationError):
             TintColours(css_dark="#dddddd", index_dark="#dddddd", index_light="#222222")
+
+    def test_creates_asset_images(self, out_dir: Path) -> None:
+        """
+        Create all the asset images for a tint colour.
+        """
+        c = TintColours(css_light="#220000", css_dark="#00ff00")
+
+        # Run the process multiple times to check that calling it repeatedly
+        # is a no-op.
+        for _ in range(2):
+            c.create_assets(out_dir)
+
+            for name, width, height in [
+                ("h/220000.png", 2500, 250),
+                ("h/00ff00.png", 2500, 250),
+                ("f/220000.ico", 16, 16),
+                ("f/00ff00.ico", 16, 16),
+            ]:
+                assert (out_dir / name).exists()
+
+                with Image.open(out_dir / name) as im:
+                    assert im.size == (width, height)
+
+    def test_no_asset_images_if_only_index_colours(self, out_dir: Path) -> None:
+        """
+        If the tint colours are only for the index, no asset images are
+        created.
+        """
+        c = TintColours(index_light="#220000", index_dark="#00ff00")
+        c.create_assets(out_dir)
+        assert not out_dir.exists()

@@ -37,6 +37,7 @@ class TestFindPathsUnder:
         Find files that exist.
         """
         (tmp_path / "greeting.txt").write_text("hello world")
+        (tmp_path / ".DS_Store").write_text("This should be ignored")
 
         paths = [tmp_path / "greeting.txt"]
 
