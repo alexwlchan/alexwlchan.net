@@ -92,7 +92,7 @@ This is a textbook use case for [CSS grid layout][mdn-css-grid].
 I start by resetting some default styles: removing the bullet point and whitespace from the list, and the whitespace around the figure.
 
 <!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"debug": true}
 #movies {
   list-style-type: none;
   padding: 0;
@@ -102,7 +102,7 @@ I start by resetting some default styles: removing the bullet point and whitespa
     margin: 0;
   }
 }
-{% endcode %}
+```
 
 Then I create a grid that creates columns which are 200px wide, as many columns as will fit on the screen.
 The column width was an arbitrary choice and caused some layout issues -- I'll explain how to choose this properly in the next step.

@@ -3,6 +3,7 @@ Utilities for dealing with text.
 """
 
 import collections
+import functools
 import re
 
 import minify_html
@@ -24,6 +25,7 @@ def strip_html(text: str) -> str:
     return STRIP_HTML_RE.sub("", text)
 
 
+@functools.cache
 def markdownify(text: str) -> str:
     """
     Format text using Markdown.
