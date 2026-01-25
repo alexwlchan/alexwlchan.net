@@ -11,7 +11,7 @@ This will throw a `FileExistsError` error if the destination file already exists
 
 Here's a minimal example:
 
-```console?prompt=$
+```console
 $ cat copy_file.py
 import shutil
 

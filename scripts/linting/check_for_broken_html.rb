@@ -17,13 +17,12 @@ def check_for_broken_html(html_dir)
     # Ignore a couple of HTML files which include HTML snippets that match;
     # it would be nice to have a stricter ignore list that spots unexpected
     # "broken" tags in these files, but this is fine for now.
-    if p == '_site/2021/console-copying/index.html'
-      next
-    end
-    if p == '_site/2023/picture-plugin/index.html'
-      next
-    end
-    if p == '_site/2023/testing-javascript-without-a-framework/index.html'
+    if ['_site/2021/console-copying/index.html',
+        '_out/2023/testing-javascript-without-a-framework/index.html',
+        '_site/2023/picture-plugin/index.html', '_out/2023/picture-plugin/index.html',
+        '_site/2023/testing-javascript-without-a-framework/index.html',
+        '_out/2021/console-copying/index.html',
+        '_out/2017/extensions-in-python-markdown/index.html'].include?(p)
       next
     end
 

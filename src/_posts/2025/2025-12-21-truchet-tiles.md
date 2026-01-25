@@ -64,304 +64,306 @@ I decided to scrap those plans, but I still had fun drawing some pretty pictures
 
 One of the simplest Truchet tiles is a square made of two colours:
 
-<svg viewBox="0 0 0 0" style="display: none;" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <symbol id="truchetSquare">
-      <rect class="bg" width="100" height="100"/>
-      <path class="fg" d="M 0 0 l 100 100 l -100 0 Z"/>
-    </symbol>
+<figure>
+  <svg viewBox="0 0 0 0" style="display: none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="truchetSquare">
+        <rect class="bg" width="100" height="100"/>
+        <path class="fg" d="M 0 0 l 100 100 l -100 0 Z"/>
+      </symbol>
     
-    <symbol id="truchetSquare90">
-      <use href="#truchetSquare" transform="rotate(90 50 50)"/>
-    </symbol>
+      <symbol id="truchetSquare90">
+        <use href="#truchetSquare" transform="rotate(90 50 50)"/>
+      </symbol>
     
-    <symbol id="truchetSquare180">
-      <use href="#truchetSquare" transform="rotate(180 50 50)"/>
-    </symbol>
+      <symbol id="truchetSquare180">
+        <use href="#truchetSquare" transform="rotate(180 50 50)"/>
+      </symbol>
     
-    <symbol id="truchetSquare270">
-      <use href="#truchetSquare" transform="rotate(270 50 50)"/>
-    </symbol>
+      <symbol id="truchetSquare270">
+        <use href="#truchetSquare" transform="rotate(270 50 50)"/>
+      </symbol>
     
-    <!--
-      The base of the truchet tile is:
-        - a white rectangle
-        - four outer white "wings"
-        - four inner black circles which connect to other tiles
-     -->
-    <svg id="base_background">
-      <rect x="2" y="2" width="6" height="6"/>
-      <circle cx="2" cy="2" r="2"/>
-      <circle cx="8" cy="2" r="2"/>
-      <circle cx="2" cy="8" r="2"/>
-      <circle cx="8" cy="8" r="2"/>
-    </svg>
+      <!--
+        The base of the truchet tile is:
+          - a white rectangle
+          - four outer white "wings"
+          - four inner black circles which connect to other tiles
+       -->
+      <svg id="base_background">
+        <rect x="2" y="2" width="6" height="6"/>
+        <circle cx="2" cy="2" r="2"/>
+        <circle cx="8" cy="2" r="2"/>
+        <circle cx="2" cy="8" r="2"/>
+        <circle cx="8" cy="8" r="2"/>
+      </svg>
     
-    <svg id="base_foreground">
-      <circle cx="2" cy="5" r="1"/>
-      <circle cx="8" cy="5" r="1"/>
-      <circle cx="5" cy="2" r="1"/>
-      <circle cx="5" cy="8" r="1"/>
-    </svg>
+      <svg id="base_foreground">
+        <circle cx="2" cy="5" r="1"/>
+        <circle cx="8" cy="5" r="1"/>
+        <circle cx="5" cy="2" r="1"/>
+        <circle cx="5" cy="8" r="1"/>
+      </svg>
 
-    <symbol id="base">
-      <use href="#base_background" class="bg"/>
-      <use href="#base_foreground" class="fg"/>
-    </symbol>
+      <symbol id="base">
+        <use href="#base_background" class="bg"/>
+        <use href="#base_foreground" class="fg"/>
+      </symbol>
     
-    <symbol id="base-inverted">
-      <use href="#base_background" class="fg"/>
-      <use href="#base_foreground" class="bg"/>
-    </symbol>
+      <symbol id="base-inverted">
+        <use href="#base_background" class="fg"/>
+        <use href="#base_foreground" class="bg"/>
+      </symbol>
     
-    <!--
-      Define some of the basic shapes that are used in the Carlson
-      truchet tile set:
+      <!--
+        Define some of the basic shapes that are used in the Carlson
+        truchet tile set:
       
-      - a slash that goes from the top edge to the right edge
-      - a wedge that goes from the top edge, to the right edge, to the centre
-      - a horizontal bar that goes from the left edge to the right edge
-    -->
-    <path
-      id="slash"
-      d="M 4 2
-         l 2 0
-         a 2 2 0 0 0 2 2
-         l 0 2
-         a 4 4 0 0 1 -4 -4"/>
-    <path
-      id="wedge"
-      d="M 4 2
-         l 2 0
-         a 2 2 0 0 0 2 2
-         l 0 2
-         l -4 0"/>
-    <rect id="bar" x="2" y="4" width="6" height="2"/>
+        - a slash that goes from the top edge to the right edge
+        - a wedge that goes from the top edge, to the right edge, to the centre
+        - a horizontal bar that goes from the left edge to the right edge
+      -->
+      <path
+        id="slash"
+        d="M 4 2
+           l 2 0
+           a 2 2 0 0 0 2 2
+           l 0 2
+           a 4 4 0 0 1 -4 -4"/>
+      <path
+        id="wedge"
+        d="M 4 2
+           l 2 0
+           a 2 2 0 0 0 2 2
+           l 0 2
+           l -4 0"/>
+      <rect id="bar" x="2" y="4" width="6" height="2"/>
     
-    <!--
-      Define each of the Carlson tiles.
+      <!--
+        Define each of the Carlson tiles.
       
-      Each tile has a list of basic shapes that draw the tile, and a list
-      of extra rotations.
-    -->
-    <symbol id="carlsonFour">
-      <use href="#base"/>
-    </symbol>
+        Each tile has a list of basic shapes that draw the tile, and a list
+        of extra rotations.
+      -->
+      <symbol id="carlsonFour">
+        <use href="#base"/>
+      </symbol>
     
-    <symbol id="carlsonFour-inverted">
-      <use href="#base-inverted"/>
-    </symbol>
+      <symbol id="carlsonFour-inverted">
+        <use href="#base-inverted"/>
+      </symbol>
     
-    <symbol id="carlsonX">
-      <use href="#base"/>
-      <g class="fg">
-        <use href="#wedge"/>
-        <use href="#wedge" transform="rotate(90 5 5)"/>
-        <use href="#wedge" transform="rotate(180 5 5)"/>
-        <use href="#wedge" transform="rotate(270 5 5)"/>
-      </g>
-    </symbol>
+      <symbol id="carlsonX">
+        <use href="#base"/>
+        <g class="fg">
+          <use href="#wedge"/>
+          <use href="#wedge" transform="rotate(90 5 5)"/>
+          <use href="#wedge" transform="rotate(180 5 5)"/>
+          <use href="#wedge" transform="rotate(270 5 5)"/>
+        </g>
+      </symbol>
     
-    <symbol id="carlsonX-inverted">
-      <use href="#base-inverted"/>
-      <g class="bg">
-        <use href="#wedge"/>
-        <use href="#wedge" transform="rotate(90 5 5)"/>
-        <use href="#wedge" transform="rotate(180 5 5)"/>
-        <use href="#wedge" transform="rotate(270 5 5)"/>
-      </g>
-    </symbol>
+      <symbol id="carlsonX-inverted">
+        <use href="#base-inverted"/>
+        <g class="bg">
+          <use href="#wedge"/>
+          <use href="#wedge" transform="rotate(90 5 5)"/>
+          <use href="#wedge" transform="rotate(180 5 5)"/>
+          <use href="#wedge" transform="rotate(270 5 5)"/>
+        </g>
+      </symbol>
     
-    <symbol id="carlsonT">
-      <use href="#base"/>
-      <g class="fg">
-        <use href="#wedge"/>
-        <use href="#wedge" transform="rotate(90 5 5)"/>
-      </g>
-    </symbol>
+      <symbol id="carlsonT">
+        <use href="#base"/>
+        <g class="fg">
+          <use href="#wedge"/>
+          <use href="#wedge" transform="rotate(90 5 5)"/>
+        </g>
+      </symbol>
     
-    <symbol id="carlsonT-inverted">
-      <use href="#base-inverted"/>  
-      <g class="bg">
-        <use href="#wedge"/>
-        <use href="#wedge" transform="rotate(90 5 5)"/>
-      </g>
-    </symbol>
+      <symbol id="carlsonT-inverted">
+        <use href="#base-inverted"/>  
+        <g class="bg">
+          <use href="#wedge"/>
+          <use href="#wedge" transform="rotate(90 5 5)"/>
+        </g>
+      </symbol>
 
-    <symbol id="carlsonT-r90">
-      <use href="#carlsonT" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonT-r90">
+        <use href="#carlsonT" transform="rotate(90 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonT-r90-inverted">
-      <use href="#carlsonT-inverted" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonT-r90-inverted">
+        <use href="#carlsonT-inverted" transform="rotate(90 5 5)"/>
+      </symbol>
   
-    <symbol id="carlsonT-r180">
-      <use href="#carlsonT" transform="rotate(180 5 5)"/>
-    </symbol>
+      <symbol id="carlsonT-r180">
+        <use href="#carlsonT" transform="rotate(180 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonT-r180-inverted">
-      <use href="#carlsonT-inverted" transform="rotate(180 5 5)"/>
-    </symbol>
+      <symbol id="carlsonT-r180-inverted">
+        <use href="#carlsonT-inverted" transform="rotate(180 5 5)"/>
+      </symbol>
   
-    <symbol id="carlsonT-r270">
-      <use href="#carlsonT" transform="rotate(270 5 5)"/>
-    </symbol>
+      <symbol id="carlsonT-r270">
+        <use href="#carlsonT" transform="rotate(270 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonT-r270-inverted">
-      <use href="#carlsonT-inverted" transform="rotate(270 5 5)"/>
-    </symbol>
+      <symbol id="carlsonT-r270-inverted">
+        <use href="#carlsonT-inverted" transform="rotate(270 5 5)"/>
+      </symbol>
 
-    <symbol id="carlsonPlus">
-      <use href="#base"/>        
-      <g class="fg">        
-        <use href="#bar"/>
-        <use href="#bar" transform="rotate(90 5 5)"/>        
-      </g>
-    </symbol>
+      <symbol id="carlsonPlus">
+        <use href="#base"/>        
+        <g class="fg">        
+          <use href="#bar"/>
+          <use href="#bar" transform="rotate(90 5 5)"/>        
+        </g>
+      </symbol>
     
-    <symbol id="carlsonPlus-inverted">
-      <use href="#base-inverted"/>        
-      <g class="bg">
-        <use href="#bar"/>
-        <use href="#bar" transform="rotate(90 5 5)"/>
-      </g>
-    </symbol>
+      <symbol id="carlsonPlus-inverted">
+        <use href="#base-inverted"/>        
+        <g class="bg">
+          <use href="#bar"/>
+          <use href="#bar" transform="rotate(90 5 5)"/>
+        </g>
+      </symbol>
 
-    <symbol id="carlsonSlash">
-      <use href="#base"/>
-      <g class="fg">
-        <use href="#slash"/>
-        <use href="#slash" transform="rotate(180 5 5)"/>
-      </g>
-    </symbol>
+      <symbol id="carlsonSlash">
+        <use href="#base"/>
+        <g class="fg">
+          <use href="#slash"/>
+          <use href="#slash" transform="rotate(180 5 5)"/>
+        </g>
+      </symbol>
       
-    <symbol id="carlsonSlash-inverted">
-      <use href="#base-inverted"/>
-      <g class="bg">
-        <use href="#slash"/>
-        <use href="#slash" transform="rotate(180 5 5)"/>        
-      </g>
-    </symbol>
+      <symbol id="carlsonSlash-inverted">
+        <use href="#base-inverted"/>
+        <g class="bg">
+          <use href="#slash"/>
+          <use href="#slash" transform="rotate(180 5 5)"/>        
+        </g>
+      </symbol>
   
-    <symbol id="carlsonSlash-r90">
-      <use href="#carlsonSlash" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonSlash-r90">
+        <use href="#carlsonSlash" transform="rotate(90 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonSlash-r90-inverted">
-      <use href="#carlsonSlash-inverted" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonSlash-r90-inverted">
+        <use href="#carlsonSlash-inverted" transform="rotate(90 5 5)"/>
+      </symbol>
 
-    <symbol id="carlsonMinus">
-      <use href="#base"/>
-      <use href="#bar" class="fg"/>
-    </symbol>
+      <symbol id="carlsonMinus">
+        <use href="#base"/>
+        <use href="#bar" class="fg"/>
+      </symbol>
 
-    <symbol id="carlsonMinus-inverted">
-      <use href="#base-inverted"/>
-      <use href="#bar" class="bg"/>
-    </symbol>
+      <symbol id="carlsonMinus-inverted">
+        <use href="#base-inverted"/>
+        <use href="#bar" class="bg"/>
+      </symbol>
       
-    <symbol id="carlsonMinus-r90">
-      <use href="#carlsonMinus" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonMinus-r90">
+        <use href="#carlsonMinus" transform="rotate(90 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonMinus-r90-inverted">
-      <use href="#carlsonMinus-inverted" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonMinus-r90-inverted">
+        <use href="#carlsonMinus-inverted" transform="rotate(90 5 5)"/>
+      </symbol>
 
-    <symbol id="carlsonFrown">
-      <use href="#base"/>
-      <use href="#slash" class="fg"/>
-    </symbol>
+      <symbol id="carlsonFrown">
+        <use href="#base"/>
+        <use href="#slash" class="fg"/>
+      </symbol>
       
-    <symbol id="carlsonFrown-inverted">
-      <use href="#base-inverted"/>
-      <use href="#slash" class="bg"/>
-    </symbol>
+      <symbol id="carlsonFrown-inverted">
+        <use href="#base-inverted"/>
+        <use href="#slash" class="bg"/>
+      </symbol>
       
-    <symbol id="carlsonFrown-r90">
-      <use href="#carlsonFrown" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonFrown-r90">
+        <use href="#carlsonFrown" transform="rotate(90 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonFrown-r90-inverted">
-      <use href="#carlsonFrown-inverted" transform="rotate(90 5 5)"/>
-    </symbol>
+      <symbol id="carlsonFrown-r90-inverted">
+        <use href="#carlsonFrown-inverted" transform="rotate(90 5 5)"/>
+      </symbol>
   
-    <symbol id="carlsonFrown-r180">
-      <use href="#carlsonFrown" transform="rotate(180 5 5)"/>
-    </symbol>
+      <symbol id="carlsonFrown-r180">
+        <use href="#carlsonFrown" transform="rotate(180 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonFrown-r180-inverted">
-      <use href="#carlsonFrown-inverted" transform="rotate(180 5 5)"/>
-    </symbol>
+      <symbol id="carlsonFrown-r180-inverted">
+        <use href="#carlsonFrown-inverted" transform="rotate(180 5 5)"/>
+      </symbol>
   
-    <symbol id="carlsonFrown-r270">
-      <use href="#carlsonFrown" transform="rotate(270 5 5)"/>
-    </symbol>
+      <symbol id="carlsonFrown-r270">
+        <use href="#carlsonFrown" transform="rotate(270 5 5)"/>
+      </symbol>
     
-    <symbol id="carlsonFrown-r270-inverted">
-      <use href="#carlsonFrown-inverted" transform="rotate(270 5 5)"/>
-    </symbol>
+      <symbol id="carlsonFrown-r270-inverted">
+        <use href="#carlsonFrown-inverted" transform="rotate(270 5 5)"/>
+      </symbol>
   
-    <style>
-      :root {
-        --background: var(--white);
-        --foreground: var(--black);
-        --border:     var(--black);
-      }
-      
-      @media (prefers-color-scheme: dark) {
+      <style>
         :root {
-          --background: var(--black);
-          --foreground: var(--white);
-          --border:     var(--white);
+          --background: var(--white);
+          --foreground: var(--black);
+          --border:     var(--black);
         }
-      }
       
-      .bg {
-        fill: var(--background);
-      }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --background: var(--black);
+            --foreground: var(--white);
+            --border:     var(--white);
+          }
+        }
+      
+        .bg {
+          fill: var(--background);
+        }
   
-      .fg {
-        fill: var(--foreground);
-      }
-      
-      svg.border {
-        border: 1px solid var(--border);
-        
-        /* hack to fix subpixel rendering bug in WebKit */
-        background: var(--foreground);
-      }
-      
-      .carlson_bg {
-        fill: var(--block-border-color);
-      }
-      
-      .carlson_grid {
-        fill: none;
-        stroke: var(--red);
-        stroke-width: 0.2px;
-        stroke-dasharray: 0.25, 0.25;
-      }
-      
-      figure.columns_4 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 1em;
-      }
-      
-      @media screen and (max-width: 500px) {
-        figure.columns_4 {
-          grid-template-columns: repeat(2, 1fr);
+        .fg {
+          fill: var(--foreground);
         }
-      }
-    </style>
-  </defs>
-</svg>
+      
+        svg.border {
+          border: 1px solid var(--border);
+        
+          /* hack to fix subpixel rendering bug in WebKit */
+          background: var(--foreground);
+        }
+      
+        .carlson_bg {
+          fill: var(--block-border-color);
+        }
+      
+        .carlson_grid {
+          fill: none;
+          stroke: var(--red);
+          stroke-width: 0.2px;
+          stroke-dasharray: 0.25, 0.25;
+        }
+      
+        figure.columns_4 {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 1em;
+        }
+      
+        @media screen and (max-width: 500px) {
+          figure.columns_4 {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      </style>
+    </defs>
+  </svg>
+</figure>
 
 <figure style="width: 500px;" class="columns_4">
-  {% assign squares = "#truchetSquare #truchetSquare90 #truchetSquare180 #truchetSquare270" | split: " " %}
+  {% set squares = ["#truchetSquare", "#truchetSquare90", "#truchetSquare180", "#truchetSquare270"] %}
   {% for tile in squares %}
   <svg viewBox="0 0 100 100" style="max-width: 80px; width: 100%;" xmlns="http://www.w3.org/2000/svg" class="border">
     <use href="{{ tile }}"/>
@@ -403,22 +405,22 @@ These can be arranged in a regular pattern, but they also look nice when arrange
     <use href="#truchetSquare" x="300" y="300"/>
   </svg>
   <svg viewBox="0 0 400 400" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" id="randomSquares" class="border">  
-    <use href="{{ squares | sample }}"/>
-    <use href="{{ squares | sample }}" x="100"/>
-    <use href="{{ squares | sample }}" x="200"/>
-    <use href="{{ squares | sample }}" x="300"/>
-    <use href="{{ squares | sample }}"         y="100"/>
-    <use href="{{ squares | sample }}" x="100" y="100"/>
-    <use href="{{ squares | sample }}" x="200" y="100"/>
-    <use href="{{ squares | sample }}" x="300" y="100"/>
-    <use href="{{ squares | sample }}"         y="200"/>
-    <use href="{{ squares | sample }}" x="100" y="200"/>
-    <use href="{{ squares | sample }}" x="200" y="200"/>
-    <use href="{{ squares | sample }}" x="300" y="200"/>
-    <use href="{{ squares | sample }}"         y="300"/>
-    <use href="{{ squares | sample }}" x="100" y="300"/>
-    <use href="{{ squares | sample }}" x="200" y="300"/>
-    <use href="{{ squares | sample }}" x="300" y="300"/>
+    <use href="{{ squares | sample(1) }}"/>
+    <use href="{{ squares | sample(1) }}" x="100"/>
+    <use href="{{ squares | sample(1) }}" x="200"/>
+    <use href="{{ squares | sample(1) }}" x="300"/>
+    <use href="{{ squares | sample(1) }}"         y="100"/>
+    <use href="{{ squares | sample(1) }}" x="100" y="100"/>
+    <use href="{{ squares | sample(1) }}" x="200" y="100"/>
+    <use href="{{ squares | sample(1) }}" x="300" y="100"/>
+    <use href="{{ squares | sample(1) }}"         y="200"/>
+    <use href="{{ squares | sample(1) }}" x="100" y="200"/>
+    <use href="{{ squares | sample(1) }}" x="200" y="200"/>
+    <use href="{{ squares | sample(1) }}" x="300" y="200"/>
+    <use href="{{ squares | sample(1) }}"         y="300"/>
+    <use href="{{ squares | sample(1) }}" x="100" y="300"/>
+    <use href="{{ squares | sample(1) }}" x="200" y="300"/>
+    <use href="{{ squares | sample(1) }}" x="300" y="300"/>
   </svg>
 </figure>
 
@@ -444,7 +446,7 @@ He defined fifteen tiles, which are seven distinct patterns and then various rot
 </style>
 
 <figure id="carlsonTiles">
-  {% assign carlson_tiles = "#carlsonFour #carlsonT #carlsonT-r90 #carlsonT-r180 #carlsonT-r270 #carlsonPlus #carlsonSlash #carlsonSlash-r90 #carlsonMinus #carlsonMinus-r90 #carlsonX #carlsonFrown #carlsonFrown-r90 #carlsonFrown-r180 #carlsonFrown-r270" | split: " " %}
+  {% set carlson_tiles = ["#carlsonFour", "#carlsonT", "#carlsonT-r90", "#carlsonT-r180", "#carlsonT-r270", "#carlsonPlus", "#carlsonSlash", "#carlsonSlash-r90", "#carlsonMinus", "#carlsonMinus-r90", "#carlsonX", "#carlsonFrown", "#carlsonFrown-r90", "#carlsonFrown-r180", "#carlsonFrown-r270"] %}
   {% for tile in carlson_tiles %}
     <svg viewBox="0 0 12 12" style="width: 100%;" xmlns="http://www.w3.org/2000/svg">
       <rect x="0" y="0" width="12" height="12" class="carlson_bg"/>
@@ -595,7 +597,7 @@ I'm assuming you're familiar with SVG and JavaScript, but I'll explain the geome
 Although Carlson's set has fifteen different tiles, they're made of just four primitives, which I call the base, the slash, the wedge, and the bar.
 
 <figure class="columns_4" style="width: 600px;">
-  {% assign primitives = "#base #slash #wedge #bar" | split: " " %}
+  {% set primitives = ["#base", "#slash", "#wedge", "#bar"] %}
   {% for tile in primitives %}
     <svg viewBox="0 0 12 12" style="width: 100%;" xmlns="http://www.w3.org/2000/svg">
       <rect x="0" y="0" width="12" height="12" class="carlson_bg"/>
@@ -766,7 +768,8 @@ Here's the template for these primitives:
   id="bar"
   x="{{ padding }}" y="{{ padding + outerR }}"
   width="{{ tileSize }}"
-  height="{{ 2 * innerR }}"/>{% endraw %}
+  height="{{ 2 * innerR }}"/>
+{% endraw %}
 ```
 
 The `foreground`/`background` classes are defined in CSS, so I can choose the colour of each.
@@ -777,8 +780,8 @@ This also allows easy experimentation -- I can change an input, re-render the te
 I can then compose the tiles by referencing these primitive shapes with a [`<use>` element][mdn-use-element].
 For example, the "T" tile is made of a base and two wedge shapes:
 
+{% raw %}
 ```xml
-{%- raw %}
 <!-- The centre of rotation is the centre of the whole tile, including padding.
      centreRotation = outerR + innerR -->
 
@@ -786,8 +789,9 @@ For example, the "T" tile is made of a base and two wedge shapes:
   <use href="#base"/>
   <use href="#wedge" class="foreground"/>
   <use href="#wedge" class="foreground" transform="rotate(90 {{ centreRotation }} {{ centreRotation }})"/>
-</symbol>{% endraw %}
+</symbol>
 ```
+{% endraw %}
 
 After this, I write a similar `<symbol>` definition for all the other tiles, plus inverted versions that swap the background and foreground.
 

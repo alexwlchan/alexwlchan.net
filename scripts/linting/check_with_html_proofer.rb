@@ -35,7 +35,7 @@ class CardImages < HTMLProofer::Check
 
       path = node['content'].gsub('http://localhost:5757/', '').gsub('https://alexwlchan.net/', '')
 
-      return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_site/#{path}")
+      return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_out/#{path}")
     end
 
     @html.css('meta[name="og:image"]').each do |node|
@@ -43,7 +43,7 @@ class CardImages < HTMLProofer::Check
 
       path = node['content'].gsub('http://localhost:5757/', '').gsub('https://alexwlchan.net/', '')
 
-      return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_site/#{path}")
+      return add_failure("Missing card image at #{path}", element: @meta) unless File.file?("_out/#{path}")
     end
   end
 end
@@ -88,7 +88,31 @@ def check_with_html_proofer(html_dir)
         '_site/fun-stuff/marquee-rocket/why/index.html',
         '_site/fun-stuff/rainbow-hearts/index.html',
         '_site/fun-stuff/rainbow-valknuts/index.html',
-        '_site/fun-stuff/uk-stations-map/index.html'
+        '_site/fun-stuff/uk-stations-map/index.html',
+        #
+        # Repeat all of these for _out in the Python site
+        '_out/400/index.html',
+        %r{_out/files/.*},
+        # This is because of an overly slow regex in HTML-Proofer.
+        # See https://github.com/gjtorikian/html-proofer/issues/816
+        '_out/2013/google-maps/index.html',
+        # This is a weird bug where HTML-Proofer is detecting a link
+        # in the JavaScript that isn't there:
+        #
+        #     internally linking to ${altUrl}, which does not exist
+        #
+        '_out/2021/editing-toolbar/index.html',
+        #
+        # These are some standalone sites that I'm willing to ignore
+        # for the sake of linting.
+        '_out/fun-stuff/checkbox-text-adventure/index.html',
+        '_out/fun-stuff/howlongismydata/index.html',
+        '_out/fun-stuff/looped-squares/index.html',
+        '_out/fun-stuff/marquee-rocket/index.html',
+        '_out/fun-stuff/marquee-rocket/why/index.html',
+        '_out/fun-stuff/rainbow-hearts/index.html',
+        '_out/fun-stuff/rainbow-valknuts/index.html',
+        '_out/fun-stuff/uk-stations-map/index.html'
       ],
       report_invalid_tags: true,
       #

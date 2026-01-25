@@ -4,16 +4,23 @@ Build system for alexwlchan.net.
 
 import collections
 from dataclasses import dataclass
+from datetime import datetime, timezone
 import filecmp
 import hashlib
+import heapq
+import itertools
 from pathlib import Path
 import shutil
 
+from jinja2 import Environment, TemplateSyntaxError, UndefinedError
 from tqdm import tqdm
+import yaml
 
 from .css import create_base_css
 from .fs import find_paths_under
 from .html_page import Article, HtmlPage
+from .templates import get_jinja_environment
+from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
 
 
@@ -27,12 +34,12 @@ class Site:
     src_dir: Path
     out_dir: Path
 
-    def build_site(self) -> None:  # pragma: no cover
+    def build_site(self) -> bool:  # pragma: no cover
         """
         Build a complete copy of the site.
-        """
-        self.build_base_css_file()
 
+        Returns True if the build succeeded, False if there were errors.
+        """
         # Read all the Markdown source files.
         pages: list[HtmlPage] = []
         for md_path in find_paths_under(self.src_dir, suffix=".md"):
@@ -53,11 +60,33 @@ class Site:
 
         # Ordering: add a numeric "order" attribute to every article,
         # which is used for sorting on /articles/.
-        articles = [p for p in pages if isinstance(p, Article)]
-        for order, art in enumerate(
-            sorted(articles, key=lambda art: art.date), start=1
-        ):
+        articles = sorted(
+            (p for p in pages if isinstance(p, Article)), key=lambda art: art.date
+        )
+        for order, art in enumerate(articles, start=1):
             art.order = order
+
+        # Article cards: pick a short name for every article card.
+        #
+        # These filenames are repeated many times on the global articles page,
+        # so they should be as short as possible.
+        #
+        # For example, "digital-decluttering" could become "di".
+        articles_with_cards = itertools.groupby(
+            (art for art in articles if art.card_path), key=lambda art: art.date.year
+        )
+        for year, articles_that_year_gen in articles_with_cards:
+            articles_that_year = list(articles_that_year_gen)
+
+            # Prefix each post with the month, its slug, and delete hyphens.
+            slugs = {
+                art: f"{art.date.month}{art.slug}".replace("-", "")
+                for art in articles_that_year
+            }
+            prefixes = find_unique_prefixes(set(slugs.values()))
+
+            for art in articles_that_year:
+                art.card_short_name = prefixes[slugs[art]]
 
         # Tags:
         #
@@ -70,14 +99,63 @@ class Site:
                 tag_tally[t].append(p)
 
         for tag_name, tagged_pages in tag_tally.items():
+            if ":" in tag_name:
+                namespace, tag_name = tag_name.split(":")
+            else:
+                namespace, tag_name = "", tag_name
+
+            tag_descriptions = yaml.safe_load(
+                (self.src_dir / "_data/tag_descriptions.yml").read_text()
+            )
+
             pages.append(
                 HtmlPage(
-                    url=f"/tags/{tag_name}/".replace(":", "/"),
+                    url=f"/tags/{namespace}/{tag_name}/".replace("//", "/").replace(
+                        " ", "-"
+                    ),
                     template_name="tag.html",
                     title=f"Tagged with “{tag_name}”",
-                    extra_variables={"tagged_pages": tagged_pages},
+                    extra_variables={
+                        "tagged_pages": tagged_pages,
+                        "namespace": namespace,
+                        "tag_name": tag_name,
+                        "tag_description": tag_descriptions.get(tag_name),
+                    },
                 )
             )
+
+        # Write the CSS file.
+        css_url = self.build_base_css_file()
+
+        # Create the Jinja2 environment.
+        # TODO(2026-01-21): Figure out how to handle global varibales better.
+        env = get_jinja_environment(self.src_dir, self.out_dir)
+        env.globals.update(
+            {
+                "css_url": css_url,
+                "environment": "production",
+                "site": {
+                    "title": "alexwlchan",
+                    "description": "Alex Chan's personal website",
+                    "url": "https://alexwlchan.net",
+                    "data": {
+                        "elsewhere": yaml.safe_load(
+                            open(self.src_dir / "_data/elsewhere.yml")
+                        ),
+                        "popular_tags": heapq.nlargest(
+                            25,
+                            tag_tally.keys(),
+                            lambda tag_name: len(tag_tally[tag_name]),
+                        ),
+                        "tag_tally": tag_tally,
+                    },
+                    "articles": articles,
+                    "pages": pages,
+                    "email": "alex@alexwlchan.net",
+                    "time": datetime.now(tz=timezone.utc),
+                },
+            }
+        )
 
         self.copy_static_files()
 
@@ -85,15 +163,41 @@ class Site:
         for tc in tint_colours:
             tc.create_assets(self.out_dir)
 
-        # Write all the HTML files to the output directory.
-        for p in pages:
-            out_path = p.out_path(self.out_dir)
-            out_path.parent.mkdir(exist_ok=True, parents=True)
-            out_path.write_text(str(p))
+        written_html_paths = set()
+        with tqdm(desc="writing html", total=len(pages)) as pbar:
+            for pg in pages:
+                try:
+                    out_path = pg.write(env, out_dir=self.out_dir)
+                    written_html_paths.add(out_path)
+                    pbar.update(1)
+                except (TemplateSyntaxError, UndefinedError):
+                    return False
+                except Exception as exc:  # pragma: no cover
+                    print(f"error writing {pg!r}: {exc}")
+                    raise
 
-        # TODO: Clean up dangling HTML files.
+        # Render the RSS feeds.
+        #
+        # This must occur after generating the pages, so the `html_content`
+        # attribute is populated.
+        self.generate_rss_feeds(
+            env, articles, tils=[p for p in pages if p.layout == "til"]
+        )
+
+        # Clean up HTML files that weren't written as part of this build;
+        # this usually indicates a renamed or deleted page.
+        for pth in find_paths_under(self.out_dir, suffix=".html"):  # pragma: no cover
+            if "files" in pth.parts or "fun-stuff" in pth.parts:
+                continue
+
+            if pth in written_html_paths:
+                continue
+
+            print(f"delete stale HTML file: {pth}")
+            pth.unlink()
 
         print(len(pages))
+        return True
 
     @property
     def static_dir(self) -> Path:
@@ -102,7 +206,7 @@ class Site:
         """
         return self.out_dir / "static"
 
-    def build_base_css_file(self) -> None:
+    def build_base_css_file(self) -> str:
         """
         Build the base static/style.css file for the site.
 
@@ -126,6 +230,8 @@ class Site:
             if f.suffix == ".css" and f.name != out_path.name:
                 f.unlink()
 
+        return "/" + str(out_path.relative_to(self.out_dir))
+
     def copy_static_files(self) -> None:  # pragma: no cover
         """
         Copy all the static files from the src to the dst directory.
@@ -137,6 +243,19 @@ class Site:
                 continue
 
             if src_p.name.endswith("atom.xml"):
+                continue
+
+            if any(
+                p in src_p.parts
+                for p in (
+                    "_data",
+                    "_includes",
+                    "_layouts",
+                    "_plugin_tests",
+                    "_plugins",
+                    "_scss",
+                )
+            ):
                 continue
 
             if src_p.is_relative_to(self.src_dir / "_images"):
@@ -169,3 +288,17 @@ class Site:
                     shutil.copyfile(src_p, out_p)
 
                 pbar.update(1)
+
+    def generate_rss_feeds(
+        self, env: Environment, articles: list[Article], tils: list[HtmlPage]
+    ) -> None:
+        """
+        Generate the RSS feeds for the site.
+        """
+        atom_template = env.get_template("atom.xml")
+        atom_xml = atom_template.render(articles=articles)
+        (self.out_dir / "atom.xml").write_text(atom_xml)
+
+        til_atom_template = env.get_template("til_atom.xml")
+        til_atom_xml = til_atom_template.render(tils=tils)
+        (self.out_dir / "til/atom.xml").write_text(til_atom_xml)

@@ -12,7 +12,9 @@ Suppose I have a web server using Caddy, and I'm protecting it with HTTP Basic A
 
 Here's a simple Caddyfile where every route requires auth:
 
-```caddy
+<!-- caddy -->
+
+```
 :2016 {
 	basic_auth {
 		# $ caddy hash-password --plaintext correct-horse-battery-staple
@@ -45,7 +47,9 @@ I want routes that skip the authentication (e.g. a publicly-accessible healthche
 
 The way to do this is to define a [matcher](https://caddyserver.com/docs/caddyfile/matchers) that matches all the pages *except* the ones I want to make public, and then use that matcher with my `basic_auth` directive.
 
-```caddy
+<!-- caddy -->
+
+```
 :2016 {
 	@private {
 		not path /public/*

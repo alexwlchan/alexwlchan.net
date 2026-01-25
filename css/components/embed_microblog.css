@@ -108,7 +108,7 @@
     color: var(--text);
   }
   
-  .body > .text:last-child {
+  .text:last-child {
     padding-bottom: calc(0.5 * var(--padding));
   }
     

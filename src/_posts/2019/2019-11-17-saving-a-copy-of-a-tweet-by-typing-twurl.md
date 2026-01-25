@@ -398,7 +398,8 @@ if __name__ == '__main__':
 It's divided up into small functions, so I can copy/paste bits into another script if it's useful.
 I invoke it by running the script with the tweet URL as a single argument:
 
-{% code lang="console?prompt=$" wrap="true" %}
+<!-- lang="?prompt=$" -->
+{% code lang="console" wrap="true" %}
 $ python get_tweet_md.py "twitter.com/alexwlchan/status/1188721070234394626"
 https://twitter.com/alexwlchan/status/1188721070234394626:
 

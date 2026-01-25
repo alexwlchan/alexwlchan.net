@@ -91,7 +91,8 @@ This is a textbook use case for [CSS grid layout][mdn-css-grid].
 
 I start by resetting some default styles: removing the bullet point and whitespace from the list, and the whitespace around the figure.
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   list-style-type: none;
   padding: 0;
@@ -118,7 +119,8 @@ The column width was an arbitrary choice and caused some layout issues -- I'll e
 By default, browsers show images at their original size, which means they overlap each other.
 For now, clamp the width of the images to the columns, so they don't overlap:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   img {
     width: 100%;
@@ -173,7 +175,8 @@ Because my first grid fixes the width, some posters will be a different height t
 I prefer to have the posters be fixed height and allow varied widths, so all the text is on the same level.
 Let's replace the width rule on images:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   img {
     height: 300px;
@@ -218,7 +221,8 @@ I'll come back to it if it's ever an issue, but I don't need it today.)
 Now the posters which are narrower than the column are flush left with the edge of the column, whereas I'd really like them to be centred inside the column.
 I cam fix this with one more rule:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   li {
     text-align: center;
@@ -250,7 +254,8 @@ The white background and blue underlined text are still giving "unstyled HTML pa
 The next set of rules change the page to white text on a dark background.
 I use a dark grey, so I can distinguish the posters which often use black:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 body {
   background: #222;
   font-family: -apple-system, sans-serif;
@@ -267,7 +272,8 @@ body {
 Let's also make the text bigger, and add a bit of spacing between it and the image.
 And when the title and image are more spaced apart, let's increase the row spacing even more, so it's always clear which title goes with which poster:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   grid-row-gap: 3em;
   
@@ -283,7 +289,8 @@ This tells the browser to balance the length of each line, which can make the te
 You'll get several lines of roughly the same length, rather than one or more long lines and a short line.
 For example, it changes *"The Empire Strikes // Block"* to the more balanced *"The Empire // Strikes Block"*.
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {  
   figcaption {
     text-wrap: balance;
@@ -319,8 +326,10 @@ First, I use my [dominant_colours tool][dominant_colours] to get a suitable tint
   }
 </style>
 
+<!-- console?prompt=$ -->
+
 <div id="dominant_colours_example">
-{% code lang="console?prompt=$" %}
+{% code lang="console" %}
 $ dominant_colours gridiator.png --best-against-bg '#222'
 ▇ #ecd3ab
 {% endcode %}
@@ -345,7 +354,8 @@ Then I add this to my markup as a CSS variable:
 
 Finally, I can add some hover styles that use this new variable:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   a:hover {
     figcaption {
@@ -408,7 +418,8 @@ First I have to insert a wrapper `<div>` which I'm going to colour, and a CSS va
 
 We can add a coloured background to this wrapper and make it the right size:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   img, .wrapper {
     height: 300px;
@@ -425,7 +436,8 @@ But a `<div>` is a `block` element by default, so it isn't centred properly -- i
 We could add `margin: 0 auto;` to move it to the middle, but that duplicates the `text-align: center;` property we wrote earlier.
 Instead, I prefer to make the wrapper an `inline-block`, so it follows the existing text alignment rule:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 #movies {
   .wrapper {
     display: inline-block;
@@ -474,7 +486,8 @@ Here's what the HTML markup looks like:
 
 and here's the complete CSS:
 
-{% code lang="nested_css" %}
+<!-- lang="nested_css" -->
+{% code lang="css" %}
 body {
   background: #222;
   font-family: -apple-system, sans-serif;

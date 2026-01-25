@@ -17,6 +17,7 @@ instead.
 
 import json
 import re
+import textwrap
 
 from markdown import Extension, Markdown
 from markdown.preprocessors import Preprocessor
@@ -44,6 +45,58 @@ def apply_syntax_highlighting(
 
     html = highlight(src, lexer, formatter)
 
+    # Find all the names which are highlighted as part of this code.
+    name_matches = re.finditer(
+        r'<span class="n[a-z0]?">(?P<varname>[^<]+)</span>', html
+    )
+
+    # Un-highlight any names that aren't explicitly labelled as worth
+    # highlighting.
+    if names is not None:
+        names_to_highlight = names
+    else:
+        names_to_highlight = {}
+
+    # print(repr(names_to_highlight))
+
+    for idx, m in reversed(list(enumerate(name_matches, start=1))):
+        varname = m.group("varname")
+        start, end = m.start(), m.end()
+
+        # If we're in debug mode, add a checkbox and a <label> that can
+        # be used to toggle names.
+        #
+        # This allows me to build the colouring interactively.
+        if debug:
+            form_id = f"{idx}:{varname}"
+            html = (
+                html[:start]
+                + (
+                    f'<label for="{form_id}">{varname}'
+                    f'<input class="codeName" type="checkbox" id="{form_id}" '
+                    f'data-idx="{idx}" data-varname="{varname}" '
+                    f'onChange="recalculateVariables()"/></label>'
+                )
+                + html[end:]
+            )
+            continue
+
+        # If this isn't a name we want to highlight, remove the
+        # <span class="n*"> and continue.
+        if names_to_highlight.get(idx) is None:
+            html = html[:start] + varname + html[end:]
+
+        # If this is one of the names we want to highlight but the variable
+        # name doesn't match, throw an error.
+        elif names_to_highlight[idx] != varname:
+            raise ValueError(
+                f"got bad name at {idx}: want {names_to_highlight[idx]}, got {varname}"
+            )
+
+        # Rewrap in <span class="n">, so the name is highlighted.
+        else:
+            html = html[:start] + f'<span class="n">{varname}</span>' + html[end:]
+
     # Remove the wrapper <div> applied by Pygments
     html = re.sub(r'^<div class="highlight">', "", html)
     html = re.sub("</div>$", "", html)
@@ -53,6 +106,51 @@ def apply_syntax_highlighting(
     html = re.sub(r"\s*</pre>$", "</code></pre>", html)
 
     html = html.replace("<span></span>", "")
+
+    # If we're in debug mode, append the debugging snippet.
+    #
+    # This gives me a tool that lets my dynamically choose which names
+    # to highlight, and constructs the `names` string I should add
+    # to my code.
+    if debug:
+        html += textwrap.dedent("""
+            <p id="debug">DEBUG: <code id="debugNames">names=""</code></p>
+            <style>
+              pre input[type="checkbox"] {
+                display: none;
+              }
+
+              pre label {
+                text-decoration: underline;
+                -webkit-text-decoration-style: dashed;
+              }
+
+              pre label:has(input[type="checkbox"]:checked) {
+                color: var(--blue);
+              }
+
+              #debug {
+                color: red;
+              }
+            </style>
+            <script>
+              function recalculateVariables() {
+                debugNames = document.querySelector("code#debugNames");
+
+                var selectedNames = {};
+
+                document.querySelectorAll("input.codeName")
+                  .forEach(checkbox => {
+                    if (checkbox.checked) {
+                      selectedNames[checkbox.getAttribute('data-idx')] = 
+                        checkbox.getAttribute('data-varname');
+                    }
+                  });
+
+                debugNames.innerText = JSON.stringify({"names": selectedNames});
+              }
+            </script>
+        """)
 
     return html
 
@@ -96,9 +194,15 @@ class SyntaxHighlighterPreprocessor(Preprocessor):
 
         while m := self.FENCED_BLOCK_RE.search(text):
             if m.group("attrs"):
+                print(repr(m.group("attrs")))
                 highlighter_args = json.loads(m.group("attrs"))
             else:
                 highlighter_args = {}
+
+            if "names" in highlighter_args:
+                highlighter_args["names"] = {
+                    int(idx): name for idx, name in highlighter_args["names"].items()
+                }
 
             if m.group("indent"):
                 src = "\n".join(

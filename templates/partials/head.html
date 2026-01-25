@@ -1,0 +1,42 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/atom.xml">
+<link type="application/atom+xml" rel="alternate" href="{{ site.url }}/til/atom.xml">
+
+{% if page.canonical_url is defined and page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url }}">
+{% else %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% endif %}
+
+{% set safe_title = page.title | markdownify_oneline | strip_html %}
+<title>{% if page.title and page.title != site.title and page.title != "" %}{{ safe_title }} &ndash; {% endif %}{{ site.title }}</title>
+
+<meta name="description" content="{{ page.summary | default(site.description, true) | escape }}">
+
+{% if page.colors is defined
+   and page.colors
+   and page.colors.css_light %}
+  {% set primary_color_light = page.colors.css_light | replace("#", "") %}
+  {% set primary_color_dark  = page.colors.css_dark  | replace("#", "") %}
+{% else %}
+  {% set primary_color_light = "d01c11" %}
+  {% set primary_color_dark  = "ff4242" %}
+{% endif %}
+
+<meta name="theme-color" content="#{{ primary_color_light }}" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#{{ primary_color_dark  }}" media="(prefers-color-scheme: dark)">
+
+{% include "partials/head/icons.html" %}
+{% include "partials/head/preload.html" %}
+{% include "partials/head/socialgraph.html" %}
+
+<link rel="stylesheet" href="{{ css_url }}">
+{% include "partials/head/css_variables.html" %}
+
+<meta name="color-scheme" content="light dark"/>
+
+{% if environment == "production" %}
+  {% include "partials/head/analytics.html" %}
+{% endif %}

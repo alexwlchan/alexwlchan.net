@@ -2,6 +2,7 @@
 Utilities for dealing with text.
 """
 
+import collections
 import re
 
 import minify_html
@@ -68,7 +69,7 @@ def cleanup_text(text: str) -> str:
     text = add_non_breaking_characters(text)
     text = add_latex_css_classes(text)
     text = force_text_footnote_markers(text)
-    return text
+    return text.strip()
 
 
 # Words which often appear before a number
@@ -214,14 +215,14 @@ def add_latex_css_classes(html: str) -> str:
     """
     html = html.replace(
         " LaTeX",
-        '<style type="x-text/scss">@use "components/latex";</style> '
+        ' <style type="x-text/scss">@use "components/latex";</style> '
         '<span class="visually-hidden">LaTeK</span>'
         '<span class="latex" aria-hidden="true">L<sup>a</sup>T<sub>e</sub>X</span>',
     )
 
     html = html.replace(
         " TeX",
-        '<style type="x-text/scss">@use "components/latex";</style> '
+        ' <style type="x-text/scss">@use "components/latex";</style> '
         '<span class="visually-hidden">TeK</span>'
         '<span class="latex" aria-hidden="true">T<sub>e</sub>X</span>',
     )
@@ -259,3 +260,45 @@ def assert_is_invariant_under_markdown(html: str) -> None:
         markdownified,
         html,
     )
+
+
+def find_unique_prefixes(strings: set[str]) -> dict[str, str]:
+    """
+    Given a collection of strings, find the shortest abbreviation that
+    uniquely identifies each string in this collection.
+
+    Example:
+        >>> find_shortest_abbreviations(["amber", "application", "banana"])
+        {"amber": "am", "application": "ap", "banana": "b"}
+
+    """
+    # Start by calculating all the prefixes for every string,
+    # for example "amber" gives us ["a", "am", "amb", "ambe", "amber"]
+    all_prefixes = collections.defaultdict(list)
+
+    for s in strings:
+        for i in range(1, len(s) + 1):
+            all_prefixes[s[:i]].append(s)
+
+    # Delete all prefixes which point to multiple words, so we're left
+    # with unique prefixes
+    unique_prefixes = {
+        prefix: words for prefix, words in all_prefixes.items() if len(words) == 1
+    }
+
+    # Invert the map, so now we know all the candidate prefixes for each word
+    candidate_prefixes = collections.defaultdict(list)
+
+    for prefix, words in unique_prefixes.items():
+        candidate_prefixes[words[0]].append(prefix)
+
+    # Choose the shortest candidate prefix for each word.
+    result = {
+        word: min(prefixes, key=len) for word, prefixes in candidate_prefixes.items()
+    }
+
+    # Check that no keys were lost in the transformation, which can occur
+    # if one string was a prefix of the other.
+    assert result.keys() == strings, strings - set(result.keys())
+
+    return result

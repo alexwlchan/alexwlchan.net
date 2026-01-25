@@ -1,0 +1,6 @@
+{% if ":" in tag_name %}
+  {% set parts = tag_name.split(":") %}
+  <a href="/tags/{{ parts[0] }}/{{ parts[1] | replace(' ', '-') }}/">{{ tag_name }}</a>
+{%- else -%}
+  <a href="/tags/{{ tag_name | replace(' ', '-') }}/">{{ tag_name }}</a>
+{%- endif -%}

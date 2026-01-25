@@ -20,7 +20,7 @@ print(repr(br))
 
 which fails with a TypeError:
 
-```console?prompt=$
+```console
 $ python3 bad_repr.py
 Traceback (most recent call last):
   File "bad_repr.py", line 6, in <module>
@@ -42,7 +42,7 @@ print(str(bs))
 
 which fails in a similar way:
 
-```console?prompt=$
+```console
 $ python3 bad_str.py
 Traceback (most recent call last):
   File "bad_str.py", line 6, in <module>

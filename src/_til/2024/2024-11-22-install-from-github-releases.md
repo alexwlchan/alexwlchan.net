@@ -26,7 +26,7 @@ This is using [the GitHub CLI](https://cli.github.com/), which I haven't used be
 
 Here's how I packaged this as a step in a GitHub Action:
 
-```yml
+```yaml
 - name: Install Caddy
   env:
     GH_TOKEN: {% raw %}${{ github.token }}{% endraw %}

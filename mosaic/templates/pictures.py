@@ -88,6 +88,7 @@ from jinja2.runtime import Context
 from PIL import Image, ImageCms
 import termcolor
 
+from mosaic.html_page import Article
 from mosaic.text import assert_is_invariant_under_markdown
 
 from .jinja_extensions import KwargsExtensionBase
@@ -137,6 +138,7 @@ def render_picture(
     parent: str | None = None,
     link_to: str | None = None,
     caller: Any | None = None,
+    dst_prefix: Path | None = None,
     **kwargs: Any,
 ) -> str:
     """
@@ -205,11 +207,23 @@ def render_picture(
     is_screenshot = "screenshot" in kwargs.get("class", "")
 
     lt_derivatives, default_image = create_image_derivatives(
-        lt_src_path, src_dir, out_dir, desired_widths, target_width, is_screenshot
+        lt_src_path,
+        src_dir,
+        out_dir,
+        desired_widths,
+        target_width,
+        is_screenshot,
+        dst_prefix,
     )
     if dk_src_path is not None:
         dk_derivatives, _ = create_image_derivatives(
-            dk_src_path, src_dir, out_dir, desired_widths, target_width, is_screenshot
+            dk_src_path,
+            src_dir,
+            out_dir,
+            desired_widths,
+            target_width,
+            is_screenshot,
+            dst_prefix,
         )
     else:
         dk_derivatives = {}
@@ -328,6 +342,7 @@ def create_image_derivatives(
     desired_widths: list[int],
     target_width: int | None = None,
     is_screenshot: bool = False,
+    dst_prefix: Path | None = None,
 ) -> tuple[dict[MimeType, list[str]], str]:
     """
     Create all the derivative images for an input image.
@@ -335,7 +350,9 @@ def create_image_derivatives(
     Returns a dict (mime type) -> (srcset strings), and the URL of
     the image you should prefer as the default.
     """
-    out_path = Path("images") / src_path.relative_to(src_dir / "_images")
+    if dst_prefix is None:
+        out_path = Path("images") / src_path.relative_to(src_dir / "_images")
+        dst_prefix = out_path.with_suffix("")
 
     # Choose what format we should use for this image, in order of preference.
     if is_screenshot and src_path.suffix.lower() == ".jpg":
@@ -356,8 +373,6 @@ def create_image_derivatives(
         raise ValueError(f"unrecognised image format: {src_path}")
 
     assert target_width is not None
-
-    dst_prefix = out_path.with_suffix("")
 
     created_images = create_image_sizes(
         src_path,
@@ -472,3 +487,39 @@ def has_srgb_colour_profile(path: Path) -> bool:
                 )
             )
             return False
+
+
+@pass_context
+def article_card_image(context: Context, article: Article) -> str:
+    """
+    Renders an article card image.
+    """
+    # TODO: Handle alt sizes for article cards. Here's a comment from
+    # the Jekyll code:
+    #
+    #    There are two breakpoints for cards:
+    #
+    #    * If the screen is 450px or narrower, there's only a single column
+    #      of cards -- which take up almost all the screen width.
+    #    * If the screen is 1000px or narrower, there are two columns of
+    #      cards, each of which takes up about half the screen
+    #    * If the screen is wider, there are three columns of cards,
+    #      which all have a fixed width of ~300px
+    #
+    #    However, we expand the default width to 370px to handle tag pages
+    #    which only have a small number of cards.
+    #
+    assert article.card_short_name is not None
+    assert article.card_path is not None
+    html = render_picture(
+        context,
+        filename=article.card_path.name,
+        parent=str(article.card_path.parent),
+        width=450,
+        # e.g. /c/25
+        dst_prefix=(
+            Path("c") / str(article.date.year - 2000) / article.card_short_name
+        ),
+    )
+    html = html.replace("<img", "<img data-proofer-ignore")
+    return html

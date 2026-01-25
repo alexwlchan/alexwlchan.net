@@ -1,0 +1,53 @@
+<style>
+  /* If these article links are on the same page as article cards, add left/right
+   * margins so the text lines up vertically */
+  .acards + .alinks > li,
+  #articles .alinks > li {
+    width: calc(100% - 2 * (1em - 2px));
+    padding-left:  calc(1em + 2px);
+    padding-right: calc(1em + 2px);
+  }
+
+  .alinks {
+    list-style-type: none;
+    padding: 0;
+    
+    h4 {
+      font-weight: normal;
+      margin-bottom: 7px;
+    }
+    
+    p {  /* description */
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 85%;
+      line-height: 1.45em;
+    }
+    
+    a:visited {
+      color: var(--link-color);
+    }
+  }
+</style>
+
+<ul class="alinks">
+{%- for article in articles -%}
+  <li
+    {% if add_article_order is defined and add_article_order %}
+    data-o="{{ article.order }}"
+    {% endif %}
+  ><h4><a href="{% if article.link_direct %}{{ article.link }}{% else %}{{ article.url }}{% endif %}">
+      {%- if article.layout == 'til' -%}
+      {%- if page.url != "/til/" -%}
+        TIL:&nbsp;
+      {%- endif -%}
+      {%- endif -%}
+      {{ article.title | markdownify_oneline -}}
+    </a></h4>
+
+    {%- if article.summary -%}
+      <p>{{- article.summary | markdownify_oneline -}}</p>
+    {%- endif -%}
+  </li>
+{%- endfor -%}
+</ul>

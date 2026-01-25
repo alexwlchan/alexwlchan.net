@@ -154,7 +154,9 @@ We can check that it works by wrapping it in a quick loop, and checking that we 
 
 I threw that in a script, and used a couple of Unix text utilities to check the statistics:
 
-```console?prompt=$
+<!-- ?prompt=$ -->
+
+```console
 $ ruby run.rb | sort | uniq -c
   49 &#97;
   42 &#x61;

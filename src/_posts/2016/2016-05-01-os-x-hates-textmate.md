@@ -23,6 +23,7 @@ For example, I expect that my text editor should be able to open, edit, and save
   filename="textmate-error.png"
   width="480"
   alt="A screenshot of a TextMate window showing a dialog 'The document 'hello.txt' could not be saved.  Please check Console output for reason.'"
+  class="screenshot"
 %}
 
 Two days ago, TextMate on my laptop decided it didn't fancy saving files any more.
@@ -52,7 +53,7 @@ I still don't fully understand what caused the problem, but this is what I tried
 
     My newly downloaded version of TextMate had quarantine attribute, because I'd downloaded it via Safari:
     
-    ```console?prompt=$
+    ```console
     $ xattr -l TextMate.app
     com.apple.quarantine: 0062;57264649;Safari;EB7AAA88-11E1-42E8-9D88-D90B03E5973E
     ```

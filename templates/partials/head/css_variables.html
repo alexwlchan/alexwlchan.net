@@ -1,0 +1,11 @@
+{% if page.colors and page.colors.css_light %}
+<style>
+  :root {
+    --primary-color-light: {{ page.colors.css_light }};
+    --primary-color-dark:  {{ page.colors.css_dark  }};
+
+    --nav-bg-image-light: url('/h/{{ page.colors.css_light | replace("#", "") }}.png');
+    --nav-bg-image-dark:  url('/h/{{ page.colors.css_dark  | replace("#", "") }}.png');
+  }
+</style>
+{% endif %}

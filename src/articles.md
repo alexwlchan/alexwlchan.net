@@ -5,8 +5,6 @@ nav_section: articles
 ---
 
 <style type="x-text/scss">
-  @use "components/article_cards";
-
   .alinks + .acards {
     margin-top: 2em;
   }
@@ -44,42 +42,50 @@ nav_section: articles
   * at the end, display anything not yet displayed
 {% endcomment %}
 
-{% assign featured_posts  = "" | split: ',' %}
-{% assign remaining_posts = "" | split: ',' %}
+{% set ns = namespace(featured_posts=[], remaining_posts=[]) %}
 
-{% assign add_article_order = true %}
+{% set add_article_order = true %}
 
 <div id="articles" data-card-count="2">
-{% for this_article in site.posts %}
+{% for this_article in site.articles %}
   {% if this_article.index.exclude %}
     {% continue %}
   {% endif %}
 
   {% if this_article.index.feature %}
-    {% assign featured_posts = featured_posts | push: this_article %}
+    {% do ns.featured_posts.append(this_article) %}
   {% else %}
-    {% assign remaining_posts = remaining_posts | push: this_article %}
+    {% do ns.remaining_posts.append(this_article) %}
   {% endif %}
 
-  {% unless featured_posts.size == 2 %}
+  {% if ns.featured_posts|count != 2 %}
     {% continue %}
-  {% endunless %}
-
-  {%- include article_cards.html articles=featured_posts %}
-  {% assign featured_posts = "" | split: ',' %}
-
-  {% if remaining_posts.size >= 3 %}
-  {%- include article_links.html articles=remaining_posts %}
-  {% assign remaining_posts = "" | split: ',' %}
   {% endif %}
+  
+  {% with articles = ns.featured_posts %}
+    {%- include "partials/article_cards.html" %}
+  {% endwith %}
+  {% set ns.featured_posts = [] %}
+
+  {% if ns.remaining_posts|count >= 3 %}
+    {% with articles = ns.remaining_posts %}
+      {%- include "partials/article_links.html" %}
+    {% endwith %}
+  {% endif %}
+  {% set ns.remaining_posts = [] %}
 {% endfor %}
 
 {% comment %}
   At the end, display anything not yet displayed
 {% endcomment %}
 
-{% include article_cards.html articles=featured_posts %}
-{% include article_links.html articles=remaining_posts %}
+{% with articles = ns.featured_posts %}
+  {% include "partials/article_cards.html" %}
+{% endwith %}
+
+{% with articles = ns.remaining_posts %}
+  {% include "partials/article_links.html" %}
+{% endwith %}
 </div>
 
 <script>

@@ -10,6 +10,8 @@ If you want to follow along, these posts have [their own RSS feed](/til/atom.xml
 
 ---
 
-{% assign tils = site.til | reverse %}
+{% set tils = site.pages | selectattr("layout", "eq", "til") | sort(attribute="date", reverse=True) %}
 
-{% include article_links.html articles=tils %}
+{% with articles = tils %}
+  {% include "partials/article_links.html" %}
+{% endwith %}

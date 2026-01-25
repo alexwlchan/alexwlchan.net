@@ -2,15 +2,19 @@
 The model for an HTML page which is going to be rendered in the site.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 import re
 from typing import Any, Literal, Self, TypedDict
 
+from jinja2 import Environment
+import minify_html
 from pydantic import BaseModel, Field, model_validator
 import yaml
 
+from .fs import find_paths_under
 from .tint_colours import TintColours
+from .text import markdownify
 
 
 class IndexInfo(BaseModel):
@@ -44,6 +48,9 @@ class HtmlPage(BaseModel):
 
     # The content of the Markdown source file
     content: str = ""
+
+    # The HTML content of the file
+    html_content: str = ""
 
     # What's the URL of this page?
     url: str = ""
@@ -110,6 +117,8 @@ class HtmlPage(BaseModel):
     # Extra variables which are specific to this page or template.
     extra_variables: dict[str, Any] = Field(default_factory=lambda: dict())
 
+    card_path: Path | None = None
+
     def __repr__(self) -> str:  # pragma: no cover
         """
         Returns a debugging representation of this page.
@@ -161,27 +170,38 @@ class HtmlPage(BaseModel):
         assert self.src_dir is not None
         assert self.md_path is not None
 
-        if self.layout == "page" and self.md_path == self.src_dir / "index.md":
-            self.url = "/"
+        if self.layout == "page" and self.md_path.name == "index.md":
+            self.url = f"/{self.md_path.parent.relative_to(self.src_dir)}/".replace(
+                "./", ""
+            )
         elif self.layout == "page":
             relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
             self.url = f"/{relative_path}/"
         elif self.layout == "post":
             assert self.date is not None
-            year = self.date.year
-
-            # Remove the YYYY-MM-DD prefix which is required by Jekyll.
-            # TODO(2026-01-20): Get rid of the requirement for this prefix.
-            slug = re.sub(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}\-", "", self.md_path.stem)
-            self.url = f"/{year}/{slug}/"
+            self.url = f"/{self.date.year}/{self.slug}/"
         elif self.layout == "til":
             assert self.date is not None
-            year = self.date.year
+            self.url = f"/til/{self.date.year}/{self.slug}/"
+        else:  # pragma: no cover
+            raise ValueError(f"unrecognised layout: {self.layout!r}")
 
-            # Remove the YYYY-MM-DD prefix which is required by Jekyll.
-            # TODO(2026-01-20): Get rid of the requirement for this prefix.
-            slug = re.sub(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}\-", "", self.md_path.stem)
-            self.url = f"/til/{year}/{slug}/"
+        return self
+
+    @model_validator(mode="after")
+    def calculate_template_name(self) -> Self:
+        """
+        Calculate the template name of this page, if not set explicitly.
+        """
+        if self.template_name != "":
+            return self
+
+        if self.layout == "page":
+            self.template_name = "page.html"
+        elif self.layout == "post":
+            self.template_name = "post.html"
+        elif self.layout == "til":
+            self.template_name = "til.html"
         else:  # pragma: no cover
             raise ValueError(f"unrecognised layout: {self.layout!r}")
 
@@ -198,6 +218,104 @@ class HtmlPage(BaseModel):
             self.tags = []
         return self
 
+    @model_validator(mode="after")
+    def set_sharing_card(self) -> Self:
+        """
+        Find a sharing card for this post.
+        """
+        if self.md_path is None or self.date is None:
+            return self
+
+        assert self.src_dir is not None
+
+        card_dir = self.src_dir / "_images/cards" / str(self.date.year)
+        if not card_dir.exists():
+            return self
+
+        matching_cards = [
+            p.relative_to(self.src_dir)
+            for p in find_paths_under(card_dir)
+            if p.stem == self.slug
+        ]
+        if len(matching_cards) == 0:
+            return self
+        elif len(matching_cards) == 1:
+            self.card_path = matching_cards[0]
+            return self
+        else:
+            raise ValueError(f"multiple matching cards for {self.md_path}")
+
+    @property
+    def slug(self) -> str:
+        """
+        Returns a URL slug for the post.
+        """
+        assert self.md_path is not None
+
+        # Remove the YYYY-MM-DD prefix which is required by Jekyll.
+        # TODO(2026-01-20): Get rid of the requirement for this prefix.
+        return re.sub(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}\-", "", self.md_path.stem)
+
+    def write(self, env: Environment, out_dir: Path) -> Path:
+        """
+        Write this HTML file to disk, and return the path of the
+        newly-written file.
+        """
+        out_path = self.out_path(out_dir)
+
+        # Steps to render HTML:
+        #
+        #   1. Run the HTML through the Jinja2 templates, so plugins
+        #      and embeds are expanded
+        #   2. Convert the Markdown to HTML
+        #
+        self.html_content = markdownify(env.from_string(self.content).render(page=self))
+
+        template = env.get_template(self.template_name)
+        html = template.render(page=self, content=self.html_content)
+
+        html = minify_html.minify(
+            html,
+            keep_html_and_head_opening_tags=True,
+            keep_closing_tags=True,
+            minify_css=True,
+            minify_js=True,
+        )
+
+        out_path.parent.mkdir(exist_ok=True, parents=True)
+        out_path.write_text(html)
+
+        return out_path
+
+    @property
+    def is_featured(self) -> bool:
+        """
+        Returns True if this is a featured post.
+
+        TODO(2026-01-21): Rework the index attributes so this can be
+        set directly.
+        """
+        return self.index.feature
+
+    @property
+    def is_new(self) -> bool:
+        """
+        Returns True if this page was published recently, False otherwise.
+        """
+        if self.date is None:
+            return False
+        else:
+            return (datetime.now(tz=timezone.utc) - self.date).days <= 21
+
+    def __getattr__(self, name: str) -> Any:
+        """
+        Look up an attribute, trying in extra_variables first.
+        """
+        try:
+            return self.extra_variables[name]
+        except KeyError:
+            return super().__getattr__(name)  # type: ignore
+
 
 class Article(HtmlPage):
     """
@@ -213,3 +331,14 @@ class Article(HtmlPage):
     # Articles always use the `post.html` template
     # TODO: Rename this to `article.html` for consistency.
     template_name: str = "post.html"
+
+    # The short filename for this card, used on /articles/ to reduce page
+    # weight. For example, "dominant-colours" might become "do".
+    card_short_name: str | None = None
+
+    def __hash__(self) -> int:
+        """
+        Return a hash; this is so I can use articles as dict keys when
+        working out the short names for cards.
+        """
+        return hash(repr(self))

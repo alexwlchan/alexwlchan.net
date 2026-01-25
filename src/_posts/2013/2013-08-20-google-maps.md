@@ -21,7 +21,7 @@ Drag this bookmark to your bookmarks bar:
   @use "components/bookmarklets";
 </style>
 
-<a class="bookmarklet" href="javascript:var%20ids%20=%20[%22omnibox%22,%20%22cards%22,%20%22welcome%22];var%20classes%20=%20[%22widget-viewcard%22,%20%22widget-zoom%22,%20%22watermark%22];var%20hidden%20=%20(window.getComputedStyle(document.getElementById(ids[0]))).getPropertyValue(%22display%22);if%20(hidden%20!==%20%22none%22)%20{var%20disp%20=%20%22none%22;}%20else%20{var%20disp%20=%20%22%22;}for%20(var%20i%20=%200;%20i%20<%20ids.length;%20i++)%20{document.getElementById(ids[i]).style.display%20=%20disp;}for%20(var%20i%20=%200;%20i%20<%20classes.length;%20i++)%20{var%20div%20=%20document.getElementsByClassName(classes[i]);for%20(var%20j%20=%200;%20j%20<%20div.length;%20j++)%20{div[j].style.display%20=%20disp;}}">Toggle Google Maps</a>
+<p><a class="bookmarklet" href="javascript:var%20ids%20=%20[%22omnibox%22,%20%22cards%22,%20%22welcome%22];var%20classes%20=%20[%22widget-viewcard%22,%20%22widget-zoom%22,%20%22watermark%22];var%20hidden%20=%20(window.getComputedStyle(document.getElementById(ids[0]))).getPropertyValue(%22display%22);if%20(hidden%20!==%20%22none%22)%20{var%20disp%20=%20%22none%22;}%20else%20{var%20disp%20=%20%22%22;}for%20(var%20i%20=%200;%20i%20<%20ids.length;%20i++)%20{document.getElementById(ids[i]).style.display%20=%20disp;}for%20(var%20i%20=%200;%20i%20<%20classes.length;%20i++)%20{var%20div%20=%20document.getElementsByClassName(classes[i]);for%20(var%20j%20=%200;%20j%20<%20div.length;%20j++)%20{div[j].style.display%20=%20disp;}}">Toggle Google Maps</a></p>
 
 Click it once to make everything disappear, and click it again to bring it all back.
 

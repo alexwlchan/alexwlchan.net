@@ -123,6 +123,16 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         ),
         (
             HtmlPage(
+                layout="page",
+                src_dir=Path("src"),
+                md_path=Path("src/a-plumbers-guide-to-git/index.md"),
+                title="A Plumber’s Guide to Git",
+                content="This is a workshop about Git",
+            ),
+            "/a-plumbers-guide-to-git/",
+        ),
+        (
+            HtmlPage(
                 layout="post",
                 src_dir=Path("src"),
                 md_path=Path("src/2013/2013-02-13-darwin.md"),

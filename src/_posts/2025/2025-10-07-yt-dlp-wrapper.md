@@ -22,7 +22,7 @@ When you write the same thing multiple times, it's a sign you should extract it 
 All this is presented in a CLI command which prints a JSON object that other projects can parse.
 Here's an example:
 
-```console?prompt=$
+```console
 $ yt-dlp_alexwlchan.py "https://www.youtube.com/watch?v=TUQaGhPdlxs"
 {
   "id": "TUQaGhPdlxs",

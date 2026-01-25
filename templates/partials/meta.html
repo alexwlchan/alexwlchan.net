@@ -1,0 +1,51 @@
+{#
+  Render the metadata at the top of each page.  This is shared across all
+  templates so it's rendered consistently.
+
+  Rough thinking behind order:
+
+  * Permalink is always the last item because it's a different colour
+  * Original date goes first on articles/TILs because it takes up roughly
+    the same amount of space, whereas tags are variable length
+  * Updated date goes last because it's only present on some articles and
+    similarly has very variable length
+
+#}
+
+{%- if page.date or
+      (page.tags|count > 0) or
+      page.part_of or
+      page.date_updated or
+      page.link -%}
+<ul class="dot_list meta">
+  {%- if page.tags|count > 0 -%}
+  <li class="tags">Tagged with
+    {% set tags = page.tags | sort %}
+    {%- for tag_name in tags -%}
+      {% include "partials/tag_link.html" -%}
+      {%- if not loop.last %}, {% endif -%}
+    {%- endfor -%}
+  </li>
+  {%- endif -%}
+
+  {%- if page.date -%}
+    {%- with date = page.date -%}
+      <li>Posted {% include "partials/timestamp.html" -%}</li>
+    {%- endwith -%}
+  {%- endif -%}
+
+  {%- if page.part_of -%}
+  <li>Part of <a href="{{ page.part_of.url }}">{{ page.part_of.label|markdownify_oneline }}</a></li>
+  {%- endif -%}
+
+  {%- if page.date_updated -%}
+    {%- with date = page.date_updated -%}
+      <li>Last updated {% include "partials/timestamp.html" -%}</li>
+    {%- endwith -%}
+  {%- endif -%}
+
+  {%- if page.link -%}
+    <li class="permalink"><a href="{{ page.url }}" aria-label="permalink">&infin;</a></li>
+  {%- endif -%}
+</ul>
+{%- endif -%}

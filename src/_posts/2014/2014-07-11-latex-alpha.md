@@ -76,7 +76,7 @@ There may be other forms of input for which this is useful, but I couldn't think
 If we have the plaintext number in a script, then we can also do some nice formatting.
 For example, if we're working with currency units, then we might want to trim all but the last two decimal places:
 
-{% code lang="console?lang=python&prompt=>>>" names="0:x 2:y" %}
+{% code lang="pycon" names="0:x 2:y" %}
 >>> x = get_plaintext_query('\pi')
 3.1415926535897932384626433832795028841971693993751058...
 >>> y = eval(x.replace('...', ''))

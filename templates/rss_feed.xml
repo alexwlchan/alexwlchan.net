@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <updated>{{ site.time.isoformat() }}</updated>
+  
+  <author>
+    <name>Alex Chan</name>
+    <email>alex@alexwlchan.net</email>
+  </author>
+  
+  {% block content %}{% endblock %}
+</feed>

@@ -15,10 +15,10 @@ I was writing another article for this site, and I created a code block with bac
   There's a zero-width space after "pycon" to stop my plugin from blatting it.
 {% endcomment %}
 
-<pre><code>```pycon​
+<pre><code>&grave;&grave;&grave;pycon​
 >>> print("Hello world!")
 Hello world!
-```
+&grave;&grave;&grave;
 </code></pre>
 
 Apparently this doesn't work with Rouge, the syntax highlighter used by Jekyll and this site -- I got an unformatted `<pre>` block.
@@ -35,10 +35,10 @@ It's just a bit non-obvious.
 Rouge has a `console` lexer which I've used quite a few times, and that lexer can take options including `lang` and `prompt`.
 By passing these options to the language identifier, I was able to get Python console session with syntax highlighting:
 
-<pre><code>```console?lang=python&prompt=>>>,...
+<pre><code>&grave;&grave;&grave;console?lang=python&prompt=>>>,...
 >>> print("Hello world!")
 Hello world!
-```
+&grave;&grave;&grave;
 </code></pre>
 
 (It occurs to me that if Rouge ever adds support [for the Fish shell](https://github.com/rouge-ruby/rouge/issues/1108), I might want to add `lang=fish` to my other uses of <code>```console</code>.)

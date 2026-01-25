@@ -63,23 +63,17 @@ jobs:
           source .venv/bin/activate
           uv pip sync requirements.txt
 
-      - name: "Install Ruby dependencies"
-        run: bundle install
-
-      - name: "Set the JEKYLL_ENV variable"
-        run: |
-          if [[ "$GITHUB_REF" == "refs/heads/main" ]]
-          then
-            echo "JEKYLL_ENV=production" >> "$GITHUB_ENV"
-          else
-            echo "JEKYLL_ENV=development" >> "$GITHUB_ENV"
-          fi
-
-      - name: "Clear the Jekyll cache"
-        run: rm -rf src/.jekyll-cache/
-
       - name: "Build the site"
-        run: bundle exec jekyll build --drafts
+        run: |
+          rm -rf src/.jekyll-cache
+          rm -rf _site
+          rm -rf _out/.jekyll-cache
+          
+          source .venv/bin/activate
+          python3 scripts/build_site.py
+
+      - name: "What's been built?"
+        run: find _out -type f
 
       - name: "Run linting (Ruby)"
         run: bundle exec ruby scripts/linter.rb
@@ -87,28 +81,7 @@ jobs:
       - name: "Run linting (Python)"
         run: |
           source .venv/bin/activate
-          python3 scripts/run_linter.py _site
-
-      - name: "Publish drafts"
-        if: github.ref == 'refs/heads/main'
-        run: |
-          if [[ -d "src/_drafts" ]]
-          then
-            touch ~/.gitconfig
-
-            git config user.name "GitHub Actions on behalf of Alex Chan"
-            git config user.email "githubactions@alexwlchan.net"
-
-            git config --global --add safe.directory .
-
-            bundle exec ruby scripts/publish_drafts.rb
-
-            # Note: although there are no more drafts, we build with the
-            # flag to avoid Jekyll invalidating its cache
-            bundle exec jekyll build --drafts
-          else
-            echo "There is no _drafts folder, so nothing to publish!"
-          fi
+          python3 scripts/run_linter.py _out
 
       - name: Copy to the public directory
         if: github.ref == 'refs/heads/main'
@@ -124,7 +97,7 @@ jobs:
             --exclude="my-tools/library-lookup/" \
             --exclude="ideas-for-inclusive-events/" \
             --exclude="man/" \
-            _site/ \
+            _out/ \
             ~/repos/alexwlchan.net/_site/
 
       - name: "Run the website tests"

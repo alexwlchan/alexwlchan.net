@@ -156,6 +156,7 @@ I got inspiration for my approach from the [TeX.SX Stack Exchange][texsx]: use t
 
 Here's how you use contour to trace around a letter (in red so the effect is visible):
 
+{% raw %}
 ```latex
 \usepackage{contour}
 
@@ -167,6 +168,7 @@ Here's how you use contour to trace around a letter (in red so the effect is vis
 
 I visited \mycontour{Berlin} in \mycontour{Germany}.
 ```
+{% endraw %}
 
 {%
   picture
@@ -182,6 +184,7 @@ Then the `\contour` macro draws the supplied text, with a red contour around the
 
 Then I swap the red for white, and add the underline:
 
+{% raw %}
 ```latex
 \setlength{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
@@ -193,6 +196,7 @@ Then I swap the red for white, and add the underline:
 
 I visited \myuline{Berlin} in \myuline{Germany}.
 ```
+{% endraw %}
 
 {%
   picture
@@ -215,8 +219,9 @@ Same with the contour length, I just try it until it looks nice.
 
 Here's the code I ultimately settled on:
 
+{% raw %}
 ```latex
-{% raw %}\usepackage{contour}
+\usepackage{contour}
 \usepackage{ulem}
 
 \renewcommand{\ULdepth}{1.8pt}
@@ -225,8 +230,9 @@ Here's the code I ultimately settled on:
 \newcommand{\myuline}[1]{%
   \uline{\phantom{#1}}%
   \llap{\contour{white}{#1}}%
-}{% endraw %}
+}
 ```
+{% endraw %}
 
 This gives me a really nice underline.
 It's drawn on a consistent level, flush against the bottom of the text, with gaps as appropriate for descenders.

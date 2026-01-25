@@ -12,15 +12,17 @@ title: Unpacking sets and ranges from a single string
 
 I was reading the [cURL man page][curl] on Thursday. Although I didn't find what I was looking for, I did come across some rather neat syntax for specifying multiple URLs in a single string. Here's an example:
 
-> You can specify multiple URLs or parts of URLs by writing part sets within braces as in:
->
-> <p class="exampleurl">http://site.**{one,two,three}**.com</p>
->
-> or you can get sequences of alphanumeric series by using [] as in:
->
-> <p class="exampleurl">ftp://ftp.numericals.com/file**[1-100]**.txt<br/>
-> ftp://ftp.numericals.com/file**[001-100]**.txt (with leading zeros)<br/>
-> ftp://ftp.letters.com/file**[a-z]**.txt</p>
+<blockquote>
+  <p>You can specify multiple URLs or parts of URLs by writing part sets within braces as in:</p>
+
+  <p class="exampleurl">http://site.<strong>{one,two,three}</strong>.com</p>
+
+  <p>or you can get sequences of alphanumeric series by using [] as in:</p>
+  
+  <p class="exampleurl">ftp://ftp.numericals.com/file<strong>[1-100]</strong>.txt<br/>
+  ftp://ftp.numericals.com/file<strong>[001-100]</strong>.txt (with leading zeros)<br/>
+  ftp://ftp.letters.com/file<strong>[a-z]</strong>.txt</p>
+</blockquote>
 
 The [man page][curl] has more examples.
 

@@ -11,7 +11,7 @@ nav_section: subscribe
 
 ## By email
 
-{% include newsletter.html %}
+{% include "partials/newsletter.html" %}
 
 ## By RSS
 
