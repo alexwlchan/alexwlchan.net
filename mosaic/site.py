@@ -196,7 +196,6 @@ class Site:
             print(f"delete stale HTML file: {pth}")
             pth.unlink()
 
-        print(len(pages))
         return True
 
     @property
