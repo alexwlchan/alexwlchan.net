@@ -165,9 +165,9 @@ class Site:
             tc.create_assets(self.out_dir)
 
         written_html_paths = set()
-        
+
         if not incremental:
-            pages = tqdm(pages, desc="writing html")
+            pages = tqdm(pages, desc="writing html")  # type: ignore
 
         for pg in pages:
             try:
@@ -282,9 +282,7 @@ class Site:
 
         with tqdm(desc="static files", total=len(static_files)) as pbar:
             for src_p, out_p in static_files:
-                if not out_p.exists() or not filecmp.cmp(
-                    src_p, out_p, shallow=False
-                ):
+                if not out_p.exists() or not filecmp.cmp(src_p, out_p, shallow=False):
                     out_p.parent.mkdir(exist_ok=True, parents=True)
                     shutil.copyfile(src_p, out_p)
 
