@@ -51,8 +51,15 @@ And let's load this with and without the `sandbox` attribute:
       <code>&lt;iframe&gt;</code>
     </figcaption>
   </figure>
-  <figure>  
-    <iframe sandbox="" srcdoc="
+  <figure>
+    <!--
+      Strictly speaking an empty string is fine here, but my HTML minifier
+      is removing empty sandbox attributes on iframes. An empty space prevents
+      it from deleting the attribute.
+      
+      See https://github.com/wilsonzlin/minify-html/issues/269
+    -->
+    <iframe sandbox=" " srcdoc="
       <script>
         window.addEventListener('DOMContentLoaded', function() {
           document.querySelector('main').innerText = 'This iframe has JavaScript!';
