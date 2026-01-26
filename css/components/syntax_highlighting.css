@@ -103,11 +103,11 @@ pre {
 }
 
 .lng-css {
-  /* Don't highlight media queries. */
-  .n {
-    color: var(--body-text);
+  /* Ignore keywords like `auto` and `space`. Keyword.Constant */
+  .kc {
+    color: var(--text);
   }
-
+  
   /* Highlight CSS colours in magenta. Name.Constant */
   .no {
     color: var(--literals);

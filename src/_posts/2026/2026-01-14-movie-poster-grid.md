@@ -91,8 +91,7 @@ This is a textbook use case for [CSS grid layout][mdn-css-grid].
 
 I start by resetting some default styles: removing the bullet point and whitespace from the list, and the whitespace around the figure.
 
-<!-- lang="nested_css" -->
-```css {"debug": true}
+```css {"names":{"1":"#movies","2":"figure"}}
 #movies {
   list-style-type: none;
   padding: 0;
@@ -107,7 +106,7 @@ I start by resetting some default styles: removing the bullet point and whitespa
 Then I create a grid that creates columns which are 200px wide, as many columns as will fit on the screen.
 The column width was an arbitrary choice and caused some layout issues -- I'll explain how to choose this properly in the next step.
 
-```css
+```css {"names":{"1":"#movies"}}
 #movies {
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
@@ -119,14 +118,13 @@ The column width was an arbitrary choice and caused some layout issues -- I'll e
 By default, browsers show images at their original size, which means they overlap each other.
 For now, clamp the width of the images to the columns, so they don't overlap:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","2":"img"}}
 #movies {
   img {
     width: 100%;
   }
 }
-{% endcode %}
+```
 
 With these styles, the grid fills up from the left and stops as soon as it runs out of room for a full 200px column.
 It looks a bit like an unfinished game of Tetris -- there's an awkward gap on the right-hand side of the window that makes the page feel off-balance.
@@ -144,7 +142,7 @@ It looks a bit like an unfinished game of Tetris -- there's an awkward gap on th
 
 We can space the columns more evenly by adding a [`justify-content` property][mdn-justify-content] which tells the browser to create equal spacing between each of them, including on the left and right-hand side:
 
-```css
+```css {"names":{"1":"#movies"}}
 #movies {
   justify-content: space-evenly;
 }
@@ -175,14 +173,13 @@ Because my first grid fixes the width, some posters will be a different height t
 I prefer to have the posters be fixed height and allow varied widths, so all the text is on the same level.
 Let's replace the width rule on images:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","2":"img"}}
 #movies {
   img {
     height: 300px;
   }
 }
-{% endcode %}
+```
 
 This causes an issue with my columns, because now some of the posters are wider than 200px, and overflow into their neighbour.
 I need to pick a column size which is wide enough to allow all of my posters at this fixed height.
@@ -203,7 +200,7 @@ Then I pick the largest display width in my collection, so even the widest poste
 
 In my case, the largest poster is 225px wide when it's shown at 300px tall, so I change my column rule to match:
 
-```css
+```css {"names":{"1":"#movies"}}
 #movies {
   grid-template-columns: repeat(auto-fill, 225px);
 }
@@ -221,14 +218,13 @@ I'll come back to it if it's ever an issue, but I don't need it today.)
 Now the posters which are narrower than the column are flush left with the edge of the column, whereas I'd really like them to be centred inside the column.
 I cam fix this with one more rule:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies", "2":"li"}}
 #movies {
   li {
     text-align: center;
   }
 }
-{% endcode %}
+```
 
 This is a more subtle transformation from the previous step -- nothing's radically different, but all the posters line up neatly in a way they didn't before.
 
@@ -254,8 +250,7 @@ The white background and blue underlined text are still giving "unstyled HTML pa
 The next set of rules change the page to white text on a dark background.
 I use a dark grey, so I can distinguish the posters which often use black:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"body","3":"#movies", "4":"a"}}
 body {
   background: #222;
   font-family: -apple-system, sans-serif;
@@ -267,13 +262,12 @@ body {
     text-decoration: none;
   }
 }
-{% endcode %}
+```
 
 Let's also make the text bigger, and add a bit of spacing between it and the image.
 And when the title and image are more spaced apart, let's increase the row spacing even more, so it's always clear which title goes with which poster:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","3":"figcaption"}}
 #movies {
   grid-row-gap: 3em;
   
@@ -282,21 +276,20 @@ And when the title and image are more spaced apart, let's increase the row spaci
     margin-top: 0.4em;
   }
 }
-{% endcode %}
+```
 
 The movie title is a good opportunity to use [`text-wrap: balance`][mdn-text-wrap].
 This tells the browser to balance the length of each line, which can make the text look a bit nicer.
 You'll get several lines of roughly the same length, rather than one or more long lines and a short line.
 For example, it changes *"The Empire Strikes // Block"* to the more balanced *"The Empire // Strikes Block"*.
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","2":"figcaption"}}
 #movies {  
   figcaption {
     text-wrap: balance;
   }
 }
-{% endcode %}
+```
 
 Here's what the page looks like now, which is pretty close to the final result:
 
@@ -354,8 +347,7 @@ Then I add this to my markup as a CSS variable:
 
 Finally, I can add some hover styles that use this new variable:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","2":"a","4":"figcaption","6":"img"}}
 #movies {
   a:hover {
     figcaption {
@@ -368,7 +360,7 @@ Finally, I can add some hover styles that use this new variable:
     }
   }
 }
-{% endcode %}
+```
 
 I've added the `text-decoration` styles directly on the `figcaption` rather than the `a`, because browsers are inconsistent about whether those properties are inherited from parent elements.
 
@@ -418,8 +410,7 @@ First I have to insert a wrapper `<div>` which I'm going to colour, and a CSS va
 
 We can add a coloured background to this wrapper and make it the right size:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","2":"img","3":".wrapper","6":".wrapper"}}
 #movies {
   img, .wrapper {
     height: 300px;
@@ -430,20 +421,19 @@ We can add a coloured background to this wrapper and make it the right size:
     background: var(--tint-colour);
   }
 }
-{% endcode %}
+```
 
 But a `<div>` is a `block` element by default, so it isn't centred properly -- it sticks to the left-hand side of the column, and doesn't line up with the text.
 We could add `margin: 0 auto;` to move it to the middle, but that duplicates the `text-align: center;` property we wrote earlier.
 Instead, I prefer to make the wrapper an `inline-block`, so it follows the existing text alignment rule:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"#movies","2":".wrapper"}}
 #movies {
   .wrapper {
     display: inline-block;
   }
 }
-{% endcode %}
+```
 
 Here's what the page looks like when some of the images have yet to load:
 
@@ -486,8 +476,7 @@ Here's what the HTML markup looks like:
 
 and here's the complete CSS:
 
-<!-- lang="nested_css" -->
-{% code lang="css" %}
+```css {"names":{"1":"body","3":"#movies","7":"figure","8":"li","9":"a","10":"figcaption","11":"a","13":"a","14":"#tiffanys","15":"figcaption","16":"img","19":"img","20":".wrapper","23":".wrapper"}}
 body {
   background: #222;
   font-family: -apple-system, sans-serif;
@@ -545,7 +534,7 @@ body {
     display: inline-block;
   }
 }
-{% endcode %}
+```
 
 I'm really happy with the result -- not just the final page, but how well I understand it.
 CSS can be tricky to reason about, and writing this step-by-step guide has solidified my mental model.
@@ -566,4 +555,3 @@ This layout is working well enough for now, but more importantly, I'm confident 
 [mdn-text-wrap]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-wrap
 [mdn-ul]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ul
 [static-sites]: /2024/static-websites/
-
