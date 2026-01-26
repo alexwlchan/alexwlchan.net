@@ -45,7 +45,7 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
         highlighted_code = highlighted_code.replace(
             '<span class="p">#</span><span class="nn">', '<span class="nn">#'
         )
-        
+
         # Reclassify the dot in a class selector as part of
         # the name.
         highlighted_code = highlighted_code.replace(
@@ -65,25 +65,25 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
 
             highlighted_code = highlighted_code.replace(
                 f'<span class="err">{tag},</span>',
-                f'<span class="n">{tag}</span><span class="o">,</span>'
+                f'<span class="n">{tag}</span><span class="o">,</span>',
             )
             highlighted_code = highlighted_code.replace(
                 f'<span class="err">{tag}</span>', f'<span class="n">{tag}</span>'
             )
-        
+
         highlighted_code = re.sub(
             r'<span class="err">(?P<classname>\.[a-z]+)</span>',
             r'<span class="nn">\g<classname></span>',
-            highlighted_code
+            highlighted_code,
         )
-        
+
         # Reclassify units as part of numeric constants.
         for unit in ("px", "em", "%"):
             highlighted_code = re.sub(
-                r'<span class="mi">(?P<amount>[0-9]+)</span>' +
-                f'<span class="kt">{unit}</span>',
+                r'<span class="mi">(?P<amount>[0-9]+)</span>'
+                + f'<span class="kt">{unit}</span>',
                 f'<span class="mi">\\g<amount>{unit}</span>',
-                highlighted_code
+                highlighted_code,
             )
 
     return highlighted_code
@@ -108,7 +108,7 @@ def apply_syntax_highlighting(
 
     html = highlight(src, lexer, formatter)
     html = apply_manual_fixes(html, lang)
-    
+
     if debug:
         print(repr(html))
 
