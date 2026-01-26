@@ -10,6 +10,7 @@ on:
       - 'mosaic/**'
       - 'scripts/**'
       - 'tests/**'
+      - 'requirements.txt'
 
   pull_request:
     branches:
@@ -20,6 +21,7 @@ on:
       - 'mosaic/**'
       - 'scripts/**'
       - 'tests/**'
+      - 'requirements.txt'
 
 jobs:
   mosaic_tests:
