@@ -71,8 +71,8 @@ nav_section: articles
     {% with articles = ns.remaining_posts %}
       {%- include "partials/article_links.html" %}
     {% endwith %}
+    {% set ns.remaining_posts = [] %}
   {% endif %}
-  {% set ns.remaining_posts = [] %}
 {% endfor %}
 
 {% comment %}
