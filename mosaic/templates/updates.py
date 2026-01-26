@@ -61,5 +61,12 @@ class UpdateExtension(Extension):
             text=markdownify(f"<strong>Update, {timestamp}:</strong> {md}"),
         )
 
+        # If there are consecutive newlines, they must have come from
+        # a code block in this update.
+        #
+        # Replace the newlines with <br> tags, so the Markdwon renderer
+        # doesn't get confused and try to insert <p> tags.
+        html = html.replace("\n\n", "<br>\n")
+
         assert_is_invariant_under_markdown(html)
         return html

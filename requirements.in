@@ -6,12 +6,13 @@ jinja2
 lightningcss
 livereload
 lxml
-markdown
 minify-html
+mistune
 Pillow
 pydantic
 Pygments
 PyYAML
+smartypants
 termcolor
 tqdm
 
@@ -24,7 +25,6 @@ mypy
 pytest-cov
 pytest-xdist
 ruff
-types-Markdown
 types-Pygments
 types-PyYAML
 types-tqdm

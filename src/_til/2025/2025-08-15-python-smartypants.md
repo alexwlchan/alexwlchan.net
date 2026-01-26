@@ -9,7 +9,7 @@ tags:
 I wanted to add curly quotes and dashes to some text in Python, so I looked at the [smartypants library](https://smartypants.readthedocs.io/en/latest/introduction.html).
 This is the code I used:
 
-```python
+```python {"names":{"1":"smartypants","2":"text","3":"attrs"}}
 import smartypants
 
 text = '"hello world"'

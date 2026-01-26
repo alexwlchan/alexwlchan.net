@@ -38,10 +38,10 @@ class TestInlineSvgExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert html == (
-            '<figure><svg aria-labelledby="svg_example" role="img" '
+            '<svg aria-labelledby="svg_example" role="img" '
             'viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'
             '<title id="svg_example">A yellow rectangle</title>\n'
-            '<rect fill="yellow" height="200" width="200"/>\n</svg></figure>'
+            '<rect fill="yellow" height="200" width="200"/>\n</svg>'
         )
 
     def test_link_multiple_svgs_in_same_page(
@@ -69,15 +69,15 @@ class TestInlineSvgExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert html == (
-            '<figure><a href="/images/2026/rect_red.svg">'
+            '<a href="/images/2026/rect_red.svg">'
             '<svg role="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
-            '<rect fill="red" height="200" width="200"/>\n</svg></a></figure>'
-            '<figure><a href="/images/2026/rect_green.svg">'
+            '<rect fill="red" height="200" width="200"/>\n</svg></a>'
+            '<a href="/images/2026/rect_green.svg">'
             '<svg role="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
-            '<rect fill="green" height="200" width="200"/>\n</svg></a></figure>'
-            '<figure><a href="/images/2026/rect_blue.svg">'
+            '<rect fill="green" height="200" width="200"/>\n</svg></a>'
+            '<a href="/images/2026/rect_blue.svg">'
             '<svg role="img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">\n'
-            '<rect fill="blue" height="200" width="200"/>\n</svg></a></figure>'
+            '<rect fill="blue" height="200" width="200"/>\n</svg></a>'
         )
 
         for f in ("rect_red.svg", "rect_green.svg", "rect_blue.svg"):
@@ -102,11 +102,11 @@ class TestInlineSvgExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert html == (
-            '<figure><svg aria-labelledby="svg_example" class="dark_aware" '
+            '<svg aria-labelledby="svg_example" class="dark_aware" '
             'data_colour="yellow" role="img" viewBox="0 0 200 200" '
             'xmlns="http://www.w3.org/2000/svg">'
             '<title id="svg_example">A yellow rectangle</title>\n'
-            '<rect fill="yellow" height="200" width="200"/>\n</svg></figure>'
+            '<rect fill="yellow" height="200" width="200"/>\n</svg>'
         )
 
     def test_comments_are_removed(self, src_dir: Path, env: Environment) -> None:
@@ -127,11 +127,11 @@ class TestInlineSvgExtension:
 
         html = env.from_string(md).render(page=page).strip()
         assert html == (
-            '<figure><svg aria-labelledby="svg_example" role="img" '
+            '<svg aria-labelledby="svg_example" role="img" '
             'viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">'
             '<title id="svg_example">A yellow rectangle</title>\n'
             '<rect fill="blue" height="200" width="200"/>'
-            '<rect fill="yellow" height="200" width="200"/>\n</svg></figure>'
+            '<rect fill="yellow" height="200" width="200"/>\n</svg>'
         )
 
     def test_non_svg_is_error(self, env: Environment) -> None:

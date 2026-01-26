@@ -12,7 +12,7 @@ import itertools
 from pathlib import Path
 import shutil
 
-from jinja2 import Environment, TemplateSyntaxError, UndefinedError
+from jinja2 import Environment
 from tqdm import tqdm
 import yaml
 
@@ -173,8 +173,6 @@ class Site:
             try:
                 out_path = pg.write(env, out_dir=self.out_dir)
                 written_html_paths.add(out_path)
-            except (TemplateSyntaxError, UndefinedError):
-                return False
             except Exception as exc:  # pragma: no cover
                 print(f"error writing {pg!r}: {exc}")
                 raise

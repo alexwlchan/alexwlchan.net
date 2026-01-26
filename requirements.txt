@@ -31,7 +31,7 @@ httpx==0.28.1
     # via -r uptime_tests/requirements.txt
 hyperlink==21.0.0
     # via -r requirements.in
-hypothesis==6.151.1
+hypothesis==6.151.2
     # via -r requirements.in
 idna==3.11
     # via
@@ -55,11 +55,11 @@ livereload==2.7.1
     # via -r requirements.in
 lxml==6.0.2
     # via -r requirements.in
-markdown==3.10.1
-    # via -r requirements.in
 markupsafe==3.0.3
     # via jinja2
 minify-html==0.18.1
+    # via -r requirements.in
+mistune==3.2.0
     # via -r requirements.in
 mypy==1.19.1
     # via
@@ -112,6 +112,8 @@ ruff==0.14.13
     # via
     #   -r requirements.in
     #   -r uptime_tests/requirements.txt
+smartypants==2.0.2
+    # via -r requirements.in
 sortedcontainers==2.4.0
     # via hypothesis
 soupsieve==2.8.3
@@ -124,8 +126,6 @@ tqdm==4.67.1
     # via -r requirements.in
 types-docutils==0.22.3.20251115
     # via types-pygments
-types-markdown==3.10.0.20251106
-    # via -r requirements.in
 types-pygments==2.19.0.20251121
     # via -r requirements.in
 types-pyyaml==6.0.12.20250915
