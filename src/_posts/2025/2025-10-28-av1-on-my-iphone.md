@@ -10,6 +10,7 @@ tags:
 I [download a lot of videos][downloads], but recently I discovered that some of those videos won't play on my iPhone.
 If I try to open the videos or embed them in a webpage, I get a broken video player:
 
+<figure>
 {%
   picture
   filename="broken-video.png"
@@ -17,6 +18,7 @@ If I try to open the videos or embed them in a webpage, I get a broken video pla
   class="screenshot dark_aware"
   alt="A black box with a play triangle in the middle, and a line striking it out."
 %}
+</figure>
 
 These same videos play fine on my Mac -- it's just my iPhone that has issues.
 The answer involves the AV1 video codec, Apple's chips, and several new web APIs I learnt along the way.
