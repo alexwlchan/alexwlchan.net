@@ -4,9 +4,7 @@ Tests for `mosaic.syntax_highlighting`.
 
 import pytest
 
-from mosaic.syntax_highlighting import (
-    apply_syntax_highlighting,
-)
+from mosaic.syntax_highlighting import apply_syntax_highlighting
 from mosaic.text import markdownify
 
 
@@ -224,4 +222,16 @@ def test_highlighting_name() -> None:
         '<pre class="lng-python"><code>'
         '<span class="n">x</span> <span class="o">=</span> y <span class="o">+</span> '
         '<span class="mi">1</span></code></pre>'
+    )
+
+
+def test_swift_shebang_is_not_highlighted() -> None:
+    """
+    The shebang at the start of a Swift script is punctuation.
+    """
+    html = apply_syntax_highlighting(
+        src='#!/usr/bin/env swift\n\nprint("Hello world")', lang="swift"
+    )
+    assert html.startswith(
+        '<pre class="lng-swift"><code><span class="p">#!/usr/bin/env swift</span>'
     )

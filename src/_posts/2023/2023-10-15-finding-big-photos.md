@@ -12,9 +12,9 @@ colors:
   index_dark:  "#b2978a"
 ---
 
-{% comment %}
+{#
   Cover photo from https://www.pexels.com/photo/rusty-set-of-iron-weights-for-scale-in-close-up-view-8545561/
-{% endcomment %}
+#}
 
 I'm approaching the limit of my current iCloud storage tier, and most of that is my Photos Library.
 I don't really want to pay for the next iCloud storage tier -- I'd be tripling my bill, but I'd barely use the extra space.
@@ -27,7 +27,7 @@ I wrote a short Swift script which prints a list of all the largest files in my 
 The key part is two methods in PhotoKit: [PHAsset.fetchAssets][fetchAssets] to enumerate all the files, and [PHAssetResource.assetResources][assetResources] to retrieve the original filename and file size.
 The rest of the script takes the data and does some sorting and pretty-printing.
 
-```swift
+```swift {"names":{"1":"Photos","2":"AssetData","4":"localIdentifier","6":"originalFilename","8":"fileSize","10":"getAssetsBySize","12":"allAssets","14":"options","19":"asset","20":"resource","23":"data","45":"String","46":"leftPadding","47":"toLength","49":"withPad","62":"bcf","64":"photo","66":"size"}}
 #!/usr/bin/env swift
 
 import Photos
