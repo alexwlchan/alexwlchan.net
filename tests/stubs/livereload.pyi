@@ -1,0 +1,6 @@
+from collections.abc import Callable
+from pathlib import Path
+
+class Server:
+    def watch(self, filepath: str, func: Callable[[], None]) -> None: ...
+    def serve(self, root: Path, port: int, restart_delay: int) -> None: ...

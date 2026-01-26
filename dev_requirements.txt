@@ -45,7 +45,7 @@ httpx==0.28.1
     #   -r uptime_tests/requirements.txt
 hyperlink==21.0.0
     # via -r requirements.txt
-hypothesis==6.151.0
+hypothesis==6.151.1
     # via -r requirements.txt
 idna==3.11
     # via
@@ -69,6 +69,8 @@ librt==0.7.8
     #   -r uptime_tests/requirements.txt
     #   mypy
 lightningcss==0.3.1
+    # via -r requirements.txt
+livereload==2.7.1
     # via -r requirements.txt
 lxml==6.0.2
     # via -r requirements.txt
@@ -157,6 +159,10 @@ soupsieve==2.8.3
     #   beautifulsoup4
 termcolor==3.3.0
     # via -r requirements.txt
+tornado==6.5.4
+    # via
+    #   -r requirements.txt
+    #   livereload
 tqdm==4.67.1
     # via -r requirements.txt
 types-docutils==0.22.3.20251115
@@ -193,5 +199,3 @@ urllib3==2.6.3
     # via
     #   -r requirements.txt
     #   types-requests
-watchdog==6.0.0
-    # via -r requirements.txt
