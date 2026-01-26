@@ -32,22 +32,22 @@ Because yt-dlp helpfully [includes `-sr` in the format ID][yt-dlp-sr] of AI upsc
 *   If you're using the CLI, add the `--format` flag.
     For example:
     
-    {% code lang="console" %}
+    ```console
     $ yt-dlp "https://www.youtube.com/watch?v=0N1_0SUGlDQ" \
         --format 'bestvideo*[format_id!*=-sr]+bestaudio/best[format_id!*=-sr]'
-    {% endcode %}
+    ```
 
 *   If you're embedding it in Python, add `format` to the options passed to `YouTubeDL`.
     For example:
     
-    {% code lang="python" names="0:yt_dlp 1:YoutubeDL 2:ydl_opts 5:ydl" %}
+    ```python {"names": {"1":"yt_dlp","2":"YoutubeDL","3":"ydl_opts","6":"ydl"}}
     from yt_dlp import YoutubeDL
 
     ydl_opts = {"format": "bestvideo*[format_id!*=-sr]+bestaudio/best[format_id!*=-sr]"}
 
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download(["https://www.youtube.com/watch?v=0N1_0SUGlDQ"])
-    {% endcode %}
+    ```
 
 I've added the latter to my [personal wrapper around yt-dlp][yt-dlp-wrapper].
 
