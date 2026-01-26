@@ -162,6 +162,11 @@
       font-size:   calc(0.92 * 16px);
       line-height: calc(0.91 * 23px);
     }
+    
+    .text:last-child {
+      margin-bottom:  0;
+      padding-bottom: 0;
+    }
   }
   
   .timestamp {
