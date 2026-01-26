@@ -157,7 +157,8 @@ class Site:
             }
         )
 
-        self.copy_static_files(incremental)
+        if not incremental:
+            self.copy_static_files()
 
         # Create all the tint colour assets
         for tc in tint_colours:
@@ -231,7 +232,7 @@ class Site:
 
         return "/" + str(out_path.relative_to(self.out_dir))
 
-    def copy_static_files(self, incremental: bool) -> None:  # pragma: no cover
+    def copy_static_files(self) -> None:  # pragma: no cover
         """
         Copy all the static files from the src to the dst directory.
         """
@@ -280,7 +281,7 @@ class Site:
         with tqdm(desc="static files", total=len(static_files)) as pbar:
             for src_p, out_p in static_files:
                 if not out_p.exists() or not filecmp.cmp(
-                    src_p, out_p, shallow=incremental
+                    src_p, out_p, shallow=False
                 ):
                     out_p.parent.mkdir(exist_ok=True, parents=True)
                     shutil.copyfile(src_p, out_p)
