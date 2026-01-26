@@ -6,18 +6,17 @@ title: Elsewhere
 This is a list of articles I've written, talks I've given, and podcasts I've been a guest on.
 I sometimes link to these in the main blog feed; this page is meant to be a convenient reference.
 
-<style type="x-text/scss">
-  .archive {
-    margin-top: 1.2em;
-
-    .archive__date {
-      width: 68px;
-      font-size: 0.85em;
-      color: var(--accent-grey);
-      text-align: right;
-      vertical-align: top;
-    }
+<style>
+.archive {
+  margin-top: 1.2em;
+  .archive__date {
+    width: 68px;
+    font-size: 0.85em;
+    color: var(--accent-grey);
+    text-align: right;
+    vertical-align: top;
   }
+}
 </style>
 
 <style>
@@ -49,44 +48,44 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 ### Last Week in AWS
 
 <table class="archive">
-  {% for entry in writing_entries %}
-    {% if entry.publication == "Last Week in AWS" %}
+  {%- for entry in writing_entries -%}
+    {%- if entry.publication == "Last Week in AWS" -%}
       <tr>
         <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
         <td>
           <a href="{{ entry.url }}">{{ entry.title }}</a>
         </td>
       </tr>
-    {% endif %}
-  {% endfor %}
+    {%- endif -%}
+  {%- endfor -%}
 </table>
 
 ### Stacks development blog for Wellcome Collection
 
 <table class="archive">
-  {% for entry in writing_entries %}
-    {% if entry.publication == "Wellcome Collection development blog" %}
+  {%- for entry in writing_entries -%}
+    {%- if entry.publication == "Wellcome Collection development blog" -%}
       <tr>
         <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
         <td>
           <a href="{{ entry.url }}">{{ entry.title }}</a>
         </td>
       </tr>
-    {% endif %}
-  {% endfor %}
+    {%- endif -%}
+  {%- endfor -%}
 </table>
 
 ### Other writing
 
 <table class="archive">
-  {% for entry in writing_entries %}
-    {% if entry.publication == "Last Week in AWS" %}
-      {% continue %}
-    {% endif %}
+  {%- for entry in writing_entries -%}
+    {%- if entry.publication == "Last Week in AWS" -%}
+      {%- continue -%}
+    {%- endif -%}
 
-    {% if entry.publication == "Wellcome Collection development blog" %}
-      {% continue %}
-    {% endif %}
+    {%- if entry.publication == "Wellcome Collection development blog" -%}
+      {%- continue -%}
+    {%- endif %}
 
     <tr>
       <td class="archive__date">{{ entry.date.strftime("%b %Y") }}</td>
@@ -94,7 +93,7 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
         <a href="{{ entry.url }}">{{ entry.title }}</a> – {{ entry.publication }}
       </td>
     </tr>
-  {% endfor %}
+  {%- endfor -%}
 </table>
 
 
@@ -103,24 +102,24 @@ I sometimes link to these in the main blog feed; this page is meant to be a conv
 {% set talk_entries = site.data["elsewhere"]["talks"] | sort(attribute="date", reverse=True) %}
 
 <table class="archive" id="talks_archive">
-  {% for talk in talk_entries %}
+  {%- for talk in talk_entries -%}
     <tr>
       <td class="archive__date">{{ talk.date.strftime("%b %Y") }}</td>
       <td class="talk_description">
         {{ talk.title }}{% if talk.event %} @ {{ talk.event }}{% endif %}
-        {% if "links" in talk %}
+        {%- if "links" in talk -%}
         <ul class="dot_list">
-          {% for label, link in talk.links.items() %}
+          {%- for label, link in talk.links.items() -%}
           <li><a href="{{ link }}">{{ label }}</a></li>
-          {% endfor %}
+          {%- endfor -%}
         </ul>
-        {% endif %}
-        {% if "description" in talk %}
+        {%- endif -%}
+        {%- if "description" in talk -%}
         {{ talk.description | markdownify }}
-        {% endif %}
+        {%- endif -%}
       </td>
     </tr>
-  {% endfor %}
+  {%- endfor -%}
 </table>
 
 

@@ -4,12 +4,16 @@ Utilities for dealing with text.
 
 import collections
 import functools
+import json
 import re
+from typing import Any, Match
 
 import minify_html
-from markdown import markdown
+import mistune
+from mistune.core import BlockState
+import smartypants
 
-from .syntax_highlighting import SyntaxHighlighterExtension
+from .syntax_highlighting import apply_syntax_highlighting
 
 
 STRIP_HTML_RE = re.compile(r"<[^<]+?>")
@@ -25,43 +29,140 @@ def strip_html(text: str) -> str:
     return STRIP_HTML_RE.sub("", text)
 
 
+def apply_smartypants(text: str) -> str:
+    """
+    Add curly quotes and smart dashes to a string.
+    """
+    attrs = (
+        # normal quotes (" and ') to curly ones
+        smartypants.Attr.q
+        |
+        # typewriter dashes (--) to en-dashes and dashes (---) to em-dashes
+        smartypants.Attr.D
+        |
+        # dashes (...) to ellipses
+        smartypants.Attr.e
+        |
+        # output Unicode chars instead of numeric character references
+        smartypants.Attr.u
+    )
+
+    return smartypants.smartypants(text, attrs)
+
+
+class AlexwlchanRenderer(mistune.HTMLRenderer):
+    """
+    A custom mistune HTMLRenderer with a couple of options and settings
+    for my preferred Markdown setup.
+    """
+
+    def __init__(self) -> None:
+        """
+        Create the renderer.
+
+        Options:
+            - escape=False means the renderer won't escape all HTML tags,
+              so I can use HTML inline with my Markdown.
+        """
+        super().__init__(escape=False)
+
+    def block_code(self, code: str, info: str | None = None) -> str:
+        """
+        Create a code block with optional name highlighting.
+        """
+        if info is None:
+            info = ""
+        parts = info.split(" ", 1)
+
+        attrs: dict[str, Any]
+        if not info.strip():
+            lang, attrs = "text", {}
+        elif len(parts) == 1:
+            lang, attrs = parts[0], {}
+        else:
+            lang, attrs = parts[0], json.loads(parts[1])
+
+        if "names" in attrs:
+            attrs["names"] = {int(idx): name for idx, name in attrs["names"].items()}
+
+        return apply_syntax_highlighting(code, lang, **attrs)
+
+    def heading(self, text: str, level: int, **attrs: Any) -> str:
+        """
+        Create a heading which includes an `id` attribute.
+        """
+        assert attrs == {}, attrs
+
+        tag = f"h{level}"
+        heading_id = re.sub(r"[^\w]+", "-", text.lower()).strip("-")
+
+        text = apply_smartypants(text)
+
+        return f'<{tag} id="{heading_id}">{text}</{tag}>\n'
+
+    def paragraph(self, text: str) -> str:
+        """
+        Create a paragraph with curly quotes and smart dashes.
+        """
+        return super().paragraph(text=apply_smartypants(text))
+
+    def list_item(self, text: str) -> str:
+        """
+        Create a list item with curly quotes and smart dashes.
+        """
+        return super().list_item(text=apply_smartypants(text))
+
+
+class MosaicBlockParser(mistune.BlockParser):
+    """
+    Overrides the default block parser so it considers more tags to
+    be pre tags (treat contents as-is, don't parse as Markdown).
+
+    The default implementation only considers pre, script, style, and
+    textarea to be exempt from Markdown parsing.
+    """
+
+    def parse_raw_html(self, m: Match[str], state: BlockState) -> int | None:
+        """
+        Overrides the parent method of the same name, with extra cases
+        for elements I use.
+        """
+        from mistune.block_parser import _parse_html_to_end
+
+        marker = m.group(0).strip()
+        open_tag = marker[1:].lower()
+
+        # These are not all pre tags in the strictest sense, but any
+        # time you see one in my source Markdown, I can assume everything
+        # until the closing tag is pure HTML and doesn't need the Markdown
+        # library to interfere.
+        PRE_TAGS = ["figure", "picture", "blockquote", "ol", "div", "details"]
+
+        if open_tag in PRE_TAGS:
+            end_tag = "</" + open_tag + ">"
+            return _parse_html_to_end(state, end_tag, m.end())
+
+        return super().parse_raw_html(m, state)
+
+
+markdown = mistune.Markdown(renderer=AlexwlchanRenderer(), block=MosaicBlockParser())
+
+
 @functools.cache
 def markdownify(text: str) -> str:
     """
     Format text using Markdown.
     """
-    html = markdown(
-        text,
-        extensions=[
-            "smarty",
-            SyntaxHighlighterExtension(),
-            #
-            # I enable this plugin so that Python-Markdown will automatically
-            # add an `id` attribute to headings that don't have one.
-            #
-            # I don't use the TOC it generates because it misses any headings
-            # where I've added my own `id` attribute.
-            "toc",
-        ],
-    )
-    html = html.replace(
-        '<span class="toctitle">Table of Contents</span>', "<h3>Table of contents</h3>"
-    )
-
-    # Fix a couple of block elements which Python-Markdown will wrap
-    # in <p> tags if it sees them in a list.
-    for tag in ("dl", "pre", "table", "ul"):
-        html = html.replace(f"<p><{tag}", f"<{tag}")
-        html = html.replace(f"</{tag}></p>", f"</{tag}>")
-
-    return html
+    html = markdown(text)
+    assert isinstance(html, str), f"unexpected type: {type(html)}"
+    return html.strip()
 
 
 def markdownify_oneline(text: str) -> str:
     """
     Format a single line of text using Markdown, but without <p> tags.
     """
-    return markdownify(text).replace("<p>", "").replace("</p>", "")
+    return markdownify(text).replace("<p>", "").replace("</p>", "").strip()
 
 
 def cleanup_text(text: str) -> str:
@@ -259,8 +360,8 @@ def assert_is_invariant_under_markdown(html: str) -> None:
         markdownified = re.sub(r"</p>$", "", markdownified)
 
     assert minify_html.minify(markdownified) == minify_html.minify(html), (
-        markdownified,
-        html,
+        minify_html.minify(markdownified),
+        minify_html.minify(html),
     )
 
 

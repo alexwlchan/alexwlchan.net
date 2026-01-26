@@ -101,7 +101,7 @@ Here's the procedure I came up with:
 
 2.  Find the highest `rowid` that's currently in use:
 
-    ```console?prompt=sqlite>
+    ```sqlite3
     sqlite> SELECT MAX(rowid) FROM photos;
     1913389
     ```

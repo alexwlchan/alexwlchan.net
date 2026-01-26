@@ -125,16 +125,11 @@ def render_inline_svg(
     xml_output = re.sub(r"<\?xml.*?\?>", "", xml_output).strip()
 
     # 8. Wrap in link if necessary.
-    #
-    # I always wrap the contents in a <figure> tag, which tells the
-    # Python-Markdown library to treat this as a block element and
-    # skip until it sees the closing </figure> -- otherwise it gets
-    # confused if there's an inline <style> tag.
     if link_to == "original":
         dst_path = out_dir / "images" / str(year) / filename
         dst_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src_path, dst_path)
         href = "/" + str(dst_path.relative_to(out_dir))
-        return f'<figure><a href="{href}">{xml_output}</a></figure>'
+        return f'<a href="{href}">{xml_output}</a>'
     else:
-        return "<figure>" + xml_output + "</figure>"
+        return xml_output

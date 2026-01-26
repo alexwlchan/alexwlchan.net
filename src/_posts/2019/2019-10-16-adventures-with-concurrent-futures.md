@@ -455,12 +455,12 @@ Once again, a detailed walkthrough of code is as useful as me as for the reader.
 {% update date="2022-01-04" %}
   I've created a GitHub repo which has a nicer version of this code, which allows you to call a single function, rather than interspersing your function/inputs with the concurrency code:
 
-{% code lang="python" names="0:concurrently 1:concurrently 3:input 4:output 7:perform 9:get_tasks_to_do" %}
-from concurrently import concurrently
+  ```python {"names": {"1": "concurrently", "2": "concurrently", "3": "input", "4": "output", "7": "perform", "9": "get_tasks_to_do"}}
+  from concurrently import concurrently
 
-for (input, output) in concurrently(fn=perform, inputs=get_tasks_to_do()):
-    print(input, output)
-{% endcode %}
+  for (input, output) in concurrently(fn=perform, inputs=get_tasks_to_do()):
+      print(input, output)
+  ```
 
   I'd recommend using this instead of the code above (although the above still serves as a valuable explanation of how it works).
   See [alexwlchan/concurrently](https://github.com/alexwlchan/concurrently).

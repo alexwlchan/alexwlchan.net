@@ -1,33 +1,5 @@
-<style>
-  /* If these article links are on the same page as article cards, add left/right
-   * margins so the text lines up vertically */
-  .acards + .alinks > li,
-  #articles .alinks > li {
-    width: calc(100% - 2 * (1em - 2px));
-    padding-left:  calc(1em + 2px);
-    padding-right: calc(1em + 2px);
-  }
-
-  .alinks {
-    list-style-type: none;
-    padding: 0;
-    
-    h4 {
-      font-weight: normal;
-      margin-bottom: 7px;
-    }
-    
-    p {  /* description */
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 85%;
-      line-height: 1.45em;
-    }
-    
-    a:visited {
-      color: var(--link-color);
-    }
-  }
+<style type="x-text/scss">
+  @use "components/article_links";
 </style>
 
 <ul class="alinks">

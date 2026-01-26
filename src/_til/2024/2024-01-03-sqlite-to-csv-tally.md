@@ -22,7 +22,7 @@ GROUP BY
 Normally my next step is to take that output and shove it into a spreadsheet, so I can play with it in something like Numbers.
 I found a [Stack Overflow thread](https://stackoverflow.com/q/6076984/1558022) which explains how to get SQLite to save your data to a CSV file:
 
-```sqlite3-console
+```sqlite3
 sqlite> .mode csv
 sqlite> .headers on
 sqlite> .once tally.csv
@@ -39,7 +39,7 @@ I was hoping for some convenient one-liner, but it seems like you can't chain th
 After you run this command, it will print further query output to stdout, still formatted as CSV.
 If you want to return it to the default state:
 
-```sqlite3-console
+```sqlite3
 sqlite> .mode list
 sqlite> .headers off
 ```

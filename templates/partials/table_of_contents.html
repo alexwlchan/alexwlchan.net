@@ -4,20 +4,27 @@
 
 <blockquote class="table_of_contents">
   <h3>Table of contents</h3>
-
   <ul>
-    {% for entry in toc_entries %}
+    {%- for entry in toc_entries -%}
       <li>
         <a href="#{{ entry.id }}">{{ entry.label }}</a>
 
-        {% if entry.sub_headings|count > 0 %}
+        {%- if entry.sub_headings|count > 0 -%}
           <ul>
-            {% for entry in entry.sub_headings %}
+            {%- for entry in entry.sub_headings -%}
             <li><a href="#{{ entry.id }}">{{ entry.label }}</a></li>
-            {% endfor %}
+            {%- endfor -%}
           </ul>
-        {% endif %}
+        {%- endif -%}
       </li>
     {%- endfor -%}
   </ul>
 </blockquote>
+
+{#
+  Ensure there's a newline at the end of the rendered TOC.
+  
+  This means the Mistune Markdown parser will see the TOC as ended,
+  and not count the first heading as part of the TOC.
+#}
+{{ " " }}

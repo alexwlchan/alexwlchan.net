@@ -15,12 +15,9 @@ In Python-Markdown, those curly braces are used for extra attributes
 instead.
 """
 
-import json
 import re
 import textwrap
 
-from markdown import Extension, Markdown
-from markdown.preprocessors import Preprocessor
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
@@ -223,96 +220,3 @@ def apply_syntax_highlighting(
         """)
 
     return html
-
-
-class SyntaxHighlighterPreprocessor(Preprocessor):
-    """
-    Find and extract fenced code blocks.
-    """
-
-    # This matches fenced code blocks like:
-    #
-    #     ```python {"debug": true, "names": {0: "greet", 1: "name"}}
-    #     def greet(name):
-    #         print(f"Hello {name}!")
-    #     ```
-    #
-    # fmt: off
-    FENCED_BLOCK_RE = re.compile(
-        r"^(?P<indent>[ ]*)"              # leading indent
-        r"```"                            # opening fence
-        r"(?P<lang>[a-z\-]+)?"             # language name
-        r"(?:[ ](?P<attrs>\{[^\n]+\}))?"  # JSON attributes (optional)
-        r"\n"                             # newline (end of opening fence)
-        r"(?P<src>.*?)"                   # code content (non-greedy)
-        r"(?<=\n)(?P=indent)```",         # closing fence (match opening indent)
-        re.MULTILINE | re.DOTALL,
-    )
-    # fmt: on
-
-    def __init__(self, md: Markdown):
-        """
-        Create a new instance of SyntaxHighlighterPreprocessor.
-        """
-        super().__init__(md)
-
-    def run(self, lines: list[str]) -> list[str]:
-        """
-        Match and store fenced code blocks.
-        """
-        text = "\n".join(lines)
-
-        while m := self.FENCED_BLOCK_RE.search(text):
-            if m.group("attrs"):
-                highlighter_args = json.loads(m.group("attrs"))
-            else:
-                highlighter_args = {}
-
-            if "names" in highlighter_args:
-                highlighter_args["names"] = {
-                    int(idx): name for idx, name in highlighter_args["names"].items()
-                }
-
-            if m.group("indent"):
-                src = "\n".join(
-                    re.sub(r"^" + m.group("indent"), "", line)
-                    for line in m.group("src").splitlines()
-                )
-            else:
-                src = m.group("src")
-
-            html = apply_syntax_highlighting(
-                src,
-                lang=m.group("lang") or "text",
-                **highlighter_args,
-            )
-
-            # If the original Markdown was indented, collapse all the
-            # newlines into <br/> tags.
-            #
-            # This means Python-Markdown will treat it as a single HTML
-            # element, and won't break it into separate paragraphs.
-            if m.group("indent"):
-                assert html.endswith("\n")
-                html = html.rstrip().replace("\n", "<br/>")
-                assert not html.endswith("\n")
-
-            text = text.replace(m.group(0), m.group("indent") + html)
-
-        return text.split("\n")
-
-
-class SyntaxHighlighterExtension(Extension):
-    """
-    Markdown extension to handle syntax highlighting.
-    """
-
-    def extendMarkdown(self, md: Markdown) -> None:
-        """
-        Add `SyntaxHighlighterPreprocessor` to the `Markdown` instance.
-        """
-        md.registerExtension(self)
-
-        md.preprocessors.register(
-            SyntaxHighlighterPreprocessor(md), "syntax_highlighting", 25
-        )
