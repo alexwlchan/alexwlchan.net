@@ -32,6 +32,7 @@ This disk image contains two files:
 
 Here's what the HTML file looks like (with fake data, obviously):
 
+<figure>
 {%
   picture
   filename="recovery_codes.png"
@@ -39,6 +40,7 @@ Here's what the HTML file looks like (with fake data, obviously):
   class="screenshot"
   alt="A page with a couple of sections (headed 'Apple Account', 'Etsy', 'GitHub'). In each section is a bit of explanatory text, about when I saved the recovery codes and what account they're for, then the recovery codes in a monospaced font."
 %}
+</figure>
 
 You can [download the HTML file][template] I use as a template.
 

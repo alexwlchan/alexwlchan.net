@@ -23,7 +23,7 @@ It's quick and easy to type, and the output is separate from all your other logg
 I created something similar for Go: a module which exports a single function `Q()`, and logs anything it receives to `/tmp/q.txt`.
 Here's an example:
 
-{% code lang="go" names="0:main 1:printShapeInfo 2:name 3:sides 8:main 14:err" %}
+```go {"names":{"1":"main","2":"printShapeInfo","3":"name","4":"sides","9":"main","15":"err"}}
 package main
 
 import (
@@ -45,7 +45,7 @@ func main() {
 
 	printShapeInfo("triangle", 3)
 }
-{% endcode %}
+```
 
 The logged output in `/tmp/q.txt` includes the name of the function and the expression that was passed to `Q()`:
 
