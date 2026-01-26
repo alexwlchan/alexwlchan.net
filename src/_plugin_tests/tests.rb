@@ -14,10 +14,5 @@ Dir.glob('src/_plugin_tests/*.rb')
 end
 
 require_relative 'test_atom_feed_filters'
-require_relative 'test_attrs'
-require_relative 'test_inline_styles'
-require_relative 'test_picture_utils'
-require_relative 'test_tag_tweet'
 require_relative 'test_text_utils'
-require_relative 'test_tint_colors'
 require_relative 'test_code_utils'
