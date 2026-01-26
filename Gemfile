@@ -1,11 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'abbrev', '~> 0.1.2'
 gem 'bit-struct', '~> 0.17'
-gem 'chunky_png', '~> 1.4'
-gem 'color', '~> 2.1'
 gem 'html-proofer', '~> 5'
-gem 'icc_parser', '~> 0.1'
 gem 'jekyll', '~> 4'
 gem 'jekyll-include-cache', '~> 0.2'
 gem 'json-schema', '~> 6'
@@ -21,8 +17,4 @@ end
 
 group :test, optional: true do
   gem 'test-unit'
-end
-
-group :check_dns, optional: true do
-  gem 'dnsruby', '~> 1.73'
 end
