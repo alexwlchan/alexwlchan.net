@@ -165,17 +165,19 @@ class Site:
             tc.create_assets(self.out_dir)
 
         written_html_paths = set()
-        with tqdm(desc="writing html", total=len(pages)) as pbar:
-            for pg in pages:
-                try:
-                    out_path = pg.write(env, out_dir=self.out_dir)
-                    written_html_paths.add(out_path)
-                    pbar.update(1)
-                except (TemplateSyntaxError, UndefinedError):
-                    return False
-                except Exception as exc:  # pragma: no cover
-                    print(f"error writing {pg!r}: {exc}")
-                    raise
+        
+        if not incremental:
+            pages = tqdm(pages, desc="writing html")
+
+        for pg in pages:
+            try:
+                out_path = pg.write(env, out_dir=self.out_dir)
+                written_html_paths.add(out_path)
+            except (TemplateSyntaxError, UndefinedError):
+                return False
+            except Exception as exc:  # pragma: no cover
+                print(f"error writing {pg!r}: {exc}")
+                raise
 
         # Render the RSS feeds.
         #
