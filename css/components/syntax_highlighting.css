@@ -24,7 +24,7 @@ pre {
    *   Keyword.{Constant, Reserved}
    *   Name.Constant
    */
-  .m, .mb, .mf, .mh, .mi, .mo, .il, .kc, .bp, .no {
+  .m, .mb, .mf, .mh, .mi, .mo, .il, .kc, .kr, .no {
     color: var(--literals);
   }
 

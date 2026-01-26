@@ -83,6 +83,18 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
                 highlighted_code,
             )
 
+    # Swift: the shebang at the start is punctuation, not a comment or
+    # a name worth highlighting.
+    if lang == "swift":
+        highlighted_code = highlighted_code.replace(
+            '<span class="p">#</span><span class="o">!/</span>'
+            '<span class="n">usr</span><span class="o">/</span>'
+            '<span class="n">bin</span><span class="o">/</span>'
+            '<span class="n">env</span><span class="w"> </span>'
+            '<span class="n">swift</span>\n',
+            '<span class="p">#!/usr/bin/env swift</span>\n',
+        )
+
     return highlighted_code
 
 
