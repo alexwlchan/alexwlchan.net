@@ -116,7 +116,7 @@ I don't like test frameworks that require me to rewrite my code to fit -- the te
 Here's a test that uses vcrpy to fetch `www.example.com`, and look for some text in the response.
 I use `vcr.use_cassette` as a context manager around the code that makes an HTTP request:
 
-{% code lang="python" names="0:httpx 1:vcr 2:test_example_domain 5:resp" %}
+```python {"names":{"1":"httpx","2":"vcr","3":"test_example_domain","6":"resp"}}
 import httpx
 import vcr
 
@@ -125,25 +125,25 @@ def test_example_domain():
     with vcr.use_cassette("fixtures/vcr_cassettes/test_example_domain.yml"):
         resp = httpx.get("https://www.example.com/")
         assert "<h1>Example Domain</h1>" in resp.text
-{% endcode %}
+```
 
 Alternatively, you can use `vcr.use_cassette` as a decorator:
 
-{% code lang="python" names="1:test_example_domain 2:resp" %}
+```python {"names":{"3":"test_example_domain","4":"resp"}}
 @vcr.use_cassette("fixtures/vcr_cassettes/test_example_domain.yml")
 def test_example_domain():
     resp = httpx.get("https://www.example.com/")
     assert "<h1>Example Domain</h1>" in resp.text
-{% endcode %}
+```
 
 With the decorator, you can also omit the path to the cassette file, and vcrpy will name the cassette file after the function:
 
-{% code lang="python" names="1:test_example_domain 2:resp" %}
+```python {"names":{"3":"test_example_domain","4":"resp"}}
 @vcr.use_cassette()
 def test_example_domain():
     resp = httpx.get("https://www.example.com/")
     assert "<h1>Example Domain</h1>" in resp.text
-{% endcode %}
+```
 
 When I run this test using pytest (`python3 -m pytest test_example.py`), vcrpy will check if the cassette file exists.
 If the file is missing, it makes a real HTTP call and saves it to the file.
@@ -171,7 +171,7 @@ Fortunately, vcrpy can [filter sensitive data][filters] before it's saved to the
 Here's an example where I'm using `filter_query_parameters` to redact an API key.
 I'm replacing the real value with the placeholder `REDACTED_API_KEY`.
 
-{% code lang="python" names="0:os 1:httpx 2:vcr 3:test_flickr_api 7:api_key 11:resp" %}
+```python {"names":{"1":"os","2":"httpx","3":"vcr","4":"test_flickr_api","8":"api_key","12":"resp"}}
 import os
 
 import httpx
@@ -195,7 +195,7 @@ def test_flickr_api():
         )
 
         assert '<user id="199258389@N04">' in resp.text
-{% endcode %}
+```
 
 When I run this test the first time, I need to pass an env var `FLICKR_API_KEY`.
 This makes a real request and records a cassette, but with my redacted value.
@@ -238,7 +238,7 @@ Cassettes have helped me spot undocumented changes in APIs.
 
 Here's an example where I'm using [`decode_compressed_response=True`][decode_compressed_response] to remove the gzip compression in the cassette:
 
-{% code lang="python" names="0:test_example_domain_with_decode 4:resp" %}
+```python {"names":{"1":"test_example_domain_with_decode","5":"resp"}}
 def test_example_domain_with_decode():
     with vcr.use_cassette(
         "fixtures/vcr_cassettes/test_example_domain_with_decode.yml",
@@ -246,7 +246,7 @@ def test_example_domain_with_decode():
     ):
         resp = httpx.get("https://www.example.com/")
         assert "<h1>Example Domain</h1>" in resp.text
-{% endcode %}
+```
 
 You can see the complete cassette file in [test_example_domain_with_decode.yml](/files/2025/test_example_domain_with_decode.yml).
 Notice the response body now contains an HTML string:
@@ -273,7 +273,7 @@ In particular, I often group tests into classes, or use [parametrized tests] to 
 
 Consider the following example:
 
-{% code lang="python" names="0:httpx 1:pytest 2:vcr 3:TestExampleDotCom 4:test_status_code 6:resp 13:test_status_code 14:url 15:status_code 16:resp" %}
+```python {"names":{"1":"httpx","2":"pytest","3":"vcr","4":"TestExampleDotCom","5":"test_status_code","6":"resp","16":"test_status_code","17":"url","18":"status_code","19":"resp"}}
 import httpx
 import pytest
 import vcr
@@ -297,7 +297,7 @@ class TestExampleDotCom:
 def test_status_code(url, status_code):
     resp = httpx.get(url)
     assert resp.status_code == status_code
-{% endcode %}
+```
 
 This is four different tests, but vcrpy's automatic cassette name is the same for each of them: `test_status_code`.
 The tests will fail if you try to run them -- vcrpy will record a cassette for the first test that runs, then try to replay that cassette for the second test.
@@ -308,7 +308,7 @@ Because I sometimes use URLs in parametrized tests, I also check the test case I
 
 Here's the decorator:
 
-{% code lang="python" names="1:cassette_name 2:request 6:name" %}
+```python {"names":{"3":"cassette_name","4":"request","8":"name"}}
 @pytest.fixture
 def cassette_name(request: pytest.FixtureRequest) -> str:
     """
@@ -336,11 +336,11 @@ def cassette_name(request: pytest.FixtureRequest) -> str:
         return f"{request.cls.__name__}.{name}.yml"
     else:
         return f"{name}.yml"
-{% endcode %}
+```
 
 Here's my test rewritten to use that new decorator:
 
-{% code lang="python" names="0:TestExampleDotCom 1:test_status_code 3:cassette_name 7:resp 23:test_status_code 24:url 25:status_code 26:cassette_name 30:resp" %}
+```python {"names":{"1":"TestExampleDotCom","2":"test_status_code","3":"cassette_name","7":"resp","26":"test_status_code","27":"url","28":"status_code","29":"cassette_name","33":"resp"}}
 class TestExampleDotCom:
     def test_status_code(self, cassette_name):
         with vcr.use_cassette(cassette_name):
@@ -361,7 +361,7 @@ def test_status_code(url, status_code, cassette_name):
     with vcr.use_cassette(cassette_name):
         resp = httpx.get(url)
         assert resp.status_code == status_code
-{% endcode %}
+```
 
 The four tests now get distinct cassette filenames:
 
@@ -383,7 +383,7 @@ This can involve some non-obvious setup, especially if you've never done it befo
 
 Let's revisit an earlier example:
 
-{% code lang="python" names="0:test_flickr_api 4:api_key 8:resp" %}
+```python {"names":{"1":"test_flickr_api","5":"api_key","9":"resp"}}
 def test_flickr_api():
     with vcr.use_cassette(
         "fixtures/vcr_cassettes/test_flickr_api.yml",
@@ -401,7 +401,7 @@ def test_flickr_api():
         )
 
         assert '<user id="199258389@N04">' in resp.text
-{% endcode %}
+```
 
 If you run this test without passing a `FLICKR_API_KEY` environment variable, it will call the real Flickr API with the placeholder API key.
 Unsurprisingly, the Flickr API will return an error response, and your test will fail:
@@ -429,7 +429,7 @@ You could use this to redact secrets from responses, but I realised you could al
 
 Here's a hook I wrote, which checks if a vcrpy response is a Flickr API error telling us that we passed an invalid API key, and throws an exception if so:
 
-{% code lang="python" names="0:check_for_invalid_api_key 1:response 2:body 6:body 8:is_error_response" %}
+```python {"names":{"1":"check_for_invalid_api_key","2":"response","3":"body","7":"body","9":"is_error_response"}}
 def check_for_invalid_api_key(response):
     """
     Before we record a new response to a cassette, check if it's
@@ -457,11 +457,11 @@ def check_for_invalid_api_key(response):
         )
 
     return response
-{% endcode %}
+```
 
 We can call this hook in our `vcr.use_cassette` call:
 
-{% code lang="python" names="0:test_flickr_api 1:cassette_name" %}
+```python {"names":{"1":"test_flickr_api","2":"cassette_name"}}
 def test_flickr_api(cassette_name):
     with vcr.use_cassette(
         cassette_name,
@@ -470,7 +470,7 @@ def test_flickr_api(cassette_name):
         before_record_response=check_for_invalid_api_key,
     ):
         ...
-{% endcode %}
+```
 
 Now, if you try to record a Flickr API call and don't set the API key, you'll get a helpful error explaining how to re-run the test correctly.
 
@@ -484,7 +484,7 @@ This fixture allows me to configure vcrpy, and also do any other setup I need on
 
 Here's an example of such a fixture in a [library for using the Flickr API][flickr-photos-api]:
 
-{% code lang="python" names="1:flickr_api 2:cassette_name 10:client" %}
+```python {"names":{"3":"flickr_api","4":"cassette_name","12":"client"}}
 @pytest.fixture
 def flickr_api(cassette_name):
     with vcr.use_cassette(
@@ -503,11 +503,11 @@ def flickr_api(cassette_name):
         )
 
         yield client
-{% endcode %}
+```
 
 This makes individual tests much shorter and simpler:
 
-{% code lang="python" names="0:test_flickr_api_without_boilerplate 1:flickr_api 2:resp" %}
+```python {"names":{"1":"test_flickr_api_without_boilerplate","2":"flickr_api","3":"resp"}}
 def test_flickr_api_without_boilerplate(flickr_api):
     resp = flickr_api.get(
         "https://api.flickr.com/services/rest/",
@@ -518,7 +518,7 @@ def test_flickr_api_without_boilerplate(flickr_api):
     )
 
     assert '<user id="199258389@N04">' in resp.text
-{% endcode %}
+```
 
 When somebody reads this test, they don't need to think about the authentication or or mocking; they can just see the API call that we're making.
 
