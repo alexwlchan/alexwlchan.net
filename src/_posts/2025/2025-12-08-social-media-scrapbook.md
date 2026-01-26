@@ -195,7 +195,7 @@ Conversations from every site have the same `meta` scheme; conversations from mi
 Each data model is accompanied by a rendering function, which reads the data and returns a snippet of HTML that appears in one of the "cards" in my web browser.
 I have a long switch statement that just picks the right rendering function, something like:
 
-{% code lang="javascript" names="0:renderConversation 1:props 4:renderFlickrPicture 6:renderTwitterThread 8:renderYouTubeVideo" %}
+```javascript {"names":{"1":"renderConversation","2":"props","5":"renderFlickrPicture","7":"renderTwitterThread","9":"renderYouTubeVideo"}}
 function renderConversation(props) {
     switch(props.site) {
         case 'flickr':
@@ -207,7 +207,7 @@ function renderConversation(props) {
         …
     }
 }
-{% endcode %}
+```
 
 This approach makes it easy for me to add support for new sites, without breaking anything I've already saved.
 It's already scaled to twelve different sites

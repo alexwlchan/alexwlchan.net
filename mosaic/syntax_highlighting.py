@@ -26,6 +26,69 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 
 
+def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
+    """
+    Apply syntax highlighting fixes that go beyond Pygments, based on
+    my code snippets.
+
+    This is hacky and manual, but it should be fine because I'm always
+    going to review the output manually.
+    """
+    # Nested CSS: fix the highlighting of nested elements.
+    #
+    # This isn't as good as proper support for nesting in Pygments, but
+    # that's somewhat complicated so I can do hard-coded fixes -- I'll
+    # be reviewing all this output manually anyway.
+    if lang == "css":
+        # Reclassify the octothrope in an ID selector as part of
+        # the name.
+        highlighted_code = highlighted_code.replace(
+            '<span class="p">#</span><span class="nn">', '<span class="nn">#'
+        )
+
+        # Reclassify the dot in a class selector as part of
+        # the name.
+        highlighted_code = highlighted_code.replace(
+            '<span class="p">.</span><span class="nc">', '<span class="nc">.'
+        )
+
+        # Reclassify brackets which have been mislabelled because they're
+        # inside nested CSS.
+        highlighted_code = highlighted_code.replace(
+            '<span class="err">{</span>', '<span class="p">{</span>'
+        ).replace('<span class="err">}</span>', '<span class="p">}</span>')
+
+        # Reclassify nested selectors which have been labelled as properties
+        for tag in ("a", "figcaption", "figure", "img", "li"):
+            if tag not in highlighted_code:
+                continue
+
+            highlighted_code = highlighted_code.replace(
+                f'<span class="err">{tag},</span>',
+                f'<span class="n">{tag}</span><span class="o">,</span>',
+            )
+            highlighted_code = highlighted_code.replace(
+                f'<span class="err">{tag}</span>', f'<span class="n">{tag}</span>'
+            )
+
+        highlighted_code = re.sub(
+            r'<span class="err">(?P<classname>\.[a-z]+)</span>',
+            r'<span class="nn">\g<classname></span>',
+            highlighted_code,
+        )
+
+        # Reclassify units as part of numeric constants.
+        for unit in ("px", "em", "%"):
+            highlighted_code = re.sub(
+                r'<span class="mi">(?P<amount>[0-9]+)</span>'
+                + f'<span class="kt">{unit}</span>',
+                f'<span class="mi">\\g<amount>{unit}</span>',
+                highlighted_code,
+            )
+
+    return highlighted_code
+
+
 def apply_syntax_highlighting(
     src: str,
     lang: str,
@@ -44,6 +107,10 @@ def apply_syntax_highlighting(
     formatter = HtmlFormatter()
 
     html = highlight(src, lexer, formatter)
+    html = apply_manual_fixes(html, lang)
+
+    if debug:
+        print(repr(html))
 
     # Find all the names which are highlighted as part of this code.
     name_matches = re.finditer(
@@ -58,6 +125,11 @@ def apply_syntax_highlighting(
         names_to_highlight = {}
 
     for idx, m in reversed(list(enumerate(name_matches, start=1))):
+        # In HTML, all tags and attributes get highlighted in blue;
+        # skip doing any name cleanup.
+        if lang == "html":
+            continue
+
         varname = m.group("varname")
         start, end = m.start(), m.end()
 
