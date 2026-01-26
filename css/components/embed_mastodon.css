@@ -6,6 +6,10 @@
   --text:            black;
   --meta:            #45455f;
   
+  .avatar {
+    border-radius: 4px;
+  }
+  
   @media screen and (prefers-color-scheme: dark) {
     --mastodon-purple: rgb(140, 141, 255);
     --background:      rgb(24, 24, 33);
