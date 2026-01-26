@@ -57,8 +57,6 @@ def apply_syntax_highlighting(
     else:
         names_to_highlight = {}
 
-    # print(repr(names_to_highlight))
-
     for idx, m in reversed(list(enumerate(name_matches, start=1))):
         varname = m.group("varname")
         start, end = m.start(), m.end()
@@ -194,7 +192,6 @@ class SyntaxHighlighterPreprocessor(Preprocessor):
 
         while m := self.FENCED_BLOCK_RE.search(text):
             if m.group("attrs"):
-                print(repr(m.group("attrs")))
                 highlighter_args = json.loads(m.group("attrs"))
             else:
                 highlighter_args = {}

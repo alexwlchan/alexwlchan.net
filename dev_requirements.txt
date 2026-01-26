@@ -45,7 +45,7 @@ httpx==0.28.1
     #   -r uptime_tests/requirements.txt
 hyperlink==21.0.0
     # via -r requirements.txt
-hypothesis==6.150.2
+hypothesis==6.151.0
     # via -r requirements.txt
 idna==3.11
     # via
@@ -72,7 +72,7 @@ lightningcss==0.3.1
     # via -r requirements.txt
 lxml==6.0.2
     # via -r requirements.txt
-markdown==3.10
+markdown==3.10.1
     # via -r requirements.txt
 markupsafe==3.0.3
     # via
@@ -193,3 +193,5 @@ urllib3==2.6.3
     # via
     #   -r requirements.txt
     #   types-requests
+watchdog==6.0.0
+    # via -r requirements.txt
