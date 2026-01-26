@@ -3,8 +3,12 @@ Tests for `mosaic.syntax_highlighting`.
 """
 
 from markdown import markdown
+import pytest
 
-from mosaic.syntax_highlighting import SyntaxHighlighterExtension
+from mosaic.syntax_highlighting import (
+    apply_syntax_highlighting,
+    SyntaxHighlighterExtension,
+)
 
 
 def test_syntax_highlighting() -> None:
@@ -198,4 +202,37 @@ def test_syntax_highlighting_with_indent() -> None:
         '<span class="si">{</span>name<span class="si">}</span>'
         '<span class="s2">!&quot;</span><span class="p">)</span>'
         "</code></pre></p>\n</li>\n</ul>"
+    )
+
+
+def test_throws_if_mismatched_varname() -> None:
+    """
+    Highlighting a name which doesn't match the source code is an error.
+    """
+    with pytest.raises(ValueError, match="bad name"):
+        apply_syntax_highlighting(src="x = x + 1", lang="python", names={1: "y"})
+
+
+def test_highlighting_name() -> None:
+    """
+    Highlighting a name wraps it in <span class="n">.
+    """
+    html_no_name = markdown(
+        "```python\nx = y + 1\n```",
+        extensions=[SyntaxHighlighterExtension()],
+    )
+    assert html_no_name == (
+        '<pre class="lng-python"><code>'
+        'x <span class="o">=</span> y <span class="o">+</span> '
+        '<span class="mi">1</span></code></pre>'
+    )
+
+    html_name = markdown(
+        '```python {"names": {"1": "x"}}\nx = y + 1\n```',
+        extensions=[SyntaxHighlighterExtension()],
+    )
+    assert html_name == (
+        '<pre class="lng-python"><code>'
+        '<span class="n">x</span> <span class="o">=</span> y <span class="o">+</span> '
+        '<span class="mi">1</span></code></pre>'
     )
