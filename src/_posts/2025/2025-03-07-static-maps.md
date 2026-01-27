@@ -71,7 +71,7 @@ OpenStreetMap will only give you 256×256 pixels at a time, but we can download 
 
 Here's a Python script that enumerates all the tiles at a particular zoom level, downloads them, and uses the [Pillow library](https://pillow.readthedocs.io/en/stable/#) to combine them into a single large image:
 
-{% code lang="python" names="0:io 1:itertools 2:httpx 3:PIL 4:Image 5:zoom_level 6:width 8:height 10:im 15:x 16:y 23:resp 32:im_buffer 44:out_path" %}
+```python {"names":{"1":"io","2":"itertools","3":"httpx","4":"PIL","5":"Image","6":"zoom_level","7":"width","9":"height","11":"im","16":"x","17":"y","24":"resp","33":"im_buffer","45":"out_path"}}
 #!/usr/bin/env python3
 """
 Download all the map tiles for a particular zoom level from OpenStreetMap,
@@ -103,7 +103,7 @@ for x, y in itertools.product(range(2**zoom_level), range(2**zoom_level)):
 out_path = f"map_{zoom_level}.png"
 im.save(out_path)
 print(out_path)
-{% endcode %}
+```
 
 The higher the zoom level, the more tiles you need to download, and the larger the final image will be.
 I ran this script up to zoom level 6, and this is the data involved:
@@ -149,7 +149,7 @@ Now we have an image with a map of the whole world, we need to overlay our lat/l
 I found [instructions on the OpenStreetMap wiki][page] which explain how to convert GPS coordinates into a position on the unit square, which we can in turn add to our map.
 They outline a straightforward algorithm, which I implemented in Python:
 
-{% code lang="python" names="0:math 1:convert_gps_coordinates_to_unit_xy 2:latitude 4:longitude 9:x_webm 11:y_webm 19:x_unit 21:y_unit" %}
+```python {"names":{"1":"math","2":"convert_gps_coordinates_to_unit_xy","3":"latitude","5":"longitude","10":"x_webm","12":"y_webm","20":"x_unit","22":"y_unit"}}
 import math
 
 
@@ -197,7 +197,7 @@ def convert_gps_coordinates_to_unit_xy(
     y_unit = 0.5 - y_webm / (2 * math.pi)
 
     return x_unit, y_unit
-{% endcode %}
+```
 
 Their documentation includes a worked example using the coordinates of the Hachiko Statue.
 We can run our code, and check we get the same results:
@@ -212,7 +212,7 @@ I wrote some more Pillow code that converts GPS coordinates to these unit positi
 
 Here's the code:
 
-{% code lang="python" names="0:PIL 1:Image 2:ImageDraw 3:gps_coordinates 4:im 7:draw 11:coord 13:x 14:y 17:radius" %}
+```python {"names":{"1":"PIL","2":"Image","3":"ImageDraw","4":"gps_coordinates","5":"im","8":"draw","12":"coord","14":"x","15":"y","18":"radius"}}
 from PIL import Image, ImageDraw
 
 
@@ -245,7 +245,7 @@ for coord in gps_coordinates:
     )
 
 im.save("map_with_dots.png")
-{% endcode %}
+```
 
 and here's the map it produces:
 
