@@ -191,9 +191,9 @@ def test_syntax_highlighting_with_indent() -> None:
         'name<span class="p">)</span>\n'
         # print(f"Hello {name}!")
         '    print<span class="p">(</span>'
-        '<span class="sa">f</span><span class="s2">&quot;Hello </span>'
+        '<span class="sa">f</span><span class="s2">"Hello </span>'
         '<span class="si">{</span>name<span class="si">}</span>'
-        '<span class="s2">!&quot;</span><span class="p">)</span>'
+        '<span class="s2">!"</span><span class="p">)</span>'
         "</code></pre>\n</li>\n</ul>"
     )
 

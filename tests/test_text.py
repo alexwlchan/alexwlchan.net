@@ -38,6 +38,7 @@ from mosaic import text as t
             "look for any `<img>` tags",
             "<p>look for any <code>&lt;img&gt;</code> tags</p>",
         ),
+        ('"It looks lovely", she said', "<p>“It looks lovely”, she said</p>"),
     ],
 )
 def test_markdownify(md: str, expected: str) -> None:

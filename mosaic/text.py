@@ -33,6 +33,9 @@ def apply_smartypants(text: str) -> str:
     """
     Add curly quotes and smart dashes to a string.
     """
+    # Undo some escaping from Mistune.
+    text = text.replace("&quot;", '"')
+
     attrs = (
         # normal quotes (" and ') to curly ones
         smartypants.Attr.q
