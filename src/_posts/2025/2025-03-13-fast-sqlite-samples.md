@@ -108,11 +108,11 @@ Here's the procedure I came up with:
 
 3.  Use a random number generator to pick a `rowid` between 1 and the highest `rowid`:
 
-    {% code lang="pycon" names="0:random 3:max_rowid" %}
+    ```pycon {"names":{"1":"random"}}
     >>> import random
     >>> random.randint(1, max_rowid)
     196476
-    {% endcode %}
+    ```
 
     If we've already got this `rowid`, discard it and generate a new one.
 
@@ -120,11 +120,11 @@ Here's the procedure I came up with:
 
 4.  Look for a row with that `rowid`:
 
-    {% code lang="sql" %}
+    ```
     SELECT *
     FROM photos
     WHERE rowid = 196476
-    {% endcode %}
+    ```
 
     If such a row exists, add it to our sample.
     If we have enough items in our sample, we're done.
