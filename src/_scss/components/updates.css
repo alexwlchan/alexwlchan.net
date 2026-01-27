@@ -1,8 +1,0 @@
-.update {
-  background: var(--background-color);
-  border-color: var(--primary-color);
-  
-  a:visited {
-    color: var(--primary-color);
-  }
-}

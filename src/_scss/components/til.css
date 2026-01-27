@@ -1,9 +1,0 @@
-/*
- * Styles for "Today I Learned (TIL)" pages.
- *
- * These are pretty similar to article pages so there isn't much different.
- */
-
-article.til {
-  p.summary { font-weight: bold; }
-}
