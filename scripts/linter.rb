@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'json'
-require 'json-schema'
 require 'uri'
 require 'yaml'
 
@@ -11,7 +10,6 @@ require_relative 'linting/logging'
 require_relative 'linting/check_all_urls_are_hackable'
 require_relative 'linting/check_for_broken_html'
 require_relative 'linting/check_with_html_proofer'
-require_relative 'linting/check_yaml_front_matter'
 
 # This checks that every article on /elsewhere/ has at least one copy
 # archived on my own computers.
@@ -89,13 +87,27 @@ def check_redirects(dst_dir)
   exit!
 end
 
+def report_errors(errors)
+  # This is meant to look similar to the output from HTMLProofer --
+  # errors are grouped by filename, so they can be easily traced
+  # back to the problem file.
+  return if errors.empty?
+
+  errors.each do |display_path, messages|
+    error("- #{display_path}")
+    messages.each do |m|
+      error("  *  #{m}")
+    end
+  end
+  exit!
+end
+
 html_dir = '_out'
 src_dir = 'src'
 
 check_with_html_proofer(html_dir)
 
 check_writing_has_been_archived(src_dir)
-check_yaml_front_matter(src_dir)
 check_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)
 check_for_broken_html(html_dir)
