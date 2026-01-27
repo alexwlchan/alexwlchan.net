@@ -19,13 +19,6 @@ module Jekyll
       end
     end
 
-    # Minify an HTML string.
-    def minify_html(html)
-      Jekyll::Cache.new('MinifyHtml').getset(html) do
-        Alexwlchan::TextUtils.minify_html(html)
-      end
-    end
-
     # Minify a JSON string, removing any unnecessary whitespace.
     def minify_json(json_string)
       json = JSON.parse(json_string)

@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 require 'json'
-require 'minify_html'
-
-alias _lib_minify_html minify_html
 
 module Alexwlchan
   module TextUtils
@@ -38,24 +35,6 @@ module Alexwlchan
           .sub('<p>', '')
           .sub('</p>', '')
           .strip
-    end
-
-    # Compress an HTML string.
-    #
-    # Example:
-    #
-    #     minify_html("<p>Hello world</p>\n  <p>The car is red</p>\n")
-    #     <p>Hello world</p><p>The car is red</p>
-    #
-    def self.minify_html(html)
-      options = {
-        keep_html_and_head_opening_tags: true,
-        keep_closing_tags: true,
-        minify_css: true,
-        minify_js: true
-      }
-
-      _lib_minify_html(html, options)
     end
 
     # Wrap the words "TeX" and "LaTeX" in <span> elements that allow
