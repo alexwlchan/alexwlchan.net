@@ -1,3 +1,7 @@
+# This file is everything I need to install on a local dev machine
+# to work on the site, while specific CI tasks can install a smaller
+# subset based on the exact task.
+
 -r requirements.txt
 -r dns/requirements.txt
 -r uptime_tests/requirements.txt
