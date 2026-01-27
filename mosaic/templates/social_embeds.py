@@ -97,7 +97,12 @@ class SocialExtension(Extension):
         html = template.render(post_url=post_url, post_data=post_data)
 
         assert_is_invariant_under_markdown(html)
-        return html
+
+        # Ensure there's a newline at the end of the rendered picture.
+        #
+        # This means the Mistune Markdown parser will see the picture as ended,
+        # and not count the next paragraph as part of the HTML.
+        return html + "\n"
 
 
 @pass_context
