@@ -95,6 +95,13 @@ def apply_manual_fixes(highlighted_code: str, lang: str) -> str:
             '<span class="p">#!/usr/bin/env swift</span>\n',
         )
 
+    # Python: the shebang at the start is punctuation.
+    if lang == "python":
+        highlighted_code = highlighted_code.replace(
+            '<span class="ch">#!/usr/bin/env python3</span>',
+            '<span class="p">#!/usr/bin/env python3</span>',
+        )
+
     return highlighted_code
 
 
