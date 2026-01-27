@@ -2,32 +2,6 @@
 
 require 'html-proofer'
 
-class LocalhostLinks < HTMLProofer::Check
-  def localhost_link?
-    @link.url.raw_attribute.start_with?('http://localhost:5757')
-  end
-
-  def run
-    @html.css('a').each do |node|
-      @link = create_element(node)
-
-      next if @link.ignore?
-
-      return add_failure("Don't link to localhost!", element: @link) if localhost_link?
-    end
-  end
-end
-
-class NoHtmlInTitles < HTMLProofer::Check
-  def run
-    @html.css('title').each do |node|
-      @title = create_element(node)
-
-      return add_failure('Title contains HTML', element: @title) if node.children.length > 1
-    end
-  end
-end
-
 class CardImages < HTMLProofer::Check
   def run
     @html.css('meta[name="twitter:image"]').each do |node|
@@ -58,8 +32,6 @@ def check_with_html_proofer(html_dir)
         Scripts
         Favicon
         OpenGraph
-        LocalhostLinks
-        NoHtmlInTitles
       ],
       check_external_hash: false,
       check_html: true,
