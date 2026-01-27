@@ -80,44 +80,43 @@ I started with some code I wrote [last year][til].
 Let's step through it in detail.
 
 <div class="worked_example">
-  <div class="explanation">
-    <p>
-      First, create a container that includes both the image and the banner.
-    </p>
-    {% code lang="html" %}<div class="container">
+<div class="explanation">
+  <p>
+    First, create a container that includes both the image and the banner.
+  </p>
+  {% code lang="html" %}<div class="container">
   <div class="banner">NEW</div>
   <img src="computer.jpg">
 </div>{% endcode %}
-    <p>
-      Notice how the banner and image appear separately – they both have their own space in the layout.
-    </p>
-  </div>
-  <div class="container" id="wrapper1" style="width:200px;">
-    <div class="banner">NEW</div>
-    <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
-  </div>
-
-  <div class="explanation">
-    <p>
-      I can add a CSS rule that makes the text appear on top of the image:
-    </p>
-    {% code lang="css" %}.banner {
+  <p>
+    Notice how the banner and image appear separately – they both have their own space in the layout.
+  </p>
+</div>
+<div class="container" id="wrapper1" style="width:200px;">
+  <div class="banner">NEW</div>
+  <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
+</div>
+<div class="explanation">
+  <p>
+    I can add a CSS rule that makes the text appear on top of the image:
+  </p>
+  {% code lang="css" %}.banner {
   position: absolute;
 }{% endcode %}
-    <p>
-      This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the banner from the normal document flow and allows it to be placed anywhere on the page.
-      Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for it.
-    </p>
-  </div>
-  <div class="container" id="wrapper2" style="width:200px;">
-    <div class="banner">NEW</div>
-    <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
-  </div>
-  <div class="explanation">
-    <p>
-      The text is in the top left corner of the image, but we can move it to the top right-hand instead:
-    </p>
-    {% code lang="css" %}
+  <p>
+    This enables <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Positioning#absolute_positioning">absolute positioning</a>, which removes the banner from the normal document flow and allows it to be placed anywhere on the page.
+    Now it sits alone, and it doesn't affect the layout of other elements on the page – in particular, the image no longer has to leave space for it.
+  </p>
+</div>
+<div class="container" id="wrapper2" style="width:200px;">
+  <div class="banner">NEW</div>
+  <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
+</div>
+<div class="explanation">
+  <p>
+    The text is in the top left corner of the image, but we can move it to the top right-hand instead:
+  </p>
+  {% code lang="css" %}
 .container {
   position: relative;
 }
@@ -171,60 +170,60 @@ This is because an absolutely positioned element takes its initial position from
   }
 </style>
 <div class="worked_example">
-  <div class="explanation">
-    <p>
-      Let's apply a colour to make this banner easier to read – the text is disappearing into the image.
-    </p>
+<div class="explanation">
+  <p>
+    Let's apply a colour to make this banner easier to read – the text is disappearing into the image.
+  </p>
     {% code lang="css" %}
 .banner {
   background: red;
   color:      white;
 }
     {% endcode %}
-    <p>
-      Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to make it wider, so it covers the whole corner.
-    </p>
-  </div>
-  <div class="container" id="wrapper4a" style="width:200px;">
-    <div class="banner">NEW</div>
-    <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
-  </div>
-  <div class="explanation">
-    <p>
-      We can make it wider by adding padding.
-      Because this changes the size of the element, I had to adjust the position offsets to keep it in the right place.
-    </p>
-    {% code lang="css" %}
+  <p>
+    Right now the element is only as big as the letters in the word “NEW”, so it’s just floating in space – we need to make it wider, so it covers the whole corner.
+  </p>
+</div>
+<div class="container" id="wrapper4a" style="width:200px;">
+  <div class="banner">NEW</div>
+  <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
+</div>
+<div class="explanation">
+  <p>
+    We can make it wider by adding padding.
+    Because this changes the size of the element, I had to adjust the position offsets to keep it in the right place.
+  </p>
+  {% code lang="css" %}
 .banner {
   right:   -34px;
   top:     18px;
   padding: 2px 50px;
 }
-    {% endcode %}
-  </div>
-  <div class="container" id="wrapper4" style="width:200px;">
-    <div class="banner">NEW</div>
-    <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
-  </div>
-  <div class="explanation">
-    <p style="margin-top: 1em;">
-      Now the banner is too wide, and extending off the end of the image.
-      Let’s clip the edges, so it fits neatly within the square:
-    </p>
-    {% code lang="css" %}
+  {% endcode %}
+</div>
+<div class="container" id="wrapper4" style="width:200px;">
+  <div class="banner">NEW</div>
+  <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
+</div>
+<div class="explanation">
+  <p style="margin-top: 1em;">
+    Now the banner is too wide, and extending off the end of the image.
+    Let’s clip the edges, so it fits neatly within the square:
+  </p>
+  {% code lang="css" %}
 .container {
   overflow: hidden;
 }
-    {% endcode %}
-    <p id="final_para">
-      This is the banner effect I’m looking for – the text is clear and prominent on the image.
-      I’ve added a <code>box-shadow</code> on my homepage to make it stand out further, but cosmetic details like that aren’t important for the rest of this post.
-    </p>
-  </div>
-  <div class="container" id="wrapper5" style="width:200px;">
-    <div class="banner">NEW</div>
-    <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
-  </div>
+  {% endcode %}
+  <p id="final_para">
+    This is the banner effect I’m looking for – the text is clear and prominent on the image.
+    I’ve added a <code>box-shadow</code> on my homepage to make it stand out further, but cosmetic details like that aren’t important for the rest of this post.
+  </p>
+</div>
+<div class="container" id="wrapper5" style="width:200px;">
+  <div class="banner">NEW</div>
+  <img src="/images/2024/pexels-johndetochka-9140591.jpg" alt="" class="dark_aware">
+</div>
 </div>
 
 <style>
