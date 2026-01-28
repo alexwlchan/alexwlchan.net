@@ -52,14 +52,14 @@ def create_favicon(favicon_dir: Path, tint_colour: str) -> None:
 
     # 1. SVG variants
     for size in [16, 32]:
-        svg_template_path = Path(f"src/theme/_favicons/favicon-{size}x{size}.svg")
+        svg_template_path = Path(f"templates/favicons/favicon-{size}x{size}.svg")
         svg_data = svg_template_path.read_text().replace("#000000", tint_colour)
         (favicon_dir / f"{hex_string}-{size}x{size}.svg").write_text(svg_data)
 
     # 2. PNG variants
     png_images = []
     for size in [16, 32]:
-        template_path = Path(f"src/theme/_favicons/template-{size}x{size}.png")
+        template_path = Path(f"templates/favicons/favicon-{size}x{size}.png")
         with Image.open(template_path) as template:
             colourised = colourise_image(template, tint_colour)
         png_path = favicon_dir / f"{hex_string}-{size}x{size}.png"

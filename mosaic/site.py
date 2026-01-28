@@ -43,8 +43,6 @@ class Site:
         # Read all the Markdown source files.
         pages: list[HtmlPage] = []
         for md_path in find_paths_under(self.src_dir, suffix=".md"):
-            if "_favicons" in str(md_path):
-                continue
             if "_plugins" in str(md_path):
                 continue
 

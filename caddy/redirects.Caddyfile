@@ -22,14 +22,15 @@ redir /theme/favicon.ico                                                /favicon
 redir /theme/favicon.png                                                /favicon.png permanent
 redir /view/img/favicon.ico                                             /favicon.ico permanent
 
-redir /apple-touch-icon.png                                             /theme/apple-touch-icon.png permanent
-redir /apple-touch-icon-precomposed.png                                 /theme/apple-touch-icon.png permanent
-redir /apple-touch-icon-120x120-precomposed.png                         /theme/apple-touch-icon.png permanent
-redir /apple-touch-icon-120x120.png                                     /theme/apple-touch-icon.png permanent
-redir /apple-touch-icon-152x152-precomposed.png                         /theme/apple-touch-icon.png permanent
-redir /apple-touch-icon-152x152.png                                     /theme/apple-touch-icon.png permanent
+redir /apple-touch-icon.png                                             /static/apple-touch-icon.png permanent
+redir /apple-touch-icon-precomposed.png                                 /static/apple-touch-icon.png permanent
+redir /apple-touch-icon-120x120-precomposed.png                         /static/apple-touch-icon.png permanent
+redir /apple-touch-icon-120x120.png                                     /static/apple-touch-icon.png permanent
+redir /apple-touch-icon-152x152-precomposed.png                         /static/apple-touch-icon.png permanent
+redir /apple-touch-icon-152x152.png                                     /static/apple-touch-icon.png permanent
 
-redir /images/apple-touch-icon.png                                      /theme/apple-touch-icon.png permanent
+redir /images/apple-touch-icon.png                                      /static/apple-touch-icon.png permanent
+redir /theme/apple-touch-icon.png                                       /static/apple-touch-icon.png permanent
 
 
 
