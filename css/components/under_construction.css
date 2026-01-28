@@ -1,0 +1,19 @@
+/* See https://alexwlchan.net/til/2024/under-construction/ */
+
+.under_construction {
+  --yellow:       255, 215, 0;  /* CSS gold */
+
+  background: rgba(var(--yellow), 0.2);
+  
+  border: none;
+
+  border-left-width: 10px;
+  border-left-style: solid;
+  border-image: repeating-linear-gradient(
+    45deg,
+    black,
+    black              5px,
+    rgb(var(--yellow)) 5px,
+    rgb(var(--yellow)) 10px
+  ) 10;
+}

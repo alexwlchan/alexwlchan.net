@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    .title {
+      text-wrap: balance;
+    }
+    
+    .title .bk_title {
+      font-style: italic;
+    }
+    
+    header {
+      display: grid;
+      grid-template-columns: auto 200px;
+      grid-column-gap: 1em;
+      align-items: center;
+      padding: var(--default-padding);
+
+      border: var(--border-width) var(--border-style) var(--primary-color);     
+      border-radius: var(--border-radius);
+      background: var(--background-color);
+      
+      h1 {
+        margin-top: 0;
+      }
+      
+      .summary {
+        font-weight: bold;
+        border-top: 0.5px solid var(--primary-color);
+        padding-top: var(--default-padding);
+        margin-bottom: 0;
+        margin-top: 1.5em;
+      }
+    }
+    
+    .book_metadata {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: 1em;
+      grid-row-gap: 3px;
+      margin-bottom: 0;
+      
+      dt::after {
+        content: ":";
+      }
+
+      dd {
+        margin: 0;
+        font-weight: bold;
+      }
+    }
+    
+    @media screen and (min-width: 820px) {
+      header {
+        margin-left:  calc(-1 * var(--default-padding));
+        margin-right: calc(-1 * var(--default-padding));
+      }
+    }
+    
+    @media screen and (min-width: 500px) {
+      .book_cover {
+        float: right;
+      }
+      
+      .summary {
+        grid-column: 1 / span 2;
+      }
+    }
+    
+    @media screen and (max-width: 500px) {
+      header {
+        grid-template-columns: auto;
+        grid-row-gap: var(--default-padding);
+        
+        .summary {
+          margin-top: 0;
+        }
+        
+        picture {
+          grid-row: 1;
+        }
+        
+        .book_metadata {
+          grid-column-gap: 5px;
+        }
+        
+        h1 {
+          text-align: center;
+        }
+      }
+    }
+  </style>
+  
+  {% set book = page.book %}
+  {% set review = page.review %}
+  
+  <article class="book_review">
+    {% include "partials/breadcrumb.html" %}
+    <header>
+      <hgroup>
+        <h1 class="title"><em>{{ book.title }}</em></h1>
+        
+        {% if page.summary %}
+        <p class="summary">{{ page.summary }}</p>
+        {% endif %}
+        
+        <dl class="book_metadata">
+          {% for c in book.contributors %}
+          <dt>{{ c.role }}</dt>
+          <dd>{{ c.name }}</dd>
+          {% endfor %}
+          
+          {#
+            <dt>published in</dt>
+            <dd>{{ book.publication_year }}</dd>
+          #}
+          
+          <dt>genres</dt>
+          <dd>{{ book.genres | sort | join(", ") }}</dd>
+          
+          <dt>read on</dt>
+          <dd>
+            {% with date = review.date_read -%}
+              {%- include "partials/timestamp.html" -%}
+            {%- endwith -%}
+          </dd>
+          
+          <dt>my rating</dt>
+          <dd>
+            {% for _ in range(review.rating) %}★&thinsp;{% endfor %}
+            {% for _ in range(5 - review.rating) %}☆&thinsp;{% endfor %}
+          </dd>
+        </dl>
+      </hgroup>
+      <!-- TODO: Support setting bounds on both width and height. -->
+      {%
+        picture
+        filename=page.cover_image.name
+        height="200"
+        class="book_cover"
+        alt=""
+      %}
+      {% if review.summary %}
+        <p class="summary">
+          {{ review.summary }}
+        </p>
+      {% endif %}
+    </header>
+
+    {{ content | cleanup_text }}
+  </article>
+{% endblock %}
