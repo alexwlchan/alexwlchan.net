@@ -2,6 +2,7 @@
 @import "base/layout.css";
 @import "base/text.css";
 
+@import "components/breadcrumb.css";
 @import "components/code.css";
 @import "components/dot_list.css";
 @import "components/footer.css";

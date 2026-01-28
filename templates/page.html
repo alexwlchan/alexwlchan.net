@@ -2,6 +2,10 @@
 
 {% block content %}
   <article>
+    {% if page.breadcrumb %}
+      {% include "partials/breadcrumb.html" %}
+    {% endif %}
+    
     {% if page.title != "" %}
     <h1 class="title">
       {{ page.title | markdownify_oneline }}

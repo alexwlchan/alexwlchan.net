@@ -2,7 +2,7 @@
 The model for an HTML page which is going to be rendered in the site.
 """
 
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 import re
 from typing import Any, Literal, Self, TypedDict
@@ -35,6 +35,15 @@ class PartOf(TypedDict):
     label: str
 
 
+class BreadcrumbEntry(BaseModel):
+    """
+    A breadcrumb entry that helps you see this page in my broader site.
+    """
+
+    label: str
+    href: str | None = None
+
+
 class HtmlPage(BaseModel):
     """
     An HTML page which is going to be rendered in the site.
@@ -56,13 +65,13 @@ class HtmlPage(BaseModel):
     url: str = ""
 
     # The layout template to use
-    layout: Literal["page", "post", "til"] | None = None
+    layout: Literal["page", "post", "til", "book_review"] | None = None
 
     # What template should I use?
     template_name: str = ""
 
     # The title of the page or post
-    title: str
+    title: str = ""
 
     # A short description of the page or post. Used for <meta> tags
     # and social media previews.
@@ -119,6 +128,9 @@ class HtmlPage(BaseModel):
 
     card_path: Path | None = None
 
+    # A breadcrumb trail for this page
+    breadcrumb: list[BreadcrumbEntry] = Field(default_factory=lambda: list())
+
     def __repr__(self) -> str:  # pragma: no cover
         """
         Returns a debugging representation of this page.
@@ -142,6 +154,10 @@ class HtmlPage(BaseModel):
 
         if front_matter["layout"] == "post":
             return Article(
+                src_dir=src_dir, md_path=md_path, content=content, **front_matter
+            )
+        elif front_matter["layout"] == "book_review":
+            return BookReview(
                 src_dir=src_dir, md_path=md_path, content=content, **front_matter
             )
         else:
@@ -183,6 +199,8 @@ class HtmlPage(BaseModel):
         elif self.layout == "til":
             assert self.date is not None
             self.url = f"/til/{self.date.year}/{self.slug}/"
+        elif self.layout == "book_review":
+            self.url = f"/book-reviews/{self.slug}/"
         else:  # pragma: no cover
             raise ValueError(f"unrecognised layout: {self.layout!r}")
 
@@ -342,3 +360,98 @@ class Article(HtmlPage):
         working out the short names for cards.
         """
         return hash(repr(self))
+
+
+class BookContributor(BaseModel):
+    """
+    Somebody who contributed to a book.
+    """
+
+    name: str
+    role: str = "author"
+
+
+class BookInfo(BaseModel):
+    """
+    Information about a book. This describes the book in the abstract,
+    and doesn't tell you anything about how I read it.
+    """
+
+    title: str
+    contributors: list[BookContributor]
+    publication_year: int
+    genres: list[str]
+    isbn13: str = ""
+
+
+class ReviewInfo(BaseModel):
+    """
+    Information about the review; when I read the book.
+    """
+
+    date_read: date
+    format: Literal["paperback", "hardback"]
+    rating: int
+    summary: str = ""
+
+
+class BookReview(HtmlPage):
+    """
+    A book review is my notes on a book I've read.
+    """
+
+    # When I published this review.
+    date: datetime
+
+    # Book reviews always use the `book_review.html` template
+    template_name: str = "book_review.html"
+
+    # Information about the book itself
+    book: BookInfo
+
+    # Information about my review and opinions
+    review: ReviewInfo
+
+    breadcrumb: list[BreadcrumbEntry] = [
+        BreadcrumbEntry(label="Entertainment"),
+        BreadcrumbEntry(label="Books I’ve read", href="/book-reviews/"),
+    ]
+
+    @property
+    def attribution_line(self) -> str:
+        """
+        Returns the one-line attribution based on the contributor.
+        """
+        contributors = self.book.contributors
+
+        if len(contributors) == 1 and contributors[0].role == "author":
+            author = contributors[0]
+            return f"by {author.name}"
+        else:
+            raise ValueError("unable to choose attribution for book")
+
+    @model_validator(mode="after")
+    def set_title(self) -> Self:
+        """
+        Set a title for this review, of the form "[title], [attribution]".
+
+        For example: "Dethroned in Knightsbridge, by Silvia Lemos"
+        """
+        self.title = f"{self.book.title}, {self.attribution_line}"
+        return self
+
+    @property
+    def cover_image(self) -> Path:
+        """
+        The cover image of this book.
+        """
+        assert self.md_path is not None
+        assert self.src_dir is not None
+
+        matching_paths = [
+            p
+            for p in (self.src_dir / "_images" / str(self.date.year)).iterdir()
+            if p.stem == self.md_path.stem
+        ]
+
+        return matching_paths[0]

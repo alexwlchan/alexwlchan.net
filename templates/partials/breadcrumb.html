@@ -1,0 +1,9 @@
+<ul class="breadcrumb">
+  {%- for entry in page.breadcrumb -%}
+    <li>
+      {%- if entry.href %}<a href="{{ entry.href }}">{% endif -%}
+      {{ entry.label }}
+      {%- if entry.href %}</a>{% endif -%}
+    </li>
+  {%- endfor -%}
+</ul>
