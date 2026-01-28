@@ -13,10 +13,12 @@ class TestCheckNoBrokenHtml:
     Tests for `check_no_broken_html`.
     """
 
-    @pytest.mark.parametrize("html", ["<p><table>", "<p>&lt;pre&gt;", "<p><p>"])
+    @pytest.mark.parametrize(
+        "html", ["<p><table>", "<p>&lt;pre&gt;", "<p><p>", "<picture>&lt;/picture>"]
+    )
     def test_spots_bad_tag_after_p(self, html: str) -> None:
         """
-        The lint catches a <p> tag followed by a block element.
+        The lint catches examples of malformed HTML.
         """
         assert check_no_broken_html(html)
 

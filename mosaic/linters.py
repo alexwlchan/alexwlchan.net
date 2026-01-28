@@ -36,6 +36,9 @@ def check_no_broken_html(html_str: str) -> list[str]:
     for m in re.finditer(r"<p>&lt;(.*?)&gt;", html_str):
         errors.append(f"malformed tag following <p>: {m.group(0)}")
 
+    for m in re.finditer(r"&lt;/(?:picture|code|pre)>", html_str):
+        errors.append(f"malformed closing tag <p>: {m.group(0)}")
+
     return errors
 
 
