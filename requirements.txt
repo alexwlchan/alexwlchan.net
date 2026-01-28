@@ -29,16 +29,13 @@ httpcore==1.0.9
     #   httpx
 httpx==0.28.1
     # via -r uptime_tests/requirements.txt
-hyperlink==21.0.0
-    # via -r requirements.in
-hypothesis==6.151.2
+hypothesis==6.151.3
     # via -r requirements.in
 idna==3.11
     # via
     #   -r uptime_tests/requirements.txt
     #   anyio
     #   httpx
-    #   hyperlink
 iniconfig==2.3.0
     # via
     #   -r uptime_tests/requirements.txt

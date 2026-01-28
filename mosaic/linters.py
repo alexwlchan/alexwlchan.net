@@ -3,9 +3,9 @@ Linter rules for verifying the final website output.
 """
 
 import re
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
-import hyperlink
 
 
 def check_no_broken_html(html_str: str) -> list[str]:
@@ -55,8 +55,7 @@ def check_no_localhost_links(html: BeautifulSoup) -> list[str]:
             continue
         assert isinstance(url, str)
 
-        u = hyperlink.parse(url)
-        if u.host == "localhost" and u.port == 5757:
+        if urlparse(url).netloc == "localhost:5757":
             errors.append(f"linking to localhost URL: {url}")
 
     return errors

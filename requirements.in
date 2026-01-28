@@ -1,7 +1,6 @@
 -r uptime_tests/requirements.txt
 
 beautifulsoup4
-hyperlink
 jinja2
 lightningcss
 livereload
