@@ -15,9 +15,6 @@ smartypants
 termcolor
 tqdm
 
-# For colormath
-numpy
-
 # For Mosaic tests
 hypothesis
 mypy

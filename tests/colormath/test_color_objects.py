@@ -2,7 +2,6 @@
 Various tests for color objects.
 """
 
-import numpy as np
 import pytest
 
 from mosaic.colormath.color_objects import RGBColor
@@ -15,12 +14,10 @@ def test_set_from_rgb_hex(hex: str) -> None:
     """
     actual = RGBColor.new_from_rgb_hex(hex)
     expected = RGBColor(0.482353, 0.784314, 0.196078)
-    np.testing.assert_allclose(
-        actual.get_value_tuple(),
-        expected.get_value_tuple(),
-        rtol=1e-5,
-        atol=1e-5,
-    )
+
+    assert abs(actual.rgb_r - expected.rgb_r) <= 1e-5
+    assert abs(actual.rgb_g - expected.rgb_g) <= 1e-5
+    assert abs(actual.rgb_b - expected.rgb_b) <= 1e-5
 
 
 @pytest.mark.parametrize("invalid_hex", ["", "#", "123", "1234567"])
