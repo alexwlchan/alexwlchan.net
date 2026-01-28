@@ -12,7 +12,7 @@ import pytest
 from mosaic import templates as t
 
 
-with open("src/_data/social_embeds.json") as in_file:
+with open("social_embeds/data.json") as in_file:
     SOCIAL_EMBEDS = json.load(in_file)
 
 

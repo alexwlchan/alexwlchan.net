@@ -42,7 +42,7 @@ from .social_embed_models import (
 )
 
 
-with open("src/_data/social_embeds.json") as in_file:
+with open("social_embeds/data.json") as in_file:
     SOCIAL_EMBEDS_DATA = {
         url: parse_social_embed_data(data) for url, data in json.load(in_file).items()
     }
@@ -149,7 +149,7 @@ def avatar_url(post_data: SocialEmbedData) -> str:
 
     # TODO: Implement caching
     # TODO: Allow choosing the source directory here
-    matching_avatars = glob.glob(f"src/_images/social_embeds/avatars/{avatar_id}*")
+    matching_avatars = glob.glob(f"social_embeds/avatars/{avatar_id}*")
 
     if len(matching_avatars) != 1:  # pragma: no cover
         raise RuntimeError(f"could not find avatar for {avatar_id}")
@@ -276,7 +276,7 @@ def replace_twemoji(text: str) -> str:
             continue
 
         # TODO: Allow choosing the source directory
-        svg_path = Path("src/_images/social_embeds/twemoji") / svg_name
+        svg_path = Path("social_embeds/twemoji") / svg_name
         base64_string = base64.b64encode(svg_path.read_bytes()).decode("ascii")
         data_uri = f"data:image/svg+xml;base64,{base64_string}"
 
