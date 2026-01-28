@@ -41,7 +41,6 @@ def get_markdown_paths(src_dir)
   Dir["#{src_dir}/**/*.md"]
     # Skip some Markdown files in the source directory that aren't
     # posts on the site and so don't need validating.
-    .reject { |md_path| md_path == "#{src_dir}/theme/_favicons/README.md" }
     .reject { |md_path| md_path == "#{src_dir}/_plugins/pillow/README.md" }
     # This page is a special case for crawlers and doesn't count for
     # the purposes of linting and the like.
