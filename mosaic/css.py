@@ -7,8 +7,6 @@ from pathlib import Path
 import re
 from typing import TypedDict
 
-from bs4 import BeautifulSoup
-
 import lightningcss
 
 
@@ -33,6 +31,11 @@ def create_base_css(css_path: str | Path) -> str:
 ParsedStyles = TypedDict("ParsedStyles", {"html": str, "styles": str})
 
 
+STYLE_RE = re.compile(r"\s*<style[^>]*>(?P<css>.*?)</style>\s*", re.DOTALL)
+SCSS_USE_RE = re.compile(r'@use "(?P<name>[^"]+)";')
+EMPTY_DEFS_RE = re.compile(r"\s*<defs>\s*</defs>\s*")
+
+
 def get_inline_styles(html: str) -> ParsedStyles:
     """
     Extract <style> tags from an HTML doc so they can be moved to the <head>.
@@ -50,30 +53,22 @@ def get_inline_styles(html: str) -> ParsedStyles:
     # TODO(2026-01-21): Can lightningcss do this de-duplication for me?
     styles = OrderedDict[str, None]()
 
-    # Parse the document as HTML, and look for <style> tags.
-    soup = BeautifulSoup(html, "html.parser")
-    for style_tag in soup.find_all("style"):
-        css = style_tag.text.strip()
+    # Find and remove all <style> tags. I do this using regex because
+    # it's faster than parsing with BeautifulSoup, and avoids any
+    # changing of the behaviour or meaning of the HTML.
+    while m := STYLE_RE.search(html):
+        css = m.group("css")
 
-        # Remove this <style> tag. We do this as a string manipulation
-        # to avoid bs4 changing the meaning or behaviour of our HTML.
-        html = re.sub(
-            r"\s*<style[^>]*>\s*" + re.escape(css) + r"\s*</style>\s*", "", html
-        )
-
-        # TODO(2026-01-21): This looks for the x-text/scss and @use statements
-        # I wrote with Jekyll. The better fix would be to replace this
-        # with @import statements and use lightningcss to bundle everything.
-        while m := re.search(r'@use "(?P<name>[^"]+)";', css):
-            use_path = Path("css") / (m.group("name") + ".css")
+        while use_m := SCSS_USE_RE.search(css):
+            use_path = Path("css") / (use_m.group("name") + ".css")
             use_css = use_path.read_text()
-            css = css.replace(m.group(0), use_css)
+            css = css.replace(use_m.group(0), use_css)
 
         styles[css] = None
+        html = html.replace(m.group(0), "")
 
     # If removing the <style> tags has rendered a set of <defs> empty,
     # just remove them.
-    if "<defs>" in html:
-        html = re.sub(r"\s*<defs>\s*</defs>\s*", "", html)
+    html = EMPTY_DEFS_RE.sub("", html)
 
     return {"html": html, "styles": "".join(styles)}
