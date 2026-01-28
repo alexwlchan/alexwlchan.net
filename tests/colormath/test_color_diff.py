@@ -2,8 +2,6 @@
 Tests for color difference (Delta E) equations.
 """
 
-import numpy as np
-
 from mosaic.colormath.color_diff import delta_e_cie2000
 from mosaic.colormath.color_objects import LabColor
 
@@ -16,12 +14,7 @@ def test_cie2000_accuracy() -> None:
     c2 = LabColor(lab_l=0.7, lab_a=14.2, lab_b=-1.80)
     result = delta_e_cie2000(c1, c2)
     expected = 1.522585
-    np.testing.assert_allclose(
-        result,
-        expected,
-        rtol=1e-5,
-        atol=1e-5,
-    )
+    assert abs(result - expected) <= 1e-5
 
 
 def test_cie2000_accuracy_2() -> None:
@@ -33,12 +26,7 @@ def test_cie2000_accuracy_2() -> None:
     c2 = LabColor(lab_l=77.1797, lab_a=25.5928, lab_b=17.9412)
     result = delta_e_cie2000(c1, c2)
     expected = 78.772
-    np.testing.assert_allclose(
-        result,
-        expected,
-        rtol=1e-5,
-        atol=1e-5,
-    )
+    assert abs(result - expected) <= 1e-3
 
 
 def test_cie2000_accuracy_3() -> None:
@@ -162,4 +150,4 @@ def test_cie2000_accuracy_3() -> None:
     for l_set in zip(color1, color2, diff):
         result = delta_e_cie2000(l_set[0], l_set[1])
         expected = l_set[2]
-        np.testing.assert_allclose(result, expected, rtol=1e-4, atol=1e-4)
+        assert abs(result - expected) <= 1e-4

@@ -4,9 +4,10 @@ Conversion between color spaces.
 
 import math
 
-import numpy
-
 from .color_objects import XYZColor, RGBColor, LabColor
+
+
+__all__ = ["RGB_to_Lab", "Lab_to_RGB"]
 
 
 # Not sure what these are, they are used in Lab and Luv calculations.
@@ -85,19 +86,13 @@ def XYZ_to_RGB(xyz: XYZColor) -> RGBColor:
     temp_Y = xyz.xyz_y
     temp_Z = xyz.xyz_z
 
-    # Apply an RGB working space matrix to the XYZ values (matrix mul).
-    rgb_matrix = numpy.array(
-        (
-            (3.24071, -1.53726, -0.498571),
-            (-0.969258, 1.87599, 0.0415557),
-            (0.0556352, -0.203996, 1.05707),
-        )
-    )
+    # Apply an RGB working space matrix to the XYZ values.
+    # fmt: off
+    rgb_r =  3.24071   * temp_X - 1.53726  * temp_Y - 0.498571  * temp_Z
+    rgb_g = -0.969258  * temp_X + 1.87599  * temp_Y + 0.0415557 * temp_Z
+    rgb_b =  0.0556352 * temp_X - 0.203996 * temp_Y + 1.05707   * temp_Z
+    # fmt: on
 
-    # Stuff the RGB/XYZ values into a NumPy matrix for conversion.
-    var_matrix = numpy.array((temp_X, temp_Y, temp_Z))
-    # Perform the adaptation via matrix multiplication.
-    rgb_r, rgb_g, rgb_b = numpy.dot(rgb_matrix, var_matrix)
     # Clamp these values to a valid range.
     rgb_r = max(rgb_r, 0.0)
     rgb_g = max(rgb_g, 0.0)
@@ -136,21 +131,17 @@ def RGB_to_XYZ(rgb: RGBColor) -> XYZColor:
         else:
             linear_channels[channel] = math.pow((V + 0.055) / 1.055, 2.4)
 
-    # Apply an RGB working space matrix to the XYZ values (matrix mul).
-    rgb_matrix = numpy.array(
-        (
-            (0.412424, 0.357579, 0.180464),
-            (0.212656, 0.715158, 0.0721856),
-            (0.0193324, 0.119193, 0.950444),
-        )
-    )
-
     # Stuff the RGB/XYZ values into a NumPy matrix for conversion.
-    var_matrix = numpy.array(
-        (linear_channels["r"], linear_channels["g"], linear_channels["b"])
-    )
-    # Perform the adaptation via matrix multiplication.
-    xyz_x, xyz_y, xyz_z = numpy.dot(rgb_matrix, var_matrix)
+    temp_r = linear_channels["r"]
+    temp_g = linear_channels["g"]
+    temp_b = linear_channels["b"]
+
+    # Apply an RGB working space matrix to the XYZ values (matrix mul).
+    # fmt: off
+    xyz_x = 0.412424  * temp_r + 0.357579 * temp_g + 0.180464  * temp_b
+    xyz_y = 0.212656  * temp_r + 0.715158 * temp_g + 0.0721856 * temp_b
+    xyz_z = 0.0193324 * temp_r + 0.119193 * temp_g + 0.950444  * temp_b
+
     # Clamp these values to a valid range.
     xyz_x = max(xyz_x, 0.0)
     xyz_y = max(xyz_y, 0.0)

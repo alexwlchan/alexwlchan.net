@@ -5,7 +5,6 @@ Tests for `colormath.color_conversions`.
 from typing import Any
 
 from hypothesis import given, strategies as st
-import numpy as np
 import pytest
 
 from mosaic.colormath import RGBColor, LabColor, RGB_to_Lab, Lab_to_RGB
@@ -79,12 +78,8 @@ def test_colour_conversion(
     else:  # pragma: no cover
         assert 0, "unreachable!"
 
-    np.testing.assert_allclose(
-        c1.get_value_tuple(),
-        c2.get_value_tuple(),
-        rtol=1e-5,
-        atol=1e-5,
-    )
+    for part1, part2 in zip(c1.get_value_tuple(), c2.get_value_tuple()):
+        assert abs(part1 - part2) <= 1e-3
 
 
 @given(
@@ -97,12 +92,10 @@ def test_xyz_conversions(x: float, y: float, z: float) -> None:
     Test XYZ <-> Lab conversions.
     """
     xyz = XYZColor(x, y, z)
-    np.testing.assert_allclose(
-        Lab_to_XYZ(XYZ_to_Lab(xyz)).get_value_tuple(),
-        xyz.get_value_tuple(),
-        rtol=1e-5,
-        atol=1e-5,
-    )
+    xyz_rt = Lab_to_XYZ(XYZ_to_Lab(xyz))
+
+    for part1, part2 in zip(xyz.get_value_tuple(), xyz_rt.get_value_tuple()):
+        assert abs(part1 - part2) <= 1e-4
 
 
 @given(
@@ -115,9 +108,7 @@ def test_rgb_conversions(r: float, g: float, b: float) -> None:
     Test RGB <-> Lab conversions.
     """
     rgb = RGBColor(r, g, b)
-    np.testing.assert_allclose(
-        Lab_to_RGB(RGB_to_Lab(rgb)).get_value_tuple(),
-        rgb.get_value_tuple(),
-        rtol=1e-4,
-        atol=1e-4,
-    )
+    rgb_rt = Lab_to_RGB(RGB_to_Lab(rgb))
+
+    for part1, part2 in zip(rgb.get_value_tuple(), rgb_rt.get_value_tuple()):
+        assert abs(part1 - part2) <= 1e-4

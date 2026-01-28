@@ -1,89 +1,78 @@
 """
-The functions in this module are used for comparing two LabColor objects
-using various Delta E formulas.
+The Delta E (CIE2000) difference for comparing the perceptual difference
+between two colours.
 """
 
-import numpy
+import math
 
 from .color_objects import LabColor
 
 
-def delta_e_cie2000(color1: LabColor, color2: LabColor) -> float:
+def delta_e_cie2000(colour1: LabColor, colour2: LabColor) -> float:
     """
-    Calculates the Delta E (CIE2000) of two colors.
+    Calculates the Delta E (CIE2000) of two colours.
     """
-    color1_vector = numpy.array([color1.lab_l, color1.lab_a, color1.lab_b])
-    color2_matrix = numpy.array([(color2.lab_l, color2.lab_a, color2.lab_b)])
-
+    # Weighting factors
     Kl = Kc = Kh = 1
-    L, a, b = color1_vector
 
-    avg_Lp = (L + color2_matrix[:, 0]) / 2.0
+    L1, a1, b1 = colour1.lab_l, colour1.lab_a, colour1.lab_b
+    L2, a2, b2 = colour2.lab_l, colour2.lab_a, colour2.lab_b
 
-    C1 = numpy.sqrt(numpy.sum(numpy.power(color1_vector[1:], 2)))
-    C2 = numpy.sqrt(numpy.sum(numpy.power(color2_matrix[:, 1:], 2), axis=1))
+    avg_Lp = (L1 + L2) / 2
 
-    avg_C1_C2 = (C1 + C2) / 2.0
+    C1 = math.sqrt(a1**2 + b1**2)
+    C2 = math.sqrt(a2**2 + b2**2)
+    avg_C = (C1 + C2) / 2
 
-    G = 0.5 * (
-        1
-        - numpy.sqrt(
-            numpy.power(avg_C1_C2, 7.0)
-            / (numpy.power(avg_C1_C2, 7.0) + numpy.power(25.0, 7.0))
-        )
-    )
+    C7 = avg_C**7
+    G = 0.5 * (1 - math.sqrt(C7 / (C7 + 25**7)))
 
-    a1p = (1.0 + G) * a
-    a2p = (1.0 + G) * color2_matrix[:, 1]
+    a1p = (1.0 + G) * a1
+    a2p = (1.0 + G) * a2
 
-    C1p = numpy.sqrt(numpy.power(a1p, 2) + numpy.power(b, 2))
-    C2p = numpy.sqrt(numpy.power(a2p, 2) + numpy.power(color2_matrix[:, 2], 2))
+    C1p = math.sqrt(a1p**2 + b1**2)
+    C2p = math.sqrt(a2p**2 + b2**2)
+    avg_C1p_C2p = (C1p + C2p) / 2
 
-    avg_C1p_C2p = (C1p + C2p) / 2.0
+    h1p = math.degrees(math.atan2(b1, a1p)) % 360
+    h2p = math.degrees(math.atan2(b2, a2p)) % 360
 
-    h1p = numpy.degrees(numpy.arctan2(b, a1p))
-    h1p += (h1p < 0) * 360
-
-    h2p = numpy.degrees(numpy.arctan2(color2_matrix[:, 2], a2p))
-    h2p += (h2p < 0) * 360
-
-    avg_Hp = (((numpy.fabs(h1p - h2p) > 180) * 360) + h1p + h2p) / 2.0
+    if abs(h1p - h2p) > 180:
+        avg_Hp = (h1p + h2p + 360) / 2
+    else:
+        avg_Hp = (h1p + h2p) / 2
 
     T = (
         1
-        - 0.17 * numpy.cos(numpy.radians(avg_Hp - 30))
-        + 0.24 * numpy.cos(numpy.radians(2 * avg_Hp))
-        + 0.32 * numpy.cos(numpy.radians(3 * avg_Hp + 6))
-        - 0.2 * numpy.cos(numpy.radians(4 * avg_Hp - 63))
+        - 0.17 * math.cos(math.radians(avg_Hp - 30))
+        + 0.24 * math.cos(math.radians(2 * avg_Hp))
+        + 0.32 * math.cos(math.radians(3 * avg_Hp + 6))
+        - 0.2 * math.cos(math.radians(4 * avg_Hp - 63))
     )
 
-    diff_h2p_h1p = h2p - h1p
-    delta_hp = diff_h2p_h1p + (numpy.fabs(diff_h2p_h1p) > 180) * 360
-    delta_hp -= (h2p > h1p) * 720
+    diff_h = h2p - h1p
+    if abs(diff_h) <= 180:
+        delta_hp_raw = diff_h
+    else:
+        delta_hp_raw = diff_h + (360 if h2p <= h1p else -360)
 
-    delta_Lp = color2_matrix[:, 0] - L
+    delta_Lp = L2 - L1
     delta_Cp = C2p - C1p
-    delta_Hp = 2 * numpy.sqrt(C2p * C1p) * numpy.sin(numpy.radians(delta_hp) / 2.0)
+    delta_Hp = 2 * math.sqrt(C2p * C1p) * math.sin(math.radians(delta_hp_raw) / 2)
 
-    S_L = 1 + (
-        (0.015 * numpy.power(avg_Lp - 50, 2))
-        / numpy.sqrt(20 + numpy.power(avg_Lp - 50, 2.0))
-    )
+    S_L = 1 + ((0.015 * (avg_Lp - 50) ** 2) / math.sqrt(20 + (avg_Lp - 50) ** 2))
     S_C = 1 + 0.045 * avg_C1p_C2p
     S_H = 1 + 0.015 * avg_C1p_C2p * T
 
-    delta_ro = 30 * numpy.exp(-(numpy.power(((avg_Hp - 275) / 25), 2.0)))
-    R_C = numpy.sqrt(
-        (numpy.power(avg_C1p_C2p, 7.0))
-        / (numpy.power(avg_C1p_C2p, 7.0) + numpy.power(25.0, 7.0))
-    )
-    R_T = -2 * R_C * numpy.sin(2 * numpy.radians(delta_ro))
+    delta_ro = 30 * math.exp(-(((avg_Hp - 275) / 25) ** 2))
+    C7p = avg_C1p_C2p**7
+    R_C = 2 * math.sqrt(C7p / (C7p + 25**7))
+    R_T = -math.sin(2 * math.radians(delta_ro)) * R_C
 
-    return float(
-        numpy.sqrt(
-            numpy.pow(delta_Lp / (S_L * Kl), 2)
-            + numpy.pow(delta_Cp / (S_C * Kc), 2)
-            + numpy.pow(delta_Hp / (S_H * Kh), 2)
-            + R_T * (delta_Cp / (S_C * Kc)) * (delta_Hp / (S_H * Kh))
-        )[0].item()
-    )
+    dist_l = delta_Lp / (S_L * Kl)
+    dist_c = delta_Cp / (S_C * Kc)
+    dist_h = delta_Hp / (S_H * Kh)
+
+    total_de = math.sqrt(dist_l**2 + dist_c**2 + dist_h**2 + R_T * dist_c * dist_h)
+
+    return total_de
