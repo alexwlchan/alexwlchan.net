@@ -40,13 +40,7 @@ class Site:
 
         Returns True if the build succeeded, False if there were errors.
         """
-        # Read all the Markdown source files.
-        pages: list[HtmlPage] = []
-        for md_path in find_paths_under(self.src_dir, suffix=".md"):
-            if "_plugins" in str(md_path):
-                continue
-
-            pages.append(HtmlPage.from_path(self.src_dir, md_path))
+        pages = self.read_markdown_source_files()
 
         # Work out all the tint colours being used.
         tint_colours: list[TintColours] = [
@@ -196,6 +190,20 @@ class Site:
             pth.unlink()
 
         return True
+
+    def read_markdown_source_files(self) -> list[HtmlPage]:
+        """
+        Read all the Markdown source files.
+        """
+        pages = []
+
+        for md_path in find_paths_under(self.src_dir, suffix=".md"):
+            if "_plugins" in str(md_path):
+                continue
+
+            pages.append(HtmlPage.from_path(self.src_dir, md_path))
+
+        return pages
 
     @property
     def static_dir(self) -> Path:
