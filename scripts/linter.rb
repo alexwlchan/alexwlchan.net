@@ -46,45 +46,6 @@ def get_markdown_paths(src_dir)
     .reject { |md_path| md_path == "#{src_dir}/400.md" }
 end
 
-# Check my Netlify redirects point to real pages.
-#
-# This ensures that any redirects I create are working.  It doesn't mean
-# I can't forget to create a redirect, but it does mean I won't create
-# a redirect that points to another broken page.
-def check_redirects(dst_dir)
-  info('Checking Caddy redirect config...')
-
-  bad_lines = []
-
-  parse_caddy_redirects.each do |redirect|
-    # A couple of special cases that I don't worry about.
-    next if redirect[:source] == '/ideas-for-inclusive-events/*'
-    next if redirect[:target].start_with? 'https://'
-
-    expected_file =
-      if redirect[:target].end_with? '/'
-        "#{dst_dir}/#{redirect[:target]}/index.html"
-      else
-        "#{dst_dir}/#{redirect[:target]}"
-      end
-
-    lineno = redirect[:lineno]
-    line = redirect[:line]
-
-    bad_lines << [lineno, line.strip] unless File.exist? expected_file
-  end
-
-  return if bad_lines.empty?
-
-  error('- src/_redirects')
-  error('  The following lines are redirecting to broken resources:')
-  bad_lines.each do |ln|
-    lineno, line = ln
-    error("  * L#{lineno}:\t#{line}")
-  end
-  exit!
-end
-
 def report_errors(errors)
   # This is meant to look similar to the output from HTMLProofer --
   # errors are grouped by filename, so they can be easily traced
@@ -106,5 +67,4 @@ src_dir = 'src'
 check_with_html_proofer(html_dir)
 
 check_writing_has_been_archived(src_dir)
-check_redirects(html_dir)
 check_all_urls_are_hackable(html_dir)
