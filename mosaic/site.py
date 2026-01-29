@@ -231,11 +231,6 @@ class Site:
         out_path.parent.mkdir(exist_ok=True, parents=True)
         out_path.write_text(base_css)
 
-        # Clean up any old CSS files
-        for f in self.static_dir.iterdir():
-            if f.suffix == ".css" and f.name != out_path.name:
-                f.unlink()
-
         return "/" + str(out_path.relative_to(self.out_dir))
 
     def copy_static_files(self) -> None:  # pragma: no cover
