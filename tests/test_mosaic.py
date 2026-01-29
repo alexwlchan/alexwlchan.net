@@ -29,8 +29,8 @@ def test_build_base_css_file(tmp_path: Path) -> None:
     # Write a new CSS file into that directory, as if from an old process
     # with different CSS.
     #
-    # Check it gets deleted.
+    # Check it's left behind.
     (out_dir / "static/style.123.css").write_text("old_css")
     s.build_base_css_file()
 
-    assert len(glob.glob(f"{out_dir}/static/style.*.css")) == 1
+    assert len(glob.glob(f"{out_dir}/static/style.*.css")) == 2
