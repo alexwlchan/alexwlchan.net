@@ -59,7 +59,7 @@ say.
 
 P184, when talking to one of the students on her Italian summer school:
 
-> Chiara looked like my mother's best friend. Her confidence and determination was astonishing - but the older I get, the more I think confidence is the privilege of the young. We grow into fear when we comprehend how precious what we have is to lose.
+> Chiara looked like my mother's best friend. Her confidence and determination was astonishing -- but the older I get, the more I think confidence is the privilege of the young. We grow into fear when we comprehend how precious what we have is to lose.
 
 P204, which made me chuckle because it reminds me of how my partner and I behaved before we started dating:
 
