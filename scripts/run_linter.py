@@ -13,7 +13,11 @@ from tqdm import tqdm
 sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.fs import find_paths_under
-from mosaic.linters import check_no_broken_html, check_no_localhost_links
+from mosaic.linters import (
+    check_no_broken_html,
+    check_no_localhost_links,
+    check_redirects,
+)
 
 
 def read_single_html_file(p: Path) -> BeautifulSoup:
@@ -29,7 +33,7 @@ if __name__ == "__main__":
     except IndexError:
         sys.exit(f"Usage: {__file__} OUT_DIR")
 
-    all_errors = collections.defaultdict(list)
+    all_errors: dict[Path, list[str]] = collections.defaultdict(list)
 
     html_paths = list(find_paths_under(out_dir, suffix=".html"))
 
@@ -41,13 +45,17 @@ if __name__ == "__main__":
     for p, (html_str, soup) in tqdm(html_files.items(), desc="linting html"):
         try:
             if "testing-javascript-without-a-framework" not in p.parts:
-                for err in check_no_broken_html(html_str):
-                    all_errors[p].append(err)
-            for err in check_no_localhost_links(soup):
-                all_errors[p].append(err)
+                all_errors[p] += check_no_broken_html(html_str)
+            all_errors[p] += check_no_localhost_links(soup)
         except Exception:
             print(p)
             raise
+
+    redirects_path = Path("caddy/redirects.Caddyfile")
+    all_errors[redirects_path] += check_redirects(redirects_path, out_dir)
+
+    # Remove paths which don't have any errors
+    all_errors = {p: errors for p, errors in all_errors.items() if errors}
 
     if not all_errors:
         print(termcolor.colored("no errors found!", "green"))
