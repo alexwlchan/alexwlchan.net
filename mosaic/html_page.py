@@ -390,7 +390,7 @@ class ReviewInfo(BaseModel):
     """
 
     date_read: date
-    format: Literal["paperback", "hardback"]
+    format: Literal["paperback", "hardback", "ebook"]
     rating: int
     summary: str = ""
 
@@ -427,6 +427,9 @@ class BookReview(HtmlPage):
         if len(contributors) == 1 and contributors[0].role == "author":
             author = contributors[0]
             return f"by {author.name}"
+        elif len(contributors) == 1 and contributors[0].role == "editor":
+            editor = contributors[0]
+            return f"edited by {editor.name}"
         else:
             raise ValueError("unable to choose attribution for book")
 

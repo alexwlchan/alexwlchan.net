@@ -22,6 +22,6 @@ breadcrumb:
 
 <ul>
 {% for rev in reviews %}
-  <li><a href="{{ rev.url }}">{{ rev.title }}</a></li>
+  <li><a href="{{ rev.url }}"><em>{{ rev.book.title }}</em></a>, {{ rev.attribution_line }}</li>
 {% endfor %}
 </ul>

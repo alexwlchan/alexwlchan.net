@@ -281,6 +281,8 @@ NON_BREAKING_PHRASES = [
     "z-axis",
 ]
 
+PROPER_NAME_RE = re.compile(r"(?P<initials>[A-Z]\.[A-Z]\.) (?P<surname>[A-Z])")
+
 
 def add_non_breaking_characters(text: str) -> str:
     """
@@ -303,6 +305,9 @@ def add_non_breaking_characters(text: str) -> str:
     for w in short_words:
         text = text.replace(f". {w} ", f". {w}&nbsp;")
         text = text.replace(f".\n{w} ", f".\n{w}&nbsp;")
+
+    # Add a non-breaking space in phrases that look like names.
+    text = PROPER_NAME_RE.sub(r"\g<initials>&nbsp;\g<surname>", text)
 
     # Handle other phrases which need non-breaking spaces or dashes.
     for phrase in NON_BREAKING_PHRASES:

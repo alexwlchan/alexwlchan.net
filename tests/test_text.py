@@ -115,6 +115,7 @@ def test_block_elements_are_preserved(md: str) -> None:
             "My first sentence.\nA&nbsp;new sentence.",
         ),
         ("After x and y is the z-axis", "After x and y is the z&#8209;axis"),
+        ("A.B. Charles", "A.B.&nbsp;Charles"),
     ],
 )
 def test_cleanup_text(text: str, cleaned_text: str) -> None:
