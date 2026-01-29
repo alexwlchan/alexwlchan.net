@@ -9,12 +9,9 @@ tags:
 
 Every so often, an expression like this goes viral on Twitter:
 
-{%
-  inline_svg
-  filename="ambiguous.svg"
-  alt="6 ÷ 2 (1 + 2)"
-  class="dark_aware"
-%}
+<p style="text-align: center; font-size: 2em;">
+  6 ÷ 2 (1 + 2)
+</p>
 
 What's the result?
 It's ambiguous.

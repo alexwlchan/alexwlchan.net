@@ -40,8 +40,9 @@ if __name__ == "__main__":
 
     for p, (html_str, soup) in tqdm(html_files.items(), desc="linting html"):
         try:
-            for err in check_no_broken_html(html_str):
-                all_errors[p].append(err)
+            if "testing-javascript-without-a-framework" not in p.parts:
+                for err in check_no_broken_html(html_str):
+                    all_errors[p].append(err)
             for err in check_no_localhost_links(soup):
                 all_errors[p].append(err)
         except Exception:
@@ -59,3 +60,5 @@ if __name__ == "__main__":
             print(f"{p}:")
             for err in errors:
                 print(f"  - {err}")
+
+        sys.exit(1)

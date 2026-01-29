@@ -20,7 +20,7 @@ This is similar to something I wrote in February about [reading large objects in
 
 To get an InputStream for an object, we can use the GetObject API in the S3 SDK:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"InputStream","4":"com","5":"amazonaws","6":"services","7":"s3","8":"AmazonS3","9":"s3Client","11":"is"}}
 import java.io.InputStream
 import com.amazonaws.services.s3.AmazonS3
 
@@ -62,7 +62,7 @@ Let's walk through the code:
 To know how many chunks we'll need (and when we're finished reading the object), we need to know how big the object is.
 One way to do this is to use the `getObjectMetadata` method (aka the HeadObject API):
 
-```scala
+```scala {"names":{"1":"getSize","2":"bucketName","4":"key"}}
 def getSize(bucketName: String, key: String): Long =
   s3Client
     .getObjectMetadata(bucketName, key)
@@ -73,7 +73,7 @@ def getSize(bucketName: String, key: String): Long =
 
 Let's suppose we want to read the first 1000 bytes of an object -- we can use a ranged GET request to get just that part of the file:
 
-```scala
+```scala {"names":{"1":"com","2":"amazonaws","3":"services","4":"s3","5":"model","6":"GetObjectRequest","7":"getRequest","12":"is"}}
 import com.amazonaws.services.s3.model.GetObjectRequest
 
 val getRequest = new GetObjectRequest(bucketName, key)
@@ -98,15 +98,17 @@ How can we do that?
 Java has a `SequenceInputStream` type that's just what we need -- we give it an Enumeration of InputStream instances, and it reads bytes from each one in turn.
 It we create the streams as they're needed by the Enumeration, this will join them together for us.
 
+<figure>
 {%
   inline_svg
   filename="sequence_stream.svg"
   alt="A series of rectangles for InputStreams, one from 0–999, then 1000–1999, then 2000–2999, all pointing up into a single recetangle labelled SequenceInputStream."
 %}
+</figure>
 
 We can create the Enumeration like so:
 
-```scala
+```scala {"names":{"1":"java","2":"util","3":"com","4":"amazonaws","5":"services","6":"s3","7":"model","8":"S3ObjectInputStream","9":"pieceSize","11":"enumeration","15":"currentPosition","16":"totalSize","18":"hasMoreElements","22":"nextElement","24":"getRequest"}}
 import java.util
 import com.amazonaws.services.s3.model.S3ObjectInputStream
 
@@ -139,7 +141,7 @@ The S3 SDK returns all the remaining bytes, but no more.
 
 And then we put that enumeration into a SequenceInputStream:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"SequenceInputStream","4":"combinedStream"}}
 import java.io.SequenceInputStream
 
 val combinedStream: InputStream = new SequenceInputStream(enumeration)
@@ -160,7 +162,7 @@ What we're trying instead is reading the entire contents of a single piece into 
 We're trading memory for increased reliability.
 Here's what that buffering looks like:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"ByteArrayInputStream","4":"underlying","8":"bufferedEnumeration","12":"hasMoreElements","16":"nextElement","18":"nextStream","21":"byteArray"}}
 import java.io.ByteArrayInputStream
 
 val underlying: util.Enumeration[InputStream]
@@ -183,7 +185,7 @@ We can drop this enumeration into another SequenceInputStream, and get a single 
 
 If we take all those pieces, we can combine them into a single Scala class like so:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"ByteArrayInputStream","4":"InputStream","5":"SequenceInputStream","6":"java","7":"util","8":"com","9":"amazonaws","10":"services","11":"s3","12":"model","13":"GetObjectRequest","14":"S3ObjectInputStream","15":"com","16":"amazonaws","17":"services","18":"s3","19":"AmazonS3","20":"org","21":"apache","22":"commons","23":"io","24":"IOUtils","25":"scala","26":"util","27":"Try","28":"S3StreamReader","29":"s3Client","31":"bufferSize","33":"get","34":"bucketName","36":"key","41":"totalSize","45":"s3Enumeration","50":"bufferedEnumeration","55":"getSize","56":"bucketName","58":"key","66":"getEnumeration","67":"bucketName","69":"key","71":"totalSize","79":"currentPosition","80":"hasMoreElements","84":"nextElement","86":"getRequest","100":"getBufferedEnumeration","103":"underlying","113":"hasMoreElements","117":"nextElement","119":"nextStream","122":"byteArray"}}
 import java.io.{ByteArrayInputStream, InputStream, SequenceInputStream}
 import java.util
 

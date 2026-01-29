@@ -58,7 +58,6 @@ A couple of people saw me doing it on Thursday, and asked me how, so here's my t
       It looks for anything that looks like a hex colour string in the SVG XML (e.g. <code>#d01c11</code>), converts it from RGB into HSL using the <a href="https://docs.python.org/3/library/colorsys.html">colorsys module</a>, and copies the adjusted hex colour back into the SVG.
       It tries a range of hue adjustments, and saves them into a folder.
     </p>
-
     <p>
       If that sounds useful, this is the code:
     </p>

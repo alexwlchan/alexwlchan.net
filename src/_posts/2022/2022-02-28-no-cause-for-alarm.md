@@ -26,11 +26,13 @@ We have a set of pipelines for processing data -- multiple apps connected by que
 Each app receives messages from an input queue, does some processing, then sends another message to an output queue for the next app to work on.
 It's a pretty standard pattern.
 
+<figure>
 {%
   inline_svg
   filename="sqs_pipeline.svg"
   alt="A process diagram showing a data pipeline. There are three components (left to right): an input queue, a worker, and an output queue. The worker processes incoming messages from the input queue, and sends ongoing messages to the output queue."
 %}
+</figure>
 
 We use Amazon SQS for our queues, and Amazon ECS to run instances of our apps.
 
@@ -44,11 +46,13 @@ This introduces some latency (if the pipeline is scaled down and new work arrive
 
 We use CloudWatch to automatically adjust the number of tasks.
 
+<figure>
 {%
   inline_svg
   filename="sqs_autoscaling.svg"
   alt="A process diagram showing an SQS queue, a CloudWatch Metric and Alarm, and an ECS service. One path goes queue to metric (sends queue metrics), metric to alarm (triggers alarm), alarm to service (updates task count). Another path goes queue to service (processes messages)."
 %}
+</figure>
 
 Each SQS queue is [sending metrics to CloudWatch][sqs_metrics], telling it how many messages it has.
 We have CloudWatch alarms based on those metrics, and when they're in the ALARM state, they [adjust the task count][actions].

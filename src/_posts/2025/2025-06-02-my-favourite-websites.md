@@ -145,7 +145,9 @@ The background changes colour, stars fade in and out, and the moon and the sun g
 It cycles through noon, twilight, and dusk, before starting the same thing over again.
 It's hard to describe it in words, so here's a screen recording [of the demo site][circadium_demo] for a 24 hour cycle:
 
-<video controls loop poster="/images/2025/bookmarks/circadium_loop.png" src="/images/2025/bookmarks/circadium_loop.mp4" class="screenshot" style="width: 600px;"></video>
+<figure>
+  <video controls loop poster="/images/2025/bookmarks/circadium_loop.png" src="/images/2025/bookmarks/circadium_loop.mp4" class="screenshot" style="width: 600px;"></video>
+</figure>
 
 This effect is very subtle, because the appearance is set based on the time you loaded the page, and doesn't change after that.
 Unless you reload the same page repeatedly, you may even not notice the background is changing.
