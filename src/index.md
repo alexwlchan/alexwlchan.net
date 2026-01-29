@@ -122,7 +122,7 @@ Here are some of the topics I write about:
 
 
 
-{% comment %}
+{#
   This component shows 6 featured articles.
 
   To keep things somewhat interesting, I have more than 6 such articles
@@ -134,7 +134,7 @@ Here are some of the topics I write about:
   New articles always appear in the top left, but other articles can
   rotate around them.
 
-{% endcomment %}
+#}
 
 <script>
   function CardImage(card) {
@@ -143,13 +143,22 @@ Here are some of the topics I write about:
     const suffix = card.fm === 0 ? '.jpg' : '.png';
     const mimeType = card.fm === 0 ? 'image/jpg' : 'image/png';
 
-    const prefix = card.s.slice(0, card.p);
-    const imPrefix = `/c/${yr}/${prefix}`;
+    const imPrefix = `/c/${yr}/${card.cs}`;
 
-    const ws = [1, 2, 3];
+    /* Some cards are too small to appear at 3× size, so just mark them
+     * as only being available at 1×. New cards always have enough sizes. */
+    const ws = (card.s === 'snapped-elastic' ||
+                card.s === 'kempisbot' ||
+                card.s === 'using-dynamodb-as-a-calculator' ||
+                card.s === 'digital-verification' ||
+                card.s === 'kempisbot' ||
+                card.s === 'finding-tint-colours-with-k-means')
+      ? [1]
+      : [1, 2, 3];
+    
     const avif    = ws.map(s => `${imPrefix}_${s}x.avif ${s * 450}w`).join(", ");
     const webp    = ws.map(s => `${imPrefix}_${s}x.webp ${s * 450}w`).join(", ");
-    const primary = ws.map(s => `${imPrefix}_${s}x${suffix} ${s * 450w`).join(", ");
+    const primary = ws.map(s => `${imPrefix}_${s}x${suffix} ${s * 450}w`).join(", ");
 
     // See comment in `article_card.html`
     const sizes = "(max-width: 450px) 100vw,450px";
@@ -193,11 +202,11 @@ Here are some of the topics I write about:
     t = title
     y = year - 2000
     s = slug
-    p = length of prefix
+    cs = card short name
     fm = image format (0 = JPEG, 1 = PNG)
     d = description
   #}
-  const keys = ["cl","cd","n","t","y","s","p","fm","d"];
+  const keys = ["cl","cd","n","t","y","s","cs","fm","d"];
 
   {%- set featuredArticlesJson -%}
     [
@@ -213,7 +222,7 @@ Here are some of the topics I write about:
           {{ article.title | markdownify_oneline | cleanup_text | jsonify }},
           {{ article.date.year - 2000 }},
           {{ article.slug | jsonify }},
-          {{ article.card_path.stem | count }},
+          {{ article.card_short_name | jsonify }},
           {% if article.card_path.suffix == ".jpg" %}
             0
           {% else %}
