@@ -40,16 +40,18 @@ When you load the page, there's a swooping animation as the bird appears:
   }
 </style>
 
-<video
-  controls
-  class="light-video"
-  poster="/images/2025/swift_bird_light.jpg"
-  src="/images/2025/swift_bird_light.mp4"></video>
-<video
-  controls
-  class="dark-video"
-  poster="/images/2025/swift_bird_dark.jpg"
-  src="/images/2025/swift_bird_dark.mp4"></video>
+<figure>
+  <video
+    controls
+    class="light-video"
+    poster="/images/2025/swift_bird_light.jpg"
+    src="/images/2025/swift_bird_light.mp4"></video>
+  <video
+    controls
+    class="dark-video"
+    poster="/images/2025/swift_bird_dark.jpg"
+    src="/images/2025/swift_bird_dark.mp4"></video>
+</figure>
 
 I was curious how the animation worked.
 I thought maybe it was an autoplaying video with no controls, but no, it's much cooler than that!

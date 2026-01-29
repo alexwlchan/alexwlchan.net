@@ -139,7 +139,7 @@ class MosaicBlockParser(mistune.BlockParser):
         # time you see one in my source Markdown, I can assume everything
         # until the closing tag is pure HTML and doesn't need the Markdown
         # library to interfere.
-        PRE_TAGS = ["figure", "picture", "blockquote", "ol", "div", "details"]
+        PRE_TAGS = ["figure", "picture", "blockquote", "ol", "ul", "div", "details"]
 
         if open_tag in PRE_TAGS:
             end_tag = "</" + open_tag + ">"

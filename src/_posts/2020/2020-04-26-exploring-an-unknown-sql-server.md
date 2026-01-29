@@ -50,11 +50,13 @@ I won't share details of this specific database, but here's the general pattern 
     That helped me get an idea of how the tables were connected, and to find tables with interesting data that I'd initially overlooked.
     Eventually I was able to sketch out how the data I wanted was spread across different tables:
 
-    {%
-      inline_svg
-      filename="database_tables.svg"
-      alt="A collection of green and yellow boxes joined by arrows"
-    %}
+    <figure>
+        {%
+        inline_svg
+        filename="database_tables.svg"
+        alt="A collection of green and yellow boxes joined by arrows"
+      %}
+    </figure>
 
 3.  **Look at the data within the tables.**
 

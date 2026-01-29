@@ -203,12 +203,14 @@ These are the states whose plates I spotted (with the states we drove through sh
   }
 </style>
 
+<figure>
 {%
   inline_svg
   filename="us_states_license_plates.svg"
   alt="A map of the contiguous United States, with each state drawn individually. About half the states are coloured red, mostly on the east coast (I saw one of their plates), and then three states in the northeast are green (ones we drove through), and finally the remaining states in light grey."
   class="dark_aware"
 %}
+</figure>
 
 Drawing this map was an educational experience -- although I've seen a map of the US states lots of times, I'd never looked at it properly.
 

@@ -143,7 +143,7 @@ When I open this file in a browser, the test cases get run in order, and the res
 
 Let's see how that `it()` function works, by looking in `test_micro_framework.js`:
 
-```javascript
+```javascript {"names":{"1":"it","2":"description","3":"body_of_test","4":"result","17":"error","29":"assertEqual","30":"x","31":"y","50":"assertTrue","51":"x","54":"assertFalse","55":"x"}}
 function it(description, body_of_test) {
   const result = document.createElement('p');
   result.classList.add('test_result')

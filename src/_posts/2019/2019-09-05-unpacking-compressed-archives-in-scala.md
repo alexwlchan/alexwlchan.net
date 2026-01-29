@@ -19,7 +19,7 @@ We start with an `InputStream` -- this could come from the S3 API, or a file on 
 It contains the bytes of our compressed archive.
 For example:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"FileInputStream","4":"InputStream","5":"inputStream"}}
 import java.io.{FileInputStream, InputStream}
 
 val inputStream: InputStream = new FileInputStream("numbers.tar.gz")
@@ -28,7 +28,7 @@ val inputStream: InputStream = new FileInputStream("numbers.tar.gz")
 The first step is to strip off the .gz compression.
 We use the [Apache Commons libraries][commons] elsewhere in our codebase, so we used that to do the uncompression:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"BufferedInputStream","4":"org","5":"apache","6":"commons","7":"compress","8":"compressors","9":"CompressorInputStream","10":"CompressorStreamFactory","11":"uncompressedInputStream"}}
 import java.io.BufferedInputStream
 import org.apache.commons.compress.compressors.{
   CompressorInputStream,
@@ -52,8 +52,7 @@ For example, if you have a tar.xz file, it strips off the .xz compression instea
 
 Next we have to unpack the tar portion, using another Apache Commons helper:
 
-
-```scala
+```scala {"names":{"1":"org","2":"apache","3":"commons","4":"compress","5":"archivers","6":"ArchiveInputStream","7":"ArchiveStreamFactory","8":"archiveInputStream"}}
 import org.apache.commons.compress.archivers.{
   ArchiveInputStream,
   ArchiveStreamFactory
@@ -87,7 +86,7 @@ I'd rather have something iterable, like a List() or Seq(), where I can use `.ma
 A better approach would be to use an Iterator -- it behaves similar to List() or Seq(), if we define `hasNext` and `next()` methods.
 Here's an initial attempt, which prints the contents of each file:
 
-```scala
+```scala {"names":{"1":"org","2":"apache","3":"commons","4":"io","5":"IOUtils","6":"iterator","9":"hasNext","13":"next","18":"is"}}
 import org.apache.commons.io.IOUtils
 
 val iterator = new Iterator[InputStream] {
@@ -107,7 +106,7 @@ This is okay, but we're losing important information about the entries in the ar
 The `getNextEntry` method returns an ArchiveEntry, which includes the name and size of the original entry, and whether it's a file or a directory.
 Let's modify our iterator to include that information:
 
-```scala
+```scala {"names":{"1":"org","2":"apache","3":"commons","4":"compress","5":"archivers","6":"ArchiveEntry","7":"iterator","11":"latestEntry","14":"hasNext","16":"latestEntry","20":"next","27":"archiveEntry","28":"is"}}
 import org.apache.commons.compress.archivers.ArchiveEntry
 
 val iterator = new Iterator[(ArchiveEntry, InputStream)] {
@@ -131,11 +130,13 @@ iterator.foreach { case (archiveEntry, is) =>
 At this point, it might seem like we're done -- but there's a bug lurking here, which we discovered when we started uploading these streams to S3.
 Although this iterator generates lots of `InputStream` instances, really these are all a view into the same underlying original stream -- it's all one sequence of bytes under the hood.
 
+<figure>
 {%
   inline_svg
   filename="streams.svg"
   alt="Four rectangles (file1.txt, file2.txt, file3.txt, file4.txt) in a horizontal line, each with an arrow pointing down to a single continuous rectangle (archiveInputStream)."
 %}
+</figure>
 
 If you call `close()` on any of the individual streams, that gets passed down to the underlying stream.
 When you go to read the next entry, you get an IOException: *input buffer is closed*.
@@ -144,7 +145,7 @@ We can't stop downstream code from calling `close()`, but we can stop a close br
 A CloseShieldInputStream prevents the underlying stream from being closed (even when you call `close()`) -- this is just the sort of thing it's designed for.
 Here's a revised iterator:
 
-```scala
+```scala {"names":{"1":"org","2":"apache","3":"commons","4":"io","5":"input","6":"CloseShieldInputStream","7":"iterator","11":"latestEntry","14":"hasNext","16":"latestEntry","20":"next"}}
 import org.apache.commons.io.input.CloseShieldInputStream
 
 val iterator = new Iterator[(ArchiveEntry, InputStream)] {
@@ -163,7 +164,7 @@ val iterator = new Iterator[(ArchiveEntry, InputStream)] {
 Several of these steps can throw exceptions, so to finish off we can wrap them in some `Try` calls and chain them together in a `for` comprehension.
 Here's a final version of the code:
 
-```scala
+```scala {"names":{"1":"java","2":"io","3":"BufferedInputStream","4":"InputStream","5":"org","6":"apache","7":"commons","8":"compress","9":"archivers","10":"ArchiveEntry","11":"ArchiveInputStream","12":"ArchiveStreamFactory","13":"org","14":"apache","15":"commons","16":"compress","17":"compressors","18":"CompressorInputStream","19":"CompressorStreamFactory","20":"org","21":"apache","22":"commons","23":"io","24":"input","25":"CloseShieldInputStream","26":"org","27":"scalatest","28":"FunSpec","29":"scala","30":"util","31":"Try","32":"Unpacker","33":"open","34":"inputStream","40":"uncompressedInputStream","43":"archiveInputStream","46":"iterator","50":"createUncompressedStream","51":"inputStream","60":"createArchiveStream","61":"uncompressedInputStream","70":"createIterator","71":"archiveInputStream","79":"latestEntry","82":"hasNext","84":"latestEntry","88":"next","94":"getMarkableStream"}}
 import java.io.{BufferedInputStream, InputStream}
 
 import org.apache.commons.compress.archivers.{

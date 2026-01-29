@@ -49,12 +49,14 @@ We include clickable links in a lot of our Slack alerts, to make it as easy as p
 
 This is what it looks like under the hood:
 
+<figure>
 {%
   inline_svg
   filename="ecs_slack_alert_pipeline.svg"
   alt="An architecture diagram representing the flow of data. On the left is the ECS service, with an arrow labelled 'all events' pointing to CloudWatch rule. From the rule is another arrow '“can’t start tasks” events only' pointing to the Lambda function, which in turn points to the Slack channel."
   class="wide_img dark_aware"
 %}
+</figure>
 
 ECS publishes a [stream of events][events] to CloudWatch Events, and within CloudWatch we're filtering for the *"unable to consistently start tasks successfully"* events.
 In particular, we've got an [event pattern] that looks for the `SERVICE_TASK_START_IMPAIRED` event name.

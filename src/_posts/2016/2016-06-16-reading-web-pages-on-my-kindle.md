@@ -8,6 +8,8 @@ tags:
   - kindle
   - ebooks
 title: Reading web pages on my Kindle
+index:
+  exclude: true
 ---
 
 Of everything I've tried, my favourite device for reading is still my e-ink Kindle.
@@ -131,7 +133,9 @@ On my iPhone, the natural choice is [Pythonista][pythonista].
 It provides the [appex module][appex], which gives you input from the system share sheet.
 In particular, `appex.get_url()` lets me get a URL, so anywhere I can get the iOS share sheet, I can invoke the Pythonista action extension and run this script.
 
-<video controls class="portrait" src="/images/2016/send-to-kindle.mov" style="max-width: 400px;"></video>
+<figure>
+  <video controls class="portrait" src="/images/2016/send-to-kindle.mov" style="max-width: 400px;"></video>
+</figure>
 
 If you want, you can download a complete [copy of the script](/files/2016/send_to_kindle.py).
 The same script runs on boht platforms.
