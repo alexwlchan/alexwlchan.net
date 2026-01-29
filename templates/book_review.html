@@ -14,7 +14,6 @@
       display: grid;
       grid-template-columns: auto 200px;
       grid-column-gap: 1em;
-      align-items: center;
       padding: var(--default-padding);
 
       border: var(--border-width) var(--border-style) var(--primary-color);     
@@ -107,7 +106,7 @@
         
         <dl class="book_metadata">
           {% for c in book.contributors %}
-          <dt>{{ c.role }}</dt>
+          <dt>{{ c.role }}{% if ', ' in c.name %}s{% endif %}</dt>
           <dd>{{ c.name }}</dd>
           {% endfor %}
           
@@ -149,5 +148,7 @@
     </header>
 
     {{ content | cleanup_text }}
+    
+    {% include "partials/meta.html" %}
   </article>
 {% endblock %}
