@@ -127,6 +127,10 @@ class HtmlPage(BaseModel):
     # A breadcrumb trail for this page
     breadcrumb: list[BreadcrumbEntry] = Field(default_factory=lambda: list())
 
+    # The single topic where this page is saved. Optional for now, but
+    # I might make this opt-in for all but special cases eventually.
+    topic: str | None = None
+
     def __repr__(self) -> str:  # pragma: no cover
         """
         Returns a debugging representation of this page.

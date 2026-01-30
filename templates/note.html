@@ -18,12 +18,6 @@
       </ul>
     </hgroup>
 
-    {% if page.summary %}
-      <p class="summary">
-        {{ page.summary | markdownify_oneline | cleanup_text }}
-      </p>
-    {% endif %}
-
     {{ content | cleanup_text }}
   </article>
 {% endblock %}
