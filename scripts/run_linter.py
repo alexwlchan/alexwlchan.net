@@ -14,6 +14,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from mosaic.fs import find_paths_under
 from mosaic.linters import (
+    check_all_urls_are_hackable,
     check_no_broken_html,
     check_no_localhost_links,
     check_redirects,
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     except IndexError:
         sys.exit(f"Usage: {__file__} OUT_DIR")
 
-    all_errors: dict[Path, list[str]] = collections.defaultdict(list)
+    all_errors: dict[str | Path, list[str]] = collections.defaultdict(list)
 
     html_paths = list(find_paths_under(out_dir, suffix=".html"))
 
@@ -54,6 +55,8 @@ if __name__ == "__main__":
     redirects_path = Path("caddy/redirects.Caddyfile")
     all_errors[redirects_path] += check_redirects(redirects_path, out_dir)
 
+    all_errors["*"] += check_all_urls_are_hackable(redirects_path, out_dir)
+
     # Remove paths which don't have any errors
     all_errors = {p: errors for p, errors in all_errors.items() if errors}
 
@@ -63,9 +66,9 @@ if __name__ == "__main__":
         print("")
         print(termcolor.colored(f"found errors in {len(all_errors)} file(s):", "red"))
 
-        for p, errors in all_errors.items():
+        for label, errors in all_errors.items():
             print("")
-            print(f"{p}:")
+            print(f"{label}:")
             for err in errors:
                 print(f"  - {err}")
 

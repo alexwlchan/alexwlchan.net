@@ -8,9 +8,11 @@ import bs4
 import pytest
 
 from mosaic.linters import (
+    check_all_urls_are_hackable,
     check_no_broken_html,
     check_no_localhost_links,
     check_redirects,
+    get_all_hackable_urls,
 )
 
 
@@ -174,4 +176,64 @@ class TestCheckRedirects:
 
         assert check_redirects(redirects_path, out_dir) == [
             "L2: redirect to a page that does not exist (/newpage2)"
+        ]
+
+
+def test_get_all_hackable_urls() -> None:
+    """
+    Test `get_all_hackable_urls`.
+    """
+    assert list(get_all_hackable_urls("/til/2024/block-specific-ip-addresses/")) == [
+        "/til/2024/block-specific-ip-addresses/",
+        "/til/2024/",
+        "/til/",
+        "/",
+    ]
+
+
+class TestCheckAllUrlsAreHackable:
+    """
+    Tests for `check_all_urls_are_hackable`.
+    """
+
+    def create_html_files(self, *paths: Path) -> None:
+        """
+        Create a set of HTML files.
+        """
+        for p in paths:
+            p.parent.mkdir(exist_ok=True, parents=True)
+            p.write_text("example html page")
+
+    def test_happy_path(self, redirects_path: Path, out_dir: Path) -> None:
+        """
+        Test the case where all URLs are hackable.
+        """
+        redirects_path.write_text("redir /old-notes/ /notes/ permanent\n")
+
+        self.create_html_files(
+            out_dir / "index.html",
+            out_dir / "notes/index.html",
+            out_dir / "notes/my-first-note/index.html",
+            out_dir / "notes/my-second-note/index.html",
+            out_dir / "old-notes/my-third-note/index.html",
+        )
+
+        assert check_all_urls_are_hackable(redirects_path, out_dir) == []
+
+    def test_spots_unhackable_url(self, redirects_path: Path, out_dir: Path) -> None:
+        """
+        A URL which can't be "hacked" is an error.
+        """
+        redirects_path.write_text("redir /alt-notes/ /notes/ permanent\n")
+
+        self.create_html_files(
+            out_dir / "index.html",
+            out_dir / "notes/my-first-note/index.html",
+            out_dir / "notes/my-second-note/index.html",
+            out_dir / "old-notes/my-third-note/index.html",
+        )
+
+        assert check_all_urls_are_hackable(redirects_path, out_dir) == [
+            "url can be hacked but won’t resolve: '/notes/'",
+            "url can be hacked but won’t resolve: '/old-notes/'",
         ]

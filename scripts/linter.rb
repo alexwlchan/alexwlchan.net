@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require 'json'
-require 'uri'
 require 'yaml'
 
-require_relative 'linting/caddy_redirects'
 require_relative 'linting/logging'
 
-require_relative 'linting/check_all_urls_are_hackable'
 require_relative 'linting/check_with_html_proofer'
 
 # This checks that every article on /elsewhere/ has at least one copy
@@ -64,4 +60,3 @@ src_dir = 'src'
 check_with_html_proofer(html_dir)
 
 check_writing_has_been_archived(src_dir)
-check_all_urls_are_hackable(html_dir)

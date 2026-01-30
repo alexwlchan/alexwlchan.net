@@ -3,6 +3,8 @@ Linter rules for verifying the final website output.
 """
 
 import collections
+from collections.abc import Iterator
+import os
 from pathlib import Path
 import re
 from urllib.parse import urlparse
@@ -10,6 +12,7 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
 from .caddy import parse_caddy_redirects
+from .fs import find_paths_under
 
 
 def check_no_broken_html(html_str: str) -> list[str]:
@@ -112,3 +115,73 @@ def check_redirects(redir_path: Path, out_dir: Path) -> list[str]:
             )
 
     return errors
+
+
+def check_all_urls_are_hackable(redir_path: Path, out_dir: Path) -> list[str]:
+    """
+    Check that every URL is "hackable".
+
+    Quoting the slightly formal language of Nielsen Norman:
+
+        A usable site requires […] URLs that are "hackable" to allow users
+        to move to higher levels of the information architecture by hacking
+        off the end of the URL
+        ~ https://www.nngroup.com/articles/url-as-ui/
+
+    Make sure I'm doing that!
+
+    Every "hackable" URL should either exist in the site, or there should
+    be a redirect for it.
+    """
+    # Create a set of which paths will return an HTML page.
+    #
+    # This means either:
+    #
+    #     - There's a redirect that takes you to another page, or
+    #     - There's a folder with an index.html file that will be served
+    #
+    # The goal is to have two sets of URLs without trailing slashes,
+    # e.g. {'/writing', '/til'}
+    #
+    redirect_urls = {r.source for r in parse_caddy_redirects(redir_path)}
+    html_urls = {
+        f"/{p.parent.relative_to(out_dir)}/".replace("/./", "/")
+        for p in find_paths_under(out_dir, suffix=".html")
+        if not p.is_relative_to(out_dir / "files")
+    }
+    assert "/" in html_urls
+
+    reachable_urls = redirect_urls.union(html_urls)
+
+    # Work out all the URLs that somebody could "hack" their way towards.
+    unreachable_urls = set()
+
+    for url in html_urls:
+        for u in get_all_hackable_urls(url):
+            if u not in reachable_urls:
+                unreachable_urls.add(u)
+
+    return [
+        f"url can be hacked but won’t resolve: {url!r}"
+        for url in sorted(unreachable_urls)
+    ]
+
+
+def get_all_hackable_urls(url: str) -> Iterator[str]:
+    """
+    Given a URL, return a list of all URLs that can be hacked from it.
+
+        get_all_parent_directories("/blog/2013/01/my-post")
+         => ["/blog/2013/01",
+             "/blog/2013",
+             "/blog"]
+
+    """
+    assert url.startswith("/"), f"URLs must start with slash: {url!r}"
+
+    while url != "/":
+        url = os.path.dirname(url)
+        if url.endswith("/"):
+            yield url
+        else:
+            yield url + "/"
