@@ -180,8 +180,8 @@ That includes a description, several more screenshots, and a video.
 The video is broken on that page, but it's an embedded YouTube video, and the original video page has also [been captured by the Wayback Machine][wb-youtube-video].
 It leans even harder into the Doge memes, and includes some brief clips of gameplay:
 
-<figure style="width: 480px;">
-  <video controls poster="/images/2026/Froge Tips from Froge [AC-grTPpQ2Y].jpg" src="/images/2026/Froge Tips from Froge [AC-grTPpQ2Y].mp4" class="screenshot" style="aspect-ratio: 480 / 360; width: 480px;"></video>
+<figure style="width: 540px;">
+  <video controls poster="/images/2026/Froge Tips from Froge [AC-grTPpQ2Y].jpg" src="/images/2026/Froge Tips from Froge [AC-grTPpQ2Y].mp4" class="screenshot" style="aspect-ratio: 540 / 360; width: 540px;"></video>
   <figcaption>
     <em>Froge Tips from Froge</em> by Fandom, Inc.
     Originally posted at <a href="https://www.youtube.com/watch?v=AC-grTPpQ2Y">on YouTube</a> in June 2014, and downloaded from <a href="https://web.archive.org/web/20240508235850/youtube.com/watch?v%3DAC-grTPpQ2Y">the Wayback Machine</a> in January 2026.
