@@ -1,6 +1,6 @@
 ---
 layout: book_review
-date: 2026-01-04
+date: 2026-01-28 22:51:18 +00:00
 
 book:
   title: Lilith

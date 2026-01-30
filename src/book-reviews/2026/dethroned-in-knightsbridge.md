@@ -1,6 +1,6 @@
 ---
 layout: book_review
-date: 2026-01-01 21:11:41 +00:00
+date: 2026-01-28 22:51:18 +00:00
 
 book:
   title: Dethroned in Knightsbridge
