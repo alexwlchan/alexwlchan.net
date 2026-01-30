@@ -1,22 +1,21 @@
 ---
-layout: til
-title: Look at the `__annotations__` to learn about the definition of a TypedDict
+layout: note
+title: Get the `Literal` values from a nested field on a `TypedDict`.
 date: 2025-10-07 21:52:13 +01:00
-tags:
-  - python
-  - python:typing
+topic: Python
+summary: You can look at the `__annotations__` to learn about the definition of a TypedDict.
 ---
 Here's a TypedDict from my code:
 
-{% code lang="python" names="0:MicroblogPost 2:site 5:body" %}
-class MicroblogPost(PostBase):
+```python {"names":{"1":"MicroblogPost","3":"site","6":"body"}}
+class MicroblogPost(TypedDict):
     """
     A post from a microblogging service.
     """
 
     site: typing.Literal["bluesky", "mastodon", "threads", "twitter", "x"]
     body: list[MicroblogData]
-{% endcode %}
+```
 
 I wanted to get the list of `Literal` values in the `site` attribute.
 I know I can use `typing.get_args()` to [get a list of `typing.Literal[…]`][getargs] values, but how do I get the `Literal[…]` value here?
@@ -25,18 +24,20 @@ I know I can use `typing.get_args()` to [get a list of `typing.Literal[…]`][ge
 
 ## Option 1: Extract the `Literal` as a separate type
 
-{% code lang="python" names="0:MicroblogSites 3:MicroblogPost 5:site 7:body" %}
+One approach is to split out the `Literal` entirely:
+
+```python {"names":{"1":"MicroblogSites","4":"MicroblogPost","7":"MicroblogSites"}}
 MicroblogSites = typing.Literal["bluesky", "mastodon", "threads", "twitter", "x"]
 
 
-class MicroblogPost(PostBase):
+class MicroblogPost(TypedDict):
     """
     A post from a microblogging service.
     """
 
     site: MicroblogSites
     body: list[MicroblogData]
-{% endcode %}
+```
 
 and then I can use `typing.get_args()` on `MicroblogSites`.
 This is the approach I ended up using, but I wondered if there's another way (say, if I don't control the type).
@@ -45,7 +46,7 @@ This is the approach I ended up using, but I wondered if there's another way (sa
 
 This allows me to extract the `Literal` value, and then I could inspect it as I wish:
 
-{% code lang="pycon" %}
+```pycon
 >>> MicroblogPost.__annotations__
 {'body': list[models.post.MicroblogData],
  'id': <class 'str'>,
@@ -53,7 +54,7 @@ This allows me to extract the `Literal` value, and then I could inspect it as I 
  'site': typing.Literal['bluesky', 'mastodon', 'threads', 'twitter', 'x']}
 >>> MicroblogPost.__annotations__['site']
 typing.Literal['bluesky', 'mastodon', 'threads', 'twitter', 'x']
-{% endcode %}
+```
 
 This definitely works, but I'm not sure i should be using `__annotations__` directly.
 In particular, the [Python docs for `type.__annotations__`][datadocs] say:

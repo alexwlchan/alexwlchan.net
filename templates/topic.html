@@ -21,5 +21,14 @@
     </hgroup>
 
     {{ content | cleanup_text }}
+    
+    {% set topic_notes = site.notes | selectattr("topic", "eq", page.title) %}
+    {% if topic_notes %}
+      <h2>Notes</h2>
+      {% with articles = topic_notes %}
+        {% include "partials/article_links.html" %}
+      {% endwith %}
+    {% endif %}
+    
   </article>
 {% endblock %}

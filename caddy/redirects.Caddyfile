@@ -1192,3 +1192,15 @@ redir /2016/tricity-sie454-clock/                                     /til/2016/
 redir /tags/amazon-s3/                                                /tags/aws/amazon-s3/ permanent
 
 # === #
+
+
+
+
+
+# == Redirects for reshuffling in January 2026 == #
+#
+# In January 2026 I embraced more of the "digital garden" vibe, and ditched
+# the Today I Learned section in favour of "notes".
+
+redir /til/2025/python-and-rot13/                                     /python/codecs-and-rot13/
+redir /til/2025/access-nested-fields-in-typeddict/                    /python/nested-fields-in-typeddict/

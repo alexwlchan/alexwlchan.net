@@ -69,7 +69,7 @@ class Site(BaseModel):
             reverse=True,
         )
         self.notes = sorted(
-            (p for p in pages if p.layout == "note"),
+            (p for p in pages if p.layout == "note" or p.layout == "til"),
             key=lambda n: n.date,  # type: ignore
             reverse=True,
         )
@@ -78,7 +78,7 @@ class Site(BaseModel):
             for p in pages
             if not isinstance(p, Article)
             and not isinstance(p, BookReview)
-            and p.layout != "note"
+            and p.layout != "note" and p.layout != "til"
         ]
         self.topics = build_topic_tree(pages)
         assert len(self.articles + self.book_reviews + self.notes + self.pages) == len(

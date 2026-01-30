@@ -13,9 +13,3 @@ Books, theatre, TV shows, movies.
   <li><a href="{{ topic.url }}">{{ topic.label | markdownify_oneline }}</a></li>
 {% endfor %}
 </ul>
-
-## Notes
-
-{% with articles = site.notes | selectattr("topic", "eq", page.title) %}
-{% include "partials/article_links.html" %}
-{% endwith %}
