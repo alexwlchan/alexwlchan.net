@@ -122,7 +122,6 @@ redir /talks                                                          /tags/talk
 
 redir /tag                                                            /tags/ permanent
 redir /tag/                                                           /tags/ permanent
-redir /notes                                                          /til/ permanent
 
 # === #
 

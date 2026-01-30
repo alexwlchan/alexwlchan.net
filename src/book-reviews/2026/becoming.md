@@ -1,6 +1,6 @@
 ---
 layout: book_review
-date: 2026-01-25
+date: 2026-01-28 23:10:15 +00:00
 
 book:
   title: Becoming

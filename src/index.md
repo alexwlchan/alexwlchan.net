@@ -79,9 +79,8 @@ I hope you like it!
 
 
 
-{% set posts = site.pages               | selectattr("layout", "eq", "post") | list %}
-{% set featured_articles = posts        | selectattr("is_featured") | list %}
-{% set new_articles = featured_articles | selectattr("is_new" )     | list %}
+{% set featured_articles = site.articles | selectattr("is_featured") | list %}
+{% set new_articles = featured_articles  | selectattr("is_new" )     | list %}
 
 {% set new_count = new_articles | count %}
 {% set sample_of_articles = featured_articles | sample(6 - new_count) %}

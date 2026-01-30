@@ -15,3 +15,15 @@
     color: var(--link-color);
   }
 }
+
+.meta .breadcrumb {
+  display: inline-block;
+  
+  li:not(:last-child)::after {
+    content: " » "
+  }
+  
+  li:last-child::after {
+    content: "";
+  }
+}
