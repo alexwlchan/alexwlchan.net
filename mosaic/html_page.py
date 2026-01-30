@@ -119,10 +119,6 @@ class HtmlPage(BaseModel):
     # TODO(2026-01-20): Actually use this information.
     card_attribution: str | None = None
 
-    # Unused except to suppress a Jekyll warning
-    # TODO(2026-01-20): Remove this once I've gotten rid of Jekyll.
-    excerpt_separator: str | None = None
-
     # Extra variables which are specific to this page or template.
     extra_variables: dict[str, Any] = Field(default_factory=lambda: dict())
 
