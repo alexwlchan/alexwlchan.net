@@ -65,7 +65,7 @@ class HtmlPage(BaseModel):
     url: str = ""
 
     # The layout template to use
-    layout: Literal["page", "post", "til", "book_review"] | None = None
+    layout: Literal["page", "post", "til", "book_review", "note", "topic"] | None = None
 
     # What template should I use?
     template_name: str = ""
@@ -186,11 +186,11 @@ class HtmlPage(BaseModel):
         assert self.src_dir is not None
         assert self.md_path is not None
 
-        if self.layout == "page" and self.md_path.name == "index.md":
+        if self.layout in {"page", "topic"} and self.md_path.name == "index.md":
             self.url = f"/{self.md_path.parent.relative_to(self.src_dir)}/".replace(
                 "./", ""
             )
-        elif self.layout == "page":
+        elif self.layout in {"page", "topic"}:
             relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
             self.url = f"/{relative_path}/"
         elif self.layout == "post":
@@ -201,6 +201,14 @@ class HtmlPage(BaseModel):
             self.url = f"/til/{self.date.year}/{self.slug}/"
         elif self.layout == "book_review":
             self.url = f"/book-reviews/{self.slug}/"
+
+        # e.g. /python/f-strings-cheatsheet
+        elif self.layout == "note":
+            relative_path = self.md_path.parent.relative_to(self.src_dir).with_suffix(
+                ""
+            )
+            self.url = f"/{relative_path}/{self.slug}/"
+
         else:  # pragma: no cover
             raise ValueError(f"unrecognised layout: {self.layout!r}")
 
@@ -220,6 +228,10 @@ class HtmlPage(BaseModel):
             self.template_name = "post.html"
         elif self.layout == "til":
             self.template_name = "til.html"
+        elif self.layout == "note":
+            self.template_name = "note.html"
+        elif self.layout == "topic":
+            self.template_name = "topic.html"
         else:  # pragma: no cover
             raise ValueError(f"unrecognised layout: {self.layout!r}")
 

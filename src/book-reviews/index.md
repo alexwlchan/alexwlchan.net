@@ -4,7 +4,7 @@ title: Books I've read
 breadcrumb:
   - label: Entertainment
 ---
-{% set reviews = site.pages | selectattr("layout", "eq", "book_review") | sort(attribute="review.date_read", reverse=True) %}
+{% set reviews = site.book_reviews | sort(attribute="review.date_read", reverse=True) %}
 
 <style>
   @use "components/under_construction";

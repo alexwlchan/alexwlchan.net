@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    <hgroup>
+      <h1 class="title">{{ page.title | markdownify_oneline | cleanup_text }}</h1>
+      <ul class="dot_list meta">
+        <li>
+          Filed in
+          {% include "partials/breadcrumb.html" %}
+        </li>
+        <li>
+          {% with date = page.date_updated or page.date %}
+          Last updated
+          {% include "partials/timestamp.html" %}
+          {% endwith %}
+        </li>
+      </ul>
+    </hgroup>
+
+    {{ content | cleanup_text }}
+  </article>
+{% endblock %}

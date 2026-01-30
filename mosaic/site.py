@@ -3,7 +3,6 @@ Build system for alexwlchan.net.
 """
 
 import collections
-from dataclasses import dataclass
 from datetime import datetime, timezone
 import filecmp
 import hashlib
@@ -11,21 +10,22 @@ import heapq
 import itertools
 from pathlib import Path
 import shutil
+from typing import Any
 
 from jinja2 import Environment
+from pydantic import BaseModel, Field
 from tqdm import tqdm
 import yaml
 
 from .css import create_base_css
 from .fs import find_paths_under
-from .html_page import Article, HtmlPage
+from .html_page import Article, BookReview, HtmlPage
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
 
 
-@dataclass
-class Site:
+class Site(BaseModel):
     """
     Wraps the whole site build process.
     """
@@ -34,13 +34,53 @@ class Site:
     src_dir: Path = Path("src")
     out_dir: Path = Path("_out")
 
+    title: str = "alexwlchan"
+    description: str = "Alex Chan's personal website"
+    url: str = "https://alexwlchan.net"
+    email: str = "alex@alexwlchan.net"
+    time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
+
+    pages: list[HtmlPage] = Field(default_factory=lambda: list())
+    articles: list[Article] = Field(default_factory=lambda: list())
+    book_reviews: list[BookReview] = Field(default_factory=lambda: list())
+    notes: list[HtmlPage] = Field(default_factory=lambda: list())
+
+    data: Any = None
+
     def build_site(self, incremental: bool = False) -> bool:  # pragma: no cover
         """
         Build a complete copy of the site.
 
         Returns True if the build succeeded, False if there were errors.
         """
+        # Read all the pages and split them into per-page types.
         pages = self.read_markdown_source_files()
+
+        self.articles = sorted(
+            (p for p in pages if isinstance(p, Article)),
+            key=lambda art: art.date,
+            reverse=True,
+        )
+        self.book_reviews = sorted(
+            (p for p in pages if isinstance(p, BookReview)),
+            key=lambda br: br.date,
+            reverse=True,
+        )
+        self.notes = sorted(
+            (p for p in pages if p.layout == "note"),
+            key=lambda n: n.date,  # type: ignore
+            reverse=True,
+        )
+        self.pages = [
+            p
+            for p in pages
+            if not isinstance(p, Article)
+            and not isinstance(p, BookReview)
+            and p.layout != "note"
+        ]
+        assert len(self.articles + self.book_reviews + self.notes + self.pages) == len(
+            pages
+        )
 
         # Work out all the tint colours being used.
         tint_colours: list[TintColours] = [
@@ -52,10 +92,9 @@ class Site:
 
         # Ordering: add a numeric "order" attribute to every article,
         # which is used for sorting on /articles/.
-        articles = sorted(
-            (p for p in pages if isinstance(p, Article)), key=lambda art: art.date
-        )
-        for order, art in enumerate(articles, start=1):
+        for order, art in enumerate(
+            sorted(self.articles, key=lambda art: art.date), start=1
+        ):
             art.order = order
 
         # Article cards: pick a short name for every article card.
@@ -65,7 +104,8 @@ class Site:
         #
         # For example, "digital-decluttering" could become "di".
         articles_with_cards = itertools.groupby(
-            (art for art in articles if art.card_path), key=lambda art: art.date.year
+            (art for art in self.articles if art.card_path),
+            key=lambda art: art.date.year,
         )
         for year, articles_that_year_gen in articles_with_cards:
             articles_that_year = list(articles_that_year_gen)
@@ -122,30 +162,22 @@ class Site:
         # Create the Jinja2 environment.
         # TODO(2026-01-21): Figure out how to handle global varibales better.
         env = get_jinja_environment(self.src_dir, self.out_dir)
+
+        self.data = {
+            "elsewhere": yaml.safe_load(open(self.src_dir / "_data/elsewhere.yml")),
+            "popular_tags": heapq.nlargest(
+                25,
+                tag_tally.keys(),
+                lambda tag_name: len(tag_tally[tag_name]),
+            ),
+            "tag_tally": tag_tally,
+        }
+
         env.globals.update(
             {
                 "css_url": css_url,
                 "environment": "production",
-                "site": {
-                    "title": "alexwlchan",
-                    "description": "Alex Chan's personal website",
-                    "url": "https://alexwlchan.net",
-                    "data": {
-                        "elsewhere": yaml.safe_load(
-                            open(self.src_dir / "_data/elsewhere.yml")
-                        ),
-                        "popular_tags": heapq.nlargest(
-                            25,
-                            tag_tally.keys(),
-                            lambda tag_name: len(tag_tally[tag_name]),
-                        ),
-                        "tag_tally": tag_tally,
-                    },
-                    "articles": articles,
-                    "pages": pages,
-                    "email": "alex@alexwlchan.net",
-                    "time": datetime.now(tz=timezone.utc),
-                },
+                "site": self,
             }
         )
 
@@ -174,7 +206,7 @@ class Site:
         # This must occur after generating the pages, so the `html_content`
         # attribute is populated.
         self.generate_rss_feeds(
-            env, articles, tils=[p for p in pages if p.layout == "til"]
+            env, self.articles, tils=[p for p in pages if p.layout == "til"]
         )
 
         # Clean up HTML files that weren't written as part of this build;
@@ -300,3 +332,13 @@ class Site:
         til_atom_template = env.get_template("til_atom.xml")
         til_atom_xml = til_atom_template.render(tils=tils)
         (self.out_dir / "til/atom.xml").write_text(til_atom_xml)
+
+    def notes_for_topic(self, page: HtmlPage) -> list[HtmlPage]:
+        """
+        Returns a list of all the notes for a topic.
+        """
+        assert page.layout == "topic"
+
+        return [
+            n for n in self.notes if n.breadcrumb and n.breadcrumb[-1].href == page.url
+        ]
