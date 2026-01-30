@@ -29,7 +29,7 @@ httpcore==1.0.9
     #   httpx
 httpx==0.28.1
     # via -r uptime_tests/requirements.txt
-hypothesis==6.151.3
+hypothesis==6.151.4
     # via -r requirements.in
 idna==3.11
     # via
@@ -117,7 +117,7 @@ termcolor==3.3.0
     # via -r requirements.in
 tornado==6.5.4
     # via livereload
-tqdm==4.67.1
+tqdm==4.67.2
     # via -r requirements.in
 types-docutils==0.22.3.20251115
     # via types-pygments
@@ -132,6 +132,7 @@ types-tqdm==4.67.0.20250809
 typing-extensions==4.15.0
     # via
     #   -r uptime_tests/requirements.txt
+    #   anyio
     #   beautifulsoup4
     #   mypy
     #   pydantic
