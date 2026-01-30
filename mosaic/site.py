@@ -30,9 +30,9 @@ class Site:
     Wraps the whole site build process.
     """
 
-    css_path: Path
-    src_dir: Path
-    out_dir: Path
+    css_path: Path = Path("css/style.css")
+    src_dir: Path = Path("src")
+    out_dir: Path = Path("_out")
 
     def build_site(self, incremental: bool = False) -> bool:  # pragma: no cover
         """

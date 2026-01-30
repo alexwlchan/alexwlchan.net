@@ -13,9 +13,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from mosaic import Site
 
 
-OUT_DIR = Path("_out")
-
-SITE = Site(css_path=Path("css/style.css"), src_dir=Path("src"), out_dir=OUT_DIR)
+SITE = Site()
 
 
 def build_and_reload() -> None:
@@ -40,4 +38,4 @@ if __name__ == "__main__":
     server.watch("src/", build_and_reload)
     server.watch("templates/", build_and_reload)
 
-    server.serve(root=OUT_DIR, port=5757, restart_delay=0)
+    server.serve(root=SITE.out_dir, port=5757, restart_delay=0)

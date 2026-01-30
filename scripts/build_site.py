@@ -11,9 +11,7 @@ from mosaic import Site
 
 
 if __name__ == "__main__":
-    site = Site(
-        css_path=Path("css/style.css"), src_dir=Path("src"), out_dir=Path("_out")
-    )
+    site = Site()
     result = site.build_site()
     if result:
         print("success!")
