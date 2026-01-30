@@ -23,6 +23,7 @@ from .html_page import Article, BookReview, HtmlPage
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
+from .topics import build_topic_tree, Topic
 
 
 class Site(BaseModel):
@@ -44,6 +45,7 @@ class Site(BaseModel):
     articles: list[Article] = Field(default_factory=lambda: list())
     book_reviews: list[BookReview] = Field(default_factory=lambda: list())
     notes: list[HtmlPage] = Field(default_factory=lambda: list())
+    topics: dict[str, Topic] = Field(default_factory=lambda: dict())
 
     data: Any = None
 
@@ -78,6 +80,7 @@ class Site(BaseModel):
             and not isinstance(p, BookReview)
             and p.layout != "note"
         ]
+        self.topics = build_topic_tree(pages)
         assert len(self.articles + self.book_reviews + self.notes + self.pages) == len(
             pages
         )

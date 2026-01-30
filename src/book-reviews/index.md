@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: topic
 title: Books I've read
-breadcrumb:
-  - label: Entertainment
+topic: Entertainment
+date_updated: 2026-01-30 18:28:55 +00:00
 ---
 {% set reviews = site.book_reviews | sort(attribute="review.date_read", reverse=True) %}
 
