@@ -93,9 +93,11 @@ if __name__ == "__main__":
 
     print("====== ======== ======== ========")
     print(
-    termcolor.colored(
-        f"TOTAL\t"
-        f"{articles_total:7,}\t "
-        f"{remaining_total:7,}  "
-        f"{articles_total + remaining_total:7,}", 'blue')
+        termcolor.colored(
+            f"TOTAL\t"
+            f"{articles_total:7,}\t "
+            f"{remaining_total:7,}  "
+            f"{articles_total + remaining_total:7,}",
+            "blue",
+        )
     )
