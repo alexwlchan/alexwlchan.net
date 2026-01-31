@@ -100,25 +100,25 @@ Although no product page for Froge survives, we can look for other URLs [saved u
     grid-template-columns: repeat(2, 1fr);
     gap: var(--grid-gap);
     
-    :nth-child(1) img {
+    a:nth-child(1) img {
       border-top-right-radius:    0;
       border-bottom-left-radius:  0;
       border-bottom-right-radius: 0;
     }
     
-    :nth-child(2) img {
+    a:nth-child(2) img {
       border-top-left-radius:     0;
       border-bottom-left-radius:  0;
       border-bottom-right-radius: 0;
     }
     
-    :nth-child(3), :nth-child(4) {
+    a:nth-child(3), :nth-child(4) {
       img {
         border-radius: 0;
       }
     }
     
-    :nth-child(5) {
+    a:nth-child(5) {
       grid-column: 1 / span 2;
       
       img {
