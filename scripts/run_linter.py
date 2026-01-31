@@ -57,16 +57,16 @@ if __name__ == "__main__":
     all_errors[redirects_path] += check_redirects(redirects_path, out_dir)
 
     all_errors["*"] += check_all_urls_are_hackable(redirects_path, out_dir)
-    
+
     # Check the RSS feeds parse as valid XML
     parser = etree.XMLParser(recover=False)
-    
+
     with open(out_dir / "atom.xml", "rb") as in_file:
         try:
             etree.parse(in_file, parser=parser)
         except etree.XMLSyntaxError as err:
             all_errors["/til/atom.xml"].append(f"error parsing XML: {err}")
-    
+
     with open(out_dir / "til/atom.xml", "rb") as in_file:
         try:
             etree.parse(in_file, parser=parser)
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         for label, errors in all_errors.items():
             print("")
             print(f"{label}:")
-            for err in errors:
-                print(f"  - {err}")
+            for e in errors:
+                print(f"  - {e}")
 
         sys.exit(1)

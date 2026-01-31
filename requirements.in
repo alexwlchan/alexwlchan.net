@@ -18,6 +18,7 @@ tqdm
 
 # For Mosaic tests
 hypothesis
+lxml-stubs
 mypy
 pytest-cov
 pytest-xdist

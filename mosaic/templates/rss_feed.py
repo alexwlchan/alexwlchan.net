@@ -3,7 +3,6 @@ Filters for producing the RSS feed.
 """
 
 import re
-from xml.sax.saxutils import quoteattr
 
 from bs4 import BeautifulSoup, Comment, Tag
 
@@ -12,9 +11,9 @@ def xml_escape(text: str) -> str:
     """
     Escape a string for use in an XML document.
     """
-    for old, new in [("&", '&amp;'), ('"', '&quot;'), ('<', '&lt;'), ('>', '&gt;')]:
+    for old, new in [("&", "&amp;"), ('"', "&quot;"), ("<", "&lt;"), (">", "&gt;")]:
         text = text.replace(old, new)
-    
+
     return text
 
 
@@ -98,10 +97,10 @@ def fix_html_for_feed_readers(html: str) -> str:
     for config in link_elements:
         for tag in soup.select(config["selector"]):
             fix_relative_url(tag, config["attr"])
-    
+
     # 6. Remove comments.
     for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
-            comment.extract()
+        comment.extract()
 
     # 7. Convert back to string and remove empty paragraphs
     # We use .decode_contents() to get just the inner HTML without
