@@ -38,11 +38,6 @@ jobs:
   build:
     runs-on: self-hosted
 
-    env:
-      # This tells `bundle install` to install gems in a user-owned directory,
-      # so it doesn't need sudo permissions.
-      GEM_HOME: /home/alexwlchan/.gems
-
     steps:
       - name: "Check out the repo"
         uses: actions/checkout@v6
@@ -65,20 +60,13 @@ jobs:
 
       - name: "Build the site"
         run: |
-          rm -rf src/.jekyll-cache
-          rm -rf _site
-          rm -rf _out/.jekyll-cache
-          
           source .venv/bin/activate
           python3 scripts/build_site.py
 
       - name: "What's been built?"
         run: find _out -type f
 
-      - name: "Run linting (Ruby)"
-        run: bundle exec ruby scripts/linter.rb
-
-      - name: "Run linting (Python)"
+      - name: "Run linting"
         run: |
           source .venv/bin/activate
           python3 scripts/run_linter.py _out
