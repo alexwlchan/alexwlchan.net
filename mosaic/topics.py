@@ -14,11 +14,15 @@ class Topic(BaseModel):
     """
     Represents a single topic.
     """
-
+    
     label: str
     url: str | None = None
     parent: Optional["Topic"] = None
     children: list["Topic"] = Field(default_factory=lambda: list())
+    
+    # How this topic appears in the breadcrumb of other pages (if not set,
+    # use the label)
+    breadcrumb_label: str | None = None
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
@@ -30,7 +34,7 @@ class Topic(BaseModel):
         else:
             parent_entries = []
 
-        return parent_entries + [BreadcrumbEntry(label=self.label, href=self.url)]
+        return parent_entries + [BreadcrumbEntry(label=self.breadcrumb_label or self.label, href=self.url)]
 
 
 def build_topic_tree(pages: list[HtmlPage]) -> dict[str, Topic]:
@@ -41,7 +45,9 @@ def build_topic_tree(pages: list[HtmlPage]) -> dict[str, Topic]:
     topics: dict[str, Topic] = {}
     for p in pages:
         if p.layout == "topic":
-            topics[p.title] = Topic(label=p.title, url=p.url)
+            topics[p.title] = Topic(label=p.title,
+            breadcrumb_label=p.breadcrumb_label,
+             url=p.url)
 
         if p.topic is not None and p.topic not in topics:
             topics[p.topic] = Topic(label=p.topic)
