@@ -66,7 +66,7 @@ This is a taste of the over 350 different variants of Bufo emoji in the Tailscal
   %}
 </figure>
 
-Although I'd never heard of Bufo, his popularity extends beyond Tailscale -- <a href="https://bufo.fun">bufo.fun</a> is a site with over 1200 Bufos, and <a href="https://bufo.tools">bufo.tools</a> lets you make your own Bufo emoji where he's holding different items.
+Although I'd never heard of Bufo, his popularity extends well beyond Tailscale -- <a href="https://bufo.fun">bufo.fun</a> is a site with over 1200 Bufos, and <a href="https://bufo.tools">bufo.tools</a> lets you make your own Bufo emoji where he's holding different items.
 
 Where did he come from?
 
