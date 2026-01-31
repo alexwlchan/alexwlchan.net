@@ -19,6 +19,10 @@
 .meta .breadcrumb {
   display: inline-block;
   
+  a {
+    color: var(--meta-color);
+  }
+  
   li:not(:last-child)::after {
     content: " » "
   }

@@ -1202,5 +1202,9 @@ redir /tags/amazon-s3/                                                /tags/aws/
 # In January 2026 I embraced more of the "digital garden" vibe, and ditched
 # the Today I Learned section in favour of "notes".
 
+redir /til/2025/2025-09-10-exclusive-write-in-go/                     /go/exclusive-write/
+
+redir /til/2025/pygments-html-classes/                                /python/pygments-html-classes/
+redir /til/2025/remove-microsecond-precision-in-python/               /python/remove-microsecond-precision/
 redir /til/2025/python-and-rot13/                                     /python/codecs-and-rot13/
 redir /til/2025/access-nested-fields-in-typeddict/                    /python/nested-fields-in-typeddict/

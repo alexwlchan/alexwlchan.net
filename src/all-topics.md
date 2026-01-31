@@ -4,7 +4,7 @@ title: All topics
 ---
 This is a debugging page to help me see the hierarchy of topics.
 
-* Computers and programming
+* Computing
 * Digital preservation
 * The world around us
 * Me, myself and I

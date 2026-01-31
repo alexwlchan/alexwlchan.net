@@ -1,10 +1,9 @@
 ---
-layout: til
+layout: note
 title: Using Go to write to a file, but only if it doesn't exist yet
 summary: Opening a file with `os.O_CREATE|os.O_EXCL` will ensure you only create the file if it doesn't already exist.
 date: 2025-09-10 15:40:48 +01:00
-tags:
-  - golang
+topic: Go
 ---
 In Go, if you want to write to a file, but only if it doesn't exist (an "exclusive write"), you can call [`os.OpenFile`](https://pkg.go.dev/os#OpenFile) with a couple of flags:
 
