@@ -43,7 +43,7 @@ httpx==0.28.1
     # via
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-hypothesis==6.151.3
+hypothesis==6.151.4
     # via -r requirements.txt
 idna==3.11
     # via
@@ -160,7 +160,7 @@ tornado==6.5.4
     # via
     #   -r requirements.txt
     #   livereload
-tqdm==4.67.1
+tqdm==4.67.2
     # via -r requirements.txt
 types-docutils==0.22.3.20251115
     # via
@@ -181,6 +181,7 @@ typing-extensions==4.15.0
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
+    #   anyio
     #   beautifulsoup4
     #   mypy
     #   pydantic

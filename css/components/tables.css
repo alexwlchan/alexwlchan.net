@@ -5,16 +5,24 @@ table.block {
   background-color: var(--block-background);
   padding: var(--default-padding);
   
-  /* Distinct table elements wrapped in <tbody> get a border below them. */
-  tbody:not(:last-of-type) tr:last-child > th,
-  tbody:not(:last-of-type) tr:last-child > td {
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--block-border-color);
+  /* Distinct table elements wrapped in <tbody> or <thead> get a border
+   * below them. */
+  tbody:not(:last-of-type),
+  thead:not(:last-of-type) {
+    tr:last-child > th,
+    tr:last-child > td {
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--block-border-color);
+    }
   }
-
-  tbody:not(:first-child) tr:first-child th,
-  tbody:not(:first-child) tr:first-child td {
-    padding-top: 10px;
+  
+  tbody:not(:first-child),
+  thead:not(:first-child) {
+    tr:first-child {
+      th, td {
+        padding-top: 10px;
+      }
+    }
   }
   
   th, td {
