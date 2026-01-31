@@ -1,6 +1,7 @@
 -r uptime_tests/requirements.txt
 
 beautifulsoup4
+httpx
 jinja2
 lightningcss
 livereload

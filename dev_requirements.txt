@@ -181,7 +181,6 @@ typing-extensions==4.15.0
     #   -r dns/requirements.txt
     #   -r requirements.txt
     #   -r uptime_tests/requirements.txt
-    #   anyio
     #   beautifulsoup4
     #   mypy
     #   pydantic

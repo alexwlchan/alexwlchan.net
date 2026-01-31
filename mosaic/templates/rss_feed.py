@@ -5,15 +5,17 @@ Filters for producing the RSS feed.
 import re
 from xml.sax.saxutils import quoteattr
 
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup, Comment, Tag
 
 
 def xml_escape(text: str) -> str:
     """
     Escape a string for use in an XML document.
     """
-    escaped = quoteattr(text)
-    return escaped[1:-1]
+    for old, new in [("&", '&amp;'), ('"', '&quot;'), ('<', '&lt;'), ('>', '&gt;')]:
+        text = text.replace(old, new)
+    
+    return text
 
 
 def fix_youtube_iframes(html: str) -> str:
@@ -67,7 +69,7 @@ def fix_html_for_feed_readers(html: str) -> str:
     #
     # According to https://github.com/rubys/feedvalidator, these aren't
     # allowed in an RSS feed.
-    bad_attrs = ["style", "controls", "aria-hidden", "title", "onchange"]
+    bad_attrs = ["style", "controls", "aria-hidden", "title", "onchange", "onclick"]
     for tag in soup.find_all(True):  # True finds all tags
         for attr in bad_attrs:
             if tag.has_attr(attr):
@@ -96,8 +98,12 @@ def fix_html_for_feed_readers(html: str) -> str:
     for config in link_elements:
         for tag in soup.select(config["selector"]):
             fix_relative_url(tag, config["attr"])
+    
+    # 6. Remove comments.
+    for comment in soup.find_all(string=lambda text: isinstance(text, Comment)):
+            comment.extract()
 
-    # 5. Convert back to string and remove empty paragraphs
+    # 7. Convert back to string and remove empty paragraphs
     # We use .decode_contents() to get just the inner HTML without
     # the body tags
     output = soup.body.decode_contents() if soup.body else str(soup)
