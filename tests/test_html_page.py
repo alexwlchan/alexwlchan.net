@@ -35,7 +35,6 @@ def test_read_page_from_file(src_dir: Path) -> None:
     page = read_page_from_markdown(src_dir, md_path)
 
     assert page.md_path == md_path
-    assert page.layout == "page"
     assert page.title == "Contact"
     assert page.content == "This is my contact page"
 
@@ -63,7 +62,6 @@ def test_read_article(src_dir: Path) -> None:
 
     assert isinstance(page, Article)
     assert page.md_path == md_path
-    assert page.layout == "post"
     assert page.title == "My first post"
     assert page.date == datetime(2001, 2, 3, 4, 5, 6, tzinfo=timezone.utc)
     assert page.tags == ["writing", "programming"]
@@ -109,7 +107,6 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
     [
         (
             Page(
-                layout="page",
                 src_dir=Path("src"),
                 md_path=Path("src/contact.md"),
                 title="Contact",
@@ -119,7 +116,6 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         ),
         (
             Page(
-                layout="page",
                 src_dir=Path("src"),
                 md_path=Path("src/index.md"),
                 title="Homepage",
@@ -129,7 +125,6 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         ),
         (
             Page(
-                layout="page",
                 src_dir=Path("src"),
                 md_path=Path("src/a-plumbers-guide-to-git/index.md"),
                 title="A Plumber’s Guide to Git",
@@ -139,7 +134,6 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         ),
         (
             Article(
-                layout="post",
                 src_dir=Path("src"),
                 md_path=Path("src/2013/2013-02-13-darwin.md"),
                 date=datetime(2013, 2, 13),
@@ -150,7 +144,6 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
         ),
         (
             TodayILearned(
-                layout="til",
                 src_dir=Path("src"),
                 md_path=Path("src/_til/2013/2013-05-11-rss-podcasts-tumblr"),
                 date=datetime(2013, 5, 11),
@@ -160,9 +153,7 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
             "/til/2013/rss-podcasts-tumblr/",
         ),
         (
-            Page(
-                layout="page", title="Posts tagged with ‘python’", url="/tags/python/"
-            ),
+            Page(title="Posts tagged with ‘python’", url="/tags/python/"),
             "/tags/python/",
         ),
     ],

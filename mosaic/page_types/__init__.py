@@ -26,27 +26,42 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
     except Exception as exc:
         raise RuntimeError(f"error reading md file {md_path!r}: {exc}")
 
-    if front_matter["layout"] == "post":
-        return Article(
-            src_dir=src_dir, md_path=md_path, content=content, **front_matter
-        )
-    elif front_matter["layout"] == "book_review":
-        return BookReview(
-            src_dir=src_dir, md_path=md_path, content=content, **front_matter
-        )
-    elif front_matter["layout"] == "note":
-        return Note(src_dir=src_dir, md_path=md_path, content=content, **front_matter)
-    elif front_matter["layout"] == "til":
-        return TodayILearned(
-            src_dir=src_dir, md_path=md_path, content=content, **front_matter
-        )
-    else:
-        return Page(
-            src_dir=src_dir,
-            md_path=md_path,
-            content=content,
-            **front_matter,
-        )
+    layout = front_matter.pop("layout")
+
+    match layout:
+        case "post":
+            return Article(
+                src_dir=src_dir, md_path=md_path, content=content, **front_matter
+            )
+        case "book_review":
+            return BookReview(
+                src_dir=src_dir, md_path=md_path, content=content, **front_matter
+            )
+        case "note":
+            return Note(
+                src_dir=src_dir, md_path=md_path, content=content, **front_matter
+            )
+        case "til":
+            return TodayILearned(
+                src_dir=src_dir, md_path=md_path, content=content, **front_matter
+            )
+        case "page":
+            return Page(
+                src_dir=src_dir,
+                md_path=md_path,
+                content=content,
+                **front_matter,
+            )
+        case "topic":
+            return Page(
+                src_dir=src_dir,
+                md_path=md_path,
+                content=content,
+                extra_variables={"is_topic": True},
+                **front_matter,
+            )
+        case _:
+            raise ValueError(f"unrecognised layout in {md_path}: {layout!r}")
 
 
 def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:

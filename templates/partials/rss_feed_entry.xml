@@ -13,7 +13,7 @@
 
   <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}">
     <![CDATA[
-    {%- if post.layout == "til" and post.summary -%}
+    {%- if post.template_name == "til.html" and post.summary -%}
       <p><strong>{{ post.summary | markdownify_oneline | fix_html_for_feed_readers }}</strong></p>
     {%- endif -%}
     {{- post.html_content | cleanup_text | fix_html_for_feed_readers | fix_youtube_iframes }}
