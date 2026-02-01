@@ -330,13 +330,3 @@ class Site(BaseModel):
         til_atom_template = env.get_template("til_atom.xml")
         til_atom_xml = til_atom_template.render(tils=tils)
         (self.out_dir / "til/atom.xml").write_text(til_atom_xml)
-
-    def notes_for_topic(self, page: HtmlPage) -> list[HtmlPage]:
-        """
-        Returns a list of all the notes for a topic.
-        """
-        assert page.layout == "topic"
-
-        return [
-            n for n in self.notes if n.breadcrumb and n.breadcrumb[-1].href == page.url
-        ]
