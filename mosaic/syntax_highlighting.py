@@ -143,7 +143,7 @@ def apply_syntax_highlighting(
     for idx, m in reversed(list(enumerate(name_matches, start=1))):
         # In HTML, all tags and attributes get highlighted in blue;
         # skip doing any name cleanup.
-        if lang == "html":
+        if lang == "html" or lang == "xml":
             continue
 
         varname = m.group("varname")
