@@ -24,7 +24,6 @@ def test_book_review_properties(src_dir: Path) -> None:
     (src_dir / "_images/2001/ship-happens.jpg").write_text("JPEG;placeholder")
 
     review = page_types.BookReview(
-        layout="book_review",
         md_path=src_dir / "book_reviews/2001/ship-happens.md",
         src_dir=src_dir,
         date=datetime(2001, 2, 3),

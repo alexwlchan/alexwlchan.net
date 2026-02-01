@@ -22,7 +22,6 @@ def test_url(src_dir: Path, src_path: str, url: str) -> None:
     The URL of a note matches the path within the source directory.
     """
     n = Note(
-        layout="note",
         md_path=src_dir / src_path,
         src_dir=src_dir,
         date=datetime(2006, 2, 1),

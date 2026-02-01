@@ -77,9 +77,6 @@ class BaseHtmlPage(ABC, BaseModel):
     # The HTML content of the file
     html_content: str = ""
 
-    # The layout template to use
-    layout: Literal["page", "post", "til", "book_review", "note", "topic"]
-
     # The title of the page or post
     title: str = ""
 

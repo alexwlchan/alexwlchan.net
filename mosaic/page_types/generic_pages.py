@@ -21,9 +21,6 @@ class Page(BaseHtmlPage):
         """
         Construct a new instance of Page.
         """
-        # Temporary hack to get tag pages working
-        if "layout" not in kwargs:
-            kwargs["layout"] = "page"
         super().__init__(**kwargs)
         self._url = url
 
