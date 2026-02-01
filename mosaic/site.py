@@ -115,7 +115,9 @@ class Site(BaseModel):
             self._topics = build_topic_tree(self.all_pages)
         return self._topics
 
-    def build_site(self, incremental: bool = False) -> bool:  # pragma: no cover
+    def build_site(
+        self, incremental: bool = False, enable_analytics: bool = False
+    ) -> bool:  # pragma: no cover
         """
         Build a complete copy of the site.
 
@@ -220,6 +222,7 @@ class Site(BaseModel):
                 "css_url": css_url,
                 "environment": "production",
                 "site": self,
+                "enable_analytics": enable_analytics,
             }
         )
 

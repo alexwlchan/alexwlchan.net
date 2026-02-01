@@ -1,12 +1,14 @@
-<script async>
-  window.onload = function() {
-    const analyticsData = new URLSearchParams({
-      "url": window.location.href,
-      "referrer": document.referrer,
-      "title": document.title,
-    });
+{% if enable_analytics %}
+  <script async>
+    window.onload = function() {
+      const analyticsData = new URLSearchParams({
+        "url": window.location.href,
+        "referrer": document.referrer,
+        "title": document.title,
+      });
 
-    fetch(`https://analytics.alexwlchan.net/a.gif?${analyticsData.toString()}`, { credentials: 'include' })
-      .then(resp => console.log(resp));
-  }
-</script>
+      fetch(`https://analytics.alexwlchan.net/a.gif?${analyticsData.toString()}`, { credentials: 'include' })
+        .then(resp => console.log(resp));
+    }
+  </script>
+{% endif %}
