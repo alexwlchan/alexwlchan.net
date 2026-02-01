@@ -95,6 +95,7 @@ def build_topic_tree(pages: list[BaseHtmlPage]) -> dict[str, Topic]:
 
         for t in p.topics:
             topic = all_topics[t]
+            # TODO: Handle duplication
             while True:
                 topic.pages_in_topic.append(p)
                 if topic.parent:

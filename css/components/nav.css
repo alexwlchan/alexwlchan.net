@@ -15,19 +15,20 @@ nav {
 
 nav h1 {
   margin-bottom: -5px;
-  font-size: 1.7em;
+  font-size: 1.4em;
 }
 
 nav h1 a {
-  text-decoration: none;
-  display: inline-block;
+  &:not(.topic) {
+    text-decoration: none;
+  }
 }
 
 nav ul {
   margin-bottom: 14px;
 }
 
-nav, nav a, nav a:visited, nav a:hover {
+nav, nav h1, nav a, nav a:visited, nav a:hover {
   color: white;
 }
 

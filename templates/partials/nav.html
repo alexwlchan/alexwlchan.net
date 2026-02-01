@@ -1,5 +1,10 @@
 <nav>
-  <h1><a href="/">alexwlchan</a></h1>
+  <h1>
+    <a href="/">alexwlchan</a>
+    {% if page.topics %}
+    » <a class="topic" href="{{ site.topics[page.topics[0]].url }}">{{ page.topics[0]|smartify }}</a>
+    {% endif %}
+  </h1>
 
   <ul class="dot_list">
     <li>

@@ -4,8 +4,11 @@ body {
   color: var(--body-text);
 }
 
-h1, h2, h3 {
+h1:not(nav h1), h2, h3 {
   color: var(--primary-color);
+}
+
+h1, h2, h3 {
   font-weight: normal;
 }
 
