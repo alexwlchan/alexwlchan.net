@@ -6,9 +6,9 @@ book:
   title: Lilith
   contributors:
     - name: Nikki Marmery
-  publication_year: 2023
   genres:
     - mythological fiction
+  publication_year: 2023
 
 review:
   date_read: 2026-01-04

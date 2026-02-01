@@ -442,6 +442,13 @@ class BookReview(HtmlPage):
         elif len(contributors) == 1 and contributors[0].role == "editor":
             editor = contributors[0]
             return f"edited by {editor.name}"
+        elif (
+            len(contributors) == 2
+            and contributors[0].role == "author"
+            and contributors[1].role == "translator"
+        ):
+            author = contributors[0]
+            return f"by {author.name}"
         else:
             raise ValueError("unable to choose attribution for book")
 

@@ -5,3 +5,7 @@
 -r requirements.txt
 -r dns/requirements.txt
 -r uptime_tests/requirements.txt
+
+httpx
+inquirerpy
+unidecode

@@ -7,10 +7,10 @@ book:
   contributors:
     - name: Claudie Arseneault, C.T. Callahan, B.R. Sanders and RoAnna Sylver
       role: editor
-  publication_year: 2021
   genres:
     - speculative fiction
     - queer rep
+  publication_year: 2021
 
 review:
   date_read: 2026-01-27

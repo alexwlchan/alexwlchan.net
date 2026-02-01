@@ -6,9 +6,9 @@ book:
   title: Becoming
   contributors:
     - name: Laura Jane Williams
-  publication_year: 2016
   genres:
     - memoirs
+  publication_year: 2016
   isbn13: "978-1-473-53560-9"
 
 review:
