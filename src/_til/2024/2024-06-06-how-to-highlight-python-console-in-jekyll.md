@@ -11,15 +11,10 @@ tags:
 ---
 I was writing another article for this site, and I created a code block with backticks and the language identifier `pycon`, for a Python console session:
 
-{% comment %}
-  There's a zero-width space after "pycon" to stop my plugin from blatting it.
-{% endcomment %}
-
-<pre><code>&grave;&grave;&grave;pycon​
->>> print("Hello world!")
-Hello world!
-&grave;&grave;&grave;
-</code></pre>
+    ```pycon
+    >>> print("Hello world!")
+    Hello world!
+    ```
 
 Apparently this doesn't work with Rouge, the syntax highlighter used by Jekyll and this site -- I got an unformatted `<pre>` block.
 (A fact which has taken me far too long to notice!)

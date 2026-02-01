@@ -33,7 +33,7 @@ Traceback (most recent call last):
 FileExistsError: [Errno 17] File exists: 'dst.txt'
 ```
 
-{% comment %}
+{#
 ```python
 import shutil
 
@@ -61,7 +61,7 @@ Traceback (most recent call last):
     ~~~~^^^^^^^^^^^^^^^^^
 FileExistsError: [Errno 17] File exists: 'dst.txt'
 ```
-{% endcomment %}
+#}
 
 ## Why not use `os.path.exists()`?
 
