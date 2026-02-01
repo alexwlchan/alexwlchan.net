@@ -13,6 +13,7 @@ from .articles import Article
 from .book_reviews import BookReview
 from .generic_pages import Page
 from .notes import Note, TodayILearned
+from .topic_pages import TopicPage
 
 
 def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
@@ -53,11 +54,10 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
                 **front_matter,
             )
         case "topic":
-            return Page(
+            return TopicPage(
                 src_dir=src_dir,
                 md_path=md_path,
                 content=content,
-                extra_variables={"is_topic": True},
                 **front_matter,
             )
         case _:
@@ -82,5 +82,6 @@ __all__ = [
     "Note",
     "Page",
     "TodayILearned",
+    "TopicPage",
     "read_markdown_files",
 ]
