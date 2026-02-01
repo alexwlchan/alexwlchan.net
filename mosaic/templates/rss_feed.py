@@ -25,9 +25,11 @@ def fix_youtube_iframes(html: str) -> str:
     that embedding an <iframe> in an RSS feed can be a security risk.
     """
     while m := re.search(
-        r'<iframe class="youtube" id="youtube_(?P<video_id>[^"]+)"', html
+        r'<iframe\s+class="youtube"\s+id="youtube_(?P<video_id>[^"]+)"(.*?)</iframe>',
+        html,
+        re.DOTALL | re.MULTILINE,
     ):
-        url = f"https://youtube.com/watch?v={m.group('video_id')}"
+        url = f"https://www.youtube.com/watch?v={m.group('video_id')}"
         html = html.replace(m.group(0), f'<p><a href="{url}">{url}</a></p>')
 
     return html
