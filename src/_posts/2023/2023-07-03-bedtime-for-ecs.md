@@ -9,11 +9,8 @@ tags:
 colors:
   css_light: "#9a255e"
   css_dark:  "#ff3d9c"
+card_attribution: https://www.pexels.com/photo/analog-clock-sketch-in-black-surface-745365/
 ---
-
-{% comment %}
-  Cover image: https://www.pexels.com/photo/analog-clock-sketch-in-black-surface-745365/
-{% endcomment %}
 
 At work, we have a bunch of ECS services that run 24/7, even though they don't need to.
 For example, we have a staging version of our website, where we test new changes before they're deployed to the live site.

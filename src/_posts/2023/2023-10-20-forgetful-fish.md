@@ -9,11 +9,8 @@ tags:
 colors:
   index_light: "#c85b05"
   index_dark:  "#ff9306"
+card_attribution: https://pixabay.com/photos/veil-tail-fish-goldfish-swim-11453/
 ---
-
-{% comment %}
-  Cover image from https://pixabay.com/photos/veil-tail-fish-goldfish-swim-11453/
-{% endcomment %}
 
 For quite a few years, I've been using fish (<https://fishshell.com/>) as my shell.
 

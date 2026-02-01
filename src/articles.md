@@ -14,7 +14,7 @@ nav_section: articles
   }
 </style>
 
-{% comment %}
+{#
   The logic here is quite fiddly and took a lot of thought.  It may also be
   implementing a bad design.
 
@@ -40,7 +40,7 @@ nav_section: articles
     - if ≥3, show those first
     - if <3, keep them and wait for a later opportunity to display them
   * at the end, display anything not yet displayed
-{% endcomment %}
+#}
 
 {% set ns = namespace(featured_posts=[], remaining_posts=[]) %}
 
@@ -75,9 +75,9 @@ nav_section: articles
   {% endif %}
 {% endfor %}
 
-{% comment %}
+{#
   At the end, display anything not yet displayed
-{% endcomment %}
+#}
 
 {% with articles = ns.featured_posts %}
   {% include "partials/article_cards.html" %}

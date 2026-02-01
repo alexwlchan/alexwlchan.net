@@ -84,7 +84,7 @@ val dynamoDbClient = AmazonDynamoDBClientBuilder
 
 There are lots of ways to get credentials into the AWS SDK -- I'm using hard-coded keys here because they're the easiest for a standalone example.
 
-{% comment %}
+{#
 Then let's create a new, empty table:
 
 ```scala
@@ -139,7 +139,7 @@ case class Shape(id: String, sides: Int, colour: String)
   Scanamo.put(dynamoDbClient)(TABLE_NAME)(shape)
 }
 ```
-{% endcomment %}
+#}
 
 ## Step-by-step breakdown
 

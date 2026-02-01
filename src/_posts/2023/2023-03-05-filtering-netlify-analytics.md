@@ -9,11 +9,8 @@ tags:
 colors:
   index_light: "#73714B"
   index_dark:  "#c9ba8d"
+card_attribution: https://www.pexels.com/photo/large-elephants-near-lake-86413/, CC0
 ---
-
-{% comment %}
-  Card image from https://www.pexels.com/photo/large-elephants-near-lake-86413/, CC0
-{% endcomment %}
 
 I host this site on Netlify, and I pay for [Netlify Analytics] to monitor its performance.
 It's essentially server-side logging with a dashboard on top, and it's more than sufficient for the very limited analytics I want to do here.

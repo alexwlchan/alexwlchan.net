@@ -8,11 +8,8 @@ tags:
 colors:
   index_dark:  "#7e9327"
   index_light: "#4f5f10"
+card_attribution: https://www.pexels.com/photo/photo-of-pathway-surrounded-by-fir-trees-1578750/
 ---
-
-{% comment %}
-Cover image from https://www.pexels.com/photo/photo-of-pathway-surrounded-by-fir-trees-1578750/
-{% endcomment %}
 
 I write a lot of one-use Python scripts for quick analysis or cleaning something up on my disk, and they often involve iterating over a folder full of files.
 The key function for doing this is [`os.walk`][os.walk] in the standard library, but it's not quite what I want, so I have a wrapper function I use instead:

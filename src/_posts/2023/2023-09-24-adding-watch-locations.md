@@ -259,12 +259,6 @@ If I plan to reuse this location tagging code, I'd use the same trick, but with 
 
 Once this was done, I imported all the files into my Photos Library, and voila: I could see all my photos plotted on a map, even though I'd taken them on a camera without GPS support.
 
-{% comment %}
-  They're wider than they need to be, but something about ImageMagick is
-  really messing up the compression of these photos and making them wider
-  makes it a bit better?
-{% endcomment %}
-
 {%
   picture
   filename="photos_on_map.png"

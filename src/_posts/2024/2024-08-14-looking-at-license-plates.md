@@ -12,10 +12,8 @@ colors:
   index_dark:  "#97b7c8"
 index:
   feature: true
+card_attribution: https://www.pexels.com/photo/wall-of-car-plate-12953608/
 ---
-{% comment %}
-  Card image from https://www.pexels.com/photo/wall-of-car-plate-12953608/
-{% endcomment %}
 
 I was recently visiting Vermont for a work trip -- my first time in the USA since I was a child.
 I was drawn to the license plates on passing cars, and how they look different to the cars I'm used to.

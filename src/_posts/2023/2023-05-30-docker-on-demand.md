@@ -11,11 +11,8 @@ colors:
   index_dark:  "#cfe7f7"
   css_light:   "#3a5781"
   css_dark:    "#cfe7f7"
+card_attribution: by Todd Cravens, https://unsplash.com/photos/QnBrjY-nFUs
 ---
-
-{% comment %}
-  Cover image by Todd Cravens: https://unsplash.com/photos/QnBrjY-nFUs
-{% endcomment %}
 
 Although I use Docker a lot, I don't leave it running all the time -- it can be quite a resource hog, and even if it's doing nothing it can make my laptop feel sluggish.
 I'll often stop if it my computer feels slow, which is great right until the next time I need to use it:

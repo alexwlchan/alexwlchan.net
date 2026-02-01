@@ -11,11 +11,8 @@ tags:
 colors:
   index_light: "#b24c0e"
   index_dark:  "#e7862a"
+card_attribution: https://pixabay.com/photos/light-bulb-incandescent-smoke-crack-503881/
 ---
-
-{% comment %}
-  Card image: https://pixabay.com/photos/light-bulb-incandescent-smoke-crack-503881/
-{% endcomment %}
 
 At work, we use [Amazon ECS] to run some of our Docker-based services.
 ECS is a container orchestrator, similar to Kubernetes: we tell it what Docker images we want to run in what configuration, and it stops or starts containers to match.

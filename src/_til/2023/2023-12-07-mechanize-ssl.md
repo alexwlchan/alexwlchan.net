@@ -10,11 +10,8 @@ tags:
   - python
   - "python:mechanize"
   - "python:certifi"
+card_attribution: Cover image from https://www.pexels.com/photo/gray-and-gold-steel-gears-159275/
 ---
-
-{% comment %}
-  Cover image from https://www.pexels.com/photo/gray-and-gold-steel-gears-159275/
-{% endcomment %}
 
 I was doing some work on [my library lookup tool] recently, and I ran into an issue with [mechanize], the Python library I use to simulate a web browser.
 I'd upgraded my version of Python and mechanize, and now I wasn't able to connect to HTTPS sites.

@@ -88,7 +88,7 @@ Python-Markdown also includes extensions for doing syntax-highlighting of code b
 One of the options on your code blocks is whether to include line numbers on your code blocks.
 Here's an example with:
 
-{% comment %}
+{#
 
 Markdown source file:
 
@@ -113,7 +113,7 @@ And rendered with Python:
 
     print(markdown(open("s.md").read(), extensions=[CodeHiliteExtension()]))
 
-{% endcomment %}
+#}
 
 <table class="codehilitetable" style="width: 100%;"><tr><td class="linenos"><div class="linenodiv"><pre style="margin-right: 0">1
 2

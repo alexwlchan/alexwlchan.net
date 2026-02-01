@@ -10,11 +10,8 @@ summary: Making it slightly easier for me to enable and disable Voice Control qu
 colors:
   index_light: "#595c80"
   index_dark:  "#797da7"
+card_attribution: https://support.apple.com/en-gb/HT210539
 ---
-
-{% comment %}
-Card image: https://support.apple.com/en-gb/HT210539
-{% endcomment %}
 
 On my Mac, I do a lot of writing using speech-to-text dictation.
 I can speak much faster than I can type, so it gets my ideas on the page sooner, and then I tidy things up with a keyboard and mouse.

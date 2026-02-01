@@ -11,11 +11,8 @@ colors:
   index_dark:  "#88a284"
   css_light: "#016d01"
   css_dark:  "#88a284"
+card_attribution: https://www.pexels.com/photo/blank-white-tags-with-blue-ribbon-8058551/
 ---
-
-{% comment %}
-  Cover image from https://www.pexels.com/photo/blank-white-tags-with-blue-ribbon-8058551/
-{% endcomment %}
 
 The aspiration of [infrastructure-as-code tools][iac] is that you use them to manage *everything*.
 You create all your resources by writing a file that defines them, and any time you change something, you update the definition in that file.

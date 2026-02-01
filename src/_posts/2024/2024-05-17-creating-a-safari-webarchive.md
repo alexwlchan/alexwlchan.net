@@ -10,11 +10,8 @@ tags:
 colors:
   index_dark:  "#e9eaec"
   index_light: "#2076cc"
+card_attribution: https://pixabay.com/photos/compass-orientation-map-address-5261062/
 ---
-
-{% comment %}
-  Card image based on https://pixabay.com/photos/compass-orientation-map-address-5261062/
-{% endcomment %}
 
 Recently I've been trying to create a local archive of my bookmarked web pages.
 I already have tools to [take screenshots], and I love them as a way to take quick snapshots and skim the history of a site, but bitmap images aren't a great archival representation of a website.

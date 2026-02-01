@@ -11,10 +11,8 @@ tags:
 colors:
   index_light: "#c53f70"
   index_dark:  "#bbc660"
+card_attribution: https://www.pexels.com/photo/close-up-shot-of-a-hummingbird-4838540/
 ---
-{% comment %}
-    Card photo from https://www.pexels.com/photo/close-up-shot-of-a-hummingbird-4838540/
-{% endcomment %}
 
 I had to change some of my DNS records recently, a phrase which strikes fear into the heart of sysadmins everywhere.
 It all went fine, but I definitely felt like I was playing with fire.

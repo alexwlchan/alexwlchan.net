@@ -28,10 +28,6 @@ I can't imagine anybody else wants this particular bookmarklet, but I'll explain
 
 First, I added the following HTML to one of my templates:
 
-{% comment %}
-The raw blocks are to stop Jekyll expanding the {{ page.path }} variable in this snippet.
-{% endcomment %}
-
 ```html
 {% raw %}<meta name="page-source-path" content="{{ page.path }}">{% endraw %}
 ```

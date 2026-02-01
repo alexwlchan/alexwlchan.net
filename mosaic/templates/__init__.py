@@ -13,7 +13,6 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from mosaic.css import get_inline_styles
 from mosaic.text import cleanup_text, markdownify, markdownify_oneline, strip_html
 
-from .comments import LiquidCommentExtension
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
 from .legacy_code import CodeBlockExtension
@@ -39,7 +38,6 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             CodeBlockExtension,
             DownloadExtension,
             InlineSvgExtension,
-            LiquidCommentExtension,
             PictureExtension,
             SlideExtension,
             SocialExtension,

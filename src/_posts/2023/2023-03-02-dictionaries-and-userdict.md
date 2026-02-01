@@ -8,11 +8,8 @@ tags:
 colors:
   index_light: "#035e96"
   index_dark:  "#6fd0fd"
+card_attribution: Cover image is CC0, by stevepb, from https://pixabay.com/photos/dictionary-reference-book-learning-1619740/
 ---
-
-{% comment %}
-Cover image is CC0, by stevepb, from https://pixabay.com/photos/dictionary-reference-book-learning-1619740/
-{% endcomment %}
 
 In [my previous post][groups], I was creating groups of students, and I wanted to track how many times students had worked together.
 I created a nested dictionary to track the pairs:

@@ -9,11 +9,8 @@ tags:
 colors:
   index_light: "#B0084D"
   index_dark:  "#FF4F8B"
+card_attribution: https://www.pexels.com/photo/rainforest-surrounded-by-fog-975771/
 ---
-
-{% comment %}
-  Card image is based on https://www.pexels.com/photo/rainforest-surrounded-by-fog-975771/
-{% endcomment %}
 
 At work, we use Amazon SNS as the trigger for a lot of our data pipelines.
 You send a message to an SNS topic, and it gets picked up by an SQS queue, an ECS task, or a Lambda function -- and they in turn send new messages to other SNS topics, and the pipeline continues.

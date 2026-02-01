@@ -8,11 +8,8 @@ tags:
 colors:
   index_dark:  "#d4d1c0"
   index_light: "#46362e"
+card_attribution: https://www.pexels.com/photo/brown-paper-tag-lot-1111315/
 ---
-
-{% comment %}
-  Card image from https://www.pexels.com/photo/brown-paper-tag-lot-1111315/
-{% endcomment %}
 
 Recently I was writing a shell script to deal with the AWS CLI, and I wanted to filter the list of results [using jq][jq].
 Specifically, I wanted to filter using some of the AWS tags, which are a bit unwieldy -- although the tags form a set of key/value pairs, they're returned as a list of objects with `Key`/`Value` keys.
