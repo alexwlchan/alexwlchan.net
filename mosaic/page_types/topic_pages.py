@@ -16,6 +16,10 @@ class TopicPage(BaseHtmlPage):
     # to be set for a TopicPage.
     md_path: Path
     src_dir: Path
+    
+    # Alternative title, so I can write something short on each page
+    # but have an expanded title on the topic itself (e.g. AWS)
+    display_title: str | None = None
 
     @property
     def template_name(self) -> str:

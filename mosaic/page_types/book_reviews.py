@@ -60,11 +60,8 @@ class BookReview(BaseHtmlPage):
 
     # Information about my review and opinions
     review: ReviewInfo
-
-    breadcrumb: list[BreadcrumbEntry] = [
-        BreadcrumbEntry(label="Entertainment"),
-        BreadcrumbEntry(label="Books I’ve read", href="/book-reviews/"),
-    ]
+    
+    topics: list[str] = ["Books I've read"]
 
     @property
     def attribution_line(self) -> str:

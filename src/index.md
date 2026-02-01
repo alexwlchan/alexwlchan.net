@@ -74,6 +74,28 @@ I'm queer and trans, and my pronouns are "they" or "she".
 I hope you like it!
 
 
+* Articles (RSS)
+
+   - Computing
+   - Digital preservation
+   - Personal thoughts
+   - The world
+
+* Intro
+
+   - Colophon
+   - Appearances
+   - Resumé
+   - Contact
+
+* Projects
+* Using my code
+* Books I've read
+* Fun stuff
+* Say thanks
+
+
+
 
 ---
 
