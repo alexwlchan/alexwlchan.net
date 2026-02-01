@@ -26,6 +26,18 @@ class Article(BaseHtmlPage):
     # weight. For example, "dominant-colours" might become "do".
     card_short_name: str | None = None
 
+    # An external URL that this page should like to, like a link blog.
+    # This is used on the HTML version of the page, and where clicking
+    # on the RSS feed entry will take the reader.
+    link: str | None = None
+
+    # Whether the articles index should link directly to the external page.
+    link_direct: bool | None = None
+
+    # An external URL that is the canonical copy of this page, used
+    # for external posts I've copied to this site
+    canonical_url: str | None = None
+
     def __hash__(self) -> int:
         """
         Return a hash; this is so I can use articles as dict keys when
