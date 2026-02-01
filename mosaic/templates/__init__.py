@@ -11,7 +11,13 @@ from typing import TypeVar
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 from mosaic.css import get_inline_styles
-from mosaic.text import cleanup_text, markdownify, markdownify_oneline, strip_html
+from mosaic.text import (
+    cleanup_text,
+    markdownify,
+    markdownify_oneline,
+    smartify,
+    strip_html,
+)
 
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
@@ -64,6 +70,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "markdownify_oneline": markdownify_oneline,
             "minify_json": lambda js: json.dumps(json.loads(js), separators=(",", ":")),
             "sample": random.sample,
+            "smartify": smartify,
             "strip_html": strip_html,
             "xml_escape": xml_escape,
         }

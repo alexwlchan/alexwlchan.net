@@ -4,7 +4,7 @@ Models for a topic page.
 
 from pathlib import Path
 
-from ._base import BaseHtmlPage
+from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
 class TopicPage(BaseHtmlPage):
@@ -34,3 +34,10 @@ class TopicPage(BaseHtmlPage):
         else:
             relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
         return f"/{relative_path}/".replace("./", "")
+
+    @property
+    def breadcrumb(self) -> list[BreadcrumbEntry]:
+        """
+        The breadcrumb trail for this page.
+        """
+        return []

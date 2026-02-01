@@ -6,6 +6,7 @@
 -r dns/requirements.txt
 -r uptime_tests/requirements.txt
 
+cogapp
 httpx
 inquirerpy
 unidecode

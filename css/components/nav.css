@@ -13,12 +13,22 @@ nav {
   background-size: auto 100%;
 }
 
-nav h1 {
-  margin-bottom: -5px;
-  font-size: 1.7em;
+nav:not(:has(ul)) {
+  background-size: auto 125%;
 }
 
-nav h1 a {
+nav h1:not(:has(+ ul)) {
+  margin-top:    14px;
+  margin-bottom: 14px;
+  font-size: 1.2em;
+}
+
+nav h1:has(+ ul) {
+  font-size: 1.5em;
+  margin-bottom: -5px;
+}
+
+nav h1 a:not(.breadcrumb) {
   text-decoration: none;
   display: inline-block;
 }
@@ -35,6 +45,10 @@ nav, nav a, nav a:visited, nav a:hover {
   nav, nav a, nav a:visited {
     color: black;
   }
+}
+
+nav h1 a:hover {
+  text-decoration: underline;
 }
 
 /* Add an extra thick underline so you know which part of the site

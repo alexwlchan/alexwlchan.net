@@ -48,7 +48,7 @@ I rewrote it in Python, and then I could see the hex code and the colour it repr
 
 Here's my Python function:
 
-```python
+```python {"names":{"1":"coloured_square","2":"hex_string","8":"red","11":"green","14":"blue"}}
 def coloured_square(hex_string):
     """
     Returns a coloured square that you can print to a terminal.
@@ -71,7 +71,7 @@ Typing a single space draws the square of colour, and then `49` restores the def
 
 Scrolling up on that page, I see that `38:2::r:g:b` lets you set the foreground colour, and that lets me write another interesting function:
 
-```python
+```python {"names":{"1":"coloured_string","2":"s","3":"hex_string","9":"red","12":"green","15":"blue"}}
 def coloured_string(s, *, hex_string):
     """
     Returns a coloured string that you can print to a terminal.

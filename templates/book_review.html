@@ -33,6 +33,11 @@
         margin-bottom: 0;
         margin-top: 1.5em;
       }
+      
+      .sr {
+        letter-spacing: 0.15em;
+        white-space: nowrap;
+      }
     }
     
     .book_metadata {
@@ -93,6 +98,8 @@
     }
   </style>
   
+  {% from "partials/star_rating.html" import star_rating %}
+  
   {% set book = page.book %}
   {% set review = page.review %}
   
@@ -124,17 +131,22 @@
           
           <dt>my rating</dt>
           <dd>
-            {% for _ in range(review.rating) %}★&thinsp;{% endfor %}
-            {% for _ in range(5 - review.rating) %}☆&thinsp;{% endfor %}
+            {%- if review.did_not_finish -%}
+              did not finish
+            {%- else -%}
+              {{ star_rating(review.rating) }}
+            {%- endif -%}
           </dd>
         </dl>
       </hgroup>
       <!-- TODO: Support setting bounds on both width and height. -->
+      {% set parent = "/images/" + review.date_read.year|string %}
       {%
         picture
         filename=page.cover_image.name
         height="200"
         class="book_cover"
+        parent=parent
         alt=""
       %}
       {% if review.summary %}

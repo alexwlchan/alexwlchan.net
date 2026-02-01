@@ -29,7 +29,7 @@ def strip_html(text: str) -> str:
     return STRIP_HTML_RE.sub("", text)
 
 
-def apply_smartypants(text: str) -> str:
+def smartify(text: str) -> str:
     """
     Add curly quotes and smart dashes to a string.
     """
@@ -99,7 +99,7 @@ class AlexwlchanRenderer(mistune.HTMLRenderer):
         tag = f"h{level}"
         heading_id = re.sub(r"[^\w]+", "-", text.lower()).strip("-")
 
-        text = apply_smartypants(text)
+        text = smartify(text)
 
         return f'<{tag} id="{heading_id}">{text}</{tag}>\n'
 
@@ -107,13 +107,13 @@ class AlexwlchanRenderer(mistune.HTMLRenderer):
         """
         Create a paragraph with curly quotes and smart dashes.
         """
-        return super().paragraph(text=apply_smartypants(text))
+        return super().paragraph(text=smartify(text))
 
     def list_item(self, text: str) -> str:
         """
         Create a list item with curly quotes and smart dashes.
         """
-        return super().list_item(text=apply_smartypants(text))
+        return super().list_item(text=smartify(text))
 
 
 class MosaicBlockParser(mistune.BlockParser):

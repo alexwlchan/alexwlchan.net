@@ -1,0 +1,14 @@
+{%- macro topic_section(items, partial, title=none) -%}
+{%- if items|count > 0 -%}
+  <section>
+    <div>
+      {%- if title -%}
+        <h2>{{ items|count }} {{ title }}</h2>
+      {%- endif -%}
+      {%- with articles = items -%}
+        {% include "partials/" ~ partial ~ ".html" %}
+      {%- endwith -%}
+    </div>
+  </section>
+{%- endif -%}
+{%- endmacro -%}

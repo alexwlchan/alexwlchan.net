@@ -125,6 +125,9 @@ class PictureExtension(KwargsExtensionBase):
         """
         Render the picture tag.
         """
+        if "dst_prefix" in kwargs:
+            kwargs["dst_prefix"] = Path(kwargs["dst_prefix"])
+
         html = render_picture(*args, **kwargs)
         assert_is_invariant_under_markdown(html)
 
@@ -144,6 +147,13 @@ def render_picture(
     link_to: str | None = None,
     caller: Any | None = None,
     dst_prefix: Path | None = None,
+    #
+    # In the srcset and sizes attribute, should it be based on the width
+    # of the output image or the pixel density?
+    size_based_on: Literal["width", "density"] = "width",
+    #
+    # What's the max pixel density to support?
+    max_pixel_density: int = 3,
     **kwargs: Any,
 ) -> str:
     """
@@ -207,29 +217,26 @@ def render_picture(
     target_width = choose_target_width(
         lt_src_path, target_width=target_width, target_height=target_height
     )
-    desired_widths = [pixel_density * target_width for pixel_density in (1, 2, 3)]
+
+    desired_widths = [d * target_width for d in range(1, max_pixel_density + 1)]
 
     is_screenshot = "screenshot" in kwargs.get("class", "")
 
+    derivative_args = {
+        "src_dir": src_dir,
+        "out_dir": out_dir,
+        "desired_widths": desired_widths,
+        "target_width": target_width,
+        "is_screenshot": is_screenshot,
+        "dst_prefix": dst_prefix,
+        "size_based_on": size_based_on,
+    }
+
     lt_derivatives, default_image = create_image_derivatives(
-        lt_src_path,
-        src_dir,
-        out_dir,
-        desired_widths,
-        target_width,
-        is_screenshot,
-        dst_prefix,
+        lt_src_path, **derivative_args
     )
     if dk_src_path is not None:
-        dk_derivatives, _ = create_image_derivatives(
-            dk_src_path,
-            src_dir,
-            out_dir,
-            desired_widths,
-            target_width,
-            is_screenshot,
-            dst_prefix,
-        )
+        dk_derivatives, _ = create_image_derivatives(dk_src_path, **derivative_args)
     else:
         dk_derivatives = {}
 
@@ -252,7 +259,10 @@ def render_picture(
     #
     # This isn't perfect, e.g. it doesn't account for margins or wrapping,
     # but it's good enough and better than relying on screen density alone.
-    sizes_attribute = f"(max-width: {target_width}px) 100vw, {target_width}px"
+    if size_based_on == "width":
+        sizes_attribute = f"(max-width:{target_width}px)100vw,{target_width}px"
+    else:
+        sizes_attribute = ""
 
     # Work out where to link to (if any)
     if link_to == "original":
@@ -345,9 +355,10 @@ def create_image_derivatives(
     src_dir: Path,
     out_dir: Path,
     desired_widths: list[int],
-    target_width: int | None = None,
-    is_screenshot: bool = False,
-    dst_prefix: Path | None = None,
+    target_width: int | None,
+    is_screenshot: bool,
+    dst_prefix: Path | None,
+    size_based_on: Literal["width", "density"],
 ) -> tuple[dict[MimeType, list[str]], str]:
     """
     Create all the derivative images for an input image.
@@ -386,6 +397,7 @@ def create_image_derivatives(
         desired_formats,
         desired_widths,
         target_width,
+        size_based_on,
     )
 
     default_image = created_images[default_mime_type][0].split()[0]
@@ -399,6 +411,7 @@ def create_image_sizes(
     desired_formats: list[ImageFormat],
     desired_widths: list[int],
     target_width: int,
+    size_based_on: Literal["width", "density"],
 ) -> dict[MimeType, list[str]]:
     """
     Create all the different sizes of an image.
@@ -452,7 +465,13 @@ def create_image_sizes(
             # Construct the srcset entry for this image, for example
             # /images/example.jpg 100w
             out_mime_type = FORMAT_TO_MIME_TYPE[out_format]
-            out_srcset = f"/{out_path.relative_to(out_dir)} {out_width}w"
+            if size_based_on == "density":
+                assert out_width % target_width == 0
+                out_srcset = (
+                    f"/{out_path.relative_to(out_dir)} {out_width // target_width}x"
+                )
+            else:
+                out_srcset = f"/{out_path.relative_to(out_dir)} {out_width}w"
             sources[out_mime_type].append(out_srcset)
 
     return dict(sources)
@@ -472,6 +491,7 @@ def has_srgb_colour_profile(path: Path) -> bool:
         "sRGB built-in",
         "sRGB IEC61966-2.1",
         "Generic Gray Gamma 2.2 Profile",
+        "Adobe RGB (1998)",
     ]
 
     with Image.open(path) as im:

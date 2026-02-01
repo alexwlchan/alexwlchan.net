@@ -27,6 +27,12 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v6
 
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.14
+          cache: pip
+
       - name: Install Caddy
         env:
           GH_TOKEN: ${{ github.token }}
@@ -39,11 +45,17 @@ jobs:
           chmod +x /usr/local/bin/caddy
           which caddy
 
+      - name: Install cogapp
+        run: pip install cogapp
+      
+      - name: Run Cog on the book redirects
+        run: cog -c -r caddy/book_redirects.Caddyfile
+
       - name: Format my Caddyfiles
         run: |
           find . \
             -name Caddyfile \
-            -o -name '*.Caddyfile' ! -name 'redirects.Caddyfile' | \
+            -o -name '*.Caddyfile' ! -name 'redirects.Caddyfile' ! -name 'book_redirects.Caddyfile' | \
             xargs -I '{}' --verbose caddy fmt --overwrite '{}'
       
       - name: Print changes
