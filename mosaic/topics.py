@@ -7,7 +7,7 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from .page_types import BreadcrumbEntry, BaseHtmlPage
+from .page_types import BreadcrumbEntry, BaseHtmlPage, TopicPage
 
 
 class Topic(BaseModel):
@@ -40,7 +40,7 @@ def build_topic_tree(pages: list[BaseHtmlPage]) -> dict[str, Topic]:
     # Build a map (name) -> Topic
     topics: dict[str, Topic] = {}
     for p in pages:
-        if p.extra_variables.get("is_topic"):
+        if isinstance(p, TopicPage):
             topics[p.title] = Topic(label=p.title, url=p.url)
 
         if p.topic is not None and p.topic not in topics:
@@ -51,7 +51,7 @@ def build_topic_tree(pages: list[BaseHtmlPage]) -> dict[str, Topic]:
     #
     # I assume I'm not going to create loops or unusable constructions here.
     for p in pages:
-        if not p.extra_variables.get("is_topic"):
+        if not isinstance(p, TopicPage):
             continue
 
         if p.topic is not None:
