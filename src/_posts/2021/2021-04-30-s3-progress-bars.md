@@ -3,11 +3,9 @@ layout: post
 date: 2021-04-30 18:28:27 +00:00
 title: Downloading objects from/uploading files to S3 with progress bars in Python
 summary: Making it easier to see how long a file transfer will take, in the terminal.
-tags:
-  - aws:amazon s3
-  - aws
-  - python
-  - terminal tricks
+topics:
+  - AWS
+  - Python
 ---
 
 I write a lot of scripts to move files in and out of S3, and when I'm dealing with larger files, I find it useful to get an idea of how long the transfer will take.
@@ -23,7 +21,7 @@ If we also look up the size of the object, and pass all this information to the 
 Here's what they look like:
 
 <pre><code id="progressBarDemo">photo.jpg:&nbsp;&nbsp;&nbsp;0%|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0.00/13.0M&nbsp;[00:00&lt;?,&nbsp;?B/s]</code>
-<code style="padding-top: 5px; display: block;"><a onclick="runDemo()" style="cursor: pointer; text-decoration: underline">run demo</a><noscript>(Sorry, this demo requires JavaScript!)</noscript></code></pre>
+<code style="padding-top: 5px; display: block;"><button onclick="runDemo()">run demo</button><noscript>(Sorry, this demo requires JavaScript!)</noscript></code></pre>
 
 <script>
 var lines = ['photo.jpg:&nbsp;&nbsp;&nbsp;0%|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;0.00/13.0M&nbsp;[00:00&lt;?,&nbsp;?B/s]',
@@ -84,7 +82,7 @@ I'm not going to walk through the code – hopefully the comments are sufficient
 If this seems like something you'd find useful, copy it into your own scripts.
 Enjoy!
 
-```python
+```python {"names":{"1":"os","2":"boto3","3":"tqdm","4":"download_object_from_s3","5":"session","6":"bucket","7":"key","8":"version_id","9":"filename","10":"s3","13":"kwargs","19":"object_size","24":"ExtraArgs","26":"ExtraArgs","35":"pbar","51":"upload_file_to_s3","52":"session","53":"bucket","54":"key","55":"filename","56":"file_size","61":"s3","72":"pbar","86":"session","101":"outfile"}}
 import os
 
 import boto3

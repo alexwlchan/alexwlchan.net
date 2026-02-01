@@ -3,8 +3,8 @@ layout: post
 date: 2026-01-08 08:54:38 +00:00
 title: Quick-and-dirty print debugging in Go
 summary: I wrote a Go module to help with my print debugging, which logs expressions and values to a separate file.
-tags:
-  - golang
+topics:
+  - Go
 ---
 I've been writing a lot of Go in my new job, and trying to understand a new codebase.
 

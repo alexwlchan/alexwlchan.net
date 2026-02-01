@@ -3,9 +3,9 @@ layout: post
 date: 2023-01-13 15:23:18 +00:00
 title: Upward assignment in Ruby
 summary: A deep dive into the internals of Ruby and metaprogramming techniques, in a quest for a cursed operator.
-tags:
-  - ruby
-  - code crimes
+topics:
+  - Ruby
+  - Code crimes
 colors:
   css_light: "#c62229"
   css_dark:  "#dd363f"
