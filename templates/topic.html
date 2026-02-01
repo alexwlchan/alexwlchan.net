@@ -7,12 +7,12 @@
         margin-top: 0;
       }
     
-      & > ul {
+      & > div > ul {
         margin-top:    0;
         margin-bottom: 0;
       }
     
-      & > .alinks:first-child li:first-child h4 {
+      & > div > .alinks:first-child li:first-child h4 {
         margin-top: 0;
       }
       
@@ -23,7 +23,7 @@
     }
     
     section:nth-child(2n + 1) {
-      background: rgba(153, 153, 153, 0.1);
+      background: rgba(153, 153, 153, 0.15);
     }
     
     @media (prefers-color-scheme: dark) {
@@ -72,8 +72,5 @@
     </hgroup>
 
     {{ content | cleanup_text }}
-    
-    {% from "partials/topic_entries.html" import topic_entries %}
-    {{- topic_entries(page) -}}
   </article>
 {% endblock %}

@@ -26,7 +26,7 @@
     {% for t in page.topics %}
       {% set topic_url = site.topics[t].url %}
       {% if topic_url %}<a href="{{ site.topics[t].url }}">{% endif %}
-        {{- t -}}
+        {{- t | smartify -}}
       {%- if topic_url -%}</a>{%- endif -%}
       {%- if not loop.last %}, {% endif -%}
     {% endfor %}
