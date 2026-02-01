@@ -6,11 +6,9 @@ summary: Using the Rebrickable database downloads and sqlite-utils, I can quickl
 tags:
   - lego
   - sqlite
----
-{% comment %}
-  Card image: https://pixabay.com/photos/lego-block-toys-3602218/
+card_attribution: https://pixabay.com/photos/lego-block-toys-3602218/
   ta98mori, Pixabay Content License, retrieved 4 February 2025
-{% endcomment %}
+---
 
 One of my recent home organisation projects has been sorting out my LEGO collection.
 I have a bunch of sets which are mixed together in one messy box, and I'm trying to separate bricks back into distinct sets.

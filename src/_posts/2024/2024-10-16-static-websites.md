@@ -13,10 +13,8 @@ index:
 colors:
   index_light: "#51514c"
   index_dark:  "#cecfc9"
+card_attribution: https://www.pexels.com/search/archive%20boxes/
 ---
-{% comment %}
-  Card image from https://www.pexels.com/search/archive%20boxes/
-{% endcomment %}
 
 In [my previous post][decluttering], I talked about how I'm trying to be more intentional and deliberate with my digital data.
 I don't just want to keep everything -- I want to keep stuff that I'm actually going to look at again.

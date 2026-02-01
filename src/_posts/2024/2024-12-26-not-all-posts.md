@@ -10,10 +10,8 @@ colors:
   css_dark:  "#bd94ff"
 tags:
   - blogging about blogging
+card_attribution: https://pixabay.com/photos/bluebell-green-grass-purple-flower-5095581/
 ---
-{% comment %}
-  Card image from https://pixabay.com/photos/bluebell-green-grass-purple-flower-5095581/
-{% endcomment %}
 
 For a while now, this website has been my own personal writer's block.
 I was struggling to write, even when I had good ideas; if I wrote something I liked, I was often reluctant to publish it; if somebody asked to read the site, I'd wince before giving them the link.

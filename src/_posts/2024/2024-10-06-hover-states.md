@@ -24,11 +24,11 @@ It's a visual clue that something will happen when you click, and "see the big v
 
 Initially I implemented this by adding a `border` property on hover, for example:
 
-{% code lang="css" %}
+```css {"names":{"1":"a","2":"hover","3":"img"}}
 a:hover img {
   border: 10px solid red;  /* don't do this */
 }
-{% endcode %}
+```
 
 But a border takes up room on the page, which causes everything to get rearranged around it.
 Everything moves to make space for the border that just appeared, which is precisely what I don't want.
@@ -41,13 +41,13 @@ It became a game of whack-a-mole to make all my margins work in a consistent way
 The better approach I've found is to add a [`box-shadow`](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow) with no blur -- this looks like a border, but it's purely visual and doesn't take up any space on the page.
 This is the rule I use:
 
-{% code lang="css" %}
+```css {"names":{"1":"a","2":"hover","3":"img"}}
 a:hover img {
   /* Four length values and a color */
   /* <offset-x> | <offset-y> | <blur-radius> | <spread-radius> | <color> */
   box-shadow: 0 0 0 10px red;
 }
-{% endcode %}
+```
 
 <style>
   #examples {
@@ -152,7 +152,14 @@ Notice how the rest of the page moves around when you add a `border`, but not wh
     If you don’t use <code>text-decoration</code> or you don’t care about Safari/WebKit support, then you may find <code>outline</code> very handy.
     It uses the same syntax as <code>border</code>, so it’s easier to remember than <code>box-shadow</code>.
   </p>
-  <p><code style="white-space: pre;">a:hover img {<br/> <span></span> outline: 10px solid red;<br/>}</code></p>
+  {% set md %}
+```css {"names":{"1":"a","2":"hover","3":"img"}}
+a:hover img {
+  outline: 10px solid red;
+}
+```
+  {% endset %}
+  {{ md | markdownify }}
 </blockquote>
 
 
@@ -217,13 +224,13 @@ If, say, you hover over the bird icon and see Twitter's shade of blue, it's a su
 Here are all the icons I had in this system:
 
 <ul id="social_icons">
-  {% comment %}
+  {#
     Be careful about tweaking the whitespace here; the included SVGs
     are quite sensitive to linebreaks and the like.
 
     In particular, if you push the closing </a> down to a new line,
     the underlines start appearing between icons.
-  {% endcomment %}
+  #}
   <li>
     <a href="mailto:alex@alexwlchan.net">
       <span class="visually-hidden">email</span>
@@ -319,22 +326,24 @@ Finally, I define two shapes that actually get drawn: a `foreground` and a `back
 
 Here's a 3D view of the two shapes, so you can see more clearly how they form a set of layers:
 
+<figure>
 {%
   inline_svg
   filename="layers.svg"
   class="dark_aware"
 %}
+</figure>
 
 Now I have two elements that I can style independently.
 For example:
 
-{% code lang="css" %}
+```css {"names":{"1":".email","2":".foreground","3":".email","4":".background","5":"a","6":"hover","7":".email","8":".foreground","9":"a","10":"hover","11":".email","12":".background"}}
 .email .foreground { fill: gray; }
 .email .background { fill: none; }
 
 a:hover .email .foreground { fill: blue;  }
 a:hover .email .background { fill: white; }
-{% endcode %}
+```
 
 This technique can be extended to more complex icons -- split it into multiple elements, and style each one independently.
 

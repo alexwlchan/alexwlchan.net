@@ -10,10 +10,8 @@ tags:
 colors:
   index_light: "#464d3e"
   index_dark:  "#d9d9b9"
+card_attribution: https://www.pexels.com/photo/a-close-up-of-a-water-gauge-4744721/
 ---
-{% comment %}
-  Card image based on https://www.pexels.com/photo/a-close-up-of-a-water-gauge-4744721/
-{% endcomment %}
 
 I currently host this site on Netlify's Starter plan, which means I can serve 100GB of bandwidth per month.
 That's usually plenty, and I've only exceeded it a few times -- this site is mostly text, and I only have a modest audience.

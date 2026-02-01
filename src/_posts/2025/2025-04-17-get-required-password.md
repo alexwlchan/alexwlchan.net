@@ -6,10 +6,8 @@ summary: I have a wrapper for `get_password()` so that if it can't find a passwo
 tags:
   - python
   - error messages
+card_attribution: https://www.pexels.com/photo/close-up-of-keys-333837/
 ---
-{% comment %}
-  Social media card image from https://www.pexels.com/photo/close-up-of-keys-333837/
-{% endcomment %}
 
 I'm a big fan of [keyring][pypi], a Python module made by [Jason R. Coombs][jaraco] for storing secrets in the system keyring.
 It works on multiple operating systems, and it knows what password store to use for each of them.

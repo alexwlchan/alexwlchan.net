@@ -6,10 +6,8 @@ summary: You can shell out to `cp -c` using `subprocess`, or you can make a `clo
 tags:
   - python
   - macos
+card_attribution: https://pixabay.com/photos/stormtrooper-star-wars-lego-storm-1343772/
 ---
-{% comment %}
-  Card image: https://pixabay.com/photos/stormtrooper-star-wars-lego-storm-1343772/
-{% endcomment %}
 
 The standard Mac filesystem, <a href="https://en.wikipedia.org/wiki/Apple_File_System"><abbr title="Apple File System">APFS</abbr></a>, has a feature called *space-saving clones*.
 This allows you to create multiple copies of a file without using additional disk space -- the filesystem only stores a single copy of the data.
