@@ -1,0 +1,66 @@
+"""
+Models for notes.
+"""
+
+from datetime import datetime
+from pathlib import Path
+
+from ._base import BaseHtmlPage
+
+
+class Note(BaseHtmlPage):
+    """
+    A note is a short-form piece of writing, something often without
+    original thought, just meant as a reference.
+    """
+
+    # Properties inherited from BaseHtmlPage which are guaranteed
+    # to be set for a BookReview.
+    md_path: Path
+    src_dir: Path
+    date: datetime
+
+    @property
+    def template_name(self) -> str:
+        """
+        The name of HTML file used as a template for this type of page.
+        """
+        return "note.html"
+
+    @property
+    def url(self) -> str:
+        """
+        The output URL of this page.
+        """
+        assert self.md_path.name != "index.md"
+        relative_dir = self.md_path.parent.relative_to(self.src_dir)
+        return f"/{relative_dir}/{self.slug}/".replace("./", "")
+
+
+class TodayILearned(BaseHtmlPage):
+    """
+    A TIL is a short-form piece of writing, something often without
+    original thought, just meant as a reference.
+
+    TODO: Replace these with notes.
+    """
+
+    # Properties inherited from BaseHtmlPage which are guaranteed
+    # to be set for a BookReview.
+    md_path: Path
+    src_dir: Path
+    date: datetime
+
+    @property
+    def template_name(self) -> str:
+        """
+        The name of HTML file used as a template for this type of page.
+        """
+        return "til.html"
+
+    @property
+    def url(self) -> str:
+        """
+        The output URL of this page.
+        """
+        return f"/til/{self.date.year}/{self.slug}/"

@@ -1,0 +1,134 @@
+"""
+Models for book reviews.
+"""
+
+from datetime import date, datetime
+from pathlib import Path
+from typing import Literal, Self
+
+from pydantic import BaseModel, model_validator
+
+from ._base import BaseHtmlPage, BreadcrumbEntry
+
+
+class BookContributor(BaseModel):
+    """
+    Somebody who contributed to a book.
+    """
+
+    name: str
+    role: str = "author"
+
+
+class BookInfo(BaseModel):
+    """
+    Information about a book. This describes the book in the abstract,
+    and doesn't tell you anything about how I read it.
+    """
+
+    title: str
+    contributors: list[BookContributor]
+    genres: list[str]
+    publication_year: int
+    isbn13: str = ""
+
+
+class ReviewInfo(BaseModel):
+    """
+    Information about the review; when I read the book.
+    """
+
+    date_read: date
+    format: Literal["paperback", "hardback", "ebook"]
+    rating: int
+    summary: str = ""
+
+
+class BookReview(BaseHtmlPage):
+    """
+    A book review is my notes on a book I've read.
+    """
+
+    # Properties inherited from BaseHtmlPage which are guaranteed
+    # to be set for a BookReview.
+    md_path: Path
+    src_dir: Path
+    date: datetime
+
+    # Information about the book itself
+    book: BookInfo
+
+    # Information about my review and opinions
+    review: ReviewInfo
+
+    breadcrumb: list[BreadcrumbEntry] = [
+        BreadcrumbEntry(label="Entertainment"),
+        BreadcrumbEntry(label="Books I’ve read", href="/book-reviews/"),
+    ]
+
+    @property
+    def attribution_line(self) -> str:
+        """
+        Returns the one-line attribution based on the contributor.
+        """
+        return attribution_line(contributors=self.book.contributors)
+
+    @property
+    def template_name(self) -> str:
+        """
+        The name of HTML file used as a template for this type of page.
+        """
+        return "book_review.html"
+
+    @property
+    def url(self) -> str:
+        """
+        The output URL of this page.
+        """
+        return f"/book-reviews/{self.slug}/"
+
+    @model_validator(mode="after")
+    def set_title(self) -> Self:
+        """
+        Set a title for this review, of the form "[title], [attribution]".
+
+        For example: "Dethroned in Knightsbridge, by Silvia Lemos"
+        """
+        self.title = f"{self.book.title}, {self.attribution_line}"
+        return self
+
+    @property
+    def cover_image(self) -> Path:
+        """
+        The cover image of this book.
+        """
+        matching_paths = [
+            p
+            for p in (self.src_dir / "_images" / str(self.date.year)).iterdir()
+            if p.stem == self.md_path.stem
+        ]
+
+        assert len(matching_paths) == 1
+
+        return matching_paths[0]
+
+
+def attribution_line(contributors: list[BookContributor]) -> str:
+    """
+    Choose the one-line attribution for this book, used in the list of reviews.
+    """
+    if len(contributors) == 1 and contributors[0].role == "author":
+        author = contributors[0]
+        return f"by {author.name}"
+    elif len(contributors) == 1 and contributors[0].role == "editor":
+        editor = contributors[0]
+        return f"edited by {editor.name}"
+    elif (
+        len(contributors) == 2
+        and contributors[0].role == "author"
+        and contributors[1].role == "translator"
+    ):
+        author = contributors[0]
+        return f"by {author.name}"
+    else:  # pragma: no cover
+        raise ValueError("unable to choose attribution for book")

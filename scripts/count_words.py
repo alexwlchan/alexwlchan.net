@@ -11,8 +11,7 @@ import termcolor
 
 sys.path.append(str(Path(__file__).parent.parent))
 
-from mosaic import Site
-from mosaic.html_page import Article
+from mosaic.page_types import Article, read_markdown_files
 
 
 def count_words(content: str) -> int:
@@ -62,8 +61,7 @@ def count_words(content: str) -> int:
 
 
 if __name__ == "__main__":
-    site = Site()
-    pages = site.read_markdown_source_files()
+    pages = read_markdown_files(src_dir=Path("src"))
 
     articles_tally: dict[int, list[int]] = collections.defaultdict(list)
     remaining_tally: dict[int, list[int]] = collections.defaultdict(list)

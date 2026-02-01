@@ -7,7 +7,13 @@ from pathlib import Path
 
 import pytest
 
-from mosaic.html_page import Article, HtmlPage
+from mosaic.page_types import (
+    Article,
+    BaseHtmlPage,
+    Page,
+    TodayILearned,
+    read_page_from_markdown,
+)
 
 
 def test_read_page_from_file(src_dir: Path) -> None:
@@ -26,7 +32,7 @@ def test_read_page_from_file(src_dir: Path) -> None:
         "This is my contact page"
     )
 
-    page = HtmlPage.from_path(src_dir, md_path)
+    page = read_page_from_markdown(src_dir, md_path)
 
     assert page.md_path == md_path
     assert page.layout == "page"
@@ -53,7 +59,7 @@ def test_read_article(src_dir: Path) -> None:
         "This is my first blog post"
     )
 
-    page = HtmlPage.from_path(src_dir, md_path)
+    page = read_page_from_markdown(src_dir, md_path)
 
     assert isinstance(page, Article)
     assert page.md_path == md_path
@@ -84,7 +90,7 @@ def test_hidden_article_has_no_tags(src_dir: Path) -> None:
         "This post doesn't appear in the indexes"
     )
 
-    page = HtmlPage.from_path(src_dir, md_path)
+    page = read_page_from_markdown(src_dir, md_path)
     assert page.tags == []
 
 
@@ -95,14 +101,14 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
     md_path = src_dir / "example.md"
 
     with pytest.raises(RuntimeError, match=str(md_path)):
-        HtmlPage.from_path(src_dir, md_path)
+        read_page_from_markdown(src_dir, md_path)
 
 
 @pytest.mark.parametrize(
     "page, url",
     [
         (
-            HtmlPage(
+            Page(
                 layout="page",
                 src_dir=Path("src"),
                 md_path=Path("src/contact.md"),
@@ -112,7 +118,7 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
             "/contact/",
         ),
         (
-            HtmlPage(
+            Page(
                 layout="page",
                 src_dir=Path("src"),
                 md_path=Path("src/index.md"),
@@ -122,7 +128,7 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
             "/",
         ),
         (
-            HtmlPage(
+            Page(
                 layout="page",
                 src_dir=Path("src"),
                 md_path=Path("src/a-plumbers-guide-to-git/index.md"),
@@ -132,7 +138,7 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
             "/a-plumbers-guide-to-git/",
         ),
         (
-            HtmlPage(
+            Article(
                 layout="post",
                 src_dir=Path("src"),
                 md_path=Path("src/2013/2013-02-13-darwin.md"),
@@ -143,7 +149,7 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
             "/2013/darwin/",
         ),
         (
-            HtmlPage(
+            TodayILearned(
                 layout="til",
                 src_dir=Path("src"),
                 md_path=Path("src/_til/2013/2013-05-11-rss-podcasts-tumblr"),
@@ -154,14 +160,14 @@ def test_read_error_includes_filename(src_dir: Path) -> None:
             "/til/2013/rss-podcasts-tumblr/",
         ),
         (
-            HtmlPage(
+            Page(
                 layout="page", title="Posts tagged with ‘python’", url="/tags/python/"
             ),
             "/tags/python/",
         ),
     ],
 )
-def test_url(page: HtmlPage, url: str) -> None:
+def test_url(page: BaseHtmlPage, url: str) -> None:
     """
     Check the URL for every page.
     """
@@ -172,7 +178,7 @@ def test_out_path() -> None:
     """
     Check the output path for a page.
     """
-    page = HtmlPage(
+    page = Page(
         layout="page",
         src_dir=Path("src"),
         md_path=Path("src/contact.md"),

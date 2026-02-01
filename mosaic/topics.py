@@ -7,7 +7,7 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from .html_page import BreadcrumbEntry, HtmlPage
+from .page_types import BreadcrumbEntry, BaseHtmlPage
 
 
 class Topic(BaseModel):
@@ -33,7 +33,7 @@ class Topic(BaseModel):
         return parent_entries + [BreadcrumbEntry(label=self.label, href=self.url)]
 
 
-def build_topic_tree(pages: list[HtmlPage]) -> dict[str, Topic]:
+def build_topic_tree(pages: list[BaseHtmlPage]) -> dict[str, Topic]:
     """
     Build a tree of topics from all the HTML pages.
     """
@@ -65,7 +65,7 @@ def build_topic_tree(pages: list[HtmlPage]) -> dict[str, Topic]:
     # the topic it describes.
     for p in pages:
         if p.topic is not None:
-            assert p.breadcrumb == []
+            assert p.breadcrumb == [], p
             p.breadcrumb = topics[p.topic].breadcrumb
 
     # Return a list of top-level topics, i.e. topics with no parent.
