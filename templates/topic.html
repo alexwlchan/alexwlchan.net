@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    section {    
+      h2 {
+        margin-top: 0;
+      }
+    
+      & > ul {
+        margin-top:    0;
+        margin-bottom: 0;
+      }
+    
+      & > .alinks:first-child li:first-child h4 {
+        margin-top: 0;
+      }
+      
+      .acards + .alinks > li {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    
+    section:nth-child(2n + 1) {
+      background: rgba(153, 153, 153, 0.1);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      section:nth-child(2n + 1) {
+        background: rgba(63, 63, 63, 0.25);
+      }
+    }
+    
+    /* The width of the window is 100vw, the width of <main> is 100%.
+     *
+     * When we expand <section>s to break out of <main>, we need to add
+     * a negative left margin to move it against the edge of the window,
+     * then re-add our padding.
+     *
+     *    |                   |
+     *    |    +++++++++++    | 
+     *    |    +++++++++++    | 
+     *    |                   |
+     *
+     *         <!- 100% ->
+     *     <----- 100vw ----->
+     *
+     */
+    #topic_entries section {
+      padding:     var(--default-padding) 0;
+      width:       calc(100vw);
+      margin-left: calc(50% - 50vw);
+      
+      & > * {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 var(--default-padding);
+      }
+    }
+  </style>
+
+  <article>
+    <hgroup>
+      {% if page.title != "" %}
+      <h1 class="title">
+        {{ page.title | markdownify_oneline }}
+      </h1>
+      {% endif %}
+
+      {% include "partials/meta.html" %}
+    </hgroup>
+
+    {{ content | cleanup_text }}
+    
+    {% from "partials/topic_entries.html" import topic_entries %}
+    {{- topic_entries(page) -}}
+  </article>
+{% endblock %}

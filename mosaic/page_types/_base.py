@@ -134,9 +134,9 @@ class BaseHtmlPage(ABC, BaseModel):
     # A breadcrumb trail for this page
     breadcrumb: list[BreadcrumbEntry] = Field(default_factory=lambda: list())
 
-    # The single topic where this page is saved. Optional for now, but
-    # I might make this opt-in for all but special cases eventually.
-    topic: str | None = None
+    # The list of topics where this page is categorised. Most pages should
+    # have at most a single topic.
+    topics: list[str] = Field(default_factory=lambda: list())
 
     def __repr__(self) -> str:  # pragma: no cover
         """
@@ -146,6 +146,15 @@ class BaseHtmlPage(ABC, BaseModel):
             return f"<{type(self).__name__} md_path={self.md_path!r}>"
         else:
             return f"<{type(self).__name__} url={self.url!r}>"
+
+    @property
+    def sort_date(self) -> datetime:
+        """
+        Returns a date for use in sorting, e.g. in a list of articles.
+        """
+        d = self.date_updated or self.date
+        assert d is not None
+        return d
 
     def out_path(self, out_dir: Path) -> Path:
         """

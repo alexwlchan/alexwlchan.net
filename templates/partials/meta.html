@@ -13,16 +13,23 @@
 #}
 
 {%- if
-      page.breadcrumb or
+      page.topics or
       page.date or
       (page.tags|count > 0) or
       page.part_of or
       page.date_updated or
       page.link -%}
 <ul class="dot_list meta">
-  {%- if page.breadcrumb -%}
+  {%- if page.topics -%}
   <li>
-    Filed in {% include "partials/breadcrumb.html" %}
+    Filed in
+    {% for t in page.topics %}
+      {% set topic_url = site.topics[t].url %}
+      {% if topic_url %}<a href="{{ site.topics[t].url }}">{% endif %}
+        {{- t -}}
+      {%- if topic_url -%}</a>{%- endif -%}
+      {%- if not loop.last %}, {% endif -%}
+    {% endfor %}
   </li>
   {%- endif -%}
   

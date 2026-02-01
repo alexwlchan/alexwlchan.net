@@ -3,9 +3,8 @@ layout: post
 date: 2025-08-03 14:49:06 +00:00
 title: Create space-saving clones on macOS with Python
 summary: You can shell out to `cp -c` using `subprocess`, or you can make a `clonefile()` syscall using the `ctypes` library.
-tags:
-  - python
-  - macos
+topics:
+  - Python
 card_attribution: https://pixabay.com/photos/stormtrooper-star-wars-lego-storm-1343772/
 ---
 

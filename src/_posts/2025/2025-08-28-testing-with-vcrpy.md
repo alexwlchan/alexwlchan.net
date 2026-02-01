@@ -3,9 +3,8 @@ layout: post
 date: 2025-08-28 21:36:37 +00:00
 title: Using vcrpy to test HTTP interactions in Python
 summary: How I record HTTP requests to get fast, reliable, and consistent tests, and the patterns I use in a production codebase.
-tags:
-  - python
-  - software testing
+topics:
+  - Python
 index:
   feature: true
 colors:

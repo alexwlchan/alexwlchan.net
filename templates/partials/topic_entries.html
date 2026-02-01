@@ -1,0 +1,39 @@
+{%- macro topic_section(items, partial, title=none) -%}
+  {%- if items|count > 0 -%}
+    <section>
+      {%- if title -%}
+        <h2>{{ items|count }} {{ title }}</h2>
+      {%- endif -%}
+      {% with articles = items %}
+        {% include "partials/" ~ partial ~ ".html" %}
+      {% endwith %}
+    </section>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro topic_entries(page) -%}
+  {% set this_topic = site.topics[page.title] %}
+  {% set pages = this_topic.pages_in_topic %}
+  {% set featured = pages | selectattr("template_name", "eq", "post.html") | selectattr("is_featured") | list %}
+  {% set articles = pages | selectattr("template_name", "eq", "post.html") | rejectattr("is_featured") | list %}
+  {% set tils     = pages | selectattr("template_name", "eq", "til.html") | list %}
+  {% set notes    = pages | selectattr("template_name", "eq", "note.html") | list %}
+  
+  {% if this_topic.children|count > 0 %}
+  <p class="subtopics">
+    Sub-topics:
+    {% for c in this_topic.children %}
+      <a href="{{ c.url }}">{{ c.label | smartify }}</a>
+    {% endfor %}
+  </p>
+  {% endif %}
+  
+  <p>Here’s everything I’ve posted about {{ page.title }}:</p>
+
+<div id="topic_entries">
+  {{ topic_section(featured, "article_cards") }}
+  {{ topic_section(articles, "article_links") }}
+  {{ topic_section(tils,     "today I learned") }}
+  {{ topic_section(notes,    "article_links", title="note" ~ (notes|count > 1 and "s" or "")) }}
+</div>
+{%- endmacro -%}

@@ -7,7 +7,7 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from .page_types import BreadcrumbEntry, BaseHtmlPage, TopicPage
+from .page_types import BreadcrumbEntry, BaseHtmlPage, BookReview, TopicPage
 
 
 class Topic(BaseModel):
@@ -19,6 +19,16 @@ class Topic(BaseModel):
     url: str | None = None
     parent: Optional["Topic"] = None
     children: list["Topic"] = Field(default_factory=lambda: list())
+    pages_in_topic: list[BaseHtmlPage] = Field(default_factory=lambda: list())
+
+    def __repr__(self) -> str:
+        """
+        Returns a debugging representation of this topic.
+        """
+        return (
+            f"<Topic label={self.label!r} url={self.url!r} "
+            "#pages={len(self.pages_in_topic)}>"
+        )
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
@@ -37,16 +47,27 @@ def build_topic_tree(pages: list[BaseHtmlPage]) -> dict[str, Topic]:
     """
     Build a tree of topics from all the HTML pages.
     """
-    # Build a map (name) -> Topic
-    topics: dict[str, Topic] = {}
+    # 1. Build a map (name) -> Topic
+    all_topics: dict[str, Topic] = {}
     for p in pages:
         if isinstance(p, TopicPage):
-            topics[p.title] = Topic(label=p.title, url=p.url)
+            all_topics[p.title] = Topic(label=p.title, url=p.url)
+            assert len(p.topics) <= 1
 
-        if p.topic is not None and p.topic not in topics:
-            topics[p.topic] = Topic(label=p.topic)
+            if p.topics:
+                parent_topic_name = p.topics[0]
+                if parent_topic_name not in all_topics:
+                    all_topics[parent_topic_name] = Topic(label=parent_topic_name)
 
-    # Now construct the hierarchy information for each topic, adding
+        else:
+            for t in p.topics:
+                if t not in all_topics:
+                    all_topics[t] = Topic(label=t)
+
+    # Create an "Everything else" topic; I'll do something with this later.
+    all_topics["Everything else"] = Topic(label="Everything else")
+
+    # 2. Construct the hierarchy information for each topic, adding
     # parent/child relationships as necessary.
     #
     # I assume I'm not going to create loops or unusable constructions here.
@@ -54,19 +75,34 @@ def build_topic_tree(pages: list[BaseHtmlPage]) -> dict[str, Topic]:
         if not isinstance(p, TopicPage):
             continue
 
-        if p.topic is not None:
-            this_topic = topics[p.title]
-            parent_topic = topics[p.topic]
+        for t in p.topics:
+            this_topic = all_topics[p.title]
+            parent_topic = all_topics[t]
 
             this_topic.parent = parent_topic
             parent_topic.children.append(this_topic)
 
-    # Now go through all the pages, and insert a breadcrumb based on
-    # the topic it describes.
+    # 3. Create a list of pages attached to each topic.
+    #
+    # These cascade upwards, so a topic T includes:
+    #
+    #   - any page where T is a topic, or
+    #   - any page where a child of T is a topic
+    #
     for p in pages:
-        if p.topic is not None:
-            assert p.breadcrumb == [], p
-            p.breadcrumb = topics[p.topic].breadcrumb
+        if isinstance(p, TopicPage):
+            continue
 
-    # Return a list of top-level topics, i.e. topics with no parent.
-    return {t.label: t for t in topics.values() if not t.parent}
+        for t in p.topics:
+            topic = all_topics[t]
+            while True:
+                topic.pages_in_topic.append(p)
+                if topic.parent:
+                    topic = topic.parent
+                else:
+                    break
+
+        if not p.topics and not isinstance(p, BookReview):
+            all_topics["Everything else"].pages_in_topic.append(p)
+
+    return all_topics
