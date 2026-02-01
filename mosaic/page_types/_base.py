@@ -97,6 +97,18 @@ class BaseHtmlPage(ABC, BaseModel):
     # When this page or post was last updated
     date_updated: datetime | None = None
 
+    # An external URL that this page should like to, like a link blog.
+    # This is used on the HTML version of the page, and where clicking
+    # on the RSS feed entry will take the reader.
+    link: str | None = None
+
+    # Whether the articles index should link directly to the external page.
+    link_direct: bool | None = None
+
+    # An external URL that is the canonical copy of this page, used
+    # for external posts I've copied to this site
+    canonical_url: str | None = None
+
     # Tint colours for this page.
     # TODO(2026-01-20): Rename this field to "colours".
     colors: TintColours | None = None
