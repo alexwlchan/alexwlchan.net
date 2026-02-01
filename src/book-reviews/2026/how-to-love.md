@@ -6,10 +6,10 @@ book:
   title: How to Love
   contributors:
     - name: Alex Norris
-  publication_year: 2023
   genres:
     - graphic novels
     - romance
+  publication_year: 2023
 
 review:
   date_read: 2026-01-29

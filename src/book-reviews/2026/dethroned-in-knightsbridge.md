@@ -6,10 +6,10 @@ book:
   title: Dethroned in Knightsbridge
   contributors:
     - name: Silvia Lemos
-  publication_year: 2025
   genres:
     - poetry
     - memoirs
+  publication_year: 2025
   isbn13: "978-1-83628-424-6"
 
 review:

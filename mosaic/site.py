@@ -230,15 +230,10 @@ class Site(BaseModel):
         """
         Read all the Markdown source files.
         """
-        pages = []
-
-        for md_path in find_paths_under(self.src_dir, suffix=".md"):
-            if "_plugins" in str(md_path):
-                continue
-
-            pages.append(HtmlPage.from_path(self.src_dir, md_path))
-
-        return pages
+        return [
+            HtmlPage.from_path(self.src_dir, md_path)
+            for md_path in find_paths_under(self.src_dir, suffix=".md")
+        ]
 
     @property
     def static_dir(self) -> Path:

@@ -6,10 +6,10 @@ book:
   title: Dream On, Ramona Riley
   contributors:
     - name: Ashley Herring Blake
-  publication_year: 2025
   genres:
     - fiction
     - romance
+  publication_year: 2025
   isbn13: "978-0-349-44135-1"
 
 review:

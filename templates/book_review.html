@@ -20,6 +20,8 @@
       border-radius: var(--border-radius);
       background: var(--background-color);
       
+      margin-top: var(--default-padding);
+      
       h1 {
         margin-top: 0;
       }
@@ -95,14 +97,9 @@
   {% set review = page.review %}
   
   <article class="book_review">
-    {% include "partials/breadcrumb.html" %}
     <header>
       <hgroup>
         <h1 class="title"><em>{{ book.title }}</em></h1>
-        
-        {% if page.summary %}
-        <p class="summary">{{ page.summary }}</p>
-        {% endif %}
         
         <dl class="book_metadata">
           {% for c in book.contributors %}

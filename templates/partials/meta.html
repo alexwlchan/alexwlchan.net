@@ -12,12 +12,20 @@
 
 #}
 
-{%- if page.date or
+{%- if
+      page.breadcrumb or
+      page.date or
       (page.tags|count > 0) or
       page.part_of or
       page.date_updated or
       page.link -%}
 <ul class="dot_list meta">
+  {%- if page.breadcrumb -%}
+  <li>
+    Filed in {% include "partials/breadcrumb.html" %}
+  </li>
+  {%- endif -%}
+  
   {%- if page.tags|count > 0 -%}
   <li class="tags">Tagged with
     {% set tags = page.tags | sort %}
@@ -28,7 +36,11 @@
   </li>
   {%- endif -%}
 
-  {%- if page.date -%}
+  {%- if page.date_updated -%}
+    {%- with date = page.date_updated -%}
+      <li>Updated {% include "partials/timestamp.html" -%}</li>
+    {%- endwith -%}
+  {%- elif page.date -%}
     {%- with date = page.date -%}
       <li>Posted {% include "partials/timestamp.html" -%}</li>
     {%- endwith -%}
@@ -36,12 +48,6 @@
 
   {%- if page.part_of -%}
   <li>Part of <a href="{{ page.part_of.url }}">{{ page.part_of.label|markdownify_oneline }}</a></li>
-  {%- endif -%}
-
-  {%- if page.date_updated -%}
-    {%- with date = page.date_updated -%}
-      <li>Last updated {% include "partials/timestamp.html" -%}</li>
-    {%- endwith -%}
   {%- endif -%}
 
   {%- if page.link -%}
