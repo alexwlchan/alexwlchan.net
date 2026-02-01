@@ -17,9 +17,18 @@ from pydantic import BaseModel, Field
 from tqdm import tqdm
 import yaml
 
+from . import page_types
 from .css import create_base_css
 from .fs import find_paths_under
-from .html_page import Article, BookReview, HtmlPage
+from .page_types import (
+    Article,
+    BaseHtmlPage,
+    BookReview,
+    Note,
+    Page,
+    TodayILearned,
+    read_markdown_files,
+)
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
@@ -35,61 +44,93 @@ class Site(BaseModel):
     src_dir: Path = Path("src")
     out_dir: Path = Path("_out")
 
+    all_pages: list[BaseHtmlPage] = Field(default_factory=lambda: list())
+
+    time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
+
     title: str = "alexwlchan"
     description: str = "Alex Chan's personal website"
     url: str = "https://alexwlchan.net"
     email: str = "alex@alexwlchan.net"
-    time: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
-
-    pages: list[HtmlPage] = Field(default_factory=lambda: list())
-    articles: list[Article] = Field(default_factory=lambda: list())
-    book_reviews: list[BookReview] = Field(default_factory=lambda: list())
-    notes: list[HtmlPage] = Field(default_factory=lambda: list())
-    topics: dict[str, Topic] = Field(default_factory=lambda: dict())
 
     data: Any = None
 
-    def build_site(self, incremental: bool = False) -> bool:  # pragma: no cover
+    @property
+    def articles(self) -> list[page_types.Article]:
+        """
+        Return the articles on the site, sorted in decreasing date order
+        (newest first).
+        """
+        return sorted(
+            (p for p in self.all_pages if isinstance(p, Article)),
+            key=lambda art: art.date,
+            reverse=True,
+        )
+
+    @property
+    def book_reviews(self) -> list[page_types.BookReview]:
+        """
+        Return the book reviews on the site, sorted in decreasing date order
+        (newest first).
+        """
+        return sorted(
+            (p for p in self.all_pages if isinstance(p, BookReview)),
+            key=lambda br: br.date,
+            reverse=True,
+        )
+
+    @property
+    def notes(self) -> list[page_types.Note]:
+        """
+        Return the notes on the site, sorted in decreasing date order
+        (newest first).
+        """
+        return sorted(
+            (p for p in self.all_pages if isinstance(p, Note)),
+            key=lambda n: n.date,
+            reverse=True,
+        )
+
+    @property
+    def pages(self) -> list[page_types.BaseHtmlPage]:
+        """
+        Return a list of pages that don't fit into another category.
+        """
+        return [
+            p
+            for p in self.all_pages
+            if not isinstance(p, Article)
+            and not isinstance(p, BookReview)
+            and not isinstance(p, Note)
+        ]
+
+    _topics: dict[str, Topic] | None = None
+
+    @property
+    def topics(self) -> dict[str, Topic]:
+        """
+        Return a list of topics in use on the site.
+        """
+        if not self._topics:
+            self._topics = build_topic_tree(self.all_pages)
+        return self._topics
+
+    def build_site(
+        self, incremental: bool = False, enable_analytics: bool = False
+    ) -> bool:  # pragma: no cover
         """
         Build a complete copy of the site.
 
         Returns True if the build succeeded, False if there were errors.
         """
-        # Read all the pages and split them into per-page types.
-        pages = self.read_markdown_source_files()
-
-        self.articles = sorted(
-            (p for p in pages if isinstance(p, Article)),
-            key=lambda art: art.date,
-            reverse=True,
-        )
-        self.book_reviews = sorted(
-            (p for p in pages if isinstance(p, BookReview)),
-            key=lambda br: br.date,
-            reverse=True,
-        )
-        self.notes = sorted(
-            (p for p in pages if p.layout == "note"),
-            key=lambda n: n.date,  # type: ignore
-            reverse=True,
-        )
-        self.pages = [
-            p
-            for p in pages
-            if not isinstance(p, Article)
-            and not isinstance(p, BookReview)
-            and p.layout != "note"
-        ]
-        self.topics = build_topic_tree(pages)
-        assert len(self.articles + self.book_reviews + self.notes + self.pages) == len(
-            pages
-        )
+        self.time = datetime.now(tz=timezone.utc)
+        self.all_pages = read_markdown_files(self.src_dir)
 
         # Work out all the tint colours being used.
         tint_colours: list[TintColours] = [
             get_default_tint_colours(css_dir=self.css_path.parent)
         ]
-        for p in pages:
+        for p in self.all_pages:
             if p.colors is not None:
                 tint_colours.append(p.colors)
 
@@ -129,7 +170,7 @@ class Site(BaseModel):
         #   - Create an HtmlPage that should be written for each page
         #
         tag_tally = collections.defaultdict(list)
-        for p in pages:
+        for p in self.all_pages:
             for t in p.tags:
                 tag_tally[t].append(p)
 
@@ -143,8 +184,8 @@ class Site(BaseModel):
                 (self.src_dir / "_data/tag_descriptions.yml").read_text()
             )
 
-            pages.append(
-                HtmlPage(
+            self.all_pages.append(
+                Page(
                     url=f"/tags/{namespace}/{tag_name}/".replace("//", "/").replace(
                         " ", "-"
                     ),
@@ -181,6 +222,7 @@ class Site(BaseModel):
                 "css_url": css_url,
                 "environment": "production",
                 "site": self,
+                "enable_analytics": enable_analytics,
             }
         )
 
@@ -193,10 +235,12 @@ class Site(BaseModel):
 
         written_html_paths = set()
 
-        if not incremental:
-            pages = tqdm(pages, desc="writing html")  # type: ignore
+        if incremental:
+            all_pages = self.all_pages
+        else:
+            all_pages = tqdm(self.all_pages, desc="writing html")  # type: ignore
 
-        for pg in pages:
+        for pg in all_pages:
             try:
                 out_path = pg.write(env, out_dir=self.out_dir)
                 written_html_paths.add(out_path)
@@ -209,7 +253,9 @@ class Site(BaseModel):
         # This must occur after generating the pages, so the `html_content`
         # attribute is populated.
         self.generate_rss_feeds(
-            env, self.articles, tils=[p for p in pages if p.layout == "til"]
+            env,
+            self.articles,
+            tils=[p for p in self.pages if isinstance(p, TodayILearned)],
         )
 
         # Clean up HTML files that weren't written as part of this build;
@@ -225,15 +271,6 @@ class Site(BaseModel):
             pth.unlink()
 
         return True
-
-    def read_markdown_source_files(self) -> list[HtmlPage]:
-        """
-        Read all the Markdown source files.
-        """
-        return [
-            HtmlPage.from_path(self.src_dir, md_path)
-            for md_path in find_paths_under(self.src_dir, suffix=".md")
-        ]
 
     @property
     def static_dir(self) -> Path:
@@ -318,7 +355,7 @@ class Site(BaseModel):
                 pbar.update(1)
 
     def generate_rss_feeds(
-        self, env: Environment, articles: list[Article], tils: list[HtmlPage]
+        self, env: Environment, articles: list[Article], tils: list[TodayILearned]
     ) -> None:
         """
         Generate the RSS feeds for the site.
@@ -330,13 +367,3 @@ class Site(BaseModel):
         til_atom_template = env.get_template("til_atom.xml")
         til_atom_xml = til_atom_template.render(tils=tils)
         (self.out_dir / "til/atom.xml").write_text(til_atom_xml)
-
-    def notes_for_topic(self, page: HtmlPage) -> list[HtmlPage]:
-        """
-        Returns a list of all the notes for a topic.
-        """
-        assert page.layout == "topic"
-
-        return [
-            n for n in self.notes if n.breadcrumb and n.breadcrumb[-1].href == page.url
-        ]

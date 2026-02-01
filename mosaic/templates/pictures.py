@@ -88,7 +88,7 @@ from jinja2.runtime import Context
 from PIL import Image, ImageCms
 import termcolor
 
-from mosaic.html_page import Article
+from mosaic import page_types
 from mosaic.text import assert_is_invariant_under_markdown
 
 from .jinja_extensions import KwargsExtensionBase
@@ -495,7 +495,7 @@ def has_srgb_colour_profile(path: Path) -> bool:
 
 
 @pass_context
-def article_card_image(context: Context, article: Article) -> str:
+def article_card_image(context: Context, article: page_types.Article) -> str:
     """
     Renders an article card image.
     """

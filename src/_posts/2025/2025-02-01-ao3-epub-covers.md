@@ -71,10 +71,10 @@ I found a file called `content.opf` which contains metadata as XML, including th
 <pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
 &lt;package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="uuid_id"&gt;
   &lt;metadata xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:calibre="http://calibre.kovidgoyal.net/2009/metadata"&gt;
-    <strong>&lt;dc:title&gt;Operation Cameo&lt;/dc:title&gt;</strong>
+    <mark>&lt;dc:title&gt;Operation Cameo&lt;/dc:title&gt;</mark>
     &lt;meta name="calibre:timestamp" content="2025-01-25T18:01:43.253715+00:00"/&gt;
     &lt;dc:language&gt;en&lt;/dc:language&gt;
-    <strong>&lt;dc:creator opf:file-as="alexwlchan" opf:role="aut"&gt;alexwlchan&lt;/dc:creator&gt;</strong>
+    <mark>&lt;dc:creator opf:file-as="alexwlchan" opf:role="aut"&gt;alexwlchan&lt;/dc:creator&gt;</mark>
     &lt;dc:identifier id="uuid_id" opf:scheme="uuid"&gt;13385d97-35a1-4e72-830b-9757916d38a7&lt;/dc:identifier&gt;
     &lt;meta name="calibre:title_sort" content="operation cameo"/&gt;
     &lt;dc:description&gt;&lt;p&gt;Some unusual orders arrive at Operation Mincemeat HQ.&lt;/p&gt;&lt;/dc:description&gt;
@@ -236,11 +236,11 @@ I found two elements that referred to cover images:
 <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="PrimaryID"&gt;
   &lt;metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf"&gt;
-    <strong>&lt;meta name="cover" content="cover-image"/&gt;</strong>
+    <mark>&lt;meta name="cover" content="cover-image"/&gt;</mark>
     …
   &lt;/metadata&gt;
   &lt;manifest&gt;
-    <strong>&lt;item id="cover-image" href="images/cover.jpg" media-type="image/jpeg" properties="cover-image"/&gt;</strong>
+    <mark>&lt;item id="cover-image" href="images/cover.jpg" media-type="image/jpeg" properties="cover-image"/&gt;</mark>
     …
   &lt;/manifest&gt;
 &lt;/package&gt;</code></pre>
