@@ -10,6 +10,7 @@ import re
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 from .caddy import parse_caddy_redirects
 from .fs import find_paths_under
@@ -64,6 +65,22 @@ def check_no_localhost_links(html: BeautifulSoup) -> list[str]:
 
         if urlparse(url).netloc == "localhost:5757":
             errors.append(f"linking to localhost URL: {url}")
+
+    return errors
+
+
+def check_images_have_alt_text(html: BeautifulSoup) -> list[str]:
+    """
+    Check every image has alt text.
+    """
+    errors = []
+
+    for img in html.find_all("img"):
+        if "data-proofer-ignore" in img.attrs:
+            continue
+
+        if img.attrs.get("alt") is None:
+            errors.append(f"image is missing alt text: {img.attrs['src']}")
 
     return errors
 
@@ -185,3 +202,127 @@ def get_all_hackable_urls(url: str) -> Iterator[str]:
             yield url
         else:
             yield url + "/"
+
+
+def check_links_are_consistent(
+    out_dir: Path, pages: dict[Path, BeautifulSoup]
+) -> dict[Path, list[str]]:
+    """
+    Go through every linked resource in every page (links, images, cards)
+    and check they point to a resource that exists.
+    """
+    # Track known errors of pages linking to a non-existent resource
+    errors: list[tuple[Path, str, str]] = []
+
+    # 1. Build a list: path, tag, URL
+    linked_urls: list[tuple[Path, str, str]] = []
+
+    for p, soup in pages.items():
+        # These are some standalone sites/pages that I'm willing to ignore
+        # for the sake of linting.
+        if "fun-stuff" in p.parts or "files" in p.parts:  # pragma: no cover
+            continue
+
+        # Look for <a> and <link> tags and their `href` attribute.
+        # TODO: Should it be an error to omit the href value?
+        for anchor in soup.find_all(["a", "link"]):
+            if "data-proofer-ignore" in anchor.attrs:  # pragma: no cover
+                continue
+            try:
+                entry = (p, anchor.name, anchor.attrs["href"])
+                linked_urls.append(entry)  # type: ignore
+            except KeyError:
+                pass
+
+        # Look for <img> and <script> tags and their `src` attribute
+        for tag in soup.find_all(["img", "script"]):
+            try:
+                entry = (p, tag.name, tag.attrs["src"])
+                linked_urls.append(entry)  # type: ignore
+            except KeyError:
+                pass
+
+        # Look for <source> tags and their `srcset` attribute
+        for tag in soup.find_all(["img", "source"]):
+            if tag.name == "img" and "srcset" not in tag.attrs:
+                continue
+
+            for srcset_entry in tag.attrs["srcset"].split(","):  # type: ignore
+                parts = srcset_entry.split()
+                assert len(parts) <= 2, srcset_entry
+                url = parts[0]
+                linked_urls.append((p, tag.name, url))
+
+        # Look for <meta> tags for cards
+        for meta in soup.find_all("meta", {"name": "twitter:image"}):
+            linked_urls.append((p, meta.name, meta["content"]))  # type: ignore
+        for meta in soup.find_all("meta", {"name": "og:image"}):
+            linked_urls.append((p, meta.name, meta["content"]))  # type: ignore
+
+    # 2. Go through each URL in turn, and check if it exists.
+    for pth, tag_name, url in tqdm(linked_urls, desc="checking links"):
+        u = urlparse(url)
+
+        # Skip URLs for external sites or other schemes that are pointing
+        # to something other than a remote resource.
+        if (
+            u.scheme in {"http", "https", "data", "mailto", "javascript", "tel"}
+            and u.netloc != "alexwlchan"
+        ):
+            continue
+
+        # Query-only URLs, e.g. "?tag=preservation".
+        if not u.path and not u.fragment:
+            continue
+
+        # Static file: check if a corresponding file exists in the out_dir.
+        # Example: /f/17823e-32x32.svg
+        if u.path.startswith("/") and not u.path.endswith("/") and not u.fragment:
+            expected_path = out_dir / u.path.lstrip("/")
+            if not expected_path.exists():
+                errors.append((pth, tag_name, url))
+            continue
+
+        # Static file relative to the current page
+        # Example: qunit/qunit-2.24.1.css
+        if not u.path.endswith("/") and not u.fragment:
+            expected_path = pth.parent / u.path
+            if not expected_path.exists():
+                errors.append((pth, tag_name, url))
+            continue
+
+        # HTML file with fragment
+        if u.path.startswith("/") and not u.path.endswith("/") and u.fragment:
+            expected_path = out_dir / u.path.lstrip("/")
+            if not expected_path.exists() or not pages[expected_path].find(
+                id=u.fragment
+            ):
+                errors.append((pth, tag_name, url))
+            continue
+
+        # Fragment: check if a document with the corresponding ID exists
+        # in the HTML file.
+        # Example: #main
+        if not u.path and not u.query and u.fragment:
+            if not pages[pth].find(id=u.fragment):
+                errors.append((pth, tag_name, url))
+            continue
+
+        # HTML page: check if there's a corresponding HTML page somewhere
+        # in the out_dir.
+        # Examples: /, /tags/, /2020/example-post/
+        if u.path.startswith("/") and u.path.endswith("/"):
+            expected_path = out_dir / u.path.lstrip("/") / "index.html"
+            if not expected_path.exists() or (
+                u.fragment and not pages[expected_path].find(id=u.fragment)
+            ):
+                errors.append((pth, tag_name, url))
+            continue
+
+        raise NotImplementedError(url)  # pragma: no cover
+
+    # 3. Reorganise the errors into the final output
+    result = collections.defaultdict(list)
+    for pth, tag_name, url in errors:
+        result[pth].append(f"broken url in <{tag_name}>: {url}")
+    return result

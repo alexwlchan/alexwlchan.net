@@ -16,6 +16,8 @@ sys.path.append(str(Path(__file__).parent.parent))
 from mosaic.fs import find_paths_under
 from mosaic.linters import (
     check_all_urls_are_hackable,
+    check_images_have_alt_text,
+    check_links_are_consistent,
     check_no_broken_html,
     check_no_localhost_links,
     check_redirects,
@@ -48,6 +50,10 @@ if __name__ == "__main__":
         try:
             if "testing-javascript-without-a-framework" not in p.parts:
                 all_errors[p] += check_no_broken_html(html_str)
+
+            if "files" not in p.parts:
+                all_errors[p] += check_images_have_alt_text(soup)
+
             all_errors[p] += check_no_localhost_links(soup)
         except Exception:
             print(p)
@@ -58,7 +64,14 @@ if __name__ == "__main__":
 
     all_errors["*"] += check_all_urls_are_hackable(redirects_path, out_dir)
 
-    # Check the RSS feeds parse as valid XML
+    link_errors = check_links_are_consistent(
+        out_dir, {pth: soup for pth, (_, soup) in html_files.items()}
+    )
+    for pth, errors in link_errors.items():
+        all_errors[pth].extend(errors)
+
+    # Check the RSS feeds parse as valid XML. We run the parser with
+    # recovery disabled so it doesn't try to fix any broken XML it finds.
     parser = etree.XMLParser(recover=False)
 
     with open(out_dir / "atom.xml", "rb") as in_file:

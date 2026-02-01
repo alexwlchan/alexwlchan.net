@@ -1,14 +1,16 @@
+# ruff: noqa: E501
 """
 Tests for `mosaic.linters`.
 """
 
 from pathlib import Path
 
-import bs4
+from bs4 import BeautifulSoup
 import pytest
 
 from mosaic.linters import (
     check_all_urls_are_hackable,
+    check_links_are_consistent,
     check_no_broken_html,
     check_no_localhost_links,
     check_redirects,
@@ -54,7 +56,7 @@ class TestCheckNoLocalhostLinks:
         """
         Links to a localhost URL are blocked.
         """
-        soup = bs4.BeautifulSoup(html, "html.parser")
+        soup = BeautifulSoup(html, "html.parser")
         assert check_no_localhost_links(soup)
 
     @pytest.mark.parametrize(
@@ -72,7 +74,7 @@ class TestCheckNoLocalhostLinks:
         """
         Links to non-localhost URLs are allowed.
         """
-        soup = bs4.BeautifulSoup(html, "html.parser")
+        soup = BeautifulSoup(html, "html.parser")
         assert check_no_localhost_links(soup) == []
 
 
@@ -237,3 +239,110 @@ class TestCheckAllUrlsAreHackable:
             "url can be hacked but won’t resolve: '/notes/'",
             "url can be hacked but won’t resolve: '/old-notes/'",
         ]
+
+
+class TestCheckLinksAreConsistent:
+    """
+    Tests for `check_links_are_consistent`.
+    """
+
+    def test_empty_case(self, out_dir: Path) -> None:
+        """
+        No pages means no errors.
+        """
+        assert check_links_are_consistent(out_dir, pages={}) == {}
+
+    @pytest.mark.parametrize(
+        "html",
+        [
+            "<a>no href</a>",
+            '<a href="#">bare hash</a>',
+            '<a href="?query=1">query parameters</a>',
+            '<a href="/other_page/index.html">other page (file)</a>',
+            '<a href="/other_page/">other page (URL)</a>',
+            '<a href="/other_page/index.html?query=1">other page (file, query)</a>',
+            '<a href="/other_page/?query=1">other page (URL, query)</a>',
+            '<a href="/other_page/index.html#heading1">other page (file, fragment)</a>',
+            '<a href="/other_page/#heading1">other page (URL, fragment)</a>',
+            '<a href="/other_page/index.html?query=1#heading1">other page (file, fragment, query)</a>',
+            '<a href="/other_page/?query=1#heading1">other page (URL, fragment, query)</a>',
+            "<script>inline JS; no src attribute</script>",
+            '<source srcset="/cat.jpg">',
+            '<source srcset="/cat.jpg 1x">',
+            '<source srcset="/cat.jpg 1x, /dog.png 2x">',
+            '<meta name="twitter:image" content="https://alexwlchan.net/cat.jpg">',
+            '<meta name="og:image" content="https://alexwlchan.net/dog.png">',
+            '<a href="tel:0123456789">phone call</a>',
+            '<a href="#main">go to main</a><div id="main">main section</div>',
+            '<a href="../cat.jpg">relative URL</a>',
+        ],
+    )
+    def test_good_page(self, out_dir: Path, html: str) -> None:
+        """
+        HTML with internally consistent links is allowed.
+        """
+        (out_dir / "example").mkdir(parents=True)
+        (out_dir / "other_page").mkdir(parents=True)
+        (out_dir / "cat.jpg").write_text("JPEG;cat")
+        (out_dir / "dog.png").write_text("PNG;dog")
+
+        html_path = out_dir / "example/index.html"
+        html_path.write_text(html)
+        html_soup = BeautifulSoup(html, "html.parser")
+
+        other_html = (
+            '<h1 id="heading1">heading1</h1>\n\n<h2 id="heading2">heading2</h2>'
+        )
+        other_path = out_dir / "other_page/index.html"
+        other_path.write_text(other_html)
+        other_soup = BeautifulSoup(other_html, "html.parser")
+
+        pages = {html_path: html_soup, other_path: other_soup}
+
+        assert check_links_are_consistent(out_dir, pages) == {}
+
+    @pytest.mark.parametrize(
+        "html, tag, url",
+        [
+            (
+                '<a href="/f/17823e-32x32.svg">static file</a>',
+                "a",
+                "/f/17823e-32x32.svg",
+            ),
+            ('<a href="#main">fragment</a>', "a", "#main"),
+            ('<img src="/doesnotexist.jpg">', "img", "/doesnotexist.jpg"),
+            ('<a href="/doesnotexist/">', "a", "/doesnotexist/"),
+            ('<a href="relativepath.gif">', "a", "relativepath.gif"),
+            ('<a href="/doesnotexist.html">', "a", "/doesnotexist.html"),
+            (
+                '<a href="/other/index.html#heading1">',
+                "a",
+                "/other/index.html#heading1",
+            ),
+            ('<a href="/other/#heading1">', "a", "/other/#heading1"),
+        ],
+    )
+    def test_link_to_bad_page(
+        self, out_dir: Path, html: str, tag: str, url: str
+    ) -> None:
+        """
+        Linking to a non-existent resource gets flagged as an error.
+        """
+        out_dir.mkdir()
+        html_path = out_dir / "example.html"
+        html_path.write_text(html)
+
+        other_path = out_dir / "other/index.html"
+        other_path.parent.mkdir()
+        other_html = "<p>another html file</p>"
+        other_path.write_text(other_html)
+
+        pages = {
+            html_path: BeautifulSoup(html, "html.parser"),
+            other_path: BeautifulSoup(other_html, "html.parser"),
+        }
+
+        actual = check_links_are_consistent(out_dir, pages)
+        expected = {html_path: [f"broken url in <{tag}>: {url}"]}
+
+        assert actual == expected
