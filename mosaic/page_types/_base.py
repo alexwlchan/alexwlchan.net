@@ -41,7 +41,7 @@ class BreadcrumbEntry(BaseModel):
     """
 
     label: str
-    href: str | None = None
+    href: str
 
 
 class BaseHtmlPage(ABC, BaseModel):

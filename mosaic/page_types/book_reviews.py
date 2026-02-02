@@ -62,7 +62,6 @@ class BookReview(BaseHtmlPage):
     review: ReviewInfo
 
     breadcrumb: list[BreadcrumbEntry] = [
-        BreadcrumbEntry(label="Entertainment"),
         BreadcrumbEntry(label="Books I’ve read", href="/book-reviews/"),
     ]
 

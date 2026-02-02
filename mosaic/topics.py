@@ -30,6 +30,7 @@ class Topic(BaseModel):
         else:
             parent_entries = []
 
+        assert self.url is not None
         return parent_entries + [BreadcrumbEntry(label=self.label, href=self.url)]
 
 

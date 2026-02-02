@@ -104,16 +104,7 @@ class Site(BaseModel):
             and not isinstance(p, Note)
         ]
 
-    _topics: dict[str, Topic] | None = None
-
-    @property
-    def topics(self) -> dict[str, Topic]:
-        """
-        Return a list of topics in use on the site.
-        """
-        if not self._topics:
-            self._topics = build_topic_tree(self.all_pages)
-        return self._topics
+    topics: dict[str, Topic] | None = None
 
     def build_site(
         self, incremental: bool = False, enable_analytics: bool = False
@@ -125,6 +116,7 @@ class Site(BaseModel):
         """
         self.time = datetime.now(tz=timezone.utc)
         self.all_pages = read_markdown_files(self.src_dir)
+        self.topics = build_topic_tree(self.all_pages)
 
         # Work out all the tint colours being used.
         tint_colours: list[TintColours] = [
