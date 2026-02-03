@@ -73,6 +73,27 @@ I'm queer and trans, and my pronouns are "they" or "she".
 
 I hope you like it!
 
+<!--
+
+<blockquote class="table_of_contents">
+  <ul>
+    <li>
+      <a href="/articles/">Writing</a>
+      <ul>
+        <li><a href="/programming/">Programming</a></li>
+        <li><a href="/digital-preservation/">Digital preservation</a></li>
+        <li><a href="/personal/">Personal thoughts</a></li>
+        <li><a href="/world/">The world at large</a></li>
+      </ul>
+    </li>
+    <li><a href="/fun-stuff/">Fun stuff</a></li>
+    <li><a href="/book-reviews/">Books I’ve read</a></li>
+    <li><a href="/notes/">Notes</a></li>
+    <li><a href="/say-thanks/">Say thanks</a></li>
+  </ul>
+</blockquote>
+
+-->
 
 
 ---

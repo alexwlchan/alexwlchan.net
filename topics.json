@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Programming",
+    "href": "/programming/"
+  },
+  {
+    "name": "Git",
+    "href": "/programming/git/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Python",
+    "href": "/programming/python/",
+    "parent": "Programming"
+  },
+  {
+    "name": "Books I've read",
+    "href": "/book-reviews/"
+  },
+  {
+    "name": "Fun stuff",
+    "href": "/fun-stuff/"
+  },
+  {
+    "name": "Notes",
+    "href": "/notes/"
+  }
+]

@@ -10,6 +10,7 @@ from typing import TypeVar
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from mosaic import page_types
 from mosaic.css import get_inline_styles
 from mosaic.text import (
     cleanup_text,
@@ -18,6 +19,7 @@ from mosaic.text import (
     smartify,
     strip_html,
 )
+from mosaic.topics import TOPICS_BY_NAME
 
 from .downloads import DownloadExtension
 from .inline_svg import InlineSvgExtension
@@ -60,6 +62,7 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "article_card_image": article_card_image,
             "cleanup_text": cleanup_text,
             "escape_attribute_value": escape_attribute_value,
+            "filter_for_topic": filter_for_topic,
             "fix_html_for_feed_readers": fix_html_for_feed_readers,
             "fix_youtube_iframes": fix_youtube_iframes,
             "format_date": format_date,
@@ -75,7 +78,9 @@ def get_jinja_environment(src_dir: Path, out_dir: Path) -> Environment:
             "xml_escape": xml_escape,
         }
     )
-    env.globals.update({"src_dir": src_dir, "out_dir": out_dir})
+    env.globals.update(
+        {"src_dir": src_dir, "out_dir": out_dir, "topics": TOPICS_BY_NAME}
+    )
 
     return env
 
@@ -120,3 +125,12 @@ def escape_attribute_value(value: T) -> T:
         value = value.replace(old, new)  # type: ignore
 
     return value
+
+
+def filter_for_topic(
+    pages: list[page_types.BaseHtmlPage], topic_name: str
+) -> list[page_types.BaseHtmlPage]:
+    """
+    Returns a list of pages that match a particular topic.
+    """
+    return [p for p in pages if p.belongs_to_topic(topic_name)]

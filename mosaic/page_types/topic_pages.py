@@ -4,16 +4,9 @@ Models for a topic page.
 
 from pathlib import Path
 
+from mosaic.topics import TOPICS_BY_NAME
+
 from ._base import BaseHtmlPage, BreadcrumbEntry
-
-
-def url_slug(topic_name: str) -> str:
-    """
-    Creates the URL slug for a topic name.
-    """
-    if topic_name == "Books I've read":
-        return "book-reviews"
-    return topic_name.lower().replace(" ", "-")
 
 
 class TopicPage(BaseHtmlPage):
@@ -38,12 +31,14 @@ class TopicPage(BaseHtmlPage):
         """
         The output URL of this page.
         """
-        slug = url_slug(self.title)
-        return f"/{slug}/"
+        return TOPICS_BY_NAME[self.title].href
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:
         """
         The breadcrumb trail for this page.
         """
-        return []
+        return [
+            BreadcrumbEntry(label=t.name, href=t.href)
+            for t in TOPICS_BY_NAME[self.title].breadcrumb[:-1]
+        ]
