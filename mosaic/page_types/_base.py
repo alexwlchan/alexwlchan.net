@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field, model_validator
 from mosaic.fs import find_paths_under
 from mosaic.tint_colours import TintColours
 from mosaic.text import markdownify
+from mosaic.topics import TOPICS_BY_NAME
 
 
 class IndexInfo(BaseModel):
@@ -42,16 +43,6 @@ class BreadcrumbEntry(BaseModel):
 
     label: str
     href: str
-
-    @classmethod
-    def for_topic(cls, topic_name: str) -> "BreadcrumbEntry":
-        """
-        Returns the breadcrumb entry for a topic.
-        """
-        from .topic_pages import url_slug
-
-        slug = url_slug(topic_name)
-        return BreadcrumbEntry(label=topic_name, href=f"/{slug}/")
 
 
 class BaseHtmlPage(ABC, BaseModel):
@@ -81,6 +72,20 @@ class BaseHtmlPage(ABC, BaseModel):
         """
         The breadcrumb trail for this page.
         """
+
+    def belongs_to_topic(self, topic_name: str) -> bool:
+        """
+        Checks whether this post is part of a topic.
+        """
+        if self.topic is None:
+            return False
+        elif self.topic == topic_name:
+            return True
+        else:
+            return any(
+                self.belongs_to_topic(topic_name=c.name)
+                for c in TOPICS_BY_NAME[topic_name].children
+            )
 
     # The source directory to the Markdown source file.
     src_dir: Path | None = None

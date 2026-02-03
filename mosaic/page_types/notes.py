@@ -5,6 +5,8 @@ Models for notes.
 from datetime import datetime
 from pathlib import Path
 
+from mosaic.topics import TOPICS_BY_NAME
+
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
@@ -43,7 +45,8 @@ class Note(BaseHtmlPage):
         The breadcrumb trail for this page.
         """
         return [
-            BreadcrumbEntry.for_topic(topic_name=self.topic),
+            BreadcrumbEntry(label=t.name, href=t.href)
+            for t in TOPICS_BY_NAME[self.topic].breadcrumb
         ]
 
 

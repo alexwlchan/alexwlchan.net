@@ -5,7 +5,7 @@ Tests for `mosaic.page_types.topic_pages`.
 from pathlib import Path
 
 
-from mosaic.page_types import TopicPage
+from mosaic.page_types import BreadcrumbEntry, TopicPage
 
 
 def test_topic_page_properties(src_dir: Path) -> None:
@@ -19,5 +19,5 @@ def test_topic_page_properties(src_dir: Path) -> None:
     )
 
     assert tp.template_name == "topic.html"
-    assert tp.url == "/python/"
-    assert tp.breadcrumb == []
+    assert tp.url == "/programming/python/"
+    assert tp.breadcrumb == [BreadcrumbEntry(label="Programming", href="/programming/")]
