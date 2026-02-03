@@ -1112,6 +1112,8 @@ redir /2022/12/   /articles/ permanent
 # i.e. that you can delete bits off the end of the URL and still get
 # somewhere useful.
 
+redir /notes/2026/    /notes/ permanent
+
 redir /til/2026/      /til/ permanent
 redir /til/2025/      /til/ permanent
 redir /til/2024/      /til/ permanent

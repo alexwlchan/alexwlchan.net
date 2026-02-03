@@ -1,21 +1,10 @@
 ---
-layout: page
+layout: topic
 title: Notes
 ---
 
-<style>
-  @use "components/under_construction";
-</style>
-
-<blockquote class="under_construction">
-  <p>
-    <strong>This page is under construction!</strong>
-  </p>
-</blockquote>
-
-Congratulations on finding a secret page!
-There's not much here yet, is there?
-But there will be soon!
+Notes are snippets of information that I find useful and wanted to write down, but aren't long or original enough to be articles.
+I expect most people will find these notes by browsing my list of topics or from a search engine.
 
 {% with articles = site.notes %}
 {% include "partials/article_links.html" %}

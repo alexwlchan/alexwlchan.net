@@ -6,7 +6,7 @@
     {% endfor %}
   </h1>
 
-  {% if not page.breadcrumb %}
+  {% if not page.breadcrumb and page.template_name != "topic.html" %}
   <ul class="dot_list">
     <li>
       <a
