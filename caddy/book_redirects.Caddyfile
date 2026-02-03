@@ -13,24 +13,24 @@
 #
 
 #[[[cog
-import cog
-import json
-
-with open("caddy/book_redirects.json") as in_file:
-    redirects = json.load(in_file)
-
-cog.outl("books.alexwlchan.net {")
-
-cog.outl("redir / https://alexwlchan.net/book-reviews/")
-cog.outl("redir /reviews/ https://alexwlchan.net/book-reviews/")
-
-for new_slug, all_old_paths in redirects.items():
-    for old_path in all_old_paths:
-        cog.outl(f"redir {old_path} https://alexwlchan.net/book-reviews/{new_slug}/ permanent")
-  
-cog.outl("}")
-
-]]]#
+#import cog
+#import json
+#
+#with open("caddy/book_redirects.json") as in_file:
+#    redirects = json.load(in_file)
+#
+#cog.outl("books.alexwlchan.net {")
+#
+#cog.outl("redir / https://alexwlchan.net/book-reviews/")
+#cog.outl("redir /reviews/ https://alexwlchan.net/book-reviews/")
+#
+#for new_slug, all_old_paths in redirects.items():
+#    for old_path in all_old_paths:
+#        cog.outl(f"redir {old_path} https://alexwlchan.net/book-reviews/{new_slug}/ permanent")
+#  
+#cog.outl("}")
+#
+#]]]
 books.alexwlchan.net {
 redir / https://alexwlchan.net/book-reviews/
 redir /reviews/ https://alexwlchan.net/book-reviews/
