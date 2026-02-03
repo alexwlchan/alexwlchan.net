@@ -20,7 +20,7 @@ review:
 
 colors:
   css_light: "#805c8f"
-  css_dark:  "#fae2e3"
+  css_dark:  "#f8c07b"
 
 ---
 

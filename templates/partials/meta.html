@@ -13,19 +13,12 @@
 #}
 
 {%- if
-      page.breadcrumb or
       page.date or
       (page.tags|count > 0) or
       page.part_of or
       page.date_updated or
       page.link -%}
-<ul class="dot_list meta">
-  {%- if page.breadcrumb -%}
-  <li>
-    Filed in {% include "partials/breadcrumb.html" %}
-  </li>
-  {%- endif -%}
-  
+<ul class="dot_list meta">  
   {%- if page.tags|count > 0 -%}
   <li class="tags">Tagged with
     {% set tags = page.tags | sort %}

@@ -1,4 +1,4 @@
-.breadcrumb {
+ul.breadcrumb {
   font-size: calc(var(--font-size)*var(--meta-scaling-factor));
   list-style-type: "";
   padding: 0;

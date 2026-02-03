@@ -51,16 +51,18 @@ class TestPictureExtension:
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
             "<picture>"
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            "<source "
             'srcset="/images/2026/truchet-tiles-800x400_1x.avif 400w,'
             '/images/2026/truchet-tiles-800x400_2x.avif 800w" '
-            "type=image/avif>"
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            "sizes=(max-width:400px)100vw,400px type=image/avif>"
+            "<source "
             'srcset="/images/2026/truchet-tiles-800x400_1x.webp 400w,'
             '/images/2026/truchet-tiles-800x400_2x.webp 800w" '
-            'type=image/webp><source sizes="(max-width: 400px) 100vw, '
-            '400px" srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
-            '/images/2026/truchet-tiles-800x400_2x.png 800w" type=image/png>'
+            "sizes=(max-width:400px)100vw,400px type=image/webp>"
+            "<source "
+            'srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
+            '/images/2026/truchet-tiles-800x400_2x.png 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/png>"
             '<img alt="Geometrically-drawn tiles in red and black" '
             'style="aspect-ratio: 2" '
             "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
@@ -111,16 +113,18 @@ class TestPictureExtension:
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
             "<picture>"
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            "<source "
             'srcset="/images/truchet-tiles-800x400_1x.avif 400w,'
             '/images/truchet-tiles-800x400_2x.avif 800w" '
-            "type=image/avif>"
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            "sizes=(max-width:400px)100vw,400px type=image/avif>"
+            "<source "
             'srcset="/images/truchet-tiles-800x400_1x.webp 400w,'
             '/images/truchet-tiles-800x400_2x.webp 800w" '
-            'type=image/webp><source sizes="(max-width: 400px) 100vw, '
-            '400px" srcset="/images/truchet-tiles-800x400_1x.png 400w,'
-            '/images/truchet-tiles-800x400_2x.png 800w" type=image/png>'
+            "sizes=(max-width:400px)100vw,400px type=image/webp>"
+            "<source "
+            'srcset="/images/truchet-tiles-800x400_1x.png 400w,'
+            '/images/truchet-tiles-800x400_2x.png 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/png>"
             '<img style="aspect-ratio: 2" '
             "src=/images/truchet-tiles-800x400_1x.png width=400></picture>"
         )
@@ -175,9 +179,10 @@ class TestPictureExtension:
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
             "<picture>"
-            '<source sizes="(max-width: 400px) 100vw, '
-            '400px" srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
-            '/images/2026/truchet-tiles-800x400_2x.png 800w" type=image/png>'
+            "<source "
+            'srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
+            '/images/2026/truchet-tiles-800x400_2x.png 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/png>"
             '<img style="aspect-ratio: 2" class=screenshot '
             "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
         )
@@ -199,9 +204,10 @@ class TestPictureExtension:
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
             "<picture>"
-            '<source sizes="(max-width: 250px) 100vw, 250px" '
+            "<source "
             'srcset="/images/2026/palymyra-500x525_1x.jpg 250w,'
-            '/images/2026/palymyra-500x525_2x.jpg 500w" type=image/jpeg>'
+            '/images/2026/palymyra-500x525_2x.jpg 500w" '
+            "sizes=(max-width:250px)100vw,250px type=image/jpeg>"
             '<img style="aspect-ratio: 20/21" class=screenshot '
             "src=/images/2026/palymyra-500x525_1x.jpg width=250></picture>"
         )
@@ -250,16 +256,18 @@ class TestPictureExtension:
         html = env.from_string(md).render(page=page).strip()
         assert minify_html.minify(html) == (
             "<picture>"
-            '<source sizes="(max-width: 250px) 100vw, 250px" '
+            "<source "
             'srcset="/images/2026/palymyra-500x525_1x.avif 250w,'
             '/images/2026/palymyra-500x525_2x.avif 500w" '
-            "type=image/avif>"
-            '<source sizes="(max-width: 250px) 100vw, 250px" '
+            "sizes=(max-width:250px)100vw,250px type=image/avif>"
+            "<source "
             'srcset="/images/2026/palymyra-500x525_1x.webp 250w,'
             '/images/2026/palymyra-500x525_2x.webp 500w" '
-            'type=image/webp><source sizes="(max-width: 250px) 100vw, 250px" '
+            "sizes=(max-width:250px)100vw,250px type=image/webp>"
+            "<source "
             'srcset="/images/2026/palymyra-500x525_1x.jpg 250w,'
-            '/images/2026/palymyra-500x525_2x.jpg 500w" type=image/jpeg>'
+            '/images/2026/palymyra-500x525_2x.jpg 500w" '
+            "sizes=(max-width:250px)100vw,250px type=image/jpeg>"
             '<img style="aspect-ratio: 20/21" '
             "src=/images/2026/palymyra-500x525_1x.jpg width=250></picture>"
         )
@@ -278,26 +286,29 @@ class TestPictureExtension:
         assert minify_html.minify(html) == (
             "<picture>"
             '<source media="(prefers-color-scheme: dark)" '
-            'sizes="(max-width: 400px) 100vw, 400px" '
             'srcset="/images/2026/truchet-tiles-800x400.dark_1x.avif 400w,'
-            '/images/2026/truchet-tiles-800x400.dark_2x.avif 800w" type=image/avif>'
+            '/images/2026/truchet-tiles-800x400.dark_2x.avif 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/avif>"
             '<source media="(prefers-color-scheme: dark)" '
-            'sizes="(max-width: 400px) 100vw, 400px" '
             'srcset="/images/2026/truchet-tiles-800x400.dark_1x.webp 400w,'
-            '/images/2026/truchet-tiles-800x400.dark_2x.webp 800w" type=image/webp>'
+            '/images/2026/truchet-tiles-800x400.dark_2x.webp 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/webp>"
             '<source media="(prefers-color-scheme: dark)" '
-            'sizes="(max-width: 400px) 100vw, 400px" '
             'srcset="/images/2026/truchet-tiles-800x400.dark_1x.png 400w,'
-            '/images/2026/truchet-tiles-800x400.dark_2x.png 800w" type=image/png>'
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            '/images/2026/truchet-tiles-800x400.dark_2x.png 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/png>"
+            "<source "
             'srcset="/images/2026/truchet-tiles-800x400_1x.avif 400w,'
-            '/images/2026/truchet-tiles-800x400_2x.avif 800w" type=image/avif>'
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            '/images/2026/truchet-tiles-800x400_2x.avif 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/avif>"
+            "<source "
             'srcset="/images/2026/truchet-tiles-800x400_1x.webp 400w,'
-            '/images/2026/truchet-tiles-800x400_2x.webp 800w" type=image/webp>'
-            '<source sizes="(max-width: 400px) 100vw, 400px" '
+            '/images/2026/truchet-tiles-800x400_2x.webp 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/webp>"
+            "<source "
             'srcset="/images/2026/truchet-tiles-800x400_1x.png 400w,'
-            '/images/2026/truchet-tiles-800x400_2x.png 800w" type=image/png>'
+            '/images/2026/truchet-tiles-800x400_2x.png 800w" '
+            "sizes=(max-width:400px)100vw,400px type=image/png>"
             '<img style="aspect-ratio: 2" class=dark_aware '
             "src=/images/2026/truchet-tiles-800x400_1x.png width=400></picture>"
         )

@@ -4,7 +4,7 @@ Models for a generic page.
 
 from typing import Any
 
-from ._base import BaseHtmlPage
+from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
 class Page(BaseHtmlPage):
@@ -46,3 +46,10 @@ class Page(BaseHtmlPage):
             else:
                 relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
             return f"/{relative_path}/".replace("./", "")
+
+    @property
+    def breadcrumb(self) -> list[BreadcrumbEntry]:
+        """
+        The breadcrumb trail for this page.
+        """
+        return []

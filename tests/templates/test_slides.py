@@ -43,15 +43,15 @@ class TestSlideExtension:
             "<figure class=slide>"
             "<a href=/images/2026/truchet-tiles/slide1-800x400.png>"
             "<picture>"
-            '<source sizes="(max-width: 450px) 100vw, 450px" '
+            "<source "
             'srcset="/images/2026/truchet-tiles/slide1-800x400_1x.avif 450w" '
-            "type=image/avif>"
-            '<source sizes="(max-width: 450px) 100vw, 450px" '
+            "sizes=(max-width:450px)100vw,450px type=image/avif>"
+            "<source "
             'srcset="/images/2026/truchet-tiles/slide1-800x400_1x.webp 450w" '
-            "type=image/webp>"
-            '<source sizes="(max-width: 450px) 100vw, 450px" '
+            "sizes=(max-width:450px)100vw,450px type=image/webp>"
+            "<source "
             'srcset="/images/2026/truchet-tiles/slide1-800x400_1x.png 450w" '
-            "type=image/png>"
+            "sizes=(max-width:450px)100vw,450px type=image/png>"
             '<img alt="Title slide" style="aspect-ratio: 2" loading=lazy '
             "src=/images/2026/truchet-tiles/slide1-800x400_1x.png width=450>"
             "</picture></a></figure>"

@@ -1,0 +1,7 @@
+{% macro star_rating(rating, max_rating=5, spacing="0.1em") -%}
+<span class="sr">
+  {%- for i in range(1, max_rating + 1) -%}
+    {%- if rating >= i %}★{% else %}☆{% endif -%}
+  {%- endfor -%}
+</span>
+{%- endmacro %}

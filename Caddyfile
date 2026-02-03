@@ -1,7 +1,8 @@
-import /home/alexwlchan/repos/books.alexwlchan.net/Caddyfile
 import /home/alexwlchan/repos/analytics.alexwlchan.net/Caddyfile
 import /home/alexwlchan/repos/finduntaggedtumblrposts.com/Caddyfile
 import /home/alexwlchan/repos/til/Caddyfile
+
+import caddy/books_redirects.Caddyfile
 
 alexwlchan.net {
 	import caddy/redirects.Caddyfile
@@ -17,7 +18,7 @@ alexwlchan.net {
 	# The one exception is CSS files, but I cache-bust those by passing a query parameter
 	# that includes the hash of my CSS source.
 	@cached {
-		path /c/* /f/* /h/* /files/* /images/* /static/* /theme/*
+		path /b/* /c/* /f/* /h/* /files/* /images/* /static/* /theme/*
 	}
 
 	header @cached {

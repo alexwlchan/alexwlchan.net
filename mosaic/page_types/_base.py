@@ -65,6 +65,13 @@ class BaseHtmlPage(ABC, BaseModel):
         The output URL of this page.
         """
 
+    @property
+    @abstractmethod
+    def breadcrumb(self) -> list[BreadcrumbEntry]:
+        """
+        The breadcrumb trail for this page.
+        """
+
     # The source directory to the Markdown source file.
     src_dir: Path | None = None
 
@@ -131,11 +138,8 @@ class BaseHtmlPage(ABC, BaseModel):
 
     card_path: Path | None = None
 
-    # A breadcrumb trail for this page
-    breadcrumb: list[BreadcrumbEntry] = Field(default_factory=lambda: list())
-
-    # The single topic where this page is saved. Optional for now, but
-    # I might make this opt-in for all but special cases eventually.
+    # The single topic where this page is saved, which will be used
+    # to construct the breadcrumb.
     topic: str | None = None
 
     def __repr__(self) -> str:  # pragma: no cover

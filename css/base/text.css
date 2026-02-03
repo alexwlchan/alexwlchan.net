@@ -5,8 +5,10 @@ body {
 }
 
 h1, h2, h3 {
-  color: var(--primary-color);
   font-weight: normal;
+  &:not(nav h1) {
+    color: var(--primary-color);
+  }
 }
 
 h1 {

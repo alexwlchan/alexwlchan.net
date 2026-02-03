@@ -3,6 +3,7 @@ Build system for alexwlchan.net.
 """
 
 import collections
+from collections import Counter
 from datetime import datetime, timezone
 import filecmp
 import hashlib
@@ -32,7 +33,6 @@ from .page_types import (
 from .templates import get_jinja_environment
 from .text import find_unique_prefixes
 from .tint_colours import get_default_tint_colours, TintColours
-from .topics import build_topic_tree, Topic
 
 
 class Site(BaseModel):
@@ -75,7 +75,7 @@ class Site(BaseModel):
         """
         return sorted(
             (p for p in self.all_pages if isinstance(p, BookReview)),
-            key=lambda br: br.date,
+            key=lambda br: br.review.date_read,
             reverse=True,
         )
 
@@ -104,8 +104,6 @@ class Site(BaseModel):
             and not isinstance(p, Note)
         ]
 
-    topics: dict[str, Topic] | None = None
-
     def build_site(
         self, incremental: bool = False, enable_analytics: bool = False
     ) -> bool:  # pragma: no cover
@@ -116,7 +114,11 @@ class Site(BaseModel):
         """
         self.time = datetime.now(tz=timezone.utc)
         self.all_pages = read_markdown_files(self.src_dir)
-        self.topics = build_topic_tree(self.all_pages)
+
+        # Check none of the URLs are duplicated
+        counter = Counter(p.url for p in self.all_pages)
+        duplicate_urls = {url: count for url, count in counter.items() if count > 1}
+        assert duplicate_urls == {}, duplicate_urls
 
         # Work out all the tint colours being used.
         tint_colours: list[TintColours] = [

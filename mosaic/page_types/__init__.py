@@ -4,6 +4,7 @@ Models for different types of page that appear on the site.
 
 from pathlib import Path
 
+import termcolor
 import yaml
 
 from mosaic.fs import find_paths_under
@@ -68,10 +69,16 @@ def read_markdown_files(src_dir: Path) -> list[BaseHtmlPage]:
     """
     Read all the Markdown source files.
     """
-    return [
-        read_page_from_markdown(src_dir, md_path)
-        for md_path in find_paths_under(src_dir, suffix=".md")
-    ]
+    result = []
+
+    for md_path in find_paths_under(src_dir, suffix=".md"):
+        try:
+            result.append(read_page_from_markdown(src_dir, md_path))
+        except Exception:
+            print(termcolor.colored("error reading {md_path}: {exc}", "red"))
+            raise
+
+    return result
 
 
 __all__ = [

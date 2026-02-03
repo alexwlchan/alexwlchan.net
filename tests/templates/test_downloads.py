@@ -40,18 +40,21 @@ class TestDownloadExtension:
             '<style type=x-text/scss>@use "components/download";</style>'
             "<a class=download href=/files/2026/example.zip>"
             "<picture>"
-            '<source sizes="(max-width: 64px) 100vw, 64px" '
-            'srcset="/images/icons/download_zip_1x.avif 64w,'
-            "/images/icons/download_zip_2x.avif 128w,"
-            '/images/icons/download_zip_3x.avif 192w" type=image/avif>'
-            '<source sizes="(max-width: 64px) 100vw, 64px" '
-            'srcset="/images/icons/download_zip_1x.webp 64w,'
-            "/images/icons/download_zip_2x.webp 128w,"
-            '/images/icons/download_zip_3x.webp 192w" type=image/webp>'
-            '<source sizes="(max-width: 64px) 100vw, 64px" '
-            'srcset="/images/icons/download_zip_1x.png 64w,'
-            "/images/icons/download_zip_2x.png 128w,"
-            '/images/icons/download_zip_3x.png 192w" type=image/png>'
+            "<source "
+            'srcset="/images/icons/download_zip_1x.avif 1x,'
+            "/images/icons/download_zip_2x.avif 2x,"
+            '/images/icons/download_zip_3x.avif 3x" '
+            "type=image/avif>"
+            "<source "
+            'srcset="/images/icons/download_zip_1x.webp 1x,'
+            "/images/icons/download_zip_2x.webp 2x,"
+            '/images/icons/download_zip_3x.webp 3x" '
+            "type=image/webp>"
+            "<source "
+            'srcset="/images/icons/download_zip_1x.png 1x,'
+            "/images/icons/download_zip_2x.png 2x,"
+            '/images/icons/download_zip_3x.png 3x" '
+            "type=image/png>"
             '<img style="aspect-ratio: 1" alt data-proofer-ignore '
             "src=/images/icons/download_zip_1x.png width=64>"
             "</picture> example.zip</a>"

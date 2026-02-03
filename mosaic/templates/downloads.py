@@ -50,6 +50,7 @@ def render_download(context: Context, filename: str, caller: Any) -> str:
         parent="/images/icons",
         width=64,
         alt="",
+        size_based_on="density",
     )
 
     # Add the data-proofer-ignore tag

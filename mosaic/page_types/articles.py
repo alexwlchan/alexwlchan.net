@@ -5,7 +5,7 @@ Models for articles.
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ._base import BaseHtmlPage
+from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
 class Article(BaseHtmlPage):
@@ -47,6 +47,16 @@ class Article(BaseHtmlPage):
         The output URL of this page.
         """
         return f"/{self.date.year}/{self.slug}/"
+
+    @property
+    def breadcrumb(self) -> list[BreadcrumbEntry]:
+        """
+        The breadcrumb trail for this page.
+        """
+        if self.topic == "Books I've read":
+            return [BreadcrumbEntry(label="books I've read", href="/book-reviews/")]
+        else:
+            return [BreadcrumbEntry(label="articles", href="/articles/")]
 
     @property
     def is_featured(self) -> bool:
