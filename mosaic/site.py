@@ -249,6 +249,7 @@ class Site(BaseModel):
         self.generate_rss_feeds(
             env,
             self.articles,
+            self.notes,
             tils=[p for p in self.pages if isinstance(p, TodayILearned)],
         )
 
@@ -349,7 +350,11 @@ class Site(BaseModel):
                 pbar.update(1)
 
     def generate_rss_feeds(
-        self, env: Environment, articles: list[Article], tils: list[TodayILearned]
+        self,
+        env: Environment,
+        articles: list[Article],
+        notes: list[Note],
+        tils: list[TodayILearned],
     ) -> None:
         """
         Generate the RSS feeds for the site.
@@ -359,5 +364,5 @@ class Site(BaseModel):
         (self.out_dir / "atom.xml").write_text(atom_xml)
 
         til_atom_template = env.get_template("til_atom.xml")
-        til_atom_xml = til_atom_template.render(tils=tils)
+        til_atom_xml = til_atom_template.render(tils=notes + tils)
         (self.out_dir / "til/atom.xml").write_text(til_atom_xml)

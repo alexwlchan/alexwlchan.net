@@ -43,6 +43,16 @@ class BreadcrumbEntry(BaseModel):
     label: str
     href: str
 
+    @classmethod
+    def for_topic(cls, topic_name: str) -> "BreadcrumbEntry":
+        """
+        Returns the breadcrumb entry for a topic.
+        """
+        from .topic_pages import url_slug
+
+        slug = url_slug(topic_name)
+        return BreadcrumbEntry(label=topic_name, href=f"/{slug}/")
+
 
 class BaseHtmlPage(ABC, BaseModel):
     """

@@ -7,6 +7,15 @@ from pathlib import Path
 from ._base import BaseHtmlPage, BreadcrumbEntry
 
 
+def url_slug(topic_name: str) -> str:
+    """
+    Creates the URL slug for a topic name.
+    """
+    if topic_name == "Books I've read":
+        return "book-reviews"
+    return topic_name.lower().replace(" ", "-")
+
+
 class TopicPage(BaseHtmlPage):
     """
     A page which shows you everything I've published about a topic.
@@ -29,11 +38,8 @@ class TopicPage(BaseHtmlPage):
         """
         The output URL of this page.
         """
-        if self.md_path.name == "index.md":
-            relative_path = self.md_path.parent.relative_to(self.src_dir)
-        else:
-            relative_path = self.md_path.relative_to(self.src_dir).with_suffix("")
-        return f"/{relative_path}/".replace("./", "")
+        slug = url_slug(self.title)
+        return f"/{slug}/"
 
     @property
     def breadcrumb(self) -> list[BreadcrumbEntry]:

@@ -6,6 +6,7 @@ summary: Unpicking the history of a Slack icon.
 colors:
   css_light: "#5d7847"
   css_dark:  "#7d946a"
+topic: Fun stuff
 ---
 When I joined Tailscale, one of the things I had to get used to was "Bufo", a cartoon frog who appears in a variety of poses and emoji.
 This is a taste of the over 350 different variants of Bufo emoji in the Tailscale Slack:

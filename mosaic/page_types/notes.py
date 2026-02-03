@@ -19,6 +19,7 @@ class Note(BaseHtmlPage):
     md_path: Path
     src_dir: Path
     date: datetime
+    topic: str
 
     @property
     def template_name(self) -> str:
@@ -41,7 +42,9 @@ class Note(BaseHtmlPage):
         """
         The breadcrumb trail for this page.
         """
-        return [BreadcrumbEntry(label="notes", href="/notes/")]
+        return [
+            BreadcrumbEntry.for_topic(topic_name=self.topic),
+        ]
 
 
 class TodayILearned(BaseHtmlPage):
