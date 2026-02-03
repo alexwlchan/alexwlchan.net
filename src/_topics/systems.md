@@ -1,10 +1,12 @@
 ---
 layout: topic
-title: Programming
+title: Systems and software
 ---
 
 I've been a professional software developer since 2014, and a hobbyist for several years before that.
-This blog started as a way for me to share code snippets, and writing about my code has helped me grow as a programmer.
+This blog started as a way for me to share code snippets, and writing about my code has become a key part of how I learn and think about computers.
+
+These entries cover the range of development work: from writing code to running it in production.
 
 Sub-topics:
 
@@ -15,9 +17,3 @@ Sub-topics:
   </li>
   {%- endfor -%}
 </ul>
-
-## Notes about {{ page.title }}
-
-{% with articles = site.notes|filter_for_topic(topic_name=page.title) %}
-{% include "partials/article_links.html" %}
-{% endwith %}

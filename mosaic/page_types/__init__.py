@@ -30,6 +30,14 @@ def read_page_from_markdown(src_dir: Path, md_path: Path) -> BaseHtmlPage:
 
     layout = front_matter.pop("layout")
 
+    # TODO: Assert common parents
+    if (
+        "topic" in front_matter
+        and "topics" not in front_matter
+        and isinstance(front_matter["topic"], str)
+    ):
+        front_matter["topics"] = [front_matter.pop("topic")]
+
     match layout:
         case "post" | "article":
             return Article(

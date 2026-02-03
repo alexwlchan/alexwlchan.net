@@ -3,7 +3,7 @@
   <section>
     <div>
       {%- if title -%}
-        <h2>{{ items|count }} {{ title }}</h2>
+        <h2>{{ items|count }} {% if items|count == 1 %}{{ title.singular }}{% else %}{{ title.plural }}{% endif %}</h2>
       {%- endif -%}
       {%- with articles = items -%}
         {% include "partials/" ~ partial ~ ".html" %}
@@ -11,4 +11,38 @@
     </div>
   </section>
 {%- endif -%}
+{%- endmacro -%}
+
+{%- macro featured_articles(topic_name) -%}
+  {% set featured = site.articles
+    | selectattr("is_featured")
+    | filter_for_topic(topic_name)
+    | sort(attribute="date", reverse=True) %}
+
+  {{ topic_section(featured, "article_cards") }}
+{%- endmacro -%}
+
+{%- macro remaining_articles(topic_name) -%}
+  {% set articles = site.articles
+    | rejectattr("is_featured")
+    | filter_for_topic(topic_name)
+    | sort(attribute="sort_date", reverse=True) %}
+  
+  {{ topic_section(articles, "article_links", title={'singular': 'article', 'plural': 'articles'}) }}
+{%- endmacro -%}
+
+{%- macro notes(topic_name) -%}
+  {% set notes = site.notes
+    | filter_for_topic(topic_name)
+    | sort(attribute="sort_date", reverse=True) %}
+  
+  {{ topic_section(notes, "article_links", title={'singular': 'note', 'plural': 'notes'}) }}
+{%- endmacro -%}
+
+{%- macro topic_entries(topic_name) -%}
+<div id="topic_entries">
+  {{ featured_articles(topic_name) }}
+  {{ remaining_articles(topic_name) }}
+  {{ notes(topic_name) }}
+</div>
 {%- endmacro -%}

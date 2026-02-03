@@ -1,0 +1,13 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <path d="M 7 4 v 15 a 1.5 1.5 0 0 1 -3 0 v -10
+      M 7 4 h 13 v 14 a 2.5 2.5 0 0 1 -2.5 2.5 h -12" class="border"/>
+  <g transform="translate(0 0.25)">
+    <path d="M 13 7 h 4 v 6.5 h -4 v -6.5"/>
+    <path d="M 9.5 7.5 h 1.25"/>
+    <path d="M 9.5 10.5 h 1.25"/>
+    <path d="M 9.5 13.5 h 1.25"/>
+    <path d="M 9.5 16.5 h 7.5"/>
+  </g>
+</svg>

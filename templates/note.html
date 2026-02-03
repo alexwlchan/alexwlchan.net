@@ -6,6 +6,18 @@
       <h1 class="title">{{ page.title | markdownify_oneline | cleanup_text }}</h1>
       {% include "partials/meta.html" %}
     </hgroup>
+    
+    <style>
+      .summary {
+        font-weight: bold;
+      }
+    </style>
+    
+    {% if page.summary %}
+      <p class="summary">
+        {{ page.summary | markdownify_oneline | cleanup_text }}
+      </p>
+    {% endif %}
 
     {{ content | cleanup_text }}
   </article>

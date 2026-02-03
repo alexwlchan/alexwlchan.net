@@ -1,7 +1,9 @@
 ---
 layout: page
 title: How to say thanks
-nav_section: contact
+colors:
+  css_light: "#118207"
+  css_dark:  "#5ff042"
 ---
 I love it when people tell me they enjoyed something I made!
 If you've found something useful, used me as an example, or learnt something new -- please send me a note and tell me about it.

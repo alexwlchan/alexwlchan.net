@@ -1,0 +1,138 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <!--[[[cog
+  import cog
+  import random
+  
+  WIDTH = HEIGHT = 24
+  
+  dice_width = 12
+  x = (WIDTH - dice_width) / 2
+  
+  r = 2
+  
+  dot_r = 1.1
+  
+  cog.outl('<defs>')
+  
+  cog.outl(f'''
+  <mask id="upperDieMask">
+    <rect width="{WIDTH}" height="{HEIGHT}" fill="white"/>
+    <g transform="rotate(15 {x} {HEIGHT})">
+      <rect x="{x}" y="0" width="{dice_width}" height="{dice_width}"
+        stroke="black" stroke-width="6" rx="{r}" ry="{r}"></rect>
+    </g>
+  </mask>
+  ''')
+  
+  cog.outl(f'''
+    <rect id="die_outline" width="{dice_width}" height="{dice_width}" style="stroke-width: 2px;" rx="{r}" ry="{r}"></rect>
+  
+    <circle class="dot" id="upper_left"   cx="{ 0.28 * dice_width }" cy="{ 0.28 * dice_width }"  r="{ dot_r }"></circle>
+    <circle class="dot" id="upper_center" cx="{ 0.5  * dice_width }"    cy="{  0.28 * dice_width }" r="{ dot_r }"></circle>
+    <circle class="dot" id="upper_right"  cx="{ 0.72 * dice_width }" cy="{ 0.28 * dice_width }"  r="{ dot_r }"></circle>
+
+    <circle class="dot" id="mid_left"     cx="{ 0.28 * dice_width }" cy="{ 0.5 * dice_width }"    r="{ dot_r }"></circle>
+    <circle class="dot" id="mid_center"    cx="{ 0.5 * dice_width }" cy="{ 0.5 * dice_width }"    r="{ dot_r }"></circle>
+    <circle class="dot" id="mid_right"    cx="{ 0.72 * dice_width }" cy="{ 0.5 * dice_width }"    r="{ dot_r }"></circle>
+
+    <circle class="dot" id="lower_left"   cx="{ 0.28 * dice_width }" cy="{ 0.72 * dice_width }" r="{ dot_r }"></circle>
+    <circle class="dot" id="lower_center" cx="{ 0.5  * dice_width }" cy="{ 0.72 * dice_width }" r="{ dot_r }"></circle>
+    <circle class="dot" id="lower_right"  cx="{ 0.72 * dice_width }" cy="{ 0.72 * dice_width }" r="{ dot_r }"></circle>
+  
+  ''')
+  
+  cog.outl('</defs>')
+  
+  cog.outl(f'''
+  <g mask="url(#upperDieMask)" id="lowerDie" data-value="{random.choice([1,2,3,4,5,6])}" data-alt="{random.choice(['true','false'])}">
+    <use x="1" y="7" href="#die_outline"></use>
+
+    <use x="1" y="7" href="#upper_left"   class="dot upper left"/>
+    <use x="1" y="7" href="#upper_center" class="dot upper center"/>
+    <use x="1" y="7" href="#upper_right"  class="dot upper right"/>
+    <use x="1" y="7" href="#mid_left"     class="dot mid   left"/>
+    <use x="1" y="7" href="#mid_center"   class="dot mid   center"/>
+    <use x="1" y="7" href="#mid_right"    class="dot mid   right"/>
+    <use x="1" y="7" href="#lower_left"   class="dot lower left"/>
+    <use x="1" y="7" href="#lower_center" class="dot lower center"/>
+    <use x="1" y="7" href="#lower_right"  class="dot lower right"/>
+  </g>
+
+  <g transform="rotate(15 { x } { dice_width })" id="upperDie" data-value="{random.choice([2,3,4,5,6])}" data-alt="{random.choice(['true','false'])}">
+    <use x="8.75" y="0" href="#die_outline"></use>
+  
+    <use x="8.75" y="0" href="#upper_left"   class="dot upper left"/>
+    <use x="8.75" y="0" href="#upper_center" class="dot upper center"/>
+    <use x="8.75" y="0" href="#upper_right"  class="dot upper right"/>
+    <use x="8.75" y="0" href="#mid_left"     class="dot mid   left"/>
+    <use x="8.75" y="0" href="#mid_center"   class="dot mid   center"/>
+    <use x="8.75" y="0" href="#mid_right"    class="dot mid   right"/>
+    <use x="8.75" y="0" href="#lower_left"   class="dot lower left"/>
+    <use x="8.75" y="0" href="#lower_center" class="dot lower center"/>
+    <use x="8.75" y="0" href="#lower_right"  class="dot lower right"/>
+  </g>
+  ''')
+  
+  ]]]-->
+  <defs>
+
+  <mask id="upperDieMask">
+    <rect width="24" height="24" fill="white"/>
+    <g transform="rotate(15 6.0 24)">
+      <rect x="6.0" y="0" width="12" height="12"
+        stroke="black" stroke-width="6" rx="2" ry="2"></rect>
+    </g>
+  </mask>
+
+
+    <rect id="die_outline" width="12" height="12" style="stroke-width: 2px;" rx="2" ry="2"></rect>
+
+    <circle class="dot" id="upper_left"   cx="3.3600000000000003" cy="3.3600000000000003"  r="1.1"></circle>
+    <circle class="dot" id="upper_center" cx="6.0"    cy="3.3600000000000003" r="1.1"></circle>
+    <circle class="dot" id="upper_right"  cx="8.64" cy="3.3600000000000003"  r="1.1"></circle>
+
+    <circle class="dot" id="mid_left"     cx="3.3600000000000003" cy="6.0"    r="1.1"></circle>
+    <circle class="dot" id="mid_center"    cx="6.0" cy="6.0"    r="1.1"></circle>
+    <circle class="dot" id="mid_right"    cx="8.64" cy="6.0"    r="1.1"></circle>
+
+    <circle class="dot" id="lower_left"   cx="3.3600000000000003" cy="8.64" r="1.1"></circle>
+    <circle class="dot" id="lower_center" cx="6.0" cy="8.64" r="1.1"></circle>
+    <circle class="dot" id="lower_right"  cx="8.64" cy="8.64" r="1.1"></circle>
+
+
+  </defs>
+
+  <g mask="url(#upperDieMask)" id="lowerDie" data-value="4" data-alt="true">
+    <use x="1" y="7" href="#die_outline"></use>
+
+    <use x="1" y="7" href="#upper_left"   class="dot upper left"/>
+    <use x="1" y="7" href="#upper_center" class="dot upper center"/>
+    <use x="1" y="7" href="#upper_right"  class="dot upper right"/>
+    <use x="1" y="7" href="#mid_left"     class="dot mid   left"/>
+    <use x="1" y="7" href="#mid_center"   class="dot mid   center"/>
+    <use x="1" y="7" href="#mid_right"    class="dot mid   right"/>
+    <use x="1" y="7" href="#lower_left"   class="dot lower left"/>
+    <use x="1" y="7" href="#lower_center" class="dot lower center"/>
+    <use x="1" y="7" href="#lower_right"  class="dot lower right"/>
+  </g>
+
+  <g transform="rotate(15 6.0 12)" id="upperDie" data-value="2" data-alt="true">
+    <use x="8.75" y="0" href="#die_outline"></use>
+
+    <use x="8.75" y="0" href="#upper_left"   class="dot upper left"/>
+    <use x="8.75" y="0" href="#upper_center" class="dot upper center"/>
+    <use x="8.75" y="0" href="#upper_right"  class="dot upper right"/>
+    <use x="8.75" y="0" href="#mid_left"     class="dot mid   left"/>
+    <use x="8.75" y="0" href="#mid_center"   class="dot mid   center"/>
+    <use x="8.75" y="0" href="#mid_right"    class="dot mid   right"/>
+    <use x="8.75" y="0" href="#lower_left"   class="dot lower left"/>
+    <use x="8.75" y="0" href="#lower_center" class="dot lower center"/>
+    <use x="8.75" y="0" href="#lower_right"  class="dot lower right"/>
+  </g>
+
+  <!-- [[[end]]] -->
+  
+  
+</svg>

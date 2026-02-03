@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24">
+
+  <!-- <rect width="24" height="24" fill="yellow" stroke-width="0"/> -->
+
+  <!--[[[cog
+  import cog
+  import math
+
+  WIDTH = HEIGHT = 24
+
+  c_x = WIDTH / 2
+  c_y = 7
+
+  r = 5
+
+  inner_r = 1.65
+
+  h = 10
+  theta = math.acos(r / h)
+
+  circ_rx = 7
+  circ_ry = 3
+
+  from intersection import calculate_visual_intersection
+
+  ex = c_x
+  ey = c_y + h + 2.1
+
+  cog.outl('<defs><g id="pin">')
+  cog.outl(f'''<path class="border" d="M {c_x} {c_y}
+  m {-r*math.sin(theta)} {r*math.cos(theta)}
+  L {c_x} {c_y + h}
+  L {c_x+r*math.sin(theta)} {c_y+r*math.cos(theta)}
+  a {r} {r} 0 1 0 {-2*r*math.sin(theta)} 0"/>''')
+  cog.outl(f'''<circle cx="{c_x}" cy="{c_y}" r="{inner_r}"/>''')
+  cog.outl('</g>')
+  cog.outl('<mask id="pinMask">')
+  cog.outl('<rect width="24" height="32" fill="white"/>')
+  cog.outl(f'''<path style="stroke-width: 6;" d="M {c_x} {c_y}
+  m {-r*math.sin(theta)} {r*math.cos(theta)}
+  L {c_x} {c_y + h}
+  L {c_x+r*math.sin(theta)} {c_y+r*math.cos(theta)}
+  a {r} {r} 0 1 0 {-2*r*math.sin(theta)} 0"/>''')
+  cog.outl('<rect width="24" height="8" y="18" fill="white"/>')
+  cog.outl('</mask>')
+  cog.outl('</defs>')
+  cog.outl('<use href="#pin"/>')
+  cog.outl(f'''<ellipse class="border" cx="{ex}" cy="{ey}" rx="{circ_rx}" ry="{circ_ry}" mask="url(#pinMask)"/>''')
+  ]]]-->
+  <defs><g id="pin">
+  <path class="border" d="M 12.0 7
+  m -4.330127018922193 2.5000000000000004
+  L 12.0 17
+  L 16.33012701892219 9.5
+  a 5 5 0 1 0 -8.660254037844386 0"/>
+  <circle cx="12.0" cy="7" r="1.65"/>
+  </g>
+  <mask id="pinMask">
+  <rect width="24" height="32" fill="white"/>
+  <path style="stroke-width: 6; stroke: black;" d="M 12.0 7
+  m -4.330127018922193 2.5000000000000004
+  L 12.0 17
+  L 16.33012701892219 9.5
+  a 5 5 0 1 0 -8.660254037844386 0"/>
+  <rect width="24" height="8" y="18" fill="white"/>
+  </mask>
+  </defs>
+  <use href="#pin"/>
+  <ellipse class="border" cx="12.0" cy="19.1" rx="7" ry="3" mask="url(#pinMask)"/>
+  <!-- [[[end]]] -->
+</svg>

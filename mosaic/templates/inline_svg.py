@@ -53,9 +53,6 @@ def render_inline_svg(
     filename: str,
     alt: str | None = None,
     link_to: Literal["original"] | None = None,
-    # The caller is a variable passed by Jinja2, but I don't use it
-    # so I can discard it.
-    caller: Any | None = None,
     **kwargs: Any,
 ) -> str:
     """
@@ -63,6 +60,10 @@ def render_inline_svg(
     """
     src_dir = context["src_dir"]
     out_dir = context["out_dir"]
+    images_dir = src_dir / "_images"
+
+    # Discard the caller argument sent by Jinja2, which I don't use.
+    kwargs.pop("caller")
 
     # 1. Verify the file extension
     if not filename.endswith(".svg"):
@@ -70,11 +71,11 @@ def render_inline_svg(
             f"You can only use {{% inline_svg %}} with SVG images; got {filename!r}"
         )
 
-    # TODO: Support inline SVGs whose parent isn't a per-year directory
-    year = context["page"].date.year
-
     # 2. Read and parse the SVG
-    src_path = src_dir / "_images" / str(year) / filename
+    if context["page"].date:
+        src_path = images_dir / str(context["page"].date.year) / filename
+    else:
+        src_path = images_dir / filename
 
     soup = BeautifulSoup(src_path.read_text(), "xml")
     svg_tag = soup.find("svg")
@@ -126,7 +127,7 @@ def render_inline_svg(
 
     # 8. Wrap in link if necessary.
     if link_to == "original":
-        dst_path = out_dir / "images" / str(year) / filename
+        dst_path = out_dir / "images" / str(context["page"].date.year) / filename
         dst_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(src_path, dst_path)
         href = "/" + str(dst_path.relative_to(out_dir))

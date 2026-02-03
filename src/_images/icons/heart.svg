@@ -1,0 +1,5 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <path class="border" d="m2 8c0 5 9 8 10 14 1-6 10-9 10-14a5 5 0 0 0-10 0 5 5 0 0 0-10 0"/>
+</svg>

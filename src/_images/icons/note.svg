@@ -1,0 +1,94 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <!--[[[cog
+  import cog
+  
+  WIDTH = HEIGHT = 24
+  
+  note_width = 14
+  note_height = 16
+  x = (WIDTH - note_width) / 2
+  y = (HEIGHT - note_height) / 2
+  
+  corner_r = 2
+  
+  corner_size = 6
+  
+  cog.outl('<defs>')
+  
+  cog.outl(f'''
+    <mask id="noteOutline">
+      <rect width="24" height="24" fill="white"/>
+      <path style="stroke-width-5px;"
+        d="M {x} {y + 2}
+           a {corner_r} {corner_r} 0 0 1 {corner_r} -{corner_r}
+           h {note_width - corner_r * 2}
+           a {corner_r} {corner_r} 0 0 1 {corner_r} {corner_r}
+           v {note_height - corner_r - corner_size}
+           l {-corner_size} {corner_size}
+           h {-1*(note_width - corner_r - corner_size)}
+           a {corner_r} {corner_r} 0 0 1 {-corner_r} {-corner_r}
+           v {-note_height + 2*corner_r}
+           M {x + note_width} {y + note_height - corner_size} h {-corner_size} v{corner_size}
+        "/>
+    </mask>
+  ''')
+
+  cog.outl('</defs>')
+  cog.outl(f'''
+    <path class="border"
+      d="M {x} {y + 2}
+         a {corner_r} {corner_r} 0 0 1 {corner_r} -{corner_r}
+         h {note_width - corner_r * 2}
+         a {corner_r} {corner_r} 0 0 1 {corner_r} {corner_r}
+         v {note_height - corner_r - corner_size}
+         l {-corner_size} {corner_size}
+         h {-1*(note_width - corner_r - corner_size)}
+         a {corner_r} {corner_r} 0 0 1 {-corner_r} {-corner_r}
+         v {-note_height + 2*corner_r}
+         M {x + note_width} {y + note_height - corner_size} h {-corner_size} v{corner_size}
+      "/>
+  ''')  
+  ]]]-->
+  <defs>
+
+    <mask id="noteOutline">
+      <rect width="24" height="24" fill="white"/>
+      <path style="stroke-width-5px;"
+        d="M 5.0 6.0
+           a 2 2 0 0 1 2 -2
+           h 10
+           a 2 2 0 0 1 2 2
+           v 8
+           l -6 6
+           h -6
+           a 2 2 0 0 1 -2 -2
+           v -12
+           M 19.0 14.0 h -6 v6
+        "/>
+    </mask>
+
+  </defs>
+
+    <path class="border"
+      d="M 5.0 6.0
+         a 2 2 0 0 1 2 -2
+         h 10
+         a 2 2 0 0 1 2 2
+         v 8
+         l -6 6
+         h -6
+         a 2 2 0 0 1 -2 -2
+         v -12
+         M 19.0 14.0 h -6 v6
+      "/>
+
+  <!-- [[[end]]] -->
+  
+  <path d="M 8 7.5 h 8"/>
+  <path d="M 8 10.5 h 8"/>
+  <path d="M 8 13.5 h 2"/>
+  <path d="M 8 16.5 h 2"/>
+  <!-- <path d="M 7 13 h 10" mask="url(#noteOutline)"/> -->
+</svg>

@@ -3,9 +3,9 @@ layout: post
 date: 2025-05-26 10:01:21 +00:00
 title: What I learnt about making websites by reading two thousand web pages
 summary: How to write thoughtful HTML, new-to-me features of CSS, and some quirks and relics I found while building my personal web archive.
-tags:
-  - bookmarking
-  - web development
+topics:
+  - Web archiving
+  - Tiny archives
 colors:
   css_light:   "#0000ff"
   css_dark:    "#00ddff"

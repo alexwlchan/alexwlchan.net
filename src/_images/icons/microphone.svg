@@ -1,0 +1,23 @@
+<svg viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- <rect width="24" height="24" fill="yellow"/> -->
+  
+  <defs>
+    <mask id="microphoneBulb">
+      <path d="M 16 10 a 5.5 5.5 0 1 0 -8 0" style="fill: white;"/>
+    </mask>
+  </defs>
+  
+  <g transform="rotate(45 12 12)">    
+    <path class="wire" d="M 3.5 1 l 24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 7.5 1 l 24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 11.5 1 l 24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 15.5 1 l 24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 11.5 1 l -24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 15.5 1 l -24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 19.5 1 l -24 24" mask="url(#microphoneBulb)"/>
+    <path class="wire" d="M 23.5 1 l -24 24" mask="url(#microphoneBulb)"/>
+    
+    <path class="border" d="M 8 10 h 8 a 5.5 5.5 0 1 0 -8 0 h 1 l 1.5 15 h 3 l 1.5 -15"/>
+    <path d="M 12 12.5 v 2.5"/>
+  </g>
+</svg>

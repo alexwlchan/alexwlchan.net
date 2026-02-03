@@ -3,8 +3,7 @@ layout: post
 date: 2025-04-06 10:56:04 +00:00
 title: Always running
 summary: When the fire starts, I am already running for the exit. I run because somebody must show the way.
-tags:
-  - fiction
+topic: Art and creativity
 index:
   feature: true
 colors:
